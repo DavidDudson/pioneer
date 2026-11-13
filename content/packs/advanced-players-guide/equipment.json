@@ -99,6 +99,130 @@
     }
   },
   {
+    "id": "6241db1a-c9c8-5604-816c-14a919121743",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:envisioning-mask",
+    "name": "Envisioning Mask",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These strange masks consist of a thin stone hood and a shimmering purple veil reminiscent of the "
+          },
+          {
+            "type": "text",
+            "text": "pleroma aeon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " who first gifted them to mortals in the hope that sharing the means of aeon communication would reduce the misunderstandings and conflicts among mortal civilizations. An envisioning mask covers your entire face, though it doesn't hinder your vision or other senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose the ability to produce language and instead communicate wordlessly through a series of psychic projections. This acts as "
+          },
+          {
+            "type": "text",
+            "text": "telepathy ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "with a range of 100 feet, but it is understandable to all creatures regardless of whether they have a language. When communicating with non-aeons, however, your meaning is often vague and mysterious. This effect lasts for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SGbEZzm5MLSv1DDX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "envisioning-mask",
+          "name": "Envisioning Mask",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
     "id": "85c0b31e-7eb4-5c86-a258-081810df37da",
     "pack": "advanced-players-guide",
     "kind": "equipment",
@@ -201,6 +325,176 @@
       ],
       "usage": {
         "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "dfc4b53c-029a-5253-825e-3103329b92e6",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:mask-of-the-banshee",
+    "name": "Mask of the Banshee",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["auditory", "invested", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ice-blue half-mask is adorned with a wicked silver grin that covers the wearer's mouth, leaving the rest of the face uncovered. You gain a +2 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mask emits a soul-chilling scream that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each living creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tr2eOlJMmBKBZtI9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "mask-of-the-banshee",
+          "name": "Mask of the Banshee",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
       }
     }
   },
@@ -673,6 +967,411 @@
     }
   },
   {
+    "id": "4702911c-52ae-587a-94f2-3e6a83a19720",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:rod-of-cancellation",
+    "name": "Rod of Cancellation",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This powerful magic rod is inimical to all magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch the rod to a magical effect or magic item and attempt to counteract the effect or item. Regardless of the result, the rod of cancellation can't be activated again for 2d6 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a success, the effect or item is deactivated for the same amount of time, and its duration, if any, continues to expire during that time. If you choose, you can instead completely drain the rod of cancellation's magic on a success in order to completely drain the magic from the effect or item. If you do, both become completely non-magical and their magic can't be recovered, even by the "
+          },
+          {
+            "type": "ref",
+            "id": "0bbe96fb-1e53-59a8-9060-38037584b098"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rod of cancellation automatically fails to counteract most artifacts and similarly powerful items, but it reacts explosively when activated against a Sphere of Annihilation without a counteract check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HuGZspUvJqR09Y8u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8e5bc076-776a-552e-836f-30ddf8cd10ef",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:rope-of-climbing-greater",
+    "name": "Rope of Climbing (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silk rope measures 50 feet long and is capable of holding up to 3,000 pounds. If the rope is ever cut, only the longest remaining portion retains its magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold one end of the rope and point to a destination. The rope animates for 1 minute, moving 10 feet per round until it reaches the destination or runs out of length. The rope can move across any non-damaging horizontal or vertical surface, but it can't extend upward without a surface to support it. At any point while the rope is animated, you can use an Interact action to wiggle the rope, giving it one of the following commands: stop in place, fasten securely to the nearest available object, detach from an object, or knot or unknot itself."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gfBAxuitJje6NL7G"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "207a2c4f-0aa6-581f-962a-01349274a353",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:rope-of-climbing-lesser",
+    "name": "Rope of Climbing (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silk rope measures 50 feet long and is capable of holding up to 3,000 pounds. If the rope is ever cut, only the longest remaining portion retains its magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold one end of the rope and point to a destination. The rope animates for 1 minute, moving 10 feet per round until it reaches the destination or runs out of length. The rope can move across any non-damaging horizontal or vertical surface, but it can't extend upward without a surface to support it. At any point while the rope is animated, you can use an Interact action to wiggle the rope, giving it one of the following commands: stop in place, fasten securely to the nearest available object, detach from an object, or knot or unknot itself."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G4cmHHhAChAlypFN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rope-of-climbing-lesser",
+          "name": "Rope of Climbing (Lesser)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "89a446ea-3779-502c-a8e8-fd6b5fd16b68",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:rope-of-climbing-moderate",
+    "name": "Rope of Climbing (Moderate)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silk rope measures 50 feet long and is capable of holding up to 3,000 pounds. If the rope is ever cut, only the longest remaining portion retains its magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold one end of the rope and point to a destination. The rope animates for 1 minute, moving 10 feet per round until it reaches the destination or runs out of length. The rope can move across any non-damaging horizontal or vertical surface, but it can't extend upward without a surface to support it. At any point while the rope is animated, you can use an Interact action to wiggle the rope, giving it one of the following commands: stop in place, fasten securely to the nearest available object, detach from an object, or knot or unknot itself."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9XrsaIc80eXhKaoM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rope-of-climbing-moderate",
+          "name": "Rope of Climbing (Moderate)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "16cc2742-4afe-505e-acc0-fe2bd838250b",
     "pack": "advanced-players-guide",
     "kind": "equipment",
@@ -872,6 +1571,423 @@
     }
   },
   {
+    "id": "fbf025ff-0201-5337-aade-6f93dd93bae4",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-crackling-lightning-3rd-level-spell",
+    "name": "Wand of Crackling Lightning (3rd-Level Spell)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["electricity", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wand is made of two copper plates separated by a ceramic center."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+          },
+          {
+            "type": "text",
+            "text": " at 3rd rank, but the spell's area is twice as wide (two adjacent and parallel "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120,
+            "width": 10
+          },
+          {
+            "type": "text",
+            "text": ") and creatures that fail their save are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of lightning bolt at 3rd-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NmhKGflbT5NnKduz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-crackling-lightning-3rd-level-spell",
+          "name": "Wand of Crackling Lightning (3rd-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "35870896-8274-58aa-a937-a9f8c3fc7b5c",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-crackling-lightning-4th-level-spell",
+    "name": "Wand of Crackling Lightning (4th-Level Spell)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["electricity", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wand is made of two copper plates separated by a ceramic center."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+          },
+          {
+            "type": "text",
+            "text": " at 4th rank, but the spell's area is twice as wide (two adjacent and parallel "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120,
+            "width": 10
+          },
+          {
+            "type": "text",
+            "text": ") and creatures that fail their save are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of lightning bolt at 4th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oyjDCHscjcLhzall"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-crackling-lightning-4th-level-spell",
+          "name": "Wand of Crackling Lightning (4th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7f92871c-71b5-5dcf-b359-10fecae3f09b",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-crackling-lightning-6th-level-spell",
+    "name": "Wand of Crackling Lightning (6th-Level Spell)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["electricity", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wand is made of two copper plates separated by a ceramic center."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+          },
+          {
+            "type": "text",
+            "text": " at 6th rank, but the spell's area is twice as wide (two adjacent and parallel "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120,
+            "width": 10
+          },
+          {
+            "type": "text",
+            "text": ") and creatures that fail their save are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of lightning bolt at 6th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1SdtzFpjKIwuQ7Nh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-crackling-lightning-6th-level-spell",
+          "name": "Wand of Crackling Lightning (6th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "78faf9f3-ba9a-5c43-abee-b18105e24d77",
     "pack": "advanced-players-guide",
     "kind": "equipment",
@@ -998,6 +2114,145 @@
         {
           "slug": "wand-of-crackling-lightning-8th-level-spell",
           "name": "Wand of Crackling Lightning (8th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0517e411-5406-58ab-ba24-efd18daafe56",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-hopeless-night-2nd-level-spell",
+    "name": "Wand of Hopeless Night (2nd-Level Spell)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["darkness", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wand is a length of wrought black iron."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " at 2nd rank. Each creature that ends its turn within the spell's area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save or become frightened 1 ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of darkness at 2nd-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZJ3ahspZOXL4CK4J"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-hopeless-night-2nd-level-spell",
+          "name": "Wand of Hopeless Night (2nd-Level Spell)",
           "frequency": {
             "max": 1,
             "per": "day"
@@ -1147,6 +2402,836 @@
         {
           "slug": "wand-of-hopeless-night-4th-level-spell",
           "name": "Wand of Hopeless Night (4th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f9dde2e0-fdb4-55eb-aede-dde7196d5c0a",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-overflowing-life-3rd-level-spell",
+    "name": "Wand of Overflowing Life (3rd-Level Spell)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alabaster wand has a clear crystal at the tip."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at 3rd rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast the spell, at the start of your next turn, excess healing magic wells up from the wand and heals you, as though you cast the 1-action version of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on yourself at 3rd-rank. You gain this benefit only once, even if you cast multiple "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells from "
+          },
+          {
+            "type": "text",
+            "text": "wands of overflowing life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 3rd-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qQpcBE7ngv7TIAW3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-overflowing-life-3rd-level-spell",
+          "name": "Wand of Overflowing Life (3rd-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b50e6fb8-e80b-56a0-8c06-d37e2786522b",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-overflowing-life-4th-level-spell",
+    "name": "Wand of Overflowing Life (4th-Level Spell)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alabaster wand has a clear crystal at the tip."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at 4th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast the spell, at the start of your next turn, excess healing magic wells up from the wand and heals you, as though you cast the 1-action version of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on yourself at 4th-rank. You gain this benefit only once, even if you cast multiple "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells from "
+          },
+          {
+            "type": "text",
+            "text": "wands of overflowing life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 4th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.85GqeSGXjSQwLy07"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-overflowing-life-4th-level-spell",
+          "name": "Wand of Overflowing Life (4th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6366dcf7-5ffd-51c1-905c-cdff954a178b",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-overflowing-life-5th-level-spell",
+    "name": "Wand of Overflowing Life (5th-Level Spell)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alabaster wand has a clear crystal at the tip."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at 5th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast the spell, at the start of your next turn, excess healing magic wells up from the wand and heals you, as though you cast the 1-action version of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on yourself at 5th-rank. You gain this benefit only once, even if you cast multiple "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells from "
+          },
+          {
+            "type": "text",
+            "text": "wands of overflowing life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 5th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aj2eTtEAgLu4f14b"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-overflowing-life-5th-level-spell",
+          "name": "Wand of Overflowing Life (5th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e16abccb-841e-5cb9-b8fd-d0147055197a",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-overflowing-life-6th-level-spell",
+    "name": "Wand of Overflowing Life (6th-Level Spell)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alabaster wand has a clear crystal at the tip."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at 6th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast the spell, at the start of your next turn, excess healing magic wells up from the wand and heals you, as though you cast the 1-action version of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on yourself at 6th-rank. You gain this benefit only once, even if you cast multiple "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells from "
+          },
+          {
+            "type": "text",
+            "text": "wands of overflowing life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 6th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VtzChvlCG2TQRrgu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-overflowing-life-6th-level-spell",
+          "name": "Wand of Overflowing Life (6th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7da85e00-13b0-539c-b26f-487dc934c237",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-overflowing-life-7th-level-spell",
+    "name": "Wand of Overflowing Life (7th-Level Spell)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alabaster wand has a clear crystal at the tip."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at 7th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast the spell, at the start of your next turn, excess healing magic wells up from the wand and heals you, as though you cast the 1-action version of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on yourself at 7th-rank. You gain this benefit only once, even if you cast multiple "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells from "
+          },
+          {
+            "type": "text",
+            "text": "wands of overflowing life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 7th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.grRxpX1iE3zOJA1q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-overflowing-life-7th-level-spell",
+          "name": "Wand of Overflowing Life (7th-Level Spell)",
           "frequency": {
             "max": 1,
             "per": "day"
@@ -1328,6 +3413,136 @@
     }
   },
   {
+    "id": "b399b65b-1867-5e6e-9463-8ef879f1110d",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-the-snowfields-5th-level-spell",
+    "name": "Wand of the Snowfields (5th-Level Spell)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["cold", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wand is a slender length of ice-blue glass."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "094faa33-6827-59be-afc0-36661ab12e46"
+          },
+          {
+            "type": "text",
+            "text": " at 5th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ground within the spell's area is swathed in deep snow, becoming difficult terrain for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of cone of cold at 5th-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ut83Grf73Z8ZTaV1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-the-snowfields-5th-level-spell",
+          "name": "Wand of the Snowfields (5th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "4af2dc96-ef30-5121-a8be-533839083dc0",
     "pack": "advanced-players-guide",
     "kind": "equipment",
@@ -1445,6 +3660,150 @@
         {
           "slug": "wand-of-the-snowfields-7th-level-spell",
           "name": "Wand of the Snowfields (7th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b25841c5-a6cb-5d22-82c2-ddcb16717586",
+    "pack": "advanced-players-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-the-spider-2nd-level-spell",
+    "name": "Wand of the Spider (2nd-Level Spell)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical", "poison", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The handle of this wand is a 5-inch-long piece of rosewood, but most of its length is a pair of twisted spider legs covered in gossamer webbing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "4c0412dc-b4ca-590a-a106-8ec470fb8e22"
+          },
+          {
+            "type": "text",
+            "text": " at 2nd rank, but the strands of webbing are envenomed. Any creature that fails their Athletics check or Reflex save to navigate the web takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ],
+            "label": "1d6 poison damage"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "web",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at 2nd-rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tf69NMnUoUAYrWtj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-the-spider-2nd-level-spell",
+          "name": "Wand of the Spider (2nd-Level Spell)",
           "frequency": {
             "max": 1,
             "per": "day"

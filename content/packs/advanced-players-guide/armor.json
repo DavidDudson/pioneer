@@ -1,0 +1,609 @@
+[
+  {
+    "id": "fbcd9c67-37a0-5e5c-8023-5b3787e11545",
+    "pack": "advanced-players-guide",
+    "kind": "armor",
+    "slug": "armor:victory-plate",
+    "name": "Victory Plate",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The metal plates of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are covered by a bright tabard featuring a distinctive coat of arms divided into four fields. This insignia magically records your recent victories, displaying one triumph in each field of the coat of arms, allowing you to call upon those victories for aid in future battles."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You kill or destroy a creature of a level equal to or greater than your "
+          },
+          {
+            "type": "text",
+            "text": "victory plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (adjusted as usual if you add fundamental runes to victory plate). This creature must have one of the traits listed in the second activation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the armor to commemorate your victory. The coat of arms on the armor's tabard shifts to incorporate heraldry related to the slain creature, and the victory is recorded within the tabard. If you have already recorded four victories, choose one to replace with the new victory."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch one of the tabard's four fields representing one of your victories and recall your triumph over that creature. That creature vanishes from the tabard, and for 1 minute, you gain resistance 5 to a damage type based on the creature's trait (you gain resistance to only one type, even if the creature has more than one trait that could apply):"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aberration or Fey",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " mental"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Celestial",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " good"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Construct",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " poison"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Dragon or Elemental",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " one energy type that matches one of the dragon's or elemental's traits"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fiend",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " evil"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ooze",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " precision, and the resistance is 10"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Undead",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " void"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nVlKU2et4EeReayr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "victory-plate",
+          "name": "Victory Plate",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "9daff216-11c8-500c-953b-2593a27c494e",
+    "pack": "advanced-players-guide",
+    "kind": "armor",
+    "slug": "armor:victory-plate-greater",
+    "name": "Victory Plate (Greater)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The metal plates of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are covered by a bright tabard featuring a distinctive coat of arms divided into four fields. This insignia magically records your recent victories, displaying one triumph in each field of the coat of arms, allowing you to call upon those victories for aid in future battles."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You kill or destroy a creature of a level equal to or greater than your "
+          },
+          {
+            "type": "text",
+            "text": "victory plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (adjusted as usual if you add fundamental runes to victory plate). This creature must have one of the traits listed in the second activation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct the armor to commemorate your victory. The coat of arms on the armor's tabard shifts to incorporate heraldry related to the slain creature, and the victory is recorded within the tabard. If you have already recorded four victories, choose one to replace with the new victory."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch one of the tabard's four fields representing one of your victories and recall your triumph over that creature. That creature vanishes from the tabard, and for 1 minute, you gain resistance 10 to a damage type based on the creature's trait (you gain resistance to only one type, even if the creature has more than one trait that could apply):"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aberration or Fey",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " mental"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Celestial",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " good"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Construct",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " poison"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Dragon or Elemental",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " one energy type that matches one of the dragon's or elemental's traits"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fiend",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " evil"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ooze",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " precision, and the resistance is 20"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Undead",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " void"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ed2F0L3R6UNSFUmS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "victory-plate-greater",
+          "name": "Victory Plate (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

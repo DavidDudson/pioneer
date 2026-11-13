@@ -1138,7 +1138,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["fe1b4bce-c54b-556a-8fec-2a53ab927ac2"]
   },
   {
     "id": "95b276a2-85ab-5350-b8e6-41b23950cd4b",
@@ -2022,7 +2023,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["ab5bb716-ce7c-5ba8-9914-35cb47a7a66c"]
   },
   {
     "id": "d7533c2a-602e-5cbc-935b-02c2d41b0532",
@@ -3506,7 +3508,8 @@
         "type": "turn",
         "expiry": "turn-end"
       }
-    }
+    },
+    "supersedes": ["16671dc8-24f7-5f47-8106-6fbaa0db0b6a"]
   },
   {
     "id": "6a5096ef-bde6-52c8-bfbe-85bf2f9a475c",
@@ -4434,7 +4437,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["de9beeee-4fca-5255-aa06-255f829415d0"]
   },
   {
     "id": "e93cffc7-4a4f-51fa-81b1-07828b8c2bdc",
@@ -4588,7 +4592,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["8ec57577-8316-5593-b0cc-405a25356e1e"]
   },
   {
     "id": "6d28ce6a-b876-5711-b183-9f1528122d4b",
@@ -5016,7 +5021,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["41cbe553-654f-5fda-9ed0-a1d65feda5ee"]
   },
   {
     "id": "663aa214-062b-5db5-85b1-d0275fdadc7b",
@@ -33847,7 +33853,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["2b922f43-a818-5520-9882-97ab00abab35"]
   },
   {
     "id": "349597c2-abb6-5da7-8276-05d452331178",

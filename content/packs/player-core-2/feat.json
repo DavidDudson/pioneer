@@ -20816,7 +20816,8 @@
     },
     "data": {
       "category": "ancestry"
-    }
+    },
+    "supersedes": ["8d8de673-c5eb-592f-a105-c506d268dd87"]
   },
   {
     "id": "807d6bc3-3acd-593c-beee-5cba931fc461",
@@ -36626,7 +36627,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["46ab0473-aebb-515b-a238-62491cf9b265"]
   },
   {
     "id": "40bc0ed8-e59e-5134-9faa-05590c391c15",

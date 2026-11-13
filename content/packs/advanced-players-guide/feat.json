@@ -64,6 +64,240 @@
     }
   },
   {
+    "id": "9451ac5b-e05a-5c41-a60e-1ddfdda561c5",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:accelerating-touch",
+    "name": "Accelerating Touch",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your healing energies are infused with bounding energy. A creature that recovers Hit Points from your "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " gains a +10-foot status bonus to its Speed until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "842fc0fa-dbbd-58fb-9798-8ca9ebb8ae0d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aiHbS8FGNYAQBF62"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spell (lay on hands)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "85727363-0be4-5fd7-99b6-394059d2051c",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:acclimatization",
+    "name": "Acclimatization",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your time spent in the hostile parts of the world has inured you to extreme climates."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your "
+          },
+          {
+            "type": "ref",
+            "id": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+          },
+          {
+            "type": "text",
+            "text": ", you gain resistance equal to half your level to all environmental damage and are affected by temperature effects as though they were one step less severe (incredible heat or cold becomes extreme, extreme heat or cold becomes severe, and so on)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When other creatures "
+          },
+          {
+            "type": "ref",
+            "id": "269cedab-5f5a-5703-9631-986260885864"
+          },
+          {
+            "type": "text",
+            "text": " with you as a guide in your favored terrain, they too treat temperature effects as one step less severe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uhU0KajD09h5bw4e"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Horizon Walker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
+    }
+  },
+  {
+    "id": "9f4a27fa-a566-5d97-83b9-49459bc31824",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:accurate-flurry",
+    "name": "Accurate Flurry",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding two melee weapons, each in a different hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You refine the precision of your unbelievable storm of blows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you perform an "
+          },
+          {
+            "type": "ref",
+            "id": "abad53e0-e34f-5e1d-917a-3d537f4e77cd"
+          },
+          {
+            "type": "text",
+            "text": ", your first attack with each weapon instead takes the multiple attack penalty as though you had already made one attack this turn. All subsequent attacks take the maximum multiple attack penalty, as though you had already made two or more attacks this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.84ML8enTqOOdXA8O"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Impossible Flurry"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding two melee weapons, each in a different hand."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "94e26194-e862-5bb8-b42f-0808ab3f09c7",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -533,6 +767,52 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "c6d89269-6044-5166-b88b-b58ff13bcc5b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:advanced-bow-training",
+    "name": "Advanced Bow Training",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through constant practice and the crucible of experience, you increase your skill with advanced bows. You gain proficiency with all advanced bows as if they were martial weapons in the bow weapon group."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7RcCvziQBLL7Bumu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Archer Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "f371a87d-cd7b-55a6-b9a1-68cd233da022"
     }
   },
   {
@@ -1334,6 +1614,77 @@
     }
   },
   {
+    "id": "97968269-7e8f-5b7e-91c4-bcfcbdc7f0a5",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:amplifying-touch",
+    "name": "Amplifying Touch",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your healing energies empower attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ally that recovers Hit Points from your "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " gains a +1 status bonus to their attack rolls and deals 1 additional spirit damage on all their Strikes until the end of their next turn. In addition, all their Strikes are holy until the end of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f9e5649e-3136-575b-b39c-3fa258eccfc5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Cy5W8U4yN9P1EvBy"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spell (lay on hands)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "d5ccd76f-2351-5499-8b2c-c518300411ed",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -1409,6 +1760,139 @@
         }
       ],
       "archetype": "6948c999-5bfb-58c0-833b-50ddd03eedaa"
+    }
+  },
+  {
+    "id": "c6582373-2c53-58c6-b8d0-8b066c76a6b9",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:ancestral-blood-magic",
+    "name": "Ancestral Blood Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic of your bloodline mixes with that of your ancestry. You gain your blood magic effect when you cast a non-cantrip spell you gained from a heritage or an ancestry feat, in addition to the normal circumstances that trigger your blood magic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:ancestral-blood-magic",
+        "toggleable": true,
+        "display": {
+          "label": "Casting an ancestral spell"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.avCmIwmwJH7d7gri"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "351617e5-6d7d-5b75-b809-520a768cef72",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:ancestral-linguistics",
+    "name": "Ancestral Linguistics",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Over your extensive lifespan, you've studied many languages. During your daily preparations, you can recede into old memories to become fluent in one common language or one other language you have access to. You know this language until you prepare again. Since this knowledge is temporary, you can't use it as a prerequisite for a permanent character option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eCWQU16hRLfN1KaX"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "at least 100 years old"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "23d14eff-1620-596b-9291-375ab1857f7b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:ancestral-mage",
+    "name": "Ancestral Mage",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic of your ancestry and bloodline are one and the same. Add any innate spells you have from a heritage or an ancestry feat to your spell repertoire, meaning you can cast them using your spell slots."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YNk0BekymS3bBvCT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ancestral Blood Magic"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2973,6 +3457,115 @@
             {
               "type": "text",
               "text": "tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c4e0b48a-6678-528c-a2a2-fda153d5cd86",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:aura-of-preservation",
+    "name": "Aura Of Preservation",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your aura protects against the twisting powers of aberrations. You and all allies within 15 feet gain a +1 status bonus to Fortitude and Will saves against effects from aberrations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain a +1 status bonus to Fortitude saves against morph or polymorph effects and Will saves against mental effects; this bonus increases to +2 against aberrations' morph, polymorph, or mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e2264535-2992-5b94-842d-18a994c2b327"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "aura-of-preservation",
+        "radius": 15,
+        "effects": [
+          {
+            "effect": "e2264535-2992-5b94-842d-18a994c2b327",
+            "affects": "allies",
+            "events": ["enter"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:morph", "option:polymorph"]
+          },
+          {
+            "not": "origin:trait:aberration"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          "origin:trait:aberration",
+          {
+            "or": ["option:morph", "option:polymorph"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:mental", "origin:trait:aberration"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.z7kwVNaCB4oJs3Fe"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Esoteric Oath"
             }
           ]
         }
@@ -5098,6 +5691,66 @@
     }
   },
   {
+    "id": "f6630c5b-9301-535c-a124-57b5d689a10c",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:blood-component-substitution",
+    "name": "Blood Component Substitution",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can bypass the need for incantations and gestures by drawing energy directly from your blood, causing you to visibly glow the color of your blood and crackle with magical energy. When you "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": ", you can replace all verbal, material, or somatic spellcasting components with a blood component."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To use a blood component, you lose Hit Points equal to twice the spell's rank as the energy in your blood is depleted, and you can't decrease the Hit Points lost in any way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As usual for altering components, this has no effect on the number of actions required to Cast the Spell, and your Cast a Spell activity gains the concentrate trait but not the manipulate trait. You can't use blood components to replace any required part of a spell's cost."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.va7YMidXZW21oFwA"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "75987d2a-e76b-5834-9732-52eed4856a51",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -5548,6 +6201,60 @@
         }
       ],
       "archetype": "962f8434-8dae-53cb-b175-c9f393d91319"
+    }
+  },
+  {
+    "id": "f4f526c5-d919-5775-b964-77173b4719bc",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:breath-of-the-dragon",
+    "name": "Breath Of The Dragon",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use a powerful breath weapon, much like the dragon you emulate. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "0bcb87fd-568e-5ba8-85fd-e0ac83aa9af1"
+          },
+          {
+            "type": "text",
+            "text": " sorcerer bloodline spell and a focus pool of 1 Focus Point. If you already have a focus pool, increase your number of Focus Points by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Sr75bQtqmCM6dyAM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -6094,6 +6801,51 @@
     }
   },
   {
+    "id": "f11d9cdc-f7ec-5e81-8eee-8fe457bc9d6b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:catfolk-weapon-expertise",
+    "name": "Catfolk Weapon Expertise",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["catfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you gain a class feature that grants you expert or greater proficiency in certain weapons, you also gain that proficiency rank in all weapons you are trained in from Catfolk Weapon Familiarity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dgpoTae18H4zc9fH"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Catfolk Weapon Familiarity"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "99c39f4f-3fb5-5bb8-a47d-086a614a9ae6",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -6200,6 +6952,75 @@
     },
     "data": {
       "category": "ancestry"
+    }
+  },
+  {
+    "id": "83aac989-872b-5299-a773-d5f63d92009d",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:catfolk-weapon-rake",
+    "name": "Catfolk Weapon Rake",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to efficiently use weapons that rake across your enemies. Whenever you critically hit using a catfolk weapon or one of the weapons listed in "
+          },
+          {
+            "type": "ref",
+            "id": "99c39f4f-3fb5-5bb8-a47d-086a614a9ae6"
+          },
+          {
+            "type": "text",
+            "text": ", you apply the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:catfolk",
+              "item:base:hatchet",
+              "item:base:kama",
+              "item:base:kukri",
+              "item:base:scimitar",
+              "item:base:sickle"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8Mo0fKRAz1TVbrr1"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Catfolk Weapon Familiarity"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -6648,6 +7469,63 @@
     }
   },
   {
+    "id": "44d19d5d-0d75-50c6-9f01-03e9e9ea285b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:celestial-strikes",
+    "name": "Celestial Strikes",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["nephilim"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to good arms all your attacks against forces of evil. All your weapon and unarmed Strikes gain the holy and magical traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "or": ["item:melee", "item:ranged"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "magical"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "or": ["item:melee", "item:ranged"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6dlwZBjBnKtuq9HD"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
     "id": "92633db3-6fa9-55ed-be93-34e6d553f617",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -6942,6 +7820,104 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "71c263e6-1023-5c14-b85c-ad2363473ff1",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:claws-of-the-dragon",
+    "name": "Claws Of The Dragon",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fingernails grow into razor-sharp claws, and scales speckle your fingers, hands, and wrists. Your claws are agile, finesse unarmed attacks that deal 1d6 slashing damage and are in the brawling weapon group."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're a "
+          },
+          {
+            "type": "ref",
+            "id": "a070b3ab-a23b-5f4c-8933-de30423c89d4",
+            "label": "Draconic"
+          },
+          {
+            "type": "text",
+            "text": " sorcerer, when you cast "
+          },
+          {
+            "type": "ref",
+            "id": "61f97444-3620-5c17-9326-f758269e75b7"
+          },
+          {
+            "type": "text",
+            "text": ", increase the spell's slashing damage die from d4 to d6 and increase the resistance to 10 at 1st level, 15 at 5th level, and 20 at 9th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": [
+          {
+            "nand": [
+              "self:effect:dragon-claws",
+              {
+                "or": ["feature:bloodline-draconic", "feature:bloodline-wyrmblessed"]
+              }
+            ]
+          }
+        ],
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uMjczqcXuteoP7lf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -7587,6 +8563,88 @@
     }
   },
   {
+    "id": "51d25103-2bc4-5369-b86c-ef5bfdd25852",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:conceited-mindset",
+    "name": "Conceited Mindset",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Because you know your mind is superior, you scoff at anyone who would alter your mental state-but this hubris gets the better of you when you're wrong."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to saves against mental effects. If you succeed at a save against a mental effect, you critically succeed instead; similarly, if you fail at a save against a mental effect, you critically fail instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:mental"],
+        "display": {
+          "label": "Conceited Mindset (vs. mental)"
+        }
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Conceited Mindset",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you succeed at a save against a mental effect, you critically succeed instead; similarly, if you fail at a save against a mental effect, you critically fail instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aXdY2wgn0ItWwTr0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "e97e0663-3c04-5ff4-8243-25f88d2cc2d0",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -7925,6 +8983,69 @@
     }
   },
   {
+    "id": "b7df4ac3-6b5b-5019-a95a-8a994d8d53b2",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:consume-spell",
+    "name": "Consume Spell",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "11abfd94-a48f-5600-af10-3425d74202b6",
+            "label": "Counterspell"
+          },
+          {
+            "type": "text",
+            "text": " a spell of the tradition that matches your bloodline, you consume it, replenishing yourself with its energy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you do, you are nourished as if you had eaten a meal and regain Hit Points equal to twice the level of the counteracted spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d8yggbcJsKKyHip7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Counterspell"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "d1aa5815-067f-5c53-8911-aee36f7430c5",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -8082,6 +9203,229 @@
         "cost": "two"
       },
       "archetype": "75e1bc45-641b-5048-86cf-9534939ed0d7"
+    }
+  },
+  {
+    "id": "2b7bb32e-3745-5a2f-9634-f0c829d72f88",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:corrupted-shield",
+    "name": "Corrupted Shield",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["champion", "divine", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shield ally is more than just a spirit of protection-it's a conduit for deadly divine magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use your shield ally to "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " a melee unarmed attack or a melee weapon Strike from an adjacent creature, the attacker takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the attack or Strike breaks or destroys your shield, double this additional damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The damage the attacker takes increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at 11th level and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at 16th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uH3ZRkXPsXi1ChO2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "divine ally (shield); tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "11abfd94-a48f-5600-af10-3425d74202b6",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:counterspell-spontaneous",
+    "name": "Counterspell (Spontaneous)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature casts a spell that you have in your repertoire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have an unexpended spell slot you could use to cast the triggering spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a foe Casts a Spell you know and you can see its manifestations, you can use your own magic to counter it. You expend one of your spell slots to counter the triggering creature's casting of a spell that you have in your repertoire. You lose your spell slot as if you had cast the triggering spell. You then attempt to counteract the triggering spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat has the trait corresponding to the tradition of spells you cast (arcane, divine, natural, or occult)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.deoHKUzpzT7iwWhL"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have an unexpended spell slot you could use to cast the triggering spell."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature casts a spell that you have in your repertoire."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -8622,6 +9966,103 @@
     }
   },
   {
+    "id": "c84601c5-689e-5e88-bf33-f0bfa69aa488",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:deadly-strikes",
+    "name": "Deadly Strikes",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have honed your body to attack with lethal focus. Your unarmed attacks gain the deadly d10 trait, or you increase their deadly trait to d10 if the unarmed attack is already deadly with a smaller die size."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TLCeFMDRXFB46sa8"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "c2653423-1e6b-5287-9b2c-23a2e4dd6a69",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:deaths-drums",
+    "name": "Death's Drums",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your life has been spent challenging death itself, and proximity to that implacable foe only makes your heart beat harder."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you are taking persistent damage or your "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " value is 1 or greater, you gain a +2 circumstance bonus to Fortitude saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["self:condition:persistent-damage", "self:condition:wounded"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZcKW5n7F0oAqRw5o"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
     "id": "e8c82203-07b0-5a21-b6f6-b3df5c7c8a65",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -8873,6 +10314,131 @@
         ]
       },
       "archetype": "410d49be-1670-5e01-962f-57138f33a06d"
+    }
+  },
+  {
+    "id": "a185fbdf-3ee8-536c-9d50-3394788e2461",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:demolition-charge",
+    "name": "Demolition Charge",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can rig your bombs to inanimate objects in order to cause destruction to the surrounding area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As an activity that takes 1 minute, you attach between one and four bombs to an inanimate object within your reach, such as a chest, door, wall, or column."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This creates a hazard in one square occupied by or adjacent to the inanimate object, and the hazard's Stealth DC to detect it and Thievery DC to disable it are equal to your class DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The hazard has the following reaction, which you can also trigger as a single action so long as you are within 30 feet of the hazard. The hazard retains its potency until it's triggered, until the inanimate object moves from its space, or until you make your next daily preparations, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b411e3b7-95ad-5fbc-b12c-be7bd5329be9"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature moves into the hazard's space"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hazard explodes, dealing the bombs' damage and splash damage to the inanimate object. Combine this damage for the purpose of resistances and weaknesses, and this damage ignores an amount of the object's Hardness equal to your level. Any creatures adjacent to the hazard take the bombs' splash damage, similarly combined for the purpose of resistances and weaknesses. As a reminder, since you didn't throw the bombs, Calculated Splash and similar effects don't apply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KCwXj3y7Nm4e3NbI"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature moves into the hazard's space"
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -9178,6 +10744,69 @@
     }
   },
   {
+    "id": "3c1cfd82-8a95-5dc9-997b-49131a436fe0",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:determined-dash",
+    "name": "Determined Dash",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["barbarian", "rage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nothing can keep you from your enemy. Stride twice. During this movement you ignore difficult terrain, greater difficult terrain, and any effects that would impose a penalty to Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can attempt an Athletics check instead of an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " when moving across narrow surfaces or uneven ground, using the same DC. This doesn't prevent you from being harmed by hazardous terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can increase the number of actions this activity takes to 3 to Stride three times instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vgsMKjAbRDNxT5TK"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
     "id": "225f9818-a3b0-5a88-b574-51563231bcd0",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -9468,6 +11097,55 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "32d1bdfe-9481-5549-850f-31dd8ef2369d",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:disciples-breath",
+    "name": "Disciple's Breath",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unleash your breath weapon without spending focus. This has the effects of your Dragon Breath sorcerer bloodline spell, though it deals 9d6[@actor.flags.pf2e.dragonDisciple.energyType] damage instead of its usual damage, and you don't have to cast it or spend a Focus Point. You can't use Disciple's Breath again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cHOALlKY1XsCj3Fe"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication; dragon breath sorcerer bloodline spell"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -10111,6 +11789,64 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "5fc6000f-a23a-5a9c-8b90-fddb823f3469",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:divine-access",
+    "name": "Divine Access",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to tap into divine magic surpasses the spells traditionally available to you (the divine spell list)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one deity who grants one of your mystery's granted domains. Add up to three cleric spells of your choice granted by that deity to your spell list. You can select from these spells when you add or swap spells in your spell repertoire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat more than once. You can't choose the same spells more than once, but you can choose a different domain or a different deity with the same domain you've previously selected with this feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8EbIznFgkG7PHqlE"
+    },
+    "data": {
+      "category": "class",
+      "maxTakable": "unlimited"
     }
   },
   {
@@ -10855,6 +12591,526 @@
     }
   },
   {
+    "id": "8d8de673-c5eb-592f-a105-c506d268dd87",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:draconic-scent",
+    "name": "Draconic Scent",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your sense of smell is uncanny, much like a dragon's. You gain imprecise scent with a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The GM might double the range if you're downwind from the creature or halve the range if you're upwind, at their discretion."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2UKf5IiUbpUbOC9a"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
+    }
+  },
+  {
+    "id": "21b1a947-07ac-53c4-b1c7-3c1466902ff9",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:dragging-strike",
+    "name": "Dragging Strike",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["fighter", "press"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You aim your weapon to snag a foe's armor, clothing, or flesh to pull them closer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a melee Strike. If you hit a target that is your size or smaller, that creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your current turn, and you can move it 5 feet toward you. When you move the creature, you can move the same distance in the same direction as it, even if you're adjacent to the target. This movement doesn't trigger reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This Strike has the following failure effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target becomes off-guard until the end of your current turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yAgFDUU8HfVK4KTy"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "9d9c5cfd-6e9d-5815-a008-e46bb9843d81",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:dragon-arcana",
+    "name": "Dragon Arcana",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've discovered how to add the magic of dragons to your tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Add the draconic bloodline's granted spells to your spell list; you must still learn them or add them to your repertoire as normal. These spells are "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7714caac-f16d-54e3-aab2-39f0ba58f85e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6d968a26-01b5-5e6e-a52e-4d3838af9f20"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "50a9cf36-643a-57ec-93b4-60961439705f"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gMPnLWLlHoNU9Lqv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ability to cast spells from spell slots; Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
+    }
+  },
+  {
+    "id": "f880719a-dec3-556b-b91e-03904a7c613a",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:dragon-disciple-dedication",
+    "name": "Dragon Disciple Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a kobold with the dragonscaled or spellscaled heritage, a dragon instinct barbarian, or a draconic bloodline sorcerer."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You choose to study or worship one type of dragon, and your focus grants you a measure of its power. You become trained in arcane spell DCs and arcane spell attack rolls. Choose one color of dragon when you select this feat; if you are a sorcerer with the draconic bloodline, this must be the same type as your bloodline."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance equal to half your level against one type of damage determined by the chosen dragon type. The GM may allow you to choose a dragon type not listed below, and will determine the damage type appropriate for that dragon."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Black or Copper",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Acid"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue, Bronze, or Cloud",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Electricity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brass, Gold, or Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Fire"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Poison"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Silver or White",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Cold"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain a +1 circumstance bonus to saving throws against sleep effects and effects that would make you "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you have gained two other feats from the Dragon Disciple archetype. If you later take the sorcerer archetype, you must choose the draconic bloodline."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:sleep", "option:paralysis"]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oo34CloLefFRi72w"
+    },
+    "data": {
+      "category": "class",
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
+    }
+  },
+  {
+    "id": "d411d45a-6f4f-58f5-b947-75caadc4bbbe",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:dragons-breath",
+    "name": "Dragon's Breath",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can put more effort into your Kobold Breath to channel greater draconic power, though it takes more out of you. When you use Kobold Breath, you can increase the damage dice to d8s and increase the area to 60 feet for a line breath weapon or 30 feet for a cone. If you do, you can't use Kobold Breath again for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dragons-breath",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BaVO8UU5ZkL8OZZj"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kobold Breath"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "3ab39b22-8891-551c-81dc-002c12be70e9",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -11489,6 +13745,104 @@
     }
   },
   {
+    "id": "06c14003-1f0f-533f-a094-da24acc06e3c",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:dueling-dance-swashbuckler",
+    "name": "Dueling Dance (Swashbuckler)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["stance", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding only a single one-handed melee weapon and have your other hand or hands free."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using your free hand as pivot and balance, you both attack and defend with your weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you are in this stance, you constantly have the benefits of "
+          },
+          {
+            "type": "ref",
+            "id": "805a44bf-bde2-526c-815b-75fb406f0348",
+            "label": "Dueling Parry"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9VGmE7X4aK2W8YWj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dueling Parry"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding only a single one-handed melee weapon and have your other hand or hands free."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "bbca0e11-835b-50a3-815d-9ab7c108997c"
+      }
+    }
+  },
+  {
     "id": "805a44bf-bde2-526c-815b-75fb406f0348",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -12035,6 +14389,86 @@
     }
   },
   {
+    "id": "434738a0-000d-50ef-a725-0572e91689e6",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:elaborate-flourish",
+    "name": "Elaborate Flourish",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "sorcerer", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You embellish your spellcasting with entrancing flourishes and grand pronouncements, making it harder to identify or counter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the next action you use is to "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": ", creatures with the ability to Cast that Spell don't automatically know what the spell is."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, creatures that witness your spellcasting take a -2 circumstance penalty to checks to identify the spell with "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " and checks to counteract the spell during its casting (such as with "
+          },
+          {
+            "type": "ref",
+            "id": "73fd01f2-437b-521b-93db-95cd1a253968",
+            "label": "Counterspell"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pCVegyXxNibF4ulp"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "46b40b3e-7f03-5889-8324-f0a16d156ef5",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -12140,6 +14574,106 @@
         }
       ],
       "archetype": "39da8ea4-6153-53e2-80ba-3924ae09742a"
+    }
+  },
+  {
+    "id": "2755e8a6-9241-5ac2-b76a-0ed9bbd1c879",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:eldritch-debilitations",
+    "name": "Eldritch Debilitations",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to apply debilitations that are particularly troublesome for spellcasters. Add the following debilitations to the list you can choose from when you use "
+          },
+          {
+            "type": "ref",
+            "id": "3d587d4e-c30a-5783-a742-e1adebbf8a36"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Debilitation",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Debilitation",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target can't Step."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kUv9eiP8Zhck70WZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "eldritch trickster racket; Debilitating Strike"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -12294,6 +14828,74 @@
     }
   },
   {
+    "id": "064ad85b-6750-587d-9a82-85aec30859d3",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:elven-aloofness",
+    "name": "Elven Aloofness",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As much as you might care for them, you've come to terms with the ephemeral nature of non-elves, and it makes their threats feel less troublesome."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a non-elf rolls a failure on a check to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " you using Intimidation, it gets a critical failure instead (and thus can't try to Coerce you again for 1 week)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a non-elf attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " you, you become temporarily immune for 1 day, instead of 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.y7Or0CbcQBDdS9yG"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
     "id": "6f9a5f41-4666-5dc5-8ecc-f1da9ebeb5f4",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -12368,6 +14970,158 @@
               {
                 "type": "text",
                 "text": "A creature damages you with a melee attack."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "73304df4-f51f-5450-8722-06d1cac2bc24",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:empathetic-plea",
+    "name": "Empathetic Plea",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["auditory", "emotion", "gnome", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are attacked by a creature that you haven't yet acted hostile toward. You must use this reaction before the creature rolls its attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The way you cringe or use those puppy-dog eyes you've been practicing elicits an empathetic response in the attacker. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature pulls its attack, wasting its action, and can't use hostile actions against you until the beginning of its next turn."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes a -2 circumstance penalty to damage on the triggering Strike and all its Strikes against you until the beginning of its next turn. The penalty is -4 if you're an expert in Diplomacy, -6 if you're a master, and -8 if you're legendary."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " check against your attacker's Will DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature pulls its attack, wasting its action, and can't use hostile actions against you until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a -2 circumstance penalty to damage on the triggering Strike and all its Strikes against you until the beginning of its next turn. The penalty is -4 if you're an expert in Diplomacy, -6 if you're a master, and -8 if you're legendary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2930d016-26b4-50bd-9d87-4af7ca797214"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attack is unaffected, and the creature is temporarily immune to your Empathic Pleas for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MS53Ds75BT379ZFm"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are attacked by a creature that you haven't yet acted hostile toward. You must use this reaction before the creature rolls its attack."
               }
             ]
           }
@@ -12740,6 +15494,114 @@
     }
   },
   {
+    "id": "08fc7bb4-7968-5f51-a77e-5b3843c72556",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:energetic-resonance",
+    "name": "Energetic Resonance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take acid, cold, electricity, fire, or sonic damage from a spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have an unexpended spell slot of a rank"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "equal to or higher than the triggering spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood resonates with magical energy, mitigating the effects of harmful spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Expend one of your spell slots of a rank equal to or higher than that of the triggering spell. You gain resistance to one of the triggering effect's damage types equal to twice the expended spell slot's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yUpZcrQHrz4mflKQ"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have an unexpended spell slot of a rank"
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You would take acid, cold, electricity, fire, or sonic damage from a spell."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "0b451a4c-cefa-5adb-8e3b-fa254d1f8cb2",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -13096,6 +15958,86 @@
     },
     "data": {
       "category": "ancestry"
+    }
+  },
+  {
+    "id": "2fe90fc6-03a8-5f69-bbef-08ca6a9d4ba1",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:entreat-with-forebears",
+    "name": "Entreat With Forebears",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Something about your presence causes creatures of your bloodline to, consciously or not, recognize you as one of their own, and you become inured to their tricks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Diplomacy, Deception, and Intimidation checks when interacting with creatures that have the trait corresponding to your bloodline, and you gain a +1 circumstance bonus to Perception and saving throws against such creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, an aberrant bloodline sorcerer would gain this benefit against creatures with the aberration trait. The GM is the final arbiter of which creatures match your bloodline."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "target:forebear",
+        "toggleable": true,
+        "display": {
+          "label": "Apply Entreat with Forebears"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation", "perception", "saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:forebear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EaIczkGVI5DUo3c9"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a bloodline that corresponds with a creature trait"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -13764,6 +16706,105 @@
     }
   },
   {
+    "id": "90114c13-8bc8-508b-bed8-acf6a5f35832",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:expert-herbalism",
+    "name": "Expert Herbalism",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "ref",
+            "id": "12210d65-f6f0-5b7e-b62f-560fa2c6c092"
+          },
+          {
+            "type": "text",
+            "text": " level for herbalism increases to your level -3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the formulas for elixirs of life as soon as your advanced alchemy level is high enough to create them: "
+          },
+          {
+            "type": "ref",
+            "id": "50a741e0-2b1b-5a07-89be-6b6e9e70049a",
+            "label": "lesser"
+          },
+          {
+            "type": "text",
+            "text": " at 8th level, "
+          },
+          {
+            "type": "ref",
+            "id": "5b558f5d-f86b-50fc-aa74-6ee0843c386e",
+            "label": "moderate"
+          },
+          {
+            "type": "text",
+            "text": " at 12th level, "
+          },
+          {
+            "type": "ref",
+            "id": "f436d452-f762-5ca1-a860-9ab8e217f0d7",
+            "label": "greater"
+          },
+          {
+            "type": "text",
+            "text": " at 16th level, and "
+          },
+          {
+            "type": "ref",
+            "id": "f8612e2b-1d9c-5ddd-a48d-46393290b8bd",
+            "label": "major"
+          },
+          {
+            "type": "text",
+            "text": " at 18th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.owJorCBZmUi5lIV0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Herbalist Dedication; expert in Nature"
+            }
+          ]
+        }
+      ],
+      "archetype": "b6db30bb-587e-57ad-9a1e-8f757a05774f"
+    }
+  },
+  {
     "id": "4a90e2ed-053e-5864-8201-17a302ea3ff8",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -13814,6 +16855,60 @@
         }
       ],
       "archetype": "10dddd4c-0e2d-5581-b124-4075c07d36e6"
+    }
+  },
+  {
+    "id": "b802bf9b-9207-5ce2-9b3f-1e87bd652c89",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:expert-poisoner",
+    "name": "Expert Poisoner",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "ref",
+            "id": "12210d65-f6f0-5b7e-b62f-560fa2c6c092"
+          },
+          {
+            "type": "text",
+            "text": " level for poison increases to your level -3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VruIzuysxw4tY6rk"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Poisoner Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "beb4a740-5e14-54b0-a252-ed7193bd0dee"
     }
   },
   {
@@ -13945,6 +17040,110 @@
     }
   },
   {
+    "id": "41ca40e8-b757-5eb2-869a-74f5f12d23cc",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:extra-squishy",
+    "name": "Extra Squishy",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goblin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your rubbery physique makes it easier for you to wedge yourself into tight spaces and more difficult for your enemies to dislodge you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Acrobatics. If you would automatically become trained in Acrobatics (from your background or class, for example), you instead become trained in a skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you roll a success to "
+          },
+          {
+            "type": "ref",
+            "id": "8569d658-15de-5110-babc-de3ae9c6e7ff"
+          },
+          {
+            "type": "text",
+            "text": ", you get a critical success instead. While you're Squeezing, you gain a +4 circumstance bonus to your Fortitude or Reflex DCs against attempts to Shove you or otherwise move you from your space."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:shove", "option:while-squeezing"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Extra Squishy",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success to Squeeze, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:squeeze"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:squeeze"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2bNd89jYmEO8wSay"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "unbreakable goblin heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "2fa66be9-a3d7-5278-8983-c082d3d340ca",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -14037,6 +17236,86 @@
       "action": {
         "cost": "one"
       }
+    }
+  },
+  {
+    "id": "39f6d407-2f9a-564d-a9c0-d033a9332015",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:eye-for-treasure",
+    "name": "Eye For Treasure",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["dwarf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know good artisanship when you see it and can wax poetic about crafting techniques and forms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Crafting and gain a +1 circumstance bonus on all Crafting checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ". If you would automatically become trained in Crafting (from your background or class, for example), you instead become trained in a skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c05b96e4-28cc-5256-b149-3ffe26f94e45"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, enabling you to identify magic items using the Crafting skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:recall-knowledge"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "c05b96e4-28cc-5256-b149-3ffe26f94e45"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nB8BD9rIg9hfFGns"
+    },
+    "data": {
+      "category": "ancestry"
     }
   },
   {
@@ -14435,6 +17714,94 @@
     }
   },
   {
+    "id": "98de76eb-3a8e-5ad6-b9f1-e8adcc0d9520",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:familiars-eyes",
+    "name": "Familiar's Eyes",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["concentrate", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your familiar's senses as easily as your own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You project your senses into your familiar. When you do, you lose all sensory information from your own body, but you can sense through your familiar's body until you "
+          },
+          {
+            "type": "ref",
+            "id": "9d0e5c47-3a1c-5d1a-bfc9-36eb6ed9b3ef"
+          },
+          {
+            "type": "text",
+            "text": " the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While projecting your senses in this way, you can converse telepathically with your familiar if it understands a language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat has the trait corresponding to the tradition of spells you cast (arcane, divine, occult, or primal)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Q4puGx4kBMXy45fa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a familiar"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "d598ddfa-af06-547e-8939-e8b221145300",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -14675,6 +18042,143 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "8feac6fa-0dfe-58b5-acc6-3a6ce80f12f8",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:fiendish-mount",
+    "name": "Fiendish Mount",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your steed ally manifests a suite of powerful and sinister gifts granted to it by your deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It gains darkvision, its maximum Hit Points increase by 40, and it gains weakness 10 to holy damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additionally, it grows wings appropriate for a servitor of your deity (such as bat wings for a devil), granting it a "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79"
+          },
+          {
+            "type": "text",
+            "text": " Speed equal to its Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It gains the fiend trait and the trait appropriate to the type of servitor it has become (such as daemon, demon, or devil)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KTMzVCd6xAqCvxa5"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "divine ally (steed); tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8b010a08-7470-5e9e-b7f8-6e6f6b87e2ff",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:fiendish-strikes",
+    "name": "Fiendish Strikes",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["nephilim"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your festering connection to the forces of evil infuses your weapons with debilitating malevolence, tearing down creatures of good with every attack. All your weapon and unarmed Strikes gain the unholy and magical traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "or": ["item:melee", "item:ranged"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "or": ["item:melee", "item:ranged"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "magical"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EyG0zdHA9NbavYlC"
+    },
+    "data": {
+      "category": "ancestry"
     }
   },
   {
@@ -15568,6 +19072,82 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "b627e4e0-2698-5841-aeca-880ebd946875",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:flinging-blow",
+    "name": "Flinging Blow",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a moment to center yourself, then unleash a powerful blow that sends your target tumbling away."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make an unarmed Strike. If you hit, the target must succeed at a Fortitude save against your class DC or be pushed up to 10 feet directly away from you (or 20 feet, on a critical failure) and fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If another creature or physical object would prevent this movement, both your target and the blocking creature or object take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per 5 feet of movement that was prevented."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uL6q4wtwvuP8I4po"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
     }
   },
   {
@@ -17725,6 +21305,139 @@
     }
   },
   {
+    "id": "13a66615-763e-5520-8d2e-12154b3e7a68",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:greater-interpose",
+    "name": "Greater Interpose",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your divine grace empowers you to avoid hits when you otherwise could not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use Sacrifice Armor to reduce any type of damage from an attack or effect requiring a Reflex save. When you use Sacrifice Armor against a critical hit or a critical failure on a Reflex save that would otherwise cause you to take double damage, you take the normal amount of damage instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ygPrwqiyDr1frUHw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sacrifice Armor"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "11550ac9-28dc-5760-b4c9-4dd97b2035ce",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:greater-magical-edification",
+    "name": "Greater Magical Edification",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've continued to expand your compendium of tools to compile knowledge. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "fbd884df-f86a-53aa-9a8c-f9fac4ab3ed3"
+          },
+          {
+            "type": "text",
+            "text": " as innate occult spells, each once per day. When you cast "
+          },
+          {
+            "type": "text",
+            "text": "secret page",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it is automatically heightened to the same spell rank as your cantrips from Magical Edification."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jBHDVsTVOBeoMoO4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magical Edification"
+            }
+          ]
+        }
+      ],
+      "archetype": "97821673-b0f2-5050-aa66-98fb90160f7a"
+    }
+  },
+  {
     "id": "9f9822d2-ac26-5f06-ad08-36be059228a3",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -18459,6 +22172,60 @@
     }
   },
   {
+    "id": "23a3834a-0c54-505c-a221-49992392f48f",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:heal-animal",
+    "name": "Heal Animal",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can heal your animal companion's wounds. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "cec5d01b-a4d4-5eb5-9d47-20069a964fac"
+          },
+          {
+            "type": "text",
+            "text": " as a beastmaster focus spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OJxEF5FONTtEdbpP"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beastmaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9260347c-5165-50ff-996f-ba246240707d"
+    }
+  },
+  {
     "id": "ff477abf-dac0-50bd-aef9-6f3989e57739",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -18837,6 +22604,125 @@
     }
   },
   {
+    "id": "b5341a23-9d2b-593c-be5f-be84cbf61c7e",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:high-quality-scrounger",
+    "name": "High-quality Scrounger",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " a temporary item using Scrounger Dedication, it can be an item of up to 3rd level (though the item must still be a weapon, armor, or a nonconsumable piece of adventuring gear)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can instead Craft it for someone else's use, allowing them to avoid taking the penalty for using a shoddy item when using it, but causing you to take the penalty if you use it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vW8dGtOD3rZVOJoq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scrounger Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "8559daa6-3cbb-5953-902c-589f4ab99a8e"
+    }
+  },
+  {
+    "id": "1314c15d-2f30-5bd8-9103-3c3276ee4ee9",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:hireling-manager",
+    "name": "Hireling Manager",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["general"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are able to find and secure better labor than most. When securing a hireling for a service, that hireling gains a +2 circumstance bonus to all skill checks. This circumstance bonus applies to both trained and untrained hirelings and has no effect on the cost of the service or labor provided."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:hireling"],
+        "display": {
+          "label": "Hireling Manager (from your hireling)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Wb3FHiDuY6Nuc0N0"
+    },
+    "data": {
+      "category": "general",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charisma +2"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "3b09485b-ba4b-5321-b79b-e2413d601f3a",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -18913,6 +22799,96 @@
         }
       ],
       "archetype": "192f6e54-09a1-5617-9625-a153383d0ca9"
+    }
+  },
+  {
+    "id": "9947660c-7ec9-5b86-9a7a-38065b84a9da",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:horizon-walker-dedication",
+    "name": "Horizon Walker Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've mastered travel within a specific type of terrain. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When in your favored terrain, you gain a +10-foot circumstance bonus to your travel Speed. When other creatures "
+          },
+          {
+            "type": "ref",
+            "id": "269cedab-5f5a-5703-9631-986260885864"
+          },
+          {
+            "type": "text",
+            "text": " with you as a guide in your favored terrain, they gain both the ability to ignore non-magical difficult terrain for the purpose of their travel Speed and the bonus to travel Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you have gained two other feats from the Horizon Walker archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pZMBq7gn66SEEA0n"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Survival"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
     }
   },
   {
@@ -19305,6 +23281,68 @@
     }
   },
   {
+    "id": "b28cce01-2cd4-5e3d-ae13-57b262342ecb",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:impossible-snares",
+    "name": "Impossible Snares",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can create endless shorter-lived snares, protecting your lair or using them against foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per minute, you can "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " one of the snares you've prepared for quick deployment without expending the prepared snare. Once deployed, such a snare lasts for 10 minutes before losing its effectiveness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rwTbN2A2ZO7CdKoC"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ubiquitous Snares"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "9cf78723-8326-5476-bee9-eb575044c06d",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -19483,6 +23521,40 @@
         }
       ],
       "archetype": "2c78ba73-c517-5708-b668-7ba7d0174b82"
+    }
+  },
+  {
+    "id": "7ebcf9f5-cb50-5549-b6bc-57ae3addf7bb",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:improved-familiar-witch",
+    "name": "Improved Familiar (Witch)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You find it easy to attract a powerful and unusual familiar to your side. The number of abilities required to make your familiar a specific familiar is two lower than normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2VKV7jLRTxWyVjGa"
+    },
+    "data": {
+      "category": "class"
     }
   },
   {
@@ -19976,6 +24048,59 @@
         }
       ],
       "archetype": "2c78ba73-c517-5708-b668-7ba7d0174b82"
+    }
+  },
+  {
+    "id": "46ab0473-aebb-515b-a238-62491cf9b265",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:incredible-luck-swashbuckler",
+    "name": "Incredible Luck (Swashbuckler)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["fortune", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You always seem to bounce back from the worst. When you use "
+          },
+          {
+            "type": "ref",
+            "id": "92633db3-6fa9-55ed-be93-34e6d553f617"
+          },
+          {
+            "type": "text",
+            "text": ", roll the save twice (including the +2 circumstance bonus from Charmed Life) and use the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uAdnQZSkUuxcpEwz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charmed Life"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -21287,6 +25412,124 @@
     }
   },
   {
+    "id": "d5bcb5b3-ad95-5c56-a2aa-de1103194234",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:keep-pace-bounty-hunter",
+    "name": "Keep Pace (Bounty Hunter)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your prey is within reach and attempts to move away from you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your prey can't escape. Stride up to your Speed, following the foe and keeping it in reach throughout its movement until it stops moving or you've moved your full Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use Keep Pace to "
+          },
+          {
+            "type": "ref",
+            "id": "e9bb5325-1817-5195-876b-af2e4e8a3706"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": " instead of Stride if you have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OzvvsyjAWWij4mmm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bounty Hunter Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your prey is within reach and attempts to move away from you."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "962f8434-8dae-53cb-b175-c9f393d91319"
+    }
+  },
+  {
     "id": "a2cadde1-f474-5442-89a3-bc198b5d5b23",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -21408,6 +25651,49 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "5ccde8c5-c12c-5983-8a2b-640434860307",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:know-your-own",
+    "name": "Know Your Own",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've spent countless hours studying the history of elves on your world and beyond and are a studied expert in your people's ways."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you critically fail a check to Recall Knowledge about elves, elven society, or elven history, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.o4LycqplO14zn6It"
+    },
+    "data": {
+      "category": "ancestry"
     }
   },
   {
@@ -22748,6 +27034,175 @@
     }
   },
   {
+    "id": "c7b7ad7b-9cf0-57c5-9cdd-15f5b7483cf0",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:litany-of-depravity",
+    "name": "Litany Of Depravity",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You undercut your enemy's vain moralism, opening their heart to evil. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "74521162-9f76-5f51-91fc-554a42e442fc"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WEUFs37Ids3ZRrqa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "00d3c3f6-ca01-551c-b9c6-493568d3a8d1",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:litany-of-self-interest",
+    "name": "Litany Of Self-Interest",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You compel a creature to act toward its own ends rather than consider others. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "b040c186-23f6-5f3b-b1d9-e5e5fb209063"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qKpaZF0U9VV0YwTJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spells; tenets of evil"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "924130ba-f46b-5d44-82c2-8ee7c8885296",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:loaner-spell",
+    "name": "Loaner Spell",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can gain the assistance of an allied prepared spellcaster to prepare one spell for the day. The spell can be up to 3rd level. Your ally must be able to prepare and cast it, and the spell must have a Targets entry or an area. Your ally loses a spell slot of the corresponding spell rank, and you gain the ability to cast the prepared spell once that day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2",
+            "label": "Cast the Spell"
+          },
+          {
+            "type": "text",
+            "text": ", use your class DC for any saving throws required by the spell, and your class DC - 10 as a spell attack roll modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.80DU0IvIzOIBGuUa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Arcana, Nature, Occultism, or Religion"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "5cb99577-a69a-56d8-b410-a423075a8b91",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -22809,6 +27264,134 @@
       "action": {
         "cost": "one"
       }
+    }
+  },
+  {
+    "id": "a47093ad-f696-5d61-bd1c-d372ade7718a",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:loremaster-dedication",
+    "name": "Loremaster Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've compiled a vast repository of information that touches on nearly every subject. You are trained in Loremaster Lore, a special Lore skill that can be used only to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", but on any topic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have legendary proficiency in a skill used to "
+          },
+          {
+            "type": "ref",
+            "id": "c0dfa393-d8fb-5aca-9e4e-71cedf7ff14b"
+          },
+          {
+            "type": "text",
+            "text": ", you gain expert proficiency in Loremaster Lore, but you can't increase your proficiency rank in Loremaster Lore by any other means."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can take feats in the loremaster's additional feats entry even if you don't meet the "
+          },
+          {
+            "type": "ref",
+            "id": "3c3a0ae6-33e9-56ab-a9db-2fd8cf4d4cd9",
+            "label": "enigma muse"
+          },
+          {
+            "type": "text",
+            "text": " prerequisite."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "6be8c9fb-2ece-5ddb-a315-3b0c68f06994"
+          },
+          {
+            "type": "text",
+            "text": " class feat, you gain a +1 circumstance bonus to skill checks with Bardic Lore."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you have gained two other feats from the Loremaster archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["bardic", "bardic-lore"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["feat:bardic-lore"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lyD6eXl4wc7Pq61q"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in at least one skill to Decipher Writing"
+            }
+          ]
+        }
+      ],
+      "archetype": "97821673-b0f2-5050-aa66-98fb90160f7a"
     }
   },
   {
@@ -23069,6 +27652,146 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "df164570-6b5e-51ab-a2ee-437504461c44",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:magical-adaptation",
+    "name": "Magical Adaptation",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When an obstacle bars your path, you pull a trick from your sleeve to overcome it. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "252f0769-5c44-520c-a7ae-6837e4b3932b"
+          },
+          {
+            "type": "text",
+            "text": ", and 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
+          },
+          {
+            "type": "text",
+            "text": " as innate primal spells, each once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DPaZurhC9uyIWPcu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Horizon Walker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
+    }
+  },
+  {
+    "id": "734668b3-1326-5cfb-b917-3910b10e9c3f",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:magical-edification",
+    "name": "Magical Edification",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned those tidbits of magic that are most conducive to furthering your acquisition and transmission of knowledge. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "161eed43-e585-5c4f-a01f-3a11431b5e75"
+          },
+          {
+            "type": "text",
+            "text": " as innate occult cantrips."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.chmQgMamyaZX90Tc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loremaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "97821673-b0f2-5050-aa66-98fb90160f7a"
     }
   },
   {
@@ -24159,6 +28882,52 @@
         }
       ],
       "archetype": "277eb7f1-dd79-51b2-b365-d092e7bed452"
+    }
+  },
+  {
+    "id": "74c50eac-5318-54f6-bc5e-e0b2e02b5c15",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:mighty-dragon-shape",
+    "name": "Mighty Dragon Shape",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've practiced and increased your draconic might, allowing you to take your draconic form more often. You can use Shape of the Dragon once per hour instead of once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DFY3X7Mgl9rESQuu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shape of the Dragon"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -26091,6 +30860,60 @@
     }
   },
   {
+    "id": "effa23ea-dc34-55c0-b4bd-63d3c8533eba",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:orthographic-mastery",
+    "name": "Orthographic Mastery",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You understand the principles that underlie all written words, allowing you to read nearly any text. You can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "c0dfa393-d8fb-5aca-9e4e-71cedf7ff14b"
+          },
+          {
+            "type": "text",
+            "text": " using Loremaster Lore in place of the required skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5qXw5Gl9TxbPMZLB"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loremaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "97821673-b0f2-5050-aa66-98fb90160f7a"
+    }
+  },
+  {
     "id": "39edc34e-5889-585d-bd09-6ba263705396",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -26807,6 +31630,184 @@
     }
   },
   {
+    "id": "8443d71b-7931-539e-82cc-f8faa980e240",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:peafowl-stance",
+    "name": "Peafowl Stance",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["monk", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a sword that has the monk trait in one hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a tall and proud stance while remaining mobile, with all the grace and composure of a peafowl."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in this stance, the only Strikes you can make are melee Strikes with the required sword. Once per round, after you hit with a monk sword Strike, you can Step as a free action as your next action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.C3MgEkPNaIhTddbr"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monastic Weaponry"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a sword that has the monk trait in one hand."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "5011defc-e4d9-5c9b-8ded-bbc0d6b2d367"
+      }
+    }
+  },
+  {
+    "id": "4357be32-d8de-5d21-a365-782c005647a5",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:peafowl-strut",
+    "name": "Peafowl Strut",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["flourish", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in "
+          },
+          {
+            "type": "ref",
+            "id": "8443d71b-7931-539e-82cc-f8faa980e240"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slowly move across the battlefield with dangerous grace. Step twice and then Strike. The Strike must be made with the sword required by Peafowl Stance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.u2fgdFIdQDplKOS3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Peafowl Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are in "
+              },
+              {
+                "type": "ref",
+                "id": "8443d71b-7931-539e-82cc-f8faa980e240"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "38072eff-c01e-5c99-a591-37b7aece353c",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -27020,6 +32021,149 @@
         }
       ],
       "archetype": "a7afdb56-cfe3-58a8-82d2-8c6384c74155"
+    }
+  },
+  {
+    "id": "17318048-1f77-5dfb-a0a9-22677b84d509",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:perpetual-breadth",
+    "name": "Perpetual Breadth",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have expanded your supply of near-infinite items. Choose a research field. Add one item from the list of options available to that field from perpetual infusions, or two items if you choose your own field."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "16fa8f8d-5916-56d2-9d58-de1f65e0873f",
+            "label": "Perpetual Potency"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "ea4c9642-3b7f-5994-b9a8-3da7df04db70",
+            "label": "Perpetual Perfection"
+          },
+          {
+            "type": "text",
+            "text": ", you gain an additional item (or items if you chose your own field) appropriate to the field you chose, for instance a higher-level version of the bomb you chose or a new poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Mvay7CiSN8snJ7DK"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "perpetual infusions"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b56aa068-02b4-5d65-a9d1-98829f8d4646",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:perpetual-scout",
+    "name": "Perpetual Scout",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spot anything out of place in the areas you know best. While in your "
+          },
+          {
+            "type": "ref",
+            "id": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+          },
+          {
+            "type": "text",
+            "text": ", you always gain the benefits of the "
+          },
+          {
+            "type": "ref",
+            "id": "b648d491-cda2-5e3f-a269-27323d7e97a5"
+          },
+          {
+            "type": "text",
+            "text": " exploration activity, even if you are performing another exploration activity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're legendary in Survival, you gain these benefits in any terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eHvJqBHYqx7UjpPg"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Horizon Walker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
     }
   },
   {
@@ -27330,6 +32474,57 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "a230799c-3b1e-58b9-bf46-0c5c5f950ca1",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:pinch-time",
+    "name": "Pinch Time",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["aiuvarin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of your parents has a human life span and another an elven life span, with your own somewhere between. As a result, you have an unusual perspective on time, which you've learned to manifest to aid yourself in moments of stress."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": " as a 3rd-rank arcane innate spell, though you can target only yourself. You can Cast this Spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8ukixWL8MBJOhPbW"
+    },
+    "data": {
+      "category": "ancestry"
     }
   },
   {
@@ -29145,6 +34340,61 @@
     }
   },
   {
+    "id": "7672b11a-6d2b-5107-9f0d-d7028ab2da4b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:quick-study",
+    "name": "Quick Study",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can study a particular subject to gain the trained proficiency rank in one Lore skill of your choice. You must have interacted with that subject in some way on the previous day, whether by reading about it, talking to someone knowledgeable on the topic, or experiencing it yourself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alternatively, you can reference your notes to instead choose a Lore skill you've prepared before with Quick Study. This proficiency lasts until you prepare again. Since this proficiency is temporary, you can't use it as a prerequisite for a skill increase or a permanent character option like a feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aLJsBBZzlUK3G8MW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loremaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "97821673-b0f2-5050-aa66-98fb90160f7a"
+    }
+  },
+  {
     "id": "9973fee4-98d0-5b20-a81e-38eef68ae329",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -30010,6 +35260,77 @@
     }
   },
   {
+    "id": "dd5a4be2-b16c-5e4e-b0b8-2d3dba1a1e1e",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:resilient-touch",
+    "name": "Resilient Touch",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your healing energies create an aura of protection that defends your allies against more than just blades and arrows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ally that recovers Hit Points from your "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " gains a +1 status bonus to their saving throws until the end of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c85d13a6-c39e-5742-b235-2ffc3fcfae48"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tCuMXQ0yMrCNwzqW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spell (lay on hands)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "9d499aa1-e588-5e64-8605-441e3fb33b56",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -30388,6 +35709,52 @@
             ]
           }
         ]
+      }
+    }
+  },
+  {
+    "id": "44819ec1-2a4f-5184-a5d7-dd5f6f871b50",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:returning-throw",
+    "name": "Returning Throw",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["dwarf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have mastered the technique of arcing a projectile so that it returns to your hand after being thrown, though this requires a moment to precisely calculate the trajectory and possible ricochets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a ranged Strike with a thrown weapon. Once the Strike is complete, the weapon arcs or ricochets back to your hand. If your hands are full when the weapon returns, it falls to the ground in your space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HfebybiUNW8mXOfP"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "two"
       }
     }
   },
@@ -30852,6 +36219,79 @@
     }
   },
   {
+    "id": "4a9a97df-cb03-5aea-a30d-eb0c6a39c111",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:sacrifice-armor",
+    "name": "Sacrifice Armor",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are hit by a Strike that deals physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With divine awareness, you twist your body to lessen the impact of an attack. Reduce the damage you take by an amount equal to twice your armor's level. Your armor becomes "
+          },
+          {
+            "type": "ref",
+            "id": "c945a9c5-1053-552c-8cc3-ac4832741d0f"
+          },
+          {
+            "type": "text",
+            "text": ", reducing its Hit Points to its Broken Threshold. If your armor was already damaged, it is destroyed instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bYijGvCvCmJnW6aA"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are hit by a Strike that deals physical damage."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "adfa9ff8-e769-5645-a849-c5bb86a0e82d",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -30986,6 +36426,52 @@
       "action": {
         "cost": "one"
       }
+    }
+  },
+  {
+    "id": "3d215250-ebe7-543e-88f2-7f7034402250",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:scales-of-the-dragon",
+    "name": "Scales Of The Dragon",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scales grow across your body, protecting you against physical and magical threats. When you're unarmored, the scales give you a +2 item bonus to AC with a Dexterity cap of +3. The item bonus to AC from Scales of the Dragon is cumulative with armor potency runes on your explorer's clothing, mage armor, and bracers of armor. Your resistance from Dragon Disciple Dedication increases to 3 + half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fT37dtsByEIc3glC"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -32561,6 +38047,87 @@
     }
   },
   {
+    "id": "2866ffc4-d48c-5577-9e3b-b695a20933d5",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadow-master",
+    "name": "Shadow Master",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shadows protect you better than any armor can, and they give you power to plunge others into darkness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you are in an area of dim light or darkness, you gain resistance 5 to all damage except force and damage from "
+          },
+          {
+            "type": "ref",
+            "id": "b70e1acb-3d61-50f7-92b1-231839a6b427",
+            "label": "Strikes"
+          },
+          {
+            "type": "text",
+            "text": " with the "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " property rune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you attempt a Reflex saving throw in an area of dim light or darkness, you can roll twice and take the higher result; this is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BqcAwmNjDlKEI84X"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowdancer Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "97115ecd-8e25-57f0-8316-01fc76f46b25"
+    }
+  },
+  {
     "id": "80bfb802-0885-599d-9c47-13457338bdf6",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -32617,6 +38184,186 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "fc7bbd19-6452-59c3-9227-d67ac29ff881",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadow-sneak-attack",
+    "name": "Shadow Sneak Attack",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4002ee58-c0ce-505b-a450-26505397453f"
+          },
+          {
+            "type": "text",
+            "text": " class feature, except you deal 1d6 precision damage regardless of your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sneak attack from multiple sources isn't cumulative. If you have sneak attack from more than one source, use only the highest number of dice when you sneak attack rather than adding the amounts together."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": [
+          "target:condition:off-guard",
+          {
+            "or": [
+              "item:trait:agile",
+              "item:trait:finesse",
+              {
+                "and": [
+                  "item:ranged",
+                  {
+                    "not": "item:thrown-melee"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4002ee58-c0ce-505b-a450-26505397453f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.N16lctDPZpvk9Khq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowdancer Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "97115ecd-8e25-57f0-8316-01fc76f46b25"
+    }
+  },
+  {
+    "id": "5e890651-8afd-5d4e-b224-13db91a16f23",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadowdancer-dedication",
+    "name": "Shadowdancer Dedication",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dedicate yourself to the shadows. Your coloring becomes gray and gloomy, your senses adjust to the darkness, and you can sneak through darkness with ease."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain greater darkvision. You also gain a +2 circumstance bonus to Stealth checks when you are within dim light or darkness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you have gained two other feats from the Shadowdancer archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["lighting:dim-light", "lighting:darkness"]
+          }
+        ],
+        "display": {
+          "label": "In Dim Light or Darkness"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1AgirzUGkyDdmENy"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Stealth; expert in Performance"
+            }
+          ]
+        }
+      ],
+      "archetype": "97115ecd-8e25-57f0-8316-01fc76f46b25"
     }
   },
   {
@@ -32716,6 +38463,78 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "f1e1145c-5578-5f08-a934-f1c0216658a2",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shape-of-the-dragon",
+    "name": "Shape Of The Dragon",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've discovered how to transform yourself into a dragon. Once per day, you can cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+          },
+          {
+            "type": "text",
+            "text": " as an innate arcane spell, transforming into your chosen type of dragon. The spell automatically heightens to 8th level if you're 16th level and 9th rank if you're 18th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any time you score a critical hit with an unarmed Strike gained from "
+          },
+          {
+            "type": "text",
+            "text": "dragon form",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you recharge the spell's breath weapon immediately."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eR0sifECG27CC4do"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
     }
   },
   {
@@ -32993,6 +38812,64 @@
         ]
       },
       "archetype": "9312600c-d70e-5b55-80e9-b771b53468b5"
+    }
+  },
+  {
+    "id": "3629b33f-1b16-574e-ace3-416a234f379b",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:sheltering-slab",
+    "name": "Sheltering Slab",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["dwarf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stone around you is your ally, and you have learned to use it to shore up your weaknesses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you remain on the ground and are adjacent to a vertical stone wall that rises to your height or taller, you aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against attacks as a result of being flanked. This works even if you are at the outside corner of the wall."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:sheltering-slab",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.sGSf5BdopT0zWOWs"
+    },
+    "data": {
+      "category": "ancestry"
     }
   },
   {
@@ -33561,6 +39438,59 @@
     }
   },
   {
+    "id": "9abf66f9-205b-5b26-a870-fa8d5e199533",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:skitter",
+    "name": "Skitter",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["general"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can scoot swiftly across the ground. You can "
+          },
+          {
+            "type": "ref",
+            "id": "fe112db5-30e6-5a96-94a1-2356a4820452"
+          },
+          {
+            "type": "text",
+            "text": " up to half your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.wPHZhgKzNw4VcCFt"
+    },
+    "data": {
+      "category": "general",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dexterity +3; Fleet"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "f00769a2-f4b3-583d-8491-d74732e2c486",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -33761,6 +39691,59 @@
             {
               "type": "text",
               "text": "expert in Crafting; Snare Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "274a7bf6-80b2-53fb-8d08-6351c62dbce0",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:snare-hopping",
+    "name": "Snare Hopping",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can magically move your snares around. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "44d5c89d-5678-5cc7-836d-c68a33ae9a89"
+          },
+          {
+            "type": "text",
+            "text": " warden spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lIrPwGpJk9TldZ4c"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Snare Crafting; warden spells"
             }
           ]
         }
@@ -34112,6 +40095,92 @@
     }
   },
   {
+    "id": "44f0a86b-48cb-51df-acdc-9b6e57420068",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:soulsight-sorcerer",
+    "name": "Soulsight (Sorcerer)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spiritual essence in your blood has opened your senses to the world beyond. You gain spiritsense as an imprecise sense with a range of 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spiritsense enables you to sense the spirits of creatures, including living creatures, most non-mindless undead, and haunts within the listed range. As with your hearing and other imprecise senses, you still need to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " to locate an undetected creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As spiritsense detects spiritual essence, not physical bodies, it can detect spirits projected by spells such as "
+          },
+          {
+            "type": "ref",
+            "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+          },
+          {
+            "type": "text",
+            "text": " or possessing otherwise soulless objects. It can't detect soulless bodies, constructs, or objects, and like most senses, it doesn't penetrate through solid objects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "12f27f53-38a4-5437-979d-048af3cd2dfb",
+        "acuity": "imprecise",
+        "range": 60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YGBPIpHaOgCsa2qO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "bloodline that grants divine or occult spells"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "7068343a-2304-5869-a171-023f13e046f6",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -34242,6 +40311,52 @@
       ],
       "maxTakable": 3,
       "archetype": "410d49be-1670-5e01-962f-57138f33a06d"
+    }
+  },
+  {
+    "id": "97371aef-b13c-54da-882d-8ba5658e27c0",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:speedy-rituals",
+    "name": "Speedy Rituals",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can perform rituals in only a fraction of the usual time. If a ritual has a casting time measured in days, you can cast it in an equal number of hours. If this results in a ritual longer than 8 hours, you split the ritual between multiple days, as normal for a ritual."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TQCpXi1hwYX6VIhp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Efficient Rituals"
+            }
+          ]
+        }
+      ],
+      "archetype": "fe2b37d7-1217-5f01-a981-c2e34edf6608"
     }
   },
   {
@@ -35087,6 +41202,76 @@
         ]
       },
       "archetype": "9c536162-6a5e-5772-a30a-2e8916d41785"
+    }
+  },
+  {
+    "id": "75d06574-0aeb-5982-8e54-da277d9584c9",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:steal-spell",
+    "name": "Steal Spell",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical", "rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use "
+          },
+          {
+            "type": "ref",
+            "id": "95c51900-868a-5d11-a677-5af276567ff3"
+          },
+          {
+            "type": "text",
+            "text": " to steal the impossible, you can steal a prepared spell or spontaneous spell from a foe. The spell is randomly selected from the highest-rank spells the foe knows that have a target or area, to a maximum of 8th-rank spells; the target loses the appropriate spell slot as if they had cast it themself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Cast the Spell once within the next 1d4 rounds, after which the fleeting magic fades; this otherwise works the same as casting a "
+          },
+          {
+            "type": "ref",
+            "id": "924130ba-f46b-5d44-82c2-8ee7c8885296"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xjwlP306nuda2z03"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Legendary Thief; Loaner Spell"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -36391,6 +42576,84 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "b764efcf-4dc4-57c4-8983-47cbe3f3b7ea",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:sure-foot",
+    "name": "Sure Foot",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know the secrets of moving in your "
+          },
+          {
+            "type": "ref",
+            "id": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+          },
+          {
+            "type": "text",
+            "text": ". You gain a +2 circumstance bonus to skill checks to move within your favored terrain, such as Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " on ice, Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": " in rough water, Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79"
+          },
+          {
+            "type": "text",
+            "text": " in windy conditions, and so forth."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HRVCODLOrhjRDtGb"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Horizon Walker Dedication; expert in Acrobatics; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
     }
   },
   {
@@ -37995,6 +44258,88 @@
     }
   },
   {
+    "id": "3444dc75-7dc8-52c1-8b29-02153fec4a63",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:tengu-weapon-study",
+    "name": "Tengu Weapon Study",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["tengu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned techniques for using blades and other tengu weapons. Whenever you critically hit using one of the weapons from your Tengu Weapon Familiarity, you apply the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.X6tVQ5S7H7GuCZux"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tengu Weapon Familiarity"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "20118067-04b9-5a6d-a7f5-1199ee29140d",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:terraforming-spell",
+    "name": "Terraforming Spell",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["concentrate", "earth", "sorcerer", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You capture transformative fragments of magic and slam them into the ground, creating a shock wave that alters your surroundings. If your next action is to Cast a non-cantrip transmutation Spell, either each space adjacent to you becomes difficult terrain, or each space adjacent to you is no longer difficult terrain. This doesn't have any effect on greater difficult terrain and doesn't remove the damaging effects of hazardous terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RMSVWMFoLUk0P1cC"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "1a102bee-eef7-58b4-a000-ccbdae510684",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -38331,6 +44676,60 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "231ddab8-c3b2-52ad-8ab2-d38e0d50e312",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:through-spell",
+    "name": "Through Spell",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["cleric", "concentrate", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spells you cast can transform briefly into vital essence, traveling harmlessly through living and undead creatures between you and your target, blocked only by solid objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the next action you use is to "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " that requires a spell attack roll, your targets don't benefit from cover provided by living or undead creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.R40U8hF0hWyRUze8"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
     }
   },
   {
@@ -39578,6 +45977,167 @@
     }
   },
   {
+    "id": "3720bec9-dfe4-59e3-bddf-6b719cf97664",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:twinned-defense-swashbuckler",
+    "name": "Twinned Defense (Swashbuckler)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["stance", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding two melee weapons, one in each hand"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're always ready to use your off-hand weapon to interfere with attacks against you. While you are in this stance, you constantly gain the benefits of the "
+          },
+          {
+            "type": "ref",
+            "id": "54d7d08d-1a3f-5d66-8bc3-63261d89f5d4"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kTRGAST9J9ZxJZ4A"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twin Parry"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding two melee weapons, one in each hand"
+              }
+            ]
+          }
+        ],
+        "selfEffect": "8935e15c-7703-5d07-9730-170f560fd635"
+      }
+    }
+  },
+  {
+    "id": "829df636-1479-5095-80d4-5046d27d3f10",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:twitchy",
+    "name": "Twitchy",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goblin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are naturally suspicious and wary of danger, especially when you suspect someone might be leading you into an ambush. You gain a +1 circumstance bonus to AC and saves against hazards, and to all of your initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If at least one of your opponents is using Deception or Diplomacy to determine their initiative, your bonus to initiative from this feat increases to +4."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:twitchy-deception-diplomacy",
+        "toggleable": true,
+        "display": {
+          "label": "Opponent rolling Deception or Diplomacy for initiative"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["option:twitchy-deception-diplomacy"],
+        "display": {
+          "label": "Twitchy (Opponent rolling Deception or Diplomacy)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:type:hazard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bni2NcuQn6Z546RE"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
     "id": "5d06e13d-ce56-5772-b32f-7346c154c6b4",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -40613,6 +47173,93 @@
     }
   },
   {
+    "id": "482d87bd-72c6-55fe-899a-8516a4a3485f",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:viking-weapon-specialist",
+    "name": "Viking Weapon Specialist",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are even more skilled in the weapons of your people. You gain the critical specialization effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "a01c234f-33e9-5193-9c78-1974df35ea95"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "604a7784-333f-5957-97b6-69aea31522c7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5cff4768-7afd-5f34-af65-fafa5d6f08dd"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you gain a class feature that grants you expert or greater proficiency in certain weapons, you also gain that proficiency rank in the above four weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rS8uNb0C5GBHnKHH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Viking Weapon Familiarity"
+            }
+          ]
+        }
+      ],
+      "archetype": "9ba58280-864c-5b4a-8999-055a3077f8fc"
+    }
+  },
+  {
     "id": "36fb77b2-8cf2-5bf1-8a40-3f47d2d4fdbe",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -41625,6 +48272,188 @@
           "per": "day"
         }
       }
+    }
+  },
+  {
+    "id": "f17203e8-f53c-5872-9f18-0cb389651328",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:wild-strider",
+    "name": "Wild Strider",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Natural obstacles pose no obstacle to you. You gain the ranger's "
+          },
+          {
+            "type": "ref",
+            "id": "ccd129cf-57b9-5928-abee-eeab866fc262",
+            "label": "Wild Stride"
+          },
+          {
+            "type": "text",
+            "text": " class feature. This allows you to ignore the effects of all non-magical difficult terrain, treat greater difficult terrain as merely difficult terrain, and gives you an additional benefit from "
+          },
+          {
+            "type": "ref",
+            "id": "3dacd583-9d35-5a87-bf0c-66243b247aba"
+          },
+          {
+            "type": "text",
+            "text": " based on the terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ccd129cf-57b9-5928-abee-eeab866fc262"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VN3OHDYcnLaw0nW1"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Horizon Walker Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "e01bafb6-85e5-55a5-b90b-6718f3053cf5"
+    }
+  },
+  {
+    "id": "028e8e95-6b48-5f02-a4a8-383a5a2a4b51",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:wings-of-the-dragon",
+    "name": "Wings Of The Dragon",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manifest draconic wings to soar through the air at great speed. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2ba44397-82e4-5f67-8858-1ddac00b32b6"
+          },
+          {
+            "type": "text",
+            "text": " sorcerer bloodline spell and a focus pool of 1 Focus Point. If you already have a focus pool, increase your number of Focus Points by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Uzz7oZit3FNO9FxO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragon Disciple Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b351ca4f-ad7f-5536-b771-9bac26c6237e"
+    }
+  },
+  {
+    "id": "3841fb4b-430b-5e5e-8653-86d5d018d086",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:wortwitch",
+    "name": "Wortwitch",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a particular affinity for leafy plants."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron grants you a leshy familiar. If you already had a familiar, this leshy replaces your previous familiar, as if your previous familiar had been slain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain the ability to see through leaves, vines, and other foliage. You don't take circumstance penalties to ranged spell attacks or Perception checks caused by foliage, and your targeted attacks don't require a flat check to succeed against a target "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " only by such vegetation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zY6y802bOouMYYFV"
+    },
+    "data": {
+      "category": "class"
     }
   }
 ]

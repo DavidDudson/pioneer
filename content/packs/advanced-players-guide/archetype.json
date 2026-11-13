@@ -602,6 +602,233 @@
     }
   },
   {
+    "id": "b351ca4f-ad7f-5536-b771-9bac26c6237e",
+    "pack": "advanced-players-guide",
+    "kind": "archetype",
+    "slug": "archetype:dragon-disciple",
+    "name": "Dragon Disciple",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rippling waves of fear, the rustling of thick scales, and the beat of immense wings signal the arrival of a great dragon. The awe-inspiring presence of these creatures makes them worthy of reverence-or even outright worship. Dragon disciples dedicate themselves to becoming like these great beasts, with each disciple striving to typify one variety of dragon. Sorcerers of draconic blood, barbarians with the dragon instinct, and many kobolds with close ties to their draconic predecessors become dragon disciples, but anyone who has encountered one of these terrifying creatures might follow this path."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a dragon disciple, you study and learn from the example of dragons, but that doesn't necessarily mean that you admire the dragons you emulate. While most dragon disciples do indeed revere their chosen dragon, countless tales are told of dragon disciples born of great personal tragedy at the hands of boundless draconic fury. These disciples have transformed themselves into what they despise in order to gain the power to destroy their draconic tormentor and at long last earn their revenge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "INSTINCT OF THE WYRM",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The acquisition of draconic might can change the dragon disciple's body and give them magical abilities, as reflected in the archetype's feats, but the mind often changes as well, potentially even overwhelming the disciple's normal personality. Any dragon disciple can find the attitudes of dragonkind intruding into their thoughts. The foremost emotion among all types of dragons is pride. Even the influence of a benevolent metallic dragon can overwhelm a dragon disciple with pride. When tempered, this feeling levels out to a steady confidence, but when uncontrolled, it can grow to an air of arrogance or superiority."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Disciples of metallic dragons also feel the pangs of compassion and benevolence. They grow to be more focused on cooperation and might take on leadership roles. Disciples of the vile chromatic dragons are plagued by thoughts of cruelty and greed. They long to see fear in the eyes of foe and friend alike. Those who succumb to these thoughts become bullies or tyrants."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instinctual draconic feelings can be constant, yet they seem to intensify when the disciple uses their draconic powers. In the few seconds after using a breath weapon or attacking with claws, or when the disciple sprouts wings, they might have a moment of mental transformation. This can bring on the full mindset of a dragon, or even make the disciple temporarily believe they truly are a dragon, and is often accompanied by a draconic roar, cackle, or majestic display."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f880719a-dec3-556b-b91e-03904a7c613a"
+          },
+          {
+            "type": "text",
+            "text": " Feat 2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a kobold with the dragonscaled or spellscaled heritage, a dragon instinct barbarian, or a draconic bloodline sorcerer."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You choose to study or worship one type of dragon, and your focus grants you a measure of its power. Choose one color of dragon when you select this feat; if you are a sorcerer with the draconic bloodline, this must be the same type as your bloodline. You gain resistance equal to half your level against one type of damage determined by the chosen dragon type. The GM may allow you to choose a dragon type not listed below, and will determine the damage type appropriate for that dragon."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Black or Copper",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Acid"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue or Bronze",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Electricity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brass, Gold, or Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Fire"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Poison"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Silver or White",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Cold"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain a +1 circumstance bonus to saving throws against sleep effects and effects that would make you paralyzed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you have gained two other feats from the dragon disciple archetype. If you later take the sorcerer archetype, you must choose the draconic bloodline."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.SO9d7RSf1zqmTlmW"
+    },
+    "data": {
+      "dedication": "f880719a-dec3-556b-b91e-03904a7c613a"
+    }
+  },
+  {
     "id": "6edf52d0-d3b3-55b7-bf26-ec47501233ae",
     "pack": "advanced-players-guide",
     "kind": "archetype",
@@ -899,6 +1126,53 @@
     }
   },
   {
+    "id": "e01bafb6-85e5-55a5-b90b-6718f3053cf5",
+    "pack": "advanced-players-guide",
+    "kind": "archetype",
+    "slug": "archetype:horizon-walker",
+    "name": "Horizon Walker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many long for the open road, but you prefer the trackless wild. You can find safe passage through the most inhospitable terrain in the world-icecaps, deserts, and similar environs are where you're comfortable. Your talents open untrod paths for you and help guide others through the wilderness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10th Blind-Fight, Terrain Master; 12th Warden's Step"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.M5QOocGyP4zkMo9m"
+    },
+    "data": {
+      "dedication": "9947660c-7ec9-5b86-9a7a-38065b84a9da"
+    }
+  },
+  {
     "id": "d6ce6d19-41bd-5738-a687-484b5ac3b086",
     "pack": "advanced-players-guide",
     "kind": "archetype",
@@ -964,6 +1238,53 @@
     },
     "data": {
       "dedication": "72c19272-b729-51be-a0cc-2ba48c1be1fb"
+    }
+  },
+  {
+    "id": "97821673-b0f2-5050-aa66-98fb90160f7a",
+    "pack": "advanced-players-guide",
+    "kind": "archetype",
+    "slug": "archetype:loremaster",
+    "name": "Loremaster",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knowledge is power, and you labor in pursuit of that power. No matter the situation, you can usually procure some tidbit of knowledge to inform your actions. You specialize in secrets, both uncovering them and hiding them away, and your command of the written word borders on the supernatural. As you discover deeper secrets of lore, you might develop a power over knowledge that becomes outright magical, allowing you to understand and disguise information even more effectively."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4th Loremaster's Etude; 8th Assured Knowledge; 14th Enigma's Knowledge; 16th True Hypercognition"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ackdHdIAmSb0AiVL"
+    },
+    "data": {
+      "dedication": "a47093ad-f696-5d61-bd1c-d372ade7718a"
     }
   },
   {
@@ -1525,6 +1846,147 @@
     },
     "data": {
       "dedication": "e177699f-05e3-53ad-bfea-4810edeef0d4"
+    }
+  },
+  {
+    "id": "97115ecd-8e25-57f0-8316-01fc76f46b25",
+    "pack": "advanced-players-guide",
+    "kind": "archetype",
+    "slug": "archetype:shadowdancer",
+    "name": "Shadowdancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shadow has always been the cousin of fear. Within the darkness, monsters dwell, plans are hatched, and enemies strike with fang and dagger and dark magic. But some embrace the shadow, gain power from it, and dance within its shifting dark."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A true shadowdancer is a creature who flits on the edge of light and darkness. Moving amid the inky blackness, shadowdancers are spies, assassins, infiltrators, and emissaries. Some shadowdancers use their relationship with the dark for good, while others embrace the primordial night, its terror, and its betrayal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of the reason why someone embraces the shadows, the shadows embrace that person in turn, gradually transforming them into something inky, nebulous, and mysterious."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10th Uncanny Dodge; 14th Spring from the Shadows; 16th Sense The Unseen; 18th Cognitive Loophole"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "CALL OF SHADOWS",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shadows call out to a potential shadowdancer in a myriad of ways. Often it starts with fear-fear of the dark, fear of enemies, or an underlying uncontrolled anxiety and the desire to gain power over the darkness. Many potential shadowdancers hear the shadows whisper in their heads. First dismissed as some perverse trick of the mind, the whispers can seem to ebb and wane, but a true calling becomes more lucid and more compelling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In some shadow-infused lands in the Pathfinder setting, particularly Nidal, Ustalav, and even Cheliax, organizations search for and recruit those called by the shadows, eager to transform them into spies and assassins. But the call can come to any creature anywhere. It's just a question of whether the creature heeds the call and forms a pact with the shadows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it is hard to convince many folks otherwise, given the fearsome reputations of shadowdancers working for dark powers and cabals, there is nothing intrinsically evil about embracing the shadows. Darkness is amoral but not without its champions for good and even law, though it is true that such shadowdancers are few and far between."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "SHADOWDANCER FOCUS SPELLS",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "5th "
+          },
+          {
+            "type": "ref",
+            "id": "2981e970-565f-5627-a564-5b2b1044712b"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "ref",
+            "id": "6f1279cf-8e0f-5c97-baf2-beeca7d8dc66"
+          },
+          {
+            "type": "text",
+            "text": "; 6th "
+          },
+          {
+            "type": "ref",
+            "id": "04008949-7b2a-55dd-ad83-4f2f6fbdecaa"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.MKU4d2hIpLuXGN2J"
+    },
+    "data": {
+      "dedication": "5e890651-8afd-5d4e-b224-13db91a16f23"
     }
   },
   {

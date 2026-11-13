@@ -376,6 +376,182 @@
     }
   },
   {
+    "id": "ee3f428c-8453-5356-aa18-66262f49d34e",
+    "pack": "advanced-players-guide",
+    "kind": "shield",
+    "slug": "shield:medusas-scream",
+    "name": "Medusa's Scream",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ghastly visage of a slain medusa's head stares out from this steel shield (Hardness 13, HP 52, BT 26). The shield comes with a thick leather cover to conceal the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reveal the medusa's face, focusing its gaze on one creature within 30 feet. The shield casts "
+          },
+          {
+            "type": "ref",
+            "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          },
+          {
+            "type": "text",
+            "text": " with a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the head of a medusa."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "52"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "26"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nzQKwdUxzmmwWtzT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "hardness": 13,
+      "hitPoints": 52,
+      "activations": [
+        {
+          "slug": "medusas-scream",
+          "name": "Medusa's Scream",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
     "id": "09494439-f5c2-5a2e-90e2-bcccb90bbab0",
     "pack": "advanced-players-guide",
     "kind": "shield",

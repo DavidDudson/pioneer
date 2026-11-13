@@ -107,6 +107,423 @@
     }
   },
   {
+    "id": "44e3dea8-60a9-5334-9e11-f11246f95b5e",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:bloodhound-mask-greater",
+    "name": "Bloodhound Mask (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 8 hours"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wide, single-use mask is designed to be slipped over your mouth and nose and its alchemical filter activated all with one hand. Once activated, the mask sharpens odors, giving you imprecise scent with a 60 foot range. You can't wear other masks while you're wearing a bloodhound mask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Survival to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature by its scent, your proficiency bonus is equal to your level even if you're untrained, and the mask grants you a +3 item bonus to your Survival check. The GM sets the Survival DC based on the area's ability to hold scent rather than on visual clues, as normal for using scent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ded245bb-ceaf-5b7f-b354-72596a88504c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2x8F5s3PyKzYsRrZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "toolkit",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "ded245bb-ceaf-5b7f-b354-72596a88504c",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a63a1b04-d106-5be5-b3e3-1db9f35b2804",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:bloodhound-mask-lesser",
+    "name": "Bloodhound Mask (Lesser)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wide, single-use mask is designed to be slipped over your mouth and nose and its alchemical filter activated all with one hand. Once activated, the mask sharpens odors, giving you imprecise scent with a 15 foot range. You can't wear other masks while you're wearing a bloodhound mask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Survival to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature by its scent, your proficiency bonus is equal to your level even if you're untrained, and the mask grants you a +1 item bonus to your Survival check. The GM sets the Survival DC based on the area's ability to hold scent rather than on visual clues, as normal for using scent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "df0704e0-982d-59f4-bf63-99100884ad18"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mDJSaarQsIMX7Opi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "toolkit",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "df0704e0-982d-59f4-bf63-99100884ad18",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c17f9b94-b877-5179-b9be-bf2b50d9bb91",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:bloodhound-mask-moderate",
+    "name": "Bloodhound Mask (Moderate)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wide, single-use mask is designed to be slipped over your mouth and nose and its alchemical filter activated all with one hand. Once activated, the mask sharpens odors, giving you imprecise scent a 30 foot range. You can't wear other masks while you're wearing a bloodhound mask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Survival to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature by its scent, your proficiency bonus is equal to your level even if you're untrained, and the mask grants you a +2 item bonus to your Survival check. The GM sets the Survival DC based on the area's ability to hold scent rather than on visual clues, as normal for using scent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e6b90dac-f020-56dc-932d-740a14d8cf9a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qasFfdiZKIczoZ9p"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "toolkit",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "e6b90dac-f020-56dc-932d-740a14d8cf9a",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c0d0a11b-da61-5ad2-a322-00b679653bc3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:candle-of-invocation",
+    "name": "Candle of Invocation",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["consumable", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This golden candle bears the symbol of a specific deity emblazoned on its surface, surrounded by the iconography of that deity's faith. Once lit, this candle burns for 1 hour, and it can't be extinguished."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Characters who cast divine spells and worship the deity emblazoned on the candle can perform their daily preparations within 10 feet of the lit candle to gain two additional spell slots for the day, each at half the highest spell slot they possess (for example, 4th rank slots if the caster can cast 8th-rank spells). Prepared casters must prepare spells in these spell slots as they do for all their other spell slots."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A caster's additional spell slots from the candle are lost the next time that caster performs their daily preparations. No one can benefit from more than one candle of invocation in a day, but multiple characters can benefit from a single candle's effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WAUq4TB4Q9FDxWFz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "e9e5901d-df12-5760-92e7-a64ee1121e67",
     "pack": "advanced-players-guide",
     "kind": "consumable",
@@ -364,6 +781,426 @@
     }
   },
   {
+    "id": "b72a6d4b-988d-58ac-93ea-5adefd933775",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:drakeheart-mutagen-greater",
+    "name": "Drakeheart Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin grows tough scales like a drake, your eyesight become sharp and your pupils slitted, and your limbs grow wiry and quick, but your mind and reflexes become slow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain +6 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +3 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b269d57f-55d2-5779-86b1-f26e4990d246"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to Will saves, Reflex saves, and all skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour or until you use Final Surge, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "080fad7a-7696-5881-834e-40a21b76853a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WuzLBK78DgIt8SsN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "080fad7a-7696-5881-834e-40a21b76853a",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6aa730b5-b863-573f-b5d2-e9a29c937d75",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:drakeheart-mutagen-lesser",
+    "name": "Drakeheart Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin grows tough scales like a drake, your eyesight become sharp and your pupils slitted, and your limbs grow wiry and quick, but your mind and reflexes become slow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain +4 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +1 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b269d57f-55d2-5779-86b1-f26e4990d246"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to Will saves, Reflex saves, and all skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute or until you use Final Surge, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9afc16aa-0795-507a-a8af-7e11334ef8f6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GS4YvQieBS11JNYR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "9afc16aa-0795-507a-a8af-7e11334ef8f6",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a533365d-e609-5148-9926-54ce698f9aca",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:drakeheart-mutagen-major",
+    "name": "Drakeheart Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin grows tough scales like a drake, your eyesight become sharp and your pupils slitted, and your limbs grow wiry and quick, but your mind and reflexes become slow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain +7 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +4 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b269d57f-55d2-5779-86b1-f26e4990d246"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to Will saves, Reflex saves, and all skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour or until you use Final Surge, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1e0ee651-e981-5064-a6be-58dc48fa8a66"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M4ZOHOlne43ArjOC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "1e0ee651-e981-5064-a6be-58dc48fa8a66",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "88fa0909-8eaa-5503-b626-a5b7a703f670",
     "pack": "advanced-players-guide",
     "kind": "consumable",
@@ -501,6 +1338,138 @@
       "usage": {
         "type": "held",
         "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bf041a15-f33e-5577-9e5f-4bc73b2179b3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:dust-of-corpse-animation",
+    "name": "Dust of Corpse Animation",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black pouch contains what appears to be fine bone dust. Pouring the dust in a special pattern over a corpse turns it into an undead creature. The type of undead created depends on the condition of the corpse, resulting in either a "
+          },
+          {
+            "type": "text",
+            "text": "skeleton ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "or a "
+          },
+          {
+            "type": "text",
+            "text": "zombie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If the undead's level would be greater than 3, the dust fails to animate it. The body must be of an appropriate size and type for the undead you wish to create-for example, you must sprinkle the dust on a horse's skeleton to animate a "
+          },
+          {
+            "type": "text",
+            "text": "skeletal horse",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If more than one undead in the level range is appropriate, such as "
+          },
+          {
+            "type": "text",
+            "text": "skeletal guard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "skeletal champion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for a Medium humanoid skeleton, you choose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The animated undead has the "
+          },
+          {
+            "type": "text",
+            "text": "minion ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "trait, meaning it can use 2 actions when you Command it. You can issue a Command for the current turn as part of the activation. The undead creature remains animated for 1 minute before collapsing back into its corpse form. As usual, you can have a maximum of four minions under your control."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2koNKqbQV05myfuL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
       }
     }
   },
@@ -894,6 +1863,270 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "33838fd9-3ee8-5e41-84bb-7e01414075ac",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:focus-cathartic-greater",
+    "name": "Focus Cathartic (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus briefly calms your neurons, helping ease mental effects. When you drink this elixir, the elixir attempts a counteract check with a 1d20+19 counteract modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vMs9n8oXlZttcJkX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e553b06c-5d22-5cbf-879b-25ea6b55f41b",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:focus-cathartic-lesser",
+    "name": "Focus Cathartic (Lesser)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus briefly calms your neurons, helping ease mental effects. When you drink this elixir, the elixir attempts a counteract check with a 1d20+6 counteract modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8KbayiwrUJtvif0a"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "28165e55-4085-5d5b-9a98-084c281096f6",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:focus-cathartic-major",
+    "name": "Focus Cathartic (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus briefly calms your neurons, helping ease mental effects. When you drink this elixir, the elixir attempts a counteract check with a 1d20+28 counteract modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Pnw4A7fhUhTS85Te"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3250
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1631,6 +2864,111 @@
     }
   },
   {
+    "id": "a36810a0-17ff-50c5-b142-104f8e799199",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:oil-of-object-animation",
+    "name": "Oil of Object Animation",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fine golden oil comes in a small blue canister. Carefully spreading the oil over an object turns it into an "
+          },
+          {
+            "type": "text",
+            "text": "animated object",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the same type. For example, sprinkling it on a statue makes an "
+          },
+          {
+            "type": "text",
+            "text": "animated statue",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If the animated object's level would be greater than 3, the oil struggles to animate it and ultimately fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This animated object has the "
+          },
+          {
+            "type": "text",
+            "text": "minion ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "trait, meaning it can use 2 actions when you Command it. You can issue a Command for the current turn as part of the activation. The object remains animated for 1 minute before falling inert. As usual, you can have a maximum of four minions under your control."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.C0kSU5KWMzLngvTa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "negligible",
+      "category": "oil",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
     "id": "626a78ae-b7d8-50e3-8c52-6f95ad01f5cd",
     "pack": "advanced-players-guide",
     "kind": "consumable",
@@ -1861,6 +3199,1439 @@
     }
   },
   {
+    "id": "e6d3d3db-7758-5341-8d29-b93c12475c8e",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:olfactory-obfuscator-greater",
+    "name": "Olfactory Obfuscator (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This frothing fluid causes the drinker's body to exude trace odor absorbing oils. For 8 hours after drinking this elixir, your scent is nearly unnoticeable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with imprecise scent don't detect you with that sense unless they "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " for you, and you are concealed from creatures that perceive you with precise scent. You gain a +4 item bonus against attempts to Seek you by creatures using only scent-based senses; if they use any other senses as well, the bonus doesn't apply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MBL8rOfvokYmUvwc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4d16dc2a-9577-59c7-9890-b3c76f5bf79b",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:olfactory-obfuscator-lesser",
+    "name": "Olfactory Obfuscator (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This frothing fluid causes the drinker's body to exude trace odor absorbing oils. For 10 minutes after drinking this elixir, your scent is nearly unnoticeable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with imprecise scent don't detect you with that sense unless they "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " for you, and you are concealed from creatures that perceive you with precise scent. You gain a +4 item bonus against attempts to Seek you by creatures using only scent-based senses; if they use any other senses as well, the bonus doesn't apply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R0gsYr0jD1giTzpx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5070cca5-f6ef-5d12-829a-6efdb36d69c6",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:origin-unguent",
+    "name": "Origin Unguent",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This shimmering, violet unguent forms mild chemical bonds between objects with a matching composition. You apply the adhesive to two objects, or to an object and a creature. You can check if the two share an origin (such as if they were broken from the same whole, or if a poison sample or body part came from the same creature) by holding them together with the unguent between; if they match, the unguent becomes sticky."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.npSWkkSsQfiKixPO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "43b50776-bb1a-582b-9270-e4137eff83e8",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-acid-retaliation-greater",
+    "name": "Potion of Acid Retaliation (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of acid retaliation, you glow with a faint aura of acid energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jVmTtUeNxDZMP5dU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "edc0818a-6db6-525c-a3be-5fdf6a34f726",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-acid-retaliation-lesser",
+    "name": "Potion of Acid Retaliation (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of acid retaliation, you glow with a faint aura of acid energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.omRmCbkQoK5YmCGv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2d327728-f651-5f73-885e-18bc77cc6996",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-acid-retaliation-major",
+    "name": "Potion of Acid Retaliation (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of acid retaliation, you glow with a faint aura of acid energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fabw5fDuaTMUF0tb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c8e57f50-75d9-566b-9180-e15e994c72cc",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-acid-retaliation-minor",
+    "name": "Potion of Acid Retaliation (Minor)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of acid retaliation, you glow with a faint aura of acid energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.apGQcVMSRprFEeKt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "622cc057-0fa8-510c-a352-4a24457b5e0d",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-acid-retaliation-moderate",
+    "name": "Potion of Acid Retaliation (Moderate)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of acid retaliation, you glow with a faint aura of acid energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OWPOTwMsrYma9d0v"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9d33c0d4-fc6d-5244-b2c1-7f05052c6eac",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-cold-retaliation-greater",
+    "name": "Potion of Cold Retaliation (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of cold retaliation, you glow with a faint aura of cold energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tW2rmGSanKQlUkiU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7d438492-4728-511b-8889-b6a5b241b1d7",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-cold-retaliation-lesser",
+    "name": "Potion of Cold Retaliation (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of cold retaliation, you glow with a faint aura of cold energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Uq3rnsAHbLKyW49E"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d3bd96cc-dcfb-53fc-b67d-69b9ff72316e",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-cold-retaliation-major",
+    "name": "Potion of Cold Retaliation (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of cold retaliation, you glow with a faint aura of cold energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bCPAiqiWmH7pVxNE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "40b14112-37eb-584c-a28b-0b52b0e07ef3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-cold-retaliation-minor",
+    "name": "Potion of Cold Retaliation (Minor)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of cold retaliation, you glow with a faint aura of cold energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zExWH2EsY9STTORq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "98e88610-9e1a-56e0-86aa-33c934188943",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-cold-retaliation-moderate",
+    "name": "Potion of Cold Retaliation (Moderate)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of cold retaliation, you glow with a faint aura of cold energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M6pES1Nck1S6SWX9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9623c330-07c2-5e5a-9055-3e63af45b557",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-disguise-greater",
+    "name": "Potion of Disguise (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "polymorph", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon imbibing this potion, you take on the appearance of a specific type of creature for 2d12 hours. The type of creature is determined when the potion is created. For example, you might have a "
+          },
+          {
+            "type": "text",
+            "text": "potion of elf disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "potion of frog disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Drinking the potion doesn't impart the knowledge of how long the effect lasts; the GM rolls the duration in secret."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The disguise doesn't change your traits or statistics, nor does it give you any of the special abilities of the creature you're imitating. It might affect what items you can hold or wear (for example, your new form might lack opposable thumbs). The potion shrinks you down to a minimum of size Tiny, or increases your size if the creature is larger than you, to a maximum of Large. This does not change any of your statistics, with the exception of reducing your reach to 0 as a Tiny creature. The creature has to be of a specific kind, such as \"leopard\" or \"lion\" rather than just \"cat\", or \"fire giant\" or \"ogre\" rather than just \"giant\", but the potion can't cause you to mimic a specific individual creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effects of this potion use the same rules as the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " activity of Deception. Onlookers always assume you're the chosen type of creature unless they're actively Seeking. You gain a +4 status bonus to your Deception DC against such Perception checks and add your level even if untrained."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While drinking a "
+          },
+          {
+            "type": "text",
+            "text": "greater potion of disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", if you picture the specific form you want to transform into, the potion will change you into that form. You can attempt to Impersonate a specific individual, though you still need to roll Deception."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ThX0ntpTqonGqguT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6963f625-0c92-56c0-ad42-bbfca1794ea3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-disguise-lesser",
+    "name": "Potion of Disguise (Lesser)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "polymorph", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon imbibing this potion, you take on the appearance of a specific type of creature for 2d12 hours. The type of creature is determined when the potion is created. For example, you might have a "
+          },
+          {
+            "type": "text",
+            "text": "potion of elf disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "potion of frog disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Drinking the potion doesn't impart the knowledge of how long the effect lasts; the GM rolls the duration in secret."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The disguise doesn't change your traits or statistics, nor does it give you any of the special abilities of the creature you're imitating. It might affect what items you can hold or wear (for example, your new form might lack opposable thumbs). The potion shrinks you down to a minimum of size Small, or maintains your size if the creature is your size or larger. For example, if you are Medium and drink a "
+          },
+          {
+            "type": "text",
+            "text": "potion of fire giant disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you'll take on the appearance of a fire giant but remain Medium. The creature has to be of a specific kind, such as \"leopard\" or \"lion\" rather than just \"cat\", or \"fire giant\" or \"ogre\" rather than just \"giant\", but the potion can't cause you to mimic a specific individual creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effects of this potion use the same rules as the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " activity of Deception. Onlookers always assume you're the chosen type of creature unless they're actively Seeking. You gain a +4 status bonus to your Deception DC against such Perception checks and add your level even if untrained."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Initial raw materials must include a bit of blood, hair, or flesh of the creature the potion will allow the drinker to imitate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QNub2kTE7LpdMPII"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "58f0afdb-6fcb-5a7c-8230-c62db6f43d19",
     "pack": "advanced-players-guide",
     "kind": "consumable",
@@ -1981,6 +4752,530 @@
       "price": {
         "coins": {
           "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5b8d30a8-f61a-560a-ad72-21187a6626fb",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-retaliation-greater",
+    "name": "Potion of Fire Retaliation (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of fire retaliation, you glow with a faint aura of fire energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hMUYvp0neF0LAFqc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "01fc7214-0a79-5498-a0cb-9aa68b641ad2",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-retaliation-lesser",
+    "name": "Potion of Fire Retaliation (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of fire retaliation, you glow with a faint aura of fire energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.67KiGZtoTMbl7nv2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f6740fb6-efc1-5255-8e19-cc0a2af33075",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-retaliation-major",
+    "name": "Potion of Fire Retaliation (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of fire retaliation, you glow with a faint aura of fire energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TalLb1YlvXzutuPc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4099cfe1-145f-5970-b75a-7717d7d81096",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-retaliation-minor",
+    "name": "Potion of Fire Retaliation (Minor)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of fire retaliation, you glow with a faint aura of fire energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ugIxgGIkJh2aXE2N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a7088f5b-9fcb-52c3-85ab-5ba9cee29da8",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-retaliation-moderate",
+    "name": "Potion of Fire Retaliation (Moderate)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of fire retaliation, you glow with a faint aura of fire energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AgBIZtwciSsCZeNN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b8995d46-5340-56fd-bd19-e6df5d86603d",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:ration-tonic",
+    "name": "Ration Tonic",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slender vial appears to hold clean, clear water with a faintly fruity scent. Drinking a ration tonic magically nourishes you with the equivalent of a day's worth of food and water. The tonic has a subtle, pleasant taste, its particulars chosen when the potion is crafted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Wb0N7iqmTn6e2Xc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
         }
       },
       "bulk": "light",
@@ -2159,6 +5454,270 @@
       "usage": {
         "type": "held",
         "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "20b31220-4395-5f14-8735-8d53d3f5c680",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:sinew-shock-serum-greater",
+    "name": "Sinew-Shock Serum (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This serum jolts the body to help shake off physical debilitations. When you drink this elixir, it attempts a counteract check with a 1d20+19 Counteract Modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.62HxCEDwhlZaeR0Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "aaf504c2-e606-5479-a219-49c6da85eccd",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:sinew-shock-serum-lesser",
+    "name": "Sinew-Shock Serum (Lesser)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This serum jolts the body to help shake off physical debilitations. When you drink this elixir, it attempts a counteract check with a 1d20+6 Counteract Modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1TWHN8RbimPVXM0U"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a2177c85-16bc-546b-8ff0-f1caa042a57b",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:sinew-shock-serum-major",
+    "name": "Sinew-Shock Serum (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This serum jolts the body to help shake off physical debilitations. When you drink this elixir, it attempts a counteract check with a 1d20+28 Counteract Modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YIgIF1845n5UBFnE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3250
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
       }
     }
   },
@@ -2689,6 +6248,180 @@
       "price": {
         "coins": {
           "gp": 14
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d53508ad-52fa-59fd-947c-64b250d844b3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:universal-solvent-greater",
+    "name": "Universal Solvent (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally formulated as a means of dissolving "
+          },
+          {
+            "type": "ref",
+            "id": "1694ca77-0f11-5b41-9298-d5e350bf9ae3",
+            "label": "Sovereign Glue"
+          },
+          {
+            "type": "text",
+            "text": ", this powerful solvent can break almost any adhesive's grip. As universal solvent is particularly effective against sovereign glue, it automatically dissolves sovereign glue. It attempts to counteract any other adhesives, such as "
+          },
+          {
+            "type": "ref",
+            "id": "7fb3c0d9-e471-5331-9133-4ed75a92feeb",
+            "label": "Tanglefoot Bags"
+          },
+          {
+            "type": "text",
+            "text": ", with a counteract modifier of 1d20+19."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mR9RD9S08jIX1IPm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "761add93-c870-501a-a026-20ad3654f797",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:universal-solvent-major",
+    "name": "Universal Solvent (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally formulated as a means of dissolving "
+          },
+          {
+            "type": "ref",
+            "id": "1694ca77-0f11-5b41-9298-d5e350bf9ae3",
+            "label": "Sovereign Glue"
+          },
+          {
+            "type": "text",
+            "text": ", this powerful solvent can break almost any adhesive's grip. As universal solvent is particularly effective against sovereign glue, it automatically dissolves sovereign glue. It attempts to counteract any other adhesives, such as "
+          },
+          {
+            "type": "ref",
+            "id": "7fb3c0d9-e471-5331-9133-4ed75a92feeb",
+            "label": "Tanglefoot Bags"
+          },
+          {
+            "type": "text",
+            "text": ", with a counteract modifier of 1d20+28."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jdkMRl7zxOVGUuGI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3250
         }
       },
       "bulk": "light",

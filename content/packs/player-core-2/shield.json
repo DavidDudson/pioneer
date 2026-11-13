@@ -558,7 +558,8 @@
       ],
       "baseItem": "steel-shield",
       "acBonus": 2
-    }
+    },
+    "supersedes": ["ee3f428c-8453-5356-aa18-66262f49d34e"]
   },
   {
     "id": "7c9d4d17-a06d-5a64-9577-d9ca98366961",

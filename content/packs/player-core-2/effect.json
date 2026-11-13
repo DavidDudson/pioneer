@@ -424,7 +424,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["241c8f63-ff30-543e-9ed5-b7022901c14c"]
   },
   {
     "id": "121fb796-f3ac-5b4a-997c-530b77aff355",
@@ -485,7 +486,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["bd600f0d-f036-5cae-ae95-f7c9aedc7b3c"]
   },
   {
     "id": "410e6ad4-6c80-58b9-a398-f3f76122317a",
@@ -1906,7 +1908,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["e77c88aa-41fd-53f3-b941-bf7576b4997a"]
   },
   {
     "id": "e0dd388d-f654-5b29-920f-39898b693d15",
@@ -2231,7 +2234,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["7a22f56a-bb14-59d4-af95-1d84a973c7d1"]
   },
   {
     "id": "7f7c030d-7e9a-554a-9394-b1c94403f0b3",
@@ -2424,7 +2428,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["0e54bbc3-ddd4-5147-af6b-8b979d62f737"]
   },
   {
     "id": "4e4c8856-c183-58db-a672-9ff70df6d54b",
@@ -4090,7 +4095,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["a225e194-c4c1-53df-8d6b-5ee7d2af0018"]
   },
   {
     "id": "b237431f-daf1-57ea-b573-52b88be2276d",
@@ -4227,7 +4233,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["099ae1b1-cde6-5a96-8f97-2ab92f8882d9"]
   },
   {
     "id": "6770c99a-8686-5938-a08a-51793516f22b",
@@ -4501,7 +4508,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["080fad7a-7696-5881-834e-40a21b76853a"]
   },
   {
     "id": "6d3b31cf-5200-5d0a-b42f-19299535ab47",
@@ -4603,7 +4611,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["9afc16aa-0795-507a-a8af-7e11334ef8f6"]
   },
   {
     "id": "a4529612-ab1a-52be-a74a-ddd71e9e926b",
@@ -4705,7 +4714,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["1e0ee651-e981-5064-a6be-58dc48fa8a66"]
   },
   {
     "id": "22364a4f-3e93-51e2-aac4-0911230366f9",
@@ -4807,7 +4817,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["0f7f67b3-3001-574d-ac77-d5f56d571729"]
   },
   {
     "id": "0b073057-4e96-5fcd-aab3-ad7c035d962a",
@@ -4891,7 +4902,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["6ca4c1d4-bd2f-5ba3-a411-ed74d772404c"]
   },
   {
     "id": "7e223287-eeb3-5616-81cd-50361144ed2c",
@@ -4950,7 +4962,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["2bab039f-f2f4-58b1-8e55-cb676769d0ef"]
   },
   {
     "id": "f0aa9996-4913-5f5e-90d1-e9753f124033",
@@ -5792,7 +5805,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["bb6e42e6-a9e3-56fb-9e25-b2a2ea25d40f"]
   },
   {
     "id": "3d3d7afd-8015-5842-b19f-4f93c4093e22",
@@ -7414,7 +7428,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["4ca13c6f-eda3-570c-88d0-3360fcd45011"]
   },
   {
     "id": "4e71b5e7-e69b-5926-a267-b5a616c861c8",
@@ -7996,7 +8011,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["972823cb-acc6-5286-a697-91734500e4a7"]
   },
   {
     "id": "0ec5df84-537e-527e-905f-8274689f0889",
@@ -8719,7 +8735,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["658fbaf5-a9cd-510d-b214-628a69e49a1c"]
   },
   {
     "id": "aec97f64-0dab-5ef0-86e3-ee7d8d52d605",
@@ -9422,7 +9439,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["6d489b88-acd8-5bb9-97ca-db44a1ac05b4"]
   },
   {
     "id": "6d8e8b35-4626-5ca1-ae0f-4822d82ada64",
@@ -10349,7 +10367,8 @@
         "unit": "day",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["0359a263-8aca-53ad-8902-15b2ab1a098d"]
   },
   {
     "id": "e7ec1409-e705-5786-966d-9d42ac543253",
@@ -11050,7 +11069,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["cd62c006-3468-5908-a098-b347040e32ae"]
   },
   {
     "id": "31c3e55a-4fd0-5e2f-adb3-b42d0f24e094",
@@ -11730,7 +11750,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["516d3915-3cf1-5f57-b07f-39b771810e34"]
   },
   {
     "id": "461c3179-bc69-5ca9-888f-b5248175f119",
@@ -12348,7 +12369,8 @@
         "unit": "round",
         "expiry": "turn-end"
       }
-    }
+    },
+    "supersedes": ["092e1ec3-b551-59c3-98c8-4bb7e9470224"]
   },
   {
     "id": "97267d5e-b364-5b39-89ca-577b8f18c411",
@@ -13170,7 +13192,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["8d8f8243-b4cf-53b5-9978-9cf7ac762219"]
   },
   {
     "id": "af9d5f68-0b61-5dab-ad39-16c41a897963",
@@ -13291,7 +13314,8 @@
         "expiry": "turn-start",
         "sustained": true
       }
-    }
+    },
+    "supersedes": ["eea37e2a-5b6e-5feb-9bca-a72aa1119e66"]
   },
   {
     "id": "0bd6bb51-6cbd-5001-b1a2-6cb4689f53db",
@@ -13675,7 +13699,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["bf6653a5-3355-5dec-904a-dc7159321e5c"]
   },
   {
     "id": "d421e7c3-fbc7-5d35-9b89-9b135106975f",
@@ -13735,7 +13760,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["a2bef8dd-70e4-5016-ad55-f0d5c669b971"]
   },
   {
     "id": "5e7b400b-6272-5739-8e44-ce137ab08d7d",
@@ -13785,7 +13811,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["3267408b-7b79-5b66-89dd-eb3cbced4f02"]
   },
   {
     "id": "0f542baa-5334-5cf3-aaa1-e0b53deaedd5",
@@ -13838,7 +13865,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["d6bbdfcf-9663-589b-80e7-22469dca1f53"]
   },
   {
     "id": "276a8865-63a9-5454-bdae-4c2f19f1c9e8",
@@ -14051,7 +14079,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["84c87568-3c91-5625-8429-846353396b72"]
   },
   {
     "id": "be413332-88ec-5a34-a191-e9f8cafd0fe4",
@@ -15065,7 +15094,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["b791be61-dde3-53c0-9f5b-08aaa1bfcaf0"]
   },
   {
     "id": "19800b24-f647-5aae-97af-e9f11aaebd01",
@@ -15201,7 +15231,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["16f92128-f070-5701-81e0-02f928bd4c00"]
   },
   {
     "id": "17babbc5-37d1-5d54-adc5-956f4cbe21da",
@@ -15609,7 +15640,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["1381ff16-30a8-5a8a-b307-c677f8f57995"]
   },
   {
     "id": "cb2d513c-572e-5365-b77d-edacb5b70178",
@@ -16828,7 +16860,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["6fc05969-4513-509b-afbd-93209f3838fe"]
   },
   {
     "id": "553ab187-5b98-586f-bd15-04189695ecca",
@@ -17135,7 +17168,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["29947793-00d0-5e9d-9249-2f0212172781"]
   },
   {
     "id": "b70d826d-1e1f-5d7c-b5a2-79646e33b6db",
@@ -17381,7 +17415,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["ec5e3f3a-8978-5320-9a29-46403f57784c"]
   },
   {
     "id": "e60fab45-63dd-5d7c-ae3c-ead711b8ef89",
@@ -17790,7 +17825,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["3af075f3-7135-5daf-b575-5272163c0acd"]
   },
   {
     "id": "06393967-3b92-5d90-8cdd-f84ed33b58cc",
@@ -17872,7 +17908,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["5d1518cc-f8d5-52fa-a6f3-09253268f527"]
   },
   {
     "id": "f028b780-d78f-5cdd-af54-d15f74aa5d5c",
@@ -17944,7 +17981,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["e00004de-7d5f-5d79-b60e-b1673c9fa116"]
   },
   {
     "id": "43c6370a-f3fa-542e-a8f2-e0d2f9c24630",
@@ -18027,7 +18065,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["4ee071e0-5182-52f6-ab00-93ad921b7bfe"]
   },
   {
     "id": "56faa06b-a865-5038-ae8e-0ecbf3242530",
@@ -18271,7 +18310,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["9eeb7854-3762-5fc4-87fb-9ae6e6e4837f"]
   },
   {
     "id": "ece2122d-fd62-5a4d-bf42-6bf6457a9a69",
@@ -18338,7 +18378,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["f0cfa579-b9c3-5e69-a4bd-ddb5dbdd9567"]
   },
   {
     "id": "8e2ca305-64af-515a-bc2a-cfc9ad7d008b",
@@ -18602,7 +18643,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["2a916433-3470-5c0a-b47f-2b138c399c39"]
   },
   {
     "id": "da18be33-8726-5a8a-8368-23603e024bb3",
@@ -18733,7 +18775,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["728c54eb-a26a-599e-a1e5-fc47143df7b7"]
   },
   {
     "id": "9df765d5-81ab-585a-91e8-5f593e25452a",
@@ -18808,7 +18851,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["4c043bdc-f5dc-5a82-87c6-9bfb68cde4c8"]
   },
   {
     "id": "49b8d3a9-48ae-5c85-830d-97c861e13df5",
@@ -19019,7 +19063,8 @@
       "duration": {
         "type": "encounter"
       }
-    }
+    },
+    "supersedes": ["6bcc1452-20ca-54aa-9c5c-6f7c2a9863bc"]
   },
   {
     "id": "beeeabd5-be16-56e8-aaf4-d964a93e28f9",
