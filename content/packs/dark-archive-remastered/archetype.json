@@ -79,7 +79,8 @@
     },
     "data": {
       "dedication": "d252e299-73d8-53eb-bd76-817e0d04fd36"
-    }
+    },
+    "supersedes": ["224f705d-71dc-53a6-b3d1-add987f2d7fb"]
   },
   {
     "id": "4f70fa72-5f6b-5b85-a3e4-f7f2f3d50d7e",
@@ -149,7 +150,8 @@
     },
     "data": {
       "dedication": "357df960-cfe0-5ee8-a534-b6498d7f4817"
-    }
+    },
+    "supersedes": ["0f3db88b-bce7-5b2f-a7c5-ac8a88b66519"]
   },
   {
     "id": "4cdcde91-1753-56e6-be7a-e42b900678a7",
@@ -249,7 +251,8 @@
     },
     "data": {
       "dedication": "7b305a7c-8405-5049-ad5f-c5338019cb96"
-    }
+    },
+    "supersedes": ["65c3dc96-f1f4-5f61-ab29-d8d44fdc924a"]
   },
   {
     "id": "87db4f0e-9cc3-5f53-9e69-27991b1db6a3",
@@ -333,7 +336,8 @@
     },
     "data": {
       "dedication": "32447860-488a-55da-9ad7-e38e607834fc"
-    }
+    },
+    "supersedes": ["2d0b15ec-b13d-57df-b729-3c1738245e17"]
   },
   {
     "id": "694e3901-695f-591f-8679-1bc6e978cc6a",
@@ -368,7 +372,8 @@
     },
     "data": {
       "dedication": "9951de90-0e3f-5e19-bfc3-178a2c1dc83d"
-    }
+    },
+    "supersedes": ["d1b70004-aadf-5c26-ba8c-79eec81f550c"]
   },
   {
     "id": "f4109a54-751b-5769-847a-39c88db7951c",
@@ -438,7 +443,8 @@
     },
     "data": {
       "dedication": "fbbec3c9-19e0-5fdd-8264-8a8ab7b0ba77"
-    }
+    },
+    "supersedes": ["4c877f46-c326-52b5-af4f-3a93a16aee41"]
   },
   {
     "id": "cda22ae5-8615-5c97-b350-d8103a53acf0",
@@ -490,7 +496,8 @@
     },
     "data": {
       "dedication": "85685b5a-48bd-5535-a0e7-c8c32b8c1f44"
-    }
+    },
+    "supersedes": ["fd9507fb-ef36-524b-9217-a648642d74aa"]
   },
   {
     "id": "729f6514-302f-5856-8332-19ce843c97de",
@@ -534,7 +541,8 @@
     },
     "data": {
       "dedication": "94a24572-9c00-5aaf-b1d0-4c409725946c"
-    }
+    },
+    "supersedes": ["74efd069-fd98-5e16-b163-a7aaa0084c20"]
   },
   {
     "id": "842ef1b4-53d2-5df6-8635-58874594d89b",
@@ -570,7 +578,8 @@
     "data": {
       "dedication": "71d42745-aea8-52ab-ac5e-22c61f4b3766",
       "multiclass": "46a4174e-4491-5113-b9ff-ceb64fe34cb1"
-    }
+    },
+    "supersedes": ["2e71235e-3b96-5d55-ac17-5a8980ce31a2"]
   },
   {
     "id": "a5995921-8e20-5b23-b313-7ce85b430c08",
@@ -695,6 +704,7 @@
           "level": 20
         }
       ]
-    }
+    },
+    "supersedes": ["ea7374cc-eaf6-586d-9fa0-e7bd420f716c"]
   }
 ]

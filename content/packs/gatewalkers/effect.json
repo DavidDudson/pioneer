@@ -610,7 +610,8 @@
         "labels": ["Mild", "Moderate", "Severe"],
         "loop": false
       }
-    }
+    },
+    "supersedes": ["4820a863-7783-5ec1-bd65-b07098416681"]
   },
   {
     "id": "8dc5e316-48c0-5f43-a314-ddef5ee495d8",

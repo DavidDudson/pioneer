@@ -1,0 +1,2250 @@
+{
+  "etag": "\"a04ac679b9bd48bbb7130c767f9f377e\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Reflection",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=51"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Reflection",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=203"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Alter Ego",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=187"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Chronoskimmer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=192"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Curse Maelstrom",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=190"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Living Vessel",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=188"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Mind Smith",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=194"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Pactbinder",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=189"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Psychic",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=185"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Psychic Duelist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=193"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Sleepwalker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=195"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Thaumaturge",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=186"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Time Mage",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=191"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Child of the Twin Village",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=324"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Empty Whispers",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=325"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Legacy of the Hammer",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=326"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Reborn Soul",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=327"
+    },
+    {
+      "type": "Classes",
+      "name": "Psychic",
+      "url": "https://2e.aonprd.com/Classes.aspx?ID=21"
+    },
+    {
+      "type": "Classes",
+      "name": "Thaumaturge",
+      "url": "https://2e.aonprd.com/Classes.aspx?ID=22"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Lorekeeper (Thaumaturge)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=50"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Nomadic Visionary (Psychic)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=47"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Pillar of Resolve (Psychic)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=46"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Protector (Thaumaturge)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=49"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Student of Thoughts (Psychic)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=45"
+    },
+    {
+      "type": "Class Sample Builds",
+      "name": "Trickster (Thaumaturge)",
+      "url": "https://2e.aonprd.com/ClassSamples.aspx?ID=48"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Distant Grasp",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=1"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Infinite Eye",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=2"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Oscillating Wave",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=3"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Silent Whisper",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=4"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Tangible Dream",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=5"
+    },
+    {
+      "type": "Conscious Minds",
+      "name": "The Unbound Step",
+      "url": "https://2e.aonprd.com/ConsciousMinds.aspx?ID=6"
+    },
+    {
+      "type": "Curses",
+      "name": "Boastful Prince's Scourge",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=34"
+    },
+    {
+      "type": "Curses",
+      "name": "Enforced Hospitality",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=39"
+    },
+    {
+      "type": "Curses",
+      "name": "Forbidding Knowledge",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=38"
+    },
+    {
+      "type": "Curses",
+      "name": "Rage of the Excommunicant",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=37"
+    },
+    {
+      "type": "Curses",
+      "name": "Sinful Tongue",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=35"
+    },
+    {
+      "type": "Curses",
+      "name": "Swarming Words",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=36"
+    },
+    {
+      "type": "Curses",
+      "name": "Thief's Burden",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=32"
+    },
+    {
+      "type": "Curses",
+      "name": "Unraveling Skin",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=33"
+    },
+    {
+      "type": "Equipment",
+      "name": "Baleblood Draft",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1612"
+    },
+    {
+      "type": "Equipment",
+      "name": "Book of Lost Days",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1640"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bottomless Purse",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1649"
+    },
+    {
+      "type": "Equipment",
+      "name": "Calamity Glass",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1641"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chaos Collar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Chimera Thread",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1614"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of the False Foe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1615"
+    },
+    {
+      "type": "Equipment",
+      "name": "Coded Signal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1631"
+    },
+    {
+      "type": "Equipment",
+      "name": "Compass of Transpositional Awareness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1638"
+    },
+    {
+      "type": "Equipment",
+      "name": "Conrasu Coin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1639"
+    },
+    {
+      "type": "Equipment",
+      "name": "Counterfeit Item",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1632"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cryolite Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1650"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dog-Bone Knife",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1637"
+    },
+    {
+      "type": "Equipment",
+      "name": "False Witness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1633"
+    },
+    {
+      "type": "Equipment",
+      "name": "False-Bottomed Mug",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1620"
+    },
+    {
+      "type": "Equipment",
+      "name": "Forgetful Drops",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1621"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gift of the Poisoned Heart",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1642"
+    },
+    {
+      "type": "Equipment",
+      "name": "Glittering Scarab",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1622"
+    },
+    {
+      "type": "Equipment",
+      "name": "Golden Goose",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1643"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hand-Hewed Face",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1651"
+    },
+    {
+      "type": "Equipment",
+      "name": "Hoax-Hunter's Kit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1616"
+    },
+    {
+      "type": "Equipment",
+      "name": "Horn of the Aoyin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1636"
+    },
+    {
+      "type": "Equipment",
+      "name": "Key to the Stomach",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1652"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lost Ember",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1653"
+    },
+    {
+      "type": "Equipment",
+      "name": "Membership Cords",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1623"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mistranslator's Draft",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1644"
+    },
+    {
+      "type": "Equipment",
+      "name": "Moonlit Ink",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1624"
+    },
+    {
+      "type": "Equipment",
+      "name": "Old Tillimaquin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1617"
+    },
+    {
+      "type": "Equipment",
+      "name": "Parchment of Secrets",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1625"
+    },
+    {
+      "type": "Equipment",
+      "name": "Political Favor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1634"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Sneering Charity",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1645"
+    },
+    {
+      "type": "Equipment",
+      "name": "Rose of Loves Lost",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1646"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sampling Ammunition",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1618"
+    },
+    {
+      "type": "Equipment",
+      "name": "Self-Emptying Pocket",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1656"
+    },
+    {
+      "type": "Equipment",
+      "name": "Self-Immolating Note",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1626"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sibling's Coin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1627"
+    },
+    {
+      "type": "Equipment",
+      "name": "Silent Bell",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1628"
+    },
+    {
+      "type": "Equipment",
+      "name": "Society Portrait",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1629"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stone of Unrivaled Skill",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1654"
+    },
+    {
+      "type": "Equipment",
+      "name": "Swirling Sand",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1619"
+    },
+    {
+      "type": "Equipment",
+      "name": "Tablet of Chained Souls",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1647"
+    },
+    {
+      "type": "Equipment",
+      "name": "Taleteller's Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1648"
+    },
+    {
+      "type": "Equipment",
+      "name": "Traitor's Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Vial of the Immortal Wellspring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1655"
+    },
+    {
+      "type": "Equipment",
+      "name": "Wine of the Blood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1635"
+    },
+    {
+      "type": "Feats",
+      "name": "Accursed Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3833"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Runic Mind-Smithing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3872"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Thaumaturgy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3745"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Thoughtform",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3739"
+    },
+    {
+      "type": "Feats",
+      "name": "All in your Head",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3691"
+    },
+    {
+      "type": "Feats",
+      "name": "Alter Ego Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3807"
+    },
+    {
+      "type": "Feats",
+      "name": "Ammunition Thaumaturgy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3698"
+    },
+    {
+      "type": "Feats",
+      "name": "Ancestral Mind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3656"
+    },
+    {
+      "type": "Feats",
+      "name": "Astral Tether",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3663"
+    },
+    {
+      "type": "Feats",
+      "name": "Aura Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3770"
+    },
+    {
+      "type": "Feats",
+      "name": "Automatic Writing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3771"
+    },
+    {
+      "type": "Feats",
+      "name": "Awakened Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3778"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Psychic Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3738"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Thaumaturgy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3744"
+    },
+    {
+      "type": "Feats",
+      "name": "Basic Thoughtform",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3737"
+    },
+    {
+      "type": "Feats",
+      "name": "Become Thought",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3694"
+    },
+    {
+      "type": "Feats",
+      "name": "Bizarre Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3769"
+    },
+    {
+      "type": "Feats",
+      "name": "Blasting Beams",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3780"
+    },
+    {
+      "type": "Feats",
+      "name": "Bone Spikes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3784"
+    },
+    {
+      "type": "Feats",
+      "name": "Borrow Memories",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3814"
+    },
+    {
+      "type": "Feats",
+      "name": "Borrow Time",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3852"
+    },
+    {
+      "type": "Feats",
+      "name": "Brain Drain",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3672"
+    },
+    {
+      "type": "Feats",
+      "name": "Breached Defenses",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3708"
+    },
+    {
+      "type": "Feats",
+      "name": "Call Implement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3704"
+    },
+    {
+      "type": "Feats",
+      "name": "Can't You See?",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3763"
+    },
+    {
+      "type": "Feats",
+      "name": "Cantrip Expansion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=183"
+    },
+    {
+      "type": "Feats",
+      "name": "Change of Face",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3808"
+    },
+    {
+      "type": "Feats",
+      "name": "Chromotherapy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3772"
+    },
+    {
+      "type": "Feats",
+      "name": "Chronocognizance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3840"
+    },
+    {
+      "type": "Feats",
+      "name": "Chronomancer's Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3841"
+    },
+    {
+      "type": "Feats",
+      "name": "Chronoskimmer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3847"
+    },
+    {
+      "type": "Feats",
+      "name": "Clone-Risen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3792"
+    },
+    {
+      "type": "Feats",
+      "name": "Combat Premonition",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3854"
+    },
+    {
+      "type": "Feats",
+      "name": "Conscious Spell Specialization",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3685"
+    },
+    {
+      "type": "Feats",
+      "name": "Constant Levitation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3688"
+    },
+    {
+      "type": "Feats",
+      "name": "Consume Energy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3781"
+    },
+    {
+      "type": "Feats",
+      "name": "Counter Curse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3834"
+    },
+    {
+      "type": "Feats",
+      "name": "Counter Thought",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3657"
+    },
+    {
+      "type": "Feats",
+      "name": "Cranial Detonation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3692"
+    },
+    {
+      "type": "Feats",
+      "name": "Cryptic Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3761"
+    },
+    {
+      "type": "Feats",
+      "name": "Crystal Healing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3773"
+    },
+    {
+      "type": "Feats",
+      "name": "Curse Maelstrom Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3829"
+    },
+    {
+      "type": "Feats",
+      "name": "Cursed Effigy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3715"
+    },
+    {
+      "type": "Feats",
+      "name": "Dark Persona's Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3673"
+    },
+    {
+      "type": "Feats",
+      "name": "Deep Roots",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3686"
+    },
+    {
+      "type": "Feats",
+      "name": "Deepest Wellspring",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3693"
+    },
+    {
+      "type": "Feats",
+      "name": "Devil's Eye",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3749"
+    },
+    {
+      "type": "Feats",
+      "name": "Distant Wandering",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3791"
+    },
+    {
+      "type": "Feats",
+      "name": "Diverse Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3699"
+    },
+    {
+      "type": "Feats",
+      "name": "Divine Disharmony",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3700"
+    },
+    {
+      "type": "Feats",
+      "name": "Dormant Eruption",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3757"
+    },
+    {
+      "type": "Feats",
+      "name": "Dream Guise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3678"
+    },
+    {
+      "type": "Feats",
+      "name": "Dream Logic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3880"
+    },
+    {
+      "type": "Feats",
+      "name": "Dream Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3876"
+    },
+    {
+      "type": "Feats",
+      "name": "Duel Spell Advantage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3859"
+    },
+    {
+      "type": "Feats",
+      "name": "Echo of the Fallen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3750"
+    },
+    {
+      "type": "Feats",
+      "name": "Eerie Environs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3764"
+    },
+    {
+      "type": "Feats",
+      "name": "Eerie Flicker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3788"
+    },
+    {
+      "type": "Feats",
+      "name": "Eerie Proclamation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3767"
+    },
+    {
+      "type": "Feats",
+      "name": "Eerie Traces",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3765"
+    },
+    {
+      "type": "Feats",
+      "name": "Elaborate Scroll Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3720"
+    },
+    {
+      "type": "Feats",
+      "name": "Elaborate Talisman Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3716"
+    },
+    {
+      "type": "Feats",
+      "name": "Elysium's Cadence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3752"
+    },
+    {
+      "type": "Feats",
+      "name": "Emotional Surge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3679"
+    },
+    {
+      "type": "Feats",
+      "name": "Enervating Wail",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3790"
+    },
+    {
+      "type": "Feats",
+      "name": "Enhanced Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=318"
+    },
+    {
+      "type": "Feats",
+      "name": "Entity's Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3816"
+    },
+    {
+      "type": "Feats",
+      "name": "Escape Timeline",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3855"
+    },
+    {
+      "type": "Feats",
+      "name": "Esoteric Reflexes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3724"
+    },
+    {
+      "type": "Feats",
+      "name": "Esoteric Warden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3705"
+    },
+    {
+      "type": "Feats",
+      "name": "Ever Dreaming",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3882"
+    },
+    {
+      "type": "Feats",
+      "name": "Expert Psychic Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3741"
+    },
+    {
+      "type": "Feats",
+      "name": "Exude Abyssal Corruption",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3818"
+    },
+    {
+      "type": "Feats",
+      "name": "Fake It Till You Make it",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3809"
+    },
+    {
+      "type": "Feats",
+      "name": "Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=604"
+    },
+    {
+      "type": "Feats",
+      "name": "Familiar Oddities",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3830"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3759"
+    },
+    {
+      "type": "Feats",
+      "name": "Fey's Trickery",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3819"
+    },
+    {
+      "type": "Feats",
+      "name": "Folk Dowsing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3774"
+    },
+    {
+      "type": "Feats",
+      "name": "Foreseen Failure",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3682"
+    },
+    {
+      "type": "Feats",
+      "name": "Forgotten Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3766"
+    },
+    {
+      "type": "Feats",
+      "name": "Future Spell Learning",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3842"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghost Blade",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3864"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghostly Grasp (Deviant)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3789"
+    },
+    {
+      "type": "Feats",
+      "name": "Gift of the Hoard",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3754"
+    },
+    {
+      "type": "Feats",
+      "name": "Grand Scroll Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3730"
+    },
+    {
+      "type": "Feats",
+      "name": "Grand Talisman Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3725"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Awakened Power",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3779"
+    },
+    {
+      "type": "Feats",
+      "name": "Guide the Timeline",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3849"
+    },
+    {
+      "type": "Feats",
+      "name": "Haunt Ingenuity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3701"
+    },
+    {
+      "type": "Feats",
+      "name": "High-Speed Regeneration",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3786"
+    },
+    {
+      "type": "Feats",
+      "name": "Homing Beacon",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3664"
+    },
+    {
+      "type": "Feats",
+      "name": "Implement Initiate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3746"
+    },
+    {
+      "type": "Feats",
+      "name": "Implement's Assault",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3731"
+    },
+    {
+      "type": "Feats",
+      "name": "Implement's Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3727"
+    },
+    {
+      "type": "Feats",
+      "name": "Impose Order (Psychic)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3680"
+    },
+    {
+      "type": "Feats",
+      "name": "In Plain Sight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3810"
+    },
+    {
+      "type": "Feats",
+      "name": "Incredible Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1576"
+    },
+    {
+      "type": "Feats",
+      "name": "Inertial Barrier",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3668"
+    },
+    {
+      "type": "Feats",
+      "name": "Infiltrate Dream",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3874"
+    },
+    {
+      "type": "Feats",
+      "name": "Instigate Psychic Duel",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3861"
+    },
+    {
+      "type": "Feats",
+      "name": "Instructive Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3709"
+    },
+    {
+      "type": "Feats",
+      "name": "Intense Implement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3732"
+    },
+    {
+      "type": "Feats",
+      "name": "Intensify Investiture",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3721"
+    },
+    {
+      "type": "Feats",
+      "name": "Into the Future",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3844"
+    },
+    {
+      "type": "Feats",
+      "name": "Jelly Body",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3753"
+    },
+    {
+      "type": "Feats",
+      "name": "Just the Tool",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3865"
+    },
+    {
+      "type": "Feats",
+      "name": "Know-It-All",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=197"
+    },
+    {
+      "type": "Feats",
+      "name": "Lingering Chill",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3751"
+    },
+    {
+      "type": "Feats",
+      "name": "Living Vessel Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3815"
+    },
+    {
+      "type": "Feats",
+      "name": "Magical Knowledge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3747"
+    },
+    {
+      "type": "Feats",
+      "name": "Malleable Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3804"
+    },
+    {
+      "type": "Feats",
+      "name": "Malleable Mental Forge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3868"
+    },
+    {
+      "type": "Feats",
+      "name": "Malleable Movement",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3863"
+    },
+    {
+      "type": "Feats",
+      "name": "Master Psychic Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3742"
+    },
+    {
+      "type": "Feats",
+      "name": "Mental Balm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3660"
+    },
+    {
+      "type": "Feats",
+      "name": "Mental Buffer",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3658"
+    },
+    {
+      "type": "Feats",
+      "name": "Mental Forge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3866"
+    },
+    {
+      "type": "Feats",
+      "name": "Mental Static",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3674"
+    },
+    {
+      "type": "Feats",
+      "name": "Metallic Envisionment",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3871"
+    },
+    {
+      "type": "Feats",
+      "name": "Mind over Matter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3695"
+    },
+    {
+      "type": "Feats",
+      "name": "Mind Projectiles",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3869"
+    },
+    {
+      "type": "Feats",
+      "name": "Mind Shards",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3867"
+    },
+    {
+      "type": "Feats",
+      "name": "Mind Smith Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3862"
+    },
+    {
+      "type": "Feats",
+      "name": "Mirror Refuge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3801"
+    },
+    {
+      "type": "Feats",
+      "name": "Mirror-Risen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3793"
+    },
+    {
+      "type": "Feats",
+      "name": "Mistaken Identity",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3797"
+    },
+    {
+      "type": "Feats",
+      "name": "Morph-Risen",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3794"
+    },
+    {
+      "type": "Feats",
+      "name": "Morphic Manipulation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3775"
+    },
+    {
+      "type": "Feats",
+      "name": "Muscle Mimicry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3812"
+    },
+    {
+      "type": "Feats",
+      "name": "No!!!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3683"
+    },
+    {
+      "type": "Feats",
+      "name": "Obscured Emergence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3768"
+    },
+    {
+      "type": "Feats",
+      "name": "One More Activation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3712"
+    },
+    {
+      "type": "Feats",
+      "name": "Oneiric Influence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3878"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of Draconic Fury",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3825"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of Eldritch Eyes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3828"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of Fey Glamour",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3824"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of Infernal Prowess",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3826"
+    },
+    {
+      "type": "Feats",
+      "name": "Pact of the Final Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3827"
+    },
+    {
+      "type": "Feats",
+      "name": "Pactbinder Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3822"
+    },
+    {
+      "type": "Feats",
+      "name": "Paired Link",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3710"
+    },
+    {
+      "type": "Feats",
+      "name": "Parallel Breakthrough",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3669"
+    },
+    {
+      "type": "Feats",
+      "name": "Petrified Skin",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3756"
+    },
+    {
+      "type": "Feats",
+      "name": "Progenitor Lore",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3795"
+    },
+    {
+      "type": "Feats",
+      "name": "Propulsive Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3783"
+    },
+    {
+      "type": "Feats",
+      "name": "Psi Burst",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3661"
+    },
+    {
+      "type": "Feats",
+      "name": "Psi Catastrophe",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3684"
+    },
+    {
+      "type": "Feats",
+      "name": "Psi Development",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3740"
+    },
+    {
+      "type": "Feats",
+      "name": "Psi Strikes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3665"
+    },
+    {
+      "type": "Feats",
+      "name": "Psychic Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3736"
+    },
+    {
+      "type": "Feats",
+      "name": "Psychic Duelist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3858"
+    },
+    {
+      "type": "Feats",
+      "name": "Psychic Rapport",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3659"
+    },
+    {
+      "type": "Feats",
+      "name": "Purge of Moments",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3845"
+    },
+    {
+      "type": "Feats",
+      "name": "Read Psychometric Resonance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3776"
+    },
+    {
+      "type": "Feats",
+      "name": "Redirect Attention",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3805"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflect Foe",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3806"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflective Pocket",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3798"
+    },
+    {
+      "type": "Feats",
+      "name": "Remove Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3675"
+    },
+    {
+      "type": "Feats",
+      "name": "Replicate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3799"
+    },
+    {
+      "type": "Feats",
+      "name": "Reset the Past",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3857"
+    },
+    {
+      "type": "Feats",
+      "name": "Resolute",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3748"
+    },
+    {
+      "type": "Feats",
+      "name": "Reverse Curse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3836"
+    },
+    {
+      "type": "Feats",
+      "name": "Reversing Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3850"
+    },
+    {
+      "type": "Feats",
+      "name": "Root to Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3702"
+    },
+    {
+      "type": "Feats",
+      "name": "Runic Mind Smithing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3870"
+    },
+    {
+      "type": "Feats",
+      "name": "Sacral Lord",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3837"
+    },
+    {
+      "type": "Feats",
+      "name": "Sacral Monarch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3838"
+    },
+    {
+      "type": "Feats",
+      "name": "Scour the Library",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3681"
+    },
+    {
+      "type": "Feats",
+      "name": "Scroll Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3713"
+    },
+    {
+      "type": "Feats",
+      "name": "Scroll Thaumaturgy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3703"
+    },
+    {
+      "type": "Feats",
+      "name": "Seven-Part Link",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3728"
+    },
+    {
+      "type": "Feats",
+      "name": "Sever Magic",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3729"
+    },
+    {
+      "type": "Feats",
+      "name": "Share Burden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3832"
+    },
+    {
+      "type": "Feats",
+      "name": "Share Weakness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3717"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Dream",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3881"
+    },
+    {
+      "type": "Feats",
+      "name": "Shared Warding",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3722"
+    },
+    {
+      "type": "Feats",
+      "name": "Shatter Space",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3687"
+    },
+    {
+      "type": "Feats",
+      "name": "Signature Spell Expansion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1823"
+    },
+    {
+      "type": "Feats",
+      "name": "Sink and Swim",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3758"
+    },
+    {
+      "type": "Feats",
+      "name": "Siphon Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3755"
+    },
+    {
+      "type": "Feats",
+      "name": "Sixth Sense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3670"
+    },
+    {
+      "type": "Feats",
+      "name": "Skeptic's Defense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3777"
+    },
+    {
+      "type": "Feats",
+      "name": "Sleepwalker Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3873"
+    },
+    {
+      "type": "Feats",
+      "name": "Sociable Vow",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3823"
+    },
+    {
+      "type": "Feats",
+      "name": "Sound Mirror",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3811"
+    },
+    {
+      "type": "Feats",
+      "name": "Space-Time Shift",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3856"
+    },
+    {
+      "type": "Feats",
+      "name": "Steady Spellcasting",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=194"
+    },
+    {
+      "type": "Feats",
+      "name": "Steal Time",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3853"
+    },
+    {
+      "type": "Feats",
+      "name": "Storming Breath",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3782"
+    },
+    {
+      "type": "Feats",
+      "name": "Strain Mind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3671"
+    },
+    {
+      "type": "Feats",
+      "name": "Superimpose Time Duplicates",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3851"
+    },
+    {
+      "type": "Feats",
+      "name": "Supreme Psychic Center",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3860"
+    },
+    {
+      "type": "Feats",
+      "name": "Swap Reflections",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3813"
+    },
+    {
+      "type": "Feats",
+      "name": "Sympathetic Vulnerabilities",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3714"
+    },
+    {
+      "type": "Feats",
+      "name": "Talisman Esoterica",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3706"
+    },
+    {
+      "type": "Feats",
+      "name": "Tap Vitality",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3817"
+    },
+    {
+      "type": "Feats",
+      "name": "Target of Psychic Ire",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3689"
+    },
+    {
+      "type": "Feats",
+      "name": "Tectonic Stomp",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3787"
+    },
+    {
+      "type": "Feats",
+      "name": "Thaumaturge Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3743"
+    },
+    {
+      "type": "Feats",
+      "name": "Thaumaturge's Demesne",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3723"
+    },
+    {
+      "type": "Feats",
+      "name": "Thaumaturge's Investiture",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3718"
+    },
+    {
+      "type": "Feats",
+      "name": "Thaumaturgic Ritualist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3711"
+    },
+    {
+      "type": "Feats",
+      "name": "Thoughtform Summoning",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3666"
+    },
+    {
+      "type": "Feats",
+      "name": "Thoughtsense",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3676"
+    },
+    {
+      "type": "Feats",
+      "name": "Time Mage Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3839"
+    },
+    {
+      "type": "Feats",
+      "name": "Timeline-Splitting Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3846"
+    },
+    {
+      "type": "Feats",
+      "name": "Titan Swing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3785"
+    },
+    {
+      "type": "Feats",
+      "name": "Torrential Backlash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3835"
+    },
+    {
+      "type": "Feats",
+      "name": "Trespass Teleportation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3726"
+    },
+    {
+      "type": "Feats",
+      "name": "Turn Away Misfortune",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3707"
+    },
+    {
+      "type": "Feats",
+      "name": "Turn Back the Clock",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3848"
+    },
+    {
+      "type": "Feats",
+      "name": "Twin Psyche",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3696"
+    },
+    {
+      "type": "Feats",
+      "name": "Twin Weakness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3719"
+    },
+    {
+      "type": "Feats",
+      "name": "Two-Truths",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3802"
+    },
+    {
+      "type": "Feats",
+      "name": "Ubiquitous Weakness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3733"
+    },
+    {
+      "type": "Feats",
+      "name": "Unlimited Demesne",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3734"
+    },
+    {
+      "type": "Feats",
+      "name": "Unlimited Potential",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3697"
+    },
+    {
+      "type": "Feats",
+      "name": "Unnerving Expansion",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3831"
+    },
+    {
+      "type": "Feats",
+      "name": "Unyielding Disguise",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3803"
+    },
+    {
+      "type": "Feats",
+      "name": "Vessel's Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3821"
+    },
+    {
+      "type": "Feats",
+      "name": "Violent Unleash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3667"
+    },
+    {
+      "type": "Feats",
+      "name": "Vision of Foresight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3875"
+    },
+    {
+      "type": "Feats",
+      "name": "Waking Dream",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3877"
+    },
+    {
+      "type": "Feats",
+      "name": "Walk on the Wind",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3760"
+    },
+    {
+      "type": "Feats",
+      "name": "Wandering Thoughts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3690"
+    },
+    {
+      "type": "Feats",
+      "name": "Ward Slumber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3879"
+    },
+    {
+      "type": "Feats",
+      "name": "Warp Likeness",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3800"
+    },
+    {
+      "type": "Feats",
+      "name": "Warp Space",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3662"
+    },
+    {
+      "type": "Feats",
+      "name": "Warped Constriction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3820"
+    },
+    {
+      "type": "Feats",
+      "name": "Warped Reflection",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3796"
+    },
+    {
+      "type": "Feats",
+      "name": "What Could Have Been",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3843"
+    },
+    {
+      "type": "Feats",
+      "name": "Whispering Steps",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3677"
+    },
+    {
+      "type": "Feats",
+      "name": "Wolf in Sheep's Clothing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3762"
+    },
+    {
+      "type": "Feats",
+      "name": "Wonder Worker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3735"
+    },
+    {
+      "type": "Hazards",
+      "name": "Bounding Hounds",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=193"
+    },
+    {
+      "type": "Hazards",
+      "name": "Call of the Void",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=196"
+    },
+    {
+      "type": "Hazards",
+      "name": "Clone Mirrors",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=190"
+    },
+    {
+      "type": "Hazards",
+      "name": "Confounding Portal",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=180"
+    },
+    {
+      "type": "Hazards",
+      "name": "Constricting Hall",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=191"
+    },
+    {
+      "type": "Hazards",
+      "name": "Disorienting Illusions",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=181"
+    },
+    {
+      "type": "Hazards",
+      "name": "Distortion Mirror",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=187"
+    },
+    {
+      "type": "Hazards",
+      "name": "Entrapping Chair",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=185"
+    },
+    {
+      "type": "Hazards",
+      "name": "Exhaling Portal",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=192"
+    },
+    {
+      "type": "Hazards",
+      "name": "False Floor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=184"
+    },
+    {
+      "type": "Hazards",
+      "name": "False Step Floor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=186"
+    },
+    {
+      "type": "Hazards",
+      "name": "Mirror Door",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=178"
+    },
+    {
+      "type": "Hazards",
+      "name": "Reflected Desires",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=182"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shrinking Hall",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=183"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shrouded Assailant",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=194"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shuffling Hall",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=179"
+    },
+    {
+      "type": "Hazards",
+      "name": "Sigil of Deepest Fears",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=188"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spirit Window",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=189"
+    },
+    {
+      "type": "Hazards",
+      "name": "Thalassophobic Pool",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=195"
+    },
+    {
+      "type": "Implements",
+      "name": "Amulet",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=1"
+    },
+    {
+      "type": "Implements",
+      "name": "Bell",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=2"
+    },
+    {
+      "type": "Implements",
+      "name": "Chalice",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=3"
+    },
+    {
+      "type": "Implements",
+      "name": "Lantern",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=4"
+    },
+    {
+      "type": "Implements",
+      "name": "Mirror",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=5"
+    },
+    {
+      "type": "Implements",
+      "name": "Regalia",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=6"
+    },
+    {
+      "type": "Implements",
+      "name": "Tome",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=7"
+    },
+    {
+      "type": "Implements",
+      "name": "Wand",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=8"
+    },
+    {
+      "type": "Implements",
+      "name": "Weapon",
+      "url": "https://2e.aonprd.com/Implements.aspx?ID=9"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of Bargains",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=14"
+    },
+    {
+      "type": "Lessons",
+      "name": "Lesson of Favors",
+      "url": "https://2e.aonprd.com/Lessons.aspx?ID=13"
+    },
+    {
+      "type": "Mysteries",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=9"
+    },
+    {
+      "type": "Patron Themes",
+      "name": "Pacts",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=11"
+    },
+    {
+      "type": "Rituals",
+      "name": "Bacchanalia",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=85"
+    },
+    {
+      "type": "Rituals",
+      "name": "Construct Mindscape",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=91"
+    },
+    {
+      "type": "Rituals",
+      "name": "Contact Friends",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=86"
+    },
+    {
+      "type": "Rituals",
+      "name": "Mindscape Door",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=92"
+    },
+    {
+      "type": "Rituals",
+      "name": "Oblivious Expulsion",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=87"
+    },
+    {
+      "type": "Rituals",
+      "name": "Recall Past Life",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=88"
+    },
+    {
+      "type": "Rituals",
+      "name": "Supreme Connection",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=89"
+    },
+    {
+      "type": "Rituals",
+      "name": "Vital Singularity",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=90"
+    },
+    {
+      "type": "Rules",
+      "name": "Aftermath Feats",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1710"
+    },
+    {
+      "type": "Rules",
+      "name": "Apocryphal Domain Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1728"
+    },
+    {
+      "type": "Rules",
+      "name": "Bargained Contracts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1730"
+    },
+    {
+      "type": "Rules",
+      "name": "Cryptid Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1711"
+    },
+    {
+      "type": "Rules",
+      "name": "Deviant Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1718"
+    },
+    {
+      "type": "Rules",
+      "name": "Mindscape Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1731"
+    },
+    {
+      "type": "Rules",
+      "name": "Psychic Duels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1732"
+    },
+    {
+      "type": "Rules",
+      "name": "Secret Society Member",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1717"
+    },
+    {
+      "type": "Rules",
+      "name": "Tempting Curses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1729"
+    },
+    {
+      "type": "Spells",
+      "name": "Astral Rain",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1143"
+    },
+    {
+      "type": "Spells",
+      "name": "Awaken Entropy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1183"
+    },
+    {
+      "type": "Spells",
+      "name": "Behold the Weave",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1184"
+    },
+    {
+      "type": "Spells",
+      "name": "Bilocation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1149"
+    },
+    {
+      "type": "Spells",
+      "name": "Bracing Tendrils",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1150"
+    },
+    {
+      "type": "Spells",
+      "name": "Cinder Gaze",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1167"
+    },
+    {
+      "type": "Spells",
+      "name": "Contagious Idea",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1141"
+    },
+    {
+      "type": "Spells",
+      "name": "Dancing Blade",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1132"
+    },
+    {
+      "type": "Spells",
+      "name": "Distortion Lens",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1145"
+    },
+    {
+      "type": "Spells",
+      "name": "Empty Pack",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1151"
+    },
+    {
+      "type": "Spells",
+      "name": "Entropic Wheel",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1137"
+    },
+    {
+      "type": "Spells",
+      "name": "Etheric Shards",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1152"
+    },
+    {
+      "type": "Spells",
+      "name": "Euphoric Renewal",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1168"
+    },
+    {
+      "type": "Spells",
+      "name": "Falling Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1153"
+    },
+    {
+      "type": "Spells",
+      "name": "False Nature",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1148"
+    },
+    {
+      "type": "Spells",
+      "name": "Focusing Hum",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1154"
+    },
+    {
+      "type": "Spells",
+      "name": "Forbidden Thought",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1139"
+    },
+    {
+      "type": "Spells",
+      "name": "Foresee the Path",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1135"
+    },
+    {
+      "type": "Spells",
+      "name": "Frenzied Revelry",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1169"
+    },
+    {
+      "type": "Spells",
+      "name": "Ghostly Shift",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1146"
+    },
+    {
+      "type": "Spells",
+      "name": "Glimpse Weakness",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1133"
+    },
+    {
+      "type": "Spells",
+      "name": "Hollow Heart",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1170"
+    },
+    {
+      "type": "Spells",
+      "name": "Hologram Cage",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1144"
+    },
+    {
+      "type": "Spells",
+      "name": "Imaginary Weapon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1142"
+    },
+    {
+      "type": "Spells",
+      "name": "Implement of Destruction",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1155"
+    },
+    {
+      "type": "Spells",
+      "name": "Inevitable Destination",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1172"
+    },
+    {
+      "type": "Spells",
+      "name": "Isolation",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1171"
+    },
+    {
+      "type": "Spells",
+      "name": "Kinetic Ram",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1156"
+    },
+    {
+      "type": "Spells",
+      "name": "Loose Time's Arrow",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1185"
+    },
+    {
+      "type": "Spells",
+      "name": "Manifold Lives",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1197"
+    },
+    {
+      "type": "Spells",
+      "name": "Momentary Recovery",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1157"
+    },
+    {
+      "type": "Spells",
+      "name": "Morass of Ages",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1186"
+    },
+    {
+      "type": "Spells",
+      "name": "Moth's Supper",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1158"
+    },
+    {
+      "type": "Spells",
+      "name": "Omnidirectional Scan",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1134"
+    },
+    {
+      "type": "Spells",
+      "name": "Over the Coals",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1182"
+    },
+    {
+      "type": "Spells",
+      "name": "Pact Broker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1180"
+    },
+    {
+      "type": "Spells",
+      "name": "Path of Least Resistance",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1194"
+    },
+    {
+      "type": "Spells",
+      "name": "Phase Bolt",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1159"
+    },
+    {
+      "type": "Spells",
+      "name": "Poltergeist's Fury",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1160"
+    },
+    {
+      "type": "Spells",
+      "name": "Purifying Veil",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1173"
+    },
+    {
+      "type": "Spells",
+      "name": "Quicken Time",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1187"
+    },
+    {
+      "type": "Spells",
+      "name": "Rally Point",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1161"
+    },
+    {
+      "type": "Spells",
+      "name": "Redistribute Potential",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1138"
+    },
+    {
+      "type": "Spells",
+      "name": "Return the Favor",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1181"
+    },
+    {
+      "type": "Spells",
+      "name": "Sea of Thought",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1162"
+    },
+    {
+      "type": "Spells",
+      "name": "Shadow Spy",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1163"
+    },
+    {
+      "type": "Spells",
+      "name": "Shaken Confidence",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1174"
+    },
+    {
+      "type": "Spells",
+      "name": "Shatter Mind",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1140"
+    },
+    {
+      "type": "Spells",
+      "name": "Soft Landing",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1164"
+    },
+    {
+      "type": "Spells",
+      "name": "Stagnate Time",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1188"
+    },
+    {
+      "type": "Spells",
+      "name": "String of Fate",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1175"
+    },
+    {
+      "type": "Spells",
+      "name": "Summon Irii",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1189"
+    },
+    {
+      "type": "Spells",
+      "name": "Suspended Retribution",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1190"
+    },
+    {
+      "type": "Spells",
+      "name": "Telekinetic Bombardment",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1165"
+    },
+    {
+      "type": "Spells",
+      "name": "Telekinetic Rend",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1130"
+    },
+    {
+      "type": "Spells",
+      "name": "Temporal Distortion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1195"
+    },
+    {
+      "type": "Spells",
+      "name": "Temporal Twin",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1191"
+    },
+    {
+      "type": "Spells",
+      "name": "Tesseract Tunnel",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1147"
+    },
+    {
+      "type": "Spells",
+      "name": "Thermal Stasis",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1136"
+    },
+    {
+      "type": "Spells",
+      "name": "Time Pocket",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1192"
+    },
+    {
+      "type": "Spells",
+      "name": "Time Sense",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1193"
+    },
+    {
+      "type": "Spells",
+      "name": "Time Skip",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1196"
+    },
+    {
+      "type": "Spells",
+      "name": "Vector Screen",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1131"
+    },
+    {
+      "type": "Spells",
+      "name": "Victory Cry",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1176"
+    },
+    {
+      "type": "Spells",
+      "name": "Waking Dream",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1198"
+    },
+    {
+      "type": "Spells",
+      "name": "Warp Step",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1166"
+    },
+    {
+      "type": "Spells",
+      "name": "Weaponize Secret",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1177"
+    },
+    {
+      "type": "Spells",
+      "name": "Wind Whispers",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1178"
+    },
+    {
+      "type": "Spells",
+      "name": "Wordsmith",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1179"
+    },
+    {
+      "type": "Subconscious Minds",
+      "name": "Emotional Acceptance",
+      "url": "https://2e.aonprd.com/SubconsciousMinds.aspx?ID=1"
+    },
+    {
+      "type": "Subconscious Minds",
+      "name": "Gathered Lore",
+      "url": "https://2e.aonprd.com/SubconsciousMinds.aspx?ID=2"
+    },
+    {
+      "type": "Subconscious Minds",
+      "name": "Precise Discipline",
+      "url": "https://2e.aonprd.com/SubconsciousMinds.aspx?ID=3"
+    },
+    {
+      "type": "Subconscious Minds",
+      "name": "Wandering Reverie",
+      "url": "https://2e.aonprd.com/SubconsciousMinds.aspx?ID=4"
+    },
+    {
+      "type": "Traits",
+      "name": "Aftermath (Feat)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=424"
+    },
+    {
+      "type": "Traits",
+      "name": "Amp (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=425"
+    },
+    {
+      "type": "Traits",
+      "name": "Deviant (Feat)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=426"
+    },
+    {
+      "type": "Traits",
+      "name": "Esoterica (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=427"
+    },
+    {
+      "type": "Traits",
+      "name": "Mindshift (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=428"
+    },
+    {
+      "type": "Traits",
+      "name": "Psyche (Class-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=429"
+    },
+    {
+      "type": "Traits",
+      "name": "Psychic (Class)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=430"
+    },
+    {
+      "type": "Traits",
+      "name": "Reflection (Ancestry)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=431"
+    },
+    {
+      "type": "Traits",
+      "name": "Thaumaturge (Class)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=432"
+    }
+  ]
+}

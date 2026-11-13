@@ -78,7 +78,8 @@
         "per": "day"
       },
       "selfEffect": "b3d36a5c-1f24-57b3-93b0-5f3aaeb0d883"
-    }
+    },
+    "supersedes": ["4cd51b21-b480-5c1a-940b-aaf94bdf908e"]
   },
   {
     "id": "128bfecb-06f4-5b46-a8d4-20c932c88a44",
@@ -176,7 +177,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["22b039ee-bdde-54c3-b733-b806511a5dbd"]
   },
   {
     "id": "0ba41ab2-8e03-5def-915f-803e6de5eac1",
@@ -244,7 +246,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["92ed2412-c3db-51bc-baf2-86b3200421fd"]
   },
   {
     "id": "e4e772b9-e191-5457-962e-82e9c4ee7bf4",
@@ -281,7 +284,8 @@
       "cost": "one",
       "category": "defensive",
       "selfEffect": "8fa351c9-2c0a-5f11-937f-f00910770e8a"
-    }
+    },
+    "supersedes": ["c796a195-d98e-5f19-9cad-a1290c8f6931"]
   },
   {
     "id": "9b004b6f-d37c-5c61-93c2-451ae9ac5c72",
@@ -326,7 +330,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["85c5c647-cc53-5d6e-a6eb-5a519227de40"]
   },
   {
     "id": "186de9de-acb0-5af4-9291-9f6fac72f027",
@@ -386,7 +391,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["85eb2d04-d704-50b6-b76c-d035400b25cd"]
   },
   {
     "id": "87209e3c-aaf1-58e9-ba8c-16e14985bd95",
@@ -438,7 +444,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["7bb10d3b-b37f-565e-a693-81d4968b179f"]
   },
   {
     "id": "22781c23-eadc-51f5-8ac2-eb41fe16f25d",
@@ -471,7 +478,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["60333055-4a92-53f8-9d8c-c09e0a85f186"]
   },
   {
     "id": "27bfad2b-c8f5-5dc8-9d7d-552136c3bcbd",
@@ -530,7 +538,8 @@
     "data": {
       "cost": "one",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["28097826-38e0-56f9-9e37-76c8da4a50ed"]
   },
   {
     "id": "b74f951d-8fe4-52d3-9fc3-77f4df3bd0df",
@@ -584,7 +593,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["1e6190ba-69d0-5c24-be38-841b9c46f59b"]
   },
   {
     "id": "42ae1e3e-5717-58d1-a0ba-e6f72a9f5505",
@@ -617,7 +627,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["1db73d9c-07ae-58bd-a384-e80df4a587e0"]
   },
   {
     "id": "a1993425-a449-55c3-b2ab-bb7b109f83a8",
@@ -690,7 +701,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["7ab7f3e1-5544-51b9-a593-c677defdf4ca"]
   },
   {
     "id": "f182d90a-3203-5eb7-b68c-501fd54b4d21",
@@ -741,7 +753,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["c5b23154-e009-54a5-92f0-4acad5b9f0ec"]
   },
   {
     "id": "cc36e863-e78f-5e77-bc55-7228bb5281c0",
@@ -826,7 +839,8 @@
         "max": 1,
         "per": "week"
       }
-    }
+    },
+    "supersedes": ["eadf7c3a-c26b-5fd0-8be2-22cb30568509"]
   },
   {
     "id": "b5e5a770-a0ec-52c1-9d90-5ce36bc3d231",
@@ -890,7 +904,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["ce8c07e6-acd9-5ab0-95b2-1c89a508f8c2"]
   },
   {
     "id": "223b7475-9127-5947-87d6-3e752a248f14",
@@ -965,7 +980,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["6ae1b4eb-792c-5c9c-81da-3596ddec0d4c"]
   },
   {
     "id": "67ca4433-bdd9-5166-bc4e-dc19f33d17d5",
@@ -998,7 +1014,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["39f5595b-d16e-59d0-adad-8286a254646e"]
   },
   {
     "id": "b7094283-97f1-5af7-8e87-489bb0e62f59",
@@ -1039,7 +1056,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["942b06d3-96aa-5794-bac3-f297dabe12ac"]
   },
   {
     "id": "23cb89e0-8c73-5fd4-b30c-f002f594b886",
@@ -1108,7 +1126,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["665f2f7c-6887-5131-8988-a4284a891dc4"]
   },
   {
     "id": "bdec58e1-549d-548f-9e78-a4035161fcfd",
@@ -1141,7 +1160,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["0e4242d0-53fb-5988-b8e5-f983e8c23072"]
   },
   {
     "id": "3bc61337-4343-5a0f-8857-fdeee73c327e",
@@ -1192,7 +1212,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["e1f55151-7795-59bd-8b97-17419420389e"]
   },
   {
     "id": "aecb0d80-bdda-5a52-94a5-4ba1262ddfd3",
@@ -1225,7 +1246,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["6c7685fa-cdb7-595b-a72a-d1f16c88fb2d"]
   },
   {
     "id": "12d209b0-35f0-5d60-b949-9d8830076eee",
@@ -1296,7 +1318,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["0af15a8e-a9fe-5dc5-9d8d-c8dade1f626a"]
   },
   {
     "id": "3785f611-8ee4-5c46-addd-c70d373d8a57",
@@ -1339,7 +1362,8 @@
     "data": {
       "cost": "one",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["87e0fd48-d85e-5cc8-bab9-3dc88c3160d5"]
   },
   {
     "id": "8a6df1a9-5665-58b3-a2fb-d9392b2db4e7",
@@ -1423,7 +1447,8 @@
       "cost": "one",
       "category": "interaction",
       "selfEffect": "423d4d7a-8bd6-5a40-8538-224902057b8b"
-    }
+    },
+    "supersedes": ["f3d4e663-0829-5675-8d5e-6f7980ac4d8f"]
   },
   {
     "id": "3d22f588-eaa9-5741-80da-63748d8da4d0",
@@ -1536,7 +1561,8 @@
         "max": 1,
         "per": "hour"
       }
-    }
+    },
+    "supersedes": ["abfb0fb8-1306-554b-a48e-c97bcf27789b"]
   },
   {
     "id": "4e978262-a1fc-5204-8d97-bfe5f5709bad",
@@ -1695,7 +1721,8 @@
         "max": 1,
         "per": "round"
       }
-    }
+    },
+    "supersedes": ["9bd322bb-c7e1-5968-8257-f910100324c9"]
   },
   {
     "id": "d38f43f6-48da-5a33-aa85-1ab7ee88253d",
@@ -1801,7 +1828,8 @@
         "max": 1,
         "per": "day"
       }
-    }
+    },
+    "supersedes": ["ae379ed5-7d1d-52d5-abd9-d10bf3e15a3c"]
   },
   {
     "id": "fad16a26-d649-5530-b2fa-c053ece54c72",
@@ -1888,7 +1916,8 @@
         }
       ],
       "selfEffect": "d3a1b824-7610-5f03-bbfc-4cb4f1aa44b2"
-    }
+    },
+    "supersedes": ["fdde4576-69c1-5001-8d31-764b47f5f647"]
   },
   {
     "id": "b6232f42-1b66-5d5c-bcac-e4c212a1dc2c",
@@ -2058,7 +2087,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["2bca8663-5623-5a16-ac2f-55536960ea9c"]
   },
   {
     "id": "69b2520b-82a3-5ba4-b378-172272dc3b74",
@@ -2249,7 +2279,8 @@
         "max": 1,
         "per": "round"
       }
-    }
+    },
+    "supersedes": ["6f76bbe7-f1c6-509f-afd5-19d69fac83fe"]
   },
   {
     "id": "8631a3e2-9a07-5838-b87e-939fa30bd7a2",
@@ -2301,7 +2332,8 @@
     "data": {
       "cost": "one",
       "category": "defensive"
-    }
+    },
+    "supersedes": ["d83a777c-4f4f-5470-81b6-6f04d912cf91"]
   },
   {
     "id": "2a380160-be95-5f49-befb-dabec302d202",
@@ -2467,7 +2499,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["5b51d388-04b8-5a1d-a8de-e7ff2849627f"]
   },
   {
     "id": "f32d1753-352e-5843-afa9-60437023388c",
@@ -2562,7 +2595,8 @@
         "max": 1,
         "per": "round"
       }
-    }
+    },
+    "supersedes": ["602ab5a4-704f-561a-a579-a5772194d38f"]
   },
   {
     "id": "d1ed9a7c-0967-50b5-9770-de241f986481",
@@ -2658,7 +2692,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["89b99b53-5951-5e1c-913a-9be2f0a3c2ce"]
   },
   {
     "id": "a6bc0c2c-0859-5521-86f9-6d74f267b1c2",
@@ -2758,7 +2793,8 @@
         "max": 1,
         "per": "round"
       }
-    }
+    },
+    "supersedes": ["97d73df7-f289-5ed4-8214-5d581d73fd81"]
   },
   {
     "id": "2ebce9a7-618d-5814-afb4-f51e4bb35df4",
@@ -2854,7 +2890,8 @@
         "max": 1,
         "per": "day"
       }
-    }
+    },
+    "supersedes": ["5cc8d98c-f298-5f76-aa3c-c518aab741dd"]
   },
   {
     "id": "4a80de10-bc0b-5938-8ff9-7fa32f658e75",
@@ -2943,7 +2980,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["f949bfe3-e99e-57e9-b07c-2cdbf9723006"]
   },
   {
     "id": "c87f5adf-895c-5f9e-92ce-4601564cc3a8",
@@ -3030,7 +3068,8 @@
         "max": 1,
         "per": "minute"
       }
-    }
+    },
+    "supersedes": ["c241eef2-18c2-5fbd-8672-c89e908059ea"]
   },
   {
     "id": "3d34cb49-2b74-56fe-b957-32278c88f280",
@@ -3316,7 +3355,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["c05f6aae-abc9-5544-a644-b4613a2281dc"]
   },
   {
     "id": "e49e2d32-8847-5f3b-9f5c-8ef1f06a1c29",
@@ -3397,7 +3437,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["8a0695b0-af5a-5099-a49f-912703cd03eb"]
   },
   {
     "id": "6312fbcd-44d3-53a5-b5c4-dd76d9d926d7",
@@ -3441,7 +3482,8 @@
     "data": {
       "cost": "one",
       "category": "defensive"
-    }
+    },
+    "supersedes": ["01061a61-23a7-5088-b20a-bb01381a16fd"]
   },
   {
     "id": "d38d3bd5-bad4-5747-b2ee-8f11072442f3",
@@ -3505,7 +3547,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["7568e105-4c4a-5fec-b3d6-de178006dec9"]
   },
   {
     "id": "57d5f578-e57d-5650-a84c-15c351504fc7",
@@ -3582,7 +3625,8 @@
     },
     "data": {
       "cost": "one"
-    }
+    },
+    "supersedes": ["e6e81cc4-68d0-5df4-a53b-2933e7bc9c78"]
   },
   {
     "id": "a0579247-7bee-50cb-a39f-a744d271100d",
@@ -3785,7 +3829,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["408e99d0-0819-5f08-8948-5539fa790a80"]
   },
   {
     "id": "1a278704-03d9-5b12-a8f4-36c329314971",
@@ -3818,7 +3863,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["fe6fb98d-e502-56c7-be4b-e69e8526591c"]
   },
   {
     "id": "cad2cee0-39a4-5ddf-9ad2-60df060a4751",
@@ -3944,7 +3990,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["0b030b72-fa5f-585c-8e9c-100802c9be6d"]
   },
   {
     "id": "ac92554e-0ab0-503d-a1c9-efb26514edce",
@@ -4029,7 +4076,8 @@
         "max": 1,
         "per": "day"
       }
-    }
+    },
+    "supersedes": ["91563534-9b57-5d82-849e-d27a40b70b92"]
   },
   {
     "id": "86f04e9e-5ff2-5d9b-a23c-dacebfd4ca51",
@@ -4089,7 +4137,8 @@
         "max": 1,
         "per": "hour"
       }
-    }
+    },
+    "supersedes": ["e0d8c1d3-1a5d-5f15-93de-f14bd0fbf9de"]
   },
   {
     "id": "3951feca-ce84-5499-a696-2dd337cd5f0a",
@@ -4157,7 +4206,8 @@
         "max": 1,
         "per": "hour"
       }
-    }
+    },
+    "supersedes": ["ef3b932f-220a-5bd2-9705-7957f35606ba"]
   },
   {
     "id": "ddb7b0f1-49f1-5a4f-bfe5-311225061b7f",
@@ -4190,7 +4240,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["bb8a63a5-2184-5370-bafe-b8cd4d102781"]
   },
   {
     "id": "706e5f51-ef4b-5cc8-a21b-9983c5c92433",
@@ -4327,7 +4378,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["8d8568ed-86dc-5b2f-8e9a-056d8b0e3d7b"]
   },
   {
     "id": "fa7c3318-2aaa-5d7c-a9bf-e9136f3cb668",
@@ -4386,7 +4438,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["d0169ee5-1862-52fb-960e-40a7b5bbc51f"]
   },
   {
     "id": "8d98bf22-dca5-51d7-9c6c-c528bf84641c",
@@ -4521,7 +4574,8 @@
         "max": 1,
         "per": "hour"
       }
-    }
+    },
+    "supersedes": ["5f680fb4-a247-5aed-9b29-1a7f36fad7b1"]
   },
   {
     "id": "9e56c88f-f9ab-5dd8-b1d2-c96cca8a1476",
@@ -4603,7 +4657,8 @@
         "max": 1,
         "per": "day"
       }
-    }
+    },
+    "supersedes": ["5ff70b26-9ae9-58a1-8bd7-47a6b4456a19"]
   },
   {
     "id": "11cd94cd-9702-5002-8625-2371cf1408c9",
@@ -4757,7 +4812,8 @@
         }
       ],
       "selfEffect": "221a53c7-7c6a-520b-b807-16b837604d06"
-    }
+    },
+    "supersedes": ["33acca63-8499-53da-ae7a-de8b19a37503"]
   },
   {
     "id": "aa440481-84d0-55ee-9a6c-da766700f4e0",
@@ -4842,6 +4898,7 @@
         "max": 1,
         "per": "minute"
       }
-    }
+    },
+    "supersedes": ["fcf5b209-4963-5a7f-aeaa-0b1354769b75"]
   }
 ]

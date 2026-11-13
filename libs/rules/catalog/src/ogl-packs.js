@@ -132,3 +132,21 @@ export async function gamemasteryGuidePack() {
     import('@pioneer/content/packs/gamemastery-guide/weapon.json'),
   ]);
 }
+
+export async function darkArchivePack() {
+  return pack(import('@pioneer/content/packs/dark-archive/pack.json'), [
+    import('@pioneer/content/packs/dark-archive/action.json'),
+    import('@pioneer/content/packs/dark-archive/archetype.json'),
+    import('@pioneer/content/packs/dark-archive/background.json'),
+    import('@pioneer/content/packs/dark-archive/class.json'),
+    import('@pioneer/content/packs/dark-archive/class-feature.json'),
+    import('@pioneer/content/packs/dark-archive/consumable.json'),
+    import('@pioneer/content/packs/dark-archive/effect.json'),
+    import('@pioneer/content/packs/dark-archive/equipment.json'),
+    import('@pioneer/content/packs/dark-archive/feat.json'),
+    import('@pioneer/content/packs/dark-archive/heritage.json'),
+    import('@pioneer/content/packs/dark-archive/ritual.json'),
+    import('@pioneer/content/packs/dark-archive/spell.json'),
+    import('@pioneer/content/packs/dark-archive/weapon.json'),
+  ]);
+}

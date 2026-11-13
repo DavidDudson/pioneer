@@ -575,6 +575,18 @@
     "released": "2020-02-26"
   },
   {
+    "id": "dark-archive",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=129",
+    "legacy": "whole",
+    "foundryVersion": "8.6.0",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-dark-archive/",
+    "released": "2022-07-27"
+  },
+  {
     "id": "the-show-must-go-on",
     "publisher": "paizo",
     "license": "OGL",

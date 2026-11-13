@@ -718,7 +718,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["2c144f0e-a79a-56b6-8538-543fa56a21ed"]
   },
   {
     "id": "4f37386d-2548-50f6-8832-624896685a3b",
@@ -811,7 +812,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["930b1666-ee5b-54b2-a004-28b076491cad"]
   },
   {
     "id": "cc156bc9-d559-5ba0-a62f-7716c676af31",
@@ -898,7 +900,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["52ac8e0c-8c10-54a7-a941-cf2db324ad58"]
   },
   {
     "id": "aa5535cb-4072-5942-8171-cf729fc5bbee",
@@ -930,7 +933,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.k9MeSdp2DbGd1hFz"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["d7112a47-b7a5-5d9a-91b8-389f6a114df8"]
   },
   {
     "id": "ee1721fc-77e0-58d5-bc9c-055342f2a611",
@@ -1155,7 +1159,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0fv6NVMZZ0peGL9e"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["b7d8e6f3-cd85-5e1c-b100-b897da3081f6"]
   },
   {
     "id": "928bee87-6bf8-599c-aca0-14755668630f",
@@ -1461,7 +1466,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.R41sy7weOd0JhOiW"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["ccc5cb3b-da91-5b5b-9739-725edc24507f"]
   },
   {
     "id": "9e9ff5bc-ee2f-5d83-a08b-df4ae7059da6",
@@ -1588,7 +1594,8 @@
     "data": {
       "tags": ["psychic-subconscious-mind"],
       "keyAttributeOptions": ["cha"]
-    }
+    },
+    "supersedes": ["c8d80e95-9538-565d-b1ae-b203721a80b7"]
   },
   {
     "id": "684cb48e-1d11-508a-8f84-b761d3d9e8ec",
@@ -1642,7 +1649,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.cvQmPkJtybMcHinK"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["c1d62ccc-11de-593e-8ba8-e8c2fcf986fe"]
   },
   {
     "id": "388f3dc2-66e6-50e5-94d2-24421b809961",
@@ -1733,7 +1741,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.uwLNfBprqZw2osTb"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["29948e39-f2f1-5321-a1ff-90ec40b9b459"]
   },
   {
     "id": "b34dd592-2941-5f85-a335-862b7d0a46f0",
@@ -1771,7 +1780,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wOl7EeF7S6i753Ef"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["4df6b5e4-23ed-5a88-beaa-370d3f40fdd9"]
   },
   {
     "id": "760a4660-b157-56d2-9d42-d96b43fbfef8",
@@ -2020,7 +2030,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.VSQJtzQE6ikKdsnP"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["f0995b61-d5e1-5342-918f-6f85b796c906"]
   },
   {
     "id": "736ee3a5-b349-55ab-897e-d6588892eca6",
@@ -2083,7 +2094,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Hw6Ji7Fgx0XkVkac"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["897b5aee-82ce-5c17-822a-1246def28804"]
   },
   {
     "id": "0aab37e1-06c8-58b0-af50-b0ec51f084ba",
@@ -2165,7 +2177,8 @@
     "data": {
       "tags": ["psychic-subconscious-mind"],
       "keyAttributeOptions": ["int"]
-    }
+    },
+    "supersedes": ["8f970d89-ba23-55f3-8981-09da89191a12"]
   },
   {
     "id": "a506e96d-797f-51e4-9aa3-a9933fec0ef5",
@@ -2197,7 +2210,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Obm4ItMIIr0whYeO"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["f783a639-c116-57a2-9b5b-1eacb4aa6fb0"]
   },
   {
     "id": "1313dbf7-2600-5e96-932f-38ed92817dcc",
@@ -2229,7 +2243,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.QEtgbY8N2V4wTbsI"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["abde57f2-1d80-5a01-a19a-73a28fa7368e"]
   },
   {
     "id": "d514131e-47c6-522d-bc76-0793b5fa9cc9",
@@ -2261,7 +2276,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.PbNS8d3w3pYQYcVN"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["32bfb85b-1422-535f-8b2a-b478f06a1d5b"]
   },
   {
     "id": "d19f0696-e589-5cb3-8f88-6ac101691f6f",
@@ -2301,7 +2317,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.mZwD2brwXlyR9RAR"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["fbc8922b-d23a-5167-8c1c-cb02ea863e2e"]
   },
   {
     "id": "03c6a3be-7c3c-5158-a3dd-60da865d5789",
@@ -2760,7 +2777,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.VdwNvQwq9sHflEwe"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["2bc207a1-881c-5a87-90f5-03c41b872d56"]
   },
   {
     "id": "67376b29-2d7d-5194-8308-3c377d6ba1f8",
@@ -2861,7 +2879,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["1c289d81-6ca5-5522-b1a5-49a74c69d5e1"]
   },
   {
     "id": "8547bf6c-1aa2-5668-b290-a910c1c231f8",
@@ -3078,7 +3097,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["77badca6-af73-54b0-b8bb-067f13f98467"]
   },
   {
     "id": "6d564cf7-0026-5156-93ae-f3695cbb47ee",
@@ -3663,7 +3683,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.MtHLCQGD6OW98WC2"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["4a78b10f-a75a-5ba5-ad2e-285aeb32b7f2"]
   },
   {
     "id": "c3417e83-1f73-58c2-83d4-36e068b92e20",
@@ -3745,7 +3766,8 @@
     "data": {
       "tags": ["psychic-subconscious-mind"],
       "keyAttributeOptions": ["int"]
-    }
+    },
+    "supersedes": ["6ffb8a67-be13-5bd3-bafe-1df4a7f29bfd"]
   },
   {
     "id": "8567b662-37d1-52bc-b58a-8e3f68036ea4",
@@ -3783,7 +3805,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Ftz5jVa9X6aXybkC"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["8c3bbd90-9307-51b3-919c-b1c8d939ba0e"]
   },
   {
     "id": "ba769ff5-68da-513e-9ff8-97958be4c095",
@@ -3866,7 +3889,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.1tyNn9sduyexXLfL"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["e2edd644-6b79-5f7c-a214-91c3605cdf7f"]
   },
   {
     "id": "b5d06350-63ec-5c28-a9bf-cc8952db367b",
@@ -3974,7 +3998,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.iXwqJyBsjJNrKJae"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["822e5acf-42b7-5195-aa2d-3e2f572a947d"]
   },
   {
     "id": "f8c717fb-b9f7-5d47-a139-b765beb9640f",
@@ -4044,7 +4069,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.a58MGVX2L589sC9g"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["96f08a96-86ff-56dc-9ba1-e69c079ef88e"]
   },
   {
     "id": "61794db8-892e-5460-aab6-125501f76788",
@@ -4137,7 +4163,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["c4540003-ce20-5ce2-a8f6-d9ea5b9210e8"]
   },
   {
     "id": "fc547f62-20ab-5529-80d4-4b72153df8ca",
@@ -4169,7 +4196,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZEUxZ4Ta1kDPHiq5"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["c22d7d2d-cacd-5ecd-b4f3-d439b9541e71"]
   },
   {
     "id": "e8e4ffa9-f0ff-5988-a41d-02c566b78b4a",
@@ -4287,7 +4315,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.huDGjojm3hnuA1E8"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["5eb9c064-a482-5eda-b7f3-96150a657a08"]
   },
   {
     "id": "5a0ac5ab-0e46-534d-b8fa-0786c09d5543",
@@ -4401,7 +4430,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.79ZetrRF6S01P4Vf"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["b26cc2d3-7a07-5607-986a-5a2b3605e4b0"]
   },
   {
     "id": "6e989efa-d545-5a38-9de1-53c74ffa0a49",
@@ -4448,7 +4478,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.yvdSUIRU5uLr5eF2"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["79d63581-399f-541a-bb57-19d4e585bdf9"]
   },
   {
     "id": "9e9bc79d-27c1-5ae5-a058-370e4dad28bb",
@@ -4495,7 +4526,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.VywXtJCa0Y9fdGVH"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["a9722517-a106-55d3-be00-0adda4df0677"]
   },
   {
     "id": "a9fafce5-5c6f-556f-9f09-53aec7903c2c",
@@ -4985,7 +5017,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["28f63433-621e-5d4f-b5b7-d0cb15666017"]
   },
   {
     "id": "b6c3ed8b-c312-5dbe-b69c-132b662b0df9",
@@ -5418,7 +5451,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["8b51f306-45b4-532b-8347-483c288825b7"]
   },
   {
     "id": "29d3cc0c-9f1f-589f-a3cd-1bc7aa42db15",
@@ -5978,7 +6012,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["be61f831-7555-5a98-8fad-4b0fa364e007"]
   },
   {
     "id": "93d4b7eb-7273-5896-8d0a-4982f9796368",
@@ -6425,7 +6460,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["f4b7bb2b-31dc-503c-8c79-7d881c479e56"]
   },
   {
     "id": "08514a48-242b-5e67-bfe1-61c9d05229fe",
@@ -6822,7 +6858,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["d281fc2a-dd83-5e44-867a-fe8558ebab5d"]
   },
   {
     "id": "cf37abbf-2ad4-5184-9b4e-6376b6041376",
@@ -7250,7 +7287,8 @@
     },
     "data": {
       "tags": ["psychic-conscious-mind"]
-    }
+    },
+    "supersedes": ["3c2f2a25-dc91-5c6b-b377-ecc62f95c128"]
   },
   {
     "id": "5badc3fe-0cbf-5bf6-b37b-2e87b4f5b1dc",
@@ -7298,7 +7336,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.zxZzjN2T53wnH4vU"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["1c3f7820-4891-56b0-944f-ad0472c9785f"]
   },
   {
     "id": "06237a2b-da11-5816-a0b5-74e643f79584",
@@ -7574,7 +7613,8 @@
     },
     "data": {
       "tags": ["oracle-mystery"]
-    }
+    },
+    "supersedes": ["9c688aa9-955e-55a8-9edc-a1a50884867c"]
   },
   {
     "id": "280aa699-6798-5b38-a26d-8e7291562b42",
@@ -7667,7 +7707,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["ac3a2596-6625-514f-abcc-222b91b3ccf5"]
   },
   {
     "id": "6ec5f824-d26f-5d32-8be6-81fbd4f0bb78",
@@ -7860,7 +7901,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.HPYo5j8GgQIVoOOr"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["a787c11a-f2b2-564d-a6d5-b946dbcc71bf"]
   },
   {
     "id": "011333f8-7d1a-5e52-821b-a14291d3e393",
@@ -7897,7 +7939,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.HwUps0waR29bwlTI"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["5d4fa5ad-ca1f-592c-be24-8459ec70c1e1"]
   },
   {
     "id": "0a0e3682-2692-5c0b-8955-43536e42849f",
@@ -7929,7 +7972,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9ItMYxEkvxqBHrV1"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["c0c586ec-a303-5450-acee-e9e8975b40c2"]
   },
   {
     "id": "bebbe9d9-4f92-55af-a99e-7f722b18a357",
@@ -7974,7 +8018,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Kf9lSN6pVS2Hy4KI"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["503d8340-eb24-5b93-b3ff-3b091dfbfb31"]
   },
   {
     "id": "0c097136-d5af-5721-803d-12840eb8c71d",
@@ -8067,7 +8112,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["ba0af7e0-ba7f-5f7f-85bf-ab5479db3ed8"]
   },
   {
     "id": "4daaecc7-387d-595d-ab92-b3c146cd665d",
@@ -8149,7 +8195,8 @@
     "data": {
       "tags": ["psychic-subconscious-mind"],
       "keyAttributeOptions": ["cha"]
-    }
+    },
+    "supersedes": ["8d57c1b3-9380-58dc-be25-42470604707d"]
   },
   {
     "id": "5be48246-7f8b-5ee9-af7c-fbf4cfeb5e5b",
@@ -8252,7 +8299,8 @@
     },
     "data": {
       "tags": ["thaumaturge-implement"]
-    }
+    },
+    "supersedes": ["580a8d40-1364-5d2f-a741-b0b7c424e900"]
   },
   {
     "id": "47cf852d-8415-5f04-ab29-07e37cf84355",
@@ -8446,6 +8494,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.8Jjy7VsQAJJqCeyE"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["cc83a273-f738-54a0-a930-8f484c87f40c"]
   }
 ]

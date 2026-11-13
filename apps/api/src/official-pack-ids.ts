@@ -12,6 +12,7 @@ export const OFFICIAL_PACK_IDS = [
   'core-rulebook',
   'core-rules',
   'curtain-call',
+  'dark-archive',
   'dark-archive-remastered',
   'divine-mysteries',
   'draconic-codex',

@@ -7,4 +7,5 @@ export const coreRulebookPack: PackLoader;
 export const advancedPlayersGuidePack: PackLoader;
 export const bookOfTheDeadPack: PackLoader;
 export const gamemasteryGuidePack: PackLoader;
+export const darkArchivePack: PackLoader;
 export const theShowMustGoOnPack: PackLoader;
