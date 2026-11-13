@@ -855,7 +855,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["fc66d8ea-3dc6-598d-8c78-57c9f5274f03"]
   },
   {
     "id": "17e21e50-7127-5e79-bf73-a4c611beb1c2",
@@ -1136,7 +1137,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["394e8624-30d1-50ea-93fc-0f6d51a57b10"]
   },
   {
     "id": "201b6b84-f410-5596-8447-03541372598a",

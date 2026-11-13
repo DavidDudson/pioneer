@@ -1,0 +1,1450 @@
+{
+  "etag": "\"e6cba668644449199d8e66bb974ae399\"",
+  "entries": [
+    {
+      "type": "Ancestries",
+      "name": "Skeleton",
+      "url": "https://2e.aonprd.com/Ancestries.aspx?ID=50"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Compact Skeleton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=200"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Fodder Skeleton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=199"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Monstrous Skeleton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=202"
+    },
+    {
+      "type": "Ancestry Heritages",
+      "name": "Sturdy Skeleton",
+      "url": "https://2e.aonprd.com/Heritages.aspx?ID=201"
+    },
+    {
+      "type": "Companions",
+      "name": "Ghost",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=38"
+    },
+    {
+      "type": "Companions",
+      "name": "Skeletal Mount",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=43"
+    },
+    {
+      "type": "Companions",
+      "name": "Skeletal Servant",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=44"
+    },
+    {
+      "type": "Companions",
+      "name": "Vampiric Animal",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=41"
+    },
+    {
+      "type": "Companions",
+      "name": "Zombie",
+      "url": "https://2e.aonprd.com/Companions.aspx?ID=45"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Exorcist",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=171"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Ghost",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=177"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Ghoul",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=178"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Hallowed Necromancer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=172"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Lich",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=179"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Mummy",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=180"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Reanimator",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=175"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Soul Warden",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=173"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Undead Master",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=176"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Undead Slayer",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=174"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Vampire",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=181"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Zombie",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=182"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Curandero",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=301"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Grave Robber",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=302"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Haunted Citizen",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=303"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Necromancer's Apprentice",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=304"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Night Watch",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=305"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Pyre Tender",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=306"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Scion of Slayers",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=307"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Tomb Born",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=308"
+    },
+    {
+      "type": "Backgrounds",
+      "name": "Willing Host",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=309"
+    },
+    {
+      "type": "Deities",
+      "name": "Orcus",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=241"
+    },
+    {
+      "type": "Deities",
+      "name": "Set",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=242"
+    },
+    {
+      "type": "Eidolons",
+      "name": "Undead",
+      "url": "https://2e.aonprd.com/Eidolons.aspx?ID=11"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bottled Sunlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1532"
+    },
+    {
+      "type": "Equipment",
+      "name": "Celestial Peachwood Sword",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1533"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dawnlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1534"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ectoplasmic Tracer",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1535"
+    },
+    {
+      "type": "Equipment",
+      "name": "Feast of Hungry Ghosts",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1536"
+    },
+    {
+      "type": "Equipment",
+      "name": "Final Rest",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1537"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grim Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1538"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lady's Chalice",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1546"
+    },
+    {
+      "type": "Equipment",
+      "name": "Lady's Spiral",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1539"
+    },
+    {
+      "type": "Equipment",
+      "name": "Life Salt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1540"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1541"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Talisman",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1542"
+    },
+    {
+      "type": "Equipment",
+      "name": "Peachwood Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1543"
+    },
+    {
+      "type": "Equipment",
+      "name": "Soul Cage",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1545"
+    },
+    {
+      "type": "Equipment",
+      "name": "Undead Detection Dye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1544"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Anchored Incorporeality (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=81"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Anchored Incorporeality (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=82"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Heads Will Roll (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=84"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Invisibility (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=80"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Lend a Hand (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=78"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Polong Possession (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=83"
+    },
+    {
+      "type": "Familiar Abilities",
+      "name": "Undead (familiar)",
+      "url": "https://2e.aonprd.com/Familiars.aspx?ID=79"
+    },
+    {
+      "type": "Feats",
+      "name": "Accursed Touch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3525"
+    },
+    {
+      "type": "Feats",
+      "name": "Advanced Hallowed Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3463"
+    },
+    {
+      "type": "Feats",
+      "name": "Ankle Biter",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3558"
+    },
+    {
+      "type": "Feats",
+      "name": "As in Life, So in Death",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3532"
+    },
+    {
+      "type": "Feats",
+      "name": "Bat Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3552"
+    },
+    {
+      "type": "Feats",
+      "name": "Blessed Medicine",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3475"
+    },
+    {
+      "type": "Feats",
+      "name": "Bolster Soul Cage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3517"
+    },
+    {
+      "type": "Feats",
+      "name": "Bonds of Death",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3489"
+    },
+    {
+      "type": "Feats",
+      "name": "Bone Missile",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3538"
+    },
+    {
+      "type": "Feats",
+      "name": "Bone Swarm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3543"
+    },
+    {
+      "type": "Feats",
+      "name": "Brains!",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3561"
+    },
+    {
+      "type": "Feats",
+      "name": "Cast Out",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3455"
+    },
+    {
+      "type": "Feats",
+      "name": "Channel Rot",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3527"
+    },
+    {
+      "type": "Feats",
+      "name": "Clinging Climber",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3546"
+    },
+    {
+      "type": "Feats",
+      "name": "Coffin Bound",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3554"
+    },
+    {
+      "type": "Feats",
+      "name": "Collapse",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3533"
+    },
+    {
+      "type": "Feats",
+      "name": "Consecrated Aura",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3465"
+    },
+    {
+      "type": "Feats",
+      "name": "Corpse Stench",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3512"
+    },
+    {
+      "type": "Feats",
+      "name": "Cycle Spell",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3467"
+    },
+    {
+      "type": "Feats",
+      "name": "Daywalker",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3549"
+    },
+    {
+      "type": "Feats",
+      "name": "Death Warden",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3462"
+    },
+    {
+      "type": "Feats",
+      "name": "Deathly Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3487"
+    },
+    {
+      "type": "Feats",
+      "name": "Desiccating Inhalation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3530"
+    },
+    {
+      "type": "Feats",
+      "name": "Dominating Gaze",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3556"
+    },
+    {
+      "type": "Feats",
+      "name": "Drain Soul Cage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3514"
+    },
+    {
+      "type": "Feats",
+      "name": "Enhanced Psychopomp Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3471"
+    },
+    {
+      "type": "Feats",
+      "name": "Enshroud Soul Cage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3515"
+    },
+    {
+      "type": "Feats",
+      "name": "Ensnaring Wrappings",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3528"
+    },
+    {
+      "type": "Feats",
+      "name": "Enticing Dwelling",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3458"
+    },
+    {
+      "type": "Feats",
+      "name": "Exorcist Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3454"
+    },
+    {
+      "type": "Feats",
+      "name": "Expand Spiral",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3473"
+    },
+    {
+      "type": "Feats",
+      "name": "Feast",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3559"
+    },
+    {
+      "type": "Feats",
+      "name": "Festering Wound",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3566"
+    },
+    {
+      "type": "Feats",
+      "name": "Feverish Enzymes",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3507"
+    },
+    {
+      "type": "Feats",
+      "name": "Frighten Undead",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3479"
+    },
+    {
+      "type": "Feats",
+      "name": "Frightful Aura",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3519"
+    },
+    {
+      "type": "Feats",
+      "name": "Frightful Moan",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3497"
+    },
+    {
+      "type": "Feats",
+      "name": "Gear Up",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3480"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghost Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3496"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghost Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3500"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghostly Grasp (Ghost)",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3499"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghostly Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3498"
+    },
+    {
+      "type": "Feats",
+      "name": "Ghoul Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3504"
+    },
+    {
+      "type": "Feats",
+      "name": "Glutton for Flesh",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3511"
+    },
+    {
+      "type": "Feats",
+      "name": "Grave Mummification",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3523"
+    },
+    {
+      "type": "Feats",
+      "name": "Grave Strength",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3508"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Deathly Secrets",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3490"
+    },
+    {
+      "type": "Feats",
+      "name": "Greater Despair",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3531"
+    },
+    {
+      "type": "Feats",
+      "name": "Guardian Ghosts",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3493"
+    },
+    {
+      "type": "Feats",
+      "name": "Hallowed Initiate",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3460"
+    },
+    {
+      "type": "Feats",
+      "name": "Hallowed Necromancer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3459"
+    },
+    {
+      "type": "Feats",
+      "name": "Hand of the Lich",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3516"
+    },
+    {
+      "type": "Feats",
+      "name": "Hunter's Sanctum",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3476"
+    },
+    {
+      "type": "Feats",
+      "name": "Liberate Soul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3469"
+    },
+    {
+      "type": "Feats",
+      "name": "Lich Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3513"
+    },
+    {
+      "type": "Feats",
+      "name": "Macabre Virtuoso",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3488"
+    },
+    {
+      "type": "Feats",
+      "name": "Manipulative Charm",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3547"
+    },
+    {
+      "type": "Feats",
+      "name": "Master of the Dead",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3491"
+    },
+    {
+      "type": "Feats",
+      "name": "Mist Escape",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3555"
+    },
+    {
+      "type": "Feats",
+      "name": "Mummy Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3520"
+    },
+    {
+      "type": "Feats",
+      "name": "Mummy's Despair",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3524"
+    },
+    {
+      "type": "Feats",
+      "name": "Necromancer's Visage",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3484"
+    },
+    {
+      "type": "Feats",
+      "name": "Necromantic Heir",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3544"
+    },
+    {
+      "type": "Feats",
+      "name": "Necromantic Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3477"
+    },
+    {
+      "type": "Feats",
+      "name": "Nocturnal Kindred",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3548"
+    },
+    {
+      "type": "Feats",
+      "name": "Numb",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3562"
+    },
+    {
+      "type": "Feats",
+      "name": "One with the Land",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3521"
+    },
+    {
+      "type": "Feats",
+      "name": "Out of Hand",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3563"
+    },
+    {
+      "type": "Feats",
+      "name": "Paralyzing Slash",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3509"
+    },
+    {
+      "type": "Feats",
+      "name": "Pass Through",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3501"
+    },
+    {
+      "type": "Feats",
+      "name": "Past Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3536"
+    },
+    {
+      "type": "Feats",
+      "name": "Play Dead",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3534"
+    },
+    {
+      "type": "Feats",
+      "name": "Positive Luminance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3464"
+    },
+    {
+      "type": "Feats",
+      "name": "Predatory Claws",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3550"
+    },
+    {
+      "type": "Feats",
+      "name": "Psychopomp Familiar",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3468"
+    },
+    {
+      "type": "Feats",
+      "name": "Ravenous Charge",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3560"
+    },
+    {
+      "type": "Feats",
+      "name": "Reanimator Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3486"
+    },
+    {
+      "type": "Feats",
+      "name": "Rejuvenation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3502"
+    },
+    {
+      "type": "Feats",
+      "name": "Rejuvenation Token",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3539"
+    },
+    {
+      "type": "Feats",
+      "name": "Replenishing Consumption",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3505"
+    },
+    {
+      "type": "Feats",
+      "name": "Sacred Spells",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3461"
+    },
+    {
+      "type": "Feats",
+      "name": "Safeguard Soul",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3472"
+    },
+    {
+      "type": "Feats",
+      "name": "Seize",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3567"
+    },
+    {
+      "type": "Feats",
+      "name": "Semblance of Life",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3522"
+    },
+    {
+      "type": "Feats",
+      "name": "Sepulchral Sublimation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3485"
+    },
+    {
+      "type": "Feats",
+      "name": "Shamble",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3564"
+    },
+    {
+      "type": "Feats",
+      "name": "Sickening Bite",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3510"
+    },
+    {
+      "type": "Feats",
+      "name": "Skeletal Resistance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3540"
+    },
+    {
+      "type": "Feats",
+      "name": "Skeletal Transformation",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3541"
+    },
+    {
+      "type": "Feats",
+      "name": "Skeleton Commander",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3542"
+    },
+    {
+      "type": "Feats",
+      "name": "Slayer's Blessing",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3481"
+    },
+    {
+      "type": "Feats",
+      "name": "Slayer's Presence",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3482"
+    },
+    {
+      "type": "Feats",
+      "name": "Slayer's Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3478"
+    },
+    {
+      "type": "Feats",
+      "name": "Soul Warden Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3466"
+    },
+    {
+      "type": "Feats",
+      "name": "Spell Gem",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3518"
+    },
+    {
+      "type": "Feats",
+      "name": "Spiral Sworn",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3470"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit's Absolution",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3456"
+    },
+    {
+      "type": "Feats",
+      "name": "Spirit's Anguish",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3457"
+    },
+    {
+      "type": "Feats",
+      "name": "Stitch Flesh",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3495"
+    },
+    {
+      "type": "Feats",
+      "name": "Storm Shroud",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3526"
+    },
+    {
+      "type": "Feats",
+      "name": "Swift Leap",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3506"
+    },
+    {
+      "type": "Feats",
+      "name": "Terrain Form",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3529"
+    },
+    {
+      "type": "Feats",
+      "name": "Their Master's Call",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3494"
+    },
+    {
+      "type": "Feats",
+      "name": "Turn to Mist",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3553"
+    },
+    {
+      "type": "Feats",
+      "name": "Undead Empathy",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3535"
+    },
+    {
+      "type": "Feats",
+      "name": "Undead Master Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3492"
+    },
+    {
+      "type": "Feats",
+      "name": "Undead Slayer Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3474"
+    },
+    {
+      "type": "Feats",
+      "name": "Undying Conviction",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3483"
+    },
+    {
+      "type": "Feats",
+      "name": "Unkillable",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3565"
+    },
+    {
+      "type": "Feats",
+      "name": "Unlimited Ghost Flight",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3503"
+    },
+    {
+      "type": "Feats",
+      "name": "Vampire Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3545"
+    },
+    {
+      "type": "Feats",
+      "name": "Vicious Fangs",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3551"
+    },
+    {
+      "type": "Feats",
+      "name": "Well-armed",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3537"
+    },
+    {
+      "type": "Feats",
+      "name": "Zombie Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=3557"
+    },
+    {
+      "type": "Hazards",
+      "name": "Blood Tears",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=146"
+    },
+    {
+      "type": "Hazards",
+      "name": "Blood-Soaked Soil",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=134"
+    },
+    {
+      "type": "Hazards",
+      "name": "Bloodthirsty Toy",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=138"
+    },
+    {
+      "type": "Hazards",
+      "name": "Cannibalistic Echoes",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=148"
+    },
+    {
+      "type": "Hazards",
+      "name": "Cold Spot",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=136"
+    },
+    {
+      "type": "Hazards",
+      "name": "Desperate Hunger",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=147"
+    },
+    {
+      "type": "Hazards",
+      "name": "Disembodied Voices",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=135"
+    },
+    {
+      "type": "Hazards",
+      "name": "Ectoplasmic Grasp",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=143"
+    },
+    {
+      "type": "Hazards",
+      "name": "Entombed Spirit",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=151"
+    },
+    {
+      "type": "Hazards",
+      "name": "Final Words",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=142"
+    },
+    {
+      "type": "Hazards",
+      "name": "Flood of Spirits",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=149"
+    },
+    {
+      "type": "Hazards",
+      "name": "Frenetic Musician",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=145"
+    },
+    {
+      "type": "Hazards",
+      "name": "Ghost Stampede",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=155"
+    },
+    {
+      "type": "Hazards",
+      "name": "Glimpse Grave",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=150"
+    },
+    {
+      "type": "Hazards",
+      "name": "Grasping Dead",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=153"
+    },
+    {
+      "type": "Hazards",
+      "name": "Locking Door",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=132"
+    },
+    {
+      "type": "Hazards",
+      "name": "Phantom Footsteps",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=133"
+    },
+    {
+      "type": "Hazards",
+      "name": "Phantom Jailer",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=140"
+    },
+    {
+      "type": "Hazards",
+      "name": "Sadistic Conductor",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=152"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shattered Window",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=137"
+    },
+    {
+      "type": "Hazards",
+      "name": "Siphoning Spirit",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=156"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spirit Cyclone",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=154"
+    },
+    {
+      "type": "Hazards",
+      "name": "Toppling Furniture",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=139"
+    },
+    {
+      "type": "Hazards",
+      "name": "Violent Shove",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=141"
+    },
+    {
+      "type": "Hazards",
+      "name": "Weight of Guilt",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=144"
+    },
+    {
+      "type": "Monsters",
+      "name": "Beetle Carapace",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1902"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bhuta",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1842"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bone Croupier",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1843"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cadaverous Rake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1844"
+    },
+    {
+      "type": "Monsters",
+      "name": "Child of Urgathoa",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1845"
+    },
+    {
+      "type": "Monsters",
+      "name": "Combusted",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1846"
+    },
+    {
+      "type": "Monsters",
+      "name": "Corpseroot",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1847"
+    },
+    {
+      "type": "Monsters",
+      "name": "Daqqanoenyent",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1841"
+    },
+    {
+      "type": "Monsters",
+      "name": "Death Coach",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1852"
+    },
+    {
+      "type": "Monsters",
+      "name": "Deathless Acolyte of Urgathoa",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1853"
+    },
+    {
+      "type": "Monsters",
+      "name": "Deathless Hierophant of Urgathoa",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1854"
+    },
+    {
+      "type": "Monsters",
+      "name": "Decrepit Mummy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1884"
+    },
+    {
+      "type": "Monsters",
+      "name": "Drake Skeleton",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1903"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ecorche",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1855"
+    },
+    {
+      "type": "Monsters",
+      "name": "Excorion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1856"
+    },
+    {
+      "type": "Monsters",
+      "name": "Faithless Ecclesiarch",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1870"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fallen Champion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1871"
+    },
+    {
+      "type": "Monsters",
+      "name": "Festering Gnasher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1839"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fiddling Bones",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1857"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fluxwraith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1858"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gallowdead",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1859"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gashadokuro",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1860"
+    },
+    {
+      "type": "Monsters",
+      "name": "Geist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1861"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gholdako",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1862"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ghost Pirate Captain",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1864"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ghul",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1867"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grappling Spirit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1868"
+    },
+    {
+      "type": "Monsters",
+      "name": "Graveknight Warmaster",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1869"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hollow Serpent",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1872"
+    },
+    {
+      "type": "Monsters",
+      "name": "Horde Lich",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1876"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hungry Ghost",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1863"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hunter Wight",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1915"
+    },
+    {
+      "type": "Monsters",
+      "name": "Husk Zombie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1919"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ice Mummy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1885"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ichor Slinger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1873"
+    },
+    {
+      "type": "Monsters",
+      "name": "Iroran Mummy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1886"
+    },
+    {
+      "type": "Monsters",
+      "name": "Iruxi Ossature",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1874"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jitterbone Contortionist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1881"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lacedon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1865"
+    },
+    {
+      "type": "Monsters",
+      "name": "Last Guard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1875"
+    },
+    {
+      "type": "Monsters",
+      "name": "Little Man in the Woods",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1878"
+    },
+    {
+      "type": "Monsters",
+      "name": "Llorona",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1879"
+    },
+    {
+      "type": "Monsters",
+      "name": "Minister Of Tumult",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1910"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mummified Cat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1883"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mummy Prophet of Set",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1887"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nasurgeth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1851"
+    },
+    {
+      "type": "Monsters",
+      "name": "Obrousian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1888"
+    },
+    {
+      "type": "Monsters",
+      "name": "Onryo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1889"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pale Sovereign",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1890"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pale Stranger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1893"
+    },
+    {
+      "type": "Monsters",
+      "name": "Polong",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1891"
+    },
+    {
+      "type": "Monsters",
+      "name": "Predatory Rabbit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1895"
+    },
+    {
+      "type": "Monsters",
+      "name": "Priest of Kabriri",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1866"
+    },
+    {
+      "type": "Monsters",
+      "name": "Provincial Jiang-Shi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1909"
+    },
+    {
+      "type": "Monsters",
+      "name": "Prowler Wight",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1916"
+    },
+    {
+      "type": "Monsters",
+      "name": "Queen Sluagh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1906"
+    },
+    {
+      "type": "Monsters",
+      "name": "Raw Nerve",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1892"
+    },
+    {
+      "type": "Monsters",
+      "name": "Relictner Eroder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1882"
+    },
+    {
+      "type": "Monsters",
+      "name": "Runecarved Lich",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1877"
+    },
+    {
+      "type": "Monsters",
+      "name": "Scorned Hound",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1896"
+    },
+    {
+      "type": "Monsters",
+      "name": "Seetangeist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1914"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shadern Immolator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1880"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shredskin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1897"
+    },
+    {
+      "type": "Monsters",
+      "name": "Siabrae",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1898"
+    },
+    {
+      "type": "Monsters",
+      "name": "Silent Stalker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1894"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skeletal Mage",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1901"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skeletal Soldier",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1900"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skeletal Titan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1904"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sluagh Reaper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1905"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sykever",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1849"
+    },
+    {
+      "type": "Monsters",
+      "name": "Taunting Skull",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1840"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tormented",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1907"
+    },
+    {
+      "type": "Monsters",
+      "name": "Unrisen",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1908"
+    },
+    {
+      "type": "Monsters",
+      "name": "Urveth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1850"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vanyver",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1848"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vetalarana Emergent",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1911"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vetalarana Manipulator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1912"
+    },
+    {
+      "type": "Monsters",
+      "name": "Waldgeist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1913"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wight Commander",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1917"
+    },
+    {
+      "type": "Monsters",
+      "name": "Withered",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1922"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wolf Skeleton",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1899"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zombie Lord",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1921"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zombie Mammoth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1923"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zombie Owlbear",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1920"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zombie Snake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1918"
+    },
+    {
+      "type": "Rules",
+      "name": "Playing Undead",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1692"
+    },
+    {
+      "type": "Rules",
+      "name": "Undead Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1700"
+    },
+    {
+      "type": "Rules",
+      "name": "Undead Allies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1688"
+    },
+    {
+      "type": "Spells",
+      "name": "Eyes of the Dead",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1104"
+    },
+    {
+      "type": "Spells",
+      "name": "Hallowed Ground",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1103"
+    },
+    {
+      "type": "Spells",
+      "name": "Shambling Horror",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1105"
+    },
+    {
+      "type": "Spells",
+      "name": "Subjugate Undead",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=1106"
+    },
+    {
+      "type": "Traits",
+      "name": "Darvakka (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=422"
+    },
+    {
+      "type": "Traits",
+      "name": "Ghul (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=423"
+    }
+  ]
+}

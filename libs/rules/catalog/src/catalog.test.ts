@@ -65,6 +65,7 @@ const impossibleLands = PackId.parse('impossible-lands');
 const ancestryGuide = PackId.parse('ancestry-guide');
 const coreRulebook = PackId.parse('core-rulebook');
 const advancedPlayersGuide = PackId.parse('advanced-players-guide');
+const bookOfTheDead = PackId.parse('book-of-the-dead');
 const theShowMustGoOn = PackId.parse('the-show-must-go-on');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
@@ -79,6 +80,7 @@ describe('content catalog', () => {
       ancestryGuide,
       bastionOfBlasphemies,
       battlecry,
+      bookOfTheDead,
       characterGuide,
       chelaxInfernalInheritance,
       clawsOfTheTyrant,

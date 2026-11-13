@@ -1,0 +1,784 @@
+[
+  {
+    "id": "c05f2895-952e-5090-ae65-4049d83cba00",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:exorcist",
+    "name": "Exorcist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pacify restless spirits, ghosts, and haunts, capturing fragments of them and using their vengeful energies to fuel your own powers while purifying the spirit. You store these ghosts within a magical vessel called a spirit dwelling. This spirit dwelling might be a treasured family heirloom, an item you crafted expressly to help with exorcisms, or even just an odd trinket you found that happens to do the job."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the motivations of exorcists run the gamut, most are compassionate individuals who believe that every ghost, haunt, and spirit is simply a lost soul in need of rest. They collect spirits expressly for the purposes of offering them comfort, guidance, and absolution. After an exorcist's ministrations, these spirits are freed of their burdens, emotion, and regrets and are reabsorbed into the River of Souls. Although exorcists rarely gather in one place, many different religions employ them to deal with spiritual threats."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exorcists are most commonly found among the faithful of Ashava the True Spark (the empyreal lord of dancers), but among the major deities of the Inner Sea region, Sarenrae, Pharasma, and even Shelyn count a fair number of exorcists among their faithful. Exorcists can come from any walk of life, but many are redeemer champions, clerics, or monks. Apart from the role of the spirit dwelling, exorcism practices can vary. For example, a bard or rogue might attract spirits with trickery, charm, or empty promises. In contrast, a cleric of Pharasma could take a more severe route, demanding the spirits return to the natural order of things."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 8th Spiritual Sense; 10th Blind-Fight; 14th Sense Evil; 16th Sense The Unseen"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "SPIRIT DWELLINGS AND REMNANTS"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spirit dwelling can be any object, from an everyday item like a mirror, hand bell, or gemstone, to a custom clockwork device, so long as it can be held in one hand, is light Bulk, and doesn't serve another function (such as a weapon, shield, consumable, or magic item). Your spirit dwelling has the trait of the magical tradition used to take Exorcist Dedication and the necromancy trait. Your spirit dwelling is attuned to you, so only you can use it. If your spirit dwelling is lost or stolen, you can turn another object into a new spirit dwelling with a 1-hour ritual; this causes your previous spirit dwelling to revert to a mundane object and any spirits within to harmlessly disperse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit dwelling can house not just wisps but greater remnants of spiritual energy left behind by defeated ghosts and haunts. You can use the "
+          },
+          {
+            "type": "ref",
+            "id": "48b6e124-9726-56e9-b4e5-a83ba0343924"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rejuvenating Spirits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": Though all spirit wisps and most remnants can pass on immediately when purified, if a spirit remnant came from a creature with the rejuvenation special ability (such as most ghosts), a recurring haunt, or another entity who ordinarily doesn't pass on when destroyed, its ties to this world are too strong for it to easily pass on. When a spirit remnant from such an entity is released as part of your daily preparations, instead of joining the River of Souls, it begins re-forming itself in the time and location noted in its rejuvenation ability. However, you learn a clue about the spirit's unfinished business, which may help you put it to rest permanently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "EXORCISTS ACROSS GOLARION"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The well-known exorcists of Pharasma use methods of repeated prayer, holy water, and sacred rituals. Ashavic exorcists often dance under the moonlight to entice lost souls and guide them onward. In Osirion, exorcists practice execration, or proactive preventive exorcism techniques. In Northern Garund and some parts of Qadira, playing the stringed tanbura, rattling manjur, and specific drum patterns help cut the threads that tie the spirit to this world. Matanji orcs in the Mwangi Expanse perform exorcisms by drawing tattoo-like diagrams in iron ink. In Tian Xia, exorcists often use fulus (Secrets of Magic 158) to assist in their practice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.WvleaXPfigawBvtN"
+    },
+    "data": {
+      "dedication": "8b943619-4c11-5bb2-8d6f-e1ede236dbab"
+    }
+  },
+  {
+    "id": "534dfc4e-da78-5ad3-a615-e1215fecb4b5",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:ghost",
+    "name": "Ghost",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ties to the living world cling to you in death, your unfinished business reducing you to a spirit. Your soul carries on, but your body is gone. Your mind, too, may have changed: though death can impact thoughts and desires in all sorts of ways, most ghosts experience stronger, more volatile emotions and are frequently overcome by their past ties. A need to reconcile the past overwhelms other needs. Motivations can change over time but are always strong. Pragmatism, compassion, and foresight fall before a ghost's fundamental desires."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.aIpIUbupTjw2863C"
+    },
+    "data": {
+      "dedication": "591ab58b-2f33-5ebf-a7e5-d38f59ff43bc"
+    }
+  },
+  {
+    "id": "daefd91f-1776-5275-943b-0ad735a34337",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:ghoul",
+    "name": "Ghoul",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You died from the necrotic disease known as ghoul fever and rose anew as a ravenous ghoul, forever craving the flesh of sapient creatures. While you can temper your hunger with long-dead flesh stolen from ancient graves, you much prefer devouring those who are freshly dead, whether as a scavenger or because you killed the creature yourself to ensure a fresh meal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether they stalk through the graveyards and crypts of Golarion or work together with other ghouls to build empires in the Darklands, ghouls care most about the consumption of dead flesh. The moment you become a ghoul, your existence focuses upon satisfying this endless craving. Ghouls who go more than a few days without feeding on freshly dead humanoid flesh find themselves in constant pain; those who go for more than a week might be driven to the edge of delirium, becoming bestial in their craving."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you succumb to ghoul fever and become a ghoul, you don't lose your mind or memories. You keep your personality only to have it warped by the never-ending need to consume flesh. A brave warrior remains brave, but under the curse of the fever, that brave warrior's prime directive is to consume flesh. A rogue might go from finding clever ways to pick pockets to finding ways to waylay opponents and devour them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Since most societies don't allow cannibalism, ghouls who wish to continue their old lives must satisfy their cravings in secret, finding a way to balance society's rules while feeding the constant gnawing hunger inside them. Some take up professions that allow them to secretly eat dead flesh or create dead bodies to feed upon. There are tales told of ghoul mercenary troops who satisfy their cravings and profit, while ghoul spellcasters can use their magic to procure and preserve flesh."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ghouls who won't restrain themselves with rules of the living may join or establish ghoul societies. These caste systems base their hierarchy on how much flesh one has consumed and can provide for other ghouls. Hunger and ambition drive ghouls to rise through the ranks, which allows them to feed their hunger even more."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": 6th Guarded Movement, Reactive Pursuit; 10th Wall Run"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.bKoV037XO3qiakGw"
+    },
+    "data": {
+      "dedication": "28e91337-47af-52e7-aa7b-0babb29a7c47"
+    }
+  },
+  {
+    "id": "7195a0b6-4243-5054-b3e4-3c64f1a51614",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:hallowed-necromancer",
+    "name": "Hallowed Necromancer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's quite common for mages of all sorts to study necromancy-the surprisingly diverse school holds the secrets of vitality and void energy, as well as life and death. Many tap into these powers with no consideration of the morality of their use. For these unscrupulous magic users, it's simply another avenue in their never-ending pursuit of power, and the abilities learned are turned to the caster's personal ends, whatever they may be."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Others choose a different path. Through spiritual study and introspection, they have come to recognize the evil intrinsic in the existence of undead, the fundamental wrongness of using the universal energy of death to create an appearance of life. To combat this evil, these casters learn to conduct vitality energy and direct it to great effect against the undead they encounter. They may also engage in ongoing study to learn of the nature of life, death, and undeath, and the precise relationship between each state. These scholars and mages are commonly known as hallowed necromancers-a slightly misrepresentative name, as many of them don't use religious methods, but a frequently used shorthand regardless."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The exact origin of hallowed necromancers' abilities may vary from one to the next. Some are granted their gifts directly by a sympathetic deity such as Sarenrae or Pharasma, while others might use their knowledge of religion and the planes to learn such abilities on their own. Though rarer, it's even possible these practitioners might discover they possess an intuitive understanding and control over abilities that manifest spontaneously as their capabilities grow. Despite this variance, all share a fundamental understanding that undeath is an aberration to be quickly remedied."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the majority of hallowed necromancers have similar goals and are willing to work together, they tend not to form their own organizations. More often, these necromancers attach themselves to existing groups-such as the Knights of Lastwall or Voices of the Spire-and use their powers in support of those groups' causes. Otherwise, they plan and carry out their own personal vendettas against the forces of undeath, often enlisting the help of trusted friends and allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "HALLOWED NECROMANCY IN GEB"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As hallowed necromancy lacks any unified credo, its practitioners are found throughout Golarion. It's rare they make their presence known within the borders of Geb, however. Those who hide their profession usually move on to other lands and those who openly crusade against Geb's many undead quickly find themselves utterly overwhelmed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hallowed necromancers captured in Geb might be executed only to be risen by their foes with their spellcasting ability intact but moral code absent or twisted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.3B1PqqSZYQj9YXac"
+    },
+    "data": {
+      "dedication": "fd5c2e25-2331-508b-818f-a3f6e407fc3c"
+    }
+  },
+  {
+    "id": "9a8beacf-1f40-5637-9dc7-106093bbdf53",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:lich",
+    "name": "Lich",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The path to lichdom is long and winding, with many pitfalls that overcome all but the most accomplished and precise spellcasters. Despite the trials you underwent and decades spent sequestered away with magical tomes, you know with every fiber of your being that it's all been worth it. You devised a unique and incredibly evil ritual to tear your soul from your body, and you painstakingly crafted a receptacle to house your freed soul. Immortality now lies within your grasp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Becoming a lich requires much more than just magical knowledge. It demands fierce intelligence, bold ingenuity, incredible determination, unending patience, and a strict adherence to perfection, along with incredible skill as an artisan, for each lich must create their own soul cage. A mispronounced word or flaw in the construction of your soul cage would end not in immortality but ignominious death. You have all these skills in abundance and now, with your ascension, you've proven your superiority beyond a shadow of a doubt."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a lich, you understand better than any the power and potential of magic. Many liches strive to increase their magical skills and foil the magic of any who dare oppose them. Others delve so deeply into necromantic arts and foul rituals that their flesh can burn the living, causing biological processes to falter and filling those who behold them with uncontrollable fear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of what paths they pursue, nearly all liches are obsessed with their soul cage, spending untold hours and a veritable fortune to protect it, surrounding it with magical and mundane hazards, and guarding it with powerful, loyal defenders. Some liches prefer to secure their soul cage through obscurity rather than force, enshrouding it in magical abjurations or illusions to hide it from prying eyes. The most gifted crafters among liches tinker and improve their soul cage over time, rendering it nigh indestructible. This is a dangerous proposition, undertaken by only the most confident and arrogant magical engineers, as physically altering one's soul cage could have unintended consequences on its function. Many wizard liches instead learn to tap into the soul cage's magical energy from afar to fuel their own spellcasting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": 14th Magic Sense"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.r43lPEEL7WHOZjHL"
+    },
+    "data": {
+      "dedication": "9ead8394-bdbb-553a-b00d-a437a9c29f1b"
+    }
+  },
+  {
+    "id": "7a9aba21-a889-5b0f-a26b-3dbf8dd324bc",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:mummy",
+    "name": "Mummy",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ZewC2i5YdZPsWO8X"
+    },
+    "data": {
+      "dedication": "83080126-9979-5803-922d-884a7b4843a9"
+    }
+  },
+  {
+    "id": "f41f3c84-40f2-5a8b-97c4-61d280d49a6d",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:reanimator",
+    "name": "Reanimator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most cultures revere the bodies of the deceased, laying to rest the mortal remains of their companions according to tradition formed generations before. Such customs assume a common conclusion: once the spirit that inhabited it has gone on to the Boneyard, the empty shell of a corpse has no purpose beyond its eventual return to the elements that formed it. You know differently. As the vessels that once housed immortal souls, corpses hold great power and potential, perfect construction materials for creations of unsurpassed wonder. As a reanimator, you have chosen to focus your study of the necromantic arts on the transformation of dead flesh into innumerable varieties of undead, from the lowliest shuffling corpses and brittle skeletons to abominations of ghastly splendor barely conceived of by only the most fanatical-or brilliant- mortal minds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4th "
+          },
+          {
+            "type": "ref",
+            "id": "79020e27-ec9f-5744-957d-3e219868ddaf"
+          },
+          {
+            "type": "text",
+            "text": "; 12th "
+          },
+          {
+            "type": "ref",
+            "id": "00c08e34-6878-592b-821e-a02006a0a0d1"
+          },
+          {
+            "type": "text",
+            "text": "; 14th "
+          },
+          {
+            "type": "ref",
+            "id": "6de62087-fc30-5e75-bbae-acfb8b2be51a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ePfibeHcnRcjO6lC"
+    },
+    "data": {
+      "dedication": "3fac1529-69c6-578c-a447-44380c9ae7ef"
+    }
+  },
+  {
+    "id": "bb5176af-0295-5bb5-a5ab-a934470d44e2",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:soul-warden",
+    "name": "Soul Warden",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You consider yourself an honorary psychopomp—a shepherd of spirits who ensures the cycle of souls progresses unimpeded. Although you're unable to safeguard the cycle of souls in its entirety, you strive to ensure each soul's time on the Material Plane proceeds without incident. You work to free souls from imprisonment, prevent necromancers from animating the dead, and destroy undead so their souls rejoin the cycle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most who hunt undead do so out of fear, vengeance, or a desire to protect the lives of others, you take a more measured and far less emotional approach; you destroy undead so their souls can continue their journey along the River of Souls, thus ensuring the continuation of existence. You understand that without the cycle of souls, the life cycle of the planes is disrupted, and all of existence could be consumed by the Maelstrom."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all soul wardens worship Pharasma or one of the psychopomp ushers, especially Barzahk the Passage, a psychopomp usher who routinely shirks their duties and needs help from mortal soul wardens. Soul wardens also often join organizations that regularly combat undead, including the Voices of the Spire and Ustalav's Ivory Reapers (page 14)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": 4th Domain Initiate, Familiar; 8th Expanded Domain Initiate; 16th Advanced Domain"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "THE SOUL CYCLE"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A soul's journey begins on the Forge of Creation, where blank, empty souls attach themselves alongside the vitality essence of the plane to mortals on the Material Plane, forming a single living being. At the end of a mortal's life, these souls enter the Ethereal Plane, progressing through the River of Souls to Pharasma's Boneyard, where they're judged and sorted into the appropriate afterlife. Judged souls proceed to their assigned planes, becoming petitioners. These, too, die in time, becoming absorbed by and expanding their associated plane, as their own spiritual essence joins with the plane's as a substance known as quintessence. But the ever-churning Maelstrom breaks these planes down, scattering this planar quintessence throughout the Maelstrom and adjoining planes. Those pieces that land on the Forge of Creation eventually form new blank souls and the cycle begins anew."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.9g14DjBZNj27goTt"
+    },
+    "data": {
+      "dedication": "64264a8f-a631-5414-ae94-fd1c9c11e5a4"
+    }
+  },
+  {
+    "id": "f66810b5-18db-5bf9-8256-552a34ac1e58",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:undead-master",
+    "name": "Undead Master",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Not everyone with an interest in the undead raises a vast army of faceless, disposable minions. You prefer to cultivate a more personal relationship with a small number of undead companions, personalized to your needs and expectations. Those companions with minds trust you implicitly; those without are extensions of your will. Perhaps they see you as a teacher or caretaker, shepherding them on the path to peace and passing on, or perhaps they are your protectors, bound to aid you by negotiation and magical spells. Whatever the case, they will fight for and alongside you without question, throwing themselves into danger without hesitation if it will provide a means to your desired end. This archetype works well for a necromancer capable of raising undead but isn't exclusive to them. You could be a warrior who befriended an undead, an evil champion granted an undead companion by your deity, or an undead bloodline sorcerer undead are drawn to. The additional feats below are found in the beastmaster archetype on pages 160-161 of the Advanced Player's Guide. Whenever one of these additional feats refers to an animal companion, as an undead master, you apply it to your undead companion instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4th Additional Companion, Mature Beastmaster Companion; 6th Companion's Cry; 8th Incredible Beastmaster Companion; 14th Specialized Beastmaster Companion; 16th Lead The Pack"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.f7tFLR7aFonXTLQa"
+    },
+    "data": {
+      "dedication": "613f2c14-6470-55d1-97de-f405d10345b4"
+    }
+  },
+  {
+    "id": "b7b43d45-dd3d-56d9-a81d-c58d4fa6c196",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:undead-slayer",
+    "name": "Undead Slayer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anywhere undead prey upon the living, some brave souls make it their mission to destroy the monsters. Many adventurers are skilled at dispatching undead, but you go a step further. You study them, learn their weaknesses, and master the tools to end them quickly and cleanly. An undead slayer doesn't simply kill monsters; they become what even monsters fear. Leave it to others to be a shield-you become the blade that strikes evil at its heart. You can identify the common types of undead by sight. You drill and practice with the special gear necessary to destroy some of the more complicated undead, like vampires; train in their strengths and weaknesses; and learn how to create safe houses to stash your arsenal and hide from undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some undead slayers work at the behest of an organization to exterminate the undead of a particular region, but many act independently, or in a group of like‑minded adventurers. Were you called by a higher power? Are you on a personal quest for vengeance? Whatever the reason, you now walk a path that will take you to the vilest dens of rot and decay."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mV0K9sxD3TWnZDcy"
+    },
+    "data": {
+      "dedication": "d90d3c23-7513-50b8-ab6f-a913509995fc"
+    }
+  },
+  {
+    "id": "df4d6a8f-39e8-5fbd-8653-def7434206c8",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:vampire",
+    "name": "Vampire",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After being exsanguinated by a vampire, you've risen again, pulling yourself from the earth as an immortal undead. You're a creature of the night, harmed by the light of day and thirsting for blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.G3AtnAkIKNHrahmd"
+    },
+    "data": {
+      "dedication": "417bc06e-419e-560f-9213-212da93b13a3"
+    }
+  },
+  {
+    "id": "537d341f-cb60-53b0-b425-5232d0a0aa22",
+    "pack": "book-of-the-dead",
+    "kind": "archetype",
+    "slug": "archetype:zombie",
+    "name": "Zombie",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a zombie, a rotting corpse animated by necromantic magic. Although most zombies are mindless brutes, you're a husk zombie, preserved through necromantic rites and alchemical reagents. The process worked especially well on you, and you retained your intelligence and identity to a far greater degree than other husk zombies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's not easy being a corpse. Your body continues to rot and putrefy, and the stench is ever present. Your old self keeps slipping away, more and more as the weeks pass by. Your reflexes have slowed, you're beginning to lose your sense of touch, and your emotions are dulling. As your body continues to decay, so too, does your mind. Your memory's not perfect, and although you haven't noticed any huge gaps or flaws yet, you have a feeling they're there somewhere."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike your other senses, your hunger has intensified. You ceaselessly crave the raw flesh and brains of the living—the smarter the better—and satisfying this hunger is the only thing that makes you feel alive. When you eat, you're reinvigorated; feeling returns and the constant mental torpor you live under vanishes. You feel like yourself again... for a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One day you might be nothing more than a walking corpse, but for now, you retain your personality and your free will. Feeding your hunger might allow you to remain that way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4th Bashing Charge, Combat Grab, Crushing Grab; 14th "
+          },
+          {
+            "type": "ref",
+            "id": "1160a97e-57b0-5216-9bcd-b6b662850dd9"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.G38usCLuTDmFYw7V"
+    },
+    "data": {
+      "dedication": "6dc96b39-aaa9-52db-b462-8a5138dc4a53"
+    }
+  }
+]

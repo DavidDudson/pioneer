@@ -1,0 +1,348 @@
+[
+  {
+    "id": "83bc54b1-ede4-592d-bea9-c08f113d11a5",
+    "pack": "book-of-the-dead",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:advanced-undead-benefits",
+    "name": "Advanced Undead Benefits",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Darkvision:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain darkvision if you don't already have it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Disease and Poison Protection:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your bonus against disease and poison increases to +2. You gain poison resistance equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Paralysis and Sleep Protection:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 circumstance bonus to saving throws (or any other defense) against effects that would make you "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " or have the sleep trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "advanced-undead-disease-poison",
+        "predicate": [
+          {
+            "or": ["option:disease", "option:poison"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "advanced-undead-paralyzed-sleep",
+        "predicate": [
+          {
+            "or": ["inflicts:paralyzed", "option:sleep"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.YGk41WV42aTM7CQV"
+    },
+    "data": {}
+  },
+  {
+    "id": "8bcd2f32-c8cc-52a1-80cb-8195c1ceeb91",
+    "pack": "book-of-the-dead",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:basic-undead-benefits",
+    "name": "Basic Undead Benefits",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Necril:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You know the Necril language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead Vision:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain low-light vision, or you gain darkvision if your ancestry already has low-light vision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Void Healing:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are damaged by vitality damage and aren't healed by vitality healing effects. You don't take void damage and are healed by void effects that heal undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Negative Survival:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Unlike normal undead, you aren't destroyed when reduced to 0 Hit Points. Instead, powerful void energy attempts to keep you from being destroyed even in dire straits. You are knocked out and begin dying when reduced to 0 Hit Points. Because you're undead, many methods of bringing someone back from dying, such as stabilize, don't benefit you. When you would die, you're destroyed rather than dead, just like other undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Immunity to Death Effects:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're immune to death effects. This keeps you from being automatically killed or from having your dying value automatically increase, but it doesn't make you immune to other parts of the spell or effect. For example, you can still take mental damage and become frightened by a phantasmal killer, you just don't instantly die from it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Disease and Poison Protection:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 circumstance bonus to saving throws (or any other defense) against disease and poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead Hunger:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " While you don't eat or drink the same food as humanoids do, you usually have thirsts and hungers related to your undead state, such as a ghoul's hunger for humanoid flesh, a zombie's craving for brains, and a vampire's desire for blood. Additionally, while you don't sleep, you enter a state of quiescence for at least 4 hours a day to recuperate, which lets your undead flesh reknit and recover naturally. Many undead choose to rest when the sun is at its highest."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:disease", "option:poison"]
+          }
+        ]
+      },
+      {
+        "key": "Immunity",
+        "type": ["death-effects"]
+      },
+      {
+        "key": "Language",
+        "grant": ["4e394236-976f-5501-bdb1-f8e938fcb241"]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.SAbzItAI4uwbdnQk"
+    },
+    "data": {}
+  },
+  {
+    "id": "14cb4178-cbed-5b93-b769-9486852996c7",
+    "pack": "book-of-the-dead",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:revulsion",
+    "name": "Revulsion",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't voluntarily come within 10 feet of brandished garlic or a religious symbol of a non-evil deity. A creature must Interact to brandish garlic or a religious symbol for 1 round (similar to Raising a Shield). If you involuntarily come within 10 feet of an object of your revulsion, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition, running from the subject of your revulsion until you end an action beyond 10 feet of it. After 1 round of being exposed to the subject of your revulsion, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " save as a single action, which has the concentrate trait. On a success, you overcome your revulsions for 1d6 rounds, or 1 hour on a critical success."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.dkZ8RxdQFJrdxwQo"
+    },
+    "data": {}
+  },
+  {
+    "id": "274c7839-3f90-5891-a453-88d53f67d99a",
+    "pack": "book-of-the-dead",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:sunlight",
+    "name": "Sunlight",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If exposed to direct sunlight, you immediately become "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": ". The slowed value increases by 1 each time you end your turn in sunlight. If you lose all your actions in this way, you are destroyed. Due to your supernatural aversion to light, you don't cast shadows or show a reflection in mirrors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.bHUrm79wJCcI7L3A"
+    },
+    "data": {}
+  }
+]

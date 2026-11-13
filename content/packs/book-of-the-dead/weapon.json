@@ -1,0 +1,1032 @@
+[
+  {
+    "id": "2398ff95-5a02-5962-89b8-dd746ee5db88",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:bottled-sunlight-greater",
+    "name": "Bottled Sunlight (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "fire", "light", "splash", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mirrored bottle contains various chemicals dissolved in two immiscible solvents. Shaking the bottle induces chemical reactions that cause it to glow. For 1 hour, the bottle sheds bright light in a 20-foot radius (and dim light to the next 40 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During this hour, it can be thrown like a bomb. This requires a single action to Activate with a Strike, like other bombs, and deals the damage below. If it's not thrown within an hour of the first activation, it defuses harmlessly and is consumed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 3d4 vitality damage and 3 vitality splash damage, as well as 3d4 additional fire damage. As normal, vitality damage harms only undead and other creatures with void healing. Undead with a particular vulnerability to sunlight (such as vampires or wraiths) take the maximum amount of vitality damage from bottled sunlight ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " instead of 3d4). For any ability that depends on the number of weapon dice bottled sunlight has, count only the vitality damage dice"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AH0u9DDvs4napvdh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "vitality"
+      },
+      "splash": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f232a2eb-937a-5cb5-85a7-35fc04c70a1a",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:bottled-sunlight-lesser",
+    "name": "Bottled Sunlight (Lesser)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "fire", "light", "splash", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mirrored bottle contains various chemicals dissolved in two immiscible solvents. Shaking the bottle induces chemical reactions that cause it to glow. For 1 hour, the bottle sheds bright light in a 20-foot radius (and dim light to the next 40 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During this hour, it can be thrown like a bomb. This requires a single action to Activate with a Strike, like other bombs, and deals the damage below. If it's not thrown within an hour of the first activation, it defuses harmlessly and is consumed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 1d4 vitality damage and 1 vitality splash damage, as well as 1d4 additional fire damage. As normal, vitality damage harms only undead and other creatures with void healing. Undead with a particular vulnerability to sunlight (such as vampires or wraiths) take the maximum amount of vitality damage from bottled sunlight ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " instead of 1d4). For any ability that depends on the number of weapon dice bottled sunlight has, count only the vitality damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iGT4UeQq3YFcNpEb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "vitality"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "556a78be-2c87-5693-bd17-bd3003013057",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:bottled-sunlight-major",
+    "name": "Bottled Sunlight (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "fire", "light", "splash", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mirrored bottle contains various chemicals dissolved in two immiscible solvents. Shaking the bottle induces chemical reactions that cause it to glow. For 1 hour, the bottle sheds bright light in a 20-foot radius (and dim light to the next 40 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During this hour, it can be thrown like a bomb. This requires a single action to Activate with a Strike, like other bombs, and deals the damage below. If it's not thrown within an hour of the first activation, it defuses harmlessly and is consumed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 4d4 vitality damage and 4 vitality splash damage, as well as 4d4 additional fire damage. As normal, vitality damage harms only undead and other creatures with void healing. Undead with a particular vulnerability to sunlight (such as vampires or wraiths) take the maximum amount of vitality damage from bottled sunlight ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " instead of 4d4). For any ability that depends on the number of weapon dice bottled sunlight has, count only the vitality damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xoucExiZTvCbjWMB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "vitality"
+      },
+      "splash": 4,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "db605518-821e-5b40-8c9e-202631560322",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:bottled-sunlight-moderate",
+    "name": "Bottled Sunlight (Moderate)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "fire", "light", "splash", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mirrored bottle contains various chemicals dissolved in two immiscible solvents. Shaking the bottle induces chemical reactions that cause it to glow. For 1 hour, the bottle sheds bright light in a 20-foot radius (and dim light to the next 40 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During this hour, it can be thrown like a bomb. This requires a single action to Activate with a Strike, like other bombs, and deals the damage below. If it's not thrown within an hour of the first activation, it defuses harmlessly and is consumed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 2d4 vitality damage and 2 vitality splash damage, as well as 2d4 additional fire damage. As normal, vitality damage harms only undead and other creatures with void healing. Undead with a particular vulnerability to sunlight (such as vampires or wraiths) take the maximum amount of vitality damage from bottled sunlight ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " instead of 2d4). For any ability that depends on the number of weapon dice bottled sunlight has, count only the vitality damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wIQjJGLZOKCY1es9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "vitality"
+      },
+      "splash": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "31da8f46-1560-52d0-ba6c-0117f98ef7eb",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:celestial-peachwood-sword",
+    "name": "Celestial Peachwood Sword",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "good", "holy", "magical", "versatile-s", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From blade to pommel, this sword is carved from a branch of the now-extinct celestial peach tree. The blade of this"
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "a72b2447-9c26-5cbc-8e32-faf70da03909"
+          },
+          {
+            "type": "text",
+            "text": " ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"
+          },
+          {
+            "type": "text",
+            "text": " shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has ancient runes that can permanently destroy the most powerful undead - if you are willing to pay the price."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An undead creature of 12th level or lower that takes damage from a Strike with the sword takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "). This damage is separate from the Strike itself and isn't included in any effect based on the Strike's damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit an undead creature with the celestial peachwood sword"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " or be destroyed. If the undead fails its saving throw and is destroyed, you suffer a backlash, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per level of the destroyed undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TKvAPv3jgv4l143r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "celestial-peachwood-sword",
+          "name": "Celestial Peachwood Sword",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "01254960-2ed2-51f9-9c76-f6522c7472fc",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:final-rest",
+    "name": "Final Rest",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "b2aa43a4-e89f-54e2-8fa6-3b1e732a31b9"
+          },
+          {
+            "type": "text",
+            "text": " greater striking silver longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from the purest silver. The blade is carefully etched to depict a vast and sprawling necropolis, a place where the dead are laid to rest. Whenever you critically hit an undead creature with "
+          },
+          {
+            "type": "text",
+            "text": "final rest",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the undead creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "No effect."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half the persistent spirit damage."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes the full persistent spirit damage."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes double the persistent spirit damage."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " No effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half the persistent spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " and takes the full persistent spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+          },
+          {
+            "type": "text",
+            "text": " and takes double the persistent spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the sword aloft, making it cast "
+          },
+          {
+            "type": "ref",
+            "id": "68d88c47-4c04-5ede-9922-4c4648784b3c"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 38
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nz1v5aetUZVLBlvg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "final-rest",
+          "name": "Final Rest",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0be82a3c-5045-5daf-b19a-47d060a0b22a",
+    "pack": "book-of-the-dead",
+    "kind": "weapon",
+    "slug": "weapon:ladys-spiral",
+    "name": "Lady's Spiral",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["disarm", "finesse", "nonlethal", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "a72b2447-9c26-5cbc-8e32-faf70da03909"
+          },
+          {
+            "type": "text",
+            "text": " striking whip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a single strip of anointed leather wrapped around its hilt in a spiral pattern. The handle of the whip ends in an oak spike that has been sanctified with ashes from Pharasma's Boneyard. If the spike is used to stake a vampire that's vulnerable to being staked, the vampire is immediately destroyed, without having to sever its head and anoint it with holy water. If the whip is buried with a creature, that creature can't rise as an undead as long as the whip remains by its side."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.174fUKNwSgbKwroU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "whip",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  }
+]

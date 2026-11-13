@@ -1,0 +1,176 @@
+[
+  {
+    "id": "5f84f531-7c2f-52aa-952f-3e56368e8f92",
+    "pack": "book-of-the-dead",
+    "kind": "deity",
+    "slug": "deity:orcus",
+    "name": "Orcus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It is little wonder the demon lord of necromancy's cult finds a home in my realm, and no doubt Orcus believes I owe him homage for the wizardry mastered through my own genius. Yet while his followers are capable, their numbers are few and their rosters filled with self-absorbed spellcasters who sought out undeath. Urgathoa retains her deserved primacy, especially within my lands. Don't confuse Orcus's apparent absence with impotence. No, while Kabriri gnaws, Zura revels, and Urgathoa indulges, Orcus plots. He meticulously builds his strength on other worlds and planes, waiting for an auspicious opportunity to claim supremacy over all undead. Let him scheme. I have only one rival of note and care little for having a second."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Become undead through choice and skill, master necromantic magic, create undead"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Become a vampire or accidental undead, give succor to faiths that seek to destroy undead"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.b7H379HnCOv9UZtd"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["magic", "might", "undeath", "zeal"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:arcana"],
+      "weapons": ["mace"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+        },
+        {
+          "rank": 2,
+          "spell": "a2415dbf-1f1b-5585-80ac-d6b2053f3ce1"
+        },
+        {
+          "rank": 9,
+          "spell": "37e4f8e9-e963-51cd-bbbb-8d5b322dc9b4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "4411c9d9-e803-5902-94e2-c8869d87997b",
+    "pack": "book-of-the-dead",
+    "kind": "deity",
+    "slug": "deity:set",
+    "name": "Set",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Set is the most reviled of all the Ancient Osirian pantheon. He is the encroaching desert, the invader, the sandstorm destroying everything in its path, as well as the dead who rise from their graves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bring chaos to society, murder those who stand in your way, defeat your foes with personal strength and cunning"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Refuse to fight your own battles, destroy a soul instead of turning it to undeath"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.EfHlurXdqkdRXaqv"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["death", "darkness", "dust", "lightning"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:intimidation"],
+      "weapons": ["spear"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "7264ffaf-5901-5f4c-a5f8-cd0beee2873b"
+        },
+        {
+          "rank": 3,
+          "spell": "506f8f57-bc70-59de-a8da-09a8925034d9"
+        },
+        {
+          "rank": 6,
+          "spell": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+        }
+      ]
+    }
+  }
+]

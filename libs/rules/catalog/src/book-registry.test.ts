@@ -41,6 +41,7 @@ describe('book registry', () => {
         'ancestry-guide',
         'bastion-of-blasphemies',
         'battlecry',
+        'book-of-the-dead',
         'character-guide',
         'cheliax-infernal-inheritance',
         'claws-of-the-tyrant',
