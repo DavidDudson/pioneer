@@ -1,10 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 import path from 'node:path';
 
+import { FoundryReleaseTag, ImportFile, Sha256 } from '@pioneer/interop/foundry';
 import { PackId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
-import { backlogPath, importedDirectory, missing, unregistered } from './pack-writes.ts';
+import { canonicalJson } from './canonical-json.ts';
+import { backlogPath, backlogWrite, importedDirectory, missing, unregistered } from './pack-writes.ts';
 
 const ROOT = path.join(import.meta.dir, '../..');
 const targets = { pack: PackId.parse('player-core'), vocabularyPack: PackId.parse('core-rules') };
@@ -37,5 +39,27 @@ describe('catalog registration', () => {
 
     expect(unregistered(source, files)).toEqual([]);
     expect(missing(source, files)).toEqual([]);
+  });
+});
+
+describe('backlog writes', () => {
+  const pin = {
+    tag: FoundryReleaseTag.parse('pf2e-8.6.0'),
+    sha256: Sha256.parse('0'.repeat(64)),
+  };
+
+  test('a pack with no legacyPin prints no legacyPin and parses back', () => {
+    const { json } = backlogWrite(targets.pack, ImportFile.parse({ pin, backlog: [] }), []);
+    const text = canonicalJson(json);
+
+    expect(text).not.toContain('undefined');
+    expect(ImportFile.parse(JSON.parse(text)).legacyPin).toBeUndefined();
+  });
+
+  test('a pack with a legacyPin keeps it', () => {
+    const { json } = backlogWrite(targets.pack, ImportFile.parse({ pin, legacyPin: pin, backlog: [] }), []);
+    const parsed: unknown = JSON.parse(canonicalJson(json));
+
+    expect(ImportFile.parse(parsed).legacyPin).toEqual(pin);
   });
 });
