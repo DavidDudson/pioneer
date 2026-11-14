@@ -68,11 +68,25 @@ export const characterRoutes: Routes = [
           {
             path: 'create',
             data: { [CRUMB]: 'character.create.title' },
-            loadComponent: loadWithMessages(async () => {
-              const { CreateCharacterPage } =
-                await import('./new/create-character-page/create-character-page.component');
-              return CreateCharacterPage;
-            }),
+            children: [
+              {
+                path: '',
+                loadComponent: loadWithMessages(async () => {
+                  const { CreateCharacterPage } =
+                    await import('./new/create-character-page/create-character-page.component');
+                  return CreateCharacterPage;
+                }),
+              },
+              {
+                path: ':id',
+                data: { [CRUMB]: 'character.create.levelOne.title' },
+                loadComponent: loadWithMessages(async () => {
+                  const { CreateLevelOnePage } =
+                    await import('./new/create-level-one-page/create-level-one-page.component');
+                  return CreateLevelOnePage;
+                }),
+              },
+            ],
           },
         ],
       },
