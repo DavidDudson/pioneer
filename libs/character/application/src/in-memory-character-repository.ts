@@ -1,10 +1,30 @@
-import { CharacterSort, withPlay } from '@pioneer/character/domain';
-import type { Character, CharacterId, CharacterListQuery, CharacterPlay } from '@pioneer/character/domain';
+import { CHARACTER_PAGE_SIZE, CharacterCount, CharacterSort, withPlay } from '@pioneer/character/domain';
+import type {
+  Character,
+  CharacterFilter,
+  CharacterId,
+  CharacterListQuery,
+  CharacterPage,
+  CharacterPageQuery,
+  CharacterPlay,
+} from '@pioneer/character/domain';
 import { FIRST_VERSION, nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
 import type { CharacterAudit, PlayWrite } from './character-repository';
+
+/** Whether `character` passes every filter in `filter`; an absent filter passes all. */
+function matches(character: Character, filter: CharacterFilter): boolean {
+  const search = filter.name?.toLowerCase();
+  return (
+    (filter.minLevel === undefined || character.level >= filter.minLevel) &&
+    (filter.maxLevel === undefined || character.level <= filter.maxLevel) &&
+    (filter.classId === undefined || character.classId === filter.classId) &&
+    (filter.ancestry === undefined || character.ancestry === filter.ancestry) &&
+    (search === undefined || character.name.toLowerCase().includes(search))
+  );
+}
 
 /** Repository adapter for tests and local experiments. Play state is kept apart, as `character_play` keeps it. */
 export class InMemoryCharacterRepository extends CharacterRepository {
@@ -20,6 +40,17 @@ export class InMemoryCharacterRepository extends CharacterRepository {
 
   public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
     return this.#listFor(ownerId, query, false);
+  }
+
+  public override async pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
+    const matching = this.#listFor(ownerId, query, false).filter((character) => matches(character, query));
+    const start = (query.page - 1) * CHARACTER_PAGE_SIZE;
+    return {
+      items: matching.slice(start, start + CHARACTER_PAGE_SIZE),
+      total: CharacterCount.parse(matching.length),
+      page: query.page,
+      pageSize: CHARACTER_PAGE_SIZE,
+    };
   }
 
   public override async listArchivedForOwner(

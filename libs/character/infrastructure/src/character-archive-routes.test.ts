@@ -68,7 +68,7 @@ describe('archived character routes (ADR-0062)', () => {
     const id = await created(api);
     expect(await status(api, request('POST', `/characters/${id}/archive`))).toBe(200);
     expect(await status(api, request('GET', `/characters/${id}`))).toBe(404);
-    expect(await bodyOf(api, '/characters')).toStrictEqual([]);
+    expect(await bodyOf(api, '/characters')).toMatchObject({ items: [], total: 0 });
     expect(await bodyOf(api, '/characters/archived')).toHaveLength(1);
 
     expect(await status(api, request('POST', `/characters/${id}/restore`))).toBe(200);

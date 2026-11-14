@@ -1,4 +1,4 @@
-import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, ContentId } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
@@ -11,7 +11,7 @@ import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
-import { ANCESTRY_SLOT } from './character-slots';
+import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
 import { equipmentChange } from './equipment-change';
@@ -51,6 +51,12 @@ function ancestryOf(document: CharacterDocument): AncestryId | undefined {
   return picked.success ? picked.data : undefined;
 }
 
+/** The class picked in the class slot, or `undefined` while the slot is empty. */
+function classOf(document: CharacterDocument): ContentId | undefined {
+  const picked = ContentId.safeParse(document.build.choices[CLASS_SLOT]);
+  return picked.success ? picked.data : undefined;
+}
+
 /**
  * Character aggregate root, stored as its `CharacterDocument`. Immutable: every change returns a new instance,
  * which is what Angular signals want and what keeps server-side invariants in one place.
@@ -85,6 +91,8 @@ export class Character {
   public readonly ownerId: UserId;
   public readonly name: CharacterName;
   public readonly ancestry: AncestryId | undefined;
+  /** The class picked in the class slot; copied to the row, as the ancestry is, so the list can filter by it. */
+  public readonly classId: ContentId | undefined;
   public readonly level: CharacterLevel;
   public readonly createdAt: Temporal.Instant;
   public readonly updatedAt: Temporal.Instant;
@@ -96,6 +104,7 @@ export class Character {
     this.ownerId = props.document.ownerId;
     this.name = props.document.name;
     this.ancestry = ancestryOf(props.document);
+    this.classId = classOf(props.document);
     this.level = props.document.level;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;

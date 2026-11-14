@@ -14,6 +14,25 @@
   "list": {
     "title": "Characters",
     "description": "Your Pathfinder heroes.",
+    "filters": {
+      "label": "Filter characters",
+      "name": "Search by name",
+      "class": "Class",
+      "anyClass": "Any class",
+      "ancestry": "Ancestry",
+      "anyAncestry": "Any ancestry",
+      "minLevel": "Lowest level",
+      "maxLevel": "Highest level",
+      "clear": "Clear filters"
+    },
+    "page": {
+      "label": "Character pages",
+      "indicator": "Page {page} of {pages}, {total} characters",
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "noMatches": "No characters match these filters.",
+    "noMatchesHint": "Clear the filters to see all your characters.",
     "nameLabel": "Name",
     "namePlaceholder": "Valeros",
     "ancestryPlaceholder": "Search ancestries by name",

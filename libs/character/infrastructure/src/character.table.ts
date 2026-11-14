@@ -20,7 +20,7 @@ import type {
   SheetModeId,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
-import type { ContentId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
+import type { AncestryId, ContentId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
 import {
@@ -56,6 +56,10 @@ export const characters = pgTable(
     ownerId: uuid().$type<UserId>().notNull(),
     name: text().$type<CharacterName>().notNull(),
     level: smallint().$type<CharacterLevel>().notNull(),
+    // The ancestry and class picked in their slots, null while a slot is empty.
+    // Copies of the document's, kept in step by the repository, so the list filters on columns.
+    ancestryId: uuid().$type<AncestryId>(),
+    classId: uuid().$type<ContentId>(),
     // The document's own `schemaVersion`, as a column so old rows can be counted without reading documents.
     schemaVersion: smallint().$type<CharacterSchemaVersion>().notNull(),
     // Decoded with `decodeCharacterDocument`, which upgrades an older version; saves write the current one.
@@ -72,6 +76,11 @@ export const characters = pgTable(
     // Asc and desc both use it (backward index scan).
     index('characters_owner_created_at_id_idx').on(table.ownerId, table.createdAt, table.id),
     index('characters_owner_name_id_idx').on(table.ownerId, table.name, table.id),
+    // One index per list filter on a column, within an owner's characters.
+    // The name filter is a substring match that no btree serves: it narrows rows the owner index found.
+    index('characters_owner_level_idx').on(table.ownerId, table.level),
+    index('characters_owner_class_idx').on(table.ownerId, table.classId),
+    index('characters_owner_ancestry_idx').on(table.ownerId, table.ancestryId),
   ],
 );
 

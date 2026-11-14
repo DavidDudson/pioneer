@@ -7,6 +7,7 @@ import { Character } from './character';
 import { CharacterAllies } from './character-allies';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterPacks, EnablePackBody } from './character-packs';
+import { CharacterFilter, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterRuleLimitContract } from './character-rule-limit-contract';
 import { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
@@ -30,18 +31,26 @@ export type CharacterSort = ValueOf<typeof CharacterSort>;
 export const CharacterListQuery = listQuery(CharacterSort, CharacterSort.CreatedAt);
 export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
+/** The home list: the list's orders, a page of them, and the filters that narrow it. */
+export const CharacterPageQuery = CharacterListQuery.extend({
+  ...CharacterFilter.shape,
+  page: PageNumber.default(FIRST_PAGE),
+});
+export type CharacterPageQuery = z.output<typeof CharacterPageQuery>;
+
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */
 export const CharacterContract = {
+  /** The signed-in user's characters, a page of them, narrowed by the filters; the page says how many there are. */
   list: new Endpoint({
     method: HttpMethod.Get,
     path: '/characters',
     params: NoParams,
-    query: CharacterListQuery,
+    query: CharacterPageQuery,
     body: NoBody,
-    response: z.array(Character.codec),
+    response: CharacterPage,
   }),
   get: new Endpoint({
     method: HttpMethod.Get,

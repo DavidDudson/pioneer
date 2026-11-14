@@ -12,6 +12,52 @@
         }
       </fr-stack>
 
+      <fr-stack gap="sm" role="search" [attr.aria-label]="'character.list.filters.label' | transloco">
+        <fr-search-input
+          [ariaLabel]="'character.list.filters.name' | transloco"
+          [placeholder]="'character.list.filters.name' | transloco"
+          [value]="state().name ?? ''"
+          (searched)="searchName($event)"
+        />
+        <fr-grid minItem="sm" gap="sm">
+          <pio-option-picker
+            [ariaLabel]="'character.list.filters.class' | transloco"
+            [options]="classOptions()"
+            [placeholder]="'character.list.filters.anyClass' | transloco"
+            [value]="state().classId"
+            (valueChange)="setClass($event)"
+          />
+          <pio-option-picker
+            [ariaLabel]="'character.list.filters.ancestry' | transloco"
+            [options]="ancestryOptions()"
+            [placeholder]="'character.list.filters.anyAncestry' | transloco"
+            [value]="state().ancestry"
+            (valueChange)="setAncestry($event)"
+          />
+          <fr-optional-number-input
+            [ariaLabel]="'character.list.filters.minLevel' | transloco"
+            [placeholder]="'character.list.filters.minLevel' | transloco"
+            [min]="1"
+            [max]="20"
+            [value]="state().minLevel"
+            (valueChange)="setMinLevel($event)"
+          />
+          <fr-optional-number-input
+            [ariaLabel]="'character.list.filters.maxLevel' | transloco"
+            [placeholder]="'character.list.filters.maxLevel' | transloco"
+            [min]="1"
+            [max]="20"
+            [value]="state().maxLevel"
+            (valueChange)="setMaxLevel($event)"
+          />
+        </fr-grid>
+        @if (filtered()) {
+          <fr-stack direction="horizontal">
+            <fr-button (pressed)="clearFilters()">{{ 'character.list.filters.clear' | transloco }}</fr-button>
+          </fr-stack>
+        }
+      </fr-stack>
+
       <fr-async-region [errorMessage]="'character.list.loadError' | transloco">
         <ng-template frAsyncPending>
           <fr-stack gap="md">
@@ -22,7 +68,7 @@
         </ng-template>
         <ng-template let-characters [frAsyncData]="characters">
           <fr-virtual-list gap="md" estimate="md" [itemKey]="characterKey">
-            <ng-template let-character [frVirtualItem]="characters">
+            <ng-template let-character [frVirtualItem]="characters.items">
               <fr-surface>
                 <fr-stack gap="2xs">
                   <fr-link variant="subheading" [to]="[character.id]">{{ character.name }}</fr-link>
@@ -38,12 +84,44 @@
               </fr-surface>
             </ng-template>
           </fr-virtual-list>
-          @if (characters.length === 0) {
-            <fr-empty-state
-              [icon]="emptyIcon"
-              [title]="'character.list.empty' | transloco"
-              [description]="'character.list.emptyHint' | transloco"
-            />
+          @if (characters.total === 0) {
+            @if (filtered()) {
+              <fr-empty-state
+                [icon]="emptyIcon"
+                [title]="'character.list.noMatches' | transloco"
+                [description]="'character.list.noMatchesHint' | transloco"
+              >
+                <fr-button (pressed)="clearFilters()">{{ 'character.list.filters.clear' | transloco }}</fr-button>
+              </fr-empty-state>
+            } @else {
+              <fr-empty-state
+                [icon]="emptyIcon"
+                [title]="'character.list.empty' | transloco"
+                [description]="'character.list.emptyHint' | transloco"
+              />
+            }
+          } @else {
+            @let pages = pageCount(characters.total, characters.pageSize);
+            <fr-stack
+              direction="horizontal"
+              justify="between"
+              align="center"
+              role="navigation"
+              [attr.aria-label]="'character.list.page.label' | transloco"
+            >
+              <fr-text tone="muted" aria-live="polite">{{
+                'character.list.page.indicator'
+                  | transloco: { page: characters.page, pages: pages, total: characters.total }
+              }}</fr-text>
+              <fr-stack direction="horizontal" gap="sm">
+                <fr-button [disabled]="characters.page <= 1" (pressed)="goTo(state().page - 1)">{{
+                  'character.list.page.previous' | transloco
+                }}</fr-button>
+                <fr-button [disabled]="characters.page >= pages" (pressed)="goTo(state().page + 1)">{{
+                  'character.list.page.next' | transloco
+                }}</fr-button>
+              </fr-stack>
+            </fr-stack>
           }
         </ng-template>
       </fr-async-region>
