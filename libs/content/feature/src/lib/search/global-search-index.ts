@@ -10,6 +10,12 @@ import { isLegacyEntry, packLicenses, shownEntries } from '../browser/browse-leg
 import { entriesOf } from '../browser/browse-list';
 import { registryEntries, traitNamesOf } from '../entry/entry-lookup';
 
+/** A kind the index loads: each browsable kind, and the trait vocabulary that names tags. */
+type IndexedKind = BrowseKind | typeof ContentKind.Trait;
+
+/** The trait vocabulary first, so tags are named before the entries that carry them load. */
+const INDEXED_KINDS: readonly IndexedKind[] = [ContentKind.Trait, ...BROWSE_KINDS];
+
 /**
  * The entries, official and in the homebrew packs in scope, the global search matches names in, loaded one kind at a time when the browser is idle. A
  * kind already in the browser's store costs no request. Typing never waits for it: it matches what has loaded so far,
@@ -23,7 +29,7 @@ export class GlobalSearchIndex {
   readonly #byId = signal<ReadonlyMap<ContentId, ContentEntry>>(new Map());
   readonly #legacy = signal<ReadonlySet<ContentId>>(new Set());
   readonly #traitNames = signal<ReadonlyMap<Trait, string>>(new Map());
-  readonly #done = new Set<BrowseKind | typeof ContentKind.Trait>();
+  readonly #done = new Set<IndexedKind>();
   #running = false;
 
   /** The entries loaded so far, and by id. */
@@ -47,7 +53,7 @@ export class GlobalSearchIndex {
   }
 
   #next(): void {
-    const kind = [...BROWSE_KINDS, ContentKind.Trait].find((each) => !this.#done.has(each));
+    const kind = INDEXED_KINDS.find((each) => !this.#done.has(each));
     if (kind === undefined) {
       this.#running = false;
       return;
@@ -58,7 +64,7 @@ export class GlobalSearchIndex {
     });
   }
 
-  async #load(kind: BrowseKind | typeof ContentKind.Trait): Promise<void> {
+  async #load(kind: IndexedKind): Promise<void> {
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
       if (kind === ContentKind.Trait) {
@@ -74,7 +80,6 @@ export class GlobalSearchIndex {
     }
   }
 
-  /** The entries of `kind` the registry holds, shown in the search. */
   #add(registry: ContentRegistry, kind: BrowseKind): void {
     const licenses = packLicenses(registry);
     const loaded = shownEntries(entriesOf(registry, [kind]), licenses, this.#scope().legacy);

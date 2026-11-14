@@ -18,8 +18,7 @@ export function refOf(entry: ContentEntry): ContentEntryRef {
 }
 
 /**
- * The kinds to load for a state, whatever the tier: the ones listed, the traits that name and open their chips, and for
- * a picked entry its own with the ones its text refers to. They come from the cached bundles, so a kind seen before needs no request.
+ * The kinds to load for a state: those listed, a picked entry's own and referenced kinds, and traits for chip names.
  */
 export function kindsToLoad(state: ContentBrowserState): readonly ContentKind[] {
   const listed = listedKinds(state.kinds);

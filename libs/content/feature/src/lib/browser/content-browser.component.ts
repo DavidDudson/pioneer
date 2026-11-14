@@ -24,7 +24,7 @@ import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
-import { ContentKind, Trait } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentLicense, CreatureData, FilterState, PackId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
@@ -246,7 +246,7 @@ export class ContentBrowser {
     const names = this.#traitNames();
     const traits = entry.traits.map((trait): Chip => ({
       label: traitLabel(names, trait),
-      trait: Trait.parse(trait),
+      trait,
       tone,
     }));
     return {

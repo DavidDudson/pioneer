@@ -4,7 +4,7 @@ import { ApplicationInitStatus, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { ContentLicense, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { ContentKind, ContentLicense, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentPack, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
@@ -16,7 +16,8 @@ import { GlobalSearchSession } from './global-search-session';
 
 const PACK: ContentPack = new ContentPackBuilder()
   .withId('search-session-test')
-  .withFeat('power-attack', { level: 1, traits: ['fighter', 'flourish'] })
+  .withItem(ContentKind.Trait, 'versatile-p', { appliesTo: [ContentKind.Equipment] })
+  .withFeat('power-attack', { level: 1, traits: ['fighter', 'versatile-p'] })
   .withFeat('attack-of-opportunity', { level: 1, traits: [] })
   .withFeat('toughness', {
     level: 1,
@@ -109,7 +110,7 @@ describe(GlobalSearchSession, () => {
     const tagged = started.session.options().map((option) => option.tags?.map((tag) => tag.label));
     expect(tagged).toStrictEqual([
       ['Feat', 'Level 1'],
-      ['Feat', 'Level 1', 'Fighter', 'Flourish'],
+      ['Feat', 'Level 1', 'Fighter', 'Versatile-p'],
     ]);
   });
 

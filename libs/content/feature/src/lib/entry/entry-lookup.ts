@@ -142,17 +142,14 @@ export function entryPreviews(index: () => ReadonlyMap<ContentId, ContentEntry> 
 
 /** The name of each trait the entries hold, by its slug: the vocabulary's own entry, the last one loaded winning. */
 export function traitNamesOf(entries: Iterable<ContentEntry>): ReadonlyMap<Trait, string> {
-  const names = new Map<Trait, string>();
-  for (const entry of entries) {
-    if (entry.kind === ContentKind.Trait) {
-      names.set(Trait.parse(slugName(entry.slug)), entry.name);
-    }
-  }
-  return names;
+  return new Map(
+    [...entries]
+      .filter((entry) => entry.kind === ContentKind.Trait)
+      .map((entry): [Trait, string] => [Trait.parse(slugName(entry.slug)), entry.name]),
+  );
 }
 
 /** What to call a trait: its name when the vocabulary has been loaded, else its slug read as words, never the slug. */
-export function traitLabel(names: ReadonlyMap<Trait, string>, trait: string): string {
-  const slug = Trait.parse(trait);
-  return names.get(slug) ?? humaniseTrait(slug);
+export function traitLabel(names: ReadonlyMap<Trait, string>, trait: Trait): string {
+  return names.get(trait) ?? humaniseTrait(trait);
 }
