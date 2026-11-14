@@ -285,4 +285,14 @@ describe('a hover card nested in another card', () => {
 
     expect(cards()[0]?.textContent).toContain('Burst of flame');
   });
+
+  it('closes only the inner card on Escape while focus is on the outer trigger', async () => {
+    const fixture = await openBoth();
+    const outerTrigger = (fixture.nativeElement as HTMLElement).querySelector('span');
+    outerTrigger?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(cards().map((each) => each.textContent.trim())).toStrictEqual([expect.stringContaining('Burst of flame')]);
+    });
+  });
 });

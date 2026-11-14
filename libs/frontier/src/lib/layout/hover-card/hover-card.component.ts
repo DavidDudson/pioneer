@@ -73,6 +73,7 @@ export class HoverCard {
   #pointer = false;
   #focus = false;
   #nested = 0;
+  #destroyed = false;
   #timer: Subscription | undefined;
 
   public constructor() {
@@ -93,6 +94,7 @@ export class HoverCard {
     // Capture phase, so the first tap is stopped before the projected link follows it.
     host.addEventListener('click', this.#tap, { capture: true });
     inject(DestroyRef).onDestroy(() => {
+      this.#destroyed = true;
       this.#clear();
       host.removeEventListener('click', this.#tap, { capture: true });
     });
@@ -134,6 +136,13 @@ export class HoverCard {
     this.#settle(HOVER_DELAY);
   }
 
+  /** Escape on the trigger leaves a card open in this one's content to the overlay, which closes the topmost first. */
+  protected escapeTrigger(): void {
+    if (this.#nested === 0) {
+      this.escape();
+    }
+  }
+
   protected escape(): void {
     this.#clear();
     this.#pointer = false;
@@ -144,6 +153,9 @@ export class HoverCard {
   /** Opens or closes after `delay` to match whether pointer or focus is inside, so crossing the gap doesn't flicker. */
   #settle(delay: number): void {
     this.#clear();
+    if (this.#destroyed) {
+      return;
+    }
     this.#timer = timer(delay).subscribe(() => {
       this.open.set(this.content() !== undefined && (this.#pointer || this.#focus || this.#nested > 0));
     });
