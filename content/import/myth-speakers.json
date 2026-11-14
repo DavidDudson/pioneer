@@ -282,16 +282,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"],
-            "text": "PF2E.SpecificRule.Exemplar.Epithet.PlundererOfTheHivesRiches.CriticalSpecialization"
-          }
         }
       ]
     },
@@ -364,16 +354,6 @@
                 "text": "PF2E.SpecificRule.Exemplar.Epithet.TrespasserInDeathsRealm.Description"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"],
-            "text": "PF2E.SpecificRule.Exemplar.Epithet.TrespasserInDeathsRealm.CriticalSpecialization"
           }
         }
       ]

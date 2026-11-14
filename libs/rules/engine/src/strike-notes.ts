@@ -1,4 +1,5 @@
 import {
+  alternateSpecializationOf,
   criticalSpecializationOf,
   DegreeOfSuccess,
   grievousSpecializationOf,
@@ -41,22 +42,32 @@ function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets)
 /** A rule in play whose element is a `CriticalSpecialization`. */
 type SpecializingRule = RuleInPlay & { readonly element: CriticalSpecializationElement };
 
+/** The words an element's critical specialization shows on the Strike: the group's, its grievous benefit, or an alternate's own. */
+function specializationText(element: CriticalSpecializationElement, { group }: StrikeTargets): RichText | undefined {
+  if (group === undefined) {
+    return undefined;
+  }
+  if (element.alternate === true) {
+    return alternateSpecializationOf(element);
+  }
+  return element.grievous === true ? grievousSpecializationOf(group) : criticalSpecializationOf(group);
+}
+
 /**
  * `notes` with the critical specialization of the Strike's weapon group, unless it has a group without one or already
- * has it. A grievous element adds the group's further benefit instead, and an etched one only to the weapon it is
- * etched onto.
+ * has it. A grievous element adds the group's further benefit instead, an alternate one its own effect, and an etched
+ * one only to the weapon it is etched onto.
  */
 function withCriticalSpecialization(
   notes: readonly StrikeNote[],
   rule: SpecializingRule,
   targets: StrikeTargets,
 ): readonly StrikeNote[] {
-  const { group } = targets;
   const { element } = rule;
-  if (group === undefined || (element.etched === true && !ownsStrike(rule, targets))) {
+  if (element.etched === true && !ownsStrike(rule, targets)) {
     return notes;
   }
-  const text = element.grievous === true ? grievousSpecializationOf(group) : criticalSpecializationOf(group);
+  const text = specializationText(element, targets);
   if (text === undefined) {
     return notes;
   }

@@ -1074,6 +1074,22 @@
       {
         "key": "CriticalSpecialization",
         "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed on a Strike and the target of the critical hit is standing on a surface of earth or stone, the target is driven down and mired in the ground. The target is Immobilized and must succeed at an Escape attempt against your class DC to end the immobilization. The creature doesn't become stuck if it is incorporeal, is liquid (like a water elemental or some oozes), has a burrow speed, or could otherwise escape without effort."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -2027,6 +2043,22 @@
       },
       {
         "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed on a Strike, you can Step as a free action."
+              }
+            ]
+          }
+        ],
         "predicate": ["option:epithet-critical-specialization"]
       }
     ],
@@ -6047,6 +6079,33 @@
       {
         "key": "CriticalSpecialization",
         "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed on a Strike, haunting melodies play around the target, making them Stupefied 1 unless they succeed on a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:will",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " save against your class DC."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -6399,6 +6458,22 @@
       },
       {
         "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed on a Strike, water blasts the target and those nearby. This deals bludgeoning splash damage equal to the number of weapon damage dice to the target and all creatures within 10 feet of it. This effect has the water trait."
+              }
+            ]
+          }
+        ],
         "predicate": ["option:epithet-critical-specialization"]
       }
     ],
@@ -10700,6 +10775,33 @@
       },
       {
         "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed on a Strike, the target must make a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " saving throw against your class DC. On a failure, they are knocked Prone and Deafened for 1 minute. This is a sonic effect."
+              }
+            ]
+          }
+        ],
         "predicate": ["option:epithet-critical-specialization"]
       }
     ],

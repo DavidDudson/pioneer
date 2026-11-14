@@ -20,6 +20,7 @@ import {
   withChoiceValues,
   withTagQuery,
 } from './translate-choice-sets';
+import { withSpecialization } from './translate-critical-specialization';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
@@ -43,8 +44,8 @@ import {
   pickedFlagsIn,
   withOwnedPicks,
 } from './translate-owned-picks';
-import { withRollOption } from './translate-roll-options';
 // oxlint-disable-next-line import/max-dependencies -- where every Foundry rule element is shaped, one translator module for each kind
+import { withRollOption } from './translate-roll-options';
 import { withSkillPathChoices } from './translate-skill-raises';
 import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
@@ -167,7 +168,7 @@ function shapeRule(
   const text = withDisplayLabel(localized(withOwnedPicks(raw, owned), context, unresolved));
   const rolled = withRollOption(withNamespacedOptions(text), context.values.item);
   const scoped = withDiceFormula(withDefenceTypes(withItemScope(rolled)));
-  const options = withNoteText(scoped, context);
+  const options = withSpecialization(withNoteText(scoped, context), context);
   const granted = withGrants(withPioneerFormula(options), references);
   const struck = withStrikeScope(withStrikeDamage(withoutStrikeExtras(granted)));
   const modifier = withBaseSpeed(withModifierSelectors(withCreatureSize(struck)));
