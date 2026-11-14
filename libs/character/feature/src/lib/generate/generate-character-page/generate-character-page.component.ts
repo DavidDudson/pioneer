@@ -3,7 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CHARACTER_NAMES, CLASS_SLOT } from '@pioneer/character/domain';
+import { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_NAMES, CLASS_SLOT } from '@pioneer/character/domain';
 import type {
   CharacterId,
   CharacterName,
@@ -27,8 +27,8 @@ import {
   ToggleButton,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { ChoiceValue, ClassRole } from '@pioneer/rules/sdk';
-import type { Attribute, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
+import { ClassRole } from '@pioneer/rules/sdk';
+import type { Attribute } from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
 import { filter, map, merge } from 'rxjs';
 
@@ -37,9 +37,12 @@ import { ClassRoleOptions } from '../../data/class-role-options';
 import { GenerateCharacterFields, GenerateCharacterForm } from '../../data/generate-character-form';
 import { NO_THEME_CHOICE, themeOfChoice } from '../../data/generation-theme-choice';
 import type { GenerationThemeChoice } from '../../data/generation-theme-choice';
+import { OriginChoiceOptions } from '../../data/origin-choice-options';
+import type { OriginChoice } from '../../data/origin-choice-options';
 import { WeaponBaseOptions } from '../../data/weapon-bases';
 import { RollTableInput } from '../../roll-table/roll-table-input.component';
 import { RollTable } from '../../roll-table/roll-table.component';
+import { keyOf, lockOf } from './generate-choices';
 import { ROLE_MESSAGES, THEME_ATTRIBUTES, WEAPON_CATEGORY_MESSAGES, WEAPON_GROUP_MESSAGES } from './generate-theme';
 
 interface DetailsModel {
@@ -54,14 +57,6 @@ interface MadeCharacter {
   readonly seed: Seed;
   /** The theme the character was made under; undefined when none was asked for. */
   readonly theme: GenerationTheme | undefined;
-}
-
-/** The key of `messages` that `picked` names, or undefined for no choice. */
-function keyOf<TKey extends WeaponCategory | WeaponGroup>(
-  messages: Readonly<Record<TKey, string>>,
-  picked: string | undefined,
-): TKey | undefined {
-  return Object.keys(messages).find((value): value is TKey => value === picked);
 }
 
 const FIRST_STEP = 0;
@@ -101,6 +96,7 @@ export class GenerateCharacterPage {
   readonly #generator = inject(CharacterGenerator);
   readonly #i18n = inject(TranslocoService);
   readonly #classes = inject(ClassRoleOptions);
+  readonly #origins = inject(OriginChoiceOptions);
   readonly #weaponBases = inject(WeaponBaseOptions);
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
@@ -119,6 +115,10 @@ export class GenerateCharacterPage {
   protected readonly role = signal<ClassRole | undefined>(undefined);
   /** The chosen class's id; '' for any class that plays the role. */
   protected readonly classId = signal('');
+  /** The chosen ancestry's id; '' for any ancestry. */
+  protected readonly ancestryId = signal('');
+  /** The chosen background's id; '' for any background. */
+  protected readonly backgroundId = signal('');
   protected readonly themeChoice = signal<GenerationThemeChoice>(NO_THEME_CHOICE);
   protected readonly result = signal<MadeCharacter | undefined>(undefined);
   protected readonly failed = signal(false);
@@ -147,6 +147,14 @@ export class GenerateCharacterPage {
     const played = role === undefined ? [] : this.#classes.playing(role);
     return [any, ...played.map((each) => ({ value: each.id, label: String(each.name) }))];
   });
+  protected readonly ancestryOptions = computed((): readonly SelectOption<string>[] => {
+    this.#messages();
+    return this.#withAny(this.#origins.ancestries(), 'character.generate.anyAncestry');
+  });
+  protected readonly backgroundOptions = computed((): readonly SelectOption<string>[] => {
+    this.#messages();
+    return this.#withAny(this.#origins.backgrounds(), 'character.generate.anyBackground');
+  });
   protected readonly categoryOptions = computed(() => {
     this.#messages();
     return this.#options(WEAPON_CATEGORY_MESSAGES);
@@ -171,6 +179,8 @@ export class GenerateCharacterPage {
     const chosen = this.classOptions().find((option) => option.value === this.classId());
     return chosen?.label ?? this.#i18n.translate('character.generate.anyClass');
   });
+  protected readonly ancestrySummary = computed(() => this.#summaryOf(this.ancestryOptions(), this.ancestryId()));
+  protected readonly backgroundSummary = computed(() => this.#summaryOf(this.backgroundOptions(), this.backgroundId()));
   protected readonly styleSummary = computed(() => {
     this.#messages();
     const { favoured, category, group, base } = this.themeChoice();
@@ -258,8 +268,24 @@ export class GenerateCharacterPage {
   #body(role: ClassRole): GenerateCharacterBody {
     const theme = themeOfChoice(this.themeChoice());
     const classId = this.classId();
-    const locks = classId === '' ? [] : [{ slot: CLASS_SLOT, selection: ChoiceValue.parse(classId) }];
+    const locks = [
+      ...lockOf(CLASS_SLOT, classId),
+      ...lockOf(ANCESTRY_SLOT, this.ancestryId()),
+      ...lockOf(BACKGROUND_SLOT, this.backgroundId()),
+    ];
     return { ...GenerateCharacterForm.parse(this.details()), role, locks, ...(theme === undefined ? {} : { theme }) };
+  }
+
+  /** The options of a picker: the chance option first, then each choice by name. */
+  #withAny(choices: readonly OriginChoice[], anyKey: string): readonly SelectOption<string>[] {
+    const any: SelectOption<string> = { value: '', label: this.#i18n.translate(anyKey) };
+    return [any, ...choices.map((each) => ({ value: each.id, label: each.name }))];
+  }
+
+  /** The label of the option chosen, or of the chance option when nothing is. */
+  #summaryOf(options: readonly SelectOption<string>[], chosen: string): string {
+    this.#messages();
+    return (options.find((option) => option.value === chosen) ?? options[0])?.label ?? '';
   }
 
   /** The options of a weapon select: no choice first, then each value named by its message. */

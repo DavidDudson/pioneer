@@ -23,7 +23,6 @@
     "seedLabel": "Seed",
     "seedPlaceholder": "Random",
     "seedHint": "Leave empty for a random seed. The same seed, level and packs give the same character.",
-    "generate": "Generate",
     "generateFailed": "Could not generate a character. Try again.",
     "generatedResult": "{name} was generated from seed {seed}. Note the seed to make the same character again.",
     "openSheet": "Open the sheet",
@@ -67,15 +66,14 @@
     "summary": "{ancestry} · Level {level}",
     "updated": "Updated",
     "empty": "No characters yet.",
-    "emptyHint": "Create one above to get started.",
+    "emptyHint": "Use Create character to get started.",
     "creating": "Creating",
     "created": "Created",
     "createFailed": "Could not create the character. Try again.",
-    "import": "Import from Pathbuilder",
-    "importPioneer": "Import from Pioneer JSON",
     "importMordred": "Import Mordred",
     "importBriarRose": "Import Briar Rose",
-    "importSampleFailed": "Could not import the sample character. Try again."
+    "importSampleFailed": "Could not import the sample character. Try again.",
+    "createCharacter": "Create character"
   },
   "generate": {
     "title": "Generate a character",
@@ -83,12 +81,18 @@
     "steps": {
       "archetype": "Archetype",
       "class": "Class",
+      "ancestry": "Ancestry",
+      "background": "Background",
       "style": "Style",
       "details": "Details"
     },
     "archetypeHint": "What do you want to play?",
     "classHint": "Pick a class that plays it, or leave it to chance.",
     "anyClass": "Any class",
+    "ancestryHint": "Pick an ancestry, or leave it to chance.",
+    "anyAncestry": "Any ancestry",
+    "backgroundHint": "Pick a background, or leave it to chance.",
+    "anyBackground": "Any background",
     "noStyle": "No preference",
     "role": {
       "spellcaster": "Spellcaster",
@@ -1134,5 +1138,26 @@
     "dependencyUnreadable": "{pack} extends {dependency}, which you cannot read, so it cannot be enabled.",
     "alwaysOnRefusal": "Official packs are always on.",
     "requiredByRefusal": "{packs} still extend this pack. Disable them first."
+  },
+  "new": {
+    "title": "Create a character",
+    "description": "Choose how to start your next hero.",
+    "back": "Back to characters",
+    "import": {
+      "title": "Import",
+      "description": "Bring in a character from Pathbuilder or a Pioneer backup."
+    },
+    "generate": {
+      "title": "Generate",
+      "description": "Pick an archetype and let Pioneer build a level 1 character."
+    },
+    "create": {
+      "title": "Create",
+      "description": "Build a level 1 character yourself, choice by choice."
+    }
+  },
+  "create": {
+    "title": "Create",
+    "description": "Name your character and pick an ancestry."
   }
 }

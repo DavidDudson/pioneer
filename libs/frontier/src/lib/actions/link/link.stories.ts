@@ -6,7 +6,7 @@ import { Stack } from '../../layout/stack/stack.component';
 import { Surface } from '../../layout/surface/surface.component';
 import { TextVariant } from '../../text/text.variants';
 import { Text } from '../../text/text/text.component';
-import { Link } from './link.component';
+import { Link, LinkAppearance } from './link.component';
 
 interface LinkStoryArgs extends Link {
   readonly label: string;
@@ -33,6 +33,11 @@ export default meta;
 
 /** `to` navigates with the router. */
 export const Routed: LinkStory = {};
+
+/** `appearance="button"` is a call to action that navigates: a real link drawn like a primary button. */
+export const AsButton: LinkStory = {
+  args: { label: 'Create character', to: '/characters/new', appearance: LinkAppearance.Button },
+};
 
 /** `href` is for external links only. */
 export const External: LinkStory = {

@@ -1,0 +1,18 @@
+<fr-page>
+  <fr-page-header [title]="'character.new.title' | transloco" [description]="'character.new.description' | transloco" />
+  <fr-page-body>
+    <fr-stack gap="xl">
+      <fr-grid [columns]="3">
+        @for (choice of choices; track choice.path) {
+          <fr-surface>
+            <fr-stack gap="2xs">
+              <fr-link variant="subheading" [to]="[choice.path]">{{ choice.title | transloco }}</fr-link>
+              <fr-text tone="muted">{{ choice.description | transloco }}</fr-text>
+            </fr-stack>
+          </fr-surface>
+        }
+      </fr-grid>
+      <fr-link [to]="['..']">{{ 'character.new.back' | transloco }}</fr-link>
+    </fr-stack>
+  </fr-page-body>
+</fr-page>
