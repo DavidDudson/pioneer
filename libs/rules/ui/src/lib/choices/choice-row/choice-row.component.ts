@@ -104,7 +104,7 @@ export class ChoiceRow {
   /** Whether the mark on a replaced pick is open, showing why and the replacements. */
   protected readonly explaining = signal(false);
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
-  /** What is said beneath the choice: where it comes from, then why it is not settled (what its line says, and what keeping it ran into). */
+  /** The lines beneath the choice: its source in a muted tone, then why it is not settled. */
   protected readonly notes = computed((): ShownNote[] => [
     ...[this.shown().source].filter((text) => text !== undefined).map((text) => ({ text, tone: 'muted' as const })),
     ...[this.shown().reason, this.problem()]

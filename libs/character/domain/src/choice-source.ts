@@ -74,12 +74,9 @@ function nameOf(kind: ChoiceSourceKind, document: CharacterDocument, content: Sl
 
 /** The source of a `ChoiceSet` by the kind of entry that asks it; any kind not listed is general progression. */
 const ENTRY_SOURCES: ReadonlyMap<ContentKind, ChoiceSourceKind> = new Map([
-  [ContentKind.Class, ChoiceSourceKind.Class],
+  ...ROOT_SOURCES,
   [ContentKind.ClassFeature, ChoiceSourceKind.Class],
-  [ContentKind.Ancestry, ChoiceSourceKind.Ancestry],
-  [ContentKind.Heritage, ChoiceSourceKind.Ancestry],
   [ContentKind.AncestryFeature, ChoiceSourceKind.Ancestry],
-  [ContentKind.Background, ChoiceSourceKind.Background],
   [ContentKind.Archetype, ChoiceSourceKind.Archetype],
   [ContentKind.VariantRule, ChoiceSourceKind.Archetype],
 ]);
@@ -130,11 +127,7 @@ function kindOf(subject: SlotSubject, content: SlotContent): ChoiceSourceKind {
   }
 }
 
-/**
- * Where a slot's choice comes from (#1682), read from the slot's subject and the entry that asks it, never from the
- * label: a class feat slot is the class's, a skill increase general progression, a dedication's choices the archetype's.
- * A slot the character has no pick for any longer (hidden) has no source.
- */
+/** Where a slot's choice comes from, read from its subject and the entry that asks it, never from its label; none when hidden. */
 export function choiceSourceOf(
   slot: CharacterSlot,
   document: CharacterDocument,

@@ -45,7 +45,7 @@ registry.register(
 );
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const THIRD = 3;
+const LEVEL_THREE = 3;
 
 /** The source of the slot `key` in the timeline of `builder`'s character. */
 function sourceOf(builder: CharacterBuilder, key: string): ChoiceSource | undefined {
@@ -67,7 +67,7 @@ function isSkillIncrease(slot: CharacterSlot): boolean {
 }
 
 /** The source kinds of the slots of `document` that `which` picks. */
-function sourcesOf(document: CharacterDocument, which: (slot: CharacterSlot) => boolean): ChoiceSourceKind[] {
+function sourceKindsOf(document: CharacterDocument, which: (slot: CharacterSlot) => boolean): ChoiceSourceKind[] {
   return characterSlots(document, content)
     .filter((slot) => which(slot))
     .flatMap((slot) => choiceSourceOf(slot, document, content)?.kind ?? []);
@@ -75,7 +75,7 @@ function sourcesOf(document: CharacterDocument, which: (slot: CharacterSlot) => 
 
 describe('choice source', () => {
   test('names a martial’s class feat slots after the class', () => {
-    const fighter = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(THIRD);
+    const fighter = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(LEVEL_THREE);
     expect(sourceOf(fighter, FEAT_SLOT_KEYS.level1)).toStrictEqual({
       kind: ChoiceSourceKind.Class,
       name: ContentText.parse('Fighter'),
@@ -84,16 +84,16 @@ describe('choice source', () => {
   });
 
   test('gives the class slot itself the class as its source, and skill increases general progression', () => {
-    const fighter = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(THIRD);
+    const fighter = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(LEVEL_THREE);
     expect(sourceOf(fighter, 'class')?.kind).toBe(ChoiceSourceKind.Class);
     const { document } = fighter.build();
-    const kinds = sourcesOf(document, (slot) => isSkillIncrease(slot));
+    const kinds = sourceKindsOf(document, (slot) => isSkillIncrease(slot));
     expect(kinds.length).toBeGreaterThan(0);
     expect(new Set(kinds)).toStrictEqual(new Set([ChoiceSourceKind.General]));
   });
 
   test('names a caster’s spell slots as spellcasting of its class', () => {
-    const bard = new CharacterBuilder().named('bard').picking('class', playerCoreClassId('bard')).atLevel(THIRD);
+    const bard = new CharacterBuilder().named('bard').picking('class', playerCoreClassId('bard')).atLevel(LEVEL_THREE);
     expect(sourceOf(bard, 'repertoire:bard:1:0')).toMatchObject({ kind: ChoiceSourceKind.Spellcasting });
     expect(sourceOf(bard, 'signature:bard:1')?.kind).toBe(ChoiceSourceKind.Spellcasting);
     expect(sourceOf(bard, 'repertoire:bard:cantrip:0')?.name).toBeDefined();
@@ -103,15 +103,15 @@ describe('choice source', () => {
     const multiclass = new CharacterBuilder()
       .picking('class', FEAT_SLOT_FIGHTER)
       .picking(FEAT_SLOT_KEYS.level1, DEDICATION)
-      .atLevel(THIRD);
+      .atLevel(LEVEL_THREE);
     expect(sourceOf(multiclass, `${DEDICATION}:0`)).toMatchObject({
       kind: ChoiceSourceKind.Archetype,
     });
   });
 
   test('gives a boost its source and a free boost general progression', () => {
-    const { document } = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(THIRD).build();
-    const kinds = sourcesOf(document, (slot) => isBoost(slot));
+    const { document } = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(LEVEL_THREE).build();
+    const kinds = sourceKindsOf(document, (slot) => isBoost(slot));
     expect(kinds).toContain(ChoiceSourceKind.Ancestry);
     expect(kinds).toContain(ChoiceSourceKind.General);
   });
