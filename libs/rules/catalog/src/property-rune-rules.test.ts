@@ -24,10 +24,7 @@ const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:coating',
     'an activation with no frequency, which the content has no place for (weapon activations story), and a store of poisons and oils as item state',
   ],
-  [
-    'rune:conducting',
-    'needs the resonant trait and a chosen energy that gives two elements (1d8, then 1d8 persistent on a critical hit)',
-  ],
+  ['rune:conducting', 'the engine builds its damage and resonant trait from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   [

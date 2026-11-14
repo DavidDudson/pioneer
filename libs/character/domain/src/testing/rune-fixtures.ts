@@ -17,6 +17,7 @@ export const RuneFixture = {
   EnergyResistantGreater: 'energy-resistant-greater',
   /** A weapon rune made for one creature type, which the crafter chooses when etching it. */
   Bane: 'bane',
+  Conducting: 'conducting',
   EnergyVulnerability: 'energy-vulnerability',
   EnergyVulnerabilityGreater: 'energy-vulnerability-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
@@ -55,6 +56,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Shock]: weaponRune(),
   [RuneFixture.Keen]: weaponRune('melee'),
   [RuneFixture.Bane]: weaponRune(),
+  [RuneFixture.Conducting]: weaponRune(),
   [RuneFixture.EnergyVulnerability]: weaponRune(),
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),
   [RuneFixture.Holy]: weaponRune('without-unholy-rune'),

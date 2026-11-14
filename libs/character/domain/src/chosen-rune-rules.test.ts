@@ -94,6 +94,29 @@ describe('bane runes', () => {
   });
 });
 
+describe('conducting runes', () => {
+  test('give the weapon the resonant trait, 1d8 of the energy chosen and 1d8 persistent of it on a critical hit', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.Conducting, 'sonic'))).toStrictEqual([
+      { key: 'AdjustStrike', property: 'traits', mode: 'add', value: 'resonant', etched: true },
+      { key: 'DamageDice', selectors: ['etched-damage'], dieSize: 'd8', damageType: 'sonic', diceNumber: 1 },
+      {
+        key: 'DamageDice',
+        selectors: ['etched-damage'],
+        dieSize: 'd8',
+        damageType: 'sonic',
+        diceNumber: 1,
+        category: 'persistent',
+        critical: true,
+      },
+    ]);
+  });
+
+  test('give nothing with no choice, or for an energy it is not made for', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.Conducting))).toStrictEqual([]);
+    expect(rulesOfSword(energyRune(RuneFixture.Conducting, 'force'))).toStrictEqual([]);
+  });
+});
+
 describe('energy-resistant runes', () => {
   test('give a resistance to each type their crafters chose, 5 and 10 by grade', () => {
     const rules = rulesOfArmor(
