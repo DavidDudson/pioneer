@@ -649,6 +649,41 @@ with its own `play_revision`, and read into `document.play`: play-state commands
 `version`, and build saves never write play state ([ADR-0023](../adr/0022-foundry-module-and-sync-model.md)). It
 syncs with Foundry per the campaign's mode (see [play-and-campaigns.md](play-and-campaigns.md#campaigns)).
 
+## Companions
+
+A familiar, and later an animal companion or eidolon, is a `Companion`: a row of its own that the character owns, with
+statistics derived from the master ([ADR-0079](../adr/0079-a-familiar-is-a-companion-row-with-derived-statistics.md)).
+
+```text
+character_companions
+  id, character_id, kind, name, form jsonb, granted_by, created_at, archived_at, archive_reason
+```
+
+```ts
+interface Companion {
+  readonly id: CompanionId;
+  readonly kind: CompanionKind; // 'familiar' now; M23 adds 'animal-companion', 'eidolon'
+  readonly name: CompanionName;
+  readonly form: CompanionForm; // shape settles with the familiar rules spike
+  readonly grantedBy: SlotKey;
+  readonly archived: CompanionArchive | null; // { at, reason: 'replaced' | 'released' }
+}
+
+interface CompanionPlay {
+  readonly damage: HitPoints;
+  readonly temp: HitPoints;
+  readonly conditions: readonly ConditionInstance[];
+  readonly status: CompanionStatus; // active | absent | absorbed | dead
+}
+```
+
+- **Build:** the day's abilities and the spells it knows are choice slots, `companion:<id>:ability:<n>` and
+  `companion:<id>:spell:<n>`.
+- **Play:** `PlayState.companions: Record<CompanionId, CompanionPlay>`. Death is a status, not an archive.
+- **Writes:** a build write to a companion row shares the character's transaction and bumps `characters.version`.
+- **Archive:** replacing or releasing sets `archived_at` and a reason; `restore` brings it back while no other active
+  companion of the kind holds the one-active-per-kind index.
+
 ## Content a campaign has not enabled
 
 A character in a campaign picks and browses from the campaign's homebrew packs and variant rules while its own rows

@@ -83,6 +83,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0076](0076-the-party-inventory-is-one-flat-container-that-adds-no-bulk.md)  | The Party Inventory is one flat container that adds no Bulk                                   |
 | [0077](0077-replaced-legacy-entries-come-from-a-pre-remaster-foundry-pin.md) | Replaced legacy entries come from a pre-remaster Foundry pin                                  |
 | [0078](0078-a-rune-that-raises-potency-takes-no-property-slot.md)            | A rune that raises potency takes no property rune slot                                        |
+| [0079](0079-a-familiar-is-a-companion-row-with-derived-statistics.md)        | A familiar is a companion row whose statistics are derived                                    |
 
 Template:
 
