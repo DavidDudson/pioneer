@@ -6,6 +6,7 @@ import angular from 'angular-eslint';
 import type { Linter } from 'eslint';
 import { defineConfig } from 'eslint/config';
 
+import { noBareTraitBadge } from './tools/eslint/no-bare-trait-badge';
 import { noInterruptions } from './tools/eslint/no-interruptions';
 import { noLiteralText } from './tools/eslint/no-literal-text';
 import { noNativeElements } from './tools/eslint/no-native-elements';
@@ -20,6 +21,7 @@ const config: Linter.Config[] = defineConfig([
       pioneer: {
         rules: {
           'no-template-styling': noTemplateStyling,
+          'no-bare-trait-badge': noBareTraitBadge,
           'no-interruptions': noInterruptions,
           'no-native-elements': noNativeElements,
           'no-literal-text': noLiteralText,
@@ -29,6 +31,7 @@ const config: Linter.Config[] = defineConfig([
     linterOptions: { reportUnusedDisableDirectives: 'error' },
     rules: {
       'pioneer/no-template-styling': 'error',
+      'pioneer/no-bare-trait-badge': 'error',
       'pioneer/no-interruptions': 'error',
       'pioneer/no-native-elements': 'error',
       'pioneer/no-literal-text': 'error',

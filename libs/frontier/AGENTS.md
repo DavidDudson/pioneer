@@ -21,6 +21,9 @@ Read this before touching any UI.
   `<input>`, `<a>`, `<form>`: use `fr-stack`, `fr-text element="p"`,
   `fr-heading`, `fr-button`, `fr-text-input`, `fr-link`, `fr-form`
   (`pioneer/no-native-elements`).
+- **A trait is a `pio-trait-chip`, never a bare badge.** A template that binds a trait (`trait`, `traits`, or a name
+  ending in `Trait`) to `fr-badge` or `fr-tag` fails (`pioneer/no-bare-trait-badge`); templates have no types, so the
+  rule reads the binding's name. Filter options and a trait named in a sentence are not chips.
 - **One owner per native element.** Inside frontier, each element with
   behaviour or semantics is rendered by exactly one primitive, and everything
   else composes that primitive: `<button>` only in `fr-button` (and the
