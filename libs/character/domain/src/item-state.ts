@@ -5,8 +5,7 @@ import * as z from 'zod';
 const COATING_ITEMS_MAX = 20;
 
 /** The spell a spell reservoir rune holds: which spell, and the rank it was cast into the weapon at. */
-export const StoredSpellSchema = z.strictObject({ spell: ContentId, rank: SpellRank }).readonly();
-export type StoredSpell = z.infer<typeof StoredSpellSchema>;
+const StoredSpellSchema = z.strictObject({ spell: ContentId, rank: SpellRank }).readonly();
 
 /**
  * What a character's own item holds beyond what it is and how it is carried, which the rune etched onto it gives
