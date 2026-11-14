@@ -1,4 +1,15 @@
-import { DamageException, DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
+import {
+  DamageException,
+  DamageType,
+  DiceCount,
+  FAVORED_WEAPON,
+  Modifier,
+  ModifierTarget,
+  Proficiency,
+  RollOptionTail,
+  Selector,
+  Trait,
+} from '@pioneer/rules/sdk';
 import type { DamageAmount, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
 
 import { strikesUnderForm } from './battle-form-strikes';
@@ -121,6 +132,20 @@ function damageTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
   );
 }
 
+const RANKS: readonly Proficiency[] = Object.values(Proficiency);
+
+/**
+ * The roll option of the character's proficiency with the weapon (`proficiency:rank:2`, which a predicate reads as
+ * `item:proficiency:rank`, untrained 0 to legendary 4): its category's rank, or for a favoured weapon the better of
+ * that and the favoured weapon rank.
+ */
+function proficiencyOption(weapon: WeaponInputs, scope: StrikeScope): RollOptionTail {
+  const { ranks } = scope.character;
+  const selectors = [Selector.parse(`attack:${weapon.category}`), ...(weapon.favored === true ? [FAVORED_WEAPON] : [])];
+  const reached = selectors.map((selector) => RANKS.indexOf(ranks.get(selector) ?? Proficiency.Untrained));
+  return RollOptionTail.parse(`proficiency:rank:${Math.max(...reached)}`);
+}
+
 /** What the rule elements in play change about the weapon's Strike: its dice, extra dice and notes. */
 function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): StrikeRules | undefined {
   if (rules === undefined) {
@@ -140,7 +165,7 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
     damage: damageTargets(weapon),
     origin: weapon.origin,
     group: weapon.group,
-    rollOptions: weapon.rollOptions,
+    rollOptions: [...(weapon.rollOptions ?? []), proficiencyOption(weapon, rules.scope)],
   });
 }
 

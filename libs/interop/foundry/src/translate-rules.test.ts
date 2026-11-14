@@ -113,6 +113,10 @@ describe('translateRules: CriticalSpecialization', () => {
       { predicate: [{ gte: ['self:level', 5] }, { or: ['item:trait:dwarf', 'item:base:war-hammer'] }] },
     ],
     ['a group', { predicate: ['item:group:firearm'] }],
+    [
+      'a proficiency rank gate on a group',
+      { predicate: [{ gte: ['item:proficiency:rank', 3] }, { or: ['item:group:sword', 'item:group:axe'] }] },
+    ],
     ['a weapon tag', { predicate: ['item:tag:anadi-fangs'] }],
     ['a tag with no group', { predicate: ['item:tag:improvised'] }],
     ['no predicate', {}],
