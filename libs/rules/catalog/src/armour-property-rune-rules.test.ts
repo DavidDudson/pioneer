@@ -44,19 +44,6 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:quenching', 'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`'],
-  [
-    'rune:quenching-greater',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
-  [
-    'rune:quenching-major',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
-  [
-    'rune:quenching-true',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
   ['rune:ready', 'the actions to don armour: donning is not modelled'],
   ['rune:ready-greater', 'the actions to don armour: donning is not modelled'],
   [
@@ -87,6 +74,13 @@ const BONUS_RUNES: readonly BonusRune[] = [
   { slug: 'rune:slick', selector: 'skill:acrobatics', bonus: 1, actions: ['action:escape', 'action:squeeze'] },
   { slug: 'rune:slick-greater', selector: 'skill:acrobatics', bonus: 2, actions: ['action:escape', 'action:squeeze'] },
   { slug: 'rune:slick-major', selector: 'skill:acrobatics', bonus: 3, actions: ['action:escape', 'action:squeeze'] },
+];
+
+/** The flat check DCs each quenching grade gives persistent acid and fire: unassisted, then assisted (true quenching has none: assistance ends it). */
+const QUENCHING_DCS: readonly (readonly [string, number, number])[] = [
+  ['rune:quenching', 12, 7],
+  ['rune:quenching-greater', 10, 5],
+  ['rune:quenching-major', 8, 3],
 ];
 
 /** The flat check DC of each fortification grade, which the wearer rolls when a critical hit lands on their AC. */
@@ -120,6 +114,24 @@ describe('armour property rune rules', () => {
     const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
     expect(entry?.rules).toMatchObject([expectedBonus(rune)]);
+  });
+
+  test.each(QUENCHING_DCS)(
+    '%s lowers the persistent acid and fire flat check to DC %i, %i assisted',
+    (slug, dc, assistedDc) => {
+      const entry = RUNES.find((rune) => rune.slug === slug);
+
+      expect(entry?.rules).toMatchObject([
+        { key: 'PersistentFlatCheck', damageTypes: ['acid', 'fire'], dc, assistedDc },
+      ]);
+    },
+  );
+
+  test('true quenching lowers the flat check to DC 5 and has assistance end the damage', () => {
+    const entry = RUNES.find((rune) => rune.slug === 'rune:quenching-true');
+
+    expect(entry?.rules).toMatchObject([{ key: 'PersistentFlatCheck', damageTypes: ['acid', 'fire'], dc: 5 }]);
+    expect(entry?.rules[0]).not.toHaveProperty('assistedDc');
   });
 
   test.each(FORTIFICATION_DCS)('%s asks a flat check against DC %i when a critical hit lands on AC', (slug, dc) => {

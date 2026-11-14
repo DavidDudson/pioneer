@@ -38,7 +38,7 @@ function formAdjustmentLines(
 /** The lines a battle form in force gives: its immunities, weaknesses and resistances, with the form as origin. */
 export function formDefences(form: FormInPlay | undefined, context: RuleContext): Defences {
   if (form === undefined) {
-    return { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [] };
+    return { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [], persistentFlatChecks: [] };
   }
   const { id, label, origin } = form;
   const types = new Set((form.form.immunities ?? []).map(({ type }) => type));
@@ -47,5 +47,6 @@ export function formDefences(form: FormInPlay | undefined, context: RuleContext)
     weaknesses: formAdjustmentLines(form, form.form.weaknesses, context),
     resistances: formAdjustmentLines(form, form.form.resistances, context),
     criticalHitChecks: [],
+    persistentFlatChecks: [],
   };
 }

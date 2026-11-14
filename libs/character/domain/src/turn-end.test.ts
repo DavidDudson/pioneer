@@ -11,6 +11,7 @@ import {
   DamageAdjustment,
   DamageFormula,
   DamageType,
+  Dc,
   EffectBadgeType,
   EffectExpiry,
   HitPoints,
@@ -110,6 +111,40 @@ describe('endTurn: persistent damage', () => {
     const { play, events } = finish(playing({ conditions: [burning(true)] }), faces(2, 10));
     expect(play.conditions).toEqual([]);
     expect(events[1]).toMatchObject({ dc: 10, passed: true, message: { key: TurnMessage.FlatCheckPassed } });
+  });
+
+  test('a quenching rune lowers the DC for its damage types, and the lowest rune counts', () => {
+    const quenched: EndTurnInputs = {
+      ...INPUTS,
+      flatChecks: [
+        { damageTypes: [DamageType.Acid, DamageType.Fire], dc: Dc.parse(12), assisted: Dc.parse(7) },
+        { damageTypes: [DamageType.Fire], dc: Dc.parse(10), assisted: Dc.parse(5) },
+      ],
+    };
+    const plain = finish(playing({ conditions: [burning()] }), faces(2, 10), quenched);
+    expect(plain.events[1]).toMatchObject({ dc: 10, passed: true });
+    expect(plain.play.conditions).toEqual([]);
+    const assisted = finish(playing({ conditions: [burning(true)] }), faces(2, 5), quenched);
+    expect(assisted.events[1]).toMatchObject({ dc: 5, passed: true });
+  });
+
+  test('a quenching rune does not lower the DC for other damage types', () => {
+    const quenched: EndTurnInputs = {
+      ...INPUTS,
+      flatChecks: [{ damageTypes: [DamageType.Acid], dc: Dc.parse(12), assisted: Dc.parse(7) }],
+    };
+    const { events } = finish(playing({ conditions: [burning()] }), faces(2, 14), quenched);
+    expect(events[1]).toMatchObject({ dc: 15, passed: false });
+  });
+
+  test('a true quenching rune ends assisted persistent damage without a check', () => {
+    const quenched: EndTurnInputs = {
+      ...INPUTS,
+      flatChecks: [{ damageTypes: [DamageType.Fire], dc: Dc.parse(5), assisted: undefined }],
+    };
+    const { play, events } = finish(playing({ conditions: [burning(true)] }), faces(2), quenched);
+    expect(play.conditions).toEqual([]);
+    expect(events.map(({ kind }) => kind)).toEqual([TurnEventKind.PersistentDamage, TurnEventKind.ConditionEnded]);
   });
 
   test('the damage goes through the defences, temporary Hit Points first', () => {

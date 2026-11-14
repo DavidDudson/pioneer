@@ -116,7 +116,13 @@ const RING_FIRE = 10;
 const DWARF_FIRE = 5;
 const RAGE_PHYSICAL = 3;
 
-export const NO_DEFENCES: Defences = { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [] };
+export const NO_DEFENCES: Defences = {
+  immunities: [],
+  weaknesses: [],
+  resistances: [],
+  criticalHitChecks: [],
+  persistentFlatChecks: [],
+};
 
 const FORTIFICATION_DC = 17;
 
@@ -139,6 +145,7 @@ export const BARBARIAN_DEFENCES: Defences = {
     adjustment(RAGE, 'physical', { value: RAGE_PHYSICAL, exceptions: ['adamantine'], status: WHILE_RAGING }),
   ],
   criticalHitChecks: [],
+  persistentFlatChecks: [],
 };
 
 const FORM_FIRE = 10;
@@ -148,6 +155,7 @@ export const FORM_DEFENCES: Defences = {
   immunities: [{ ...immunity(GOLEM_FORM, 'poison'), fromForm: true }],
   weaknesses: [],
   criticalHitChecks: [],
+  persistentFlatChecks: [],
   resistances: [
     { ...adjustment(GOLEM_FORM, 'fire', { value: FORM_FIRE }), fromForm: true },
     adjustment(DWARF, 'fire', {

@@ -4,6 +4,7 @@ import { DamageAmount } from '@pioneer/rules/sdk';
 import type {
   DamageAdjustmentSubject,
   DamageException,
+  DamageType,
   Dc,
   Immunity,
   Origin,
@@ -80,6 +81,18 @@ export interface CriticalHitCheckLine {
   readonly status: DefenceStatus;
 }
 
+/** One flat check DC from a `PersistentFlatCheck` element: for the persistent damage of `damageTypes`. */
+export interface PersistentFlatCheckLine {
+  readonly id: RuleId;
+  readonly label: ModifierLabel;
+  readonly origin: Origin;
+  readonly damageTypes: readonly DamageType[];
+  readonly dc: Dc;
+  /** Undefined when assisted recovery ends the damage outright. */
+  readonly assistedDc: Dc | undefined;
+  readonly status: DefenceStatus;
+}
+
 /**
  * A character's immunities, weaknesses and resistances (rules-engine.md, "Defences"), each line in type order, then
  * id order, and the flat checks that turn a critical hit into a hit. A defence whose predicate is false is left out.
@@ -90,6 +103,8 @@ export interface Defences {
   readonly resistances: readonly AdjustmentLine[];
   /** In id order; the lowest DC is the one that helps most. */
   readonly criticalHitChecks: readonly CriticalHitCheckLine[];
+  /** In id order; the lowest DC of the applied lines is the one that counts. */
+  readonly persistentFlatChecks: readonly PersistentFlatCheckLine[];
 }
 
 /** The most a weakness or resistance can be: `DamageAmount`'s bound. */
