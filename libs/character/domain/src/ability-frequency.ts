@@ -5,6 +5,8 @@ import type { Activation, ContentEntry, ContentId, ContentRegistry, Frequency } 
 import { activationMaxima, slotMaxima, useMaxima, wandMaxima } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
 import type { InventoryItem } from './inventory';
+import { itemContent } from './inventory-content';
+import { readerOf, runeContent, workingPropertyRunes } from './item-runes';
 import { characterSpellcasting } from './spellcasting-build';
 import type { WandSpell } from './wand-items';
 
@@ -73,10 +75,27 @@ export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentI
   return read;
 }
 
-/** The character's items, the activations with a frequency each kind of item has, and the wands among them. */
+/** The activations with a frequency one inventory line gives: its item's own and those of the property runes working on it. */
+export type ActivationsOf = (item: InventoryItem) => readonly Activation[];
+
+/**
+ * The activations of an inventory line (`ActivationsOf`) over `registry`: the item's, then those of the etched runes
+ * that work on it (a weapon's Gift of Life, armour's Take to the Skies), so a rune's activation is used on its host.
+ */
+export function itemActivationsOf(registry: ContentRegistry): ActivationsOf {
+  const own = itemActivations(registry);
+  const entries = itemContent(registry);
+  const read = readerOf(runeContent(registry));
+  return (item) => [
+    ...(own.get(item.item) ?? []),
+    ...workingPropertyRunes(item, entries.get(item.item), read).flatMap((rune) => own.get(rune) ?? []),
+  ];
+}
+
+/** The character's items, the activations with a frequency each of them has, and the wands among them. */
 export interface CarriedActivations {
   readonly items: readonly InventoryItem[];
-  readonly activations: ReadonlyMap<ContentId, readonly Activation[]>;
+  readonly activations: ActivationsOf;
   readonly wands: ReadonlyMap<ContentId, WandSpell>;
 }
 
@@ -97,7 +116,7 @@ export function characterCounted(
         resolution.items.map(({ entry }) => entry.id),
         (id) => frequencies.get(id),
       ),
-      ...activationMaxima(carried.items, (id) => carried.activations.get(id) ?? []),
+      ...activationMaxima(carried.items, carried.activations),
       ...wandMaxima(carried.items, (id) => carried.wands.get(id)),
     ]),
   };

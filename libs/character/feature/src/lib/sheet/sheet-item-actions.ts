@@ -4,7 +4,7 @@ import {
   heldCount,
   isInvestable,
   isStaff,
-  itemActivations,
+  itemActivationsOf,
   itemContent,
   spellContent,
   spellCost,
@@ -138,7 +138,7 @@ function consumableActions(registry: ContentRegistry, character: Character, play
 /** The activations with a frequency of the items the character carries, each with the uses it has left. */
 function activationActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
   const entries = itemContent(registry);
-  const activations = itemActivations(registry);
+  const activations = itemActivationsOf(registry);
   const counted = sheetCounted(registry, character);
   return character.document.inventory.items.flatMap((held): ItemAction[] => {
     const entry = entries.get(held.item);
@@ -152,7 +152,7 @@ function activationActions(registry: ContentRegistry, character: Character, play
     if (isInvestable(held, entry) && held.invested !== true) {
       own.push(message(ItemReasonMessage.NotInvested));
     }
-    return (activations.get(held.item) ?? []).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
+    return activations(held).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
       const key = activationUseKey(held.id, slug);
       const maximum = counted.uses.get(key);
       if (maximum === undefined) {
