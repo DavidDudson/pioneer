@@ -120,6 +120,31 @@ describe('a rule that reaches the weapons by their definition', () => {
   });
 });
 
+describe('a CriticalSpecialization that reads a pick', () => {
+  const specialize = { key: RuleElementKey.CriticalSpecialization, predicate: [`item:id:${PICK}`] };
+
+  test('reaches the pick as item:picked:<flag>, among the statements it keeps', () => {
+    const gated = {
+      ...specialize,
+      predicate: [{ gte: ['self:level', 5] }, { or: [`item:id:${PICK}`, 'item:trait:thrown'] }],
+    };
+    const { rules, untranslated } = translated([CHOOSE_WEAPON, specialize, gated]);
+
+    expect(untranslated).toEqual([]);
+    expect(rules[1]).toMatchObject({ predicate: ['item:picked:edge-weapon'] });
+    expect(rules[2]).toMatchObject({
+      predicate: [{ gte: ['self:level', 5] }, { or: ['item:picked:edge-weapon', 'item:trait:thrown'] }],
+    });
+  });
+
+  test('stays in the backlog when no ChoiceSet over owned items declares the pick', () => {
+    const { rules, untranslated } = translated([specialize]);
+
+    expect(rules).toEqual([]);
+    expect(untranslated.map(({ key }) => key)).toEqual([RuleElementKey.CriticalSpecialization]);
+  });
+});
+
 describe('the picked: lint', () => {
   test('a rule naming a pick no ChoiceSet declares is dangling', () => {
     expect(danglingPick({ selector: ['picked:edge-weapon-damage'] }, new Set())).toBe(true);

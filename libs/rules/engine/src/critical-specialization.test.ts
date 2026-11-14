@@ -108,6 +108,13 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([only('item:tag:improvised')], SWORD)?.notes).toEqual([]);
   });
 
+  test('an element that reads a pick reaches the weapon the character picked, and not another', () => {
+    const picked = { ...SWORD, rollOptions: ['group:sword', 'picked:weapon'] };
+
+    expect(strikeOf([only('item:picked:weapon')], picked)?.notes).toHaveLength(1);
+    expect(strikeOf([only('item:picked:weapon')], SWORD)?.notes).toEqual([]);
+  });
+
   test('a rank-gated element reaches a weapon the character is expert with, and not one it is trained with', () => {
     const gated = { ...ELEMENT, predicate: [{ gte: ['item:proficiency:rank', 2] }] };
     const options = ['self:level:5'];
