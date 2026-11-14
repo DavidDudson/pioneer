@@ -11,9 +11,11 @@ import { sheetSpellcasting } from './sheet-spellcasting';
 const AC = Selector.parse('ac');
 const SPELL_DC = 'spell-dc:';
 const SPEED_PREFIX = 'speed:';
+const STEP_DISTANCE = 'step-distance';
 
+/** A Speed or the Step distance, which the Speeds block shows. */
 function isSpeed(selector: Selector): boolean {
-  return selector.startsWith(SPEED_PREFIX);
+  return selector.startsWith(SPEED_PREFIX) || selector === STEP_DISTANCE;
 }
 
 /** What the engine derived for the sheet, which the vitals row shows. */

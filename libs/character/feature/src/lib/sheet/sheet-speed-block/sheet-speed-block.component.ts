@@ -6,16 +6,17 @@ import type { SpeedRow } from '@pioneer/rules/ui';
 
 import { SheetState } from '../sheet-state';
 
-/** The Speed each kind of movement reads. */
+/** The Speed each kind of movement reads, and the distance of a Step. */
 const SPEEDS: Readonly<Record<Movement, Selector>> = {
   [Movement.Walk]: Selector.parse('speed:land'),
   [Movement.Swim]: Selector.parse('speed:swim'),
   [Movement.Fly]: Selector.parse('speed:fly'),
   [Movement.Climb]: Selector.parse('speed:climb'),
   [Movement.Burrow]: Selector.parse('speed:burrow'),
+  [Movement.Step]: Selector.parse('step-distance'),
 };
 
-/** Walk, Swim, Fly, Climb and Burrow as icon rows in a card of the sheet's header row; a Speed the character lacks reads "None". */
+/** Walk, Swim, Fly, Climb, Burrow and Step as icon rows in a card of the sheet's header row; a Speed the character lacks reads "None". */
 @Component({
   selector: 'pio-sheet-speed-block',
   imports: [Surface, SpeedRows],
