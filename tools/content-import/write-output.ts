@@ -21,7 +21,7 @@ import type { RulesMerge } from './apply-rules.ts';
 import { canonicalJson } from './canonical-json.ts';
 import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
-import { backlogPath, importedDirectory, PACKS_DIRECTORY } from './pack-writes.ts';
+import { backlogPath, backlogWrite, importedDirectory, PACKS_DIRECTORY } from './pack-writes.ts';
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
@@ -122,13 +122,14 @@ export async function applyRules(
   targets: PackTargets,
   keys: ReadonlySet<string>,
 ): Promise<AppliedOutput> {
-  const { pin, legacyPin, backlog } = await committedBacklog(targets);
+  const file = await committedBacklog(targets);
+  const { backlog } = file;
   const committed = await committedEntries(targets);
   const gapped = gappedEntries(backlog, keys);
   const merge = mergeRules(committed, output.entries, { gapped, keys });
   const merged = importedGaps(output, gapped);
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
-  const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, legacyPin, backlog: remaining }) };
+  const cleared = backlogWrite(targets.pack, file, remaining);
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAll(files, [cleared]);
   return { written, applied: merge.size };
@@ -226,17 +227,11 @@ export async function applyDescriptions(
 ): Promise<DescribedOutput> {
   const filledFiles = await filledKindFiles(freshDescriptions(output), targets, kinds);
   const changed = filledFiles.filter(({ filled }) => filled > 0);
-  const { pin, legacyPin, backlog } = await committedBacklog(targets);
+  const committedFile = await committedBacklog(targets);
+  const { backlog } = committedFile;
   const gaps = withDescriptionGaps(backlog, output.backlog, kinds);
   const backlogChanged = JSON.stringify(gaps) !== JSON.stringify(backlog);
-  const backlogWrites = backlogChanged
-    ? [
-        {
-          path: backlogPath(targets.pack),
-          json: ImportFile.parse({ pin, ...(legacyPin === undefined ? {} : { legacyPin }), backlog: gaps }),
-        },
-      ]
-    : [];
+  const backlogWrites = backlogChanged ? [backlogWrite(targets.pack, committedFile, gaps)] : [];
   const kindWrites = changed.map(({ file, entries }): PackWrite => ({ path: file, json: entries }));
   const written = await writeAll([], [...kindWrites, ...backlogWrites]);
   return { written, filled: changed.reduce((total, { filled }) => total + filled, 0) };
