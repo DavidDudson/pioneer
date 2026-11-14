@@ -41,21 +41,26 @@ const ELEMENT = { key: 'CriticalSpecialization' };
 
 const only = (option: string): object => ({ ...ELEMENT, predicate: [option] });
 
+/** The roll options the character has, and its proficiency ranks by selector. */
+interface Given {
+  readonly options?: readonly string[];
+  readonly ranks?: Readonly<Record<string, string>>;
+}
+
+const RAGING: readonly string[] = ['self:effect:rage'];
+const TRAINED: Readonly<Record<string, string>> = { 'attack:martial': 'trained' };
+
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
-function strikeOf(
-  elements: readonly object[],
-  weapon: object,
-  options: readonly string[] = ['self:effect:rage'],
-): Strike | undefined {
+function strikeOf(elements: readonly object[], weapon: object, given: Given = {}): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
-    ranks: { 'attack:martial': 'trained' },
+    ranks: given.ranks ?? TRAINED,
     weapons: [wielded(weapon as { slug: string })],
   });
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const facts = new PredicateFacts(
-    options.map((option) => RollOption.parse(option)),
+    (given.options ?? RAGING).map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
   const rules = elements.map((element, rule) => inPlay(element, `entry-${rule}`, { rule }));
@@ -91,9 +96,9 @@ describe('CriticalSpecialization', () => {
     };
     const listed = { ...SWORD, rollOptions: ['base:longsword'] };
 
-    expect(strikeOf([gated], listed, ['self:level:5'])?.notes).toHaveLength(1);
-    expect(strikeOf([gated], listed, ['self:level:4'])?.notes).toEqual([]);
-    expect(strikeOf([gated], SWORD, ['self:level:5'])?.notes).toEqual([]);
+    expect(strikeOf([gated], listed, { options: ['self:level:5'] })?.notes).toHaveLength(1);
+    expect(strikeOf([gated], listed, { options: ['self:level:4'] })?.notes).toEqual([]);
+    expect(strikeOf([gated], SWORD, { options: ['self:level:5'] })?.notes).toEqual([]);
   });
 
   test('a weapon carrying a tag gets it from an element that reads the tag, and one without does not', () => {
@@ -101,6 +106,23 @@ describe('CriticalSpecialization', () => {
 
     expect(strikeOf([only('item:tag:improvised')], tagged)?.notes).toHaveLength(1);
     expect(strikeOf([only('item:tag:improvised')], SWORD)?.notes).toEqual([]);
+  });
+
+  test('a rank-gated element reaches a weapon the character is expert with, and not one it is trained with', () => {
+    const gated = { ...ELEMENT, predicate: [{ gte: ['item:proficiency:rank', 2] }] };
+    const options = ['self:level:5'];
+
+    expect(strikeOf([gated], SWORD, { options, ranks: { 'attack:martial': 'expert' } })?.notes).toHaveLength(1);
+    expect(strikeOf([gated], SWORD, { options, ranks: { 'attack:martial': 'master' } })?.notes).toHaveLength(1);
+    expect(strikeOf([gated], SWORD, { options, ranks: { 'attack:martial': 'trained' } })?.notes).toEqual([]);
+  });
+
+  test('a rank-gated element reads a favoured weapon at the better of its category rank and the favoured weapon rank', () => {
+    const gated = { ...ELEMENT, predicate: [{ gte: ['item:proficiency:rank', 3] }] };
+    const ranks = { 'attack:martial': 'expert', 'attack:favored-weapon': 'master' };
+
+    expect(strikeOf([gated], { ...SWORD, favored: true }, { options: [], ranks })?.notes).toHaveLength(1);
+    expect(strikeOf([gated], SWORD, { options: [], ranks })?.notes).toEqual([]);
   });
 
   test('a grievous element adds the further benefit of the weapon group, not the specialization itself', () => {
