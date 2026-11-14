@@ -18,6 +18,8 @@ export const RuneFixture = {
   /** A weapon rune made for one creature type, which the crafter chooses when etching it. */
   Bane: 'bane',
   Conducting: 'conducting',
+  /** A melee weapon rune whose weapon can be set free to fight on its own (the slug is the real rune's). */
+  Animated: 'animated',
   EnergyVulnerability: 'energy-vulnerability',
   EnergyVulnerabilityGreater: 'energy-vulnerability-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
@@ -57,6 +59,9 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Keen]: weaponRune('melee'),
   [RuneFixture.Bane]: weaponRune(),
   [RuneFixture.Conducting]: weaponRune(),
+  [RuneFixture.Animated]: {
+    data: { ...weaponRune('melee').data, activations: [{ slug: 'set-free', name: 'Set Free', cost: 'two' }] },
+  },
   [RuneFixture.EnergyVulnerability]: weaponRune(),
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),
   [RuneFixture.Holy]: {

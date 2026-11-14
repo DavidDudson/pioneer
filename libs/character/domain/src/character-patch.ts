@@ -9,6 +9,7 @@ import { LanguageName } from './custom-language';
 import { LoreName } from './custom-lore';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
+import { ItemStateSchema } from './item-state';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
@@ -49,8 +50,9 @@ export const CharacterPatchField = {
   CarryItem: 'carryItem',
   /** An item is invested, or no longer is. */
   InvestItem: 'investItem',
-  /** An item is marked broken, or repaired; a broken wand can't be cast. */
+  /** An item is marked broken, or repaired (a broken wand can't be cast); or its state is set (empty clears it). */
   SetItemBroken: 'setItemBroken',
+  SetItemState: 'setItemState',
   /** A rune etched onto a weapon, armour or a shield: a fundamental one at a grade, or a property one. */
   EtchRune: 'etchRune',
   /** An etched rune erased from an item. */
@@ -131,6 +133,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.CarryItem), id: InventoryItemId, carry: CarrySchema }),
   z.object({ field: z.literal(CharacterPatchField.InvestItem), id: InventoryItemId, invested: z.boolean() }),
   z.object({ field: z.literal(CharacterPatchField.SetItemBroken), id: InventoryItemId, broken: z.boolean() }),
+  z.object({ field: z.literal(CharacterPatchField.SetItemState), id: InventoryItemId, state: ItemStateSchema }),
   z.object({ field: z.literal(CharacterPatchField.EtchRune), id: InventoryItemId, rune: RuneEtchingSchema }),
   z.object({ field: z.literal(CharacterPatchField.EraseRune), id: InventoryItemId, rune: RuneRefSchema }),
   z.object({
@@ -256,6 +259,7 @@ export type InventoryPatch = Exclude<
         | typeof CharacterPatchField.CarryItem
         | typeof CharacterPatchField.InvestItem
         | typeof CharacterPatchField.SetItemBroken
+        | typeof CharacterPatchField.SetItemState
         | typeof CharacterPatchField.EtchRune
         | typeof CharacterPatchField.EraseRune
         | typeof CharacterPatchField.TransferRune;
