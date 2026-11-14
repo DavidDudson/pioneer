@@ -37,7 +37,8 @@
     "content:prerequisites": "bun tools/enrich-prerequisites.ts",
     "content:enrich": "bun tools/enrich-content.ts",
     "content:staves": "bun tools/enrich-staves.ts",
-    "content:triggers": "bun tools/enrich-triggers.ts"
+    "content:triggers": "bun tools/enrich-triggers.ts",
+    "content:removals": "bun tools/enrich-removals.ts"
   },
   "dependencies": {
     "@3d-dice/dice-box-threejs": "0.0.12",

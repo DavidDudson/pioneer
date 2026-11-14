@@ -1094,6 +1094,16 @@
         {
           "gte": ["skill:medicine:rank", 3]
         }
+      ],
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "lower"
+        },
+        {
+          "condition": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+          "effect": "lower"
+        }
       ]
     }
   },
@@ -17600,7 +17610,14 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.UJ8AqzkkDqRCMNFW"
     },
     "data": {
-      "category": "ancestry"
+      "category": "ancestry",
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "lower",
+          "by": 2
+        }
+      ]
     }
   },
   {
@@ -31574,6 +31591,20 @@
       "prerequisitePredicate": [
         {
           "gte": ["skill:medicine:rank", 4]
+        }
+      ],
+      "removesConditions": [
+        {
+          "condition": "5d63458a-cde5-5d64-8fea-b920f04f36b7",
+          "effect": "remove"
+        },
+        {
+          "condition": "4271da2e-7225-5aa7-9807-c499d8af6a5a",
+          "effect": "remove"
+        },
+        {
+          "condition": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+          "effect": "remove"
         }
       ]
     }
@@ -61276,6 +61307,24 @@
       "prerequisitePredicate": [
         {
           "gte": ["skill:medicine:rank", 2]
+        }
+      ],
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "lower"
+        },
+        {
+          "condition": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+          "effect": "lower"
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "lower"
+        },
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "lower"
         }
       ]
     }

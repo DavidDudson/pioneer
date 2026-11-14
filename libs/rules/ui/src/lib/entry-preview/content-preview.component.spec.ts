@@ -248,7 +248,6 @@ describe('content preview', () => {
           dc: 10,
           dcByValue: true,
           against: [],
-          held: [],
         },
       ],
     };

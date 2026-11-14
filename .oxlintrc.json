@@ -427,6 +427,7 @@
         "tools/enrich-prerequisites.ts",
         "tools/enrich-staves.ts",
         "tools/enrich-triggers.ts",
+        "tools/enrich-removals.ts",
         "tools/bench.ts",
         "libs/shared/bench/src/bench.ts"
       ],
