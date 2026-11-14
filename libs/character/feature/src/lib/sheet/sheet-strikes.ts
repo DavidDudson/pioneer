@@ -15,7 +15,7 @@ import { StatisticsMessage } from '@pioneer/rules/ui';
 import type { NamedStrike, StrikeOffer, StrikeSituations, StrikesShield } from '@pioneer/rules/ui';
 
 import { affordability } from './sheet-actions';
-import { traitNames } from './sheet-build';
+import { traitChips } from './sheet-build';
 import { withoutForms } from './sheet-effects';
 import { statisticInputsOf } from './sheet-inputs';
 import { checkSituations, NO_CLAIMS } from './sheet-situations';
@@ -104,7 +104,6 @@ export function sheetStrikes(
     rules,
     claims,
   );
-  const traits = traitNames(registry);
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
   const found = checkSituations(registry, character, { selectors, claims });
   return strikes.flatMap((strike, index): NamedStrike[] => {
@@ -115,7 +114,7 @@ export function sheetStrikes(
     return [
       {
         ...weaponName(strike.weapon, nameOf),
-        traits: strike.weapon.traits.map((trait) => traits.get(trait) ?? trait),
+        traits: traitChips(registry, strike.weapon.traits),
         strike: check === undefined ? strike : { ...strike, attack: check.statistic },
         situations: check?.situations,
         damageSituations: damageSituations(offers[index]?.conditional ?? [], rules, claims.get(strike.attack.selector)),

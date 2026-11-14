@@ -11,7 +11,6 @@ import { filter, merge } from 'rxjs';
 import { numberStyle, SIGNED } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { conditionalLines, conditionalLineText } from '../statistics/conditional-lines';
 import type { ConditionToggle } from '../statistics/statistic-conditions/statistic-conditions.component';
@@ -94,7 +93,7 @@ export class StrikesView {
         entry: strike.weapon.origin.hops[0]?.kind === OriginHopKind.Inventory ? strike.weapon.origin.entry : undefined,
         use,
         name: nameKey === undefined ? name : this.#i18n.translate(nameKey),
-        traits: traits.map((label): Chip => ({ label })),
+        traits,
         attack: this.#attack(strike.attack),
         attacks: this.#attacks(strike),
         next: this.#next(strike),

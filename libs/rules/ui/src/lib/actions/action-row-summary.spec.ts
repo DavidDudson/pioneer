@@ -72,6 +72,13 @@ describe('ActionRow summary', () => {
     await focusName(fixture);
     expect(card()?.textContent).toContain('Unavailable');
   });
+
+  it("opens a trait's card from the traits it lists", async () => {
+    const fixture = render(PANEL);
+    await focusName(fixture);
+    expect(card()?.querySelectorAll('pio-trait-chip')).toHaveLength(STRIDE.traits.length);
+    expect(STRIDE.traits.length).toBeGreaterThan(0);
+  });
 });
 
 describe('ActionRow panel link', () => {

@@ -97,7 +97,10 @@ export function filterActions(lines: readonly ActionLine[], filters: ActionFilte
     (line) =>
       passes(filters.modes, line.modes) &&
       passes(filters.costs, [costGroupOf(line)]) &&
-      passes(filters.traits, line.traits) &&
+      passes(
+        filters.traits,
+        line.traits.map(({ label }) => label),
+      ) &&
       passes(filters.sources, [line.origin.kind]),
   );
 }
@@ -107,7 +110,7 @@ export function traitsOf(
   lines: readonly ActionLine[],
   compare: (left: string, right: string) => number,
 ): readonly string[] {
-  return [...new Set(lines.flatMap((line) => line.traits))].toSorted(compare);
+  return [...new Set(lines.flatMap((line) => line.traits.map(({ label }) => label)))].toSorted(compare);
 }
 
 const ORIGIN_CATEGORIES: Readonly<Record<ActionOriginKind, ActionCategory>> = {

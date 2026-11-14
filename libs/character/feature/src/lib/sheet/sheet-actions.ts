@@ -27,7 +27,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { offTurnWithoutTrigger, turnReason } from './sheet-action-turn';
-import { traitNames } from './sheet-build';
+import { traitChips } from './sheet-build';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 import { sheetSlotContent } from './sheet-slot-content';
 import { sheetSources } from './sheet-sources';
@@ -99,7 +99,6 @@ export function sheetActions(
   const actions = characterActions(character.document, sources, play.resources);
   const context = characterActionContext(character.document, sources);
   const entries = entriesById(registry);
-  const traits = traitNames(registry);
   const costs = actionCosts(registry);
   const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
@@ -113,7 +112,7 @@ export function sheetActions(
     return {
       id: action.action,
       name: entry?.name ?? action.action,
-      traits: (altered?.traits ?? []).map((trait) => traits.get(trait) ?? trait),
+      traits: traitChips(registry, altered?.traits ?? []),
       cost: action.cost,
       modes: action.modes,
       origin: action.origin,

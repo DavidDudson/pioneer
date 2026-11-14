@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { ActionIcon, Badge, HeadingLevel, Stack, Text } from '@pioneer/frontier';
+import { ActionIcon, HeadingLevel, Stack, Text } from '@pioneer/frontier';
 import type { RichText } from '@pioneer/rules/sdk';
 
+import { ChipList } from '../picker-cells/chip-list/chip-list.component';
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { RichTextView } from '../rich-text/rich-text.component';
 import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
 import { ActionRecharge } from './action-recharge.component';
@@ -29,7 +31,7 @@ interface Fact {
  */
 @Component({
   selector: 'pio-action-summary',
-  imports: [ActionIcon, ActionRecharge, Badge, RichTextView, Stack, StatisticConditions, Text, TranslocoPipe],
+  imports: [ActionIcon, ActionRecharge, ChipList, RichTextView, Stack, StatisticConditions, Text, TranslocoPipe],
   templateUrl: './action-summary.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -38,9 +40,9 @@ export class ActionSummary {
 
   protected readonly level = HeadingLevel.Four;
   /** What an item action spends and has left, then the action's traits. */
-  protected readonly badges = computed((): readonly string[] => {
+  protected readonly badges = computed((): readonly Chip[] => {
     const { resource, line } = this.action();
-    return [...(resource === undefined ? [] : [resource]), ...line.traits];
+    return [...(resource === undefined ? [] : [{ label: resource }]), ...line.traits];
   });
   /** The trigger and the requirements, for those the action has. */
   protected readonly facts = computed((): readonly Fact[] => {

@@ -2,9 +2,9 @@ import { spellAtRank } from '@pioneer/rules/engine';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SpellData, SpellRank, Trait } from '@pioneer/rules/sdk';
 import { spellDetailLine } from '@pioneer/rules/ui';
-import type { Chip, SpellDetailLine, Translate } from '@pioneer/rules/ui';
+import type { SpellDetailLine, Translate } from '@pioneer/rules/ui';
 
-import { traitNames } from './sheet-build';
+import { traitChips } from './sheet-build';
 
 /** The spell the list details: which one, at the rank it is cast, and the badges its row carries as message keys. */
 export interface SpellOnSheet {
@@ -55,8 +55,7 @@ export function sheetSpellDetail(
     return undefined;
   }
   const { data, traits } = found;
-  const names = traitNames(registry);
-  const chips: readonly Chip[] = traits.map((trait) => ({ label: names.get(trait) ?? trait }));
+  const chips = traitChips(registry, traits);
   const cast = spellAtRank(data, spell.rank < data.rank ? data.rank : spell.rank);
   return spellDetailLine({ ...spell, traits: chips }, cast, translate);
 }

@@ -15,6 +15,7 @@ import { ActionResourceKind } from '../actions/action-line';
 import type { ActionLine } from '../actions/action-line';
 import type { ShownAction } from '../actions/action-row.component';
 import { GLOOM_WALKER, IN_DARKNESS, line as modifierLine, statistic, term } from './breakdown-fixtures';
+import { traitChipsOf } from './trait-chips';
 
 const BASIC = { kind: ActionOriginKind.Basic } as const;
 const SKILL = { kind: ActionOriginKind.Skill } as const;
@@ -52,10 +53,10 @@ function line(slug: string, name: string, rest: Partial<ActionLine> = {}): Actio
   };
 }
 
-const STRIDE = line('stride', 'Stride', { traits: ['move'] });
-const STAND = line('stand', 'Stand', { traits: ['move'] });
-const CRAWL = line('crawl', 'Crawl', { traits: ['move'] });
-const ESCAPE = line('escape', 'Escape', { traits: ['attack'], origin: SKILL, roll: ATHLETICS });
+const STRIDE = line('stride', 'Stride', { traits: traitChipsOf('move') });
+const STAND = line('stand', 'Stand', { traits: traitChipsOf('move') });
+const CRAWL = line('crawl', 'Crawl', { traits: traitChipsOf('move') });
+const ESCAPE = line('escape', 'Escape', { traits: traitChipsOf('attack'), origin: SKILL, roll: ATHLETICS });
 const SHIELD_BLOCK = line('shield-block', 'Shield Block', {
   cost: ActionCost.Reaction,
   origin: {
@@ -65,10 +66,10 @@ const SHIELD_BLOCK = line('shield-block', 'Shield Block', {
   source: 'Shield Block',
 });
 const DEMORALIZE = line('demoralize', 'Demoralize', {
-  traits: ['auditory', 'emotion'],
+  traits: traitChipsOf('auditory', 'emotion'),
   origin: SKILL,
 });
-const GRAPPLE = line('grapple', 'Grapple', { traits: ['attack'], origin: SKILL, roll: ATHLETICS });
+const GRAPPLE = line('grapple', 'Grapple', { traits: traitChipsOf('attack'), origin: SKILL, roll: ATHLETICS });
 
 /** Athletics with a bonus that holds only in darkness, as Gloom Walker gives. */
 const DARK_ATHLETICS = statistic('skill:athletics', {
@@ -157,7 +158,7 @@ function paragraph(text: string): RichText {
 export const SHIELD_BLOCK_SUMMARY: ShownAction = {
   line: {
     ...SHIELD_BLOCK,
-    traits: ['general'],
+    traits: traitChipsOf('general'),
     trigger: paragraph('While you have your shield raised, you take damage from a physical attack.'),
     requirements: paragraph('You have a shield raised.'),
     effect: paragraph('Your shield prevents you from taking an amount of damage up to its Hardness.'),
