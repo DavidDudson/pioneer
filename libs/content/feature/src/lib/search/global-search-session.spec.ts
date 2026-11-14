@@ -109,7 +109,7 @@ describe(GlobalSearchSession, () => {
     const tagged = started.session.options().map((option) => option.tags?.map((tag) => tag.label));
     expect(tagged).toStrictEqual([
       ['Feat', 'Level 1'],
-      ['Feat', 'Level 1', 'fighter', 'flourish'],
+      ['Feat', 'Level 1', 'Fighter', 'Flourish'],
     ]);
   });
 

@@ -24,13 +24,22 @@ import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentLicense, CreatureData, FilterState, PackId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { injectEntryDescription } from '../entry/entry-description';
-import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry, registryEntries } from '../entry/entry-lookup';
+import {
+  entryCard,
+  entryIndex,
+  entryLinks,
+  entryPreviews,
+  findEntry,
+  registryEntries,
+  traitLabel,
+  traitNamesOf,
+} from '../entry/entry-lookup';
 import { browseSources, storeLinks } from '../entry/entry-sources';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
@@ -115,6 +124,12 @@ export class ContentBrowser {
   readonly #replacements = computed(() => {
     const registry = this.registry.data();
     return replacementsOf(registry === undefined ? [] : registryEntries(registry));
+  });
+
+  /** The name of each trait loaded, so a trait chip says its name rather than its slug. */
+  readonly #traitNames = computed(() => {
+    const registry = this.registry.data();
+    return traitNamesOf(registry === undefined ? [] : registryEntries(registry));
   });
 
   /** The licence of each pack loaded, which says which entries are legacy. */
@@ -228,7 +243,12 @@ export class ContentBrowser {
 
   #rowOf(entry: ContentEntry): BrowseRow {
     const tone = RARITY_TONES[entry.rarity];
-    const traits = entry.traits.map((trait): Chip => ({ label: trait, tone }));
+    const names = this.#traitNames();
+    const traits = entry.traits.map((trait): Chip => ({
+      label: traitLabel(names, trait),
+      trait: Trait.parse(trait),
+      tone,
+    }));
     return {
       id: entry.id,
       entry: entry.id,

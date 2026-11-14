@@ -1,12 +1,14 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
-import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, Trait } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import type { BrowseKind } from '../browser/browse-kinds';
 import { isLegacyEntry, packLicenses, shownEntries } from '../browser/browse-legacy';
 import { entriesOf } from '../browser/browse-list';
+import { registryEntries, traitNamesOf } from '../entry/entry-lookup';
 
 /**
  * The entries, official and in the homebrew packs in scope, the global search matches names in, loaded one kind at a time when the browser is idle. A
@@ -20,12 +22,15 @@ export class GlobalSearchIndex {
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #byId = signal<ReadonlyMap<ContentId, ContentEntry>>(new Map());
   readonly #legacy = signal<ReadonlySet<ContentId>>(new Set());
-  readonly #done = new Set<BrowseKind>();
+  readonly #traitNames = signal<ReadonlyMap<Trait, string>>(new Map());
+  readonly #done = new Set<BrowseKind | typeof ContentKind.Trait>();
   #running = false;
 
   /** The entries loaded so far, and by id. */
   public readonly entries = computed<readonly ContentEntry[]>(() => [...this.#byId().values()]);
   public readonly byId = this.#byId.asReadonly();
+  /** The name of each trait loaded, for the tags an option shows; traits are named here, never listed as results. */
+  public readonly traitNames = this.#traitNames.asReadonly();
   /** The ids of the loaded entries from a pre-remaster book. */
   public readonly legacy = this.#legacy.asReadonly();
 
@@ -42,7 +47,7 @@ export class GlobalSearchIndex {
   }
 
   #next(): void {
-    const kind = BROWSE_KINDS.find((each) => !this.#done.has(each));
+    const kind = [...BROWSE_KINDS, ContentKind.Trait].find((each) => !this.#done.has(each));
     if (kind === undefined) {
       this.#running = false;
       return;
@@ -53,22 +58,31 @@ export class GlobalSearchIndex {
     });
   }
 
-  async #load(kind: BrowseKind): Promise<void> {
+  async #load(kind: BrowseKind | typeof ContentKind.Trait): Promise<void> {
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
-      const licenses = packLicenses(registry);
-      const loaded = shownEntries(entriesOf(registry, [kind]), licenses, this.#scope().legacy);
-      this.#byId.update(
-        (held) => new Map([...held, ...loaded.map((entry): [ContentId, ContentEntry] => [entry.id, entry])]),
-      );
-      this.#legacy.update(
-        (held) => new Set([...held, ...loaded.filter((entry) => isLegacyEntry(entry, licenses)).map(({ id }) => id)]),
-      );
+      if (kind === ContentKind.Trait) {
+        this.#traitNames.set(traitNamesOf(registryEntries(registry)));
+      } else {
+        this.#add(registry, kind);
+      }
       this.#done.add(kind);
       this.#next();
     } catch {
       // Not loaded: the kind is tried again the next time the box opens.
       this.#running = false;
     }
+  }
+
+  /** The entries of `kind` the registry holds, shown in the search. */
+  #add(registry: ContentRegistry, kind: BrowseKind): void {
+    const licenses = packLicenses(registry);
+    const loaded = shownEntries(entriesOf(registry, [kind]), licenses, this.#scope().legacy);
+    this.#byId.update(
+      (held) => new Map([...held, ...loaded.map((entry): [ContentId, ContentEntry] => [entry.id, entry])]),
+    );
+    this.#legacy.update(
+      (held) => new Set([...held, ...loaded.filter((entry) => isLegacyEntry(entry, licenses)).map(({ id }) => id)]),
+    );
   }
 }

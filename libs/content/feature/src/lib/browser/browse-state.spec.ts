@@ -22,12 +22,19 @@ describe(listedKinds, () => {
 
 describe(kindsToLoad, () => {
   it('loads the kinds listed when no entry is picked', () => {
-    expect(kindsToLoad({ ...EMPTY_BROWSER_STATE, kinds: [ContentKind.Spell] })).toStrictEqual([ContentKind.Spell]);
+    expect(kindsToLoad({ ...EMPTY_BROWSER_STATE, kinds: [ContentKind.Spell] })).toStrictEqual([
+      ContentKind.Spell,
+      ContentKind.Trait,
+    ]);
   });
 
   it('loads the conditions a picked entry may mention', () => {
     const state = { ...EMPTY_BROWSER_STATE, selected: { kind: ContentKind.Feat, name: 'shield-block' } };
     expect(kindsToLoad(state)).toContain(ContentKind.Condition);
+  });
+
+  it('loads the traits, which name and open the chips of every row', () => {
+    expect(kindsToLoad({ ...EMPTY_BROWSER_STATE, kinds: [ContentKind.Feat] })).toContain(ContentKind.Trait);
   });
 
   it('names a kind once, whether listed or referred to', () => {
