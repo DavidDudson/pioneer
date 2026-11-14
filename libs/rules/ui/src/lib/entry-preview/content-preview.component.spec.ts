@@ -103,7 +103,7 @@ describe('content preview', () => {
     await open(fixture);
     expect(card()?.textContent).toContain('Fireball');
     expect(card()?.textContent).toContain('Level 3');
-    expect(card()?.textContent).toContain('concentrate');
+    expect(card()?.textContent).toContain('Concentrate');
     expect(card()?.textContent).toContain('Player Core');
   });
 

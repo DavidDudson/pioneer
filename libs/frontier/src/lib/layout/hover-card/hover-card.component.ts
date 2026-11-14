@@ -31,6 +31,8 @@ const cardClasses = cva('z-overlay mt-2xs max-w-prose border border-line-default
  * when both leave or on Escape. It never takes focus or blocks the page, so it is a description, not a dialog.
  * Touch has no hover: a first tap on the trigger opens the card and does not follow the link, a second tap follows it,
  * unless `tapOpens` is off, when the tap goes through to the trigger and the card stays closed.
+ * A card opened from inside another card's content nests: the outer card stays open while the inner one is, the inner
+ * closes first, and Escape closes the topmost card, then the one beneath it.
  * Project the trigger; the first focusable child (a link) is what a keyboard reaches. Give the preview as an
  * `<ng-template frHoverCardContent>`, created only while open.
  *
@@ -66,14 +68,25 @@ export class HoverCard {
   protected readonly cardClasses = cardClasses;
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
+  /** The card whose content this one sits in, which stays open while this one is. */
+  readonly #parent = inject(HoverCard, { optional: true, skipSelf: true });
   #pointer = false;
   #focus = false;
+  #nested = 0;
   #timer: Subscription | undefined;
 
   public constructor() {
     effect(() => {
       if (this.open()) {
         this.opened.emit();
+      }
+    });
+    effect((onCleanup) => {
+      if (this.open()) {
+        this.#parent?.nestedOpened();
+        onCleanup(() => {
+          this.#parent?.nestedClosed();
+        });
       }
     });
     const host = this.#host.nativeElement;
@@ -109,6 +122,18 @@ export class HoverCard {
     }
   };
 
+  /** A card in this one's content opened: this one stays open meanwhile. */
+  protected nestedOpened(): void {
+    this.#nested += 1;
+    this.#settle(0);
+  }
+
+  /** A card in this one's content closed: this one closes too, unless the pointer or focus is still in it. */
+  protected nestedClosed(): void {
+    this.#nested -= 1;
+    this.#settle(HOVER_DELAY);
+  }
+
   protected escape(): void {
     this.#clear();
     this.#pointer = false;
@@ -120,7 +145,7 @@ export class HoverCard {
   #settle(delay: number): void {
     this.#clear();
     this.#timer = timer(delay).subscribe(() => {
-      this.open.set(this.content() !== undefined && (this.#pointer || this.#focus));
+      this.open.set(this.content() !== undefined && (this.#pointer || this.#focus || this.#nested > 0));
     });
   }
 

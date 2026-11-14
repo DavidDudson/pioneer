@@ -22,7 +22,15 @@
   [cdkConnectedOverlayOpen]="open()"
   (overlayKeydown)="$event.key === 'Escape' && escape()"
 >
-  <div role="tooltip" [id]="id" [class]="cardClasses" (mouseenter)="pointer(true)" (mouseleave)="pointer(false)">
+  <div
+    role="tooltip"
+    [id]="id"
+    [class]="cardClasses"
+    (mouseenter)="pointer(true)"
+    (mouseleave)="pointer(false)"
+    (focusin)="focus(true)"
+    (focusout)="focus(false)"
+  >
     @if (content(); as card) {
       <ng-container *ngTemplateOutlet="card.template" />
     }

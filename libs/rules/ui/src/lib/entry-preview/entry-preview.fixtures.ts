@@ -17,6 +17,7 @@ import {
   RuleElementKey,
   Selector,
   SourceRef,
+  Trait,
 } from '@pioneer/rules/sdk';
 
 import { line } from '../testing/breakdown-fixtures';
@@ -30,7 +31,7 @@ export const FIREBALL = contentId(PackId.parse('player-core'), EntrySlug.parse('
 export const FIREBALL_PREVIEW: EntryPreview = {
   name: ContentText.parse('Fireball'),
   level: SPELL_LEVEL,
-  traits: ['concentrate', 'fire', 'manipulate'],
+  traits: [Trait.parse('concentrate'), Trait.parse('fire'), Trait.parse('manipulate')],
   summary: RichText.parse([
     { type: 'paragraph', content: [{ type: 'text', text: 'A roaring blast of fire burns creatures in the area.' }] },
     { type: 'paragraph', content: [{ type: 'text', text: 'Heightened: the damage increases by 2d6.' }] },

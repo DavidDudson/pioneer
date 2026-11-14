@@ -4,6 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { Badge, Heading, HeadingLevel, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
+import { TraitChip } from '../trait-chip/trait-chip.component';
 import { StatBlockLayout } from './creature-stat-block';
 import type { StatBlockCreature, StatBlockView, StatLine, StrikeLine } from './creature-stat-block';
 import { statBlockView } from './creature-stat-block-view';
@@ -37,6 +38,7 @@ import { StatStrikesView } from './stat-strikes.component';
     StatStrikesView,
     Stack,
     Text,
+    TraitChip,
   ],
   templateUrl: './creature-stat-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
