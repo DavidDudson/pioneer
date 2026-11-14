@@ -44,11 +44,11 @@ type SpecializingRule = RuleInPlay & { readonly element: CriticalSpecializationE
 
 /** The words an element's critical specialization shows on the Strike: the group's, its grievous benefit, or an alternate's own. */
 function specializationText(element: CriticalSpecializationElement, { group }: StrikeTargets): RichText | undefined {
-  if (element.alternate === true) {
-    return alternateSpecializationOf(element);
-  }
   if (group === undefined) {
     return undefined;
+  }
+  if (element.alternate === true) {
+    return alternateSpecializationOf(element);
   }
   return element.grievous === true ? grievousSpecializationOf(group) : criticalSpecializationOf(group);
 }

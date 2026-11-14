@@ -130,6 +130,16 @@ describe('CriticalSpecialization', () => {
     expect(text?.at(1)).toContain('The target takes 1d6 persistent fire damage.');
   });
 
+  test('an alternate element gives nothing to a weapon without a group', () => {
+    const alternate = {
+      ...ELEMENT,
+      alternate: true,
+      text: [{ type: 'paragraph', content: [{ type: 'text', text: 'The target is wreathed in flame.' }] }],
+    };
+
+    expect(strikeOf([alternate], LONGSWORD)?.notes).toEqual([]);
+  });
+
   test('an alternate element with no words and no damage gives nothing', () => {
     expect(strikeOf([{ ...ELEMENT, alternate: true }], SWORD)?.notes).toEqual([]);
   });

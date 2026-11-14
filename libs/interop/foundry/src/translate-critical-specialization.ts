@@ -40,7 +40,7 @@ function persistentOf(dice: unknown): unknown {
     : dice;
 }
 
-/** A `CriticalSpecialization` as Pioneer spells it: etched onto its own weapon, its `text` rich text and its `damageDice` persistent damage; any other element as it is. */
+/** A `CriticalSpecialization` as Pioneer spells it; any other element as it is. */
 export function withSpecialization(shaped: unknown, context: NoteContext): unknown {
   const raw = withOwnWeapon(shaped);
   if (!isSpecialization(raw)) {
