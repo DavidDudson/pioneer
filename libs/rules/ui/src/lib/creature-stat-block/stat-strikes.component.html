@@ -3,7 +3,13 @@
     <fr-stack gap="2xs">
       <fr-text element="p">
         <fr-text weight="medium">{{ strike.summary }}</fr-text>
-        {{ strike.traitsText }}
+        @for (tag of strike.tags; track $index) {
+          @if (tag.trait; as trait) {
+            <pio-trait-chip [trait]="trait" />
+          } @else {
+            <fr-text>{{ tag.text }}</fr-text>
+          }
+        }
       </fr-text>
       @if (strike.damage; as damage) {
         <pio-stat-lines [lines]="[damage]" />

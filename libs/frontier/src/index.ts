@@ -151,3 +151,4 @@ export { Container, DamageTone, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';
 export { Distance } from './lib/locale/distance/distance.component';
 export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
+export type { ListPart } from './lib/locale/locale-format';

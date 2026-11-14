@@ -45,6 +45,17 @@ describe(LocaleFormat, () => {
     expect(format.list(['Elf', 'Human', 'Orc'])).toBe('Elf, Human und Orc');
   });
 
+  it("splits lists into their items and the locale's separators", () => {
+    const format = setup();
+    const parts = format.listParts(['Elf', 'Human', 'Orc']);
+    expect(parts.filter((part) => part.type === 'element').map((part) => part.value)).toStrictEqual([
+      'Elf',
+      'Human',
+      'Orc',
+    ]);
+    expect(parts.map((part) => part.value).join('')).toBe(format.list(['Elf', 'Human', 'Orc']));
+  });
+
   it('shows distances in feet by default', () => {
     expect(setup().distance(30)).toBe('30 ft');
   });

@@ -13,6 +13,12 @@ export const DISTANCE_UNIT = new InjectionToken<Signal<DistanceUnit>>('DISTANCE_
 /** At most one decimal for metres (1.5 m squares); feet are always whole. */
 const METRES_FRACTION_DIGITS = 1;
 
+/** One part of a formatted list: an item, or the words and punctuation between items. */
+export interface ListPart {
+  readonly type: 'element' | 'literal';
+  readonly value: string;
+}
+
 /**
  * `Intl` formatting in the active UI locale (ADR-0009): numbers, lists,
  * distances and sorting. Every call reads the locale signal, so format inside
@@ -35,6 +41,14 @@ export class LocaleFormat {
   /** "Elf, Human and Orc", joined the locale's way. */
   public list(items: readonly string[], type: Intl.ListFormatType = 'conjunction'): string {
     return new Intl.ListFormat(this.locale(), { type, style: 'long' }).format(items);
+  }
+
+  /**
+   * The parts of `list`, in order: each item as `element` and the words and punctuation between them as `literal`, so
+   * a caller that renders the items itself (as chips) keeps the locale's separators.
+   */
+  public listParts(items: readonly string[], type: Intl.ListFormatType = 'conjunction'): readonly ListPart[] {
+    return new Intl.ListFormat(this.locale(), { type, style: 'long' }).formatToParts(items);
   }
 
   /** A distance given in feet (as the rules write it), shown in the viewer's unit: "30 ft" or "9 m". */

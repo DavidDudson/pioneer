@@ -134,4 +134,55 @@ describe(CreatureStatBlockView, () => {
       expect(root.querySelectorAll('pio-stat-abilities pio-trait-chip').length).toBeGreaterThan(0);
     });
   });
+
+  describe('strike traits', () => {
+    const AGILE = Trait.parse('agile');
+    const previews = provideEntryPreviews({
+      preview: (id): EntryPreview | undefined =>
+        id === traitId(AGILE) ? traitCard('Agile', 'The attack penalty for multiple attacks is lower.') : undefined,
+    });
+
+    function renderStrikes(): ComponentFixture<CreatureStatBlockView> {
+      TestBed.configureTestingModule({ providers: [provideRichTextTesting(), previews] });
+      const fixture = TestBed.createComponent(CreatureStatBlockView);
+      fixture.componentRef.setInput('creature', GOBLIN_WARCHANTER);
+      fixture.detectChanges();
+      return fixture;
+    }
+
+    it('reads the same as the joined text it replaced', () => {
+      const text = (renderStrikes().nativeElement as HTMLElement).textContent.replaceAll(/\s+/gu, ' ');
+
+      expect(text).toContain('Melee dogslicer +9 (reach 5 ft, Agile, Backstabber)');
+      expect(text).toContain('Ranged shortbow +9 (range increment 60 ft, Deadly d10)');
+    });
+
+    it('shows each real trait as a chip and the reach as plain text', () => {
+      const root = renderStrikes().nativeElement as HTMLElement;
+      const chips = [...root.querySelectorAll('pio-stat-strikes pio-trait-chip')].map((each) =>
+        each.textContent.trim(),
+      );
+
+      expect(chips).toStrictEqual(['Agile', 'Backstabber', 'Deadly d10']);
+    });
+
+    it('opens the trait card from the chip', async () => {
+      const fixture = renderStrikes();
+      const root = fixture.nativeElement as HTMLElement;
+      const stop = [...root.querySelectorAll<HTMLElement>('pio-stat-strikes [tabindex="0"]')].find(
+        (each) => each.textContent.trim() === 'Agile',
+      );
+      stop?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+      await vi.waitFor(() => {
+        fixture.detectChanges();
+        expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('multiple attacks is lower');
+      });
+    });
+
+    it('keeps no brackets for a Strike with nothing to list', () => {
+      const root = renderStrikes().nativeElement as HTMLElement;
+
+      expect(root.textContent).not.toContain('()');
+    });
+  });
 });
