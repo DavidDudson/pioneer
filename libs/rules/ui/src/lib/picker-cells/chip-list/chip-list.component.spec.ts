@@ -6,6 +6,7 @@ import { provideEntryPreviews } from '../../entry-preview/entry-preview';
 import { FIREBALL, FIREBALL_PREVIEWS } from '../../entry-preview/entry-preview.fixtures';
 import { provideRulesUiI18nTesting } from '../../testing/provide-rich-text-testing';
 import { renderCell } from '../../testing/render-cell';
+import { FIRE, HELD_TRAIT_PREVIEWS } from '../../trait-chip/trait-chip.fixtures';
 import { ChipList } from './chip-list.component';
 
 describe(ChipList, () => {
@@ -37,5 +38,17 @@ describe(ChipList, () => {
       fixture.detectChanges();
       expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('A roaring blast of fire');
     });
+  });
+
+  it('renders a chip that is a trait as a trait chip, named by its label', async () => {
+    TestBed.configureTestingModule({
+      providers: [provideRulesUiI18nTesting(), provideEntryPreviews(HELD_TRAIT_PREVIEWS)],
+    });
+    const fixture = TestBed.createComponent(ChipList);
+    fixture.componentRef.setInput('chips', [{ label: 'Flame', trait: FIRE }, { label: 'Plain' }]);
+    await fixture.whenStable();
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelectorAll('pio-trait-chip')).toHaveLength(1);
+    expect(host.querySelector('pio-trait-chip')?.textContent.trim()).toBe('Flame');
   });
 });
