@@ -5,12 +5,13 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT } from '@pioneer/character/domain';
 import { Page, PageBody, PageHeader, Stack, Step, StepBody, Stepper, Text, TextInput } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import type { SlotKey } from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
 import { Temporal } from '@pioneer/shared/kernel';
 import { map } from 'rxjs';
 
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../data/content-registry-query';
-import { draftCharacter, DraftField, draftOf, validName } from '../../data/creation-draft';
+import { draftCharacter, DraftField, draftOf, isValidName } from '../../data/creation-draft';
 import type { CreationDraft } from '../../data/creation-draft';
 import { CreationDraftSaver } from '../../data/creation-draft-saver';
 import { OriginChoiceOptions } from '../../data/origin-choice-options';
@@ -30,12 +31,10 @@ const DROPPED: Readonly<Record<DraftField, readonly DraftField[]>> = {
   subclass: [],
 };
 
-/** Whether `options` offers `value`. */
 function isOffered(options: readonly SelectOption<string>[], value: string): boolean {
   return options.some((option) => option.value === value);
 }
 
-/** The label of the option that has `value`; empty when none does. */
 function labelOf(options: readonly SelectOption<string>[], value: string): string {
   return options.find((option) => option.value === value)?.label ?? '';
 }
@@ -91,11 +90,11 @@ export class CreateCharacterPage {
   });
   protected readonly subclassOptions = computed(() => this.subclass()?.options ?? NO_OPTIONS);
 
-  protected readonly validName = computed(() => validName(this.draft().name));
-  protected readonly validAncestry = computed(() => isOffered(this.ancestryOptions(), this.draft().ancestry));
-  protected readonly validHeritage = computed(() => isOffered(this.heritageOptions(), this.draft().heritage));
-  protected readonly validBackground = computed(() => isOffered(this.backgroundOptions(), this.draft().background));
-  protected readonly validClass = computed(
+  protected readonly isNameValid = computed(() => isValidName(this.draft().name));
+  protected readonly isAncestryValid = computed(() => isOffered(this.ancestryOptions(), this.draft().ancestry));
+  protected readonly isHeritageValid = computed(() => isOffered(this.heritageOptions(), this.draft().heritage));
+  protected readonly isBackgroundValid = computed(() => isOffered(this.backgroundOptions(), this.draft().background));
+  protected readonly isClassValid = computed(
     () =>
       isOffered(this.classOptions(), this.draft().class) &&
       (this.subclassOptions().length === 0 || isOffered(this.subclassOptions(), this.draft().subclass)),
@@ -104,7 +103,7 @@ export class CreateCharacterPage {
   /** The step in the URL, but never past the first one still unanswered. */
   protected readonly step = computed(() => {
     const asked = this.#stepParam();
-    const answered = [this.validName(), this.validAncestry(), this.validHeritage(), this.validBackground()];
+    const answered = [this.isNameValid(), this.isAncestryValid(), this.isHeritageValid(), this.isBackgroundValid()];
     const unanswered = answered.indexOf(false);
     const limit = unanswered === -1 ? answered.length : unanswered;
     return Number.isInteger(asked) && asked > FIRST_STEP ? Math.min(asked, limit) : FIRST_STEP;
@@ -125,7 +124,6 @@ export class CreateCharacterPage {
     await this.#merge({ ...cleared, [field]: value === '' ? undefined : value });
   }
 
-  /** Makes the character from the draft, and opens the rest of level 1 on it. */
   protected async create(): Promise<void> {
     if (this.pending()) {
       return;
@@ -151,7 +149,7 @@ export class CreateCharacterPage {
     });
   }
 
-  #rootOptions(slot: typeof HERITAGE_SLOT): readonly SelectOption<string>[] {
+  #rootOptions(slot: SlotKey): readonly SelectOption<string>[] {
     const registry = this.#registry.data();
     const character = this.#character();
     return registry === undefined || character === undefined ? NO_OPTIONS : sheetRootOptions(registry, character, slot);

@@ -9,7 +9,7 @@
         <pio-sheet-level-plan [level]="level" />
       </fr-surface>
       <fr-text tone="muted">{{ 'character.create.levelOne.hint' | transloco }}</fr-text>
-      <fr-link [to]="['../..', id()]">{{ 'character.create.levelOne.finish' | transloco }}</fr-link>
+      <fr-link [to]="['/characters', id()]">{{ 'character.create.levelOne.finish' | transloco }}</fr-link>
     </fr-stack>
   </fr-page-body>
 </fr-page>

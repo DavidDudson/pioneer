@@ -3,7 +3,7 @@ import { contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import { draftCharacter, draftOf, draftPicks, validName } from './creation-draft';
+import { draftCharacter, draftOf, draftPicks, isValidName } from './creation-draft';
 import type { CreationDraft } from './creation-draft';
 
 const elf = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
@@ -23,11 +23,11 @@ describe('a draft read from the URL', () => {
 
 describe('the name of a draft', () => {
   it('is refused when empty', () => {
-    expect(validName('')).toBe(false);
+    expect(isValidName('')).toBe(false);
   });
 
   it('is taken when it is a name', () => {
-    expect(validName('Merisiel')).toBe(true);
+    expect(isValidName('Merisiel')).toBe(true);
   });
 });
 

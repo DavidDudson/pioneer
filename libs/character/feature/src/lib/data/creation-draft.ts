@@ -43,12 +43,11 @@ export function draftOf(read: (field: DraftField) => string | undefined): Creati
   };
 }
 
-/** Whether `name` is one a character may have. */
-export function validName(name: string): boolean {
+export function isValidName(name: string): boolean {
   return CharacterName.safeParse(name).success;
 }
 
-/** What the draft picks in `slots`, in the order a character needs them: a pick may depend on those before it. */
+/** The draft's picks as slot selections, in the order a character needs them: a pick may depend on those before it. */
 export function draftPicks(
   draft: CreationDraft,
   subclassSlot: SlotKey | undefined,

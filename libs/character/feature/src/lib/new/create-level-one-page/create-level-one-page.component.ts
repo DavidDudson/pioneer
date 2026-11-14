@@ -23,7 +23,6 @@ const FIRST_LEVEL = 1;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateLevelOnePage {
-  /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
   protected readonly sheet = inject(SheetState);

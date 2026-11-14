@@ -5,7 +5,7 @@
   />
   <fr-page-body>
     <fr-stepper [current]="step()" (currentChange)="goTo($event)" (finished)="create()">
-      <fr-step [label]="'character.create.steps.details' | transloco" [summary]="draft().name" [valid]="validName()">
+      <fr-step [label]="'character.create.steps.details' | transloco" [summary]="draft().name" [valid]="isNameValid()">
         <ng-template frStepBody>
           <fr-stack gap="sm">
             <fr-text tone="muted">{{ 'character.create.detailsHint' | transloco }}</fr-text>
@@ -21,7 +21,7 @@
       <fr-step
         [label]="'character.create.steps.ancestry' | transloco"
         [summary]="ancestrySummary()"
-        [valid]="validAncestry()"
+        [valid]="isAncestryValid()"
       >
         <ng-template frStepBody>
           <fr-stack gap="sm">
@@ -39,7 +39,7 @@
       <fr-step
         [label]="'character.create.steps.heritage' | transloco"
         [summary]="heritageSummary()"
-        [valid]="validHeritage()"
+        [valid]="isHeritageValid()"
       >
         <ng-template frStepBody>
           <fr-stack gap="sm">
@@ -56,7 +56,7 @@
       <fr-step
         [label]="'character.create.steps.background' | transloco"
         [summary]="backgroundSummary()"
-        [valid]="validBackground()"
+        [valid]="isBackgroundValid()"
       >
         <ng-template frStepBody>
           <fr-stack gap="sm">
@@ -73,7 +73,7 @@
       <fr-step
         [label]="'character.create.steps.class' | transloco"
         [summary]="classSummary()"
-        [valid]="validClass() && !pending()"
+        [valid]="isClassValid() && !pending()"
       >
         <ng-template frStepBody>
           <fr-stack gap="md">
