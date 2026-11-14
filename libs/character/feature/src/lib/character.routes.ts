@@ -119,6 +119,8 @@ export const characterRoutes: Routes = [
           },
         ],
       },
+      { path: 'import/pathbuilder', redirectTo: '/characters/new/import/pathbuilder' },
+      { path: 'import/pioneer', redirectTo: '/characters/new/import/backup' },
       {
         path: ':id',
         // Opening a character is the likely next step from the list.

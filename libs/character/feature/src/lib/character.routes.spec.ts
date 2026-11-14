@@ -114,4 +114,17 @@ describe('character routes', () => {
     });
     expect(hrefsOf()).toStrictEqual(['/characters', '/characters/new']);
   });
+
+  it('sends the old Pathbuilder and Pioneer import URLs to the import hub pages', async () => {
+    await open('/characters/import/pathbuilder');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pathbuilder']);
+    });
+    TestBed.resetTestingModule();
+
+    await open('/characters/import/pioneer');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pioneer JSON']);
+    });
+  });
 });

@@ -8,7 +8,6 @@ interface ImportSource {
   readonly description: string;
 }
 
-/** The sources a character can be imported from, one button each. Keys are spelled out in full. */
 const SOURCES: readonly ImportSource[] = [
   {
     path: 'pathbuilder',

@@ -1,8 +1,9 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -10,6 +11,8 @@ import { characterRoutes } from '../../character.routes';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const PREVIEW_URL = '/api/characters/import/pioneer/preview';
+const CREATED_ID = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
+const human = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
 const file = { format: 'pioneer-character', formatVersion: 1, character: { name: 'Kyra' } };
 
 function present<TValue>(value: TValue | null | undefined): TValue {
@@ -170,5 +173,38 @@ describe('PioneerImportPage', () => {
 
     const request = http.expectOne({ method: 'POST', url: '/api/characters/import/pioneer' });
     expect(request.request.body).toStrictEqual(file);
+  });
+
+  it('opens the created character on its Plan tab', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, JSON.stringify(file));
+    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({ name: 'Kyra', level: 1, homebrew: [], unmatched: [] });
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Create character');
+    });
+
+    button(root, 'Create character').click();
+    await harness.fixture.whenStable();
+    http.expectOne({ method: 'POST', url: '/api/characters/import/pioneer' }).flush({
+      id: CREATED_ID,
+      version: 1,
+      ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
+      name: 'Kyra',
+      build: { choices: { ancestry: human } },
+      level: 1,
+      createdAt: '2026-10-07T10:00:00.000Z',
+      updatedAt: '2026-10-07T10:00:00.000Z',
+    });
+
+    const router = TestBed.inject(Router);
+    // The sheet route loads lazily, with the engine behind it, which takes longer than a second on a slow runner.
+    await vi.waitFor(
+      () => {
+        expect(router.url).toBe(`/characters/${CREATED_ID}/plan/level-0`);
+      },
+      { timeout: 3000 },
+    );
   });
 });
