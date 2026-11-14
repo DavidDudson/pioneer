@@ -1,3 +1,4 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { ModifierType, StatisticKind } from '@pioneer/rules/sdk';
 
@@ -9,10 +10,12 @@ import {
   IN_DARKNESS,
   line,
   statistic,
+  STATISTIC_NAMES_FIXTURE,
   term,
 } from '../testing/breakdown-fixtures';
 import { OVERRIDE_STATUSES, PINNED_AC } from '../testing/override-fixtures';
 import { BreakdownView } from './breakdown.component';
+import { STATISTIC_NAMES } from './reference-names';
 
 type BreakdownStory = StoryObj<BreakdownView>;
 
@@ -57,4 +60,15 @@ export const OverrideStatuses: BreakdownStory = {
 /** With no entry names, lines show their entry ids. */
 export const WithoutNames: BreakdownStory = {
   args: { statistic: FIGHTER_AC, entryNames: new Map() },
+};
+
+/** A reference reads as the name of the statistic or attribute behind it, never as `@prof.save.will`. */
+export const NamedReferences: BreakdownStory = {
+  args: { statistic: FIGHTER_WILL, kind: StatisticKind.Check },
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_NAMES, useValue: STATISTIC_NAMES_FIXTURE }] })],
+};
+
+/** A reference no statistic names stays as written, so nothing goes blank. */
+export const UnnamedReference: BreakdownStory = {
+  args: { statistic: FIGHTER_WILL, kind: StatisticKind.Check },
 };

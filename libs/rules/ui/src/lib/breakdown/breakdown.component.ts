@@ -30,6 +30,8 @@ import { movementCostRule, movementCostWords } from './movement-cost-words';
 import type { RuleLabel } from './movement-cost-words';
 import { numberStyle } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
+import { STATISTIC_NAMES } from './reference-names';
+import { formulaWords } from './reference-words';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
 
 /** A line and where it was in the engine's list, so lines of one status keep the engine's order. */
@@ -81,6 +83,7 @@ export class BreakdownView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
+  readonly #statisticName = inject(STATISTIC_NAMES);
   /** Ticks when the locale changes or a message scope (`rules`, `predicate`, `engine`) finishes loading. */
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
@@ -137,14 +140,18 @@ export class BreakdownView {
   #term(term: BaseTerm, index: number): ShownTerm {
     const value = this.#i18n.translate(BreakdownMessage.TermValue, { value: this.#format.number(term.value) });
     if (term.kind === BaseTermKind.Rounding) {
-      return { code: undefined, value, variant: undefined };
+      return { name: undefined, value, variant: undefined };
     }
     const leading = index === 0 && term.sign === TermSign.Plus;
     const variant =
       term.origin === undefined
         ? undefined
         : this.#i18n.translate(BreakdownMessage.TermVariant, { name: this.#entryName(term.origin.entry) });
-    return { code: leading ? term.formula : `${term.sign} ${term.formula}`, value, variant };
+    const words = formulaWords(term.formula, {
+      translate: (descriptor) => this.#translate(descriptor),
+      statisticName: this.#statisticName,
+    });
+    return { name: leading ? words : `${term.sign} ${words}`, value, variant };
   }
 
   #line(line: BreakdownLine, rules: readonly RuleLabel[]): ShownLine {

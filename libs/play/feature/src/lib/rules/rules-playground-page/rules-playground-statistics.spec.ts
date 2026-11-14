@@ -33,7 +33,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
     expect(text).toContain('spell-dc:arcane');
     expect(text).toContain('Base 16');
     expect(text).toContain('+ @stat.spell-attack.arcane');
-    expect(text).toContain('gives 6');
+    expect(text).toContain('= 6');
   });
 
   it('shows each modifier line: applied, suppressed by what, conditional on what, inactive', async () => {
