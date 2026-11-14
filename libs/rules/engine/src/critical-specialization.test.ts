@@ -96,6 +96,13 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([gated], SWORD, ['self:level:5'])?.notes).toEqual([]);
   });
 
+  test('a weapon carrying a tag gets it from an element that reads the tag, and one without does not', () => {
+    const tagged = { ...SWORD, rollOptions: ['group:sword', 'tag:improvised'] };
+
+    expect(strikeOf([only('item:tag:improvised')], tagged)?.notes).toHaveLength(1);
+    expect(strikeOf([only('item:tag:improvised')], SWORD)?.notes).toEqual([]);
+  });
+
   test('a grievous element adds the further benefit of the weapon group, not the specialization itself', () => {
     const notes = strikeOf([{ ...ELEMENT, grievous: true }], SWORD)?.notes;
 

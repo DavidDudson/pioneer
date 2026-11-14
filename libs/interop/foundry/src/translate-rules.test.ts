@@ -113,6 +113,8 @@ describe('translateRules: CriticalSpecialization', () => {
       { predicate: [{ gte: ['self:level', 5] }, { or: ['item:trait:dwarf', 'item:base:war-hammer'] }] },
     ],
     ['a group', { predicate: ['item:group:firearm'] }],
+    ['a weapon tag', { predicate: ['item:tag:anadi-fangs'] }],
+    ['a tag with no group', { predicate: ['item:tag:improvised'] }],
     ['no predicate', {}],
   ])('%s is translated, with its roll options namespaced', (_case, fields) => {
     const translation = translate([feat({ key: 'CriticalSpecialization', ...fields })]);
