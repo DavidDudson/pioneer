@@ -1,19 +1,19 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentRegistry, RuneType } from '@pioneer/rules/sdk';
+import { ContentKind, RuneType } from '@pioneer/rules/sdk';
 import { runicPair } from '@pioneer/shared/kernel';
 
-import { contentCatalog } from './index';
+import { loadRunes } from './rune-fixtures';
 
-/** The pair each loaded property rune shows, with the runes that share it. */
-async function runesByPair(): Promise<ReadonlyMap<string, readonly string[]>> {
-  const registry = new ContentRegistry();
-  await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
-  const runes = registry.packs
-    .flatMap((pack) => pack.otherEntries)
-    .filter((entry) => entry.kind === ContentKind.Rune && entry.data.type === RuneType.Property);
+/** Read once, and only the rune files: loading every pack in the test overran bun's default timeout on a busy runner. */
+const RUNES = await loadRunes();
+
+/** The pair each property rune shows, with the runes that share it. */
+function runesByPair(): ReadonlyMap<string, readonly string[]> {
   const byPair = new Map<string, string[]>();
-  for (const rune of runes) {
+  for (const rune of RUNES.filter(
+    (entry) => entry.kind === ContentKind.Rune && entry.data.type === RuneType.Property,
+  )) {
     const pair = runicPair(rune.id);
     byPair.set(pair, [...(byPair.get(pair) ?? []), rune.slug]);
   }
@@ -21,8 +21,8 @@ async function runesByPair(): Promise<ReadonlyMap<string, readonly string[]>> {
 }
 
 describe('the glyph pairs of the loaded property runes', () => {
-  test('are shared by no two runes, so a book that adds a colliding rune is caught here', async () => {
-    const byPair = await runesByPair();
+  test('are shared by no two runes, so a book that adds a colliding rune is caught here', () => {
+    const byPair = runesByPair();
     const shared = [...byPair].filter(([, slugs]) => slugs.length > 1);
 
     expect(byPair.size).toBeGreaterThan(0);
