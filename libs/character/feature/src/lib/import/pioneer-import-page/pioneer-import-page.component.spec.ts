@@ -32,7 +32,7 @@ async function openPage(): Promise<OpenPage> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
-  const harness = await RouterTestingHarness.create('/characters/import/pioneer');
+  const harness = await RouterTestingHarness.create('/characters/new/import/backup');
   await harness.fixture.whenStable();
   return { harness, root: present(harness.routeNativeElement) };
 }

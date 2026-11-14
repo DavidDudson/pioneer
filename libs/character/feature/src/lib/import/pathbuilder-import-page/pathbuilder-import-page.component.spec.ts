@@ -43,7 +43,7 @@ async function openPage(content: readonly Provider[] = []): Promise<OpenPage> {
       ...content,
     ],
   });
-  const harness = await RouterTestingHarness.create('/characters/import/pathbuilder');
+  const harness = await RouterTestingHarness.create('/characters/new/import/pathbuilder');
   await harness.fixture.whenStable();
   return { harness, root: present(harness.routeNativeElement) };
 }
