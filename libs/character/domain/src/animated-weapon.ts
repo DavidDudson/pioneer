@@ -3,7 +3,7 @@ import type { EntrySlug } from '@pioneer/rules/sdk';
 
 import type { InventoryItem } from './inventory';
 import type { ItemEntry } from './inventory-content';
-import { itemPotency, itemRunes } from './item-runes';
+import { hasEtchedRune, itemPotency, itemRunes } from './item-runes';
 import type { RuneContent } from './item-runes';
 
 const ANIMATED: EntrySlug = entrySlug(ContentKind.Rune, Slug.parse('animated'));
@@ -13,7 +13,7 @@ const ANIMATED_ATTACK = Modifier.parse(24);
 
 /** Whether the item has an animated rune etched on it. */
 export function hasAnimatedRune(line: InventoryItem, base: ItemEntry | undefined, runes: RuneContent): boolean {
-  return itemRunes(line, base).property.some(({ rune }) => runes.get(rune)?.slug === ANIMATED);
+  return hasEtchedRune(line, base, { runes, slug: ANIMATED });
 }
 
 /**

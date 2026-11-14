@@ -21,8 +21,7 @@ import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
-import { ItemRelease } from '../item-release/item-release.component';
-import { ItemShape } from '../item-shape/item-shape.component';
+import { ItemRuneStates } from '../item-rune-states/item-rune-states.component';
 import { RuneChoicePicker } from './rune-choice.component';
 import { RuneMove } from './rune-move.component';
 import {
@@ -87,8 +86,7 @@ interface PropertyRow {
     FormField,
     Grid,
     InlineField,
-    ItemRelease,
-    ItemShape,
+    ItemRuneStates,
     Picker,
     PickerField,
     RuneChoicePicker,

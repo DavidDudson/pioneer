@@ -20,3 +20,9 @@ export const UNREADABLE_TONIC: ItemFixtureFields = {
   kind: ContentKind.Consumable,
   data: { ...TONIC, damage: { formula: '1d8 + @item.value', kind: 'healing' } },
 };
+
+/** A potion that heals 1d8. */
+export const HEALING_POTION: ItemFixtureFields = {
+  kind: ContentKind.Consumable,
+  data: { ...TONIC, damage: { formula: '1d8', kind: 'healing' } },
+};
