@@ -140,6 +140,19 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([alternate], LONGSWORD)?.notes).toEqual([]);
   });
 
+  test('the epithet pair shows only while its toggle is on: the group effect, and the alternate beside it', () => {
+    const toggle = 'option:epithet-critical-specialization';
+    const base = { ...ELEMENT, predicate: [toggle] };
+    const alternate = {
+      ...base,
+      alternate: true,
+      text: [{ type: 'paragraph', content: [{ type: 'text', text: 'You plunder vitality.' }] }],
+    };
+
+    expect(strikeOf([base, alternate], SWORD, { options: [toggle] })?.notes).toHaveLength(2);
+    expect(strikeOf([base, alternate], SWORD, { options: [] })?.notes).toEqual([]);
+  });
+
   test('an alternate element with no words and no damage gives nothing', () => {
     expect(strikeOf([{ ...ELEMENT, alternate: true }], SWORD)?.notes).toEqual([]);
   });

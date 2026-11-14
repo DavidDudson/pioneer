@@ -113,6 +113,11 @@ describe('translateRules: CriticalSpecialization', () => {
       { predicate: [{ gte: ['self:level', 5] }, { or: ['item:trait:dwarf', 'item:base:war-hammer'] }] },
     ],
     ['a group', { predicate: ['item:group:firearm'] }],
+    ['an epithet toggle', { predicate: ['epithet-critical-specialization'] }],
+    [
+      'an alternate epithet effect',
+      { alternate: true, predicate: ['epithet-critical-specialization'], text: '<p>You plunder vitality.</p>' },
+    ],
     [
       'a proficiency rank gate on a group',
       { predicate: [{ gte: ['item:proficiency:rank', 3] }, { or: ['item:group:sword', 'item:group:axe'] }] },
