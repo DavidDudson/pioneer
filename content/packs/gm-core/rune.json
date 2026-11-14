@@ -135,7 +135,14 @@
       "etchedOnto": {
         "item": "weapon",
         "restriction": "melee"
-      }
+      },
+      "activations": [
+        {
+          "slug": "set-free",
+          "name": "Set Free",
+          "cost": "two"
+        }
+      ]
     }
   },
   {

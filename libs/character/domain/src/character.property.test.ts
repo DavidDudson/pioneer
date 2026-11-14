@@ -129,6 +129,35 @@ function isItemPatch(patch: CharacterPatch): patch is ItemPatch {
   return !UNAIMED.has(patch.field);
 }
 
+/** The edits that change one item and name nothing else: aimed by giving them its id. */
+type IdOnlyPatch = Extract<
+  CharacterPatch,
+  {
+    readonly field:
+      | typeof CharacterPatchField.RemoveItem
+      | typeof CharacterPatchField.SetItemQuantity
+      | typeof CharacterPatchField.RenameItem
+      | typeof CharacterPatchField.CarryItem
+      | typeof CharacterPatchField.InvestItem
+      | typeof CharacterPatchField.SetItemState
+      | typeof CharacterPatchField.SetItemBroken;
+  }
+>;
+
+const ID_ONLY: ReadonlySet<CharacterPatchField> = new Set<IdOnlyPatch['field']>([
+  CharacterPatchField.RemoveItem,
+  CharacterPatchField.SetItemQuantity,
+  CharacterPatchField.RenameItem,
+  CharacterPatchField.CarryItem,
+  CharacterPatchField.InvestItem,
+  CharacterPatchField.SetItemState,
+  CharacterPatchField.SetItemBroken,
+]);
+
+function isIdOnlyPatch(patch: CharacterPatch): patch is IdOnlyPatch {
+  return ID_ONLY.has(patch.field);
+}
+
 /**
  * `patch` aimed at the character's own items, so every inventory command is exercised rather than refused for naming
  * an item the character hasn't: the item it changes is the one at `index`, the container the one at `target` or none.
@@ -140,6 +169,9 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
   const id = itemAt(items, index);
   const container = target === undefined ? undefined : itemAt(items, target);
   const stowed = container === undefined ? {} : { container };
+  if (isIdOnlyPatch(patch)) {
+    return id === undefined ? patch : { ...patch, id };
+  }
   switch (patch.field) {
     case CharacterPatchField.GiftItem:
     case CharacterPatchField.BuyItem: {
@@ -151,14 +183,6 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     }
     case CharacterPatchField.MoveItem: {
       return id === undefined ? patch : { field: patch.field, id, ...stowed };
-    }
-    case CharacterPatchField.RemoveItem:
-    case CharacterPatchField.SetItemQuantity:
-    case CharacterPatchField.RenameItem:
-    case CharacterPatchField.CarryItem:
-    case CharacterPatchField.InvestItem:
-    case CharacterPatchField.SetItemBroken: {
-      return id === undefined ? patch : { ...patch, id };
     }
     case CharacterPatchField.EtchRune:
     case CharacterPatchField.EraseRune:

@@ -154,6 +154,23 @@ describe(sheetItemActions, () => {
     });
   });
 
+  describe('a rune with an activation that has no frequency', () => {
+    it('is a row with its cost and no uses to spend', async () => {
+      const registry = await registryWithItems();
+      const sword = {
+        id: SWORD,
+        fixture: ItemFixture.Longsword,
+        carry: CarryState.Held,
+        runes: [RuneFixture.Animated],
+      };
+      const [line] = listed(registry, carrying(sword));
+
+      expect(line).toMatchObject({ name: 'Longsword: Set Free', cost: 'two', status: ActionStatus.Available });
+      expect(line?.resource).toBeUndefined();
+      expect(line?.payment).toBeUndefined();
+    });
+  });
+
   describe('an item with a daily activation', () => {
     it('is a row with the uses it has left, spent under the activation key', async () => {
       const registry = await registryWithItems();

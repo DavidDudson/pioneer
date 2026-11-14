@@ -80,6 +80,7 @@ function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>):
       return runeTarget(patch);
     }
     case CharacterPatchField.SetItemBroken:
+    case CharacterPatchField.SetItemState:
     case CharacterPatchField.RemoveItem:
     case CharacterPatchField.SetItemQuantity:
     case CharacterPatchField.RenameItem: {

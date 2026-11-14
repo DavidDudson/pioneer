@@ -10,7 +10,14 @@ import {
   spellCost,
   SpendCount,
 } from '@pioneer/character/domain';
-import type { ActionCostRange, Character, ResourcesSpent, TurnState } from '@pioneer/character/domain';
+import type {
+  ActionCostRange,
+  Character,
+  InventoryItem,
+  ItemEntry,
+  ResourcesSpent,
+  TurnState,
+} from '@pioneer/character/domain';
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import type { StatisticInputs } from '@pioneer/rules/engine';
 import { ActionMode, FrequencyPeriod, STAFF_CANTRIP } from '@pioneer/rules/sdk';
@@ -73,8 +80,9 @@ interface ItemAction {
   readonly traits: readonly string[];
   readonly cost: ActionCost | undefined;
   readonly range: ActionCostRange | undefined;
-  readonly resource: ActionResource;
-  readonly payment: UsePayment;
+  /** What it spends; absent for an activation with no frequency, which takes only its actions. */
+  readonly resource?: ActionResource | undefined;
+  readonly payment?: UsePayment | undefined;
   /** The ways to pay when there is more than one, each with its button label. */
   readonly payOptions?: readonly UsePayOption[];
   /** Why it cannot be used whatever the turn leaves. */
@@ -135,7 +143,19 @@ function consumableActions(registry: ContentRegistry, character: Character, play
   }));
 }
 
-/** The activations with a frequency of the items the character carries, each with the uses it has left. */
+/** Why an item held in this way cannot be used whatever its content says: stowed, or not invested when it must be. */
+function heldReasons(held: InventoryItem, entry: ItemEntry): MessageDescriptor[] {
+  const own: MessageDescriptor[] = [];
+  if (held.carry.state === CarryState.Stowed) {
+    own.push(message(ItemReasonMessage.Stowed));
+  }
+  if (isInvestable(held, entry) && held.invested !== true) {
+    own.push(message(ItemReasonMessage.NotInvested));
+  }
+  return own;
+}
+
+/** The activations of the items the character carries, each with the uses it has left when it has a frequency. */
 function activationActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
   const entries = itemContent(registry);
   const activations = itemActivationsOf(registry);
@@ -145,29 +165,30 @@ function activationActions(registry: ContentRegistry, character: Character, play
     if (entry === undefined || held.carry.state === CarryState.Dropped) {
       return [];
     }
-    const own: MessageDescriptor[] = [];
-    if (held.carry.state === CarryState.Stowed) {
-      own.push(message(ItemReasonMessage.Stowed));
-    }
-    if (isInvestable(held, entry) && held.invested !== true) {
-      own.push(message(ItemReasonMessage.NotInvested));
-    }
+    const own = heldReasons(held, entry);
     return activations(held).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
       const key = activationUseKey(held.id, slug);
       const maximum = counted.uses.get(key);
+      const itemName: string = held.name ?? entry.name;
+      const activationName: string = name;
+      const title = itemName === activationName ? itemName : `${itemName}: ${activationName}`;
+      const base = {
+        id: entry.id,
+        name: title,
+        traits: [],
+        cost,
+        range: cost === undefined ? undefined : rangeOf(cost, upTo),
+      };
+      if (frequency === undefined) {
+        return [{ ...base, reasons: own }];
+      }
       if (maximum === undefined) {
         return [];
       }
       const current = heldCount({ spent: play.resources.uses, maxima: counted.uses, key });
-      const itemName: string = held.name ?? entry.name;
-      const activationName: string = name;
       return [
         {
-          id: entry.id,
-          name: itemName === activationName ? itemName : `${itemName}: ${activationName}`,
-          traits: [],
-          cost,
-          range: cost === undefined ? undefined : rangeOf(cost, upTo),
+          ...base,
           resource: { kind: ActionResourceKind.Uses, current, max: maximum.max },
           payment: { use: key },
           reasons: current === 0 ? [...own, noUsesReason(frequency.per, play.resources.countdowns[key])] : own,

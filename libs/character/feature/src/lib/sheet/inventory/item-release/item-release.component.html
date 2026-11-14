@@ -1,0 +1,24 @@
+@if (animated()) {
+  <fr-stack gap="xs">
+    @if (attack(); as attack) {
+      <fr-text>{{ 'character.sheet.release.current' | transloco: { name: name(), attack: attack } }}</fr-text>
+      <fr-async-button
+        size="sm"
+        [action]="recall"
+        [pendingLabel]="'character.sheet.release.recalling' | transloco"
+        [describeError]="describeError"
+      >
+        {{ 'character.sheet.release.recall' | transloco: { name: name() } }}
+      </fr-async-button>
+    } @else {
+      <fr-async-button
+        size="sm"
+        [action]="setFree"
+        [pendingLabel]="'character.sheet.release.setting' | transloco"
+        [describeError]="describeError"
+      >
+        {{ 'character.sheet.release.set' | transloco: { name: name() } }}
+      </fr-async-button>
+    }
+  </fr-stack>
+}
