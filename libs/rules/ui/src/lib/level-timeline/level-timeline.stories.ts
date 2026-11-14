@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
 import {
+  AUTOMATIC_TIMELINE,
   BARD_TIMELINE,
   BROKEN_PLAN_TIMELINE,
   FIGHTER_TIMELINE,
@@ -68,5 +69,16 @@ export const BrokenPlan: LevelTimelineStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Plan breaks here')).toBeVisible();
+  },
+};
+
+/** What a level improves by itself, apart from its choices: a feature, a rank rise and slot gains, each with its source. */
+export const Automatic: LevelTimelineStory = {
+  args: { rows: AUTOMATIC_TIMELINE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByText('Automatic')[0]).toBeVisible();
+    await expect(canvas.getByText('Shield Block')).toBeVisible();
+    await expect(canvas.getByText('Reflex becomes expert')).toBeVisible();
   },
 };

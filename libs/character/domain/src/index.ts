@@ -204,6 +204,7 @@ export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubject
 export { characterSlots } from './character-slot-status';
 export { levelTimeline, type TimelineRow } from './level-timeline';
 export { type ChoiceSource, choiceSourceOf, ChoiceSourceKind } from './choice-source';
+export { type AutomaticChange, AutomaticKind, automaticTimeline, type AutomaticRow } from './automatic-changes';
 export { characterDeity, SheetDeity } from './character-deity';
 export { deityContent } from './deity-content';
 export { favoredWeapons } from './favored-weapons';

@@ -78,6 +78,7 @@ export { ChoicesView } from './lib/choices/choices.component';
 export type { ChoiceLockChange, ChoiceReplace } from './lib/choices/choices.component';
 export { LevelTimeline } from './lib/level-timeline/level-timeline.component';
 export {
+  type AutomaticLine,
   type LevelTimelineRow,
   type TimelineFeat,
   type TimelinePick,
