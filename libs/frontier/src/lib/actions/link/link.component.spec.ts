@@ -154,6 +154,15 @@ describe(Link, () => {
     expect([...anchor.classList]).toContain('bg-accent-subtle');
   });
 
+  it('draws a button link as a touch-sized primary call to action without an underline', async () => {
+    const anchor = await render({ to: '/characters/new', appearance: LinkAppearance.Button }, '/characters');
+    expect([...anchor.classList]).toStrictEqual(
+      expect.arrayContaining(['h-touch', 'bg-accent-solid', 'text-accent-on-solid', 'focus-visible:focus-ring']),
+    );
+    expect([...anchor.classList]).not.toContain('underline');
+    expect(anchor.getAttribute('href')).toBe('/characters/new');
+  });
+
   it('inherits the typography of the text around it without a variant', async () => {
     const anchor = await render({ to: '/' });
     expect([...anchor.classList]).not.toContain('text-body');

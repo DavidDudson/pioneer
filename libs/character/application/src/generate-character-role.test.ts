@@ -45,7 +45,7 @@ describe('GenerateCharacterService with a role', () => {
     );
   });
 
-  test('makes a level 1 character when no level is given', async () => {
+  test('makes a level 1 character', async () => {
     const generated = await service.generate(amiri, { role: 'melee', seed });
     expect(generated.character.document.level).toBe(CharacterLevel.parse(CHARACTER_LEVEL_MIN));
   });

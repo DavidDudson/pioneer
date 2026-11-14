@@ -12,7 +12,7 @@ export class CharacterGenerator {
   readonly #api = inject(ApiClient);
   readonly #client = inject(QueryClient);
 
-  /** A new character from a level, a seed and a name, with the seed that made it. */
+  /** A new level 1 character from a seed, a name and optional picks, with the seed that made it. */
   public async generate(body: GenerateCharacterBody): Promise<GeneratedCharacter> {
     const generated = await this.#api.call(CharacterContract.generate, { params: {}, body });
     // Stale, not refetched now: the list refetches when it is next shown.

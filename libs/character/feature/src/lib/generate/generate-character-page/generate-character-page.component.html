@@ -54,6 +54,34 @@
             </fr-stack>
           </ng-template>
         </fr-step>
+        <fr-step [label]="'character.generate.steps.ancestry' | transloco" [summary]="ancestrySummary()">
+          <ng-template frStepBody>
+            <fr-stack gap="sm">
+              <fr-text tone="muted">{{ 'character.generate.ancestryHint' | transloco }}</fr-text>
+              <pio-option-picker
+                [ariaLabel]="'character.generate.steps.ancestry' | transloco"
+                [options]="ancestryOptions()"
+                [placeholder]="'character.generate.anyAncestry' | transloco"
+                [value]="ancestryId()"
+                (valueChange)="ancestryId.set($event ?? '')"
+              />
+            </fr-stack>
+          </ng-template>
+        </fr-step>
+        <fr-step [label]="'character.generate.steps.background' | transloco" [summary]="backgroundSummary()">
+          <ng-template frStepBody>
+            <fr-stack gap="sm">
+              <fr-text tone="muted">{{ 'character.generate.backgroundHint' | transloco }}</fr-text>
+              <pio-option-picker
+                [ariaLabel]="'character.generate.steps.background' | transloco"
+                [options]="backgroundOptions()"
+                [placeholder]="'character.generate.anyBackground' | transloco"
+                [value]="backgroundId()"
+                (valueChange)="backgroundId.set($event ?? '')"
+              />
+            </fr-stack>
+          </ng-template>
+        </fr-step>
         <fr-step [label]="'character.generate.steps.style' | transloco" [summary]="styleSummary()">
           <ng-template frStepBody>
             <fr-stack gap="md">

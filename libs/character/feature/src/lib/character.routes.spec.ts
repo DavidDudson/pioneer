@@ -2,7 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import type { Route } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
@@ -14,6 +14,17 @@ import messages from '../i18n/en.json';
 import { characterRoutes } from './character.routes';
 import { CharacterStore } from './data/character-store';
 import { StubPage } from './testing/stub-page.component';
+
+/** A route with children keeps them stubbed, an absolute redirect stays one, and any other becomes the stub page. */
+function target(route: Route): Route {
+  if (route.children !== undefined) {
+    return { children: stubbed(route.children) };
+  }
+  if (typeof route.redirectTo === 'string' && route.redirectTo.startsWith('/')) {
+    return { redirectTo: route.redirectTo, pathMatch: route.pathMatch ?? 'prefix' };
+  }
+  return { component: StubPage };
+}
 
 /** The real routes with every page replaced by `StubPage` and the store by one that holds the open character. */
 function stubbed(routes: readonly Route[]): Route[] {
@@ -27,7 +38,7 @@ function stubbed(routes: readonly Route[]): Route[] {
       ...(route.path === undefined ? {} : { path: route.path }),
       ...(route.data === undefined ? {} : { data: route.data }),
       ...(providers === undefined ? {} : { providers }),
-      ...(route.children === undefined ? { component: StubPage } : { children: stubbed(route.children) }),
+      ...target(route),
     };
   });
 }
@@ -71,5 +82,26 @@ describe('character routes', () => {
     await vi.waitFor(() => {
       expect(trailOf()).toStrictEqual(['Characters', 'Import from Pathbuilder']);
     });
+  });
+
+  it('trails the creation choices under Characters', async () => {
+    await open('/characters/new');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character']);
+    });
+    expect(hrefsOf()).toStrictEqual(['/characters']);
+  });
+
+  it('trails the create page under the creation choices', async () => {
+    await open('/characters/new/create');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Create']);
+    });
+    expect(hrefsOf()).toStrictEqual(['/characters', '/characters/new']);
+  });
+
+  it('sends the Import choice to the Pathbuilder import until the import page ships', async () => {
+    await open('/characters/new/import');
+    expect(TestBed.inject(Router).url).toBe('/characters/import/pathbuilder');
   });
 });

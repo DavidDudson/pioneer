@@ -31,7 +31,7 @@ import type { Clock, FieldIssue, Temporal, UserId } from '@pioneer/shared/kernel
 
 import type { CharacterRepository } from './character-repository';
 
-/** The level a character is made at when none is asked for. */
+/** The level every generated character is made at; the planner levels it up. */
 const FIRST_LEVEL = CharacterLevel.parse(CHARACTER_LEVEL_MIN);
 
 /** How many seeds a draw can give: every `Seed` below the largest. */
@@ -116,8 +116,8 @@ export class GenerateCharacterService {
   }
 
   /**
-   * A new character for `actor`, made at random: a name, a personality, every slot and the gear of its level, all
-   * from `body.seed` (drawn when absent) so the same seed and level give the same character. It starts from
+   * A new character for `actor`, made at random: a name, a personality, every slot and the gear of level 1, all
+   * from `body.seed` (drawn when absent) so the same seed gives the same character. It starts from
    * nothing, so no other character is read or touched, archived ones included. The seed is not stored: it is
    * answered once.
    */
@@ -139,7 +139,7 @@ export class GenerateCharacterService {
     const { character, unmet } = generateCharacter({
       start,
       seed,
-      level: body.level ?? FIRST_LEVEL,
+      level: FIRST_LEVEL,
       content,
       items: itemContent(registry),
       runes: runeContent(registry),

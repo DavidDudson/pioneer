@@ -1,5 +1,5 @@
 import { Attribute, Coin, ContentKind, COPPER_PER_COIN, CopperValue, Rarity } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, Selector } from '@pioneer/rules/sdk';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { derivedId, UuidNamespace } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -8,6 +8,7 @@ import { attributeModifiers } from './attribute-boosts';
 import { Encumbrance, inventoryBulk } from './bulk';
 import type { Character } from './character';
 import { CharacterPatchField } from './character-patch';
+import { trainedCategories, untrained } from './gear-training';
 import type { WeaponTheme } from './generation-theme';
 import { CoinAmount, CoinsSchema, InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
@@ -47,6 +48,8 @@ interface Shop {
   readonly slots: SlotContent;
   readonly source: PickSource;
   readonly now: Temporal.Instant;
+  /** The weapon and armor categories the character is trained in (`attack:martial`, `defense:light`). */
+  readonly trained: ReadonlySet<Selector>;
 }
 
 /** What one purchase is for: the kinds to pick from, the share of the coins left it may cost, and whether it is used. */
@@ -187,6 +190,7 @@ function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): 
       want.kinds.includes(entry.kind) &&
       (want.only === undefined || fitsTheme(entry, want.only)) &&
       !(want.used && wornWeapon(entry)) &&
+      !(want.used && untrained(entry, shop.trained)) &&
       entry.rarity === Rarity.Common &&
       entry.level <= character.document.level &&
       cost !== undefined &&
@@ -286,7 +290,7 @@ export function generateGear({
   weapon,
   runes,
 }: GearInput): Character {
-  const shop: Shop = { items, slots, source: seededPicks(seed), now };
+  const shop: Shop = { items, slots, source: seededPicks(seed), now, trained: trainedCategories(character, slots) };
   const wants = [ARMOR, WEAPON, SHIELD, ...Array.from({ length: EXTRAS_MAX }, () => EXTRA)];
   let outfitted = funded(character, shop, treasure);
   for (const want of wants) {

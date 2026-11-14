@@ -5,51 +5,12 @@
   />
   <fr-page-body>
     <fr-stack gap="xl">
-      <fr-stack direction="horizontal" justify="end">
-        <fr-link [to]="['import', 'pathbuilder']">{{ 'character.list.import' | transloco }}</fr-link>
-        <fr-link [to]="['import', 'pioneer']">{{ 'character.list.importPioneer' | transloco }}</fr-link>
-        <fr-link [to]="['new', 'generate']">{{ 'character.list.generate' | transloco }}</fr-link>
+      <fr-stack direction="horizontal" justify="between">
+        <fr-link appearance="button" [to]="['new']">{{ 'character.list.createCharacter' | transloco }}</fr-link>
         @for (extra of extras(); track extra) {
           <ng-container *ngComponentOutlet="extra" />
         }
       </fr-stack>
-      <fr-surface>
-        <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
-          <fr-stack gap="md">
-            <fr-heading variant="subheading" [level]="2">{{ 'character.list.newHeading' | transloco }}</fr-heading>
-            <fr-grid [columns]="2">
-              <fr-text-field
-                [label]="'character.list.nameLabel' | transloco"
-                [placeholder]="'character.list.namePlaceholder' | transloco"
-                [formField]="form.name"
-              />
-              <fr-picker-field
-                [label]="'character.list.ancestryLabel' | transloco"
-                [placeholder]="'character.list.ancestryPlaceholder' | transloco"
-                [rows]="shown()"
-                [columns]="columns()"
-                [rowValue]="rowValue"
-                [rowLabel]="rowLabel"
-                [rowDisabled]="rowDisabled"
-                [loading]="ancestries.loading()"
-                [formField]="form.ancestry"
-                (searched)="query.set($event)"
-                (sorted)="sorting.set($event)"
-              />
-            </fr-grid>
-            <fr-stack direction="horizontal" justify="end">
-              <fr-async-button
-                type="submit"
-                variant="primary"
-                [pendingLabel]="'character.list.creating' | transloco"
-                [successLabel]="'character.list.created' | transloco"
-              >
-                {{ 'character.list.create' | transloco }}
-              </fr-async-button>
-            </fr-stack>
-          </fr-stack>
-        </fr-async-form>
-      </fr-surface>
 
       <fr-async-region [errorMessage]="'character.list.loadError' | transloco">
         <ng-template frAsyncPending>

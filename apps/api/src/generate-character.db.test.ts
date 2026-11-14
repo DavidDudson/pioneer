@@ -19,7 +19,7 @@ import { seedOfficialContent } from './content';
 /** Time to seed every official pack and generate characters on a shared runner. */
 const SETUP_TIMEOUT_MS = 60_000;
 const SEED = Seed.parse(4242);
-const LEVEL = Level.parse(3);
+const LEVEL = Level.parse(1);
 
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-27T10:00:00Z');
@@ -39,7 +39,7 @@ function heldItems(character: Character): readonly string[] {
 
 /** One generate request at the test seed and level, read back. */
 async function generate(api: AnyElysia): Promise<GeneratedCharacter> {
-  const response = await api.handle(post('/characters/generate', { level: LEVEL, seed: SEED }));
+  const response = await api.handle(post('/characters/generate', { seed: SEED }));
   return GeneratedCharacter.parse(await response.json());
 }
 
@@ -68,7 +68,7 @@ describe.skipIf(adminUrl === undefined)('POST /characters/generate (postgres)', 
   test(
     'makes a stored character for the signed-in user and answers with its seed',
     async () => {
-      const response = await api.handle(post('/characters/generate', { level: LEVEL, seed: SEED }));
+      const response = await api.handle(post('/characters/generate', { seed: SEED }));
       expect(response.status).toBe(200);
       const generated = GeneratedCharacter.parse(await response.json());
       expect(generated.seed).toBe(SEED);
@@ -79,7 +79,7 @@ describe.skipIf(adminUrl === undefined)('POST /characters/generate (postgres)', 
   );
 
   test(
-    'the same seed and level give the same character',
+    'the same seed gives the same character',
     async () => {
       const first = await generate(api);
       const second = await generate(api);
@@ -91,15 +91,15 @@ describe.skipIf(adminUrl === undefined)('POST /characters/generate (postgres)', 
     SETUP_TIMEOUT_MS,
   );
 
-  test('a level out of range is a typed validation problem', async () => {
-    const response = await api.handle(post('/characters/generate', { level: 21 }));
+  test('a level is refused as a typed validation problem, as a character is always made at level 1', async () => {
+    const response = await api.handle(post('/characters/generate', { level: 1 }));
     expect(response.status).toBe(422);
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('validation');
   });
 
   test('needs a signed-in user', async () => {
-    const response = await api.handle(post('/characters/generate', { level: 1 }, {}));
+    const response = await api.handle(post('/characters/generate', {}, {}));
     expect(response.status).toBe(401);
   });
 });
