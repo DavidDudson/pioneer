@@ -6,6 +6,8 @@
  */
 import path from 'node:path';
 
+import { ImportFile } from '@pioneer/interop/foundry';
+import type { BacklogItem } from '@pioneer/interop/foundry';
 import type { PackId } from '@pioneer/rules/sdk';
 
 export const PACKS_DIRECTORY = 'content/packs';
@@ -30,6 +32,17 @@ export function importedDirectory({ pack, vocabularyPack }: PackTargets): string
 
 export function backlogPath(pack: PackId): string {
   return path.posix.join(IMPORT_DIRECTORY, `${pack}.json`);
+}
+
+/**
+ * The write of `pack`'s backlog file: the committed pin and legacy pin with `backlog` in place of its items. A pack with
+ * no `legacyPin` gets no `legacyPin` key, so the printed file stays valid JSON. Every writer of the backlog builds it
+ * here.
+ */
+export function backlogWrite(pack: PackId, committed: ImportFile, backlog: readonly BacklogItem[]): PackWrite {
+  const { pin, legacyPin } = committed;
+  const json = ImportFile.parse({ pin, ...(legacyPin === undefined ? {} : { legacyPin }), backlog });
+  return { path: backlogPath(pack), json };
 }
 
 /** `content/packs/…` as `json-packs.js` imports it: `@pioneer/content/packs/…`. */
