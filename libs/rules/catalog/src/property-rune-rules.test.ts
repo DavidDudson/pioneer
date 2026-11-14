@@ -19,10 +19,6 @@ const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
   ['rune:conducting', 'the engine builds its damage and resonant trait from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
-  [
-    'rune:spell-reservoir',
-    'two activations with no frequency, which the content has no place for (weapon activations story), and a held spell as item state',
-  ],
 ]);
 
 const WEAPON_GAP_SLUGS: ReadonlySet<string> = new Set(WEAPON_GAPS.keys());

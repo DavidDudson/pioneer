@@ -3,12 +3,13 @@ import type { RunedContent } from '@pioneer/character/domain';
 
 import { ItemCoating } from '../item-coating/item-coating.component';
 import { ItemRelease } from '../item-release/item-release.component';
+import { ItemReservoir } from '../item-reservoir/item-reservoir.component';
 import { ItemShape } from '../item-shape/item-shape.component';
 
-/** The state runes keep on one inventory item: its shape, whether it is set free, and what its coating space holds. */
+/** The state runes keep on one inventory item: its shape, whether it is set free, and what its coating space and spell reservoir hold. */
 @Component({
   selector: 'pio-item-rune-states',
-  imports: [ItemCoating, ItemRelease, ItemShape],
+  imports: [ItemCoating, ItemRelease, ItemReservoir, ItemShape],
   templateUrl: './item-rune-states.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

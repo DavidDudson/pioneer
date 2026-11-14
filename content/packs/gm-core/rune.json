@@ -5291,7 +5291,19 @@
       "etchedOnto": {
         "item": "weapon",
         "restriction": "melee"
-      }
+      },
+      "activations": [
+        {
+          "slug": "channeled-release",
+          "name": "Channeled Release",
+          "cost": "two"
+        },
+        {
+          "slug": "safe-release",
+          "name": "Safe Release",
+          "cost": "one"
+        }
+      ]
     }
   },
   {
