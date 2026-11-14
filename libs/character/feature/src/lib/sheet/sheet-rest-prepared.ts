@@ -1,6 +1,6 @@
 import type { PreparedPick } from '@pioneer/character/domain';
 import { ChoiceValue, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentId, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
 import type { SpellPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -41,6 +41,7 @@ export interface RestPreparedEntry {
 export function restPreparedEntries(
   entries: readonly SheetPreparedEntry[],
   translate: (key: string) => string,
+  registry: ContentRegistry,
 ): readonly RestPreparedEntry[] {
   return entries
     .filter(({ preparation }) => preparation === SpellPreparation.Prepared)
@@ -56,7 +57,7 @@ export function restPreparedEntries(
             .map(({ key: slotKey, label, spells, castRank, spell }) => ({
               key: slotKey,
               label,
-              rows: spellRows(spells, { translate, castRank, taken: new Set() }),
+              rows: spellRows(spells, { translate, castRank, taken: new Set(), registry }),
               current: spell?.id,
             })),
         }))

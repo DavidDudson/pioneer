@@ -20,11 +20,10 @@ const rowDisabled = (row: FeatPickerRow): string | undefined => row.disabledReas
 
 /** The traits as chips, a feat above common rarity first and toned by it. */
 function chipsOf(row: FeatPickerRow, say: (key: string) => string): readonly Chip[] {
-  const traits = row.traits.map((label): Chip => ({ label }));
   if (row.rarity === Rarity.Common) {
-    return traits;
+    return row.traits;
   }
-  return [{ label: say(FEAT_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...traits];
+  return [{ label: say(FEAT_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...row.traits];
 }
 
 function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): number {

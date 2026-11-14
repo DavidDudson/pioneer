@@ -5,6 +5,7 @@ import { expect, waitFor, within } from 'storybook/test';
 import { ActionKind } from '../picker-cells/picker-cell-messages';
 import { PrerequisiteState } from '../picker-cells/prerequisite-list/prerequisite-list.component';
 import { featRow, PLAYER_CORE } from '../testing/feat-picker-fixtures';
+import { traitChipsOf } from '../testing/trait-chips';
 import type { FeatPickerRow } from './feat-picker-row';
 import { FeatPicker } from './feat-picker.component';
 
@@ -18,7 +19,7 @@ const FEATS: readonly FeatPickerRow[] = [
     name: 'Power Attack',
     category: FeatCategory.Class,
     action: ActionKind.Two,
-    traits: ['Fighter', 'Flourish'],
+    traits: traitChipsOf('Fighter', 'Flourish'),
     prerequisites: [{ label: 'Trained in Athletics', state: PrerequisiteState.Met }],
   }),
   featRow({
@@ -26,7 +27,7 @@ const FEATS: readonly FeatPickerRow[] = [
     name: 'Sudden Charge',
     category: FeatCategory.Class,
     action: ActionKind.Two,
-    traits: ['Fighter', 'Flourish', 'Open'],
+    traits: traitChipsOf('Fighter', 'Flourish', 'Open'),
     prerequisites: [{ label: 'Strength 16', state: PrerequisiteState.Unmet }],
     disabledReason: 'Prerequisites not met',
   }),
@@ -36,7 +37,7 @@ const FEATS: readonly FeatPickerRow[] = [
     level: 2,
     category: FeatCategory.Class,
     action: ActionKind.Reaction,
-    traits: ['Fighter'],
+    traits: traitChipsOf('Fighter'),
     sources: PLAYER_CORE,
   }),
   featRow({

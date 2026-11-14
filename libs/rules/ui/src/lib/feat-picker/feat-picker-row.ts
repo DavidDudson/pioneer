@@ -1,5 +1,6 @@
 import type { FeatCategory, Rarity, SourceRef } from '@pioneer/rules/sdk';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import type { ActionKind } from '../picker-cells/picker-cell-messages';
 import type { PrerequisiteLine } from '../picker-cells/prerequisite-list/prerequisite-list.component';
 
@@ -16,7 +17,8 @@ export interface FeatPickerRow {
   readonly action: ActionKind;
   readonly rarity: Rarity;
   /** Trait names. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly prerequisites: readonly PrerequisiteLine[];
   readonly sources: readonly SourceRef[];
   /** Why the feat can't be picked, already translated; undefined when it can. */

@@ -36,11 +36,10 @@ function castKind(cast: readonly CastActions[]): ActionKind {
 
 /** The traits as chips, a spell above common rarity first and toned by it. */
 function traitChips(row: SpellPickerRow, say: Say): readonly Chip[] {
-  const traits = row.traits.map((label): Chip => ({ label }));
   if (row.rarity === Rarity.Common) {
-    return traits;
+    return row.traits;
   }
-  return [{ label: say(SPELL_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...traits];
+  return [{ label: say(SPELL_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...row.traits];
 }
 
 /** The area when the spell has one, else who it targets. */

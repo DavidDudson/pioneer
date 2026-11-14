@@ -3,6 +3,7 @@ import { Feet, HitPoints } from '@pioneer/rules/sdk';
 import { expect, waitFor, within } from 'storybook/test';
 
 import { ancestryRow } from '../testing/origin-picker-fixtures';
+import { traitChipsOf } from '../testing/trait-chips';
 import { AncestryPicker } from './ancestry-picker.component';
 import type { AncestryPickerRow } from './origin-picker-row';
 
@@ -19,7 +20,7 @@ const ANCESTRIES: readonly AncestryPickerRow[] = [
     boosts: [['con'], ['wis'], ['str', 'dex', 'con', 'int', 'wis', 'cha']],
     flaws: ['cha'],
     languages: ['Common', 'Dwarven'],
-    traits: ['Dwarf', 'Humanoid'],
+    traits: traitChipsOf('Dwarf', 'Humanoid'),
   }),
   ancestryRow({ id: 'elf', name: 'Elf' }),
   ancestryRow({

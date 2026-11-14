@@ -1,5 +1,7 @@
 import type { Attribute, AttributeBoost, Feet, HitPoints, RichText, Size, SourceRef } from '@pioneer/rules/sdk';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
+
 /** The columns an origin picker sorts by; the others show facts to choose by. */
 export const OriginPickerColumn = { Name: 'name', HitPoints: 'hitPoints', Speed: 'speed' } as const;
 
@@ -15,8 +17,8 @@ export interface AncestryPickerRow {
   readonly flaws: readonly Attribute[];
   /** The languages every member speaks, by name. */
   readonly languages: readonly string[];
-  /** Its traits, by name. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];
   /** Why the ancestry can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;

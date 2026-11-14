@@ -16,6 +16,7 @@ import {
   stubLayout,
   textOf,
 } from '../testing/origin-picker-testing';
+import { traitChipsOf } from '../testing/trait-chips';
 import { AncestryPicker } from './ancestry-picker.component';
 
 const LONG_LIST = 300;
@@ -29,7 +30,7 @@ const DWARF = ancestryRow({
   boosts: [['con'], ['wis'], ['cha']],
   flaws: ['cha'],
   languages: ['Common', 'Dwarven'],
-  traits: ['Dwarf', 'Humanoid'],
+  traits: traitChipsOf('Dwarf', 'Humanoid'),
 });
 const LOCKED = ancestryRow({ id: 'locked', name: 'Kitsune', disabledReason: 'Not in the loaded packs' });
 const HIT_POINTS_HEADER = 1;
@@ -58,6 +59,11 @@ describe(AncestryPicker, () => {
       'Traits',
       'Source',
     ]);
+  });
+
+  it("opens a trait's card from each trait of an ancestry", async () => {
+    const { host } = await render(AncestryPicker, { rows: [ELF] });
+    expect(host.querySelectorAll('pio-trait-chip')).toHaveLength(ELF.traits.length);
   });
 
   it('shows what an ancestry gives and costs in rich cells', async () => {

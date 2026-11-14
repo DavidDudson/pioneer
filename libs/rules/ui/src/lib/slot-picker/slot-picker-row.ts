@@ -1,5 +1,7 @@
 import type { Attribute, Proficiency, Rarity, RichText, SourceRef } from '@pioneer/rules/sdk';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
+
 /** The columns a slot picker sorts by; the others show facts to choose by. */
 export const SlotPickerColumn = {
   Name: 'name',
@@ -17,8 +19,8 @@ export interface SlotPickerFacts {
   /** Absent for an entry without a level. */
   readonly level: number | undefined;
   readonly rarity: Rarity;
-  /** Trait names. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly summary: RichText;
   /** From a pre-remaster book, so the table says so beside its traits. */
   readonly legacy?: true;

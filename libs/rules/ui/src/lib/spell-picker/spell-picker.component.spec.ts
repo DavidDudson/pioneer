@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { spellRow } from '../testing/spell-picker-fixtures';
+import { traitChipsOf } from '../testing/trait-chips';
 import type { SpellPickerRow } from './spell-picker-row';
 import { SpellPicker } from './spell-picker.component';
 
@@ -118,6 +119,11 @@ describe(SpellPicker, () => {
   afterEach(() => {
     vi.restoreAllMocks();
     vi.useRealTimers();
+  });
+
+  it("opens a trait's card from each trait of a spell", async () => {
+    const rendered = await render([spellRow({ id: 'a', name: 'A', traits: traitChipsOf('Fire', 'Evocation') })]);
+    expect(rendered.host.querySelectorAll('pio-trait-chip')).toHaveLength(2);
   });
 
   it('opens straight to the table, with a column for each fact to choose by', async () => {

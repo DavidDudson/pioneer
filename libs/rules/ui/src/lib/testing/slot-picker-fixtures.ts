@@ -7,6 +7,7 @@ import type {
   SlotPickerFacts,
   SlotPickerRow,
 } from '../slot-picker/slot-picker-row';
+import { traitChipsOf } from './trait-chips';
 
 /** Player Core, page 1: a source for a fixture option. */
 const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
@@ -53,6 +54,6 @@ export function attributeRow(
 export const SLOT_FACTS: SlotPickerFacts = {
   level: 3,
   rarity: Rarity.Uncommon,
-  traits: ['Fire', 'Magical'],
+  traits: traitChipsOf('Fire', 'Magical'),
   summary: RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'Burns what it touches.' }] }]),
 };

@@ -1,13 +1,15 @@
 import { PrerequisiteStatus } from '@pioneer/character/domain';
-import { ContentText, FeatCategory, Rarity } from '@pioneer/rules/sdk';
+import { ContentText, FeatCategory, Rarity, Trait } from '@pioneer/rules/sdk';
 import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
-import type { FeatPickerRow } from '@pioneer/rules/ui';
+import type { Chip, FeatPickerRow } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
 import { featRows } from './sheet-feats';
 import type { SheetFeatOption } from './sheet-feats';
 import type { TrainedAgain } from './sheet-skill-repeats';
 
+const FIGHTER_CHIP: Chip = { label: 'Fighter', trait: Trait.parse('fighter') };
+const FLOURISH_CHIP: Chip = { label: 'Flourish', trait: Trait.parse('flourish') };
 const translate = (key: string, params: object): string => `${key} ${JSON.stringify(params)}`;
 const none: TrainedAgain = () => new Map();
 const twice: TrainedAgain = () => new Map([['feat', ['Religion', 'Medicine']]]);
@@ -48,7 +50,7 @@ describe(featRows, () => {
         category: FeatCategory.Class,
         action: ActionKind.Two,
         rarity: Rarity.Uncommon,
-        traits: ['fighter', 'flourish'],
+        traits: [FIGHTER_CHIP, FLOURISH_CHIP],
       }),
     ]);
 
@@ -59,7 +61,7 @@ describe(featRows, () => {
       category: FeatCategory.Class,
       action: ActionKind.Two,
       rarity: Rarity.Uncommon,
-      traits: ['fighter', 'flourish'],
+      traits: [FIGHTER_CHIP, FLOURISH_CHIP],
     });
   });
 

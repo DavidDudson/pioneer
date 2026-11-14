@@ -11,6 +11,7 @@ import {
   Rarity,
   SpellRank,
   TargetValue,
+  Trait,
 } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
@@ -53,6 +54,7 @@ describe(spellRows, () => {
       translate,
       castRank: SpellRank.parse(3),
       taken: NONE,
+      registry: undefined,
     });
     expect(row).toMatchObject({
       id: FIREBALL,
@@ -72,6 +74,7 @@ describe(spellRows, () => {
         translate,
         castRank: SpellRank.parse(4),
         taken: NONE,
+        registry: undefined,
       },
     );
     expect(rows.map((row) => row.heightenedTo)).toStrictEqual([4, 4]);
@@ -82,11 +85,13 @@ describe(spellRows, () => {
       translate,
       castRank: SpellRank.parse(3),
       taken: NONE,
+      registry: undefined,
     });
     const range = spellRows([spell(FIREBALL, 'Fireball', { rank: 3 })], {
       translate,
       castRank: undefined,
       taken: NONE,
+      registry: undefined,
     });
     expect([own[0]?.heightenedTo, range[0]?.heightenedTo]).toStrictEqual([undefined, undefined]);
   });
@@ -96,7 +101,18 @@ describe(spellRows, () => {
       translate,
       castRank: undefined,
       taken: new Set([FIREBALL]),
+      registry: undefined,
     });
     expect(rows.map((row) => row.disabledReason)).toStrictEqual([undefined, 'character.sheet.prepared.alreadyKnown']);
+  });
+
+  it("carries each trait's slug, which opens its card, labelled by the slug until the registry names it", () => {
+    const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('fire')] }], {
+      translate,
+      castRank: undefined,
+      taken: NONE,
+      registry: undefined,
+    });
+    expect(row?.traits).toStrictEqual([{ label: 'fire', trait: 'fire' }]);
   });
 });

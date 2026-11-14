@@ -175,7 +175,11 @@ export class SheetRest {
     const slots = this.#characters.slots();
     return !this.#preparing() || registry === undefined || character === undefined || slots === undefined
       ? []
-      : restPreparedEntries(sheetPreparedSlots(registry, character, slots), (key) => this.#i18n.translate(key));
+      : restPreparedEntries(
+          sheetPreparedSlots(registry, character, slots),
+          (key) => this.#i18n.translate(key),
+          registry,
+        );
   });
 
   /** The slots picked other than the spell they already hold, as the command carries them. */

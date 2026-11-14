@@ -1,6 +1,8 @@
 import type { SpellOption } from '@pioneer/character/domain';
-import type { ContentId, SpellRank } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
 import type { SpellPickerRow } from '@pioneer/rules/ui';
+
+import { traitChips } from './sheet-build';
 
 /** What a spell picker words its rows with, and what it disables. */
 export interface SpellRowReads {
@@ -9,6 +11,8 @@ export interface SpellRowReads {
   readonly castRank: SpellRank | undefined;
   /** The spells the entry holds in another slot already; a repertoire knows a spell once. */
   readonly taken: ReadonlySet<ContentId>;
+  /** Names the traits; without it (still loading) a trait shows as its slug. */
+  readonly registry: ContentRegistry | undefined;
 }
 
 /**
@@ -18,7 +22,7 @@ export interface SpellRowReads {
  */
 export function spellRows(
   spells: readonly SpellOption[],
-  { translate, castRank, taken }: SpellRowReads,
+  { translate, castRank, taken, registry }: SpellRowReads,
 ): readonly SpellPickerRow[] {
   return spells.map((spell): SpellPickerRow => ({
     id: spell.id,
@@ -34,7 +38,7 @@ export function spellRows(
     targets: spell.targets,
     defense: spell.defense,
     duration: spell.duration,
-    traits: spell.traits,
+    traits: traitChips(registry, spell.traits),
     sources: spell.sources,
     disabledReason: taken.has(spell.id) ? translate('character.sheet.prepared.alreadyKnown') : undefined,
   }));
