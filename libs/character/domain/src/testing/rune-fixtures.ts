@@ -59,7 +59,12 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Conducting]: weaponRune(),
   [RuneFixture.EnergyVulnerability]: weaponRune(),
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),
-  [RuneFixture.Holy]: weaponRune('without-unholy-rune'),
+  [RuneFixture.Holy]: {
+    data: {
+      ...weaponRune('without-unholy-rune').data,
+      activations: [{ slug: 'holy-healing', name: 'Holy Healing', frequency: { max: 1, per: 'day' } }],
+    },
+  },
   [RuneFixture.Unholy]: weaponRune('without-holy-rune'),
   [RuneFixture.Quickstrike]: { ...weaponRune(), rules: [{ key: 'GrantItem', item: clumsyFixtureId() }] },
   [RuneFixture.Shifting]: weaponRune(),

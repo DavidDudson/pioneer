@@ -7,7 +7,7 @@ import {
   characterGrants,
   characterSpellcasting,
   heldCount,
-  itemActivations,
+  itemActivationsOf,
   itemContent,
   itemWands,
   overchargeUseKey,
@@ -16,6 +16,7 @@ import {
   wandUseKey,
 } from '@pioneer/character/domain';
 import type {
+  ActivationsOf,
   Character,
   CountedMaxima,
   InventoryItemId,
@@ -25,7 +26,6 @@ import type {
 } from '@pioneer/character/domain';
 import type {
   ActionCost,
-  Activation,
   ContentId,
   ContentRegistry,
   Origin,
@@ -81,7 +81,7 @@ export interface CountedViews {
 interface UseSource {
   readonly counted: CountedMaxima;
   readonly spent: ResourcesSpent;
-  readonly activations: ReadonlyMap<ContentId, readonly Activation[]>;
+  readonly activations: ActivationsOf;
 }
 
 /** The use to show: the key it is counted under, the name to show it by and whether it is an overcharged one. */
@@ -127,7 +127,7 @@ function activationUses(used: UseSource, { item, slug, name, entry, cost }: Acti
 function activationViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
   const itemEntries = itemContent(registry);
   return character.document.inventory.items.flatMap((item) =>
-    (used.activations.get(item.item) ?? []).flatMap(({ slug, name, cost, upTo }) => {
+    used.activations(item).flatMap(({ slug, name, cost, upTo }) => {
       const itemName = item.name ?? itemEntries.get(item.item)?.name ?? name;
       const label = itemName === name ? name : `${itemName}: ${name}`;
       return activationUses(used, { item: item.id, entry: item.item, slug, name: label, cost: { cost, upTo } });
@@ -157,7 +157,7 @@ export function sheetCounted(registry: ContentRegistry, character: Character): C
   const { items } = character.document.inventory;
   return characterCounted(grants, abilityFrequencies(registry), {
     items,
-    activations: itemActivations(registry),
+    activations: itemActivationsOf(registry),
     wands: itemWands(registry),
   });
 }
@@ -166,7 +166,7 @@ export function sheetCounted(registry: ContentRegistry, character: Character): C
 export function countedViews(registry: ContentRegistry, character: Character, spent: ResourcesSpent): CountedViews {
   const content = sheetSlotContent(registry);
   const grants = characterGrants(character.document, content);
-  const activations = itemActivations(registry);
+  const activations = itemActivationsOf(registry);
   const counted = sheetCounted(registry, character);
   const nameOf = (origin: Origin): string => content.lookup.entry(origin.entry)?.name ?? origin.entry;
   const slotView = ({ key, source, pool, rank, preparation }: Omit<SlotView, 'current' | 'max'>): SlotView => ({
