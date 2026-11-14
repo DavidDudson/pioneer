@@ -11,16 +11,16 @@ export const CoatingFixture = {
 } as const;
 
 /** An oil, light. */
-export const WEAPON_OIL: ItemFixtureFields = {
+const WEAPON_OIL: ItemFixtureFields = {
   kind: ContentKind.Consumable,
   data: { bulk: 'light', category: 'oil' },
 };
 
 /** An oil of 1 Bulk, which fills a coating rune's space on its own. */
-export const HEAVY_OIL: ItemFixtureFields = { kind: ContentKind.Consumable, data: { bulk: 1, category: 'oil' } };
+const HEAVY_OIL: ItemFixtureFields = { kind: ContentKind.Consumable, data: { bulk: 1, category: 'oil' } };
 
 /** A light poison with the injury trait. */
-export const INJURY_POISON: ItemFixtureFields = {
+const INJURY_POISON: ItemFixtureFields = {
   kind: ContentKind.Consumable,
   traits: ['injury', 'poison'],
   data: { bulk: 'light', category: 'poison' },
