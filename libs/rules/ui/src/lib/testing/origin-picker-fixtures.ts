@@ -1,7 +1,7 @@
 import { Feet, HitPoints, RichText, Size, SourceRef } from '@pioneer/rules/sdk';
 
 import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '../origin-picker/origin-picker-row';
-import { traitChipsOf } from './trait-chips';
+import { traitChipsOf } from './trait-chip-fixtures';
 
 /** Player Core, page 1: a source for a fixture origin. */
 const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];

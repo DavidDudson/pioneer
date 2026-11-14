@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { featRow } from '../testing/feat-picker-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { FeatPickerRow } from './feat-picker-row';
 import { FeatPicker } from './feat-picker.component';
 

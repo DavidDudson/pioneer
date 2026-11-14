@@ -5,7 +5,7 @@ import { expect, waitFor, within } from 'storybook/test';
 import { ActionKind } from '../picker-cells/picker-cell-messages';
 import { PrerequisiteState } from '../picker-cells/prerequisite-list/prerequisite-list.component';
 import { featRow, PLAYER_CORE } from '../testing/feat-picker-fixtures';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { FeatPickerRow } from './feat-picker-row';
 import { FeatPicker } from './feat-picker.component';
 

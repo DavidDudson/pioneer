@@ -3,7 +3,7 @@ import { Feet, HitPoints } from '@pioneer/rules/sdk';
 import { expect, waitFor, within } from 'storybook/test';
 
 import { ancestryRow } from '../testing/origin-picker-fixtures';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import { AncestryPicker } from './ancestry-picker.component';
 import type { AncestryPickerRow } from './origin-picker-row';
 

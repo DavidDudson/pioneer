@@ -16,7 +16,6 @@ export interface FeatPickerRow {
   readonly category: FeatCategory;
   readonly action: ActionKind;
   readonly rarity: Rarity;
-  /** Trait names. */
   /** Its traits, each a chip that opens the trait's card. */
   readonly traits: readonly Chip[];
   readonly prerequisites: readonly PrerequisiteLine[];

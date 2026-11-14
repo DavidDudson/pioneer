@@ -33,7 +33,6 @@ export interface SpellPickerRow {
   /** What it is rolled against: an attack or a save, or none. */
   readonly defense: readonly DefenseValue[];
   readonly duration: readonly DurationValue[];
-  /** Trait names. */
   /** Its traits, each a chip that opens the trait's card. */
   readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];

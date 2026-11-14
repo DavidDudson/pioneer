@@ -12,7 +12,7 @@ import {
 import { expect, waitFor, within } from 'storybook/test';
 
 import { spellRow } from '../testing/spell-picker-fixtures';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { SpellPickerRow } from './spell-picker-row';
 import { SpellPicker } from './spell-picker.component';
 

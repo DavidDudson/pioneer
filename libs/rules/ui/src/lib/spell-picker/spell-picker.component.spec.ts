@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { spellRow } from '../testing/spell-picker-fixtures';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { SpellPickerRow } from './spell-picker-row';
 import { SpellPicker } from './spell-picker.component';
 

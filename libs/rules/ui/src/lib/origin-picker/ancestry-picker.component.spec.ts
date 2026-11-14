@@ -16,7 +16,7 @@ import {
   stubLayout,
   textOf,
 } from '../testing/origin-picker-testing';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import { AncestryPicker } from './ancestry-picker.component';
 
 const LONG_LIST = 300;

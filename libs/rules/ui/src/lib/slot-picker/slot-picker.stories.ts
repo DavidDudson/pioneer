@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, waitFor, within } from 'storybook/test';
 
 import { SLOT_FACTS, slotRow } from '../testing/slot-picker-fixtures';
-import { traitChipsOf } from '../testing/trait-chips';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { SlotPickerRow } from './slot-picker-row';
 import { SlotPicker } from './slot-picker.component';
 

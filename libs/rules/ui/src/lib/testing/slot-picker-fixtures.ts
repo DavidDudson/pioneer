@@ -7,7 +7,7 @@ import type {
   SlotPickerFacts,
   SlotPickerRow,
 } from '../slot-picker/slot-picker-row';
-import { traitChipsOf } from './trait-chips';
+import { traitChipsOf } from './trait-chip-fixtures';
 
 /** Player Core, page 1: a source for a fixture option. */
 const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];

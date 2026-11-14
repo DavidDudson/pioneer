@@ -3,6 +3,8 @@ import {
   AreaValue,
   CastActions,
   ContentId,
+  ContentKind,
+  ContentRegistry,
   ContentText,
   DefenseValue,
   DurationValue,
@@ -13,6 +15,7 @@ import {
   TargetValue,
   Trait,
 } from '@pioneer/rules/sdk';
+import { ContentPackBuilder, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { spellRows } from './sheet-spell-rows';
@@ -114,5 +117,19 @@ describe(spellRows, () => {
       registry: undefined,
     });
     expect(row?.traits).toStrictEqual([{ label: 'Fire', trait: 'fire' }]);
+  });
+
+  it("names a trait the way the registry's vocabulary does", () => {
+    const pack = new ContentPackBuilder().withId('player-core').withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS);
+    pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Spell] });
+    const registry = new ContentRegistry();
+    registry.register(pack.build());
+    const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('cold-iron')] }], {
+      translate,
+      castRank: undefined,
+      taken: NONE,
+      registry,
+    });
+    expect(row?.traits).toStrictEqual([{ label: 'Cold-iron', trait: 'cold-iron' }]);
   });
 });
