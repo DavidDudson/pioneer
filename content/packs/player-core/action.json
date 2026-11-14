@@ -16140,11 +16140,29 @@
     "data": {
       "cost": "one",
       "category": "offensive",
+      "modes": ["encounter"],
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "remove"
+        },
+        {
+          "condition": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+          "effect": "remove"
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "remove"
+        },
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "remove"
+        }
+      ],
       "frequency": {
         "max": 1,
         "per": "hour"
-      },
-      "modes": ["encounter"]
+      }
     }
   },
   {
