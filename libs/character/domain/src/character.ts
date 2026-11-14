@@ -170,6 +170,7 @@ export class Character {
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
       case CharacterPatchField.SetItemBroken:
+      case CharacterPatchField.SetItemState:
       case CharacterPatchField.EtchRune:
       case CharacterPatchField.EraseRune:
       case CharacterPatchField.TransferRune: {

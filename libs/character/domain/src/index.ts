@@ -298,6 +298,10 @@ export {
 } from './character-patch';
 export { type InventoryTarget, inventoryTarget } from './inventory-target';
 export { breakItem } from './inventory-broken';
+export { hasAnimatedRune, releasedAttack } from './animated-weapon';
+export { setItemState } from './inventory-state';
+export { isEmptyState, ItemStateSchema } from './item-state';
+export type { ItemState } from './item-state';
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 export {
   type Build,

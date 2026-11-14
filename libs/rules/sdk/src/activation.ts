@@ -16,7 +16,7 @@ export const ActivationName = z.string().trim().min(1).max(ACTIVATION_NAME_MAX).
 export type ActivationName = z.infer<typeof ActivationName>;
 
 /**
- * One way to activate an item that is limited by a `frequency`. Its `slug` is the name within the item, so the uses
+ * One way to activate an item, limited by a `frequency` when the item's text gives one. Its `slug` is the name within the item, so the uses
  * spent on it stay with it when the content is imported again. An `overcharge` activation can be used once more per
  * period beyond its frequency, at the cost the item's rules give; play counts that use apart from the others.
  */
@@ -24,7 +24,8 @@ export const Activation = z
   .strictObject({
     slug: Slug,
     name: ActivationName,
-    frequency: Frequency,
+    /** How often it can be used; absent when the item's text gives none (Set Free), which counts no uses. */
+    frequency: Frequency.optional(),
     overcharge: z.literal(true).optional(),
     /** The glyph it costs to activate; absent when the content does not say, which takes nothing from the turn. */
     cost: ActionCostSchema.optional(),
@@ -34,7 +35,7 @@ export const Activation = z
   .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO);
 export type Activation = z.infer<typeof Activation>;
 
-/** An item's activations that have a frequency, each named once. */
+/** An item's activations, each named once. */
 export const Activations = z
   .array(Activation)
   .min(1)

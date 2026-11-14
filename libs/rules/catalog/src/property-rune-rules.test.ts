@@ -11,10 +11,6 @@ const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
  * or be listed here with a reason. Remove an entry when its rules land.
  */
 const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
-  [
-    'rune:animated',
-    'an activation with no frequency (Set Free), which the content has no place for (weapon activations story); the released weapon is item state',
-  ],
   ['rune:authorized', 'damages a wielder who is not the owner: needs who the rightful owner is, which no state holds'],
   [
     'rune:bane',

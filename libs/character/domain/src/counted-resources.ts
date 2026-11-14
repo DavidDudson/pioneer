@@ -226,6 +226,9 @@ export function activationMaxima(
   return new Map(
     items.flatMap((line) =>
       activationsOf(line).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
+        if (frequency === undefined) {
+          return [];
+        }
         const { id, quantity } = line;
         const terms = frequencyTerms(frequency);
         const daily: [UseCountKey, CountedMaximum] = [
