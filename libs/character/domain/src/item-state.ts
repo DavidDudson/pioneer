@@ -4,6 +4,19 @@ import * as z from 'zod';
 /** The most poisons and oils a coating rune's space is stored as holding: they weigh next to nothing, so a count caps the list. */
 const COATING_ITEMS_MAX = 20;
 
+const AUTHORIZED_NAME_MAX_LENGTH = 80;
+const AUTHORIZED_OTHERS_MAX = 10;
+
+/** The name of a creature an authorized rune lets wield the weapon: the owner whose blood is etched, or another the crafter allowed. */
+export const AuthorizedName = z.string().trim().min(1).max(AUTHORIZED_NAME_MAX_LENGTH).brand<'AuthorizedName'>();
+export type AuthorizedName = z.infer<typeof AuthorizedName>;
+
+/** Who an authorized rune lets wield the weapon: its owner, and the other creatures the crafter allowed. */
+export const AuthorizedSchema = z
+  .strictObject({ owner: AuthorizedName, others: z.array(AuthorizedName).max(AUTHORIZED_OTHERS_MAX).readonly() })
+  .readonly();
+export type Authorized = z.infer<typeof AuthorizedSchema>;
+
 /** The spell a spell reservoir rune holds: which spell, and the rank it was cast into the weapon at. */
 const StoredSpellSchema = z.strictObject({ spell: ContentId, rank: SpellRank }).readonly();
 
@@ -19,6 +32,8 @@ export const ItemStateSchema = z.strictObject({
   coating: z.array(ContentId).max(COATING_ITEMS_MAX).readonly().optional(),
   /** The spell cast into a spell reservoir weapon, kept until it is expended (`rune:spell-reservoir`). */
   spell: StoredSpellSchema.optional(),
+  /** Who may wield an authorized weapon without harm (`rune:authorized`). */
+  authorized: AuthorizedSchema.optional(),
 });
 export type ItemState = z.infer<typeof ItemStateSchema>;
 

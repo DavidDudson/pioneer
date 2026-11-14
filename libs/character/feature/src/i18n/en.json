@@ -250,6 +250,13 @@
       "retrieve": "Retrieve {item} from {name}",
       "retrieving": "Retrieving…"
     },
+    "authorized": {
+      "ownerOf": "Owner of {name}",
+      "ownerPlaceholder": "Whose blood is etched",
+      "othersOf": "Others allowed to wield {name}",
+      "othersPlaceholder": "Names, separated by commas",
+      "warning": "Holding {name}, you are not named: needles drive into you for {piercing} piercing damage and {bleed} persistent bleed damage, and the bleed can't end while you hold it"
+    },
     "reservoir": {
       "stored": "{name} holds {spell}, a spell of rank {rank}",
       "empty": "No spell is stored. Casting one into {name} takes 1 minute",

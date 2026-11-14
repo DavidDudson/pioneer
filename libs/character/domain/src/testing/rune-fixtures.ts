@@ -24,6 +24,8 @@ export const RuneFixture = {
   Coating: 'coating',
   /** A melee weapon rune that holds a spell cast into the weapon (the slug is the real rune's). */
   SpellReservoir: 'spell-reservoir',
+  /** A weapon rune that hurts a wielder who is not its owner (the slug is the real rune's). */
+  Authorized: 'authorized',
   EnergyVulnerability: 'energy-vulnerability',
   EnergyVulnerabilityGreater: 'energy-vulnerability-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
@@ -78,6 +80,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
       ],
     },
   },
+  [RuneFixture.Authorized]: weaponRune(),
   [RuneFixture.EnergyVulnerability]: weaponRune(),
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),
   [RuneFixture.Holy]: {
