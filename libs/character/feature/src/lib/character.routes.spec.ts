@@ -2,7 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter, Router } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import type { Route } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
@@ -77,10 +77,25 @@ describe('character routes', () => {
     expect(hrefsOf()).toStrictEqual(['/characters', '/characters/briar-rose']);
   });
 
-  it('trails an import page under Characters', async () => {
-    await open('/characters/import/pathbuilder');
+  it('trails the import hub under the creation choices', async () => {
+    await open('/characters/new/import');
     await vi.waitFor(() => {
-      expect(trailOf()).toStrictEqual(['Characters', 'Import from Pathbuilder']);
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import']);
+    });
+    expect(hrefsOf()).toStrictEqual(['/characters', '/characters/new']);
+  });
+
+  it('trails the Pathbuilder page under the import hub', async () => {
+    await open('/characters/new/import/pathbuilder');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pathbuilder']);
+    });
+  });
+
+  it('trails the backup page under the import hub', async () => {
+    await open('/characters/new/import/backup');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pioneer JSON']);
     });
   });
 
@@ -100,8 +115,16 @@ describe('character routes', () => {
     expect(hrefsOf()).toStrictEqual(['/characters', '/characters/new']);
   });
 
-  it('sends the Import choice to the Pathbuilder import until the import page ships', async () => {
-    await open('/characters/new/import');
-    expect(TestBed.inject(Router).url).toBe('/characters/import/pathbuilder');
+  it('sends the old Pathbuilder and Pioneer import URLs to the import hub pages', async () => {
+    await open('/characters/import/pathbuilder');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pathbuilder']);
+    });
+    TestBed.resetTestingModule();
+
+    await open('/characters/import/pioneer');
+    await vi.waitFor(() => {
+      expect(trailOf()).toStrictEqual(['Characters', 'Create a character', 'Import', 'Import from Pioneer JSON']);
+    });
   });
 });

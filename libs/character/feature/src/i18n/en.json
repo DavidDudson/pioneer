@@ -912,6 +912,19 @@
   },
   "import": {
     "title": "Import from Pathbuilder",
+    "hub": {
+      "title": "Import a character",
+      "description": "Choose where the character comes from.",
+      "back": "Back to the creation choices",
+      "pathbuilder": {
+        "title": "Import from Pathbuilder",
+        "description": "Bring in a character exported from Pathbuilder 2e."
+      },
+      "backup": {
+        "title": "Import from a Pioneer backup",
+        "description": "Restore a character from a Pioneer JSON backup file."
+      }
+    },
     "description": "Paste a Pathbuilder 2e JSON export, or its link, to see what Pioneer can read from it, then create a character from it.",
     "exportLabel": "Pathbuilder export (JSON or link)",
     "exportPlaceholder": "Paste the text from Pathbuilder's Export JSON menu, or a link like https://pathbuilder2e.com/json.php?id=123456",

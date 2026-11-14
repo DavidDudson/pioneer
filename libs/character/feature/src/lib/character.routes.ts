@@ -54,8 +54,37 @@ export const characterRoutes: Routes = [
               return CreationChoicePage;
             }),
           },
-          // Until the import page ships, the choice leads to the Pathbuilder import.
-          { path: 'import', redirectTo: '/characters/import/pathbuilder' },
+          {
+            path: 'import',
+            data: { [CRUMB]: 'character.new.import.title' },
+            children: [
+              {
+                path: '',
+                loadComponent: loadWithMessages(async () => {
+                  const { ImportHubPage } = await import('./import/import-hub-page/import-hub-page.component');
+                  return ImportHubPage;
+                }),
+              },
+              {
+                path: 'pathbuilder',
+                data: { [CRUMB]: 'character.import.title' },
+                loadComponent: loadWithMessages(async () => {
+                  const { PathbuilderImportPage } =
+                    await import('./import/pathbuilder-import-page/pathbuilder-import-page.component');
+                  return PathbuilderImportPage;
+                }),
+              },
+              {
+                path: 'backup',
+                data: { [CRUMB]: 'character.import.pioneer.title' },
+                loadComponent: loadWithMessages(async () => {
+                  const { PioneerImportPage } =
+                    await import('./import/pioneer-import-page/pioneer-import-page.component');
+                  return PioneerImportPage;
+                }),
+              },
+            ],
+          },
           {
             path: 'generate',
             data: { [CRUMB]: 'character.generate.title' },
@@ -90,23 +119,8 @@ export const characterRoutes: Routes = [
           },
         ],
       },
-      {
-        path: 'import/pathbuilder',
-        data: { [CRUMB]: 'character.import.title' },
-        loadComponent: loadWithMessages(async () => {
-          const { PathbuilderImportPage } =
-            await import('./import/pathbuilder-import-page/pathbuilder-import-page.component');
-          return PathbuilderImportPage;
-        }),
-      },
-      {
-        path: 'import/pioneer',
-        data: { [CRUMB]: 'character.import.pioneer.title' },
-        loadComponent: loadWithMessages(async () => {
-          const { PioneerImportPage } = await import('./import/pioneer-import-page/pioneer-import-page.component');
-          return PioneerImportPage;
-        }),
-      },
+      { path: 'import/pathbuilder', redirectTo: '/characters/new/import/pathbuilder' },
+      { path: 'import/pioneer', redirectTo: '/characters/new/import/backup' },
       {
         path: ':id',
         // Opening a character is the likely next step from the list.
