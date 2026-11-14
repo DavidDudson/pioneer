@@ -14,6 +14,7 @@ import {
   line,
   MAGE_ARMOR,
   statistic,
+  STATISTIC_NAMES_FIXTURE,
   term,
   WITHOUT_LEVEL,
 } from '../testing/breakdown-fixtures';
@@ -27,7 +28,7 @@ describe(BreakdownView, () => {
     const { captions, terms, lines } = await render(FIGHTER_WILL);
 
     expect(captions).toStrictEqual(['Base 6', 'Modifiers', 'No modifiers.']);
-    expect(terms).toStrictEqual(['@attr.wis | gives 1', '+ @prof.save.will | gives 5']);
+    expect(terms).toStrictEqual(['Wisdom | = 1', '+ @prof.save.will | = 5']);
     expect(lines).toStrictEqual([]);
   });
 
@@ -37,7 +38,7 @@ describe(BreakdownView, () => {
       statistic('speed:land', { base: [term('25', 25), term('@armor.penalty', -5, TermSign.Minus), rounding] }),
     );
 
-    expect(terms).toStrictEqual(['25 | gives 25', '- @armor.penalty | gives -5', 'Rounding | gives -1']);
+    expect(terms).toStrictEqual(['25 | = 25', '- @armor.penalty | = -5', 'Rounding | = -1']);
   });
 
   it('names the variant rule that sets a proficiency term', async () => {
@@ -47,7 +48,42 @@ describe(BreakdownView, () => {
     };
     const { terms } = await render(statistic('ac', { base: [term('10', 10), variant] }));
 
-    expect(terms).toStrictEqual(['10 | gives 10', '+ @prof.ac | gives 2 | Set by Proficiency Without Level.']);
+    expect(terms).toStrictEqual(['10 | = 10', '+ @prof.ac | = 2 | Set by Proficiency Without Level.']);
+  });
+
+  it('words a reference by the statistic or attribute it reads, and leaves an unnamed one as written', async () => {
+    const { terms } = await render(FIGHTER_WILL, { statisticNames: STATISTIC_NAMES_FIXTURE });
+
+    expect(terms).toStrictEqual(['Wisdom | = 1', '+ Will Proficiency | = 5']);
+  });
+
+  it('shows every reference the engine resolves by name, in the formula it is written in', async () => {
+    const terms = [
+      term('@level', 3),
+      term('@attr.dex.capped', 2),
+      term('@attr.key', 4),
+      term('@rank.save.will', 2),
+      term('@stat.perception', 7),
+      term('@class.hp', 10),
+      term('@ancestry.hp', 8),
+      term('@ancestry.speed', 25),
+      term('floor(@level / 2)', 1),
+      term('@flag.consumeFear', 0),
+    ];
+    const rendered = await render(statistic('ac', { base: terms }), { statisticNames: STATISTIC_NAMES_FIXTURE });
+
+    expect(rendered.terms.map((shown) => shown.split(' | ')[0])).toStrictEqual([
+      'Level',
+      '+ Dexterity (capped by armor)',
+      '+ Key attribute',
+      '+ Will Proficiency Rank',
+      '+ Perception',
+      '+ Class Hit Points',
+      '+ Ancestry Hit Points',
+      '+ Ancestry Speed',
+      '+ floor(Level / 2)',
+      '+ @flag.consumeFear',
+    ]);
   });
 
   it('lists applied lines first, then conditional, suppressed, inactive and failed, each explained', async () => {

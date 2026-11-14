@@ -2,10 +2,10 @@ import type { Origin } from '@pioneer/rules/sdk';
 
 import type { MarkedLineStatus, MarkedOverrideStatus } from './breakdown-messages';
 
-/** A base term as shown: as written with its sign, or rounding, what it gives, and the variant setting it. */
+/** A base term as shown: its name with its sign, or rounding, what it gives, and the variant setting it. */
 export interface ShownTerm {
-  /** The term as written (`+ @prof.ac`), the first without its plus; undefined for a rounding line. */
-  readonly code: string | undefined;
+  /** The term by the names of what it reads (`+ Armor Class Proficiency`), the first without its plus; undefined for a rounding line. */
+  readonly name: string | undefined;
   readonly value: string;
   /** "Set by the variant rule …", on a `@prof` term while a variant rule sets the bonus. */
   readonly variant: string | undefined;

@@ -36,6 +36,7 @@ import {
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import type { StatisticNamer } from '../breakdown/reference-names';
 import type { NamedStatistic } from '../statistics/statistics.component';
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -69,6 +70,15 @@ export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
   [SURE_FOOTING, 'Sure Footing'],
   [CLIMBING_HOOKS, 'Climbing Hooks'],
 ]);
+
+const STATISTIC_NAME_BY_SELECTOR: ReadonlyMap<Selector, string> = new Map([
+  [Selector.parse('save:will'), 'Will'],
+  [Selector.parse('perception'), 'Perception'],
+]);
+
+/** What the statistics the fixtures' terms read are called; any other has no name. */
+export const STATISTIC_NAMES_FIXTURE: StatisticNamer = (selector): string | undefined =>
+  STATISTIC_NAME_BY_SELECTOR.get(selector);
 
 export function origin(entry: ContentId): Origin {
   return Origin.parse({ hops: [], entry, sources: [{ kind: 'book', book: 'player-core', page: 1 }] });

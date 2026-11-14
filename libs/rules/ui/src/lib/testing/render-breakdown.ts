@@ -5,6 +5,8 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
+import { STATISTIC_NAMES } from '../breakdown/reference-names';
+import type { StatisticNamer } from '../breakdown/reference-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { ENTRY_NAMES } from './breakdown-fixtures';
 import { provideRulesUiI18nTesting } from './provide-rich-text-testing';
@@ -14,6 +16,8 @@ export interface Inputs {
   readonly entryNames?: ReadonlyMap<ContentId, string>;
   readonly ruleNames?: ReadonlyMap<RuleId, MessageDescriptor>;
   readonly originNames?: OriginNames;
+  /** What the statistics a reference reads are called; without it, references to statistics show as written. */
+  readonly statisticNames?: StatisticNamer;
 }
 
 /** The breakdown as read: its captions and empty line, its terms, and its lines, each list item's parts joined. */
@@ -53,7 +57,13 @@ function inputsOf(
 }
 
 export async function render(value: StatisticValue, inputs: Inputs = {}): Promise<Rendered> {
-  TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+  const { statisticNames } = inputs;
+  TestBed.configureTestingModule({
+    providers: [
+      provideRulesUiI18nTesting(),
+      ...(statisticNames === undefined ? [] : [{ provide: STATISTIC_NAMES, useValue: statisticNames }]),
+    ],
+  });
   const fixture = TestBed.createComponent(BreakdownView);
   for (const [name, input] of Object.entries(inputsOf(value, inputs))) {
     fixture.componentRef.setInput(name, input);
