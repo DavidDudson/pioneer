@@ -1,0 +1,48 @@
+@if (reserved()) {
+  <fr-stack gap="xs">
+    @if (held(); as held) {
+      <fr-text>{{
+        'character.sheet.reservoir.stored' | transloco: { name: name(), spell: held.name, rank: held.rank }
+      }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ 'character.sheet.reservoir.channeledNote' | transloco }}</fr-text>
+      <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+        <fr-async-button
+          size="sm"
+          [action]="expend"
+          [pendingLabel]="'character.sheet.reservoir.expending' | transloco"
+          [describeError]="describeError"
+        >
+          {{ 'character.sheet.reservoir.channeled' | transloco: { name: name() } }}
+        </fr-async-button>
+        <fr-async-button
+          size="sm"
+          [action]="expend"
+          [pendingLabel]="'character.sheet.reservoir.expending' | transloco"
+          [describeError]="describeError"
+        >
+          {{ 'character.sheet.reservoir.safe' | transloco: { name: name() } }}
+        </fr-async-button>
+      </fr-stack>
+    } @else {
+      <fr-text>{{ 'character.sheet.reservoir.empty' | transloco: { name: name() } }}</fr-text>
+      @if (options().length > 0) {
+        <fr-stack direction="horizontal" gap="sm" align="end" wrap>
+          <pio-option-picker
+            [ariaLabel]="'character.sheet.reservoir.choose' | transloco: { name: name() }"
+            [placeholder]="'character.sheet.reservoir.choose' | transloco: { name: name() }"
+            [options]="options()"
+            [(value)]="chosen"
+          />
+          <fr-async-button
+            size="sm"
+            [action]="store"
+            [pendingLabel]="'character.sheet.reservoir.storing' | transloco"
+            [describeError]="describeError"
+          >
+            {{ 'character.sheet.reservoir.store' | transloco: { name: name() } }}
+          </fr-async-button>
+        </fr-stack>
+      }
+    }
+  </fr-stack>
+}
