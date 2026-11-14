@@ -32,6 +32,9 @@ tester.run('no-bare-trait-badge', noBareTraitBadge, {
     { filename: FEATURE, code: `<fr-tag [label]="trait" />`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ ability.traits[0] }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ strike.ownTrait }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
+    { filename: FEATURE, code: `<fr-badge>{{ trait.name }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
+    { filename: FEATURE, code: `<fr-badge>{{ trait?.name }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
+    { filename: FEATURE, code: `<fr-tag [label]='trait' />`, errors: [{ messageId: 'bare' }] },
     {
       filename: FEATURE,
       code: `@for (trait of preview().traits; track trait) { <fr-badge>{{ trait }}</fr-badge> }`,

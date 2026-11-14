@@ -10,7 +10,7 @@ import type { Rule } from 'eslint';
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const BADGES = new Set(['fr-badge', 'fr-tag']);
 /** What a badge shows: its interpolations and its `[label]` binding. */
-const SHOWN = /\{\{(?<interpolation>[^}]*)\}\}|\[label\]="(?<label>[^"]*)"/gu;
+const SHOWN = /\{\{(?<interpolation>[^}]*)\}\}|\[label\]=(?:"(?<label>[^"]*)"|'(?<single>[^']*)')/gu;
 const STRING_LITERAL = /'[^']*'/gu;
 /** The identifiers and member paths of an expression: `ability.traits`, `trait`. */
 const PATH = /[\w$.]+/gu;
@@ -24,8 +24,11 @@ interface ElementNode {
 
 function readsTrait(source: string): boolean {
   return [...source.matchAll(SHOWN)].some(({ groups }) => {
-    const shown = (groups?.['interpolation'] ?? groups?.['label'] ?? '').replaceAll(STRING_LITERAL, '');
-    return (shown.match(PATH) ?? []).some((path) => TRAIT_NAME.test(path.split('.').at(-1) ?? ''));
+    const shown = (groups?.['interpolation'] ?? groups?.['label'] ?? groups?.['single'] ?? '').replaceAll(
+      STRING_LITERAL,
+      '',
+    );
+    return (shown.match(PATH) ?? []).some((path) => path.split('.').some((segment) => TRAIT_NAME.test(segment)));
   });
 }
 
