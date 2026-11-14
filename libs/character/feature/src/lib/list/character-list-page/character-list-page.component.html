@@ -84,7 +84,7 @@
               </fr-surface>
             </ng-template>
           </fr-virtual-list>
-          @if (characters.items.length === 0) {
+          @if (characters.total === 0) {
             @if (filtered()) {
               <fr-empty-state
                 [icon]="emptyIcon"
@@ -114,10 +114,10 @@
                   | transloco: { page: characters.page, pages: pages, total: characters.total }
               }}</fr-text>
               <fr-stack direction="horizontal" gap="sm">
-                <fr-button [disabled]="characters.page <= 1" (pressed)="goTo(characters.page - 1)">{{
+                <fr-button [disabled]="characters.page <= 1" (pressed)="goTo(state().page - 1)">{{
                   'character.list.page.previous' | transloco
                 }}</fr-button>
-                <fr-button [disabled]="characters.page >= pages" (pressed)="goTo(characters.page + 1)">{{
+                <fr-button [disabled]="characters.page >= pages" (pressed)="goTo(state().page + 1)">{{
                   'character.list.page.next' | transloco
                 }}</fr-button>
               </fr-stack>

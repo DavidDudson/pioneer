@@ -35,7 +35,7 @@ export abstract class CharacterRepository {
   public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
 
   /**
-   * One page of one owner's live characters, in `listForOwner`'s orders, with the filters in `query` ANDead and the
+   * One page of one owner's live characters, in `listForOwner`'s orders, with the filters in `query` combined with AND and the
    * count of every match. Filters read columns the repository keeps in step with the document.
    */
   public abstract pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage>;

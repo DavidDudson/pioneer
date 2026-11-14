@@ -28,7 +28,6 @@ interface ListColumns {
 
 /** The list columns a row keeps in step with its character's document: the ancestry and class picked. */
 export function listColumnsOf(character: Character): ListColumns {
-  // A column is cleared with null: undefined would leave the last pick in place.
-  // oxlint-disable-next-line unicorn/no-null -- see above
+  // oxlint-disable-next-line unicorn/no-null -- null clears the column; undefined would leave the last pick
   return { ancestryId: character.ancestry ?? null, classId: character.classId ?? null };
 }
