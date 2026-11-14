@@ -19,7 +19,7 @@ function trait(name: string, text: string | undefined): EntryPreview {
 }
 
 /** The trait entries a page holds; Manipulate has an entry with an empty description. */
-export const TRAIT_CARDS: ReadonlyMap<ContentId, EntryPreview> = new Map([
+const TRAIT_CARDS: ReadonlyMap<ContentId, EntryPreview> = new Map([
   [traitId(FIRE), trait('Fire', 'Effects with this trait deal fire damage or use the power of fire.')],
   [traitId(MANIPULATE), trait('Manipulate', undefined)],
   [traitId(DEADLY_D8), trait('Deadly d8', 'On a critical hit, the weapon adds a die of the listed size.')],
