@@ -4,6 +4,7 @@ import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
 import type { ChoiceLine, LevelTimelineRow } from '@pioneer/rules/ui';
 
+import { sheetAutomatic } from './sheet-automatic';
 import { sourceMessageOf } from './sheet-choice-source';
 import { lineOf } from './sheet-choices';
 import { sheetSlotContent } from './sheet-slot-content';
@@ -23,10 +24,12 @@ function timelineLine(slot: CharacterSlot, character: Character, content: SlotCo
 /** One row per level from 1 to 20 with the slots it opens, the character's level marked (#491). */
 export function sheetTimeline(registry: ContentRegistry, character: Character): readonly LevelTimelineRow[] {
   const content = sheetSlotContent(registry);
-  return levelTimeline(character.document, content).map(({ level, slots }) => ({
+  const automatic = sheetAutomatic(character, content);
+  return levelTimeline(character.document, content).map(({ level, slots }, index) => ({
     level,
     current: level === character.document.level,
     lines: slots.map((slot) => timelineLine(slot, character, content)),
     picks: [],
+    automatic: automatic[index] ?? [],
   }));
 }

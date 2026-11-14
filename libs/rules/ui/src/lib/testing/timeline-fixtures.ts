@@ -186,3 +186,38 @@ export const BROKEN_PLAN_TIMELINE: readonly LevelTimelineRow[] = [
     picks: [],
   },
 ];
+
+/** A 5th-level fighter's 2nd level: a feat to choose, and below it what the level improves by itself (#1683). */
+export const AUTOMATIC_TIMELINE: readonly LevelTimelineRow[] = [
+  {
+    level: SECOND,
+    current: false,
+    lines: [featLine('fighter:4', ChoiceState.Open)],
+    picks: [],
+    automatic: [
+      {
+        key: 'class-feature:shield-block',
+        text: message('rules.timeline.automatic.feature', { name: 'Shield Block' }),
+        source: message('rules.choices.source.classNamed', { name: 'Fighter' }),
+      },
+      {
+        key: 'proficiency-rise:save:reflex',
+        text: message('rules.timeline.automatic.rise.expert', { statistic: 'Reflex' }),
+        source: message('rules.choices.source.classNamed', { name: 'Fighter' }),
+      },
+    ],
+  },
+  {
+    level: THIRD,
+    current: false,
+    lines: [],
+    picks: [],
+    automatic: [
+      {
+        key: 'spell-slots:2',
+        text: message('rules.timeline.automatic.slots', { count: 2, rank: 2 }),
+        source: message('rules.choices.source.spellcastingNamed', { name: 'Wizard' }),
+      },
+    ],
+  },
+];

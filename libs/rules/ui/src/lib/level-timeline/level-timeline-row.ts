@@ -45,6 +45,16 @@ export interface TimelineFeat extends TimelinePickBase {
 /** An inline pick for a slot of a row. */
 export type TimelinePick = TimelineSkill | TimelineBoost | TimelineFeat;
 
+/** An improvement a level makes by itself (#1683): read-only, with where it comes from. */
+export interface AutomaticLine {
+  /** Unique within the level. */
+  readonly key: string;
+  /** What changes: "Athletics: Trained to Expert", "Shield Block". */
+  readonly text: MessageDescriptor;
+  /** Where it comes from, as text: "Class (Fighter)". */
+  readonly source: MessageDescriptor;
+}
+
 /** One level of the timeline: what it opens, each with what is picked, and whether it is the character's level. */
 export interface LevelTimelineRow {
   readonly level: Level;
@@ -53,4 +63,6 @@ export interface LevelTimelineRow {
   readonly lines: readonly ChoiceLine[];
   /** A picker for each planned slot of the level that can be picked ahead of time. */
   readonly picks: readonly TimelinePick[];
+  /** What the level improves with nothing to pick; none where a list doesn't say. */
+  readonly automatic?: readonly AutomaticLine[] | undefined;
 }

@@ -1204,7 +1204,20 @@
       "current": "Current level",
       "nothing": "Nothing opens at this level.",
       "search": "Search to plan a pick",
-      "breaks": "Plan breaks here"
+      "breaks": "Plan breaks here",
+      "automatic": {
+        "heading": "Automatic",
+        "rise": {
+          "trained": "{statistic} becomes trained",
+          "expert": "{statistic} becomes expert",
+          "master": "{statistic} becomes master",
+          "legendary": "{statistic} becomes legendary"
+        },
+        "feature": "{name}",
+        "slots": "{count, plural, one {# extra slot} other {# extra slots}} of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+        "cantripSlots": "{count, plural, one {# extra cantrip} other {# extra cantrips}}",
+        "heightening": "Cantrips heighten to {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank"
+      }
     },
     "choices": {
       "none": "No choices yet.",

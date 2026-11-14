@@ -142,3 +142,8 @@ export function choiceSourceOf(
     subject.kind === SlotSubjectKind.Choice && kind === ChoiceSourceKind.Archetype ? subject.entryName : undefined;
   return { kind, name: entryName ?? nameOf(kind, document, content) };
 }
+
+/** A source of `kind`, named as the character's class, ancestry or background where it has one (#1683). */
+export function sourceOfKind(kind: ChoiceSourceKind, document: CharacterDocument, content: SlotContent): ChoiceSource {
+  return { kind, name: nameOf(kind, document, content) };
+}
