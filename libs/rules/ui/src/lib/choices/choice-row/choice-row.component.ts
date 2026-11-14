@@ -22,6 +22,13 @@ interface ShownChoice {
   /** The newer entries that replace the pick, for the mark that offers them. */
   readonly replacements: readonly ChoiceReplacement[];
   readonly reason: MessageDescriptor | undefined;
+  readonly source: MessageDescriptor | undefined;
+}
+
+/** A line of text beneath a choice. */
+interface ShownNote {
+  readonly text: MessageDescriptor;
+  readonly tone: 'muted' | 'danger';
 }
 
 /** The badge's tone. The badge's text carries the meaning; the tone only repeats it. */
@@ -63,6 +70,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
     flags: flagsOf(selection),
     replacements: selection !== undefined && 'replacedBy' in selection ? (selection.replacedBy ?? []) : [],
     reason: line.reason,
+    source: line.source,
   };
 }
 
@@ -96,8 +104,11 @@ export class ChoiceRow {
   /** Whether the mark on a replaced pick is open, showing why and the replacements. */
   protected readonly explaining = signal(false);
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
-  /** Why the choice is not settled: what its line says, and what keeping it ran into. */
-  protected readonly notes = computed((): MessageDescriptor[] =>
-    [this.shown().reason, this.problem()].filter((note) => note !== undefined),
-  );
+  /** What is said beneath the choice: where it comes from, then why it is not settled (what its line says, and what keeping it ran into). */
+  protected readonly notes = computed((): ShownNote[] => [
+    ...[this.shown().source].filter((text) => text !== undefined).map((text) => ({ text, tone: 'muted' as const })),
+    ...[this.shown().reason, this.problem()]
+      .filter((text) => text !== undefined)
+      .map((text) => ({ text, tone: 'danger' as const })),
+  ]);
 }

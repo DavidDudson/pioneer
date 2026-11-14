@@ -41,4 +41,6 @@ export interface ChoiceLine {
   readonly level: Level | undefined;
   /** Why an invalid choice is invalid. */
   readonly reason: MessageDescriptor | undefined;
+  /** Where the choice comes from, as text: "Class (Fighter)", "General progression"; none where a list doesn't say. */
+  readonly source?: MessageDescriptor | undefined;
 }
