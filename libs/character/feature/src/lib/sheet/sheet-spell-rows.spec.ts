@@ -106,13 +106,13 @@ describe(spellRows, () => {
     expect(rows.map((row) => row.disabledReason)).toStrictEqual([undefined, 'character.sheet.prepared.alreadyKnown']);
   });
 
-  it("carries each trait's slug, which opens its card, labelled by the slug until the registry names it", () => {
+  it("carries each trait's slug, which opens its card, labelled by the slug read as words until the registry names it", () => {
     const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('fire')] }], {
       translate,
       castRank: undefined,
       taken: NONE,
       registry: undefined,
     });
-    expect(row?.traits).toStrictEqual([{ label: 'fire', trait: 'fire' }]);
+    expect(row?.traits).toStrictEqual([{ label: 'Fire', trait: 'fire' }]);
   });
 });
