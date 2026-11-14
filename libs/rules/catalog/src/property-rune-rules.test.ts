@@ -16,10 +16,6 @@ const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:bane',
     'the engine builds its damage from the etched creature type (`chosenRuneRules`), so `rules` stay empty',
   ],
-  [
-    'rune:coating',
-    'an activation with no frequency, which the content has no place for (weapon activations story), and a store of poisons and oils as item state',
-  ],
   ['rune:conducting', 'the engine builds its damage and resonant trait from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],

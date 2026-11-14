@@ -492,7 +492,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "weapon"
-      }
+      },
+      "activations": [
+        {
+          "slug": "coating",
+          "name": "Coating",
+          "cost": "one"
+        }
+      ]
     }
   },
   {

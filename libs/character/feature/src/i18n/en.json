@@ -241,6 +241,15 @@
     "optionTrained": "Already trained in {skills}",
     "skillTrainedTwice": "Trained by {first} and {second}; the second training is lost",
     "trainedSource": "{name}",
+    "coating": {
+      "heading": "Space linked to {name}: poisons and oils up to 1 Bulk, {bulk} tenths used",
+      "empty": "Nothing is stored in the space",
+      "choose": "Poison or oil to stow in {name}",
+      "stow": "Stow in {name}",
+      "stowing": "Stowing…",
+      "retrieve": "Retrieve {item} from {name}",
+      "retrieving": "Retrieving…"
+    },
     "release": {
       "set": "Set {name} free",
       "setting": "Setting free…",
