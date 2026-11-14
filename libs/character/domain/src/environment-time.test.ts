@@ -5,6 +5,8 @@ import type { RandomSource } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import {
   ContentId,
+  DamageAdjustment,
+  DamageContext,
   DamageType,
   DurationCount,
   DurationUnit,
@@ -94,6 +96,19 @@ describe('passTime', () => {
 
     expect(MAX - currentHitPoints(play.hp, MAX)).toBe(10);
     expect(events.map(({ kind }) => kind)).toEqual([TurnEventKind.EnvironmentDamage, TurnEventKind.EnvironmentDamage]);
+  });
+
+  test('environmental damage goes through a resistance to environmental damage', () => {
+    const sealed: Omit<PassTimeInputs, 'random'> = {
+      ...INPUTS,
+      defences: {
+        ...NO_DEFENCES,
+        resistances: [DamageAdjustment.parse({ type: DamageContext.Environmental, value: 3 })],
+      },
+    };
+    const { play } = passTime(turnedOn(COLD), minutes(10), { ...sealed, random: faces(5) });
+
+    expect(MAX - currentHitPoints(play.hp, MAX)).toBe(2);
   });
 
   test('counts a period that was partly spent before, and deals nothing before it is done', () => {

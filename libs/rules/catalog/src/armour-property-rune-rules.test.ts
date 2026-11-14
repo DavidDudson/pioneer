@@ -45,10 +45,6 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:ready', 'the actions to don armour: donning is not modelled'],
   ['rune:ready-greater', 'the actions to don armour: donning is not modelled'],
-  [
-    'rune:self-sealing',
-    'resistance 10 to environmental damage while sealed: the seal is item state, and environmental damage is no resistance type',
-  ],
   ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
   ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
 ]);
@@ -132,6 +128,15 @@ describe('armour property rune rules', () => {
 
     expect(entry?.rules).toMatchObject([{ key: 'PersistentFlatCheck', damageTypes: ['acid', 'fire'], dc: 5 }]);
     expect(entry?.rules[0]).not.toHaveProperty('assistedDc');
+  });
+
+  test('self-sealing gives resistance 10 to environmental damage while sealed, a toggle the wearer sets', () => {
+    const entry = RUNES.find((rune) => rune.slug === 'rune:self-sealing');
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'RollOption', option: 'option:self-sealing-sealed', toggleable: true },
+      { key: 'Resistance', type: ['environmental'], value: 10, predicate: ['option:self-sealing-sealed'] },
+    ]);
   });
 
   test.each(FORTIFICATION_DCS)('%s asks a flat check against DC %i when a critical hit lands on AC', (slug, dc) => {

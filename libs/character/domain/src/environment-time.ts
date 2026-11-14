@@ -58,7 +58,7 @@ function damaged(passing: Passing, environment: ContentId, damage: EnvironmentDa
   if (play.dead || roll === undefined) {
     return passing;
   }
-  const applied = applyDamage(roll, passing.inputs.defences);
+  const applied = applyDamage(roll, passing.inputs.defences, { critical: false, environmental: true });
   const hurt = applyPlayCommand(play, { field: PlayCommandField.Damage, damage: applied }, passing.inputs.limits);
   return moved(passing, hurt, [environmentDamaged(environment, { roll, damage: applied })]);
 }
