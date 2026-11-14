@@ -459,6 +459,7 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
 export { CriticalHitCheckElement } from './rule-element-critical-hit-check';
+export { PersistentFlatCheckElement } from './rule-element-persistent-flat-check';
 export {
   CreatureCount,
   CriticalCondition,

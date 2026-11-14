@@ -1801,7 +1801,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "PersistentFlatCheck",
+        "damageTypes": ["acid", "fire"],
+        "dc": 12,
+        "assistedDc": 7
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.tpkkAtlMIOL8TnW6"
     },
@@ -1846,7 +1853,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "PersistentFlatCheck",
+        "damageTypes": ["acid", "fire"],
+        "dc": 10,
+        "assistedDc": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.HhtZl2pr7xChKu2c"
     },
@@ -1891,7 +1905,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "PersistentFlatCheck",
+        "damageTypes": ["acid", "fire"],
+        "dc": 8,
+        "assistedDc": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.3rlu75EjB2SVAuOI"
     },
@@ -1936,7 +1957,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "PersistentFlatCheck",
+        "damageTypes": ["acid", "fire"],
+        "dc": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.hGZNrPMdxsabNFLx"
     },

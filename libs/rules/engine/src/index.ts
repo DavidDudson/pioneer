@@ -30,6 +30,7 @@ export {
 export {
   type AdjustmentLine,
   type CriticalHitCheckLine,
+  type PersistentFlatCheckLine,
   type Defences,
   type DefenceStatus,
   DefenceStatusKind,

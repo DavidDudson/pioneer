@@ -29,6 +29,7 @@ import {
   FlatModifierElement,
   MultipleAttackPenaltyElement,
 } from './rule-element-numbers';
+import { PersistentFlatCheckElement } from './rule-element-persistent-flat-check';
 import { MartialProficiencyElement, ProficiencyBonusElement, ProficiencyElement } from './rule-element-proficiency';
 import { AdjustDegreeOfSuccessElement, RollTwiceElement, SubstituteRollElement } from './rule-element-rolls';
 import { SenseElement } from './rule-element-sense';
@@ -97,6 +98,7 @@ const Element = z.discriminatedUnion('key', [
   MovementCostElement,
   GrantShieldElement,
   CriticalHitCheckElement,
+  PersistentFlatCheckElement,
   CriticalWeaknessElement,
   CriticalEffectElement,
   CriticalRangeElement,
