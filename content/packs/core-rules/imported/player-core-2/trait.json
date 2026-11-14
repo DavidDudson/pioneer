@@ -30,6 +30,66 @@
     }
   },
   {
+    "id": "ff08c79f-67ca-55fe-bd4f-ac442d907fd0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:additive2",
+    "name": "Additive 2",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Feats with the additive trait allow you to add special substances to alchemical consumables you create when you use Quick Alchemy to create a consumable (you can't use additives with quick vials). You can add only one additive to a single alchemical item, you can add an additive only once per round, and most additive abilities specify a subset of alchemical consumables you can add them to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat"]
+    }
+  },
+  {
+    "id": "22fdce6c-c335-578e-845b-a9d76492c1e6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:additive3",
+    "name": "Additive 3",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Feats with the additive trait allow you to add special substances to alchemical consumables you create when you use Quick Alchemy to create a consumable (you can't use additives with quick vials). You can add only one additive to a single alchemical item, you can add an additive only once per round, and most additive abilities specify a subset of alchemical consumables you can add them to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat"]
+    }
+  },
+  {
     "id": "52a07923-0cff-50c0-a28c-bce4fe07f108",
     "pack": "core-rules",
     "kind": "trait",
