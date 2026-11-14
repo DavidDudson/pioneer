@@ -53,13 +53,15 @@ export interface DamageOptions {
   readonly area?: boolean;
   /** The roll is from a spell, so a weakness or resistance to spells applies. */
   readonly spell?: boolean;
+  /** The roll is environmental damage, so a weakness or resistance to environmental damage applies. */
+  readonly environmental?: boolean;
   /** The materials and property runes the damage counts as (`silver`): a weakness or resistance that excepts one does not apply. */
   readonly counts?: readonly DamageException[];
   /** The degree of the basic save this damage is for: it scales each instance before immunity, weakness and resistance. */
   readonly save?: DegreeOfSuccess;
 }
 
-const NOT_CRITICAL: DamageOptions = { critical: false, area: false, spell: false };
+const NOT_CRITICAL: DamageOptions = { critical: false, area: false, spell: false, environmental: false };
 const CRITICAL_MULTIPLIER = 2;
 const HALF = 2;
 const ZERO = RollTotal.parse(0);
@@ -222,18 +224,23 @@ interface Dealing {
   readonly doubling: Doubling;
   readonly area: boolean;
   readonly spell: boolean;
+  readonly environmental: boolean;
   readonly save: DegreeOfSuccess | undefined;
   readonly counts: readonly DamageException[];
 }
 
 /** Deals one instance, then immunities, the highest weakness and the highest resistance adjust it. */
-function deal(pooled: Pooled, target: DamageTarget, { doubling, area, spell, save, counts }: Dealing): DamageInstance {
+function deal(
+  pooled: Pooled,
+  target: DamageTarget,
+  { doubling, area, spell, environmental, save, counts }: Dealing,
+): DamageInstance {
   const dealtNow = dealt(pooled, doubling, save);
   const type = pooled.type === undefined ? {} : { type: pooled.type };
   const immune = immunise(pooled, dealtNow, target);
   const precisionLeft = target.immunities.includes(PRECISION) ? NONE : dealtNow.precision;
   const types = typesOf(pooled, precisionLeft > 0);
-  const source: Source = { area, spell, splash: pooled.splash > 0, counts };
+  const source: Source = { area, spell, environmental, splash: pooled.splash > 0, counts };
   const weakened = weaken(immune.amount, { types, source }, target);
   // Resistance to precision stops no more than the precision share, unless the instance is all precision.
   const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
@@ -274,10 +281,10 @@ function doublingFor(critical: boolean, target: DamageTarget): Doubling {
 export function applyDamage(
   roll: RollResult,
   target: DamageTarget,
-  { critical, area = false, spell = false, save, counts = [] }: DamageOptions = NOT_CRITICAL,
+  { critical, area = false, spell = false, environmental = false, save, counts = [] }: DamageOptions = NOT_CRITICAL,
 ): DamageApplication {
   const pools = pool(roll);
-  const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell, save, counts };
+  const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell, environmental, save, counts };
   const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   return { critical, immediate, persistent, taken: sum(immediate), persistentTaken: sum(persistent) };

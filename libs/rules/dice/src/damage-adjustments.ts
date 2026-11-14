@@ -18,6 +18,8 @@ export interface Source {
   readonly splash: boolean;
   /** The damage is from a spell. */
   readonly spell: boolean;
+  /** The damage is from an environment (heat, cold, a hazard of the terrain). */
+  readonly environmental: boolean;
   /** The materials and property runes the damage counts as (`silver`, `ghost-touch`), which an exception names. */
   readonly counts: readonly DamageException[];
 }
@@ -41,10 +43,13 @@ function isGroup(target: DamageAdjustmentTarget): target is DamageGroup {
   return Object.values<string>(DamageGroup).includes(target);
 }
 
-/** Whether `source` is of the kind `context` names: an area effect, splash damage or a spell. */
+/** Whether `source` is of the kind `context` names: an area effect, splash damage, a spell or an environment. */
 function inContext(context: DamageContext, source: Source): boolean {
   if (context === DamageContext.AreaDamage) {
     return source.area;
+  }
+  if (context === DamageContext.Environmental) {
+    return source.environmental;
   }
   return context === DamageContext.SplashDamage ? source.splash : source.spell;
 }
@@ -72,7 +77,12 @@ function covers(target: DamageAdjustmentSubject, types: readonly DamageType[], s
 }
 
 /** What a damage message calls a target: the target, or a source in camel case. */
-type MessageTarget = Exclude<DamageAdjustmentTarget, DamageContext> | 'areaDamage' | 'splashDamage' | 'spells';
+type MessageTarget =
+  | Exclude<DamageAdjustmentTarget, DamageContext>
+  | 'areaDamage'
+  | 'splashDamage'
+  | 'spells'
+  | typeof DamageContext.Environmental;
 
 /** A target as a message names it: ICU select keys can't hold a hyphen, so a source is in camel case. */
 function nameOf(target: DamageAdjustmentTarget): MessageTarget {
