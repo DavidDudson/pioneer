@@ -27,6 +27,9 @@ export class RichInline {
 
   protected readonly nodes = computed((): InlineContent => {
     const linkable = (id: ContentId): boolean => canPreview(this.#previews, id);
-    return linkConditionNames(linkTraitNames(this.content(), linkable), linkable);
+    // Any word before "trait" is a candidate, so only a trait the page holds is linked: a loader alone would link
+    // "weapon trait" to a card that does not exist.
+    const known = (id: ContentId): boolean => this.#previews.preview(id) !== undefined;
+    return linkConditionNames(linkTraitNames(this.content(), known), linkable);
   });
 }

@@ -1,18 +1,19 @@
 import { RichTextString, Trait, traitId } from '@pioneer/rules/sdk';
-import type { InlineContent } from '@pioneer/rules/sdk';
+import type { ContentId, InlineContent } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { linkTraitNames } from './trait-names';
 
 const ALWAYS = (): boolean => true;
 const NEVER = (): boolean => false;
+const ONLY_FIRE = (id: ContentId): boolean => id === traitId(Trait.parse('fire'));
 
 function words(text: string): InlineContent {
   return [{ type: 'text', text: RichTextString.parse(text) }];
 }
 
 /** The text of each piece, with a reference in square brackets. */
-function shown(text: string, linkable: () => boolean = ALWAYS): string {
+function shown(text: string, linkable: (id: ContentId) => boolean = ALWAYS): string {
   return linkTraitNames(words(text), linkable)
     .map((node) => {
       if (node.type === 'ref') {
@@ -80,6 +81,14 @@ describe(linkTraitNames, () => {
     ];
 
     expect(linkTraitNames(marked, ALWAYS)).toStrictEqual(marked);
+  });
+
+  it('leaves a word that is not a slug as text rather than failing the render', () => {
+    expect(shown('A fire- trait and the a--b traits.')).toBe('A fire- trait and the a--b traits.');
+  });
+
+  it('links only the traits the page can show', () => {
+    expect(shown('Spells with the fire and cold traits.', ONLY_FIRE)).toBe('Spells with the [fire] and cold traits.');
   });
 
   it('links a value trait written with its hyphens', () => {

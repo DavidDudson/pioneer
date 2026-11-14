@@ -49,6 +49,11 @@ interface Mention {
   readonly at: number;
 }
 
+/** A mention that names a trait the page can show. */
+interface Linked extends Mention {
+  readonly id: ContentId;
+}
+
 /** The names of the list that ends with the name `last`, in order, or none when a word of it names no trait. */
 function listEndingAt(run: string, last: Mention): readonly Mention[] {
   const names: Mention[] = [last];
@@ -61,7 +66,7 @@ function listEndingAt(run: string, last: Mention): readonly Mention[] {
   return names.some((each) => NOT_NAMES.has(each.name.toLowerCase())) ? [] : names;
 }
 
-/** Every trait `text` names before the word trait, in order. */
+/** Every trait `run` names before the word trait, in order. */
 function mentions(run: string): readonly Mention[] {
   const lasts = [...run.matchAll(LAST_NAME)].map((match): Mention => ({
     name: match.groups?.['name'] ?? '',
@@ -72,9 +77,10 @@ function mentions(run: string): readonly Mention[] {
   return [...unique.values()].toSorted((left, right) => left.at - right.at);
 }
 
-/** The id of the trait a name names, whatever its case. */
-function idOf(name: string): ContentId {
-  return traitId(Trait.parse(name.toLowerCase()));
+/** The id of the trait a name names, whatever its case; none for a word that is not a slug ("fire-", "a--b"). */
+function idOf(name: string): ContentId | undefined {
+  const trait = Trait.safeParse(name.toLowerCase());
+  return trait.success ? traitId(trait.data) : undefined;
 }
 
 function plain(value: string): InlineContent {
@@ -92,14 +98,17 @@ export function linkTraitNames(content: InlineContent, linkable: (id: ContentId)
     if (node.type !== 'text' || node.marks !== undefined) {
       return [node];
     }
-    const linked = mentions(node.text).filter((each) => linkable(idOf(each.name)));
+    const linked = mentions(node.text).flatMap((each): readonly Linked[] => {
+      const id = idOf(each.name);
+      return id !== undefined && linkable(id) ? [{ ...each, id }] : [];
+    });
     if (linked.length === 0) {
       return [node];
     }
     const out: InlineContent[number][] = [];
     let cursor = 0;
-    for (const { name, at } of linked) {
-      const ref = { type: InlineKind.Ref, id: idOf(name), label: InlineLabel.parse(name) } as const;
+    for (const { name, at, id } of linked) {
+      const ref = { type: InlineKind.Ref, id, label: InlineLabel.parse(name) } as const;
       out.push(...plain(node.text.slice(cursor, at)), ref);
       cursor = at + name.length;
     }
