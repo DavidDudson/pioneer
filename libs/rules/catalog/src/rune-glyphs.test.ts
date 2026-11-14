@@ -5,6 +5,9 @@ import { runicPair } from '@pioneer/shared/kernel';
 
 import { contentCatalog } from './index';
 
+/** Loading every pack takes longer than bun's default 5 s on a busy runner. */
+const LOAD_TIMEOUT = 30_000;
+
 /** The pair each loaded property rune shows, with the runes that share it. */
 async function runesByPair(): Promise<ReadonlyMap<string, readonly string[]>> {
   const registry = new ContentRegistry();
@@ -21,11 +24,15 @@ async function runesByPair(): Promise<ReadonlyMap<string, readonly string[]>> {
 }
 
 describe('the glyph pairs of the loaded property runes', () => {
-  test('are shared by no two runes, so a book that adds a colliding rune is caught here', async () => {
-    const byPair = await runesByPair();
-    const shared = [...byPair].filter(([, slugs]) => slugs.length > 1);
+  test(
+    'are shared by no two runes, so a book that adds a colliding rune is caught here',
+    async () => {
+      const byPair = await runesByPair();
+      const shared = [...byPair].filter(([, slugs]) => slugs.length > 1);
 
-    expect(byPair.size).toBeGreaterThan(0);
-    expect(shared).toStrictEqual([]);
-  });
+      expect(byPair.size).toBeGreaterThan(0);
+      expect(shared).toStrictEqual([]);
+    },
+    LOAD_TIMEOUT,
+  );
 });
