@@ -22,6 +22,8 @@ export const RuneFixture = {
   Animated: 'animated',
   /** A weapon rune with an extradimensional space for poisons and oils (the slug is the real rune's). */
   Coating: 'coating',
+  /** A melee weapon rune that holds a spell cast into the weapon (the slug is the real rune's). */
+  SpellReservoir: 'spell-reservoir',
   EnergyVulnerability: 'energy-vulnerability',
   EnergyVulnerabilityGreater: 'energy-vulnerability-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
@@ -66,6 +68,15 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   },
   [RuneFixture.Animated]: {
     data: { ...weaponRune('melee').data, activations: [{ slug: 'set-free', name: 'Set Free', cost: 'two' }] },
+  },
+  [RuneFixture.SpellReservoir]: {
+    data: {
+      ...weaponRune('melee').data,
+      activations: [
+        { slug: 'channeled-release', name: 'Channeled Release', cost: 'two' },
+        { slug: 'safe-release', name: 'Safe Release', cost: 'one' },
+      ],
+    },
   },
   [RuneFixture.EnergyVulnerability]: weaponRune(),
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),

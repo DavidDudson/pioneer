@@ -301,6 +301,7 @@ export { breakItem } from './inventory-broken';
 export { hasAnimatedRune, releasedAttack } from './animated-weapon';
 export { COATING_CAPACITY, coatingBulk, CoatingProblem, coatingRefusal, fitsCoating, hasCoatingRune } from './coating';
 export { setItemState } from './inventory-state';
+export { hasReservoirRune, RESERVOIR_RANK_MAX, ReservoirProblem, reservoirRefusal } from './spell-reservoir';
 export { isEmptyState, ItemStateSchema } from './item-state';
 export type { ItemState } from './item-state';
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
