@@ -145,7 +145,7 @@ export class PioneerImportPage {
   /** Sends the file itself, not the preview. Opens the new character on Plan. */
   protected readonly create = async (): Promise<void> => {
     const character = await this.#store.importPioneer(this.#file()?.value);
-    await this.#router.navigate(['../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
+    await this.#router.navigate(['../../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 
   /** The server's reason when it gave one (a newer format, a character that isn't valid), else a generic retry. */

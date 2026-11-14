@@ -171,7 +171,7 @@ export class PathbuilderImportPage {
    */
   protected readonly create = async (): Promise<void> => {
     const character = await this.#store.importPathbuilder(JSON.parse(this.model().json) as unknown);
-    await this.#router.navigate(['../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
+    await this.#router.navigate(['../../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 
   /** The server's reason when it gave one (an ancestry that isn't loaded), else a generic retry. */
