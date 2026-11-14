@@ -166,7 +166,7 @@ export {
   DamageTypeSchema,
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
-export { DamageException, Immunity, Trait, TraitData } from './trait';
+export { DamageException, Immunity, Trait, TraitData, traitId } from './trait';
 export { LanguageData, LanguageScript } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';

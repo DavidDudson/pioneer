@@ -33,6 +33,7 @@ export {
   type PreviewEndingStatistic,
   type PreviewRanks,
   type StatisticLink,
+  canPreview,
   panelQuery,
   slugPanelQuery,
   provideEntryPreviews,
