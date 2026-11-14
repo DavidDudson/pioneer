@@ -1,13 +1,24 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Slug } from './content-id';
+import { ContentId, contentId, entrySlug, PackId, Slug } from './content-id';
 import { ContentKind, ContentKindSchema } from './content-kind';
 import { RulesMessage } from './messages';
 
 /** A trait slug (`humanoid`, `undead`). Content defines the set, so it is a brand, not a const object. */
 export const Trait = Slug.brand<'Trait'>();
 export type Trait = z.infer<typeof Trait>;
+
+/** The pack that holds the trait vocabulary: every trait entry, whichever book it came from, is filed here. */
+const TRAIT_PACK = PackId.parse('core-rules');
+
+/**
+ * The stored id of the entry that defines trait `slug`: `contentId` of `core-rules/trait:<slug>`, so a trait chip can
+ * open its card without a lookup table.
+ */
+export function traitId(slug: Trait): ContentId {
+  return ContentId.parse(contentId(TRAIT_PACK, entrySlug(ContentKind.Trait, slug)));
+}
 
 /** What a creature is immune to: a damage type, condition or effect (`poison`, `paralyzed`, `death-effects`). */
 export const Immunity = Slug.brand<'Immunity'>();

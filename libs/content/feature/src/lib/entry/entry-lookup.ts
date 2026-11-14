@@ -16,9 +16,9 @@ import { BROWSE_KINDS } from '../browser/browse-kinds';
 
 /**
  * The kinds loaded beside the entry's own, so a reference in its text names and links the entry it points at: the
- * kinds the browser lists, and the conditions descriptions mention most.
+ * kinds the browser lists, the conditions descriptions mention most, and the traits a card's chips open.
  */
-const REFERENCED_KINDS: readonly ContentKind[] = [...BROWSE_KINDS, ContentKind.Condition];
+const REFERENCED_KINDS: readonly ContentKind[] = [...BROWSE_KINDS, ContentKind.Condition, ContentKind.Trait];
 
 /** The kinds to load for an entry of `kind`: its own first, then the ones its text may refer to. */
 export function entryKinds(kind: ContentKind): readonly ContentKind[] {
