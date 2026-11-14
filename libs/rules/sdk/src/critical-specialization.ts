@@ -2,7 +2,12 @@ import type { RichText } from './rich-text';
 import { BlockKind, InlineKind, RichTextString, TextMark } from './rich-text';
 import { WeaponGroup } from './weapon';
 
-/** What a weapon group does on a critical hit, as the Remaster rules word it (Archives of Nethys, weapon groups). */
+/**
+ * What a weapon group does on a critical hit, as the Remaster rules word it: Player Core page 283, and Guns & Gears
+ * (Remastered) page 152 for the firearm group (Archives of Nethys, weapon groups). Checked against that text word for
+ * word: the Remaster keeps the DC 10 Athletics check of a bow, the 10-foot splash of a bomb and the striking rune dice of
+ * an axe.
+ */
 const EFFECTS: Readonly<Record<WeaponGroup, string>> = {
   [WeaponGroup.Axe]:
     "Choose one creature adjacent to the initial target and within reach. If its AC is lower than your attack roll result for the critical hit, you deal damage to that creature equal to the result of the weapon damage die you rolled (including extra dice for its striking rune, if any). This amount isn't doubled, and no bonuses or other additional dice apply to this damage.",
