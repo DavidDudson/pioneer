@@ -10,7 +10,14 @@ import type {
 import { SIGNED } from '../breakdown/number-style';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { PREPARATION_MESSAGES, TRADITION_MESSAGES } from '../spellcasting/spellcasting-messages';
-import type { AbilityLine, SpellcastingLine, StatPassage, StrikeLine } from './creature-stat-block';
+import type {
+  AbilityLine,
+  SpellcastingLine,
+  StatPassage,
+  StrikeLine,
+  StrikeQualifiers,
+  StrikeTag,
+} from './creature-stat-block';
 import { CreatureStatBlockMessage, PERIOD_MESSAGES, STRIKE_RANGE_MESSAGES } from './creature-stat-block-messages';
 import type { StatBlockWords } from './stat-block-words';
 
@@ -39,15 +46,15 @@ export function strikeLine(strike: CreatureStrike, words: StatBlockWords): Strik
   });
   const reach =
     strike.reach === undefined
-      ? []
-      : [words.translate(CreatureStatBlockMessage.StrikeReach, { distance: words.distance(strike.reach) })];
+      ? undefined
+      : words.translate(CreatureStatBlockMessage.StrikeReach, { distance: words.distance(strike.reach) });
   const increment =
     strike.increment === undefined
-      ? []
-      : [words.translate(CreatureStatBlockMessage.StrikeIncrement, { distance: words.distance(strike.increment) })];
+      ? undefined
+      : words.translate(CreatureStatBlockMessage.StrikeIncrement, { distance: words.distance(strike.increment) });
   return {
     summary,
-    traitsText: traitsText([...reach, ...increment, ...strike.traits], words),
+    tags: strikeTags({ reach, increment, traits: strike.traits }, words),
     damage:
       strike.damage.length === 0
         ? undefined
@@ -127,6 +134,26 @@ export function spellcastingLine(entry: CreatureSpellcasting, words: StatBlockWo
   return { heading, numbers, ranks };
 }
 
-function traitsText(traits: readonly string[], words: StatBlockWords): string {
-  return traits.length === 0 ? '' : `(${words.list(traits, 'unit')})`;
+const textTag = (text: string): StrikeTag => ({ text, trait: undefined });
+
+/**
+ * The bracketed list of a Strike: reach and range increment as text and each trait as a chip, joined as the locale's
+ * list joins them ("(reach 5 ft, agile, finesse)").
+ */
+function strikeTags({ reach, increment, traits }: StrikeQualifiers, words: StatBlockWords): readonly StrikeTag[] {
+  const text = [reach, increment].flatMap((each): readonly StrikeTag[] => (each === undefined ? [] : [textTag(each)]));
+  const items = [...text, ...traits.map((trait): StrikeTag => ({ text: trait, trait }))];
+  if (items.length === 0) {
+    return [];
+  }
+  const parts = words.listParts(
+    items.map((item) => item.text),
+    'unit',
+  );
+  const elements = parts.filter((part) => part.type === 'element');
+  const joined = parts.map((part): StrikeTag => {
+    const item = part.type === 'element' ? items[elements.indexOf(part)] : undefined;
+    return item ?? textTag(part.value);
+  });
+  return [textTag(' ('), ...joined, textTag(')')];
 }

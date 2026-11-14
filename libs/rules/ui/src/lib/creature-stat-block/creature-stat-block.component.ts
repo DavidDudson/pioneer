@@ -64,6 +64,7 @@ export class CreatureStatBlockView {
       translate: (key, params) => this.#i18n.translate(key, params),
       number: (value, options) => this.#format.number(value, options),
       list: (items, type) => this.#format.list(items, type),
+      listParts: (items, type) => this.#format.listParts(items, type),
       distance: (feet) => this.#format.distance(feet),
     });
   });
@@ -81,7 +82,7 @@ export class CreatureStatBlockView {
       ? strikes
       : strikes.map((strike): StrikeLine => ({
           summary: strike.summary,
-          traitsText: strike.traitsText,
+          tags: strike.tags,
           damage: strike.damage,
           effects: undefined,
         }));

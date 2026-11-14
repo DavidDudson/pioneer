@@ -19,11 +19,27 @@ export interface StatLine {
   readonly text: string;
 }
 
+/** One part of a Strike's bracketed list: text, or a trait (its `text` the slug) shown as a chip. */
+export interface StrikeTag {
+  readonly text: string;
+  readonly trait: Trait | undefined;
+}
+
+/** What a Strike's bracketed list holds: reach and range increment worded, and the real traits. */
+export interface StrikeQualifiers {
+  readonly reach: string | undefined;
+  readonly increment: string | undefined;
+  readonly traits: readonly Trait[];
+}
+
 /** A Strike, worded. */
 export interface StrikeLine {
   readonly summary: string;
-  /** The traits, reach and range increment in brackets; empty for a Strike with none. */
-  readonly traitsText: string;
+  /**
+   * The reach, range increment and traits in brackets, as the parts the locale's list puts them in; empty for a
+   * Strike with none. A trait part is a chip, the rest plain text.
+   */
+  readonly tags: readonly StrikeTag[];
   readonly damage: StatLine | undefined;
   readonly effects: RichText | undefined;
 }
