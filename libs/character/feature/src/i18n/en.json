@@ -250,6 +250,17 @@
       "retrieve": "Retrieve {item} from {name}",
       "retrieving": "Retrieving…"
     },
+    "reservoir": {
+      "stored": "{name} holds {spell}, a spell of rank {rank}",
+      "empty": "No spell is stored. Casting one into {name} takes 1 minute",
+      "choose": "Spell to store in {name}",
+      "store": "Store in {name}",
+      "storing": "Storing…",
+      "channeled": "Channeled Release of {name}",
+      "channeledNote": "Make the Strike yourself: the spell is expended with it, and its effects are not applied here",
+      "safe": "Safe Release of {name}",
+      "expending": "Expending…"
+    },
     "release": {
       "set": "Set {name} free",
       "setting": "Setting free…",

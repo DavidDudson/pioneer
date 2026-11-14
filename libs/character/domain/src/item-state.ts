@@ -1,8 +1,12 @@
-import { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, SpellRank } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 /** The most poisons and oils a coating rune's space is stored as holding: they weigh next to nothing, so a count caps the list. */
 const COATING_ITEMS_MAX = 20;
+
+/** The spell a spell reservoir rune holds: which spell, and the rank it was cast into the weapon at. */
+export const StoredSpellSchema = z.strictObject({ spell: ContentId, rank: SpellRank }).readonly();
+export type StoredSpell = z.infer<typeof StoredSpellSchema>;
 
 /**
  * What a character's own item holds beyond what it is and how it is carried, which the rune etched onto it gives
@@ -14,6 +18,8 @@ export const ItemStateSchema = z.strictObject({
   released: z.literal(true).optional(),
   /** The poisons and oils kept in the extradimensional space of a coating rune, as the consumables they are. */
   coating: z.array(ContentId).max(COATING_ITEMS_MAX).readonly().optional(),
+  /** The spell cast into a spell reservoir weapon, kept until it is expended (`rune:spell-reservoir`). */
+  spell: StoredSpellSchema.optional(),
 });
 export type ItemState = z.infer<typeof ItemStateSchema>;
 
