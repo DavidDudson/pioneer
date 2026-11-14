@@ -28,7 +28,7 @@ function asHtml(text: string): string {
 }
 
 /** A note's `text` as rich text; text that reads the item, or holds no words, as it is. */
-function richTextOf(text: unknown, { lang, values }: NoteContext): unknown {
+export function richTextOf(text: unknown, { lang, values }: NoteContext): unknown {
   if (typeof text !== 'string' || text.includes(ITEM_REFERENCE)) {
     return text;
   }

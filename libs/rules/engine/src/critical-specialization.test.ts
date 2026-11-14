@@ -115,6 +115,25 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([only('item:picked:weapon')], SWORD)?.notes).toEqual([]);
   });
 
+  test('an alternate element shows its text and persistent damage beside the specialization of the group', () => {
+    const alternate = {
+      ...ELEMENT,
+      alternate: true,
+      text: [{ type: 'paragraph', content: [{ type: 'text', text: 'The target is wreathed in flame.' }] }],
+      damageDice: { formula: '1d6', damageType: 'fire' },
+    };
+    const text = strikeOf([ELEMENT, alternate], SWORD)?.notes.map((note) => JSON.stringify(note.text));
+
+    expect(text).toHaveLength(2);
+    expect(text?.at(0)).toContain('off-guard until the start of your next turn');
+    expect(text?.at(1)).toContain('The target is wreathed in flame.');
+    expect(text?.at(1)).toContain('The target takes 1d6 persistent fire damage.');
+  });
+
+  test('an alternate element with no words and no damage gives nothing', () => {
+    expect(strikeOf([{ ...ELEMENT, alternate: true }], SWORD)?.notes).toEqual([]);
+  });
+
   test('a rank-gated element reaches a weapon the character is expert with, and not one it is trained with', () => {
     const gated = { ...ELEMENT, predicate: [{ gte: ['item:proficiency:rank', 2] }] };
     const options = ['self:level:5'];
