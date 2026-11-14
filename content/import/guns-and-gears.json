@@ -7618,16 +7618,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.SpecificRule.Equipment.DrakeRifle.CriticalSpecialization"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -7674,16 +7664,6 @@
       "slug": "weapon:drake-rifle-cold",
       "foundry": "Compendium.pf2e.equipment-srd.Item.5TOdQaW1XEjDhTP0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.SpecificRule.Equipment.DrakeRifle.CriticalSpecialization"
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -7734,16 +7714,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.SpecificRule.Equipment.DrakeRifle.CriticalSpecialization"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -7792,16 +7762,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.SpecificRule.Equipment.DrakeRifle.CriticalSpecialization"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -7848,16 +7808,6 @@
       "slug": "weapon:drake-rifle-poison",
       "foundry": "Compendium.pf2e.equipment-srd.Item.ywUMtG1viqbnDFYT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.SpecificRule.Equipment.DrakeRifle.CriticalSpecialization"
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -8390,24 +8340,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "weapon:spike-launcher",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3qn56dTO5TYJHjbF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "alternate": true,
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|_id}"],
-            "text": "PF2E.Item.Weapon.CriticalSpecialization.bow"
-          }
         }
       ]
     },

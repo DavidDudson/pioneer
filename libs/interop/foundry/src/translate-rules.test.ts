@@ -127,6 +127,54 @@ describe('translateRules: CriticalSpecialization', () => {
     expect(translation.entries[0]?.envelope.rules.map(({ key }) => key)).toEqual(['CriticalSpecialization']);
   });
 
+  test("a weapon's rule that reads its own id is etched onto it, with its alternate text and persistent damage", () => {
+    const raw = {
+      key: 'CriticalSpecialization',
+      alternate: true,
+      damageDice: { category: 'persistent', damageType: 'fire', faces: 6, number: 1 },
+      predicate: ['item:id:{item|_id}'],
+      text: '<p>The target is set alight.</p>',
+    };
+    const translation = translate([feat(raw)]);
+
+    expect(translation.envelopes.untranslatedRules).toEqual([]);
+    expect(translation.entries[0]?.envelope.rules[0]).toMatchObject({
+      key: 'CriticalSpecialization',
+      alternate: true,
+      etched: true,
+      damageDice: { formula: '1d6', damageType: 'fire' },
+    });
+    expect(translation.entries[0]?.envelope.rules[0]).not.toHaveProperty('predicate');
+  });
+
+  test("a weapon's own id among other statements is etched, and the other statements stay", () => {
+    const raw = { key: 'CriticalSpecialization', predicate: ['item:id:{item|_id}', 'self:effect:rage'] };
+    const translation = translate([feat(raw)]);
+
+    expect(translation.envelopes.untranslatedRules).toEqual([]);
+    expect(translation.entries[0]?.envelope.rules[0]).toMatchObject({ etched: true, predicate: ['self:effect:rage'] });
+  });
+
+  test("a weapon's own id inside an or is kept for the backlog", () => {
+    const raw = { key: 'CriticalSpecialization', predicate: [{ or: ['item:id:{item|_id}', 'item:trait:thrown'] }] };
+
+    expect(translate([feat(raw)]).envelopes.untranslatedRules.map(({ key }) => key)).toEqual([
+      'CriticalSpecialization',
+    ]);
+  });
+
+  test('a damageDice that is not persistent is kept for the backlog', () => {
+    const raw = {
+      key: 'CriticalSpecialization',
+      alternate: true,
+      damageDice: { category: 'splash', faces: 6, number: 1 },
+    };
+
+    expect(translate([feat(raw)]).envelopes.untranslatedRules.map(({ key }) => key)).toEqual([
+      'CriticalSpecialization',
+    ]);
+  });
+
   test('a predicate that reads a pick by id is kept for the backlog', () => {
     const raw = { key: 'CriticalSpecialization', predicate: ['item:id:{item|flags.system.rulesSelections.weapon}'] };
 

@@ -1,5 +1,6 @@
 import type { RichText } from './rich-text';
 import { BlockKind, InlineKind, RichTextString, TextMark } from './rich-text';
+import type { PersistentDamage } from './weapon';
 import { WeaponGroup } from './weapon';
 
 /**
@@ -98,4 +99,35 @@ export function grievousSpecializationOf(group: WeaponGroup): RichText | undefin
           ],
         },
       ];
+}
+
+/** What an alternate critical specialization adds beside the group's: its own words, and persistent damage to the target. */
+export interface AlternateSpecialization {
+  readonly text?: RichText | undefined;
+  readonly damageDice?: PersistentDamage | undefined;
+}
+
+/**
+ * The effect of an alternate critical specialization (a drake rifle's, Lavasoul's) as a note's text: the words it
+ * carries, then the persistent damage the target takes; undefined when it carries neither.
+ */
+export function alternateSpecializationOf({ text = [], damageDice }: AlternateSpecialization): RichText | undefined {
+  const damage: RichText =
+    damageDice === undefined
+      ? []
+      : [
+          {
+            type: BlockKind.Paragraph,
+            content: [
+              {
+                type: InlineKind.Text,
+                text: RichTextString.parse(
+                  `The target takes ${damageDice.formula} persistent ${damageDice.damageType} damage.`,
+                ),
+              },
+            ],
+          },
+        ];
+  const combined = [...text, ...damage];
+  return combined.length === 0 ? undefined : combined;
 }

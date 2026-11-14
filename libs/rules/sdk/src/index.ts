@@ -474,7 +474,11 @@ export type { CriticalDuration, CriticalSave } from './rule-element-critical-eff
 export { CriticalRangeElement, NaturalRoll } from './rule-element-critical-range';
 export { CriticalWeaknessElement } from './rule-element-critical-weakness';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
-export { criticalSpecializationOf, grievousSpecializationOf } from './critical-specialization';
+export {
+  alternateSpecializationOf,
+  criticalSpecializationOf,
+  grievousSpecializationOf,
+} from './critical-specialization';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
