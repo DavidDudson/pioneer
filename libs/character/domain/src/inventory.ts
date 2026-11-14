@@ -4,10 +4,12 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CoinsSchema } from './coins';
+import { byId, containersOf } from './inventory-containers';
 import { movedOut, withContainer, withName } from './inventory-line-edits';
 import { CarrySchema, CarryState, handsInUse, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
 import { ItemOrigin, playerLimits } from './item-origin';
+import { ItemStateSchema } from './item-state';
 import { KeyItemId } from './key-item-id';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
@@ -34,7 +36,7 @@ export type InventoryItemName = z.infer<typeof InventoryItemName>;
 
 /**
  * An item the character has: the content it is, how many, the item it is stowed in (none when carried loose), the
- * player's name for it, how it is carried, whether it is invested, whether it is broken, and the runes etched onto it.
+ * player's name for it, how it is carried, whether it is invested or broken, its etched runes and their `state`.
  * An invested item stays invested while it is off, but only works while it is worn or held as it is used
  * (`activeState`). A broken item stays broken, through daily preparations too, until the player marks it repaired.
  * A line with no `origin` is the player's; an `import` line is kept as imported, however far it is past the limits.
@@ -51,6 +53,7 @@ export const InventoryItemSchema = z.strictObject({
   invested: z.literal(true).optional(),
   broken: z.literal(true).optional(),
   runes: ItemRunesSchema.optional(),
+  state: ItemStateSchema.optional(),
   origin: z.literal(ItemOrigin.Import).optional(),
   keyItem: KeyItemId.optional(),
 });
@@ -60,21 +63,6 @@ export { CoinAmount, CoinsSchema } from './coins';
 export type { Coins } from './coins';
 
 export const INVENTORY_ITEMS_MAX = CORE_RULE_LIMITS.itemsMax;
-
-/** The item ids that hold `id`, innermost first; stops at a loop, which `InventorySchema` refuses. */
-function containersOf(items: ReadonlyMap<InventoryItemId, InventoryItem>, id: InventoryItemId): InventoryItemId[] {
-  const chain: InventoryItemId[] = [];
-  let current = items.get(id)?.container;
-  while (current !== undefined && !chain.includes(current)) {
-    chain.push(current);
-    current = items.get(current)?.container;
-  }
-  return chain;
-}
-
-function byId(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, InventoryItem> {
-  return new Map(items.map((each) => [each.id, each]));
-}
 
 /**
  * Items with unique ids, each stowed in another item of the list and never inside itself. The player's lines are held

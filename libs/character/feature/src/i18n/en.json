@@ -241,6 +241,13 @@
     "optionTrained": "Already trained in {skills}",
     "skillTrainedTwice": "Trained by {first} and {second}; the second training is lost",
     "trainedSource": "{name}",
+    "release": {
+      "set": "Set {name} free",
+      "setting": "Setting free…",
+      "current": "{name} is fighting on its own: its Strikes use an attack modifier of +{attack}. Each round it ends on a failed DC 6 flat check, and it can't be set free again for 10 minutes",
+      "recall": "Recall {name}",
+      "recalling": "Recalling…"
+    },
     "shape": {
       "shiftTo": "Shape to shift {name} into",
       "shift": "Shift {name}",
