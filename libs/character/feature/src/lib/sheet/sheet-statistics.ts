@@ -24,6 +24,9 @@ const OTHER_SPEEDS: readonly Selector[] = ['speed:fly', 'speed:swim', 'speed:cli
   Selector.parse(selector),
 );
 
+/** The distance of a Step, which shows for everyone: 5 feet, more with a rule that adds to it (a mobile rune). */
+const STEP_DISTANCE = Selector.parse('step-distance');
+
 /** Everything the engine derives for a character, by statistic or instance selector. */
 export type SheetDerivation = ReadonlyMap<Selector, StatisticResult>;
 
@@ -54,7 +57,7 @@ function derive(registry: ContentRegistry, character: Character): SheetDerivatio
  */
 export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
   const results = sheetDerivation(registry, character);
-  return [...SHEET_STATISTICS, ...OTHER_SPEEDS].flatMap((selector): NamedStatistic[] => {
+  return [...SHEET_STATISTICS, STEP_DISTANCE, ...OTHER_SPEEDS].flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);
     if (result === undefined || entry === undefined || (OTHER_SPEEDS.includes(selector) && !hasSpeed(result))) {

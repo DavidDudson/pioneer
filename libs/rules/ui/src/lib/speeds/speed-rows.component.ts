@@ -15,7 +15,7 @@ import {
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { Bird, Footprints, Mountain, Shovel, WavesHorizontal } from 'lucide';
+import { Bird, Footprints, Mountain, Shovel, StepForward, WavesHorizontal } from 'lucide';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -45,10 +45,11 @@ const ICONS: Readonly<Record<Movement, IconGlyph>> = {
   [Movement.Fly]: Bird,
   [Movement.Climb]: Mountain,
   [Movement.Burrow]: Shovel,
+  [Movement.Step]: StepForward,
 };
 
 /**
- * A character's Speeds as rows, one per kind of movement (Walk, Swim, Fly, Climb, Burrow), each an icon, its name and its distance
+ * A character's Speeds as rows, one per kind of movement (Walk, Swim, Fly, Climb, Burrow, Step), each an icon, its name and its distance
  * in feet, the total opening its breakdown on hover. A kind the character lacks reads "None".
  *
  * Read-only and presentational (ADR-0028): the caller passes a row for each kind, or undefined while they load.

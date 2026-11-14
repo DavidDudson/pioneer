@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
-import { FLYER_SPEEDS, WALKER_SPEEDS } from '../testing/speed-fixtures';
+import { FLYER_SPEEDS, STEP_SPEEDS, WALKER_SPEEDS } from '../testing/speed-fixtures';
 import { SpeedRows } from './speed-rows.component';
 
 type SpeedRowsStory = StoryObj<SpeedRows>;
@@ -29,4 +29,9 @@ export const Walker: SpeedRowsStory = {
 /** A character that also flies. */
 export const Flyer: SpeedRowsStory = {
   args: { speeds: FLYER_SPEEDS },
+};
+
+/** A Step of its own, beside the Speeds: 5 feet, more with a rule that adds to it. */
+export const Stepper: SpeedRowsStory = {
+  args: { speeds: STEP_SPEEDS },
 };

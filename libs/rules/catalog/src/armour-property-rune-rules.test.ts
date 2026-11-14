@@ -40,7 +40,6 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:winged-greater',
     'an activation with no frequency, which the content has no place for (armour activations story)',
   ],
-  ['rune:mobile', 'one more 5 feet on a Step each turn: the Step distance is no statistic'],
   ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
@@ -67,6 +66,7 @@ interface BonusRune {
 /** The armour runes that give an item bonus: to a skill, a Speed or every save. */
 const BONUS_RUNES: readonly BonusRune[] = [
   { slug: 'rune:soaring', selector: 'fly-speed', bonus: 10 },
+  { slug: 'rune:mobile', selector: 'step-distance', bonus: 5 },
   { slug: 'rune:mythic-resilient', selector: 'saving-throw', bonus: 4 },
   { slug: 'rune:shadow', selector: 'skill:stealth', bonus: 1 },
   { slug: 'rune:shadow-greater', selector: 'skill:stealth', bonus: 2 },
