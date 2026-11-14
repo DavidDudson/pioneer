@@ -14,12 +14,9 @@
   "list": {
     "title": "Characters",
     "description": "Your Pathfinder heroes.",
-    "newHeading": "New character",
     "nameLabel": "Name",
     "namePlaceholder": "Valeros",
-    "ancestryLabel": "Ancestry",
     "ancestryPlaceholder": "Search ancestries by name",
-    "create": "Create character",
     "seedLabel": "Seed",
     "seedPlaceholder": "Random",
     "seedHint": "Leave empty for a random seed. The same seed, level and packs give the same character.",
@@ -69,7 +66,6 @@
     "emptyHint": "Use Create character to get started.",
     "creating": "Creating",
     "created": "Created",
-    "createFailed": "Could not create the character. Try again.",
     "importMordred": "Import Mordred",
     "importBriarRose": "Import Briar Rose",
     "importSampleFailed": "Could not import the sample character. Try again.",
@@ -1146,6 +1142,26 @@
   },
   "create": {
     "title": "Create",
-    "description": "Name your character and pick an ancestry."
+    "description": "Build a level 1 character one choice at a time. Nothing is saved until the last step here.",
+    "steps": {
+      "details": "Name",
+      "ancestry": "Ancestry",
+      "heritage": "Heritage",
+      "background": "Background",
+      "class": "Class"
+    },
+    "detailsHint": "What is your character called?",
+    "ancestryHint": "Pick an ancestry.",
+    "heritageHint": "Pick a heritage of that ancestry.",
+    "backgroundHint": "Pick a background.",
+    "classHint": "Pick a class.",
+    "subclass": "Subclass",
+    "failed": "The character could not be made. Try again.",
+    "levelOne": {
+      "title": "Level 1 choices",
+      "description": "Place the ability boosts, skills and feats your character gets at level 1.",
+      "hint": "Equipment and spells are chosen on the sheet.",
+      "finish": "Open the sheet"
+    }
   }
 }

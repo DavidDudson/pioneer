@@ -4,42 +4,102 @@
     [description]="'character.create.description' | transloco"
   />
   <fr-page-body>
-    <fr-surface>
-      <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
-        <fr-stack gap="md">
-          <fr-heading variant="subheading" [level]="2">{{ 'character.list.newHeading' | transloco }}</fr-heading>
-          <fr-grid [columns]="2">
-            <fr-text-field
-              [label]="'character.list.nameLabel' | transloco"
+    <fr-stepper [current]="step()" (currentChange)="goTo($event)" (finished)="create()">
+      <fr-step [label]="'character.create.steps.details' | transloco" [summary]="draft().name" [valid]="validName()">
+        <ng-template frStepBody>
+          <fr-stack gap="sm">
+            <fr-text tone="muted">{{ 'character.create.detailsHint' | transloco }}</fr-text>
+            <fr-text-input
+              [ariaLabel]="'character.list.nameLabel' | transloco"
               [placeholder]="'character.list.namePlaceholder' | transloco"
-              [formField]="form.name"
+              [value]="draft().name"
+              (valueChange)="choose('name', $event)"
             />
-            <fr-picker-field
-              [label]="'character.list.ancestryLabel' | transloco"
-              [placeholder]="'character.list.ancestryPlaceholder' | transloco"
-              [rows]="shown()"
-              [columns]="columns()"
-              [rowValue]="rowValue"
-              [rowLabel]="rowLabel"
-              [rowDisabled]="rowDisabled"
-              [loading]="ancestries.loading()"
-              [formField]="form.ancestry"
-              (searched)="query.set($event)"
-              (sorted)="sorting.set($event)"
-            />
-          </fr-grid>
-          <fr-stack direction="horizontal" justify="end">
-            <fr-async-button
-              type="submit"
-              variant="primary"
-              [pendingLabel]="'character.list.creating' | transloco"
-              [successLabel]="'character.list.created' | transloco"
-            >
-              {{ 'character.list.create' | transloco }}
-            </fr-async-button>
           </fr-stack>
-        </fr-stack>
-      </fr-async-form>
-    </fr-surface>
+        </ng-template>
+      </fr-step>
+      <fr-step
+        [label]="'character.create.steps.ancestry' | transloco"
+        [summary]="ancestrySummary()"
+        [valid]="validAncestry()"
+      >
+        <ng-template frStepBody>
+          <fr-stack gap="sm">
+            <fr-text tone="muted">{{ 'character.create.ancestryHint' | transloco }}</fr-text>
+            <pio-option-picker
+              [ariaLabel]="'character.create.steps.ancestry' | transloco"
+              [options]="ancestryOptions()"
+              [placeholder]="'character.list.ancestryPlaceholder' | transloco"
+              [value]="draft().ancestry"
+              (valueChange)="choose('ancestry', $event)"
+            />
+          </fr-stack>
+        </ng-template>
+      </fr-step>
+      <fr-step
+        [label]="'character.create.steps.heritage' | transloco"
+        [summary]="heritageSummary()"
+        [valid]="validHeritage()"
+      >
+        <ng-template frStepBody>
+          <fr-stack gap="sm">
+            <fr-text tone="muted">{{ 'character.create.heritageHint' | transloco }}</fr-text>
+            <pio-option-picker
+              [ariaLabel]="'character.create.steps.heritage' | transloco"
+              [options]="heritageOptions()"
+              [value]="draft().heritage"
+              (valueChange)="choose('heritage', $event)"
+            />
+          </fr-stack>
+        </ng-template>
+      </fr-step>
+      <fr-step
+        [label]="'character.create.steps.background' | transloco"
+        [summary]="backgroundSummary()"
+        [valid]="validBackground()"
+      >
+        <ng-template frStepBody>
+          <fr-stack gap="sm">
+            <fr-text tone="muted">{{ 'character.create.backgroundHint' | transloco }}</fr-text>
+            <pio-option-picker
+              [ariaLabel]="'character.create.steps.background' | transloco"
+              [options]="backgroundOptions()"
+              [value]="draft().background"
+              (valueChange)="choose('background', $event)"
+            />
+          </fr-stack>
+        </ng-template>
+      </fr-step>
+      <fr-step
+        [label]="'character.create.steps.class' | transloco"
+        [summary]="classSummary()"
+        [valid]="validClass() && !pending()"
+      >
+        <ng-template frStepBody>
+          <fr-stack gap="md">
+            <fr-stack gap="sm">
+              <fr-text tone="muted">{{ 'character.create.classHint' | transloco }}</fr-text>
+              <pio-option-picker
+                [ariaLabel]="'character.create.steps.class' | transloco"
+                [options]="classOptions()"
+                [value]="draft().class"
+                (valueChange)="choose('class', $event)"
+              />
+            </fr-stack>
+            @if (subclassOptions().length > 0) {
+              <pio-option-picker
+                [ariaLabel]="'character.create.subclass' | transloco"
+                [options]="subclassOptions()"
+                [value]="draft().subclass"
+                (valueChange)="choose('subclass', $event)"
+              />
+            }
+            @if (failed()) {
+              <fr-text tone="danger" role="alert">{{ 'character.create.failed' | transloco }}</fr-text>
+            }
+          </fr-stack>
+        </ng-template>
+      </fr-step>
+    </fr-stepper>
   </fr-page-body>
 </fr-page>
