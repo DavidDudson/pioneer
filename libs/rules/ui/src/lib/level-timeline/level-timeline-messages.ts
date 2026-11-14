@@ -5,4 +5,5 @@ export const LevelTimelineMessage = {
   Nothing: 'rules.timeline.nothing',
   Search: 'rules.timeline.search',
   Breaks: 'rules.timeline.breaks',
+  Automatic: 'rules.timeline.automatic.heading',
 } as const;

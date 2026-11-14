@@ -8,9 +8,9 @@
       <fr-badge [tone]="BadgeTone.Info">{{ Message.Current | transloco }}</fr-badge>
     }
   </fr-stack>
-  @if (row().lines.length === 0) {
+  @if (empty()) {
     <fr-text tone="muted">{{ Message.Nothing | transloco }}</fr-text>
-  } @else {
+  } @else if (row().lines.length > 0) {
     <fr-list gap="xs">
       @for (line of row().lines; track line.key) {
         <fr-list-item>
@@ -24,4 +24,5 @@
       }
     </fr-list>
   }
+  <pio-level-timeline-automatic [lines]="automatic()" />
 </fr-stack>

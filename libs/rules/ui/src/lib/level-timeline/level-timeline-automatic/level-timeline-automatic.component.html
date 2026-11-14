@@ -1,0 +1,15 @@
+@if (lines().length > 0) {
+  <fr-stack gap="3xs" data-automatic>
+    <fr-text variant="caption" weight="medium" tone="muted">{{ Message.Automatic | transloco }}</fr-text>
+    <fr-list gap="xs">
+      @for (line of lines(); track line.key) {
+        <fr-list-item>
+          <fr-stack gap="3xs">
+            <fr-text>{{ line.text.key | transloco: line.text.params }}</fr-text>
+            <fr-text variant="caption" tone="muted">{{ line.source.key | transloco: line.source.params }}</fr-text>
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}

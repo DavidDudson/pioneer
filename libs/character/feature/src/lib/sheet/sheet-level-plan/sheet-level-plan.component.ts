@@ -92,10 +92,11 @@ export class SheetLevelPlan {
     return this.#state.picks
       .timeline()
       ?.filter((row) => row.level === this.level())
-      .map(({ level, current, lines }) => ({
+      .map(({ level, current, lines, automatic }) => ({
         level,
         current,
         lines,
+        automatic,
         picks: lines.flatMap((line) => picks.get(line.key) ?? []),
       }));
   });

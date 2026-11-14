@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import type { ChoiceLine } from '../choices/choice-line';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
+  AUTOMATIC_TIMELINE,
   BARD_TIMELINE,
   BROKEN_PLAN_TIMELINE,
   FIGHTER_TIMELINE,
@@ -99,6 +100,29 @@ describe(LevelTimeline, () => {
     expect(shown.at(0)?.textContent).not.toContain('Plan breaks here');
     expect(shown.at(1)?.textContent).toContain('Plan breaks here');
     expect(shown.at(1)?.textContent).toContain('prerequisites');
+  });
+
+  it('lists what a level improves by itself under its choices, read-only, with its source', async () => {
+    const host = await render(AUTOMATIC_TIMELINE);
+    const second = host.querySelectorAll('pio-level-timeline-level').item(0);
+    const automatic = second.querySelector('[data-automatic]');
+    expect(automatic?.textContent).toContain('Automatic');
+    expect(automatic?.textContent).toContain('Shield Block');
+    expect(automatic?.textContent).toContain('Reflex becomes expert');
+    expect(automatic?.textContent).toContain('Class (Fighter)');
+    expect(automatic?.querySelector('button, input, fr-select, pio-choice-row')).toBeNull();
+  });
+
+  it('keeps a level’s choices above its automatic improvements', async () => {
+    const host = await render(AUTOMATIC_TIMELINE);
+    expect(host.querySelectorAll('pio-level-timeline-level').item(0).textContent).toContain('Fighter feat');
+  });
+
+  it('does not say a level opens nothing when it improves something by itself', async () => {
+    const host = await render(AUTOMATIC_TIMELINE);
+    const third = host.querySelectorAll('pio-level-timeline-level').item(1);
+    expect(third.textContent).not.toContain('Nothing opens at this level.');
+    expect(third.textContent).toContain('2 extra slots of 2nd rank');
   });
 
   it('shows placeholders while loading', async () => {
