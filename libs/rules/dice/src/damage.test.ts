@@ -254,6 +254,14 @@ describe('applyDamage', () => {
       expect(applyDamage(roll('1d8[fire]', [7]), guarded).taken).toBe(amount(7));
     });
 
+    test('a resistance to environmental damage removes up to its value from an environmental roll only', () => {
+      const sealed = target({ resistances: [adjustment(DamageContext.Environmental, 10)] });
+      expect(applyDamage(roll('2d6[fire]', [6, 6]), sealed, { critical: false, environmental: true }).taken).toBe(
+        amount(2),
+      );
+      expect(applyDamage(roll('2d6[fire]', [6, 6]), sealed).taken).toBe(amount(12));
+    });
+
     test('a resistance to spells removes up to its value from a spell roll only', () => {
       const warded = target({ resistances: [adjustment(DamageContext.Spells, 5)] });
       expect(applyDamage(roll('1d8[fire]', [7]), warded, { critical: false, spell: true }).taken).toBe(amount(2));

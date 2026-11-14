@@ -917,7 +917,8 @@
       "context": {
         "areaDamage": "area damage",
         "splashDamage": "splash damage",
-        "spells": "spells"
+        "spells": "spells",
+        "environmental": "environmental damage"
       },
       "status": {
         "conditional": "Conditional",

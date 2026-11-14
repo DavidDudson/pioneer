@@ -11,4 +11,5 @@ export const DAMAGE_ADJUSTMENT_TARGET_KEYS: Readonly<Record<DamageAdjustmentTarg
   [DamageContext.AreaDamage]: 'play.damageContext.areaDamage',
   [DamageContext.SplashDamage]: 'play.damageContext.splashDamage',
   [DamageContext.Spells]: 'play.damageContext.spells',
+  [DamageContext.Environmental]: 'play.damageContext.environmental',
 };

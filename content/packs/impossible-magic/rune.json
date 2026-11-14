@@ -983,7 +983,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:self-sealing-sealed",
+        "toggleable": true,
+        "display": {
+          "label": "Sealed: resistance 10 to environmental damage, and 1 minute of air"
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["environmental"],
+        "value": 10,
+        "predicate": ["option:self-sealing-sealed"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.48tdInl0iSnUA5JA"
     },

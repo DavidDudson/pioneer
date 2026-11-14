@@ -258,6 +258,7 @@
   "damageContext": {
     "areaDamage": "Area damage",
     "splashDamage": "Splash damage",
-    "spells": "Spells"
+    "spells": "Spells",
+    "environmental": "Environmental damage"
   }
 }
