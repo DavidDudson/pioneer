@@ -9,7 +9,7 @@ const UNMAPPED = 'pf2e-8.6.0 maps no description key to it';
 const MISSING_KEY = 'pf2e-8.6.0 maps it to a description key its lang files lack';
 const NO_DESCRIPTION = 'pf2e-8.6.0 maps it to PF2E.TraitNoDescription';
 
-/** The traits Foundry has no text for, each with why. A trait that gains a description must leave this list. */
+/** The traits Foundry has no text for, each with why. */
 const WITHOUT_DESCRIPTION: ReadonlyMap<string, string> = new Map([
   ['couatl', UNMAPPED],
   ['dragonet', MISSING_KEY],
