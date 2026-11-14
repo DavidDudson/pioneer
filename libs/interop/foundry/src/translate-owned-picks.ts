@@ -95,6 +95,19 @@ function pickedItemStatement(statement: unknown, flags: ReadonlySet<string>): un
   return flag !== undefined && flags.has(flag) ? `item:picked:${kebab(flag)}` : statement;
 }
 
+/** A predicate statement with `item:id:{pick}` as `item:picked:<flag>` at any depth of its `or`, `and` and `not`. */
+function pickedStatement(statement: unknown, flags: ReadonlySet<string>): unknown {
+  if (Array.isArray(statement)) {
+    return statement.map((each: unknown) => pickedStatement(each, flags));
+  }
+  if (isFields(statement)) {
+    return Object.fromEntries(
+      Object.entries(statement).map(([operator, each]) => [operator, pickedStatement(each, flags)]),
+    );
+  }
+  return pickedItemStatement(statement, flags);
+}
+
 /** An `ItemAlteration` aimed at a pick (`itemId`), or whose predicate names it, as `item:picked:<flag>` in its predicate. */
 function alterationOf(raw: Record<string, unknown>, flags: ReadonlySet<string>): Record<string, unknown> {
   const statements: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
@@ -124,6 +137,12 @@ export function withOwnedPicks(raw: unknown, flags: ReadonlySet<string>): unknow
     return {
       ...selected,
       definition: selected['definition'].map((statement: unknown) => pickedItemStatement(statement, flags)),
+    };
+  }
+  if (raw['key'] === RuleElementKey.CriticalSpecialization && Array.isArray(selected['predicate'])) {
+    return {
+      ...selected,
+      predicate: selected['predicate'].map((statement: unknown) => pickedStatement(statement, flags)),
     };
   }
   return raw['key'] === RuleElementKey.ItemAlteration ? alterationOf(selected, flags) : selected;

@@ -6144,19 +6144,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "damageType": "spirit",
@@ -6164,14 +6151,6 @@
             "dieSize": "d6",
             "key": "DamageDice",
             "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}"]
           }
         }
       ]
