@@ -25,7 +25,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { NamedStrike, StrikesShield } from '../strikes/strikes.component';
 import { GLOOM_WALKER, IN_DARKNESS, line, origin, ruleId, statistic, term } from './breakdown-fixtures';
 import { criticalsFrom } from './strike-critical-fixtures';
-import { traitChipsOf } from './trait-chips';
+import { traitChipsOf } from './trait-chip-fixtures';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const STRENGTH = 4;

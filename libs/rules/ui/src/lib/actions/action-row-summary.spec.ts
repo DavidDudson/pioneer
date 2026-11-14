@@ -10,6 +10,7 @@ import { provideEntryPreviews } from '../entry-preview/entry-preview';
 import type { EntryPreviews, PanelLink } from '../entry-preview/entry-preview';
 import { SHIELD_BLOCK_SUMMARY } from '../testing/action-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
+import { ActionResourceKind } from './action-line';
 import type { ActionLine } from './action-line';
 import { ActionRow } from './action-row.component';
 import { ActionWords } from './action-words';
@@ -32,13 +33,13 @@ const STRIDE: ActionLine = {
   reasons: [message('rules.actions.status.unavailable')],
 };
 
-function render(panel: PanelLink | undefined): ComponentFixture<ActionRow> {
+function render(panel: PanelLink | undefined, line: ActionLine = STRIDE): ComponentFixture<ActionRow> {
   const previews: EntryPreviews = { preview: (): undefined => undefined, panel: () => panel };
   TestBed.configureTestingModule({
     providers: [provideRulesUiI18nTesting(), provideRouter([]), provideEntryPreviews(previews)],
   });
   const fixture = TestBed.createComponent(ActionRow);
-  fixture.componentRef.setInput('action', TestBed.inject(ActionWords).shown(STRIDE));
+  fixture.componentRef.setInput('action', TestBed.inject(ActionWords).shown(line));
   fixture.detectChanges();
   return fixture;
 }
@@ -78,6 +79,13 @@ describe('ActionRow summary', () => {
     await focusName(fixture);
     expect(card()?.querySelectorAll('pio-trait-chip')).toHaveLength(STRIDE.traits.length);
     expect(STRIDE.traits.length).toBeGreaterThan(0);
+  });
+
+  it('keeps the resource a plain badge beside the trait chips', async () => {
+    const fixture = render(PANEL, { ...STRIDE, resource: { kind: ActionResourceKind.Quantity, current: 2 } });
+    await focusName(fixture);
+    expect(card()?.querySelectorAll('pio-trait-chip')).toHaveLength(STRIDE.traits.length);
+    expect(card()?.querySelectorAll('fr-tag, pio-trait-chip').length).toBeGreaterThan(STRIDE.traits.length);
   });
 });
 

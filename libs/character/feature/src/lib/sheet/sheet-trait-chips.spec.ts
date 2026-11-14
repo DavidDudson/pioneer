@@ -17,8 +17,8 @@ describe(traitChips, () => {
     expect(traitChips(registry, [COLD_IRON])).toStrictEqual([{ label: 'Cold-iron', trait: COLD_IRON }]);
   });
 
-  it('labels a trait the vocabulary does not name with its slug, still a chip that carries it', () => {
-    expect(traitChips(registry, [UNLISTED])).toStrictEqual([{ label: UNLISTED, trait: UNLISTED }]);
+  it('labels a trait the vocabulary does not name with its slug read as words, still a chip that carries it', () => {
+    expect(traitChips(registry, [UNLISTED])).toStrictEqual([{ label: 'Unlisted', trait: UNLISTED }]);
   });
 
   it('keeps the order of the traits it is given', () => {

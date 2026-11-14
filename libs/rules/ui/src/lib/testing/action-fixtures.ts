@@ -15,7 +15,7 @@ import { ActionResourceKind } from '../actions/action-line';
 import type { ActionLine } from '../actions/action-line';
 import type { ShownAction } from '../actions/action-row.component';
 import { GLOOM_WALKER, IN_DARKNESS, line as modifierLine, statistic, term } from './breakdown-fixtures';
-import { traitChipsOf } from './trait-chips';
+import { traitChipsOf } from './trait-chip-fixtures';
 
 const BASIC = { kind: ActionOriginKind.Basic } as const;
 const SKILL = { kind: ActionOriginKind.Skill } as const;
