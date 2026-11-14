@@ -59,11 +59,30 @@ function baneTraits(choice: RuneChoice): readonly Trait[] {
   return choice === 'fungus-plant' ? [Trait.parse('fungus'), Trait.parse('plant')] : [Trait.parse(choice)];
 }
 
+/** The energies a conducting rune channels (Ancestry Guide): the four, and sonic, as for resonant weapons. */
+const CONDUCTING_ENERGIES: readonly RuneChoice[] = VULNERABILITY_ENERGIES;
+
+/**
+ * Conducting: the weapon gains the resonant trait, deals 1d8 of the chosen energy, and 1d8 persistent damage of it on
+ * a critical hit. The extra damage a weapon that already had resonant gains (1 per die) is not applied.
+ */
+function conductingElements(choice: RuneChoice): readonly object[] {
+  const extra = { key: RuleElementKey.DamageDice, selectors: [ETCHED_DAMAGE], dieSize: DieSize.D8, damageType: choice };
+  return [
+    { key: RuleElementKey.AdjustStrike, property: 'traits', mode: 'add', value: 'resonant', etched: true },
+    { ...extra, diceNumber: 1 },
+    { ...extra, diceNumber: 1, category: 'persistent', critical: true },
+  ];
+}
+
+/** The most elements one chosen rune gives, so each element has its own rule index within its etching. */
+const CHOSEN_ELEMENTS_MAX = 4;
+
 /** A rune whose rules depend on what its crafter chose: what it can be made for, and the rule one choice gives. */
 interface ChosenRune {
   readonly choices: readonly RuneChoice[];
-  /** The element for `choice`, which the rule schema then checks. */
-  readonly element: (choice: RuneChoice) => object;
+  /** The elements for `choice`, which the rule schema then checks. */
+  readonly elements: (choice: RuneChoice) => readonly object[];
   /** Whether an item can have only one such rune for each choice, as energy-resistant runes must resist different types. */
   readonly distinct: boolean;
 }
@@ -71,7 +90,7 @@ interface ChosenRune {
 function resistance(value: DamageAmount): ChosenRune {
   return {
     choices: RUNE_ENERGIES,
-    element: (choice) => ({ key: RuleElementKey.Resistance, type: [choice], value }),
+    elements: (choice) => [{ key: RuleElementKey.Resistance, type: [choice], value }],
     distinct: true,
   };
 }
@@ -79,12 +98,14 @@ function resistance(value: DamageAmount): ChosenRune {
 function vulnerability(value: DamageAmount): ChosenRune {
   return {
     choices: VULNERABILITY_ENERGIES,
-    element: (choice) => ({
-      key: RuleElementKey.CriticalWeakness,
-      selectors: [ETCHED_DAMAGE],
-      type: choice,
-      value,
-    }),
+    elements: (choice) => [
+      {
+        key: RuleElementKey.CriticalWeakness,
+        selectors: [ETCHED_DAMAGE],
+        type: choice,
+        value,
+      },
+    ],
     distinct: false,
   };
 }
@@ -99,13 +120,23 @@ const CHOSEN_RUNES: ReadonlyMap<Slug, ChosenRune> = new Map([
     Slug.parse('bane'),
     {
       choices: BANE_CREATURE_TYPES,
-      element: (choice) => ({
-        key: RuleElementKey.DamageDice,
-        selectors: [ETCHED_DAMAGE],
-        diceNumber: 1,
-        dieSize: DieSize.D6,
-        predicate: [{ or: baneTraits(choice).map((trait) => `target:trait:${trait}`) }],
-      }),
+      elements: (choice) => [
+        {
+          key: RuleElementKey.DamageDice,
+          selectors: [ETCHED_DAMAGE],
+          diceNumber: 1,
+          dieSize: DieSize.D6,
+          predicate: [{ or: baneTraits(choice).map((trait) => `target:trait:${trait}`) }],
+        },
+      ],
+      distinct: false,
+    },
+  ],
+  [
+    Slug.parse('conducting'),
+    {
+      choices: CONDUCTING_ENERGIES,
+      elements: conductingElements,
       distinct: false,
     },
   ],
@@ -125,17 +156,19 @@ export function chosenRuneRules(inventory: Inventory, content: ItemContent, look
       if (entry === undefined || made === undefined || choice === undefined || !made.choices.includes(choice)) {
         return [];
       }
-      const element = RuleElement.safeParse(made.element(choice));
-      return element.success
-        ? [
-            RuleInPlay.parse({
-              element: element.data,
-              origin: Origin.parse({ hops: [inventoryHop(active)], entry: entry.id, sources: entry.sources }),
-              rule: RuleIndex.parse(etching),
-              itemLevel: content.get(active.item.item)?.level,
-            }),
-          ]
-        : [];
+      return made.elements(choice).flatMap((raw, position) => {
+        const element = RuleElement.safeParse(raw);
+        return element.success
+          ? [
+              RuleInPlay.parse({
+                element: element.data,
+                origin: Origin.parse({ hops: [inventoryHop(active)], entry: entry.id, sources: entry.sources }),
+                rule: RuleIndex.parse(etching * CHOSEN_ELEMENTS_MAX + position),
+                itemLevel: content.get(active.item.item)?.level,
+              }),
+            ]
+          : [];
+      });
     }),
   );
 }
