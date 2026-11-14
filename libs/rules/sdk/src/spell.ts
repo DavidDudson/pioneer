@@ -2,6 +2,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { removesConditions } from './condition';
 import { Slug } from './content-id';
 import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
@@ -229,6 +230,7 @@ function checkDismiss(context: SpellCheck): void {
 export const SpellData = z
   .strictObject({
     ...castingFields,
+    ...removesConditions,
     traditions: z.array(MagicTraditionSchema).max(TRADITIONS_MAX).readonly().check(uniqueItems),
     damage: SpellDamageParts,
     heightening: Heightening.optional(),
