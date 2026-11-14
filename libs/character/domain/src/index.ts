@@ -261,7 +261,23 @@ export {
   skillReads,
 } from './slot-offer';
 export { ownedItems } from './owned-items';
-export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
+export {
+  CharacterContract,
+  CharacterListQuery,
+  CharacterPageQuery,
+  CharacterSort,
+  CreateCharacterBody,
+} from './character-contract';
+export {
+  CHARACTER_PAGE_SIZE,
+  CharacterCount,
+  CharacterFilter,
+  CharacterPage,
+  CharacterSearch,
+  FIRST_PAGE,
+  PageNumber,
+  PageSize,
+} from './character-page';
 export { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
 export { CharacterSheetBundle } from './character-sheet-bundle';
 export { GenerateCharacterBody, GeneratedCharacter, GenerateLock } from './generate-character-contract';

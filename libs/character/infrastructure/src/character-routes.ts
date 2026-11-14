@@ -10,7 +10,7 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
  */
 export function characterRoutes(service: CharacterService, auth: RequestAuthenticator): ContractRouter['app'] {
   return new ContractRouter('character-routes')
-    .handleSignedIn(CharacterContract.list, auth, async ({ actor, query }) => [...(await service.list(actor, query))])
+    .handleSignedIn(CharacterContract.list, auth, async ({ actor, query }) => service.page(actor, query))
     .handleSignedIn(CharacterContract.archived, auth, async ({ actor, query }) => [
       ...(await service.listArchived(actor, query)),
     ])

@@ -18,6 +18,8 @@ import {
 } from '@pioneer/character/domain';
 import type {
   CharacterListQuery,
+  CharacterPage,
+  CharacterPageQuery,
   CharacterPatch,
   CharacterSheet,
   ClearedPick,
@@ -98,6 +100,11 @@ export class CharacterService {
   /** The table limits one of the actor's characters is held to. Someone else's is a 404, the same as a missing one. */
   public async ruleLimits(actor: UserId, id: CharacterId): Promise<RuleLimits> {
     return this.#limitsOf(await this.get(actor, id));
+  }
+
+  /** A page of the actor's own characters, narrowed by the query's filters; nobody else's are listed. */
+  public async page(actor: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
+    return this.#repository.pageForOwner(actor, query);
   }
 
   /** The actor's own characters; nobody else's are listed. */
