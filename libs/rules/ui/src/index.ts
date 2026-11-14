@@ -159,6 +159,7 @@ export { ActionCostCell } from './lib/picker-cells/action-cost-cell/action-cost-
 export { AttributeBoosts } from './lib/picker-cells/attribute-boosts/attribute-boosts.component';
 export { BulkCell } from './lib/picker-cells/bulk-cell/bulk-cell.component';
 export { type Chip, ChipList, RARITY_TONES } from './lib/picker-cells/chip-list/chip-list.component';
+export { TraitChip } from './lib/trait-chip/trait-chip.component';
 export { CountMeter } from './lib/picker-cells/count-meter/count-meter.component';
 export { EntryNameCell } from './lib/picker-cells/entry-name-cell/entry-name-cell.component';
 export { LevelCell } from './lib/picker-cells/level-cell/level-cell.component';
