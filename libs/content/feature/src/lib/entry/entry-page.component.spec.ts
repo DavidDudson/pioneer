@@ -67,7 +67,7 @@ describe('EntryPage', () => {
     });
     const card = present(root.querySelector('pio-entry-preview')).textContent;
     expect(card).toContain('Level 1');
-    expect(card).toContain('fighter');
+    expect(card).toContain('Fighter');
   });
 
   it('shows a creature as its stat block', async () => {

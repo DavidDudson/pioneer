@@ -1,8 +1,11 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { EffectStatusKind, spellAtRank } from '@pioneer/rules/engine';
 import { SpellRank } from '@pioneer/rules/sdk';
 
 import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
+import { HELD_TRAIT_PREVIEWS } from '../trait-chip/trait-chip.fixtures';
+import { provideEntryPreviews } from './entry-preview';
 import { EntryPreviewView } from './entry-preview.component';
 import {
   CLUMSY_ENDINGS_PREVIEW,
@@ -85,4 +88,9 @@ export const ConditionFormula: EntryPreviewStory = {
 /** A condition whose values each do something lists every stage, with the one held marked. */
 export const ConditionStages: EntryPreviewStory = {
   args: { preview: DYING_STAGES_PREVIEW },
+};
+
+/** Each trait is a chip that opens its own card; one with no entry on the page stays a plain chip. */
+export const TraitCards: EntryPreviewStory = {
+  decorators: [applicationConfig({ providers: [provideEntryPreviews(HELD_TRAIT_PREVIEWS)] })],
 };

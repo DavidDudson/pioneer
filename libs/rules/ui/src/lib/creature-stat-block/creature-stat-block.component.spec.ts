@@ -1,8 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { describe, expect, it } from 'vitest';
+import { Trait, traitId } from '@pioneer/rules/sdk';
+import { describe, expect, it, vi } from 'vitest';
 
+import { provideEntryPreviews } from '../entry-preview/entry-preview';
+import type { EntryPreview } from '../entry-preview/entry-preview';
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
+import { traitCard } from '../trait-chip/trait-chip.fixtures';
 import { StatBlockLayout } from './creature-stat-block';
 import type { StatBlockCreature } from './creature-stat-block';
 import { CreatureStatBlockView } from './creature-stat-block.component';
@@ -83,6 +87,51 @@ describe(CreatureStatBlockView, () => {
       expect(text).not.toContain('Goblin Scuttle');
       expect(text).not.toContain('Primal Innate spells');
       expect(text).not.toContain('Recall Knowledge');
+    });
+  });
+
+  describe('traits', () => {
+    const GOBLIN = Trait.parse('goblin');
+    const previews = provideEntryPreviews({
+      preview: (id): EntryPreview | undefined =>
+        id === traitId(GOBLIN) ? traitCard('Goblin', 'Goblins are a short, scrappy people.') : undefined,
+    });
+
+    function renderWithCards(): ComponentFixture<CreatureStatBlockView> {
+      TestBed.configureTestingModule({ providers: [provideRichTextTesting(), previews] });
+      const fixture = TestBed.createComponent(CreatureStatBlockView);
+      fixture.componentRef.setInput('creature', GOBLIN_WARCHANTER);
+      fixture.detectChanges();
+      return fixture;
+    }
+
+    it('shows each trait as a chip after the size, which is no trait', () => {
+      const root = renderWithCards().nativeElement as HTMLElement;
+      const traits = [...root.querySelectorAll('pio-trait-chip')].map((each) => each.textContent.trim());
+
+      expect(traits.slice(0, GOBLIN_WARCHANTER.traits.length)).toStrictEqual(['Goblin', 'Humanoid']);
+      expect(root.textContent).toContain('Small');
+    });
+
+    it('opens the trait card from the chip', async () => {
+      const fixture = renderWithCards();
+      const root = fixture.nativeElement as HTMLElement;
+      const stop = [...root.querySelectorAll<HTMLElement>('[tabindex="0"]')].find(
+        (each) => each.textContent.trim() === 'Goblin',
+      );
+      stop?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+      await vi.waitFor(() => {
+        fixture.detectChanges();
+        expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('scrappy people');
+      });
+    });
+
+    it('shows the traits of an ability as chips', () => {
+      const root = renderWithCards().nativeElement as HTMLElement;
+      const ability = GOBLIN_WARCHANTER.data.abilities?.find((each) => each.traits.length > 0);
+
+      expect(ability).toBeDefined();
+      expect(root.querySelectorAll('pio-stat-abilities pio-trait-chip').length).toBeGreaterThan(0);
     });
   });
 });

@@ -18,6 +18,7 @@ import type {
   Selector,
   SourceRef,
   SpellRank,
+  Trait,
 } from '@pioneer/rules/sdk';
 
 import type { StatBlockCreature } from '../creature-stat-block/creature-stat-block';
@@ -82,8 +83,8 @@ export interface EntryPreview {
   readonly name: ContentText;
   /** An item's or feat's level; a creature's is a character-level brand. */
   readonly level: ContentLevel | Level | undefined;
-  /** Trait names as content gives them. */
-  readonly traits: readonly string[];
+  /** The slugs of the entry's traits; each chip names itself from the trait's own entry. */
+  readonly traits: readonly Trait[];
   /** The start of the entry's description, clamped by the preview. */
   readonly summary: RichText;
   readonly sources: readonly SourceRef[];

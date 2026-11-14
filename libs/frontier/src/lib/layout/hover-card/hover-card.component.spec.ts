@@ -46,6 +46,25 @@ class TapHost {}
 })
 class FocusableHost {}
 
+@Component({
+  selector: 'fr-hover-card-nested-host',
+  imports: [HoverCard, HoverCardContent],
+  // oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+  template: `
+    <fr-hover-card>
+      <span id="trigger" tabindex="0">Fireball</span>
+      <ng-template frHoverCardContent>
+        Burst of flame
+        <fr-hover-card>
+          <span id="inner" tabindex="0">Fire</span>
+          <ng-template frHoverCardContent>Deals fire damage</ng-template>
+        </fr-hover-card>
+      </ng-template>
+    </fr-hover-card>
+  `,
+})
+class NestedHost {}
+
 function render(): ComponentFixture<Host> {
   TestBed.configureTestingModule({});
   const fixture = TestBed.createComponent(Host);
@@ -194,3 +213,86 @@ function pointerTarget(fixture: ComponentFixture<Host>): HTMLElement {
   }
   return element;
 }
+
+const cards = (): readonly HTMLElement[] => [...document.querySelectorAll<HTMLElement>('[role="tooltip"]')];
+
+async function openBoth(): Promise<ComponentFixture<NestedHost>> {
+  TestBed.configureTestingModule({});
+  const fixture = TestBed.createComponent(NestedHost);
+  fixture.detectChanges();
+  trigger(fixture).dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+  await vi.waitFor(() => {
+    fixture.detectChanges();
+    expect(cards()).toHaveLength(1);
+  });
+  document.querySelector<HTMLElement>('#inner')?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+  await vi.waitFor(() => {
+    fixture.detectChanges();
+    expect(cards()).toHaveLength(2);
+  });
+  return fixture;
+}
+
+describe('a hover card nested in another card', () => {
+  it('opens the inner card beside the outer one', async () => {
+    await openBoth();
+
+    expect(cards().map((each) => each.textContent.trim())).toStrictEqual([
+      expect.stringContaining('Burst of flame'),
+      'Deals fire damage',
+    ]);
+  });
+
+  it('keeps the outer card open while the pointer is in the inner one', async () => {
+    const fixture = await openBoth();
+    // The inner card is not inside the outer one in the DOM, so moving onto it leaves the outer card.
+    cards()[0]?.dispatchEvent(new MouseEvent('mouseleave'));
+    cards()[1]?.dispatchEvent(new MouseEvent('mouseenter'));
+    await new Promise<void>((resolve) => {
+      setTimeout(resolve, 400);
+    });
+    fixture.detectChanges();
+
+    expect(cards()).toHaveLength(2);
+  });
+
+  it('closes the inner card first, then the outer one, once the pointer leaves both', async () => {
+    const fixture = await openBoth();
+    cards()[0]?.dispatchEvent(new MouseEvent('mouseleave'));
+    cards()[1]?.dispatchEvent(new MouseEvent('mouseenter'));
+    cards()[1]?.dispatchEvent(new MouseEvent('mouseleave'));
+    document.querySelector<HTMLElement>('#inner')?.dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(cards()).toHaveLength(1);
+    });
+    expect(cards()[0]?.textContent).toContain('Burst of flame');
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(cards()).toHaveLength(0);
+    });
+  });
+
+  it('closes only the top card on Escape, leaving the outer one open', async () => {
+    const fixture = await openBoth();
+    document
+      .querySelector<HTMLElement>('#inner')
+      ?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(cards()).toHaveLength(1);
+    });
+
+    expect(cards()[0]?.textContent).toContain('Burst of flame');
+  });
+
+  it('closes only the inner card on Escape while focus is on the outer trigger', async () => {
+    const fixture = await openBoth();
+    const outerTrigger = (fixture.nativeElement as HTMLElement).querySelector('span');
+    outerTrigger?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(cards().map((each) => each.textContent.trim())).toStrictEqual([expect.stringContaining('Burst of flame')]);
+    });
+  });
+});

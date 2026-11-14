@@ -1,4 +1,4 @@
-import { contentId, ContentText, CreatureData, EntrySlug, Level, PackId, RichText } from '@pioneer/rules/sdk';
+import { contentId, ContentText, CreatureData, EntrySlug, Level, PackId, RichText, Trait } from '@pioneer/rules/sdk';
 
 import type { StatBlockCreature } from './creature-stat-block';
 
@@ -11,7 +11,7 @@ const TORCH_ITEM = contentId(PLAYER_CORE, EntrySlug.parse('equipment:torch'));
 export const GOBLIN_WARCHANTER: StatBlockCreature = {
   name: ContentText.parse('Goblin Warchanter'),
   level: Level.parse(1),
-  traits: ['goblin', 'humanoid'],
+  traits: [Trait.parse('goblin'), Trait.parse('humanoid')],
   data: CreatureData.parse({
     role: 'monster',
     size: 'small',
@@ -89,7 +89,7 @@ export const GOBLIN_WARCHANTER: StatBlockCreature = {
 export const GIANT_RAT: StatBlockCreature = {
   name: ContentText.parse('Giant Rat'),
   level: Level.parse(-1),
-  traits: ['animal'],
+  traits: [Trait.parse('animal')],
   data: CreatureData.parse({
     role: 'monster',
     size: 'small',

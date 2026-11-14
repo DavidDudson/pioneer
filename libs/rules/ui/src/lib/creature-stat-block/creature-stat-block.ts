@@ -1,4 +1,4 @@
-import type { ActionCost, ContentText, CreatureData, Level, RefNode, RichText } from '@pioneer/rules/sdk';
+import type { ActionCost, ContentText, CreatureData, Level, RefNode, RichText, Trait } from '@pioneer/rules/sdk';
 
 /** How much of the stat block shows: the preview keeps to what a glance needs, the full block is the printed one. */
 export const StatBlockLayout = { Preview: 'preview', Full: 'full' } as const;
@@ -8,8 +8,8 @@ export type StatBlockLayout = (typeof StatBlockLayout)[keyof typeof StatBlockLay
 export interface StatBlockCreature {
   readonly name: ContentText;
   readonly level: Level;
-  /** Trait names as content gives them. */
-  readonly traits: readonly string[];
+  /** The slugs of the creature's traits. */
+  readonly traits: readonly Trait[];
   readonly data: CreatureData;
 }
 
@@ -38,7 +38,7 @@ export interface StatPassage {
 export interface AbilityLine {
   readonly name: ContentText;
   readonly cost: ActionCost | undefined;
-  readonly traits: readonly string[];
+  readonly traits: readonly Trait[];
   readonly lines: readonly StatLine[];
   readonly passages: readonly StatPassage[];
   readonly description: RichText;
@@ -72,7 +72,9 @@ export interface ItemLine {
 /** Everything the template shows, worded; absent parts are empty and not shown. */
 export interface StatBlockView {
   readonly level: string;
-  readonly traits: readonly string[];
+  /** The creature's size, worded: it heads the traits but is no trait. */
+  readonly size: string;
+  readonly traits: readonly Trait[];
   /** Perception and its senses: the one line a preview keeps of the creature's senses. */
   readonly senses: readonly StatLine[];
   /** Languages, skills and attributes. */

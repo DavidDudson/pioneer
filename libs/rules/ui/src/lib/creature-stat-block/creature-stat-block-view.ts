@@ -35,7 +35,8 @@ export function statBlockView(creature: StatBlockCreature, words: StatBlockWords
   );
   return {
     level,
-    traits: [words.translate(SIZE_MESSAGES[data.size]), ...creature.traits],
+    size: words.translate(SIZE_MESSAGES[data.size]),
+    traits: creature.traits,
     senses: perception(creature, words),
     details: details(creature, words),
     defences: [...defences(creature, words), speeds(creature, words)],

@@ -9,7 +9,7 @@
           }}</fr-text>
         }
         @for (trait of ability.traits; track trait) {
-          <fr-badge>{{ trait }}</fr-badge>
+          <pio-trait-chip [trait]="trait" />
         }
       </fr-stack>
       <pio-stat-lines [lines]="ability.lines" />

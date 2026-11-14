@@ -10,6 +10,7 @@ import {
   RichText,
   slugName,
   SourceRef,
+  Trait,
 } from '@pioneer/rules/sdk';
 import type { FacetCounts, FilterState } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -81,7 +82,7 @@ export const BROWSER_LIST: ContentBrowserList = {
 export const SHIELD_BLOCK_CARD: EntryPreview = {
   name: ContentText.parse('Shield Block'),
   level: undefined,
-  traits: ['fighter', 'general'],
+  traits: [Trait.parse('fighter'), Trait.parse('general')],
   summary: RichText.parse([
     { type: 'paragraph', content: [{ type: 'text', text: 'You snap your shield in place to ward off a blow.' }] },
   ]),

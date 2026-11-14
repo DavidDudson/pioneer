@@ -1,7 +1,10 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { HeadingLevel } from '@pioneer/frontier';
 import { expect, within } from 'storybook/test';
 
+import { provideEntryPreviews } from '../entry-preview/entry-preview';
+import { HELD_TRAIT_PREVIEWS } from '../trait-chip/trait-chip.fixtures';
 import { StatBlockLayout } from './creature-stat-block';
 import { CreatureStatBlockView } from './creature-stat-block.component';
 import { GIANT_RAT, GOBLIN_WARCHANTER } from './creature-stat-block.fixtures';
@@ -42,4 +45,9 @@ export const Preview: CreatureStatBlockStory = {
 /** A creature with only the core numbers: nothing beyond them shows. */
 export const CoreNumbersOnly: CreatureStatBlockStory = {
   args: { creature: GIANT_RAT },
+};
+
+/** The traits in the header and on abilities are chips that open the trait's card; the size is no trait. */
+export const TraitCards: CreatureStatBlockStory = {
+  decorators: [applicationConfig({ providers: [provideEntryPreviews(HELD_TRAIT_PREVIEWS)] })],
 };

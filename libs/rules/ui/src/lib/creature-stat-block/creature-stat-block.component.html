@@ -3,8 +3,9 @@
     <fr-heading [level]="headingLevel()">{{ creature().name }}</fr-heading>
     <fr-text element="p" variant="caption" tone="muted">{{ view().level }}</fr-text>
     <fr-stack gap="2xs" direction="horizontal" wrap>
+      <fr-badge>{{ view().size }}</fr-badge>
       @for (trait of view().traits; track trait) {
-        <fr-badge>{{ trait }}</fr-badge>
+        <pio-trait-chip [trait]="trait" />
       }
     </fr-stack>
   </fr-stack>

@@ -11,7 +11,7 @@
   @if (preview().traits.length > 0) {
     <fr-stack gap="2xs" direction="horizontal" wrap>
       @for (trait of preview().traits; track trait) {
-        <fr-badge>{{ trait }}</fr-badge>
+        <pio-trait-chip [trait]="trait" />
       }
     </fr-stack>
   }
