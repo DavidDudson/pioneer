@@ -2746,6 +2746,12 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -2828,6 +2834,12 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -2910,6 +2922,12 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -2992,6 +3010,12 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ],
       "category": "other",
       "activation": {
         "cost": "one"
@@ -3067,6 +3091,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.XfcSVHwMA60JxUXJ"
     },
+    "supersedes": ["71be6272-7543-51c8-aeef-a87cc69d830b"],
     "data": {
       "price": {
         "coins": {
@@ -3074,6 +3099,12 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -3082,8 +3113,7 @@
         "type": "held",
         "hands": "one"
       }
-    },
-    "supersedes": ["71be6272-7543-51c8-aeef-a87cc69d830b"]
+    }
   },
   {
     "id": "d351e86b-fc02-58fb-b752-9eac79cbae6e",
@@ -19038,6 +19068,18 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 6
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 6
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -19128,6 +19170,18 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 2
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -19218,6 +19272,18 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 9
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 9
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -19308,6 +19374,18 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 1
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 1
+        }
+      ],
       "category": "other",
       "activation": {
         "cost": "one"
@@ -19391,6 +19469,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.tslVf3qtQE7V1YvG"
     },
+    "supersedes": ["a0f24779-802b-52fb-a215-3240825de781"],
     "data": {
       "price": {
         "coins": {
@@ -19398,6 +19477,18 @@
         }
       },
       "bulk": "light",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 4
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 4
+        }
+      ],
       "category": "elixir",
       "activation": {
         "cost": "one"
@@ -19406,8 +19497,7 @@
         "type": "held",
         "hands": "one"
       }
-    },
-    "supersedes": ["a0f24779-802b-52fb-a215-3240825de781"]
+    }
   },
   {
     "id": "9ffca067-3fe5-5786-afed-05bebed701ed",

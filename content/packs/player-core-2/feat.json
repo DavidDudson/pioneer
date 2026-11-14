@@ -37011,6 +37011,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.OY1Ewg0dbCp52Hl5"
     },
+    "supersedes": ["6cdd33b9-8e31-5d05-b759-23032867c20c"],
     "data": {
       "category": "class",
       "prerequisites": [
@@ -37026,9 +37027,14 @@
       ],
       "action": {
         "cost": "one"
-      }
-    },
-    "supersedes": ["6cdd33b9-8e31-5d05-b759-23032867c20c"]
+      },
+      "removesConditions": [
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "lower"
+        }
+      ]
+    }
   },
   {
     "id": "7bc8baae-ff56-56dd-8537-dc81ab7cc0f1",
@@ -37893,7 +37899,25 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.AhrF360kZt0QJIub"
     },
     "data": {
-      "category": "class"
+      "category": "class",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract"
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract"
+        },
+        {
+          "condition": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+          "effect": "counteract"
+        },
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract"
+        }
+      ]
     }
   },
   {
@@ -58211,13 +58235,23 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.auv1lss6LxM0q3gz"
     },
+    "supersedes": ["78951a98-d34b-5a92-bcc3-fb3dd23ee03e"],
     "data": {
       "category": "class",
       "action": {
         "cost": "one"
-      }
-    },
-    "supersedes": ["78951a98-d34b-5a92-bcc3-fb3dd23ee03e"]
+      },
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "lower"
+        },
+        {
+          "condition": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+          "effect": "lower"
+        }
+      ]
+    }
   },
   {
     "id": "b9b27f88-b33d-5338-923f-727d6dbb2c36",
@@ -64837,6 +64871,12 @@
             }
           ]
         }
+      ],
+      "removesConditions": [
+        {
+          "condition": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f",
+          "effect": "counteract"
+        }
       ]
     }
   },
@@ -69704,6 +69744,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rfnEcjxIFqwlJwJT"
     },
+    "supersedes": ["e31fe6d3-fa92-5edc-a742-a7994253a635"],
     "data": {
       "category": "skill",
       "prerequisites": [
@@ -69731,9 +69772,22 @@
           }
         ]
       },
-      "archetype": "baf7c850-c756-5b18-9981-926bd4746899"
-    },
-    "supersedes": ["e31fe6d3-fa92-5edc-a742-a7994253a635"]
+      "archetype": "baf7c850-c756-5b18-9981-926bd4746899",
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract"
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract"
+        },
+        {
+          "condition": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+          "effect": "counteract"
+        }
+      ]
+    }
   },
   {
     "id": "854eb6e1-d2e8-5077-9d0e-0782e3da67e0",
