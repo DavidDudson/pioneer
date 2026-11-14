@@ -45,7 +45,14 @@ export { ConsumableActivation, ConsumableCategory, ConsumableData } from './cons
 export { Charges, STAFF_CANTRIP, StaffRank, staffCharges, StaffSpells } from './staff';
 export type { StaffRankSpells } from './staff';
 export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';
-export { bulkInTenths, COPPER_PER_COIN, CopperValue, priceInCopper } from './equipment-facet-values';
+export {
+  BulkTenths,
+  bulkInTenths,
+  COPPER_PER_COIN,
+  CopperValue,
+  priceInCopper,
+  TENTHS_PER_BULK,
+} from './equipment-facet-values';
 export {
   Bulk,
   BulkCount,
