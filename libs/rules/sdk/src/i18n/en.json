@@ -1214,6 +1214,19 @@
     },
     "choices": {
       "none": "No choices yet.",
+      "source": {
+        "class": "Class",
+        "classNamed": "Class ({name})",
+        "ancestry": "Ancestry",
+        "ancestryNamed": "Ancestry ({name})",
+        "background": "Background",
+        "backgroundNamed": "Background ({name})",
+        "spellcasting": "Spellcasting",
+        "spellcastingNamed": "Spellcasting ({name})",
+        "archetype": "Archetype",
+        "archetypeNamed": "Archetype ({name})",
+        "general": "General progression"
+      },
       "keep": "Keep {choice} when re-rolling",
       "keepShort": "Keep",
       "legacy": "Legacy",
