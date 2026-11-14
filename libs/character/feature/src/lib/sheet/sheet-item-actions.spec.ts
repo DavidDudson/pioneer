@@ -6,16 +6,25 @@ import {
   CarryState,
   Character,
   EMPTY_INVENTORY,
+  etchRune,
   Hands,
   InventoryItemId,
   ItemQuantity,
   ResourcesSpentSchema,
 } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
-import { CharacterBuilder, ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
+import {
+  CharacterBuilder,
+  fundamental,
+  ITEM_FIXTURE_FILES,
+  ItemFixture,
+  itemFixtureId,
+  RuneFixture,
+  runeFixtureId,
+} from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ActionStatus } from '@pioneer/rules/engine';
-import { FrequencyPeriod, Slug } from '@pioneer/rules/sdk';
+import { FrequencyPeriod, FundamentalRune, RuneType, Slug } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionResourceKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
@@ -31,6 +40,7 @@ import { statisticInputsOf } from './sheet-inputs';
 import { holdsStaff, sheetItemActions } from './sheet-item-actions';
 
 const POTION = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
+const SWORD = InventoryItemId.parse('44444444-4444-4444-8444-444444444444');
 const BOOTS = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
 const STAFF = InventoryItemId.parse('33333333-3333-4333-8333-333333333333');
 const SKIES = Slug.parse('take-to-the-skies');
@@ -41,12 +51,14 @@ interface Carried {
   readonly fixture: ItemFixture;
   readonly quantity?: number;
   readonly carry?: CarryState;
+  /** Property runes etched onto it, over a +1 potency rune. */
+  readonly runes?: readonly RuneFixture[];
 }
 
 function carrying(...items: readonly Carried[]): Character {
   const built = new CharacterBuilder().build();
   let inventory: Inventory = EMPTY_INVENTORY;
-  for (const { id, fixture, quantity = 1, carry = CarryState.Worn } of items) {
+  for (const { id, fixture, quantity = 1, carry = CarryState.Worn, runes = [] } of items) {
     const added = addItem(inventory, {
       id,
       item: itemFixtureId(fixture),
@@ -54,6 +66,12 @@ function carrying(...items: readonly Carried[]): Character {
       container: undefined,
     });
     inventory = carryItem(added, id, carry === CarryState.Held ? { state: carry, hands: HANDS_ONE } : { state: carry });
+    if (runes.length > 0) {
+      inventory = etchRune(inventory, id, fundamental(FundamentalRune.Potency, 1));
+    }
+    for (const rune of runes) {
+      inventory = etchRune(inventory, id, { type: RuneType.Property, rune: runeFixtureId(rune) });
+    }
   }
   return new Character({
     document: { ...built.document, inventory },
@@ -105,6 +123,34 @@ describe(sheetItemActions, () => {
       );
 
       expect(lines).toStrictEqual([]);
+    });
+  });
+
+  describe('a rune with a daily activation', () => {
+    it('is a row on its weapon with the uses it has left, spent under the weapon and the activation', async () => {
+      const registry = await registryWithItems();
+      const sword = { id: SWORD, fixture: ItemFixture.Longsword, carry: CarryState.Held, runes: [RuneFixture.Holy] };
+      const spent = { uses: { [activationUseKey(SWORD, Slug.parse('holy-healing'))]: 1 } };
+
+      expect(listed(registry, carrying(sword))).toMatchObject([
+        {
+          name: 'Longsword: Holy Healing',
+          status: ActionStatus.Available,
+          resource: { kind: ActionResourceKind.Uses, current: 1, max: 1 },
+          payment: { use: activationUseKey(SWORD, Slug.parse('holy-healing')) },
+        },
+      ]);
+      expect(listed(registry, carrying(sword), spent)).toMatchObject([
+        { status: ActionStatus.Unavailable, resource: { current: 0, max: 1 }, recharge: FrequencyPeriod.Day },
+      ]);
+    });
+
+    it('is not listed for a weapon with no such rune', async () => {
+      const registry = await registryWithItems();
+
+      expect(
+        listed(registry, carrying({ id: SWORD, fixture: ItemFixture.Longsword, carry: CarryState.Held })),
+      ).toStrictEqual([]);
     });
   });
 
