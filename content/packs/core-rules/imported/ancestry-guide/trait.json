@@ -13,7 +13,17 @@
         "book": "ancestry-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A synthetic humanoid ancestry created by artificial means. Most common in Numeria."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -43,7 +53,17 @@
         "book": "ancestry-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An umbrella term for planar scions descended from beings from the Elemental Planes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -73,7 +93,17 @@
         "book": "ancestry-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can channel energy damage. You gain the Conduct Energy free action while wielding a resonant weapon."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]

@@ -30,7 +30,9 @@ else in the entry changes, so descriptions, hand-fixed rules, `dismiss` flags an
 committed vocabulary entries of that kind (`imported/<pack>/trait.json`) from the pinned release, and replaces the
 pack's `missing-description` backlog items with the ones the import still has. Filled descriptions are never
 overwritten. Run it per pack after the importer learns to read a kind's descriptions; a second run changes nothing.
-A pack whose book no longer selects entries (`ancestry-guide`) cannot be reached. Review that `git diff` shows
+A pack whose book selects no entries (a pre-remaster book without a `legacy` flag in `books.json`, such as `ancestry-guide`)
+cannot be reached: selection skips every entry as `legacy`. Fill its descriptions by hand from the pin's
+`PF2E.TraitDescription<Bactrian>` lang keys, or flag the book. Review that `git diff` shows
 descriptions and `missing-description` items only.
 
 ## Check outcomes
