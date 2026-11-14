@@ -5,10 +5,7 @@ import * as z from 'zod';
 
 const PACKS = `${import.meta.dir}/../../../../content/packs`;
 
-/**
- * Feat traits with no `trait:<slug>` entry, each with its reason. The list is exact: a trait that gains an entry must
- * leave it.
- */
+/** Feat traits with no trait entry, each with why. */
 const UNRESOLVED: ReadonlyMap<string, string> = new Map([
   ['open', 'legacy trait outside the vocabulary, tracked by the legacy-traits content story'],
   ['stamina', "in Foundry's feat trait list, used only by legacy Gamemastery Guide feats, and not yet imported"],
