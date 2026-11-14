@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { ActionData, Skills, Uses } from './action';
 import { AttributeBoost } from './attribute';
+import { removesConditions } from './condition';
 import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { Predicate } from './predicate';
@@ -72,6 +73,7 @@ export const FeatData = z.strictObject({
   skills: Skills.optional(),
   /** The `archetype` entry it belongs to, for a feat with the `archetype` trait (Fighter Dedication). */
   archetype: ContentId.optional(),
+  ...removesConditions,
 });
 export type FeatData = z.infer<typeof FeatData>;
 
@@ -92,6 +94,7 @@ export const ClassFeatureData = z.strictObject({
    * Ruffian, so a ruffian rogue may key Dexterity or Strength.
    */
   keyAttributeOptions: AttributeBoost.optional(),
+  ...removesConditions,
 });
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;
 

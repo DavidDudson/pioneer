@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { removesConditions } from './condition';
 import { ContentId } from './content-id';
 import { FormEffects } from './form-effects';
 import { RulesMessage } from './messages';
@@ -164,6 +165,7 @@ export const ActionData = z
     /** The wording shown; `triggerEvent` is what the engine matches. */
     trigger: RichText.optional(),
     ...triggerFields,
+    ...removesConditions,
     frequency: Frequency.optional(),
     /** The effect using it applies to the user (Raise a Shield's Shield Raised). */
     selfEffect: ContentId.optional(),
