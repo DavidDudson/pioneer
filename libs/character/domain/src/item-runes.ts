@@ -11,7 +11,7 @@ import {
   RuneGrade,
   RuneType,
 } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry, RuleElement } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, EntrySlug, RuleElement } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
@@ -30,6 +30,15 @@ export type RuneContent = ReadonlyMap<ContentId, RuneEntry>;
 
 function isRuneEntry(entry: ContentEntry): entry is RuneEntry {
   return entry.kind === ContentKind.Rune;
+}
+
+/** Whether the item has the property rune `slug` etched on it, working or not. */
+export function hasEtchedRune(
+  line: InventoryItem,
+  base: ItemEntry | undefined,
+  { runes, slug }: { readonly runes: RuneContent; readonly slug: EntrySlug },
+): boolean {
+  return itemRunes(line, base).property.some(({ rune }) => runes.get(rune)?.slug === slug);
 }
 
 /** The runes in `registry`'s packs. A later pack's entry of the same id wins, as in the registry. */

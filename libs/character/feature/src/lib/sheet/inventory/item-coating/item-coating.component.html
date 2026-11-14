@@ -1,0 +1,40 @@
+@if (coated()) {
+  <fr-stack gap="xs">
+    <fr-text variant="caption" tone="subtle">{{
+      'character.sheet.coating.heading' | transloco: { name: name(), bulk: bulk() }
+    }}</fr-text>
+    @for (each of stored(); track each.index) {
+      <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+        <fr-text>{{ each.name }}</fr-text>
+        <fr-async-button
+          size="sm"
+          [action]="retrieve(each)"
+          [pendingLabel]="'character.sheet.coating.retrieving' | transloco"
+          [describeError]="describeError"
+        >
+          {{ 'character.sheet.coating.retrieve' | transloco: { item: each.name, name: name() } }}
+        </fr-async-button>
+      </fr-stack>
+    } @empty {
+      <fr-text>{{ 'character.sheet.coating.empty' | transloco }}</fr-text>
+    }
+    @if (options().length > 0) {
+      <fr-stack direction="horizontal" gap="sm" align="end" wrap>
+        <pio-option-picker
+          [ariaLabel]="'character.sheet.coating.choose' | transloco: { name: name() }"
+          [placeholder]="'character.sheet.coating.choose' | transloco: { name: name() }"
+          [options]="options()"
+          [(value)]="chosen"
+        />
+        <fr-async-button
+          size="sm"
+          [action]="stow"
+          [pendingLabel]="'character.sheet.coating.stowing' | transloco"
+          [describeError]="describeError"
+        >
+          {{ 'character.sheet.coating.stow' | transloco: { name: name() } }}
+        </fr-async-button>
+      </fr-stack>
+    }
+  </fr-stack>
+}

@@ -20,6 +20,8 @@ export const RuneFixture = {
   Conducting: 'conducting',
   /** A melee weapon rune whose weapon can be set free to fight on its own (the slug is the real rune's). */
   Animated: 'animated',
+  /** A weapon rune with an extradimensional space for poisons and oils (the slug is the real rune's). */
+  Coating: 'coating',
   EnergyVulnerability: 'energy-vulnerability',
   EnergyVulnerabilityGreater: 'energy-vulnerability-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
@@ -59,6 +61,9 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Keen]: weaponRune('melee'),
   [RuneFixture.Bane]: weaponRune(),
   [RuneFixture.Conducting]: weaponRune(),
+  [RuneFixture.Coating]: {
+    data: { ...weaponRune().data, activations: [{ slug: 'coating', name: 'Coating', cost: 'one' }] },
+  },
   [RuneFixture.Animated]: {
     data: { ...weaponRune('melee').data, activations: [{ slug: 'set-free', name: 'Set Free', cost: 'two' }] },
   },
