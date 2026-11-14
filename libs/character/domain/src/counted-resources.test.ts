@@ -168,7 +168,7 @@ describe('activation maxima', () => {
   const SKIES = Slug.parse('take-to-the-skies');
   const FIRST_WINGED = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
   const SECOND_WINGED = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
-  const activations = (id: ContentId): readonly Activation[] =>
+  const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
     id === WINGED
       ? [
           {
@@ -217,7 +217,7 @@ describe('overcharge', () => {
   const CHARGED = ContentId.parse('00000000-0000-4000-8000-000000000005');
   const SPARK = Slug.parse('spark');
   const STAFF = InventoryItemId.parse('dddddddd-dddd-4ddd-8ddd-dddddddddddd');
-  const activations = (id: ContentId): readonly Activation[] =>
+  const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
     id === CHARGED
       ? [
           {

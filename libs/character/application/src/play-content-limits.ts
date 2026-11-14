@@ -4,7 +4,7 @@ import {
   characterFocus,
   characterGrants,
   characterSpellcasting,
-  itemActivations,
+  itemActivationsOf,
   itemContent,
   itemWands,
   resourceMaxima,
@@ -40,7 +40,7 @@ export async function countedOf(source: CharacterContentSource, character: Chara
   const grants = characterGrants(character.document, await slotsOf(source, character, registry));
   return characterCounted(grants, abilityFrequencies(registry), {
     items: character.document.inventory.items,
-    activations: itemActivations(registry),
+    activations: itemActivationsOf(registry),
     wands: itemWands(registry),
   });
 }

@@ -221,11 +221,12 @@ export function useMaxima(
  */
 export function activationMaxima(
   items: readonly InventoryItem[],
-  activationsOf: (id: ContentId) => readonly Activation[],
+  activationsOf: (item: InventoryItem) => readonly Activation[],
 ): ReadonlyMap<UseCountKey, CountedMaximum> {
   return new Map(
-    items.flatMap(({ id, item, quantity }) =>
-      activationsOf(item).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
+    items.flatMap((line) =>
+      activationsOf(line).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
+        const { id, quantity } = line;
         const terms = frequencyTerms(frequency);
         const daily: [UseCountKey, CountedMaximum] = [
           activationUseKey(id, slug),

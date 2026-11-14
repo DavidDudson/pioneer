@@ -109,8 +109,8 @@ export {
   type ResourcesSpent,
   ResourcesSpentSchema,
 } from './resources';
-export { abilityFrequencies, characterCounted, itemActivations } from './ability-frequency';
-export type { CarriedActivations } from './ability-frequency';
+export { abilityFrequencies, characterCounted, itemActivations, itemActivationsOf } from './ability-frequency';
+export type { ActivationsOf, CarriedActivations } from './ability-frequency';
 export {
   abilityUseKey,
   activationMaxima,
