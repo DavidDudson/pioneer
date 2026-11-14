@@ -5,9 +5,13 @@ import { ModifierType } from '@pioneer/rules/sdk';
 export const BreakdownMessage = {
   /** "Base 13": the value the base formula's terms and `Change`s give, before modifiers. */
   Base: 'rules.breakdown.base',
-  /** "gives 3": what one term of the base formula adds. */
+  /** "= 3": what one term of the base formula adds. */
   TermValue: 'rules.breakdown.termValue',
   Rounding: 'rules.breakdown.rounding',
+  /** "Armor Class Proficiency": a `@prof` reference, worded from the statistic it reads. */
+  ReferenceProficiencyBonus: 'rules.breakdown.reference.proficiencyBonus',
+  /** "Armor Class Proficiency Rank": a `@rank` reference, worded from the statistic it reads. */
+  ReferenceProficiencyRank: 'rules.breakdown.reference.proficiencyRank',
   /** A `@prof` term whose bonus a variant rule sets. */
   TermVariant: 'rules.breakdown.termVariant',
   Modifiers: 'rules.breakdown.modifiers',

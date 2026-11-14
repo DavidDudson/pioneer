@@ -3,6 +3,8 @@ export { AttributesView, type OpenBoostLine } from './lib/attributes/attributes.
 export { ATTRIBUTE_MESSAGES } from './lib/attributes/attributes-messages';
 export { BreakdownView } from './lib/breakdown/breakdown.component';
 export { MODIFIER_TYPE_MESSAGES } from './lib/breakdown/breakdown-messages';
+export { STATISTIC_NAMES } from './lib/breakdown/reference-names';
+export type { StatisticNamer } from './lib/breakdown/reference-names';
 export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
 export { NO_ORIGIN_NAMES, type OriginNames } from './lib/origin-chain/origin-names';
