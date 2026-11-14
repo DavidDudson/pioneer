@@ -3031,7 +3031,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A drake rifle does not add critical specialization effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.FU9tZ3neEPM8szay"
     },
@@ -3221,7 +3238,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A drake rifle does not add critical specialization effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.5TOdQaW1XEjDhTP0"
     },
@@ -3419,7 +3453,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A drake rifle does not add critical specialization effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.h1G2xCiMrHd7uFko"
     },
@@ -3609,7 +3660,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A drake rifle does not add critical specialization effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Gfu13B6b9eDdHCtV"
     },
@@ -3809,7 +3877,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A drake rifle does not add critical specialization effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ywUMtG1viqbnDFYT"
     },
@@ -10814,7 +10899,33 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "etched": true,
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile. The target is Immobilized and must spend an Interact action to attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "skill:athletics",
+                "dc": 10
+              },
+              {
+                "type": "text",
+                "text": " check to pull the missile free; it can't move from its space until it succeeds. The creature doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort (such as by being large enough that the missile would not be an impediment.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.3qn56dTO5TYJHjbF"
     },

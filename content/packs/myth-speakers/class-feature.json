@@ -80,6 +80,22 @@
       {
         "key": "CriticalSpecialization",
         "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed at a Strike, the taste of honey fills your mouth as you plunder part of your foe's vitality for yourself, gaining temporary Hit Points equal to half the creature's level that last for 1 minute."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -906,6 +922,33 @@
       },
       {
         "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "alternate": true,
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you critically succeed at a Strike, you pull your target closer to death from your stolen connection. The target must attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:will",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " saving against your class DC. On a failure, they become Enfeebled 1 for 1 minute. This has the curse trait."
+              }
+            ]
+          }
+        ],
         "predicate": ["option:epithet-critical-specialization"]
       }
     ],
