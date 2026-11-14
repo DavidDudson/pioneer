@@ -160,8 +160,9 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
         statistic([term('0', 0)], [`item ${SCALE_MAIL_SPEED_PENALTY} inactive (scale-mail)`]),
       ]),
     ),
-    // Reach and the dying limit are plain numbers, there for a Change to move.
+    // Reach, the Step distance and the dying limit are plain numbers, there for a Change to move.
     reach: statistic([term('5', 5)]),
+    'step-distance': statistic([term('5', 5)]),
     'dying-max': statistic([term('4', 4)]),
     'class-dc': statistic([ten, attribute('str', '@attr.key'), prof('@prof.class-dc', Trained)]),
     // Melee with Strength; the javelin has a range increment, so it attacks with Dexterity.
@@ -226,6 +227,7 @@ describe('Level 1 Fighter (golden)', () => {
       'speed:climb': 0,
       'speed:burrow': 0,
       reach: 5,
+      'step-distance': 5,
       'dying-max': 4,
       'class-dc': 17,
       'strike:longsword': 9,

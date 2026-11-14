@@ -113,7 +113,7 @@ const ATTRIBUTE_SELECTORS: readonly string[] = ['str', 'dex', 'con', 'int', 'wis
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
 export const SPEEDS = ['speed:land', 'speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'];
 /** Statistics that are a plain number from a base of their own, which a `Change` moves (reach, the dying limit). */
-export const COUNTS = ['reach', 'dying-max'];
+export const COUNTS = ['reach', 'dying-max', 'step-distance'];
 export const SELECTORS = [...PROFICIENCY_SELECTORS, ...ATTRIBUTE_SELECTORS, 'hp:max', ...SPEEDS, ...COUNTS];
 /** The statistics derived once per weapon or spellcasting entry, by family selector. */
 export const PER_SOURCE_SELECTORS = ['strike', 'strike-damage', 'spell-attack', 'spell-dc'];

@@ -1460,6 +1460,29 @@
     }
   },
   {
+    "id": "430b749a-1a47-5d72-b47a-f9c964b20df4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:step-distance",
+    "name": "Step",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "step-distance",
+      "domains": ["step-distance"],
+      "base": "5",
+      "kind": "value"
+    }
+  },
+  {
     "id": "29d3f45e-d34e-5f11-9fc1-d7cf0b383dee",
     "pack": "core-rules",
     "kind": "statistic",
