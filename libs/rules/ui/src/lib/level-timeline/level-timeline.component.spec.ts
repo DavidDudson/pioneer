@@ -1,7 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
+import type { ChoiceLine } from '../choices/choice-line';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
   BARD_TIMELINE,
@@ -28,11 +30,30 @@ function levels(host: HTMLElement): string[][] {
   );
 }
 
+/** Every line of `rows` read as coming from `source`. */
+function withSource(rows: readonly LevelTimelineRow[], source: ChoiceLine['source']): LevelTimelineRow[] {
+  return rows.map((row) => ({ ...row, lines: row.lines.map((line) => ({ ...line, source })) }));
+}
+
 describe(LevelTimeline, () => {
   it('lists each level with what it opens and what is picked', async () => {
     const shown = levels(await render(FIGHTER_TIMELINE));
     expect(shown.at(0)).toStrictEqual(['Level 1', 'Fighter: Fighter feat', 'Power Attack', 'Chosen']);
     expect(shown.at(3)).toStrictEqual(['Level 4', 'Fighter: Fighter feat', 'Lunge', 'Planned for level 4']);
+  });
+
+  it('says where each choice comes from, with the entry that gives it', async () => {
+    const host = await render(
+      withSource(FIGHTER_TIMELINE, message('rules.choices.source.classNamed', { name: 'Fighter' })),
+    );
+    const captions = [...host.querySelectorAll('pio-choice-row fr-text')].map((part) => part.textContent.trim());
+    expect(captions).toContain('Class (Fighter)');
+  });
+
+  it('names general progression without an entry', async () => {
+    const host = await render(withSource(FIGHTER_TIMELINE, message('rules.choices.source.general')));
+    const captions = [...host.querySelectorAll('pio-choice-row fr-text')].map((part) => part.textContent.trim());
+    expect(captions).toContain('General progression');
   });
 
   it('marks the current level in text and says when a slot is not chosen', async () => {

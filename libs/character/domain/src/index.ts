@@ -203,6 +203,7 @@ export { needsAccess, type SpellContent, spellContent, type SpellOption } from '
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
 export { levelTimeline, type TimelineRow } from './level-timeline';
+export { type ChoiceSource, choiceSourceOf, ChoiceSourceKind } from './choice-source';
 export { characterDeity, SheetDeity } from './character-deity';
 export { deityContent } from './deity-content';
 export { favoredWeapons } from './favored-weapons';
