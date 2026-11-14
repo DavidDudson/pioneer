@@ -17,6 +17,22 @@ export function assertLocalOrigin(publicOrigin: string | undefined): void {
   }
 }
 
+/** Quick tunnels (`just expose`) get a random subdomain of this domain. */
+const TUNNEL_HOST_SUFFIX = '.trycloudflare.com';
+
+/**
+ * The `just expose` variant of {@link assertLocalOrigin}: dev sign-in is reachable from the internet, so the origin
+ * must be the https quick-tunnel URL the recipe just opened. Anything else still looks like a real deployment.
+ */
+export function assertTunnelOrigin(publicOrigin: string | undefined): void {
+  const origin = publicOrigin === undefined ? undefined : new URL(publicOrigin);
+  if (origin?.protocol !== 'https:' || !origin.hostname.endsWith(TUNNEL_HOST_SUFFIX)) {
+    throw new Error(
+      `Refusing to expose dev sign-in: PUBLIC_ORIGIN must be https on ${TUNNEL_HOST_SUFFIX}, got ${publicOrigin ?? 'nothing'}`,
+    );
+  }
+}
+
 /**
  * True when a browser says the request came from another site. The dev user ids are public, so without this any
  * page could navigate here and swap the developer's session (login CSRF). Fetch metadata is set by the browser and

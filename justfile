@@ -24,6 +24,28 @@ dev: db-up
     echo $$ > .data/dev.pid
     exec bunx nx serve web --port="$WEB_PORT"
 
+# `just dev` behind a public Cloudflare quick tunnel (random https://*.trycloudflare.com URL). DEV SIGN-IN IS OPEN TO
+# ANYONE WITH THE URL: share it only with people you trust, and stop it with ctrl-c or `just down`.
+expose: db-up
+    #!/usr/bin/env bash
+    set -euo pipefail
+    echo $$ > .data/dev.pid
+    log=.data/tunnel.log
+    : > "$log"
+    cloudflared tunnel --no-autoupdate --url "http://localhost:$WEB_PORT" >"$log" 2>&1 &
+    tunnel=$!
+    trap 'kill "$tunnel" 2>/dev/null || true' EXIT
+    url=
+    for _ in $(seq 1 30); do
+      url=$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' "$log" | grep -v '^https://api\.' | head -n1 || true)
+      [ -n "$url" ] && break
+      kill -0 "$tunnel" 2>/dev/null || { cat "$log" >&2; exit 1; }
+      sleep 1
+    done
+    [ -n "$url" ] || { echo "no tunnel URL after 30s, see $log" >&2; exit 1; }
+    echo "pioneer is public at $url (dev sign-in open to anyone with it)"
+    PUBLIC_ORIGIN="$url" DEV_EXPOSE=1 bunx nx serve web --port="$WEB_PORT" --allowed-hosts=.trycloudflare.com
+
 # Stop the dev servers (from any terminal) and Postgres
 down: && db-down
     #!/usr/bin/env bash
