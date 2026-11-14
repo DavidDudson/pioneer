@@ -5,6 +5,7 @@ import { SpellRank } from '@pioneer/rules/sdk';
 import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
 import { EntryPreviewView } from './entry-preview.component';
 import {
+  CLUMSY_ENDINGS_ONLY_PREVIEW,
   CLUMSY_ENDINGS_PREVIEW,
   CLUMSY_FORMULA_PREVIEW,
   CLUMSY_PREVIEW,
@@ -72,9 +73,19 @@ export const SpellRanks: EntryPreviewStory = {
   },
 };
 
-/** A condition the character has, with how it ends: by itself, by a check at its value, by an action, and by what the character has. */
+/** A condition the character has, with how it ends: by itself, by a check at its value, by an action, and by others. */
 export const ConditionEndings: EntryPreviewStory = {
+  args: { preview: CLUMSY_ENDINGS_ONLY_PREVIEW },
+};
+
+/** A condition the character has, with what it has to ease it: a spell, a consumable it has run out of, a counteract. */
+export const ConditionEaseOptions: EntryPreviewStory = {
   args: { preview: CLUMSY_ENDINGS_PREVIEW },
+};
+
+/** The same condition when the character has nothing that eases it: no section at all. */
+export const ConditionWithoutEaseOptions: EntryPreviewStory = {
+  args: { preview: CLUMSY_ENDINGS_ONLY_PREVIEW },
 };
 
 /** A condition whose effect scales with its value says the rule once. */

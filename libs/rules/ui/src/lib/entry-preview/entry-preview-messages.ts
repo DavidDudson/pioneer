@@ -33,8 +33,20 @@ export const EntryPreviewMessage = {
   EndingAgainst: 'rules.entryPreview.endingAgainst',
   /** Leads the action that ends a condition. */
   EndingAction: 'rules.entryPreview.endingAction',
-  /** Leads what the character has that eases a condition. */
-  EndingHeld: 'rules.entryPreview.endingHeld',
+  /** The heading over what the character has that ends or eases the condition. */
+  EaseOptions: 'rules.entryPreview.easeOptions',
+  /** "Lowers it by 2": what an option does to the condition. */
+  EaseLower: 'rules.entryPreview.easeLower',
+  /** "Removes it": what an option does to the condition. */
+  EaseRemove: 'rules.entryPreview.easeRemove',
+  /** "Counteracts it": what an option does where it states no rank. */
+  EaseCounteract: 'rules.entryPreview.easeCounteract',
+  /** "Counteracts it at 3rd rank": what an option does where it states a rank. */
+  EaseCounteractRanked: 'rules.entryPreview.easeCounteractRanked',
+  /** "2 left": how many casts, uses or items remain. */
+  EaseLeft: 'rules.entryPreview.easeLeft',
+  /** Marks an option the character cannot use now. */
+  EaseUnavailable: 'rules.entryPreview.easeUnavailable',
 } as const;
 
 /** What each kind of ending is called over its text. */

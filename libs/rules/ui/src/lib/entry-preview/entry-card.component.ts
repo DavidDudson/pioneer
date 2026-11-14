@@ -5,6 +5,7 @@ import type { RichText } from '@pioneer/rules/sdk';
 
 import { RichTextView } from '../rich-text/rich-text.component';
 import { SourceLineView } from '../source-line/source-line.component';
+import { EntryEaseOptionsView } from './entry-ease-options.component';
 import { EntryEffectsView } from './entry-effects.component';
 import { EntryEndingsView } from './entry-endings.component';
 import type { EntryPreview } from './entry-preview';
@@ -18,6 +19,7 @@ import { EntryValuesView } from './entry-values.component';
   imports: [
     Badge,
     EntryEffectsView,
+    EntryEaseOptionsView,
     EntryEndingsView,
     EntryRanksView,
     EntryValuesView,

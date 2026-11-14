@@ -16,18 +16,6 @@
           <pio-content-preview [entry]="action.id">{{ action.name }}</pio-content-preview></fr-text
         >
       }
-      @if (ending.held.length > 0) {
-        <fr-text variant="caption" tone="muted">{{ Message.EndingHeld | transloco }}</fr-text>
-        <fr-list gap="3xs">
-          @for (source of ending.held; track source.id) {
-            <fr-list-item
-              ><fr-text variant="caption"
-                ><pio-content-preview [entry]="source.id">{{ source.name }}</pio-content-preview></fr-text
-              ></fr-list-item
-            >
-          }
-        </fr-list>
-      }
     </fr-stack>
   }
 </fr-stack>

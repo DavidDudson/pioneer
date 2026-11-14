@@ -1,0 +1,25 @@
+<fr-stack gap="xs">
+  <fr-text weight="medium">{{ Message.EaseOptions | transloco }}</fr-text>
+  <fr-list gap="2xs">
+    @for (row of rows(); track row.option.source.id + row.effect) {
+      <fr-list-item>
+        <fr-stack gap="3xs">
+          <fr-stack gap="2xs" direction="horizontal" align="center">
+            <fr-text [tone]="row.option.available ? 'default' : 'muted'"
+              ><pio-content-preview [entry]="row.option.source.id">{{
+                row.option.source.name
+              }}</pio-content-preview></fr-text
+            >
+            @if (row.left !== undefined) {
+              <fr-badge>{{ row.left }}</fr-badge>
+            }
+            @if (!row.option.available) {
+              <fr-badge>{{ Message.EaseUnavailable | transloco }}</fr-badge>
+            }
+          </fr-stack>
+          <fr-text variant="caption" tone="muted">{{ row.effect }}</fr-text>
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+</fr-stack>

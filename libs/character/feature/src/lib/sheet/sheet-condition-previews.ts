@@ -7,6 +7,7 @@ import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
 import { heldConditionEndings } from './sheet-condition-endings';
+import { conditionEaseOptions } from './sheet-condition-options';
 import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
@@ -36,6 +37,7 @@ function heldConditionPreview(
     return undefined;
   }
   const value = valueOf(active);
+  const easeOptions = conditionEaseOptions(registry, character, id);
   const endings = heldConditionEndings(registry, character, { endings: condition.data.recovery, value });
   return {
     ...preview,
@@ -46,12 +48,13 @@ function heldConditionPreview(
     }),
     ...(condition.data.values === undefined ? {} : { values: condition.data.values }),
     ...(endings.length === 0 ? {} : { endings }),
+    ...(easeOptions.length === 0 ? {} : { easeOptions }),
   };
 }
 
 /**
  * What a condition previews as for anyone who lacks it: its entry and the ways it ends, each with its rule text, the DC of
- * its check at the condition's base and the action that does it; no entry is held, so none is named as easing it. None for an entry that
+ * its check at the condition's base and the action that does it; the reader holds nothing, so no option is offered. None for an entry that
  * isn't a condition, or a registry that doesn't hold it; a condition with no endings previews as its entry alone.
  */
 export function genericConditionPreview(
