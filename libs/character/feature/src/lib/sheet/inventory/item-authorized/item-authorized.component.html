@@ -1,0 +1,35 @@
+@if (authorized()) {
+  <fr-stack gap="xs">
+    <fr-grid [columns]="2">
+      <fr-inline-field [label]="'character.sheet.authorized.ownerOf' | transloco: { name: name() }" [edit]="owner">
+        <fr-text-input
+          frInlineEditor
+          [ariaLabel]="'character.sheet.authorized.ownerOf' | transloco: { name: name() }"
+          [placeholder]="'character.sheet.authorized.ownerPlaceholder' | transloco"
+          [value]="owner.draft()"
+          (valueChange)="owner.change($event)"
+          (committed)="owner.flushSoon()"
+          (cancelled)="owner.cancel()"
+        />
+      </fr-inline-field>
+      @if (named()) {
+        <fr-inline-field [label]="'character.sheet.authorized.othersOf' | transloco: { name: name() }" [edit]="others">
+          <fr-text-input
+            frInlineEditor
+            [ariaLabel]="'character.sheet.authorized.othersOf' | transloco: { name: name() }"
+            [placeholder]="'character.sheet.authorized.othersPlaceholder' | transloco"
+            [value]="others.draft()"
+            (valueChange)="others.change($event)"
+            (committed)="others.flushSoon()"
+            (cancelled)="others.cancel()"
+          />
+        </fr-inline-field>
+      }
+    </fr-grid>
+    @if (harm(); as harm) {
+      <fr-text>{{
+        'character.sheet.authorized.warning' | transloco: { name: name(), piercing: harm.piercing, bleed: harm.bleed }
+      }}</fr-text>
+    }
+  </fr-stack>
+}
