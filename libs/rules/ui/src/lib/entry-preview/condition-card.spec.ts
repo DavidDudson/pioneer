@@ -42,10 +42,10 @@ describe(conditionCard, () => {
     expect(card.endings?.map(({ kind }) => kind)).toStrictEqual(['automatic']);
   });
 
-  it('names no entry as held, as the reader holds none', () => {
+  it('offers no way to ease it, as the reader holds nothing', () => {
     const card = conditionCard(entryNamed(ContentKind.Condition, 'dazed'), CARD, () => undefined);
 
-    expect(card.endings?.every(({ held }) => held.length === 0)).toBe(true);
+    expect(card.easeOptions).toBeUndefined();
   });
 
   it('carries what each value of a valued condition means', () => {
@@ -73,8 +73,8 @@ describe(atValue, () => {
     ...CARD,
     valued: true,
     endings: [
-      { kind: 'check', text: TEXT, dc: 10, dcByValue: true, against: [], held: [] },
-      { kind: 'check', text: TEXT, dc: 15, against: [], held: [] },
+      { kind: 'check', text: TEXT, dc: 10, dcByValue: true, against: [] },
+      { kind: 'check', text: TEXT, dc: 15, against: [] },
     ],
   };
 

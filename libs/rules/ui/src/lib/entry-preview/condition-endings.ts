@@ -52,19 +52,16 @@ function rolledAt(
 
 /**
  * The endings of a condition as a reader meets them: each ending's rule text, its check's DC at the value held, what
- * the reader rolls for the check, the action that does it, and which of the entries the content names as easing it the
- * reader `held`. An entry `sourceOf` can't name is left out, as nothing can be said of it.
+ * the reader rolls for the check and the action that does it. An entry `sourceOf` can't name is left out, as nothing
+ * can be said of it.
  */
 export function conditionEndings(
   sourceOf: EndingSourceOf,
-  held: ReadonlySet<ContentId>,
   { endings, value, rolls = new Map() }: HeldCondition,
 ): readonly PreviewEnding[] {
   return endings.map((ending): PreviewEnding => {
     const dc = checkDc(ending, value);
     const action = ending.kind === 'action' && ending.action !== undefined ? sourceOf(ending.action) : undefined;
-    const sources =
-      ending.kind === 'others' ? ending.by.filter((id) => held.has(id)).flatMap((id) => sourceOf(id) ?? []) : [];
     return {
       kind: ending.kind,
       text: ending.text,
@@ -72,7 +69,6 @@ export function conditionEndings(
       ...(dc !== undefined && dcFollowsValue(ending) ? { dcByValue: true as const } : {}),
       against: rolledAt(rolls, checkAgainst(ending)),
       ...(action === undefined ? {} : { action }),
-      held: sources,
     };
   });
 }

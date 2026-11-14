@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { Badge, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
 import { RichTextView } from '../rich-text/rich-text.component';
@@ -26,7 +26,7 @@ interface EndingRow {
  */
 @Component({
   selector: 'pio-entry-endings',
-  imports: [Badge, ContentPreview, List, ListItem, RichTextView, Stack, Text, TranslocoPipe],
+  imports: [Badge, ContentPreview, RichTextView, Stack, Text, TranslocoPipe],
   templateUrl: './entry-endings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[hidden]': 'none()' },

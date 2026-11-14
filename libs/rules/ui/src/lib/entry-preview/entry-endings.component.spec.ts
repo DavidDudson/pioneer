@@ -46,17 +46,4 @@ describe(EntryEndingsView, () => {
   it('names the action that ends it', () => {
     expect(textOf(render(ENDINGS))).toContain('Steady');
   });
-
-  it('names what the character has that eases it', () => {
-    const text = textOf(render(ENDINGS));
-
-    expect(text).toContain('You have:');
-    expect(text).toContain('Treat Condition');
-  });
-
-  it('shows no list of held entries for an ending the character has nothing for', () => {
-    const text = textOf(render(ENDINGS.slice(0, 1)));
-
-    expect(text).not.toContain('You have:');
-  });
 });
