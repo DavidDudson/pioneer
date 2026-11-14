@@ -65,7 +65,7 @@ function nameOf(known: KnownReference, words: ReferenceWords): string | undefine
 }
 
 /** The name of the reference at `path`, or undefined when the catalogue has no such path or nothing names it. */
-export function referenceName(path: string, words: ReferenceWords): string | undefined {
+function referenceName(path: string, words: ReferenceWords): string | undefined {
   const parsed = ReferencePath.safeParse(path);
   const known = parsed.success ? knownReference(parsed.data) : undefined;
   return known === undefined ? undefined : nameOf(known, words);
