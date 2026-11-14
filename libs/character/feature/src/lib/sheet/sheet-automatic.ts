@@ -1,6 +1,7 @@
 import { AutomaticKind, automaticTimeline } from '@pioneer/character/domain';
 import type { AutomaticChange, Character, SlotContent } from '@pioneer/character/domain';
 import { Proficiency, SlotRank } from '@pioneer/rules/sdk';
+import type { Level } from '@pioneer/rules/sdk';
 import type { AutomaticLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -66,9 +67,15 @@ function lineOf(change: AutomaticChange): AutomaticText {
   }
 }
 
-/** The automatic improvements of each level, 1 to 20, as the timeline lists them under its choices (#1683). */
-export function sheetAutomatic(character: Character, content: SlotContent): readonly (readonly AutomaticLine[])[] {
-  return automaticTimeline(character.document, content).map(({ changes }) =>
-    changes.map((change) => ({ ...lineOf(change), source: sourceMessageOf(change.source) })),
+/** The automatic improvements of each level, 1 to 20, as the timeline lists them under its choices. */
+export function sheetAutomatic(
+  character: Character,
+  content: SlotContent,
+): ReadonlyMap<Level, readonly AutomaticLine[]> {
+  return new Map(
+    automaticTimeline(character.document, content).map(({ level, changes }) => [
+      level,
+      changes.map((change) => ({ ...lineOf(change), source: sourceMessageOf(change.source) })),
+    ]),
   );
 }

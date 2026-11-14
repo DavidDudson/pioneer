@@ -187,7 +187,7 @@ export const BROKEN_PLAN_TIMELINE: readonly LevelTimelineRow[] = [
   },
 ];
 
-/** A 5th-level fighter's 2nd level: a feat to choose, and below it what the level improves by itself (#1683). */
+/** A 5th-level fighter's 2nd level: a feat to choose, and below it what the level improves by itself. */
 export const AUTOMATIC_TIMELINE: readonly LevelTimelineRow[] = [
   {
     level: SECOND,

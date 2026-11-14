@@ -5,7 +5,7 @@ import { List, ListItem, Stack, Text } from '@pioneer/frontier';
 import { LevelTimelineMessage } from '../level-timeline-messages';
 import type { AutomaticLine } from '../level-timeline-row';
 
-/** What a level improves by itself (#1683): read-only lines under the level's choices, each with its source. */
+/** What a level improves by itself: read-only lines under the level's choices, each with its source. */
 @Component({
   selector: 'pio-level-timeline-automatic',
   imports: [List, ListItem, Stack, Text, TranslocoPipe],

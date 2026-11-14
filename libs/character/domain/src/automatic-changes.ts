@@ -15,7 +15,7 @@ import { resolveSlotsAt, slotContextOf } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 import { characterSpellcasting } from './spellcasting-build';
 
-/** What a level changes without asking: a rank rises, a class feature arrives, cantrips heighten, slots grow (#1683). */
+/** What a level changes without asking: a rank rises, a class feature arrives, cantrips heighten, slots grow. */
 export const AutomaticKind = {
   ProficiencyRise: 'proficiency-rise',
   ClassFeature: 'class-feature',
@@ -162,23 +162,33 @@ function spellChanges(moment: Moment, source: ChoiceSource): readonly AutomaticC
   return [...gains, ...heightenings];
 }
 
+/** The grants at a level, and at the one before it when there is one. */
+interface LevelGrants {
+  readonly level: Level;
+  readonly now: GrantResolution;
+  readonly prior: GrantResolution | undefined;
+}
+
 /** What `level` changes by itself for the character: from the same grants the sheet reads, never a copy of them. */
-function levelChanges(level: Level, document: CharacterDocument, content: SlotContent): readonly AutomaticChange[] {
-  const now = grantsAt(level, document, content);
+function levelChanges(
+  { level, now, prior }: LevelGrants,
+  document: CharacterDocument,
+  content: SlotContent,
+): readonly AutomaticChange[] {
   const source = sourceOfKind(ChoiceSourceKind.Class, document, content);
-  if (level === FIRST_LEVEL) {
+  if (level === FIRST_LEVEL || prior === undefined) {
     return featuresAt({ level, now, before: now, document, content }, source);
   }
-  const moment = { level, now, before: grantsAt(Level.parse(level - 1), document, content), document, content };
+  const moment = { level, now, before: prior, document, content };
   const casting = sourceOfKind(ChoiceSourceKind.Spellcasting, document, content);
   return [...featuresAt(moment, source), ...proficiencyRises(moment, source), ...spellChanges(moment, casting)];
 }
 
-/**
- * One row per level from 1st to 20th (#1683): the improvements it makes with nothing to pick, read from the grants at
- * that level against the level before. Level 1 lists its fixed class features only; its starting ranks and slots are
- * the build, not a rise.
- */
+/** One row per level, 1st to 20th: what it improves with nothing to pick. Level 1 lists fixed class features only. */
 export function automaticTimeline(document: CharacterDocument, content: SlotContent): readonly AutomaticRow[] {
-  return allLevels().map((level) => ({ level, changes: levelChanges(level, document, content) }));
+  const resolved = allLevels().map((level) => ({ level, now: grantsAt(level, document, content) }));
+  return resolved.map(({ level, now }, index) => ({
+    level,
+    changes: levelChanges({ level, now, prior: resolved[index - 1]?.now }, document, content),
+  }));
 }

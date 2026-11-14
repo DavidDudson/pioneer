@@ -25,11 +25,11 @@ function timelineLine(slot: CharacterSlot, character: Character, content: SlotCo
 export function sheetTimeline(registry: ContentRegistry, character: Character): readonly LevelTimelineRow[] {
   const content = sheetSlotContent(registry);
   const automatic = sheetAutomatic(character, content);
-  return levelTimeline(character.document, content).map(({ level, slots }, index) => ({
+  return levelTimeline(character.document, content).map(({ level, slots }) => ({
     level,
     current: level === character.document.level,
     lines: slots.map((slot) => timelineLine(slot, character, content)),
     picks: [],
-    automatic: automatic[index] ?? [],
+    automatic: automatic.get(level) ?? [],
   }));
 }

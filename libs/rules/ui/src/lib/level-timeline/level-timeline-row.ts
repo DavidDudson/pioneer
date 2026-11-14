@@ -45,11 +45,11 @@ export interface TimelineFeat extends TimelinePickBase {
 /** An inline pick for a slot of a row. */
 export type TimelinePick = TimelineSkill | TimelineBoost | TimelineFeat;
 
-/** An improvement a level makes by itself (#1683): read-only, with where it comes from. */
+/** An improvement a level makes by itself: read-only, with where it comes from. */
 export interface AutomaticLine {
   /** Unique within the level. */
   readonly key: string;
-  /** What changes: "Athletics: Trained to Expert", "Shield Block". */
+  /** What changes: "Reflex becomes expert", "Shield Block". */
   readonly text: MessageDescriptor;
   /** Where it comes from, as text: "Class (Fighter)". */
   readonly source: MessageDescriptor;
