@@ -69,6 +69,7 @@ export const Conditional: DefencesStory = {
       weaknesses: [],
       resistances: [adjustment(DWARF, 'cold', { value: 2, status: IN_DARKNESS })],
       criticalHitChecks: [],
+      persistentFlatChecks: [],
     },
   },
 };

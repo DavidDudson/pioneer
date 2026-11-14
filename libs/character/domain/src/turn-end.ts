@@ -8,8 +8,8 @@ import {
   RollTotal,
 } from '@pioneer/rules/dice';
 import type { DamageApplication, RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
-import { BadgeReevaluation, Dc, DegreeOfSuccess, EffectExpiry, HitPoints } from '@pioneer/rules/sdk';
-import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
+import { BadgeReevaluation, DegreeOfSuccess, EffectExpiry, HitPoints } from '@pioneer/rules/sdk';
+import type { ContentId, DamageTarget, Dc } from '@pioneer/rules/sdk';
 
 import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
 import { airAfterTurn, isSuffocating, SuffocationChecks, suffocationDamage, suffocationDc } from './breath';
@@ -19,6 +19,8 @@ import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition, PersistentDamage } from './conditions';
 import { endEffects } from './effect-ending';
 import type { ActiveEffect } from './effects';
+import { flatCheckDc } from './persistent-flat-check';
+import type { PersistentFlatCheckDc } from './persistent-flat-check';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import type { RecoveryConditions } from './rest-types';
@@ -37,9 +39,6 @@ import type { SuffocationSave, TurnEvent } from './turn-events';
 import { reevaluateBadges } from './turn-start';
 import type { Reevaluation, TurnOutcome } from './turn-start';
 
-/** The flat check that ends persistent damage is against DC 15, or DC 10 with assisted recovery (Player Core). */
-const FLAT_CHECK_DC = Dc.parse(15);
-const ASSISTED_FLAT_CHECK_DC = Dc.parse(10);
 const FLAT_CHECK_DIE = DieSize.parse(20);
 const ONE_ROUND = 1;
 const NO_ATTACKS = 0;
@@ -52,6 +51,8 @@ export interface EndTurnInputs {
   readonly limits: PlayLimits;
   /** The character's immunities, weaknesses and resistances, which persistent damage goes through. */
   readonly defences: DamageTarget;
+  /** The flat check DCs that replace 15 (10 assisted) for some persistent damage types; the lowest counts. */
+  readonly flatChecks?: readonly PersistentFlatCheckDc[];
   /** What the end of the turn does to each condition the content says it eases (Frightened is lowered). */
   readonly recovery: RecoveryConditions;
   /** The character's Fortitude modifier, read only for a save against suffocation; none counts as 0. */
@@ -93,6 +94,21 @@ interface Turn extends EndTurnInputs {
   readonly random: RandomSource;
 }
 
+/** What the flat check of a persistent damage condition did: its events, and whether the condition ended. */
+interface FlatChecked {
+  readonly events: readonly TurnEvent[];
+  readonly ended: boolean;
+}
+
+/** The flat check against `dc` that may end `condition`; no `dc` means it ends without a roll. */
+function checked({ condition, id }: ActiveCondition, dc: Dc | undefined, random: RandomSource): FlatChecked {
+  if (dc === undefined) {
+    return { events: [], ended: true };
+  }
+  const die = random.roll(FLAT_CHECK_DIE);
+  return { events: [flatCheck(condition, id, { die, dc })], ended: die >= dc };
+}
+
 /**
  * One persistent damage condition at the end of the turn: its dice roll anew and go through the character's defences
  * to Hit Points (temporary first, dying as for any damage), then a flat check ends it on success. A dead character
@@ -107,15 +123,11 @@ function persistentTurn(outcome: TurnOutcome, condition: ActiveCondition, turn: 
   }
   const damage = applyDamage(roll, defences);
   const hurt = applyPlayCommand(outcome.play, { field: PlayCommandField.Damage, damage }, limits);
-  const die = random.roll(FLAT_CHECK_DIE);
-  const dc = persistent.assisted ? ASSISTED_FLAT_CHECK_DC : FLAT_CHECK_DC;
-  const events = [
-    persistentDamage(condition, { roll, damage }),
-    flatCheck(condition.condition, condition.id, { die, dc }),
-  ];
-  return die >= dc
-    ? then(outcome, without(hurt, condition), [...events, conditionEnded(condition.condition, condition.id)])
-    : then(outcome, hurt, events);
+  const { events, ended } = checked(condition, flatCheckDc(persistent, turn.flatChecks ?? []), random);
+  const all = [persistentDamage(condition, { roll, damage }), ...events];
+  return ended
+    ? then(outcome, without(hurt, condition), [...all, conditionEnded(condition.condition, condition.id)])
+    : then(outcome, hurt, all);
 }
 
 /** Each persistent damage condition rolls, hurts and is checked for, in the order the character has them. */

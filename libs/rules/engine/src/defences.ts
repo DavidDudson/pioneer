@@ -5,6 +5,7 @@ import type {
   CriticalHitCheckElement,
   DamageAdjustmentSubject,
   ImmunityElement,
+  PersistentFlatCheckElement,
   ProficiencyBonusTable,
   ResistanceElement,
   WeaknessElement,
@@ -19,6 +20,7 @@ import type {
   Defences,
   DefenceStatus,
   ImmunityLine,
+  PersistentFlatCheckLine,
   Valued,
 } from './defence-lines';
 import type { StatisticContent } from './derive-statistics';
@@ -32,7 +34,14 @@ import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 
 export { DefenceStatusKind } from './defence-lines';
-export type { AdjustmentLine, CriticalHitCheckLine, Defences, DefenceStatus, ImmunityLine } from './defence-lines';
+export type {
+  AdjustmentLine,
+  CriticalHitCheckLine,
+  Defences,
+  DefenceStatus,
+  ImmunityLine,
+  PersistentFlatCheckLine,
+} from './defence-lines';
 
 /** How a predicate gates a defence: dropped when false, applied when true, conditional when unknown. */
 function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined {
@@ -161,6 +170,40 @@ function criticalHitChecksOf(rules: readonly RuleInPlay[], context: RuleContext)
   return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
 }
 
+/** The line one `PersistentFlatCheck` element gives, unless its predicate fails. */
+function persistentFlatCheckLine(
+  rule: RuleInPlay,
+  element: PersistentFlatCheckElement,
+  context: RuleContext,
+): PersistentFlatCheckLine | undefined {
+  const status = gate(rule, context);
+  return status === undefined
+    ? undefined
+    : {
+        id: ruleIdOf(rule),
+        label: labelOf(rule),
+        origin: rule.origin,
+        damageTypes: element.damageTypes,
+        dc: element.dc,
+        assistedDc: element.assistedDc,
+        status,
+      };
+}
+
+/** The persistent damage flat checks of the `PersistentFlatCheck` elements in play, in id order. */
+function persistentFlatChecksOf(
+  rules: readonly RuleInPlay[],
+  context: RuleContext,
+): readonly PersistentFlatCheckLine[] {
+  const lines = rules.flatMap((rule) => {
+    const { element } = rule;
+    const line =
+      element.key === RuleElementKey.PersistentFlatCheck ? persistentFlatCheckLine(rule, element, context) : undefined;
+    return line === undefined ? [] : [line];
+  });
+  return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
+}
+
 /** What defence formulas read: the character's inputs and the item's level, never other statistics. */
 function defenceContext(
   proficiencyBonus: ProficiencyBonusTable,
@@ -209,5 +252,6 @@ export function deriveDefences(
     weaknesses: highestPerType(inOrder(weaknesses)),
     resistances: highestPerType(inOrder(resistances)),
     criticalHitChecks: criticalHitChecksOf(modifiers.rules, context),
+    persistentFlatChecks: persistentFlatChecksOf(modifiers.rules, context),
   };
 }

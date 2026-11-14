@@ -56,6 +56,7 @@ export const RuleElementKey = {
   GrantShield: 'GrantShield',
   CriticalSpecialization: 'CriticalSpecialization',
   CriticalHitCheck: 'CriticalHitCheck',
+  PersistentFlatCheck: 'PersistentFlatCheck',
   CriticalWeakness: 'CriticalWeakness',
   CriticalEffect: 'CriticalEffect',
   CriticalRange: 'CriticalRange',
