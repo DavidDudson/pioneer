@@ -236,7 +236,7 @@ describe('character routes across users', () => {
     expect(gifted.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
-    const names = ((await listed.json()) as { name: string }[]).map((character) => character.name);
+    const names = ((await listed.json()) as { items: { name: string }[] }).items.map((character) => character.name);
     expect(names).toStrictEqual(['Kyra']);
   });
 });
@@ -284,7 +284,7 @@ describe('Pathbuilder import route', () => {
       },
     ]);
     const listed = await api.handle(request('GET', '/characters'));
-    expect(await listed.json()).toStrictEqual([]);
+    expect(((await listed.json()) as { items: unknown[] }).items).toStrictEqual([]);
   });
 
   test.each([

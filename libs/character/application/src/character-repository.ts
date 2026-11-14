@@ -3,6 +3,8 @@ import type {
   CharacterCommand,
   CharacterId,
   CharacterListQuery,
+  CharacterPage,
+  CharacterPageQuery,
   CharacterPlay,
   PlayState,
 } from '@pioneer/character/domain';
@@ -31,6 +33,12 @@ export abstract class CharacterRepository {
    * are stable.
    */
   public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
+
+  /**
+   * One page of one owner's live characters, in `listForOwner`'s orders, with the filters in `query` ANDead and the
+   * count of every match. Filters read columns the repository keeps in step with the document.
+   */
+  public abstract pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage>;
 
   /** One owner's archived characters (ADR-0062), in the same orders as `listForOwner`. */
   public abstract listArchivedForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
