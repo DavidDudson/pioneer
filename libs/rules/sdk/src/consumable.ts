@@ -3,6 +3,7 @@ import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActionCount, isVariableCost, Uses } from './action';
+import { removesConditions } from './condition';
 import { ContentId } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula } from './damage-formula';
@@ -70,6 +71,7 @@ export type ConsumableActivation = z.infer<typeof ConsumableActivation>;
 export const ConsumableData = z
   .strictObject({
     ...physicalFields,
+    ...removesConditions,
     category: z.enum(ConsumableCategory),
     uses: Uses.optional(),
     kept: z.boolean().optional(),

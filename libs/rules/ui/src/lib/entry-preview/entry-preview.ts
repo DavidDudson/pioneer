@@ -60,8 +60,28 @@ export interface PreviewEnding {
   readonly against: readonly PreviewEndingStatistic[];
   /** The action that ends it, which anyone can take; absent where the ending names none. */
   readonly action?: PreviewEndingSource;
-  /** What the character has that ends or eases it; empty when it has nothing, or the ending names nothing. */
-  readonly held: readonly PreviewEndingSource[];
+}
+
+/** What an option does to the condition: ends it, lowers its value, or tries to counteract it. */
+export const EaseEffect = {
+  Remove: 'remove',
+  Lower: 'lower',
+  Counteract: 'counteract',
+} as const;
+export type EaseEffect = (typeof EaseEffect)[keyof typeof EaseEffect];
+
+/** Something the character has that ends or eases a condition it holds, and whether it can use it now. */
+export interface PreviewEaseOption {
+  readonly source: PreviewEndingSource;
+  readonly effect: EaseEffect;
+  /** How many points a `lower` takes off. */
+  readonly by?: number;
+  /** The rank a `counteract` is made at, where the entry states one. */
+  readonly rank?: SpellRank;
+  /** Whether the character can use it now: a spell slot, a use or a stack left. */
+  readonly available: boolean;
+  /** How many uses, casts or items are left, where the entry is counted. */
+  readonly left?: number;
 }
 
 /** A spell across the ranks it can be cast at: the card offers a pick and shows the spell as cast at that rank. */
@@ -100,6 +120,8 @@ export interface EntryPreview {
   readonly values?: ConditionValues;
   /** How a condition the character has ends or eases, with what the character has to do it. */
   readonly endings?: readonly PreviewEnding[];
+  /** What the character has that ends or eases a condition it holds, with whether it can use it now. */
+  readonly easeOptions?: readonly PreviewEaseOption[];
   /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */
   readonly ranks?: PreviewRanks;
   /** A creature's stat block, shown in place of the generic card. */

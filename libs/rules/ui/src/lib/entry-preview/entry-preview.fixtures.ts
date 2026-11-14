@@ -17,9 +17,11 @@ import {
   RuleElementKey,
   Selector,
   SourceRef,
+  SpellRank,
 } from '@pioneer/rules/sdk';
 
 import { line } from '../testing/breakdown-fixtures';
+import { EaseEffect } from './entry-preview';
 import type { EntryPreview, EntryPreviews, PreviewEffect } from './entry-preview';
 
 const SPELL_LEVEL = ContentLevel.parse(3);
@@ -158,21 +160,21 @@ export const FIREBALL_PREVIEWS: EntryPreviews = {
   preview: (id): EntryPreview | undefined => (id === FIREBALL ? FIREBALL_PREVIEW : undefined),
 };
 
+const COUNTERACT_RANK = SpellRank.parse(3);
 const ENDING_SOURCE_NAME = ContentText.parse('Treat Condition');
 
 function endingText(text: string): RichText {
   return RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text }] }]);
 }
 
-/** Clumsy 2 with the ways it ends: the check at its value, an action anyone can take, and a feat the character has. */
-export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
+/** Clumsy 2 with the ways it ends: the check at its value, an action anyone can take, and what the character has to ease it. */
+export const CLUMSY_ENDINGS_ONLY_PREVIEW: EntryPreview = {
   ...CLUMSY_PREVIEW,
   endings: [
     {
       kind: 'automatic',
       text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
       against: [],
-      held: [],
     },
     {
       kind: 'check',
@@ -182,25 +184,48 @@ export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
         { name: 'Fortitude', modifier: 7 },
         { name: 'Will', modifier: -1 },
       ],
-      held: [],
     },
     {
       kind: 'action',
       text: endingText('You can spend an action to steady yourself.'),
       action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
       against: [],
-      held: [],
     },
     {
       kind: 'others',
       text: endingText('A spell or ability that restores coordination can lower or remove it.'),
       against: [],
-      held: [{ id: ContentId.parse(FIREBALL), name: ENDING_SOURCE_NAME }],
     },
   ],
 };
 
-/** Clumsy for a reader who lacks it: its entry and the ways it ends at its base, with no value, effects or held entries. */
+/** The same, with what the character has to ease it: a spell, a consumable it ran out of, a counteract. */
+export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
+  ...CLUMSY_ENDINGS_ONLY_PREVIEW,
+  easeOptions: [
+    {
+      source: { id: ContentId.parse(FIREBALL), name: ENDING_SOURCE_NAME },
+      effect: EaseEffect.Lower,
+      by: 1,
+      available: true,
+      left: 2,
+    },
+    {
+      source: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Restoring Tonic') },
+      effect: EaseEffect.Remove,
+      available: false,
+      left: 0,
+    },
+    {
+      source: { id: ContentId.parse(FIREBALL), name: ContentText.parse('Soothe') },
+      effect: EaseEffect.Counteract,
+      rank: COUNTERACT_RANK,
+      available: true,
+    },
+  ],
+};
+
+/** Clumsy for a reader who lacks it: its entry and the ways it ends at its base, with no value, effects or options to ease it. */
 export const CLUMSY_NOT_HELD_PREVIEW: EntryPreview = {
   name: CLUMSY_PREVIEW.name,
   level: undefined,
@@ -212,14 +237,12 @@ export const CLUMSY_NOT_HELD_PREVIEW: EntryPreview = {
       kind: 'automatic',
       text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
       against: [],
-      held: [],
     },
     {
       kind: 'action',
       text: endingText('You can spend an action to steady yourself.'),
       action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
       against: [],
-      held: [],
     },
   ],
 };

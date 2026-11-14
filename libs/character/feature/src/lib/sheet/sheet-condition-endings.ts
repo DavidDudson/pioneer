@@ -1,4 +1,3 @@
-import { heldContentIds } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { ConditionEnding, ContentId, ContentRegistry, Selector } from '@pioneer/rules/sdk';
 import { checkAgainst, conditionEndings } from '@pioneer/rules/ui';
@@ -32,26 +31,18 @@ function rollsFor(
 
 /**
  * How a condition the character holds ends or eases, for the preview: each ending's rule text, its check's DC at the
- * value held, the action that does it, and which of the entries the content names as easing it the character has (a
- * spell it knows, a feat it took, a consumable it carries). An entry the registry lacks is left out, as nothing can be
- * said of it.
+ * value held, and the action that does it. An entry the registry lacks is left out, as nothing can be said of it.
  */
 export function heldConditionEndings(
   registry: ContentRegistry,
   character: Character,
   condition: HeldCondition,
 ): readonly PreviewEnding[] {
-  const needsHeld = condition.endings.some((ending) => ending.kind === 'others' && ending.by.length > 0);
-  const held = needsHeld ? new Set(heldContentIds(character.document)) : new Set<ContentId>();
   const rolls = rollsFor(registry, character, condition.endings);
-  return endingsFor(registry, held, { ...condition, rolls });
+  return endingsFor(registry, { ...condition, rolls });
 }
 
-/** The endings of a condition for a character that holds the entries `held`, and rolls the statistics of `rolls`. */
-export function endingsFor(
-  registry: ContentRegistry,
-  held: ReadonlySet<ContentId>,
-  condition: HeldCondition,
-): readonly PreviewEnding[] {
-  return conditionEndings((id) => sourceOf(registry, id), held, condition);
+/** The endings of a condition for a character that rolls the statistics of `rolls`. */
+export function endingsFor(registry: ContentRegistry, condition: HeldCondition): readonly PreviewEnding[] {
+  return conditionEndings((id) => sourceOf(registry, id), condition);
 }

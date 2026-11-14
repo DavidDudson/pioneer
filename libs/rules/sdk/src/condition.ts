@@ -5,6 +5,7 @@ import { ContentId } from './content-id';
 import { ConditionValue } from './origin';
 import { RichText } from './rich-text';
 import { Selector } from './selector';
+import { SpellRank } from './spell-rank';
 
 /**
  * How Foundry pf2e groups conditions on the sheet. A group says nothing about stacking: Dying, Wounded and Doomed
@@ -48,6 +49,14 @@ export type ConditionEffect = ValueOf<typeof ConditionEffect>;
 
 /** How many points a lowering takes off. */
 const LowerBy = z.int().min(1).max(LOWER_BY_MAX).brand<'LowerBy'>();
+
+/** How an entry that eases a condition does it: it ends it, lowers its value, or attempts to counteract it. */
+export const ConditionRemovalEffect = {
+  Remove: 'remove',
+  Lower: 'lower',
+  Counteract: 'counteract',
+} as const;
+export type ConditionRemovalEffect = ValueOf<typeof ConditionRemovalEffect>;
 
 /** What an ending does: remove the condition, or lower its value by `by` (1 when absent). */
 export const ConditionChange = z.strictObject({
@@ -149,3 +158,26 @@ export const ConditionData = z.strictObject({
   recovery: z.array(ConditionEnding).max(ENDINGS_MAX).readonly().default([]),
 });
 export type ConditionData = z.infer<typeof ConditionData>;
+
+const REMOVALS_MAX = 12;
+
+/**
+ * A condition a spell, feat, action or consumable removes or lowers, declared on that entry so the sheet can say what
+ * this character has that eases a condition it holds. `by` is how many points a `lower` takes off (1 when absent);
+ * `rank` is the rank of a `counteract`, where the entry states one.
+ */
+export const ConditionRemoval = z
+  .strictObject({
+    condition: ContentId,
+    effect: z.enum(ConditionRemovalEffect),
+    by: LowerBy.optional(),
+    rank: SpellRank.optional(),
+  })
+  .refine(({ effect, by }) => by === undefined || effect === ConditionRemovalEffect.Lower, { path: ['by'] })
+  .refine(({ effect, rank }) => rank === undefined || effect === ConditionRemovalEffect.Counteract, { path: ['rank'] });
+export type ConditionRemoval = z.infer<typeof ConditionRemoval>;
+
+/** The conditions an entry removes or lowers: absent where it removes none. */
+export const removesConditions = {
+  removesConditions: z.array(ConditionRemoval).min(1).max(REMOVALS_MAX).readonly().optional(),
+} as const;

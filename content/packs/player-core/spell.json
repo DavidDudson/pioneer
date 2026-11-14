@@ -8461,6 +8461,18 @@
           }
         ]
       },
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+          "effect": "counteract",
+          "rank": 2
+        }
+      ],
       "traditions": ["divine", "occult", "primal"],
       "damage": [],
       "counteraction": true
@@ -45898,6 +45910,33 @@
           }
         ]
       },
+      "removesConditions": [
+        {
+          "condition": "5d63458a-cde5-5d64-8fea-b920f04f36b7",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "4271da2e-7225-5aa7-9807-c499d8af6a5a",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+          "effect": "counteract",
+          "rank": 2
+        }
+      ],
       "traditions": ["divine", "occult", "primal"],
       "damage": [],
       "counteraction": true
@@ -49357,6 +49396,18 @@
           }
         ]
       },
+      "removesConditions": [
+        {
+          "condition": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+          "effect": "counteract",
+          "rank": 2
+        },
+        {
+          "condition": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+          "effect": "counteract",
+          "rank": 2
+        }
+      ],
       "traditions": ["divine", "occult", "primal"],
       "damage": [],
       "counteraction": true
@@ -49746,6 +49797,13 @@
         ],
         "you": "or"
       },
+      "removesConditions": [
+        {
+          "condition": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+          "effect": "counteract",
+          "rank": 5
+        }
+      ],
       "traditions": [],
       "damage": [],
       "heightening": {
@@ -54731,6 +54789,12 @@
         "count": 1,
         "unit": "minute"
       },
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "lower"
+        }
+      ],
       "traditions": [],
       "damage": []
     }
@@ -57797,6 +57861,16 @@
         "count": 1,
         "unit": "round"
       },
+      "removesConditions": [
+        {
+          "condition": "4218b8f3-1756-50cd-a914-6ce750659a62",
+          "effect": "remove"
+        },
+        {
+          "condition": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+          "effect": "remove"
+        }
+      ],
       "traditions": [],
       "damage": []
     }
