@@ -28,3 +28,8 @@ output "deploy_role_arn" {
   description = "Role the deploy workflow assumes; set it as AWS_DEPLOY_ROLE_ARN on the production environment."
   value       = aws_iam_role.deploy.arn
 }
+
+output "mirror_role_arn" {
+  description = "Role the Mirror adapter workflow assumes; set it as the AWS_MIRROR_ROLE_ARN repository variable."
+  value       = aws_iam_role.mirror.arn
+}
