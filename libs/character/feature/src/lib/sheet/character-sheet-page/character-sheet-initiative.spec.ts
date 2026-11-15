@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -12,7 +13,7 @@ const openSheet = openerAt(SheetMode.Encounter);
 const PLAY_URL = `/api/characters/${id}/play`;
 
 /** The play state of a full-health character with `turn`, at `revision`. */
-function playWith(turn: object, revision = 1): object {
+function playWith(turn: JsonObject, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn } };
 }
 

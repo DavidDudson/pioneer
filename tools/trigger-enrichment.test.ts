@@ -28,7 +28,13 @@ function entry(name: string, kind: string, data: object): object {
   return kind === 'action' ? { ...base, data } : { ...base, level: 1, data };
 }
 
-const free = (words: string): object => ({ cost: 'free', trigger: prose(words) });
+/** A free action as a pack file holds it, with the words of its trigger. */
+interface FreeActionJson {
+  readonly cost: string;
+  readonly trigger: readonly unknown[];
+}
+
+const free = (words: string): FreeActionJson => ({ cost: 'free', trigger: prose(words) });
 const TURN_START = { event: 'turn-start' };
 const FOCUS = { event: 'cast-spell', predicate: ['item:trait:focus'] };
 

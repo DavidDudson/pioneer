@@ -26,7 +26,22 @@ const PACK = PackId.parse('homebrew');
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
 const idOf = (slug: string): string => contentId(PACK, EntrySlug.parse(slug));
 
-function entry(kind: string, name: string, data: object): object {
+/** An entry as JSON. */
+interface EntryFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function entry(kind: string, name: string, data: object): EntryFixture {
   const slug = `${kind}:${name}`;
 
   return {

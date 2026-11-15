@@ -12,12 +12,15 @@ export const REFERENCE_VALUE_MIN = -FORMULA_NUMBER_MAX;
 export const REFERENCE_VALUE_MAX = FORMULA_NUMBER_MAX;
 
 /** Starting values for the example formula's references, so it opens on a value: AC 20 at level 5, trained. */
-const STARTING_VALUES: Readonly<Record<string, number>> = { level: 5, 'attr.dex.capped': 3, 'prof.ac': 7 };
+const STARTING_VALUES: ReadonlyMap<string, number> = new Map(
+  Object.entries({ level: 5, 'attr.dex.capped': 3, 'prof.ac': 7 }),
+);
+
 const STARTING_VALUE = 0;
 
 /** The entry for `path`, or its starting value while nothing has been typed for it. */
 export function entryFor(entries: ReferenceEntries, path: ReferencePath): ReferenceEntry {
-  return entries.get(path) ?? { value: STARTING_VALUES[path] ?? STARTING_VALUE, complete: true };
+  return entries.get(path) ?? { value: STARTING_VALUES.get(path) ?? STARTING_VALUE, complete: true };
 }
 
 /** The entry's value for the formula, or undefined while the box is empty, mid-edit or out of range. */

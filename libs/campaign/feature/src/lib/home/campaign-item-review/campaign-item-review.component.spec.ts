@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -41,7 +42,7 @@ const flagged = {
 };
 
 /** The view while Caliburn needs review (the GM's), or with it approved. */
-function review(state: 'open' | 'approved', manageable = true): object {
+function review(state: 'open' | 'approved', manageable = true): JsonObject {
   return {
     manageable,
     needsReview: state === 'open' && manageable ? [flagged] : [],
@@ -68,7 +69,7 @@ function buttonsWith(root: HTMLElement, text: string): HTMLButtonElement[] {
 }
 
 /** Opens the campaign home as its GM or as a player, answering the review load with `items`. */
-async function open(items: object, gm: boolean): Promise<HTMLElement> {
+async function open(items: JsonObject, gm: boolean): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),

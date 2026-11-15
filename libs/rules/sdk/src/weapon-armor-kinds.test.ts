@@ -24,8 +24,22 @@ const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
+/** The fields every entry carries, before its kind and data. */
+interface Envelope {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly level: number;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+}
+
 /** The envelope of a Player Core item at `level`, without its kind and data. */
-function item(slug: string, name: string, level: number): object {
+function item(slug: string, name: string, level: number): Envelope {
   return {
     id: idOf(slug),
     pack: PACK,

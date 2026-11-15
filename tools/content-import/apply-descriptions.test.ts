@@ -11,7 +11,15 @@ const LANGUAGE = 'language-id';
 const WRITTEN = [{ type: 'paragraph', content: [{ type: 'text', text: 'Written by hand.' }] }];
 const FRESH = [{ type: 'paragraph', content: [{ type: 'text', text: 'From Foundry.' }] }];
 
-function entry(id: string, kind: string, description: readonly unknown[]): Record<string, unknown> {
+/** An entry as a kind file holds it. */
+interface DescribedEntryJson {
+  readonly id: string;
+  readonly kind: string;
+  readonly name: string;
+  readonly description: readonly unknown[];
+}
+
+function entry(id: string, kind: string, description: readonly unknown[]): DescribedEntryJson {
   return { id, kind, name: 'X', description };
 }
 

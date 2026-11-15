@@ -22,6 +22,7 @@ import type { Inventory } from './inventory';
 import { CarryState, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 installRulesFakes();
 
@@ -44,7 +45,7 @@ function carrying(item: ItemFixture, carry: Carry): Inventory {
 }
 
 /** The alterations in play, each `[element, entry]`. */
-function altering(...placed: readonly (readonly [object, string])[]): ModifierInputs {
+function altering(...placed: readonly (readonly [JsonObject, string])[]): ModifierInputs {
   return {
     rules: placed.map(([element, entry], rule) => inPlay(element, entry, { rule })),
     facts: new PredicateFacts([], CORE_NAMESPACES),
@@ -58,7 +59,7 @@ interface Change {
   readonly value: number | string;
 }
 
-const alteration = (items: readonly string[], { property, mode, value }: Change): object => ({
+const alteration = (items: readonly string[], { property, mode, value }: Change): JsonObject => ({
   key: 'ItemAlteration',
   items,
   property,
@@ -152,7 +153,7 @@ describe('equipped items with ItemAlteration elements', () => {
 });
 
 /** An `AdjustStrike` of `property`, reaching the Strikes whose roll options satisfy `strikes`. */
-function adjusting(strikes: readonly string[], { property, mode, value }: Change): object {
+function adjusting(strikes: readonly string[], { property, mode, value }: Change): JsonObject {
   return { key: 'AdjustStrike', strikes, property, mode, value };
 }
 
@@ -223,7 +224,7 @@ describe('equipped weapons: roll options for AdjustStrike', () => {
   });
 });
 
-const holy = (tag: string): object =>
+const holy = (tag: string): JsonObject =>
   adjusting([`item:tag:${tag}`], { property: 'traits', mode: 'add', value: 'holy' });
 
 /** Whether the weapon a character holds is given the holy trait by `rules`. */
@@ -233,7 +234,7 @@ function isHoly(rules: ModifierInputs, item: ItemFixture): boolean | undefined {
   return weapons[0]?.traits.includes(Trait.parse('holy'));
 }
 
-const tagging = (mode: string, tag: string, slug: string): object =>
+const tagging = (mode: string, tag: string, slug: string): JsonObject =>
   alteration([`item:slug:${slug}`], { property: 'other-tags', mode, value: tag });
 
 describe('equipped weapons: tags', () => {

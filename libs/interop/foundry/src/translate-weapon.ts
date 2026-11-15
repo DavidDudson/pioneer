@@ -5,6 +5,7 @@ import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { FoundryPhysicalSystem, PHYSICAL_FIELDS, physicalData, usageField } from './physical-fields';
+import type { Fields } from './translate-choice-reads';
 import { FoundryTags, tagsOf } from './translate-tags';
 
 /**
@@ -78,7 +79,7 @@ const FoundryWeaponSystem = FoundryPhysicalSystem.extend({
 type FoundryWeaponSystem = z.infer<typeof FoundryWeaponSystem>;
 
 /** "1d8 slashing"; with no die (Foundry's empty `die`), `dice` is flat damage; persistent damage as a formula. */
-function damageOf({ dice, die, damageType, persistent }: FoundryWeaponDamage): object {
+function damageOf({ dice, die, damageType, persistent }: FoundryWeaponDamage): Fields {
   const formula =
     persistent === null || persistent === undefined
       ? undefined

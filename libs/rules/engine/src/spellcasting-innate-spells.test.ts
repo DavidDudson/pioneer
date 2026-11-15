@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
@@ -11,7 +12,7 @@ import { inPlay } from './testing';
 const OAKEN_RESILIENCE = '8c3e6b1e-2a54-5f43-9b49-5ce7c7a2b2a1';
 const ILL_OMEN = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
 
-const entry = (preparation: string, slug = 'grown-of-oak'): object => ({
+const entry = (preparation: string, slug = 'grown-of-oak'): RuleJson => ({
   key: 'SpellcastingEntry',
   slug,
   tradition: 'primal',
@@ -23,7 +24,7 @@ const innate = (
   spells: readonly (readonly [string | number, string])[],
   extra: object = {},
   on = 'grown-of-oak',
-): object => ({
+): RuleJson => ({
   key: 'InnateSpells',
   entry: on,
   spells: spells.map(([rank, spell]) => ({ rank, spell })),

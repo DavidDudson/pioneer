@@ -5,6 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { KeyAttributePicker, SubclassPicker } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickRow } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
@@ -15,14 +16,14 @@ const WARPRIEST = playerCoreId(ContentKind.ClassFeature, 'warpriest');
 const RACKET = `${playerCoreId(ContentKind.ClassFeature, 'rogues-racket')}:0`;
 
 /** Merisiel as a rogue, with `racket` picked when given. */
-function rogue(racket?: string): object {
+function rogue(racket?: string): JsonObject {
   const picks = racket === undefined ? {} : { [RACKET]: playerCoreId(ContentKind.ClassFeature, racket) };
 
   return { ...MERISIEL, build: { choices: { class: playerCoreClassId('rogue'), ...picks } } };
 }
 
 /** Merisiel as a cleric, with `choices` picked besides. */
-function cleric(choices: Readonly<Record<string, string>> = {}): object {
+function cleric(choices: Readonly<Record<string, string>> = {}): JsonObject {
   return { ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, class: CLERIC, ...choices } } };
 }
 

@@ -8,6 +8,7 @@ import {
   StatisticDefinition,
   StatisticKind,
 } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { RuleInPlay } from '../rule-in-play';
 
@@ -46,8 +47,15 @@ interface Placement {
   readonly item?: string;
 }
 
+/** The origin hop of an inventory item, as JSON. */
+interface InventoryHopJson {
+  readonly kind: string;
+  readonly item: string;
+  readonly state: string;
+}
+
 /** The hop of an inventory item, held. */
-function inventoryHop(item: string): object {
+function inventoryHop(item: string): InventoryHopJson {
   return { kind: 'inventory', item, state: 'held' };
 }
 
@@ -82,12 +90,12 @@ export function inPlay(
 }
 
 /** A `FlatModifier` as JSON: `value` of `type` on `selectors`. Spread it to add fields. */
-export function flatModifier(type: string, value: number | string, selectors: readonly string[]): object {
+export function flatModifier(type: string, value: number | string, selectors: readonly string[]): RuleJson {
   return { key: 'FlatModifier', type, value, selectors };
 }
 
 /** A `Change` as JSON: `mode` with `value` on `selector`. Spread it to add fields. */
-export function change(selector: string, mode: string, value: number | string): object {
+export function change(selector: string, mode: string, value: number | string): RuleJson {
   return { key: 'Change', selector, mode, value };
 }
 

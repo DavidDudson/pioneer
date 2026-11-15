@@ -15,8 +15,13 @@ function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-function notChain(depth: number): unknown {
-  let statement: unknown = 'self:condition:frightened';
+/** A statement negated again and again. */
+interface Negated {
+  readonly not: Negated | string;
+}
+
+function notChain(depth: number): Negated | string {
+  let statement: Negated | string = 'self:condition:frightened';
 
   for (let level = 0; level < depth; level += 1) {
     statement = { not: statement };
@@ -25,7 +30,7 @@ function notChain(depth: number): unknown {
   return statement;
 }
 
-function nestedNot(depth: number): unknown {
+function nestedNot(depth: number): unknown[] {
   return [notChain(depth)];
 }
 

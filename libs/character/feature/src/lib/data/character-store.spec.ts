@@ -47,7 +47,19 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
 }
 
 /** The sheet the server sends: the character, and a filled ancestry slot. */
-function sheet(version: number, level: number): Record<string, unknown> {
+/** What the server answers with when a spec reads or edits a character's sheet. */
+interface SheetReply {
+  readonly character: WireCharacter & Record<string, unknown>;
+  readonly slots: readonly object[];
+  readonly languages: { readonly known: readonly string[]; readonly open: number };
+}
+
+/** A PATCH's answer: the sheet, and the picks the edit cleared. */
+interface PatchReply extends SheetReply {
+  readonly cleared: readonly object[];
+}
+
+function sheet(version: number, level: number): SheetReply {
   const character = wire(version, level);
 
   const {
@@ -62,7 +74,7 @@ function sheet(version: number, level: number): Record<string, unknown> {
 }
 
 /** A PATCH's answer: the sheet, and the picks the edit cleared. */
-function patched(version: number, level: number, cleared: readonly object[] = []): Record<string, unknown> {
+function patched(version: number, level: number, cleared: readonly object[] = []): PatchReply {
   return { ...sheet(version, level), cleared };
 }
 

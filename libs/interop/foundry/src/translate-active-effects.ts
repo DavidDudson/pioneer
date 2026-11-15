@@ -2,6 +2,7 @@ import { ChangeMode, RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { Fields } from './translate-choice-reads';
 import { withSkillRaise } from './translate-skill-raises';
 
 /** The statistic each Foundry actor path names, where Pioneer derives one (core-rules, `statistic:reach`). */
@@ -28,7 +29,7 @@ const FoundryStatChange = z.strictObject({
  * Coin's raised dying limit) as a `Change` on that statistic. A path Pioneer has no statistic for (a Foundry flag, which
  * is dropped by design, or a boolean such as `flanking.flankable`) or a formula value leaves it for the backlog.
  */
-function withStatChange(raw: unknown): unknown {
+function withStatChange<Raw>(raw: Raw): Raw | Fields {
   const change = FoundryStatChange.safeParse(raw);
 
   if (!change.success) {

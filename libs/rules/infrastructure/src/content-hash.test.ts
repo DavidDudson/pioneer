@@ -10,7 +10,22 @@ const HEX_SHA256 = /^[\da-f]{64}$/u;
 const PACK = PackId.parse('core-rules');
 const packFile = { id: PACK, title: 'Core Rules', publisher: 'Paizo Inc.', license: 'ORC' };
 
-function language(slug: string, name: string): object {
+/** An entry as JSON. */
+interface EntryFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function language(slug: string, name: string): EntryFixture {
   return {
     id: contentId(PACK, EntrySlug.parse(`language:${slug}`)),
     pack: PACK,

@@ -6,6 +6,7 @@ import { boundedRecord, setFields } from './kind-fields';
 import { FoundryDamageOverrides, FoundryHeightening, heightenedDamage, heighteningOf, partKeys } from './spell-damage';
 import type { FoundryDamage, RankChanges } from './spell-damage';
 import { defenseOf, FIELD_MAX, FoundryDefense, FoundryText, reachOf, TEXT_MAX, timeAt } from './spell-reach';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * What a spell changes beyond its own fields: a fixed rank of its heightening, and its variants (Foundry's `override`
@@ -107,7 +108,7 @@ function variantDefense({ spell, system, field, log }: OverlayAt): object | unde
 }
 
 /** A variant's casting fields, defence, damage and heightening. */
-function variantFields(at: OverlayAt): object {
+function variantFields(at: OverlayAt): Fields {
   const { spell, system, field, log } = at;
   const overrides = FoundryDamageOverrides.safeParse(system['damage']).data;
   const damage = overrides && heightenedDamage({ overrides, base: spell.damage, field: `${field}.damage` }, log);

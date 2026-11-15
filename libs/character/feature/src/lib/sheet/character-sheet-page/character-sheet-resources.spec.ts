@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -16,7 +17,7 @@ const PLAY_URL = `/api/characters/${id}/play`;
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
 
 /** Merisiel as a `name`: a cleric has no focus spells at level 1, a bard has the composition cantrip and a spell. */
-function as(name: 'bard' | 'cleric'): object {
+function as(name: 'bard' | 'cleric'): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId(name) }, spellAccess: [] },
@@ -24,7 +25,7 @@ function as(name: 'bard' | 'cleric'): object {
 }
 
 /** The play state of a full-health character with `spent` points spent from the pools. */
-function spentOf(spent: object, revision = 1): object {
+function spentOf(spent: JsonObject, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, resources: spent } };
 }
 

@@ -5,6 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { offeredLabels, pickerCount, pickLoadedRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
@@ -25,11 +26,11 @@ const SEONI = '11111111-1111-4111-8111-111111111111';
 const FIRST = '00000000-0000-4000-8000-000000000001';
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
-function playWith(effects: readonly object[], revision = 1): object {
+function playWith(effects: readonly JsonObject[], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 
-const onslaught = (badge: number): object => ({
+const onslaught = (badge: number): JsonObject => ({
   id: FIRST,
   effect: EMPOWERED_ONSLAUGHT,
   source: { kind: 'self' },
@@ -59,7 +60,7 @@ function offered(sheet: SheetView, index: number): readonly string[] {
 }
 
 /** Answers the read of the party, which the picker makes once an ally is the source. */
-async function answerAllies(allies: object): Promise<void> {
+async function answerAllies(allies: JsonObject): Promise<void> {
   await vi.waitFor(() => {
     TestBed.inject(HttpTestingController).expectOne({ method: 'GET', url: ALLIES_URL }).flush(allies);
   });

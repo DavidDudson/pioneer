@@ -8,6 +8,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-store';
 import { CharacterStore } from '../../../data/character-store';
 import { PURSE_OFFER } from '../../../data/purse-offer';
+import type { JsonObject } from '../../../testing/json-fixture';
 import { CoinOffer } from './coin-offer.component';
 
 const campaign = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -39,6 +40,12 @@ class StubCoinOffer {
   public readonly purse = input.required<Coins>();
 }
 
+/** The part of the selected character the store stub answers with. */
+interface SelectedCharacter {
+  readonly id: string;
+  readonly document: { readonly inventory: { readonly coins: Coins } };
+}
+
 /** The sheet of a character holding `coins`, in `campaignId` or in none. */
 function render(campaignId: string | undefined, loader: LoadOffer, coins: Coins): ComponentFixture<CoinOffer> {
   TestBed.configureTestingModule({
@@ -46,9 +53,9 @@ function render(campaignId: string | undefined, loader: LoadOffer, coins: Coins)
       { provide: PURSE_OFFER, useValue: loader },
       {
         provide: CharacterStore,
-        useValue: { selected: (): object => ({ id: character, document: { inventory: { coins } } }) },
+        useValue: { selected: (): SelectedCharacter => ({ id: character, document: { inventory: { coins } } }) },
       },
-      { provide: CharacterRuleLimitStore, useValue: { rules: (): object => ({ campaign: campaignId }) } },
+      { provide: CharacterRuleLimitStore, useValue: { rules: (): JsonObject => ({ campaign: campaignId }) } },
     ],
   });
   const fixture = TestBed.createComponent(CoinOffer);

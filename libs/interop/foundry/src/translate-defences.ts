@@ -1,5 +1,7 @@
 import { DamageGroup, RuleElementKey } from '@pioneer/rules/sdk';
 
+import type { Fields } from './translate-choice-reads';
+
 /**
  * Foundry's `Resistance`, `Weakness` and `Immunity` in Pioneer's spelling (ADR-0008): `type` is a list, and
  * Foundry's `all-damage` is the `all` group. A `value` formula is read as for any element, and `exceptions` and a
@@ -25,7 +27,7 @@ export function typeOf(type: unknown): unknown {
  * A `Resistance`, `Weakness` or `Immunity` with its `type` a list of Pioneer's types; any other element, or a `type`
  * that is neither text nor a list, as it is.
  */
-export function withDefenceTypes(raw: unknown): unknown {
+export function withDefenceTypes<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }

@@ -3,6 +3,7 @@ import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { slugify } from './foundry-slug';
+import type { Fields } from './translate-choice-reads';
 
 /** Foundry's damage for a `Strike` of its own: `{ base: { damageType, die, dice } }`, `dice` defaulting to 1. */
 const FoundryStrikeDamage = z.strictObject({
@@ -20,7 +21,7 @@ const FoundryStrikeDamage = z.strictObject({
  * whose damage is shaped any other way (a `replaceAll`, a second damage part), is left as it is, so the element
  * fails and is kept for the backlog.
  */
-export function withStrikeDamage(raw: unknown): unknown {
+export function withStrikeDamage<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }
@@ -65,7 +66,7 @@ function strikeSlug(raw: object): string | undefined {
 }
 
 /** A `Strike`'s range in Pioneer's spelling: a `null` range is no range, and `{ increment }` is the increment. */
-function strikeRange(raw: object): Record<string, unknown> {
+function strikeRange(raw: object): Fields {
   if (!('range' in raw) || raw.range === null) {
     return {};
   }
@@ -81,7 +82,7 @@ function strikeRange(raw: object): Record<string, unknown> {
  * attack shows on a token). A `null` range is no range, and `{ increment }` the range increment. An attack of its own
  * with no `slug` is named by its base type or label, as Foundry does. The fist form is left as it is.
  */
-export function withoutStrikeExtras(raw: unknown): unknown {
+export function withoutStrikeExtras<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }

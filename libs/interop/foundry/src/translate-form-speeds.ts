@@ -1,5 +1,8 @@
 import { RuleElementKey, SPELL_RANK_MAX } from '@pioneer/rules/sdk';
 
+import { isFields } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
+
 /**
  * A `FlatModifier` on a form's speed that depends on the item's level, such as Dragon Form's +20 fly Speed at rank 8
  * (`match(when(gte(@item.level, 8), 20))`) or Aerial Form's +10 at rank 5 and +15 from rank 6, is a set of brackets of
@@ -7,18 +10,12 @@ import { RuleElementKey, SPELL_RANK_MAX } from '@pioneer/rules/sdk';
  * plus the bonus from that rank.
  */
 
-type Fields = Readonly<Record<string, unknown>>;
-
 const MOVEMENTS: ReadonlySet<string> = new Set(['burrow', 'climb', 'fly', 'land', 'swim']);
 
 const MATCH = /^match\((?<whens>.+)\)$/u;
 
 const WHEN =
   /when\((?:gte\(@item\.level, (?<from>\d+)\)|btwn\(@item\.level, (?<low>\d+), (?<high>\d+)\)), (?<bonus>\d+)\)/gu;
-
-function isFields(value: unknown): value is Fields {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
 
 /** A bonus for the ranks from `low` to `high`. */
 interface Tier {
@@ -110,7 +107,7 @@ function startOf(bracket: unknown): number {
 }
 
 /** `bracket` with `speeds` set in its `value`. */
-function withSpeeds(bracket: unknown, speeds: Fields): unknown {
+function withSpeeds(bracket: unknown, speeds: Fields): Fields {
   const value = isFields(bracket) && isFields(bracket['value']) ? bracket['value'] : {};
   const held = isFields(value['speeds']) ? value['speeds'] : {};
 

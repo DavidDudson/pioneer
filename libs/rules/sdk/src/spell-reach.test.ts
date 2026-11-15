@@ -9,8 +9,23 @@ import { RulesMessage } from './messages';
 const PACK = 'player-core';
 const SLUG = 'spell:teleport';
 
+/** A spell as JSON. */
+interface SpellFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
 /** Teleport, a Player Core spell, with `casting` laid over its range and duration. */
-function casting(fields: object): object {
+function casting(fields: object): SpellFixture {
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(SLUG)),
     pack: PACK,

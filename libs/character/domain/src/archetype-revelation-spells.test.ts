@@ -17,10 +17,10 @@ import { CharacterBuilder } from './testing';
  * oracle's revelation spells, Oracle Dedication's pick of a mystery, and First Revelation, which teaches its initial
  * spell.
  */
-const MYSTERIES: Readonly<Record<string, readonly [initial: string, advanced: string]>> = {
+const MYSTERIES = {
   battle: ['weapon-trance', 'battlefield-persistence'],
   flames: ['incendiary-aura', 'whirling-flames'],
-};
+} satisfies Readonly<Record<string, readonly [initial: string, advanced: string]>>;
 
 const ORACLE_ENTRY = {
   key: 'SpellcastingEntry',

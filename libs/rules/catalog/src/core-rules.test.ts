@@ -109,8 +109,15 @@ function reachedBy(target: string, content = core, character = fighter): readonl
     .toSorted();
 }
 
+/** A statistic that failed, as the engine reports it. */
+interface StatisticFailure {
+  readonly ok: boolean;
+  readonly error: { readonly key: string };
+  readonly position: number;
+}
+
 /** A statistic's failure with its message key, pointing at `position` in its base. */
-function failure(key: string, position: number): object {
+function failure(key: string, position: number): StatisticFailure {
   return { ok: false, error: { key }, position };
 }
 

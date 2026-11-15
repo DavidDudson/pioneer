@@ -6,12 +6,11 @@
 import { Glob } from 'bun';
 
 import { findCoverageGaps } from './component-coverage.ts';
-import type { Exemption } from './component-coverage.ts';
 
 const ROOT = 'libs/frontier/src/lib';
 
 /** Parts covered by the component that assembles them. Paths are relative to `ROOT`. */
-const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
+const EXEMPTIONS = {
   'actions/section-link/section-link.component.ts': {
     reason: 'One link of fr-section-index; only meaningful inside it.',
     spec: 'actions/section-index/section-index.component.spec.ts',

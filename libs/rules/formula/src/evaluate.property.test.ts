@@ -21,10 +21,10 @@ const resolverFor =
     values.get(path);
 
 /** For each failure the reference has no counterpart for (JavaScript gives `Infinity` or `NaN`), what it must have seen. */
-const FLAGGED: Readonly<Record<string, (foundry: FoundryOutcome) => boolean>> = {
-  [FormulaMessage.DivisionByZero]: (foundry) => foundry.dividedByZero,
-  [FormulaMessage.OutOfRange]: (foundry) => foundry.leftSafeRange,
-};
+const FLAGGED: ReadonlyMap<string, (foundry: FoundryOutcome) => boolean> = new Map([
+  [FormulaMessage.DivisionByZero, (foundry: FoundryOutcome) => foundry.dividedByZero],
+  [FormulaMessage.OutOfRange, (foundry: FoundryOutcome) => foundry.leftSafeRange],
+]);
 
 const CONDITION_MAX = 9;
 
@@ -47,7 +47,7 @@ describe('evaluate (properties)', () => {
           expect<FormulaValue | undefined>(outcome.value).toBe(foundry.value);
         } else {
           // A failure only where Foundry's JavaScript met the same arithmetic: a zero divisor or an unsafe value.
-          expect(FLAGGED[outcome.error.key]?.(foundry)).toBe(true);
+          expect(FLAGGED.get(outcome.error.key)?.(foundry)).toBe(true);
         }
       }),
     );

@@ -7,6 +7,7 @@ import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -25,7 +26,7 @@ const WAND = '66666666-6666-4666-8666-666666666666';
 const HELD = { state: 'held', hands: 1 };
 
 /** A wizard who casts 3rd-rank spells carrying the wand of Fireball as `fields` say. */
-function wizardWith(fields: object): object {
+function wizardWith(fields: JsonObject): JsonObject {
   return {
     ...MERISIEL,
     level: 5,
@@ -38,7 +39,7 @@ function wizardWith(fields: object): object {
 }
 
 /** The play state with `uses` spent, by the key of the wand count they came from. */
-function spentOf(uses: object, revision = 1): object {
+function spentOf(uses: JsonObject, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, resources: { uses } } };
 }
 

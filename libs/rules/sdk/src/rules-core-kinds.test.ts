@@ -24,8 +24,27 @@ const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
+/** The fields every entry carries, before its kind and data. */
+interface Envelope {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+}
+
+/** An entry with its kind and data. */
+interface KindedEntry extends Envelope {
+  readonly kind: string;
+  readonly data: object;
+}
+
 /** The envelope of a Player Core entry, without its kind and data. */
-function entry(slug: string, name: string): object {
+function entry(slug: string, name: string): Envelope {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -82,7 +101,7 @@ const raiseAShield = {
 };
 
 /** Raise a Shield with `data` merged over its own. */
-const variable = (data: object): object => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
+const variable = (data: object): KindedEntry => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
 
 const fire = { ...entry('damage-type:fire', 'Fire'), kind: 'damage-type', data: {} };
 

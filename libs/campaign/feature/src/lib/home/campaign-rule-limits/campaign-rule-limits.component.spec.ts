@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -29,7 +30,7 @@ const campaign = {
 };
 
 /** The four limits at the core rules' numbers, with `invested` set to `value` when it is not the core number. */
-function limits(manageable: boolean, invested: number, source = invested === 10 ? 'core' : 'campaign'): object {
+function limits(manageable: boolean, invested: number, source = invested === 10 ? 'core' : 'campaign'): JsonObject {
   const base = { custom: false, source: 'core' };
 
   return {
@@ -57,7 +58,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 }
 
 /** Opens the campaign home as its GM or as a player, answering its loads with `rules`. */
-async function open(rules: object, gm: boolean): Promise<HTMLElement> {
+async function open(rules: JsonObject, gm: boolean): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),

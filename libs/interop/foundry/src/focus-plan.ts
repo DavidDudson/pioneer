@@ -1,6 +1,8 @@
 import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
+import type { Fields } from './translate-choice-reads';
+
 /** The pieces a focus plan is built from (ADR-0050): focus entries, the plan's element types, and a choice of spells. */
 
 export interface FocusEntryFields {
@@ -10,7 +12,7 @@ export interface FocusEntryFields {
 }
 
 /** A focus entry: where its focus spells' spell attack and DC come from. */
-export function focusEntry(fields: FocusEntryFields): object {
+export function focusEntry(fields: FocusEntryFields): Fields {
   return { key: RuleElementKey.SpellcastingEntry, ...fields, preparation: 'focus' };
 }
 
@@ -61,7 +63,7 @@ export function spellId(pack: PackId, spell: string): string {
   return contentId(PackId.parse(book), EntrySlug.parse(`spell:${slug}`));
 }
 
-export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): object {
+export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): Fields {
   return {
     key: RuleElementKey.FocusSpells,
     entry,

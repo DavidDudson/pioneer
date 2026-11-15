@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../testing/sheet-page-harness';
 import { TEST_PACKS } from '../testing/test-packs';
@@ -10,7 +11,7 @@ import { TEST_PACKS } from '../testing/test-packs';
 const openSheet = openerAt(SheetMode.Exploration, 'languages');
 
 /** Merisiel carrying the `customLanguages` an import kept by name. */
-function carrying(customLanguages: readonly string[]): object {
+function carrying(customLanguages: readonly string[]): JsonObject {
   return { ...MERISIEL, build: { ...MERISIEL.build, customLanguages } };
 }
 

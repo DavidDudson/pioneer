@@ -21,6 +21,7 @@ import {
   steelShield,
   striking,
 } from './equipment-examples';
+import { paragraph } from './example-json';
 import { arcane, consecrate, fireball, heroism } from './magic-examples';
 import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate, underwater } from './rules-core-examples';
 
@@ -49,8 +50,6 @@ const RAT_CONSTITUTION = 2;
 const RAT_INTELLIGENCE = -4;
 const RAT_WISDOM = 1;
 const RAT_CHARISMA = -3;
-
-const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 
 const human = {
   id: contentId(PLAYER_CORE, EntrySlug.parse('ancestry:human')),

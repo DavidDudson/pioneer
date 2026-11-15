@@ -15,7 +15,22 @@ interface EntryFields {
   readonly data: object;
 }
 
-function entry({ kind, slug, data }: EntryFields, extra: object = {}): object {
+/** An entry as a pack file holds it. */
+interface FileEntry {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string | undefined;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function entry({ kind, slug, data }: EntryFields, extra: object = {}): FileEntry {
   return {
     id: idOf(slug),
     pack: PACK,

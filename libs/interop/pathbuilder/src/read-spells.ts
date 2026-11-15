@@ -27,10 +27,10 @@ export interface ImportedCaster {
   readonly perDay: readonly number[];
 }
 
-const PREPARATION_BY_WORD: Readonly<Record<string, CasterPreparation>> = {
-  prepared: SpellPreparation.Prepared,
-  spontaneous: SpellPreparation.Spontaneous,
-};
+const PREPARATION_BY_WORD: ReadonlyMap<string, CasterPreparation> = new Map([
+  ['prepared', SpellPreparation.Prepared],
+  ['spontaneous', SpellPreparation.Spontaneous],
+]);
 
 function named(raw: string): PathbuilderName | undefined {
   const trimmed = raw.trim();
@@ -60,7 +60,7 @@ export function importedCasters(build: PathbuilderBuild): ImportedCaster[] {
       {
         name,
         tradition,
-        preparation: caster.innate ? undefined : PREPARATION_BY_WORD[caster.spellcastingType.trim().toLowerCase()],
+        preparation: caster.innate ? undefined : PREPARATION_BY_WORD.get(caster.spellcastingType.trim().toLowerCase()),
         innate: caster.innate,
         ranks,
         perDay: caster.perDay,

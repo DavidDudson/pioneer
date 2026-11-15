@@ -6,6 +6,7 @@ import { OverrideMode, SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Encounter);
@@ -163,7 +164,7 @@ describe('CharacterSheet override authors', () => {
     ],
   };
 
-  async function breakdownText(authors: readonly object[]): Promise<string> {
+  async function breakdownText(authors: readonly JsonObject[]): Promise<string> {
     fakeDialog();
     const { root, harness } = await openSheet(ADJUSTED, { authors });
     const page = TestBed.inject(Router).url.split('?')[0] ?? '';

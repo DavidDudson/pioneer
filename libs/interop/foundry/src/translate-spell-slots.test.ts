@@ -16,11 +16,12 @@ import {
   WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 const { SpellSlots } = RuleElementKey;
 
 /** Holds from `level` on. */
-function from(level: number): object {
+function from(level: number): Fields {
   return { predicate: [{ gte: ['self:level', level] }] };
 }
 

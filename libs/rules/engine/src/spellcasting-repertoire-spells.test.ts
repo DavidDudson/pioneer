@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
@@ -12,7 +13,7 @@ const DAZZLING_FLASH = '8c3e6b1e-2a54-5f43-9b49-5ce7c7a2b2a1';
 const HEAL = '5d7c2a91-0e4b-5f36-b8a2-1c9e4d7f0a63';
 const FEAR = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
 
-const entry = (preparation: string, slug = 'sorcerer'): object => ({
+const entry = (preparation: string, slug = 'sorcerer'): RuleJson => ({
   key: 'SpellcastingEntry',
   slug,
   tradition: 'divine',
@@ -24,7 +25,7 @@ const gifts = (
   spells: readonly (readonly [string | number, string])[],
   extra: object = {},
   on = 'sorcerer',
-): object => ({
+): RuleJson => ({
   key: 'RepertoireSpells',
   entry: on,
   spells: spells.map(([rank, spell]) => ({ rank, spell })),

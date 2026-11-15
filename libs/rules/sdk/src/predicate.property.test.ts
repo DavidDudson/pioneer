@@ -29,7 +29,7 @@ const OPERATORS: ReadonlySet<string> = new Set([
 const SCHEMAS = [Predicate, PredicateStatement, Selector, Domain, SlotKey, RollOption, SourceRef, Origin];
 
 function nestedArrays(depth: number): unknown {
-  let value: unknown = 'a:b';
+  let value: string | unknown[] = 'a:b';
 
   for (let level = 0; level < depth; level += 1) {
     value = [value];

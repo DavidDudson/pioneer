@@ -27,7 +27,7 @@ function fillerFeats(): GrantEntry[] {
 }
 
 /** Levels each of the ancestry's slot kinds arrives at, by the trait its feats carry. */
-const SLOT_LEVELS: Readonly<Record<string, readonly number[]>> = {
+const SLOT_LEVELS = {
   human: [1, 5, 9, 13, 17],
   general: [3, 7, 11, 15, 19],
   skill: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],

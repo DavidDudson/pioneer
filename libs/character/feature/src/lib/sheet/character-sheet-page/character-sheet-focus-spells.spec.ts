@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -21,7 +22,7 @@ const SCHOOL_SLOT = '6efbc394-745c-5c78-8df1-8a3ebe1cdec2:0';
 const BATTLE_MAGIC = 'cf527c20-a4c9-5301-96f8-fa4da6be9af7';
 
 /** Merisiel as a `name` of `level`, with `choices` picked besides. */
-function as(name: 'bard' | 'wizard', level: number, choices: Readonly<Record<string, string>> = {}): object {
+function as(name: 'bard' | 'wizard', level: number, choices: Readonly<Record<string, string>> = {}): JsonObject {
   return {
     ...MERISIEL,
     level,
@@ -82,7 +83,7 @@ async function summaryOf(focus: HTMLElement, name: string): Promise<SpellSummary
 }
 
 /** The play state of a character in its own turn with all three actions. */
-function ownTurn(spendLog: readonly object[] = []): object {
+function ownTurn(spendLog: readonly JsonObject[] = []): JsonObject {
   const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
 
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog } };

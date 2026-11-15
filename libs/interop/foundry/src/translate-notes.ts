@@ -4,6 +4,7 @@ import { expandLocalize } from './foundry-lang';
 import type { LangValues } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
 import { htmlToRichText } from './html-rich-text';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * Foundry's `Note` in Pioneer's spelling (ADR-0008): `selector` is `selectors` (`translate-modifiers.ts`), a title of
@@ -40,7 +41,7 @@ export function richTextOf(text: unknown, { lang, values }: NoteContext): unknow
 }
 
 /** A `Note` with `text` rich text and its title's `{item|name}` the item's name; any other element as it is. */
-export function withNoteText(raw: unknown, context: NoteContext): unknown {
+export function withNoteText<Raw>(raw: Raw, context: NoteContext): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Note) {
     return raw;
   }

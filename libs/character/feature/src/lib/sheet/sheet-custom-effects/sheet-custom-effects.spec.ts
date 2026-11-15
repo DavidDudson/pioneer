@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
@@ -32,7 +33,7 @@ const BLESSING = {
 
 const NAMES = [{ userId: AUTHOR, displayName: 'Ada' }];
 
-async function openWith(customEffects: readonly object[]): Promise<HTMLElement> {
+async function openWith(customEffects: readonly JsonObject[]): Promise<HTMLElement> {
   const { root } = await openSheet({ ...FIGHTER, customEffects }, { authors: NAMES });
   await openConfiguration(root);
 

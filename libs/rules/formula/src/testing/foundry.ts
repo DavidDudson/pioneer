@@ -104,14 +104,14 @@ export function foundryOutcome(node: FormulaNode, values: Bindings): FoundryOutc
       const left = Number(leftOperand);
       const right = Number(rightOperand);
 
-      const results: Readonly<Record<string, number>> = {
-        '+': left + right,
-        '-': left - right,
-        '*': left * right,
-        '/': left / right,
-      };
+      const results = new Map([
+        ['+', left + right],
+        ['-', left - right],
+        ['*', left * right],
+        ['/', left / right],
+      ]);
 
-      const result = results[operator] ?? Number.NaN;
+      const result = results.get(operator) ?? Number.NaN;
       dividedByZero ||= operator === '/' && right === 0;
       leftSafeRange ||= Math.abs(result) > Number.MAX_SAFE_INTEGER;
 

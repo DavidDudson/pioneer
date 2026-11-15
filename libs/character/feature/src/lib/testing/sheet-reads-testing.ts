@@ -3,6 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { CharacterId, CORE_RULE_LIMITS } from '@pioneer/character/domain';
 import { vi } from 'vitest';
 
+import type { JsonObject } from './json-fixture';
+
 /** The character every sheet spec opens. */
 const SHEET_CHARACTER = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
@@ -22,12 +24,12 @@ export const NO_CHARACTER_PACKS = {
 };
 
 /** The play state the server holds, at `revision`. */
-export function playOf(damage: number, temp: number, revision = 1): object {
+export function playOf(damage: number, temp: number, revision = 1): JsonObject {
   return { revision, play: { hp: { damage, temp } } };
 }
 
 /** The bundle a spec answers with when it needs only the sheet: `sheet` and the core rules' limits. */
-export function sheetBundleOf(sheet: object): object {
+export function sheetBundleOf(sheet: JsonObject): JsonObject {
   return { sheet, ruleLimits: CORE_RULE_LIMITS };
 }
 
@@ -35,7 +37,7 @@ export function sheetBundleOf(sheet: object): object {
  * Answers the sheet's one read of its character, the bundle that carries its play state, packs, variant rules and the
  * rest; left unanswered it keeps the application unstable, so a spec waiting on it never settles.
  */
-export async function answerSheetBundle(bundle: object): Promise<void> {
+export async function answerSheetBundle(bundle: JsonObject): Promise<void> {
   await vi.waitFor(
     () => {
       TestBed.inject(HttpTestingController)

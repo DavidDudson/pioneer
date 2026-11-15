@@ -18,6 +18,7 @@ import {
 } from './spell-reach';
 import { firstVariantTime, rankChanges, variantsOf } from './spell-variants';
 import { plainWords } from './translate-action';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * A spell's or ritual's `data` from Foundry's `spell` item (a ritual is one with ritual data). Foundry stores casting
@@ -126,7 +127,7 @@ export function ritualData(input: KindInput): object | undefined {
 }
 
 /** A check Pioneer's fields cannot state, kept as the text Foundry gives. */
-function textCheck(text: string): object {
+function textCheck(text: string): Fields {
   return { text: text.trim() };
 }
 
@@ -135,7 +136,7 @@ function textCheck(text: string): object {
  * ("skill corresponding to the target's casting tradition (trained)"), the check is kept as its text, so the ritual
  * still imports.
  */
-function ritualChecks({ primary, secondary }: FoundryRitual): object {
+function ritualChecks({ primary, secondary }: FoundryRitual): Fields {
   const checks = secondaryChecksOf(secondary.checks);
   const hasText = secondary.checks.trim() !== '';
 

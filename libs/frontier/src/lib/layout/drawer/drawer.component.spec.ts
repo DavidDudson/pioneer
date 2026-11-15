@@ -41,7 +41,12 @@ const step = (root: HTMLElement): string | null => handle(root).getAttribute('ar
 /** Neither `<dialog>` methods nor `ResizeObserver` exist in jsdom: record the first and let a test drive the second. */
 const dialog = { calls: [] as string[] };
 
-const observed: { resize: (width: number) => void; target: Element | undefined } = {
+interface ObservedResize {
+  resize: (width: number) => void;
+  target: Element | undefined;
+}
+
+const observed: ObservedResize = {
   resize: () => undefined,
   target: undefined,
 };

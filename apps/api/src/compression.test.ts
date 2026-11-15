@@ -8,7 +8,7 @@ import { compression, MIN_COMPRESSED_BYTES } from './compression';
 const big = { text: 'x'.repeat(MIN_COMPRESSED_BYTES * 4) };
 
 /** What `/versioned` sends and under which `ETag`; a test changes them between requests. */
-const versioned = { etag: '"v1"', body: { text: 'a'.repeat(MIN_COMPRESSED_BYTES * 4) } as unknown };
+const versioned = { etag: '"v1"', body: { text: 'a'.repeat(MIN_COMPRESSED_BYTES * 4) } };
 
 function app(): AnyElysia {
   return new Elysia()

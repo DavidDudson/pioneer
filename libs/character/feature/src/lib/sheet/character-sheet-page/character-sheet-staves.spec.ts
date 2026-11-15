@@ -2,6 +2,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -15,7 +16,7 @@ const PACKS = [...cutTo(SPELL_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 const STAFF = '55555555-5555-4555-8555-555555555555';
 
 /** A 1st-level wizard (arcane, 1st-rank slots) carrying the fire staff as `carry`. */
-function wizardWith(carry: object): object {
+function wizardWith(carry: JsonObject): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('wizard') }, spellAccess: [] },

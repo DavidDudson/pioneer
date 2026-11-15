@@ -134,11 +134,16 @@ describe('previews of a spell', () => {
   });
 });
 
+/** The registry a spec loads late. */
+interface HeldRegistry {
+  registry?: ContentRegistry;
+}
+
 describe(sheetEntryPreviews, () => {
   it('previews through the registry as it is loaded', async () => {
     const registry = await featRegistry();
     const feat = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.kind === ContentKind.Feat);
-    const held: { registry?: ContentRegistry } = {};
+    const held: HeldRegistry = {};
     const previews = sheetEntryPreviews(() => held.registry);
     const id = ContentId.parse(feat?.id);
 

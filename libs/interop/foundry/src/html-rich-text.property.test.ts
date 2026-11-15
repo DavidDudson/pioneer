@@ -19,10 +19,14 @@ const TEXT_MAX = 30;
 /** Letters, spaces, characters HTML escapes, a no-break space and non-ASCII. */
 const UNITS = ['a', 'b', ' ', '&', '<', '>', '\n', '\t', '\u00A0', '\u2014', '\u00E9'];
 
-const ENTITIES: Readonly<Record<string, string>> = { '&': '&amp;', '<': '&lt;', '>': '&gt;' };
+const ENTITIES: ReadonlyMap<string, string> = new Map([
+  ['&', '&amp;'],
+  ['<', '&lt;'],
+  ['>', '&gt;'],
+]);
 
 function escaped(text: string): string {
-  return text.replaceAll(/[&<>]/gu, (character) => ENTITIES[character] ?? character);
+  return text.replaceAll(/[&<>]/gu, (character) => ENTITIES.get(character) ?? character);
 }
 
 const words: Arbitrary<Html> = string({ maxLength: TEXT_MAX, unit: constantFrom(...UNITS) }).map((text) => ({

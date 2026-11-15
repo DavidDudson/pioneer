@@ -1,3 +1,4 @@
+import type { JsonObject } from '../../testing/json-fixture';
 /** Ids and server responses shared by the key item panel's specs. */
 
 export const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -24,7 +25,7 @@ export const campaign = {
   createdAt: '2026-10-10T10:00:00.000Z',
 };
 
-function partyCharacter(characterId: string, name: string): object {
+function partyCharacter(characterId: string, name: string): JsonObject {
   return {
     characterId,
     name,
@@ -41,7 +42,7 @@ function partyCharacter(characterId: string, name: string): object {
 export const party = { characters: [partyCharacter(kyra, 'Kyra'), partyCharacter(mordred, 'Mordred')], attachable: [] };
 
 /** Caliburn with six property runes, one more than the table allows, held by `holder` or the stash. */
-export function keyItems(holder: 'kyra' | 'stash', manageable = true, owned = false): object {
+export function keyItems(holder: 'kyra' | 'stash', manageable = true, owned = false): JsonObject {
   const caliburnItem = {
     id: caliburn,
     name: 'Caliburn',

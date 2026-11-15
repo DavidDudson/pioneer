@@ -25,14 +25,21 @@ function hasMatchingFile(directory: string, matches: (file: string) => boolean):
     });
 }
 
-function inferTargets(root: string, absoluteRoot: string): Record<string, TargetConfiguration> {
+/** The targets every project can get: `typecheck` always, the others when the project has what they run on. */
+interface InferredTargets extends Record<string, TargetConfiguration> {
+  readonly typecheck: TargetConfiguration;
+  'lint-templates'?: TargetConfiguration;
+  test?: TargetConfiguration;
+}
+
+function inferTargets(root: string, absoluteRoot: string): InferredTargets {
   const tsconfig = JSON.parse(readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8')) as {
     readonly angularCompilerOptions?: unknown;
   };
 
   const angular = tsconfig.angularCompilerOptions !== undefined;
 
-  const targets: Record<string, TargetConfiguration> = {
+  const targets: InferredTargets = {
     typecheck: {
       cache: true,
       // Dependencies are compiled from their sources only: their specs and stories cannot change this result.
@@ -56,7 +63,7 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
   }
 
   if (hasMatchingFile(absoluteRoot, (file) => file.endsWith('.test.ts'))) {
-    targets['test'] = { cache: true, inputs: ['default', '^production'], command: `bun test ${root}` };
+    targets.test = { cache: true, inputs: ['default', '^production'], command: `bun test ${root}` };
   }
 
   return targets;

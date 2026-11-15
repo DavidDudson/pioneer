@@ -31,8 +31,16 @@ const POTENCY_ID = RuleId.parse('weapon:longsword#weapon-potency');
 /** Strength 4 plus trained 3 at level 1. */
 const BASE = 4 + 3;
 
+/** A statistic's inputs as JSON. */
+interface InputsJson {
+  readonly level: number;
+  readonly attributes: Readonly<Record<string, number>>;
+  readonly ranks: Readonly<Record<string, string>>;
+  readonly weapons: readonly object[];
+}
+
 /** A level 1 character with Strength 4, trained in martial weapons, wielding `weapon`. */
-function inputsWith(weapon: object): object {
+function inputsWith(weapon: object): InputsJson {
   return {
     level: 1,
     attributes: { str: 4, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
