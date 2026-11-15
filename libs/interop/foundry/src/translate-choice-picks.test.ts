@@ -17,7 +17,7 @@ const YES_NO = [
   { label: 'PF2E.No', value: 'no' },
 ];
 
-function translated(raw: object, item = 'Align the Stars'): RuleTranslation {
+function translated(raw: Fields, item = 'Align the Stars'): RuleTranslation {
   return translateRules(ENTRY, [raw], { lang: { PF2E: { Yes: 'Yes', No: 'No' } }, values: { item } });
 }
 

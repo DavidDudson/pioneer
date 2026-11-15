@@ -26,9 +26,9 @@ function toBugReport(row: BugReportRow): BugReport {
 }
 
 export class DrizzleBugReportRepository extends BugReportRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

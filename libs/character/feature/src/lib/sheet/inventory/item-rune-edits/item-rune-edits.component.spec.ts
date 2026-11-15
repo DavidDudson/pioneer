@@ -20,6 +20,7 @@ import {
   SWORD,
   VALEROS,
 } from '../../../testing/inventory-sheet-testing';
+import type { JsonObject } from '../../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
 
 const FLAMING_POTENCY_1 = { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Flaming) }] };
@@ -48,7 +49,7 @@ const RUNED_PAIR = {
 };
 
 /** Etches +1 potency onto the sword and has the server return `character`. */
-async function etchedAs(section: HTMLElement, character: object): Promise<void> {
+async function etchedAs(section: HTMLElement, character: JsonObject): Promise<void> {
   const potency = field(row(section, 'Longsword'), 'Potency rune on Longsword');
   await pickRow(potency, '+1');
   const etched = await patchSent();

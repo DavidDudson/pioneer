@@ -6,6 +6,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { ContentManifest } from '@pioneer/rules/sdk';
 import { API_BASE_URL, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -16,7 +17,7 @@ const MECHANICS = 'ancestry.mech.0123456789abcdef.json';
 const NAMES = 'ancestry.names.en.fedcba9876543210.json';
 const PACK_FILE = 'pack.0000000000000001.json';
 
-const manifest = {
+const manifest = ContentManifest.parse({
   packs: [
     {
       id: 'player-core',
@@ -26,7 +27,7 @@ const manifest = {
     },
     { id: 'core-rules', file: 'pack.0000000000000002.json', kinds: [] },
   ],
-};
+});
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -74,7 +75,7 @@ async function until(ready: () => boolean): Promise<void> {
 }
 
 async function renderAnswered(
-  answer: object = manifest,
+  answer: ContentManifest = manifest,
   extra: readonly Provider[] = [],
   manifestUrl = '/api/content/manifest',
 ): Promise<HTMLElement> {
@@ -119,9 +120,11 @@ describe('ContentCaches', () => {
   });
 
   it('shows a size just under a megabyte as a megabyte, not as 1,000 kB', async () => {
-    const section = await renderAnswered({
-      packs: [{ id: 'player-core', file: PACK_FILE, kinds: [], sizes: { [PACK_FILE]: 999_960 } }],
-    });
+    const section = await renderAnswered(
+      ContentManifest.parse({
+        packs: [{ id: 'player-core', file: PACK_FILE, kinds: [], sizes: { [PACK_FILE]: 999_960 } }],
+      }),
+    );
 
     expect(section.textContent).toContain('1 MB');
     expect(section.textContent).not.toContain('1,000 kB');

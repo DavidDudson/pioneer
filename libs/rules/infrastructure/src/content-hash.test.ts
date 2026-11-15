@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { contentId, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { contentHash } from './content-hash';
 
@@ -10,22 +11,7 @@ const HEX_SHA256 = /^[\da-f]{64}$/u;
 const PACK = PackId.parse('core-rules');
 const packFile = { id: PACK, title: 'Core Rules', publisher: 'Paizo Inc.', license: 'ORC' };
 
-/** An entry as JSON. */
-interface EntryFixture {
-  readonly id: string;
-  readonly pack: string;
-  readonly kind: string;
-  readonly slug: string;
-  readonly name: string;
-  readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
-  readonly data: object;
-}
-
-function language(slug: string, name: string): EntryFixture {
+function language(slug: string, name: string): JsonObject {
   return {
     id: contentId(PACK, EntrySlug.parse(`language:${slug}`)),
     pack: PACK,
@@ -44,7 +30,7 @@ function language(slug: string, name: string): EntryFixture {
 const common = language('common', 'Common');
 const elven = language('elven', 'Elven');
 
-function pack(file: object, entries: readonly object[] = [common, elven]): PackContents {
+function pack(file: JsonObject, entries: readonly JsonObject[] = [common, elven]): PackContents {
   return packContentsFromFiles(file, [entries]);
 }
 

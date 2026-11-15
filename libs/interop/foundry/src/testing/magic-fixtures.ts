@@ -25,7 +25,7 @@ const SPELL_DEFAULTS = {
   target: { value: '' },
 };
 
-export function spell(id: string, name: string, system: object): DocumentFixture {
+export function spell(id: string, name: string, system: Fields): DocumentFixture {
   return { id, name, type: 'spell', system: { ...SPELL_DEFAULTS, ...system } };
 }
 

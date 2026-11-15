@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { BookId, ContentKey, EntrySlug, PackId, SourceKind, SourceRef } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { bookRegistry } from './book-registry';
 import type { SourcedEntry } from './source-check';
@@ -8,7 +9,7 @@ import { sourceCoverage } from './source-coverage';
 
 const AON = 'https://2e.aonprd.com/Feats.aspx?ID=1';
 
-function entry(slug: string, ...sources: readonly Record<string, unknown>[]): SourcedEntry {
+function entry(slug: string, ...sources: readonly JsonObject[]): SourcedEntry {
   return {
     pack: PackId.parse('player-core'),
     slug: EntrySlug.parse(`feat:${slug}`),

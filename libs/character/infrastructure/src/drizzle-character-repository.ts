@@ -16,6 +16,7 @@ import { RequestMemo, stampAudit } from '@pioneer/shared/server';
 import { and, asc, count, desc, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
+import type { AnyPgColumn } from 'drizzle-orm/pg-core';
 
 import { filterConditions } from './character-list-filter';
 import { toCharacter, toPlay, toRow } from './character-row';
@@ -28,13 +29,13 @@ import { characterPlay, characters } from './character.table';
 const SORT_COLUMNS = {
   'created-at': characters.createdAt,
   name: characters.name,
-} as const satisfies Record<CharacterSort, unknown>;
+} as const satisfies Record<CharacterSort, AnyPgColumn>;
 
 export class DrizzleCharacterRepository extends CharacterRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #found = new RequestMemo<CharacterId, Character | undefined>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

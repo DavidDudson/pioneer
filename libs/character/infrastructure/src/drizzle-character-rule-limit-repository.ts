@@ -25,10 +25,10 @@ function toCharacterRuleLimit(row: CharacterRuleLimitRow): CharacterRuleLimit {
 }
 
 export class DrizzleCharacterRuleLimitRepository extends CharacterRuleLimitRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #listed = new RequestMemo<CharacterId, readonly CharacterRuleLimit[]>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

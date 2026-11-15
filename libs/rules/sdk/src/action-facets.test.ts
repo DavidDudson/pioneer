@@ -9,6 +9,7 @@ import type { FacetDefinition } from './facet';
 import { filterEntries } from './facet-filter';
 import { filterFromQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
+import type { JsonObject } from './testing/json-value';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An entry.' }] }];
@@ -17,7 +18,7 @@ const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.p
 interface EntryFields {
   readonly kind: string;
   readonly slug: string;
-  readonly data: object;
+  readonly data: JsonObject;
   readonly traits?: readonly string[];
   readonly level?: number;
 }
@@ -43,10 +44,10 @@ function entry({ traits = [], ...fields }: EntryFields): ContentEntry {
   });
 }
 
-const feat = (slug: string, data: object, traits: readonly string[]): ContentEntry =>
+const feat = (slug: string, data: JsonObject, traits: readonly string[]): ContentEntry =>
   entry({ kind: 'feat', slug, data, traits, level: 1 });
 
-const action = (slug: string, data: object, traits: readonly string[] = []): ContentEntry =>
+const action = (slug: string, data: JsonObject, traits: readonly string[] = []): ContentEntry =>
   entry({ kind: 'action', slug, data, traits });
 
 /** Every facet's values for `entry`, keyed by facet id. */

@@ -7,6 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject, JsonValue } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -23,7 +24,7 @@ function found(value: JsonValue): readonly string[] {
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
-const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prose = (text: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The fields every entry carries, before its kind and data. */
 interface Envelope {
@@ -41,7 +42,7 @@ interface Envelope {
 /** An entry with its kind and data. */
 interface KindedEntry extends Envelope {
   readonly kind: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 function entry(slug: string, name: string): Envelope {
@@ -61,7 +62,7 @@ function entry(slug: string, name: string): Envelope {
 const afterFocusSpell = { event: 'cast-spell', predicate: ['item:trait:focus'] };
 
 /** A free action that fires after a focus spell, with `data` merged over its own. */
-function action(data: object = {}): KindedEntry {
+function action(data: JsonObject = {}): KindedEntry {
   return {
     ...entry('action:focused-step', 'Focused Step'),
     kind: 'action',
@@ -70,7 +71,7 @@ function action(data: object = {}): KindedEntry {
 }
 
 /** An effect that fires at the start of the bearer's turn, with `data` merged over its own. */
-function effect(data: object = {}): KindedEntry {
+function effect(data: JsonObject = {}): KindedEntry {
   return {
     ...entry('effect:effect-renewal', 'Effect: Renewal'),
     kind: 'effect',

@@ -22,6 +22,7 @@ import {
   striking,
 } from './equipment-examples';
 import { paragraph } from './example-json';
+import type { JsonValue } from './example-json';
 import { arcane, consecrate, fireball, heroism } from './magic-examples';
 import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate, underwater } from './rules-core-examples';
 
@@ -129,7 +130,7 @@ const armorClass = {
 };
 
 /** A valid entry per registered kind, for the playground's content entry mode. */
-export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> = {
+export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, JsonValue>> = {
   [ContentKind.Action]: aid,
   [ContentKind.Ancestry]: human,
   [ContentKind.AncestryFeature]: keenEyes,

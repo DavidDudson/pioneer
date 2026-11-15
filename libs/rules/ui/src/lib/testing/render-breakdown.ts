@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import type { ComponentInputs } from '@pioneer/frontier';
 import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -48,7 +49,7 @@ function partsOf(item: Element): string {
 function inputsOf(
   value: StatisticValue,
   { kind = StatisticKind.Dc, entryNames = ENTRY_NAMES, ruleNames, originNames }: Inputs,
-): Readonly<Record<string, unknown>> {
+): ComponentInputs<BreakdownView> {
   const base = { statistic: value, kind, entryNames };
   const named = ruleNames === undefined ? base : { ...base, ruleNames };
 

@@ -13,6 +13,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { kitContent } from '../kit-content';
 import type { KitContent } from '../kit-content';
 import { ITEM_FIXTURES, ItemFixture, itemFixtureId } from './item-content';
+import type { JsonObject } from './json-fixture';
 
 const KIT_PACK = 'kit-fixtures';
 
@@ -31,13 +32,13 @@ export type KitFixture = (typeof KitFixture)[keyof typeof KitFixture];
 const EXPLORER_ARROWS = 10;
 
 /** A kit's items as its `data` lists them: the fixture item and how many, with what a container holds. */
-function kitLine(name: ItemFixture, quantity: number, contents: readonly object[] = []): object {
+function kitLine(name: ItemFixture, quantity: number, contents: readonly JsonObject[] = []): JsonObject {
   const line = { item: itemFixtureId(name), quantity };
 
   return contents.length === 0 ? line : { ...line, contents };
 }
 
-const KITS: Readonly<Record<KitFixture, object>> = {
+const KITS: Readonly<Record<KitFixture, JsonObject>> = {
   [KitFixture.Explorer]: {
     price: { coins: { gp: 2 } },
     items: [

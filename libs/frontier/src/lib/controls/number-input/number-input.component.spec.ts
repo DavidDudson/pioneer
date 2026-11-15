@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { NumberInput } from './number-input.component';
 
 interface Rendered {
@@ -11,7 +12,7 @@ interface Rendered {
   readonly cancels: () => number;
 }
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
+function render(inputs: ComponentInputs<NumberInput> = {}): Rendered {
   const fixture = TestBed.createComponent(NumberInput);
   fixture.componentRef.setInput('ariaLabel', 'Level');
 

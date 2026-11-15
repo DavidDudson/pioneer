@@ -48,11 +48,11 @@ export type Named = (pack: PackId) => object;
 /** The rule elements of one entry, before its spells are named in the pack being imported. */
 export type Planned = readonly (object | Grant | Named)[];
 
-export function isNamed(element: object | Grant | Named): element is Named {
+export function isNamed(element: Planned[number]): element is Named {
   return typeof element === 'function';
 }
 
-export function isGrant(element: object | Grant): element is Grant {
+export function isGrant(element: Planned[number]): element is Grant {
   return 'spells' in element && !('key' in element);
 }
 

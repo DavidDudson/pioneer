@@ -42,3 +42,5 @@ export type { RuleJson } from './rule-json';
 export { plain } from './plain';
 
 export type { Plain } from './plain';
+
+export type { JsonObject, JsonValue } from './json-value';

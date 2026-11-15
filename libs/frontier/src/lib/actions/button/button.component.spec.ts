@@ -3,6 +3,7 @@ import type { ComponentRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Size } from '../../tokens';
 import { Button, ButtonType, ButtonVariant, RollLuck, RollTone } from './button.component';
 
@@ -13,7 +14,7 @@ interface Rendered {
 }
 
 /** Renders `fr-button` with "Save" projected and returns its native button and the presses it emits. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Button>): Promise<Rendered> {
   const ref = createComponent(Button, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Save')]],

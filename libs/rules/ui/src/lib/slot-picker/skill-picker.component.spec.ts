@@ -1,3 +1,4 @@
+import type { ComponentInputs } from '@pioneer/frontier';
 import { Attribute, Proficiency } from '@pioneer/rules/sdk';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -36,7 +37,7 @@ const LORE = skillRow({ id: 'scribing-lore', name: 'Scribing Lore' });
 const SEARCH_DELAY = 500;
 
 /** A picker that allows Lores, with `text` typed in its search box. */
-async function typed(text: string, inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered<SkillPicker>> {
+async function typed(text: string, inputs: ComponentInputs<SkillPicker> = {}): Promise<Rendered<SkillPicker>> {
   vi.useFakeTimers();
   const rendered = await render(SkillPicker, { rows: [ARCANA, LORE], allowLore: true, ...inputs });
   search(rendered, text);

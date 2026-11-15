@@ -4,6 +4,7 @@ import { ContentId } from '@pioneer/rules/sdk';
 
 import { NO_REFERENCES } from './entry-references';
 import type { EntryReferences } from './entry-references';
+import type { Fields } from './translate-choice-reads';
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
@@ -21,7 +22,7 @@ const references: EntryReferences = {
   ]),
 };
 
-function translated(raw: object): RuleTranslation {
+function translated(raw: Fields): RuleTranslation {
   return translateRules(ENTRY, [raw], { lang: {}, values: { item: '' }, references });
 }
 

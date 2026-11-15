@@ -6,6 +6,7 @@ import { carrySources } from './carried-sources';
 import { packOutput } from './pack-output';
 import { known, translate } from './testing/import-fixtures';
 import { AID } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 const AON = 'https://2e.aonprd.com/Actions.aspx?ID=1';
 const OTHER_AON = 'https://2e.aonprd.com/Actions.aspx?ID=2';
@@ -20,7 +21,7 @@ if (action === undefined) {
 const imported = action;
 
 /** `entry` with `fields` replaced, parsed, so literals come out branded. */
-function changed(entry: ContentEntry, fields: object): ContentEntry {
+function changed(entry: ContentEntry, fields: Fields): ContentEntry {
   return ContentEntry.parse({ ...entry, ...fields });
 }
 

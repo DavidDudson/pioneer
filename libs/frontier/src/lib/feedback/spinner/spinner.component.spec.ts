@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Size } from '../../tokens';
 import { Spinner } from './spinner.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Spinner>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Spinner);
 
   for (const [name, value] of Object.entries(inputs)) {

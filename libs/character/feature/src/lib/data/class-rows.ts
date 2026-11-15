@@ -4,6 +4,7 @@ import { ContentId, RichText } from '@pioneer/rules/sdk';
 import type { Attribute, AttributeModifiers, ContentRegistry, Selector, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES, ClassPickerMessage, PROFICIENCY_NAMES, TRADITION_MESSAGES } from '@pioneer/rules/ui';
 import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 
 import type { SheetKeyAttribute, SheetSubclass } from '../sheet/sheet-build';
 import { sheetTrainedAgain, trainedAgainNote } from '../sheet/sheet-skill-repeats';
@@ -11,7 +12,7 @@ import { sheetSlotContent } from '../sheet/sheet-slot-content';
 
 /** What the class rows read besides the content: words. */
 export interface ClassRowReads {
-  readonly translate: (key: string, params?: object) => string;
+  readonly translate: (key: string, params?: MessageParams) => string;
 }
 
 /** What the class rows read: words, and the slot (the class slot unless the second class's) they are for. */

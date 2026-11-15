@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { VirtualListHost } from '../../testing/virtual-list-host';
 import { Space } from '../../tokens';
 import { VirtualEstimate, VirtualList } from './virtual-list.component';
@@ -20,7 +21,7 @@ interface Rendered {
   readonly stable: () => Promise<void>;
 }
 
-async function render(items: readonly string[], inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(items: readonly string[], inputs: ComponentInputs<VirtualListHost> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(VirtualListHost);
   fixture.componentRef.setInput('items', items);
 

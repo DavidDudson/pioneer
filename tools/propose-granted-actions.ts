@@ -18,6 +18,7 @@ const PACKS = path.join(ROOT, 'content', 'packs');
 const ENRICHMENT = path.join(ROOT, 'content', 'enrichment');
 const JSON_INDENT = 2;
 const JsonArray = z.array(z.unknown()).readonly();
+const WrittenMapping = z.record(z.string(), z.json());
 const GrantItemRule = z.object({ key: z.literal('GrantItem'), item: z.string() });
 
 async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
@@ -45,7 +46,7 @@ function grantedIds(node: object): readonly string[] {
 
 /** A pack's enrichment file, as written (to merge into) and as parsed (to read). */
 interface PackMapping {
-  readonly written: Record<string, unknown>;
+  readonly written: z.infer<typeof WrittenMapping>;
   readonly mapping: Record<string, EnrichmentMapping>;
 }
 
@@ -54,7 +55,7 @@ async function readMapping(pack: string): Promise<PackMapping> {
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : {};
 
-  return { written: z.record(z.string(), z.unknown()).parse(json), mapping: EnrichmentMappingFile.parse(json) };
+  return { written: WrittenMapping.parse(json), mapping: EnrichmentMappingFile.parse(json) };
 }
 
 const packFiles = await Array.fromAsync(new Glob('*/pack.json').scan({ cwd: PACKS }));

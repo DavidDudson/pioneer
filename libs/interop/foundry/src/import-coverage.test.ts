@@ -7,8 +7,9 @@ import { packOutput } from './pack-output';
 import { known, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { AID } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
-function feat(id: string, name: string, system: object = {}): DocumentFixture {
+function feat(id: string, name: string, system: Fields = {}): DocumentFixture {
   return {
     id,
     name,

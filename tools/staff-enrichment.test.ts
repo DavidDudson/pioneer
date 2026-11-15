@@ -3,14 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { staffMatches } from '@pioneer/rules/catalog';
 import { ContentEntryFile, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
-import type { EntryJson } from './entry-json.ts';
+import type { EntryJson, JsonObject } from './entry-json.ts';
 import { enrichStaffFile } from './staff-enrichment.ts';
 
 const PACK = 'gm-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 /** A Game Master Core entry's JSON, as a pack file holds it. */
-function entry(slug: string, name: string, fields: object): EntryJson {
+function entry(slug: string, name: string, fields: JsonObject): EntryJson {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -39,10 +39,10 @@ const HEAL = entry('spell:heal', 'Heal', {
 });
 
 /** A rich-text list as a pack file holds it. */
-interface ListJson {
+interface ListJson extends JsonObject {
   readonly type: string;
   readonly ordered: boolean;
-  readonly items: readonly (readonly object[])[];
+  readonly items: readonly (readonly JsonObject[])[];
 }
 
 const list = (words: string): ListJson => ({
@@ -68,7 +68,7 @@ const WEAPON = {
   usage: { type: 'held', hands: 'one' },
 };
 
-function staff(slug: string, words: string, data: object = {}): object {
+function staff(slug: string, words: string, data: JsonObject = {}): object {
   return entry(`weapon:${slug}`, slug, {
     kind: 'weapon',
     traits: ['magical', 'staff'],

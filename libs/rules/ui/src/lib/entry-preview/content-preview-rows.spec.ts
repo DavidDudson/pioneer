@@ -1,6 +1,7 @@
 import type { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import type { ComponentInputs } from '@pioneer/frontier';
 import { ContentId } from '@pioneer/rules/sdk';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -21,18 +22,23 @@ const SPELL = ContentId.parse(FIREBALL);
 interface Row<Host> {
   readonly name: string;
   readonly component: Type<Host>;
-  readonly inputs: Readonly<Record<string, unknown>>;
+  readonly inputs: ComponentInputs<Host>;
+}
+
+/** A row whose inputs are checked against its own component, then held with the others. */
+function rowOf<Host>(row: Row<Host>): Row<unknown> {
+  return row;
 }
 
 const ROWS: readonly Row<unknown>[] = [
-  {
+  rowOf({
     name: 'spell access',
     component: SpellAccessListView,
     inputs: { lines: [{ spell: SPELL, name: 'Fireball' }] },
-  },
-  { name: 'inventory item', component: InventoryView, inputs: { groups: FIGHTER_INVENTORY } },
-  { name: 'shop offer', component: ShopOffersView, inputs: { offers: [LONGSWORD] } },
-  { name: 'kit item', component: KitContents, inputs: { lines: [kitLine('Longsword', 1)] } },
+  }),
+  rowOf({ name: 'inventory item', component: InventoryView, inputs: { groups: FIGHTER_INVENTORY } }),
+  rowOf({ name: 'shop offer', component: ShopOffersView, inputs: { offers: [LONGSWORD] } }),
+  rowOf({ name: 'kit item', component: KitContents, inputs: { lines: [kitLine('Longsword', 1)] } }),
 ];
 
 function card(): HTMLElement | null {

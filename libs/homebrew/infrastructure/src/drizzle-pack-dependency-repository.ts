@@ -18,9 +18,9 @@ const ADD_COMMAND = 'add-homebrew-pack-dependency';
 const REMOVE_COMMAND = 'remove-homebrew-pack-dependency';
 
 export class DrizzlePackDependencyRepository extends PackDependencyRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

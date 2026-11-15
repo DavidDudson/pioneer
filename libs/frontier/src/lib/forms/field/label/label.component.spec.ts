@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../../testing/component-inputs';
 import { FieldHarness } from '../../../testing/field-harness';
 import { Label } from './label.component';
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<FieldHarness> {
+async function render(inputs: ComponentInputs<Label> = {}): Promise<FieldHarness> {
   const harness = new FieldHarness();
   harness.add(Label, 'Name', inputs);
   await harness.stable();

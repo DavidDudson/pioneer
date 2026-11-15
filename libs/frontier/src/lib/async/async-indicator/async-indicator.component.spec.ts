@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncStatus } from '../async-action';
 import { AsyncIndicator } from './async-indicator.component';
@@ -11,7 +12,7 @@ interface Rendered {
   readonly host: HTMLElement;
 }
 
-async function render(status: AsyncStatus, inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(status: AsyncStatus, inputs: ComponentInputs<AsyncIndicator> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(AsyncIndicator);
   fixture.componentRef.setInput('status', status);
 

@@ -11,6 +11,7 @@ import {
   Selector,
 } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { BaseTermKind } from './base-term';
 import { deriveStatistics } from './derive-statistics';
@@ -34,7 +35,7 @@ const content = { definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_P
 const WITHOUT_LEVEL = { untrained: '-2', trained: '2', expert: '4', master: '6', legendary: '8' };
 const FLAT_TEN = { untrained: '10', trained: '10', expert: '10', master: '10', legendary: '10' };
 
-function replacing(table: object, entry: string, fields: object = {}): RuleInPlay {
+function replacing(table: JsonObject, entry: string, fields: JsonObject = {}): RuleInPlay {
   return inPlay({ key: 'ProficiencyBonus', table, ...fields }, entry);
 }
 

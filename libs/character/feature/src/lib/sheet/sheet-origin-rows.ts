@@ -3,6 +3,7 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { injectContentRegistry } from '../data/content-registry-query';
@@ -29,7 +30,7 @@ export function injectOriginRows(sheet: SheetState): SheetOriginRows {
   /** Changes when the language changes or the messages load, so the rows' words are read again. */
   const messages = toSignal(merge(i18n.langChanges$, loaded));
   const feats = injectContentRegistry(FEAT_CONTENT_KINDS);
-  const reads = { translate: (key: string, params?: object): string => i18n.translate(key, params) };
+  const reads = { translate: (key: string, params?: MessageParams): string => i18n.translate(key, params) };
 
   return {
     loading: computed(() => sheet.registry.data() === undefined),

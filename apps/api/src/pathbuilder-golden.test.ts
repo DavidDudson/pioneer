@@ -15,6 +15,7 @@ import type {
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
 /** Time for the first import of an export over every official pack; later tests reuse it. */
@@ -185,7 +186,7 @@ const gapSummary = (gaps: readonly SpellGap[]): string[] =>
   );
 
 /** The slots a character's picks fill with spells: prepared and repertoire slots only. */
-const spellPickCount = (choices: Readonly<Record<string, unknown>>): number =>
+const spellPickCount = (choices: Readonly<Record<SlotKey, ChoiceValue>>): number =>
   Object.keys(choices).filter((key) => key.startsWith('prepared:') || key.startsWith('repertoire:')).length;
 
 /**

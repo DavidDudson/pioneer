@@ -7,6 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -41,7 +42,7 @@ interface Envelope {
 /** An entry with its kind and data. */
 interface KindedEntry extends Envelope {
   readonly kind: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -102,7 +103,7 @@ const raiseAShield = {
 };
 
 /** Raise a Shield with `data` merged over its own. */
-const variable = (data: object): KindedEntry => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
+const variable = (data: JsonObject): KindedEntry => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
 
 const fire = { ...entry('damage-type:fire', 'Fire'), kind: 'damage-type', data: {} };
 

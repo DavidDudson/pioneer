@@ -3,9 +3,10 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { DateField } from './date-field.component';
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixture<DateField> {
+function render(inputs: ComponentInputs<DateField> = {}): ComponentFixture<DateField> {
   const fixture = TestBed.createComponent(DateField);
   fixture.componentRef.setInput('label', 'Session date');
   fixture.componentRef.setInput('hint', 'When the party next meets.');

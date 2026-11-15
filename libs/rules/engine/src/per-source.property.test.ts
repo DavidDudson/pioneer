@@ -134,7 +134,7 @@ describe('Strikes derived per weapon (properties)', () => {
           }),
         );
 
-        const totals: Record<string, unknown> = Object.fromEntries(
+        const totals: Record<string, boolean | number> = Object.fromEntries(
           [...results].map(([selector, result]) => [selector, result.ok && result.total]),
         );
 

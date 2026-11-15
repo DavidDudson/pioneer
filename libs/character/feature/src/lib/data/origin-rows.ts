@@ -10,6 +10,7 @@ import type { Character } from '@pioneer/character/domain';
 import { Feet, HitPoints, Trait } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 
 import { traitChips } from '../sheet/sheet-build';
 import { sheetEntryNames } from '../sheet/sheet-entry-names';
@@ -18,7 +19,7 @@ import { sheetSlotContent } from '../sheet/sheet-slot-content';
 
 /** What the origin rows read besides the content: words. */
 export interface OriginRowReads {
-  readonly translate: (key: string, params?: object) => string;
+  readonly translate: (key: string, params?: MessageParams) => string;
 }
 
 /** The ids a character's own slot offers; undefined without a character, which offers everything it is given. */

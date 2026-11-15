@@ -31,6 +31,7 @@ import {
   runeFixtureContent,
   runeFixtureId,
 } from './testing';
+import type { JsonObject } from './testing';
 
 const content = itemFixtureContent();
 
@@ -41,7 +42,7 @@ const POTENCY = fundamentalRef(FundamentalRune.Potency);
 const STRIKING = fundamentalRef(FundamentalRune.Striking);
 
 /** `json` as runes on an item. */
-function runes(json: object): ItemRunes {
+function runes(json: JsonObject): ItemRunes {
   return ItemRunesSchema.parse(json);
 }
 
@@ -105,7 +106,7 @@ describe('printed runes made for an energy', () => {
   const tongue = content.get(line.item);
 
   /** The Flame Tongue fixture printed with its Flaming rune made for `energy`, or for none. */
-  function printedFor(energy: object | undefined): ItemEntry | undefined {
+  function printedFor(energy: JsonObject | undefined): ItemEntry | undefined {
     if (tongue?.kind !== ContentKind.Weapon || tongue.data.runes === undefined) {
       return tongue;
     }

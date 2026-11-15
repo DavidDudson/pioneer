@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../../testing/provide-frontier-i18n-testing';
 import { ColumnChooser } from './column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser.component';
@@ -18,7 +19,7 @@ interface Rendered {
   readonly resets: () => number;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<ColumnChooser> = {}): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(ColumnChooser);
   fixture.componentRef.setInput('columns', COLUMNS);

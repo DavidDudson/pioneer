@@ -2,9 +2,10 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Gem } from './gem.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Gem>): Promise<HTMLElement> {
   const gem = createComponent(Gem, { environmentInjector: TestBed.inject(EnvironmentInjector) });
   onTestFinished(() => {
     gem.destroy();

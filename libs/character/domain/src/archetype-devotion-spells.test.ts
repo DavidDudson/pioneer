@@ -10,6 +10,7 @@ import { slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
+import type { JsonObject, JsonValue } from './testing';
 import { CharacterBuilder } from './testing';
 
 /** A fighter with the champion archetypes as the importer gives them (ADR-0050): the devotion spells they grant. */
@@ -31,7 +32,7 @@ for (const spell of [...DEVOTION, 'protectors-sacrifice']) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const grant = (spell: string, predicate?: readonly unknown[]): object => {
+const grant = (spell: string, predicate?: readonly JsonValue[]): JsonObject => {
   const element = { key: 'FocusSpells', entry: 'champion-focus', spells: [spellId(spell)] };
 
   return predicate === undefined ? element : { ...element, predicate };

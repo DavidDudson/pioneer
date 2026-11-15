@@ -12,7 +12,7 @@ import type { Campaign, CampaignMember } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
 import { fixedClock, newId, nextVersion, sha256Hex, UserId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
+import { errorRejection, rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
@@ -123,9 +123,8 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
       now: at,
     });
 
-    const error = await rejection(repository.insert(twin));
-    // SAFETY: `error` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
-    expect(String((error as Error).cause)).toContain('campaign_invites_token_hash_idx');
+    const error = await errorRejection(repository.insert(twin));
+    expect(String(error.cause)).toContain('campaign_invites_token_hash_idx');
   });
 
   test('a campaign with invites cannot be deleted; deleting the user who made one deletes it', async () => {

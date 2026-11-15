@@ -6,7 +6,7 @@ import { withActiveEffect } from './translate-active-effects';
 import type { Fields } from './translate-choice-reads';
 
 /** Foundry's `ActiveEffectLike` with `fields`. */
-function effect(fields: object): Fields {
+function effect(fields: Fields): Fields {
   return { key: 'ActiveEffectLike', ...fields };
 }
 

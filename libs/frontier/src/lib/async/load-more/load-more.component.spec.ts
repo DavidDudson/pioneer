@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { FakeInfiniteQuery } from '../../testing/fake-infinite-query';
 import { LoadMoreHost } from '../../testing/load-more-host';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
@@ -17,7 +18,7 @@ interface Rendered {
   readonly host: HTMLElement;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<LoadMoreHost> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(LoadMoreHost);
   const query = new FakeInfiniteQuery<string>(FIRST);
   fixture.componentRef.setInput('query', query);

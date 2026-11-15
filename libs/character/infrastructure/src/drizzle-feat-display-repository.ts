@@ -10,9 +10,9 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { characterFeatDisplays } from './character.table';
 
 export class DrizzleFeatDisplayRepository extends FeatDisplayRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

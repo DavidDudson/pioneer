@@ -10,6 +10,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, CharacterId } from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId } from '@pioneer/character/domain/testing';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { AncestryId, ContentId } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
@@ -78,7 +79,7 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     return found;
   }
 
-  async function namesOf(query: Record<string, unknown>): Promise<readonly string[]> {
+  async function namesOf(query: JsonObject): Promise<readonly string[]> {
     const page = await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ sort: 'name', ...query }));
 
     return page.items.map((character) => character.name);

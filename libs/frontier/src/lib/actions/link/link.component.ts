@@ -60,6 +60,9 @@ const linkVariants = cva('focus-visible:focus-ring', {
 /** Router commands, as `routerLink` takes them. */
 export type LinkTarget = string | readonly unknown[];
 
+/** History state a link's navigation carries: plain values the page it opens reads back. */
+export type LinkState = Readonly<Record<string, boolean | number | string | null>>;
+
 /**
  * Absolute URLs on another host, so a document load is expected. The `//` matters: `https:/characters` resolves
  * against the app's own origin. Schemes are case-insensitive.
@@ -99,7 +102,7 @@ export class Link {
   /** Query parameters added to the `to` page's URL. */
   public readonly queryParams = input<Params | undefined>(undefined);
   /** History state the navigation carries, for the page it opens to read (where the link was followed from). */
-  public readonly state = input<Readonly<Record<string, unknown>> | undefined>(undefined);
+  public readonly state = input<LinkState | undefined>(undefined);
   /** Only the `to` page itself is current, not the pages under it. For a root link, which is under nothing. */
   public readonly exact = input(false, { transform: booleanAttribute });
   public readonly href = input<string | undefined>(undefined);
