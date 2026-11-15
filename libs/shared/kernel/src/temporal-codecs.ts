@@ -21,6 +21,7 @@ function parseOr<TValue>(
       input: context.value,
       message: error instanceof Error ? error.message : `Invalid ${format}`,
     });
+
     return z.NEVER;
   }
 }

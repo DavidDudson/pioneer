@@ -35,6 +35,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -59,9 +60,11 @@ async function open(characters: readonly object[]): Promise<Opened> {
   fixture.componentRef.setInput('line', longsword);
   fixture.componentRef.setInput('name', 'Longsword');
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The control did not render');
   }
+
   const root = host;
   document.body.append(root);
   onTestFinished(() => {
@@ -75,20 +78,24 @@ async function open(characters: readonly object[]): Promise<Opened> {
   });
   await fixture.whenStable();
   fixture.detectChanges();
+
   return { fixture, http, root };
 }
 
 describe(CampaignOfferItem, () => {
   it('offers the line to the character picked from the party, and refreshes the offers', async () => {
     const { fixture, http, root } = await open([member(kyra, 'Kyra'), member(seelah, 'Seelah')]);
+
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, object>;
+
     picker.value.set(seelah);
     fixture.detectChanges();
 
     const submit = [...root.querySelectorAll('button')].find((button) =>
       button.textContent.includes('Offer Longsword to'),
     );
+
     present(submit).click();
 
     await vi.waitFor(() => {
@@ -106,6 +113,7 @@ describe(CampaignOfferItem, () => {
 
   it('does not offer the giver itself, or an archived character, as a recipient', async () => {
     const { fixture } = await open([member(kyra, 'Kyra'), member(dormant, 'Dormant', true), member(seelah, 'Seelah')]);
+
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, { name: string }>;
 

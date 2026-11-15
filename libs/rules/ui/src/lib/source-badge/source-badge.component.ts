@@ -33,6 +33,7 @@ export const SourceBadgeMode = {
   /** The icon, the book's name and its year. */
   Expanded: 'expanded',
 } as const;
+
 export type SourceBadgeMode = ValueOf<typeof SourceBadgeMode>;
 
 /** A message key and its params. */
@@ -112,29 +113,37 @@ export class SourceBadge {
   /** The year in the accessible name, which holds the text the badge shows: only the expanded one shows it. */
   protected readonly yearLabel = computed(() => {
     const year = this.expanded() ? this.year() : undefined;
+
     return { year: year ?? '', hasYear: year === undefined ? 'no' : 'yes' };
   });
 
   /** The book's title, or what stands in for it: the id of a book the registry lacks, a pack, a page. */
   protected readonly heading = computed((): Phrase => {
     const source = this.source();
+
     if (source.kind === SourceKind.Web) {
       return phrase(SourceBadgeMessage.Web, { title: source.title ?? new URL(source.url).host });
     }
+
     if (source.kind === SourceKind.Homebrew) {
       return phrase(SourceBadgeMessage.Homebrew, { pack: this.packName() ?? source.pack });
     }
+
     const title = BOOK_TITLES.get(source.book);
+
     return title === undefined ? phrase(SourceBadgeMessage.UnregisteredBook, { book: source.book }) : phrase(title);
   });
 
   protected readonly rows = computed((): readonly DetailRow[] => {
     const book = this.book();
     const source = this.source();
+
     if (book === undefined) {
       return [];
     }
+
     const released = book.released?.toLocaleString(this.#format.locale(), { dateStyle: 'medium' });
+
     return [
       ...keyRow(
         SourceBadgeMessage.ProductLine,
@@ -158,6 +167,7 @@ export class SourceBadge {
     const entry = source.kind === SourceKind.Book ? source.aon : undefined;
     const aon = entry ?? book?.aonSourceUrl;
     const web = pageOf(source);
+
     return [
       ...(aon === undefined ? [] : [{ url: aon, label: SourceBadgeMessage.Aon }]),
       ...(book?.storeUrl === undefined ? [] : [{ url: book.storeUrl, label: SourceBadgeMessage.Store }]),

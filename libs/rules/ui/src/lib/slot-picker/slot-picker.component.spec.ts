@@ -96,6 +96,7 @@ describe(SlotPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_unused, index) =>
       slotRow({ id: `o${index}`, name: `Option ${index}` }),
     );
+
     const { host } = await render(SlotPicker, { rows });
     expect(host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
   });

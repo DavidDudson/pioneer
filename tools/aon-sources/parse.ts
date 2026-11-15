@@ -29,10 +29,13 @@ function entity(whole: string, body: string): string {
   if (body.startsWith('#x')) {
     return String.fromCodePoint(Number(`0${body.slice(1)}`));
   }
+
   if (body.startsWith('#')) {
     const code = Math.trunc(Number(body.slice(1)));
+
     return String.fromCodePoint(code);
   }
+
   return ENTITIES[body] ?? whole;
 }
 
@@ -43,12 +46,14 @@ function decode(text: string): string {
 export function parseSources(html: string): SourcesListing {
   const entries: ListedEntry[] = [];
   const skipped: string[] = [];
+
   for (const { groups: section } of html.matchAll(SECTION)) {
     for (const { groups: link } of (section?.['body'] ?? '').matchAll(LINK)) {
       const href = link?.['href'] ?? '';
       const name = link?.['name'] ?? '';
       const heading = section?.['heading'] ?? '';
       const url = AonUrl.safeParse(`${ORIGIN}${decode(href)}`);
+
       if (url.success) {
         entries.push({ type: decode(heading), name: decode(name), url: url.data });
       } else {
@@ -56,5 +61,6 @@ export function parseSources(html: string): SourcesListing {
       }
     }
   }
+
   return { entries, skipped };
 }

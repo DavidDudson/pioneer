@@ -55,6 +55,7 @@ export class HeritagePicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return heritagePickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

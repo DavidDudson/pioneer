@@ -97,14 +97,17 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
   const { line, actions } = request;
   const pays = line.payment !== undefined;
   const cost = spendCostOf(line.cost ?? (pays ? ActionCost.Free : undefined), actions);
+
   if (cost === undefined) {
     return undefined;
   }
+
   const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
   const attacks = line.attack === true || makesAttack(registry, line.id);
   // A staff's spell is cast from the staff, which records it as a staff cast and not as a spell of the character's own.
   const casts = line.payment?.staff === undefined && spellEntries(registry).has(line.id);
   const cast = sustainedCast(registry, line.id, recorded.slot);
+
   return {
     field: PlayCommandField.SpendAction,
     id: SpendId.parse(newId()),
@@ -148,17 +151,23 @@ export class SheetSpender extends ActionUser {
 
   public override async use(request: ActionUse): Promise<void> {
     const consumable = request.line.payment?.consumable;
+
     if (consumable !== undefined) {
       await this.#consumables.useHeld(consumable);
+
       return;
     }
+
     const registry = await this.#load();
     const cast = registry === undefined ? undefined : formCastOf(registry, request, this.#caster(registry));
+
     if (cast !== undefined) {
       // One form cast waits at a time: a second use is ignored until the first is confirmed or cancelled.
       this.pendingForm.update((pending) => pending ?? cast);
+
       return;
     }
+
     await this.#spend(request);
   }
 
@@ -166,6 +175,7 @@ export class SheetSpender extends ActionUser {
   async #load(): Promise<ContentRegistry | undefined> {
     this.#wanted.set(true);
     const loaded = await firstValueFrom(this.#loaded$.pipe(filter((each) => each !== undefined)));
+
     return loaded.registry;
   }
 
@@ -175,6 +185,7 @@ export class SheetSpender extends ActionUser {
   /** What a form cast reads of the open character; undefined while it loads. */
   #caster(registry: ContentRegistry): FormCaster | undefined {
     const character = this.#sheet.character();
+
     return character === undefined
       ? undefined
       : {
@@ -199,15 +210,19 @@ export class SheetSpender extends ActionUser {
    */
   public async castForm(choice: FormCastChoice, tempHp: HitPoints | undefined, id: EffectInstanceId): Promise<void> {
     const cast = this.pendingForm();
+
     if (cast === undefined) {
       return;
     }
+
     this.casting.set(true);
+
     try {
       const chosen = {
         ...(choice.form === undefined ? {} : { form: choice.form }),
         ...(tempHp === undefined ? {} : { tempHp }),
       };
+
       await this.#spend(
         cast.request,
         cast.shift === undefined
@@ -224,9 +239,11 @@ export class SheetSpender extends ActionUser {
   async #spend(request: ActionUse, form?: FormSpend): Promise<void> {
     const registry = this.#registry.data();
     const spend = registry === undefined ? undefined : spendOf(registry, request, form);
+
     if (spend === undefined) {
       return;
     }
+
     await this.#play.send(spend);
     await this.#raised(request.line.id);
   }
@@ -247,10 +264,13 @@ export class SheetSpender extends ActionUser {
     const registry = this.#registry.data();
     const read = this.#play.play.data();
     const ids = registry === undefined ? undefined : shieldIds(registry);
+
     if (ids === undefined || read === undefined || ids.raise !== action) {
       return;
     }
+
     const edit = raisedEdit(read.play, ids);
+
     if (edit !== undefined) {
       await this.#play.send(edit);
     }

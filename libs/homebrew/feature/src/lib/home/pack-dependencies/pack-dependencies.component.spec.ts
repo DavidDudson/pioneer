@@ -35,6 +35,7 @@ const playerCore = {
   visibility: 'public',
   official: true,
 };
+
 const monsterCore = {
   id: '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e61',
   slug: 'monster-core',
@@ -54,6 +55,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -78,6 +80,7 @@ async function open(dependencies: DependenciesJson): Promise<RouterTestingHarnes
     http.expectOne(`/api/homebrew/packs/${id}/dependencies`).flush(dependencies);
   });
   await harness.fixture.whenStable();
+
   return harness;
 }
 
@@ -94,6 +97,7 @@ function pickerField(harness: RouterTestingHarness): DebugElement {
       each.nativeElement instanceof Element &&
       each.nativeElement.closest('pio-pack-dependency-adder') !== null,
   );
+
   return present(field);
 }
 

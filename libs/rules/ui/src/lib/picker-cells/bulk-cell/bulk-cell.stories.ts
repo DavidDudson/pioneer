@@ -6,6 +6,7 @@ import { BulkCell } from './bulk-cell.component';
 type BulkStory = StoryObj<BulkCell>;
 
 const meta: Meta<BulkCell> = { title: 'Rules/Picker cells/Bulk', component: BulkCell };
+
 export default meta;
 
 /** Two Bulk. */

@@ -43,15 +43,18 @@ function present<TValue>(value: TValue | undefined): TValue {
   if (value === undefined) {
     throw new Error('Expected a value');
   }
+
   return value;
 }
 
 /** Gives each line's id, so lines are added in the order listed. */
 function stock(lines: readonly [InventoryItemId, ItemFixture, InventoryItemId | undefined][]): Inventory {
   let inventory = EMPTY_INVENTORY;
+
   for (const [id, name, container] of lines) {
     inventory = addItem(inventory, { id, item: itemFixtureId(name), quantity: one, container });
   }
+
   return inventory;
 }
 
@@ -147,9 +150,11 @@ describe(sheetInventory, () => {
   it('gives each property rune with its choice, so one rune etched twice reads as two', () => {
     let etched = stock([[sword, ItemFixture.LeatherArmor, undefined]]);
     const rune = runeFixtureId(RuneFixture.EnergyResistant);
+
     for (const choice of ['fire', 'cold']) {
       etched = etchRune(etched, sword, { type: RuneType.Property, rune, choice: RuneChoice.parse(choice) });
     }
+
     const property = present(sheetInventory(etched, runed)[0]).lines[0]?.runes?.property;
     expect(property).toStrictEqual([
       { name: 'Energy-resistant', choice: 'fire' },
@@ -215,6 +220,7 @@ describe(sheetInventory, () => {
       sword,
       fundamental(FundamentalRune.Potency, 3),
     );
+
     const flaming = etchRune(base, sword, propertyRune(RuneFixture.Flaming));
     const both = etchRune(flaming, sword, propertyRune(RuneFixture.Frost));
     const badge: RuneBadgeData = { kind: 'property', id: runeFixtureId(RuneFixture.Flaming), name: 'Flaming' };

@@ -10,6 +10,7 @@ const SECOND_PAGE = PageNumber.parse(2);
 function addressOf(state: CharacterPageQuery): Record<string, string> {
   const written = Object.entries(paramsFromListState(state));
   const present = written.filter((entry) => entry[1] !== undefined);
+
   return Object.fromEntries(present.map((entry) => [entry[0], String(entry[1])]));
 }
 

@@ -28,12 +28,16 @@ type Recreatable = ReadonlyMap<InventoryItemId, { readonly granted?: ShieldGrant
  */
 export function shieldsRecreated(play: PlayState, spell: ActiveSpellId, shields: Recreatable): PlayState {
   const effects = new Set(play.effects.filter((each) => each.spell === spell).map(({ effect }) => effect));
+
   const recreated = [...shields]
     .filter(([, { granted }]) => granted?.recreatedOnSustain === true && effects.has(granted.effect))
     .map(([item]): InventoryItemId => item);
+
   let kept = play.shields;
+
   for (const item of recreated) {
     kept = shieldCleared(kept, item);
   }
+
   return { ...play, shields: kept };
 }

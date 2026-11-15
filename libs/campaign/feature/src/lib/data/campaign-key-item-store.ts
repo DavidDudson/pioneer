@@ -34,12 +34,14 @@ export class CampaignKeyItemStore {
   /** The open campaign's key items and who holds them. */
   public readonly keyItems = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: keyItemsKey(id),
       queryFn: async (): Promise<CampaignKeyItems> => {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
+
         return this.#api.call(CampaignContract.keyItems, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -90,9 +92,11 @@ export class CampaignKeyItemStore {
 
   #openId(): CampaignId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No campaign selected');
     }
+
     return id;
   }
 }

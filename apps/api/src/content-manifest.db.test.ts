@@ -16,6 +16,7 @@ import { content, seedOfficialContent } from './content';
  * bundle, which the Legal page lists. Skipped when TEST_DATABASE_URL is unset; CI always sets it.
  */
 setDefaultTimeout(90_000);
+
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 const IMPORTED = 'player-core';
@@ -30,9 +31,11 @@ function ignore(): void {
 
 function packIn(packs: readonly PackBundles[], id: string): PackBundles {
   const found = packs.find((pack) => pack.id === id);
+
   if (found === undefined) {
     throw new Error(`Expected ${id} in the manifest`);
   }
+
   return found;
 }
 
@@ -40,6 +43,7 @@ function sizeEntries(pack: PackBundles): readonly [string, unknown][] {
   if (pack.sizes === undefined) {
     throw new Error(`Expected sizes for ${pack.id} in the manifest`);
   }
+
   return Object.entries(pack.sizes);
 }
 
@@ -59,6 +63,7 @@ describe.skipIf(adminUrl === undefined)('content manifest sizes (postgres)', () 
 
   async function packs(): Promise<readonly PackBundles[]> {
     const response = await api.handle(get('/content/manifest'));
+
     return ContentManifest.parse(await response.json()).packs;
   }
 
@@ -66,7 +71,9 @@ describe.skipIf(adminUrl === undefined)('content manifest sizes (postgres)', () 
     const served = await Promise.all(
       sizeEntries(pack).map(async ([file]) => api.handle(get(`/content/bundles/${pack.id}/${file}`))),
     );
+
     const bodies = await Promise.all(served.map(async (response) => response.text()));
+
     return bodies.map((body) => new TextEncoder().encode(body).length);
   }
 

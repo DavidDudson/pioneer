@@ -66,10 +66,12 @@ describe.skipIf(adminUrl === undefined)('archived characters (postgres)', () => 
     const lem = new CharacterBuilder().named('Lem').build();
     await repository.insert(lem, created);
     await repository.archive(lem.id, NOW, archiving);
+
     const [row] = await database.db
       .select({ archivedAt: characters.archivedAt })
       .from(characters)
       .where(eq(characters.id, lem.id));
+
     expect(row?.archivedAt).not.toBeNull();
   });
 
@@ -78,9 +80,11 @@ describe.skipIf(adminUrl === undefined)('archived characters (postgres)', () => 
     await repository.insert(harsk, created);
     await repository.archive(harsk.id, NOW, archiving);
     await repository.restore(harsk.id, restoring);
+
     const rows = await database.db.execute(
       sql`select command from audit.log where table_name = 'characters' and row_id = ${harsk.id} and action = 'update' order by changed_at`,
     );
+
     expect(rows.map((row) => String(row['command']))).toStrictEqual([
       CharacterCommand.ArchiveCharacter,
       CharacterCommand.RestoreCharacter,

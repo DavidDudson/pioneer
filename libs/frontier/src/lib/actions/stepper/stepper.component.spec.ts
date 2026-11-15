@@ -20,17 +20,21 @@ class StepperHost {
 }
 
 const buttons = (root: HTMLElement): HTMLButtonElement[] => [...root.querySelectorAll('button')];
+
 const named = (root: HTMLElement, text: string): HTMLButtonElement => {
   const found = buttons(root).find((button) => button.textContent.trim() === text);
+
   if (found === undefined) {
     throw new Error(`no ${text} button`);
   }
+
   return found;
 };
 
 describe(Stepper, () => {
   let fixture: ComponentFixture<StepperHost>;
   let root: HTMLElement;
+
   const settle = async (): Promise<void> => {
     await fixture.whenStable();
   };

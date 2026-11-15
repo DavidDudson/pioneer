@@ -10,19 +10,24 @@ async function render(
   passage = 'You are gripped by fear.',
 ): Promise<HTMLElement> {
   const text = document.createTextNode(passage);
+
   const quote = createComponent(Quote, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[text]],
   });
+
   onTestFinished(() => {
     quote.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     quote.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(quote.hostView);
   await appRef.whenStable();
+
   return quote.location.nativeElement as HTMLElement;
 }
 

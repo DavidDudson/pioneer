@@ -9,6 +9,7 @@ const meta: Meta<ProficiencyRankView> = {
   title: 'Rules/Proficiency rank',
   component: ProficiencyRankView,
 };
+
 export default meta;
 
 /** Untrained: "U", read out as "Untrained". */

@@ -20,13 +20,17 @@ const CHAMPION_FOCUS = {
   attribute: 'cha',
   preparation: 'focus',
 };
+
 const DEVOTION = ['shields-of-the-spirit', 'lay-on-hands', 'touch-of-the-void'];
 
 const pack = new ContentPackBuilder().withId('devotion');
+
 for (const spell of [...DEVOTION, 'protectors-sacrifice']) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
+
 const grant = (spell: string, predicate?: readonly unknown[]): object => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
@@ -49,30 +53,38 @@ pack
   })
   .withFeat('blessed-one-dedication', { rules: [CHAMPION_FOCUS, grant('lay-on-hands')] })
   .withFeat('blessed-sacrifice', { rules: [CHAMPION_FOCUS, grant('protectors-sacrifice')] });
+
 const FEATS = new Map([
   ['plain', []],
   ['devout-magic', ['devout-magic']],
   ['blessed-one', ['blessed-one-dedication']],
   ['both', ['blessed-one-dedication', 'blessed-sacrifice']],
 ]);
+
 for (const [name, feats] of FEATS) {
   pack.withClass(name, ['str'], {
     rules: feats.map((feat) => ({ key: 'GrantItem', item: pack.idOf(ContentKind.Feat, feat) })),
   });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const DEVOUT_PICK = `${pack.idOf(ContentKind.Feat, 'devout-magic')}:1`;
 
 function focusOf(feats: string, picks: Readonly<Record<string, string>> = {}): CharacterFocus {
   let builder = new CharacterBuilder().atLevel(4).picking('class', pack.idOf(ContentKind.Class, feats));
+
   for (const [slot, pick] of Object.entries(picks)) {
     builder = builder.picking(slot, pick);
   }
+
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 

@@ -27,6 +27,7 @@ const builder = new ContentPackBuilder()
   })
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
   .withCondition(DRAINED, [], { valued: true });
+
 const content = fixedContent(builder.build());
 
 const drained: ActiveCondition = {
@@ -73,9 +74,11 @@ describe('CharacterVitals', () => {
 
   test('lists the death track first, then the active conditions, each once at its highest value', async () => {
     const worse = { ...drained, id: ConditionInstanceId.parse(newId()), value: ConditionValue.parse(3) };
+
     const seen = await vitals.of(
       played(kyra, { dying: Dying.parse(2), wounded: Wounded.parse(1), conditions: [drained, worse] }),
     );
+
     expect(seen.conditions).toStrictEqual([
       { name: 'dying', value: 2 },
       { name: 'wounded', value: 1 },

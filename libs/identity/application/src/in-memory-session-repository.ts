@@ -21,10 +21,13 @@ export class InMemorySessionRepository extends SessionRepository {
 
   public override async findActive(tokenHash: TokenHash, now: Temporal.Instant): Promise<ActiveSession | undefined> {
     const session = this.#sessions.get(tokenHash);
+
     if (session === undefined || session.isExpiredAt(now)) {
       return undefined;
     }
+
     const user = this.#users.get(session.userId);
+
     return user === undefined ? undefined : { session, user };
   }
 
@@ -46,10 +49,13 @@ export class InMemorySessionRepository extends SessionRepository {
 
   public override async deleteForUser(userId: UserId, id: SessionId): Promise<boolean> {
     const match = [...this.#sessions.values()].find((session) => session.id === id && session.userId === userId);
+
     if (match === undefined) {
       return false;
     }
+
     this.#sessions.delete(match.tokenHash);
+
     return true;
   }
 
@@ -63,9 +69,11 @@ export class InMemorySessionRepository extends SessionRepository {
 
   public override async deleteExpired(now: Temporal.Instant): Promise<number> {
     const expired = [...this.#sessions.values()].filter((session) => session.isExpiredAt(now));
+
     for (const session of expired) {
       this.#sessions.delete(session.tokenHash);
     }
+
     return expired.length;
   }
 

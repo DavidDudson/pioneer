@@ -33,9 +33,11 @@ function render(value = ''): Rendered {
   });
   fixture.detectChanges();
   const input = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (input === null) {
     throw new Error('Expected an input');
   }
+
   return { fixture, input, searches, commits: (): number => commits, cancels: (): number => cancels };
 }
 

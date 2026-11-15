@@ -9,6 +9,7 @@ export class InMemoryMemberDirectory extends MemberDirectory {
 
   public name(userId: UserId, name: string): this {
     this.#names.set(userId, MemberName.parse(name));
+
     return this;
   }
 
@@ -16,6 +17,7 @@ export class InMemoryMemberDirectory extends MemberDirectory {
     return new Map(
       userIds.flatMap((userId): [UserId, MemberName][] => {
         const name = this.#names.get(userId);
+
         return name === undefined ? [] : [[userId, name]];
       }),
     );

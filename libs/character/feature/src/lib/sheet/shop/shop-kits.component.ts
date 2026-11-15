@@ -43,6 +43,7 @@ export class ShopKits {
   readonly #entries: Signal<readonly KitEntry[] | undefined> = computed(() => {
     const registry = this.kits.data();
     const items = this.content();
+
     return registry === undefined
       ? undefined
       : [...kitContent(registry).values()].filter((kit) => isKitAddable(kit.data, items));
@@ -59,6 +60,7 @@ export class ShopKits {
   protected readonly pickedKits: Signal<readonly KitEntry[]> = computed(() => {
     const id = this.picked();
     const kit = this.#entries()?.find((entry) => entry.id === id);
+
     return kit === undefined ? [] : [kit];
   });
 }

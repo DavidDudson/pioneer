@@ -18,6 +18,7 @@ const slot = SlotKey.parse('feat:class:2');
 /** A character carrying the feats an import found no slot for. */
 function keeping(...feats: (typeof nimble)[]): Character {
   const { document } = new CharacterBuilder().build();
+
   return Character.create({
     id: document.id,
     ownerId: document.ownerId,
@@ -47,6 +48,7 @@ describe('unplaced feats', () => {
       { field: CharacterPatchField.DismissUnplacedFeat, feat: nimble },
       later,
     );
+
     expect(next.document.build.unplacedFeats).toStrictEqual([toughness]);
   });
 
@@ -60,16 +62,19 @@ describe('unplaced feats', () => {
       { field: CharacterPatchField.SelectSlot, slot, selection: ChoiceValue.parse(nimble) },
       later,
     );
+
     expect(next.document.build.choices[slot]).toBe(nimble);
     expect(unplacedFeatBreaks(next.document).map(({ feat }) => feat)).toStrictEqual([toughness]);
   });
 
   test('a feat a slot already holds is never flagged, even if the list still names it', () => {
     const { document } = keeping(nimble);
+
     const picked = {
       ...document,
       build: { ...document.build, choices: { ...document.build.choices, [slot]: nimble } },
     };
+
     expect(unplacedFeatBreaks(picked)).toStrictEqual([]);
   });
 });

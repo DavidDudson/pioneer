@@ -121,10 +121,13 @@ export class SheetCustomEffectForm {
   protected readonly statistics = computed((): readonly SelectOption<string>[] => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
+
     if (registry === undefined || character === undefined) {
       return [];
     }
+
     const named = namedStatistics(registry, character, SHEET_STATISTICS);
+
     return [...named].map(([selector, found]) => ({
       value: selector,
       label: found.nameKey === undefined ? found.name : this.#i18n.translate(found.nameKey),
@@ -163,12 +166,15 @@ export class SheetCustomEffectForm {
     const { target, mode, value, type } = this.model();
     const parsedTarget = Selector.safeParse(target);
     const parsedValue = Modifier.safeParse(value);
+
     if (!parsedTarget.success || !parsedValue.success) {
       return undefined;
     }
+
     // An adjust keeps no mode, as before sets were possible; a set has no type.
     const parts = mode === OverrideMode.Set ? { mode } : { type };
     const line = CustomEffectLine.safeParse({ target: parsedTarget.data, value: parsedValue.data, ...parts });
+
     return line.success ? line.data : undefined;
   });
 
@@ -179,9 +185,11 @@ export class SheetCustomEffectForm {
 
   protected readonly addLine = (): void => {
     const line = this.#pendingLine();
+
     if (line === undefined) {
       return;
     }
+
     this.lines.update((lines) => [...lines, line]);
     this.model.update((model) => ({ ...model, target: '', value: 0, type: ModifierType.Untyped }));
   };
@@ -199,6 +207,7 @@ export class SheetCustomEffectForm {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 
@@ -210,7 +219,9 @@ export class SheetCustomEffectForm {
     if (mode === OverrideMode.Set) {
       return this.#i18n.translate(Message.EffectSet, { value: this.#format.number(value) });
     }
+
     const label: string = this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type ?? ModifierType.Untyped]);
+
     return this.#i18n.translate(Message.EffectAdjust, {
       value: this.#format.number(value, { signDisplay: 'exceptZero' }),
       type: label,

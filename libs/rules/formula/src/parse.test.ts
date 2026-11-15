@@ -13,17 +13,21 @@ import { FORMULA_LENGTH_MAX, FormulaText, NESTING_DEPTH_MAX, NODE_COUNT_MAX } fr
 
 function parsed(text: string): FormulaNode {
   const outcome = parseFormula(FormulaText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(`expected ${text} to parse, got ${outcome.error.key} at ${outcome.position}`);
   }
+
   return outcome.formula;
 }
 
 function failure(text: string): ParseFailure {
   const outcome = parseFormula(FormulaText.parse(text));
+
   if (outcome.ok) {
     throw new Error(`expected ${text} to fail`);
   }
+
   return outcome;
 }
 
@@ -39,6 +43,7 @@ const nested = (depth: number): string => `${'('.repeat(depth)}1${')'.repeat(dep
 /** `1+1+...`: `terms` numbers and `terms - 1` additions. */
 function sum(terms: number): string {
   const ones = Array.from({ length: terms }, () => '1');
+
   return ones.join('+');
 }
 

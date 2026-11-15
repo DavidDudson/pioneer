@@ -9,6 +9,7 @@ import type { SourceRef } from './source-ref';
 
 /** Whether a source is from the remaster or from before it. */
 export const SourceEdition = { Remaster: 'remaster', Legacy: 'legacy' } as const;
+
 export type SourceEdition = ValueOf<typeof SourceEdition>;
 
 /**
@@ -30,6 +31,7 @@ export const SourceType = {
   Web: 'web',
   Unknown: 'unknown',
 } as const;
+
 export type SourceType = ValueOf<typeof SourceType>;
 
 /** The type of each product line, by edition. Comics, April Fools and blog posts are not here: they are `Unknown`. */
@@ -74,10 +76,13 @@ export function sourceType({ source, book, license }: SourceTypeInput): SourceTy
   if (source.kind === SourceKind.Homebrew) {
     return SourceType.Homebrew;
   }
+
   if (source.kind === SourceKind.Web) {
     return SourceType.Web;
   }
+
   const line = book?.productLine;
   const types = line === undefined ? undefined : BOOK_TYPES[line];
+
   return book === undefined || types === undefined ? SourceType.Unknown : types[editionOf(book, license)];
 }

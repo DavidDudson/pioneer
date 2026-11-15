@@ -19,16 +19,20 @@ const DC_PARTS = /^(?<base>\d{1,2})(?<byValue> \+ @value)?$/u;
 /** The DC of `dc` at the value the character holds; a DC that follows the value of an unvalued condition is its base. */
 function dcAt(dc: ConditionDc | undefined, value: ConditionValue | undefined): number | undefined {
   const parts = dc === undefined ? undefined : DC_PARTS.exec(dc)?.groups;
+
   if (parts?.['base'] === undefined) {
     return undefined;
   }
+
   const base = Number(parts['base']);
+
   return parts['byValue'] === undefined ? base : base + (value ?? 0);
 }
 
 /** Whether the DC of the check an ending carries adds the condition's value to its base. */
 function dcFollowsValue(ending: ConditionEnding): boolean {
   const dc = ending.kind === 'check' || ending.kind === 'action' ? ending.check?.dc : undefined;
+
   return dc !== undefined && DC_PARTS.exec(dc)?.groups?.['byValue'] !== undefined;
 }
 
@@ -62,6 +66,7 @@ export function conditionEndings(
   return endings.map((ending): PreviewEnding => {
     const dc = checkDc(ending, value);
     const action = ending.kind === 'action' && ending.action !== undefined ? sourceOf(ending.action) : undefined;
+
     return {
       kind: ending.kind,
       text: ending.text,

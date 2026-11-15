@@ -40,15 +40,18 @@ const SEED_COUNT = Seed.parse(2_147_483_647);
 /** A seed nobody chose: the server's own draw, handed back so the character can be made again. */
 function drawSeed(): Seed {
   const [drawn = 0] = crypto.getRandomValues(new Uint32Array(1));
+
   return Seed.parse(drawn % SEED_COUNT);
 }
 
 /** Any ancestry the content has: a character is made with one, then the slot is cleared for the generator to pick. */
 function anyAncestry(content: SlotContent): AncestryId {
   const [ancestry] = content.lookup.ofKind(ContentKind.Ancestry);
+
   if (ancestry === undefined) {
     throw new Error('No ancestry is loaded, so no character can be generated');
   }
+
   return AncestryId.parse(ancestry.id);
 }
 
@@ -57,6 +60,7 @@ function assertKept(locks: readonly GenerateLock[], unmet: readonly SlotKey[]): 
   const issues = locks.flatMap((lock, index): FieldIssue[] =>
     unmet.includes(lock.slot) ? [{ path: ['locks', index], message: message('character.validation.lockNotKept') }] : [],
   );
+
   if (issues.length > 0) {
     throw new ValidationError(issues);
   }
@@ -65,9 +69,11 @@ function assertKept(locks: readonly GenerateLock[], unmet: readonly SlotKey[]): 
 /** The lock that fixes the class to one that plays `role`, drawn by `seed`; a 422 when no loaded class plays it. */
 function roleLock(registry: ContentRegistry, role: ClassRole, seed: Seed): GenerateLock {
   const drawn = classForRole(classPickerContent(registry).classes, role, seed);
+
   if (drawn === undefined) {
     throw new ValidationError([{ path: ['role'], message: message('character.validation.roleHasNoClass') }]);
   }
+
   return { slot: CLASS_SLOT, selection: ChoiceValue.parse(drawn.id) };
 }
 
@@ -81,6 +87,7 @@ function withRoleLock(
   }: { readonly registry: ContentRegistry; readonly role: ClassRole | undefined; readonly seed: Seed },
 ): readonly GenerateLock[] {
   const classGiven = locks.some((lock) => lock.slot === CLASS_SLOT);
+
   return role === undefined || classGiven ? locks : [...locks, roleLock(registry, role, seed)];
 }
 
@@ -98,6 +105,7 @@ interface StartInput {
 function startingCharacter(input: StartInput): Character {
   const { actor, name, ancestry, persona, now } = input;
   const created = Character.create({ id: CharacterId.parse(newId()), ownerId: actor, name, ancestry, now });
+
   return created
     .apply({ field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT }, now)
     .apply({ field: CharacterPatchField.SetPersonality, value: persona.personality }, now);
@@ -127,6 +135,7 @@ export class GenerateCharacterService {
     const seed = body.seed ?? drawSeed();
     const persona = rollPersona(seed);
     const now = this.#clock.now();
+
     const start = startingCharacter({
       actor,
       name: body.name ?? persona.name,
@@ -134,8 +143,10 @@ export class GenerateCharacterService {
       persona,
       now,
     });
+
     const given = body.locks ?? [];
     const locks = withRoleLock(given, { registry, role: body.role, seed });
+
     const { character, unmet } = generateCharacter({
       start,
       seed,
@@ -147,8 +158,10 @@ export class GenerateCharacterService {
       locks,
       now,
     });
+
     assertKept(given, unmet);
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.GenerateCharacter });
+
     return { character: saved, seed };
   }
 }

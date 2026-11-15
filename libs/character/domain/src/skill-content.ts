@@ -40,9 +40,11 @@ export interface SkillContent {
 
 /** A skill's or a Lore's selector starts so: `skill:athletics`, `skill:lore:sailing`. */
 export const SKILL_PREFIX = 'skill:';
+
 /** Player Core's skill increases: 3rd level and every second level after. */
 const INCREASE_FIRST = 3;
 const INCREASE_STEP = 2;
+
 const PLAYER_CORE_INCREASES: readonly Level[] = Array.from(
   { length: Math.floor((CHARACTER_LEVEL_MAX - INCREASE_FIRST) / INCREASE_STEP) + 1 },
   (_unused, index) => Level.parse(INCREASE_FIRST + index * INCREASE_STEP),
@@ -68,9 +70,11 @@ function skillsById(registry: ContentRegistry): ReadonlyMap<ContentId, SkillOpti
   const fields = registry.statistics().map(({ id, definition: { name, selector } }) => ({ id, name, selector }));
   const skills = fields.flatMap((each) => skillOf(each) ?? []);
   const bySelector = new Map(skills.map((skill) => [skill.selector, skill]));
+
   return new Map<ContentId, SkillOption>(
     skills.flatMap((skill) => {
       const current = bySelector.get(skill.selector);
+
       return current === undefined ? [] : [[ContentId.parse(skill.id), current] as const];
     }),
   );
@@ -79,12 +83,15 @@ function skillsById(registry: ContentRegistry): ReadonlyMap<ContentId, SkillOpti
 /** Each class's skills, by id; Player Core's increases for a class that names none. */
 function classSkillsOf(registry: ContentRegistry): ReadonlyMap<ContentId, ClassSkills> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(
     entries.flatMap((entry): [ContentId, ClassSkills][] => {
       if (entry.kind !== ContentKind.Class) {
         return [];
       }
+
       const { additionalSkills, skillIncreaseLevels } = entry.data;
+
       return [
         [entry.id, { additional: additionalSkills, increaseLevels: skillIncreaseLevels ?? PLAYER_CORE_INCREASES }],
       ];
@@ -97,10 +104,12 @@ export function skillContent(registry: ContentRegistry): SkillContent {
   const classes = classSkillsOf(registry);
   const byId = skillsById(registry);
   const skills = [...new Set(byId.values())].toSorted((left, right) => left.name.localeCompare(right.name));
+
   return {
     skills,
     skill: (pick: ChoiceValue): SkillOption | undefined => {
       const id = ContentId.safeParse(pick);
+
       return id.success ? byId.get(id.data) : undefined;
     },
     classSkills: (id: ContentId): ClassSkills | undefined => classes.get(id),

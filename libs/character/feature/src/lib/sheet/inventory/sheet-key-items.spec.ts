@@ -40,10 +40,12 @@ describe('a key item on the sheet', () => {
 
   it("links back to the campaign's Party Inventory when the character is in a campaign", async () => {
     const campaign = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+
     const section = await openInventory(WITH_KEY_ITEM, WITH_KEY_ITEM.inventory.items.length, {
       campaign,
       approvals: [],
     });
+
     await vi.waitFor(() => {
       const link = row(section, 'Caliburn').querySelector('a');
       expect(link?.textContent.trim()).toBe('Key item');

@@ -81,6 +81,7 @@ const PlanPick = z.string();
 
 function pickEdit(initial: string): InlineEdit<string | undefined> {
   const source = signal<string | undefined>(initial);
+
   return new InlineEdit<string | undefined>({
     source,
     empty: NOT_CHOSEN,

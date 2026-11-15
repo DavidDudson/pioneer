@@ -35,6 +35,7 @@ function definition({ selector, base, kind, domains = [] }: Spec): StatisticDefi
 }
 
 const BREASTPLATE = contentId(PackId.parse('engine-test'), EntrySlug.parse('armor:breastplate'));
+
 const ARMOR_ORIGIN = {
   hops: [{ kind: 'inventory', item: '44444444-4444-4444-8444-444444444444', state: 'worn' }],
   entry: BREASTPLATE,
@@ -84,14 +85,17 @@ export function derived(rules: readonly RuleInPlay[], selector: string): Statist
 /** One statistic that has a value, derived with `rules` in play. */
 export function valued(rules: readonly RuleInPlay[], selector: string): StatisticValue {
   const result = derived(rules, selector);
+
   if (result === undefined || !result.ok) {
     throw new Error(`expected ${selector} to have a value`);
   }
+
   return result;
 }
 
 /** The total of one statistic, as a plain number. */
 export function totalOf(rules: readonly RuleInPlay[], selector: string): number {
   const { total }: { total: number } = valued(rules, selector);
+
   return total;
 }

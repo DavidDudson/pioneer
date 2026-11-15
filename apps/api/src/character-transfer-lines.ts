@@ -22,6 +22,7 @@ export class CharacterTransferLinesAdapter extends TransferLines {
     item: ReviewedItemId,
   ): Promise<OfferableLine | undefined> {
     const found = await this.#lines.describe(CharacterId.parse(character), InventoryItemId.parse(item));
+
     return found === undefined
       ? undefined
       : {
@@ -33,6 +34,7 @@ export class CharacterTransferLinesAdapter extends TransferLines {
 
   public override async purse(character: CampaignCharacterId): Promise<OfferablePurse | undefined> {
     const found = await this.#lines.purse(CharacterId.parse(character));
+
     return found === undefined ? undefined : { coins: OfferedCoinsSchema.parse(found.coins), version: found.version };
   }
 }

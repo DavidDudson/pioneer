@@ -20,6 +20,7 @@ function idsByAon(entries: readonly ContentEntry[]): ReadonlyMap<string, Content
       source.kind === SourceKind.Book && source.aon !== undefined ? [[source.aon, entry.id] as const] : [],
     ),
   );
+
   return new Map(found);
 }
 
@@ -31,17 +32,21 @@ export function supersedesLinks(
   const ids = idsByAon(entries);
   const replaces = new Map<ContentId, ContentId[]>();
   let unresolved = 0;
+
   for (const [legacyUrl, targets] of files.flatMap((file) => Object.entries(file.replacedBy))) {
     const legacy = ids.get(legacyUrl);
     const replacements = targets.flatMap((url) => ids.get(url) ?? []);
+
     if (legacy === undefined || replacements.length === 0) {
       unresolved += 1;
     }
+
     for (const remaster of replacements) {
       const held = replaces.get(remaster) ?? [];
       replaces.set(remaster, legacy === undefined || held.includes(legacy) ? held : [...held, legacy]);
     }
   }
+
   return { replaces, unresolved };
 }
 
@@ -72,6 +77,7 @@ function entryRange(lines: readonly string[], id: ContentId): LineRange | undefi
   const idLine = lines.indexOf(`    "id": "${id}",`);
   const start = lines.findLastIndex((line, index) => index <= idLine && line === ENTRY_START);
   const end = lines.findIndex((line, index) => index > idLine && ENTRY_END.test(line));
+
   return idLine === -1 || start === -1 || end === -1 ? undefined : { start, end };
 }
 
@@ -79,12 +85,16 @@ function entryRange(lines: readonly string[], id: ContentId): LineRange | undefi
 function withSupersedes(entryLines: readonly string[], ids: readonly ContentId[]): readonly string[] {
   const field = `    "supersedes": [${ids.map((id) => `"${id}"`).join(', ')}]`;
   const held = entryLines.findIndex((line) => SUPERSEDES_FIELD.test(line));
+
   if (held !== -1) {
     const comma = SUPERSEDES_FIELD.exec(entryLines[held] ?? '')?.groups?.['comma'] ?? '';
+
     return entryLines.with(held, `${field}${comma}`);
   }
+
   const closing = entryLines.length - 1;
   const lastField = closing - 1;
+
   return [...entryLines.slice(0, lastField), `${entryLines[lastField] ?? ''},`, field, entryLines[closing] ?? ''];
 }
 
@@ -97,10 +107,13 @@ function patchEntry(
   const held = entry.supersedes ?? [];
   const lacking = (replaces.get(entry.id) ?? []).filter((id) => !held.includes(id) && id !== entry.id);
   const range = lacking.length === 0 ? undefined : entryRange(patched.lines, entry.id);
+
   if (range === undefined) {
     return patched;
   }
+
   const entryLines = withSupersedes(patched.lines.slice(range.start, range.end + 1), [...held, ...lacking]);
+
   return {
     lines: [...patched.lines.slice(0, range.start), ...entryLines, ...patched.lines.slice(range.end + 1)],
     set: patched.set + lacking.length,
@@ -118,9 +131,12 @@ export function enrichSupersedesText(
   const entries = ContentEntryFile.parse(JSON.parse(text));
   const start: Patched = { lines: text.split('\n'), set: 0 };
   let patched = start;
+
   for (const entry of entries) {
     patched = patchEntry(patched, entry, replaces);
   }
+
   const { lines, set } = patched;
+
   return { text: set > 0 ? lines.join('\n') : undefined, set };
 }

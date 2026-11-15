@@ -12,6 +12,7 @@ type Fields = Readonly<Record<string, unknown>>;
 const MOVEMENTS: ReadonlySet<string> = new Set(['burrow', 'climb', 'fly', 'land', 'swim']);
 
 const MATCH = /^match\((?<whens>.+)\)$/u;
+
 const WHEN =
   /when\((?:gte\(@item\.level, (?<from>\d+)\)|btwn\(@item\.level, (?<low>\d+), (?<high>\d+)\)), (?<bonus>\d+)\)/gu;
 
@@ -29,20 +30,25 @@ interface Tier {
 /** The tiers of a `match(when(...), ...)` formula over the item's level, or nothing when it is any other formula. */
 function tiersOf(value: unknown): readonly Tier[] | undefined {
   const whens = typeof value === 'string' ? MATCH.exec(value)?.groups?.['whens'] : undefined;
+
   if (whens === undefined) {
     return undefined;
   }
+
   const tiers = [...whens.matchAll(WHEN)].flatMap(({ groups }): Tier[] => {
     const { from, low, high, bonus } = groups ?? {};
+
     return bonus === undefined
       ? []
       : [{ low: Number(from ?? low), high: Number(high ?? SPELL_RANK_MAX), bonus: Number(bonus) }];
   });
+
   const rebuilt = tiers.map(({ low, high, bonus }) =>
     high === SPELL_RANK_MAX
       ? `when(gte(@item.level, ${low}), ${bonus})`
       : `when(btwn(@item.level, ${low}, ${high}), ${bonus})`,
   );
+
   return rebuilt.join(', ') === whens ? tiers : undefined;
 }
 
@@ -50,13 +56,17 @@ function tiersOf(value: unknown): readonly Tier[] | undefined {
 function changes(tiers: readonly Tier[]): ReadonlyMap<number, number> {
   const result = new Map<number, number>();
   let before = 0;
+
   for (let rank = 1; rank <= SPELL_RANK_MAX; rank += 1) {
     const bonus = tiers.find(({ low, high }) => rank >= low && rank <= high)?.bonus ?? 0;
+
     if (bonus !== before) {
       result.set(rank, bonus);
     }
+
     before = bonus;
   }
+
   return result;
 }
 
@@ -70,12 +80,15 @@ function speedBonus(raw: unknown): SpeedBonus | undefined {
   if (!isFields(raw) || raw['key'] !== RuleElementKey.FlatModifier || raw['predicate'] !== undefined) {
     return undefined;
   }
+
   const { selector, value } = raw;
   const movement = typeof selector === 'string' ? selector.replace(/-speed$/u, '') : '';
   const tiers = tiersOf(value);
+
   if (!MOVEMENTS.has(movement) || selector !== `${movement}-speed` || tiers === undefined) {
     return undefined;
   }
+
   return { movement, changes: changes(tiers) };
 }
 
@@ -88,6 +101,7 @@ function baseSpeed(form: Fields, movement: string): number | undefined {
   const { overrides } = form;
   const speeds = isFields(overrides) ? overrides['speeds'] : undefined;
   const speed = isFields(speeds) ? speeds[movement] : undefined;
+
   return typeof speed === 'number' ? speed : undefined;
 }
 
@@ -99,6 +113,7 @@ function startOf(bracket: unknown): number {
 function withSpeeds(bracket: unknown, speeds: Fields): unknown {
   const value = isFields(bracket) && isFields(bracket['value']) ? bracket['value'] : {};
   const held = isFields(value['speeds']) ? value['speeds'] : {};
+
   return { ...(isFields(bracket) ? bracket : {}), value: { ...value, speeds: { ...held, ...speeds } } };
 }
 
@@ -106,22 +121,28 @@ function withSpeeds(bracket: unknown, speeds: Fields): unknown {
 function withBracket(form: Fields, start: number, speeds: Fields): Fields {
   const brackets: readonly unknown[] = Array.isArray(form['brackets']) ? form['brackets'] : [];
   const held = brackets.some((each) => startOf(each) === start);
+
   const changed = held
     ? brackets.map((each) => (startOf(each) === start ? withSpeeds(each, speeds) : each))
     : [...brackets, withSpeeds({ start }, speeds)].toSorted((left, right) => startOf(left) - startOf(right));
+
   return { ...form, brackets: changed };
 }
 
 /** `form` with a bracket for each rank at which `bonus` changes, its speed the form's own plus the bonus. */
 function withBonus(form: Fields, { movement, changes: byRank }: SpeedBonus): Fields | undefined {
   const speed = baseSpeed(form, movement);
+
   if (speed === undefined) {
     return undefined;
   }
+
   let result = form;
+
   for (const [rank, bonus] of byRank) {
     result = withBracket(result, rank, { [movement]: speed + bonus });
   }
+
   return result;
 }
 
@@ -133,11 +154,14 @@ interface Folded {
 /** `raws` with `bonus` in each `BattleForm` that has a speed for it, and whether any did. */
 function foldInto(raws: readonly unknown[], bonus: SpeedBonus): Folded {
   let folded = false;
+
   const result = raws.map((raw) => {
     const form = isBattleForm(raw) ? withBonus(raw, bonus) : undefined;
     folded ||= form !== undefined;
+
     return form ?? raw;
   });
+
   return { raws: result, folded };
 }
 
@@ -147,10 +171,12 @@ function foldInto(raws: readonly unknown[], bonus: SpeedBonus): Folded {
  */
 export function withFormSpeedBrackets(raws: readonly unknown[]): readonly unknown[] {
   let result = raws;
+
   for (const raw of raws) {
     const bonus = speedBonus(raw);
     const { raws: next, folded } = bonus === undefined ? { raws: result, folded: false } : foldInto(result, bonus);
     result = folded ? next.filter((each) => each !== raw) : result;
   }
+
   return result;
 }

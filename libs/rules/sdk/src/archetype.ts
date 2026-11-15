@@ -6,6 +6,7 @@ import { ContentLevel } from './units';
 
 /** How many other feats of an archetype a character needs before another dedication. */
 export const DedicationLock = Pg.smallint().positive().brand<'DedicationLock'>();
+
 export type DedicationLock = z.infer<typeof DedicationLock>;
 
 /** Player Core's lock: two other feats of the archetype. */
@@ -20,6 +21,7 @@ export const AdditionalFeat = z.strictObject({
   /** The level the archetype gives it, which may differ from the feat's own. */
   level: ContentLevel,
 });
+
 export type AdditionalFeat = z.infer<typeof AdditionalFeat>;
 
 /**
@@ -36,4 +38,5 @@ export const ArchetypeData = z.strictObject({
   /** The feats of other sources it lists as its own, for a character holding its dedication. */
   additionalFeats: z.array(AdditionalFeat).min(1).readonly().optional(),
 });
+
 export type ArchetypeData = z.infer<typeof ArchetypeData>;

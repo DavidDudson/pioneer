@@ -49,6 +49,7 @@ const ALL_DOMAIN = Domain.parse('all');
 /** The facts an entry's own elements are read against: the round's, and what an effect was cast with (its rank and tradition). */
 function factsFor(origin: Origin, facts: PredicateFacts): PredicateFacts {
   const parent = parentOptions(origin);
+
   return parent.length === 0 ? facts : facts.plus(parent);
 }
 
@@ -88,9 +89,11 @@ class OptionReader {
   /** Sets the element's option if it reaches every roll and its predicate holds; a toggle only while it is on. */
   public element(element: RollOptionElement, rule: RuleIndex): void {
     const domain = element.domain ?? ALL_DOMAIN;
+
     if (domain !== ALL_DOMAIN || !holds(element.predicate, this.#facts)) {
       return;
     }
+
     if (element.toggleable === true) {
       this.#toggle(element, rule);
     } else if (element.value !== false) {
@@ -103,16 +106,21 @@ class OptionReader {
     const key = toggleKeyOf(this.#origin.entry, rule);
     const state = this.#states.get(key);
     const on = state?.on ?? element.value === true;
+
     const suboptions = (element.suboptions ?? [])
       .filter((suboption) => holds(suboption.predicate, this.#facts))
       .map((suboption) => suboption.value);
+
     const suboption = suboptions.find((offered) => offered === state?.suboption) ?? suboptions[0];
     this.#toggles.push({ key, origin: this.#origin, rule, option: element.option, on, suboptions, suboption });
+
     if (!on) {
       return;
     }
+
     this.#options.push(element.option);
     const withSuboption = suboption === undefined ? undefined : optionOf(element.option, suboption);
+
     if (withSuboption !== undefined) {
       this.#options.push(withSuboption);
     }
@@ -136,10 +144,12 @@ export function entryOptions(
   states: ToggleStates,
 ): EntryOptions {
   const reader = new OptionReader(origin, facts, states);
+
   for (const [index, element] of entry.rules.entries()) {
     if (isRollOption(element)) {
       reader.element(element, RuleIndex.parse(index));
     }
   }
+
   return reader.read;
 }

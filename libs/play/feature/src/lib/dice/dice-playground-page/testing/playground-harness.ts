@@ -16,6 +16,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -29,6 +30,7 @@ export async function openPlayground(faces: readonly number[]): Promise<RouterTe
   });
   const harness = await RouterTestingHarness.create('/play/dice');
   await harness.fixture.whenStable();
+
   return harness;
 }
 
@@ -48,6 +50,7 @@ export async function typeDc(harness: RouterTestingHarness, value: string): Prom
 
 export function button(harness: RouterTestingHarness, label: string): HTMLButtonElement {
   const buttons = harness.routeNativeElement?.querySelectorAll<HTMLButtonElement>('button') ?? [];
+
   return present([...buttons].find((candidate) => candidate.textContent.trim() === label));
 }
 

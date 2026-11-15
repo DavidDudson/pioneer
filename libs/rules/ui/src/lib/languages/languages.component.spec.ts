@@ -20,6 +20,7 @@ async function render(
   fixture.componentRef.setInput('lines', lines);
   fixture.componentRef.setInput('remove', remove);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -51,6 +52,7 @@ describe(LanguagesView, () => {
 
   it('removes a pick by its slot; a granted language has no remove', async () => {
     const removed: string[] = [];
+
     const fixture = await render(DWARF_LANGUAGES, async (slot) => {
       removed.push(slot);
     });

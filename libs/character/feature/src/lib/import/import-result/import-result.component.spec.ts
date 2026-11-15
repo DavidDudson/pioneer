@@ -35,6 +35,7 @@ async function render(report: CharacterImportReport): Promise<ComponentFixture<I
   const fixture = TestBed.createComponent(ImportResult);
   fixture.componentRef.setInput('report', report);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -141,6 +142,7 @@ describe(ImportResult, () => {
     const dismiss = [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')].find((button) =>
       button.textContent.includes('Dismiss'),
     );
+
     dismiss?.click();
 
     expect(dismissed).toHaveBeenCalledTimes(1);

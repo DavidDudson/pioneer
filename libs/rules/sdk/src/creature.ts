@@ -20,6 +20,7 @@ const CreatureAttributeModifier = Pg.smallint()
   .min(ATTRIBUTE_MODIFIER_MIN)
   .max(CREATURE_ATTRIBUTE_MAX)
   .brand<'CreatureAttributeModifier'>();
+
 type CreatureAttributeModifier = z.infer<typeof CreatureAttributeModifier>;
 
 /** The six attribute modifiers on a stat block. */
@@ -31,6 +32,7 @@ const CreatureAttributes = z.object({
   wis: CreatureAttributeModifier,
   cha: CreatureAttributeModifier,
 });
+
 type CreatureAttributes = z.infer<typeof CreatureAttributes>;
 
 /** The most class hints an NPC lists. */
@@ -38,6 +40,7 @@ const CLASS_HINTS_MAX = 8;
 
 /** Id of a creature content entry (UUIDv5 of `<pack>/<slug>`). */
 export const CreatureId = Uuid.brand<'CreatureId'>();
+
 export type CreatureId = z.infer<typeof CreatureId>;
 
 /**
@@ -45,13 +48,16 @@ export type CreatureId = z.infer<typeof CreatureId>;
  * role). A field of one `creature` kind, so there is one browser and one stat block. `hazard` joins later.
  */
 export const CreatureRole = { Monster: 'monster', Npc: 'npc' } as const;
+
 export type CreatureRole = ValueOf<typeof CreatureRole>;
+
 const CreatureRoleSchema = z.enum(CreatureRole);
 
 /** The levels an NPC archetype is written for ("Guard, 1 to 3"). */
 export const NpcLevelRange = z
   .strictObject({ min: Level, max: Level })
   .refine(({ min, max }) => min <= max, issueParams(message(RulesMessage.CreatureLevelRange)));
+
 export type NpcLevelRange = z.infer<typeof NpcLevelRange>;
 
 /** What only an NPC has: the tags and hints NPC Core prints beside the stat block. All optional. */
@@ -63,6 +69,7 @@ export const NpcDetails = z.strictObject({
   /** The classes the NPC fights like ("as a class" hints), by class slug. */
   classHints: z.array(Slug).max(CLASS_HINTS_MAX).readonly().optional(),
 });
+
 export type NpcDetails = z.infer<typeof NpcDetails>;
 
 /** Whether the NPC-only details sit on an NPC. */
@@ -75,6 +82,7 @@ export function npcDetailsOnNpc({
 }): boolean {
   return npc === undefined || role === CreatureRole.Npc;
 }
+
 export const NPC_ONLY = { ...issueParams(message(RulesMessage.CreatureNpcOnly)), path: ['npc'] };
 
 /** Schema every pack's creature (stat block) entries must satisfy. */
@@ -98,16 +106,19 @@ export const CreatureDefinition = z.object({
   npc: NpcDetails.optional(),
   ...creatureStatBlockFields,
 });
+
 export type CreatureDefinition = z.infer<typeof CreatureDefinition>;
 
 /** A creature's `data` on the `ContentEntry` envelope: the stat block less what the envelope carries. */
 export const CreatureData = z
   .strictObject(CreatureDefinition.omit({ slug: true, name: true, level: true, traits: true }).shape)
   .refine(npcDetailsOnNpc, NPC_ONLY);
+
 export type CreatureData = z.infer<typeof CreatureData>;
 
 /** What a target ignores, takes extra from, and shrugs off: the IWR lines of its stat block, or a character's. */
 export const DamageTarget = CreatureDefinition.pick({ immunities: true, weaknesses: true, resistances: true });
+
 export type DamageTarget = z.infer<typeof DamageTarget>;
 
 /** A target with no immunities, weaknesses or resistances. */

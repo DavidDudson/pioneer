@@ -57,6 +57,7 @@ function linesOf(defences: Defences, kind: DefenceKind): readonly (ImmunityLine 
     [DefenceKind.Weaknesses]: defences.weaknesses,
     [DefenceKind.Resistances]: defences.resistances,
   };
+
   return byKind[kind];
 }
 
@@ -94,9 +95,11 @@ export class DefenceIcons {
   );
   protected readonly active = computed((): readonly ActiveKind[] => {
     const defences = this.defences();
+
     if (defences === undefined) {
       return [];
     }
+
     return KINDS.filter(({ kind }) => linesOf(defences, kind).some((line) => isActive(line)));
   });
 }

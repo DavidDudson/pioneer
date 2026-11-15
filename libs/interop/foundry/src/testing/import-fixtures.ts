@@ -61,6 +61,7 @@ const FixtureShape = z.looseObject({
 /** A fixture kept as JSON text, so a real document with its embedded items stays a few lines long. */
 export function parseFixture(json: string): DocumentFixture {
   const { id, name, type, system, pack: given, items } = FixtureShape.parse(JSON.parse(json));
+
   return {
     id,
     name,
@@ -75,7 +76,9 @@ function selected({ id, name, type, system = {}, pack: given, license, items }: 
   if (!isFoundryItemType(type)) {
     throw new Error(`${type} is not a Foundry item type`);
   }
+
   const foundryPack = given ?? PACKS[type] ?? { name: `${type}-srd`, directory: type };
+
   return {
     pack: foundryPack,
     path: `packs/pf2e/${foundryPack.directory}/${id}.json`,
@@ -161,6 +164,7 @@ export const lang: FoundryLang = {
 /** A hand-authored `core-rules` entry of `kind` named `name`. */
 export function coreRulesEntry(kind: ContentKind, name: string): KnownEntry {
   const parsed = entrySlug(kind, Slug.parse(name));
+
   return { id: ContentId.parse(contentId(coreRules, parsed)), pack: coreRules, kind, slug: parsed };
 }
 

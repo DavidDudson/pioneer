@@ -22,6 +22,7 @@ describe(`${Combobox.name} option tags`, () => {
       { value: 'grease', label: 'Grease' },
       { value: 'fireball', label: 'Fireball', tags: [{ label: 'Spell' }, { label: 'Level 3' }, { label: 'fire' }] },
     ]);
+
     await press(rendered, 'ArrowDown');
     expect(badgesOf(optionElements(rendered)[1])).toStrictEqual(['Spell', 'Level 3', 'fire']);
   });
@@ -31,6 +32,7 @@ describe(`${Combobox.name} option tags`, () => {
       { value: 'grease', label: 'Grease' },
       { value: 'fireball', label: 'Fireball', tags: [{ label: 'Spell' }] },
     ]);
+
     await press(rendered, 'ArrowDown');
     expect(badgesOf(optionElements(rendered)[0])).toStrictEqual([]);
     expect(optionElements(rendered)).toHaveLength(2);

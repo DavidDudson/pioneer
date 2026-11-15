@@ -20,6 +20,7 @@ function hasMatchingFile(directory: string, matches: (file: string) => boolean):
     .filter((entry) => entry.name !== 'node_modules' && !entry.name.startsWith('.'))
     .some((entry) => {
       const child = path.join(directory, entry.name);
+
       return entry.isDirectory() ? hasMatchingFile(child, matches) : matches(entry.name);
     });
 }
@@ -28,7 +29,9 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
   const tsconfig = JSON.parse(readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8')) as {
     readonly angularCompilerOptions?: unknown;
   };
+
   const angular = tsconfig.angularCompilerOptions !== undefined;
+
   const targets: Record<string, TargetConfiguration> = {
     typecheck: {
       cache: true,
@@ -37,6 +40,7 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
       command: angular ? `ngc -p ${root}/tsconfig.json --noEmit` : `bun check --no-script -p ${root}/tsconfig.json`,
     },
   };
+
   if (angular && hasMatchingFile(absoluteRoot, (file) => file.endsWith('.html'))) {
     targets['lint-templates'] = {
       cache: true,
@@ -50,9 +54,11 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
       command: `eslint --max-warnings=0 '${root}/**/*.html'`,
     };
   }
+
   if (hasMatchingFile(absoluteRoot, (file) => file.endsWith('.test.ts'))) {
     targets['test'] = { cache: true, inputs: ['default', '^production'], command: `bun test ${root}` };
   }
+
   return targets;
 }
 
@@ -62,6 +68,7 @@ export const createNodes: CreateNodes = [
     createNodesFromFiles(
       (configFile) => {
         const root = path.dirname(configFile);
+
         return { projects: { [root]: { targets: inferTargets(root, path.join(context.workspaceRoot, root)) } } };
       },
       configFiles,

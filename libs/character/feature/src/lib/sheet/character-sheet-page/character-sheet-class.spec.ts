@@ -17,6 +17,7 @@ const RACKET = `${playerCoreId(ContentKind.ClassFeature, 'rogues-racket')}:0`;
 /** Merisiel as a rogue, with `racket` picked when given. */
 function rogue(racket?: string): object {
   const picks = racket === undefined ? {} : { [RACKET]: playerCoreId(ContentKind.ClassFeature, racket) };
+
   return { ...MERISIEL, build: { choices: { class: playerCoreClassId('rogue'), ...picks } } };
 }
 
@@ -36,6 +37,7 @@ const CLERIC_SLOT = {
 /** The labels of the Identity section's inline fields. */
 function labels(root: HTMLElement): string[] {
   const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
+
   return [...identity.querySelectorAll('fr-inline-field')].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );
@@ -90,6 +92,7 @@ describe('CharacterSheetPage class', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'boost:1:class:0', selection: 'str' },
     });
@@ -103,9 +106,11 @@ describe('CharacterSheetPage class', () => {
       selection: WARPRIEST,
       selectionName: 'Warpriest',
     };
+
     const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }), {
       slots: [CLERIC_SLOT, doctrine],
     });
+
     const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
@@ -120,6 +125,7 @@ describe('CharacterSheetPage class', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: DOCTRINE, selection: WARPRIEST },
     });
@@ -133,6 +139,7 @@ describe('CharacterSheetPage class', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'boost:1:class:0', selection: 'dex' },
     });

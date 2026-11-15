@@ -200,6 +200,7 @@ describe('falling unconscious out of air', () => {
     limits: { ...INPUTS.limits, valued: new Map([[UNCONSCIOUS, false]]) },
     unconscious: UNCONSCIOUS,
   };
+
   const unconsciousOf = (play: PlayState): readonly ConditionInstanceId[] =>
     play.conditions.filter(({ condition }) => condition === UNCONSCIOUS).map(({ id }) => id);
 
@@ -241,6 +242,7 @@ describe('falling unconscious out of air', () => {
 
   test('breathing again takes off the condition the breath put on, and no other Unconscious', () => {
     const other = { id: ConditionInstanceId.parse('00000000-0000-4000-8000-0000000003d2'), condition: UNCONSCIOUS };
+
     const out = {
       ...holding({ air: air(0), checks: checks(1), unconscious: INSTANCE }),
       conditions: [
@@ -248,7 +250,9 @@ describe('falling unconscious out of air', () => {
         { id: INSTANCE, condition: UNCONSCIOUS, duration: { kind: ConditionDurationKind.Unlimited } },
       ],
     };
+
     const cleared = applyCountingCommand(out, { field: BreathCommandField.ClearBreath }, withContent.limits);
+
     const refilled = applyCountingCommand(
       out,
       { field: BreathCommandField.SetBreath, air: air(3), checks: checks(0) },
@@ -266,6 +270,7 @@ describe('falling unconscious out of air', () => {
       ...holding({ air: air(0), checks: checks(1), unconscious: INSTANCE }),
       conditions: [{ id: INSTANCE, condition: UNCONSCIOUS, duration: { kind: ConditionDurationKind.Unlimited } }],
     };
+
     const { breath, conditions } = applyCountingCommand(
       out,
       { field: BreathCommandField.SetBreath, air: air(0), checks: checks(2) },

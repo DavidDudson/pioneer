@@ -17,6 +17,7 @@ export class CharacterGenerator {
     const generated = await this.#api.call(CharacterContract.generate, { params: {}, body });
     // Stale, not refetched now: the list refetches when it is next shown.
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+
     return generated;
   }
 }

@@ -10,6 +10,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
 /** Whether an action pip is still there to spend or is gone. */
 export const PipState = { Left: 'left', Spent: 'spent' } as const;
+
 export type PipState = ValueOf<typeof PipState>;
 
 /** One action pip on the turn bar. */
@@ -54,6 +55,7 @@ function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponNa
   if (phase !== TurnPhase.Turn) {
     return [];
   }
+
   const ordinary = Array.from({ length: TURN_ACTIONS }, (_slot, index): ActionPip => ({
     state: index < actions ? PipState.Left : PipState.Spent,
     quickened: false,
@@ -61,7 +63,9 @@ function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponNa
     weapon: undefined,
     strikeOnly: false,
   }));
+
   const extra: ActionPip[] = quickened > 0 ? [quickenedPip(quickenedFor, weaponName)] : [];
+
   return [...ordinary, ...extra];
 }
 
@@ -71,6 +75,7 @@ export type WeaponName = (item: InventoryItemId) => string | undefined;
 /** The quickened pip: its limit is a note, or a Strike with a weapon (named when the sheet knows its name). */
 function quickenedPip(limit: QuickenedRestriction | undefined, weaponName: WeaponName): ActionPip {
   const strike = typeof limit === 'object';
+
   return {
     state: PipState.Left,
     quickened: true,
@@ -85,6 +90,7 @@ export function pipTone(pip: ActionPip): BadgeTone {
   if (pip.state === PipState.Spent) {
     return BadgeTone.Neutral;
   }
+
   return pip.quickened ? BadgeTone.Info : BadgeTone.Success;
 }
 
@@ -96,8 +102,10 @@ export function pipKey(pip: ActionPip): string {
         ? 'character.sheet.turn.pipQuickenedStrike'
         : 'character.sheet.turn.pipQuickenedStrikeWith';
     }
+
     return pip.restriction === undefined ? 'character.sheet.turn.pipQuickened' : 'character.sheet.turn.pipQuickenedFor';
   }
+
   return pip.state === PipState.Left ? 'character.sheet.turn.pipLeft' : 'character.sheet.turn.pipSpent';
 }
 
@@ -138,12 +146,14 @@ export function turnLog(events: readonly TurnEvent[], first: number): readonly T
     if (event.kind !== TurnEventKind.PersistentDamage) {
       return { message: event.message, roll: undefined };
     }
+
     const view = rollView(first + index, {
       expression: event.roll.expression,
       roll: plainRoll(event.roll),
       degree: undefined,
       damage: event.damage,
     });
+
     return { message: event.message, roll: view };
   });
 }

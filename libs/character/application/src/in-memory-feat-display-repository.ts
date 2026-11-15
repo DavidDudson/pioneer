@@ -17,11 +17,13 @@ export class InMemoryFeatDisplayRepository extends FeatDisplayRepository {
   ): Promise<void> {
     const key = `${userId}/${characterId}`;
     const sections = this.#shown.get(key) ?? new Set<FeatDisplaySection>();
+
     if (showGrantOnly) {
       sections.add(section);
     } else {
       sections.delete(section);
     }
+
     this.#shown.set(key, sections);
   }
 }

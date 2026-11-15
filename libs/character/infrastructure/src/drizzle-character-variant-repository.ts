@@ -39,6 +39,7 @@ export class DrizzleCharacterVariantRepository extends CharacterVariantRepositor
         .select()
         .from(characterVariantRules)
         .where(eq(characterVariantRules.characterId, characterId));
+
       // Sorted here so no query needs an index for it; a character enables few variant rules.
       return rows
         .map((row) => toCharacterVariantRule(row))

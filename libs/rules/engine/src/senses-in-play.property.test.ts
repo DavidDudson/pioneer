@@ -15,9 +15,11 @@ const SENSES = [
   ContentId.parse('367b9fa7-8944-5208-9949-9457984b7c59'),
   ContentId.parse('67979b6a-4b24-5be5-b7ea-94783c497bcb'),
 ] as const;
+
 const ACUITIES = ['vague', 'imprecise', 'precise'] as const;
 const RANGE_MAX = 120;
 const ELEMENTS_MAX = 12;
+
 /** Holds from 5th level, so fails for the 1st-level character these properties use. */
 const AT_FIFTH = [{ gte: ['self:level', 5] }];
 const facts = new PredicateFacts([RollOption.parse('self:level:1')], CORE_NAMESPACES);
@@ -47,6 +49,7 @@ function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
       ...(range === null ? {} : { range }),
       ...(gated ? { predicate: AT_FIFTH } : {}),
     };
+
     return inPlay(element, 'feature', { rule });
   });
 }
@@ -64,6 +67,7 @@ function readingOf({ sense, acuity, range }: Placed): Reading {
 
 function beats(left: Reading, right: Reading): boolean {
   const covers = left.acuity >= right.acuity && left.reach >= right.reach;
+
   return covers && (left.acuity > right.acuity || left.reach > right.reach);
 }
 
@@ -74,6 +78,7 @@ function linesOf(readings: readonly Reading[]): string[] {
 
 function sensesOf(elements: readonly Placed[]): string[] {
   const senses = sensesInPlay({ rules: rulesOf(elements), facts });
+
   return linesOf(
     senses.map(({ sense, acuity, range }) => ({
       sense,

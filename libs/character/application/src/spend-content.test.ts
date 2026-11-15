@@ -21,11 +21,13 @@ import { newId } from '@pioneer/shared/kernel';
 import { contentRefusal } from './spend-content';
 
 const FORM = { key: 'BattleForm', form: {} };
+
 const effects = new ContentPackBuilder()
   .withId('player-core')
   .withEffect('ape-form', 2, [FORM])
   .withEffect('bear-form', 2)
   .withEffect('plant-form', 5, [FORM]);
+
 const APE = ContentId.parse(effects.idOf(ContentKind.Effect, 'ape-form'));
 const BEAR = ContentId.parse(effects.idOf(ContentKind.Effect, 'bear-form'));
 const PLANT = ContentId.parse(effects.idOf(ContentKind.Effect, 'plant-form'));
@@ -58,7 +60,9 @@ const pack = effects
     damage: { dice: 1, die: 'd8', damageType: 'slashing' },
     usage: { type: 'held', hands: 'one' },
   });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 const SLOT = SlotCountKey.parse('wizard:3');
@@ -72,9 +76,11 @@ const ACTIVE = ActiveSpellId.parse(newId());
 /** The id of the entry of `kind` the pack gave `name`. */
 function idOf(kind: ContentKind, name: string): ContentId {
   const entry = registry.packs.flatMap((each) => each.otherEntries).find((each) => each.slug === `${kind}:${name}`);
+
   if (entry === undefined) {
     throw new Error(`no ${kind} named ${name}`);
   }
+
   return entry.id;
 }
 
@@ -150,6 +156,7 @@ interface Dismissal {
 function dismissing(spell: ContentId): Dismissal {
   const rank = SpellRank.parse(2);
   const active: ActiveSpell = { id: ACTIVE, spell, rank, remaining: TEN_MINUTES, sustainedThisTurn: false };
+
   return { request: request(spell, { spell: { kind: SpellSpendKind.Dismiss, id: ACTIVE } }), active: [active] };
 }
 
@@ -211,8 +218,10 @@ describe('contentRefusal for sustained spells', () => {
 
   test('putting on a form the spell lists is allowed, and one it does not list is refused', () => {
     const spell = idOf(ContentKind.Spell, 'morph');
+
     const apply = (effect: ContentId): SpendRequest =>
       request(spell, { apply: { id: EFFECT, effect, rank: SpellRank.parse(2) } });
+
     expect(contentRefusal(apply(APE), registry, NO_SPELLS)).toBeUndefined();
     expect(contentRefusal(apply(BEAR), registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
   });
@@ -230,6 +239,7 @@ describe('contentRefusal for sustained spells', () => {
     const plant = request(idOf(ContentKind.Spell, 'shift'), {
       apply: { id: EFFECT, effect: PLANT, rank: SpellRank.parse(2) },
     });
+
     const has = new PredicateFacts([RollOption.parse('feat:plant-shape')], new Map());
     expect(contentRefusal(plant, registry, { ...NO_SPELLS, facts: has })).toBeUndefined();
     expect(contentRefusal(plant, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);

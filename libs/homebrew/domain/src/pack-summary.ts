@@ -13,6 +13,7 @@ export const PackSummary = z.object({
   visibility: z.enum(PackVisibility),
   official: z.boolean(),
 });
+
 export type PackSummary = z.output<typeof PackSummary>;
 
 /** JSON shape of a pack's dependencies, as a reader of the pack sees them. */
@@ -24,4 +25,5 @@ export const PackDependencies = z.object({
   /** The packs the viewer may add: readable, not yet added, and none that would close a cycle or narrow the pack. Empty unless the viewer owns the pack. */
   candidates: z.array(PackSummary).readonly(),
 });
+
 export type PackDependencies = z.output<typeof PackDependencies>;

@@ -38,6 +38,7 @@ export function ancestryRows(
 ): readonly AncestryPickerRow[] {
   const names = sheetEntryNames(registry);
   const slot = offered(registry, character, ANCESTRY_SLOT);
+
   return originContent(registry)
     .ancestries.filter((ancestry) => slot?.has(ancestry.id) ?? true)
     .map(({ id, name, definition, sources }): AncestryPickerRow => ({
@@ -83,16 +84,21 @@ export function heritageRows(
   const ancestryNames = new Map<ContentId, string>(content.ancestries.map((ancestry) => [ancestry.id, ancestry.name]));
   const picked = character.ancestry;
   const pickedIds: ReadonlySet<string> = new Set(picked === undefined ? [] : [picked]);
+
   /** Heritages of another ancestry stay, disabled; one the character's own could take but the slot holds back (legacy) goes. */
   const offeredHeritages = content.heritages.filter(({ id, ancestry }) => {
     const theirs = ancestry !== undefined && !pickedIds.has(ancestry);
+
     return picked === undefined || theirs || (slot?.has(id) ?? true);
   });
+
   return offeredHeritages.map((heritage): HeritagePickerRow => {
     const ancestry =
       heritage.ancestry === undefined ? undefined : (ancestryNames.get(heritage.ancestry) ?? heritage.ancestry);
+
     const open = slot?.has(heritage.id) ?? true;
     const disabledReason = open ? undefined : unavailableReason(picked, ancestry, translate);
+
     return {
       id: heritage.id,
       name: heritage.name,
@@ -120,17 +126,21 @@ export function backgroundRows(
   const slot = offered(registry, character, BACKGROUND_SLOT);
   const skills = new Map(skillContent(registry).skills.map((skill) => [skill.selector, skill.name]));
   const options = originContent(registry).backgrounds.filter((background) => slot?.has(background.id) ?? true);
+
   const trainedAgain = sheetTrainedAgain(
     registry,
     character,
     BACKGROUND_SLOT,
   )(options.map((background) => background.id));
+
   return options.map((background): BackgroundPickerRow => {
     const again = trainedAgain.get(background.id);
+
     const trained = (lore: boolean): string[] =>
       background.trained
         .filter((selector) => selector.startsWith(LORE_PREFIX) === lore)
         .map((selector) => skills.get(selector) ?? selector);
+
     return {
       id: background.id,
       name: background.name,

@@ -66,9 +66,11 @@ function spellsOf(spells: Readonly<Record<string, string>>, { references, log }:
     .toSorted(([left], [right]) => Number(left) - Number(right))
     .flatMap(([rank, uuid]) => {
       const spell = resolveUuid(references, uuid);
+
       if (spell === undefined) {
         report(log, { reason: KindDataGapReason.UnresolvedReference, field: `spells.${rank}`, raw: uuid });
       }
+
       return spell === undefined ? [] : [{ rank: Number(rank), spell }];
     });
 }
@@ -76,10 +78,13 @@ function spellsOf(spells: Readonly<Record<string, string>>, { references, log }:
 /** The deity's data, unparsed; undefined when its `system` is not shaped as a deity's. */
 export function deityData(input: KindInput): object | undefined {
   const system = systemOf(FoundryDeitySystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const { sanctification } = system;
+
   return {
     category: system.category,
     ...setFields({ sanctification: sanctification ?? undefined }),

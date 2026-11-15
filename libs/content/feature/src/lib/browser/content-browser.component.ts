@@ -101,6 +101,7 @@ export class ContentBrowser {
 
   protected readonly kindOptions: Signal<readonly SelectOption<BrowseKind>[]> = computed(() => {
     this.#changed();
+
     return BROWSE_KINDS.map((kind) => ({ value: kind, label: this.#i18n.translate(KIND_MESSAGES[kind]) }));
   });
   /** The kinds the state is listing, which the chips show picked; a state naming none lists the default. */
@@ -115,6 +116,7 @@ export class ContentBrowser {
   readonly #scope = inject(CONTENT_SCOPE);
   readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
     const registry = this.registry.data();
+
     return registry === undefined
       ? undefined
       : shownEntries(entriesOf(registry, this.#kinds()), packLicenses(registry), this.#scope().legacy);
@@ -123,24 +125,28 @@ export class ContentBrowser {
   /** The remaster entries that replace each legacy one, from every entry the registry holds. */
   readonly #replacements = computed(() => {
     const registry = this.registry.data();
+
     return replacementsOf(registry === undefined ? [] : registryEntries(registry));
   });
 
   /** The name of each trait loaded, so a trait chip says its name rather than its slug. */
   readonly #traitNames = computed(() => {
     const registry = this.registry.data();
+
     return traitNamesOf(registry === undefined ? [] : registryEntries(registry));
   });
 
   /** The licence of each pack loaded, which says which entries are legacy. */
   readonly #licenses = computed(() => {
     const registry = this.registry.data();
+
     return registry === undefined ? NO_LICENSES : packLicenses(registry);
   });
 
   readonly #words = computed(() => searchFromQuery(this.#current().query));
   readonly #criteria: Signal<BrowseSearch | undefined> = computed(() => {
     const words = this.#words();
+
     return words === undefined ? undefined : { words, kinds: this.#kinds() };
   });
   readonly #search = injectBrowseSearch(() => this.#criteria());
@@ -152,9 +158,11 @@ export class ContentBrowser {
     const entries = this.#entries();
     const searching = this.#words() !== undefined;
     const matches = searching ? this.#search.data() : undefined;
+
     if (entries === undefined || (searching && matches === undefined)) {
       return undefined;
     }
+
     return browseList({ entries, facets: this.#facets(), state: this.facetState(), matches }, (left, right) =>
       this.#format.compare(left, right),
     );
@@ -166,6 +174,7 @@ export class ContentBrowser {
   readonly #shown: Signal<ContentBrowserList | undefined> = computed(() => {
     this.#changed();
     const list = this.#list();
+
     return list === undefined
       ? undefined
       : {
@@ -187,11 +196,13 @@ export class ContentBrowser {
   /** What the filter bar offers: a field per facet of the list, labelled in the UI language. */
   protected readonly fields = computed(() => {
     this.#changed();
+
     return filterFields(this.#list()?.counts ?? [], (key) => this.#i18n.translate(key));
   });
 
   readonly #index = computed(() => {
     const registry = this.registry.data();
+
     return registry === undefined ? undefined : entryIndex(registry);
   });
   /** A reference in a description is named and linked from the entries loaded. */
@@ -203,6 +214,7 @@ export class ContentBrowser {
   readonly #picked: Signal<ContentEntry | undefined> = computed(() => {
     const { selected } = this.#current();
     const registry = this.registry.data();
+
     return selected === undefined || registry === undefined
       ? undefined
       : findEntry(registry, selected.kind, selected.name);
@@ -210,10 +222,12 @@ export class ContentBrowser {
   readonly #description = injectEntryDescription(() => this.#picked());
   readonly #stores = computed(() => {
     const entry = this.#picked();
+
     return entry === undefined ? [] : storeLinks(entry);
   });
   readonly #card: Signal<EntryPreview | undefined> = computed(() => {
     const entry = this.#picked();
+
     return entry === undefined ? undefined : entryCard(entry, this.#description.data());
   });
   protected readonly entry: AsyncQuery<ContentBrowserEntry> = {
@@ -244,11 +258,13 @@ export class ContentBrowser {
   #rowOf(entry: ContentEntry): BrowseRow {
     const tone = RARITY_TONES[entry.rarity];
     const names = this.#traitNames();
+
     const traits = entry.traits.map((trait): Chip => ({
       label: traitLabel(names, trait),
       trait,
       tone,
     }));
+
     return {
       id: entry.id,
       entry: entry.id,

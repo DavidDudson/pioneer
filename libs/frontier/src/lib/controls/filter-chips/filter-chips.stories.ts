@@ -57,6 +57,7 @@ const meta: Meta<FilterChips<string>> = {
     template: `<fr-filter-chips ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Rarity: FilterChipsStory = {};

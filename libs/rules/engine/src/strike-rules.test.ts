@@ -84,6 +84,7 @@ describe('Strike damage dice from rule elements', () => {
 /** The weapon's dice, and its extra ones, after a dice-number alteration of `mode` and `value`. */
 function diceAfter(mode: string, value: number): readonly number[] {
   const alteration = { key: 'DamageAlteration', selectors: ['strike-damage'], property: 'dice-number', mode, value };
+
   return numbers(strikeOf([[alteration, 'a']]));
 }
 
@@ -218,18 +219,23 @@ describe('Strike rules aimed at the weapon they are etched on', () => {
   /** Both weapons' Strikes, with `FLAMING` in play from `item`. */
   function strikes(item: string | undefined): readonly Strike[] {
     const weapons = [wielded(LONGSWORD, LONGSWORD_ITEM), wielded(SHORTSWORD, SHORTSWORD_ITEM)];
+
     const inputs = StatisticInputsJson.parse({
       level: 5,
       attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
       ranks: { 'attack:martial': 'trained' },
       weapons,
     });
+
     const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
     const modifiers = {
       rules: [inPlay(FLAMING, 'flaming', item === undefined ? {} : { item })],
       facts: new PredicateFacts([], CORE_NAMESPACES),
     };
+
     const results = deriveStatistics(content, inputs, modifiers);
+
     return deriveStrikes(inputs.weapons ?? [], results, {
       inputs: modifiers,
       scope: { statistics: content, character: inputs },
@@ -263,6 +269,7 @@ describe('Strike weaknesses from rule elements', () => {
 
   test('a CriticalWeakness for other rolls, or whose predicate fails, is not on the Strike', () => {
     const elsewhere = { key: 'CriticalWeakness', selectors: ['perception'], type: 'fire', value: 5 };
+
     const calm = {
       key: 'CriticalWeakness',
       selectors: ['strike-damage'],

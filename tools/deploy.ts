@@ -9,6 +9,7 @@ export const GHCR_IMAGE = 'ghcr.io/daviddudson/pioneer';
 export const FUNCTION_NAME = 'pioneer-api';
 const TAG = /^sha-[0-9a-f]{7,40}$/u;
 const HTTP_OK = 200;
+
 /** Words of a failed command quoted in its error: enough to name it, short of any arguments. */
 const COMMAND_WORDS = 3;
 
@@ -72,9 +73,11 @@ function failure(command: readonly string[], result: CommandResult): Error {
 
 async function check(deps: DeployDeps, command: readonly string[], options?: CommandOptions): Promise<string> {
   const result = await deps.run(command, options);
+
   if (result.code !== 0) {
     throw failure(command, result);
   }
+
   return result.stdout.trim();
 }
 
@@ -96,11 +99,15 @@ async function functionSettings(deps: DeployDeps): Promise<FunctionSettings> {
     '--output',
     'json',
   ]);
+
   const settings = JSON.parse(json) as { databaseUrl: unknown; origin: unknown };
+
   if (typeof settings.databaseUrl !== 'string' || typeof settings.origin !== 'string') {
     throw new TypeError(`${FUNCTION_NAME} has no DATABASE_URL or PUBLIC_ORIGIN; apply infra/ first`);
   }
+
   deps.mask(settings.databaseUrl);
+
   return { databaseUrl: settings.databaseUrl, origin: settings.origin };
 }
 
@@ -114,23 +121,30 @@ async function inEcr(deps: DeployDeps, tag: string): Promise<boolean> {
     '--image-ids',
     `imageTag=${tag}`,
   ];
+
   const result = await deps.run(command);
+
   if (result.code === 0) {
     return true;
   }
+
   if (result.stderr.includes('ImageNotFoundException')) {
     return false;
   }
+
   throw failure(command, result);
 }
 
 /** Lambda runs single-architecture images from its own account's ECR only, and ECR tags are immutable. */
 async function copyToEcr(deps: DeployDeps, tag: string, repository: string): Promise<boolean> {
   const present = await inEcr(deps, tag);
+
   if (present) {
     deps.log(`${repository}:${tag} is already in ECR`);
+
     return false;
   }
+
   const password = await check(deps, ['aws', 'ecr', 'get-login-password']);
   deps.mask(password);
   const [registry = repository] = repository.split('/');
@@ -146,6 +160,7 @@ async function copyToEcr(deps: DeployDeps, tag: string, repository: string): Pro
     `docker://${GHCR_IMAGE}:${tag}`,
     `docker://${repository}:${tag}`,
   ]);
+
   return true;
 }
 
@@ -153,10 +168,13 @@ async function copyToEcr(deps: DeployDeps, tag: string, repository: string): Pro
 async function healthProblem(deps: DeployDeps, url: string): Promise<string | undefined> {
   try {
     const { status, body } = await deps.get(url);
+
     if (status === HTTP_OK && body.includes('"ok"')) {
       deps.log(`${url}: ${body}`);
+
       return undefined;
     }
+
     return status === HTTP_OK ? `HTTP ${status} without "ok" in the body` : `HTTP ${status}`;
   } catch (error) {
     return error instanceof Error ? error.message : String(error);
@@ -171,12 +189,15 @@ interface HealthCheck {
 
 async function waitForHealth(deps: DeployDeps, { url, policy }: HealthCheck, attempt = 1): Promise<void> {
   const problem = await healthProblem(deps, url);
+
   if (problem === undefined) {
     return;
   }
+
   if (attempt >= policy.attempts) {
     throw new Error(`${url} not healthy after ${policy.attempts} attempts: ${problem}`);
   }
+
   await deps.sleep(policy.intervalMs);
   await waitForHealth(deps, { url, policy }, attempt + 1);
 }
@@ -212,6 +233,7 @@ async function currentState(deps: DeployDeps): Promise<CurrentState> {
   const functionCommand = ['lambda', 'get-function', '--function-name', FUNCTION_NAME];
   const previousImage = await awsText(deps, functionCommand, 'Code.ImageUri');
   deps.log(`Running ${previousImage}`);
+
   return { repository, previousImage };
 }
 
@@ -223,6 +245,7 @@ export async function deploy(
   if (!TAG.test(tag)) {
     throw new Error(`Deploy a published sha- tag, e.g. sha-1a2b3c4; got "${tag}"`);
   }
+
   const { repository, previousImage } = await currentState(deps);
   const { databaseUrl, origin } = await functionSettings(deps);
   const copied = await copyToEcr(deps, tag, repository);
@@ -230,5 +253,6 @@ export async function deploy(
   const image = `${repository}:${tag}`;
   await pointFunctionAt(deps, image);
   await waitForHealth(deps, { url: new URL('/api/health', origin).href, policy: health });
+
   return { previousImage, image, copied };
 }

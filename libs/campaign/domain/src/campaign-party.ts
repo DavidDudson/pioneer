@@ -36,14 +36,17 @@ export const OwnedCharacter = z.object({
   ancestry: PartyCharacterOrigin.optional(),
   class: PartyCharacterOrigin.optional(),
 });
+
 export type OwnedCharacter = z.output<typeof OwnedCharacter>;
 
 /** A character's Hit Points as the table has them. */
 export const PartyHitPoints = z.object({ current: VitalHitPoints, max: VitalHitPoints, temp: VitalHitPoints });
+
 export type PartyHitPoints = z.output<typeof PartyHitPoints>;
 
 /** A condition on a character: its name, and its value when it is valued. */
 export const PartyCondition = z.object({ name: ConditionName, value: ConditionLevel.optional() });
+
 export type PartyCondition = z.output<typeof PartyCondition>;
 
 /**
@@ -57,6 +60,7 @@ export const PartyVitals = z.object({
   /** The death track's conditions first (`dying`, `wounded`, `doomed`), then the others, each once at its highest value. */
   conditions: z.array(PartyCondition).readonly(),
 });
+
 export type PartyVitals = z.output<typeof PartyVitals>;
 
 /** A character with nothing to show: not dying, no conditions and no Hit Points. */
@@ -73,6 +77,7 @@ export const PartyCharacter = OwnedCharacter.extend({
   archived: z.boolean(),
   vitals: PartyVitals,
 });
+
 export type PartyCharacter = z.output<typeof PartyCharacter>;
 
 /** JSON shape of a campaign's party, as one of its members sees it. */
@@ -82,4 +87,5 @@ export const CampaignParty = z.object({
   /** The viewer's characters that are in no campaign yet, by name. */
   attachable: z.array(OwnedCharacter).readonly(),
 });
+
 export type CampaignParty = z.output<typeof CampaignParty>;

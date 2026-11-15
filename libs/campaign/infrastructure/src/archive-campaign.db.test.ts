@@ -68,9 +68,11 @@ describe.skipIf(adminUrl === undefined)('archived campaigns (postgres)', () => {
     const rust = await repository.insert(new CampaignBuilder().named('Rusthenge').build());
     await repository.archive(rust.id, NOW, archiving);
     await repository.restore(rust.id, restoring);
+
     const rows = await database.db.execute(
       sql`select command from audit.log where table_name = 'campaigns' and row_id = ${rust.id} and action = 'update' order by changed_at`,
     );
+
     expect(rows.map((row) => String(row['command']))).toStrictEqual([
       CampaignCommand.ArchiveCampaign,
       CampaignCommand.RestoreCampaign,
@@ -80,10 +82,12 @@ describe.skipIf(adminUrl === undefined)('archived campaigns (postgres)', () => {
   test('archiving stamps archived_at', async () => {
     const crown = await repository.insert(new CampaignBuilder().named('Crown of Fangs').build());
     await repository.archive(crown.id, NOW, archiving);
+
     const [row] = await database.db
       .select({ archivedAt: campaigns.archivedAt })
       .from(campaigns)
       .where(eq(campaigns.id, crown.id));
+
     expect(row?.archivedAt).not.toBeNull();
   });
 

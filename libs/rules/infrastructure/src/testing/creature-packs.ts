@@ -5,6 +5,7 @@ import type { PackContents } from '@pioneer/rules/sdk';
 export function creaturePack(pack: string, name: string): PackContents {
   const slug = EntrySlug.parse(`creature:${name.toLowerCase()}`);
   const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
+
   return packContentsFromFiles(packFile, [
     [
       {

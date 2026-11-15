@@ -109,7 +109,9 @@ function unknownKeyMessage(value: unknown): MessageDescriptor | undefined {
   if (typeof value !== 'object' || value === null || !('key' in value)) {
     return undefined;
   }
+
   const { key } = value;
+
   return typeof key === 'string' && !KNOWN_KEYS.has(key) ? message(RulesMessage.UnknownElement, { key }) : undefined;
 }
 
@@ -121,11 +123,13 @@ export const RuleElement: z.ZodType<RuleElement> = z
   .unknown()
   .check((context) => {
     const unknown = unknownKeyMessage(context.value);
+
     if (unknown !== undefined) {
       context.issues.push({ code: 'custom', input: context.value, path: ['key'], ...issueParams(unknown) });
     }
   })
   .pipe(Element);
+
 export type RuleElement = z.output<typeof Element>;
 
 /** A class carries its whole progression as rule elements: Player Core's rogue has 102. */
@@ -133,4 +137,5 @@ const RULES_MAX = 256;
 
 /** A content entry's `rules`: its elements in order (an origin's `RuleIndex` points into it). */
 export const RuleElements = z.array(RuleElement).max(RULES_MAX);
+
 export type RuleElements = readonly RuleElement[];

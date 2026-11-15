@@ -42,6 +42,7 @@ export class CharacterSheetBundleService {
     const { characters, play, sheetModes, featDisplay, packs, variants, ruleLimits, unenabled } = this.#sources;
     const character = await characters.get(actor, id);
     const isOwner = character.ownerId === actor;
+
     const [sheet, limits, playState, sheetMode, display, packList, variantRules, limitSettings, notEnabled] =
       await Promise.all([
         characters.sheet(character),
@@ -54,6 +55,7 @@ export class CharacterSheetBundleService {
         isOwner ? ruleLimits.ruleLimitSettings(actor, id) : undefined,
         isOwner ? unenabled.unenabled(actor, id) : undefined,
       ]);
+
     return {
       sheet,
       ruleLimits: limits,

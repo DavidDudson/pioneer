@@ -34,11 +34,14 @@ export class CoinOffer {
   protected readonly inputs = computed((): OfferInputs | undefined => {
     const character = this.#characters.selected();
     const { campaign } = this.#limits.rules();
+
     if (character === undefined || campaign === undefined) {
       return undefined;
     }
+
     const purse = character.document.inventory.coins;
     const held = Object.values(Coin).some((coin) => purse[coin] > 0);
+
     return held ? { campaign, character: character.id, purse } : undefined;
   });
 

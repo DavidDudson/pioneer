@@ -25,6 +25,7 @@ export const DefenceStatusKind = {
   Conditional: 'conditional',
   Failed: 'failed',
 } as const;
+
 export type DefenceStatusKind = ValueOf<typeof DefenceStatusKind>;
 
 export type DefenceStatus =
@@ -124,19 +125,25 @@ export function failed(
   position: TextPosition | undefined,
 ): DefenceStatus {
   const when = gated.kind === DefenceStatusKind.Conditional ? gated.when : undefined;
+
   return { kind: DefenceStatusKind.Failed, error, position, when };
 }
 
 /** A value as a `DamageAmount`: nothing when 0 or less, failed past its bound. */
 export function amountOf(value: RuleNumber, status: DefenceStatus): Valued | undefined {
   const rounded = whole(value);
+
   if (rounded !== undefined && rounded <= 0) {
     return undefined;
   }
+
   const amount = DamageAmount.safeParse(rounded);
+
   if (amount.success) {
     return { value: amount.data, status };
   }
+
   const error = message(EngineMessage.DefenceOutOfRange, { maximum: DEFENCE_MAX });
+
   return { value: undefined, status: failed(status, error, undefined) };
 }

@@ -9,35 +9,44 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
   const fixture = TestBed.createComponent(DateField);
   fixture.componentRef.setInput('label', 'Session date');
   fixture.componentRef.setInput('hint', 'When the party next meets.');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<DateField>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 function control(fixture: ComponentFixture<DateField>): HTMLInputElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (element === null) {
     throw new Error('Expected an input');
   }
+
   return element;
 }
 
 /** The text of whatever the input's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<DateField>): string {
   const ids = find(fixture, 'input').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 

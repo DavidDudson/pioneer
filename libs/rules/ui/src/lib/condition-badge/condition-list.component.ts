@@ -47,6 +47,7 @@ export class ConditionList {
       .toSorted((first, second) => rankOf(first.slug) - rankOf(second.slug))
       .map(({ slug, value }): ConditionRow => {
         const known = isConditionSlug(slug);
+
         return {
           slug,
           icon: known ? CONDITION_ICONS[slug] : OTHER_CONDITION_ICON,

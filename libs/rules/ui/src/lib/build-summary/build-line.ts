@@ -13,6 +13,7 @@ export const BuildPart = {
   Size: 'size',
   Traits: 'traits',
 } as const;
+
 export type BuildPart = ValueOf<typeof BuildPart>;
 
 /** A part's value: content by its name, an attribute, a size, or traits by their names. */

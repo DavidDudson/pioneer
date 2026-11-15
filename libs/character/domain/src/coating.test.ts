@@ -13,6 +13,7 @@ import { etchRune } from './rune-edits';
 import { fundamental, ItemFixture, itemFixtureId, itemFixtureRegistry, RuneFixture, runeFixtureId } from './testing';
 
 installRulesFakes();
+
 const registry = itemFixtureRegistry();
 const reads = { items: itemContent(registry), runes: runeContent(registry) };
 const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
@@ -28,15 +29,20 @@ function sword(coated: boolean, stored: readonly (typeof OIL)[] = []): Inventory
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+
   if (coated) {
     inventory = etchRune(inventory, SWORD, { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Coating) });
   }
+
   inventory = setItemState(inventory, SWORD, { coating: stored });
   const [line] = inventory.items;
+
   if (line === undefined) {
     throw new Error('the sword was not added');
   }
+
   return line;
 }
 

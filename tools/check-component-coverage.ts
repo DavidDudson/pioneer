@@ -105,6 +105,7 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
 
 const files = new Set(await Array.fromAsync(new Glob('**/*.ts').scan({ cwd: ROOT })));
 const gaps = findCoverageGaps(files, EXEMPTIONS);
+
 if (gaps.length > 0) {
   throw new Error(`Frontier components without a spec or story (under ${ROOT}):\n- ${gaps.join('\n- ')}`);
 }

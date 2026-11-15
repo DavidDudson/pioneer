@@ -53,15 +53,19 @@ function withHealing<Play extends RestPlay>(
   const { play } = outcome;
   const damage = HitPoints.parse(Math.min(play.hp.damage, hitPoints));
   const gained = HitPoints.parse(Math.min(healing, damage));
+
   if (gained === NO_HIT_POINTS) {
     return outcome;
   }
+
   const healed: Play = {
     ...play,
     hp: { ...play.hp, damage: HitPoints.parse(damage - gained) },
   };
+
   const revived = hitPoints > NO_HIT_POINTS && damage === hitPoints;
   const next: Play = revived ? { ...healed, ...recovered(trackOf(healed)) } : healed;
+
   return after(outcome, next, { kind: RestChangeKind.HitPoints, gained });
 }
 
@@ -74,10 +78,13 @@ interface EasedCondition {
 /** One condition after Rest: gone if the content removes it, a point lower if it lowers it (gone at 0), else as it was. */
 function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions): EasedCondition {
   const change = recovery.get(condition.condition);
+
   if (change === undefined) {
     return { kept: [condition], change: undefined };
   }
+
   const eased = easeCondition(condition, change);
+
   if (eased.ended) {
     return {
       kept: [],
@@ -87,7 +94,9 @@ function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions
       },
     };
   }
+
   const lowered = eased.value;
+
   return {
     kept: [{ ...condition, value: lowered }],
     change: {
@@ -105,24 +114,30 @@ function withConditionsEased<Play extends RestPlay>(
 ): RestOutcome<Play> {
   const eased = outcome.play.conditions.map((condition) => easedCondition(condition, recovery));
   const changes = eased.flatMap(({ change }) => (change === undefined ? [] : [change]));
+
   if (changes.length === 0) {
     return outcome;
   }
+
   const next: Play = {
     ...outcome.play,
     conditions: eased.flatMap(({ kept }) => kept),
   };
+
   return { play: next, changes: [...outcome.changes, ...changes] };
 }
 
 /** Rest lowers doomed by 1. */
 function withDoomedLowered<Play extends RestPlay>(outcome: RestOutcome<Play>): RestOutcome<Play> {
   const { play } = outcome;
+
   if (play.doomed === 0) {
     return outcome;
   }
+
   const lowered = Doomed.parse(play.doomed - 1);
   const next: Play = { ...play, ...withDoomed(trackOf(play), lowered) };
+
   return after(outcome, next, { kind: RestChangeKind.Doomed, doomed: lowered });
 }
 
@@ -134,6 +149,7 @@ function withDoomedLowered<Play extends RestPlay>(outcome: RestOutcome<Play>): R
 export function rested<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {
   const healed = withHealing(unchanged(play), limits);
   const eased = withConditionsEased(healed, limits);
+
   return withCountsRestored(withDoomedLowered(eased), limits, Boundary.Rest);
 }
 
@@ -154,12 +170,16 @@ function restoredOn<Key extends CountKey>(
 ): RestoredCounts<Key> {
   const restored = [...maxima].flatMap(([key, known]) => {
     const amount = ResourceCount.parse(Math.min(counts[key] ?? NONE, known.max));
+
     return known.boundary === boundary && amount > NONE ? [{ key, amount }] : [];
   });
+
   const spent: Partial<Record<Key, ResourceCount>> = { ...counts };
+
   for (const { key } of restored) {
     spent[key] = NONE;
   }
+
   return { spent, restored };
 }
 
@@ -172,10 +192,12 @@ function withCountsRestored<Play extends RestPlay>(
   const { play } = outcome;
   const slots = restoredOn(play.resources.slots, counted.slots, boundary);
   const uses = restoredOn(play.resources.uses, counted.uses, boundary);
+
   const { countdowns } = usesBack(
     { uses: uses.spent, countdowns: play.resources.countdowns },
     uses.restored.map(({ key }) => key),
   );
+
   const changes: readonly RestChange[] = [
     ...slots.restored.map(({ key, amount }): RestChange => ({
       kind: RestChangeKind.Slots,
@@ -188,13 +210,16 @@ function withCountsRestored<Play extends RestPlay>(
       amount,
     })),
   ];
+
   if (changes.length === 0) {
     return outcome;
   }
+
   const next: Play = {
     ...play,
     resources: { ...play.resources, slots: slots.spent, uses: uses.spent, countdowns },
   };
+
   return { play: next, changes: [...outcome.changes, ...changes] };
 }
 
@@ -215,12 +240,14 @@ function withPointsSet<Play extends RestPlay>(
   const from = heldIn(pools, resource);
   const spent = setPoints(pools, resource, to);
   const now = heldIn({ ...pools, spent }, resource);
+
   const change: RestChange = {
     kind: RestChangeKind.Points,
     resource,
     from,
     to: now,
   };
+
   return now === from ? outcome : after(outcome, { ...play, resources: spent }, change);
 }
 
@@ -237,6 +264,7 @@ export function preparedDaily<Play extends RestPlay>(
     resource: Resource.FocusPoints,
     to: limits.resources[Resource.FocusPoints],
   });
+
   return withStaffPrepared(withCountsRestored(focused, limits, Boundary.Day), limits, choice);
 }
 
@@ -244,6 +272,7 @@ export function preparedDaily<Play extends RestPlay>(
 export function refocused<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {
   const held = heldIn(poolsOf(play, limits), Resource.FocusPoints);
   const to = ResourceCount.parse(held + ONE);
+
   return withPointsSet(unchanged(play), limits, {
     resource: Resource.FocusPoints,
     to,
@@ -256,6 +285,7 @@ export function sessionStarted<Play extends RestPlay>(play: Play, limits: RestLi
     resource: Resource.HeroPoints,
     to: SESSION_HERO_POINTS,
   });
+
   return withCountsRestored(heroes, limits, Boundary.Session);
 }
 
@@ -269,15 +299,19 @@ export function applyRestCommand<Play extends RestPlay>(
     case RestCommandField.Rest: {
       return rested(play, limits);
     }
+
     case RestCommandField.DailyPreparations: {
       return preparedDaily(play, limits, command);
     }
+
     case RestCommandField.Refocus: {
       return refocused(play, limits);
     }
+
     case RestCommandField.StartSession: {
       return sessionStarted(play, limits);
     }
+
     default: {
       return command satisfies never;
     }

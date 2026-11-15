@@ -12,18 +12,23 @@ function translated(node: FormulaNode): FormulaNode {
     case NodeKind.Number: {
       return node;
     }
+
     case NodeKind.Reference: {
       return { ...node, path: fromFoundryPath(node.path) ?? node.path };
     }
+
     case NodeKind.Negate: {
       return { ...node, operand: translated(node.operand) };
     }
+
     case NodeKind.Binary: {
       return { ...node, left: translated(node.left), right: translated(node.right) };
     }
+
     case NodeKind.Call: {
       return { ...node, args: node.args.map((arg) => translated(arg)) };
     }
+
     default: {
       return node;
     }
@@ -37,9 +42,11 @@ function translated(node: FormulaNode): FormulaNode {
 export function fromFoundryFormula(text: string): string {
   const formula = FormulaText.safeParse(text);
   const parsed = formula.success ? parseFormula(formula.data) : undefined;
+
   if (parsed?.ok !== true || !text.includes('@')) {
     return text;
   }
+
   return printFormula(translated(parsed.formula));
 }
 
@@ -55,6 +62,7 @@ export function fromFoundryBadgeFormula(text: string): string {
   return text.replaceAll(REFERENCE_TOKEN, (token) => {
     const path = ReferencePath.safeParse(token.slice(1));
     const pioneer = path.success ? fromFoundryBadgePath(path.data) : undefined;
+
     return pioneer === undefined ? token : `@${pioneer}`;
   });
 }

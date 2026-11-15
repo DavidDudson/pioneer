@@ -15,17 +15,21 @@ const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
 
 function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | undefined {
   const sorted = header.column.getIsSorted();
+
   return sorted === false ? undefined : ARIA_SORT[sorted];
 }
 
 const scrollerClasses = cva('block w-full overflow-x-auto')();
 const tableClasses = cva('w-full border-collapse text-body tabular-nums')();
+
 const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-muted', {
   variants: { hidden: { true: 'sr-only', false: '' } },
 });
+
 const headerCellClasses = cva(
   'border-b border-line-default px-sm py-xs text-start text-label font-medium text-fg-muted',
 )();
+
 const cellClasses = cva('border-b border-line-subtle px-sm py-xs text-fg-default')();
 
 /** What the *Columns* control needs to know of a column. */
@@ -39,9 +43,11 @@ interface KnownColumn {
 /** A column's id, or nothing for a column with none (a group, or a display column given no id). */
 function describe<TData extends RowData>(column: TableColumn<TData>): KnownColumn[] {
   const id = column.id ?? ('accessorKey' in column ? String(column.accessorKey) : undefined);
+
   if (id === undefined) {
     return [];
   }
+
   return [
     {
       id,
@@ -99,11 +105,13 @@ export class Table<TData extends RowData> {
     const known = this.known();
     const wanted = this.columnVisibility() ?? this.defaultHidden();
     const hidden = known.filter((column) => column.hideable && wanted.includes(column.id)).map((column) => column.id);
+
     return hidden.length >= known.length ? [] : hidden;
   });
 
   protected readonly table = injectTable<TableFeatureSet, TData>(() => {
     const rowId = this.rowId();
+
     return {
       features: TABLE_FEATURES,
       columns: [...this.columns()],
@@ -129,10 +137,12 @@ export class Table<TData extends RowData> {
   protected readonly toggles = computed<readonly ColumnToggle[]>(() => {
     const hidden = this.hidden();
     const lastShown = this.known().length - hidden.length === 1;
+
     return this.known()
       .filter((column) => column.hideable)
       .map((column) => {
         const visible = !hidden.includes(column.id);
+
         return { id: column.id, label: column.label, visible, locked: visible && lastShown };
       });
   });
@@ -141,6 +151,7 @@ export class Table<TData extends RowData> {
   protected setVisible({ id, visible }: ColumnChoice): void {
     const hidden = this.hidden().filter((hiddenId) => hiddenId !== id);
     const next = visible ? hidden : [...hidden, id];
+
     if (next.length < this.known().length) {
       this.columnVisibility.set(next);
     }

@@ -32,10 +32,12 @@ function entriesOf(
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return [...spellcastingInPlay({ rules, facts })];
 }
 
@@ -64,6 +66,7 @@ describe('spellcastingInPlay: focus spells', () => {
 
   test('an entry that is not a focus entry, or not in play, has no focus spells', () => {
     const cleric = { ...clericFocus, slug: 'cleric', preparation: 'prepared' };
+
     const entries = entriesOf([
       [cleric, 'cleric-spellcasting'],
       [{ key: 'FocusSpells', entry: 'cleric', spells: [FIRE_RAY] }, 'domain-initiate'],

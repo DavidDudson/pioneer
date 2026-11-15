@@ -24,6 +24,7 @@ const meta: Meta<CharacterAvatar> = {
     template: `<fr-character-avatar ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Healthy: CharacterAvatarStory = { args: { current: 20 } };

@@ -56,17 +56,21 @@ export function upstreamUrl(publicUrl: URL, functionUrl: URL): URL {
 /** The client's headers minus the ones the proxy owns, plus forwarding headers for the public origin. */
 export function forwardedHeaders(incoming: Headers, publicUrl: URL): Headers {
   const headers = new Headers();
+
   for (const [name, value] of incoming) {
     if (!isOwnedHeader(name)) {
       headers.set(name, value);
     }
   }
+
   headers.set('x-forwarded-host', publicUrl.host);
   headers.set('x-forwarded-proto', 'https');
   const clientIp = incoming.get('cf-connecting-ip');
+
   if (clientIp !== null) {
     headers.set('x-forwarded-for', clientIp);
   }
+
   return headers;
 }
 
@@ -82,16 +86,19 @@ export async function signedUpstreamRequest(request: Request, functionUrl: URL, 
   const init: RequestInit = hasBody ? { method: request.method, body: await request.arrayBuffer() } : {};
   const signed = await signer.sign(url.toString(), init);
   const headers = forwardedHeaders(request.headers, publicUrl);
+
   for (const [name, value] of signed.headers) {
     if (isSignatureHeader(name)) {
       headers.set(name, value);
     }
   }
+
   return new Request(url.toString(), { ...init, headers, redirect: 'manual' });
 }
 
 function cacheDirectives(response: Response): ReadonlySet<string> {
   const header = response.headers.get('cache-control') ?? '';
+
   return new Set(
     header
       .split(',')
@@ -109,9 +116,11 @@ export function isCacheable(request: Request, response: Response): boolean {
   if (request.method !== 'GET' || response.status !== OK || response.headers.has('set-cookie')) {
     return false;
   }
+
   const directives = cacheDirectives(response);
   const restricted = ['private', 'no-store', 'no-cache'].some((directive) => directives.has(directive));
   const hasLifetime = [...directives].some((directive) => /^(?:max-age|s-maxage)=[1-9]\d*$/u.test(directive));
+
   return directives.has('public') && hasLifetime && !restricted;
 }
 
@@ -120,8 +129,10 @@ function httpsRedirect(publicUrl: URL): Response | undefined {
   if (publicUrl.protocol !== 'http:') {
     return undefined;
   }
+
   const target = new URL(publicUrl);
   target.protocol = 'https:';
+
   return Response.redirect(target.toString(), MOVED_PERMANENTLY);
 }
 
@@ -138,7 +149,9 @@ function split(response: Response): readonly [Response, Response] {
   if (response.body === null) {
     return [response, new Response(undefined, response)];
   }
+
   const [forClient, forCache] = response.body.tee();
+
   return [new Response(forClient, response), new Response(forCache, response)];
 }
 
@@ -146,21 +159,27 @@ function split(response: Response): readonly [Response, Response] {
 async function fetchUpstream(request: Request, dependencies: ProxyDependencies): Promise<Response> {
   const upstreamRequest = await signedUpstreamRequest(request, dependencies.functionUrl, dependencies.signer);
   const response = await dependencies.upstream(upstreamRequest);
+
   if (!isCacheable(request, response)) {
     return response;
   }
+
   const [forClient, forCache] = split(response);
   dependencies.context.waitUntil(dependencies.cache.put(request, forCache));
+
   return forClient;
 }
 
 /** Serve one public request: from the edge cache when it holds it, otherwise from the API through a signed request. */
 export async function proxy(request: Request, dependencies: ProxyDependencies): Promise<Response> {
   const redirect = httpsRedirect(new URL(request.url));
+
   if (redirect !== undefined) {
     return redirect;
   }
+
   const isGet = request.method === 'GET';
   const cached = isGet ? await dependencies.cache.match(request) : undefined;
+
   return cached ?? fetchUpstream(request, dependencies);
 }

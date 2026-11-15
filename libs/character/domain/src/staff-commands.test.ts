@@ -79,6 +79,7 @@ interface Table {
 
 function table(entries: readonly SpellcastingInPlay[], max: number | undefined): Table {
   const charges = StaffChargesSchema.parse(max === undefined ? {} : { [STAFF_ID]: { max, spent: 0 } });
+
   return {
     entries,
     counted: { slots: slotMaxima(entries), uses: new Map() },
@@ -94,10 +95,13 @@ function sourceOf({ entries, resources }: Table): StaffSource {
     quantity: ItemQuantity.parse(1),
     carry: HELD,
   });
+
   const [source] = staffSources({ inventory: [inventory], items, spells, entries, charges: resources.staff });
+
   if (source === undefined) {
     throw new TypeError('The fixture staff is a source');
   }
+
   return source;
 }
 
@@ -111,6 +115,7 @@ function command(
   field: StaffCommand['field'] = StaffCommandField.CastStaff,
 ): StaffCommand {
   const base = { field, item: STAFF_ID, spell };
+
   return slotRank === undefined
     ? base
     : { ...base, slot: slotCountKey(SORCERER.slug, undefined, SpellRank.parse(slotRank)) };
@@ -130,14 +135,17 @@ function problemOf(at: Table, edit: StaffCommand): StaffCastProblem | undefined 
 
 function costOf(at: Table, edit: StaffCommand): ResourceCount {
   const spell = sourceOf(at).spells.find(({ id }) => id === edit.spell);
+
   if (spell === undefined) {
     throw new TypeError('The fixture staff holds the spell');
   }
+
   return staffCastCost(edit, spell);
 }
 
 function apply(at: Table, edit: StaffCommand): Table {
   const { resources, counted } = at;
+
   return { ...at, resources: staffResourcesAfter({ resources, counted, command: edit, cost: costOf(at, edit) }) };
 }
 
@@ -186,6 +194,7 @@ describe('a staff cast', () => {
       ranks: [1, 2, 3],
       tradition: 'primal',
     });
+
     expect(problemOf(table([druid], 4), cast(CANTRIP))).toBe(StaffCastProblem.NotOnList);
   });
 

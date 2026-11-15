@@ -25,11 +25,14 @@ export class InventoryLoad {
   readonly #format = inject(LocaleFormat);
   protected readonly shown = computed((): ShownLoad | undefined => {
     const load = this.load();
+
     if (load === undefined) {
       return undefined;
     }
+
     const held = this.#format.number(load.held);
     const reason = LOAD_EFFECT_MESSAGES[load.effect];
+
     return load.capacity === undefined
       ? { key: InventoryMessage.LoadUnlimited, params: { held }, reason }
       : { key: InventoryMessage.Load, params: { held, capacity: this.#format.number(load.capacity) }, reason };

@@ -21,13 +21,16 @@ interface Claim {
 /** The claimable longsword, offering Gloom Walker for its damage and nothing for its attack. */
 function damageClaimable(claimed: boolean): readonly NamedStrike[] {
   const [named] = claimableStrike(false);
+
   if (named === undefined) {
     return [];
   }
+
   const damageSituations = {
     offered: [{ id: DARKNESS_RULE, entry: GLOOM_WALKER }],
     claimed: new Set(claimed ? [DARKNESS_RULE] : []),
   };
+
   return [{ ...named, situations: undefined, damageSituations }];
 }
 
@@ -38,6 +41,7 @@ async function render(strikes: readonly NamedStrike[], claims: Claim[]): Promise
       claims.push({ selector, rule, on });
     },
   };
+
   TestBed.configureTestingModule({
     providers: [provideRulesUiI18nTesting(), { provide: STATISTIC_ROLLER, useValue: roller }],
   });
@@ -45,14 +49,17 @@ async function render(strikes: readonly NamedStrike[], claims: Claim[]): Promise
   fixture.componentRef.setInput('strikes', strikes);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
 function toggleOf(page: HTMLElement): HTMLButtonElement {
   const toggle = page.querySelector<HTMLButtonElement>('pio-statistic-conditions button');
+
   if (toggle === null) {
     throw new Error('Expected a situation toggle');
   }
+
   return toggle;
 }
 

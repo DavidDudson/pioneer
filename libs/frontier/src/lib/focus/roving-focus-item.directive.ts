@@ -53,6 +53,7 @@ export class RovingFocusItem {
     if (this.#host.matches(FOCUSABLE)) {
       return this.#host;
     }
+
     return this.#host.querySelector<HTMLElement>(FOCUSABLE) ?? undefined;
   }
 }

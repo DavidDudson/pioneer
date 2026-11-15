@@ -16,12 +16,14 @@ export interface BreadcrumbItem {
 }
 
 const listClasses = cva('flex flex-nowrap items-center gap-2xs text-label')();
+
 const itemVariants = cva('flex items-center gap-2xs', {
   variants: {
     // The middle shrinks; the first and last keep their width.
     position: { end: 'shrink-0', middle: 'min-w-none shrink' },
   },
 });
+
 const currentClasses = cva('whitespace-nowrap text-fg-default')();
 const textClasses = cva('truncate text-fg-muted')();
 const truncateClasses = cva('block truncate')();

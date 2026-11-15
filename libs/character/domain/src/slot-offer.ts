@@ -21,6 +21,7 @@ import type { SlotRefusal } from './slot-refusals';
 import { isSpellPickKey, spellPickRefusal } from './spell-pick-refusal';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
+
 export {
   attributesAt,
   languageReads,
@@ -46,12 +47,14 @@ export interface SlotPick {
  */
 function offerAt(resolution: GrantResolution, slot: SlotKey): readonly OfferedOption[] | undefined {
   const slots = [...resolution.rootSlots, ...resolution.open];
+
   return slots.find((each) => each.key === slot)?.options;
 }
 
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
 function levelsDown(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MAX - index));
 }
 
@@ -73,9 +76,11 @@ const SKILL_REFUSALS: Readonly<Record<SkillSlotKind, SlotRefusal>> = {
  */
 function skillRefusal(slot: SkillSlot, skills: SkillContent, selection: ChoiceValue): SlotRefusal | undefined {
   const named = skills.skill(selection);
+
   if (named === undefined) {
     return NOT_OFFERED;
   }
+
   return slot.options.some((skill) => skill.id === named.id) ? undefined : SKILL_REFUSALS[slot.kind];
 }
 
@@ -83,6 +88,7 @@ function skillRefusal(slot: SkillSlot, skills: SkillContent, selection: ChoiceVa
 function skillSlotIn(document: CharacterDocument, content: SlotContent, slot: SlotKey): SkillSlot | undefined {
   const { [slot]: _own, ...choices } = document.build.choices;
   const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
+
   return skillSlots(without, skillReads(without, content)).find((each) => each.key === slot);
 }
 
@@ -104,12 +110,15 @@ const LANGUAGE_REFUSALS: Readonly<Record<LanguagePickProblem, SlotRefusal>> = {
  */
 function languageRefusal(slot: LanguageSlot, content: SlotContent, selection: ChoiceValue): SlotRefusal | undefined {
   const named = content.languages.language(selection);
+
   if (named === undefined) {
     return NOT_OFFERED;
   }
+
   if (slot.options.some((language) => language.id === named.id)) {
     return undefined;
   }
+
   return LANGUAGE_REFUSALS[problemOf(named, slot.known)];
 }
 
@@ -117,8 +126,10 @@ function languageRefusal(slot: LanguageSlot, content: SlotContent, selection: Ch
 function languageSlotIn(document: CharacterDocument, content: SlotContent, slot: SlotKey): LanguageSlot | undefined {
   const { [slot]: _own, ...choices } = document.build.choices;
   const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
+
   return languageSlots(without, languageReads(without, content)).find((each) => each.key === slot);
 }
+
 /** The refusal for each way a feat on offer at some level can't go in its slot. */
 const FEAT_REFUSALS: Readonly<Record<FeatPickProblem, SlotRefusal>> = {
   [FeatPickProblem.TooHigh]: NOT_OFFERED,
@@ -139,6 +150,7 @@ const FEAT_REFUSALS: Readonly<Record<FeatPickProblem, SlotRefusal>> = {
  */
 function featRefusal(document: CharacterDocument, content: SlotContent, pick: SlotPick): SlotRefusal | undefined {
   const problem = featPickProblem(prerequisiteReads(withoutPick(document, pick.slot), content), pick);
+
   return problem === undefined ? undefined : FEAT_REFUSALS[problem];
 }
 
@@ -155,13 +167,17 @@ function grantRefusal(
   const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
   const context = slotContextOf(document, content, new Map(others.map(([key, value]) => [SlotKey.parse(key), value])));
   let open = false;
+
   for (const level of levelsDown()) {
     const options = offerAt(resolveSlotsAt(level, context), slot);
+
     if (options?.some((option) => option.value === selection) === true) {
       return featRefusal(document, content, { slot, selection });
     }
+
     open ||= options !== undefined;
   }
+
   return open ? NOT_OFFERED : { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') };
 }
 
@@ -173,9 +189,11 @@ function keyedRefusal(document: CharacterDocument, content: SlotContent, pick: S
   if (isSpellPickKey(pick.slot)) {
     return spellPickRefusal(document, preparedReads(document, content), pick);
   }
+
   const language = pick.slot.startsWith(LANGUAGE_SLOT_PREFIX)
     ? languageSlotIn(document, content, pick.slot)
     : undefined;
+
   return language === undefined
     ? grantRefusal(document, content, pick)
     : languageRefusal(language, content, pick.selection);
@@ -194,18 +212,24 @@ export function slotRefusal(
   pick: SlotPick,
 ): SlotRefusal | undefined {
   const boost = boostSlotIn(document, content.boosts, pick.slot);
+
   if (boost !== undefined) {
     return boostRefusal(boost, pick.selection);
   }
+
   const flaw = flawSlotIn(document, content.boosts, pick.slot);
+
   if (flaw !== undefined) {
     return flawRefusal(flaw, pick.selection);
   }
+
   const named = withPickedLore(document, pick);
   const skill = skillSlotIn(named, content, pick.slot);
+
   if (skill !== undefined) {
     return skillRefusal(skill, documentSkills(named, content.skills), pick.selection);
   }
+
   return keyedRefusal(document, content, pick);
 }
 
@@ -220,5 +244,6 @@ export function rootSlotOptions(
 ): readonly OfferedOption[] {
   const picks = picksOf(document);
   const { rootSlots } = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
+
   return rootSlots.find((each) => each.key === slot)?.options ?? [];
 }

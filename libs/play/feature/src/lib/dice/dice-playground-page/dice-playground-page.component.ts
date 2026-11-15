@@ -48,6 +48,7 @@ import { DamageTargetEditor } from '../damage-target-editor/damage-target-editor
 const HISTORY_LIMIT = 10;
 const STARTING_EXPRESSION = '1d20+7';
 const STARTING_DC = 20;
+
 /** DCs the playground accepts: a generous range for trying rolls out. */
 const DC_MIN = 0;
 const DC_MAX = 99;
@@ -101,6 +102,7 @@ export class DicePlaygroundPage {
   readonly #outcome = computed((): ParseOutcome => parseDiceExpression(DiceExpressionText.parse(this.text())));
   protected readonly error = computed((): MessageDescriptor | undefined => {
     const outcome = this.#outcome();
+
     return outcome.ok ? undefined : outcome.error;
   });
   protected readonly fortune = signal(false);
@@ -124,6 +126,7 @@ export class DicePlaygroundPage {
   readonly #dc = computed((): Dc | undefined => {
     const parsed = Dc.safeParse(this.dcValue());
     const usable = this.againstDc() && this.dcComplete() && parsed.success && parsed.data <= DC_MAX;
+
     return usable ? parsed.data : undefined;
   });
   protected readonly dcInvalid = computed((): boolean => this.againstDc() && this.#dc() === undefined);
@@ -137,26 +140,32 @@ export class DicePlaygroundPage {
 
   protected roll(): void {
     const outcome = this.#outcome();
+
     if (!outcome.ok || !this.canRoll()) {
       return;
     }
+
     this.#rolled += 1;
     const roll = rollWithFortune(outcome.expression, this.#sources(), this.#random);
+
     const view = rollView(this.#rolled, {
       expression: outcome.expression,
       roll,
       degree: this.#degree(roll),
       damage: this.#damage(roll),
     });
+
     this.rolls.update((rolls) => [view, ...rolls].slice(0, HISTORY_LIMIT));
   }
 
   /** The kept roll applied to the target, when one is set up. */
   #damage(roll: FortunedRoll): DamageApplication | undefined {
     const kept = roll.rolls.find((entry) => entry.kept);
+
     if (!this.againstTarget() || kept === undefined) {
       return undefined;
     }
+
     return applyDamage(kept.result, this.target(), {
       critical: this.critical(),
       area: this.area(),
@@ -168,9 +177,11 @@ export class DicePlaygroundPage {
   #degree(roll: FortunedRoll): DegreeResult | undefined {
     const dc = this.#dc();
     const kept = roll.rolls.find((entry) => entry.kept);
+
     if (dc === undefined || kept === undefined) {
       return undefined;
     }
+
     return degreeOfSuccess(checkOutcome(kept.result), dc);
   }
 }

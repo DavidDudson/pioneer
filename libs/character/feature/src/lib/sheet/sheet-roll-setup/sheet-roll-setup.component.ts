@@ -43,14 +43,17 @@ export class SheetRollSetup {
 
   protected readonly display = computed((): SetupDisplay | undefined => {
     const setup = this.rolls.setup();
+
     if (setup === undefined) {
       return undefined;
     }
+
     const words: ConditionWords = {
       i18n: this.#i18n,
       format: this.#format,
       names: { entries: this.entryNames() },
     };
+
     return {
       name: setup.name,
       modifier: this.#format.number(setup.statistic.total, numberStyle(this.kind)),
@@ -73,6 +76,7 @@ export class SheetRollSetup {
 
   protected async flipToggle({ id, on }: RollToggleChange): Promise<void> {
     const slot = this.rolls.setup()?.toggles.find(({ key }) => key === id);
+
     if (slot !== undefined) {
       await this.rolls.toggle(slot, on);
     }

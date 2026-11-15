@@ -13,10 +13,12 @@ export function injectCommitKeys(
 ): void {
   const scoped = (preventDefault: boolean) => (): InjectHotkeyOptions => {
     const target = element()?.nativeElement;
+
     return target === undefined
       ? { enabled: false }
       : { target, ignoreInputs: false, preventDefault, stopPropagation: false, conflictBehavior: 'allow' };
   };
+
   injectHotkey('Enter', handlers.commit, scoped(false));
   injectHotkey('Escape', handlers.cancel, scoped(true));
 }

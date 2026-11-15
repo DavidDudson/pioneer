@@ -10,6 +10,7 @@ export const PERCEPTION = Selector.parse('perception');
 /** The action `activity` names, when the content has it and it is used while exploring. */
 export function explorationAction(registry: ContentRegistry, activity: ContentId): ActionData | undefined {
   const action = abilityActions(registry).get(activity);
+
   return action?.modes?.includes(ActionMode.Exploration) === true ? action : undefined;
 }
 
@@ -24,5 +25,6 @@ export function isExplorationActivity(registry: ContentRegistry, activity: Conte
  */
 export function suggestedInitiative(registry: ContentRegistry, activity: ExplorationActivity): Selector {
   const skill = activity === undefined ? undefined : explorationAction(registry, activity)?.skills?.[0];
+
   return skill ?? PERCEPTION;
 }

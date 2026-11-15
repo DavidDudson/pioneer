@@ -25,6 +25,7 @@ const EITHER = SpellRangeType.Either;
 function eitherOf(value: string, parse: (text: string) => object | undefined): object | undefined {
   const parts = value.split(OR);
   const options = parts.map((part) => parse(part)).filter((option) => option !== undefined);
+
   return parts.length > 1 && options.length === parts.length ? { type: EITHER, options } : undefined;
 }
 
@@ -55,6 +56,7 @@ function words(text: string): string {
 function timeOf(text: string): object | undefined {
   const groups = TIME.exec(text)?.groups;
   const unit = TIME_UNITS.get(groups?.['unit'] ?? '');
+
   return unit === undefined ? undefined : { count: Number(groups?.['count']), unit };
 }
 
@@ -66,6 +68,7 @@ function actionsOrTimeOf(value: string): object | undefined {
   const groups = ACTIONS_OR_TIME.exec(value)?.groups;
   const cost = ACTION_COSTS.get(groups?.['actions'] ?? '');
   const time = timeOf(`${groups?.['count']} ${groups?.['unit']}`);
+
   return cost === undefined || time === undefined
     ? undefined
     : {
@@ -80,22 +83,29 @@ function actionsOrTimeOf(value: string): object | undefined {
 /** A casting time in action glyphs ("2", "reaction", "1 to 3") or in time ("10 minutes", "1 day"). */
 function singleCastTimeOf(value: string): object | undefined {
   const cost = ACTION_COSTS.get(value);
+
   if (cost !== undefined) {
     return { type: CastTimeType.Actions, cost };
   }
+
   const range = ACTION_RANGE.exec(value)?.groups;
+
   if (range !== undefined) {
     const from = ACTION_COSTS.get(range['from'] ?? '');
     const upTo = ACTION_COSTS.get(range['to'] ?? '');
+
     return from === undefined || upTo === undefined ? undefined : { type: CastTimeType.Actions, cost: from, upTo };
   }
+
   const time = timeOf(value);
+
   return time && { type: CastTimeType.Time, ...time };
 }
 
 /** A casting time: actions, time, or actions or time ("2 to 2 rounds"). */
 export function castTimeOf(text: string): object | undefined {
   const value = words(text);
+
   return actionsOrTimeOf(value) ?? singleCastTimeOf(value);
 }
 
@@ -122,23 +132,30 @@ function countOf(digits: string): number {
 /** A range that is no choice: feet, miles, `touch`, `planetary`, `interplanar` or `unlimited`. */
 function singleRangeOf(value: string): object | undefined {
   const type = RANGE_WORDS.get(value);
+
   if (type !== undefined) {
     return { type };
   }
+
   if (value === HALF_A_MILE) {
     return { type: SpellRangeType.Miles, miles: HALF };
   }
+
   const feet = FEET.exec(value)?.groups?.['feet'];
+
   if (feet !== undefined) {
     return { type: SpellRangeType.Feet, feet: countOf(feet) };
   }
+
   const miles = MILES.exec(value)?.groups?.['miles'];
+
   return miles === undefined ? undefined : { type: SpellRangeType.Miles, miles: countOf(miles) };
 }
 
 /** A range, or a choice of them ("touch or 30 feet"). "varies" and "see text" have no mapping. */
 export function rangeOf(text: string): object | undefined {
   const value = words(text);
+
   return singleRangeOf(value) ?? eitherOf(value, singleRangeOf);
 }
 
@@ -185,6 +202,7 @@ function rolledOf(value: string): object | undefined {
   const groups = ROLLED.exec(value)?.groups;
   const die = DIE_SIZES.get(groups?.['die'] ?? '');
   const unit = TIME_UNITS.get(groups?.['unit'] ?? '');
+
   return die === undefined || unit === undefined
     ? undefined
     : { type: SpellDurationType.Rolled, dice: Number(groups?.['dice']), die, unit };
@@ -193,18 +211,22 @@ function rolledOf(value: string): object | undefined {
 /** A time, up to a time, or sustained up to a time, as the wording says. */
 function timedOf(value: string): object | undefined {
   const time = timeOf(value);
+
   if (time !== undefined) {
     return { type: SpellDurationType.Time, ...time };
   }
+
   for (const [prefix, flag] of [
     [SUSTAINED_UP_TO, { sustained: true }],
     [UP_TO, { upTo: true }],
   ] as const) {
     const limit = value.startsWith(prefix) ? timeOf(value.slice(prefix.length)) : undefined;
+
     if (limit !== undefined) {
       return { type: SpellDurationType.Time, ...limit, ...flag };
     }
   }
+
   return rolledOf(value);
 }
 
@@ -213,10 +235,13 @@ function singleDurationOf(value: string): object | undefined {
   if (value === SpellDurationType.Unlimited) {
     return { type: SpellDurationType.Unlimited };
   }
+
   if (VARIES.has(value)) {
     return { type: SpellDurationType.Varies };
   }
+
   const until = UNTIL.get(value);
+
   return until ? { type: SpellDurationType.Until, ...until } : timedOf(value);
 }
 
@@ -228,17 +253,23 @@ function singleDurationOf(value: string): object | undefined {
  */
 export function durationOf({ value: text, sustained }: FoundryDurationText): object | undefined {
   const value = words(text);
+
   if (value === '' && sustained) {
     return { type: SpellDurationType.Sustained };
   }
+
   const either = VARIES.has(value) ? undefined : eitherOf(value, singleDurationOf);
+
   if (either !== undefined) {
     // Foundry's flag on a choice with no sustained side is a sustain the wording doesn't place.
     return !sustained || value.includes(SUSTAINED_UP_TO) ? either : undefined;
   }
+
   if (!sustained) {
     return singleDurationOf(value);
   }
+
   const time = timeOf(value);
+
   return time && { type: SpellDurationType.Time, ...time, sustained };
 }

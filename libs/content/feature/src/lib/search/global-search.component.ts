@@ -39,9 +39,11 @@ export class GlobalSearch {
 
   protected async open(): Promise<void> {
     const entry = this.session.entry(this.combobox().value());
+
     if (entry === undefined) {
       return;
     }
+
     this.#clear();
     const target = entryTarget(entry);
     await this.#router.navigate(typeof target === 'string' ? [target] : [...target]);

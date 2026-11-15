@@ -31,6 +31,7 @@ function render(selected: readonly Rarity[]): Rendered {
     commits += 1;
   });
   fixture.detectChanges();
+
   return { fixture, commits: () => commits };
 }
 
@@ -42,6 +43,7 @@ function provideField(): void {
     describedBy: signal('rarity-hint'),
     invalid: signal(true),
   };
+
   TestBed.configureTestingModule({ providers: [{ provide: Field, useValue: field }] });
 }
 

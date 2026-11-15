@@ -24,6 +24,7 @@ const HEROES: readonly Hero[] = [
 
 const RARITY_LABEL = { common: 'Common', rare: 'Rare', unique: 'Unique' } as const;
 const RARITY_TONE = { common: BadgeTone.Neutral, rare: BadgeTone.Info, unique: BadgeTone.Danger } as const;
+
 /** Sorts opposite to the label's alphabetical order, so a sort by label would be caught. */
 const RARITY_ORDER = { common: 'c', rare: 'b', unique: 'a' } as const;
 
@@ -51,6 +52,7 @@ async function render(schema: TableSchema<Hero> = SCHEMA): Promise<ComponentFixt
   fixture.componentRef.setInput('caption', 'Heroes');
   fixture.componentRef.setInput('rowId', (hero: Hero): string => hero.id);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -101,6 +103,7 @@ describe(tableSchema, () => {
       value: (hero) => hero.name,
       sortable: false,
     });
+
     const fixture = await render(schema);
     expect(host(fixture).querySelector('thead th button')).toBeNull();
   });
@@ -111,6 +114,7 @@ describe(tableSchema, () => {
         return this.addText({ id: 'name', header: 'Name', value: (hero) => hero.name });
       }
     }
+
     const schema = new HeroSchema().addName().addDate({ id: 'joined', header: 'Joined', value: (hero) => hero.joined });
     expect(schema).toBeInstanceOf(HeroSchema);
     expect(schema.build().map((built) => built.id)).toStrictEqual(['name', 'joined']);

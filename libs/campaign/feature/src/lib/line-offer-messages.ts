@@ -16,6 +16,7 @@ const OFFER_SCOPES: readonly MessageScope[] = [
 export async function loadLineOffer(i18n: TranslocoService): Promise<Type<unknown>> {
   await loadMessageScopes(i18n, OFFER_SCOPES);
   const { CampaignOfferItem } = await import('./home/campaign-offer-item/campaign-offer-item.component');
+
   return CampaignOfferItem;
 }
 
@@ -26,6 +27,7 @@ export async function loadLineOffer(i18n: TranslocoService): Promise<Type<unknow
 export async function loadPurseOffer(i18n: TranslocoService): Promise<Type<unknown>> {
   await loadMessageScopes(i18n, OFFER_SCOPES);
   const { CampaignOfferCoins } = await import('./home/campaign-offer-coins/campaign-offer-coins.component');
+
   return CampaignOfferCoins;
 }
 
@@ -35,7 +37,9 @@ export async function loadPurseOffer(i18n: TranslocoService): Promise<Type<unkno
  */
 export async function loadPartyInventory(i18n: TranslocoService): Promise<Type<unknown>> {
   await loadMessageScopes(i18n, OFFER_SCOPES);
+
   const { CampaignSheetPartyInventory } =
     await import('./home/campaign-sheet-party-inventory/campaign-sheet-party-inventory.component');
+
   return CampaignSheetPartyInventory;
 }

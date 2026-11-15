@@ -7,6 +7,7 @@ const NOTE = [{ type: 'paragraph', content: [{ type: 'text', text: 'A reaction w
 
 function issuesOf(extra: object): readonly object[] {
   const parsed = SpellData.safeParse({ ...BASE, ...extra });
+
   return parsed.success ? [] : parsed.error.issues.map(({ path }) => ({ path }));
 }
 

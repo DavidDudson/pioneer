@@ -51,6 +51,7 @@ function collectIds(value: unknown, into: Set<ContentId>): void {
   if (typeof value === 'string') {
     // An id is how an entry references another: `GrantItem.item`, a `Ref` node, `data.languages`.
     const id = ContentId.safeParse(value);
+
     if (id.success) {
       into.add(id.data);
     }
@@ -65,6 +66,7 @@ function collectIds(value: unknown, into: Set<ContentId>): void {
 function idsIn(value: unknown): ReadonlySet<ContentId> {
   const ids = new Set<ContentId>();
   collectIds(value, ids);
+
   return ids;
 }
 
@@ -76,6 +78,7 @@ export function referencedIds(entry: Readonly<Record<string, unknown>>): Readonl
 /** The first issue a schema raised, as `path: message`. */
 export function firstIssue(error: z.ZodError): string {
   const [issue] = error.issues;
+
   return issue === undefined ? '' : `${issue.path.join('.')}: ${issue.message}`;
 }
 
@@ -106,13 +109,17 @@ function unlink(value: unknown, check: Check, gaps: BacklogGap[]): unknown {
   if (Array.isArray(value)) {
     return value.map((each) => unlink(each, check, gaps));
   }
+
   if (typeof value !== 'object' || value === null) {
     return value;
   }
+
   if (isRefNode(value) && isMissing(value.id, check)) {
     gaps.push({ type: BacklogGapType.Link, entry: keyOf(value.id, check), element: value });
+
     return { type: InlineKind.Text, text: value.label ?? check.resolution.names.get(value.id) ?? '' };
   }
+
   return Object.fromEntries(Object.entries(value).map(([key, each]) => [key, unlink(each, check, gaps)]));
 }
 
@@ -125,16 +132,21 @@ function leaveOut(entry: ContentEntry, leftOut: LeftOut, { output }: Check): voi
 function degrade(entry: ContentEntry, check: Check): void {
   const gaps: BacklogGap[] = [];
   const { rules, ...rest } = entry;
+
   const kept = rules.filter((rule) => {
     const missing = firstMissing(idsIn(rule), check);
+
     if (missing !== undefined) {
       gaps.push({ type: BacklogGapType.Reference, entry: keyOf(missing, check), element: rule });
     }
+
     return missing === undefined;
   });
+
   const unlinked = unlink(rest, check, gaps);
   const parsed = ContentEntry.safeParse(typeof unlinked === 'object' ? { ...unlinked, rules: kept } : unlinked);
   const stillMissing = parsed.success ? firstMissing(referencedIds(parsed.data), check) : undefined;
+
   if (!parsed.success) {
     leaveOut(entry, { reason: LeftOutReason.InvalidEntry, detail: firstIssue(parsed.error) }, check);
   } else if (stillMissing === undefined) {
@@ -149,8 +161,10 @@ function degrade(entry: ContentEntry, check: Check): void {
 export function resolveReferences(output: CheckedOutput, resolution: Resolution): void {
   const check = { output, resolution };
   let changed = true;
+
   while (changed) {
     changed = false;
+
     for (const entry of output.entries.values()) {
       if (firstMissing(referencedIds(entry), check) !== undefined) {
         degrade(entry, check);

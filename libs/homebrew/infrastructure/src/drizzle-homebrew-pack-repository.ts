@@ -13,6 +13,7 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { GRAPH_LOCK } from './drizzle-pack-dependency-repository';
 
 type PackRow = typeof contentPacks.$inferSelect;
+
 /** What a save writes: never `archivedAt`, which only archive and restore touch. */
 type SavedRow = Omit<PackRow, 'archivedAt'>;
 
@@ -25,6 +26,7 @@ function toPack(row: PackRow, entryCount: EntryCount): HomebrewPack | undefined 
   if (row.ownerId === null) {
     return undefined;
   }
+
   return new HomebrewPack({
     id: row.id,
     version: row.version,
@@ -50,6 +52,7 @@ function toRow(pack: HomebrewPack): SavedRow {
     publisher: pack.publisher,
     license: HomebrewPack.license,
   };
+
   return {
     id: pack.id,
     slug: pack.slug,
@@ -84,10 +87,13 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   async #listFor(where: SQL | undefined): Promise<readonly HomebrewPack[]> {
     const rows = await this.#db.select().from(contentPacks).where(where);
     const counts = await this.#entryCounts(rows.map((row) => row.id));
+
     const packs = rows.flatMap((row): HomebrewPack[] => {
       const pack = toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
+
       return pack === undefined ? [] : [pack];
     });
+
     return packs.toSorted(newestFirst);
   }
 
@@ -105,10 +111,13 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
 
   async #findOne(where: SQL | undefined): Promise<HomebrewPack | undefined> {
     const [row] = await this.#db.select().from(contentPacks).where(where).limit(1);
+
     if (row === undefined) {
       return undefined;
     }
+
     const counts = await this.#entryCounts([row.id]);
+
     return toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
   }
 
@@ -137,9 +146,11 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
       await tx.execute(sql`select pg_advisory_xact_lock(${GRAPH_LOCK})`);
       const mine = and(where, isNotNull(contentPacks.ownerId));
       const [locked] = await tx.select({ id: contentPacks.id }).from(contentPacks).where(mine).for('update');
+
       if (locked === undefined) {
         return;
       }
+
       await whileLocked?.();
       await tx.update(contentPacks).set({ archivedAt }).where(mine);
     });
@@ -148,6 +159,7 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   public override async insert(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
     const inserted = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor: pack.ownerId, command: CREATE_COMMAND });
+
       // Any pack with the slug stops it, official or not: the unique slug index is the arbiter, so a race has one winner.
       return tx
         .insert(contentPacks)
@@ -155,6 +167,7 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
         .onConflictDoNothing({ target: contentPacks.slug })
         .returning({ id: contentPacks.id });
     });
+
     return inserted.length === 0 ? undefined : pack;
   }
 
@@ -164,6 +177,7 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   ): Promise<HomebrewPack | undefined> {
     const updated = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor: pack.ownerId, command: SET_VISIBILITY_COMMAND });
+
       // Lock the row first: enabling this pack takes the same lock, so none can slip in mid-change.
       // The `whileLocked` check therefore sees every enablement that committed.
       const [locked] = await tx
@@ -173,16 +187,20 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
           and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId), isNull(contentPacks.archivedAt)),
         )
         .for('update');
+
       if (locked === undefined) {
         return [];
       }
+
       await whileLocked?.();
+
       return tx
         .update(contentPacks)
         .set({ visibility: pack.visibility, updatedAt: pack.updatedAt.toString() })
         .where(and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId)))
         .returning({ id: contentPacks.id });
     });
+
     return updated.length === 0 ? undefined : pack;
   }
 
@@ -190,11 +208,13 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     if (packIds.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select({ packId: contentEntries.packId, entries: count() })
       .from(contentEntries)
       .where(inArray(contentEntries.packId, [...packIds]))
       .groupBy(contentEntries.packId);
+
     return new Map(rows.map((row) => [row.packId, EntryCount.parse(row.entries)]));
   }
 }

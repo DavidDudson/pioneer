@@ -88,6 +88,7 @@ const meta: Meta<RollStageDemo> = {
   component: RollStageDemo,
   decorators: [moduleMetadata({ providers: [{ provide: DICE_ROLLER_FACTORY, useValue: threeDiceRoller }] })],
 };
+
 export default meta;
 
 /** Press a button: the dice roll across the whole canvas, then the toast appears bottom centre. */

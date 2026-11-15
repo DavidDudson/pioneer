@@ -82,6 +82,7 @@ export class CharacterKeyItemHolders extends KeyItemHolders {
     item: ReviewedItemId,
   ): Promise<LineToPromote | undefined> {
     const line = await this.#promotion.describe(CharacterId.parse(character), InventoryItemId.parse(item));
+
     return line === undefined ? undefined : toLineToPromote(line);
   }
 

@@ -76,12 +76,15 @@ export class SpeedRows {
   protected readonly loaded = computed((): boolean => this.speeds() !== undefined);
   protected readonly rows = computed((): readonly ShownSpeed[] => {
     const speeds = this.speeds();
+
     return Object.values(Movement).map((movement): ShownSpeed => {
       const { result, kind } = speeds?.find((row) => row.movement === movement)?.speed ?? {
         result: undefined,
         kind: StatisticKind.Value,
       };
+
       const held = result?.ok === true && result.total > 0 ? result : undefined;
+
       return {
         movement,
         name: MOVEMENT_MESSAGES[movement],

@@ -58,6 +58,7 @@ const meta: Meta<PickerField<string, Spell>> = {
     template: `<fr-picker-field ${argsToTemplate(args, { exclude: FUNCTION_INPUTS })} [rowValue]="rowValue" [rowLabel]="rowLabel" />`,
   }),
 };
+
 export default meta;
 
 export const Empty: PickerFieldStory = {};

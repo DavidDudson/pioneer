@@ -18,6 +18,7 @@ function sameCasting(caster: ImportedCaster, entry: CasterHome): boolean {
 function sameName(caster: ImportedCaster, entry: CasterHome): boolean {
   const casterKey = matchKey(caster.name);
   const entryKey = matchKey(entry.slug);
+
   return casterKey.includes(entryKey) || entryKey.includes(casterKey);
 }
 
@@ -32,13 +33,16 @@ export function pairCasters<Entry extends CasterHome>(
 ): Map<ImportedCaster, Entry> {
   const paired = new Map<ImportedCaster, Entry>();
   const taken = new Set<Entry>();
+
   for (const caster of casters) {
     const free = entries.filter((entry) => !taken.has(entry) && sameCasting(caster, entry));
     const entry = free.find((each) => sameName(caster, each)) ?? free[0];
+
     if (entry !== undefined) {
       paired.set(caster, entry);
       taken.add(entry);
     }
   }
+
   return paired;
 }

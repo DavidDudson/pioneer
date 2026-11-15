@@ -29,14 +29,18 @@ const FoundryStatChange = z.strictObject({
  */
 function withStatChange(raw: unknown): unknown {
   const change = FoundryStatChange.safeParse(raw);
+
   if (!change.success) {
     return raw;
   }
+
   const { path, mode, value, predicate } = change.data;
   const selector = STATISTIC_PATHS.get(path);
+
   if (selector === undefined) {
     return raw;
   }
+
   return { key: RuleElementKey.Change, selector, mode, value, ...(predicate === undefined ? {} : { predicate }) };
 }
 
@@ -46,5 +50,6 @@ function withStatChange(raw: unknown): unknown {
  */
 export function withActiveEffect(raw: unknown): unknown {
   const raised = withSkillRaise(raw);
+
   return raised === raw ? withStatChange(raw) : raised;
 }

@@ -17,6 +17,7 @@ import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
 
 type Json = unknown;
+
 type JsonRecord = Readonly<Record<string, unknown>>;
 
 function isRecord(node: unknown): node is JsonRecord {
@@ -41,9 +42,11 @@ export function withoutOutcomes(node: Json): Json {
   if (Array.isArray(node)) {
     return node.map((each: Json) => withoutOutcomes(each));
   }
+
   if (!isRecord(node)) {
     return node;
   }
+
   return Object.fromEntries(membersOf(node).map(([key, value]): [string, Json] => [key, withoutOutcomes(value)]));
 }
 
@@ -52,10 +55,13 @@ function checksIn(node: Json): readonly JsonRecord[] {
   if (Array.isArray(node)) {
     return node.flatMap((each: Json) => checksIn(each));
   }
+
   if (!isRecord(node)) {
     return [];
   }
+
   const inner = membersOf(node).flatMap(([, value]) => checksIn(value));
+
   return isCheck(node) ? [node, ...inner] : inner;
 }
 
@@ -94,6 +100,7 @@ interface Plan {
 /** Whether the check at `at` takes the import's outcomes: it has some to take, and holds none and is not basic. */
 function takes({ committed, fresh }: Pairs, at: number): boolean {
   const held = committed[at];
+
   return fresh[at]?.['outcomes'] !== undefined && held?.['outcomes'] === undefined && held?.['basic'] !== true;
 }
 
@@ -102,9 +109,11 @@ function planGroup(pairs: Pairs, members: readonly number[]): Plan {
   const first = pairs.fresh[members[0] ?? 0]?.['outcomes'];
   const clashing = members.some((at) => !same(pairs.fresh[at]?.['outcomes'], first));
   const taking = members.filter((at) => takes(pairs, at));
+
   if (clashing) {
     return { added: new Map(), ambiguous: taking.length };
   }
+
   return { added: new Map(taking.map((at): [number, Json] => [at, first])), ambiguous: 0 };
 }
 
@@ -114,15 +123,19 @@ function planOutcomes(pairs: Pairs): Plan {
     pairs.committed.map((_check, at) => at),
     (at) => JSON.stringify(withoutOutcomes(pairs.committed[at])),
   );
+
   const added = new Map<number, Json>();
   let ambiguous = 0;
+
   for (const members of groups.values()) {
     const plan = planGroup(pairs, members);
     ambiguous += plan.ambiguous;
+
     for (const [at, outcomes] of plan.added) {
       added.set(at, outcomes);
     }
   }
+
   return { added, ambiguous };
 }
 
@@ -131,16 +144,21 @@ function laid(node: Json, added: ReadonlyMap<number, Json>, next: { at: number }
   if (Array.isArray(node)) {
     return node.map((each: Json) => laid(each, added, next));
   }
+
   if (!isRecord(node)) {
     return node;
   }
+
   const own = isCheck(node) ? next.at : undefined;
   next.at += own === undefined ? 0 : 1;
+
   const members = Object.entries(node).map(([key, value]): [string, Json] => [
     key,
     own !== undefined && key === 'outcomes' ? value : laid(value, added, next),
   ]);
+
   const outcomes = own === undefined ? undefined : added.get(own);
+
   return Object.fromEntries(outcomes === undefined ? members : [...members, ['outcomes', outcomes]]);
 }
 
@@ -155,19 +173,24 @@ function planDescription(committed: Json, fresh: Json): Planned {
   const unchanged: Planned = { added: new Map(), counts: NONE, handFixed: false };
   const freshChecks = checksIn(fresh);
   const wanted = freshChecks.filter((check) => check['outcomes'] !== undefined).length;
+
   if (wanted === 0) {
     return unchanged;
   }
+
   if (!same(withoutOutcomes(committed), withoutOutcomes(fresh))) {
     return { ...unchanged, handFixed: true };
   }
+
   const { added, ambiguous } = planOutcomes({ committed: checksIn(committed), fresh: freshChecks });
+
   return { added, counts: { added: added.size, kept: wanted - added.size - ambiguous, ambiguous }, handFixed: false };
 }
 
 /** `committed` with the outcomes of `fresh` laid on the checks that take them. */
 export function mergeDescription(committed: Json, fresh: Json): DescriptionMerge {
   const { added, counts, handFixed } = planDescription(committed, fresh);
+
   return { description: laid(committed, added, { at: 0 }), counts, handFixed };
 }
 
@@ -179,13 +202,17 @@ function locate(data: Json, span: SpanNode | undefined): readonly Span[] {
   if (span === undefined) {
     return [];
   }
+
   if (Array.isArray(data) && span.kind === 'array') {
     return data.flatMap((each: Json, at) => locate(each, span.items[at]));
   }
+
   if (!isRecord(data) || span.kind !== 'object') {
     return [];
   }
+
   const inner = membersOf(data).flatMap(([key, member]) => locate(member, span.members.get(key)));
+
   return isCheck(data) ? [span, ...inner] : inner;
 }
 
@@ -194,9 +221,11 @@ const WHITESPACE = /\s/u;
 /** Where a key goes into the object at `span`: after its last member, before the whitespace that closes it. */
 function insertionPoint(text: string, { end }: Span): number {
   let at = end - 1;
+
   while (WHITESPACE.test(text.charAt(at - 1))) {
     at -= 1;
   }
+
   return at;
 }
 
@@ -223,25 +252,32 @@ interface Entry {
 function mergeEntry(text: string, { entry, node, incoming }: Entry): EntryMerge {
   const planned = planDescription(entry['description'], incoming);
   const spans = locate(entry['description'], node.kind === 'object' ? node.members.get('description') : undefined);
+
   const insertions = [...planned.added].flatMap(([at, outcomes]): Insertion[] => {
     const span = spans[at];
+
     return span === undefined ? [] : [{ at: insertionPoint(text, span), outcomes }];
   });
+
   const slug = `${String(entry['pack'])}/${String(entry['slug'])}`;
+
   const report = {
     ...planned.counts,
     handFixed: planned.handFixed ? [slug] : [],
     changed: planned.counts.added > 0 ? 1 : 0,
   };
+
   return { insertions, report };
 }
 
 /** `text` with each of `insertions` made, last first so the places of the others hold. */
 function inserted(text: string, insertions: readonly Insertion[]): string {
   let edited = text;
+
   for (const { at, outcomes } of insertions.toSorted((left, right) => right.at - left.at)) {
     edited = `${edited.slice(0, at)}, "outcomes": ${JSON.stringify(outcomes)}${edited.slice(at)}`;
   }
+
   return edited;
 }
 
@@ -258,21 +294,27 @@ export interface TextMerge {
 export function addOutcomesToText(text: string, fresh: FreshDescriptions): TextMerge {
   const entries: Json = JSON.parse(text);
   const tree = spansOf(text);
+
   if (!Array.isArray(entries) || tree.kind !== 'array') {
     return { text, report: NO_REPORT };
   }
+
   const merges = entries.flatMap((entry: Json, index): EntryMerge[] => {
     const node = tree.items[index];
     const incoming = isRecord(entry) && typeof entry['id'] === 'string' ? fresh.get(entry['id']) : undefined;
     const described = isRecord(entry) && entry['description'] !== undefined;
+
     return described && incoming !== undefined && node !== undefined
       ? [mergeEntry(text, { entry, node, incoming })]
       : [];
   });
+
   let report = NO_REPORT;
+
   for (const merge of merges) {
     report = addReports(report, merge.report);
   }
+
   return {
     text: inserted(
       text,

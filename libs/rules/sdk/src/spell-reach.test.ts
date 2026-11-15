@@ -35,6 +35,7 @@ function casting(fields: object): object {
 /** Each issue as `<path> <message key>`, sorted. */
 function found(value: unknown): readonly string[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success
     ? []
     : fieldIssues(result.error.issues)

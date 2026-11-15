@@ -9,10 +9,13 @@ export async function getJson<TSchema extends z.ZodType>(
   const response = await fetch(url, {
     headers: { accept: 'application/json', authorization: `Bearer ${accessToken}`, 'user-agent': 'pioneer' },
   });
+
   if (!response.ok) {
     throw new Error(`${url} answered ${response.status}`);
   }
+
   const body: unknown = await response.json();
+
   return schema.parse(body);
 }
 

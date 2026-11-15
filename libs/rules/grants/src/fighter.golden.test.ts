@@ -10,6 +10,7 @@ import { classFeatSlotAt, FIGHTER_CONTENT, LEVEL_20_PICKS, SKILL_SLOT } from './
 
 function fighterAt(level: number, picks: readonly (readonly [SlotKey, string])[] = []): GrantResolution {
   const roots = [picked('fighter', 'class')];
+
   return resolveGrants(inputsOf({ entries: FIGHTER_CONTENT, roots, level, picks: picksOf(picks) }));
 }
 
@@ -38,6 +39,7 @@ describe('Level 1 Fighter (golden)', () => {
       [SKILL_SLOT, 'athletics'],
       [classFeatSlotAt(1), idOf('sudden-charge')],
     ]);
+
     expect(names(result)).toEqual(['fighter', 'shield-block', 'reactive-strike', 'sudden-charge']);
     expect(result.open).toEqual([]);
     expect(result.answered.map((slot) => slot.key)).toEqual([SKILL_SLOT, classFeatSlotAt(1)]);

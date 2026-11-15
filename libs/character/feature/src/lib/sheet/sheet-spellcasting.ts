@@ -20,13 +20,16 @@ const FAMILIES: readonly Selector[] = ['spell-attack', 'spell-dc'].map((family) 
  */
 export function sheetSpellcasting(registry: ContentRegistry, character: Character): readonly SpellcastingEntryLine[] {
   const content = statisticContent(registry);
+
   if (content === undefined) {
     return [];
   }
+
   const slots = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, slots));
   const results = entries.length === 0 ? new Map<Selector, StatisticResult>() : sheetDerivation(registry, character);
   const nameOf = (origin: Origin): string => slots.lookup.entry(origin.entry)?.name ?? origin.entry;
+
   return entries.map(({ slug, tradition, preparation, origin, slots: own, pools }) => ({
     key: slug,
     tradition,
@@ -37,6 +40,7 @@ export function sheetSpellcasting(registry: ContentRegistry, character: Characte
     statistics: FAMILIES.flatMap((family): NamedStatistic[] => {
       const result = results.get(Selector.parse(`${family}:${slug}`));
       const definition = registry.statisticsFor(family).at(-1)?.definition;
+
       return result === undefined || definition === undefined
         ? []
         : [{ name: definition.name, kind: definition.kind, result }];

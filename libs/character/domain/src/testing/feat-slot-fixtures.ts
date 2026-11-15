@@ -31,6 +31,7 @@ export const FEAT_SLOT_FIGHTER = ContentId.parse(builder.idOf(ContentKind.Class,
 function classFeatSlot(level: number): object[] {
   const flag = `class-feat-${level}`;
   const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
+
   return [
     {
       key: 'ChoiceSet',
@@ -44,13 +45,17 @@ function classFeatSlot(level: number): object[] {
 }
 
 const FIGHTER = ['fighter'];
+
 /** A proficiency rank by number, as roll options write it: master (3). */
 const MASTER_RANK = 3;
+
 /** The levels of the fixture fighter's later feat slots: its 4th-level class feat, and the feature it gains at 8th. */
 const FOURTH = 4;
 const EIGHTH = 8;
+
 /** Features the fighter gains at 8th level: one with a feat slot of its own, one that grants Power Attack. */
 const AT_8 = { predicate: [{ gte: ['self:level', EIGHTH] }] };
+
 const rules = [
   { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
   { key: 'Proficiency', selector: 'perception', rank: 'expert' },

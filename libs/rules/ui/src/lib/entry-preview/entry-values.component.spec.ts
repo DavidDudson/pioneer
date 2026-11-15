@@ -14,6 +14,7 @@ function render(preview: EntryPreview): ComponentFixture<EntryValuesView> {
   fixture.componentRef.setInput('values', preview.values);
   fixture.componentRef.setInput('current', preview.value);
   fixture.detectChanges();
+
   return fixture;
 }
 

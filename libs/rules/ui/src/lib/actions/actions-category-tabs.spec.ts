@@ -30,6 +30,7 @@ async function render(lines: readonly ActionLine[]): Promise<ComponentFixture<Ac
   fixture.componentRef.setInput('lines', lines);
   fixture.componentRef.setInput('view', ActionsViewKind.All);
   await fixture.whenStable();
+
   return fixture;
 }
 

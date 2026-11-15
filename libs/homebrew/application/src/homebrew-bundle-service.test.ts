@@ -46,6 +46,7 @@ describe('HomebrewBundleService', () => {
   /** The slugs the manifest lists for `user` asking for `packs`. */
   async function listed(user: UserId, ...packs: readonly HomebrewPack[]): Promise<readonly string[]> {
     const manifest = await service.manifest(user, request(...packs));
+
     return manifest.packs.map((pack) => String(pack.id));
   }
 
@@ -53,6 +54,7 @@ describe('HomebrewBundleService', () => {
   async function bundleFileOf(pack: HomebrewPack): Promise<BundleFile> {
     const manifest = await service.manifest(owner, request(pack));
     const named = manifest.packs.find((each) => each.id === pack.slug);
+
     return BundleFile.parse(named?.file);
   }
 

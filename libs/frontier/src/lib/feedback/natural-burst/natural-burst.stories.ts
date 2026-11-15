@@ -9,6 +9,7 @@ const meta: Meta<NaturalBurst> = {
   component: NaturalBurst,
   args: { kind: NaturalBurstKind.High },
 };
+
 export default meta;
 
 /** A natural 20: a gold wash and frame that fade. */

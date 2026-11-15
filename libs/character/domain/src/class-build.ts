@@ -54,15 +54,18 @@ function factsOf({ hitPoints, subclass }: ClassFields): ClassFacts {
 /** The classes of the registry's packs, by id. */
 export function classContent(registry: ContentRegistry): ClassContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const classes = new Map(
     entries.flatMap((entry) => (entry.kind === ContentKind.Class ? [[entry.id, factsOf(entry.data)] as const] : [])),
   );
+
   return { data: (id: ContentId): ClassFacts | undefined => classes.get(id) };
 }
 
 /** The character's grants at its own level, over every pick it holds: its effective set. */
 export function characterGrants(document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+
   return resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
 }
 
@@ -77,9 +80,11 @@ const UNARMORED = Selector.parse('defense:unarmored');
 export function characterRanks(resolution: GrantResolution): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map(ranksInPlay({ rules: grantedRules(resolution), facts: resolution.facts }));
   const unarmored = ranks.get(UNARMORED);
+
   if (unarmored !== undefined && !ranks.has(AC)) {
     ranks.set(AC, unarmored);
   }
+
   return ranks;
 }
 
@@ -102,6 +107,7 @@ export function classInputs(
   const data = id === undefined ? undefined : classes.data(id);
   const set = boostSets(document, content.boosts).find((each) => each.source === BoostSource.Class);
   const keyAttribute = set?.fixed[0] ?? set?.slots[0]?.pick;
+
   return data === undefined || keyAttribute === undefined ? undefined : { hitPoints: data.hitPoints, keyAttribute };
 }
 
@@ -121,11 +127,13 @@ function levelOf(predicate: Predicate | undefined): Level {
   for (const statement of predicate ?? []) {
     if (isPredicateComparison(statement) && 'gte' in statement) {
       const [option, level] = statement.gte;
+
       if (option === SELF_LEVEL && typeof level === 'number') {
         return Level.parse(level);
       }
     }
   }
+
   return FIRST_LEVEL;
 }
 
@@ -136,6 +144,7 @@ function classRule(item: GrantedItem, classId: ContentId): RuleIndex | undefined
       return hop.rule;
     }
   }
+
   return undefined;
 }
 
@@ -151,17 +160,23 @@ export function classFeatures(
 ): readonly ClassFeature[] {
   const classId = classOf(resolution, slot);
   const characterClass = classId === undefined ? undefined : lookup.entry(classId);
+
   if (classId === undefined || characterClass === undefined) {
     return [];
   }
+
   const features = resolution.items.flatMap((item): ClassFeature[] => {
     const rule = item.entry.kind === ContentKind.ClassFeature ? classRule(item, classId) : undefined;
+
     if (rule === undefined) {
       return [];
     }
+
     const level = levelOf(characterClass.rules[rule]?.predicate);
+
     return [{ id: item.entry.id, name: item.entry.name, className: characterClass.name, level }];
   });
+
   return features.toSorted((left, right) => left.level - right.level || left.name.localeCompare(right.name));
 }
 
@@ -170,7 +185,9 @@ function queriesTag(element: RuleElement | undefined, tag: Slug): boolean {
   if (element?.key !== RuleElementKey.ChoiceSet || Array.isArray(element.choices) || 'ownedKinds' in element.choices) {
     return false;
   }
+
   const wanted = `item:tag:${tag}`;
+
   return element.choices.kind === ContentKind.ClassFeature && element.choices.filter.some((term) => term === wanted);
 }
 
@@ -183,13 +200,16 @@ function subclassChoice(
   if (subclass === undefined) {
     return undefined;
   }
+
   const slots: readonly ChoiceSlot[] = [...resolution.answered, ...resolution.open];
+
   return slots.find((each) => queriesTag(lookup.entry(each.origin.entry)?.rules[each.rule], subclass));
 }
 
 /** The `subclass` tag of the class picked for `slot`, if any. */
 function subclassTag(resolution: GrantResolution, classes: ClassContent, slot: SlotKey): Slug | undefined {
   const classId = classOf(resolution, slot);
+
   return classId === undefined ? undefined : classes.data(classId)?.subclass;
 }
 
@@ -220,5 +240,6 @@ export function secondSubclassSlot(
  */
 export function buildRanks(document: CharacterDocument, content: SlotContent): ReadonlyMap<Selector, Proficiency> {
   const granted = characterRanks(characterGrants(document, content));
+
   return withSkillPicks(granted, pickedSkillRanks(document, skillReads(document, content)));
 }

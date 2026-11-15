@@ -38,12 +38,14 @@ function serviceOver(repository: InMemoryCharacterRepository): CharacterService 
 /** The character and Pioneer file routes over one repository, with `pack` loaded. */
 function appOver(repository: InMemoryCharacterRepository, pack = 'player-core'): AnyElysia {
   const auth = new FakeAuthenticator();
+
   const files = new PioneerFileService({
     repository,
     content: contentOf(pack),
     clock,
     homebrew: new InMemoryEmbeddedHomebrew(),
   });
+
   return new Elysia()
     .use(problemHandler)
     .use(characterRoutes(serviceOver(repository), auth))
@@ -57,6 +59,7 @@ function get(path: string, as?: UserId): Request {
 describe('GET /characters/:id/export', () => {
   test('gives the owner a file that passes the schema and reads back as the same inputs', async () => {
     const repository = new InMemoryCharacterRepository();
+
     const { id, ownerId, document } = await serviceOver(repository).create(amiri, {
       name: kyra,
       ancestry: humanAncestryId,

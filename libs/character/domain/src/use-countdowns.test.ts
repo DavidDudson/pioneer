@@ -31,6 +31,7 @@ const MAXIMA: ReadonlyMap<UseCountKey, CountedMaximum> = new Map([
   [DAILY, { max: ONE, boundary: Boundary.Day }],
   [WEEKLY, { max: ONE, boundary: Boundary.Manual }],
 ]);
+
 const COUNTED: CountedMaxima = { slots: new Map(), uses: MAXIMA };
 const LIMITS: PlayLimits = { ...within(HitPoints.parse(10)), counted: COUNTED };
 
@@ -53,9 +54,11 @@ function nextTurn(play: PlayState): PlayState {
 
 function turns(play: PlayState, count: number): PlayState {
   let current = play;
+
   for (let each = 0; each < count; each += 1) {
     current = nextTurn(current);
   }
+
   return current;
 }
 

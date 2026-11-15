@@ -24,16 +24,21 @@ function outcomeOf({ content }: ParagraphNode): readonly [DegreeOfSuccess, Inlin
   const [first, ...rest] = content;
   const isLabel = first?.type === InlineKind.Text && first.marks?.includes(TextMark.Strong) === true;
   const degree = isLabel ? DEGREE_LABELS.get(first.text.replace(TRAILING_MARKS, '').toLowerCase()) : undefined;
+
   if (degree === undefined) {
     return undefined;
   }
+
   const [next, ...after] = rest;
   const trimmed = next?.type === InlineKind.Text ? next.text.replace(LEADING_SPACE, '') : undefined;
+
   const opened =
     next?.type === InlineKind.Text && trimmed !== undefined && trimmed !== ''
       ? [{ ...next, text: RichTextString.parse(trimmed) }, ...after]
       : after;
+
   const body: InlineContent = next?.type === InlineKind.Text ? opened : rest;
+
   return body.length === 0 ? undefined : [degree, body];
 }
 
@@ -41,14 +46,18 @@ function outcomeOf({ content }: ParagraphNode): readonly [DegreeOfSuccess, Inlin
 function outcomesAfter(blocks: readonly BlockNode[], start: number): CheckOutcomes {
   const outcomes: CheckOutcomes = {};
   const following = blocks.slice(start + 1).filter((block) => block.type !== BlockKind.Rule);
+
   for (const block of following) {
     const outcome = block.type === BlockKind.Paragraph ? outcomeOf(block) : undefined;
+
     if (outcome === undefined) {
       break;
     }
+
     const [degree, body] = outcome;
     outcomes[degree] ??= body;
   }
+
   return outcomes;
 }
 
@@ -60,10 +69,13 @@ function isOutcomeless(node: InlineNode): node is CheckNode {
 function withOutcomes(paragraph: ParagraphNode, outcomes: CheckOutcomes): ParagraphNode | undefined {
   const index = paragraph.content.findLastIndex(isOutcomeless);
   const check = paragraph.content[index];
+
   if (check?.type !== InlineKind.Check) {
     return undefined;
   }
+
   const content = paragraph.content.map((node, at) => (at === index ? { ...check, outcomes } : node));
+
   return { ...paragraph, content };
 }
 
@@ -73,7 +85,9 @@ export function attachCheckOutcomes(blocks: readonly BlockNode[]): BlockNode[] {
     if (block.type !== BlockKind.Paragraph || outcomeOf(block) !== undefined) {
       return block;
     }
+
     const outcomes = outcomesAfter(blocks, index);
+
     return Object.keys(outcomes).length === 0 ? block : (withOutcomes(block, outcomes) ?? block);
   });
 }

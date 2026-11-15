@@ -26,10 +26,12 @@ const lem = CharacterId.parse(newId());
 /** A clock a minute on at each reading, so attachment order is visible. */
 function ticking(start: string): Clock {
   let next = Temporal.Instant.from(start);
+
   return {
     now: (): Temporal.Instant => {
       const reading = next;
       next = next.add({ minutes: 1 });
+
       return reading;
     },
   };
@@ -37,9 +39,11 @@ function ticking(start: string): Clock {
 
 function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
   const member = campaign.members.find((candidate) => candidate.userId === userId);
+
   if (member === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return member;
 }
 
@@ -61,16 +65,19 @@ describe('CampaignPartyService', () => {
 
   beforeEach(async () => {
     campaigns = new InMemoryCampaignRepository();
+
     const characters = new InMemoryCharacterDirectory()
       .character({ id: valeros, ownerId: ezren, name: 'Valeros', level: 3 })
       .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' })
       .character({ id: kyra, ownerId: seelah, name: 'Kyra' })
       .character({ id: lem, ownerId: stranger, name: 'Lem' });
+
     const directory = new InMemoryMemberDirectory()
       .name(amiri, 'Amiri')
       .name(ezren, 'Ezren')
       .name(seelah, 'Seelah')
       .name(stranger, 'Lem’s player');
+
     service = new CampaignPartyService(
       { campaigns, party: new InMemoryCampaignPartyRepository(campaigns), characters, directory },
       ticking('2026-10-10T10:00:00Z'),
@@ -100,7 +107,9 @@ describe('CampaignPartyService', () => {
     const characters = new InMemoryCharacterDirectory()
       .character({ id: valeros, ownerId: ezren, name: 'Valeros', archived: true })
       .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' });
+
     const party = new InMemoryCampaignPartyRepository(campaigns);
+
     const archivedService = new CampaignPartyService(
       {
         campaigns,
@@ -110,6 +119,7 @@ describe('CampaignPartyService', () => {
       },
       ticking('2026-10-10T10:00:00Z'),
     );
+
     await party.attach(vaults.id, {
       id: CampaignCharacterId.parse(newId()),
       characterId: valeros,
@@ -130,11 +140,14 @@ describe('CampaignPartyService', () => {
         { name: 'frightened', value: 2 },
       ],
     });
+
     const directory = new InMemoryCharacterDirectory()
       .character({ id: valeros, ownerId: ezren, name: 'Valeros' })
       .character({ id: kyra, ownerId: seelah, name: 'Kyra' })
       .vitals(valeros, hurt);
+
     const party = new InMemoryCampaignPartyRepository(campaigns);
+
     const seeing = new CampaignPartyService(
       {
         campaigns,
@@ -144,6 +157,7 @@ describe('CampaignPartyService', () => {
       },
       ticking('2026-10-10T10:00:00Z'),
     );
+
     await seeing.attach(ezren, vaults.id, { characterId: valeros });
     await seeing.attach(seelah, vaults.id, { characterId: kyra });
     const seen = await Promise.all([ezren, seelah, amiri].map(async (viewer) => seeing.party(viewer, vaults.id)));
@@ -158,7 +172,9 @@ describe('CampaignPartyService', () => {
     const directory = new InMemoryCharacterDirectory()
       .character({ id: valeros, ownerId: ezren, name: 'Valeros', archived: true })
       .vitals(valeros, PartyVitals.parse({ hp: { current: 3, max: 18, temp: 0 }, dying: 0, conditions: [] }));
+
     const party = new InMemoryCampaignPartyRepository(campaigns);
+
     const seeing = new CampaignPartyService(
       {
         campaigns,
@@ -168,6 +184,7 @@ describe('CampaignPartyService', () => {
       },
       ticking('2026-10-10T10:00:00Z'),
     );
+
     await party.attach(vaults.id, {
       id: CampaignCharacterId.parse(newId()),
       characterId: valeros,
@@ -185,6 +202,7 @@ describe('CampaignPartyService', () => {
       name: 'Valeros',
       archived: true,
     });
+
     const archivedService = new CampaignPartyService(
       {
         campaigns,
@@ -194,6 +212,7 @@ describe('CampaignPartyService', () => {
       },
       ticking('2026-10-10T10:00:00Z'),
     );
+
     expect(await rejection(archivedService.attach(ezren, vaults.id, { characterId: valeros }))).toBeInstanceOf(
       NotFoundError,
     );
@@ -230,12 +249,15 @@ describe('CampaignPartyService', () => {
 
   test('another user’s character, or a missing one, is not found; the GM included', async () => {
     const missing = CharacterId.parse(newId());
+
     const errors = await Promise.all(
       [kyra, lem, missing].map(async (characterId) => rejection(service.attach(ezren, vaults.id, { characterId }))),
     );
+
     for (const error of errors) {
       expect(error).toBeInstanceOf(NotFoundError);
     }
+
     expect(await rejection(service.attach(amiri, vaults.id, { characterId: valeros }))).toBeInstanceOf(NotFoundError);
   });
 

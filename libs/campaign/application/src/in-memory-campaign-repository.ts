@@ -37,6 +37,7 @@ export class InMemoryCampaignRepository extends CampaignRepository {
       .filter((campaign) => keep(campaign))
       .flatMap((campaign): Joined[] => {
         const member = campaign.members.find((candidate) => candidate.userId === userId);
+
         return member === undefined ? [] : [{ campaign, joinedAt: member.joinedAt }];
       })
       .toSorted(
@@ -57,6 +58,7 @@ export class InMemoryCampaignRepository extends CampaignRepository {
 
   public override async archive(id: CampaignId, _now: Temporal.Instant, audit: CampaignAudit): Promise<void> {
     this.#audits.push(audit);
+
     if (this.#rows.has(id)) {
       this.#archived.add(id);
     }
@@ -69,18 +71,22 @@ export class InMemoryCampaignRepository extends CampaignRepository {
 
   public override async insert(campaign: Campaign): Promise<Campaign> {
     this.#rows.set(campaign.id, campaign);
+
     return campaign;
   }
 
   /** Stores the member as given; checking the invite is left to the service, as nothing here races. */
   public override async joinByInvite(invite: CampaignInvite, member: CampaignMember): Promise<Campaign | undefined> {
     const campaign = this.#archived.has(invite.campaignId) ? undefined : this.#rows.get(invite.campaignId);
+
     if (campaign === undefined) {
       return undefined;
     }
+
     if (campaign.roleOf(member.userId) !== undefined) {
       return campaign;
     }
+
     const joined = new Campaign({
       id: campaign.id,
       version: nextVersion(campaign.version),
@@ -89,16 +95,21 @@ export class InMemoryCampaignRepository extends CampaignRepository {
       members: [...campaign.members, member],
       createdAt: campaign.createdAt,
     });
+
     this.#rows.set(campaign.id, joined);
+
     return joined;
   }
 
   public override async updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign> {
     const stored = this.#rows.get(campaign.id);
+
     if (stored?.version !== expectedVersion || this.#archived.has(campaign.id)) {
       throw new VersionConflictError('Campaign', campaign.id);
     }
+
     this.#rows.set(campaign.id, campaign);
+
     return campaign;
   }
 }

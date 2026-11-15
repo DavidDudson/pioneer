@@ -24,6 +24,7 @@ export class PioneerCharacterSnapshots extends CharacterSnapshotSource {
     if (this.#files === undefined) {
       throw new Error('PioneerCharacterSnapshots used before it was bound to the Pioneer file service');
     }
+
     try {
       return await this.#files.export(actor, CharacterId.parse(id));
     } catch (error) {
@@ -31,6 +32,7 @@ export class PioneerCharacterSnapshots extends CharacterSnapshotSource {
       if (error instanceof NotFoundError || error instanceof ValidationError) {
         return undefined;
       }
+
       throw error;
     }
   }

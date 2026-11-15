@@ -11,6 +11,7 @@ import { RICH_TEXT_CONTAINERS_MAX, RICH_TEXT_DEPTH_MAX, RichText } from './rich-
 
 function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   const result = schema.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -21,9 +22,11 @@ const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ t
 /** A list holding a list holding ... `depth` lists deep. */
 function nestedList(depth: number): unknown {
   let block = paragraph('Innermost');
+
   for (let level = 0; level < depth; level += 1) {
     block = { type: 'list', ordered: false, items: [[block]] };
   }
+
   return block;
 }
 
@@ -72,6 +75,7 @@ describe('RichText', () => {
         rows: [[[{ type: 'text', text: '4th' }], []]],
       },
     ];
+
     expect(RichText.safeParse(document).success).toBe(true);
   });
 
@@ -113,6 +117,7 @@ describe('RichText', () => {
     // The document array is one container and each paragraph three; rules (one each) make up the rest exactly.
     const paragraphs = Math.floor((RICH_TEXT_CONTAINERS_MAX - 1) / 3);
     const rules = RICH_TEXT_CONTAINERS_MAX - 1 - paragraphs * 3;
+
     const atLimit = [
       ...Array.from({ length: paragraphs }, () => paragraph('Again.')),
       ...Array.from({ length: rules }, () => ({ type: 'rule' })),

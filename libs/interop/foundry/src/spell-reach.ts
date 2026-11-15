@@ -47,10 +47,13 @@ function parsedText({ field, text, parse }: TextField, log: GapLog): object | un
   if (text === undefined || text.trim() === '') {
     return undefined;
   }
+
   const parsed = parse(text);
+
   if (parsed === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field, raw: text });
   }
+
   return parsed;
 }
 
@@ -60,9 +63,11 @@ const RESTATING = ['.', ' centered on you', ','];
 /** Details stripped of what restates the area, and "20-foot-radius" read as "20-foot". */
 function restatement(details: string): string {
   let text = details.toLowerCase().replace('-foot-radius ', '-foot ');
+
   for (const ending of RESTATING) {
     text = text.endsWith(ending) ? text.slice(0, -ending.length) : text;
   }
+
   return text;
 }
 
@@ -70,16 +75,20 @@ function restatement(details: string): string {
 function areaDetails(area: z.infer<typeof FoundryArea>, field: string, log: GapLog): RichText | undefined {
   const details = (area.details ?? '').trim();
   const isRestated = restatement(details) === `${area.value}-foot ${area.type}`;
+
   return isRestated ? undefined : plainWords(`${field}.details`, details, log);
 }
 
 /** An area's shape and size, and Foundry's `details` when they narrow it; a shape Pioneer lacks is reported. */
 function areaOf(area: z.infer<typeof FoundryArea>, field: string, log: GapLog): object | undefined {
   const shape = AreaShapeSchema.safeParse(area.type);
+
   if (!shape.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: area.type });
+
     return undefined;
   }
+
   return { shape: shape.data, size: area.value, ...setFields({ details: areaDetails(area, field, log) }) };
 }
 
@@ -92,13 +101,16 @@ export function defenseOf(defense: z.infer<typeof FoundryDefense>, log: GapLog):
   const { save, passive } = defense;
   const dc = passive === undefined || passive === null ? undefined : PASSIVE_DC.exec(passive.statistic)?.groups;
   const against = passive?.statistic === ARMOR_CLASS ? ARMOR_CLASS : dc && `save:${dc['save']}`;
+
   if (passive !== undefined && passive !== null && against === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'defense.passive', raw: passive.statistic });
   }
+
   const fields = setFields({
     save: save === undefined || save === null ? undefined : { statistic: `save:${save.statistic}`, basic: save.basic },
     against,
   });
+
   return Object.keys(fields).length === 0 ? undefined : fields;
 }
 
@@ -107,10 +119,13 @@ function durationField(field: string, duration: z.infer<typeof FoundryDuration>,
   if (duration.value.trim() === '' && !duration.sustained) {
     return undefined;
   }
+
   const parsed = durationOf(duration);
+
   if (parsed === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field, raw: duration });
   }
+
   return parsed;
 }
 
@@ -120,6 +135,7 @@ export function reachOf(system: Readonly<Record<string, unknown>>, field: string
   const target = FoundryText.safeParse(system['target']).data;
   const area = FoundryArea.safeParse(system['area']).data;
   const duration = FoundryDuration.safeParse(system['duration']).data;
+
   return setFields({
     range: parsedText({ field: `${field}range.value`, text: range?.value, parse: rangeOf }, log),
     area: area && areaOf(area, `${field}area`, log),
@@ -131,12 +147,16 @@ export function reachOf(system: Readonly<Record<string, unknown>>, field: string
 /** The casting time Foundry's `time` at `field` gives; unmapped wording is reported. */
 export function timeAt(time: unknown, field: string, log: GapLog): object | undefined {
   const text = FoundryText.safeParse(time).data;
+
   if (text === undefined) {
     return undefined;
   }
+
   const parsed = castTimeOf(text.value);
+
   if (parsed === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.value`, raw: text.value });
   }
+
   return parsed;
 }

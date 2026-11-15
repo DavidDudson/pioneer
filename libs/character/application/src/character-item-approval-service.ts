@@ -52,6 +52,7 @@ export class CharacterItemApprovalService {
    */
   public async itemApprovals(actor: UserId, id: CharacterId): Promise<CharacterItemApprovals> {
     await this.#owned(actor, id);
+
     return this.#view(id);
   }
 
@@ -68,12 +69,15 @@ export class CharacterItemApprovalService {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignApproves(id);
     const lines = await this.#flagged.of(character);
+
     const line = lines.find(
       (each) => each.item === target.item && each.rule === target.rule && each.rune === target.rune,
     );
+
     if (line === undefined) {
       throw new NotFoundError('FlaggedItem', target.item);
     }
+
     await this.#acknowledgements.acknowledge(actor, id, {
       id: ItemAcknowledgementId.parse(newId()),
       item: line.item,
@@ -83,6 +87,7 @@ export class CharacterItemApprovalService {
       acknowledgedBy: actor,
       acknowledgedAt: this.#clock.now(),
     });
+
     return this.#view(id);
   }
 
@@ -95,20 +100,24 @@ export class CharacterItemApprovalService {
     await this.#owned(actor, id);
     await this.#refuseIfCampaignApproves(id);
     await this.#acknowledgements.revoke(actor, id, { id: acknowledgement, at: this.#clock.now() });
+
     return this.#view(id);
   }
 
   /** One of the actor's characters. Another user's is a 404, the same as a missing one (ADR-0007). */
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 
   async #refuseIfCampaignApproves(id: CharacterId): Promise<void> {
     const campaign = await this.#campaigns.of(id);
+
     if (campaign !== undefined) {
       throw new ConflictError(
         `Character ${id} has the GM of ${campaign.name} to approve its rule-breaking items`,
@@ -119,10 +128,13 @@ export class CharacterItemApprovalService {
 
   async #view(id: CharacterId): Promise<CharacterItemApprovals> {
     const campaign = await this.#campaigns.of(id);
+
     if (campaign !== undefined) {
       return { campaign: campaign.id, acknowledgeable: false, approvals: campaign.approvals ?? [] };
     }
+
     const rows = await this.#acknowledgements.listForCharacter(id);
+
     return {
       campaign: undefined,
       acknowledgeable: true,

@@ -273,6 +273,7 @@ export function focusSpellRules(slug: string, pack: PackId): readonly object[] {
     if (isNamed(element)) {
       return element(pack);
     }
+
     return isGrant(element) ? focusSpells(pack, element) : element;
   });
 }

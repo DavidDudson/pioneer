@@ -15,6 +15,7 @@ const meta: Meta<LineBreak> = {
     template: '<fr-text element="p">Strength +4<fr-line-break />Dexterity +2<fr-line-break />Constitution +1</fr-text>',
   }),
 };
+
 export default meta;
 
 export const InText: LineBreakStory = {};

@@ -6,6 +6,7 @@ import * as z from 'zod';
  * (`player-core`, `ancestry:human`; ADR-0005, ADR-0034). Ids are hashes of these, so a file never carries one.
  */
 export const ContentReference = z.strictObject({ source: PackId, slug: EntrySlug });
+
 export type ContentReference = z.infer<typeof ContentReference>;
 
 /** The id of the entry a reference names: the same on every server, with no lookup. */

@@ -45,18 +45,21 @@ export class StatisticsFields {
 
   protected readonly problems = computed((): Problems => {
     const result = this.check();
+
     return result.status === StatisticsStatus.Problems ? result : NO_PROBLEMS;
   });
 
   /** The roll option lines that are not roll options; empty when there are none. */
   protected readonly badLines = computed((): readonly number[] => {
     const result = this.check();
+
     return result.status === StatisticsStatus.Problems ? result.factLines : [];
   });
 
   /** Those lines as a list in the UI locale ("2, 4 and 7"). */
   protected readonly badLineList = computed((): string => {
     this.#format.locale();
+
     return this.#format.list(this.badLines().map((line) => this.#format.number(line)));
   });
 }

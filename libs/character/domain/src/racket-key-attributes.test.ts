@@ -13,7 +13,9 @@ import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, playerCoreId } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const classes = classContent(registry);
 

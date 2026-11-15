@@ -55,6 +55,7 @@ describe('a character held to its campaign’s table limits', () => {
     campaigns = new InMemoryAttachedCampaignPacks();
     const clock = fixedClock('2026-10-17T10:00:00Z');
     const repository = new InMemoryCharacterRepository();
+
     const limits = new CharacterRuleLimitService(
       {
         characters: repository,
@@ -64,10 +65,12 @@ describe('a character held to its campaign’s table limits', () => {
       },
       clock,
     );
+
     const content = new CharacterContent(fixedContent(core, ITEM_FIXTURES), new NoPacks(), {
       variants: new NoVariants(),
       limits,
     });
+
     service = new CharacterService(repository, content, clock);
     character = await service.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
   });
@@ -83,6 +86,7 @@ describe('a character held to its campaign’s table limits', () => {
 
   async function edit(patch: CharacterPatch): Promise<Character> {
     ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
+
     return character;
   }
 
@@ -94,9 +98,11 @@ describe('a character held to its campaign’s table limits', () => {
   async function hold(name: ItemFixture, hands: Hands): Promise<void> {
     const saved = await gift(name);
     const added = saved.document.inventory.items.at(-1);
+
     if (added === undefined) {
       throw new Error('Nothing was added');
     }
+
     ({ character } = await service.patch(amiri, character.id, {
       expectedVersion: character.version,
       patch: { field: CharacterPatchField.CarryItem, id: added.id, carry: { state: CarryState.Held, hands } },

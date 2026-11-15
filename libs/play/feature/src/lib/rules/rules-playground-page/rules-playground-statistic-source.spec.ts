@@ -37,6 +37,7 @@ class ScriptedLoader {
 async function openWith(loader: ScriptedLoader): Promise<RouterTestingHarness> {
   const harness = await openPlayground([{ provide: STATISTIC_DEFINITIONS, useValue: loader.load }]);
   await chooseSchema(harness, 'Statistics');
+
   return harness;
 }
 

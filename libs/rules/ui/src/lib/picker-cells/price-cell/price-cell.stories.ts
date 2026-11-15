@@ -6,6 +6,7 @@ import { PriceCell } from './price-cell.component';
 type PriceStory = StoryObj<PriceCell>;
 
 const meta: Meta<PriceCell> = { title: 'Rules/Picker cells/Price', component: PriceCell };
+
 export default meta;
 
 /** Gold and silver. */

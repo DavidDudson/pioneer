@@ -47,10 +47,12 @@ describe('formula fields (properties)', () => {
         const result = RuleElement.safeParse({ ...json, value });
         const issues = result.success ? [] : fieldIssues(result.error.issues);
         expect(issues.length).toBeGreaterThan(0);
+
         for (const issue of issues) {
           expect(issue.path).toStrictEqual(['value']);
           expect(issue.message.params?.['position']).toBeNumber();
         }
+
         expect(issues.some((issue) => REFERENCE_KEYS.has(issue.message.key))).toBe(true);
       }),
     );

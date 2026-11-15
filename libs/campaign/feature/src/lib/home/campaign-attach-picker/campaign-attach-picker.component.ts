@@ -65,16 +65,20 @@ export class CampaignAttachPicker {
   /** A picked ancestry or class by name; empty while the content loads or the slot is unpicked. */
   readonly #nameOf = computed(() => {
     const registry = this.#registry.data();
+
     const classes = new Map<string, string>(
       (registry?.packs ?? [])
         .flatMap((pack) => pack.otherEntries)
         .flatMap((entry): [string, string][] => (entry.kind === ContentKind.Class ? [[entry.id, entry.name]] : [])),
     );
+
     return (id: string | undefined): string => {
       if (id === undefined || registry === undefined) {
         return '';
       }
+
       const ancestry = AncestryId.safeParse(id);
+
       return (
         (ancestry.success ? registry.ancestry(ancestry.data)?.definition.name : undefined) ?? classes.get(id) ?? ''
       );
@@ -92,6 +96,7 @@ export class CampaignAttachPicker {
   );
   protected readonly columns = computed(() => {
     this.#messages();
+
     return attachColumns({
       name: this.#i18n.translate('campaign.party.columns.name'),
       ancestry: this.#i18n.translate('campaign.party.columns.ancestry'),
@@ -120,16 +125,20 @@ export class CampaignAttachPicker {
   protected readonly describeAttachError = (error: unknown): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
+
       return this.#i18n.translate(key, params);
     }
+
     return this.#i18n.translate('campaign.party.attachFailed');
   };
 
   #campaignId(): CampaignId {
     const campaign = this.#store.selected.data();
+
     if (campaign === undefined) {
       throw new Error('No campaign loaded');
     }
+
     return campaign.id;
   }
 }

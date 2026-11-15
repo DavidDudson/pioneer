@@ -65,6 +65,7 @@ export function characterSheetRoutes(ports: CharacterSheetRoutesPorts): Contract
   const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
   const play = new PlayService(repository, content, clock);
   const bundle = new CharacterSheetBundleService({ ...services, characters, play, sheetModes, featDisplay });
+
   return sheetModeRoutes(sheetModes, authenticator)
     .use(featDisplayRoutes(featDisplay, authenticator))
     .use(characterAllyRoutes(services.allies, authenticator))

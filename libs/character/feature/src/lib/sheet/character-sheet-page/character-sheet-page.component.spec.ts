@@ -121,11 +121,13 @@ describe('CharacterSheetPage', () => {
 
   it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background and class', async () => {
     const { root } = await openSheet();
+
     const inlineLabels = (): string[] =>
       [...root.querySelectorAll('section fr-inline-field')]
         .filter((field) => field.closest('pio-level-timeline') === null)
         .filter((field) => field.closest('pio-sheet-rule-limits') === null)
         .map((field) => present(field.querySelector('fr-text')).textContent.trim());
+
     await vi.waitFor(() => {
       expect(inlineLabels()).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class']);
     });
@@ -139,6 +141,7 @@ describe('CharacterSheetPage', () => {
       const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
         present(field.querySelector('fr-text')).textContent.trim(),
       );
+
       expect(labels).toContain('Elf feat, level 5');
       expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
     });
@@ -147,6 +150,7 @@ describe('CharacterSheetPage', () => {
       const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
         present(field.querySelector('fr-text')).textContent.trim(),
       );
+
       expect(labels).toContain('Level 20 boost 1');
     });
   });
@@ -154,10 +158,12 @@ describe('CharacterSheetPage', () => {
   it('lists the attributes with their modifier now and with the boost for a boost planned from the timeline', async () => {
     const { root } = await openSheet();
     await openLevel(root, 5);
+
     const rows = await rowsShown<AttributePickerRow, AttributePicker>(root, {
       label: 'Level 5 boost 2',
       type: AttributePicker,
     });
+
     const dexterity = present(rows.find((each) => each.name === 'Dexterity'));
     expect(dexterity.boosted).toBe(dexterity.modifier + 1);
   });
@@ -170,6 +176,7 @@ describe('CharacterSheetPage', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toStrictEqual({
       expectedVersion: 1,
       patch: { field: 'selectSlot', slot: 'boost:5:free:1', selection: 'dex' },
@@ -183,6 +190,7 @@ describe('CharacterSheetPage', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toStrictEqual({
       expectedVersion: 1,
       patch: { field: 'selectSlot', slot: 'ancestry', selection: HUMAN },
@@ -201,6 +209,7 @@ describe('CharacterSheetPage', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     request.flush(
       {
         type: 'validation',

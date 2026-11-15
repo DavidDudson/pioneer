@@ -21,6 +21,7 @@ import { InlineEditStatus } from '../inline-edit';
 import { SaveStatus } from '../save-status/save-status.component';
 
 const FOCUSABLE = 'input, select, textarea, button, [tabindex]:not([tabindex="-1"])';
+
 /** Marks where focus goes when an editor has controls ahead of the one to type in (a filter panel above a picker). */
 const AUTOFOCUS = '[data-autofocus]';
 
@@ -68,6 +69,7 @@ export class InlineField<TValue> {
   public constructor() {
     afterRenderEffect(() => {
       const editor = this.editor()?.nativeElement;
+
       if (editor !== undefined && !editor.contains(document.activeElement)) {
         const start = editor.querySelector<HTMLElement>(AUTOFOCUS) ?? editor;
         start.querySelector<HTMLElement>(FOCUSABLE)?.focus();
@@ -78,6 +80,7 @@ export class InlineField<TValue> {
   /** Close only when focus leaves the whole field (not when it moves to Revert or a listbox). */
   protected focusOut(event: FocusEvent): void {
     const next = event.relatedTarget;
+
     if (!(next instanceof Node) || !this.#host.nativeElement.contains(next)) {
       this.edit().close();
     }

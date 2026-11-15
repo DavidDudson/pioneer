@@ -8,6 +8,7 @@ import { BaseWeapon, Feet, RollOption, Trait, WeaponDamage } from '@pioneer/rule
 import { grantedStrikes } from './granted-strikes';
 
 const FIST = { key: 'Strike', fist: true };
+
 const JAWS = {
   key: 'Strike',
   slug: 'jaws',
@@ -16,6 +17,7 @@ const JAWS = {
   traits: ['finesse'],
   display: { label: 'Jaws' },
 };
+
 const NO_FAVOURED: ReadonlySet<BaseWeapon> = new Set();
 const FAVOURS_FIST: ReadonlySet<BaseWeapon> = new Set([BaseWeapon.parse('fist')]);
 
@@ -23,6 +25,7 @@ const FAVOURS_FIST: ReadonlySet<BaseWeapon> = new Set([BaseWeapon.parse('fist')]
 function resolved(rules: Readonly<Record<string, object>>): GrantResolution {
   const entries = Object.entries(rules).map(([slug, rule]) => entry(slug, [rule]));
   const roots = Object.keys(rules).map((slug) => picked(slug));
+
   return resolveGrants(inputsOf({ entries, roots, level: 1 }));
 }
 
@@ -78,6 +81,7 @@ describe('grantedStrikes', () => {
   test('a pick the level allows gates a Strike, and a pick it does not allow gives none', () => {
     const claws = { ...JAWS, slug: 'claw', predicate: ['animal-feature:claw'] };
     const wings = { ...JAWS, slug: 'wings-slam', predicate: ['animal-feature:wings'] };
+
     const feature = (level: number): GrantResolution => {
       const choice = {
         key: 'ChoiceSet',
@@ -88,11 +92,14 @@ describe('grantedStrikes', () => {
           { value: 'wings', label: 'Wings', predicate: [{ gte: ['item:level', 4] }] },
         ],
       };
+
       const effect = {
         ...entry('animal-feature', [choice, claws, wings]),
         rollOptions: [RollOption.parse(`level:${level}`)],
       };
+
       const picks = picksOf([[slotOf('animal-feature', 0), 'wings']]);
+
       return resolveGrants(inputsOf({ entries: [effect], roots: [picked('animal-feature')], level: 1, picks }));
     };
 

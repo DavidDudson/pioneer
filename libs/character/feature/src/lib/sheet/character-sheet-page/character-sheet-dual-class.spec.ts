@@ -14,6 +14,7 @@ const dualClass = {
   name: 'Dual Class',
   packTitle: 'Core Rules',
 };
+
 const DUAL_CLASS_ON = { decidedBy: 'character', manageable: true, enabled: [dualClass], available: [] };
 
 const FIGHTER = playerCoreClassId('fighter');
@@ -22,12 +23,14 @@ const CLERIC = playerCoreClassId('cleric');
 /** Merisiel as a fighter, with a cleric as her second class when `second` is set. */
 function fighter(second = false): object {
   const choices = { class: FIGHTER, ...(second ? { 'second-class': CLERIC } : {}) };
+
   return { ...MERISIEL, build: { choices } };
 }
 
 /** The labels of the Identity section's inline fields. */
 function labels(root: HTMLElement): string[] {
   const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
+
   return [...identity.querySelectorAll('fr-inline-field')].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );
@@ -63,6 +66,7 @@ describe('CharacterSheetPage with Dual Class', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'second-class', selection: CLERIC },
     });
@@ -75,9 +79,11 @@ describe('CharacterSheetPage with Dual Class', () => {
       expect(labels(root)).toContain('Doctrine');
     });
     await pickRow(root, { label: 'Doctrine', type: SubclassPicker }, 'Warpriest');
+
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     const body = request.request.body as { patch: { field: string; selection: unknown } };
     expect(body.patch.field).toBe('selectSlot');
     expect(body.patch.selection).toBeTypeOf('string');

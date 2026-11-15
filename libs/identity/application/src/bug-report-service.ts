@@ -42,14 +42,18 @@ export class BugReportService {
   public async submit(actor: UserId, submission: BugReportSubmission): Promise<BugReportReceipt> {
     const now = this.#clock.now();
     const recent = await this.#reports.countSince(actor, now.subtract(BUG_REPORT_WINDOW));
+
     if (recent >= BUG_REPORT_LIMIT) {
       throw new RateLimitedError(`User ${actor} filed ${recent} bug reports in the last hour`);
     }
+
     const { shareCharacter, ...details } = submission;
+
     const snapshot =
       shareCharacter && details.characterId !== undefined
         ? await this.#characters.take(actor, details.characterId)
         : undefined;
+
     const filed = {
       ...details,
       id: BugReportId.parse(newId()),
@@ -57,8 +61,10 @@ export class BugReportService {
       createdAt: now,
       status: BugReportStatus.Open,
     };
+
     const report: BugReport = { ...filed, snapshot };
     await this.#reports.insert(report);
+
     return { ...filed, snapshotTaken: snapshot !== undefined };
   }
 }

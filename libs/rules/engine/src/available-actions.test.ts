@@ -24,6 +24,7 @@ let counter = 0;
 
 function nextId(): ContentId {
   counter += 1;
+
   return ContentId.parse(`00000000-0000-4000-8000-${String(counter).padStart(ID_DIGITS, '0')}`);
 }
 
@@ -47,9 +48,11 @@ function weigh(action: ActionCandidate, situation: Situation = {}): AvailableAct
     statistics: new Map(),
     ...situation,
   });
+
   if (first === undefined || rest.length > 0) {
     throw new Error('Expected one action');
   }
+
   return first;
 }
 
@@ -68,6 +71,7 @@ function athleticsStatistics(): ReadonlyMap<Selector, StatisticResult> {
     definitions: [statistic('skill:athletics', '@attr.str')],
     proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS,
   };
+
   return deriveStatistics(content, statisticInputs, { rules: [], facts: factsOf() });
 }
 

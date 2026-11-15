@@ -16,14 +16,17 @@ import { CharacterBuilder } from './testing';
  * Order Explorer joined it, Order Explorer's choice of an order the druid hasn't, and Order Magic's of one it joined.
  */
 const pack = new ContentPackBuilder().withId('orders');
+
 const ORDERS: readonly (readonly [string, string])[] = [
   ['leaf-order', 'cornucopia'],
   ['storm-order', 'tempest-surge'],
   ['untamed-order', 'untamed-shift'],
 ];
+
 for (const [, spell] of ORDERS) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['druid', 'focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const orderId = (name: string): string => pack.idOf(ContentKind.ClassFeature, name);
 
@@ -34,6 +37,7 @@ const FOCUS = {
   attribute: 'wis',
   preparation: 'focus',
 };
+
 const explored = (order: string): readonly unknown[] => [{ not: `feat:order-explorer:${order}` }];
 
 for (const [order, spell] of ORDERS) {
@@ -45,6 +49,7 @@ for (const [order, spell] of ORDERS) {
     ],
   });
 }
+
 pack
   .withClassFeature('druidic-order', {
     rules: [
@@ -84,14 +89,19 @@ pack
       })),
     ],
   });
+
 const DRUIDIC_ORDER = orderId('druidic-order');
 const EXPLORER = pack.idOf(ContentKind.Feat, 'order-explorer');
 const MAGIC = pack.idOf(ContentKind.Feat, 'order-magic');
+
 pack.withClass('druid', ['wis'], {
   rules: [DRUIDIC_ORDER, EXPLORER, MAGIC].map((item) => ({ key: 'GrantItem', item })),
 });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const OWN_SLOT = `${DRUIDIC_ORDER}:0`;
@@ -104,9 +114,11 @@ function druid(picks: Readonly<Record<string, string>> = {}): CharacterBuilder {
     .atLevel(4)
     .picking('class', pack.idOf(ContentKind.Class, 'druid'))
     .picking(OWN_SLOT, orderId('leaf-order'));
+
   for (const [slot, pick] of Object.entries(picks)) {
     builder = builder.picking(slot, pick);
   }
+
   return builder;
 }
 
@@ -114,6 +126,7 @@ function spellsOf(builder: CharacterBuilder): string[] {
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
   const focus = characterFocus(entries, spellContent(registry), document.level);
+
   return focus.entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

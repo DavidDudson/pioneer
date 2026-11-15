@@ -17,7 +17,9 @@ import { slotContent, slotRefusal } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const now = fixedClock('2026-01-01T00:00:00Z').now();
 const LEVELS = [1, 5, 20];
@@ -57,6 +59,7 @@ describe('generateCharacter', () => {
         const { document } = character;
         const slots = characterSlots(document, content);
         expect(slots.filter((slot) => slot.status === SlotStatus.Invalid)).toEqual([]);
+
         const acceptable = slots
           .filter((slot) => slot.status === SlotStatus.Open)
           .filter((slot) =>
@@ -64,6 +67,7 @@ describe('generateCharacter', () => {
               (selection) => slotRefusal(document, content, { slot: slot.key, selection }) === undefined,
             ),
           );
+
         expect(acceptable.map((slot) => slot.key)).toEqual([]);
       }
     },

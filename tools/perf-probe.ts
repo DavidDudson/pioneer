@@ -61,9 +61,11 @@ const { api } = values;
 const runs = Number(values.runs);
 const { 'pg-log': pgLog } = values;
 const databaseUrl = Bun.env['DATABASE_URL'];
+
 if (databaseUrl === undefined) {
   throw new Error('DATABASE_URL is not set; run this in the devshell');
 }
+
 const db = new SQL(databaseUrl);
 
 interface Measure {
@@ -96,6 +98,7 @@ function percentile(sorted: readonly number[], fraction: number): number {
 /** How far the Postgres log has grown; what is logged after this point is what ran since. */
 async function logMark(): Promise<number> {
   await Bun.sleep(SETTLE_MS);
+
   return Bun.file(pgLog).size;
 }
 
@@ -103,6 +106,7 @@ async function logMark(): Promise<number> {
 async function statementsSince(mark: number): Promise<number> {
   await Bun.sleep(SETTLE_MS);
   const added = await Bun.file(pgLog).slice(mark).text();
+
   return added.split('\n').filter((line) => STATEMENT_LINE.test(line)).length;
 }
 
@@ -115,6 +119,7 @@ interface Sizes {
 /** `fetch` decodes a compressed body, so the raw size is measured and the compressed ones are computed from it. */
 function sizesOf(body: ArrayBuffer): Sizes {
   const raw = new Uint8Array(body);
+
   return {
     bytes: raw.byteLength,
     gzipBytes: gzipSync(raw).byteLength,
@@ -132,6 +137,7 @@ async function timed(url: string, headers: Record<string, string>): Promise<Time
   const start = performance.now();
   const response = await fetch(url, { headers });
   const body = await response.arrayBuffer();
+
   return {
     status: response.status,
     ...sizesOf(body),
@@ -145,14 +151,17 @@ async function measure(cookie: string, characterId: string, suffix: string): Pro
   const headers = { cookie, 'accept-encoding': 'gzip, br' };
   const calls: Timed[] = [];
   const before = await logMark();
+
   for (let run = 0; run < runs; run += 1) {
     // Sequential on purpose: parallel calls would time each other.
     // oxlint-disable-next-line eslint/no-await-in-loop
     calls.push(await timed(url, headers));
   }
+
   const statements = await statementsSince(before);
   const sorted = calls.map(({ ms }) => ms).toSorted((left, right) => left - right);
   const [last] = calls.slice(-1);
+
   return {
     path: suffix === '' ? '/characters/:id' : suffix,
     status: last?.status ?? 0,
@@ -169,14 +178,18 @@ async function measure(cookie: string, characterId: string, suffix: string): Pro
 async function wholeLoad(cookie: string, characterId: string): Promise<WholeLoad> {
   const before = await logMark();
   const start = performance.now();
+
   const bodies = await Promise.all(
     SHEET_ENDPOINTS.map(async (suffix) => {
       const { bytes } = await timed(`${api}/api/characters/${characterId}${suffix}`, { cookie });
+
       return bytes;
     }),
   );
+
   const wallMs = performance.now() - start;
   const after = await statementsSince(before);
+
   return {
     requests: bodies.length,
     bytes: bodies.reduce((total, size) => total + size, 0),
@@ -186,19 +199,24 @@ async function wholeLoad(cookie: string, characterId: string): Promise<WholeLoad
 }
 
 await db.unsafe("alter system set log_statement = 'all'");
+
 await db`select pg_reload_conf()`;
+
 const cookie = await signIn(api);
 const characterId = values.character ?? (await createCharacter({ api, cookie }, db, 'Perf Probe'));
 const endpoints: Measure[] = [];
+
 for (const suffix of [...SHEET_ENDPOINTS, BUNDLE_ENDPOINT]) {
   // oxlint-disable-next-line eslint/no-await-in-loop
   endpoints.push(await measure(cookie, characterId, suffix));
 }
+
 const failed = endpoints.filter(({ status }) => status !== OK);
 const sheet = await wholeLoad(cookie, characterId);
 const manifest = await fetch(`${api}/api/content/manifest`, { headers: { 'accept-encoding': 'gzip, br' } });
 const manifestBody = await manifest.arrayBuffer();
 const { bytes: manifestBytes, gzipBytes: manifestGzip, brotliBytes: manifestBrotli } = sizesOf(manifestBody);
+
 const report = {
   runs,
   characterId,
@@ -215,19 +233,27 @@ const report = {
 };
 
 console.table(endpoints);
+
 console.info(
   `sheet load: ${sheet.requests} requests, ${sheet.bytes} B, ${sheet.wallMs} ms wall, ${sheet.statements} statements`,
 );
+
 console.info(
   `manifest: ${manifestBytes} B (gzip ${manifestGzip}, br ${manifestBrotli}), ${report.manifest.encoding}, ${report.manifest.cacheControl ?? 'no cache-control'}`,
 );
 
 const { out } = values;
+
 await mkdir(path.dirname(out), { recursive: true });
+
 await Bun.write(out, `${JSON.stringify(report, undefined, 2)}\n`);
+
 await db.unsafe('alter system reset log_statement');
+
 await db`select pg_reload_conf()`;
+
 await db.close();
+
 if (failed.length > 0) {
   console.error(`Not 200: ${failed.map(({ path: failedPath, status }) => `${failedPath} ${status}`).join(', ')}`);
   process.exitCode = 1;

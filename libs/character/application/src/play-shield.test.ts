@@ -16,9 +16,11 @@ import { ValidationError } from '@pioneer/shared/kernel';
 import { checkShield, shieldInventoryAfter } from './play-shield';
 
 const ITEM = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
+
 const SHIELDS: ShieldContent = new Map([
   [ITEM, { hardness: Hardness.parse(5), hitPoints: HitPoints.parse(20), brokenThreshold: HitPoints.parse(10) }],
 ]);
+
 const INVENTORY: Inventory = addItem(EMPTY_INVENTORY, {
   id: ITEM,
   item: ContentId.parse('00000000-0000-4000-8000-0000000000aa'),

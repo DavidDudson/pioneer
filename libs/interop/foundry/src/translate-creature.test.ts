@@ -98,6 +98,7 @@ describe('translateCreature: core statistics', () => {
         },
       },
     };
+
     const entry = entryOf(translate([banshee]), 'banshee');
 
     expect(entry?.kindData?.data).toMatchObject({ speed: 0, speeds: [{ movement: 'fly', speed: 60 }] });

@@ -18,18 +18,22 @@ function optionsOf(statement: unknown): readonly string[] {
   if (typeof statement === 'string') {
     return [statement];
   }
+
   if (Array.isArray(statement)) {
     return statement.flatMap((each: unknown) => optionsOf(each));
   }
+
   if (typeof statement === 'object' && statement !== null) {
     return Object.values(statement).flatMap((each: unknown) => optionsOf(each));
   }
+
   return [];
 }
 
 /** Whether a statement reads item roll options and nothing else. */
 function readsOnlyItem(statement: unknown): boolean {
   const options = optionsOf(statement);
+
   return options.length > 0 && options.every((option) => option.startsWith(ITEM_NAMESPACE));
 }
 
@@ -41,6 +45,7 @@ interface SplitPredicate {
 
 function splitPredicate(raw: object): SplitPredicate {
   const statements: readonly unknown[] = 'predicate' in raw && Array.isArray(raw.predicate) ? raw.predicate : [];
+
   return {
     item: statements.filter((statement) => readsOnlyItem(statement)),
     actor: statements.filter((statement) => !readsOnlyItem(statement)),
@@ -52,9 +57,11 @@ function withDescriptionText(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('property' in raw) || raw.property !== 'description') {
     return raw;
   }
+
   const blocks = 'value' in raw && Array.isArray(raw.value) ? (raw.value as readonly unknown[]) : [];
   const [block] = blocks;
   const text = typeof block === 'object' && block !== null && 'text' in block ? block.text : undefined;
+
   return blocks.length === 1 && typeof text === 'string'
     ? { ...raw, value: htmlToRichText(`<p>${text}</p>`).richText }
     : raw;
@@ -70,14 +77,18 @@ export function withItemScope(scoped: unknown): unknown {
   ) {
     return scoped;
   }
+
   const described = withDescriptionText(scoped);
   const raw = typeof described === 'object' && described !== null ? described : scoped;
   const { item, actor } = splitPredicate(raw);
   const type = 'itemType' in raw && typeof raw.itemType === 'string' ? [`${ITEM_NAMESPACE}type:${raw.itemType}`] : [];
   const items = [...type, ...item];
+
   if (items.length === 0) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => field !== 'itemType' && field !== 'predicate');
+
   return { ...Object.fromEntries(rest), items, ...(actor.length > 0 ? { predicate: actor } : {}) };
 }

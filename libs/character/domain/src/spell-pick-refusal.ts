@@ -44,8 +44,11 @@ export function spellPickRefusal(
 ): SlotRefusal | undefined {
   if (isSignatureKey(pick.slot)) {
     const refusal = signatureRefusal(document, reads, pick);
+
     return refusal === undefined ? undefined : SIGNATURE_REFUSALS[refusal];
   }
+
   const refusal = preparedRefusal(document, reads, pick);
+
   return refusal === undefined ? undefined : PREPARED_REFUSALS[refusal];
 }

@@ -16,6 +16,7 @@ export interface ImportedBoosts {
 }
 
 const FIRST_LEVEL = Level.parse(1);
+
 /** Free boosts come every fifth level; a gradual boost below one belongs to its set. */
 const FREE_BOOST_INTERVAL = 5;
 
@@ -23,6 +24,7 @@ const FREE_BOOST_INTERVAL = 5;
 function namedAttributes(names: readonly string[]): Attribute[] {
   return names.flatMap((name) => {
     const parsed = AttributeSchema.safeParse(name.trim().toLowerCase());
+
     return parsed.success ? [parsed.data] : [];
   });
 }
@@ -36,14 +38,18 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
   const levels = Object.entries(levelled)
     .flatMap(([key, names]) => {
       const level = Level.safeParse(Number(key));
+
       return level.success ? [{ level: level.data, names }] : [];
     })
     .toSorted((left, right) => left.level - right.level);
+
   const bySet = new Map<Level, Attribute[]>();
+
   for (const { level, names } of levels) {
     const set = freeSetLevel(level);
     bySet.set(set, [...(bySet.get(set) ?? []), ...namedAttributes(names)]);
   }
+
   return [...bySet].map(([level, attributes]) => ({ source: BoostSource.Free, level, attributes }));
 }
 
@@ -53,21 +59,26 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
  */
 export function readBoosts(build: PathbuilderBuild, dualClass: boolean): ImportedBoosts[] {
   const { breakdown } = build.abilities;
+
   if (breakdown === undefined) {
     return [];
   }
+
   const [firstClass = [], secondClass = []] = dualClass
     ? breakdown.classBoosts.map((name) => [name])
     : [breakdown.classBoosts];
+
   const firstLevel: [BoostSource, readonly string[]][] = [
     [BoostSource.Ancestry, [...breakdown.ancestryBoosts, ...breakdown.ancestryFree]],
     [BoostSource.Background, breakdown.backgroundBoosts],
     [BoostSource.Class, firstClass],
     [BoostSource.SecondClass, secondClass],
   ];
+
   return [
     ...firstLevel.flatMap(([source, names]): ImportedBoosts[] => {
       const attributes = namedAttributes(names);
+
       return attributes.length === 0 ? [] : [{ source, level: FIRST_LEVEL, attributes }];
     }),
     ...freeBoosts(breakdown.mapLevelledBoosts),

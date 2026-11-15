@@ -56,19 +56,23 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
       .named(`Hero ${(characterCount += 1)}`)
       .ownedBy(owner)
       .build();
+
     const lines =
       rope === undefined
         ? []
         : [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }];
+
     const stocked = built.withInventory(
       { items: lines, customItems: [], coins: CoinsSchema.parse({}), ...inventory },
       built.updatedAt,
     );
+
     return characters.insert(stocked, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 
   async function statusOf(transfer: Transfer): Promise<string | undefined> {
     const found = await transfers.findById(campaignId, transfer.id);
+
     return found?.status;
   }
 
@@ -82,7 +86,9 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
       status: TransferStatus.Pending,
       createdAt: clock.now(),
     };
+
     await transfers.insert(amiri, campaignId, transfer);
+
     return transfer;
   }
 
@@ -96,16 +102,20 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
       status: TransferStatus.Pending,
       createdAt: clock.now(),
     };
+
     await transfers.insertCoins(amiri, campaignId, transfer);
+
     return transfer;
   }
 
   /** The two characters as stored now. */
   async function stored(giver: Character, recipient: Character): Promise<Stored> {
     const [now, there] = await Promise.all([characters.findById(giver.id), characters.findById(recipient.id)]);
+
     if (now === undefined || there === undefined) {
       throw new Error('A character is gone');
     }
+
     return { giver: now, recipient: there };
   }
 
@@ -114,6 +124,7 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
       .select({ table: auditLog.tableName, command: auditLog.command })
       .from(auditLog)
       .where(and(eq(auditLog.action, 'update'), inArray(auditLog.rowId, [...rowIds])));
+
     return rows.map((row) => `${row.table}:${row.command}`).toSorted();
   }
 
@@ -134,9 +145,11 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
   /** A fresh campaign for each test, as offers are never deleted. */
   beforeEach(async () => {
     campaignCount += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaignCount}`).ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
   });
 

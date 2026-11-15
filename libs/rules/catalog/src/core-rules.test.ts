@@ -103,6 +103,7 @@ function reachedBy(target: string, content = core, character = fighter): readonl
   const without = totals(deriveStatistics(content, character));
   const facts = noFacts();
   const withBonus = totals(deriveStatistics(content, character, { rules: [bonusTo(target)], facts }));
+
   return Object.keys(without)
     .filter((selector) => withBonus[selector] !== without[selector])
     .toSorted();
@@ -119,6 +120,7 @@ function sorted(selectors: readonly string[]): readonly string[] {
 
 function checksKeyedTo(attribute: Attribute): readonly string[] {
   const skills = Object.entries(SKILLS).flatMap(([slug, key]) => (key === attribute ? [`skill:${slug}`] : []));
+
   return [`attribute:${attribute}`, ...skills];
 }
 
@@ -127,10 +129,13 @@ describe('core rules pack', () => {
     const registry = new ContentRegistry();
     registry.register(coreRules);
     const selectors = [...SELECTORS, ...LORE_SELECTORS, ...PER_SOURCE_SELECTORS];
+
     for (const selector of selectors) {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
+
     expect(registry.statistics()).toHaveLength(selectors.length);
+
     const variants = [
       'dual-class',
       'free-archetype',
@@ -139,6 +144,7 @@ describe('core rules pack', () => {
       'no-encumbrance',
       'proficiency-without-level',
     ];
+
     expect(registry.variantRules().map(({ id }) => id)).toStrictEqual(
       variants.map((slug) => VariantRuleId.parse(contentId(coreRules.id, EntrySlug.parse(`variant-rule:${slug}`)))),
     );
@@ -212,6 +218,7 @@ describe('core rules pack', () => {
       ranks: { 'attack:simple': 'expert' },
       weapons: [wielded({ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse'] })],
     });
+
     const derived = totals(deriveStatistics(core, nimble));
     expect(derived['strike:dagger']).toBe(4 + 7);
     expect(derived['strike:longsword']).toBeUndefined();
@@ -229,9 +236,11 @@ describe('core rules pack', () => {
 
   test('keys every skill to its Player Core attribute', () => {
     const derived = totals(deriveStatistics(core, fighter));
+
     const expected = Object.fromEntries(
       Object.entries(SKILLS).map(([slug, key]) => [`skill:${slug}`, fighter.attributes.get(key)]),
     );
+
     // Trained in Athletics at level 3: Strength 4 plus 2 plus 3.
     expect(derived).toMatchObject({ ...expected, 'skill:athletics': 9 });
   });
@@ -291,6 +300,7 @@ describe('core rules pack', () => {
         const prof = (rank: Proficiency): number => RANK_BONUS[rank] + LEVEL_TIMES[rank] * level;
         expect(derived['ac']).toBe(AC_BASE + Math.min(dex, cap) + prof(ac));
         expect(derived['hp:max']).toBe(ancestryHp + (classHp + con) * level);
+
         for (const [slug, key] of Object.entries(SKILLS)) {
           expect(derived[`skill:${slug}`]).toBe(inputs.attributes.get(key) + prof(skill));
         }

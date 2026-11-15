@@ -24,6 +24,7 @@ export class FakeInfiniteQuery<TItem> implements LoadMoreQuery {
     this.#settle = resolve;
     this.fetches.update((count) => count + 1);
     this.isFetchingNextPage.set(true);
+
     return promise;
   };
 

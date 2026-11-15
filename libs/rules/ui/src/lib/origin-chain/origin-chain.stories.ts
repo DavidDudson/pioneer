@@ -11,6 +11,7 @@ const meta: Meta<OriginChainView> = {
   component: OriginChainView,
   args: { entryNames: ENTRY_NAMES, names: ORIGIN_NAMES },
 };
+
 export default meta;
 
 /** Content the character has directly: just the entry, then its sources. */

@@ -39,6 +39,7 @@ const elf = {
   ]),
   kind: ContentKind.Ancestry,
 };
+
 const human = { ...entry('human'), kind: ContentKind.Ancestry };
 
 const content: SlotContent = {
@@ -52,6 +53,7 @@ const content: SlotContent = {
   spells: NO_SPELLS,
   feats: NO_FEATS,
 };
+
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);
 

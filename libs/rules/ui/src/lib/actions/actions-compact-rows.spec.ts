@@ -16,9 +16,11 @@ const NAMES = ['zeal', 'Éclair', 'apex', 'Eclair2'];
 function renamed(): readonly ActionLine[] {
   return NAMES.map((name, index) => {
     const base = STANDING_ACTIONS[index];
+
     if (base === undefined) {
       throw new Error('The standing actions are too few');
     }
+
     return { ...base, name };
   });
 }
@@ -30,6 +32,7 @@ async function render(view: ActionsViewKind): Promise<HTMLElement> {
   fixture.componentRef.setInput('mode', ActionMode.Encounter);
   fixture.componentRef.setInput('view', view);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -47,6 +50,7 @@ describe('the compact action rows', () => {
     const host = await render(ActionsViewKind.Now);
     const names = shownNames(host);
     expect(names).toHaveLength(NAMES.length);
+
     for (const group of host.querySelectorAll('pio-action-list')) {
       const inGroup = shownNames(group as HTMLElement);
       expect(inGroup).toStrictEqual(
@@ -59,6 +63,7 @@ describe('the compact action rows', () => {
     const host = await render(ActionsViewKind.All);
     const rows = [...host.querySelectorAll('pio-action-row')];
     expect(rows).toHaveLength(NAMES.length);
+
     for (const row of rows) {
       expect(row.querySelector('fr-text[variant="caption"]')).toBeNull();
       expect(row.querySelector('pio-chip-list')).toBeNull();

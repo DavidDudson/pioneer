@@ -45,6 +45,7 @@ export interface ConditionView {
 /** The conditions of the registry's packs by id; the last pack's entry wins, as in the registry. */
 function conditionEntries(registry: ContentRegistry): ReadonlyMap<ContentId, ConditionEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(entries.flatMap((entry) => (isCondition(entry) ? [[entry.id, entry] as const] : [])));
 }
 
@@ -75,19 +76,26 @@ export function conditionViews(
   active: readonly ActiveCondition[],
 ): readonly ConditionView[] {
   const entries = conditionEntries(registry);
+
   const overriders = active.flatMap(({ condition }) => {
     const entry = entries.get(condition);
+
     return entry === undefined ? [] : entry.data.overrides.map((overridden) => ({ overridden, by: entry.name }));
   });
+
   return active.flatMap((each): ConditionView[] => {
     const entry = entries.get(each.condition);
+
     if (entry === undefined) {
       return [];
     }
+
     const implied = entry.data.implies.flatMap((id): ImpliedView[] => {
       const named = entries.get(id);
+
       return named === undefined ? [] : [{ id, name: named.name }];
     });
+
     return [
       {
         id: each.id,
@@ -111,14 +119,18 @@ export function conditionSlugs(
   play: Pick<PlayState, 'conditions' | 'dying' | 'wounded' | 'doomed' | 'dead'>,
 ): readonly string[] {
   const slugs = new Map(registry.packs.flatMap((pack) => pack.otherEntries.map((entry) => [entry.id, entry.slug])));
+
   const track = [
     play.dying > 0 || play.dead ? 'dying' : undefined,
     play.wounded > 0 ? 'wounded' : undefined,
     play.doomed > 0 ? 'doomed' : undefined,
   ];
+
   const named = play.conditions.map(({ condition }) => {
     const slug = slugs.get(condition);
+
     return slug === undefined ? undefined : slugName(slug);
   });
+
   return [...new Set([...track, ...named].filter((name) => name !== undefined))];
 }

@@ -6,12 +6,14 @@ import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sd
 async function shieldsOf(pack: string, slug: string): Promise<readonly Record<string, unknown>[]> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
   const effect = ContentEntryFile.parse(file).find((entry) => entry.kind === ContentKind.Effect && entry.slug === slug);
+
   return effect?.rules.filter((rule) => rule.key === RuleElementKey.GrantShield) ?? [];
 }
 
 /** The rule elements of the effect `slug` in `pack`. */
 async function rulesOf(pack: string, slug: string): Promise<readonly Record<string, unknown>[]> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
+
   return (
     ContentEntryFile.parse(file).find((entry) => entry.kind === ContentKind.Effect && entry.slug === slug)?.rules ?? []
   );
@@ -20,6 +22,7 @@ async function rulesOf(pack: string, slug: string): Promise<readonly Record<stri
 /** The first `GrantShield` rule of the effect `slug` in `pack`, with how its Hardness rises by spell rank. */
 async function shieldOf(pack: string, slug: string): Promise<Record<string, unknown> | undefined> {
   const [rule] = await shieldsOf(pack, slug);
+
   return rule;
 }
 

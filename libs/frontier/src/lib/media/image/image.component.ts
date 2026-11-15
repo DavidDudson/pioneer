@@ -12,6 +12,7 @@ import { cva } from 'class-variance-authority';
 
 /** Width of the image. The height follows `aspect`. `full` fills its parent, as `fr-avatar` does. */
 export const ImageSize = { Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'full' } as const;
+
 export type ImageSize = ValueOf<typeof ImageSize>;
 
 export const ImageAspect = {
@@ -23,6 +24,7 @@ export const ImageAspect = {
   /** 16:9, for banners. */
   Wide: 'wide',
 } as const;
+
 export type ImageAspect = ValueOf<typeof ImageAspect>;
 
 export const ImageFit = {
@@ -31,6 +33,7 @@ export const ImageFit = {
   /** Show the whole image inside the frame. Logos. */
   Contain: 'contain',
 } as const;
+
 export type ImageFit = ValueOf<typeof ImageFit>;
 
 export const ImageLoading = {
@@ -39,9 +42,11 @@ export const ImageLoading = {
   /** Load at once, for an image visible on first paint. */
   Eager: 'eager',
 } as const;
+
 export type ImageLoading = ValueOf<typeof ImageLoading>;
 
 const ImageStatus = { Loading: 'loading', Loaded: 'loaded', Failed: 'failed' } as const;
+
 type ImageStatus = ValueOf<typeof ImageStatus>;
 
 /** The frame holds the size before the image arrives, so nothing shifts, and shimmers like `fr-skeleton`. */
@@ -113,12 +118,15 @@ export class ImageDisplay {
 
   protected readonly altText = computed(() => {
     const alt = this.alt().trim();
+
     if (this.decorative() && alt !== '') {
       throw new Error('fr-image: a decorative image has alt="".');
     }
+
     if (!this.decorative() && alt === '') {
       throw new Error('fr-image: alt is required. Describe the image, or mark it decorative.');
     }
+
     return alt;
   });
 

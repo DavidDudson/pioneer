@@ -31,8 +31,10 @@ export function textOf<TValue extends string>(
   if (picked.value === undefined || picked.value === '') {
     return query;
   }
+
   if (previous !== undefined && expanded) {
     return previous;
   }
+
   return picked.label ?? previous ?? '';
 }

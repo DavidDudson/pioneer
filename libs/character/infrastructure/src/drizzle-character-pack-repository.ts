@@ -36,6 +36,7 @@ export class DrizzleCharacterPackRepository extends CharacterPackRepository {
   public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterPack[]> {
     return this.#listed.of(characterId, async () => {
       const rows = await this.#db.select().from(characterPacks).where(eq(characterPacks.characterId, characterId));
+
       // Sorted here so no query needs an index for it; a character enables few packs.
       return rows
         .map((row) => toCharacterPack(row))
@@ -53,6 +54,7 @@ export class DrizzleCharacterPackRepository extends CharacterPackRepository {
     if (packs.length === 0) {
       return;
     }
+
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: ENABLE_COMMAND });
       await tx

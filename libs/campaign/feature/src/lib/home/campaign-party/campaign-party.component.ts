@@ -88,22 +88,28 @@ export class CampaignPartyPanel {
 
   protected detach(character: PartyCharacter): () => Promise<void> {
     const existing = this.#detaches.get(character.characterId);
+
     if (existing !== undefined) {
       return existing;
     }
+
     const action = async (): Promise<void> => {
       await this.store.detachCharacter(this.#campaignId(), character.characterId);
       this.detached.update((detached) => new Set([...detached, character.characterId]));
     };
+
     this.#detaches.set(character.characterId, action);
+
     return action;
   }
 
   #campaignId(): CampaignId {
     const campaign = this.store.selected.data();
+
     if (campaign === undefined) {
       throw new Error('No campaign loaded');
     }
+
     return campaign.id;
   }
 }

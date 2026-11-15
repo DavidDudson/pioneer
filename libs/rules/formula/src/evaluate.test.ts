@@ -18,30 +18,37 @@ const VALUES: Readonly<Record<string, number>> = {
 
 const resolve: ResolveReference = (path) => {
   const known = VALUES[path];
+
   return known === undefined ? undefined : FormulaValue.parse(known);
 };
 
 function evaluated(text: string, using: ResolveReference = resolve): EvaluateOutcome {
   const parsed = parseFormula(FormulaText.parse(text));
+
   if (!parsed.ok) {
     throw new Error(`expected ${text} to parse, got ${parsed.error.key} at ${parsed.position}`);
   }
+
   return evaluate(parsed.formula, using);
 }
 
 function value(text: string): number {
   const outcome = evaluated(text);
+
   if (!outcome.ok) {
     throw new Error(`expected ${text} to evaluate, got ${outcome.error.key} at ${outcome.position}`);
   }
+
   return outcome.value;
 }
 
 function failure(text: string): EvaluateFailure {
   const outcome = evaluated(text);
+
   if (outcome.ok) {
     throw new Error(`expected ${text} to fail, got ${outcome.value}`);
   }
+
   return outcome;
 }
 
@@ -117,10 +124,13 @@ describe('evaluate', () => {
     expect(value('ternary(1, 4, 1 / 0)')).toBe(4);
     expect(value('ternary(0, @unknown, 4)')).toBe(4);
     const calls: string[] = [];
+
     const tracked: ResolveReference = (path) => {
       calls.push(path);
+
       return resolve(path);
     };
+
     expect(evaluated('ternary(@zero, @actor.level, @item.level)', tracked)).toEqual({
       ok: true,
       value: FormulaValue.parse(3),

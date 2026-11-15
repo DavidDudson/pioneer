@@ -38,6 +38,7 @@ function contentOf(): SlotContent {
   if (content === undefined) {
     throw new Error('Expected the packs to be loaded');
   }
+
   return content;
 }
 
@@ -47,15 +48,18 @@ function character({ className, feature, pick, level, extra = {} }: Build): Char
     .picking('class', idOf(`class:${className}`))
     .picking('boost:1:class:0', 'cha')
     .picking(`${idOf(`class-feature:${feature}`)}:0`, idOf(`class-feature:${pick}`));
+
   for (const [key, value] of Object.entries(extra)) {
     builder = builder.picking(key, value);
   }
+
   return builder.build().document;
 }
 
 /** The spell each repertoire slot an element fills holds, by its key. */
 function gifts(document: CharacterDocument): Record<string, string> {
   const slots = preparedSlots(document, preparedReads(document, contentOf()));
+
   return Object.fromEntries(
     slots.filter((slot) => slot.granted).map((slot) => [String(slot.key), String(slot.pick?.name)]),
   );
@@ -66,12 +70,15 @@ const DEMONIC: Build = { className: 'sorcerer', feature: 'bloodline', pick: 'blo
 describe('granted repertoire spells in Player Core 2', () => {
   beforeAll(async () => {
     const registry = new ContentRegistry();
+
     const packs = await Promise.all(
       cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Spell, ContentKind.Deity]).map(async (loader) => loader.load()),
     );
+
     for (const pack of packs) {
       registry.register(contentPackFromContents(pack));
     }
+
     content = sheetSlotContent(registry);
   }, PREBUILD_TIMEOUT);
 
@@ -94,6 +101,7 @@ describe('granted repertoire spells in Player Core 2', () => {
 
   it('offers a gift for the signature slot of its rank', () => {
     const document = character(DEMONIC);
+
     const first = signatureSlots(document, preparedReads(document, contentOf())).find(
       (slot) => String(slot.key) === 'signature:sorcerer:1',
     );
@@ -114,6 +122,7 @@ describe('granted repertoire spells in Player Core 2', () => {
   it('lets an oracle add up to three spells of a deity that grants a domain of its mystery', async () => {
     const flamesDeitySlot = await choiceSlotKey(ContentId.parse(idOf('class-feature:flames')), 'divine-access-deity');
     const sarenrae = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
+
     const flames: Build = {
       className: 'oracle',
       feature: 'mystery',
@@ -121,6 +130,7 @@ describe('granted repertoire spells in Player Core 2', () => {
       level: 11,
       extra: { [flamesDeitySlot]: sarenrae },
     };
+
     const document = character(flames);
     const slots = preparedSlots(document, preparedReads(document, contentOf())).filter((slot) => slot.deitySpell);
 

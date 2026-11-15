@@ -19,20 +19,25 @@ interface FetcherUnderTest {
 
 function fetcherOf(answer: Answer): FetcherUnderTest {
   const asked: string[] = [];
+
   const fetcher = new HttpPathbuilderExportFetcher(async (url, init) => {
     asked.push(url);
     expect(init.redirect).toBe('manual');
+
     return answer(url);
   }, LIMITS);
+
   return { fetcher, asked };
 }
 
 /** The next of the queued answers; the test is wrong if it asks for more than it queued. */
 function nextOf(answers: Response[]): Response {
   const [next] = answers.splice(0, 1);
+
   if (next === undefined) {
     throw new Error('No answer queued');
   }
+
   return next;
 }
 
@@ -42,6 +47,7 @@ function redirect(location: string): Response {
 
 async function problemOf(fetched: Promise<FetchedExport>): Promise<string | undefined> {
   const result = await fetched;
+
   return result.ok ? undefined : result.problem;
 }
 
@@ -84,6 +90,7 @@ describe('HttpPathbuilderExportFetcher', () => {
   test('gives a typed problem for a non-JSON answer, an error status and a network failure', async () => {
     const text = fetcherOf(() => new Response('<html>nope</html>'));
     const status = fetcherOf(() => new Response('{}', { status: 500 }));
+
     const network = fetcherOf(() => {
       throw new TypeError('fetch failed');
     });

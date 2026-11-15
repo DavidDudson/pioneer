@@ -90,6 +90,7 @@ function fieldPerSlot(
 ): Signal<InlineEdit<string | undefined> | undefined> {
   return computed(() => {
     const key = slot();
+
     return key === undefined ? undefined : slotField(sources, signal(key), options);
   });
 }
@@ -102,10 +103,13 @@ function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<readonl
   return computed(() => {
     const registry = sources.registry();
     const character = sources.character();
+
     if (registry === undefined || character === undefined) {
       return [];
     }
+
     const options = sheetRootOptions(registry, character, slot);
+
     return MARKED_ROOT_SLOTS.has(slot)
       ? markTrainedAgain(sheetTrainedAgain(registry, character, slot), options, sources.translate)
       : options;
@@ -121,9 +125,11 @@ function subclassOptionsOf(
     const registry = sources.registry();
     const character = sources.character();
     const read = subclass();
+
     if (read === undefined || registry === undefined || character === undefined) {
       return [];
     }
+
     return markTrainedAgain(sheetTrainedAgain(registry, character, read.key), read.options, sources.translate);
   });
 }
@@ -133,12 +139,14 @@ function classPicks(sources: BuildPickSources, classSlot: SlotKey, source: Boost
   const subclass = loaded(sources, (registry, character) => sheetSubclass(registry, character, classSlot));
   const subclassOptions = subclassOptionsOf(sources, subclass);
   const keyAttribute = loaded(sources, (registry, character) => sheetKeyAttribute(registry, character, source));
+
   const keyAttributeOptions = computed((): readonly SelectOption<string>[] =>
     (keyAttribute()?.options ?? []).map((attribute) => ({
       value: attribute,
       label: sources.translate(ATTRIBUTE_MESSAGES[attribute]),
     })),
   );
+
   return {
     subclass,
     subclassOptions,
@@ -160,6 +168,7 @@ function classPicks(sources: BuildPickSources, classSlot: SlotKey, source: Boost
 /** The sheet's build pickers over `sources`, each reading the registry, the character and its slots as they load. */
 export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   const hasSecondClass = loaded(sources, (registry) => sheetHasSecondClass(registry));
+
   return {
     rootOptions: (slot) => rootOptionsOf(sources, slot),
     rootField: (slot, options) => slotField(sources, signal(slot), options),
@@ -173,6 +182,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const registry = sources.registry();
       const character = sources.character();
       const slots = sources.slots();
+
       return registry === undefined || character === undefined || slots === undefined
         ? undefined
         : sheetBuildSummary(registry, character, slots);
@@ -180,6 +190,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     choices: computed(() => {
       const slots = sources.slots();
       const registry = sources.registry();
+
       return slots === undefined
         ? undefined
         : sheetChoices(slots, registry === undefined ? undefined : sheetSlotContent(registry).lookup);

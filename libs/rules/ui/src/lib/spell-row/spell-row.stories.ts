@@ -69,6 +69,7 @@ const meta: Meta<SpellRow> = {
     }),
   ],
 };
+
 export default meta;
 
 /** Name, dice and cast on the first row; rank and traits, and the source, on the second. */

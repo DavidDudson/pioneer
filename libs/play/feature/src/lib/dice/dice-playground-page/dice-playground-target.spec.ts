@@ -54,9 +54,11 @@ describe('DicePlaygroundPage with a target', () => {
     await press(harness, 'Apply to a target');
     pick(harness, 0, 'fire');
     await press(harness, 'Add immunity');
+
     const remove = present(
       harness.routeNativeElement?.querySelector<HTMLButtonElement>('button[aria-label="Remove immunity to Fire"]'),
     );
+
     remove.click();
     await harness.fixture.whenStable();
     await press(harness, 'Roll');
@@ -102,9 +104,11 @@ describe('DicePlaygroundPage with a target', () => {
     await press(harness, 'Apply to a target');
     pick(harness, 2, 'physical');
     await press(harness, 'Add resistance');
+
     const remove = present(
       harness.routeNativeElement?.querySelector<HTMLButtonElement>('button[aria-label="Remove resistance Physical 5"]'),
     );
+
     remove.click();
     await harness.fixture.whenStable();
     await press(harness, 'Roll');

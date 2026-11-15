@@ -43,11 +43,14 @@ function mistake(text: string, error: MessageDescriptor, position: TextPosition)
 /** Parse `text` as a formula and evaluate it with the reference values in `entries`. Never throws. */
 export function checkFormula(text: string, entries: ReferenceEntries): FormulaCheck {
   const parsed = parseFormula(FormulaText.parse(text));
+
   if (!parsed.ok) {
     return mistake(text, parsed.error, parsed.position);
   }
+
   const { formula } = parsed;
   const outcome = evaluate(formula, resolverFor(entries));
+
   return {
     status: CheckStatus.Valid,
     canonical: printFormula(formula),

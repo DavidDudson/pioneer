@@ -41,14 +41,18 @@ async function openPicker<TRow, TPicker extends RowPicker<TRow>>(
 ): Promise<OpenedPicker<TPicker>> {
   const field = await vi.waitFor(() => fieldLabelled(root, label));
   present(field.querySelector<HTMLElement>('button')).click();
+
   const picker = await vi.waitFor(() => {
     const found = harnessOf(root).fixture.debugElement.query(By.directive(type));
     const component: unknown = found.componentInstance;
+
     if (!(component instanceof type)) {
       throw new TypeError(`Expected the ${label} picker to be open`);
     }
+
     return component;
   });
+
   return { field, picker };
 }
 
@@ -61,11 +65,14 @@ export async function rowsShown<TRow, TPicker extends RowPicker<TRow>>(
   target: PickerTarget<TPicker>,
 ): Promise<readonly TRow[]> {
   const { picker } = await openPicker<TRow, TPicker>(root, target);
+
   return vi.waitFor(() => {
     const rows = picker.rows();
+
     if (rows.length === 0) {
       throw new Error(`Expected the ${target.label} picker to have rows`);
     }
+
     return rows;
   });
 }
@@ -83,6 +90,7 @@ export async function pickRow<
   const row = await vi.waitFor(() => present(picker.rows().find((each) => each.name.startsWith(name))));
   picker.value.set(row.id);
   picker.committed.emit();
+
   return field;
 }
 
@@ -98,6 +106,7 @@ export async function pickValue<TRow, TPicker extends RowPicker<TRow>>(
   const { field, picker } = await openPicker<TRow, TPicker>(root, target);
   picker.value.set(value);
   picker.committed.emit();
+
   return field;
 }
 

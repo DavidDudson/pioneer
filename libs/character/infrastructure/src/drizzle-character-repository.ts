@@ -46,6 +46,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   public override async pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
     const where = and(eq(characters.ownerId, ownerId), isNull(characters.archivedAt), ...filterConditions(query));
     const order = query.direction === SortDirection.Asc ? asc : desc;
+
     const [rows, [counted]] = await Promise.all([
       this.#db
         .select({ character: characters, play: characterPlay.state })
@@ -57,6 +58,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
         .offset((query.page - 1) * CHARACTER_PAGE_SIZE),
       this.#db.select({ total: count() }).from(characters).where(where),
     ]);
+
     return {
       items: rows.map((row) => toCharacter(row)),
       total: CharacterCount.parse(counted?.total ?? 0),
@@ -74,12 +76,14 @@ export class DrizzleCharacterRepository extends CharacterRepository {
 
   async #listFor(where: SQL | undefined, query: CharacterListQuery): Promise<readonly Character[]> {
     const order = query.direction === SortDirection.Asc ? asc : desc;
+
     const rows = await this.#db
       .select({ character: characters, play: characterPlay.state })
       .from(characters)
       .leftJoin(characterPlay, eq(characterPlay.characterId, characters.id))
       .where(where)
       .orderBy(order(SORT_COLUMNS[query.sort]), order(characters.id));
+
     return rows.map((row) => toCharacter(row));
   }
 
@@ -92,6 +96,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
       .select({ ownerId: characters.ownerId })
       .from(characters)
       .where(and(eq(characters.id, id), isNull(characters.archivedAt)));
+
     return row?.ownerId;
   }
 
@@ -99,11 +104,13 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     if (ids.length === 0) {
       return [];
     }
+
     const rows = await this.#db
       .select({ character: characters, play: characterPlay.state })
       .from(characters)
       .leftJoin(characterPlay, eq(characterPlay.characterId, characters.id))
       .where(and(inArray(characters.id, [...ids]), isNull(characters.archivedAt)));
+
     return rows.map((row) => toCharacter(row));
   }
 
@@ -118,6 +125,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
       .leftJoin(characterPlay, eq(characterPlay.characterId, characters.id))
       .where(where)
       .limit(1);
+
     return row === undefined ? undefined : toCharacter(row);
   }
 
@@ -139,6 +147,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
 
   public override async insert(character: Character, audit: CharacterAudit): Promise<Character> {
     const stamp = character.createdAt.toString();
+
     const [row] = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
       const inserted = await tx.insert(characters).values(toRow(character)).returning();
@@ -150,11 +159,14 @@ export class DrizzleCharacterRepository extends CharacterRepository {
         createdAt: stamp,
         updatedAt: stamp,
       });
+
       return inserted;
     });
+
     if (row === undefined) {
       throw new Error(`Insert of character ${character.id} returned no row`);
     }
+
     return toCharacter({ character: row, play: character.document.play });
   }
 
@@ -164,23 +176,29 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     audit: CharacterAudit,
   ): Promise<Character> {
     const next = toRow(character.withVersion(nextVersion(expectedVersion)));
+
     const saved = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
+
       const [row] = await tx
         .update(characters)
         .set(next)
         .where(and(eq(characters.id, character.id), eq(characters.version, expectedVersion)))
         .returning();
+
       const [play] = await tx
         .select({ state: characterPlay.state })
         .from(characterPlay)
         .where(eq(characterPlay.characterId, character.id))
         .limit(1);
+
       return row === undefined ? undefined : { character: row, play: play?.state };
     });
+
     if (saved === undefined) {
       throw new VersionConflictError('Character', character.id);
     }
+
     return toCharacter(saved);
   }
 
@@ -190,21 +208,25 @@ export class DrizzleCharacterRepository extends CharacterRepository {
       .from(characterPlay)
       .where(eq(characterPlay.characterId, id))
       .limit(1);
+
     return row === undefined ? undefined : toPlay(row);
   }
 
   public override async updatePlay({ id, play, expectedRevision, audit, now }: PlayWrite): Promise<CharacterPlay> {
     const [row] = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
+
       return tx
         .update(characterPlay)
         .set({ state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() })
         .where(and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)))
         .returning({ playRevision: characterPlay.playRevision, state: characterPlay.state });
     });
+
     if (row === undefined) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+
     return toPlay(row);
   }
 
@@ -214,24 +236,30 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     expectedVersion: Version,
   ): Promise<CharacterPlay> {
     const next = toRow(character.withVersion(nextVersion(expectedVersion)));
+
     return this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
+
       const [built] = await tx
         .update(characters)
         .set(next)
         .where(and(eq(characters.id, id), eq(characters.version, expectedVersion)))
         .returning({ id: characters.id });
+
       if (built === undefined) {
         throw new VersionConflictError('Character', id);
       }
+
       const [row] = await tx
         .update(characterPlay)
         .set({ state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() })
         .where(and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)))
         .returning({ playRevision: characterPlay.playRevision, state: characterPlay.state });
+
       if (row === undefined) {
         throw new VersionConflictError('CharacterPlay', id);
       }
+
       return toPlay(row);
     });
   }

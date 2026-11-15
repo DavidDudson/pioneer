@@ -8,6 +8,7 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { campaignInvites } from './campaign.table';
 
 type InviteRow = typeof campaignInvites.$inferSelect;
+
 type NewInviteRow = typeof campaignInvites.$inferInsert;
 
 function optionalInstant(value: string | undefined): Temporal.Instant | undefined {
@@ -48,9 +49,11 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
 
   public override async insert(invite: CampaignInvite): Promise<CampaignInvite> {
     const [row] = await this.#db.insert(campaignInvites).values(toRow(invite)).returning();
+
     if (row === undefined) {
       throw new Error(`Insert of invite ${invite.id} returned no row`);
     }
+
     return toInvite(row);
   }
 
@@ -60,11 +63,13 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
       .from(campaignInvites)
       .where(eq(campaignInvites.tokenHash, tokenHash))
       .limit(1);
+
     return row === undefined ? undefined : toInvite(row);
   }
 
   public override async findById(id: CampaignInviteId): Promise<CampaignInvite | undefined> {
     const [row] = await this.#db.select().from(campaignInvites).where(eq(campaignInvites.id, id)).limit(1);
+
     return row === undefined ? undefined : toInvite(row);
   }
 
@@ -74,11 +79,13 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
       isNull(campaignInvites.revokedAt),
       gt(campaignInvites.expiresAt, now.toString()),
     );
+
     const rows = await this.#db
       .select()
       .from(campaignInvites)
       .where(open)
       .orderBy(desc(campaignInvites.createdAt), desc(campaignInvites.id));
+
     return rows.map((row) => toInvite(row));
   }
 
@@ -86,19 +93,24 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
     if (invite.revokedAt === undefined) {
       throw new Error(`Invite ${invite.id} is not revoked`);
     }
+
     // Only a first revocation is written, so racing revokes keep the earliest time.
     const [row] = await this.#db
       .update(campaignInvites)
       .set({ revokedAt: invite.revokedAt.toString() })
       .where(and(eq(campaignInvites.id, invite.id), isNull(campaignInvites.revokedAt)))
       .returning();
+
     if (row !== undefined) {
       return toInvite(row);
     }
+
     const current = await this.findById(invite.id);
+
     if (current === undefined) {
       throw new Error(`Invite ${invite.id} vanished while being revoked`);
     }
+
     return current;
   }
 
@@ -108,6 +120,7 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
       isNull(campaignInvites.revokedAt),
       gt(campaignInvites.expiresAt, now.toString()),
     );
+
     await this.#db.update(campaignInvites).set({ revokedAt: now.toString() }).where(open);
   }
 }

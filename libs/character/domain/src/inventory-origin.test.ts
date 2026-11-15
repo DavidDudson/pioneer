@@ -40,6 +40,7 @@ function ropes(
   change: (item: InventoryItem, index: number) => InventoryItem = (item) => item,
 ): Inventory {
   let inventory = EMPTY_INVENTORY;
+
   for (let index = 0; index < count; index += 1) {
     inventory = addItem(inventory, {
       id: idAt(index),
@@ -48,6 +49,7 @@ function ropes(
       container: undefined,
     });
   }
+
   return { ...inventory, items: inventory.items.map(change) };
 }
 
@@ -62,6 +64,7 @@ describe('InventorySchema: origin', () => {
       ...item,
       invested: true,
     }));
+
     expect(InventorySchema.safeParse(over).success).toBe(false);
   });
 
@@ -77,16 +80,19 @@ describe('InventorySchema: origin', () => {
         carry: { state: CarryState.Held, hands: Hands.parse(1) },
       }),
     );
+
     expect(InventorySchema.safeParse(over).success).toBe(true);
   });
 
   test('refuses a player line past the property rune cap, and keeps an imported one', () => {
     const runes = Object.values(RuneFixture).map((each) => runeFixtureId(each));
     expect(runes.length).toBeGreaterThan(PROPERTY_RUNES_MAX);
+
     const withRunes = (item: InventoryItem): InventoryItem => ({
       ...item,
       runes: { property: runes.map((rune) => ({ rune })) },
     });
+
     expect(InventorySchema.safeParse(ropes(1, withRunes)).success).toBe(false);
     expect(InventorySchema.safeParse(ropes(1, (item) => imported(withRunes(item)))).success).toBe(true);
   });
@@ -117,6 +123,7 @@ describe('an imported inventory past the limits', () => {
       quantity: one,
       container: undefined,
     });
+
     expect(inventoryRefusal(spare, { id: idAt(99), invested: true })).toMatchObject({
       field: InventoryRefusalField.Invested,
     });

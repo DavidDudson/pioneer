@@ -81,6 +81,7 @@ export class StatisticRoll {
   );
   protected readonly ariaLabel = computed(() => {
     const name = this.#i18n.translate(StatisticsMessage.Roll, { name: this.name(), modifier: this.label() });
+
     return this.cues().conditional ? this.#i18n.translate(RollEffectMessage.Conditional, { label: name }) : name;
   });
   /** Each fortune, misfortune and degree adjustment that reaches the check, worded for the popover. */
@@ -88,8 +89,10 @@ export class StatisticRoll {
     if (this.flat()) {
       return [];
     }
+
     const words = { i18n: this.#i18n, format: this.#format, names: { entries: this.entryNames() } };
     const { rollTwice = [], degreeAdjustments = [] } = this.statistic().rollEffects ?? {};
+
     return [
       ...rollTwice.map((line) => rollTwiceText(line, words)),
       ...degreeAdjustments.map((line) => degreeAdjustmentText(line, words)),
@@ -99,8 +102,10 @@ export class StatisticRoll {
   protected roll(): void {
     if (this.flat()) {
       this.roller?.rollFlat?.(this.name(), this.statistic().total);
+
       return;
     }
+
     this.roller?.roll({ name: this.name(), statistic: this.statistic() });
   }
 }

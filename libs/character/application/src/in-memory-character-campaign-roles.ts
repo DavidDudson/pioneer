@@ -10,6 +10,7 @@ export class InMemoryCharacterCampaignRoles extends CharacterCampaignRoles {
   /** Makes the user `role` in the campaign the character is attached to; saying so again replaces it. */
   public assign(characterId: CharacterId, user: UserId, role: OverrideRole): this {
     this.#roles.set(`${characterId}:${user}`, role);
+
     return this;
   }
 

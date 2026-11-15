@@ -35,6 +35,7 @@ function spell(slug: string, sources: readonly object[]): object {
 }
 
 const book = (id: string, fields: object = {}): object => ({ kind: 'book', book: id, ...fields });
+
 const mappings = (entries: Record<string, object>): ReadonlyMap<EntrySlug, EnrichmentMapping> =>
   new Map(Object.entries(entries).map(([slug, json]) => [EntrySlug.parse(slug), EnrichmentMapping.parse(json)]));
 
@@ -53,10 +54,12 @@ describe('enrichSourcesFile', () => {
 
   test('never replaces a value already set, and fills only the one that is missing', () => {
     const file = [spell(HEAL, [book(PACK, { page: 7 })]), spell(FIRE, [book(PACK, { page: 7, aon: OTHER_AON })])];
+
     const result = enrichSourcesFile(
       file,
       mappings({ [HEAL]: { book: PACK, page: 4, aon: AON }, [FIRE]: { book: PACK, page: 4, aon: AON } }),
     );
+
     expect(result).toMatchObject({ pages: 0, aons: 1 });
     expect(result.json?.[0]).toMatchObject({ sources: [book(PACK, { page: 7, aon: AON })] });
     expect(result.json?.[1]).toBe(file[1]);

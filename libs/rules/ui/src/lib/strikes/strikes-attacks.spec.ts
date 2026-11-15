@@ -15,6 +15,7 @@ async function render(attacksMade: number | undefined): Promise<HTMLElement> {
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   fixture.componentRef.setInput('attacksMade', attacksMade);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -23,6 +24,7 @@ function steps(page: HTMLElement): string[] {
   const line = [...page.querySelectorAll('fr-text')]
     .map((text) => text.textContent.trim())
     .find((text) => text.startsWith('Attack ') && text.includes(' / '));
+
   return line?.replace('Attack ', '').split(' / ') ?? [];
 }
 

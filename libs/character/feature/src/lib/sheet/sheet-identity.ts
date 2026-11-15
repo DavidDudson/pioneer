@@ -15,6 +15,7 @@ export interface IdentityParams {
 
 function nameOf(lines: readonly BuildLine[], part: BuildPart): string | undefined {
   const value = lines.find((line) => line.part === part)?.value;
+
   return value !== undefined && 'name' in value ? value.name : undefined;
 }
 
@@ -26,6 +27,7 @@ export function sheetIdentity(character: Character, lines: readonly BuildLine[])
   const ancestry = nameOf(lines, BuildPart.Ancestry);
   const characterClass = nameOf(lines, BuildPart.Class);
   const subclass = nameOf(lines, BuildPart.Subclass);
+
   return {
     level: character.level,
     hasAncestry: ancestry === undefined ? 'no' : 'yes',

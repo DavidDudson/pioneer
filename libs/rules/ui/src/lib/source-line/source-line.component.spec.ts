@@ -28,18 +28,23 @@ async function render(
     'sources',
     sources.map((source) => SourceRef.parse(source)),
   );
+
   if (names.authors !== undefined) {
     fixture.componentRef.setInput('authorNames', names.authors);
   }
+
   if (names.packs !== undefined) {
     fixture.componentRef.setInput('packNames', names.packs);
   }
+
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
   const line = host.querySelector('p');
+
   if (line === null) {
     throw new Error('pio-source-line rendered no <p>');
   }
+
   return { line, links: [...line.querySelectorAll('a')] };
 }
 
@@ -120,6 +125,7 @@ describe(SourceLineView, () => {
 
     it('links the pack name when the source has a URL', async () => {
       const url = 'https://example.com/lost-lands';
+
       const { line, links } = await render([{ kind: 'homebrew', pack: PACK, author: AUTHOR, url }], {
         packs: new Map([[PACK, 'The Lost Lands']]),
       });

@@ -14,10 +14,12 @@ const TWO = 2;
 
 /** Rounds of air left, which a character holding its breath loses as the turns pass. */
 export const AirRounds = z.int().min(NONE).max(AIR_ROUNDS_MAX).brand<'AirRounds'>();
+
 export type AirRounds = z.infer<typeof AirRounds>;
 
 /** How many of the Fortitude saves against suffocation the character has made so far. */
 export const SuffocationChecks = z.int().min(NONE).max(CHECKS_MAX).brand<'SuffocationChecks'>();
+
 export type SuffocationChecks = z.infer<typeof SuffocationChecks>;
 
 /**
@@ -30,6 +32,7 @@ export const BreathStateSchema = z.strictObject({
   /** The Unconscious condition running out of air put on the character, which breathing again takes off. */
   unconscious: ConditionInstanceId.optional(),
 });
+
 export type BreathState = z.infer<typeof BreathStateSchema>;
 
 /** The character's breath in play state; undefined while it breathes freely. */
@@ -42,12 +45,14 @@ export const BreathCommandField = {
   /** Access to air restored: the character stops suffocating. */
   ClearBreath: 'clearBreath',
 } as const;
+
 export type BreathCommandField = ValueOf<typeof BreathCommandField>;
 
 export const BreathCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(BreathCommandField.SetBreath), air: AirRounds, checks: SuffocationChecks }),
   z.object({ field: z.literal(BreathCommandField.ClearBreath) }),
 ]);
+
 export type BreathCommand = z.infer<typeof BreathCommandSchema>;
 
 /** Whether `command` sets the breath or clears it. */
@@ -62,7 +67,9 @@ export function applyBreathCommand(command: BreathCommand, before: BreathState |
   if (command.field === BreathCommandField.ClearBreath) {
     return undefined;
   }
+
   const unconscious = command.air === NONE ? before?.unconscious : undefined;
+
   return { air: command.air, checks: command.checks, ...(unconscious === undefined ? {} : { unconscious }) };
 }
 
@@ -79,6 +86,7 @@ const BASE_AIR = 5;
 /** The rounds a character can hold its breath: 5 plus its Constitution modifier, and at least none. */
 export function maxAir(attributes: AttributeModifiers): AirRounds {
   const rounds = BASE_AIR + attributes.get(Attribute.Constitution);
+
   return AirRounds.parse(Math.min(Math.max(rounds, NONE), AIR_ROUNDS_MAX));
 }
 

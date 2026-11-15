@@ -21,6 +21,7 @@ const entries: readonly Weighted<string>[] = [
 /** How often `item` comes first over `DRAWS` shuffles of `list`. */
 function firsts(list: readonly Weighted<string>[], item: string): number {
   const source = seededPicks(SEED);
+
   return Array.from({ length: DRAWS }, () => weightedShuffle(source, list)[0]).filter((first) => first === item).length;
 }
 

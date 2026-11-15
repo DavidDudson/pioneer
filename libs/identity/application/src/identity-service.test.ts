@@ -23,6 +23,7 @@ function harness(): Harness {
   const clock: Clock = { now: () => now };
   const users = new InMemoryUserRepository();
   const sessions = new InMemorySessionRepository(users);
+
   return {
     service: new IdentityService(users, sessions, clock),
     sessions,
@@ -71,9 +72,11 @@ describe('IdentityService', () => {
   test('a verified email from another provider signs in to the same user', async () => {
     const { service, users } = harness();
     const github = await service.signIn(new ProfileBuilder().withSubject('1').withEmail('amiri@example.com').build());
+
     const google = await service.signIn(
       new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-1').withEmail('Amiri@Example.com').build(),
     );
+
     expect(google.user.id).toBe(github.user.id);
     expect(users.size).toBe(1);
 
@@ -96,9 +99,11 @@ describe('IdentityService', () => {
     const first = await service.signIn(new ProfileBuilder().withSubject('1').withEmail('kyra@example.com').build());
     advance({ hours: 1 });
     await service.signIn(new ProfileBuilder().from(OAuthProvider.Discord).withSubject('d-9').build());
+
     const linked = await service.signIn(
       new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-2').withEmail('kyra@example.com').build(),
     );
+
     expect(linked.user.id).toBe(first.user.id);
   });
 

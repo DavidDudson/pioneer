@@ -16,11 +16,13 @@ const PACKS = path.join(ROOT, 'content', 'packs');
 const SUPERSEDES = path.join(ROOT, 'content', 'aon', 'supersedes');
 
 const packPaths = await Array.fromAsync(new Glob('*/*.json').scan({ cwd: PACKS, absolute: true }));
+
 const files = await Promise.all(
   packPaths
     .filter((file) => path.basename(file) !== 'pack.json')
     .map(async (file) => ({ path: file, text: await Bun.file(file).text() })),
 );
+
 const pairPaths = await Array.fromAsync(new Glob('*.json').scan({ cwd: SUPERSEDES, absolute: true }));
 const pairs = await Promise.all(pairPaths.map(async (file) => AonSupersedesFile.parse(await Bun.file(file).json())));
 
@@ -28,10 +30,15 @@ const { replaces, unresolved } = supersedesLinks(
   files.flatMap(({ text }) => ContentEntryFile.parse(JSON.parse(text))),
   pairs,
 );
+
 const results = files.map(({ path: file, text }) => ({ path: file, enriched: enrichSupersedesText(text, replaces) }));
+
 const changed = results.flatMap(({ path: file, enriched }) =>
   enriched.text === undefined ? [] : [{ path: file, text: enriched.text }],
 );
+
 await Promise.all(changed.map(async ({ path: file, text }) => Bun.write(file, text)));
+
 const set = results.reduce((sum, { enriched }) => sum + enriched.set, 0);
+
 console.log(`${set} supersedes set in ${changed.length} files; ${unresolved} AoN pairs had no entry on a side`);

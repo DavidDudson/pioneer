@@ -10,15 +10,19 @@ import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
 
 const registry = new ContentRegistry();
+
 registry.register(BROWSE_PACK);
 
 const compare = (left: string, right: string): number => left.localeCompare(right);
+
 /** The id of the entry named `name`; the specs only ask for names the fixtures hold. */
 function idOf(entries: readonly ContentEntry[], name: string): ContentId {
   const found = entries.find((entry) => entry.name === name);
+
   if (found === undefined) {
     throw new Error(`Expected an entry named ${name}`);
   }
+
   return found.id;
 }
 
@@ -39,6 +43,7 @@ describe(browseList, () => {
   const traits = FacetId.parse('traits');
   const fighter = FacetValue.parse('fighter');
   const found = (...called: readonly string[]): readonly ContentId[] => called.map((name) => idOf(entries, name));
+
   const countOf = (list: BrowseList, value: string): number | undefined =>
     list.counts.find((each) => each.facet.id === traits)?.values.find((each) => each.value === value)?.count;
 
@@ -126,8 +131,10 @@ describe('creatures', () => {
     const entries = entriesOf(creatureRegistry, [ContentKind.Creature]);
     const facets = facetsOf([ContentKind.Creature]);
     const role = FacetId.parse('role');
+
     const picked = (value: string): FilterState =>
       new Map([[role, { kind: SelectionKind.Values, include: [FacetValue.parse(value)], exclude: [] }]]);
+
     expect(browseList({ entries, facets, state: picked('monster') }, compare).entries).toHaveLength(1);
     expect(browseList({ entries, facets, state: picked('npc') }, compare).entries).toHaveLength(0);
   });

@@ -32,6 +32,7 @@ function setup(): Harness {
   const clock = new MovableClock();
   const users = new InMemoryUserRepository();
   const service = new IdentityService(users, new InMemorySessionRepository(users), clock);
+
   return { clock, service, auth: new SessionAuthenticator(service, { secure: true }) };
 }
 
@@ -52,9 +53,11 @@ describe(SessionAuthenticator, () => {
     const { token } = await service.signIn(new ProfileBuilder().named('Amiri').build());
     await service.signOut(token);
     const requests = [withCookie(), withCookie('pioneer_session=nonsense'), withCookie(`pioneer_session=${token}`)];
+
     const errors = await Promise.all(
       requests.map(async (request) => rejection(auth.actingUser({ request, responseHeaders: {} }))),
     );
+
     for (const error of errors) {
       expect(error).toBeInstanceOf(UnauthorizedError);
     }

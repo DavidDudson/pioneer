@@ -14,6 +14,7 @@ import type { BrowseKind } from './browse-kinds';
 /** The entries of `kinds` in the registry's packs. A later pack's entry of the same id wins, as in the registry. */
 export function entriesOf(registry: ContentRegistry, kinds: readonly BrowseKind[]): readonly ContentEntry[] {
   const held = registryEntries(registry).filter((entry) => kinds.some((kind) => kind === entry.kind));
+
   return [...new Map(held.map((entry) => [entry.id, entry])).values()];
 }
 
@@ -37,6 +38,7 @@ export interface BrowseQuery {
 /** The entries whose ids are in `matches`, in the order of `matches`. A match the bundles do not hold is skipped. */
 function matched(entries: readonly ContentEntry[], matches: readonly ContentId[]): readonly ContentEntry[] {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
+
   return matches.flatMap((id) => byId.get(id) ?? []);
 }
 
@@ -47,6 +49,7 @@ export function browseList(
 ): BrowseList {
   const searched = matches === undefined ? undefined : matched(entries, matches);
   const kept = filterEntries(searched ?? entries, facets, state);
+
   return {
     counts: facetCounts(searched ?? entries, facets, state),
     entries: searched === undefined ? kept.toSorted((left, right) => compare(left.name, right.name)) : kept,

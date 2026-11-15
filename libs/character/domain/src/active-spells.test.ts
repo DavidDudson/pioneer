@@ -96,6 +96,7 @@ describe('how long a spell can be sustained', () => {
       unit: SpellTimeUnit.Minute,
       sustained: true,
     });
+
     expect(sustainedRounds(duration)).toBe(EffectRounds.parse(20));
   });
 
@@ -114,6 +115,7 @@ describe('how long a spell can be sustained', () => {
       type: SpellDurationType.Either,
       options: [{ type: SpellDurationType.Unlimited }, { type: SpellDurationType.Sustained }],
     });
+
     expect(sustainedRounds(either)).toBe(SUSTAIN_LIMIT);
   });
 });
@@ -139,6 +141,7 @@ describe('casting a sustained spell', () => {
     const full = Array.from({ length: ACTIVE_SPELLS_MAX }, (_slot, index) =>
       activeOf(TEN_MINUTES, true, spellId(Serial.parse(index + 100))),
     );
+
     expect(refusal(withSpells(...full), castSpend(FIRST, OTHER))).toBe(SpendProblem.TooManySpells);
   });
 });
@@ -185,6 +188,7 @@ describe('dismissing', () => {
       field: ActiveSpellCommandField.DismissSpell,
       id: CAST,
     });
+
     expect(play.activeSpells).toStrictEqual([]);
     expect(play.turn).toStrictEqual(OWN_TURN);
   });

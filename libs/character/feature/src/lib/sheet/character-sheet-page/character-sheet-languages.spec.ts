@@ -40,6 +40,7 @@ async function patchBody(): Promise<unknown> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
+
   return request.request.body;
 }
 
@@ -63,10 +64,12 @@ describe('CharacterSheetPage languages', () => {
 
     const add = await vi.waitFor(() => present(buttonIn(root, 'Add language')));
     add.click();
+
     // The table renders no rows in the page harness (#734), so the pick is made on the picker: its own specs press rows.
     const picker = await vi.waitFor(() =>
       harnessOf(root).fixture.debugElement.query(By.directive(LanguagePicker)).injector.get(LanguagePicker),
     );
+
     picker.value.set(language('draconic'));
 
     await expect(patchBody()).resolves.toMatchObject({
@@ -88,6 +91,7 @@ describe('CharacterSheetPage languages', () => {
     const remove = await vi.waitFor(() => present(buttonIn(root, 'Remove Goblin')));
     remove.focus();
     remove.click();
+
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );

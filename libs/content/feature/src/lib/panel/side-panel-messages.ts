@@ -24,5 +24,6 @@ const SIDE_PANEL_SCOPES: readonly MessageScope[] = [
  */
 export async function loadSidePanel(i18n: TranslocoService): Promise<Type<unknown>> {
   await loadMessageScopes(i18n, SIDE_PANEL_SCOPES);
+
   return ContentSidePanel;
 }

@@ -29,6 +29,7 @@ describe('rule elements that only change a Foundry token', () => {
   test('the other elements of the entry are translated as they were', () => {
     const modifier = { key: 'FlatModifier', selector: 'ac', value: 1 };
     const unknown = { key: 'Nonsense' };
+
     const { rules, untranslated, dropped } = translateRules(ENTRY, [TOKEN_LIGHT, modifier, unknown], {
       lang: {},
       values: { item: 'Lantern' },

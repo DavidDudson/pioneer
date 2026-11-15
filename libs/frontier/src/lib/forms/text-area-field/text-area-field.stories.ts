@@ -24,6 +24,7 @@ const meta: Meta<TextAreaField> = {
     template: `<fr-text-area-field ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Default: TextAreaFieldStory = {};

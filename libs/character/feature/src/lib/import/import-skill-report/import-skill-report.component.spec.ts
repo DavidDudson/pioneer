@@ -16,6 +16,7 @@ const NATURE: SkillGap = {
   wanted: Proficiency.Master,
   reached: Proficiency.Expert,
 };
+
 const ENCHANTMENT: SkillGap = {
   name: PathbuilderName.parse('Enchantment'),
   wanted: Proficiency.Trained,
@@ -28,6 +29,7 @@ async function render(skillGaps: readonly SkillGap[]): Promise<string> {
   const fixture: ComponentFixture<ImportSkillReport> = TestBed.createComponent(ImportSkillReport);
   fixture.componentRef.setInput('skillGaps', skillGaps);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

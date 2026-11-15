@@ -22,9 +22,11 @@ function check(total: number, natural?: number): CheckOutcome {
 
 function roll(text: string, faces: readonly number[]): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(outcome.error.key);
   }
+
   return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 
@@ -79,6 +81,7 @@ describe('degreeOfSuccess', () => {
     const adjustments: DegreeAdjustment[] = [
       { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
     ];
+
     // Ten below the DC is a critical failure; the natural 20 makes it a failure, which the adjustment matches.
     const result = degreeOfSuccess(check(10, 20), DC_20, adjustments);
     expect(result.degree).toBe(DegreeOfSuccess.Success);
@@ -99,6 +102,7 @@ describe('degreeOfSuccess', () => {
       { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
       { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: CLUMSY },
     ]);
+
     expect(result.degree).toBe(DegreeOfSuccess.Success);
     expect(result.steps).toHaveLength(2);
   });
@@ -108,6 +112,7 @@ describe('degreeOfSuccess', () => {
       { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: INCISIVE },
       { change: DegreeChange.OneDegreeWorse, reason: CLUMSY },
     ]);
+
     expect(result.degree).toBe(DegreeOfSuccess.Failure);
     expect(result.steps[1]?.reason).toEqual(CLUMSY);
   });
@@ -117,6 +122,7 @@ describe('degreeOfSuccess', () => {
       { change: DegreeChange.OneDegreeBetter, reason: INCISIVE },
       { appliesTo: DegreeOfSuccess.CriticalSuccess, change: DegreeChange.ToSuccess, reason: CLUMSY },
     ]);
+
     expect(result.degree).toBe(DegreeOfSuccess.Success);
     expect(result.steps[1]?.reason).toEqual(CLUMSY);
   });
@@ -125,6 +131,7 @@ describe('degreeOfSuccess', () => {
     const result = degreeOfSuccess(check(22), DC_20, [
       { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
     ]);
+
     expect(result.steps).toHaveLength(1);
   });
 
@@ -132,6 +139,7 @@ describe('degreeOfSuccess', () => {
     const result = degreeOfSuccess(check(22), DC_20, [
       { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: INCISIVE },
     ]);
+
     expect(result.degree).toBe(DegreeOfSuccess.CriticalSuccess);
     expect(result.steps[1]).toEqual({
       kind: DegreeStepKind.Adjustment,

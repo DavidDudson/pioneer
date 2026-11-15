@@ -9,4 +9,5 @@ export const HeritageData = z.strictObject({
   /** The `ancestry` entry it belongs to; absent for a versatile heritage, which any ancestry can take. */
   ancestry: ContentId.optional(),
 });
+
 export type HeritageData = z.infer<typeof HeritageData>;

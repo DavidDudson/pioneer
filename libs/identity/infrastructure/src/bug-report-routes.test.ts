@@ -39,6 +39,7 @@ function fixture(): Fixture {
   const reports = new BugReportService(repository, new InMemoryCharacterSnapshotSource(), fixedClock(NOW));
   const triage = new BugReportTriageService(repository, new InMemoryUserRepository());
   const routes = bugReportRoutes(reports, triage, new FakeAuthenticator());
+
   return { api: new Elysia().use(problemHandler).use(routes), repository };
 }
 
@@ -47,6 +48,7 @@ async function report(api: AnyElysia, body: unknown, user?: UserId): Promise<Res
     'content-type': 'application/json',
     ...(user === undefined ? {} : actingAs(user)),
   };
+
   return api.handle(
     new Request('http://localhost/me/bug-reports', {
       method: 'POST',
@@ -87,6 +89,7 @@ describe('bug report routes', () => {
     const { api, repository } = fixture();
     const amiri = UserId.parse(newId());
     const submission = BugReportSubmission.parse(BODY);
+
     const stored: BugReport[] = Array.from({ length: BUG_REPORT_LIMIT }, () => ({
       ...submission,
       id: BugReportId.parse(newId()),
@@ -94,6 +97,7 @@ describe('bug report routes', () => {
       createdAt: Temporal.Instant.from(NOW),
       status: BugReportStatus.Open,
     }));
+
     await Promise.all(stored.map(async (seeded) => repository.insert(seeded)));
     const response = await report(api, BODY, amiri);
     expect(response.status).toBe(429);

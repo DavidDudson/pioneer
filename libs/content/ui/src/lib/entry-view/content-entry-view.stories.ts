@@ -11,6 +11,7 @@ const meta: Meta<ContentEntryView> = {
   component: ContentEntryView,
   args: { card: SHIELD_BLOCK_CARD },
 };
+
 export default meta;
 
 /** An entry: its card, with the opening of the description. */

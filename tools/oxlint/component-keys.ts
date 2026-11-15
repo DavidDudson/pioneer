@@ -10,9 +10,11 @@ interface DecoratorShape {
 /** Property names of the object literal passed to `@Component({...})`, if this is one. */
 export function componentKeys(node: unknown): readonly string[] {
   const { expression } = node as DecoratorShape;
+
   if (expression?.callee?.name !== 'Component') {
     return [];
   }
+
   return (expression.arguments?.[0]?.properties ?? []).flatMap((property) =>
     typeof property.key?.name === 'string' ? [property.key.name] : [],
   );

@@ -29,6 +29,7 @@ function selectorOf(
 ): Selector | undefined {
   const pick = picks.get(pickKey(entry, take, choice));
   const selector = pick === undefined ? undefined : Selector.safeParse(`${prefix}:${pick}`);
+
   return selector?.success === true ? selector.data : undefined;
 }
 
@@ -43,13 +44,17 @@ export function resolvedRules(resolution: GrantResolution): readonly ResolvedRul
   const picks = new Map(
     resolution.answered.map(({ origin, take, flag, pick }) => [pickKey(origin.entry, take, flag), pick]),
   );
+
   return resolution.items.flatMap(({ entry, origin, take }) =>
     entry.rules.flatMap((element, index): ResolvedRule[] => {
       const rule = RuleIndex.parse(index);
+
       if (element.key !== RuleElementKey.Proficiency || typeof element.selector === 'string') {
         return take === FIRST_TAKE ? [{ entry, origin, rule, element }] : [];
       }
+
       const selector = selectorOf(element.selector, { entry: entry.id, take }, picks);
+
       return selector === undefined ? [] : [{ entry, origin, rule, element: { ...element, selector } }];
     }),
   );

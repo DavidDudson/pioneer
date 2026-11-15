@@ -11,7 +11,9 @@ import { CharacterBuilder, PLAYER_CORE_CLASSES, playerCoreClasses, playerCoreCla
 import type { PlayerCoreClass } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const classes = classContent(registry);
 
@@ -119,6 +121,7 @@ const PLAYER_CORE: Readonly<Record<PlayerCoreClass, Expected>> = {
 const STATISTICS = ['perception', 'save:fortitude', 'save:reflex', 'save:will'].map((selector) =>
   Selector.parse(selector),
 );
+
 const CLASS_DC = Selector.parse('class-dc');
 const AC = Selector.parse('ac');
 const UNARMORED = Selector.parse('defense:unarmored');
@@ -149,8 +152,10 @@ describe('Player Core classes at 1st level', () => {
   test('every class resolves without errors', () => {
     const failing = PLAYER_CORE_CLASSES.filter((name) => {
       const { document } = level1(name).build();
+
       return characterGrants(document, content).errors.length > 0;
     });
+
     expect(failing).toEqual([]);
   });
 });
@@ -177,6 +182,7 @@ describe('the subclass', () => {
     const wizard = playerCoreClassId('wizard');
     const exCleric = level1('cleric').picking(doctrineKey, cloistered).picking('class', wizard).build().document;
     const exFighter = level1('fighter').picking('class', wizard).build().document;
+
     const statusOf = (document: typeof exCleric, key: SlotKey): SlotStatus | undefined =>
       characterSlots(document, content).find((slot) => slot.key === key)?.status;
 
@@ -193,6 +199,7 @@ describe('class features by level', () => {
     .withAncestry('human')
     .withClassFeature('bravery')
     .withClassFeature('armor-training');
+
   pack.withClass('guardian', ['str'], {
     hitPoints: 12,
     rules: [
@@ -214,7 +221,9 @@ describe('class features by level', () => {
       .picking('class', pack.idOf(ContentKind.Class, 'guardian'))
       .atLevel(level)
       .build();
+
     const features = classFeatures(characterGrants(document, homebrewContent), homebrewContent.lookup);
+
     return features.map((feature) => `${feature.name} (${feature.className} ${feature.level})`);
   }
 

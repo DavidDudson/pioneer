@@ -41,12 +41,14 @@ export class BugReporter {
   public cameFrom(): ReportedRoute {
     const previous = this.#router.lastSuccessfulNavigation()?.previousNavigation?.finalUrl;
     const url = previous === undefined ? this.#router.url : this.#router.serializeUrl(previous);
+
     return ReportedRoute.parse(url);
   }
 
   /** The browser, or `unknown` where there is no window or it names nothing. */
   #userAgent(): string {
     const reported = this.#document.defaultView?.navigator.userAgent ?? '';
+
     return reported === '' ? UNKNOWN_USER_AGENT : reported;
   }
 
@@ -61,6 +63,7 @@ export class BugReporter {
       characterId: draft.characterId,
       shareCharacter: draft.shareCharacter,
     });
+
     return this.#api.call(IdentityContract.reportBug, { params: {}, body });
   }
 }

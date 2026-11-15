@@ -46,6 +46,7 @@ export class Segmented<TValue extends string> extends Control {
     if (value === this.value()) {
       return;
     }
+
     this.value.set(value);
     this.committed.emit();
   }

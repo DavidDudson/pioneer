@@ -18,6 +18,7 @@ const meta: Meta<Modal> = {
     `,
   }),
 };
+
 export default meta;
 
 /** A small modal over the page: focus is trapped, the page behind is inert, Escape closes it. */

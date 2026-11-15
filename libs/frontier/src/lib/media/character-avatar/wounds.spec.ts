@@ -35,6 +35,7 @@ describe(wounds, () => {
     const darkness = [0, 1, 2, DEATH_SAVE_LIMIT, 9].map(
       (failedSaves) => wounds({ current: 0, max: 20, failedSaves }).darkness,
     );
+
     expect(darkness).toStrictEqual([0, 1 / 3, 2 / 3, 1, 1]);
   });
 

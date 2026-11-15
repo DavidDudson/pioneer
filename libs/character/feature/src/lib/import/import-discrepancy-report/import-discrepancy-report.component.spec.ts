@@ -20,6 +20,7 @@ async function render(report: DiscrepancyReport): Promise<string> {
   const fixture: ComponentFixture<ImportDiscrepancyReport> = TestBed.createComponent(ImportDiscrepancyReport);
   fixture.componentRef.setInput('report', report);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

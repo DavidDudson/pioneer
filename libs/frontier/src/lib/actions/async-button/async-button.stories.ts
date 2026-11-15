@@ -39,6 +39,7 @@ const meta: Meta<AsyncButtonStoryArgs> = {
     template: `<fr-async-button ${argsToTemplate(args)}>${label}</fr-async-button>`,
   }),
 };
+
 export default meta;
 
 export const Succeeds: AsyncButtonStory = {};

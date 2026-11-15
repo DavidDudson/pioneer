@@ -23,6 +23,7 @@ function entry(kind: ContentKind, name: string, source: SourceRef = bookSource(B
       .replaceAll(/[^a-z]+/gu, '-')
       .replaceAll(/^-|-$/gu, '')}`,
   );
+
   return { slug, kind, name, sources: [source] };
 }
 
@@ -82,6 +83,7 @@ describe('proposeAonMappings page kinds', () => {
       book: BOOK,
       entries: [listed('Goblin Warrior', 'Monsters', 7), listed('Guard', 'NPCs', 8)],
     };
+
     const goblin = entry(ContentKind.Creature, 'Goblin Warrior');
     const guard = entry(ContentKind.Creature, 'Guard');
     const { proposals } = proposeAonMappings([goblin, guard], [listing], new Set());
@@ -200,10 +202,12 @@ describe('proposeAonMappings other books and plurals', () => {
     const shield = entry(ContentKind.Shield, 'Spined Shield');
     const feat = entry(ContentKind.Feat, 'Spined Shield');
     const away: AonListing = { book: other, entries: [listed('Spined Shield', 'Equipment', 40)] };
+
     const more: AonListing = {
       book: BookId.parse('player-core-2'),
       entries: [listed('Spined Shield', 'Equipment', 41)],
     };
+
     const result = proposeAonMappings([shield, feat], [home, away, more], new Set());
     expect(result.ambiguous).toEqual([shield.slug]);
     expect(result.unmatched).toEqual([feat.slug]);
@@ -236,12 +240,14 @@ describe('proposeAonMappings superseded creatures and feats', () => {
   test('takes the highest ID of a creature or feat with several rows of one page', () => {
     const elder = entry(ContentKind.Creature, 'Anadi Elder');
     const display = entry(ContentKind.Feat, 'Banshee Cry Display');
+
     const entries = [
       listed('Anadi Elder', 'Monsters', 432),
       listed('Anadi Elder', 'Monsters', 1424),
       listed('Banshee Cry Display', 'Feats', 3250),
       listed('Banshee Cry Display', 'Feats', 8533),
     ];
+
     const { proposals } = proposeAonMappings([elder, display], [{ book: BOOK, entries }], new Set());
     expect(proposals.get(elder.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Monsters.aspx?ID=1424'));
     expect(proposals.get(display.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=8533'));

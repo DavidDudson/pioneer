@@ -15,9 +15,11 @@ export function conditionCard(entry: ContentEntry, card: EntryPreview, sourceOf:
   if (entry.kind !== ContentKind.Condition) {
     return card;
   }
+
   const endings = conditionEndings(sourceOf, { endings: entry.data.recovery, value: undefined });
   const valued: EntryPreview = entry.data.valued ? { ...card, valued: true } : card;
   const marked: EntryPreview = entry.data.values === undefined ? valued : { ...valued, values: entry.data.values };
+
   return endings.length === 0 ? marked : { ...marked, endings };
 }
 
@@ -35,6 +37,8 @@ export function atValue(card: EntryPreview, value: ConditionValue | undefined): 
   if (value === undefined || card.valued !== true || card.value !== undefined) {
     return card;
   }
+
   const endings = card.endings?.map((ending) => endingAt(ending, value));
+
   return { ...card, value, ...(endings === undefined ? {} : { endings }) };
 }

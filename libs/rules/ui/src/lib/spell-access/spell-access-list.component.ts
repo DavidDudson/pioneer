@@ -45,6 +45,7 @@ export class SpellAccessListView {
 
   protected readonly rows = computed((): readonly AccessRow[] | undefined => {
     const remove = this.remove();
+
     return this.lines()?.map(({ spell, name }) => ({
       spell,
       name: name ?? this.#i18n.translate(SpellAccessMessage.UnknownSpell),

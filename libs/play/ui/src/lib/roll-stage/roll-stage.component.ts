@@ -18,6 +18,7 @@ import type { Natural, RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 
 const UNADJUSTED_KEY = 'roll.toast.unadjusted';
+
 /** The banner a natural 20 and a natural 1 earn. */
 const NATURAL_BANNERS: Readonly<Record<Natural, string>> = { high: 'roll.natural.high', low: 'roll.natural.low' };
 
@@ -70,9 +71,11 @@ export class RollStage {
 
   protected readonly view = computed((): ToastView | undefined => {
     const roll = this.presenter.toast();
+
     if (roll === undefined) {
       return undefined;
     }
+
     const lines = roll.lines.map(({ total, unadjusted, tone, typeKey }) => ({
       total: this.#format.number(total),
       tone,
@@ -83,9 +86,11 @@ export class RollStage {
         ...(typeKey === undefined ? [] : [{ key: typeKey, params: {} }]),
       ],
     }));
+
     const headlines = [roll.natural === undefined ? undefined : NATURAL_BANNERS[roll.natural], roll.degreeKey].filter(
       (key) => key !== undefined,
     );
+
     return { lines, roll, headlines, emphasis: roll.natural ?? ToastEmphasis.None };
   });
 
@@ -96,6 +101,7 @@ export class RollStage {
     effect(() => {
       const overlay = this.overlay();
       const throwing = this.presenter.throwing();
+
       if (overlay !== undefined && throwing !== undefined) {
         untracked(() => {
           // oxlint-disable-next-line typescript/no-floating-promises -- play catches every error, so it never rejects

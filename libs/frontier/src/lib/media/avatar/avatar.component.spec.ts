@@ -13,10 +13,13 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Compon
     imports: [TranslocoTestingModule.forRoot({ langs: { en: {} }, translocoConfig: { defaultLang: 'en' } })],
   });
   const fixture = TestBed.createComponent(Avatar);
+
   for (const [name, value] of Object.entries({ name: 'Seelah of the Dawn', ...inputs })) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture;
 }
 

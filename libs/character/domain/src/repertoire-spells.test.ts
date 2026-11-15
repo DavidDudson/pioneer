@@ -15,8 +15,11 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, spellFixtureId,
 import type { SpellFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
@@ -28,9 +31,11 @@ function bard(level: number, picks: Readonly<Record<string, SpellFixture>> = {})
     .picking('class', playerCoreClassId('bard'))
     .picking(KEY_ATTRIBUTE, 'cha')
     .atLevel(level);
+
   for (const [slot, spell] of Object.entries(picks)) {
     builder = builder.picking(slot, spellFixtureId(spell));
   }
+
   return builder.build().document;
 }
 
@@ -69,6 +74,7 @@ describe('repertoire slots', () => {
 
   test("a repertoire slot offers its tradition's spells of its rank or lower, learned heightened", () => {
     const document = bard(5);
+
     const slot = preparedSlots(document, preparedReads(document, content)).find(
       (each) => each.key === SlotKey.parse('repertoire:bard:3:0'),
     );

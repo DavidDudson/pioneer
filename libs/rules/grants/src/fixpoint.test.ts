@@ -51,6 +51,7 @@ describe('resolveGrants to a fixpoint', () => {
       entry('shield-block'),
       entry('warden-stance'),
     ];
+
     const forward = resolve(content, [picked('fighter'), picked('warden')]);
     expect(names(forward)).toEqual(['fighter', 'shield-block', 'warden', 'warden-stance']);
     expect(resolve(content, [picked('warden'), picked('fighter')])).toEqual(forward);
@@ -63,6 +64,7 @@ describe('resolveGrants to a fixpoint', () => {
       entry('b'),
       entry('c'),
     ];
+
     expect(namesOf(content, [picked('root')])).toEqual(['root', 'a', 'b', 'c']);
   });
 
@@ -79,6 +81,7 @@ describe('resolveGrants to a fixpoint', () => {
       entry('sneak', [grantWhen('sneak-attack', ['self:condition:off-guard'])]),
       entry('sneak-attack'),
     ];
+
     const result = resolve(content, [picked('grabbed'), picked('sneak')]);
     expect(names(result)).toEqual(['grabbed', 'off-guard', 'sneak', 'sneak-attack']);
     expect(options(result)).toContain('self:condition:off-guard');
@@ -118,6 +121,7 @@ describe('resolveGrants to a fixpoint', () => {
       entry('b', [rollOption('self:b-set')]),
       entry('c'),
     ];
+
     const result = resolve(content, [picked('root')]);
     expect(names(result)).toEqual(['root', 'a', 'c']);
     expect(options(result)).not.toContain('self:b-set');
@@ -138,6 +142,7 @@ describe('resolveGrants to a fixpoint', () => {
       entry('b'),
       entry('c'),
     ];
+
     const result = resolve(content, [picked('root')]);
     expect(names(result)).toEqual(['root']);
     expect(result.errors.map((failed) => failed.error)).toEqual([
@@ -158,10 +163,12 @@ describe('resolveGrants to a fixpoint', () => {
   test('stops after a bounded number of rounds, naming what was still arriving', () => {
     const LENGTH = 40;
     const links = Array.from({ length: LENGTH }, (_value, index) => `link-${index}`);
+
     const root = entry('root', [
       grantOf('link-0'),
       ...links.slice(1).map((slug, index) => grantWhen(slug, [`feature:link-${index}`])),
     ]);
+
     const result = resolve([root, ...links.map((slug) => entry(slug))], [picked('root')]);
     expect(result.errors.map((failed) => failed.error)).toEqual([
       message(GrantsMessage.TooManyRounds, { entries: 'link-31', count: 1, maximum: 32 }),
@@ -186,6 +193,7 @@ describe('roll options from the set', () => {
       entry('fighter', [rollOption('self:armored'), grantWhen('juggernaut', ['self:armored'])]),
       entry('juggernaut'),
     ];
+
     const result = resolve(content, [picked('fighter')]);
     expect(names(result)).toEqual(['fighter', 'juggernaut']);
     expect(options(result)).toContain('self:armored');
@@ -199,6 +207,7 @@ describe('roll options from the set', () => {
         rollOption('self:gated', { predicate: ['terrain:forest'] }),
       ]),
     ];
+
     expect(optionsOf(content, [picked('fighter')])).toEqual(['feature:fighter', 'self:level:1']);
   });
 
@@ -209,6 +218,7 @@ describe('roll options from the set', () => {
         rollOption('self:effect:ready', { toggleable: true, value: true }),
       ]),
     ];
+
     const roots = [picked('barbarian')];
     const plain = resolve(content, roots);
     expect(options(plain)).toEqual(['feature:barbarian', 'self:effect:ready', 'self:level:1']);
@@ -216,10 +226,12 @@ describe('roll options from the set', () => {
       [toggleOf('barbarian', 0), false],
       [toggleOf('barbarian', 1), true],
     ]);
+
     const toggles = new Map([
       [toggleOf('barbarian', 0), { on: true, suboption: undefined }],
       [toggleOf('barbarian', 1), { on: false, suboption: undefined }],
     ]);
+
     expect(optionsOf(content, roots, { toggles })).toEqual(['feature:barbarian', 'self:effect:rage', 'self:level:1']);
   });
 
@@ -229,6 +241,7 @@ describe('roll options from the set', () => {
       { value: 'cold', label: 'Cold', predicate: [{ gte: ['self:level', 5] }] },
       { value: 'acid', label: 'Acid' },
     ];
+
     const content = [entry('kineticist', [rollOption('self:aura', { toggleable: true, value: true, suboptions })])];
     const roots = [picked('kineticist')];
     const key = toggleOf('kineticist', 0);
@@ -259,6 +272,7 @@ describe('roll options from the set', () => {
       entry('sword-mastery'),
       entry('axe-mastery'),
     ];
+
     const picks = picksOf([[slotOf('fighter', 0), 'sword']]);
     const result = resolve(content, [picked('fighter')], { picks });
     expect(names(result)).toEqual(['fighter', 'sword-mastery']);
@@ -285,6 +299,7 @@ describe('options too long to write', () => {
         { key: 'ChoiceSet', flag: 'long', rollOption: 'long', choices: [{ value: LONGER, label: 'Long' }] },
       ]),
     ];
+
     const result = resolve(content, [picked('fighter')], { picks: picksOf([[slotOf('fighter', 0), LONGER]]) });
     expect(result.answered[0]?.option).toBeUndefined();
     expect(options(result)).toEqual(['feature:fighter', 'self:level:1']);

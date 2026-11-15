@@ -7,12 +7,15 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/p
 /** Valeros with a +1 longsword that has a spell reservoir rune, holding a spell of rank 1 when `held`. */
 function reserved(held: boolean): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
+
   const etched = {
     ...sword,
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.SpellReservoir) }] },
     ...(held ? { state: { spell: { spell: spellFixtureId('heal'), rank: 1 } } } : {}),
   };
+
   const items = VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item));
+
   return { ...VALEROS, inventory: { ...VALEROS.inventory, items } } as typeof VALEROS;
 }
 

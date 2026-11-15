@@ -6,6 +6,7 @@ import { staffCoverage } from './staff-coverage';
 
 const PACK = 'gm-core';
 const SPELL = contentId(PackId.parse(PACK), EntrySlug.parse('spell:heal'));
+
 const WEAPON_DATA = {
   bulk: 1,
   category: 'simple',
@@ -23,6 +24,7 @@ interface ItemFields {
 /** A Game Master Core weapon or item with `traits` and `data`. */
 function item({ name, kind, traits, data }: ItemFields): ContentEntry {
   const slug = `${kind}:${name}`;
+
   return ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,

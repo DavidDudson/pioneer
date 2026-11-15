@@ -70,15 +70,19 @@ export class CampaignOfferItem {
 
   protected readonly offer = async (): Promise<void> => {
     const to = this.chosen();
+
     if (to === undefined) {
       return;
     }
+
     const id = CampaignId.parse(this.campaign());
+
     const body = {
       from: CharacterId.parse(this.character()),
       to: CharacterId.parse(to),
       item: ReviewedItemId.parse(this.line()),
     };
+
     await this.#api.call(CampaignContract.offerItem, { params: { id }, body });
     this.chosen.set(undefined);
     await this.#client.invalidateQueries({ queryKey: ['campaigns', 'transfers', id] });
@@ -93,11 +97,13 @@ export class CampaignOfferItem {
 
   protected readonly describeDepositError = (error: unknown): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.putFailed');
+
     return this.#i18n.translate(key, params);
   };
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = transferFailure(error, 'campaign.transfers.offerFailed');
+
     return this.#i18n.translate(key, params);
   };
 }

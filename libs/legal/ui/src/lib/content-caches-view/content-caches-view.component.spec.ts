@@ -20,6 +20,7 @@ async function render(caches: AsyncQuery<readonly CachePack[]>): Promise<HTMLEle
   const fixture = TestBed.createComponent(ContentCachesView);
   fixture.componentRef.setInput('caches', caches);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

@@ -11,11 +11,13 @@ import { Icon } from '../../icon/icon.component';
 
 /** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
 const originClasses = cva('inline-flex')();
+
 const panelClasses = cva(
   'z-overlay mt-2xs max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs',
 )();
 
 export const DropdownAlign = { Start: 'start', End: 'end' } as const;
+
 export type DropdownAlign = ValueOf<typeof DropdownAlign>;
 
 /** The panel opens under the trigger, lining up with its start or end edge, and flips above it when there is no room. */
@@ -66,6 +68,7 @@ export class Dropdown {
   /** A visible caption must be part of the accessible name (WCAG 2.5.3), so the label follows it. */
   protected readonly triggerLabel = computed(() => {
     const caption = this.caption();
+
     return caption === undefined ? this.label() : `${caption} (${this.label()})`;
   });
 
@@ -77,6 +80,7 @@ export class Dropdown {
   protected outside(event: MouseEvent): void {
     const { target } = event;
     const inOverlay = target instanceof Element && target.closest('.cdk-overlay-container') !== null;
+
     if (!inOverlay) {
       this.close();
     }
@@ -85,6 +89,7 @@ export class Dropdown {
   /** A followed link ends the visit to the panel; a control inside it (a toggle, an option) leaves it open. */
   protected pressed(event: Event): void {
     const { target } = event;
+
     if (target instanceof Element && target.closest('a') !== null) {
       this.close();
     }

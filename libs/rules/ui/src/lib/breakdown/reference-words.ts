@@ -41,6 +41,7 @@ function ofStatistic(
   { translate, statisticName }: ReferenceWords,
 ): string | undefined {
   const name = statisticName(known.selector);
+
   return name === undefined ? undefined : translate({ key, params: { name } });
 }
 
@@ -49,18 +50,23 @@ function nameOf(known: KnownReference, words: ReferenceWords): string | undefine
   if (known.kind === ReferenceKind.AttributeModifier) {
     return words.translate({ key: ATTRIBUTE_MESSAGES[known.attribute] });
   }
+
   if (known.kind === ReferenceKind.Statistic) {
     return words.statisticName(known.selector);
   }
+
   if (known.kind === ReferenceKind.ProficiencyBonus) {
     return ofStatistic(BreakdownMessage.ReferenceProficiencyBonus, known, words);
   }
+
   if (known.kind === ReferenceKind.ProficiencyRank) {
     return ofStatistic(BreakdownMessage.ReferenceProficiencyRank, known, words);
   }
+
   if (known.kind === ReferenceKind.Flag) {
     return undefined;
   }
+
   return words.translate({ key: PLAIN_NAMES[known.kind] });
 }
 
@@ -68,6 +74,7 @@ function nameOf(known: KnownReference, words: ReferenceWords): string | undefine
 function referenceName(path: string, words: ReferenceWords): string | undefined {
   const parsed = ReferencePath.safeParse(path);
   const known = parsed.success ? knownReference(parsed.data) : undefined;
+
   return known === undefined ? undefined : nameOf(known, words);
 }
 

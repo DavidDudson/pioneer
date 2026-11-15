@@ -23,6 +23,7 @@ export const ActiveSpellSchema = z.strictObject({
   remaining: EffectRounds,
   sustainedThisTurn: z.boolean().default(false),
 });
+
 export type ActiveSpell = z.infer<typeof ActiveSpellSchema>;
 
 export const ActiveSpellsSchema = z.array(ActiveSpellSchema).max(ACTIVE_SPELLS_MAX).default([]);
@@ -61,24 +62,29 @@ export function sustainedRounds(duration: SpellData['duration']): EffectRounds |
   if (duration?.type === SpellDurationType.Sustained) {
     return SUSTAIN_LIMIT;
   }
+
   if (duration?.type === SpellDurationType.Time) {
     return duration.sustained === true
       ? EffectRounds.parse(duration.count * ROUNDS_PER_UNIT[duration.unit])
       : undefined;
   }
+
   if (duration?.type === SpellDurationType.Either) {
     return duration.options.map((option) => sustainedRounds(option)).find((rounds) => rounds !== undefined);
   }
+
   return undefined;
 }
 
 /** The play edit that ends an active spell at will, which takes no action. */
 export const ActiveSpellCommandField = { DismissSpell: 'dismissSpell' } as const;
+
 export type ActiveSpellCommandField = ValueOf<typeof ActiveSpellCommandField>;
 
 export const ActiveSpellCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ActiveSpellCommandField.DismissSpell), id: ActiveSpellId }),
 ]);
+
 export type ActiveSpellCommand = z.infer<typeof ActiveSpellCommandSchema>;
 
 /** Whether `command` ends an active spell without spending an action. */
@@ -155,14 +161,17 @@ export interface CountedSpells {
 /** Each spell counts down a round at Start turn; one on its last round has run out. */
 export function spellsCountedDown(spells: readonly ActiveSpell[]): CountedSpells {
   const ended = spells.filter(({ remaining }) => remaining <= ONE_ROUND);
+
   const kept = spells
     .filter(({ remaining }) => remaining > ONE_ROUND)
     .map((spell) => activeSpellWith(spell, { remaining: EffectRounds.parse(spell.remaining - ONE_ROUND) }));
+
   return { kept, ended };
 }
 
 /** What a spend does to the active spells: a cast adds one, a sustain keeps one up, a dismissal ends one. */
 export const SpellSpendKind = { Cast: 'cast', Sustain: 'sustain', Dismiss: 'dismiss' } as const;
+
 export type SpellSpendKind = ValueOf<typeof SpellSpendKind>;
 
 /**
@@ -175,4 +184,5 @@ export const SpellSpendSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(SpellSpendKind.Sustain), id: ActiveSpellId }),
   z.strictObject({ kind: z.literal(SpellSpendKind.Dismiss), id: ActiveSpellId }),
 ]);
+
 export type SpellSpend = z.infer<typeof SpellSpendSchema>;

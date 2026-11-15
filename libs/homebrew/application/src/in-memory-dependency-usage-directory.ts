@@ -16,6 +16,7 @@ export class InMemoryDependencyUsageDirectory extends DependencyUsageDirectory {
   /** The entry `entry` of `pack` references something in `dependsOn`. */
   public use(pack: ContentPackId, dependsOn: ContentPackId, entry: string): this {
     this.#uses.push({ pack, dependsOn, entry: UsingEntryName.parse(entry) });
+
     return this;
   }
 

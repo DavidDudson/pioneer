@@ -79,6 +79,7 @@ export class PackHomePage {
   protected readonly visibilityMessages = VISIBILITY_MESSAGES;
   protected readonly visibilityOptions = computed((): readonly SelectOption<PackVisibility>[] => {
     this.#messages();
+
     return Object.values(PackVisibility).map((visibility) => ({
       value: visibility,
       label: this.#i18n.translate(VISIBILITY_MESSAGES[visibility]),
@@ -103,9 +104,11 @@ export class PackHomePage {
     if (visibility === undefined || visibility === pack.visibility) {
       return;
     }
+
     this.visibilityError.set(undefined);
     this.chosen.set(visibility);
     this.saving.set(true);
+
     try {
       await this.store.setVisibility(pack.id, visibility);
     } catch (error) {
@@ -121,9 +124,11 @@ export class PackHomePage {
     if (error instanceof ApiError && error.isConflict) {
       return this.#i18n.translate(error.descriptor.key, error.descriptor.params);
     }
+
     if (error instanceof ApiError && error.status === HttpStatus.Forbidden) {
       return this.#i18n.translate('homebrew.pack.visibilityForbidden');
     }
+
     return this.#i18n.translate('homebrew.pack.visibilityFailed');
   }
 }

@@ -25,9 +25,12 @@ const GRADED = [
 export function runeLines({ property, ...grades }: KeyItemRunes): readonly MessageDescriptor[] {
   const graded = GRADED.flatMap(([rune, key]): MessageDescriptor[] => {
     const grade = grades[rune];
+
     return grade === undefined ? [] : [message(key, { grade })];
   });
+
   const names = property.map(({ name }) => name).join(', ');
+
   return property.length === 0
     ? graded
     : [...graded, message('campaign.keyItems.rune.property', { count: property.length, names })];
@@ -52,6 +55,7 @@ export class CampaignKeyItemRow {
   /** The holder's sheet, when the viewer owns the holder: nobody else may open it (ADR-0007). */
   protected readonly sheet = computed((): SheetLink | undefined => {
     const { holder, holderName, holderOwned } = this.keyItem();
+
     return holder !== undefined && holderName !== undefined && holderOwned
       ? { to: ['/characters', holder], name: holderName }
       : undefined;
@@ -59,6 +63,7 @@ export class CampaignKeyItemRow {
   /** Who holds it, or that the party stash does. */
   protected readonly holder = computed((): MessageDescriptor => {
     const { holderName } = this.keyItem();
+
     return holderName === undefined
       ? message('campaign.keyItems.inStash')
       : message('campaign.keyItems.heldBy', { holder: holderName });

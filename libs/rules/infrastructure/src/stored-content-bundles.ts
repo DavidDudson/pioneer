@@ -27,6 +27,7 @@ export class StoredContentBundles {
 
   public async manifest(): Promise<ContentManifest> {
     const bundles = await this.#current();
+
     return bundles.manifest;
   }
 
@@ -37,6 +38,7 @@ export class StoredContentBundles {
   public async manifestEtag(): Promise<string> {
     const hashes = await this.#repository.officialHashes();
     const joined = hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',');
+
     return `"${bundleHash(CanonicalJson.parse(joined))}"`;
   }
 
@@ -45,17 +47,21 @@ export class StoredContentBundles {
     const bundles = await this.#current();
     const path = bundlePath(pack, file);
     const body = bundles.bodies.get(path);
+
     if (body === undefined) {
       throw new NotFoundError('Content bundle', path);
     }
+
     return body;
   }
 
   async #current(): Promise<ContentBundles> {
     const hashes = await this.#repository.officialHashes();
+
     // The build reads after the hashes, so it is never older than the key it is cached under.
     return this.#cache.current(hashes, async () => {
       const packs = await this.#repository.loadOfficial();
+
       return contentBundles(packs, bundleHash);
     });
   }

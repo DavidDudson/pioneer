@@ -8,6 +8,7 @@ export function entry(name: string, kind: string, data: object): ContentEntry {
     .toLowerCase()
     .replaceAll(/[^a-z]+/gu, '-')
     .replace(/-$/u, '')}`;
+
   return ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,

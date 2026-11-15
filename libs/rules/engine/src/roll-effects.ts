@@ -29,6 +29,7 @@ const CHECK_DOMAINS: Readonly<Record<AdjustedCheck, Domain>> = {
 
 /** How a roll effect bears on a roll: it does, or it would if the situation said so (`summary` words when). */
 export const RollEffectStatusKind = { Applied: 'applied', Conditional: 'conditional' } as const;
+
 export type RollEffectStatus =
   | { readonly kind: typeof RollEffectStatusKind.Applied }
   | {
@@ -93,12 +94,15 @@ export interface RollEffectsInPlay {
 export function rollEffectsInPlay(rules: readonly RuleInPlay[]): RollEffectsInPlay {
   const rollTwice: RollTwiceSource[] = [];
   const degree: DegreeSource[] = [];
+
   for (const rule of rules) {
     const { element } = rule;
+
     const common = {
       id: ruleIdOf(rule),
       label: labelOf(rule),
     };
+
     if (element.key === RuleElementKey.RollTwice) {
       rollTwice.push({
         ...common,
@@ -118,6 +122,7 @@ export function rollEffectsInPlay(rules: readonly RuleInPlay[]): RollEffectsInPl
       });
     }
   }
+
   return { rollTwice, degree };
 }
 
@@ -128,12 +133,15 @@ function statusOf(
   situation: ReadonlySet<RuleId>,
 ): RollEffectStatus | undefined {
   const truth = truthOf(predicate, facts);
+
   if (predicate === undefined || truth === Truth.True || (truth === Truth.Unknown && situation.has(id))) {
     return { kind: RollEffectStatusKind.Applied };
   }
+
   if (truth === Truth.False) {
     return undefined;
   }
+
   return {
     kind: RollEffectStatusKind.Conditional,
     when: predicate,
@@ -160,6 +168,7 @@ export function collectRollEffects(
       .toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id))
       .flatMap((source) => {
         const status = statusOf(source, facts, situation);
+
         return status === undefined ? [] : [{ id: source.id, label: source.label, keep: source.keep, status }];
       }),
     degreeAdjustments: degree
@@ -167,6 +176,7 @@ export function collectRollEffects(
       .toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id))
       .flatMap((source) => {
         const status = statusOf(source, facts, situation);
+
         return status === undefined
           ? []
           : [{ id: source.id, label: source.label, adjustment: source.adjustment, status }];
@@ -179,5 +189,6 @@ export function applyRollEffects(result: StatisticResult, effects: RollEffects):
   if (!result.ok || (effects.rollTwice.length === 0 && effects.degreeAdjustments.length === 0)) {
     return result;
   }
+
   return { ...result, rollEffects: effects };
 }

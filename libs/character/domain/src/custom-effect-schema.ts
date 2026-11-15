@@ -6,6 +6,7 @@ import { OverrideMode, OverrideModifierType, OverrideReason, OverrideRole, Overr
 
 /** One custom effect a character carries. */
 export const CustomEffectId = Uuid.brand<'CustomEffectId'>();
+
 export type CustomEffectId = z.infer<typeof CustomEffectId>;
 
 /** The most custom effects a character carries, removed ones included, so a document stays small. */
@@ -26,6 +27,7 @@ export const CustomEffectName = z
   .refine((name) => name.length > 0, issueParams(message('character.validation.customEffectNameRequired')))
   .max(CUSTOM_EFFECT_NAME_MAX)
   .brand<'CustomEffectName'>();
+
 export type CustomEffectName = z.infer<typeof CustomEffectName>;
 
 /**
@@ -45,6 +47,7 @@ export const CustomEffectLine = z
     ...issueParams(message('character.validation.customEffectSetUntyped')),
     path: ['type'],
   });
+
 export type CustomEffectLine = z.infer<typeof CustomEffectLine>;
 
 /** What an author gives for a custom effect: its name, the reason for it, and at least one line. */
@@ -53,6 +56,7 @@ export const CustomEffectInput = z.strictObject({
   reason: OverrideReason,
   lines: z.array(CustomEffectLine).min(1).max(CUSTOM_EFFECT_LINES_MAX).readonly(),
 });
+
 export type CustomEffectInput = z.infer<typeof CustomEffectInput>;
 
 /** One switch of an effect on or off: who, what they were to the character, when, and which way. */
@@ -62,6 +66,7 @@ const CustomEffectToggle = z.strictObject({
   at: OverrideTime,
   enabled: z.boolean(),
 });
+
 export type CustomEffectToggle = z.infer<typeof CustomEffectToggle>;
 
 /** Who removed an effect, when, and the reason they gave; a removed effect stays, so the record is whole. */
@@ -85,6 +90,7 @@ export const CustomEffectSchema = z.strictObject({
   toggles: z.array(CustomEffectToggle).max(CUSTOM_EFFECT_TOGGLES_MAX).readonly().default([]),
   removed: CustomEffectRemoval.optional(),
 });
+
 export type CustomEffect = z.infer<typeof CustomEffectSchema>;
 
 /** Everyone who added, switched or removed one of `effects`, once each. */
@@ -94,5 +100,6 @@ export function customEffectAuthorIds(effects: readonly CustomEffect[]): readonl
     ...toggles.map((toggle) => toggle.by),
     ...(removed === undefined ? [] : [removed.by]),
   ]);
+
   return [...new Set(ids)];
 }

@@ -69,6 +69,7 @@ class Parser {
   public formula(): FormulaNode {
     const formula = this.#sum();
     const extra = this.#peek();
+
     return extra === undefined ? formula : unexpected(extra);
   }
 
@@ -78,35 +79,44 @@ class Parser {
 
   #take(): Token {
     const current = this.#tokens[this.#next];
+
     if (current === undefined) {
       return fail(message(FormulaMessage.UnexpectedEnd), this.#end);
     }
+
     this.#next += 1;
+
     return current;
   }
 
   #expect(kind: TokenKind): Token {
     const token = this.#take();
+
     return token.kind === kind ? token : unexpected(token);
   }
 
   /** Counts a node at `position`, failing once the formula has more than the limit. */
   #node<TNode extends FormulaNode>(node: TNode): TNode {
     this.#nodes = NodeCount.parse(this.#nodes + 1);
+
     if (this.#nodes > NODE_COUNT_MAX) {
       return fail(message(FormulaMessage.TooManyNodes, { maximum: NODE_COUNT_MAX }), node.position);
     }
+
     return node;
   }
 
   /** Runs `read` one level deeper (a group, a call's arguments, a negation), failing past the limit. */
   #nested(position: TextPosition, read: () => FormulaNode): FormulaNode {
     this.#depth = NodeCount.parse(this.#depth + 1);
+
     if (this.#depth > NESTING_DEPTH_MAX) {
       return fail(message(FormulaMessage.TooDeep, { maximum: NESTING_DEPTH_MAX, position }), position);
     }
+
     const node = read();
     this.#depth = NodeCount.parse(this.#depth - 1);
+
     return node;
   }
 
@@ -118,40 +128,49 @@ class Parser {
   /** `term (('+' | '-') term)*`, left-associative. */
   #sum(): FormulaNode {
     let left = this.#term();
+
     for (let next = this.#peek(); next?.kind === TokenKind.Operator; next = this.#peek()) {
       if (next.operator !== BinaryOperator.Add && next.operator !== BinaryOperator.Subtract) {
         break;
       }
+
       this.#take();
       const right = this.#term();
       left = this.#node({ kind: NodeKind.Binary, operator: next.operator, left, right, position: next.position });
     }
+
     return left;
   }
 
   /** `unary (('*' | '/') unary)*`, left-associative. */
   #term(): FormulaNode {
     let left = this.#unary();
+
     for (let next = this.#peek(); next?.kind === TokenKind.Operator; next = this.#peek()) {
       if (next.operator !== BinaryOperator.Multiply && next.operator !== BinaryOperator.Divide) {
         break;
       }
+
       this.#take();
       const right = this.#unary();
       left = this.#node({ kind: NodeKind.Binary, operator: next.operator, left, right, position: next.position });
     }
+
     return left;
   }
 
   /** `'-' unary | primary`. */
   #unary(): FormulaNode {
     const next = this.#peek();
+
     if (next?.kind !== TokenKind.Operator || next.operator !== BinaryOperator.Subtract) {
       return this.#primary();
     }
+
     this.#take();
     const { position } = next;
     const operand = this.#nested(position, () => this.#unary());
+
     return this.#node({ kind: NodeKind.Negate, operand, position });
   }
 
@@ -159,26 +178,33 @@ class Parser {
   #primary(): FormulaNode {
     const token = this.#take();
     const { position } = token;
+
     switch (token.kind) {
       case TokenKind.Number: {
         return this.#node({ kind: NodeKind.Number, value: numberOf(token), position });
       }
+
       case TokenKind.Reference: {
         return this.#node({ kind: NodeKind.Reference, path: referenceOf(token), position });
       }
+
       case TokenKind.Name: {
         return this.#call(token);
       }
+
       case TokenKind.Open: {
         const inner = this.#expression(position);
         this.#expect(TokenKind.Close);
+
         return inner;
       }
+
       case TokenKind.Operator:
       case TokenKind.Close:
       case TokenKind.Comma: {
         return unexpected(token);
       }
+
       default: {
         const unreachable: never = token;
         throw new TypeError(`Unhandled formula token: ${JSON.stringify(unreachable)}`);
@@ -191,12 +217,15 @@ class Parser {
     const name = functionOf(token);
     const open = this.#peek();
     const { position } = token;
+
     if (open?.kind !== TokenKind.Open) {
       return fail(message(FormulaMessage.NotCalled, { found: token.lexeme, position }), position);
     }
+
     this.#take();
     const args = this.#arguments(position);
     checkArity(name, ArgumentCount.parse(args.length), position);
+
     return this.#node({ kind: NodeKind.Call, name, args, position });
   }
 
@@ -204,15 +233,20 @@ class Parser {
   #arguments(position: TextPosition): FormulaNode[] {
     if (this.#peek()?.kind === TokenKind.Close) {
       this.#take();
+
       return [];
     }
+
     const args = [this.#expression(position)];
+
     for (let next = this.#take(); next.kind !== TokenKind.Close; next = this.#take()) {
       if (next.kind !== TokenKind.Comma) {
         return unexpected(next);
       }
+
       args.push(this.#expression(position));
     }
+
     return args;
   }
 }
@@ -220,6 +254,7 @@ class Parser {
 function numberOf(token: Token): FormulaNumber {
   const value = FormulaNumber.safeParse(Number(token.lexeme));
   const { position } = token;
+
   return value.success
     ? value.data
     : fail(message(FormulaMessage.NumberTooLarge, { maximum: FORMULA_NUMBER_MAX, position }), position);
@@ -228,6 +263,7 @@ function numberOf(token: Token): FormulaNumber {
 function referenceOf(token: Token): ReferencePath {
   const path = ReferencePath.safeParse(token.lexeme.slice(REFERENCE_SIGIL.length));
   const { position } = token;
+
   return path.success
     ? path.data
     : fail(message(FormulaMessage.InvalidReference, { found: token.lexeme, position }), position);
@@ -236,6 +272,7 @@ function referenceOf(token: Token): ReferencePath {
 function functionOf(token: NameToken): FormulaFunction {
   const name = FormulaFunctionSchema.safeParse(token.lexeme);
   const { position } = token;
+
   return name.success
     ? name.data
     : fail(message(FormulaMessage.UnknownFunction, { found: token.lexeme, position }), position);
@@ -243,9 +280,11 @@ function functionOf(token: NameToken): FormulaFunction {
 
 function checkArity(name: FormulaFunction, given: ArgumentCount, position: TextPosition): void {
   const { min, max } = ARITY[name];
+
   if (max === undefined && given < min) {
     fail(message(FormulaMessage.ArgumentCountAtLeast, { name, minimum: min, given, position }), position);
   }
+
   if (max !== undefined && (given < min || given > max)) {
     fail(message(FormulaMessage.ArgumentCount, { name, expected: max, given, position }), position);
   }
@@ -260,16 +299,20 @@ export function parseFormula(text: FormulaText): ParseOutcome {
   if (text.trim() === '') {
     return { ok: false, error: message(FormulaMessage.Empty), position: FIRST };
   }
+
   if (text.length > FORMULA_LENGTH_MAX) {
     const position = TextPosition.parse(FORMULA_LENGTH_MAX + 1);
+
     return { ok: false, error: message(FormulaMessage.TooLong, { maximum: FORMULA_LENGTH_MAX }), position };
   }
+
   try {
     return { ok: true, formula: new Parser(text).formula() };
   } catch (error) {
     if (error instanceof FormulaError) {
       return { ok: false, error: error.descriptor, position: error.position };
     }
+
     throw error;
   }
 }

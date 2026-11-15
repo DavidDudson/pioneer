@@ -41,6 +41,7 @@ export class NumberInput extends Control {
     const parsed = Number(raw);
     const whole = raw !== '' && Number.isInteger(parsed);
     this.complete.set(whole);
+
     if (whole) {
       this.value.set(parsed);
     }

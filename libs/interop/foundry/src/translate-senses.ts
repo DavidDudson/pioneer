@@ -38,10 +38,13 @@ export function senseElement(
   { references, senses }: SenseContext,
 ): object | undefined {
   const sense = resolveSlug(references, ContentKind.Sense, slug);
+
   if (sense === undefined) {
     return undefined;
   }
+
   const fixed = senses?.get(slug);
+
   return {
     key: RuleElementKey.Sense,
     sense,
@@ -67,14 +70,19 @@ export function withSense(raw: unknown, context: SenseContext): unknown {
   ) {
     return raw;
   }
+
   const fields = {
     ...('acuity' in raw ? { acuity: raw.acuity } : {}),
     ...('range' in raw ? { range: raw.range } : {}),
   };
+
   const element = senseElement(raw.selector, fields, context);
+
   if (element === undefined) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => !SENSE_FIELDS_REPLACED.has(field));
+
   return { ...Object.fromEntries(rest), ...element };
 }

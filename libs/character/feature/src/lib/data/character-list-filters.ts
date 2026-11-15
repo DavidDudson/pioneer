@@ -10,13 +10,16 @@ const STATE_KEYS = ['minLevel', 'maxLevel', 'classId', 'ancestry', 'name', 'page
  */
 export function listStateFromParams(params: ParamMap): CharacterPageQuery {
   const kept: Record<string, string> = {};
+
   for (const key of STATE_KEYS) {
     const value = params.get(key);
     const reads = value !== null && CharacterPageQuery.shape[key].safeParse(value).success;
+
     if (reads) {
       kept[key] = value;
     }
   }
+
   return CharacterPageQuery.parse(kept);
 }
 

@@ -51,6 +51,7 @@ async function patchBody(): Promise<unknown> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
+
   return request.request.body;
 }
 

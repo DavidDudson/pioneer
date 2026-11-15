@@ -10,10 +10,12 @@ import { DurationCount, DurationUnitSchema } from './rich-text';
 
 /** What an effect comes from, as Foundry pf2e splits its effect packs; `other` is a GM's effect. */
 export const EffectCategory = { Spell: 'spell', Feat: 'feat', Equipment: 'equipment', Other: 'other' } as const;
+
 export type EffectCategory = ValueOf<typeof EffectCategory>;
 
 /** When in the round a timed effect ends once its time is up. */
 export const EffectExpiry = { TurnStart: 'turn-start', TurnEnd: 'turn-end', RoundEnd: 'round-end' } as const;
+
 export type EffectExpiry = ValueOf<typeof EffectExpiry>;
 
 export const EffectDurationType = {
@@ -24,6 +26,7 @@ export const EffectDurationType = {
   /** A number of uses that count down as the player spends them. */
   Uses: 'uses',
 } as const;
+
 export type EffectDurationType = ValueOf<typeof EffectDurationType>;
 
 /** "10 minutes, ending at the start of a turn", "until the end of the turn", "until the encounter ends", "unlimited", "3 uses". */
@@ -45,6 +48,7 @@ const EffectDuration = z.discriminatedUnion('type', [
 ]);
 
 export const EffectBadgeType = { Counter: 'counter', Formula: 'formula' } as const;
+
 export type EffectBadgeType = ValueOf<typeof EffectBadgeType>;
 
 /** When a formula badge rolls again. */
@@ -53,6 +57,7 @@ export const BadgeReevaluation = {
   TurnStart: 'turn-start',
   TurnEnd: 'turn-end',
 } as const;
+
 export type BadgeReevaluation = ValueOf<typeof BadgeReevaluation>;
 
 /** A number a badge shows. */
@@ -95,4 +100,5 @@ export const EffectData = z
     ...triggerFields,
   })
   .refine(AUTO_APPLY_NEEDS_EVENT.check, AUTO_APPLY_NEEDS_EVENT.params);
+
 export type EffectData = z.infer<typeof EffectData>;

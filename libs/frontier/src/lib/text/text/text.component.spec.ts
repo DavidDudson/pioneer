@@ -9,27 +9,34 @@ import { INHERIT_TONE, Text, TextElement } from './text.component';
 /** Renders `fr-text` with `content` projected and returns the element it renders. */
 async function render(inputs: Readonly<Record<string, unknown>>, content = 'AC'): Promise<HTMLElement> {
   const node = document.createTextNode(content);
+
   const text = createComponent(Text, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[node]],
   });
+
   onTestFinished(() => {
     text.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     text.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(text.hostView);
   await appRef.whenStable();
   let rendered = (text.location.nativeElement as HTMLElement).firstElementChild;
+
   // Inline elements render through the internal fr-text-phrase.
   while (rendered?.tagName.startsWith('FR-') === true) {
     rendered = rendered.firstElementChild;
   }
+
   if (!(rendered instanceof HTMLElement)) {
     throw new TypeError('fr-text rendered no element');
   }
+
   return rendered;
 }
 

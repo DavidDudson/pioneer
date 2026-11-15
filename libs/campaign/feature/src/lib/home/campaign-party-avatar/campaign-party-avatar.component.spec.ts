@@ -67,6 +67,7 @@ const toKyra = {
   asGiver: false,
   asRecipient: true,
 };
+
 const coinsToKyra = {
   id: '4c1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e03',
   kind: 'coins',
@@ -78,6 +79,7 @@ const coinsToKyra = {
   asGiver: false,
   asRecipient: true,
 };
+
 /** Made by Ezren's Kyra to Seelah, so Ezren may withdraw it but not accept it. */
 const kyraGives = {
   ...toKyra,
@@ -92,6 +94,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -120,6 +123,7 @@ async function open(transfers: readonly object[], badges: number): Promise<HTMLE
     harness.detectChanges();
     expect(gifts(root)).toHaveLength(badges);
   });
+
   return root;
 }
 
@@ -187,9 +191,11 @@ describe('CampaignPartyAvatar', () => {
       expect(root.textContent).toContain('Longsword: Seelah offers it to Kyra');
     });
     expect(root.textContent).toContain('4 gp');
+
     const labels = [...root.querySelectorAll('pio-campaign-transfer-row button')].map((button) =>
       button.textContent.trim(),
     );
+
     expect(labels.filter((label) => label.startsWith('Accept'))).toHaveLength(2);
     expect(labels.filter((label) => label.startsWith('Decline'))).toHaveLength(2);
   });
@@ -200,9 +206,11 @@ describe('CampaignPartyAvatar', () => {
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Withdraw');
     });
+
     const labels = [...root.querySelectorAll('pio-campaign-transfer-row button')].map((button) =>
       button.textContent.trim(),
     );
+
     expect(labels.some((label) => label.startsWith('Accept'))).toBe(false);
   });
 
@@ -225,9 +233,11 @@ describe('CampaignPartyAvatar', () => {
       expect(root.querySelector('pio-campaign-transfer-row')).not.toBeNull();
     });
     const http = TestBed.inject(HttpTestingController);
+
     const withdraw = [...root.querySelectorAll('pio-campaign-transfer-row button')].find((button) =>
       button.textContent.trim().startsWith('Withdraw'),
     );
+
     present(withdraw as HTMLButtonElement | undefined).click();
     await vi.waitFor(() => {
       http

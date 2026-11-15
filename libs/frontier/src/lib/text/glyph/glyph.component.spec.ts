@@ -10,6 +10,7 @@ describe(Glyph, () => {
       environmentInjector: TestBed.inject(EnvironmentInjector),
       projectableNodes: [[document.createTextNode('◆◆')]],
     });
+
     onTestFinished(() => {
       glyph.destroy();
     });

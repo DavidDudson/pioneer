@@ -37,6 +37,7 @@ async function render(origin: Origin, entryNames = ENTRY_NAMES, names: OriginNam
   fixture.componentRef.setInput('names', names);
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
+
   return { chain: textOf(host.querySelector('fr-text')), sources: textOf(host.querySelector('pio-source-line')) };
 }
 

@@ -21,10 +21,13 @@ const FoundryFavoredWeaponRank = z.strictObject({
  */
 export function withFavoredWeaponRank(raw: unknown): unknown {
   const raise = FoundryFavoredWeaponRank.safeParse(raw);
+
   if (!raise.success) {
     return raw;
   }
+
   const { value, predicate } = raise.data;
+
   return {
     key: RuleElementKey.Proficiency,
     selector: FAVORED_WEAPON,

@@ -127,6 +127,7 @@ export class SheetRest {
   readonly #staves = computed((): readonly StaffOption[] => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
+
     return registry === undefined || character === undefined
       ? []
       : staffOptions(registry, character, sheetStaffLimits(registry, character));
@@ -134,6 +135,7 @@ export class SheetRest {
   readonly #slots = computed((): readonly StaffSlotOption[] => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
+
     return registry === undefined || character === undefined ? [] : staffSlotOptions(registry, character);
   });
 
@@ -173,6 +175,7 @@ export class SheetRest {
     const registry = this.#spells.data();
     const character = this.#characters.selected();
     const slots = this.#characters.slots();
+
     return !this.#preparing() || registry === undefined || character === undefined || slots === undefined
       ? []
       : restPreparedEntries(
@@ -188,12 +191,15 @@ export class SheetRest {
   /** The command the chosen action runs: daily preparations carry the staff and the slot picked, and the spells changed. */
   readonly #command = computed((): RestCommand | undefined => {
     const action = this.#chosen();
+
     if (action?.command.field !== RestCommandField.DailyPreparations) {
       return action?.command;
     }
+
     const staff = this.#staves().find(({ id }) => id === this.staffPicked());
     const slot = this.#slots().find(({ key }) => key === this.slotPicked());
     const prepared = this.#picks();
+
     return {
       field: RestCommandField.DailyPreparations,
       ...(staff === undefined ? {} : { staff: staff.id }),
@@ -205,6 +211,7 @@ export class SheetRest {
   /** What each spell changed would do, worded. */
   readonly #preparedLines = computed((): readonly RestLine[] => {
     const registry = this.#spells.data();
+
     return preparedLines(this.preparedEntries(), this.#picks(), {
       translate: (key, params) => this.#i18n.translate(key, params),
       spell: (id) => (registry === undefined ? undefined : sheetSlotContent(registry).spells.spell(id)?.name),
@@ -219,6 +226,7 @@ export class SheetRest {
     const read = this.#play.play.data();
     const hitPoints = this.#sheet.maxHitPoints();
     const resources = this.#sheet.resourceMaxima();
+
     if (
       action === undefined ||
       command === undefined ||
@@ -230,6 +238,7 @@ export class SheetRest {
     ) {
       return undefined;
     }
+
     return {
       action,
       command,
@@ -269,10 +278,13 @@ export class SheetRest {
 
   protected readonly confirm = async (): Promise<void> => {
     const shown = this.preview();
+
     if (shown === undefined) {
       return;
     }
+
     this.busy.set(true);
+
     try {
       await this.#play.send(shown.command);
       this.#chosen.set(undefined);
@@ -285,6 +297,7 @@ export class SheetRest {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 

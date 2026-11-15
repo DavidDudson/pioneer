@@ -88,6 +88,7 @@ const FORTIFICATION_DCS: readonly (readonly [string, number])[] = [
 /** The rule an armour bonus rune is expected to carry. */
 function expectedBonus({ selector, bonus, actions }: BonusRune): object {
   const rule = { key: 'FlatModifier', selectors: [selector], type: 'item', value: bonus };
+
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
 

@@ -93,6 +93,7 @@ describe('trigger matcher', () => {
 /** A Player Core entry of `kind` with `data`. */
 function entry(name: string, kind: string, data: object): ContentEntry {
   const slug = `${kind}:${name}`;
+
   return ContentEntry.parse({
     id: idOf(slug),
     pack: PACK,

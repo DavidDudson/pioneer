@@ -10,6 +10,7 @@ const meta: Meta<KitContents> = {
   title: 'Rules/Kit Contents',
   component: KitContents,
 };
+
 export default meta;
 
 /** The Adventurer's Pack: a backpack holding the rest. */

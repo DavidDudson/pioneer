@@ -24,10 +24,13 @@ export function connect(url: string): Database {
 export async function runMigrations(db: Database, folder: string): Promise<void> {
   const journal = Bun.file(`${folder}/meta/_journal.json`);
   const journalExists = await journal.exists();
+
   if (!journalExists) {
     throw new Error(`No migrations in MIGRATIONS_DIR=${folder}: meta/_journal.json is missing`);
   }
+
   const connection = await db.$client.reserve();
+
   try {
     await connection`select pg_advisory_lock(${MIGRATION_LOCK})`;
     await migrate(drizzle({ client: connection, casing: 'snake_case' }), { migrationsFolder: folder });

@@ -35,6 +35,7 @@ export type StashMove =
 
 /** Which side of a `giveLine` the character is, and so which side the stash is. */
 const Side = { Giver: 'giver', Recipient: 'recipient' } as const;
+
 type Side = (typeof Side)[keyof typeof Side];
 
 /** A `giveLine` result, and the side of it the character is. */
@@ -66,6 +67,7 @@ export class CharacterPartyStash {
   public async deposit(actor: UserId, { character, item }: StashLine, stash: Inventory): Promise<StashMove> {
     const found = await this.#found(character);
     const moved = giveLine(found.document.inventory, stash, item);
+
     return this.#write(actor, found, { moved, side: Side.Giver });
   }
 
@@ -73,14 +75,17 @@ export class CharacterPartyStash {
   public async take(actor: UserId, { character, item }: StashLine, stash: Inventory): Promise<StashMove> {
     const found = await this.#found(character);
     const moved = giveLine(stash, found.document.inventory, item);
+
     return this.#write(actor, found, { moved, side: Side.Recipient });
   }
 
   /** The stash's lines named from the content of `via`, one of the campaign's characters; item ids when there is none. */
   public async name(stash: Inventory, via: CharacterId | undefined): Promise<readonly StashLineName[]> {
     const character = via === undefined ? undefined : await this.#characters.findById(via);
+
     const items =
       character === undefined ? undefined : itemContent(await contentOfCharacter(this.#content, character).registry());
+
     return stash.items.map((each) => ({
       id: each.id,
       name: each.name ?? items?.get(each.item)?.name ?? each.item,
@@ -93,16 +98,20 @@ export class CharacterPartyStash {
     if (moved.refusal !== undefined) {
       return { refusal: moved.refusal };
     }
+
     const changed = character.withInventory(moved[side], this.#clock.now());
     await this.#characters.update(changed, character.version, { actor, command: CharacterCommand.MoveToPartyStash });
+
     return { refusal: undefined, stash: moved[OTHER_SIDE[side]] };
   }
 
   async #found(id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 }

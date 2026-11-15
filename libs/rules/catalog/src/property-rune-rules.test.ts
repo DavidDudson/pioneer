@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { MODELLED_IN_PLAY, RUNES, staleGaps, unaccounted } from './property-rune-gaps';
 
 const ETCHED_DAMAGE = 'etched-damage';
+
 /** The Quickened condition of Player Core, which a quickstrike rune grants. */
 const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
 
@@ -47,11 +48,14 @@ const ENERGY_RUNES: readonly EnergyRune[] = [
 function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[] {
   const ignores = slug.endsWith('-greater') ? { ignoreResistance: true } : {};
   const extra = { key: 'DamageDice', selectors: [ETCHED_DAMAGE], damageType: type, ...ignores };
+
   const persistentDice =
     persistent === undefined
       ? []
       : [{ ...extra, diceNumber: persistent, dieSize: 'd10', category: 'persistent', critical: true }];
+
   const critical = slug.startsWith('rune:flaming') ? [] : [{ key: 'CriticalEffect', selectors: [ETCHED_DAMAGE] }];
+
   return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
 }
 

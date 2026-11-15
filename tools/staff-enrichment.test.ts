@@ -72,6 +72,7 @@ function staff(slug: string, words: string, data: object = {}): object {
 /** The file after the pass, with matches read from its own entries. */
 function enrich(file: readonly object[]): readonly unknown[] | undefined {
   const matches = staffMatches(ContentEntryFile.parse(file));
+
   return enrichStaffFile(file, new Map(matches.map((match) => [match.entry, match.staff])));
 }
 

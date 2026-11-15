@@ -75,10 +75,13 @@ function selection(facet: FacetDefinition): Arbitrary<FacetSelection | undefined
       min === undefined && max === undefined ? undefined : { kind: SelectionKind.Range, min, max },
     );
   }
+
   const pool = (POOLS[facet.id] ?? []).map((value) => FacetValue.parse(value));
+
   return tuple(subarray(pool), subarray(pool)).map(([picked, dropped]) => {
     const exclude = dropped.toSorted();
     const include = picked.filter((value) => !exclude.includes(value)).toSorted();
+
     return include.length === 0 && exclude.length === 0 ? undefined : { kind: SelectionKind.Values, include, exclude };
   });
 }
@@ -88,6 +91,7 @@ const filterState: Arbitrary<FilterState> = tuple(...COMMON_FACETS.map((facet) =
     new Map(
       selections.flatMap((picked, index): (readonly [FacetId, FacetSelection])[] => {
         const facet = COMMON_FACETS[index];
+
         return facet === undefined || picked === undefined ? [] : [[facet.id, picked]];
       }),
     ),
@@ -112,12 +116,15 @@ describe('facet filters (properties)', () => {
     assert(
       property(entries, filterState, facetIndex, (list, state, index) => {
         const facet = COMMON_FACETS[index];
+
         if (facet === undefined || facet.type === FacetType.Range) {
           return;
         }
+
         const others = new Map(state);
         others.delete(facet.id);
         const base = filterEntries(list, COMMON_FACETS, others);
+
         for (const value of new Set(base.flatMap((each) => facetValues(each, facet)))) {
           const kept = filterEntries(list, COMMON_FACETS, new Map([...others, [facet.id, only(value)]]));
           const dropped = filterEntries(list, COMMON_FACETS, new Map([...others, [facet.id, without(value)]]));

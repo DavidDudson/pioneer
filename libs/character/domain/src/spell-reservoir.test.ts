@@ -25,8 +25,11 @@ import {
 } from './testing';
 
 installRulesFakes();
+
 const registry = itemFixtureRegistry();
+
 registry.register(spellFixtures());
+
 const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 const spells = spellContent(registry);
 const reads = { items: itemContent(registry), runes: runeContent(registry), spells };
@@ -42,26 +45,33 @@ function sword(reserved: boolean, held = false): InventoryItem {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+
   if (reserved) {
     inventory = etchRune(inventory, SWORD, {
       type: RuneType.Property,
       rune: runeFixtureId(RuneFixture.SpellReservoir),
     });
   }
+
   if (held) {
     inventory = setItemState(inventory, SWORD, { spell: { spell: HEAL, rank: SpellRank.parse(1) } });
   }
+
   const [line] = inventory.items;
+
   if (line === undefined) {
     throw new Error('the sword was not added');
   }
+
   return line;
 }
 
 /** The registry's spells, with `id` taking `cast` to cast. */
 function castingAs(id: typeof FIREBALL, cast: readonly CastActions[]): SpellContent {
   const option = spells.anySpell(id);
+
   return {
     ...spells,
     anySpell: (each) => (each === id && option !== undefined ? { ...option, cast } : spells.anySpell(each)),
@@ -115,6 +125,7 @@ describe('spell reservoir rune', () => {
       SWORD,
       {},
     );
+
     expect(inventory.items[0]?.state).toBeUndefined();
   });
 });

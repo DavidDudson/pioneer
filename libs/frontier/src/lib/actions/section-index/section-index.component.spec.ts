@@ -26,6 +26,7 @@ async function render(sections: readonly SectionIndexHostLink[]): Promise<HTMLEl
   await appRef.whenStable();
   const host = index.location.nativeElement as HTMLElement;
   document.body.append(host);
+
   return host;
 }
 
@@ -38,6 +39,7 @@ function target(id: string): HTMLElement {
   onTestFinished(() => {
     heading.remove();
   });
+
   return heading;
 }
 

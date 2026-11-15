@@ -6,10 +6,12 @@ import * as z from 'zod';
  * per-locale text bundles land (ADR-0009); never built in code.
  */
 export const ContentText = z.string().min(1).brand<'ContentText'>();
+
 export type ContentText = z.infer<typeof ContentText>;
 
 /** The translatable fields of an entry that are stored per locale (`content_entry_texts`). */
 export const EntryTextField = {
   Description: 'description',
 } as const;
+
 export type EntryTextField = ValueOf<typeof EntryTextField>;

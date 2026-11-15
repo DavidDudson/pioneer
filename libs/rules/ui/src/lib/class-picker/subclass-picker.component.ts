@@ -49,6 +49,7 @@ export class SubclassPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return subclassPickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

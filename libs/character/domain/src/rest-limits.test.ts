@@ -43,6 +43,7 @@ describe('restRecovery', () => {
       recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Lower })],
     })
     .withCondition('blinded');
+
   const registry = new ContentRegistry();
   registry.register(pack.build());
   const fatigued = ContentId.parse(pack.idOf(ContentKind.Condition, 'fatigued'));

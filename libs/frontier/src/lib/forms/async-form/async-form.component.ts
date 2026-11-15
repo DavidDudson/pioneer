@@ -65,6 +65,7 @@ export class AsyncForm<TModel> {
       },
       (): InjectHotkeyOptions => {
         const target = this.element()?.nativeElement;
+
         return target === undefined ? { enabled: false } : { target, ignoreInputs: false };
       },
     );
@@ -77,9 +78,11 @@ export class AsyncForm<TModel> {
   #submitByKeyboard(): void {
     const element = this.element()?.nativeElement;
     const submitter = element?.querySelector<HTMLButtonElement>('button[type="submit"]') ?? undefined;
+
     if (submitter?.disabled === true) {
       return;
     }
+
     element?.requestSubmit(submitter);
   }
 
@@ -91,18 +94,23 @@ export class AsyncForm<TModel> {
   /** Resolves whether the form was valid and submitted; rejects with the action's failure. */
   async #submit(): Promise<boolean> {
     const failures: SubmitFailureError[] = [];
+
     const submitted = await submit(this.form(), async (field) => {
       try {
         await this.action()(field().value());
       } catch (error: unknown) {
         failures.push(new SubmitFailureError(error));
       }
+
       return undefined;
     });
+
     const [failure] = failures;
+
     if (failure !== undefined) {
       throw failure;
     }
+
     return submitted;
   }
 }

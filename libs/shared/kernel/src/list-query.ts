@@ -3,6 +3,7 @@ import * as z from 'zod';
 import type { ValueOf } from './value-of';
 
 export const SortDirection = { Asc: 'asc', Desc: 'desc' } as const;
+
 export type SortDirection = ValueOf<typeof SortDirection>;
 
 /** Schema `listQuery` builds: a defaulted sort option and direction. */

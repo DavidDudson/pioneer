@@ -41,12 +41,14 @@ const LONGSWORD = {
   traits: [],
   damage: { dice: 1, die: 'd8', damageType: 'slashing' },
 };
+
 const FIST = {
   slug: 'fist',
   category: 'unarmed',
   traits: ['agile', 'finesse', 'nonlethal'],
   damage: { dice: 1, die: 'd4', damageType: 'bludgeoning' },
 };
+
 const CLAW = { slug: 'claw', modifier: 15, damage: { dice: 1, die: 'd6', damageType: 'slashing' } };
 
 const FACTS = new PredicateFacts([RollOption.parse('form:plant')], CORE_NAMESPACES);
@@ -63,6 +65,7 @@ const CHARACTER = StatisticInputsJson.parse({
 function strikesWith(rules: readonly RuleInPlay[]): readonly Strike[] {
   const modifiers = { rules, facts: FACTS };
   const results = deriveStatistics(CONTENT, CHARACTER, modifiers);
+
   return deriveStrikes(CHARACTER.weapons ?? [], results, {
     inputs: modifiers,
     scope: { statistics: CONTENT, character: CHARACTER },
@@ -74,15 +77,18 @@ function valued(result: StatisticResult | undefined): StatisticValue {
   if (result === undefined || !result.ok) {
     throw new Error('expected a statistic with a value');
   }
+
   return result;
 }
 
 /** The first Strike, which every test expects to exist. */
 function firstOf(rules: readonly RuleInPlay[]): Strike {
   const [first] = strikesWith(rules);
+
   if (first === undefined) {
     throw new Error('expected a Strike');
   }
+
   return first;
 }
 

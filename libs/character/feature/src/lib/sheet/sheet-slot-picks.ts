@@ -71,12 +71,14 @@ async function saveDraft(sources: SlotPickSources, { slot, draft, options }: Dra
 function typedName(draft: string): string | undefined {
   const typed = TypedLore.safeParse(draft);
   const lore = typed.success ? LoreName.safeParse(draft.slice(typed.data.indexOf(':') + 1)) : undefined;
+
   return lore?.success === true ? loreDisplayName(lore.data) : undefined;
 }
 
 /** The name the server read for the pick stored in `slot`, shown when its slot no longer offers it. */
 function storedName({ slots }: SlotPickSources, slot: SlotKey): string | undefined {
   const read = slots()?.find((each) => each.key === slot);
+
   return read !== undefined && 'selectionName' in read ? read.selectionName : undefined;
 }
 
@@ -93,15 +95,18 @@ export function slotField(
   return sheetField<string | undefined>(sources.character, {
     read: (character) => {
       const key = slot();
+
       return key === undefined ? NOT_CHOSEN : (character.document.build.choices[key] ?? NOT_CHOSEN);
     },
     empty: NOT_CHOSEN,
     schema: SlotDraft,
     save: async (value) => {
       const key = slot();
+
       if (key === undefined) {
         return;
       }
+
       await (value === undefined || value === NOT_CHOSEN
         ? sources.clear(key)
         : saveDraft(sources, { slot: key, draft: value, options: options() }));
@@ -110,8 +115,10 @@ export function slotField(
       if (value === undefined || value === NOT_CHOSEN) {
         return sources.translate('character.sheet.notChosen');
       }
+
       const key = slot();
       const stored = key === undefined ? undefined : storedName(sources, key);
+
       return options().find((option) => option.value === value)?.label ?? stored ?? typedName(value) ?? value;
     },
   });
@@ -143,15 +150,19 @@ export function slotFieldsOf(
   slots: Signal<readonly PickSlot[] | undefined>,
 ): Signal<readonly SlotPickField[]> {
   const keys = computed(() => (slots() ?? []).map((slot) => slot.key), { equal: sameKeys });
+
   return computed(() =>
     keys().flatMap((key): SlotPickField[] => {
       const label = untracked(() => slots()?.find((slot) => slot.key === key)?.label);
+
       if (label === undefined) {
         return [];
       }
+
       const options = computed(() => slots()?.find((slot) => slot.key === key)?.options ?? []);
       const trained = computed(() => slots()?.find((slot) => slot.key === key)?.trained ?? []);
       const rows = computed((): SlotPickRows => slots()?.find((slot) => slot.key === key)?.rows ?? NO_ROWS);
+
       return [{ key, label, options, rows, trained, field: slotField(sources, signal(key), options) }];
     }),
   );

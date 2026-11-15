@@ -5,22 +5,27 @@ import * as z from 'zod';
 
 /** Row id of one pack a character has enabled; the audit log keys every row by an `id`. */
 export const CharacterPackId = Uuid.brand<'CharacterPackId'>();
+
 export type CharacterPackId = z.infer<typeof CharacterPackId>;
 
 /** A pack's title as the content tables show it; the character context only displays it. */
 export const PackTitle = z.string().min(1).brand<'PackTitle'>();
+
 export type PackTitle = z.infer<typeof PackTitle>;
 
 /** A pack's publisher as the content tables show it; the character context only displays it. */
 export const PackPublisher = z.string().min(1).brand<'PackPublisher'>();
+
 export type PackPublisher = z.infer<typeof PackPublisher>;
 
 /** A campaign's name as the campaign context shows it; the character context only displays it. */
 export const AttachedCampaignName = z.string().min(1).brand<'AttachedCampaignName'>();
+
 export type AttachedCampaignName = z.infer<typeof AttachedCampaignName>;
 
 /** A campaign's id, so the sheet can link to the campaign; the character context only carries it. */
 export const AttachedCampaignId = Uuid.brand<'AttachedCampaignId'>();
+
 export type AttachedCampaignId = z.infer<typeof AttachedCampaignId>;
 
 /** A homebrew pack a character has enabled. Official packs are always on, so they have no row. */
@@ -34,7 +39,9 @@ export interface CharacterPack {
 
 /** Who decides which packs a character uses: the character's owner, or the campaign it is attached to. */
 export const PackAuthority = { Character: 'character', Campaign: 'campaign' } as const;
+
 export type PackAuthority = ValueOf<typeof PackAuthority>;
+
 export const PackAuthoritySchema = z.enum(PackAuthority);
 
 /** A pack as the character's pack list names it. */
@@ -44,6 +51,7 @@ const PackListing = z.object({
   publisher: PackPublisher,
   official: z.boolean(),
 });
+
 type PackListing = z.output<typeof PackListing>;
 
 /** A pack the character holds content from that is not in force. */
@@ -56,6 +64,7 @@ export const EnabledPack = PackListing.extend({
   /** Whether the viewer may disable it: its owner, for a homebrew pack nothing enabled extends and no campaign decides. */
   removable: z.boolean(),
 });
+
 export type EnabledPack = z.output<typeof EnabledPack>;
 
 /** A pack the owner could enable. */
@@ -63,6 +72,7 @@ export const PackCandidate = PackListing.extend({
   /** Only its owner reads a private pack, so only a character of its owner can use it. */
   private: z.boolean(),
 });
+
 export type PackCandidate = z.output<typeof PackCandidate>;
 
 /** JSON shape of a character's packs: the effective set, and who decides it. */
@@ -82,8 +92,10 @@ export const CharacterPacks = z.object({
    */
   unsupported: z.array(PackListing).readonly().default([]),
 });
+
 export type CharacterPacks = z.output<typeof CharacterPacks>;
 
 /** Which pack the owner enables. */
 export const EnablePackBody = z.object({ packId: ContentPackId });
+
 export type EnablePackBody = z.infer<typeof EnablePackBody>;

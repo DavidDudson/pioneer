@@ -18,6 +18,7 @@ export const ContentPackFile = z.strictObject({
   proficiencyBonus: ProficiencyBonusTable.optional(),
   rollOptionNamespaces: RollOptionNamespaces.optional(),
 });
+
 export type ContentPackFile = z.infer<typeof ContentPackFile>;
 
 /** One `<kind>.json` file of a pack: its entries, each checked as a `ContentEntry`. */
@@ -36,6 +37,7 @@ type PackParts = z.output<typeof ContentPackSchema>;
 /** Files an entry as a definition `ContentRegistry` serves, or with the kinds it doesn't serve yet. */
 function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void {
   const { slug, name, sources } = entry;
+
   if (entry.kind === ContentKind.Ancestry) {
     const { reach: _reach, ...data } = entry.data;
     definitions.ancestries.push({ slug, name, sources, traits: entry.traits, rules: entry.rules, ...data });
@@ -58,9 +60,11 @@ function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<EntrySlug>
   if (entry.pack !== pack) {
     throw new Error(`Entry "${entry.pack}/${entry.slug}" is filed under pack "${pack}"`);
   }
+
   if (taken.has(entry.slug)) {
     throw new Error(`Slug "${entry.slug}" is used twice in pack "${pack}"`);
   }
+
   taken.add(entry.slug);
 }
 
@@ -84,9 +88,11 @@ export function packContentsFromFiles(packFile: unknown, entryFiles: readonly un
   const file = ContentPackFile.parse(packFile);
   const entries = entryFiles.flatMap((entryFile) => ContentEntryFile.parse(entryFile));
   const taken = new Set<EntrySlug>();
+
   for (const entry of entries) {
     checkPlacement(file.id, entry, taken);
   }
+
   return { file, entries };
 }
 
@@ -108,6 +114,7 @@ export function contentPackFromTrustedContents(contents: PackContents): ContentP
 
 function packParts({ file, entries }: PackContents): PackParts {
   const { proficiencyBonus, rollOptionNamespaces, ...manifest } = file;
+
   const definitions: PackDefinitions = {
     ancestries: [],
     creatures: [],
@@ -115,9 +122,11 @@ function packParts({ file, entries }: PackContents): PackParts {
     variantRules: [],
     otherEntries: [],
   };
+
   for (const entry of entries) {
     addDefinition(definitions, entry);
   }
+
   return { manifest, proficiencyBonus, rollOptionNamespaces: rollOptionNamespaces ?? {}, ...definitions };
 }
 

@@ -147,16 +147,21 @@ interface Described {
 /** What the words say a target is: its last word, or `spell effect`; a creature trait as the last word is a creature. */
 function described(text: string): Described | undefined {
   const spellEffect = SPELL_EFFECT.exec(text)?.groups;
+
   if (spellEffect !== undefined) {
     const before = spellEffect['before'] ?? '';
+
     return { of: TargetKind.SpellEffect, words: before === '' ? [] : before.split(' '), traits: [] };
   }
+
   const words = text.split(' ');
   const last = words.pop() ?? '';
   const kind = KINDS.get(last);
+
   if (kind !== undefined) {
     return { of: kind, words, traits: [] };
   }
+
   return CREATURE_TRAITS.has(last) ? { of: TargetKind.Creature, words, traits: [last] } : undefined;
 }
 
@@ -172,6 +177,7 @@ function numbered(text: string): Counted {
   const rest = upTo ? text.slice(UP_TO.length) : text;
   const [first = '', ...words] = rest.split(' ');
   const count = DIGITS.test(first) ? Number(first) : COUNT_WORDS.get(first);
+
   return count === undefined
     ? { words: text }
     : { count: { count, ...(upTo ? { upTo: true } : {}) }, words: words.join(' ') };
@@ -181,15 +187,19 @@ function numbered(text: string): Counted {
 function counted(text: string): Counted {
   const within = ALL_WITHIN.exec(text)?.groups;
   const where = within && WITHIN.get(within['within'] ?? '');
+
   if (within !== undefined && where !== undefined) {
     return { count: { count: TargetCountWord.All, within: where }, words: within['words'] ?? '' };
   }
+
   if (text.startsWith(ANY_NUMBER)) {
     return { count: { count: TargetCountWord.Any }, words: text.slice(ANY_NUMBER.length) };
   }
+
   if (text.startsWith(TRIGGERING)) {
     return { count: { count: 1, triggering: true }, words: text.slice(TRIGGERING.length) };
   }
+
   return numbered(text);
 }
 
@@ -197,9 +207,11 @@ function counted(text: string): Counted {
 function narrowed(target: Described): Pick<Target, 'qualifiers' | 'traits'> | undefined {
   const qualifiers = target.words.flatMap((word) => QUALIFIERS.get(word) ?? []);
   const traits = [...target.words.filter((word) => CREATURE_TRAITS.has(word)), ...target.traits];
+
   if (qualifiers.length + traits.length < target.words.length + target.traits.length) {
     return undefined;
   }
+
   return {
     ...(qualifiers.length === 0 ? {} : { qualifiers }),
     ...(traits.length === 0 ? {} : { traits }),
@@ -209,16 +221,20 @@ function narrowed(target: Described): Pick<Target, 'qualifiers' | 'traits'> | un
 /** One alternative, counted as `inherited` when its own text has no count. */
 function targetOf(text: string, inherited: Count | undefined): Target | undefined {
   const yours = YOURS.get(text);
+
   if (yours !== undefined) {
     return { count: 1, of: yours };
   }
+
   const { count: own, words } = counted(text);
   const count = own ?? inherited;
   const target = described(words);
   const narrowing = target && narrowed(target);
+
   if (count === undefined || target === undefined || narrowing === undefined) {
     return undefined;
   }
+
   return { ...count, of: target.of, ...narrowing };
 }
 
@@ -231,20 +247,25 @@ function countOf({ of: _of, qualifiers: _qualifiers, traits: _traits, ...count }
 function alternativesOf(text: string): Target[] | undefined {
   const [first = '', ...rest] = text.split(ALTERNATIVES);
   const head = targetOf(first, undefined);
+
   if (head === undefined) {
     return undefined;
   }
+
   const inherited = countOf(head);
   const tail = rest.flatMap((each) => targetOf(each, inherited) ?? []);
+
   return tail.length < rest.length ? undefined : [head, ...tail];
 }
 
 /** Text with its counts reworded ("1 to 3" as "up to 3"). */
 function reworded(text: string): string {
   let words = text;
+
   for (const [pattern, replacement] of REWORDINGS) {
     words = words.replace(pattern, replacement);
   }
+
   return words;
 }
 
@@ -256,12 +277,15 @@ interface Groups {
 
 function groupsOf(text: string): Groups | undefined {
   const any = alternativesOf(reworded(text));
+
   if (any !== undefined) {
     return { any };
   }
+
   const both = BOTH.exec(text)?.groups;
   const first = both && alternativesOf(reworded(both['first'] ?? ''));
   const plus = both && alternativesOf(reworded(both['second'] ?? ''));
+
   return first && plus && { any: first, plus };
 }
 
@@ -271,5 +295,6 @@ export function targetsOf(text: string): object | undefined {
   const you = YOU.exec(value)?.groups;
   const groups = groupsOf(you?.['rest'] ?? value);
   const caster = you?.['you'] === 'or' ? TargetYou.Or : TargetYou.And;
+
   return groups && { ...groups, ...(you === undefined ? {} : { you: caster }) };
 }

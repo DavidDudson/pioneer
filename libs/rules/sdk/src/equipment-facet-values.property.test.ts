@@ -26,6 +26,7 @@ function bulkRank(each: Bulk): number {
   if (each === BulkWeight.Negligible) {
     return 0;
   }
+
   return each === BulkWeight.Light ? 1 : each + 1;
 }
 

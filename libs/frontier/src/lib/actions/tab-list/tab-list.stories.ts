@@ -25,6 +25,7 @@ const meta: Meta<TabList<string>> = {
     ],
   },
 };
+
 export default meta;
 
 export const Default: TabListStory = {};

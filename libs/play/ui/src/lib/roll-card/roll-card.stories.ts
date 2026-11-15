@@ -25,6 +25,7 @@ const meta: Meta<RollCard> = {
   title: 'Play/Roll card',
   component: RollCard,
 };
+
 export default meta;
 
 /** A d20 and a +7 modifier, rolled with no DC: the total and the dice, no degree. */

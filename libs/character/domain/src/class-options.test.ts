@@ -6,6 +6,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { classesForRole, classPickerContent } from './class-options';
 
 const ids = new ContentPackBuilder();
+
 const pack = new ContentPackBuilder()
   .withClassFeature('wizard-spellcasting', {
     rules: [
@@ -23,8 +24,11 @@ const pack = new ContentPackBuilder()
     ],
   })
   .withClass('fighter', ['str', 'dex'], { roles: ['melee', 'tank'] });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content = classPickerContent(registry);
 
 describe('classPickerContent', () => {
@@ -65,6 +69,7 @@ describe('classPickerContent', () => {
     const school = content.features.get(
       ContentId.parse(pack.idOf(ContentKind.ClassFeature, 'school-of-ars-grammatica')),
     );
+
     expect(String(school?.name)).toBe('School-of-ars-grammatica');
   });
 

@@ -116,13 +116,16 @@ async function summaryOf(row: Element): Promise<string[]> {
   const name = nameOf(row);
   name.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
   const card = await vi.waitFor(() => present(document.querySelector<HTMLElement>('[role="tooltip"]')));
+
   const fields = [...card.querySelectorAll('fr-description-item')].map((item) =>
     [...item.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
   );
+
   name.dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
   await vi.waitFor(() => {
     expect(document.querySelector('[role="tooltip"]')).toBeNull();
   });
+
   return fields;
 }
 
@@ -162,6 +165,7 @@ function demonicSorcerer(level: number): object {
     class: playerCore2('class:sorcerer'),
     [`${playerCore2('class-feature:bloodline')}:0`]: playerCore2('class-feature:bloodline-demonic'),
   };
+
   return { ...MERISIEL, level, build: { choices, spellAccess: [] } };
 }
 
@@ -192,6 +196,7 @@ describe('CharacterSheetPage repertoire swaps', () => {
   // A refused swap's reason shows as every server refusal does (character-sheet-page.component.spec.ts).
   it("reads a character that has swapped a repertoire spell this level, keeping the swapped spell's picker", async () => {
     const choices = { 'repertoire:bard:1:0': SOOTHE };
+
     const swapped = {
       ...bard(5, choices),
       build: {
@@ -200,6 +205,7 @@ describe('CharacterSheetPage repertoire swaps', () => {
         repertoireSwaps: [{ level: 5, slot: 'repertoire:bard:1:0' }],
       },
     };
+
     const { root } = await openSheet(swapped, { packs: SPELL_PACKS });
     const pickers = await pickersOf(root);
 

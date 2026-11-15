@@ -15,6 +15,7 @@ const SLUGS = ['bard', 'cleric', 'witch', 'wizard'] as const;
 const TRADITIONS = ['arcane', 'divine', 'occult', 'primal'] as const;
 const RANKS = ['trained', 'expert', 'master', 'legendary'] as const;
 const ELEMENTS_MAX = 12;
+
 /** Holds from 5th level, so fails for the 1st-level character these properties use. */
 const AT_FIFTH = [{ gte: ['self:level', 5] }];
 const facts = new PredicateFacts([RollOption.parse('self:level:1')], CORE_NAMESPACES);
@@ -40,9 +41,11 @@ const placed: Arbitrary<Placed> = record({
 function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
   return elements.map(({ entry, slug, tradition, rank, gated }, rule) => {
     const predicate = gated ? { predicate: AT_FIFTH } : {};
+
     const element = entry
       ? { key: 'SpellcastingEntry', slug, tradition, attribute: 'int', preparation: 'prepared', ...predicate }
       : { key: 'Proficiency', selector: 'spellcasting', rank, ...predicate };
+
     return inPlay(element, 'feature', { rule });
   });
 }
@@ -77,6 +80,7 @@ function slotRulesOf(elements: readonly PlacedSlots[]): RuleInPlay[] {
   return elements.map(({ entry, rank, value, pool, gated }, rule) => {
     const inPool = pool === undefined ? {} : { pool };
     const predicate = gated ? { predicate: AT_FIFTH } : {};
+
     return inPlay({ key: 'SpellSlots', entry, rank, value, ...inPool, ...predicate }, 'feature', { rule });
   });
 }
@@ -103,19 +107,23 @@ function modelSlots(live: readonly PlacedSlots[]): Map<string, Modelled> {
   const belowTenth = fixedOwn.filter((rank) => rank < RANK_MAX);
   const highest = belowTenth.length === 0 ? undefined : Math.max(...belowTenth);
   const tallies = new Map<string, Map<number | 'cantrip', number>>();
+
   for (const { pool, rank, value } of live) {
     const resolved = rank === 'highest' ? highest : rank;
+
     if (resolved !== undefined) {
       const tally = tallies.get(pool ?? OWN) ?? new Map<number | 'cantrip', number>();
       tally.set(resolved, (tally.get(resolved) ?? 0) + value);
       tallies.set(pool ?? OWN, tally);
     }
   }
+
   return new Map(
     [...tallies].map(([pool, tally]): [string, Modelled] => {
       const ranks = [...tally]
         .flatMap(([rank, count]) => (rank === 'cantrip' ? [] : [{ rank, count }]))
         .toSorted((left, right) => left.rank - right.rank);
+
       return [pool, slotsWith(tally.get('cantrip'), ranks)];
     }),
   );
@@ -126,8 +134,10 @@ describe('spellcastingInPlay (properties)', () => {
     assert(
       property(array(placed, { maxLength: ELEMENTS_MAX }), (elements) => {
         const live = elements.filter(({ entry, gated }) => entry && !gated);
+
         const expected = [...new Set(live.map(({ slug }) => slug))].toSorted().map((slug): string[] => {
           const first = live.find((each) => each.slug === slug);
+
           return [slug, String(first?.tradition)];
         });
 

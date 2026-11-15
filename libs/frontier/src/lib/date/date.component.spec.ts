@@ -10,14 +10,18 @@ async function render(value: DateValue, format?: DateFormat): Promise<HTMLTimeEl
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(DateDisplay);
   fixture.componentRef.setInput('value', value);
+
   if (format !== undefined) {
     fixture.componentRef.setInput('format', format);
   }
+
   await fixture.whenStable();
   const time = (fixture.nativeElement as HTMLElement).querySelector('time');
+
   if (time === null) {
     throw new Error('fr-date rendered no <time>');
   }
+
   return time;
 }
 

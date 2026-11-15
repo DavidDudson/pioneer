@@ -39,6 +39,7 @@ export interface DerivationContent {
 
 function derived(statistics: ReadonlyMap<Selector, StatisticResult>, selector: Selector): number | undefined {
   const result = statistics.get(selector);
+
   return result?.ok === true ? result.total : undefined;
 }
 
@@ -51,7 +52,9 @@ function rankDerivable(statistics: ReadonlyMap<Selector, StatisticResult>, selec
   if (selector === SPELLCASTING) {
     return [...statistics.keys()].some((key) => key.startsWith('spell-dc:'));
   }
+
   const category = selector.startsWith('defense:') || selector.startsWith('attack:');
+
   return derived(statistics, category ? ARMOR_CLASS : selector) !== undefined;
 }
 
@@ -79,25 +82,30 @@ function spellSlots(entries: readonly SpellcastingInPlay[]): PioneerSpellSlots[]
 function pioneerValues(character: Character, { registry, slots, variants }: DerivationContent): PioneerValues {
   const { document } = character;
   const inputs = characterStatisticInputs(registry, document, slots);
+
   const statistics = characterStatistics(document, {
     registry,
     slots,
     inputs,
     variants,
   });
+
   const ranks = buildRanks(document, slots);
   const focus = documentFocus(document, slots);
+
   return {
     spellSlots: spellSlots(characterSpellcasting(characterGrants(document, slots))),
     focusPoints: focus.entries.length === 0 ? undefined : focus.pool,
     spellDcs: (inputs.spellcasting ?? []).flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
       const selector = SelectorSchema.parse(`spell-dc:${slug}`);
       const total = derived(statistics, selector);
+
       return total === undefined ? [] : [{ selector, tradition, attribute, total }];
     }),
     totals: new Map(
       TOTALS.flatMap((selector): [Selector, number][] => {
         const total = derived(statistics, selector);
+
         return total === undefined ? [] : [[selector, total]];
       }),
     ),

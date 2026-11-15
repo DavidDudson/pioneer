@@ -44,6 +44,7 @@ export function hasEtchedRune(
 /** The runes in `registry`'s packs. A later pack's entry of the same id wins, as in the registry. */
 export function runeContent(registry: ContentRegistry): RuneContent {
   const runes = registry.packs.flatMap((pack) => pack.otherEntries.filter((entry) => isRuneEntry(entry)));
+
   return new Map(runes.map((entry) => [entry.id, entry]));
 }
 
@@ -61,18 +62,22 @@ export function runedItemOf(entry: ItemEntry | undefined): RunedItem | undefined
     case ContentKind.Weapon: {
       return RunedItem.Weapon;
     }
+
     case ContentKind.Armor: {
       return RunedItem.Armor;
     }
+
     case ContentKind.Shield: {
       return RunedItem.Shield;
     }
+
     case ContentKind.Consumable:
     case ContentKind.Equipment:
     case ContentKind.Treasure:
     case undefined: {
       return undefined;
     }
+
     default: {
       return entry satisfies never;
     }
@@ -95,6 +100,7 @@ function printedEtched({ propertyEnergy, property, ...grades }: PrintedRunes): I
     ...grades,
     property: property.map((rune) => {
       const choice = RuneChoice.safeParse(propertyEnergy?.[rune]);
+
       return choice.success ? { rune, choice: choice.data } : { rune };
     }),
   };
@@ -107,15 +113,18 @@ export function printedRunes(entry: ItemEntry | undefined): ItemRunes | undefine
     case ContentKind.Armor: {
       return entry.data.runes === undefined ? undefined : printedEtched(entry.data.runes);
     }
+
     case ContentKind.Shield: {
       return entry.data.runes === undefined ? undefined : { ...NO_RUNES, ...entry.data.runes };
     }
+
     case ContentKind.Consumable:
     case ContentKind.Equipment:
     case ContentKind.Treasure:
     case undefined: {
       return undefined;
     }
+
     default: {
       return entry satisfies never;
     }
@@ -131,6 +140,7 @@ function higher<Grade extends number>(left: Grade | undefined, right: Grade | un
   if (left === undefined) {
     return right;
   }
+
   return right === undefined || left >= right ? left : right;
 }
 
@@ -141,9 +151,11 @@ function higher<Grade extends number>(left: Grade | undefined, right: Grade | un
 export function itemRunes(item: InventoryItem, entry: ItemEntry | undefined): ItemRunes {
   const etched = item.runes ?? NO_RUNES;
   const printed = printedRunes(entry);
+
   if (printed === undefined) {
     return etched;
   }
+
   return {
     potency: higher(printed.potency, etched.potency),
     striking: higher(printed.striking, etched.striking),
@@ -156,11 +168,13 @@ export function itemRunes(item: InventoryItem, entry: ItemEntry | undefined): It
 /** Whether `runes` holds any rune at all. */
 export function hasRunes(runes: ItemRunes): boolean {
   const { property, ...fundamental } = runes;
+
   return property.length > 0 || Object.values(fundamental).some((grade) => grade !== undefined);
 }
 
 /** A count of property runes. */
 export const PropertyRuneCount = Pg.smallint().nonnegative().brand<'PropertyRuneCount'>();
+
 export type PropertyRuneCount = z.infer<typeof PropertyRuneCount>;
 
 /** What a rune's rules say about its item. */
@@ -175,6 +189,7 @@ export type RuneReader = (rune: ContentId) => RuneRules | undefined;
 export function runeReader(lookup: ContentLookup): RuneReader {
   return (rune) => {
     const entry = lookup.entry(rune);
+
     return entry?.kind === ContentKind.Rune ? entry : undefined;
   };
 }
@@ -187,11 +202,13 @@ export function readerOf(content: RuneContent): RuneReader {
 /** The potency changes the etched `rune` makes to its item: those of its `raisesPotency` rules. */
 function potencyChangesOf(rune: RuneRules | undefined): readonly PotencyChange[] {
   const changes: PotencyChange[] = [];
+
   for (const element of rune?.rules ?? []) {
     if (raisesPotency(element) && element.property === NumericItemProperty.Potency) {
       changes.push({ mode: element.mode, value: element.value });
     }
   }
+
   return changes;
 }
 
@@ -207,6 +224,7 @@ export function takesNoSlot(rune: RuneRules | undefined): boolean {
 export function itemPotency(runes: ItemRunes, read: RuneReader): RuneGrade | undefined {
   const changes = runes.property.flatMap(({ rune }) => potencyChangesOf(read(rune)));
   const grade = potencyAfter(runes.potency === undefined ? undefined : FormulaValue.parse(runes.potency), changes);
+
   return grade === undefined || grade < 1 ? undefined : RuneGrade.parse(Math.min(grade, RUNE_GRADE_MAX));
 }
 
@@ -238,16 +256,21 @@ export function workingEtchedRunes(
   read: RuneReader,
 ): readonly EtchedRune[] {
   const runes = itemRunes(item, entry);
+
   if (isSpecific(entry)) {
     return runes.property;
   }
+
   const room = propertyRoom(runes, read);
   let slotted = 0;
+
   return runes.property.filter(({ rune }) => {
     if (takesNoSlot(read(rune))) {
       return true;
     }
+
     slotted += 1;
+
     return slotted <= room;
   });
 }
@@ -267,8 +290,10 @@ export function workingPropertyRunes(
  */
 export function runeApplied(rune: RuneEntry): boolean {
   const { data } = rune;
+
   if (data.type !== RuneType.Property) {
     return true;
   }
+
   return data.unapplied !== true && (rune.rules.length > 0 || data.activations !== undefined);
 }

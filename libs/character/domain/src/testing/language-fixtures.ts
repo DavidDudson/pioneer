@@ -35,6 +35,7 @@ export const languageOrcId: string = ids.idOf(ContentKind.Ancestry, 'orc');
 /** Society's rank as a number in a predicate (`skill:society:rank`): master 3, legendary 4. */
 const MASTER = 3;
 const LEGENDARY = 4;
+
 /** The level the scholar background grants Elven from. */
 const SCHOLAR_LEVEL = 5;
 

@@ -30,6 +30,7 @@ async function render(packs: readonly HomebrewPackReport[]): Promise<string> {
   const fixture = TestBed.createComponent(PioneerImportHomebrew);
   fixture.componentRef.setInput('packs', packs);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

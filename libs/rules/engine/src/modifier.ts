@@ -51,6 +51,7 @@ export const DEFAULT_PRIORITY = RulePriority.parse(100);
 
 export function labelOf(rule: RuleInPlay): ModifierLabel {
   const text = rule.element.display?.label;
+
   return text === undefined ? { entry: rule.origin.entry } : { text };
 }
 
@@ -73,6 +74,7 @@ function modifierSource(rule: RuleInPlay, element: FlatModifierElement): Modifie
 
 function changeOf(element: AdjustModifierElement): AdjustmentChange {
   const { mode, value } = element;
+
   return mode === undefined || value === undefined ? { suppress: true } : { suppress: false, mode, value };
 }
 
@@ -92,13 +94,16 @@ function adjustment(rule: RuleInPlay, element: AdjustModifierElement): Adjustmen
 export function modifierRules(rules: readonly RuleInPlay[]): ModifierRules {
   const modifiers: ModifierSource[] = [];
   const adjustments: Adjustment[] = [];
+
   for (const rule of rules) {
     const { element } = rule;
+
     if (element.key === RuleElementKey.FlatModifier) {
       modifiers.push(modifierSource(rule, element));
     } else if (element.key === RuleElementKey.AdjustModifier) {
       adjustments.push(adjustment(rule, element));
     }
   }
+
   return { modifiers, adjustments };
 }

@@ -45,11 +45,14 @@ export class SheetConsumableUse {
   public async use(line: ConsumableLine): Promise<void> {
     const fortuned =
       line.roll === undefined ? undefined : rollWithFortune(line.roll.expression, NO_FORTUNE, this.#random);
+
     const kept = fortuned?.rolls.find((entry) => entry.kept)?.result;
     const command = useCommand(line, kept);
+
     if (command === undefined) {
       return;
     }
+
     await this.#play.send(command);
     this.#show(line, fortuned);
     await this.#characters.reload();
@@ -60,13 +63,16 @@ export class SheetConsumableUse {
     const registry: ContentRegistry | undefined = this.#registry.data();
     const engine = this.#sheet.engine();
     const character = this.#sheet.character();
+
     if (registry === undefined || engine === undefined || character === undefined) {
       return;
     }
+
     const line = consumableLines(registry, character, {
       turn: this.#play.play.data()?.play.turn,
       inputs: statisticInputsOf(engine, character),
     }).find((each) => each.key === key);
+
     if (line !== undefined) {
       await this.use(line);
     }
@@ -77,15 +83,19 @@ export class SheetConsumableUse {
     if (line.roll === undefined || fortuned === undefined) {
       return;
     }
+
     this.#count += 1;
+
     const view = rollView(this.#count, {
       expression: line.roll.expression,
       roll: fortuned,
       degree: undefined,
       damage: undefined,
     });
+
     this.#rolled.set({ name: line.name, view });
     const counted = keptRoll(fortuned);
+
     if (counted !== undefined) {
       this.#presenter.present(presentRoll(this.#count, line.name, counted));
     }

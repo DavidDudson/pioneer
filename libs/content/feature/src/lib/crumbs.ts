@@ -17,8 +17,10 @@ export function kindCrumb(route: ActivatedRouteSnapshot): Signal<string | undefi
   const language = toSignal(i18n.langChanges$);
   const kind = kindOfParam(route.paramMap.get('kind'));
   const key = kind !== undefined && isBrowseKind(kind) ? KIND_MESSAGES[kind] : OTHER_KIND;
+
   return computed(() => {
     language();
+
     return i18n.translate(key);
   });
 }
@@ -29,12 +31,16 @@ export function entryCrumb(route: ActivatedRouteSnapshot): Signal<string | undef
   const kind = kindOfParam(route.parent?.paramMap.get('kind'));
   const slug = route.paramMap.get('slug');
   const registry = injectEntryRegistry(() => kind);
+
   return computed(() => {
     const loaded = registry.data();
+
     if (loaded === undefined) {
       return registry.isError() ? i18n.translate('contentBrowser.entry.missingTitle') : undefined;
     }
+
     const entry = kind === undefined ? undefined : findEntry(loaded, kind, slug);
+
     return entry?.name ?? i18n.translate('contentBrowser.entry.missingTitle');
   });
 }

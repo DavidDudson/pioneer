@@ -20,6 +20,7 @@ function hp(value: number): HitPoints {
 
 describe('Shield Block with a shield of layers', () => {
   const EFFECT = ContentId.parse('00000000-0000-4000-8000-0000000000e3');
+
   const LAYERED: ShieldStats = {
     hardness: Hardness.parse(5),
     hitPoints: HitPoints.parse(0),
@@ -34,6 +35,7 @@ describe('Shield Block with a shield of layers', () => {
       recreatedOnSustain: false,
     },
   };
+
   const withBadge = (badge: number | undefined): PlayState => ({
     ...FRESH_PLAY,
     effects: [
@@ -44,6 +46,7 @@ describe('Shield Block with a shield of layers', () => {
       }),
     ],
   });
+
   const blockBreaking = (play: PlayState, layers?: number): PlayState =>
     applyPlayCommand(
       play,

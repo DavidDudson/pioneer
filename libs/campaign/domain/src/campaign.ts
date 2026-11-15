@@ -11,6 +11,7 @@ export const CampaignMemberWire = z.object({
   role: z.enum(CampaignRole),
   joinedAt: InstantCodec,
 });
+
 export type CampaignMember = z.output<typeof CampaignMemberWire>;
 
 /** JSON shape of a campaign on the wire and in storage. */
@@ -31,6 +32,7 @@ export const CampaignWire = z
     ({ gmId, members }) => {
       const gms = members.filter((member) => member.role === CampaignRole.Gm);
       const unique = new Set(members.map((member) => member.userId)).size === members.length;
+
       return unique && gms.length === 1 && gms[0]?.userId === gmId;
     },
     { path: ['members'] },
@@ -107,12 +109,14 @@ export class Campaign {
     if (this.roleOf(input.userId) !== undefined) {
       return this;
     }
+
     const player: CampaignMember = {
       id: input.memberId,
       userId: input.userId,
       role: CampaignRole.Player,
       joinedAt: input.now,
     };
+
     return new Campaign({ ...this.toProps(), version: nextVersion(this.version), members: [...this.members, player] });
   }
 
@@ -127,12 +131,15 @@ export class Campaign {
    */
   public withoutMember(memberId: CampaignMemberId): Campaign {
     const member = this.memberById(memberId);
+
     if (member === undefined) {
       return this;
     }
+
     if (member.role === CampaignRole.Gm) {
       throw new Error(`Campaign ${this.id} can't lose its GM`);
     }
+
     return new Campaign({
       ...this.toProps(),
       version: nextVersion(this.version),
@@ -146,16 +153,20 @@ export class Campaign {
    */
   public withGm(memberId: CampaignMemberId): Campaign {
     const member = this.memberById(memberId);
+
     if (member === undefined) {
       throw new Error(`Campaign ${this.id} has no member ${memberId}`);
     }
+
     if (member.role === CampaignRole.Gm) {
       return this;
     }
+
     const members = this.members.map((candidate): CampaignMember => ({
       ...candidate,
       role: candidate.id === memberId ? CampaignRole.Gm : CampaignRole.Player,
     }));
+
     return new Campaign({ ...this.toProps(), version: nextVersion(this.version), gmId: member.userId, members });
   }
 

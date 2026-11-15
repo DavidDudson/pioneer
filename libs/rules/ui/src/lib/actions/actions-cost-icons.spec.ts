@@ -16,11 +16,13 @@ function line(overrides: Partial<ActionLine>): ActionLine {
   if (FIRST === undefined) {
     throw new Error('The standing actions are empty');
   }
+
   return { ...FIRST, ...overrides };
 }
 
 function words(): ActionWords {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+
   return TestBed.inject(ActionWords);
 }
 

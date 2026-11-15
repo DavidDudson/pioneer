@@ -27,6 +27,7 @@ async function render(
   fixture.componentRef.setInput('dismiss', dismiss);
   fixture.componentRef.setInput('baseView', baseView);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, baseView: () => fixture.componentInstance.baseView() };
 }
 
@@ -36,9 +37,11 @@ function textOf(element: Element | null | undefined): string | undefined {
 
 function buttonOf(host: HTMLElement, name: string): HTMLButtonElement {
   const found = [...host.querySelectorAll('button')].find((button) => textOf(button) === name);
+
   if (found === undefined) {
     throw new Error(`no button ${name}`);
   }
+
   return found;
 }
 

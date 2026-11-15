@@ -25,6 +25,7 @@ const meta: Meta<SelectField<CharacterClass>> = {
     template: `<fr-select-field ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: SelectFieldStory = {};

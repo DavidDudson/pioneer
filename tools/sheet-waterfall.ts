@@ -28,10 +28,12 @@ import type { SheetLoad, WaterfallRow } from './sheet-waterfall-stats.ts';
 const DEFAULT_RUNS = 5;
 const DEFAULT_OUT = 'tmp/sheet-waterfall.json';
 const READY_TIMEOUT_MS = 60_000;
+
 /** How long the cold load gets, once the network is quiet, to finish keeping its bundles in IndexedDB. */
 const STORE_SETTLE_MS = 2000;
 const HEADER_MARK = 'sheet:header';
 const READY_MARK = 'sheet:ready';
+
 /** What the web app's requests to the API start with; its scripts, styles and fonts are not part of the count. */
 const RESOURCE_BUFFER = 10_000;
 const API_PREFIX = '/api/';
@@ -45,13 +47,16 @@ const { values } = parseArgs({
     out: { type: 'string', default: DEFAULT_OUT },
   },
 });
+
 const { web, api, out } = values;
 const runs = Number(values.runs);
 
 const databaseUrl = Bun.env['DATABASE_URL'];
+
 if (databaseUrl === undefined) {
   throw new Error('DATABASE_URL is not set; run this in the devshell');
 }
+
 const db = new SQL(databaseUrl);
 
 interface Timed {
@@ -64,6 +69,7 @@ async function readLoad(page: Page): Promise<Timed> {
   await page.waitForFunction((mark) => performance.getEntriesByName(mark).length > 0, READY_MARK, {
     timeout: READY_TIMEOUT_MS,
   });
+
   return page.evaluate(
     ([marks, apiPrefix]): Timed => ({
       rows: performance
@@ -91,6 +97,7 @@ const [cookieName, cookieValue] = cookie.split('=');
 const browser = await chromium.launch();
 const cold: SheetLoad[] = [];
 const warm: SheetLoad[] = [];
+
 for (let run = 0; run < runs; run += 1) {
   // A new context each run is what makes the load cold: it has no HTTP cache and no IndexedDB.
   // oxlint-disable-next-line eslint/no-await-in-loop
@@ -120,10 +127,13 @@ for (let run = 0; run < runs; run += 1) {
   // oxlint-disable-next-line eslint/no-await-in-loop
   await context.close();
 }
+
 await browser.close();
+
 await db.close();
 
 const report = { runs, characterId, cold: summarise(cold), warm: summarise(warm) };
+
 for (const [label, summary] of [
   ['cold', report.cold],
   ['warm', report.warm],
@@ -133,5 +143,7 @@ for (const [label, summary] of [
   );
   console.info(waterfallTable(summary.waterfall));
 }
+
 await mkdir(path.dirname(out), { recursive: true });
+
 await Bun.write(out, `${JSON.stringify(report, undefined, 2)}\n`);

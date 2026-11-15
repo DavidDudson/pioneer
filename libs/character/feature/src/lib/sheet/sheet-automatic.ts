@@ -12,6 +12,7 @@ import { sourceMessageOf } from './sheet-choice-source';
 function statisticName(selector: string): string {
   const last = selector.split(':').at(-1) ?? selector;
   const words = last.replaceAll('-', ' ');
+
   return `${words.charAt(0).toUpperCase()}${words.slice(1)}`;
 }
 
@@ -39,20 +40,24 @@ function lineOf(change: AutomaticChange): AutomaticText {
         text: message(RISE_KEYS[change.to], { statistic: statisticName(change.selector) }),
       };
     }
+
     case AutomaticKind.ClassFeature: {
       return {
         key: `${change.kind}:${change.id}`,
         text: message('rules.timeline.automatic.feature', { name: change.name }),
       };
     }
+
     case AutomaticKind.CantripHeightening: {
       return {
         key: change.kind,
         text: message('rules.timeline.automatic.heightening', { rank: change.rank }),
       };
     }
+
     case AutomaticKind.SpellSlots: {
       const cantrips = change.rank === SlotRank.Cantrip;
+
       return {
         key: `${change.kind}:${change.rank}`,
         text: cantrips
@@ -60,6 +65,7 @@ function lineOf(change: AutomaticChange): AutomaticText {
           : message('rules.timeline.automatic.slots', { count: change.count, rank: change.rank }),
       };
     }
+
     default: {
       const unreachable: never = change;
       throw new TypeError(`Unhandled automatic change: ${JSON.stringify(unreachable)}`);

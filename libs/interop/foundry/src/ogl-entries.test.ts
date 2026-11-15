@@ -18,6 +18,7 @@ const manifest = {
 /** A feat of the Advanced Player's Guide, which Foundry marks OGL and pre-remaster. */
 function feat(name: string): object {
   const publication = { title: "Pathfinder Advanced Player's Guide", license: 'OGL', remaster: false };
+
   return { _id: `${name}Id`, name, type: 'feat', img: 'icon.webp', system: { publication, rules: [] } };
 }
 
@@ -27,6 +28,7 @@ function release(path: string, name: string): FoundryRelease {
     'static/lang/en.json': { PF2E: {} },
     [`packs/pf2e/feats/skill/${path}`]: feat(name),
   };
+
   return readFoundryRelease(
     new Map(Object.entries(files).map(([file, json]) => [`${ROOT}/${file}`, JSON.stringify(json)] as const)),
   );
@@ -50,6 +52,7 @@ describe('an OGL item printed only in a pre-remaster book', () => {
 describe('a registered OGL book the registry does not flag legacy', () => {
   test('is skipped as legacy', () => {
     const publication = { title: 'Pathfinder Secrets of Magic', license: 'OGL', remaster: false };
+
     const wellspring = {
       _id: 'w',
       name: 'Wellspring Mage',
@@ -57,14 +60,17 @@ describe('a registered OGL book the registry does not flag legacy', () => {
       img: 'i.webp',
       system: { publication, rules: [] },
     };
+
     const files = {
       'system.pf2e.json': manifest,
       'static/lang/en.json': { PF2E: {} },
       'packs/pf2e/feats/wellspring.json': wellspring,
     };
+
     const loaded = readFoundryRelease(
       new Map(Object.entries(files).map(([file, json]) => [`${ROOT}/${file}`, JSON.stringify(json)] as const)),
     );
+
     const { selected, skipped } = selectEntries(loaded, new Set([BookId.parse('secrets-of-magic')]), LEGACY);
 
     expect(selected).toEqual([]);

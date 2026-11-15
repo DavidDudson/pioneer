@@ -49,17 +49,20 @@ export class EntryEndingsView {
   protected readonly rows = computed((): readonly EndingRow[] => {
     this.#messages();
     this.#format.locale();
+
     return this.listed().map((ending) => ({ ending, badges: this.#badges(ending) }));
   });
 
   #badges({ dc, against }: PreviewEnding): readonly string[] {
     const dcBadge = dc === undefined ? [] : [this.#i18n.translate(EntryPreviewMessage.EndingDc, { dc })];
+
     const rolls = against.map(({ name, modifier }) =>
       this.#i18n.translate(EntryPreviewMessage.EndingAgainst, {
         statistic: name,
         modifier: this.#format.number(modifier, { signDisplay: 'always' }),
       }),
     );
+
     return [...dcBadge, ...rolls];
   }
 

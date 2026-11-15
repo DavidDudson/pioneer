@@ -34,14 +34,21 @@ export const ToolKind = {
   Filters: 'filters',
   Actions: 'actions',
 } as const;
+
 export type ToolKind = ValueOf<typeof ToolKind>;
 
 export type { ReferenceEntries } from './formula-check';
+
 export { EXAMPLE_GRANT_LEVEL, EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS, EXAMPLE_GRANT_TOGGLES } from './grant-examples';
+
 export { EXAMPLE_FILTER_QUERY } from './filter-examples';
+
 export { EXAMPLE_FACTS } from './predicate-verdict';
+
 export { EXAMPLE_OVERRIDES, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
+
 export { CheckStatus, contentEntryExample, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
+
 export { CONTENT_KIND_KEYS } from './content-entry-examples';
 
 /**
@@ -85,6 +92,7 @@ export type ToolCheck =
 function checkRichText(text: string): ToolCheck {
   const read = readJson(RichText, text);
   const preview = read.status === CheckStatus.Valid ? read.value : undefined;
+
   return { kind: ToolKind.RichText, check: checkOutcome(RichText, read), preview };
 }
 
@@ -94,13 +102,17 @@ function checkRichText(text: string): ToolCheck {
  */
 function checkContentEntry(text: string): ToolCheck {
   const read = readJson(ContentEntry, text);
+
   if (read.status !== CheckStatus.Valid) {
     return { kind: ToolKind.ContentEntry, check: read, sources: undefined };
   }
+
   const issues = sourceIssues(read.value, bookRegistry);
+
   if (issues.length > 0) {
     return { kind: ToolKind.ContentEntry, check: { status: CheckStatus.Invalid, issues }, sources: undefined };
   }
+
   return { kind: ToolKind.ContentEntry, check: checkOutcome(ContentEntry, read), sources: read.value.sources };
 }
 
@@ -109,9 +121,11 @@ function checkSchema(schema: RulesSchema, text: string): ToolCheck {
   if (schema === RulesSchema.RichText) {
     return checkRichText(text);
   }
+
   if (schema === RulesSchema.ContentEntry) {
     return checkContentEntry(text);
   }
+
   return { kind: ToolKind.Schema, check: checkRulesJson(schema, text) };
 }
 
@@ -121,9 +135,11 @@ type CharacterTool = typeof RulesTool.Grants | typeof RulesTool.Statistics;
 function checkCharacter(tool: CharacterTool, text: string, inputs: ToolInputs): ToolCheck {
   if (tool === RulesTool.Statistics) {
     const { proficiency, namespaces } = inputs;
+
     if (proficiency === undefined || namespaces === undefined) {
       return { kind: ToolKind.Statistics, check: { status: StatisticsStatus.Pending } };
     }
+
     const texts = {
       definitions: text,
       inputs: inputs.statisticInputs,
@@ -131,12 +147,16 @@ function checkCharacter(tool: CharacterTool, text: string, inputs: ToolInputs): 
       overrides: inputs.statisticOverrides,
       facts: inputs.facts,
     };
+
     return { kind: ToolKind.Statistics, check: checkStatistics(texts, proficiency, namespaces) };
   }
+
   const { namespaces } = inputs;
+
   if (namespaces === undefined) {
     return { kind: ToolKind.Grants, check: { status: GrantsStatus.Pending } };
   }
+
   return {
     kind: ToolKind.Grants,
     check: checkGrants(
@@ -168,17 +188,22 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
   if (tool === RulesTool.Formula) {
     return { kind: ToolKind.Formula, check: checkFormula(text, inputs.entries) };
   }
+
   if (tool === RulesTool.Verdict) {
     return { kind: ToolKind.Verdict, check: verdictOf(text, inputs) };
   }
+
   if (tool === RulesTool.Statistics || tool === RulesTool.Grants) {
     return checkCharacter(tool, text, inputs);
   }
+
   if (tool === RulesTool.Filters) {
     return { kind: ToolKind.Filters, check: checkFilters(text, inputs.filterQuery) };
   }
+
   if (tool === RulesTool.Actions) {
     return { kind: ToolKind.Actions, check: actionsOf(text, inputs) };
   }
+
   return checkSchema(tool, text);
 }

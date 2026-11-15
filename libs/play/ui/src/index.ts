@@ -1,13 +1,25 @@
 export { RANDOM_SOURCE } from './lib/random-source';
+
 export { localised } from './lib/localise';
+
 export { RollCard } from './lib/roll-card/roll-card.component';
+
 export { RollToggles } from './lib/roll-toggles/roll-toggles.component';
+
 export type { RollToggleChange, RollToggleView } from './lib/roll-toggles/roll-toggles.component';
+
 export { default as rollMessages } from './i18n/en.json';
+
 export { DAMAGE_TYPE_KEYS } from './lib/roll-labels';
+
 export { OutcomeKind, rollView } from './lib/roll-view';
+
 export type { OutcomeView, RollView } from './lib/roll-view';
+
 export { presentRoll, keptRoll, withDegree, withSave } from './lib/roll-stage/roll-presentation';
+
 export type { DiceGroup, RollPresentation } from './lib/roll-stage/roll-presentation';
+
 export { RollPresenter } from './lib/roll-stage/roll-presenter';
+
 export { RollStage } from './lib/roll-stage/roll-stage.component';

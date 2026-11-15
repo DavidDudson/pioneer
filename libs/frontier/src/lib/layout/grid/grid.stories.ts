@@ -34,6 +34,7 @@ const meta: Meta<Grid> = {
     `,
   }),
 };
+
 export default meta;
 
 export const TwoColumns: GridStory = {};

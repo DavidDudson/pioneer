@@ -15,6 +15,7 @@ async function render(speeds: readonly SpeedRow[] | undefined): Promise<HTMLElem
   const fixture = TestBed.createComponent(SpeedRows);
   fixture.componentRef.setInput('speeds', speeds);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

@@ -19,6 +19,7 @@ export {
   ReportText,
   UserAgent,
 } from './bug-report';
+
 export {
   ACCOUNT_PATH,
   AuthPath,
@@ -28,6 +29,7 @@ export {
   SIGN_IN_FAILED_PATH,
   SIGN_IN_PATH,
 } from './identity-contract';
+
 export {
   AvatarUrl,
   BugReportId,
@@ -43,8 +45,13 @@ export {
   UserRole,
   UserRoleSchema,
 } from './identity-fields';
+
 export { NO_PREFERENCES, patchPreferences, Preferences } from './preferences';
+
 export type { ProviderProfile } from './provider-profile';
+
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
+
 export { Session, SESSION_LIFETIME, SessionSummary, SessionToken, TokenHash } from './session';
+
 export { User, UserWire } from './user';

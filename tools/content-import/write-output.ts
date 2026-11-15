@@ -30,20 +30,25 @@ const MANIFEST = 'pack.json';
 /** The files below `directory` (relative to the root) matching `pattern`, as root-relative paths; none if it is absent. */
 async function scan(pattern: string, directory: string): Promise<readonly string[]> {
   const cwd = path.join(ROOT, directory);
+
   const present = await stat(cwd).then(
     (stats) => stats.isDirectory(),
     () => false,
   );
+
   const found = present ? await Array.fromAsync(new Glob(pattern).scan({ cwd, onlyFiles: true })) : [];
+
   return found.map((file) => path.posix.join(directory, file.split(path.sep).join('/')));
 }
 
 /** The ids of what this pack's earlier runs added to the vocabulary pack, which this run replaces. */
 export async function previousImport(targets: PackTargets): Promise<ReadonlySet<ContentId>> {
   const files = await scan('*.json', importedDirectory(targets));
+
   const entries = await Promise.all(
     files.map(async (file) => ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json())),
   );
+
   return new Set(entries.flat().map(({ id }) => id));
 }
 
@@ -51,9 +56,11 @@ export async function previousImport(targets: PackTargets): Promise<ReadonlySet<
 export async function committedEntries({ pack }: PackTargets): Promise<readonly ContentEntry[]> {
   const files = await scan('*.json', path.posix.join(PACKS_DIRECTORY, pack));
   const entryFiles = files.filter((file) => path.posix.basename(file) !== MANIFEST);
+
   const entries = await Promise.all(
     entryFiles.map(async (file) => ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json())),
   );
+
   return entries.flat();
 }
 
@@ -70,6 +77,7 @@ async function writeCanonical(file: string, text: string): Promise<void> {
 /** The pack's committed pin and backlog. */
 async function committedBacklog({ pack }: PackTargets): Promise<ImportFile> {
   const json: unknown = await Bun.file(path.join(ROOT, backlogPath(pack))).json();
+
   return ImportFile.parse(json);
 }
 
@@ -90,19 +98,23 @@ async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promis
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const scanned = await scan('*.json', directory);
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
+
   const changed = await Promise.all(
     files.map(async (file) => {
       const text = await Bun.file(path.join(ROOT, file)).text();
       const merged = mergeRulesIntoText(text, merge);
+
       return merged === text ? [] : [{ path: file, text: merged }];
     }),
   );
+
   return changed.flat();
 }
 
 /** The gapped entries the import holds, whose gaps may be cleared. */
 function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): ReadonlySet<string> {
   const imported = new Set(output.entries.map(({ pack, slug }) => `${pack}/${slug}`));
+
   return new Set([...gapped].filter((entry) => imported.has(entry)));
 }
 
@@ -110,6 +122,7 @@ function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): Readonly
 async function writeAll(texts: readonly PackText[], writes: readonly PackWrite[]): Promise<readonly string[]> {
   await Promise.all(texts.map(async ({ path: file, text }) => writeCanonical(file, text)));
   await Promise.all(writes.map(async (each) => write(each)));
+
   return [...texts, ...writes].map(({ path: file }) => file);
 }
 
@@ -132,6 +145,7 @@ export async function applyRules(
   const cleared = backlogWrite(targets.pack, file, remaining);
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAll(files, [cleared]);
+
   return { written, applied: merge.size };
 }
 
@@ -158,9 +172,11 @@ async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Pr
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const scanned = await scan('*.json', directory);
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
+
   return Promise.all(
     files.map(async (file): Promise<FileMerge> => {
       const merge = addOutcomesToText(await Bun.file(path.join(ROOT, file)).text(), fresh);
+
       return { file, text: merge.text, report: merge.report };
     }),
   );
@@ -168,9 +184,11 @@ async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Pr
 
 function totalReport(merges: readonly FileMerge[]): OutcomesReport {
   let report = NO_REPORT;
+
   for (const each of merges) {
     report = addReports(report, each.report);
   }
+
   return report;
 }
 
@@ -183,6 +201,7 @@ export async function applyOutcomes(output: PackOutput, targets: PackTargets): P
   const changed = merged.filter(({ report }) => report.added > 0);
   await Promise.all(changed.map(async ({ file, text }) => writeCanonical(file, text)));
   const written = changed.map(({ file }) => file);
+
   return { written, report: totalReport(merged) };
 }
 
@@ -206,10 +225,12 @@ async function filledKindFiles(
   kinds: ReadonlySet<string>,
 ): Promise<readonly KindFill[]> {
   const files = await scan('*.json', importedDirectory(targets));
+
   return Promise.all(
     files.map(async (file): Promise<KindFill> => {
       const entries = ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json());
       const merge = withFilledDescriptions(entries, fresh, kinds);
+
       return { file, entries: merge.entries, filled: merge.filled };
     }),
   );
@@ -234,6 +255,7 @@ export async function applyDescriptions(
   const backlogWrites = backlogChanged ? [backlogWrite(targets.pack, committedFile, gaps)] : [];
   const kindWrites = changed.map(({ file, entries }): PackWrite => ({ path: file, json: entries }));
   const written = await writeAll([], [...kindWrites, ...backlogWrites]);
+
   return { written, filled: changed.reduce((total, { filled }) => total + filled, 0) };
 }
 
@@ -262,6 +284,7 @@ export async function appendLegacy(entries: readonly ContentEntry[], targets: Pa
   const own = entries.filter(({ pack }) => pack === targets.pack);
   const kinds = [...new Set(own.map(({ kind }) => kind))];
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
+
   const writes = await Promise.all(
     kinds.map(async (kind): Promise<KindFile> => {
       const file = path.posix.join(directory, `${kind}.json`);
@@ -270,14 +293,19 @@ export async function appendLegacy(entries: readonly ContentEntry[], targets: Pa
       const committed: readonly ContentEntry[] = exists ? ContentEntryFile.parse(await source.json()) : [];
       const have = new Set(committed.map(({ slug }) => slug));
       const fresh = own.filter((entry) => entry.kind === kind && !have.has(entry.slug));
+
       return { path: file, json: [...committed, ...fresh].toSorted(bySlug), added: fresh.length };
     }),
   );
+
   const changed = writes.filter(({ added }) => added > 0);
+
   const written = await writeAll(
     [],
     changed.map(({ path: file, json }) => ({ path: file, json })),
   );
+
   const added = changed.reduce((sum, { added: count }) => sum + count, 0);
+
   return { written, added, present: own.length - added };
 }

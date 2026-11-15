@@ -27,6 +27,7 @@ function offerOf({ id, name, level, rarity, data }: ItemEntry): ShopOffer {
 /** The entries of `entries` that `state` keeps, as the item entries they are. */
 function kept(entries: readonly ItemEntry[], state: FilterState): readonly ItemEntry[] {
   const keep: ReadonlySet<ContentEntry> = new Set(filterEntries(entries, SHOP_FACETS, state));
+
   return entries.filter((entry) => keep.has(entry));
 }
 
@@ -42,6 +43,7 @@ export function shopList(
   const entries = [...content.values()];
   const needle = search.trim().toLocaleLowerCase();
   const searched = entries.filter((entry) => entry.name.toLocaleLowerCase().includes(needle));
+
   return {
     counts: facetCounts(searched, SHOP_FACETS, state),
     offers: kept(searched, state)

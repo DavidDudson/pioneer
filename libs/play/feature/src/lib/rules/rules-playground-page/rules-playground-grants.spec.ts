@@ -18,6 +18,7 @@ describe('RulesPlaygroundPage grants', () => {
     await chooseSchema(harness, 'Grants');
 
     const text = pageText(harness);
+
     const expected = [
       'On the character',
       'Reactive Strike',
@@ -27,6 +28,7 @@ describe('RulesPlaygroundPage grants', () => {
       'Climb in forest',
       'It holds when you are in forest.',
     ];
+
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
     expect(text).not.toContain('Battlefield Surveyor');
   });

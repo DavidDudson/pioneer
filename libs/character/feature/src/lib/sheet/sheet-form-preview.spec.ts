@@ -29,8 +29,10 @@ const BLADE = '77777777-7777-4777-8777-777777777777';
 /** Animal Form's Ape: a Large form with Strikes of its own. */
 const APE = ContentId.parse('0864651a-fc5b-52be-99a6-6f40369fa731');
 const PLANT = ContentId.parse('364d6d32-3a80-511d-95b1-952f32748076');
+
 /** Elf: sees in the low light, which a form that lists senses replaces. */
 const ELF = ContentId.parse('85929532-15d1-52c2-8500-d3b27f174266');
+
 /** Dragon Form: a Large form that sees in the dark and smells, and can neither cast nor speak. */
 const DRAGON = ContentId.parse('43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd');
 const CANDIDATE_ID = EffectInstanceId.parse('00000000-0000-4000-8000-000000000002');
@@ -44,11 +46,14 @@ function formOf(id: EffectInstanceId): ActiveEffect {
 function clericOf(ancestry: ContentId | undefined, effects: ActiveEffect[]): Character {
   const builder = new CharacterBuilder().picking('class', playerCoreClassId('cleric'));
   const cleric = (ancestry === undefined ? builder : builder.picking('ancestry', ancestry)).build();
+
   const items = [
     { id: BLADE, item: itemFixtureId(ItemFixture.HuntersBlade), quantity: 1, carry: { state: 'held', hands: 1 } },
   ];
+
   const { document, version, createdAt, updatedAt } = cleric;
   const inventory = InventorySchema.parse({ items, coins: { pp: 0, gp: 0, sp: 0, cp: 0 } });
+
   return new Character({
     document: { ...document, inventory, play: { ...document.play, effects } },
     version,
@@ -64,6 +69,7 @@ function clericWith(...effects: ActiveEffect[]): Character {
 
 async function registryOf(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([], PACKS) });
+
   return TestBed.inject(ContentLoader).registry(KINDS);
 }
 
@@ -91,6 +97,7 @@ describe(sheetFormPreview, () => {
 
   it('previews the Strikes a form replaces the character’s with', async () => {
     const registry = await registryOf();
+
     const flytrap: ActiveEffect = {
       ...formOf(CANDIDATE_ID),
       effect: PLANT,
@@ -112,6 +119,7 @@ describe(sheetFormPreview, () => {
 
   it('shows the character’s own numbers outside the form it is in now', async () => {
     const registry = await registryOf();
+
     const outside = sheetFormPreview({
       registry,
       character: clericWith(),

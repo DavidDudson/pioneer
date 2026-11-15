@@ -16,6 +16,7 @@ const lang: FoundryLang = {
     },
   },
 };
+
 const values = { item: 'Lute' };
 
 /** What `key` localizes to, unbranded for comparing. */

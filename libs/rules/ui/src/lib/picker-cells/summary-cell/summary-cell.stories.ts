@@ -18,6 +18,7 @@ const LONG = [
 ];
 
 const meta: Meta<SummaryCell> = { title: 'Rules/Picker cells/Summary', component: SummaryCell };
+
 export default meta;
 
 /** A long summary is cut off after two lines. */

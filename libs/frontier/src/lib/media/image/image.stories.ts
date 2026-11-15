@@ -34,6 +34,7 @@ const meta: Meta<ImageDisplay> = {
     template: `<fr-image ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Art: ImageStory = {};

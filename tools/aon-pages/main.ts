@@ -27,9 +27,11 @@ const WINDOW = 10_000;
 
 const { values } = parseArgs({ options: { book: { type: 'string', multiple: true } } });
 const wanted = new Set(values.book);
+
 const books = bookRegistry.books.filter(
   (book) => book.aonSourceUrl !== undefined && (wanted.size === 0 || wanted.has(book.id)),
 );
+
 const client = new PoliteClient({
   userAgent: USER_AGENT,
   intervalMs: INTERVAL_MS,
@@ -60,6 +62,7 @@ async function listedUrls(id: string): Promise<ReadonlySet<AonUrl>> {
   const file = Bun.file(`${LISTINGS}/${id}.json`);
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : { entries: [] };
+
   return new Set(AonListingFile.parse(json).entries.map(({ url }) => url));
 }
 
@@ -80,6 +83,7 @@ async function saveSupersedes(id: string, replacedBy: ReadonlyMap<AonUrl, readon
   if (replacedBy.size === 0) {
     return;
   }
+
   const sorted = Object.fromEntries([...replacedBy].toSorted(([left], [right]) => left.localeCompare(right)));
   await Bun.write(`${SUPERSEDES_DIR}/${id}.json`, `${JSON.stringify({ replacedBy: sorted }, undefined, 2)}\n`);
 }
@@ -96,10 +100,13 @@ interface Collected {
 /** One window of a book's hits, or the reason the run must stop. */
 async function ask(id: string, sourceId: string, from: number): Promise<PageHits | string> {
   const outcome = await client.postJson(SEARCH, query(sourceId, from));
+
   if (outcome.kind !== 'fresh') {
     return outcome.kind === 'refused' ? outcome.reason : 'no answer';
   }
+
   const parsed = parseHits(JSON.parse(outcome.html), sourceId);
+
   return parsed.total > WINDOW ? `${id} has ${parsed.total} hits, more than one window of ${WINDOW}` : parsed;
 }
 
@@ -127,16 +134,20 @@ function absorb(into: Tally, answer: PageHits): void {
 
 async function collect(id: string, sourceId: string): Promise<Collected> {
   const tally: Tally = { pages: new Map(), entries: [], replacedBy: new Map(), skipped: 0 };
+
   for (let from = 0, total = 1; from < total; from += PAGE_SIZE) {
     // Sequential on purpose: one request at a time (ADR-0073).
     // oxlint-disable-next-line eslint/no-await-in-loop
     const answer = await ask(id, sourceId, from);
+
     if (typeof answer === 'string') {
       return { ...tally, stop: answer };
     }
+
     ({ total } = answer);
     absorb(tally, answer);
   }
+
   return tally;
 }
 
@@ -144,19 +155,25 @@ async function fetchBook(id: string, sourceUrl: string): Promise<BookResult> {
   const sourceId = new URL(sourceUrl).searchParams.get('ID') ?? '';
   const found = await collect(id, sourceId);
   const { pages, skipped, stop } = found;
+
   if (stop !== undefined) {
     return { line: `Stopped: ${stop}`, refused: true };
   }
+
   await save(id, found);
+
   return { line: `${id}: ${pages.size} pages, ${skipped} hits without one`, refused: false };
 }
 
 await mkdir(OUT_DIR, { recursive: true });
+
 await mkdir(SUPERSEDES_DIR, { recursive: true });
+
 for (const { id, aonSourceUrl } of books) {
   // oxlint-disable-next-line eslint/no-await-in-loop
   const { line, refused } = await fetchBook(id, aonSourceUrl ?? '');
   console.log(line);
+
   if (refused) {
     process.exitCode = 1;
     break;

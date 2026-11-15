@@ -51,6 +51,7 @@ export class SlotPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return slotPickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

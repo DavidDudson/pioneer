@@ -15,12 +15,14 @@ export class InMemoryAttachedCampaignPacks extends AttachedCampaignPacks {
   public attach(characterId: CharacterId, campaign: AttachedCampaign, allies: readonly CampaignAlly[] = []): this {
     this.#attached.set(characterId, campaign);
     this.#allies.set(characterId, allies);
+
     return this;
   }
 
   public detach(characterId: CharacterId): this {
     this.#attached.delete(characterId);
     this.#allies.delete(characterId);
+
     return this;
   }
 

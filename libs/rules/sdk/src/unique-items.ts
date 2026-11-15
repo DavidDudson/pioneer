@@ -9,6 +9,7 @@ import { RulesMessage } from './messages';
  */
 export function uniqueItems<TItem extends string | number>(context: z.core.ParsePayload<readonly TItem[]>): void {
   const seen = new Set<TItem>();
+
   for (const [index, value] of context.value.entries()) {
     if (seen.has(value)) {
       context.issues.push({
@@ -18,6 +19,7 @@ export function uniqueItems<TItem extends string | number>(context: z.core.Parse
         ...issueParams(message(RulesMessage.ListDuplicate, { value })),
       });
     }
+
     seen.add(value);
   }
 }

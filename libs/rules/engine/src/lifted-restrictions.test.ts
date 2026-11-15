@@ -17,10 +17,12 @@ function liftedBy(
   options: readonly string[] = [],
 ): readonly LiftedRestriction[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return liftedRestrictions({ rules, facts });
 }
 

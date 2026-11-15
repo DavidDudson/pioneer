@@ -80,6 +80,7 @@ export class DeityView {
 
   protected readonly terms = computed(() => {
     const deity = this.deity();
+
     return deity === undefined ? [] : termsOf(deity);
   });
   protected readonly Message = DeityMessage;

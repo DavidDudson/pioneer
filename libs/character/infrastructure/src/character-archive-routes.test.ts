@@ -18,6 +18,7 @@ function app(): AnyElysia {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
   const service = new CharacterService(repository, content, fixedClock('2026-10-15T08:00:00Z'));
+
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 
@@ -48,17 +49,21 @@ async function created(api: AnyElysia): Promise<string> {
   const response = await api.handle(
     request('POST', '/characters', { body: { name: 'Ezren', ancestry: humanAncestryId } }),
   );
+
   const character = (await response.json()) as Created;
+
   return character.id;
 }
 
 async function status(api: AnyElysia, sent: Request): Promise<number> {
   const response = await api.handle(sent);
+
   return response.status;
 }
 
 async function bodyOf(api: AnyElysia, path: string): Promise<unknown> {
   const response = await api.handle(request('GET', path));
+
   return response.json();
 }
 

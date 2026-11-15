@@ -32,6 +32,7 @@ const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 /** The values a `ChoiceSet` offers. */
 function valuesOf(choice: Record<string, unknown> | undefined): string[] {
   const choices = Array.isArray(choice?.['choices']) ? (choice['choices'] as { value: string }[]) : [];
+
   return choices.map(({ value }) => value);
 }
 
@@ -180,6 +181,7 @@ describe('translateKindData: focus spells', () => {
         expect(RuleElement.safeParse(rule).success).toBe(true);
       }
     }
+
     expect(keyed(FocusSpells, 'wizard-spellcasting', WIZARD_SPELLCASTING)).toEqual([]);
   });
 

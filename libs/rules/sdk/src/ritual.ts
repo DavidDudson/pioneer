@@ -25,6 +25,7 @@ export const RitualCheckPick = {
   /** A secondary check: the skill the primary check did not use. */
   PrimaryUnused: 'primary-unused',
 } as const;
+
 export type RitualCheckPick = ValueOf<typeof RitualCheckPick>;
 
 /** A skill at a rank of its own, in a check whose skills differ ("Arcana (master) or Religion (expert)"). */
@@ -61,7 +62,9 @@ function isRankedWhole({ skills, ranked, proficiency }: z.infer<typeof CheckFiel
   if (ranked === undefined) {
     return true;
   }
+
   const named = new Set(ranked.map(({ skill }) => skill));
+
   return proficiency === undefined && named.size === skills.length && skills.every((skill) => named.has(skill));
 }
 
@@ -96,4 +99,5 @@ export const RitualData = z.strictObject({
   primary: RitualCheck,
   secondary: SecondaryCasting,
 });
+
 export type RitualData = z.infer<typeof RitualData>;

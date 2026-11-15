@@ -55,6 +55,7 @@ describe('buildImportReport', () => {
       ],
       lookup,
     );
+
     const rows = report.groups.flatMap((group) => group.rows);
     expect<string[][]>(rows.map((row) => [row.name, row.status])).toEqual([
       ['dwarf', MatchStatus.Matched],
@@ -79,6 +80,7 @@ describe('buildImportReport', () => {
       ],
       lookup,
     );
+
     expect(report.groups.map((group) => group.kind)).toEqual([
       ImportKind.ClassFeature,
       ImportKind.Spell,
@@ -94,9 +96,11 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withAncestry('human').withAncestry('dwarf').build());
   const read = readPathbuilderExport(briarRose);
+
   if (!read.ok) {
     throw new Error('fixture must read');
   }
+
   const report = buildImportReport(read.value.names, registryLookup(registry));
 
   test('Goloma is not in the loaded packs, so the ancestry is unmatched', () => {
@@ -119,6 +123,7 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
       ImportKind.Spell,
       ImportKind.Ritual,
     ]);
+
     const others = report.groups.filter((group) => !indexed.has(group.kind));
     expect(others.flatMap((group) => group.rows).every((row) => row.status === MatchStatus.KindNotLoaded)).toBe(true);
   });
@@ -146,6 +151,7 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
         .withClassFeature('spirit-medium')
         .build(),
     );
+
     const names = [
       imported(ImportKind.Heritage, 'Vigilant Goloma'),
       imported(ImportKind.Background, 'Dendrologist'),
@@ -153,6 +159,7 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
       imported(ImportKind.Feat, 'Fey Influence'),
       imported(ImportKind.ClassFeature, 'Spirit Medium'),
     ];
+
     const matched = buildImportReport(names, registryLookup(packs));
     expect(matched.groups.flatMap((group) => group.rows.map((row) => row.status))).toStrictEqual([
       MatchStatus.Matched,
@@ -180,6 +187,7 @@ describe('buildImportReport: kinds Pathbuilder files under feats and class featu
       [imported(ImportKind.Feat, 'Vigilant Goloma'), imported(ImportKind.ClassFeature, 'Vigilant Goloma')],
       lookup,
     );
+
     expect(report.groups.flatMap((group) => group.rows.map((row) => row.status))).toStrictEqual([
       MatchStatus.Matched,
       MatchStatus.Matched,
@@ -191,9 +199,11 @@ describe('buildImportReport: Mordred against loaded packs', () => {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withAncestry('human').build());
   const read = readPathbuilderExport(mordred);
+
   if (!read.ok) {
     throw new Error('fixture must read');
   }
+
   const report = buildImportReport(read.value.names, registryLookup(registry));
 
   test('Human matches a loaded ancestry', () => {

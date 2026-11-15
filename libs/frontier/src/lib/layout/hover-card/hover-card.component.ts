@@ -116,6 +116,7 @@ export class HoverCard {
    */
   readonly #tap = (event: MouseEvent): void => {
     const touch = event instanceof PointerEvent && event.pointerType === 'touch';
+
     if (touch && this.tapOpens() && !this.open() && this.content() !== undefined) {
       event.preventDefault();
       event.stopPropagation();
@@ -153,9 +154,11 @@ export class HoverCard {
   /** Opens or closes after `delay` to match whether pointer or focus is inside, so crossing the gap doesn't flicker. */
   #settle(delay: number): void {
     this.#clear();
+
     if (this.#destroyed) {
       return;
     }
+
     this.#timer = timer(delay).subscribe(() => {
       this.open.set(this.content() !== undefined && (this.#pointer || this.#focus || this.#nested > 0));
     });

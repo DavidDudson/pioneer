@@ -12,9 +12,11 @@ const BARE_CHECK = DiceExpressionText.parse('1d20');
 
 function bareCheck(): DiceExpression {
   const outcome = parseDiceExpression(BARE_CHECK);
+
   if (!outcome.ok) {
     throw new Error('The bare check expression does not parse');
   }
+
   return outcome.expression;
 }
 
@@ -41,6 +43,7 @@ class BareInlineRoller implements InlineRoller {
 
   public damage({ node, label }: InlineDamageRoll): void {
     const resolved = resolveDamageNode(node, undefined);
+
     if (resolved.ok) {
       this.#show(label, rollDice(resolved.expression, this.#random));
     }

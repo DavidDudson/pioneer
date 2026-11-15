@@ -13,6 +13,7 @@ export const INVITE_LIFETIME: Temporal.Duration = Temporal.Duration.from({ hours
 
 /** Whether an invite still lets someone join. */
 export const InviteStatus = { Open: 'open', Expired: 'expired', Revoked: 'revoked' } as const;
+
 export type InviteStatus = ValueOf<typeof InviteStatus>;
 
 /** JSON shape of an invite in the GM's list. The token hash never leaves the server. */
@@ -22,6 +23,7 @@ export const InviteSummary = z.object({
   expiresAt: InstantCodec,
   revokedAt: InstantCodec.optional(),
 });
+
 export type InviteSummary = z.output<typeof InviteSummary>;
 
 interface CampaignInviteProps {
@@ -81,6 +83,7 @@ export class CampaignInvite {
     if (this.revokedAt !== undefined) {
       return InviteStatus.Revoked;
     }
+
     return Temporal.Instant.compare(now, this.expiresAt) < 0 ? InviteStatus.Open : InviteStatus.Expired;
   }
 

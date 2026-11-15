@@ -72,6 +72,7 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
   async function createCharacter(): Promise<Character> {
     const body = { name: 'Ezren', ancestry: humanAncestryId };
     const created = await api.handle(send({ method: 'POST', path: '/characters', body }));
+
     return Character.codec.parse(await created.json());
   }
 
@@ -82,13 +83,16 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
       body: { ...REPORT, ...body },
       user,
     };
+
     const response = await api.handle(send(call));
     expect(response.status).toBe(200);
+
     return (await response.json()) as Filed;
   }
 
   async function storedSnapshot(id: BugReportId): Promise<CharacterSnapshot | undefined> {
     const stored = await repository.findById(id);
+
     return stored?.snapshot;
   }
 
@@ -122,10 +126,12 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
 
   test('later edits to the character do not change the stored snapshot', async () => {
     const ezren = await createCharacter();
+
     const filed = await report({
       characterId: ezren.id,
       shareCharacter: true,
     });
+
     expect(filed.snapshotTaken).toBe(true);
     const before = await storedSnapshot(filed.id);
     expect(before).toMatchObject({
@@ -137,6 +143,7 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
       field: CharacterPatchField.Name,
       value: 'Ezren, renamed',
     };
+
     const body = { expectedVersion: ezren.version, patch };
     const renamed = await api.handle(send({ method: 'PATCH', path: `/characters/${ezren.id}`, body }));
     expect(renamed.status).toBe(200);
@@ -156,10 +163,12 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
 
   test('an unticked share stores no snapshot', async () => {
     const ezren = await createCharacter();
+
     const filed = await report({
       characterId: ezren.id,
       shareCharacter: false,
     });
+
     expect(filed.snapshotTaken).toBe(false);
     expect(await storedSnapshot(filed.id)).toBeUndefined();
   });

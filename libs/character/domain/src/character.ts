@@ -48,12 +48,14 @@ interface CharacterProps {
 /** The ancestry picked in the ancestry slot, or `undefined` while the slot is empty. */
 function ancestryOf(document: CharacterDocument): AncestryId | undefined {
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
+
   return picked.success ? picked.data : undefined;
 }
 
 /** The class picked in the class slot, or `undefined` while the slot is empty. */
 function classOf(document: CharacterDocument): ContentId | undefined {
   const picked = ContentId.safeParse(document.build.choices[CLASS_SLOT]);
+
   return picked.success ? picked.data : undefined;
 }
 
@@ -75,6 +77,7 @@ export class Character {
       }),
     encode: (character) => {
       const { schemaVersion: _current, ...document } = character.document;
+
       return {
         ...document,
         version: character.version,
@@ -150,9 +153,11 @@ export class Character {
   public apply(patch: CharacterPatch, now: Temporal.Instant, inputs: EditInputs = {}): Character {
     const { document } = { ...this.toProps(), ...this.#changes(patch, inputs, now) };
     const checked = CharacterDocumentSchema.safeParse(document);
+
     if (!checked.success) {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
     }
+
     return new Character({ ...this.toProps(), document, updatedAt: now });
   }
 
@@ -160,22 +165,28 @@ export class Character {
     if (isInventoryPatch(patch)) {
       return this.#stockChanges(patch, inputs);
     }
+
     if (isDocumentPatch(patch)) {
       return { document: withDocumentEdit(this.document, patch, { inputs, now }) };
     }
+
     switch (patch.field) {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
       }
+
       case CharacterPatchField.Level: {
         return { document: { ...this.document, level: patch.value } };
       }
+
       case CharacterPatchField.SelectSlot: {
         return { document: withLoreEdit(this.#choose(patch.slot, patch.selection, inputs), patch) };
       }
+
       case CharacterPatchField.ClearSlot: {
         return { document: withLoreEdit(this.#clear(patch.slot, inputs)) };
       }
+
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
       case CharacterPatchField.SetItemBroken:
@@ -185,6 +196,7 @@ export class Character {
       case CharacterPatchField.TransferRune: {
         return this.#stock(patch, (inventory) => equipmentChange(inventory, patch), inputs.limits);
       }
+
       default: {
         const unreachable: never = patch;
         throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
@@ -199,22 +211,28 @@ export class Character {
       case CharacterPatchField.BuyItem: {
         return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs), inputs.limits);
       }
+
       case CharacterPatchField.GiftKit:
       case CharacterPatchField.BuyKit: {
         return this.#stock(patch, (inventory) => withAddedKit(inventory, patch, inputs), inputs.limits);
       }
+
       case CharacterPatchField.RemoveItem: {
         return this.#stock(patch, (inventory) => removeItem(inventory, patch.id), inputs.limits);
       }
+
       case CharacterPatchField.SetItemQuantity: {
         return this.#stock(patch, (inventory) => setItemQuantity(inventory, patch.id, patch.quantity), inputs.limits);
       }
+
       case CharacterPatchField.MoveItem: {
         return this.#stock(patch, (inventory) => moveItem(inventory, patch.id, patch.container), inputs.limits);
       }
+
       case CharacterPatchField.RenameItem: {
         return this.#stock(patch, (inventory) => renameItem(inventory, patch.id, patch.name), inputs.limits);
       }
+
       case CharacterPatchField.SetCoins: {
         return {
           document: {
@@ -223,6 +241,7 @@ export class Character {
           },
         };
       }
+
       default: {
         const unreachable: never = patch;
         throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
@@ -237,9 +256,11 @@ export class Character {
     limits: RuleLimits | undefined,
   ): Partial<CharacterProps> {
     const refusal = inventoryRefusal(this.document.inventory, edit, storableLimits(limits));
+
     if (refusal !== undefined) {
       throw new TypeError(`Refused inventory edit: ${refusal.message.key}`);
     }
+
     return {
       document: {
         ...this.document,
@@ -252,20 +273,26 @@ export class Character {
     const { build } = this.document;
     const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
     const old = build.choices[slot];
+
     if (inputs.countsAsSwap !== true || old === undefined) {
       return { ...this.document, build: { ...withoutPlacedPick(build, slot, value), choices } };
     }
+
     const signature = signatureKeyOf(slot);
+
     if (signature !== undefined && choices[signature] === old) {
       choices[signature] = value;
     }
+
     const swapped = { ...withoutPlacedPick(build, slot, value), choices, repertoireSwaps: this.#swapped(slot) };
+
     return { ...this.document, build: swapped };
   }
 
   /** The swaps with `slot` recorded at the character's level. */
   #swapped(slot: SlotKey): Build['repertoireSwaps'] {
     const { level, build } = this.document;
+
     return [...build.repertoireSwaps.filter((each) => each.level !== level), { level, slot }];
   }
 
@@ -274,6 +301,7 @@ export class Character {
     const { build } = this.document;
     const { [slot]: _cleared, ...choices } = build.choices;
     const repertoireSwaps = inputs.countsAsSwap === true ? this.#swapped(slot) : build.repertoireSwaps;
+
     return { ...this.document, build: { ...build, choices, repertoireSwaps } };
   }
 

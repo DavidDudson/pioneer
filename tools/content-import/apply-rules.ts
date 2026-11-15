@@ -45,14 +45,19 @@ export function mergeRules(
   { gapped, keys }: Gapped,
 ): RulesMerge {
   const imported = new Map(fresh.map((entry) => [entry.id, entry]));
+
   const gained = committed.flatMap((entry) => {
     const incoming = imported.get(entry.id);
+
     if (incoming === undefined || !gapped.has(slugKey(entry))) {
       return [];
     }
+
     const added = incoming.rules.filter((rule) => keys.has(rule.key) && !entry.rules.some((each) => same(each, rule)));
+
     return added.length > 0 ? [[entry.id, [...entry.rules, ...added]] as const] : [];
   });
+
   return new Map(gained);
 }
 
@@ -61,13 +66,16 @@ export function withMergedRules(entries: readonly unknown[], merge: RulesMerge):
   return entries.map((entry) => {
     const id = typeof entry === 'object' && entry !== null && 'id' in entry ? entry.id : undefined;
     const merged = typeof id === 'string' ? merge.get(id as ContentId) : undefined;
+
     if (merged === undefined) {
       return entry;
     }
+
     // The entry keeps its own rules as written, so their key order does not churn; only the rules it gains are added.
     const own: readonly unknown[] = Array.isArray((entry as { rules?: unknown }).rules)
       ? (entry as { rules: unknown[] }).rules
       : [];
+
     return { ...(entry as object), rules: [...own, ...merged.slice(own.length)] };
   });
 }
@@ -93,12 +101,15 @@ export function clearAppliedGaps(
   const stillGaps = new Map(
     fresh.flatMap((item) => (item.type === BacklogItemType.Entry ? [[slugKey(item), item.gaps] as const] : [])),
   );
+
   return committed.flatMap((item) => {
     if (item.type !== BacklogItemType.Entry || !merged.has(slugKey(item))) {
       return [item];
     }
+
     const remaining = stillGaps.get(slugKey(item)) ?? [];
     const gaps = item.gaps.filter((gap) => !isRuleGap(gap, keys) || remaining.some((each) => same(each, gap)));
+
     return gaps.length === 0 && item.leftOut === undefined ? [] : [{ ...item, gaps }];
   });
 }

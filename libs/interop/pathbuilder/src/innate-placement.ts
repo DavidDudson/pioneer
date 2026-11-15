@@ -32,6 +32,7 @@ interface Placed {
 function sameName(caster: ImportedCaster, entry: SpellcastingInPlay): boolean {
   const casterKey = matchKey(caster.name);
   const entryKey = matchKey(entry.slug);
+
   return casterKey.includes(entryKey) || entryKey.includes(casterKey);
 }
 
@@ -70,20 +71,27 @@ function gapsOf({ caster }: Wanted, left: readonly Listed[], reason: SpellGapRea
 /** One caster placed on top of what is placed so far. */
 function placeCaster(placed: Placed, wanted: Wanted, content: SpellPlacementContent): Placed {
   const entry = entryOf(wanted.caster, placed.document, content);
+
   if (entry === undefined) {
     return { ...placed, gaps: [...placed.gaps, ...gapsOf(wanted, wanted.spells, SpellGapReason.NoEntry)] };
   }
+
   const left = missing(entry, wanted.spells);
+
   if (left.length === 0) {
     return placed;
   }
+
   const pick = openPicks(placed.document, content, (slot) => slot.origin.entry === entry.origin.entry).find(
     (each) => missing(entryOf(wanted.caster, picking(placed.document, each), content), wanted.spells).length === 0,
   );
+
   if (pick === undefined) {
     return { ...placed, gaps: [...placed.gaps, ...gapsOf(wanted, left, SpellGapReason.NotGranted)] };
   }
+
   const [key, value] = pick;
+
   return { ...placed, document: picking(placed.document, pick), choices: { ...placed.choices, [key]: value } };
 }
 
@@ -102,9 +110,12 @@ export function placeInnate(
   const wanted = casters
     .filter(({ innate }) => innate)
     .map((caster): Wanted => ({ caster, spells: listed(caster, content.lookup) }));
+
   let placed: Placed = { document, choices: {}, gaps: [] };
+
   for (const each of wanted) {
     placed = placeCaster(placed, each, content);
   }
+
   return { choices: placed.choices, gaps: placed.gaps };
 }

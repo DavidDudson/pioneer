@@ -33,12 +33,14 @@ export interface StatisticNode {
 function edgesOf(formula: FormulaNode, reads: (selector: Selector) => Selector): StatisticEdge[] {
   return references(formula).flatMap(({ path, position }) => {
     const reference = knownReference(path);
+
     return reference?.kind === ReferenceKind.Statistic ? [{ path, selector: reads(reference.selector), position }] : [];
   });
 }
 
 function nodeOf({ definition, source, reads }: StatisticInstance): StatisticNode {
   const parsed = parseFormula(FormulaText.parse(definition.base));
+
   return parsed.ok
     ? { definition, source, reads, formula: parsed.formula, edges: edgesOf(parsed.formula, reads) }
     : { definition, source, reads, formula: parsed, edges: [] };
@@ -52,9 +54,11 @@ function nodeOf({ definition, source, reads }: StatisticInstance): StatisticNode
 export function statisticGraph(instances: readonly StatisticInstance[]): ReadonlyMap<Selector, StatisticNode> {
   const latest = new Map(instances.map((instance) => [instance.definition.selector, instance]));
   const selectors = [...latest.keys()].toSorted();
+
   return new Map(
     selectors.flatMap((selector) => {
       const instance = latest.get(selector);
+
       return instance === undefined ? [] : [[selector, nodeOf(instance)] as const];
     }),
   );
@@ -62,6 +66,7 @@ export function statisticGraph(instances: readonly StatisticInstance[]): Readonl
 
 /** The order statistics are first visited in. */
 const VisitOrder = z.int().nonnegative().brand<'VisitOrder'>();
+
 type VisitOrder = z.infer<typeof VisitOrder>;
 
 /** Tarjan's bookkeeping per visited statistic. */
@@ -84,6 +89,7 @@ export class Components {
 
   public constructor(graph: ReadonlyMap<Selector, StatisticNode>) {
     this.#graph = graph;
+
     for (const selector of graph.keys()) {
       if (!this.#visits.has(selector)) {
         this.#visit(selector);
@@ -101,12 +107,15 @@ export class Components {
     const visit: Visit = { index: order, low: order, onStack: true };
     this.#visits.set(selector, visit);
     this.#stack.push(selector);
+
     for (const edge of this.#graph.get(selector)?.edges ?? []) {
       this.#follow(visit, edge.selector);
     }
+
     if (visit.low === visit.index) {
       this.#close(selector);
     }
+
     return visit;
   }
 
@@ -114,7 +123,9 @@ export class Components {
     if (!this.#graph.has(to)) {
       return;
     }
+
     const seen = this.#visits.get(to);
+
     if (seen === undefined) {
       from.low = VisitOrder.parse(Math.min(from.low, this.#visit(to).low));
     } else if (seen.onStack) {
@@ -125,12 +136,15 @@ export class Components {
   /** Pops the component rooted at `root`: the statistics above it on the stack, and itself. */
   #close(root: Selector): void {
     const members = this.#stack.splice(this.#stack.lastIndexOf(root));
+
     for (const member of members) {
       const visit = this.#visits.get(member);
+
       if (visit !== undefined) {
         visit.onStack = false;
       }
     }
+
     this.#found.push(members.toSorted());
   }
 }

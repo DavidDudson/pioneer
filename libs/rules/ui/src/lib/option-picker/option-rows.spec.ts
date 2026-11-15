@@ -9,6 +9,7 @@ const options: readonly SelectOption<string>[] = [
   { value: 'wand', label: 'Wand of Frost' },
   { value: 'rod', label: 'Rod of Wonder' },
 ];
+
 const labels = (shown: readonly SelectOption<string>[]): readonly string[] => shown.map((row) => optionLabel(row));
 
 describe(optionOrder, () => {

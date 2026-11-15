@@ -35,6 +35,7 @@ export const RootPick = z.union([ChoiceValue, z.literal(NOT_CHOSEN)]);
 /** The name of the entry picked in `slot`, when the slot holds one it offers. */
 function picked(slots: readonly CharacterSlot[], slot: SlotKey): BuildValue | undefined {
   const found = slots.find((each) => each.key === slot);
+
   return found?.status === SlotStatus.Filled && found.selectionName !== undefined
     ? { name: found.selectionName }
     : undefined;
@@ -45,12 +46,15 @@ function keyAttribute(registry: ContentRegistry, character: Character): BuildVal
   const set = boostSets(character.document, sheetSlotContent(registry).boosts).find(
     (each) => each.source === BoostSource.Class,
   );
+
   const attribute: Attribute | undefined = set?.fixed[0] ?? set?.slots[0]?.pick;
+
   return attribute === undefined ? undefined : { attribute };
 }
 
 function size(registry: ContentRegistry, character: Character): BuildValue | undefined {
   const ancestry = character.ancestry === undefined ? undefined : registry.ancestry(character.ancestry);
+
   return ancestry === undefined ? undefined : { size: ancestry.definition.size };
 }
 
@@ -68,7 +72,9 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
           entry.kind === ContentKind.Trait ? [[Trait.parse(slugName(entry.slug)), entry.name]] : [],
         ),
     );
+
   TRAIT_NAMES.set(registry, read);
+
   return read;
 }
 
@@ -78,6 +84,7 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
  */
 export function traitChips(registry: ContentRegistry | undefined, slugs: readonly Trait[]): readonly Chip[] {
   const names = registry === undefined ? new Map<Trait, string>() : traitNames(registry);
+
   return slugs.map((trait): Chip => ({ label: names.get(trait) ?? humaniseTrait(trait), trait }));
 }
 
@@ -88,6 +95,7 @@ export function traitChips(registry: ContentRegistry | undefined, slugs: readonl
 function traits(registry: ContentRegistry, character: Character): BuildValue | undefined {
   const names = traitNames(registry);
   const own = characterTraits(characterGrants(character.document, sheetSlotContent(registry)));
+
   return own.length === 0 ? undefined : { traits: own.map((trait) => names.get(trait) ?? trait) };
 }
 
@@ -101,6 +109,7 @@ export function sheetBuildSummary(
   slots: readonly CharacterSlot[],
 ): readonly BuildLine[] {
   const subclass = sheetSubclass(registry, character);
+
   return [
     { part: BuildPart.Class, value: picked(slots, CLASS_SLOT) },
     { part: BuildPart.Subclass, value: subclass === undefined ? undefined : picked(slots, subclass.key) },
@@ -124,6 +133,7 @@ export function sheetRootOptions(
   slot: SlotKey,
 ): readonly SelectOption<string>[] {
   const options = rootSlotOptions(character.document, sheetSlotContent(registry), slot);
+
   return options.map((option) => ({ value: option.value, label: option.label }));
 }
 
@@ -147,6 +157,7 @@ export function sheetSubclass(
   const content = sheetSlotContent(registry);
   const find = classSlot === SECOND_CLASS_SLOT ? secondSubclassSlot : subclassSlot;
   const slot = find(characterGrants(character.document, content), content.lookup, classContent(registry));
+
   return slot === undefined
     ? undefined
     : {
@@ -170,6 +181,7 @@ export function sheetKeyAttribute(
 ): SheetKeyAttribute | undefined {
   const set = boostSets(character.document, sheetSlotContent(registry).boosts).find((each) => each.source === source);
   const slot = set?.slots[0];
+
   return slot === undefined ? undefined : { key: slot.key, options: slot.options };
 }
 

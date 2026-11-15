@@ -21,10 +21,12 @@ export const TextElement = {
   ...PhraseElement,
   ...StressElement,
 } as const;
+
 export type TextElement = ValueOf<typeof TextElement>;
 
 /** A tone that sets no colour, so the text takes its parent's: a label inside a coloured button. */
 export const INHERIT_TONE = 'inherit';
+
 export type InheritTone = typeof INHERIT_TONE;
 
 const PHRASE_ELEMENTS: ReadonlySet<TextElement> = new Set(Object.values(PhraseElement));
@@ -93,17 +95,20 @@ export class Text {
 
   protected readonly phraseElement = computed((): PhraseElement | undefined => {
     const element = this.element();
+
     return isPhraseElement(element) ? element : undefined;
   });
 
   protected readonly stressElement = computed((): StressElement | undefined => {
     const element = this.element();
+
     return isStressElement(element) ? element : undefined;
   });
 
   protected readonly classes = computed(() => {
     const damage = this.damage();
     const tone = this.tone();
+
     return cx(
       textVariants({
         variant: this.variant(),

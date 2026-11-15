@@ -39,6 +39,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
 
   public override async findById(id: BugReport['id']): Promise<BugReport | undefined> {
     const [row] = await this.#db.select().from(bugReports).where(eq(bugReports.id, id)).limit(1);
+
     return row === undefined ? undefined : toBugReport(row);
   }
 
@@ -46,6 +47,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
     const sinceText = since.toString();
     const recent = and(eq(bugReports.reporter, reporter), gte(bugReports.createdAt, sinceText));
     const [row] = await this.#db.select({ total: count() }).from(bugReports).where(recent);
+
     return row?.total ?? 0;
   }
 
@@ -56,6 +58,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
       .leftJoin(users, eq(users.id, bugReports.reporter))
       .orderBy(desc(bugReports.createdAt))
       .limit(limit);
+
     return rows.map(({ report, reporterName }) => ({
       id: report.id,
       status: report.status,
@@ -75,6 +78,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
       .leftJoin(users, eq(users.id, bugReports.reporter))
       .where(eq(bugReports.id, id))
       .limit(1);
+
     return row === undefined ? undefined : { ...toBugReport(row.report), reporterName: row.reporterName ?? undefined };
   }
 
@@ -84,6 +88,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
       .set({ status })
       .where(eq(bugReports.id, id))
       .returning({ id: bugReports.id });
+
     return changed.length > 0;
   }
 }

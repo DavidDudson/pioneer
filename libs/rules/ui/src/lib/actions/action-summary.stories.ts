@@ -11,6 +11,7 @@ const meta: Meta<ActionSummary> = {
   title: 'Rules/Action Summary',
   component: ActionSummary,
 };
+
 export default meta;
 
 /** A reaction: its cost, trigger, requirements and the opening of its effect. */

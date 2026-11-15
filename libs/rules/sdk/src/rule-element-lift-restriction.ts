@@ -15,4 +15,5 @@ export const LiftRestrictionElement = z.strictObject({
   environment: ContentId.optional(),
   ...ruleElementBase,
 });
+
 export type LiftRestrictionElement = z.infer<typeof LiftRestrictionElement>;

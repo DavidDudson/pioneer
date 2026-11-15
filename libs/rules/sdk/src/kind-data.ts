@@ -51,6 +51,7 @@ export const KIND_DATA = {
   ...MAGIC_KIND_DATA,
   ...EQUIPMENT_KIND_DATA,
 } as const;
+
 export type RegisteredKind = keyof typeof KIND_DATA;
 
 /** Every kind with a `data` schema, in `ContentKind` order. */

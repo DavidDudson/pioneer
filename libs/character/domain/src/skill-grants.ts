@@ -40,6 +40,7 @@ function sameSkillGrants(left: SkillGrants, right: SkillGrants): boolean {
 /** What the grants at `level` give a skill slot, read from the resolution at that level itself. */
 export function exactSkillGrants(grantsAt: GrantsAt, level: Level): SkillGrants {
   const resolution = grantsAt(level);
+
   return { ranks: grantedSkillRanks(resolution), entries: trainingEntries(resolution) };
 }
 

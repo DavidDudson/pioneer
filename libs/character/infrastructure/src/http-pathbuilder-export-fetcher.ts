@@ -16,6 +16,7 @@ const FOUND = 302;
 const SEE_OTHER = 303;
 const TEMPORARY_REDIRECT = 307;
 const PERMANENT_REDIRECT = 308;
+
 const REDIRECT_STATUSES: ReadonlySet<number> = new Set([
   MOVED_PERMANENTLY,
   FOUND,
@@ -40,14 +41,18 @@ const platformFetch: Fetch = async (url, init): Promise<Response> => fetch(url, 
 /** `body`, failing once more than `maxBytes` have passed through. */
 function capped(body: ReadableStream<Uint8Array>, maxBytes: number): ReadableStream<Uint8Array> {
   let size = 0;
+
   return body.pipeThrough(
     new TransformStream<Uint8Array, Uint8Array>({
       transform(chunk, controller): void {
         size += chunk.byteLength;
+
         if (size > maxBytes) {
           controller.error(new RangeError('The export is over the size limit'));
+
           return;
         }
+
         controller.enqueue(chunk);
       },
     }),
@@ -57,15 +62,18 @@ function capped(body: ReadableStream<Uint8Array>, maxBytes: number): ReadableStr
 /** The body of `response` as text; undefined once it passes `maxBytes`, declared or read. */
 async function boundedText(response: Response, maxBytes: number): Promise<string | undefined> {
   const declared = Number(response.headers.get('content-length'));
+
   if (declared > maxBytes) {
     return undefined;
   }
+
   try {
     return await new Response(response.body === null ? undefined : capped(response.body, maxBytes)).text();
   } catch (error) {
     if (error instanceof RangeError) {
       return undefined;
     }
+
     throw error;
   }
 }
@@ -87,6 +95,7 @@ function parsed(text: string): FetchedExport {
 function redirectTarget(response: Response, from: string): PathbuilderExportUrl | undefined {
   const location = response.headers.get('location');
   const next = location === null ? undefined : exportUrlOf(new URL(location, from).href);
+
   return next?.ok === true ? next.url : undefined;
 }
 
@@ -108,11 +117,15 @@ export class HttpPathbuilderExportFetcher extends PathbuilderExportFetcher {
   public override async fetch(url: PathbuilderExportUrl): Promise<FetchedExport> {
     try {
       const response = await this.#follow(url, AbortSignal.timeout(this.#limits.timeoutMs), MAX_REDIRECTS);
+
       if (response === undefined || !response.ok) {
         await response?.body?.cancel();
+
         return { ok: false, problem: ExportFetchProblem.Unavailable };
       }
+
       const text = await boundedText(response, this.#limits.maxBytes);
+
       return text === undefined ? { ok: false, problem: ExportFetchProblem.TooLarge } : parsed(text);
     } catch (error) {
       return { ok: false, problem: isTimeout(error) ? ExportFetchProblem.TimedOut : ExportFetchProblem.Unavailable };
@@ -122,11 +135,14 @@ export class HttpPathbuilderExportFetcher extends PathbuilderExportFetcher {
   /** The response for `url`, following a redirect only to another Pathbuilder export link; undefined otherwise. */
   async #follow(url: string, signal: AbortSignal, redirectsLeft: number): Promise<Response | undefined> {
     const response = await this.#fetch(url, { redirect: 'manual', signal, headers: { accept: 'application/json' } });
+
     if (!REDIRECT_STATUSES.has(response.status)) {
       return response;
     }
+
     await response.body?.cancel();
     const next = redirectTarget(response, url);
+
     return next === undefined || redirectsLeft === 0 ? undefined : this.#follow(next, signal, redirectsLeft - 1);
   }
 }

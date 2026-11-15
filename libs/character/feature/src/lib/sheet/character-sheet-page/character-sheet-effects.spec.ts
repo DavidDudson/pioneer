@@ -175,6 +175,7 @@ describe('CharacterSheetPage effects', () => {
       form: 'plant-form:flytrap',
       rank: 6,
     };
+
     const { root } = await openSheet(undefined, { play: playWith([plant]), packs: PACKS });
 
     await vi.waitFor(() => {

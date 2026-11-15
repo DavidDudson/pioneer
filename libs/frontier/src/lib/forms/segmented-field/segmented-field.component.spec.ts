@@ -15,18 +15,23 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
   fixture.componentRef.setInput('label', 'Distance unit');
   fixture.componentRef.setInput('hint', 'Rules distances are in feet.');
   fixture.componentRef.setInput('options', UNITS);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<SegmentedField<string>>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
@@ -37,9 +42,11 @@ function buttons(fixture: ComponentFixture<SegmentedField<string>>): HTMLButtonE
 /** The text of whatever the group's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<SegmentedField<string>>): string {
   const ids = find(fixture, '[role="toolbar"]').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 

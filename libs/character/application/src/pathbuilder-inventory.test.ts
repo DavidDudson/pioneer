@@ -73,9 +73,11 @@ interface Imported {
 async function importOf(value: PathbuilderImport): Promise<Imported> {
   const registry = await fixedContent(GEAR).registry();
   const lookup = registryLookup(registry);
+
   const runes = entryLookup({
     [ImportKind.Item]: CALIBURN_RUNES.map((name) => ({ id: Uuid.parse(newId()), name: ContentText.parse(name) })),
   });
+
   return {
     inventory: importedInventory(value, { items: lookup, runes, entries: itemContent(registry) }),
     matched: value.items.filter((each) => lookup.resolve(ImportKind.Item, each.name) !== undefined).length,
@@ -84,14 +86,17 @@ async function importOf(value: PathbuilderImport): Promise<Imported> {
 
 function readExport(raw: unknown): PathbuilderImport {
   const read = readPathbuilderExport(raw);
+
   if (!read.ok) {
     throw new TypeError('The export does not read');
   }
+
   return read.value;
 }
 
 async function mordredInventory(): Promise<Inventory> {
   const { inventory } = await importOf(readExport(mordredExport));
+
   return inventory;
 }
 
@@ -165,6 +170,7 @@ describe('importedInventory (over the limits)', () => {
     runes: undefined,
     container: undefined,
   };
+
   const CLOAKS = 12;
 
   test('keeps every item Pathbuilder invests invested, past the limit', async () => {
@@ -199,6 +205,7 @@ async function withContainers(
   items: readonly ImportedItem[],
 ): Promise<Inventory> {
   const { inventory } = await importOf({ ...readExport(mordredExport), containers, items });
+
   return inventory;
 }
 
@@ -221,6 +228,7 @@ describe('importedInventory (containers)', () => {
       [container(FOLDER, 'Plot Items')],
       [torch(FOLDER), torch(FOLDER)],
     );
+
     expect(items).toHaveLength(2);
     expect(items.map((line) => line.container)).toStrictEqual([undefined, undefined]);
     expect(customItems).toStrictEqual([]);

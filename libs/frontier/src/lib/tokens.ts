@@ -13,6 +13,7 @@ export const Space = {
   Xl2: '2xl',
   Xl3: '3xl',
 } as const;
+
 export type Space = ValueOf<typeof Space>;
 
 /** Semantic intent, shared by text, buttons and feedback. */
@@ -26,6 +27,7 @@ export const Tone = {
   Warning: 'warning',
   Info: 'info',
 } as const;
+
 export type Tone = ValueOf<typeof Tone>;
 
 export const Size = {
@@ -33,6 +35,7 @@ export const Size = {
   Md: 'md',
   Lg: 'lg',
 } as const;
+
 export type Size = ValueOf<typeof Size>;
 
 /**
@@ -45,6 +48,7 @@ export const Container = {
   Md: 'md',
   Lg: 'lg',
 } as const;
+
 export type Container = ValueOf<typeof Container>;
 
 /**
@@ -105,6 +109,7 @@ export const DamageTone = {
   Spirit: 'spirit',
   Bleed: 'bleed',
 } as const;
+
 export type DamageTone = ValueOf<typeof DamageTone>;
 
 export const damageToneVariants = {

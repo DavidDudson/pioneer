@@ -17,6 +17,7 @@ const meta: Meta<LevelTimeline> = {
   title: 'Rules/Level timeline',
   component: LevelTimeline,
 };
+
 export default meta;
 
 /** While the character's slots load. */

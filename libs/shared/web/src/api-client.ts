@@ -43,21 +43,26 @@ export class ApiClient {
   ): Promise<z.output<TResponse>> {
     try {
       const body: unknown = z.encode(endpoint.body, input.body);
+
       const response = await firstValueFrom(
         this.#http.request<unknown>(endpoint.method, `${this.#baseUrl}${endpoint.url(input.params, input.query)}`, {
           body,
         }),
       );
+
       return endpoint.response.parse(response);
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
         const problem = ProblemSchema.safeParse(error.error);
         const failure = new ApiError(error.status, problem.success ? problem.data : undefined);
+
         if (failure.isUnauthorized && input.signedOutIsAnswer !== true) {
           await this.#promptSignIn();
         }
+
         throw failure;
       }
+
       throw error;
     }
   }

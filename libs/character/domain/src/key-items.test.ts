@@ -53,6 +53,7 @@ describe('key items in an inventory', () => {
       quantity: one,
       container: undefined,
     });
+
     const after = withoutKeyItem(inventory, caliburn);
     expect(after.items.map((each) => each.id)).toStrictEqual([idAt(1)]);
     expect(withoutKeyItem(after, caliburn)).toBe(after);
@@ -65,12 +66,14 @@ describe('key items in an inventory', () => {
       quantity: one,
       container: idAt(99),
     });
+
     const [rope] = withoutKeyItem(held, caliburn).items;
     expect(rope?.container).toBeUndefined();
   });
 
   test('is kept past the invested limit the schema holds a player to', () => {
     let inventory = EMPTY_INVENTORY;
+
     for (let index = 0; index < INVESTED_MAX + 1; index += 1) {
       inventory = withKeyItem(inventory, {
         id: idAt(index),
@@ -81,20 +84,24 @@ describe('key items in an inventory', () => {
         runes: undefined,
       });
     }
+
     for (const each of inventory.items) {
       inventory = investItem(inventory, each.id, true);
     }
+
     expect(InventorySchema.safeParse(inventory).success).toBe(true);
   });
 
   test('breaks no rule however it is held', () => {
     const crowded = carryItem(given(), idAt(99), TWO_HANDS);
+
     const held = addItem(crowded, {
       id: idAt(1),
       item: itemFixtureId(ItemFixture.Rope),
       quantity: one,
       container: undefined,
     });
+
     const both = carryItem(held, idAt(1), TWO_HANDS);
     const violations = inventoryViolations(both, content);
     expect(violations.some((each) => each.item === idAt(99))).toBe(false);
@@ -117,6 +124,7 @@ describe('keyItemRefusal', () => {
       id: idAt(99),
       quantity: ItemQuantity.parse(2),
     } as const;
+
     expect(keyItemRefusal(inventory, patch)).toBeDefined();
   });
 
@@ -136,6 +144,7 @@ describe('keyItemRefusal', () => {
       quantity: one,
       container: undefined,
     });
+
     expect(keyItemRefusal(everyday, { field: CharacterPatchField.RemoveItem, id: idAt(1) })).toBeUndefined();
   });
 });

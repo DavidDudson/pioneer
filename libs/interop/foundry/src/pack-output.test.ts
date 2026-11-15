@@ -22,6 +22,7 @@ function feat(id: string, name: string, system: object = {}): DocumentFixture {
 
 const GRANTED = feat('grantedFeat00001', 'Granted');
 const GRANT = { key: 'GrantItem', uuid: 'Compendium.pf2e.feats-srd.Item.grantedFeat00001' };
+
 const GRANTER = feat('granterFeat00001', 'Granter', {
   rules: [GRANT],
   description: { value: '<p>See @UUID[Compendium.pf2e.feats-srd.Item.grantedFeat00001].</p>' },
@@ -50,6 +51,7 @@ function unsourced(translation: ImportTranslation): ImportTranslation {
     entries: translation.entries.map((entry) => {
       const copy = structuredClone(entry);
       Object.assign(copy.envelope, { sources: [] });
+
       return copy;
     }),
   };
@@ -61,6 +63,7 @@ function entryItem(backlog: readonly BacklogItem[], slug: string): BacklogItem |
 
 function gapsOf(backlog: readonly BacklogItem[], slug: string): readonly BacklogGap[] {
   const item = entryItem(backlog, slug);
+
   return item?.type === BacklogItemType.Entry ? item.gaps : [];
 }
 

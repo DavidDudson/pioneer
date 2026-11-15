@@ -45,9 +45,11 @@ const one = ItemQuantity.parse(1);
 /** The one item `character` carries. */
 function onlyItem(character: Character): InventoryItem {
   const [item, ...rest] = character.document.inventory.items;
+
   if (item === undefined || rest.length > 0) {
     throw new Error('Expected one item');
   }
+
   return item;
 }
 
@@ -78,11 +80,14 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       name: CharacterName.parse('Merisiel'),
       ancestry: humanAncestryId,
     });
+
     const { character: packed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
     });
+
     const [backpack] = packed.document.inventory.items;
+
     const { character: stowed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: packed.version,
       patch: {
@@ -92,10 +97,12 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
         container: backpack?.id,
       },
     });
+
     const { character: paid } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: stowed.version,
       patch: { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 15, cp: 7 }) },
     });
+
     await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: paid.version,
       patch: { field: CharacterPatchField.BuyItem, item: itemFixtureId(ItemFixture.Arrows), quantity: one },
@@ -113,12 +120,15 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       .select({ schemaVersion: characters.schemaVersion })
       .from(characters)
       .where(eq(characters.id, created.id));
+
     expect(row?.schemaVersion).toBe(CURRENT_SCHEMA_VERSION);
+
     const entries = await database.db
       .select()
       .from(auditLog)
       .where(eq(auditLog.rowId, created.id))
       .orderBy(asc(auditLog.changedAt));
+
     expect(entries.map((entry) => entry.command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
       CharacterCommand.GiftItem,
@@ -133,10 +143,12 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       name: CharacterName.parse('Kyra'),
       ancestry: humanAncestryId,
     });
+
     const { character: paid } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 5 }) },
     });
+
     const { character: bought } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: paid.version,
       patch: { field: CharacterPatchField.BuyKit, kit: kitFixtureId(KitFixture.Explorer) },
@@ -152,11 +164,13 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       [itemFixtureId(ItemFixture.Longsword), undefined],
     ]);
     expect(stored.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 3 }));
+
     const entries = await database.db
       .select({ command: auditLog.command })
       .from(auditLog)
       .where(eq(auditLog.rowId, created.id))
       .orderBy(asc(auditLog.changedAt));
+
     expect(entries.map((entry) => entry.command).at(-1)).toBe(CharacterCommand.BuyKit);
   });
 
@@ -165,16 +179,20 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       name: CharacterName.parse('Seelah'),
       ancestry: humanAncestryId,
     });
+
     const { character: added } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Cloak), quantity: one },
     });
+
     const cloak = onlyItem(added);
     const worn = { state: CarryState.Worn } as const;
+
     const { character: wearing } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: added.version,
       patch: { field: CharacterPatchField.CarryItem, id: cloak.id, carry: worn },
     });
+
     await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: wearing.version,
       patch: { field: CharacterPatchField.InvestItem, id: cloak.id, invested: true },
@@ -189,15 +207,19 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       name: CharacterName.parse('Valeros'),
       ancestry: humanAncestryId,
     });
+
     const { character: added } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Longsword), quantity: one },
     });
+
     const sword = onlyItem(added);
+
     const { character: potent } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: added.version,
       patch: { field: CharacterPatchField.EtchRune, id: sword.id, rune: fundamental(FundamentalRune.Potency, 1) },
     });
+
     await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: potent.version,
       patch: { field: CharacterPatchField.EtchRune, id: sword.id, rune: propertyRune(RuneFixture.Flaming) },

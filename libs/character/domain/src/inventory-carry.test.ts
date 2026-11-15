@@ -41,12 +41,14 @@ function packed(): Inventory {
     quantity: one,
     container: undefined,
   });
+
   inventory = addItem(inventory, {
     id: pouchId,
     item: itemFixtureId(ItemFixture.Backpack),
     quantity: one,
     container: backpackId,
   });
+
   return addItem(inventory, { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: pouchId });
 }
 
@@ -71,9 +73,11 @@ function ropeIdAt(index: number): InventoryItemId {
 /** `count` loose ropes, the nth with id `ropeIdAt(n)`, each changed by `change` when given. */
 function ropes(count: number, change: (item: InventoryItem) => InventoryItem = (item) => item): Inventory {
   const items: InventoryItem[] = [];
+
   for (let index = 0; index < count; index += 1) {
     items.push(change({ id: ropeIdAt(index), item: itemFixtureId(ItemFixture.Rope), quantity: one, carry: STOWED }));
   }
+
   return { ...EMPTY_INVENTORY, items };
 }
 
@@ -170,6 +174,7 @@ describe('InventorySchema: carrying', () => {
       container: pouchId,
       carry: WORN,
     };
+
     const items = [...packed().items.filter((each) => each.id !== ropeId), wornRope];
     expect(InventorySchema.safeParse({ ...packed(), items }).success).toBe(false);
   });

@@ -12,9 +12,11 @@ const now = fixedClock('2026-10-10T10:00:00Z').now();
 
 function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
   const member = campaign.members.find((candidate) => candidate.userId === userId);
+
   if (member === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return member;
 }
 
@@ -65,6 +67,7 @@ describe('Campaign', () => {
 
   test('create makes the creator its GM and only member', () => {
     const gmMemberId = CampaignMemberId.parse(newId());
+
     const campaign = Campaign.create({
       id: CampaignId.parse(newId()),
       gmMemberId,
@@ -72,6 +75,7 @@ describe('Campaign', () => {
       name: CampaignName.parse('  Abomination Vaults '),
       now,
     });
+
     expect(campaign.version).toBe(FIRST_VERSION);
     expect(campaign.name).toBe(CampaignName.parse('Abomination Vaults'));
     expect(campaign.gmId).toBe(fixtureGmId);

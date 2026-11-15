@@ -33,6 +33,7 @@ interface Extras {
 
 function creatureDoc(name: string, publication: object | undefined, extras: Extras = {}): object {
   const { type = 'npc', level = 1, items = [] } = extras;
+
   return {
     _id: `${name}Id`,
     name,
@@ -82,6 +83,7 @@ const files: Record<string, unknown> = {
 function archive(extra: Record<string, string> = {}): ReadonlyMap<string, string> {
   const texts = Object.entries(files).map(([path, json]) => [`${ROOT}/${path}`, JSON.stringify(json)] as const);
   const raw = Object.entries(extra).map(([path, text]) => [`${ROOT}/${path}`, text] as const);
+
   return new Map([...texts, ...raw]);
 }
 

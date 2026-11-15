@@ -61,6 +61,7 @@ const RANK_WORDING = /(?<rank>\d{1,2})(?:st|nd|rd|th)-rank counteract/u;
 /** The rank a consumable's text counteracts at ("a 1st-rank counteract"), where it says one. */
 function writtenRank(entry: ContentEntry): SpellRank | undefined {
   const rank = RANK_WORDING.exec(JSON.stringify(entry.description))?.groups?.['rank'];
+
   return rank === undefined ? undefined : SpellRank.parse(Number(rank));
 }
 
@@ -72,6 +73,7 @@ function counteractRank(entry: ContentEntry): SpellRank | undefined {
 /** What `easing` does to `condition`, as `entry` declares it. */
 function removal(entry: ContentEntry, condition: ContentId, easing: Easing): ConditionRemoval {
   const rank = easing.effect === ConditionRemovalEffect.Counteract ? counteractRank(entry) : undefined;
+
   return ConditionRemoval.parse({
     condition,
     effect: easing.effect,
@@ -98,27 +100,35 @@ function easingIds(condition: ContentEntry): readonly ContentId[] {
   if (condition.kind !== ContentKind.Condition) {
     return [];
   }
+
   return condition.data.recovery.flatMap((ending) => (ending.kind === 'others' ? ending.by : []));
 }
 
 /** The entries every condition names as easing it, each with the conditions it eases, from the pack entries. */
 export function removalMatches(entries: readonly ContentEntry[]): RemovalMatches {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
+
   const named = entries.flatMap((condition) =>
     easingIds(condition).flatMap((id): Named[] => {
       const remover = byId.get(id);
+
       return remover === undefined ? [] : [{ condition: condition.id, remover }];
     }),
   );
+
   const removals = new Map<ContentKey, ConditionRemoval[]>();
+
   for (const { condition, remover } of named) {
     const easing = EASINGS.get(remover.slug);
+
     if (easing !== undefined) {
       const key = contentKey(remover.pack, remover.slug);
       removals.set(key, [...(removals.get(key) ?? []), removal(remover, condition, easing)]);
     }
   }
+
   const unmapped = named.map(({ remover }) => remover.slug).filter((slug) => !EASINGS.has(slug));
+
   return { removals, unmapped: [...new Set(unmapped)] };
 }
 
@@ -127,18 +137,23 @@ function withRemovals(entry: ContentEntry, removesConditions: readonly Condition
   if (entry.kind === ContentKind.Spell) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
+
   if (entry.kind === ContentKind.Feat) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
+
   if (entry.kind === ContentKind.ClassFeature) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
+
   if (entry.kind === ContentKind.Action) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
+
   if (entry.kind === ContentKind.Consumable) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
+
   return undefined;
 }
 
@@ -151,12 +166,16 @@ export function enrichRemovalFile(
   matches: ReadonlyMap<ContentKey, readonly ConditionRemoval[]>,
 ): readonly unknown[] | undefined {
   const entries = ContentEntryFile.parse(file);
+
   const enriched = file.map((json, index) => {
     const entry = entries[index];
     const removals = entry === undefined ? undefined : matches.get(contentKey(entry.pack, entry.slug));
     const changed = entry === undefined || removals === undefined ? undefined : withRemovals(entry, removals);
+
     return changed === undefined ? json : z.encode(ContentEntry, changed);
   });
+
   const changed = enriched.some((json, index) => json !== file[index]);
+
   return changed ? enriched : undefined;
 }

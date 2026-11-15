@@ -18,7 +18,9 @@ import {
 import type { LanguageBackground, LanguageFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(languageFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LANGUAGES: readonly LanguageFixture[] = [
@@ -31,7 +33,9 @@ const LANGUAGES: readonly LanguageFixture[] = [
   'empyrean',
   'aklo',
 ];
+
 const BACKGROUNDS: readonly LanguageBackground[] = ['envoy', 'linguist', 'dwarf-friend', 'scholar'];
+
 /** A language, or nothing, for one slot. */
 const languagePick = option(constantFrom(...LANGUAGES), { nil: undefined });
 const PICKS_MAX = 8;
@@ -47,16 +51,21 @@ function dwarfWith(
   atLevel: number,
 ): CharacterDocument {
   let builder = new CharacterBuilder().picking('ancestry', languageDwarfId).atLevel(atLevel);
+
   if (background !== undefined) {
     builder = builder.picking('background', languageBackgroundId(background));
   }
+
   const { document: bare } = builder.build();
+
   for (const [index, slot] of languageSlots(bare, languageReads(bare, content)).entries()) {
     const pick = picks[index];
+
     if (pick !== undefined) {
       builder = builder.picking(slot.key, languageFixtureId(pick));
     }
   }
+
   return builder.build().document;
 }
 

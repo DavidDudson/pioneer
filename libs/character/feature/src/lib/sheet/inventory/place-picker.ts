@@ -82,8 +82,10 @@ export interface PlaceScope {
 export function placeRows(inventory: Inventory, content: ItemContent, where: PlaceScope): readonly PlaceRow[] {
   const { moving, loose } = where;
   const looseLines = inventory.items.filter((each) => each.container === undefined).length;
+
   const containers = containerOptions(inventory, content, moving).map((option): PlaceRow => {
     const load = containerLoad(inventory, content, InventoryItemId.parse(option.value));
+
     return {
       value: option.value,
       label: option.label,
@@ -93,6 +95,7 @@ export function placeRows(inventory: Inventory, content: ItemContent, where: Pla
       lines: load?.lines ?? 0,
     };
   });
+
   return [
     { value: LOOSE, label: loose, held: undefined, capacity: undefined, effect: undefined, lines: looseLines },
     ...containers,
@@ -121,16 +124,20 @@ export function injectPlacePicker(
   const format = inject(LocaleFormat);
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
+
   const all = computed((): readonly PlaceRow[] => {
     messages();
     const inventory = store.selected()?.document.inventory;
     const loose = i18n.translate('character.sheet.inventory.loose');
+
     return inventory === undefined
       ? [{ value: LOOSE, label: loose, held: undefined, capacity: undefined, effect: undefined, lines: 0 }]
       : placeRows(inventory, content(), { moving: moving(), loose });
   });
+
   const columns = computed(() => {
     messages();
+
     return placeColumns(
       {
         name: i18n.translate('character.sheet.inventory.placeColumns.name'),
@@ -143,6 +150,7 @@ export function injectPlacePicker(
       },
     );
   });
+
   return { rows: new PickerRows(all, PLACE_ORDER), columns, value: placeValue, label: placeLabel };
 }
 
@@ -150,8 +158,10 @@ function bulkChips(row: PlaceRow, i18n: TranslocoService, format: LocaleFormat):
   if (row.held === undefined) {
     return [];
   }
+
   const held = format.number(row.held / TENTHS);
   const reason = row.effect === undefined ? [] : [{ label: i18n.translate(EFFECT_REASONS[row.effect]) }];
+
   return [
     {
       label:

@@ -40,10 +40,13 @@ function groupOf(group: string | null | undefined, log: GapLog): ConditionGroup 
   if (group === null || group === undefined) {
     return undefined;
   }
+
   const known = ConditionGroupSchema.safeParse(group);
+
   if (!known.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'group', raw: group });
   }
+
   return known.data;
 }
 
@@ -60,10 +63,13 @@ function reportRecovery(description: string | undefined, log: GapLog): void {
 function overridesOf(slugs: readonly string[], references: EntryReferences, log: GapLog): ContentId[] {
   return slugs.flatMap((slug) => {
     const id = resolveFoundrySlug(references, FoundryItemType.Condition, slug);
+
     if (id === undefined) {
       report(log, { reason: KindDataGapReason.UnresolvedReference, field: 'overrides', raw: slug });
+
       return [];
     }
+
     return [id];
   });
 }
@@ -83,13 +89,17 @@ function impliedConditions(rules: readonly RuleElement[], references: EntryRefer
 /** The condition's data, unparsed; undefined when its `system` is not shaped as a condition's. */
 export function conditionData({ document, envelope, references, log }: KindInput): object | undefined {
   const system = FoundryConditionSystem.safeParse(document.system);
+
   if (!system.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: '', raw: z.prettifyError(system.error) });
+
     return undefined;
   }
+
   const { value, group, overrides } = system.data;
   const known = groupOf(group, log);
   reportRecovery(system.data.description?.value, log);
+
   return {
     valued: value.isValued,
     ...(known === undefined ? {} : { group: known }),

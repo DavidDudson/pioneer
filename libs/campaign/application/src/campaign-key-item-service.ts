@@ -77,6 +77,7 @@ export class CampaignKeyItemService {
       holder: undefined,
       createdAt: this.#clock.now(),
     });
+
     return this.#view(actor, campaign);
   }
 
@@ -92,26 +93,32 @@ export class CampaignKeyItemService {
     const keyItem = promotedKeyItemId(id, target);
     const line = await this.#promotable(target, keyItem);
     const items = await this.#keyItems.listForCampaign(id);
+
     if (!items.some((each) => each.id === keyItem)) {
       await this.#flaggedLine(id, target);
       await this.#keyItems.insert(actor, id, this.#promoted(keyItem, target.character, line));
     }
+
     await this.#holders.link(actor, target.character, { item: target.item, keyItem });
+
     return this.#view(actor, campaign);
   }
 
   /** What the character's line is, when it can become `keyItem`: a missing line is a 404, another key item's a 409. */
   async #promotable(target: PromoteItemBody, keyItem: KeyItemId): Promise<LineToPromote> {
     const line = await this.#holders.describe(target.character, target.item);
+
     if (line === undefined) {
       throw new NotFoundError('InventoryItem', target.item);
     }
+
     if (line.keyItem !== undefined && line.keyItem !== keyItem) {
       throw new ConflictError(
         `Inventory item ${target.item} is already a key item`,
         message(KeyItemMessage.AlreadyKeyItem),
       );
     }
+
     return line;
   }
 
@@ -123,6 +130,7 @@ export class CampaignKeyItemService {
   /** The flagged item the GM means; one that is not flagged any more is a 404. */
   async #flaggedLine(id: CampaignId, target: PromoteItemBody): Promise<void> {
     const items = await this.#flagged.of(id);
+
     if (!items.some((each) => sameLine(each, target))) {
       throw new NotFoundError('FlaggedItem', target.item);
     }
@@ -138,14 +146,17 @@ export class CampaignKeyItemService {
     const campaign = await this.#managed(actor, id);
     const found = await this.#found(id, keyItem);
     const party = await this.#party.listForCampaign(id);
+
     if (!party.some((each) => each.characterId === body.characterId)) {
       throw new NotFoundError('Character', body.characterId);
     }
+
     if (found.holder !== body.characterId) {
       await this.#release(actor, found);
       await this.#holders.give(actor, body.characterId, found);
       await this.#keyItems.setHolder(actor, id, { id: keyItem, holder: body.characterId });
     }
+
     return this.#view(actor, campaign);
   }
 
@@ -156,6 +167,7 @@ export class CampaignKeyItemService {
     const found = await this.#found(id, keyItem);
     await this.#release(actor, found);
     await this.#keyItems.setHolder(actor, id, { id: keyItem, holder: undefined });
+
     return this.#view(actor, campaign);
   }
 
@@ -165,10 +177,12 @@ export class CampaignKeyItemService {
     const campaign = await this.#managed(actor, id);
     const items = await this.#keyItems.listForCampaign(id);
     const found = items.find((each) => each.id === keyItem);
+
     if (found !== undefined) {
       await this.#release(actor, found);
       await this.#keyItems.archive(actor, id, { id: keyItem, at: this.#clock.now() });
     }
+
     return this.#view(actor, campaign);
   }
 
@@ -182,27 +196,33 @@ export class CampaignKeyItemService {
   async #found(id: CampaignId, keyItem: KeyItemId): Promise<CampaignKeyItem> {
     const items = await this.#keyItems.listForCampaign(id);
     const found = items.find((each) => each.id === keyItem);
+
     if (found === undefined) {
       throw new NotFoundError('KeyItem', keyItem);
     }
+
     return found;
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
   /** A campaign the actor runs. One they only play in is a 403. */
   async #managed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#viewed(actor, id);
+
     if (!mayManageKeyItems(actor, campaign)) {
       throw new ForbiddenError(`Only the GM manages the key items of campaign ${id}`);
     }
+
     return campaign;
   }
 
@@ -210,6 +230,7 @@ export class CampaignKeyItemService {
     const items = await this.#keyItems.listForCampaign(campaign.id);
     const holders = items.flatMap((each): CharacterId[] => (each.holder === undefined ? [] : [each.holder]));
     const named = await this.#characters.byIds(holders);
+
     const keyItems = items.map(({ id, name, base, runes, notes, holder }): KeyItemView => ({
       id,
       name,
@@ -220,6 +241,7 @@ export class CampaignKeyItemService {
       holderName: holder === undefined ? undefined : ReviewedName.optional().parse(named.get(holder)?.name),
       holderOwned: holder !== undefined && named.get(holder)?.ownerId === actor,
     }));
+
     return { manageable: mayManageKeyItems(actor, campaign), keyItems };
   }
 }

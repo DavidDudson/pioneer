@@ -38,9 +38,11 @@ describe('dice (properties)', () => {
         const result = rollDice(parsed, seededRandom(RandomSeed.parse(seed)));
         const { min, max } = expressionBounds(parsed);
         let sum = 0;
+
         for (const term of result.terms) {
           sum += term.value;
         }
+
         expect(result.total).toBeGreaterThanOrEqual(min);
         expect(result.total).toBeLessThanOrEqual(max);
         expect(result.total).toBe(RollTotal.parse(sum));
@@ -52,13 +54,16 @@ describe('dice (properties)', () => {
     assert(
       property(expression, nat(), (parsed, seed) => {
         const result = rollDice(parsed, seededRandom(RandomSeed.parse(seed)));
+
         for (const term of result.terms) {
           const dice = 'dice' in term ? term.dice : [];
+
           const {
             count,
             size: sides,
             keep,
           } = term.term.kind === TermKind.Dice ? term.term : { count: 0, size: 0, keep: undefined };
+
           expect(dice).toHaveLength(count);
           expect(dice.filter((die) => die.kept)).toHaveLength(keep?.count ?? count);
           expect(dice.every((die) => die.face >= 1 && die.face <= sides)).toBe(true);

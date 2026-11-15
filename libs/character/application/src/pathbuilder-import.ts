@@ -73,16 +73,20 @@ export function noDedicationLockVariant(
   lookup: ContentLookup,
 ): VariantRuleEntry | undefined {
   const feats = featContent(registry);
+
   const taken = value.feats
     .filter(({ slotted }) => slotted)
     .toSorted((left, right) => left.level - right.level)
     .flatMap(({ name }) => {
       const match = lookup.resolve(ImportKind.Feat, name);
+
       return match === undefined ? [] : [ContentId.parse(match.id)];
     });
+
   const broken = taken.some(
     (id, at) => dedicationWait(feats, dedicationWaits(feats, taken.slice(0, at)), id) !== undefined,
   );
+
   return broken
     ? registry.variantRules().find(({ definition }) => definition.slug === NO_DEDICATION_LOCK_SLUG)
     : undefined;
@@ -101,6 +105,7 @@ export function freeArchetypeVariant(
   registry: ContentRegistry,
 ): VariantRuleEntry | undefined {
   const free = value.feats.some(({ slot }) => slot !== undefined && matchKey(slot).startsWith(FREE_ARCHETYPE_LABEL));
+
   return free
     ? registry
         .variantRules()
@@ -114,14 +119,17 @@ export function freeArchetypeVariant(
  */
 function rootChoices(value: PathbuilderImport, { lookup, slots }: ImportContent): BoostChoices {
   const [first, second] = value.identity.classes;
+
   const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
     [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
     [CLASS_SLOT, ImportKind.Class, first],
     [SECOND_CLASS_SLOT, ImportKind.Class, hasSecondClass(slots.rootSlots) ? second : undefined],
   ];
+
   return Object.fromEntries(
     picks.flatMap(([slot, kind, name]) => {
       const match = name === undefined ? undefined : lookup.resolve(kind, name);
+
       return match === undefined ? [] : [[slot, ChoiceValue.parse(match.id)]];
     }),
   );
@@ -154,11 +162,14 @@ function heritageChoice(
 ): HeritageChoice {
   const name = value.identity.heritage;
   const match = name === undefined ? undefined : lookup.resolve(ImportKind.Heritage, name);
+
   if (name === undefined || match === undefined) {
     return { choices: {} };
   }
+
   const selection = ChoiceValue.parse(match.id);
   const offered = rootSlotOptions(document, slots, HERITAGE_SLOT).some((option) => option.value === selection);
+
   return offered
     ? { choices: { [HERITAGE_SLOT]: selection } }
     : { choices: {}, unplacedHeritage: ContentId.parse(match.id) };
@@ -171,6 +182,7 @@ function heritageChoice(
 function secondClassNotOffered(value: PathbuilderImport, { lookup, slots }: ImportContent): readonly ImportedName[] {
   const [, name] = value.identity.classes;
   const matched = name !== undefined && lookup.resolve(ImportKind.Class, name) !== undefined;
+
   return matched && !hasSecondClass(slots.rootSlots) ? [{ kind: ImportKind.Class, name }] : [];
 }
 
@@ -220,6 +232,7 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const withFocus = { ...withLanguages, ...focus.choices };
   const spells = placeSpells(create(withFocus).document, content, value.casters);
   const gaps = [...spells.gaps, ...focus.gaps];
+
   return {
     choices: { ...withFocus, ...spells.choices },
     unplaced: {
@@ -258,6 +271,7 @@ export function importedCharacter(value: PathbuilderImport, content: ImportConte
   const flaws = placeFlaws(document, content.slots.boosts, value.flaws);
   const built = { ...picked, ...placement.choices, ...flaws };
   const fills = slotFills(value, content, { create, choices: built });
+
   return {
     dualClass: SECOND_CLASS_SLOT in roots,
     character: create(fills.choices, { ...fills.unplaced, unplacedHeritage: heritage.unplacedHeritage }),
@@ -276,15 +290,18 @@ function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
 /** The export read again on the server; refused when it can't be read. */
 export function readExport(raw: unknown): PathbuilderImport {
   const read = readPathbuilderExport(raw);
+
   if (!read.ok) {
     throw new ValidationError(readIssues(read));
   }
+
   return read.value;
 }
 
 /** The loaded ancestry the export names; refused by name when there is none. */
 export function matchedAncestry(value: PathbuilderImport, lookup: ContentLookup): AncestryId {
   const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
+
   if (match === undefined) {
     throw new ValidationError([
       {
@@ -293,5 +310,6 @@ export function matchedAncestry(value: PathbuilderImport, lookup: ContentLookup)
       },
     ]);
   }
+
   return AncestryId.parse(match.id);
 }

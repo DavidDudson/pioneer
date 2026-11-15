@@ -17,6 +17,7 @@ const OFFERED = 2;
 
 async function registry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
+
   return TestBed.inject(ContentLoader).registry(CHARACTER_CONTENT_KINDS);
 }
 

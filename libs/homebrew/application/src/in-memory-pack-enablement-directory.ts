@@ -22,6 +22,7 @@ export class InMemoryPackEnablementDirectory extends PackEnablementDirectory {
       campaign: EnablingCampaignName.parse(campaign),
       members,
     });
+
     return this;
   }
 

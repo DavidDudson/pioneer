@@ -62,11 +62,13 @@ const GROUP_OF: Readonly<Record<CarryState, InventoryPlacement>> = {
 /** What each container holds, by the container's id. */
 function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, readonly InventoryItem[]> {
   const contents = new Map<InventoryItemId, InventoryItem[]>();
+
   for (const each of items) {
     if (each.container !== undefined) {
       contents.set(each.container, [...(contents.get(each.container) ?? []), each]);
     }
   }
+
   return contents;
 }
 
@@ -87,17 +89,21 @@ export function lineRunes(
   runes: RuneContent,
 ): LineRunes | undefined {
   const etched = itemRunes(item, entry);
+
   if (isSpecific(entry) || !hasRunes(etched)) {
     return undefined;
   }
+
   return {
     potency: etched.potency,
     fundamental: GRADED_RUNES.flatMap((rune): GradedRuneLine[] => {
       const grade = etched[rune];
+
       return grade === undefined ? [] : [{ rune, grade }];
     }),
     property: etched.property.flatMap(({ rune: id, choice }): PropertyRuneLine[] => {
       const name = runes.get(id)?.name;
+
       return name === undefined ? [] : [{ name, choice }];
     }),
   };
@@ -110,6 +116,7 @@ function runeNote(rune: RuneEntry, working: boolean): RuneNote | undefined {
   if (!working) {
     return RuneNote.NoEffect;
   }
+
   return runeApplied(rune) || runeChoices(rune).length > 0 ? undefined : RuneNote.NotApplied;
 }
 
@@ -118,6 +125,7 @@ function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etch
   if (grade !== undefined) {
     return [{ kind: RuneBadgeKind.Fundamental, rune, grade }];
   }
+
   return etchable ? [HOLE] : [];
 }
 
@@ -135,26 +143,35 @@ const BADGE_FUNDAMENTALS: Readonly<Record<RunedItem, readonly FundamentalRune[]>
  */
 function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: RuneContent): readonly RuneBadgeData[] {
   const kind = runedItemOf(entry);
+
   if (kind === undefined) {
     return [];
   }
+
   const etched = itemRunes(item, entry);
   const etchable = !isSpecific(entry);
   const working = new Set(workingPropertyRunes(item, entry, readerOf(runes)));
+
   const named = etched.property.flatMap(({ rune: id, choice }): RuneBadgeData[] => {
     const rune = runes.get(id);
+
     if (rune === undefined) {
       return [];
     }
+
     const note = runeNote(rune, working.has(id));
     const badge: RuneBadgeData = { kind: RuneBadgeKind.Property, id, name: rune.name };
+
     return [{ ...badge, ...(choice === undefined ? {} : { choice }), ...(note === undefined ? {} : { note }) }];
   });
+
   const room =
     kind === RunedItem.Shield
       ? 0
       : propertyRoom(etched, readerOf(runes)) - slottedRunes(etched, readerOf(runes)).length;
+
   const free = etchable ? Math.max(0, room) : 0;
+
   return [
     ...BADGE_FUNDAMENTALS[kind].flatMap((rune) => fundamentalBadge(rune, etched[rune], etchable)),
     ...named,
@@ -175,6 +192,7 @@ const TENTHS = 10;
 /** What the container `id` holds against what it can, or undefined when its item holds nothing. */
 function loadOf(inventory: Inventory, items: ItemContent, id: InventoryItemId): LineLoad | undefined {
   const load = containerLoad(inventory, items, id);
+
   return load === undefined
     ? undefined
     : { held: load.held / TENTHS, capacity: load.capacity, effect: LOAD_EFFECTS[load.effect] };
@@ -193,19 +211,24 @@ export function sheetInventory(
   { limits, approvals, campaign, melded = false }: InventoryRules = CORE_TABLE,
 ): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
+
   const byGm = partitionApproved(
     inventoryViolations(inventory, { items, runes }, limits),
     approvals.filter((each) => each.acknowledgement === undefined),
   );
+
   const byOwner = partitionApproved(
     byGm.open,
     approvals.filter((each) => each.acknowledgement !== undefined),
   );
+
   const breaks = reasonsByItem(byOwner.open, runes);
   const approvedBreaks = reasonsByItem(byGm.approved, runes);
   const acknowledgedBreaks = reasonsByItem(byOwner.approved, runes);
+
   const lineOf = (item: InventoryItem): InventoryLine => {
     const entry = items.get(item.item);
+
     return {
       id: item.id,
       content: item.item,
@@ -229,7 +252,9 @@ export function sheetInventory(
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };
+
   const loose = inventory.items.filter((each) => each.container === undefined);
+
   return STATES.map((state) => ({
     placement: GROUP_OF[state],
     lines: loose.filter((each) => each.carry.state === state).map((each) => lineOf(each)),
@@ -249,6 +274,7 @@ export function containerOptions(
   moving: InventoryItemId | undefined,
 ): readonly SelectOption<string>[] {
   const excluded = moving === undefined ? new Set<InventoryItemId>() : heldBy(inventory.items, moving);
+
   return inventory.items
     .filter((each) => isContainer(content.get(each.item)) && !excluded.has(each.id))
     .map((each) => ({ value: each.id, label: each.name ?? content.get(each.item)?.name ?? each.id }));
@@ -258,8 +284,10 @@ export function containerOptions(
 function heldBy(items: readonly InventoryItem[], id: InventoryItemId): ReadonlySet<InventoryItemId> {
   const held = new Set([id]);
   let grew = true;
+
   while (grew) {
     grew = false;
+
     for (const each of items) {
       if (each.container !== undefined && held.has(each.container) && !held.has(each.id)) {
         held.add(each.id);
@@ -267,5 +295,6 @@ function heldBy(items: readonly InventoryItem[], id: InventoryItemId): ReadonlyS
       }
     }
   }
+
   return held;
 }

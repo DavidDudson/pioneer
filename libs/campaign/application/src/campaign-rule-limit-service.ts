@@ -37,6 +37,7 @@ function sourceOf(
   if (set.has(limit)) {
     return RuleLimitSource.Campaign;
   }
+
   return variant[limit] === undefined ? RuleLimitSource.Core : RuleLimitSource.Variant;
 }
 
@@ -64,6 +65,7 @@ export class CampaignRuleLimitService {
   /** The campaign's limits. Not a member: 404. */
   public async ruleLimits(actor: UserId, id: CampaignId): Promise<CampaignRuleLimits> {
     const campaign = await this.#viewed(actor, id);
+
     return this.#view(actor, campaign);
   }
 
@@ -74,11 +76,13 @@ export class CampaignRuleLimitService {
    */
   public async set(actor: UserId, id: CampaignId, { limit, value }: RuleLimitChange): Promise<CampaignRuleLimits> {
     const campaign = await this.#managed(actor, id);
+
     if (value > LIMIT_CEILINGS[limit]) {
       throw new ValidationError([
         { path: ['value'], message: message(RuleLimitMessage.Ceiling, { maximum: LIMIT_CEILINGS[limit] }) },
       ]);
     }
+
     await this.#limits.set(actor, id, {
       id: CampaignRuleLimitId.parse(newId()),
       limit,
@@ -86,6 +90,7 @@ export class CampaignRuleLimitService {
       setBy: actor,
       setAt: this.#clock.now(),
     });
+
     return this.#view(actor, campaign);
   }
 
@@ -93,24 +98,29 @@ export class CampaignRuleLimitService {
   public async reset(actor: UserId, id: CampaignId, limit: RuleLimitKey): Promise<CampaignRuleLimits> {
     const campaign = await this.#managed(actor, id);
     await this.#limits.reset(actor, id, limit);
+
     return this.#view(actor, campaign);
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
   /** A campaign the actor runs. One they only play in is a 403. */
   async #managed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#viewed(actor, id);
+
     if (!mayManageRuleLimits(actor, campaign)) {
       throw new ForbiddenError(`Only the GM changes the table limits of campaign ${id}`);
     }
+
     return campaign;
   }
 
@@ -118,6 +128,7 @@ export class CampaignRuleLimitService {
     const rows = await this.#limits.listForCampaign(campaign.id);
     const set = new Map(rows.map((row) => [row.limit, row.value]));
     const variant = await this.#variantLimits.of(campaign.id);
+
     return {
       manageable: mayManageRuleLimits(actor, campaign),
       limits: LIMIT_ORDER.map((limit) => ({

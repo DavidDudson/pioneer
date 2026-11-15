@@ -68,6 +68,7 @@ describe('translateRules: a speed FlatModifier by tiers', () => {
     type: 'status',
     value: 'match(when(btwn(@item.level, 5, 5), 10), when(gte(@item.level, 6), 15))',
   };
+
   const BAT = { key: 'BattleForm', overrides: { speeds: { fly: 30, land: 20 } } };
   const BIRD = { key: 'BattleForm', overrides: { speeds: { fly: 50, land: 10 } } };
 

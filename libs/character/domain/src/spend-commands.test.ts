@@ -16,10 +16,12 @@ import { TEST_SPEND, within } from './testing';
 import { ActionCount, AttackCount, QuickenedAction, TurnPhase } from './turn-state';
 
 const FREQUENCY = abilityUseKey(ContentId.parse('00000000-0000-4000-8000-0000000000aa'));
+
 const COUNTED: CountedMaxima = {
   slots: new Map(),
   uses: new Map([[FREQUENCY, { max: ResourceCount.parse(1), boundary: Boundary.Turn }]]),
 };
+
 const LIMITS: PlayLimits = { ...within(HitPoints.parse(10)), counted: COUNTED, spend: TEST_SPEND };
 const FIRST = Serial.parse(1);
 const SECOND = Serial.parse(2);
@@ -101,6 +103,7 @@ describe('the quickened action', () => {
     const restricted = playIn(
       turnOf(TurnPhase.Turn, 0, { quickened: QUICKENED, quickenedFor: ActionRestriction.parse('Strike or Stride') }),
     );
+
     expect(refusal(restricted, spendOf(FIRST, ONE_ACTION))).toBe(SpendProblem.TooFewActions);
   });
 });

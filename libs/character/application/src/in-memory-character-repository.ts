@@ -17,6 +17,7 @@ import type { CharacterAudit, PlayWrite } from './character-repository';
 /** Whether `character` passes every filter in `filter`; an absent filter passes all. */
 function matches(character: Character, filter: CharacterFilter): boolean {
   const search = filter.name?.toLowerCase();
+
   return (
     (filter.minLevel === undefined || character.level >= filter.minLevel) &&
     (filter.maxLevel === undefined || character.level <= filter.maxLevel) &&
@@ -45,6 +46,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   public override async pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
     const matching = this.#listFor(ownerId, query, false).filter((character) => matches(character, query));
     const start = (query.page - 1) * CHARACTER_PAGE_SIZE;
+
     return {
       items: matching.slice(start, start + CHARACTER_PAGE_SIZE),
       total: CharacterCount.parse(matching.length),
@@ -62,8 +64,10 @@ export class InMemoryCharacterRepository extends CharacterRepository {
 
   #listFor(ownerId: UserId, query: CharacterListQuery, archived: boolean): readonly Character[] {
     const sign = query.direction === SortDirection.Asc ? 1 : -1;
+
     const key = (character: Character): string =>
       query.sort === CharacterSort.Name ? character.name : character.createdAt.toString();
+
     return [...this.#rows.values()]
       .filter((character) => character.ownerId === ownerId && this.#archived.has(character.id) === archived)
       .toSorted((left, right) => sign * (key(left).localeCompare(key(right)) || left.id.localeCompare(right.id)))
@@ -72,6 +76,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {
     const character = this.#rows.get(id);
+
     return character === undefined || this.#archived.has(id) ? undefined : this.#withPlay(character);
   }
 
@@ -82,12 +87,14 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
     return [...new Set(ids)].flatMap((id): Character[] => {
       const character = this.#rows.get(id);
+
       return character === undefined || this.#archived.has(id) ? [] : [this.#withPlay(character)];
     });
   }
 
   public override async findArchivedById(id: CharacterId): Promise<Character | undefined> {
     const character = this.#rows.get(id);
+
     return character === undefined || !this.#archived.has(id) ? undefined : this.#withPlay(character);
   }
 
@@ -105,6 +112,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     this.#rows.set(character.id, character);
     this.#plays.set(character.id, { revision: FIRST_VERSION, play: character.document.play });
     this.#audits.push(audit);
+
     return character;
   }
 
@@ -114,12 +122,15 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     audit: CharacterAudit,
   ): Promise<Character> {
     const stored = this.#rows.get(character.id);
+
     if (stored?.version !== expectedVersion) {
       throw new VersionConflictError('Character', character.id);
     }
+
     const saved = character.withVersion(nextVersion(expectedVersion));
     this.#rows.set(saved.id, saved);
     this.#audits.push(audit);
+
     return this.#withPlay(saved);
   }
 
@@ -129,12 +140,15 @@ export class InMemoryCharacterRepository extends CharacterRepository {
 
   public override async updatePlay({ id, play, expectedRevision, audit }: PlayWrite): Promise<CharacterPlay> {
     const stored = this.#plays.get(id);
+
     if (stored?.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+
     const saved = { revision: nextVersion(expectedRevision), play };
     this.#plays.set(id, saved);
     this.#audits.push(audit);
+
     return saved;
   }
 
@@ -146,14 +160,17 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     if (this.#rows.get(character.id)?.version !== expectedVersion) {
       throw new VersionConflictError('Character', character.id);
     }
+
     const saved = await this.updatePlay(write);
     this.#rows.set(character.id, character.withVersion(nextVersion(expectedVersion)));
+
     return saved;
   }
 
   /** `character` with the play state stored apart from it, as a read gives it: a build save never writes play state. */
   #withPlay(character: Character): Character {
     const stored = this.#plays.get(character.id);
+
     return stored === undefined ? character : withPlay(character, stored.play);
   }
 }

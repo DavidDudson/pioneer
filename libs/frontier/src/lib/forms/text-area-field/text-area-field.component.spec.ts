@@ -9,31 +9,38 @@ function render(): ComponentFixture<TextAreaField> {
   fixture.componentRef.setInput('label', 'Notes');
   fixture.componentRef.setInput('hint', 'Only you can see these.');
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<TextAreaField>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 function textarea(fixture: ComponentFixture<TextAreaField>): HTMLTextAreaElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('textarea');
+
   if (element === null) {
     throw new Error('Expected a textarea');
   }
+
   return element;
 }
 
 /** The text of whatever the textarea's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<TextAreaField>): string {
   const ids = textarea(fixture).getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 

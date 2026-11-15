@@ -51,6 +51,7 @@ function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip
   if (facts === undefined) {
     return [];
   }
+
   const flags: Chip[] = [
     ...(facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : []),
     ...(facts.replacedBy ?? []).map((name): Chip => ({
@@ -59,9 +60,11 @@ function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip
     })),
     ...(facts.unsupported === true ? [{ label: say(SlotPickerMessage.Unsupported), tone: BadgeTone.Warning }] : []),
   ];
+
   if (facts.rarity === Rarity.Common) {
     return [...flags, ...facts.traits];
   }
+
   return [
     ...flags,
     { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] },
@@ -198,9 +201,11 @@ function skillOrder(left: SkillPickerRow, right: SkillPickerRow, sort: PickerSor
   if (sort.column === SlotPickerColumn.Rank) {
     return RANK_ORDER.indexOf(left.rank) - RANK_ORDER.indexOf(right.rank);
   }
+
   if (sort.column === SlotPickerColumn.ArmorPenalty) {
     return (left.armorPenalty ?? 0) - (right.armorPenalty ?? 0);
   }
+
   return sort.column === SlotPickerColumn.Modifier ? (left.modifier ?? 0) - (right.modifier ?? 0) : 0;
 }
 
@@ -209,6 +214,7 @@ function attributeOrder(left: AttributePickerRow, right: AttributePickerRow, sor
   if (sort.column === SlotPickerColumn.Modifier) {
     return left.modifier - right.modifier;
   }
+
   return sort.column === SlotPickerColumn.Boosted ? left.boosted - right.boosted : 0;
 }
 
@@ -217,6 +223,7 @@ function languageOrder(left: LanguagePickerRow, right: LanguagePickerRow, sort: 
   if (sort.column === SlotPickerColumn.Rarity) {
     return RARITY_ORDER.indexOf(left.rarity) - RARITY_ORDER.indexOf(right.rarity);
   }
+
   return sort.column === SlotPickerColumn.Script ? (left.script ?? '').localeCompare(right.script ?? '') : 0;
 }
 
@@ -243,9 +250,11 @@ export function typedLoreRow(query: string, rows: readonly SkillPickerRow[], say
   const typed = query.trim();
   const topic = loreTopicSlug(LoreText.parse(typed));
   const listed = rows.some(({ name }) => loreTopicSlug(LoreText.parse(name)) === topic);
+
   if (topic === undefined || listed || typed.length > LORE_NAME_MAX_LENGTH) {
     return undefined;
   }
+
   return {
     id: `${LORE_CHOICE_PREFIX}${typed}`,
     name: say(SlotPickerMessage.AddLore, { name: typed.replace(LORE_WORD, '') }),

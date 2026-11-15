@@ -39,9 +39,11 @@ function creature(slug: string, role: string, size: string): ContentEntry {
 
 function creatureFacet(id: string): FacetDefinition {
   const facet = facetsFor(['creature']).find((candidate) => candidate.id === id);
+
   if (facet === undefined) {
     throw new Error(`No creature facet ${id}`);
   }
+
   return facet;
 }
 

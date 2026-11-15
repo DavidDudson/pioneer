@@ -21,8 +21,10 @@ import { COMMON, DRACONIC, ELVEN, languagePack, loader } from './testing/languag
 const adminUrl = testDatabaseUrl();
 const firstSeed = fixedClock('2026-10-10T10:00:00Z');
 const laterSeed = fixedClock('2026-10-11T10:00:00Z');
+
 /** The audit command a seed stamps. */
 const SEED_COMMAND = 'content-seed';
+
 /** More entries than one insert batch holds (1000), so the seed writes several. */
 const LARGE_PACK = 2500;
 const KEPT = 1200;
@@ -39,6 +41,7 @@ async function causeOf(promise: Promise<unknown>): Promise<string> {
   } catch (error) {
     return error instanceof Error ? messageOf(error) : String(error);
   }
+
   throw new Error('expected a failure');
 }
 
@@ -58,6 +61,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
 
   async function seed(contents: PackContents, clock: Clock = firstSeed): Promise<SeedOutcome | undefined> {
     const [result] = await seedContentPacks(database.db, [loader(contents)], clock);
+
     return result?.outcome;
   }
 
@@ -66,6 +70,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
       .select()
       .from(contentPacks)
       .where(eq(contentPacks.id, contentPackId(contents.file.id)));
+
     return row;
   }
 
@@ -101,10 +106,12 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     expect(rows.map(({ slug, name, kind, rarity, traits }) => ({ slug, name, kind, rarity, traits }))).toStrictEqual(
       pack.entries.map(({ slug, name, kind, rarity, traits }) => ({ slug, name, kind, rarity, traits: [...traits] })),
     );
+
     // Languages have no level.
     for (const { level } of rows) {
       expect(level).toBeNull();
     }
+
     expect(rows.map((stored) => ContentEntry.parse(stored.data))).toStrictEqual([...pack.entries]);
   });
 
@@ -176,6 +183,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
 
   test('a pack that fails to load stops the seed before any pack is written', async () => {
     const fine = languagePack('loaded-first', [COMMON]);
+
     const broken: PackContentsLoader = {
       id: PackId.parse('broken'),
       load: async () => {
@@ -226,11 +234,14 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     await seed(pack);
 
     const packRow = and(eq(auditLog.tableName, 'content_packs'), eq(auditLog.rowId, contentPackId(pack.file.id)));
+
     const audited = await database.db
       .select({ command: auditLog.command, actorId: auditLog.actorId })
       .from(auditLog)
       .where(packRow);
+
     expect(audited.map(({ command }) => command)).toStrictEqual([SEED_COMMAND]);
+
     // A deploy, not a user.
     for (const { actorId } of audited) {
       expect(actorId).toBeNull();

@@ -28,12 +28,14 @@ export class CharacterRuleLimitSettingStore {
   /** The open character's limits, each with the number in force. */
   public readonly settings = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.ruleLimitSettings(id),
       queryFn: async (): Promise<CharacterRuleLimitSettings> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.ruleLimitSettings, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -43,20 +45,24 @@ export class CharacterRuleLimitSettingStore {
   /** Sets one limit of the open character. */
   public async set(limit: RuleLimitField, value: RuleLimitSettingValue): Promise<void> {
     const id = this.#openId();
+
     const settings = await this.#api.call(CharacterContract.setRuleLimitSetting, {
       params: { id, limit },
       body: { value },
     });
+
     await this.#store(id, settings);
   }
 
   /** Returns one limit of the open character to the core rules' number. */
   public async reset(limit: RuleLimitField): Promise<void> {
     const id = this.#openId();
+
     const settings = await this.#api.call(CharacterContract.resetRuleLimitSetting, {
       params: { id, limit },
       body: undefined,
     });
+
     await this.#store(id, settings);
   }
 
@@ -68,9 +74,11 @@ export class CharacterRuleLimitSettingStore {
 
   #openId(): CharacterId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No character selected');
     }
+
     return id;
   }
 }

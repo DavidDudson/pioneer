@@ -51,7 +51,9 @@ function credentials(
   if (env.PUBLIC_ORIGIN === undefined || clientId === undefined || clientSecret === undefined) {
     return undefined;
   }
+
   const redirectUri = new URL(`${API_PREFIX}${AuthPath.callback(provider)}`, env.PUBLIC_ORIGIN);
+
   return { clientId, clientSecret, redirectUri };
 }
 
@@ -61,14 +63,17 @@ function providers(env: Env): OAuthProviderPort[] {
     clientId: env.GITHUB_CLIENT_ID,
     clientSecret: env.GITHUB_CLIENT_SECRET,
   });
+
   const discord = credentials(env, OAuthProvider.Discord, {
     clientId: env.DISCORD_CLIENT_ID,
     clientSecret: env.DISCORD_CLIENT_SECRET,
   });
+
   const google = credentials(env, OAuthProvider.Google, {
     clientId: env.GOOGLE_CLIENT_ID,
     clientSecret: env.GOOGLE_CLIENT_SECRET,
   });
+
   return [
     ...(github === undefined ? [] : [new GitHubProvider(github)]),
     ...(discord === undefined ? [] : [new DiscordProvider(discord)]),
@@ -106,6 +111,7 @@ export function identity(db: Database, env: Env, { clock, snapshots }: IdentityP
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy: CookiePolicy = { secure };
   const authenticator = new SessionAuthenticator(service, policy);
+
   return {
     routes: identityRoutes(service, providers(env), policy)
       .use(preferenceRoutes(preferences, authenticator))

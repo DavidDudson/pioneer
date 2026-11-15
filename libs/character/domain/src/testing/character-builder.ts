@@ -57,6 +57,7 @@ export class CharacterBuilder {
   public static random(seedValue: number): CharacterBuilder {
     installRulesFakes();
     const fake = fakeSeeded(RandomFields, seedValue);
+
     const builder = new CharacterBuilder()
       .named(fake.name)
       .withAncestry(fake.ancestry)
@@ -64,42 +65,50 @@ export class CharacterBuilder {
       .atVersion(fake.version)
       .ownedBy(fake.ownerId)
       .createdAt(fake.createdAt);
+
     return builder;
   }
 
   public named(name: string): this {
     this.#name = CharacterName.parse(name);
+
     return this;
   }
 
   public ownedBy(ownerId: UserId): this {
     this.#ownerId = ownerId;
+
     return this;
   }
 
   public withAncestry(ancestry: AncestryId): this {
     this.#ancestry = ancestry;
+
     return this;
   }
 
   public atLevel(level: number): this {
     this.#level = CharacterLevel.parse(level);
+
     return this;
   }
 
   public atVersion(version: number): this {
     this.#version = Version.parse(version);
+
     return this;
   }
 
   /** Picks `selection` in `slot`, as `selectSlot` would, without checking the slot offers it. */
   public picking(slot: string, selection: string): this {
     this.#picks.set(SlotKey.parse(slot), ChoiceValue.parse(selection));
+
     return this;
   }
 
   public createdAt(instant: Temporal.Instant): this {
     this.#at = instant;
+
     return this;
   }
 
@@ -112,10 +121,13 @@ export class CharacterBuilder {
       level: this.#level,
       now: this.#at,
     });
+
     let picked = created;
+
     for (const [slot, selection] of this.#picks) {
       picked = picked.apply({ field: CharacterPatchField.SelectSlot, slot, selection }, this.#at);
     }
+
     return picked.withVersion(this.#version);
   }
 }

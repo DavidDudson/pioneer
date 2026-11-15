@@ -74,6 +74,7 @@ export function needsAccess(rarity: Rarity): boolean {
 /** Every spell of the registry's packs that goes in a slot, by name; a later pack's entry with the same id wins. */
 export function spellContent(registry: ContentRegistry): SpellContent {
   const all = new Map<ContentId, SpellOption>();
+
   for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
     if (entry.kind === ContentKind.Spell) {
       all.set(entry.id, {
@@ -95,11 +96,15 @@ export function spellContent(registry: ContentRegistry): SpellContent {
       });
     }
   }
+
   const byId = new Map([...all].filter(([, option]) => !option.focus));
   const spells = [...byId.values()].toSorted((left, right) => left.name.localeCompare(right.name));
+
   const spell = (pick: ChoiceValue): SpellOption | undefined => {
     const id = ContentId.safeParse(pick);
+
     return id.success ? byId.get(id.data) : undefined;
   };
+
   return { spells, spell, anySpell: (id: ContentId): SpellOption | undefined => all.get(id) };
 }

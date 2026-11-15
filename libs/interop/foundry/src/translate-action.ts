@@ -74,6 +74,7 @@ const FoundryActionSystem = z.looseObject({
   selfEffect: z.looseObject({ uuid: z.string().max(UUID_MAX) }).nullish(),
   description: z.looseObject({ value: z.string().max(HTML_MAX) }).optional(),
 });
+
 type FoundryActionSystem = z.infer<typeof FoundryActionSystem>;
 
 interface Mapping<Value> {
@@ -87,6 +88,7 @@ function mapped<Value>(log: GapLog, { value, field, raw }: Mapping<Value>): Valu
   if (value === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field, raw });
   }
+
   return value;
 }
 
@@ -101,17 +103,23 @@ interface Costed {
  */
 function actionCost({ actionType, actions }: FoundryActionSystem, log: GapLog): Costed | undefined {
   const type = actionType.value;
+
   if (FIXED_COSTS.has(type)) {
     const fixed = FIXED_COSTS.get(type);
+
     return fixed === undefined ? {} : { cost: fixed };
   }
+
   if (type !== FoundryActionType.Action) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'actionType.value', raw: type });
+
     return undefined;
   }
+
   const count = actions?.value;
   const counted = typeof count === 'number' ? COSTS_BY_COUNT.get(count) : undefined;
   const cost = mapped(log, { value: counted, field: 'actions.value', raw: count });
+
   return cost === undefined ? undefined : { cost };
 }
 
@@ -121,7 +129,9 @@ function categoryOf({ category }: FoundryActionSystem, log: GapLog): ActionCateg
   if (category === null || category === undefined) {
     return undefined;
   }
+
   const known = ActionCategorySchema.safeParse(category);
+
   return mapped(log, { value: known.data, field: 'category', raw: category });
 }
 
@@ -129,12 +139,16 @@ function frequencyOf({ frequency }: FoundryActionSystem, log: GapLog): Frequency
   if (frequency === null || frequency === undefined) {
     return undefined;
   }
+
   const per = FOUNDRY_FREQUENCY_PERIODS.get(frequency.per);
   const max = mapped(log, { value: Uses.safeParse(frequency.max).data, field: 'frequency.max', raw: frequency.max });
+
   if (per === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'frequency.per', raw: frequency.per });
+
     return undefined;
   }
+
   return max === undefined ? undefined : { max, per };
 }
 
@@ -146,10 +160,13 @@ function selfEffectOf(
   if (selfEffect === null || selfEffect === undefined) {
     return undefined;
   }
+
   const effect = resolveUuid(references, selfEffect.uuid);
+
   if (effect === undefined) {
     report(log, { reason: KindDataGapReason.UnresolvedReference, field: 'selfEffect', raw: selfEffect.uuid });
   }
+
   return effect;
 }
 
@@ -158,6 +175,7 @@ const USAGE_PARAGRAPHS = {
   trigger: /<p>\s*<strong>Trigger<\/strong>(?<text>.*?)<\/p>/su,
   requirements: /<p>\s*<strong>Requirements<\/strong>(?<text>.*?)<\/p>/su,
 } as const;
+
 type UsageField = keyof typeof USAGE_PARAGRAPHS;
 
 /** Anything beyond words: tags, entities, `@UUID[…]` and other enrichers, inline rolls. */
@@ -169,13 +187,17 @@ const MARKUP = /[<>&@[\]{}]/u;
  */
 export function plainWords(field: string, text: string, log: GapLog): RichText | undefined {
   const words = RichTextString.safeParse(text);
+
   if (!words.success) {
     return undefined;
   }
+
   if (MARKUP.test(text)) {
     report(log, { reason: KindDataGapReason.NeedsRichText, field, raw: text });
+
     return undefined;
   }
+
   return [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: words.data }] }];
 }
 
@@ -191,6 +213,7 @@ function usageOf(
 ): RichText | undefined {
   const text = USAGE_PARAGRAPHS[field].exec(description?.value ?? '')?.groups?.['text']?.trim() ?? '';
   const { richText } = htmlToRichText(text, links);
+
   return richText.length === 0 ? undefined : richText;
 }
 
@@ -203,6 +226,7 @@ function usage(fields: FoundryActionSystem, { references, links, log }: KindInpu
     frequency: frequencyOf(fields, log),
     selfEffect: selfEffectOf(fields, references, log),
   };
+
   return Object.fromEntries(Object.entries(set).filter(([, value]) => value !== undefined));
 }
 
@@ -213,10 +237,14 @@ function usage(fields: FoundryActionSystem, { references, links, log }: KindInpu
 export function actionData(input: KindInput): object | undefined {
   const { document, log } = input;
   const system = FoundryActionSystem.safeParse(document.system);
+
   if (!system.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: '', raw: z.prettifyError(system.error) });
+
     return undefined;
   }
+
   const costed = actionCost(system.data, log);
+
   return costed && { ...costed, ...usage(system.data, input) };
 }

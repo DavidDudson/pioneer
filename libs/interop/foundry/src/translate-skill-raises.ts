@@ -53,6 +53,7 @@ const FoundrySkillRaise = z.strictObject({
 function categorySelectorOf(path: string): string | undefined {
   const { group, category } = CATEGORY_RANK_PATH.exec(path)?.groups ?? {};
   const known = group === undefined ? undefined : CATEGORY_GROUPS.get(group);
+
   return known !== undefined && category !== undefined && known.categories.has(category)
     ? `${known.prefix}:${category}`
     : undefined;
@@ -66,15 +67,21 @@ function selectorOf(path: string): unknown {
   if (path === SPELLCASTING_RANK_PATH) {
     return 'spellcasting';
   }
+
   const category = categorySelectorOf(path);
+
   if (category !== undefined) {
     return category;
   }
+
   const skill = SKILL_RANK_PATH.exec(path)?.groups?.['skill'];
+
   if (skill !== undefined) {
     return SKILLS.has(skill) ? `${SKILL_PREFIX}:${skill}` : undefined;
   }
+
   const flag = CHOSEN_SKILL_RANK_PATH.exec(path)?.groups?.['flag'];
+
   return flag === undefined ? undefined : { choice: kebab(flag), prefix: SKILL_PREFIX };
 }
 
@@ -87,14 +94,18 @@ function selectorOf(path: string): unknown {
  */
 export function withSkillRaise(raw: unknown): unknown {
   const raise = FoundrySkillRaise.safeParse(raw);
+
   if (!raise.success) {
     return raw;
   }
+
   const { path, value, predicate } = raise.data;
   const selector = selectorOf(path);
+
   if (selector === undefined) {
     return raw;
   }
+
   return {
     key: RuleElementKey.Proficiency,
     selector,
@@ -112,12 +123,14 @@ function isFields(value: unknown): value is Fields {
 /** The skill a choice's value names as a rank path (`system.skills.arcana.rank`), or none. */
 function skillOfPath(value: unknown): string | undefined {
   const skill = typeof value === 'string' ? SKILL_RANK_PATH.exec(value)?.groups?.['skill'] : undefined;
+
   return skill !== undefined && SKILLS.has(skill) ? skill : undefined;
 }
 
 /** The flag of a `ChoiceSet` whose every choice is a skill's rank path, with the skill each names. */
 function skillPathPicks(raws: readonly unknown[]): ReadonlySet<string> {
   const found = new Set<string>();
+
   for (const raw of raws) {
     if (
       isFields(raw) &&
@@ -127,11 +140,13 @@ function skillPathPicks(raws: readonly unknown[]): ReadonlySet<string> {
     ) {
       const choices: readonly unknown[] = raw['choices'];
       const skills = choices.map((choice) => (isFields(choice) ? skillOfPath(choice['value']) : undefined));
+
       if (skills.length > 0 && skills.every((skill) => skill !== undefined)) {
         found.add(raw['flag']);
       }
     }
   }
+
   return found;
 }
 
@@ -147,24 +162,31 @@ function withSkillValue(choice: unknown): unknown {
  */
 export function withSkillPathChoices(raws: readonly unknown[]): readonly unknown[] {
   const picks = skillPathPicks(raws);
+
   if (picks.size === 0) {
     return raws;
   }
+
   return raws.map((raw) => {
     if (!isFields(raw)) {
       return raw;
     }
+
     if (raw['key'] === 'ChoiceSet' && typeof raw['flag'] === 'string' && picks.has(raw['flag'])) {
       const choices: readonly unknown[] = Array.isArray(raw['choices']) ? raw['choices'] : [];
+
       return {
         ...raw,
         choices: choices.map((choice) => withSkillValue(choice)),
       };
     }
+
     const flag = typeof raw['path'] === 'string' ? WHOLE_PICK_PATH.exec(raw['path'])?.groups?.['flag'] : undefined;
+
     if (raw['key'] === 'ActiveEffectLike' && flag !== undefined && picks.has(flag)) {
       return { ...raw, path: `system.skills.{item|flags.system.rulesSelections.${flag}}.rank` };
     }
+
     return raw;
   });
 }

@@ -38,6 +38,7 @@ export function languagePack(
   license: ContentLicense = ContentLicense.Homebrew,
 ): PackContents {
   const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license };
+
   return packContentsFromFiles(packFile, [languages.map((language) => languageEntry(pack, language))]);
 }
 

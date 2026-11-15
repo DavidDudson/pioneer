@@ -9,6 +9,7 @@ export class InMemoryCampaignVariantLimits extends CampaignVariantLimits {
   /** The campaign's variant rules change exactly these limits from now on. */
   public declare(campaignId: CampaignId, limits: RuleLimitOverrides): this {
     this.#declared.set(campaignId, limits);
+
     return this;
   }
 

@@ -62,6 +62,7 @@ const FoundryBadge = z.looseObject({
   loop: z.boolean().nullish(),
   reevaluate: z.string().max(FIELD_MAX).nullish(),
 });
+
 type FoundryBadge = z.infer<typeof FoundryBadge>;
 
 const FoundryEffectSystem = z.looseObject({
@@ -73,6 +74,7 @@ const FoundryEffectSystem = z.looseObject({
   }),
   badge: FoundryBadge.nullish(),
 });
+
 type FoundryEffectSystem = z.infer<typeof FoundryEffectSystem>;
 
 /**
@@ -82,17 +84,23 @@ type FoundryEffectSystem = z.infer<typeof FoundryEffectSystem>;
 function durationOf({ duration }: FoundryEffectSystem, log: GapLog): object | undefined {
   const { value, unit, expiry, sustained } = duration;
   const untimed = UNTIMED.get(unit);
+
   if (untimed !== undefined) {
     return { type: untimed };
   }
+
   const singular = DURATION_UNITS.get(unit);
+
   if (singular !== undefined && value === 0 && TURN_EXPIRIES.has(expiry ?? '')) {
     return { type: EffectDurationType.Turn, expiry };
   }
+
   if (singular === undefined || value <= 0) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'duration', raw: duration });
+
     return undefined;
   }
+
   return {
     type: EffectDurationType.Time,
     count: value,
@@ -115,15 +123,19 @@ function badgeOf(badge: FoundryBadge, log: GapLog): object | undefined {
       }),
     };
   }
+
   if (badge.type === EffectBadgeType.Formula && typeof badge.value === 'string') {
     const reevaluate = badge.reevaluate ?? undefined;
+
     return {
       type: EffectBadgeType.Formula,
       formula: fromFoundryBadgeFormula(badge.value),
       ...setFields({ reevaluate }),
     };
   }
+
   report(log, { reason: KindDataGapReason.UnmappedValue, field: 'badge.type', raw: badge.type });
+
   return undefined;
 }
 
@@ -131,14 +143,19 @@ function badgeOf(badge: FoundryBadge, log: GapLog): object | undefined {
 export function effectData(input: KindInput): object | undefined {
   const { pack, log } = input;
   const category = PACK_CATEGORIES.get(pack.name);
+
   if (category === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'category', raw: pack.name });
   }
+
   const system = systemOf(FoundryEffectSystem, input);
   const duration = system && durationOf(system, log);
+
   if (category === undefined || system === undefined || duration === undefined) {
     return undefined;
   }
+
   const badge = system.badge ? badgeOf(system.badge, log) : undefined;
+
   return { category, duration, ...setFields({ badge }) };
 }

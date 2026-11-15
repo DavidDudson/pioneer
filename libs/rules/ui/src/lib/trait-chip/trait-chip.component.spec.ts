@@ -14,10 +14,13 @@ import { DEADLY_D8, FIRE, HELD_TRAIT_PREVIEWS, MANIPULATE, NOT_A_TRAIT } from '.
 async function render(previews: EntryPreviews, inputs: Record<string, unknown>): Promise<ComponentFixture<TraitChip>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting(), provideEntryPreviews(previews)] });
   const fixture = TestBed.createComponent(TraitChip);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture;
 }
 

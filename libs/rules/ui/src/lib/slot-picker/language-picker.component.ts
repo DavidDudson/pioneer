@@ -49,6 +49,7 @@ export class LanguagePicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return languagePickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

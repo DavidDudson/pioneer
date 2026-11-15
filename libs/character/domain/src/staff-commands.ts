@@ -23,6 +23,7 @@ export const StaffCommandField = {
   /** A staff cast taken back: the charges and the slot it spent come back. */
   UncastStaff: 'uncastStaff',
 } as const;
+
 export type StaffCommandField = ValueOf<typeof StaffCommandField>;
 
 /** The spell cast and what pays for it: the staff's charges alone, or with `slot` also one slot of a spontaneous entry. */
@@ -34,12 +35,14 @@ const StaffCastShape = {
 
 /** A staff cast as a spend records it: the staff, the spell and how it was paid for, so undoing the spend gives them back. */
 export const StaffCastSchema = z.strictObject(StaffCastShape);
+
 export type StaffCast = z.infer<typeof StaffCastSchema>;
 
 export const StaffCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(StaffCommandField.CastStaff), ...StaffCastShape }),
   z.object({ field: z.literal(StaffCommandField.UncastStaff), ...StaffCastShape }),
 ]);
+
 export type StaffCommand = z.infer<typeof StaffCommandSchema>;
 
 /** Why a staff cast, or taking one back, is refused. */
@@ -63,6 +66,7 @@ export const StaffCastProblem = {
   /** Taking the cast back would refund more than was spent. */
   NothingToRefund: 'nothing-to-refund',
 } as const;
+
 export type StaffCastProblem = ValueOf<typeof StaffCastProblem>;
 
 const SPELL_PROBLEMS = {
@@ -84,6 +88,7 @@ export function staffCastCost({ slot }: StaffCommand, { rank, charges }: StaffSo
   if (rank === STAFF_CANTRIP) {
     return NONE;
   }
+
   return slot === undefined ? ResourceCount.parse(charges) : ONE_CHARGE;
 }
 
@@ -92,6 +97,7 @@ function slotAllowed({ entry, rank }: StaffSourceSpell, slot: SlotCountKey): boo
   if (entry === undefined || rank === STAFF_CANTRIP || entry.preparation !== SpellPreparation.Spontaneous) {
     return false;
   }
+
   return entry.slots.ranks.some((each) => each.rank >= rank && slotCountKey(entry.slug, undefined, each.rank) === slot);
 }
 
@@ -109,14 +115,18 @@ function paymentProblem({ command, source: { charges }, cost, slots }: CastCheck
     if (charges === undefined) {
       return StaffCastProblem.NotPrepared;
     }
+
     if (charges.left < cost) {
       return StaffCastProblem.TooFewCharges;
     }
   }
+
   const { slot } = command;
+
   if (slot !== undefined && heldCount({ ...slots, key: slot }) === NONE) {
     return StaffCastProblem.NoSlotLeft;
   }
+
   return undefined;
 }
 
@@ -125,6 +135,7 @@ function refundProblem({ command, source: { charges }, cost, slots }: CastCheck)
   const spent = charges === undefined ? NONE : charges.max - charges.left;
   const { slot } = command;
   const slotSpent = slot === undefined || (slots.spent[slot] ?? NONE) > NONE;
+
   return spent < cost || !slotSpent ? StaffCastProblem.NothingToRefund : undefined;
 }
 
@@ -137,17 +148,23 @@ export function staffCastProblem(
   if (source === undefined) {
     return StaffCastProblem.NotHeld;
   }
+
   const spell = source.spells.find(({ id }) => id === command.spell);
+
   if (spell === undefined) {
     return StaffCastProblem.NotOnStaff;
   }
+
   if (spell.problem !== undefined) {
     return SPELL_PROBLEMS[spell.problem];
   }
+
   if (command.slot !== undefined && !slotAllowed(spell, command.slot)) {
     return StaffCastProblem.SlotNotAllowed;
   }
+
   const check: CastCheck = { command, source, cost: staffCastCost(command, spell), slots };
+
   return command.field === StaffCommandField.CastStaff ? paymentProblem(check) : refundProblem(check);
 }
 
@@ -166,6 +183,7 @@ function chargesSpentAfter(
   casting: boolean,
 ): ResourceCount {
   const next = casting ? known.spent + cost : known.spent - cost;
+
   return ResourceCount.parse(Math.min(Math.max(next, 0), known.max));
 }
 
@@ -173,15 +191,19 @@ function chargesSpentAfter(
 export function staffResourcesAfter({ resources, counted, command, cost }: StaffSpend): ResourcesSpent {
   const casting = command.field === StaffCommandField.CastStaff;
   const known = resources.staff[command.item];
+
   const staff =
     known === undefined || cost === NONE
       ? resources.staff
       : { ...resources.staff, [command.item]: { ...known, spent: chargesSpentAfter(known, cost, casting) } };
+
   const { slot } = command;
+
   const slots =
     slot === undefined
       ? resources.slots
       : spentAfter({ spent: resources.slots, maxima: counted.slots, key: slot }, casting ? SPEND : REFUND);
+
   return { ...resources, staff, slots };
 }
 
@@ -204,17 +226,21 @@ function withSlot(command: StaffCommand, slot: SlotCountKey): StaffCommand {
  */
 export function staffCastOptions(source: StaffSource, spell: ContentId, slots: StaffSlots): readonly StaffCommand[] {
   const held = source.spells.find(({ id }) => id === spell);
+
   if (held === undefined) {
     return [];
   }
+
   const charges: StaffCommand = { field: StaffCommandField.CastStaff, item: source.item.id, spell };
   const { entry, rank } = held;
+
   const paidWithSlots =
     entry === undefined || rank === STAFF_CANTRIP
       ? []
       : entry.slots.ranks
           .filter((each) => each.rank >= rank)
           .map((each): StaffCommand => withSlot(charges, slotCountKey(entry.slug, undefined, each.rank)));
+
   return [charges, ...paidWithSlots].filter((option) => staffCastProblem(option, source, slots) === undefined);
 }
 

@@ -18,6 +18,7 @@ function render(creature: StatBlockCreature, layout: StatBlockLayout): string {
   fixture.componentRef.setInput('creature', creature);
   fixture.componentRef.setInput('layout', layout);
   fixture.detectChanges();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 
@@ -92,6 +93,7 @@ describe(CreatureStatBlockView, () => {
 
   describe('traits', () => {
     const GOBLIN = Trait.parse('goblin');
+
     const previews = provideEntryPreviews({
       preview: (id): EntryPreview | undefined =>
         id === traitId(GOBLIN) ? traitCard('Goblin', 'Goblins are a short, scrappy people.') : undefined,
@@ -102,6 +104,7 @@ describe(CreatureStatBlockView, () => {
       const fixture = TestBed.createComponent(CreatureStatBlockView);
       fixture.componentRef.setInput('creature', GOBLIN_WARCHANTER);
       fixture.detectChanges();
+
       return fixture;
     }
 
@@ -116,9 +119,11 @@ describe(CreatureStatBlockView, () => {
     it('opens the trait card from the chip', async () => {
       const fixture = renderWithCards();
       const root = fixture.nativeElement as HTMLElement;
+
       const stop = [...root.querySelectorAll<HTMLElement>('[tabindex="0"]')].find(
         (each) => each.textContent.trim() === 'Goblin',
       );
+
       stop?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
       await vi.waitFor(() => {
         fixture.detectChanges();
@@ -137,6 +142,7 @@ describe(CreatureStatBlockView, () => {
 
   describe('strike traits', () => {
     const AGILE = Trait.parse('agile');
+
     const previews = provideEntryPreviews({
       preview: (id): EntryPreview | undefined =>
         id === traitId(AGILE) ? traitCard('Agile', 'The attack penalty for multiple attacks is lower.') : undefined,
@@ -147,6 +153,7 @@ describe(CreatureStatBlockView, () => {
       const fixture = TestBed.createComponent(CreatureStatBlockView);
       fixture.componentRef.setInput('creature', GOBLIN_WARCHANTER);
       fixture.detectChanges();
+
       return fixture;
     }
 
@@ -159,6 +166,7 @@ describe(CreatureStatBlockView, () => {
 
     it('shows each real trait as a chip and the reach as plain text', () => {
       const root = renderStrikes().nativeElement as HTMLElement;
+
       const chips = [...root.querySelectorAll('pio-stat-strikes pio-trait-chip')].map((each) =>
         each.textContent.trim(),
       );
@@ -169,9 +177,11 @@ describe(CreatureStatBlockView, () => {
     it('opens the trait card from the chip', async () => {
       const fixture = renderStrikes();
       const root = fixture.nativeElement as HTMLElement;
+
       const stop = [...root.querySelectorAll<HTMLElement>('pio-stat-strikes [tabindex="0"]')].find(
         (each) => each.textContent.trim() === 'Agile',
       );
+
       stop?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
       await vi.waitFor(() => {
         fixture.detectChanges();

@@ -66,7 +66,9 @@ const FoundryAncestrySystem = z.looseObject({
   vision: z.string().max(FIELD_MAX).default(NORMAL_VISION),
   items: FoundryGrantedItems.default({}),
 });
+
 type FoundryLanguages = z.infer<typeof FoundryLanguages>;
+
 type FoundryAncestrySystem = z.infer<typeof FoundryAncestrySystem>;
 
 /** The `language` entries Foundry's slugs name; free text Foundry allows beside them is reported. */
@@ -74,11 +76,14 @@ function languagesOf({ value, custom }: FoundryLanguages, field: string, { refer
   if (custom.trim() !== '') {
     report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.custom`, raw: custom });
   }
+
   return value.flatMap((slug) => {
     const id = resolveSlug(references, ContentKind.Language, slug);
+
     if (id === undefined) {
       report(log, { reason: KindDataGapReason.UnresolvedReference, field: `${field}.value`, raw: slug });
     }
+
     return id === undefined ? [] : [id];
   });
 }
@@ -87,22 +92,28 @@ function visionOf(vision: string, { references, log }: KindInput): object {
   if (vision === NORMAL_VISION) {
     return {};
   }
+
   const sense = resolveSlug(references, ContentKind.Sense, vision);
+
   if (sense === undefined) {
     report(log, { reason: KindDataGapReason.UnresolvedReference, field: 'vision', raw: vision });
   }
+
   return sense === undefined ? {} : { vision: sense };
 }
 
 /** Foundry's size, mapped; an unknown size, or hands other than two, is reported. */
 function sizeOf({ size, hands }: FoundryAncestrySystem, log: GapLog): Size | undefined {
   const mapped = FOUNDRY_SIZES.get(size);
+
   if (mapped === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'size', raw: size });
   }
+
   if (hands !== undefined && hands !== HANDS) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'hands', raw: hands });
   }
+
   return mapped;
 }
 
@@ -116,12 +127,15 @@ function ancestryFeatSlots(input: KindInput): void {
 /** The ancestry's data, unparsed; undefined when its `system` is not shaped as an ancestry's. */
 export function ancestryData(input: KindInput): object | undefined {
   const system = systemOf(FoundryAncestrySystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const { log } = input;
   grantItems(system.items, 'items', input);
   ancestryFeatSlots(input);
+
   return {
     hitPoints: system.hp,
     size: sizeOf(system, log),
@@ -150,20 +164,26 @@ const FoundryHeritageSystem = z.looseObject({
 export function heritageData(input: KindInput): object | undefined {
   const system = systemOf(FoundryHeritageSystem, input);
   const ancestry = system?.ancestry;
+
   if (system === undefined) {
     return undefined;
   }
+
   if (ancestry === null || ancestry === undefined) {
     return {};
   }
+
   const { references, log } = input;
+
   const id =
     resolveUuid(references, ancestry.uuid) ??
     (ancestry.slug === null || ancestry.slug === undefined
       ? undefined
       : resolveSlug(references, ContentKind.Ancestry, ancestry.slug));
+
   if (id === undefined) {
     report(log, { reason: KindDataGapReason.UnresolvedReference, field: 'ancestry', raw: ancestry.uuid });
   }
+
   return id === undefined ? {} : { ancestry: id };
 }

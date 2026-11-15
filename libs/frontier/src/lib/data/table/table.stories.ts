@@ -56,6 +56,7 @@ const meta: Meta<Table<PartyMember>> = {
     template: `<fr-table ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Default: TableStory = {};

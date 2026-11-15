@@ -19,6 +19,7 @@ function hasSpells(entry: ContentEntry): boolean {
 /** Staff coverage (play-and-campaigns.md, "Staves and charged items"). A report, never a check. */
 export function staffCoverage(entries: readonly ContentEntry[]): StaffCoverage {
   const staves = entries.filter((entry) => isStaffEntry(entry));
+
   return {
     staves: staves.length,
     withoutSpells: staves

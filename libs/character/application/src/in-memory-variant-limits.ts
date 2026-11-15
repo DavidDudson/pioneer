@@ -9,6 +9,7 @@ export class InMemoryVariantLimits extends VariantLimits {
   /** The character's variant rules change exactly these limits from now on. */
   public declare(characterId: CharacterId, limits: RuleLimitOverrides): this {
     this.#declared.set(characterId, limits);
+
     return this;
   }
 

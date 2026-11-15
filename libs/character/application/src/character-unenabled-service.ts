@@ -42,6 +42,7 @@ function byName<Row extends { readonly name: string }>(left: Row, right: Row): n
 
 function packOf(registry: ContentRegistry, id: ContentPackId): UnenabledPack | undefined {
   const pack = registry.packs.find((each) => contentPackId(each.id) === id);
+
   return pack === undefined
     ? undefined
     : {
@@ -58,17 +59,22 @@ function itemsFrom(
   unenabled: ReadonlySet<ContentPackId>,
 ): UnenabledItem[] {
   const seen = new Set<string>();
+
   return character.document.inventory.items.flatMap((carried): UnenabledItem[] => {
     if (seen.has(carried.item)) {
       return [];
     }
+
     for (const pack of registry.packs) {
       const entry = pack.otherEntries.find((each) => each.id === carried.item);
+
       if (entry !== undefined && unenabled.has(contentPackId(pack.id))) {
         seen.add(carried.item);
+
         return [{ item: entry.id, name: entry.name, packTitle: PackTitle.parse(pack.manifest.title) }];
       }
     }
+
     return [];
   });
 }
@@ -101,30 +107,37 @@ export class CharacterUnenabledService {
    */
   async #used(character: Character): Promise<readonly ContentPackId[]> {
     const [own, held] = await Promise.all([this.#packs.own(character), this.#held?.of(character) ?? []]);
+
     return [...new Set([...own, ...held])];
   }
 
   /** The character's unenabled content. Not the owner: 404. Empty when the character is in no campaign. */
   public async unenabled(actor: UserId, id: CharacterId): Promise<UnenabledContent> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     const campaign = await this.#campaigns.of(id);
+
     if (campaign === undefined) {
       return NOTHING;
     }
+
     const [packIds, variantIds] = await Promise.all([this.#used(character), this.#variants.own(character)]);
     const registry = await this.#content.registry(packIds);
     const enabledPacks = new Set(campaign.packs);
     const enabledVariants = new Set(campaign.variants);
     const unenabled = new Set(packIds.filter((packId) => !enabledPacks.has(packId)));
+
     return {
       campaign: campaign.name,
       variantRules: variantIds
         .filter((variantId) => !enabledVariants.has(variantId))
         .flatMap((variantId): VariantRuleOption[] => {
           const entry = registry.variantRule(variantId);
+
           return entry === undefined
             ? []
             : [{ variantId, name: entry.definition.name, packTitle: PackTitle.parse(entry.pack.manifest.title) }];
@@ -133,6 +146,7 @@ export class CharacterUnenabledService {
       packs: [...unenabled]
         .flatMap((packId): UnenabledPack[] => {
           const pack = packOf(registry, packId);
+
           return pack === undefined ? [] : [pack];
         })
         .toSorted((left, right) => left.title.localeCompare(right.title)),

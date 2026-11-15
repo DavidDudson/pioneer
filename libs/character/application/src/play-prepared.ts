@@ -22,10 +22,13 @@ export function preparedPicksOf(command: PlayEdit): readonly PreparedPick[] {
 /** Refuses `pick` unless it names a prepared slot of the character's that offers the spell, read over the build so far. */
 function checkPick({ character, slots }: PreparedEdit, pick: PreparedPick, index: number): void {
   const path = ['command', 'prepared', index];
+
   if (!isPreparedSlotKey(pick.slot)) {
     throw new ValidationError([{ path, message: NOT_PREPARED_SLOT }]);
   }
+
   const refusal = slotRefusal(character.document, slots, pick);
+
   if (refusal !== undefined) {
     throw new ValidationError([{ path: [...path, refusal.field], message: refusal.message }]);
   }
@@ -38,18 +41,23 @@ function checkPick({ character, slots }: PreparedEdit, pick: PreparedPick, index
  */
 export function preparedAfter({ character, slots, now }: PreparedEdit, command: PlayEdit): Character | undefined {
   const picks = preparedPicksOf(command);
+
   if (picks.length === 0) {
     return undefined;
   }
+
   const seen = new Set<string>();
   let next = character;
+
   for (const [index, pick] of picks.entries()) {
     if (seen.has(pick.slot)) {
       throw new ValidationError([{ path: ['command', 'prepared', index, 'slot'], message: SLOT_REPEATED }]);
     }
+
     seen.add(pick.slot);
     checkPick({ character: next, slots, now }, pick, index);
     next = next.apply({ field: CharacterPatchField.SelectSlot, slot: pick.slot, selection: pick.selection }, now);
   }
+
   return next;
 }

@@ -11,6 +11,7 @@ const LOCKS_MAX = z.int().positive().brand<'LocksMax'>().parse(500);
 
 /** A pick to keep when a character is made again: the slot and what is chosen in it. */
 export const GenerateLock = z.strictObject({ slot: SlotKey, selection: ChoiceValue });
+
 export type GenerateLock = z.infer<typeof GenerateLock>;
 
 /**
@@ -29,8 +30,10 @@ export const GenerateCharacterBody = z.strictObject({
   locks: z.array(GenerateLock).max(LOCKS_MAX).optional(),
   theme: GenerationThemeSchema.optional(),
 });
+
 export type GenerateCharacterBody = z.infer<typeof GenerateCharacterBody>;
 
 /** A generated character, and the seed that made it: it is not stored, so this is the only time it is shown. */
 export const GeneratedCharacter = z.object({ character: Character.codec, seed: Seed });
+
 export type GeneratedCharacter = z.output<typeof GeneratedCharacter>;

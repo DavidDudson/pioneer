@@ -28,14 +28,18 @@ export function devSignInRoutes({ service, policy }: DevSignInDeps): AnyElysia {
     if (isCrossSiteRequest(request)) {
       throw new ForbiddenError('Dev sign-in from another site');
     }
+
     const user = DEV_USERS.find(({ id }) => id === params.userId);
+
     if (user === undefined) {
       throw new NotFoundError('DevUser', params.userId);
     }
+
     const { token } = await service.startSession(user.id);
     const returnTo = returnPathOr(new URL(request.url).searchParams.get(RETURN_TO_PARAM));
     const headers = new Headers({ location: returnTo, 'cache-control': 'no-store' });
     headers.append('set-cookie', sessionCookie(policy, token));
+
     return new Response(undefined, { status: FOUND, headers });
   });
 }

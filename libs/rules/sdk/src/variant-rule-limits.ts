@@ -6,6 +6,7 @@ import type { VariantRuleId } from './variant-rule';
 
 /** A number a variant rule sets a table limit to: a whole number from 1. */
 export const VariantLimitValue = Pg.smallint().positive().brand<'VariantLimitValue'>();
+
 export type VariantLimitValue = z.infer<typeof VariantLimitValue>;
 
 const CEILING_INVESTED = VariantLimitValue.parse(100);
@@ -24,6 +25,7 @@ export const VariantRuleLimits = z.strictObject({
   propertyRunesPerGrade: VariantLimitValue.max(CEILING_PROPERTY_RUNES).optional(),
   itemsMax: VariantLimitValue.max(CEILING_ITEMS).optional(),
 });
+
 export type VariantRuleLimits = z.infer<typeof VariantRuleLimits>;
 
 const LIMIT_NAMES = VariantRuleLimits.keyof().options;
@@ -34,15 +36,18 @@ const LIMIT_NAMES = VariantRuleLimits.keyof().options;
  */
 export function mergeVariantLimits(declared: readonly VariantRuleLimits[]): VariantRuleLimits {
   const merged: { -readonly [Name in keyof VariantRuleLimits]: VariantLimitValue } = {};
+
   for (const limits of declared) {
     for (const name of LIMIT_NAMES) {
       const value = limits[name];
       const held = merged[name];
+
       if (value !== undefined && (held === undefined || value > held)) {
         merged[name] = value;
       }
     }
   }
+
   return merged;
 }
 
@@ -51,6 +56,7 @@ export function variantLimitsInForce(registry: ContentRegistry, enabled: readonl
   return mergeVariantLimits(
     enabled.flatMap((id) => {
       const limits = registry.variantRule(id)?.definition.limits;
+
       return limits === undefined ? [] : [limits];
     }),
   );

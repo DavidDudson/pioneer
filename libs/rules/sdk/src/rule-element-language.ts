@@ -11,6 +11,7 @@ const GRANTED_MAX = 16;
 
 /** How many languages a character picks from one source. */
 export const LanguageCount = Pg.smallint().nonnegative().brand<'LanguageCount'>();
+
 export type LanguageCount = z.infer<typeof LanguageCount>;
 
 /** The slots a `Language` element opens: at least one. */
@@ -18,6 +19,7 @@ const LanguageSlots = Pg.smallint().positive().brand<'LanguageCount'>();
 
 /** The rarest a language slot may offer; unique languages are only ever granted. */
 export const LanguageAccess = z.enum({ Common: Rarity.Common, Uncommon: Rarity.Uncommon, Rare: Rarity.Rare });
+
 export type LanguageAccess = z.infer<typeof LanguageAccess>;
 
 /**
@@ -38,4 +40,5 @@ export const LanguageElement = z
     ({ grant, slots }) => grant !== undefined || slots !== undefined,
     issueParams(message(RulesMessage.LanguageGrantOrSlots)),
   );
+
 export type LanguageElement = z.infer<typeof LanguageElement>;

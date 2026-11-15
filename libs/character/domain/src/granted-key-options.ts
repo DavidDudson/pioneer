@@ -34,15 +34,20 @@ export function grantedKeyOptions({
         : [],
     ),
   );
+
   if (options.size === 0) {
     return () => [];
   }
+
   const read = new WeakMap<CharacterDocument, readonly Attribute[]>();
+
   return (document) => {
     const known = read.get(document);
+
     if (known !== undefined) {
       return known;
     }
+
     const { items } = resolveGrants({
       roots: [],
       lookup: lookup(),
@@ -53,8 +58,10 @@ export function grantedKeyOptions({
       toggles: new Map(),
       namespaces: registry.rollOptionNamespaces(),
     });
+
     const added = items.flatMap(({ entry }) => options.get(entry.id) ?? []);
     read.set(document, added);
+
     return added;
   };
 }

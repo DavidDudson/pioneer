@@ -47,6 +47,7 @@ const FoundryWeaponDamage = z.looseObject({
   damageType: z.string().max(FIELD_MAX),
   persistent: FoundryPersistent.nullish(),
 });
+
 type FoundryWeaponDamage = z.infer<typeof FoundryWeaponDamage>;
 
 const FoundryValue = z.looseObject({ value: z.number().nullish() }).nullish();
@@ -73,6 +74,7 @@ const FoundryWeaponSystem = FoundryPhysicalSystem.extend({
   runes: FoundryRunes.nullish(),
   traits: z.looseObject({ otherTags: FoundryTags.optional() }).optional(),
 });
+
 type FoundryWeaponSystem = z.infer<typeof FoundryWeaponSystem>;
 
 /** "1d8 slashing"; with no die (Foundry's empty `die`), `dice` is flat damage; persistent damage as a formula. */
@@ -81,6 +83,7 @@ function damageOf({ dice, die, damageType, persistent }: FoundryWeaponDamage): o
     persistent === null || persistent === undefined
       ? undefined
       : `${persistent.number}${(persistent.faces ?? 0) > 0 ? `d${persistent.faces}` : ''}`;
+
   return {
     dice,
     damageType,
@@ -99,11 +102,15 @@ function reloadOf(reload: string | null | undefined, log: GapLog): number | unde
   if (reload === null || reload === undefined || NO_RELOAD.has(reload)) {
     return undefined;
   }
+
   const actions = Number(reload);
+
   if (!Number.isInteger(actions)) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'reload.value', raw: reload });
+
     return undefined;
   }
+
   return actions;
 }
 
@@ -112,6 +119,7 @@ function ammunitionOf(ammo: FoundryWeaponSystem['ammo']): object | undefined {
   if (ammo === null || ammo === undefined) {
     return undefined;
   }
+
   return setFields({
     type: ammo.baseType ?? undefined,
     builtIn: ammo.builtIn === true ? true : undefined,
@@ -127,13 +135,17 @@ function ammunitionOf(ammo: FoundryWeaponSystem['ammo']): object | undefined {
 function itemBonusOf({ bonus, runes }: FoundryWeaponSystem, log: GapLog): number | undefined {
   const value = bonus?.value ?? 0;
   const potency = runes?.potency ?? 0;
+
   if (value <= 0 || value <= potency) {
     return undefined;
   }
+
   if (potency > 0) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'bonus.value', raw: value });
+
     return undefined;
   }
+
   return value;
 }
 
@@ -145,9 +157,11 @@ function reportExtras({ bonusDamage, expend, grade }: FoundryWeaponSystem, log: 
   if ((bonusDamage?.value ?? 0) !== 0) {
     report(log, { reason: KindDataGapReason.UnmappedField, field: 'bonusDamage', raw: bonusDamage });
   }
+
   if (expend !== null && expend !== undefined && expend !== EXPEND_ONE) {
     report(log, { reason: KindDataGapReason.UnmappedField, field: 'expend', raw: expend });
   }
+
   if (grade !== null && grade !== undefined) {
     report(log, { reason: KindDataGapReason.UnmappedField, field: 'grade', raw: grade });
   }
@@ -157,11 +171,14 @@ function reportExtras({ bonusDamage, expend, grade }: FoundryWeaponSystem, log: 
 export function weaponData(input: KindInput): object | undefined {
   const system = systemOf(FoundryWeaponSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const { log } = input;
   reportExtras(system, log);
+
   return {
     ...physical,
     category: system.category,

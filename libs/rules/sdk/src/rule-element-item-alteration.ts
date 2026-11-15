@@ -17,6 +17,7 @@ export const NumericAlterationMode = {
   Downgrade: 'downgrade',
   Override: 'override',
 } as const;
+
 export type NumericAlterationMode = ValueOf<typeof NumericAlterationMode>;
 
 /** Item numbers an alteration can change. More land with the Epic 2.6 translators. */
@@ -34,9 +35,11 @@ export const NumericItemProperty = {
   /** The item's potency grade: a weapon's item bonus to attack, or what an armour adds to its AC bonus. */
   Potency: 'potency',
 } as const;
+
 export type NumericItemProperty = ValueOf<typeof NumericItemProperty>;
 
 export const TraitAlterationMode = { Add: 'add', Remove: 'remove' } as const;
+
 export type TraitAlterationMode = ValueOf<typeof TraitAlterationMode>;
 
 /** Item properties that are not numbers. */
@@ -48,6 +51,7 @@ export const ItemProperty = {
   OtherTags: 'other-tags',
   Description: 'description',
 } as const;
+
 export type ItemProperty = ValueOf<typeof ItemProperty>;
 
 const OverrideMode = z.literal(NumericAlterationMode.Override);
@@ -101,4 +105,5 @@ export const ItemAlterationElement = z.discriminatedUnion('property', [
     ...ruleElementBase,
   }),
 ]);
+
 export type ItemAlterationElement = z.infer<typeof ItemAlterationElement>;

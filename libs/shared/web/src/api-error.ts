@@ -29,6 +29,7 @@ export class ApiError extends Error {
     if (this.problem !== undefined) {
       return this.problem.message;
     }
+
     return message(this.status === NO_RESPONSE ? ProblemMessage.Unreachable : ProblemMessage.Internal);
   }
 

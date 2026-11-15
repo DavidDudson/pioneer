@@ -13,12 +13,15 @@ const IMPORTS = path.join(ROOT, IMPORT_DIRECTORY);
 /** Each committed pin's release tag, by pack: `content/import/<pack>.json`. */
 async function pinnedReleases(): Promise<Record<string, string>> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: IMPORTS }));
+
   const tags = await Promise.all(
     files.map(async (file) => {
       const { pin } = ImportFile.parse(await Bun.file(path.join(IMPORTS, file)).json());
+
       return [path.basename(file, '.json'), String(pin.tag)] as const;
     }),
   );
+
   return Object.fromEntries(tags);
 }
 

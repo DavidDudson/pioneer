@@ -23,6 +23,7 @@ export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
  */
 export function carriesAnything(character: Character | undefined): boolean {
   const inventory = character?.document.inventory;
+
   return inventory !== undefined && (inventory.items.length > 0 || coinBulk(inventory.coins) > 0);
 }
 
@@ -45,6 +46,7 @@ function effectsOf(item: InventoryItem, statistics: readonly NamedStatistic[]): 
       ? result.lines
           .filter(({ modifier }) => {
             const [hop] = modifier.origin.hops;
+
             return hop?.kind === OriginHopKind.Inventory && hop.item === item.id;
           })
           .map((line) => ({ statistic: name, line }))
@@ -72,6 +74,7 @@ export function sheetInvestments(
     .map((item) => {
       const entry = content.get(item.item);
       const working = activeState(item, entry) !== undefined;
+
       return {
         id: item.id,
         name: item.name ?? entry?.name,

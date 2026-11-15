@@ -22,15 +22,18 @@ const READS = {
 
 async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
+
   return TestBed.inject(ContentLoader).registry(kinds);
 }
 
 /** A level 1 character with the ancestry named `name` picked. */
 function characterOf(content: ContentRegistry, name: string): Character {
   const ancestry = content.ancestries().find((entry) => entry.definition.name === name);
+
   if (ancestry === undefined) {
     throw new Error(`Expected the content to hold the ${name} ancestry`);
   }
+
   return new CharacterBuilder().atLevel(1).withAncestry(ancestry.id).build();
 }
 

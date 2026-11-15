@@ -20,12 +20,15 @@ describe('fortune and misfortune (properties)', () => {
       property(expression, sources, nat(), (parsed, effectsOn, seed) => {
         const fortuned = rollWithFortune(parsed, effectsOn, seededRandom(RandomSeed.parse(seed)));
         const totals = fortuned.rolls.map((entry) => entry.result.total);
+
         if (fortuned.mode === RollMode.Fortune) {
           expect(fortuned.total).toBe(RollTotal.parse(Math.max(...totals)));
         }
+
         if (fortuned.mode === RollMode.Misfortune) {
           expect(fortuned.total).toBe(RollTotal.parse(Math.min(...totals)));
         }
+
         const kept = fortuned.rolls.filter((entry) => entry.kept);
         expect(kept).toHaveLength(1);
         expect(kept[0]?.result.total).toBe(fortuned.total);

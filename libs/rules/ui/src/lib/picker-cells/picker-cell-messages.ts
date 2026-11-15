@@ -18,6 +18,7 @@ export const PickerCellMessage = {
 
 /** The costs a rich text mark has, plus a cost that varies and none at all. */
 export const ActionKind = { ...ActionCost, Variable: 'variable', Time: 'time', Passive: 'passive' } as const;
+
 export type ActionKind = (typeof ActionKind)[keyof typeof ActionKind];
 
 /** Each cost's glyph and the words a screen reader says in its place. */

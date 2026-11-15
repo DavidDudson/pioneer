@@ -34,6 +34,7 @@ export class SheetLapsing {
   protected readonly names = computed((): string => {
     const registry = this.#registry.data();
     const rows = registry === undefined ? [] : activeRows(registry, { activeSpells: this.spells(), effects: [] });
+
     return this.#format.list(
       rows.map(({ name }) => name),
       'unit',
@@ -43,6 +44,7 @@ export class SheetLapsing {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

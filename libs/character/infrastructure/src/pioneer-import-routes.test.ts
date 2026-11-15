@@ -44,16 +44,19 @@ interface Server {
 function serverOver(repository: InMemoryCharacterRepository, pack = 'player-core'): Server {
   const auth = new FakeAuthenticator();
   const characters = new CharacterService(repository, contentOf(pack), clock);
+
   const files = new PioneerFileService({
     repository,
     content: contentOf(pack),
     clock,
     homebrew: new InMemoryEmbeddedHomebrew(),
   });
+
   const app = new Elysia()
     .use(problemHandler)
     .use(characterRoutes(characters, auth))
     .use(pioneerFileRoutes(files, auth));
+
   return { characters, files, app };
 }
 
@@ -69,6 +72,7 @@ function request(path: string, body: unknown, as?: UserId): Request {
 async function exportedKyra(): Promise<PioneerCharacterFile> {
   const { characters, files } = serverOver(new InMemoryCharacterRepository());
   const { id } = await characters.create(amiri, { name: kyra, ancestry: humanAncestryId });
+
   return files.export(amiri, id);
 }
 
@@ -90,6 +94,7 @@ describe('POST /characters/import/pioneer', () => {
     const response = await serverOver(new InMemoryCharacterRepository()).app.handle(
       request('/characters/import/pioneer', await exportedKyra()),
     );
+
     expect(response.status).toBe(401);
   });
 
@@ -108,6 +113,7 @@ describe('POST /characters/import/pioneer', () => {
     const response = await serverOver(new InMemoryCharacterRepository()).app.handle(
       request('/characters/import/pioneer', { hello: 'world' }, ezren),
     );
+
     expect(response.status).toBe(422);
     const problem = (await response.json()) as Problem;
     expect(problem.issues?.[0]?.message.key).toBe('character.import.pioneer.problem.malformed');

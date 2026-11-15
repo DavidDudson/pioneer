@@ -70,6 +70,7 @@ export class CampaignKeyItemForm {
 
   protected async find(words: string): Promise<void> {
     this.loading.set(true);
+
     try {
       this.#found.set(await this.#search.items(words));
     } finally {
@@ -79,9 +80,11 @@ export class CampaignKeyItemForm {
 
   protected readonly create = async (value: KeyItemModel): Promise<void> => {
     const base = this.#found().find(({ id }) => id === value.base);
+
     if (base === undefined) {
       throw new Error('No base item picked');
     }
+
     await this.#store.create(toCreateBody(value, { item: base.id, name: base.name }, this.property()));
     this.form().reset(EMPTY_KEY_ITEM);
     this.property.set([]);

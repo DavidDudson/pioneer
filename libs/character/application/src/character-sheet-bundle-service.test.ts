@@ -47,36 +47,42 @@ describe('CharacterSheetBundleService', () => {
       sheetModes: {
         get: async (): Promise<SheetModeChoice> => {
           ownerOnlyRead.push('sheetMode');
+
           return {};
         },
       },
       featDisplay: {
         get: async (): Promise<FeatDisplayChoice> => {
           ownerOnlyRead.push('featDisplay');
+
           return { showGrantOnly: [] };
         },
       },
       packs: {
         packs: async (): Promise<CharacterPacks> => {
           ownerOnlyRead.push('packs');
+
           return { decidedBy: PackAuthority.Character, manageable: true, enabled: [], candidates: [], unsupported: [] };
         },
       },
       variants: {
         variantRules: async (): Promise<CharacterVariantRules> => {
           ownerOnlyRead.push('variantRules');
+
           return { decidedBy: PackAuthority.Character, manageable: true, enabled: [], available: [] };
         },
       },
       ruleLimits: {
         ruleLimitSettings: async (): Promise<CharacterRuleLimitSettings> => {
           ownerOnlyRead.push('ruleLimitSettings');
+
           return { decidedBy: PackAuthority.Character, manageable: true, limits: [] };
         },
       },
       unenabled: {
         unenabled: async (): Promise<UnenabledContent> => {
           ownerOnlyRead.push('unenabled');
+
           return { variantRules: [], packs: [], items: [] };
         },
       },

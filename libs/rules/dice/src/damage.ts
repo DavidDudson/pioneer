@@ -29,6 +29,7 @@ export const DamageInstance = z.object({
   taken: DamageTotal,
   lines: z.array(MessageDescriptorSchema),
 });
+
 export type DamageInstance = z.infer<typeof DamageInstance>;
 
 /**
@@ -44,6 +45,7 @@ export const DamageApplication = z.object({
   /** Persistent damage taken at the end of each turn until it ends. */
   persistentTaken: DamageTotal,
 });
+
 export type DamageApplication = z.infer<typeof DamageApplication>;
 
 export interface DamageOptions {
@@ -67,12 +69,14 @@ const HALF = 2;
 const ZERO = RollTotal.parse(0);
 const NONE = DamageTotal.parse(0);
 const NOT_FOUND = -1;
+
 /** Foundry pf2e's immunity slug for creatures that take no extra damage from critical hits. */
 const CRITICAL_HITS = Immunity.parse('critical-hits');
 const PRECISION = Immunity.parse(DamageType.Precision);
 
 /** How a critical changes the damage: not at all, doubled, or not doubled because the target is immune. */
 const Doubling = { None: 'none', Doubled: 'doubled', Immune: 'immune' } as const;
+
 type Doubling = ValueOf<typeof Doubling>;
 
 /** The roll's terms of one type and timing, summed, before any rule is applied. */
@@ -96,6 +100,7 @@ function addTerm(pools: Pooled[], { term, value }: TermResult): void {
   const { type, category } = term.tags;
   const persistent = category === DamageCategory.Persistent;
   const index = pools.findIndex((entry) => entry.type === type && entry.persistent === persistent);
+
   const current = pools[index] ?? {
     type,
     persistent,
@@ -104,11 +109,14 @@ function addTerm(pools: Pooled[], { term, value }: TermResult): void {
     splash: ZERO,
     ignoresResistance: false,
   };
+
   const ignoresResistance = current.ignoresResistance || term.tags.ignoreResistance === true;
+
   const next =
     category === DamageCategory.Splash
       ? { ...current, ignoresResistance, splash: RollTotal.parse(current.splash + value) }
       : { ...current, ignoresResistance, rolled: RollTotal.parse(current.rolled + value) };
+
   pools.splice(index === NOT_FOUND ? pools.length : index, 1, next);
 }
 
@@ -119,13 +127,16 @@ function addTerm(pools: Pooled[], { term, value }: TermResult): void {
  */
 function pool(roll: RollResult): readonly Pooled[] {
   const pools: Pooled[] = [];
+
   for (const result of roll.terms.filter((entry) => !isPrecision(entry.term))) {
     addTerm(pools, result);
   }
+
   const precisionTerms = roll.terms.filter((result) => isPrecision(result.term));
   const precision = RollTotal.parse(precisionTerms.reduce((total, result) => total + result.value, 0));
   const index = pools.findIndex((entry) => !entry.persistent);
   const base = pools[index];
+
   if (base !== undefined) {
     pools.splice(index, 1, { ...base, precision });
   } else if (precisionTerms.length > 0) {
@@ -138,6 +149,7 @@ function pool(roll: RollResult): readonly Pooled[] {
       ignoresResistance: false,
     });
   }
+
   return pools;
 }
 
@@ -168,6 +180,7 @@ function criticalLine(rolled: DamageTotal, doubled: DamageTotal, doubling: Doubl
   if (rolled === 0 || doubling === Doubling.None) {
     return undefined;
   }
+
   return doubling === Doubling.Doubled
     ? message(DiceMessage.DamageCritical, { rolled, doubled })
     : message(DiceMessage.DamageCriticalImmune);
@@ -181,6 +194,7 @@ function dealt(pooled: Pooled, doubling: Doubling, save: DegreeOfSuccess | undef
   const doubled = doubleIf(rolled, doubling);
   const full = DamageTotal.parse(doubled + splash);
   const amount = save === undefined ? full : savedAmount(full, save);
+
   const lines = [
     criticalLine(rolled, doubled, doubling),
     splash > 0 ? message(DiceMessage.DamageSplash, { splash }) : undefined,
@@ -188,7 +202,9 @@ function dealt(pooled: Pooled, doubling: Doubling, save: DegreeOfSuccess | undef
       ? undefined
       : message(DiceMessage.DamageBasicSave, { degree: save, before: full, after: amount }),
   ].filter((line) => line !== undefined);
+
   const doubledPrecision = doubleIf(precision, doubling);
+
   return {
     rolled,
     precision: save === undefined ? doubledPrecision : savedAmount(doubledPrecision, save),
@@ -201,21 +217,26 @@ function dealt(pooled: Pooled, doubling: Doubling, save: DegreeOfSuccess | undef
 function immunise(pooled: Pooled, dealtNow: Dealt, target: DamageTarget): Applied {
   if (pooled.type !== undefined && target.immunities.includes(Immunity.parse(pooled.type))) {
     const prevented = dealtNow.amount;
+
     return { amount: NONE, lines: [message(DiceMessage.DamageImmune, { type: pooled.type, prevented })] };
   }
+
   if (dealtNow.precision > 0 && target.immunities.includes(PRECISION)) {
     const prevented = dealtNow.precision;
+
     return {
       amount: DamageTotal.parse(dealtNow.amount - prevented),
       lines: [message(DiceMessage.DamageImmune, { type: DamageType.Precision, prevented })],
     };
   }
+
   return { amount: dealtNow.amount, lines: [] };
 }
 
 /** The damage types an instance counts as for weakness and resistance once immunities have applied. */
 function typesOf(pooled: Pooled, precisionLeft: boolean): readonly DamageType[] {
   const own = pooled.type === undefined ? [] : [pooled.type];
+
   return precisionLeft ? [...own, DamageType.Precision] : own;
 }
 
@@ -244,9 +265,11 @@ function deal(
   const weakened = weaken(immune.amount, { types, source }, target);
   // Resistance to precision stops no more than the precision share, unless the instance is all precision.
   const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
+
   const resisted = pooled.ignoresResistance
     ? { amount: weakened.amount, lines: [] }
     : resist(weakened.amount, { types, source, precision: precisionCap }, target);
+
   return {
     ...type,
     rolled: dealtNow.rolled,
@@ -258,9 +281,11 @@ function deal(
 
 function sum(instances: readonly DamageInstance[]): DamageTotal {
   let total = 0;
+
   for (const instance of instances) {
     total += instance.taken;
   }
+
   return DamageTotal.parse(total);
 }
 
@@ -268,6 +293,7 @@ function doublingFor(critical: boolean, target: DamageTarget): Doubling {
   if (!critical) {
     return Doubling.None;
   }
+
   return target.immunities.includes(CRITICAL_HITS) ? Doubling.Immune : Doubling.Doubled;
 }
 
@@ -287,5 +313,6 @@ export function applyDamage(
   const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell, environmental, save, counts };
   const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, dealing));
+
   return { critical, immediate, persistent, taken: sum(immediate), persistentTaken: sum(persistent) };
 }

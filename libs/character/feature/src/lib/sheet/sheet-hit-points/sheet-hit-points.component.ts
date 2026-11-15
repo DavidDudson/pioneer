@@ -29,6 +29,7 @@ export class SheetHitPoints {
   /** The word for how hurt the character is, as a message key; none while above half. */
   protected readonly state = computed(() => {
     const hp = this.hp();
+
     return hp === undefined ? undefined : stateMessageOf(hp);
   });
 

@@ -4,6 +4,7 @@ import type { ArmorItemCategory, EntrySlug, EtchingRestriction } from '@pioneer/
 import type { ItemEntry } from './inventory-content';
 
 type WeaponEntry = Extract<ItemEntry, { readonly kind: typeof ContentKind.Weapon }>;
+
 type ArmorEntry = Extract<ItemEntry, { readonly kind: typeof ContentKind.Armor }>;
 
 /** Versatile traits, by the damage type each adds. */
@@ -17,8 +18,10 @@ const VERSATILE: Readonly<Record<string, DamageType>> = {
 function damageTypes(weapon: WeaponEntry): ReadonlySet<DamageType> {
   const added = weapon.traits.flatMap((trait) => {
     const type = VERSATILE[trait];
+
     return type === undefined ? [] : [type];
   });
+
   return new Set([weapon.data.damage.damageType, ...added]);
 }
 
@@ -29,6 +32,7 @@ function isMelee(weapon: WeaponEntry): boolean {
 
 function deals(weapon: WeaponEntry, ...types: readonly DamageType[]): boolean {
   const dealt = damageTypes(weapon);
+
   return types.some((type) => dealt.has(type));
 }
 
@@ -80,15 +84,20 @@ export function meetsRestriction(
   if (restriction === undefined) {
     return true;
   }
+
   const lacked = WITHOUT_RUNE.exec(restriction)?.groups?.['rune'];
+
   if (lacked !== undefined) {
     return !etched.has(entrySlug(ContentKind.Rune, Slug.parse(lacked)));
   }
+
   if (entry?.kind === ContentKind.Weapon) {
     return WEAPON_CHECKS[restriction]?.(entry) ?? true;
   }
+
   if (entry?.kind === ContentKind.Armor) {
     return ARMOR_CHECKS[restriction]?.(entry) ?? true;
   }
+
   return true;
 }

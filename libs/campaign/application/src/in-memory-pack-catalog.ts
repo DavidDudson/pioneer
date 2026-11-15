@@ -21,12 +21,14 @@ export class InMemoryPackCatalog extends PackCatalog {
 
   public pack(known: KnownPack): this {
     this.#packs.set(known.id, known);
+
     return this;
   }
 
   /** `pack` extends `dependsOn`. */
   public extend(pack: EnabledPackId, dependsOn: EnabledPackId): this {
     this.#extends.set(pack, [...(this.#extends.get(pack) ?? []), dependsOn]);
+
     return this;
   }
 
@@ -38,6 +40,7 @@ export class InMemoryPackCatalog extends PackCatalog {
     const readable = [...this.#packs.values()].filter(
       (known) => known.official === true || known.readers?.includes(viewer) === true,
     );
+
     return InMemoryPackCatalog.#order(readable.map((known) => InMemoryPackCatalog.#listed(known)));
   }
 
@@ -45,6 +48,7 @@ export class InMemoryPackCatalog extends PackCatalog {
     return new Map(
       ids.flatMap((id): [EnabledPackId, CatalogPack][] => {
         const known = this.#packs.get(id);
+
         return known === undefined ? [] : [[id, InMemoryPackCatalog.#listed(known)]];
       }),
     );
@@ -52,16 +56,21 @@ export class InMemoryPackCatalog extends PackCatalog {
 
   public override async closure(id: EnabledPackId): Promise<readonly EnabledPackId[]> {
     const ordered: EnabledPackId[] = [];
+
     const visit = (pack: EnabledPackId): void => {
       if (ordered.includes(pack)) {
         return;
       }
+
       for (const dependency of this.#extends.get(pack) ?? []) {
         visit(dependency);
       }
+
       ordered.push(pack);
     };
+
     visit(id);
+
     return ordered;
   }
 

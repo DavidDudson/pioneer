@@ -17,6 +17,7 @@ export const AsyncStatus = {
   /** Failed: show the message inline until the next attempt. */
   Error: 'error',
 } as const satisfies Record<string, MutationStatus>;
+
 export type AsyncStatus = ValueOf<typeof AsyncStatus>;
 
 /** How long a success tick shows before the action returns to idle. */
@@ -58,6 +59,7 @@ function injectFlash(): Flash {
     destroyed = true;
     clearTimeout(timer);
   });
+
   return {
     start: (done) => {
       // DOM timer (a number id): Storybook's types bring in @types/node, whose global setTimeout returns a Timeout.
@@ -85,12 +87,15 @@ export function injectAsyncAction<TData, TVariables = void>(
   options: AsyncActionOptions<TData> = {},
 ): AsyncAction<TVariables> {
   const i18n = inject(TranslocoService);
+
   const {
     accept = (): boolean => true,
     describeError = (): string => i18n.translate('frontier.async.actionFailed'),
     onSuccess,
   } = options;
+
   const flash = injectFlash();
+
   const mutation = injectMutation(() => ({
     mutationFn: async (variables: TVariables): Promise<TData> => action()(variables),
     onMutate: flash.stop,
@@ -98,10 +103,13 @@ export function injectAsyncAction<TData, TVariables = void>(
       if (flash.destroyed()) {
         return;
       }
+
       if (!accept(data)) {
         mutation.reset();
+
         return;
       }
+
       onSuccess?.(data);
       flash.start(() => {
         mutation.reset();
@@ -110,6 +118,7 @@ export function injectAsyncAction<TData, TVariables = void>(
   }));
 
   const status = computed<AsyncStatus>(() => mutation.status());
+
   return {
     status,
     isIdle: computed(() => status() === AsyncStatus.Idle),

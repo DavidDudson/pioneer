@@ -37,9 +37,11 @@ export class PredicateVerdictResult {
   protected readonly summary = computed((): string | undefined => {
     this.#messages();
     const result = this.check();
+
     if (result.status !== VerdictStatus.Valid || result.summary === undefined) {
       return undefined;
     }
+
     return formatSummary(result.summary, {
       message: (descriptor: MessageDescriptor): string => this.#i18n.translate(descriptor.key, descriptor.params),
       list: (items, style): string => this.#format.list(items, style),

@@ -21,6 +21,7 @@ const NEWER = BugReportListItem.parse({
   createdAt: '2026-10-16T08:00:00.000Z',
   hasSnapshot: true,
 });
+
 const OLDER = BugReportListItem.parse({
   id: '0199d2a0-0000-7000-8000-000000000002',
   status: 'open',
@@ -36,11 +37,14 @@ async function render(reports: readonly BugReportListItem[] | Error): Promise<HT
     if (endpoint !== IdentityContract.listBugReports) {
       throw new Error('Unexpected call');
     }
+
     if (reports instanceof Error) {
       throw reports;
     }
+
     return reports;
   });
+
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'account', children: identityRoutes }]),
@@ -54,9 +58,11 @@ async function render(reports: readonly BugReportListItem[] | Error): Promise<HT
   const harness = await RouterTestingHarness.create('/account/bug-reports');
   await harness.fixture.whenStable();
   const element = harness.routeNativeElement;
+
   if (element === null) {
     throw new Error('Expected a page to render');
   }
+
   return element;
 }
 
@@ -67,9 +73,11 @@ describe('BugReportListPage', () => {
       expect(page.textContent).toContain('The AC is wrong');
     });
     const text = page.textContent;
+
     for (const expected of ['The sheet will not save', 'Confirmed', 'Open', 'Valeros', 'an account that is gone']) {
       expect(text).toContain(expected);
     }
+
     expect(text.match(/Character shared/gu)).toHaveLength(1);
   });
 

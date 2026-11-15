@@ -11,6 +11,7 @@ import { DiceCount, DieSize } from './weapon';
 
 /** How damage is dealt besides its type: `precision` bonuses stack by their own rule, `persistent` damage lasts. */
 export const DamageDiceCategory = { Persistent: 'persistent', Precision: 'precision', Splash: 'splash' } as const;
+
 export type DamageDiceCategory = ValueOf<typeof DamageDiceCategory>;
 
 /** The dice an element adds: a count, or a formula that evaluates to one. */
@@ -48,10 +49,12 @@ export const DamageDiceElement = z
       diceNumber !== undefined || dieSize !== undefined || override !== undefined || perWeaponDie === true,
     issueParams(message(RulesMessage.DamageDiceNeedsDice)),
   );
+
 export type DamageDiceElement = z.infer<typeof DamageDiceElement>;
 
 /** Damage numbers an alteration can change. */
 export const DamageProperty = { DiceNumber: 'dice-number', DamageType: 'damage-type' } as const;
+
 export type DamageProperty = ValueOf<typeof DamageProperty>;
 
 /** Fields of every alteration: the damage rolls it reaches, and the slug other elements find it by. */
@@ -78,4 +81,5 @@ export const DamageAlterationElement = z.discriminatedUnion('property', [
     ...ruleElementBase,
   }),
 ]);
+
 export type DamageAlterationElement = z.infer<typeof DamageAlterationElement>;

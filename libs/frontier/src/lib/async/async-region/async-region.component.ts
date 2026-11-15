@@ -39,6 +39,7 @@ export class AsyncRegion<TData> {
   protected readonly pending = computed(() => this.data().query().isPending());
   protected readonly failed = computed(() => {
     const query = this.data().query();
+
     return query.isError() && query.isFetchNextPageError?.() !== true;
   });
   protected readonly error = computed(() => this.data().query().error());

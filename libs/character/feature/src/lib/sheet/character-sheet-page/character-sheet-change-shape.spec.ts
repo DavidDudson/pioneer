@@ -59,6 +59,7 @@ function pickerOf(root: HTMLElement): HTMLElement | null {
 
 function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
   const found = [...root.querySelectorAll('button')].find((button) => textOf(button) === name);
+
   return present(found);
 }
 
@@ -66,16 +67,20 @@ function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
 async function openPicker(): Promise<Opened> {
   const { harness, root } = await openSheet(WEREFIGHTER, { packs: PACKS, play: PLAY });
   await openActionKind(root, 'Features and feats');
+
   const use = await vi.waitFor(() => {
     const row = [...root.querySelectorAll('pio-action-row')].find((candidate) =>
       textOf(candidate).includes('Change Shape'),
     );
+
     return present([...present(row).querySelectorAll('button')].find((button) => textOf(button) === 'Use'));
   });
+
   use.click();
   await vi.waitFor(() => {
     expect(pickerOf(root)).not.toBeNull();
   });
+
   return { harness, root };
 }
 

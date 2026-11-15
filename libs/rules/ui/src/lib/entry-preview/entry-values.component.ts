@@ -39,6 +39,7 @@ export class EntryValuesView {
   protected readonly rows = computed((): readonly StageRow[] => {
     const values = this.values();
     const held = this.current();
+
     return values?.kind === 'staged'
       ? values.stages.map((stage) =>
           stage.value === held
@@ -51,6 +52,7 @@ export class EntryValuesView {
   /** The rule of a formula condition; none for a staged one. */
   protected readonly rule = computed((): RichText | undefined => {
     const values = this.values();
+
     return values?.kind === 'formula' ? values.text : undefined;
   });
 

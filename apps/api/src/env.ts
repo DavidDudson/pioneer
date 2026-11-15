@@ -24,10 +24,12 @@ const MigrateEnvSchema = z.object({
   /** Drizzle migrations folder, the one holding `meta/_journal.json`. */
   MIGRATIONS_DIR: z.string().min(1).default(REPO_MIGRATIONS_DIR),
 });
+
 export type MigrateEnv = z.infer<typeof MigrateEnvSchema>;
 
 /** What `pioneer-api health` needs: the port the server listens on. */
 const HealthEnvSchema = z.object({ PORT: Port });
+
 export type HealthEnv = z.infer<typeof HealthEnvSchema>;
 
 const EnvSchema = MigrateEnvSchema.extend({
@@ -50,9 +52,11 @@ const EnvSchema = MigrateEnvSchema.extend({
   GOOGLE_CLIENT_SECRET: Credential,
 }).superRefine((env, context) => {
   let anyProvider = false;
+
   for (const [id, secret] of PROVIDER_CREDENTIALS) {
     const hasId = env[id] !== undefined;
     const hasSecret = env[secret] !== undefined;
+
     if (hasId !== hasSecret) {
       context.addIssue({
         code: 'custom',
@@ -60,21 +64,26 @@ const EnvSchema = MigrateEnvSchema.extend({
         message: `Set both ${id} and ${secret}, or neither`,
       });
     }
+
     anyProvider ||= hasId && hasSecret;
   }
+
   if (anyProvider && env.PUBLIC_ORIGIN === undefined) {
     context.addIssue({ code: 'custom', path: ['PUBLIC_ORIGIN'], message: 'Required when a sign-in provider is set' });
   }
 });
+
 export type Env = z.infer<typeof EnvSchema>;
 
 type EnvSource = Readonly<Record<string, string | undefined>>;
 
 function parseEnv<Parsed>(schema: z.ZodType<Parsed>, source: EnvSource): Parsed {
   const result = schema.safeParse(source);
+
   if (!result.success) {
     throw new Error(`Invalid environment:\n${z.prettifyError(result.error)}`);
   }
+
   return result.data;
 }
 

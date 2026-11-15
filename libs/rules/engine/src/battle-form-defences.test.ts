@@ -19,9 +19,11 @@ function defences(rules: readonly RuleInPlay[]): Defences {
 
 function formOrigin(): string {
   const form = battleFormInPlay({ rules: [formRule({})], facts: FORM_FACTS });
+
   if (form === undefined) {
     throw new Error('expected a form');
   }
+
   return form.origin.entry;
 }
 
@@ -38,6 +40,7 @@ describe('battle form: defences', () => {
 
   test('the form’s resistances and weaknesses join, and the higher resistance wins', () => {
     const own = inPlay({ key: 'Resistance', type: ['fire'], value: 3 }, 'ancestry');
+
     const form = formRule({
       resistances: [{ type: 'fire', value: 5, exceptions: ['magical'] }],
       weaknesses: [{ type: 'cold', value: 5 }],

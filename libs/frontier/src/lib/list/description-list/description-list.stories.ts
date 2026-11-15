@@ -20,6 +20,7 @@ const LEVEL = z.number().int().min(1).max(20);
 
 function levelEdit(initial: number): InlineEdit<number> {
   const source = signal<number | undefined>(initial);
+
   return new InlineEdit<number>({
     source,
     empty: 0,
@@ -56,6 +57,7 @@ const meta: Meta<DescriptionList> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Plain: DescriptionListStory = {};

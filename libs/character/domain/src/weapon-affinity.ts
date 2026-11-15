@@ -19,6 +19,7 @@ function namedBy(entry: GrantEntry, predicate: unknown): ReadonlySet<Selector> {
   const text = JSON.stringify([entry.rules, predicate]);
   const read = READ.get(entry) ?? new Set(Array.from(text.matchAll(WEAPON_NAME), ([name]) => Selector.parse(name)));
   READ.set(entry, read);
+
   return read;
 }
 
@@ -48,22 +49,28 @@ function optionOf(namespace: 'category' | 'group' | 'base' | 'trait', value: Ite
 /** The roll options of the themed weapon alone, for when no weapon on sale fits it. */
 function themeOptions({ category, group, base }: WeaponTheme): readonly RollOption[] {
   const options = [optionOf('category', category)];
+
   if (group !== undefined) {
     options.push(optionOf('group', group));
   }
+
   if (base !== undefined) {
     options.push(optionOf('base', base));
   }
+
   return options;
 }
 
 /** The roll options of one weapon on sale: its category, group, base and traits. */
 function itemOptions(entry: ItemEntry): readonly RollOption[] {
   const traits = entry.traits.map((trait) => optionOf('trait', trait));
+
   if (entry.kind !== ContentKind.Weapon) {
     return traits;
   }
+
   const { category, group, baseItem } = entry.data;
+
   return [
     optionOf('category', category),
     ...(group === undefined ? [] : [optionOf('group', group)]),
@@ -81,13 +88,16 @@ function factsOf({ fitting = [], ...theme }: WeaponFit, namespaces: NamespaceTab
     (fitting.length === 0 ? [themeOptions(theme)] : fitting.map((each) => itemOptions(each))).map(
       (options) => new PredicateFacts(options, namespaces),
     );
+
   FACTS.set(fitting, read);
+
   return read;
 }
 
 /** Whether a `MartialProficiency` of `entry` covers some weapon the theme may be armed with. */
 function trainsByDefinition(entry: GrantEntry, weapon: WeaponFit, namespaces: NamespaceTable): boolean {
   const facts = factsOf(weapon, namespaces);
+
   return entry.rules.some(
     (rule) =>
       rule.key === RuleElementKey.MartialProficiency &&
@@ -103,11 +113,14 @@ function trainsByDefinition(entry: GrantEntry, weapon: WeaponFit, namespaces: Na
 export function weaponAffinity(content: SlotContent, pick: ChoiceValue, weapon: WeaponFit): ThemeWeight {
   const id = ContentId.safeParse(pick);
   const entry = id.success ? content.lookup.entry(id.data) : undefined;
+
   if (entry === undefined) {
     return UNTHEMED;
   }
+
   if (names(namedBy(entry, content.feats.feat(entry.id)?.predicate), weapon)) {
     return FAVOURED;
   }
+
   return trains(entry, weapon) || trainsByDefinition(entry, weapon, content.namespaces) ? TRAINS_WEAPON : UNTHEMED;
 }

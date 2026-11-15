@@ -29,6 +29,7 @@ const meta: Meta<LinkStoryArgs> = {
     template: `<fr-link ${argsToTemplate(args)}>${label}</fr-link>`,
   }),
 };
+
 export default meta;
 
 /** `to` navigates with the router. */

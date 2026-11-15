@@ -26,9 +26,13 @@ const archetypes = new ContentPackBuilder().withId('choice-source-archetypes');
 const DEDICATION = ContentId.parse(archetypes.idOf(ContentKind.Feat, 'sage-dedication'));
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 registry.register(playerCoreClasses());
+
 registry.register(
   archetypes
     .withFeat('sage-dedication', {
@@ -43,6 +47,7 @@ registry.register(
     })
     .build(),
 );
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LEVEL_THREE = 3;
@@ -50,9 +55,11 @@ const LEVEL_THREE = 3;
 /** The source of the slot `key` in the timeline of `builder`'s character. */
 function sourceOf(builder: CharacterBuilder, key: string): ChoiceSource | undefined {
   const { document } = builder.build();
+
   const slot = levelTimeline(document, content)
     .flatMap((row) => row.slots)
     .find((each) => each.key === key);
+
   return slot && choiceSourceOf(slot, document, content);
 }
 
@@ -104,6 +111,7 @@ describe('choice source', () => {
       .picking('class', FEAT_SLOT_FIGHTER)
       .picking(FEAT_SLOT_KEYS.level1, DEDICATION)
       .atLevel(LEVEL_THREE);
+
     expect(sourceOf(multiclass, `${DEDICATION}:0`)).toMatchObject({
       kind: ChoiceSourceKind.Archetype,
     });

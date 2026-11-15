@@ -13,9 +13,11 @@ import { entryKinds } from './entry-lookup';
 export function injectEntryRegistry(kind: () => ContentKind | undefined): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+
   return injectQuery(() => {
     const own = kind();
     const { homebrew, ready } = scope();
+
     return {
       queryKey: ['content', 'entry', own, homebrew.toSorted()],
       enabled: ready,

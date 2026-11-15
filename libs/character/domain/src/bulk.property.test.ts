@@ -100,9 +100,11 @@ describe('Bulk arithmetic (properties)', () => {
     assert(
       property(packedInventory, nat(), (stock, index) => {
         const item = stock.items[index % stock.items.length];
+
         if (item === undefined) {
           return;
         }
+
         const dropped = carryItem(stock, item.id, { state: CarryState.Dropped });
 
         expect(carriedBulk(dropped, content)).toBeLessThanOrEqual(carriedBulk(stock, content));

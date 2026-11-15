@@ -48,4 +48,5 @@ export const RollEffectMessage = {
   /** The label added to a roll button's name when something conditional would change it. */
   Conditional: 'rules.statistics.rollEffects.conditionalMark',
 } as const;
+
 export type RollEffectMessage = (typeof RollEffectMessage)[keyof typeof RollEffectMessage];

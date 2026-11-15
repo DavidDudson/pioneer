@@ -22,16 +22,20 @@ import { grantLookup } from './grant-lookup';
 function featLegacy(license: ContentLicense): boolean | undefined {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build());
+
   return grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.legacy;
 }
 
 function registryOf(...slugs: readonly string[]): ContentRegistry {
   const builder = new ContentPackBuilder();
+
   for (const slug of slugs) {
     builder.withAncestry(slug);
   }
+
   const registry = new ContentRegistry();
   registry.register(builder.build());
+
   return registry;
 }
 
@@ -66,6 +70,7 @@ describe('grantLookup', () => {
   test('holds legacy content back as unsupported until the character has legacy content on', () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withLicense(ContentLicense.Ogl).withFeat('sudden-charge').build());
+
     const feat = (legacyContent: boolean): boolean | undefined =>
       grantLookup(registry, legacyContent).ofKind(ContentKind.Feat)[0]?.facts?.unsupported;
 
@@ -82,6 +87,7 @@ describe('grantLookup', () => {
   test('holds a legacy ancestry back as unsupported until the character has legacy content on', () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withLicense(ContentLicense.Ogl).withAncestry('fleshwarp').build());
+
     const ancestry = (legacyContent: boolean): EntryFacts | undefined =>
       grantLookup(registry, legacyContent).ofKind(ContentKind.Ancestry)[0]?.facts;
 
@@ -198,6 +204,7 @@ describe('grantLookup', () => {
       .withAncestry('dwarf')
       .withHeritage('rock', 'dwarf')
       .withHeritage('changeling');
+
     const registry = new ContentRegistry();
     registry.register(builder.build());
     const heritages = grantLookup(registry).ofKind(ContentKind.Heritage);
@@ -221,6 +228,7 @@ describe('grantLookup', () => {
     const builder = new ContentPackBuilder()
       .withClassFeature('doctrine')
       .withClassFeature('cloistered-cleric', { tags: ['cleric-doctrine'] });
+
     const registry = new ContentRegistry();
     registry.register(builder.build());
     const features = grantLookup(registry).ofKind(ContentKind.ClassFeature);
@@ -260,6 +268,7 @@ describe('grantLookup replacements', () => {
     const registry = new ContentRegistry();
     registry.register(legacyPack);
     registry.register(remasterPack);
+
     return registry;
   }
 

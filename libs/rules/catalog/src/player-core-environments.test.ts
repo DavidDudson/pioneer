@@ -9,9 +9,11 @@ const PLAYER_CORE = contentPackFromContents(await playerCorePack()).otherEntries
 
 function environment(slug: string): ContentEntry {
   const found = PLAYER_CORE.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the player-core entries`);
   }
+
   return found;
 }
 

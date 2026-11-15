@@ -5,9 +5,11 @@ const FACETS = facetsFor([ContentKind.Weapon, ContentKind.Armor]);
 
 function facet(id: FacetId): FacetDefinition {
   const found = FACETS.find((each) => each.id === id);
+
   if (found === undefined) {
     throw new Error(`No facet ${id}`);
   }
+
   return found;
 }
 
@@ -16,6 +18,7 @@ function counts(id: FacetId, values: Readonly<Record<string, number>>): FacetCou
     value: FacetValue.parse(value),
     count: EntryCount.parse(count),
   }));
+
   return { facet: facet(id), values: rows, unknown: EntryCount.parse(0) };
 }
 

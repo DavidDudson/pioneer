@@ -43,10 +43,13 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   fixture.componentRef.setInput('data', PARTY);
   fixture.componentRef.setInput('columns', COLUMNS);
   fixture.componentRef.setInput('caption', 'Party');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
@@ -56,9 +59,11 @@ function headers(host: HTMLElement): HTMLTableCellElement[] {
 
 function nameHeader(host: HTMLElement): HTMLTableCellElement {
   const [header] = headers(host);
+
   if (header === undefined) {
     throw new Error('Expected a Name header');
   }
+
   return header;
 }
 
@@ -89,17 +94,21 @@ function toggles(host: HTMLElement): HTMLButtonElement[] {
 
 function toggle(host: HTMLElement, label: string): HTMLButtonElement {
   const found = toggles(host).find((button) => button.textContent.trim() === label);
+
   if (found === undefined) {
     throw new Error(`Expected a ${label} toggle`);
   }
+
   return found;
 }
 
 function reset(host: HTMLElement): HTMLButtonElement {
   const found = [...host.querySelectorAll<HTMLButtonElement>('fr-disclosure fr-button button')].at(-1);
+
   if (found === undefined) {
     throw new Error('Expected a reset button');
   }
+
   return found;
 }
 
@@ -236,6 +245,7 @@ describe(Table, () => {
         column.accessor('name', { header: 'Name' }),
         column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
       ]);
+
       const { fixture, host } = await render({ columns: hiddenColumns });
       expect(headers(host)).toHaveLength(1);
       toggle(host, 'Level').click();
@@ -268,6 +278,7 @@ describe(Table, () => {
         column.accessor('name', { header: 'Name' }),
         column.accessor('level', { header: 'Level', meta: { hideable: true } }),
       ]);
+
       const { host } = await render({ columns: pinned, columnVisibility: ['name', 'level'] });
       expect(toggles(host).map((button) => button.textContent.trim())).toStrictEqual(['Level']);
       expect(headers(host).map((header) => header.textContent.trim())).toStrictEqual(['Name']);

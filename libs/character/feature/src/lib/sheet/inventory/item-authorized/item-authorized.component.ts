@@ -66,6 +66,7 @@ export class ItemAuthorized {
   /** Whether the item has an authorized rune, which is all that gives it an owner. */
   protected readonly authorized = computed(() => {
     const item = this.#item();
+
     return item !== undefined && hasAuthorizedRune(item, this.content().items.get(item.item), this.content().runes);
   });
 
@@ -76,6 +77,7 @@ export class ItemAuthorized {
   protected readonly harm: Signal<AuthorizedDamage | undefined> = computed(() => {
     const item = this.#item();
     const wielder = this.#store.selected()?.document.name;
+
     return item === undefined || wielder === undefined
       ? undefined
       : unauthorizedWielder(item, this.content().items.get(item.item), { runes: this.content().runes, wielder });
@@ -87,9 +89,11 @@ export class ItemAuthorized {
     schema: OwnerDraft,
     save: async (value) => {
       const item = this.#item();
+
       if (item === undefined) {
         return;
       }
+
       const { authorized: previous, ...rest } = item.state ?? {};
       const owner = OwnerDraft.parse(value);
       await this.#store.patch({
@@ -107,9 +111,11 @@ export class ItemAuthorized {
     save: async (value) => {
       const item = this.#item();
       const previous = item?.state?.authorized;
+
       if (item === undefined || previous === undefined) {
         return;
       }
+
       await this.#store.patch({
         field: CharacterPatchField.SetItemState,
         id: item.id,

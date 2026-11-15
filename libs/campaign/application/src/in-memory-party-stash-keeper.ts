@@ -30,12 +30,14 @@ export class InMemoryPartyStashKeeper extends PartyStashKeeper {
   /** The character holds this line. */
   public characterHolds(character: CharacterId, line: PartyStashLine): this {
     this.#held.set(line.id, { character, line });
+
     return this;
   }
 
   /** The stash holds this line. */
   public stashHolds(line: PartyStashLine): this {
     this.#held.set(line.id, { character: undefined, line });
+
     return this;
   }
 
@@ -49,11 +51,14 @@ export class InMemoryPartyStashKeeper extends PartyStashKeeper {
     { character, item }: StashLineMove,
   ): Promise<PartyStashContents> {
     const found = this.#held.get(item);
+
     if (found?.character !== character) {
       throw new NotFoundError('InventoryItem', item);
     }
+
     this.#held.set(item, { character: undefined, line: found.line });
     this.moves.push({ campaign, character, item, direction: 'deposit' });
+
     return this.#stash();
   }
 
@@ -63,11 +68,14 @@ export class InMemoryPartyStashKeeper extends PartyStashKeeper {
     { character, item }: StashLineMove,
   ): Promise<PartyStashContents> {
     const found = this.#held.get(item);
+
     if (found === undefined || found.character !== undefined) {
       throw new NotFoundError('InventoryItem', item);
     }
+
     this.#held.set(item, { character, line: found.line });
     this.moves.push({ campaign, character, item, direction: 'take' });
+
     return this.#stash();
   }
 

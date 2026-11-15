@@ -17,6 +17,7 @@ import type { BrowseKind } from './browse-kinds';
 export function injectMessagesChanged(): Signal<unknown> {
   const i18n = inject(TranslocoService);
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+
   return toSignal(merge(i18n.langChanges$, loaded));
 }
 
@@ -24,9 +25,11 @@ export function injectMessagesChanged(): Signal<unknown> {
 export function injectBrowseColumns(kinds: () => readonly BrowseKind[]): Signal<readonly TableColumn<BrowseRow>[]> {
   const i18n = inject(TranslocoService);
   const changed = injectMessagesChanged();
+
   return computed(() => {
     changed();
     const listed = kinds();
+
     return browseColumns(
       (key) => i18n.translate(key),
       listed.length === 1,

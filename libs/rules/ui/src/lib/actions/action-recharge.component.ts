@@ -26,6 +26,7 @@ export class ActionRecharge {
   /** The key of the wording for the period; absent when there is no period. */
   protected readonly note = computed((): string | undefined => {
     const period = this.period();
+
     return period === undefined ? undefined : RechargeMessage[period];
   });
 }

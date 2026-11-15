@@ -29,10 +29,12 @@ function landsElsewhereEnabled(to: number | undefined, from: number, enabled: re
 function stepAround(enabled: readonly boolean[], from: number): number[] {
   const visited = new Set<number>();
   let at: number | undefined = from;
+
   for (let presses = 0; presses < enabled.length && at !== undefined; presses += 1) {
     visited.add(at);
     at = press('ArrowRight', at, { enabled, wrap: true });
   }
+
   return [...visited].toSorted((left, right) => left - right);
 }
 
@@ -145,7 +147,9 @@ describe(rovingTarget, () => {
     const groups = integer({ min: 1, max: 8 }).chain((count) =>
       tuple(array(boolean(), { minLength: count, maxLength: count }), integer({ min: 0, max: count - 1 })),
     );
+
     const keys = constantFrom('ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End');
+
     const setups = record({
       orientation: constantFrom(...Object.values(RovingOrientation)),
       wrap: boolean(),

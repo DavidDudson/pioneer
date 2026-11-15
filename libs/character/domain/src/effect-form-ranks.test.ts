@@ -24,9 +24,11 @@ const HUMANOID_FORM = [
     ],
   }),
 ];
+
 const LARGE = RollOption.parse('humanoid-form:large');
 const SMALL = RollOption.parse('humanoid-form:small');
 const EFFECT = idOf('humanoid-form');
+
 const CONTENT: EffectContent = new Map([
   [
     EFFECT,
@@ -46,6 +48,7 @@ function refusal(form: RollOption | undefined, rank: number | undefined): Effect
     ...(form === undefined ? {} : { form }),
     ...(rank === undefined ? {} : { rank: SpellRank.parse(rank) }),
   });
+
   return effectProblem([], command, CONTENT);
 }
 

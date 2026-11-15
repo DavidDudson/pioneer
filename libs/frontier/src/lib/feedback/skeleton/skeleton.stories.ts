@@ -21,6 +21,7 @@ const meta: Meta<Skeleton> = {
     template: `<fr-skeleton ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Text: SkeletonStory = {};

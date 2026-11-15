@@ -22,11 +22,13 @@ const BASE = 10;
 const PERCEPTION = Selector.parse('perception');
 const definitions = [statistic('perception', String(BASE))];
 const content = { definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
 const inputs = StatisticInputsJson.parse({
   level: 1,
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 
 interface Placed {
@@ -49,6 +51,7 @@ function rulesOf(entry: string, elements: readonly Placed[]): RuleInPlay[] {
 function entryOf(name: string, elements: readonly Placed[]): SummarisedEntry {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(name));
   const rules = rulesOf(name, elements);
+
   return {
     id: ContentId.parse(contentId(PackId.parse('engine-test'), slug)),
     rules: rules.map(({ element }) => element),
@@ -63,6 +66,7 @@ function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
 /** The sum of the values of the lines that count. */
 function applied(lines: readonly EffectLine[]): number {
   let sum = 0;
+
   for (const line of lines) {
     if (
       (line.change === EffectChange.Bonus || line.change === EffectChange.Penalty) &&
@@ -71,11 +75,13 @@ function applied(lines: readonly EffectLine[]): number {
       sum += line.value ?? 0;
     }
   }
+
   return sum;
 }
 
 function computed(rules: readonly RuleInPlay[]): number {
   const result = deriveStatistics(content, inputs, { rules, facts }).get(PERCEPTION);
+
   return result?.ok === true ? result.computed : Number.NaN;
 }
 
@@ -118,11 +124,13 @@ describe('summariseEffects properties', () => {
       property(modifiers, modifiers, (mine, rest) => {
         const entry = entryOf('gear', mine);
         const before = summariseEffects(scopeOf(rulesOf('other', rest)), entry, EffectMode.WouldApply);
+
         const after = summariseEffects(
           scopeOf([...rulesOf('other', rest), ...rulesOf('gear', mine)]),
           entry,
           EffectMode.Applying,
         );
+
         expect(before).toStrictEqual(after);
       }),
     );

@@ -25,6 +25,7 @@ export const contentRoutes: Routes = [
         path: '',
         loadComponent: loadWithMessages(async () => {
           const { ContentBrowserPage } = await import('./browser/content-browser-page.component');
+
           return ContentBrowserPage;
         }),
       },
@@ -39,6 +40,7 @@ export const contentRoutes: Routes = [
             data: { [CRUMB]: entryCrumb },
             loadComponent: loadWithMessages(async () => {
               const { EntryPage } = await import('./entry/entry-page.component');
+
               return EntryPage;
             }),
           },

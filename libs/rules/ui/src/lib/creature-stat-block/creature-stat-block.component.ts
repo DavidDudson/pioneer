@@ -60,6 +60,7 @@ export class CreatureStatBlockView {
   protected readonly view = computed((): StatBlockView => {
     this.#messages();
     this.#format.locale();
+
     return statBlockView(this.creature(), {
       translate: (key, params) => this.#i18n.translate(key, params),
       number: (value, options) => this.#format.number(value, options),
@@ -72,12 +73,14 @@ export class CreatureStatBlockView {
   /** Perception, then the languages, skills and attributes the preview leaves out. */
   protected readonly headLines = computed((): readonly StatLine[] => {
     const { senses, details } = this.view();
+
     return this.full() ? [...senses, ...details] : senses;
   });
 
   /** The Strikes, without the prose after their damage in the preview. */
   protected readonly strikes = computed((): readonly StrikeLine[] => {
     const { strikes } = this.view();
+
     return this.full()
       ? strikes
       : strikes.map((strike): StrikeLine => ({

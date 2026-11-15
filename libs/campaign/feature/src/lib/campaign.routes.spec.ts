@@ -26,6 +26,7 @@ function stubbed(routes: readonly Route[]): Route[] {
           }
         : provider,
     );
+
     return {
       ...(route.path === undefined ? {} : { path: route.path }),
       ...(route.data === undefined ? {} : { data: route.data }),

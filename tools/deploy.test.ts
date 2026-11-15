@@ -49,24 +49,31 @@ function fake({
     if (failing.some((prefix) => command.startsWith(prefix))) {
       return { code: 1, stdout: '', stderr: 'boom' };
     }
+
     if (command.startsWith('aws ecr describe-repositories')) {
       return ok(REPOSITORY);
     }
+
     if (command.startsWith('aws lambda get-function ')) {
       return ok(`${REPOSITORY}:sha-0000000`);
     }
+
     if (command.startsWith('aws lambda get-function-configuration')) {
       return ok(JSON.stringify(settings));
     }
+
     if (command.startsWith('aws ecr describe-images')) {
       const present = inEcr.some((tag) => command.endsWith(`imageTag=${tag}`));
+
       return present
         ? ok('{}')
         : { code: 254, stdout: '', stderr: 'An error occurred (ImageNotFoundException) when calling DescribeImages' };
     }
+
     if (command.startsWith('aws ecr get-login-password')) {
       return ok('ecr-password');
     }
+
     return ok();
   }
 
@@ -74,15 +81,18 @@ function fake({
     run: async (command: readonly string[], options?: CommandOptions): Promise<CommandResult> => {
       const line = command.join(' ');
       calls.push({ command: line, options });
+
       return respond(line);
     },
     get: async (url: string): Promise<HttpResponse> => {
       expect(url).toBe(`${ORIGIN}/api/health`);
       const next = health[Math.min(healthIndex, health.length - 1)] ?? healthy;
       healthIndex += 1;
+
       if (next instanceof Error) {
         throw next;
       }
+
       return next;
     },
     log: (): void => {
@@ -95,6 +105,7 @@ function fake({
       sleeps.push(ms);
     },
   };
+
   return { deps, calls, masked, sleeps };
 }
 
@@ -105,6 +116,7 @@ async function failureOf(promise: Promise<unknown>): Promise<string> {
   } catch (error) {
     return error instanceof Error ? error.message : String(error);
   }
+
   throw new Error('expected a failure');
 }
 
@@ -160,6 +172,7 @@ describe('deploy', () => {
       expect(command).not.toContain('secret');
       expect(command).not.toContain('ecr-password');
     }
+
     expect(masked).toStrictEqual([DATABASE_URL, 'ecr-password']);
     const login = calls.find(({ command }) => command.startsWith('skopeo login'));
     expect(login?.options?.stdin).toBe('ecr-password');

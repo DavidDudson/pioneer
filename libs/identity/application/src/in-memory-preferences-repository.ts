@@ -14,6 +14,7 @@ export class InMemoryPreferencesRepository extends PreferencesRepository {
   public override async update(userId: UserId, patch: Preferences): Promise<Preferences> {
     const updated = patchPreferences(this.#preferences.get(userId) ?? NO_PREFERENCES, patch);
     this.#preferences.set(userId, updated);
+
     return updated;
   }
 }

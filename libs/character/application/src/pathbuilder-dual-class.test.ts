@@ -19,12 +19,14 @@ const clock = fixedClock('2026-10-07T10:00:00Z');
 /** Mordred's human changeling, with the champion and oracle his dual class names loaded, and the Dual Class variant. */
 function mordredPack(classes: readonly string[]): ContentPackBuilder {
   const all = Object.values(Attribute);
+
   const pack = new ContentPackBuilder()
     .withId('player-core')
     .withAncestry('human', { boosts: [all] })
     .withHeritage('changeling', 'human')
     .withBackground('cursed', [['cha', 'str'], all])
     .withVariantRule('dual-class', [VariantStructure.SecondClass]);
+
   return classes.includes('champion') ? pack.withClass('champion', ['str', 'dex']).withClass('oracle', ['cha']) : pack;
 }
 
@@ -48,6 +50,7 @@ async function importMordred(pack: ContentPackBuilder): Promise<MordredImport> {
   const characters = new InMemoryCharacterRepository();
   const importer = new PathbuilderImportService({ characters, content: fixedContent(pack.build()), variants }, clock);
   const { character, report } = await importer.importPathbuilder(amiri, mordredExport);
+
   return { character, report, enabled: await variants.listForCharacter(character.id) };
 }
 
@@ -73,6 +76,7 @@ describe('PathbuilderImportService.importPathbuilder: a dual class', () => {
       .withBackground('cursed', [['cha', 'str']])
       .withClass('champion', ['str', 'dex'])
       .withClass('oracle', ['cha']);
+
     const { character, report, enabled } = await importMordred(bare);
     expect(Object.keys(character.document.build.choices)).not.toContain(SECOND_CLASS_SLOT);
     expect(unmatchedClasses(report)).toStrictEqual([

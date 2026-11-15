@@ -29,6 +29,7 @@ const IN_FOREST = RollOption.parse('terrain:forest');
 const RAISED = RollOption.parse('self:effect:raise-a-shield');
 
 const perception = statistic('perception', '10');
+
 const inputs = StatisticInputsJson.parse({
   level: 1,
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
@@ -38,11 +39,13 @@ const inputs = StatisticInputsJson.parse({
 /** The id `inPlay` gives the entry named `name`. */
 function idOf(name: string): ContentId {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(name));
+
   return ContentId.parse(contentId(PackId.parse('engine-test'), slug));
 }
 
 function entryOf(name: string, elements: readonly object[]): SummarisedEntry {
   const [first] = elements.map((element, rule) => inPlay(element, name, { rule }));
+
   return {
     id: idOf(name),
     rules: elements as unknown as RuleElements,
@@ -57,6 +60,7 @@ function placed(...entries: readonly (readonly [string, readonly object[]])[]): 
 
 function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
   const facts = new PredicateFacts([], CORE_NAMESPACES);
+
   return {
     content: { definitions: [perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     inputs,
@@ -96,6 +100,7 @@ describe('summariseEffects', () => {
   test('a bonus a better one of its type beats is suppressed by it', () => {
     const weak = flatModifier('item', 1, ['perception']);
     const strong = flatModifier('item', 2, ['perception']);
+
     const lines = summary(
       ['weak', [weak]],
       [
@@ -104,6 +109,7 @@ describe('summariseEffects', () => {
       ],
       EffectMode.Applying,
     );
+
     expect(lines).toMatchObject([
       {
         change: EffectChange.Bonus,
@@ -136,6 +142,7 @@ describe('summariseEffects', () => {
       { key: 'Weakness', type: ['cold'], value: 3 },
       { key: 'Immunity', type: ['poison'] },
     ];
+
     const lines = summary(['hide', elements], [['hide', elements]], EffectMode.Applying);
     expect(lines).toMatchObject([
       { change: EffectChange.Resistance, damage: 'fire', value: 5 },

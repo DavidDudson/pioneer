@@ -53,6 +53,7 @@ export class SkillPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return skillPickerColumns(this.#say);
   });
 
@@ -60,6 +61,7 @@ export class SkillPicker {
   protected readonly shown = computed(() => {
     const rows = shownSkillRows(this.rows(), this.query(), this.sorting());
     const lore = this.allowLore() ? typedLoreRow(this.query(), this.rows(), this.#say) : undefined;
+
     return lore === undefined ? rows : [...rows, lore];
   });
 

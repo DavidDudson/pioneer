@@ -9,9 +9,11 @@ const ENTRIES = contentPackFromContents(await tianXiaCharacterGuidePack()).other
 /** The rules of the effect `slug` as plain JSON, so a test can compare them with the data it reads. */
 function rulesOf(slug: string): unknown {
   const found = ENTRIES.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the tian-xia-character-guide pack`);
   }
+
   return structuredClone(found.rules);
 }
 

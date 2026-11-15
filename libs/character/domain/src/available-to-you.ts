@@ -32,6 +32,7 @@ import type { SlotContent } from './slot-reads';
 
 /** The roll option a query's filter reads a candidate's trait under: `item:trait:fighter`. */
 const TRAIT_OPTION = 'item:trait:';
+
 /** The trait of items too powerful to offer a character: never in an "available to you" list. */
 const ARTIFACT_TRAIT = FacetValue.parse('artifact');
 
@@ -45,6 +46,7 @@ function filterTraits(statements: readonly PredicateStatement[]): readonly Facet
     if (typeof statement === 'string') {
       return statement.startsWith(TRAIT_OPTION) ? [FacetValue.parse(statement.slice(TRAIT_OPTION.length))] : [];
     }
+
     return 'and' in statement ? filterTraits(statement.and) : [];
   });
 }
@@ -56,6 +58,7 @@ const distinct = (found: readonly FacetValue[]): readonly FacetValue[] => [...ne
 function slotQuery(grants: GrantResolution, lookup: ContentLookup, slot: SlotKey): ChoiceQuery | undefined {
   const found = [...grants.open, ...grants.answered].find(({ key }) => key === slot);
   const element = found === undefined ? undefined : lookup.entry(found.origin.entry)?.rules[found.rule];
+
   return element?.key === RuleElementKey.ChoiceSet && !Array.isArray(element.choices) && 'kind' in element.choices
     ? element.choices
     : undefined;
@@ -75,15 +78,18 @@ export function availableToYou(document: CharacterDocument, content: SlotContent
   const query = slotQuery(skillReads(document, content).grantsAt(level), content.lookup, slot);
   const own = query?.ownTrait === undefined ? [] : reads.factsAt(level).tails(query.ownTrait);
   const traits = [...filterTraits(query?.filter ?? []), ...own.map((trait) => FacetValue.parse(trait))];
+
   const selections: [FacetId, FacetSelection][] = [
     [CommonFacet.Level, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(level) }],
     [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse(Rarity.Unique)] }],
     [CommonFacet.Traits, { kind: SelectionKind.Values, include: distinct(traits), exclude: [ARTIFACT_TRAIT] }],
   ];
+
   if (query?.kind === ContentKind.Feat) {
     const unmet = FacetValue.parse(PrerequisiteValue.Unmet);
     selections.push([PREREQUISITES_MET_FACET, { kind: SelectionKind.Values, include: [], exclude: [unmet] }]);
   }
+
   return new Map(selections);
 }
 
@@ -98,8 +104,10 @@ export function slotPrerequisiteStatus(
 ): PrerequisiteStatusOf {
   const reads = prerequisiteReads(withoutPick(document, slot), content);
   const facts = reads.factsAt(reads.featSlotLevels.get(slot) ?? Level.parse(document.level));
+
   return (entry) => {
     const feat = reads.feats.feat(entry.id);
+
     return feat === undefined ? PrerequisiteStatus.Unknown : prerequisiteStatus(feat, facts);
   };
 }
@@ -116,6 +124,7 @@ export type SpellSlotPlace = Pick<PreparedSlot, 'rank' | 'tradition' | 'pool' | 
  */
 export function availableSpellsToYou({ rank, tradition, pool, deitySpell }: SpellSlotPlace): FilterState {
   const cantrip = rank === SlotRank.Cantrip;
+
   const selections: [FacetId, FacetSelection][] = [
     [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse(Rarity.Unique)] }],
     [
@@ -127,14 +136,17 @@ export function availableSpellsToYou({ rank, tradition, pool, deitySpell }: Spel
       },
     ],
   ];
+
   if (!cantrip) {
     selections.push([SpellFacet.Rank, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(rank) }]);
   }
+
   if (pool === undefined && !deitySpell) {
     selections.push([
       SpellFacet.Tradition,
       { kind: SelectionKind.Values, include: [FacetValue.parse(tradition)], exclude: [] },
     ]);
   }
+
   return new Map(selections);
 }

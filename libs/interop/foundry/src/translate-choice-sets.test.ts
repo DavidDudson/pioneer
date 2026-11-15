@@ -218,6 +218,7 @@ describe('ChoiceSet from Foundry: a pick nothing reads', () => {
       key: RuleElementKey.GrantItem,
       uuid: '{item|flags.system.rulesSelections.fighterSkill}',
     };
+
     const { rules, untranslated } = translateRules(ENTRY, [PICK, grant], {
       lang: { PF2E: { Yes: 'Yes', No: 'No' } },
       values: { item: 'Fighter' },
@@ -231,6 +232,7 @@ describe('ChoiceSet from Foundry: a pick nothing reads', () => {
 describe('ChoiceSet from Foundry: choices that name entries by compendium UUID', () => {
   const SOULHEART = ContentId.parse('00000000-0000-5000-8000-000000000001');
   const SOULHEART_GREATER = ContentId.parse('00000000-0000-5000-8000-000000000002');
+
   const references: EntryReferences = {
     ...NO_REFERENCES,
     byUuid: new Map([
@@ -238,10 +240,12 @@ describe('ChoiceSet from Foundry: choices that name entries by compendium UUID',
       ['Compendium.pf2e.equipment-srd.Item.Soulheart (Greater)', SOULHEART_GREATER],
     ]),
   };
+
   const grant = { key: RuleElementKey.GrantItem, uuid: '{item|flags.system.rulesSelections.armor}' };
 
   function withReferences(choices: readonly object[]): RuleTranslation {
     const pick = { choices, flag: 'armor', key: RuleElementKey.ChoiceSet };
+
     return translateRules(ENTRY, [pick, grant], { lang: {}, values: { item: 'Armor' }, references });
   }
 

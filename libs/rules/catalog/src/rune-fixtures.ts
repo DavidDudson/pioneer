@@ -7,11 +7,14 @@ const PACKS_DIR = `${import.meta.dir}/../../../../content/packs`;
 export async function loadRunes(): Promise<readonly ContentEntry[]> {
   const scanned = await Array.fromAsync(new Bun.Glob('*/rune.json').scan(PACKS_DIR));
   const files = scanned.toSorted();
+
   const packs = await Promise.all(
     files.map(async (file): Promise<readonly ContentEntry[]> => {
       const json: unknown = await Bun.file(`${PACKS_DIR}/${file}`).json();
+
       return ContentEntryFile.parse(json);
     }),
   );
+
   return packs.flat().filter((entry) => entry.kind === ContentKind.Rune);
 }

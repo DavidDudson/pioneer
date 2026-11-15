@@ -24,6 +24,7 @@ interface PageBody {
 function app(): AnyElysia {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
+
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 
@@ -33,6 +34,7 @@ async function get(api: AnyElysia, path: string): Promise<Response> {
 
 async function pageAt(api: AnyElysia, path: string): Promise<PageBody> {
   const response = await get(api, path);
+
   return (await response.json()) as PageBody;
 }
 

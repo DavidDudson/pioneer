@@ -101,16 +101,20 @@ function takenElsewhere(
 ): ReadonlySet<ContentId> {
   const entry = entries?.find((each) => each.ranks.some((rank) => rank.slots.some((slot) => slot.key === key)));
   const own = slotIn(entries, key);
+
   if (entry === undefined || character === undefined || own?.signature === true) {
     return NONE_TAKEN;
   }
+
   if (entry.preparation !== SpellPreparation.Spontaneous) {
     return NONE_TAKEN;
   }
+
   const picks = entry.ranks
     .flatMap((rank) => rank.slots)
     .filter((slot) => !slot.signature && slot.key !== key)
     .map((slot) => ContentId.safeParse(slot.granted ? slot.spell?.id : character.document.build.choices[slot.key]));
+
   return new Set(picks.flatMap((pick) => (pick.success ? [pick.data] : [])));
 }
 
@@ -119,8 +123,10 @@ function castLine(sources: SpellPickSources, held: SheetPreparedSlot | undefined
   const registry = sources.registry();
   const spend = sources.spend?.();
   const id = held?.spell?.id;
+
   const option =
     id === undefined || registry === undefined ? undefined : sheetSlotContent(registry).spells.anySpell(id);
+
   return spend === undefined || option === undefined ? undefined : spellUse(option, { slot: held?.slotKey }, spend);
 }
 
@@ -131,6 +137,7 @@ function spellSlotFilter(
   slot: Signal<SheetPreparedSlot | undefined>,
 ): SlotFilter | undefined {
   const { filters } = sources;
+
   return filters === undefined || read.preset === undefined
     ? undefined
     : slotFilter({
@@ -166,6 +173,7 @@ function preparedField(
   const { key, label } = read;
   const slot = computed(() => slotIn(entries(), key));
   const options = computed(() => slot()?.options ?? []);
+
   const field = sheetField<string | undefined>(sources.character, {
     read: (character) => character.document.build.choices[key] ?? NOT_CHOSEN,
     empty: NOT_CHOSEN,
@@ -179,17 +187,22 @@ function preparedField(
       if (value === undefined || value === NOT_CHOSEN) {
         return sources.translate('character.sheet.notChosen');
       }
+
       const named = options().find((option) => option.value === value)?.label ?? slot()?.storedName;
+
       return named ?? sources.translate('character.sheet.prepared.unknownSpell');
     },
   });
+
   const filter = spellSlotFilter(sources, read, slot);
+
   return {
     key,
     label,
     rows: computed(() => {
       sources.messages();
       const taken = takenElsewhere(entries(), sources.character(), key);
+
       return without(slotRows(sources, slot(), taken), filter?.hidden());
     }),
     reason: computed(() => slot()?.reason),
@@ -199,6 +212,7 @@ function preparedField(
     detail: computed(() => {
       const registry = sources.registry();
       const spell = slot()?.spell;
+
       return registry === undefined || spell === undefined
         ? undefined
         : sheetSpellDetail(registry, spell, sources.translate);
@@ -217,13 +231,17 @@ export function preparedFieldsOf(sources: SpellPickSources): Signal<readonly Pre
     const registry = sources.registry();
     const character = sources.character();
     const slots = sources.slots();
+
     return registry === undefined || character === undefined || slots === undefined
       ? undefined
       : sheetPreparedSlots(registry, character, slots);
   });
+
   const keys = computed(() => slotKeys(entries() ?? []));
+
   return computed(() => {
     keys();
+
     return untracked(() =>
       (entries() ?? []).map((entry) => ({
         key: entry.key,
@@ -235,6 +253,7 @@ export function preparedFieldsOf(sources: SpellPickSources): Signal<readonly Pre
               ?.find((each) => each.key === entry.key)
               ?.ranks.find((each) => each.key === rank.key),
           );
+
           return {
             key: rank.key,
             heading: computed(() => current()?.heading ?? rank.heading),

@@ -14,5 +14,6 @@ const CONTENT = new WeakMap<ContentRegistry, SlotContent>();
 export function sheetSlotContent(registry: ContentRegistry): SlotContent {
   const content = CONTENT.get(registry) ?? slotContent(registry, variantsInForce(registry));
   CONTENT.set(registry, content);
+
   return content;
 }

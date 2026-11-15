@@ -20,12 +20,14 @@ export class CharacterUnenabledStore {
 
   public readonly content = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.unenabled(id),
       queryFn: async (): Promise<UnenabledContent> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.unenabledContent, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,

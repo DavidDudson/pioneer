@@ -42,6 +42,7 @@ const pack = new ContentPackBuilder()
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
   .withSpell('barrier', { rank: 2, traditions: [], duration: SUSTAINED })
   .withSpell('mirror', { rank: 2, traditions: [], duration: SUSTAINED, dismiss: true });
+
 const content = fixedContent(pack.build());
 const BARRIER = ContentId.parse(pack.idOf(ContentKind.Spell, 'barrier'));
 const MIRROR = ContentId.parse(pack.idOf(ContentKind.Spell, 'mirror'));
@@ -75,6 +76,7 @@ describe('PlayService sustained spells', () => {
   async function patch(command: PlayCommand | TurnCommand): Promise<PatchedPlay> {
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: revision, command });
     ({ revision } = saved);
+
     return saved;
   }
 

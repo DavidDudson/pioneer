@@ -30,6 +30,7 @@ let lines = 0;
 /** A fresh line id, so each test's lines are unique. */
 function nextId(): string {
   lines += 1;
+
   return `00000000-0000-4000-8000-${String(lines).padStart(12, '0')}`;
 }
 
@@ -42,6 +43,7 @@ interface LineFields {
 
 function line(item: ItemFixture, fields: LineFields = {}): object {
   const { id = nextId(), quantity = 1, ...rest } = fields;
+
   return { id, item: itemFixtureId(item), quantity, ...rest };
 }
 

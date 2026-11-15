@@ -41,6 +41,7 @@ export function preparedStatuses(
   at: Level = Level.parse(document.level),
 ): CharacterSlot[] {
   const planned = plannedAt(document, at);
+
   return preparedSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -54,13 +55,16 @@ export function preparedStatuses(
       stored: slot.stored,
       planned,
     };
+
     if (slot.stored === undefined || slot.pick !== undefined) {
       return validSlot(read, slot.pick?.name);
     }
+
     const reason =
       slot.problem === undefined
         ? invalidReason(slot.stored, content.lookup)
         : message(PREPARED_PROBLEMS[slot.problem]);
+
     return invalidSlot(read, slot.stored, reason);
   });
 }
@@ -76,6 +80,7 @@ export function signatureStatuses(
   at: Level = Level.parse(document.level),
 ): CharacterSlot[] {
   const planned = plannedAt(document, at);
+
   return signatureSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -83,13 +88,16 @@ export function signatureStatuses(
       stored: slot.stored,
       planned,
     };
+
     if (slot.stored === undefined || slot.pick !== undefined) {
       return validSlot(read, slot.pick?.name);
     }
+
     const reason =
       slot.problem === undefined
         ? invalidReason(slot.stored, content.lookup)
         : message(SlotInvalidMessage.SpellNotInRepertoire);
+
     return invalidSlot(read, slot.stored, reason);
   });
 }

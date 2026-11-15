@@ -76,14 +76,17 @@ describe('PlayService breath', () => {
 
   test('the turn cycle spends the air: ending a turn holding a breath loses a round', async () => {
     const held = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: hold(5) });
+
     const entered = await play.patch(amiri, kyra.id, {
       expectedRevision: held.revision,
       command: { field: TurnCommandField.EnterEncounter },
     });
+
     const started = await play.patch(amiri, kyra.id, {
       expectedRevision: entered.revision,
       command: { field: TurnCommandField.StartTurn },
     });
+
     const ended = await play.patch(amiri, kyra.id, {
       expectedRevision: started.revision,
       command: { field: TurnCommandField.EndTurn },

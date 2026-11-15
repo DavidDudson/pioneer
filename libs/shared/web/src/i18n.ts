@@ -27,11 +27,14 @@ class MessageLoader implements TranslocoLoader {
 
   public async getTranslation(lang: string): Promise<Translation> {
     const locale = LocaleSchema.safeParse(lang);
+
     if (!locale.success) {
       throw new Error(`No messages for locale "${lang}"`);
     }
+
     // Messages are ICU strings: none may exist before the compiler that reads them.
     const [translation] = await Promise.all([this.#messages[locale.data](), this.#icu.load()]);
+
     return translation;
   }
 }

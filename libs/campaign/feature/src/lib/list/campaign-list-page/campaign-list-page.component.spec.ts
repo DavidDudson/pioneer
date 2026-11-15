@@ -16,6 +16,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -26,6 +27,7 @@ function campaignJson(name: string, memberCount: number): object {
     role: index === 0 ? 'gm' : 'player',
     joinedAt: '2026-10-10T10:00:00.000Z',
   }));
+
   return { id, version: 1, name, gmId, members, createdAt: '2026-10-10T10:00:00.000Z' };
 }
 
@@ -38,6 +40,7 @@ async function open(): Promise<RouterTestingHarness> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
+
   return RouterTestingHarness.create('/campaigns');
 }
 

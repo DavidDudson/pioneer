@@ -22,6 +22,7 @@ import type { RunNode } from './rich-text-run';
 
 const ENRICHER = '@Damage';
 const FORMULA = 'formula';
+
 /** Parameters that only change how Foundry shows the roll. */
 const HANDLED: ReadonlySet<string> = new Set([FORMULA, 'name', 'shortLabel', 'immutable']);
 
@@ -31,8 +32,10 @@ const OPEN: ReadonlySet<string> = new Set(['(', '[']);
 const CLOSE: ReadonlySet<string> = new Set([')', ']']);
 const INSTANCE_SEPARATOR = ',';
 const FLAVOUR_SEPARATOR = ',';
+
 /** `[splash]` inside a formula, as Foundry marks a splash term (`(1[splash])[fire]`). */
 const SPLASH_MARKER = '[splash]';
+
 /** A splash marker that flavours the whole formula: `(1[splash])`, the only form Foundry's remaster text uses. */
 const WHOLE_SPLASH = /^[^[\]]*\[splash\]$/u;
 const INNER_FLAVOUR = /\[[^\]]*\]/u;
@@ -50,8 +53,10 @@ function topLevel(text: string, separator: string): string[] {
   const parts: string[] = [];
   let depth = 0;
   let from = 0;
+
   for (let index = 0; index < text.length; index += 1) {
     const char = text.charAt(index);
+
     if (OPEN.has(char)) {
       depth += 1;
     } else if (CLOSE.has(char)) {
@@ -61,6 +66,7 @@ function topLevel(text: string, separator: string): string[] {
       from = index + 1;
     }
   }
+
   return [...parts, text.slice(from)].map((part) => part.trim());
 }
 
@@ -69,15 +75,19 @@ function trailingOpen(text: string, [opener, closer]: readonly [string, string])
   if (!text.endsWith(closer)) {
     return -1;
   }
+
   let depth = 0;
+
   for (let index = text.length - 1; index >= 0; index -= 1) {
     const char = text.charAt(index);
     depth += char === closer ? 1 : 0;
     depth -= char === opener ? 1 : 0;
+
     if (depth === 0) {
       return index;
     }
   }
+
   return -1;
 }
 
@@ -89,6 +99,7 @@ interface Split {
 /** `2d6[persistent,fire]` to `2d6` and `persistent`, `fire`; a bare formula has no flavour. */
 function split(text: string): Split {
   const open = trailingOpen(text, ['[', ']']);
+
   return open === -1
     ? { body: text, flavour: [] }
     : {
@@ -117,14 +128,18 @@ function isWholeSplash(body: string): boolean {
 function pioneerFormula(body: string): string | undefined {
   const untranslated: string[] = [];
   const bare = isWholeSplash(body) ? unwrapped(body).slice(0, -SPLASH_MARKER.length) : body;
+
   const text = unwrapped(bare).replaceAll(REFERENCE, (whole, path: string) => {
     const reference = ReferencePath.safeParse(path);
     const translated = reference.success ? fromFoundryPath(reference.data) : undefined;
+
     if (translated === undefined) {
       untranslated.push(path);
     }
+
     return translated === undefined ? whole : `@${translated}`;
   });
+
   return untranslated.length > 0 || INNER_FLAVOUR.test(text) ? undefined : text;
 }
 
@@ -138,6 +153,7 @@ interface Flavour {
 function addWord(flavour: Flavour, word: string): boolean {
   const damageType = DamageTypeSchema.safeParse(word);
   const category = DamageCategorySchema.safeParse(word);
+
   if (damageType.success && flavour.damageType === undefined) {
     flavour.damageType = damageType.data;
   } else if (category.success && flavour.category === undefined) {
@@ -147,36 +163,45 @@ function addWord(flavour: Flavour, word: string): boolean {
   } else {
     return false;
   }
+
   return true;
 }
 
 /** The damage type, category and healing a flavour names; undefined, and reported, for any word it does not know. */
 function flavourOf(words: readonly string[], context: EnricherContext): Flavour | undefined {
   const flavour: Flavour = { healing: false };
+
   for (const word of words) {
     if (!addWord(flavour, word)) {
       context.report(`${ENRICHER}[type:${word}]`);
+
       return undefined;
     }
   }
+
   return flavour;
 }
 
 function instanceOf(text: string, context: EnricherContext): Instance | undefined {
   const { body, flavour: words } = split(text);
   const flavour = flavourOf(words, context);
+
   if (flavour === undefined) {
     return undefined;
   }
+
   const category = isWholeSplash(body) ? DamageCategory.Splash : flavour.category;
+
   const instance = DamageInstance.safeParse({
     formula: pioneerFormula(body),
     ...(flavour.damageType === undefined ? {} : { damageType: flavour.damageType }),
     ...(category === undefined ? {} : { category }),
   });
+
   if (!instance.success) {
     context.report(`${ENRICHER}[${FORMULA}]`);
   }
+
   return instance.success ? { instance: instance.data, healing: flavour.healing } : undefined;
 }
 
@@ -184,14 +209,19 @@ function instanceOf(text: string, context: EnricherContext): Instance | undefine
 function instancesOf(formula: string, context: EnricherContext): readonly Instance[] | undefined {
   const instances = topLevel(formula, INSTANCE_SEPARATOR).map((text) => instanceOf(text, context));
   const read = instances.filter((instance) => instance !== undefined);
+
   if (read.length < instances.length) {
     return undefined;
   }
+
   const healing = read.filter((each) => each.healing).length;
+
   if ((healing > 0 && healing < read.length) || read.length > DAMAGE_INSTANCES_MAX) {
     context.report(`${ENRICHER}[${FORMULA}]`);
+
     return undefined;
   }
+
   return read;
 }
 
@@ -199,16 +229,20 @@ function instancesOf(formula: string, context: EnricherContext): readonly Instan
 export function damageRun(formula: string, label: string | undefined, context: EnricherContext): RunNode[] {
   const instances = instancesOf(formula, context);
   const [first, ...rest] = instances ?? [];
+
   if (first === undefined) {
     return textRun(label ?? formula, context);
   }
+
   const damageLabel = inlineLabel(label, `${ENRICHER}[label]`, context);
+
   const node: DamageNode = {
     type: InlineKind.Damage,
     instances: [first.instance, ...rest.map(({ instance }) => instance)],
     ...(first.healing ? { healing: true } : {}),
     ...(damageLabel === undefined ? {} : { label: damageLabel }),
   };
+
   return [node];
 }
 
@@ -216,5 +250,6 @@ export function damageRun(formula: string, label: string | undefined, context: E
 export function damageEnricherRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
   const parsed = enricherParams(params, FORMULA);
   reportParams(parsed, { enricher: ENRICHER, handled: HANDLED }, context);
+
   return damageRun(parsed.get(FORMULA) ?? '', label, context);
 }

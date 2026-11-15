@@ -51,9 +51,11 @@ function takenOf(result: DamageApplication): readonly number[] {
 
 function dealtOf(result: DamageApplication): number {
   let total = 0;
+
   for (const instance of [...result.immediate, ...result.persistent]) {
     total += instance.dealt;
   }
+
   return total;
 }
 
@@ -62,9 +64,11 @@ describe('damage application (properties)', () => {
     assert(
       property(hit, ({ roll, target, options }) => {
         const result = applyDamage(roll, target, options);
+
         for (const instance of [...result.immediate, ...result.persistent]) {
           expect(instance.taken).toBeGreaterThanOrEqual(0);
         }
+
         expect(Math.min(...takenOf(result))).toBeGreaterThanOrEqual(0);
       }),
     );
@@ -86,6 +90,7 @@ describe('damage application (properties)', () => {
         const before = takenOf(applyDamage(roll, target, options));
         const resistant = { ...target, resistances: [...target.resistances, extra] };
         const after = takenOf(applyDamage(roll, resistant, options));
+
         for (const [index, value] of after.entries()) {
           expect(value).toBeLessThanOrEqual(before[index] ?? 0);
         }
@@ -99,6 +104,7 @@ describe('damage application (properties)', () => {
         const before = takenOf(applyDamage(roll, target, options));
         const weak = { ...target, weaknesses: [...target.weaknesses, extra] };
         const after = takenOf(applyDamage(roll, weak, options));
+
         for (const [index, value] of after.entries()) {
           expect(value).toBeGreaterThanOrEqual(before[index] ?? 0);
         }

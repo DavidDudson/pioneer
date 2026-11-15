@@ -51,6 +51,7 @@ function slot(key: string, options: readonly SheetFeatOption[]): SheetFeatSlot {
 
 function read(key: string, status: typeof SlotStatus.Open | typeof SlotStatus.Filled): CharacterSlot {
   const subject = { kind: SlotSubjectKind.Flaw } as const;
+
   return status === SlotStatus.Open
     ? { status, key: SlotKey.parse(key), subject }
     : { status, key: SlotKey.parse(key), subject, selection: ChoiceValue.parse(FEAT) };

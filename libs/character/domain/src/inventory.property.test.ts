@@ -11,9 +11,11 @@ const maybeIndex = option(nat(), { nil: undefined });
 /** The item at `index` of a non-empty inventory, wrapping round. */
 function pick(stock: Inventory, index: number): InventoryItem {
   const item = stock.items[index % stock.items.length];
+
   if (item === undefined) {
     throw new Error('pick needs a non-empty inventory');
   }
+
   return item;
 }
 
@@ -21,16 +23,20 @@ function pick(stock: Inventory, index: number): InventoryItem {
 function contents(stock: Inventory, id: InventoryItemId): ReadonlySet<InventoryItemId> {
   const held = new Set<InventoryItemId>();
   let added = true;
+
   while (added) {
     added = false;
+
     for (const each of stock.items) {
       const inside = each.container !== undefined && (each.container === id || held.has(each.container));
+
       if (inside && !held.has(each.id)) {
         held.add(each.id);
         added = true;
       }
     }
   }
+
   return held;
 }
 
@@ -55,6 +61,7 @@ describe('inventory edits (properties)', () => {
         pre(stock.items.length > 0);
         const removed = pick(stock, index);
         const after = removeItem(stock, removed.id);
+
         for (const each of after.items) {
           const before = stock.items.find((item) => item.id === each.id);
           const expected = before?.container === removed.id ? removed.container : before?.container;
@@ -73,6 +80,7 @@ describe('inventory edits (properties)', () => {
         const refusal = inventoryRefusal(stock, { id: moved.id, container });
         const loops = container !== undefined && (container === moved.id || contents(stock, moved.id).has(container));
         expect(refusal !== undefined).toBe(loops);
+
         if (refusal === undefined) {
           const after = moveItem(stock, moved.id, container);
           expect(InventorySchema.safeParse(after).success).toBe(true);

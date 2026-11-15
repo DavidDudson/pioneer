@@ -16,6 +16,7 @@ export class PathbuilderExportClient {
       params: {},
       body: { url },
     });
+
     return fetched;
   }
 }

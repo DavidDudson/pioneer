@@ -34,6 +34,7 @@ const meta: Meta<Disclosure> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Closed: DisclosureStory = {};
@@ -90,9 +91,11 @@ interface DisclosureParts {
 function disclosureParts(canvasElement: HTMLElement): DisclosureParts {
   const details = canvasElement.querySelector('details');
   const summary = details?.querySelector('summary');
+
   if (details === null || summary === null || summary === undefined) {
     throw new Error('fr-disclosure rendered no <details> / <summary>');
   }
+
   return { details, summary };
 }
 

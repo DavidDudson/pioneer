@@ -42,6 +42,7 @@ export function grantedLines({ recovery, temporaryHitPoints, size }: VitalsInPla
 /** The size line: with the form that sets it and the character's own size, when a battle form does. */
 function sizeLine({ size, base, reach, form }: SizeInPlay): GrantedLine {
   const line = { size: SIZE_MESSAGES[size], reach, stoppedBy: [] };
+
   return form === undefined
     ? { ...line, key: SIZE_KEY }
     : { ...line, key: FORM_SIZE_KEY, form: { entry: form.entry, own: SIZE_MESSAGES[base] } };

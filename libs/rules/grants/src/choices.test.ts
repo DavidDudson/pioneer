@@ -111,6 +111,7 @@ describe('resolveGrants choices', () => {
         },
       ]),
     ];
+
     const result = resolve(content, [picked('ranger')], { level: 1 });
     const offered = result.open.flatMap((slot) => slot.options);
     expect(offered.map((shown) => shown.value)).toEqual([idOf('flurry'), idOf('precision')]);
@@ -125,6 +126,7 @@ describe('resolveGrants choices', () => {
       ]),
       entry('precision'),
     ];
+
     const result = resolve(content, [picked('ranger')], { picks: [[slotOf('ranger', 0), idOf('precision')]] });
     expect(names(result.items)).toEqual(['ranger', 'precision']);
   });
@@ -148,6 +150,7 @@ describe('resolveGrants choices', () => {
         grantChoice('terrain'),
       ]),
     ];
+
     const result = resolve(content, [picked('ranger')], { picks: [[slotOf('ranger', 0), 'forest']] });
     expect(names(result.items)).toEqual(['ranger']);
     expect(result.errors.map((failure) => failure.error)).toEqual([
@@ -180,6 +183,7 @@ describe('resolveGrants choices', () => {
         },
       ]),
     ];
+
     const result = resolve(content, [picked('ranger')], { picks: [[slotOf('ranger', 0), 'forest']] });
     expect(result.rollOptions).toContain(RollOption.parse('favored-terrain:forest'));
     expect(result.errors).toEqual([]);
@@ -199,6 +203,7 @@ describe('resolveGrants choices', () => {
         },
       ]),
     ];
+
     const result = resolve(content, [picked('crafter')], { picks: [[slotOf('crafter', 0), 'alchemy']] });
     expect(result.errors).toEqual([]);
     expect(result.open).toEqual([]);
@@ -212,6 +217,7 @@ describe('resolveGrants choices', () => {
         grantChoice('style'),
       ]),
     ];
+
     const result = resolve(content, [picked('fighter')], { level: 1 });
     expect(result.open).toEqual([]);
     expect(result.errors).toEqual([]);
@@ -222,6 +228,7 @@ describe('resolveGrants choices', () => {
       entry('fighter', [grantOf('rogue'), { ...grantOf('rogue'), allowDuplicate: true }]),
       ...rogueContent,
     ];
+
     const result = resolve(content, [picked('fighter')], { picks: [[RACKET, idOf('ruffian')]] });
     expect(result.answered.map((slot) => slot.key)).toEqual([RACKET]);
     expect(names(result.items)).toEqual(['fighter', 'rogue', 'ruffian', 'rogue']);

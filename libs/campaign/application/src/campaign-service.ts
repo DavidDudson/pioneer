@@ -22,9 +22,11 @@ function archivable(actor: UserId, campaign: Campaign): Campaign {
   if (!mayViewCampaign(actor, campaign)) {
     throw new NotFoundError('Campaign', campaign.id);
   }
+
   if (!mayArchiveCampaign(actor, campaign)) {
     throw new ForbiddenError(`Only the GM archives or restores campaign ${campaign.id}`);
   }
+
   return campaign;
 }
 
@@ -58,15 +60,18 @@ export class CampaignService {
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one. */
   public async get(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#repository.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
   /** One of the actor's campaigns' members with their names, and the actor's role in it. */
   public async roster(actor: UserId, id: CampaignId): Promise<CampaignRoster> {
     const campaign = await this.get(actor, id);
+
     return this.#rosterOf(actor, campaign);
   }
 
@@ -79,6 +84,7 @@ export class CampaignService {
       name: input.name,
       now: this.#clock.now(),
     });
+
     return this.#repository.insert(campaign);
   }
 
@@ -91,25 +97,32 @@ export class CampaignService {
   public async removeMember(actor: UserId, id: CampaignId, memberId: CampaignMemberId): Promise<CampaignRoster> {
     const campaign = await this.#managedCampaign(actor, id);
     const member = campaign.memberById(memberId);
+
     if (member === undefined) {
       return this.#rosterOf(actor, campaign);
     }
+
     if (member.role === CampaignRole.Gm) {
       throw new ForbiddenError(`The GM of campaign ${id} can't be removed`, message(MemberMessage.GmNotRemovable));
     }
+
     await this.#invites.revokeOpen(id, this.#clock.now());
     const saved = await this.#repository.updateMembers(campaign.withoutMember(memberId), campaign.version);
+
     return this.#rosterOf(actor, saved);
   }
 
   /** The GM hands the role to another member and stays on as a player. Handing it to themselves changes nothing. */
   public async transferGm(actor: UserId, id: CampaignId, { memberId }: TransferGmBody): Promise<CampaignRoster> {
     const campaign = await this.#managedCampaign(actor, id);
+
     if (campaign.memberById(memberId) === undefined) {
       throw new NotFoundError('CampaignMember', memberId);
     }
+
     const handed = campaign.withGm(memberId);
     const saved = handed === campaign ? campaign : await this.#repository.updateMembers(handed, campaign.version);
+
     return this.#rosterOf(actor, saved);
   }
 
@@ -117,9 +130,11 @@ export class CampaignService {
   public async leave(actor: UserId, id: CampaignId): Promise<void> {
     const campaign = await this.get(actor, id);
     const member = campaign.members.find((candidate) => candidate.userId === actor);
+
     if (member === undefined || !mayLeaveCampaign(actor, campaign)) {
       throw new ForbiddenError(`The GM of campaign ${id} can't leave it`, message(MemberMessage.GmCannotLeave));
     }
+
     await this.#repository.updateMembers(campaign.withoutMember(member.id), campaign.version);
   }
 
@@ -129,47 +144,61 @@ export class CampaignService {
    */
   public async archive(actor: UserId, id: CampaignId): Promise<Campaign> {
     const live = await this.#repository.findById(id);
+
     if (live === undefined) {
       return this.#archivedOf(actor, id);
     }
+
     const campaign = archivable(actor, live);
     await this.#repository.archive(id, this.#clock.now(), { actor, command: CampaignCommand.ArchiveCampaign });
+
     return campaign;
   }
 
   /** Brings the GM's archived campaign back as it was. Restoring a live one is harmless. */
   public async restore(actor: UserId, id: CampaignId): Promise<Campaign> {
     const archived = await this.#repository.findArchivedById(id);
+
     if (archived === undefined) {
       const live = await this.get(actor, id);
+
       return archivable(actor, live);
     }
+
     const campaign = archivable(actor, archived);
     await this.#repository.restore(id, { actor, command: CampaignCommand.RestoreCampaign });
+
     return campaign;
   }
 
   /** The actor's archived campaign, or a 404. */
   async #archivedOf(actor: UserId, id: CampaignId): Promise<Campaign> {
     const archived = await this.#repository.findArchivedById(id);
+
     if (archived === undefined) {
       throw new NotFoundError('Campaign', id);
     }
+
     return archivable(actor, archived);
   }
 
   /** The campaign's members with their names, as the actor sees them. */
   async #rosterOf(actor: UserId, campaign: Campaign): Promise<CampaignRoster> {
     const viewerRole = campaign.roleOf(actor);
+
     if (viewerRole === undefined) {
       throw new NotFoundError('Campaign', campaign.id);
     }
+
     const names = await this.#directory.displayNames(campaign.members.map((member) => member.userId));
+
     // Memberships cascade with their user, so a missing name is an account deleted since the campaign loaded.
     const members = campaign.members.flatMap((member): NamedMember[] => {
       const displayName = names.get(member.userId);
+
       return displayName === undefined ? [] : [{ ...member, displayName }];
     });
+
     return { viewerRole, members };
   }
 
@@ -179,9 +208,11 @@ export class CampaignService {
    */
   async #managedCampaign(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.get(actor, id);
+
     if (!mayManageMembers(actor, campaign)) {
       throw new ForbiddenError(`Only the GM manages the members of campaign ${id}`);
     }
+
     return campaign;
   }
 }

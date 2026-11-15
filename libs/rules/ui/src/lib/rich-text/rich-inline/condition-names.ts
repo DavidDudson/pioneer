@@ -25,6 +25,7 @@ const MENTION =
 function conditionOf(mention: string): ContentId {
   const [name = ''] = mention.toLowerCase().split(' ');
   const slug = entrySlug(ContentKind.Condition, Slug.parse(name));
+
   return ContentId.parse(contentId(CORE_PACK, slug));
 }
 
@@ -38,16 +39,20 @@ export function linkConditionNames(content: InlineContent, linkable: (id: Conten
     if (node.type !== 'text' || node.marks !== undefined) {
       return [node];
     }
+
     // A split on one group keeps the mentions at the odd positions, between the text around them.
     const pieces = node.text.split(MENTION);
     const linked = pieces.map((piece, index) => index % 2 === 1 && linkable(conditionOf(piece)));
+
     if (!linked.includes(true)) {
       return [node];
     }
+
     return pieces.flatMap((piece, index): InlineContent => {
       if (linked[index] === true) {
         return [{ type: InlineKind.Ref, id: conditionOf(piece), label: InlineLabel.parse(piece) }];
       }
+
       return piece === '' ? [] : [{ type: InlineKind.Text, text: RichTextString.parse(piece) }];
     });
   });

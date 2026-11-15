@@ -27,6 +27,7 @@ const clock = fixedClock('2026-10-07T10:00:00Z');
 function freeArchetypeSlot(level: number): object[] {
   const flag = `free-archetype-${level}`;
   const predicate = [{ gte: ['self:level', level] }];
+
   return [
     {
       key: 'ChoiceSet',
@@ -44,6 +45,7 @@ const SLOT_LEVELS = [2, 4, 6, 8, 10, 12];
 /** Mordred's human, with his champion and oracle and the Sorcerer Dedication his Free Archetype slot at 2 holds. */
 function mordredPack(variant: boolean): ContentPackBuilder {
   const all = Object.values(Attribute);
+
   const pack = new ContentPackBuilder()
     .withId('player-core')
     .withAncestry('human', { boosts: [all] })
@@ -52,6 +54,7 @@ function mordredPack(variant: boolean): ContentPackBuilder {
     .withClass('champion', ['str', 'dex'])
     .withClass('oracle', ['cha'])
     .withFeat('sorcerer-dedication', { level: 2, traits: ['archetype', 'dedication'] });
+
   return variant
     ? pack.withVariantRuleElements(
         'free-archetype',
@@ -73,12 +76,14 @@ async function importMordred(pack: ContentPackBuilder): Promise<MordredImport> {
   const characters = new InMemoryCharacterRepository();
   const importer = new PathbuilderImportService({ characters, content: fixedContent(pack.build()), variants }, clock);
   const { character, report } = await importer.importPathbuilder(amiri, mordredExport);
+
   return { character, report, enabled: await variants.listForCharacter(character.id) };
 }
 
 /** The feat names an import left behind, by reason. */
 function leftBehind(report: CharacterImportReport, reason: UnmatchedReason): string[] {
   const feats = report.unmatched.find((group) => group.kind === ImportKind.Feat)?.names ?? [];
+
   return feats.filter((feat) => feat.reason === reason).map((feat) => feat.name);
 }
 

@@ -19,6 +19,7 @@ function slotsOf(cantrips: number, counts: readonly number[]): SpellSlots {
 
 const CLASS_CANTRIPS = 5;
 const DEDICATION_CANTRIPS = 2;
+
 /** A 1st-level class caster's two 1st-rank slots. */
 const FIRST_LEVEL_SLOTS = [2];
 
@@ -81,12 +82,14 @@ const WIS = 4;
 const EXPERT_AT_7 = 11;
 const FULL_RANK = 3;
 const NEW_RANK = 2;
+
 /** A 7th-level cleric's own slots: three of 1st to 3rd rank, two of 4th. */
 const SEVENTH_LEVEL_SLOTS = [FULL_RANK, FULL_RANK, FULL_RANK, NEW_RANK];
 const FONT_AT_5 = 5;
 
 /** A 7th-level cleric's own cantrips and slots. */
 export const CLERIC_SLOTS: SpellSlots = slotsOf(CLASS_CANTRIPS, SEVENTH_LEVEL_SLOTS);
+
 /** Its divine font: five slots at its highest rank, 4th. */
 export const DIVINE_FONT_SLOTS: SpellSlots = {
   ranks: [{ rank: SpellRank.parse(SEVENTH_LEVEL_SLOTS.length), count: SlotCount.parse(FONT_AT_5) }],

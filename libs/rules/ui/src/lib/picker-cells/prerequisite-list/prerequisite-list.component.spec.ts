@@ -11,6 +11,7 @@ describe(PrerequisiteList, () => {
         { label: 'Strength 16', state: PrerequisiteState.Unmet },
       ],
     });
+
     const spoken = [...host.querySelectorAll('.sr-only')].map((line) => line.textContent.trim());
     expect(spoken).toStrictEqual(['Met: Trained in Athletics', 'Not met: Strength 16']);
   });
@@ -19,6 +20,7 @@ describe(PrerequisiteList, () => {
     const host = await renderCell(PrerequisiteList, {
       prerequisites: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }],
     });
+
     const spoken = [...host.querySelectorAll('.sr-only')].map((line) => line.textContent.trim());
     expect(spoken).toStrictEqual(["Can't be checked: Worships a deity of magic"]);
   });

@@ -15,6 +15,7 @@ import { legalRoutes } from '../../legal.routes';
 const MECHANICS = 'ancestry.mech.0123456789abcdef.json';
 const NAMES = 'ancestry.names.en.fedcba9876543210.json';
 const PACK_FILE = 'pack.0000000000000001.json';
+
 const manifest = {
   packs: [
     {
@@ -31,6 +32,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -52,11 +54,13 @@ async function renderLegalPage(extra: readonly Provider[] = []): Promise<HTMLEle
   });
   const harness = await RouterTestingHarness.create('/legal');
   await harness.fixture.whenStable();
+
   return present(harness.routeNativeElement);
 }
 
 function caches(root: HTMLElement): HTMLElement {
   const heading = [...root.querySelectorAll('h2')].find((each) => each.textContent.trim() === 'Content caches');
+
   return present(heading?.closest<HTMLElement>('fr-surface'));
 }
 
@@ -77,6 +81,7 @@ async function renderAnswered(
   const root = await renderLegalPage(extra);
   TestBed.inject(HttpTestingController).expectOne(manifestUrl).flush(answer);
   await until(() => caches(root).querySelector('summary') !== null);
+
   return caches(root);
 }
 

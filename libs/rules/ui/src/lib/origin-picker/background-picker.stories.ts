@@ -37,6 +37,7 @@ const meta: Meta<BackgroundPicker> = {
   args: { rows: BACKGROUNDS, ariaLabel: 'Background', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A background the character can't take stays in the table and says why. */

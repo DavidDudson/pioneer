@@ -35,6 +35,7 @@ function freeArchetypeRules(): object[] {
   return SLOT_LEVELS.flatMap((level) => {
     const flag = `free-archetype-${level}`;
     const predicate = [{ gte: ['self:level', level] }];
+
     return [
       {
         key: 'ChoiceSet',
@@ -70,10 +71,15 @@ const variantPack = ContentPack.define({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(playerCoreClasses());
+
 registry.register(DEDICATION_FIXTURES);
+
 registry.register(variantPack);
+
 const isFree = (each: VariantRuleEntry): boolean => each.definition.slug === FREE_ARCHETYPE;
 const free: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => isFree(each));
 const plain: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => !isFree(each));
@@ -91,15 +97,18 @@ const medicDedication = dedicationFixtureId('medic-dedication');
 /** The feat slots the variant opens: those whose origin is the variant itself, lowest level first. */
 function variantSlots(content: typeof withFree, level: number): FeatSlot[] {
   const variant = ContentId.parse(freeEntry?.id);
+
   return featSlots(fighter(level).build().document, content).filter((slot) => slot.entry === variant);
 }
 
 /** The key of the variant's first slot. */
 function firstSlotKey(): SlotKey {
   const [slot] = variantSlots(withFree, FIRST_SLOT_LEVEL);
+
   if (slot === undefined) {
     throw new Error('Free Archetype opened no slot');
   }
+
   return slot.key;
 }
 
@@ -117,9 +126,11 @@ describe('the Free Archetype variant', () => {
 
   test('opens no slots without the variant, or with one that has no extra slots', () => {
     const [plainEntry] = plain;
+
     const own = featSlots(fighter(20).build().document, withoutFree).filter(
       (slot) => slot.entry === ContentId.parse(plainEntry?.id),
     );
+
     expect(plainEntry).toBeDefined();
     expect(own).toHaveLength(0);
     expect(variantSlots(withoutFree, 20)).toHaveLength(0);
@@ -136,10 +147,12 @@ describe('the Free Archetype variant', () => {
 
   test('refuses a pick that is not an offered feat', () => {
     const { document } = fighter(FIRST_SLOT_LEVEL).build();
+
     const refused = slotRefusal(document, withFree, {
       slot: firstSlotKey(),
       selection: ChoiceValue.parse('not-a-feat'),
     });
+
     expect(refused).toBeDefined();
   });
 });

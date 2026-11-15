@@ -43,6 +43,7 @@ async function render(
   fixture.componentRef.setInput('mode', mode);
   fixture.componentRef.setInput('view', view);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -65,6 +66,7 @@ function rowText(fixture: ComponentFixture<ActionsView>, name: string): string {
   const row = [...hostOf(fixture).querySelectorAll('pio-action-row')].find((candidate) =>
     textOf(candidate).includes(name),
   );
+
   return row === undefined ? '' : textOf(row);
 }
 
@@ -179,6 +181,7 @@ describe(ActionsView, () => {
   describe('rolling', () => {
     it('rolls an action that rolls with one click, by its name and best skill', async () => {
       const rolled: RollableStatistic[] = [];
+
       const fixture = await render(STANDING_ACTIONS, {
         roller: {
           roll: (check): void => {
@@ -208,6 +211,7 @@ interface Recorder {
 
 function recorder(): Recorder {
   const used: ActionUse[] = [];
+
   return {
     used,
     user: {
@@ -265,9 +269,11 @@ function rowTexts(fixture: ComponentFixture<ActionsView>): string[] {
 /** The first of the standing actions, which the tests below make dear or cheap. */
 function firstStanding(): ActionLine {
   const [first] = STANDING_ACTIONS;
+
   if (first === undefined) {
     throw new Error('The standing actions are empty');
   }
+
   return first;
 }
 

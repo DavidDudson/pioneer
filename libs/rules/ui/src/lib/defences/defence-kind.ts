@@ -6,4 +6,5 @@ export const DefenceKind = {
   Weaknesses: 'weaknesses',
   Resistances: 'resistances',
 } as const;
+
 export type DefenceKind = ValueOf<typeof DefenceKind>;

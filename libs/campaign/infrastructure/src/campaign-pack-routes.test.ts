@@ -50,6 +50,7 @@ function app(): AnyElysia {
   const campaigns = new InMemoryCampaignRepository();
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
+
   const catalog = new InMemoryPackCatalog()
     .pack({ ...known(core, 'Player Core'), official: true })
     .pack({ ...known(spells, 'Spells'), readers: [amiri] })
@@ -57,6 +58,7 @@ function app(): AnyElysia {
     .pack({ ...known(secret, 'Secret'), readers: [amiri], private: true })
     .pack({ ...known(foreign, 'Foreign'), readers: [ezren] })
     .extend(feats, spells);
+
   const party = new CampaignPartyService(
     {
       campaigns,
@@ -66,6 +68,7 @@ function app(): AnyElysia {
     },
     clock,
   );
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -78,6 +81,7 @@ function app(): AnyElysia {
     itemTransfers: itemTransferService(campaigns, clock),
     partyStash: partyStashService(campaigns),
   };
+
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }
 
@@ -120,6 +124,7 @@ async function campaign(api: AnyElysia): Promise<string> {
   const issued = await api.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json<{ readonly token: string }>(issued);
   await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
+
   return id;
 }
 
@@ -149,9 +154,11 @@ describe('pack routes', () => {
   test('a private pack is a 409 that says why', async () => {
     const api = app();
     const id = await campaign(api);
+
     const response = await api.handle(
       request('POST', `/campaigns/${id}/packs`, { as: amiri, body: { packId: secret } }),
     );
+
     expect(response.status).toBe(409);
     const problem = await json<Problem>(response);
     expect(problem.type).toBe('conflict');
@@ -161,13 +168,17 @@ describe('pack routes', () => {
   test('an unreadable pack is a 404 and a malformed id a 422', async () => {
     const api = app();
     const id = await campaign(api);
+
     const unreadable = await api.handle(
       request('POST', `/campaigns/${id}/packs`, { as: amiri, body: { packId: foreign } }),
     );
+
     expect(unreadable.status).toBe(404);
+
     const malformed = await api.handle(
       request('POST', `/campaigns/${id}/packs`, { as: amiri, body: { packId: 'nope' } }),
     );
+
     expect(malformed.status).toBe(422);
     const disable = await api.handle(request('DELETE', `/campaigns/${id}/packs/nope`, { as: amiri }));
     expect(disable.status).toBe(422);
@@ -176,15 +187,19 @@ describe('pack routes', () => {
   test('a player gets a 403 and a stranger a 404', async () => {
     const api = app();
     const id = await campaign(api);
+
     const byPlayer = await api.handle(
       request('POST', `/campaigns/${id}/packs`, { as: ezren, body: { packId: spells } }),
     );
+
     expect(byPlayer.status).toBe(403);
     const disabledByPlayer = await api.handle(request('DELETE', `/campaigns/${id}/packs/${spells}`, { as: ezren }));
     expect(disabledByPlayer.status).toBe(403);
+
     const byStranger = await api.handle(
       request('POST', `/campaigns/${id}/packs`, { as: stranger, body: { packId: spells } }),
     );
+
     expect(byStranger.status).toBe(404);
     const unseen = await api.handle(request('GET', `/campaigns/${id}/packs`, { as: stranger }));
     expect(unseen.status).toBe(404);

@@ -17,6 +17,7 @@ const NO_DESCRIPTION_KEY = 'PF2E.TraitNoDescription';
 export function traitDescriptionKeys(slug: string, config: FoundryConfig): readonly string[] {
   const mapped = config.traitDescriptions.get(slug);
   const keys = [...(mapped === undefined ? [] : [mapped]), `PF2E.TraitDescription${bactrian(slug)}`];
+
   return [...new Set(keys)].filter((key) => key !== NO_DESCRIPTION_KEY);
 }
 
@@ -28,5 +29,6 @@ export function descriptionHtml(keys: readonly string[], lang: FoundryLang): str
 /** The description the first key with text gives, or none. */
 export function descriptionOf(keys: readonly string[] | undefined, lang: FoundryLang): RichText {
   const html = keys === undefined ? undefined : descriptionHtml(keys, lang);
+
   return html === undefined ? [] : htmlToRichText(html).richText;
 }

@@ -13,6 +13,7 @@ const ID = /^\d{1,12}$/u;
 
 /** A character's export URL on Pathbuilder, with the id and nothing else: `https://pathbuilder2e.com/json.php?id=477708`. */
 export const PathbuilderExportUrl = z.string().brand<'PathbuilderExportUrl'>();
+
 export type PathbuilderExportUrl = z.infer<typeof PathbuilderExportUrl>;
 
 /** Why a pasted URL is not one an export can be fetched from. */
@@ -24,6 +25,7 @@ export const ExportUrlProblem = {
   /** No `id`, or one that is not a number. */
   BadId: 'bad-id',
 } as const;
+
 export type ExportUrlProblem = ValueOf<typeof ExportUrlProblem>;
 
 export type ExportUrlResult =
@@ -44,16 +46,22 @@ export function looksLikeUrl(text: string): boolean {
  */
 export function exportUrlOf(text: string): ExportUrlResult {
   const parsed = URL.parse(text.trim());
+
   if (parsed === null || !ALLOWED_PROTOCOLS.has(parsed.protocol)) {
     return { ok: false, problem: ExportUrlProblem.NotUrl };
   }
+
   const hasCredentials = parsed.username !== '' || parsed.password !== '';
+
   if (!EXPORT_HOSTS.has(parsed.hostname) || parsed.pathname !== EXPORT_PATH || parsed.port !== '' || hasCredentials) {
     return { ok: false, problem: ExportUrlProblem.ForeignHost };
   }
+
   const id = parsed.searchParams.get('id');
+
   if (id === null || !ID.test(id)) {
     return { ok: false, problem: ExportUrlProblem.BadId };
   }
+
   return { ok: true, url: PathbuilderExportUrl.parse(`${EXPORT_ORIGIN}?id=${id}`) };
 }

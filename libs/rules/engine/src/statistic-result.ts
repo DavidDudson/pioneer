@@ -14,6 +14,7 @@ import type { MissingInput } from './statistic-inputs';
 
 /** Whose value a statistic shows while a battle form is in play. */
 export const FormSource = { Form: 'form', Own: 'own' } as const;
+
 export type FormSource = ValueOf<typeof FormSource>;
 
 /**
@@ -107,6 +108,7 @@ export function totalOutOfRange(selector: Selector): StatisticFailure {
 export function cycle(selector: Selector, edge: StatisticEdge, members: readonly Selector[]): StatisticFailure {
   const statistics = members.join(LIST_SEPARATOR);
   const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics, count: members.length };
+
   return failure(selector, message(EngineMessage.StatisticCycle, params), edge.position);
 }
 
@@ -126,5 +128,6 @@ export function unreadable(
   key: typeof EngineMessage.MissingStatistic | typeof EngineMessage.FailedDependency,
 ): StatisticFailure {
   const params = { found: `${SIGIL}${edge.path}`, position: edge.position, selector: edge.selector };
+
   return failure(selector, message(key, params), edge.position);
 }

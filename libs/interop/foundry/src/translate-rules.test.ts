@@ -11,6 +11,7 @@ const BLINDED = condition('XgEqL1kFApUbl5Z2', 'Blinded');
 /** A condition granting Blinded with `onDeleteActions`, or none. */
 function granting(onDeleteActions?: object): DocumentFixture {
   const grant = { key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Blinded' };
+
   return condition('gRaNtEr000000000', 'Granter', {
     rules: [onDeleteActions === undefined ? grant : { ...grant, onDeleteActions }],
   });
@@ -50,6 +51,7 @@ describe('translateRules: GrantItem delete actions', () => {
       type: 'feat',
       system: { rules: [{ key: 'GrantItem', uuid: 'Compendium.pf2e.weapon-srd.Item.Longsword' }] },
     };
+
     const cascading: DocumentFixture = {
       ...feat,
       system: {
@@ -70,6 +72,7 @@ describe('translateRules: GrantItem delete actions', () => {
 
 describe('translateRules: GrantItem badge value', () => {
   const grant = { key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Blinded' };
+
   const altering = (alterations: readonly object[]): DocumentFixture =>
     condition('gRaNtEr000000000', 'Granter', { rules: [{ ...grant, alterations }] });
 
@@ -140,6 +143,7 @@ describe('translateRules: CriticalSpecialization', () => {
       predicate: ['item:id:{item|_id}'],
       text: '<p>The target is set alight.</p>',
     };
+
     const translation = translate([feat(raw)]);
 
     expect(translation.envelopes.untranslatedRules).toEqual([]);

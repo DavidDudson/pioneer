@@ -10,6 +10,7 @@ export const GemTone = {
   /** A rune that does nothing: black, and still. */
   Black: 'black',
 } as const;
+
 export type GemTone = ValueOf<typeof GemTone>;
 
 /**

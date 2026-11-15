@@ -23,6 +23,7 @@ export async function maxHitPointsOf(
   const variants = await variantRulesOfCharacter(source, character, registry);
   const slots = slotContent(registry, variants);
   const inputs = characterStatisticInputs(registry, character.document, slots);
+
   return maxHitPoints(characterStatistics({ ...character.document, play }, { registry, slots, inputs, variants }));
 }
 
@@ -33,8 +34,10 @@ export async function derivedMaxHitPoints(
   play: PlayState,
 ): Promise<HitPoints> {
   const max = await maxHitPointsOf(source, { character, play });
+
   if (max === undefined) {
     throw new ValidationError([{ path: ['command'], message: message('character.validation.noMaxHitPoints') }]);
   }
+
   return max;
 }

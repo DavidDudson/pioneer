@@ -8,9 +8,11 @@ import type { PackLoader } from './pack-loader';
 /** The rules of the effect `slug` in `pack` as plain JSON, so a test can compare them with the data it reads. */
 async function rulesOf(pack: PackLoader, slug: string): Promise<readonly unknown[]> {
   const found = contentPackFromContents(await pack()).otherEntries.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the pack`);
   }
+
   return structuredClone(found.rules);
 }
 
@@ -19,9 +21,11 @@ async function slugOf(pack: PackLoader, pattern: RegExp): Promise<string> {
   const found = contentPackFromContents(await pack()).otherEntries.find(
     ({ kind, slug }) => kind === 'effect' && pattern.test(slug),
   );
+
   if (found === undefined) {
     throw new Error(`no effect matches ${String(pattern)}`);
   }
+
   return found.slug.replace('effect:', '');
 }
 

@@ -44,12 +44,14 @@ function isKnownDoctrine(uuid: string): boolean {
  */
 export function isDoctrineFlag(raw: unknown): boolean {
   const flag = DoctrineFlag.safeParse(raw);
+
   return flag.success && Object.values(flag.data.value).every((uuid) => isKnownDoctrine(uuid));
 }
 
 /** `firstDoctrine` as `First Doctrine`, the name of the generic feature that reads the flag. */
 function featureName(flag: string): string {
   const words = flag.replaceAll(/(?<capital>[A-Z])/gu, ' $<capital>').trim();
+
   return `${words.charAt(0).toUpperCase()}${words.slice(1)}`;
 }
 
@@ -61,12 +63,16 @@ function featureName(flag: string): string {
 export function withDoctrineGrants(raws: readonly unknown[], references: EntryReferences): unknown[] {
   return raws.flatMap((raw): unknown[] => {
     const grant = DoctrineGrant.safeParse(raw);
+
     if (!grant.success) {
       return [raw];
     }
+
     const flag = grant.data.uuid.slice(grant.data.uuid.lastIndexOf('.') + 1, -1);
+
     return DOCTRINES.flatMap(({ name, option }): unknown[] => {
       const uuid = `${CLASS_FEATURES}${featureName(flag)} (${name})`;
+
       return references.byUuid.has(uuid) ? [{ key: 'GrantItem', uuid, predicate: [option] }] : [];
     });
   });

@@ -2,6 +2,7 @@ import * as z from 'zod';
 
 /** Values substituted into an ICU message. */
 const MessageParamsSchema = z.record(z.string(), z.union([z.string(), z.number()]));
+
 export type MessageParams = z.infer<typeof MessageParamsSchema>;
 
 /**
@@ -12,6 +13,7 @@ export const MessageDescriptorSchema = z.object({
   key: z.string().min(1),
   params: MessageParamsSchema.optional(),
 });
+
 export type MessageDescriptor = z.infer<typeof MessageDescriptorSchema>;
 
 export function message(key: string, params?: MessageParams): MessageDescriptor {
@@ -69,6 +71,7 @@ function unrecognizedKeys(keys: readonly string[]): MessageDescriptor {
 
 function customMessage(issue: z.core.$ZodIssueCustom): MessageDescriptor {
   const carried = MessageDescriptorSchema.safeParse(issue.params?.['message']);
+
   return carried.success ? carried.data : message(ValidationMessage.Invalid);
 }
 
@@ -78,36 +81,46 @@ export function issueMessage(issue: z.core.$ZodIssue): MessageDescriptor {
     case 'invalid_type': {
       return message(ValidationMessage.InvalidType, { expected: issue.expected });
     }
+
     case 'too_small': {
       return message(ValidationMessage.TooSmall, { origin: issue.origin, minimum: Number(issue.minimum) });
     }
+
     case 'too_big': {
       return message(ValidationMessage.TooBig, { origin: issue.origin, maximum: Number(issue.maximum) });
     }
+
     case 'invalid_format': {
       return message(ValidationMessage.InvalidFormat, { format: issue.format });
     }
+
     case 'not_multiple_of': {
       return message(ValidationMessage.NotMultipleOf, { divisor: issue.divisor });
     }
+
     case 'invalid_value': {
       return message(ValidationMessage.InvalidValue);
     }
+
     case 'custom': {
       return customMessage(issue);
     }
+
     case 'unrecognized_keys': {
       return unrecognizedKeys(issue.keys);
     }
+
     case 'invalid_union': {
       // A discriminated union names the field that picks the option; a plain union matched nothing.
       return message(issue.discriminator === undefined ? ValidationMessage.NoMatch : ValidationMessage.InvalidValue);
     }
+
     case 'invalid_key':
     case 'invalid_element': {
       break;
     }
   }
+
   return message(ValidationMessage.Invalid);
 }
 
@@ -118,6 +131,7 @@ export const FieldIssueSchema = z.object({
   path: z.array(PathSegmentSchema),
   message: MessageDescriptorSchema,
 });
+
 export type FieldIssue = z.infer<typeof FieldIssueSchema>;
 
 /** The option rejected the value's type outright (an object where it wants a string). */
@@ -138,6 +152,7 @@ function reachedField(errors: readonly z.core.$ZodIssue[]): boolean {
 function closestOptions(issue: z.core.$ZodIssueInvalidUnion): readonly (readonly z.core.$ZodIssue[])[] {
   const typed = issue.errors.filter((errors) => !wrongType(errors));
   const inside = typed.filter((errors) => reachedField(errors));
+
   return inside.length > 0 ? inside : typed;
 }
 
@@ -150,11 +165,13 @@ function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | 
   if (issue.discriminator !== undefined) {
     return undefined;
   }
+
   const closest = closestOptions(issue);
   const compared = closest.length > 0 ? closest : issue.errors;
   const [first, ...rest] = compared.map((errors) => fieldIssues(errors));
   const firstText = JSON.stringify(first);
   const allSame = first !== undefined && first.length > 0 && rest.every((other) => JSON.stringify(other) === firstText);
+
   return allSame ? first : undefined;
 }
 
@@ -166,13 +183,17 @@ function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | 
 export function fieldIssues(issues: readonly z.core.$ZodIssue[]): FieldIssue[] {
   return issues.flatMap((issue): FieldIssue[] => {
     const path = issue.path.filter((segment) => typeof segment !== 'symbol');
+
     if (issue.code === 'unrecognized_keys') {
       return issue.keys.map((key) => ({ path: [...path, key], message: unrecognizedKeys([key]) }));
     }
+
     const shared = issue.code === 'invalid_union' ? sharedUnionIssues(issue) : undefined;
+
     if (shared !== undefined) {
       return shared.map((inner) => ({ path: [...path, ...inner.path], message: inner.message }));
     }
+
     return [{ path, message: issueMessage(issue) }];
   });
 }

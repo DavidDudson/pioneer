@@ -24,6 +24,7 @@ export class LevelCell {
   protected readonly Message = PickerCellMessage;
   protected readonly shown = computed(() => {
     const level = this.level();
+
     return level === undefined ? undefined : this.#format.number(level);
   });
 }

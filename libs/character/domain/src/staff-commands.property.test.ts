@@ -56,6 +56,7 @@ const SLOT_RANKS = [undefined, 1, 2, 3, 4] as const;
 /** A staff cast or refund of `spell`, paid with a slot of `rank` when one is given. */
 function commandOf({ field, spell }: Pick<StaffCommand, 'field' | 'spell'>, rank: number | undefined): StaffCommand {
   const base = { field, item: STAFF_ID, spell };
+
   return rank === undefined
     ? base
     : Object.assign(base, { slot: slotCountKey(SORCERER.slug, undefined, SpellRank.parse(rank)) });
@@ -75,6 +76,7 @@ function run(commands: readonly StaffCommand[]): ResourcesSpent {
   let resources = ResourcesSpentSchema.parse({
     staff: StaffChargesSchema.parse({ [STAFF_ID]: { max: MAX_CHARGES, spent: 0 } }),
   });
+
   for (const command of commands) {
     const [source] = staffSources({
       inventory: [INVENTORY],
@@ -83,12 +85,15 @@ function run(commands: readonly StaffCommand[]): ResourcesSpent {
       entries: [SORCERER],
       charges: resources.staff,
     });
+
     const slots = { spent: resources.slots, maxima: COUNTED.slots };
     const spell = source?.spells.find(({ id }) => id === command.spell);
+
     if (spell !== undefined && staffCastProblem(command, source, slots) === undefined) {
       resources = staffResourcesAfter({ resources, counted: COUNTED, command, cost: staffCastCost(command, spell) });
     }
   }
+
   return resources;
 }
 

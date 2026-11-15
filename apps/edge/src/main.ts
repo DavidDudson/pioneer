@@ -24,6 +24,7 @@ const worker: Worker = {
       service: 'lambda',
       retries: 0,
     });
+
     return proxy(request, {
       functionUrl: new URL(env.FUNCTION_URL),
       signer,

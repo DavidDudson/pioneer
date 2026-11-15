@@ -39,6 +39,7 @@ export class DrizzleCharacterRuleLimitRepository extends CharacterRuleLimitRepos
         .select()
         .from(characterRuleLimits)
         .where(eq(characterRuleLimits.characterId, characterId));
+
       return rows.map((row) => toCharacterRuleLimit(row));
     });
   }

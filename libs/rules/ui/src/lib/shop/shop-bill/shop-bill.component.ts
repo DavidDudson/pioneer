@@ -47,12 +47,14 @@ export class ShopBill {
   protected readonly costText: Signal<string> = computed(() => {
     this.#messages();
     const cost = this.cost();
+
     return cost.length === 0 ? this.#i18n.translate(ShopMessage.Free) : this.#text(cost);
   });
 
   protected readonly coinsText: Signal<string> = computed(() => {
     this.#messages();
     const coins = this.coins();
+
     return coins.length === 0 ? this.#i18n.translate(ShopMessage.NoCoins) : this.#text(coins);
   });
 

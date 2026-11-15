@@ -32,6 +32,7 @@ export class SheetRituals {
 
   protected readonly rows: Signal<readonly RitualRow[]> = computed(() => {
     const registry = this.#content.data();
+
     return (this.#store.selected()?.document.build.rituals ?? []).map((id) => ({
       id,
       name: registry === undefined ? undefined : sheetEntry(registry, id)?.name,

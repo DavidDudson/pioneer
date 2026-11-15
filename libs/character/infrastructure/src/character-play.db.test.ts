@@ -74,6 +74,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${id}, 'Owner', false, ${at}, ${at})`,
     );
+
     return id;
   }
 
@@ -81,6 +82,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
   async function newCharacter(owner: UserId): Promise<Character> {
     created += 1;
     const character = new CharacterBuilder().named(`Kyra ${created}`).ownedBy(owner).build();
+
     return repository.insert(character, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 
@@ -105,6 +107,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
     const audit = { actor: amiri, command: CharacterCommand.Damage };
+
     const saved = await repository.updatePlay({
       id: kyra.id,
       play: WOUNDED,
@@ -112,6 +115,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       audit,
       now: NOW,
     });
+
     expect(saved).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
 
     const read = await repository.findById(kyra.id);
@@ -124,11 +128,13 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       .select({ id: characterPlay.id })
       .from(characterPlay)
       .where(eq(characterPlay.characterId, kyra.id));
+
     // Ordered here, not by the query: the audit log has no index to sort by, and the query plan guard would flag it.
     const entries = await database.db
       .select({ command: auditLog.command, changedAt: auditLog.changedAt })
       .from(auditLog)
       .where(and(eq(auditLog.tableName, 'character_play'), inArray(auditLog.rowId, playRow)));
+
     const commands = entries.toSorted((left, right) => left.changedAt.localeCompare(right.changedAt));
     expect(commands.map(({ command }) => command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
@@ -147,28 +153,34 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       now: NOW,
     });
     const renamed = kyra.apply({ field: 'name', value: CharacterName.parse('Kyra the Bold') }, NOW);
+
     const saved = await repository.update(renamed, kyra.version, {
       actor: amiri,
       command: CharacterCommand.RenameCharacter,
     });
+
     expect(saved.document.play).toStrictEqual(WOUNDED);
     expect(await repository.findPlay(kyra.id)).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
+
     const [stored] = await database.db
       .select({ document: characters.document })
       .from(characters)
       .where(eq(characters.id, kyra.id));
+
     expect(stored?.document).not.toHaveProperty('play');
   });
 
   test('a stale play revision is a conflict, and nothing is written', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
+
     const write = {
       id: kyra.id,
       expectedRevision: FIRST_VERSION,
       audit: { actor: amiri, command: CharacterCommand.Damage },
       now: NOW,
     };
+
     await repository.updatePlay({ ...write, play: WOUNDED });
     const stale = await rejection(repository.updatePlay({ ...write, play: FRESH_PLAY }));
     expect(stale).toBeInstanceOf(VersionConflictError);
@@ -180,6 +192,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
     const renamed = kyra.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Kyra, renamed') }, NOW);
+
     const write = {
       id: kyra.id,
       play: WOUNDED,
@@ -187,6 +200,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
       now: NOW,
     };
+
     const saved = await repository.updatePlayAndCharacter(write, renamed, kyra.version);
     expect(saved).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
     const read = await repository.findById(kyra.id);
@@ -198,6 +212,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
   test('a stale build version refuses a combined write, and the play state is not written', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
+
     const write = {
       id: kyra.id,
       play: WOUNDED,
@@ -205,6 +220,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
       now: NOW,
     };
+
     const stale = await rejection(repository.updatePlayAndCharacter(write, kyra, nextVersion(kyra.version)));
     expect(stale).toBeInstanceOf(VersionConflictError);
     const kept = await repository.findPlay(kyra.id);
@@ -215,6 +231,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
     const renamed = kyra.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Kyra, stale') }, NOW);
+
     const write = {
       id: kyra.id,
       play: WOUNDED,
@@ -222,6 +239,7 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
       now: NOW,
     };
+
     const stale = await rejection(repository.updatePlayAndCharacter(write, renamed, kyra.version));
     expect(stale).toBeInstanceOf(VersionConflictError);
     const read = await repository.findById(kyra.id);

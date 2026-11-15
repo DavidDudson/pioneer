@@ -49,21 +49,25 @@ describe('CharacterService rune edits', () => {
 
   async function edit(patch: CharacterPatch): Promise<Character> {
     ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
+
     return character;
   }
 
   async function add(name: ItemFixture): Promise<InventoryItemId> {
     const saved = await edit({ field: CharacterPatchField.GiftItem, item: itemFixtureId(name), quantity: one });
     const added = saved.document.inventory.items.at(-1);
+
     if (added === undefined) {
       throw new Error('Nothing was added');
     }
+
     return added.id;
   }
 
   async function refusal(patch: CharacterPatch): Promise<unknown> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
+
     return (error as ValidationError).issues;
   }
 

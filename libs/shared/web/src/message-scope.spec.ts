@@ -40,6 +40,7 @@ describe(loadWithMessages, () => {
     TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => ({}) })] });
     await TestBed.inject(ApplicationInitStatus).donePromise;
     const scopeMessages = vi.fn<() => Promise<Translation>>(async () => ({ greeting: 'Hello {name}' }));
+
     // Stands in for the injector the router creates for a route's `providers`.
     const routeInjector = createEnvironmentInjector(
       [provideMessageScope('demo', { en: scopeMessages })],

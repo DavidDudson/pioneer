@@ -24,6 +24,7 @@ const effects = new ContentPackBuilder()
   .withEffect('bear-form', 2, [BEAR_CHOICES])
   .withEffect('ape-form', 2)
   .withEffect('plant-form', 5);
+
 const apeId = effects.idOf(ContentKind.Effect, 'ape-form');
 const bearId = effects.idOf(ContentKind.Effect, 'bear-form');
 const plantId = effects.idOf(ContentKind.Effect, 'plant-form');
@@ -38,12 +39,15 @@ const pack = effects
   .withSpell('untamed-shift', { rank: 1, traditions: [], effects: [apeId], shiftsForm: true })
   .withSpell('shape-cantrip', { rank: 1, traditions: [], traits: ['cantrip'], effects: [apeId] })
   .withSpell('fireball', { rank: 3, traditions: ['arcane'] });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 /** A use of the spell `name`, paying `payment` when it has one. */
 function useOf(name: string, payment?: UsePayment): ActionUse {
   const id = ContentId.parse(pack.idOf(ContentKind.Spell, name));
+
   return { line: { id, name, cost: ActionCost.Two, payment }, actions: undefined };
 }
 
@@ -115,6 +119,7 @@ describe(formCastOf, () => {
       line: { id: ContentId.parse(apeId), name: 'Strike', cost: ActionCost.One },
       actions: undefined,
     };
+
     expect(formCastOf(registry, action, undefined)).toBeUndefined();
   });
 });

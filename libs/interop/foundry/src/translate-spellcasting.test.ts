@@ -119,6 +119,7 @@ describe('translateKindData: spellcasting entries', () => {
     const broken = translate([
       { ...WIZARD_SPELLCASTING, system: { ...WIZARD_SPELLCASTING.system, category: 'nonsense' } },
     ]);
+
     const dedication = translate([
       { ...WIZARD_DEDICATION, system: { ...WIZARD_DEDICATION.system, category: 'nonsense' } },
     ]);

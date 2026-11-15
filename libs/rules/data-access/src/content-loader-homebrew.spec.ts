@@ -22,6 +22,7 @@ const BREW = PackId.parse('table-rules');
 
 function ancestry(pack: PackId, name: string): object {
   const slug = `ancestry:${name}`;
+
   return {
     id: contentId(pack, EntrySlug.parse(slug)),
     pack,
@@ -51,6 +52,7 @@ function loaderOf(pack: PackId, name: string): PackContentsLoader {
     { id: pack, title: pack, publisher: 'Someone', license: 'homebrew' },
     [[ancestry(pack, name)]],
   );
+
   return { id: pack, load: async (): Promise<PackContents> => contents };
 }
 
@@ -72,6 +74,7 @@ function load(): Loaded {
       { provide: IDLE_SCHEDULER, useValue: (): void => {} },
     ],
   });
+
   return { loader: TestBed.inject(ContentLoader), delivery, store };
 }
 

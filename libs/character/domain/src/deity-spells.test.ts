@@ -17,12 +17,15 @@ import type { PlayerCoreClass } from './testing';
  */
 function playerCoreWithDeity(): ContentPack {
   const classes = playerCoreClasses();
+
   const builder = new ContentPackBuilder()
     .withId('player-core')
     .withSpell('bless', { rank: 1, traditions: ['divine', 'occult'] })
     .withSpell('fireball', { rank: 3, traditions: ['arcane', 'primal'] })
     .withSpell('mind-reading', { rank: 3, traditions: ['arcane', 'occult'], rarity: 'uncommon' });
+
   const spell = (name: string): string => builder.idOf(ContentKind.Spell, name);
+
   const spells = builder
     .withDeity('gorum', {
       font: ['harm'],
@@ -32,6 +35,7 @@ function playerCoreWithDeity(): ContentPack {
       ],
     })
     .build();
+
   return ContentPack.define({
     manifest: classes.manifest,
     ancestries: classes.ancestries,
@@ -43,7 +47,9 @@ function playerCoreWithDeity(): ContentPack {
 }
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreWithDeity());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const GORUM: ContentId = playerCoreId(ContentKind.Deity, 'gorum');
 
@@ -54,13 +60,16 @@ function follower(name: PlayerCoreClass, deity = true): readonly PreparedSlot[] 
     .picking('class', playerCoreClassId(name))
     .picking('boost:1:class:0', 'wis')
     .atLevel(7);
+
   const { document } = (deity ? builder.picking(String(DEITY_SLOT), GORUM) : builder).build();
+
   return preparedSlots(document, preparedReads(document, content));
 }
 
 /** The names a slot of `entry`'s own of `rank` offers, sorted. */
 function offeredAt(slots: readonly PreparedSlot[], entry: string, rank: number): readonly string[] {
   const slot = slots.find((each) => each.entry === entry && each.pool === undefined && each.rank === rank);
+
   return (slot?.options ?? []).map(({ name }) => String(name)).toSorted();
 }
 

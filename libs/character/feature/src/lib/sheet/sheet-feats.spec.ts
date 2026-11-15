@@ -34,9 +34,11 @@ function option(overrides: Partial<SheetFeatOption>): SheetFeatOption {
 
 function only(options: readonly SheetFeatOption[], trainedAgain: TrainedAgain = none): FeatPickerRow {
   const [row] = featRows(options, { translate, trainedAgain });
+
   if (row === undefined) {
     throw new Error('Expected a row');
   }
+
   return row;
 }
 
@@ -137,8 +139,10 @@ describe(featRows, () => {
 
   it('asks which feats would train a skill again for all the feats it lists, once', () => {
     const asked: (readonly string[])[] = [];
+
     const again: TrainedAgain = (values) => {
       asked.push(values);
+
       return new Map();
     };
 
@@ -149,10 +153,13 @@ describe(featRows, () => {
 
   it('leaves out the feats the filters hide, and asks nothing about them', () => {
     const asked: (readonly string[])[] = [];
+
     const again: TrainedAgain = (values) => {
       asked.push(values);
+
       return new Map();
     };
+
     const options = [
       option({}),
       option({ value: 'other', label: 'Other' }),

@@ -68,6 +68,7 @@ const CONDUCTING_ENERGIES: readonly RuneChoice[] = VULNERABILITY_ENERGIES;
  */
 function conductingElements(choice: RuneChoice): readonly object[] {
   const extra = { key: RuleElementKey.DamageDice, selectors: [ETCHED_DAMAGE], dieSize: DieSize.D8, damageType: choice };
+
   return [
     { key: RuleElementKey.AdjustStrike, property: 'traits', mode: 'add', value: 'resonant', etched: true },
     { ...extra, diceNumber: 1 },
@@ -153,11 +154,14 @@ export function chosenRuneRules(inventory: Inventory, content: ItemContent, look
     workingEtchedRunes(active.item, active.entry, runeReader(lookup)).flatMap(({ rune, choice }, etching) => {
       const entry = lookup.entry(rune);
       const made = entry?.kind === ContentKind.Rune ? CHOSEN_RUNES.get(entry.slug) : undefined;
+
       if (entry === undefined || made === undefined || choice === undefined || !made.choices.includes(choice)) {
         return [];
       }
+
       return made.elements(choice).flatMap((raw, position) => {
         const element = RuleElement.safeParse(raw);
+
         return element.success
           ? [
               RuleInPlay.parse({

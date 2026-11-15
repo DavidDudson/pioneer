@@ -111,6 +111,7 @@ describe('refilled', () => {
       ],
       ECONOMY,
     );
+
     // 3 actions less slowed 1 leaves 2, and the quickened one makes 3; stunned 4 takes all 3 and is left at 1.
     expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 0, 0]);
     expect(turn.quickenedFor).toBeUndefined();
@@ -140,6 +141,7 @@ describe('turnEnded', () => {
       reactionUsed: true,
       attacks: AttackCount.parse(2),
     };
+
     const ended = turnEnded(turn);
     expect(economyOf(ended)).toStrictEqual([TurnPhase.OffTurn, 0, 0]);
     expect(ended.reactionUsed).toBe(true);

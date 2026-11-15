@@ -35,12 +35,14 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const ac = statistic('ac', '10', ['dex-based']);
 const facts = new PredicateFacts([RollOption.parse('self:effect:raise-a-shield')], CORE_NAMESPACES);
 
 /** Types that stack by type, and predicates that hold, fail or depend on the situation. */
 const TYPED = Object.values(ModifierType).filter((type) => type !== ModifierType.Untyped);
 const PREDICATES = [undefined, ['self:effect:raise-a-shield'], ['self:effect:rage'], ['terrain:forest']];
+
 /** The slug some modifiers carry, so adjustments can find them. */
 const SLUG = 'cover';
 
@@ -119,9 +121,11 @@ function deriveIn(rulesInPlay: readonly RuleInPlay[], known: PredicateFacts): St
     inputs,
     { rules: rulesInPlay, facts: known },
   ).get(Selector.parse('ac'));
+
   if (result?.ok !== true) {
     throw new Error('AC always derives');
   }
+
   return result;
 }
 
@@ -152,6 +156,7 @@ function beatenByOf({ status }: BreakdownLine): RuleId | undefined {
 /** The applied lines of the line's type and direction that are at least as large as it. */
 function rivalsOf(line: BreakdownLine, lines: readonly BreakdownLine[]): BreakdownLine[] {
   const value = line.value ?? 0;
+
   return lines.filter(
     (rival) =>
       rival.status.kind === LineStatusKind.Applied &&
@@ -165,11 +170,13 @@ describe('stacking (properties)', () => {
   test('the breakdown does not depend on the order of the rules', () => {
     const reordered = specs.chain((given) => {
       const inPlayRules = rules(given);
+
       return tuple(
         constant(inPlayRules),
         shuffledSubarray(inPlayRules, { minLength: inPlayRules.length, maxLength: inPlayRules.length }),
       );
     });
+
     assert(
       property(reordered, ([given, shuffled]) => {
         expect(derive(shuffled)).toStrictEqual(derive(given));
@@ -192,6 +199,7 @@ describe('stacking (properties)', () => {
     const untyped = array(modifierSpec(constant(ModifierType.Untyped)), { maxLength: MODIFIERS_MAX }).map((given) =>
       given.map((spec) => ({ ...spec, predicate: undefined })),
     );
+
     assert(
       property(untyped, (given) => {
         const sum = given.reduce((total, { value }) => total + value, 0);
@@ -204,10 +212,12 @@ describe('stacking (properties)', () => {
     assert(
       property(specs, (given) => {
         const { lines } = derive(rules(given));
+
         const typedConditional = lines.filter(
           ({ status, modifier }) =>
             status.kind === LineStatusKind.Conditional && modifier.type !== ModifierType.Untyped,
         );
+
         for (const line of typedConditional) {
           const rivals = rivalsOf(line, lines);
           const beatenBy = beatenByOf(line);
@@ -232,14 +242,17 @@ describe('stacking (properties)', () => {
       [RollOption.parse('self:effect:raise-a-shield'), RollOption.parse('terrain:forest')],
       CORE_NAMESPACES,
     );
+
     assert(
       property(tuple(specs, beatenPair, adjustmentSpecs), ([given, pair, adjusting]) => {
         const rulesInPlay = [...rules([...given, ...pair]), ...adjustments(adjusting)];
+
         const beaten = new Set(
           derive(rulesInPlay)
             .lines.filter((line) => beatenByOf(line) !== undefined)
             .map(({ modifier }) => modifier.id),
         );
+
         const withoutBeaten = rulesInPlay.filter((rule) => !beaten.has(ruleIdOf(rule)));
         expect(deriveIn(rulesInPlay, situation).total).toBe(deriveIn(withoutBeaten, situation).total);
       }),
@@ -251,6 +264,7 @@ describe('stacking (properties)', () => {
       ([given, type, value]) =>
         given.some((spec) => spec.type === type && spec.predicate === undefined && spec.value >= value),
     );
+
     assert(
       property(withLower, ([given, type, value]) => {
         const before = derive(rules(given)).total;

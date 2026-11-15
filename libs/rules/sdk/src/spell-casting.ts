@@ -21,7 +21,9 @@ export const SpellTimeUnit = {
   Month: 'month',
   Year: 'year',
 } as const;
+
 export type SpellTimeUnit = ValueOf<typeof SpellTimeUnit>;
+
 const SpellTimeUnitSchema = z.enum(SpellTimeUnit);
 
 /** How long "3 days" is: a count of a unit. */
@@ -32,6 +34,7 @@ const SpellTime = { count: SpellTimeCount, unit: SpellTimeUnitSchema };
 
 /** A casting time in action glyphs, or in time for longer castings and rituals. */
 export const CastTimeType = { Actions: 'actions', Time: 'time', Either: 'either' } as const;
+
 export type CastTimeType = ValueOf<typeof CastTimeType>;
 
 /** The most actions a variable casting time can take. */
@@ -41,6 +44,7 @@ const UpToCost = z.enum([ActionCost.Two, ActionCost.Three]);
 function isFewerActions(fewest: ActionCost, most: ActionCost): boolean {
   const from = ACTION_COUNT[fewest];
   const to = ACTION_COUNT[most];
+
   return from !== undefined && to !== undefined && from < to;
 }
 
@@ -65,6 +69,7 @@ const TimedCastTime = z.strictObject({ type: z.literal(CastTimeType.Time), ...Sp
 
 /** One way of casting: in actions or in time. */
 export const SingleCastTime = z.discriminatedUnion('type', [ActionsCastTime, TimedCastTime]);
+
 export type SingleCastTime = z.infer<typeof SingleCastTime>;
 
 /** A casting time, or one of several the caster picks from ("[two-actions] or 2 rounds", Psychic Outburst). */
@@ -87,6 +92,7 @@ export const SpellRangeType = {
   /** One of several the caster picks from ("touch or 30 feet"). */
   Either: 'either',
 } as const;
+
 export type SpellRangeType = ValueOf<typeof SpellRangeType>;
 
 /** The most ranges or durations a caster picks from. */
@@ -136,6 +142,7 @@ export const SpellDurationType = {
   /** One of several the caster picks from ("10 minutes or 8 hours"). */
   Either: 'either',
 } as const;
+
 export type SpellDurationType = ValueOf<typeof SpellDurationType>;
 
 /** The moment an `until` duration ends: the end of this turn, the start or end of the next, or daily preparations. */
@@ -145,10 +152,12 @@ export const SpellDurationEnd = {
   NextTurnEnd: 'next-turn-end',
   DailyPreparations: 'daily-preparations',
 } as const;
+
 export type SpellDurationEnd = ValueOf<typeof SpellDurationEnd>;
 
 /** Whose turn a turn-relative `until` counts: the caster's, or the target's ("the target's next turn"). */
 export const TurnOwner = { Caster: 'caster', Target: 'target' } as const;
+
 export type TurnOwner = ValueOf<typeof TurnOwner>;
 
 const UntilDuration = z

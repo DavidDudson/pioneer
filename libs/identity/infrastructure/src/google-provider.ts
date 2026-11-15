@@ -29,6 +29,7 @@ const GoogleClaims = z.object({
   email: z.string().optional(),
   email_verified: z.boolean().optional(),
 });
+
 type GoogleClaims = z.infer<typeof GoogleClaims>;
 
 /** Google's ID token claims as a Pioneer profile. Exported for tests. */
@@ -38,6 +39,7 @@ export function googleProfile(claims: GoogleClaims): ProviderProfile {
   const name = claims.name?.trim() ?? '';
   // Google sends a name with the profile scope; the address, then the id, only stand in if it doesn't.
   const fallback = email.success ? email.data.slice(0, email.data.indexOf('@')) : claims.sub;
+
   return {
     provider: OAuthProvider.Google,
     subject: ProviderSubject.parse(claims.sub),
@@ -63,6 +65,7 @@ export class GoogleProvider extends OAuthProviderPort {
   public override authorize(): AuthorizationRequest {
     const state = generateState();
     const codeVerifier = generateCodeVerifier();
+
     return { url: this.#client.createAuthorizationURL(state, codeVerifier, SCOPES), state, codeVerifier };
   }
 
@@ -73,9 +76,11 @@ export class GoogleProvider extends OAuthProviderPort {
   public override async profile(code: string, codeVerifier: string): Promise<ProviderProfile> {
     const tokens = await this.#client.validateAuthorizationCode(code, codeVerifier);
     const claims = GoogleClaims.parse(decodeIdToken(tokens.idToken()));
+
     if (claims.aud !== this.#clientId) {
       throw new Error('Google ID token was issued to another client');
     }
+
     return googleProfile(claims);
   }
 }

@@ -39,9 +39,11 @@ function numbers(candidates: Candidates): ItemNumbers {
 function numbersOf(entry: ItemEntry): ItemNumbers {
   const { AcBonus, CheckPenalty, DexCap, Hardness, HitPointsMax, RangeIncrement, SpeedPenalty, Strength } =
     NumericItemProperty;
+
   switch (entry.kind) {
     case ContentKind.Armor: {
       const { data } = entry;
+
       return numbers([
         [AcBonus, data.acBonus],
         [CheckPenalty, data.checkPenalty],
@@ -52,8 +54,10 @@ function numbersOf(entry: ItemEntry): ItemNumbers {
         [Strength, data.strength],
       ]);
     }
+
     case ContentKind.Shield: {
       const { data } = entry;
+
       return numbers([
         [AcBonus, data.acBonus],
         [Hardness, data.hardness],
@@ -61,19 +65,23 @@ function numbersOf(entry: ItemEntry): ItemNumbers {
         [SpeedPenalty, data.speedPenalty],
       ]);
     }
+
     case ContentKind.Weapon: {
       const { data } = entry;
+
       return numbers([
         [Hardness, data.hardness],
         [HitPointsMax, data.hitPoints],
         [RangeIncrement, data.range],
       ]);
     }
+
     case ContentKind.Consumable:
     case ContentKind.Equipment:
     case ContentKind.Treasure: {
       return numbers([]);
     }
+
     default: {
       return entry satisfies never;
     }
@@ -86,6 +94,7 @@ function damageTypeOf(entry: ItemEntry): DamageType | undefined {
 
 function materialsOf(entry: ItemEntry): readonly Slug[] {
   const material = 'material' in entry.data ? entry.data.material : undefined;
+
   return material === undefined ? [] : [material.type];
 }
 
@@ -96,6 +105,7 @@ function weaponRollOptions(
 ): readonly RollOptionTail[] {
   const { category, group, baseItem, range, tags = [] } = entry.data;
   const thrown = entry.traits.includes(THROWN);
+
   return [
     ...tags.map((tag) => `tag:${tag}`),
     `category:${category}`,
@@ -139,6 +149,7 @@ export interface AlteredContext {
 /** The length in feet an altered weapon has for `property` (its range increment, its reach); none when it has none. */
 export function feetOf(item: AlteredItem, property: NumericItemProperty): Feet | undefined {
   const feet = item.numbers.get(property);
+
   return feet === undefined ? undefined : Feet.parse(feet);
 }
 
@@ -156,6 +167,7 @@ export function alteredItem(
     propertyRunes: [],
     inventoryItem: item,
   });
+
   return entry.kind === ContentKind.Weapon ? adjustStrike(rules, altered) : altered;
 }
 
@@ -167,5 +179,6 @@ function withPotency(held: ItemNumbers, potency: ItemBonus | RuneGrade | undefin
 /** The grade of potency an altered item has, held to the highest a rune gives; undefined when it has none. */
 export function potencyOf({ numbers: held }: AlteredItem): RuneGrade | undefined {
   const potency = held.get(NumericItemProperty.Potency);
+
   return potency === undefined || potency < 1 ? undefined : RuneGrade.parse(Math.min(potency, RUNE_GRADE_MAX));
 }

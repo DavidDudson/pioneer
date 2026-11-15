@@ -12,9 +12,11 @@ const OTHER_AON = 'https://2e.aonprd.com/Actions.aspx?ID=2';
 const OTHER_SLUG = EntrySlug.parse('action:other');
 const OTHER_PACK = PackId.parse('player-core-2');
 const action = packOutput(translate([AID]), { known }).entries.find(({ kind }) => kind === ContentKind.Action);
+
 if (action === undefined) {
   throw new Error('The Aid fixture imports no action');
 }
+
 const imported = action;
 
 /** `entry` with `fields` replaced, parsed, so literals come out branded. */
@@ -39,16 +41,19 @@ describe('carrySources', () => {
 
   test('takes nothing from another book, slug or pack', () => {
     const otherBook = changed(imported, { sources: [{ kind: SourceKind.Book, book: 'gm-core', page: 12, aon: AON }] });
+
     const otherSlug = citing(
       changed(imported, { slug: OTHER_SLUG, id: contentId(imported.pack, OTHER_SLUG) }),
       12,
       AON,
     );
+
     const otherPack = citing(
       changed(imported, { pack: OTHER_PACK, id: contentId(OTHER_PACK, imported.slug) }),
       12,
       AON,
     );
+
     expect(carrySources([imported], [otherBook, otherSlug, otherPack])).toEqual([imported]);
   });
 

@@ -48,20 +48,25 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     if (ids.length === 0) {
       return [];
     }
+
     const rows = await this.#db
       .select({ pack: contentPacks, entry: contentEntries.data })
       .from(contentEntries)
       .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
       .where(and(inArray(contentEntries.id, [...ids]), isNull(contentPacks.archivedAt)));
+
     const byPack = new Map<PackRow['id'], { pack: PackRow; entries: ContentEntry[] }>();
+
     for (const { pack, entry } of rows) {
       const held = byPack.get(pack.id) ?? { pack, entries: [] };
       held.entries.push(ContentEntry.parse(entry));
       byPack.set(pack.id, held);
     }
+
     const embedded = await Promise.all(
       [...byPack.values()].map(async ({ pack, entries }): Promise<EmbeddedPack | undefined> => {
         const mayRead = pack.ownerId !== null && (await this.#policy.mayRead(actor, readable(pack)));
+
         return mayRead
           ? {
               pack: { id: pack.slug, title: pack.title, publisher: pack.publisher, license: ContentLicense.Homebrew },
@@ -70,6 +75,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
           : undefined;
       }),
     );
+
     return embedded
       .filter((pack) => pack !== undefined)
       .toSorted((left, right) => left.pack.id.localeCompare(right.pack.id));
@@ -79,13 +85,16 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     if (packs.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select()
       .from(contentPacks)
       .where(inArray(contentPacks.slug, [...packs]));
+
     const existing = await Promise.all(
       rows.map(async (row): Promise<[PackId, ExistingPack]> => {
         const mayRead = row.ownerId === null || (await this.#policy.mayRead(actor, readable(row)));
+
         return [
           row.slug,
           {
@@ -95,6 +104,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
         ];
       }),
     );
+
     return new Map(existing);
   }
 
@@ -107,6 +117,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     if (plan.report.status === HomebrewPackStatus.New) {
       await this.#packs.insert(this.#newPack(actor, plan));
     }
+
     if (plan.toCreate.length > 0) {
       await this.#addEntries(actor, plan);
     }
@@ -114,6 +125,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
 
   #newPack(actor: UserId, { embedded }: HomebrewPackPlan): HomebrewPack {
     const { id, title, publisher } = embedded.pack;
+
     return HomebrewPack.create({
       id: contentPackId(id),
       slug: id,
@@ -129,6 +141,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       .select({ data: contentEntries.data })
       .from(contentEntries)
       .where(eq(contentEntries.packId, pack.id));
+
     return new Map(rows.map(({ data }) => [data.slug, data]));
   }
 
@@ -141,23 +154,29 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     const at = this.#clock.now().toString();
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: IMPORT_COMMAND });
+
       const mine = and(
         eq(contentPacks.id, contentPackId(embedded.pack.id)),
         eq(contentPacks.ownerId, actor),
         isNull(contentPacks.archivedAt),
       );
+
       const [locked] = await tx.select().from(contentPacks).where(mine).for('update');
+
       if (locked === undefined) {
         return;
       }
+
       await tx
         .insert(contentEntries)
         .values(toCreate.map((entry) => contentEntryRow(locked.id, entry, at)))
         .onConflictDoNothing({ target: contentEntries.id });
+
       const rows = await tx
         .select({ data: contentEntries.data })
         .from(contentEntries)
         .where(eq(contentEntries.packId, locked.id));
+
       const hash = contentHash({ file: locked.data, entries: rows.map(({ data }) => data) });
       await tx
         .update(contentPacks)

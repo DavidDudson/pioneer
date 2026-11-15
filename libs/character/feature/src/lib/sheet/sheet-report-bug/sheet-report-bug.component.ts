@@ -29,6 +29,7 @@ export class SheetReportBug {
   protected readonly path = BUG_REPORT_PATH;
   protected readonly query = computed((): ReportQuery | undefined => {
     const character = this.#store.selected();
+
     return character === undefined
       ? undefined
       : {

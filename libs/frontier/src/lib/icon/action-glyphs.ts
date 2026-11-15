@@ -9,6 +9,7 @@ export const ActionShape = {
   Reaction: 'reaction',
   To: 'to',
 } as const;
+
 export type ActionShape = ValueOf<typeof ActionShape>;
 
 /** The SVG attribute that holds a path's shape. */

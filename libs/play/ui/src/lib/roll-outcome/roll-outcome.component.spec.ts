@@ -14,6 +14,7 @@ async function render(outcome: OutcomeView): Promise<ComponentFixture<RollOutcom
   const fixture = TestBed.createComponent(RollOutcome);
   fixture.componentRef.setInput('outcome', outcome);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -29,10 +30,12 @@ describe(RollOutcome, () => {
 
   it('shows the paragraph the check gives for the degree', async () => {
     const text = RichTextString.parse('You flee for 1 round.');
+
     const fixture = await render({
       kind: OutcomeKind.Text,
       text: [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text }] }],
     });
+
     expect(textOf(fixture)).toBe('You flee for 1 round.');
   });
 });

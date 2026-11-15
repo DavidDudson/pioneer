@@ -1,6 +1,7 @@
 import type { TextPosition } from '@pioneer/rules/formula';
 
 const CARET = '^';
+
 /** Anything but a tab becomes a space, so the caret lines up under tabbed text too. */
 const NOT_TAB = /[^\t]/gu;
 const NEWLINE = '\n';
@@ -15,5 +16,6 @@ export function pointAt(text: string, position: TextPosition): string {
   const nextNewline = text.indexOf(NEWLINE, index);
   const lineEnd = nextNewline === -1 ? text.length : nextNewline;
   const lead = text.slice(lineStart, index).replaceAll(NOT_TAB, ' ');
+
   return `${text.slice(0, lineEnd)}\n${lead}${CARET}${text.slice(lineEnd)}`;
 }

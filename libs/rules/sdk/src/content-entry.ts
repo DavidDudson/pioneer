@@ -164,6 +164,7 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   ...EQUIPMENT_ENTRIES,
 ]);
+
 export type ContentEntry = z.output<typeof Entry>;
 
 /** Names the `kind` when the value is an object whose `kind` is a string with no registered schema. */
@@ -171,7 +172,9 @@ function unknownKindMessage(value: unknown): MessageDescriptor | undefined {
   if (typeof value !== 'object' || value === null || !('kind' in value)) {
     return undefined;
   }
+
   const { kind } = value;
+
   return typeof kind === 'string' && !KNOWN_KINDS.has(kind)
     ? message(RulesMessage.EntryUnknownKind, { kind })
     : undefined;
@@ -186,6 +189,7 @@ function push(context: EntryCheck, path: readonly PropertyKey[], descriptor: Mes
 /** An entry slug names its kind first, and it must be the entry's kind. */
 function checkSlugKind(context: EntryCheck): void {
   const { kind, slug } = context.value;
+
   if (slugKind(slug) !== kind) {
     const expected = entrySlug(kind, slugName(slug));
     push(context, ['slug'], message(RulesMessage.EntrySlugKindMismatch, { expected }));
@@ -196,6 +200,7 @@ function checkSlugKind(context: EntryCheck): void {
 function checkId(context: EntryCheck): void {
   const { id, pack, slug } = context.value;
   const expected = contentId(pack, slug);
+
   if (id !== expected) {
     push(context, ['id'], message(RulesMessage.EntryIdMismatch, { expected, key: `${pack}/${slug}` }));
   }
@@ -203,16 +208,19 @@ function checkId(context: EntryCheck): void {
 
 function checkTraits(context: EntryCheck): void {
   const seen = new Set<Trait>();
+
   for (const [index, trait] of context.value.traits.entries()) {
     if (seen.has(trait)) {
       push(context, ['traits', index], message(RulesMessage.EntryDuplicateTrait, { trait }));
     }
+
     seen.add(trait);
   }
 }
 
 function checkSupersedes(context: EntryCheck): void {
   const { id, supersedes = [] } = context.value;
+
   for (const [index, superseded] of supersedes.entries()) {
     if (superseded === id) {
       push(context, ['supersedes', index], message(RulesMessage.EntrySupersedesSelf));
@@ -223,6 +231,7 @@ function checkSupersedes(context: EntryCheck): void {
 /** A feat only taken at 1st level is a 1st-level feat. */
 function checkOnlyLevel1(context: EntryCheck): void {
   const entry = context.value;
+
   if (entry.kind === ContentKind.Feat && entry.data.onlyLevel1 === true && entry.level !== FIRST_LEVEL) {
     push(context, ['level'], message(RulesMessage.FeatOnlyLevel1));
   }
@@ -231,15 +240,18 @@ function checkOnlyLevel1(context: EntryCheck): void {
 /** Every condition a condition implies is applied by an unconditional `GrantItem` of it in `rules`. */
 function checkImplies(context: EntryCheck): void {
   const entry = context.value;
+
   if (entry.kind !== ContentKind.Condition) {
     return;
   }
+
   // A grant behind a predicate applies only sometimes, so it doesn't make a condition always implied.
   const granted = new Set(
     entry.rules.flatMap((rule) =>
       rule.key === RuleElementKey.GrantItem && rule.predicate === undefined ? [rule.item] : [],
     ),
   );
+
   for (const [index, implied] of entry.data.implies.entries()) {
     if (!granted.has(implied)) {
       push(context, ['data', 'implies', index], message(RulesMessage.ConditionImpliesWithoutGrant));
@@ -256,6 +268,7 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
   .unknown()
   .check((context) => {
     const unknown = unknownKindMessage(context.value);
+
     if (unknown !== undefined) {
       context.issues.push({
         code: 'custom',

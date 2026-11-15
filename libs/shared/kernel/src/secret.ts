@@ -27,5 +27,6 @@ export function randomSecret(): string {
  */
 export async function sha256Hex(secret: string): Promise<string> {
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(secret));
+
   return hex(new Uint8Array(digest));
 }

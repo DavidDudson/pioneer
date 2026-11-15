@@ -9,6 +9,7 @@ const meta: Meta<LegacyBadge> = {
   title: 'Content/Legacy badge',
   component: LegacyBadge,
 };
+
 export default meta;
 
 /** An entry from a pre-remaster book. */

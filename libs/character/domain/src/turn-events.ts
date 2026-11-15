@@ -34,6 +34,7 @@ export const TurnEventKind = {
   EnvironmentDamage: 'environmentDamage',
   EnvironmentCondition: 'environmentCondition',
 } as const;
+
 export type TurnEventKind = ValueOf<typeof TurnEventKind>;
 
 /** The keys each turn event is worded with; their `en` text ships in the character feature's `i18n/en.json`. */
@@ -56,6 +57,7 @@ export const TurnMessage = {
   EnvironmentDamage: 'character.turn.environmentDamage',
   EnvironmentCondition: 'character.turn.environmentCondition',
 } as const;
+
 export type TurnMessage = ValueOf<typeof TurnMessage>;
 
 /**
@@ -150,6 +152,7 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     message: MessageDescriptorSchema,
   }),
 ]);
+
 export type TurnEvent = z.infer<typeof TurnEventSchema>;
 
 /** The turn has started. */
@@ -160,6 +163,7 @@ export function turnStarted(): TurnEvent {
 /** Recovery of `type` restored `gained` Hit Points. */
 export function healedEvent(type: ValueOf<typeof FastHealingType>, gained: HitPoints): TurnEvent {
   const key = type === FastHealingType.Regeneration ? TurnMessage.Regeneration : TurnMessage.FastHealing;
+
   return { kind: TurnEventKind.Healed, type, gained, message: message(key, { amount: gained }) };
 }
 
@@ -219,6 +223,7 @@ export function flatCheck(
 ): TurnEvent {
   const passed = die >= dc;
   const key = passed ? TurnMessage.FlatCheckPassed : TurnMessage.FlatCheckFailed;
+
   return { kind: TurnEventKind.FlatCheck, condition, instance, die, dc, passed, message: message(key, { die, dc }) };
 }
 
@@ -277,12 +282,14 @@ function suffocationKey(degree: DegreeOfSuccess): TurnMessage {
   if (degree === DegreeOfSuccess.CriticalFailure) {
     return TurnMessage.SuffocationDied;
   }
+
   return degree === DegreeOfSuccess.Failure ? TurnMessage.SuffocationFailed : TurnMessage.SuffocationSaved;
 }
 
 /** The character, out of air, made a Fortitude save against suffocation. */
 export function suffocationSaved(save: SuffocationSave): TurnEvent {
   const { total, dc, taken } = save;
+
   return {
     kind: TurnEventKind.Suffocation,
     ...save,

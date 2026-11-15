@@ -58,9 +58,11 @@ const FoundryFeatSystem = z.looseObject({
   traits: z.looseObject({ otherTags: FoundryTags.optional() }).optional(),
   subfeatures: z.looseObject({}).optional(),
 });
+
 type FoundryFeatSystem = z.infer<typeof FoundryFeatSystem>;
 
 const SENSES_MAX = 16;
+
 /** Foundry lists each attribute at most once; more than six is no list of attributes. */
 const KEY_OPTIONS_MAX = 6;
 
@@ -97,12 +99,16 @@ function subfeatureRules(system: FoundryFeatSystem, input: KindInput, read: read
 /** `subfeatures.senses` as `Sense` elements; a sense outside the vocabulary is reported. */
 function senseRules(senses: unknown, input: KindInput): void {
   const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
+
   if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.senses', raw: senses });
+
     return;
   }
+
   for (const [slug, fields] of Object.entries(parsed.data)) {
     const element = senseElement(slug, fields, input);
+
     if (element === undefined) {
       report(input.log, {
         reason: KindDataGapReason.UnresolvedReference,
@@ -121,21 +127,29 @@ function senseRules(senses: unknown, input: KindInput): void {
  */
 function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): object {
   const raw = system.subfeatures?.['keyOptions'];
+
   if (!isSet(raw)) {
     return {};
   }
+
   const listed = z.array(z.unknown()).max(KEY_OPTIONS_MAX).safeParse(raw);
+
   if (!listed.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.keyOptions', raw });
+
     return {};
   }
+
   const options = listed.data.flatMap((each): Attribute[] => {
     const attribute = AttributeSchema.safeParse(each);
+
     if (!attribute.success) {
       report(log, { reason: KindDataGapReason.UnmappedValue, field: 'subfeatures.keyOptions', raw: each });
     }
+
     return attribute.success ? [attribute.data] : [];
   });
+
   return options.length === 0 ? {} : { keyAttributeOptions: [...new Set(options)] };
 }
 
@@ -154,19 +168,24 @@ function actionOf(system: FoundryFeatSystem, input: KindInput): object {
   const { document, log } = input;
   const category = system.actionCategory?.value ?? undefined;
   const action = actionData({ ...input, document: { ...document, system: { ...document.system, category } } });
+
   if (action === undefined || isEmpty(action)) {
     return {};
   }
+
   const parsed = ActionData.safeParse(action);
+
   if (!parsed.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: `action.${issuePath(parsed.error)}`, raw: action });
   }
+
   return parsed.success ? { action: parsed.data } : {};
 }
 
 /** Foundry's prerequisites, as printed, one paragraph; undefined when there are none. */
 function prerequisitesOf({ prerequisites }: FoundryFeatSystem): RichText | undefined {
   const text = RichTextString.safeParse((prerequisites?.value ?? []).map(({ value }) => value.trim()).join('; '));
+
   return text.success
     ? [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: text.data }] }]
     : undefined;
@@ -177,6 +196,7 @@ function maxTakableOf({ maxTakable }: FoundryFeatSystem): number | string | unde
   if (maxTakable === null) {
     return UNLIMITED;
   }
+
   return maxTakable === 1 ? undefined : maxTakable;
 }
 
@@ -195,32 +215,43 @@ function archetypeOf(system: FoundryFeatSystem, { envelope, archetypes, log }: K
   if (!envelope.traits.includes(ARCHETYPE)) {
     return undefined;
   }
+
   const links = archetypes.get(envelope.id) ?? [];
   const prerequisites = (system.prerequisites?.value ?? []).map(({ value }) => value.toLowerCase());
+
   const named = links.filter(({ dedication }) =>
     prerequisites.some((prerequisite) => prerequisite.includes(dedication.toLowerCase())),
   );
+
   const [only] = links.length === 1 ? links : narrowed(named);
+
   if (only === undefined) {
     const reason = links.length === 0 ? KindDataGapReason.UnresolvedReference : KindDataGapReason.UnmappedValue;
     report(log, { reason, field: 'archetype', raw: links.map(({ dedication }) => dedication) });
   }
+
   return only?.archetype;
 }
 
 /** The feat's data, unparsed; undefined when its `system` is not shaped as a feat's or its category has no slot. */
 export function featData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const category = FeatCategorySchema.safeParse(FOUNDRY_CATEGORIES.get(system.category ?? '') ?? system.category);
+
   if (!category.success) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'category', raw: system.category });
+
     return undefined;
   }
+
   spellcastingRules(input);
   subfeatureRules(system, input);
+
   return {
     category: category.data,
     ...setFields({
@@ -236,11 +267,14 @@ export function featData(input: KindInput): object | undefined {
 /** The class feature's data, unparsed: its `action` data when it is itself an action, its tags and its key attribute options. */
 export function classFeatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   spellcastingRules(input);
   subfeatureRules(system, input, CLASS_FEATURE_SUBFEATURES);
+
   return {
     ...actionOf(system, input),
     ...tagsOf(system.traits?.otherTags, input.log),
@@ -251,9 +285,12 @@ export function classFeatureData(input: KindInput): object | undefined {
 /** The ancestry feature's data, unparsed: its `action` data when it is itself an action. */
 export function ancestryFeatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   subfeatureRules(system, input);
+
   return actionOf(system, input);
 }

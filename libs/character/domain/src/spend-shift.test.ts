@@ -21,6 +21,7 @@ const OTHER = EffectInstanceId.parse('22222222-2222-4222-8222-222222222222');
 const BEAR = ContentId.parse('33333333-3333-4333-8333-333333333333');
 const PLANT = ContentId.parse('44444444-4444-4444-8444-444444444444');
 const GRIZZLY = RollOption.parse('bear-form:grizzly');
+
 const LIMITS: PlayLimits = {
   ...within(HitPoints.parse(10)),
   counted: { slots: new Map(), uses: new Map() },
@@ -117,6 +118,7 @@ describe('a spend that applies a form', () => {
     badge: undefined,
     polymorph: true,
   };
+
   const withForms = {
     ...LIMITS,
     effects: new Map<ContentId, EffectTerms>([
@@ -124,6 +126,7 @@ describe('a spend that applies a form', () => {
       [PLANT, terms],
     ]),
   };
+
   const rank = SpellRank.parse(2);
 
   test('puts the form on the character with the spend, and its temporary Hit Points', () => {
@@ -132,6 +135,7 @@ describe('a spend that applies a form', () => {
       castOf({ id: FORM, effect: BEAR, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) }),
       withForms,
     );
+
     expect(play.effects).toStrictEqual([
       { id: FORM, effect: BEAR, source: SELF, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) },
     ]);
@@ -150,6 +154,7 @@ describe('a spend that applies a form', () => {
       castOf({ id: FORM, effect: BEAR, rank, tempHp: HitPoints.parse(5) }),
       withForms,
     );
+
     const play = applyPlayCommand(cast, { field: PlayCommandField.UndoSpend, id: spendId(FIRST) }, withForms);
     expect(play.effects).toStrictEqual([]);
     expect(play.hp.temp).toBe(HitPoints.parse(0));
@@ -168,6 +173,7 @@ describe('a spend that applies a form', () => {
       ...castOf({ id: OTHER, effect: PLANT, rank }),
       shift: { effect: FORM, to: PLANT },
     };
+
     expect(spendRefusal(playWith(BEAR_FORM), both, REFUSAL_LIMITS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 });

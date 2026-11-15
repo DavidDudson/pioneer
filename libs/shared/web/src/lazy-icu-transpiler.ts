@@ -34,13 +34,16 @@ export class LazyIcuTranspiler extends DefaultTranspiler {
 
   async #fetch(): Promise<void> {
     const done = this.#pending.add();
+
     try {
       const { MessageFormatTranspiler } = await COMPILER;
       // The transpiler is built here, not by DI, so it needs an injection context for transloco's own `inject` calls.
       const icu = runInInjectionContext(this.#injector, () => new MessageFormatTranspiler({}));
+
       if (this.#lang !== undefined) {
         icu.onLangChanged(this.#lang);
       }
+
       this.#icu = icu;
     } finally {
       done();

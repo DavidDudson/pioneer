@@ -35,7 +35,9 @@ function falseAttack({ attack, action }: SpendRequest, registry: ContentRegistry
   if (attack !== true) {
     return false;
   }
+
   const entry = entryOf(registry, action);
+
   return entry !== undefined && ATTACK_KINDS.has(entry.kind) && !entry.traits.includes(ATTACK);
 }
 
@@ -47,10 +49,13 @@ function wrongPayment({ action, slot, focus }: SpendRequest, registry: ContentRe
   if (slot === undefined && focus !== true) {
     return false;
   }
+
   const spell = spellContent(registry).anySpell(action);
+
   if (spell === undefined) {
     return false;
   }
+
   return (focus === true && !spell.focus) || (slot !== undefined && (spell.focus || spell.cantrip));
 }
 
@@ -60,6 +65,7 @@ type SpellEntry = Extract<ContentEntry, { kind: typeof ContentKind.Spell }>;
 /** The spell entry named `id`, if it is one. */
 function spellEntryOf(registry: ContentRegistry, id: ContentId): SpellEntry | undefined {
   const entry = entryOf(registry, id);
+
   return entry?.kind === ContentKind.Spell ? entry : undefined;
 }
 
@@ -68,7 +74,9 @@ function wrongSustain({ action, spell }: SpendRequest, registry: ContentRegistry
   if (spell?.kind !== SpellSpendKind.Cast) {
     return false;
   }
+
   const entry = spellEntryOf(registry, action);
+
   return entry === undefined || sustainedRounds(entry.data.duration) !== spell.rounds;
 }
 
@@ -77,19 +85,23 @@ function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active
   if (spell?.kind !== SpellSpendKind.Dismiss) {
     return false;
   }
+
   const dismissed = activeSpellOf(active, spell.id);
+
   return dismissed !== undefined && spellEntryOf(registry, dismissed.spell)?.data.dismiss !== true;
 }
 
 /** Whether the spend shifts an effect on the character that is not a polymorph effect, which only a form can be. */
 function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: readonly ActiveEffect[]): boolean {
   const target = active.find(({ id }) => id === shift.effect);
+
   return target !== undefined && effectContent(registry).get(target.effect)?.polymorph !== true;
 }
 
 /** The effects a spell or an action lists as the forms it puts on the user. */
 function listedEffects(registry: ContentRegistry, id: ContentId): readonly SpellEffectEntry[] {
   const entry = entryOf(registry, id);
+
   return entry?.kind === ContentKind.Spell || entry?.kind === ContentKind.Action ? (entry.data.effects ?? []) : [];
 }
 
@@ -100,6 +112,7 @@ function listsForm(
   facts: PredicateFacts | undefined,
 ): boolean {
   const effects = listedEffects(registry, action);
+
   return effects.some((listed) => spellEffectId(listed) === to && isSpellEffectOffered(listed, facts));
 }
 
@@ -121,9 +134,11 @@ function wrongShift(
   if (shift === undefined) {
     return false;
   }
+
   if (shiftsNonForm(shift, registry, activeEffects)) {
     return true;
   }
+
   return (
     spellEntryOf(registry, action)?.data.shiftsForm !== true || !listsForm({ action, to: shift.to }, registry, facts)
   );
@@ -150,14 +165,18 @@ export function contentRefusal(
   if (falseAttack(request, registry)) {
     return SpendProblem.AttackNotAllowed;
   }
+
   if (wrongPayment(request, registry)) {
     return SpendProblem.PaymentNotAllowed;
   }
+
   if (wrongSustain(request, registry)) {
     return SpendProblem.NotSustained;
   }
+
   if (wrongApply(request, registry, facts) || wrongShift(request, registry, { facts, activeEffects })) {
     return SpendProblem.ShiftNotAllowed;
   }
+
   return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;
 }

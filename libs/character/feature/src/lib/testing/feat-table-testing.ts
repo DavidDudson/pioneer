@@ -37,6 +37,7 @@ function rowsIn(field: HTMLElement): FeatTableRow[] {
   return [...field.querySelectorAll<HTMLElement>('fr-picker-row')].map((row): FeatTableRow => {
     const cells = [...row.querySelectorAll<HTMLElement>('[role="gridcell"]')];
     const first = present(cells[0]);
+
     return {
       name: textOf(first),
       cells: cells.map((cell) => textOf(cell)),
@@ -55,9 +56,11 @@ export async function openFeatTable(field: HTMLElement, count: number): Promise<
   stubTableLayout();
   present(field.querySelector<HTMLElement>('button')).click();
   await settle();
+
   return vi.waitFor(() => {
     const rows = rowsIn(field);
     expect(rows).toHaveLength(count);
+
     return rows;
   });
 }
@@ -67,9 +70,11 @@ export async function openPickerTable(field: HTMLElement): Promise<FeatTableRow[
   stubTableLayout();
   present(field.querySelector<HTMLElement>('button')).click();
   await settle();
+
   return vi.waitFor(() => {
     const rows = rowsIn(field);
     expect(rows.length).toBeGreaterThan(0);
+
     return rows;
   });
 }

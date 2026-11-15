@@ -76,17 +76,22 @@ export class CharacterTransferSettlement {
   ): Promise<TransferRefusal | undefined> {
     const giver = await this.#found(from);
     const recipient = await this.#found(to);
+
     if (giver.version !== giverVersion) {
       throw new VersionConflictError('Character', from);
     }
+
     const moved = move(giver.document.inventory, recipient.document.inventory);
+
     if (moved.refusal !== undefined) {
       return moved.refusal;
     }
+
     const now = this.#clock.now();
     const giverWrite = { character: giver.withInventory(moved.giver, now), expected: giver.version };
     const recipientWrite = { character: recipient.withInventory(moved.recipient, now), expected: recipient.version };
     await this.#write(actor, inIdOrder(giverWrite, recipientWrite));
+
     return undefined;
   }
 
@@ -98,9 +103,11 @@ export class CharacterTransferSettlement {
 
   async #found(id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 }

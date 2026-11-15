@@ -16,8 +16,11 @@ import {
 } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(DEDICATION_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A character of the class whose features grant Medic's dedication at 1st level, its basic feat at 3rd, its advanced at 5th. */
@@ -30,6 +33,7 @@ function sentinelWait(builder: CharacterBuilder, slotLevel: number): unknown {
   const slot = featSlots(builder.build().document, content).find(
     ({ key }) => key === dedicationSlot(slotLevel, GRANTING_CLASS),
   );
+
   return slot?.options.find(({ value }) => value === dedicationFixtureId('sentinel-dedication'))?.locked;
 }
 

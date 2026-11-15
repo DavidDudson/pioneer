@@ -25,15 +25,18 @@ const PACK: ContentPack = new ContentPackBuilder()
     description: [{ type: 'paragraph', content: [{ type: 'text', text: 'Shrug off an attack.' }] }],
   })
   .build();
+
 const LOADER: PackContentsLoader = {
   id: PACK.id,
   load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
 };
+
 const LEGACY_PACK: ContentPack = new ContentPackBuilder()
   .withId('search-session-legacy')
   .withLicense(ContentLicense.Ogl)
   .withFeat('sudden-charge', { level: 1, traits: [] })
   .build();
+
 const LEGACY_LOADER: PackContentsLoader = {
   id: LEGACY_PACK.id,
   load: async () => packContentsFromFiles(LEGACY_PACK.manifest, [LEGACY_PACK.otherEntries]),
@@ -44,6 +47,7 @@ const SHELL_MESSAGES = {
   'shell.search.level': 'Level {{level}}',
   'contentBrowser.legacy.label': 'Legacy',
 };
+
 const NAMES_FOR_ATTACK = ['Attack-of-opportunity', 'Power-attack'];
 
 interface Started {
@@ -72,6 +76,7 @@ function start(legacy = true): Started {
       GlobalSearchSession,
     ],
   });
+
   return { session: TestBed.inject(GlobalSearchSession), delivery };
 }
 

@@ -26,10 +26,13 @@ const INTERVAL_MS = 2000;
 async function storedEtag(file: string): Promise<string | undefined> {
   const stored = Bun.file(file);
   const exists = await stored.exists();
+
   if (!exists) {
     return undefined;
   }
+
   const json: unknown = await stored.json();
+
   return AonListingFile.parse(json).etag;
 }
 
@@ -39,9 +42,11 @@ async function save(file: string, etag: string | undefined, entries: readonly Li
 
 const { values } = parseArgs({ options: { book: { type: 'string', multiple: true } } });
 const wanted = new Set(values.book);
+
 const books = bookRegistry.books.filter(
   (book) => book.aonSourceUrl !== undefined && (wanted.size === 0 || wanted.has(book.id)),
 );
+
 const client = new PoliteClient({
   userAgent: USER_AGENT,
   intervalMs: INTERVAL_MS,
@@ -64,6 +69,7 @@ function recordDetails(book: Book, html: string): string {
   const { released, ...details } = parseBookDetails(html);
   found.set(book.id, book.released === undefined && released !== undefined ? { ...details, released } : details);
   const differs = book.released !== undefined && released !== undefined && released !== book.released.toString();
+
   return differs ? `, AoN dates it ${released}` : '';
 }
 
@@ -77,10 +83,13 @@ interface FetchedPage {
 /** Stores the page's listing, unless it held none. */
 async function saveListing(file: string, page: FetchedPage, dateNote: string): Promise<BookResult> {
   const { entries, skipped } = parseSources(page.html);
+
   if (entries.length === 0) {
     return { line: `${page.id}: no entries found, so the stored listing is left as it is${dateNote}`, refused: false };
   }
+
   await save(file, page.etag, entries);
+
   return { line: `${page.id}: ${entries.length} entries, ${skipped.length} links skipped${dateNote}`, refused: false };
 }
 
@@ -90,26 +99,34 @@ async function fetchBook(book: Book): Promise<BookResult> {
   // A book whose details are not in the registry yet is asked for in full, whatever the ETag says.
   const etag = book.productLine === undefined ? undefined : await storedEtag(file);
   const outcome = await client.get(new URL(aonSourceUrl ?? ''), etag);
+
   if (outcome.kind === 'refused') {
     return { line: `Stopped: ${outcome.reason}`, refused: true };
   }
+
   if (outcome.kind === 'unchanged') {
     return { line: `${id}: unchanged`, refused: false };
   }
+
   const dateNote = recordDetails(book, outcome.html);
+
   return saveListing(file, { id, html: outcome.html, etag: outcome.etag }, dateNote);
 }
 
 await mkdir(OUT_DIR, { recursive: true });
+
 for (const book of books) {
   // Sequential on purpose: one request at a time (ADR-0071).
   // oxlint-disable-next-line eslint/no-await-in-loop
   const { line, refused } = await fetchBook(book);
   console.log(line);
+
   if (refused) {
     process.exitCode = 1;
     break;
   }
 }
+
 const patches: BookPatches = found;
+
 await patchBooks(patches);

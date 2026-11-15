@@ -32,9 +32,11 @@ type StrikeName = Pick<NamedStrike, 'name' | 'nameKey'>;
 
 function weaponName(weapon: WeaponInputs, nameOf: (entry: ContentId) => string | undefined): StrikeName {
   const held = weapon.origin.hops[0]?.kind === OriginHopKind.Inventory;
+
   if (held) {
     return { name: nameOf(weapon.origin.entry) ?? weapon.slug };
   }
+
   return weapon.label === undefined ? { name: weapon.slug, nameKey: StatisticsMessage.Fist } : { name: weapon.label };
 }
 
@@ -56,10 +58,12 @@ function deriveWithClaims(
   claims: SituationClaims,
 ): ClaimedStrikes {
   const offers = deriveStrikes(weapons, derived, rules);
+
   const claimed =
     claims.size === 0 || rules === undefined
       ? offers
       : deriveStrikes(weapons, derived, { ...rules, situations: claims });
+
   return { offers, strikes: claimed };
 }
 
@@ -70,9 +74,11 @@ function damageSituations(
   claimed: ReadonlySet<RuleId> | undefined,
 ): StrikeSituations {
   const sources = new Map((rules?.inputs.rules ?? []).map((rule) => [ruleIdOf(rule), rule.origin.entry]));
+
   return {
     offered: offered.flatMap((id): StrikeOffer[] => {
       const entry = sources.get(id);
+
       return entry === undefined ? [] : [{ id, entry }];
     }),
     claimed: claimed ?? new Set(),
@@ -93,24 +99,31 @@ export function sheetStrikes(
 ): readonly NamedStrike[] {
   const definition = registry.statisticsFor(STRIKE).at(-1)?.definition;
   const weapons = statisticInputsOf(registry, character).weapons ?? [];
+
   if (definition === undefined || weapons.length === 0) {
     return [];
   }
+
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
   const rules = characterStrikeRules(sheetSources(registry, character), character.document);
+
   const { offers, strikes } = deriveWithClaims(
     { weapons, derived: sheetDerivation(registry, character) },
     rules,
     claims,
   );
+
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
   const found = checkSituations(registry, character, { selectors, claims });
+
   return strikes.flatMap((strike, index): NamedStrike[] => {
     if (strike.attack === undefined) {
       return [];
     }
+
     const check = strike.attack.ok ? found.get(strike.attack.selector) : undefined;
+
     return [
       {
         ...weaponName(strike.weapon, nameOf),
@@ -134,11 +147,14 @@ export function suppressedStrikes(
 ): readonly NamedStrike[] {
   const { effects } = character.document.play;
   const base = withoutForms(registry, effects);
+
   if (base.length === effects.length) {
     return [];
   }
+
   const kept = new Set(inForm.map(({ strike }) => strike.weapon.slug));
   const outOfForm = withPlay(character, { ...character.document.play, effects: [...base] });
+
   return sheetStrikes(registry, outOfForm).filter(({ strike }) => !kept.has(strike.weapon.slug));
 }
 
@@ -147,6 +163,7 @@ export function sheetShields(registry: ContentRegistry, character: Character): r
   const slots = sheetSlotContent(registry);
   const items = itemContent(registry);
   const rules = (): ModifierInputs => equippedRules(character.document, items, slots);
+
   return heldShields(character.document.inventory, items, rules).map(
     ({ entry, hardness, hitPoints, brokenThreshold, undamageable }): StrikesShield => ({
       name: slots.lookup.entry(entry)?.name ?? entry,

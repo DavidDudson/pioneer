@@ -20,6 +20,7 @@ const REFUSALS = {
 
 function refused(refusal: TransferRefusal, transfer: Transfer): ConflictError {
   const descriptor: MessageDescriptor = message(REFUSALS[refusal]);
+
   return new ConflictError(`Transfer ${transfer.id} cannot be accepted: ${refusal}`, descriptor);
 }
 
@@ -43,26 +44,31 @@ export class DatabaseTransferSettlement extends TransferSettlement {
     await this.#db.transaction(async (tx) => {
       const transfers = new DrizzleItemTransferRepository(tx);
       const settlement = new CharacterTransferSettlement(new DrizzleCharacterRepository(tx), this.#clock);
+
       const answered = await transfers.answer({
         actor,
         campaignId,
         id: transfer.id,
         status: TransferStatus.Accepted,
       });
+
       if (!answered) {
         throw new ConflictError(
           `Transfer ${transfer.id} was already answered`,
           message(ItemTransferMessage.NotPending),
         );
       }
+
       const handover = {
         from: CharacterId.parse(transfer.from),
         to: CharacterId.parse(transfer.to),
         giverVersion: transfer.giverVersion,
       };
+
       const refusal = isCoinTransfer(transfer)
         ? await settlement.giveCoins(actor, { ...handover, coins: CoinsSchema.parse(transfer.coins) })
         : await settlement.giveLine(actor, { ...handover, item: InventoryItemId.parse(transfer.item) });
+
       if (refusal !== undefined) {
         throw refused(refusal, transfer);
       }

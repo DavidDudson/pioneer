@@ -16,6 +16,7 @@ export const ArmorItemCategory = {
   LightBarding: 'light-barding',
   HeavyBarding: 'heavy-barding',
 } as const;
+
 export type ArmorItemCategory = ValueOf<typeof ArmorItemCategory>;
 
 /** Remaster armour groups, Foundry pf2e's less Starfinder's. */
@@ -28,6 +29,7 @@ export const ArmorGroup = {
   Skeletal: 'skeletal',
   Wood: 'wood',
 } as const;
+
 export type ArmorGroup = ValueOf<typeof ArmorGroup>;
 
 /** A base armour (`leather-armor`) or shield (`steel-shield`): what a specific one is made from. */
@@ -42,6 +44,7 @@ const DexCap = Pg.smallint().nonnegative().brand<'DexCap'>();
 
 /** The size of the penalty armour gives to Strength- and Dexterity-based checks: 1 is "-1". */
 export const CheckPenalty = Pg.smallint().positive().brand<'CheckPenalty'>();
+
 export type CheckPenalty = z.infer<typeof CheckPenalty>;
 
 /** A specific magic armour's runes ("+1 resilient"); armour that isn't one has none. */
@@ -69,6 +72,7 @@ export const ArmorData = z.strictObject({
   strength: AttributeModifier.optional(),
   runes: ArmorRunes.optional(),
 });
+
 export type ArmorData = z.infer<typeof ArmorData>;
 
 /**
@@ -86,4 +90,5 @@ export const ShieldData = z.strictObject({
   runes: z.strictObject({ reinforcing: ReinforcingGrade }).optional(),
   integratedRunes: WeaponRunes.optional(),
 });
+
 export type ShieldData = z.infer<typeof ShieldData>;

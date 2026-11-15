@@ -34,8 +34,10 @@ export class PackDependencyActions {
   protected readonly describeRemoveError = (error: unknown): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
+
       return this.#i18n.translate(key, params);
     }
+
     return this.#i18n.translate('homebrew.dependencies.removeFailed');
   };
 }

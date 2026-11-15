@@ -14,6 +14,7 @@ import { resolveSlotsAt, slotContent } from './slot-offer';
 
 /** Keen Eyes, as Player Core has it: +2 circumstance to Seek hidden or undetected creatures within 30 feet. */
 const KEEN_EYES_BONUS = 2;
+
 const seekBonus = {
   key: 'FlatModifier',
   selectors: ['perception'],
@@ -28,11 +29,14 @@ const seekBonus = {
 
 const pack = new ContentPackBuilder().withId('player-core').withAncestryFeature('keen-eyes', [seekBonus]);
 const keenEyes = { key: 'GrantItem', item: pack.idOf(ContentKind.AncestryFeature, 'keen-eyes') };
+
 pack
   .withAncestry('halfling', { rules: [keenEyes] })
   .withAncestry('human')
   .withHeritage('sharp-eyed-human', 'human', [keenEyes]);
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 /** The grants of a level 1 character with these root picks. */
@@ -50,6 +54,7 @@ function grantedNames(resolution: GrantResolution): readonly string[] {
 }
 
 const PERCEPTION = Selector.parse('perception');
+
 const inputs = StatisticInputsJson.parse({
   level: 1,
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
@@ -62,7 +67,9 @@ function perception(resolution: GrantResolution, situation: readonly string[]): 
     situation.map((option) => RollOption.parse(option)),
     new Map(),
   );
+
   const content = { definitions: [statistic('perception', '0')], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
   return deriveStatistics(content, inputs, { rules: grantedRules(resolution), facts }).get(PERCEPTION);
 }
 
@@ -93,6 +100,7 @@ describe('ancestry features', () => {
       [ANCESTRY_SLOT]: pack.idOf(ContentKind.Ancestry, 'human'),
       [HERITAGE_SLOT]: pack.idOf(ContentKind.Heritage, 'sharp-eyed-human'),
     });
+
     const seeking = perception(resolution, ['action:seek', 'target:distance:20', 'target:condition:hidden']);
     const tooFar = perception(resolution, ['action:seek', 'target:distance:40', 'target:condition:hidden']);
 

@@ -30,17 +30,21 @@ async function setUp(): Promise<SetUp> {
   const clock = fixedClock('2026-10-15T10:00:00Z');
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
+
   const kyra = await new CharacterService(repository, content, clock).create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   const campaigns = new InMemoryAttachedCampaignPacks().attach(
     kyra.id,
     { name: AttachedCampaignName.parse('Abomination Vaults'), packs: [], variants: [] },
     [seoni],
   );
+
   const service = new CharacterAllyService({ characters: repository, campaigns });
   const api = new Elysia().use(problemHandler).use(characterAllyRoutes(service, new FakeAuthenticator()));
+
   return { api, path: `/characters/${kyra.id}/allies` };
 }
 

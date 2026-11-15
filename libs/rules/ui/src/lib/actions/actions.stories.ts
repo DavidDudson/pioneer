@@ -29,6 +29,7 @@ const meta: Meta<ActionsView> = {
   args: { mode: ActionMode.Encounter, view: ActionsViewKind.Now },
   decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: ROLLER }] })],
 };
+
 export default meta;
 
 /** While the engine's inputs load: placeholder rows. */
@@ -100,6 +101,7 @@ export const AllByName: ActionsStory = {
     const names = [...canvasElement.querySelectorAll('pio-action-row pio-entry-name-cell')].map((cell) =>
       cell.textContent.trim(),
     );
+
     await expect(names).toStrictEqual(
       names.toSorted((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' })),
     );

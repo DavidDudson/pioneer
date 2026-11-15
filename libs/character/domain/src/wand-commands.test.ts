@@ -32,12 +32,14 @@ import {
 
 const WAND = fireballWand();
 const ONE = ResourceCount.parse(1);
+
 const COINS: Inventory['coins'] = {
   pp: 0,
   gp: 0,
   sp: 0,
   cp: 0,
 } as Inventory['coins'];
+
 const STOCK: Inventory = { items: [WAND], customItems: [], coins: COINS };
 const SPENT = afterWandCommand(FRESH_PLAY, [WAND], CAST_WAND);
 const FLAT = (face: number): DieFace => DieFace.parse(face);

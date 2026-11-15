@@ -10,6 +10,7 @@ import { fill, knownReference, match, ReferencePattern } from './formula-referen
 
 /** A Foundry pf2e reference path in the same notation (`actor.abilities.<attribute>.mod`). */
 export const FoundryReferencePattern = z.string().brand<'FoundryReferencePattern'>();
+
 export type FoundryReferencePattern = z.infer<typeof FoundryReferencePattern>;
 
 /** One Foundry spelling and the Pioneer path it translates to; placeholders carry across by name. */
@@ -73,10 +74,12 @@ function translatedBy(references: readonly FoundryReference[], path: ReferencePa
   for (const { foundry, pioneer } of references) {
     const captures = match(foundry, path);
     const translated = captures === undefined ? undefined : fill(pioneer, captures);
+
     if (translated !== undefined && knownReference(translated) !== undefined) {
       return translated;
     }
   }
+
   return undefined;
 }
 

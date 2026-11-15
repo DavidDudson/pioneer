@@ -6,6 +6,7 @@ import { CampaignId, CampaignInviteId, InviteTokenHash } from './campaign-fields
 import { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './campaign-invite';
 
 const now = fixedClock('2026-10-10T10:00:00Z').now();
+
 const invite = CampaignInvite.issue({
   id: CampaignInviteId.parse(derivedId(FixtureNamespace, 'invite:vaults')),
   campaignId: CampaignId.parse(derivedId(FixtureNamespace, 'campaign:vaults')),

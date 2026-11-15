@@ -69,9 +69,11 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
   /** A fresh campaign for each test, as key items are never deleted. */
   beforeEach(async () => {
     campaigns += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
   });
 
@@ -116,9 +118,11 @@ describe.skipIf(adminUrl === undefined)('campaign key items over postgres', () =
     await repository.archive(ezren, campaignId, { id: made.id, at: clock.now() });
 
     expect(await repository.listForCampaign(campaignId)).toStrictEqual([]);
+
     const kept = await database.db.execute(
       sql`select holder_id, archived_at from campaign_key_items where id = ${made.id}`,
     );
+
     expect(kept).toHaveLength(1);
     expect(kept[0]?.['holder_id']).toBe(kyra.id);
   });

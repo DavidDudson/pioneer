@@ -29,9 +29,11 @@ export class ImmunityEditor {
 
   protected add(): void {
     const choice = this.choice();
+
     if (choice === undefined) {
       return;
     }
+
     this.immunities.update((types) => (types.includes(choice) ? types : [...types, choice]));
     this.choice.set(undefined);
   }

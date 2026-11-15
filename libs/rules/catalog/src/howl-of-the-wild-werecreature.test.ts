@@ -20,6 +20,7 @@ function werecreature(kind: string, shape: string): FormView {
 /** The slugs of the unarmed attacks the form gives the werecreature of `kind` in `shape`. */
 function attacks(kind: string, shape: string): readonly string[] {
   const facts = chosen(`werecreature:${kind}`, `change-shape:${shape}`);
+
   return effectRulesOf(SLUG, RANK, HOWL_OF_THE_WILD_EFFECTS)
     .map(({ element }) => element)
     .flatMap((element) =>

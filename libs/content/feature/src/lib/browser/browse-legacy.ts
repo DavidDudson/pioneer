@@ -11,6 +11,7 @@ export function packLicenses(registry: ContentRegistry): ReadonlyMap<PackId, Con
 /** The entry is legacy content: its own licence, or its pack's, is the Open Game License. A pack not held is not. */
 export function isLegacyEntry(entry: ContentEntry, licenses: ReadonlyMap<PackId, ContentLicense>): boolean {
   const license = licenses.get(entry.pack);
+
   return license !== undefined && isLegacyLicense(effectiveLicense(entry, { license }));
 }
 
@@ -26,11 +27,13 @@ export function shownEntries<Entry extends ContentEntry>(
 /** For each legacy entry the `entries` replace, the remaster entries that say so in `supersedes`, in list order. */
 export function replacementsOf(entries: readonly ContentEntry[]): ReadonlyMap<ContentId, readonly ContentEntry[]> {
   const replaced = new Map<ContentId, ContentEntry[]>();
+
   for (const entry of entries) {
     for (const legacy of entry.supersedes ?? []) {
       replaced.set(legacy, [...(replaced.get(legacy) ?? []), entry]);
     }
   }
+
   return replaced;
 }
 

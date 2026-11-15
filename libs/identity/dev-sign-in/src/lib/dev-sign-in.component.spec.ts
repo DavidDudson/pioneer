@@ -26,6 +26,7 @@ async function render(returnTo: string): Promise<Rendered> {
   const fixture = TestBed.createComponent(DevSignIn);
   fixture.componentRef.setInput('returnTo', ReturnPath.parse(returnTo));
   await fixture.whenStable();
+
   return { root: fixture.nativeElement as HTMLElement, signInAt };
 }
 

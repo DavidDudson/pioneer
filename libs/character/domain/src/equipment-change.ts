@@ -27,21 +27,27 @@ export function equipmentChange(inventory: Inventory, patch: EquipmentPatch): In
     case CharacterPatchField.CarryItem: {
       return carryItem(inventory, patch.id, patch.carry);
     }
+
     case CharacterPatchField.InvestItem: {
       return investItem(inventory, patch.id, patch.invested);
     }
+
     case CharacterPatchField.SetItemBroken: {
       return breakItem(inventory, patch.id, patch.broken);
     }
+
     case CharacterPatchField.SetItemState: {
       return setItemState(inventory, patch.id, patch.state);
     }
+
     case CharacterPatchField.EtchRune: {
       return etchRune(inventory, patch.id, patch.rune);
     }
+
     case CharacterPatchField.EraseRune: {
       return eraseRune(inventory, patch.id, patch.rune);
     }
+
     case CharacterPatchField.TransferRune: {
       return transferRune(inventory, {
         from: patch.id,
@@ -49,6 +55,7 @@ export function equipmentChange(inventory: Inventory, patch: EquipmentPatch): In
         rune: patch.rune,
       });
     }
+
     default: {
       return patch satisfies never;
     }

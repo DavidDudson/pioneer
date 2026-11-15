@@ -110,6 +110,7 @@ describe('restoring actions', () => {
     assert(
       property(plays, constantFrom(...ACTIONS), (play, action: Action) => {
         const after = action(play, LIMITS).play;
+
         for (const key of [DAILY, SESSION]) {
           expect(after.resources.uses[key] ?? 0).toBeLessThanOrEqual(play.resources.uses[key] ?? 0);
         }
@@ -134,15 +135,18 @@ describe('restoring actions', () => {
     assert(
       property(plays, ranks, ranks, (play, highest, slotRank) => {
         const key = slotCountKey(Slug.parse('wizard'), undefined, slotRank);
+
         const limits: RestLimits = {
           ...LIMITS,
           counted: { ...COUNTED, slots: new Map([[key, { max: ResourceCount.parse(MAX), boundary: Boundary.Day }]]) },
           staff: { staves: new Set([staff]), highestRank: highest, expendable: new Set([key]) },
         };
+
         const { play: after } = preparedDaily(play, limits, {
           staff,
           slot: { entry: Slug.parse('wizard'), rank: slotRank },
         });
+
         const charges = after.resources.staff[staff]?.max ?? 0;
         expect(charges).toBeLessThanOrEqual(highest + slotRank);
         expect(charges).toBeGreaterThanOrEqual(highest);
@@ -160,8 +164,11 @@ const CONDITIONS = new ContentPackBuilder()
     valued: true,
     recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Lower })],
   });
+
 const REGISTRY = new ContentRegistry();
+
 REGISTRY.register(CONDITIONS.build());
+
 const FATIGUED = ContentId.parse(CONDITIONS.idOf(ContentKind.Condition, 'fatigued'));
 const DRAINED = ContentId.parse(CONDITIONS.idOf(ContentKind.Condition, 'drained'));
 const EASING: RestLimits = { ...LIMITS, recovery: restRecovery(REGISTRY) };
@@ -232,6 +239,7 @@ describe('rest easing conditions', () => {
       daily: ResourceCount.parse(0),
       session: ResourceCount.parse(0),
     });
+
     const once = refocused(spentOut, EASING);
     const twice = refocused(once.play, EASING);
     expect(twice.play.resources[Resource.FocusPoints]).toBe(

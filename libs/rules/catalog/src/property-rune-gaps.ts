@@ -41,6 +41,7 @@ export function unaccounted(item: string, gaps: ReadonlySet<string>): readonly s
 export function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
   return [...gaps].filter((slug) => {
     const rune = RUNES.find((entry) => entry.slug === slug);
+
     return rune === undefined || rune.rules.length > 0;
   });
 }

@@ -46,10 +46,12 @@ describe('CharacterSheetPage modes', () => {
     expect(textOf(ac)).toContain('Armor Class');
     expect(textOf(ac)).toContain('12');
     expect(vitalsOf().textContent).not.toContain('Armor Class');
+
     // The three saves' ranks: not the empty ones the rows inside the tiles hold for a skill's, nor Speed's, and the class DC has none while the character has no class.
     const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')]
       .filter((rank) => rank.closest('summary') === null)
       .filter((rank) => textOf(rank) !== '');
+
     expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 3 }, () => 'UUntrained'));
   });
 
@@ -121,6 +123,7 @@ describe('CharacterSheetPage modes', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     await settle();
     expect(textOf(status)).toBe('Saving');
     request.flush(patchedOf({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } }, []));

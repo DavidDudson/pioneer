@@ -12,6 +12,7 @@ const meta: Meta<ArmorClass> = {
   component: ArmorClass,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: nothing shows. */

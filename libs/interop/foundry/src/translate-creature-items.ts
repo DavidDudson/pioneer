@@ -41,6 +41,7 @@ interface LoreSkill {
 /** A Lore among the items, as a skill modifier beside the creature's own `skills`. */
 function loreOf(item: Embedded, input: KindInput): LoreSkill | undefined {
   const system = itemSystem(FoundryLore, item, input);
+
   return system === undefined ? undefined : { skill: slugify(item.name), modifier: system.mod.value };
 }
 
@@ -54,19 +55,24 @@ function gearOf(item: Embedded, input: KindInput): GearItem | undefined {
   const system = itemSystem(FoundryGear, item, input);
   const kind = isFoundryItemType(item.type) ? FOUNDRY_TYPE_KINDS[item.type] : undefined;
   const found = kind === undefined ? undefined : resolveSlug(input.references, kind, slugify(item.name));
+
   if (found === undefined) {
     report(input.log, { reason: KindDataGapReason.UnresolvedReference, field: 'items', raw: item.name });
+
     return undefined;
   }
+
   return { item: found, ...(system === undefined || system.quantity === 1 ? {} : { quantity: system.quantity }) };
 }
 
 /** The stat block parts the embedded items make; each list is absent when empty. */
 export function creatureItems(input: KindInput): Readonly<Record<string, readonly unknown[]>> {
   const items = embeddedOf(input);
+
   for (const item of itemsOfType(items, 'effect')) {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'items.effect', raw: item.name });
   }
+
   const parts = {
     strikes: strikesOf(items, input),
     abilities: abilitiesOf(items, input),
@@ -75,5 +81,6 @@ export function creatureItems(input: KindInput): Readonly<Record<string, readonl
     lores: itemsOfType(items, 'lore').flatMap((item) => loreOf(item, input) ?? []),
     conditions: itemsOfType(items, 'condition').map((item) => slugify(item.name)),
   };
+
   return Object.fromEntries(Object.entries(parts).filter(([, list]) => list.length > 0));
 }

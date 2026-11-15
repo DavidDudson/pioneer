@@ -24,6 +24,7 @@ interface LanguageRow {
 function rowOf({ key, name, from, slot }: LanguageLine, remove: RemoveLanguage): LanguageRow {
   const caption =
     from === undefined ? message(LanguagesMessage.Picked) : message(LanguagesMessage.From, { source: from });
+
   return { key, name, caption, remove: slot === undefined ? undefined : async () => remove(slot) };
 }
 
@@ -50,6 +51,7 @@ export class LanguagesView {
 
   protected readonly rows = computed(() => {
     const remove = this.remove();
+
     return this.lines()?.map((line) => rowOf(line, remove));
   });
   protected readonly Message = LanguagesMessage;

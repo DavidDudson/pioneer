@@ -107,9 +107,11 @@ export interface SpellcastingInPlay
 function bySlug<Item>(items: readonly Item[], slugOf: (item: Item) => Slug): readonly Item[] {
   return items.toSorted((left, right) => {
     const [leftSlug, rightSlug] = [slugOf(left), slugOf(right)];
+
     if (leftSlug === rightSlug) {
       return 0;
     }
+
     return leftSlug < rightSlug ? -1 : 1;
   });
 }
@@ -127,9 +129,11 @@ function add(tally: Tally, rank: CountedRank, value: SlotCount): void {
 
 function slotsOf(tally: Tally): SpellSlots {
   const cantrips = tally.get(SlotRank.Cantrip);
+
   const ranks = [...tally]
     .flatMap(([rank, count]): RankSlots[] => (rank === SlotRank.Cantrip ? [] : [{ rank, count }]))
     .toSorted((left, right) => left.rank - right.rank);
+
   return cantrips === undefined ? { ranks } : { cantrips, ranks };
 }
 
@@ -141,6 +145,7 @@ function highestRank(tally: Tally): SpellRank | undefined {
   const ranks = [...tally.keys()]
     .filter((rank): rank is SpellRank => rank !== SlotRank.Cantrip)
     .filter((rank) => rank < SPELL_RANK_MAX);
+
   return ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks));
 }
 
@@ -157,11 +162,13 @@ interface PoolTally {
 /** The entry's own slots of a fixed rank and its cantrips, counted before `highest` is known. */
 function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
   const own: Tally = new Map();
+
   for (const { element } of placed) {
     if (element.pool === undefined && element.rank !== SlotRank.Highest) {
       add(own, element.rank, element.value);
     }
   }
+
   return own;
 }
 
@@ -179,8 +186,10 @@ function entrySlots(placed: readonly PlacedSlots[], poolSpells: PoolSpells): Ent
   const own = fixedOwnSlots(placed);
   const highest = highestRank(own);
   const pools = new Map<RuleSlug, PoolTally>();
+
   for (const { element, origin } of placed) {
     const rank = element.rank === SlotRank.Highest ? highest : element.rank;
+
     if (rank !== undefined && element.pool !== undefined) {
       const pool = pools.get(element.pool) ?? { origin, tally: new Map() };
       add(pool.tally, rank, element.value);
@@ -189,6 +198,7 @@ function entrySlots(placed: readonly PlacedSlots[], poolSpells: PoolSpells): Ent
       add(own, highest, element.value);
     }
   }
+
   return {
     slots: slotsOf(own),
     pools: bySlug(
@@ -210,16 +220,20 @@ function holds(rule: RuleInPlay, facts: PredicateFacts): boolean {
  */
 function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): void {
   const { element, origin } = rule;
+
   if (!holds(rule, facts)) {
     return;
   }
+
   if (element.key === RuleElementKey.SpellcastingEntry && !gathered.entries.has(element.slug)) {
     const { slug, tradition, attribute, preparation } = element;
     gathered.entries.set(slug, { slug, tradition, attribute, preparation, origin });
   }
+
   if (element.key === RuleElementKey.SpellSlots) {
     gathered.slots.set(element.entry, [...(gathered.slots.get(element.entry) ?? []), { element, origin }]);
   }
+
   gatherSpells(gathered, element);
 }
 
@@ -246,9 +260,11 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     repertoireCounts: new Map(),
     deityRepertoire: new Map(),
   };
+
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
+
   const {
     entries,
     slots,
@@ -261,11 +277,13 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     repertoireCounts,
     deityRepertoire,
   } = gathered;
+
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
       const counted = entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS);
       const focus = entry.preparation === SpellPreparation.Focus ? (focusSpells.get(entry.slug) ?? []) : [];
+
       return Object.assign(counted, entry, {
         deitySpells: deitySpells.has(entry.slug),
         signatures: spontaneous && signatures.has(entry.slug),

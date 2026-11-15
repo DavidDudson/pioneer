@@ -19,6 +19,7 @@ function fetchedCard(
 ): EntryPreview {
   return conditionCard(entry, entryCard(entry, description), (id) => {
     const named = index.get(id);
+
     return named === undefined ? undefined : { id, name: named.name };
   });
 }
@@ -30,40 +31,50 @@ function fetchedCard(
  */
 export function fetchedEntryPreviews(): EntryPreviews {
   const loader = inject(ContentLoader);
+
   const kept: {
     attempt: Promise<ContentRegistry> | undefined;
     index: ReadonlyMap<ContentId, ContentEntry> | undefined;
   } = { attempt: undefined, index: undefined };
+
   const fetchIndex = async (): Promise<ReadonlyMap<ContentId, ContentEntry>> => {
     kept.attempt ??= loader.registry(entryKinds(ContentKind.Condition));
     const { attempt } = kept;
+
     try {
       kept.index = entryIndex(await attempt);
+
       return kept.index;
     } catch (error) {
       // Only its own failure: a retry already under way is not this attempt's to forget.
       if (kept.attempt === attempt) {
         kept.attempt = undefined;
       }
+
       throw error;
     }
   };
+
   return {
     preview: (id): EntryPreview | undefined => {
       const { index } = kept;
       const entry = index?.get(id);
+
       return index === undefined || entry === undefined ? undefined : fetchedCard(entry, undefined, index);
     },
     load: async (id): Promise<EntryPreview | undefined> => {
       const index = await fetchIndex();
       const entry = index.get(id);
+
       if (entry === undefined) {
         return undefined;
       }
+
       return fetchedCard(entry, await loader.description(entry), index);
     },
     target: (id): LinkTarget | undefined => {
       const entry = kept.index?.get(id);
+
       return entry === undefined ? undefined : entryTarget(entry);
     },
   };

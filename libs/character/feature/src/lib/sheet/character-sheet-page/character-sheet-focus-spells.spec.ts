@@ -72,6 +72,7 @@ async function summaryOf(focus: HTMLElement, name: string): Promise<SpellSummary
   const row = [...focus.querySelectorAll('pio-spell-row')].find((each) => textOf(nameOf(each)) === name);
   nameOf(present(row)).dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
   const card = await vi.waitFor(() => present(document.querySelector<HTMLElement>('[role="tooltip"]')));
+
   return {
     fields: [...card.querySelectorAll('fr-description-item')].map((item) =>
       [...item.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
@@ -83,6 +84,7 @@ async function summaryOf(focus: HTMLElement, name: string): Promise<SpellSummary
 /** The play state of a character in its own turn with all three actions. */
 function ownTurn(spendLog: readonly object[] = []): object {
   const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
+
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog } };
 }
 

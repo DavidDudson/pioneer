@@ -63,9 +63,11 @@ export class Step {
   protected readonly state = computed(() => {
     const index = this.index();
     const current = this.#stepper.current();
+
     if (index < 0 || index > current) {
       return StepState.Upcoming;
     }
+
     return index === current ? StepState.Current : StepState.Done;
   });
 
@@ -73,10 +75,12 @@ export class Step {
     let shown = false;
     afterRenderEffect(() => {
       const isCurrent = this.state() === StepState.Current;
+
       // The first render is not a move; only a step the user arrives at takes focus.
       if (isCurrent && shown) {
         this.#host.nativeElement.querySelector<HTMLElement>(`#${this.headingId}`)?.focus();
       }
+
       shown = true;
     });
   }

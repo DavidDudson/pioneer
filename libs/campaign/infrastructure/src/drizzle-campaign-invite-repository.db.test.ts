@@ -28,6 +28,7 @@ const adminUrl = testDatabaseUrl();
 const at = fixedClock('2026-10-10T10:00:00Z').now();
 const ezren = UserId.parse(newId());
 const seelah = UserId.parse(newId());
+
 /** Long enough for a join to reach the invite's row lock while the revoke holds it. */
 const RACE_WINDOW = 200;
 
@@ -51,6 +52,7 @@ async function invite(
   createdBy: UserId = campaign.gmId,
 ): Promise<CampaignInvite> {
   const tokenHash = InviteTokenHash.parse(await sha256Hex(newId()));
+
   return CampaignInvite.issue({
     id: CampaignInviteId.parse(newId()),
     campaignId: campaign.id,
@@ -112,6 +114,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
 
   test('token hashes are unique', async () => {
     const issued = await repository.insert(await invite(vaults));
+
     const twin = CampaignInvite.issue({
       id: CampaignInviteId.parse(newId()),
       campaignId: issued.campaignId,
@@ -119,6 +122,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
       createdBy: issued.createdBy,
       now: at,
     });
+
     const error = await rejection(repository.insert(twin));
     expect(String((error as Error).cause)).toContain('campaign_invites_token_hash_idx');
   });
@@ -161,13 +165,16 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
 
   test('a revoke in flight wins over a join that reaches the invite during it', async () => {
     const racing = await repository.insert(await invite(vaults));
+
     const joining = await database.db.transaction(async (tx) => {
       await tx.execute(sql`update campaign_invites set revoked_at = ${at.toString()} where id = ${racing.id}`);
       // The join reads the invite while the revoke holds its row lock, then sees it committed.
       const pending = campaigns.joinByInvite(racing, player(seelah), at);
       await Bun.sleep(RACE_WINDOW);
+
       return { pending };
     });
+
     expect(await joining.pending).toBeUndefined();
     const found = await campaigns.findById(vaults.id);
     expect(found?.roleOf(seelah)).toBeUndefined();

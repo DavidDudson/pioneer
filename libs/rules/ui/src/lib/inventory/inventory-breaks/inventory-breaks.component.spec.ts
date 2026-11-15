@@ -15,6 +15,7 @@ async function render(reasons: readonly MessageDescriptor[]): Promise<HTMLElemen
   const fixture = TestBed.createComponent(InventoryBreaks);
   fixture.componentRef.setInput('reasons', reasons);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

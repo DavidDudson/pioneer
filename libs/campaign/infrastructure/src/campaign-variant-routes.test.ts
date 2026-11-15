@@ -56,6 +56,7 @@ function app(): Api {
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const catalog = new InMemoryVariantRuleCatalog();
+
   const party = new CampaignPartyService(
     {
       campaigns,
@@ -65,6 +66,7 @@ function app(): Api {
     },
     clock,
   );
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -77,7 +79,9 @@ function app(): Api {
     itemTransfers: itemTransferService(campaigns, clock),
     partyStash: partyStashService(campaigns),
   };
+
   const handler = new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
+
   return { handler, catalog };
 }
 
@@ -109,11 +113,13 @@ async function campaign({ handler, catalog }: Api): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = await json<{ readonly id: string }>(created);
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json<{ readonly token: string }>(issued);
   await handler.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
   catalog.offer(CampaignId.parse(id), [withoutLevel, gritty]);
+
   return id;
 }
 
@@ -121,9 +127,11 @@ describe('variant rule routes', () => {
   test('the GM enables a variant rule; a player sees it', async () => {
     const api = app();
     const id = await campaign(api);
+
     const enabled = await api.handler.handle(
       request('POST', `/campaigns/${id}/variant-rules`, { as: amiri, body: { variantId: withoutLevel.variantId } }),
     );
+
     expect(enabled.status).toBe(200);
     const asGm = await json<VariantRulesJson>(enabled);
     expect(asGm.manageable).toBe(true);
@@ -142,13 +150,17 @@ describe('variant rule routes', () => {
   test('a variant rule no pack in use defines is a 404, a malformed id a 422', async () => {
     const api = app();
     const id = await campaign(api);
+
     const unknown = await api.handler.handle(
       request('POST', `/campaigns/${id}/variant-rules`, { as: amiri, body: { variantId: newId() } }),
     );
+
     expect(unknown.status).toBe(404);
+
     const malformed = await api.handler.handle(
       request('POST', `/campaigns/${id}/variant-rules`, { as: amiri, body: { variantId: 'nope' } }),
     );
+
     expect(malformed.status).toBe(422);
     const disable = await api.handler.handle(request('DELETE', `/campaigns/${id}/variant-rules/nope`, { as: amiri }));
     expect(disable.status).toBe(422);
@@ -160,13 +172,17 @@ describe('variant rule routes', () => {
     const body = { variantId: gritty.variantId };
     const byPlayer = await api.handler.handle(request('POST', `/campaigns/${id}/variant-rules`, { as: ezren, body }));
     expect(byPlayer.status).toBe(403);
+
     const disabledByPlayer = await api.handler.handle(
       request('DELETE', `/campaigns/${id}/variant-rules/${gritty.variantId}`, { as: ezren }),
     );
+
     expect(disabledByPlayer.status).toBe(403);
+
     const byStranger = await api.handler.handle(
       request('POST', `/campaigns/${id}/variant-rules`, { as: stranger, body }),
     );
+
     expect(byStranger.status).toBe(404);
     const unseen = await api.handler.handle(request('GET', `/campaigns/${id}/variant-rules`, { as: stranger }));
     expect(unseen.status).toBe(404);
@@ -178,9 +194,11 @@ describe('variant rule routes', () => {
     await api.handler.handle(
       request('POST', `/campaigns/${id}/variant-rules`, { as: amiri, body: { variantId: gritty.variantId } }),
     );
+
     const disabled = await api.handler.handle(
       request('DELETE', `/campaigns/${id}/variant-rules/${gritty.variantId}`, { as: amiri }),
     );
+
     expect(disabled.status).toBe(200);
     const remaining = await json<VariantRulesJson>(disabled);
     expect(remaining.enabled).toStrictEqual([]);

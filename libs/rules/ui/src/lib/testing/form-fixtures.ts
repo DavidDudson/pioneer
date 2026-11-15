@@ -14,6 +14,7 @@ const AC_BASE = 10;
 /** A form's replacement of a statistic: its value, the character's own beside it, and the sentence that says so. */
 export function formReplacement(source: FormSource): FormReplacement {
   const key = source === FormSource.Form ? EngineMessage.FormReplaces : EngineMessage.FormOwnHigher;
+
   return {
     source,
     rule: ruleId(GOLEM_FORM),

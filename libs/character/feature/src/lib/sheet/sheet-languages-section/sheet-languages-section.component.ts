@@ -40,6 +40,7 @@ export class SheetLanguagesSection {
   /** Undefined while the character loads. */
   protected readonly languages = computed((): SheetLanguages | undefined => {
     const read = this.#store.languages();
+
     return read === undefined ? undefined : sheetLanguages(read);
   });
 
@@ -47,6 +48,7 @@ export class SheetLanguagesSection {
   protected readonly rows = computed((): readonly LanguagePickerRow[] => {
     const registry = this.#sheet.registry.data();
     const languages = this.languages();
+
     return registry === undefined || languages === undefined
       ? []
       : languageRows(registry, languages.options, { known: new Set(languages.lines.map((line) => line.key)) });
@@ -56,6 +58,7 @@ export class SheetLanguagesSection {
 
   protected readonly add: AddLanguage = async (selection) => {
     const slot = this.languages()?.next;
+
     if (slot !== undefined) {
       await this.#store.selectSlot(slot, ChoiceValue.parse(selection));
     }

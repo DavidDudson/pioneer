@@ -14,6 +14,7 @@ function fitsNumeric(value: string, precision: number, scale: number): boolean {
   const [whole = '', fraction = '', ...rest] = value.replace(/^-/u, '').split('.');
   const wellFormed = rest.length === 0 && DIGITS.test(whole) && (fraction === '' || DIGITS.test(fraction));
   const significant = whole.replace(/^0+(?=\d)/u, '');
+
   return wellFormed && !value.endsWith('.') && fraction.length <= scale && significant.length <= precision - scale;
 }
 

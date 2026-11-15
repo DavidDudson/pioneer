@@ -9,6 +9,7 @@ const meta: Meta<CountMeter> = {
   component: CountMeter,
   args: { value: 2, max: 4, label: 'Slots used' },
 };
+
 export default meta;
 
 /** Two of four. */

@@ -23,6 +23,7 @@ export const RollOption = z
   .max(ROLL_OPTION_LENGTH_MAX)
   .refine((value) => isRollOption(value), issueParams(message(RulesMessage.RollOptionFormat)))
   .brand<'RollOption'>();
+
 export type RollOption = z.infer<typeof RollOption>;
 
 /**
@@ -34,4 +35,5 @@ export const RollOptionTail = z
   .max(ROLL_OPTION_LENGTH_MAX)
   .refine((value) => WORDS.test(value), issueParams(message(RulesMessage.RollOptionFormat)))
   .brand<'RollOptionTail'>();
+
 export type RollOptionTail = z.infer<typeof RollOptionTail>;

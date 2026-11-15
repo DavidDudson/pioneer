@@ -23,6 +23,7 @@ const PLAYER_CORE = {
 
 function issuesFrom(schema: z.ZodType, json: unknown): readonly FieldIssue[] {
   const result = schema.safeParse(json);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -98,6 +99,7 @@ describe('variant rules in packs', () => {
     const paths = issuesFrom(ContentPackSchema, pack({ variantRules: [{ ...variant, sources: [] }] })).map(
       ({ path }) => path,
     );
+
     expect(paths).toStrictEqual([['variantRules', 0, 'sources']]);
   });
 
@@ -109,22 +111,28 @@ describe('variant rules in packs', () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withId('first').build());
     expect(registry.proficiencyBonus()).toBeUndefined();
+
     const withVariant = ContentPack.define(
       ContentPackSchema.parse(pack({ proficiencyBonus: PLAYER_CORE, variantRules: [variant] })),
     );
+
     registry.register(withVariant);
     expect(registry.proficiencyBonus()).toStrictEqual(withVariant.proficiencyBonus);
     // A pack without a table leaves the one in force; a later one with a table restates it.
     registry.register(new ContentPackBuilder().withId('no-table').build());
     expect(registry.proficiencyBonus()).toStrictEqual(withVariant.proficiencyBonus);
+
     const homebrew = ContentPack.define(
       ContentPackSchema.parse(pack({ proficiencyBonus: { ...PLAYER_CORE, untrained: '1' } }, 'homebrew')),
     );
+
     registry.register(homebrew);
     expect(registry.proficiencyBonus()).toStrictEqual(homebrew.proficiencyBonus);
+
     const id = VariantRuleId.parse(
       contentId(PackId.parse('variant-test'), EntrySlug.parse('variant-rule:without-level')),
     );
+
     expect(registry.variantRule(id)?.definition.name).toBe(withVariant.variantRules[0]?.name);
     expect(registry.variantRules().map((entry) => ContentId.parse(entry.id))).toStrictEqual([ContentId.parse(id)]);
   });

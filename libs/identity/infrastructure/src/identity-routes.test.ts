@@ -37,6 +37,7 @@ class FakeProvider extends OAuthProviderPort {
     if (code !== GOOD_CODE || codeVerifier !== this.#issued.codeVerifier) {
       throw new Error('bad_verification_code');
     }
+
     return new ProfileBuilder().named('Amiri').build();
   }
 }
@@ -44,12 +45,14 @@ class FakeProvider extends OAuthProviderPort {
 function app(clock: Clock = fixedClock('2026-10-09T08:00:00Z')): AnyElysia {
   const users = new InMemoryUserRepository();
   const service = new IdentityService(users, new InMemorySessionRepository(users), clock);
+
   return new Elysia().use(problemHandler).use(identityRoutes(service, [new FakeProvider()], { secure: true }));
 }
 
 /** `name=value` pairs from Set-Cookie headers, for the next request's Cookie header. */
 function cookiesFrom(response: Response): Map<string, string> {
   const pairs = response.headers.getSetCookie().map((header) => header.split(';')[0] ?? '');
+
   return new Map(pairs.map((pair) => [pair.slice(0, pair.indexOf('=')), pair.slice(pair.indexOf('=') + 1)]));
 }
 
@@ -61,21 +64,25 @@ function cookieHeader(cookies: ReadonlyMap<string, string>): string {
 function sessionFrom(response: Response): string {
   const session = cookiesFrom(response).get('pioneer_session');
   expect(session).toBeDefined();
+
   return session ?? '';
 }
 
 async function login(api: AnyElysia, returnTo = '/'): Promise<Response> {
   const query = new URLSearchParams({ returnTo }).toString();
+
   return api.handle(new Request(`http://localhost/auth/github/login?${query}`));
 }
 
 async function returnFromProvider(api: AnyElysia, started: Response, query: string): Promise<Response> {
   const cookie = cookieHeader(cookiesFrom(started));
+
   return api.handle(new Request(`http://localhost/auth/github/callback?${query}`, { headers: { cookie } }));
 }
 
 async function signIn(api: AnyElysia, returnTo: string): Promise<Response> {
   const started = await login(api, returnTo);
+
   return returnFromProvider(api, started, `code=${GOOD_CODE}&state=s1`);
 }
 
@@ -93,7 +100,9 @@ async function sessionsOf(api: AnyElysia, session: string): Promise<ListedSessio
   const response = await api.handle(
     new Request('http://localhost/me/sessions', { headers: { cookie: `pioneer_session=${session}` } }),
   );
+
   expect(response.status).toBe(200);
+
   return (await response.json()) as ListedSession[];
 }
 
@@ -131,6 +140,7 @@ describe('identity routes', () => {
     const me = await api.handle(
       new Request('http://localhost/me', { headers: { cookie: `pioneer_session=${session}` } }),
     );
+
     expect(me.status).toBe(200);
     const user = (await me.json()) as { displayName: string };
     expect(user.displayName).toBe('Amiri');
@@ -158,6 +168,7 @@ describe('identity routes', () => {
     const response = await app().handle(
       new Request(`http://localhost/auth/github/callback?code=${GOOD_CODE}&state=s1`),
     );
+
     expect(response.headers.get('location')).toBe('/account/sign-in-failed');
   });
 
@@ -242,12 +253,14 @@ describe('identity routes', () => {
     const api = app();
     const laptop = sessionFrom(await signIn(api, '/'));
     const phone = sessionFrom(await signIn(api, '/'));
+
     const response = await api.handle(
       new Request('http://localhost/auth/sign-out-everywhere', {
         method: 'POST',
         headers: { cookie: `pioneer_session=${laptop}` },
       }),
     );
+
     expect(response.status).toBe(200);
     expect(response.headers.get('set-cookie')).toContain('Max-Age=0');
     const after = await Promise.all([meAs(api, laptop), meAs(api, phone)]);

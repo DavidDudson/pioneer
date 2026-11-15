@@ -10,10 +10,13 @@ const TRAIT_FILES = 'content/packs/core-rules/**/trait.json';
 describe('committed trait entries', () => {
   test('each carries the id traitId gives its slug, so a chip can open its card', async () => {
     const files = await Array.fromAsync(new Glob(TRAIT_FILES).scan({ cwd: ROOT }));
+
     const parsed = await Promise.all(
       files.map(async (file) => ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json())),
     );
+
     const traits = parsed.flat().filter((entry) => entry.kind === ContentKind.Trait);
+
     const mismatched = traits
       .filter((entry) => traitId(Trait.parse(slugName(entry.slug))) !== entry.id)
       .map((entry) => entry.slug);

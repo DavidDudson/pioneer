@@ -24,6 +24,7 @@ export class SheetFormLimits {
   readonly #limits = computed((): FormLimits | undefined => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
+
     return registry === undefined || character === undefined
       ? undefined
       : formLimits(character.document, itemContent(registry), sheetSlotContent(registry));

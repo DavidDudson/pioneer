@@ -24,6 +24,7 @@ async function render(checks: readonly CriticalHitCheckLine[]): Promise<Rendered
   });
   fixture.componentRef.setInput('checks', checks);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, rolls };
 }
 
@@ -43,6 +44,7 @@ describe(CriticalHitChecks, () => {
       ...FORTIFIED_DEFENCES.criticalHitChecks,
       criticalHitCheck(FORTIFIED_ARMOR, GREATER_DC),
     ]);
+
     expect(buttons(host).map((button) => button.getAttribute('aria-label'))).toStrictEqual([
       'Roll the DC 17 flat check',
       'Roll the DC 14 flat check',
@@ -54,6 +56,7 @@ describe(CriticalHitChecks, () => {
       ...FORTIFIED_DEFENCES.criticalHitChecks,
       criticalHitCheck(FORTIFIED_ARMOR, GREATER_DC),
     ]);
+
     buttons(host)[1]?.click();
     expect(rolls).toStrictEqual([{ dc: GREATER_DC }]);
   });

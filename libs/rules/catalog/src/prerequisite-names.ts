@@ -29,6 +29,7 @@ const MUSE_SUFFIX = ' muse';
 
 /** The statistics a rank prerequisite names: skills, Lores and Perception. */
 const RANKED_SELECTOR = /^(?:skill:|perception$)/u;
+
 /** A name with a class in brackets: "incredible companion (druid)". */
 const VARIANT_NAME = /^(?<base>.+) \([^()]+\)$/u;
 
@@ -57,6 +58,7 @@ export function normalise(words: string): string {
 /** Adds `named` under `name`, once. */
 function addNamed(names: Map<string, NamedEntry[]>, name: string, named: NamedEntry): void {
   const known = names.get(name) ?? [];
+
   if (!known.some(({ option }) => option === named.option)) {
     names.set(name, [...known, named]);
   }
@@ -78,6 +80,7 @@ function isMuse(entry: ContentEntry): boolean {
 function namedEntry(entry: ContentEntry): NamedEntry | undefined {
   const named = entry.kind === ContentKind.ClassFeature ? isDedicationOption(entry) : NAMED_KINDS.includes(entry.kind);
   const option = named ? kindOption(entry.kind, slugName(entry.slug)) : undefined;
+
   return option === undefined ? undefined : { kind: entry.kind, option };
 }
 
@@ -99,6 +102,7 @@ interface NameIndex {
 function addNamedKind(names: Map<string, NamedEntry[]>, entry: ContentEntry, named: NamedEntry): void {
   const name = normalise(entry.name);
   addNamed(names, name, named);
+
   if (isMuse(entry)) {
     addNamed(names, `${name}${MUSE_SUFFIX}`, named);
   }
@@ -108,15 +112,20 @@ function addNamedKind(names: Map<string, NamedEntry[]>, entry: ContentEntry, nam
 function index(names: NameIndex, entry: ContentEntry): void {
   const name = normalise(entry.name);
   const selector = rankedSelector(entry);
+
   if (selector !== undefined) {
     names.statistics.set(name, selector);
   }
+
   const named = namedEntry(entry);
+
   if (named === undefined) {
     return;
   }
+
   addNamedKind(names.entries, entry, named);
   const base = VARIANT_NAME.exec(name)?.groups?.['base'];
+
   if (base !== undefined) {
     addNamed(names.variants, base, named);
   }
@@ -125,8 +134,10 @@ function index(names: NameIndex, entry: ContentEntry): void {
 /** What a prerequisite can name among `entries`, built once for a whole pass. */
 export function prerequisiteNames(entries: readonly ContentEntry[]): PrerequisiteNames {
   const names: NameIndex = { entries: new Map(), variants: new Map(), statistics: new Map() };
+
   for (const entry of entries) {
     index(names, entry);
   }
+
   return names;
 }

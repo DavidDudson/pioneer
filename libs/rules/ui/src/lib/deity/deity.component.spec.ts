@@ -16,6 +16,7 @@ async function render(deity: DeityLine | undefined, loading = false): Promise<Co
   fixture.componentRef.setInput('deity', deity);
   fixture.componentRef.setInput('loading', loading);
   await fixture.whenStable();
+
   return fixture;
 }
 

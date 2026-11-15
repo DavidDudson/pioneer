@@ -47,6 +47,7 @@ const meta: Meta<Shell> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Default: ShellStory = {};
@@ -61,6 +62,7 @@ export const WithPanel: ShellStory = { args: { panelAvailable: true, panelLabel:
 /** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */
 function fitsText(skipLink: HTMLElement): boolean {
   const box = skipLink.closest('span')?.getBoundingClientRect().width ?? 0;
+
   return box >= skipLink.getBoundingClientRect().width;
 }
 

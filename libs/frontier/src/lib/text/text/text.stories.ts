@@ -36,6 +36,7 @@ const meta: Meta<TextStoryArgs> = {
     template: `<fr-text ${argsToTemplate(args)}>{{ content }}</fr-text>`,
   }),
 };
+
 export default meta;
 
 export const Body: TextStory = {};

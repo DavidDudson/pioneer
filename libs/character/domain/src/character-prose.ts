@@ -9,6 +9,7 @@ export const CHARACTER_PROSE_MAX_LENGTH = 4000;
 
 /** What the player types into a prose field: plain text, blank lines between paragraphs. Empty clears the field. */
 export const CharacterProseInput = z.string().trim().max(CHARACTER_PROSE_MAX_LENGTH).brand<'CharacterProse'>();
+
 export type CharacterProseInput = z.infer<typeof CharacterProseInput>;
 
 /** `document` with the prose field `patch` names written. */

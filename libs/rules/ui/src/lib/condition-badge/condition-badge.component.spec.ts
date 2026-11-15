@@ -12,6 +12,7 @@ async function render(conditions: readonly string[]): Promise<HTMLElement> {
   const fixture: ComponentFixture<ConditionBadge> = TestBed.createComponent(ConditionBadge);
   fixture.componentRef.setInput('conditions', conditions);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

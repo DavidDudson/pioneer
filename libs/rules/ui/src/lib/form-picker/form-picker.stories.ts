@@ -31,6 +31,7 @@ const meta: Meta<FormPicker> = {
     confirm: async () => undefined,
   },
 };
+
 export default meta;
 
 /** Nothing picked yet: the forms are listed, and the spell cannot be cast. */

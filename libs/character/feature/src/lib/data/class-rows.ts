@@ -38,7 +38,9 @@ function statisticNames(registry: ContentRegistry): ReadonlyMap<Selector, string
     new Map(
       registry.packs.flatMap((pack) => pack.statistics.map((each): [Selector, string] => [each.selector, each.name])),
     );
+
   STATISTIC_NAMES.set(registry, read);
+
   return read;
 }
 
@@ -55,14 +57,18 @@ export function classRows(
     character === undefined
       ? undefined
       : new Set(rootSlotOptions(character.document, sheetSlotContent(registry), slot).map((option) => option.value));
+
   const skills = new Map(skillContent(registry).skills.map((skill) => [skill.selector, skill.name]));
   const statistics = statisticNames(registry);
   const options = classPickerContent(registry).classes.filter((each) => offered?.has(each.id) ?? true);
+
   const trainedAgain =
     character === undefined ? undefined : sheetTrainedAgain(registry, character, slot)(options.map((each) => each.id));
+
   return options.map(
     ({ id, name, keyAttribute, hitPoints, trained, additionalSkills, traditions, proficiencies, sources }) => {
       const again = trainedAgain?.get(id);
+
       return {
         id,
         name,
@@ -96,9 +102,11 @@ export function subclassRows(
 ): readonly SubclassPickerRow[] {
   const { features } = classPickerContent(registry);
   const trainedAgain = sheetTrainedAgain(registry, character, subclass.key)(subclass.options.map((each) => each.value));
+
   return subclass.options.map(({ value, label }): SubclassPickerRow => {
     const feature = features.get(ContentId.parse(value));
     const again = trainedAgain.get(value);
+
     return {
       id: value,
       name: label,
@@ -118,6 +126,7 @@ export function keyAttributeRows(
 ): readonly KeyAttributePickerRow[] {
   return keyAttribute.options.map((attribute: Attribute): KeyAttributePickerRow => {
     const modifier = modifiers.get(attribute);
+
     return {
       id: attribute,
       name: translate(ATTRIBUTE_MESSAGES[attribute]),

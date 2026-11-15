@@ -14,6 +14,7 @@ const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: '
 
 function language(name: string, label: string): object {
   const slug = `language:${name}`;
+
   return {
     id: contentId(PACK, EntrySlug.parse(slug)),
     pack: PACK,
@@ -31,6 +32,7 @@ function language(name: string, label: string): object {
 
 function homebrew(name: string): readonly PackContentsLoader[] {
   const contents: PackContents = packContentsFromFiles(packFile, [[language('common', name)]]);
+
   return [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 }
 
@@ -44,14 +46,17 @@ function visit(store: BundleStore, packs: readonly PackContentsLoader[] = homebr
   TestBed.resetTestingModule();
   const delivery = new TestContentDelivery(packs);
   TestBed.configureTestingModule({ providers: provideContentTesting(delivery, store) });
+
   return { cache: TestBed.inject(ContentBundleCache), delivery };
 }
 
 function languageNames(manifest: ContentManifest): BundleFile {
   const names = manifest.packs[0]?.kinds.find((kind) => kind.kind === 'language')?.names;
+
   if (names === undefined) {
     throw new Error('Expected a language names bundle');
   }
+
   return names;
 }
 
@@ -80,6 +85,7 @@ interface SlowStore {
 function slowWrites(): SlowStore {
   const memory = new MemoryBundleStore();
   const gate = Promise.withResolvers<undefined>();
+
   return {
     store: {
       read: memory.read,

@@ -20,6 +20,7 @@ export const DraftField = {
   Class: 'class',
   Subclass: 'subclass',
 } as const;
+
 export type DraftField = (typeof DraftField)[keyof typeof DraftField];
 
 /** What the origin steps of the creation stepper have collected so far; '' for a part not chosen yet. */
@@ -27,6 +28,7 @@ export type CreationDraft = Readonly<Record<DraftField, string>>;
 
 /** The name a draft character carries until its player has typed one: it is never saved. */
 const UNNAMED = CharacterName.parse('Unnamed');
+
 /** A draft is read, never stored, so its character takes any id and owner. */
 const DRAFT_ID = CharacterId.parse('00000000-0000-4000-8000-000000000000');
 const DRAFT_OWNER = UserId.parse('00000000-0000-4000-8000-000000000001');
@@ -58,8 +60,10 @@ export function draftPicks(
     [CLASS_SLOT, draft.class],
     [subclassSlot, draft.subclass],
   ];
+
   return wanted.flatMap(([slot, value]) => {
     const choice = ChoiceValue.safeParse(value);
+
     return slot === undefined || value === '' || !choice.success ? [] : [[slot, choice.data] as const];
   });
 }
@@ -70,11 +74,14 @@ export function draftPicks(
  */
 export function draftCharacter(draft: CreationDraft, now: Temporal.Instant): Character | undefined {
   const ancestry = AncestryId.safeParse(draft.ancestry);
+
   if (!ancestry.success) {
     return undefined;
   }
+
   const name = CharacterName.safeParse(draft.name);
   const choices = Object.fromEntries(draftPicks(draft, undefined));
+
   return Character.create({
     id: DRAFT_ID,
     ownerId: DRAFT_OWNER,

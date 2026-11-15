@@ -15,6 +15,7 @@ export const TargetCategory = {
   Energy: 'energy',
   Other: 'other',
 } as const;
+
 export type TargetCategory = (typeof TargetCategory)[keyof typeof TargetCategory];
 
 /** One damage type or group to pick, named, with the types a group covers. */
@@ -44,6 +45,7 @@ export function categoryOf(type: DamageType): TargetCategory {
   if (DAMAGE_GROUP_TYPES[DamageGroup.Physical].includes(type)) {
     return TargetCategory.Physical;
   }
+
   return DAMAGE_GROUP_TYPES[DamageGroup.Energy].includes(type) ? TargetCategory.Energy : TargetCategory.Other;
 }
 
@@ -63,6 +65,7 @@ function orderBy(left: DamageTargetRow, right: DamageTargetRow, column: string):
   if (column === 'category') {
     return left.category.localeCompare(right.category);
   }
+
   return column === 'includes' ? left.includes.length - right.includes.length : 0;
 }
 
@@ -74,10 +77,13 @@ export function shownTargets(
 ): readonly DamageTargetRow[] {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.label.toLocaleLowerCase().includes(needle));
+
   if (sort === undefined) {
     return matching;
   }
+
   const direction = sort.descending ? -1 : 1;
+
   return matching.toSorted(
     (left, right) => direction * (orderBy(left, right, sort.column) || left.label.localeCompare(right.label)),
   );

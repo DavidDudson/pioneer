@@ -30,8 +30,10 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
 
   public override async holding(_actor: UserId, ids: readonly ContentId[]): Promise<readonly EmbeddedPack[]> {
     const wanted = new Set(ids);
+
     return [...this.#packs.values()].flatMap(({ pack, entries }) => {
       const held = [...entries.values()].filter((entry) => wanted.has(entry.id));
+
       return held.length === 0 ? [] : [{ pack, entries: held }];
     });
   }
@@ -40,6 +42,7 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
     return new Map(
       packs.flatMap((id): [PackId, ExistingPack][] => {
         const stored = this.#packs.get(id);
+
         return stored === undefined
           ? []
           : [[id, { ownedByImporter: stored.ownerId === actor, entries: stored.entries }]];
@@ -50,10 +53,12 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
   public override async apply(actor: UserId, plans: readonly HomebrewPackPlan[]): Promise<void> {
     for (const { embedded, toCreate } of plans) {
       const stored = this.#packs.get(embedded.pack.id) ?? { pack: embedded.pack, ownerId: actor, entries: new Map() };
+
       if (stored.ownerId === actor) {
         for (const entry of toCreate) {
           stored.entries.set(entry.slug, entry);
         }
+
         this.#packs.set(embedded.pack.id, stored);
       }
     }

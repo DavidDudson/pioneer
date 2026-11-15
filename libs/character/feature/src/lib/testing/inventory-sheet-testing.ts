@@ -52,6 +52,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -85,6 +86,7 @@ async function answerServerState(character: object, { approvals, limits = true }
     packs: NO_CHARACTER_PACKS,
     variantRules: NO_VARIANT_RULES,
   });
+
   if (limits) {
     await answerItemApprovalsRead(approvals);
   }
@@ -103,14 +105,17 @@ async function openSheet(url: string, character: object, reads: SheetReads = {})
   const harness = await RouterTestingHarness.create(url);
   opened = harness;
   const host: unknown = harness.fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The sheet did not render');
   }
+
   document.body.append(host);
   onTestFinished(() => {
     host.remove();
   });
   await answerServerState(character, reads);
+
   return present(harness.routeNativeElement);
 }
 
@@ -126,6 +131,7 @@ export async function openInventory(
     await settle();
     expect(section.querySelectorAll('pio-inventory-row')).toHaveLength(rows);
   });
+
   return section;
 }
 
@@ -166,10 +172,12 @@ export async function typeInto(target: HTMLElement, text: string): Promise<void>
 async function openPicker(target: HTMLElement): Promise<Picker<string, object>> {
   present(target.querySelector<HTMLElement>('button')).click();
   await settle();
+
   return vi.waitFor(() => {
     const found = present(opened)
       .fixture.debugElement.queryAll(By.directive(Picker))
       .find((each) => each.nativeElement instanceof Node && target.contains(each.nativeElement));
+
     return present(found).injector.get<Picker<string, object>>(Picker);
   });
 }
@@ -177,9 +185,11 @@ async function openPicker(target: HTMLElement): Promise<Picker<string, object>> 
 /** Opens the inline picker in `target` and names the rows it offers, in order. */
 export async function rowLabels(target: HTMLElement): Promise<readonly string[]> {
   const picker = await openPicker(target);
+
   return vi.waitFor(() => {
     const labels = picker.rows().map((each) => picker.rowLabel()(each));
     expect(labels.length).toBeGreaterThan(0);
+
     return labels;
   });
 }
@@ -210,5 +220,6 @@ export async function openShop(query = ''): Promise<HTMLElement> {
     await settle();
     expect(shop.querySelectorAll('pio-shop-offers fr-toggle-button').length).toBeGreaterThan(0);
   });
+
   return shop;
 }

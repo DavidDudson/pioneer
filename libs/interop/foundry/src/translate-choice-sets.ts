@@ -58,11 +58,14 @@ function withChosenEntry(choice: object, references: EntryReferences): object {
   if (!('value' in choice) || typeof choice.value !== 'string') {
     return choice;
   }
+
   const name = COMPENDIUM_UUID.exec(choice.value)?.groups?.['name'];
   const id = resolveUuid(references, choice.value);
+
   if (name === undefined || id === undefined || DOCUMENT_ID.test(name)) {
     return choice;
   }
+
   return {
     ...choice,
     value: id,
@@ -86,15 +89,19 @@ function withItemLevel(node: unknown): unknown {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
   }
+
   if (node === GRANTER_LEVEL) {
     return GRANTER_LEVEL_OPTION;
   }
+
   if (Array.isArray(node)) {
     return node.map((each: unknown) => withItemLevel(each));
   }
+
   if (typeof node === 'object' && node !== null) {
     return Object.fromEntries(Object.entries(node).map(([field, value]) => [field, withItemLevel(value)]));
   }
+
   return node;
 }
 
@@ -103,10 +110,13 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
   if (typeof choice !== 'object' || choice === null || !('value' in choice)) {
     return choice;
   }
+
   const kept = Object.entries(choice)
     .filter(([field]) => !CHOICE_DISPLAY_ONLY_FIELDS.has(field))
     .map(([field, value]): [string, unknown] => [field, field === 'predicate' ? withItemLevel(value) : value]);
+
   const fields: Record<string, unknown> = Object.fromEntries(kept);
+
   return withNamespacedOptions(withChosenEntry({ ...fields, value: asText(choice.value) }, references));
 }
 
@@ -136,17 +146,23 @@ const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
 function queryOf(choices: object): unknown {
   const fields = Object.keys(choices);
   const isQuery = fields.every((field) => FOUNDRY_QUERY_FIELDS.has(field)) && 'itemType' in choices;
+
   if (!isQuery || typeof choices.itemType !== 'string' || !('filter' in choices) || !Array.isArray(choices.filter)) {
     return choices;
   }
+
   const kind = QUERY_KINDS.get(choices.itemType);
+
   if (kind === undefined) {
     return choices;
   }
+
   const filter = choices.filter.map((statement: unknown) => withItemLevel(namespacedStatement(statement)));
+
   // Foundry files class features under the `feat` item type: a query on class feature tags alone is of those.
   const byTagAlone =
     filter.length > 0 && filter.every((statement) => typeof statement === 'string' && TAG_STATEMENT.test(statement));
+
   return {
     kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind,
     filter,
@@ -157,22 +173,29 @@ function choicesOf(choices: unknown, references: EntryReferences): unknown {
   if (Array.isArray(choices)) {
     return choices.map((choice) => choiceOf(choice, references));
   }
+
   if (typeof choices !== 'object' || choices === null) {
     return choices;
   }
+
   const fields = Object.keys(choices);
+
   const isSkills =
     'config' in choices &&
     choices.config === 'skills' &&
     fields.every((field) => field === 'config' || field === 'predicate');
+
   if (isSkills && 'predicate' in choices) {
     return skillChoicesWhere(choices.predicate).map((choice) => choiceOf(choice, references));
   }
+
   const configured =
     'config' in choices && typeof choices.config === 'string' && fields.length === 1
       ? CONFIG_CHOICES.get(choices.config)
       : undefined;
+
   const owned = ownedQueryOf(choices, (statement) => withItemLevel(namespacedStatement(statement)));
+
   return configured ?? (owned === choices ? queryOf(choices) : owned);
 }
 
@@ -184,16 +207,21 @@ export function withChoiceSet(raw: unknown, item: string, references: EntryRefer
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.ChoiceSet) {
     return raw;
   }
+
   const kept = Object.entries(raw).filter(([field]) => !DISPLAY_ONLY_FIELDS.has(field));
+
   const shaped = Object.fromEntries(
     kept.flatMap(([field, value]) => {
       if (field === NO_SELECTION_FIELD) {
         return value === true ? [['optional', true]] : [];
       }
+
       return [[field, field === 'choices' ? choicesOf(value, references) : value]];
     }),
   );
+
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
+
   return { ...shaped, flag };
 }
 
@@ -239,13 +267,17 @@ export function withTagQuery(raw: unknown): unknown {
   ) {
     return raw;
   }
+
   const choices = FoundryTagChoices.safeParse(raw.choices);
+
   if (!choices.success) {
     return raw;
   }
+
   const kept = Object.entries(raw).filter(([field]) => !TAG_QUERY_FIELDS_REPLACED.has(field));
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? { flag: kebab(raw.flag) } : {};
   const query = { kind: ContentKind.ClassFeature, filter: choices.data.filter };
+
   return { ...Object.fromEntries(kept), ...flag, choices: query };
 }
 
@@ -258,12 +290,14 @@ export function isUnread(element: RuleElement, plain: unknown, reads: (flag: str
   if (element.key !== RuleElementKey.ChoiceSet || element.rollOption !== undefined) {
     return false;
   }
+
   return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
 }
 
 /** The flag a raw `ChoiceSet` stores its pick under, as Foundry writes it; none for any other element or a flag it lacks. */
 export function foundryFlagOf(raw: unknown): string | undefined {
   const isChoiceSet = typeof raw === 'object' && raw !== null && 'key' in raw && raw.key === RuleElementKey.ChoiceSet;
+
   return isChoiceSet && 'flag' in raw && typeof raw.flag === 'string' ? raw.flag : undefined;
 }
 
@@ -275,4 +309,5 @@ export function readsPick(raw: unknown, flag: string): boolean {
 }
 
 export { withChoiceObjects } from './translate-choice-objects';
+
 export { withChoiceValues } from './translate-choice-values';

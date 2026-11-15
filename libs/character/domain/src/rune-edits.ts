@@ -9,6 +9,7 @@ import type { EtchedRune, ItemRunes, RuneChoice, RuneEtching, RuneRef } from './
 
 function withRunes(item: InventoryItem, runes: ItemRunes): InventoryItem {
   const { runes: _old, ...rest } = item;
+
   return hasRunes(runes) ? { ...rest, runes } : rest;
 }
 
@@ -33,10 +34,12 @@ function etchedOf({
 function plusRune(runes: ItemRunes, etching: RuneEtching): ItemRunes {
   if (etching.type === RuneType.Property) {
     const etched = etchedOf(etching);
+
     return runes.property.some((each) => sameEtchedRune(each, etched))
       ? runes
       : { ...runes, property: [...runes.property, etched] };
   }
+
   return { ...runes, [etching.rune]: etching.grade };
 }
 
@@ -44,7 +47,9 @@ function lessRune(runes: ItemRunes, rune: RuneRef): ItemRunes {
   if (rune.type === RuneType.Property) {
     return { ...runes, property: runes.property.filter((each) => !sameEtchedRune(each, etchedOf(rune))) };
   }
+
   const { [rune.rune]: _old, ...rest } = runes;
+
   return rest;
 }
 
@@ -53,11 +58,15 @@ export function etchingOf(runes: ItemRunes, rune: RuneRef): RuneEtching | undefi
   if (rune.type === RuneType.Property) {
     return runes.property.some((each) => sameEtchedRune(each, etchedOf(rune))) ? rune : undefined;
   }
+
   if (rune.rune === FundamentalRune.Reinforcing) {
     const { reinforcing } = runes;
+
     return reinforcing === undefined ? undefined : { type: rune.type, rune: rune.rune, grade: reinforcing };
   }
+
   const grade = runes[rune.rune];
+
   return grade === undefined ? undefined : { type: rune.type, rune: rune.rune, grade };
 }
 
@@ -84,11 +93,13 @@ export interface RuneTransfer {
 /** The rune moved off `from` onto `to`, at its grade when it is fundamental; unchanged when `from` hasn't it etched. */
 export function transferRune(inventory: Inventory, { from, to, rune }: RuneTransfer): Inventory {
   const etching = etchingOf(inventory.items.find((each) => each.id === from)?.runes ?? NO_RUNES, rune);
+
   return etching === undefined ? inventory : etchRune(eraseRune(inventory, from, rune), to, etching);
 }
 
 /** What a rune edit does. */
 export const RuneAction = { Etch: 'etch', Erase: 'erase', Transfer: 'transfer' } as const;
+
 export type RuneAction = ValueOf<typeof RuneAction>;
 
 /** A rune edit, as the refusal reads it: the item it changes, the rune, and for a transfer the item it moves onto. */

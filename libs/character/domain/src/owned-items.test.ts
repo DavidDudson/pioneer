@@ -10,6 +10,7 @@ import { itemSlugs, ownedItems } from './owned-items';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const one = ItemQuantity.parse(1);
 
@@ -20,9 +21,11 @@ function idAt(index: number): InventoryItemId {
 /** An inventory of `items`, the nth with id `idAt(n)`, the first held in one hand. */
 function carrying(...items: readonly ItemFixture[]): Inventory {
   let stock = EMPTY_INVENTORY;
+
   for (const [index, name] of items.entries()) {
     stock = addItem(stock, { id: idAt(index), item: itemFixtureId(name), quantity: one, container: undefined });
   }
+
   return carryItem(stock, idAt(0), { state: CarryState.Held, hands: ONE_HAND });
 }
 
@@ -37,6 +40,7 @@ describe('owned items', () => {
     const stock = carryItem(carrying(ItemFixture.Longsword, ItemFixture.Longsword), idAt(0), {
       state: CarryState.Stowed,
     });
+
     const held = carryItem(stock, idAt(1), { state: CarryState.Held, hands: ONE_HAND });
     const [sword] = equippedInputs(held, content).weapons;
 

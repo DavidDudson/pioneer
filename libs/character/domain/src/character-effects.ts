@@ -25,10 +25,13 @@ export function characterEffects(
   { entry, mode }: EffectsRequest,
 ): readonly EffectLine[] {
   const content = characterStatisticContent(sources.registry, document);
+
   if (content === undefined) {
     return [];
   }
+
   const modifiers = rulesInPlay(document, sources);
+
   return summariseEffects(
     { content: contentRolledAs(content, sources.as), inputs: sources.inputs, modifiers },
     entry,

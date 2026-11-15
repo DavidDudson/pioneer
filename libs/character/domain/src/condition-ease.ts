@@ -16,8 +16,10 @@ export type EasedCondition = { readonly ended: true } | { readonly ended: false;
 export function easeCondition(condition: ActiveCondition, change: ConditionChange): EasedCondition {
   const value = condition.value ?? LAST_VALUE;
   const by = change.by ?? LOWER_ONE;
+
   if (change.effect === ConditionEffect.Remove || value <= by) {
     return { ended: true };
   }
+
   return { ended: false, value: ConditionValue.parse(value - by) };
 }

@@ -22,17 +22,22 @@ export interface WeaponBase {
  */
 export function weaponBases(content: ItemContent): readonly WeaponBase[] {
   const bases = new Map<BaseWeapon, WeaponBase>();
+
   const named = [...content.values()].flatMap((entry): WeaponBase[] => {
     const isBare = entry.kind === ContentKind.Weapon && entry.data.runes === undefined;
     const { baseItem: base, category, group } = isBare ? entry.data : {};
+
     return base === undefined || category === undefined ? [] : [{ base, name: entry.name, category, group }];
   });
+
   for (const weapon of named) {
     const held = bases.get(weapon.base);
+
     if (held === undefined || weapon.name.localeCompare(held.name) < 0) {
       bases.set(weapon.base, weapon);
     }
   }
+
   return [...bases.values()].toSorted((left, right) => left.name.localeCompare(right.name));
 }
 
@@ -45,6 +50,7 @@ export class WeaponBaseOptions {
   /** Every weapon base, by name; none while the content loads. */
   public readonly bases = computed((): readonly WeaponBase[] => {
     const registry = this.#registry.data();
+
     return registry === undefined ? [] : weaponBases(itemContent(registry));
   });
 }

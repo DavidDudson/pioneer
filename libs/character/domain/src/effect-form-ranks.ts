@@ -13,8 +13,10 @@ function rankOf(statement: PredicateStatement): SpellRank | undefined {
   if (!isPredicateComparison(statement) || !('gte' in statement)) {
     return undefined;
   }
+
   const [fact, bound] = statement.gte;
   const rank = SpellRank.safeParse(bound);
+
   return fact === ORIGIN_RANK && rank.success ? rank.data : undefined;
 }
 
@@ -25,16 +27,20 @@ function rankOf(statement: PredicateStatement): SpellRank | undefined {
  */
 export function formRanks(rules: readonly RuleElement[]): ReadonlyMap<RollOption, SpellRank> {
   const ranks = new Map<RollOption, SpellRank>();
+
   for (const rule of rules) {
     if (rule.key === RuleElementKey.ChoiceSet && rule.rollOption !== undefined && Array.isArray(rule.choices)) {
       const { rollOption } = rule;
+
       for (const { value, predicate } of rule.choices) {
         const rank = predicate?.map((statement) => rankOf(statement)).find((each) => each !== undefined);
+
         if (rank !== undefined) {
           ranks.set(RollOption.parse(`${rollOption}:${value}`), rank);
         }
       }
     }
   }
+
   return ranks;
 }

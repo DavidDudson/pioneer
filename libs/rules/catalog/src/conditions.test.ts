@@ -8,6 +8,7 @@ import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sd
 import { core, fighter, noFacts, totals } from './testing/core-rules';
 
 const VALUES = [1, 2, 3, 4] as const;
+
 const ALL_CHECKS_AND_DCS = [
   'ac',
   'save:fortitude',
@@ -29,15 +30,18 @@ const conditions = ContentEntryFile.parse(file.default).filter((each) => each.ki
 /** The rule elements of the Player Core condition `slug`, in play at `value`. */
 function conditionRules(slug: string, value: number): readonly RuleInPlay[] {
   const entry = conditions.find((each) => each.slug === `condition:${slug}`);
+
   if (entry === undefined) {
     throw new Error(`no Player Core condition ${slug}`);
   }
+
   return entry.rules.map((element, rule) => inPlay(element, slug, { rule, conditionValue: value }));
 }
 
 /** The fighter's totals with `rules` in play. */
 function fighterWith(rules: readonly RuleInPlay[]): Record<string, number | undefined> {
   const facts = factsUnderForm({ rules, facts: noFacts() });
+
   return totals(deriveStatistics(core, fighter, { rules, facts }));
 }
 
@@ -50,6 +54,7 @@ const drop = (held: Record<string, number | undefined>, selector: string): numbe
 /** How much `slug` at `value` lowers each of `selectors` from the fighter's own total. */
 function lowered(slug: string, value: number, selectors: readonly string[]): Record<string, number> {
   const held = fighterWith(conditionRules(slug, value));
+
   return Object.fromEntries(selectors.map((selector) => [selector, drop(held, selector)]));
 }
 
@@ -76,6 +81,7 @@ describe('valued penalty conditions in Player Core', () => {
       ...conditionRules('sickened', 3),
       ...conditionRules('clumsy', 2),
     ]);
+
     expect(drop(held, 'ac')).toBe(3);
     expect(drop(held, 'save:reflex')).toBe(3);
     expect(drop(held, 'save:will')).toBe(3);
@@ -119,11 +125,13 @@ const IMMOBILIZING = ['immobilized', 'paralyzed', 'petrified', 'unconscious'];
 /** The conditions the Player Core condition `slug` grants, by slug. */
 function grantedBy(slug: string): string[] {
   const rules = conditions.find((each) => each.slug === `condition:${slug}`)?.rules ?? [];
+
   const granted = new Set(
     rules.flatMap((element) =>
       element.key === RuleElementKey.GrantItem && typeof element.item === 'string' ? [element.item] : [],
     ),
   );
+
   return conditions.filter((each) => granted.has(each.id)).map((each) => each.slug);
 }
 

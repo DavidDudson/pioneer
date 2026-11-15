@@ -11,24 +11,29 @@ import { MagicTraditionSchema } from './spellcasting-tradition';
 
 /** Position of a rule element in its entry's `rules` array. */
 export const RuleIndex = Pg.smallint().nonnegative().brand<'RuleIndex'>();
+
 export type RuleIndex = z.infer<typeof RuleIndex>;
 
 /** One item in a character's inventory. */
 export const InventoryItemId = Uuid.brand<'InventoryItemId'>();
+
 export type InventoryItemId = z.infer<typeof InventoryItemId>;
 
 /** A campaign event that caused something, such as the Demoralize that left a character frightened. */
 export const EventRef = Uuid.brand<'EventRef'>();
+
 export type EventRef = z.infer<typeof EventRef>;
 
 /** A valued condition's value: _frightened 2_. */
 export const ConditionValue = Pg.smallint().positive().brand<'ConditionValue'>();
+
 export type ConditionValue = z.infer<typeof ConditionValue>;
 
 const NOTE_LENGTH_MAX = 500;
 
 /** Why someone set an override, in their own words (not translated). */
 export const OverrideNote = z.string().min(1).max(NOTE_LENGTH_MAX).brand<'OverrideNote'>();
+
 export type OverrideNote = z.infer<typeof OverrideNote>;
 
 export const ItemState = {
@@ -36,6 +41,7 @@ export const ItemState = {
   Held: 'held',
   Invested: 'invested',
 } as const;
+
 export type ItemState = ValueOf<typeof ItemState>;
 
 export const OriginHopKind = {
@@ -48,6 +54,7 @@ export const OriginHopKind = {
   Override: 'override',
   Variant: 'variant',
 } as const;
+
 export type OriginHopKind = ValueOf<typeof OriginHopKind>;
 
 /** One step in the chain that put something on a character. */
@@ -84,6 +91,7 @@ export const OriginHop = z.discriminatedUnion('kind', [
   /** A variant rule (Proficiency Without Level, Free Archetype) added it. */
   z.strictObject({ kind: z.literal(OriginHopKind.Variant), rule: ContentId }),
 ]);
+
 export type OriginHop = z.output<typeof OriginHop>;
 
 /** Longest grant chain an origin may record; real chains are a handful of hops. */
@@ -100,6 +108,7 @@ export const Origin = z.strictObject({
   entry: ContentId,
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX),
 });
+
 export type Origin = z.output<typeof Origin>;
 
 /**
@@ -109,9 +118,11 @@ export type Origin = z.output<typeof Origin>;
  */
 export function parentOptions(origin: Origin): readonly RollOption[] {
   const [hop] = origin.hops;
+
   if (hop?.kind !== OriginHopKind.Effect) {
     return [];
   }
+
   return [
     ...(hop.rank === undefined ? [] : [RollOption.parse(`parent:origin:item:level:${hop.rank}`)]),
     ...(hop.tradition === undefined ? [] : [RollOption.parse(`parent:spellcasting:tradition:${hop.tradition}`)]),

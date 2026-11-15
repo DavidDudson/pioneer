@@ -19,4 +19,5 @@ export const PersistentFlatCheckElement = z.strictObject({
   assistedDc: Dc.optional(),
   ...ruleElementBase,
 });
+
 export type PersistentFlatCheckElement = z.infer<typeof PersistentFlatCheckElement>;

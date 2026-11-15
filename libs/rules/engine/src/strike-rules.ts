@@ -32,11 +32,17 @@ import { weakenedBy } from './strike-weaknesses';
 import type { CriticalWeakness } from './strike-weaknesses';
 
 export { NoteRoll } from './strike-notes';
+
 export type { StrikeNote } from './strike-notes';
+
 export type { RuleSplash } from './strike-splash';
+
 export type { CriticalEffect } from './strike-critical-effects';
+
 export type { CriticalRange } from './strike-critical-range';
+
 export type { CriticalWeakness } from './strike-weaknesses';
+
 export type { StrikeTargets } from './strike-targets';
 
 /** Dice a `DamageDice` element adds to a Strike's damage, on top of the weapon's. */
@@ -90,20 +96,25 @@ type Reader = (rule: RuleInPlay, value: DiceCount | RuleValue) => RuleNumber | u
 
 function readerFor({ rules, facts }: ModifierInputs, { statistics, character }: StrikeScope): Reader {
   const proficiency = proficiencyBonuses(statistics.proficiencyBonus, { rules, facts, level: character.level });
+
   return (rule, value) => {
     if (typeof value === 'number') {
       return RuleNumber.parse(value);
     }
+
     const resolve = resolverFor({ inputs: character, proficiency }, (): undefined => undefined, {
       item: itemScopeOf(rule),
     });
+
     const outcome = valueOf(value, resolve);
+
     return outcome.ok ? outcome.value : undefined;
   };
 }
 
 function diceOf(read: Reader, rule: RuleInPlay, value: DiceCount | RuleValue): DiceCount | undefined {
   const given = read(rule, value);
+
   return given === undefined ? undefined : DiceCount.parse(Math.max(0, Math.floor(given)));
 }
 
@@ -122,11 +133,14 @@ function altered(
   if (element.property === DamageProperty.DamageType) {
     return { ...current, damageType: element.value };
   }
+
   const amount = read(rule, element.value);
+
   const result =
     amount === undefined
       ? undefined
       : changed(element.mode, FormulaValue.parse(current.dice), RuleNumber.parse(amount));
+
   return result === undefined ? current : { ...current, dice: DiceCount.parse(Math.max(0, result)) };
 }
 
@@ -139,7 +153,9 @@ function extraOf(
   if (element.dieSize === undefined) {
     return [];
   }
+
   const count = element.diceNumber === undefined ? DiceCount.parse(1) : diceOf(read, rule, element.diceNumber);
+
   return count === undefined
     ? []
     : [
@@ -162,6 +178,7 @@ function splashOf(
   read: Reader,
 ): PendingSplash[] {
   const count = element.diceNumber === undefined ? DiceCount.parse(1) : diceOf(read, rule, element.diceNumber);
+
   return count === undefined
     ? []
     : [
@@ -195,17 +212,21 @@ function applied(
   const { element } = rule;
   const { targets } = using;
   const rolls = targets.die !== undefined;
+
   if (
     element.key === RuleElementKey.DamageDice &&
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
   ) {
     const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
+
     if (isFlatSplash(element)) {
       return rolls
         ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
         : reading;
     }
+
     const changes = rolls && element.dieSize === undefined;
+
     return {
       ...reading,
       dice: changes && more !== undefined ? DiceCount.parse(reading.dice + more) : reading.dice,
@@ -213,6 +234,7 @@ function applied(
       extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
     };
   }
+
   if (
     element.key === RuleElementKey.DamageAlteration &&
     rolls &&
@@ -220,6 +242,7 @@ function applied(
   ) {
     return { ...reading, ...altered(reading, { element, rule }, using.read) };
   }
+
   return {
     ...reading,
     notes: notedBy(reading.notes, rule, targets),
@@ -253,6 +276,7 @@ function changedBy(before: Reading, after: Reading): boolean {
  */
 export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets: StrikeTargets): StrikeRules {
   const using = { targets, read: readerFor(inputs, scope) };
+
   const start: Reading = {
     dice: targets.dice,
     damageType: targets.damageType,
@@ -264,14 +288,18 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
     criticalRange: undefined,
     conditional: [],
   };
+
   let reading = start;
+
   for (const rule of inputs.rules) {
     const facts =
       rule.element.key === RuleElementKey.CriticalSpecialization
         ? inputs.facts.withNamespace(ITEM_NAMESPACE, targets.rollOptions ?? [])
         : inputs.facts;
+
     const truth = truthOf(rule.element.predicate, facts);
     const claimed = truth === Truth.Unknown && inputs.situation?.has(ruleIdOf(rule)) === true;
+
     if (truth === Truth.True || claimed) {
       reading = applied(reading, rule, using);
     } else if (truth === Truth.Unknown) {
@@ -281,5 +309,6 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
         : reading;
     }
   }
+
   return { ...reading, splash: reading.splash.flatMap((pending) => splashFor(pending, reading.dice)) };
 }

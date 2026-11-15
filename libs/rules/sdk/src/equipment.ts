@@ -16,6 +16,7 @@ const Container = z.strictObject({
   ignored: BulkCount.optional(),
   heldBulk: Bulk.optional(),
 });
+
 export type ItemContainer = z.infer<typeof Container>;
 
 /**
@@ -31,10 +32,12 @@ export const EquipmentData = z.strictObject({
   /** The spells a staff holds, when the item is one. */
   staff: StaffSpells.optional(),
 });
+
 export type EquipmentData = z.infer<typeof EquipmentData>;
 
 /** What treasure is, as Foundry pf2e sorts it. */
 export const TreasureCategory = { ArtObject: 'art-object', Coin: 'coin', Gem: 'gem', Material: 'material' } as const;
+
 export type TreasureCategory = ValueOf<typeof TreasureCategory>;
 
 /** Treasure's `data` on the `ContentEntry` envelope: coins, gems, art objects and materials, worth their price. */
@@ -42,6 +45,7 @@ export const TreasureData = z.strictObject({
   ...physicalFields,
   category: z.enum(TreasureCategory).optional(),
 });
+
 export type TreasureData = z.infer<typeof TreasureData>;
 
 const KIT_ITEMS_MAX = 32;
@@ -63,4 +67,5 @@ export const KitData = z.strictObject({
   price: Price.optional(),
   items: z.array(KitItem).min(1).max(KIT_ITEMS_MAX).readonly(),
 });
+
 export type KitData = z.infer<typeof KitData>;

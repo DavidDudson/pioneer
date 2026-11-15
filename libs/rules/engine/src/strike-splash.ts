@@ -24,5 +24,6 @@ export function isFlatSplash(element: DamageDiceElement): boolean {
 /** `pending` as the splash it deals when the Strike rolls `dice` damage dice; none when that is nothing. */
 export function splashFor({ count, perDie, damageType, origin }: PendingSplash, dice: DiceCount): RuleSplash[] {
   const total = perDie ? count * dice : count;
+
   return total > 0 ? [{ amount: DamageAmount.parse(total), damageType, origin }] : [];
 }

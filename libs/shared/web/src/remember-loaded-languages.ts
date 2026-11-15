@@ -19,13 +19,17 @@ export function rememberLoadedLanguages(service: TranslocoService): void {
   const remembered = new Map<string, number>();
   counting.isLoadedTranslation = (lang: string): number => {
     const known = remembered.get(lang);
+
     if (known !== undefined) {
       return known;
     }
+
     const keys = count(lang);
+
     if (keys > 0) {
       remembered.set(lang, keys);
     }
+
     return keys;
   };
 }

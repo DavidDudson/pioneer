@@ -22,6 +22,7 @@ export interface ImportedFeat {
 
 function named(value: string | null | undefined): PathbuilderName | undefined {
   const trimmed = value?.trim() ?? '';
+
   return trimmed === '' ? undefined : PathbuilderName.parse(trimmed);
 }
 
@@ -31,9 +32,11 @@ export function importedFeats(build: PathbuilderBuild): ImportedFeat[] {
     const name = named(rawName);
     const type = named(rawType);
     const level = Level.safeParse(rawLevel);
+
     if (name === undefined || type === undefined || !level.success) {
       return [];
     }
+
     return [
       {
         name,

@@ -52,6 +52,7 @@ import { UserMemberDirectory } from './user-member-directory';
 /** The variant-rule service: enabled rules are checked against the stored content. */
 function variantService(db: Database, repository: DrizzleCampaignRepository, clock: Clock): CampaignVariantService {
   const content = new StoredContentSource(new ContentRepository(db));
+
   return new CampaignVariantService(
     {
       campaigns: repository,
@@ -65,6 +66,7 @@ function variantService(db: Database, repository: DrizzleCampaignRepository, clo
 /** The table-limit service: the variant rules a campaign has on are read from the stored content. */
 function ruleLimitService(db: Database, repository: DrizzleCampaignRepository, clock: Clock): CampaignRuleLimitService {
   const content = new StoredContentSource(new ContentRepository(db));
+
   return new CampaignRuleLimitService(
     {
       campaigns: repository,
@@ -94,6 +96,7 @@ function packService(db: Database, repository: DrizzleCampaignRepository, clock:
     new DrizzlePackDependencyRepository(db),
     new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
   );
+
   return new CampaignPackService(
     { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
     clock,
@@ -175,6 +178,7 @@ export function campaigns(db: Database, clock: Clock, parts: CampaignParts): Con
   const directory = new UserMemberDirectory(db);
   const service = new CampaignService({ campaigns: repository, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(repository, inviteRepository, clock);
+
   const party = new CampaignPartyService(
     {
       campaigns: repository,
@@ -184,9 +188,11 @@ export function campaigns(db: Database, clock: Clock, parts: CampaignParts): Con
     },
     clock,
   );
+
   const packs = packService(db, repository, clock);
   const variants = variantService(db, repository, clock);
   const ruleLimits = ruleLimitService(db, repository, clock);
+
   return campaignRoutes(
     {
       campaigns: service,

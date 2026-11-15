@@ -63,6 +63,7 @@ const meta: Meta<Chart> = {
     template: `<fr-chart ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Line: ChartStory = {};

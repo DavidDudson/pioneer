@@ -25,12 +25,14 @@ export class SheetForm {
 
   protected readonly summary = computed((): FormSummary | undefined => {
     const form = this.sheet.activeForm();
+
     return form === undefined ? undefined : { name: form.name, details: form.details };
   });
 
   /** Ends the form, which also gives back the temporary Hit Points it gave. */
   protected readonly dismiss = async (): Promise<void> => {
     const form = this.sheet.activeForm();
+
     if (form !== undefined) {
       await this.#play.send({ field: EffectCommandField.RemoveEffect, id: form.id });
     }
@@ -39,6 +41,7 @@ export class SheetForm {
   /** The server's reason (a conflict or a refusal), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

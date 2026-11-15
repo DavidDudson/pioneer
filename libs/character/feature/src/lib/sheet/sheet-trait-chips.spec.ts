@@ -8,8 +8,11 @@ const COLD_IRON = Trait.parse('cold-iron');
 const UNLISTED = Trait.parse('unlisted');
 
 const pack = new ContentPackBuilder().withId('player-core').withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS);
+
 pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Equipment] });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 describe(traitChips, () => {

@@ -9,9 +9,11 @@ import { Label } from './label/label.component';
 
 function input(harness: FieldHarness): HTMLInputElement {
   const found = harness.root.querySelector('input');
+
   if (found === null) {
     throw new Error('Expected an input');
   }
+
   return found;
 }
 
@@ -20,6 +22,7 @@ describe(Field, () => {
     const first = new FieldHarness().field.instance;
     const second = new FieldHarness().field.instance;
     expect(first.controlId).not.toBe(second.controlId);
+
     for (const field of [first, second]) {
       const base = field.controlId.replace(/-control$/u, '');
       expect([field.controlId, field.labelId, field.hintId, field.errorId]).toStrictEqual([

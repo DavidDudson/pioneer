@@ -15,9 +15,11 @@ const ENTRIES = contentPackFromContents(await playerCorePack()).otherEntries;
 
 function breathEntry(): ContentEntry {
   const found = ENTRIES.find(({ slug }) => slug === BREATH_SLUG);
+
   if (found === undefined) {
     throw new Error(`${BREATH_SLUG} is not in the player-core pack`);
   }
+
   return found;
 }
 
@@ -31,6 +33,7 @@ const SAVE = /"statistic":"(?<save>[^"]+)"/u;
 /** What the sheet reads once the druid picks `dragon-form:<type>`: the namespace a choice writes to is known. */
 function pickedFacts(type?: string): PredicateFacts {
   const namespaces = withKnown(coreNamespaces(), [RollOptionNamespace.parse('dragon-form')]);
+
   return new PredicateFacts(type === undefined ? [] : [RollOption.parse(`dragon-form:${type}`)], namespaces);
 }
 
@@ -49,6 +52,7 @@ function breathOf(type: string, rank: number): BreathReading {
   const text = JSON.stringify(altered.description);
   const damage = [FORMULA.exec(text)?.groups?.['formula'], DAMAGE_TYPE.exec(text)?.groups?.['type']];
   const area = [SHAPE.exec(text)?.groups?.['shape'], SAVE.exec(text)?.groups?.['save']];
+
   return { traits: altered.traits.map(String), area, damage };
 }
 

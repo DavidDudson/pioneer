@@ -7,6 +7,7 @@ export const Movement = {
   Burrow: 'burrow',
   Step: 'step',
 } as const;
+
 export type Movement = (typeof Movement)[keyof typeof Movement];
 
 /** Message keys the speed rows render with, spelled out so the key check sees them. */

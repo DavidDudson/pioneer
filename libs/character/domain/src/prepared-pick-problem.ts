@@ -9,4 +9,5 @@ export const PreparedPickProblem = {
   /** In a pool's slot, a spell the pool doesn't take (a divine font's other font). */
   NotInPool: 'notInPool',
 } as const;
+
 export type PreparedPickProblem = ValueOf<typeof PreparedPickProblem>;

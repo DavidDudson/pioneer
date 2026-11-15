@@ -21,15 +21,20 @@ async function homebrewOrder(reader: Reader, roots: readonly ContentPackId[]): P
     .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
     .from(contentPackDeps)
     .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
+
   const ordered = [...new Set(roots.flatMap((root) => loadOrder(edges, root)))];
+
   if (ordered.length === 0) {
     return [];
   }
+
   const homebrew = await reader
     .select({ id: contentPacks.id })
     .from(contentPacks)
     .where(and(inArray(contentPacks.id, ordered), isNotNull(contentPacks.ownerId), isNull(contentPacks.archivedAt)));
+
   const kept = new Set(homebrew.map((row) => row.id));
+
   return ordered.filter((id) => kept.has(id));
 }
 
@@ -72,6 +77,7 @@ export class ContentRepository {
           .from(contentPacks)
           .where(isNull(contentPacks.ownerId))
           .orderBy(asc(contentPacks.slug));
+
         return Promise.all(
           packs.map(async ({ id, data }): Promise<PackContents> => {
             const entries = await tx
@@ -79,6 +85,7 @@ export class ContentRepository {
               .from(contentEntries)
               .where(eq(contentEntries.packId, id))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
+
             return packContentsFromFiles(data, [entries.map((entry) => entry.data)]);
           }),
         );
@@ -99,23 +106,28 @@ export class ContentRepository {
           .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
           .from(contentPackDeps)
           .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
+
         const loaded = await Promise.all(
           loadOrder(edges, root).map(async (id): Promise<PackContents | undefined> => {
             const [pack] = await tx
               .select({ data: contentPacks.data })
               .from(contentPacks)
               .where(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)));
+
             if (pack === undefined) {
               return undefined;
             }
+
             const entries = await tx
               .select({ data: contentEntries.data })
               .from(contentEntries)
               .where(eq(contentEntries.packId, id))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
+
             return packContentsFromFiles(pack.data, [entries.map((entry) => entry.data)]);
           }),
         );
+
         return loaded.filter((contents) => contents !== undefined);
       },
       { isolationLevel: 'repeatable read', accessMode: 'read only' },
@@ -130,6 +142,7 @@ export class ContentRepository {
     if (entryIds.length === 0) {
       return [];
     }
+
     return this.#definingPacks.of(entryIds.join(','), async () => {
       const rows = await this.#db
         .selectDistinct({ id: contentPacks.id })
@@ -142,6 +155,7 @@ export class ContentRepository {
             isNull(contentPacks.archivedAt),
           ),
         );
+
       return rows.map((row) => row.id);
     });
   }
@@ -151,10 +165,13 @@ export class ContentRepository {
     if (roots.length === 0) {
       return [];
     }
+
     const order = await homebrewOrder(this.#db, roots);
+
     if (order.length === 0) {
       return [];
     }
+
     return this.#db
       .select({ pack: contentPacks.slug, hash: contentPacks.contentHash })
       .from(contentPacks)
@@ -170,20 +187,24 @@ export class ContentRepository {
     if (roots.length === 0) {
       return [];
     }
+
     return this.#db.transaction(
       async (tx): Promise<readonly PackContents[]> => {
         const order = await homebrewOrder(tx, roots);
+
         return Promise.all(
           order.map(async (id): Promise<PackContents> => {
             const [pack] = await tx
               .select({ data: contentPacks.data })
               .from(contentPacks)
               .where(eq(contentPacks.id, id));
+
             const entries = await tx
               .select({ data: contentEntries.data })
               .from(contentEntries)
               .where(eq(contentEntries.packId, id))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
+
             return packContentsFromFiles(pack?.data, [entries.map((entry) => entry.data)]);
           }),
         );

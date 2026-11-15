@@ -51,13 +51,16 @@ const VitalsMessage = {
 
 /** Vitals that share one card: the saves, and the class DC with the spell DCs. */
 const VitalGroup = { Saves: 'saves', Dcs: 'dcs' } as const;
+
 type VitalGroup = (typeof VitalGroup)[keyof typeof VitalGroup];
 
 function groupOf({ statistic }: Vital): VitalGroup | undefined {
   const selector: string = statistic.result.selector;
+
   if (selector.startsWith(SAVE_PREFIX)) {
     return VitalGroup.Saves;
   }
+
   return selector === CLASS_DC || selector.startsWith(SPELL_DC_PREFIX) ? VitalGroup.Dcs : undefined;
 }
 
@@ -67,6 +70,7 @@ function groupOf({ statistic }: Vital): VitalGroup | undefined {
  */
 function rowOf(vital: Vital, rankNote?: string): NamedStatistic {
   const { statistic, rank } = vital;
+
   return { ...statistic, rank, rankNote, flat: groupOf(vital) === VitalGroup.Dcs };
 }
 
@@ -112,32 +116,44 @@ export class VitalsView {
   protected readonly blocks = computed((): readonly VitalBlock[] | undefined => {
     this.#messages();
     const vitals = this.vitals();
+
     if (vitals === undefined) {
       return undefined;
     }
+
     const rowsOf = (group: VitalGroup): NamedStatistic[] => {
       const grouped = vitals.filter((vital) => groupOf(vital) === group);
+
       return [
         ...grouped.map((vital) => rowOf(vital)),
         ...grouped.flatMap((vital) => this.#proficiencyRows(vital)),
         ...grouped.flatMap((vital) => this.#luckRows(vital)),
       ];
     };
+
     const placed = new Set<VitalGroup>();
+
     return vitals.flatMap((vital): VitalBlock[] => {
       const group = groupOf(vital);
+
       if (group === undefined) {
         const caption = this.#captionOf(vital);
+
         if (vital.rank !== undefined) {
           return [{ key: vital.statistic.result.selector, rows: [rowOf(vital, caption)] }];
         }
+
         const tile = tileOf(vital);
+
         return [{ key: tile.key, tile, rows: [] }];
       }
+
       if (placed.has(group)) {
         return [];
       }
+
       placed.add(group);
+
       return [{ key: vital.statistic.result.selector, rows: rowsOf(group) }];
     });
   });
@@ -145,14 +161,19 @@ export class VitalsView {
   /** The class DC's proficiency bonus as a row of its own: the `@prof` term of the DC's base, so a variant rule shows. */
   #proficiencyRows({ statistic }: Vital): NamedStatistic[] {
     const { result } = statistic;
+
     if (result.selector !== CLASS_DC || !result.ok) {
       return [];
     }
+
     const term = result.base.find((each) => each.kind === BaseTermKind.Term && each.formula.startsWith(PROF_TERM));
+
     if (term === undefined) {
       return [];
     }
+
     const { value } = term;
+
     const shown = {
       ...result,
       base: [term],
@@ -164,6 +185,7 @@ export class VitalsView {
       overrides: [],
       pinnedBy: undefined,
     };
+
     return [
       { name: this.#i18n.translate(VitalsMessage.Proficiency), kind: StatisticKind.Value, result: shown, flat: true },
     ];
@@ -172,10 +194,13 @@ export class VitalsView {
   /** Luck, a flat d20, as the last row of the DCs' card: the class DC's result with nothing in it. */
   #luckRows({ statistic }: Vital): NamedStatistic[] {
     const { result } = statistic;
+
     if (result.selector !== CLASS_DC || !result.ok) {
       return [];
     }
+
     const none = FormulaValue.parse(0);
+
     const shown = {
       ...result,
       base: [],
@@ -187,6 +212,7 @@ export class VitalsView {
       overrides: [],
       pinnedBy: undefined,
     };
+
     return [{ name: this.#i18n.translate(VitalsMessage.Luck), kind: StatisticKind.Value, result: shown, flat: true }];
   }
 
@@ -195,6 +221,7 @@ export class VitalsView {
     if (basis?.kind === VitalBasisKind.Armor) {
       return basis.name;
     }
+
     return basis?.kind === VitalBasisKind.Unarmored ? this.#i18n.translate(VitalsMessage.Unarmored) : undefined;
   }
 }

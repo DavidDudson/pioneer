@@ -11,14 +11,17 @@ import { Domain, Selector } from './selector';
 
 function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   const result = schema.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 function notChain(depth: number): unknown {
   let statement: unknown = 'self:condition:frightened';
+
   for (let level = 0; level < depth; level += 1) {
     statement = { not: statement };
   }
+
   return statement;
 }
 
@@ -78,6 +81,7 @@ describe('Predicate', () => {
       { lt: ['target:level', 'self:level'] },
       { eq: ['self:condition:frightened', 2] },
     ];
+
     const parsed: unknown = Predicate.parse(foundry);
     expect(parsed).toStrictEqual(foundry);
   });

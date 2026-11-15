@@ -28,12 +28,15 @@ export class PackSetCache<TValue> {
     const kept = this.#sets.get(key) ?? new HashKeyedCache<TValue>();
     this.#sets.delete(key);
     this.#sets.set(key, kept);
+
     for (const oldest of this.#sets.keys()) {
       if (this.#sets.size <= KEPT_SETS) {
         break;
       }
+
       this.#sets.delete(oldest);
     }
+
     return kept;
   }
 }

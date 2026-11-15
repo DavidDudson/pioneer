@@ -54,6 +54,7 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
     },
   ],
 ]);
+
 const INPUTS: EndTurnInputs = {
   limits: { ...within(MAX), effects: CONTENT },
   defences: NO_DEFENCES,
@@ -121,6 +122,7 @@ describe('endTurn: persistent damage', () => {
         { damageTypes: [DamageType.Fire], dc: Dc.parse(10), assisted: Dc.parse(5) },
       ],
     };
+
     const plain = finish(playing({ conditions: [burning()] }), faces(2, 10), quenched);
     expect(plain.events[1]).toMatchObject({ dc: 10, passed: true });
     expect(plain.play.conditions).toEqual([]);
@@ -133,6 +135,7 @@ describe('endTurn: persistent damage', () => {
       ...INPUTS,
       flatChecks: [{ damageTypes: [DamageType.Acid], dc: Dc.parse(12), assisted: Dc.parse(7) }],
     };
+
     const { events } = finish(playing({ conditions: [burning()] }), faces(2, 14), quenched);
     expect(events[1]).toMatchObject({ dc: 15, passed: false });
   });
@@ -142,6 +145,7 @@ describe('endTurn: persistent damage', () => {
       ...INPUTS,
       flatChecks: [{ damageTypes: [DamageType.Fire], dc: Dc.parse(5), assisted: undefined }],
     };
+
     const { play, events } = finish(playing({ conditions: [burning(true)] }), faces(2), quenched);
     expect(play.conditions).toEqual([]);
     expect(events.map(({ kind }) => kind)).toEqual([TurnEventKind.PersistentDamage, TurnEventKind.ConditionEnded]);
@@ -152,10 +156,12 @@ describe('endTurn: persistent damage', () => {
       ...INPUTS,
       defences: { ...NO_DEFENCES, resistances: [DamageAdjustment.parse({ type: DamageType.Fire, value: 2 })] },
     };
+
     const start = playing({
       conditions: [burning()],
       hp: { damage: HitPoints.parse(0), temp: HitPoints.parse(3) },
     });
+
     const { play, events } = finish(start, faces(6, 1), resists);
     expect(events[0]).toMatchObject({ damage: { taken: 4 } });
     expect(play.hp).toEqual({ temp: HitPoints.parse(0), damage: HitPoints.parse(1) });
@@ -216,6 +222,7 @@ describe('endTurn: the rest of the end of the turn', () => {
       condition: HEROISM,
       duration: { kind: ConditionDurationKind.UntilEndOfTurn },
     };
+
     const last: ActiveEffect = {
       id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000401'),
       effect: HEROISM,
@@ -223,6 +230,7 @@ describe('endTurn: the rest of the end of the turn', () => {
       remaining: EffectRounds.parse(1),
       expiry: EffectExpiry.TurnEnd,
     };
+
     const { events } = finish(playing({ conditions: [burning(), frightened(2), ends], effects: [last] }), faces(3, 1));
     expect(events.map(({ kind }) => kind)).toEqual([
       TurnEventKind.PersistentDamage,
@@ -236,10 +244,12 @@ describe('endTurn: the rest of the end of the turn', () => {
   test('a turn-end effect with rounds left stays; one on its last round or with no clock goes; turn-start ones stay', () => {
     const stays = effect(1, { remaining: EffectRounds.parse(2), expiry: EffectExpiry.TurnEnd });
     const startEnds = effect(2, { remaining: EffectRounds.parse(1), expiry: EffectExpiry.TurnStart });
+
     const goes = [
       effect(3, { remaining: EffectRounds.parse(1), expiry: EffectExpiry.TurnEnd }),
       effect(4, { expiry: EffectExpiry.TurnEnd }),
     ];
+
     const { play } = finish(playing({ effects: [stays, startEnds, ...goes] }), faces(1));
     expect(play.effects).toEqual([stays, startEnds]);
   });
@@ -253,6 +263,7 @@ describe('endTurn: the rest of the end of the turn', () => {
       expiry: EffectExpiry.TurnEnd,
       badge: EffectBadgeValue.parse(9),
     };
+
     const { play } = finish(playing({ effects: [rolling] }), faces(3));
     expect(play.effects[0]?.badge).toBe(EffectBadgeValue.parse(3));
   });

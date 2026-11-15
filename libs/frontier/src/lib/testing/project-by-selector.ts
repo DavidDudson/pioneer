@@ -10,5 +10,6 @@ export function projectBySelector(component: Type<unknown>, elements: readonly E
   const selectors = reflectComponentType(component)?.ngContentSelectors ?? [];
   const named = selectors.filter((selector) => selector !== '*');
   const slotOf = (element: Element): string => named.find((selector) => element.matches(selector)) ?? '*';
+
   return selectors.map((selector) => elements.filter((element) => slotOf(element) === selector));
 }

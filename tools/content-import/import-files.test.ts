@@ -41,9 +41,11 @@ async function gmCoreBacklog(): Promise<GmCoreBacklog> {
   const json: unknown = await Bun.file(path.join(IMPORT, 'gm-core.json')).json();
   const { backlog } = ImportFile.parse(json);
   const entries = backlog.filter((item) => item.type === BacklogItemType.Entry);
+
   const fields = entries.flatMap(({ gaps }) =>
     gaps.flatMap((gap) => (gap.type === BacklogGapType.Field ? [gap.field] : [])),
   );
+
   return {
     fields: new Set(fields),
     count: fields.length,

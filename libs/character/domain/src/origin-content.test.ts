@@ -6,6 +6,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { originContent } from './origin-content';
 
 const ids = new ContentPackBuilder();
+
 const pack = new ContentPackBuilder()
   .withAncestry('elf', { boosts: [['dex']], flaws: ['con'] })
   .withAncestry('dwarf')
@@ -26,8 +27,11 @@ const pack = new ContentPackBuilder()
       { key: 'GrantItem', item: ids.idOf(ContentKind.Feat, 'assurance') },
     ],
   );
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const origins = originContent(registry);
 
 describe('originContent', () => {

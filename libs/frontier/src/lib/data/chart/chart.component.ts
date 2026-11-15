@@ -5,10 +5,12 @@ import type { ChartDefinition, ChartOptions } from '@tanstack/charts/angular';
 
 /** Shape of the plot. Width always follows the container. */
 export const ChartAspect = { Wide: 'wide', Standard: 'standard', Square: 'square' } as const;
+
 export type ChartAspect = ValueOf<typeof ChartAspect>;
 
 const WIDE = { width: 16, height: 9 } as const;
 const STANDARD = { width: 4, height: 3 } as const;
+
 const ASPECT_RATIO: Record<ChartAspect, number> = {
   wide: WIDE.width / WIDE.height,
   standard: STANDARD.width / STANDARD.height,
@@ -37,6 +39,7 @@ export class Chart {
 
   protected readonly options = computed<ChartOptions>(() => {
     const description = this.description();
+
     return {
       definition: this.definition(),
       ariaLabel: this.label(),

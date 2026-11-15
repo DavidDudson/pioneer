@@ -111,6 +111,7 @@ describe('CharacterSheetPage rest actions', () => {
 
   it("lists a wand's cast and overcharge among what daily preparations gives back", async () => {
     const wand = '66666666-6666-4666-8666-666666666666';
+
     const bardWithWand = {
       ...BARD,
       inventory: {
@@ -118,6 +119,7 @@ describe('CharacterSheetPage rest actions', () => {
         coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
       },
     };
+
     const spent = {
       revision: 1,
       play: {
@@ -125,11 +127,13 @@ describe('CharacterSheetPage rest actions', () => {
         resources: { uses: { [`wand:${wand}`]: 1, [`wand:${wand}:overcharge`]: 1 } },
       },
     };
+
     const { root } = await openSheet(bardWithWand, {
       tab: SheetMode.Downtime,
       play: spent,
       packs: [...PACKS, ITEM_FIXTURE_FILES],
     });
+
     await vi.waitFor(() => {
       expect(restOf(root).querySelectorAll('button')).toHaveLength(4);
     });
@@ -146,6 +150,7 @@ describe('CharacterSheetPage rest actions', () => {
 
   it('prepares a staff at daily preparations, previewing its charges before they apply', async () => {
     const staff = '55555555-5555-4555-8555-555555555555';
+
     const bardWithStaff = {
       ...BARD,
       inventory: {
@@ -153,11 +158,13 @@ describe('CharacterSheetPage rest actions', () => {
         coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
       },
     };
+
     const { harness, root } = await openSheet(bardWithStaff, {
       tab: SheetMode.Downtime,
       play: playOf(0, 0),
       packs: [...PACKS, ITEM_FIXTURE_FILES],
     });
+
     await vi.waitFor(() => {
       expect(restOf(root).querySelectorAll('button')).toHaveLength(4);
     });
@@ -192,6 +199,7 @@ describe('CharacterSheetPage rest actions', () => {
       ...MERISIEL,
       build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('wizard') }, spellAccess: [] },
     };
+
     const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
 
     async function openPreparations(): Promise<HTMLElement> {
@@ -203,6 +211,7 @@ describe('CharacterSheetPage rest actions', () => {
       await vi.waitFor(() => {
         expect(textOf(restOf(root))).toContain('Cantrips, cast at 1st rank');
       });
+
       return root;
     }
 
@@ -218,6 +227,7 @@ describe('CharacterSheetPage rest actions', () => {
 
     it('opens a picker for each slot of the rank when its Change is pressed, and closes them on Done', async () => {
       const root = await openPreparations();
+
       const change = present(
         [...restOf(root).querySelectorAll('button')].findLast((button) => textOf(button) === 'Change'),
       );

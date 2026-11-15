@@ -24,6 +24,7 @@ export class InMemoryTransferSettlement extends TransferSettlement {
   /** The next accept fails with `error`, leaving the offer pending. */
   public failWith(error: Error): this {
     this.#failure = error;
+
     return this;
   }
 
@@ -31,6 +32,7 @@ export class InMemoryTransferSettlement extends TransferSettlement {
     if (this.#failure !== undefined) {
       throw this.#failure;
     }
+
     await this.#transfers.answer({ actor, campaignId, id: transfer.id, status: TransferStatus.Accepted });
     this.#settled.push(transfer);
   }

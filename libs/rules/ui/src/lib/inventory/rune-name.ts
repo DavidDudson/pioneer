@@ -75,10 +75,13 @@ const CREATURE_TYPE_MESSAGES: Readonly<Record<string, string>> = {
 /** What a rune's crafter chose, in words: a damage type's or creature type's name, else the choice as it was written. */
 export function runeChoiceLabel(i18n: TranslocoService, choice: string): string {
   const type = damageTypeOf(choice);
+
   if (type !== undefined) {
     return i18n.translate(DAMAGE_TYPE_MESSAGES[type]);
   }
+
   const creature = CREATURE_TYPE_MESSAGES[choice];
+
   return creature === undefined ? choice : i18n.translate(creature);
 }
 
@@ -100,17 +103,21 @@ export function injectRunedName(): Signal<RunedNamer> {
   const i18n = inject(TranslocoService);
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
+
   return computed((): RunedNamer => {
     messages();
+
     return (name, runes) => {
       if (runes === undefined) {
         return name;
       }
+
       const words = [
         ...(runes.potency === undefined ? [] : [i18n.translate(RuneMessage.Potency, { grade: runes.potency })]),
         ...runes.fundamental.map(({ rune, grade }) => i18n.translate(GRADED_RUNE_MESSAGES[rune], { grade })),
         ...runes.property.map(({ name: rune, choice }) => chosenRuneName(i18n, rune, choice)),
       ];
+
       return words.length === 0 ? name : i18n.translate(RuneMessage.RunedName, { runes: words.join(' '), name });
     };
   });

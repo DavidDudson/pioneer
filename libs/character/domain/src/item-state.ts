@@ -9,12 +9,14 @@ const AUTHORIZED_OTHERS_MAX = 10;
 
 /** The name of a creature an authorized rune lets wield the weapon: the owner whose blood is etched, or another the crafter allowed. */
 export const AuthorizedName = z.string().trim().min(1).max(AUTHORIZED_NAME_MAX_LENGTH).brand<'AuthorizedName'>();
+
 export type AuthorizedName = z.infer<typeof AuthorizedName>;
 
 /** Who an authorized rune lets wield the weapon: its owner, and the other creatures the crafter allowed. */
 export const AuthorizedSchema = z
   .strictObject({ owner: AuthorizedName, others: z.array(AuthorizedName).max(AUTHORIZED_OTHERS_MAX).readonly() })
   .readonly();
+
 export type Authorized = z.infer<typeof AuthorizedSchema>;
 
 /** The spell a spell reservoir rune holds: which spell, and the rank it was cast into the weapon at. */
@@ -35,6 +37,7 @@ export const ItemStateSchema = z.strictObject({
   /** Who may wield an authorized weapon without harm (`rune:authorized`). */
   authorized: AuthorizedSchema.optional(),
 });
+
 export type ItemState = z.infer<typeof ItemStateSchema>;
 
 /** Whether `state` holds nothing, so the item keeps no state at all: no field, or a list with nothing in it. */

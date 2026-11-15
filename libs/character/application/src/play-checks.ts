@@ -50,6 +50,7 @@ const CONDITION_MESSAGES = {
 /** Refuses a condition edit the content or the character's conditions rule out. */
 export function checkCondition(play: PlayState, command: PlayCommand, valued: ConditionValued): void {
   const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);
   }
@@ -73,6 +74,7 @@ export function isDailyPreparations(command: PlayCommand): command is DailyPrepa
 /** Refuses a daily preparations that names a staff the character doesn't have, or a slot it can't expend. */
 export function checkStaff(command: PlayCommand, staff: StaffLimits): void {
   const problem = isDailyPreparations(command) ? staffProblem(command, staff) : undefined;
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(STAFF_MESSAGES[problem]) }]);
   }
@@ -85,6 +87,7 @@ function spentEffect(command: PlayCommand): EffectCommand | undefined {
       ? undefined
       : { field: EffectCommandField.ApplyEffect, ...command.effect, source: SELF };
   }
+
   return command.field === SpendCommandField.SpendAction && command.apply !== undefined
     ? { field: EffectCommandField.ApplyEffect, ...command.apply, source: SELF }
     : undefined;
@@ -94,6 +97,7 @@ function spentEffect(command: PlayCommand): EffectCommand | undefined {
 export function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
   const edit = spentEffect(command) ?? command;
   const problem = isEffectCommand(edit) ? effectProblem(play.effects, edit, content) : undefined;
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
   }
@@ -102,10 +106,13 @@ export function checkEffect(play: PlayState, command: PlayCommand, content: Effe
 /** Refuses an exploration activity that is not an exploration action of the character's content. */
 export async function checkExploration(command: PlayEdit, registry: () => Promise<ContentRegistry>): Promise<void> {
   const activity = isExplorationCommand(command) ? command.activity : undefined;
+
   if (activity === undefined) {
     return;
   }
+
   const content = await registry();
+
   if (!isExplorationActivity(content, activity)) {
     throw new ValidationError([
       { path: ['command', 'activity'], message: message('character.validation.explorationUnknown') },
@@ -118,7 +125,9 @@ export async function checkEnvironment(command: PlayEdit, registry: () => Promis
   if (!isEnvironmentCommand(command) || !command.active) {
     return;
   }
+
   const content = environmentContent(await registry());
+
   if (!content.has(command.environment)) {
     throw new ValidationError([
       { path: ['command', 'environment'], message: message('character.validation.environmentUnknown') },

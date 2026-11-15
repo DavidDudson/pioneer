@@ -14,6 +14,7 @@ async function render(
   const fixture = TestBed.createComponent(SpellcastingView);
   fixture.componentRef.setInput('entries', entries);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -46,6 +47,7 @@ function slotList(list: Element): string[] {
   const rows = [...list.querySelectorAll('fr-description-item')].map((row) =>
     [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(' '),
   );
+
   return [textOf(present(list.previousElementSibling)), ...rows];
 }
 
@@ -60,6 +62,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 

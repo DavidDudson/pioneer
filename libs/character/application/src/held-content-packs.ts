@@ -21,11 +21,14 @@ export class HeldContentPacks {
 
   public async of(character: Character): Promise<readonly ContentPackId[]> {
     const packs = await this.#lookup.packsOf(heldContentIds(character.document));
+
     if (packs.length === 0) {
       return [];
     }
+
     const catalog = await this.#catalog.readableBy(character.ownerId);
     const readable = new Set(catalog.map((pack) => pack.id));
+
     return packs.filter((pack) => readable.has(pack));
   }
 }

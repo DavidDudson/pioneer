@@ -31,6 +31,7 @@ export async function resourceMaximaOf(source: CharacterContentSource, character
   const registry = await contentOfCharacter(source, character).registry();
   const slots = await slotsOf(source, character, registry);
   const entries = characterSpellcasting(characterGrants(character.document, slots));
+
   return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
 }
 
@@ -38,6 +39,7 @@ export async function resourceMaximaOf(source: CharacterContentSource, character
 export async function countedOf(source: CharacterContentSource, character: Character): Promise<CountedMaxima> {
   const registry = await contentOfCharacter(source, character).registry();
   const grants = characterGrants(character.document, await slotsOf(source, character, registry));
+
   return characterCounted(grants, abilityFrequencies(registry), {
     items: character.document.inventory.items,
     activations: itemActivationsOf(registry),
@@ -49,5 +51,6 @@ export async function countedOf(source: CharacterContentSource, character: Chara
 export async function staffOf(source: CharacterContentSource, character: Character): Promise<StaffLimits> {
   const registry = await contentOfCharacter(source, character).registry();
   const grants = characterGrants(character.document, await slotsOf(source, character, registry));
+
   return staffLimits(grants, character.document.inventory.items, itemContent(registry));
 }

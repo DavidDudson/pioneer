@@ -76,12 +76,15 @@ export class SheetSpells {
     const registry = this.spells.data();
     const character = this.#store.selected();
     const read = this.#play.play.data();
+
     if (registry === undefined || character === undefined || read === undefined) {
       return undefined;
     }
+
     const maxima = sheetCounted(registry, character).slots;
     const { resources } = read.play;
     const pool = sheetFocus(registry, character)?.pool ?? 0;
+
     return {
       turn: this.#spender.turn(),
       slotsLeft: (key) => heldCount({ spent: resources.slots, maxima, key }),
@@ -105,6 +108,7 @@ export class SheetSpells {
   protected readonly focus = computed((): FocusLine | undefined => {
     const registry = this.spells.data();
     const character = this.#store.selected();
+
     return registry === undefined || character === undefined
       ? undefined
       : sheetFocus(registry, character, {
@@ -116,6 +120,7 @@ export class SheetSpells {
   protected readonly innate = computed((): InnateLine | undefined => {
     const registry = this.spells.data();
     const character = this.#store.selected();
+
     return registry === undefined || character === undefined
       ? undefined
       : sheetInnate(registry, character, (key, params) => this.#i18n.translate(key, params));
@@ -129,6 +134,7 @@ export class SheetSpells {
     preparedSource: ({ preparation, tradition }): string => {
       const traditionName: string = this.#i18n.translate(TRADITION_MESSAGES[tradition]);
       const heading: string = this.#i18n.translate(PREPARED_HEADINGS[preparation], { tradition: traditionName });
+
       return heading;
     },
   }));

@@ -64,6 +64,7 @@ const COUNTDOWN_REASONS: Readonly<Partial<Record<FrequencyPeriod, string>>> = {
 /** Why an activation with no uses left is unavailable: "used this hour, 42 rounds left" while its countdown runs, else that it has none. */
 function noUsesReason(per: FrequencyPeriod, rounds: number | undefined): MessageDescriptor {
   const key = COUNTDOWN_REASONS[per];
+
   return rounds === undefined || key === undefined ? message(ItemReasonMessage.NoUses) : message(key, { rounds });
 }
 
@@ -99,6 +100,7 @@ const ALL_MODES: readonly ActionMode[] = [ActionMode.Encounter, ActionMode.Explo
 function lineOf(item: ItemAction, turn: TurnState | undefined): ActionLine {
   const fit = turnFit(turn, item.cost, item.range);
   const reasons = [...item.reasons, ...fit.reasons];
+
   return {
     id: item.id,
     name: item.name,
@@ -130,6 +132,7 @@ function rangeOf(cost: ActionCost, upTo: number | undefined): ActionCostRange {
 /** The consumables held, each with its stack as the resource it spends. */
 function consumableActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
   const entries = itemContent(registry);
+
   return consumableLines(registry, character, { turn: play.turn, inputs: play.inputs }).map((line): ItemAction => ({
     id: line.id,
     name: line.name,
@@ -146,12 +149,15 @@ function consumableActions(registry: ContentRegistry, character: Character, play
 /** Why an item held in this way cannot be used whatever its content says: stowed, or not invested when it must be. */
 function heldReasons(held: InventoryItem, entry: ItemEntry): MessageDescriptor[] {
   const own: MessageDescriptor[] = [];
+
   if (held.carry.state === CarryState.Stowed) {
     own.push(message(ItemReasonMessage.Stowed));
   }
+
   if (isInvestable(held, entry) && held.invested !== true) {
     own.push(message(ItemReasonMessage.NotInvested));
   }
+
   return own;
 }
 
@@ -160,18 +166,23 @@ function activationActions(registry: ContentRegistry, character: Character, play
   const entries = itemContent(registry);
   const activations = itemActivationsOf(registry);
   const counted = sheetCounted(registry, character);
+
   return character.document.inventory.items.flatMap((held): ItemAction[] => {
     const entry = entries.get(held.item);
+
     if (entry === undefined || held.carry.state === CarryState.Dropped) {
       return [];
     }
+
     const own = heldReasons(held, entry);
+
     return activations(held).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
       const key = activationUseKey(held.id, slug);
       const maximum = counted.uses.get(key);
       const itemName: string = held.name ?? entry.name;
       const activationName: string = name;
       const title = itemName === activationName ? itemName : `${itemName}: ${activationName}`;
+
       const base = {
         id: entry.id,
         name: title,
@@ -179,13 +190,17 @@ function activationActions(registry: ContentRegistry, character: Character, play
         cost,
         range: cost === undefined ? undefined : rangeOf(cost, upTo),
       };
+
       if (frequency === undefined) {
         return [{ ...base, reasons: own }];
       }
+
       if (maximum === undefined) {
         return [];
       }
+
       const current = heldCount({ spent: play.resources.uses, maxima: counted.uses, key });
+
       return [
         {
           ...base,
@@ -204,6 +219,7 @@ function staffOptionLabel(option: StaffCastOptionLine, spell: StaffSpellLine): M
   if (spell.heightenedTo !== undefined) {
     return message(StaffSpellsMessage.CastCantrip, { rank: spell.heightenedTo });
   }
+
   return option.slotRank === undefined
     ? message(StaffSpellsMessage.CastCharges, { charges: option.charges })
     : message(StaffSpellsMessage.CastSlot, { charges: option.charges, rank: option.slotRank });
@@ -212,11 +228,13 @@ function staffOptionLabel(option: StaffCastOptionLine, spell: StaffSpellLine): M
 /** The spells of the staves the character holds, each cast with the staff's charges. */
 function staffActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
   const spells = spellContent(registry);
+
   return sheetStaves(registry, character, { resources: play.resources }).flatMap((staff) =>
     staff.spells.map((spell): ItemAction => {
       const found = spells.anySpell(spell.id);
       const range = found === undefined ? undefined : spellCost(found);
       const reasons: MessageDescriptor[] = [];
+
       if (staff.charges === undefined) {
         reasons.push(message(ItemReasonMessage.NotPrepared));
       } else if (spell.blocked !== undefined) {
@@ -226,6 +244,7 @@ function staffActions(registry: ContentRegistry, character: Character, play: She
       } else if (spell.options.length === 0) {
         reasons.push(message(ItemReasonMessage.NoCharges));
       }
+
       return {
         id: spell.id,
         name: `${spell.name} (${staff.name})`,
@@ -265,5 +284,6 @@ export function sheetItemActions(
 /** Whether the character holds a staff, which is when its spells are worth loading. Reads item content, so false while that loads. */
 export function holdsStaff(registry: ContentRegistry, character: Character): boolean {
   const content = itemContent(registry);
+
   return character.document.inventory.items.some((item) => isStaff(item, content));
 }

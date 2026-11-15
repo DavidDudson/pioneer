@@ -38,11 +38,15 @@ function modifierOf(root: HTMLElement, name: string): number {
   const row = [...root.querySelectorAll('pio-statistics fr-list-item')]
     .map((item) => textOf(item))
     .find((text) => text.startsWith(name));
+
   const match = /(?<sign>[+-−])(?<value>\d+)/u.exec(row ?? '');
+
   if (match === null) {
     throw new Error(`Expected a modifier beside ${name}`);
   }
+
   const value = Number(match.groups?.['value']);
+
   return match.groups?.['sign'] === '+' ? value : -value;
 }
 

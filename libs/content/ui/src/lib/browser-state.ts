@@ -8,6 +8,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
  * `page` the full width list with the facet panel and the column chooser.
  */
 export const ContentBrowserTier = { Preview: 'preview', Panel: 'panel', Page: 'page' } as const;
+
 export type ContentBrowserTier = ValueOf<typeof ContentBrowserTier>;
 
 /** An entry as a link names it: its kind and the name part of its slug (`feat`, `power-attack`). */

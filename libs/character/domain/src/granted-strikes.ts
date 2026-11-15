@@ -42,6 +42,7 @@ function fistStrike(origin: Origin, favored: ReadonlySet<BaseWeapon>): WeaponInp
 /** The attack an element of its own gives; undefined while it lacks what makes one (the schema rules that out). */
 function ownStrike({ element, origin }: GivenStrike): WeaponInputs | undefined {
   const { slug, category, damage, traits = [], range, display } = element;
+
   return slug === undefined || category === undefined
     ? undefined
     : { slug, category, traits, range, damage, label: display?.label, origin };
@@ -64,12 +65,15 @@ export function grantedStrikes(
         : [],
     ),
   );
+
   const fist = given.find(({ element }) => element.fist === true);
   const own = given.flatMap((strike) => ownStrike(strike) ?? []);
   const taken = new Set<Slug>();
+
   return [...(fist === undefined ? [] : [fistStrike(fist.origin, favored)]), ...own].filter(({ slug }) => {
     const fresh = !taken.has(slug);
     taken.add(slug);
+
     return fresh;
   });
 }

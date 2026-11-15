@@ -24,6 +24,7 @@ import type { Carry } from './item-carry';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const ID = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
 
@@ -38,6 +39,7 @@ function carrying(item: ItemFixture, carry: Carry): Inventory {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   return carryItem(stock, ID, carry);
 }
 
@@ -203,12 +205,14 @@ describe('equipped weapons: roll options for AdjustStrike', () => {
       [adjusting(['item:deity-favored'], { property: 'traits', mode: 'add', value: 'holy' }), 'favour'],
       [adjusting(['item:category:unarmed'], { property: 'traits', mode: 'add', value: 'agile' }), 'fist'],
     );
+
     const favored = new Set([BaseWeapon.parse('longsword')]);
 
     const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, {
       rules: () => rules,
       favored,
     }).weapons;
+
     const [unfavored] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
 
     expect([weapon?.traits.includes(Trait.parse('holy')), unfavored?.traits.includes(Trait.parse('holy'))]).toEqual([
@@ -225,6 +229,7 @@ const holy = (tag: string): object =>
 /** Whether the weapon a character holds is given the holy trait by `rules`. */
 function isHoly(rules: ModifierInputs, item: ItemFixture): boolean | undefined {
   const { weapons } = equippedInputs(carrying(item, HELD), content, { rules: () => rules });
+
   return weapons[0]?.traits.includes(Trait.parse('holy'));
 }
 

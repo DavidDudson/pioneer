@@ -10,6 +10,7 @@ import type { FeatRead } from './feat-content';
  * when they are printed but don't parse, or read a fact nobody has supplied.
  */
 export const PrerequisiteStatus = { Met: 'met', Unmet: 'unmet', Unknown: 'unknown' } as const;
+
 export type PrerequisiteStatus = ValueOf<typeof PrerequisiteStatus>;
 
 const STATUSES: Readonly<Record<Truth, PrerequisiteStatus>> = {
@@ -42,9 +43,11 @@ export function prerequisiteClauseStatuses(
 /** The state of clauses that must all hold, under Kleene's logic: one unmet makes it unmet, else one unknown makes it unknown. */
 function allOf(clauses: readonly PrerequisiteClauseStatus[]): PrerequisiteStatus {
   const statuses = new Set(clauses.map(({ status }) => status));
+
   if (statuses.has(PrerequisiteStatus.Unmet)) {
     return PrerequisiteStatus.Unmet;
   }
+
   return statuses.has(PrerequisiteStatus.Unknown) ? PrerequisiteStatus.Unknown : PrerequisiteStatus.Met;
 }
 
@@ -57,9 +60,12 @@ export function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateF
   if (feat?.predicate !== undefined) {
     return STATUSES[evaluatePredicate(feat.predicate, facts)];
   }
+
   const clauses = prerequisiteClauseStatuses(feat, facts);
+
   if (clauses !== undefined) {
     return allOf(clauses);
   }
+
   return feat?.prerequisites === undefined ? PrerequisiteStatus.Met : PrerequisiteStatus.Unknown;
 }

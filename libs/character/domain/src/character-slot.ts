@@ -34,6 +34,7 @@ export const SlotStatus = {
   /** A pick the slot doesn't offer, or whose content isn't loaded. */
   Invalid: 'invalid',
 } as const;
+
 export type SlotStatus = ValueOf<typeof SlotStatus>;
 
 /**
@@ -50,6 +51,7 @@ export const SlotSubjectKind = {
   Spell: 'spell',
   Signature: 'signature',
 } as const;
+
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
 
 /** A prepared slot's rank: cantrips, or 1 to 10. */
@@ -95,6 +97,7 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   /** The signature spell of `rank` on the spontaneous entry `entry` (#479). */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Signature), entry: Slug, rank: SpellRank }),
 ]);
+
 export type SlotSubject = z.output<typeof SlotSubject>;
 
 /**
@@ -134,6 +137,7 @@ export const CharacterSlot = z.discriminatedUnion('status', [
     selectionName: ContentText.optional(),
   }),
 ]);
+
 export type CharacterSlot = z.output<typeof CharacterSlot>;
 
 /** Why a stored pick is invalid; one message key per reason. */

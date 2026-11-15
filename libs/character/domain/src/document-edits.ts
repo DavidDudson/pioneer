@@ -14,6 +14,7 @@ function editor(inputs: EditInputs): NonNullable<EditInputs['actor']> {
   if (inputs.actor === undefined) {
     throw new TypeError('An override or custom effect edit needs the user who makes it');
   }
+
   return inputs.actor;
 }
 
@@ -36,6 +37,7 @@ export function withDocumentEdit(
     case CharacterPatchField.RemoveCustomLanguage: {
       return withBuildListEdit(document, patch);
     }
+
     case CharacterPatchField.AddOverride:
     case CharacterPatchField.EditOverride:
     case CharacterPatchField.RemoveOverride: {
@@ -46,6 +48,7 @@ export function withDocumentEdit(
         newOverrideId: inputs.newOverrideId,
       });
     }
+
     case CharacterPatchField.AddCustomEffect:
     case CharacterPatchField.ToggleCustomEffect:
     case CharacterPatchField.RemoveCustomEffect: {
@@ -56,10 +59,12 @@ export function withDocumentEdit(
         newCustomEffectId: inputs.newCustomEffectId,
       });
     }
+
     case CharacterPatchField.SetAppearance:
     case CharacterPatchField.SetPersonality: {
       return withProse(document, patch);
     }
+
     default: {
       const unreachable: never = patch;
       throw new TypeError(`Unhandled document edit: ${JSON.stringify(unreachable)}`);

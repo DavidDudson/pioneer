@@ -10,6 +10,7 @@ const meta: Meta<SpellSlotsView> = {
   title: 'Rules/Spellcasting/Spell slots',
   component: SpellSlotsView,
 };
+
 export default meta;
 
 /** A 7th-level cleric's own slots: five cantrips and slots up to 4th rank. */

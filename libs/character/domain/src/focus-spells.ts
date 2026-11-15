@@ -38,9 +38,11 @@ export function characterFocus(
       entry,
       spells: entry.focusSpells.flatMap((id) => content.anySpell(id) ?? []),
     }));
+
   const pointsFrom = new Set<ContentId>(
     focusEntries.flatMap(({ spells }) => spells.filter((spell) => !spell.cantrip).map((spell) => spell.id)),
   );
+
   return {
     entries: focusEntries,
     rank: cantripRank(level),

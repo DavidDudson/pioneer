@@ -16,6 +16,7 @@ interface Piece {
 }
 
 export type RunNode = Piece | Exclude<InlineNode, TextNode>;
+
 export type Run = readonly RunNode[];
 
 const TEXT_MAX = RichTextString.maxLength ?? Number.POSITIVE_INFINITY;
@@ -38,14 +39,17 @@ function sameMarks(left: Piece, right: Piece): boolean {
 /** Adjacent text with the same marks as one piece, its whitespace collapsed. */
 function merged(run: Run): RunNode[] {
   const out: RunNode[] = [];
+
   for (const node of run) {
     const last = out.at(-1);
+
     if (isPiece(node) && isPiece(last) && sameMarks(last, node)) {
       out[out.length - 1] = withText(last, `${last.text}${node.text}`);
     } else {
       out.push(node);
     }
   }
+
   return out.map((node) => (isPiece(node) ? withText(node, node.text.replaceAll(SPACES, ' ')) : node));
 }
 
@@ -66,25 +70,32 @@ function isEmpty(node: RunNode): boolean {
 /** Drops spaces at line edges and doubled ones, and the text that leaves empty. */
 function trimmed(run: Run): RunNode[] {
   const starts: RunNode[] = [];
+
   for (const node of run) {
     const kept = isPiece(node) && opensLine(starts.at(-1)) ? withText(node, node.text.trimStart()) : node;
+
     if (!isEmpty(kept)) {
       starts.push(kept);
     }
   }
+
   const ends: RunNode[] = [];
+
   for (const node of starts.toReversed()) {
     const kept = isPiece(node) && closesLine(ends.at(-1)) ? withText(node, node.text.trimEnd()) : node;
+
     if (!isEmpty(kept)) {
       ends.push(kept);
     }
   }
+
   return ends.toReversed();
 }
 
 function withoutEdgeBreaks(run: Run): Run {
   const first = run.findIndex((node) => node.type !== InlineKind.LineBreak);
   const last = run.findLastIndex((node) => node.type !== InlineKind.LineBreak);
+
   return first === -1 ? [] : run.slice(first, last + 1);
 }
 
@@ -101,14 +112,17 @@ function units(text: string): string[] {
 /** Text cut into chunks no longer than a `RichTextString`, between graphemes where it can be. */
 function chunks(text: string): string[] {
   const out: string[] = [];
+
   for (const unit of units(text)) {
     const last = out.at(-1);
+
     if (last === undefined || last.length + unit.length > TEXT_MAX) {
       out.push(unit);
     } else {
       out[out.length - 1] = `${last}${unit}`;
     }
   }
+
   return out;
 }
 
@@ -116,6 +130,7 @@ function chunks(text: string): string[] {
 function textNodes({ text, marks }: Piece): TextNode[] {
   return chunks(text).map((chunk) => {
     const value = RichTextString.parse(chunk);
+
     return marks.length === 0 ? { type: InlineKind.Text, text: value } : { type: InlineKind.Text, text: value, marks };
   });
 }
@@ -137,12 +152,15 @@ function runOf(content: InlineContent): RunNode[] {
 /** Runs one after another, each on its own line. */
 export function joined(runs: readonly Run[]): RunNode[] {
   const out: RunNode[] = [];
+
   for (const run of runs.filter((each) => each.length > 0)) {
     if (out.length > 0) {
       out.push(LINE_BREAK);
     }
+
     out.push(...run);
   }
+
   return out;
 }
 
@@ -151,11 +169,14 @@ export function runOfBlock(block: BlockNode): RunNode[] {
   if (block.type === BlockKind.Paragraph || block.type === BlockKind.Heading) {
     return runOf(block.content);
   }
+
   if (block.type === BlockKind.List) {
     return joined(block.items.map((item) => joined(item.map((each) => runOfBlock(each)))));
   }
+
   if (block.type === BlockKind.Table) {
     return joined([...(block.header ?? []), ...block.rows.flat()].map((cell) => runOf(cell)));
   }
+
   return [];
 }

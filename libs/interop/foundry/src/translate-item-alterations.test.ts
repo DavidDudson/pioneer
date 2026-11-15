@@ -43,6 +43,7 @@ describe('ItemAlteration from Foundry', () => {
       property: 'traits',
       value: 'vitality',
     });
+
     const hardness = translated({
       itemType: 'shield',
       key: RuleElementKey.ItemAlteration,
@@ -73,6 +74,7 @@ describe('ItemAlteration from Foundry', () => {
       property: 'traits',
       value: 'reach',
     });
+
     const text = translated({
       itemType: 'feat',
       key: RuleElementKey.ItemAlteration,
@@ -80,6 +82,7 @@ describe('ItemAlteration from Foundry', () => {
       property: 'description',
       value: [{ text: 'More.' }],
     });
+
     const picked = translated({
       itemType: 'weapon',
       key: RuleElementKey.ItemAlteration,

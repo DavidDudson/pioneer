@@ -19,6 +19,7 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 2, dex: 1, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const definitions = [
   StatisticDefinition.parse({
     slug: 'statistic:ac',
@@ -37,6 +38,7 @@ const definitions = [
     kind: StatisticKind.Check,
   }),
 ];
+
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 const TYPES = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
 const SELECTORS = ['ac', 'skill:athletics'] as const;
@@ -57,9 +59,11 @@ function total(rules: readonly RuleInPlay[], selector: string): number {
     rules,
     facts,
   }).get(Selector.parse(selector));
+
   if (result === undefined || !result.ok) {
     throw new Error('expected a statistic with a value');
   }
+
   return result.total;
 }
 

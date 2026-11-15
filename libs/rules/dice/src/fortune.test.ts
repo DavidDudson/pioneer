@@ -14,9 +14,11 @@ const CURSED = message('effect.cursed');
 
 function roll(text: string, sources: FortuneSources, faces: readonly number[]): FortunedRoll {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(outcome.error.key);
   }
+
   return rollWithFortune(outcome.expression, sources, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 

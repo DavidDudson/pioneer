@@ -21,6 +21,7 @@ const Traits = z.array(Trait).max(TRAITS_MAX).readonly().check(uniqueItems);
 /** Whether a Strike element gives exactly one shape: the fist, or an attack of its own with a slug, category and damage. */
 function hasOneShape({ fist, slug, category, damage }: StrikeFields): boolean {
   const own = slug !== undefined && category !== undefined && damage !== undefined;
+
   return fist === true ? slug === undefined && category === undefined && damage === undefined : own;
 }
 
@@ -50,6 +51,7 @@ type StrikeFields = z.infer<z.ZodObject<typeof strikeFields>>;
 export const StrikeElement = z
   .strictObject(strikeFields)
   .refine(hasOneShape, issueParams(message(RulesMessage.StrikeShape)));
+
 export type StrikeElement = z.infer<typeof StrikeElement>;
 
 /** What an adjustment of Strikes changes besides their traits. */
@@ -60,6 +62,7 @@ export const StrikeProperty = {
   RangeIncrement: 'range-increment',
   Reach: 'reach',
 } as const;
+
 export type StrikeProperty = ValueOf<typeof StrikeProperty>;
 
 const AddMode = z.literal(NumericAlterationMode.Add);
@@ -113,4 +116,5 @@ export const AdjustStrikeElement = z.discriminatedUnion('property', [
     value: RuleValue,
   }),
 ]);
+
 export type AdjustStrikeElement = z.infer<typeof AdjustStrikeElement>;

@@ -10,6 +10,7 @@ async function render(open: boolean, emphasis: ToastEmphasis = ToastEmphasis.Non
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('16')]],
   });
+
   onTestFinished(() => {
     toast.destroy();
   });
@@ -18,6 +19,7 @@ async function render(open: boolean, emphasis: ToastEmphasis = ToastEmphasis.Non
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(toast.hostView);
   await appRef.whenStable();
+
   return toast.location.nativeElement as HTMLElement;
 }
 

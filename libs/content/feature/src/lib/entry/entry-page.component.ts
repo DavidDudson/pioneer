@@ -84,6 +84,7 @@ export class EntryPage {
 
   readonly #index = computed(() => {
     const registry = this.registry.data();
+
     return registry === undefined ? undefined : entryIndex(registry);
   });
   public readonly links: RichTextLinks = entryLinks(() => this.#index());
@@ -94,6 +95,7 @@ export class EntryPage {
   protected readonly entry: Signal<ContentEntry | undefined> = computed(() => {
     const kind = this.#kind();
     const registry = this.registry.data();
+
     return kind === undefined || registry === undefined
       ? undefined
       : findEntry(registry, kind, this.#params().get('slug'));
@@ -103,10 +105,12 @@ export class EntryPage {
 
   protected readonly card: Signal<EntryPreview | undefined> = computed(() => {
     const entry = this.entry();
+
     return entry === undefined ? undefined : entryCard(entry, this.#description.data());
   });
   protected readonly stores = computed(() => {
     const entry = this.entry();
+
     return entry === undefined ? [] : storeLinks(entry);
   });
 
@@ -117,6 +121,7 @@ export class EntryPage {
   /** The kind and words the entry was opened from, so the list is as it was left. */
   protected readonly browseParams = computed((): Params => {
     const query = this.#query();
+
     return {
       [KIND_PARAM]: query.get(KIND_PARAM) ?? undefined,
       [TableViewKey.Search]: query.get(TableViewKey.Search) ?? undefined,

@@ -67,6 +67,7 @@ export class SenseIcons {
     this.#messages();
     this.#format.locale();
     const words = { i18n: this.#i18n, format: this.#format, names: this.entryNames() };
+
     return this.senses()?.map((sense) => ({
       icon: ICONS[sense.acuity],
       name: words.names.get(sense.sense) ?? sense.sense,

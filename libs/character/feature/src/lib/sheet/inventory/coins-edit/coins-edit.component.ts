@@ -48,9 +48,11 @@ export class CoinsEdit {
 
   async #save(coin: Coin, value: number): Promise<void> {
     const purse = this.#store.selected()?.document.inventory.coins;
+
     if (purse === undefined) {
       return;
     }
+
     await this.#store.patch({
       field: CharacterPatchField.SetCoins,
       coins: { ...purse, [coin]: CoinAmount.parse(value) },

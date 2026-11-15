@@ -16,6 +16,7 @@ export const environment: AppEnvironment = {
   characterListExtras: [
     async () => {
       const { SampleCharacterImport } = await import('@pioneer/character/feature/dev');
+
       return SampleCharacterImport;
     },
   ],

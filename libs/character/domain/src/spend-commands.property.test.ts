@@ -21,6 +21,7 @@ const ONE_QUICKENED = QuickenedAction.parse(1);
 
 const phases = constantFrom(TurnPhase.Turn, TurnPhase.OffTurn, TurnPhase.OutOfEncounter);
 const taken = constantFrom<Exclude<ActionsTaken, 0>>(1, 2, 3, 4);
+
 const costs = constantFrom<SpendCost>(
   actions(1),
   actions(2),
@@ -29,6 +30,7 @@ const costs = constantFrom<SpendCost>(
   { kind: SpendKind.Reaction },
   { kind: SpendKind.Free },
 );
+
 const starts = record({
   phase: phases,
   left: constantFrom<ActionsTaken>(0, 1, 2, 3),
@@ -42,11 +44,13 @@ const starts = record({
 function played(play: PlayState, attempts: readonly SpendCost[]): PlayState {
   let current = play;
   let serial = 1;
+
   for (const cost of attempts) {
     const command = spendOf(Serial.parse(serial), cost);
     serial += 1;
     current = applyPlayCommand(current, command, LIMITS);
   }
+
   return current;
 }
 

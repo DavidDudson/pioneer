@@ -17,8 +17,11 @@ import {
 } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(DEDICATION_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A 1st-level character who plans Warden Dedication (needs Power Attack) for 3rd level, with Power Attack at `first`. */

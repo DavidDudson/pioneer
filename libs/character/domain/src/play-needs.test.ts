@@ -12,6 +12,7 @@ const DAILY_PREPARATIONS: PlayCommand = { field: PlayCommandField.DailyPreparati
 const REFOCUS: PlayCommand = { field: PlayCommandField.Refocus };
 const START_SESSION: PlayCommand = { field: PlayCommandField.StartSession };
 const SET_DOOMED: PlayCommand = { field: PlayCommandField.SetDoomed, doomed: Doomed.parse(1) };
+
 const SPEND_HERO_POINT: PlayCommand = {
   field: PlayCommandField.SpendResource,
   resource: Resource.HeroPoints,

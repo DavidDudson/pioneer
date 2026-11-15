@@ -46,6 +46,7 @@ function counting(picker: PickerUnderTest): Pick<Rendered<unknown>, 'commits' | 
   picker.cancelled.subscribe(() => {
     cancels += 1;
   });
+
   return { commits: (): number => commits, cancels: (): number => cancels };
 }
 
@@ -56,16 +57,20 @@ export async function render<TPicker extends PickerUnderTest>(
 ): Promise<Rendered<TPicker>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(picker);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.componentRef.setInput('ariaLabel', 'Origin');
   const { commits, cancels } = counting(fixture.componentInstance);
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected a rendered picker');
   }
+
   return { fixture, host, commits, cancels };
 }
 
@@ -81,23 +86,28 @@ export function headers(host: HTMLElement): string[] {
 export function nameCells(host: HTMLElement): HTMLElement[] {
   return [...host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
+
     return cell === null ? [] : [cell];
   });
 }
 
 export function nameCellAt(host: HTMLElement, index: number): HTMLElement {
   const cell = nameCells(host).at(index);
+
   if (cell === undefined) {
     throw new Error(`Expected cell ${index}`);
   }
+
   return cell;
 }
 
 export function rowText(host: HTMLElement, index: number): string {
   const row = [...host.querySelectorAll('fr-picker-row')].at(index);
+
   if (row === undefined) {
     throw new Error(`Expected row ${index}`);
   }
+
   return textOf(row);
 }
 
@@ -107,9 +117,11 @@ export function rowLabels(host: HTMLElement): string[] {
 
 function searchBox(host: HTMLElement): HTMLInputElement {
   const input = host.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the table to be open');
   }
+
   return input;
 }
 
@@ -128,8 +140,10 @@ export function search(rendered: Rendered<unknown>, text: string): void {
 /** The sort button in the header at `index`. */
 export function sortButton(host: HTMLElement, index: number): HTMLElement {
   const button = [...host.querySelectorAll<HTMLElement>('[role="columnheader"]')].at(index)?.querySelector('button');
+
   if (button === null || button === undefined) {
     throw new Error(`Expected a sort button in header ${index}`);
   }
+
   return button;
 }

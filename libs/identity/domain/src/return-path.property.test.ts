@@ -35,6 +35,7 @@ describe('returnPathOr', () => {
     assert(
       property(string(), (requested) => {
         const path = returnPathOr(requested);
+
         return new URL(path, 'https://pioneer.example').origin === 'https://pioneer.example';
       }),
     );
@@ -44,6 +45,7 @@ describe('returnPathOr', () => {
     assert(
       property(webUrl({ withQueryParameters: true, withFragments: true }), (url) => {
         const path = returnPathOr(url.replace(/^https?:/u, ''));
+
         return new URL(path, 'https://pioneer.example').origin === 'https://pioneer.example';
       }),
     );

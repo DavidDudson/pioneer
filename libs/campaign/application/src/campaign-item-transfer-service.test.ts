@@ -83,6 +83,7 @@ describe('CampaignItemTransferService', () => {
     );
     vaults = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(merisiel).build());
     const attachedAt = Temporal.Instant.from('2026-10-10T10:00:00Z');
+
     const attach = async (characterId: CharacterId, owner: UserId): Promise<CampaignId | undefined> =>
       party.attach(vaults.id, {
         id: CampaignCharacterId.parse(newId()),
@@ -90,6 +91,7 @@ describe('CampaignItemTransferService', () => {
         memberId: memberIdOf(vaults, owner),
         attachedAt,
       });
+
     await attach(kyra, ezren);
     await attach(mordred, ezren);
     await attach(dormant, ezren);
@@ -206,12 +208,15 @@ describe('CampaignItemTransferService', () => {
       const hidden = await rejection(
         service.offerCoins(stranger, vaults.id, { from: outsider, to: kyra, coins: gold }),
       );
+
       const notTheirs = await rejection(
         service.offerCoins(merisiel, vaults.id, { from: kyra, to: seelah, coins: gold }),
       );
+
       const notInParty = await rejection(
         service.offerCoins(ezren, vaults.id, { from: kyra, to: outsider, coins: gold }),
       );
+
       const archived = await rejection(
         service.offerCoins(ezren, vaults.id, { from: dormant, to: seelah, coins: OfferedCoinsSchema.parse({ gp: 1 }) }),
       );
@@ -231,6 +236,7 @@ describe('CampaignItemTransferService', () => {
   describe('list', () => {
     test("shows the giver's owner and the recipient's owner the pending offer, with names", async () => {
       const offer = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+
       const shared = {
         id: offer.id,
         from: kyra,

@@ -13,6 +13,7 @@ export const MeterVariant = {
   /** One block per point, for small counts: hero points, dying 0-4. */
   Segmented: 'segmented',
 } as const;
+
 export type MeterVariant = ValueOf<typeof MeterVariant>;
 
 /** Past this many points a segmented meter draws a bar: the blocks get too thin to count. */
@@ -128,9 +129,11 @@ export class Meter {
     const count = this.max() - this.min();
     const filled = this.#current() - this.min();
     const segmentable = Number.isInteger(count) && Number.isInteger(filled) && count >= 1 && count <= MAX_SEGMENTS;
+
     if (this.variant() !== MeterVariant.Segmented || !segmentable) {
       return undefined;
     }
+
     return Array.from({ length: count }, (_unused, index) =>
       segmentVariants({ filled: index < filled, tone: this.tone() }),
     );

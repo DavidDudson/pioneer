@@ -16,6 +16,7 @@ function keyOf(raw: unknown): string {
   if (typeof raw !== 'object' || raw === null || !('key' in raw)) {
     return '';
   }
+
   return typeof raw.key === 'string' ? raw.key : '';
 }
 
@@ -48,12 +49,15 @@ const PHYSICAL_KINDS: ReadonlySet<ContentKind> = new Set([
 /** Whether a grant of `item` with Foundry's `onDeleteActions` goes with its granter and only with it. */
 function isDerivedGrant(deletes: unknown, item: ContentId | undefined, references: EntryReferences): boolean {
   const actions = FoundryDeleteActions.safeParse(deletes);
+
   if (!actions.success) {
     return false;
   }
+
   const kind = item === undefined ? undefined : references.kinds.get(item);
   const physical = kind !== undefined && PHYSICAL_KINDS.has(kind);
   const granter = actions.data?.granter ?? (physical ? 'detach' : 'cascade');
+
   return granter === 'cascade' && actions.data?.grantee !== 'cascade';
 }
 
@@ -67,12 +71,16 @@ export function withGrantedId(raw: unknown, references: EntryReferences): unknow
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
+
   const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
   const item = typeof raw.uuid === 'string' ? resolveUuid(references, raw.uuid) : undefined;
+
   if (item === undefined || !isDerivedGrant(deletes, item, references)) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
+
   return { ...Object.fromEntries(rest), item };
 }
 
@@ -92,11 +100,15 @@ export function withGrantValue(raw: unknown): unknown {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('alterations' in raw)) {
     return raw;
   }
+
   const alterations = FoundryBadgeValue.safeParse(raw.alterations);
+
   if (!alterations.success) {
     return raw;
   }
+
   const { alterations: _replaced, ...rest } = raw;
+
   return { ...rest, value: alterations.data[0].value };
 }
 
@@ -113,13 +125,17 @@ export function withChoiceGrant(raw: unknown, references: EntryReferences, decla
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
+
   const flag = typeof raw.uuid === 'string' ? SELECTION_UUID.exec(raw.uuid)?.groups?.['flag'] : undefined;
   const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
   const choice = flag === undefined ? undefined : kebab(flag);
+
   if (choice === undefined || !declared.has(choice) || !isDerivedGrant(deletes, undefined, references)) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
+
   return { ...Object.fromEntries(rest), item: { choice } };
 }
 
@@ -138,18 +154,23 @@ export function withGrantFields(raw: unknown): unknown {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null) {
     return raw;
   }
+
   const fields = Object.entries(raw)
     .filter(([field]) => !GRANT_SHEET_FIELDS.has(field))
     .map(([field, value]): [string, unknown] => [
       field,
       field === 'flag' && typeof value === 'string' ? kebab(value) : value,
     ]);
+
   const preselected = FoundryPreselected.safeParse('preselectChoices' in raw ? raw.preselectChoices : undefined);
+
   if (!preselected.success) {
     return Object.fromEntries(fields);
   }
+
   const rest = fields.filter(([field]) => field !== 'preselectChoices');
   const choices = Object.entries(preselected.data).map(([flag, value]): [string, unknown] => [kebab(flag), value]);
+
   return { ...Object.fromEntries(rest), choices: Object.fromEntries(choices) };
 }
 
@@ -165,8 +186,10 @@ export function withAura(raw: unknown, references: EntryReferences): unknown {
   if (keyOf(raw) !== RuleElementKey.Aura || typeof raw !== 'object' || raw === null) {
     return raw;
   }
+
   const radius = 'radius' in raw && typeof raw.radius === 'string' ? fromFoundryFormula(raw.radius) : undefined;
   const effects = 'effects' in raw ? resolvedEffects(raw.effects, references) : undefined;
+
   return {
     ...raw,
     ...(radius === undefined ? {} : { radius }),
@@ -179,15 +202,20 @@ function resolvedEffects(listed: unknown, references: EntryReferences): readonly
   if (!Array.isArray(listed)) {
     return undefined;
   }
+
   const effects: object[] = [];
+
   for (const each of listed as readonly unknown[]) {
     const parsed = FoundryAuraEffect.safeParse(each);
     const effect = parsed.success ? resolveUuid(references, parsed.data.uuid) : undefined;
+
     if (!parsed.success || effect === undefined) {
       return undefined;
     }
+
     const { uuid: _replaced, ...rest } = parsed.data;
     effects.push({ effect, ...rest });
   }
+
   return effects;
 }

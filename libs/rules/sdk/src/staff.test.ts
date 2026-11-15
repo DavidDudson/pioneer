@@ -9,6 +9,7 @@ import { Charges, STAFF_CANTRIP, staffCharges, StaffRank, StaffSpells } from './
 
 function issuesOf(value: unknown): readonly FieldIssue[] {
   const result = StaffSpells.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

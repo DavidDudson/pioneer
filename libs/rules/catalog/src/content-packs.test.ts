@@ -54,12 +54,14 @@ const PINNED_IDS: Readonly<Record<string, string>> = {
 async function registryIds(): Promise<Record<string, string>> {
   const registry = new ContentRegistry();
   await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
   const entries = [
     ...registry.ancestries(),
     ...registry.creatures(),
     ...registry.statistics(),
     ...registry.variantRules(),
   ];
+
   return Object.fromEntries(entries.map((entry) => [entry.key, entry.id]));
 }
 
@@ -70,6 +72,7 @@ async function ancestryAndReferenceEntries(): Promise<readonly ContentEntry[]> {
     import('@pioneer/content/packs/core-rules/language.json'),
     import('@pioneer/content/packs/core-rules/sense.json'),
   ]);
+
   return files.flatMap((file) => ContentEntryFile.parse(file.default));
 }
 
@@ -85,6 +88,7 @@ interface AncestryReferences {
 /** The language and sense entries the pack's ancestries name. */
 function ancestryReferences(entries: readonly ContentEntry[]): AncestryReferences {
   const ancestries = entries.flatMap((entry) => (entry.kind === ContentKind.Ancestry ? [entry.data] : []));
+
   return {
     languages: ancestries.flatMap((data) => [...data.languages, ...data.additionalLanguages.options]),
     senses: ancestries.flatMap((data) => (data.vision === undefined ? [] : [data.vision])),
@@ -97,6 +101,7 @@ async function spellAndEffectEntries(): Promise<readonly ContentEntry[]> {
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/effect.json'),
   ]);
+
   return files.flatMap((file) => ContentEntryFile.parse(file.default));
 }
 

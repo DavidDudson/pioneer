@@ -8,9 +8,11 @@ const BULK_ID = FacetId.parse('bulk');
 
 function bulkFacet(): FacetDefinition {
   const found = facetsFor([ContentKind.Weapon]).find((facet) => facet.id === BULK_ID);
+
   if (found === undefined) {
     throw new Error('No bulk facet');
   }
+
   return found;
 }
 
@@ -36,9 +38,11 @@ describe(withValues, () => {
   it('lifts the exclusion of a value once it is picked, keeping the rest excluded', () => {
     const facet = bulkFacet();
     const [one, two] = [FacetValue.parse('1'), FacetValue.parse('2')];
+
     const excluded: FilterState = new Map([
       [BULK_ID, { kind: SelectionKind.Values, include: [], exclude: [one, two] }],
     ]);
+
     expect(withValues(excluded, facet, new Set([one])).get(BULK_ID)).toStrictEqual({
       kind: SelectionKind.Values,
       include: [one],
@@ -50,9 +54,11 @@ describe(withValues, () => {
 describe(facetRows, () => {
   it('keeps a bounded range with no values in the list, so it can be cleared, but gives it no span', () => {
     const counts = [{ facet: bulkFacet(), values: [], unknown: EntryCount.parse(0) }];
+
     const state: FilterState = new Map([
       [BULK_ID, { kind: SelectionKind.Range, min: RangeBound.parse(10), max: undefined }],
     ]);
+
     expect(facetRows(counts, state)).toStrictEqual([
       { kind: FacetRowKind.Range, facet: bulkFacet(), min: 1, max: undefined, span: undefined, step: 0.1 },
     ]);
@@ -69,9 +75,11 @@ describe(facetRows, () => {
         unknown: EntryCount.parse(0),
       },
     ];
+
     const state: FilterState = new Map([
       [BULK_ID, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(10) }],
     ]);
+
     expect(facetRows(counts, state)).toStrictEqual([
       {
         kind: FacetRowKind.Range,

@@ -13,6 +13,7 @@ import type { SlotPick } from './slot-offer';
  * offer one.
  */
 export const PreparedRefusal = { NotOpen: 'notOpen', NotOffered: 'notOffered', NoAccess: 'noAccess' } as const;
+
 export type PreparedRefusal = ValueOf<typeof PreparedRefusal>;
 
 /** Why a pick's spell can't go in its prepared slot, or undefined when it can. */
@@ -22,16 +23,21 @@ export function preparedRefusal(
   { slot: key, selection }: SlotPick,
 ): PreparedRefusal | undefined {
   const slot = preparedSlots(document, reads).find((each) => each.key === key);
+
   if (slot === undefined) {
     return PreparedRefusal.NotOpen;
   }
+
   if (slot.options.some((spell) => spell.id === selection)) {
     return undefined;
   }
+
   const named = reads.spells.spell(selection);
+
   if (named === undefined || slot.pool !== undefined || slot.granted || slot.deitySpell) {
     return PreparedRefusal.NotOffered;
   }
+
   const noAccess =
     problemOf(named, {
       ...slot,
@@ -41,5 +47,6 @@ export function preparedRefusal(
       gifts: [],
       floating: false,
     }) === PreparedPickProblem.NoAccess;
+
   return noAccess ? PreparedRefusal.NoAccess : PreparedRefusal.NotOffered;
 }

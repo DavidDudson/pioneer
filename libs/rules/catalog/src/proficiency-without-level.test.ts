@@ -33,6 +33,7 @@ function bonusWithoutLevel(rank: Proficiency): number {
 /** How far the variant moves the fighter's statistic: untrained from +0 to -2, trained and up lose the level. */
 function expectedShift(selector: string): number {
   const rank = fighter.ranks.get(Selector.parse(selector)) ?? Proficiency.Untrained;
+
   return rank === Proficiency.Untrained ? UNTRAINED_WITHOUT_LEVEL : -Number(fighter.level);
 }
 
@@ -47,6 +48,7 @@ function termOrigins(
 ): readonly (Origin | undefined)[] {
   const result = results.get(Selector.parse(selector));
   const terms = result?.ok === true ? result.base : [];
+
   return terms.flatMap((term) => (term.kind === BaseTermKind.Term ? [term.origin] : []));
 }
 
@@ -72,6 +74,7 @@ describe('Proficiency Without Level', () => {
         const inputs = StatisticInputsJson.parse(json);
         const derived = totals(deriveStatistics(core, inputs, { rules, facts: NO_FACTS }));
         expect(derived['ac']).toBe(AC_BASE + Math.min(dex, cap) + bonusWithoutLevel(ac));
+
         for (const [slug, key] of Object.entries(SKILLS)) {
           expect(derived[`skill:${slug}`]).toBe(inputs.attributes.get(key) + bonusWithoutLevel(skill));
         }

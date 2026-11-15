@@ -15,6 +15,7 @@ const PLAY_URL = `/api/characters/${id}/play`;
 
 /** Merisiel as a cleric of Irori, whose favoured weapon is the fist: a character with a Strike. */
 const IRORI = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:irori'));
+
 const CLERIC = {
   ...MERISIEL,
   build: {
@@ -30,6 +31,7 @@ const CLERIC = {
 /** The play state of a full-health character with `phase` and `attacks` made, at `revision`. */
 function playWith(phase: string, attacks: number, revision = 1): object {
   const turn = { phase, actions: 1, quickened: 0, reactionUsed: false, attacks };
+
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn, spendLog: [] } };
 }
 

@@ -34,6 +34,7 @@ export function loadWithMessages<TLoaded>(load: () => Promise<TLoaded>): () => P
     const i18n = inject(TranslocoService);
     const scopes = inject(MESSAGE_SCOPES, { optional: true }) ?? [];
     const [loaded] = await Promise.all([load(), loadMessageScopes(i18n, scopes)]);
+
     return loaded;
   };
 }
@@ -47,6 +48,7 @@ export async function loadMessageScopes(i18n: TranslocoService, scopes: readonly
   await Promise.all(
     scopes.map(async ({ scope, messages }) => {
       const path = `${scope}/${locale}`;
+
       // Transloco keys inline loaders by `<scope>/<lang>`.
       return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: messages[locale] } }));
     }),

@@ -39,18 +39,21 @@ export class HomebrewPackCatalog extends PackCatalog {
 
   public override async official(): Promise<readonly CatalogPack[]> {
     const packs = await this.#directory.all();
+
     return packs.filter((pack) => pack.summary.official).map((pack) => catalogued(pack));
   }
 
   public override async readableBy(viewer: UserId): Promise<readonly CatalogPack[]> {
     const packs = await this.#directory.all();
     const allowed = await Promise.all(packs.map(async (pack) => this.#access.mayRead(viewer, pack)));
+
     return packs.filter((_pack, index) => allowed[index] === true).map((pack) => catalogued(pack));
   }
 
   public override async byIds(ids: readonly EnabledPackId[]): Promise<ReadonlyMap<EnabledPackId, CatalogPack>> {
     const wanted = new Set(ids);
     const packs = await this.#directory.all();
+
     return new Map(
       packs
         .filter((pack) => wanted.has(EnabledPackId.parse(pack.id)))
@@ -60,6 +63,7 @@ export class HomebrewPackCatalog extends PackCatalog {
 
   public override async closure(id: EnabledPackId): Promise<readonly EnabledPackId[]> {
     const edges = await this.#dependencies.edges();
+
     return loadOrder(edges, id).map((pack) => EnabledPackId.parse(pack));
   }
 }

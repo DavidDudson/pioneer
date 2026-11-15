@@ -23,17 +23,23 @@ export function finished(result: StatisticResult, { lines, sets, context }: Fini
   if (!result.ok) {
     return result;
   }
+
   let sum = 0;
+
   for (const { status, value } of lines) {
     if (status.kind === LineStatusKind.Applied && value !== undefined) {
       sum += value;
     }
   }
+
   const computed = whole(result.baseValue + sum);
+
   if (computed === undefined) {
     return totalOutOfRange(result.selector);
   }
+
   const pinned = pinTotal(computed, sets, context);
+
   return {
     ...result,
     lines,

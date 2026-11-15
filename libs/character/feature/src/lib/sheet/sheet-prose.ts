@@ -12,6 +12,7 @@ function paragraphContent(paragraph: string): readonly InlineNode[] {
     .map((line): readonly InlineNode[] =>
       line === '' ? [] : [{ type: InlineKind.Text, text: RichTextString.parse(line) }],
     );
+
   return lines.flatMap((line, index) => (index === 0 ? [line] : [BREAK, line])).flat();
 }
 
@@ -21,9 +22,11 @@ function paragraphContent(paragraph: string): readonly InlineNode[] {
  */
 export function proseToRichText(prose: string): RichText {
   const normalised = prose.replaceAll('\r\n', LINE_BREAK).trim();
+
   if (normalised === '') {
     return [];
   }
+
   return normalised
     .split(PARAGRAPH_BREAK)
     .map((paragraph): BlockNode => ({ type: BlockKind.Paragraph, content: paragraphContent(paragraph) }));
@@ -34,6 +37,7 @@ function inlineText(node: InlineNode): string {
   if (node.type === InlineKind.Text) {
     return node.text;
   }
+
   return node.type === InlineKind.LineBreak ? LINE_BREAK : '';
 }
 

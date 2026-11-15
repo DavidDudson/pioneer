@@ -18,34 +18,42 @@ describe('bisected', () => {
   test('reads a few levels of a value that grows at two, and gets every level right', () => {
     const reads: number[] = [];
     const exact = stepsAt([7, 13]);
+
     const read = bisected(
       (level) => {
         reads.push(level);
+
         return exact(level);
       },
       (left, right) => left === right,
       RANGE,
     );
+
     for (let level = 1; level <= 20; level += 1) {
       expect(read(Level.parse(level))).toBe(exact(Level.parse(level)));
     }
+
     expect(new Set(reads).size).toBeLessThan(12);
     expect(reads.length).toBe(new Set(reads).size);
   });
 
   test('reads only the two ends of a value that never changes', () => {
     const reads: number[] = [];
+
     const read = bisected(
       (level) => {
         reads.push(level);
+
         return 'same';
       },
       (left, right) => left === right,
       RANGE,
     );
+
     for (let level = 1; level <= 20; level += 1) {
       read(Level.parse(level));
     }
+
     expect(reads.toSorted((left, right) => left - right)).toEqual([1, 20]);
   });
 
@@ -56,6 +64,7 @@ describe('bisected', () => {
       property(stepLevels, shuffledSubarray(allLevels), (steps, order) => {
         const exact = stepsAt(steps);
         const read = bisected(exact, (left, right) => left === right, RANGE);
+
         for (const level of order) {
           expect(read(Level.parse(level))).toBe(exact(Level.parse(level)));
         }

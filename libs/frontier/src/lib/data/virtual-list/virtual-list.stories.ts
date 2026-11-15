@@ -56,6 +56,7 @@ const meta: Meta<VirtualList<Creature>> = {
     `,
   }),
 };
+
 export default meta;
 
 export const ThousandRows: VirtualListStory = {};

@@ -37,6 +37,7 @@ function pickOptionOf(raw: unknown): PickOption | undefined {
   const option = FoundryPickOption.safeParse(raw);
   const groups = option.success ? PICK_OPTION.exec(option.data.option)?.groups : undefined;
   const { namespace, flag } = groups ?? {};
+
   return namespace === undefined || flag === undefined ? undefined : { namespace, flag };
 }
 
@@ -48,22 +49,29 @@ export function withPickRollOptions(raws: readonly unknown[]): unknown[] {
   const flags = new Set(
     raws.flatMap((raw) => {
       const choice = FoundryChoiceSet.safeParse(raw);
+
       return choice.success ? [choice.data.flag] : [];
     }),
   );
+
   const namespaces = new Map(
     raws.flatMap((raw) => {
       const found = pickOptionOf(raw);
+
       return found !== undefined && flags.has(found.flag) ? [[found.flag, found.namespace] as const] : [];
     }),
   );
+
   return raws.flatMap((raw): unknown[] => {
     const option = pickOptionOf(raw);
+
     if (option !== undefined && namespaces.has(option.flag)) {
       return [];
     }
+
     const choice = FoundryChoiceSet.safeParse(raw);
     const namespace = choice.success ? namespaces.get(choice.data.flag) : undefined;
+
     return choice.success && namespace !== undefined ? [{ ...choice.data, rollOption: namespace }] : [raw];
   });
 }

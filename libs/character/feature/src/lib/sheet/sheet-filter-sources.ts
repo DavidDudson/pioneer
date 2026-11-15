@@ -11,6 +11,7 @@ const NO_PARAMS: QueryParams = {};
 export function injectFilterSources(): FilterSources {
   const route = inject(ActivatedRoute);
   const router = inject(Router);
+
   return {
     params: toSignal(route.queryParams, { initialValue: NO_PARAMS }),
     write: async (changes) => {

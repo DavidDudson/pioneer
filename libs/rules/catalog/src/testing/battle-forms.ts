@@ -80,9 +80,11 @@ const druid: StatisticInputs = druidWith(2);
 /** The `BattleForm` rules of the Player Core effect `slug`, in play at spell rank `rank`. */
 export function formRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
   const entry = PLAYER_CORE_EFFECTS.find((each) => each.slug === slug);
+
   if (entry === undefined) {
     throw new Error(`${slug} is not in the player-core effects`);
   }
+
   return entry.rules.flatMap((element, rule) =>
     element.key === RuleElementKey.BattleForm
       ? [
@@ -114,12 +116,15 @@ export function viewOf(
   const modifiers = { rules, facts };
   const results = deriveStatistics(core, character, modifiers);
   const vitals = vitalsInPlay(modifiers, { statistics: core, character, size: Size.Medium });
+
   return {
     total: (selector) => {
       const result = results.get(Selector.parse(selector));
+
       if (result === undefined || !result.ok) {
         throw new Error(`expected ${selector} to have a value`);
       }
+
       return Number(result.total);
     },
     strikes: deriveStrikes(character.weapons ?? [], results, {
@@ -136,9 +141,11 @@ export function viewOf(
 /** Every rule of the Player Core effect `slug`, in play at spell rank `rank`: a form that is no battle form has no `BattleForm`. */
 export function effectRulesOf(slug: string, rank: number, pack = PLAYER_CORE_EFFECTS): readonly RuleInPlay[] {
   const entry = pack.find((each) => each.slug === slug);
+
   if (entry === undefined) {
     throw new Error(`${slug} is not in those effects`);
   }
+
   return entry.rules.map((element, rule) =>
     RuleInPlay.parse({
       element,

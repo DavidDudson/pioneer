@@ -15,6 +15,7 @@ const ATTRIBUTES = Object.values(Attribute);
 const ancestries = constantFrom('ancestry:dwarf', 'ancestry:human');
 const classes = constantFrom('class:fighter', 'class:wizard');
 const levels = integer({ min: 1, max: 20 });
+
 /** One pick per possible slot: the boost slots never number more than 4 at 1st level per source, 4 free per level. */
 const SLOTS_MAX = 40;
 
@@ -24,6 +25,7 @@ function attributePicks(length: number): Arbitrary<(Attribute | undefined)[]> {
 }
 
 const picks = attributePicks(SLOTS_MAX);
+
 /** One pick per voluntary flaw slot, of which there are never more than attributes. */
 const flawPicks = attributePicks(ATTRIBUTES.length);
 
@@ -46,16 +48,20 @@ function characterOf({ ancestry, characterClass, level, chosen, flaws }: Generat
     .atLevel(level)
     .picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'))
     .picking(CLASS_SLOT, boostFixtureId(characterClass));
+
   const { document } = base.build();
+
   const slots = [
     ...boostSlots(document, BOOST_FIXTURES).map((slot, index) => [slot.key, chosen[index]] as const),
     ...flawSlots(document, BOOST_FIXTURES).map((slot, index) => [slot.key, flaws[index]] as const),
   ];
+
   for (const [key, pick] of slots) {
     if (pick !== undefined) {
       base.picking(key, pick);
     }
   }
+
   return base.build().document;
 }
 
@@ -70,9 +76,11 @@ function raises(set: BoostSet, attribute: Attribute): boolean {
 /** Whether the ancestry or any voluntary flaw lowers `attribute`; however many do, it is lowered once. */
 function flawed(document: CharacterDocument, attribute: Attribute): boolean {
   const ancestry = ContentId.parse(document.build.choices[ANCESTRY_SLOT]);
+
   const voluntary = Object.entries(document.build.choices).some(
     ([key, value]) => key.startsWith('flaw:') && value === attribute,
   );
+
   return voluntary || BOOST_FIXTURES.ancestry(ancestry)?.flaws.includes(attribute) === true;
 }
 
@@ -86,6 +94,7 @@ function expected(document: CharacterDocument, attribute: Attribute): number {
   const first = sets.filter((set) => set.level === 1 && raises(set, attribute)).length - flaw;
   const later = sets.filter((set) => set.level > 1 && raises(set, attribute)).length;
   const full = Math.max(0, Math.min(later, 4 - first));
+
   return first + full + Math.floor((later - full) / 2);
 }
 
@@ -94,6 +103,7 @@ describe('attributeModifiers (properties)', () => {
     assert(
       property(characters, (document) => {
         const modifiers = attributeModifiers(document, BOOST_FIXTURES);
+
         for (const attribute of ATTRIBUTES) {
           expect<number>(modifiers.get(attribute)).toBe(expected(document, attribute));
         }
@@ -108,6 +118,7 @@ describe('attributeModifiers (properties)', () => {
         const at = (level: number): CharacterDocument => ({ ...document, level: CharacterLevel.parse(level) });
         const before = attributeModifiers(at(low), BOOST_FIXTURES);
         const after = attributeModifiers(at(high), BOOST_FIXTURES);
+
         for (const attribute of ATTRIBUTES) {
           expect(after.get(attribute)).toBeGreaterThanOrEqual(before.get(attribute));
         }

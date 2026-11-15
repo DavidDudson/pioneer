@@ -29,6 +29,7 @@ export class KitContents {
 
   protected text({ name, quantity }: KitLine): string {
     this.#messages();
+
     return quantity === 1
       ? name
       : this.#i18n.translate(ShopMessage.KitLine, { count: this.#format.number(quantity), name });

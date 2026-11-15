@@ -18,6 +18,7 @@ describe(loadSidePanel, () => {
 
     expect(panel).toBe(ContentSidePanel);
     expect(i18n.translate('content.sidePanel.back')).toBe(contentMessages.sidePanel.back);
+
     // An unloaded scope would hand back the key itself.
     for (const key of ['contentBrowser.entry.missingTitle', 'rules.key.format']) {
       expect(i18n.translate(key)).not.toBe(key);

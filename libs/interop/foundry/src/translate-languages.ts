@@ -24,9 +24,11 @@ const FoundrySubfeatureLanguages = z.looseObject({
 function grantedLanguages(slugs: readonly string[], { references, log }: KindInput): ContentId[] {
   return slugs.flatMap((slug) => {
     const id = resolveSlug(references, ContentKind.Language, slug);
+
     if (id === undefined) {
       report(log, { reason: KindDataGapReason.UnresolvedReference, field: `${FIELD}.granted`, raw: slug });
     }
+
     return id === undefined ? [] : [id];
   });
 }
@@ -36,16 +38,22 @@ export function languageRules(raw: unknown, input: KindInput): void {
   if (raw === undefined) {
     return;
   }
+
   const languages = FoundrySubfeatureLanguages.safeParse(raw);
+
   if (!languages.success) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: FIELD, raw });
+
     return;
   }
+
   const grant = grantedLanguages(languages.data.granted, input);
   const { slots } = languages.data;
+
   if (grant.length === 0 && slots === 0) {
     return;
   }
+
   addRule(input, FIELD, {
     key: RuleElementKey.Language,
     ...(grant.length === 0 ? {} : { grant }),

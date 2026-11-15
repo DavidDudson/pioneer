@@ -92,9 +92,11 @@ export class CampaignMemberList {
 
   protected actionsFor(member: NamedMember): MemberActions {
     const existing = this.#actions.get(member.id);
+
     if (existing !== undefined) {
       return existing;
     }
+
     const actions: MemberActions = {
       remove: async (): Promise<void> => {
         await this.store.removeMember(this.#campaignId(), member.id);
@@ -102,15 +104,19 @@ export class CampaignMemberList {
       },
       transfer: async (): Promise<void> => this.store.transferGm(this.#campaignId(), member.id),
     };
+
     this.#actions.set(member.id, actions);
+
     return actions;
   }
 
   #campaignId(): CampaignId {
     const campaign = this.store.selected.data();
+
     if (campaign === undefined) {
       throw new Error('No campaign loaded');
     }
+
     return campaign.id;
   }
 }

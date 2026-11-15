@@ -10,6 +10,7 @@ async function render(rank: Proficiency): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(ProficiencyRankView);
   fixture.componentRef.setInput('rank', rank);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

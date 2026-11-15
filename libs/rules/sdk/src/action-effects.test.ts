@@ -7,6 +7,7 @@ const BEAR = '848026fb-0722-5bea-b8de-834d61ed43c4';
 
 function issuesOf(extra: object): readonly object[] {
   const parsed = ActionData.safeParse({ cost: 'one', ...extra });
+
   return parsed.success ? [] : parsed.error.issues.map(({ path }) => ({ path }));
 }
 

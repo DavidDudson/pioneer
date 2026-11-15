@@ -37,13 +37,16 @@ const EVERY_TEN_MINUTES = {
   damage: { category: 'minor', type: DamageType.Cold },
   repeats: true,
 };
+
 const AFTER_FOUR_HOURS = { after: { count: 4, unit: 'hour' }, applies: FATIGUED };
 
 const CONTENT: EnvironmentContent = new Map([
   [COLD, EnvironmentData.parse({ consequences: [EVERY_TEN_MINUTES, AFTER_FOUR_HOURS] })],
   [SUN, EnvironmentData.parse({ consequences: [] })],
 ]);
+
 const VALUED_CONDITION = ContentId.parse('00000000-0000-4000-8000-0000000000e4');
+
 const LIMITS = {
   ...within(MAX),
   valued: new Map([
@@ -51,13 +54,16 @@ const LIMITS = {
     [VALUED_CONDITION, true],
   ]),
 };
+
 const INPUTS: Omit<PassTimeInputs, 'random'> = { limits: LIMITS, defences: NO_DEFENCES, environments: CONTENT };
 
 const turnedOn = (...environments: readonly ContentId[]): PlayState => {
   let play = FRESH_PLAY;
+
   for (const environment of environments) {
     play = applyPlayCommand(play, { field: PlayCommandField.SetEnvironment, environment, active: true }, within(MAX));
   }
+
   return play;
 };
 
@@ -67,11 +73,13 @@ const minutes = (count: number): EnvironmentDuration => ({
   count: DurationCount.parse(count),
   unit: DurationUnit.Minute,
 });
+
 const hours = (count: number): EnvironmentDuration => ({ count: DurationCount.parse(count), unit: DurationUnit.Hour });
 
 describe('passTime', () => {
   test('starts the clock when an environment is turned on, and forgets it when turned off', () => {
     const on = turnedOn(COLD);
+
     const off = applyPlayCommand(
       on,
       { field: PlayCommandField.SetEnvironment, environment: COLD, active: false },
@@ -106,6 +114,7 @@ describe('passTime', () => {
         resistances: [DamageAdjustment.parse({ type: DamageContext.Environmental, value: 3 })],
       },
     };
+
     const { play } = passTime(turnedOn(COLD), minutes(10), { ...sealed, random: faces(5) });
 
     expect(MAX - currentHitPoints(play.hp, MAX)).toBe(2);
@@ -133,6 +142,7 @@ describe('passTime', () => {
     const valued = EnvironmentData.parse({
       consequences: [{ after: { count: 1, unit: 'hour' }, applies: VALUED_CONDITION }],
     });
+
     const unknown = EnvironmentData.parse({ consequences: [{ after: { count: 1, unit: 'hour' }, applies: FATIGUED }] });
     const play = turnedOn(SUN);
 
@@ -141,6 +151,7 @@ describe('passTime', () => {
       environments: new Map([[SUN, valued]]),
       random: faces(),
     });
+
     const missing = passTime(play, hours(1), {
       ...INPUTS,
       limits: within(MAX),

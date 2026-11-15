@@ -8,8 +8,11 @@ import { describe, expect, it } from 'vitest';
 import { sheetEntryEffects } from './sheet-entry-effects';
 
 const pack = new ContentPackBuilder().withId('player-core').withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS);
+
 pack.withItem(ContentKind.Sense, 'darkvision', { acuity: 'precise', unlimitedRange: true });
+
 pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Equipment] });
+
 const darkvision = pack.idOf(ContentKind.Sense, 'darkvision');
 
 /** A charm that gives darkvision and resistance 5 to physical damage, except from cold iron and from silver. */
@@ -23,13 +26,16 @@ function charm(exceptions: readonly string[]): ContentEntry {
     ],
   });
   const entry = built.build().otherEntries.find(({ slug }) => slug.endsWith('night-charm'));
+
   if (entry === undefined) {
     throw new Error('The fixture charm is missing.');
   }
+
   return entry;
 }
 
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 describe(sheetEntryEffects, () => {

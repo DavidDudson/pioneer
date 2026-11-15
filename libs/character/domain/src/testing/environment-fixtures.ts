@@ -8,6 +8,7 @@ import { GILLED, UNDERWATER } from './condition-fixture-ids';
  */
 export function withUnderwater(builder: ContentPackBuilder): ContentPackBuilder {
   builder.withCondition(GILLED, [{ key: 'LiftRestriction', restriction: 'speech' }]);
+
   return builder.withEnvironment(
     UNDERWATER,
     { restrictions: [{ id: 'speech', reason: "You can't speak underwater." }] },

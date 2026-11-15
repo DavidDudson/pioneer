@@ -7,14 +7,17 @@ const LG_REM = 56;
  */
 export function showDialog(dialog: HTMLDialogElement, modal: boolean): void {
   const { scrollTop } = dialog;
+
   if (dialog.open) {
     dialog.close();
   }
+
   if (modal) {
     dialog.showModal();
   } else {
     dialog.show();
   }
+
   dialog.scrollTop = scrollTop;
 }
 
@@ -22,9 +25,11 @@ export function showDialog(dialog: HTMLDialogElement, modal: boolean): void {
 function roomOf(element: Element): Element {
   const view = element.ownerDocument.defaultView;
   let room = element;
+
   while (view?.getComputedStyle(room).display === 'contents' && room.parentElement !== null) {
     room = room.parentElement;
   }
+
   return room;
 }
 
@@ -36,11 +41,14 @@ function roomOf(element: Element): Element {
 export function watchNarrow(container: Element, remPx: number, onChange: (narrow: boolean) => void): () => void {
   const observer = new ResizeObserver((entries) => {
     const width = entries.at(-1)?.contentRect.width;
+
     if (width !== undefined) {
       onChange(width < LG_REM * remPx);
     }
   });
+
   observer.observe(roomOf(container));
+
   return () => {
     observer.disconnect();
   };

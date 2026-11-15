@@ -37,6 +37,7 @@ export class SheetBreath {
 
   protected readonly view = computed((): BreathView | undefined => {
     const breath = this.#breath();
+
     return breath === undefined ? undefined : breathView(breath);
   });
 
@@ -44,6 +45,7 @@ export class SheetBreath {
   protected readonly maxAir = computed((): AirRounds | undefined => {
     const engine = this.#state.engine();
     const character = this.#state.character();
+
     return engine === undefined || character === undefined
       ? undefined
       : maxAir(sheetSources(engine, character).inputs.attributes);
@@ -60,6 +62,7 @@ export class SheetBreath {
 
   protected readonly loseRound = async (): Promise<void> => {
     const breath = this.#breath();
+
     if (breath !== undefined) {
       await this.#change(oneRoundLess(breath));
     }
@@ -67,6 +70,7 @@ export class SheetBreath {
 
   protected readonly loseAll = async (): Promise<void> => {
     const breath = this.#breath();
+
     if (breath !== undefined) {
       await this.#change(noAirLeft(breath));
     }
@@ -78,6 +82,7 @@ export class SheetBreath {
 
   protected readonly undo = async (): Promise<void> => {
     const step = this.#undo();
+
     if (step !== undefined) {
       this.#undo.set(undefined);
       await this.#play.send(breathCommand(step.breath));

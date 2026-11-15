@@ -28,10 +28,12 @@ export class SheetOverrideDrawer {
   protected readonly open = signal(false);
   protected readonly targets = computed((): readonly OverrideTarget[] => {
     const target = this.overrides.target();
+
     return target === undefined ? [] : [target];
   });
   protected readonly title = computed(() => {
     const target = this.overrides.target();
+
     return target === undefined ? this.#i18n.translate(TITLE) : target.statistic.name;
   });
 }

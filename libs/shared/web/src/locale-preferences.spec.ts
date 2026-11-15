@@ -18,6 +18,7 @@ async function setup(storage: Storage | undefined = localStorage): Promise<Local
     ],
   });
   await TestBed.inject(ApplicationInitStatus).donePromise;
+
   return TestBed.inject(LocalePreferences);
 }
 

@@ -32,9 +32,11 @@ import { Stack } from '../stack/stack.component';
 import { readMinimised, writeMinimised } from './shell-panel-state';
 
 const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
+
 /** The query container for the body row; the row inside it is the flexbox, as an element cannot query its own size. */
 const bodyClasses = cva('@container flex flex-1 flex-col')();
 const bodyRowClasses = cva('flex flex-1 flex-col @lg:flex-row')();
+
 /**
  * In the row beside the page from `lg`: stuck under the header and scrolling inside itself, at the end edge (the start
  * edge in right-to-left layouts). Narrower, a bar stuck to the bottom edge of the screen, above the home indicator.
@@ -47,12 +49,15 @@ const panelVariants = cva(
   ].join(' '),
   { variants: { shown: { true: '', false: 'hidden' } } },
 );
+
 const contentClasses = cva('min-w-none flex-1 focus:outline-hidden')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
+
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
 const searchVariants = cva('', {
   variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } },
 });
+
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 
 /** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */
@@ -158,7 +163,9 @@ export class Shell {
     if (!this.searchOpen()) {
       return;
     }
+
     this.searchOpen.set(false);
+
     if (returnFocus) {
       afterNextRender(
         () => {
@@ -179,6 +186,7 @@ export class Shell {
     const slot = this.searchSlot().nativeElement;
     const fromSearch = event.target instanceof Node && slot.contains(event.target);
     const toSearch = event.relatedTarget instanceof Node && slot.contains(event.relatedTarget);
+
     if (fromSearch && !toSearch) {
       this.closeSearch(false);
     }
@@ -189,10 +197,12 @@ export class Shell {
       if (!this.searchOpen()) {
         return;
       }
+
       // The box is hidden until it opens, and a hidden box cannot take focus.
       afterNextRender(
         () => {
           const slot = this.searchSlot().nativeElement;
+
           if (!slot.contains(document.activeElement)) {
             slot.querySelector('input')?.focus();
           }
@@ -202,11 +212,13 @@ export class Shell {
     });
     afterNextRender(() => {
       const header = this.header().nativeElement;
+
       const publish = (): void => {
         const { style } = this.#host.nativeElement;
         style.setProperty(HEADER_HEIGHT_PROPERTY, `${header.offsetHeight}px`);
         style.setProperty(RAIL_HEIGHT_PROPERTY, `calc(100dvh - ${header.offsetHeight}px)`);
       };
+
       publish();
       const observer = new ResizeObserver(publish);
       observer.observe(header);

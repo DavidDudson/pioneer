@@ -35,7 +35,9 @@ export function authorizedDamage(
   if (!hasAuthorizedRune(line, base, runes)) {
     return undefined;
   }
+
   const dice = (itemRunes(line, base).striking ?? 0) + 1;
+
   return { piercing: DamageFormula.parse(`${dice}d8`), bleed: DamageFormula.parse(`${dice}d4`) };
 }
 
@@ -55,12 +57,16 @@ export function unauthorizedWielder(
   reads: { readonly runes: RuneContent; readonly wielder: CharacterName },
 ): AuthorizedDamage | undefined {
   const allowed = line.state?.authorized;
+
   if (allowed === undefined || line.carry.state !== CarryState.Held) {
     return undefined;
   }
+
   const wielder = named(reads.wielder);
+
   if ([allowed.owner, ...allowed.others].some((each) => named(each) === wielder)) {
     return undefined;
   }
+
   return authorizedDamage(line, base, reads.runes);
 }

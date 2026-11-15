@@ -9,6 +9,7 @@ export class InMemoryOverrideAuthorDirectory extends OverrideAuthorDirectory {
 
   public name(userId: UserId, name: string): this {
     this.#names.set(userId, OverrideAuthorName.parse(name));
+
     return this;
   }
 
@@ -16,6 +17,7 @@ export class InMemoryOverrideAuthorDirectory extends OverrideAuthorDirectory {
     return new Map(
       userIds.flatMap((userId): [UserId, OverrideAuthorName][] => {
         const name = this.#names.get(userId);
+
         return name === undefined ? [] : [[userId, name]];
       }),
     );

@@ -32,22 +32,27 @@ export const WeaponGroup = {
   Spear: 'spear',
   Sword: 'sword',
 } as const;
+
 export type WeaponGroup = ValueOf<typeof WeaponGroup>;
 
 /** A base weapon (`longsword`): what a specific weapon is made from, and a deity's favoured weapon. */
 export const BaseWeapon = Slug.brand<'BaseWeapon'>();
+
 export type BaseWeapon = z.infer<typeof BaseWeapon>;
 
 /** The die a weapon rolls for damage. */
 export const DieSize = { D4: 'd4', D6: 'd6', D8: 'd8', D10: 'd10', D12: 'd12' } as const;
+
 export type DieSize = ValueOf<typeof DieSize>;
 
 /** How many damage dice a weapon rolls before striking runes add more, or its flat damage when it has no die. */
 export const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
+
 export type DiceCount = z.infer<typeof DiceCount>;
 
 /** "1d6 fire persistent": a formula, as damage writes it, and its type. */
 export const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: DamageTypeSchema });
+
 export type PersistentDamage = z.infer<typeof PersistentDamage>;
 
 /**
@@ -60,10 +65,12 @@ export const WeaponDamage = z.strictObject({
   damageType: DamageTypeSchema,
   persistent: PersistentDamage.optional(),
 });
+
 export type WeaponDamage = z.infer<typeof WeaponDamage>;
 
 /** A kind of ammunition (`arrows`, `bolts`, `rounds-flintlock-musket`). Foundry pf2e keeps the set in config. */
 export const AmmunitionType = Slug.brand<'AmmunitionType'>();
+
 export type AmmunitionType = z.infer<typeof AmmunitionType>;
 
 /**
@@ -86,6 +93,7 @@ const ITEM_BONUS_MAX = 4;
 
 /** An item bonus to attack rolls the weapon has without runes: +1 on a moderate bomb. */
 export const ItemBonus = Pg.smallint().positive().max(ITEM_BONUS_MAX).brand<'ItemBonus'>();
+
 export type ItemBonus = z.infer<typeof ItemBonus>;
 
 /** A specific magic weapon's runes ("+1 striking flaming"); a weapon that isn't one has none. */
@@ -123,4 +131,5 @@ export const WeaponData = z.strictObject({
   /** The spells a staff holds, when the weapon is one. */
   staff: StaffSpells.optional(),
 });
+
 export type WeaponData = z.infer<typeof WeaponData>;

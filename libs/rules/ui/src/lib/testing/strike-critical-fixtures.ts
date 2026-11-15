@@ -4,6 +4,7 @@ import type { Origin } from '@pioneer/rules/sdk';
 
 const FLAME_WEAKNESS = DamageAmount.parse(5);
 const FROST_SAVE_DC = Dc.parse(24);
+
 /** Pacifying's penalty to attack rolls. */
 const PACIFIED_PENALTY = Modifier.parse(-2);
 const PACIFYING_SAVE_DC = Dc.parse(20);
@@ -14,6 +15,7 @@ const KEEN_NATURAL = NaturalRoll.parse(19);
 export function criticalsFrom(origin: Origin): Pick<Strike, 'criticalEffects' | 'criticalRange' | 'weaknesses'> {
   const weakness: CriticalWeakness = { damageType: 'fire', amount: FLAME_WEAKNESS, origin };
   const range: CriticalRange = { natural: KEEN_NATURAL, origin };
+
   return {
     weaknesses: [weakness],
     criticalRange: range,

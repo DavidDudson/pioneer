@@ -83,13 +83,17 @@ interface Asked {
 function askingTwice(): () => Promise<Asked> {
   const memo = new RequestMemo<string, number>();
   let runs = 0;
+
   const read = async (): Promise<number> => {
     runs += 1;
+
     return runs;
   };
+
   return async () => {
     await memo.of('question', read);
     await memo.of('question', read);
+
     return { runs };
   };
 }

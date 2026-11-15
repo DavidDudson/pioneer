@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { loadRunes } from './rune-fixtures';
 
 const ETCHED_DAMAGE = 'etched-damage';
+
 /** The rule a mythic potency rune carries: it raises the potency of the item it is etched onto to +4. */
 const MYTHIC_POTENCY = { key: 'ItemAlteration', etched: true, property: 'potency', mode: 'upgrade', value: 4 };
 

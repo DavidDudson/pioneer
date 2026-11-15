@@ -11,9 +11,11 @@ import type { RuleInPlay } from './rule-in-play';
  */
 export function statisticContent(registry: ContentRegistry): StatisticContent | undefined {
   const proficiencyBonus = registry.proficiencyBonus();
+
   if (proficiencyBonus === undefined) {
     return undefined;
   }
+
   return { definitions: registry.statistics().map(({ definition }) => definition), proficiencyBonus };
 }
 
@@ -25,6 +27,7 @@ export function variantRulesInPlay(variants: readonly VariantRuleEntry[]): reado
   return variants.flatMap(({ id, definition }) => {
     const entry = ContentId.parse(id);
     const origin = { hops: [{ kind: OriginHopKind.Variant, rule: entry }], entry, sources: definition.sources };
+
     return definition.rules.map((element, index) => ({ element, origin, rule: RuleIndex.parse(index) }));
   });
 }

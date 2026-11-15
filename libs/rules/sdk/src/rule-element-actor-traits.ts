@@ -27,4 +27,5 @@ export const ActorTraitsElement = z
     ({ add = [], remove = [] }) => add.length + remove.length > 0,
     issueParams(message(RulesMessage.ActorTraitsAddOrRemove)),
   );
+
 export type ActorTraitsElement = z.infer<typeof ActorTraitsElement>;

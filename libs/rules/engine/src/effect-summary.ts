@@ -47,6 +47,7 @@ export interface SummarisedEntry {
 /** The entry's rules as they would be in play when it is taken, equipped, cast or gained. */
 function candidates(entry: SummarisedEntry): readonly RuleInPlay[] {
   const itemLevel = Level.safeParse(entry.rank ?? entry.level).data;
+
   return entry.rules.map((element, rule) =>
     RuleInPlay.parse({
       element,
@@ -66,11 +67,14 @@ interface EntryRules {
 /** The rules in play, and which of them are the entry's. In `would-apply` mode its rules not yet in play join them. */
 function rulesFor(entry: SummarisedEntry, mode: EffectMode, { rules }: ModifierInputs): EntryRules {
   const held = rules.filter(({ origin }) => origin.entry === entry.id);
+
   if (mode === EffectMode.Applying) {
     return { all: rules, own: held };
   }
+
   const heldIds: ReadonlySet<RuleId> = new Set(held.map((rule) => ruleIdOf(rule)));
   const joining = candidates(entry).filter((rule) => !heldIds.has(ruleIdOf(rule)));
+
   return { all: [...rules, ...joining], own: [...held, ...joining] };
 }
 
@@ -80,6 +84,7 @@ type FromEntry = (source: { readonly origin: Origin }) => boolean;
 /** The lines of the entry's bonuses, penalties and `Change`s on every statistic that has a value. */
 function statisticLines(statistics: ReadonlyMap<Selector, StatisticResult>, fromEntry: FromEntry): EffectLine[] {
   const lines: EffectLine[] = [];
+
   for (const result of statistics.values()) {
     if (result.ok) {
       lines.push(
@@ -90,6 +95,7 @@ function statisticLines(statistics: ReadonlyMap<Selector, StatisticResult>, from
       );
     }
   }
+
   return lines;
 }
 
@@ -105,10 +111,13 @@ function defenceLines(defences: Defences, fromEntry: FromEntry): EffectLine[] {
 /** The lines of the entry's senses, and the not-summarised ones for the elements nothing else covers. */
 function ruleLines(own: readonly RuleInPlay[], reading: SenseReading): EffectLine[] {
   const lines: EffectLine[] = [];
+
   for (const rule of own) {
     const { element } = rule;
+
     if (element.key === RuleElementKey.Sense) {
       const line = senseEffect(rule, element, reading);
+
       if (line !== undefined) {
         lines.push(line);
       }
@@ -116,6 +125,7 @@ function ruleLines(own: readonly RuleInPlay[], reading: SenseReading): EffectLin
       lines.push(notSummarised(rule));
     }
   }
+
   return lines;
 }
 
@@ -131,11 +141,13 @@ export function summariseEffects(scope: EffectScope, entry: SummarisedEntry, mod
   const { all, own } = rulesFor(entry, mode, scope.modifiers);
   const modifiers: ModifierInputs = { ...scope.modifiers, rules: all };
   const fromEntry: FromEntry = ({ origin }) => origin.entry === entry.id;
+
   const lines = [
     ...statisticLines(deriveStatistics(scope.content, scope.inputs, modifiers), fromEntry),
     ...defenceLines(deriveDefences(scope.content, scope.inputs, modifiers), fromEntry),
     ...ruleLines(own, { senses: sensesInPlay(modifiers, scope.vision), modifiers }),
   ];
+
   // Rule order, then what the line changes, so the result never depends on the order of the rules.
   return lines.toSorted(
     (left, right) =>

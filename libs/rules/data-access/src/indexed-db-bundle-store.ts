@@ -63,6 +63,7 @@ export class IndexedDbBundleStore implements BundleStore {
 
   public readonly read = async (key: StoredKey): Promise<unknown> => {
     const store = await this.#store('readonly');
+
     return settled<unknown>(store.get(key));
   };
 
@@ -75,24 +76,29 @@ export class IndexedDbBundleStore implements BundleStore {
   public readonly keys = async (): Promise<readonly StoredKey[]> => {
     const store = await this.#store('readonly');
     const keys = await settled(store.getAllKeys());
+
     return keys.filter((key): key is StoredKey => typeof key === 'string');
   };
 
   public readonly remove = async (keys: readonly StoredKey[]): Promise<void> => {
     const store = await this.#store('readwrite');
+
     for (const key of keys) {
       store.delete(key);
     }
+
     await committed(store.transaction);
   };
 
   async #store(mode: IDBTransactionMode): Promise<IDBObjectStore> {
     const database = await this.#open();
+
     return database.transaction(BUNDLES, mode).objectStore(BUNDLES);
   }
 
   async #open(): Promise<IDBDatabase> {
     this.#database ??= this.#upgradeAndOpen();
+
     return this.#database;
   }
 
@@ -101,6 +107,7 @@ export class IndexedDbBundleStore implements BundleStore {
     request.addEventListener('upgradeneeded', () => {
       request.result.createObjectStore(BUNDLES);
     });
+
     try {
       const database = await opened(request);
       // A newer version open in another tab waits on this connection: let it go, and open again on the next use.
@@ -108,6 +115,7 @@ export class IndexedDbBundleStore implements BundleStore {
         database.close();
         this.#database = undefined;
       });
+
       return database;
     } catch (error) {
       // Opening again may work (another tab released a lock), so a failure is not kept.

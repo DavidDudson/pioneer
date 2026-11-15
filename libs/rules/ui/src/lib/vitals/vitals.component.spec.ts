@@ -14,6 +14,7 @@ async function render(vitals: readonly Vital[] | undefined): Promise<HTMLElement
   fixture.componentRef.setInput('vitals', vitals);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -21,6 +22,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected the vitals to render the element');
   }
+
   return value;
 }
 
@@ -30,6 +32,7 @@ function textOf(element: Element | null | undefined): string | undefined {
 
 function dc(name: string, selector: string): Vital {
   const result = statistic(selector, { base: [term('10', 10), term('@prof.class-dc', 5)] });
+
   return { statistic: { name, kind: StatisticKind.Dc, result }, rank: Proficiency.Trained };
 }
 

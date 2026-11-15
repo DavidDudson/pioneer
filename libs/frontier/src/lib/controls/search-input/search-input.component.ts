@@ -95,6 +95,7 @@ export class SearchInput extends Control {
     if (query === this.#lastSearched) {
       return;
     }
+
     this.#lastSearched = query;
     this.searched.emit(query);
   }

@@ -11,9 +11,11 @@ const EFFECTS = contentPackFromContents(await impossibleMagicPack()).otherEntrie
 /** The rules of the effect `slug` as plain JSON, so a test can compare them with the data it reads. */
 function rulesOf(slug: string): readonly unknown[] {
   const found = EFFECTS.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the impossible-magic pack`);
   }
+
   return structuredClone(found.rules);
 }
 

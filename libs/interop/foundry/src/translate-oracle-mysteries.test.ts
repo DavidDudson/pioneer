@@ -18,6 +18,7 @@ const ORACLE_ENTRY = {
   attribute: 'cha',
   preparation: 'focus',
 };
+
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
 function keyed(key: string, name: string, fixture: DocumentFixture): Record<string, unknown>[] {

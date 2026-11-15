@@ -16,6 +16,7 @@ const meta: Meta<DateField> = {
     template: `<fr-date-field ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: DateFieldStory = {};

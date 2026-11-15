@@ -69,6 +69,7 @@ function then({ events }: TurnOutcome, play: PlayState, more: readonly TurnEvent
 /** `result` with every damage it deals of `type`: persistent damage has one type, whatever its formula tags. */
 function typed(result: TermResult, type: PersistentDamage['type']): TermResult {
   const tags = { type };
+
   return 'dice' in result
     ? { ...result, term: { ...result.term, tags } }
     : { ...result, term: { ...result.term, tags } };
@@ -77,10 +78,13 @@ function typed(result: TermResult, type: PersistentDamage['type']): TermResult {
 /** The roll of a persistent damage condition's formula, or none when the formula is not plain dice. */
 export function rolled({ formula, type }: PersistentDamage, random: RandomSource): RollResult | undefined {
   const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
+
   if (!parsed.ok) {
     return undefined;
   }
+
   const roll = rollDice(parsed.expression, random);
+
   return { ...roll, terms: roll.terms.map((result) => typed(result, type)) };
 }
 
@@ -105,7 +109,9 @@ function checked({ condition, id }: ActiveCondition, dc: Dc | undefined, random:
   if (dc === undefined) {
     return { events: [], ended: true };
   }
+
   const die = random.roll(FLAT_CHECK_DIE);
+
   return { events: [flatCheck(condition, id, { die, dc })], ended: die >= dc };
 }
 
@@ -118,13 +124,16 @@ function persistentTurn(outcome: TurnOutcome, condition: ActiveCondition, turn: 
   const { persistent } = condition;
   const { limits, defences, random } = turn;
   const roll = persistent === undefined || outcome.play.dead ? undefined : rolled(persistent, random);
+
   if (persistent === undefined || roll === undefined) {
     return outcome;
   }
+
   const damage = applyDamage(roll, defences);
   const hurt = applyPlayCommand(outcome.play, { field: PlayCommandField.Damage, damage }, limits);
   const { events, ended } = checked(condition, flatCheckDc(persistent, turn.flatChecks ?? []), random);
   const all = [persistentDamage(condition, { roll, damage }), ...events];
+
   return ended
     ? then(outcome, without(hurt, condition), [...all, conditionEnded(condition.condition, condition.id)])
     : then(outcome, hurt, all);
@@ -133,9 +142,11 @@ function persistentTurn(outcome: TurnOutcome, condition: ActiveCondition, turn: 
 /** Each persistent damage condition rolls, hurts and is checked for, in the order the character has them. */
 function persistentDamages(outcome: TurnOutcome, turn: Turn): TurnOutcome {
   let current = outcome;
+
   for (const condition of outcome.play.conditions.filter(({ persistent }) => persistent !== undefined)) {
     current = persistentTurn(current, condition, turn);
   }
+
   return current;
 }
 
@@ -148,14 +159,19 @@ interface Eased {
 /** `condition` after the end of the turn eases it: gone if the content removes it or its value is spent, else a point lower. */
 function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions): Eased {
   const change = recovery.get(condition.condition);
+
   if (change === undefined) {
     return { kept: [condition], events: [] };
   }
+
   const eased = easeCondition(condition, change);
+
   if (eased.ended) {
     return { kept: [], events: [conditionEnded(condition.condition, condition.id)] };
   }
+
   const lowered = eased.value;
+
   return {
     kept: [{ ...condition, value: lowered }],
     events: [conditionLowered(condition.condition, condition.id, lowered)],
@@ -167,6 +183,7 @@ function conditionsEased(outcome: TurnOutcome, recovery: RecoveryConditions): Tu
   const { play } = outcome;
   const eased = play.conditions.map((condition) => easedCondition(condition, recovery));
   const conditions = eased.flatMap(({ kept }) => kept);
+
   return then(
     outcome,
     { ...play, conditions },
@@ -189,10 +206,12 @@ function expiring(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
   const gone = play.effects.filter((each) => expiresAtTurnEnd(each));
   const conditions = play.conditions.filter((each) => !endsAtTurnEnd(each));
+
   const events = [
     ...gone.map(({ effect, id }) => effectExpired(effect, id)),
     ...play.conditions.filter((each) => endsAtTurnEnd(each)).map(({ condition, id }) => conditionEnded(condition, id)),
   ];
+
   return then(
     outcome,
     {
@@ -220,10 +239,12 @@ function suffocationRoll(check: SuffocationChecks, turn: Turn): SuffocationRoll 
   const dc = suffocationDc(check);
   const { degree } = degreeOfSuccess({ total, natural: die }, dc);
   const parsed = parseDiceExpression(suffocationDamage(check));
+
   const damage =
     degree === DegreeOfSuccess.Failure && parsed.ok
       ? applyDamage(rollDice(parsed.expression, random), defences)
       : undefined;
+
   return { save: { check, die, total, dc, degree, taken: HitPoints.parse(damage?.taken ?? NO_MODIFIER) }, damage };
 }
 
@@ -235,9 +256,12 @@ function suffocated(outcome: TurnOutcome, breath: BreathState, turn: Turn): Turn
   const check = SuffocationChecks.parse(Math.min(breath.checks + FIRST_CHECK, CHECKS_LIMIT));
   const { save, damage } = suffocationRoll(check, turn);
   const marked = { ...outcome.play, breath: { ...breath, checks: check } };
+
   const hurt =
     damage === undefined ? marked : applyPlayCommand(marked, { field: PlayCommandField.Damage, damage }, turn.limits);
+
   const dead = save.degree === DegreeOfSuccess.CriticalFailure;
+
   return then(outcome, dead ? { ...hurt, dead } : hurt, [suffocationSaved(save)]);
 }
 
@@ -247,14 +271,18 @@ function suffocated(outcome: TurnOutcome, breath: BreathState, turn: Turn): Turn
  */
 function breathing(outcome: TurnOutcome, turn: Turn): TurnOutcome {
   const { breath, dead, turn: current } = outcome.play;
+
   if (breath === undefined || dead) {
     return outcome;
   }
+
   if (isSuffocating(breath)) {
     return outOfAir(suffocated(outcome, breath, turn), turn);
   }
+
   const exerted = current.attacks > NO_ATTACKS || outcome.play.spendLog.some(({ cast }) => cast === true);
   const air = airAfterTurn(breath.air, exerted);
+
   return outOfAir(then(outcome, { ...outcome.play, breath: { ...breath, air } }, [airLost(air)]), turn);
 }
 
@@ -262,6 +290,7 @@ function breathing(outcome: TurnOutcome, turn: Turn): TurnOutcome {
 function spellsLapsing(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
   const ended = lapsingSpells(play.activeSpells).map(({ spell, id }) => spellEnded(spell, id));
+
   return then(outcome, { ...play, activeSpells: [...spellsAfterTurnEnd(play.activeSpells)] }, ended);
 }
 
@@ -276,10 +305,12 @@ export function endTurn(play: PlayState, inputs: EndTurnInputs, random: RandomSo
   const hurt = persistentDamages(begun, { ...inputs, random });
   const lowered = conditionsEased(hurt, inputs.recovery);
   const settled = spellsLapsing(expiring(lowered));
+
   const reevaluation: Reevaluation = {
     content: inputs.limits.effects,
     when: BadgeReevaluation.TurnEnd,
     random,
   };
+
   return reevaluateBadges(breathing(settled, { ...inputs, random }), reevaluation);
 }

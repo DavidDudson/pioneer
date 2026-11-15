@@ -34,6 +34,7 @@ export class DrizzleCampaignPackRepository extends CampaignPackRepository {
 
   public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignPack[]> {
     const rows = await this.#db.select().from(campaignPacks).where(eq(campaignPacks.campaignId, campaignId));
+
     // Sorted here so no query needs an index for it; a campaign enables few packs.
     return rows
       .map((row) => toCampaignPack(row))
@@ -53,6 +54,7 @@ export class DrizzleCampaignPackRepository extends CampaignPackRepository {
       // Changing a pack's visibility takes the same lock: it waits for this to commit, then sees the campaign.
       // Written as SQL because the rules context's tables are outside this one's boundary (ADR-0055).
       const ids = packs.map((pack) => pack.packId).toSorted((left, right) => left.localeCompare(right));
+
       if (ids.length > 0) {
         await tx.execute(
           sql`select id from content_packs where id in (${sql.join(
@@ -61,7 +63,9 @@ export class DrizzleCampaignPackRepository extends CampaignPackRepository {
           )}) order by id for update`,
         );
       }
+
       await whileLocked();
+
       if (packs.length > 0) {
         await tx
           .insert(campaignPacks)

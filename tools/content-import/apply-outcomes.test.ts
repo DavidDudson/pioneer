@@ -20,6 +20,7 @@ function paragraph(...content: unknown[]): unknown {
 /** A description with one check, then the per-degree paragraph that follows it. */
 function described(first: unknown): readonly unknown[] {
   const label = { type: 'text', text: 'Success', marks: ['strong'] };
+
   return [paragraph(plain('Attempt '), first), paragraph(label, plain(' You are unharmed.'))];
 }
 
@@ -169,9 +170,11 @@ describe('the merge, with outcomes stripped, is the input', () => {
   const held = constantFrom(undefined, failure).map((outcome) =>
     outcome === undefined ? {} : { outcomes: { failure: outcome } },
   );
+
   const shape = record({ basic: boolean(), held }).map((each) =>
     check({ ...(each.basic ? { basic: true } : {}), ...each.held }),
   );
+
   const checks = array(record({ shape, outcome: constantFrom(undefined, success, failure) }), { maxLength: 5 });
 
   test('whatever checks the description holds and the import gives', () => {

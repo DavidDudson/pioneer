@@ -44,12 +44,14 @@ async function render({ loading = false, save, notice, leading = false }: Option
   const environmentInjector = TestBed.inject(EnvironmentInjector);
   const appRef = TestBed.inject(ApplicationRef);
   const source = signal<string | undefined>(loading ? undefined : 'Valeros');
+
   const saveMock = vi.fn<(value: string) => Promise<void>>(
     save ??
       (async (value): Promise<void> => {
         source.set(value);
       }),
   );
+
   const edit = new InlineEdit<string>({
     source,
     empty: '',
@@ -62,10 +64,12 @@ async function render({ loading = false, save, notice, leading = false }: Option
   const editorHost = editor.location.nativeElement as HTMLElement;
   const projected = leading ? document.createElement('div') : editorHost;
   projected.setAttribute('frInlineEditor', '');
+
   if (leading) {
     projected.append(document.createElement('button'), editorHost);
     editorHost.dataset['autofocus'] = '';
   }
+
   editor.setInput('ariaLabel', 'Name');
   editor.setInput('value', edit.draft());
   editor.instance.value.subscribe((value) => {
@@ -82,6 +86,7 @@ async function render({ loading = false, save, notice, leading = false }: Option
     environmentInjector,
     projectableNodes: projectBySelector(InlineField, [projected]),
   });
+
   field.setInput('label', 'Name');
   field.setInput('edit', edit);
   field.setInput('notice', notice);
@@ -94,10 +99,13 @@ async function render({ loading = false, save, notice, leading = false }: Option
     editor.destroy();
     host.remove();
   });
+
   const stable = async (): Promise<void> => {
     await appRef.whenStable();
   };
+
   await stable();
+
   return { host, edit, source, save: saveMock, stable };
 }
 
@@ -113,9 +121,11 @@ async function open(rendered: Rendered): Promise<HTMLInputElement> {
   readButton(rendered)?.click();
   await rendered.stable();
   const input = editorInput(rendered);
+
   if (input === null) {
     throw new Error('Expected the editor to open');
   }
+
   return input;
 }
 
@@ -135,9 +145,11 @@ function revertButton(rendered: Rendered): HTMLButtonElement {
   const button = [...rendered.host.querySelectorAll('button')].find(
     (element) => element.textContent.trim() === 'Revert',
   );
+
   if (button === undefined) {
     throw new Error('Expected Revert');
   }
+
   return button;
 }
 
@@ -239,6 +251,7 @@ describe(InlineField, () => {
         throw new Error('Offline');
       },
     });
+
     const input = await open(rendered);
     await type(rendered, input, 'Seelah');
     await press(rendered, input, 'Enter');
@@ -252,6 +265,7 @@ describe(InlineField, () => {
         throw new ConflictError();
       },
     });
+
     const input = await open(rendered);
     await type(rendered, input, 'Seelah');
     await press(rendered, input, 'Enter');
@@ -261,12 +275,14 @@ describe(InlineField, () => {
 
   it('is busy while a save is in flight', async () => {
     const gate = Promise.withResolvers<undefined>();
+
     const rendered = await render({
       save: async (value) => {
         await gate.promise;
         rendered.source.set(value);
       },
     });
+
     const input = await open(rendered);
     await type(rendered, input, 'Seelah');
     input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));

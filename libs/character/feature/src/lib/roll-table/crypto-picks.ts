@@ -8,6 +8,7 @@ const DRAW_COUNT = PickIndex.parse(4_294_967_296);
 export const cryptoPicks: PickSource = {
   below: (bound) => {
     const [drawn = 0] = crypto.getRandomValues(new Uint32Array(1));
+
     return PickIndex.parse(Math.floor((drawn / DRAW_COUNT) * bound));
   },
 };

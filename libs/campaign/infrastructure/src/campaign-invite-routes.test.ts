@@ -40,6 +40,7 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
+
   const partyService = new CampaignPartyService(
     {
       campaigns,
@@ -49,6 +50,7 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
     },
     clock,
   );
+
   return new Elysia().use(problemHandler).use(
     campaignRoutes(
       {
@@ -105,6 +107,7 @@ async function campaignWithInvite(api: AnyElysia): Promise<CampaignWithInvite> {
   const created = await api.handle(request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }));
   const { id } = await json<{ readonly id: string }>(created);
   const issued = await json<IssuedJson>(await api.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri })));
+
   return { id, issued };
 }
 
@@ -169,9 +172,11 @@ describe('invite routes', () => {
 
   test('an unknown token is a 404 with its own message; a malformed one is a 422', async () => {
     const api = app();
+
     const unknown = await api.handle(
       request('POST', '/campaigns/join', { as: ezren, body: { token: 'A'.repeat(43) } }),
     );
+
     expect(unknown.status).toBe(404);
     const unknownProblem = await json<Problem>(unknown);
     expect(unknownProblem.message).toStrictEqual({ key: 'campaign.join.unknownInvite' });
@@ -186,9 +191,11 @@ describe('invite routes', () => {
 
     const asPlayer = await api.handle(request('POST', `/campaigns/${id}/invites`, { as: ezren }));
     expect(asPlayer.status).toBe(403);
+
     const playerRevoke = await api.handle(
       request('DELETE', `/campaigns/${id}/invites/${issued.invite.id}`, { as: ezren }),
     );
+
     expect(playerRevoke.status).toBe(403);
 
     const asStranger = await api.handle(request('GET', `/campaigns/${id}/invites`, { as: seelah }));

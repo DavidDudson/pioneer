@@ -10,14 +10,17 @@ function render(open: boolean, variant: DisclosureVariant = DisclosureVariant.Pl
   fixture.componentRef.setInput('open', open);
   fixture.componentRef.setInput('variant', variant);
   fixture.detectChanges();
+
   return fixture;
 }
 
 function details(fixture: ComponentFixture<Disclosure>): HTMLDetailsElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('details');
+
   if (element === null) {
     throw new Error('fr-disclosure rendered no <details>');
   }
+
   return element;
 }
 

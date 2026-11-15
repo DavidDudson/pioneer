@@ -10,12 +10,15 @@ function acceptsGzip(header: string | null): boolean {
   if (header === null) {
     return false;
   }
+
   const weights = new Map<string, number>();
+
   for (const part of header.split(',')) {
     const [coding = '', ...parameters] = part.split(';').map((piece) => piece.trim().toLowerCase());
     const weight = parameters.find((parameter) => parameter.startsWith('q='));
     weights.set(coding, weight === undefined ? 1 : Number(weight.slice(2)));
   }
+
   return (weights.get('gzip') ?? weights.get('*') ?? 0) > 0;
 }
 
@@ -25,9 +28,11 @@ function isJsonValue(value: unknown): boolean {
 
 function responseHeaders(set: HTTPHeaders): Headers {
   const headers = new Headers();
+
   for (const [name, value] of Object.entries(set)) {
     headers.set(name, String(value));
   }
+
   return headers;
 }
 
@@ -42,10 +47,12 @@ const compressed = new Map<string, Uint8Array>();
 function remember(key: string, bytes: Uint8Array): void {
   compressed.delete(key);
   compressed.set(key, bytes);
+
   for (const oldest of compressed.keys()) {
     if (compressed.size <= KEPT_BODIES) {
       break;
     }
+
     compressed.delete(oldest);
   }
 }
@@ -55,11 +62,13 @@ function keyOf(request: Request, etag: string | undefined): string | undefined {
   if (request.method !== 'GET' || etag === undefined || etag.startsWith('W/')) {
     return undefined;
   }
+
   return `${new URL(request.url).pathname} ${etag}`;
 }
 
 async function gzip(bytes: Uint8Array): Promise<Uint8Array> {
   const stream = new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip'));
+
   return new Uint8Array(await new Response(stream).arrayBuffer());
 }
 
@@ -71,30 +80,40 @@ async function gzippedBytes(
 ): Promise<Uint8Array | undefined> {
   const key = keyOf(request, etag);
   const kept = key === undefined ? undefined : compressed.get(key);
+
   if (key !== undefined && kept !== undefined) {
     remember(key, kept);
+
     return kept;
   }
+
   const bytes = new TextEncoder().encode(JSON.stringify(value));
+
   if (bytes.byteLength < MIN_COMPRESSED_BYTES) {
     return undefined;
   }
+
   const zipped = await gzip(bytes);
+
   if (key !== undefined) {
     remember(key, zipped);
   }
+
   return zipped;
 }
 
 function gzipped(bytes: Uint8Array, set: Context['set']): Response {
   const headers = responseHeaders(set.headers);
   const etag = headers.get('etag');
+
   if (etag !== null && !etag.startsWith('W/')) {
     headers.set('etag', `W/${etag}`);
   }
+
   headers.set('content-encoding', 'gzip');
   headers.set('content-type', 'application/json');
   headers.set('vary', 'accept-encoding');
+
   return new Response(bytes, { headers, status: Number(set.status ?? OK) });
 }
 
@@ -110,8 +129,10 @@ export const compression = new Elysia({ name: 'compression' }).mapResponse(
     if (!acceptsGzip(request.headers.get('accept-encoding')) || !isJsonValue(responseValue)) {
       return undefined;
     }
+
     const { etag } = set.headers;
     const bytes = await gzippedBytes(request, responseValue, etag);
+
     return bytes === undefined ? undefined : gzipped(bytes, set);
   },
 );

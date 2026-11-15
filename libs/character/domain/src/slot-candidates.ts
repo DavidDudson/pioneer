@@ -36,13 +36,16 @@ function idsOf(options: readonly Identified[] | undefined): readonly ChoiceValue
 const choiceCandidates: Candidates = (document, content, key) => {
   const resolution = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content));
   const feat = featSlots(document, content).find((slot) => slot.key === key);
+
   if (feat !== undefined) {
     const held = new Set<ChoiceValue>(resolution.items.map(({ entry }) => ChoiceValue.parse(entry.id)));
+
     return feat.options
       .filter((option) => option.status === PrerequisiteStatus.Met && option.locked === undefined)
       .filter((option) => !held.has(ChoiceValue.parse(option.value)))
       .map((option) => ChoiceValue.parse(option.value));
   }
+
   return (resolution.open.find((slot) => slot.key === key)?.options ?? []).map((option) => option.value);
 };
 

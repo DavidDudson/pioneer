@@ -29,8 +29,10 @@ export function checkEnrichment(
 ): EnrichmentCheck {
   const applicable = new Map<EntrySlug, EnrichmentMapping>();
   const issues: FieldIssue[] = [];
+
   for (const [key, entry] of Object.entries(mapping)) {
     const slug = EntrySlug.parse(key);
+
     if (!slugs.has(slug)) {
       const params = { pack, slug, entry: contentKey(pack, slug) };
       issues.push({ path: [slug], message: message(RulesMessage.EnrichmentUnknownSlug, params) });
@@ -43,5 +45,6 @@ export function checkEnrichment(
       applicable.set(slug, entry);
     }
   }
+
   return { applicable, issues };
 }

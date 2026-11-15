@@ -91,6 +91,7 @@ function attackModifier({ finesse, ranged }: GeneratedWeapon, str: number, dex: 
   if (ranged) {
     return dex;
   }
+
   return finesse ? Math.max(str, dex) : str;
 }
 
@@ -104,21 +105,26 @@ describe('Strikes derived per weapon (properties)', () => {
           ranks: Object.fromEntries(Object.entries(ranks).map(([category, rank]) => [`attack:${category}`, rank])),
           weapons: weapons.map((generated) => weaponJson(generated)),
         });
+
         const results = deriveStatistics(
           { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
           inputs,
         );
+
         const expected = Object.fromEntries(
           weapons.map((generated) => {
             const rank = ranks[generated.category];
             const bonus = rank === Proficiency.Untrained ? 0 : RANK_BONUS[rank] + level;
             const total = attackModifier(generated, str, dex) + bonus + (generated.potency ?? 0);
+
             return [`strike:${generated.slug}`, total];
           }),
         );
+
         const totals: Record<string, unknown> = Object.fromEntries(
           [...results].map(([selector, result]) => [selector, result.ok && result.total]),
         );
+
         expect(totals).toStrictEqual(expected);
       }),
     );
@@ -141,18 +147,23 @@ describe('weapon potency stacking (properties)', () => {
           ranks: {},
           weapons: [weaponJson(generated)],
         });
+
         const rules = bonuses.map(({ value, target }, index) =>
           inPlay(flatModifier(ModifierType.Item, value, [target]), `item-bonus-${index}`),
         );
+
         const result = deriveStatistics(
           { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
           inputs,
           { rules, facts: new PredicateFacts([], CORE_NAMESPACES) },
         ).get(Selector.parse(`strike:${generated.slug}`));
+
         const lines = result?.ok === true ? result.lines : [];
+
         const applied = lines.filter(
           ({ modifier, status }) => modifier.type === ModifierType.Item && status.kind === LineStatusKind.Applied,
         );
+
         const highest = Math.max(0, generated.potency ?? 0, ...bonuses.map(({ value }) => value));
         expect(applied.length).toBeLessThanOrEqual(1);
         expect(result?.ok === true ? result.total - result.baseValue : undefined).toBe(highest);

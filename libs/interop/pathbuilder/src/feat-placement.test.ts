@@ -20,11 +20,15 @@ import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedFeat } from './read-feats';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const NAMES: readonly FeatSlotFixture[] = ['power-attack', 'lunge', 'knockdown', 'skill-training', 'assurance'];
+
 const lookup = entryLookup({
   [ImportKind.Feat]: NAMES.map((name) => ({ id: featSlotFixtureId(name), name: ContentText.parse(name) })),
 });
@@ -52,6 +56,7 @@ describe('placeFeats', () => {
       feat('Lunge', 2),
       feat('Knockdown', 4),
     ]);
+
     expect(choices).toStrictEqual({
       [FEAT_SLOT_KEYS.level1]: featSlotFixtureId('power-attack'),
       [FEAT_SLOT_KEYS.level2]: featSlotFixtureId('lunge'),
@@ -81,6 +86,7 @@ describe('placeFeats', () => {
     const { choices } = placeFeats(fighter(1), { slots, lookup }, [
       feat('Skill Training', 1, { choice: PathbuilderName.parse('Athletics') }),
     ]);
+
     expect(Object.values(choices)).toContain(Slug.parse('athletics'));
   });
 });
@@ -108,15 +114,19 @@ describe('placeFeats where two slots of a level offer the same feat', () => {
     })
     .withFeat('sneak-dedication', { traits: ['archetype', 'dedication'] })
     .build();
+
   const labelledRegistry = new ContentRegistry();
   labelledRegistry.register(pack);
   const labelledSlots = { ...slotContent(labelledRegistry), namespaces: CORE_NAMESPACES };
+
   const dedication = ContentId.parse(
     new ContentPackBuilder().withId('labelled-slots').idOf(ContentKind.Feat, 'sneak-dedication'),
   );
+
   const labelledLookup = entryLookup({
     [ImportKind.Feat]: [{ id: dedication, name: ContentText.parse('Sneak Dedication') }],
   });
+
   const rogue = new CharacterBuilder()
     .picking(
       'class',
@@ -129,6 +139,7 @@ describe('placeFeats where two slots of a level offer the same feat', () => {
     const { choices } = placeFeats(rogue, { slots: labelledSlots, lookup: labelledLookup }, [
       feat('Sneak Dedication', 1, { slot: PathbuilderName.parse(label) }),
     ]);
+
     return Object.keys(choices)[0];
   };
 

@@ -101,11 +101,13 @@ function uniqueSlugs<Source extends Sourced>(source: z.ZodType<Source>): z.ZodTy
     .readonly()
     .check((context) => {
       const seen = new Set<Slug>();
+
       for (const [index, { slug }] of context.value.entries()) {
         if (seen.has(slug)) {
           const params = { message: message(EngineMessage.DuplicateSource, { slug }) };
           context.issues.push({ code: 'custom', input: slug, path: [index, 'slug'], params });
         }
+
         seen.add(slug);
       }
     });
@@ -155,7 +157,9 @@ function weaponAttribute(weapon: WeaponInputs, attributes: AttributeModifiers): 
   if (weapon.range !== undefined) {
     return Attribute.Dexterity;
   }
+
   const dexterityHigher = attributes.get(Attribute.Dexterity) > attributes.get(Attribute.Strength);
+
   return weapon.traits.includes(FINESSE) && dexterityHigher ? Attribute.Dexterity : Attribute.Strength;
 }
 
@@ -174,9 +178,11 @@ function isThrown(weapon: WeaponInputs): boolean {
  */
 function weaponDamageModifier(weapon: WeaponInputs, attributes: AttributeModifiers): FormulaValue {
   const strength = attributes.get(Attribute.Strength);
+
   if (weapon.traits.includes(PROPULSIVE) && weapon.range !== undefined) {
     return FormulaValue.parse(strength > 0 ? Math.floor(strength / HALF) : strength);
   }
+
   return FormulaValue.parse(weapon.range === undefined || isThrown(weapon) ? strength : 0);
 }
 
@@ -199,6 +205,7 @@ function better(left: FormulaValue | undefined, right: FormulaValue | undefined)
   if (left === undefined || right === undefined) {
     return left ?? right;
   }
+
   return right > left ? right : left;
 }
 
@@ -208,6 +215,7 @@ function better(left: FormulaValue | undefined, right: FormulaValue | undefined)
  */
 function weaponProficiencyBonus(weapon: WeaponInputs, bonus: BonusOf): FormulaValue | undefined {
   const category = bonus(Selector.parse(`attack:${weapon.category}`));
+
   return weapon.favored === true ? better(category, bonus(FAVORED_WEAPON)) : category;
 }
 
@@ -219,9 +227,11 @@ function weaponValue(
   if (kind === ReferenceKind.WeaponAttributeModifier) {
     return FormulaValue.parse(attributes.get(weaponAttribute(weapon, attributes)));
   }
+
   if (kind === ReferenceKind.WeaponDamageModifier) {
     return weaponDamageModifier(weapon, attributes);
   }
+
   return kind === ReferenceKind.WeaponProficiencyBonus ? weaponProficiencyBonus(weapon, bonus) : undefined;
 }
 
@@ -233,6 +243,7 @@ function entryValue(
   if (kind === ReferenceKind.SpellcastingAttributeModifier) {
     return FormulaValue.parse(attributes.get(entry.attribute));
   }
+
   return kind === ReferenceKind.SpellcastingProficiencyBonus ? bonus(SPELLCASTING) : undefined;
 }
 
@@ -248,6 +259,7 @@ export function sourceValue(
   if (source === undefined) {
     return undefined;
   }
+
   return source.per === StatisticPer.Weapon
     ? weaponValue(kind, source.weapon, reading)
     : entryValue(kind, source.entry, reading);

@@ -54,11 +54,13 @@ describe('decodeCharacterDocument', () => {
 
   test('keeps a selection whatever the level, so a planned or hidden pick survives', () => {
     const planned = { 'feat:class:20': 'sudden-charge' };
+
     const document = decodeCharacterDocument({
       ...minimal,
       level: CharacterLevel.parse(1),
       build: { choices: planned },
     });
+
     expect(document.build.choices).toStrictEqual(planned);
   });
 
@@ -84,6 +86,7 @@ describe('decodeCharacterDocument', () => {
     const past = Array.from({ length: CURRENT_SCHEMA_VERSION - 1 }, (_unused, index) =>
       CharacterSchemaVersion.parse(index + 1),
     );
+
     expect([...PAST_DOCUMENTS.keys()].toSorted((left, right) => left - right)).toStrictEqual(past);
   });
 

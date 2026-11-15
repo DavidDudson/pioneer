@@ -12,6 +12,7 @@ export async function pack(
   kinds: readonly Promise<JsonModule>[],
 ): Promise<PackContents> {
   const [packFile, ...entryFiles] = await Promise.all([manifest, ...kinds]);
+
   return packContentsFromFiles(
     packFile.default,
     entryFiles.map((file) => file.default),

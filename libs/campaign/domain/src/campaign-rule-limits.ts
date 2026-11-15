@@ -14,11 +14,14 @@ export const RuleLimitKey = {
   PropertyRunesPerGrade: 'propertyRunesPerGrade',
   ItemsMax: 'itemsMax',
 } as const;
+
 export type RuleLimitKey = ValueOf<typeof RuleLimitKey>;
+
 export const RuleLimitKeySchema = z.enum(RuleLimitKey);
 
 /** A number a limit takes: a whole number from 1. Each limit's ceiling is `LIMIT_CEILINGS`. */
 export const RuleLimitValue = Pg.smallint().positive().brand<'RuleLimitValue'>();
+
 export type RuleLimitValue = z.infer<typeof RuleLimitValue>;
 
 const CORE_INVESTED = RuleLimitValue.parse(10);
@@ -56,7 +59,9 @@ export const RuleLimitSource = {
   Variant: 'variant',
   Campaign: 'campaign',
 } as const;
+
 export type RuleLimitSource = ValueOf<typeof RuleLimitSource>;
+
 export const RuleLimitSourceSchema = z.enum(RuleLimitSource);
 
 /** The limits some layer changes; a limit it leaves out is not changed. */
@@ -86,6 +91,7 @@ export const RuleLimitSetting = z.object({
   /** Where the number in force comes from. */
   source: RuleLimitSourceSchema,
 });
+
 export type RuleLimitSetting = z.output<typeof RuleLimitSetting>;
 
 /** JSON shape of a campaign's table limits, as one of its members sees them. */
@@ -95,10 +101,12 @@ export const CampaignRuleLimits = z.object({
   /** Every limit, in a fixed order. */
   limits: z.array(RuleLimitSetting).readonly(),
 });
+
 export type CampaignRuleLimits = z.output<typeof CampaignRuleLimits>;
 
 /** The number the GM sets a limit to. */
 export const SetRuleLimitBody = z.object({ value: RuleLimitValue });
+
 export type SetRuleLimitBody = z.infer<typeof SetRuleLimitBody>;
 
 /** A limit and the number it is set to. */

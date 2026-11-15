@@ -73,6 +73,7 @@ type Walked = Omit<GrantResolution, 'rootSlots'>;
  * settles in a handful, so reaching this means a chain of dependencies no character has.
  */
 const ROUNDS_MAX = 32;
+
 /** When rounds run out, the last two are compared to name what was still changing. */
 const LAST_ROUNDS = 2;
 const LIST_SEPARATOR = ', ';
@@ -91,6 +92,7 @@ function fingerprintOf({ options, known }: FactState): string {
 function common<Value>(lists: readonly (readonly Value[])[]): Value[] {
   const [first = [], ...rest] = lists;
   const others = rest.map((list) => new Set(list));
+
   return first.filter((value) => others.every((other) => other.has(value)));
 }
 
@@ -111,6 +113,7 @@ type Kept = Omit<Walked, 'rollOptions' | 'facts'>;
 function keptOf({ walk, derived }: Round, core: ReadonlySet<ContentId>): Kept {
   const inCore = (hops: readonly OriginHop[]): boolean =>
     hops.every((hop) => hop.kind !== OriginHopKind.Grant || core.has(hop.by));
+
   return {
     items: walk.items.filter((item) => core.has(item.entry.id)),
     duplicates: walk.duplicates.filter((item) => inCore(item.origin.hops)),
@@ -133,15 +136,19 @@ function involvedNames(
 ): string[] {
   const names = new Map<ContentId, ContentText>();
   const involved = new Set<ContentId>();
+
   for (const { walk, derived } of rounds) {
     for (const { entry } of walk.items) {
       names.set(entry.id, entry.name);
     }
+
     const coming = walk.items.map((item) => item.entry.id).filter((id) => !core.has(id));
+
     for (const id of [...coming, ...settersOutside(derived, kept)]) {
       involved.add(id);
     }
   }
+
   return [...involved].flatMap((id) => names.get(id) ?? []).toSorted(byCodeUnit);
 }
 
@@ -163,18 +170,23 @@ class Fixpoint {
     const round = this.#round(state);
     log.add(fingerprint, round);
     const next = fingerprintOf(round.derived);
+
     if (next === fingerprint) {
       return settled(round);
     }
+
     const loop = log.since(next);
+
     if (loop !== undefined) {
       return this.#unsettled(round, loop, (entries, count) => message(GrantsMessage.Oscillates, { entries, count }));
     }
+
     if (log.size === ROUNDS_MAX) {
       return this.#unsettled(round, log.latest(LAST_ROUNDS), (entries, count) =>
         message(GrantsMessage.TooManyRounds, { entries, count, maximum: ROUNDS_MAX }),
       );
     }
+
     return this.#settle(round.derived, log);
   }
 
@@ -182,12 +194,14 @@ class Fixpoint {
   #round(state: FactState): Round {
     const facts = this.#factsOf(state);
     const walk = walkGrants({ ...this.#inputs, facts });
+
     const derived = characterFacts(walk, {
       level: this.#inputs.level,
       attributes: this.#inputs.attributes,
       facts,
       toggles: this.#inputs.toggles,
     });
+
     return { walk, facts, derived };
   }
 
@@ -210,6 +224,7 @@ class Fixpoint {
     const names = involvedNames(rounds, core, new Set(options));
     const failed: GrantError = { error: error(names.join(LIST_SEPARATOR), names.length), hops: [] };
     const kept = keptOf(last, core);
+
     return {
       ...kept,
       rollOptions: options,
@@ -234,5 +249,6 @@ class Fixpoint {
 export function resolveGrants(inputs: GrantInputs): GrantResolution {
   const root = readRootSlots(inputs.rootSlots, inputs.picks, inputs.lookup);
   const walked = new Fixpoint({ ...inputs, roots: [...inputs.roots, ...root.roots] }).resolve();
+
   return { ...walked, rootSlots: root.slots, errors: [...root.errors, ...walked.errors] };
 }

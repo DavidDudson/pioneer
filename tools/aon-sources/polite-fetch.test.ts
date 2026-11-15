@@ -20,6 +20,7 @@ interface Harness {
 function harness(...responses: Response[]): Harness {
   const calls: Call[] = [];
   let clock = 0;
+
   const client = new PoliteClient({
     userAgent: AGENT,
     intervalMs: 2000,
@@ -29,9 +30,11 @@ function harness(...responses: Response[]): Harness {
     },
     fetch: (async (input: URL, init: RequestInit) => {
       calls.push({ url: String(input), headers: init.headers as Record<string, string>, at: clock });
+
       return responses.shift() ?? new Response('', { status: 500 });
     }) as unknown as typeof fetch,
   });
+
   return { client, calls };
 }
 
@@ -97,6 +100,7 @@ describe('disallowedPaths', () => {
       'Disallow: /c',
       'Disallow:',
     ].join('\n');
+
     expect(disallowedPaths(robots, AGENT)).toEqual(['/b', '/c']);
   });
 });

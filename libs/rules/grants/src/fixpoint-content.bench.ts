@@ -12,6 +12,7 @@ import { FIGHTER_CONTENT, LEVEL_20_PICKS } from './testing/fighter';
 const FILLER_FEATS = 1000;
 const LEVEL_MAX = 20;
 const TRAITS: readonly string[] = ['fighter', 'rogue', 'wizard', 'general', 'skill', 'human'];
+
 /** The issue's budget for a level 20 character over real content, within the 10 ms budget for a derivation. */
 const BUDGET_MS = 3;
 
@@ -36,11 +37,13 @@ const SLOT_LEVELS: Readonly<Record<string, readonly number[]>> = {
 const SLOTS: readonly (readonly [string, number])[] = Object.entries(SLOT_LEVELS).flatMap(([trait, levels]) =>
   levels.map((level): readonly [string, number] => [trait, level]),
 );
+
 const RULES_PER_SLOT = 2;
 
 /** A feat slot for `trait` at `level`: a feat with the trait of the character's level or lower, granted once picked. */
 function slotRules([trait, level]: readonly [string, number]): readonly object[] {
   const flag = `${trait}-feat-${level}`;
+
   return [
     {
       key: 'ChoiceSet',
@@ -61,6 +64,7 @@ const ancestry: GrantEntry = entry(
 /** A filler feat for each ancestry slot: the one with its trait at its level. */
 const ANCESTRY_PICKS: readonly (readonly [SlotKey, string])[] = SLOTS.map(([trait, level], at) => {
   const filler = TRAITS.indexOf(trait) * LEVEL_MAX + level - 1;
+
   return [slotOf('human', at * RULES_PER_SLOT), idOf(`filler-${filler}`)];
 });
 
@@ -75,8 +79,11 @@ function inputs(): GrantInputs {
 }
 
 const result = resolveGrants(inputs());
+
 expect(result.open).toEqual([]);
+
 expect(result.answered).toHaveLength(LEVEL_20_PICKS.length + ANCESTRY_PICKS.length);
+
 benchmark({
   name: `grants: level 20 character with every slot picked over ${FILLER_FEATS} more feats`,
   budgetMs: BUDGET_MS,

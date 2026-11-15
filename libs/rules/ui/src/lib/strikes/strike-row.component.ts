@@ -129,12 +129,14 @@ export class StrikeRow {
 
   protected readonly derived = computed((): DerivedAttack | undefined => {
     const { attack } = this.row();
+
     return attack.ok ? attack : undefined;
   });
 
   /** Claims the situation of an attack line for the Strike's next roll, or lets it go. */
   protected claim({ id, on }: ConditionChange): void {
     const attack = this.derived();
+
     if (attack !== undefined) {
       this.#roller?.claim?.(attack.statistic.selector, RuleId.parse(id), on);
     }
@@ -143,6 +145,7 @@ export class StrikeRow {
   /** The lines about its attacks: the modifier at each step, then the step the next attack takes, when a turn counts them. */
   protected readonly attackLines = computed((): readonly AttackLine[] => {
     const { attacks, next } = this.row();
+
     return [
       ...(attacks === undefined ? [] : [{ text: attacks, weight: undefined }]),
       ...(next === undefined ? [] : [{ text: next, weight: 'semibold' as const }]),
@@ -152,6 +155,7 @@ export class StrikeRow {
   /** Why it has no attack, when it has none. */
   protected readonly failure = computed((): string | undefined => {
     const { attack } = this.row();
+
     return attack.ok ? undefined : attack.error;
   });
 }

@@ -31,6 +31,7 @@ const FUNDAMENTALS: readonly FundamentalRune[] = Object.values(FundamentalRune);
 /** The fundamental runes that go on `entry`: potency and striking on a weapon, potency and resilient on armour, reinforcing on a shield. */
 export function fundamentalRunesFor(entry: ItemEntry | undefined): readonly FundamentalRune[] {
   const runed = runedItemOf(entry);
+
   return runed === undefined ? [] : FUNDAMENTALS.filter((rune) => FUNDAMENTAL_RUNE_ITEMS[rune].includes(runed));
 }
 
@@ -39,9 +40,11 @@ export function gradeChoices(rune: FundamentalRune, entry: ItemEntry | undefined
   const printed = printedRunes(entry)?.[rune] ?? 0;
   const max = FUNDAMENTAL_GRADE_MAX[rune];
   const grades: number[] = [];
+
   for (let grade = printed + 1; grade <= max; grade += 1) {
     grades.push(grade);
   }
+
   return grades;
 }
 
@@ -54,6 +57,7 @@ export function printedGrade(rune: FundamentalRune, entry: ItemEntry | undefined
 export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefined, content: RuneContent): boolean {
   const runes = itemRunes(item, entry);
   const read = readerOf(content);
+
   return !isSpecific(entry) && slottedRunes(runes, read).length < propertyRoom(runes, read);
 }
 
@@ -67,10 +71,13 @@ export function propertyRuneEntries(
   compare: (left: string, right: string) => number,
 ): readonly RuneEntry[] {
   const runed = runedItemOf(entry);
+
   if (runed === undefined || isSpecific(entry)) {
     return [];
   }
+
   const etched = itemRunes(item, entry).property;
+
   return [...runes.values()]
     .filter(
       (rune) =>
@@ -91,10 +98,13 @@ export function offerableRuneEntries(
   compare: (left: string, right: string) => number,
 ): readonly RuneEntry[] {
   const entries = propertyRuneEntries(content, slot, compare);
+
   if (hasPropertyRoom(slot.item, slot.entry, content.runes)) {
     return entries;
   }
+
   const read = readerOf(content.runes);
+
   return entries.filter(({ id }) => takesNoSlot(read(id)));
 }
 
@@ -110,6 +120,7 @@ export function propertyRuneOptions(
 /** A rune etched onto an item, as the move form names it: `fundamental:potency`, or `property:<id>` with `:<choice>`. */
 export function runeKey(rune: RuneRef): string {
   const choice = rune.type === RuneType.Property && rune.choice !== undefined ? `:${rune.choice}` : '';
+
   return `${rune.type}:${rune.rune}${choice}`;
 }
 
@@ -129,9 +140,11 @@ function propertyRef(rune: ContentId, choice: RuneChoice | undefined): RuneRef {
  */
 export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): readonly RuneRef[] {
   const { runes } = item;
+
   if (runes === undefined || isSpecific(entry)) {
     return [];
   }
+
   return [
     ...FUNDAMENTALS.filter((rune) => runes[rune] !== undefined).map((rune): RuneRef => ({
       type: RuneType.Fundamental,
@@ -152,11 +165,14 @@ export function transferTargets(
 ): readonly InventoryItemId[] {
   const from = inventory.items.find((each) => each.id === id);
   const runed = from === undefined ? undefined : runedItemOf(items.get(from.item));
+
   if (runed === undefined) {
     return [];
   }
+
   return inventory.items.flatMap((each): InventoryItemId[] => {
     const entry = items.get(each.item);
+
     return each.id === id || isSpecific(entry) || runedItemOf(entry) !== runed ? [] : [each.id];
   });
 }

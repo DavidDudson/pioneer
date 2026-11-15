@@ -15,6 +15,7 @@ export const PioneerImportPreview = z.object({
   homebrew: z.array(HomebrewPackReport).readonly(),
   unmatched: z.array(UnmatchedContentGroup).readonly(),
 });
+
 export type PioneerImportPreview = z.infer<typeof PioneerImportPreview>;
 
 /**

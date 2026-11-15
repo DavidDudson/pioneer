@@ -7,6 +7,7 @@ import { atValue, conditionCard } from './condition-card';
 import type { EntryPreview } from './entry-preview';
 
 const TEXT = RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'Rest ends it.' }] }]);
+
 const CARD: EntryPreview = {
   name: 'Dazed' as EntryPreview['name'],
   level: undefined,
@@ -23,15 +24,19 @@ const pack = new ContentPackBuilder()
   .withCondition('plain')
   .withCondition('wobbly', [], { valued: true, values: { kind: 'formula', text: TEXT } })
   .withFeat('toughness');
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 function entryNamed(kind: ContentKind, name: string): ContentEntry {
   const id = ContentId.parse(pack.idOf(kind, name));
   const found = registry.packs.flatMap((each) => each.otherEntries).find((entry) => entry.id === id);
+
   if (found === undefined) {
     throw new Error(`no ${kind} ${name}`);
   }
+
   return found;
 }
 
@@ -69,6 +74,7 @@ describe(conditionCard, () => {
 
 describe(atValue, () => {
   const VALUE = ConditionValue.parse(2);
+
   const valued: EntryPreview = {
     ...CARD,
     valued: true,

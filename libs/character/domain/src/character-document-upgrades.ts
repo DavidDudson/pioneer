@@ -3,10 +3,12 @@ import * as z from 'zod';
 
 /** The schema a stored `CharacterDocument` was written with. Starts at 1; each upgrade step adds one. */
 export const CharacterSchemaVersion = Pg.smallint().min(1).brand<'CharacterSchemaVersion'>();
+
 export type CharacterSchemaVersion = z.infer<typeof CharacterSchemaVersion>;
 
 /** A stored document of any schema version: only `schemaVersion` is known until it has been upgraded. */
 export const StoredCharacterDocument = z.looseObject({ schemaVersion: CharacterSchemaVersion });
+
 export type StoredCharacterDocument = z.infer<typeof StoredCharacterDocument>;
 
 /** Turns a document of one schema version into the next. Pure; `schemaVersion` is set by `upgradeDocument`. */
@@ -26,15 +28,18 @@ function lineWithEtchedRunes(line: unknown): unknown {
   if (!isRecord(line) || !isRecord(line['runes']) || !Array.isArray(line['runes']['property'])) {
     return line;
   }
+
   return { ...line, runes: { ...line['runes'], property: line['runes']['property'].map(etchedRune) } };
 }
 
 /** 20 → 21: every inventory line's property runes from content ids to etched runes. */
 function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharacterDocument {
   const { inventory } = document;
+
   if (!isRecord(inventory) || !Array.isArray(inventory['items'])) {
     return document;
   }
+
   return { ...document, inventory: { ...inventory, items: inventory['items'].map(lineWithEtchedRunes) } };
 }
 
@@ -117,12 +122,16 @@ export function upgradeDocument(
   upgrades: readonly UpgradeStep[] = UPGRADES,
 ): StoredCharacterDocument {
   const current = currentVersion(upgrades);
+
   if (stored.schemaVersion > current) {
     throw new UnsupportedSchemaVersionError(stored.schemaVersion, current);
   }
+
   let document = stored;
+
   for (const step of upgrades.slice(stored.schemaVersion - 1)) {
     document = { ...step(document), schemaVersion: CharacterSchemaVersion.parse(document.schemaVersion + 1) };
   }
+
   return document;
 }

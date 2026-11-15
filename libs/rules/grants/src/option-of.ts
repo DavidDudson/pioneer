@@ -6,5 +6,6 @@ import { RollOption } from '@pioneer/rules/sdk';
  */
 export function optionOf(prefix: string, value: string): RollOption | undefined {
   const option = RollOption.safeParse(`${prefix}:${value}`);
+
   return option.success ? option.data : undefined;
 }

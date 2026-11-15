@@ -56,6 +56,7 @@ function rolling(...faces: readonly number[]): void {
 async function wandsOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => {
     present(root.querySelector('pio-wand-controls'));
+
     return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
   });
 }
@@ -211,6 +212,7 @@ describe('CharacterSheetPage wands', () => {
       ...wizardWith({}),
       build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('fighter') }, spellAccess: [] },
     };
+
     const { root } = await openSheet(fighter, { play: spentOf({}), packs: PACKS });
     const wands = await wandsOf(root);
 

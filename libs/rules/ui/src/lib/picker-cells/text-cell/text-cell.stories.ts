@@ -5,6 +5,7 @@ import { TextCell } from './text-cell.component';
 type TextStory = StoryObj<TextCell>;
 
 const meta: Meta<TextCell> = { title: 'Rules/Picker cells/Text', component: TextCell, args: { text: '12' } };
+
 export default meta;
 
 /** A number as the locale writes it. */

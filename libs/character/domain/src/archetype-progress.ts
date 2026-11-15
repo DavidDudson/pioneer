@@ -12,6 +12,7 @@ import type { SlotContent } from './slot-reads';
 
 /** How many of an archetype's feats a character has taken. */
 export const ArchetypeFeatCount = z.int().nonnegative().brand<'ArchetypeFeatCount'>();
+
 export type ArchetypeFeatCount = z.infer<typeof ArchetypeFeatCount>;
 
 /**
@@ -38,8 +39,10 @@ const NEXT_LEVEL = 1;
 /** The loaded feats picked in a feat slot, at the level the slot opens. */
 function picksOf(document: CharacterDocument, content: SlotContent): Taken[] {
   const { feats, featSlotLevels } = prerequisiteReads(document, content);
+
   return [...featSlotLevels].flatMap(([slot, level]): Taken[] => {
     const id = ContentId.safeParse(document.build.choices[slot]);
+
     return id.success && feats.feat(id.data) !== undefined ? [{ id: id.data, level }] : [];
   });
 }
@@ -51,10 +54,12 @@ function grantsOf(document: CharacterDocument, content: SlotContent, picked: rea
   const featSlots = new Set(featSlotLevels.keys());
   const known = picked.map(({ id }) => id);
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + NEXT_LEVEL;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index)).flatMap(
     (level): Taken[] => {
       const granted = featsGranted({ items: grantsAt(level).items, featSlots }, feats, known);
       known.push(...granted);
+
       return granted.map((id) => ({ id, level }));
     },
   );
@@ -63,6 +68,7 @@ function grantsOf(document: CharacterDocument, content: SlotContent, picked: rea
 /** The archetype `feat` is the dedication of, if it is one. */
 function dedicatedArchetype(feats: FeatContent, feat: ContentId): ContentId | undefined {
   const archetype = feats.feat(feat)?.archetype;
+
   return archetype !== undefined && feats.archetype(archetype)?.dedication === feat ? archetype : undefined;
 }
 
@@ -77,13 +83,17 @@ function progressOf(feats: FeatContent, taken: readonly Taken[], at: Reading): A
   const { archetype, now } = at;
   const read = feats.archetype(archetype);
   const dedication = taken.find(({ id }) => id === read?.dedication);
+
   if (read === undefined || dedication === undefined) {
     return [];
   }
+
   const others = taken
     .filter(({ id }) => id !== read.dedication && (feats.feat(id)?.archetype === archetype || read.additional.has(id)))
     .toSorted((left, right) => left.level - right.level);
+
   const lifting = others.at(read.lock - NEXT_LEVEL);
+
   return [
     {
       archetype,
@@ -101,14 +111,18 @@ function progressOf(feats: FeatContent, taken: readonly Taken[], at: Reading): A
 export function archetypeProgress(document: CharacterDocument, content: SlotContent): readonly ArchetypeProgress[] {
   const reads = prerequisiteReads(document, content);
   const now = Level.parse(document.level);
+
   if (reads.factsAt(now).has(NO_DEDICATION_LOCK)) {
     return [];
   }
+
   const picked = picksOf(document, content);
   const taken = [...picked, ...grantsOf(document, content, picked)];
+
   const archetypes = taken
     .toSorted((left, right) => left.level - right.level)
     .map(({ id }) => dedicatedArchetype(reads.feats, id))
     .filter((archetype) => archetype !== undefined);
+
   return [...new Set(archetypes)].flatMap((archetype) => progressOf(reads.feats, taken, { archetype, now }));
 }

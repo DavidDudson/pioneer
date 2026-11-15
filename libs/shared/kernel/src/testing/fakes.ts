@@ -20,6 +20,7 @@ export function registerFake(schema: z.core.$ZodType, generate: () => unknown): 
   if (overrides.has(schema)) {
     return;
   }
+
   const standIn = z.custom<unknown>();
   custom(standIn, generate);
   overrides.set(schema, standIn);
@@ -35,15 +36,19 @@ function unwrapped(schema: z.core.$ZodType): z.core.$ZodType | undefined {
   if (schema instanceof z.ZodPipe) {
     return wireShape(schema.in);
   }
+
   if (schema instanceof z.ZodOptional) {
     return z.optional(wireShape(schema.unwrap()));
   }
+
   if (schema instanceof z.ZodDefault) {
     return wireShape(schema.unwrap());
   }
+
   if (schema instanceof z.ZodReadonly) {
     return wireShape(schema.unwrap());
   }
+
   return undefined;
 }
 
@@ -53,16 +58,20 @@ function rebuiltContainer(schema: z.core.$ZodType): z.core.$ZodType | undefined 
       Object.fromEntries(Object.entries<z.core.$ZodType>(schema.shape).map(([key, value]) => [key, wireShape(value)])),
     );
   }
+
   // Rebuilt arrays drop their length checks, so faker keeps them to a few items (a `.max(500)` would fake up to 500).
   if (schema instanceof z.ZodArray) {
     return z.array(wireShape(schema.element));
   }
+
   if (schema instanceof z.ZodRecord) {
     return z.record(schema.keyType, wireShape(schema.valueType));
   }
+
   if (schema instanceof z.ZodUnion) {
     return z.union(schema.options.map((option) => wireShape(option)));
   }
+
   return undefined;
 }
 
@@ -72,6 +81,8 @@ export function fakeSeeded<TSchema extends z.ZodType>(schema: TSchema, seedValue
     configured = true;
     setFaker(faker);
   }
+
   seed(seedValue);
+
   return schema.parse(fake(wireShape(schema)));
 }

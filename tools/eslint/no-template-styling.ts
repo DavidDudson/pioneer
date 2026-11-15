@@ -10,6 +10,7 @@
 import type { Rule } from 'eslint';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
+
 const STYLING_NAMES = new Set([
   'class',
   'style',
@@ -20,7 +21,9 @@ const STYLING_NAMES = new Set([
   '[attr.class]',
   '[attr.style]',
 ]);
+
 const STYLING_PREFIXES = ['[class.', '[style.'];
+
 /** The one styling binding frontier templates may use. */
 const CVA_BINDING = '[class]';
 
@@ -44,22 +47,28 @@ export const noTemplateStyling: Rule.RuleModule = {
   },
   create(context) {
     const inFrontier = FRONTIER.test(context.filename);
+
     const check = (node: unknown): void => {
       const span = (node as TemplateNode).sourceSpan;
+
       if (span === undefined) {
         return;
       }
+
       const text = context.sourceCode.text.slice(span.start.offset, span.end.offset);
       const [attribute = text] = text.split('=');
+
       if (!isStyling(attribute) || (inFrontier && attribute === CVA_BINDING)) {
         return;
       }
+
       context.report({
         loc: context.sourceCode.getLocFromIndex(span.start.offset),
         messageId: inFrontier ? 'frontier' : 'styling',
         data: { attribute },
       });
     };
+
     return { TextAttribute: check, BoundAttribute: check };
   },
 };

@@ -16,6 +16,7 @@ export const legalRoutes: Routes = [
     ],
     loadComponent: loadWithMessages(async () => {
       const { LegalPage } = await import('./legal-page/legal-page.component');
+
       return LegalPage;
     }),
   },

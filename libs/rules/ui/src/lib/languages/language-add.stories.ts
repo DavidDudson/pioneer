@@ -10,6 +10,7 @@ const meta: Meta<LanguageAdd> = {
   title: 'Rules/Language add',
   component: LanguageAdd,
 };
+
 export default meta;
 
 /** Every language slot filled: nothing to add. */

@@ -22,6 +22,7 @@ const meta: Meta<AsyncIndicator> = {
     template: `<fr-async-indicator ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Pending: AsyncIndicatorStory = {};

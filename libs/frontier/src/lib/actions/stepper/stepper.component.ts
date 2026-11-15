@@ -39,6 +39,7 @@ export class Stepper implements StepperContext {
 
   public position(step: object): number {
     const steps: readonly object[] = this.steps();
+
     return steps.indexOf(step);
   }
 

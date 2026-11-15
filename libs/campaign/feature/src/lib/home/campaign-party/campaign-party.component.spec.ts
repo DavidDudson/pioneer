@@ -20,12 +20,14 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const playerMember = {
   id: '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e11',
   userId: playerId,
   role: 'player',
   joinedAt: '2026-10-11T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -34,6 +36,7 @@ const campaign = {
   members: [gmMember, playerMember],
   createdAt: '2026-10-10T10:00:00.000Z',
 };
+
 const named = [
   { ...gmMember, displayName: 'Amiri' },
   { ...playerMember, displayName: 'Ezren' },
@@ -65,6 +68,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -92,6 +96,7 @@ async function open(party: PartyJson, viewerRole: 'gm' | 'player' = 'player'): P
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Bring a character');
   });
+
   return harness;
 }
 
@@ -123,6 +128,7 @@ describe('CampaignPartyPanel', () => {
       characters: [inParty(valeros, true), { ...inParty(kyra, false), ownerName: 'Seelah' }],
       attachable: [merisiel],
     });
+
     const root = present(harness.routeNativeElement);
     expect(root.textContent).toContain('Level 3, played by Ezren');
     expect(root.textContent).toContain('Level 2, played by Seelah');
@@ -134,6 +140,7 @@ describe('CampaignPartyPanel', () => {
       characters: [{ ...inParty(valeros, true), archived: true }],
       attachable: [],
     });
+
     const root = present(harness.routeNativeElement);
     expect(root.textContent).toContain('Archived character');
     expect(root.textContent).not.toContain('Valeros');

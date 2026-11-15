@@ -22,9 +22,11 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(ColumnChooser);
   fixture.componentRef.setInput('columns', COLUMNS);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   const chosen: ColumnChoice[] = [];
   let resets = 0;
   fixture.componentInstance.chosen.subscribe((choice) => {
@@ -34,6 +36,7 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
     resets += 1;
   });
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement, chosen, resets: (): number => resets };
 }
 
@@ -43,9 +46,11 @@ function toggles(host: HTMLElement): HTMLButtonElement[] {
 
 function resetButton(host: HTMLElement): HTMLButtonElement {
   const found = [...host.querySelectorAll<HTMLButtonElement>('fr-button button')].at(-1);
+
   if (found === undefined) {
     throw new Error('Expected a reset button');
   }
+
   return found;
 }
 
@@ -79,6 +84,7 @@ describe(ColumnChooser, () => {
         { id: 'level', label: 'Level', visible: false, locked: false },
       ],
     });
+
     expect(toggles(host).map((button) => button.disabled)).toStrictEqual([true, false]);
   });
 

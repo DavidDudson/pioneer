@@ -20,6 +20,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -46,6 +47,7 @@ async function open(url: string, homebrew: readonly ContentPackId[] = []): Promi
     ],
   });
   const harness = await RouterTestingHarness.create(url);
+
   return { root: present(harness.routeNativeElement), harness, delivery };
 }
 
@@ -58,6 +60,7 @@ async function loaded(root: HTMLElement, count: number): Promise<string[]> {
   await vi.waitFor(() => {
     expect(listed(root)).toHaveLength(count);
   });
+
   return listed(root);
 }
 
@@ -68,6 +71,7 @@ const chip = (root: HTMLElement, label: string): HTMLElement =>
       each.textContent.trim().startsWith(label),
     ),
   );
+
 /** The table's column headers, left to right. */
 const headers = (root: HTMLElement): string[] =>
   [...root.querySelectorAll('fr-table thead th')].map((header) => header.textContent.trim());
@@ -98,9 +102,11 @@ describe('ContentBrowserPage', () => {
   it('previews an entry from its name in the table, with a link to open it', async () => {
     const { root } = await open('/content');
     await loaded(root, 4);
+
     const name = present(
       [...root.querySelectorAll('fr-table tbody a')].find((link) => link.textContent.trim() === 'Power-attack'),
     );
+
     name.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
     await vi.waitFor(() => {
       const card = present(document.querySelector('[role="tooltip"]'));

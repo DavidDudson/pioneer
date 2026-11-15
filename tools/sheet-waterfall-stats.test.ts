@@ -18,10 +18,12 @@ describe('median', () => {
 describe('summarise', () => {
   it('takes the medians and shows the waterfall of the run nearest the median time to ready', () => {
     const slow = load(900, [{ name: '/slow', startMs: 0, endMs: 1, bytes: 1 }]);
+
     const middle = load(500, [
       { name: '/b', startMs: 20, endMs: 30, bytes: 10 },
       { name: '/a', startMs: 5, endMs: 15, bytes: 20 },
     ]);
+
     const fast = load(100, []);
 
     const summary = summarise([slow, middle, fast]);

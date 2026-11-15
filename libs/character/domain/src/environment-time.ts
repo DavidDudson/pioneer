@@ -51,42 +51,54 @@ function moved({ outcome, inputs }: Passing, play: PlayState, events: readonly T
 /** One time the environment `environment` deals `damage`: the dice roll, go through the defences and take the Hit Points. */
 function damaged(passing: Passing, environment: ContentId, damage: EnvironmentDamage): Passing {
   const { play } = passing.outcome;
+
   const roll = rolled(
     { formula: CATEGORY_DICE[damage.category], type: damage.type, assisted: false },
     passing.inputs.random,
   );
+
   if (play.dead || roll === undefined) {
     return passing;
   }
+
   const applied = applyDamage(roll, passing.inputs.defences, { critical: false, environmental: true });
   const hurt = applyPlayCommand(play, { field: PlayCommandField.Damage, damage: applied }, passing.inputs.limits);
+
   return moved(passing, hurt, [environmentDamaged(environment, { roll, damage: applied })]);
 }
 
 /** One time the environment `environment` puts `condition` on the character, unless it already has it. */
 function conditioned(passing: Passing, environment: ContentId, condition: ContentId): Passing {
   const { play } = passing.outcome;
+
   if (play.dead || play.conditions.some((each) => each.condition === condition)) {
     return passing;
   }
+
   const instance = ConditionInstanceId.parse(newId());
+
   const command = {
     field: PlayCommandField.AddCondition,
     condition: { id: instance, condition, duration: UNLIMITED },
   } as const;
+
   if (conditionProblem(play.conditions, command, passing.inputs.limits.valued) !== undefined) {
     return passing;
   }
+
   const added = applyPlayCommand(play, command, passing.inputs.limits);
+
   return moved(passing, added, [environmentConditioned(environment, condition, instance)]);
 }
 
 /** One time `consequence` of `environment` happens. */
 function happened(passing: Passing, environment: ContentId, consequence: EnvironmentConsequence): Passing {
   const { applies, damage } = consequence;
+
   if (damage !== undefined) {
     return damaged(passing, environment, damage);
   }
+
   return applies === undefined ? passing : conditioned(passing, environment, applies);
 }
 
@@ -97,12 +109,15 @@ function consequences(
   span: { readonly before: ExposureRounds; readonly after: ExposureRounds },
 ): Passing {
   let current = passing;
+
   for (const consequence of passing.inputs.environments.get(environment)?.consequences ?? []) {
     const times = occurrences(span.before, span.after, consequence);
+
     for (let each = 0; each < times; each += 1) {
       current = happened(current, environment, consequence);
     }
   }
+
   return current;
 }
 
@@ -112,6 +127,7 @@ function stayed(passing: Passing, environment: ContentId, rounds: ExposureRounds
   const before = elapsedIn(play.exposure, environment);
   const after = exposureAfter(before, rounds);
   const timed = moved(passing, { ...play, exposure: [...exposureWith(play.exposure, environment, after)] }, []);
+
   return consequences(timed, environment, { before, after });
 }
 
@@ -124,8 +140,10 @@ function stayed(passing: Passing, environment: ContentId, rounds: ExposureRounds
 export function passTime(play: PlayState, duration: EnvironmentDuration, inputs: PassTimeInputs): TurnOutcome {
   const rounds = spanRounds(duration);
   let passing: Passing = { outcome: { play, events: [] }, inputs };
+
   for (const environment of play.environments) {
     passing = stayed(passing, environment, rounds);
   }
+
   return passing.outcome;
 }

@@ -27,6 +27,7 @@ const meta: Meta<StrikesView> = {
   component: StrikesView,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: placeholder rows. */
@@ -155,6 +156,7 @@ export const RuleElements: StrikesStory = {
 function usableStrike(named: NamedStrike, index: number): NamedStrike {
   const weapon = EntrySlug.parse(`equipment:weapon-${index}`);
   const id = ContentId.parse(contentId(PackId.parse('player-core'), weapon));
+
   return { ...named, use: { id, name: named.name, cost: ActionCost.One, affordable: index === 0 } };
 }
 

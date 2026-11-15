@@ -39,6 +39,7 @@ interface Offered {
 /** The character's grants at the build level over its picks, with its own slots as roots. */
 function grantsOf(document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+
   return resolveGrants({
     roots: content.variantRoots,
     lookup: content.lookup,
@@ -55,6 +56,7 @@ function grantsOf(document: CharacterDocument, content: SlotContent): GrantResol
 /** The level of the entry `value` names; 0 for one without, such as a listed option. */
 function levelOf(content: SlotContent, value: ChoiceValue): number {
   const id = ContentId.safeParse(value);
+
   return (id.success ? content.lookup.entry(id.data)?.facts?.level : undefined) ?? 0;
 }
 
@@ -64,9 +66,11 @@ function levelOf(content: SlotContent, value: ChoiceValue): number {
  */
 function ordered(slot: SlotKey, options: readonly Offered[], content: SlotContent): Fill {
   const preferred = slot === ANCESTRY_SLOT ? options.filter(({ label }) => label === PREFERRED_ANCESTRY) : [];
+
   const lowest = options
     .map(({ value }) => value)
     .toSorted((left, right) => levelOf(content, left) - levelOf(content, right));
+
   return { slot, candidates: [...preferred.map(({ value }) => value), ...lowest] };
 }
 
@@ -90,6 +94,7 @@ function boostFills(document: CharacterDocument, content: SlotContent): Fill[] {
 function trainingFills(document: CharacterDocument, content: SlotContent): Fill[] {
   const skills = skillSlots(document, skillReads(document, content));
   const languages = languageSlots(document, languageReads(document, content));
+
   return [...skills, ...languages]
     .filter((slot) => slot.pick === undefined)
     .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }));
@@ -98,6 +103,7 @@ function trainingFills(document: CharacterDocument, content: SlotContent): Fill[
 /** The `ChoiceSet` slots not answered: feats, subclasses and the like. */
 function choiceFills(document: CharacterDocument, grants: GrantResolution, content: SlotContent): Fill[] {
   const { choices } = document.build;
+
   return grants.open
     .filter((slot) => choices[slot.key] === undefined && !slot.optional)
     .map((slot) => ordered(slot.key, slot.options, content));
@@ -106,6 +112,7 @@ function choiceFills(document: CharacterDocument, grants: GrantResolution, conte
 /** The prepared, repertoire and signature spell slots not filled yet. */
 function spellFills(document: CharacterDocument, content: SlotContent): Fill[] {
   const reads = preparedReads(document, content);
+
   return [...preparedSlots(document, reads), ...signatureSlots(document, reads)]
     .filter((slot) => slot.pick === undefined)
     .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }));
@@ -114,6 +121,7 @@ function spellFills(document: CharacterDocument, content: SlotContent): Fill[] {
 /** The slots that are open, in the order a builder fills them: its own, boosts, skills, languages, choices, spells. */
 export function openFills(document: CharacterDocument, content: SlotContent): Fill[] {
   const grants = grantsOf(document, content);
+
   return [
     ...rootFills(grants, content),
     ...boostFills(document, content),

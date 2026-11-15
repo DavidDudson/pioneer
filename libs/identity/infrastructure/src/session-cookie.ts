@@ -58,5 +58,6 @@ export function requestCookies(request: Request): Bun.CookieMap {
 /** The session token a request carries, if it is well-formed. */
 export function sessionToken(request: Request): SessionToken | undefined {
   const parsed = SessionToken.safeParse(requestCookies(request).get(SESSION_COOKIE));
+
   return parsed.success ? parsed.data : undefined;
 }

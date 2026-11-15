@@ -24,13 +24,17 @@ function feat(id: string, name: string, system: object): DocumentFixture {
 const MULTILINGUAL = feat('fEaTlAnGuAgE0001', 'Multilingual', {
   subfeatures: { languages: { granted: [], slots: 2 } },
 });
+
 const DWARF_FRIEND = feat('fEaTlAnGuAgE0002', 'Dwarf Friend', {
   subfeatures: { languages: { granted: ['dwarven'], slots: 0 } },
 });
+
 const FIRST_DOCTRINE = 'Compendium.pf2e.classfeatures.Item.First Doctrine';
+
 const WILD_TONGUE = feat('fEaTlAnGuAgE0003', 'Wild Tongue', {
   subfeatures: { languages: { granted: ['wildsong'] }, suppressedFeatures: [FIRST_DOCTRINE] },
 });
+
 const NOMADIC = feat('fEaTlAnGuAgE0004', 'Nomadic', {
   rules: [
     { key: 'ActiveEffectLike', mode: 'add', path: 'system.build.languages.max', value: 2 },

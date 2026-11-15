@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 
 /** How loudly the toast speaks: a plain result, or the gold and red edge a natural 20 or natural 1 earns. */
 export const ToastEmphasis = { None: 'none', High: 'high', Low: 'low' } as const;
+
 export type ToastEmphasis = ValueOf<typeof ToastEmphasis>;
 
 const toastClasses = cva(
@@ -19,6 +20,7 @@ const toastClasses = cva(
     defaultVariants: { emphasis: ToastEmphasis.None },
   },
 );
+
 const regionClasses = cva('contents')();
 
 /**

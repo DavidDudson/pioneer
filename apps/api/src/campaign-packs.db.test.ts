@@ -133,18 +133,22 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
   test('a visibility change waits for an enablement holding the pack, then sees the campaign', async () => {
     const held = Promise.withResolvers<undefined>();
     const lockTaken = Promise.withResolvers<undefined>();
+
     const row: CampaignPack = {
       id: CampaignPackId.parse(newId()),
       packId: EnabledPackId.parse(feats.id),
       enabledBy: amiri,
       enabledAt: clock.now(),
     };
+
     const enabling = repository.enable(amiri, { campaignId, packs: [row] }, async () => {
       lockTaken.resolve(undefined);
       await held.promise;
     });
+
     await lockTaken.promise;
     const going = homebrew.setVisibility(amiri, feats.id, PackVisibility.Private);
+
     const outcome = await Promise.race([
       going.then(
         () => 'finished',
@@ -152,6 +156,7 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
       ),
       Bun.sleep(150).then(() => 'waiting'),
     ]);
+
     expect(outcome).toBe('waiting');
     held.resolve(undefined);
     await enabling;
@@ -170,6 +175,7 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
   test('an archived pack is no longer listed as enabled, and its row stays', async () => {
     await service.enable(amiri, campaignId, { packId: EnabledPackId.parse(feats.id) });
     await homebrew.archive(amiri, feats.id);
+
     try {
       const listed = await service.packs(amiri, campaignId);
       expect(listed.enabled.map((pack) => String(pack.title))).not.toContain('Feats');

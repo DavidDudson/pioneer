@@ -25,6 +25,7 @@ export class FiltersFields {
 
   protected readonly entriesProblem = computed((): JsonProblem | undefined => {
     const result = this.check();
+
     return result.status === FiltersStatus.Problems ? result.entries : undefined;
   });
 }

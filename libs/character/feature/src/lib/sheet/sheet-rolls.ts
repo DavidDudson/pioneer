@@ -40,6 +40,7 @@ export interface CheckSetup extends RollSetup {
 /** `1d20+7`, `1d20-1`, or a bare `1d20` for a +0 check: the statistic's total added to one d20. */
 function checkText(total: number): DiceExpressionText {
   const sign = total < 0 ? Sign.Minus : Sign.Plus;
+
   return DiceExpressionText.parse(total === 0 ? '1d20' : `1d20${sign}${Math.abs(total)}`);
 }
 
@@ -77,12 +78,15 @@ export class SheetRolls implements StatisticRoller {
   /** The last roll with its degree against the DC, when one is set. */
   public readonly last = computed((): LastRoll | undefined => {
     const rolled = this.#rolled();
+
     if (rolled === undefined) {
       return undefined;
     }
+
     const dc = this.cardDc();
     const degree = rolled.statistic === undefined ? undefined : rolledDegree(rolled.roll, dc);
     const { id, name, statistic, expression, roll, reasons, check, damage } = rolled;
+
     return { name, statistic, view: rollView(id, { expression, roll, degree, damage, reasons, check }) };
   });
 
@@ -94,10 +98,13 @@ export class SheetRolls implements StatisticRoller {
     const pending = this.#pending();
     const registry = this.#state.engine();
     const character = this.#state.character();
+
     if (pending === undefined || registry === undefined || character === undefined) {
       return undefined;
     }
+
     const offered = sheetRollSetup(registry, character, pending);
+
     return offered === undefined
       ? undefined
       : { ...offered, name: pending.name, selector: pending.selector, chosen: pending.chosen, as: pending.as };
@@ -118,10 +125,13 @@ export class SheetRolls implements StatisticRoller {
     const offered = this.#offered(selector, chosen);
     this.saveError.set(undefined);
     this.#state.release(selector);
+
     if (offered === undefined) {
       this.#finish({ name, statistic, reasons: [], dc, check });
+
       return;
     }
+
     const reasons = this.#reasons({ ...offered, name, selector, chosen });
     this.#finish({ name, statistic: offered.statistic, reasons, dc, check });
   }
@@ -139,6 +149,7 @@ export class SheetRolls implements StatisticRoller {
   /** Rolls a flat check, one d20 plus `modifier` with no statistic behind it; the card compares it to the typed DC. */
   public rollFlat(name: string, modifier: number): void {
     const outcome = parseDiceExpression(checkText(modifier));
+
     if (outcome.ok) {
       this.#save = undefined;
       this.#cast(name, outcome.expression, () => ({ dc: this.dc() }));
@@ -169,6 +180,7 @@ export class SheetRolls implements StatisticRoller {
     const offered = this.#offered(selector, chosen, as);
     this.saveError.set(undefined);
     this.#state.release(selector);
+
     if (offered !== undefined) {
       const reasons = this.#reasons({ ...offered, name, selector, chosen, as });
       this.#finish({ name, statistic: offered.statistic, reasons, dc: undefined });
@@ -186,12 +198,15 @@ export class SheetRolls implements StatisticRoller {
       if (pending === undefined) {
         return pending;
       }
+
       const chosen = new Set(pending.chosen);
+
       if (on) {
         chosen.add(line);
       } else {
         chosen.delete(line);
       }
+
       return { ...pending, chosen };
     });
   }
@@ -200,6 +215,7 @@ export class SheetRolls implements StatisticRoller {
   public async toggle(slot: ToggleSlot, on: boolean): Promise<void> {
     this.saveError.set(undefined);
     const state = slot.suboption === undefined ? { on } : { on, suboption: slot.suboption };
+
     try {
       await this.#play.send({ field: PlayCommandField.SetToggle, toggle: slot.key, state });
     } catch (error: unknown) {
@@ -210,9 +226,11 @@ export class SheetRolls implements StatisticRoller {
   /** Rolls the check being set up with the choices made, and keeps them with the result. */
   public rollSetUp(): void {
     const setup = this.setup();
+
     if (setup === undefined) {
       return;
     }
+
     this.#pending.set(undefined);
     this.#state.release(setup.selector);
     this.#finish({ name: setup.name, statistic: setup.statistic, reasons: this.#reasons(setup), dc: undefined });
@@ -227,6 +245,7 @@ export class SheetRolls implements StatisticRoller {
   #offered(selector: Selector, chosen: ReadonlySet<RuleId>, as?: RollAs): RollSetup | undefined {
     const registry = this.#state.engine();
     const character = this.#state.character();
+
     return registry === undefined || character === undefined
       ? undefined
       : sheetRollSetup(registry, character, { selector, chosen, as });
@@ -237,6 +256,7 @@ export class SheetRolls implements StatisticRoller {
     const words = this.#words();
     const claimed = conditional.filter(({ modifier }) => chosen.has(modifier.id));
     const kept = toggles.filter(({ on }) => on);
+
     return [
       ...claimed.map((line) => conditionalLineText(line, words)),
       ...kept.map(({ origin }) => words.names.entries.get(origin.entry) ?? origin.entry),
@@ -267,9 +287,11 @@ export class SheetRolls implements StatisticRoller {
   }
   #finish({ name, statistic, reasons, dc, check }: CheckRoll): void {
     const outcome = parseDiceExpression(checkText(statistic.total));
+
     if (!outcome.ok) {
       return;
     }
+
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
@@ -285,9 +307,11 @@ export class SheetRolls implements StatisticRoller {
    */
   #present(name: string, roll: FortunedRoll, against: Against): void {
     const counted = keptRoll(roll);
+
     if (counted === undefined) {
       return;
     }
+
     const rolled = presentRoll(this.#count, name, counted);
     const shown = against.damage === undefined ? rolled : withSave(rolled, against.damage);
     const degree = rolledDegree(roll, against.dc);

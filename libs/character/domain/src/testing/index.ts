@@ -3,12 +3,19 @@
  * in tests; never from production code.
  */
 export { CharacterBuilder, fixtureOwnerId, humanAncestryId } from './character-builder';
+
 export { characterDocumentJson } from './character-document-arbitraries';
+
 export { inventory, inventoryJson } from './inventory-arbitraries';
+
 export { PAST_DOCUMENTS } from './past-documents';
+
 export { TEST_SPEND, within } from './play-limits';
+
 export { HUMAN_HIT_POINTS, hitPointsContent } from './hit-points-content';
+
 export { BOOST_FIXTURES, boostFixtureId } from './boost-content';
+
 export {
   ITEM_FIXTURE_FILES,
   ITEM_FIXTURES,
@@ -19,7 +26,9 @@ export {
   runeFixtureContent,
   runeFixtureId,
 } from './item-content';
+
 export { staffSpellId } from './fire-staff';
+
 export {
   afterWandCommand,
   CAST_WAND,
@@ -32,9 +41,13 @@ export {
   wandEntry,
   wandSourceOf,
 } from './wand-fixtures';
+
 export { clumsyFixtureId, encumberedFixtureId, gilledFixtureId, underwaterFixtureId } from './condition-fixture-ids';
+
 export { RuneFixture } from './rune-fixtures';
+
 export { KIT_FIXTURE_FILES, KIT_FIXTURES, KitFixture, kitFixtureContent, kitFixtureId } from './kit-fixtures';
+
 export {
   PLAYER_CORE_CLASS_PACK,
   PLAYER_CORE_CLASSES,
@@ -43,6 +56,7 @@ export {
   playerCoreClassId,
   playerCoreId,
 } from './player-core-classes';
+
 export {
   DEDICATION_CLASS,
   GRANTING_CLASS,
@@ -52,8 +66,11 @@ export {
   dedicationArchetypeId,
   dedicationFixtureId,
 } from './dedication-fixtures';
+
 export { Armoury, armoury, fundamental, fundamentalRef, lineOf, propertyRune } from './rune-armoury';
+
 export { NO_SKILLS, type SkillFixture, skillFixtureId, skillFixtures } from './skill-fixtures';
+
 export {
   type LanguageBackground,
   type LanguageFixture,
@@ -64,8 +81,11 @@ export {
   languageFixtures,
   languageOrcId,
 } from './language-fixtures';
+
 export { NO_FEATS } from './feat-fixtures';
+
 export { NO_SPELLS, type SpellFixture, spellFixtureId, spellFixtures } from './spell-fixtures';
+
 export {
   FEAT_SLOT_FIGHTER,
   FEAT_SLOT_FIXTURES,
@@ -73,4 +93,5 @@ export {
   type FeatSlotFixture,
   featSlotFixtureId,
 } from './feat-slot-fixtures';
+
 export { scriptedPicks } from './scripted-picks';

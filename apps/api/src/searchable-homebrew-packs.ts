@@ -25,16 +25,21 @@ export class SearchableHomebrewPacks extends SearchableHomebrew {
     if (actor === undefined) {
       return [];
     }
+
     const listed = await Promise.all(packs.map(async (id) => this.#directory.findById(id)));
+
     const checked = await Promise.all(
       listed.map(async (pack): Promise<ContentPackId | undefined> => {
         if (pack?.ownerId === undefined) {
           return undefined;
         }
+
         const mayRead = await this.#access.mayRead(actor, pack);
+
         return mayRead ? pack.id : undefined;
       }),
     );
+
     return checked.filter((id) => id !== undefined);
   }
 }

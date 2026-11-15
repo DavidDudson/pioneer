@@ -13,24 +13,30 @@ interface Rendered {
 /** Renders `fr-stack` with two spans projected and returns its host, inner element and the spans. */
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
   const items = [document.createElement('span'), document.createElement('span')];
+
   const component = createComponent(Stack, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [items],
   });
+
   onTestFinished(() => {
     component.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     component.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
   const host = component.location.nativeElement as HTMLElement;
   const flex = host.firstElementChild;
+
   if (flex === null) {
     throw new Error('Stack rendered no inner element');
   }
+
   return { host, flex, items };
 }
 

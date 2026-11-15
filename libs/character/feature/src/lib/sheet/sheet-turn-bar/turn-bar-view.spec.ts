@@ -27,6 +27,7 @@ describe(turnBarView, () => {
       reactionUsed: false,
       attacks: AttackCount.parse(0),
     });
+
     expect(view.pips).toStrictEqual([]);
     expect([view.canStart, view.canEnd, view.canLeave]).toStrictEqual([true, false, false]);
   });
@@ -40,6 +41,7 @@ describe(turnBarView, () => {
       reactionUsed: false,
       attacks: AttackCount.parse(0),
     });
+
     expect(view.pips.map(({ state, quickened }) => [state, quickened])).toStrictEqual([
       [PipState.Left, false],
       [PipState.Spent, false],
@@ -52,6 +54,7 @@ describe(turnBarView, () => {
 
   describe('a quickened action limited to a Strike with a weapon', () => {
     const sword = InventoryItemId.parse('00000000-0000-4000-8000-0000000000f1');
+
     const turn = {
       phase: TurnPhase.Turn,
       actions: ActionCount.parse(3),
@@ -66,6 +69,7 @@ describe(turnBarView, () => {
       weaponName?: () => string,
     ): readonly [boolean | undefined, string | undefined, string | undefined] {
       const pip = turnBarView(turn, weaponName).pips.at(-1);
+
       return [pip?.strikeOnly, pip?.weapon, pip === undefined ? undefined : pipKey(pip)];
     }
 
@@ -91,6 +95,7 @@ describe(turnLog, () => {
       duration: { kind: ConditionDurationKind.Unlimited },
       persistent: { formula: DamageFormula.parse('1d6'), type: DamageType.Fire, assisted: false },
     };
+
     const { events } = endTurn(
       { ...FRESH_PLAY, conditions: [burning] },
       { limits: { ...within(HitPoints.parse(30)), effects: new Map() }, defences: NO_DEFENCES, recovery: new Map() },

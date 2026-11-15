@@ -109,6 +109,7 @@ describe('CampaignKeyItemService', () => {
       rejection(service.takeBack(ezren, ref)),
       rejection(service.archive(ezren, ref)),
     ]);
+
     const hidden = await rejection(service.list(stranger, vaults.id));
 
     expect(refused.every((error) => error instanceof ForbiddenError)).toBe(true);

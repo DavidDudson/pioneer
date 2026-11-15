@@ -39,6 +39,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -64,9 +65,11 @@ async function open(held: object): Promise<Opened> {
   });
   const harness = await RouterTestingHarness.create(`/campaigns/${id}/inventory`);
   const host: unknown = harness.fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The page did not render');
   }
+
   document.body.append(host);
   onTestFinished(() => {
     host.remove();
@@ -90,6 +93,7 @@ async function open(held: object): Promise<Opened> {
   await vi.waitFor(() => {
     expect(root.textContent).toMatch(/Backpack|The party stash is empty/u);
   });
+
   return { root, http };
 }
 

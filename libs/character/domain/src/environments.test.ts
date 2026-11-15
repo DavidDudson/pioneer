@@ -199,6 +199,7 @@ describe('environments that stack', () => {
   const SEVERE = idAt(2);
   const FOREST = idAt(3);
   const DIFFICULT = idAt(4);
+
   const limits = {
     ...within(MAX),
     environmentGroups: new Map([
@@ -206,11 +207,14 @@ describe('environments that stack', () => {
       [SEVERE, TEMPERATURE],
     ]),
   };
+
   const turnedOn = (...environments: readonly ContentId[]): typeof FRESH_PLAY => {
     let play = FRESH_PLAY;
+
     for (const environment of environments) {
       play = applyPlayCommand(play, set(environment, true), limits);
     }
+
     return play;
   };
 

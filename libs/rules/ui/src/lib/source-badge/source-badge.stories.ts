@@ -12,6 +12,7 @@ const meta: Meta<SourceBadge> = {
   component: SourceBadge,
   args: { source: PLAYER_CORE_SOURCE, book: PLAYER_CORE, license: ContentLicense.Orc, mode: SourceBadgeMode.Compact },
 };
+
 export default meta;
 
 const bookSource = (book: string): SourceRef => SourceRef.parse({ kind: 'book', book });

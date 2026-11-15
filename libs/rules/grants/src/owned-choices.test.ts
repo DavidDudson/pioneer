@@ -28,6 +28,7 @@ function resolve(filter: readonly unknown[], picks: readonly (readonly [SlotKey,
   const fighter = entry('fighter', [
     { key: 'ChoiceSet', flag: 'edge', rollOption: 'edge', choices: { ownedKinds: ['weapon'], filter } },
   ]);
+
   return resolveGrants({
     ...inputsOf({ entries: [fighter], roots: [picked('fighter')], picks: picksOf(picks) }),
     owned: INVENTORY,
@@ -65,6 +66,7 @@ describe('a ChoiceSet over owned items', () => {
     const fighter = entry('fighter', [
       { key: 'ChoiceSet', flag: 'edge', choices: { ownedKinds: ['weapon'], filter: [] } },
     ]);
+
     const result = resolveGrants(inputsOf({ entries: [fighter], roots: [picked('fighter')] }));
 
     expect(result.open[0]?.options).toEqual([]);

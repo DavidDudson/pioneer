@@ -98,9 +98,11 @@ export function multipleAttackPenalty(weapon: WeaponInputs): MultipleAttackPenal
 /** The dice a weapon rolls: its own, and a striking rune's grade more when it rolls a die at all. */
 export function damageDice(weapon: WeaponInputs): DiceCount | undefined {
   const { damage, striking = 0 } = weapon;
+
   if (damage === undefined || (damage.dice === 0 && damage.die === undefined)) {
     return undefined;
   }
+
   return DiceCount.parse(damage.die === undefined ? damage.dice : damage.dice + striking);
 }
 
@@ -116,6 +118,7 @@ export interface StrikeRulesInput {
 function attackTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
   const { slug, picked = [] } = weapon;
   const picks = picked.map((flag) => `picked:${flag}-attack`);
+
   return new Set(
     [`${ATTACK}:${slug}`, ATTACK, `${slug}-attack`, 'attack', 'attack-roll', 'strike-attack-roll', ...picks].map(
       (target) => ModifierTarget.parse(target),
@@ -127,6 +130,7 @@ function attackTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
 function damageTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
   const { slug, picked = [] } = weapon;
   const picks = picked.map((flag) => `picked:${flag}-damage`);
+
   return new Set(
     [`${DAMAGE}:${slug}`, DAMAGE, `${slug}-damage`, 'damage', ...picks].map((target) => ModifierTarget.parse(target)),
   );
@@ -143,6 +147,7 @@ function proficiencyOption(weapon: WeaponInputs, scope: StrikeScope): RollOption
   const { ranks } = scope.character;
   const selectors = [Selector.parse(`attack:${weapon.category}`), ...(weapon.favored === true ? [FAVORED_WEAPON] : [])];
   const reached = selectors.map((selector) => RANKS.indexOf(ranks.get(selector) ?? Proficiency.Untrained));
+
   return RollOptionTail.parse(`proficiency:rank:${Math.max(...reached)}`);
 }
 
@@ -151,12 +156,15 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
   if (rules === undefined) {
     return undefined;
   }
+
   const { damage } = weapon;
   const claimed = rules.situations?.get(Selector.parse(`${ATTACK}:${weapon.slug}`));
+
   const inputs: ModifierInputs =
     claimed === undefined
       ? rules.inputs
       : { ...rules.inputs, situation: new Set([...(rules.inputs.situation ?? []), ...claimed]) };
+
   return strikeRules(inputs, rules.scope, {
     dice: damageDice(weapon) ?? DiceCount.parse(0),
     die: damage?.die,
@@ -175,10 +183,13 @@ function damageOf(
   changes: StrikeRules | undefined,
 ): StrikeDamage | undefined {
   const dice = damageDice(weapon);
+
   if (dice === undefined || weapon.damage === undefined) {
     return undefined;
   }
+
   const { die, damageType, persistent } = weapon.damage;
+
   return {
     dice: changes?.dice ?? dice,
     die,
@@ -206,8 +217,10 @@ export function deriveStrikes(
     rules === undefined
       ? { weapons: derivedWeapons, results: derivedResults }
       : strikesUnderForm({ weapons: derivedWeapons, results: derivedResults }, rules);
+
   return weapons.map((weapon): Strike => {
     const changes = rulesOf(weapon, rules);
+
     return {
       weapon,
       attack: results.get(Selector.parse(`${ATTACK}:${weapon.slug}`)),

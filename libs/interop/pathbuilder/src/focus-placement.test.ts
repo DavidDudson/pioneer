@@ -16,23 +16,29 @@ import { SpellGapReason } from './spell-listing';
 import type { SpellGap } from './spell-listing';
 
 const read = readPathbuilderExport(mordredFixture);
+
 if (!read.ok) {
   throw new Error('The Mordred fixture should be readable');
 }
+
 const mordred: PathbuilderImport = read.value;
 
 const pack = new ContentPackBuilder().withId('focus-import');
+
 pack
   .withSpell('lay-on-hands', { rank: 1, traditions: [], traits: ['focus'] })
   .withSpell('read-fate', { rank: 1, traditions: [], traits: ['focus'] })
   .withSpell('shield', { rank: 1, traditions: [], traits: ['cantrip', 'focus'] });
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
+
 const knows = (spell: string, predicate: readonly (string | object)[]): object => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
   spells: [spellId(spell)],
   predicate,
 });
+
 pack
   .withClassFeature('devotion', {
     rules: [
@@ -56,9 +62,13 @@ pack
     rules: [{ key: 'GrantItem', item: pack.idOf(ContentKind.ClassFeature, 'devotion') }],
   })
   .withClass('wizard', ['int']);
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
+
 const lookup = entryLookup({
   [ImportKind.Spell]: [
     ['lay-on-hands', 'Lay on Hands'],
@@ -66,6 +76,7 @@ const lookup = entryLookup({
     ['shield', 'Shield'],
   ].map(([slug, name]) => ({ id: ContentId.parse(spellId(slug ?? '')), name: ContentText.parse(name ?? '') })),
 });
+
 const content = { slots, lookup };
 
 function character(className: string): CharacterDocument {

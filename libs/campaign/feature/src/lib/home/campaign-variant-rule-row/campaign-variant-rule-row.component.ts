@@ -36,16 +36,20 @@ export class CampaignVariantRuleRow {
   protected readonly describeError = (error: unknown): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
+
       return this.#i18n.translate(key, params);
     }
+
     return this.#i18n.translate('campaign.variantRules.changeFailed');
   };
 
   #campaignId(): CampaignId {
     const campaign = this.#store.selected.data();
+
     if (campaign === undefined) {
       throw new Error('No campaign loaded');
     }
+
     return campaign.id;
   }
 }

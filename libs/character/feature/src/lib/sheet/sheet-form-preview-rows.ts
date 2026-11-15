@@ -50,6 +50,7 @@ function entryName(registry: ContentRegistry, id: ContentId): string {
 function sizeRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
   const inForm = sheetVitalsInPlay(registry, morphed)?.size;
   const outOfForm = sheetVitalsInPlay(registry, own)?.size?.size ?? inForm?.base;
+
   return differing(
     translate(RowMessage.Size),
     outOfForm === undefined ? undefined : translate(SIZE_MESSAGES[outOfForm]),
@@ -60,15 +61,19 @@ function sizeRow({ registry, own, morphed, translate }: FormRowInputs): readonly
 function strikesRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
   const names = (character: Character): readonly string[] =>
     sheetStrikes(registry, character).map(({ name, nameKey }) => (nameKey === undefined ? name : translate(nameKey)));
+
   return differing(translate(RowMessage.Strikes), listed(names(own)), listed(names(morphed)));
 }
 
 function sensesRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
   const inForm = sheetSenses(registry, morphed).senses;
+
   const names = (senses: readonly { readonly sense: ContentId }[]): string | undefined =>
     listed(senses.map(({ sense }) => entryName(registry, sense)));
+
   // A form without senses of its own leaves the character's, so only a form that lists some is a change.
   const formListsSenses = inForm.some(({ fromForm }) => fromForm === true);
+
   return formListsSenses
     ? differing(translate(RowMessage.Senses), names(sheetSenses(registry, own).senses), names(inForm))
     : [];
@@ -76,10 +81,12 @@ function sensesRow({ registry, own, morphed, translate }: FormRowInputs): readon
 
 function limitsRows({ registry, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
   const limits = formLimits(morphed.document, itemContent(registry), sheetSlotContent(registry));
+
   const row = (forbidden: boolean | undefined, name: string): readonly FormPreviewRow[] =>
     forbidden === true
       ? [{ name: translate(name), own: translate(RowMessage.Can), form: translate(RowMessage.Cannot) }]
       : [];
+
   return [
     ...row(limits?.cantCast, RowMessage.Casting),
     ...row(limits?.cantSpeak, RowMessage.Speech),

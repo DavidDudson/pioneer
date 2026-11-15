@@ -12,12 +12,14 @@ import { devSignInRoutes } from './dev-sign-in';
 function app(): AnyElysia {
   const users = new InMemoryUserRepository();
   const service = new IdentityService(users, new InMemorySessionRepository(users), fixedClock('2026-10-10T08:00:00Z'));
+
   return new Elysia().use(problemHandler).use(devSignInRoutes({ service, policy: { secure: false } }));
 }
 
 async function signInAs(id: UserId, returnTo = '/', fetchSite = 'same-origin'): Promise<Response> {
   const query = new URLSearchParams({ returnTo }).toString();
   const headers = { 'sec-fetch-site': fetchSite };
+
   return app().handle(new Request(`http://localhost${DevSignInPath.of(id)}?${query}`, { headers }));
 }
 

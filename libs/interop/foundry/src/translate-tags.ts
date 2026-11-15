@@ -14,10 +14,13 @@ export const FoundryTags = z.array(z.string().max(TAG_MAX)).max(TAGS_MAX);
 export function tagsOf(otherTags: readonly string[] | undefined, log: GapLog): object {
   const tags = (otherTags ?? []).flatMap((tag): Slug[] => {
     const slug = Slug.safeParse(tag);
+
     if (!slug.success) {
       report(log, { reason: KindDataGapReason.UnmappedValue, field: 'traits.otherTags', raw: tag });
     }
+
     return slug.success ? [slug.data] : [];
   });
+
   return tags.length === 0 ? {} : { tags: [...new Set(tags)] };
 }

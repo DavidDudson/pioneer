@@ -37,6 +37,7 @@ const pack = new ContentPackBuilder()
   })
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
   .withFeat('hide');
+
 const content = fixedContent(pack.build());
 const HIDE = ContentId.parse(pack.idOf(ContentKind.Feat, 'hide'));
 

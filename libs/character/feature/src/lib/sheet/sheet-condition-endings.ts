@@ -11,6 +11,7 @@ export type { HeldCondition } from '@pioneer/rules/ui';
 /** `id` as an entry the sheet can name; undefined while the registry lacks it. */
 function sourceOf(registry: ContentRegistry, id: ContentId): PreviewEndingSource | undefined {
   const entry = sheetEntry(registry, id);
+
   return entry === undefined ? undefined : { id, name: entry.name };
 }
 
@@ -22,6 +23,7 @@ function rollsFor(
 ): ReadonlyMap<Selector, PreviewEndingStatistic> {
   const selectors = endings.flatMap((ending) => checkAgainst(ending));
   const named = selectors.length === 0 ? [] : [...namedStatistics(registry, character, selectors)];
+
   return new Map(
     named.flatMap(([selector, { name, result }]): [Selector, PreviewEndingStatistic][] =>
       result.ok ? [[selector, { name, modifier: result.total }]] : [],
@@ -39,6 +41,7 @@ export function heldConditionEndings(
   condition: HeldCondition,
 ): readonly PreviewEnding[] {
   const rolls = rollsFor(registry, character, condition.endings);
+
   return endingsFor(registry, { ...condition, rolls });
 }
 

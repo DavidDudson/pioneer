@@ -22,6 +22,7 @@ export function pathOf(url: string): string {
  */
 export function injectStatisticLink(): (selector: Selector) => StatisticLink {
   const router = inject(Router);
+
   return (selector) => ({
     to: [pathOf(router.url)],
     queryParams: { [BREAKDOWN_DRAWER_PARAM]: OPEN, [BREAKDOWN_STATISTIC_PARAM]: selector },

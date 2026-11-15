@@ -33,6 +33,7 @@ describe('applyPlayCommand', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(8)) },
       within(MAX),
     );
+
     expect(after).toStrictEqual(state(3, 0));
   });
 
@@ -42,6 +43,7 @@ describe('applyPlayCommand', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(4)) },
       within(MAX),
     );
+
     expect(after).toStrictEqual(state(2, 1));
   });
 
@@ -51,6 +53,7 @@ describe('applyPlayCommand', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(30)) },
       within(MAX),
     );
+
     expect(currentHitPoints(after.hp, MAX)).toBe(hp(0));
   });
 
@@ -94,6 +97,7 @@ describe('dying', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(5)) },
       within(MAX),
     );
+
     expect(after.dying).toBe(Dying.parse(1));
     expect(currentHitPoints(after.hp, MAX)).toBe(hp(0));
   });
@@ -112,6 +116,7 @@ describe('dying', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(25)) },
       within(MAX),
     );
+
     expect(after.dying).toBe(Dying.parse(0));
   });
 
@@ -121,16 +126,19 @@ describe('dying', () => {
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(19)) },
       within(MAX),
     );
+
     expect(after.dying).toBe(Dying.parse(0));
   });
 
   test('damage that takes a character to 0 from a wounded start can be fatal', () => {
     const wounded: PlayState = { ...state(0), wounded: Wounded.parse(3) };
+
     const after = applyPlayCommand(
       wounded,
       { field: PlayCommandField.Damage, damage: untypedDamage(hp(20)) },
       within(MAX),
     );
+
     expect(after.dead).toBe(true);
   });
 
@@ -164,11 +172,13 @@ describe('dying', () => {
   test('setting Hit Points to 0 is a drop to 0, and setting them above 0 ends dying', () => {
     const down = applyPlayCommand(state(0), { field: PlayCommandField.SetHp, current: hp(0) }, within(MAX));
     expect(down.dying).toBe(Dying.parse(1));
+
     const up = applyPlayCommand(
       { ...state(20), dying: Dying.parse(1) },
       { field: PlayCommandField.SetHp, current: hp(5) },
       within(MAX),
     );
+
     expect(up.dying).toBe(Dying.parse(0));
     expect(up.wounded).toBe(Wounded.parse(1));
   });
@@ -179,6 +189,7 @@ describe('dying', () => {
       { field: PlayCommandField.RecoveryCheck, degree: DegreeOfSuccess.Failure },
       within(MAX),
     );
+
     expect(after.dying).toBe(Dying.parse(3));
   });
 
@@ -188,12 +199,15 @@ describe('dying', () => {
       { field: PlayCommandField.SetDoomed, doomed: Doomed.parse(2) },
       within(MAX),
     );
+
     expect(doomed.doomed).toBe(Doomed.parse(2));
+
     const wounded = applyPlayCommand(
       doomed,
       { field: PlayCommandField.SetWounded, wounded: Wounded.parse(1) },
       within(MAX),
     );
+
     expect(wounded.wounded).toBe(Wounded.parse(1));
     const set = applyPlayCommand(wounded, { field: PlayCommandField.SetDying, dying: Dying.parse(2) }, within(MAX));
     expect(set.dead).toBe(true);
@@ -221,6 +235,7 @@ describe('toggles in play', () => {
       { field: PlayCommandField.SetToggle, toggle: rage, state: { on: true } },
       within(MAX),
     );
+
     expect(raging.toggles).toStrictEqual({ [rage]: { on: true } });
     expect(raging.hp).toStrictEqual(state(3).hp);
     expect(PlayStateSchema.parse(raging)).toStrictEqual(raging);

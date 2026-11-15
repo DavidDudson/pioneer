@@ -26,9 +26,11 @@ async function booksCited(pack: string): Promise<ReadonlySet<string>> {
   const names = await readdir(dir);
   const files = names.filter((name) => name.endsWith('.json'));
   const cited = new Set<string>();
+
   for (const name of files) {
     // oxlint-disable-next-line eslint/no-await-in-loop
     const entries: unknown = await Bun.file(path.join(dir, name)).json();
+
     for (const entry of Array.isArray(entries) ? (entries as readonly PackEntry[]) : []) {
       for (const source of entry.sources ?? []) {
         if (source.book !== undefined) {
@@ -37,17 +39,20 @@ async function booksCited(pack: string): Promise<ReadonlySet<string>> {
       }
     }
   }
+
   return cited;
 }
 
 const patches = new Map<string, Record<string, unknown>>();
 const importDir = path.join(ROOT, 'content/import');
 const importNames = await readdir(importDir);
+
 for (const name of importNames.filter((file) => file.endsWith('.json'))) {
   // oxlint-disable-next-line eslint/no-await-in-loop
   const importFile: unknown = await Bun.file(path.join(importDir, name)).json();
   const { pin } = ImportFile.parse(importFile);
   const foundryVersion = FoundryVersion.parse(pin.tag.slice(TAG_PREFIX.length));
+
   // oxlint-disable-next-line eslint/no-await-in-loop
   for (const book of await booksCited(name.replace(/\.json$/u, ''))) {
     if (bookRegistry.book(BookId.parse(book)) !== undefined) {
@@ -57,4 +62,5 @@ for (const name of importNames.filter((file) => file.endsWith('.json'))) {
 }
 
 await patchBooks(patches);
+
 console.log(`Stamped ${patches.size} books.`);

@@ -41,6 +41,7 @@ function render(panel: PanelLink | undefined, line: ActionLine = STRIDE): Compon
   const fixture = TestBed.createComponent(ActionRow);
   fixture.componentRef.setInput('action', TestBed.inject(ActionWords).shown(line));
   fixture.detectChanges();
+
   return fixture;
 }
 

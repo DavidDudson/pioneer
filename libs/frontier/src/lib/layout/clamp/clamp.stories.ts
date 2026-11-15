@@ -14,6 +14,7 @@ const meta: Meta<Clamp> = {
     template: `<fr-clamp [lines]="lines">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</fr-clamp>`,
   }),
 };
+
 export default meta;
 
 /** Cut off after two lines. */

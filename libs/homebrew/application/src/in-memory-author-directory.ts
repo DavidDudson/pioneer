@@ -9,6 +9,7 @@ export class InMemoryAuthorDirectory extends AuthorDirectory {
 
   public name(userId: UserId, name: string): this {
     this.#names.set(userId, ContentText.parse(name));
+
     return this;
   }
 

@@ -66,6 +66,7 @@ function fighterAt(level: number): Character {
 
 async function gatedRegistry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([], [...FEAT_PACKS, GATED_FEATS]) });
+
   return TestBed.inject(ContentLoader).registry(FEAT_CONTENT_KINDS);
 }
 
@@ -107,6 +108,7 @@ describe('feat pickers across a level change', () => {
   it('keeps a slot in the planned pickers across a level change', async () => {
     const registry = await gatedRegistry();
     const character = signal<Character | undefined>(fighterAt(1));
+
     const sources: FeatPickSources = {
       registry: signal(registry),
       character,
@@ -116,6 +118,7 @@ describe('feat pickers across a level change', () => {
       translate: (key) => key,
       messages: signal(undefined),
     };
+
     const planned = TestBed.runInInjectionContext(() => plannedFeatFieldsOf(sources));
 
     expect(keysOf(planned())).toContain(FIGHTER_FEAT_1);
@@ -139,6 +142,7 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
   const registry = await gatedRegistry();
   const url = signal<QueryParams>(params);
   const writes: Record<string, string | undefined>[] = [];
+
   const sources: FeatPickSources = {
     registry: signal(registry),
     character: signal<Character | undefined>(fighterAt(4)),
@@ -155,17 +159,20 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
           const named = new Set(Object.keys(changes));
           const kept = Object.entries(now).filter(([name]) => !named.has(name));
           const set = Object.entries(changes).filter((change) => change[1] !== undefined);
+
           return Object.fromEntries([...kept, ...set]);
         });
         await Promise.resolve();
       },
     },
   };
+
   return { fields: TestBed.runInInjectionContext(() => plannedFeatFieldsOf(sources)), params: url, writes };
 }
 
 const fieldAt = (read: Filtered, key: string): FeatField | undefined =>
   read.fields().find((field) => field.key === key);
+
 const namesAt = (read: Filtered, key: string): readonly string[] =>
   (fieldAt(read, key)?.rows() ?? []).map((row) => row.name);
 

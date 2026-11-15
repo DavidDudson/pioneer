@@ -40,6 +40,7 @@ const meta: Meta<Stack> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Vertical: StackStory = {};

@@ -25,6 +25,7 @@ export function criticallyAffectedBy(
   targets: StrikeTargets,
 ): readonly CriticalEffect[] {
   const { element } = rule;
+
   return element.key === RuleElementKey.CriticalEffect &&
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
     ? [

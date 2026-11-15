@@ -33,6 +33,7 @@ function stepIndex(strength: number, count: number): number {
 
 const OVERLAY = 'pointer-events-none absolute inset-none forced-colors:hidden';
 const portraitClasses = cva('relative block clip-circle')();
+
 const vignetteVariants = cva(OVERLAY, {
   variants: {
     step: {
@@ -44,6 +45,7 @@ const vignetteVariants = cva(OVERLAY, {
     } satisfies Record<(typeof VIGNETTE_STEPS)[number], string>,
   },
 });
+
 const splatterVariants = cva(OVERLAY, {
   variants: {
     step: {
@@ -55,6 +57,7 @@ const splatterVariants = cva(OVERLAY, {
     } satisfies Record<(typeof VIGNETTE_STEPS)[number], string>,
   },
 });
+
 const darknessVariants = cva(OVERLAY, {
   variants: {
     step: {
@@ -65,16 +68,20 @@ const darknessVariants = cva(OVERLAY, {
     } satisfies Record<(typeof DARKNESS_STEPS)[number], string>,
   },
 });
+
 const cueClasses = cva('pointer-events-none absolute inset-x-none top-xs flex justify-center')();
+
 /** A surface chip, so the cue's contrast does not depend on the red vignette beneath it. */
 const cueChipClasses = cva('border border-line-default bg-surface-raised p-3xs')();
 const svgClasses = cva('pointer-events-none absolute inset-none size-full overflow-visible')();
 const trackClasses = cva('stroke-line-default forced-colors:stroke-system-canvas-text')();
 const tempClasses = cva('stroke-info-solid forced-colors:stroke-system-highlight')();
 const nameClasses = cva('absolute inset-x-none -bottom-2xs flex justify-center')();
+
 const nameTextClasses = cva(
   'max-w-full truncate border border-line-default bg-surface-raised px-xs text-caption text-fg-default',
 )();
+
 const startClasses = cva('absolute -start-2xs -top-2xs clip-circle')();
 const endClasses = cva('absolute -end-2xs -top-2xs clip-circle')();
 
@@ -143,6 +150,7 @@ export class CharacterAvatar {
     const { vignette, darkness } = this.#wounds();
     const vignetteStep = VIGNETTE_STEPS[stepIndex(vignette, VIGNETTE_STEPS.length)];
     const darknessStep = DARKNESS_STEPS[stepIndex(darkness, DARKNESS_STEPS.length)];
+
     return {
       vignette: vignetteVariants({ step: vignetteStep }),
       splatter: splatterVariants({ step: vignetteStep }),
@@ -153,9 +161,11 @@ export class CharacterAvatar {
   /** The cue in words and icon, for the bloodied and dying states. */
   protected readonly cue = computed(() => {
     const { cue } = this.#wounds();
+
     if (cue === WoundCue.None) {
       return undefined;
     }
+
     return cue === WoundCue.Dying
       ? { icon: Skull, key: 'frontier.characterAvatar.dying' }
       : { icon: Droplet, key: 'frontier.characterAvatar.bloodied' };
@@ -164,6 +174,7 @@ export class CharacterAvatar {
   /** HP as non-negative amounts: current never past max, temp never negative. */
   readonly #amounts = computed(() => {
     const max = Math.max(this.max() ?? 0, 0);
+
     return {
       max,
       current: Math.min(Math.max(this.current() ?? 0, 0), max),
@@ -179,11 +190,13 @@ export class CharacterAvatar {
     const whole = Math.max(max, current + temp);
     const hp = whole === 0 ? 0 : (current / whole) * ARC_LENGTH;
     const extra = whole === 0 ? 0 : (temp / whole) * ARC_LENGTH;
+
     return { hp: `${hp} ${ARC_LENGTH}`, temp: `0 ${hp} ${extra} ${ARC_LENGTH}`, hasTemp: temp > 0 };
   });
 
   protected readonly fillClasses = computed(() => {
     const { max, current } = this.#amounts();
+
     return fillVariants({
       tone: meterTone({
         value: current,
@@ -198,6 +211,7 @@ export class CharacterAvatar {
 
   protected readonly numbers = computed(() => {
     const { max, current, temp } = this.#amounts();
+
     return {
       current: this.#format.number(current),
       max: this.#format.number(max),

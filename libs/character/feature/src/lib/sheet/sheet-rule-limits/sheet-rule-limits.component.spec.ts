@@ -22,6 +22,7 @@ async function open(settings: object): Promise<OpenSheet> {
   await vi.waitFor(() => {
     expect(panelOf(sheet).textContent).toContain('Items invested');
   });
+
   return sheet;
 }
 
@@ -34,6 +35,7 @@ describe('SheetRuleLimits', () => {
   it('lists the four limits with the core rules’ number beside each', async () => {
     const panel = panelOf(await open(ruleLimitSettingsOf()));
     const text = textOf(panel);
+
     for (const label of [
       'Items invested',
       'Hands to hold things in',
@@ -42,6 +44,7 @@ describe('SheetRuleLimits', () => {
     ]) {
       expect(text).toContain(label);
     }
+
     expect(text).toContain('Core rules: 10');
     expect(text).not.toContain('Changed');
     expect(text).toContain('From the core rules');
@@ -89,9 +92,11 @@ describe('SheetRuleLimits', () => {
   it('says a number is the campaign GM’s while a campaign decides', async () => {
     const settings = ruleLimitSettingsOf({ handsMax: 1 }) as { limits: object[] };
     const limits = settings.limits.map((each) => ({ ...each, source: 'campaign' }));
+
     const panel = panelOf(
       await open({ ...settings, limits, decidedBy: 'campaign', manageable: false, campaign: 'Abomination Vaults' }),
     );
+
     expect(textOf(panel)).toContain("Set by the campaign's GM");
   });
 });

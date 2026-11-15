@@ -11,19 +11,25 @@ import { slotContent } from './slot-reads';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId, skillFixtures } from './testing';
 
 const ALL = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+
 const backgrounds = new ContentPackBuilder()
   .withId('twice-backgrounds')
   .withBackground('acolyte', [ALL], [{ key: 'Proficiency', selector: 'skill:religion', rank: 'trained' }])
   .withBackground('adept', [ALL], [{ key: 'Proficiency', selector: 'skill:religion', rank: 'expert' }])
   .build();
+
 const acolyte = new ContentPackBuilder().withId('twice-backgrounds').idOf(ContentKind.Background, 'acolyte');
 
 const adept = new ContentPackBuilder().withId('twice-backgrounds').idOf(ContentKind.Background, 'adept');
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 registry.register(backgrounds);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function cleric(): CharacterBuilder {

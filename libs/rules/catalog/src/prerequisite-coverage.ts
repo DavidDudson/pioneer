@@ -14,6 +14,7 @@ export function prerequisiteCoverage(entries: readonly ContentEntry[]): Prerequi
   const feats = entries.flatMap((entry) =>
     entry.kind === ContentKind.Feat && entry.data.prerequisites !== undefined ? [entry] : [],
   );
+
   return {
     withPrerequisites: feats.length,
     withoutPredicate: feats

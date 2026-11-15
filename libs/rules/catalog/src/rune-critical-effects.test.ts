@@ -8,12 +8,14 @@ const RUNES = await loadRunes();
 const FORTITUDE_24 = { statistic: 'fortitude', dc: 24 };
 const FORTITUDE_34 = { statistic: 'fortitude', dc: 34 };
 const NEXT_TURN_END = { type: 'next-turn-end' };
+
 const ELECTRIC_ARC = {
   kind: 'damage',
   damageType: 'electricity',
   amount: { type: 'equal' },
   target: { type: 'others', count: 2, within: 10 },
 };
+
 const ARMOR_ACID = { kind: 'damage', damageType: 'acid', target: { type: 'armor' } };
 
 /** What each energy rune does besides its damage on a critical hit, by grade. */
@@ -65,6 +67,7 @@ describe('critical effects of the rooting family', () => {
     const critical: readonly unknown[] = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
       rules.filter(({ key }) => key === 'CriticalEffect'),
     );
+
     const round = { type: 'time', count: 1, unit: 'round' };
 
     expect(critical).toStrictEqual([

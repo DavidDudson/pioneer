@@ -8,7 +8,9 @@ import { contentCatalog } from './index';
 const FOCUS = Trait.parse('focus');
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
@@ -17,10 +19,13 @@ function refsIn(node: unknown): ContentId[] {
   if (Array.isArray(node)) {
     return node.flatMap((child) => refsIn(child));
   }
+
   if (typeof node !== 'object' || node === null) {
     return [];
   }
+
   const own = 'type' in node && node.type === 'ref' && 'id' in node ? [node.id as ContentId] : [];
+
   return [...own, ...Object.values(node).flatMap((child) => refsIn(child))];
 }
 
@@ -32,6 +37,7 @@ function poolSpellsOf(entry: ContentEntry): ContentId[] {
 /** Whether `id` is a spell that goes in a slot: a school's description also links its focus spells. */
 function isSlotSpell(id: ContentId): boolean {
   const linked = byId.get(id);
+
   return linked?.kind === ContentKind.Spell && !linked.traits.includes(FOCUS);
 }
 

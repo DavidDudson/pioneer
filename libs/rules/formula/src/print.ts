@@ -6,6 +6,7 @@ import { FormulaText } from './units';
 
 /** How tightly a node binds: a child that binds looser than its parent needs parentheses. */
 const Precedence = z.int().positive().brand<'Precedence'>();
+
 type Precedence = z.infer<typeof Precedence>;
 
 const SUM = Precedence.parse(1);
@@ -22,14 +23,17 @@ function precedence(node: FormulaNode): Precedence {
     case NodeKind.Binary: {
       return precedenceOfOperator(node.operator);
     }
+
     case NodeKind.Negate: {
       return NEGATION;
     }
+
     case NodeKind.Number:
     case NodeKind.Reference:
     case NodeKind.Call: {
       return ATOM;
     }
+
     default: {
       return unhandledNode(node);
     }
@@ -39,6 +43,7 @@ function precedence(node: FormulaNode): Precedence {
 /** `node` as text, in parentheses when it binds looser than `floor`. */
 function operand(node: FormulaNode, floor: Precedence): FormulaText {
   const text = printFormula(node);
+
   return precedence(node) < floor ? FormulaText.parse(`(${text})`) : text;
 }
 
@@ -51,21 +56,27 @@ export function printFormula(node: FormulaNode): FormulaText {
     case NodeKind.Number: {
       return FormulaText.parse(String(node.value));
     }
+
     case NodeKind.Reference: {
       return FormulaText.parse(`@${node.path}`);
     }
+
     case NodeKind.Negate: {
       return FormulaText.parse(`-${operand(node.operand, NEGATION)}`);
     }
+
     case NodeKind.Binary: {
       const level = precedenceOfOperator(node.operator);
       // Operators are left-associative, so an equal-precedence right operand keeps its parentheses.
       const right = operand(node.right, Precedence.parse(level + 1));
+
       return FormulaText.parse(`${operand(node.left, level)} ${node.operator} ${right}`);
     }
+
     case NodeKind.Call: {
       return FormulaText.parse(`${node.name}(${node.args.map((arg) => printFormula(arg)).join(', ')})`);
     }
+
     default: {
       return unhandledNode(node);
     }

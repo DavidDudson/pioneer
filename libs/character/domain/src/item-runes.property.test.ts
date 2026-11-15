@@ -77,7 +77,9 @@ function allRunes(inventory: Inventory): readonly string[] {
       if (etched === undefined) {
         return [];
       }
+
       const { property: properties, ...fundamental } = etched;
+
       return [
         ...Object.entries(fundamental).flatMap(([kind, grade]) => (grade === undefined ? [] : [`${kind}:${grade}`])),
         ...properties.map(({ rune }) => rune),
@@ -102,10 +104,12 @@ describe('transferRune (properties)', () => {
       property(allowed, ([inventory, rune]) => {
         const moved = transferRune(inventory, { from: FROM, to: TO, rune });
         const [from, to] = moved.items;
+
         const on = (etched: InventoryItem | undefined): boolean =>
           rune.type === RuneType.Property
             ? (etched?.runes?.property.some((each) => each.rune === rune.rune) ?? false)
             : etched?.runes?.[rune.rune] !== undefined;
+
         expect(on(from)).toBe(false);
         expect(on(to)).toBe(true);
       }),
@@ -117,10 +121,12 @@ describe('transferRune (properties)', () => {
       property(allowed, ([inventory, rune]) => {
         const back = transferRune(transferRune(inventory, { from: FROM, to: TO, rune }), { from: TO, to: FROM, rune });
         expect(allRunes(back)).toStrictEqual(allRunes(inventory));
+
         const grade = (each: Inventory): RuneGrade | undefined =>
           rune.type === RuneType.Fundamental && each.items[0]?.runes?.[rune.rune] !== undefined
             ? RuneGrade.parse(each.items[0].runes[rune.rune])
             : undefined;
+
         expect(grade(back)).toBe(grade(inventory));
       }),
     );

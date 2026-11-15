@@ -26,6 +26,7 @@ describe(spendRows, () => {
       entry('1', { kind: SpendKind.Actions, count: SpendCount.parse(1) }),
       entry('2', { kind: SpendKind.Reaction }),
     ];
+
     const rows = spendRows(log, new Map([[STRIDE, 'Stride']]));
     expect(rows.map(({ name }) => name)).toStrictEqual(['Stride', 'Stride']);
     expect(rows[0]?.cost.key).toBe('character.sheet.spend.costReaction');

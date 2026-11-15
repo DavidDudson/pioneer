@@ -66,6 +66,7 @@ export const BuildSchema = z.strictObject({
   repertoireSwaps: z.array(RepertoireSwapRecord).readonly().default([]),
   boons: None.default([]),
 });
+
 export type Build = z.infer<typeof BuildSchema>;
 
 /**
@@ -106,6 +107,7 @@ export const CharacterDocumentSchema = z.strictObject({
   /** How the character acts and what they care about, shown on the Exploration tab (#500). */
   personality: RichText.default([]),
 });
+
 export type CharacterDocument = z.infer<typeof CharacterDocumentSchema>;
 
 /**
@@ -127,12 +129,16 @@ export class CorruptCharacterDocumentError extends Error {
  */
 export function decodeCharacterDocument(stored: unknown): CharacterDocument {
   const versioned = StoredCharacterDocument.safeParse(stored);
+
   if (!versioned.success) {
     throw new CorruptCharacterDocumentError(versioned.error);
   }
+
   const document = CharacterDocumentSchema.safeParse(upgradeDocument(versioned.data));
+
   if (!document.success) {
     throw new CorruptCharacterDocumentError(document.error);
   }
+
   return document.data;
 }

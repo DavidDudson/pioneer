@@ -23,12 +23,14 @@ export class HashKeyedCache<TValue> {
     const key = cacheKey(hashes);
     const cached = this.#cached?.key === key ? this.#cached : { key, value: build() };
     this.#cached = cached;
+
     try {
       return await cached.value;
     } catch (error) {
       if (this.#cached === cached) {
         this.#cached = undefined;
       }
+
       throw error;
     }
   }

@@ -15,6 +15,7 @@ function render(endings: readonly PreviewEnding[]): ComponentFixture<EntryEnding
   const fixture = TestBed.createComponent(EntryEndingsView);
   fixture.componentRef.setInput('endings', endings);
   fixture.detectChanges();
+
   return fixture;
 }
 

@@ -53,12 +53,14 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     await insertUser(database, fixtureOwnerId);
     await insertUser(database, otherOwnerId);
     await insertUser(database, pageOwnerId);
+
     const drafts = [
       new CharacterBuilder().named('Page Aldric').atLevel(1).picking('class', fighterId),
       new CharacterBuilder().named('Page Bring').atLevel(5).picking('class', wizardId).withAncestry(elfId),
       new CharacterBuilder().named('Page Cass').atLevel(9).picking('class', fighterId).withAncestry(elfId),
       new CharacterBuilder().named('Page 100%').atLevel(9),
     ];
+
     for (const draft of drafts) {
       // oxlint-disable-next-line eslint/no-await-in-loop -- the order they are made in is the order they are listed in
       await repository.insert(draft.ownedBy(pageOwnerId).build(), created);
@@ -68,14 +70,17 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
   /** The character `id`, which a test has just written. */
   async function stored(id: CharacterId): Promise<Character> {
     const found = await repository.findById(id);
+
     if (found === undefined) {
       throw new Error(`Character ${id} was not written`);
     }
+
     return found;
   }
 
   async function namesOf(query: Record<string, unknown>): Promise<readonly string[]> {
     const page = await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ sort: 'name', ...query }));
+
     return page.items.map((character) => character.name);
   }
 

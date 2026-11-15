@@ -13,6 +13,7 @@ const meta: Meta<Gem> = {
   args: { tone: GemTone.Blue, glyphs: 'ᚠᚢ', label: 'Flaming' },
   render: (args) => ({ props: args, template: `<fr-gem ${argsToTemplate(args)} />` }),
 };
+
 export default meta;
 
 export const Blue: GemStory = {};

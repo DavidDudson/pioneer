@@ -23,6 +23,7 @@ const meta: Meta<SegmentedField<Hand>> = {
     template: `<fr-segmented-field ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: SegmentedFieldStory = {};

@@ -28,13 +28,17 @@ export function archivableDeleteTarget(
   tables: ReadonlySet<string> = ARCHIVABLE_TABLES,
 ): string | undefined {
   const { callee, arguments: args } = node as DeleteCallShape;
+
   if (callee?.type !== 'MemberExpression' || callee.property?.name !== 'delete') {
     return undefined;
   }
+
   const [table] = args ?? [];
+
   if (table?.type !== 'Identifier' || typeof table.name !== 'string') {
     return undefined;
   }
+
   return tables.has(table.name) ? table.name : undefined;
 }
 
@@ -49,6 +53,7 @@ export const noArchivableDelete: Rule.RuleModule = {
     return {
       CallExpression(node): void {
         const table = archivableDeleteTarget(node);
+
         if (table !== undefined) {
           context.report({ node, messageId: 'delete', data: { table } });
         }

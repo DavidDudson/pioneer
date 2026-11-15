@@ -35,14 +35,17 @@ async function insertCharacter(database: TestDatabase, ownerId: UserId): Promise
   await database.db.execute(
     sql`insert into characters (id, version, owner_id, name, level, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, 'Valeros', 1, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name: 'Valeros', level: 1 })}::jsonb, ${now}, ${now})`,
   );
+
   return id;
 }
 
 function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
   const member = campaign.members.find((candidate) => candidate.userId === userId);
+
   if (member === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return member;
 }
 
@@ -89,11 +92,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
 
   test('attach, then list the party oldest first and find where characters are', async () => {
     const vaults = await newCampaign('Abomination Vaults');
+
     const [valeros, kyra, loose] = await Promise.all([
       insertCharacter(database, ezren),
       insertCharacter(database, seelah),
       insertCharacter(database, ezren),
     ]);
+
     const second = attachment(memberOf(vaults, ezren), valeros, 1);
     const first = attachment(memberOf(vaults, seelah), kyra);
     expect(await repository.attach(vaults.id, second)).toBe(vaults.id);
@@ -126,10 +131,12 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
     const valeros = await insertCharacter(database, ezren);
     const placed = await Promise.all([attachAs(vaults, ezren, valeros), attachAs(kingmaker, ezren, valeros)]);
     expect(placed[0]).toBe(placed[1]);
+
     const parties = await Promise.all([
       repository.listForCampaign(vaults.id),
       repository.listForCampaign(kingmaker.id),
     ]);
+
     expect(parties.map((party) => party.length).toSorted((left, right) => left - right)).toStrictEqual([0, 1]);
   });
 
@@ -149,11 +156,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
 
   test('a removed member’s characters leave with them, and they can’t attach any more', async () => {
     const vaults = await newCampaign('Removal');
+
     const [valeros, kyra, later] = await Promise.all([
       insertCharacter(database, ezren),
       insertCharacter(database, seelah),
       insertCharacter(database, ezren),
     ]);
+
     await attachAs(vaults, ezren, valeros);
     const kept = attachment(memberOf(vaults, seelah), kyra, 1);
     await repository.attach(vaults.id, kept);

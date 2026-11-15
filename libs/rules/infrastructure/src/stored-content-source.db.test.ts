@@ -56,6 +56,7 @@ function ancestryEntry(slug: string, name: string, pack: string = PACK): object 
 /** A pack of ancestries, as its JSON files would hold it. */
 function ancestryPack(ancestries: readonly (readonly [string, string])[], pack: string = PACK): PackContents {
   const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
+
   return packContentsFromFiles(packFile, [ancestries.map(([slug, name]) => ancestryEntry(slug, name, pack))]);
 }
 
@@ -149,6 +150,7 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
       ['dwarf', 'Dwarf'],
       ['gnome', 'Gnome'],
     ]);
+
     await seed(pack);
     // A stored pack.json the reader refuses, as a content shape this image cannot read would be.
     const stored = eq(contentPacks.id, contentPackId(pack.file.id));
@@ -156,10 +158,12 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
       .update(contentPacks)
       .set({ data: sql`${contentPacks.data} || '{"unknownField": true}'::jsonb` })
       .where(stored);
+
     const failed = await source.registry().then(
       () => 'served',
       () => 'refused',
     );
+
     await database.db.update(contentPacks).set({ data: pack.file }).where(stored);
 
     const recovered = await source.registry();

@@ -16,6 +16,7 @@ import { InMemoryPackEnablementDirectory } from './in-memory-pack-enablement-dir
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const seoni = UserId.parse(newId());
+
 const feats = {
   title: ContentText.parse('Amiri feats'),
   slug: PackId.parse('amiri-feats'),
@@ -23,6 +24,7 @@ const feats = {
 
 async function visibilityOf(service: HomebrewPackService, actor: UserId, id: ContentPackId): Promise<PackVisibility> {
   const pack = await service.get(actor, id);
+
   return pack.visibility;
 }
 
@@ -159,6 +161,7 @@ describe('HomebrewPackService', () => {
     test('a pack the repository then finds gone is a 404', async () => {
       const vanishingPacks = new InMemoryHomebrewPackRepository();
       spyOn(vanishingPacks, 'updateVisibility').mockResolvedValue(undefined);
+
       const vanishing = new HomebrewPackService(
         {
           packs: vanishingPacks,
@@ -169,6 +172,7 @@ describe('HomebrewPackService', () => {
         },
         fixedClock('2026-10-10T10:00:00Z'),
       );
+
       const created = await vanishing.create(amiri, feats);
       const error = await rejection(vanishing.setVisibility(amiri, created.id, PackVisibility.Public));
       expect(error).toBeInstanceOf(NotFoundError);
@@ -179,6 +183,7 @@ describe('HomebrewPackService', () => {
         title: ContentText.parse('Ezren base'),
         slug: PackId.parse('ezren-base'),
       });
+
       await service.setVisibility(ezren, base.id, PackVisibility.Campaign);
       const created = await service.create(amiri, feats);
       await dependencies.add(amiri, { pack: created.id, dependsOn: base.id }, async () => {});
@@ -214,10 +219,12 @@ describe('HomebrewPackService', () => {
     test('narrowing a pack under one that extends it is refused, counting those packs', async () => {
       const base = await service.create(amiri, feats);
       await service.setVisibility(amiri, base.id, PackVisibility.Public);
+
       const extension = await service.create(ezren, {
         title: ContentText.parse('Ezren more'),
         slug: PackId.parse('ezren-more'),
       });
+
       await service.setVisibility(ezren, extension.id, PackVisibility.Public);
       await dependencies.add(amiri, { pack: extension.id, dependsOn: base.id }, async () => {});
       const error = await rejection(service.setVisibility(amiri, base.id, PackVisibility.Campaign));

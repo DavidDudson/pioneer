@@ -45,14 +45,17 @@ export class SheetConditionAdd {
   );
   protected readonly canAdd = computed((): boolean => {
     const option = this.pickedOption();
+
     return option !== undefined && (!option.valued || this.#startable());
   });
 
   protected readonly add = async (): Promise<void> => {
     const option = this.pickedOption();
+
     if (option === undefined) {
       return;
     }
+
     await this.send()({
       field: PlayCommandField.AddCondition,
       condition: {
@@ -68,6 +71,7 @@ export class SheetConditionAdd {
 
   #startable(): boolean {
     const value = this.startValue();
+
     return this.startComplete() && value >= FIRST_VALUE && value <= CONDITION_VALUE_MAX;
   }
 }

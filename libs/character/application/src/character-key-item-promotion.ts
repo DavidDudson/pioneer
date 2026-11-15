@@ -64,13 +64,16 @@ export class CharacterKeyItemPromotion {
   public async describe(characterId: CharacterId, item: InventoryItemId): Promise<PromotableLine | undefined> {
     const character = await this.#characters.findById(characterId);
     const line = character?.document.inventory.items.find((each) => each.id === item);
+
     if (character === undefined || line === undefined) {
       return undefined;
     }
+
     const registry = await contentOfCharacter(this.#content, character).registry();
     const items = itemContent(registry);
     const runes = runeContent(registry);
     const itemName = items.get(line.item)?.name ?? line.item;
+
     return {
       item: line.item,
       itemName,
@@ -88,19 +91,24 @@ export class CharacterKeyItemPromotion {
   public async link(actor: UserId, characterId: CharacterId, { item, keyItem }: KeyLink): Promise<void> {
     const character = await this.#characters.findById(characterId);
     const line = character?.document.inventory.items.find((each) => each.id === item);
+
     if (character === undefined || line === undefined) {
       throw new NotFoundError('InventoryItem', item);
     }
+
     if (line.keyItem === keyItem) {
       return;
     }
+
     const { inventory } = character.document;
+
     if (line.keyItem !== undefined || keyItemLine(inventory, keyItem) !== undefined) {
       throw new ConflictError(
         `Inventory item ${item} is already a key item`,
         message('character.validation.keyItemLocked'),
       );
     }
+
     const changed = character.withInventory(withKeyLink(inventory, item, keyItem), this.#clock.now());
     await this.#characters.update(changed, character.version, { actor, command: CharacterCommand.LinkKeyItem });
   }

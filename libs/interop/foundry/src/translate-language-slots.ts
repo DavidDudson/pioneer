@@ -16,9 +16,12 @@ const FoundryLanguageSlots = z.strictObject({
  */
 export function withLanguageSlots(raw: unknown): unknown {
   const slots = FoundryLanguageSlots.safeParse(raw);
+
   if (!slots.success) {
     return raw;
   }
+
   const { value, predicate } = slots.data;
+
   return { key: RuleElementKey.Language, slots: value, ...(predicate === undefined ? {} : { predicate }) };
 }

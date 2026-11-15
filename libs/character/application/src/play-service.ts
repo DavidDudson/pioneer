@@ -98,6 +98,7 @@ export class PlayService {
 
   public async get(actor: UserId, id: CharacterId): Promise<CharacterPlay> {
     await this.#accessible(actor, id);
+
     return this.#stored(id);
   }
 
@@ -112,16 +113,20 @@ export class PlayService {
   ): Promise<PatchedPlay> {
     const character = await this.#accessible(actor, id);
     const current = await this.#stored(id);
+
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+
     await checkExploration(command, async () => this.#contentOf(character).registry());
     await checkEnvironment(command, async () => this.#contentOf(character).registry());
     await checkShape(character, command, async () => this.#contentOf(character).registry());
     const reinventoried = await this.#reinventoried(character, current.play, command);
+
     const { play, events } = isTurnCommand(command)
       ? await this.#turned(character, current.play, command)
       : { play: await this.#applied(character, current.play, command), events: [] };
+
     const write: PlayWrite = {
       id,
       play,
@@ -129,10 +134,12 @@ export class PlayService {
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
     };
+
     const saved =
       reinventoried === undefined
         ? await this.#characters.updatePlay(write)
         : await this.#characters.updatePlayAndCharacter(write, reinventoried, character.version);
+
     return { ...saved, events: [...events] };
   }
 
@@ -141,9 +148,11 @@ export class PlayService {
     if (!changesInventory(command)) {
       return undefined;
     }
+
     const registry = await this.#contentOf(character).registry();
     const counted = isWandCommand(command) ? await countedOf(this.#content, character) : NO_COUNTED;
     const slots = await slotsOf(this.#content, character, registry);
+
     return inventoryAfter({ character, play, registry, slots, counted, now: this.#clock.now() }, command);
   }
 
@@ -152,13 +161,16 @@ export class PlayService {
     const prepared = isDailyPreparations(command) ? await staffOf(this.#content, character) : NO_STAFF;
     checkStaff(command, prepared);
     const cast = staffCastOf(play, command);
+
     if (cast === undefined) {
       return prepared;
     }
+
     const registry = await this.#contentOf(character).registry();
     const slots = await slotsOf(this.#content, character, registry);
     const counted = await countedOf(this.#content, character);
     const undoing = takesBackCast(command, cast);
+
     return { ...prepared, castCost: checkStaffCast(cast, { character, play, registry, slots, counted, undoing }) };
   }
 
@@ -171,12 +183,15 @@ export class PlayService {
     const variants = await variantRulesOfCharacter(this.#content, character, registry);
     const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots);
+
     const limits = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),
       await this.#effects(character),
       conditionValued(registry),
     );
+
     const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
+
     return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });
   }
 
@@ -188,6 +203,7 @@ export class PlayService {
     const hitPoints = needsMaxHitPoints(command)
       ? await derivedMaxHitPoints(this.#content, character, play)
       : NO_MAX_HIT_POINTS;
+
     const resources = needsResourceMaxima(command) ? await resourceMaximaOf(this.#content, character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await countedOf(this.#content, character) : NO_COUNTED;
     const staff = await this.#staffLimits(character, play, command);
@@ -197,6 +213,7 @@ export class PlayService {
     checkEffect(play, command, effects);
     const { healing, recovery } = needsRestContent(command) ? await this.#rest(character) : NO_REST;
     const registry = await this.#contentOf(character).registry();
+
     const limits: PlayLimits = {
       hitPoints,
       healing,
@@ -219,6 +236,7 @@ export class PlayService {
         now: this.#clock.now(),
       }),
     };
+
     return PlayService.#fallenUnconscious(command, applyPlayCommand(play, command, limits), { limits, registry });
   }
 
@@ -229,6 +247,7 @@ export class PlayService {
     { limits, registry }: { readonly limits: PlayLimits; readonly registry: ContentRegistry },
   ): PlayState {
     const airLost = isBreathCommand(command) || (command.field === PlayCommandField.Damage && command.damage.critical);
+
     return airLost
       ? outOfAir({ play, events: [] }, { limits, unconscious: unconsciousCondition(registry) }).play
       : play;
@@ -243,12 +262,14 @@ export class PlayService {
   async #healing(character: Character): Promise<HitPoints> {
     const registry = await this.#contentOf(character).registry();
     const slots = await slotsOf(this.#content, character, registry);
+
     return restHealing(characterStatisticInputs(registry, character.document, slots));
   }
 
   /** What Rest heals, and what it does to the conditions the character's content eases on Rest. */
   async #rest(character: Character): Promise<RestContent> {
     const registry = await this.#contentOf(character).registry();
+
     return { healing: await this.#healing(character), recovery: restRecovery(registry) };
   }
 
@@ -264,17 +285,21 @@ export class PlayService {
 
   async #stored(id: CharacterId): Promise<CharacterPlay> {
     const stored = await this.#characters.findPlay(id);
+
     if (stored === undefined) {
       throw new NotFoundError('Character', id);
     }
+
     return stored;
   }
 
   async #accessible(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 }

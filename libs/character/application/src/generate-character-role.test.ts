@@ -17,6 +17,7 @@ const pack = new ContentPackBuilder()
   .withClass('fighter', ['str'], { roles: ['melee', 'tank'] })
   .withClass('wizard', ['int'], { roles: ['spellcaster'] })
   .withClass('commoner', ['str']);
+
 const fighter = ChoiceValue.parse(pack.idOf(ContentKind.Class, 'fighter'));
 const wizard = ChoiceValue.parse(pack.idOf(ContentKind.Class, 'wizard'));
 

@@ -62,6 +62,7 @@ interface OverrideOptions {
 
 function override(entry: ContentId, options: OverrideOptions): OverrideLine {
   const { phase, mode, value, replaced, result = replaced, status, label, manual = false, rule = 0 } = options;
+
   return {
     id: ruleId(entry, rule),
     label: label ?? { entry },
@@ -190,6 +191,7 @@ function adjustedByHand(): BreakdownLine {
     value: BRAVE_FACE,
     label: { text: ContentText.parse('Brave face') },
   });
+
   return { ...adjusted, modifier: { ...adjusted.modifier, origin: byHand(OVERRIDES) } };
 }
 

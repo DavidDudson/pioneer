@@ -21,6 +21,7 @@ function inputs(): GrantInputs {
 }
 
 expect(resolveGrants(inputs()).answered).toHaveLength(LEVEL_20_PICKS.length);
+
 benchmark({
   name: 'grants: level 20 Fighter resolves to a fixpoint',
   budgetMs: BUDGET_MS,

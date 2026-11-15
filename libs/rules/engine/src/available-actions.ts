@@ -18,6 +18,7 @@ export const ActionStatus = {
   Conditional: 'conditional',
   Unavailable: 'unavailable',
 } as const;
+
 export type ActionStatus = ValueOf<typeof ActionStatus>;
 
 /** Where an action on a character's list comes from. */
@@ -31,6 +32,7 @@ export const ActionOriginKind = {
   /** An item the character owns: a consumable, an activation or a staff's spell. The sheet adds these beside the engine's. */
   Item: 'item',
 } as const;
+
 export type ActionOriginKind = ValueOf<typeof ActionOriginKind>;
 
 export type ActionOrigin =
@@ -95,6 +97,7 @@ const SKILL_PREFIX = 'skill:';
 
 /** A skill as the player reads it: `arcana` for `skill:arcana`. */
 const SkillName = z.string().min(1).brand<'SkillName'>();
+
 type SkillName = z.infer<typeof SkillName>;
 
 function atLeast(rank: Proficiency, needed: Proficiency): boolean {
@@ -110,6 +113,7 @@ function skillsMeetMinimum({ skills, minimumProficiency }: ActionData, ranks: Av
   if (minimumProficiency === undefined || skills === undefined) {
     return true;
   }
+
   return skills.some((skill) => atLeast(ranks.get(skill) ?? Proficiency.Untrained, minimumProficiency));
 }
 
@@ -117,9 +121,11 @@ function skillsMeetMinimum({ skills, minimumProficiency }: ActionData, ranks: Av
 function blockers(candidate: ActionCandidate, input: AvailableActionsInput): readonly MessageDescriptor[] {
   const { id, action } = candidate;
   const reasons: MessageDescriptor[] = [];
+
   if (action.requirements !== undefined && evaluatePredicate(action.requirements, input.facts) === Truth.False) {
     reasons.push(message(EngineMessage.ActionRequirementsNotMet));
   }
+
   if (action.minimumProficiency !== undefined && !skillsMeetMinimum(action, input.ranks)) {
     reasons.push(
       message(EngineMessage.ActionUntrained, {
@@ -128,10 +134,13 @@ function blockers(candidate: ActionCandidate, input: AvailableActionsInput): rea
       }),
     );
   }
+
   if (action.frequency !== undefined && input.spent.has(id)) {
     reasons.push(message(EngineMessage.ActionFrequencySpent, { per: action.frequency.per }));
   }
+
   reasons.push(...formBlockers({ traits: candidate.traits ?? [], casts: candidate.casts === true }, input.form));
+
   return reasons;
 }
 
@@ -145,6 +154,7 @@ function doubts({ action }: ActionCandidate, facts: PredicateFacts): readonly Me
       ? [message(EngineMessage.ActionRequirementsUnknown)]
       : [];
   }
+
   return action.requirementsText === undefined ? [] : [message(EngineMessage.ActionRequirementsText)];
 }
 
@@ -152,8 +162,10 @@ function doubts({ action }: ActionCandidate, facts: PredicateFacts): readonly Me
 function bestRoll({ skills }: ActionData, statistics: AvailableActionsInput['statistics']): StatisticValue | undefined {
   const values = (skills ?? []).flatMap((skill): StatisticValue[] => {
     const result = statistics.get(skill);
+
     return result?.ok === true ? [result] : [];
   });
+
   return values.toSorted((left, right) => right.total - left.total)[0];
 }
 
@@ -162,11 +174,13 @@ function availableAction(candidate: ActionCandidate, input: AvailableActionsInpu
   const blocked = blockers(candidate, input);
   const doubtful = blocked.length === 0 ? doubts(candidate, input.facts) : [];
   let status: ActionStatus = ActionStatus.Available;
+
   if (blocked.length > 0) {
     status = ActionStatus.Unavailable;
   } else if (doubtful.length > 0) {
     status = ActionStatus.Conditional;
   }
+
   return {
     action: id,
     origin,
@@ -189,10 +203,12 @@ function availableAction(candidate: ActionCandidate, input: AvailableActionsInpu
  */
 export function availableActions(input: AvailableActionsInput): readonly AvailableAction[] {
   const seen = new Set<ContentId>();
+
   return input.candidates
     .filter(({ id }) => {
       const fresh = !seen.has(id);
       seen.add(id);
+
       return fresh;
     })
     .map((candidate) => availableAction(candidate, input));

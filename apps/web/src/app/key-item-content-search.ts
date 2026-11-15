@@ -37,9 +37,11 @@ async function find(
   { kinds, entriesOf }: Searched,
 ): Promise<readonly ContentChoice[]> {
   const text = SearchText.safeParse(words);
+
   if (!text.success) {
     return [];
   }
+
   const query: ContentSearchQuery = {
     query: text.data,
     locale: SOURCE_LOCALE,
@@ -49,10 +51,13 @@ async function find(
     limit: MATCHES_MAX,
     offset: FIRST_PAGE,
   };
+
   const [found, registry] = await Promise.all([finder.search(query), finder.registry(kinds)]);
   const entries = entriesOf(registry);
+
   return found.ids.flatMap((id): ContentChoice[] => {
     const name = entries.get(id)?.name;
+
     return name === undefined ? [] : [{ id: ReviewedRuneId.parse(id), name: ReviewedName.parse(name) }];
   });
 }

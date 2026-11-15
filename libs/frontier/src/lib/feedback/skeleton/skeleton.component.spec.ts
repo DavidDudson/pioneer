@@ -5,10 +5,13 @@ import { Skeleton, SkeletonShape, SkeletonWidth } from './skeleton.component';
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Skeleton);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

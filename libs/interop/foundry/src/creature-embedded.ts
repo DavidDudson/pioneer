@@ -18,24 +18,30 @@ export const Traits = z.looseObject({ value: Slugs.default([]) });
 
 /** An item embedded in an actor, its `system` read per type by the translator for that type. */
 const Embedded = z.looseObject({ _id: Name, name: Name, type: Slug, system: z.looseObject({}).default({}) });
+
 export type Embedded = z.infer<typeof Embedded>;
+
 const EmbeddedList = z.array(Embedded).max(ITEMS_MAX);
 
 /** The actor's items, parsed; reported when the list is not shaped as an actor's. */
 export function embeddedOf({ document, log }: KindInput): readonly Embedded[] {
   const items = EmbeddedList.safeParse(document['items'] ?? []);
+
   if (!items.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: 'items', raw: z.prettifyError(items.error) });
   }
+
   return items.data ?? [];
 }
 
 /** An item's `system` as `schema` reads it; reported with the item's name when it is not shaped so. */
 export function itemSystem<System>(schema: z.ZodType<System>, item: Embedded, input: KindInput): System | undefined {
   const system = schema.safeParse(item.system);
+
   if (!system.success) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: `items.${item.type}`, raw: item.name });
   }
+
   return system.data;
 }
 

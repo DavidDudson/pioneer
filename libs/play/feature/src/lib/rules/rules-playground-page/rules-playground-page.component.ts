@@ -56,6 +56,7 @@ const JSON_ROWS = 12;
 
 /** Where the statistics tool's definitions are: in place, still loading from a pack, or lost to a failed load. */
 const SourceLoad = { Idle: 'idle', Loading: 'loading', Failed: 'failed' } as const;
+
 type SourceLoad = ValueOf<typeof SourceLoad>;
 
 /**
@@ -106,6 +107,7 @@ export class RulesPlaygroundPage {
   readonly #schemas = computed((): readonly RulesPickerRow<RulesTool>[] => {
     this.#messages();
     const schemas: readonly string[] = Object.values(RulesSchema);
+
     return Object.values(RulesTool).map((tool) => ({
       value: tool,
       label: this.#i18n.translate(RULES_TOOL_KEYS[tool]),
@@ -117,6 +119,7 @@ export class RulesPlaygroundPage {
   protected readonly schemas = computed(() => shownRulesRows(this.#schemas(), this.schemaQuery(), this.schemaSort()));
   protected readonly schemaColumns = computed(() => {
     this.#messages();
+
     return rulesPickerColumns<RulesTool>(
       this.#i18n.translate('play.rules.columns.name'),
       this.#i18n.translate('play.rules.columns.group'),
@@ -126,6 +129,7 @@ export class RulesPlaygroundPage {
   /** Example entries for the content entry mode, one per kind with a schema. */
   readonly #entryKinds = computed((): readonly RulesPickerRow<RegisteredKind>[] => {
     this.#messages();
+
     return REGISTERED_KINDS.map((kind) => ({
       value: kind,
       label: this.#i18n.translate(CONTENT_KIND_KEYS[kind]),
@@ -139,6 +143,7 @@ export class RulesPlaygroundPage {
   );
   protected readonly entryKindColumns = computed(() => {
     this.#messages();
+
     return rulesPickerColumns<RegisteredKind>(
       this.#i18n.translate('play.rules.columns.name'),
       this.#i18n.translate('play.rules.columns.kind'),
@@ -190,6 +195,7 @@ export class RulesPlaygroundPage {
   /** The proficiency rules in force: the pack's table, and the variant while it is on; undefined until loaded. */
   protected readonly proficiency = computed((): StatisticProficiency | undefined => {
     const rules = this.coreRules.hasValue() ? this.coreRules.value() : undefined;
+
     return rules === undefined
       ? undefined
       : { table: rules.table, variant: this.withoutLevel() ? rules.withoutLevel : undefined };
@@ -217,6 +223,7 @@ export class RulesPlaygroundPage {
     if (kind === undefined || kind === this.entryKind()) {
       return;
     }
+
     this.entryKind.set(kind);
     this.text.set(contentEntryExample(kind));
   }
@@ -230,9 +237,11 @@ export class RulesPlaygroundPage {
     if (source === this.statisticSource()) {
       return;
     }
+
     const previous = this.statisticSource();
     const request = this.#startLoading(source);
     const definitions = await this.#loadDefinitions(source).catch(() => undefined);
+
     if (this.#isLatest(request)) {
       this.#land(definitions, previous);
     }
@@ -243,6 +252,7 @@ export class RulesPlaygroundPage {
     this.#statisticRequest += 1;
     this.statisticSource.set(source);
     this.statisticLoad.set(SourceLoad.Loading);
+
     return this.#statisticRequest;
   }
 
@@ -251,8 +261,10 @@ export class RulesPlaygroundPage {
     if (definitions === undefined) {
       this.statisticSource.set(previous);
       this.statisticLoad.set(SourceLoad.Failed);
+
       return;
     }
+
     this.text.set(definitions);
     this.statisticLoad.set(SourceLoad.Idle);
   }
@@ -266,6 +278,7 @@ export class RulesPlaygroundPage {
     if (tool === undefined || tool === this.schema()) {
       return;
     }
+
     this.schema.set(tool);
     this.text.set(rulesExample(tool));
     this.entryKind.set(ContentKind.Ancestry);

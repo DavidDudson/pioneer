@@ -66,9 +66,11 @@ export class GrantsResult {
     this.#messages();
     this.#format.locale();
     const result = this.check();
+
     if (result.status !== GrantsStatus.Valid) {
       return NO_ROWS;
     }
+
     return {
       items: result.items.map((row) => ({ title: row.name, details: this.#via(row.via) })),
       duplicates: result.duplicates.map((row) => ({ title: row.name, details: this.#via(row.via) })),
@@ -101,6 +103,7 @@ export class GrantsResult {
     if (!on) {
       return this.#i18n.translate('play.rules.toggleOff');
     }
+
     return suboption === undefined
       ? this.#i18n.translate('play.rules.toggleOn')
       : this.#i18n.translate('play.rules.toggleOnWith', { suboption });

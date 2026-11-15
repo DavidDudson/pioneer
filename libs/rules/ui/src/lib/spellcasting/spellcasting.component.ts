@@ -34,7 +34,9 @@ function slotBlocks(entry: SpellcastingEntryLine): readonly SlotBlock[] {
   if (entry.preparation === SpellPreparation.Focus) {
     return [];
   }
+
   const own: SlotBlock = { key: '', title: message(SpellcastingMessage.Slots), slots: entry.slots };
+
   return [
     own,
     ...entry.pools.map((pool): SlotBlock => ({

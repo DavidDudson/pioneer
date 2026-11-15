@@ -42,10 +42,13 @@ export class InMemoryBugReportRepository extends BugReportRepository {
 
   public override async setStatus(id: BugReport['id'], status: BugReportStatus): Promise<boolean> {
     const report = this.#reports.get(id);
+
     if (report === undefined) {
       return false;
     }
+
     this.#reports.set(id, { ...report, status });
+
     return true;
   }
 }

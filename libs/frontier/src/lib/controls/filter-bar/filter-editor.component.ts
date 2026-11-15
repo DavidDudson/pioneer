@@ -42,12 +42,14 @@ export class FilterEditor {
   protected readonly field = computed(() => this.fields().find((candidate) => candidate.id === this.#fieldId()));
   protected readonly operators = computed(() => {
     const field = this.field();
+
     return field === undefined ? [] : operatorsFor(field.kind);
   });
   /** The chosen operator, or the field's first until one is pressed. */
   protected readonly operator = computed(() => {
     const operators = this.operators();
     const chosen = this.#operator();
+
     return chosen !== undefined && operators.includes(chosen) ? chosen : operators[0];
   });
   /** What the values are for: the operator, or `is` before the field has one. */
@@ -55,12 +57,14 @@ export class FilterEditor {
   protected readonly condition = computed<FilterCondition | undefined>(() => {
     const field = this.field();
     const operator = this.operator();
+
     return field === undefined || operator === undefined
       ? undefined
       : { field: field.id, operator, values: this.values() };
   });
   protected readonly complete = computed(() => {
     const condition = this.condition();
+
     return condition !== undefined && isComplete(condition);
   });
 
@@ -78,6 +82,7 @@ export class FilterEditor {
 
   protected apply(): void {
     const condition = this.condition();
+
     if (condition !== undefined && this.complete()) {
       this.applied.emit(condition);
     }

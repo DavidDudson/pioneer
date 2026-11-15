@@ -13,17 +13,23 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId,
 import type { PlayerCoreClass, SkillFixture } from './testing';
 
 const ALL = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+
 const backgrounds = new ContentPackBuilder()
   .withId('skill-backgrounds')
   .withBackground('acolyte', [ALL], [{ key: 'Proficiency', selector: 'skill:religion', rank: 'trained' }])
   .withBackground('scribe', [ALL], [{ key: 'Proficiency', selector: 'skill:lore:scribing', rank: 'trained' }])
   .build();
+
 const acolyte = new ContentPackBuilder().withId('skill-backgrounds').idOf(ContentKind.Background, 'acolyte');
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 registry.register(backgrounds);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
@@ -38,6 +44,7 @@ function skill(name: SkillFixture): ContentId {
 
 function keysOf(builder: CharacterBuilder): readonly string[] {
   const { document } = builder.build();
+
   return skillSlots(document, skillReads(document, content)).map((slot) => slot.key);
 }
 
@@ -50,6 +57,7 @@ function refusalOf(builder: CharacterBuilder, slot: string, selection: SkillFixt
     slot: SlotKey.parse(slot),
     selection: skillFixtureId(selection),
   };
+
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
@@ -59,6 +67,7 @@ function increases(name: PlayerCoreClass): readonly string[] {
 
 function rankOf(builder: CharacterBuilder, selector: string): string | undefined {
   const { document } = builder.build();
+
   return buildRanks(document, content).get(Selector.parse(selector));
 }
 
@@ -225,10 +234,12 @@ describe('skills a later pack restates', () => {
         })
         .build(),
     );
+
     const restatedContent = {
       ...slotContent(restated),
       namespaces: CORE_NAMESPACES,
     };
+
     const { document } = as('fighter').picking('skill-training:1:0', skill('athletics')).build();
 
     expect(buildRanks(document, restatedContent).get(Selector.parse('skill:athletics'))).toBe('trained');

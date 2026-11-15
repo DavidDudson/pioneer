@@ -60,17 +60,21 @@ const actionRange: Arbitrary<object> = constantFrom(
   { type: CastTimeType.Actions, cost: ActionCost.One, upTo: ActionCost.Three },
   { type: CastTimeType.Actions, cost: ActionCost.Two, upTo: ActionCost.Three },
 );
+
 const spellTime = { count: positive, unit: spellTimeUnit };
 const actionsCastTime = record({ type: constant(CastTimeType.Actions), cost: actionCost });
 const timedCastTime = record({ type: constant(CastTimeType.Time), ...spellTime });
+
 const eitherCastTime = record({
   type: constant(CastTimeType.Either),
   options: tuple(actionsCastTime, timedCastTime),
 });
+
 const castTime: Arbitrary<object> = oneof(actionsCastTime, actionRange, timedCastTime, eitherCastTime);
 
 /** Whole and half miles. */
 const miles: Arbitrary<number> = integer({ min: 1, max: MILES_MAX * 2 }).map((halves) => halves / 2);
+
 const singleRange: Arbitrary<object> = oneof(
   record({ type: constant(SpellRangeType.Feet), feet: smallint }),
   record({ type: constant(SpellRangeType.Miles), miles }),
@@ -79,12 +83,14 @@ const singleRange: Arbitrary<object> = oneof(
   constant({ type: SpellRangeType.Interplanar }),
   constant({ type: SpellRangeType.Unlimited }),
 );
+
 const range: Arbitrary<object> = oneof(
   singleRange,
   record({ type: constant(SpellRangeType.Either), options: array(singleRange, { minLength: 2, maxLength: 3 }) }),
 );
 
 const line: Arbitrary<object> = record({ shape: constant(AreaShape.Line), size: smallint });
+
 /** Only a line has a width. */
 const area: Arbitrary<object> = oneof(
   withOptional(record({ shape: areaShapeButLine, size: smallint }), { details: richTextJson }),
@@ -94,28 +100,33 @@ const area: Arbitrary<object> = oneof(
 const targetDetails = { qualifiers: targetQualifiers, traits, triggering: boolean() };
 const numbered: Arbitrary<object> = record({ count: positive, of: targetKind });
 const anyNumber: Arbitrary<object> = record({ count: constant(TargetCountWord.Any), of: targetKind });
+
 const allWithin: Arbitrary<object> = record({
   count: constant(TargetCountWord.All),
   within: targetWithin,
   of: targetKind,
 });
+
 /** A number of targets, maybe "up to" it; any number; or all of them, in the area or within range. */
 const target: Arbitrary<object> = oneof(
   withOptional(numbered, { upTo: boolean(), ...targetDetails }),
   withOptional(anyNumber, targetDetails),
   withOptional(allWithin, targetDetails),
 );
+
 const someTargets: Arbitrary<object[]> = array(target, { minLength: 1, maxLength: LIST_MAX });
 const targets: Arbitrary<object> = withOptional(record({ any: someTargets }), { plus: someTargets, you: targetYou });
 
 const timedDuration: Arbitrary<object> = record({ type: constant(SpellDurationType.Time), ...spellTime });
 const untilTurn: Arbitrary<object> = record({ type: constant(SpellDurationType.Until), until: turnEnd });
+
 const rolledDuration: Arbitrary<object> = record({
   type: constant(SpellDurationType.Rolled),
   dice: positive,
   die: dieSize,
   unit: spellTimeUnit,
 });
+
 /** A time is up to it or sustained up to it, never both. */
 const singleDuration: Arbitrary<object> = oneof(
   timedDuration,
@@ -128,12 +139,14 @@ const singleDuration: Arbitrary<object> = oneof(
   constant({ type: SpellDurationType.Unlimited }),
   constant({ type: SpellDurationType.Varies }),
 );
+
 const duration: Arbitrary<object> = oneof(
   singleDuration,
   record({ type: constant(SpellDurationType.Either), options: array(singleDuration, { minLength: 2, maxLength: 3 }) }),
 );
 
 const save: Arbitrary<object> = record({ statistic: saveSelectorText, basic: boolean() });
+
 /** A save, the passive defence it is against, or both. */
 const defense: Arbitrary<object> = oneof(
   record({ save }),
@@ -166,6 +179,7 @@ const materials: Arbitrary<string[]> = uniqueArray(constantFrom('silver', 'cold-
 /** A damage part; with no damage type it is untyped. */
 function damagePart(key: string): Arbitrary<object> {
   const required = record({ key: constant(key), formula: spellDamageFormula, kinds: damageKinds });
+
   return withOptional(required, { damageType, category: damageCategory, materials });
 }
 
@@ -184,11 +198,13 @@ function damageIncrease(key: string): Arbitrary<object> {
 /** Interval heightening adding to some of `keys`. */
 function intervalHeightening(keys: readonly string[]): Arbitrary<object> {
   const increases = shuffledSubarray([...keys]).chain((picked) => tuple(...picked.map((key) => damageIncrease(key))));
+
   const required = record({
     type: constant(HeighteningType.Interval),
     interval: integer({ min: 1, max: SPELL_RANK_MAX - 1 }),
     damage: increases,
   });
+
   return withOptional(required, { area: smallint });
 }
 
@@ -202,6 +218,7 @@ function fixedHeightening(rank: number): Arbitrary<object> {
   const above = Array.from({ length: SPELL_RANK_MAX - rank }, (_unused, index) => rank + index + 1);
   const picked = shuffledSubarray(above, { minLength: 1, maxLength: above.length });
   const ranks = picked.chain((chosen) => tuple(...chosen.map((at) => heightenedRank(at))));
+
   return record({ type: constant(HeighteningType.Fixed), ranks });
 }
 
@@ -214,6 +231,7 @@ function spellDataAt(rank: number, keys: readonly string[]): Arbitrary<object> {
     heightening: heightening(rank, keys),
     counteraction: boolean(),
   });
+
   return tuple(castingJson(rank), own).map(([casting, fields]) => Object.assign(casting, fields));
 }
 
@@ -226,6 +244,7 @@ const ritualCheck: Arbitrary<object> = withOptional(
   record({ skills: uniqueArray(skillSelectorText, { minLength: 1, maxLength: LIST_MAX }) }),
   { proficiency },
 );
+
 const secondaryCasting: Arbitrary<object> = record({
   checks: array(ritualCheck, { maxLength: LIST_MAX }),
   casters: smallint,
@@ -233,6 +252,7 @@ const secondaryCasting: Arbitrary<object> = record({
 
 function ritualDataAt(rank: number): Arbitrary<object> {
   const checks = record({ primary: ritualCheck, secondary: secondaryCasting });
+
   return tuple(castingJson(rank), checks).map(([casting, fields]) => Object.assign(casting, fields));
 }
 
@@ -259,6 +279,7 @@ function counterBadgeOf([min = 0, value = 0, max = 0]: readonly number[]): Arbit
 const counterBadge: Arbitrary<object> = array(badgeNumber, { minLength: BADGE_BOUNDS, maxLength: BADGE_BOUNDS })
   .map((numbers) => numbers.toSorted((left, right) => left - right))
   .chain((bounds) => counterBadgeOf(bounds));
+
 const formulaBadge: Arbitrary<object> = withOptional(
   record({ type: constant(EffectBadgeType.Formula), formula: damageFormulaText }),
   { reevaluate: constantFrom(...Object.values(BadgeReevaluation)) },
@@ -269,8 +290,10 @@ const timedEffect: Arbitrary<object> = record({
   count: positive,
   unit: constantFrom(...Object.values(DurationUnit)),
 });
+
 const effectExpiry: Arbitrary<string> = constantFrom(...Object.values(EffectExpiry));
 const effectCategory: Arbitrary<string> = constantFrom(...Object.values(EffectCategory));
+
 const effectDuration: Arbitrary<object> = oneof(
   withOptional(timedEffect, { expiry: effectExpiry, sustained: boolean() }),
   record({
@@ -288,4 +311,5 @@ const untriggeredEffect: Arbitrary<object> = withOptional(
     badge: oneof(counterBadge, formulaBadge),
   },
 );
+
 export const effectData: Arbitrary<object> = withTrigger(untriggeredEffect);

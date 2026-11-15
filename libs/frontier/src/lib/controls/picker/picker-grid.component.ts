@@ -31,6 +31,7 @@ import {
 
 /** Rows still to scroll past before the next ones are asked for, so they arrive before the end is reached. */
 const LOAD_AHEAD = 8;
+
 /** The header takes the first `aria-rowindex`. */
 const HEADER_ROW_COUNT = 1;
 const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
@@ -41,6 +42,7 @@ function headerClasses<TRow extends object>(header: TableHeader<TRow>): string {
 
 function ariaSort<TRow extends object>(header: TableHeader<TRow>): string | undefined {
   const sorted = header.column.getIsSorted();
+
   return sorted === false ? undefined : ARIA_SORT[sorted];
 }
 
@@ -91,6 +93,7 @@ export class PickerGrid<TRow extends object> {
   readonly #pickedIndex = computed(() => {
     const value = this.value();
     const index = this.rows().findIndex((row) => row.id === value);
+
     return index === -1 ? undefined : index;
   });
   /** The row holding the keyboard's highlight. */
@@ -98,6 +101,7 @@ export class PickerGrid<TRow extends object> {
     const active = this.rowParts().find((part) => part.active());
     const id = active?.row().id;
     const index = this.rows().findIndex((row) => row.id === id);
+
     return index === -1 ? undefined : index;
   });
 
@@ -108,6 +112,7 @@ export class PickerGrid<TRow extends object> {
       const active = this.#activeIndex();
       // The highlight's neighbours too, so an arrow key always lands on the next row, even before the panel scrolls.
       const around = active === undefined ? [] : [active - 1, active, active + 1];
+
       return [...around, this.#pickedIndex()];
     }),
   });
@@ -129,6 +134,7 @@ export class PickerGrid<TRow extends object> {
     // Arrow keys move the highlight; keep it in view inside the panel, never scrolling the page.
     afterRenderEffect(() => {
       const index = this.#activeIndex();
+
       if (index !== undefined) {
         untracked(() => {
           this.virtualizer.scrollToIndex(index, { align: 'auto' });
@@ -169,6 +175,7 @@ export class PickerGrid<TRow extends object> {
   #askForMore(lastShown: number | undefined): void {
     const count = this.rows().length;
     const near = lastShown !== undefined && lastShown >= count - 1 - LOAD_AHEAD;
+
     if (this.hasMore() && !this.busy() && near && this.#loadedFor !== count) {
       this.#loadedFor = count;
       this.loadMore.emit();

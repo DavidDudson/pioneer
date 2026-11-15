@@ -31,6 +31,7 @@ const DEFINITIONS = [
     per: 'weapon',
   }),
 ];
+
 const LONGSWORD = {
   slug: 'longsword',
   category: 'martial',
@@ -60,8 +61,10 @@ describe('rule elements conditioned on the target', () => {
       ranks: { 'attack:martial': 'trained' },
       weapons: [wielded(LONGSWORD)],
     });
+
     const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
     const rule = inPlay(element, 'vitalizing');
+
     const modifiers = {
       rules: [rule],
       facts: new PredicateFacts(
@@ -70,9 +73,11 @@ describe('rule elements conditioned on the target', () => {
       ),
       situation: new Set(claimed === true ? [ruleIdOf(rule)] : []),
     };
+
     const results = deriveStatistics(content, inputs, modifiers);
     const own = new Set([ruleIdOf(rule)]);
     const situations = typeof claimed === 'boolean' ? undefined : new Map([[claimed, own]]);
+
     return deriveStrikes(inputs.weapons ?? [], results, {
       inputs: modifiers,
       scope: { statistics: content, character: inputs },

@@ -46,6 +46,7 @@ export class SheetSectionTabs {
   );
   protected readonly options = computed((): readonly SelectOption<string>[] => {
     this.#language();
+
     return [...this.sections(), ...SHEET_PANELS].map((section) => ({
       value: sectionPath(section),
       label: this.#i18n.translate(section.headingKey, section.headingParams),
@@ -57,6 +58,7 @@ export class SheetSectionTabs {
   protected readonly current = computed((): string | undefined => {
     const path = this.#path();
     const [first] = this.sections();
+
     return this.options().some(({ value }) => value === path) || first === undefined ? path : sectionPath(first);
   });
 

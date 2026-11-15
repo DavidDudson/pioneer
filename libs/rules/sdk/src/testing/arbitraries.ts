@@ -50,6 +50,7 @@ export const rollOptionText: Arbitrary<string> = tuple(word, keyPathText).map(
 
 const STATEMENT_LIST_MAX = 3;
 const PREDICATE_LENGTH_MAX = 4;
+
 /** Keeps generated predicates well under `PREDICATE_DEPTH_MAX`. */
 const STATEMENT_DEPTH_MAX = 4;
 
@@ -65,6 +66,7 @@ const operand: Arbitrary<string | number> = oneof(rollOptionText, double({ noNaN
 export const predicateStatementJson: Arbitrary<unknown> = letrec<{ statement: unknown }>((tie) => {
   const statement = tie('statement');
   const list = array(statement, { minLength: 1, maxLength: STATEMENT_LIST_MAX });
+
   return {
     statement: oneof(
       { depthSize: 'small', maxDepth: STATEMENT_DEPTH_MAX, withCrossShrink: true },
@@ -128,6 +130,7 @@ function formulaTextOver(paths: Arbitrary<string>): Arbitrary<string> {
       position: AT,
     })),
   );
+
   return formulaFrom(leaf)
     .map((tree) => printFormula(tree))
     .filter((text) => parseFormula(text).ok);

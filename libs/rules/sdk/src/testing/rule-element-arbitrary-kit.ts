@@ -21,9 +21,11 @@ export const SMALLINT_MAX = 32_767;
 /** Kebab-case words: slugs, rule slugs, traits. */
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
 const SLUG_WORDS_MAX = 3;
+
 export const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_WORDS_MAX }).map((words) =>
   words.join('-'),
 );
+
 export const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
 const modifierNumber: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
 export const ruleNumber: Arbitrary<number> = double({ noNaN: true, noDefaultInfinity: true });
@@ -39,8 +41,10 @@ export function withOptional<TRequired extends object>(
   const optionals = Object.entries(optional).map(([key, value]) =>
     option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
   );
+
   return tuple(required, ...optionals).map(([fields, ...entries]): object => {
     const present = entries.filter(([, picked]) => picked !== undefined);
+
     return Object.fromEntries([...Object.entries(fields), ...present]);
   });
 }

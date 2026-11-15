@@ -6,8 +6,10 @@ import type { FoundryDocument } from './foundry-document';
  */
 
 const NON_WORD = /[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]/gu;
+
 const LOWER_THEN_UPPER =
   /(?<lower>\p{Lowercase_Letter})(?<upper>\p{Uppercase_Letter}(?=^|$|[\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]))/gu;
+
 const APOSTROPHES = /['’]/gu;
 const SEPARATORS = /[-\s]+/gu;
 
@@ -17,6 +19,7 @@ export function slugify(text: string): string {
   if (text === '-') {
     return text;
   }
+
   return text
     .replaceAll(LOWER_THEN_UPPER, '$<lower>-$<upper>')
     .toLowerCase()

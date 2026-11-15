@@ -31,6 +31,7 @@ function isAdjustment(rule: RuleInPlay): rule is AdjustmentInPlay {
 function reachesStrike({ facts }: ModifierInputs, { element, origin }: AdjustmentInPlay, item: AlterableItem): boolean {
   const owned =
     element.etched !== true || (item.inventoryItem !== undefined && item.inventoryItem === inventoryItemOf(origin));
+
   return (
     owned &&
     truthOf(element.predicate, facts) === Truth.True &&
@@ -43,22 +44,30 @@ function adjustedBy(weapon: AlteredItem, { element, itemLevel }: AdjustmentInPla
   switch (element.property) {
     case StrikeProperty.Traits: {
       const traits = withValue(weapon.traits, element.mode, element.value);
+
       return traits === weapon.traits ? weapon : { ...weapon, traits };
     }
+
     case StrikeProperty.Materials: {
       const materials = withValue(weapon.materials, TraitAlterationMode.Add, element.value);
+
       return materials === weapon.materials ? weapon : { ...weapon, materials };
     }
+
     case StrikeProperty.PropertyRunes: {
       const propertyRunes = withValue(weapon.propertyRunes, TraitAlterationMode.Add, element.value);
+
       return propertyRunes === weapon.propertyRunes ? weapon : { ...weapon, propertyRunes };
     }
+
     case StrikeProperty.RangeIncrement:
     case StrikeProperty.Reach: {
       const reach = element.property === StrikeProperty.Reach;
       const property = reach ? NumericItemProperty.Reach : NumericItemProperty.RangeIncrement;
+
       return numberAltered(weapon, { property, mode: element.mode, value: element.value }, itemLevel);
     }
+
     default: {
       return element satisfies never;
     }
@@ -74,13 +83,16 @@ function adjustedBy(weapon: AlteredItem, { element, itemLevel }: AdjustmentInPla
  */
 export function adjustStrike(inputs: ModifierInputs, weapon: AlteredItem): AlteredItem {
   let current = weapon;
+
   for (const rule of inputs.rules) {
     if (isAdjustment(rule) && reachesStrike(inputs, rule, current)) {
       const next = adjustedBy(current, rule);
+
       if (next !== current) {
         current = { ...next, origins: [...current.origins, rule.origin] };
       }
     }
   }
+
   return current;
 }

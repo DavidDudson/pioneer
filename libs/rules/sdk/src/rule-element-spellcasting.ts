@@ -21,7 +21,9 @@ export const SpellPreparation = {
   Innate: 'innate',
   Focus: 'focus',
 } as const;
+
 export type SpellPreparation = ValueOf<typeof SpellPreparation>;
+
 const SpellPreparationSchema = z.enum(SpellPreparation);
 
 /** An entry's slug, short enough that its `spell-attack:<slug>` and `spell-dc:<slug>` stay selectors. */
@@ -45,6 +47,7 @@ export const SpellcastingEntryElement = z.strictObject({
   preparation: SpellPreparationSchema,
   ...ruleElementBase,
 });
+
 export type SpellcastingEntryElement = z.infer<typeof SpellcastingEntryElement>;
 
 /** The most spell slots of one rank, or cantrips, an entry or pool counts; more is clamped here. */
@@ -52,6 +55,7 @@ export const SLOT_COUNT_MAX = 99;
 
 /** How many spell slots or cantrips a `SpellSlots` element adds, or an entry has of one rank. */
 export const SlotCount = Pg.smallint().min(1).max(SLOT_COUNT_MAX).brand<'SlotCount'>();
+
 export type SlotCount = z.infer<typeof SlotCount>;
 
 /** The ranks a `SpellSlots` element names besides 1 to 10: cantrips, and the entry's highest rank of slots. */
@@ -59,6 +63,7 @@ export const SlotRank = {
   Cantrip: 'cantrip',
   Highest: 'highest',
 } as const;
+
 export type SlotRank = ValueOf<typeof SlotRank>;
 
 /**
@@ -77,6 +82,7 @@ export const SpellSlotsElement = z.strictObject({
   pool: RuleSlug.optional(),
   ...ruleElementBase,
 });
+
 export type SpellSlotsElement = z.infer<typeof SpellSlotsElement>;
 
 /** The most spells a `PoolSpells` element names: a school's curriculum lists about twenty. */
@@ -95,6 +101,7 @@ export const PoolSpellsElement = z.strictObject({
   spells: z.array(ContentId).min(1).max(POOL_SPELLS_MAX).readonly().check(uniqueItems),
   ...ruleElementBase,
 });
+
 export type PoolSpellsElement = z.infer<typeof PoolSpellsElement>;
 
 /**
@@ -108,6 +115,7 @@ export const DeitySpellsElement = z.strictObject({
   entry: EntrySourceSlug,
   ...ruleElementBase,
 });
+
 export type DeitySpellsElement = z.infer<typeof DeitySpellsElement>;
 
 /**
@@ -121,6 +129,7 @@ export const SignatureSpellsElement = z.strictObject({
   entry: EntrySourceSlug,
   ...ruleElementBase,
 });
+
 export type SignatureSpellsElement = z.infer<typeof SignatureSpellsElement>;
 
 /** The most spells a `RepertoireSpells` element names: a bloodline grants one per rank, cantrips to 9th. */
@@ -131,6 +140,7 @@ export const GrantedSpell = z.strictObject({
   rank: z.union([z.literal(SlotRank.Cantrip), SpellRank]),
   spell: ContentId,
 });
+
 export type GrantedSpell = z.infer<typeof GrantedSpell>;
 
 /**
@@ -146,6 +156,7 @@ export const RepertoireSpellsElement = z.strictObject({
   spells: z.array(GrantedSpell).min(1).max(REPERTOIRE_SPELLS_MAX).readonly(),
   ...ruleElementBase,
 });
+
 export type RepertoireSpellsElement = z.infer<typeof RepertoireSpellsElement>;
 
 /**
@@ -163,6 +174,7 @@ export const RepertoireCountElement = z.strictObject({
   value: SlotCount,
   ...ruleElementBase,
 });
+
 export type RepertoireCountElement = z.infer<typeof RepertoireCountElement>;
 
 /**
@@ -179,6 +191,7 @@ export const RepertoireDeitySpellsElement = z.strictObject({
   value: SlotCount,
   ...ruleElementBase,
 });
+
 export type RepertoireDeitySpellsElement = z.infer<typeof RepertoireDeitySpellsElement>;
 
 /** The most spells a `FocusSpells` element names: a feature grants one or two. */
@@ -198,6 +211,7 @@ export const FocusSpellsElement = z.strictObject({
   spells: z.array(ContentId).min(1).max(FOCUS_SPELLS_MAX).readonly().check(uniqueItems),
   ...ruleElementBase,
 });
+
 export type FocusSpellsElement = z.infer<typeof FocusSpellsElement>;
 
 /** The most Focus Points a focus pool holds, however many focus spells feed it (Player Core). */
@@ -205,6 +219,7 @@ export const FOCUS_POOL_MAX = 3;
 
 /** A number of Focus Points: a focus pool's maximum, or the points in it. */
 export const FocusPoints = Pg.smallint().min(0).max(FOCUS_POOL_MAX).brand<'FocusPoints'>();
+
 export type FocusPoints = z.infer<typeof FocusPoints>;
 
 /** The most spells an `InnateSpells` element names: a feat, heritage or ancestry feature grants one or a few. */
@@ -224,4 +239,5 @@ export const InnateSpellsElement = z.strictObject({
   spells: z.array(GrantedSpell).min(1).max(INNATE_SPELLS_MAX).readonly(),
   ...ruleElementBase,
 });
+
 export type InnateSpellsElement = z.infer<typeof InnateSpellsElement>;

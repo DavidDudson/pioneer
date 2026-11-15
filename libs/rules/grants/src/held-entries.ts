@@ -21,10 +21,13 @@ export function heldEntry(entry: GrantEntry): HeldEntry {
 /** A held entry built by `make` on its first read. */
 export function lazyEntry(id: ContentId, kind: ContentKind, make: () => GrantEntry | undefined): HeldEntry {
   const cell: { built?: { readonly entry: GrantEntry | undefined } } = {};
+
   const read = (): GrantEntry | undefined => {
     cell.built ??= { entry: make() };
+
     return cell.built.entry;
   };
+
   return { id, kind, read };
 }
 
@@ -33,11 +36,13 @@ export function lookupOf(entries: readonly HeldEntry[]): ContentLookup {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
   const kinds = new Map<ContentKind, readonly GrantEntry[]>();
+
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id)?.read(),
     ofKind: (kind: ContentKind): readonly GrantEntry[] => {
       const read = kinds.get(kind) ?? (byKind.get(kind) ?? []).flatMap((entry) => entry.read() ?? []);
       kinds.set(kind, read);
+
       return read;
     },
   };

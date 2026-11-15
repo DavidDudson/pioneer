@@ -23,6 +23,7 @@ const acyclicEdges: Arbitrary<readonly PackDependencyEdge[]> = array(
   pairs.flatMap(([from, to]): PackDependencyEdge[] => {
     const pack = packs[from];
     const dependsOn = packs[to];
+
     return pack === undefined || dependsOn === undefined || to >= from ? [] : [{ pack, dependsOn }];
   }),
 );
@@ -32,9 +33,11 @@ const anyPack: Arbitrary<ContentPackId> = integer({
   max: PACKS - 1,
 }).map((index) => {
   const pack = packs[index];
+
   if (pack === undefined) {
     throw new Error('Pack index out of range');
   }
+
   return pack;
 });
 
@@ -47,8 +50,10 @@ describe('loadOrder', () => {
       property(acyclicEdges, anyPack, (edges, root) => {
         const order = loadOrder(edges, root);
         expect(order.at(-1)).toBe(root);
+
         for (const { pack, dependsOn } of edges) {
           const at = order.indexOf(pack);
+
           if (at !== -1) {
             expect(order.indexOf(dependsOn)).toBeGreaterThanOrEqual(0);
             expect(order.indexOf(dependsOn)).toBeLessThan(at);
@@ -78,13 +83,16 @@ describe('loadOrder', () => {
 
   test('ends on a cycle in stored data instead of looping', () => {
     const [first, second] = packs;
+
     if (first === undefined || second === undefined) {
       throw new Error('No packs');
     }
+
     const edges = [
       { pack: first, dependsOn: second },
       { pack: second, dependsOn: first },
     ];
+
     expect(loadOrder(edges, first)).toHaveLength(2);
   });
 });
@@ -111,15 +119,18 @@ describe('wouldCycle', () => {
     assert(
       property(candidatePairs, (candidates) => {
         const accepted: PackDependencyEdge[] = [];
+
         for (const [pack, dependsOn] of candidates) {
           if (!wouldCycle(accepted, { pack, dependsOn })) {
             accepted.push({ pack, dependsOn });
           }
         }
+
         for (const { pack } of accepted) {
           const reachedAgain = accepted
             .filter((edge) => edge.pack === pack)
             .some((edge) => reaches(accepted, edge.dependsOn, pack));
+
           expect(reachedAgain).toBe(false);
         }
       }),

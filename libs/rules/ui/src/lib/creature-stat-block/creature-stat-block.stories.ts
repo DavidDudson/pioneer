@@ -16,6 +16,7 @@ const meta: Meta<CreatureStatBlockView> = {
   component: CreatureStatBlockView,
   args: { creature: GOBLIN_WARCHANTER, layout: StatBlockLayout.Full },
 };
+
 export default meta;
 
 /** The page tier: every part of the stat block, under a level-two heading. */

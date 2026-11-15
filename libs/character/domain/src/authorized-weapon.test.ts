@@ -16,6 +16,7 @@ import { etchRune } from './rune-edits';
 import { fundamental, ItemFixture, itemFixtureId, itemFixtureRegistry, RuneFixture, runeFixtureId } from './testing';
 
 installRulesFakes();
+
 const registry = itemFixtureRegistry();
 const items = itemContent(registry);
 const runes = runeContent(registry);
@@ -38,23 +39,31 @@ function sword({ authorized = true, striking, held = true, named = true }: Sword
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+
   if (striking !== undefined) {
     inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Striking, striking));
   }
+
   if (authorized) {
     inventory = etchRune(inventory, SWORD, { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Authorized) });
   }
+
   if (named) {
     inventory = setItemState(inventory, SWORD, { authorized: { owner: OWNER, others: [FRIEND] } });
   }
+
   if (held) {
     inventory = carryItem(inventory, SWORD, { state: CarryState.Held, hands: ONE_HAND });
   }
+
   const [line] = inventory.items;
+
   if (line === undefined) {
     throw new Error('the sword was not added');
   }
+
   return line;
 }
 

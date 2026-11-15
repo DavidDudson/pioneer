@@ -22,6 +22,7 @@ export const LinkAppearance = {
   /** A call to action that navigates: looks like a primary `fr-button`, but stays a real link. */
   Button: 'button',
 } as const;
+
 export type LinkAppearance = ValueOf<typeof LinkAppearance>;
 
 const linkVariants = cva('focus-visible:focus-ring', {
@@ -125,12 +126,14 @@ export class Link {
 
   protected readonly externalUrl = computed((): string | undefined => {
     const url = this.external();
+
     return url !== undefined && EXTERNAL_URL.test(url) ? url : undefined;
   });
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
     const link = linkVariants({ appearance: this.appearance(), current: this.current() });
+
     return variant === undefined ? link : `${link} ${textVariants({ variant })}`;
   });
 

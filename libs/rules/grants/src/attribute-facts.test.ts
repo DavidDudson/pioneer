@@ -14,6 +14,7 @@ function modifiers(wire: Record<Attribute, number>): AttributeModifiers {
   const parsed = Object.fromEntries(
     Object.entries(wire).map(([name, value]) => [name, AttributeModifier.parse(value)]),
   );
+
   return new AttributeModifiers(AttributeModifiersWire.parse(parsed));
 }
 
@@ -22,6 +23,7 @@ const STRONG = modifiers({ str: 3, dex: 1, con: 0, int: -1, wis: 2, cha: 0 });
 /** The character's `attribute:` options with `attributes` on it. */
 function attributeOptionsOf(attributes: AttributeModifiers | undefined): readonly string[] {
   const inputs = { ...inputsOf({ entries: [], roots: [] }), attributes };
+
   return resolveGrants(inputs)
     .rollOptions.map(String)
     .filter((option: string) => option.startsWith('attribute:'));
@@ -49,6 +51,7 @@ describe('the attribute facts', () => {
   test('are what a grant predicate reads', () => {
     const feature = entry('brute-force', [{ ...grantOf('trained'), predicate: [{ gte: ['attribute:str:mod', 3] }] }]);
     const trained = entry('trained');
+
     const items = (attributes: AttributeModifiers | undefined): readonly string[] =>
       resolveGrants({
         ...inputsOf({ entries: [feature, trained], roots: [picked('brute-force')] }),
@@ -68,12 +71,14 @@ describe('the attribute facts', () => {
       wis: integer({ min: MOD_MIN, max: MOD_MAX }),
       cha: integer({ min: MOD_MIN, max: MOD_MAX }),
     });
+
     assert(
       property(arbitrary, (wire) => {
         const expected = Object.entries(wire)
           .filter(([, value]) => value >= 0)
           .map(([name, value]) => `attribute:${name}:mod:${value}`)
           .toSorted();
+
         expect(attributeOptionsOf(modifiers(wire))).toEqual(expected);
       }),
     );

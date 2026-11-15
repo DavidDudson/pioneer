@@ -12,18 +12,22 @@ import { CarryState } from './item-carry';
  * every read and never stored, so it is not a Postgres column's size.
  */
 export const LightBulk = z.int().nonnegative().brand<'LightBulk'>();
+
 export type LightBulk = z.infer<typeof LightBulk>;
 
 /** Whole Bulk, fractions dropped: what the limits compare. */
 export const WholeBulk = z.int().nonnegative().brand<'WholeBulk'>();
+
 export type WholeBulk = z.infer<typeof WholeBulk>;
 
 /** A Bulk limit: 5 or 10 plus the Strength modifier, which is never below -5. */
 export const BulkLimit = z.int().nonnegative().brand<'BulkLimit'>();
+
 export type BulkLimit = z.infer<typeof BulkLimit>;
 
 /** How many of one item, or of coins, are counted together: more than one line or one coin holds. */
 const ItemTotal = z.int().nonnegative().brand<'ItemTotal'>();
+
 type ItemTotal = z.infer<typeof ItemTotal>;
 
 const LIGHT = LightBulk.parse(1);
@@ -36,6 +40,7 @@ const COINS_PER_BULK = ItemCount.parse(1000);
 
 /** The most whole Bulk a character carries before it is encumbered, less its Strength modifier. */
 const ENCUMBERED_AFTER = BulkLimit.parse(5);
+
 /** The most whole Bulk a character can carry, less its Strength modifier. */
 const MAXIMUM = BulkLimit.parse(10);
 
@@ -44,6 +49,7 @@ export function lightBulk(bulk: Bulk): LightBulk {
   if (bulk === BulkWeight.Negligible) {
     return NO_BULK;
   }
+
   return bulk === BulkWeight.Light ? LIGHT : LightBulk.parse(bulk * ONE_BULK);
 }
 
@@ -88,6 +94,7 @@ function contentsBulk(context: BulkContext, { item, entry }: Weighed): LightBulk
   const held = levelBulk(context, inside);
   const overfilled = container?.capacity !== undefined && wholeBulk(held) > container.capacity;
   const ignored = overfilled ? NO_BULK : (container?.ignored ?? 0) * ONE_BULK;
+
   return LightBulk.parse(Math.max(held - ignored, 0));
 }
 
@@ -96,18 +103,22 @@ function lineBulk(context: BulkContext, weighed: Weighed): LightBulk {
   const { item, entry } = weighed;
   const held = item.carry.state === CarryState.Worn ? undefined : containerOf(entry)?.heldBulk;
   const own = LightBulk.parse(item.quantity * lightBulk(held ?? entry.data.bulk));
+
   return sum([own, contentsBulk(context, weighed)]);
 }
 
 /** Lines of content sold in batches, added up by content before batches are counted, as Foundry pf2e stacks them. */
 function batchedBulk(batched: readonly Weighed[]): LightBulk {
   const byContent = Map.groupBy(batched, ({ item }): ContentId => item.item);
+
   return sum(
     [...byContent.values()].flatMap(([first, ...rest]) => {
       if (first === undefined) {
         return [];
       }
+
       const count = ItemTotal.parse([first, ...rest].reduce((total, { item }) => total + item.quantity, 0));
+
       return [batchBulk(lightBulk(first.entry.data.bulk), count, first.entry.data.bulkPer ?? ONE)];
     }),
   );
@@ -126,29 +137,36 @@ function isBatched({ entry }: Weighed): boolean {
 function levelBulk(context: BulkContext, items: readonly InventoryItem[]): LightBulk {
   const weighed = items.flatMap((item): Weighed[] => {
     const entry = context.content.get(item.item);
+
     return entry === undefined ? [] : [{ item, entry }];
   });
+
   const unknown = items
     .filter((item) => !context.content.has(item.item))
     .map((item) => levelBulk(context, context.contents.get(item.id) ?? []));
+
   const single = weighed.filter((each) => !isBatched(each)).map((each) => lineBulk(context, each));
+
   return sum([...single, ...unknown, batchedBulk(weighed.filter((each) => isBatched(each)))]);
 }
 
 /** Coins weigh 1 Bulk a thousand, of every kind together; fewer weigh nothing. */
 export function coinBulk(coins: Coins): LightBulk {
   const count = ItemTotal.parse(coins[Coin.Platinum] + coins[Coin.Gold] + coins[Coin.Silver] + coins[Coin.Copper]);
+
   return batchBulk(ONE_BULK, count, COINS_PER_BULK);
 }
 
 /** What each container holds, by the container's id. */
 function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, readonly InventoryItem[]> {
   const contents = new Map<InventoryItemId, InventoryItem[]>();
+
   for (const each of items) {
     if (each.container !== undefined) {
       contents.set(each.container, [...(contents.get(each.container) ?? []), each]);
     }
   }
+
   return contents;
 }
 
@@ -158,9 +176,11 @@ function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<Inven
  */
 export function carriedBulk(inventory: Inventory, content: ItemContent): LightBulk {
   const context = { content, contents: contentsByContainer(inventory.items) };
+
   const loose = inventory.items.filter(
     (each) => each.container === undefined && each.carry.state !== CarryState.Dropped,
   );
+
   return sum([levelBulk(context, loose), coinBulk(inventory.coins)]);
 }
 
@@ -170,6 +190,7 @@ export const Encumbrance = {
   Encumbered: 'encumbered',
   OverMaximum: 'overMaximum',
 } as const;
+
 export type Encumbrance = ValueOf<typeof Encumbrance>;
 
 /** The Bulk a character carries against its limits. */
@@ -190,6 +211,7 @@ function encumbranceOf(carried: WholeBulk, encumberedAfter: BulkLimit, maximum: 
   if (carried > maximum) {
     return Encumbrance.OverMaximum;
   }
+
   return carried > encumberedAfter ? Encumbrance.Encumbered : Encumbrance.Unencumbered;
 }
 
@@ -202,6 +224,7 @@ export function inventoryBulk(inventory: Inventory, content: ItemContent, streng
   const carried = carriedBulk(inventory, content);
   const encumberedAfter = limit(ENCUMBERED_AFTER, strength);
   const maximum = limit(MAXIMUM, strength);
+
   return {
     carried,
     encumberedAfter,
@@ -212,6 +235,7 @@ export function inventoryBulk(inventory: Inventory, content: ItemContent, streng
 
 /** A count of the lines a container holds directly. */
 export const HeldLines = z.int().nonnegative().brand<'HeldLines'>();
+
 export type HeldLines = z.infer<typeof HeldLines>;
 
 /**
@@ -219,14 +243,17 @@ export type HeldLines = z.infer<typeof HeldLines>;
  * does not (a backpack), or none of it does (a spacious pouch).
  */
 export const ContainerEffect = { AddsAll: 'adds-all', Ignores: 'ignores', AddsNone: 'adds-none' } as const;
+
 export type ContainerEffect = ValueOf<typeof ContainerEffect>;
 
 /** What `container` does to the Bulk it holds: it ignores nothing, some of its capacity, or all of it. */
 function effectOf(container: ItemContainer): ContainerEffect {
   const ignored = container.ignored ?? 0;
+
   if (ignored === 0) {
     return ContainerEffect.AddsAll;
   }
+
   return container.capacity !== undefined && ignored >= container.capacity
     ? ContainerEffect.AddsNone
     : ContainerEffect.Ignores;
@@ -253,10 +280,13 @@ export function containerLoad(
   const item = inventory.items.find((each) => each.id === id);
   const entry = item === undefined ? undefined : content.get(item.item);
   const container = entry === undefined ? undefined : containerOf(entry);
+
   if (item === undefined || entry === undefined || container === undefined) {
     return undefined;
   }
+
   const context = { content, contents: contentsByContainer(inventory.items) };
+
   return {
     held: contentsBulk(context, { item, entry }),
     capacity: container.capacity,

@@ -51,10 +51,13 @@ export class CampaignJoinPage {
         if (this.#inUrl) {
           await this.#router.navigate([], { relativeTo: this.#route, replaceUrl: true });
         }
+
         if (invite === undefined) {
           this.#pending.clear();
+
           return;
         }
+
         try {
           const campaign = await this.#store.join(invite);
           this.#pending.clear();
@@ -64,12 +67,14 @@ export class CampaignJoinPage {
           if (!ApiError.isUnauthorized(error)) {
             this.#pending.clear();
           }
+
           throw error;
         }
       },
     {
       describeError: (error): string => {
         const descriptor = ApiError.describe(error);
+
         return this.#i18n.translate(descriptor.key, descriptor.params);
       },
     },
@@ -77,9 +82,11 @@ export class CampaignJoinPage {
 
   public constructor() {
     const fragment = this.#route.snapshot.fragment ?? undefined;
+
     if (fragment !== undefined) {
       this.#pending.keep(fragment);
     }
+
     this.parsed = InviteToken.safeParse(fragment ?? this.#pending.read()).data;
     this.#inUrl = fragment !== undefined;
     afterNextRender(() => {

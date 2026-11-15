@@ -97,9 +97,11 @@ describe.skipIf(adminUrl === undefined)('character item acknowledgements over po
     await repository.revoke(amiri, kyra.id, { id: first.id, at: clock.now() });
     await repository.revoke(amiri, kyra.id, { id: first.id, at: clock.now() });
     expect(await repository.listForCharacter(kyra.id)).toStrictEqual([]);
+
     const kept = await database.db.execute(
       sql`select archived_at from character_item_acknowledgements where id = ${first.id}`,
     );
+
     expect(kept).toHaveLength(1);
 
     await repository.acknowledge(amiri, kyra.id, acknowledgement());
@@ -120,9 +122,11 @@ describe.skipIf(adminUrl === undefined)('character item acknowledgements over po
 
   test('the database refuses to delete an acknowledgement (ADR-0062)', async () => {
     await repository.acknowledge(amiri, kyra.id, acknowledgement());
+
     const error = await rejection(
       database.db.$client.unsafe(`delete from character_item_acknowledgements where character_id = '${kyra.id}'`),
     );
+
     expect(error).toBeInstanceOf(Error);
   });
 

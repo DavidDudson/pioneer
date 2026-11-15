@@ -18,9 +18,11 @@ export async function checkShape(
   if (!isShapeCommand(command)) {
     return;
   }
+
   const content = await registry();
   const reads = { items: itemContent(content), runes: runeContent(content) };
   const problem = shapeProblem(character.document.inventory, reads, command);
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(SHAPE_MESSAGES[problem]) }]);
   }

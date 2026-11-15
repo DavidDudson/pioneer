@@ -40,6 +40,7 @@ export const ConditionSlug = {
   Invisible: 'invisible',
   Observed: 'observed',
 } as const;
+
 export type ConditionSlug = ValueOf<typeof ConditionSlug>;
 
 /**

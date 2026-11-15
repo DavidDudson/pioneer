@@ -43,12 +43,14 @@ export class DrizzleSessionRepository extends SessionRepository {
 
   public override async findActive(tokenHash: TokenHash, now: Temporal.Instant): Promise<ActiveSession | undefined> {
     const unexpired = gt(sessions.expiresAt, now.toString());
+
     const [row] = await this.#db
       .select({ session: sessions, user: users })
       .from(sessions)
       .innerJoin(users, eq(users.id, sessions.userId))
       .where(and(eq(sessions.tokenHash, tokenHash), unexpired))
       .limit(1);
+
     return row === undefined ? undefined : { session: toSession(row.session), user: toUser(row.user) };
   }
 
@@ -61,11 +63,13 @@ export class DrizzleSessionRepository extends SessionRepository {
 
   public override async listForUser(userId: UserId, now: Temporal.Instant): Promise<Session[]> {
     const unexpired = gt(sessions.expiresAt, now.toString());
+
     const rows = await this.#db
       .select()
       .from(sessions)
       .where(and(eq(sessions.userId, userId), unexpired))
       .orderBy(desc(sessions.lastSeenAt), desc(sessions.id));
+
     return rows.map((row) => toSession(row));
   }
 
@@ -78,6 +82,7 @@ export class DrizzleSessionRepository extends SessionRepository {
       .delete(sessions)
       .where(and(eq(sessions.id, id), eq(sessions.userId, userId)))
       .returning({ id: sessions.id });
+
     return deleted.length > 0;
   }
 
@@ -90,6 +95,7 @@ export class DrizzleSessionRepository extends SessionRepository {
       .delete(sessions)
       .where(lte(sessions.expiresAt, now.toString()))
       .returning({ id: sessions.id });
+
     return deleted.length;
   }
 }

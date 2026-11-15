@@ -13,6 +13,7 @@ const meta: Meta<SpellAccessListView> = {
   title: 'Rules/Spell Access',
   component: SpellAccessListView,
 };
+
 export default meta;
 
 /** While the spells load. */

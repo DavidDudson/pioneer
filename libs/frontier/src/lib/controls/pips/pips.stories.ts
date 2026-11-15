@@ -19,6 +19,7 @@ const meta: Meta<Pips> = {
     template: `<fr-pips ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const OneOfThree: PipsStory = {};

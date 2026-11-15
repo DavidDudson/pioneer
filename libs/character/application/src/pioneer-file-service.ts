@@ -37,6 +37,7 @@ export interface PioneerFileDeps {
 function namerFor(content: ContentRegistry, file: PioneerCharacterFile): ReferenceNamer {
   const loaded = registryNamer(content);
   const carried = embeddedNamer(file.homebrew ?? []);
+
   return (id) => loaded(id) ?? carried(id);
 }
 
@@ -58,15 +59,19 @@ export class PioneerFileService {
    */
   public async export(actor: UserId, id: CharacterId): Promise<PioneerCharacterFile> {
     const character = await this.#deps.repository.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     const content = contentOfCharacter(this.#deps.content, character);
     const loaded = registryNamer(await content.registry());
     const firstTry = exportPioneerCharacter(character.document, loaded);
+
     const exported = firstTry.ok
       ? firstTry
       : exportPioneerCharacter(character.document, loaded, await this.#deps.homebrew.holding(actor, firstTry.unnamed));
+
     if (!exported.ok) {
       throw new ValidationError([
         {
@@ -75,6 +80,7 @@ export class PioneerFileService {
         },
       ]);
     }
+
     return exported.file;
   }
 
@@ -87,6 +93,7 @@ export class PioneerFileService {
     const { file, document } = readPioneerFile(raw, actor);
     const content = await this.#deps.content.registry();
     const plans = await this.#plans(actor, file);
+
     return {
       name: document.name,
       level: document.level,
@@ -106,16 +113,19 @@ export class PioneerFileService {
     await this.#deps.homebrew.apply(actor, await this.#plans(actor, file));
     const now = this.#deps.clock.now();
     const character = new Character({ document, version: FIRST_VERSION, createdAt: now, updatedAt: now });
+
     return this.#deps.repository.insert(character, { actor, command: CharacterCommand.ImportPioneer });
   }
 
   /** What importing `file`'s embedded homebrew does, given the packs this server has. */
   async #plans(actor: UserId, file: PioneerCharacterFile): Promise<HomebrewPackPlan[]> {
     const embedded = file.homebrew ?? [];
+
     const existing = await this.#deps.homebrew.existing(
       actor,
       embedded.map(({ pack }) => pack.id),
     );
+
     return planHomebrewImport(embedded, existing);
   }
 }

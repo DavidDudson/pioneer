@@ -33,6 +33,7 @@ export const playRoutes: Routes = [
         path: 'dice',
         loadComponent: loadWithMessages(async () => {
           const { DicePlaygroundPage } = await import('./dice/dice-playground-page/dice-playground-page.component');
+
           return DicePlaygroundPage;
         }),
       },
@@ -40,6 +41,7 @@ export const playRoutes: Routes = [
         path: 'rules',
         loadComponent: loadWithMessages(async () => {
           const { RulesPlaygroundPage } = await import('./rules/rules-playground-page/rules-playground-page.component');
+
           return RulesPlaygroundPage;
         }),
       },

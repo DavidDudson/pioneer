@@ -40,6 +40,7 @@ function originOf(
   value: string | null,
 ): Partial<Record<typeof slot, PartyCharacterOrigin>> {
   const parsed = PartyCharacterOrigin.safeParse(value);
+
   return parsed.success ? { [slot]: parsed.data } : {};
 }
 
@@ -78,6 +79,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
       .from(characters)
       .where(and(eq(characters.ownerId, userId), isNull(characters.archivedAt)))
       .orderBy(asc(characters.name), asc(characters.id));
+
     return rows.map((row) => toSummary(row));
   }
 
@@ -85,10 +87,12 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     if (ids.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select(SUMMARY)
       .from(characters)
       .where(inArray(characters.id, [...ids]));
+
     return new Map(rows.map((row) => [CharacterId.parse(row.id), toSummary(row)]));
   }
 
@@ -96,8 +100,10 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     if (this.#vitals === undefined) {
       return new Map();
     }
+
     const vitals = this.#vitals;
     const found = await this.#repository.findByIds(ids);
+
     const worked = await Promise.all(
       found.map(async (character): Promise<readonly [CharacterId, PartyVitals] | undefined> => {
         try {
@@ -108,6 +114,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
         }
       }),
     );
+
     return new Map(worked.filter((entry) => entry !== undefined));
   }
 }

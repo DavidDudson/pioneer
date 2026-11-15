@@ -31,11 +31,14 @@ async function render(
   TestBed.configureTestingModule({ providers: [providePlayUiI18nTesting()] });
   const fixture = TestBed.createComponent(RollCard);
   fixture.componentRef.setInput('roll', roll);
+
   if (inputs.dc !== undefined) {
     fixture.componentRef.setInput('dc', inputs.dc);
   }
+
   fixture.componentRef.setInput('dcEditable', inputs.dcEditable ?? false);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -47,6 +50,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -181,6 +185,7 @@ describe(RollCard, () => {
 
     const toggled = textOf(hostOf(await render(WITH_TOGGLES)));
     expect(toggled).toContain('Rolled with');
+
     for (const reason of TOGGLE_REASONS) {
       expect(toggled).toContain(reason);
     }

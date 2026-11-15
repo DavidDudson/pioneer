@@ -56,6 +56,7 @@ const meta: Meta<DeityPicker> = {
   args: { rows: DEITIES, ariaLabel: 'Deity', disabled: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** Opens straight to the table. A deity a cleric can't follow stays in it and says why. */

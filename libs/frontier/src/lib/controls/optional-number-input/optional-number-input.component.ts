@@ -45,10 +45,13 @@ export class OptionalNumberInput extends Control {
   protected onInput(raw: string): void {
     if (raw === '') {
       this.value.set(undefined);
+
       return;
     }
+
     const parsed = Number(raw);
     const fits = Number.isInteger(this.step()) ? Number.isInteger(parsed) : Number.isFinite(parsed);
+
     if (fits) {
       this.value.set(parsed);
     }

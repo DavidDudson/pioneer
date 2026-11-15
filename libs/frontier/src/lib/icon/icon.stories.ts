@@ -24,6 +24,7 @@ const meta: Meta<Icon> = {
     template: `<fr-icon [icon]="icon" ${argsToTemplate(args, { exclude: ['icon'] })} />`,
   }),
 };
+
 export default meta;
 
 export const Default: IconStory = {};

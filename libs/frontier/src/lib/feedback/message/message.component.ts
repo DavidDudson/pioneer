@@ -5,6 +5,7 @@ import { cva } from 'class-variance-authority';
 import { toneVariants } from '../../tokens';
 
 export const MessageTone = { Danger: 'danger', Warning: 'warning', Success: 'success', Info: 'info' } as const;
+
 export type MessageTone = ValueOf<typeof MessageTone>;
 
 const messageVariants = cva('text-caption', {

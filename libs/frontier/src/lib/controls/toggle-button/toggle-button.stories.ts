@@ -25,6 +25,7 @@ const meta: Meta<ToggleButtonStoryArgs> = {
     template: `<fr-toggle-button ${argsToTemplate(args)}>${label}</fr-toggle-button>`,
   }),
 };
+
 export default meta;
 
 export const Off: ToggleButtonStory = {};

@@ -13,6 +13,7 @@ import { ACTION_STAFF_CONTENT_KINDS } from '../sheet-actions';
 const PLAY_URL = `/api/characters/${id}/play`;
 const PACKS = [...cutTo(ACTION_STAFF_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 const POTIONS = '88888888-8888-4888-8888-888888888888';
+
 /** The sheet derives again after each edit, which takes longer than the default wait. */
 const SETTLE = 8000;
 
@@ -46,13 +47,16 @@ describe('CharacterSheetPage actions: a healing item', () => {
       play: PLAY,
       packs: PACKS,
     });
+
     await openActionKind(root, 'Items');
+
     const useButton = await vi.waitFor(() => {
       const row = present(
         [...actionsSection(root).querySelectorAll('pio-action-row')].find((candidate) =>
           textOf(candidate).includes('Healing-potion'),
         ),
       );
+
       return present([...row.querySelectorAll('button')].find((button) => textOf(button) === 'Use'));
     });
 

@@ -62,6 +62,7 @@ export class SheetHitPointControls {
   /** What the rule elements in play give besides the Hit Points above, as lines of text. */
   protected readonly granted = computed((): readonly string[] => {
     const vitals = this.#sheet.grantedVitals();
+
     return vitals === undefined ? [] : grantedLines(vitals).map((line) => this.#grantedText(line));
   });
 
@@ -78,6 +79,7 @@ export class SheetHitPointControls {
   /** The server's reason (no maximum yet, a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 
@@ -98,15 +100,19 @@ export class SheetHitPointControls {
       form: form === undefined ? undefined : this.#formName(form.entry),
       own: form === undefined ? undefined : this.#translated(form.own),
     });
+
     if (stoppedBy.length === 0) {
       return text;
     }
+
     const types = stoppedBy.map((type) => this.#translated(type)).join(', ');
+
     return `${text} ${this.#translated('character.sheet.hp.stoppedBy', { types })}`;
   }
   async #send(command: (amount: HitPoints) => PlayCommand): Promise<void> {
     const amount = HitPoints.parse(this.amount());
     this.busy.set(true);
+
     try {
       await this.#play.send(command(amount));
     } finally {

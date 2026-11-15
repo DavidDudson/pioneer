@@ -23,9 +23,11 @@ function ancestryVision(
   const ancestry = picked.success ? registry.ancestry(picked.data) : undefined;
   const sense = ancestry?.definition.vision;
   const entry = ancestry === undefined ? undefined : slots.lookup.entry(ContentId.parse(ancestry.id));
+
   if (ancestry === undefined || sense === undefined || entry === undefined) {
     return undefined;
   }
+
   return { sense, origin: Origin.parse({ hops: [], entry: ContentId.parse(ancestry.id), sources: entry.sources }) };
 }
 
@@ -37,9 +39,12 @@ export function characterSenses(document: CharacterDocument, sources: StatisticS
   const inputs = rulesInPlay(document, sources);
   const vision = ancestryVision(sources, document);
   const senses = sensesInPlay(inputs, vision);
+
   if (battleFormInPlay(inputs)?.form.senses === undefined) {
     return { senses, own: [] };
   }
+
   const rules = inputs.rules.filter(({ element }) => element.key !== RuleElementKey.BattleForm);
+
   return { senses, own: sensesInPlay({ ...inputs, rules }, vision) };
 }

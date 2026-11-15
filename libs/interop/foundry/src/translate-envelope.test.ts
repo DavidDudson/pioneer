@@ -24,6 +24,7 @@ import type { EnvelopeContext, EnvelopeTranslation } from './translate-envelope'
 const playerCore = BookId.parse('player-core');
 const pack = PackId.parse('player-core');
 const feats: FoundryPack = { name: 'feats-srd', directory: 'feats' };
+
 const context: EnvelopeContext = {
   pack,
   traits: new Set(['general', 'skill'].map((trait) => Trait.parse(trait))),
@@ -39,6 +40,7 @@ function selected(system: object, name = 'Toughness', documentId = 'AmP0qu7c5dlB
     type: 'feat',
     system: { publication: remaster, ...system },
   });
+
   return {
     pack: feats,
     path: `packs/pf2e/feats/${documentId}.json`,
@@ -112,6 +114,7 @@ describe('translateEnvelopes: address', () => {
 
 function ofType(name: string, type: FoundryItemType, directory: string): SelectedEntry {
   const document = FoundryDocument.parse({ _id: `${directory}Id`, name, type, system: { publication: remaster } });
+
   return {
     pack: { name: `${directory}-srd`, directory },
     path: `packs/pf2e/${directory}/fly.json`,
@@ -263,6 +266,7 @@ describe('translateEnvelopes: rule elements', () => {
 describe('translationReport', () => {
   test('counts envelopes, failures, rule element keys, traits, markup and lang keys, most frequent first', () => {
     const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1, removeAfterRoll: true };
+
     const translation = translateEnvelopes(
       [
         selected(

@@ -79,6 +79,7 @@ describe('translateKindData: spells', () => {
       area: { type: 'hexagon', value: 5, details: 'hexes with plants' },
       overlays: { a1: { overlayType: 'override', system: { traits: { value: ['concentrate'] } } } },
     });
+
     const result = translate([odd]);
 
     expect(dataIn(result, 'odd')).toEqual({
@@ -102,16 +103,19 @@ describe('translateKindData: spells', () => {
       time: { value: '3' },
       area: { type: 'burst', value: 20, details: 'all squares in a 20-foot-radius burst that contain plants' },
     });
+
     const storm = spell('sToRm00000000001', 'Storm', {
       level: { value: 4 },
       time: { value: '2' },
       area: { type: 'burst', value: 20, details: '20-foot-radius burst' },
     });
+
     const flame = spell('fLaMe00000000001', 'Flame', {
       level: { value: 2 },
       time: { value: '2' },
       area: { type: 'square', value: 5, details: '' },
     });
+
     const result = translate([flora, storm, flame]);
     const narrowed = 'all squares in a 20-foot-radius burst that contain plants';
 
@@ -161,6 +165,7 @@ describe('translateKindData: spells', () => {
       time: { value: '2' },
       defense: { passive: { statistic: 'ac' }, save: FOUNDRY_NULL },
     });
+
     const dc = spell('dC00000000000001', 'Dc', {
       level: { value: 1 },
       time: { value: '2' },
@@ -178,6 +183,7 @@ describe('translateKindData: spells', () => {
       requirements: 'You have a free hand.',
       cost: { value: 'a @UUID[Compendium.pf2e.equipment-srd.Item.Diamond]' },
     });
+
     const result = translate([costly]);
 
     expect(dataIn(result, 'costly')).toMatchObject({

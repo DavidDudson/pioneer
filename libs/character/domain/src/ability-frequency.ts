@@ -18,27 +18,34 @@ function frequencyOf(entry: ContentEntry): Frequency | undefined {
   if (entry.kind === ContentKind.Action) {
     return entry.data.frequency;
   }
+
   if (entry.kind === ContentKind.Feat || entry.kind === ContentKind.ClassFeature) {
     return entry.data.action?.frequency;
   }
+
   return undefined;
 }
 
 /** The frequency of each feat, class feature and action in the registry that has one; read once per registry. */
 export function abilityFrequencies(registry: ContentRegistry): ReadonlyMap<ContentId, Frequency> {
   const existing = READ.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
       .flatMap((entry): [ContentId, Frequency][] => {
         const frequency = frequencyOf(entry);
+
         return frequency === undefined ? [] : [[entry.id, frequency]];
       }),
   );
+
   READ.set(registry, read);
+
   return read;
 }
 
@@ -54,24 +61,30 @@ function activationsOf(entry: ContentEntry): readonly Activation[] {
     entry.kind === ContentKind.Rune ||
     entry.kind === ContentKind.Shield ||
     entry.kind === ContentKind.Weapon;
+
   return physical ? (entry.data.activations ?? []) : [];
 }
 
 /** The activations with a frequency of each item in the registry that has any; read once per registry. */
 export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentId, readonly Activation[]> {
   const existing = ACTIVATIONS_READ.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
       .flatMap((entry): [ContentId, readonly Activation[]][] => {
         const activations = activationsOf(entry);
+
         return activations.length === 0 ? [] : [[entry.id, activations]];
       }),
   );
+
   ACTIVATIONS_READ.set(registry, read);
+
   return read;
 }
 
@@ -86,6 +99,7 @@ export function itemActivationsOf(registry: ContentRegistry): ActivationsOf {
   const own = itemActivations(registry);
   const entries = itemContent(registry);
   const read = readerOf(runeContent(registry));
+
   return (item) => [
     ...(own.get(item.item) ?? []),
     ...workingPropertyRunes(item, entries.get(item.item), read).flatMap((rune) => own.get(rune) ?? []),

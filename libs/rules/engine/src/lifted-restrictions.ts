@@ -21,11 +21,13 @@ export interface LiftedRestriction {
  */
 export function liftedRestrictions({ rules, facts }: ModifierInputs): readonly LiftedRestriction[] {
   const lifted: LiftedRestriction[] = [];
+
   for (const { element, origin } of rules) {
     if (element.key === RuleElementKey.LiftRestriction && truthOf(element.predicate, facts) === Truth.True) {
       const { restriction, environment } = element;
       const index = lifted.findIndex((held) => held.restriction === restriction && held.environment === environment);
       const held = lifted[index];
+
       if (held === undefined) {
         lifted.push({ restriction, ...(environment === undefined ? {} : { environment }), origins: [origin] });
       } else {
@@ -33,5 +35,6 @@ export function liftedRestrictions({ rules, facts }: ModifierInputs): readonly L
       }
     }
   }
+
   return lifted;
 }

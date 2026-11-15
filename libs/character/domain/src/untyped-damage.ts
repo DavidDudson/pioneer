@@ -6,6 +6,7 @@ import type { HitPoints } from '@pioneer/rules/sdk';
 export function untypedDamage(amount: HitPoints, critical = false): DamageApplication {
   const total = DamageTotal.parse(amount);
   const none = DamageTotal.parse(0);
+
   return {
     critical,
     immediate: [{ rolled: total, dealt: total, taken: total, lines: [] }],

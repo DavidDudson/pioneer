@@ -42,6 +42,7 @@ const meta: Meta<AncestryPicker> = {
   args: { rows: ANCESTRIES, ariaLabel: 'Ancestry', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** Opens straight to the table. An ancestry the character can't take stays in it and says why. */

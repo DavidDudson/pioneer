@@ -48,6 +48,7 @@ export class SpellFields {
   /** The ways of casting the caster picks from; one for most spells. */
   protected readonly costOptions = computed((): readonly SingleSpellCostLine[] => {
     const { cost } = this.fields();
+
     return cost.kind === 'either' ? cost.options : [cost];
   });
   protected readonly rows = computed((): readonly FieldRow[] => rowsOf(this.fields()));

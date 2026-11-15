@@ -18,5 +18,6 @@ export function isHeldBack(
   state: LookupState,
 ): boolean {
   const legacy = isLegacyLicense(effectiveLicense(entry, pack.manifest));
+
   return state.unsupported.has(contentPackId(pack.id)) || (legacy && !state.legacyContent);
 }

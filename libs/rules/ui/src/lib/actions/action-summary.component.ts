@@ -42,11 +42,13 @@ export class ActionSummary {
   /** What an item action spends and has left as a plain badge, then its traits as chips that open their cards. */
   protected readonly badges = computed((): readonly Chip[] => {
     const { resource, line } = this.action();
+
     return [...(resource === undefined ? [] : [{ label: resource }]), ...line.traits];
   });
   /** The trigger and the requirements, for those the action has. */
   protected readonly facts = computed((): readonly Fact[] => {
     const { trigger, requirements } = this.action().line;
+
     return [
       ...(trigger === undefined ? [] : [{ label: ActionsMessage.SummaryTrigger, text: trigger }]),
       ...(requirements === undefined ? [] : [{ label: ActionsMessage.SummaryRequirements, text: requirements }]),

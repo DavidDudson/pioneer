@@ -45,17 +45,21 @@ async function render(value: readonly FilterCondition[] = []): Promise<Rendered>
   fixture.componentRef.setInput('fields', FIELDS);
   fixture.componentRef.setInput('value', value);
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement, value: () => fixture.componentInstance.value() };
 }
 
 function button(host: HTMLElement, name: string | RegExp): HTMLButtonElement {
   const found = [...host.querySelectorAll<HTMLButtonElement>('button')].find((candidate) => {
     const text = (candidate.getAttribute('aria-label') ?? candidate.textContent).trim();
+
     return typeof name === 'string' ? text === name : name.test(text);
   });
+
   if (found === undefined) {
     throw new Error(`Expected a button named ${String(name)}`);
   }
+
   return found;
 }
 
@@ -66,9 +70,11 @@ async function press(rendered: Rendered, name: string | RegExp): Promise<void> {
 
 async function type(rendered: Rendered, label: string, text: string): Promise<void> {
   const input = rendered.host.querySelector<HTMLInputElement>(`input[aria-label="${label}"]`);
+
   if (input === null) {
     throw new Error(`Expected a ${label} box`);
   }
+
   input.value = text;
   input.dispatchEvent(new Event('input'));
   await rendered.fixture.whenStable();

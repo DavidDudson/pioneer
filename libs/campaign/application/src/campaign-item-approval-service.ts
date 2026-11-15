@@ -54,9 +54,11 @@ export class CampaignItemApprovalService {
     const campaign = await this.#managed(actor, id);
     const items = await this.#flagged.of(id);
     const flagged = items.find((each) => sameLine(each, target));
+
     if (flagged === undefined) {
       throw new NotFoundError('FlaggedItem', target.item);
     }
+
     await this.#approvals.approve(actor, id, {
       id: CampaignItemApprovalId.parse(newId()),
       character: flagged.character,
@@ -67,6 +69,7 @@ export class CampaignItemApprovalService {
       approvedBy: actor,
       approvedAt: this.#clock.now(),
     });
+
     return this.#view(actor, campaign);
   }
 
@@ -74,24 +77,29 @@ export class CampaignItemApprovalService {
   public async revoke(actor: UserId, id: CampaignId, approval: CampaignItemApprovalId): Promise<CampaignItemReview> {
     const campaign = await this.#managed(actor, id);
     await this.#approvals.revoke(actor, id, { id: approval, at: this.#clock.now() });
+
     return this.#view(actor, campaign);
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
   /** A campaign the actor runs. One they only play in is a 403. */
   async #managed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#viewed(actor, id);
+
     if (!mayManageItemApprovals(actor, campaign)) {
       throw new ForbiddenError(`Only the GM approves the rule-breaking items of campaign ${id}`);
     }
+
     return campaign;
   }
 
@@ -100,17 +108,22 @@ export class CampaignItemApprovalService {
       this.#flagged.of(campaign.id),
       this.#approvals.listForCampaign(campaign.id),
     ]);
+
     const approvedItems: ApprovedItem[] = [];
     const open: FlaggedItem[] = [];
+
     for (const item of flagged) {
       const covering = approvals.find((approval) => approves(approval, item));
+
       if (covering === undefined) {
         open.push(item);
       } else {
         approvedItems.push({ ...item, approval: covering.id, approvedCount: covering.value });
       }
     }
+
     const manageable = mayManageItemApprovals(actor, campaign);
+
     return { manageable, needsReview: manageable ? open : [], approved: approvedItems };
   }
 }

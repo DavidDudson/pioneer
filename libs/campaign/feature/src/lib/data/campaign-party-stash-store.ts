@@ -25,12 +25,14 @@ export class CampaignPartyStashStore {
   /** The open campaign's stash, with the viewer's own characters that may take from it. */
   public readonly stash = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: partyStashKey(id),
       queryFn: async (): Promise<PartyStash> => {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
+
         return this.#api.call(CampaignContract.partyStash, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -46,9 +48,11 @@ export class CampaignPartyStashStore {
 
   #openId(): CampaignId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No campaign selected');
     }
+
     return id;
   }
 }

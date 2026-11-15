@@ -82,21 +82,27 @@ export async function pendingTransferViews(
 ): Promise<PendingTransfers> {
   const named = await characters.byIds(pending.flatMap(({ from, to }) => [from, to]));
   const involved = pending.filter(({ from, to }) => ownsLive(actor, named.get(from)) || ownsLive(actor, named.get(to)));
+
   const views = await Promise.all(
     involved.map(async (transfer): Promise<PendingTransferView | undefined> => {
       const giver = named.get(transfer.from);
       const recipient = named.get(transfer.to);
+
       if (giver === undefined || recipient === undefined) {
         return undefined;
       }
+
       if (isCoinTransfer(transfer)) {
         return coinView(actor, transfer, { giver, recipient });
       }
+
       const line = await lines.describe(transfer.from, transfer.item);
+
       return line === undefined
         ? undefined
         : itemView(actor, transfer, { giver, recipient, itemName: line.name, contents: line.contents });
     }),
   );
+
   return views.filter((view) => view !== undefined);
 }

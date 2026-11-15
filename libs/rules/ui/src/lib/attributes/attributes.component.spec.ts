@@ -17,6 +17,7 @@ async function render(
   fixture.componentRef.setInput('modifiers', modifiers);
   fixture.componentRef.setInput('open', open);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

@@ -8,6 +8,7 @@ import type { StoredContentBundles } from './stored-content-bundles';
  * with its `ETag`, so an unchanged manifest costs a 304, not 585 KB; it may show the old one for a minute while it asks.
  */
 export const MANIFEST_CACHE_CONTROL = 'public, max-age=10, stale-while-revalidate=60';
+
 /** A bundle's name changes with its contents, so a fetched bundle never needs asking for again. */
 export const BUNDLE_CACHE_CONTROL = 'public, max-age=31536000, immutable';
 
@@ -18,6 +19,7 @@ function matches(header: string | null, etag: string): boolean {
   if (header === null) {
     return false;
   }
+
   return header
     .split(',')
     .map((candidate) => candidate.trim().replace(/^W\//u, ''))
@@ -34,26 +36,32 @@ export function contentRoutes(bundles: StoredContentBundles): ContractRouter['ap
     if (request.method !== 'GET' || !new URL(request.url).pathname.endsWith(ContentContract.manifest.path)) {
       return undefined;
     }
+
     const etag = await bundles.manifestEtag();
+
     if (!matches(request.headers.get('if-none-match'), etag)) {
       return undefined;
     }
+
     return new Response(undefined, {
       status: NOT_MODIFIED,
       headers: { etag, 'cache-control': MANIFEST_CACHE_CONTROL },
     });
   });
+
   return router
     .handle(ContentContract.manifest, async ({ responseHeaders }) => {
       const [manifest, etag] = await Promise.all([bundles.manifest(), bundles.manifestEtag()]);
       responseHeaders['cache-control'] = MANIFEST_CACHE_CONTROL;
       responseHeaders.etag = etag;
+
       return manifest;
     })
     .handle(ContentContract.bundle, async ({ params, responseHeaders }) => {
       const body = await bundles.bundle(params.pack, params.file);
       responseHeaders['cache-control'] = BUNDLE_CACHE_CONTROL;
       responseHeaders.etag = bundleEtag(params.file);
+
       return body;
     }).app;
 }

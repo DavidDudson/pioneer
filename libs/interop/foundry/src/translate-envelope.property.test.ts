@@ -32,6 +32,7 @@ function selected({ slug, documentId, level }: Case): SelectedEntry {
     type: 'feat',
     system: { slug, level: { value: level } },
   });
+
   return {
     pack: { name: 'feats-srd', directory: 'feats' },
     path: `packs/pf2e/feats/${documentId}.json`,

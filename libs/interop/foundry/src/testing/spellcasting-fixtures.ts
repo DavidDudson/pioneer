@@ -72,42 +72,49 @@ export const WIZARD_SPELLCASTING = classFeature({
   level: 1,
   traits: ['wizard'],
 });
+
 export const CLERIC_SPELLCASTING = classFeature({
   id: 'sPeLlCaStInG0002',
   name: 'Cleric Spellcasting',
   level: 1,
   traits: ['cleric'],
 });
+
 export const THE_RESENTMENT = classFeature({
   id: 'sPeLlCaStInG0004',
   name: 'The Resentment',
   level: 1,
   traits: ['witch'],
 });
+
 export const WIZARD_DEDICATION = archetypeFeat({
   id: 'sPeLlCaStInG0005',
   name: 'Wizard Dedication',
   level: 2,
   traits: DEDICATION,
 });
+
 export const EXPERT_WIZARD_SPELLCASTING = archetypeFeat({
   id: 'sPeLlCaStInG0006',
   name: 'Expert Wizard Spellcasting',
   level: 12,
   traits: [],
 });
+
 export const WITCH_DEDICATION = archetypeFeat({
   id: 'sPeLlCaStInG0007',
   name: 'Witch Dedication',
   level: 2,
   traits: DEDICATION,
 });
+
 export const FIGHTER_FEATURE = classFeature({
   id: 'sPeLlCaStInG0008',
   name: 'Reactive Strike',
   level: 1,
   traits: ['fighter'],
 });
+
 /** Its font `ChoiceSet`, as pf2e-8.6.0 has it: each font offered while the deity's font is it. */
 const FOUNDRY_FONT_CHOICE = {
   key: 'ChoiceSet',
@@ -128,36 +135,42 @@ const FOUNDRY_FONT_CHOICE = {
 export const DIVINE_FONT = classFeature({ id: 'sPeLlCaStInG0009', name: 'Divine Font', level: 1, traits: ['cleric'] }, [
   FOUNDRY_FONT_CHOICE,
 ]);
+
 export const SCHOOL_OF_BATTLE_MAGIC = classFeature({
   id: 'sPeLlCaStInG0010',
   name: 'School of Battle Magic',
   level: 1,
   traits: ['wizard'],
 });
+
 export const SCHOOL_OF_UNIFIED_MAGICAL_THEORY = classFeature({
   id: 'sPeLlCaStInG0011',
   name: 'School of Unified Magical Theory',
   level: 1,
   traits: ['wizard'],
 });
+
 export const BASIC_WIZARD_SPELLCASTING = archetypeFeat({
   id: 'sPeLlCaStInG0012',
   name: 'Basic Wizard Spellcasting',
   level: 4,
   traits: [],
 });
+
 export const MASTER_WIZARD_SPELLCASTING = archetypeFeat({
   id: 'sPeLlCaStInG0013',
   name: 'Master Wizard Spellcasting',
   level: 18,
   traits: [],
 });
+
 export const WITCH_SPELLCASTING = classFeature({
   id: 'sPeLlCaStInG0014',
   name: 'Witch Spellcasting',
   level: 1,
   traits: ['witch'],
 });
+
 export const SIGNATURE_SPELLS = classFeature({
   id: 'sPeLlCaStInG0015',
   name: 'Signature Spells',
@@ -225,70 +238,85 @@ export const SORCERER_SPELLCASTING = classFeature({
   level: 1,
   traits: ['sorcerer'],
 });
+
 export const ORACLE_SPELLCASTING = classFeature({
   id: 'sPeLlCaStInG0021',
   name: 'Oracle Spellcasting',
   level: 1,
   traits: ['oracle'],
 });
+
 export const BLOODLINE_DEMONIC = classFeature({
   id: 'sPeLlCaStInG0022',
   name: 'Bloodline: Demonic',
   level: 1,
   traits: ['sorcerer'],
 });
+
 export const BLOODLINE_DRACONIC = classFeature({
   id: 'sPeLlCaStInG0023',
   name: 'Bloodline: Draconic',
   level: 1,
   traits: ['sorcerer'],
 });
+
 export const BLOODLINE_ELEMENTAL = classFeature({
   id: 'sPeLlCaStInG0024',
   name: 'Bloodline: Elemental',
   level: 1,
   traits: ['sorcerer'],
 });
+
 export const MYSTERY_FLAMES = classFeature({
   id: 'sPeLlCaStInG0025',
   name: 'Flames',
   level: 1,
   traits: ['oracle'],
 });
+
 export const ORDER_EXPLORER = classFeat({
   id: 'sPeLlCaStInG0040',
   name: 'Order Explorer',
   level: 2,
   traits: ['druid'],
 });
+
 export const ORDER_MAGIC = classFeat({ id: 'sPeLlCaStInG0041', name: 'Order Magic', level: 4, traits: ['druid'] });
+
 export const DRUID_DEDICATION = archetypeFeat({
   id: 'sPeLlCaStInG0042',
   name: 'Druid Dedication',
   level: 2,
   traits: DEDICATION,
 });
+
 export const ORDER_SPELL = archetypeFeat({ id: 'sPeLlCaStInG0043', name: 'Order Spell', level: 4, traits: [] });
+
 export const ARCANE_SCHOOL_SPELL = archetypeFeat({
   id: 'sPeLlCaStInG0044',
   name: 'Arcane School Spell',
   level: 4,
   traits: [],
 });
+
 export const COUNTER_PERFORM = archetypeFeat({ id: 'sPeLlCaStInG0045', name: 'Counter Perform', level: 6, traits: [] });
+
 export const DEVOTION_SPELLS = classFeature({
   id: 'sPeLlCaStInG0046',
   name: 'Devotion Spells',
   level: 1,
   traits: ['champion'],
 });
+
 export const DEVOUT_MAGIC = archetypeFeat({ id: 'sPeLlCaStInG0047', name: 'Devout Magic', level: 4, traits: [] });
+
 export const BLESSED_ONE_DEDICATION = archetypeFeat({
   id: 'sPeLlCaStInG0048',
   name: 'Blessed One Dedication',
   level: 2,
   traits: DEDICATION,
 });
+
 export const BLESSED_SACRIFICE = archetypeFeat({
   id: 'sPeLlCaStInG0049',
   name: 'Blessed Sacrifice',

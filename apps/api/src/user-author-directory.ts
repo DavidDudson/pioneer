@@ -23,6 +23,7 @@ export class UserAuthorDirectory extends AuthorDirectory {
       .from(users)
       .where(eq(users.id, userId))
       .limit(1);
+
     return row === undefined ? undefined : ContentText.parse(row.displayName);
   }
 }

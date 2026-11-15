@@ -47,6 +47,7 @@ export class AttributeRolls {
   protected readonly Check = StatisticKind.Check;
   protected readonly rows = computed((): readonly AttributeRow[] => {
     const statistics = this.statistics();
+
     return this.attributes().map((attribute) => ({
       attribute,
       name: ATTRIBUTE_MESSAGES[attribute],

@@ -7,11 +7,13 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/p
 /** Valeros with a +1 longsword that has an animated rune, set free when `released`. */
 function animated(released: boolean): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
+
   const etched = {
     ...sword,
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Animated) }] },
     ...(released ? { state: { released: true } } : {}),
   };
+
   return {
     ...VALEROS,
     inventory: {

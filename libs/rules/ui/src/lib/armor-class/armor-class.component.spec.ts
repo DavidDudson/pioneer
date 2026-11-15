@@ -15,6 +15,7 @@ async function render(vital: Vital | undefined): Promise<HTMLElement> {
   fixture.componentRef.setInput('vital', vital);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -22,6 +23,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected the block to render the element');
   }
+
   return value;
 }
 
@@ -69,6 +71,7 @@ describe(ArmorClass, () => {
       statistic: { name: 'Armor Class', kind: StatisticKind.Dc, result: PINNED_AC },
       rank: Proficiency.Trained,
     };
+
     const host = await render(vital);
     expect(textOf(host)).toContain('22Pinnedcomputed 20');
   });
@@ -78,6 +81,7 @@ describe(ArmorClass, () => {
       statistic: { name: 'Armor Class', kind: StatisticKind.Dc, result: ADJUSTED_WILL },
       rank: Proficiency.Trained,
     };
+
     const host = await render(vital);
     expect(textOf(host)).toContain('Adjusted by hand');
   });

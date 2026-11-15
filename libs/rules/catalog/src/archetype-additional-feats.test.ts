@@ -11,7 +11,9 @@ import { contentCatalog } from './index';
  */
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries: readonly ContentEntry[] = registry.packs.flatMap((pack) => pack.otherEntries);
 
 interface Listed {
@@ -59,9 +61,12 @@ function additionalFeatsOf({ archetype, pack }: Listed): readonly Offered[] {
   const found = entries.find(
     (entry) => entry.kind === ContentKind.Archetype && entry.name === archetype && String(entry.pack) === pack,
   );
+
   const additional = found?.kind === ContentKind.Archetype ? (found.data.additionalFeats ?? []) : [];
+
   return additional.map(({ feat, level }) => {
     const entry = entries.find(({ id }) => id === feat);
+
     return { name: entry?.name, level, kind: entry?.kind };
   });
 }

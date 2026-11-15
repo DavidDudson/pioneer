@@ -38,6 +38,7 @@ const PF2E_MATH = {
   lte: (left: number, right: number): boolean => left <= right,
   ternary: (condition: unknown, ifTrue: unknown, ifFalse: unknown): unknown => {
     const holds = Boolean(condition);
+
     return holds ? ifTrue : ifFalse;
   },
 } as const;
@@ -52,19 +53,24 @@ function javascript(node: FormulaNode, values: Bindings): string {
     case NodeKind.Number: {
       return String(node.value);
     }
+
     case NodeKind.Reference: {
       return `(${String(values.get(node.path))})`;
     }
+
     case NodeKind.Negate: {
       return `(-${javascript(node.operand, values)})`;
     }
+
     case NodeKind.Binary: {
       // Through `Watch.op`, which does the same arithmetic and flags zero divisors and unsafe values.
       return `Watch.op("${node.operator}", ${javascript(node.left, values)}, ${javascript(node.right, values)})`;
     }
+
     case NodeKind.Call: {
       return `Math.${node.name}(${node.args.map((arg) => javascript(arg, values)).join(', ')})`;
     }
+
     default: {
       return unhandledNode(node);
     }
@@ -92,26 +98,32 @@ interface Watch {
 export function foundryOutcome(node: FormulaNode, values: Bindings): FoundryOutcome {
   let dividedByZero = false;
   let leftSafeRange = false;
+
   const watch: Watch = {
     op: (operator, leftOperand, rightOperand) => {
       const left = Number(leftOperand);
       const right = Number(rightOperand);
+
       const results: Readonly<Record<string, number>> = {
         '+': left + right,
         '-': left - right,
         '*': left * right,
         '/': left / right,
       };
+
       const result = results[operator] ?? Number.NaN;
       dividedByZero ||= operator === '/' && right === 0;
       leftSafeRange ||= Math.abs(result) > Number.MAX_SAFE_INTEGER;
+
       return result;
     },
   };
+
   // oxlint-disable-next-line typescript/no-implied-eval, no-new-func -- this models Foundry's own eval of the text; test only, and the text is printed from a tree
   const run = new Function('Math', 'Watch', `"use strict"; return (${javascript(node, values)});`);
   const result: unknown = Reflect.apply(run, undefined, [PF2E_MATH, watch]);
   const floored = Math.floor(Number(result));
   const value = FormulaValue.safeParse(floored === 0 ? 0 : floored);
+
   return { value: value.success ? value.data : undefined, dividedByZero, leftSafeRange };
 }

@@ -11,8 +11,11 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testin
 
 const deities = new ContentPackBuilder().withId('deities').withDeity('sarenrae', { font: ['heal'] });
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(deities.build());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A cleric of Sarenrae's grants, with `picks` made. */
@@ -20,9 +23,11 @@ function cleric(picks: readonly (readonly [string, string])[] = []): GrantResolu
   const builder = new CharacterBuilder()
     .picking('class', playerCoreClassId('cleric'))
     .picking('deity', deities.idOf(ContentKind.Deity, 'sarenrae'));
+
   for (const [slot, pick] of picks) {
     builder.picking(slot, pick);
   }
+
   return characterGrants(builder.build().document, content);
 }
 

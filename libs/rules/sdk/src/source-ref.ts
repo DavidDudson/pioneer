@@ -7,9 +7,11 @@ import { RulesMessage } from './messages';
 
 /** A published book's id in the book registry: `player-core`, `gm-core`. */
 export const BookId = Slug.brand<'BookId'>();
+
 export type BookId = z.infer<typeof BookId>;
 
 export const PageNumber = Pg.smallint().positive().brand<'PageNumber'>();
+
 export type PageNumber = z.infer<typeof PageNumber>;
 
 const URL_LENGTH_MAX = 2048;
@@ -23,16 +25,19 @@ export const AonUrl = z
   .max(URL_LENGTH_MAX)
   .refine((value) => AON_ENTRY.test(value), issueParams(message(RulesMessage.AonUrl)))
   .brand<'AonUrl'>();
+
 export type AonUrl = z.infer<typeof AonUrl>;
 
 export const WebUrl = z
   .url({ protocol: /^https?$/u })
   .max(URL_LENGTH_MAX)
   .brand<'WebUrl'>();
+
 export type WebUrl = z.infer<typeof WebUrl>;
 
 /** The title of a web source, as its author gave it (not translated). */
 export const SourceTitle = z.string().min(1).max(TITLE_LENGTH_MAX).brand<'SourceTitle'>();
+
 export type SourceTitle = z.infer<typeof SourceTitle>;
 
 export const SourceKind = {
@@ -40,6 +45,7 @@ export const SourceKind = {
   Web: 'web',
   Homebrew: 'homebrew',
 } as const;
+
 export type SourceKind = ValueOf<typeof SourceKind>;
 
 /**
@@ -71,4 +77,5 @@ const HomebrewSource = z.strictObject({
  * or a homebrew pack and its author.
  */
 export const SourceRef = z.discriminatedUnion('kind', [BookSource, WebSource, HomebrewSource]);
+
 export type SourceRef = z.infer<typeof SourceRef>;

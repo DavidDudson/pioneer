@@ -11,7 +11,9 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, playerCoreId } 
 import type { PlayerCoreClass } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const classes = classContent(registry);
 
@@ -29,6 +31,7 @@ function caster(name: PlayerCoreClass, level: number): CharacterBuilder {
 function subclassed(name: PlayerCoreClass, level: number, option: string): CharacterBuilder {
   const builder = caster(name, level);
   const slot = subclassSlot(characterGrants(builder.build().document, content), content.lookup, classes);
+
   return builder.picking(String(slot?.key), playerCoreId(ContentKind.ClassFeature, option));
 }
 
@@ -39,12 +42,14 @@ function written({ cantrips, ranks }: SpellSlots): string {
 
 function entryOf(builder: CharacterBuilder): SpellcastingInPlay | undefined {
   const [entry] = characterSpellcasting(characterGrants(builder.build().document, content));
+
   return entry;
 }
 
 /** The first entry's own slots as written. */
 function slotsOf(builder: CharacterBuilder): string | undefined {
   const entry = entryOf(builder);
+
   return entry === undefined ? undefined : written(entry.slots);
 }
 

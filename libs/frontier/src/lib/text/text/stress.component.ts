@@ -9,6 +9,7 @@ export const StressElement = {
   /** Strong importance, such as the degree of success that opens a result line. Bold. */
   Strong: 'strong',
 } as const;
+
 export type StressElement = ValueOf<typeof StressElement>;
 
 /** `fr-text`'s stress elements, styled by `fr-text`. Internal: features use `fr-text element="em|strong"`. */

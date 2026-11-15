@@ -22,10 +22,12 @@ export interface SelectOption<TValue extends string> {
 const listboxClasses = cva(
   'z-overlay mt-2xs max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
 )();
+
 const optionClasses = cva([
   'cursor-pointer px-sm py-sm text-body aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
   forcedOptionClasses,
 ])();
+
 const placeholderVariants = cva('', { variants: { empty: { true: 'text-fg-subtle', false: '' } } });
 const caretClasses = cva('text-fg-subtle')();
 
@@ -51,6 +53,7 @@ export class Select<TValue extends string> extends Control {
   protected readonly expanded = signal(false);
   protected readonly selected = computed<TValue[]>(() => {
     const value = this.value();
+
     return value === undefined || value === '' ? [] : [value];
   });
   /**
@@ -71,6 +74,7 @@ export class Select<TValue extends string> extends Control {
   protected choose(values: readonly TValue[]): void {
     const [value] = values;
     this.expanded.set(false);
+
     if (value !== undefined) {
       this.value.set(value);
       this.committed.emit();

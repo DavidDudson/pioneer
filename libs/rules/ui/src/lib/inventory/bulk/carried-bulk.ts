@@ -6,6 +6,7 @@ export const BulkStatus = {
   Encumbered: 'encumbered',
   OverMaximum: 'overMaximum',
 } as const;
+
 export type BulkStatus = ValueOf<typeof BulkStatus>;
 
 /** The Bulk a character carries against its limits, as the Bulk meter shows it. */

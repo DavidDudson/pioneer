@@ -84,6 +84,7 @@ const GRIEVOUS_EFFECTS: Readonly<Partial<Record<WeaponGroup, string>>> = {
 /** What a grievous rune adds to a weapon group's critical specialization, headed by the group's name, as a note's text; undefined for a group with none. */
 export function grievousSpecializationOf(group: WeaponGroup): RichText | undefined {
   const effect = GRIEVOUS_EFFECTS[group];
+
   return effect === undefined
     ? undefined
     : [
@@ -128,6 +129,8 @@ export function alternateSpecializationOf({ text = [], damageDice }: AlternateSp
             ],
           },
         ];
+
   const combined = [...text, ...damage];
+
   return combined.length === 0 ? undefined : combined;
 }

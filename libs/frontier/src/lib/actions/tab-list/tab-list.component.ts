@@ -6,6 +6,7 @@ import { RovingFocusItem } from '../../focus/roving-focus-item.directive';
 import { RovingFocus } from '../../focus/roving-focus.directive';
 
 const rowVariants = cva('flex gap-2xs overflow-x-auto border-b border-line-subtle p-2xs');
+
 // Touch-sized like a section tab, whose look it shares; the label never wraps, the row scrolls instead.
 const tabVariants = cva(
   'inline-flex h-touch items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link focus-visible:focus-ring pointer-fine:h-control-sm',

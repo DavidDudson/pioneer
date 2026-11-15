@@ -81,7 +81,9 @@ function grantedShield({
       ...(shards === undefined ? {} : { shards }),
     },
   };
+
   const typed = hardnessAgainst.length === 0 ? held : { ...held, hardnessAgainst };
+
   return hitPoints === undefined ? { ...typed, undamageable: true } : typed;
 }
 
@@ -101,16 +103,21 @@ export function heldShields(
 ): readonly HeldShield[] {
   const shields = itemsIn(inventory, content, equippedState).filter(({ entry }) => entry.kind === ContentKind.Shield);
   const inPlay = rules();
+
   const held = shields.flatMap(({ entry, item }): HeldShield[] => {
     if (entry.kind !== ContentKind.Shield) {
       return [];
     }
+
     const { numbers } = alteredItem(inPlay, entry);
+
     const altered: ShieldFigures = {
       hardness: Hardness.parse(numbers.get(NumericItemProperty.Hardness) ?? entry.data.hardness),
       hitPoints: HitPoints.parse(numbers.get(NumericItemProperty.HitPointsMax) ?? entry.data.hitPoints),
     };
+
     const { hardness, hitPoints } = reinforced(altered, itemRunes(item, entry).reinforcing);
+
     return [
       {
         entry: entry.id,
@@ -121,5 +128,6 @@ export function heldShields(
       },
     ];
   });
+
   return [...held, ...grantedShields(inPlay)];
 }

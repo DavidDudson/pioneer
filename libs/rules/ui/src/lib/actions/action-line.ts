@@ -28,6 +28,7 @@ export interface UsePayOption {
 
 /** What an item action spends: a stack, a staff's charges, or the uses of an activation. */
 export const ActionResourceKind = { Quantity: 'quantity', Charges: 'charges', Uses: 'uses' } as const;
+
 export type ActionResourceKind = (typeof ActionResourceKind)[keyof typeof ActionResourceKind];
 
 /** The resource an item action spends and what is left of it. */
@@ -47,6 +48,7 @@ export const ActionCategory = {
   Granted: 'granted',
   Basic: 'basic',
 } as const;
+
 export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
 
 /** One action on a character's list as the sheet shows it: what the engine decided, with the names it needs. */

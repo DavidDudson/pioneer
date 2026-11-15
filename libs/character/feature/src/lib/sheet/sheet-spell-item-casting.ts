@@ -77,10 +77,13 @@ export class SpellItemCasting {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const play = this.#play.play.data();
+
     if (registry === undefined || character === undefined) {
       return [];
     }
+
     const words: ItemWords = { translate: (key, params) => this.#i18n.translate(key, params) };
+
     return [
       ...wandRows(
         registry,
@@ -119,9 +122,11 @@ export class SpellItemCasting {
 
   async #confirm(item: InventoryItemId): Promise<void> {
     const check = this.#pending()[item];
+
     if (check === undefined) {
       return;
     }
+
     await this.#send(async () => this.#overcharge(overchargeCommand(item, check.roll)));
     this.#drop(item);
   }
@@ -150,9 +155,11 @@ export class SpellItemCasting {
 
   async #staff({ staff, spell, slot }: { staff: string; spell: string; slot: string | undefined }): Promise<void> {
     const registry = this.registry.data();
+
     if (registry === undefined) {
       return;
     }
+
     const request = staffSpendRequest(
       registry,
       {
@@ -162,6 +169,7 @@ export class SpellItemCasting {
       },
       SpendId.parse(newId()),
     );
+
     await this.#send(async () => this.#play.send({ field: PlayCommandField.SpendAction, ...request }));
   }
 
@@ -169,13 +177,17 @@ export class SpellItemCasting {
   async #scroll(key: string): Promise<void> {
     const registry = this.registry.data();
     const character = this.#characters.selected();
+
     if (registry === undefined || character === undefined) {
       return;
     }
+
     const scroll = scrollSources(registry, character).find((source) => source.key === key);
+
     if (scroll === undefined) {
       return;
     }
+
     const option = spellContent(registry).anySpell(scroll.spell);
     const range = option === undefined ? undefined : spellCost(option);
     const cost = spendCostOf(range?.cost ?? ActionCost.Free, undefined) ?? { kind: SpendKind.Free };
@@ -192,6 +204,7 @@ export class SpellItemCasting {
   async #send(edit: () => Promise<void>): Promise<void> {
     this.busy.set(true);
     this.error.set(undefined);
+
     try {
       await edit();
     } catch (error: unknown) {

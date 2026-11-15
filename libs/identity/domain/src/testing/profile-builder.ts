@@ -18,27 +18,32 @@ export class ProfileBuilder {
 
   public from(provider: OAuthProvider): this {
     this.#provider = provider;
+
     return this;
   }
 
   public withSubject(id: string): this {
     this.#subject = ProviderSubject.parse(id);
+
     return this;
   }
 
   public named(name: string): this {
     this.#displayName = DisplayName.parse(name);
+
     return this;
   }
 
   public withAvatar(url: string): this {
     this.#avatarUrl = AvatarUrl.parse(url);
+
     return this;
   }
 
   public withEmail(email: string, verified = true): this {
     this.#email = EmailAddress.parse(email);
     this.#emailVerified = verified;
+
     return this;
   }
 

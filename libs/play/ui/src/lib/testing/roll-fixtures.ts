@@ -40,9 +40,11 @@ interface Against {
 
 function expressionOf(text: string): DiceExpression {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(outcome.error.key);
   }
+
   return outcome.expression;
 }
 
@@ -51,29 +53,36 @@ function check(faces: readonly number[], sources: FortuneSources = NO_FORTUNE, a
   const expression = expressionOf('1d20+7');
   const roll = rollWithFortune(expression, sources, scriptedRandom(faces.map((face) => DieFace.parse(face))));
   const kept = roll.rolls.find((entry) => entry.kept);
+
   const degree =
     against === undefined || kept === undefined
       ? undefined
       : degreeOfSuccess(checkOutcome(kept.result), Dc.parse(against.dc), against.adjustments);
+
   return rollView(1, { expression, roll, degree, damage: undefined, check: against?.inText });
 }
 
 /** A d20 of 12 and +7: 19. */
 export const PLAIN_CHECK = check([MIDDLING]);
+
 /** The same against DC 15: a success. */
 export const SUCCESS = check([MIDDLING], NO_FORTUNE, { dc: EASY_DC });
 export const CRITICAL_SUCCESS = check([NATURAL_TWENTY], NO_FORTUNE, { dc: EASY_DC });
 export const FAILURE = check([MISSING], NO_FORTUNE, { dc: EASY_DC });
 export const CRITICAL_FAILURE = check([1], NO_FORTUNE, { dc: HARD_DC });
+
 /** Two d20s, 5 and 14; the 14 is kept. */
 export const FORTUNE_CHECK = check([LOW, HIGH], FORTUNE);
+
 /** Two d20s, 14 and 5; the 5 is kept. */
 export const MISFORTUNE_CHECK = check([HIGH, LOW], MISFORTUNE);
+
 /** Fortune and misfortune cancel: one d20. */
 export const CANCELLED_CHECK = check([MIDDLING], BOTH);
 
 /** The reasons a check is rolled with: a situation chosen for this roll, and a toggle the character keeps. */
 export const TOGGLE_REASONS = ["+1 circumstance when the target is undead (Hunter's cloak)", "Hunter's focus"];
+
 /** A d20 of 12 and +7 rolled with two toggles on. */
 export const WITH_TOGGLES: RollView = { ...PLAIN_CHECK, reasons: TOGGLE_REASONS };
 
@@ -103,7 +112,9 @@ function saveInText(statistic: Selector, rest: Partial<CheckNode>): Against {
 
 /** A Will save in text that spells out its failure: rolled and missed. */
 export const WORDED_FAILURE = check([MISSING], NO_FORTUNE, saveInText(WILL, { outcomes: { failure: FLEE } }));
+
 /** The same save in text with no words for the degree rolled. */
 export const UNWORDED_SUCCESS = check([MIDDLING], NO_FORTUNE, saveInText(WILL, { outcomes: { failure: FLEE } }));
+
 /** A basic Reflex save in text, missed: the rule's fixed result. */
 export const BASIC_SAVE_FAILURE = check([MISSING], NO_FORTUNE, saveInText(REFLEX, { basic: true }));

@@ -57,17 +57,21 @@ function gapsOf({ actor }: SelectedCreature): readonly string[] {
   const fields = fieldsOf(actor.system).filter(
     (field) => !MODELLED_FIELDS.has(field) && !MODELLED_FIELDS.has(field.split('.')[0] ?? ''),
   );
+
   const items = actor.items.map(({ type }) => type).filter((type) => !MODELLED_ITEMS.has(type));
+
   return [...new Set([...fields.map((field) => `system.${field}`), ...items.map((type) => `item:${type}`)])];
 }
 
 /** The fields (and item types) with no home in the stat block, each with how many of the creatures have it. */
 export function creatureFieldGaps(creatures: readonly SelectedCreature[]): ReadonlyMap<string, number> {
   const counts = new Map<string, number>();
+
   for (const creature of creatures) {
     for (const gap of gapsOf(creature)) {
       counts.set(gap, (counts.get(gap) ?? 0) + 1);
     }
   }
+
   return counts;
 }

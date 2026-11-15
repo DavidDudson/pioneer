@@ -8,6 +8,7 @@ import type { ContentSearchRepository } from './content-search-repository';
 
 /** Official content is public, so the edge Worker may share a result; short, so a re-seed reaches searches in a minute. */
 export const SEARCH_CACHE_CONTROL = 'public, max-age=60';
+
 /**
  * A search that names homebrew packs is answered for the user who sent it, whether or not they may read them, so only that
  * browser may keep the result, and only briefly: a shared copy would hand one user the answer worked out for another.
@@ -43,10 +44,12 @@ export function contentSearchRoutes(
       const named = query.packs.length > 0;
       const packs = named ? await homebrew.readable(actor, query.packs) : [];
       responseHeaders['cache-control'] = named ? HOMEBREW_SEARCH_CACHE_CONTROL : SEARCH_CACHE_CONTROL;
+
       if (!named) {
         // A renewed session cookie is for this user alone; a shared cache must never replay it.
         delete responseHeaders['set-cookie'];
       }
+
       return search.search({ ...query, packs });
     },
   ).app;

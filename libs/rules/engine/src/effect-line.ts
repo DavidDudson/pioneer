@@ -22,6 +22,7 @@ import type { RuleId } from './rule-in-play';
 
 /** Whether an effect is what an entry would do if taken, equipped, cast or gained, or what it is doing now. */
 export const EffectMode = { WouldApply: 'would-apply', Applying: 'applying' } as const;
+
 export type EffectMode = ValueOf<typeof EffectMode>;
 
 export const EffectChange = {
@@ -34,6 +35,7 @@ export const EffectChange = {
   Sense: 'sense',
   NotSummarised: 'not-summarised',
 } as const;
+
 export type EffectChange = ValueOf<typeof EffectChange>;
 
 export const EffectStatusKind = {
@@ -43,6 +45,7 @@ export const EffectStatusKind = {
   Inactive: 'inactive',
   Failed: 'failed',
 } as const;
+
 export type EffectStatusKind = ValueOf<typeof EffectStatusKind>;
 
 /**

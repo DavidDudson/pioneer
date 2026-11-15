@@ -24,6 +24,7 @@ const meta: Meta<BreakdownView> = {
   component: BreakdownView,
   args: { kind: StatisticKind.Dc, entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** Every line status: applied, conditional, suppressed by a better item bonus, inactive and failed. */

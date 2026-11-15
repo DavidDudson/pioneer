@@ -37,11 +37,13 @@ describe('battle form: speeds', () => {
 describe('battle form: senses and size', () => {
   const DARKVISION = ContentId.parse('67979b6a-4b24-5be5-b7ea-94783c497bcb');
   const SCENT = ContentId.parse('279973df-e7b9-5fa1-9bb6-1cfdc54b82b6');
+
   const SCOPE = {
     statistics: { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     character: FORM_INPUTS,
     size: Size.Medium,
   };
+
   const facts = FORM_FACTS;
 
   test('the form’s senses replace the character’s', () => {

@@ -22,11 +22,13 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const perception = statistic('perception', '10');
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 
 /** No predicate, three that depend on the situation, and one in a known namespace, so false with nothing set. */
 const KNOWN_FALSE = ['self:effect:rage'];
+
 const PREDICATES = [
   undefined,
   ['terrain:forest'],
@@ -49,6 +51,7 @@ const spec = record({
   predicate: constantFrom(...PREDICATES),
   chosen: boolean(),
 });
+
 const scenario = array(spec, { maxLength: MODIFIERS_MAX });
 
 function rulesOf(specs: readonly Spec[]): RuleInPlay[] {
@@ -66,9 +69,11 @@ function derived(rules: readonly RuleInPlay[], situation: ReadonlySet<RuleId>): 
     inputs,
     { rules, facts, situation },
   ).get(Selector.parse('perception'));
+
   if (result?.ok !== true) {
     throw new Error('Expected perception to derive');
   }
+
   return result;
 }
 
@@ -82,9 +87,11 @@ describe('the breakdown of a roll with any toggles chosen', () => {
       property(scenario, (specs) => {
         const rules = rulesOf(specs);
         const value = derived(rules, chosenIn(specs, rules));
+
         const applied = value.lines
           .filter(({ status }) => status.kind === LineStatusKind.Applied)
           .reduce((sum, { value: line }) => sum + (line ?? 0), 0);
+
         expect(Number(value.total)).toBe(Number(value.baseValue) + applied);
       }),
     );
@@ -95,9 +102,11 @@ describe('the breakdown of a roll with any toggles chosen', () => {
       property(scenario, (specs) => {
         const rules = rulesOf(specs);
         const value = derived(rules, chosenIn(specs, rules));
+
         const claimed = specs.map((each) =>
           each.chosen && each.predicate !== KNOWN_FALSE ? { ...each, predicate: undefined } : each,
         );
+
         const unconditional = derived(rulesOf(claimed), new Set());
         expect(Number(value.total)).toBe(Number(unconditional.total));
       }),
@@ -111,11 +120,14 @@ describe('the breakdown of a roll with any toggles chosen', () => {
         const baseline = derived(rules, new Set());
         const offered = new Set(rollSituation(baseline).conditional.map(({ modifier }) => modifier.id));
         const value = derived(rules, chosenIn(specs, rules));
+
         for (const { modifier, status } of baseline.lines) {
           const now = value.lines.find((line) => line.modifier.id === modifier.id)?.status.kind;
+
           if (status.kind === LineStatusKind.Conditional && !chosenIn(specs, rules).has(modifier.id)) {
             expect(now).toBe(LineStatusKind.Conditional);
           }
+
           if (offered.has(modifier.id)) {
             expect(status.kind).toBe(LineStatusKind.Conditional);
           }

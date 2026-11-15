@@ -10,6 +10,7 @@ import type { PgInsertValue, PgUpdateSetSource } from 'drizzle-orm/pg-core';
 import { oauthAccounts, users } from './identity.table';
 
 type UserRow = typeof users.$inferSelect;
+
 /** Valid both as an insert row and as an update's SET list. */
 type UserValues = PgInsertValue<typeof users> & PgUpdateSetSource<typeof users>;
 
@@ -60,6 +61,7 @@ export class DrizzleUserRepository extends UserRepository {
       .innerJoin(users, eq(users.id, oauthAccounts.userId))
       .where(and(eq(oauthAccounts.provider, provider), eq(oauthAccounts.subject, subject)))
       .limit(1);
+
     return row === undefined ? undefined : toUser(row.user);
   }
 
@@ -70,6 +72,7 @@ export class DrizzleUserRepository extends UserRepository {
       .where(and(eq(users.email, email), eq(users.emailVerified, true)))
       .orderBy(asc(users.createdAt), asc(users.id))
       .limit(1);
+
     return row === undefined ? undefined : toUser(row);
   }
 
@@ -80,13 +83,16 @@ export class DrizzleUserRepository extends UserRepository {
   ): Promise<User> {
     return this.#db.transaction(async (tx) => {
       const [row] = await tx.insert(users).values(toValues(user)).returning();
+
       if (row === undefined) {
         throw new Error(`Insert of user ${user.id} returned no row`);
       }
+
       const accountId = OAuthAccountId.parse(newId());
       await tx
         .insert(oauthAccounts)
         .values({ id: accountId, userId: user.id, provider, subject, createdAt: user.createdAt.toString() });
+
       return toUser(row);
     });
   }
@@ -102,14 +108,17 @@ export class DrizzleUserRepository extends UserRepository {
 
   public override async findById(id: UserId): Promise<User | undefined> {
     const [row] = await this.#db.select().from(users).where(eq(users.id, id)).limit(1);
+
     return row === undefined ? undefined : toUser(row);
   }
 
   public override async update(user: User): Promise<User> {
     const [row] = await this.#db.update(users).set(toValues(user)).where(eq(users.id, user.id)).returning();
+
     if (row === undefined) {
       throw new Error(`Update of user ${user.id} matched no row`);
     }
+
     return toUser(row);
   }
 }

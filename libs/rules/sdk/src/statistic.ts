@@ -14,6 +14,7 @@ import { Domain, Selector } from './selector';
 
 /** Id of a statistic content entry (UUIDv5 of `<pack>/<slug>`). */
 export const StatisticId = Uuid.brand<'StatisticId'>();
+
 export type StatisticId = z.infer<typeof StatisticId>;
 
 /**
@@ -21,7 +22,9 @@ export type StatisticId = z.infer<typeof StatisticId>;
  * that is neither (Hit Points, a Speed).
  */
 export const StatisticKind = { Check: 'check', Dc: 'dc', Value: 'value' } as const;
+
 export type StatisticKind = ValueOf<typeof StatisticKind>;
+
 export const StatisticKindSchema = z.enum(StatisticKind);
 
 /**
@@ -29,7 +32,9 @@ export const StatisticKindSchema = z.enum(StatisticKind);
  * and DC). A statistic without one is derived once for the character.
  */
 export const StatisticPer = { Weapon: 'weapon', Spellcasting: 'spellcasting' } as const;
+
 export type StatisticPer = ValueOf<typeof StatisticPer>;
+
 const StatisticPerSchema = z.enum(StatisticPer);
 
 /** The scopes a base formula may read: the character's, and the source's when it is derived per source. */
@@ -82,13 +87,16 @@ interface Scoped {
  */
 function checkScopes(context: z.core.ParsePayload<Scoped>): void {
   const { selector, base, keyAttribute, per } = context.value;
+
   for (const { error } of scopeProblems(FormulaText.parse(base), BASE_SCOPES[per ?? 'character'])) {
     context.issues.push({ code: 'custom', input: base, path: ['base'], ...issueParams(error) });
   }
+
   if (per !== undefined && keyAttribute !== undefined) {
     const { params } = issueParams(message(RulesMessage.StatisticPerKeyAttribute));
     context.issues.push({ code: 'custom', input: keyAttribute, path: ['keyAttribute'], params });
   }
+
   if (per !== undefined && selector.length > FAMILY_SELECTOR_MAX) {
     const { params } = issueParams(message(RulesMessage.StatisticPerSelectorLength, { maximum: FAMILY_SELECTOR_MAX }));
     context.issues.push({ code: 'custom', input: selector, path: ['selector'], params });
@@ -100,10 +108,12 @@ function checkScopes(context: z.core.ParsePayload<Scoped>): void {
  * packs define them (rules-engine.md, "Statistics are content").
  */
 export const StatisticDefinition = z.strictObject(statisticFields).check(checkScopes);
+
 export type StatisticDefinition = z.infer<typeof StatisticDefinition>;
 
 const { slug: _slug, name: _name, ...dataFields } = statisticFields;
 
 /** A statistic's `data` on the `ContentEntry` envelope: the definition less what the envelope carries. */
 export const StatisticData = z.strictObject(dataFields).check(checkScopes);
+
 export type StatisticData = z.infer<typeof StatisticData>;

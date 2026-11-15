@@ -20,16 +20,19 @@ async function render(
   TestBed.configureTestingModule({
     providers: [provideTanStackQuery(new QueryClient()), ...provideFrontierI18nTesting()],
   });
+
   const tree = TestBed.runInInjectionContext(() =>
     form(signal<Model>({ name }), (path) => {
       required(path.name);
     }),
   );
+
   const fixture = TestBed.createComponent<AsyncForm<Model>>(AsyncForm);
   fixture.componentRef.setInput('form', tree);
   fixture.componentRef.setInput('action', action);
   fixture.componentRef.setInput('describeError', () => 'Could not create');
   TestBed.tick();
+
   return fixture;
 }
 
@@ -83,6 +86,7 @@ describe(AsyncForm, () => {
     for (const modifier of [{ ctrlKey: true }, { metaKey: true }]) {
       submit.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, ...modifier }));
     }
+
     await settle();
 
     expect(action).toHaveBeenCalledTimes(runs);

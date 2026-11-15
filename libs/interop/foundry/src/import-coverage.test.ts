@@ -20,6 +20,7 @@ function feat(id: string, name: string, system: object = {}): DocumentFixture {
 const PLAIN = feat('plainFeat0000001', 'Plain');
 const IMAGE = feat('imageFeat0000001', 'Image', { rules: [{ key: 'TokenImage', value: 'token.webp' }] });
 const MARKED = feat('markedFeat000001', 'Marked', { description: { value: '<p><span>Hi</span></p>' } });
+
 /** A condition whose system does not translate, so it has no data and is left out. */
 const ODD = { id: 'oddCondition0001', name: 'Odd', type: 'condition' };
 const AON = 'https://2e.aonprd.com/Actions.aspx?ID=1';
@@ -33,6 +34,7 @@ function located(entry: ContentEntry): ContentEntry {
 
 describe('importCoverage', () => {
   const { entries, backlog } = packOutput(translate([AID, PLAIN, IMAGE, MARKED, ODD]), { known });
+
   const coverage = importCoverage(
     entries.map((entry) => located(entry)),
     backlog,

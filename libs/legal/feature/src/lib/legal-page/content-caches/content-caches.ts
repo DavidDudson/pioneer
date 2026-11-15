@@ -21,14 +21,18 @@ export function cachePacks(
   downloadUrl: DownloadUrl,
 ): readonly CachePack[] {
   const imported = new Map(imports.map((each) => [each.pack, each]));
+
   return manifest.packs.map((pack): CachePack => {
     const files = Object.entries(pack.sizes ?? {})
       .map(([name, bytes]): CacheFile => {
         const file = BundleFile.parse(name);
+
         return { file, bytes, url: downloadUrl(pack.id, file) };
       })
       .toSorted(byFileName);
+
     const origin = imported.get(pack.id);
+
     return {
       id: pack.id,
       titleKey: origin?.titleKey,

@@ -14,7 +14,9 @@ import { contentCatalog } from './index';
  */
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 const FIGHTER = entries.find(({ slug }) => slug === EntrySlug.parse('class:fighter'));
 
@@ -23,6 +25,7 @@ function fighterRanksAt(level: number): ReadonlyMap<Selector, Proficiency> {
   if (FIGHTER === undefined) {
     throw new Error('class:fighter is not in the catalog');
   }
+
   const grants = resolveGrants({
     roots: [{ entry: FIGHTER.id, hop: { kind: 'choice', slot: SlotKey.parse('class') } }],
     lookup: grantLookup(registry),
@@ -33,9 +36,11 @@ function fighterRanksAt(level: number): ReadonlyMap<Selector, Proficiency> {
     toggles: new Map(),
     namespaces: registry.rollOptionNamespaces(),
   });
+
   const rules: RuleInPlay[] = grants.items.flatMap(({ entry, origin }) =>
     entry.rules.map((element, rule) => ({ element, origin, rule: RuleIndex.parse(rule) })),
   );
+
   return ranksInPlay({ rules, facts: grants.facts });
 }
 

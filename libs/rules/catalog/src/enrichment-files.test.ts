@@ -19,6 +19,7 @@ interface MappingFile {
 
 async function mappingFiles(): Promise<readonly MappingFile[]> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: ENRICHMENT }));
+
   return Promise.all(
     files.map(async (file) => ({
       pack: file.replace(/\.json$/u, ''),
@@ -33,6 +34,7 @@ function problems(
   slugsByPack: ReadonlyMap<string, ReadonlySet<EntrySlug>>,
 ): readonly unknown[] {
   const slugs = slugsByPack.get(pack);
+
   return slugs === undefined
     ? [`content/enrichment/${pack}.json names no pack`]
     : checkEnrichment(EnrichmentMappingFile.parse(json), { pack: PackId.parse(pack), slugs, registry: bookRegistry })

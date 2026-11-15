@@ -6,6 +6,7 @@ import { ModifierTargets, ruleElementBase, RuleElementKey } from './rule-element
 /** A natural d20 result an attack needs to be a critical hit when it succeeds: from 2 to 19, the 19 of a keen weapon. */
 const NATURAL_MAX = 19;
 export const NaturalRoll = Pg.smallint().min(2).max(NATURAL_MAX).brand<'NaturalRoll'>();
+
 export type NaturalRoll = z.infer<typeof NaturalRoll>;
 
 /**
@@ -19,4 +20,5 @@ export const CriticalRangeElement = z.strictObject({
   natural: NaturalRoll,
   ...ruleElementBase,
 });
+
 export type CriticalRangeElement = z.infer<typeof CriticalRangeElement>;

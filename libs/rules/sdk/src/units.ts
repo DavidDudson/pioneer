@@ -6,6 +6,7 @@ import type * as z from 'zod';
  * The brand carries the unit, so names don't repeat it (`speed: Feet`).
  */
 export const Feet = Pg.integer().nonnegative().brand<'Feet'>();
+
 export type Feet = z.infer<typeof Feet>;
 
 /** The finest step a range in miles is counted in. */
@@ -13,24 +14,30 @@ const HALF_MILE = 0.5;
 
 /** A long range, in whole or half miles ("100 miles", "half a mile"). */
 export const Miles = Pg.real().positive().multipleOf(HALF_MILE).brand<'Miles'>();
+
 export type Miles = z.infer<typeof Miles>;
 
 export const HitPoints = Pg.smallint().nonnegative().brand<'HitPoints'>();
+
 export type HitPoints = z.infer<typeof HitPoints>;
 
 /** Damage dealt, or the amount a weakness adds or a resistance removes. */
 export const DamageAmount = Pg.smallint().positive().brand<'DamageAmount'>();
+
 export type DamageAmount = z.infer<typeof DamageAmount>;
 
 /** A check modifier: perception, saves, skills, attribute plus proficiency. */
 export const Modifier = Pg.smallint().brand<'Modifier'>();
+
 export type Modifier = z.infer<typeof Modifier>;
 
 /** A difficulty class a check is rolled against. */
 export const Dc = Pg.smallint().nonnegative().brand<'Dc'>();
+
 export type Dc = z.infer<typeof Dc>;
 
 export const ArmorClass = Pg.smallint().nonnegative().brand<'ArmorClass'>();
+
 export type ArmorClass = z.infer<typeof ArmorClass>;
 
 /** Lowest and highest level anything has in the remastered rules (creatures span -1 to 25). */
@@ -42,6 +49,7 @@ export const LEVEL_MAX = 25;
  * brand with the same name so they stay assignable to `Level`.
  */
 export const Level = Pg.smallint().min(LEVEL_MIN).max(LEVEL_MAX).brand<'Level'>();
+
 export type Level = z.infer<typeof Level>;
 
 /** Highest level a content entry has: items reach 30. */
@@ -51,4 +59,5 @@ export const CONTENT_LEVEL_MAX = 30;
  * A content entry's level, 0 to 30. Creatures use `Level` instead: they run from -1 (Giant Rat) to 25.
  */
 export const ContentLevel = Pg.smallint().nonnegative().max(CONTENT_LEVEL_MAX).brand<'ContentLevel'>();
+
 export type ContentLevel = z.infer<typeof ContentLevel>;

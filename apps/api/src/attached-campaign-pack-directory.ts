@@ -49,21 +49,26 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .innerJoin(campaigns, eq(campaigns.id, campaignCharacters.campaignId))
       .where(and(eq(campaignCharacters.characterId, characterId), isNull(campaigns.archivedAt)))
       .limit(1);
+
     if (attached === undefined) {
       return undefined;
     }
+
     const rows = await this.#db
       .select({ packId: campaignPacks.packId })
       .from(campaignPacks)
       .where(eq(campaignPacks.campaignId, attached.id));
+
     const variants = await this.#db
       .select({ variantId: campaignVariantRules.variantId })
       .from(campaignVariantRules)
       .where(eq(campaignVariantRules.campaignId, attached.id));
+
     const limits = await this.#db
       .select({ limit: campaignRuleLimits.limit, value: campaignRuleLimits.value })
       .from(campaignRuleLimits)
       .where(eq(campaignRuleLimits.campaignId, attached.id));
+
     const approvals = await this.#db
       .select({
         item: campaignItemApprovals.itemId,
@@ -79,6 +84,7 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
           isNull(campaignItemApprovals.archivedAt),
         ),
       );
+
     return {
       id: AttachedCampaignId.parse(attached.id),
       name: AttachedCampaignName.parse(attached.name),
@@ -97,9 +103,11 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .from(campaignCharacters)
       .where(eq(campaignCharacters.characterId, characterId))
       .limit(1);
+
     if (attached === undefined) {
       return [];
     }
+
     const rows = await this.#db
       .select({ characterId: characters.id, name: characters.name })
       .from(campaignCharacters)
@@ -107,6 +115,7 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .where(
         and(eq(campaignCharacters.campaignId, attached.campaignId), ne(campaignCharacters.characterId, characterId)),
       );
+
     return rows.map((row) => CampaignAlly.parse(row));
   }
 }

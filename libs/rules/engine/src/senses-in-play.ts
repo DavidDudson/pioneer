@@ -42,6 +42,7 @@ function reachesAsFar(left: Feet | undefined, right: Feet | undefined): boolean 
   if (left === undefined) {
     return true;
   }
+
   return right !== undefined && left >= right;
 }
 
@@ -69,15 +70,18 @@ function precedes(left: SenseInPlay, right: SenseInPlay): boolean {
   if (left.sense !== right.sense) {
     return left.sense < right.sense;
   }
+
   if (left.acuity !== right.acuity) {
     return asAcute(left.acuity, right.acuity);
   }
+
   return reachesAsFar(left.range, right.range);
 }
 
 /** The grants of `elements` whose predicate holds, after the ancestry's vision. */
 function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | undefined): SenseGrant[] {
   const form = battleFormInPlay({ rules, facts });
+
   if (form?.form.senses !== undefined) {
     return form.form.senses.map(({ sense, acuity = SenseAcuity.Precise, range }) => ({
       sense,
@@ -87,14 +91,17 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
       fromForm: true,
     }));
   }
+
   const grants: SenseGrant[] =
     vision === undefined ? [] : [{ ...vision, acuity: SenseAcuity.Precise, range: undefined }];
+
   for (const { element, origin } of rules) {
     if (element.key === RuleElementKey.Sense && truthOf(element.predicate, facts) === Truth.True) {
       const { sense, acuity = SenseAcuity.Precise, range } = element;
       grants.push({ sense, acuity, range, origin });
     }
   }
+
   return grants;
 }
 
@@ -110,11 +117,14 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
 export function sensesInPlay(inputs: ModifierInputs, vision?: AncestryVision): readonly SenseInPlay[] {
   const grants = grantsOf(inputs, vision);
   const senses: SenseInPlay[] = [];
+
   for (const grant of grants.filter((each) => !isBeaten(each, grants))) {
     const index = senses.findIndex(
       (held) => held.sense === grant.sense && held.acuity === grant.acuity && held.range === grant.range,
     );
+
     const held = senses[index];
+
     if (held === undefined) {
       const { origin, range, ...rest } = grant;
       senses.push({ ...rest, ...(range === undefined ? {} : { range }), origins: [origin] });
@@ -122,6 +132,7 @@ export function sensesInPlay(inputs: ModifierInputs, vision?: AncestryVision): r
       senses[index] = { ...held, origins: [...held.origins, grant.origin] };
     }
   }
+
   // Readings that match are merged above, so no two senses tie.
   return senses.toSorted((left, right) => (precedes(left, right) ? -1 : 1));
 }

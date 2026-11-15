@@ -7,6 +7,7 @@ import { statisticInputsOf } from './sheet-inputs';
 
 const pack = new ContentPackBuilder().withId('player-core').withAncestry('dwarf', { hitPoints: 10, speed: 20 });
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 describe(statisticInputsOf, () => {

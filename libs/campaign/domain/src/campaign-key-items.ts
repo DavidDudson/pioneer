@@ -8,22 +8,26 @@ import { ApproveItemBody, ReviewedName, ReviewedRuneId } from './campaign-item-a
 
 /** A campaign's key item. Branded like the character context's, so ids pass between the contexts unchanged. */
 export const KeyItemId = Uuid.brand<'KeyItemId'>();
+
 export type KeyItemId = z.infer<typeof KeyItemId>;
 
 const KEY_ITEM_NAME_MAX_LENGTH = 80;
 
 /** What the GM calls the key item: "Caliburn". It is also the name the holder's inventory line shows. */
 export const KeyItemName = z.string().trim().min(1).max(KEY_ITEM_NAME_MAX_LENGTH).brand<'KeyItemName'>();
+
 export type KeyItemName = z.infer<typeof KeyItemName>;
 
 const KEY_ITEM_NOTES_MAX_LENGTH = 2000;
 
 /** What the GM wrote about the item: its story, what it does at the table. */
 export const KeyItemNotes = z.string().trim().max(KEY_ITEM_NOTES_MAX_LENGTH).brand<'KeyItemNotes'>();
+
 export type KeyItemNotes = z.infer<typeof KeyItemNotes>;
 
 /** The base content item a key item is, by id, with the name the campaign shows for it. */
 export const KeyItemBase = z.strictObject({ item: ReviewedRuneId, name: ReviewedName });
+
 export type KeyItemBase = z.output<typeof KeyItemBase>;
 
 /** The grade of a potency, striking or resilient rune, as the rules print it: +1 to +4. */
@@ -41,6 +45,7 @@ const KEY_RUNE_CHOICE_MAX_LENGTH = 64;
 
 /** What the crafter chose when etching a rune made for one thing: an energy's damage type, a creature type. */
 export const KeyRuneChoice = z.string().min(1).max(KEY_RUNE_CHOICE_MAX_LENGTH).brand<'RuneChoice'>();
+
 export type KeyRuneChoice = z.output<typeof KeyRuneChoice>;
 
 /**
@@ -52,6 +57,7 @@ export const KeyPropertyRune = z.strictObject({
   name: ReviewedName,
   choice: KeyRuneChoice.optional(),
 });
+
 export type KeyPropertyRune = z.output<typeof KeyPropertyRune>;
 
 /**
@@ -65,6 +71,7 @@ export const KeyItemRunes = z.strictObject({
   reinforcing: KeyReinforcingGrade.optional(),
   property: z.array(KeyPropertyRune).max(KEY_ITEM_PROPERTY_RUNES_MAX).readonly().default([]),
 });
+
 export type KeyItemRunes = z.output<typeof KeyItemRunes>;
 
 /** A key item the GM created: what it is, its notes, and who holds it. Archived, never deleted (ADR-0062). */
@@ -87,10 +94,12 @@ export const CreateKeyItemBody = z.object({
   runes: KeyItemRunes.default(KeyItemRunes.parse({})),
   notes: KeyItemNotes.default(KeyItemNotes.parse('')),
 });
+
 export type CreateKeyItemBody = z.output<typeof CreateKeyItemBody>;
 
 /** The character the GM gives a key item to, or moves it to. */
 export const GiveKeyItemBody = z.object({ characterId: CharacterId });
+
 export type GiveKeyItemBody = z.output<typeof GiveKeyItemBody>;
 
 /** One key item as the Party Inventory shows it. */
@@ -106,6 +115,7 @@ export const KeyItemView = z.object({
   /** Whether the viewer owns the holder's character, the only one who may open its sheet (ADR-0007). */
   holderOwned: z.boolean(),
 });
+
 export type KeyItemView = z.output<typeof KeyItemView>;
 
 /** JSON shape of a campaign's key items. Every member sees all of them; only the GM may change them. */
@@ -114,10 +124,12 @@ export const CampaignKeyItems = z.object({
   manageable: z.boolean(),
   keyItems: z.array(KeyItemView).readonly(),
 });
+
 export type CampaignKeyItems = z.output<typeof CampaignKeyItems>;
 
 /** The flagged line the GM promotes to a key item: the same character, item, rule and, for a rune, rune as an approval. */
 export const PromoteItemBody = ApproveItemBody;
+
 export type PromoteItemBody = z.output<typeof PromoteItemBody>;
 
 /** Namespace of the key item ids a promotion derives. */

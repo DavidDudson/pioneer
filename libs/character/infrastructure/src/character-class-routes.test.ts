@@ -41,6 +41,7 @@ interface Created {
 
 async function created(api: AnyElysia): Promise<Created> {
   const response = await api.handle(request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }));
+
   return (await response.json()) as Created;
 }
 
@@ -48,22 +49,28 @@ describe('character routes: the class', () => {
   test('a class opens its subclass slot; a class change keeps the subclass pick, hidden, and clears nothing', async () => {
     const namespaces = new ContentPackBuilder().withId('core-rules').withNamespace('item', NamespaceKind.Known).build();
     const content = fixedContent(namespaces, playerCoreClasses());
+
     const service = new CharacterService(
       new InMemoryCharacterRepository(),
       content,
       fixedClock('2026-10-07T10:00:00Z'),
     );
+
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const { id } = await created(api);
+
     const select = (version: number, slot: string, selection: string): Request =>
       request('PATCH', `/characters/${id}`, {
         expectedVersion: version,
         patch: { field: 'selectSlot', slot, selection },
       });
+
     const sheetAfter = async (edit: Request): Promise<PatchedCharacterSheet> => {
       const response = await api.handle(edit);
+
       return PatchedCharacterSheet.parse(await response.json());
     };
+
     const cloistered = playerCoreId(ContentKind.ClassFeature, 'cloistered-cleric');
     // The Doctrine feature's first rule element is its ChoiceSet.
     const doctrine = SlotKey.parse(`${playerCoreId(ContentKind.ClassFeature, 'doctrine')}:0`);
@@ -91,18 +98,22 @@ describe('character routes: skills', () => {
   test("a class's trained skill slots take a skill once; one already trained is refused", async () => {
     const namespaces = new ContentPackBuilder().withId('core-rules').withNamespace('item', NamespaceKind.Known).build();
     const content = fixedContent(namespaces, playerCoreClasses(), skillFixtures());
+
     const service = new CharacterService(
       new InMemoryCharacterRepository(),
       content,
       fixedClock('2026-10-11T10:00:00Z'),
     );
+
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const { id } = await created(api);
+
     const select = (version: number, slot: string, selection: string): Request =>
       request('PATCH', `/characters/${id}`, {
         expectedVersion: version,
         patch: { field: 'selectSlot', slot, selection },
       });
+
     await api.handle(select(1, 'class', playerCoreClassId('fighter')));
 
     const trained = await api.handle(select(2, 'skill-training:1:0', skillFixtureId('athletics')));
@@ -128,9 +139,11 @@ describe('character routes: languages', () => {
       fixedContent(languageFixtures()),
       fixedClock('2026-10-11T10:00:00Z'),
     );
+
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const response = await api.handle(request('POST', '/characters', { name: 'Harsk', ancestry: languageDwarfId }));
     const { id } = (await response.json()) as Created;
+
     const select = (version: number, slot: string, selection: string): Request =>
       request('PATCH', `/characters/${id}`, {
         expectedVersion: version,

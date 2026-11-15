@@ -58,14 +58,18 @@ describe.skipIf(adminUrl === undefined)('campaign table limits over postgres', (
     await characters.insert(kyra, { actor: amiri, command: CharacterCommand.CreateCharacter });
 
     const campaigns = new DrizzleCampaignRepository(database.db);
+
     const campaign = await campaigns.insert(
       new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
+
     if (member === undefined) {
       throw new Error('Amiri is not in the campaign');
     }
+
     memberId = member.id;
 
     repository = new DrizzleCampaignRuleLimitRepository(database.db);

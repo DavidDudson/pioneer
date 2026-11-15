@@ -14,6 +14,7 @@ describe(ChipList, () => {
     const host = await renderCell(ChipList, {
       chips: [{ label: 'Fire' }, { label: 'Rare trait', tone: BadgeTone.Info }],
     });
+
     const chips = [...host.querySelectorAll('fr-badge')].map((chip) => chip.textContent.trim());
     expect(chips).toStrictEqual(['Fire', 'Rare trait']);
   });

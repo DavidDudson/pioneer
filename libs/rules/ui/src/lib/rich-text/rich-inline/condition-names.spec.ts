@@ -15,6 +15,7 @@ function words(text: string): InlineContent {
 
 function kindsOf(text: string, linkable: () => boolean): readonly string[] {
   const linked = linkConditionNames(words(text), linkable);
+
   return linked.map(({ type }) => type);
 }
 

@@ -10,6 +10,7 @@ import { PackBundleSource } from './pack-bundle-source';
  */
 /** Hex digits in a bundle hash. */
 const HASH_DIGITS = 16;
+
 /** The radix hex is written in. */
 const HEX = 16;
 
@@ -27,6 +28,7 @@ export class InMemoryPackBundleSource extends PackBundleSource {
       .map((pack) =>
         packContentsFromFiles({ id: pack.slug, title: pack.title, publisher: pack.publisher, license: 'homebrew' }, []),
       );
+
     return contentBundles(contents, (json) => BundleHash.parse(json.length.toString(HEX).padStart(HASH_DIGITS, '0')));
   }
 }

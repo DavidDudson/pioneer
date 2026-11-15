@@ -27,6 +27,7 @@ const FEAT_PACKS = cutTo([ContentKind.Feat]);
 
 async function featRegistry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([], FEAT_PACKS) });
+
   return TestBed.inject(ContentLoader).registry([ContentKind.Feat]);
 }
 
@@ -64,6 +65,7 @@ describe('previews of the kinds the spell and item rows show', () => {
     ContentKind.Kit,
     ...INVENTORY_CONTENT_KINDS.filter((kind) => kind !== ContentKind.Rune),
   ];
+
   const PACKS = cutTo(KINDS);
 
   beforeAll(async () => {
@@ -89,6 +91,7 @@ function spellPreview(registry: ContentRegistry, wanted: (entry: SpellEntry) => 
       return { rank: entry.data.rank, ranks: sheetEntryPreview(registry, entry.id)?.ranks };
     }
   }
+
   throw new Error('No such spell in the packs');
 }
 
@@ -107,6 +110,7 @@ describe('previews of a spell', () => {
 
   async function spells(): Promise<ContentRegistry> {
     TestBed.configureTestingModule({ providers: provideServerStateTesting([], PACKS) });
+
     return TestBed.inject(ContentLoader).registry([ContentKind.Spell]);
   }
 
@@ -157,10 +161,13 @@ function fetching(
       ...(sidePanel === undefined ? [] : [{ provide: SheetSidePanelState, useValue: sidePanel }]),
     ],
   });
+
   return TestBed.runInInjectionContext(() => sheetFetchingPreviews(held, () => undefined));
 }
+
 function firstFeat(registry: ContentRegistry): ContentId {
   const feat = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.kind === ContentKind.Feat);
+
   return ContentId.parse(feat?.id);
 }
 
@@ -218,6 +225,7 @@ describe(sheetFetchingPreviews, () => {
     const id = firstFeat(registry);
     const slug = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.id === id)?.slug;
     const sidePanel = new SheetSidePanelState();
+
     const previews = fetching(
       vi.fn<LoadRegistry>(async () => registry),
       () => registry,
@@ -231,6 +239,7 @@ describe(sheetFetchingPreviews, () => {
 
   it('opens nothing in a side panel the app does not provide', async () => {
     const registry = await featRegistry();
+
     const previews = fetching(
       vi.fn<LoadRegistry>(async () => registry),
       () => registry,

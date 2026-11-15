@@ -16,6 +16,7 @@ const WISDOM_OFF: ModifierDifference = {
   imported: AttributeModifier.parse(5),
   derived: AttributeModifier.parse(4),
 };
+
 const CHARISMA_AT_FIVE: UnplacedBoost = {
   source: BoostSource.Free,
   level: Level.parse(5),
@@ -32,6 +33,7 @@ async function render(
   fixture.componentRef.setInput('modifierDifferences', modifierDifferences);
   fixture.componentRef.setInput('unplacedBoosts', unplacedBoosts);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

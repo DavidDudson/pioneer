@@ -24,17 +24,21 @@ export interface SituationClaim {
 /** `claims` with `claim` made; a statistic left with none drops out. */
 export function claimSituation(claims: SituationClaims, { selector, rule, on }: SituationClaim): SituationClaims {
   const rules = new Set(claims.get(selector));
+
   if (on) {
     rules.add(rule);
   } else {
     rules.delete(rule);
   }
+
   const next = new Map(claims);
+
   if (rules.size === 0) {
     next.delete(selector);
   } else {
     next.set(selector, rules);
   }
+
   return next;
 }
 
@@ -60,18 +64,22 @@ export function checkSituations(
   { selectors, claims }: { readonly selectors: readonly Selector[]; readonly claims: SituationClaims },
 ): ReadonlyMap<Selector, CheckSituations> {
   const sources = sheetSources(registry, character);
+
   const wanted = new Map(
     selectors.map((selector): [Selector, ReadonlySet<RuleId>] => [selector, claims.get(selector) ?? new Set()]),
   );
+
   const setups = rollSetups(character.document, sources, {
     derived: sheetDerivation(registry, character),
     claims: wanted,
   });
+
   const found = [...setups].flatMap(([selector, { statistic, conditional }]): [Selector, CheckSituations][] =>
     conditional.length === 0
       ? []
       : [[selector, { statistic, situations: { offered: conditional, claimed: wanted.get(selector) ?? new Set() } }]],
   );
+
   return new Map(found);
 }
 
@@ -87,9 +95,12 @@ export function withSituations(
   const selectors = statistics
     .filter(({ kind, result }) => kind === StatisticKind.Check && result.ok)
     .map(({ result }) => result.selector);
+
   const found = checkSituations(registry, character, { selectors, claims });
+
   return statistics.map((statistic) => {
     const check = found.get(statistic.result.selector);
+
     return check === undefined ? statistic : { ...statistic, result: check.statistic, situations: check.situations };
   });
 }

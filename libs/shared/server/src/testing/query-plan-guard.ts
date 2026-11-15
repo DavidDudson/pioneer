@@ -17,6 +17,7 @@ const PlanNodeSchema: z.ZodType<PlanNode> = z.lazy(() =>
     Plans: z.array(PlanNodeSchema).optional(),
   }),
 );
+
 const PlanEntrySchema = z.object({ Plan: PlanNodeSchema });
 const PlanRowsSchema = z.array(z.object({ 'QUERY PLAN': z.array(PlanEntrySchema) }));
 
@@ -40,6 +41,7 @@ export class QueryRecorder implements Logger {
 
 function forbiddenNodes(node: PlanNode): readonly string[] {
   const own = FORBIDDEN_NODES.has(node['Node Type']) ? [`${node['Node Type']} on ${node['Relation Name'] ?? '?'}`] : [];
+
   return [...own, ...(node.Plans ?? []).flatMap((child) => forbiddenNodes(child))];
 }
 
@@ -56,9 +58,12 @@ async function explain(client: Bun.SQL, { query, params }: RecordedQuery): Promi
     await tx.unsafe('set local enable_seqscan = off');
     await tx.unsafe('set local enable_sort = off');
     const rows = PlanRowsSchema.parse(await tx.unsafe(`explain (format json) ${query}`, [...params]));
+
     return rows[0]?.['QUERY PLAN'][0]?.Plan;
   });
+
   const nodes = plan === undefined ? ['no plan'] : forbiddenNodes(plan);
+
   return nodes.length === 0 ? undefined : `${nodes.join(', ')}: ${query}`;
 }
 
@@ -68,5 +73,6 @@ export async function unindexedQueries(
 ): Promise<readonly string[]> {
   const planned = recorder.queries.filter(({ query }) => PLANNABLE.test(query));
   const problems = await Promise.all(planned.map(async (recorded) => explain(db.$client, recorded)));
+
   return problems.filter((problem) => problem !== undefined);
 }

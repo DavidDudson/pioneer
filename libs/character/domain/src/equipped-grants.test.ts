@@ -24,6 +24,7 @@ import {
 } from './testing';
 
 installRulesFakes();
+
 const WEAPON = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 
 /** A character with a longsword etched with the Quickstrike fixture rune, carried as given. */
@@ -34,14 +35,17 @@ function wielding(carry: Carry): CharacterDocument {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   const potency = etchRune(carryItem(stocked, WEAPON, carry), WEAPON, fundamental(FundamentalRune.Potency, 1));
   const etched = etchRune(potency, WEAPON, { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Quickstrike) });
+
   return { ...new CharacterBuilder().build().document, inventory: etched };
 }
 
 /** The inventory items whose rune-granted entries are the clumsy condition. */
 function grantedBy(document: CharacterDocument): readonly (InventoryItemId | undefined)[] {
   const slots = slotContent(itemFixtureRegistry());
+
   return equippedGrants(document, itemFixtureContent(), slots)
     .items.filter(({ entry }) => entry.id === clumsyFixtureId())
     .map(({ origin }) => inventoryItemOf(origin));

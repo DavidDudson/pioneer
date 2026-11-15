@@ -29,6 +29,7 @@ export class DamageTargetOptions {
   /** The columns of both pickers. */
   public readonly columns = computed(() => {
     this.#messages();
+
     return damageTargetColumns(
       {
         name: this.#i18n.translate('play.dice.targetColumns.name'),
@@ -41,6 +42,7 @@ export class DamageTargetOptions {
 
   public readonly types = computed((): readonly DamageTargetRow[] => {
     this.#messages();
+
     return Object.values(DamageType).map((value) => ({
       value,
       label: this.#i18n.translate(DAMAGE_TYPE_KEYS[value]),
@@ -51,6 +53,7 @@ export class DamageTargetOptions {
 
   public readonly targets = computed((): readonly DamageTargetRow[] => {
     this.#messages();
+
     // Groups first: `physical` and `all` are the common stat-block entries.
     const groups = Object.values(DamageGroup).map((value): DamageTargetRow => ({
       value,
@@ -58,12 +61,14 @@ export class DamageTargetOptions {
       category: categoryOfGroup(value),
       includes: typesOf(value).map((type) => this.#i18n.translate(DAMAGE_TYPE_KEYS[type])),
     }));
+
     const sources = Object.values(DamageContext).map((value): DamageTargetRow => ({
       value,
       label: this.#i18n.translate(DAMAGE_ADJUSTMENT_TARGET_KEYS[value]),
       category: TargetCategory.Source,
       includes: [],
     }));
+
     return [...groups, ...sources, ...this.types()];
   });
 }

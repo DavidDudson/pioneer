@@ -88,6 +88,7 @@ export class ContentPackBuilder {
 
   public withId(id: string): this {
     this.#id = id;
+
     return this;
   }
 
@@ -103,17 +104,20 @@ export class ContentPackBuilder {
       flaws: [],
       ...overrides,
     });
+
     return this;
   }
 
   public withCreature(definition: Sourceable<typeof CreatureDefinition>): this {
     this.#creatures.push(definition);
+
     return this;
   }
 
   /** The proficiency bonus table the pack defines, without which the engine derives no statistic. */
   public withProficiencyBonus(table: ProficiencyBonusTable): this {
     this.#proficiencyBonus = table;
+
     return this;
   }
 
@@ -128,6 +132,7 @@ export class ContentPackBuilder {
       kind: StatisticKind.Check,
       ...overrides,
     });
+
     return this;
   }
 
@@ -137,6 +142,7 @@ export class ContentPackBuilder {
    */
   public withBackground(name: string, boosts: readonly (readonly string[])[], rules: readonly object[] = []): this {
     this.#entries.push({ kind: ContentKind.Background, name, data: { boosts }, rules });
+
     return this;
   }
 
@@ -144,18 +150,21 @@ export class ContentPackBuilder {
   public withHeritage(name: string, ancestry?: string, rules: readonly object[] = []): this {
     const data = ancestry === undefined ? {} : { ancestry: this.idOf(ContentKind.Ancestry, ancestry) };
     this.#entries.push({ kind: ContentKind.Heritage, name, data, rules });
+
     return this;
   }
 
   /** An ancestry feature (Keen Eyes) with `rules` as JSON, which an ancestry or heritage grants. */
   public withAncestryFeature(name: string, rules: readonly object[] = []): this {
     this.#entries.push({ kind: ContentKind.AncestryFeature, name, data: {}, rules });
+
     return this;
   }
 
   /** A language of `rarity`, slugged `language:<name>`, as the core rules pack has them. */
   public withLanguage(name: string, rarity = 'common'): this {
     this.#entries.push({ kind: ContentKind.Language, name, data: {}, rarity });
+
     return this;
   }
 
@@ -173,6 +182,7 @@ export class ContentPackBuilder {
       rules,
       ...text,
     });
+
     return this;
   }
 
@@ -183,6 +193,7 @@ export class ContentPackBuilder {
       name,
       data: { cost: 'one', ...(effects === undefined ? {} : { effects }) },
     });
+
     return this;
   }
 
@@ -198,7 +209,9 @@ export class ContentPackBuilder {
       spells: [],
       ...fields,
     };
+
     this.#entries.push({ kind: ContentKind.Deity, name, data, ...(description === undefined ? {} : { description }) });
+
     return this;
   }
 
@@ -222,6 +235,7 @@ export class ContentPackBuilder {
       data: { keyAttribute, hitPoints, additionalSkills: 3, ...(roles === undefined ? {} : { roles }) },
       rules,
     });
+
     return this;
   }
 
@@ -231,13 +245,16 @@ export class ContentPackBuilder {
       ...(tags === undefined ? {} : { tags }),
       ...(keyAttributeOptions === undefined ? {} : { keyAttributeOptions }),
     };
+
     this.#entries.push({ kind: ContentKind.ClassFeature, name, data, rules, level: 1 });
+
     return this;
   }
 
   /** An item of an equipment kind, slugged `<kind>:<name>`, with its kind's `data` (`{ bulk: 1, usage: ... }`). */
   public withItem(kind: ContentKind, name: string, data: object): this {
     this.#entries.push({ kind, name, data, level: 0 });
+
     return this;
   }
 
@@ -248,12 +265,14 @@ export class ContentPackBuilder {
     { data, traits = [], rules = [], level = 0 }: MagicItemFields,
   ): this {
     this.#entries.push({ kind, name, data, level, traits, rules });
+
     return this;
   }
 
   /** A kit slugged `kit:<name>`, with its `data` (`{ items: [...], price? }`); a kit has no level. */
   public withKit(name: string, data: object): this {
     this.#entries.push({ kind: ContentKind.Kit, name, data });
+
     return this;
   }
 
@@ -268,6 +287,7 @@ export class ContentPackBuilder {
       data: { valued: false, overrides: [], implies: [], recovery: [], ...fields },
       rules,
     });
+
     return this;
   }
 
@@ -279,6 +299,7 @@ export class ContentPackBuilder {
       data: { restrictions: [], consequences: [], ...data },
       rules,
     });
+
     return this;
   }
 
@@ -298,6 +319,7 @@ export class ContentPackBuilder {
       ...(effects === undefined ? {} : { effects }),
       ...(shiftsForm === undefined ? {} : { shiftsForm }),
     };
+
     this.#entries.push({
       kind: ContentKind.Spell,
       name,
@@ -306,6 +328,7 @@ export class ContentPackBuilder {
       traits,
       ...(rarity === undefined ? {} : { rarity }),
     });
+
     return this;
   }
 
@@ -318,6 +341,7 @@ export class ContentPackBuilder {
       level,
       rules,
     });
+
     return this;
   }
 
@@ -328,6 +352,7 @@ export class ContentPackBuilder {
     limits?: z.input<typeof VariantRuleDefinition>['limits'],
   ): this {
     this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules: [], structure, limits });
+
     return this;
   }
 
@@ -338,22 +363,26 @@ export class ContentPackBuilder {
     rules: z.input<typeof VariantRuleDefinition>['rules'],
   ): this {
     this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules, structure });
+
     return this;
   }
 
   /** The licence the pack is published under; homebrew unless set. */
   public withLicense(license: ContentLicense): this {
     this.#license = license;
+
     return this;
   }
 
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
+
     return this;
   }
 
   public build(): ContentPack {
     const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
+
     return ContentPack.define({
       manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: this.#license },
       ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),

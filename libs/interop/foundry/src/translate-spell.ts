@@ -61,17 +61,22 @@ const FoundrySpellSystem = z.looseObject({
   counteraction: z.boolean().default(false),
   ritual: FoundryRitual.nullish(),
 });
+
 type FoundrySpellSystem = z.infer<typeof FoundrySpellSystem>;
 
 /** What casting takes; undefined when the casting time does not map. */
 function castingOf(system: FoundrySpellSystem, log: GapLog): object | undefined {
   const text =
     system.time.value.trim() === '' ? (firstVariantTime(system.overlays) ?? system.time.value) : system.time.value;
+
   const time = castTimeOf(text);
+
   if (time === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'time.value', raw: system.time.value });
+
     return undefined;
   }
+
   return {
     rank: system.level.value,
     time,
@@ -89,12 +94,15 @@ export function spellData(input: KindInput): object | undefined {
   const { log } = input;
   const system = systemOf(FoundrySpellSystem, input);
   const casting = system && castingOf(system, log);
+
   if (system === undefined || casting === undefined) {
     return undefined;
   }
+
   const damage = damageParts(system.damage, { field: 'damage' }, log);
   const changesOf = rankChanges(system.damage, log);
   const { heightening } = system;
+
   return {
     ...casting,
     traditions: system.traits?.traditions ?? [],
@@ -113,6 +121,7 @@ export function ritualData(input: KindInput): object | undefined {
   const system = systemOf(FoundrySpellSystem, input);
   const casting = system && castingOf(system, log);
   const ritual = system?.ritual;
+
   return casting === undefined || !ritual ? undefined : { ...casting, ...ritualChecks(ritual) };
 }
 
@@ -129,6 +138,7 @@ function textCheck(text: string): object {
 function ritualChecks({ primary, secondary }: FoundryRitual): object {
   const checks = secondaryChecksOf(secondary.checks);
   const hasText = secondary.checks.trim() !== '';
+
   return {
     primary: primaryCheckOf(primary.check) ?? textCheck(primary.check),
     secondary: {

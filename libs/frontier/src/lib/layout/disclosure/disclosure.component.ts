@@ -11,6 +11,7 @@ export const DisclosureVariant = {
   /** A bordered panel; the content sits under a rule inside it. */
   Bordered: 'bordered',
 } as const;
+
 export type DisclosureVariant = ValueOf<typeof DisclosureVariant>;
 
 const rootVariants = cva('block', {

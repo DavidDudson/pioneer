@@ -10,6 +10,7 @@ export function element(tag: string, text: string, attribute = 'data-part'): HTM
   const created = document.createElement(tag);
   created.textContent = text;
   created.setAttribute(attribute, '');
+
   return created;
 }
 
@@ -23,27 +24,34 @@ export async function renderProjected<Part>(
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: projectBySelector(type, projected),
   });
+
   onTestFinished(() => {
     component.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     component.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
   const host: unknown = component.location.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('component host is not an element');
   }
+
   return host;
 }
 
 /** The first `selector` match under `root`; fails the test when there is none. */
 export function part(root: HTMLElement, selector: string): HTMLElement {
   const found = root.querySelector<HTMLElement>(selector);
+
   if (found === null) {
     throw new Error(`no ${selector} rendered`);
   }
+
   return found;
 }

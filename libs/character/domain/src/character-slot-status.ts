@@ -25,14 +25,18 @@ import type { SlotRead } from './slot-read';
 /** A boost slot: invalid when its pick isn't on offer, or another boost of its set took the attribute first. */
 function boostStatus(set: BoostSet, slot: BoostSlot, read: SlotRead): CharacterSlot {
   const { stored } = read;
+
   if (stored === undefined) {
     return validSlot(read, undefined);
   }
+
   if (slot.pick === undefined) {
     return invalidSlot(read, stored, message(SlotInvalidMessage.NotOffered));
   }
+
   const earlier = set.slots.slice(0, set.slots.indexOf(slot));
   const taken = earlier.some((other) => other.pick === slot.pick);
+
   return taken ? invalidSlot(read, stored, message(SlotInvalidMessage.BoostTaken)) : validSlot(read, undefined);
 }
 
@@ -40,17 +44,20 @@ function rootStatus(slot: RootSlot, read: SlotRead, lookup: ContentLookup): Char
   if (read.stored !== undefined && slot.pick === undefined) {
     return invalidSlot(read, read.stored, invalidReason(read.stored, lookup));
   }
+
   return validSlot(read, slot.pick === undefined ? undefined : lookup.entry(slot.pick)?.name);
 }
 
 /** The name of a `ChoiceSet` pick: the entry it names, else the listed option. */
 function choiceName(slot: AnsweredSlot, lookup: ContentLookup): ContentText | undefined {
   const isId = ContentId.safeParse(slot.pick).success;
+
   return isId ? entryName(slot.pick, lookup) : slot.options.find((option) => option.value === slot.pick)?.label;
 }
 
 function choiceSubject(slot: ChoiceSlot, lookup: ContentLookup): SlotSubject {
   const name = lookup.entry(slot.origin.entry)?.name;
+
   return {
     kind: SlotSubjectKind.Choice,
     entry: slot.origin.entry,
@@ -69,6 +76,7 @@ interface ResolvedSlots {
 /** Whether a root slot is listed: always, unless it is optional, empty, and nothing on the character needs it. */
 function isListed(slot: RootSlot, picks: ReadonlyMap<SlotKey, ChoiceValue>, options: readonly RollOption[]): boolean {
   const neededBy = OPTIONAL_ROOT_SLOTS.get(slot.key);
+
   return neededBy === undefined || picks.has(slot.key) || neededBy.some((option) => options.includes(option));
 }
 
@@ -84,6 +92,7 @@ interface ReadAt {
 function resolvedSlots(resolution: GrantResolution, context: SlotContext, { planned, check }: ReadAt): ResolvedSlots {
   const { picks, lookup } = context;
   const listedRoots = resolution.rootSlots.filter((slot) => isListed(slot, picks, resolution.rollOptions));
+
   const roots = listedRoots.map((slot) =>
     rootStatus(
       slot,
@@ -96,11 +105,14 @@ function resolvedSlots(resolution: GrantResolution, context: SlotContext, { plan
       lookup,
     ),
   );
+
   const answered = resolution.answered.map((slot) => {
     const read: SlotRead = { key: slot.key, subject: choiceSubject(slot, lookup), stored: slot.pick, planned };
     const problem = check(slot);
+
     return problem === undefined ? validSlot(read, choiceName(slot, lookup)) : invalidSlot(read, slot.pick, problem);
   });
+
   const open = resolution.open.map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -108,10 +120,12 @@ function resolvedSlots(resolution: GrantResolution, context: SlotContext, { plan
       stored: picks.get(slot.key),
       planned,
     };
+
     return read.stored === undefined
       ? validSlot(read, undefined)
       : invalidSlot(read, read.stored, invalidReason(read.stored, lookup));
   });
+
   return { roots, choices: [...answered, ...open] };
 }
 
@@ -122,6 +136,7 @@ function boostStatuses(
   picks: ReadonlyMap<SlotKey, ChoiceValue>,
 ): CharacterSlot[] {
   const level = Level.parse(document.level);
+
   return boostSets(document, boosts).flatMap((set) =>
     set.slots.map((slot) =>
       boostStatus(set, slot, {
@@ -144,16 +159,22 @@ function flawStatuses(
   picks: ReadonlyMap<SlotKey, ChoiceValue>,
 ): CharacterSlot[] {
   const slots = flawSlots(document, boosts);
+
   return slots.flatMap((slot, index): CharacterSlot[] => {
     const stored = picks.get(slot.key);
+
     if (stored === undefined) {
       return [];
     }
+
     const read: SlotRead = { key: slot.key, subject: { kind: SlotSubjectKind.Flaw }, stored, planned: undefined };
+
     if (slot.pick === undefined) {
       return [invalidSlot(read, stored, message(SlotInvalidMessage.NotOffered))];
     }
+
     const taken = slots.slice(0, index).some((other) => other.pick === slot.pick);
+
     return [taken ? invalidSlot(read, stored, message(SlotInvalidMessage.FlawTaken)) : validSlot(read, undefined)];
   });
 }
@@ -170,6 +191,7 @@ const SKILL_PROBLEMS: Readonly<Record<SkillPickProblem, string>> = {
  */
 function skillStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
   const level = Level.parse(document.level);
+
   return skillSlots(document, skillReads(document, content)).map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -177,11 +199,14 @@ function skillStatuses(document: CharacterDocument, content: SlotContent): Chara
       stored: slot.stored,
       planned: slot.level > level ? slot.level : undefined,
     };
+
     if (slot.stored === undefined || slot.pick !== undefined) {
       return validSlot(read, slot.pick?.name);
     }
+
     const reason =
       slot.problem === undefined ? invalidReason(slot.stored, content.lookup) : message(SKILL_PROBLEMS[slot.problem]);
+
     return invalidSlot(read, slot.stored, reason);
   });
 }
@@ -199,8 +224,10 @@ const FEAT_PROBLEMS: Readonly<Record<FeatPickProblem, string>> = {
  */
 function featCheck(document: CharacterDocument, content: SlotContent): PickCheck {
   const reads = prerequisiteReads(document, content);
+
   return (slot) => {
     const problem = featPickProblem(reads, { slot: slot.key, selection: slot.pick });
+
     return problem === undefined ? undefined : message(FEAT_PROBLEMS[problem]);
   };
 }
@@ -216,6 +243,7 @@ function levelsUpFrom(level: Level): Level[] {
  */
 function plansIt(earlier: CharacterSlot, later: CharacterSlot): boolean {
   const invalidNow = earlier.status === SlotStatus.Invalid && earlier.level === undefined;
+
   return invalidNow && later.status === SlotStatus.Planned && later.selection !== undefined;
 }
 
@@ -223,6 +251,7 @@ function plansIt(earlier: CharacterSlot, later: CharacterSlot): boolean {
 function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterSlot[]): void {
   for (const slot of slots) {
     const earlier = seen.get(slot.key);
+
     if (earlier === undefined || plansIt(earlier, slot)) {
       seen.set(slot.key, slot);
     }
@@ -233,28 +262,33 @@ function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterS
 function grantStatuses(level: Level, context: SlotContext, check: PickCheck): ResolvedSlots {
   const roots = new Map<SlotKey, CharacterSlot>();
   const choices = new Map<SlotKey, CharacterSlot>();
+
   for (const at of levelsUpFrom(level)) {
     const read = resolvedSlots(resolveSlotsAt(at, context), context, { planned: at > level ? at : undefined, check });
     addUnseen(roots, read.roots);
     addUnseen(choices, read.choices);
   }
+
   return { roots: [...roots.values()], choices: [...choices.values()] };
 }
 
 /** The name of a pick that is an entry id of loaded content. */
 function entryName(value: ChoiceValue, lookup: ContentLookup): ContentText | undefined {
   const id = ContentId.safeParse(value);
+
   return id.success ? lookup.entry(id.data)?.name : undefined;
 }
 
 function hiddenSlot(key: SlotKey, selection: ChoiceValue, context: SlotContext): CharacterSlot {
   const name = entryName(selection, context.lookup) ?? context.spells.spell(selection)?.name;
+
   return { status: SlotStatus.Hidden, key, selection, ...named(name) };
 }
 
 /** The picks kept for no slot in `listed`, an entry or spell picked named. */
 function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): CharacterSlot[] {
   const keys = new Set(listed.map((slot) => slot.key));
+
   return [...context.picks]
     .filter(([key]) => !keys.has(key))
     .map(([key, selection]) => hiddenSlot(key, selection, context));
@@ -276,6 +310,7 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
   const flaws = flawStatuses(document, content, picks);
   const skills = skillStatuses(document, content);
   const languages = languageStatuses(document, content);
+
   const listed = [
     ...roots,
     ...boosts,
@@ -286,5 +321,6 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
     ...preparedStatuses(document, content),
     ...signatureStatuses(document, content),
   ];
+
   return [...listed, ...hiddenPicks(context, listed)];
 }

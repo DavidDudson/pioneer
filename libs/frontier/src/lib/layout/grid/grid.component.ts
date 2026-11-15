@@ -11,10 +11,12 @@ import { gapVariants, Space } from '../../tokens';
  * (two for six-up stat blocks), more at the `md` and `lg` container sizes.
  */
 export const GridColumns = { One: 1, Two: 2, Three: 3, Four: 4, Six: 6, Seven: 7, Eight: 8 } as const;
+
 export type GridColumns = ValueOf<typeof GridColumns>;
 
 /** Fluid alternative: as many columns as fit at this minimum item width. */
 export const GridMinItem = { Sm: 'sm', Md: 'md', Lg: 'lg' } as const;
+
 export type GridMinItem = ValueOf<typeof GridMinItem>;
 
 /** Whose width the columns respond to. */
@@ -28,9 +30,11 @@ export const GridQuery = {
    */
   Parent: 'parent',
 } as const;
+
 export type GridQuery = ValueOf<typeof GridQuery>;
 
 export const GridAlign = { Stretch: 'stretch', Baseline: 'baseline' } as const;
+
 export type GridAlign = ValueOf<typeof GridAlign>;
 
 const hostVariants = cva('', {
@@ -94,10 +98,13 @@ export class Grid {
   protected readonly classes = computed(() => {
     const shared = { gap: this.gap(), align: this.align() };
     const termFrom = this.termFrom();
+
     if (termFrom !== undefined) {
       return gridVariants({ termFrom, ...shared });
     }
+
     const minItem = this.minItem();
+
     return gridVariants(minItem === undefined ? { columns: this.columns(), ...shared } : { minItem, ...shared });
   });
 }

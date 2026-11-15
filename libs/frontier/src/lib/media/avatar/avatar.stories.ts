@@ -24,6 +24,7 @@ const meta: Meta<Avatar> = {
     template: `<fr-avatar ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Picture: AvatarStory = {};

@@ -33,11 +33,13 @@ export function injectClassRows(sheet: SheetState, second: () => boolean = () =>
   /** Changes when the language changes or the messages load, so the rows' words are read again. */
   const messages = toSignal(merge(i18n.langChanges$, loaded));
   const reads = { translate: (key: string, params?: object): string => i18n.translate(key, params) };
+
   return {
     loading: computed(() => sheet.registry.data() === undefined),
     classes: computed(() => {
       messages();
       const registry = sheet.registry.data();
+
       return registry === undefined ? [] : classRows(registry, sheet.character(), { ...reads, slot: slot() });
     }),
     subclasses: computed(() => {
@@ -45,6 +47,7 @@ export function injectClassRows(sheet: SheetState, second: () => boolean = () =>
       const registry = sheet.registry.data();
       const character = sheet.character();
       const subclass = picks().subclass();
+
       return registry === undefined || character === undefined || subclass === undefined
         ? []
         : subclassRows(registry, character, { subclass, translate: reads.translate });
@@ -52,6 +55,7 @@ export function injectClassRows(sheet: SheetState, second: () => boolean = () =>
     keyAttributes: computed(() => {
       messages();
       const keyAttribute = picks().keyAttribute();
+
       return keyAttribute === undefined
         ? []
         : keyAttributeRows(keyAttribute, sheet.picks.attributes()?.modifiers ?? AttributeModifiers.none, reads);

@@ -190,9 +190,11 @@ function ancestryOrder(left: AncestryPickerRow, right: AncestryPickerRow, sort: 
   if (sort.column === OriginPickerColumn.HitPoints) {
     return left.hitPoints - right.hitPoints;
   }
+
   if (sort.column === OriginPickerColumn.Speed) {
     return left.speed - right.speed;
   }
+
   return 0;
 }
 
@@ -209,11 +211,14 @@ export function shownBy<TRow extends NamedRow>(
   return (rows, query, sort) => {
     const needle = query.trim().toLocaleLowerCase();
     const matching = rows.filter((row) => row.name.toLocaleLowerCase().includes(needle));
+
     if (sort === undefined) {
       return matching;
     }
+
     return matching.toSorted((left, right) => {
       const order = compare(left, right, sort) || byName(left, right);
+
       return sort.descending ? -order : order;
     });
   };

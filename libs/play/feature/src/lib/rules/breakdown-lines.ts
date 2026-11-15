@@ -6,6 +6,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** Where a typed rule element came from: the rule elements box, or the overrides box. */
 export const RuleSource = { Rule: 'rule', Override: 'override' } as const;
+
 export type RuleSource = ValueOf<typeof RuleSource>;
 
 /** A typed rule element as the playground names it: its box and its 1-based number there. */

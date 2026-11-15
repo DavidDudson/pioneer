@@ -13,6 +13,7 @@ import { Modifier } from './units';
 
 /** A modifier's amount: a whole number, or a formula that evaluates to one. */
 export const ModifierValue = z.union([Modifier, FormulaSource]);
+
 export type ModifierValue = z.infer<typeof ModifierValue>;
 
 const flatModifierFields = {
@@ -23,6 +24,7 @@ const flatModifierFields = {
   damageType: DamageTypeSchema.optional(),
   ...ruleElementBase,
 };
+
 const flatModifierKey = { key: z.literal(RuleElementKey.FlatModifier), selectors: ModifierTargets };
 
 const { Attribute: attributeType, ...otherTypes } = ModifierType;
@@ -40,6 +42,7 @@ export const FlatModifierElement = z.discriminatedUnion('type', [
   }),
   z.strictObject({ ...flatModifierKey, type: z.enum(otherTypes), ...flatModifierFields }),
 ]);
+
 export type FlatModifierElement = z.infer<typeof FlatModifierElement>;
 
 /** How an `AdjustModifier` changes the modifiers it finds. */
@@ -51,6 +54,7 @@ export const AdjustMode = {
   Downgrade: 'downgrade',
   Override: 'override',
 } as const;
+
 export type AdjustMode = ValueOf<typeof AdjustMode>;
 
 /**
@@ -74,6 +78,7 @@ export const AdjustModifierElement = z
         : element.mode !== undefined && element.value !== undefined,
     issueParams(message(RulesMessage.AdjustModeOrSuppress)),
   );
+
 export type AdjustModifierElement = z.infer<typeof AdjustModifierElement>;
 
 /** How a `Change` alters a statistic's value, applied in Foundry's order: add, multiply, upgrade, downgrade, override. */
@@ -84,6 +89,7 @@ export const ChangeMode = {
   Downgrade: 'downgrade',
   Override: 'override',
 } as const;
+
 export type ChangeMode = ValueOf<typeof ChangeMode>;
 
 /**
@@ -97,6 +103,7 @@ export const ChangeElement = z.strictObject({
   value: RuleValue,
   ...ruleElementBase,
 });
+
 export type ChangeElement = z.infer<typeof ChangeElement>;
 
 /** Caps the Dexterity modifier added to AC (armour, some conditions); the lowest cap wins. */
@@ -105,6 +112,7 @@ export const DexterityCapElement = z.strictObject({
   value: ModifierValue,
   ...ruleElementBase,
 });
+
 export type DexterityCapElement = z.infer<typeof DexterityCapElement>;
 
 /** A multiple attack penalty step: zero or less, as Foundry requires. Brands as `Modifier`, so it is one. */
@@ -117,4 +125,5 @@ export const MultipleAttackPenaltyElement = z.strictObject({
   value: z.union([PenaltyStep, FormulaSource]),
   ...ruleElementBase,
 });
+
 export type MultipleAttackPenaltyElement = z.infer<typeof MultipleAttackPenaltyElement>;

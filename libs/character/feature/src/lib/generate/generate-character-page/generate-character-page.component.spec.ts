@@ -28,11 +28,14 @@ const ACOLYTE = { id: 'background-acolyte', name: 'Acolyte' };
 const generate = vi.fn<CharacterGenerator['generate']>();
 
 const buttons = (root: HTMLElement): HTMLButtonElement[] => [...root.querySelectorAll('button')];
+
 const named = (root: HTMLElement, text: string): HTMLButtonElement => {
   const found = buttons(root).find((button) => button.textContent.trim() === text);
+
   if (found === undefined) {
     throw new Error(`no ${text} button`);
   }
+
   return found;
 };
 
@@ -115,15 +118,19 @@ describe(GenerateCharacterPage, () => {
     named(root, 'Melee').click();
     await harness.fixture.whenStable();
     await goNext();
+
     if (steps > 1) {
       await goNext();
     }
+
     if (steps > 2) {
       await goNext();
     }
+
     if (steps > 3) {
       await goNext();
     }
+
     if (steps > 4) {
       await goNext();
     }

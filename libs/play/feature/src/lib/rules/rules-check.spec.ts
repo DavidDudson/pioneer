@@ -47,6 +47,7 @@ describe('checkRulesJson for rule elements', () => {
   it('accepts a battle form', () => {
     const json =
       '{ "key": "BattleForm", "form": { "size": "large", "speeds": { "fly": 30 } }, "brackets": [{ "start": 4, "tempHP": 5 }] }';
+
     expect(checkRulesJson(RulesSchema.RuleElement, json).status).toBe(CheckStatus.Valid);
   });
 
@@ -88,6 +89,7 @@ describe('checkRulesJson for rule elements', () => {
   it('points into a statistic base formula that reads an item', () => {
     const json =
       '{ "slug": "statistic:sanity", "name": "Sanity", "selector": "sanity", "domains": [], "kind": "check", "base": "@item.level" }';
+
     expect(checkRulesJson(RulesSchema.Statistic, json)).toStrictEqual({
       status: CheckStatus.Invalid,
       issues: [

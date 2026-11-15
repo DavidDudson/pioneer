@@ -46,6 +46,7 @@ interface FixtureWeapon {
 
 function weapon({ slug, traits, damage, striking, splash, range, quantity }: FixtureWeapon): WeaponInputs {
   const entry = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse(`weapon:${slug}`)));
+
   return {
     slug: Slug.parse(slug),
     category: WeaponCategory.Martial,
@@ -64,6 +65,7 @@ function results(slug: string, damageBonus: number): ReadonlyMap<Selector, Stati
   const attack = `strike:${slug}`;
   const damage = `strike-damage:${slug}`;
   const attackTerms = [term('@weapon.attr', STRENGTH), term('@weapon.prof', EXPERT_AT_FIRST)];
+
   return new Map([
     [Selector.parse(attack), statistic(attack, { base: attackTerms })],
     [Selector.parse(damage), statistic(damage, { base: [term('@weapon.damage', damageBonus)] })],
@@ -110,9 +112,11 @@ const DERIVED = deriveStrikes(
 
 function strikeOf(index: number): Strike {
   const strike = DERIVED[index];
+
   if (strike === undefined) {
     throw new Error(`No Strike fixture at ${index}`);
   }
+
   return strike;
 }
 
@@ -147,6 +151,7 @@ const LONGSWORD_DAMAGE_ROLL = {
   ruleSplash: [],
   counts: [],
 } as const;
+
 const DARKNESS_ATTACK_BONUS = 1;
 const DARKNESS_DAMAGE_BONUS = 2;
 
@@ -204,6 +209,7 @@ const DARKNESS_LINE = line(GLOOM_WALKER, {
  */
 export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
   const applied = { ...DARKNESS_LINE, status: { kind: LineStatusKind.Applied } } as const;
+
   return [
     {
       name: 'Longsword',
@@ -265,9 +271,11 @@ export const ELEMENT_STRIKE: readonly NamedStrike[] = [
 
 function longswordDamage(): StrikeDamage {
   const { damage } = strikeOf(0);
+
   if (damage === undefined) {
     throw new Error('The longsword fixture has no damage');
   }
+
   return damage;
 }
 

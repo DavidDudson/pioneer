@@ -19,6 +19,7 @@ const SegmentKind = {
   /** A link to another site. */
   Link: 'link',
 } as const;
+
 type SegmentKind = ValueOf<typeof SegmentKind>;
 
 interface TextSegment {
@@ -56,7 +57,9 @@ interface LinkSegment {
 type Segment = TextSegment | MessageSegment | BookPageSegment | LinkSegment;
 
 type BookSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Book }>;
+
 type WebSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Web }>;
+
 type HomebrewSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Homebrew }>;
 
 /** Display names the caller resolved for homebrew sources. */
@@ -82,9 +85,12 @@ function link(url: string, content: TextSegment | MessageSegment, label?: LinkLa
 /** "Player Core p. 46 · AoN": the registry's title (or the id, flagged), the page and the AoN entry. */
 function bookSegments(source: BookSource, page: string | undefined): readonly Segment[] {
   const titleKey = BOOK_TITLES.get(source.book);
+
   const title =
     titleKey === undefined ? message(SourceLineMessage.UnregisteredBook, { book: source.book }) : message(titleKey);
+
   const segments: Segment[] = [page === undefined ? title : { kind: SegmentKind.BookPage, title, page }];
+
   if (source.aon !== undefined) {
     const key = page === undefined ? SourceLineMessage.AonLabelNoPage : SourceLineMessage.AonLabel;
     segments.push(
@@ -92,6 +98,7 @@ function bookSegments(source: BookSource, page: string | undefined): readonly Se
       link(source.aon, message(SourceLineMessage.Aon), { key, book: title, page }),
     );
   }
+
   return segments;
 }
 
@@ -108,6 +115,7 @@ function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonl
   const listed = names.listed.get(contentPackId(source.pack));
   const pack = names.packs.get(source.pack) ?? listed?.title ?? source.pack;
   const author = names.authors.get(source.author) ?? listed?.publisher;
+
   if (source.url === undefined) {
     return [
       author === undefined
@@ -115,6 +123,7 @@ function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonl
         : message(SourceLineMessage.Homebrew, { pack, author }),
     ];
   }
+
   return [
     link(source.url, text(pack)),
     author === undefined ? message(SourceLineMessage.ByUnknownAuthor) : message(SourceLineMessage.ByAuthor, { author }),
@@ -156,13 +165,17 @@ export class SourceLineView {
       packs: this.packNames(),
       listed: this.#listed(),
     };
+
     const segments: Segment[] = [];
+
     for (const [index, source] of this.sources().entries()) {
       if (index > 0) {
         segments.push(message(SourceLineMessage.Separator));
       }
+
       segments.push(...this.#segments(source, names));
     }
+
     return segments;
   });
 
@@ -170,9 +183,11 @@ export class SourceLineView {
     if (source.kind === SourceKind.Book) {
       return bookSegments(source, source.page === undefined ? undefined : this.#format.number(source.page));
     }
+
     if (source.kind === SourceKind.Web) {
       return webSegments(source);
     }
+
     return homebrewSegments(source, names);
   }
 }

@@ -27,6 +27,7 @@ function knows(entry: string, ids: readonly string[], predicate?: readonly strin
 function focusOf(builder: CharacterBuilder, content: SlotContent, registry: ContentRegistry): CharacterFocus {
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 
@@ -39,16 +40,20 @@ function contentOf(registry: ContentRegistry): SlotContent {
  * entry, a choice of the deity's domains, and each domain's initial domain spell while it is picked.
  */
 const clerics = new ContentPackBuilder().withId('focus');
+
 const DOMAIN_SPELLS: readonly (readonly [string, string])[] = [
   ['fire', 'fire-ray'],
   ['healing', 'healers-blessing'],
   ['sun', 'dazzling-flash'],
 ];
+
 for (const [, spell] of DOMAIN_SPELLS) {
   clerics.withSpell(spell, { rank: 1, traditions: [], traits: ['cleric', 'focus'] });
 }
+
 const spellId = (name: string): string => clerics.idOf(ContentKind.Spell, name);
 const DOMAIN_INITIATE = clerics.idOf(ContentKind.ClassFeature, 'domain-initiate');
+
 clerics
   .withDeity('atreia', { font: ['heal'], domains: { primary: ['fire', 'healing'], alternate: [] } })
   .withDeity('sarenrae', { font: ['heal'], domains: { primary: ['healing'], alternate: ['sun'] } })
@@ -69,8 +74,11 @@ clerics
     ],
   })
   .withClass('cleric', ['wis'], { rules: [{ key: 'GrantItem', item: DOMAIN_INITIATE }] });
+
 const clericRegistry = new ContentRegistry();
+
 clericRegistry.register(clerics.build());
+
 const clericContent = contentOf(clericRegistry);
 
 const DOMAIN_SLOT = `${DOMAIN_INITIATE}:1`;
@@ -80,6 +88,7 @@ function cleric(level: number, deity: string, picked?: string): CharacterBuilder
     .atLevel(level)
     .picking('class', clerics.idOf(ContentKind.Class, 'cleric'))
     .picking(String(DEITY_SLOT), clerics.idOf(ContentKind.Deity, deity));
+
   return picked === undefined ? builder : builder.picking(DOMAIN_SLOT, picked);
 }
 
@@ -87,6 +96,7 @@ function cleric(level: number, deity: string, picked?: string): CharacterBuilder
 function offered(deity: string): readonly string[] | undefined {
   const { document } = cleric(1, deity).build();
   const slot = characterGrants(document, clericContent).open.find((each) => String(each.key) === DOMAIN_SLOT);
+
   return slot?.options.map((option) => String(option.value));
 }
 
@@ -119,16 +129,20 @@ describe('characterFocus: a cleric with Domain Initiate', () => {
  * has a domain of its own, and the spells add up.
  */
 const twice = new ContentPackBuilder().withId('twice');
+
 for (const [, spell] of DOMAIN_SPELLS) {
   twice.withSpell(spell, { rank: 1, traditions: [], traits: ['cleric', 'focus'] });
 }
+
 const twiceSpell = (name: string): string => twice.idOf(ContentKind.Spell, name);
 const REPEATABLE_INITIATE = twice.idOf(ContentKind.Feat, 'domain-initiate');
+
 const featSlot = (flag: string): object => ({
   key: 'ChoiceSet',
   flag,
   choices: [{ value: REPEATABLE_INITIATE, label: 'Domain Initiate' }],
 });
+
 twice
   .withDeity('atreia', { font: ['heal'], domains: { primary: ['fire', 'healing'], alternate: [] } })
   .withFeat('domain-initiate', {
@@ -158,8 +172,11 @@ twice
       { key: 'GrantItem', item: { choice: 'second' } },
     ],
   });
+
 const twiceRegistry = new ContentRegistry();
+
 twiceRegistry.register(twice.build());
+
 const twiceContent = contentOf(twiceRegistry);
 
 const TWICE_CLASS = twice.idOf(ContentKind.Class, 'cleric');
@@ -175,9 +192,11 @@ function twiceCleric(domains: readonly (readonly [string, string])[] = []): Char
     .picking(String(DEITY_SLOT), twice.idOf(ContentKind.Deity, 'atreia'))
     .picking(FIRST_FEAT, REPEATABLE_INITIATE)
     .picking(SECOND_FEAT, REPEATABLE_INITIATE);
+
   for (const [slot, domain] of domains) {
     builder.picking(slot, domain);
   }
+
   return builder;
 }
 
@@ -194,6 +213,7 @@ describe('characterFocus: a cleric with Domain Initiate taken twice', () => {
       [FIRST_DOMAIN, 'fire'],
       [SECOND_DOMAIN, 'healing'],
     ]);
+
     const focus = focusOf(builder, twiceContent, twiceRegistry);
 
     expect(focus.entries.map(({ entry, spells }) => [String(entry.slug), spells.map(({ id }) => String(id))])).toEqual([
@@ -214,6 +234,7 @@ describe('characterFocus: a cleric with Domain Initiate taken twice', () => {
 const casters = new ContentPackBuilder().withId('pool');
 const poolSpell = (name: string): string => casters.idOf(ContentKind.Spell, name);
 const UNLOADED = '00000000-0000-4000-8000-0000000000f0';
+
 const CASTERS: readonly (readonly [string, readonly object[]])[] = [
   ['two', [focusEntry('bard-focus'), knows('bard-focus', [poolSpell('one'), poolSpell('two')])]],
   [
@@ -235,21 +256,27 @@ const CASTERS: readonly (readonly [string, readonly object[]])[] = [
   ],
   ['unloaded', [focusEntry('bard-focus'), knows('bard-focus', [UNLOADED])]],
 ];
+
 casters
   .withSpell('one', { rank: 1, traditions: [], traits: ['focus'] })
   .withSpell('two', { rank: 1, traditions: [], traits: ['focus'] })
   .withSpell('three', { rank: 4, traditions: [], traits: ['focus'] })
   .withSpell('four', { rank: 4, traditions: [], traits: ['focus'] })
   .withSpell('anthem', { rank: 1, traditions: [], traits: ['cantrip', 'composition'] });
+
 for (const [name, rules] of CASTERS) {
   casters.withClass(name, ['cha'], { rules });
 }
+
 const casterRegistry = new ContentRegistry();
+
 casterRegistry.register(casters.build());
+
 const casterContent = contentOf(casterRegistry);
 
 function poolOf(caster: string): number {
   const builder = new CharacterBuilder().picking('class', casters.idOf(ContentKind.Class, caster));
+
   return Number(focusOf(builder, casterContent, casterRegistry).pool);
 }
 

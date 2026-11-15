@@ -27,6 +27,7 @@ const ATTRIBUTE_MIN = -5;
 const ATTRIBUTE_MAX = 7;
 const LEVEL_MAX = 20;
 export const AC_BASE = 10;
+
 /** Proficiency bonus before level, per rank (Player Core). */
 export const RANK_BONUS: Readonly<Record<Proficiency, number>> = {
   [Proficiency.Untrained]: 0,
@@ -101,37 +102,48 @@ export const SKILLS: Readonly<Record<string, Attribute>> = {
 
 export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`);
 const LORE = Domain.parse('lore');
+
 /** The Lores Player Core's backgrounds train, which its import adds to the core rules pack (rules-engine.md). */
 export const LORE_SELECTORS: readonly string[] = coreRules.statistics
   .flatMap(({ selector, domains }) => (domains.includes(LORE) ? [String(selector)] : []))
   .toSorted();
+
 /** The six attribute checks: a flat d20 plus the modifier, with no proficiency. */
 const ATTRIBUTE_SELECTORS: readonly string[] = ['str', 'dex', 'con', 'int', 'wis', 'cha'].map(
   (key) => `attribute:${key}`,
 );
+
 /** The statistics whose base ends in a proficiency bonus, `@prof`. */
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
 export const SPEEDS = ['speed:land', 'speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'];
+
 /** Statistics that are a plain number from a base of their own, which a `Change` moves (reach, the dying limit). */
 export const COUNTS = ['reach', 'dying-max', 'step-distance'];
 export const SELECTORS = [...PROFICIENCY_SELECTORS, ...ATTRIBUTE_SELECTORS, 'hp:max', ...SPEEDS, ...COUNTS];
+
 /** The statistics derived once per weapon or spellcasting entry, by family selector. */
 export const PER_SOURCE_SELECTORS = ['strike', 'strike-damage', 'spell-attack', 'spell-dc'];
+
 /** The fighter's Strikes. */
 export const STRIKES = ['strike:longsword', 'strike:dagger'];
+
 /** The fighter's Strikes' flat damage: Strength, whatever the weapon attacks with. */
 export const STRIKE_DAMAGES = ['strike-damage:longsword', 'strike-damage:dagger'];
 
 /** What a derivation reads from a registry holding `packs`, as an app would load them. */
 export function contentOf(...packs: readonly ContentPack[]): StatisticContent {
   const registry = new ContentRegistry();
+
   for (const pack of packs) {
     registry.register(pack);
   }
+
   const content = statisticContent(registry);
+
   if (content === undefined) {
     throw new Error('No pack defines the proficiency bonus table');
   }
+
   return content;
 }
 
@@ -143,6 +155,7 @@ export function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<
 
 const proficiency: Arbitrary<Proficiency> = constantFrom(...Object.values(Proficiency));
 const attribute: Arbitrary<number> = integer({ min: ATTRIBUTE_MIN, max: ATTRIBUTE_MAX });
+
 /** Player Core ancestries and classes give 6 to 12 Hit Points; ancestries give a 20 to 30 foot Speed. */
 const HIT_POINTS_MIN = 6;
 const HIT_POINTS_MAX = 12;
@@ -218,6 +231,7 @@ export const anyInputs: Arbitrary<GeneratedInputs> = record({
 export function noFacts(): PredicateFacts {
   const registry = new ContentRegistry();
   registry.register(coreRules);
+
   return new PredicateFacts([], registry.rollOptionNamespaces());
 }
 
@@ -231,8 +245,10 @@ export function withoutLevel(): readonly RuleInPlay[] {
   const registry = new ContentRegistry();
   registry.register(coreRules);
   const variant = registry.variantRule(PWL);
+
   if (variant === undefined) {
     throw new Error('The core pack has no Proficiency Without Level');
   }
+
   return variantRulesInPlay([variant]);
 }

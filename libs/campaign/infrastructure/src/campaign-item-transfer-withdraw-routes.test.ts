@@ -13,6 +13,7 @@ describe('withdrawing an offer', () => {
     const withdrawn = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${transfer}/withdraw`, { as: ezren }),
     );
+
     const again = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${transfer}/withdraw`, { as: ezren }),
     );
@@ -33,6 +34,7 @@ describe('withdrawing an offer', () => {
     const late = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${accepted}/withdraw`, { as: ezren }),
     );
+
     const refused = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${withdrawn}/accept`, { as: ezren }),
     );
@@ -47,6 +49,7 @@ describe('withdrawing an offer', () => {
 
     const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/withdraw`, {}));
     const gm = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/withdraw`, { as: amiri }));
+
     const unknown = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${newId()}/withdraw`, { as: ezren }),
     );

@@ -12,9 +12,11 @@ const text = (words: string, marks?: readonly string[]): object => ({
   text: words,
   ...(marks === undefined ? {} : { marks }),
 });
+
 const item = (rank: string, spells: string): object[] => [
   { type: 'paragraph', content: [text(rank, ['strong']), text(` ${spells}`)] },
 ];
+
 const list = (...items: readonly object[][]): object => ({ type: 'list', ordered: false, items });
 
 /** A Game Master Core entry of `kind`; the spells' data is what a spell needs. */
@@ -44,6 +46,7 @@ const SPELL_DATA = {
     damage: [],
   },
 };
+
 const spellSlug = (name: string): string =>
   `spell:${name
     .toLowerCase()
@@ -87,6 +90,7 @@ function staff(
 
 const idsOf = (...names: readonly string[]): readonly ContentId[] => names.map((name) => idOf(spellSlug(name)));
 const index = spellIndex(SPELLS);
+
 const read = (...items: readonly object[][]): StaffSpells | undefined =>
   matchStaffSpells(staff('test', [list(...items)]), index);
 
@@ -164,6 +168,7 @@ describe('staffMatches', () => {
   test('matches staves with the staff trait that have no spells yet', () => {
     const fire = staff('fire', [list(item('Cantrip', 'Ignition'))]);
     const plain = staff('plain', [list(item('Cantrip', 'Ignition'))], ['magical']);
+
     const typed = ContentEntry.parse({
       ...fire,
       slug: 'weapon:typed',

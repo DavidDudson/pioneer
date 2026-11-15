@@ -22,6 +22,7 @@ export const EnvironmentRestriction = z.strictObject({
   reason: ContentText,
   blocks: z.array(Trait).max(LIST_MAX).readonly().default([]),
 });
+
 export type EnvironmentRestriction = z.infer<typeof EnvironmentRestriction>;
 
 /** How hard environmental damage hits (GM Core, Environmental Damage): the GM sets the dice within the category. */
@@ -31,6 +32,7 @@ export const EnvironmentDamageCategory = {
   Major: 'major',
   Massive: 'massive',
 } as const;
+
 export type EnvironmentDamageCategory = ValueOf<typeof EnvironmentDamageCategory>;
 
 /** Damage an environment deals: its category, which sets the dice, and its type. */
@@ -38,6 +40,7 @@ export const EnvironmentDamage = z.strictObject({
   category: z.enum(EnvironmentDamageCategory),
   type: DamageTypeSchema,
 });
+
 export type EnvironmentDamage = z.infer<typeof EnvironmentDamage>;
 
 /**
@@ -55,11 +58,13 @@ export const EnvironmentConsequence = z
     ({ applies, damage }) => (applies === undefined) !== (damage === undefined),
     issueParams(message(RulesMessage.ConsequenceAppliesOrDamage)),
   );
+
 export type EnvironmentConsequence = z.infer<typeof EnvironmentConsequence>;
 
 /** Restrictions name one thing each: a repeated id is an error at its index naming it. */
 function uniqueRestrictionIds(context: z.core.ParsePayload<readonly EnvironmentRestriction[]>): void {
   const seen = new Set<string>();
+
   for (const [index, { id }] of context.value.entries()) {
     if (seen.has(id)) {
       context.issues.push({
@@ -69,6 +74,7 @@ function uniqueRestrictionIds(context: z.core.ParsePayload<readonly EnvironmentR
         ...issueParams(message(RulesMessage.ListDuplicate, { value: id })),
       });
     }
+
     seen.add(id);
   }
 }
@@ -85,4 +91,5 @@ export const EnvironmentData = z.strictObject({
   restrictions: z.array(EnvironmentRestriction).max(LIST_MAX).readonly().check(uniqueRestrictionIds).default([]),
   consequences: z.array(EnvironmentConsequence).max(LIST_MAX).readonly().default([]),
 });
+
 export type EnvironmentData = z.infer<typeof EnvironmentData>;

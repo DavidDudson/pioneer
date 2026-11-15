@@ -45,6 +45,7 @@ export class DrizzlePartyStashRepository {
       .from(campaignPartyStashes)
       .where(eq(campaignPartyStashes.id, campaignId))
       .limit(1);
+
     return row;
   }
 
@@ -56,22 +57,27 @@ export class DrizzlePartyStashRepository {
     const updatedAt = this.#clock.now().toString();
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: SAVE_COMMAND });
+
       if (expected === undefined) {
         const made = await tx
           .insert(campaignPartyStashes)
           .values({ id: campaignId, document, version: FIRST_VERSION, updatedAt })
           .onConflictDoNothing()
           .returning({ id: campaignPartyStashes.id });
+
         if (made.length === 0) {
           throw new VersionConflictError('PartyStash', campaignId);
         }
+
         return;
       }
+
       const saved = await tx
         .update(campaignPartyStashes)
         .set({ document, version: nextVersion(expected), updatedAt })
         .where(and(eq(campaignPartyStashes.id, campaignId), eq(campaignPartyStashes.version, expected)))
         .returning({ id: campaignPartyStashes.id });
+
       if (saved.length === 0) {
         throw new VersionConflictError('PartyStash', campaignId);
       }

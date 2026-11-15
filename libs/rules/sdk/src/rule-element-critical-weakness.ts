@@ -16,4 +16,5 @@ export const CriticalWeaknessElement = z.strictObject({
   value: DamageAmount,
   ...ruleElementBase,
 });
+
 export type CriticalWeaknessElement = z.infer<typeof CriticalWeaknessElement>;

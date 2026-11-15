@@ -20,6 +20,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -28,6 +29,7 @@ const PAGE_SIZE = PageSize.parse(24);
 /** The wire form of a page of `names` characters out of `total`, as the API answers. */
 function pageOf(names: readonly string[], total: number, page = 1): object {
   const items = names.map((name) => new CharacterBuilder().named(name).build());
+
   return z.encode(CharacterPage, {
     items,
     total: CharacterCount.parse(total),
@@ -54,6 +56,7 @@ async function open(address = '/characters', answer: object = pageOf([], 0)): Pr
     harness.detectChanges();
     expect(root.querySelector('fr-skeleton')).toBeNull();
   });
+
   return root;
 }
 
@@ -70,6 +73,7 @@ async function requestFor(address: string): Promise<URL> {
   await RouterTestingHarness.create(address);
   const request = http.expectOne((each) => each.url.startsWith('/api/characters'));
   request.flush(pageOf([], 0));
+
   return new URL(request.request.urlWithParams, 'http://localhost');
 }
 

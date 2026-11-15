@@ -33,6 +33,7 @@ const campaign = {
 const kyra = '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e62';
 const seelah = '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e63';
 const longsword = '3b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01';
+
 const incoming = {
   id: '4c1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01',
   kind: 'item',
@@ -46,6 +47,7 @@ const incoming = {
   asGiver: false,
   asRecipient: true,
 };
+
 const outgoing = {
   ...incoming,
   id: '4c1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e02',
@@ -73,6 +75,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -98,9 +101,11 @@ async function open(transfers: readonly object[]): Promise<Opened> {
   });
   const harness = await RouterTestingHarness.create(`/campaigns/${id}/inventory`);
   const host: unknown = harness.fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The page did not render');
   }
+
   document.body.append(host);
   onTestFinished(() => {
     host.remove();
@@ -124,6 +129,7 @@ async function open(transfers: readonly object[]): Promise<Opened> {
   await vi.waitFor(() => {
     expect(root.textContent).toMatch(/Longsword|Backpack|4 gp|No offers waiting/u);
   });
+
   return { root, http };
 }
 

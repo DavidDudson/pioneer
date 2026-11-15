@@ -20,9 +20,11 @@ import type { ShapeRow } from './shape-picker';
 
 /** What the shift form submits: the weapon whose shape the item takes. */
 const ShiftForm = z.object({ shape: ContentId });
+
 interface ShiftModel {
   readonly shape: string;
 }
+
 const EMPTY_SHIFT: ShiftModel = { shape: '' };
 
 /**
@@ -56,12 +58,14 @@ export class ItemShape {
   /** Whether the item has a shifting rune, which is all that offers a shape. */
   protected readonly shifts = computed(() => {
     const item = this.#item();
+
     return item !== undefined && hasShiftingRune(item, this.content().items.get(item.item), this.content().runes);
   });
 
   /** The name of the weapon the item has the shape of; none while it has its own. */
   protected readonly shape: Signal<string | undefined> = computed(() => {
     const taken = this.#play.play.data()?.play.shapes[this.id()];
+
     return taken === undefined ? undefined : this.content().items.get(taken)?.name;
   });
 
@@ -69,6 +73,7 @@ export class ItemShape {
   protected readonly shapes = new PickerRows<ShapeRow>(
     computed((): readonly ShapeRow[] => {
       const item = this.#item();
+
       return item === undefined
         ? []
         : shapesFor(item, this.content()).map(({ id, name }): ShapeRow => ({ value: id, label: name }));
@@ -77,6 +82,7 @@ export class ItemShape {
   );
   protected readonly shapeColumns = computed(() => {
     this.#messages();
+
     return shapeColumns(this.#i18n.translate('character.sheet.shape.columnName'));
   });
   protected readonly shapeValue = shapeValue;
@@ -98,6 +104,7 @@ export class ItemShape {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

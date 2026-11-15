@@ -37,6 +37,7 @@ function bone(recreatedOnSustain: boolean): ShieldContent {
       recreatedOnSustain,
     },
   };
+
   return new Map([[ITEM, stats]]);
 }
 
@@ -71,6 +72,7 @@ function apply(play: PlayState, command: PlayCommand, shields: ShieldContent): P
 
 function block(play: PlayState, shields: ShieldContent): PlayState {
   const damage = untypedDamage(HitPoints.parse(12));
+
   return apply(play, { field: PlayCommandField.BlockWithShield, item: ITEM, damage }, shields);
 }
 
@@ -80,6 +82,7 @@ function sustain(play: PlayState, id: ActiveSpellId, shields: ShieldContent): Pl
     action: SPELL,
     spell: { kind: SpellSpendKind.Sustain, id },
   };
+
   return apply(play, command, shields);
 }
 

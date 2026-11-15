@@ -11,6 +11,7 @@ async function render(count: number): Promise<ComponentFixture<GiftBadge>> {
   fixture.componentRef.setInput('count', count);
   fixture.componentRef.setInput('label', 'Gifts waiting');
   await fixture.whenStable();
+
   return fixture;
 }
 

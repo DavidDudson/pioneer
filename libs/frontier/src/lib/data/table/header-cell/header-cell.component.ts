@@ -22,6 +22,7 @@ export class TableHeaderCell<TData extends RowData> {
 
   protected readonly sortIcon = computed(() => {
     const sorted = this.header().column.getIsSorted();
+
     return sorted === false ? undefined : SORT_ICON[sorted];
   });
 }

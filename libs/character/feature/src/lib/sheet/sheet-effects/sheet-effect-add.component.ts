@@ -106,6 +106,7 @@ export class SheetEffectAdd {
   /** The forms the picked effect offers at the rank chosen, as a select reads them. */
   protected readonly forms = computed((): readonly SelectOption<string>[] => {
     const rank = Number(this.rank() ?? this.pickedOption()?.rankFloor);
+
     return (this.pickedOption()?.forms ?? [])
       .filter(({ lowestRank }) => lowestRank === undefined || rank >= lowestRank)
       .map(({ option, label }) => ({ value: option, label }));
@@ -113,10 +114,13 @@ export class SheetEffectAdd {
   /** The ranks the picked polymorph effect can be cast at, from its own up to the tenth. */
   protected readonly ranks = computed((): readonly SelectOption<string>[] => {
     const option = this.pickedOption();
+
     if (option?.polymorph !== true) {
       return [];
     }
+
     const floor: number = option.rankFloor;
+
     return Array.from({ length: SPELL_RANK_MAX - floor + 1 }, (_blank, index) => ({
       value: String(floor + index),
       label: this.#i18n.translate('character.sheet.effects.rankOption', { rank: floor + index }),
@@ -141,6 +145,7 @@ export class SheetEffectAdd {
     const option = this.pickedOption();
     const rollable = option?.formula === undefined || canRollBadge(option.formula);
     const formed = this.forms().length === 0 || this.form() !== undefined;
+
     return option !== undefined && rollable && formed && (!this.isAlly() || this.#allyKnown());
   });
 
@@ -156,6 +161,7 @@ export class SheetEffectAdd {
   /** Sets the rank, and drops the form chosen when the new rank no longer offers it. */
   protected readonly setRank = (rank: string | undefined): void => {
     this.rank.set(rank);
+
     if (!this.forms().some(({ value }) => value === this.form())) {
       this.form.set(undefined);
     }
@@ -167,9 +173,11 @@ export class SheetEffectAdd {
 
   protected readonly add = async (): Promise<void> => {
     const option = this.pickedOption();
+
     if (option === undefined) {
       return;
     }
+
     await this.send()(this.#command(option));
     this.choose(undefined);
     this.allyName.set('');
@@ -185,6 +193,7 @@ export class SheetEffectAdd {
     const picked = MagicTraditionSchema.safeParse(this.tradition());
     const tradition = option.polymorph && picked.success ? picked.data : undefined;
     const cast = this.spell();
+
     const applying = {
       id: EffectInstanceId.parse(newId()),
       effect: ContentId.parse(option.id),
@@ -194,7 +203,9 @@ export class SheetEffectAdd {
       ...(tradition === undefined ? {} : { tradition }),
       ...(cast === undefined ? {} : { spell: ActiveSpellId.parse(cast) }),
     };
+
     const tempHp = this.tempHpFor()(applying);
+
     return {
       field: EffectCommandField.ApplyEffect,
       ...applying,
@@ -205,12 +216,15 @@ export class SheetEffectAdd {
 
   #source(): EffectSource {
     const kind = this.sourceKind();
+
     if (kind === EffectSourceKind.Ally) {
       const member = this.#member();
+
       return member === undefined
         ? { kind, name: EffectAllyName.parse(this.allyName()) }
         : { kind, name: EffectAllyName.parse(member.name), characterId: member.characterId };
     }
+
     return kind === EffectSourceKind.Gm ? { kind } : SELF;
   }
 

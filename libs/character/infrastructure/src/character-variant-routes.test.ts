@@ -50,6 +50,7 @@ const content: ContentSource = {
   registry: async (): Promise<ContentRegistry> => {
     const registry = new ContentRegistry();
     registry.register(official);
+
     return registry;
   },
 };
@@ -75,11 +76,14 @@ async function setUp(): Promise<SetUp> {
   const clock = fixedClock('2026-10-14T10:00:00Z');
   const repository = new InMemoryCharacterRepository();
   const characters = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+
   const kyra = await new CharacterService(repository, characters, clock).create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   const campaigns = new InMemoryAttachedCampaignPacks();
+
   const service = new CharacterVariantService(
     {
       characters: repository,
@@ -90,7 +94,9 @@ async function setUp(): Promise<SetUp> {
     },
     clock,
   );
+
   const api = new Elysia().use(problemHandler).use(characterVariantRoutes(service, new FakeAuthenticator()));
+
   return { api, campaigns, path: `/characters/${kyra.id}/variant-rules`, characterId: kyra.id };
 }
 

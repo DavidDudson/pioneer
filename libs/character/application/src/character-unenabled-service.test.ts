@@ -39,20 +39,24 @@ const brewPack = new ContentPackBuilder()
   .withVariantRule('gritty')
   .withItem(ContentKind.Equipment, 'lantern', { bulk: 'light' })
   .build();
+
 const otherPack = new ContentPackBuilder().withId(OTHER).withVariantRule('slow').build();
 
 /** A source whose registry holds the packs asked for, over a core pack. */
 function source(): ContentSource {
   const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
   return {
     registry: async (packs = []): Promise<ContentRegistry> => {
       const registry = new ContentRegistry();
       registry.register(core);
+
       for (const pack of [brewPack, otherPack]) {
         if (packs.includes(contentPackId(pack.id))) {
           registry.register(pack);
         }
       }
+
       return registry;
     },
   };
@@ -100,14 +104,17 @@ describe('CharacterUnenabledService', () => {
     const registry = await content.registry([brew, other]);
     const gritty = registry.variantRules().find((entry) => contentPackId(entry.pack.id) === brew);
     const slow = registry.variantRules().find((entry) => contentPackId(entry.pack.id) === other);
+
     if (gritty === undefined || slow === undefined) {
       throw new Error('Fixture variant rules missing');
     }
+
     grittyId = gritty.id;
     slowId = slow.id;
     const [lantern] = [...itemContent(registry).keys()];
     const service2 = new CharacterService(repository, fixedContent(core, brewPack), clock);
     kyra = await service2.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
+
     if (lantern !== undefined) {
       ({ character: kyra } = await service2.patch(amiri, kyra.id, {
         expectedVersion: kyra.version,
@@ -145,6 +152,7 @@ describe('CharacterUnenabledService', () => {
       publisher: PackPublisher.parse('Ezren'),
       readers: [amiri],
     });
+
     const holding = new CharacterUnenabledService({
       characters: repository,
       content: source(),
@@ -153,6 +161,7 @@ describe('CharacterUnenabledService', () => {
       campaigns,
       held: new HeldContentPacks(new HeldIn(brew), catalog),
     });
+
     packs.ids = [];
     campaigns.attach(kyra.id, { name: campaignName, packs: [], variants: [] });
     const unenabled = await holding.unenabled(amiri, kyra.id);

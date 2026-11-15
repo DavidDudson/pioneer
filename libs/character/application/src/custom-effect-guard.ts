@@ -24,12 +24,16 @@ export function assertCustomEffectAllowed(character: Character, patch: Character
   if (!isCustomEffectPatch(patch)) {
     return;
   }
+
   const problem = customEffectProblem(character.document, patch);
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['patch'], message: message(CUSTOM_EFFECT_REFUSALS[problem]) }]);
   }
+
   if (patch.field === CharacterPatchField.RemoveCustomEffect && actorRole !== OverrideRole.Gm) {
     const found = customEffectOf(character.document, patch.id);
+
     if (found?.byRole === OverrideRole.Gm) {
       throw new ForbiddenError(
         `Custom effect ${patch.id} was written by the GM`,

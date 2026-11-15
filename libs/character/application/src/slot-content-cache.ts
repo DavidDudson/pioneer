@@ -14,12 +14,15 @@ export class SlotContentCache {
     const variantKey = variants.map((variant) => variant.id).join(',');
     const forRegistry = this.#built.get(registry) ?? new Map<string, SlotContent>();
     const cached = forRegistry.get(variantKey);
+
     if (cached !== undefined) {
       return cached;
     }
+
     const content = slotContent(registry, variants);
     forRegistry.set(variantKey, content);
     this.#built.set(registry, forRegistry);
+
     return content;
   }
 }

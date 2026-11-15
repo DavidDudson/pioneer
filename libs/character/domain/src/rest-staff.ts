@@ -13,6 +13,7 @@ const SPENT_ONE = CountDelta.parse(1);
 function expendable(play: RestPlay, limits: RestLimits, slot: StaffSlot): boolean {
   const key = staffSlotKey(slot);
   const held = heldCount({ spent: play.resources.slots, maxima: limits.counted.slots, key });
+
   return limits.staff.expendable.has(key) && held > NONE;
 }
 
@@ -29,11 +30,14 @@ export function withStaffPrepared<Play extends RestPlay>(
   const { play } = outcome;
   const { highestRank, staves } = limits.staff;
   const cleared: Play = { ...play, resources: { ...play.resources, staff: {} } };
+
   if (staff === undefined || highestRank === undefined || !staves.has(staff)) {
     return Object.keys(play.resources.staff).length === 0 ? outcome : { play: cleared, changes: outcome.changes };
   }
+
   const expended = slot !== undefined && expendable(play, limits, slot) ? slot : undefined;
   const charges = ResourceCount.parse(highestRank + (expended?.rank ?? 0));
+
   const slots =
     expended === undefined
       ? play.resources.slots
@@ -41,12 +45,15 @@ export function withStaffPrepared<Play extends RestPlay>(
           { spent: play.resources.slots, maxima: limits.counted.slots, key: staffSlotKey(expended) },
           SPENT_ONE,
         );
+
   const next: Play = {
     ...play,
     resources: { ...play.resources, slots, staff: { [staff]: { max: charges, spent: NONE } } },
   };
+
   const change: RestChange = { kind: RestChangeKind.StaffCharges, item: staff, charges };
   const prepared: RestOutcome<Play> = { play: next, changes: [...outcome.changes, change] };
+
   return expended === undefined
     ? prepared
     : {

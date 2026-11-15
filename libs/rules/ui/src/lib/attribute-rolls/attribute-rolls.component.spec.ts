@@ -33,6 +33,7 @@ async function render(statistics: ReadonlyMap<Attribute, StatisticValue> | undef
   const fixture: ComponentFixture<AttributeRolls> = TestBed.createComponent(AttributeRolls);
   fixture.componentRef.setInput('statistics', statistics);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, rolls };
 }
 

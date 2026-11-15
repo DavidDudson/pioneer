@@ -45,9 +45,11 @@ export function shieldIds(registry: ContentRegistry): ShieldIds | undefined {
       .flatMap((pack) => pack.otherEntries.filter((entry) => !isLegacyLicense(effectiveLicense(entry, pack.manifest))))
       .map((entry): [EntrySlug, ContentId] => [entry.slug, entry.id]),
   );
+
   const raise = bySlug.get(RAISE_A_SHIELD);
   const raised = bySlug.get(RAISED);
   const block = bySlug.get(SHIELD_BLOCK);
+
   return raise === undefined || raised === undefined || block === undefined ? undefined : { raise, raised, block };
 }
 
@@ -82,9 +84,11 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
   const slots = sheetSlotContent(registry);
   const items = itemContent(registry);
   const held = heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots));
+
   return held.map(({ entry, item, hardness, hitPoints, brokenThreshold, undamageable, granted }): ShieldLine => {
     const stats = { hardness, hitPoints, brokenThreshold, ...(undamageable === true ? { undamageable } : {}) };
     const damage = play.shields[item] ?? NONE;
+
     return {
       key: item,
       name: slots.lookup.entry(entry)?.name ?? entry,

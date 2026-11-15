@@ -10,6 +10,7 @@ const meta: Meta<LanguagesView> = {
   title: 'Rules/Languages',
   component: LanguagesView,
 };
+
 export default meta;
 
 /** While the character's languages load. */

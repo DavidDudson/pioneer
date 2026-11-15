@@ -13,6 +13,7 @@ const meta: Meta<ChoicesView> = {
   title: 'Rules/Choices',
   component: ChoicesView,
 };
+
 export default meta;
 
 /** While the character's slots load. */

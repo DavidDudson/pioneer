@@ -82,6 +82,7 @@ describe('CharacterService overrides', () => {
     expect(JSON.stringify(result.error?.issues)).toContain('character.validation.overrideReasonRequired');
   });
 });
+
 describe('CharacterService sheet authors', () => {
   const ancestries = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
 

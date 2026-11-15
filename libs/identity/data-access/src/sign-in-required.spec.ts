@@ -17,12 +17,14 @@ const amiri = {
   createdAt: '2026-10-09T08:00:00.000Z',
   updatedAt: '2026-10-09T08:00:00.000Z',
 };
+
 const unauthorized = {
   type: 'unauthorized',
   title: 'Unauthorized',
   status: 401,
   message: { key: 'problem.unauthorized' },
 };
+
 const UNAUTHORIZED = { status: 401, statusText: 'Unauthorized' };
 
 /** Any call that needs a session. */
@@ -48,6 +50,7 @@ function setup(): HttpTestingController {
       provideSignInOnUnauthorized(),
     ],
   });
+
   return TestBed.inject(HttpTestingController);
 }
 

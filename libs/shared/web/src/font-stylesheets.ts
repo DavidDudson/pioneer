@@ -39,10 +39,12 @@ export class FontStylesheets {
   /** Makes sure the wordmark face and the chosen body and mono faces are on their way. */
   public load(body: BodyFont, mono: MonoFont): void {
     const urls = [BRAND_STYLESHEET, ...(BODY_STYLESHEETS[body] ?? []), ...(MONO_STYLESHEETS[mono] ?? [])];
+
     if (urls.some((url) => !this.#loaded.has(url))) {
       this.#preconnect(GOOGLE_FONTS.replace('/css2', ''));
       this.#preconnect(GOOGLE_FONT_FILES, true);
     }
+
     for (const url of urls) {
       this.#stylesheet(url);
     }
@@ -52,6 +54,7 @@ export class FontStylesheets {
     if (this.#loaded.has(url)) {
       return;
     }
+
     this.#loaded.add(url);
     const link = this.#document.createElement('link');
     link.rel = 'stylesheet';
@@ -63,13 +66,16 @@ export class FontStylesheets {
     if (this.#loaded.has(origin)) {
       return;
     }
+
     this.#loaded.add(origin);
     const link = this.#document.createElement('link');
     link.rel = 'preconnect';
     link.href = origin;
+
     if (crossOrigin) {
       link.crossOrigin = '';
     }
+
     this.#document.head.append(link);
   }
 }

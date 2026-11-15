@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** How a field narrows a list: `set` picks values, `range` bounds a number, `flag` is a yes or no. */
 export const FilterKind = { Set: 'set', Range: 'range', Flag: 'flag' } as const;
+
 export type FilterKind = ValueOf<typeof FilterKind>;
 
 export const FilterOperator = {
@@ -10,6 +11,7 @@ export const FilterOperator = {
   IsAnyOf: 'isAnyOf',
   Between: 'between',
 } as const;
+
 export type FilterOperator = ValueOf<typeof FilterOperator>;
 
 /** A value a `set` or `flag` field can take. */
@@ -66,6 +68,7 @@ export function isComplete(condition: FilterCondition): boolean {
   if (condition.operator === FilterOperator.Between) {
     return condition.values.some((bound) => bound !== '');
   }
+
   return condition.operator === FilterOperator.IsAnyOf
     ? condition.values.length > 0
     : condition.values[0] !== undefined && condition.values[0] !== '';
@@ -78,16 +81,21 @@ export type Translate = (key: string, params?: Readonly<Record<string, string>>)
 export function valueText(field: FilterField, condition: FilterCondition, translate: Translate): string {
   if (field.kind === FilterKind.Range) {
     const [min = '', max = ''] = condition.values;
+
     if (condition.operator !== FilterOperator.Between) {
       return min;
     }
+
     if (min !== '' && max !== '') {
       return translate('frontier.filterBar.range.between', { min, max });
     }
+
     return min === ''
       ? translate('frontier.filterBar.range.upTo', { value: max })
       : translate('frontier.filterBar.range.from', { value: min });
   }
+
   const labels = new Map((field.options ?? []).map((option) => [option.value, option.label]));
+
   return condition.values.map((value) => labels.get(value) ?? value).join(', ');
 }

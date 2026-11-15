@@ -17,17 +17,21 @@ import { CharacterBuilder } from './testing';
  * two schools: a dedication's pick of an order or school, and the feat that teaches its focus spell.
  */
 const pack = new ContentPackBuilder().withId('archetypes');
+
 const ORDERS: readonly (readonly [string, string])[] = [
   ['leaf-order', 'cornucopia'],
   ['storm-order', 'tempest-surge'],
 ];
+
 const SCHOOLS: readonly (readonly [string, string])[] = [
   ['school-of-battle-magic', 'force-bolt'],
   ['school-of-mentalism', 'charming-push'],
 ];
+
 for (const [, spell] of [...ORDERS, ...SCHOOLS, ['', 'counter-performance'] as const]) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const featureId = (name: string): string => pack.idOf(ContentKind.ClassFeature, name);
 
@@ -38,6 +42,7 @@ const entry = (slug: string, tradition: string, attribute: string): object => ({
   attribute,
   preparation: 'focus',
 });
+
 const DRUID_FOCUS = entry('druid-focus', 'primal', 'wis');
 const unlessDedication = (order: string): readonly unknown[] => [{ not: `feat:druid-dedication:${order}` }];
 
@@ -49,6 +54,7 @@ for (const [order, spell] of ORDERS) {
     ],
   });
 }
+
 pack
   .withFeat('druid-dedication', {
     rules: [
@@ -99,12 +105,14 @@ pack
       { key: 'FocusSpells', entry: 'bard-focus', spells: [spellId('counter-performance')] },
     ],
   });
+
 const DRUID_DEDICATION = pack.idOf(ContentKind.Feat, 'druid-dedication');
 const ORDER_SPELL = pack.idOf(ContentKind.Feat, 'order-spell');
 const WIZARD_DEDICATION = pack.idOf(ContentKind.Feat, 'wizard-dedication');
 const ARCANE_SCHOOL_SPELL = pack.idOf(ContentKind.Feat, 'arcane-school-spell');
 const COUNTER_PERFORM = pack.idOf(ContentKind.Feat, 'counter-perform');
 const DEDICATIONS = [DRUID_DEDICATION, WIZARD_DEDICATION];
+
 const FEATS = new Map([
   ['plain', []],
   ['order-spell', [ORDER_SPELL]],
@@ -112,13 +120,17 @@ const FEATS = new Map([
   ['counter-perform', [COUNTER_PERFORM]],
   ['all', [ORDER_SPELL, ARCANE_SCHOOL_SPELL, COUNTER_PERFORM]],
 ]);
+
 for (const [name, feats] of FEATS) {
   pack.withClass(name, ['str'], {
     rules: [...DEDICATIONS, ...feats].map((item) => ({ key: 'GrantItem', item })),
   });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const ORDER_PICK = `${DRUID_DEDICATION}:0`;
@@ -127,15 +139,18 @@ const SCHOOL_PICK = `${WIZARD_DEDICATION}:0`;
 /** A character of the class granting the archetype feats named `feats`, with `picks` besides: slot key to pick. */
 function character(feats: string, picks: Readonly<Record<string, string>> = {}): CharacterBuilder {
   let builder = new CharacterBuilder().atLevel(4).picking('class', pack.idOf(ContentKind.Class, feats));
+
   for (const [slot, pick] of Object.entries(picks)) {
     builder = builder.picking(slot, pick);
   }
+
   return builder;
 }
 
 function focusOf(builder: CharacterBuilder): CharacterFocus {
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 

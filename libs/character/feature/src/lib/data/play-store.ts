@@ -20,12 +20,14 @@ export class PlayStore {
 
   public readonly play = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.play(id),
       queryFn: async (): Promise<CharacterPlay> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.play, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -50,18 +52,22 @@ export class PlayStore {
     // The cache, not the signal: the signal catches up a tick after an edit.
     // A second edit straight after the first must carry the revision the first one saved.
     const current = this.#client.getQueryData<CharacterPlay>(characterKeys.play(id)) ?? this.play.data();
+
     if (id === undefined || current === undefined) {
       throw new Error('No play state loaded');
     }
+
     try {
       const body = { expectedRevision: current.revision, command };
       const { events, ...stored } = await this.#api.call(CharacterContract.patchPlay, { params: { id }, body });
       this.#client.setQueryData(characterKeys.play(id), stored);
+
       return events;
     } catch (error: unknown) {
       if (ApiError.isConflict(error)) {
         await this.#client.invalidateQueries({ queryKey: characterKeys.play(id) });
       }
+
       throw error;
     }
   }

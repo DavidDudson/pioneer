@@ -19,6 +19,7 @@ const LABEL_LENGTH_MAX = 200;
 
 /** Deepest JSON nesting a rich text document may have; enough for lists nested five deep. */
 export const RICH_TEXT_DEPTH_MAX = 24;
+
 /** Most arrays and objects one document may hold, so imported or pasted text can't swamp the renderer. */
 export const RICH_TEXT_CONTAINERS_MAX = 5000;
 
@@ -29,20 +30,26 @@ const RICH_TEXT_BOUNDS: JsonBounds = {
 
 /** A run of content text: rules prose for official content, the author's words for homebrew. Never markup. */
 export const RichTextString = z.string().min(1).max(TEXT_LENGTH_MAX).brand<'RichTextString'>();
+
 export type RichTextString = z.infer<typeof RichTextString>;
 
 /** Text shown in place of what an inline node would generate (`@UUID[...]{Label}` in Foundry). */
 export const InlineLabel = z.string().min(1).max(LABEL_LENGTH_MAX).brand<'InlineLabel'>();
+
 export type InlineLabel = z.infer<typeof InlineLabel>;
 
 /** How a run of text is set off: emphasis (italic) or strong importance (bold). */
 export const TextMark = { Emphasis: 'emphasis', Strong: 'strong' } as const;
+
 export type TextMark = ValueOf<typeof TextMark>;
+
 export const TextMarkSchema = z.enum(TextMark);
 
 /** The action glyphs rules text uses: `[one-action]` to `[three-actions]`, `[free-action]`, `[reaction]`. */
 export const ActionCost = { One: 'one', Two: 'two', Three: 'three', Free: 'free', Reaction: 'reaction' } as const;
+
 export type ActionCost = ValueOf<typeof ActionCost>;
+
 export const ActionCostSchema = z.enum(ActionCost);
 
 /** Area shapes a spell or effect template can have. */
@@ -55,15 +62,20 @@ export const AreaShape = {
   Line: 'line',
   Square: 'square',
 } as const;
+
 export type AreaShape = ValueOf<typeof AreaShape>;
+
 export const AreaShapeSchema = z.enum(AreaShape);
 
 export const DurationUnit = { Round: 'round', Minute: 'minute', Hour: 'hour', Day: 'day' } as const;
+
 export type DurationUnit = ValueOf<typeof DurationUnit>;
+
 export const DurationUnitSchema = z.enum(DurationUnit);
 
 /** How many rounds, minutes, hours or days a duration lasts. */
 export const DurationCount = Pg.smallint().positive().brand<'DurationCount'>();
+
 export type DurationCount = z.infer<typeof DurationCount>;
 
 /** Every kind of inline node. */
@@ -77,6 +89,7 @@ export const InlineKind = {
   Duration: 'duration',
   ActionCost: 'action-cost',
 } as const;
+
 export type InlineKind = ValueOf<typeof InlineKind>;
 
 /** Every kind of block node. */
@@ -87,10 +100,12 @@ export const BlockKind = {
   Table: 'table',
   Rule: 'rule',
 } as const;
+
 export type BlockKind = ValueOf<typeof BlockKind>;
 
 /** Outline levels inside a description, below the entry's own heading. */
 export const RichTextHeadingLevel = { One: 1, Two: 2, Three: 3 } as const;
+
 export type RichTextHeadingLevel = ValueOf<typeof RichTextHeadingLevel>;
 
 const textMarks = z.array(TextMarkSchema).max(Object.keys(TextMark).length).readonly();
@@ -100,18 +115,22 @@ const TextNode = z.strictObject({
   text: RichTextString,
   marks: textMarks.optional(),
 });
+
 export type TextNode = z.infer<typeof TextNode>;
 
 /** A line break inside a run, where the division is content (a stat line, a table cell); paragraphs split blocks. */
 const LineBreakNode = z.strictObject({ type: z.literal(InlineKind.LineBreak) });
+
 export type LineBreakNode = z.infer<typeof LineBreakNode>;
 
 /** A live link to another entry ("Off-Guard", "Seek"); its name comes from the entry unless `label` is given. */
 const RefNode = z.strictObject({ type: z.literal(InlineKind.Ref), id: ContentId, label: InlineLabel.optional() });
+
 export type RefNode = z.infer<typeof RefNode>;
 
 /** The DC of a check: a number, or another statistic's DC (`against: class-dc`, "against your class DC"). */
 export const CheckDc = z.union([Dc, z.strictObject({ against: Selector })]);
+
 export type CheckDc = z.infer<typeof CheckDc>;
 
 /** Basic outcomes only exist for saving throws, whose selectors start `save:`. */
@@ -138,11 +157,14 @@ const CheckNode = z
     ...issueParams(message(RulesMessage.RichTextBasicSave)),
     path: ['basic'],
   });
+
 export type CheckNode = z.infer<typeof CheckNode>;
 
 /** Damage that lingers (persistent) or spatters adjacent creatures (splash). */
 export const DamageCategory = { Persistent: 'persistent', Splash: 'splash' } as const;
+
 export type DamageCategory = ValueOf<typeof DamageCategory>;
+
 export const DamageCategorySchema = z.enum(DamageCategory);
 
 /** One part of a damage roll: its dice and formula, type and category ("1d6 persistent fire"). */
@@ -151,6 +173,7 @@ export const DamageInstance = z.strictObject({
   damageType: DamageTypeSchema.optional(),
   category: DamageCategorySchema.optional(),
 });
+
 export type DamageInstance = z.infer<typeof DamageInstance>;
 
 /** Most parts one damage roll has (`2d6 fire plus 1d6 persistent fire`). */
@@ -166,6 +189,7 @@ const DamageNode = z.strictObject({
   healing: z.boolean().optional(),
   label: InlineLabel.optional(),
 });
+
 export type DamageNode = z.infer<typeof DamageNode>;
 
 /** An area ("20-foot burst"); a line wider than 5 feet also has a `width` ("60-foot line, 10 feet wide"). */
@@ -180,6 +204,7 @@ const TemplateNode = z
     ...issueParams(message(RulesMessage.RichTextWidthOnLine)),
     path: ['width'],
   });
+
 export type TemplateNode = z.infer<typeof TemplateNode>;
 
 /** A span of time ("1 minute", "3 rounds"). */
@@ -188,10 +213,12 @@ const DurationNode = z.strictObject({
   count: DurationCount,
   unit: DurationUnitSchema,
 });
+
 export type DurationNode = z.infer<typeof DurationNode>;
 
 /** An action glyph inside text ("Stride [one-action]"). */
 const ActionCostNode = z.strictObject({ type: z.literal(InlineKind.ActionCost), cost: ActionCostSchema });
+
 export type ActionCostNode = z.infer<typeof ActionCostNode>;
 
 export type InlineNode =
@@ -256,6 +283,7 @@ const headingLevel = z.literal(Object.values(RichTextHeadingLevel));
 /** One block, unguarded. Private: `RichText` checks bounds first, since this recursion has no limit of its own. */
 const Block: z.ZodType<BlockNode> = z.lazy(() => {
   const item = z.array(Block).min(1).readonly();
+
   return z.discriminatedUnion('type', [
     z.strictObject({ type: z.literal(BlockKind.Paragraph), content }),
     z.strictObject({
@@ -292,6 +320,7 @@ export const RichText: z.ZodType<RichText> = z
   .unknown()
   .check((context) => {
     const exceeded = exceededBound(context.value, RICH_TEXT_BOUNDS);
+
     if (exceeded !== undefined) {
       const { params } = issueParams(BOUND_MESSAGES[exceeded]);
       context.issues.push({ code: 'custom', input: context.value, params, abort: true });

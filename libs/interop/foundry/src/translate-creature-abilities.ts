@@ -18,6 +18,7 @@ const HTML_MAX = 1_000_000;
 const REACTION = 'reaction';
 
 const Description = z.looseObject({ value: z.string().max(HTML_MAX).default('') });
+
 const FoundryAbility = z.looseObject({
   description: Description.default({ value: '' }),
   traits: Traits.default({ value: [] }),
@@ -30,6 +31,7 @@ const Usage = z.looseObject({
   requirementsText: RichText.optional(),
   frequency: z.looseObject({}).optional(),
 });
+
 type Usage = z.infer<typeof Usage>;
 
 /**
@@ -40,20 +42,24 @@ function usageOf(item: Embedded, html: string, input: KindInput): Usage | undefi
   const system = { ...item.system, description: { value: html } };
   const { _id: id } = item;
   const parsed = FoundryDocument.safeParse({ _id: id, name: item.name, type: 'action', system });
+
   return parsed.success ? Usage.safeParse(actionData({ ...input, document: parsed.data })).data : undefined;
 }
 
 function rulesOf(item: Embedded, input: KindInput): readonly RuleElement[] {
   const raws = Array.isArray(item.system['rules']) ? item.system['rules'] : [];
+
   const translation = translateRules(input.envelope.id, raws, {
     lang: input.lang ?? {},
     values: { item: item.name },
     references: input.references,
     ...(input.senses === undefined ? {} : { senses: input.senses }),
   });
+
   for (const { key, raw } of translation.untranslated) {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: `abilities.rules.${key}`, raw });
   }
+
   return translation.rules;
 }
 
@@ -61,19 +67,24 @@ function rulesOf(item: Embedded, input: KindInput): readonly RuleElement[] {
 function costOf(usage: Usage | undefined, item: Embedded, input: KindInput): string | undefined {
   if (usage?.cost === REACTION && usage.trigger === undefined) {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'abilities.trigger', raw: item.name });
+
     return undefined;
   }
+
   return usage?.cost;
 }
 
 function abilityOf(item: Embedded, input: KindInput): object | undefined {
   const system = itemSystem(FoundryAbility, item, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const html = expandLocalize(system.description.value, input.lang ?? {}, { item: item.name });
   const usage = usageOf(item, html.text, input);
   const cost = costOf(usage, item, input);
+
   return {
     name: item.name,
     ...(cost === undefined ? {} : { cost }),

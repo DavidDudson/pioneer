@@ -34,6 +34,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -57,9 +58,11 @@ async function open(characters: readonly object[]): Promise<Opened> {
   fixture.componentRef.setInput('character', kyra);
   fixture.componentRef.setInput('purse', purse);
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The control did not render');
   }
+
   const root = host;
   document.body.append(root);
   onTestFinished(() => {
@@ -73,6 +76,7 @@ async function open(characters: readonly object[]): Promise<Opened> {
   });
   await fixture.whenStable();
   fixture.detectChanges();
+
   return { fixture, http, root };
 }
 
@@ -91,8 +95,10 @@ function submit(root: HTMLElement): HTMLButtonElement {
 describe(CampaignOfferCoins, () => {
   it('offers the counted coins to the character picked from the party, and refreshes the offers', async () => {
     const { fixture, http, root } = await open([member(kyra, 'Kyra'), member(seelah, 'Seelah')]);
+
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, object>;
+
     picker.value.set(seelah);
     count(root, 'Gold (gp)', 4);
     count(root, 'Silver (sp)', 2);
@@ -115,6 +121,7 @@ describe(CampaignOfferCoins, () => {
 
   it('offers nothing until a recipient is picked and a coin is counted', async () => {
     const { fixture, root } = await open([member(kyra, 'Kyra'), member(seelah, 'Seelah')]);
+
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, object>;
 
@@ -129,8 +136,10 @@ describe(CampaignOfferCoins, () => {
 
   it('offers nothing for more of a coin than the purse holds', async () => {
     const { fixture, root } = await open([member(kyra, 'Kyra'), member(seelah, 'Seelah')]);
+
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, object>;
+
     picker.value.set(seelah);
 
     count(root, 'Gold (gp)', 11);

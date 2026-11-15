@@ -19,7 +19,9 @@ function suboptionOf(suboption: unknown, item: string): unknown {
   if (typeof suboption !== 'object' || suboption === null || !('label' in suboption)) {
     return suboption;
   }
+
   const { label } = suboption;
+
   return { ...suboption, label: label === ITEM_NAME ? item : label };
 }
 
@@ -32,8 +34,10 @@ export function withRollOption(raw: unknown, item: string): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.RollOption) {
     return raw;
   }
+
   const kept = Object.entries(raw).filter(([field]) => !PLACEMENT_FIELDS.has(field));
   const shaped = Object.fromEntries(kept.map(([field, value]) => [field, shapedField(field, value, item)]));
+
   return shaped;
 }
 
@@ -41,11 +45,14 @@ function shapedField(field: string, value: unknown, item: string): unknown {
   if (field === 'option' && typeof value === 'string') {
     return namespaced(value);
   }
+
   if (field === 'domain' && typeof value === 'string') {
     return selectorOf(value);
   }
+
   if (field === 'suboptions' && Array.isArray(value)) {
     return value.map((suboption) => suboptionOf(suboption, item));
   }
+
   return value;
 }

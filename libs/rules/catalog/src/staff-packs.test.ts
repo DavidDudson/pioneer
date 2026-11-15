@@ -16,13 +16,16 @@ import { contentCatalog } from './index';
 import { isStaffEntry } from './staff-matcher';
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
 /** The typed spells of an entry, or none for an entry that holds no staff. */
 function staffOf(entry: ContentEntry | undefined): StaffSpells {
   const holds = entry?.kind === ContentKind.Weapon || entry?.kind === ContentKind.Equipment;
+
   return (holds ? entry.data.staff : undefined) ?? [];
 }
 

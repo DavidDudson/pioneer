@@ -18,6 +18,7 @@ const ezren = UserId.parse(newId());
 function app(): AnyElysia {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-17T10:00:00Z'));
+
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 

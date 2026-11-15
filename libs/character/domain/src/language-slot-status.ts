@@ -29,6 +29,7 @@ function languageSubject({ level, feature }: LanguageSlot): SlotSubject {
  */
 export function languageStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
   const level = Level.parse(document.level);
+
   return languageSlots(document, languageReads(document, content)).map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -36,13 +37,16 @@ export function languageStatuses(document: CharacterDocument, content: SlotConte
       stored: slot.stored,
       planned: slot.level > level ? slot.level : undefined,
     };
+
     if (slot.stored === undefined || slot.pick !== undefined) {
       return validSlot(read, slot.pick?.name);
     }
+
     const reason =
       slot.problem === undefined
         ? invalidReason(slot.stored, content.lookup)
         : message(LANGUAGE_PROBLEMS[slot.problem]);
+
     return invalidSlot(read, slot.stored, reason);
   });
 }

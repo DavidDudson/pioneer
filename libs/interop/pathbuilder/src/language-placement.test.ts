@@ -17,10 +17,13 @@ import type { ImportedName } from './import-kind';
 import { placeLanguages } from './language-placement';
 
 const registry = new ContentRegistry();
+
 registry.register(languageFixtures());
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LANGUAGES: readonly LanguageFixture[] = ['common', 'dwarven', 'elven', 'goblin', 'draconic'];
+
 const lookup = entryLookup({
   [ImportKind.Language]: LANGUAGES.map((name) => ({ id: languageFixtureId(name), name: ContentText.parse(name) })),
 });

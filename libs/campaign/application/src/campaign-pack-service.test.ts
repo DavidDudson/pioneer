@@ -174,6 +174,7 @@ describe('CampaignPackService', () => {
         },
         fixedClock('2026-10-10T10:00:00Z'),
       );
+
       const refusal = await rejection(racing.enable(amiri, vaults.id, { packId: feats }));
       expect(refusal).toBeInstanceOf(ConflictError);
       expect(refusal).toMatchObject({ descriptor: { key: PackMessage.Changed } });

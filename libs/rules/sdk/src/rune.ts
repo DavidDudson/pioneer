@@ -11,11 +11,13 @@ import { uniqueItems } from './unique-items';
 /** The grade of a potency, striking or resilient rune: +1 to +4, striking to mythic striking. */
 export const RUNE_GRADE_MAX = 4;
 export const RuneGrade = Pg.smallint().min(1).max(RUNE_GRADE_MAX).brand<'RuneGrade'>();
+
 export type RuneGrade = z.infer<typeof RuneGrade>;
 
 /** The grade of a reinforcing rune, minor to supreme. */
 const REINFORCING_GRADE_MAX = 6;
 export const ReinforcingGrade = Pg.smallint().min(1).max(REINFORCING_GRADE_MAX).brand<'ReinforcingGrade'>();
+
 export type ReinforcingGrade = z.infer<typeof ReinforcingGrade>;
 
 /** A potency rune's grade, and one more for orichalcum: the most property runes an item can hold. */
@@ -34,6 +36,7 @@ export const PropertyRunes = z.array(ContentId).max(PROPERTY_RUNES_MAX).readonly
 export const PropertyRuneEnergies = z.record(ContentId, DamageTypeSchema).readonly();
 
 export const RuneType = { Fundamental: 'fundamental', Property: 'property' } as const;
+
 export type RuneType = ValueOf<typeof RuneType>;
 
 /** The fundamental runes, as Foundry pf2e names them. */
@@ -43,14 +46,17 @@ export const FundamentalRune = {
   Resilient: 'resilient',
   Reinforcing: 'reinforcing',
 } as const;
+
 export type FundamentalRune = ValueOf<typeof FundamentalRune>;
 
 /** What a rune is etched onto. */
 export const RunedItem = { Weapon: 'weapon', Armor: 'armor', Shield: 'shield' } as const;
+
 export type RunedItem = ValueOf<typeof RunedItem>;
 
 /** What narrows the items a rune goes on (`melee`, `metal`, `clan-dagger`), from Foundry pf2e's usage. */
 export const EtchingRestriction = Slug.brand<'EtchingRestriction'>();
+
 export type EtchingRestriction = z.infer<typeof EtchingRestriction>;
 
 /** "Etched onto a melee weapon": the item, and what narrows it. */
@@ -78,6 +84,7 @@ const FundamentalRuneData = z
   })
   .check((context) => {
     const { rune, grade, etchedOnto } = context.value;
+
     if (!FUNDAMENTAL_RUNE_ITEMS[rune].includes(etchedOnto.item)) {
       context.issues.push({
         code: 'custom',
@@ -86,6 +93,7 @@ const FundamentalRuneData = z
         ...issueParams(message(RulesMessage.RuneEtchedOnto, { rune, item: etchedOnto.item })),
       });
     }
+
     if (rune !== FundamentalRune.Reinforcing && grade > RUNE_GRADE_MAX) {
       context.issues.push({
         code: 'custom',
@@ -113,4 +121,5 @@ const PropertyRuneData = z.strictObject({
  * the rune's `rules`.
  */
 export const RuneData = z.discriminatedUnion('type', [FundamentalRuneData, PropertyRuneData]);
+
 export type RuneData = z.infer<typeof RuneData>;

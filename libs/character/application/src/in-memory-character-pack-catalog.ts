@@ -22,12 +22,14 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
 
   public pack(known: KnownPack): this {
     this.#packs.set(known.id, known);
+
     return this;
   }
 
   /** `pack` extends `dependsOn`. */
   public extend(pack: ContentPackId, dependsOn: ContentPackId): this {
     this.#extends.set(pack, [...(this.#extends.get(pack) ?? []), dependsOn]);
+
     return this;
   }
 
@@ -43,6 +45,7 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     const readable = [...this.#packs.values()].filter(
       (known) => known.official === true || known.readers?.includes(viewer) === true,
     );
+
     return InMemoryCharacterPackCatalog.#order(readable.map((known) => InMemoryCharacterPackCatalog.#listed(known)));
   }
 
@@ -50,6 +53,7 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     return new Map(
       ids.flatMap((id): [ContentPackId, CatalogPack][] => {
         const known = this.#packs.get(id);
+
         return known === undefined ? [] : [[id, InMemoryCharacterPackCatalog.#listed(known)]];
       }),
     );
@@ -57,16 +61,21 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
 
   public override async closure(id: ContentPackId): Promise<readonly ContentPackId[]> {
     const ordered: ContentPackId[] = [];
+
     const visit = (pack: ContentPackId): void => {
       if (ordered.includes(pack)) {
         return;
       }
+
       for (const dependency of this.#extends.get(pack) ?? []) {
         visit(dependency);
       }
+
       ordered.push(pack);
     };
+
     visit(id);
+
     return ordered;
   }
 

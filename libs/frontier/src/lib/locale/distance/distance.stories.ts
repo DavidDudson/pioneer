@@ -20,6 +20,7 @@ const meta: Meta<Distance> = {
     template: `<fr-text>Speed <fr-distance ${argsToTemplate(args)} /></fr-text>`,
   }),
 };
+
 export default meta;
 
 export const Feet: DistanceStory = {};

@@ -53,6 +53,7 @@ const SELECTORS: ReadonlyMap<string, string> = new Map([
  * dedication's), which Pioneer's one class DC has no place for.
  */
 const FoundryRaise = z.looseObject({ rank: FoundryRank, attribute: z.string().max(FIELD_MAX).nullish() });
+
 type FoundryRaise = z.infer<typeof FoundryRaise>;
 
 const FoundrySubfeatureProficiencies = z.record(z.string().max(FIELD_MAX), FoundryRaise);
@@ -60,9 +61,11 @@ const FoundrySubfeatureProficiencies = z.record(z.string().max(FIELD_MAX), Found
 /** The selector a key names: a statistic, or a class's slug for its class DC; undefined when it names neither. */
 function selectorOf(key: string, { references }: KindInput): string | undefined {
   const statistic = SELECTORS.get(key);
+
   if (statistic !== undefined) {
     return statistic;
   }
+
   return resolveSlug(references, ContentKind.Class, key) === undefined ? undefined : CLASS_DC;
 }
 
@@ -74,11 +77,15 @@ export function proficiencyRules(raw: unknown, input: KindInput): void {
   if (raw === undefined) {
     return;
   }
+
   const parsed = FoundrySubfeatureProficiencies.safeParse(raw);
+
   if (!parsed.success || Object.keys(parsed.data).length > KEYS_MAX) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: FIELD, raw });
+
     return;
   }
+
   for (const [key, raise] of Object.entries(parsed.data)) {
     raiseRule(key, raise, input);
   }
@@ -89,11 +96,13 @@ function raiseRule(key: string, raise: FoundryRaise, input: KindInput): void {
   const field = `${FIELD}.${key}`;
   const selector = selectorOf(key, input);
   const rank = RANKS[raise.rank];
+
   if (selector === undefined) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field, raw: raise });
   } else if (rank !== undefined) {
     addRule(input, field, { key: RuleElementKey.Proficiency, selector, rank });
   }
+
   if (selector === CLASS_DC && typeof raise.attribute === 'string') {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: `${field}.attribute`, raw: raise.attribute });
   }

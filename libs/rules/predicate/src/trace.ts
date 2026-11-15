@@ -22,17 +22,21 @@ function traceStatement(statement: PredicateStatement, facts: PredicateFacts): S
   if (typeof statement === 'string') {
     return { statement, truth: testOption(statement, facts), children: [] };
   }
+
   const children = childStatements(statement).map((child) => traceStatement(child, facts));
+
   const truth = combine(
     statement,
     children.map((child) => child.truth),
     facts,
   );
+
   return { statement, truth, children };
 }
 
 /** `evaluatePredicate` with every statement's verdict kept. Slower; for explaining, not deriving. */
 export function tracePredicate(predicate: Predicate, facts: PredicateFacts): PredicateTrace {
   const statements = predicate.map((statement) => traceStatement(statement, facts));
+
   return { truth: all(statements.map((statement) => statement.truth)), statements };
 }

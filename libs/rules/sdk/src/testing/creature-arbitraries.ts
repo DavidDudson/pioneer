@@ -48,6 +48,7 @@ const skill = withOptional(record({ skill: slugText, modifier }), { note: richTe
 const sense = withOptional(record({ sense: slugText }), { acuity, range: smallint });
 const speed = withOptional(record({ movement, speed: smallint }), { note: richTextJson });
 const damage = withOptional(record({ dice: smallint, damageType }), { die, bonus: smallint });
+
 const strikeCore = record({
   name: contentTextJson,
   range: strikeRange,
@@ -55,9 +56,11 @@ const strikeCore = record({
   damage: array(damage, { maxLength: LIST_MAX }),
   traits: slugs,
 });
+
 const strike = withOptional(strikeCore, { reach: smallint, increment: smallint, effects: richTextJson });
 
 const frequency = record({ max: uses, per: period });
+
 const reaction = record({
   name: contentTextJson,
   cost: constant(ActionCost.Reaction),
@@ -66,19 +69,23 @@ const reaction = record({
   description: richTextJson,
   rules,
 });
+
 const costedCore = record({ name: contentTextJson, traits: slugs, description: richTextJson, rules });
+
 const costed = withOptional(costedCore, {
   cost: costs,
   trigger: richTextJson,
   requirements: richTextJson,
   frequency,
 });
+
 const ability = oneof(reaction, costed);
 
 const spell = withOptional(record({ spell: contentIdJson, rank: spellRank }), {
   uses,
   constant: constant(true),
 });
+
 const spellcastingCore = record({
   name: contentTextJson,
   tradition,
@@ -86,11 +93,13 @@ const spellcastingCore = record({
   dc: smallint,
   spells: array(spell, { maxLength: LIST_MAX }),
 });
+
 const spellcasting = withOptional(spellcastingCore, { attack: modifier });
 const item = withOptional(record({ item: contentIdJson }), { quantity: positive });
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
 const adjustments: Arbitrary<object[]> = array(record({ type: damageType, value: positive }), { maxLength: LIST_MAX });
+
 const attributes = record({
   str: attributeModifier,
   dex: attributeModifier,
@@ -99,6 +108,7 @@ const attributes = record({
   wis: attributeModifier,
   cha: attributeModifier,
 });
+
 const saves = record({ fortitude: modifier, reflex: modifier, will: modifier });
 
 const creatureCore = record({
@@ -118,6 +128,7 @@ const creatureCore = record({
 const levelRange = record({ min: integer({ min: -1, max: 10 }), span: integer({ min: 0, max: 10 }) }).map(
   ({ min, span }) => ({ min, max: min + span }),
 );
+
 const npcDetails = withOptional(constant({}), {
   ancestry: slugText,
   occupation: contentTextJson,

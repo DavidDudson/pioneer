@@ -30,6 +30,7 @@ export const PHYSICAL_FIELDS: readonly string[] = [
 
 const FIELD_MAX = 64;
 const USAGE_MAX = 200;
+
 /** Ten times the longest description at `pf2e-8.6.0`, as in `foundry-document.ts`. */
 const DESCRIPTION_MAX = 100_000;
 
@@ -37,6 +38,7 @@ const FoundryPrice = z.looseObject({
   value: boundedRecord(z.number()).default({}),
   per: z.number().int().nullish(),
 });
+
 type FoundryPrice = z.infer<typeof FoundryPrice>;
 
 /** Foundry's Bulk: 0 is negligible, 0.1 light, a whole number that many Bulk; a container's also how much it holds. */
@@ -46,6 +48,7 @@ const FoundryBulk = z.looseObject({
   capacity: z.number().nullish(),
   ignored: z.number().nullish(),
 });
+
 export type FoundryBulk = z.infer<typeof FoundryBulk>;
 
 /** The physical part of an item's `system`, which each physical kind's schema extends. */
@@ -61,6 +64,7 @@ export const FoundryPhysicalSystem = z.looseObject({
   usage: z.looseObject({ value: z.string().max(USAGE_MAX).nullish() }).nullish(),
   description: z.looseObject({ value: z.string().max(DESCRIPTION_MAX).nullish() }).nullish(),
 });
+
 export type FoundryPhysicalSystem = z.infer<typeof FoundryPhysicalSystem>;
 
 const COINS: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
@@ -73,6 +77,7 @@ export function priceOf(price: FoundryPrice | null | undefined): object {
   const coins = price?.value ?? {};
   const paid = COINS.filter((coin) => (coins[coin] ?? 0) > 0).map((coin) => [coin, coins[coin]] as const);
   const per = price?.per ?? SINGLE;
+
   return paid.length === 0
     ? {}
     : { price: { coins: Object.fromEntries(paid), ...setFields({ per: per > SINGLE ? per : undefined }) } };
@@ -86,10 +91,13 @@ export function bulkOf(value: number): Bulk | undefined {
   if (value === 0) {
     return BulkWeight.Negligible;
   }
+
   if (value === LIGHT) {
     return BulkWeight.Light;
   }
+
   const count = BulkCount.safeParse(value);
+
   return count.success ? count.data : undefined;
 }
 
@@ -127,10 +135,13 @@ export function physicalData(system: FoundryPhysicalSystem, input: KindInput, bu
   const { log, document } = input;
   const value = system.bulk?.value ?? 0;
   const bulk = bulkOf(value);
+
   if (bulk === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'bulk.value', raw: value });
+
     return undefined;
   }
+
   return {
     ...priceOf(system.price),
     bulk,
@@ -150,15 +161,19 @@ function sizeOf(size: string | null | undefined, log: GapLog): Size | undefined 
   if (size === null || size === undefined) {
     return undefined;
   }
+
   const mapped = FOUNDRY_SIZES.get(size);
+
   if (mapped === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'size', raw: size });
   }
+
   return mapped === Size.Medium ? undefined : mapped;
 }
 
 function materialOf(material: FoundryPhysicalSystem['material']): object | undefined {
   const type = material?.type ?? undefined;
+
   return type === undefined ? undefined : { type, ...setFields({ grade: material?.grade ?? undefined }) };
 }
 
@@ -197,10 +212,13 @@ const LEADING_HYPHEN = /^-/u;
 /** A held or bare usage, which names nothing else. */
 function simpleUsage(usage: string): object | undefined {
   const hands = HELD.get(usage);
+
   if (hands !== undefined) {
     return { type: UsageType.Held, hands };
   }
+
   const bare = BARE.get(usage);
+
   return bare === undefined ? undefined : { type: bare };
 }
 
@@ -211,23 +229,31 @@ function simpleUsage(usage: string): object | undefined {
  */
 export function usageOf(usage: string, log: GapLog): object | undefined {
   const simple = simpleUsage(usage);
+
   if (simple !== undefined) {
     return simple;
   }
+
   const targeted = TARGETED.find(([prefix]) => usage.startsWith(prefix));
+
   if (targeted !== undefined) {
     const [prefix, type] = targeted;
+
     return { type, to: usage.slice(prefix.length) };
   }
+
   if (usage.startsWith(WORN) && usage.length > WORN.length) {
     return { type: UsageType.Worn, slot: usage.slice(WORN.length).replace(LEADING_HYPHEN, '') };
   }
+
   report(log, { reason: KindDataGapReason.UnmappedValue, field: 'usage', raw: usage });
+
   return undefined;
 }
 
 /** The item's usage, when Foundry gives one. */
 export function usageField(system: FoundryPhysicalSystem, log: GapLog): object {
   const usage = system.usage?.value ?? undefined;
+
   return setFields({ usage: usage === undefined || usage === '' ? undefined : usageOf(usage, log) });
 }

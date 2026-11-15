@@ -20,10 +20,12 @@ export const HitPointsStateMessage = {
   Critical: 'character.sheet.hp.state.critical',
   Down: 'character.sheet.hp.state.down',
 } as const;
+
 export type HitPointsStateMessage = (typeof HitPointsStateMessage)[keyof typeof HitPointsStateMessage];
 
 /** Half of the maximum: at or under it the character is bloodied. */
 const BLOODIED_SHARE = 0.5;
+
 /** A quarter of the maximum: at or under it the character is near death. */
 const CRITICAL_SHARE = 0.25;
 
@@ -32,8 +34,10 @@ export function stateMessageOf({ current, max }: HitPointsView): HitPointsStateM
   if (current <= 0) {
     return HitPointsStateMessage.Down;
   }
+
   if (current <= max * CRITICAL_SHARE) {
     return HitPointsStateMessage.Critical;
   }
+
   return current <= max * BLOODIED_SHARE ? HitPointsStateMessage.Bloodied : undefined;
 }

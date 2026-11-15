@@ -10,6 +10,7 @@ const meta: Meta<LevelTimelineAutomatic> = {
   title: 'Rules/Level timeline/Automatic improvements',
   component: LevelTimelineAutomatic,
 };
+
 export default meta;
 
 /** A feature, a rank rise and their source: read-only text, nothing to pick. */

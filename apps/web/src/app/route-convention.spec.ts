@@ -20,19 +20,24 @@ const crumbOf = (route: Route): unknown => route.data?.[CRUMB];
 function flatten(routes: Routes, parent = ''): RouteAt[] {
   return routes.flatMap((route) => {
     const path = [parent, route.path ?? ''].filter((part) => part !== '').join('/');
+
     return [{ route, path }, ...flatten(route.children ?? [], path)];
   });
 }
 
 async function treeOf(category: string): Promise<Routes> {
   const mounted = appRoutes.find((route) => route.path === category);
+
   if (mounted?.loadChildren === undefined) {
     throw new TypeError(`${category} is not a lazy route in the app`);
   }
+
   const loaded = await mounted.loadChildren();
+
   if (!Array.isArray(loaded)) {
     throw new TypeError(`${category} does not load routes`);
   }
+
   return unwrap(loaded);
 }
 
@@ -40,17 +45,20 @@ async function treeOf(category: string): Promise<Routes> {
 function unwrap(routes: Routes): Routes {
   const [only] = routes;
   const isWrapper = routes.length === 1 && only?.path === '' && only.data === undefined && only.children !== undefined;
+
   return isWrapper ? unwrap(only.children ?? []) : routes;
 }
 
 /** The routes with a path of their own, which show as a step of the trail: a redirect never does. */
 async function pagesOf(category: string): Promise<RouteAt[]> {
   const all = flatten(await treeOf(category));
+
   return all.filter(({ route }) => route.redirectTo === undefined && route.path !== undefined && route.path !== '');
 }
 
 async function idsOf(category: string): Promise<RouteAt[]> {
   const all = flatten(await treeOf(category));
+
   return all.filter(({ route }) => route.path?.includes(':') === true);
 }
 

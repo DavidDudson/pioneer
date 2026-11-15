@@ -19,8 +19,11 @@ import {
 import type { FeatSlotFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const FEATS: readonly FeatSlotFixture[] = [
@@ -33,16 +36,21 @@ const FEATS: readonly FeatSlotFixture[] = [
   'reactive-shield',
   'sudden-charge',
 ];
+
 const LEVEL_MAX = 20;
+
 /** A feat, or nothing, for one slot. */
 const featPick = option(constantFrom(...FEATS), { nil: undefined });
+
 const picks = record({
   level1: featPick,
   level2: featPick,
   level4: featPick,
   bonus: featPick,
 });
+
 const level = integer({ min: 1, max: LEVEL_MAX });
+
 /** Strength from the key attribute, and maybe a free boost too: +1 or +2, either side of Brawn's minimum. */
 const strong = constantFrom(false, true);
 
@@ -54,14 +62,17 @@ function fighterWith(chosen: Picks, atLevel: number, extraStrength: boolean): Ch
     .picking('class', FEAT_SLOT_FIGHTER)
     .picking('boost:1:class:0', 'str')
     .atLevel(atLevel);
+
   if (extraStrength) {
     builder = builder.picking('boost:1:free:0', 'str');
   }
+
   for (const [slot, feat] of Object.entries(chosen)) {
     if (feat !== undefined) {
       builder = builder.picking(FEAT_SLOT_KEYS[slot as keyof typeof FEAT_SLOT_KEYS], featSlotFixtureId(feat));
     }
   }
+
   return builder.build().document;
 }
 
@@ -82,12 +93,14 @@ describe('featSlots', () => {
     assert(
       property(picks, level, strong, (chosen, atLevel, extraStrength) => {
         const document = fighterWith(chosen, atLevel, extraStrength);
+
         for (const slot of featSlots(document, content)) {
           for (const offered of slot.options) {
             const refusal = slotRefusal(document, content, {
               slot: slot.key,
               selection: ChoiceValue.parse(offered.value),
             });
+
             expect(refusal !== undefined).toBe(offered.status === PrerequisiteStatus.Unmet);
           }
         }

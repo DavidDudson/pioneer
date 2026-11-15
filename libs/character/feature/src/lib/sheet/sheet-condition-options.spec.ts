@@ -16,18 +16,23 @@ const NOW = Temporal.Instant.from('2026-01-01T00:00:00Z');
 const pack = new ContentPackBuilder().withId('ease').withCondition('wobbly').withCondition('dizzy');
 const wobbly = (): ContentId => ContentId.parse(pack.idOf(ContentKind.Condition, 'wobbly'));
 const dizzy = (): ContentId => ContentId.parse(pack.idOf(ContentKind.Condition, 'dizzy'));
+
 pack.withItem(ContentKind.Consumable, 'steadying-tonic', {
   category: 'elixir',
   bulk: 'light',
   removesConditions: [{ condition: wobbly(), effect: EaseEffect.Lower, by: 2 }],
 });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const TONIC = ContentId.parse(pack.idOf(ContentKind.Consumable, 'steadying-tonic'));
 
 /** A character carrying `quantity` steadying tonics, or none. */
 function carrying(quantity: ItemQuantity | undefined): Character {
   const built = new CharacterBuilder().build();
+
   return quantity === undefined
     ? built
     : built.withInventory(

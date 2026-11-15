@@ -49,16 +49,20 @@ export class EntryRanksView {
     this.#messages();
     const first: number = this.ranks().from;
     const options: SelectOption<string>[] = [];
+
     for (let rank = first; rank <= SPELL_RANK_MAX; rank += 1) {
       options.push({ value: String(rank), label: this.#i18n.translate(EntryPreviewMessage.Rank, { rank }) });
     }
+
     return options;
   });
 
   protected readonly cast = computed((): SpellCastLine => {
     this.#messages();
+
     const translate = (key: string, params?: Readonly<Record<string, string | number>>): string =>
       this.#i18n.translate(key, params);
+
     return spellCastLine(this.ranks().cast(this.rank()), this.name(), translate);
   });
 
@@ -68,6 +72,7 @@ export class EntryRanksView {
 
   protected pick(value: string | undefined): void {
     const parsed = SpellRank.safeParse(Number(value));
+
     if (parsed.success && parsed.data >= this.ranks().from) {
       this.#picked.set(parsed.data);
     }

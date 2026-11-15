@@ -60,9 +60,11 @@ export class SheetUnplacedPicks {
   protected readonly rows: Signal<readonly UnplacedPickRow[]> = computed(() => {
     const character = this.#store.selected();
     const registry = (this.kind() === UnplacedPickKind.Spell ? this.#spells : this.#content).data();
+
     if (character === undefined) {
       return [];
     }
+
     return unplacedPickBreaks(character.document)
       .filter((each: UnplacedPickBreak) => each.kind === this.kind())
       .map(({ pick, reason }) => ({
@@ -76,9 +78,11 @@ export class SheetUnplacedPicks {
 
   #dismissal(pick: ContentId): UnplacedPickPatch {
     const kind = this.kind();
+
     if (kind === UnplacedPickKind.Heritage) {
       return { field: CharacterPatchField.DismissUnplacedHeritage, heritage: pick };
     }
+
     return kind === UnplacedPickKind.Spell
       ? { field: CharacterPatchField.DismissUnplacedSpell, spell: pick }
       : { field: CharacterPatchField.DismissUnplacedLanguage, language: pick };

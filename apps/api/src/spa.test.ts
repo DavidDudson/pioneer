@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { spa } from './spa';
 
 const root = `${Bun.env['TMPDIR'] ?? '/tmp'}/pioneer-spa-${crypto.randomUUID()}`;
+
 const files: Readonly<Record<string, string>> = {
   'index.html': '<pio-root></pio-root>',
   'chunk-BgoYYQMx.js': 'export {};',

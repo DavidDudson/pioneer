@@ -27,15 +27,18 @@ function sensesOf(
   { options = [], vision }: Situation = {},
 ): SenseInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return [...sensesInPlay({ rules, facts }, vision)];
 }
 
 function rowsOf(placed: readonly (readonly [object, string])[], situation: Situation = {}): Row[] {
   const senses = sensesOf(placed, situation);
+
   return senses.map(({ sense: id, acuity, range }): Row => [id, acuity, range ?? 'unlimited']);
 }
 

@@ -15,11 +15,13 @@ function pickedTrainings(document: CharacterDocument, content: SlotContent): Rea
   const level = Level.parse(document.level);
   const slots = skillSlots(document, skillReads(document, content));
   const skills = documentSkills(document, content.skills);
+
   return new Set(
     slots
       .filter((slot) => slot.kind === SkillSlotKind.Training && slot.level <= level)
       .flatMap((slot) => {
         const named = slot.stored === undefined ? undefined : skills.skill(slot.stored);
+
         return named === undefined ? [] : [named.selector];
       }),
   );
@@ -47,13 +49,16 @@ function repeatsOf(
   trained: Trained,
 ): readonly SkillOption[] {
   const picks = new Map([...picksOf(trained.without), [slot, value]]);
+
   const trainers = trainingEntries(
     resolveSlotsAt(Level.parse(trained.without.level), slotContextOf(trained.without, content, picks)),
   );
+
   return [...trainers].flatMap(([selector, entries]) => {
     const before = trained.entries.get(selector) ?? [];
     const adds = entries.some((entry) => !before.includes(entry));
     const skill = trained.named.get(selector);
+
     return adds && (before.length > 0 || trained.picked.has(selector)) && skill !== undefined ? [skill] : [];
   });
 }
@@ -70,15 +75,18 @@ export function repeatedTrainings(
   { slot, values }: RepeatQuery,
 ): ReadonlyMap<ChoiceValue, readonly SkillOption[]> {
   const without = withoutPick(document, slot);
+
   const trained: Trained = {
     without,
     entries: trainingEntries(skillReads(without, content).grantsAt(Level.parse(document.level))),
     picked: pickedTrainings(document, content),
     named: new Map(documentSkills(document, content.skills).skills.map((skill) => [skill.selector, skill])),
   };
+
   const repeats = values.map((value): [ChoiceValue, readonly SkillOption[]] => [
     value,
     repeatsOf(content, { slot, value }, trained),
   ]);
+
   return new Map(repeats.filter(([, skills]) => skills.length > 0));
 }

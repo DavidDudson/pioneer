@@ -14,13 +14,16 @@ const SOURCE_MIGRATIONS = new URL('../migrations', import.meta.url).pathname;
 const MAIN = new URL('main.ts', import.meta.url).pathname;
 const COMPILE_TIMEOUT = 60_000;
 const RUN_TIMEOUT = 90_000;
+
 /** Kills a spawned binary that hangs, so a failing test never leaks a server. */
 const CHILD_TIMEOUT = 60_000;
 const FETCH_TIMEOUT = 5000;
 const CONCURRENT_MIGRATIONS = 3;
+
 /** Seconds the first migration sleeps in the concurrency test. */
 const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
+
 /** The official packs, as the content seed stores them. */
 const OFFICIAL_PACKS = officialPacks.map(({ id }) => String(id)).toSorted();
 
@@ -32,6 +35,7 @@ const ExistsRow = z.object({ exists: z.boolean() });
 const ExistsRows = z.array(ExistsRow);
 const SlugRows = z.array(z.object({ slug: z.string() }));
 const Health = z.object({ status: z.literal('ok') });
+
 type Health = z.infer<typeof Health>;
 
 interface Workspace {
@@ -50,6 +54,7 @@ async function freePort(): Promise<number> {
   const probe = Bun.serve({ port: 0, fetch: (): Response => new Response() });
   const { port } = probe;
   await probe.stop(true);
+
   return port ?? 0;
 }
 
@@ -60,6 +65,7 @@ async function appliedMigrations(databaseUrl: string): Promise<number> {
   const hasTable = tables[0]?.exists ?? false;
   const rows = hasTable ? CountRows.parse(await db`select count(*) as count from drizzle.__drizzle_migrations`) : [];
   await db.close();
+
   return rows[0]?.count ?? 0;
 }
 
@@ -68,6 +74,7 @@ async function seededPacks(databaseUrl: string): Promise<readonly string[]> {
   const db = new Bun.SQL(databaseUrl);
   const rows = SlugRows.parse(await db`select slug from content_packs order by slug`);
   await db.close();
+
   // Sorted here: the database collation orders hyphens differently from code units.
   return rows.map(({ slug }) => slug).toSorted();
 }
@@ -84,6 +91,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     databases.push(name);
     const url = new URL(adminUrl ?? '');
     url.pathname = `/${name}`;
+
     return url.toString();
   }
 
@@ -92,6 +100,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     overrides: Readonly<Record<string, string>>,
   ): Promise<Record<string, string>> {
     const port = await freePort();
+
     return {
       PATH: Bun.env['PATH'] ?? '',
       DATABASE_URL: databaseUrl,
@@ -109,11 +118,13 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       stdout: 'pipe',
       stderr: 'pipe',
     });
+
     const [code, stdout, stderr] = await Promise.all([
       child.exited,
       new Response(child.stdout).text(),
       new Response(child.stderr).text(),
     ]);
+
     return { code, output: `${stdout}${stderr}` };
   }
 
@@ -129,16 +140,20 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       stdout: 'pipe',
       stderr: 'inherit',
     });
+
     try {
       let output = '';
       const decoder = new TextDecoder();
+
       for await (const chunk of child.stdout) {
         output += decoder.decode(chunk);
         const port = LISTENING.exec(output)?.groups?.['port'];
+
         if (port !== undefined) {
           return await check(port);
         }
       }
+
       throw new Error(`pioneer-api exited before listening: ${output}`);
     } finally {
       child.kill();
@@ -151,7 +166,9 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       const response = await fetch(`http://127.0.0.1:${port}/api/health`, {
         signal: AbortSignal.timeout(FETCH_TIMEOUT),
       });
+
       const body: unknown = await response.json();
+
       return Health.parse(body);
     });
   }
@@ -192,9 +209,11 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     'MIGRATE_ON_START=false serves without migrating, and `migrate` applies them ignoring server settings',
     async () => {
       const databaseUrl = await emptyDatabase();
+
       const env = await environment(databaseUrl, {
         MIGRATE_ON_START: 'false',
       });
+
       expect(await serveHealth(env)).toStrictEqual({ status: 'ok' });
       expect(await appliedMigrations(databaseUrl)).toBe(0);
       // A provider id without its secret stops the server, never a migrate job.
@@ -275,6 +294,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     '`health` fails when the server answers but is not healthy',
     async () => {
       const unhealthy = Bun.serve({ port: 0, fetch: (): Response => new Response(undefined, { status: 503 }) });
+
       try {
         const env = await environment('postgres://127.0.0.1:1/unused', { PORT: String(unhealthy.port) });
         expect(await run(['health'], env)).toStrictEqual({ code: 1, output: 'health check failed: HTTP 503\n' });

@@ -25,6 +25,7 @@ export function content(db: Database, authenticator: RequestAuthenticator): Cont
     new DrizzlePackDirectory(db),
     new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
   );
+
   return contentRoutes(new StoredContentBundles(new ContentRepository(db))).use(
     contentSearchRoutes(new ContentSearchRepository(db), homebrew, authenticator),
   );
@@ -38,6 +39,7 @@ export function content(db: Database, authenticator: RequestAuthenticator): Cont
  */
 export async function seedOfficialContent(db: Database, clock: Clock, log: (line: string) => void): Promise<void> {
   const seeds = await seedContentPacks(db, officialPacks, clock);
+
   for (const { pack, outcome, version, removed } of seeds) {
     log(`content pack ${pack}: ${outcome} (version ${version}, ${removed} removed)`);
   }

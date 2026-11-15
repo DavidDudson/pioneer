@@ -22,6 +22,7 @@ import { AncestryPicker } from './ancestry-picker.component';
 const LONG_LIST = 300;
 
 const ELF = ancestryRow({ id: 'elf', name: 'Elf' });
+
 const DWARF = ancestryRow({
   id: 'dwarf',
   name: 'Dwarf',
@@ -32,6 +33,7 @@ const DWARF = ancestryRow({
   languages: ['Common', 'Dwarven'],
   traits: traitChipsOf('Dwarf', 'Humanoid'),
 });
+
 const LOCKED = ancestryRow({ id: 'locked', name: 'Kitsune', disabledReason: 'Not in the loaded packs' });
 const HIT_POINTS_HEADER = 1;
 const SPEED_HEADER = 3;
@@ -151,6 +153,7 @@ describe(AncestryPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_entry, index) =>
       ancestryRow({ id: `ancestry-${index}`, name: `Ancestry ${index + 1}` }),
     );
+
     const { host } = await render(AncestryPicker, { rows });
     expect(host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
     expect(nameCells(host).length).toBeLessThan(LONG_LIST);

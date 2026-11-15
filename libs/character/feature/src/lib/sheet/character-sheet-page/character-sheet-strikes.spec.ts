@@ -27,6 +27,7 @@ describe('CharacterSheetPage Strikes', () => {
 
   it("lists a fist for a cleric of Irori, trained in it as the deity's favoured weapon", async () => {
     const choices = { class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis', deity: IRORI };
+
     const { root } = await openSheet(
       { ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, ...choices } } },
       { tab: SheetMode.Encounter, section: 'strikes' },
@@ -77,6 +78,7 @@ function attackBonus(root: HTMLElement): number {
   const row = present(strikesSection(root).querySelector('[frDisclosureSummary]'));
   const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(row));
   const value = Number(match?.groups?.['value']);
+
   return match?.groups?.['sign'] === '+' ? value : -value;
 }
 

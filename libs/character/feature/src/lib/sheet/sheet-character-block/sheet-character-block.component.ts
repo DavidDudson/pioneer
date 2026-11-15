@@ -80,17 +80,21 @@ export class SheetCharacterBlock {
   /** The dying value, a dead character at the highest; undefined while not dying. */
   protected readonly failedSaves = computed(() => {
     const play = this.#play.play.data()?.play;
+
     if (play === undefined) {
       return undefined;
     }
+
     if (play.dead) {
       return DEATH_VALUE_MAX;
     }
+
     return play.dying > 0 ? play.dying : undefined;
   });
   protected readonly conditions = computed((): readonly string[] => {
     const registry = this.#registry.data();
     const play = this.#play.play.data()?.play;
+
     return registry === undefined || play === undefined ? [] : conditionSlugs(registry, play);
   });
 }

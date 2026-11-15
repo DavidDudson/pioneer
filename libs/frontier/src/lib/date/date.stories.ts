@@ -24,6 +24,7 @@ const meta: Meta<DateDisplay> = {
     template: `<fr-date ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Date: DateStory = {};

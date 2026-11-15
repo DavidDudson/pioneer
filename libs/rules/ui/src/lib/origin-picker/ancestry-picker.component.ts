@@ -55,6 +55,7 @@ export class AncestryPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return ancestryPickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

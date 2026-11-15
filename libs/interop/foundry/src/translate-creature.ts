@@ -38,6 +38,7 @@ const Slug = z.string().max(FIELD_MAX);
 const Slugs = z.array(Slug).max(LIST_MAX);
 
 const Modifier = z.looseObject({ mod: z.number() });
+
 const Abilities = z.looseObject({
   str: Modifier,
   dex: Modifier,
@@ -53,13 +54,16 @@ const Detailed = { details: Name.default('') };
 const ArmorClass = z.looseObject({ value: z.number(), ...Detailed });
 const HitPoints = z.looseObject({ max: z.number(), ...Detailed });
 const OtherSpeed = z.looseObject({ type: Slug, value: z.number() });
+
 // A creature that doesn't walk (a banshee) has no land speed.
 const Speed = z.looseObject({
   value: z.number().nullable(),
   otherSpeeds: z.array(OtherSpeed).max(LIST_MAX).default([]),
   ...Detailed,
 });
+
 const AllSaves = z.looseObject({ value: Name.default('') });
+
 const Attributes = z.looseObject({
   ac: ArmorClass,
   hp: HitPoints,
@@ -71,6 +75,7 @@ const Attributes = z.looseObject({
 });
 
 const FoundrySense = z.looseObject({ type: Slug, acuity: Slug.optional(), range: z.number().optional() });
+
 const Perception = z.looseObject({
   mod: z.number(),
   senses: z.array(FoundrySense).max(LIST_MAX).default([]),
@@ -121,13 +126,17 @@ interface Adjusted {
 function adjustments(list: readonly z.infer<typeof Adjustment>[], field: string, log: GapLog): readonly Adjusted[] {
   return list.flatMap(({ type, value, exceptions, doubleVs }) => {
     const target = DamageAdjustmentTargetSchema.safeParse(DAMAGE_TARGETS.get(type) ?? type);
+
     if (!target.success) {
       report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: type });
+
       return [];
     }
+
     if (doubleVs.length > 0) {
       report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.doubleVs`, raw: doubleVs });
     }
+
     return [{ type: target.data, value, ...(exceptions.length > 0 ? { exceptions } : {}) }];
   });
 }
@@ -141,10 +150,13 @@ function immunities(list: readonly z.infer<typeof Defence>[], log: GapLog): read
         raw: exceptions,
       });
     }
+
     const immunity = Immunity.safeParse(type);
+
     if (!immunity.success) {
       report(log, { reason: KindDataGapReason.UnmappedValue, field: 'attributes.immunities.type', raw: type });
     }
+
     return immunity.success ? [immunity.data] : [];
   });
 }
@@ -152,9 +164,11 @@ function immunities(list: readonly z.infer<typeof Defence>[], log: GapLog): read
 /** The creature's size, or the gap when Foundry's abbreviation has no mapping. */
 function sizeOf(value: string, log: GapLog): string | undefined {
   const size = FOUNDRY_SIZES.get(value);
+
   if (size === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'traits.size.value', raw: value });
   }
+
   return size;
 }
 
@@ -169,6 +183,7 @@ function details(system: z.infer<typeof FoundryCreatureSystem>, log: GapLog): vo
   reportText(log, 'saves.reflex.saveDetail', saves.reflex.saveDetail);
   reportText(log, 'saves.will.saveDetail', saves.will.saveDetail);
   reportText(log, 'details.languages.details', creature.languages.details);
+
   if (initiative !== undefined && initiative.statistic !== DEFAULT_INITIATIVE) {
     report(log, { reason: KindDataGapReason.UnmappedField, field: 'initiative.statistic', raw: initiative.statistic });
   }
@@ -202,6 +217,7 @@ function optionalParts(system: System, lores: readonly unknown[]): object {
   const skills = Object.entries(system.skills).map(([skill, { base }]) => ({ skill, modifier: base }));
   const senses = perception.senses.map((sense) => senseOf(sense));
   const speeds = attributes.speed.otherSpeeds.map(({ type, value }) => ({ movement: type, speed: value }));
+
   return {
     ...listed('skills', [...skills, ...lores]),
     ...listed('senses', senses),
@@ -225,14 +241,17 @@ function attributeModifiers({ abilities }: System): object {
 /** The creature's data, unparsed; undefined when its `system` is not shaped as a creature's. */
 export function creatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryCreatureSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const { log, pack } = input;
   const { attributes, perception, saves } = system;
   details(system, log);
   const size = sizeOf(system.traits.size.value, log);
   const { lores = [], ...parts } = creatureItems(input);
+
   return {
     role: creatureRole(pack.directory),
     ...(size === undefined ? {} : { size }),

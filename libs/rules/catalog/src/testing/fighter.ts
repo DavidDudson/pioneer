@@ -48,10 +48,13 @@ export const level1Fighter: StatisticInputs = StatisticInputsJson.parse({
 
 /** Scale mail's item bonus to AC (Player Core). */
 export const SCALE_MAIL_AC = 3;
+
 /** Scale mail's check penalty, on Strength- and Dexterity-based skill checks, unless its Strength is met. */
 export const SCALE_MAIL_CHECK_PENALTY = -2;
+
 /** Scale mail's Speed penalty, which meeting its Strength reduces by 5 feet, to nothing. */
 export const SCALE_MAIL_SPEED_PENALTY = -5;
+
 /** A raised steel shield's circumstance bonus to AC (Player Core). */
 export const STEEL_SHIELD_AC = 2;
 
@@ -75,6 +78,7 @@ interface Armor {
 /** Armor's rules on entry `slug`: the AC bonus, and the penalties gated by its Strength requirement. */
 function armorRules(slug: string, armor: Armor): readonly RuleInPlay[] {
   const { ac, checkPenalty, speedPenalty, speedPenaltyWithStrength } = armor;
+
   const elements = [
     flatModifier('item', ac, ['ac']),
     { ...flatModifier('item', checkPenalty, PHYSICAL_SKILLS), ...unlessStrengthMet },
@@ -83,6 +87,7 @@ function armorRules(slug: string, armor: Armor): readonly RuleInPlay[] {
       ? []
       : [{ ...flatModifier('item', speedPenaltyWithStrength, ['all-speeds']), ...whenStrengthMet }]),
   ];
+
   return elements.map((element, rule) => inPlay(element, slug, { rule }));
 }
 
@@ -107,6 +112,7 @@ export const level1FighterRules: readonly RuleInPlay[] = Object.values(level1Fig
 export function coreNamespaces(): NamespaceTable {
   const registry = new ContentRegistry();
   registry.register(coreRules);
+
   return registry.rollOptionNamespaces();
 }
 
@@ -160,9 +166,11 @@ export const level20Fighter: StatisticInputs = StatisticInputsJson.parse({
 
 /** Full plate (+6, Strength +4, check -3, Speed -10) with a +3 potency rune. */
 const FULL_PLATE: Armor = { ac: 9, checkPenalty: -3, speedPenalty: -10, speedPenaltyWithStrength: -5 };
+
 /** A skill or save item's bonus at the top of its range (a major or greater item), and one tier below. */
 const TOP_ITEM_BONUS = 3;
 const LOWER_ITEM_BONUS = 2;
+
 /** Heroism heightened to 9th rank. */
 const HEROISM_BONUS = 3;
 

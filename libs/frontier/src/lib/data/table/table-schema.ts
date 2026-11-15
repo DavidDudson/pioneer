@@ -75,6 +75,7 @@ function widthMeta(options: ColumnOptions): ColumnExtras {
     ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
     ...(options.code === undefined ? {} : { code: options.code }),
   };
+
   return Object.keys(meta).length === 0 ? {} : { meta };
 }
 
@@ -106,6 +107,7 @@ export class TableSchema<TRow extends RowData> {
   /** Adds a column of text or numbers, sorted by its value. */
   public addText(options: TextColumn<TRow>): this {
     const column = tableColumns<TRow>();
+
     return this.#append(
       column.accessor(options.value, {
         id: options.id,
@@ -119,6 +121,7 @@ export class TableSchema<TRow extends RowData> {
   /** Adds a column of dates, rendered by `fr-date` and sorted chronologically. */
   public addDate(options: DateColumn<TRow>): this {
     const format = options.format ?? DateFormat.Date;
+
     return this.addComponent({
       id: options.id,
       header: options.header,
@@ -147,6 +150,7 @@ export class TableSchema<TRow extends RowData> {
       component: Tag,
       inputs: (row) => {
         const { label, tone } = options.value(row);
+
         return tone === undefined ? { label } : { label, tone };
       },
     });
@@ -158,6 +162,7 @@ export class TableSchema<TRow extends RowData> {
    */
   public addComponent(options: ComponentColumn<TRow>): this {
     const column = tableColumns<TRow>();
+
     return this.#append(
       column.accessor(options.sortValue, {
         id: options.id,
@@ -172,6 +177,7 @@ export class TableSchema<TRow extends RowData> {
   /** The next schema, of the same class so a subclass's steps keep chaining. */
   #append(column: AnyColumn<TRow>): this {
     this.#columns.push(...tableColumns<TRow>().columns([column]));
+
     return this;
   }
 }

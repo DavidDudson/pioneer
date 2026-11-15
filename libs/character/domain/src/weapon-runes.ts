@@ -21,6 +21,7 @@ import { runeRefusal } from './rune-refusal';
 const WEAPON_RUNES = [FundamentalRune.Potency, FundamentalRune.Striking] as const;
 
 const ONE_ITEM = ItemQuantity.parse(1);
+
 /** The divisor of the coins left that the runes of one weapon may cost: half. */
 const SHARE = ItemQuantity.parse(2);
 
@@ -58,8 +59,10 @@ interface RuneWant {
 function bestRune(shop: RuneShop, want: RuneWant): Priced | undefined {
   const { runes } = shop;
   const { level, rune, left } = want;
+
   const offered = [...runes.values()].filter((entry) => {
     const price = priceOf(entry);
+
     return (
       entry.data.type === RuneType.Fundamental &&
       entry.data.rune === rune &&
@@ -70,8 +73,10 @@ function bestRune(shop: RuneShop, want: RuneWant): Priced | undefined {
       price <= left
     );
   });
+
   const [best] = offered.toSorted((first, second) => second.level - first.level);
   const cost = best === undefined ? undefined : priceOf(best);
+
   return best?.data.type === RuneType.Fundamental && cost !== undefined
     ? { etching: RuneEtchingSchema.parse({ type: RuneType.Fundamental, rune, grade: best.data.grade }), cost }
     : undefined;
@@ -93,6 +98,7 @@ function withPropertyRune(character: Character, { id, entry }: PropertyEtching, 
   const cost = priceOf(entry);
   const left = coinsValue(character.document.inventory.coins);
   const rune = RuneEtchingSchema.parse({ type: RuneType.Property, rune: entry.id });
+
   if (
     cost === undefined ||
     cost > Math.floor(left / SHARE) ||
@@ -100,7 +106,9 @@ function withPropertyRune(character: Character, { id, entry }: PropertyEtching, 
   ) {
     return character;
   }
+
   const paid = coinsOf(CopperValue.parse(left - cost));
+
   return character
     .apply({ field: CharacterPatchField.EtchRune, id, rune }, shop.now)
     .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
@@ -119,10 +127,13 @@ function withPropertyRunes(character: Character, id: InventoryItemId, shop: Etch
       entry.rarity === Rarity.Common &&
       entry.level <= character.document.level,
   );
+
   let runed = character;
+
   for (const entry of shuffle(shop.source, offered)) {
     runed = withPropertyRune(runed, { id, entry }, shop);
   }
+
   return runed;
 }
 
@@ -133,13 +144,16 @@ function withPropertyRunes(character: Character, id: InventoryItemId, shop: Etch
  */
 export function etchWeapon(character: Character, id: InventoryItemId, shop: EtchShop): Character {
   let runed = character;
+
   for (const rune of WEAPON_RUNES) {
     const left = coinsValue(runed.document.inventory.coins);
+
     const best = bestRune(shop, {
       level: runed.document.level,
       rune,
       left: CopperValue.parse(Math.floor(left / SHARE)),
     });
+
     if (best !== undefined && allowed(runed, { action: RuneAction.Etch, id, rune: best.etching }, shop)) {
       const paid = coinsOf(CopperValue.parse(left - best.cost));
       runed = runed
@@ -147,5 +161,6 @@ export function etchWeapon(character: Character, id: InventoryItemId, shop: Etch
         .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
     }
   }
+
   return withPropertyRunes(runed, id, shop);
 }

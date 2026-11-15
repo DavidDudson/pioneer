@@ -7,14 +7,17 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<F
   const harness = new FieldHarness();
   harness.add(Label, 'Name', inputs);
   await harness.stable();
+
   return harness;
 }
 
 function label(harness: FieldHarness): HTMLLabelElement {
   const found = harness.root.querySelector('label');
+
   if (found === null) {
     throw new Error('Expected a label');
   }
+
   return found;
 }
 

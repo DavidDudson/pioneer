@@ -13,18 +13,22 @@ interface Rendered {
 function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
   const fixture = TestBed.createComponent(OptionalNumberInput);
   fixture.componentRef.setInput('ariaLabel', 'Highest level');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   let commits = 0;
   fixture.componentInstance.committed.subscribe(() => {
     commits += 1;
   });
   fixture.detectChanges();
   const input = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (input === null) {
     throw new Error('Expected an input');
   }
+
   return { fixture, input, commits: (): number => commits };
 }
 

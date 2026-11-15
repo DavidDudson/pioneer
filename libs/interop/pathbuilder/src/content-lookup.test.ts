@@ -82,6 +82,7 @@ describe('legacy entries', () => {
   const legacyId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b06');
   const remasterId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b07');
   const onlyLegacyId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b08');
+
   const classes: ContentLookup = entryLookup({
     [ImportKind.Class]: [
       { ...item(legacyId, 'Champion'), legacy: true },
@@ -89,6 +90,7 @@ describe('legacy entries', () => {
       { ...item(onlyLegacyId, 'Alchemist Legacy'), legacy: true },
     ],
   });
+
   const resolved = (name: string): Uuid | undefined =>
     classes.resolve(ImportKind.Class, PathbuilderName.parse(name))?.id;
 

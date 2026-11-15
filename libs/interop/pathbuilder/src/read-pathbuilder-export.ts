@@ -23,6 +23,7 @@ export const PathbuilderProblem = {
   /** Pathbuilder wrote `success: false`: its own export failed. */
   ExportFailed: 'export-failed',
 } as const;
+
 export type PathbuilderProblem = ValueOf<typeof PathbuilderProblem>;
 
 /** A lore skill and its rank. Lores are skills, not content entries, so they are carried, not matched. */
@@ -39,6 +40,7 @@ export interface PathbuilderIdentity {
   /** Class first, then the dual class when the build has one. */
   readonly classes: readonly PathbuilderName[];
 }
+
 /**
  * Values Pathbuilder computed. Kept apart and never imported (ADR-0004): the discrepancy report (#312) compares
  * them with the engine's.
@@ -108,6 +110,7 @@ function failure(problem: PathbuilderProblem, issues: readonly z.core.$ZodIssue[
 
 function chosen(name: string | null | undefined): PathbuilderName | undefined {
   const trimmed = name?.trim() ?? '';
+
   return UNSET_NAMES.has(trimmed) ? undefined : PathbuilderName.parse(trimmed);
 }
 
@@ -118,6 +121,7 @@ function modifier(score: number): AttributeModifier {
 
 function attributeModifiers(build: PathbuilderBuild): AttributeModifiers {
   const { abilities } = build;
+
   const wire: AttributeModifiersWire = {
     [Attribute.Strength]: modifier(abilities.str),
     [Attribute.Dexterity]: modifier(abilities.dex),
@@ -126,12 +130,14 @@ function attributeModifiers(build: PathbuilderBuild): AttributeModifiers {
     [Attribute.Wisdom]: modifier(abilities.wis),
     [Attribute.Charisma]: modifier(abilities.cha),
   };
+
   return new AttributeModifiers(wire);
 }
 
 function named(kind: ImportKind, names: readonly (string | null | undefined)[]): ImportedName[] {
   return names.flatMap((raw) => {
     const name = chosen(raw);
+
     return name === undefined ? [] : [{ kind, name }];
   });
 }
@@ -139,6 +145,7 @@ function named(kind: ImportKind, names: readonly (string | null | undefined)[]):
 function spellNames(build: PathbuilderBuild): (string | undefined)[] {
   const casters = build.spellCasters.flatMap((caster) => caster.spells.flatMap((rank) => rank.list));
   const focus = Object.values(build.focus).flatMap((byAttribute) => Object.values(byAttribute));
+
   return [...casters, ...focus.flatMap((entry) => entry.focusCantrips), ...focus.flatMap((entry) => entry.focusSpells)];
 }
 
@@ -168,6 +175,7 @@ function lores(build: PathbuilderBuild): ImportedLore[] {
   return build.lores.flatMap(([raw, number]) => {
     const name = chosen(raw);
     const rank = RANK_BY_NUMBER[number];
+
     return name === undefined || rank === undefined ? [] : [{ name, rank }];
   });
 }
@@ -176,6 +184,7 @@ function skillRanks(build: PathbuilderBuild): Record<string, Proficiency> {
   return Object.fromEntries(
     Object.entries(build.proficiencies).flatMap(([name, number]) => {
       const rank = RANK_BY_NUMBER[number];
+
       return rank === undefined ? [] : [[name, rank]];
     }),
   );
@@ -193,12 +202,14 @@ function identity(build: PathbuilderBuild, ancestry: PathbuilderName): Pathbuild
 function toImport(build: PathbuilderBuild): PathbuilderReadResult {
   const name = CharacterName.safeParse(build.name);
   const ancestry = chosen(build.ancestry);
+
   if (!name.success) {
     return failure(
       PathbuilderProblem.Malformed,
       name.error.issues.map((issue) => ({ ...issue, path: ['build', 'name', ...issue.path] })),
     );
   }
+
   if (ancestry === undefined) {
     const issue: z.core.$ZodIssue = {
       code: 'custom',
@@ -206,9 +217,12 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
       message: 'Pathbuilder export has no ancestry',
       input: build.ancestry,
     };
+
     return failure(PathbuilderProblem.Malformed, [issue]);
   }
+
   const classes = identity(build, ancestry);
+
   const value: PathbuilderImport = {
     name: name.data,
     level: CharacterLevel.parse(build.level),
@@ -234,6 +248,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
       proficiencies: build.proficiencies,
     },
   };
+
   return { ok: true, value };
 }
 
@@ -253,19 +268,26 @@ function parseJson(text: string): unknown {
  */
 export function readPathbuilderExport(input: unknown): PathbuilderReadResult {
   const json = typeof input === 'string' ? parseJson(input) : input;
+
   if (json === NOT_JSON) {
     return failure(PathbuilderProblem.Malformed);
   }
+
   const parsed = PathbuilderExport.safeParse(json);
+
   if (!parsed.success) {
     return failure(PathbuilderProblem.Malformed, parsed.error.issues);
   }
+
   const { success, build } = parsed.data;
+
   if (!success) {
     return failure(PathbuilderProblem.ExportFailed);
   }
+
   if (build === undefined) {
     return failure(PathbuilderProblem.Malformed, PathbuilderBuild.safeParse(undefined).error?.issues ?? []);
   }
+
   return toImport(build);
 }

@@ -15,6 +15,7 @@ interface Html {
 const NESTING_MAX = 3;
 const CHILDREN_MAX = 4;
 const TEXT_MAX = 30;
+
 /** Letters, spaces, characters HTML escapes, a no-break space and non-ASCII. */
 const UNITS = ['a', 'b', ' ', '&', '<', '>', '\n', '\t', '\u00A0', '\u2014', '\u00E9'];
 
@@ -35,6 +36,7 @@ function concatenated(parts: readonly Html[]): Html {
 
 function wrapped(tag: string, children: readonly Html[]): Html {
   const { html, text } = concatenated(children);
+
   return { html: `<${tag}>${html}</${tag}>`, text };
 }
 
@@ -49,7 +51,9 @@ function inline(depth: number): Arbitrary<Html> {
   if (depth >= NESTING_MAX) {
     return words;
   }
+
   const children = array(inline(depth + 1), { maxLength: CHILDREN_MAX });
+
   return oneof(
     words,
     constant({ html: '<br>', text: '' }),
@@ -62,19 +66,24 @@ const run = array(inline(0), { maxLength: CHILDREN_MAX });
 function table(): Arbitrary<Html> {
   const cell = tuple(constantFrom('td', 'th'), run).map(([tag, each]) => wrapped(tag, each));
   const row = array(cell, { maxLength: CHILDREN_MAX }).map((cells) => wrapped('tr', cells));
+
   const group = tuple(constantFrom('thead', 'tbody', 'tfoot'), array(row, { maxLength: CHILDREN_MAX })).map(
     ([tag, rows]) => wrapped(tag, rows),
   );
+
   const caption = array(
     run.map((each) => wrapped('caption', each)),
     { maxLength: 1 },
   );
+
   const parts = array(oneof(row, group), { maxLength: CHILDREN_MAX });
+
   return tuple(caption, parts).map(([captions, each]) => wrapped('table', [...captions, ...each]));
 }
 
 function lists(items: Arbitrary<Html[]>): Arbitrary<Html> {
   const tags = constantFrom('ul', 'ol');
+
   return tuple(tags, array(items, { maxLength: CHILDREN_MAX })).map(([tag, each]) => list(tag, each));
 }
 
@@ -97,9 +106,11 @@ function textOf(value: unknown): string {
   if (Array.isArray(value)) {
     return value.map((each) => textOf(each)).join('');
   }
+
   if (typeof value !== 'object' || value === null) {
     return '';
   }
+
   return Object.entries(value)
     .map(([key, field]) => (key === 'text' || key === 'caption' ? String(field) : textOf(field)))
     .join('');

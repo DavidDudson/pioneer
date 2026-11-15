@@ -26,8 +26,11 @@ const classId = FEAT_SLOT_FIGHTER;
 const { level1: LEVEL_1, level2: LEVEL_2, level4: LEVEL_4, bonus: BONUS } = FEAT_SLOT_KEYS;
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 const LEVEL_ONE = Level.parse(1);
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
@@ -40,6 +43,7 @@ type Statuses = Record<string, PrerequisiteStatus>;
 /** The feats `slot` offers, by name, with whether the character meets their prerequisites. */
 function offered(character: CharacterBuilder, slot: SlotKey): Statuses {
   const read = featSlots(character.build().document, content).find((each) => each.key === slot);
+
   return Object.fromEntries(read?.options.map((option) => [option.label.toLowerCase(), option.status]) ?? []);
 }
 
@@ -93,6 +97,7 @@ describe('featSlots', () => {
 
   test('reads each clause of a feat with several, and the feat by them when it has no predicate of its own', () => {
     const read = featSlots(fighter().build().document, content).find((each) => each.key === LEVEL_1);
+
     const clausesOf = (name: string): unknown =>
       read?.options.find((option) => option.label.toLowerCase() === name)?.clauses;
 

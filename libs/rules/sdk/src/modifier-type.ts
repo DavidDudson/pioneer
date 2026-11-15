@@ -14,5 +14,7 @@ export const ModifierType = {
   Attribute: 'attribute',
   Potency: 'potency',
 } as const;
+
 export type ModifierType = ValueOf<typeof ModifierType>;
+
 export const ModifierTypeSchema = z.enum(ModifierType);

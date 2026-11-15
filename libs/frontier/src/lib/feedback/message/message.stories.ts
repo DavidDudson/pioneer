@@ -23,6 +23,7 @@ const meta: Meta<MessageStoryArgs> = {
     template: `<fr-message ${argsToTemplate(args)}>${content}</fr-message>`,
   }),
 };
+
 export default meta;
 
 export const Danger: MessageStory = {};

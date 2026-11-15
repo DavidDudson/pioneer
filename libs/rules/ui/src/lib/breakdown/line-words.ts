@@ -28,6 +28,7 @@ export interface LabelNames {
 function originName(origin: Origin, names: LabelNames): string | undefined {
   const hop = origin.hops.findLast((candidate) => candidate.kind === OriginHopKind.Inventory);
   const item = hop?.kind === OriginHopKind.Inventory ? names.items?.get(hop.item) : undefined;
+
   return item ?? names.entries.get(origin.entry);
 }
 
@@ -43,14 +44,18 @@ export function labelName(
   if ('text' in label) {
     return label.text;
   }
+
   if ('entry' in label) {
     return names.entries.get(label.entry) ?? label.entry;
   }
+
   const { message, named } = label;
   const name = named === undefined ? undefined : originName(named.origin, names);
+
   if (named === undefined || name === undefined) {
     return translate(message);
   }
+
   return translate({ ...message, params: { ...message.params, [named.param]: name } });
 }
 
@@ -72,10 +77,12 @@ export function modifierValue(
   format: LocaleFormat,
 ): string {
   const type: string = i18n.translate(MODIFIER_TYPE_MESSAGES[modifierType]);
+
   const text: string = i18n.translate(BreakdownMessage.LineValue, {
     hasValue: value === undefined ? 'no' : 'yes',
     value: value === undefined ? '' : format.number(value, SIGNED),
     type,
   });
+
   return text;
 }

@@ -32,12 +32,14 @@ export class CampaignTransferStore {
   /** The open campaign's pending offers to or from the user's characters, oldest first. */
   public readonly pending = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: transfersKey(id),
       queryFn: async (): Promise<PendingTransfers> => {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
+
         return this.#api.call(CampaignContract.listTransfers, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -49,6 +51,7 @@ export class CampaignTransferStore {
     const id = this.#openId();
     const offer = await this.#api.call(CampaignContract.offerItem, { params: { id }, body });
     await this.#refresh(id);
+
     return offer;
   }
 
@@ -79,9 +82,11 @@ export class CampaignTransferStore {
 
   #openId(): CampaignId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No campaign selected');
     }
+
     return id;
   }
 }

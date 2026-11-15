@@ -23,12 +23,15 @@ const ROWS = VALEROS.inventory.items.length + 1;
 /** Valeros with a +1 longsword that has a coating rune holding `stored`, and an oil in his pack. */
 function coated(stored: readonly string[]): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
+
   const etched = {
     ...sword,
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Coating) }] },
     ...(stored.length > 0 ? { state: { coating: stored } } : {}),
   };
+
   const items = [...VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item)), OIL_LINE];
+
   return { ...VALEROS, inventory: { ...VALEROS.inventory, items } } as typeof VALEROS;
 }
 

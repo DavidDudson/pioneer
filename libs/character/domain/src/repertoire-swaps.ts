@@ -16,6 +16,7 @@ const REPERTOIRE_PREFIX = 'repertoire:';
  * character's level, is free; replacing or emptying an older one is the level's one swap.
  */
 export const RepertoireSwap = { Free: 'free', Counts: 'counts', Refused: 'refused' } as const;
+
 export type RepertoireSwap = ValueOf<typeof RepertoireSwap>;
 
 /** An edit to one slot: the spell it is given, or none when it is emptied. */
@@ -31,14 +32,19 @@ export interface SwapEdit {
 export function repertoireSwap(document: CharacterDocument, content: SlotContent, edit: SwapEdit): RepertoireSwap {
   const { slot, selection } = edit;
   const stored = document.build.choices[slot];
+
   if (!slot.startsWith(REPERTOIRE_PREFIX) || stored === undefined || stored === selection) {
     return RepertoireSwap.Free;
   }
+
   const opens = spellSlotOpensAt(document, content, slot);
+
   if (opens === undefined || opens >= document.level) {
     return RepertoireSwap.Free;
   }
+
   const swapped = document.build.repertoireSwaps.find((each) => each.level === document.level)?.slot;
+
   return swapped === undefined || swapped === slot ? RepertoireSwap.Counts : RepertoireSwap.Refused;
 }
 

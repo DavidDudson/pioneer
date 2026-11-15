@@ -23,6 +23,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -36,6 +37,7 @@ async function render(statistics: readonly NamedStatistic[] | undefined): Promis
   fixture.componentRef.setInput('statistics', statistics);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -60,6 +62,7 @@ function itemsOf(host: HTMLElement): Element[] {
 function rows(host: HTMLElement): string[] {
   return itemsOf(host).map((item) => {
     const summary = item.querySelector('summary');
+
     return summary === null ? partsOf(item) : textOf(summary);
   });
 }

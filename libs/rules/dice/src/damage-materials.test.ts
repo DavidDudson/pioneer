@@ -59,6 +59,7 @@ describe('damage that counts as a material or property rune', () => {
       critical: false,
       counts: [silver],
     });
+
     const plain = applyDamage(roll('1d6[fire]', [4]), target({ weaknesses: [weakness] }));
 
     expect([resisted.taken, plain.taken]).toEqual([amount(4), amount(9)]);
@@ -71,6 +72,7 @@ describe('damage that counts as a material or property rune', () => {
     const defences = target({
       resistances: [resistantExcept('silver'), DamageAdjustment.parse({ type: DamageType.Slashing, value: 2 })],
     });
+
     const silver = DamageException.parse('silver');
 
     const result = applyDamage(roll('1d8[slashing]', [7]), defences, { critical: false, counts: [silver] });
@@ -98,6 +100,7 @@ describe('a weakness or resistance to a material', () => {
 
   test('does nothing to damage that does not count as it', () => {
     const plain = applyDamage(roll('1d8[slashing]', [3]), target({ weaknesses: [weakToSilver] }));
+
     const other = applyDamage(roll('1d8[slashing]', [3]), target({ weaknesses: [weakToSilver] }), {
       critical: false,
       counts: [coldIron],

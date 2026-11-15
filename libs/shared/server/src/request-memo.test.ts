@@ -8,6 +8,7 @@ class CountingRead {
 
   public readonly run = async (): Promise<number> => {
     this.runs += 1;
+
     return this.runs;
   };
 }
@@ -61,8 +62,10 @@ describe('RequestMemo', () => {
   test('keeps an answer of undefined', async () => {
     const memo = new RequestMemo<string, undefined>();
     let runs = 0;
+
     const read = async (): Promise<undefined> => {
       runs += 1;
+
       return undefined;
     };
 

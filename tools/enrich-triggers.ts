@@ -25,29 +25,37 @@ interface EntryFile {
 
 async function readEntryFile(file: string): Promise<EntryFile> {
   const json: unknown = await Bun.file(file).json();
+
   return { path: file, json: JsonArray.parse(json) };
 }
 
 const paths = await Array.fromAsync(new Glob('*/*.json').scan({ cwd: PACKS, absolute: true }));
+
 const files = await Promise.all(
   paths.filter((file) => path.basename(file) !== 'pack.json').map(async (file) => readEntryFile(file)),
 );
+
 const entries = files.flatMap(({ json }) => ContentEntryFile.parse(json));
 const names = new Map<ContentId, ContentText>(entries.map((entry) => [entry.id, entry.name]));
 const matches = new Map(triggerMatches(entries, names).map((match) => [match.entry, match.triggerEvent]));
 
 const enriched = files.flatMap(({ path: file, json }) => {
   const changed = enrichTriggerFile(json, matches);
+
   return changed === undefined ? [] : [{ path: file, json: changed }];
 });
+
 await Promise.all(
   enriched.map(async ({ path: file, json }) => Bun.write(file, `${JSON.stringify(json, undefined, JSON_INDENT)}\n`)),
 );
+
 if (enriched.length > 0) {
   const format = Bun.spawn(['bun', 'fmt', ...enriched.map((file) => file.path)], { cwd: ROOT });
   const formatted = await format.exited;
+
   if (formatted !== 0) {
     throw new Error(`bun fmt exited with ${formatted}`);
   }
 }
+
 console.log(`${matches.size} trigger events set in ${enriched.length} files`);

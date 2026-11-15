@@ -54,6 +54,7 @@ export class SpellPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return spellPickerColumns((key) => this.#i18n.translate(key));
   });
 

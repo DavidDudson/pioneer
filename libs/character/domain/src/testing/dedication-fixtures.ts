@@ -37,6 +37,7 @@ const SLOT_LEVELS: readonly number[] = Array.from({ length: SLOT_COUNT }, (_unus
 function archetypeSlot(level: number): object[] {
   const flag = `archetype-feat-${level}`;
   const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
+
   return [
     {
       key: 'ChoiceSet',

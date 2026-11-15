@@ -66,6 +66,7 @@ describe('spellAtRank', () => {
       damage: [{ key: '0', formula: '1d4+1', damageType: 'force', kinds: ['damage'] }],
       heightening: { type: 'interval', interval: 2, damage: [{ key: '0', formula: '1d4+1' }] },
     };
+
     const attr = { ...FIREBALL, damage: [{ key: '0', formula: '2d6 + @spellcasting.attr', kinds: ['damage'] }] };
 
     expect(formulasAt(flat, 7)).toEqual(['3d4+3']);

@@ -10,6 +10,7 @@ import { flatModifier, inPlay } from './testing';
 import { derived, formRule, OWN_AC, totalOf, valued } from './testing/battle-form-fixtures';
 
 const ATHLETICS = 'skill:athletics';
+
 /** Strength +1, less the breastplate’s check penalty of 2. */
 const OWN_ATHLETICS = -1;
 

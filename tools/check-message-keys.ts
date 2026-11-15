@@ -25,6 +25,7 @@ async function read(path: string): Promise<string> {
 
 async function scan(glob: Glob): Promise<string[]> {
   const paths = await Array.fromAsync(glob.scan({ dot: false }));
+
   return paths.filter((path) => !path.includes('node_modules'));
 }
 
@@ -36,6 +37,7 @@ async function bundleKeys(bundle: string): Promise<string[]> {
   const projectSrc = bundle.slice(0, bundle.indexOf('/i18n/en.json'));
   const projectSources = [...sources].filter(([path]) => path.startsWith(`${projectSrc}/`)).map(([, text]) => text);
   const tree = JSON.parse(await read(bundle)) as MessageTree;
+
   return flattenMessages(tree, scopeOf(projectSources) ?? '');
 }
 
@@ -48,6 +50,7 @@ const used = new Set([...sources].flatMap(([path, text]) => findKeyLiterals(text
 const { missing, unused } = compareKeys(defined, used);
 
 const problems = [...missing.map((key) => `missing from en: ${key}`), ...unused.map((key) => `unused in code: ${key}`)];
+
 if (problems.length > 0) {
   throw new Error(`Message keys out of sync with the en source locale:\n- ${problems.join('\n- ')}`);
 }

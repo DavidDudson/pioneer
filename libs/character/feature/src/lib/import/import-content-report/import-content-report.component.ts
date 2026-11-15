@@ -24,6 +24,7 @@ export class ImportContentReport {
 
   protected readonly summary = computed((): ReportSummary | undefined => {
     const rows = this.report()?.groups.flatMap((group) => group.rows);
+
     return rows === undefined
       ? undefined
       : { matched: rows.filter((row) => row.status === MatchStatus.Matched).length, total: rows.length };

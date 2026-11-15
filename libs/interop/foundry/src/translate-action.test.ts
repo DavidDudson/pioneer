@@ -25,6 +25,7 @@ describe('translateKindData: action values', () => {
     ['free', FOUNDRY_NULL, ActionCost.Free],
   ])('%s %p costs %s', (type, count, cost) => {
     const trigger = { value: '<p><strong>Trigger</strong> Something happens.</p>' };
+
     const data = dataOf(
       [action({ actionType: { value: type }, actions: { value: count }, description: trigger })],
       'test-action',
@@ -134,6 +135,7 @@ describe('translateKindData: action values', () => {
     const description = {
       value: '<p><strong>Trigger</strong> An @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] foe moves.</p>',
     };
+
     const documents = [action({ actionType: { value: 'reaction' }, description }), OFF_GUARD];
 
     expect(dataOf(documents, 'test-action')).toEqual({

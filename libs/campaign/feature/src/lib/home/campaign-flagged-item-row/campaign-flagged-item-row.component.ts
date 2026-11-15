@@ -52,6 +52,7 @@ export class CampaignFlaggedItemRow {
 
   protected readonly approve = async (): Promise<void> => {
     const { character, item, rule, rune } = this.item();
+
     return this.#store.approve({ character, item, rule, rune });
   };
 
@@ -62,6 +63,7 @@ export class CampaignFlaggedItemRow {
 
   protected readonly promote = async (): Promise<void> => {
     const { character, item, rule, rune } = this.item();
+
     return this.#keyItems.promote({ character, item, rule, rune });
   };
 
@@ -69,6 +71,7 @@ export class CampaignFlaggedItemRow {
 
   protected readonly revoke = async (): Promise<void> => {
     const approval = this.approval();
+
     if (approval !== undefined) {
       await this.#store.revoke(approval);
     }

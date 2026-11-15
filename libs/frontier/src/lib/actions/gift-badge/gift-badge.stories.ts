@@ -9,6 +9,7 @@ const meta: Meta<GiftBadge> = {
   component: GiftBadge,
   args: { count: 1, label: 'A gift is waiting' },
 };
+
 export default meta;
 
 /** One offer: the present rocks, with no count. Under reduced motion it is still. */

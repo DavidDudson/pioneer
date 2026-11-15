@@ -33,6 +33,7 @@ const SHORTBOW = weapon(['slug:shortbow', 'ranged'], 60);
 /** `strike` after the adjustments, each placed in order. */
 function adjusted(strike: AlteredItem, elements: readonly object[]): AlteredItem {
   const rules = elements.map((element, rule) => inPlay(element, 'adjuster', { rule }));
+
   return adjustStrike({ rules, facts }, strike);
 }
 
@@ -88,6 +89,7 @@ describe('adjustStrike', () => {
 
   test('a pick in strikes reaches the weapon the pick named', () => {
     const picked = weapon(['picked:weapon']);
+
     const element = {
       key: 'AdjustStrike',
       property: 'traits',
@@ -126,6 +128,7 @@ describe('adjustStrike', () => {
 
   test('a melee weapon with no range increment takes one only from upgrade, downgrade and override', () => {
     const add = adjusted(LONGSWORD, [{ key: 'AdjustStrike', property: 'range-increment', mode: 'add', value: 10 }]);
+
     const override = adjusted(LONGSWORD, [
       { key: 'AdjustStrike', property: 'range-increment', mode: 'override', value: 10 },
     ]);
@@ -138,6 +141,7 @@ describe('adjustStrike', () => {
 
   test('a melee weapon takes the reach an override gives it, and keeps none when the predicate fails', () => {
     const extended = adjusted(LONGSWORD, [{ key: 'AdjustStrike', property: 'reach', mode: 'override', value: 60 }]);
+
     const failing = adjusted(LONGSWORD, [
       { key: 'AdjustStrike', property: 'reach', mode: 'override', value: 60, predicate: ['option:extend-weapon'] },
     ]);
@@ -157,12 +161,14 @@ describe('an etched adjustment', () => {
     value: 'ghost-touch',
     etched: true,
   };
+
   const ITEM = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
   const OTHER = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
 
   /** `LONGSWORD` as the inventory line `line` (none when absent), adjusted by `element` coming from `ITEM`. */
   function etchedOn(line?: InventoryItemId): AlteredItem {
     const rule = inPlay(element, 'rune', { item: ITEM });
+
     return adjustStrike({ rules: [rule], facts }, { ...LONGSWORD, inventoryItem: line });
   }
 

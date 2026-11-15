@@ -36,6 +36,7 @@ export const BoostSource = {
   SecondClass: 'second-class',
   Free: 'free',
 } as const;
+
 export type BoostSource = ValueOf<typeof BoostSource>;
 
 /** One boost, as the attributes it may raise: all six for a free boost, one for a fixed boost. */
@@ -90,19 +91,24 @@ export interface BoostSet {
 }
 
 const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+
 /** A free boost may raise any attribute. */
 const FREE_BOOST: Boost = ATTRIBUTES;
 const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
+
 /** Free boosts come at 1st level and every fifth level after (Player Core), four at a time. */
 const FREE_BOOST_INTERVAL = 5;
 const FREE_BOOSTS_PER_LEVEL = 4;
+
 const FREE_BOOST_LEVELS: readonly Level[] = [
   FIRST_LEVEL,
   ...Array.from({ length: CHARACTER_LEVEL_MAX / FREE_BOOST_INTERVAL }, (_unused, index) =>
     Level.parse((index + 1) * FREE_BOOST_INTERVAL),
   ),
 ];
+
 const FREE_BOOSTS: readonly Boost[] = Array.from({ length: FREE_BOOSTS_PER_LEVEL }, () => FREE_BOOST);
+
 /** A boost to a modifier this high or higher is partial: two partial boosts raise it by one. */
 const PARTIAL_BOOST_FROM = 4;
 
@@ -117,17 +123,21 @@ export function boostContent(
   lookup: () => ContentLookup = () => grantLookup(registry),
 ): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const backgrounds = new Map(
     entries.flatMap((entry) => (entry.kind === ContentKind.Background ? [[entry.id, entry.data.boosts] as const] : [])),
   );
+
   const classes = new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.Class ? [[entry.id, entry.data.keyAttribute] as const] : [],
     ),
   );
+
   return {
     ancestry: (id: ContentId): AncestryBoosts | undefined => {
       const definition = registry.ancestry(AncestryId.parse(id))?.definition;
+
       return definition === undefined ? undefined : { boosts: definition.boosts, flaws: definition.flaws };
     },
     background: (id: ContentId): readonly Boost[] | undefined => backgrounds.get(id),
@@ -140,6 +150,7 @@ export function boostContent(
 /** The entry picked in a root slot, if the pick is an id. */
 function pickedId(document: CharacterDocument, slot: SlotKey): ContentId | undefined {
   const picked = ContentId.safeParse(document.build.choices[slot]);
+
   return picked.success ? picked.data : undefined;
 }
 
@@ -149,6 +160,7 @@ function pickedId(document: CharacterDocument, slot: SlotKey): ContentId | undef
  */
 function offeredPick(value: ChoiceValue | undefined, options: readonly Attribute[]): Attribute | undefined {
   const parsed = AttributeSchema.safeParse(value);
+
   return parsed.success && options.includes(parsed.data) ? parsed.data : undefined;
 }
 
@@ -165,14 +177,18 @@ interface BoostOrigin {
  */
 function boostSet(document: CharacterDocument, { level, source, boosts }: BoostOrigin): BoostSet {
   const fixed = boosts.flatMap((boost) => (boost.length === 1 ? boost : []));
+
   const slots = boosts.flatMap((boost, index): BoostSlot[] => {
     if (boost.length === 1) {
       return [];
     }
+
     const key = SlotKey.parse(`boost:${level}:${source}:${index}`);
     const options = boost.filter((attribute) => !fixed.includes(attribute));
+
     return [{ key, level, source, options, pick: offeredPick(document.build.choices[key], options) }];
   });
+
   return { level, source, fixed, slots };
 }
 
@@ -191,6 +207,7 @@ export function boostSets(document: CharacterDocument, content: BoostContent): r
   BOOST_SETS.set(content, byBuild);
   const known = byBuild.get(document.build) ?? readBoostSets(document, content);
   byBuild.set(document.build, known);
+
   return known;
 }
 
@@ -201,18 +218,23 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
   const ancestryBoosts = ancestry === undefined ? undefined : content.ancestry(ancestry)?.boosts;
   const backgroundBoosts = background === undefined ? undefined : content.background(background);
   const classKey = characterClass === undefined ? undefined : content.keyAttribute(characterClass);
+
   const keyAttribute =
     classKey === undefined ? undefined : [...new Set([...classKey, ...content.keyAttributeOptions(document)])];
+
   const secondClass = content.secondClass ? pickedId(document, SECOND_CLASS_SLOT) : undefined;
   const secondKey = secondClass === undefined ? undefined : content.keyAttribute(secondClass);
+
   const secondAttribute =
     secondKey === undefined ? undefined : [...new Set([...secondKey, ...content.keyAttributeOptions(document)])];
+
   const origins: [BoostSource, readonly Boost[] | undefined][] = [
     [BoostSource.Ancestry, ancestryBoosts],
     [BoostSource.Background, backgroundBoosts],
     [BoostSource.Class, keyAttribute === undefined ? undefined : [keyAttribute]],
     [BoostSource.SecondClass, secondAttribute === undefined ? undefined : [secondAttribute]],
   ];
+
   return [
     ...origins.flatMap(([source, boosts]) =>
       boosts === undefined ? [] : [boostSet(document, { level: FIRST_LEVEL, source, boosts })],
@@ -229,6 +251,7 @@ export function boostSlots(document: CharacterDocument, content: BoostContent): 
 /** The flaws of the character's ancestry; undefined while it has none picked, or its content isn't loaded. */
 function ancestryFlaws(document: CharacterDocument, content: BoostContent): readonly Attribute[] | undefined {
   const ancestry = pickedId(document, ANCESTRY_SLOT);
+
   return ancestry === undefined ? undefined : content.ancestry(ancestry)?.flaws;
 }
 
@@ -238,12 +261,16 @@ function ancestryFlaws(document: CharacterDocument, content: BoostContent): read
  */
 export function flawSlots(document: CharacterDocument, content: BoostContent): readonly FlawSlot[] {
   const own = ancestryFlaws(document, content);
+
   if (own === undefined) {
     return [];
   }
+
   const options = ATTRIBUTES.filter((attribute) => !own.includes(attribute));
+
   return options.map((_option, index): FlawSlot => {
     const key = SlotKey.parse(`flaw:${FIRST_LEVEL}:${BoostSource.Ancestry}:${index}`);
+
     return { key, options, pick: offeredPick(document.build.choices[key], options) };
   });
 }
@@ -261,6 +288,7 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
   let total = flawed ? -1 : 0;
   let partial = false;
   const boosts = sets.filter((set) => raised(set).has(attribute)).length;
+
   for (let boost = 0; boost < boosts; boost += 1) {
     if (total < PARTIAL_BOOST_FROM || partial) {
       total += 1;
@@ -269,6 +297,7 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
       partial = true;
     }
   }
+
   return AttributeModifier.parse(total);
 }
 
@@ -280,8 +309,10 @@ export function attributeModifiers(document: CharacterDocument, content: BoostCo
   const voluntary = flawSlots(document, content).flatMap((slot) => slot.pick ?? []);
   const flaws = new Set([...(ancestryFlaws(document, content) ?? []), ...voluntary]);
   const current = boostSets(document, content).filter((set) => set.level <= document.level);
+
   const wire = Object.fromEntries(
     ATTRIBUTES.map((attribute) => [attribute, modifierOf(attribute, flaws.has(attribute), current)]),
   );
+
   return new AttributeModifiers(AttributeModifiersWire.parse(wire));
 }

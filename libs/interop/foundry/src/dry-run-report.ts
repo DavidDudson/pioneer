@@ -29,6 +29,7 @@ export interface DryRunReport {
 }
 
 const REASON_ORDER: readonly SkipReason[] = Object.values(Reason);
+
 /**
  * Reasons counted as one group whatever the detail: parse errors differ per file (the CLI lists them), and legacy
  * entries span a hundred pre-remaster books that need no action.
@@ -37,11 +38,13 @@ const UNGROUPED: ReadonlySet<SkipReason> = new Set([Reason.Unreadable, Reason.Le
 
 function tally<Key>(keys: readonly Key[], keyOf: (key: Key) => string): Map<string, [Key, number]> {
   const counts = new Map<string, [Key, number]>();
+
   for (const key of keys) {
     const id = keyOf(key);
     const [, count] = counts.get(id) ?? [key, 0];
     counts.set(id, [key, count + 1]);
   }
+
   return counts;
 }
 
@@ -49,7 +52,9 @@ export function dryRunReport({ selected, skipped }: Selection): DryRunReport {
   const imported = [...tally(selected, ({ type, book }) => `${book}\u0000${type}`).values()]
     .map(([{ type, book }, count]) => ({ type, book, count }))
     .toSorted((left, right) => left.book.localeCompare(right.book) || left.type.localeCompare(right.type));
+
   const grouped = skipped.map(({ reason, detail }) => ({ reason, detail: UNGROUPED.has(reason) ? '' : detail }));
+
   const skips = [...tally(grouped, ({ reason, detail }) => `${reason}\u0000${detail}`).values()]
     .map(([{ reason, detail }, count]) => ({ reason, detail, count }))
     .toSorted(
@@ -58,6 +63,7 @@ export function dryRunReport({ selected, skipped }: Selection): DryRunReport {
         right.count - left.count ||
         left.detail.localeCompare(right.detail),
     );
+
   return { imported, skipped: skips };
 }
 
@@ -182,7 +188,9 @@ export function creatureReport({ selected, skipped }: CreatureSelection): Creatu
       (left, right) =>
         left.book.localeCompare(right.book) || left.role.localeCompare(right.role) || left.level - right.level,
     );
+
   const grouped = skipped.map(({ reason, detail }) => ({ reason, detail: UNGROUPED.has(reason) ? '' : detail }));
+
   const skips = [...tally(grouped, ({ reason, detail }) => `${reason}\u0000${detail}`).values()]
     .map(([{ reason, detail }, count]) => ({ reason, detail, count }))
     .toSorted(
@@ -191,8 +199,10 @@ export function creatureReport({ selected, skipped }: CreatureSelection): Creatu
         right.count - left.count ||
         left.detail.localeCompare(right.detail),
     );
+
   const fieldGaps = [...creatureFieldGaps(selected)]
     .map(([key, count]) => ({ key, count }))
     .toSorted((left, right) => right.count - left.count || left.key.localeCompare(right.key));
+
   return { imported, skipped: skips, fieldGaps };
 }

@@ -14,6 +14,7 @@ import {
 } from './playground-harness';
 
 const WARM_TIMEOUT = 60_000;
+
 // A test that loads the core rules pack renders every statistic of it, which outgrows vitest's 5s default on a runner.
 const TEST_TIMEOUT = 30_000;
 
@@ -41,6 +42,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
     await chooseSchema(harness, 'Statistics');
 
     const text = pageText(harness);
+
     const expected = [
       'Total 19',
       'Breastplate',
@@ -50,6 +52,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
       'Does not apply: its condition does not hold.',
       '-1 status',
     ];
+
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
   });
 
@@ -58,6 +61,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
     await chooseSchema(harness, 'Statistics');
 
     const text = pageText(harness);
+
     const expected = [
       'Pinned',
       'Set by the GM pins it to 18; computed 15.',
@@ -66,6 +70,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
       'Set by hand',
       'GM blessing',
     ];
+
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
   });
 
@@ -79,6 +84,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
     await harness.fixture.whenStable();
 
     const text = pageText(harness);
+
     const expected = [
       'save:will',
       'perception',
@@ -93,6 +99,7 @@ describe('RulesPlaygroundPage statistics', { timeout: TEST_TIMEOUT }, () => {
       'spell-dc:arcane',
       '+ @stat.spell-attack',
     ];
+
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
     // The example's spell DC names its spell attack in full; the pack's reads its own entry's.
     expect(text).not.toContain('+ @stat.spell-attack.arcane');

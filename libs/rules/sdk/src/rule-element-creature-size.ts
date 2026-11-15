@@ -10,6 +10,7 @@ export const SIZE_STEPS_MAX = 3;
 
 /** A change of size in steps: 1 is one size larger. */
 export const SizeSteps = Pg.smallint().min(-SIZE_STEPS_MAX).max(SIZE_STEPS_MAX).brand<'SizeSteps'>();
+
 export type SizeSteps = z.infer<typeof SizeSteps>;
 
 /** The reach a size change sets: either a reach of its own, or a number of feet more than the new size gives. */
@@ -28,6 +29,7 @@ export const CreatureSizeElement = z.strictObject({
   reach: SizeReach.optional(),
   ...ruleElementBase,
 });
+
 export type CreatureSizeElement = z.infer<typeof CreatureSizeElement>;
 
 export { BattleFormElement } from './rule-element-battle-form';

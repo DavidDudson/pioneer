@@ -49,6 +49,7 @@ const meta: Meta<AsyncForm<StoryFormModel>> = {
   args: { action: succeedSlowly },
   render: (args) => ({ props: args, template: TEMPLATE }),
 };
+
 export default meta;
 
 export const Succeeds: AsyncFormStory = {};

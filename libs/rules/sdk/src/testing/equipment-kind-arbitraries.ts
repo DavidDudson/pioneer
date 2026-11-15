@@ -48,8 +48,10 @@ const coinCount: Arbitrary<number> = integer({ min: 1, max: COIN_COUNT_MAX });
 const coins: Arbitrary<object> = subarray(Object.values(Coin), { minLength: 1 }).chain((picked) =>
   record(Object.fromEntries(picked.map((coin) => [coin, coinCount]))),
 );
+
 const price: Arbitrary<object> = withOptional(record({ coins }), { per: positive });
 const bulk: Arbitrary<unknown> = oneof(constantFrom(...Object.values(BulkWeight)), positive);
+
 const material: Arbitrary<object> = withOptional(record({ type: slugText }), {
   grade: constantFrom(...Object.values(MaterialGrade)),
 });
@@ -92,6 +94,7 @@ function runesWith(secondary: string): Arbitrary<object> {
 }
 
 const dieSize: Arbitrary<string> = constantFrom(...Object.values(DieSize));
+
 const weaponDamage: Arbitrary<object> = withOptional(record({ dice: smallint, damageType }), {
   die: dieSize,
   persistent: record({ formula: damageFormulaText, damageType }),
@@ -146,6 +149,7 @@ const equipmentData: Arbitrary<object> = physical(
 const NOT_AMMUNITION = Object.values(ConsumableCategory).filter(
   (category) => category !== ConsumableCategory.Ammunition,
 );
+
 const consumableUse = {
   uses: positive,
   kept: boolean(),
@@ -191,10 +195,12 @@ const runeData: Arbitrary<object> = oneof(fundamentalRune, propertyRune);
 const treasureData: Arbitrary<object> = physical({}, { category: constantFrom(...Object.values(TreasureCategory)) });
 
 const kitItem: Arbitrary<object> = record({ item: contentIdJson, quantity: positive });
+
 /** A kit item, holding others when it is a container. */
 function kitEntryOf([item, contents]: readonly [object, object[]]): Arbitrary<object> {
   return withOptional(constant(item), { contents: constant(contents) });
 }
+
 const kitEntry: Arbitrary<object> = tuple(kitItem, array(kitItem, { maxLength: LIST_MAX })).chain(kitEntryOf);
 
 const kitData: Arbitrary<object> = withOptional(

@@ -35,6 +35,7 @@ export class InMemoryKeyItemHolders extends KeyItemHolders {
         ...line,
       },
     });
+
     return this;
   }
 
@@ -55,20 +56,25 @@ export class InMemoryKeyItemHolders extends KeyItemHolders {
 
   public override async describe(character: CharacterId, item: ReviewedItemId): Promise<LineToPromote | undefined> {
     const found = this.#inventory.get(item);
+
     return found?.character === character ? found.line : undefined;
   }
 
   public override async link(actor: UserId, character: CharacterId, { item, keyItem }: LineLink): Promise<void> {
     const found = this.#inventory.get(item);
+
     if (found?.character !== character) {
       throw new NotFoundError('InventoryItem', item);
     }
+
     if (found.line.keyItem === keyItem) {
       return;
     }
+
     if (found.line.keyItem !== undefined) {
       throw new ConflictError(`Inventory item ${item} is already a key item`, message(KeyItemMessage.AlreadyKeyItem));
     }
+
     this.#actors.push(actor);
     this.#inventory.set(item, { character, line: { ...found.line, keyItem } });
     this.#lines.set(character, new Set([...(this.#lines.get(character) ?? []), keyItem]));

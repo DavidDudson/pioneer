@@ -39,6 +39,7 @@ export const SkipReason = {
   /** A document a committed Pioneer entry replaces, so importing it as well would apply the same rules twice. */
   Superseded: 'superseded',
 } as const;
+
 export type SkipReason = ValueOf<typeof SkipReason>;
 
 export interface SelectedEntry extends PackDocument {
@@ -90,6 +91,7 @@ function entryLicense(
     isOglEntry(publication, book, slug) &&
     !legacy.whole.has(book) &&
     !legacy.listed.has(book);
+
   return licensed ? { license: ContentLicense.Ogl } : {};
 }
 
@@ -102,39 +104,50 @@ function targetBook(
   if (publication === undefined) {
     return { reason: SkipReason.UnknownBook, detail: '' };
   }
+
   const book = FOUNDRY_BOOK_TITLES.get(publication.title);
+
   const ogl =
     (book !== undefined && legacy.whole.has(book)) ||
     isOglEntry(publication, book, slug) ||
     (book !== undefined &&
       (legacy.listed.has(book) || legacy.whole.has(book)) &&
       isReplacedLegacy(replaced, publication, { book, slug }));
+
   if (!ogl && !publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
   }
+
   if (publication.license !== (ogl ? ContentLicense.Ogl : ContentLicense.Orc)) {
     return { reason: SkipReason.NotOrc, detail: publication.license ?? '' };
   }
+
   if (book === undefined) {
     return { reason: SkipReason.UnknownBook, detail: publication.title };
   }
+
   return targets.has(book) ? book : { reason: SkipReason.NotTargeted, detail: book };
 }
 
 function select(entry: PackDocument, scope: Scope): SelectedEntry | SkippedEntry {
   const { pack, path, document } = entry;
   const { type } = document;
+
   if (!isFoundryItemType(type)) {
     return { pack, path, reason: SkipReason.UnsupportedType, detail: type };
   }
+
   const slug = foundrySlug(document);
   const book = targetBook(document.system.publication, scope, slug);
+
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
+
   if (SUPERSEDED_SLUGS.has(slug)) {
     return { pack, path, reason: SkipReason.Superseded, detail: slug };
   }
+
   return { ...entry, type, book, ...entryLicense(document.system.publication, { book, slug }, scope.legacy) };
 }
 
@@ -164,20 +177,24 @@ export function selectReplacedLegacy(release: FoundryRelease, { targets, books, 
 
 function selectIn(release: FoundryRelease, scope: Scope): Selection {
   const selected: SelectedEntry[] = [];
+
   const skipped: SkippedEntry[] = release.unreadable.map(({ pack, path, error }) => ({
     pack,
     path,
     reason: SkipReason.Unreadable,
     detail: error,
   }));
+
   for (const entry of release.documents) {
     const selection = select(entry, scope);
+
     if ('reason' in selection) {
       skipped.push(selection);
     } else {
       selected.push(selection);
     }
   }
+
   return { selected, skipped };
 }
 
@@ -202,16 +219,21 @@ export interface CreatureSelection {
 
 function selectCreature(entry: ActorDocument, scope: Scope): SelectedCreature | SkippedEntry {
   const { pack, path, actor } = entry;
+
   if (actor.type === FoundryActorType.Hazard) {
     return { pack, path, reason: SkipReason.Hazard, detail: actor.type };
   }
+
   if (actor.type !== FoundryActorType.Npc) {
     return { pack, path, reason: SkipReason.UnsupportedType, detail: actor.type };
   }
+
   const book = targetBook(actor.system.details.publication, scope);
+
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
+
   return { ...entry, book, role: creatureRole(pack.directory) };
 }
 
@@ -228,13 +250,16 @@ export function selectCreatures(
   const scope: Scope = { targets, legacy: legacyBooks(books), replaced: NO_REPLACED };
   const selected: SelectedCreature[] = [];
   const skipped: SkippedEntry[] = [];
+
   for (const entry of release.actors) {
     const selection = selectCreature(entry, scope);
+
     if ('reason' in selection) {
       skipped.push(selection);
     } else {
       selected.push(selection);
     }
   }
+
   return { selected, skipped };
 }

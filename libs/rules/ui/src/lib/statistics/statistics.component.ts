@@ -159,7 +159,9 @@ export class StatisticsView {
     if (form?.source !== FormSource.Form) {
       return undefined;
     }
+
     const name = labelName(form.label, this.#words().names, ({ key, params }) => this.#i18n.translate(key, params));
+
     return this.#i18n.translate(StatisticsMessage.FromForm, { form: name });
   }
 
@@ -174,6 +176,7 @@ export class StatisticsView {
   #conditionsOf(result: StatisticValue, situations: StatisticSituations | undefined): ShownConditions {
     const words = this.#words();
     const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
+
     return {
       conditions: conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id))),
       toggles: offered.map((line): ConditionToggle => ({
@@ -197,6 +200,7 @@ export class StatisticsView {
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
+
     return this.statistics()?.map(
       ({
         name: contentName,
@@ -212,14 +216,17 @@ export class StatisticsView {
         flat,
       }): ShownStatistic => {
         const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
+
         if (!result.ok) {
           return this.#failed(result, name);
         }
+
         const style = numberStyle(kind);
         const total = this.#format.number(result.total, style);
         const unpinned = this.#unpinned(result, style);
         const fromForm = this.#fromForm(result);
         const { conditions, toggles } = this.#conditionsOf(result, situations);
+
         return {
           ok: true,
           key: result.selector,

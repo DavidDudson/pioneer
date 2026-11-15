@@ -18,6 +18,7 @@ const SLUGS = ['dwarf', 'elf', 'goblin', 'human', 'orc'] as const;
 function contentOf(isAncestry: readonly boolean[]): GrantEntry[] {
   return SLUGS.flatMap((slug, index) => {
     const kind = isAncestry[index] === true ? ContentKind.Ancestry : ContentKind.ClassFeature;
+
     return [{ ...entry(slug, [grantOf(`${slug}-feature`)]), kind }, entry(`${slug}-feature`)];
   });
 }
@@ -26,6 +27,7 @@ const kinds: Arbitrary<boolean[]> = tuple(boolean(), boolean(), boolean(), boole
 
 function resolve(content: readonly GrantEntry[], pick: string | undefined): GrantResolution {
   const picks = picksOf(pick === undefined ? [] : [[ANCESTRY, idOf(pick)]]);
+
   return resolveGrants(inputsOf({ entries: content, roots: [], picks, rootSlots: ROOT_SLOTS }));
 }
 

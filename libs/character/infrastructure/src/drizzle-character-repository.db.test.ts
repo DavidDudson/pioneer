@@ -57,11 +57,13 @@ const StoredRow = z.object({
   schemaVersion: z.number(),
   document: z.unknown(),
 });
+
 type StoredRow = z.infer<typeof StoredRow>;
 
 /** A document as the `characters` row stores it: encoded, without the play state that lives in `character_play`. */
 function storedForm(document: Character['document']): object {
   const { play: _apart, ...stored } = z.encode(CharacterDocumentSchema, document);
+
   return stored;
 }
 
@@ -93,9 +95,11 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
   /** The character `id`, which the test has just written. */
   async function stored(id: CharacterId): Promise<Character> {
     const found = await repository.findById(id);
+
     if (found === undefined) {
       throw new Error(`Character ${id} was not found`);
     }
+
     return found;
   }
 
@@ -110,6 +114,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       })
       .from(characters)
       .where(eq(characters.id, id));
+
     return StoredRow.parse(row);
   }
 
@@ -125,11 +130,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       CharacterName.parse('Kyra'),
       CharacterName.parse('Valeros'),
     ]);
+
     const updated = await repository.update(
       valeros.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) }, later),
       FIRST_VERSION,
       levelled,
     );
+
     expect(updated.version).toBe(Version.parse(2));
     expect(await rejection(repository.update(updated, FIRST_VERSION, levelled))).toBeInstanceOf(VersionConflictError);
   });
@@ -164,11 +171,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
   test('stores the document with its list columns copied from it, at the current schema version', async () => {
     const amiri = new CharacterBuilder().named('Amiri').atLevel(3).build();
     await repository.insert(amiri, created);
+
     const renamed = await repository.update(
       amiri.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Amiri the Bold') }, later),
       FIRST_VERSION,
       renaming,
     );
+
     const row = await storedRow(renamed.id);
     expect(row).toStrictEqual({
       name: 'Amiri the Bold',
@@ -248,6 +257,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     const options = Object.values(CharacterSort).flatMap((sort) =>
       Object.values(SortDirection).map((direction) => ({ sort, direction })),
     );
+
     await Promise.all(options.map(async (query) => repository.listForOwner(fixtureOwnerId, query)));
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
@@ -285,10 +295,13 @@ describe.skipIf(adminUrl === undefined)('0012_character_document backfill (postg
     const rows = await database.db.execute(
       sql`select document ? 'attributes' as present, document->'build'->'choices' as choices from characters where id = ${ezren.id}`,
     );
+
     expect(rows[0]).toStrictEqual({ present: false, choices: { ancestry: humanAncestryId } });
+
     const columns = await database.db.execute(
       sql`select column_name from information_schema.columns where table_name = 'characters' and column_name = 'attributes'`,
     );
+
     expect(columns).toHaveLength(0);
   });
 });

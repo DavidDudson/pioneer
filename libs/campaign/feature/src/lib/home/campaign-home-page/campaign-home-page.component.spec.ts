@@ -16,6 +16,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -27,6 +28,7 @@ async function open(campaignId = id): Promise<RouterTestingHarness> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
+
   return RouterTestingHarness.create(`/campaigns/${campaignId}`);
 }
 
@@ -56,9 +58,11 @@ describe('CampaignHomePage', () => {
       const root = present(harness.routeNativeElement);
       expect(present(root.querySelector('h1')).textContent).toContain('Abomination Vaults');
       expect(root.textContent).toContain('1 member');
+
       const inventory = [...root.querySelectorAll('a')].filter((anchor) =>
         anchor.textContent.includes('Party Inventory'),
       );
+
       expect(inventory.map((anchor) => anchor.getAttribute('href'))).toStrictEqual([`/campaigns/${id}/inventory`]);
     });
   });

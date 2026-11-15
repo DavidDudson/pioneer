@@ -18,10 +18,15 @@ import {
 } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LEVEL_COUNT = 20;
@@ -30,6 +35,7 @@ const HEIGHTENING_LEVELS = [3, 5, 7, 9, 11, 13, 15, 17, 19].map((level) => Level
 
 function fighterRows(): readonly AutomaticRow[] {
   const { document } = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(1).build();
+
   return automaticTimeline(document, content);
 }
 
@@ -40,6 +46,7 @@ function wizardRows(): readonly AutomaticRow[] {
     .picking('boost:1:class:0', 'int')
     .atLevel(1)
     .build();
+
   return automaticTimeline(document, content);
 }
 
@@ -62,6 +69,7 @@ describe('automatic timeline', () => {
     const rises = ofKind(rows, AutomaticKind.ProficiencyRise);
     expect(rises.length).toBeGreaterThan(0);
     expect(rows[0]?.changes.some((change) => change.kind === AutomaticKind.ProficiencyRise)).toBe(false);
+
     for (const rise of rises) {
       expect(rise.source.kind).toBe(ChoiceSourceKind.Class);
     }
@@ -77,12 +85,15 @@ describe('automatic timeline', () => {
     const rows = wizardRows();
     const gains = ofKind(rows, AutomaticKind.SpellSlots);
     expect(gains.length).toBeGreaterThan(0);
+
     for (const gain of gains) {
       expect(gain.source.kind).toBe(ChoiceSourceKind.Spellcasting);
     }
+
     const heightened = rows.filter((row) =>
       row.changes.some((change) => change.kind === AutomaticKind.CantripHeightening),
     );
+
     expect(heightened.map((row) => row.level)).toStrictEqual(HEIGHTENING_LEVELS);
     expect(rows[0]?.changes.some((change) => change.kind === AutomaticKind.SpellSlots)).toBe(false);
   });

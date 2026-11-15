@@ -128,9 +128,11 @@ class Walker {
 
   #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
     const entry = this.#lookup.entry(id);
+
     if (entry === undefined) {
       this.#errors.push({ error: message(GrantsMessage.UnknownEntry, { entry: id }), hops });
     }
+
     return entry;
   }
 
@@ -138,25 +140,33 @@ class Walker {
   #reach(id: ContentId, visit: Visit): GrantEntry | undefined {
     const entry = this.#find(id, visit.hops);
     const blocked = entry === undefined ? undefined : blockedAt(entry, visit);
+
     if (blocked !== undefined) {
       this.#errors.push({ error: blocked, hops: visit.hops });
+
       return undefined;
     }
+
     return entry;
   }
 
   #visit(id: ContentId, visit: Visit): void {
     const entry = this.#reach(id, visit);
+
     if (entry === undefined) {
       return;
     }
+
     const at = this.#present.get(id);
     const taken = this.#takes.get(id) ?? FIRST_TAKE;
     const take = at === undefined || visit.allowDuplicate ? taken : nextTake(entry, taken, visit.picked);
+
     if (at !== undefined && take === undefined) {
       this.#duplicate(at, itemOf(entry, taken, visit));
+
       return;
     }
+
     this.#add(at, itemOf(entry, take ?? taken, visit), visit);
   }
 
@@ -180,6 +190,7 @@ class Walker {
    */
   #raise(at: number, value: ConditionValue | undefined): void {
     const present = this.#items[at];
+
     if (present !== undefined && value !== undefined && (present.value === undefined || value > present.value)) {
       this.#items[at] = { ...present, value };
     }
@@ -188,10 +199,13 @@ class Walker {
   /** `entry` as take `take`, with the slots that put its takes there; this take's own is noted the first time it is followed. */
   #entryAt({ entry, take }: GrantedItem, visit: Visit): EntryAt {
     const vias = this.#vias.get(entry.id) ?? [];
+
     if (take > vias.length) {
       vias.push(visit.picked ? viaOf(entry, visit.hops) : undefined);
     }
+
     this.#vias.set(entry.id, vias);
+
     return { entry, take, via: vias[take - 1], before: vias.slice(0, take - 1), hops: visit.hops };
   }
 
@@ -201,6 +215,7 @@ class Walker {
     const at = this.#entryAt(item, visit);
     const choices = this.#choose(at);
     const chain = [...visit.chain, entry];
+
     for (const [index, element] of entry.rules.entries()) {
       if (isGrant(element)) {
         this.#followGrant({ at, choices }, { element, index }, { ...visit, chain });
@@ -216,6 +231,7 @@ class Walker {
   ): void {
     const hop: OriginHop = { kind: OriginHopKind.Grant, by: at.entry.id, rule: RuleIndex.parse(index) };
     const target = this.#target(at, { element, hop }, choices);
+
     if (target !== undefined) {
       const hops = [...visit.hops, ...target.hops, hop];
       const allowDuplicate = element.allowDuplicate === true;
@@ -232,13 +248,16 @@ class Walker {
   #choose(at: EntryAt): EntryChoices {
     const choices = readChoices(at, this.#context);
     const chosen = `${at.entry.id}#${at.take}`;
+
     if (this.#chosen.has(chosen)) {
       return choices;
     }
+
     this.#chosen.add(chosen);
     this.#open.push(...choices.open);
     this.#answered.push(...choices.answered);
     this.#errors.push(...choices.errors);
+
     return choices;
   }
 
@@ -248,14 +267,19 @@ class Walker {
    */
   #target(at: EntryAt, { element, hop }: GrantAt, choices: EntryChoices): GrantTarget | undefined {
     const { item } = element;
+
     if (typeof item === 'string') {
       return { id: item, hops: [] };
     }
+
     const target = choiceTarget(at, item.choice, choices);
+
     if (target !== undefined && 'error' in target) {
       this.#errors.push({ error: target.error, hops: [...target.hops, hop] });
+
       return undefined;
     }
+
     return target;
   }
 
@@ -263,15 +287,20 @@ class Walker {
   #grant(element: GrantItemElement, id: ContentId, visit: Visit): void {
     const { predicate } = element;
     const truth = predicate === undefined ? Truth.True : evaluatePredicate(predicate, this.#facts);
+
     if (truth === Truth.True) {
       this.#visit(id, visit);
+
       return;
     }
+
     if (truth === Truth.False || predicate === undefined) {
       return;
     }
+
     const summary = summarisePredicate(predicate, this.#facts, element.display?.summary);
     const entry = this.#find(id, visit.hops);
+
     if (entry !== undefined && summary !== undefined) {
       this.#conditional.push({ entry, origin: originOf(entry, visit.hops), predicate, summary });
     }
@@ -293,8 +322,10 @@ class Walker {
  */
 export function walkGrants(inputs: WalkInputs): GrantWalk {
   const walker = new Walker(inputs);
+
   for (const root of inputs.roots.toSorted(byEntry)) {
     walker.root(root);
   }
+
   return walker.walk;
 }

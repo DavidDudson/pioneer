@@ -6,6 +6,7 @@ import type { PickIndex, PickSource } from './pick-source';
 
 /** Why nothing was picked: there was nothing to pick from, or nothing in the list had a chance. */
 export const PickRefusal = { Empty: 'empty' } as const;
+
 export type PickRefusal = ValueOf<typeof PickRefusal>;
 
 /** A pick, or why there was none. */
@@ -14,6 +15,7 @@ export type PickOutcome<Item> =
 
 /** How likely an entry is against the others in its list; zero never comes up. */
 export const PickWeight = z.int().nonnegative().brand<'PickWeight'>();
+
 export type PickWeight = z.infer<typeof PickWeight>;
 
 /** An entry of a weighted list. */
@@ -34,40 +36,50 @@ export function pickOne<Item>(source: PickSource, items: readonly Item[]): PickO
   if (items.length === NONE) {
     return refused();
   }
+
   const index = source.below(PickBound.parse(items.length));
   const picked = items[index];
+
   return picked === undefined ? refused() : { ok: true, picked };
 }
 
 /** One of `entries`, each as likely as its weight against the total; no entries, or only zero weights, is refused. */
 export function pickWeighted<Item>(source: PickSource, entries: readonly Weighted<Item>[]): PickOutcome<Item> {
   const total = entries.reduce((sum, { weight }) => sum + weight, NONE);
+
   if (total === NONE) {
     return refused();
   }
+
   const ticket = source.below(PickBound.parse(total));
   let reached = NONE;
+
   for (const { item, weight } of entries) {
     reached += weight;
+
     if (ticket < reached) {
       return { ok: true, picked: item };
     }
   }
+
   return refused();
 }
 
 /** `items` in a random order, each order equally likely (Fisher-Yates); an empty list shuffles to an empty list. */
 export function shuffle<Item>(source: PickSource, items: readonly Item[]): readonly Item[] {
   const result = [...items];
+
   for (let end = result.length - ONE; end > NONE; end -= ONE) {
     const other: PickIndex = source.below(PickBound.parse(end + ONE));
     const kept = result[end];
     const swapped = result[other];
+
     if (kept !== undefined && swapped !== undefined) {
       result[end] = swapped;
       result[other] = kept;
     }
   }
+
   return result;
 }
 
@@ -82,7 +94,9 @@ const DRAW_RESOLUTION = PickBound.parse(1_048_576);
 export function weightedShuffle<Item>(source: PickSource, entries: readonly Weighted<Item>[]): readonly Item[] {
   const raced = entries.map(({ item, weight }) => {
     const draw = (source.below(DRAW_RESOLUTION) + ONE) / (DRAW_RESOLUTION + ONE);
+
     return { item, time: weight === NONE ? Infinity : -Math.log(draw) / weight };
   });
+
   return raced.toSorted((left, right) => left.time - right.time).map(({ item }) => item);
 }

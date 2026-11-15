@@ -1,8 +1,13 @@
 export { default as contentBrowserMessages } from './i18n/en.json';
+
 export type { BrowseCreature, BrowseReplacement, BrowseRow } from './lib/browse-row';
+
 export type { BrowseSource, StoreLink } from './lib/browse-source';
+
 export { BrowseSources } from './lib/browse-sources/browse-sources.component';
+
 export type { ContentBrowserEntry, ContentBrowserList } from './lib/browser-list';
+
 export {
   ContentBrowserTier,
   type ContentBrowserState,
@@ -10,7 +15,11 @@ export {
   EMPTY_BROWSER_STATE,
   sameEntry,
 } from './lib/browser-state';
+
 export { ContentBrowserView } from './lib/content-browser-view/content-browser-view.component';
+
 export { ContentEntryView } from './lib/entry-view/content-entry-view.component';
+
 export { LegacyBadge } from './lib/legacy-badge/legacy-badge.component';
+
 export { tierRegions, type TierRegions } from './lib/tier-regions';

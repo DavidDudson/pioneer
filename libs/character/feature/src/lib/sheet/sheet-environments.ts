@@ -43,6 +43,7 @@ export function sheetRestrictions(
     engine === undefined || character === undefined
       ? []
       : characterLiftedRestrictions(character.document, sheetSources(engine, character));
+
   return restrictionsInPlay(environments, environmentContent(registry), lifted);
 }
 
@@ -59,6 +60,7 @@ export function restrictionRows(
   restrictions: readonly RestrictionInPlay[],
 ): readonly RestrictionRow[] {
   const names = sheetEntryNames(registry);
+
   return restrictions.map(({ environment, id, reason, liftedBy }) => ({
     key: `${environment}:${id}`,
     reason,

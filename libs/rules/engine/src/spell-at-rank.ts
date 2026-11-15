@@ -5,12 +5,14 @@ import type * as z from 'zod';
 
 /** How many whole steps of an interval heightening a rank is above the spell's. */
 const HeighteningSteps = Pg.smallint().nonnegative().brand<'HeighteningSteps'>();
+
 type HeighteningSteps = z.infer<typeof HeighteningSteps>;
 
 /** A damage part's roll. */
 type Formula = SpellDamage['formula'];
 
 type IntervalHeightening = Extract<Heightening, { readonly type: typeof HeighteningType.Interval }>;
+
 type FixedHeightening = Extract<Heightening, { readonly type: typeof HeighteningType.Fixed }>;
 
 /** What casting a spell takes, reaches and rolls; a spell's own, or a variant's. */
@@ -40,14 +42,17 @@ export interface SpellAtRank extends SpellCast {
 
 /** Dice: the `2d6` of `2d6+3 + @spellcasting.attr`. */
 const DICE = /^(?<count>\d+)d(?<die>\d+)(?<rest>.*)$/u;
+
 /** A flat amount at the start of what follows dice: the `+3` of ` + 3 + @spellcasting.attr`. */
 const FLAT = /^ ?\+ ?(?<flat>\d+)(?![\dd@(.])/u;
 const SPACES = /\s+/gu;
 
 /** How many dice a term rolls. */
 const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
+
 /** How many faces each die has. */
 const DieFaces = Pg.smallint().positive().brand<'DieFaces'>();
+
 /** A flat amount added to a roll. */
 const FlatBonus = Pg.smallint().nonnegative().brand<'FlatBonus'>();
 
@@ -62,9 +67,11 @@ function stepOf(formula: Formula): Step | undefined {
   const [dice = '', flat, ...more] = formula.replaceAll(SPACES, '').split('+');
   const parsed = DICE.exec(dice)?.groups;
   const isPure = parsed?.['rest'] === '' && more.length === 0 && (flat === undefined || /^\d+$/u.test(flat));
+
   if (parsed?.['count'] === undefined || parsed['die'] === undefined || !isPure) {
     return undefined;
   }
+
   return {
     count: DiceCount.parse(Number(parsed['count'])),
     die: DieFaces.parse(Number(parsed['die'])),
@@ -79,6 +86,7 @@ function stepOf(formula: Formula): Step | undefined {
 function increased(base: Formula, step: Formula, steps: HeighteningSteps): Formula {
   const added = stepOf(step);
   const lead = DICE.exec(base)?.groups;
+
   if (added !== undefined && lead?.['count'] !== undefined && String(added.die) === lead['die']) {
     const tail = lead['rest'] ?? '';
     const leadFlat = FLAT.exec(tail);
@@ -86,8 +94,10 @@ function increased(base: Formula, step: Formula, steps: HeighteningSteps): Formu
     const count = Number(lead['count']) + added.count * steps;
     const flat = Number(leadFlat?.groups?.['flat'] ?? 0) + added.flat * steps;
     const bonus = flat === 0 ? '' : `+${flat}`;
+
     return SpellDamageFormula.parse(`${count}d${added.die}${bonus}${rest}`);
   }
+
   return SpellDamageFormula.parse([base, ...Array.from({ length: steps }, () => step)].join(' + '));
 }
 
@@ -105,6 +115,7 @@ interface CastOverlay {
 /** The fields of `data` that casting reads. */
 function fieldsOf(data: SpellData): CastFields {
   const { time, range, area, targets, duration, defense, damage } = data;
+
   return { time, range, area, targets, duration, defense, damage };
 }
 
@@ -125,25 +136,32 @@ function laid(fields: CastFields, over: CastOverlay): CastFields {
 function withInterval(fields: CastFields, heightening: IntervalHeightening, steps: HeighteningSteps): CastFields {
   const damage = fields.damage.map((part): SpellDamage => {
     const step = heightening.damage.find(({ key }) => key === part.key);
+
     return step === undefined ? part : { ...part, formula: increased(part.formula, step.formula, steps) };
   });
+
   const grown = heightening.area;
+
   const area =
     fields.area === undefined || grown === undefined
       ? fields.area
       : { ...fields.area, size: Feet.parse(fields.area.size + grown * steps) };
+
   return { ...fields, damage, area };
 }
 
 /** `fields` with each fixed rank at or below `rank` laid over it, lowest first. */
 function withFixed(fields: CastFields, heightening: FixedHeightening, rank: SpellRank): CastFields {
   let result = fields;
+
   const reached = heightening.ranks
     .filter((each) => each.rank <= rank)
     .toSorted((left, right) => left.rank - right.rank);
+
   for (const { rank: _rank, traits: _traits, ...changes } of reached) {
     result = laid(result, changes);
   }
+
   return result;
 }
 
@@ -158,10 +176,13 @@ function heightened(fields: CastFields, heightening: Heightening | undefined, { 
   if (heightening === undefined) {
     return fields;
   }
+
   if (heightening.type === HeighteningType.Fixed) {
     return withFixed(fields, heightening, rank);
   }
+
   const steps = HeighteningSteps.parse(Math.max(0, Math.floor((rank - from) / heightening.interval)));
+
   return withInterval(fields, heightening, steps);
 }
 
@@ -174,9 +195,11 @@ export function spellAtRank(data: SpellData, rank: SpellRank): SpellAtRank {
   const own = fieldsOf(data);
   const casting: Casting = { from: data.rank, rank };
   const variants: SpellCast[] = [];
+
   for (const { name, heightening, ...changes } of data.variants ?? []) {
     variants.push({ name, ...heightened(laid(own, changes), heightening ?? data.heightening, casting) });
   }
+
   return {
     name: undefined,
     ...heightened(own, data.heightening, casting),

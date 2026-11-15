@@ -26,7 +26,9 @@ export class CampaignVariantRuleCatalog extends VariantRuleCatalog {
       .select({ packId: campaignPacks.packId })
       .from(campaignPacks)
       .where(eq(campaignPacks.campaignId, campaignId));
+
     const registry = await this.#content.registry(rows.map((row) => row.packId));
+
     return registry.variantRules().map(({ id, definition, pack }) => ({
       variantId: EnabledVariantRuleId.parse(id),
       name: VariantRuleName.parse(definition.name),

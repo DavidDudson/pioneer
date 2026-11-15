@@ -33,6 +33,7 @@ export class RichRef {
   protected readonly value = computed((): ConditionValue | undefined => {
     const named = TRAILING_VALUE.exec(this.label() ?? '')?.groups?.['value'];
     const parsed = ConditionValue.safeParse(named === undefined ? undefined : Number(named));
+
     return parsed.success ? parsed.data : undefined;
   });
   protected readonly target = computed((): LinkTarget | undefined => this.#links.target(this.node().id));

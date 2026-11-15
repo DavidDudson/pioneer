@@ -13,5 +13,6 @@ const STATUS_OF: Readonly<Record<Encumbrance, BulkStatus>> = {
 /** The Bulk `inventory` weighs against the limits `strength` sets, as the Bulk meter shows it. */
 export function sheetBulk(inventory: Inventory, content: ItemContent, strength: AttributeModifier): CarriedBulk {
   const { carried, encumberedAfter, maximum, encumbrance } = inventoryBulk(inventory, content, strength);
+
   return { carried, encumberedAfter, maximum, status: STATUS_OF[encumbrance] };
 }

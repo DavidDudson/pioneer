@@ -19,6 +19,7 @@ const DYING_VALUE = ConditionValue.parse(2);
 
 const pack = new ContentPackBuilder().withId('endings').withAction('stand');
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 const STAND = ContentId.parse(pack.idOf(ContentKind.Action, 'stand'));
@@ -27,6 +28,7 @@ const FORTITUDE = Selector.parse('save:fortitude');
 const WILL = Selector.parse('save:will');
 
 const others = (by: readonly ContentId[]): ConditionEnding => ({ kind: 'others', by, text: TEXT });
+
 const check = (dc?: ConditionDc): ConditionEnding => ({
   kind: 'check',
   check: { against: [], ...(dc === undefined ? {} : { dc }) },
@@ -64,6 +66,7 @@ describe(endingsFor, () => {
 
   it('gives the modifier the character rolls at for each statistic the check names, leaving out one it has no total for', () => {
     const rolls = new Map<Selector, PreviewEndingStatistic>([[FORTITUDE, { name: 'Fortitude', modifier: 7 }]]);
+
     const [ending] = endingsFor(registry, {
       endings: [{ kind: 'check', check: { against: [FORTITUDE, WILL] }, change: { effect: 'remove' }, text: TEXT }],
       value: undefined,

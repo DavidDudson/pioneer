@@ -43,6 +43,7 @@ describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => 
       name: CharacterName.parse('Kyra'),
       ancestry: humanAncestryId,
     });
+
     const file = await files.export(fixtureOwnerId, original.id);
 
     const imported = await files.import(fixtureOwnerId, file);

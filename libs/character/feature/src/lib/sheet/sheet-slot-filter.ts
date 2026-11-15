@@ -60,20 +60,26 @@ export interface SlotFilterInputs {
 export function slotFilter({ registry, filters, key, offered, facets, available }: SlotFilterInputs): SlotFilter {
   const everything = computed(() => slotEverythingFromQuery(filters.params(), key));
   const preset = computed(() => !everything() && slotFilterFromQuery(filters.params(), key, facets()).size === 0);
+
   const state: Signal<FilterState> = computed(() => {
     const own = preset() ? available() : undefined;
+
     return own ?? slotFilterFromQuery(filters.params(), key, facets());
   });
+
   const entries = computed(() => {
     const loaded = registry();
+
     return loaded === undefined ? [] : offered().flatMap((id) => sheetEntry(loaded, ContentId.parse(id)) ?? []);
   });
+
   const write = async (next: FilterState, all: boolean): Promise<void> => {
     await filters.write({
       ...slotFilterToQuery(next, key, facets()),
       ...slotEverythingToQuery(key, all),
     });
   };
+
   return {
     state,
     counts: computed(() => facetCounts(entries(), facets(), state())),
@@ -81,6 +87,7 @@ export function slotFilter({ registry, filters, key, offered, facets, available 
     everything,
     hidden: computed(() => {
       const kept = new Set<ContentId>(filterEntries(entries(), facets(), state()).map((entry) => entry.id));
+
       return new Set<string>(entries().flatMap((entry) => (kept.has(entry.id) ? [] : [entry.id])));
     }),
     apply: async (next) => {

@@ -9,6 +9,7 @@ const meta: Meta<ProficiencyBadge> = {
   title: 'Rules/Proficiency badge',
   component: ProficiencyBadge,
 };
+
 export default meta;
 
 /** No source known: the plain letter, with nothing to open. */

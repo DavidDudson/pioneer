@@ -29,7 +29,9 @@ const OWNED_FIELDS: ReadonlySet<string> = new Set(['ownedItems', 'types', 'predi
 /** A read of a pick: `{item|flags.system.rulesSelections.<flag>}`, or `@item.flags.pf2e.rulesSelections.<flag>`. */
 const PICK_READ =
   /^(?:\{item\|flags\.(?:system|pf2e)\.rulesSelections\.(?<braced>[A-Za-z0-9]+)\}|@item\.flags\.(?:system|pf2e)\.rulesSelections\.(?<at>[A-Za-z0-9]+))$/u;
+
 const SELECTOR_READ = /^(?<read>.+)-(?<roll>attack|damage)$/u;
+
 /** The predicate statements that name an item by what a pick stores: its id, or its slug (both are the slug in Pioneer). */
 const ITEM_NAMES = ['item:id:', 'item:slug:'] as const;
 
@@ -40,21 +42,26 @@ function isFields(value: unknown): value is Record<string, unknown> {
 /** The Foundry flag a read of a pick names; none for any other text. */
 function flagRead(text: unknown): string | undefined {
   const found = typeof text === 'string' ? PICK_READ.exec(text) : undefined;
+
   return found?.groups?.['braced'] ?? found?.groups?.['at'];
 }
 
 /** A query of owned items as Pioneer's, with its predicate as the filter; any other choices as they are. */
 export function ownedQueryOf(choices: object, filterOf: (statement: unknown) => unknown): unknown {
   const fields = Object.keys(choices);
+
   if (!('ownedItems' in choices) || choices.ownedItems !== true || !fields.every((field) => OWNED_FIELDS.has(field))) {
     return choices;
   }
+
   const types = 'types' in choices && Array.isArray(choices.types) ? (choices.types as readonly unknown[]) : [];
   const kinds = types.map((type) => (typeof type === 'string' ? OWNED_KINDS.get(type) : undefined));
   const filter = 'predicate' in choices && Array.isArray(choices.predicate) ? choices.predicate : [];
+
   if (kinds.length === 0 || kinds.some((kind) => kind === undefined)) {
     return choices;
   }
+
   return { ownedKinds: kinds, filter: filter.map((statement: unknown) => filterOf(statement)) };
 }
 
@@ -67,6 +74,7 @@ export function ownedFlagsOf(raws: readonly unknown[]): ReadonlySet<string> {
         raw['key'] === RuleElementKey.ChoiceSet &&
         isFields(raw['choices']) &&
         raw['choices']['ownedItems'] === true;
+
       return isOwned && typeof raw['flag'] === 'string' ? [raw['flag']] : [];
     }),
   );
@@ -76,6 +84,7 @@ export function ownedFlagsOf(raws: readonly unknown[]): ReadonlySet<string> {
 function pickedSelector(selector: unknown, flags: ReadonlySet<string>): unknown {
   const split = typeof selector === 'string' ? SELECTOR_READ.exec(selector) : undefined;
   const flag = flagRead(split?.groups?.['read']);
+
   return flag !== undefined && flags.has(flag) ? `picked:${kebab(flag)}-${split?.groups?.['roll']}` : selector;
 }
 
@@ -90,8 +99,10 @@ function pickedItemStatement(statement: unknown, flags: ReadonlySet<string>): un
   if (typeof statement !== 'string') {
     return statement;
   }
+
   const prefix = ITEM_NAMES.find((name) => statement.startsWith(name));
   const flag = prefix === undefined ? undefined : flagRead(statement.slice(prefix.length));
+
   return flag !== undefined && flags.has(flag) ? `item:picked:${kebab(flag)}` : statement;
 }
 
@@ -100,11 +111,13 @@ function pickedStatement(statement: unknown, flags: ReadonlySet<string>): unknow
   if (Array.isArray(statement)) {
     return statement.map((each: unknown) => pickedStatement(each, flags));
   }
+
   if (isFields(statement)) {
     return Object.fromEntries(
       Object.entries(statement).map(([operator, each]) => [operator, pickedStatement(each, flags)]),
     );
   }
+
   return pickedItemStatement(statement, flags);
 }
 
@@ -116,6 +129,7 @@ function alterationOf(raw: Record<string, unknown>, flags: ReadonlySet<string>):
   const rest = Object.fromEntries(Object.entries(raw).filter(([field]) => field !== 'itemId'));
   const predicate = [...aimed, ...statements.map((statement) => pickedItemStatement(statement, flags))];
   const kept = aimed.length > 0 ? rest : raw;
+
   return predicate.length > 0 ? { ...kept, predicate } : kept;
 }
 
@@ -127,24 +141,28 @@ export function withOwnedPicks(raw: unknown, flags: ReadonlySet<string>): unknow
   if (flags.size === 0 || !isFields(raw)) {
     return raw;
   }
+
   const selected = Object.fromEntries(
     Object.entries(raw).map(([field, value]) => [
       field,
       field === 'selector' || field === 'selectors' ? pickedSelectors(value, flags) : value,
     ]),
   );
+
   if (raw['key'] === RuleElementKey.AdjustStrike && Array.isArray(selected['definition'])) {
     return {
       ...selected,
       definition: selected['definition'].map((statement: unknown) => pickedItemStatement(statement, flags)),
     };
   }
+
   if (raw['key'] === RuleElementKey.CriticalSpecialization && Array.isArray(selected['predicate'])) {
     return {
       ...selected,
       predicate: selected['predicate'].map((statement: unknown) => pickedStatement(statement, flags)),
     };
   }
+
   return raw['key'] === RuleElementKey.ItemAlteration ? alterationOf(selected, flags) : selected;
 }
 
@@ -178,6 +196,7 @@ function isOwnedChoiceSet(element: RuleElement | undefined): element is ChoiceSe
 export function ownedFlagsOnce(elements: readonly (RuleElement | undefined)[]): ReadonlySet<string> {
   const sets = elements.filter((element): element is ChoiceSetElement => element?.key === RuleElementKey.ChoiceSet);
   const counts = Map.groupBy(sets, (set) => String(set.flag));
+
   return new Set(
     sets
       .filter((set) => isOwnedChoiceSet(set) && counts.get(String(set.flag))?.length === 1)

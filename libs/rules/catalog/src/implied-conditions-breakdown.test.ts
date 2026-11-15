@@ -15,6 +15,7 @@ function rulesUnder(root: ContentId): readonly RuleInPlay[] {
   const { items } = resolveGrants(
     inputsOf({ entries, roots: [{ entry: root, hop: { kind: 'condition', condition: root } }] }),
   );
+
   return items.flatMap(({ entry, origin }) =>
     entry.rules.map((element, rule) => ({ element, origin, rule: RuleIndex.parse(rule) })),
   );
@@ -24,6 +25,7 @@ function rulesUnder(root: ContentId): readonly RuleInPlay[] {
 function appliedOrigins(root: ContentId): readonly Origin[] {
   const rules = rulesUnder(root);
   const results = deriveStatistics(core, fighter, { rules, facts: factsUnderForm({ rules, facts: noFacts() }) });
+
   return [...results.values()].flatMap((result) =>
     result.ok ? result.lines.map(({ modifier }) => modifier.origin) : [],
   );
@@ -47,6 +49,7 @@ const WITH_LINES: readonly (readonly [string, string])[] = [
 describe('an implied condition in a statistic breakdown', () => {
   test.each(WITH_LINES)('%s brings %s as lines whose last origin hop names it', (parent, implied) => {
     const parentId = idNamed(parent);
+
     const hops = appliedOrigins(parentId)
       .filter(({ entry }) => entry === idNamed(implied))
       .map(({ hops: each }) => each.at(-1));

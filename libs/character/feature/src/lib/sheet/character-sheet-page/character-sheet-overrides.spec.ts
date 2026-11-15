@@ -27,6 +27,7 @@ function fakeDialog(): void {
       },
     });
   }
+
   vi.stubGlobal(
     'ResizeObserver',
     class {
@@ -37,6 +38,7 @@ function fakeDialog(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of DIALOG_METHODS) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }
@@ -51,6 +53,7 @@ async function open(mode: OverrideMode): Promise<HTMLElement> {
   const page = router.url.split('?')[0] ?? router.url;
   await router.navigateByUrl(`${page}?override=open&overrideStatistic=perception&overrideMode=${mode}`);
   await TestBed.inject(ApplicationRef).whenStable();
+
   return root;
 }
 
@@ -106,6 +109,7 @@ describe('CharacterSheet overrides', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: {
         field: 'addOverride',
@@ -128,6 +132,7 @@ describe('CharacterSheet overrides', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toStrictEqual({
       expectedVersion: 1,
       patch: {
@@ -140,6 +145,7 @@ describe('CharacterSheet overrides', () => {
 
 describe('CharacterSheet override authors', () => {
   const AUTHOR = '00000000-0000-4000-8000-00000000de01';
+
   const ADJUSTED = {
     ...FIGHTER,
     overrides: [
@@ -162,11 +168,15 @@ describe('CharacterSheet override authors', () => {
     const { root, harness } = await openSheet(ADJUSTED, { authors });
     const page = TestBed.inject(Router).url.split('?')[0] ?? '';
     await harness.navigateByUrl(`${page}?breakdown=open&statistic=ac`);
+
     const breakdown = await vi.waitFor(() => {
       const found = root.ownerDocument.querySelector<HTMLElement>('dialog pio-breakdown');
+
       return present(found);
     });
+
     const block = present(root.querySelector<HTMLElement>('pio-armor-class'));
+
     return `${block.textContent} ${breakdown.textContent}`.replaceAll(/\s+/gu, ' ');
   }
 

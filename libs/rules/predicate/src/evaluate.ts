@@ -30,6 +30,7 @@ export function testOption(option: RollOption, facts: PredicateFacts): Truth {
   if (facts.has(option)) {
     return Truth.True;
   }
+
   return facts.isKnown(option) ? Truth.False : Truth.Unknown;
 }
 
@@ -41,9 +42,11 @@ function testEquals([left, right]: ComparisonOperands, facts: PredicateFacts): T
   if (typeof right === 'string') {
     return truthOf(left === right);
   }
+
   if (facts.has(`${left}:${right}`)) {
     return Truth.True;
   }
+
   return facts.isKnown(left) || facts.values(left).length > 0 ? Truth.False : Truth.Unknown;
 }
 
@@ -52,6 +55,7 @@ function missingTruth([left, right]: ComparisonOperands, facts: PredicateFacts):
   const missing = [left, right].filter(
     (operand): operand is RollOption => typeof operand === 'string' && facts.values(operand).length === 0,
   );
+
   return missing.some((option) => facts.isKnown(option)) ? Truth.False : Truth.Unknown;
 }
 
@@ -62,9 +66,11 @@ function missingTruth([left, right]: ComparisonOperands, facts: PredicateFacts):
 function testOrder(order: Order, [left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
   const leftValues = facts.values(left);
   const rightValues = typeof right === 'string' ? facts.values(right) : [OptionValue.parse(right)];
+
   if (leftValues.length === 0 || rightValues.length === 0) {
     return missingTruth([left, right], facts);
   }
+
   return truthOf(leftValues.some((value) => rightValues.every((bound) => order(value, bound))));
 }
 
@@ -72,15 +78,19 @@ function testComparison(statement: PredicateComparison, facts: PredicateFacts): 
   if ('eq' in statement) {
     return testEquals(statement.eq, facts);
   }
+
   if ('gt' in statement) {
     return testOrder(greater, statement.gt, facts);
   }
+
   if ('gte' in statement) {
     return testOrder(greaterOrEqual, statement.gte, facts);
   }
+
   if ('lt' in statement) {
     return testOrder(less, statement.lt, facts);
   }
+
   return testOrder(lessOrEqual, statement.lte, facts);
 }
 
@@ -88,18 +98,23 @@ function combineList(statement: ListCompound, children: readonly Truth[]): Truth
   if ('and' in statement) {
     return all(children);
   }
+
   if ('or' in statement) {
     return any(children);
   }
+
   if ('xor' in statement) {
     return exactlyOne(children);
   }
+
   if ('nand' in statement) {
     return not(all(children));
   }
+
   if ('nor' in statement) {
     return not(any(children));
   }
+
   return allSame(children);
 }
 
@@ -115,13 +130,17 @@ export function combine(
   if (isPredicateComparison(statement)) {
     return testComparison(statement, facts);
   }
+
   if ('not' in statement) {
     return not(all(children));
   }
+
   if ('if' in statement) {
     const [condition = Truth.Unknown, consequence = Truth.Unknown] = children;
+
     return implies(condition, consequence);
   }
+
   return combineList(statement, children);
 }
 
@@ -129,18 +148,23 @@ function listStatements(statement: ListCompound): readonly PredicateStatement[] 
   if ('and' in statement) {
     return statement.and;
   }
+
   if ('or' in statement) {
     return statement.or;
   }
+
   if ('xor' in statement) {
     return statement.xor;
   }
+
   if ('nand' in statement) {
     return statement.nand;
   }
+
   if ('nor' in statement) {
     return statement.nor;
   }
+
   return statement.iff;
 }
 
@@ -149,12 +173,15 @@ export function childStatements(statement: PredicateStatement): readonly Predica
   if (typeof statement === 'string' || isPredicateComparison(statement)) {
     return [];
   }
+
   if ('not' in statement) {
     return [statement.not];
   }
+
   if ('if' in statement) {
     return [statement.if, statement.then];
   }
+
   return listStatements(statement);
 }
 
@@ -163,7 +190,9 @@ export function evaluateStatement(statement: PredicateStatement, facts: Predicat
   if (typeof statement === 'string') {
     return testOption(statement, facts);
   }
+
   const children = childStatements(statement).map((child) => evaluateStatement(child, facts));
+
   return combine(statement, children, facts);
 }
 

@@ -10,7 +10,9 @@ import { spendOf } from './sheet-spender';
 const pack = new ContentPackBuilder()
   .withId('player-core')
   .withSpell('barrier', { rank: 2, traditions: [], duration: { type: 'sustained' } });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 const BARRIER = ContentId.parse(pack.idOf(ContentKind.Spell, 'barrier'));
@@ -18,6 +20,7 @@ const BARRIER = ContentId.parse(pack.idOf(ContentKind.Spell, 'barrier'));
 /** A use of `id` for one action, paying `slot` when it names one. */
 function useOf(id: ContentId, slot?: string): ActionUse {
   const payment = slot === undefined ? undefined : { slot };
+
   return { line: { id, name: 'Use', cost: ActionCost.One, payment }, actions: undefined };
 }
 
@@ -66,6 +69,7 @@ describe('spendOf for breath', () => {
 
 describe('spendOf for a staff', () => {
   const STAFF = '33333333-3333-4333-8333-333333333333';
+
   const staffUse: ActionUse = {
     line: { id: BARRIER, name: 'Barrier', cost: ActionCost.Two, payment: { staff: { item: STAFF, spell: BARRIER } } },
     actions: undefined,

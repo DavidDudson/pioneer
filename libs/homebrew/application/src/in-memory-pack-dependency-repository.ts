@@ -14,6 +14,7 @@ export class InMemoryPackDependencyRepository extends PackDependencyRepository {
   public override async add(_actor: UserId, edge: PackDependencyEdge, whileLocked: () => Promise<void>): Promise<void> {
     await whileLocked();
     const stored = this.#edges.some(({ pack, dependsOn }) => pack === edge.pack && dependsOn === edge.dependsOn);
+
     if (!stored) {
       this.#edges.push(edge);
     }
@@ -21,6 +22,7 @@ export class InMemoryPackDependencyRepository extends PackDependencyRepository {
 
   public override async remove(_actor: UserId, edge: PackDependencyEdge): Promise<void> {
     const at = this.#edges.findIndex(({ pack, dependsOn }) => pack === edge.pack && dependsOn === edge.dependsOn);
+
     if (at !== -1) {
       this.#edges.splice(at, 1);
     }

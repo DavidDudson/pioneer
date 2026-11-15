@@ -19,6 +19,7 @@ export const SheetLanguage = z.strictObject({
   /** The slot a pick fills; absent for a granted language. */
   slot: SlotKey.optional(),
 });
+
 export type SheetLanguage = z.output<typeof SheetLanguage>;
 
 /** A language a slot offers, by name. */
@@ -33,6 +34,7 @@ export const CharacterLanguages = z.strictObject({
   open: LanguageCount,
   next: z.strictObject({ slot: SlotKey, options: z.array(LanguageChoice).max(LANGUAGES_MAX).readonly() }).optional(),
 });
+
 export type CharacterLanguages = z.output<typeof CharacterLanguages>;
 
 function sheetLanguage({ language, source, from, slot }: KnownLanguage): SheetLanguage {
@@ -47,6 +49,7 @@ function sheetLanguage({ language, source, from, slot }: KnownLanguage): SheetLa
 
 function nextSlot(slots: readonly LanguageSlot[], level: Level): CharacterLanguages['next'] {
   const next = slots.find((slot) => slot.level <= level && slot.pick === undefined);
+
   return next === undefined
     ? undefined
     : { slot: next.key, options: next.options.map(({ id, name }) => ({ id, name })) };
@@ -58,6 +61,7 @@ export function characterLanguages(document: CharacterDocument, content: SlotCon
   const level = Level.parse(document.level);
   const { slots, known } = languagesOf(document, reads);
   const next = nextSlot(slots, level);
+
   return {
     known: known.map((each) => sheetLanguage(each)),
     open: openLanguageSlots(slots, level),

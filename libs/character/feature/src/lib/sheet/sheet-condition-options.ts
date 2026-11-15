@@ -29,21 +29,27 @@ function removalsOf(entry: ContentEntry): readonly ConditionRemoval[] {
   ) {
     return entry.data.removesConditions ?? [];
   }
+
   return [];
 }
 
 function removersOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly Remover[]> {
   const cached = REMOVERS.get(registry);
+
   if (cached !== undefined) {
     return cached;
   }
+
   const byCondition = new Map<ContentId, Remover[]>();
+
   for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
     for (const removal of removalsOf(entry)) {
       byCondition.set(removal.condition, [...(byCondition.get(removal.condition) ?? []), { entry, removal }]);
     }
   }
+
   REMOVERS.set(registry, byCondition);
+
   return byCondition;
 }
 
@@ -56,6 +62,7 @@ interface Availability {
 /** The slots of a rank at least `rank` that are left; none when the character has no slots to count. */
 function slotsLeft(views: CountedViews, rank: SpellRank): number | undefined {
   const fitting = views.slots.filter((slot) => slot.rank >= rank);
+
   return fitting.length === 0 ? undefined : fitting.reduce((total, slot) => total + slot.current, 0);
 }
 
@@ -68,13 +75,17 @@ function availability(entry: ContentEntry, character: Character, views: CountedV
   if (entry.kind === ContentKind.Spell) {
     return entry.traits.includes(CANTRIP) ? { available: true } : countedLeft(slotsLeft(views, entry.data.rank));
   }
+
   if (entry.kind === ContentKind.Consumable) {
     const quantity = character.document.inventory.items
       .filter(({ item }) => item === entry.id)
       .reduce((total, item) => total + item.quantity, 0);
+
     return { available: quantity > 0, left: quantity };
   }
+
   const key = abilityUseKey(entry.id);
+
   return countedLeft(views.uses.find((use) => use.key === key)?.current);
 }
 
@@ -99,15 +110,20 @@ export function conditionEaseOptions(
   condition: ContentId,
 ): readonly PreviewEaseOption[] {
   const removers = removersOf(registry).get(condition) ?? [];
+
   if (removers.length === 0) {
     return [];
   }
+
   const held = new Set(heldContentIds(character.document));
   const owned = removers.filter(({ entry }) => held.has(entry.id));
+
   if (owned.length === 0) {
     return [];
   }
+
   const views = countedViews(registry, character, character.document.play.resources);
   const options = owned.map((remover) => optionOf(remover, availability(remover.entry, character, views)));
+
   return [...options.filter(({ available }) => available), ...options.filter(({ available }) => !available)];
 }

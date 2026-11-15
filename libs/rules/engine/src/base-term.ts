@@ -5,10 +5,12 @@ import type { Origin } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 export const BaseTermKind = { Term: 'term', Rounding: 'rounding' } as const;
+
 export type BaseTermKind = ValueOf<typeof BaseTermKind>;
 
 /** Whether a term is added to the base or subtracted from it. */
 export const TermSign = { Plus: '+', Minus: '-' } as const;
+
 export type TermSign = ValueOf<typeof TermSign>;
 
 /**
@@ -46,7 +48,9 @@ function terms(node: FormulaNode, sign: TermSign = TermSign.Plus): SignedNode[] 
   ) {
     return [{ node, sign }];
   }
+
   const right = node.operator === BinaryOperator.Add ? TermSign.Plus : TermSign.Minus;
+
   return [...terms(node.left, sign), { node: node.right, sign: right }];
 }
 
@@ -66,6 +70,7 @@ const PROFICIENCY_BONUSES: ReadonlySet<ReferenceKind> = new Set([
 function readsProficiency(node: FormulaNode): boolean {
   return references(node).some(({ path }) => {
     const kind = knownReference(path)?.kind;
+
     return kind !== undefined && PROFICIENCY_BONUSES.has(kind);
   });
 }
@@ -94,12 +99,15 @@ export function baseTerms(
 ): readonly BaseTerm[] {
   const lines: BaseTerm[] = [];
   let sum = 0;
+
   for (const term of terms(formula)) {
     const outcome = evaluate(signed(term), resolve);
+
     // The whole formula evaluated, so each of its terms does too; a failure here would be a bug in the evaluator.
     if (!outcome.ok) {
       throw new TypeError(`A term of an evaluated formula failed: ${outcome.error.key}`);
     }
+
     sum += outcome.value;
     lines.push({
       kind: BaseTermKind.Term,
@@ -110,5 +118,6 @@ export function baseTerms(
       origin: readsProficiency(term.node) ? proficiencyOrigin : undefined,
     });
   }
+
   return sum === total ? lines : [...lines, { kind: BaseTermKind.Rounding, value: FormulaValue.parse(total - sum) }];
 }

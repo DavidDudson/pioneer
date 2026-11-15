@@ -31,11 +31,13 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
  */
 export function sheetAttributes(registry: ContentRegistry, character: Character): SheetAttributes {
   const content = sheetSlotContent(registry).boosts;
+
   const open = boostSlots(character.document, content).flatMap((slot): OpenBoostLine[] =>
     slot.pick === undefined && slot.source !== BoostSource.Free && slot.level <= character.level
       ? [{ key: slot.key, label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }) }]
       : [],
   );
+
   return { modifiers: attributeModifiers(character.document, content), open };
 }
 
@@ -59,6 +61,7 @@ function boostRows(
 ): readonly AttributePickerRow[] {
   return slot.options.map((attribute): AttributePickerRow => {
     const current = modifiers.get(attribute) - (slot.pick === attribute ? 1 : 0);
+
     return {
       id: attribute,
       name: translate(ATTRIBUTE_MESSAGES[attribute]),
@@ -78,6 +81,7 @@ export function sheetPlannedBoosts(
   const content = sheetSlotContent(registry).boosts;
   const planned = boostSlots(character.document, content);
   const modifiers = attributeModifiers(character.document, content);
+
   return planned.map((slot) => ({
     key: slot.key,
     label: plannedBoostLabel(slot, planned),
@@ -90,6 +94,7 @@ export function sheetPlannedBoosts(
 function plannedBoostLabel(slot: BoostSlot, planned: readonly BoostSlot[]): MessageDescriptor {
   const level = { level: slot.level };
   const alike = planned.filter((each) => each.source === slot.source && each.level === slot.level);
+
   return alike.length === 1 || slot.source !== BoostSource.Free
     ? message(BOOST_LABEL_KEYS[slot.source], level)
     : message('rules.attributes.boost.freeNumbered', { ...level, number: alike.indexOf(slot) + 1 });

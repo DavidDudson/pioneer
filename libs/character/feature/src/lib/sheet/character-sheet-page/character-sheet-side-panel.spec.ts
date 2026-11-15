@@ -22,6 +22,7 @@ const IDLE_NOW = {
     task();
   },
 };
+
 const WITH_PANEL = [
   IDLE_NOW,
   { provide: SHEET_SIDE_PANEL, useValue: async (): Promise<Type<unknown>> => StubSidePanel },
@@ -41,6 +42,7 @@ function fakeBrowser(): void {
       },
     });
   }
+
   vi.stubGlobal(
     'ResizeObserver',
     class {
@@ -51,6 +53,7 @@ function fakeBrowser(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of ['show', 'showModal', 'close']) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }
@@ -109,6 +112,7 @@ describe('CharacterSheetPage side panel', () => {
 
   it('keeps the shell search and shows no panel when the panel fails to load', async () => {
     const loader = vi.fn<() => Promise<Type<unknown>>>().mockRejectedValue(new Error('offline'));
+
     const { root } = await openSheet(undefined, {
       providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
     });
@@ -127,9 +131,11 @@ describe('CharacterSheetPage side panel', () => {
   it('opens no empty drawer when the panel fails to load', async () => {
     fakeBrowser();
     const loader = vi.fn<() => Promise<Type<unknown>>>().mockRejectedValue(new Error('offline'));
+
     const { root } = await openSheet(undefined, {
       providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
     });
+
     await TestBed.inject(Router).navigateByUrl(`${TestBed.inject(Router).url}?drawer=open`);
     await vi.waitFor(() => {
       expect(loader).toHaveBeenCalledTimes(1);
@@ -145,9 +151,11 @@ describe('CharacterSheetPage side panel', () => {
   it('does not hide the shell search for a panel that arrives after the sheet is left', async () => {
     const { promise: late, resolve: arrive } = Promise.withResolvers<Type<unknown>>();
     const loader = vi.fn<() => Promise<Type<unknown>>>(async () => late);
+
     const { harness } = await openSheet(undefined, {
       providers: [IDLE_NOW, { provide: SHEET_SIDE_PANEL, useValue: loader }],
     });
+
     await vi.waitFor(() => {
       expect(loader).toHaveBeenCalledTimes(1);
     });

@@ -15,6 +15,7 @@ export const TransferRefusal = {
   /** The giver holds fewer coins than the offer, in some denomination. */
   ShortCoins: 'short-coins',
 } as const;
+
 export type TransferRefusal = (typeof TransferRefusal)[keyof typeof TransferRefusal];
 
 /** Both inventories after a transfer, or the reason it cannot happen. */
@@ -28,8 +29,10 @@ const COINS = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper] as const;
 export function lineWithContents(items: readonly InventoryItem[], id: InventoryItemId): readonly InventoryItem[] {
   const taken = new Set<InventoryItemId>([id]);
   let grew = true;
+
   while (grew) {
     grew = false;
+
     for (const each of items) {
       if (each.container !== undefined && taken.has(each.container) && !taken.has(each.id)) {
         taken.add(each.id);
@@ -37,6 +40,7 @@ export function lineWithContents(items: readonly InventoryItem[], id: InventoryI
       }
     }
   }
+
   return items.filter((each) => taken.has(each.id));
 }
 
@@ -44,6 +48,7 @@ export function lineWithContents(items: readonly InventoryItem[], id: InventoryI
 function received(line: InventoryItem, root: InventoryItemId): InventoryItem {
   const { invested: _worn, container, ...rest } = line;
   const base = { ...rest, carry: STOWED };
+
   return line.id === root || container === undefined ? base : { ...base, container };
 }
 
@@ -55,14 +60,19 @@ export function giveLine(giver: Inventory, recipient: Inventory, id: InventoryIt
   if (!giver.items.some((each) => each.id === id)) {
     return { refusal: TransferRefusal.NoLine };
   }
+
   const moved = lineWithContents(giver.items, id);
+
   if (moved.some((each) => each.keyItem !== undefined)) {
     return { refusal: TransferRefusal.KeyItem };
   }
+
   if (recipient.items.length + moved.length > INVENTORY_ITEMS_MAX) {
     return { refusal: TransferRefusal.Full };
   }
+
   const left = new Set(moved.map((each) => each.id));
+
   return {
     refusal: undefined,
     giver: { ...giver, items: giver.items.filter((each) => !left.has(each.id)) },
@@ -95,6 +105,7 @@ export function giveCoins(giver: Inventory, recipient: Inventory, coins: Coins):
   if (COINS.some((each) => giver.coins[each] < coins[each])) {
     return { refusal: TransferRefusal.ShortCoins };
   }
+
   return {
     refusal: undefined,
     giver: { ...giver, coins: minus(giver.coins, coins) },

@@ -58,11 +58,13 @@ export class SheetEffects {
   protected readonly views = computed((): readonly EffectView[] | undefined => {
     const registry = this.registry.data();
     const read = this.#play.play.data();
+
     return registry === undefined || read === undefined ? undefined : effectViews(registry, read.play.effects);
   });
 
   protected readonly options = computed((): readonly EffectOption[] => {
     const registry = this.registry.data();
+
     return registry === undefined ? [] : effectOptions(registry);
   });
 
@@ -70,6 +72,7 @@ export class SheetEffects {
   protected readonly tempHpFor = (effect: ActiveEffect): HitPoints | undefined => {
     const registry = this.registry.data();
     const character = this.#sheet.character();
+
     return registry === undefined || character === undefined ? undefined : sheetFormTempHp(registry, character, effect);
   };
 
@@ -77,6 +80,7 @@ export class SheetEffects {
   protected readonly spells = computed((): readonly SelectOption<string>[] => {
     const registry = this.registry.data();
     const spells = this.#play.play.data()?.play.activeSpells ?? [];
+
     return registry === undefined
       ? []
       : activeRows(registry, { activeSpells: spells, effects: [] }).map(({ id, name }) => ({
@@ -105,12 +109,14 @@ export class SheetEffects {
   /** The server's reason (a conflict or a refusal), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 
   #step(view: EffectView, up: boolean): () => Promise<void> {
     return async (): Promise<void> => {
       const value = steppedView(view, up);
+
       if (value !== undefined) {
         await this.#send({ field: EffectCommandField.SetEffectBadge, id: view.id, value });
       }
@@ -119,6 +125,7 @@ export class SheetEffects {
 
   async #send(command: PlayCommand): Promise<void> {
     this.busy.set(true);
+
     try {
       await this.#play.send(command);
     } finally {

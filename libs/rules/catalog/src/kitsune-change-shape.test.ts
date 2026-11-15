@@ -14,14 +14,18 @@ const KITSUNE_FORM = ContentId.parse('957551d2-bd91-56eb-a759-5ed56187dd90');
 /** The forms Change Shape offers a character with `options`, as the entry ids of their effects. */
 async function formsFor(options: readonly string[]): Promise<readonly ContentId[]> {
   const file = await import('@pioneer/content/packs/mwangi-expanse/action.json');
+
   const action = ContentEntryFile.parse(file.default).find(
     (entry) => entry.kind === ContentKind.Action && entry.slug === 'action:change-shape',
   );
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     coreNamespaces(),
   );
+
   const effects = (action?.kind === ContentKind.Action ? action.data.effects : undefined) ?? [];
+
   return effects
     .filter((listed): listed is Exclude<typeof listed, ContentId> => typeof listed !== 'string')
     .filter(({ predicate }) => evaluatePredicate(predicate, facts) === Truth.True)
@@ -31,9 +35,11 @@ async function formsFor(options: readonly string[]): Promise<readonly ContentId[
 /** The items the kitsune Change Shape ancestry feature grants. */
 async function grantedByFeature(): Promise<readonly unknown[]> {
   const file = await import('@pioneer/content/packs/ancestry-guide/ancestry-feature.json');
+
   const feature = ContentEntryFile.parse(file.default).find(
     (entry) => entry.kind === ContentKind.AncestryFeature && entry.slug === 'ancestry-feature:change-shape',
   );
+
   return (feature?.rules ?? []).filter((rule) => rule.key === RuleElementKey.GrantItem).map((rule) => rule.item);
 }
 

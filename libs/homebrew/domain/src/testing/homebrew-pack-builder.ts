@@ -23,26 +23,31 @@ export class HomebrewPackBuilder {
 
   public slug(slug: string): this {
     this.#slug = PackId.parse(slug);
+
     return this;
   }
 
   public titled(title: string): this {
     this.#title = ContentText.parse(title);
+
     return this;
   }
 
   public ownedBy(ownerId: UserId): this {
     this.#ownerId = ownerId;
+
     return this;
   }
 
   public visibleTo(visibility: PackVisibility): this {
     this.#visibility = visibility;
+
     return this;
   }
 
   public updatedAt(instant: Temporal.Instant): this {
     this.#at = instant;
+
     return this;
   }
 

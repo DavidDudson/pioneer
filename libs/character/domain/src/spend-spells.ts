@@ -27,6 +27,7 @@ function sustainProblem(active: ActiveSpell): SpendProblem | undefined {
   if (active.sustainedThisTurn) {
     return SpendProblem.AlreadySustained;
   }
+
   return canSustain(active) ? undefined : SpendProblem.SustainLimit;
 }
 
@@ -39,17 +40,23 @@ export function spellRefusal({ activeSpells }: SpellPlay, { cost, spell }: Spend
   if (spell === undefined) {
     return undefined;
   }
+
   if (spell.kind === SpellSpendKind.Cast) {
     const taken = activeSpellOf(activeSpells, spell.id) !== undefined;
+
     return taken || activeSpells.length >= ACTIVE_SPELLS_MAX ? SpendProblem.TooManySpells : undefined;
   }
+
   const active = activeSpellOf(activeSpells, spell.id);
+
   if (active === undefined) {
     return SpendProblem.NoSuchSpell;
   }
+
   if (!oneAction(cost)) {
     return SpendProblem.CostNotAllowed;
   }
+
   return spell.kind === SpellSpendKind.Sustain ? sustainProblem(active) : undefined;
 }
 
@@ -64,6 +71,7 @@ export function spellSpent({ activeSpells }: SpellPlay, { action, spell }: Spend
   if (spell === undefined) {
     return { activeSpells };
   }
+
   if (spell.kind === SpellSpendKind.Cast) {
     const cast: ActiveSpell = {
       id: spell.id,
@@ -72,12 +80,16 @@ export function spellSpent({ activeSpells }: SpellPlay, { action, spell }: Spend
       remaining: spell.rounds,
       sustainedThisTurn: true,
     };
+
     return { activeSpells: [...activeSpells, cast] };
   }
+
   if (spell.kind === SpellSpendKind.Sustain) {
     return { activeSpells: withSustained(activeSpells, spell.id, true) };
   }
+
   const dismissed = activeSpellOf(activeSpells, spell.id);
+
   return {
     activeSpells: withoutSpell(activeSpells, spell.id),
     ...(dismissed === undefined ? {} : { dismissed }),
@@ -95,7 +107,9 @@ export function spellUndoRefusal(
   if (spell?.kind !== SpellSpendKind.Dismiss || dismissed === undefined) {
     return undefined;
   }
+
   const taken = activeSpellOf(activeSpells, dismissed.id) !== undefined;
+
   return taken || activeSpells.length >= ACTIVE_SPELLS_MAX ? SpendProblem.TooManySpells : undefined;
 }
 
@@ -104,11 +118,14 @@ export function spellUndone({ activeSpells }: SpellPlay, { spell, dismissed }: S
   if (spell === undefined) {
     return activeSpells;
   }
+
   if (spell.kind === SpellSpendKind.Cast) {
     return withoutSpell(activeSpells, spell.id);
   }
+
   if (spell.kind === SpellSpendKind.Sustain) {
     return withSustained(activeSpells, spell.id, false);
   }
+
   return dismissed === undefined ? activeSpells : [...activeSpells, dismissed];
 }

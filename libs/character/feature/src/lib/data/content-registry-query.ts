@@ -83,6 +83,7 @@ export function contentRegistryQuery(
       const registry = await loader.registry(kinds, [...homebrew, ...unsupported]);
       putUnsupportedPacks(registry, unsupported);
       putVariantsInForce(registry, variants);
+
       return registry;
     },
     staleTime: Number.POSITIVE_INFINITY,
@@ -125,17 +126,20 @@ export function injectContentRegistry(
       loader.warm(loaded);
     }
   });
+
   return injectQuery(() => {
     // Off the sheet nothing is homebrew and no variant rule is on. On it the registry waits for both lists.
     // It then builds once, over the right packs and variant rules.
     const listing = packs?.packs;
     const enabledVariants = variants?.rules;
     const waiting = listing?.isPending() === true || enabledVariants?.isPending() === true;
+
     const content = {
       homebrew: homebrewOf(listing?.data()),
       unsupported: unsupportedOf(listing?.data()),
       variants: variantsOf(enabledVariants?.data()),
     };
+
     return { ...contentRegistryQuery(loader, loaded, content), enabled: enabled() && !waiting };
   });
 }

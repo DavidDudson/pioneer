@@ -6,6 +6,7 @@ import { RuleTester } from 'eslint';
 import { noNativeElements } from './no-native-elements';
 
 RuleTester.describe = describe;
+
 RuleTester.it = it;
 // No itOnly: Bun throws on reading `it.only` when CI is set, and no case uses `only`.
 

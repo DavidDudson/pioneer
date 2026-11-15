@@ -6,6 +6,7 @@ import type { PreparedReads, SlotHome, SlotPlace } from './prepared-spells';
 /** The highest rank below 10th an entry has slots of: the highest a deity spell can be learned at, if it has any. */
 function highestRank({ slots }: SpellcastingInPlay): SpellRank | undefined {
   const ranks = slots.ranks.map(({ rank }) => rank).filter((rank) => rank < SPELL_RANK_MAX);
+
   return ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks));
 }
 
@@ -21,17 +22,21 @@ export function deityRepertoirePlaces(
   { resolution, lookup }: PreparedReads,
 ): SlotPlace[] {
   const rank = highestRank(entry);
+
   if (rank === undefined) {
     return [];
   }
+
   return entry.deityRepertoire.flatMap(({ choice, value }) => {
     const pick = resolution.answered.find((answered) => answered.flag === choice)?.pick;
     const deity = ContentId.safeParse(pick);
     const granted = deity.success ? (lookup.entry(deity.data)?.deitySpells ?? []) : [];
     const takes = new Set(granted.map(({ spell }) => spell));
+
     if (takes.size === 0) {
       return [];
     }
+
     return Array.from({ length: value }, (_unused, index) => ({
       ...home,
       takes,

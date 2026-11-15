@@ -50,6 +50,7 @@ describe('CharacterSheetPage custom languages', () => {
 
   it('removes one with a removeCustomLanguage patch', async () => {
     const { root } = await openSheet(carrying(['Wildsong']), { packs: TEST_PACKS });
+
     const remove = await vi.waitFor(() =>
       present(
         languagesSection(root).querySelector<HTMLElement>('fr-async-button button[aria-label="Remove Wildsong"]'),
@@ -61,6 +62,7 @@ describe('CharacterSheetPage custom languages', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({ patch: { field: 'removeCustomLanguage', language: 'Wildsong' } });
   });
 });

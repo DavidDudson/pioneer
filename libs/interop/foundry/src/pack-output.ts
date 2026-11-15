@@ -52,6 +52,7 @@ function compare(left: string, right: string): number {
   if (left < right) {
     return -1;
   }
+
   return left > right ? 1 : 0;
 }
 
@@ -80,8 +81,10 @@ function candidates({ entries, archetypes, vocabulary }: ImportTranslation): rea
 function validate(all: readonly Candidate[]): CheckedOutput {
   const entries = new Map<ContentId, ContentEntry>();
   const leftOut = new Map<ContentId, LeftOut>();
+
   for (const { envelope, raw } of all) {
     const parsed = raw === undefined ? undefined : ContentEntry.safeParse(raw);
+
     if (parsed === undefined) {
       leftOut.set(envelope.id, { reason: LeftOutReason.NoKindData, detail: '' });
     } else if (parsed.success) {
@@ -90,6 +93,7 @@ function validate(all: readonly Candidate[]): CheckedOutput {
       leftOut.set(envelope.id, { reason: LeftOutReason.InvalidEntry, detail: firstIssue(parsed.error) });
     }
   }
+
   return { entries, leftOut, dropped: [] };
 }
 
@@ -119,9 +123,11 @@ function reportedGaps({ envelopes, kindDataGaps }: ImportTranslation): readonly 
 
 function gapsByEntry(all: readonly EntryGap[]): ReadonlyMap<ContentId, readonly BacklogGap[]> {
   const gaps = new Map<ContentId, BacklogGap[]>();
+
   for (const { entry, gap } of all) {
     gaps.set(entry, [...(gaps.get(entry) ?? []), gap]);
   }
+
   return gaps;
 }
 
@@ -138,9 +144,11 @@ function entryItems(
     .flatMap(({ envelope: { id, pack, slug }, foundry, document }): BacklogItem[] => {
       const entryGaps = gaps.get(id) ?? [];
       const left = leftOut.get(id);
+
       if (entryGaps.length === 0 && left === undefined) {
         return [];
       }
+
       return [
         BacklogItem.parse({
           type: BacklogItemType.Entry,
@@ -188,9 +196,11 @@ export function packOutput(translation: ImportTranslation, { known }: PackOutput
     keys: new Map(all.map(({ envelope: { id, pack, slug } }) => [id, contentKey(pack, slug)])),
     names: new Map(all.map(({ envelope: { id, name } }) => [id, name])),
   });
+
   const entries = [...output.entries.values()].toSorted(
     (left, right) => compare(left.pack, right.pack) || compare(left.kind, right.kind) || compare(left.slug, right.slug),
   );
+
   return {
     entries,
     backlog: [
@@ -204,11 +214,13 @@ export function packOutput(translation: ImportTranslation, { known }: PackOutput
 /** `entries`, sorted as `packOutput` sorts them, grouped into one file per pack and kind. */
 export function packFiles(entries: readonly ContentEntry[]): readonly PackFile[] {
   const files = new Map<string, PackFile & { readonly entries: ContentEntry[] }>();
+
   for (const entry of entries) {
     const key = `${entry.pack}/${entry.kind}`;
     const file = files.get(key) ?? { pack: entry.pack, kind: entry.kind, entries: [] };
     file.entries.push(entry);
     files.set(key, file);
   }
+
   return [...files.values()];
 }

@@ -25,6 +25,7 @@ const meta: Meta<FileButtonStoryArgs> = {
     template: `<fr-file-button ${argsToTemplate(args)}>${label}</fr-file-button>`,
   }),
 };
+
 export default meta;
 
 export const Default: FileButtonStory = {};

@@ -20,6 +20,7 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -37,6 +38,7 @@ const core = {
   requiredBy: [],
   removable: false,
 };
+
 const feats = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e02',
   title: 'Amiri’s Feats',
@@ -45,6 +47,7 @@ const feats = {
   requiredBy: [],
   removable: true,
 };
+
 const spells = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e03',
   title: 'Amiri’s Spells',
@@ -53,6 +56,7 @@ const spells = {
   requiredBy: ['Amiri’s Feats'],
   removable: false,
 };
+
 const items = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e04',
   title: 'Amiri’s Items',
@@ -60,6 +64,7 @@ const items = {
   official: false,
   private: false,
 };
+
 const secret = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e05',
   title: 'Amiri’s Secrets',
@@ -78,6 +83,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -108,12 +114,14 @@ async function open(packs: PacksJson): Promise<RouterTestingHarness> {
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Player Core');
   });
+
   return harness;
 }
 
 /** The pack picker's control. */
 function picker(harness: RouterTestingHarness): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-campaign-pack-picker'));
+
   return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 
@@ -121,6 +129,7 @@ function picker(harness: RouterTestingHarness): PickerField<string, object> {
 function labelOf(harness: RouterTestingHarness): string | undefined {
   const control = picker(harness);
   const [first] = control.rows();
+
   return first === undefined ? undefined : control.rowLabel()(first);
 }
 

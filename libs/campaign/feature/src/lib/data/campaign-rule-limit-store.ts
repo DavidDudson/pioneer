@@ -25,12 +25,14 @@ export class CampaignRuleLimitStore {
   /** The open campaign's limits, each with the number in force. */
   public readonly limits = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: ruleLimitsKey(id),
       queryFn: async (): Promise<CampaignRuleLimits> => {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
+
         return this.#api.call(CampaignContract.ruleLimits, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -55,9 +57,11 @@ export class CampaignRuleLimitStore {
 
   #openId(): CampaignId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No campaign selected');
     }
+
     return id;
   }
 }

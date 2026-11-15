@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 
 /** How many lines of content show before it is cut off with an ellipsis. */
 export const ClampLines = { One: 1, Two: 2, Three: 3, Four: 4 } as const;
+
 export type ClampLines = ValueOf<typeof ClampLines>;
 
 const clampVariants = cva('overflow-hidden', {

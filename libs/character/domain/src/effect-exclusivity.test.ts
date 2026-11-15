@@ -18,6 +18,7 @@ const INSTANCE_WIDTH = 12;
 
 function applied(slug: string, index: number): ActiveEffect {
   const suffix = index.toString(INSTANCE_RADIX).padStart(INSTANCE_WIDTH, '0');
+
   return ActiveEffectSchema.parse({
     id: EffectInstanceId.parse(`00000000-0000-4000-8000-${suffix}`),
     effect: idOf(slug),

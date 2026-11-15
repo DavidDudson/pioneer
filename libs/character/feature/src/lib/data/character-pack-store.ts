@@ -23,12 +23,14 @@ export class CharacterPackStore {
   /** The open character's packs, and for its owner the ones they could enable. */
   public readonly packs = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.packs(id),
       queryFn: async (): Promise<CharacterPacks> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.packs, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -60,9 +62,11 @@ export class CharacterPackStore {
 
   #openId(): CharacterId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No character selected');
     }
+
     return id;
   }
 }

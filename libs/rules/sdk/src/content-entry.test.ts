@@ -9,12 +9,14 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const playerCorePage = { kind: 'book', book: 'player-core', page: 42 };
+
 /** A free boost: any of the six. */
 const ALL_ATTRIBUTES = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'Short and adaptable.' }] }];

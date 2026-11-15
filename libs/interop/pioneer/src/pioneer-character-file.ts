@@ -12,6 +12,7 @@ export const PIONEER_CHARACTER_FORMAT = 'pioneer-character';
  * `decodeCharacterDocument` upgrades on read (ADR-0056).
  */
 export const FormatVersion = Pg.smallint().positive().brand<'PioneerFormatVersion'>();
+
 export type FormatVersion = z.infer<typeof FormatVersion>;
 
 export const CURRENT_FORMAT_VERSION: FormatVersion = FormatVersion.parse(1);
@@ -41,4 +42,5 @@ export const PioneerCharacterFile = PioneerCharacterHeader.extend({
     .readonly()
     .optional(),
 }).strict();
+
 export type PioneerCharacterFile = z.infer<typeof PioneerCharacterFile>;

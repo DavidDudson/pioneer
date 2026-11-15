@@ -33,11 +33,14 @@ export class CampaignVariantLimitsOfContent extends CampaignVariantLimits {
         .where(eq(campaignPacks.campaignId, campaignId)),
       this.#variants.listForCampaign(campaignId),
     ]);
+
     const registry = await this.#content.registry(packs.map((row) => row.packId));
+
     const limits = variantLimitsInForce(
       registry,
       variants.map((row) => VariantRuleId.parse(row.variantId)),
     );
+
     return Object.fromEntries(Object.entries(limits).map(([limit, value]) => [limit, RuleLimitValue.parse(value)]));
   }
 }

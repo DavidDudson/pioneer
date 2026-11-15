@@ -19,6 +19,7 @@ export class IdlePreloading implements PreloadingStrategy {
     if (route.data?.['prefetch'] !== PREFETCH_WHEN_IDLE.prefetch) {
       return of(undefined);
     }
+
     return new Observable((subscriber) => {
       this.#whenIdle(() => {
         load().subscribe(subscriber);

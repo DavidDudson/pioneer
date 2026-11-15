@@ -24,9 +24,13 @@ import {
 import type { LanguageBackground, LanguageFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(languageFixtures());
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const language = (name: LanguageFixture): ContentId => languageFixtureId(name);
@@ -38,22 +42,26 @@ function dwarf(): CharacterBuilder {
 
 function keysOf(builder: CharacterBuilder): readonly string[] {
   const { document } = builder.build();
+
   return languageSlots(document, languageReads(document, content)).map((slot) => slot.key);
 }
 
 function knownOf(builder: CharacterBuilder): readonly string[] {
   const { document } = builder.build();
+
   return knownLanguages(document, languageReads(document, content)).map(({ language: known }) => known.name);
 }
 
 function offersOf(builder: CharacterBuilder, key: string): readonly string[] {
   const { document } = builder.build();
   const slot = languageSlots(document, languageReads(document, content)).find((each) => each.key === key);
+
   return slot?.options.map(({ name }) => name) ?? [];
 }
 
 function refusalOf(builder: CharacterBuilder, slot: string, name: LanguageFixture): string | undefined {
   const pick = { slot: SlotKey.parse(slot), selection: language(name) };
+
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
@@ -139,6 +147,7 @@ describe('Language elements', () => {
   test('a slot behind a Society rank opens at the level the character reaches it', () => {
     const entry = background('linguist');
     const society = skillFixtureId('society');
+
     const master = dwarf()
       .picking('background', entry)
       .picking('class', playerCoreClassId('fighter'))

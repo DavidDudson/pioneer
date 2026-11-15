@@ -59,6 +59,7 @@ export class SheetTurnBar {
     // The confirmation closes once nothing would lapse, or the turn it would end is over (Leave encounter).
     effect(() => {
       const turning = this.#play.play.data()?.play.turn.phase === TurnPhase.Turn;
+
       if (!turning || this.lapsing().length === 0) {
         this.confirmingEnd.set(false);
       }
@@ -73,12 +74,14 @@ export class SheetTurnBar {
 
   protected readonly bar = computed((): TurnBarView | undefined => {
     const read = this.#play.play.data();
+
     return read === undefined ? undefined : turnBarView(read.play.turn, (item) => this.#weaponName(item));
   });
 
   /** The name of the weapon of an inventory item: the player's name for it, else its content's. */
   #weaponName(item: InventoryItemId): string | undefined {
     const line = this.#sheet.character()?.document.inventory.items.find(({ id }) => id === item);
+
     return line === undefined ? undefined : (line.name ?? this.#sheet.picks.entryNames().get(line.item));
   }
 
@@ -108,8 +111,10 @@ export class SheetTurnBar {
   protected readonly endTurn = async (): Promise<void> => {
     if (this.lapsing().length > 0) {
       this.confirmingEnd.set(true);
+
       return;
     }
+
     await this.#send({ field: TurnCommandField.EndTurn });
   };
   protected readonly confirmEnd = async (): Promise<void> => {
@@ -128,6 +133,7 @@ export class SheetTurnBar {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 

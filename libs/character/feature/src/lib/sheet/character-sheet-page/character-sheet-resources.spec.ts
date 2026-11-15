@@ -40,6 +40,7 @@ function pipsOf(root: HTMLElement, group: string): HTMLButtonElement[] {
       (each) => each.getAttribute('aria-label') === group,
     ),
   );
+
   return [...toolbar.querySelectorAll('button')];
 }
 
@@ -107,6 +108,7 @@ describe('CharacterSheetPage hero and focus points', () => {
       play: spentOf({ 'hero-points': 3 }),
       packs: SPELL_PACKS,
     });
+
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
     });
@@ -129,6 +131,7 @@ describe('CharacterSheetPage hero and focus points', () => {
       play: spentOf({ 'hero-points': 3 }),
       packs: SPELL_PACKS,
     });
+
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
     });

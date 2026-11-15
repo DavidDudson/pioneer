@@ -26,6 +26,7 @@ describe('rulesOf', () => {
     const rules = rulesOf(resolution(), { inventory: EMPTY_INVENTORY, content: itemFixtureContent() }, () => true);
 
     expect(rules.map(({ rule }) => Number(rule))).toStrictEqual([0, 1]);
+
     for (const placed of rules) {
       expect(RuleInPlay.parse(placed)).toStrictEqual(placed);
     }

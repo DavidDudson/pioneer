@@ -30,6 +30,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${id}, 'Owner', false, ${at}, ${at})`,
     );
+
     return id;
   }
 
@@ -43,6 +44,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
       actor: owner,
       command: CharacterCommand.CreateCharacter,
     });
+
     return character.id;
   }
 
@@ -72,6 +74,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
       .select({ updatedAt: characterSheetModes.updatedAt })
       .from(characterSheetModes)
       .where(eq(characterSheetModes.characterId, kyra.characterId));
+
     const stamped = rows.map((row) => Temporal.Instant.from(row.updatedAt).epochMilliseconds);
     expect(stamped).toStrictEqual([LATER.epochMilliseconds]);
   });
@@ -102,10 +105,12 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
     await modes.save({ userId: ezren, characterId: seelah }, SheetMode.Encounter, NOW);
     const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
     expect(refused).toBeInstanceOf(Error);
+
     const onKyra = await database.db
       .select()
       .from(characterSheetModes)
       .where(eq(characterSheetModes.characterId, kyra));
+
     expect(onKyra).toHaveLength(2);
 
     await database.db.execute(sql`delete from users where id = ${ezren}`);

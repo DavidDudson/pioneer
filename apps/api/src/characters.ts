@@ -73,16 +73,20 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     new DrizzlePackDependencyRepository(db),
     new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
   );
+
   const campaigns = new CampaignPackDirectory(db);
   const held = new HeldContentPacks(new StoredPackLookup(content), catalog);
+
   const packs = new CharacterPackService(
     { characters: repository, packs: new DrizzleCharacterPackRepository(db), catalog, campaigns, held },
     clock,
   );
+
   const variants = new CharacterVariantService(
     { characters: repository, variants: new DrizzleCharacterVariantRepository(db), content, packs, campaigns },
     clock,
   );
+
   const ruleLimits = new CharacterRuleLimitService(
     {
       characters: repository,
@@ -92,7 +96,9 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     },
     clock,
   );
+
   const allies = new CharacterAllyService({ characters: repository, campaigns });
+
   const unenabled = new CharacterUnenabledService({
     characters: repository,
     content,
@@ -101,6 +107,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     campaigns,
     held,
   });
+
   return { packs, variants, ruleLimits, allies, unenabled, held, campaigns };
 }
 
@@ -137,6 +144,7 @@ interface ItemApprovalParts {
 /** What silences a character's rule-breaking warnings: its campaign's GM, or outside a campaign its owner. */
 function itemApprovalService(db: Database, clock: Clock, parts: ItemApprovalParts): CharacterItemApprovalService {
   const { repository, campaigns, content } = parts;
+
   return new CharacterItemApprovalService(
     {
       characters: repository,
@@ -155,18 +163,22 @@ function itemApprovalService(db: Database, clock: Clock, parts: ItemApprovalPart
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): Characters {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
+
   const { packs, variants, ruleLimits, allies, unenabled, held, campaigns } = packServices(db, clock, {
     content,
     repository,
   });
+
   const characterContent = new CharacterContent(content, packs, {
     variants,
     limits: ruleLimits,
     held,
   });
+
   const service = new CharacterService(repository, characterContent, clock)
     .withCampaignRoles(new CampaignCharacterRoles(db))
     .withAuthors(new UserOverrideAuthorDirectory(db));
+
   const pathbuilder = {
     importer: new PathbuilderImportService(
       { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
@@ -174,9 +186,11 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     ),
     exports: new PathbuilderExportService(new HttpPathbuilderExportFetcher()),
   };
+
   const homebrew = embeddedHomebrew(db, clock);
   const itemApprovals = itemApprovalService(db, clock, { repository, campaigns, content: characterContent });
   const pioneerFiles = new PioneerFileService({ repository, content: characterContent, clock, homebrew });
+
   return {
     pioneerFiles,
     flaggedItems: new CharacterFlaggedItems(characterContent),

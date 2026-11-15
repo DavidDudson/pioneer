@@ -15,6 +15,7 @@ export function readMinimised(document: Document): boolean {
 export function writeMinimised(document: Document, minimised: boolean): void {
   try {
     const storage = openStorage(document);
+
     if (minimised) {
       storage?.setItem(STORAGE_KEY, MINIMISED);
     } else {

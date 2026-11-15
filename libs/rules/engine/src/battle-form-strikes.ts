@@ -54,12 +54,15 @@ function plain(selector: Selector, total: FormulaValue, form?: FormReplacement):
 /** The best attack modifier among the character's own unarmed Strikes; none when it has no unarmed Strike. */
 function ownUnarmedAttack({ weapons, results }: StrikeSources): FormulaValue | undefined {
   let best = undefined as FormulaValue | undefined;
+
   for (const unarmed of weapons.filter((weapon) => isUnarmed(weapon))) {
     const result = results.get(Selector.parse(`${ATTACK}:${unarmed.slug}`));
+
     if (result?.ok === true && (best === undefined || result.total > best)) {
       best = result.total;
     }
   }
+
   return best;
 }
 
@@ -67,19 +70,25 @@ function numberOf(value: RuleValue | undefined, resolve: ResolveReference): Form
   if (value === undefined) {
     return undefined;
   }
+
   const outcome = valueOf(value, resolve);
+
   return outcome.ok ? whole(outcome.value) : undefined;
 }
 
 /** What the form's attack modifier and the character's own unarmed one make: the higher stands. */
 function attackOf(slug: FormStrike['slug'], { form, formValue, own }: Attack): StatisticValue | undefined {
   const selector = Selector.parse(`${ATTACK}:${slug}`);
+
   if (formValue === undefined || own === undefined) {
     const only = formValue ?? own;
+
     return only === undefined ? undefined : plain(selector, only);
   }
+
   const ownStands = own >= formValue;
   const total = ownStands ? own : formValue;
+
   const parts = {
     source: ownStands ? FormSource.Own : FormSource.Form,
     rule: form.id,
@@ -88,6 +97,7 @@ function attackOf(slug: FormStrike['slug'], { form, formValue, own }: Attack): S
     value: formValue,
     own,
   };
+
   return plain(selector, total, { ...parts, summary: summaryOf(form, parts) });
 }
 
@@ -100,6 +110,7 @@ interface Attack {
 /** The weapon a form Strike is derived as: an unarmed attack unless the form says otherwise, credited to the form. */
 function weaponOf(strike: FormStrike, form: FormInPlay): WeaponInputs {
   const { dice, die, damageType } = strike.damage ?? {};
+
   return {
     slug: strike.slug,
     category: strike.category ?? WeaponCategory.Unarmed,
@@ -126,34 +137,41 @@ function madeFrom(strike: FormStrike, { form, own, resolve }: Reading): StrikeSo
   const attack = attackOf(strike.slug, { form, formValue: numberOf(strike.modifier, resolve), own });
   const flat = numberOf(strike.damage?.modifier, resolve);
   const results = new Map<Selector, StatisticResult>();
+
   if (attack !== undefined) {
     results.set(attack.selector, attack);
   }
+
   if (flat !== undefined) {
     const selector = Selector.parse(`${DAMAGE}:${strike.slug}`);
     results.set(selector, plain(selector, flat));
   }
+
   return { weapons: [weapon], results };
 }
 
 function readerFor({ inputs, scope }: FormStrikeRules): ResolveReference {
   const { rules, facts } = inputs;
+
   const proficiency = proficiencyBonuses(scope.statistics.proficiencyBonus, {
     rules,
     facts,
     level: scope.character.level,
   });
+
   return resolverFor({ inputs: scope.character, proficiency }, (): undefined => undefined, { item: NO_ITEM });
 }
 
 /** The character's statistics with those the form Strikes bring; a form's wins on the same selector. */
 function merged(own: StrikeSources['results'], made: readonly StrikeSources[]): StrikeSources['results'] {
   const results = new Map(own);
+
   for (const { results: given } of made) {
     for (const [selector, result] of given) {
       results.set(selector, result);
     }
   }
+
   return results;
 }
 
@@ -165,17 +183,22 @@ function merged(own: StrikeSources['results'], made: readonly StrikeSources[]): 
  */
 export function strikesUnderForm(sources: StrikeSources, rules: FormStrikeRules): StrikeSources {
   const form = battleFormInPlay(rules.inputs);
+
   if (form === undefined) {
     return sources;
   }
+
   const reading = { form, own: ownUnarmedAttack(sources), resolve: readerFor(rules) };
+
   const strikes = (form.form.strikes ?? []).filter(
     ({ predicate }) => predicate === undefined || truthOf(predicate, rules.inputs.facts) === Truth.True,
   );
+
   const made = strikes.map((strike) => madeFrom(strike, reading));
   const named = new Set(strikes.map(({ slug }) => slug));
   const unarmed = sources.weapons.filter((each) => isUnarmed(each) && !named.has(each.slug));
   const kept = form.form.keepsOwnUnarmed === true ? unarmed : [];
+
   return {
     weapons: [...kept, ...made.flatMap(({ weapons }) => weapons)],
     results: merged(sources.results, made),

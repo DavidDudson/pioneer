@@ -20,11 +20,13 @@ export interface ReadPioneerFile {
 /** The file read again on the server, as a new character of `ownerId`; refused, naming the problem, when it can't be. */
 export function readPioneerFile(raw: unknown, ownerId: UserId): ReadPioneerFile {
   const read = readPioneerCharacter(raw, { id: CharacterId.parse(newId()), ownerId });
+
   if (!read.ok) {
     throw new ValidationError([
       { path: [], message: message(PROBLEM_MESSAGES[read.problem]) },
       ...fieldIssues(read.issues),
     ]);
   }
+
   return { file: PioneerCharacterFile.parse(raw), document: read.character };
 }

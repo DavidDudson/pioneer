@@ -12,6 +12,7 @@ export const SpellAccessProblem = {
   /** The build lists the most spells it can, and not this one. */
   Full: 'full',
 } as const;
+
 export type SpellAccessProblem = ValueOf<typeof SpellAccessProblem>;
 
 /**
@@ -24,12 +25,16 @@ export function spellAccessProblem(
   spell: ContentId,
 ): SpellAccessProblem | undefined {
   const named = spells.spell(spell);
+
   if (named === undefined) {
     return SpellAccessProblem.UnknownSpell;
   }
+
   if (!needsAccess(named.rarity)) {
     return SpellAccessProblem.Common;
   }
+
   const full = granted.length >= SPELL_ACCESS_MAX && !granted.includes(spell);
+
   return full ? SpellAccessProblem.Full : undefined;
 }

@@ -75,6 +75,7 @@ export function campaignRoutes(
     )
     .handleSignedIn(CampaignContract.leave, auth, async ({ actor, params }) => {
       await service.leave(actor, params.id);
+
       return {};
     })
     .handleSignedIn(CampaignContract.party, auth, async ({ actor, params }) => party.party(actor, params.id))

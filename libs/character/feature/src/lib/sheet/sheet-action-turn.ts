@@ -27,12 +27,15 @@ export function turnReason(turn: TurnState | undefined, fewest: SpendCost | unde
   if (turn === undefined || turn.phase === TurnPhase.OutOfEncounter || fewest === undefined) {
     return undefined;
   }
+
   if (fewest.kind === SpendKind.Reaction) {
     return message(TurnReasonMessage.ReactionSpent);
   }
+
   if (turn.phase === TurnPhase.OffTurn) {
     return message(TurnReasonMessage.OffTurn);
   }
+
   return fewest.kind === SpendKind.Actions
     ? message(TurnReasonMessage.TooFewActions, { count: fewest.count, left: actionsLeft(turn) })
     : undefined;

@@ -15,6 +15,7 @@ const REFLEX = Selector.parse('save:reflex');
 const MISSING = Selector.parse('skill:lore:basket-weaving');
 
 const reflexCheck: CheckNode = { type: InlineKind.Check, statistic: REFLEX, dc: Dc.parse(20) };
+
 const fire: DamageNode = {
   type: InlineKind.Damage,
   instances: [{ formula: DamageFormula.parse('2d6'), damageType: DamageType.Fire }],
@@ -37,6 +38,7 @@ async function open(...faces: readonly number[]): Promise<Opened> {
     faces.length === 0
       ? []
       : [{ provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) }];
+
   const { root } = await openSheet(undefined, { providers });
   const { injector } = present(harnessOf(root).routeDebugElement);
   const inline = injector.get(SheetInlineRolls);
@@ -44,6 +46,7 @@ async function open(...faces: readonly number[]): Promise<Opened> {
   await vi.waitFor(() => {
     expect(inline.hasStatistic(REFLEX)).toBe(true);
   });
+
   return { inline, rolls: injector.get(SheetRolls) };
 }
 

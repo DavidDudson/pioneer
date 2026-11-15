@@ -26,6 +26,7 @@ const meta: Meta<LanguagePicker> = {
   args: { rows: LANGUAGES, ariaLabel: 'Language', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A language the slot can't offer stays in the table and says why. */

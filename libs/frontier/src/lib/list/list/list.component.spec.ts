@@ -6,14 +6,18 @@ import { List } from './list.component';
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<Element> {
   const fixture = TestBed.createComponent(List);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
   const list = (fixture.nativeElement as HTMLElement).firstElementChild;
+
   if (list === null) {
     throw new Error('List rendered no inner element');
   }
+
   return list;
 }
 

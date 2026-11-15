@@ -21,6 +21,7 @@ async function render(url: string, inputs: Readonly<Record<string, unknown>> = {
     root.remove();
   });
   await settle();
+
   return root;
 }
 
@@ -29,6 +30,7 @@ const renderOpen = async (): Promise<HTMLElement> => {
   const root = await render('/spells');
   await TestBed.inject(Router).navigateByUrl('/spells?drawer=open');
   await settle();
+
   return root;
 };
 
@@ -38,6 +40,7 @@ const step = (root: HTMLElement): string | null => handle(root).getAttribute('ar
 
 /** Neither `<dialog>` methods nor `ResizeObserver` exist in jsdom: record the first and let a test drive the second. */
 const dialog = { calls: [] as string[] };
+
 const observed: { resize: (width: number) => void; target: Element | undefined } = {
   resize: () => undefined,
   target: undefined,
@@ -45,6 +48,7 @@ const observed: { resize: (width: number) => void; target: Element | undefined }
 
 function fakeBrowser(): void {
   dialog.calls = [];
+
   const define = (name: string, open: boolean): void => {
     Object.defineProperty(HTMLDialogElement.prototype, name, {
       configurable: true,
@@ -54,6 +58,7 @@ function fakeBrowser(): void {
       },
     });
   };
+
   define('show', true);
   define('showModal', true);
   define('close', false);
@@ -73,6 +78,7 @@ function fakeBrowser(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of ['show', 'showModal', 'close']) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }
@@ -223,9 +229,11 @@ describe(Drawer, () => {
   describe('resize handle', () => {
     it('is a vertical separator that reports the width step', async () => {
       const root = await render('/spells?drawer=open');
+
       const values = ['aria-orientation', 'aria-valuemin', 'aria-valuenow', 'aria-valuemax', 'aria-valuetext'].map(
         (name) => handle(root).getAttribute(name),
       );
+
       expect(values).toStrictEqual(['vertical', '0', '1', '2', 'Default width']);
     });
 

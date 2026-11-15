@@ -35,6 +35,7 @@ const DEBUG_FORMAT: SummaryFormat = {
     const name = descriptor.key.slice(descriptor.key.lastIndexOf('.') + 1);
     const negated = params['negated'] === 'yes' ? '!' : '';
     const subject = params['slug'] ?? params['list'] ?? `${params['option']}${params['value'] ?? ''}`;
+
     return `${name}${negated}(${subject})`;
   },
   list: (items: readonly string[], style: ListStyle): string =>
@@ -44,22 +45,27 @@ const DEBUG_FORMAT: SummaryFormat = {
 /** The summary as `DEBUG_FORMAT` text; empty when there is none. */
 function formatted(predicate: unknown, given = facts()): string {
   const result = summary(predicate, given);
+
   return result === undefined ? '' : formatSummary(result, DEBUG_FORMAT);
 }
 
 /** Every message key formatting the summary asks for, wrappers included. */
 function keysUsed(result: PredicateSummary | undefined): readonly string[] {
   const keys: string[] = [];
+
   const recording: SummaryFormat = {
     message: (descriptor: MessageDescriptor): string => {
       keys.push(descriptor.key);
+
       return descriptor.key;
     },
     list: (items: readonly string[]): string => items.join(','),
   };
+
   if (result !== undefined) {
     formatSummary(result, recording);
   }
+
   return keys;
 }
 
@@ -144,6 +150,7 @@ describe('summarisePredicate', () => {
     );
   });
 });
+
 describe('en vocabulary', () => {
   const texts = Object.values(messages.predicate.summary);
 

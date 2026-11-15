@@ -69,11 +69,14 @@ export class ActionWords {
     if (cost === undefined) {
       return undefined;
     }
+
     if (upTo === undefined) {
       return { cost, label: this.cost(cost) };
     }
+
     const label = ACTION_RANGE_MESSAGES[cost]?.[upTo];
     const end = ACTION_COUNT_COSTS[upTo];
+
     return label === undefined || end === undefined || ACTION_COUNT[cost] === undefined
       ? undefined
       : { cost, upTo: end, label: this.#i18n.translate(label) };
@@ -92,6 +95,7 @@ export class ActionWords {
   /** The line with its cost icon and source worded, and the reasons it is not plainly available worded. */
   public shown(line: ActionLine, names: LabelNames = NO_NAMES): ShownAction {
     const costIcon = this.costIcon(line);
+
     return {
       line,
       detail:

@@ -15,12 +15,15 @@ function slotTrainings(document: CharacterDocument, content: SlotContent): Reado
   const level = Level.parse(document.level);
   const picked = new Map<Selector, SlotKey[]>();
   const skills = documentSkills(document, content.skills);
+
   for (const slot of skillSlots(document, skillReads(document, content))) {
     const named = slot.stored === undefined ? undefined : skills.skill(slot.stored);
+
     if (slot.kind === SkillSlotKind.Training && slot.level <= level && named !== undefined) {
       picked.set(named.selector, [...(picked.get(named.selector) ?? []), slot.key]);
     }
   }
+
   return picked;
 }
 
@@ -31,6 +34,7 @@ function slotTrainings(document: CharacterDocument, content: SlotContent): Reado
  */
 export function skillsTrainedTwice(document: CharacterDocument, content: SlotContent): readonly TrainedSkill[] {
   const entries = trainedEntries(skillReads(document, content).grantsAt(Level.parse(document.level)));
+
   return trainedSkills(documentSkills(document, content.skills).skills, () => true, {
     entries,
     slots: slotTrainings(document, content),

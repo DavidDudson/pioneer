@@ -38,12 +38,14 @@ describe('readEnv', () => {
     expect(() =>
       readEnv({ DATABASE_URL, DISCORD_CLIENT_SECRET: 'secret', PUBLIC_ORIGIN: 'https://pioneer.example' }),
     ).toThrow(/DISCORD_CLIENT_ID/u);
+
     const env = readEnv({
       DATABASE_URL,
       GOOGLE_CLIENT_ID: 'id',
       GOOGLE_CLIENT_SECRET: 'secret',
       PUBLIC_ORIGIN: 'https://pioneer.example',
     });
+
     expect(env.GOOGLE_CLIENT_ID).toBe('id');
   });
 
@@ -54,12 +56,14 @@ describe('readEnv', () => {
     expect(() => readEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', GITHUB_CLIENT_SECRET: 'secret' })).toThrow(
       /PUBLIC_ORIGIN/u,
     );
+
     const env = readEnv({
       DATABASE_URL,
       GITHUB_CLIENT_ID: 'id',
       GITHUB_CLIENT_SECRET: 'secret',
       PUBLIC_ORIGIN: 'https://pioneer.example',
     });
+
     expect(env.GITHUB_CLIENT_ID).toBe('id');
   });
 });

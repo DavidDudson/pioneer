@@ -12,6 +12,7 @@ import type { KindInput } from './kind-data-gaps';
 /** A creature's `melee` items as strikes: attack bonus, damage parts, reach or increment, and what a hit adds. */
 
 const DamageRoll = z.looseObject({ damage: Name, damageType: Slug, category: Slug.nullish() });
+
 const FoundryStrike = z.looseObject({
   bonus: Count.default({ value: 0 }),
   damageRolls: z.record(Slug, DamageRoll).default({}),
@@ -45,6 +46,7 @@ interface Damage {
 function feetOf(prefix: string, traits: readonly string[]): number | undefined {
   const trait = traits.find((each) => each.startsWith(prefix));
   const feet = trait === undefined ? Number.NaN : Number(trait.slice(prefix.length));
+
   return Number.isNaN(feet) ? undefined : feet;
 }
 
@@ -57,6 +59,7 @@ function parseDice(formula: string): Pick<Damage, 'dice' | 'die' | 'bonus'> | un
   const flat = bonus === undefined ? undefined : Number(bonus);
   const shaped = extra.length === 0 && surplus.length === 0 && die !== undefined;
   const numbers = Number.isInteger(dice) && dice > 0 && (flat === undefined || Number.isInteger(flat));
+
   return shaped && numbers ? { dice, die, ...(flat === undefined ? {} : { bonus: flat }) } : undefined;
 }
 
@@ -66,10 +69,13 @@ function damagePart(roll: z.infer<typeof DamageRoll>, field: string, input: Kind
   const dice = roll.damage.includes('d') ? parseDice(roll.damage) : undefined;
   const flat = /^\d+$/u.test(roll.damage) ? { dice: 0, bonus: Number(roll.damage) } : undefined;
   const parts = dice ?? flat;
+
   if (!type.success || roll.category === PERSISTENT || parts === undefined) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field, raw: roll });
+
     return undefined;
   }
+
   return { ...parts, damageType: type.data };
 }
 
@@ -84,9 +90,12 @@ function pascal(slug: string): string {
 function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: KindInput): RichText | undefined {
   const names = slugs.map((slug) => {
     const label = input.lang === undefined ? undefined : langLabel(input.lang, `PF2E.AttackEffect${pascal(slug)}`);
+
     return label ?? items.find((item) => slugify(item.name) === slug)?.name ?? slug;
   });
+
   const text = RichTextString.safeParse(names.join(', '));
+
   return text.success
     ? [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: text.data }] }]
     : undefined;
@@ -94,9 +103,11 @@ function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: 
 
 function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput): object | undefined {
   const system = itemSystem(FoundryStrike, item, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   const traits = system.traits.value;
   const reach = feetOf(REACH, traits);
   const increment = feetOf(INCREMENT, traits);
@@ -104,6 +115,7 @@ function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput):
   const field = `strikes.${item.name}.damage`;
   const damage = Object.values(system.damageRolls).flatMap((roll) => damagePart(roll, field, input) ?? []);
   const effects = effectsOf(system.attackEffects.value, items, input);
+
   return {
     name: item.name,
     range: ranged ? RANGED : 'melee',

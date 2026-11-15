@@ -15,12 +15,16 @@ import type { FoundryLang } from './foundry-release';
 
 /** A string that is wholly a lang key, as Foundry writes labels, prompts and notes. */
 const LANG_KEY = /^PF2E\.\S+$/u;
+
 /** An injected property in a key or text (`{actor|class.slug}`), resolved against the actor at play. */
 const INJECTED = /\{[^}]*\|[^}]*\}/u;
+
 /** A `format` placeholder (`{item}`); an enricher's label (`@UUID[…]{Prone}`) follows `]` and is not one. */
 const PLACEHOLDER = /(?<!\])\{(?<name>\w+)\}/gu;
+
 /** `@Localize[key]`, then Foundry's ignored `{label}`: the lang text is inlined and enriched in its place. */
 const LOCALIZE = /@Localize\[(?<key>[^\]]+)\]/gu;
+
 /** Lang text inlined by `@Localize` may itself use `@Localize`; Foundry recurses, this stops at a depth. */
 const LOCALIZE_DEPTH = 4;
 
@@ -32,6 +36,7 @@ export const UnresolvedTextReason = {
   /** The text has a placeholder only play fills (`{actor}`). */
   RuntimePlaceholder: 'runtime-placeholder',
 } as const;
+
 export type UnresolvedTextReason = ValueOf<typeof UnresolvedTextReason>;
 
 /** A lang key the import could not turn into text; the text is left out, never written as the key. */
@@ -64,10 +69,13 @@ export function isLangKey(text: string): boolean {
 /** `text` with its placeholders filled from `values`, or the first one only play can fill. */
 function formatted(text: string, key: string, values: LangValues): Localized {
   const unfilled = [...text.matchAll(PLACEHOLDER)].find(({ groups }) => !Object.hasOwn(values, groups?.['name'] ?? ''));
+
   if (unfilled !== undefined) {
     return { key, reason: UnresolvedTextReason.RuntimePlaceholder };
   }
+
   const filled = ContentText.safeParse(text.replaceAll(PLACEHOLDER, () => values.item));
+
   return filled.success ? { text: filled.data } : { key, reason: UnresolvedTextReason.MissingKey };
 }
 
@@ -76,7 +84,9 @@ export function localize(lang: FoundryLang, key: string, values: LangValues): Lo
   if (INJECTED.test(key)) {
     return { key, reason: UnresolvedTextReason.RuntimeKey };
   }
+
   const text = langLabel(lang, key);
+
   return text === undefined ? { key, reason: UnresolvedTextReason.MissingKey } : formatted(text, key, values);
 }
 
@@ -98,9 +108,11 @@ interface ExpandContext {
 /** What one `@Localize` becomes: its key's text, expanded in turn, else its label or nothing. */
 function expandedKey(key: string, label: string | undefined, context: ExpandContext): ExpandedText {
   const localized = localize(context.lang, key, context.values);
+
   if (isUnresolved(localized)) {
     return { text: label ?? '', unresolved: [localized] };
   }
+
   return context.depth >= LOCALIZE_DEPTH
     ? { text: localized.text, unresolved: [] }
     : expanded(localized.text, { ...context, depth: context.depth + 1 });
@@ -110,6 +122,7 @@ function expanded(html: string, context: ExpandContext): ExpandedText {
   const texts: string[] = [];
   const unresolved: UnresolvedKey[] = [];
   let from = 0;
+
   for (const match of html.matchAll(LOCALIZE)) {
     // A match inside the label of the one before is part of that label.
     if (match.index >= from) {
@@ -120,7 +133,9 @@ function expanded(html: string, context: ExpandContext): ExpandedText {
       from = end;
     }
   }
+
   texts.push(html.slice(from));
+
   return { text: texts.join(''), unresolved };
 }
 
@@ -135,19 +150,26 @@ export function expandLocalize(html: string, lang: FoundryLang, values: LangValu
 /** A lang table with dotted keys (`"PF2E.Kingmaker": {…}`) spread into nesting, as Foundry expands them. */
 function put(table: Record<string, unknown>, key: string, value: unknown): void {
   const [head = key, ...rest] = key.split('.');
+
   if (rest.length > 0) {
     put(table, head, { [rest.join('.')]: value });
+
     return;
   }
+
   if (typeof value !== 'object' || value === null) {
     table[head] = value;
+
     return;
   }
+
   const existing = table[head];
   const nested: Record<string, unknown> = typeof existing === 'object' && existing !== null ? { ...existing } : {};
+
   for (const [child, childValue] of Object.entries(value)) {
     put(nested, child, childValue);
   }
+
   table[head] = nested;
 }
 
@@ -157,10 +179,12 @@ function put(table: Record<string, unknown>, key: string, value: unknown): void 
  */
 export function mergeLang(tables: readonly FoundryLang[]): FoundryLang {
   const merged: Record<string, unknown> = {};
+
   for (const table of tables) {
     for (const [key, value] of Object.entries(table)) {
       put(merged, key, value);
     }
   }
+
   return merged;
 }

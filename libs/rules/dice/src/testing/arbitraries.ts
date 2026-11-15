@@ -29,12 +29,14 @@ const keepOf = (count: number): Arbitrary<unknown> =>
 const diceTerm = integer({ min: 1, max: MAX_TEST_COUNT }).chain((count) =>
   record({ kind: constantFrom(TermKind.Dice), sign, count: constantFrom(count), size, keep: keepOf(count), tags }),
 );
+
 const flatTerm = record({
   kind: constantFrom(TermKind.Flat),
   sign,
   value: integer({ min: 0, max: FLAT_VALUE_MAX }),
   tags,
 });
+
 const terms = array(oneof(diceTerm, flatTerm), { minLength: 1, maxLength: TERM_COUNT_MAX });
 export const expression: Arbitrary<DiceExpression> = terms.map((raw) => DiceExpression.parse({ terms: raw }));
 
@@ -47,6 +49,7 @@ function bounds(term: Term): Bounds {
   const kept = term.kind === TermKind.Dice ? (term.keep?.count ?? term.count) : 0;
   const low = term.kind === TermKind.Dice ? kept : term.value;
   const high = term.kind === TermKind.Dice ? kept * term.size : term.value;
+
   return term.sign === Sign.Plus ? { min: low, max: high } : { min: 0 - high, max: 0 - low };
 }
 
@@ -54,19 +57,23 @@ function bounds(term: Term): Bounds {
 export function expressionBounds(parsed: DiceExpression): Bounds {
   let min = 0;
   let max = 0;
+
   for (const term of parsed.terms) {
     const termBounds = bounds(term);
     min += termBounds.min;
     max += termBounds.max;
   }
+
   return { min, max };
 }
 
 const adjustmentTarget = constantFrom(...Object.values(DamageAdjustmentTarget));
+
 export const damageAdjustment: Arbitrary<DamageAdjustment> = record({
   type: adjustmentTarget,
   value: integer({ min: 1, max: 30 }),
 }).map((raw) => DamageAdjustment.parse(raw));
+
 const adjustments = array(damageAdjustment, { maxLength: 4 });
 const immunity = constantFrom(...Object.values(DamageType), 'paralyzed').map((slug) => Immunity.parse(slug));
 

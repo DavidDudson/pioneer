@@ -24,6 +24,7 @@ function render(ranks: PreviewRanks): ComponentFixture<EntryRanksView> {
   fixture.componentRef.setInput('ranks', ranks);
   fixture.componentRef.setInput('name', 'Fireball');
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -64,6 +65,7 @@ describe(EntryRanksView, () => {
         modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: rank }),
       ],
     };
+
     const fixture = render(ranks);
     expect(textOf(fixture)).toContain('Perception +3 status');
     pick(fixture, '6');

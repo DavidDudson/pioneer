@@ -79,6 +79,7 @@ export function preparedPicks(
   return slotsOf(entries).flatMap(({ key, current }) => {
     const spell = staged[key];
     const selection = spell === undefined ? undefined : ChoiceValue.safeParse(spell);
+
     return selection?.success === true && spell !== current ? [{ slot: key, selection: selection.data }] : [];
   });
 }
@@ -90,8 +91,10 @@ export function preparedLines(
   names: PreparedNames,
 ): readonly RestLine[] {
   const slots = slotsOf(entries);
+
   return picks.flatMap(({ slot, selection }) => {
     const label = slots.find(({ key }) => key === slot)?.label;
+
     return label === undefined
       ? []
       : [

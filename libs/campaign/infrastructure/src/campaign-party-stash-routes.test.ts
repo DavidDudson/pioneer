@@ -33,6 +33,7 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const stranger = UserId.parse(newId());
 const kyra = CharacterId.parse(newId());
+
 const rope = {
   id: ReviewedItemId.parse(newId()),
   name: ReviewedName.parse('Rope'),
@@ -46,6 +47,7 @@ function table(): AnyElysia {
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const party = new InMemoryCampaignPartyRepository(campaigns);
   const characters = new InMemoryCharacterDirectory().character({ id: kyra, ownerId: ezren, name: 'Kyra' });
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -62,6 +64,7 @@ function table(): AnyElysia {
       stash: new InMemoryPartyStashKeeper().stashHolds(rope),
     }),
   };
+
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }
 
@@ -83,10 +86,12 @@ async function campaign(handler: AnyElysia): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = (await created.json()) as { readonly id: string };
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = (await issued.json()) as { readonly token: string };
   await handler.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
+
   return id;
 }
 
@@ -122,6 +127,7 @@ describe('party stash routes', () => {
     const deposit = await handler.handle(
       request('POST', `/campaigns/${id}/party-stash/deposit`, { as: ezren, body: { from: kyra, item: rope.id } }),
     );
+
     const take = await handler.handle(
       request('POST', `/campaigns/${id}/party-stash/take`, { as: ezren, body: { to: kyra, item: rope.id } }),
     );

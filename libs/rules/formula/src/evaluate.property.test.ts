@@ -27,6 +27,7 @@ const FLAGGED: Readonly<Record<string, (foundry: FoundryOutcome) => boolean>> = 
 };
 
 const CONDITION_MAX = 9;
+
 /** A ternary with a non-zero number as its condition. */
 const ternaryCase = record({
   condition: integer({ min: 1, max: CONDITION_MAX }),
@@ -41,6 +42,7 @@ describe('evaluate (properties)', () => {
       property(evaluableFormula, allBindings, (tree, values) => {
         const outcome = evaluate(tree, resolverFor(values));
         const foundry = foundryOutcome(tree, values);
+
         if (outcome.ok) {
           expect<FormulaValue | undefined>(outcome.value).toBe(foundry.value);
         } else {
@@ -55,10 +57,13 @@ describe('evaluate (properties)', () => {
     assert(
       property(formula, bindings, (generated, values) => {
         const tree = reparsed(generated);
+
         if (tree === undefined) {
           return;
         }
+
         const outcome = evaluate(tree, resolverFor(values));
+
         if (!outcome.ok) {
           expect(positions(tree).has(outcome.position)).toBe(true);
         }
@@ -70,12 +75,15 @@ describe('evaluate (properties)', () => {
     assert(
       property(evaluableFormula, bindings, (tree, values) => {
         const asked: ReferencePath[][] = [[], []];
+
         const outcomes: EvaluateOutcome[] = asked.map((log) =>
           evaluate(tree, (path) => {
             log.push(path);
+
             return values.get(path);
           }),
         );
+
         expect(outcomes[1]).toEqual(outcomes[0]);
         expect(asked[1]).toEqual(asked[0]);
         const known = new Set(references(tree).map((found) => found.path));
@@ -88,14 +96,18 @@ describe('evaluate (properties)', () => {
     assert(
       property(evaluableFormula, bindings, (generated, values) => {
         const tree = reparsed(generated);
+
         if (tree === undefined) {
           return;
         }
+
         const outcome = evaluate(tree, resolverFor(values));
         const unbound = references(tree).filter((found) => !values.has(found.path));
+
         if (!outcome.ok && outcome.error.key === FormulaMessage.UnknownReference) {
           expect(unbound.some((found) => found.position === outcome.position)).toBe(true);
         }
+
         if (unbound.length === 0) {
           expect(outcome.ok || outcome.error.key !== FormulaMessage.UnknownReference).toBe(true);
         }
@@ -107,12 +119,14 @@ describe('evaluate (properties)', () => {
     assert(
       property(ternaryCase, ({ condition, taken, other, values }) => {
         const at = TextPosition.parse(1);
+
         const ternary: FormulaNode = {
           kind: NodeKind.Call,
           name: FormulaFunction.Ternary,
           args: [{ kind: NodeKind.Number, value: FormulaNumber.parse(condition), position: at }, taken, other],
           position: at,
         };
+
         const resolve = resolverFor(values);
         expect(evaluate(ternary, resolve)).toEqual(evaluate(taken, resolve));
       }),

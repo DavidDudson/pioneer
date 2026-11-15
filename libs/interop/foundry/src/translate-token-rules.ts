@@ -16,6 +16,7 @@ export const DroppedReason = {
   /** The element sets an actor flag that Pioneer's own elements replace, so nothing reads it (a cleric's doctrine). */
   Replaced: 'replaced',
 } as const;
+
 export type DroppedReason = ValueOf<typeof DroppedReason>;
 
 /** A rule element dropped on purpose, and why. */
@@ -40,6 +41,7 @@ function keyOf(raw: unknown): string {
   if (typeof raw !== 'object' || raw === null || !('key' in raw)) {
     return '';
   }
+
   return typeof raw.key === 'string' ? raw.key : '';
 }
 
@@ -52,10 +54,12 @@ interface Partitioned {
 /** The rules of `raws` Pioneer reads, and those dropped on purpose. */
 export function withoutDropped(entry: ContentId, raws: readonly unknown[]): Partitioned {
   const reasons = raws.map((raw) => reasonOf(raw));
+
   return {
     kept: raws.filter((_raw, index) => reasons[index] === undefined),
     dropped: raws.flatMap((raw, index) => {
       const reason = reasons[index];
+
       return reason === undefined ? [] : [{ entry, key: keyOf(raw), reason }];
     }),
   };

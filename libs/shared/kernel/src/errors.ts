@@ -15,6 +15,7 @@ export const HttpStatus = {
   TooManyRequests: 429,
   InternalServerError: 500,
 } as const;
+
 export type HttpStatus = ValueOf<typeof HttpStatus>;
 
 /** RFC 9457 `type` of every problem the API returns. */
@@ -29,6 +30,7 @@ export const ProblemType = {
   RateLimited: 'rate-limited',
   Internal: 'internal',
 } as const;
+
 export type ProblemType = ValueOf<typeof ProblemType>;
 
 /**
@@ -163,4 +165,5 @@ export const ProblemSchema = z.object({
   message: MessageDescriptorSchema,
   issues: z.array(FieldIssueSchema).optional(),
 });
+
 export type Problem = z.infer<typeof ProblemSchema>;

@@ -17,6 +17,7 @@ async function render(lines: readonly ChoiceLine[] | undefined): Promise<HTMLEle
   const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
   fixture.componentRef.setInput('lines', lines);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -37,6 +38,7 @@ async function renderLockable(locked: ReadonlySet<SlotKey>): Promise<LockableRen
   fixture.componentRef.setInput('lockable', true);
   fixture.componentRef.setInput('locked', locked);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, changes };
 }
 
@@ -95,9 +97,11 @@ describe(ChoicesView, () => {
 
   it('offers a keep toggle on each chosen choice only, named by its choice', async () => {
     const { host } = await renderLockable(new Set());
+
     const labels = [...host.querySelectorAll('fr-toggle-button button')].map((button) =>
       button.getAttribute('aria-label'),
     );
+
     expect(labels).toStrictEqual(['Keep Ancestry when re-rolling', 'Keep Level 1 boost when re-rolling']);
   });
 
@@ -162,5 +166,6 @@ async function renderReplaced(): Promise<ReplacedRender> {
   });
   fixture.componentRef.setInput('lines', [REPLACED_CHOICE]);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, replaced };
 }

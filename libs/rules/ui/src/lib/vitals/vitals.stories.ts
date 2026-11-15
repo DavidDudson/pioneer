@@ -12,6 +12,7 @@ const meta: Meta<VitalsView> = {
   component: VitalsView,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: a placeholder tile per vital. */

@@ -43,6 +43,7 @@ const elf = {
   name: ContentText.parse('Elf'),
   kind: ContentKind.Ancestry,
 };
+
 const dwarf = {
   ...entry('dwarf'),
   id: boostFixtureId('ancestry:dwarf'),
@@ -61,6 +62,7 @@ const content: SlotContent = {
   spells: NO_SPELLS,
   feats: NO_FEATS,
 };
+
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);
 const lateSlot = slotOf('elf', 2);
@@ -164,10 +166,12 @@ describe('characterSlots', () => {
 
   test('a pick kept for a slot the character no longer has is hidden, never dropped', () => {
     const slots = slotsOf(anElf(10).picking(earlySlot, 'cavern').picking('feat:class:2', 'athletics'));
+
     const hidden = [
       { status: SlotStatus.Hidden, key: earlySlot, selection: 'cavern' },
       { status: SlotStatus.Hidden, key: 'feat:class:2', selection: 'athletics' },
     ].map((each) => CharacterSlot.parse(each));
+
     const kept: readonly CharacterSlot[] = slots.filter((each) => each.status === SlotStatus.Hidden);
     expect(kept).toStrictEqual(hidden);
     expect(slot(anElf(5).picking(earlySlot, 'cavern'), earlySlot)?.status).toBe(SlotStatus.Filled);
@@ -201,6 +205,7 @@ describe('characterSlots for boosts', () => {
       .picking('boost:1:ancestry:2', 'con')
       .picking('boost:1:free:0', 'str')
       .picking('boost:1:free:1', 'str');
+
     expect(slot(builder, 'boost:1:ancestry:2')).toMatchObject({
       status: SlotStatus.Invalid,
       reason: { key: 'rules.choices.invalid.notOffered' },
@@ -223,6 +228,7 @@ describe('characterSlots for voluntary flaws', () => {
       .picking('flaw:1:ancestry:0', 'int')
       .picking('flaw:1:ancestry:1', 'cha')
       .picking('flaw:1:ancestry:2', 'int');
+
     const flaws = slotsOf(builder).filter((each) => each.key.startsWith('flaw:'));
     expect(flaws[0]).toStrictEqual(
       CharacterSlot.parse({

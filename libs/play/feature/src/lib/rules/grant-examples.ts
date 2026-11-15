@@ -3,6 +3,7 @@ const JSON_INDENT = 2;
 const grantOf = (slug: string, more: object = {}): object => ({ key: 'GrantItem', item: slug, ...more });
 const levelAtLeast = (level: number): object => ({ predicate: [{ gte: ['self:level', level] }] });
 const option = (value: string, label: string): object => ({ value, label });
+
 const featOf = (slug: string, name: string, rollOptions: readonly string[]): object => ({
   slug,
   name,

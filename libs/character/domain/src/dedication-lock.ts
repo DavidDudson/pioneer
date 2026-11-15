@@ -26,6 +26,7 @@ function featsPicked(
 ): ContentId[] {
   return earlier.flatMap((key): ContentId[] => {
     const id = ContentId.safeParse(choices[key]);
+
     return id.success && feats.feat(id.data) !== undefined ? [id.data] : [];
   });
 }
@@ -47,13 +48,17 @@ export function featsGranted(
   taken: readonly ContentId[],
 ): ContentId[] {
   const seen = new Set<ContentId>(taken);
+
   return items.flatMap(({ entry, origin }): ContentId[] => {
     const viaPick = origin.hops.some((hop) => hop.kind === OriginHopKind.Choice && featSlots.has(hop.slot));
     const id = ContentId.safeParse(entry.id);
+
     if (viaPick || !id.success || seen.has(id.data) || feats.feat(id.data) === undefined) {
       return [];
     }
+
     seen.add(id.data);
+
     return [id.data];
   });
 }
@@ -65,6 +70,7 @@ export function featsTaken(
   { earlier, granted }: { readonly earlier: readonly SlotKey[]; readonly granted: GrantedFeats },
 ): ContentId[] {
   const picked = featsPicked(choices, feats, earlier);
+
   return [...picked, ...featsGranted(granted, feats, picked)];
 }
 
@@ -75,14 +81,19 @@ export function featsTaken(
 export function dedicationWaits(feats: FeatContent, taken: readonly ContentId[]): DedicationWait[] {
   const archetypes = taken.flatMap((id) => {
     const archetype = feats.feat(id)?.archetype;
+
     return archetype === undefined || feats.archetype(archetype)?.dedication !== id ? [] : [archetype];
   });
+
   return archetypes.flatMap((archetype): DedicationWait[] => {
     const read = feats.archetype(archetype);
+
     const others = taken.filter(
       (id) => (feats.feat(id)?.archetype === archetype || read?.additional.has(id) === true) && id !== read?.dedication,
     ).length;
+
     const needed = read === undefined ? 0 : read.lock - others;
+
     return needed > 0 ? [{ archetype, needed: DedicationLock.parse(needed) }] : [];
   });
 }
@@ -95,5 +106,6 @@ export function dedicationWait(
 ): DedicationWait | undefined {
   const archetype = feats.feat(feat)?.archetype;
   const isDedication = archetype !== undefined && feats.archetype(archetype)?.dedication === feat;
+
   return isDedication ? waits.find((wait) => wait.archetype !== archetype) : undefined;
 }

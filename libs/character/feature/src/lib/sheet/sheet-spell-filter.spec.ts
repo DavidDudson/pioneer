@@ -34,7 +34,9 @@ function spell({ name, source, targets = [], traits = [], damage = [], cost = ON
     cost,
     effects: damage.map((damageType) => ({ roll: { instances: [{ damageType }] } })),
   } as unknown as SpellDetailLine;
+
   const line: SpellRowLine = { key: name, detail };
+
   return { line, source };
 }
 

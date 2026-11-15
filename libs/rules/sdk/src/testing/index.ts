@@ -3,10 +3,15 @@
  * tests; never from production code (kept out of the main barrel).
  */
 export { ContentPackBuilder } from './content-pack-builder';
+
 export type { MagicItemFields } from './content-pack-fields';
+
 export { automaticEnding } from './condition-endings';
+
 export { fixedContent } from './fixed-content';
+
 export { installRulesFakes } from './fakes';
+
 export {
   actorFormulaText,
   actorReferencePath,
@@ -19,9 +24,15 @@ export {
   unknownReferencePath,
   validFormulaText,
 } from './arbitraries';
+
 export { ruleElementJson } from './rule-element-strike-arbitraries';
+
 export { richTextJson } from './rich-text-arbitraries';
+
 export { contentEntryJson } from './content-entry-arbitraries';
+
 export { slugText } from './json-arbitraries';
+
 export { PLAYER_CORE_PROFICIENCY_BONUS } from './proficiency-bonus';
+
 export { CORE_NAMESPACES } from './roll-option-namespaces';

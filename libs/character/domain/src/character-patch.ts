@@ -91,6 +91,7 @@ export const CharacterPatchField = {
   /** How the character acts and what they care about; empty rich text clears it. */
   SetPersonality: 'setPersonality',
 } as const;
+
 export type CharacterPatchField = ValueOf<typeof CharacterPatchField>;
 
 export const CharacterPatchSchema = z.discriminatedUnion('field', [
@@ -159,6 +160,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
+
 export type CharacterPatch = z.infer<typeof CharacterPatchSchema>;
 
 /** PATCH body: the edit plus the version the client last saw. */
@@ -166,6 +168,7 @@ export const PatchCharacterBody = z.object({
   expectedVersion: Version,
   patch: CharacterPatchSchema,
 });
+
 export type PatchCharacterBody = z.infer<typeof PatchCharacterBody>;
 
 /** The edits that grant or revoke access to a spell. */

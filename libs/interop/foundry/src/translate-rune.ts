@@ -96,9 +96,11 @@ const ETCHINGS: ReadonlyMap<string, EtchedOnto> = new Map([
 /** What a rune is etched onto; a usage naming no item is reported. */
 function etchedOntoOf(usage: string, log: GapLog): EtchedOnto | undefined {
   const etched = ETCHINGS.get(usage.slice(ETCHED_ONTO.length));
+
   if (etched === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'usage', raw: usage });
   }
+
   return etched;
 }
 
@@ -106,14 +108,19 @@ function etchedOntoOf(usage: string, log: GapLog): EtchedOnto | undefined {
 export function runeData(input: KindInput): object | undefined {
   const system = systemOf(FoundryPhysicalSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const etchedOnto = etchedOntoOf(system.usage?.value ?? '', input.log);
+
   if (etchedOnto === undefined) {
     return undefined;
   }
+
   const fundamental = FUNDAMENTALS.get(asciiSlug(input.document));
+
   return fundamental === undefined
     ? { ...physical, type: RuneType.Property, etchedOnto }
     : { ...physical, type: RuneType.Fundamental, rune: fundamental.rune, grade: fundamental.grade, etchedOnto };
@@ -140,10 +147,13 @@ const RENAMED_RUNES: ReadonlyMap<string, string> = new Map([['speed', 'quickstri
 export function runeSlug(key: string): string {
   const words = (key.match(WORD) ?? []).map((word) => word.toLowerCase());
   const renamed = RENAMED_RUNES.get(words.join('-'));
+
   if (renamed !== undefined) {
     return renamed;
   }
+
   const [first, ...rest] = words;
+
   return first !== undefined && GRADE_WORDS.has(first) && rest.length > 0
     ? [...rest, first].join('-')
     : words.join('-');
@@ -169,6 +179,7 @@ interface LegacyEnergy {
 function legacyEnergy(key: string): LegacyEnergy | undefined {
   const { grade, energy } = LEGACY_ENERGY_KEY.exec(key)?.groups ?? {};
   const named = RUNE_ENERGIES.find((each) => each === energy?.toLowerCase());
+
   return named === undefined
     ? undefined
     : { slug: grade === undefined ? 'energy-resistant' : 'energy-resistant-greater', energy: named };
@@ -188,17 +199,21 @@ export function propertyRunes(
 ): PropertyRuneKeys {
   const property: ContentId[] = [];
   const energy: Record<ContentId, DamageType> = {};
+
   for (const key of keys) {
     const legacy = legacyEnergy(key);
     const rune = resolveSlug(references, ContentKind.Rune, legacy?.slug ?? runeSlug(key));
+
     if (rune === undefined) {
       report(log, { reason: KindDataGapReason.UnresolvedReference, field, raw: key });
     } else {
       property.push(rune);
+
       if (legacy !== undefined) {
         energy[rune] = legacy.energy;
       }
     }
   }
+
   return { property, energy };
 }

@@ -26,6 +26,7 @@ const meta: Meta<DefencesView> = {
   component: DefencesView,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: skeletons shaped like the three lists. */

@@ -53,6 +53,7 @@ describe.skipIf(adminUrl === undefined)('the party stash over postgres', () => {
       .named(`Hero ${(characterCount += 1)}`)
       .ownedBy(amiri)
       .build();
+
     const stocked = built.withInventory(
       {
         items: [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }],
@@ -61,23 +62,28 @@ describe.skipIf(adminUrl === undefined)('the party stash over postgres', () => {
       },
       built.updatedAt,
     );
+
     return characters.insert(stocked, { actor: amiri, command: CharacterCommand.CreateCharacter });
   }
 
   async function reloaded(character: Character): Promise<Character> {
     const found = await characters.findById(character.id);
+
     if (found === undefined) {
       throw new Error('The character is gone');
     }
+
     return found;
   }
 
   /** The stash's version, which the test expects to exist. */
   async function stashVersion(): Promise<Version> {
     const stored = await stashes.load(campaignId);
+
     if (stored === undefined) {
       throw new Error('The stash was never made');
     }
+
     return stored.version;
   }
 
@@ -94,9 +100,11 @@ describe.skipIf(adminUrl === undefined)('the party stash over postgres', () => {
   /** A fresh campaign for each test: the stash is one row per campaign. */
   beforeEach(async () => {
     campaignCount += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaignCount}`).ranBy(amiri).build(),
     );
+
     campaignId = campaign.id;
   });
 

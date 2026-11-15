@@ -70,8 +70,10 @@ export interface ArchetypeContext {
 function linkedFeats(content: string, { references }: ArchetypeContext): ContentId[] {
   const ids = [...content.matchAll(FEAT_LINK)].flatMap(({ groups }) => {
     const id = resolveUuid(references, groups?.['uuid'] ?? groups?.['embed'] ?? '');
+
     return id !== undefined && references.kinds.get(id) === ContentKind.Feat ? [id] : [];
   });
+
   return [...new Set(ids)];
 }
 
@@ -84,6 +86,7 @@ interface Page {
 function pageUuid({ journal, page }: Page): ExternalId {
   const { _id: journalId } = journal;
   const { _id: pageId } = page;
+
   return ExternalId.parse(`Compendium.pf2e.journals.JournalEntry.${journalId}.JournalEntryPage.${pageId}`);
 }
 
@@ -100,6 +103,7 @@ function dedicationOf(
   { envelopes }: ArchetypeContext,
 ): ImportedEnvelope | undefined {
   const opening = name.toLowerCase();
+
   return feats
     .map((feat) => envelopes.get(feat))
     .find(
@@ -115,6 +119,7 @@ interface Multiclass {
 
 function multiclassOf(envelope: ImportedEnvelope, { references }: ArchetypeContext): Multiclass {
   const multiclass = resolveSlug(references, ContentKind.Class, asciiNameSlug(envelope.name));
+
   return multiclass === undefined
     ? {
         data: {},
@@ -135,10 +140,13 @@ function envelopeOf(page: Page, dedication: ImportedEnvelope, context: Archetype
   const { name: text, text: body } = page.page;
   const slug = EntrySlug.safeParse(`${ContentKind.Archetype}:${asciiNameSlug(text)}`);
   const name = ContentText.safeParse(text);
+
   if (!slug.success || !name.success) {
     return undefined;
   }
+
   const introduction = (body?.content ?? '').split(INTRODUCTION_END)[0] ?? '';
+
   return {
     id: ContentId.parse(contentId(context.pack, slug.data)),
     pack: context.pack,
@@ -158,11 +166,14 @@ function built(page: Page, context: ArchetypeContext): Built | undefined {
   const feats = linkedFeats(page.page.text?.content ?? '', context);
   const dedication = dedicationOf(page.page.name, feats, context);
   const envelope = dedication && envelopeOf(page, dedication, context);
+
   if (dedication === undefined || envelope === undefined) {
     return undefined;
   }
+
   const multiclass = dedication.traits.includes(MULTICLASS) ? multiclassOf(envelope, context) : { data: {}, gaps: [] };
   const data = { dedication: dedication.id, ...multiclass.data };
+
   return { entry: { envelope, kindData: { kind: ContentKind.Archetype, data } }, feats, gaps: multiclass.gaps };
 }
 
@@ -174,16 +185,21 @@ export function importArchetypes(journals: readonly JournalDocument[], context: 
   const pages = journals
     .filter(({ journal }) => journal.name === ARCHETYPES_JOURNAL)
     .flatMap(({ journal }) => journal.pages.map((page) => ({ journal, page })));
+
   const archetypes = pages.flatMap((page) => built(page, context) ?? []);
   const byFeat = new Map<ContentId, ArchetypeLink[]>();
+
   for (const { entry, feats } of archetypes) {
     const dedication = context.envelopes.get(entry.kindData.data.dedication)?.name ?? entry.envelope.name;
+
     for (const feat of feats) {
       byFeat.set(feat, [...(byFeat.get(feat) ?? []), { archetype: entry.envelope.id, dedication }]);
     }
   }
+
   const entries = archetypes.map(({ entry }) => entry);
   const unlocked = journals.length === 0 ? [] : unlockedDedications(context.envelopes.values(), entries);
+
   return { entries, byFeat, gaps: [...archetypes.flatMap(({ gaps }) => gaps), ...unlocked] };
 }
 
@@ -196,6 +212,7 @@ function unlockedDedications(
   archetypes: readonly ArchetypeEntry[],
 ): KindDataGap[] {
   const named = new Set(archetypes.map(({ kindData }) => kindData.data.dedication));
+
   return [...envelopes].flatMap((envelope): KindDataGap[] =>
     envelope.traits.includes(DEDICATION) && !named.has(envelope.id)
       ? [{ entry: envelope.id, reason: KindDataGapReason.MissingArchetype, field: 'dedication', raw: envelope.name }]

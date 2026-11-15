@@ -43,13 +43,17 @@ export class PartyInventory {
   protected readonly inputs = computed((): ContainerInputs | undefined => {
     const character = this.#characters.selected();
     const { campaign } = this.#limits.rules();
+
     if (character === undefined || campaign === undefined) {
       return undefined;
     }
+
     const names = this.names();
+
     const lines = character.document.inventory.items
       .filter((line) => line.container === undefined && line.keyItem === undefined)
       .map((line): DepositableLine => ({ id: line.id, name: names.get(line.id) ?? line.id }));
+
     return { campaign, character: character.id, lines };
   });
 

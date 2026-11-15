@@ -10,13 +10,16 @@ import * as z from 'zod';
 
 const PATHBUILDER_LEVEL_MIN = 1;
 const PATHBUILDER_LEVEL_MAX = 20;
+
 /** Attribute scores in a legal build; remaster modifiers run -5 to +7, so 0 to 25 covers every export. */
 const SCORE_MIN = 0;
 const SCORE_MAX = 25;
+
 /** Pathbuilder's proficiency numbers: 0 untrained, 2 trained, 4 expert, 6 master, 8 legendary. */
 const PROFICIENCY_MAX = 8;
 const SPELL_RANK_MAX = 10;
 const NAME_MAX = 500;
+
 /** A potency rune runs +1 to +4. */
 const RUNE_GRADE_MAX = 4;
 const LIST_MAX = 500;
@@ -26,9 +29,11 @@ const Names = z.array(Name).max(LIST_MAX).default([]);
 const Count = z.int().nonnegative();
 const ProficiencyNumber = z.int().min(0).max(PROFICIENCY_MAX);
 const Score = z.int().min(SCORE_MIN).max(SCORE_MAX);
+
 /** Level (as text) to the attributes boosted at it. */
 const LevelledBoosts = z.record(z.string(), Names).default({});
 const ModsByType = z.record(z.string(), z.int());
+
 /** Statistic name to its bonuses by type ("Potency Bonus": 2). */
 const Mods = z.record(z.string(), ModsByType).default({});
 
@@ -65,6 +70,7 @@ const EquipmentTuple = z.tuple([Name, Count], z.unknown());
 
 /** A potency or resilient/striking grade as Pathbuilder writes it: a number, or "" / null for none. */
 const RuneNumber = z.int().min(0).max(RUNE_GRADE_MAX).nullish();
+
 /** "resilient", "greaterResilient", "majorStriking"…; "" for none. */
 const RuneWord = z.string().max(NAME_MAX).nullish();
 
@@ -183,6 +189,7 @@ export const PathbuilderBuild = z.looseObject({
   acTotal: AcTotal.optional(),
   familiars: z.array(Familiar).max(LIST_MAX).default([]),
 });
+
 export type PathbuilderBuild = z.output<typeof PathbuilderBuild>;
 
 /** The file as exported. `success: false` is how Pathbuilder marks a failed export. */
@@ -190,4 +197,5 @@ export const PathbuilderExport = z.looseObject({
   success: z.boolean(),
   build: PathbuilderBuild.optional(),
 });
+
 export type PathbuilderExport = z.input<typeof PathbuilderExport>;

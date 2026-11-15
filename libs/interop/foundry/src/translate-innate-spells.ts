@@ -16,6 +16,7 @@ import source from './innate-spells.json';
  */
 
 const CANTRIP = 'cantrip';
+
 /** Where the spells of the feats are printed, whichever book the feat is in. */
 const PRINTED_IN = PackId.parse('player-core');
 const SELF_LEVEL = 'self:level';
@@ -33,6 +34,7 @@ const Grant = z.object({
   spell: z.string().optional(),
   levels: z.array(LevelRank).optional(),
 });
+
 type Grant = z.infer<typeof Grant>;
 
 const Feat = z.object({
@@ -45,6 +47,7 @@ const Feat = z.object({
   choice: Choice.optional(),
   grants: z.array(Grant),
 });
+
 type Feat = z.infer<typeof Feat>;
 
 const Source = z.record(z.string(), Feat);
@@ -56,6 +59,7 @@ function withPredicate(predicate: readonly unknown[] | undefined): object {
 
 function entryRule({ entry }: Feat): object {
   const { slug, tradition, attribute, when } = entry;
+
   return {
     key: RuleElementKey.SpellcastingEntry,
     slug,
@@ -96,6 +100,7 @@ function byLevel(entry: string, { spell, levels, when = [] }: Grant): object[] {
     const next = levels?.[index + 1];
     const atLeast = { gte: [SELF_LEVEL, from] };
     const range = next === undefined ? atLeast : { and: [atLeast, { lt: [SELF_LEVEL, next[0]] }] };
+
     return granting(entry, [[spell ?? '', rank]], [...when, range]);
   });
 }
@@ -107,6 +112,7 @@ function grantRules(entry: string, grant: Grant): object[] {
 /** The innate entry, choices and `InnateSpells` elements the entry with `slug` gains, if any. */
 export function innateSpellRules(slug: string): readonly object[] {
   const feat = FEATS.get(slug);
+
   return feat === undefined
     ? []
     : [entryRule(feat), ...choiceRule(feat), ...feat.grants.flatMap((grant) => grantRules(feat.entry.slug, grant))];

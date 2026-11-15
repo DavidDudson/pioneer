@@ -31,6 +31,7 @@ import { HEALING_POTION, LEVEL_TONIC, UNREADABLE_TONIC } from './tonic-items';
 const BACKPACK_CAPACITY = 4;
 const BACKPACK_IGNORED = 2;
 const ARROWS_PER_BULK = 10;
+
 /** Arrows are sold 10 to a batch: 1 sp for 10. */
 const ARROWS_PER_BATCH = 10;
 const BAG_OF_HOLDING_CAPACITY = 25;
@@ -95,6 +96,7 @@ export const ItemFixture = {
   FireballWand: 'fireball-wand',
   FireballScroll: 'fireball-scroll',
 } as const;
+
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
 /** A fixture item: its kind and data, and any traits and rule elements. */
@@ -239,15 +241,19 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
 /** One item of every carried kind, runes to etch onto them, the encumbered condition and the underwater environment. */
 function itemPack(): ContentPack {
   const builder = new ContentPackBuilder().withId(ITEM_PACK);
+
   for (const [name, fields] of Object.entries(ITEMS)) {
     builder.withMagicItem(fields.kind, name, fields);
   }
+
   for (const [name, fields] of Object.entries(RUNES)) {
     builder.withMagicItem(ContentKind.Rune, name, fields);
   }
+
   for (const [name, spell] of Object.entries(FIRE_STAFF_SPELLS)) {
     builder.withSpell(name, spell);
   }
+
   builder.withCondition(
     CLUMSY,
     [{ key: 'FlatModifier', selectors: ['dex-based'], type: 'status', slug: CLUMSY, value: '-@item.value' }],
@@ -257,6 +263,7 @@ function itemPack(): ContentPack {
     { key: 'FlatModifier', selectors: ['all-speeds'], type: 'untyped', slug: ENCUMBERED, value: -10 },
     { key: 'GrantItem', item: builder.idOf(ContentKind.Condition, CLUMSY) },
   ]);
+
   return withUnderwater(builder).build();
 }
 
@@ -271,6 +278,7 @@ export function itemFixtureId(name: ItemFixture): ContentId {
 export function itemFixtureRegistry(): ContentRegistry {
   const registry = new ContentRegistry();
   registry.register(ITEM_FIXTURES);
+
   return registry;
 }
 

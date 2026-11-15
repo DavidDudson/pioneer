@@ -24,6 +24,7 @@ const meta: Meta<Rail> = {
     `,
   }),
 };
+
 export default meta;
 
 /** Beside the content from the `lg` container size, sticky and full height; stacked above it when narrower. */

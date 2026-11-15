@@ -5,6 +5,7 @@ import type { TableViewQuery } from './table-view.types';
 export function paramText(query: TableViewQuery, key: string): string | undefined {
   const value: unknown = query[key];
   const first: unknown = Array.isArray(value) ? value[0] : value;
+
   return typeof first === 'string' && first !== '' ? first : undefined;
 }
 
@@ -20,5 +21,6 @@ export function listText(items: readonly string[]): string {
 /** Whole numbers above zero; anything else (`0`, `-3`, `1.5`, `abc`) is malformed. */
 export function positiveInt(text: string | undefined): number | undefined {
   const value = Number(text);
+
   return text !== undefined && Number.isSafeInteger(value) && value > 0 ? value : undefined;
 }

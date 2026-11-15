@@ -12,12 +12,15 @@ const HEALING_MIN = 1;
  */
 export function conditionRecovery(registry: ContentRegistry, trigger: ConditionTrigger): RecoveryConditions {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(
     entries.flatMap((entry) => {
       if (entry.kind !== ContentKind.Condition) {
         return [];
       }
+
       const ending = entry.data.recovery.find((each) => each.kind === 'automatic' && each.trigger === trigger);
+
       return ending?.kind === 'automatic' ? [[entry.id, ending.change] as const] : [];
     }),
   );

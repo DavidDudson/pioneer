@@ -51,6 +51,7 @@ function render(lines: readonly SpellRowLine[] | undefined): ComponentFixture<Sp
   const fixture = TestBed.createComponent(SpellRowList);
   fixture.componentRef.setInput('lines', lines);
   fixture.detectChanges();
+
   return fixture;
 }
 

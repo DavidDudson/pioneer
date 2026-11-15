@@ -35,14 +35,17 @@ function contentRefusal(
   target: InventoryTarget,
 ): InventoryRefusal | undefined {
   const items = itemContent(registry);
+
   const kit =
     target.kit === undefined
       ? undefined
       : kitRefusal({ kits: kitContent(registry), items, limits }, inventory, target.kit);
+
   const rune =
     target.rune === undefined
       ? undefined
       : runeRefusal({ items, runes: runeContent(registry), limits }, inventory, target.rune);
+
   return kit ?? itemRefusal(items, inventory, target) ?? rune;
 }
 
@@ -62,18 +65,23 @@ export async function assertInventoryAllows(
 ): Promise<void> {
   refuse(keyItemRefusal(character.document.inventory, patch));
   const target = inventoryTarget(patch);
+
   if (target === undefined) {
     return;
   }
+
   const { inventory } = character.document;
   const limits = storableLimits(tableLimits);
   refuse(inventoryRefusal(inventory, target, limits));
+
   const readsContent = [target.item, target.kit, target.container, target.carry, target.invested, target.rune].some(
     (each) => each !== undefined,
   );
+
   if (!readsContent) {
     return;
   }
+
   const registry = await content.registry();
   refuse(contentRefusal({ registry, limits }, inventory, target));
 }

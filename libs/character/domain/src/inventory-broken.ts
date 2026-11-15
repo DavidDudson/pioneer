@@ -8,7 +8,9 @@ export function breakItem(inventory: Inventory, id: InventoryItemId, broken: boo
       if (item.id !== id) {
         return item;
       }
+
       const { broken: _old, ...rest } = item;
+
       return broken ? { ...rest, broken } : rest;
     }),
   };

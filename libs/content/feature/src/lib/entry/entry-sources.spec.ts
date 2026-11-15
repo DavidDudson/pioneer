@@ -10,9 +10,11 @@ const PACK = new ContentPackBuilder().withId('sources-test').withFeat('sudden-ch
 
 function entryCiting(...sources: readonly SourceRef[]): ContentEntry {
   const [first] = PACK.otherEntries;
+
   if (first === undefined) {
     throw new Error('The test pack holds no entry');
   }
+
   return { ...first, sources };
 }
 

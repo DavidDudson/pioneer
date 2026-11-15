@@ -37,22 +37,27 @@ const TEXT_ATTRIBUTES = new Set([
 interface Span {
   readonly start: { readonly offset: number };
 }
+
 interface TextNode {
   readonly value?: unknown;
   readonly sourceSpan?: Span;
 }
+
 interface InterpolationAst {
   readonly strings?: unknown;
 }
+
 interface BoundTextNode {
   readonly value?: { readonly ast?: InterpolationAst };
   readonly sourceSpan?: Span;
 }
+
 interface AttributeNode {
   readonly name?: unknown;
   readonly value?: unknown;
   readonly keySpan?: Span;
 }
+
 /** `[label]="'Name'"`: the bound expression, which is a string literal when the copy is inline. */
 interface BoundAttributeNode {
   readonly name?: unknown;
@@ -67,6 +72,7 @@ function hasLetters(value: unknown): boolean {
 /** Literal parts of `Level {{ level }}`: `['Level ', '']`. */
 function literalParts(node: BoundTextNode): readonly unknown[] {
   const strings = node.value?.ast?.strings;
+
   return Array.isArray(strings) ? strings : [];
 }
 
@@ -86,9 +92,11 @@ export const noLiteralText: Rule.RuleModule = {
         context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
       }
     };
+
     return {
       Text(node: unknown): void {
         const { value, sourceSpan } = node as TextNode;
+
         if (hasLetters(value)) {
           report(sourceSpan, 'text', { text: String(value).trim() });
         }
@@ -96,12 +104,14 @@ export const noLiteralText: Rule.RuleModule = {
       BoundText(node: unknown): void {
         const bound = node as BoundTextNode;
         const copy = literalParts(bound).filter((part) => hasLetters(part));
+
         if (copy.length > 0) {
           report(bound.sourceSpan, 'text', { text: copy.join(' ').trim() });
         }
       },
       TextAttribute(node: unknown): void {
         const { name, value, keySpan } = node as AttributeNode;
+
         if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(value)) {
           report(keySpan, 'attribute', { name, text: String(value) });
         }
@@ -109,6 +119,7 @@ export const noLiteralText: Rule.RuleModule = {
       BoundAttribute(node: unknown): void {
         const { name, value, keySpan } = node as BoundAttributeNode;
         const literal = value?.ast?.value;
+
         if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(literal)) {
           report(keySpan, 'attribute', { name, text: String(literal) });
         }

@@ -21,6 +21,7 @@ const table = [
 describe('PackAccessPolicy', () => {
   describe.each(table)('a %s pack', (visibility, expected) => {
     const pack = new HomebrewPackBuilder().ownedBy(owner).visibleTo(visibility).build();
+
     const policy = new PackAccessPolicy(
       new InMemoryPackEnablementDirectory().enable(pack.id, 'Rise of the Runelords', [member]),
     );

@@ -42,19 +42,23 @@ describe.skipIf(adminUrl === undefined)('selectSlot and clearSlot (postgres)', (
       name: CharacterName.parse('Merisiel'),
       ancestry: humanAncestryId,
     });
+
     const { character: selected } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf },
     });
+
     await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: selected.version,
       patch: { field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT },
     });
+
     const entries = await database.db
       .select()
       .from(auditLog)
       .where(eq(auditLog.rowId, created.id))
       .orderBy(asc(auditLog.changedAt));
+
     expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.command])).toStrictEqual([
       ['insert', 1, CharacterCommand.CreateCharacter],
       ['update', 2, CharacterCommand.SelectSlot],
@@ -69,6 +73,7 @@ describe.skipIf(adminUrl === undefined)('selectSlot and clearSlot (postgres)', (
       name: CharacterName.parse('Kyra'),
       ancestry: humanAncestryId,
     });
+
     const unknown = ChoiceValue.parse(newId());
     await rejection(
       service.patch(fixtureOwnerId, created.id, {

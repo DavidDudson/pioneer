@@ -64,11 +64,13 @@ describe.skipIf(adminUrl === undefined)('seedDevData (postgres)', () => {
 
   test('a session started for a seeded user authenticates as them', async () => {
     await seedDevData(database.db, clock);
+
     const service = new IdentityService(
       new DrizzleUserRepository(database.db),
       new DrizzleSessionRepository(database.db),
       clock,
     );
+
     const { token } = await service.startSession(DevUser.PlayerTwo.id);
     const authenticated = await service.authenticate(token);
     expect(authenticated?.user.displayName).toBe(DevUser.PlayerTwo.displayName);
@@ -91,11 +93,13 @@ describe.skipIf(adminUrl === undefined)('dev sign-in through createApp (postgres
 
   test('is mounted under /api and signs in as the seeded user', async () => {
     const api = createApp(database.db, env, [devSignInRoutes]);
+
     const signIn = await api.handle(
       new Request(`http://localhost:4200/api${DevSignInPath.of(DevUser.Gm.id)}?returnTo=%2Fcampaigns`, {
         headers: { 'sec-fetch-site': 'same-origin' },
       }),
     );
+
     expect(signIn.status).toBe(302);
     const [setCookie] = signIn.headers.getSetCookie();
     expect(setCookie).toBeDefined();

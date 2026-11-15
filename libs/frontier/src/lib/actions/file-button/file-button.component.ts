@@ -29,9 +29,11 @@ export class FileButton {
 
   protected async read(picker: HTMLInputElement): Promise<void> {
     const [file] = picker.files ?? [];
+
     if (file !== undefined) {
       this.chosen.emit(await file.text());
     }
+
     picker.value = '';
   }
 }

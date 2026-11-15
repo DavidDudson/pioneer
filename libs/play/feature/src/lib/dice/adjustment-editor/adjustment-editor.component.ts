@@ -24,6 +24,7 @@ import { DAMAGE_ADJUSTMENT_TARGET_KEYS } from '../dice-labels';
 
 /** Which list an editor holds; both are a damage type or group with a value. */
 export const AdjustmentKind = { Weakness: 'weakness', Resistance: 'resistance' } as const;
+
 export type AdjustmentKind = ValueOf<typeof AdjustmentKind>;
 
 interface KindKeys {
@@ -98,6 +99,7 @@ export class AdjustmentEditor {
   /** The typed value, unset while the box is empty, mid-edit or out of range. */
   readonly #amount = computed((): DamageAmount | undefined => {
     const parsed = DamageAmount.safeParse(this.value());
+
     return this.valueComplete() && parsed.success && parsed.data <= VALUE_MAX ? parsed.data : undefined;
   });
   protected readonly valueInvalid = computed((): boolean => this.#amount() === undefined);
@@ -115,15 +117,18 @@ export class AdjustmentEditor {
   /** The message key naming a target, when it is one; undefined for a material. */
   #keyOf(type: DamageAdjustmentSubject): string | undefined {
     const target = DamageAdjustmentTargetSchema.safeParse(type);
+
     return target.success ? this.labels[target.data] : undefined;
   }
 
   protected add(): void {
     const type = this.choice();
     const value = this.#amount();
+
     if (type === undefined || value === undefined) {
       return;
     }
+
     const added = DamageAdjustment.parse({ type, value });
     this.adjustments.update((list) => [...list.filter((entry) => entry.type !== type), added]);
     this.choice.set(undefined);

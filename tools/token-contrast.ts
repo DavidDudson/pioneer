@@ -9,9 +9,11 @@ import { resolveToken } from './token-cascade.ts';
 
 function number(text: string): number {
   const value = Number(text);
+
   if (text.trim() === '' || Number.isNaN(value)) {
     throw new TypeError(`${text} is not a number`);
   }
+
   return value;
 }
 
@@ -22,20 +24,24 @@ function number(text: string): number {
 export function evaluateArithmetic(expression: string): number {
   const [first = '', ...rest] = expression.trim().split(/\s+(?<operator>[+-])\s+/u);
   let total = evaluateTerm(first);
+
   for (let index = 0; index < rest.length; index += 2) {
     const operand = evaluateTerm(rest[index + 1] ?? '');
     total = rest[index] === '+' ? total + operand : total - operand;
   }
+
   return total;
 }
 
 function evaluateTerm(text: string): number {
   const [head = '', ...factors] = text.split(/\s*(?<operator>[*/])\s*/u);
   let value = number(head);
+
   for (let index = 0; index < factors.length; index += 2) {
     const operand = number(factors[index + 1] ?? '');
     value = factors[index] === '*' ? value * operand : value / operand;
   }
+
   return value;
 }
 
@@ -67,15 +73,20 @@ function parseOklch(color: string): Oklch {
   const calculated = color
     .trim()
     .replaceAll(CALC, (_match, expression: string) => String(evaluateArithmetic(expression)));
+
   const body = OKLCH.exec(calculated)?.groups?.['body'];
+
   if (body === undefined) {
     throw new TypeError(`${color} is not an oklch() colour`);
   }
+
   const parts = body.trim().split(/\s+/u);
   const [lightness = '', chroma = '', hue = ''] = parts;
+
   if (parts.length !== OKLCH_COMPONENTS) {
     throw new TypeError(`${color} needs exactly L, C and H (no alpha)`);
   }
+
   return { lightness: component(lightness, 1), chroma: component(chroma, OKLCH_FULL_CHROMA), hue: number(hue) };
 }
 
@@ -88,15 +99,18 @@ export function oklchToLinearRgb(color: string): LinearRgb {
   const greenRed = chroma * Math.cos(radians);
   const blueYellow = chroma * Math.sin(radians);
   const cones = OKLAB_TO_LMS.map(([fromA, fromB]) => (lightness + fromA * greenRed + fromB * blueYellow) ** CUBE);
+
   const [red = 0, green = 0, blue = 0] = LMS_TO_LINEAR_SRGB.map((row) =>
     clip(row.reduce((sum, weight, index) => sum + weight * (cones[index] ?? 0), 0)),
   );
+
   return { red, green, blue };
 }
 
 /** WCAG 2 relative luminance. */
 export function relativeLuminance({ red, green, blue }: LinearRgb): number {
   const [redWeight, greenWeight, blueWeight] = LUMINANCE_WEIGHTS;
+
   return redWeight * red + greenWeight * green + blueWeight * blue;
 }
 
@@ -105,6 +119,7 @@ export function contrastRatio(first: LinearRgb, second: LinearRgb): number {
   const [lighter = 0, darker = 0] = [relativeLuminance(first), relativeLuminance(second)].toSorted(
     (left, right) => right - left,
   );
+
   return (lighter + FLARE) / (darker + FLARE);
 }
 
@@ -124,6 +139,7 @@ export interface PairResult {
 /** Every foreground × background of every pair under one set of tokens; names are `--fr-` tokens unprefixed. */
 export function measurePairs(tokens: ReadonlyMap<string, string>, pairs: readonly PairSpec[]): PairResult[] {
   const colour = (name: string): LinearRgb => oklchToLinearRgb(resolveToken(tokens, `--fr-${name}`));
+
   return pairs.flatMap(({ foreground, background, minimum }) =>
     foreground.flatMap((fg) =>
       background.map((bg) => ({

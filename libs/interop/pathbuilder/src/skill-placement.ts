@@ -25,6 +25,7 @@ export const SkillGap = z.object({
   /** Undefined for a skill the content doesn't define. */
   reached: ProficiencySchema.optional(),
 });
+
 export type SkillGap = z.infer<typeof SkillGap>;
 
 /** The picks for the character's skill slots, and the ranks they leave short of Pathbuilder's. */
@@ -58,22 +59,29 @@ export type SkillRanks = Pick<PathbuilderImport, 'lores' | 'skills'>;
  */
 function undefinedLores(skills: readonly SkillOption[], { lores }: SkillRanks): LoreNames {
   const known = new Set(skills.map(({ name }) => matchKey(name)));
+
   const entries = lores.flatMap(({ name }): [Slug, LoreName][] => {
     const lore = LoreName.safeParse(name);
     const topic = lore.success ? loreTopicOf(lore.data) : undefined;
+
     return lore.success && topic !== undefined && !known.has(matchKey(`${name} Lore`)) ? [[topic, lore.data]] : [];
   });
+
   return Object.fromEntries(entries);
 }
 
 function targets(skills: readonly SkillOption[], { skills: ranked, lores }: SkillRanks): Target[] {
   const find = (name: string): SkillOption | undefined =>
     skills.find((skill) => matchKey(skill.name) === matchKey(name));
+
   const named = Object.entries(ranked).flatMap(([key, rank]): Target[] => {
     const skill = find(key);
+
     return skill === undefined ? [] : [{ name: PathbuilderName.parse(skill.name), rank, skill }];
   });
+
   const lored = lores.map(({ name, rank }): Target => ({ name, rank, skill: find(`${name} Lore`) }));
+
   return [...named, ...lored].filter(({ rank }) => order(rank) > order(Proficiency.Untrained));
 }
 
@@ -99,8 +107,10 @@ function choose(
 ): SkillOption | undefined {
   const shortfall = (option: SkillOption): number => {
     const target = wanted.find(({ skill }) => skill?.id === option.id);
+
     return target === undefined ? 0 : order(target.rank) - order(ranks.get(option.selector));
   };
+
   return slot.options
     .map((option) => ({ option, gap: shortfall(option) }))
     .filter(({ gap }) => gap > 0)
@@ -115,18 +125,22 @@ function advance(
 ): [SlotKey, SkillOption] | undefined {
   const level = Level.parse(document.level);
   const ranks = reached(document, content);
+
   for (const slot of skillSlots(document, skillReads(document, content))) {
     const option = slot.level <= level && slot.stored === undefined ? choose(slot, wanted, ranks) : undefined;
+
     if (option !== undefined) {
       return [slot.key, option];
     }
   }
+
   return undefined;
 }
 
 function gapsOf(wanted: readonly Target[], ranks: ReadonlyMap<Selector, Proficiency>): SkillGap[] {
   return wanted.flatMap(({ name, rank, skill }): SkillGap[] => {
     const got = skill === undefined ? undefined : (ranks.get(skill.selector) ?? Proficiency.Untrained);
+
     return order(got) >= order(rank) ? [] : [{ name, wanted: rank, reached: got }];
   });
 }
@@ -142,14 +156,19 @@ export function placeSkills(plain: CharacterDocument, content: SlotContent, rank
   const wanted = targets(documentSkills(document, content.skills).skills, ranks);
   const picks: Record<SlotKey, ChoiceValue> = {};
   const slotCount = skillSlots(document, skillReads(document, content)).length;
+
   for (let pass = 0; pass < slotCount; pass += 1) {
     const next = advance(documentWith(document, picks), content, wanted);
+
     if (next === undefined) {
       break;
     }
+
     picks[next[0]] = ChoiceValue.parse(next[1].id);
   }
+
   const placed = documentWith(document, picks);
+
   return {
     choices: picks,
     lores: withoutUnpickedLores(placed).build.lores,

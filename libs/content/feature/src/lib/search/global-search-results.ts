@@ -14,15 +14,19 @@ const Rank = {
 /** The rank of `name` for lowercase `words`, or undefined when the name does not contain them. */
 function rankOf(name: string, words: string): number | undefined {
   const lower = name.toLowerCase();
+
   if (lower === words) {
     return Rank.Exact;
   }
+
   if (lower.startsWith(words)) {
     return Rank.Prefix;
   }
+
   if (lower.split(/[\s-]+/u).some((part) => part.startsWith(words))) {
     return Rank.WordPrefix;
   }
+
   return lower.includes(words) ? Rank.Contains : undefined;
 }
 
@@ -36,12 +40,15 @@ export function nameMatches(
   compare: (left: string, right: string) => number,
 ): readonly ContentEntry[] {
   const wanted = words.trim().toLowerCase();
+
   if (wanted === '') {
     return [];
   }
+
   return entries
     .flatMap((entry) => {
       const rank = rankOf(entry.name, wanted);
+
       return rank === undefined ? [] : [{ entry, rank }];
     })
     .toSorted((left, right) => left.rank - right.rank || compare(left.entry.name, right.entry.name))
@@ -55,5 +62,6 @@ export function nameMatches(
  */
 export function mergeBelow(shown: readonly ContentId[], incoming: readonly ContentId[]): readonly ContentId[] {
   const held = new Set(shown);
+
   return [...shown, ...new Set(incoming.filter((id) => !held.has(id)))];
 }

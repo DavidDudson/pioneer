@@ -27,6 +27,7 @@ export const ButtonVariant = {
   /** One option of a segmented control, filled with the accent when chosen. Features use `fr-segmented`. */
   Segment: 'segment',
 } as const;
+
 export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 
 /** The shared sizes plus `xs`, which only a button has. */
@@ -34,13 +35,16 @@ export type ButtonSize = Size | 'xs';
 
 /** The sign of what applies to a roll: a net bonus, a net penalty, or neither. */
 export const RollTone = { Neutral: 'neutral', Bonus: 'bonus', Penalty: 'penalty' } as const;
+
 export type RollTone = ValueOf<typeof RollTone>;
 
 /** Whether a roll is made twice, keeping the higher (fortune) or the lower (misfortune). */
 export const RollLuck = { None: 'none', Fortune: 'fortune', Misfortune: 'misfortune' } as const;
+
 export type RollLuck = ValueOf<typeof RollLuck>;
 
 export const ButtonType = { Button: 'button', Submit: 'submit' } as const;
+
 export type ButtonType = ValueOf<typeof ButtonType>;
 
 /**
@@ -185,11 +189,13 @@ export class Button {
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
+
     const base = buttonVariants({
       variant,
       size: variant === ButtonVariant.Inline || variant === ButtonVariant.Field ? 'fit' : this.size(),
       iconOnly: this.iconOnly(),
     });
+
     return variant === ButtonVariant.Roll
       ? cx(base, rollCues({ tone: this.rollTone(), luck: this.rollLuck(), shifted: this.rollShifted() }))
       : base;
@@ -199,8 +205,10 @@ export class Button {
     if (this.busy()) {
       // Also stops a busy submit button from submitting its form again.
       event.preventDefault();
+
       return;
     }
+
     this.pressed.emit(event);
   }
 }

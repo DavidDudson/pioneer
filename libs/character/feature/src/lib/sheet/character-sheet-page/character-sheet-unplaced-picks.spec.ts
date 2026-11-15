@@ -22,6 +22,7 @@ const PICKS: PackContentsLoader = {
       [picks.otherEntries],
     ),
 };
+
 const openSheet = openerAt(SheetMode.Exploration, 'languages');
 const openPlan = openerAt(SheetMode.Plan);
 const PACKS = [...TEST_PACKS, PICKS];
@@ -77,6 +78,7 @@ describe('CharacterSheetPage languages with no slot', () => {
 
   it('dismisses a flagged language with a dismissUnplacedLanguage patch', async () => {
     const { root } = await openSheet(carrying([ELVEN]), { packs: PACKS });
+
     const dismiss = await vi.waitFor(() =>
       present(languagesSection(root).querySelector<HTMLElement>('fr-async-button button[aria-label^="Dismiss"]')),
     );
@@ -86,6 +88,7 @@ describe('CharacterSheetPage languages with no slot', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({ patch: { field: 'dismissUnplacedLanguage', language: ELVEN } });
   });
 });

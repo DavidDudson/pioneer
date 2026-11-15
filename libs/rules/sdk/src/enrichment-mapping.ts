@@ -12,8 +12,10 @@ export const EnrichmentMapping = z.strictObject({
   page: PageNumber.optional(),
   aon: AonUrl.optional(),
 });
+
 export type EnrichmentMapping = z.infer<typeof EnrichmentMapping>;
 
 /** `content/enrichment/<pack>.json`: entry slug to its mapping. */
 export const EnrichmentMappingFile = z.record(EntrySlug, EnrichmentMapping);
+
 export type EnrichmentMappingFile = z.infer<typeof EnrichmentMappingFile>;

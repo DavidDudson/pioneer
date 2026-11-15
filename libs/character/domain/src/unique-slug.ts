@@ -11,10 +11,13 @@ export function uniqueSlug(name: Slug, taken: ReadonlySet<Slug>): Slug {
   if (name.length <= SOURCE_SLUG_MAX && !taken.has(name)) {
     return name;
   }
+
   const base = name.slice(0, SOURCE_SLUG_MAX - SUFFIX_ROOM).replace(/-+$/u, '');
   let slug = Slug.parse(base);
+
   for (let count = 2; taken.has(slug); count += 1) {
     slug = Slug.parse(`${base}-${count}`);
   }
+
   return slug;
 }

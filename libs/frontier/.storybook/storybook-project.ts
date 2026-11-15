@@ -14,6 +14,7 @@ import { ColorMode, Theme } from '../src/lib/theme/theme';
  */
 function checkPlaywrightDriver(): void {
   const driverVersion = process.env['PLAYWRIGHT_DRIVER_VERSION'];
+
   if (driverVersion !== undefined && driverVersion !== playwrightPackage.version) {
     throw new Error(
       `playwright ${playwrightPackage.version} in package.json does not match nixpkgs' playwright-driver ` +
@@ -45,6 +46,7 @@ const TEST_MODE = ColorMode.Dark;
  */
 export function storybookProject(configDir: string): TestProjectInlineConfiguration {
   checkPlaywrightDriver();
+
   return {
     plugins: [storybookTest({ configDir })],
     test: {

@@ -28,6 +28,8 @@ export function releasedAttack(
   if (line.state?.released !== true || !hasAnimatedRune(line, base, runes)) {
     return undefined;
   }
+
   const bonus = itemPotency(itemRunes(line, base), (rune) => runes.get(rune)) ?? 0;
+
   return Modifier.parse(ANIMATED_ATTACK + bonus);
 }

@@ -36,13 +36,17 @@ export class PathbuilderExportService {
   /** The export at `pasted`; refused, naming the url, when it is not a Pathbuilder export link or cannot be fetched. */
   public async fetchExport(pasted: string): Promise<FetchExportResponse> {
     const link = exportUrlOf(pasted);
+
     if (!link.ok) {
       throw refuse(URL_PROBLEMS[link.problem]);
     }
+
     const fetched = await this.#fetcher.fetch(link.url);
+
     if (!fetched.ok) {
       throw refuse(FETCH_PROBLEMS[fetched.problem]);
     }
+
     return { export: fetched.json };
   }
 }

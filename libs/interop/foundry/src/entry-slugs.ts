@@ -51,7 +51,9 @@ function isEtched(usage: unknown): boolean {
   if (typeof usage !== 'object' || usage === null || !('value' in usage)) {
     return false;
   }
+
   const { value } = usage;
+
   return typeof value === 'string' && value.startsWith(ETCHED_ONTO);
 }
 
@@ -62,17 +64,22 @@ function isEtched(usage: unknown): boolean {
  */
 export function documentKind({ type, document }: SelectedEntry): ContentKind {
   const { category, ritual, usage } = document.system;
+
   const feature =
     typeof category === 'string' && Object.hasOwn(FEATURE_KINDS, category) ? FEATURE_KINDS[category] : undefined;
+
   if (type === FoundryItemType.Feat && feature !== undefined) {
     return feature;
   }
+
   if (type === FoundryItemType.Spell && ritual !== undefined && ritual !== null) {
     return ContentKind.Ritual;
   }
+
   if (type === FoundryItemType.Equipment && isEtched(usage)) {
     return ContentKind.Rune;
   }
+
   return FOUNDRY_TYPE_KINDS[type];
 }
 

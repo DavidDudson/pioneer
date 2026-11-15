@@ -28,6 +28,7 @@ const inputs = StatisticInputsJson.parse({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder()
     .withId('player-core')
@@ -48,13 +49,16 @@ function overridden(character: Character, override: OverrideInput, id: OverrideI
 function perception(character: Character): StatisticValue {
   const results: ReadonlyMap<Selector, StatisticResult> = characterStatistics(character.document, sources);
   const found = results.get(PERCEPTION);
+
   if (found?.ok !== true) {
     throw new Error('Perception was not derived');
   }
+
   return found;
 }
 
 const blank = new CharacterBuilder().build();
+
 const ADJUST = OverrideInput.parse({
   target: 'perception',
   mode: 'adjust',
@@ -62,6 +66,7 @@ const ADJUST = OverrideInput.parse({
   type: 'circumstance',
   reason: 'Blessed',
 });
+
 const SET = OverrideInput.parse({ target: 'perception', mode: 'set', value: 12, reason: 'GM ruling' });
 
 describe('characterStatistics with overrides', () => {

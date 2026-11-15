@@ -20,7 +20,9 @@ const LEVEL_MAX = 20;
 const BUILD_TIMEOUT_MS = 60_000;
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const slots = slotContent(registry);
 const builds = level20Builds(registry);
 
@@ -56,6 +58,7 @@ describe('level 20 builds', () => {
       () => {
         const reads = skillReads(document, slots);
         const bisected = skillGrantsAt(reads.grantsAt);
+
         for (let level = 1; level <= LEVEL_MAX; level += 1) {
           expect(bisected(Level.parse(level))).toEqual(exactSkillGrants(reads.grantsAt, Level.parse(level)));
         }

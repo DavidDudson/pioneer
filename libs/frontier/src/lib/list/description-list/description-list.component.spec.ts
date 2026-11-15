@@ -15,40 +15,52 @@ interface Rendered {
 /** Renders a list and puts one `fr-description-item` per term into its list element, each with a projected value. */
 async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly string[]): Promise<Rendered> {
   const fixture = TestBed.createComponent(DescriptionList);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
   const list = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('[role="list"]');
+
   if (list === null) {
     throw new Error('fr-description-list rendered no list');
   }
+
   const appRef = TestBed.inject(ApplicationRef);
+
   const elementInjector = Injector.create({
     providers: [{ provide: DescriptionList, useValue: fixture.componentInstance }],
   });
+
   for (const term of terms) {
     const value = document.createElement('span');
     value.textContent = `${term} value`;
+
     const item = createComponent(DescriptionItem, {
       environmentInjector: TestBed.inject(EnvironmentInjector),
       elementInjector,
       projectableNodes: [[value]],
     });
+
     item.setInput('term', term);
     appRef.attachView(item.hostView);
     list.append(item.location.nativeElement as HTMLElement);
   }
+
   await appRef.whenStable();
+
   return { fixture, list };
 }
 
 /** The grid row holding an item's term and definition. */
 function row(list: HTMLElement): HTMLElement {
   const group = list.querySelector('[role="term"]')?.parentElement;
+
   if (group === null || group === undefined) {
     throw new Error('fr-description-item rendered no term row');
   }
+
   return group;
 }
 
@@ -60,10 +72,13 @@ function sorted(classes: string | undefined): readonly string[] {
 /** The inner grid's classes for these inputs, so assertions don't restate the primitive's class strings. */
 async function gridClasses(inputs: Readonly<Record<string, unknown>>): Promise<string | undefined> {
   const fixture = TestBed.createComponent(Grid);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).firstElementChild?.className;
 }
 

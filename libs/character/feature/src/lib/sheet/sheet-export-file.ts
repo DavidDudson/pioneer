@@ -11,6 +11,7 @@ export function exportFileName(characterName: string): string {
     .filter((word) => word !== '')
     .join('-')
     .slice(0, NAME_LENGTH_MAX);
+
   return `${words === '' ? FALLBACK_NAME : words}${FILE_SUFFIX}`;
 }
 

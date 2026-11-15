@@ -5,6 +5,7 @@ import { cva } from 'class-variance-authority';
 import { paddingVariants, Space } from '../../tokens';
 
 export const BoxWidth = { Full: 'full', Prose: 'prose', Page: 'page' } as const;
+
 export type BoxWidth = ValueOf<typeof BoxWidth>;
 
 const hostVariants = cva('@container block min-w-none', {
@@ -16,6 +17,7 @@ const hostVariants = cva('@container block min-w-none', {
     } satisfies Record<BoxWidth, string>,
   },
 });
+
 /** `paddingVariants` on the inline axis alone, for content that lines up with a row's text but keeps its own height. */
 const inlinePaddingVariants = {
   none: 'px-none',
@@ -36,6 +38,7 @@ const innerVariants = cva('', {
     gutter: { true: 'px-md @lg:px-xl', false: '' },
   },
 });
+
 const inlineVariants = cva('', {
   variants: {
     padding: inlinePaddingVariants,

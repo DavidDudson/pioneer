@@ -12,12 +12,15 @@ function mentionsAny(value: unknown, ids: ReadonlySet<string>): boolean {
   if (typeof value === 'string') {
     return UUID.test(value) && ids.has(value.toLowerCase());
   }
+
   if (Array.isArray(value)) {
     return value.some((item) => mentionsAny(item, ids));
   }
+
   if (typeof value === 'object' && value !== null) {
     return Object.values(value).some((item) => mentionsAny(item, ids));
   }
+
   return false;
 }
 
@@ -37,14 +40,18 @@ export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {
       .select({ id: contentEntries.id })
       .from(contentEntries)
       .where(eq(contentEntries.packId, dependsOn));
+
     if (offered.length === 0) {
       return [];
     }
+
     const ids = new Set(offered.map((entry) => entry.id.toLowerCase()));
+
     const own = await this.#db
       .select({ name: contentEntries.name, data: contentEntries.data })
       .from(contentEntries)
       .where(eq(contentEntries.packId, pack));
+
     // Sorted here so no query needs an index for it.
     return own
       .filter((entry) => mentionsAny(entry.data, ids))

@@ -14,6 +14,7 @@ const TYPE_MAX = 64;
 const TITLE_MAX = 500;
 const TRAITS_MAX = 100;
 const RULES_MAX = 500;
+
 /** Ten times the longest description at `pf2e-8.6.0` (about 9,500 characters). */
 const DESCRIPTION_MAX = 100_000;
 
@@ -24,6 +25,7 @@ export const FoundryPublication = z.looseObject({
   license: z.string().max(TITLE_MAX).optional(),
   remaster: z.boolean().default(false),
 });
+
 export type FoundryPublication = z.infer<typeof FoundryPublication>;
 
 /** Foundry's `system.traits`: trait slugs as Foundry spells them, and a rarity (absent on a few item types). */
@@ -31,6 +33,7 @@ export const FoundryTraits = z.looseObject({
   value: z.array(z.string().max(TYPE_MAX)).max(TRAITS_MAX).default([]),
   rarity: z.string().max(TYPE_MAX).optional(),
 });
+
 export type FoundryTraits = z.infer<typeof FoundryTraits>;
 
 /** Foundry's `system.level`; for a spell, its rank. */
@@ -56,6 +59,7 @@ export const FoundryDocument = z.looseObject({
     rules: FoundryRules.default([]),
   }),
 });
+
 export type FoundryDocument = z.infer<typeof FoundryDocument>;
 
 /**
@@ -85,6 +89,7 @@ export const FoundryItemType = {
   Treasure: 'treasure',
   Weapon: 'weapon',
 } as const;
+
 export type FoundryItemType = ValueOf<typeof FoundryItemType>;
 
 const ITEM_TYPES: ReadonlySet<string> = new Set(Object.values(FoundryItemType));
@@ -123,6 +128,7 @@ export const FoundryActor = z.looseObject({
   }),
   items: z.array(FoundryEmbeddedItem).max(ITEMS_MAX).default([]),
 });
+
 export type FoundryActor = z.infer<typeof FoundryActor>;
 
 /**
@@ -130,4 +136,5 @@ export type FoundryActor = z.infer<typeof FoundryActor>;
  * `hazard` is a later kind.
  */
 export const FoundryActorType = { Npc: 'npc', Hazard: 'hazard' } as const;
+
 export type FoundryActorType = ValueOf<typeof FoundryActorType>;

@@ -6,6 +6,7 @@ import { forwardedHeaders, isCacheable, proxy, signedUpstreamRequest, upstreamUr
 import type { EdgeCache, EdgeContext, ProxyDependencies, Upstream } from './proxy';
 
 const FUNCTION_URL = new URL('https://abc123.lambda-url.ap-southeast-2.on.aws/');
+
 const signer = new AwsClient({
   accessKeyId: 'AKIDEXAMPLE',
   secretAccessKey: 'wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY',
@@ -20,6 +21,7 @@ class MemoryCache implements EdgeCache {
 
   public readonly match = async (request: Request): Promise<Response | undefined> => {
     const body = this.bodies.get(request.url);
+
     return body === undefined ? undefined : new Response(body);
   };
 
@@ -47,10 +49,13 @@ function harness(respond: (request: Request) => Response): Harness {
   const cache = new MemoryCache();
   const context = new Context();
   const sent: Request[] = [];
+
   const upstream: Upstream = async (request: Request): Promise<Response> => {
     sent.push(request);
+
     return respond(request);
   };
+
   return { dependencies: { functionUrl: FUNCTION_URL, signer, cache, context, upstream }, cache, context, sent };
 }
 
@@ -82,6 +87,7 @@ describe('forwardedHeaders', () => {
       }),
       new URL('https://pioneer.example/'),
     );
+
     expect(Object.fromEntries(headers)).toEqual({
       cookie: 'session=1',
       'x-forwarded-host': 'pioneer.example',
@@ -98,6 +104,7 @@ describe('signedUpstreamRequest', () => {
       headers: { 'content-type': 'application/json', cookie: 'session=1', 'accept-encoding': 'gzip' },
       body: '{"name":"Ezren"}',
     });
+
     const signed = await signedUpstreamRequest(request, FUNCTION_URL, signer);
     const authorization = String(signed.headers.get('authorization'));
     expect(signed.url).toBe('https://abc123.lambda-url.ap-southeast-2.on.aws/api/characters');
@@ -167,10 +174,12 @@ describe('proxy', () => {
 
   test('passes API responses through unchanged', async () => {
     const { dependencies, sent } = harness(() => new Response('{}', { status: 201, headers: { 'set-cookie': 's=1' } }));
+
     const response = await proxy(
       new Request('https://pioneer.example/api/characters', { method: 'POST' }),
       dependencies,
     );
+
     expect(response.status).toBe(201);
     expect(response.headers.get('set-cookie')).toBe('s=1');
     expect(sent[0]?.headers.get('authorization')).toStartWith('AWS4-HMAC-SHA256 ');

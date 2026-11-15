@@ -7,16 +7,19 @@
 import type { Rule } from 'eslint';
 
 const OVERLAY_ROLES = new Set(['dialog', 'alertdialog']);
+
 /** Hrefs that leave the app, so a document load is expected. */
 const EXTERNAL_HREF = /^(?:https?:|mailto:|tel:)/u;
 
 interface Span {
   readonly start: { readonly offset: number };
 }
+
 interface ElementNode {
   readonly name?: unknown;
   readonly startSourceSpan?: Span;
 }
+
 interface AttributeNode {
   readonly name?: unknown;
   readonly value?: unknown;
@@ -41,15 +44,18 @@ export const noInterruptions: Rule.RuleModule = {
         context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
       }
     };
+
     return {
       Element(node: unknown): void {
         const { name, startSourceSpan } = node as ElementNode;
+
         if (name === 'dialog') {
           report(startSourceSpan, 'dialog');
         }
       },
       TextAttribute(node: unknown): void {
         const { name, value, keySpan } = node as AttributeNode;
+
         if (name === 'role' && typeof value === 'string' && OVERLAY_ROLES.has(value)) {
           report(keySpan, 'role', { role: value });
         } else if (name === 'href' && typeof value === 'string' && !EXTERNAL_HREF.test(value)) {
@@ -59,6 +65,7 @@ export const noInterruptions: Rule.RuleModule = {
       // Bound names arrive without brackets or `attr.`: `[attr.href]` is `href`.
       BoundAttribute(node: unknown): void {
         const { name, keySpan } = node as AttributeNode;
+
         if (name === 'href') {
           report(keySpan, 'boundHref');
         }

@@ -44,6 +44,7 @@ function badgeOf({ state, level }: ChoiceLine): MessageDescriptor {
   if (level === undefined) {
     return message(CHOICE_STATE_MESSAGES[state]);
   }
+
   return message(state === ChoiceState.Invalid ? INVALID_AT_MESSAGE : CHOICE_STATE_MESSAGES[state], { level });
 }
 
@@ -52,6 +53,7 @@ function flagsOf(selection: ChoiceLine['selection']): readonly string[] {
   if (selection === undefined || !('name' in selection)) {
     return [];
   }
+
   return [
     ...('legacy' in selection ? [ChoicesMessage.Legacy] : []),
     ...('unsupported' in selection ? [ChoicesMessage.Unsupported] : []),
@@ -60,6 +62,7 @@ function flagsOf(selection: ChoiceLine['selection']): readonly string[] {
 
 function shownOf(line: ChoiceLine): ShownChoice {
   const { selection } = line;
+
   return {
     label: line.label,
     badge: badgeOf(line),

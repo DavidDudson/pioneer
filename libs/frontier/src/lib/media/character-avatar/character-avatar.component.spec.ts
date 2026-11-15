@@ -25,10 +25,13 @@ class BadgeHost {}
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<ComponentFixture<CharacterAvatar>> {
   TestBed.configureTestingModule({ providers: [provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(CharacterAvatar);
+
   for (const [name, value] of Object.entries({ name: 'Seelah', current: 12, max: 20, ...inputs })) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -132,9 +135,11 @@ describe(CharacterAvatar, () => {
 
   it('hides the overlays under forced colours and keeps the cue', async () => {
     const fixture = await render({ current: 0 });
+
     for (const overlay of host(fixture).querySelectorAll('[class*="vignette-"], [class*="splatter-"]')) {
       expect(overlay.classList).toContain('forced-colors:hidden');
     }
+
     expect(host(fixture).querySelector('fr-icon')).not.toBeNull();
   });
 

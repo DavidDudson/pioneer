@@ -23,6 +23,7 @@ function setup(): Setup {
       },
     ],
   });
+
   return {
     strategy: TestBed.inject(IdlePreloading),
     runIdle: () => {

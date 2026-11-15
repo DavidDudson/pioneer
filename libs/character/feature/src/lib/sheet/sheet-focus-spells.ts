@@ -29,14 +29,17 @@ export function sheetFocus(
   const content = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, content));
   const focus = characterFocus(entries, content.spells, character.document.level);
+
   if (focus.entries.length === 0) {
     return undefined;
   }
+
   return {
     rank: focus.rank,
     pool: focus.pool,
     entries: focus.entries.map(({ entry, spells }) => {
       const source = content.lookup.entry(entry.origin.entry)?.name ?? entry.origin.entry;
+
       return {
         key: entry.slug,
         tradition: entry.tradition,
@@ -63,10 +66,12 @@ function focusSpellLine(
   { translate, spend }: FocusWords,
 ): FocusSpellLine {
   const option = content.spells.anySpell(id);
+
   const use =
     spend === undefined || option === undefined
       ? undefined
       : spellUse(option, { focus: cantrip ? undefined : true }, spend);
+
   const detail: SpellDetailLine | undefined =
     translate === undefined
       ? undefined
@@ -81,6 +86,7 @@ function focusSpellLine(
           },
           translate,
         );
+
   return { key: id, id, name, cantrip, detail, use };
 }
 
@@ -97,12 +103,15 @@ export function sheetInnate(
   const content = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, content));
   const innate = characterInnate(entries, content.spells, character.document.level);
+
   if (innate.length === 0) {
     return undefined;
   }
+
   return {
     entries: innate.map(({ entry, spells }) => {
       const source = content.lookup.entry(entry.origin.entry)?.name ?? entry.origin.entry;
+
       return {
         key: entry.slug,
         tradition: entry.tradition,
@@ -121,6 +130,7 @@ export function sheetInnate(
                   },
                   translate,
                 );
+
           return { key: id, id, name, cantrip, detail, rank };
         }),
       };

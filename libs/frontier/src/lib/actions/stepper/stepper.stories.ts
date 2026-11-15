@@ -14,6 +14,7 @@ const meta: Meta<Stepper> = {
   decorators: [moduleMetadata({ imports: [Step, StepBody] })],
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 const template = `

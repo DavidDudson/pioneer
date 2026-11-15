@@ -12,16 +12,19 @@ import { EngineMessage } from './messages';
 import { FORM_FACTS, formRule } from './testing/battle-form-fixtures';
 
 const TRAITS = ['auditory', 'linguistic', 'manipulate', 'move', 'concentrate'].map((name) => Trait.parse(name));
+
 const FORM_KEYS = new Set<string>([
   EngineMessage.ActionFormCantCast,
   EngineMessage.ActionFormCantSpeak,
   EngineMessage.ActionFormNoHands,
 ]);
+
 const ID_DIGITS = 12;
 const MAX_ACTIONS = 8;
 
 const flag = constantFrom<boolean | undefined>(true, false, undefined);
 const spec = record({ casts: boolean(), traits: subarray(TRAITS) });
+
 const world = record({
   canCast: flag,
   canSpeak: flag,
@@ -38,12 +41,14 @@ interface Flags {
 
 function candidateOf(each: { casts: boolean; traits: readonly Trait[] }, index: number): ActionCandidate {
   const id = ContentId.parse(`00000000-0000-4000-8000-${String(index + 1).padStart(ID_DIGITS, '0')}`);
+
   return { id, action: ActionData.parse({}), origin: { kind: ActionOriginKind.Basic }, ...each };
 }
 
 function forbids(action: ActionCandidate, flags: Flags): boolean {
   const traits = action.traits ?? [];
   const has = (name: string): boolean => traits.some((trait) => trait === name);
+
   return (
     (flags.canCast === false && action.casts === true) ||
     (flags.canSpeak === false && (has('auditory') || has('linguistic'))) ||
@@ -58,6 +63,7 @@ function everyReasonNamesTheForm(result: AvailableAction): boolean {
 /** The actions weighed under a form that sets `flags`, with the form. */
 function weighed(flags: Flags, candidates: readonly ActionCandidate[]): readonly AvailableAction[] {
   const set = Object.fromEntries(Object.entries(flags).filter(([, value]) => value !== undefined));
+
   return availableActions({
     candidates,
     facts: new PredicateFacts([], CORE_NAMESPACES),
@@ -72,6 +78,7 @@ function weighed(flags: Flags, candidates: readonly ActionCandidate[]): readonly
 function saysSo(result: AvailableAction, forbidden: boolean | undefined): boolean {
   const unavailable = result.status === ActionStatus.Unavailable;
   const reasoned = result.reasons.length > 0;
+
   return unavailable === forbidden && reasoned === forbidden && everyReasonNamesTheForm(result);
 }
 

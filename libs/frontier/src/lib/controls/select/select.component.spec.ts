@@ -16,11 +16,13 @@ function render(scoped: boolean): ComponentFixture<Select<string>> {
   });
   const fixture = TestBed.createComponent(Select<string>);
   fixture.componentRef.setInput('options', [{ value: 'elf', label: 'Elf' }]);
+
   return fixture;
 }
 
 function trigger(fixture: ComponentFixture<Select<string>>): string {
   fixture.detectChanges();
+
   return (fixture.nativeElement as HTMLElement).querySelector('button')?.textContent.trim() ?? '';
 }
 

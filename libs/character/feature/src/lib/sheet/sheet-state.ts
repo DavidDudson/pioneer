@@ -58,6 +58,7 @@ export class SheetState {
   readonly #full: Signal<Character | undefined> = computed((): Character | undefined => {
     const selected = this.store.selected();
     const played = this.#played();
+
     return selected === undefined || played === undefined
       ? selected
       : withPlay(selected, {
@@ -76,6 +77,7 @@ export class SheetState {
   public readonly activeForm: Signal<EffectView | undefined> = computed((): EffectView | undefined => {
     const registry = this.equipment.data();
     const full = this.#full();
+
     return registry === undefined || full === undefined
       ? undefined
       : activeFormOf(registry, full.document.play.effects);
@@ -99,6 +101,7 @@ export class SheetState {
   public readonly character: Signal<Character | undefined> = computed((): Character | undefined => {
     const full = this.#full();
     const registry = this.equipment.data();
+
     return full === undefined || registry === undefined || !this.#baseView()
       ? full
       : withPlay(full, {
@@ -162,6 +165,7 @@ export class SheetState {
     const report = this.store.importReport();
     const registry = this.#engineRegistry();
     const character = this.character();
+
     return report === undefined || registry === undefined || character === undefined
       ? new Map()
       : namedStatistics(
@@ -189,6 +193,7 @@ export class SheetState {
     const registry = this.#engineRegistry();
     const character = this.character();
     const statistics = this.picks.statistics();
+
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetInvestments(character, itemContent(registry), { statistics, melded: this.melded() });
@@ -199,6 +204,7 @@ export class SheetState {
     const registry = this.#engineRegistry();
     const character = this.character();
     const statistics = this.picks.statistics();
+
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetVitals(registry, character, { statistics, entryNames: this.picks.entryNames() });
@@ -208,6 +214,7 @@ export class SheetState {
   public readonly attributeChecks = computed((): ReadonlyMap<Attribute, StatisticValue> | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
+
     return registry === undefined || character === undefined ? undefined : sheetAttributeChecks(registry, character);
   });
 
@@ -216,6 +223,7 @@ export class SheetState {
     const registry = this.#engineRegistry();
     const character = this.character();
     const statistics = this.picks.statistics();
+
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetArmorClass(registry, character, { statistics, entryNames: this.picks.entryNames() });
@@ -228,6 +236,7 @@ export class SheetState {
   public readonly maxHitPoints = computed((): HitPoints | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
+
     return registry === undefined || character === undefined
       ? undefined
       : maxHitPoints(sheetDerivation(registry, character));
@@ -240,6 +249,7 @@ export class SheetState {
   public readonly grantedVitals = computed((): VitalsInPlay | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
+
     return registry === undefined || character === undefined ? undefined : sheetVitalsInPlay(registry, character);
   });
 
@@ -256,13 +266,17 @@ export class SheetState {
    */
   public readonly resourceMaxima = computed((): ResourceMaxima | undefined => {
     const character = this.character();
+
     if (character === undefined || this.picks.spellcasting() === undefined) {
       return undefined;
     }
+
     if (!this.#focuses()) {
       return resourceMaxima(FocusPoints.parse(0));
     }
+
     const spells = this.#spells.data();
+
     return spells === undefined
       ? undefined
       : resourceMaxima(sheetFocus(spells, character)?.pool ?? FocusPoints.parse(0));
@@ -272,6 +286,7 @@ export class SheetState {
   public readonly identity = computed((): IdentityParams | undefined => {
     const character = this.character();
     const lines = this.picks.buildLines();
+
     return character === undefined || lines === undefined ? undefined : sheetIdentity(character, lines);
   });
 
@@ -290,6 +305,7 @@ export class SheetState {
     this.#claims.update((claims) => {
       const next = new Map(claims);
       next.delete(selector);
+
       return next;
     });
   }

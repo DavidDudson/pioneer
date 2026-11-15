@@ -24,16 +24,19 @@ describe('rules table schemas', () => {
       .addActions({ id: 'actions', header, value: (row) => row.actions })
       .addLevel({ id: 'level', header, value: (row) => row.level })
       .build();
+
     expect(columns.map((column) => column.id)).toStrictEqual(['level-text', 'actions', 'level']);
   });
 
   it('keeps a kind of row typed through the chain', () => {
     const spells = new SpellTableSchema<Row>().addLevel({ id: 'level', header, value: (row) => row.level });
+
     const feats = new FeatTableSchema<Row>().addPrerequisites({
       id: 'prerequisites',
       header,
       value: () => [{ label: 'Trained', state: PrerequisiteState.Met }],
     });
+
     const items = new ItemTableSchema<Row>().addPrice({ id: 'price', header, value: (row) => row.price });
     expect([spells, feats, items].map((schema) => schema.build().length)).toStrictEqual([1, 1, 1]);
   });
@@ -43,6 +46,7 @@ describe('rules table schemas', () => {
       .addRank({ id: 'rank', header, value: (row) => row.level })
       .addTraditions({ id: 'traditions', header, value: () => [{ label: 'Arcane' }] })
       .build();
+
     expect(columns.map((column) => column.id)).toStrictEqual(['rank', 'traditions']);
   });
 });

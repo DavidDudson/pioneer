@@ -56,9 +56,11 @@ function readCached(storage: Storage | undefined): DisplayChoices {
   try {
     const raw = storage?.getItem(STORAGE_KEY);
     const parsed = CachedChoices.safeParse(raw === null || raw === undefined ? {} : JSON.parse(raw));
+
     if (!parsed.success) {
       return {};
     }
+
     return {
       ui: LocaleSchema.safeParse(parsed.data.ui).data,
       content: LocaleSchema.safeParse(parsed.data.content).data,

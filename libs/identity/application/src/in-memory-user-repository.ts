@@ -18,14 +18,17 @@ export class InMemoryUserRepository extends UserRepository {
     subject: ProviderSubject,
   ): Promise<User | undefined> {
     const id = this.#accounts.get(accountKey(provider, subject));
+
     return id === undefined ? undefined : this.#users.get(id);
   }
 
   public override async findByVerifiedEmail(email: EmailAddress): Promise<User | undefined> {
     const matches = [...this.#users.values()].filter((user) => user.emailVerified && user.email === email);
+
     const [oldest] = matches.toSorted(
       (left, right) => Temporal.Instant.compare(left.createdAt, right.createdAt) || left.id.localeCompare(right.id),
     );
+
     return oldest;
   }
 
@@ -36,6 +39,7 @@ export class InMemoryUserRepository extends UserRepository {
   ): Promise<User> {
     this.#users.set(user.id, user);
     this.#accounts.set(accountKey(provider, subject), user.id);
+
     return user;
   }
 
@@ -45,6 +49,7 @@ export class InMemoryUserRepository extends UserRepository {
 
   public override async update(user: User): Promise<User> {
     this.#users.set(user.id, user);
+
     return user;
   }
 

@@ -9,9 +9,11 @@ export function tableViewColumns<TRow extends RowData>(
 ): readonly TableViewColumn[] {
   return columns.flatMap((column): TableViewColumn[] => {
     const { id, meta } = column;
+
     if (id === undefined || meta?.code === undefined) {
       return [];
     }
+
     return [{ id, code: meta.code, ...(meta.defaultHidden === true ? { defaultHidden: true } : {}) }];
   });
 }

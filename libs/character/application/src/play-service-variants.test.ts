@@ -20,7 +20,9 @@ const TOUGHER = 4;
 const MORE_THAN_ANY_MAXIMUM = 100;
 
 const registry = new ContentRegistry();
+
 registry.register(hitPointsContent());
+
 registry.register(
   ContentPack.define({
     manifest: { id: 'tougher', title: 'Tougher', publisher: 'Pioneer', license: ContentLicense.Homebrew },
@@ -56,10 +58,12 @@ describe('PlayService with variant rules', () => {
 
   async function damageTaken(enabled: readonly VariantRuleEntry[]): Promise<HitPoints> {
     const play = new PlayService(repository, content(enabled), clock);
+
     const saved = await play.patch(amiri, kyra.id, {
       expectedRevision: FIRST_VERSION,
       command: { field: PlayCommandField.Damage, damage: untypedDamage(HitPoints.parse(MORE_THAN_ANY_MAXIMUM)) },
     });
+
     return saved.play.hp.damage;
   }
 

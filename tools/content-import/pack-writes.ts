@@ -12,6 +12,7 @@ import type { PackId } from '@pioneer/rules/sdk';
 
 export const PACKS_DIRECTORY = 'content/packs';
 export const IMPORT_DIRECTORY = 'content/import';
+
 /** The directory below a vocabulary pack that holds what each import added to it. */
 const IMPORTED = 'imported';
 
@@ -38,6 +39,7 @@ export function backlogPath(pack: PackId): string {
 export function backlogWrite(pack: PackId, committed: ImportFile, backlog: readonly BacklogItem[]): PackWrite {
   const { pin, legacyPin } = committed;
   const json = ImportFile.parse({ pin, ...(legacyPin === undefined ? {} : { legacyPin }), backlog });
+
   return { path: backlogPath(pack), json };
 }
 
@@ -54,8 +56,10 @@ export function unregistered(catalog: string, files: readonly string[]): readonl
 /** What `json-packs.js` imports from `content/packs` that is not among `files`, so its build would fail. */
 export function missing(catalog: string, files: readonly string[]): readonly string[] {
   const present = new Set(files.map((file) => specifier(file)));
+
   const imported = [...catalog.matchAll(/'(?<specifier>@pioneer\/content\/packs\/[^']+\.json)'/gu)].map(
     ({ groups }) => groups?.['specifier'] ?? '',
   );
+
   return imported.filter((each) => !present.has(each));
 }

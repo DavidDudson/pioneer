@@ -54,7 +54,9 @@ export function bulkCarried(entry: ItemEntry | undefined, choice: CarryChoice): 
   if (entry === undefined || choice === CarryChoice.Dropped) {
     return BulkWeight.Negligible;
   }
+
   const held = entry.kind === ContentKind.Equipment ? entry.data.container?.heldBulk : undefined;
+
   return choice === CarryChoice.Worn ? entry.data.bulk : (held ?? entry.data.bulk);
 }
 
@@ -117,12 +119,16 @@ export function injectCarryPicker(entry: Signal<ItemEntry | undefined>): CarryPi
   const i18n = inject(TranslocoService);
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
+
   const all = computed((): readonly CarryRow[] => {
     messages();
+
     return carryRows(entry(), (key) => i18n.translate(key));
   });
+
   const columns = computed(() => {
     messages();
+
     return carryColumns(
       {
         name: i18n.translate('character.sheet.inventory.carryColumns.name'),
@@ -133,5 +139,6 @@ export function injectCarryPicker(entry: Signal<ItemEntry | undefined>): CarryPi
       i18n.translate('character.sheet.inventory.carryColumns.handsUsed'),
     );
   });
+
   return { rows: new PickerRows(all, CARRY_ORDER), columns, value: carryValue, label: carryLabel };
 }

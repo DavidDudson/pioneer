@@ -45,10 +45,13 @@ export class RichValue {
   /** The author's own wording if the node gives one, else the generated text. */
   protected readonly text = computed((): string => {
     const node = this.node();
+
     if ('label' in node && node.label !== undefined) {
       return node.label;
     }
+
     this.#messages();
+
     return valueText(node, this.#context());
   });
 
@@ -56,11 +59,14 @@ export class RichValue {
   protected readonly roll = computed((): ValueRoll | undefined => {
     const node = this.node();
     const roller = this.#roller;
+
     if (roller === null) {
       return undefined;
     }
+
     const label = this.text();
     const name = this.#i18n.translate(RichTextMessage.Roll, { text: label });
+
     if (node.type === InlineKind.Damage) {
       return {
         name,
@@ -69,6 +75,7 @@ export class RichValue {
         },
       };
     }
+
     if (node.type === InlineKind.Check && roller.hasStatistic(node.statistic)) {
       return {
         name,
@@ -77,16 +84,20 @@ export class RichValue {
         },
       };
     }
+
     return undefined;
   });
 
   /** Why a check cannot be rolled here; unset for any other text. */
   protected readonly missing = computed((): string | undefined => {
     const node = this.node();
+
     if (node.type !== InlineKind.Check || this.#roller === null || this.#roller.hasStatistic(node.statistic)) {
       return undefined;
     }
+
     this.#messages();
+
     return this.#i18n.translate(RichTextMessage.NoStatistic, {
       statistic: statisticName(node.statistic, this.#context()),
     });

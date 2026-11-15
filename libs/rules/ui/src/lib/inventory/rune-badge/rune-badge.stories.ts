@@ -14,18 +14,23 @@ const meta: Meta<RuneBadge> = {
   args: { rune: { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Striking, grade: 1 } },
   render: (args) => ({ props: args, template: `<pio-rune-badge ${argsToTemplate(args)} />` }),
 };
+
 export default meta;
 
 export const Striking: RuneBadgeStory = {};
+
 export const GreaterStriking: RuneBadgeStory = {
   args: { rune: { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Striking, grade: 2 } },
 };
+
 export const MajorPotency: RuneBadgeStory = {
   args: { rune: { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Potency, grade: 3 } },
 };
+
 export const MythicResilient: RuneBadgeStory = {
   args: { rune: { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Resilient, grade: 4 } },
 };
+
 export const Flaming: RuneBadgeStory = {
   args: {
     rune: {
@@ -35,6 +40,7 @@ export const Flaming: RuneBadgeStory = {
     },
   },
 };
+
 export const EmptySlot: RuneBadgeStory = { args: { rune: { kind: RuneBadgeKind.Hole } } };
 
 /** A property rune the engine does not apply yet: hover it, or read its description, for the note. */

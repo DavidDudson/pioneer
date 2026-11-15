@@ -25,6 +25,7 @@ export class ProficiencyRankView {
 
   protected readonly shown = computed(() => {
     const rank = this.rank();
+
     return rank === undefined ? undefined : { letter: PROFICIENCY_LETTERS[rank], name: PROFICIENCY_NAMES[rank] };
   });
 }

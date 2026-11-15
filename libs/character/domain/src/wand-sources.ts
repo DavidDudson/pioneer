@@ -63,11 +63,14 @@ function countOf(inputs: WandSourceInputs, key: UseCountKey): WandCount {
  */
 export function wandSources(inputs: WandSourceInputs): readonly WandSource[] {
   const casters = inputs.entries.filter(({ preparation }) => preparation !== SpellPreparation.Focus);
+
   return inputs.inventory.flatMap((item): WandSource[] => {
     const wand = wandSpell(item, inputs.items);
+
     if (wand === undefined || item.carry.state !== CarryState.Held) {
       return [];
     }
+
     return [
       {
         item,

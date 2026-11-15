@@ -26,6 +26,7 @@ function statisticName(selector: Selector): Slug {
  */
 export function initiativeRoll(statistic: Selector): RollAs {
   const name = statisticName(statistic);
+
   return {
     statistic,
     domain: INITIATIVE,
@@ -43,10 +44,12 @@ export function contentRolledAs(content: StatisticContent, as: RollAs | undefine
   if (as === undefined) {
     return content;
   }
+
   const definitions = content.definitions.map((definition) =>
     definition.selector === as.statistic && !definition.domains.includes(as.domain)
       ? { ...definition, domains: [...definition.domains, as.domain] }
       : definition,
   );
+
   return { ...content, definitions };
 }

@@ -50,6 +50,7 @@ const ALLY_NAME_MAX = 80;
 
 /** The name of the ally an effect came from. */
 export const EffectAllyName = z.string().trim().min(1).max(ALLY_NAME_MAX).brand<'EffectAllyName'>();
+
 export type EffectAllyName = z.infer<typeof EffectAllyName>;
 
 /** Rounds in each unit of time: a round is 6 seconds, so a minute is 10 rounds. */
@@ -62,22 +63,27 @@ const ROUNDS_PER_UNIT = {
 
 /** One effect on a character, apart from its content: an instance may be removed or changed on its own. */
 export const EffectInstanceId = Uuid.brand<'EffectInstanceId'>();
+
 export type EffectInstanceId = z.infer<typeof EffectInstanceId>;
 
 /** A count of rounds an effect has left. A day is 14,400 rounds, so it is more than a smallint holds. */
 export const EffectRounds = Pg.integer().positive().brand<'EffectRounds'>();
+
 export type EffectRounds = z.infer<typeof EffectRounds>;
 
 /** The uses an effect has left: a boon with a number of uses counts down as they are spent and ends at zero, so never 0. */
 export const EffectUses = Pg.smallint().positive().brand<'EffectUses'>();
+
 export type EffectUses = z.infer<typeof EffectUses>;
 
 /** The number an effect's badge shows. */
 export const EffectBadgeValue = Pg.smallint().brand<'EffectBadgeValue'>();
+
 export type EffectBadgeValue = z.infer<typeof EffectBadgeValue>;
 
 /** Who an effect comes from. The sheet writes to no one else's sheet, so an ally's buff is recorded here by its giver. */
 export const EffectSourceKind = { Self: 'self', Ally: 'ally', Gm: 'gm' } as const;
+
 export type EffectSourceKind = ValueOf<typeof EffectSourceKind>;
 
 export const EffectSourceSchema = z.discriminatedUnion('kind', [
@@ -90,6 +96,7 @@ export const EffectSourceSchema = z.discriminatedUnion('kind', [
   }),
   z.strictObject({ kind: z.literal(EffectSourceKind.Gm) }),
 ]);
+
 export type EffectSource = z.infer<typeof EffectSourceSchema>;
 
 /** An effect the character applied to itself. */
@@ -122,6 +129,7 @@ export const ActiveEffectSchema = z.strictObject({
   /** The temporary Hit Points the effect gave when applied, so ending it takes back what it gave and no more. */
   tempHp: HitPoints.optional(),
 });
+
 export type ActiveEffect = z.infer<typeof ActiveEffectSchema>;
 
 export const ActiveEffectsSchema = z.array(ActiveEffectSchema).max(EFFECTS_MAX).default([]);
@@ -181,6 +189,7 @@ function counterTerms(
   const min = EffectBadgeValue.parse(badge.min ?? Math.min(badge.value, COUNTER_FLOOR));
   const labelled = badge.labels === undefined ? undefined : EffectBadgeValue.parse(min + badge.labels.length - 1);
   const max = badge.max === undefined ? labelled : EffectBadgeValue.parse(badge.max);
+
   return { type: EffectBadgeType.Counter, value, min, max, loop: badge.loop === true };
 }
 
@@ -188,6 +197,7 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
   if (badge === undefined) {
     return undefined;
   }
+
   return badge.type === EffectBadgeType.Counter
     ? counterTerms(badge)
     : {
@@ -205,6 +215,7 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
 export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
   const { duration } = data;
   const badge = badgeTerms(data.badge);
+
   switch (duration.type) {
     case EffectDurationType.Time: {
       return {
@@ -215,13 +226,16 @@ export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
         polymorph,
       };
     }
+
     case EffectDurationType.Turn: {
       return { remaining: undefined, expiry: duration.expiry, sustained: false, badge, polymorph };
     }
+
     case EffectDurationType.Encounter:
     case EffectDurationType.Unlimited: {
       return { remaining: undefined, expiry: undefined, sustained: false, badge, polymorph };
     }
+
     case EffectDurationType.Uses: {
       return {
         remaining: undefined,
@@ -232,6 +246,7 @@ export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
         polymorph,
       };
     }
+
     default: {
       return duration satisfies never;
     }
@@ -241,6 +256,7 @@ export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
 /** The effects of the registry's packs, by id; the last pack's entry wins, as in the registry. */
 export function effectContent(registry: ContentRegistry): EffectContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.Effect
@@ -266,6 +282,7 @@ export function badgeOptions(effects: readonly ActiveEffect[], lookup: ContentLo
   return effects.flatMap(({ effect, badge }): RollOption[] => {
     const found = lookup.entry(effect);
     const base = found === undefined ? undefined : kindOption(found.kind, found.slug);
+
     return base === undefined || badge === undefined ? [] : [RollOption.parse(`${base}:badge:${badge}`)];
   });
 }

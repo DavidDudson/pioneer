@@ -52,6 +52,7 @@ describe('ApiClient on a 401', () => {
     status: 401,
     message: { key: 'problem.unauthorized' },
   };
+
   let client: ApiClient;
   let http: HttpTestingController;
   let handler: Mock<UnauthorizedHandler>;

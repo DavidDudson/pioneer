@@ -25,9 +25,11 @@ const unauthorized = {
 /** The app's route for `path`, as configured. */
 function route(path: string): Route {
   const found = appRoutes.find((candidate) => candidate.path === path);
+
   if (found === undefined) {
     throw new Error(`No route for ${path}`);
   }
+
   return found;
 }
 

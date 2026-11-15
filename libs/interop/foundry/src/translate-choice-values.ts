@@ -29,12 +29,15 @@ const INJECTION = /\{item\|flags\.system\.rulesSelections\.(?<flag>[\w-]+)\}/gu;
 /** The flag a whole-text read of a pick names (`{item|flags.system.rulesSelections.damage}`), if `text` is one. */
 function wholeRead(text: string): string | undefined {
   const prefix = READ_PREFIXES.find((each) => text.startsWith(each));
+
   if (prefix === undefined) {
     return undefined;
   }
+
   const rest = text.slice(prefix.length);
   const flag = prefix.startsWith('{') ? rest.slice(0, -1) : rest;
   const closed = !prefix.startsWith('{') || rest.endsWith('}');
+
   return closed && /^[\w-]+$/u.test(flag) ? flag : undefined;
 }
 
@@ -43,9 +46,11 @@ function readsPick(node: unknown, flag: string): boolean {
   if (typeof node === 'string') {
     return wholeRead(node) === flag || [...node.matchAll(INJECTION)].some((found) => found.groups?.['flag'] === flag);
   }
+
   if (Array.isArray(node)) {
     return node.some((each: unknown) => readsPick(each, flag));
   }
+
   return isFields(node) && Object.values(node).some((each) => readsPick(each, flag));
 }
 
@@ -54,9 +59,11 @@ function mentionsPick(node: unknown, flag: string): boolean {
   if (typeof node === 'string') {
     return node.includes(`rulesSelections.${flag}`) && !readsPick(node, flag);
   }
+
   if (Array.isArray(node)) {
     return node.some((each: unknown) => mentionsPick(each, flag));
   }
+
   return isFields(node) && Object.values(node).some((each) => mentionsPick(each, flag));
 }
 
@@ -66,14 +73,18 @@ function substituted(node: unknown, flag: string, value: string | number): unkno
     if (wholeRead(node) === flag) {
       return value;
     }
+
     return node.replaceAll(INJECTION, (read, found: string) => (found === flag ? String(value) : read));
   }
+
   if (Array.isArray(node)) {
     return node.map((each: unknown) => substituted(each, flag, value));
   }
+
   if (isFields(node)) {
     return Object.fromEntries(Object.entries(node).map(([field, each]) => [field, substituted(each, flag, value)]));
   }
+
   return node;
 }
 
@@ -82,19 +93,24 @@ function plainValue(choice: unknown): string | number | undefined {
   if (!isFields(choice) || !('value' in choice)) {
     return undefined;
   }
+
   const { value } = choice;
   const text = typeof value === 'number' ? String(value) : value;
   const isPlain = typeof value === 'string' || typeof value === 'number';
+
   return isPlain && Slug.safeParse(text).success ? value : undefined;
 }
 
 /** The values of a `ChoiceSet` of plain choices, all of them; undefined when any choice is not. */
 function plainValues(raw: Fields): readonly (string | number)[] | undefined {
   const { choices } = raw;
+
   if (!Array.isArray(choices) || choices.length === 0) {
     return undefined;
   }
+
   const values = choices.map((choice: unknown) => plainValue(choice));
+
   return values.every((value) => value !== undefined) ? values : undefined;
 }
 
@@ -108,8 +124,10 @@ interface Pick {
 /** `raw`, an element that reads the pick, made once for each distinct way the values read it, switched on by the roll option. */
 function expanded(raw: Fields, pick: Pick): readonly Fields[] {
   const groups = new Map<string, { element: Fields; slugs: string[] }>();
+
   for (const value of pick.values) {
     const element = substituted(raw, pick.flag, value);
+
     if (isFields(element)) {
       const key = JSON.stringify(element);
       const group = groups.get(key) ?? { element, slugs: [] };
@@ -117,23 +135,29 @@ function expanded(raw: Fields, pick: Pick): readonly Fields[] {
       groups.set(key, group);
     }
   }
+
   const made: Fields[] = [];
+
   for (const { element, slugs } of groups.values()) {
     made.push({ ...element, predicate: [...predicateOf(raw), pickedOneOf(pick.namespace, slugs)] });
   }
+
   return made;
 }
 
 /** The `ChoiceSet`s among `raws` that can be made to set a roll option: their flag and values. */
 function plainPicks(raws: readonly unknown[]): ReadonlyMap<string, readonly (string | number)[]> {
   const found = new Map<string, readonly (string | number)[]>();
+
   for (const raw of raws) {
     const flag = isFields(raw) && raw['key'] === 'ChoiceSet' ? raw['flag'] : undefined;
     const values = isFields(raw) && typeof flag === 'string' && !('rollOption' in raw) ? plainValues(raw) : undefined;
+
     if (typeof flag === 'string' && values !== undefined) {
       found.set(flag, values);
     }
   }
+
   return found;
 }
 
@@ -146,6 +170,7 @@ function isReader(raw: unknown, flag: string): raw is Fields {
 function allReadersExpand(raws: readonly unknown[], flag: string): boolean {
   const readers = raws.filter((raw) => isReader(raw, flag));
   const others = raws.filter((raw) => isFields(raw) && raw['key'] !== 'ChoiceSet' && mentionsPick(raw, flag));
+
   return (
     readers.length > 0 && others.length === 0 && readers.every((raw) => isFields(raw) && READING_KEYS.has(raw['key']))
   );
@@ -156,6 +181,7 @@ function withPick(raws: readonly unknown[], pick: Pick): readonly unknown[] {
     if (isFields(raw) && raw['key'] === 'ChoiceSet' && raw['flag'] === pick.flag) {
       return [{ ...raw, rollOption: pick.namespace }];
     }
+
     return isReader(raw, pick.flag) ? expanded(raw, pick) : [raw];
   });
 }
@@ -164,6 +190,7 @@ function withPick(raws: readonly unknown[], pick: Pick): readonly unknown[] {
 function namespaceOf(item: string, flag: string): string {
   const owner = slugOf(item);
   const picked = kebab(flag);
+
   return picked.startsWith(owner) ? picked : `${owner}-${picked}`;
 }
 
@@ -173,10 +200,12 @@ function namespaceOf(item: string, flag: string): string {
  */
 export function withChoiceValues(raws: readonly unknown[], item: string): readonly unknown[] {
   let current = raws;
+
   for (const [flag, values] of plainPicks(raws)) {
     if (allReadersExpand(current, flag)) {
       current = withPick(current, { flag, namespace: namespaceOf(item, flag), values });
     }
   }
+
   return current;
 }

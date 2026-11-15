@@ -16,6 +16,7 @@ const meta: Meta<SpellDetails> = {
   title: 'Rules/Spell Details',
   component: SpellDetails,
 };
+
 export default meta;
 
 const ROLL: DamageNode = { type: InlineKind.Damage, instances: [{ formula: DamageFormula.parse('1d6') }] };

@@ -16,6 +16,7 @@ import { getJson } from './provider-http';
 import type { OAuthCredentials } from './provider-http';
 
 const USER_URL = 'https://discord.com/api/v10/users/@me';
+
 /** Profile and email (with its verified flag); no guilds, no messages. */
 const SCOPES = ['identify', 'email'];
 
@@ -27,16 +28,20 @@ const DiscordUser = z.object({
   email: z.string().nullish(),
   verified: z.boolean().optional(),
 });
+
 type DiscordUser = z.infer<typeof DiscordUser>;
 
 /** Discord's `/users/@me` as a Pioneer profile. Exported for tests. */
 export function discordProfile(user: DiscordUser): ProviderProfile {
   const email = EmailAddress.safeParse(user.email);
   const avatarHash = user.avatar ?? undefined;
+
   const avatar = AvatarUrl.safeParse(
     avatarHash === undefined ? undefined : `https://cdn.discordapp.com/avatars/${user.id}/${avatarHash}.png`,
   );
+
   const name = user.global_name?.trim() ?? '';
+
   return {
     provider: OAuthProvider.Discord,
     subject: ProviderSubject.parse(user.id),
@@ -60,12 +65,14 @@ export class DiscordProvider extends OAuthProviderPort {
   public override authorize(): AuthorizationRequest {
     const state = generateState();
     const codeVerifier = generateCodeVerifier();
+
     return { url: this.#client.createAuthorizationURL(state, codeVerifier, SCOPES), state, codeVerifier };
   }
 
   public override async profile(code: string, codeVerifier: string): Promise<ProviderProfile> {
     const tokens = await this.#client.validateAuthorizationCode(code, codeVerifier);
     const user = await getJson(USER_URL, tokens.accessToken(), DiscordUser);
+
     return discordProfile(user);
   }
 }

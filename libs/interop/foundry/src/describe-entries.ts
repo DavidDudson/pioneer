@@ -51,10 +51,13 @@ export function describeEntries(
   { lang, known }: DescriptionContext,
 ): EntryDescriptions {
   const links = foundryLinks(documents, entries, known);
+
   const described = entries.map(({ source: { document }, id }) => {
     const html = expandLocalize(document.system.description?.value ?? '', lang, { item: document.name });
+
     return { id, translation: htmlToRichText(html.text, links), unresolved: html.unresolved };
   });
+
   return {
     descriptions: new Map(described.map(({ id, translation }) => [id, translation.richText])),
     unknownMarkup: described.flatMap(({ id, translation }) =>

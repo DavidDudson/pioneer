@@ -44,6 +44,7 @@ export const ETCHED_ATTACK = Domain.parse('etched-attack');
 /** Whether the rule comes from the inventory item the Strike's weapon is. */
 export function ownsStrike(rule: RuleInPlay, { origin }: StrikeTargets): boolean {
   const item = inventoryItemOf(rule.origin);
+
   return item !== undefined && item === inventoryItemOf(origin);
 }
 

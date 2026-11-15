@@ -18,15 +18,18 @@ function directDependencies(edges: readonly PackDependencyEdge[], pack: ContentP
 export function reaches(edges: readonly PackDependencyEdge[], from: ContentPackId, to: ContentPackId): boolean {
   const seen = new Set<ContentPackId>();
   const pending = [from];
+
   for (let next = pending.pop(); next !== undefined; next = pending.pop()) {
     if (next === to) {
       return true;
     }
+
     if (!seen.has(next)) {
       seen.add(next);
       pending.push(...directDependencies(edges, next));
     }
   }
+
   return false;
 }
 
@@ -44,16 +47,22 @@ export function wouldCycle(edges: readonly PackDependencyEdge[], edge: PackDepen
 export function loadOrder(edges: readonly PackDependencyEdge[], root: ContentPackId): readonly ContentPackId[] {
   const ordered: ContentPackId[] = [];
   const visited = new Set<ContentPackId>();
+
   const visit = (pack: ContentPackId): void => {
     if (visited.has(pack)) {
       return;
     }
+
     visited.add(pack);
+
     for (const dependency of directDependencies(edges, pack)) {
       visit(dependency);
     }
+
     ordered.push(pack);
   };
+
   visit(root);
+
   return ordered;
 }

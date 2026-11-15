@@ -13,6 +13,7 @@ async function render(): Promise<Rendered> {
   const fixture = TestBed.createComponent(TabListHost);
   await fixture.whenStable();
   const tabs = [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
+
   return { fixture, tabs };
 }
 

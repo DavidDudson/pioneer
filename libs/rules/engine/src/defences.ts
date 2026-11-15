@@ -34,6 +34,7 @@ import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 
 export { DefenceStatusKind } from './defence-lines';
+
 export type {
   AdjustmentLine,
   CriticalHitCheckLine,
@@ -49,12 +50,15 @@ function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined
   const parent = parentOptions(rule.origin);
   const facts = parent.length === 0 ? context.facts : context.facts.plus(parent);
   const truth = truthOf(predicate, facts);
+
   if (truth === Truth.False) {
     return undefined;
   }
+
   if (truth === Truth.True || predicate === undefined) {
     return { kind: DefenceStatusKind.Applied };
   }
+
   return {
     kind: DefenceStatusKind.Conditional,
     when: predicate,
@@ -68,13 +72,17 @@ function valued(
   context: RuleContext,
 ): Valued | undefined {
   const status = gate(rule, context);
+
   if (status === undefined) {
     return undefined;
   }
+
   const outcome = valueOf(element.value, context.resolve(itemScopeOf(rule)));
+
   if (!outcome.ok) {
     return { value: undefined, status: failed(status, outcome.error, outcome.position) };
   }
+
   return amountOf(outcome.value, status);
 }
 
@@ -82,6 +90,7 @@ function valued(
 function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: readonly Line[]): readonly Line[] {
   return lines.toSorted((left, right) => {
     const type = Number(left.type > right.type) - Number(left.type < right.type);
+
     return type === 0 ? Number(left.id > right.id) - Number(left.id < right.id) : type;
   });
 }
@@ -93,18 +102,23 @@ function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: readonly Lin
  */
 function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLine[] {
   const winners = new Map<DamageAdjustmentSubject, AdjustmentLine>();
+
   for (const line of lines) {
     const best = winners.get(line.type);
     const { value } = line;
+
     if (line.status.kind === DefenceStatusKind.Applied && value !== undefined && (best?.value ?? 0) < value) {
       winners.set(line.type, line);
     }
   }
+
   return lines.map((line) => {
     const winner = winners.get(line.type);
+
     if (line.status.kind !== DefenceStatusKind.Applied || winner === undefined || winner === line) {
       return line;
     }
+
     return { ...line, status: { kind: DefenceStatusKind.Superseded, by: winner.id } };
   });
 }
@@ -112,11 +126,14 @@ function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLi
 /** The lines one `Immunity` element gives: one per type it names, a repeated type once. */
 function immunityLines(rule: RuleInPlay, element: ImmunityElement, context: RuleContext): readonly ImmunityLine[] {
   const status = gate(rule, context);
+
   if (status === undefined) {
     return [];
   }
+
   const id = ruleIdOf(rule);
   const label = labelOf(rule);
+
   return [...new Set(element.type)].map((type) => ({ id, label, origin: rule.origin, type, status }));
 }
 
@@ -127,13 +144,16 @@ function adjustmentLines(
   context: RuleContext,
 ): readonly AdjustmentLine[] {
   const result = valued(rule, element, context);
+
   if (result === undefined) {
     return [];
   }
+
   const id = ruleIdOf(rule);
   const label = labelOf(rule);
   const exceptions = element.exceptions ?? NONE;
   const { value, status } = result;
+
   return [...new Set(element.type)].map((type) => ({
     id,
     label,
@@ -154,6 +174,7 @@ function criticalHitCheckLine(
   context: RuleContext,
 ): CriticalHitCheckLine | undefined {
   const status = element.selectors.includes(AC) ? gate(rule, context) : undefined;
+
   return status === undefined
     ? undefined
     : { id: ruleIdOf(rule), label: labelOf(rule), origin: rule.origin, dc: element.dc, status };
@@ -163,10 +184,13 @@ function criticalHitCheckLine(
 function criticalHitChecksOf(rules: readonly RuleInPlay[], context: RuleContext): readonly CriticalHitCheckLine[] {
   const lines = rules.flatMap((rule) => {
     const { element } = rule;
+
     const line =
       element.key === RuleElementKey.CriticalHitCheck ? criticalHitCheckLine(rule, element, context) : undefined;
+
     return line === undefined ? [] : [line];
   });
+
   return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
 }
 
@@ -177,6 +201,7 @@ function persistentFlatCheckLine(
   context: RuleContext,
 ): PersistentFlatCheckLine | undefined {
   const status = gate(rule, context);
+
   return status === undefined
     ? undefined
     : {
@@ -197,10 +222,13 @@ function persistentFlatChecksOf(
 ): readonly PersistentFlatCheckLine[] {
   const lines = rules.flatMap((rule) => {
     const { element } = rule;
+
     const line =
       element.key === RuleElementKey.PersistentFlatCheck ? persistentFlatCheckLine(rule, element, context) : undefined;
+
     return line === undefined ? [] : [line];
   });
+
   return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
 }
 
@@ -212,6 +240,7 @@ function defenceContext(
 ): RuleContext {
   const { rules, facts } = modifiers;
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
+
   return {
     facts,
     resolve: (item: ItemScope): ResolveReference => resolverFor(values, (): undefined => undefined, { item }),
@@ -237,8 +266,10 @@ export function deriveDefences(
   const immunities: ImmunityLine[] = [...own.immunities];
   const weaknesses: AdjustmentLine[] = [...own.weaknesses];
   const resistances: AdjustmentLine[] = [...own.resistances];
+
   for (const rule of modifiers.rules) {
     const { element } = rule;
+
     if (element.key === RuleElementKey.Immunity) {
       immunities.push(...immunityLines(rule, element, context));
     } else if (element.key === RuleElementKey.Weakness) {
@@ -247,6 +278,7 @@ export function deriveDefences(
       resistances.push(...adjustmentLines(rule, element, context));
     }
   }
+
   return {
     immunities: inOrder(immunities),
     weaknesses: highestPerType(inOrder(weaknesses)),

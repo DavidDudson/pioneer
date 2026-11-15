@@ -13,6 +13,7 @@ import { ShopOfferRow } from './shop-offer-row/shop-offer-row.component';
 
 /** How many offers the list shows; past it, the player narrows the filters. */
 const SHOWN_MAX = 50;
+
 /** Placeholder rows while the items load. */
 const LOADING_ROWS = [0, 1, 2];
 
@@ -50,8 +51,10 @@ export class ShopOffersView {
 
   protected readonly rows: Signal<readonly OfferRow[]> = computed(() => {
     this.#messages();
+
     return (this.offers() ?? []).slice(0, SHOWN_MAX).map((offer) => {
       const price = this.#priceText(offer);
+
       return {
         offer,
         badge: RARITY_BADGES[offer.rarity],
@@ -80,9 +83,11 @@ export class ShopOffersView {
     if (price === undefined) {
       return this.#i18n.translate(ShopMessage.NoPrice);
     }
+
     const coins = coinsText(priceCoins(price), (coin, count) =>
       this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }),
     );
+
     return price.per === undefined
       ? coins
       : this.#i18n.translate(ShopMessage.PricePer, {

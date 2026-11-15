@@ -46,6 +46,7 @@ describe('translateKindData: spell damage and heightening', () => {
       damage: { '0': damagePart('2d6', 'positive'), '1': damagePart('1d6', 'fire') },
       heightening: { damage: { '0': '1d6', '1': '1d6' }, interval: 1, type: 'interval' },
     });
+
     const result = translate([legacy]);
 
     expect(dataIn(result, 'legacy')).toMatchObject({
@@ -66,6 +67,7 @@ describe('translateKindData: spell damage and heightening', () => {
       damage: { '0': damagePart('5d8', 'untyped', ['healing']) },
       heightening: { damage: { '0': '1d8' }, interval: 1, type: 'interval' },
     });
+
     const result = translate([breath]);
     const data = dataIn(result, 'breath-of-life');
 
@@ -99,6 +101,7 @@ describe('translateKindData: spell damage and heightening', () => {
         },
       },
     });
+
     const result = translate([claw]);
     const data = dataIn(result, 'gouging-claw');
 
@@ -142,6 +145,7 @@ describe('translateKindData: spell damage and heightening', () => {
       damage: { '0': { ...damagePart('1d4', 'bludgeoning'), applyMod: true } },
       heightening: { type: 'fixed', levels: { '3': { damage: { '0': { formula: '2d4' } } } } },
     });
+
     const result = translate([trauma]);
     const data = dataIn(result, 'torturous-trauma');
 
@@ -160,6 +164,7 @@ describe('translateKindData: spell damage and heightening', () => {
       damage: { '0': { ...damagePart('8d6', 'piercing'), materials: ['cold-iron'] } },
       heightening: { type: 'fixed', levels: { '7': { damage: { '0': { formula: '10d6' } } } } },
     });
+
     const result = translate([spike]);
     const data = dataIn(result, 'impaling-spike');
 

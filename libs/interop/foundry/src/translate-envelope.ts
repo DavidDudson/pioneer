@@ -74,6 +74,7 @@ export const EnvelopeFailureReason = {
   /** An earlier document of the same kind has the same name, so both would get the same id. */
   DuplicateSlug: 'duplicate-slug',
 } as const;
+
 export type EnvelopeFailureReason = ValueOf<typeof EnvelopeFailureReason>;
 
 export interface EnvelopeFailure {
@@ -131,15 +132,19 @@ interface TraitTranslation {
 function translateTraits(entry: ContentId, values: readonly string[], known: ReadonlySet<Trait>): TraitTranslation {
   const traits: Trait[] = [];
   const unknown: UnknownTrait[] = [];
+
   for (const value of new Set(values)) {
     const trait = Trait.safeParse(value);
+
     if (trait.success) {
       traits.push(trait.data);
     }
+
     if (!trait.success || !known.has(trait.data)) {
       unknown.push({ entry, trait: value });
     }
   }
+
   return { traits, unknown };
 }
 
@@ -156,11 +161,13 @@ function failed(value: unknown): value is Failed {
 
 function slugOf(text: string): EntrySlug | Failed {
   const slug = EntrySlug.safeParse(text);
+
   return slug.success ? slug.data : { reason: EnvelopeFailureReason.InvalidSlug, detail: text };
 }
 
 function nameOf({ name }: FoundryDocument): ContentText | Failed {
   const text = ContentText.safeParse(name);
+
   return text.success ? text.data : { reason: EnvelopeFailureReason.InvalidName, detail: name };
 }
 
@@ -169,15 +176,18 @@ function levelOf({ system, type }: FoundryDocument): ContentLevel | Level | Fail
   const value = system.level?.value;
   const schema = type === FoundryItemType.Npc ? Level : ContentLevel;
   const level = value === undefined ? undefined : schema.safeParse(value);
+
   if (level?.success === false) {
     return { reason: EnvelopeFailureReason.InvalidLevel, detail: String(value) };
   }
+
   return level?.data;
 }
 
 function rarityOf({ system }: FoundryDocument): Rarity | Failed {
   const value = system.traits?.rarity ?? DEFAULT_RARITY;
   const rarity = RaritySchema.safeParse(value);
+
   return rarity.success ? rarity.data : { reason: EnvelopeFailureReason.InvalidRarity, detail: value };
 }
 
@@ -189,9 +199,11 @@ interface Identity {
 function identityOf(document: FoundryDocument, slugText: string): Identity | Failed {
   const slug = slugOf(slugText);
   const name = nameOf(document);
+
   if (failed(slug)) {
     return slug;
   }
+
   return failed(name) ? name : { slug, name };
 }
 
@@ -200,12 +212,15 @@ function scalars(document: FoundryDocument, slugText: string): Scalars | Failed 
   const identity = identityOf(document, slugText);
   const level = levelOf(document);
   const rarity = rarityOf(document);
+
   if (failed(identity)) {
     return identity;
   }
+
   if (failed(level)) {
     return level;
   }
+
   return failed(rarity) ? rarity : { ...identity, rarity, ...(level === undefined ? {} : { level }) };
 }
 
@@ -218,19 +233,23 @@ interface Slugged {
 function translate({ source, slug }: Slugged, context: EnvelopeContext): Translated | Failed {
   const { pack: foundryPack, document, book } = source;
   const fields = scalars(document, slug);
+
   if (failed(fields)) {
     return fields;
   }
+
   const { _id: documentId, system } = document;
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
   const { references, lang, senses } = context;
+
   const rules = translateRules(id, system.rules, {
     lang,
     values: { item: document.name },
     ...(references === undefined ? {} : { references }),
     ...(senses === undefined ? {} : { senses }),
   });
+
   return {
     envelope: {
       id,
@@ -258,14 +277,19 @@ function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<EntrySlu
   const { source } = slugged;
   const { pack, path, document } = source;
   const result = translate(slugged, context);
+
   if (failed(result)) {
     return { pack, path, document, ...result };
   }
+
   const { slug } = result.envelope;
+
   if (taken.has(slug)) {
     return { pack, path, document, reason: EnvelopeFailureReason.DuplicateSlug, detail: slug };
   }
+
   taken.add(slug);
+
   return { source, ...result };
 }
 
@@ -278,11 +302,13 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
   const taken = new Set<EntrySlug>();
   const outcomes = selected.map((source) => outcome({ source, slug: entrySlugOf(source) }, context, taken));
   const done = outcomes.filter((each): each is Done => !failed(each));
+
   const { descriptions, unknownMarkup, untranslatedEnrichers, unresolvedText } = describeEntries(
     done.map(({ source, envelope }) => ({ source, id: envelope.id })),
     context.documents ?? [],
     { lang: context.lang, known: context.references?.byUuid },
   );
+
   return {
     entries: done.map(({ source, envelope }) => ({
       source,

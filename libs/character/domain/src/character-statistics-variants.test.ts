@@ -54,6 +54,7 @@ function variantPack(): ContentPack {
 }
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder()
     .withId('player-core')
@@ -61,13 +62,16 @@ registry.register(
     .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
     .build(),
 );
+
 registry.register(variantPack());
 
 function variant(slug: string): VariantRuleEntry {
   const found = registry.variantRules().find(({ definition }) => definition.slug === `variant-rule:${slug}`);
+
   if (found === undefined) {
     throw new Error(`No variant rule ${slug}`);
   }
+
   return found;
 }
 
@@ -80,9 +84,11 @@ function sources(...variants: readonly VariantRuleEntry[]): StatisticSources {
 /** Perception as derived, which must be a value. */
 function perception(result: ReadonlyMap<Selector, StatisticResult>): StatisticValue {
   const found = result.get(PERCEPTION);
+
   if (found?.ok !== true) {
     throw new Error('Perception was not derived');
   }
+
   return found;
 }
 

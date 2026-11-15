@@ -34,6 +34,7 @@ describe(BreakdownView, () => {
 
   it('writes a subtracted term with its minus, and a rounding line', async () => {
     const rounding = { kind: BaseTermKind.Rounding, value: FormulaValue.parse(-1) } as const;
+
     const { terms } = await render(
       statistic('speed:land', { base: [term('25', 25), term('@armor.penalty', -5, TermSign.Minus), rounding] }),
     );
@@ -46,6 +47,7 @@ describe(BreakdownView, () => {
       ...term('@prof.ac', 2),
       origin: { hops: [{ kind: OriginHopKind.Variant, rule: WITHOUT_LEVEL }], entry: WITHOUT_LEVEL, sources: [] },
     };
+
     const { terms } = await render(statistic('ac', { base: [term('10', 10), variant] }));
 
     expect(terms).toStrictEqual(['10 | = 10', '+ @prof.ac | = 2 | Set by Proficiency Without Level.']);
@@ -70,6 +72,7 @@ describe(BreakdownView, () => {
       term('floor(@level / 2)', 1),
       term('@flag.consumeFear', 0),
     ];
+
     const rendered = await render(statistic('ac', { base: terms }), { statisticNames: STATISTIC_NAMES_FIXTURE });
 
     expect(rendered.terms.map((shown) => shown.split(' | ')[0])).toStrictEqual([
@@ -109,6 +112,7 @@ describe(BreakdownView, () => {
         reason: SuppressionReason.Adjustment,
       },
     });
+
     const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [removed] }), {
       ruleNames: new Map([[RuleId.parse(`${GOLEM_FORM}#3`), message('rules.breakdown.modifiers')]]),
     });
@@ -129,6 +133,7 @@ describe(BreakdownView, () => {
       value: 2,
       status: climbing(undefined, undefined),
     });
+
     const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [unsummarised] }));
 
     expect(lines).toStrictEqual(['Breastplate | +2 item | Conditional']);
@@ -149,6 +154,7 @@ describe(BreakdownView, () => {
 
   it('shows two copies of one item as two lines, the lower one suppressed by the other', async () => {
     const winner = line(BREASTPLATE, { type: ModifierType.Item, value: 4 });
+
     const copy = line(BREASTPLATE, {
       type: ModifierType.Item,
       value: 4,
@@ -158,6 +164,7 @@ describe(BreakdownView, () => {
         reason: SuppressionReason.Stacking,
       },
     });
+
     const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [copy, winner] }));
 
     expect(lines).toStrictEqual([
@@ -240,12 +247,15 @@ describe(BreakdownView, () => {
       value: 4,
       label: { text: ContentText.parse('Armor') },
     });
+
     const unlabelled = line(GOLEM_FORM, { type: ModifierType.Status, value: 1 });
+
     const engine = line(MAGE_ARMOR, {
       type: ModifierType.Item,
       value: 1,
       label: { message: message('engine.modifier.weaponPotency', { weapon: 'longsword' }) },
     });
+
     const value = statistic('ac', { base: [term('10', 10)], lines: [labelled, unlabelled, engine] });
 
     it('calls a line by its label, else its entry name, else the engine’s message', async () => {
@@ -259,6 +269,7 @@ describe(BreakdownView, () => {
         [RuleId.parse(`${BREASTPLATE}#0`), message('rules.breakdown.rounding')],
         [RuleId.parse(`${GOLEM_FORM}#0`), message('rules.breakdown.modifiers')],
       ]);
+
       const { lines } = await render(value, { ruleNames });
 
       expect(lines).toStrictEqual(['Armor | +4 item', 'Modifiers | +1 status', 'Item bonus of longsword | +1 item']);

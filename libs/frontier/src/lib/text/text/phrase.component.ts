@@ -13,6 +13,7 @@ export const PhraseElement = {
   /** A short inline quotation; the browser adds the locale's quotation marks. Block quotes use `fr-quote`. */
   Quotation: 'q',
 } as const;
+
 export type PhraseElement = ValueOf<typeof PhraseElement>;
 
 /** `fr-text`'s inline semantic elements, styled by `fr-text`. Internal: features use `fr-text element="…"`. */

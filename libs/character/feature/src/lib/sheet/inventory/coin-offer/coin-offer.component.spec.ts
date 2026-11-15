@@ -53,6 +53,7 @@ function render(campaignId: string | undefined, loader: LoadOffer, coins: Coins)
   });
   const fixture = TestBed.createComponent(CoinOffer);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -61,6 +62,7 @@ function control(fixture: ComponentFixture<CoinOffer>): StubCoinOffer | undefine
   const found: unknown[] = fixture.debugElement
     .queryAll(By.directive(StubCoinOffer))
     .map((element): unknown => element.componentInstance);
+
   return found.find((each) => each instanceof StubCoinOffer);
 }
 

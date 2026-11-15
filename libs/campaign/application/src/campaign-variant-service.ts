@@ -47,6 +47,7 @@ export class CampaignVariantService {
   /** The campaign's variant rules, and for its GM the ones they could enable. Not a member: 404. */
   public async variantRules(actor: UserId, id: CampaignId): Promise<CampaignVariantRules> {
     const campaign = await this.#viewed(actor, id);
+
     return this.#view(actor, campaign);
   }
 
@@ -61,15 +62,18 @@ export class CampaignVariantService {
   ): Promise<CampaignVariantRules> {
     const campaign = await this.#managed(actor, id);
     const offered = await this.#catalog.of(id);
+
     if (!offered.some((option) => option.variantId === variantId)) {
       throw new NotFoundError('VariantRule', variantId);
     }
+
     await this.#variants.enable(actor, id, {
       id: CampaignVariantRuleId.parse(newId()),
       variantId,
       enabledBy: actor,
       enabledAt: this.#clock.now(),
     });
+
     return this.#view(actor, campaign);
   }
 
@@ -77,35 +81,43 @@ export class CampaignVariantService {
   public async disable(actor: UserId, id: CampaignId, variantId: EnabledVariantRuleId): Promise<CampaignVariantRules> {
     const campaign = await this.#managed(actor, id);
     await this.#variants.disable(actor, id, variantId);
+
     return this.#view(actor, campaign);
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
   /** A campaign the actor runs. One they only play in is a 403. */
   async #managed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#viewed(actor, id);
+
     if (!mayManageVariantRules(actor, campaign)) {
       throw new ForbiddenError(`Only the GM changes the variant rules of campaign ${id}`);
     }
+
     return campaign;
   }
 
   /** The variant rules in force and, for the GM, the ones they could enable. */
   async #view(actor: UserId, campaign: Campaign): Promise<CampaignVariantRules> {
     const manageable = mayManageVariantRules(actor, campaign);
+
     const [rows, offered] = await Promise.all([
       this.#variants.listForCampaign(campaign.id),
       this.#catalog.of(campaign.id),
     ]);
+
     const chosen = new Set(rows.map((row) => row.variantId));
+
     return {
       manageable,
       enabled: offered.filter((option) => chosen.has(option.variantId)).toSorted(byName),

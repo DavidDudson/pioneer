@@ -18,6 +18,7 @@ function timelineLine(slot: CharacterSlot, character: Character, content: SlotCo
   const found = choiceSourceOf(slot, character.document, content);
   const line = found === undefined ? base : { ...base, source: sourceMessageOf(found) };
   const unpicked = slot.status === SlotStatus.Planned && slot.selection === undefined;
+
   return unpicked ? { ...line, state: ChoiceState.Open, level: undefined } : line;
 }
 
@@ -25,6 +26,7 @@ function timelineLine(slot: CharacterSlot, character: Character, content: SlotCo
 export function sheetTimeline(registry: ContentRegistry, character: Character): readonly LevelTimelineRow[] {
   const content = sheetSlotContent(registry);
   const automatic = sheetAutomatic(character, content);
+
   return levelTimeline(character.document, content).map(({ level, slots }) => ({
     level,
     current: level === character.document.level,

@@ -32,6 +32,7 @@ const SWORD: WeaponTheme = WeaponThemeSchema.parse({ category: 'martial', group:
 /** The class named `name`, as a pick. */
 function classPick(name: string): ChoiceValue {
   const found = content.lookup.ofKind(ContentKind.Class).find((entry) => entry.name === name);
+
   return ChoiceValue.parse(found?.id);
 }
 
@@ -40,6 +41,7 @@ const AXE: WeaponTheme = WeaponThemeSchema.parse({ category: 'martial', group: W
 /** The feat named `name`, as a pick. */
 function featPick(name: string): ChoiceValue {
   const found = content.lookup.ofKind(ContentKind.Feat).find((entry) => entry.name === name);
+
   return ChoiceValue.parse(found?.id);
 }
 
@@ -51,6 +53,7 @@ function fittingOf(theme: WeaponTheme): readonly ItemEntry[] {
 /** A character of `LEVEL` for `seed`, themed and outfitted with items and runes. */
 function generated(seed: number, weapon: WeaponTheme): Character {
   const theme = withWeapon(favouring([Attribute.Strength]), weapon);
+
   return generateCharacter({
     start: blankIn(content, 'Fighter'),
     seed: Seed.parse(seed),
@@ -69,6 +72,7 @@ function heldWeapons(character: Character): readonly WeaponGroup[] {
     .filter((line) => line.carry.state === 'held')
     .flatMap((line) => {
       const entry = items.get(line.item);
+
       return entry?.kind === ContentKind.Weapon && entry.data.group !== undefined ? [entry.data.group] : [];
     });
 }

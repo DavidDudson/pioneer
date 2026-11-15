@@ -29,6 +29,7 @@ function issuesCiting(...sources: readonly z.input<typeof SourceRef>[]): readonl
     slug: EntrySlug.parse('statistic:sanity'),
     sources: sources.map((source) => SourceRef.parse(source)),
   };
+
   return sourceIssues(entry, bookRegistry);
 }
 
@@ -44,11 +45,13 @@ function homebrew(pack: string): z.input<typeof SourceRef> {
 function rejected(pack: ContentPack): readonly string[] {
   try {
     checkPackSources(pack, bookRegistry);
+
     return [];
   } catch (error) {
     if (error instanceof SourceCheckError) {
       return error.entries.map((missourced) => missourced.entry);
     }
+
     throw error;
   }
 }
@@ -98,6 +101,7 @@ describe('source checks', () => {
       .withStatistic('sanity', { sources: [homebrew('someone-else')] })
       .withStatistic('luck')
       .build();
+
     expect(rejected(pack)).toStrictEqual(['homebrew/ancestry:lizardfolk', 'homebrew/statistic:sanity']);
   });
 
@@ -108,6 +112,7 @@ describe('source checks', () => {
       creatures: [],
       variantRules: [{ slug: 'variant-rule:gritty', name: 'Gritty', sources: [book('bestiary')], rules: [] }],
     });
+
     expect(rejected(pack)).toStrictEqual(['homebrew/variant-rule:gritty']);
   });
 
@@ -132,6 +137,7 @@ describe('source checks', () => {
         ],
       ],
     );
+
     expect(rejected(pack)).toStrictEqual(['homebrew/language:lizard']);
   });
 });

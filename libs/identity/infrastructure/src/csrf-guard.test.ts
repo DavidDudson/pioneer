@@ -18,15 +18,19 @@ interface Case {
 
 function request({ method, cookie, origin, fetchSite }: Case): Request {
   const headers = new Headers();
+
   if (cookie) {
     headers.set('cookie', SESSION);
   }
+
   if (origin !== undefined) {
     headers.set('origin', origin);
   }
+
   if (fetchSite !== undefined) {
     headers.set('sec-fetch-site', fetchSite);
   }
+
   return new Request(`${SITE}/api/things`, { method, headers });
 }
 

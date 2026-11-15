@@ -20,6 +20,7 @@ const MODIFIER_HEADER = 1;
 
 const STRENGTH = attributeRow({ id: Attribute.Strength, name: 'Strength', modifier: 4, boosted: 5 });
 const DEXTERITY = attributeRow({ id: Attribute.Dexterity, name: 'Dexterity', modifier: 0, boosted: 1 });
+
 const LOCKED = attributeRow({
   id: Attribute.Wisdom,
   name: 'Wisdom',

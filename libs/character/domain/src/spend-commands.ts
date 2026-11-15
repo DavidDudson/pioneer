@@ -58,10 +58,13 @@ interface Draw {
 function drawn(turn: TurnState, count: SpendCount): Draw | undefined {
   const ordinary = ActionCount.parse(Math.min(count, turn.actions));
   const short = count - ordinary;
+
   if (short === 0) {
     return { ordinary, quickened: NO_QUICKENED };
   }
+
   const usable = turn.quickened === ONE_QUICKENED && turn.quickenedFor === undefined;
+
   return usable && short === ONE_QUICKENED ? { ordinary, quickened: ONE_QUICKENED } : undefined;
 }
 
@@ -75,12 +78,15 @@ function costProblem(turn: TurnState, cost: SpendCost): SpendProblem | undefined
   if (cost.kind === SpendKind.Reaction) {
     return tracked(turn) && turn.reactionUsed ? SpendProblem.ReactionSpent : undefined;
   }
+
   if (cost.kind !== SpendKind.Actions || !tracked(turn)) {
     return undefined;
   }
+
   if (turn.phase === TurnPhase.OffTurn) {
     return SpendProblem.OffTurn;
   }
+
   return drawn(turn, cost.count) === undefined ? SpendProblem.TooFewActions : undefined;
 }
 
@@ -92,15 +98,19 @@ export function turnAllows(turn: TurnState, cost: SpendCost): boolean {
 /** Why `request` can't be spent from `play`'s turn, or undefined when it can. */
 function requestProblem(play: SpendPlay, request: SpendRequest): SpendProblem | undefined {
   const { turn, spendLog } = play;
+
   if (spendLog.some(({ id }) => id === request.id)) {
     return SpendProblem.AlreadySpent;
   }
+
   if (request.apply !== undefined && request.shift !== undefined) {
     return SpendProblem.ShiftNotAllowed;
   }
+
   if (paysTwice(request)) {
     return SpendProblem.PaymentConflict;
   }
+
   return spellRefusal(play, request) ?? shiftRefusal(play, request) ?? costProblem(turn, request.cost);
 }
 
@@ -109,6 +119,7 @@ function entryProblem(play: SpendPlay, entry: SpendEntry): SpendProblem | undefi
   if (entry.cost.kind === SpendKind.Actions && play.turn.phase === TurnPhase.OffTurn) {
     return SpendProblem.OffTurn;
   }
+
   return spellUndoRefusal(play, entry) ?? shiftUndoRefusal(play, entry);
 }
 
@@ -125,18 +136,24 @@ export function spendRefusal(
 ): SpendProblem | undefined {
   if (command.field === SpendCommandField.UndoSpend) {
     const entry = play.spendLog.find(({ id }) => id === command.id);
+
     return entry === undefined ? SpendProblem.NotSpent : entryProblem(play, entry);
   }
+
   const { use, slot, focus } = command;
+
   if (use !== undefined && heldCount({ spent: play.resources.uses, maxima: counted.uses, key: use }) === NONE) {
     return SpendProblem.NoUseLeft;
   }
+
   if (slot !== undefined && heldCount({ spent: play.resources.slots, maxima: counted.slots, key: slot }) === NONE) {
     return SpendProblem.NoSlotLeft;
   }
+
   if (focus === true && heldIn({ spent: play.resources, maxima: points }, Resource.FocusPoints) === NONE) {
     return SpendProblem.NoFocusLeft;
   }
+
   return requestProblem(play, command);
 }
 
@@ -171,6 +188,7 @@ interface FocusChange {
 /** `play` after the Focus Point of `change` is spent or regained, when there is one. */
 function withFocus(play: SpendPlay, { focus, field }: FocusChange, limits: ResourceLimits): SpendPlay {
   const command = { field, resource: Resource.FocusPoints, amount: ONE_POINT };
+
   return focus === true ? { ...play, ...applyResourceCommand(play, command, limits) } : play;
 }
 
@@ -193,7 +211,9 @@ export function spentStaffOf(play: Pick<SpendPlay, 'spendLog'>, command: SpendCo
   if (command.field === SpendCommandField.SpendAction) {
     return command.staff === undefined ? undefined : { field: StaffCommandField.CastStaff, ...command.staff };
   }
+
   const { staff } = play.spendLog.find(({ id }) => id === command.id) ?? {};
+
   return staff === undefined ? undefined : { field: StaffCommandField.UncastStaff, ...staff };
 }
 
@@ -206,18 +226,24 @@ interface Taken {
 /** `turn` after `request` took its cost. */
 function spentFrom(turn: TurnState, { cost }: SpendRequest): Taken {
   const untouched: Taken = { turn, quickened: NO_QUICKENED };
+
   if (!tracked(turn)) {
     return untouched;
   }
+
   if (cost.kind === SpendKind.Reaction) {
     return { turn: { ...turn, reactionUsed: true }, quickened: NO_QUICKENED };
   }
+
   const draw = cost.kind === SpendKind.Actions ? drawn(turn, cost.count) : undefined;
+
   if (draw === undefined) {
     return untouched;
   }
+
   const actions = ActionCount.parse(turn.actions - draw.ordinary);
   const quickened = QuickenedAction.parse(turn.quickened - draw.quickened);
+
   return { turn: { ...turn, actions, quickened }, quickened: draw.quickened };
 }
 
@@ -226,10 +252,13 @@ function refundedTo(turn: TurnState, { cost, quickened }: SpendEntry): TurnState
   if (!tracked(turn) || cost.kind === SpendKind.Free) {
     return turn;
   }
+
   if (cost.kind === SpendKind.Reaction) {
     return { ...turn, reactionUsed: false };
   }
+
   const actions = ActionCount.parse(Math.min(turn.actions + cost.count - quickened, TURN_ACTIONS));
+
   return { ...turn, actions, quickened: QuickenedAction.parse(Math.min(turn.quickened + quickened, ONE_QUICKENED)) };
 }
 
@@ -245,6 +274,7 @@ function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): Spe
   const focused = withFocus(slotted, { focus: entry.focus, field: ResourceCommandField.RegainResource }, limits);
   const refunded = withUse(focused, { use: entry.use, field: ResourceCommandField.RefundUse }, limits);
   const { effects, temp } = shiftUndone(play, entry);
+
   return {
     ...refunded,
     turn: withAttack(refundedTo(play.turn, entry), entry, -1),
@@ -264,6 +294,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: SpendEffects): Sp
   const used = withUse(focused, { use: request.use, field: ResourceCommandField.SpendUse }, limits);
   const { activeSpells, dismissed } = spellSpent(play, request);
   const { effects, temp, shifted } = shiftSpent(play, request);
+
   const entry: SpendEntry = {
     ...request,
     at: limits.now,
@@ -271,6 +302,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: SpendEffects): Sp
     ...(dismissed === undefined ? {} : { dismissed }),
     ...(shifted === undefined ? {} : { shifted }),
   };
+
   const logged: SpendPlay = {
     ...used,
     turn: withAttack(taken.turn, request, 1),
@@ -279,6 +311,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: SpendEffects): Sp
     effects,
     hp: { ...play.hp, temp },
   };
+
   return formApplied(logged, request, limits.effects);
 }
 
@@ -291,10 +324,14 @@ export function applySpendCommand(play: SpendPlay, command: SpendCommand, limits
   if (spendRefusal(play, command, limits) !== undefined) {
     return play;
   }
+
   if (command.field === SpendCommandField.SpendAction) {
     const { field: _field, ...request } = command;
+
     return spent(play, request, limits);
   }
+
   const entry = play.spendLog.find(({ id }) => id === command.id);
+
   return entry === undefined ? play : undone(play, entry, limits);
 }

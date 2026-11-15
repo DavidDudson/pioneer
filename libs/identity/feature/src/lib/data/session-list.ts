@@ -28,11 +28,14 @@ export class SessionList {
     await this.#api.call(IdentityContract.revokeSession, { params: { id: session.id }, body: undefined });
     // An in-flight refetch could otherwise bring the revoked row back.
     await this.#client.cancelQueries({ queryKey: sessionListKey });
+
     if (session.current) {
       this.#client.removeQueries({ queryKey: sessionListKey });
       await this.#session.signedOut();
+
       return;
     }
+
     this.#client.setQueryData<SessionSummary[]>(sessionListKey, (sessions) =>
       sessions?.filter((each) => each.id !== session.id),
     );

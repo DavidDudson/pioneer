@@ -30,6 +30,7 @@ function selectLore(slot: SlotKey, name: string, version: Version): PatchCharact
     selection: SAILING,
     loreName: LoreName.parse(name),
   };
+
   return { expectedVersion: version, patch };
 }
 
@@ -43,11 +44,14 @@ describe('CharacterService selecting a custom Lore', () => {
       fixedContent(playerCoreClasses(), skillFixtures()),
       clock,
     );
+
     const created = await service.create(amiri, {
       name: CharacterName.parse('Kyra'),
       ancestry: humanAncestryId,
     });
+
     ({ id } = created);
+
     const pickClass: PatchCharacterBody = {
       expectedVersion: created.version,
       patch: {
@@ -56,11 +60,13 @@ describe('CharacterService selecting a custom Lore', () => {
         selection: ChoiceValue.parse(playerCoreClassId('fighter')),
       },
     };
+
     await service.patch(amiri, id, pickClass);
   });
 
   async function versionNow(): Promise<Version> {
     const character = await service.get(amiri, id);
+
     return character.version;
   }
 

@@ -16,6 +16,7 @@ function sizeOf(value: Json): number {
   if (Array.isArray(value)) {
     return value.length;
   }
+
   return typeof value === 'object' && value !== null ? Object.keys(value).length : 0;
 }
 
@@ -29,11 +30,14 @@ function flat(value: Json): string | undefined {
   if (Array.isArray(value)) {
     const parts = value.map((item: Json) => flat(item));
     const joined = parts.every((part) => part !== undefined) ? parts.join(', ') : undefined;
+
     return joined === undefined || breaksAlways(value) ? undefined : `[${joined}]`;
   }
+
   if (typeof value === 'object' && value !== null) {
     return sizeOf(value) === 0 ? '{}' : undefined;
   }
+
   return JSON.stringify(value);
 }
 
@@ -56,12 +60,15 @@ interface Frame {
 /** The lines of `value` placed at `depth`. */
 function lines(value: Json, depth: number, { prefix, suffix }: Around): readonly string[] {
   const lead = `${indented(depth)}${prefix}`;
+
   if (Array.isArray(value)) {
     return arrayLines(value, depth, { lead, suffix });
   }
+
   if (typeof value === 'object' && value !== null) {
     return objectLines(Object.entries(value), depth, { lead, suffix });
   }
+
   return [`${lead}${JSON.stringify(value)}${suffix}`];
 }
 
@@ -69,14 +76,18 @@ function arrayLines(items: readonly Json[], depth: number, { lead, suffix }: Fra
   if (items.length === 0) {
     return [`${lead}[]${suffix}`];
   }
+
   const oneLine = flat(items);
   const line = oneLine === undefined ? undefined : `${lead}${oneLine}${suffix}`;
+
   if (line !== undefined && line.length <= PRINT_WIDTH) {
     return [line];
   }
+
   const inner = items.flatMap((item, at) =>
     lines(item, depth + 1, { prefix: '', suffix: at < items.length - 1 ? ',' : '' }),
   );
+
   return [`${lead}[`, ...inner, `${indented(depth)}]${suffix}`];
 }
 
@@ -88,9 +99,11 @@ function objectLines(
   if (members.length === 0) {
     return [`${lead}{}${suffix}`];
   }
+
   const inner = members.flatMap(([key, member], at) =>
     lines(member, depth + 1, { prefix: `${JSON.stringify(key)}: `, suffix: at < members.length - 1 ? ',' : '' }),
   );
+
   return [`${lead}{`, ...inner, `${indented(depth)}}${suffix}`];
 }
 

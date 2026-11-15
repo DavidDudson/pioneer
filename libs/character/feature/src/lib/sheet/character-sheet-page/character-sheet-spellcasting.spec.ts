@@ -113,6 +113,7 @@ describe('CharacterSheetPage spellcasting', () => {
     const prepared = await vi.waitFor(() =>
       present(section(root).querySelector<HTMLElement>('pio-sheet-prepared-spells')),
     );
+
     await vi.waitFor(() => {
       expect(pickerLabels(prepared)).toStrictEqual([
         'Cantrip 1',
@@ -132,9 +133,11 @@ describe('CharacterSheetPage spellcasting', () => {
   // oxlint-disable-next-line vitest/no-disabled-tests -- #734
   it.skip('prepares a cantrip from the table of spells', async () => {
     const { root } = await openSheet(as('wizard'), { packs: SPELL_PACKS });
+
     const prepared = await vi.waitFor(() =>
       present(section(root).querySelector<HTMLElement>('pio-sheet-prepared-spells')),
     );
+
     const cantrip = await vi.waitFor(() => present(prepared.querySelector<HTMLElement>('fr-inline-field')));
 
     const rows = await openPickerTable(cantrip);
@@ -146,6 +149,7 @@ describe('CharacterSheetPage spellcasting', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'prepared:wizard:cantrip:0', selection: DETECT_MAGIC },
     });
@@ -162,6 +166,7 @@ describe('CharacterSheetPage spellcasting', () => {
 
   it('says why a prepared pick counts for nothing, under its picker', async () => {
     const slot = 'prepared:wizard:1:0';
+
     const invalid = {
       status: 'invalid',
       key: slot,
@@ -169,6 +174,7 @@ describe('CharacterSheetPage spellcasting', () => {
       selection: DETECT_SCRYING,
       reason: { key: 'rules.choices.invalid.spellNoAccess' },
     };
+
     const { root } = await openSheet(as('wizard', { choices: { [slot]: DETECT_SCRYING } }), {
       slots: [invalid],
       packs: SPELL_PACKS,
@@ -189,6 +195,7 @@ describe('CharacterSheetPage spellcasting', () => {
         packs: SPELL_PACKS,
         play: playOf(OWN_TURN),
       });
+
       await vi.waitFor(() => {
         expect(useButtons(root)).toHaveLength(1);
       });
@@ -211,10 +218,12 @@ describe('CharacterSheetPage spellcasting', () => {
 
     it('offers no cast the turn has too few actions for', async () => {
       const turn = { ...OWN_TURN, actions: 1 };
+
       const { root } = await openSheet(as('wizard', { choices: { [slot]: GREASE } }), {
         packs: SPELL_PACKS,
         play: playOf(turn),
       });
+
       await vi.waitFor(() => {
         expect(root.querySelector('pio-sheet-prepared-spells fr-inline-field')).not.toBeNull();
       });

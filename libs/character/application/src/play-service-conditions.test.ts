@@ -41,6 +41,7 @@ const builder = new ContentPackBuilder()
     { valued: true },
   )
   .withCondition(BLINDED);
+
 const content = fixedContent(builder.build());
 
 const drained = (value: number): ActiveCondition => ({

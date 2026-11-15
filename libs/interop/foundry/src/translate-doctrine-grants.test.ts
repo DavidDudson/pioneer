@@ -77,6 +77,7 @@ describe('a cleric’s doctrine', () => {
         value: { firstDoctrine: DOCTRINE('First Doctrine (Other)') },
       },
     ]);
+
     const translation = translate([other, FIRST]);
 
     expect(translation.envelopes.untranslatedRules).toHaveLength(1);
@@ -84,6 +85,7 @@ describe('a cleric’s doctrine', () => {
 
   test('grants nothing for a doctrine whose feature is not in the import', () => {
     const translation = translate([FIRST, FIRST_WARPRIEST]);
+
     const rules = translation.entries.find(({ envelope }) => String(envelope.slug) === 'class-feature:first-doctrine')
       ?.envelope.rules;
 

@@ -39,6 +39,7 @@ function labelOf(facet: FacetDefinition, value: FacetValue): string | undefined 
   if (value === UNKNOWN) {
     return FacetMessage.Unknown;
   }
+
   return facet.type === FacetType.Flag ? FLAG_LABELS.get(value) : facet.values?.get(value);
 }
 
@@ -54,10 +55,12 @@ function facetRow(format: LocaleFormat, { facet, values, unknown }: FacetCounts)
     key: labelOf(facet, value),
     count,
   }));
+
   const unknownRow =
     facet.type === FacetType.Range && unknown > 0
       ? [{ value: UNKNOWN, shown: UNKNOWN, key: FacetMessage.Unknown, count: unknown }]
       : [];
+
   return { id: facet.id, label: facet.label, values: [...rows, ...unknownRow] };
 }
 
@@ -90,6 +93,7 @@ export class FiltersResult {
   protected readonly facets = computed((): readonly FacetRow[] => {
     this.#format.locale();
     const result = this.check();
+
     return result.status === FiltersStatus.Valid
       ? result.counts
           .filter((counts) => counts.values.length > 0 || counts.unknown > 0)

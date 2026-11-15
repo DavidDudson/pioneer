@@ -13,6 +13,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d8[piercing]+1d6[precision]', [5, 3]),
       target({ resistances: [adjustment(DamageGroup.Physical, 10)] }),
     );
+
     expect(result.immediate).toHaveLength(1);
     expect(result.immediate[0]).toMatchObject({ type: DamageType.Piercing, rolled: 8, dealt: 8, taken: 0 });
   });
@@ -22,6 +23,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d8[piercing]+1d6[precision]', [5, 3]),
       target({ weaknesses: [adjustment(DamageGroup.All, 5)] }),
     );
+
     expect(result.taken).toBe(amount(13));
   });
 
@@ -31,6 +33,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       target({ immunities: [Immunity.parse('precision')] }),
       CRITICAL,
     );
+
     expect(result.immediate[0]?.taken).toBe(amount(10));
     expect(result.immediate[0]?.lines).toContainEqual(
       message(DiceMessage.DamageImmune, { type: DamageType.Precision, prevented: 6 }),
@@ -42,6 +45,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d8[piercing]+1d6[precision]', [5, 3]),
       target({ resistances: [adjustment(DamageType.Precision, 10)] }),
     );
+
     expect(result.taken).toBe(amount(5));
     expect(result.immediate[0]?.lines).toEqual([
       message(DiceMessage.DamageResistance, { value: 10, target: DamageType.Precision, prevented: 3 }),
@@ -53,6 +57,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d8[piercing]+1d6[precision]', [5, 3]),
       target({ resistances: [adjustment(DamageType.Precision, 10), adjustment(DamageGroup.Physical, 5)] }),
     );
+
     expect(result.taken).toBe(amount(3));
   });
 
@@ -61,6 +66,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d6[precision]', [4]),
       target({ resistances: [adjustment(DamageType.Precision, 10)] }),
     );
+
     expect(result.taken).toBe(amount(0));
   });
 
@@ -81,6 +87,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       roll('1d4[persistent,bleed]', [2]),
       target({ resistances: [adjustment(DamageGroup.Physical, 10)] }),
     );
+
     expect(result.persistentTaken).toBe(amount(0));
   });
 
@@ -90,6 +97,7 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
       target({ immunities: [Immunity.parse('critical-hits')] }),
       CRITICAL,
     );
+
     expect(result.immediate[0]).toEqual(
       expectedInstance({
         type: DamageType.Slashing,

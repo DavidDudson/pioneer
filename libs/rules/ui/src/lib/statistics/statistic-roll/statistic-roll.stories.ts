@@ -20,6 +20,7 @@ import { StatisticRoll } from './statistic-roll.component';
 type RollStory = StoryObj<StatisticRoll>;
 
 const APPLIED: RollEffectStatus = { kind: RollEffectStatusKind.Applied };
+
 const WHEN_DARK: RollEffectStatus = {
   kind: RollEffectStatusKind.Conditional,
   when: Predicate.parse(['lighting:darkness']),
@@ -29,6 +30,7 @@ const WHEN_DARK: RollEffectStatus = {
 /** A check of +5 base with the given lines and roll effects. */
 function check(lines: StatisticValue['lines'], effects: Partial<RollEffects> = {}): StatisticValue {
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
+
   return { ...base, rollEffects: { rollTwice: [], degreeAdjustments: [], ...effects } };
 }
 
@@ -41,6 +43,7 @@ const meta: Meta<StatisticRoll> = {
   decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: { roll: () => undefined } }] })],
   args: { name: 'Acrobatics', kind: StatisticKind.Check, entryNames: ENTRY_NAMES, statistic: check([]) },
 };
+
 export default meta;
 
 /** Nothing applies beyond the base: neutral. */

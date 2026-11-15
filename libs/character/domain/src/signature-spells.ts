@@ -17,6 +17,7 @@ export const SignaturePickProblem = {
   /** Not in the entry's repertoire at the slot's rank: swapped out, or learned at another rank. */
   NotInRepertoire: 'notInRepertoire',
 } as const;
+
 export type SignaturePickProblem = ValueOf<typeof SignaturePickProblem>;
 
 /**
@@ -59,16 +60,20 @@ export function castRanks({ own, learned, signature, highest }: KnownSpell): rea
   if (!signature) {
     return [learned];
   }
+
   const top = Math.max(learned, highest);
+
   return Array.from({ length: top - own + 1 }, (_unused, index) => SpellRank.parse(own + index));
 }
 
 /** Each spell once, in the order first met. */
 function distinct(spells: readonly SpellOption[]): SpellOption[] {
   const seen = new Set<ContentId>();
+
   return spells.filter((spell) => {
     const fresh = !seen.has(spell.id);
     seen.add(spell.id);
+
     return fresh;
   });
 }
@@ -90,11 +95,13 @@ function knownAt(repertoire: readonly PreparedSlot[], rank: SpellRank): SpellOpt
 export function signatureSlots(document: CharacterDocument, reads: PreparedReads): SignatureSlot[] {
   const { spells, resolution } = reads;
   const repertoires = preparedSlots(document, reads);
+
   return characterSpellcasting(resolution)
     .filter((entry) => entry.preparation === SpellPreparation.Spontaneous && entry.signatures)
     .flatMap(({ slug, slots }) => {
       const highest = slots.ranks.findLast(({ rank }) => rank < SPELL_RANK_MAX)?.rank;
       const repertoire = repertoires.filter((slot) => slot.entry === slug);
+
       return slots.ranks.map(({ rank }): SignatureSlot => {
         const key = SlotKey.parse(`${SIGNATURE_PREFIX}${slug}:${rank}`);
         const options = knownAt(repertoire, rank);
@@ -102,10 +109,12 @@ export function signatureSlots(document: CharacterDocument, reads: PreparedReads
         const named = stored === undefined ? undefined : spells.spell(stored);
         const pick = options.find((spell) => spell.id === named?.id);
         const problem = named === undefined || pick !== undefined ? undefined : SignaturePickProblem.NotInRepertoire;
+
         const ranks =
           pick === undefined
             ? []
             : castRanks({ own: pick.rank, learned: rank, signature: true, highest: highest ?? rank });
+
         return { key, entry: slug, rank, options, stored, pick, problem, castRanks: ranks };
       });
     });
@@ -115,6 +124,7 @@ export function signatureSlots(document: CharacterDocument, reads: PreparedReads
  * Why a signature slot refuses a spell: the character hasn't the slot at its level, or its repertoire lacks the spell.
  */
 export const SignatureRefusal = { NotOpen: 'notOpen', NotOffered: 'notOffered' } as const;
+
 export type SignatureRefusal = ValueOf<typeof SignatureRefusal>;
 
 /** Why a pick's spell can't be a signature spell in its slot, or undefined when it can. */
@@ -124,9 +134,11 @@ export function signatureRefusal(
   { slot: key, selection }: SlotPick,
 ): SignatureRefusal | undefined {
   const slot = signatureSlots(document, reads).find((each) => each.key === key);
+
   if (slot === undefined) {
     return SignatureRefusal.NotOpen;
   }
+
   return slot.options.some((spell) => spell.id === selection) ? undefined : SignatureRefusal.NotOffered;
 }
 
@@ -139,5 +151,6 @@ export function isSignatureKey(slot: SlotKey): boolean {
 export function signatureKeyOf(repertoireSlot: SlotKey): SlotKey | undefined {
   const [prefix, entry, rank] = repertoireSlot.split(':');
   const ranked = prefix === 'repertoire' && entry !== undefined && rank !== undefined && rank !== 'cantrip';
+
   return ranked ? SlotKey.parse(`${SIGNATURE_PREFIX}${entry}:${rank}`) : undefined;
 }

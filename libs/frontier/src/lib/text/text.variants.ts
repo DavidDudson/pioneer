@@ -15,9 +15,11 @@ export const TextVariant = {
   /** The app's wordmark. */
   Brand: 'brand',
 } as const;
+
 export type TextVariant = ValueOf<typeof TextVariant>;
 
 export const FontWeight = { Regular: 'regular', Medium: 'medium', Semibold: 'semibold', Bold: 'bold' } as const;
+
 export type FontWeight = ValueOf<typeof FontWeight>;
 
 /** Typography shared by every text-bearing primitive (fr-text, fr-heading, fr-label, fr-link). */

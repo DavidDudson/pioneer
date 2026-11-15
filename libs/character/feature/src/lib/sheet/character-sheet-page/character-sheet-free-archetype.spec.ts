@@ -11,6 +11,7 @@ const freeArchetype = {
   name: 'Free Archetype',
   packTitle: 'Core Rules',
 };
+
 const FREE_ARCHETYPE_ON = { decidedBy: 'character', manageable: true, enabled: [freeArchetype], available: [] };
 
 /** Merisiel as a fighter. */
@@ -43,6 +44,7 @@ describe('CharacterSheetPage with Free Archetype', () => {
     const { root } = await openSheet(FIGHTER, { characterVariantRules: FREE_ARCHETYPE_ON });
 
     const levels = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
     for (const level of levels) {
       // oxlint-disable-next-line eslint/no-await-in-loop -- each level opens in turn, on the one sheet
       await openLevel(root, level);

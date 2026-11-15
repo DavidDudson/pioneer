@@ -96,10 +96,13 @@ describe('InventorySection runes', () => {
   it('names the sword with its runes once etched, and erases a property rune', async () => {
     const section = await openInventory();
     await etchedAs(section, RUNED);
+
     const sword = await vi.waitFor(async () => {
       await settle();
+
       return row(section, '+1 Flaming Longsword');
     });
+
     button(sword, 'Erase Flaming from').click();
     const sent = await patchSent();
     expect(sent.request.body).toStrictEqual({
@@ -111,10 +114,13 @@ describe('InventorySection runes', () => {
   it('moves a rune onto another item of the same kind, and shows a refusal in the form', async () => {
     const section = await openInventory();
     await etchedAs(section, RUNED_PAIR);
+
     const move = await vi.waitFor(async () => {
       await settle();
+
       return present(row(section, '+1 Flaming Longsword').querySelector<HTMLElement>('pio-rune-move fr-async-form'));
     });
+
     const [rune, onto] = move.querySelectorAll<HTMLElement>('fr-picker-field');
     await pickRow(present(rune), 'Flaming');
     await pickRow(present(onto), 'Longsword');

@@ -27,6 +27,7 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
       flag: 'firstTrainedSkill',
       key: RuleElementKey.ChoiceSet,
     };
+
     const { rules, untranslated } = translateRules(
       ENTRY,
       [pick, raise('system.skills.{item|flags.system.rulesSelections.firstTrainedSkill}')],
@@ -53,6 +54,7 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
       flag: 'elementalLore',
       key: RuleElementKey.ChoiceSet,
     };
+
     const { rules, untranslated } = translateRules(
       ENTRY,
       [pick, raise('{item|flags.system.rulesSelections.elementalLore}')],
@@ -119,6 +121,7 @@ describe('ChoiceSet from Foundry: a pick whose reader is kept for the backlog', 
 
   test('is not offered, so the pick and its reader stay together', () => {
     const reader = { key: 'TempHP', value: '@item.flags.system.rulesSelections.fighterSkill' };
+
     const { rules, untranslated } = translateRules(ENTRY, [PICK, reader], {
       lang: { PF2E: { Yes: 'Yes', No: 'No' } },
       values: { item: 'Pick' },
@@ -130,6 +133,7 @@ describe('ChoiceSet from Foundry: a pick whose reader is kept for the backlog', 
 
   test('is offered when the element that fails does not read it', () => {
     const other = { key: 'TempHP', value: '@actor.level+@item.flags.system.rulesSelections.otherPick' };
+
     const { rules, untranslated } = translateRules(ENTRY, [PICK, other], {
       lang: { PF2E: { Yes: 'Yes', No: 'No' } },
       values: { item: 'Pick' },

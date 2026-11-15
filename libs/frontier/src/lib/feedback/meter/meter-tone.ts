@@ -11,6 +11,7 @@ export const MeterTone = {
   /** Two ranges away: the far end from the optimum. */
   Danger: 'danger',
 } as const;
+
 export type MeterTone = ValueOf<typeof MeterTone>;
 
 export interface MeterRange {
@@ -32,6 +33,7 @@ export function meterTone({ value, min, max, low, high, optimum }: MeterRange): 
   if (low === undefined && high === undefined) {
     return MeterTone.Accent;
   }
+
   const clamp = (amount: number, from: number): number => Math.min(Math.max(amount, from), max);
   const current = clamp(value, min);
   const lowBound = clamp(low ?? min, min);
@@ -41,9 +43,11 @@ export function meterTone({ value, min, max, low, high, optimum }: MeterRange): 
   if (best < lowBound) {
     return rank(current <= lowBound, current <= highBound);
   }
+
   if (best > highBound) {
     return rank(current >= highBound, current >= lowBound);
   }
+
   return current >= lowBound && current <= highBound ? MeterTone.Success : MeterTone.Warning;
 }
 
@@ -52,5 +56,6 @@ function rank(inOptimumRange: boolean, inNextRange: boolean): MeterTone {
   if (inOptimumRange) {
     return MeterTone.Success;
   }
+
   return inNextRange ? MeterTone.Warning : MeterTone.Danger;
 }

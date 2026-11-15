@@ -21,6 +21,7 @@ const PLANT = entry('plant-form', [
     brackets: [{ start: 5, tempHP: '12' }],
   },
 ]);
+
 const LOOKUP = lookupOf([PLANT]);
 
 /** The temporary Hit Points of the plant form in force, for an effect cast at `rank` with `form` chosen. */
@@ -31,6 +32,7 @@ function formTempHp(rank: number, form: string | undefined): string | undefined 
     rank: SpellRank.parse(rank),
     ...(form === undefined ? {} : { form: RollOption.parse(form) }),
   });
+
   const resolution = resolveGrants({
     roots: effectRoots([effect]),
     lookup: LOOKUP,
@@ -41,8 +43,10 @@ function formTempHp(rank: number, form: string | undefined): string | undefined 
     rootSlots: [],
     namespaces: new Map(),
   });
+
   const rules = rulesOf(resolution, { inventory: EMPTY_INVENTORY, content: itemFixtureContent() }, () => true);
   const found = battleFormInPlay({ rules, facts: resolution.facts });
+
   return found?.form.tempHP === undefined ? undefined : String(found.form.tempHP);
 }
 

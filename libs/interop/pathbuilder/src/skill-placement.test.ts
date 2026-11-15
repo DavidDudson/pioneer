@@ -17,8 +17,11 @@ import { placeSkills } from './skill-placement';
 import type { SkillRanks } from './skill-placement';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A fighter of `level` with a key attribute; the class decides how many trained skill slots there are. */
@@ -37,11 +40,13 @@ function ranks(skills: SkillRanks['skills'], lores: SkillRanks['lores'] = []): S
 describe('placeSkills', () => {
   test('trains the skills the export ranks and raises one as far as the increases reach', () => {
     const document = fighter(5);
+
     const { choices, gaps } = placeSkills(
       document,
       content,
       ranks({ athletics: Proficiency.Expert, acrobatics: Proficiency.Trained }),
     );
+
     const picked = Object.values(choices);
     expect(picked).toContain(skillFixtureId('athletics'));
     expect(picked).toContain(skillFixtureId('acrobatics'));

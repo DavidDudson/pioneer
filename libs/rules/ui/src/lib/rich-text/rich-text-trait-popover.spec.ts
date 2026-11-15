@@ -39,6 +39,7 @@ async function popovers(block: unknown, previews: EntryPreviews | undefined): Pr
   await fixture.whenStable();
   const deferred = await fixture.getDeferBlocks();
   await Promise.all(deferred.map(async (each) => each.render(DeferBlockState.Complete)));
+
   return (fixture.nativeElement as HTMLElement).querySelectorAll('pio-content-preview').length;
 }
 

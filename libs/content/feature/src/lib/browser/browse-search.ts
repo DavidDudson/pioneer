@@ -11,6 +11,7 @@ import type { BrowseKind } from './browse-kinds';
 /** The most matches the browser asks for: the server's largest page. */
 const MATCHES_MAX = SearchLimit.parse(200);
 const FIRST_PAGE = SearchOffset.parse(0);
+
 /** Search results are ranked, not cached for good: a re-seed changes them, and a minute is long enough to reuse. */
 const SEARCH_STALE_MS = 60_000;
 
@@ -24,6 +25,7 @@ export interface BrowseSearch {
 export function searchFromQuery(text: unknown): SearchText | undefined {
   const first: unknown = Array.isArray(text) ? text[0] : text;
   const parsed = SearchText.safeParse(first);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -34,9 +36,11 @@ export function searchFromQuery(text: unknown): SearchText | undefined {
 export function injectBrowseSearch(search: () => BrowseSearch | undefined): CreateQueryResult<readonly ContentId[]> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+
   return injectQuery(() => {
     const wanted = search();
     const { homebrew, legacy, ready } = scope();
+
     return {
       queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted(), legacy],
       enabled: wanted !== undefined && ready,
@@ -45,6 +49,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
         if (wanted === undefined) {
           return [];
         }
+
         const query: ContentSearchQuery = {
           query: wanted.words,
           locale: SOURCE_LOCALE,
@@ -54,7 +59,9 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
           limit: MATCHES_MAX,
           offset: FIRST_PAGE,
         };
+
         const found = await loader.search(query);
+
         return found.ids;
       },
     };

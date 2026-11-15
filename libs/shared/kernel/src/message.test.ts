@@ -92,6 +92,7 @@ const cases: readonly Case[] = [
 
 function issuesOf(schema: z.ZodType, value: unknown): readonly z.core.$ZodIssue[] {
   const result = schema.safeParse(value);
+
   return result.success ? [] : result.error.issues;
 }
 
@@ -106,6 +107,7 @@ function unknownKey(key: string): MessageDescriptor {
 function hasKey(key: string): boolean {
   const [group = '', name = ''] = key.split('.');
   const table: Readonly<Record<string, Readonly<Record<string, string>>>> = messages;
+
   return table[group]?.[name] !== undefined;
 }
 

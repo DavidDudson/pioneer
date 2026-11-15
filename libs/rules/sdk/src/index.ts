@@ -10,8 +10,11 @@ export {
   UP_TO_MAX,
   Uses,
 } from './action';
+
 export { Activation, ActivationName, Activations } from './activation';
+
 export { AncestryData, AncestryDefinition, AncestryId, LanguageList } from './ancestry';
+
 export {
   ATTRIBUTE_MODIFIER_MAX,
   ATTRIBUTE_MODIFIER_MIN,
@@ -22,6 +25,7 @@ export {
   AttributeModifiersWire,
   AttributeSchema,
 } from './attribute';
+
 export {
   DeityCategory,
   DeityData,
@@ -31,6 +35,7 @@ export {
   Sanctification,
   SanctificationModal,
 } from './deity';
+
 export {
   BadgeReevaluation,
   EffectBadgeType,
@@ -39,12 +44,19 @@ export {
   EffectDurationType,
   EffectExpiry,
 } from './effect';
+
 export { RitualCheckPick, RitualData } from './ritual';
+
 export { ArmorData, CheckPenalty, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
+
 export { ConsumableActivation, ConsumableCategory, ConsumableData } from './consumable';
+
 export { Charges, STAFF_CANTRIP, StaffRank, staffCharges, StaffSpells } from './staff';
+
 export type { StaffRankSpells } from './staff';
+
 export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';
+
 export {
   BulkTenths,
   bulkInTenths,
@@ -53,6 +65,7 @@ export {
   priceInCopper,
   TENTHS_PER_BULK,
 } from './equipment-facet-values';
+
 export {
   Bulk,
   BulkCount,
@@ -66,6 +79,7 @@ export {
   UsageHands,
   UsageType,
 } from './physical-item';
+
 export {
   EtchingRestriction,
   FUNDAMENTAL_RUNE_ITEMS,
@@ -80,6 +94,7 @@ export {
   RuneGrade,
   RuneType,
 } from './rune';
+
 export {
   AmmunitionType,
   BaseWeapon,
@@ -91,18 +106,31 @@ export {
   WeaponGroup,
   ItemBonus,
 } from './weapon';
+
 export { FormEffects, spellEffectId } from './form-effects';
+
 export type { SpellEffectEntry } from './form-effects';
+
 export { DamageKind, HeighteningType, SpellData } from './spell';
+
 export type { Heightening, SpellDamage, SpellVariant } from './spell';
+
 export { DamageFormula, SpellDamageFormula } from './damage-formula';
+
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
+
 export { SingleCastTime, TurnOwner } from './spell-casting';
+
 export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from './spell-targets';
+
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
+
 export { uniqueItems } from './unique-items';
+
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
+
 export { FeatCategory, PrerequisiteClause, Take, UNLIMITED } from './feat';
+
 export {
   ConditionChange,
   ConditionData,
@@ -117,7 +145,9 @@ export {
   ConditionValues,
   ConditionTrigger,
 } from './condition';
+
 export { ContentKind, ContentKindSchema } from './content-kind';
+
 export {
   EnvironmentConsequence,
   EnvironmentData,
@@ -125,6 +155,7 @@ export {
   EnvironmentDamageCategory,
   EnvironmentRestriction,
 } from './environment';
+
 export {
   ContentPack,
   type ContentPackLoader,
@@ -135,7 +166,9 @@ export {
   PackStatistic,
   PackVisibility,
 } from './content-pack';
+
 export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
+
 export {
   EntrySlug,
   entrySlug,
@@ -150,7 +183,9 @@ export {
   slugKind,
   slugName,
 } from './content-id';
+
 export { ContentText, EntryTextField } from './content-text';
+
 export {
   ContentSearchContract,
   ContentSearchQuery,
@@ -160,7 +195,9 @@ export {
   SearchText,
   SearchTotal,
 } from './content-search';
+
 export { loadOrder, reaches, wouldCycle, type PackDependencyEdge } from './pack-dependencies';
+
 export {
   DAMAGE_GROUP_TYPES,
   DamageAdjustment,
@@ -175,13 +212,21 @@ export {
   DamageTypeData,
   DamageTypeSchema,
 } from './damage';
+
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
+
 export { DamageException, Immunity, Trait, TraitData, traitId } from './trait';
+
 export { LanguageData, LanguageScript } from './language';
+
 export { SenseAcuity, SenseData } from './sense';
+
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';
+
 export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits, variantLimitsInForce } from './variant-rule-limits';
+
 export { ContentEntry } from './content-entry';
+
 export {
   BundleBody,
   ByteCount,
@@ -195,6 +240,7 @@ export {
   HomebrewContentContract,
   HomebrewManifestRequest,
 } from './content-bundle';
+
 export {
   CanonicalJson,
   canonicalJson,
@@ -202,6 +248,7 @@ export {
   descriptionFromBundle,
   descriptionShard,
 } from './content-bundle';
+
 export type {
   BundlePath,
   DescriptionBundle,
@@ -210,6 +257,7 @@ export type {
   KindBundles,
   PackBundles,
 } from './content-bundle';
+
 export {
   ContentEntryFile,
   ContentPackFile,
@@ -217,7 +265,9 @@ export {
   contentPackFromFiles,
   packContentsFromFiles,
 } from './content-pack-file';
+
 export type { PackContents, PackContentsLoader } from './content-pack-file';
+
 export {
   DisplayCategory,
   DisplayCategorySchema,
@@ -227,9 +277,13 @@ export {
   Rarity,
   RaritySchema,
 } from './entry-fields';
+
 export { AdditionalFeat, ArchetypeData, DEDICATION_LOCK_DEFAULT, DedicationLock } from './archetype';
+
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
+
 export { ClassRole, ClassRoleSchema, SkillCount } from './character-class';
+
 export {
   COMMON_FACETS,
   CommonFacet,
@@ -247,14 +301,18 @@ export {
   type FacetDerive,
   UNKNOWN,
 } from './facet';
+
 export { availableItems } from './available-items';
+
 export { facetsFor } from './kind-facets';
+
 export {
   PREREQUISITES_MET_FACET,
   prerequisitesMetFacet,
   PrerequisiteValue,
   type PrerequisiteStatusOf,
 } from './action-facets';
+
 export {
   AreaValue,
   CastActions,
@@ -268,7 +326,9 @@ export {
   TargetValue,
   targetValues,
 } from './spell-facet-values';
+
 export { SPELL_FACETS, SpellFacet, SpellFacetMessage } from './spell-facets';
+
 export {
   EntryCount,
   type FacetCounts,
@@ -282,6 +342,7 @@ export {
   type ValueCount,
   type ValuesSelection,
 } from './facet-filter';
+
 export {
   FilterParam,
   FilterParamText,
@@ -291,6 +352,7 @@ export {
   filterToQuery,
   type QueryParams,
 } from './filter-query';
+
 export {
   type AncestryEntry,
   ContentRegistry,
@@ -299,8 +361,11 @@ export {
   type StatisticEntry,
   type VariantRuleEntry,
 } from './content-registry';
+
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
+
 export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
+
 export {
   CreatureData,
   CreatureDefinition,
@@ -311,7 +376,9 @@ export {
   NpcDetails,
   NpcLevelRange,
 } from './creature';
+
 export { CREATURE_FACETS } from './creature-facets';
+
 export {
   CreatureAbility,
   CreatureDamage,
@@ -328,6 +395,7 @@ export {
   MovementType,
   StrikeRange,
 } from './creature-stat-block';
+
 export {
   AonSourceUrl,
   Book,
@@ -347,11 +415,17 @@ export {
   PUBLISHER_LABELS,
   LegacyImport,
 } from './book';
+
 export { sourceType, SourceEdition, SourceType } from './source-type';
+
 export type { SourceTypeInput } from './source-type';
+
 export { ContentLicense, ContentLicenseSchema, effectiveLicense, isLegacyLicense } from './license';
+
 export { Proficiency, ProficiencyBonusFormula, ProficiencyBonusTable, ProficiencySchema } from './proficiency';
+
 export { Size, SizeSchema } from './size';
+
 export {
   ArmorClass,
   CONTENT_LEVEL_MAX,
@@ -366,7 +440,9 @@ export {
   Miles,
   Modifier,
 } from './units';
+
 export { RulesMessage } from './messages';
+
 export {
   ConditionValue,
   EventRef,
@@ -379,6 +455,7 @@ export {
   parentOptions,
   RuleIndex,
 } from './origin';
+
 export {
   type ComparisonOperands,
   isPredicateComparison,
@@ -389,16 +466,27 @@ export {
   PredicateNumber,
   PredicateStatement,
 } from './predicate';
+
 export { RollOption, RollOptionTail } from './roll-option';
+
 export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionNamespaces } from './roll-option-namespace';
+
 export { Domain, Selector, SkillSelector, SlotKey, ToggleKey } from './selector';
+
 export { AonListedEntry, AonListingFile } from './aon-listing';
+
 export { AonPagesFile } from './aon-pages';
+
 export { AonSupersedesFile } from './aon-supersedes';
+
 export { EnrichmentMapping, EnrichmentMappingFile } from './enrichment-mapping';
+
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
+
 export { default as rulesMessages } from './i18n/en.json';
+
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
+
 export {
   FOUNDRY_REFERENCES,
   type FoundryReference,
@@ -406,6 +494,7 @@ export {
   fromFoundryBadgePath,
   fromFoundryPath,
 } from './foundry-reference';
+
 export {
   isSourceReference,
   type KnownReference,
@@ -417,8 +506,11 @@ export {
   ReferenceScope,
   type SourceReference,
 } from './formula-reference';
+
 export { ModifierType, ModifierTypeSchema } from './modifier-type';
+
 export { RuleElement, RuleElements } from './rule-element';
+
 export {
   ModifierTarget,
   ModifierTargets,
@@ -429,6 +521,7 @@ export {
   RuleSlug,
   RuleValue,
 } from './rule-element-base';
+
 export {
   AdjustMode,
   AdjustModifierElement,
@@ -439,6 +532,7 @@ export {
   ModifierValue,
   MultipleAttackPenaltyElement,
 } from './rule-element-numbers';
+
 export {
   ChoiceOption,
   ChoiceQuery,
@@ -451,6 +545,7 @@ export {
   RollOptionElement,
   RollOptionSuboption,
 } from './rule-element-structure';
+
 export {
   ItemAlterationElement,
   ItemProperty,
@@ -458,18 +553,31 @@ export {
   NumericItemProperty,
   TraitAlterationMode,
 } from './rule-element-item-alteration';
+
 export { raisesPotency } from './potency-element';
+
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
+
 export { SenseElement } from './rule-element-sense';
+
 export { LiftRestrictionElement } from './rule-element-lift-restriction';
+
 export { GrantedShield, GrantShieldElement, HardnessBonus, ShardDamage } from './rule-element-grant-shield';
+
 export { MovementCostElement } from './rule-element-movement-cost';
+
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
+
 export { ActorTraitsElement } from './rule-element-actor-traits';
+
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
+
 export { NoteElement } from './rule-element-note';
+
 export { CriticalHitCheckElement } from './rule-element-critical-hit-check';
+
 export { PersistentFlatCheckElement } from './rule-element-persistent-flat-check';
+
 export {
   CreatureCount,
   CriticalCondition,
@@ -481,19 +589,29 @@ export {
   CriticalTrigger,
   CriticalSaveStatistic,
 } from './rule-element-critical-effect';
+
 export type { CriticalDuration, CriticalSave } from './rule-element-critical-effect';
+
 export { CriticalRangeElement, NaturalRoll } from './rule-element-critical-range';
+
 export { CriticalWeaknessElement } from './rule-element-critical-weakness';
+
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
+
 export {
   alternateSpecializationOf,
   criticalSpecializationOf,
   grievousSpecializationOf,
 } from './critical-specialization';
+
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
+
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
+
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
+
 export { AuraAffects, AuraElement, AuraEvent } from './rule-element-aura';
+
 export {
   AdjustDegreeOfSuccessElement,
   AdjustedCheck,
@@ -502,7 +620,9 @@ export {
   SubstitutedRoll,
   SubstituteRollElement,
 } from './rule-element-rolls';
+
 export { DamageAlterationElement, DamageDiceCategory, DamageDiceElement, DamageProperty } from './rule-element-damage';
+
 export {
   DeitySpellsElement,
   FOCUS_POOL_MAX,
@@ -522,6 +642,7 @@ export {
   SpellPreparation,
   SpellSlotsElement,
 } from './rule-element-spellcasting';
+
 export {
   ArmorCategory,
   FAVORED_WEAPON,
@@ -533,6 +654,7 @@ export {
   RaisedRank,
   WeaponCategory,
 } from './rule-element-proficiency';
+
 export {
   ActionCost,
   ActionCostSchema,
@@ -573,7 +695,11 @@ export {
   type TemplateNode,
   type TextNode,
 } from './rich-text';
+
 export { contentBundles } from './content-bundle-write';
+
 export type { ContentBundles } from './content-bundle-write';
+
 export { putUnsupportedPacks, unsupportedPacksOf } from './unsupported-packs';
+
 export { LEGACY_CONTENT_VARIANT } from './legacy-content';

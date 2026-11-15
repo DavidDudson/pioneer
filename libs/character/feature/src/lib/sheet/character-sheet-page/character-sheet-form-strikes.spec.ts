@@ -37,6 +37,7 @@ const SWORDSWOMAN = {
 
 function inForm(effect: string, form: string, rank: number): object {
   const effects = [{ id: FIRST, effect, source: { kind: 'self' }, form, rank }];
+
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 
@@ -79,6 +80,7 @@ describe('CharacterSheetPage Strikes in a form', () => {
       play: plant,
       packs: PACKS,
     });
+
     await vi.waitFor(() => {
       expect(textOf(strikesSection(root))).toContain('Replaced by your form');
     });
@@ -88,6 +90,7 @@ describe('CharacterSheetPage Strikes in a form', () => {
         (button) => textOf(button) === 'Show base sheet',
       ),
     );
+
     toggle.click();
     await TestBed.inject(ApplicationRef).whenStable();
 

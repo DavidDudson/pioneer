@@ -12,8 +12,10 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { campaignInvites, campaignMembers, campaigns } from './campaign.table';
 
 type CampaignRow = typeof campaigns.$inferSelect;
+
 /** What an insert writes: never `archivedAt`, which only archive and restore touch. */
 type SavedRow = Omit<CampaignRow, 'archivedAt'>;
+
 type MemberRow = typeof campaignMembers.$inferSelect;
 
 function toMember(row: MemberRow): CampaignMember {
@@ -81,7 +83,9 @@ export class DrizzleCampaignRepository extends CampaignRepository {
       .innerJoin(campaigns, eq(campaigns.id, campaignMembers.campaignId))
       .where(where)
       .orderBy(asc(campaignMembers.joinedAt), asc(campaignMembers.campaignId));
+
     const members = await this.#membersOf(rows.map(({ campaign }) => campaign.id));
+
     return rows.map(({ campaign }) => toCampaign(campaign, members.get(campaign.id) ?? []));
   }
 
@@ -95,10 +99,13 @@ export class DrizzleCampaignRepository extends CampaignRepository {
 
   async #findOne(where: SQL | undefined): Promise<Campaign | undefined> {
     const [row] = await this.#db.select().from(campaigns).where(where).limit(1);
+
     if (row === undefined) {
       return undefined;
     }
+
     const members = await this.#membersOf([row.id]);
+
     return toCampaign(row, members.get(row.id) ?? []);
   }
 
@@ -121,13 +128,16 @@ export class DrizzleCampaignRepository extends CampaignRepository {
   public override async insert(campaign: Campaign): Promise<Campaign> {
     return this.#db.transaction(async (tx) => {
       const [row] = await tx.insert(campaigns).values(toRow(campaign)).returning();
+
       if (row === undefined) {
         throw new Error(`Insert of campaign ${campaign.id} returned no row`);
       }
+
       const members = await tx
         .insert(campaignMembers)
         .values(campaign.members.map((member) => toMemberRow(campaign.id, member)))
         .returning();
+
       return toCampaign(row, members);
     });
   }
@@ -144,40 +154,50 @@ export class DrizzleCampaignRepository extends CampaignRepository {
         isNull(campaignInvites.revokedAt),
         gt(campaignInvites.expiresAt, now.toString()),
       );
+
       const [stillOpen] = await tx.select({ id: campaignInvites.id }).from(campaignInvites).where(open).for('share');
+
       if (stillOpen === undefined) {
         return false;
       }
+
       // A campaign archived since the invite was read takes no one, as if the invite were gone.
       const [live] = await tx
         .select({ id: campaigns.id })
         .from(campaigns)
         .where(and(eq(campaigns.id, invite.campaignId), isNull(campaigns.archivedAt)))
         .for('share');
+
       if (live === undefined) {
         return false;
       }
+
       const inserted = await tx
         .insert(campaignMembers)
         .values(toMemberRow(invite.campaignId, member))
         .onConflictDoNothing({ target: [campaignMembers.campaignId, campaignMembers.userId] })
         .returning({ id: campaignMembers.id });
+
       if (inserted.length > 0) {
         await tx
           .update(campaigns)
           .set({ version: sql`${campaigns.version} + 1` })
           .where(eq(campaigns.id, invite.campaignId));
       }
+
       return true;
     });
+
     return added ? this.findById(invite.campaignId) : undefined;
   }
 
   public override async updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign> {
     const gm = campaign.members.find((member) => member.role === CampaignRole.Gm);
+
     if (gm === undefined) {
       throw new Error(`Campaign ${campaign.id} has no GM`);
     }
+
     await this.#db.transaction(async (tx) => {
       // The version check takes the campaign row's lock, so membership changes to one campaign run one at a time.
       const [updated] = await tx
@@ -185,9 +205,11 @@ export class DrizzleCampaignRepository extends CampaignRepository {
         .set({ version: campaign.version, gmId: campaign.gmId })
         .where(and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion), isNull(campaigns.archivedAt)))
         .returning({ id: campaigns.id });
+
       if (updated === undefined) {
         throw new VersionConflictError('Campaign', campaign.id);
       }
+
       const kept = campaign.members.map((member) => member.id);
       await tx
         .delete(campaignMembers)
@@ -209,9 +231,11 @@ export class DrizzleCampaignRepository extends CampaignRepository {
         .where(and(eq(campaignMembers.campaignId, campaign.id), eq(campaignMembers.id, gm.id)));
     });
     const stored = await this.findById(campaign.id);
+
     if (stored === undefined) {
       throw new Error(`Campaign ${campaign.id} vanished after its members were updated`);
     }
+
     return stored;
   }
 
@@ -220,10 +244,12 @@ export class DrizzleCampaignRepository extends CampaignRepository {
     if (ids.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select()
       .from(campaignMembers)
       .where(inArray(campaignMembers.campaignId, [...ids]));
+
     return Map.groupBy(rows, (row) => row.campaignId);
   }
 }

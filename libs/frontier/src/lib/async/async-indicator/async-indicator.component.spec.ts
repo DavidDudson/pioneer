@@ -14,10 +14,13 @@ interface Rendered {
 async function render(status: AsyncStatus, inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(AsyncIndicator);
   fixture.componentRef.setInput('status', status);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
@@ -68,6 +71,7 @@ describe(AsyncIndicator, () => {
 
   it('follows the status through a run', async () => {
     const { fixture, host } = await render(AsyncStatus.Idle);
+
     const step = async (status: AsyncStatus): Promise<void> => {
       fixture.componentRef.setInput('status', status);
       await fixture.whenStable();

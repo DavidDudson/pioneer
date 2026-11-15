@@ -53,6 +53,7 @@ describe('CharacterSheetPage casting a spell', () => {
       packs: SPELL_PACKS,
       play: playOf(OWN_TURN),
     });
+
     await vi.waitFor(() => {
       expect(useButtons(root)).toHaveLength(1);
     });
@@ -86,6 +87,7 @@ describe('CharacterSheetPage casting a spell', () => {
       packs: SPELL_PACKS,
       play: playOf(OWN_TURN),
     });
+
     await vi.waitFor(() => {
       expect(useButtons(root)).toHaveLength(3);
     });

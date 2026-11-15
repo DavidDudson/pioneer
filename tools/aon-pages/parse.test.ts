@@ -7,6 +7,7 @@ import { pageIn, parseHits, replacements } from './parse.ts';
 const hit = (url: string, markdown?: string, name?: string): unknown => ({
   _source: { url, name, type: 'Action', source_markdown: markdown },
 });
+
 const answer = (...hits: unknown[]): unknown => ({ hits: { total: { value: 9 }, hits } });
 
 describe('pageIn', () => {
@@ -35,6 +36,7 @@ describe('parseHits', () => {
       hit('/Spells.aspx?ID=1', '[Other](/Sources.aspx?ID=9) pg. 1'),
       hit('/Rules.aspx', '[Player Core](/Sources.aspx?ID=216) pg. 2'),
     );
+
     const parsed = parseHits(json, '216');
     expect([...parsed.pages]).toEqual([
       [AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=1530'), PageNumber.parse(331)],
@@ -47,6 +49,7 @@ describe('parseHits', () => {
       hit('/Actions.aspx?ID=2254', '[Player Core](/Sources.aspx?ID=216)', 'Jinx'),
       hit('/Rules.aspx'),
     );
+
     const parsed = parseHits(json, '216');
     expect(parsed.entries.map(({ name, url }) => `${name} ${url}`)).toEqual([
       'Jinx https://2e.aonprd.com/Actions.aspx?ID=2254',
@@ -83,6 +86,7 @@ describe('parseHits replacedBy', () => {
       _id: 'feat-1704',
       _source: { url: '/Feats.aspx?ID=1704', name: 'Shield of Faith', type: 'Feat', remaster_id: ['feat-4679'] },
     });
+
     expect([...parseHits(json, '39').replacedBy]).toEqual([
       [
         AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1704'),

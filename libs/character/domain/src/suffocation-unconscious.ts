@@ -23,6 +23,7 @@ interface UnconsciousInputs {
 export function outOfAir(outcome: TurnOutcome, { limits, unconscious }: UnconsciousInputs): TurnOutcome {
   const { play } = outcome;
   const { breath, dead } = play;
+
   if (
     breath === undefined ||
     breath.unconscious !== undefined ||
@@ -32,15 +33,20 @@ export function outOfAir(outcome: TurnOutcome, { limits, unconscious }: Unconsci
   ) {
     return outcome;
   }
+
   const id = ConditionInstanceId.parse(newId());
+
   const command = {
     field: PlayCommandField.AddCondition,
     condition: { id, condition: unconscious, duration: UNLIMITED },
   } as const;
+
   if (conditionProblem(play.conditions, command, limits.valued) !== undefined) {
     return outcome;
   }
+
   const added = applyPlayCommand(play, command, limits);
+
   return {
     play: { ...added, breath: { ...breath, unconscious: id } },
     events: [...outcome.events, fellUnconscious(unconscious, id)],

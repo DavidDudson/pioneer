@@ -9,6 +9,7 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -62,6 +63,7 @@ const ancientElf = {
   kind: 'heritage',
   data: { ancestry: idOf('ancestry:elf') },
 };
+
 const changeling = { ...entry('heritage:changeling', 'Changeling'), kind: 'heritage', data: {} };
 
 const farmhand = {
@@ -251,6 +253,7 @@ describe('build kinds', () => {
 
   test('a philosophy grants no font, domains or spells', () => {
     const philosophy = { ...pharasma, data: { ...pharasma.data, category: 'philosophy' } };
+
     const empty = {
       ...philosophy,
       data: { ...philosophy.data, domains: { primary: [], alternate: [] }, font: [], spells: [] },

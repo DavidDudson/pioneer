@@ -32,11 +32,13 @@ describe('benchmark', () => {
   test('warms up, then times each run on fresh input', () => {
     let prepared = 0;
     let ran = 0;
+
     const result = benchmark(
       {
         name: 'counts',
         prepare: (): number => {
           prepared += 1;
+
           return prepared;
         },
         run: (): void => {
@@ -47,6 +49,7 @@ describe('benchmark', () => {
       },
       1,
     );
+
     expect(prepared).toBe(5);
     expect(ran).toBe(5);
     expect(result.timedRuns).toBe(3);
@@ -92,6 +95,7 @@ describe('benchmark retries', () => {
   test('passes a case that is slow in its first round only', () => {
     const log = spyOn(console, 'log').mockReturnValue(undefined);
     let calls = 0;
+
     const result = benchmark(
       {
         name: 'slow once',
@@ -103,6 +107,7 @@ describe('benchmark retries', () => {
           calls += 1;
           // Calls 1 and 2 (the first round) take 80 and 40 ms; later calls are instant.
           const until = performance.now() + Math.max(0, 120 - 40 * calls);
+
           while (performance.now() < until) {
             // Busy wait: the first round is over the budget.
           }
@@ -110,6 +115,7 @@ describe('benchmark retries', () => {
       },
       1,
     );
+
     log.mockRestore();
     expect(result.fastestMs).toBeLessThan(20);
     expect(process.exitCode).not.toBe(1);
@@ -127,6 +133,7 @@ describe('benchmark retries', () => {
         prepare: () => undefined,
         run: () => {
           const until = performance.now() + 10;
+
           while (performance.now() < until) {
             // Busy wait: every round is over the budget.
           }

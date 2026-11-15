@@ -37,6 +37,7 @@ describe(`${BreakdownView.name} battle form`, () => {
       value: 4,
       status: { kind: LineStatusKind.Suppressed, by: ruleId(GOLEM_FORM), reason: SuppressionReason.Form },
     });
+
     const value = {
       ...statistic('ac', { base: [term('10', 10)], lines: [removed] }),
       form: formReplacement(FormSource.Form),

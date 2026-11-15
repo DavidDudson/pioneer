@@ -9,6 +9,7 @@ import { HitPoints } from './units';
 
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
 export const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
+
 export type SkillCount = z.infer<typeof SkillCount>;
 
 /**
@@ -22,7 +23,9 @@ export const ClassRole = {
   Tank: 'tank',
   Healer: 'healer',
 } as const;
+
 export type ClassRole = ValueOf<typeof ClassRole>;
+
 export const ClassRoleSchema = z.enum(ClassRole);
 const CLASS_ROLE_COUNT = Object.keys(ClassRole).length;
 
@@ -61,4 +64,5 @@ export const ClassData = z.strictObject({
    */
   roles: z.array(ClassRoleSchema).max(CLASS_ROLE_COUNT).readonly().check(uniqueItems).optional(),
 });
+
 export type ClassData = z.infer<typeof ClassData>;

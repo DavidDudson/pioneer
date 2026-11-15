@@ -22,5 +22,6 @@ export function coinsText(coins: CoinCounts, say: SayWith, language: string): st
   const parts = DENOMINATIONS.filter((coin) => coins[coin] > 0).map((coin) =>
     say(COIN_MESSAGES[coin], { count: coins[coin] }),
   );
+
   return new Intl.ListFormat(language, { style: 'short', type: 'unit' }).format(parts);
 }

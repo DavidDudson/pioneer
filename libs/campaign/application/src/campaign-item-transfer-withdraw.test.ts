@@ -77,11 +77,13 @@ describe('CampaignItemTransferService withdrawing an offer', () => {
 
   async function offered(): Promise<ItemTransferId> {
     const offer = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+
     return offer.id;
   }
 
   async function statusOf(id: ItemTransferId): Promise<string | undefined> {
     const found = await transfers.findById(vaults.id, id);
+
     return found?.status;
   }
 

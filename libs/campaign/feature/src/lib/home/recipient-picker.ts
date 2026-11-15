@@ -32,14 +32,18 @@ interface RecipientSearch {
 /** The other live characters of the party whose name holds the search, in the order asked for. */
 export function otherRecipients({ party, giver, search, sort }: RecipientSearch): readonly PartyCharacter[] {
   const needle = search.trim().toLocaleLowerCase();
+
   const others = party.filter(
     (each) => each.characterId !== giver && !each.archived && each.name.toLocaleLowerCase().includes(needle),
   );
+
   if (sort === undefined) {
     return others;
   }
+
   return others.toSorted((left, right) => {
     const compared = byColumn(left, right, sort) || left.name.localeCompare(right.name);
+
     return sort.descending ? -compared : compared;
   });
 }

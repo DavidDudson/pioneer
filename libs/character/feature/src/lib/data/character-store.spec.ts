@@ -49,9 +49,11 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
 /** The sheet the server sends: the character, and a filled ancestry slot. */
 function sheet(version: number, level: number): Record<string, unknown> {
   const character = wire(version, level);
+
   const {
     choices: { ancestry },
   } = character['build'] as { choices: { ancestry: string } };
+
   return {
     character,
     slots: [{ status: 'filled', key: 'ancestry', subject: { kind: 'root', content: 'ancestry' }, selection: ancestry }],

@@ -26,6 +26,7 @@ function fakeDialog(): void {
       },
     });
   }
+
   vi.stubGlobal(
     'ResizeObserver',
     class {
@@ -35,6 +36,7 @@ function fakeDialog(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of DIALOG_METHODS) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }

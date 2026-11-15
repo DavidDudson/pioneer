@@ -20,6 +20,7 @@ export const StaffSpellProblem = {
   /** An entry has the spell on its list, but casts no spell of its rank. */
   RankTooHigh: 'rank-too-high',
 } as const;
+
 export type StaffSpellProblem = ValueOf<typeof StaffSpellProblem>;
 
 /** A spell a staff holds as its holder sees it: the rank it is listed under, its cost, and whether the holder can cast it. */
@@ -55,6 +56,7 @@ function highestRankOf(entry: SpellcastingInPlay): SpellRank | undefined {
     ...entry.slots.ranks.map(({ rank }) => rank),
     ...entry.pools.flatMap(({ ranks: pooled }) => pooled.map(({ rank }) => rank)),
   ];
+
   return ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks));
 }
 
@@ -63,7 +65,9 @@ function castsRank(entry: SpellcastingInPlay, rank: StaffRank): boolean {
   if (rank === STAFF_CANTRIP) {
     return true;
   }
+
   const highest = highestRankOf(entry);
+
   return highest !== undefined && highest >= rank;
 }
 
@@ -75,6 +79,7 @@ function problemOf(
   if (entry !== undefined) {
     return undefined;
   }
+
   return listing.length === 0 ? StaffSpellProblem.NotOnList : StaffSpellProblem.RankTooHigh;
 }
 
@@ -101,6 +106,7 @@ export function castingEntry({ id, rank, content, entries }: CastingQuery): Cast
   const spell = content.anySpell(id);
   const listing = spell === undefined ? [] : entries.filter(({ tradition }) => spell.traditions.includes(tradition));
   const entry = listing.find((each) => castsRank(each, rank));
+
   return { spell, entry, problem: problemOf(entry, listing) };
 }
 
@@ -136,12 +142,15 @@ export function staffSources({
   charges,
 }: StaffSourceInputs): readonly StaffSource[] {
   const casters = entries.filter(({ preparation }) => preparation !== SpellPreparation.Focus);
+
   return inventory.flatMap((item): StaffSource[] => {
     if (item.carry.state !== CarryState.Worn && item.carry.state !== CarryState.Held) {
       return [];
     }
+
     const held = staffSpells(item, items);
     const prepared = charges[item.id];
+
     return held === undefined
       ? []
       : [

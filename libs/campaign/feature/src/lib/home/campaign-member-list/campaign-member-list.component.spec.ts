@@ -19,12 +19,14 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const playerMember = {
   id: '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e11',
   userId: playerId,
   role: 'player',
   joinedAt: '2026-10-11T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -33,10 +35,12 @@ const campaign = {
   members: [gmMember, playerMember],
   createdAt: '2026-10-10T10:00:00.000Z',
 };
+
 const named = [
   { ...gmMember, displayName: 'Amiri' },
   { ...playerMember, displayName: 'Ezren' },
 ];
+
 /** No characters brought in yet, and none of the user's own to bring. */
 const emptyParty = { characters: [], attachable: [] };
 
@@ -44,6 +48,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -56,6 +61,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 function button(root: HTMLElement, label: string): HTMLButtonElement {
   const [found, ...others] = buttons(root, label);
   expect(others).toHaveLength(0);
+
   return present(found);
 }
 
@@ -74,17 +80,21 @@ async function open(viewerRole: 'gm' | 'player'): Promise<RouterTestingHarness> 
   http.expectOne(`/api/campaigns/${id}/members`).flush({ viewerRole, members: named });
   http.expectOne(`/api/campaigns/${id}/party`).flush(emptyParty);
   await harness.fixture.whenStable();
+
   if (viewerRole === 'gm') {
     await vi.waitFor(() => {
       http.expectOne(`/api/campaigns/${id}/invites`).flush([]);
     });
   }
+
   const root = present(harness.routeNativeElement);
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Ezren');
   });
+
   return harness;
 }
+
 describe('CampaignMemberList', () => {
   it('removes a player on a second press of the same button, then marks them removed with focus kept', async () => {
     const harness = await open('gm');

@@ -15,6 +15,7 @@ function render(options: readonly PreviewEaseOption[] | undefined): ComponentFix
   const fixture = TestBed.createComponent(EntryEaseOptionsView);
   fixture.componentRef.setInput('options', options);
   fixture.detectChanges();
+
   return fixture;
 }
 

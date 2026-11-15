@@ -11,10 +11,12 @@ const RUNE_CHOICE_MAX_LENGTH = 64;
 
 /** What the crafter chose when etching a rune made for one thing: an energy's damage type, a creature type. */
 export const RuneChoice = z.string().min(1).max(RUNE_CHOICE_MAX_LENGTH).brand<'RuneChoice'>();
+
 export type RuneChoice = z.infer<typeof RuneChoice>;
 
 /** A property rune etched onto an item: the rune, and the crafter's choice when the rune asks for one. */
 const EtchedRuneSchema = z.strictObject({ rune: ContentId, choice: RuneChoice.optional() });
+
 export type EtchedRune = z.infer<typeof EtchedRuneSchema>;
 
 /** One etched rune is the same as another when both name the same rune and the same choice. */
@@ -42,6 +44,7 @@ export const ItemRunesSchema = z.strictObject({
   reinforcing: ReinforcingGrade.optional(),
   property: z.array(EtchedRuneSchema).max(PROPERTY_RUNES_STORED_MAX).readonly().check(uniqueEtchedRunes).default([]),
 });
+
 export type ItemRunes = z.infer<typeof ItemRunesSchema>;
 
 export const NO_RUNES: ItemRunes = ItemRunesSchema.parse({});
@@ -51,6 +54,7 @@ export const RuneRefSchema = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal(RuneType.Fundamental), rune: z.enum(FundamentalRune) }),
   z.strictObject({ type: z.literal(RuneType.Property), rune: ContentId, choice: RuneChoice.optional() }),
 ]);
+
 export type RuneRef = z.infer<typeof RuneRefSchema>;
 
 /** A rune to etch: a fundamental rune at a grade it has (a reinforcing rune goes to 6, the rest to 4), or a property rune. */
@@ -67,6 +71,7 @@ export const RuneEtchingSchema = z.union([
   }),
   z.strictObject({ type: z.literal(RuneType.Property), rune: ContentId, choice: RuneChoice.optional() }),
 ]);
+
 export type RuneEtching = z.infer<typeof RuneEtchingSchema>;
 
 const RUNE_GRADE_MAX = ReinforcingGrade.parse(4);

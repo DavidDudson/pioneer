@@ -28,9 +28,11 @@ export interface PartlyMigratedDatabase extends TestDatabase {
  */
 export function testDatabaseUrl(): string | undefined {
   const url = Bun.env['TEST_DATABASE_URL'];
+
   if (url === undefined && Bun.env['CI'] !== undefined) {
     throw new Error('TEST_DATABASE_URL must be set in CI; database suites would otherwise skip');
   }
+
   return url;
 }
 
@@ -47,10 +49,13 @@ async function migrationsBefore(tag: string): Promise<string> {
   const journalFile = Bun.file(`${folder}/meta/_journal.json`);
   const journal = Journal.parse(await journalFile.json());
   const stop = journal.entries.findIndex((entry) => entry.tag === tag);
+
   if (stop === -1) {
     throw new Error(`No migration tagged ${tag}`);
   }
+
   await Bun.write(journalFile, JSON.stringify({ ...journal, entries: journal.entries.slice(0, stop) }));
+
   return folder;
 }
 
@@ -67,6 +72,7 @@ async function emptyTestDatabase(adminUrl: string, logger: Logger | undefined, f
   url.pathname = `/${name}`;
   await migrateFrom(url.toString(), folder);
   const db = drizzle(url.toString(), { casing: 'snake_case', ...(logger === undefined ? {} : { logger }) });
+
   const database: TestDatabase = {
     db,
     drop: async (): Promise<void> => {
@@ -75,6 +81,7 @@ async function emptyTestDatabase(adminUrl: string, logger: Logger | undefined, f
       await admin.close();
     },
   };
+
   return { database, url: url.toString() };
 }
 
@@ -86,6 +93,7 @@ async function emptyTestDatabase(adminUrl: string, logger: Logger | undefined, f
  */
 export async function createTestDatabase(adminUrl: string, logger?: Logger): Promise<TestDatabase> {
   const { database } = await emptyTestDatabase(adminUrl, logger, MIGRATIONS);
+
   return database;
 }
 
@@ -95,8 +103,10 @@ export async function createTestDatabase(adminUrl: string, logger?: Logger): Pro
  */
 export async function createTestDatabaseBefore(adminUrl: string, tag: string): Promise<PartlyMigratedDatabase> {
   const folder = await migrationsBefore(tag);
+
   try {
     const { database, url } = await emptyTestDatabase(adminUrl, undefined, folder);
+
     return {
       ...database,
       migrateRest: async (): Promise<void> => migrateFrom(url, MIGRATIONS),

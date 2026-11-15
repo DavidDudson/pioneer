@@ -59,9 +59,11 @@ export class SheetLevelPlan {
   /** A picker for each planned slot, by the slot's key. */
   readonly #picks = computed((): ReadonlyMap<SlotKey, TimelinePick> => {
     const picks = new Map<SlotKey, TimelinePick>();
+
     for (const { key, label, rows, field } of this.#state.picks.plannedFields()) {
       // A slot's kind never changes while its key stands, so reading it untracked keeps the pick from being rebuilt.
       const { kind } = untracked(rows);
+
       if (kind === 'skills') {
         picks.set(key, {
           kind: TimelinePickKind.Skill,
@@ -80,15 +82,18 @@ export class SheetLevelPlan {
         });
       }
     }
+
     for (const { key, label, rows, reason, field } of this.#featFields()) {
       picks.set(key, { kind: TimelinePickKind.Feat, key, label, rows, reason, field });
     }
+
     return picks;
   });
 
   /** The timeline's rows with a picker on each planned slot that has one; undefined while the character loads. */
   protected readonly rows = computed((): readonly LevelTimelineRow[] | undefined => {
     const picks = this.#picks();
+
     return this.#state.picks
       .timeline()
       ?.filter((row) => row.level === this.level())

@@ -28,9 +28,11 @@ const FoundryDamagePart = z.looseObject({
   applyMod: z.boolean().optional(),
   materials: z.array(z.string().max(FIELD_MAX)).max(LIST_MAX).optional(),
 });
+
 type FoundryDamagePart = z.infer<typeof FoundryDamagePart>;
 
 export const FoundryDamage = boundedRecord(FoundryDamagePart);
+
 export type FoundryDamage = z.infer<typeof FoundryDamage>;
 
 /** Foundry's default for a part with no `kinds`. */
@@ -67,7 +69,9 @@ function damageTypeOf(type: string): PartType | undefined {
   if (type === UNTYPED) {
     return {};
   }
+
   const damageType = DamageTypeSchema.safeParse(type);
+
   return damageType.success ? { damageType: damageType.data } : undefined;
 }
 
@@ -82,12 +86,16 @@ function damagePart(
 ): DamagePart | undefined {
   const field = `${damage}.${key}`;
   const damageType = damageTypeOf(part.type);
+
   if (damageType === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: part.type });
+
     return undefined;
   }
+
   const formula = fromFoundryFormula(part.formula);
   const materials = part.materials ?? [];
+
   return {
     key: partKey(key),
     formula: part.applyMod === true ? `${formula}${SPELLCASTING_MODIFIER}` : formula,
@@ -110,6 +118,7 @@ export function damageParts(damage: FoundryDamage, at: PartsField, log: GapLog):
 
 /** What fixed heightening overrides in each damage part, by its key. */
 export const FoundryDamageOverrides = boundedRecord(FoundryDamagePart.partial());
+
 export type FoundryDamageOverrides = z.infer<typeof FoundryDamageOverrides>;
 
 export const FoundryHeightening = z.looseObject({
@@ -119,6 +128,7 @@ export const FoundryHeightening = z.looseObject({
   area: z.number().optional(),
   levels: boundedRecord(z.looseObject({})).optional(),
 });
+
 export type FoundryHeightening = z.infer<typeof FoundryHeightening>;
 
 /** "Heightened (+1)": what each step adds to the parts the spell kept, and feet to the area. */
@@ -126,7 +136,9 @@ function intervalOf(heightening: FoundryHeightening, kept: ReadonlySet<string>):
   const damage = Object.entries(heightening.damage ?? {})
     .filter(([key]) => kept.has(partKey(key)))
     .map(([key, formula]) => ({ key: partKey(key), formula: fromFoundryFormula(formula) }));
+
   const area = heightening.area ?? 0;
+
   return {
     type: HeighteningType.Interval,
     interval: heightening.interval,
@@ -147,8 +159,10 @@ function fixedOf(heightening: FoundryHeightening, changesOf: RankChanges): objec
     .toSorted(([left], [right]) => Number(left) - Number(right))
     .flatMap(([rank, changes]) => {
       const mapped = changesOf(changes, `heightening.levels.${rank}`);
+
       return Object.keys(mapped).length === 0 ? [] : [{ rank: Number(rank), ...mapped }];
     });
+
   return ranks.length === 0 ? undefined : { type: HeighteningType.Fixed, ranks };
 }
 
@@ -162,14 +176,17 @@ export interface DamageChanges {
 /** Fixed heightening's damage, each part Foundry overrides laid over the spell's own. */
 export function heightenedDamage({ overrides, base, field }: DamageChanges, log: GapLog): DamagePart[] {
   const merged = { ...base };
+
   for (const [key, override] of Object.entries(overrides)) {
     const part = FoundryDamagePart.safeParse({ ...base[key], ...override });
+
     if (part.success) {
       merged[key] = part.data;
     } else {
       report(log, { reason: KindDataGapReason.InvalidData, field: `${field}.${key}`, raw: override });
     }
   }
+
   return damageParts(merged, { field }, log);
 }
 
@@ -186,10 +203,13 @@ export function heighteningOf({ heightening, kept, changesOf, log }: Heightening
   if (heightening.type === HeighteningType.Interval) {
     return intervalOf(heightening, kept);
   }
+
   if (heightening.type === HeighteningType.Fixed) {
     return fixedOf(heightening, changesOf);
   }
+
   report(log, { reason: KindDataGapReason.UnmappedValue, field: 'heightening', raw: heightening });
+
   return undefined;
 }
 

@@ -6,6 +6,7 @@ import { ChipList } from './chip-list.component';
 type ChipListStory = StoryObj<ChipList>;
 
 const meta: Meta<ChipList> = { title: 'Rules/Picker cells/Chip list', component: ChipList };
+
 export default meta;
 
 /** Traits, the unusual ones toned by rarity. */

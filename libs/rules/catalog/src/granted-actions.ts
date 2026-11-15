@@ -46,8 +46,10 @@ export function proposeGrantedActions(
   const proposals = new Map<EntrySlug, EnrichmentMapping>();
   const excepted: EntrySlug[] = [];
   const unlinked: EntrySlug[] = [];
+
   for (const { slug, grantedBy } of actions.filter(({ slug: candidate }) => !mapped.has(candidate))) {
     const [only] = grantedBy;
+
     if (grantedBy.length === 0) {
       unlinked.push(slug);
     } else if (
@@ -61,5 +63,6 @@ export function proposeGrantedActions(
       excepted.push(slug);
     }
   }
+
   return { proposals, excepted, unlinked };
 }

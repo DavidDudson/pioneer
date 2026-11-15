@@ -34,6 +34,7 @@ export class CharacterVariantLimits extends VariantLimits {
   public override async of(character: Character): Promise<RuleLimitOverrides> {
     const [packs, enabled] = await Promise.all([this.#packs.of(character), this.#variants.of(character)]);
     const registry = await this.#content.registry(packs);
+
     return RuleLimitOverridesSchema.parse(variantLimitsInForce(registry, enabled));
   }
 }

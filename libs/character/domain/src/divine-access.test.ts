@@ -14,6 +14,7 @@ import { CharacterBuilder } from './testing';
  * Access: a choice of the deities that grant a fire domain, and up to two spells of the deity picked.
  */
 const pack = new ContentPackBuilder().withId('oracle-access');
+
 for (const [name, rank] of [
   ['sun-first', 1],
   ['sun-third', 3],
@@ -22,7 +23,9 @@ for (const [name, rank] of [
 ] as const) {
   pack.withSpell(name, { rank, traditions: ['divine'] });
 }
+
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
+
 const slotRule = (rank: number, value: number, level: number): object => ({
   key: 'SpellSlots',
   entry: 'oracle',
@@ -30,7 +33,9 @@ const slotRule = (rank: number, value: number, level: number): object => ({
   value,
   ...(level > 1 ? { predicate: [{ gte: ['self:level', level] }] } : {}),
 });
+
 const ACCESS = pack.idOf(ContentKind.ClassFeature, 'divine-access');
+
 pack
   .withDeity('sun', {
     domains: { primary: ['fire'], alternate: [] },
@@ -63,8 +68,11 @@ pack
     ],
   })
   .withClass('oracle', ['cha'], { rules: [{ key: 'GrantItem', item: ACCESS }] });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const DEITY_SLOT = `${ACCESS}:4`;
@@ -76,14 +84,17 @@ function oracle(level: number, picks: Readonly<Record<string, string>>): Charact
     .atLevel(level)
     .picking('class', pack.idOf(ContentKind.Class, 'oracle'))
     .picking('boost:1:class:0', 'cha');
+
   for (const [key, name] of Object.entries(picks)) {
     builder = builder.picking(key, spell(name));
   }
+
   return builder;
 }
 
 function slotsOf(builder: CharacterBuilder): PreparedSlot[] {
   const { document } = builder.build();
+
   return preparedSlots(document, preparedReads(document, content));
 }
 
@@ -93,9 +104,11 @@ function withDeity(level: number, deity: string, picks: Readonly<Record<string, 
 }
 
 const deitySlots = (found: readonly PreparedSlot[]): PreparedSlot[] => found.filter((slot) => slot.deitySpell);
+
 /** What the first deity slot of `found` offers, by name. */
 function firstOffer(found: readonly PreparedSlot[]): string[] {
   const [first] = deitySlots(found);
+
   return first?.options.map((each) => String(each.name)) ?? [];
 }
 

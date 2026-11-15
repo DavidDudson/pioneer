@@ -28,6 +28,7 @@ const meta: Meta<StatisticsView> = {
   component: StatisticsView,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: placeholder rows. */

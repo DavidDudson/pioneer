@@ -13,12 +13,14 @@ import type { Mock } from 'vitest';
 import { identityRoutes } from '../identity.routes';
 
 const SIGNED_IN = '2026-10-01T08:00:00.000Z';
+
 const THIS_BROWSER = SessionSummary.parse({
   id: '0199d2a0-0000-7000-8000-000000000001',
   createdAt: SIGNED_IN,
   lastSeenAt: SIGNED_IN,
   current: true,
 });
+
 const PHONE = SessionSummary.parse({
   id: '0199d2a0-0000-7000-8000-000000000002',
   createdAt: SIGNED_IN,
@@ -49,9 +51,11 @@ async function render(signedIn: boolean): Promise<Rendered> {
     signOutEverywhere: vi.fn<() => Promise<void>>(async () => undefined),
     showSignIn: vi.fn<() => Promise<void>>(async () => undefined),
   };
+
   const call = vi.fn<(endpoint: unknown, input: unknown) => Promise<unknown>>(async (endpoint) =>
     endpoint === IdentityContract.sessions ? [THIS_BROWSER, PHONE] : {},
   );
+
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'account', children: identityRoutes }]),
@@ -64,17 +68,21 @@ async function render(signedIn: boolean): Promise<Rendered> {
   const harness = await RouterTestingHarness.create('/account');
   await harness.fixture.whenStable();
   const root = harness.routeNativeElement;
+
   if (root === null) {
     throw new Error('Expected the account page to render');
   }
+
   return { root, session, call };
 }
 
 function button(root: HTMLElement, label: string): HTMLButtonElement {
   const match = [...root.querySelectorAll('button')].find((each) => each.textContent.trim() === label);
+
   if (match === undefined) {
     throw new Error(`No button labelled ${label}`);
   }
+
   return match;
 }
 

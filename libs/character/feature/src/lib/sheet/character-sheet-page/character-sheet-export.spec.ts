@@ -13,9 +13,11 @@ const FILE = { format: 'pioneer-character', formatVersion: 1, character: { name:
 /** The export button in the sheet's open actions menu. */
 function exportButton(panel: HTMLElement): HTMLButtonElement {
   const button = present(panel.querySelector('pio-sheet-export button'));
+
   if (!(button instanceof HTMLButtonElement)) {
     throw new TypeError('Expected a button');
   }
+
   return button;
 }
 
@@ -26,10 +28,13 @@ describe('CharacterSheetPage export', () => {
 
   it('downloads the character the server wrote, named after it', async () => {
     const saved: (Blob | MediaSource)[] = [];
+
     const created = vi.spyOn(URL, 'createObjectURL').mockImplementation((blob) => {
       saved.push(blob);
+
       return 'blob:export';
     });
+
     const revoked = vi.spyOn(URL, 'revokeObjectURL').mockReturnValue();
     const clicked = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockReturnValue();
     const { root } = await openSheet();

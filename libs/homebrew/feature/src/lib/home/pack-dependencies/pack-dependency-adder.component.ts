@@ -46,6 +46,7 @@ export class PackDependencyAdder {
   /** The candidates whose title or author contains what was typed in the picker. */
   protected readonly matching = computed((): readonly PackSummary[] => {
     const typed = this.query().trim().toLowerCase();
+
     return typed === ''
       ? this.candidates()
       : this.candidates().filter((pack) => `${pack.title} ${pack.publisher}`.toLowerCase().includes(typed));
@@ -87,8 +88,10 @@ export class PackDependencyAdder {
   protected readonly describeAddError = (error: unknown): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
+
       return this.#i18n.translate(key, params);
     }
+
     return this.#i18n.translate('homebrew.dependencies.addFailed');
   };
 }

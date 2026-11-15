@@ -82,15 +82,19 @@ describe('CharacterService selectSlot', () => {
     const now = clock.now();
     const planned = ChoiceValue.parse('sudden-charge');
     const withPlan = created.apply({ field: CharacterPatchField.SelectSlot, slot: featSlot, selection: planned }, now);
+
     const stored = await repository.update(withPlan, FIRST_VERSION, {
       actor: amiri,
       command: CharacterCommand.SelectSlot,
     });
+
     const edit = { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf } as const;
+
     const { character: patched } = await service.patch(amiri, created.id, {
       expectedVersion: stored.version,
       patch: edit,
     });
+
     expect(patched.document.build.choices[featSlot]).toBe(planned);
   });
 });
@@ -104,32 +108,39 @@ describe('CharacterService selectSlot on boost slots', () => {
       .withAncestry('human', { boosts: [['str', 'dex', 'con', 'int', 'wis', 'cha']] })
       .withClass('fighter', ['str', 'dex'])
       .build();
+
     service = new CharacterService(new InMemoryCharacterRepository(), fixedContent(pack), clock);
   });
 
   test('a boost pick is the only way to change a modifier: it lands in the slot, and its class slot opens with the class', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const fighter = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('class:fighter')));
+
     const { character: withClass } = await service.patch(
       amiri,
       created.id,
       firstVersion({ field: CharacterPatchField.SelectSlot, slot: SlotKey.parse('class'), selection: fighter }),
     );
+
     const keyAttribute = SlotKey.parse('boost:1:class:0');
+
     const { character: patched } = await service.patch(amiri, created.id, {
       expectedVersion: withClass.version,
       patch: { field: CharacterPatchField.SelectSlot, slot: keyAttribute, selection: ChoiceValue.parse('dex') },
     });
+
     expect(patched.document.build.choices[keyAttribute]).toBe(ChoiceValue.parse('dex'));
   });
 
   test('refuses a boost to an attribute its boost does not allow', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+
     const edit = firstVersion({
       field: CharacterPatchField.SelectSlot,
       slot: SlotKey.parse('boost:1:ancestry:0'),
       selection: ChoiceValue.parse('luck'),
     });
+
     const error = await rejection(service.patch(amiri, created.id, edit));
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.selectionNotOffered' } },
@@ -154,6 +165,7 @@ describe('CharacterService selectSlot on feat slots', () => {
   let service: CharacterService;
 
   const flag = 'class-feat-1';
+
   // Skill ranks read false when absent, as the core rules classify them.
   const pack = builder
     .withNamespace('skill', NamespaceKind.Known)
@@ -189,21 +201,26 @@ describe('CharacterService selectSlot on feat slots', () => {
   /** Kyra as a fighter, at the version after the class pick. */
   async function kyraTheFighter(): Promise<Saved> {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+
     const edit = firstVersion({
       field: CharacterPatchField.SelectSlot,
       slot: SlotKey.parse('class'),
       selection: fighter,
     });
+
     const { character } = await service.patch(amiri, created.id, edit);
+
     return { id: created.id, version: character.version };
   }
 
   test('refuses a feat whose prerequisites are not met at the slot level, with the reason', async () => {
     const { id, version } = await kyraTheFighter();
+
     const edit = {
       expectedVersion: version,
       patch: { field: CharacterPatchField.SelectSlot, slot: classFeat, selection: featId('sudden-charge') },
     } as const;
+
     const error = await rejection(service.patch(amiri, id, edit));
     expect(error).toBeInstanceOf(ValidationError);
     expect((error as ValidationError).issues).toStrictEqual([
@@ -214,10 +231,12 @@ describe('CharacterService selectSlot on feat slots', () => {
   test('takes a feat whose prerequisites can not be checked: unknown is never refused', async () => {
     const { id, version } = await kyraTheFighter();
     const selection = featId('reactive-shield');
+
     const edit = {
       expectedVersion: version,
       patch: { field: CharacterPatchField.SelectSlot, slot: classFeat, selection },
     } as const;
+
     const { character } = await service.patch(amiri, id, edit);
     expect(character.document.build.choices[classFeat]).toBe(selection);
   });

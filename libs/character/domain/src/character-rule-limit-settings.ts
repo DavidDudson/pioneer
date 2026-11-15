@@ -8,14 +8,17 @@ import type { RuleLimitOverrides } from './rule-limits';
 
 /** Row id of one table limit a character has set; the audit log keys every row by an `id`. */
 export const CharacterRuleLimitId = Uuid.brand<'CharacterRuleLimitId'>();
+
 export type CharacterRuleLimitId = z.infer<typeof CharacterRuleLimitId>;
 
 /** The name of a limit a table can change: a field of `RuleLimits` (ADR-0064). */
 export const RuleLimitFieldSchema = RuleLimitsSchema.keyof();
+
 export type RuleLimitField = z.infer<typeof RuleLimitFieldSchema>;
 
 /** A number a limit takes: a whole number from 1. Each limit's ceiling is `LIMIT_CEILINGS`. */
 export const RuleLimitSettingValue = Pg.smallint().positive().brand<'RuleLimitSettingValue'>();
+
 export type RuleLimitSettingValue = z.infer<typeof RuleLimitSettingValue>;
 
 const CEILING_INVESTED = RuleLimitSettingValue.parse(100);
@@ -47,7 +50,9 @@ export const RuleLimitSource = {
   Campaign: 'campaign',
   Character: 'character',
 } as const;
+
 export type RuleLimitSource = ValueOf<typeof RuleLimitSource>;
+
 export const RuleLimitSourceSchema = z.enum(RuleLimitSource);
 
 /** The layers a limit's number is worked out from. */
@@ -65,6 +70,7 @@ export function sourceOf(limit: RuleLimitField, { variant, set, setter }: RuleLi
   if (set[limit] !== undefined) {
     return setter;
   }
+
   return variant[limit] === undefined ? RuleLimitSource.Core : RuleLimitSource.Variant;
 }
 
@@ -92,6 +98,7 @@ export const CharacterRuleLimitSetting = z.object({
   /** Where the number in force comes from. */
   source: RuleLimitSourceSchema,
 });
+
 export type CharacterRuleLimitSetting = z.output<typeof CharacterRuleLimitSetting>;
 
 /** JSON shape of a character's table limits: each limit, and who decides them. */
@@ -104,10 +111,12 @@ export const CharacterRuleLimitSettings = z.object({
   /** Every limit, in a fixed order. */
   limits: z.array(CharacterRuleLimitSetting).readonly(),
 });
+
 export type CharacterRuleLimitSettings = z.output<typeof CharacterRuleLimitSettings>;
 
 /** The number the owner sets a limit to. */
 export const SetRuleLimitSettingBody = z.object({ value: RuleLimitSettingValue });
+
 export type SetRuleLimitSettingBody = z.infer<typeof SetRuleLimitSettingBody>;
 
 /** A limit and the number it is set to. */

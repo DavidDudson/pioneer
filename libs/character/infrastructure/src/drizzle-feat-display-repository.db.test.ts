@@ -32,6 +32,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${id}, 'Owner', false, ${at}, ${at})`,
     );
+
     return id;
   }
 
@@ -45,6 +46,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
       actor: owner,
       command: CharacterCommand.CreateCharacter,
     });
+
     return character.id;
   }
 
@@ -75,6 +77,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
       .select({ updatedAt: characterFeatDisplays.updatedAt })
       .from(characterFeatDisplays)
       .where(eq(characterFeatDisplays.characterId, kyra.characterId));
+
     const stamped = rows.map((row) => Temporal.Instant.from(row.updatedAt).epochMilliseconds);
     expect(stamped).toStrictEqual([LATER.epochMilliseconds]);
   });
@@ -105,10 +108,12 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
     await display.save({ userId: ezren, characterId: seelah }, SHOW, NOW);
     const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
     expect(refused).toBeInstanceOf(Error);
+
     const onKyra = await database.db
       .select()
       .from(characterFeatDisplays)
       .where(eq(characterFeatDisplays.characterId, kyra));
+
     expect(onKyra).toHaveLength(2);
 
     await database.db.execute(sql`delete from users where id = ${ezren}`);

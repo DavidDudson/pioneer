@@ -72,6 +72,7 @@ const POLYMORPH = Trait.parse('polymorph');
 const UNREADABLE_SHOWN = 20;
 const FAILURES_SHOWN = 20;
 const KEYS_SHOWN = 15;
+
 /** Where vocabulary entries (traits, senses, damage types) go, beside the hand-authored rules core entries. */
 const VOCABULARY_PACK = PackId.parse('core-rules');
 const FOUNDRY_TITLED: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
@@ -93,11 +94,13 @@ interface Options {
 /** The keys of `--apply-rules`; a run that writes names some, as a committed pack is never replaced. */
 function ruleKeys(argument: string | undefined, writesElsewhere: boolean): ReadonlySet<string> {
   const keys = (argument ?? '').split(',').filter((key) => key !== '');
+
   if (keys.length === 0 && !writesElsewhere) {
     throw new Error(
       'Name the rule element keys to take with --apply-rules <Key>[,<Key>...], or use --apply-outcomes; a committed pack is never replaced',
     );
   }
+
   return new Set(keys);
 }
 
@@ -105,9 +108,11 @@ function ruleKeys(argument: string | undefined, writesElsewhere: boolean): Reado
 function describedKinds(argument: string | undefined): ReadonlySet<string> {
   const kinds = (argument ?? '').split(',').filter((kind) => kind !== '');
   const unknown = kinds.filter((kind) => !DESCRIBED_KINDS.has(kind));
+
   if (unknown.length > 0) {
     throw new Error(`--apply-descriptions takes ${[...DESCRIBED_KINDS].join(', ')}, not ${unknown.join(', ')}`);
   }
+
   return new Set(kinds);
 }
 
@@ -123,18 +128,23 @@ function options(): Options {
       'apply-descriptions': { type: 'string' },
     },
   });
+
   const books = (values.book ?? []).map((book) => BookId.parse(book));
+
   for (const book of books) {
     if (bookRegistry.book(book) === undefined) {
       throw new Error(`${book} is not in the book registry`);
     }
+
     if (!FOUNDRY_TITLED.has(book)) {
       throw new Error(`${book} has no Foundry publication title in FOUNDRY_BOOK_TITLES`);
     }
   }
+
   if (books.length === 0) {
     throw new Error('Name at least one target book with --book');
   }
+
   return {
     pack: PackId.parse(values.pack),
     books: new Set(books),
@@ -161,16 +171,21 @@ interface Pins {
 async function readPins(pack: PackId, legacy: boolean): Promise<Pins> {
   const file = Bun.file(path.join(ROOT, 'content/import', `${pack}.json`));
   const pinned = await file.exists();
+
   if (!pinned) {
     throw new Error(`content/import/${pack}.json is missing; commit the pack's pin first (ADR-0031)`);
   }
+
   const { pin, legacyPin } = ImportFile.parse(await file.json());
+
   if (!legacy) {
     return { documents: pin, config: pin };
   }
+
   if (legacyPin === undefined) {
     throw new Error(`content/import/${pack}.json has no legacyPin; commit the legacy release's pin first (ADR-0077)`);
   }
+
   // The pre-remaster release's config modules need runtime helpers the loader lacks, so the pack's own release gives them.
   return { documents: legacyPin, config: pin };
 }
@@ -181,23 +196,28 @@ async function verified(
   what: string,
 ): Promise<Uint8Array<ArrayBuffer>> {
   const actual = await sha256(bytes);
+
   if (actual !== expected) {
     throw new Error(`${what} has SHA-256 ${actual}, the pin says ${expected}`);
   }
+
   return bytes;
 }
 
 async function download(tag: FoundryReleaseTag, expected: Sha256, cachePath: string): Promise<Uint8Array<ArrayBuffer>> {
   console.log(`Downloading ${archiveUrl(tag)}`);
   const response = await fetch(archiveUrl(tag));
+
   if (!response.ok) {
     throw new Error(`Download of ${tag} failed: ${response.status} ${response.statusText}`);
   }
+
   const bytes = await verified(new Uint8Array(await response.arrayBuffer()), expected, `${tag} (not cached)`);
   await mkdir(CACHE, { recursive: true });
   // Written aside and renamed, so an interrupted run never leaves a partial archive in the cache.
   await Bun.write(`${cachePath}.partial`, bytes);
   await rename(`${cachePath}.partial`, cachePath);
+
   return bytes;
 }
 
@@ -206,6 +226,7 @@ async function archive({ tag, sha256: expected }: ImportPin): Promise<Uint8Array
   const cachePath = path.join(CACHE, `${tag}.tar.gz`);
   const cached = Bun.file(cachePath);
   const hit = await cached.exists();
+
   return hit
     ? verified(await cached.bytes(), expected, `${cachePath} (delete it to re-download)`)
     : download(tag, expected, cachePath);
@@ -214,6 +235,7 @@ async function archive({ tag, sha256: expected }: ImportPin): Promise<Uint8Array
 async function archiveFiles(bytes: Uint8Array<ArrayBuffer>): Promise<ReadonlyMap<string, string>> {
   const members = await new Bun.Archive(bytes).files([...RELEASE_FILES]);
   const texts = await Promise.all([...members].map(async ([name, file]) => [name, await file.text()] as const));
+
   return new Map(texts);
 }
 
@@ -221,6 +243,7 @@ function formatReport({ imported, skipped }: DryRunReport, { skipped: entries }:
   const total = imported.reduce((sum, { count }) => sum + count, 0);
   const skippedTotal = skipped.reduce((sum, { count }) => sum + count, 0);
   const unreadable = entries.filter(({ reason }) => reason === SkipReason.Unreadable);
+
   return [
     `Would import ${total}:`,
     ...imported.map(({ book, type, count }) => `  ${book}  ${type}  ${count}`),
@@ -237,6 +260,7 @@ function sumOf(counts: readonly KeyCount[]): number {
 function formatCounts(counts: readonly KeyCount[]): string[] {
   const shown = counts.slice(0, KEYS_SHOWN).map(({ key, count }) => `  ${key === '' ? '-' : key}  ${count}`);
   const rest = counts.length - shown.length;
+
   return rest > 0 ? [...shown, `  … ${rest} more`] : shown;
 }
 
@@ -251,6 +275,7 @@ function formatTranslation(translation: EnvelopeTranslation): string {
     untranslatedEnrichers,
     unresolvedText,
   } = translationReport(translation);
+
   return [
     `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
     ...formatCounts(failures),
@@ -280,9 +305,11 @@ async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]
   const others = officialPacks.filter(({ id }) => id !== targets.pack);
   const packs = await Promise.all(others.map(async ({ load }) => load()));
   const replaced = await previousImport(targets);
+
   return packs.flatMap(({ entries }) =>
     entries.flatMap(({ id, pack: entryPack, kind, slug, externalIds }) => {
       const foundry = externalIds?.foundry;
+
       return replaced.has(id)
         ? []
         : [{ id, pack: entryPack, kind, slug, ...(foundry === undefined ? {} : { foundry }) }];
@@ -296,6 +323,7 @@ function formatLeftOut(backlog: readonly BacklogItem[]): string {
       ? [{ key: `${item.leftOut.reason} ${item.pack}/${item.slug}`, detail: item.leftOut.detail }]
       : [],
   );
+
   return [
     `Left out of the pack ${leftOut.length}:`,
     ...leftOut.map(({ key, detail }) => `  ${key}${detail === '' ? '' : `: ${detail}`}`),
@@ -308,6 +336,7 @@ function formatKinds(counts: readonly KindCount[]): string[] {
 
 function formatKindData(translation: ImportTranslation): string {
   const { kindData, vocabulary, kindDataGaps, vocabularyGaps, dedicationLocks } = kindDataReport(translation);
+
   return [
     `Kind data built ${kindData.reduce((sum, { count }) => sum + count, 0)}:`,
     ...formatKinds(kindData),
@@ -331,6 +360,7 @@ const {
   applyOutcomes: outcomesOnly,
   applyDescriptions: describedOnly,
 } = options();
+
 const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
 const pins = await readPins(pack, replacedLegacy);
 const files = await archiveFiles(await archive(pins.config));
@@ -338,19 +368,27 @@ const documentFiles = pins.documents === pins.config ? files : await archiveFile
 const release = readFoundryRelease(documentFiles);
 const config = await loadFoundryConfig(files, path.join(CACHE, pins.config.tag));
 const replaced = replacedLegacy ? await loadReplacedLegacy() : undefined;
+
 const selection =
   replaced === undefined
     ? selectEntries(release, books, bookRegistry.books)
     : selectReplacedLegacy(release, { targets: books, books: bookRegistry.books, replaced });
+
 console.log(`${pack} at ${pins.documents.tag}, books ${[...books].join(', ')}`);
+
 console.log(formatReport(dryRunReport(selection), selection));
+
 const creatures = selectCreatures(release, books, bookRegistry.books);
+
 console.log(formatCreatures(creatures));
+
 const known = await knownEntries(targets);
 const committed = await committedEntries(targets);
+
 const polymorph = committed.flatMap(({ kind, name, traits }) =>
   traits.includes(POLYMORPH) ? [{ type: kind, name }] : [],
 );
+
 const translation = translateImport([...selection.selected, ...creatures.selected.map((each) => creatureEntry(each))], {
   pack,
   vocabularyPack: VOCABULARY_PACK,
@@ -362,15 +400,23 @@ const translation = translateImport([...selection.selected, ...creatures.selecte
   journals: release.journals,
   polymorph,
 });
+
 console.log(formatTranslation(translation.envelopes));
+
 console.log(formatKindData(translation));
+
 const generated = packOutput(translation, { known });
+
 // Page numbers and AoN links on the entries the import replaces carry over to the imported entry with the same slug.
 const carried = carrySources(generated.entries, committed);
 const output = { ...generated, entries: replaced === undefined ? carried : withLegacyLinks(carried, replaced) };
+
 console.log(formatLeftOut(output.backlog));
+
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
+
 console.log(formatCreatureCoverage(creatureCoverage(output.entries)));
+
 if (!dryRun && outcomesOnly) {
   const { written, report } = await applyOutcomes(output, targets);
   console.log(

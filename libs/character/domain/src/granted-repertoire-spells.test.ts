@@ -18,6 +18,7 @@ import { CharacterBuilder } from './testing';
  * a bloodline whose gifts are a cantrip and a spell of each of the first two ranks.
  */
 const pack = new ContentPackBuilder().withId('sorcerer');
+
 for (const [name, rank] of [
   ['gift-cantrip', 1],
   ['other-cantrip', 1],
@@ -31,7 +32,9 @@ for (const [name, rank] of [
     traits: name.endsWith('cantrip') ? ['cantrip'] : [],
   });
 }
+
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
+
 const slots = (rank: string | number, value: number, level = 1): object => ({
   key: 'SpellSlots',
   entry: 'sorcerer',
@@ -39,8 +42,10 @@ const slots = (rank: string | number, value: number, level = 1): object => ({
   value,
   ...(level > 1 ? { predicate: [{ gte: ['self:level', level] }] } : {}),
 });
+
 const SPELLCASTING = pack.idOf(ContentKind.ClassFeature, 'sorcerer-spellcasting');
 const BLOODLINE = pack.idOf(ContentKind.ClassFeature, 'bloodline-test');
+
 pack
   .withClassFeature('sorcerer-spellcasting', {
     rules: [
@@ -70,21 +75,27 @@ pack
       { key: 'GrantItem', item: BLOODLINE },
     ],
   });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function sorcerer(level: number, picks: Readonly<Record<string, string>> = {}): CharacterDocument {
   let builder = new CharacterBuilder().atLevel(level).picking('class', pack.idOf(ContentKind.Class, 'sorcerer'));
   builder = builder.picking('boost:1:class:0', 'cha');
+
   for (const [key, value] of Object.entries(picks)) {
     builder = builder.picking(key, spell(value));
   }
+
   return builder.build().document;
 }
 
 function slotsOf(level: number, picks?: Readonly<Record<string, string>>): PreparedSlot[] {
   const document = sorcerer(level, picks);
+
   return preparedSlots(document, preparedReads(document, content));
 }
 
@@ -143,6 +154,7 @@ describe('granted repertoire spells', () => {
 
   test('a gift can be a signature spell like any other repertoire spell', () => {
     const document = sorcerer(3, { 'signature:sorcerer:1': 'gift-first' });
+
     const slot = signatureSlots(document, preparedReads(document, content)).find(
       (each) => each.key === SlotKey.parse('signature:sorcerer:1'),
     );

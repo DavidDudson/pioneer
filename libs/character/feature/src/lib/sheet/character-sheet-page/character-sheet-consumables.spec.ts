@@ -17,6 +17,7 @@ const CHARACTER_URL = `/api/characters/${id}`;
 const PACKS = [...cutTo(ACTION_STAFF_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 
 const POTIONS = '88888888-8888-4888-8888-888888888888';
+
 /** The sheet derives again after each edit, which takes longer than the default wait. */
 const SETTLE = 8000;
 const HEALING_DIE = 8;
@@ -57,6 +58,7 @@ async function consumablesOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => {
     const consumables = present(root.querySelector<HTMLElement>('pio-sheet-consumables'));
     expect(textOf(consumables)).toContain('×2');
+
     return consumables;
   });
 }
@@ -140,6 +142,7 @@ describe('CharacterSheetPage consumables', () => {
       play: playWith(3),
       packs: PACKS,
     });
+
     const consumables = await consumablesOf(root);
 
     expect(textOf(consumables)).toContain('@item.value');

@@ -79,24 +79,28 @@ export class InventorySection {
   readonly #strength = computed((): AttributeModifier | undefined => {
     const registry = this.attributes.data();
     const character = this.#store.selected();
+
     return registry === undefined || character === undefined
       ? undefined
       : attributeModifiers(character.document, sheetSlotContent(registry).boosts).get(Attribute.Strength);
   });
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
+
     return registry === undefined ? undefined : itemContent(registry);
   });
   /** The items, and the runes to etch onto them. */
   protected readonly runed: Signal<RunedContent | undefined> = computed(() => {
     const registry = this.items.data();
     const items = this.content();
+
     return registry === undefined || items === undefined ? undefined : { items, runes: runeContent(registry) };
   });
   protected readonly bulk: Signal<CarriedBulk | undefined> = computed(() => {
     const content = this.content();
     const character = this.#store.selected();
     const strength = this.#strength();
+
     return content === undefined || character === undefined || strength === undefined
       ? undefined
       : sheetBulk(character.document.inventory, content, strength);
@@ -106,6 +110,7 @@ export class InventorySection {
   protected readonly groups: Signal<readonly InventoryGroup[] | undefined> = computed(() => {
     const runed = this.runed();
     const character = this.#store.selected();
+
     return runed === undefined || character === undefined
       ? undefined
       : sheetInventory(character.document.inventory, runed, {

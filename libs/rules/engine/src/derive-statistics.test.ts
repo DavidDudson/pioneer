@@ -85,6 +85,7 @@ describe('deriveStatistics', () => {
       statistic('skill:arcana', '@attr.int + @prof.skill.arcana + @rank.skill.arcana'),
       statistic('rank-check', '@rank.save.fortitude * 10 + @level'),
     );
+
     expect(resultOf(results, 'save:fortitude')).toMatchObject({ ok: true, total: 9 });
     expect(resultOf(results, 'skill:arcana')).toMatchObject({ ok: true, total: 0 });
     expect(resultOf(results, 'rank-check')).toMatchObject({ ok: true, total: 23 });
@@ -116,6 +117,7 @@ describe('deriveStatistics', () => {
       statistic('spell-dc:arcane', '10 + @stat.spell-attack.arcane'),
       statistic('spell-attack:arcane', '@attr.int + @prof.spell-attack.arcane'),
     );
+
     expect(resultOf(results, 'spell-attack:arcane')).toMatchObject({ ok: true, total: 5 });
     expect(resultOf(results, 'spell-dc:arcane')).toMatchObject({ ok: true, total: 15 });
   });
@@ -133,6 +135,7 @@ describe('deriveStatistics', () => {
       statistic('d', '@stat.a'),
       statistic('e', '@level'),
     );
+
     const statistics = 'a, b, c';
     expect(resultOf(results, 'a')).toStrictEqual({
       ok: false,
@@ -211,10 +214,12 @@ describe('deriveStatistics', () => {
 
   test('without a Dexterity cap, capped Dexterity is the modifier', () => {
     const uncapped: StatisticInputs = { level: fighter.level, attributes: fighter.attributes, ranks: fighter.ranks };
+
     const results = deriveStatistics(
       { definitions: [statistic('ac', '@attr.dex.capped')], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
       uncapped,
     );
+
     expect(resultOf(results, 'ac')).toMatchObject({ ok: true, total: 2 });
   });
 });

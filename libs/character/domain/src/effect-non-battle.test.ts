@@ -35,6 +35,7 @@ const LOOKUP = lookupOf([GIANT_DISGUISE, PLANT]);
 
 function applied(slug: string, index: number): ActiveEffect {
   const suffix = index.toString(16).padStart(12, '0');
+
   return ActiveEffectSchema.parse({
     id: EffectInstanceId.parse(`00000000-0000-4000-8000-${suffix}`),
     effect: idOf(slug),
@@ -44,6 +45,7 @@ function applied(slug: string, index: number): ActiveEffect {
 /** The rules in force for `effects` once polymorph exclusivity has picked the ones that count. */
 function inForce(effects: readonly ActiveEffect[]): ModifierInputs {
   const { active } = exclusiveEffects(effects, LOOKUP);
+
   const resolution = resolveGrants({
     roots: effectRoots(active),
     lookup: LOOKUP,
@@ -54,7 +56,9 @@ function inForce(effects: readonly ActiveEffect[]): ModifierInputs {
     rootSlots: [],
     namespaces: new Map(),
   });
+
   const rules = rulesOf(resolution, { inventory: EMPTY_INVENTORY, content: itemFixtureContent() }, () => true);
+
   return { rules, facts: resolution.facts };
 }
 

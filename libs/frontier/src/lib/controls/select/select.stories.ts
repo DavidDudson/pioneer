@@ -32,6 +32,7 @@ const meta: Meta<Select<Ancestry>> = {
     template: `<fr-select ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: SelectStory = {};

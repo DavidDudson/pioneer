@@ -5,6 +5,7 @@ import { PrerequisiteList, PrerequisiteState } from './prerequisite-list.compone
 type PrerequisiteStory = StoryObj<PrerequisiteList>;
 
 const meta: Meta<PrerequisiteList> = { title: 'Rules/Picker cells/Prerequisites', component: PrerequisiteList };
+
 export default meta;
 
 /** One met, one not. */

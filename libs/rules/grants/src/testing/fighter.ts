@@ -44,6 +44,7 @@ const atLevel = (slug: string, level: number): object => ({
 /** A class feat slot at `level`: a fighter feat of the character's level or lower, granted once picked. */
 function classFeatSlot(level: number): readonly object[] {
   const flag = `class-feat-${level}`;
+
   return [
     {
       key: 'ChoiceSet',
@@ -58,6 +59,7 @@ function classFeatSlot(level: number): readonly object[] {
 
 /** Rule index of the skill choice on the class: after Shield Block and the features. */
 const SKILL_RULE = 1 + FEATURE_LEVELS.length;
+
 /** Rule index of the first class feat slot; each slot is a `ChoiceSet` then its `GrantItem`. */
 const FIRST_FEAT_RULE = SKILL_RULE + 1;
 const RULES_PER_SLOT = 2;
@@ -110,6 +112,7 @@ const FEAT_GRANTS: Readonly<Record<string, object>> = {
 function fighterFeat(slug: string, level: string): GrantEntry {
   const grant = FEAT_GRANTS[slug];
   const made = feat(slug, ['trait:fighter', `level:${level}`]);
+
   return grant === undefined ? made : { ...made, rules: entry(slug, [grant]).rules };
 }
 

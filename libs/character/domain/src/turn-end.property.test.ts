@@ -57,6 +57,7 @@ describe('endTurn properties', () => {
         const { play } = endTurn(before, inputs, seededRandom(RandomSeed.parse(seed)));
         const lower = currentHitPoints(play.hp, MAX) <= currentHitPoints(hp, MAX);
         const kept = play.conditions.every(({ id }) => conditions.some((each) => each.id === id));
+
         return lower && play.hp.temp <= hp.temp && kept;
       }),
       { numRuns: RUNS },

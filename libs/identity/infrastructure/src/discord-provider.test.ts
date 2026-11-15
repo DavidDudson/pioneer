@@ -45,6 +45,7 @@ describe('DiscordProvider', () => {
       clientSecret: 'client-secret',
       redirectUri: new URL('https://pioneer.example/api/auth/discord/callback'),
     });
+
     const { url, state } = provider.authorize();
     expect(url.origin).toBe('https://discord.com');
     expect(url.searchParams.get('state')).toBe(state);

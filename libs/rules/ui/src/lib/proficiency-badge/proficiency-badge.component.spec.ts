@@ -19,6 +19,7 @@ async function render(sources: readonly RankSource[], note?: string): Promise<Co
   fixture.componentRef.setInput('sources', sources);
   fixture.componentRef.setInput('note', note);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -34,6 +35,7 @@ async function opened(fixture: ComponentFixture<ProficiencyBadge>): Promise<read
     setTimeout(resolve, 0);
   });
   await fixture.whenStable();
+
   return [...document.querySelectorAll('[role="tooltip"] fr-list-item')].map((item) => item.textContent.trim());
 }
 

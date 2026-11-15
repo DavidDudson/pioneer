@@ -10,6 +10,7 @@ import type { RuleViolation } from './rule-violations';
 
 /** Row id of one rule-breaking line an owner acknowledged; the audit log keys every row by an `id`. */
 export const ItemAcknowledgementId = Uuid.brand<'ItemAcknowledgementId'>();
+
 export type ItemAcknowledgementId = z.infer<typeof ItemAcknowledgementId>;
 
 /**
@@ -25,6 +26,7 @@ export const ItemApproval = z.object({
   /** Set when the owner acknowledged the line (a character outside a campaign), which the owner can take back. */
   acknowledgement: ItemAcknowledgementId.optional(),
 });
+
 export type ItemApproval = z.output<typeof ItemApproval>;
 
 /** JSON shape of the approvals a character's campaign gave it, and which campaign that is; none outside a campaign. */
@@ -36,6 +38,7 @@ export const CharacterItemApprovals = z.object({
   /** The campaign's approvals, or outside a campaign the owner's own acknowledgements. */
   approvals: z.array(ItemApproval).readonly(),
 });
+
 export type CharacterItemApprovals = z.output<typeof CharacterItemApprovals>;
 
 /** How far a violation breaks its rule: the count the item took the total to, or 1 for a rune not allowed. */
@@ -67,6 +70,7 @@ export function partitionApproved(
   approvals: readonly ItemApproval[],
 ): ApprovedViolations {
   const approved = violations.filter((violation) => approvals.some((approval) => covers(approval, violation)));
+
   return { open: violations.filter((violation) => !approved.includes(violation)), approved };
 }
 
@@ -95,4 +99,5 @@ export const AcknowledgeItemBody = z.object({
   /** The rune a rune-not-allowed line is about; absent for every other rule. */
   rune: ContentId.optional(),
 });
+
 export type AcknowledgeItemBody = z.output<typeof AcknowledgeItemBody>;

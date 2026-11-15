@@ -6,6 +6,7 @@ import type { Element } from 'domhandler';
 
 const GLYPH_ELEMENT = 'span';
 const GLYPH_CLASS = 'action-glyph';
+
 const GLYPHS: ReadonlyMap<string, ActionCost> = new Map([
   ['1', ActionCost.One],
   ['a', ActionCost.One],
@@ -26,5 +27,6 @@ export function glyphCost(text: string): ActionCost | undefined {
 export function actionGlyph(element: Element): ActionCost | undefined {
   const isGlyph = element.name === GLYPH_ELEMENT && element.attribs['class'] === GLYPH_CLASS;
   const text = element.children.map((child) => (isText(child) ? child.data : '')).join('');
+
   return isGlyph ? glyphCost(text) : undefined;
 }

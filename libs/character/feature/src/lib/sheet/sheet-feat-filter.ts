@@ -11,6 +11,7 @@ function plainParams(params: QueryParams, slot: SlotKey, facets: readonly FacetD
   return Object.fromEntries(
     facets.flatMap((facet): (readonly [FilterParam, unknown])[] => {
       const value: unknown = params[slotParam(slot, facet)];
+
       return value === undefined ? [] : [[filterParamName(facet.id), value]];
     }),
   );
@@ -35,6 +36,7 @@ export function slotFilterToQuery(
   facets: readonly FacetDefinition[],
 ): Readonly<Record<string, string | undefined>> {
   const query: FilterQuery = filterToQuery(state, facets);
+
   return Object.fromEntries(
     facets.map((facet): readonly [string, string | undefined] => [
       slotParam(slot, facet),

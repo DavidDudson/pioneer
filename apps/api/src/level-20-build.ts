@@ -27,6 +27,7 @@ import { gearedInventory } from './level-20-gear';
 
 /** Most passes before giving up: a level 20 character has about a hundred slots, and a pick opens at most a few. */
 const PASSES_MAX = 600;
+
 /** Most rounds of replacing invalid picks; real content settles in a few. */
 const REPAIRS_MAX = 8;
 
@@ -37,6 +38,7 @@ const pickKey = (slot: string, value: string): string => `${slot}=${value}`;
 
 function withPick(document: CharacterDocument, slot: string, value: ChoiceValue): CharacterDocument {
   const { build } = document;
+
   return { ...document, build: { ...build, choices: { ...build.choices, [slot]: value } } };
 }
 
@@ -53,26 +55,33 @@ function filledOnce(
 ): CharacterDocument | undefined {
   const taken = new Set<ChoiceValue>();
   let next: CharacterDocument | undefined = undefined;
+
   for (const { slot, candidates } of openFills(document, content)) {
     const found = candidates.find((candidate) => !taken.has(candidate) && !rejected.has(pickKey(slot, candidate)));
+
     if (found !== undefined) {
       taken.add(found);
       next = withPick(next ?? document, slot, found);
     }
   }
+
   return next;
 }
 
 /** `document` with every slot it has filled, as far as the content offers. */
 function filled(start: CharacterDocument, content: SlotContent, rejected: Rejected): CharacterDocument {
   let document = start;
+
   for (let pass = 0; pass < PASSES_MAX; pass += 1) {
     const next = filledOnce(document, content, rejected);
+
     if (next === undefined) {
       return document;
     }
+
     document = next;
   }
+
   return document;
 }
 
@@ -86,9 +95,11 @@ function invalidPicks(document: CharacterDocument, content: SlotContent): string
 /** `document` without the `invalid` picks. */
 function withoutPicks(document: CharacterDocument, invalid: readonly string[]): CharacterDocument {
   const { build } = document;
+
   const choices = Object.fromEntries(
     Object.entries(build.choices).filter(([slot, value]) => !invalid.includes(pickKey(slot, value))),
   );
+
   return { ...document, build: { ...build, choices } };
 }
 
@@ -99,16 +110,21 @@ function withoutPicks(document: CharacterDocument, invalid: readonly string[]): 
 function repaired(start: CharacterDocument, content: SlotContent): CharacterDocument {
   const rejected = new Set<string>();
   let document = filled(start, content, rejected);
+
   for (let round = 0; round < REPAIRS_MAX; round += 1) {
     const invalid = invalidPicks(document, content);
+
     if (invalid.length === 0) {
       return document;
     }
+
     for (const pick of invalid) {
       rejected.add(pick);
     }
+
     document = filled(withoutPicks(document, invalid), content, rejected);
   }
+
   return withoutPicks(document, invalidPicks(document, content));
 }
 
@@ -134,9 +150,11 @@ export interface Level20Build {
 export function level20Builds(registry: ContentRegistry): readonly Level20Build[] {
   const content = slotContent(registry, [], true);
   const inventory = gearedInventory(itemContent(registry));
+
   return content.lookup.ofKind(ContentKind.Class).map((entry) => {
     const name = String(entry.name);
     const document = repaired(started(ContentId.parse(entry.id), name), content);
+
     return { name, document: { ...document, inventory } };
   });
 }

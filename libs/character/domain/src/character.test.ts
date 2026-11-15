@@ -26,6 +26,7 @@ import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId, KitFixtu
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const featSlot = SlotKey.parse('feat:class:2');
+
 const WRITTEN: RichText = [
   { type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: RichTextString.parse('Scarred.') }] },
 ];
@@ -79,6 +80,7 @@ describe('Character', () => {
   test('selecting a slot replaces its selection and keeps every other pick', () => {
     const planned = ChoiceValue.parse('sudden-charge');
     const original = new CharacterBuilder().build();
+
     const withPlan = new Character({
       document: {
         ...original.document,
@@ -88,11 +90,14 @@ describe('Character', () => {
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,
     });
+
     const elf = AncestryId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')));
+
     const changed = withPlan.apply(
       { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: ChoiceValue.parse(elf) },
       later,
     );
+
     expect(changed.ancestry).toBe(elf);
     expect(changed.document.build.choices[featSlot]).toBe(planned);
     expect(z.encode(Character.codec, changed).build?.choices).toStrictEqual({ ancestry: elf, [featSlot]: planned });
@@ -101,10 +106,12 @@ describe('Character', () => {
   test('clearing a slot drops its selection and keeps every other pick, hidden ones included', () => {
     const planned = ChoiceValue.parse('sudden-charge');
     const original = new CharacterBuilder().build();
+
     const selected = original.apply(
       { field: CharacterPatchField.SelectSlot, slot: featSlot, selection: planned },
       later,
     );
+
     const cleared = selected.apply({ field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT }, later);
     expect(cleared.ancestry).toBeUndefined();
     expect(cleared.document.build.choices).toStrictEqual({ [featSlot]: planned });
@@ -113,16 +120,19 @@ describe('Character', () => {
   test('levelling down keeps a selection for a slot only a higher level has', () => {
     const planned = ChoiceValue.parse('sudden-charge');
     const original = new CharacterBuilder().build();
+
     const selected = original.apply(
       { field: CharacterPatchField.SelectSlot, slot: featSlot, selection: planned },
       later,
     );
+
     const levelled = selected.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(1) }, later);
     expect(levelled.document.build.choices[featSlot]).toBe(planned);
   });
 
   test('an empty ancestry slot reads as no ancestry', () => {
     const original = new CharacterBuilder().build();
+
     const unpicked = new Character({
       document: {
         ...original.document,
@@ -144,6 +154,7 @@ describe('Character', () => {
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,
     });
+
     expect(unpicked.ancestry).toBeUndefined();
   });
 
@@ -159,6 +170,7 @@ describe('Character inventory edits', () => {
 
   function withBackpack(): Character {
     const added = { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one };
+
     return new CharacterBuilder().build().apply(added, later, { newItemId: backpackId });
   }
 
@@ -170,11 +182,13 @@ describe('Character inventory edits', () => {
 
   test('stows a new item in a container, then takes it out', () => {
     const rope = itemFixtureId(ItemFixture.Rope);
+
     const stowed = withBackpack().apply(
       { field: CharacterPatchField.GiftItem, item: rope, quantity: one, container: backpackId },
       later,
       { newItemId: ropeId },
     );
+
     expect(stowed.document.inventory.items[1]?.container).toBe(backpackId);
     const loose = stowed.apply({ field: CharacterPatchField.MoveItem, id: ropeId }, later);
     expect(loose.document.inventory.items[1]).not.toHaveProperty('container');
@@ -192,14 +206,17 @@ describe('Character inventory edits', () => {
 
   test('buys an item: adds it and pays its cost from the coins, with change, in one edit', () => {
     const rope = itemFixtureId(ItemFixture.Rope);
+
     const flush = withBackpack().apply(
       { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 1 }) },
       later,
     );
+
     const bought = flush.apply({ field: CharacterPatchField.BuyItem, item: rope, quantity: one }, later, {
       newItemId: ropeId,
       cost: CopperValue.parse(5),
     });
+
     expect(bought.document.inventory.items[1]).toStrictEqual({ id: ropeId, item: rope, quantity: one, carry: STOWED });
     expect(bought.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 9, cp: 5 }));
   });
@@ -215,24 +232,30 @@ describe('Character inventory edits', () => {
 
   test('adds a kit: every line the caller expanded it into, and pays for it in one edit when bought', () => {
     const kit = kitFixtureId(KitFixture.Explorer);
+
     const lines = [
       { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one, container: undefined },
       { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: backpackId },
     ];
+
     const gifted = new CharacterBuilder().build().apply({ field: CharacterPatchField.GiftKit, kit }, later, {
       kitItems: lines,
     });
+
     expect(gifted.document.inventory.items).toStrictEqual([
       { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one, carry: STOWED },
       { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: backpackId, carry: STOWED },
     ]);
+
     const flush = new CharacterBuilder()
       .build()
       .apply({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 3 }) }, later);
+
     const bought = flush.apply({ field: CharacterPatchField.BuyKit, kit }, later, {
       kitItems: lines,
       cost: CopperValue.parse(200),
     });
+
     expect(bought.document.inventory.items).toStrictEqual(gifted.document.inventory.items);
     expect(bought.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 1 }));
   });

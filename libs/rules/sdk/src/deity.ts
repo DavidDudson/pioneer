@@ -17,18 +17,23 @@ export const DeityCategory = {
   Covenant: 'covenant',
   Philosophy: 'philosophy',
 } as const;
+
 export type DeityCategory = ValueOf<typeof DeityCategory>;
+
 const DeityCategorySchema = z.enum(DeityCategory);
 
 /** Whether followers may or must be sanctified. */
 export const SanctificationModal = { Can: 'can', Must: 'must' } as const;
+
 export type SanctificationModal = ValueOf<typeof SanctificationModal>;
 
 export const Sanctification = { Holy: 'holy', Unholy: 'unholy' } as const;
+
 export type Sanctification = ValueOf<typeof Sanctification>;
 
 /** The divine font a cleric of the deity gets. */
 export const DivineFont = { Harm: 'harm', Heal: 'heal' } as const;
+
 export type DivineFont = ValueOf<typeof DivineFont>;
 
 /**
@@ -112,7 +117,9 @@ export const DeityDomain = {
   Wyrmkin: 'wyrmkin',
   Zeal: 'zeal',
 } as const;
+
 export type DeityDomain = ValueOf<typeof DeityDomain>;
+
 const DeityDomainSchema = z.enum(DeityDomain);
 
 const SANCTIFICATIONS = Object.keys(Sanctification).length;
@@ -134,6 +141,7 @@ const DeityDomains = z.strictObject({
 
 /** A spell the deity grants its clerics at a rank. */
 export const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
+
 export type DeitySpell = z.infer<typeof DeitySpell>;
 
 /** A deity's spells, at most one per rank (Foundry pf2e keys them by rank). */
@@ -143,6 +151,7 @@ const DeitySpells = z
   .readonly()
   .check((context) => {
     const seen = new Set<SpellRank>();
+
     for (const [index, { rank }] of context.value.entries()) {
       if (seen.has(rank)) {
         context.issues.push({
@@ -152,6 +161,7 @@ const DeitySpells = z
           ...issueParams(message(RulesMessage.DeitySpellRank, { rank })),
         });
       }
+
       seen.add(rank);
     }
   });
@@ -176,15 +186,18 @@ export const DeityData = z
   })
   .check((context) => {
     const { category, domains, font, spells } = context.value;
+
     if (category !== DeityCategory.Philosophy) {
       return;
     }
+
     const granted: readonly (readonly PropertyKey[])[] = [
       ...(domains.primary.length > 0 ? [['domains', 'primary']] : []),
       ...(domains.alternate.length > 0 ? [['domains', 'alternate']] : []),
       ...(font.length > 0 ? [['font']] : []),
       ...(spells.length > 0 ? [['spells']] : []),
     ];
+
     for (const path of granted) {
       context.issues.push({
         code: 'custom',
@@ -194,4 +207,5 @@ export const DeityData = z
       });
     }
   });
+
 export type DeityData = z.infer<typeof DeityData>;

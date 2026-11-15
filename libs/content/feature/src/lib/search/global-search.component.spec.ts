@@ -15,6 +15,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 import { GlobalSearch } from './global-search.component';
 
 const BUILDER = new ContentPackBuilder().withId('search-shell-test');
+
 /** Sudden Charge comes first and only matches "attack" in its text, so the server ranks it above Power Attack. */
 const PACK: ContentPack = BUILDER.withFeat('sudden-charge', {
   level: 1,
@@ -26,6 +27,7 @@ const PACK: ContentPack = BUILDER.withFeat('sudden-charge', {
   .withFeat('toughness', { level: 1, traits: [] })
   .withSpell('fireball', { rank: 3, traditions: ['arcane'], traits: ['fire'] })
   .build();
+
 const LOADER: PackContentsLoader = {
   id: PACK.id,
   load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
@@ -75,9 +77,11 @@ async function open(): Promise<Opened> {
   await fixture.whenStable();
   const root = fixture.nativeElement as HTMLElement;
   const input = root.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the search box to render');
   }
+
   return { fixture, root, input };
 }
 
@@ -103,6 +107,7 @@ async function listedWhen(opened: Opened, count: number): Promise<string[]> {
     opened.fixture.detectChanges();
     expect(listed(opened)).toHaveLength(count);
   });
+
   return listed(opened);
 }
 

@@ -31,6 +31,7 @@ const meta: Meta<Box> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Full: BoxStory = {};

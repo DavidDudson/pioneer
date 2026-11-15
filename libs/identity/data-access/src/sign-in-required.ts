@@ -17,9 +17,11 @@ import { SessionStore } from './session-store';
 export const signInRequired: CanActivateFn = async (_route, state): Promise<GuardResult> => {
   const router = inject(Router);
   const mayEnter = await signedInOrUnknown(inject(SessionStore));
+
   if (mayEnter) {
     return true;
   }
+
   return router.createUrlTree([SIGN_IN_PATH], { queryParams: { [RETURN_TO_PARAM]: returnPathOr(state.url) } });
 };
 
@@ -27,6 +29,7 @@ export const signInRequired: CanActivateFn = async (_route, state): Promise<Guar
 async function signedInOrUnknown(session: SessionStore): Promise<boolean> {
   try {
     const user = await session.whenKnown();
+
     return user !== undefined;
   } catch {
     // The page's own regions report the failure; the guard only decides about sign-in.
@@ -41,6 +44,7 @@ export function provideSignInOnUnauthorized(): Provider {
     useFactory: (): UnauthorizedHandler => {
       // Looked up on use: SessionStore needs ApiClient, which needs this handler.
       const injector = inject(Injector);
+
       return async (): Promise<void> => injector.get(SessionStore).promptSignIn();
     },
   };

@@ -51,6 +51,7 @@ function derive(
   rules: readonly RuleInPlay[] = [],
 ): ReadonlyMap<Selector, StatisticResult> {
   const inputs = StatisticInputsJson.parse({ ...CHARACTER, ...json });
+
   return deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts: new PredicateFacts([], CORE_NAMESPACES),
@@ -63,6 +64,7 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
 
 function inputIssues(json: object): readonly FieldIssue[] {
   const result = StatisticInputsJson.safeParse({ ...CHARACTER, ...json });
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -108,6 +110,7 @@ describe('statistics derived per source, at the edges', () => {
       ...perSource('strike', 'weapon', '@weapon.attr + @weapon.prof'),
       domains: ['dex-based'],
     });
+
     const rules = [inPlay(flatModifier('untyped', 1, ['dex-based']), 'nimble')];
     expect(totals(derive([listed], { weapons: [SHORTBOW] }, rules))).toStrictEqual({ 'strike:shortbow': 4 + 5 + 1 });
   });
@@ -123,6 +126,7 @@ describe('statistics derived per source, at the edges', () => {
       per: undefined,
       base: '@level',
     });
+
     const weapons = { weapons: [LONGSWORD] };
     // The weapon's potency line targets the selector, so it reaches whichever statistic holds it.
     expect(totals(derive([STRIKE, plain], weapons))).toStrictEqual({ 'strike:longsword': 3 + 1 });

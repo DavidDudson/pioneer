@@ -18,6 +18,7 @@ async function render(
   fixture.componentRef.setInput('perRoll', inputs.perRoll ?? []);
   fixture.componentRef.setInput('remembered', inputs.remembered ?? []);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -27,9 +28,11 @@ function hostOf(fixture: ComponentFixture<RollToggles>): HTMLElement {
 
 function buttonNamed(host: HTMLElement, text: string): HTMLButtonElement {
   const button = [...host.querySelectorAll('button')].find((candidate) => candidate.textContent.includes(text));
+
   if (button === undefined) {
     throw new Error(`Expected a button named ${text}`);
   }
+
   return button;
 }
 

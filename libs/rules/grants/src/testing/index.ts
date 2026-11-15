@@ -3,5 +3,7 @@
  * of the main barrel).
  */
 export { entry, feat, grantOf, idOf, inputsOf, lookupOf, picked, picksOf, slotOf, toggleOf } from './builders';
+
 export type { TestInputs } from './builders';
+
 export { FIGHTER_CONTENT, LEVEL_20_PICKS } from './fighter';

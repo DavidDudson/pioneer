@@ -55,12 +55,14 @@ describe('homebrew routes', () => {
     const response = await app().handle(
       request('POST', '/homebrew/packs', { body: { title: 'Amiri feats', slug: 'Not A Slug' } }),
     );
+
     expect(response.status).toBe(422);
   });
 
   test('every route needs a signed-in user', async () => {
     const api = app();
     const id = newId();
+
     const responses = await Promise.all([
       api.handle(request('GET', '/homebrew/packs', { as: anonymous })),
       api.handle(request('GET', `/homebrew/packs/${id}`, { as: anonymous })),
@@ -70,6 +72,7 @@ describe('homebrew routes', () => {
       api.handle(request('POST', `/homebrew/packs/${id}/dependencies`, { as: anonymous, body: coreDependency })),
       api.handle(request('DELETE', `/homebrew/packs/${id}/dependencies/${playerCore}`, { as: anonymous })),
     ]);
+
     expect(responses.map(({ status }) => status)).toStrictEqual([401, 401, 401, 401, 401, 401, 401]);
   });
 
@@ -88,12 +91,14 @@ describe('homebrew routes', () => {
       const api = app();
       const pack = await makePack(api);
       await api.handle(request('PATCH', visibilityPath(pack), { body: shareWithAll }));
+
       const response = await api.handle(
         request('PATCH', visibilityPath(pack), {
           as: ezren,
           body: { visibility: 'private' },
         }),
       );
+
       expect(response.status).toBe(403);
     });
 
@@ -103,25 +108,31 @@ describe('homebrew routes', () => {
       const pack = await makePack(api);
       await api.handle(request('PATCH', visibilityPath(pack), { body: { visibility: 'campaign' } }));
       enablement.enable(ContentPackId.parse(pack.id), 'Kingmaker', [ezren]);
+
       const response = await api.handle(
         request('PATCH', visibilityPath(pack), { as: ezren, body: { visibility: 'public' } }),
       );
+
       expect(response.status).toBe(403);
     });
 
     test('someone who cannot read the pack, and a missing pack, are both 404', async () => {
       const api = app();
       const pack = await makePack(api);
+
       const hidden = await api.handle(
         request('PATCH', visibilityPath(pack), {
           as: ezren,
           body: shareWithAll,
         }),
       );
+
       const unknown = ContentPackId.parse(newId());
+
       const missing = await api.handle(
         request('PATCH', `/homebrew/packs/${unknown}/visibility`, { body: shareWithAll }),
       );
+
       expect([hidden.status, missing.status]).toStrictEqual([404, 404]);
     });
 
@@ -135,11 +146,13 @@ describe('homebrew routes', () => {
         }),
       );
       enablement.enable(ContentPackId.parse(pack.id), 'Kingmaker', [ezren]);
+
       const response = await api.handle(
         request('PATCH', visibilityPath(pack), {
           body: { visibility: 'private' },
         }),
       );
+
       expect(response.status).toBe(409);
       expect(((await response.json()) as Problem).message).toStrictEqual({
         key: 'homebrew.pack.campaignsEnableIt',
@@ -150,11 +163,13 @@ describe('homebrew routes', () => {
     test('an unknown visibility is 422', async () => {
       const api = app();
       const pack = await makePack(api);
+
       const response = await api.handle(
         request('PATCH', visibilityPath(pack), {
           body: { visibility: 'everyone' },
         }),
       );
+
       expect(response.status).toBe(422);
     });
   });
@@ -162,12 +177,14 @@ describe('homebrew routes', () => {
 
 async function statusOf(api: AnyElysia, sent: Request): Promise<number> {
   const response = await api.handle(sent);
+
   return response.status;
 }
 
 async function idsFrom(api: AnyElysia, path: string): Promise<readonly string[]> {
   const response = await api.handle(request('GET', path));
   const packs = (await response.json()) as PackJson[];
+
   return packs.map(({ id }) => id);
 }
 

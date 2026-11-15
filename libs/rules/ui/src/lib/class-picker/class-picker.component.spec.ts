@@ -22,6 +22,7 @@ const LONG_LIST = 300;
 const HIT_POINTS_HEADER = 2;
 
 const WIZARD = classRow({ id: 'wizard', name: 'Wizard' });
+
 const FIGHTER = classRow({
   id: 'fighter',
   name: 'Fighter',
@@ -33,6 +34,7 @@ const FIGHTER = classRow({
   proficiencies: ['Perception: Expert'],
   note: 'Trains Athletics again',
 });
+
 const LOCKED = classRow({ id: 'locked', name: 'Kineticist', disabledReason: 'Not in the loaded packs' });
 
 describe(ClassPicker, () => {
@@ -142,6 +144,7 @@ describe(ClassPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_entry, index) =>
       classRow({ id: `class-${index}`, name: `Class ${index + 1}` }),
     );
+
     const { host } = await render(ClassPicker, { rows });
     expect(host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
     expect(nameCells(host).length).toBeLessThan(LONG_LIST);

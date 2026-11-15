@@ -85,6 +85,7 @@ describe('CampaignItemTransferService answering an offer', () => {
 
   async function offered(): Promise<ItemTransferId> {
     const offer = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+
     return offer.id;
   }
 

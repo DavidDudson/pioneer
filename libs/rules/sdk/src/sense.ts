@@ -3,7 +3,9 @@ import * as z from 'zod';
 
 /** How exactly a sense locates what it detects. */
 export const SenseAcuity = { Precise: 'precise', Imprecise: 'imprecise', Vague: 'vague' } as const;
+
 export type SenseAcuity = ValueOf<typeof SenseAcuity>;
+
 export const SenseAcuitySchema = z.enum(SenseAcuity);
 
 /**
@@ -16,4 +18,5 @@ export const SenseData = z.strictObject({
   /** The sense reaches as far as the creature can perceive (darkvision, low-light vision). */
   unlimitedRange: z.boolean().optional(),
 });
+
 export type SenseData = z.infer<typeof SenseData>;

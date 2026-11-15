@@ -23,28 +23,33 @@ export class CampaignBuilder {
 
   public named(name: string): this {
     this.#name = CampaignName.parse(name);
+
     return this;
   }
 
   public ranBy(gmId: UserId): this {
     this.#gmId = gmId;
+
     return this;
   }
 
   /** Adds a player, joining a second after the one added before (the GM joins first). */
   public withPlayer(userId: UserId): this {
     this.#players = [...this.#players, userId];
+
     return this;
   }
 
   public createdAt(instant: Temporal.Instant): this {
     this.#at = instant;
+
     return this;
   }
 
   public build(): Campaign {
     const memberId = (userId: UserId): CampaignMemberId =>
       CampaignMemberId.parse(derivedId(FixtureNamespace, `campaign-member:${this.#name}:${userId}`));
+
     const created = Campaign.create({
       id: CampaignId.parse(derivedId(FixtureNamespace, `campaign:${this.#name}`)),
       gmMemberId: memberId(this.#gmId),
@@ -52,12 +57,14 @@ export class CampaignBuilder {
       name: this.#name,
       now: this.#at,
     });
+
     const players = this.#players.map((userId, index) => ({
       id: memberId(userId),
       userId,
       role: CampaignRole.Player,
       joinedAt: this.#at.add({ seconds: index + 1 }),
     }));
+
     return new Campaign({
       id: created.id,
       version: created.version,

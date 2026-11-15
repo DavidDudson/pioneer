@@ -16,6 +16,7 @@ import { CharacterBuilder } from './testing';
  * one extra 1st-rank spell from 5th.
  */
 const pack = new ContentPackBuilder().withId('sorcerer-count');
+
 for (const [name, rank] of [
   ['first-spell', 1],
   ['second-spell', 2],
@@ -24,7 +25,9 @@ for (const [name, rank] of [
 ] as const) {
   pack.withSpell(name, { rank, traditions: ['occult'] });
 }
+
 const fromLevel = (level: number): object => ({ predicate: [{ gte: ['self:level', level] }] });
+
 const slots = (rank: number, value: number, level = 1): object => ({
   key: 'SpellSlots',
   entry: 'sorcerer',
@@ -32,6 +35,7 @@ const slots = (rank: number, value: number, level = 1): object => ({
   value,
   ...(level > 1 ? fromLevel(level) : {}),
 });
+
 const count = (rank: number, value: number, level: number): object => ({
   key: 'RepertoireCount',
   entry: 'sorcerer',
@@ -39,7 +43,9 @@ const count = (rank: number, value: number, level: number): object => ({
   value,
   ...fromLevel(level),
 });
+
 const SPELLCASTING = pack.idOf(ContentKind.ClassFeature, 'sorcerer-spellcasting');
+
 pack
   .withClassFeature('sorcerer-spellcasting', {
     rules: [
@@ -52,8 +58,11 @@ pack
     ],
   })
   .withClass('sorcerer', ['cha'], { rules: [{ key: 'GrantItem', item: SPELLCASTING }] });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function slotsOf(level: number): PreparedSlot[] {
@@ -62,6 +71,7 @@ function slotsOf(level: number): PreparedSlot[] {
     .picking('class', pack.idOf(ContentKind.Class, 'sorcerer'))
     .picking('boost:1:class:0', 'cha')
     .build().document;
+
   return preparedSlots(document, preparedReads(document, content));
 }
 

@@ -93,15 +93,18 @@ export class CharacterVariantService extends EffectiveVariants {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignDecides(id);
     const registry = await this.#registryOf(character);
+
     if (registry.variantRule(variantId) === undefined) {
       throw new NotFoundError('VariantRule', variantId);
     }
+
     await this.#variants.enable(actor, id, {
       id: CharacterVariantRuleId.parse(newId()),
       variantId,
       enabledBy: actor,
       enabledAt: this.#clock.now(),
     });
+
     return this.#view(character);
   }
 
@@ -110,20 +113,24 @@ export class CharacterVariantService extends EffectiveVariants {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignDecides(id);
     await this.#variants.disable(actor, id, variantId);
+
     return this.#view(character);
   }
 
   /** One of the actor's characters. Another user's is a 404, the same as a missing one (ADR-0007). */
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 
   async #refuseIfCampaignDecides(id: CharacterId): Promise<void> {
     const campaign = await this.#campaigns.of(id);
+
     if (campaign !== undefined) {
       throw new ConflictError(
         `Character ${id} uses the variant rules of its campaign`,
@@ -141,7 +148,9 @@ export class CharacterVariantService extends EffectiveVariants {
     if (campaign !== undefined) {
       return campaign.variants;
     }
+
     const rows = await this.#variants.listForCharacter(character.id);
+
     return rows.map((row) => row.variantId);
   }
 
@@ -150,12 +159,16 @@ export class CharacterVariantService extends EffectiveVariants {
     const campaign = await this.#campaigns.of(character.id);
     const manageable = campaign === undefined;
     const [registry, ids] = await Promise.all([this.#registryOf(character), this.#enabledIds(character, campaign)]);
+
     // A variant rule whose pack is not in force has no entry; it comes back with its pack.
     const inForce = ids.flatMap((variantId): VariantRuleEntry[] => {
       const entry = registry.variantRule(variantId);
+
       return entry === undefined ? [] : [entry];
     });
+
     const used = new Set(inForce.map((entry) => entry.id));
+
     return {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
       ...(campaign === undefined ? {} : { campaign: campaign.name }),

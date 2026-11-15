@@ -34,6 +34,7 @@ const FRIGHTENED = ContentId.parse('00000000-0000-4000-8000-0000000000b1');
 
 const effectId = (count: number): EffectInstanceId =>
   EffectInstanceId.parse(`00000000-0000-4000-8000-00000000010${count}`);
+
 const rounds = (count: number): EffectRounds => EffectRounds.parse(count);
 
 const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
@@ -51,6 +52,7 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
     },
   ],
 ]);
+
 const LIMITS = { ...within(MAX), effects: CONTENT };
 
 const FAST: RecoveryInPlay = {
@@ -59,6 +61,7 @@ const FAST: RecoveryInPlay = {
   deactivatedBy: [],
   origins: [],
 };
+
 const REGEN: RecoveryInPlay = { ...FAST, type: FastHealingType.Regeneration, amount: HitPoints.parse(10) };
 
 const effect = (count: number, extra: Partial<ActiveEffect> = {}): ActiveEffect => ({
@@ -161,11 +164,13 @@ describe('startTurn', () => {
       condition: FRIGHTENED,
       duration: { kind: ConditionDurationKind.UntilStartOfTurn },
     };
+
     const stays: ActiveCondition = {
       ...ends,
       id: ConditionInstanceId.parse('00000000-0000-4000-8000-000000000202'),
       duration: { kind: ConditionDurationKind.UntilEndOfTurn },
     };
+
     const { play, events } = start({ ...FRESH_PLAY, conditions: [ends, stays] });
     expect(play.conditions).toEqual([stays]);
     expect(events[1]).toMatchObject({ kind: TurnEventKind.ConditionEnded, condition: FRIGHTENED, instance: ends.id });

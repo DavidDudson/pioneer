@@ -27,9 +27,11 @@ function toneOf(statistic: StatisticValue): RollTone {
   const net = statistic.lines
     .filter(({ status }) => status.kind === LineStatusKind.Applied)
     .reduce((sum, { value }) => sum + (value ?? 0), 0);
+
   if (net > 0) {
     return RollTone.Bonus;
   }
+
   return net < 0 ? RollTone.Penalty : RollTone.Neutral;
 }
 
@@ -37,9 +39,11 @@ function luckOf(statistic: StatisticValue): RollLuck {
   const applied = (statistic.rollEffects?.rollTwice ?? []).filter(({ status }) => isApplied(status));
   const fortune = applied.some(({ keep }) => keep === RollKept.Higher);
   const misfortune = applied.some(({ keep }) => keep === RollKept.Lower);
+
   if (fortune === misfortune) {
     return RollLuck.None;
   }
+
   return fortune ? RollLuck.Fortune : RollLuck.Misfortune;
 }
 
@@ -50,6 +54,7 @@ function luckOf(statistic: StatisticValue): RollLuck {
  */
 export function rollCues(statistic: StatisticValue): RollCues {
   const effects = statistic.rollEffects;
+
   return {
     tone: toneOf(statistic),
     luck: luckOf(statistic),

@@ -17,8 +17,10 @@ const CHARACTER_URL = `/api/characters/${id}`;
 const PACKS = [...cutTo(ACTION_STAFF_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 
 const SHIELD = '77777777-7777-4777-8777-777777777777';
+
 /** The Raise a Shield effect in Player Core. */
 const RAISED_EFFECT = '6d28ce6a-b876-5711-b183-9f1528122d4b';
+
 /** The sheet derives again after each edit, which takes longer than the default wait. */
 const SETTLE = 8000;
 const TURN = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
@@ -45,6 +47,7 @@ async function shieldsOf(root: HTMLElement): Promise<HTMLElement> {
     () => {
       const shields = present(root.querySelector<HTMLElement>('pio-sheet-shields'));
       expect(textOf(shields)).toContain('Hardness 5');
+
       return shields;
     },
     { timeout: SETTLE },

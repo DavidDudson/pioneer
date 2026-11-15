@@ -11,19 +11,24 @@ async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'):
   TestBed.configureTestingModule({ providers: [provideRouter([{ path: '**', children: [] }])] });
   const navigated = await TestBed.inject(Router).navigateByUrl(url);
   expect(navigated).toBe(true);
+
   const link = createComponent(Link, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Valeros')]],
   });
+
   onTestFinished(() => {
     link.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     link.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(link.hostView);
   await appRef.whenStable();
+
   return link.location.nativeElement as HTMLElement;
 }
 
@@ -31,9 +36,11 @@ async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'):
 async function render(inputs: Readonly<Record<string, unknown>>, url?: string): Promise<HTMLAnchorElement> {
   const host = await renderHost(inputs, url);
   const anchor = host.querySelector('a');
+
   if (anchor === null) {
     throw new Error('fr-link rendered no <a>');
   }
+
   return anchor;
 }
 
@@ -46,6 +53,7 @@ function region(id: string): HTMLElement {
   onTestFinished(() => {
     target.remove();
   });
+
   return target;
 }
 

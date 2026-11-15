@@ -35,6 +35,7 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
       where n.nspname = 'public' and c.relkind = 'r'
         and not exists (select 1 from pg_trigger t where t.tgrelid = c.oid and t.tgname = 'audit_capture')
     `);
+
     expect(TableRows.parse([...unaudited])).toStrictEqual([]);
   });
 
@@ -46,6 +47,7 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
         and (column_name = 'id' or column_name like '%\_id' or column_name = 'ancestry')
         and data_type <> 'uuid'
     `);
+
     expect(ColumnRows.parse([...nonUuid])).toStrictEqual([]);
   });
 
@@ -55,10 +57,12 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Amiri', false, ${at}, ${at})`,
     );
     const repository = new DrizzleCharacterRepository(database.db);
+
     const character = await repository.insert(new CharacterBuilder().named('Amiri').build(), {
       actor: fixtureOwnerId,
       command: CharacterCommand.CreateCharacter,
     });
+
     const patch = { field: CharacterPatchField.Level, value: CharacterLevel.parse(4) } as const;
     await repository.update(character.apply(patch, fixedClock('2026-10-07T10:00:00Z').now()), FIRST_VERSION, {
       actor: fixtureOwnerId,
@@ -72,6 +76,7 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
       .from(auditLog)
       .where(eq(auditLog.rowId, character.id))
       .orderBy(asc(auditLog.changedAt));
+
     const [created, update, manual] = entries;
     expect(
       [created, update].map((entry) => [entry?.action, entry?.rowVersion, entry?.actorId, entry?.command]),

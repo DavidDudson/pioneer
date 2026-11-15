@@ -57,6 +57,7 @@ describe('CriticalSpecialization', () => {
 describe('AdjustStrike etched', () => {
   test('parses on every property', () => {
     const base = { key: 'AdjustStrike', etched: true };
+
     const elements = [
       { ...base, property: 'traits', mode: 'add', value: 'returning' },
       { ...base, property: 'property-runes', mode: 'add', value: 'ghost-touch' },

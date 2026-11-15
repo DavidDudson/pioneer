@@ -49,6 +49,7 @@ const builder = new ContentPackBuilder()
       badge: { type: 'formula', formula: '1d4' },
     },
   });
+
 const content = fixedContent(builder.build());
 
 const FALSE_VITALITY = ContentId.parse(builder.idOf(ContentKind.Effect, FORTITUDE));
@@ -87,6 +88,7 @@ describe('PlayService effects', () => {
       expectedRevision: FIRST_VERSION,
       command: applyEffect(INSPIRE_ID, 3),
     });
+
     expect(saved.play.effects[0]).toMatchObject({ badge: 3, expiry: 'turn-end' });
   });
 
@@ -100,6 +102,7 @@ describe('PlayService effects', () => {
     const refused = rejection(
       play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: applyEffect(INSPIRE_ID) }),
     );
+
     expect(await refused).toBeInstanceOf(ValidationError);
   });
 

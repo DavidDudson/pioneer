@@ -77,6 +77,7 @@ export class Shop {
   public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.items.data());
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
+
     return registry === undefined ? undefined : itemContent(registry);
   });
 
@@ -86,6 +87,7 @@ export class Shop {
 
   protected readonly level: Signal<Level | undefined> = computed(() => {
     const level = this.#store.selected()?.document.level;
+
     return level === undefined ? undefined : Level.parse(level);
   });
   /** Whether the URL holds the player's own filters, rather than the shop opening fresh. */
@@ -99,9 +101,11 @@ export class Shop {
    */
   protected readonly state: Signal<FilterState> = computed(() => {
     const level = this.level();
+
     if (this.preset() && level !== undefined) {
       return availableItems(level);
     }
+
     return filterFromQuery(this.#params(), SHOP_FACETS);
   });
 
@@ -109,10 +113,13 @@ export class Shop {
   protected readonly list: Signal<ShopList | undefined> = computed(() => {
     const content = this.content();
     const waiting = this.preset() && this.level() === undefined;
+
     if (content === undefined || waiting) {
       return undefined;
     }
+
     const query = { search: this.#search(), state: this.state() };
+
     return shopList(content, query, (left, right) => this.#format.compare(left, right));
   });
 
@@ -125,6 +132,7 @@ export class Shop {
     const id = this.picked();
     const offered = this.list()?.offers.some((offer) => offer.id === id) === true;
     const item = id === undefined || !offered ? undefined : this.content()?.get(id);
+
     return item === undefined ? [] : [item];
   });
 

@@ -28,6 +28,7 @@ export const CoatingProblem = {
   NotPoisonOrOil: 'notPoisonOrOil',
   TooMuchBulk: 'tooMuchBulk',
 } as const;
+
 export type CoatingProblem = ValueOf<typeof CoatingProblem>;
 
 /** Whether the item has a coating rune etched on it. */
@@ -40,7 +41,9 @@ export function fitsCoating(entry: ItemEntry | undefined): boolean {
   if (entry?.kind !== ContentKind.Consumable) {
     return false;
   }
+
   const { category } = entry.data;
+
   return (
     category === ConsumableCategory.Oil || (category === ConsumableCategory.Poison && entry.traits.includes(INJURY))
   );
@@ -49,10 +52,12 @@ export function fitsCoating(entry: ItemEntry | undefined): boolean {
 /** The Bulk the items stored in the space come to, in tenths; one the content does not know weighs nothing. */
 export function coatingBulk(stored: readonly ContentId[], items: ItemContent): BulkTenths {
   let total = 0;
+
   for (const id of stored) {
     const entry = items.get(id);
     total += entry === undefined || !('bulk' in entry.data) ? 0 : bulkInTenths(entry.data.bulk);
   }
+
   return BulkTenths.parse(total);
 }
 
@@ -65,10 +70,14 @@ export function coatingRefusal(
   if (!hasCoatingRune(line, reads.items.get(line.item), reads.runes)) {
     return CoatingProblem.NoRune;
   }
+
   const entry = reads.items.get(item);
+
   if (!fitsCoating(entry)) {
     return CoatingProblem.NotPoisonOrOil;
   }
+
   const held = coatingBulk([...(line.state?.coating ?? []), item], reads.items);
+
   return held > COATING_CAPACITY ? CoatingProblem.TooMuchBulk : undefined;
 }

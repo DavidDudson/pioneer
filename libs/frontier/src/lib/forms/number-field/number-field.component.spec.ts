@@ -8,35 +8,44 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
   const fixture = TestBed.createComponent(NumberField);
   fixture.componentRef.setInput('label', 'Level');
   fixture.componentRef.setInput('hint', 'From 1 to 20.');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<NumberField>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 function control(fixture: ComponentFixture<NumberField>): HTMLInputElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (element === null) {
     throw new Error('Expected an input');
   }
+
   return element;
 }
 
 /** The text of whatever the input's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<NumberField>): string {
   const ids = find(fixture, 'input').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 

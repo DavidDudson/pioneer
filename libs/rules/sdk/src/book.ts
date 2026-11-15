@@ -8,6 +8,7 @@ import { BookId } from './source-ref';
 
 /** Who published a book. Only Paizo for now; third-party books join as they are imported. */
 export const Publisher = { Paizo: 'paizo' } as const;
+
 export type Publisher = ValueOf<typeof Publisher>;
 
 /**
@@ -16,10 +17,12 @@ export type Publisher = ValueOf<typeof Publisher>;
  * imported as legacy. Adding one is a licensing decision: NOTICE.md and the Legal page carry the book's notice.
  */
 export const LegacyImport = { Whole: 'whole', Listed: 'listed' } as const;
+
 export type LegacyImport = ValueOf<typeof LegacyImport>;
 
 /** A message key naming a book, a publisher or a licence. */
 export const BookLabel = z.string().brand<'BookLabel'>();
+
 export type BookLabel = z.infer<typeof BookLabel>;
 
 /**
@@ -99,7 +102,9 @@ export const ProductLine = {
   AprilFools: 'april-fools',
   BlogPosts: 'blog-posts',
 } as const;
+
 export type ProductLine = ValueOf<typeof ProductLine>;
+
 export const ProductLineSchema = z.enum(ProductLine);
 
 export const PRODUCT_LINE_LABELS: Readonly<Record<ProductLine, BookLabel>> = {
@@ -132,27 +137,33 @@ const ERRATA_LENGTH_MAX = 100;
 
 /** Who wrote a book, as Foundry's `publication.authors` gives it: "Logan Bonner, Mark Seifter". Not translated. */
 export const BookAuthors = z.string().trim().min(1).max(AUTHORS_LENGTH_MAX).brand<'BookAuthors'>();
+
 export type BookAuthors = z.infer<typeof BookAuthors>;
 
 /** A book's product page in the Paizo Store: `https://store.paizo.com/pathfinder-player-core/`. */
 const PAIZO_STORE = /^https:\/\/store\.paizo\.com\/[\w\-/]+$/u;
+
 export const PaizoStoreUrl = z
   .string()
   .max(URL_LENGTH_MAX)
   .refine((value) => PAIZO_STORE.test(value), issueParams(message(RulesMessage.BookStoreUrl)))
   .brand<'PaizoStoreUrl'>();
+
 export type PaizoStoreUrl = z.infer<typeof PaizoStoreUrl>;
 
 /** The latest errata as AoN words it: "Spring 2026, 1st Printing - 2/6/2026". Not translated. */
 export const ErrataLabel = z.string().trim().min(1).max(ERRATA_LENGTH_MAX).brand<'ErrataLabel'>();
+
 export type ErrataLabel = z.infer<typeof ErrataLabel>;
 
 /** The foundryvtt/pf2e system release a book was last imported from: `8.6.0`. */
 const FOUNDRY_VERSION = /^\d+\.\d+\.\d+$/u;
+
 export const FoundryVersion = z
   .string()
   .refine((value) => FOUNDRY_VERSION.test(value), issueParams(message(RulesMessage.BookFoundryVersion)))
   .brand<'FoundryVersion'>();
+
 export type FoundryVersion = z.infer<typeof FoundryVersion>;
 
 export const AonSourceUrl = z
@@ -160,6 +171,7 @@ export const AonSourceUrl = z
   .max(URL_LENGTH_MAX)
   .refine((value) => AON_SOURCE.test(value), issueParams(message(RulesMessage.BookAonSourceUrl)))
   .brand<'AonSourceUrl'>();
+
 export type AonSourceUrl = z.infer<typeof AonSourceUrl>;
 
 /** One published book in the registry (content-model.md, "Books and source references"; ADR-0024). */
@@ -177,6 +189,7 @@ export const Book = z.strictObject({
   errata: ErrataLabel.optional(),
   foundryVersion: FoundryVersion.optional(),
 });
+
 export type Book = z.infer<typeof Book>;
 
 const BOOKS_MAX = 512;
@@ -188,6 +201,7 @@ export const Books = z
   .readonly()
   .check((context) => {
     const seen = new Set<BookId>();
+
     for (const [index, { id }] of context.value.entries()) {
       if (seen.has(id)) {
         context.issues.push({
@@ -197,6 +211,7 @@ export const Books = z
           ...issueParams(message(RulesMessage.ListDuplicate, { value: id })),
         });
       }
+
       if (!BOOK_TITLES.has(id)) {
         context.issues.push({
           code: 'custom',
@@ -205,16 +220,20 @@ export const Books = z
           ...issueParams(message(RulesMessage.BookUntitled, { book: id })),
         });
       }
+
       seen.add(id);
     }
   });
+
 export type Books = z.infer<typeof Books>;
 
 /** The title key of a book. Registry validation guarantees every registered book has one. */
 export function bookTitle(id: BookId): BookLabel {
   const title = BOOK_TITLES.get(id);
+
   if (title === undefined) {
     throw new Error(`${id} has no title key`);
   }
+
   return title;
 }

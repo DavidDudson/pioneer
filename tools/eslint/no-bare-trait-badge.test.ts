@@ -6,6 +6,7 @@ import { RuleTester } from 'eslint';
 import { noBareTraitBadge } from './no-bare-trait-badge';
 
 RuleTester.describe = describe;
+
 RuleTester.it = it;
 
 const tester = new RuleTester({ languageOptions: { parser: angular.templateParser } });

@@ -20,14 +20,18 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   const fixture = TestBed.createComponent(AsyncRegionHost);
   const query = new FakeQuery<readonly string[]>();
   fixture.componentRef.setInput('query', query);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
   const region = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-async-region');
+
   if (region === null) {
     throw new Error('Expected an fr-async-region');
   }
+
   return {
     fixture,
     query,

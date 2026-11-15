@@ -18,6 +18,7 @@ import type { OAuthCredentials } from './provider-http';
 const AUTHORIZE_URL = 'https://github.com/login/oauth/authorize';
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 const API_URL = 'https://api.github.com';
+
 /** Profile and the verified-flag of each address; nothing that reads repositories. */
 const SCOPES = ['read:user', 'user:email'];
 
@@ -27,9 +28,11 @@ const GitHubUser = z.object({
   name: z.string().nullish(),
   avatar_url: z.string(),
 });
+
 type GitHubUser = z.infer<typeof GitHubUser>;
 
 const GitHubEmails = z.array(z.object({ email: z.string(), primary: z.boolean(), verified: z.boolean() }));
+
 type GitHubEmails = z.infer<typeof GitHubEmails>;
 
 /** GitHub's user and emails responses as a Pioneer profile. Exported for tests. */
@@ -38,6 +41,7 @@ export function gitHubProfile(user: GitHubUser, emails: GitHubEmails): ProviderP
   const email = EmailAddress.safeParse(primary?.email);
   const avatar = AvatarUrl.safeParse(user.avatar_url);
   const name = user.name?.trim() ?? '';
+
   return {
     provider: OAuthProvider.GitHub,
     subject: ProviderSubject.parse(String(user.id)),
@@ -61,6 +65,7 @@ export class GitHubProvider extends OAuthProviderPort {
   public override authorize(): AuthorizationRequest {
     const state = generateState();
     const codeVerifier = generateCodeVerifier();
+
     const url = this.#client.createAuthorizationURLWithPKCE(
       AUTHORIZE_URL,
       state,
@@ -68,16 +73,19 @@ export class GitHubProvider extends OAuthProviderPort {
       codeVerifier,
       SCOPES,
     );
+
     return { url, state, codeVerifier };
   }
 
   public override async profile(code: string, codeVerifier: string): Promise<ProviderProfile> {
     const tokens = await this.#client.validateAuthorizationCode(TOKEN_URL, code, codeVerifier);
     const accessToken = tokens.accessToken();
+
     const [user, emails] = await Promise.all([
       getJson(`${API_URL}/user`, accessToken, GitHubUser),
       getJson(`${API_URL}/user/emails`, accessToken, GitHubEmails),
     ]);
+
     return gitHubProfile(user, emails);
   }
 }

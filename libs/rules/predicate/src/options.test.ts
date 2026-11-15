@@ -20,6 +20,7 @@ describe('predicateOptions', () => {
       // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002)
       { if: 'terrain:forest', then: { nor: ['lighting:dim'] } },
     ];
+
     expect(optionsOf(predicate)).toStrictEqual([
       'action:strike',
       'lighting:dim',

@@ -84,6 +84,7 @@ export class CharacterPackService extends EffectivePacks {
   ): readonly CatalogPack[] {
     return order.flatMap((id): CatalogPack[] => {
       const pack = known.get(id);
+
       return pack === undefined || pack.official ? [] : [pack];
     });
   }
@@ -91,6 +92,7 @@ export class CharacterPackService extends EffectivePacks {
   /** The character's packs, and for its owner the ones they could add. Not the owner: 404. */
   public async packs(actor: UserId, id: CharacterId): Promise<CharacterPacks> {
     const character = await this.#owned(actor, id);
+
     return this.#view(character);
   }
 
@@ -105,9 +107,11 @@ export class CharacterPackService extends EffectivePacks {
     const planned = await this.#plan(actor, packId);
     const enabled = await this.#packs.listForCharacter(id);
     const fresh = planned.filter((pack) => !enabled.some((row) => row.packId === pack.id));
+
     if (fresh.length > 0) {
       await this.#packs.enable(actor, id, this.#rowsFor(actor, fresh));
     }
+
     return this.#view(character);
   }
 
@@ -120,28 +124,35 @@ export class CharacterPackService extends EffectivePacks {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignDecides(id);
     const known = await this.#catalog.byIds([packId]);
+
     if (known.get(packId)?.official === true) {
       throw new ConflictError(`Pack ${packId} is official and always on`, message(CharacterPackMessage.AlwaysOn));
     }
+
     const enabled = await this.#packs.listForCharacter(id);
+
     if (enabled.some((row) => row.packId === packId)) {
       await this.#refuseIfRequired(enabled, packId);
       await this.#packs.disable(actor, id, packId);
     }
+
     return this.#view(character);
   }
 
   /** One of the actor's characters. Another user's is a 404, the same as a missing one (ADR-0007). */
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 
   async #refuseIfCampaignDecides(id: CharacterId): Promise<void> {
     const campaign = await this.#campaigns.of(id);
+
     if (campaign !== undefined) {
       throw new ConflictError(
         `Character ${id} uses the packs of its campaign`,
@@ -152,6 +163,7 @@ export class CharacterPackService extends EffectivePacks {
 
   #rowsFor(actor: UserId, fresh: readonly CatalogPack[]): readonly CharacterPack[] {
     const enabledAt = this.#clock.now();
+
     return fresh.map((pack): CharacterPack => ({
       id: CharacterPackId.parse(newId()),
       packId: pack.id,
@@ -170,10 +182,13 @@ export class CharacterPackService extends EffectivePacks {
     const mayRead = new Set(readable.map((pack) => pack.id));
     const known = await this.#catalog.byIds(order);
     const root = known.get(packId);
+
     if (root === undefined || !mayRead.has(packId)) {
       throw new NotFoundError('Pack', packId);
     }
+
     const homebrew = CharacterPackService.#homebrewOf(order, known);
+
     for (const pack of homebrew) {
       if (!mayRead.has(pack.id)) {
         throw new ConflictError(
@@ -182,6 +197,7 @@ export class CharacterPackService extends EffectivePacks {
         );
       }
     }
+
     return homebrew;
   }
 
@@ -189,6 +205,7 @@ export class CharacterPackService extends EffectivePacks {
   async #refuseIfRequired(enabled: readonly CharacterPack[], packId: ContentPackId): Promise<void> {
     const requiredBy = await this.#extending(enabled.map((row) => row.packId));
     const requirers = requiredBy.get(packId) ?? [];
+
     if (requirers.length > 0) {
       throw new ConflictError(
         `Pack ${packId} is extended by ${requirers.join(', ')}`,
@@ -202,14 +219,17 @@ export class CharacterPackService extends EffectivePacks {
     const closures = await Promise.all(ids.map(async (root) => ({ root, closure: await this.#catalog.closure(root) })));
     const known = await this.#catalog.byIds(ids);
     const extenders = new Map<ContentPackId, PackTitle[]>();
+
     for (const { root, closure } of closures) {
       const title = known.get(root)?.title;
+
       for (const dependency of closure) {
         if (dependency !== root && title !== undefined) {
           extenders.set(dependency, [...(extenders.get(dependency) ?? []), title]);
         }
       }
     }
+
     return new Map(
       [...extenders].map(([dependency, titles]): [ContentPackId, readonly PackTitle[]] => [
         dependency,
@@ -227,12 +247,15 @@ export class CharacterPackService extends EffectivePacks {
     if (campaign !== undefined) {
       return campaign.packs;
     }
+
     const [rows, readable] = await Promise.all([
       this.#packs.listForCharacter(character.id),
       loaded ?? this.#catalog.readableBy(character.ownerId),
     ]);
+
     // A pack made private since, or deleted, is not in force; its row comes back with the pack if it is shared again.
     const mayRead = new Set(readable.map((pack) => pack.id));
+
     return rows.map((row) => row.packId).filter((packId) => mayRead.has(packId));
   }
 
@@ -244,13 +267,17 @@ export class CharacterPackService extends EffectivePacks {
     const readable = manageable ? await this.#catalog.readableBy(character.ownerId) : [];
     const [ids, official] = await Promise.all([this.#inForce(character, campaign, readable), this.#catalog.official()]);
     const [known, requiredBy] = await Promise.all([this.#catalog.byIds(ids), this.#extending(ids)]);
+
     const homebrew = ids.flatMap((id): CatalogPack[] => {
       const pack = known.get(id);
+
       return pack === undefined || pack.official ? [] : [pack];
     });
+
     const enabled = [...official, ...homebrew.toSorted(byTitle)].map((pack) =>
       enabledEntry(pack, requiredBy.get(pack.id) ?? [], manageable),
     );
+
     return {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
       ...(campaign === undefined ? {} : { campaign: campaign.name }),
@@ -266,10 +293,13 @@ export class CharacterPackService extends EffectivePacks {
     const held = (await this.#held?.of(character)) ?? [];
     const using = new Set(inForce);
     const ids = held.filter((id) => !using.has(id));
+
     if (ids.length === 0) {
       return [];
     }
+
     const known = await this.#catalog.byIds(ids);
+
     return CharacterPackService.#homebrewOf(ids, known)
       .toSorted(byTitle)
       .map((pack) => unsupportedEntry(pack));
@@ -278,6 +308,7 @@ export class CharacterPackService extends EffectivePacks {
   /** The packs the owner may read that the character does not use yet. */
   static #candidates(readable: readonly CatalogPack[], ids: readonly ContentPackId[]): readonly PackCandidate[] {
     const used = new Set(ids);
+
     return readable.filter((pack) => !pack.official && !used.has(pack.id)).map((pack) => candidateEntry(pack));
   }
 }

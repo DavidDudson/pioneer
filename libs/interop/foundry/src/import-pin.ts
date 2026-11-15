@@ -16,6 +16,7 @@ export const FoundryReleaseTag = z
   .string()
   .regex(/^(?:pf2e-)?\d+\.\d+\.\d+$/u)
   .brand<'FoundryReleaseTag'>();
+
 export type FoundryReleaseTag = z.infer<typeof FoundryReleaseTag>;
 
 /** A SHA-256 digest as 64 lowercase hex digits. */
@@ -23,12 +24,14 @@ export const Sha256 = z
   .string()
   .regex(/^[\da-f]{64}$/u)
   .brand<'Sha256'>();
+
 export type Sha256 = z.infer<typeof Sha256>;
 
 export const ImportPin = z.strictObject({
   tag: FoundryReleaseTag,
   sha256: Sha256,
 });
+
 export type ImportPin = z.infer<typeof ImportPin>;
 
 const BACKLOG_MAX = 100_000;
@@ -43,6 +46,7 @@ export const ImportFile = z.strictObject({
   legacyPin: ImportPin.optional(),
   backlog: z.array(BacklogItem).max(BACKLOG_MAX).readonly(),
 });
+
 export type ImportFile = z.infer<typeof ImportFile>;
 
 /** Where GitHub serves the source archive of a release tag. */
@@ -56,5 +60,6 @@ const BYTE_HEX_DIGITS = 2;
 export async function sha256(bytes: Uint8Array<ArrayBuffer>): Promise<Sha256> {
   const digest = await crypto.subtle.digest('SHA-256', bytes);
   const hex = [...new Uint8Array(digest)].map((byte) => byte.toString(HEX_RADIX).padStart(BYTE_HEX_DIGITS, '0'));
+
   return Sha256.parse(hex.join(''));
 }

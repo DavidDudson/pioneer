@@ -27,9 +27,11 @@ export class CampaignCharacterRoles extends CharacterCampaignRoles {
       .innerJoin(campaignMembers, and(eq(campaignMembers.campaignId, campaigns.id), eq(campaignMembers.userId, user)))
       .where(and(eq(campaignCharacters.characterId, characterId), isNull(campaigns.archivedAt)))
       .limit(1);
+
     if (member === undefined) {
       return undefined;
     }
+
     return member.role === CampaignRole.Gm ? OverrideRole.Gm : OverrideRole.Player;
   }
 }

@@ -17,9 +17,11 @@ function plain(value: unknown): unknown {
 
 function effect(slug: string): ContentEntry {
   const found = ENTRIES.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the rage-of-elements pack`);
   }
+
   return found;
 }
 

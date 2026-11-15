@@ -34,6 +34,7 @@ async function open(url: string): Promise<Opened> {
   const router = TestBed.inject(Router);
   await router.navigateByUrl(url);
   const state = TestBed.runInInjectionContext(() => injectTableView({ schema: SCHEMA, facets: FACETS }));
+
   return { state, router };
 }
 

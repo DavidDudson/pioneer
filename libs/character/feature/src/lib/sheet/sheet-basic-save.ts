@@ -16,6 +16,7 @@ export function basicSaveDegree(
 /** `roll` as damage after a basic save of `save`; unset when no save came before it, or nothing was kept. */
 export function savedDamage(roll: FortunedRoll, save: DegreeOfSuccess | undefined): DamageApplication | undefined {
   const kept = roll.rolls.find((entry) => entry.kept);
+
   return save === undefined || kept === undefined
     ? undefined
     : applyDamage(kept.result, NO_DEFENCES, { critical: false, save });

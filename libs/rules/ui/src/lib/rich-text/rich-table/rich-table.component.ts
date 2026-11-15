@@ -23,6 +23,7 @@ const EMPTY: InlineContent = [];
 
 function columnsFor(table: TableNode): readonly TableColumn<Row>[] {
   const width = Math.max(table.header?.length ?? 0, ...table.rows.map((cells) => cells.length));
+
   return Array.from({ length: width }, (_slot, index) =>
     column.display({
       id: String(index),

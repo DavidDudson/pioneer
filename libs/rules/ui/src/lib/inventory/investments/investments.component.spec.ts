@@ -13,6 +13,7 @@ async function render(investments: readonly Investment[] | undefined): Promise<H
   fixture.componentRef.setInput('investments', investments);
   fixture.componentRef.setInput('maximum', INVESTMENT_LIMIT);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -44,6 +45,7 @@ describe(InvestmentsView, () => {
         INVESTMENTS.map(({ id, name, working, effects }) => ({ id, name, working, effects, melded: working })),
       ),
     );
+
     expect(cloak).toStrictEqual([
       'Cloak of Elvenkind',
       'Melded into your form: its constant effects still apply, but it cannot be activated.',

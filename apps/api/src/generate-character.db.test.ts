@@ -40,6 +40,7 @@ function heldItems(character: Character): readonly string[] {
 /** One generate request at the test seed and level, read back. */
 async function generate(api: AnyElysia): Promise<GeneratedCharacter> {
   const response = await api.handle(post('/characters/generate', { seed: SEED }));
+
   return GeneratedCharacter.parse(await response.json());
 }
 

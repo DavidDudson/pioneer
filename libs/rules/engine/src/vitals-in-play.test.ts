@@ -18,11 +18,13 @@ const scope = {
   }),
   size: Size.Medium,
 };
+
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
 /** The vitals of elements, each `[element, entry]`, in that order. */
 function vitalsOf(placed: readonly (readonly [object, string])[]): VitalsInPlay {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
+
   return vitalsInPlay({ rules, facts }, scope);
 }
 
@@ -126,6 +128,7 @@ describe('vitalsInPlay: size', () => {
     const overridden = vitalsOf([[{ key: 'CreatureSize', value: 'large', reach: { override: 15 } }, 'a']]);
 
     expect(Number(overridden.size?.reach)).toBe(15);
+
     const { size } = vitalsOf([
       [{ key: 'CreatureSize', value: 'large', reach: { add: 5 } }, 'a'],
       [{ key: 'CreatureSize', value: 1, resizeEquipment: true }, 'b'],

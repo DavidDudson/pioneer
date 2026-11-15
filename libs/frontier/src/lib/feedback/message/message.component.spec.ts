@@ -10,19 +10,24 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Name is required')]],
   });
+
   onTestFinished(() => {
     message.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     message.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(message.hostView);
   await appRef.whenStable();
   const rendered = (message.location.nativeElement as HTMLElement).firstElementChild;
+
   if (!(rendered instanceof HTMLElement)) {
     throw new TypeError('fr-message rendered no element');
   }
+
   return rendered;
 }
 

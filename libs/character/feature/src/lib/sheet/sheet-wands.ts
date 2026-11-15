@@ -58,10 +58,13 @@ export function overchargeCommand(item: InventoryItemId, roll: DieFace | undefin
 /** The flat check of an overcharge the player has started, with what it would come to. */
 function checkOf(source: WandSource, { roll }: PendingCheck): WandCheckLine {
   const outcome = wandOutcome(overchargeCommand(source.item.id, roll), source);
+
   if (outcome === WandOutcome.Cast) {
     throw new TypeError('An overcharge is never the day cast');
   }
+
   const repeated = source.overcharge.left === 0;
+
   return {
     roll: repeated ? undefined : roll,
     dc: OVERCHARGE_DC,
@@ -83,6 +86,7 @@ export function sheetWands(
 ): WandLine[] {
   const items = itemContent(registry);
   const grants = characterGrants(character.document, sheetSlotContent(registry));
+
   return wandSources({
     inventory: character.document.inventory.items,
     items,
@@ -93,6 +97,7 @@ export function sheetWands(
   }).map((source): WandLine => {
     const { item, wand, spell, problem, broken, use } = source;
     const waiting = pending[item.id];
+
     return {
       key: item.id,
       name: item.name ?? items.get(item.item)?.name ?? item.item,

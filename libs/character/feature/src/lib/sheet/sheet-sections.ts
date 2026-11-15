@@ -69,6 +69,7 @@ export const SHEET_LEVELS: readonly SheetSection[] = Array.from(
 /** The level a route's section path names (`level-5`), or undefined when it names none. */
 export function levelOfPath(path: string | undefined): number | undefined {
   const level = SHEET_LEVELS.findIndex((section) => sectionPath(section) === path);
+
   return level === -1 ? undefined : BASE_LEVEL + level;
 }
 
@@ -118,6 +119,7 @@ export function sectionPath(section: SheetSection): string {
 /** The section a tab's own address opens, by its path. */
 export function firstSectionPath(mode: SheetMode): string {
   const [first] = SHEET_TAB_SECTIONS[mode];
+
   return first === undefined ? mode : sectionPath(first);
 }
 
@@ -139,6 +141,7 @@ export function shownSection(
 
 /** A side panel of the sheet, on every mode. */
 export const SheetPanel = { Skills: 'skills', Conditions: 'conditions', Environments: 'environments' } as const;
+
 export type SheetPanel = (typeof SheetPanel)[keyof typeof SheetPanel];
 
 /** The side panels in order, each as the section whose heading and path it takes. */

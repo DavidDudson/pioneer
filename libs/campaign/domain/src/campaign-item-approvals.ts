@@ -15,23 +15,29 @@ export const ItemRule = {
   PropertyRunes: 'propertyRunes',
   RuneNotAllowed: 'runeNotAllowed',
 } as const;
+
 export type ItemRule = ValueOf<typeof ItemRule>;
+
 export const ItemRuleSchema = z.enum(ItemRule);
 
 /** An inventory line of a character in the campaign; the campaign context only names it. */
 export const ReviewedItemId = Uuid.brand<'InventoryItemId'>();
+
 export type ReviewedItemId = z.infer<typeof ReviewedItemId>;
 
 /** A property rune, by its content id. */
 export const ReviewedRuneId = Uuid.brand<'ContentId'>();
+
 export type ReviewedRuneId = z.infer<typeof ReviewedRuneId>;
 
 /** A name the campaign shows for a character, an item or a rune. */
 export const ReviewedName = z.string().min(1).brand<'ReviewedName'>();
+
 export type ReviewedName = z.infer<typeof ReviewedName>;
 
 /** The count a rule is broken by: items invested, hands held, property runes etched. A rune not allowed counts as 1. */
 export const ReviewedCount = Pg.smallint().nonnegative().brand<'ReviewedCount'>();
+
 export type ReviewedCount = z.infer<typeof ReviewedCount>;
 
 /**
@@ -45,6 +51,7 @@ export const ItemBreak = z.object({
   rune: ReviewedRuneId.optional(),
   count: ReviewedCount,
 });
+
 export type ItemBreak = z.output<typeof ItemBreak>;
 
 /** A broken rule with the names the screen shows, as the character context reads it off a character. */
@@ -53,6 +60,7 @@ export const FlaggedItem = ItemBreak.extend({
   itemName: ReviewedName,
   runeName: ReviewedName.optional(),
 });
+
 export type FlaggedItem = z.output<typeof FlaggedItem>;
 
 /** A flagged item the GM approved, and the count it was approved at. */
@@ -90,6 +98,7 @@ export const ApprovedItem = FlaggedItem.extend({
   /** The count it was approved at. */
   approvedCount: ReviewedCount,
 });
+
 export type ApprovedItem = z.output<typeof ApprovedItem>;
 
 /**
@@ -104,8 +113,10 @@ export const CampaignItemReview = z.object({
   /** Flagged items an approval covers. */
   approved: z.array(ApprovedItem).readonly(),
 });
+
 export type CampaignItemReview = z.output<typeof CampaignItemReview>;
 
 /** The line and rule the GM approves. The count is the one the item is flagged at when the GM approves. */
 export const ApproveItemBody = ItemBreak.omit({ count: true });
+
 export type ApproveItemBody = z.output<typeof ApproveItemBody>;

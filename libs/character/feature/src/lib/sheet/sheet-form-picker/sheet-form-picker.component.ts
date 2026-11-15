@@ -62,6 +62,7 @@ export class SheetFormPicker {
   /** The instance the picked form is previewed as and applied as, new for each form picked and kept across refetches of the character. */
   readonly #instance = computed((): EffectInstanceId => {
     this.#choice();
+
     return EffectInstanceId.parse(newId());
   });
 
@@ -69,6 +70,7 @@ export class SheetFormPicker {
   readonly #candidate = computed((): ActiveEffect | undefined => {
     const choice = this.#choice();
     const pending = this.pending();
+
     return choice === undefined || pending === undefined
       ? undefined
       : {
@@ -85,6 +87,7 @@ export class SheetFormPicker {
     const registry = this.#registry.data();
     const character = this.#sheet.character();
     const candidate = this.#candidate();
+
     return registry === undefined || character === undefined || candidate === undefined
       ? undefined
       : sheetFormPreview({
@@ -101,9 +104,11 @@ export class SheetFormPicker {
     const registry = this.#registry.data();
     const character = this.#sheet.character();
     const candidate = this.#candidate();
+
     if (choice === undefined || registry === undefined || character === undefined || candidate === undefined) {
       return;
     }
+
     await this.spender.castForm(choice, sheetFormTempHp(registry, character, candidate), candidate.id);
     this.picked.set(undefined);
   };
@@ -116,6 +121,7 @@ export class SheetFormPicker {
   /** The server's reason (a conflict or a refusal), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

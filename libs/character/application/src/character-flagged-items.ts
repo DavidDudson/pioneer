@@ -37,12 +37,16 @@ export class CharacterFlaggedItems {
     const items = itemContent(registry);
     const runes = runeContent(registry);
     const { inventory } = character.document;
+
     return inventoryViolations(inventory, { items, runes }, limits).flatMap((violation): FlaggedLine[] => {
       const line = inventory.items.find((each) => each.id === violation.item);
+
       if (line === undefined) {
         return [];
       }
+
       const rune = violation.rule === 'runeNotAllowed' ? violation.rune : undefined;
+
       return [
         {
           character: character.id,

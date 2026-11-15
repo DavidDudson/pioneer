@@ -6,6 +6,7 @@ import type { LineRunes } from './rune-name';
 
 /** Where an item is on the character, as the inventory groups it (character-model.md, "Inventory"). */
 export const InventoryPlacement = { Worn: 'worn', Held: 'held', Stowed: 'stowed', Dropped: 'dropped' } as const;
+
 export type InventoryPlacement = ValueOf<typeof InventoryPlacement>;
 
 /** One item as the inventory lists it, with what it holds when it is a container. */
@@ -53,6 +54,7 @@ export interface InventoryLine {
 
 /** What a container does to the Bulk it holds: all of it counts, some of it doesn't, or none of it does. */
 export const LoadEffect = { AddsAll: 'adds-all', Ignores: 'ignores', AddsNone: 'adds-none' } as const;
+
 export type LoadEffect = (typeof LoadEffect)[keyof typeof LoadEffect];
 
 /** A container's load: the Bulk inside it, its limit, and what it does to the Bulk it holds. */

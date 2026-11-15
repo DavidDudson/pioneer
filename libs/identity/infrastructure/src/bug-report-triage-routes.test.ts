@@ -71,6 +71,7 @@ async function account(users: InMemoryUserRepository, role: UserRole): Promise<U
   const member = User.fromProfile(id, new ProfileBuilder().build(), NOW);
   const user = User.codec.decode({ ...User.codec.encode(member), role });
   await users.insertWithAccount(user, OAuthProvider.GitHub, ProviderSubject.parse(newId()));
+
   return id;
 }
 
@@ -86,11 +87,13 @@ async function fixture(): Promise<Fixture> {
   const reports = new BugReportService(repository, new InMemoryCharacterSnapshotSource(), fixedClock(NOW.toString()));
   const triage = new BugReportTriageService(repository, users);
   const api = new Elysia().use(problemHandler).use(bugReportRoutes(reports, triage, new FakeAuthenticator()));
+
   return { api, maintainer, member, older, newer };
 }
 
 async function call(api: AnyElysia, { method, path, user, body }: Call): Promise<Response> {
   const headers = { 'content-type': 'application/json', ...(user === undefined ? {} : actingAs(user)) };
+
   return api.handle(
     new Request(`http://localhost${path}`, {
       method,

@@ -41,13 +41,16 @@ export function table(): AnyElysia {
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const party = new InMemoryCampaignPartyRepository(campaigns);
+
   const characters = new InMemoryCharacterDirectory()
     .character({ id: kyra, ownerId: ezren, name: 'Kyra' })
     .character({ id: mordred, ownerId: ezren, name: 'Mordred' });
+
   const lines = new InMemoryTransferLines()
     .hasLine(kyra, longsword)
     .hasLine(kyra, caliburn, { keyItem: true })
     .hasCoins(kyra, { gp: 10 });
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -60,6 +63,7 @@ export function table(): AnyElysia {
     itemTransfers: itemTransferService(campaigns, clock, { party, characters, lines }),
     partyStash: partyStashService(campaigns),
   };
+
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }
 
@@ -85,6 +89,7 @@ export async function campaign(handler: AnyElysia): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = await json(created, z.object({ id: z.string() }));
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json(issued, z.object({ token: z.string() }));
@@ -94,6 +99,7 @@ export async function campaign(handler: AnyElysia): Promise<string> {
       handler.handle(request('POST', `/campaigns/${id}/characters`, { as: ezren, body: { characterId } })),
     ),
   );
+
   return id;
 }
 
@@ -107,6 +113,8 @@ export async function offered(handler: AnyElysia, id: string): Promise<string> {
       body: { from: kyra, to: mordred, item: longsword },
     }),
   );
+
   const offer = await json(response, Answer);
+
   return offer.id;
 }

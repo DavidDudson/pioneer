@@ -19,6 +19,7 @@ export function formLimits(
   slots: SlotContent,
 ): FormLimits | undefined {
   const form = equippedGrants(document, content, slots).form?.form;
+
   return form === undefined
     ? undefined
     : { cantCast: form.canCast === false, cantSpeak: form.canSpeak === false, noHands: form.hasHands === false };

@@ -58,6 +58,7 @@ const meta: Meta<Picker<string, Feat>> = {
     template: `<fr-picker ${argsToTemplate(args, { exclude: FUNCTION_INPUTS })} [rowValue]="rowValue" [rowLabel]="rowLabel" [rowDisabled]="rowDisabled" />`,
   }),
 };
+
 export default meta;
 
 const OPEN: NonNullable<PickerStory['play']> = async ({ canvasElement, userEvent }) => {
@@ -118,6 +119,7 @@ export const ScrollToLoadMore: PickerStory = {
 export const InlineEditor: PickerStory = {
   render: (args) => {
     const source = signal<string | undefined>(PICKED);
+
     const edit = new InlineEdit<string>({
       source,
       empty: '',
@@ -127,6 +129,7 @@ export const InlineEditor: PickerStory = {
         source.set(value);
       },
     });
+
     return {
       props: { ...args, edit },
       template: `

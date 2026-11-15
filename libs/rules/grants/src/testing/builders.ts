@@ -34,6 +34,7 @@ const TEST_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 }
 /** The id of the test pack's entry named `slug`; ids are opaque to grants, so every one is filed as a class feature. */
 export function idOf(slug: string): ContentId {
   const filed = entrySlug(ContentKind.ClassFeature, Slug.parse(slug));
+
   return ContentId.parse(contentId(TEST_PACK, filed));
 }
 
@@ -78,6 +79,7 @@ export function repeatable(slug: string, rules: readonly object[], times?: numbe
 export function lookupOf(entries: readonly GrantEntry[]): ContentLookup {
   const byId = new Map(entries.map((found) => [found.id, found]));
   const byKind = Map.groupBy(entries, (found) => found.kind);
+
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
     ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
@@ -93,6 +95,7 @@ export function picked(slug: string, slot = slug): GrantRoot {
 export function afflicted(slug: string, value?: number): GrantRoot {
   const condition = idOf(slug);
   const valued = value === undefined ? {} : { value: ConditionValue.parse(value) };
+
   return { entry: condition, hop: { kind: 'condition', condition, ...valued } };
 }
 

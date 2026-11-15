@@ -4,6 +4,7 @@ const OFF_GUARD = contentId(PackId.parse('player-core'), EntrySlug.parse('condit
 
 /** Feet across the example's burst. */
 const EXAMPLE_BURST = 20;
+
 /** The example save's DC. */
 const EXAMPLE_DC = 18;
 

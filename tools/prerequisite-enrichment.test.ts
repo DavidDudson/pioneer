@@ -11,6 +11,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 /** A Player Core feat's JSON, as a pack file holds it. */
 function feat(name: string, data: object = {}): object {
   const slug = `feat:${name.toLowerCase().replaceAll(' ', '-')}`;
+
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
@@ -30,6 +31,7 @@ function feat(name: string, data: object = {}): object {
 /** The file after the pass, with matches read from its own entries. */
 function enrich(file: readonly object[]): readonly unknown[] | undefined {
   const matches = prerequisiteMatches(ContentEntryFile.parse(file));
+
   return enrichPrerequisiteFile(file, new Map(matches.map((match) => [match.entry, match])));
 }
 
@@ -92,6 +94,7 @@ describe('prerequisite enrichment', () => {
       prerequisites: prose('Shield Block'),
       prerequisitePredicate: ['feat:other'],
     });
+
     const unmatched = feat('Unmatched', { prerequisites: prose('an animal companion') });
 
     const enriched = enrich([

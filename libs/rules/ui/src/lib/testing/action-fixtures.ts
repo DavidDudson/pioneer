@@ -57,6 +57,7 @@ const STRIDE = line('stride', 'Stride', { traits: traitChipsOf('move') });
 const STAND = line('stand', 'Stand', { traits: traitChipsOf('move') });
 const CRAWL = line('crawl', 'Crawl', { traits: traitChipsOf('move') });
 const ESCAPE = line('escape', 'Escape', { traits: traitChipsOf('attack'), origin: SKILL, roll: ATHLETICS });
+
 const SHIELD_BLOCK = line('shield-block', 'Shield Block', {
   cost: ActionCost.Reaction,
   origin: {
@@ -65,10 +66,12 @@ const SHIELD_BLOCK = line('shield-block', 'Shield Block', {
   },
   source: 'Shield Block',
 });
+
 const DEMORALIZE = line('demoralize', 'Demoralize', {
   traits: traitChipsOf('auditory', 'emotion'),
   origin: SKILL,
 });
+
 const GRAPPLE = line('grapple', 'Grapple', { traits: traitChipsOf('attack'), origin: SKILL, roll: ATHLETICS });
 
 /** Athletics with a bonus that holds only in darkness, as Gloom Walker gives. */
@@ -76,22 +79,26 @@ const DARK_ATHLETICS = statistic('skill:athletics', {
   base: ATHLETICS.base,
   lines: [modifierLine(GLOOM_WALKER, { type: ModifierType.Circumstance, value: 1, status: IN_DARKNESS })],
 });
+
 const PICK_A_LOCK = line('pick-a-lock', 'Pick a Lock', {
   cost: ActionCost.Two,
   origin: SKILL,
   status: ActionStatus.Unavailable,
   reasons: [message(EngineMessage.ActionUntrained, { rank: 'trained', skills: 'thievery' })],
 });
+
 const DISABLE = line('disable-a-device', 'Disable a Device', {
   cost: ActionCost.Two,
   origin: SKILL,
   status: ActionStatus.Conditional,
   reasons: [message(EngineMessage.ActionRequirementsText)],
 });
+
 const EARN_INCOME = line('earn-income', 'Earn Income', {
   cost: undefined,
   modes: [ActionMode.Downtime],
 });
+
 const SENSE_DIRECTION = line('sense-direction', 'Sense Direction', {
   cost: undefined,
   modes: [ActionMode.Exploration],

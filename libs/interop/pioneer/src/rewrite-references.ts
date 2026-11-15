@@ -28,12 +28,15 @@ function changeRichText(value: unknown, rewrite: RewriteReference): unknown {
   if (Array.isArray(value)) {
     return value.map((item) => changeRichText(item, rewrite));
   }
+
   if (!isFields(value)) {
     return value;
   }
+
   if (value['type'] === REF_NODE) {
     return changeField(value, 'id', rewrite);
   }
+
   return changeValues(value, (item) => changeRichText(item, rewrite));
 }
 
@@ -53,9 +56,11 @@ function changeItem(item: unknown, rewrite: RewriteReference): unknown {
 
 function changeNotes(document: unknown, rewrite: RewriteReference): unknown {
   let result = document;
+
   for (const key of RICH_TEXT_FIELDS) {
     result = changeField(result, key, (text) => changeRichText(text, rewrite));
   }
+
   return result;
 }
 
@@ -67,14 +72,18 @@ function changeNotes(document: unknown, rewrite: RewriteReference): unknown {
  */
 export function rewriteReferences(document: Fields, rewrite: RewriteReference): Fields {
   const withBuild = changeField(document, 'build', (build) => changeBuild(build, rewrite));
+
   const withInventory = changeField(withBuild, 'inventory', (inventory) =>
     changeField(inventory, 'items', (items) => changeEach(items, (item) => changeItem(item, rewrite))),
   );
+
   const withPlay = changeField(withInventory, 'play', (play) =>
     changeField(play, 'conditions', (conditions) =>
       changeEach(conditions, (condition) => changeField(condition, 'condition', rewrite)),
     ),
   );
+
   const result = changeNotes(withPlay, rewrite);
+
   return isFields(result) ? result : document;
 }

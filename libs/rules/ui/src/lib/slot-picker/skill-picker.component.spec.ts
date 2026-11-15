@@ -22,6 +22,7 @@ const RANK_HEADER = 2;
 const MODIFIER_HEADER = 3;
 
 const ARCANA = skillRow({ id: 'arcana', name: 'Arcana' });
+
 const ATHLETICS = skillRow({
   id: 'athletics',
   name: 'Athletics',
@@ -29,6 +30,7 @@ const ATHLETICS = skillRow({
   rank: Proficiency.Expert,
   modifier: -1,
 });
+
 const LOCKED = skillRow({ id: 'stealth', name: 'Stealth', disabledReason: 'Trained already' });
 const LORE = skillRow({ id: 'scribing-lore', name: 'Scribing Lore' });
 const SEARCH_DELAY = 500;
@@ -40,6 +42,7 @@ async function typed(text: string, inputs: Readonly<Record<string, unknown>> = {
   search(rendered, text);
   await vi.advanceTimersByTimeAsync(SEARCH_DELAY);
   await settle(rendered.fixture);
+
   return rendered;
 }
 
@@ -84,6 +87,7 @@ describe(SkillPicker, () => {
     const { host } = await render(SkillPicker, {
       rows: [ARCANA, skillRow({ id: 'stealth', name: 'Stealth', armorPenalty: -2 })],
     });
+
     expect(rowText(host, 0)).not.toContain('-2');
     expect(rowText(host, 1)).toContain('-2');
   });

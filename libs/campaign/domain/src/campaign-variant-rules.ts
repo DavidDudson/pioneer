@@ -19,6 +19,7 @@ export const VariantRuleOption = z.object({
   name: VariantRuleName,
   packTitle: PackTitle,
 });
+
 export type VariantRuleOption = z.output<typeof VariantRuleOption>;
 
 /** JSON shape of a campaign's variant rules, as one of its members sees them. */
@@ -30,8 +31,10 @@ export const CampaignVariantRules = z.object({
   /** The variant rules of the packs the campaign uses that are not enabled, by name. Empty for a player. */
   available: z.array(VariantRuleOption).readonly(),
 });
+
 export type CampaignVariantRules = z.output<typeof CampaignVariantRules>;
 
 /** Which variant rule the GM enables. */
 export const EnableVariantRuleBody = z.object({ variantId: EnabledVariantRuleId });
+
 export type EnableVariantRuleBody = z.infer<typeof EnableVariantRuleBody>;

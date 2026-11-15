@@ -80,10 +80,12 @@ describe('CharacterSheetPage environments', () => {
       condition: gilledFixtureId(),
       duration: { kind: 'unlimited' },
     };
+
     const play = {
       revision: 1,
       play: { hp: { damage: 0, temp: 0 }, environments: [UNDERWATER], conditions: [gilled] },
     };
+
     const { root } = await openSheet(MERISIEL, { play, packs: PACKS });
 
     await vi.waitFor(() => {
@@ -98,6 +100,7 @@ describe('CharacterSheetPage environments', () => {
     await vi.waitFor(() => {
       expect(textOf(sectionOf(root))).toContain('Air left: 3 rounds');
     });
+
     const again = present(
       [...sectionOf(root).querySelectorAll<HTMLElement>('button')].find((button) =>
         textOf(button).includes('Breathe again'),
@@ -123,6 +126,7 @@ describe('CharacterSheetPage environments', () => {
 
   it('offers to hold the breath for 5 rounds plus the Constitution modifier, and sends it', async () => {
     const { root } = await openSheet(MERISIEL, { play: playIn([]), packs: PACKS });
+
     const hold = await vi.waitFor(() =>
       present(
         [...sectionOf(root).querySelectorAll<HTMLElement>('button')].find((button) =>

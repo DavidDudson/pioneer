@@ -11,6 +11,7 @@ import { VocabularyGapReason } from './vocabulary-items';
 /** Trait lists where only `list` holds `move`. */
 function listsHolding(list: TraitList): ReadonlyMap<TraitList, ReadonlyMap<string, string>> {
   const holding = new Map([['move', 'PF2E.TraitMove']]);
+
   return new Map(Object.values(TraitList).map((each) => [each, each === list ? holding : new Map<string, string>()]));
 }
 
@@ -22,13 +23,16 @@ describe('importVocabulary: re-runs and edge cases', () => {
       type: 'spell',
       system: { traits: { value: ['fire'] } },
     };
+
     const first = translate([DWARF, KEEN_NOSE, fireball]);
+
     const earlier = first.vocabulary.map(({ envelope, kindData }) => ({
       id: envelope.id,
       pack: envelope.pack,
       kind: kindData.kind,
       slug: envelope.slug,
     }));
+
     const again = translate([DWARF, KEEN_NOSE, fireball], { known: [...known, ...earlier] });
 
     expect(plain(earlier.map(({ slug }) => slug))).toEqual(expect.arrayContaining(['trait:fire', 'damage-type:fire']));
