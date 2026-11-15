@@ -7,6 +7,7 @@ import { SkillPicker } from '@pioneer/rules/ui';
 import type { SkillPickerRow } from '@pioneer/rules/ui';
 import { describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickRow, pickValue, rowsShown } from '../../testing/origin-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -16,7 +17,7 @@ const openSheet = openerAt(SheetMode.Encounter);
 const openPlan = openerAt(SheetMode.Plan);
 
 /** Opens the Plan tab at its Level 1 tab, where the trained skill pickers are. */
-async function openLevelOne(character: object): Promise<OpenSheet> {
+async function openLevelOne(character: JsonObject): Promise<OpenSheet> {
   const opened = await openPlan(character);
   await openLevel(opened.root, 1);
 
@@ -28,7 +29,10 @@ const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1
 const FIRST_SLOT = 'Level 1 trained skill 1';
 
 /** Merisiel as a fighter, with `choices` picked besides. */
-function fighter(choices: Readonly<Record<string, string>> = {}, lores: Readonly<Record<string, string>> = {}): object {
+function fighter(
+  choices: Readonly<Record<string, string>> = {},
+  lores: Readonly<Record<string, string>> = {},
+): JsonObject {
   const picks = { ...MERISIEL.build.choices, class: playerCoreClassId('fighter'), 'boost:1:class:0': 'str' };
 
   return { ...MERISIEL, build: { choices: { ...picks, ...choices }, lores } };

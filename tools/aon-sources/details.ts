@@ -9,7 +9,14 @@ const FIELD = /<b>(?<label>[^<]+)<\/b>\s*(?<value>[^<]*?)\s*(?=<br\s*\/?>|$)/gu;
 const STORE_LINK = /<b>Product Page<\/b>\s*<u><a href="(?<href>[^"]+)"/u;
 const DATE = /^(?<month>\d{1,2})\/(?<day>\d{1,2})\/(?<year>\d{4})$/u;
 const ENTITY = /&(?<body>#x[\da-f]+|#\d+|[a-z]+);/giu;
-const ENTITIES: Readonly<Record<string, string>> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+
+const ENTITIES: ReadonlyMap<string, string> = new Map([
+  ['amp', '&'],
+  ['lt', '<'],
+  ['gt', '>'],
+  ['quot', '"'],
+  ['apos', "'"],
+]);
 
 /** AoN's name for each product line. */
 const PRODUCT_LINES: ReadonlyMap<string, ProductLine> = new Map([
@@ -33,7 +40,7 @@ export interface BookDetails {
 }
 
 function decode(text: string): string {
-  return text.replaceAll(ENTITY, (whole: string, body: string) => ENTITIES[body] ?? whole);
+  return text.replaceAll(ENTITY, (whole: string, body: string) => ENTITIES.get(body) ?? whole);
 }
 
 /** `11/15/2023` as `2023-11-15`; `undefined` for any other shape. */

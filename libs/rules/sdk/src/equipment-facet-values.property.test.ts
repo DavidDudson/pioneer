@@ -34,7 +34,7 @@ describe('equipment facet values', () => {
   test('a price in copper is each coin at its worth, so one more of any coin costs more', () => {
     assert(
       property(price, constantFrom('pp', 'gp', 'sp', 'cp'), (base, coin) => {
-        const coins: Record<string, number | undefined> = { ...base.coins };
+        const coins = { ...base.coins };
         const raised = Price.parse({ ...base, coins: { ...coins, [coin]: (coins[coin] ?? 0) + 1 } });
         expect(priceInCopper(raised)).toBeGreaterThan(priceInCopper(base));
       }),

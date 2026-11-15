@@ -4,6 +4,7 @@ import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/s
 import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
+import type { JsonObject } from './example-json';
 import { EXAMPLE_FACTS } from './predicate-verdict';
 import { CheckStatus, rulesExample, RulesTool } from './rules-check';
 import {
@@ -15,7 +16,7 @@ import {
 } from './statistics-check';
 import type { StatisticProficiency, StatisticsCheck, StatisticsTexts } from './statistics-check';
 
-const statistic = (selector: string, base: string): object => ({
+const statistic = (selector: string, base: string): JsonObject => ({
   slug: `statistic:${selector.replaceAll(':', '-')}`,
   name: selector,
   selector,
@@ -24,7 +25,7 @@ const statistic = (selector: string, base: string): object => ({
   kind: 'check',
 });
 
-const definitions = (...statistics: readonly object[]): string => JSON.stringify(statistics);
+const definitions = (...statistics: readonly JsonObject[]): string => JSON.stringify(statistics);
 
 /** The core rules pack's Hit Points formula. */
 const HP_FORMULA = '@ancestry.hp + (@class.hp + @attr.con) * @level';

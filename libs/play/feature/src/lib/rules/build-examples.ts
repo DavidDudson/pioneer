@@ -10,16 +10,18 @@ import {
   PackId,
 } from '@pioneer/rules/sdk';
 
+import { paragraph } from './example-json';
+import type { JsonObject } from './example-json';
+
 const PLAYER_CORE = PackId.parse('player-core');
 
 /** Examples cite page 1, like the other playground examples; the importer fills real pages. */
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 
-const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 
 /** The envelope fields every Player Core example shares. */
-function playerCore(slug: string, name: string, description: string): object {
+function playerCore(slug: string, name: string, description: string): JsonObject {
   return {
     id: playerCoreId(slug),
     pack: PLAYER_CORE,
@@ -73,7 +75,7 @@ export const farmhand = {
 };
 
 /** A class feat slot that opens at `level`, offering fighter feats up to the character's level. */
-function fighterFeat(level: number): object {
+function fighterFeat(level: number): JsonObject {
   return {
     key: 'ChoiceSet',
     flag: `class-feat-${level}`,

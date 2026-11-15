@@ -2,6 +2,8 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
 import { htmlToRichText } from './html-rich-text';
+import { isFields } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * Foundry's `ItemAlteration` in Pioneer's spelling (ADR-0008): the items it reaches become the `items` predicate over
@@ -69,20 +71,15 @@ function withDescriptionText(raw: unknown): unknown {
 }
 
 /** An `ItemAlteration` with `items` in Pioneer's spelling; any other element, or one reaching no item, as it is. */
-export function withItemScope(scoped: unknown): unknown {
-  if (
-    typeof scoped !== 'object' ||
-    scoped === null ||
-    !('key' in scoped) ||
-    scoped.key !== RuleElementKey.ItemAlteration
-  ) {
+export function withItemScope<Raw>(scoped: Raw): Raw | Fields {
+  if (!isFields(scoped) || scoped['key'] !== RuleElementKey.ItemAlteration) {
     return scoped;
   }
 
   const described = withDescriptionText(scoped);
-  const raw = typeof described === 'object' && described !== null ? described : scoped;
+  const raw = isFields(described) ? described : scoped;
   const { item, actor } = splitPredicate(raw);
-  const type = 'itemType' in raw && typeof raw.itemType === 'string' ? [`${ITEM_NAMESPACE}type:${raw.itemType}`] : [];
+  const type = typeof raw['itemType'] === 'string' ? [`${ITEM_NAMESPACE}type:${raw['itemType']}`] : [];
   const items = [...type, ...item];
 
   if (items.length === 0) {

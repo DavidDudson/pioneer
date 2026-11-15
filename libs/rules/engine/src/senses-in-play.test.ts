@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { sensesInPlay } from './senses-in-play';
 import type { AncestryVision, SenseInPlay } from './senses-in-play';
@@ -12,7 +13,7 @@ const DARKVISION = ContentId.parse('67979b6a-4b24-5be5-b7ea-94783c497bcb');
 const SCENT = ContentId.parse('279973df-e7b9-5fa1-9bb6-1cfdc54b82b6');
 const TREMORSENSE = ContentId.parse('367b9fa7-8944-5208-9949-9457984b7c59');
 
-const sense = (id: ContentId, extra: object = {}): object => ({ key: 'Sense', sense: id, ...extra });
+const sense = (id: ContentId, extra: object = {}): RuleJson => ({ key: 'Sense', sense: id, ...extra });
 
 /** Each sense as `[id, acuity, range]`, with `unlimited` for no range. */
 type Row = readonly [ContentId, string, number | 'unlimited'];

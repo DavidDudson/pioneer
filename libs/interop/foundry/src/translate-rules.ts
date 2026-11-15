@@ -74,7 +74,7 @@ function keyOf(raw: unknown): string {
 }
 
 /** `raw` with a string `value` in Pioneer's reference spelling, the only formula field the envelope's elements share. */
-function withPioneerFormula(raw: unknown): unknown {
+function withPioneerFormula<Raw>(raw: Raw): Raw | Readonly<Record<string, unknown>> {
   if (typeof raw !== 'object' || raw === null || !('value' in raw) || typeof raw.value !== 'string') {
     return raw;
   }
@@ -127,7 +127,7 @@ function localized(value: unknown, context: RuleContext, unresolved: UnresolvedK
  * `raw` with Foundry's base `label`, which names what the element produces on the sheet (a modifier's breakdown line,
  * a toggle), as Pioneer's `display.label`.
  */
-function withDisplayLabel(raw: unknown): unknown {
+function withDisplayLabel<Raw>(raw: Raw): Raw | Readonly<Record<string, unknown>> {
   if (typeof raw !== 'object' || raw === null || !('label' in raw) || typeof raw.label !== 'string') {
     return raw;
   }

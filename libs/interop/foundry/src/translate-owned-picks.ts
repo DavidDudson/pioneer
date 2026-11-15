@@ -2,6 +2,7 @@ import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ChoiceSetElement, RuleElement } from '@pioneer/rules/sdk';
 
 import { kebab } from './foundry-flags';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * A `ChoiceSet` over the items the character owns (`ownedItems: true`) and the rules that read its pick, in Pioneer's
@@ -35,7 +36,7 @@ const SELECTOR_READ = /^(?<read>.+)-(?<roll>attack|damage)$/u;
 /** The predicate statements that name an item by what a pick stores: its id, or its slug (both are the slug in Pioneer). */
 const ITEM_NAMES = ['item:id:', 'item:slug:'] as const;
 
-function isFields(value: unknown): value is Record<string, unknown> {
+function isFields<Value>(value: Value): value is Value & Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
@@ -47,7 +48,10 @@ function flagRead(text: unknown): string | undefined {
 }
 
 /** A query of owned items as Pioneer's, with its predicate as the filter; any other choices as they are. */
-export function ownedQueryOf(choices: object, filterOf: (statement: unknown) => unknown): unknown {
+export function ownedQueryOf<Choices extends object>(
+  choices: Choices,
+  filterOf: (statement: unknown) => unknown,
+): Choices | Fields {
   const fields = Object.keys(choices);
 
   if (!('ownedItems' in choices) || choices.ownedItems !== true || !fields.every((field) => OWNED_FIELDS.has(field))) {
@@ -137,7 +141,7 @@ function alterationOf(raw: Record<string, unknown>, flags: ReadonlySet<string>):
  * `raw` with its reads of the picks of `flags` (the `ChoiceSet`s over owned items beside it) as Pioneer spells them:
  * its selectors as `picked:<flag>-attack` and `-damage`, and an `ItemAlteration`'s target as `item:picked:<flag>`.
  */
-export function withOwnedPicks(raw: unknown, flags: ReadonlySet<string>): unknown {
+export function withOwnedPicks<Raw>(raw: Raw, flags: ReadonlySet<string>): Raw | Fields {
   if (flags.size === 0 || !isFields(raw)) {
     return raw;
   }

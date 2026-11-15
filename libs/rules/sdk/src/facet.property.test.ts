@@ -57,12 +57,14 @@ const entries: Arbitrary<readonly ContentEntry[]> = array(shape, { maxLength: EN
   }),
 );
 
-const POOLS: Readonly<Record<string, readonly string[]>> = {
+const POOLS = {
   rarity: Object.values(Rarity),
   traits: [...TRAITS, '_unknown'],
   book: BOOKS,
   pack: PACKS,
 };
+
+const POOLS_BY_FACET: ReadonlyMap<string, readonly string[]> = new Map(Object.entries(POOLS));
 
 const bound: Arbitrary<RangeBound | undefined> = option(
   integer({ min: 0, max: LEVEL_TOP }).map((value) => RangeBound.parse(value)),
@@ -77,7 +79,7 @@ function selection(facet: FacetDefinition): Arbitrary<FacetSelection | undefined
     );
   }
 
-  const pool = (POOLS[facet.id] ?? []).map((value) => FacetValue.parse(value));
+  const pool = (POOLS_BY_FACET.get(facet.id) ?? []).map((value) => FacetValue.parse(value));
 
   return tuple(subarray(pool), subarray(pool)).map(([picked, dropped]) => {
     const exclude = dropped.toSorted();

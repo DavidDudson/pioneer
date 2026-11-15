@@ -7,6 +7,7 @@ import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { kebab } from './foundry-flags';
 import { fromFoundryFormula } from './foundry-formula';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * Foundry's `GrantItem` and `Aura` as Pioneer's: which entry a grant names (by compendium UUID, or by a pick a
@@ -68,7 +69,7 @@ function isDerivedGrant(deletes: unknown, item: ContentId | undefined, reference
  * grant is always derived. An unresolved UUID, or delete actions a derived grant lacks, leave it as it is, so the
  * element fails and is kept for the backlog.
  */
-export function withGrantedId(raw: unknown, references: EntryReferences): unknown {
+export function withGrantedId<Raw>(raw: Raw, references: EntryReferences): Raw | Fields {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
@@ -97,7 +98,7 @@ const FoundryBadgeValue = z.tuple([
  * A `GrantItem` whose only alteration sets the granted condition's value, as the grant's `value`. Any other
  * alterations leave it as it is, so the element fails and is kept for the backlog.
  */
-export function withGrantValue(raw: unknown): unknown {
+export function withGrantValue<Raw>(raw: Raw): Raw | Fields {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('alterations' in raw)) {
     return raw;
   }
@@ -122,7 +123,11 @@ const SELECTION_UUID = /^\{item\|flags\.system\.rulesSelections\.(?<flag>[A-Za-z
  * would read a pick nothing asks for, so it is left for the backlog with its `ChoiceSet`. Delete actions are read as for
  * a granted id; a pick is no physical item.
  */
-export function withChoiceGrant(raw: unknown, references: EntryReferences, declared: ReadonlySet<string>): unknown {
+export function withChoiceGrant<Raw>(
+  raw: Raw,
+  references: EntryReferences,
+  declared: ReadonlySet<string>,
+): Raw | Fields {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
@@ -151,7 +156,7 @@ const FoundryPreselected = z.record(z.string(), z.unknown());
  * (where the sheet files the granted item) and `reevaluateOnUpdate` (a Pioneer grant always follows its predicate);
  * any other element as it is.
  */
-export function withGrantFields(raw: unknown): unknown {
+export function withGrantFields<Raw>(raw: Raw): Raw | Fields {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null) {
     return raw;
   }
@@ -183,7 +188,7 @@ const FoundryAuraEffect = z.looseObject({ uuid: z.string() });
  * resolves to, `effect`. An effect that does not resolve leaves the aura as it is, so the element fails and is kept
  * for the backlog; any other element as it is.
  */
-export function withAura(raw: unknown, references: EntryReferences): unknown {
+export function withAura<Raw>(raw: Raw, references: EntryReferences): Raw | Fields {
   if (keyOf(raw) !== RuleElementKey.Aura || typeof raw !== 'object' || raw === null) {
     return raw;
   }

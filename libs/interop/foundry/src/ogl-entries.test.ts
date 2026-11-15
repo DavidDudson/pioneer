@@ -6,6 +6,7 @@ import { readFoundryRelease } from './foundry-release';
 import type { FoundryRelease } from './foundry-release';
 import { selectEntries, SkipReason } from './select-entries';
 import { LEGACY } from './testing/legacy';
+import type { Fields } from './translate-choice-reads';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const guide = BookId.parse('advanced-players-guide');
@@ -16,7 +17,7 @@ const manifest = {
 };
 
 /** A feat of the Advanced Player's Guide, which Foundry marks OGL and pre-remaster. */
-function feat(name: string): object {
+function feat(name: string): Fields {
   const publication = { title: "Pathfinder Advanced Player's Guide", license: 'OGL', remaster: false };
 
   return { _id: `${name}Id`, name, type: 'feat', img: 'icon.webp', system: { publication, rules: [] } };

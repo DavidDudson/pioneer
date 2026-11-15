@@ -11,6 +11,7 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /**
  * A fighter with the druid, wizard and bard archetypes as the importer gives them (ADR-0050), shrunk to two orders and
@@ -35,7 +36,7 @@ for (const [, spell] of [...ORDERS, ...SCHOOLS, ['', 'counter-performance'] as c
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const featureId = (name: string): string => pack.idOf(ContentKind.ClassFeature, name);
 
-const entry = (slug: string, tradition: string, attribute: string): object => ({
+const entry = (slug: string, tradition: string, attribute: string): JsonObject => ({
   key: 'SpellcastingEntry',
   slug,
   tradition,

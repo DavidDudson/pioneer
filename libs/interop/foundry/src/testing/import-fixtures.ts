@@ -21,21 +21,21 @@ export const coreRules = PackId.parse('core-rules');
 const remaster = { title: 'Pathfinder Player Core', license: 'ORC', remaster: true };
 
 /** Foundry's pack for each type the fixtures use, by compendium name and source directory. */
-const PACKS: Readonly<Record<string, FoundryPack>> = {
-  action: { name: 'actionspf2e', directory: 'actions' },
-  ancestry: { name: 'ancestries', directory: 'ancestries' },
-  background: { name: 'backgrounds', directory: 'backgrounds' },
-  class: { name: 'classes', directory: 'classes' },
-  deity: { name: 'deities', directory: 'deities' },
-  equipment: { name: 'equipment-srd', directory: 'equipment' },
-  backpack: { name: 'equipment-srd', directory: 'equipment' },
-  kit: { name: 'equipment-srd', directory: 'equipment' },
-  spell: { name: 'spells-srd', directory: 'spells' },
-  condition: { name: 'conditionitems', directory: 'conditions' },
-  effect: { name: 'equipment-effects', directory: 'equipment-effects' },
-  feat: { name: 'feats-srd', directory: 'feats' },
-  heritage: { name: 'heritages', directory: 'heritages' },
-};
+const PACKS: ReadonlyMap<string, FoundryPack> = new Map([
+  ['action', { name: 'actionspf2e', directory: 'actions' }],
+  ['ancestry', { name: 'ancestries', directory: 'ancestries' }],
+  ['background', { name: 'backgrounds', directory: 'backgrounds' }],
+  ['class', { name: 'classes', directory: 'classes' }],
+  ['deity', { name: 'deities', directory: 'deities' }],
+  ['equipment', { name: 'equipment-srd', directory: 'equipment' }],
+  ['backpack', { name: 'equipment-srd', directory: 'equipment' }],
+  ['kit', { name: 'equipment-srd', directory: 'equipment' }],
+  ['spell', { name: 'spells-srd', directory: 'spells' }],
+  ['condition', { name: 'conditionitems', directory: 'conditions' }],
+  ['effect', { name: 'equipment-effects', directory: 'equipment-effects' }],
+  ['feat', { name: 'feats-srd', directory: 'feats' }],
+  ['heritage', { name: 'heritages', directory: 'heritages' }],
+]);
 
 export interface DocumentFixture {
   readonly id: string;
@@ -78,7 +78,7 @@ function selected({ id, name, type, system = {}, pack: given, license, items }: 
     throw new Error(`${type} is not a Foundry item type`);
   }
 
-  const foundryPack = given ?? PACKS[type] ?? { name: `${type}-srd`, directory: type };
+  const foundryPack = given ?? PACKS.get(type) ?? { name: `${type}-srd`, directory: type };
 
   return {
     pack: foundryPack,

@@ -24,6 +24,12 @@ function fetchedCard(
   });
 }
 
+/** The one index load, and what it built. */
+interface KeptIndex {
+  attempt: Promise<ContentRegistry> | undefined;
+  index: ReadonlyMap<ContentId, ContentEntry> | undefined;
+}
+
 /**
  * Previews for a page that loads no content of its own: every reference opens a card, fetched with the entry's kinds
  * the first time one is opened and kept for the next, so a mention in a roll, a toast, a note or a campaign page shows
@@ -32,10 +38,7 @@ function fetchedCard(
 export function fetchedEntryPreviews(): EntryPreviews {
   const loader = inject(ContentLoader);
 
-  const kept: {
-    attempt: Promise<ContentRegistry> | undefined;
-    index: ReadonlyMap<ContentId, ContentEntry> | undefined;
-  } = { attempt: undefined, index: undefined };
+  const kept: KeptIndex = { attempt: undefined, index: undefined };
 
   const fetchIndex = async (): Promise<ReadonlyMap<ContentId, ContentEntry>> => {
     kept.attempt ??= loader.registry(entryKinds(ContentKind.Condition));

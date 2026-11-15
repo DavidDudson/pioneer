@@ -33,12 +33,15 @@ export function attachRows(
   }));
 }
 
-const columnValue: Readonly<Record<string, (row: AttachRow) => number | string>> = {
-  name: (row) => row.name,
-  ancestry: (row) => row.ancestry,
-  class: (row) => row.class,
-  level: (row) => row.level,
-};
+/** What a column sorts by. */
+type ColumnValue = (row: AttachRow) => number | string;
+
+const columnValue: ReadonlyMap<string, ColumnValue> = new Map<string, ColumnValue>([
+  ['name', (row) => row.name],
+  ['ancestry', (row) => row.ancestry],
+  ['class', (row) => row.class],
+  ['level', (row) => row.level],
+]);
 
 /** The rows whose name, ancestry or class hold `query`, in the order asked for, then by name. */
 export function shownAttachRows(
@@ -52,7 +55,7 @@ export function shownAttachRows(
     `${row.name} ${row.ancestry} ${row.class}`.toLocaleLowerCase().includes(needle),
   );
 
-  const value = columnValue[sort?.column ?? ''];
+  const value = columnValue.get(sort?.column ?? '');
 
   if (sort === undefined || value === undefined) {
     return matching;

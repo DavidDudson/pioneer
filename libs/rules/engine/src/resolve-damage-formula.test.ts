@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DiceExpressionText, parseDiceExpression } from '@pioneer/rules/dice';
+import type { DiceExpression } from '@pioneer/rules/dice';
 import { DamageFormula } from '@pioneer/rules/sdk';
 
 import { resolveDamageFormula } from './resolve-damage-formula';
@@ -16,7 +17,12 @@ function resolved(text: string): unknown {
   return resolveDamageFormula(DamageFormula.parse(text), INPUTS);
 }
 
-function dice(text: string): unknown {
+interface ParsedDice {
+  readonly ok: true;
+  readonly expression: DiceExpression | undefined;
+}
+
+function dice(text: string): ParsedDice {
   const parsed = parseDiceExpression(DiceExpressionText.parse(text));
 
   return { ok: true, expression: parsed.ok ? parsed.expression : undefined };

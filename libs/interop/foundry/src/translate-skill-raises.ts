@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { kebab } from './foundry-flags';
 import { SKILLS } from './foundry-skills';
+import type { Fields } from './translate-choice-reads';
 
 /** Foundry's ranks by number, trained (1) to legendary (4). */
 const RANKS = [Proficiency.Trained, Proficiency.Expert, Proficiency.Master, Proficiency.Legendary] as const;
@@ -60,11 +61,17 @@ function categorySelectorOf(path: string): string | undefined {
     : undefined;
 }
 
+/** The selector of the skill a `ChoiceSet` picked: its flag, and the prefix the skill's selector takes. */
+interface ChosenSelector {
+  readonly choice: string;
+  readonly prefix: string;
+}
+
 /**
  * The selector a raise's path names: a fixed skill's, a `ChoiceSet`'s pick behind `skill`, a weapon or armour
  * category's, spellcasting's, or none.
  */
-function selectorOf(path: string): unknown {
+function selectorOf(path: string): string | ChosenSelector | undefined {
   if (path === SPELLCASTING_RANK_PATH) {
     return 'spellcasting';
   }
@@ -93,7 +100,7 @@ function selectorOf(path: string): unknown {
  * or of spellcasting is one on that selector. A skill outside the sixteen (a Lore), a base weapon
  * (`weapon-base-club`), a formula value, an override or any other field leaves it for the backlog.
  */
-export function withSkillRaise(raw: unknown): unknown {
+export function withSkillRaise<Raw>(raw: Raw): Raw | Fields {
   const raise = FoundrySkillRaise.safeParse(raw);
 
   if (!raise.success) {
@@ -114,8 +121,6 @@ export function withSkillRaise(raw: unknown): unknown {
     ...present({ predicate }),
   };
 }
-
-type Fields = Readonly<Record<string, unknown>>;
 
 function isFields(value: unknown): value is Fields {
   return typeof value === 'object' && value !== null && !Array.isArray(value);

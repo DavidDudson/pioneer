@@ -2,6 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { ruleLimitSettingsOf } from '../../testing/rule-limit-settings-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
@@ -16,7 +17,7 @@ function panelOf({ root }: OpenSheet): HTMLElement {
 }
 
 /** Opens the configuration drawer, answering the character's own limits with `settings`. */
-async function open(settings: object): Promise<OpenSheet> {
+async function open(settings: JsonObject): Promise<OpenSheet> {
   const sheet = await openSheet(undefined, { ruleLimitSettings: settings });
   await openConfiguration(sheet.root);
   await vi.waitFor(() => {
@@ -90,7 +91,7 @@ describe('SheetRuleLimits', () => {
   });
 
   it('says a number is the campaign GM’s while a campaign decides', async () => {
-    const settings = ruleLimitSettingsOf({ handsMax: 1 }) as { limits: object[] };
+    const settings = ruleLimitSettingsOf({ handsMax: 1 }) as { limits: JsonObject[] };
     const limits = settings.limits.map((each) => ({ ...each, source: 'campaign' }));
 
     const panel = panelOf(

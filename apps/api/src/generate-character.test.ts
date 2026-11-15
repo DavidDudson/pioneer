@@ -22,7 +22,11 @@ const PROPERTY_RUNS = 12;
  * choice it cannot fill yet (a Rogue's Terrain Stalker and Specialty Crafting, or the Signature Weapon of an Alchemist
  * and a Fighter, which wants a weapon the build does not own), which the level 20 build avoids.
  */
-const GENERATED_UNFILLABLE: Readonly<Record<string, number>> = { Alchemist: 1, Fighter: 1, Rogue: 2 };
+const GENERATED_UNFILLABLE: ReadonlyMap<string, number> = new Map([
+  ['Alchemist', 1],
+  ['Fighter', 1],
+  ['Rogue', 2],
+]);
 
 /** The levels each class is generated at: the first, then every fifth, where classes gain most. */
 const CLASS_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
@@ -60,7 +64,7 @@ function fillable(result: Generated): readonly string[] {
 function problems(result: Generated, className: string | undefined): readonly string[] {
   const slots = characterSlots(result.character.document, content);
   const invalid = slots.filter((slot) => slot.status === SlotStatus.Invalid).map((slot) => `invalid ${slot.key}`);
-  const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE[className] ?? 0);
+  const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE.get(className) ?? 0);
   const unfilled = fillable(result);
   const open = unfilled.length > allowed ? unfilled.map((key) => `open ${key}`) : [];
 

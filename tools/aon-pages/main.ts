@@ -47,7 +47,16 @@ interface BookResult {
   readonly refused: boolean;
 }
 
-function query(sourceId: string, from: number): unknown {
+/** The search the index is asked for one page of a book's entries. */
+interface AonQuery {
+  readonly from: number;
+  readonly size: number;
+  readonly sort: readonly string[];
+  readonly _source: readonly string[];
+  readonly query: object;
+}
+
+function query(sourceId: string, from: number): AonQuery {
   return {
     from,
     size: PAGE_SIZE,

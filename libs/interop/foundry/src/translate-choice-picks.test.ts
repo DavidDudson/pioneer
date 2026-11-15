@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import type { Fields } from './translate-choice-reads';
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
@@ -20,7 +21,7 @@ function translated(raw: object, item = 'Align the Stars'): RuleTranslation {
   return translateRules(ENTRY, [raw], { lang: { PF2E: { Yes: 'Yes', No: 'No' } }, values: { item } });
 }
 
-function raise(path: string): object {
+function raise(path: string): Fields {
   return { key: 'ActiveEffectLike', mode: 'upgrade', path, value: 1 };
 }
 

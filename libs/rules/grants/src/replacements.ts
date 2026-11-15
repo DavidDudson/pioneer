@@ -28,12 +28,17 @@ function replacementsOf(
   return replacements;
 }
 
+/** Where the lazy replacements keep what they worked out. */
+interface LazyHolder {
+  value?: ReadonlyMap<ContentId, readonly Replacement[]>;
+}
+
 /** `replacementsOf` worked out on the first read, not up front: most lookups never convert a legacy entry. */
 export function lazyReplacements(
   registry: ContentRegistry,
   unsupported: ReadonlySet<ContentPackId>,
 ): () => ReadonlyMap<ContentId, readonly Replacement[]> {
-  const held: { value?: ReadonlyMap<ContentId, readonly Replacement[]> } = {};
+  const held: LazyHolder = {};
 
   return () => (held.value ??= replacementsOf(registry, unsupported));
 }

@@ -3,6 +3,12 @@ import type { LinkTarget } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
+/** What the lazy previews have fetched so far: the pending request, then its result. */
+interface KeptPreviews {
+  loading: Promise<EntryPreviews> | undefined;
+  loaded: EntryPreviews | undefined;
+}
+
 /**
  * The previews of every page that gives none of its own, so a reference in a roll, a toast, a note or a campaign page
  * opens a card. The content feature that works them out is its own chunk, fetched the first time a card opens and kept,
@@ -11,7 +17,7 @@ import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 export function lazyEntryPreviews(): EntryPreviews {
   const injector = inject(Injector);
 
-  const kept: { loading: Promise<EntryPreviews> | undefined; loaded: EntryPreviews | undefined } = {
+  const kept: KeptPreviews = {
     loading: undefined,
     loaded: undefined,
   };

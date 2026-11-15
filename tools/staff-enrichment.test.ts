@@ -3,13 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { staffMatches } from '@pioneer/rules/catalog';
 import { ContentEntryFile, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
+import type { EntryJson } from './entry-json.ts';
 import { enrichStaffFile } from './staff-enrichment.ts';
 
 const PACK = 'gm-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 /** A Game Master Core entry's JSON, as a pack file holds it. */
-function entry(slug: string, name: string, fields: object): object {
+function entry(slug: string, name: string, fields: object): EntryJson {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -37,7 +38,14 @@ const HEAL = entry('spell:heal', 'Heal', {
   },
 });
 
-const list = (words: string): object => ({
+/** A rich-text list as a pack file holds it. */
+interface ListJson {
+  readonly type: string;
+  readonly ordered: boolean;
+  readonly items: readonly (readonly object[])[];
+}
+
+const list = (words: string): ListJson => ({
   type: 'list',
   ordered: false,
   items: [

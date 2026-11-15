@@ -2,6 +2,7 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 
 import { focusEntry, SORCERER } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * A sorcerer's bloodline: its feature's slug, its name, its tradition and its initial, advanced and greater bloodline
@@ -49,7 +50,7 @@ const SORCERER_DEDICATION = 'feat:sorcerer-dedication';
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 
 /** The sorcerer's focus entry in `tradition`, holding while `predicate` does. */
-function entryOf(tradition: string, predicate: readonly unknown[]): object {
+function entryOf(tradition: string, predicate: readonly unknown[]): Fields {
   return { ...focusEntry({ slug: SORCERER, tradition, attribute: 'cha' }), predicate };
 }
 

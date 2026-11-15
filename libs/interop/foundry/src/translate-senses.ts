@@ -4,6 +4,7 @@ import { present } from '@pioneer/shared/kernel';
 import { resolveSlug } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import type { FoundrySense } from './foundry-config';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * Foundry's senses as `Sense` elements: its `Sense` rule element, and a feat's `subfeatures.senses`. Each names its
@@ -59,7 +60,7 @@ export function senseElement(
  * does not resolve, or that forces its sense over a better one (`force`), is left as it is, so it fails and is kept
  * for the backlog.
  */
-export function withSense(raw: unknown, context: SenseContext): unknown {
+export function withSense<Raw>(raw: Raw, context: SenseContext): Raw | Fields {
   if (
     typeof raw !== 'object' ||
     raw === null ||

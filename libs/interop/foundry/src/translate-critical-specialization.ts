@@ -1,6 +1,8 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
+import { isFields } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
 import type { NoteContext } from './translate-notes';
 import { richTextOf } from './translate-notes';
 
@@ -15,12 +17,12 @@ import { richTextOf } from './translate-notes';
 /** A weapon's read of its own id: the weapon the rule belongs to. */
 const OWN_WEAPON = 'item:id:{item|_id}';
 
-function isSpecialization(raw: unknown): raw is Record<string, unknown> {
-  return typeof raw === 'object' && raw !== null && 'key' in raw && raw.key === RuleElementKey.CriticalSpecialization;
+function isSpecialization<Raw>(raw: Raw): raw is Raw & Fields {
+  return isFields(raw) && raw['key'] === RuleElementKey.CriticalSpecialization;
 }
 
 /** A `CriticalSpecialization` that names its own weapon as one that is `etched` onto it; any other element as it is. */
-function withOwnWeapon(raw: unknown): unknown {
+function withOwnWeapon<Raw>(raw: Raw): Raw | Fields {
   if (!isSpecialization(raw) || !Array.isArray(raw['predicate']) || !raw['predicate'].includes(OWN_WEAPON)) {
     return raw;
   }
@@ -46,7 +48,7 @@ function persistentOf(dice: unknown): unknown {
 }
 
 /** A `CriticalSpecialization` as Pioneer spells it; any other element as it is. */
-export function withSpecialization(shaped: unknown, context: NoteContext): unknown {
+export function withSpecialization<Raw>(shaped: Raw, context: NoteContext): Raw | Fields {
   const raw = withOwnWeapon(shaped);
 
   if (!isSpecialization(raw)) {

@@ -52,7 +52,22 @@ function ignore(): void {
   // Seed log lines are not under test.
 }
 
-function ancestryEntry(slug: string, name: string, description: readonly object[] = []): object {
+/** An ancestry as a pack file holds it. */
+interface AncestryEntryJson {
+  readonly id: string;
+  readonly pack: PackId;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly object[];
+  readonly description: readonly object[];
+  readonly rules: readonly object[];
+  readonly data: object;
+}
+
+function ancestryEntry(slug: string, name: string, description: readonly object[] = []): AncestryEntryJson {
   return {
     id: contentId(PACK, EntrySlug.parse(`ancestry:${slug}`)),
     pack: PACK,

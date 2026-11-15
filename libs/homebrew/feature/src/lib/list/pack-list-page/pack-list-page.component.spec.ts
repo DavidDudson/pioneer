@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { homebrewRoutes } from '../../homebrew.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -20,7 +21,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-function packJson(title: string, entryCount: number): object {
+function packJson(title: string, entryCount: number): JsonObject {
   return {
     id,
     version: 1,

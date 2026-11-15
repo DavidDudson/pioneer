@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { SummaryKind } from '@pioneer/rules/predicate';
 import { ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
@@ -30,8 +31,14 @@ const chosen = (slot: string): OriginHop => OriginHop.parse({ kind: 'choice', sl
 const granted = (by: string, rule: number): OriginHop => OriginHop.parse({ kind: 'grant', by: idOf(by), rule });
 const names = (items: readonly { readonly entry: GrantEntry }[]): string[] => items.map((item) => item.entry.name);
 
-const option = (slug: string, more: object = {}): object => ({ value: idOf(slug), label: slug, ...more });
-const grantChoice = (flag: string): object => ({ key: 'GrantItem', item: { choice: flag } });
+/** A choice's option as JSON. */
+interface ChoiceOptionJson {
+  readonly value: string;
+  readonly label: string;
+}
+
+const option = (slug: string, more: object = {}): ChoiceOptionJson => ({ value: idOf(slug), label: slug, ...more });
+const grantChoice = (flag: string): RuleJson => ({ key: 'GrantItem', item: { choice: flag } });
 
 /** A rogue picks a racket at rule 0, granted at rule 1; each racket grants a feature. */
 const rogueContent = [

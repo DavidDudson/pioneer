@@ -25,22 +25,24 @@ function etchedRune(rune: unknown): unknown {
 
 /** An inventory line with its property runes as etched runes. A line with no runes is as it was. */
 function lineWithEtchedRunes(line: unknown): unknown {
-  if (!isRecord(line) || !isRecord(line['runes']) || !Array.isArray(line['runes']['property'])) {
-    return line;
-  }
+  const runes = isRecord(line) ? line['runes'] : undefined;
+  const property = isRecord(runes) ? runes['property'] : undefined;
 
-  return { ...line, runes: { ...line['runes'], property: line['runes']['property'].map(etchedRune) } };
+  return isRecord(line) && isRecord(runes) && Array.isArray(property)
+    ? { ...line, runes: { ...runes, property: property.map(etchedRune) } }
+    : line;
 }
 
 /** 20 → 21: every inventory line's property runes from content ids to etched runes. */
 function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharacterDocument {
-  const { inventory } = document;
-
-  if (!isRecord(inventory) || !Array.isArray(inventory['items'])) {
+  if (!isRecord(document['inventory']) || !Array.isArray(document['inventory']['items'])) {
     return document;
   }
 
-  return { ...document, inventory: { ...inventory, items: inventory['items'].map(lineWithEtchedRunes) } };
+  return {
+    ...document,
+    inventory: { ...document['inventory'], items: document['inventory']['items'].map(lineWithEtchedRunes) },
+  };
 }
 
 /**

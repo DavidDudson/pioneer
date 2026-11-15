@@ -35,11 +35,15 @@ function fill(sources: readonly SourceRef[], { book, page, aon }: EnrichmentMapp
 
 /** An entry's raw JSON and its sources, as records so every key keeps its place. */
 const SOURCES = 'sources';
+
 const RawEntry = z.record(z.string(), z.unknown());
+
+type RawEntry = z.infer<typeof RawEntry>;
+
 const RawSources = z.array(z.record(z.string(), z.unknown())).readonly();
 
 /** The raw entry with `values` added to its source at `index`; every other field is as it was. */
-function patch(json: unknown, { index, values }: Fill): unknown {
+function patch(json: unknown, { index, values }: Fill): RawEntry {
   const raw = RawEntry.parse(json);
   const sources = RawSources.parse(raw[SOURCES]);
 

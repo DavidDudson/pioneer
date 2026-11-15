@@ -8,6 +8,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-store';
 import { CharacterStore } from '../../../data/character-store';
 import { INVENTORY_LINE_OFFER } from '../../../data/inventory-line-offer';
+import type { JsonObject } from '../../../testing/json-fixture';
 import { ItemOffer } from './item-offer.component';
 
 const campaign = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -44,9 +45,9 @@ function render(campaignId: string | undefined, loader: LoadOffer, line: string)
       { provide: INVENTORY_LINE_OFFER, useValue: loader },
       {
         provide: CharacterStore,
-        useValue: { selected: (): object => ({ id: character, document: { inventory: { items } } }) },
+        useValue: { selected: (): JsonObject => ({ id: character, document: { inventory: { items } } }) },
       },
-      { provide: CharacterRuleLimitStore, useValue: { rules: (): object => ({ campaign: campaignId }) } },
+      { provide: CharacterRuleLimitStore, useValue: { rules: (): JsonObject => ({ campaign: campaignId }) } },
     ],
   });
   const fixture = TestBed.createComponent(ItemOffer);

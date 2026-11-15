@@ -28,7 +28,22 @@ const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 const PACK = 'stored-ancestries';
 
-function ancestryEntry(slug: string, name: string, pack: string = PACK): object {
+/** An entry as JSON. */
+interface EntryFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function ancestryEntry(slug: string, name: string, pack: string = PACK): EntryFixture {
   return {
     id: contentId(PackId.parse(pack), EntrySlug.parse(`ancestry:${slug}`)),
     pack,

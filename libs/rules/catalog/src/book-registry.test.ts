@@ -9,7 +9,17 @@ import { BookRegistry, bookRegistry } from './book-registry';
 
 const PLAYER_CORE = BookId.parse('player-core');
 
-function playerCore(overrides: Readonly<Record<string, unknown>> = {}): Record<string, unknown> {
+/** A book registry entry as JSON. */
+interface BookFixture {
+  readonly id: string;
+  readonly publisher: Publisher;
+  readonly license: ContentLicense;
+  readonly remaster: boolean;
+  readonly released: string;
+  readonly aonSourceUrl: string;
+}
+
+function playerCore(overrides: Readonly<Record<string, unknown>> = {}): BookFixture {
   return {
     id: 'player-core',
     publisher: Publisher.Paizo,

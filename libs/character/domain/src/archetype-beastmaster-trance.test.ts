@@ -11,6 +11,7 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /**
  * A fighter with the beastmaster archetype as the importer gives it (ADR-0050): Beastmaster's Trance gives the focus
@@ -18,7 +19,7 @@ import { CharacterBuilder } from './testing';
  */
 const OWN = ['order-spell', 'heal-animal', 'untamed-shift'];
 
-const entry = (slug: string, tradition: string, attribute: string): object => ({
+const entry = (slug: string, tradition: string, attribute: string): JsonObject => ({
   key: 'SpellcastingEntry',
   slug,
   tradition,

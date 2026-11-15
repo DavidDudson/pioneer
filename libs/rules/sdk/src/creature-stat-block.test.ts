@@ -76,7 +76,23 @@ const statBlock = {
   recallKnowledge: text('Identify with Nature (DC 25).'),
 };
 
-function creature(data: object): unknown {
+/** An Ogre creature entry as JSON. */
+interface CreatureFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly level: number;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function creature(data: object): CreatureFixture {
   return {
     id: contentId(PackId.parse('monster-core'), EntrySlug.parse('creature:ogre')),
     pack: 'monster-core',

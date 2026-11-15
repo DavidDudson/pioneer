@@ -11,6 +11,7 @@ import type { PioneerExported } from './export-pioneer-character';
 import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT } from './pioneer-character-file';
 import { PioneerReadProblem, readPioneerCharacter } from './read-pioneer-character';
 import type { PioneerReadFailure } from './read-pioneer-character';
+import type { Fields } from './rewrite-references';
 
 installRulesFakes();
 
@@ -20,7 +21,7 @@ const character = CharacterDocumentSchema.parse(generated);
 const target = { id: character.id, ownerId: character.ownerId };
 const NEWER = 99;
 
-function fileOf(overrides: Record<string, unknown>): unknown {
+function fileOf(overrides: Fields): Fields {
   return { format: PIONEER_CHARACTER_FORMAT, formatVersion: CURRENT_FORMAT_VERSION, character: {}, ...overrides };
 }
 

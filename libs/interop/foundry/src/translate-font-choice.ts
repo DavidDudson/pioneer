@@ -1,6 +1,8 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import type { Fields } from './translate-choice-reads';
+
 /** One of Divine Font's fonts, offered while its predicate holds. */
 const FontOption = z.looseObject({ value: z.unknown(), label: z.unknown(), predicate: z.array(z.string()).optional() });
 
@@ -19,7 +21,7 @@ const FONT_FLAG = 'divine-font';
  * predicates on `deity:primary:font:<font>` say (ADR-0045, ADR-0046). Its icons (`img`) are dropped as a display
  * concern. Any other element is left as it is.
  */
-export function withFontChoice(raw: unknown): unknown {
+export function withFontChoice<Raw>(raw: Raw): Raw | Fields {
   const font = FoundryFontChoice.safeParse(raw);
 
   if (!font.success) {

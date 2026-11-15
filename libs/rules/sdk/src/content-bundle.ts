@@ -230,8 +230,15 @@ function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
   return mechanics.map((entry) => entryFromBundles(entry, names) as ContentEntry);
 }
 
+/** An entry as it is put back together, before it is read as a `ContentEntry`. */
+interface AssembledEntry {
+  readonly id: ContentId;
+  readonly name: ContentText;
+  readonly description: readonly unknown[];
+}
+
 /** An entry put back together from its kind's bundles. Descriptions come with their own bundles (`descriptionFromBundle`). */
-function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames: NamesBundle): unknown {
+function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames: NamesBundle): AssembledEntry {
   const named = entryNames[mechanicsEntry.id];
 
   if (named === undefined) {

@@ -1,16 +1,17 @@
 import { describe, expect, test } from 'bun:test';
 
 import { htmlToRichText } from './html-rich-text';
+import type { Fields } from './translate-choice-reads';
 
 function richTextOf(html: string): unknown {
   return htmlToRichText(html).richText;
 }
 
-function text(value: string): object {
+function text(value: string): Fields {
   return { type: 'text', text: value };
 }
 
-function paragraph(...content: object[]): object {
+function paragraph(...content: object[]): Fields {
   return { type: 'paragraph', content };
 }
 

@@ -104,6 +104,16 @@ function isRefNode(value: object): value is RefLike {
   return 'type' in value && value.type === InlineKind.Ref && 'id' in value && typeof value.id === 'string';
 }
 
+/** A `Ref` node as the text of its label, else of its entry's name; checked when the entry is parsed. */
+interface UnlinkedText {
+  readonly type: typeof InlineKind.Text;
+  readonly text: string;
+}
+
+function textOf(node: RefLike, check: Check): UnlinkedText {
+  return { type: InlineKind.Text, text: node.label ?? check.resolution.names.get(node.id) ?? '' };
+}
+
 /** `value` with each `Ref` node to a missing entry as text, each reported in `gaps`. */
 function unlink(value: unknown, check: Check, gaps: BacklogGap[]): unknown {
   if (Array.isArray(value)) {
@@ -117,7 +127,7 @@ function unlink(value: unknown, check: Check, gaps: BacklogGap[]): unknown {
   if (isRefNode(value) && isMissing(value.id, check)) {
     gaps.push({ type: BacklogGapType.Link, entry: keyOf(value.id, check), element: value });
 
-    return { type: InlineKind.Text, text: value.label ?? check.resolution.names.get(value.id) ?? '' };
+    return textOf(value, check);
   }
 
   return Object.fromEntries(Object.entries(value).map(([key, each]) => [key, unlink(each, check, gaps)]));

@@ -25,7 +25,15 @@ const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const GIFT = pack.idOf(ContentKind.ClassFeature, 'fey-gift');
 const OAK = pack.idOf(ContentKind.ClassFeature, 'oak-gift');
 
-const entry = (slug: string): object => ({
+interface SpellcastingEntryRule {
+  readonly key: string;
+  readonly slug: string;
+  readonly tradition: string;
+  readonly attribute: string;
+  readonly preparation: string;
+}
+
+const entry = (slug: string): SpellcastingEntryRule => ({
   key: 'SpellcastingEntry',
   slug,
   tradition: 'primal',

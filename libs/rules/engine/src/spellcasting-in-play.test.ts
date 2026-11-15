@@ -3,12 +3,13 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, SLOT_COUNT_MAX } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
 import { inPlay } from './testing';
 
-const entry = (slug: string, tradition: string, extra: object = {}): object => ({
+const entry = (slug: string, tradition: string, extra: object = {}): RuleJson => ({
   key: 'SpellcastingEntry',
   slug,
   tradition,
@@ -27,7 +28,7 @@ interface PoolSpellsFields {
   readonly spells: readonly string[];
 }
 
-const poolSpells = (fields: PoolSpellsFields, extra: object = {}): object => ({
+const poolSpells = (fields: PoolSpellsFields, extra: object = {}): RuleJson => ({
   key: 'PoolSpells',
   ...fields,
   ...extra,
@@ -38,7 +39,7 @@ const fontSpell = (spell: string, option: string): object =>
   poolSpells({ entry: 'cleric', pool: 'divine-font', spells: [spell] }, { predicate: [option] });
 
 /** The cleric's `DeitySpells`, while `predicate` holds. */
-const deitySpells = (predicate: string): object => ({ key: 'DeitySpells', entry: 'cleric', predicate: [predicate] });
+const deitySpells = (predicate: string): RuleJson => ({ key: 'DeitySpells', entry: 'cleric', predicate: [predicate] });
 
 function entriesOf(
   placed: readonly (readonly [object, string])[],
@@ -121,7 +122,7 @@ describe('spellcastingInPlay', () => {
   });
 });
 
-const slots = (entrySlug: string, [rank, value]: readonly [number | string, number], extra: object = {}): object => ({
+const slots = (entrySlug: string, [rank, value]: readonly [number | string, number], extra: object = {}): RuleJson => ({
   key: 'SpellSlots',
   entry: entrySlug,
   rank,
@@ -179,7 +180,7 @@ describe('spellcastingInPlay slots', () => {
     ]);
 
     expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: 2 }] });
-    expect(wizard?.pools.map(({ pool, cantrips, ranks }): object => ({ pool, cantrips, ranks }))).toEqual([
+    expect<unknown>(wizard?.pools.map(({ pool, cantrips, ranks }) => ({ pool, cantrips, ranks }))).toEqual([
       { pool: 'bonded', cantrips: undefined, ranks: [{ rank: 1, count: 1 }] },
       { pool: 'curriculum', cantrips: 1, ranks: [{ rank: 1, count: 1 }] },
     ]);
@@ -207,7 +208,7 @@ describe('spellcastingInPlay slots', () => {
         { rank: 2, count: 3 },
       ],
     });
-    expect(cleric?.pools.map(({ pool, ranks }): object => ({ pool, ranks }))).toEqual([
+    expect<unknown>(cleric?.pools.map(({ pool, ranks }) => ({ pool, ranks }))).toEqual([
       { pool: 'divine-font', ranks: [{ rank: 2, count: 4 }] },
     ]);
   });
@@ -256,7 +257,7 @@ describe('spellcastingInPlay slots', () => {
       [poolSpells({ entry: 'cleric', pool: 'curriculum', spells: [HARM] }), 'cleric-feat'],
     ]);
 
-    expect(wizard?.pools.map(({ pool, spells }): object => ({ pool, spells }))).toEqual([
+    expect<unknown>(wizard?.pools.map(({ pool, spells }) => ({ pool, spells }))).toEqual([
       { pool: 'curriculum', spells: [HEAL, FIREBALL, HARM] },
     ]);
   });

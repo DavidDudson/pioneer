@@ -36,3 +36,5 @@ export { EntryIdentityJson, slugText } from './json-arbitraries';
 export { PLAYER_CORE_PROFICIENCY_BONUS } from './proficiency-bonus';
 
 export { CORE_NAMESPACES } from './roll-option-namespaces';
+
+export type { RuleJson } from './rule-json';

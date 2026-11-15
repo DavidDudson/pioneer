@@ -197,13 +197,13 @@ describe('a mixed list', () => {
 });
 
 describe('prerequisites met facet', () => {
-  const statuses: Readonly<Record<string, PrerequisiteValue>> = {
-    'feat:sudden-charge': 'met',
-    'feat:assurance': 'unknown',
-    'feat:toughness': 'unmet',
-  };
+  const statuses = new Map<string, PrerequisiteValue>([
+    ['feat:sudden-charge', 'met'],
+    ['feat:assurance', 'unknown'],
+    ['feat:toughness', 'unmet'],
+  ]);
 
-  const facet = prerequisitesMetFacet((subject) => statuses[subject.slug] ?? 'unmet');
+  const facet = prerequisitesMetFacet((subject) => statuses.get(subject.slug) ?? 'unmet');
   const withStatus = [...FEAT_FACETS, facet];
   const candidates = [suddenCharge, assurance, toughness, climb];
 

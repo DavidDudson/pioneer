@@ -13,6 +13,7 @@ import { QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeAll, expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
+import type { JsonObject } from './json-fixture';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
@@ -98,9 +99,9 @@ const MERISIEL_SLOTS = [
 const NO_LANGUAGES = { known: [], open: 0 } as const;
 
 function sheetOf(
-  character: object,
+  character: JsonObject,
   { slots = MERISIEL_SLOTS, languages = NO_LANGUAGES, deity, authors }: SheetOptions = {},
-): object {
+): JsonObject {
   const sheet = { character, slots, languages };
   const withDeity = deity === undefined ? sheet : { ...sheet, deity };
 
@@ -112,29 +113,29 @@ export const NO_TAB = 'none';
 
 /** What else a sheet opens with: the slots the server read, and the content packs served. */
 export interface SheetOptions {
-  readonly slots?: readonly object[];
+  readonly slots?: readonly JsonObject[];
   /** The languages the server read; none by default. */
-  readonly languages?: object;
+  readonly languages?: JsonObject;
   /** The deity the server read; none by default. */
-  readonly deity?: object;
+  readonly deity?: JsonObject;
   /** The names of the users who authored the character's overrides; none by default. */
-  readonly authors?: readonly object[];
+  readonly authors?: readonly JsonObject[];
   readonly packs?: readonly PackContentsLoader[];
   /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
   readonly tab?: SheetMode | typeof NO_TAB;
   /** The section of the tab to open, by its path; a tab builds only the section it shows, the first by default. */
   readonly section?: string;
   /** The play state the server read; undamaged, at revision 1, by default. */
-  readonly play?: object;
+  readonly play?: JsonObject;
   /** The sections where the server has the user showing grant-only feats; none by default. */
-  readonly featDisplay?: object;
+  readonly featDisplay?: JsonObject;
   /** The packs the server has the character using; only the owner's choice of none by default. */
-  readonly characterPacks?: object;
+  readonly characterPacks?: JsonObject;
   /** The variant rules the server has the character using; none, for its owner to change, by default. */
-  readonly characterVariantRules?: object;
-  readonly ruleLimitSettings?: object;
+  readonly characterVariantRules?: JsonObject;
+  readonly ruleLimitSettings?: JsonObject;
   /** What the server has the character using that its campaign has not enabled; nothing by default. */
-  readonly unenabledContent?: object;
+  readonly unenabledContent?: JsonObject;
   readonly providers?: readonly Provider[];
 }
 
@@ -146,7 +147,11 @@ export { answerItemApprovalsRead } from './rule-limit-reads-testing';
 export { answerSheetBundle, playOf } from './sheet-reads-testing';
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
-export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {
+export function patchedOf(
+  character: JsonObject,
+  slots: readonly JsonObject[],
+  cleared: readonly JsonObject[] = [],
+): JsonObject {
   return { character, slots, cleared, languages: NO_LANGUAGES };
 }
 
@@ -175,7 +180,7 @@ export interface OpenSheet {
 }
 
 /** The sheet bundle the server answers a character's owner with: the sheet, and every read the stores would make. */
-function bundleOf(character: object, options: SheetOptions): object {
+function bundleOf(character: JsonObject, options: SheetOptions): JsonObject {
   return {
     sheet: sheetOf(character, options),
     ruleLimits: CORE_RULE_LIMITS,
@@ -190,7 +195,7 @@ function bundleOf(character: object, options: SheetOptions): object {
 }
 
 /** Answers the sheet's read of its character with the bundle, and the panels' reads of what the bundle leaves out. */
-async function answerReads(character: object, options: SheetOptions): Promise<void> {
+async function answerReads(character: JsonObject, options: SheetOptions): Promise<void> {
   await answerSheetBundle(bundleOf(character, options));
 
   // Plan (the rule-breaking warning) and the Exploration inventory read what the campaign approved; Encounter and Downtime don't, and neither does an Exploration section that is not the inventory, which builds nothing of it.
@@ -208,7 +213,7 @@ async function answerReads(character: object, options: SheetOptions): Promise<vo
  * Opens Merisiel's sheet (or `character`'s) at a tab in the document, so focus can move, and waits until it has loaded.
  * The tab it last had is never answered, so opening a tab never remembers it.
  */
-export async function openSheet(character: object = MERISIEL, options: SheetOptions = {}): Promise<OpenSheet> {
+export async function openSheet(character: JsonObject = MERISIEL, options: SheetOptions = {}): Promise<OpenSheet> {
   await prebuildServerStateTesting([], options.packs);
   TestBed.configureTestingModule({
     providers: [
@@ -264,7 +269,7 @@ export function harnessOf(root: HTMLElement): RouterTestingHarness {
 }
 
 /** Opens a sheet as `openSheet` does. */
-export type SheetOpener = (character?: object, options?: SheetOptions) => Promise<OpenSheet>;
+export type SheetOpener = (character?: JsonObject, options?: SheetOptions) => Promise<OpenSheet>;
 
 /** `openSheet` at `tab` unless told otherwise, for a spec whose sections are on one tab. */
 export function openerAt(tab: SheetMode, section?: string): SheetOpener {

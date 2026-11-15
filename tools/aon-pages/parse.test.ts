@@ -4,11 +4,21 @@ import { AonUrl, PageNumber } from '@pioneer/rules/sdk';
 
 import { pageIn, parseHits, replacements } from './parse.ts';
 
-const hit = (url: string, markdown?: string, name?: string): unknown => ({
+/** One hit of the index's answer. */
+interface HitJson {
+  readonly _source: object;
+}
+
+/** The index's answer to a search. */
+interface AnswerJson {
+  readonly hits: object;
+}
+
+const hit = (url: string, markdown?: string, name?: string): HitJson => ({
   _source: { url, name, type: 'Action', source_markdown: markdown },
 });
 
-const answer = (...hits: unknown[]): unknown => ({ hits: { total: { value: 9 }, hits } });
+const answer = (...hits: unknown[]): AnswerJson => ({ hits: { total: { value: 9 }, hits } });
 
 describe('pageIn', () => {
   test('reads the page printed for the asked book', () => {

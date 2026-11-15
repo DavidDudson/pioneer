@@ -4,6 +4,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { ClassPicker, SubclassPicker } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickRow } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
@@ -21,7 +22,7 @@ const FIGHTER = playerCoreClassId('fighter');
 const CLERIC = playerCoreClassId('cleric');
 
 /** Merisiel as a fighter, with a cleric as her second class when `second` is set. */
-function fighter(second = false): object {
+function fighter(second = false): JsonObject {
   const secondClass = second ? { 'second-class': CLERIC } : undefined;
   const choices = { class: FIGHTER, ...secondClass };
 

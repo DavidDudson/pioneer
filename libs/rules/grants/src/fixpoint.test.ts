@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, RollOption, Slug } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
@@ -39,9 +40,9 @@ const optionsOf = (
 const ofKind = (made: GrantEntry, kind: ContentKind): GrantEntry => ({ ...made, kind });
 
 /** A grant of `slug` while `predicate` holds. */
-const grantWhen = (slug: string, predicate: unknown): object => ({ ...grantOf(slug), predicate });
+const grantWhen = (slug: string, predicate: unknown): RuleJson => ({ ...grantOf(slug), predicate });
 
-const rollOption = (option: string, more: object = {}): object => ({ key: 'RollOption', option, ...more });
+const rollOption = (option: string, more: object = {}): RuleJson => ({ key: 'RollOption', option, ...more });
 
 describe('resolveGrants to a fixpoint', () => {
   test('a grant reads what another root grants, whatever order the roots come in', () => {

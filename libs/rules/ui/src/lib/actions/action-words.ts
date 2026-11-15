@@ -75,7 +75,7 @@ export class ActionWords {
     }
 
     const label = ACTION_RANGE_MESSAGES[cost]?.[upTo];
-    const end = ACTION_COUNT_COSTS[upTo];
+    const end = ACTION_COUNT_COSTS.get(upTo);
 
     return label === undefined || end === undefined || ACTION_COUNT[cost] === undefined
       ? undefined

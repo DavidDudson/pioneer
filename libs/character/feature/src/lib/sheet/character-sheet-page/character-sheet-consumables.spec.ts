@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -47,7 +48,7 @@ function holding(fixture: ItemFixture, stack: string): typeof HOLDING {
 }
 
 /** The play state on a turn with `actions` left. */
-function playWith(actions: number, revision = 1): object {
+function playWith(actions: number, revision = 1): JsonObject {
   return {
     revision,
     play: { hp: { damage: 10, temp: 0 }, turn: { phase: 'turn', actions, quickened: 0, reactionUsed: false } },

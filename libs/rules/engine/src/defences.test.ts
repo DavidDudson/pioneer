@@ -7,6 +7,7 @@ import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import { damageTargetOf } from './damage-target';
@@ -38,11 +39,11 @@ function defences(rules: readonly RuleInPlay[]): Defences {
   return deriveDefences(content, inputs, { rules, facts });
 }
 
-function resistance(type: readonly string[], value: number | string, fields: object = {}): object {
+function resistance(type: readonly string[], value: number | string, fields: object = {}): RuleJson {
   return { key: 'Resistance', type, value, ...fields };
 }
 
-function weakness(type: readonly string[], value: number | string, fields: object = {}): object {
+function weakness(type: readonly string[], value: number | string, fields: object = {}): RuleJson {
   return { key: 'Weakness', type, value, ...fields };
 }
 

@@ -24,8 +24,21 @@ const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
+/** The fields every entry carries, before its kind and data. */
+interface Envelope {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+}
+
 /** The envelope of a Player Core entry, without its kind and data. */
-function entry(slug: string, name: string): object {
+function entry(slug: string, name: string): Envelope {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -118,7 +131,13 @@ const diamond = {
   data: { price: { coins: { gp: 100 } }, bulk: 'negligible', category: 'gem' },
 };
 
-const contained = (name: string, quantity: number): object => ({ item: idOf(`equipment:${name}`), quantity });
+/** An item a kit holds, with how many. */
+interface Contained {
+  readonly item: string;
+  readonly quantity: number;
+}
+
+const contained = (name: string, quantity: number): Contained => ({ item: idOf(`equipment:${name}`), quantity });
 
 const adventurersPack = {
   ...entry('kit:adventurers-pack', 'Adventurer’s Pack'),

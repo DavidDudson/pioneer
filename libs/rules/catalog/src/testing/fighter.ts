@@ -97,7 +97,7 @@ function shieldRules(slug: string, bonus: number): readonly RuleInPlay[] {
 }
 
 /** The fighter's items' rules, by item: scale mail's bonus and penalties, and the steel shield's bonus while raised. */
-export const level1FighterItems: Readonly<Record<string, readonly RuleInPlay[]>> = {
+export const level1FighterItems = {
   'scale-mail': armorRules('scale-mail', {
     ac: SCALE_MAIL_AC,
     checkPenalty: SCALE_MAIL_CHECK_PENALTY,

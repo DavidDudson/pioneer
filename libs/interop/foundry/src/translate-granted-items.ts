@@ -3,6 +3,8 @@ import type { ContentId } from '@pioneer/rules/sdk';
 
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
+import { isFields } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
 import { withDoctrineGrants } from './translate-doctrine-grants';
 import { withPickRollOptions } from './translate-pick-options';
 
@@ -13,12 +15,6 @@ import { withPickRollOptions } from './translate-pick-options';
  * the entry the grant resolves to: an alteration reaches it by its `slug:` roll option, and an alteration of its damage
  * is an `ItemAlteration` of its damage type or dice. Any other rule is as it was.
  */
-
-type Fields = Readonly<Record<string, unknown>>;
-
-function isFields(value: unknown): value is Fields {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
 
 const READ_START = '{item|flags.system.itemGrants.';
 const READ_END = '.id}';

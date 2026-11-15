@@ -1,3 +1,4 @@
+import type { Fields } from '../translate-choice-reads';
 import type { DocumentFixture } from './import-fixtures';
 import { FOUNDRY_NULL } from './kind-fixtures';
 
@@ -7,7 +8,7 @@ const SPELL_EFFECTS = { name: 'spell-effects', directory: 'spell-effects' };
 const FEAT_EFFECTS = { name: 'feat-effects', directory: 'feat-effects' };
 
 /** A part of a spell's damage as Foundry writes it. */
-export function damagePart(formula: string, type: string, kinds: readonly string[] = ['damage']): object {
+export function damagePart(formula: string, type: string, kinds: readonly string[] = ['damage']): Fields {
   return { applyMod: false, category: FOUNDRY_NULL, formula, kinds, materials: [], type };
 }
 

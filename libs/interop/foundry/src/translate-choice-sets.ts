@@ -4,6 +4,7 @@ import * as z from 'zod';
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { kebab, slugOf } from './foundry-flags';
+import type { Fields } from './translate-choice-reads';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
 import { ownedQueryOf } from './translate-owned-picks';
 import { SKILL_CHOICES, skillChoicesWhere } from './translate-skill-choices';
@@ -54,13 +55,15 @@ const DOCUMENT_ID = /^[A-Za-z\d]{16}$/u;
  * A choice that names an entry by compendium UUID, as the entry it resolves to. Foundry labels it with the entry's
  * name, the last part of a UUID by name; a UUID by id, or one that does not resolve, is left as it is.
  */
-function withChosenEntry(choice: object, references: EntryReferences): object {
-  if (!('value' in choice) || typeof choice.value !== 'string') {
+function withChosenEntry(choice: Fields, references: EntryReferences): Fields {
+  const { value } = choice;
+
+  if (typeof value !== 'string') {
     return choice;
   }
 
-  const name = COMPENDIUM_UUID.exec(choice.value)?.groups?.['name'];
-  const id = resolveUuid(references, choice.value);
+  const name = COMPENDIUM_UUID.exec(value)?.groups?.['name'];
+  const id = resolveUuid(references, value);
 
   if (name === undefined || id === undefined || DOCUMENT_ID.test(name)) {
     return choice;
@@ -69,7 +72,7 @@ function withChosenEntry(choice: object, references: EntryReferences): object {
   return {
     ...choice,
     value: id,
-    label: 'label' in choice ? choice.label : name,
+    label: 'label' in choice ? choice['label'] : name,
   };
 }
 
@@ -85,7 +88,7 @@ const GRANTER_LEVEL = 'parent:granter:level';
 const GRANTER_LEVEL_OPTION = 'self:level';
 
 /** A predicate with each read of the item's level, or of its granter's, as Pioneer spells it; anything else is as it was. */
-function withItemLevel(node: unknown): unknown {
+function withItemLevel<Raw>(node: Raw): Raw | Fields | string | unknown[] {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
   }
@@ -143,7 +146,7 @@ const CONFIG_CHOICES: ReadonlyMap<string, unknown> = new Map<string, unknown>([
 const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
 
 /** A query by `itemType` as a query of that kind; a query that reads anything else is as it is. */
-function queryOf(choices: object): unknown {
+function queryOf<Choices extends object>(choices: Choices): Choices | Fields {
   const fields = Object.keys(choices);
   const isQuery = fields.every((field) => FOUNDRY_QUERY_FIELDS.has(field)) && 'itemType' in choices;
 
@@ -203,7 +206,7 @@ function choicesOf(choices: unknown, references: EntryReferences): unknown {
  * A `ChoiceSet` as Pioneer's element: its flag a slug (without one, the item's name, as Foundry names it by the item),
  * its choices and filter as above, and the display-only fields dropped. Any other element is as it is.
  */
-export function withChoiceSet(raw: unknown, item: string, references: EntryReferences): unknown {
+export function withChoiceSet<Raw>(raw: Raw, item: string, references: EntryReferences): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.ChoiceSet) {
     return raw;
   }
@@ -257,7 +260,7 @@ const TAG_QUERY_FIELDS_REPLACED: ReadonlySet<string> = new Set(['adjustName', 'c
  * with no item type, as a query of class features. Its camel-case flag becomes a slug, and `adjustName` (renaming the
  * feature after the pick) is dropped as a display concern. Any other `ChoiceSet` is left as it is.
  */
-export function withTagQuery(raw: unknown): unknown {
+export function withTagQuery<Raw>(raw: Raw): Raw | Fields {
   if (
     typeof raw !== 'object' ||
     raw === null ||

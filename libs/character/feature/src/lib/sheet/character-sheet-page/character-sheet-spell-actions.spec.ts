@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -24,14 +25,14 @@ const FORCE_BARRAGE = '1c97409b-bd67-5df2-a7d3-a49aff4d3896';
 const OWN_TURN = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
 
 /** A wizard with `choices` picked. */
-function wizard(choices: Readonly<Record<string, string>>): object {
+function wizard(choices: Readonly<Record<string, string>>): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('wizard'), ...choices }, spellAccess: [] },
   };
 }
 
-function playOf(turn: object): object {
+function playOf(turn: JsonObject): JsonObject {
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn } };
 }
 
@@ -62,7 +63,7 @@ describe('CharacterSheetPage casting a spell', () => {
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
-      const { command } = request.request.body as { command: object };
+      const { command } = request.request.body as { command: JsonObject };
       expect(command).toMatchObject({ field: 'spendAction', action: expect.any(String) as string });
       expect(command).not.toHaveProperty('slot');
       request.flush({ ...playOf(OWN_TURN), events: [] });
