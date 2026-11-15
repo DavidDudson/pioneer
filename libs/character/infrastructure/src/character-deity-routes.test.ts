@@ -5,6 +5,7 @@ import { CharacterSheet, PatchedCharacterSheet } from '@pioneer/character/domain
 import { humanAncestryId, playerCoreClasses, playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
 import { ContentKind, NamespaceKind, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
@@ -21,7 +22,7 @@ const deities = new ContentPackBuilder()
   .withId('deities')
   .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], description: EDICTS });
 
-function request(method: string, path: string, body?: object): Request {
+function request(method: string, path: string, body?: JsonObject): Request {
   const init: RequestInit = {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(amiri) },

@@ -20,8 +20,11 @@ describe(browserLink, () => {
   });
 });
 
+/** The state a history entry holds: fields of text or numbers. */
+type HistoryState = Readonly<Record<string, string | number>>;
+
 /** The location whose history holds `state`. */
-const historyWith = (state: object | undefined): Pick<Location, 'getState'> => ({ getState: () => state });
+const historyWith = (state: HistoryState | undefined): Pick<Location, 'getState'> => ({ getState: () => state });
 
 describe(originOf, () => {
   it('reads an address of the app', () => {

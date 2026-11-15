@@ -147,6 +147,7 @@ describe('signature slots', () => {
 
   test('character reads carry repertoire and signature slots', () => {
     const document = bard(5, { 'repertoire:bard:1:0': 'force-barrage', 'signature:bard:1': 'force-barrage' });
+
     const read = (key: string): CharacterSlot | undefined =>
       characterSlots(document, content).find((each) => each.key === key);
 

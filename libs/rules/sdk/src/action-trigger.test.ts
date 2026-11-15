@@ -7,7 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
-import type { JsonObject, JsonValue } from './testing/json-value';
+import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -24,7 +24,7 @@ function found(value: JsonValue): readonly string[] {
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
-const prose = (text: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prose = (text: string): FixtureJson[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The fields every entry carries, before its kind and data. */
 interface Envelope {

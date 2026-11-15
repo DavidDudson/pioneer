@@ -12,6 +12,11 @@ import * as z from 'zod';
 
 import { preferenceRoutes } from './preference-routes';
 
+const JsonBody = z.record(z.string(), z.json());
+
+/** A request body as JSON, before the route parses it. */
+type JsonBody = z.infer<typeof JsonBody>;
+
 function app(): AnyElysia {
   const preferences = new PreferencesService(new InMemoryPreferencesRepository(), fixedClock('2026-10-09T08:00:00Z'));
 
@@ -24,7 +29,7 @@ async function read(api: AnyElysia, user?: UserId): Promise<Response> {
   return api.handle(new Request('http://localhost/me/preferences', { headers }));
 }
 
-async function patch(api: AnyElysia, body: object, user?: UserId): Promise<Response> {
+async function patch(api: AnyElysia, body: JsonBody, user?: UserId): Promise<Response> {
   const headers = new Headers(user === undefined ? undefined : actingAs(user));
   headers.set('content-type', 'application/json');
 
@@ -34,7 +39,7 @@ async function patch(api: AnyElysia, body: object, user?: UserId): Promise<Respo
 }
 
 /** JSON null, which removing a choice would send. */
-const REMOVED_CHOICE = z.looseObject({}).parse(JSON.parse('{ "uiLocale": null }'));
+const REMOVED_CHOICE = z.record(z.string(), z.json()).parse(JSON.parse('{ "uiLocale": null }'));
 
 describe('preference routes', () => {
   test('a new account has nothing chosen', async () => {

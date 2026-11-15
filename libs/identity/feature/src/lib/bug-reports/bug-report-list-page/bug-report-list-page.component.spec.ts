@@ -5,6 +5,7 @@ import { frontierMessages } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { BugReportListItem, IdentityContract } from '@pioneer/identity/domain';
 import { HttpStatus } from '@pioneer/shared/kernel';
+import type { Endpoint } from '@pioneer/shared/kernel';
 import { ApiClient, ApiError, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -33,7 +34,7 @@ const OLDER = BugReportListItem.parse({
 });
 
 async function render(reports: readonly BugReportListItem[] | Error): Promise<HTMLElement> {
-  const call = vi.fn<(endpoint: object) => Promise<readonly BugReportListItem[]>>(async (endpoint) => {
+  const call = vi.fn<(endpoint: Endpoint) => Promise<readonly BugReportListItem[]>>(async (endpoint) => {
     if (endpoint !== IdentityContract.listBugReports) {
       throw new Error('Unexpected call');
     }

@@ -4,6 +4,7 @@ import { GeneratedCharacter, Seed } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
 import { Level } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -24,7 +25,7 @@ const LEVEL = Level.parse(1);
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-27T10:00:00Z');
 
-function post(path: string, body: object, headers: Record<string, string> = actingAs(fixtureOwnerId)): Request {
+function post(path: string, body: JsonObject, headers: Record<string, string> = actingAs(fixtureOwnerId)): Request {
   return new Request(`http://localhost${path}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', ...headers },

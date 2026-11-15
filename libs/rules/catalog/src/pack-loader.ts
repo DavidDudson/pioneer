@@ -1,9 +1,9 @@
 import { packContentsFromFiles } from '@pioneer/rules/sdk';
-import type { PackContents } from '@pioneer/rules/sdk';
+import type { JsonValue, PackContents } from '@pioneer/rules/sdk';
 
 /** A JSON file as `import('….json')` yields it. The compiler never sees those imports (see the `*-packs.js` files). */
 interface JsonModule {
-  readonly default: unknown;
+  readonly default: JsonValue;
 }
 
 /** Reads a pack from its manifest and one file per kind, all as the loaders in `json-packs.js` import them. */

@@ -15,6 +15,7 @@ import {
 } from '@pioneer/character/domain/testing';
 import { ContentKind, NamespaceKind, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -26,7 +27,7 @@ import { characterRoutes } from './character-routes';
 
 const amiri = UserId.parse(newId());
 
-function request(method: string, path: string, body: object): Request {
+function request(method: string, path: string, body: JsonObject): Request {
   return new Request(`http://localhost${path}`, {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(amiri) },
