@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
@@ -57,7 +58,7 @@ const SHORTBOW = wielded({ slug: 'shortbow', category: 'martial', traits: ['dead
 const FIST = wielded({ slug: 'fist', category: 'unarmed', traits: ['agile', 'finesse', 'nonlethal'] });
 
 /** A level 3 character, Dexterity higher than Strength: expert in simple weapons, trained in martial and arcane. */
-function character(json: object = {}): StatisticInputs {
+function character(json: JsonObject = {}): StatisticInputs {
   return StatisticInputsJson.parse({
     level: 3,
     attributes: { str: 1, dex: 4, con: 2, int: 3, wis: 1, cha: 0 },
@@ -81,14 +82,14 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
   return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
 }
 
-function inputIssues(json: object): readonly FieldIssue[] {
+function inputIssues(json: JsonObject): readonly FieldIssue[] {
   const result = StatisticInputsJson.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** The dagger's Strike for a character with `attributes`. */
-function daggerStrike(attributes: object): number | undefined {
+function daggerStrike(attributes: JsonObject): number | undefined {
   return totals(derive([STRIKE], character({ attributes, weapons: [DAGGER] })))['strike:dagger'];
 }
 

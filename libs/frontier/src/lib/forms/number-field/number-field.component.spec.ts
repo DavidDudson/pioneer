@@ -2,9 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { NumberField } from './number-field.component';
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixture<NumberField> {
+function render(inputs: ComponentInputs<NumberField> = {}): ComponentFixture<NumberField> {
   const fixture = TestBed.createComponent(NumberField);
   fixture.componentRef.setInput('label', 'Level');
   fixture.componentRef.setInput('hint', 'From 1 to 20.');

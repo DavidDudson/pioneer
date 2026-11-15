@@ -23,7 +23,7 @@ const manifest = {
   languages: [{ lang: 'en', name: 'Main (English)', path: 'lang/en.json' }],
 };
 
-function item(name: string, type: string, publication?: object): Fields {
+function item(name: string, type: string, publication?: Fields): Fields {
   return { _id: `${name}Id`, name, type, img: 'icon.webp', system: { publication, rules: [] } };
 }
 

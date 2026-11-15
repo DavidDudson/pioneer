@@ -18,9 +18,9 @@ function toCampaignCharacter(row: CampaignCharacterRow): CampaignCharacter {
 }
 
 export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

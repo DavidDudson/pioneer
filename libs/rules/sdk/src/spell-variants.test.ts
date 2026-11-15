@@ -7,6 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -26,14 +27,14 @@ interface SpellFixture {
   readonly name: string;
   readonly rarity: string;
   readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
-  readonly data: object;
+  readonly sources: readonly FixtureJson[];
+  readonly description: readonly FixtureJson[];
+  readonly rules: readonly FixtureJson[];
+  readonly data: JsonObject;
 }
 
 /** Heal, with `data` laid over its own. */
-function heal(data: object): SpellFixture {
+function heal(data: JsonObject): SpellFixture {
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(SLUG)),
     pack: PACK,
@@ -55,7 +56,7 @@ function heal(data: object): SpellFixture {
   };
 }
 
-function withVariants(variants: readonly object[]): object {
+function withVariants(variants: readonly JsonObject[]): SpellFixture {
   return heal({ variants });
 }
 

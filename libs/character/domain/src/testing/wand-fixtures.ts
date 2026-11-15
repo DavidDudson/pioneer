@@ -17,6 +17,7 @@ import { wandSources } from '../wand-sources';
 import type { WandSource } from '../wand-sources';
 import { staffSpellId } from './fire-staff';
 import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry } from './item-content';
+import type { JsonObject } from './json-fixture';
 import { within } from './play-limits';
 
 const registry = itemFixtureRegistry();
@@ -81,7 +82,7 @@ export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number
 }
 
 /** A wand of Fireball in the inventory, held unless `fields` say otherwise. */
-export function fireballWand(fields: object = {}): InventoryItem {
+export function fireballWand(fields: JsonObject = {}): InventoryItem {
   return InventoryItemSchema.parse({
     id: WAND_ID,
     item: itemFixtureId(ItemFixture.FireballWand),

@@ -26,6 +26,7 @@ import { TriggerEventType } from '../action';
 import { Attribute } from '../attribute';
 import { knownReference } from '../formula-reference';
 import { withOptional } from './json-arbitraries';
+import type { JsonObject, JsonValue } from './json-value';
 
 /** One lowercase alphanumeric word. */
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
@@ -63,7 +64,7 @@ const operand: Arbitrary<string | number> = oneof(rollOptionText, double({ noNaN
  * Valid predicate statements in Foundry's JSON shape, as plain JSON (unparsed), covering every
  * operator. Use with `Predicate.parse` to get the typed value.
  */
-export const predicateStatementJson: Arbitrary<unknown> = letrec<{ statement: unknown }>((tie) => {
+export const predicateStatementJson: Arbitrary<JsonValue> = letrec<{ statement: JsonValue }>((tie) => {
   const statement = tie('statement');
   const list = array(statement, { minLength: 1, maxLength: STATEMENT_LIST_MAX });
 
@@ -83,7 +84,7 @@ export const predicateStatementJson: Arbitrary<unknown> = letrec<{ statement: un
 }).statement;
 
 /** A valid whole predicate, as plain JSON. */
-export const predicateJson: Arbitrary<unknown> = array(predicateStatementJson, { maxLength: PREDICATE_LENGTH_MAX });
+export const predicateJson: Arbitrary<JsonValue> = array(predicateStatementJson, { maxLength: PREDICATE_LENGTH_MAX });
 
 const AT = TextPosition.parse(1);
 const SMALL_NUMBER_MAX = 20;
@@ -143,17 +144,22 @@ export const validFormulaText: Arbitrary<string> = formulaTextOver(knownReferenc
 export const actorFormulaText: Arbitrary<string> = formulaTextOver(actorReferencePath);
 
 const triggerEventType: Arbitrary<string> = constantFrom(...Object.values(TriggerEventType));
-const triggerEvent: Arbitrary<object> = withOptional(record({ event: triggerEventType }), { predicate: predicateJson });
+
+const triggerEvent: Arbitrary<JsonObject> = withOptional(record({ event: triggerEventType }), {
+  predicate: predicateJson,
+});
 
 /** An action's or effect's trigger fields: none, or an event with `autoApply: false` maybe beside it. */
-const triggerFields: Arbitrary<object> = oneof(
+const triggerFields: Arbitrary<JsonObject> = oneof(
   constant({}),
   withOptional(record({ triggerEvent }), { autoApply: constant(false) }),
 );
 
 /** `data` with trigger fields merged in. */
-export function withTrigger(data: Arbitrary<object>): Arbitrary<object> {
-  return tuple(data, triggerFields).map(([fields, trigger]): object =>
+export function withTrigger(data: Arbitrary<JsonObject>): Arbitrary<JsonObject> {
+  return tuple(data, triggerFields).map(([fields, trigger]): JsonObject =>
     Object.fromEntries([...Object.entries(fields), ...Object.entries(trigger)]),
   );
 }
+
+export type { JsonObject, JsonValue } from './json-value';

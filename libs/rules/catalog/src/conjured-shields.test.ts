@@ -1,9 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 /** The `GrantShield` rules of the effect `slug` in `pack`. */
-async function shieldsOf(pack: string, slug: string): Promise<readonly Record<string, unknown>[]> {
+async function shieldsOf(pack: string, slug: string): Promise<readonly JsonObject[]> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
   const effect = ContentEntryFile.parse(file).find((entry) => entry.kind === ContentKind.Effect && entry.slug === slug);
 
@@ -11,7 +12,7 @@ async function shieldsOf(pack: string, slug: string): Promise<readonly Record<st
 }
 
 /** The rule elements of the effect `slug` in `pack`. */
-async function rulesOf(pack: string, slug: string): Promise<readonly Record<string, unknown>[]> {
+async function rulesOf(pack: string, slug: string): Promise<readonly JsonObject[]> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
 
   return (
@@ -20,7 +21,7 @@ async function rulesOf(pack: string, slug: string): Promise<readonly Record<stri
 }
 
 /** The first `GrantShield` rule of the effect `slug` in `pack`, with how its Hardness rises by spell rank. */
-async function shieldOf(pack: string, slug: string): Promise<Record<string, unknown> | undefined> {
+async function shieldOf(pack: string, slug: string): Promise<JsonObject | undefined> {
   const [rule] = await shieldsOf(pack, slug);
 
   return rule;

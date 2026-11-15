@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -54,7 +54,7 @@ const RAGING: readonly string[] = ['self:effect:rage'];
 const TRAINED = { 'attack:martial': 'trained' };
 
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
-function strikeOf(elements: readonly RuleJson[], weapon: object, given: Given = {}): Strike | undefined {
+function strikeOf(elements: readonly RuleJson[], weapon: JsonObject, given: Given = {}): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },

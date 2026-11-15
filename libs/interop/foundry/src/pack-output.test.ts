@@ -8,10 +8,11 @@ import { packFiles, packOutput } from './pack-output';
 import { coreRules, idOf, known, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { AID, RAISE_A_SHIELD, SHIELD_RAISED } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 import { EnvelopeFailureReason } from './translate-envelope';
 import type { ImportTranslation } from './translate-import';
 
-function feat(id: string, name: string, system: object = {}): DocumentFixture {
+function feat(id: string, name: string, system: Fields = {}): DocumentFixture {
   return {
     id,
     name,

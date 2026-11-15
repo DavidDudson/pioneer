@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -50,14 +50,18 @@ const SHOCKWAVE = {
   perWeaponDie: true,
 };
 
+/** A weapon as JSON, before it is parsed: its `slug` and whatever fields it takes. */
+interface WeaponJson extends JsonObject {
+  readonly slug: string;
+}
+
 /** The first Strike of a level 5 character wielding `weapon`, with `placed` rule elements in play. */
-function strikeOf(placed: readonly (readonly [RuleJson, string])[], weapon: object): Strike | undefined {
+function strikeOf(placed: readonly (readonly [RuleJson, string])[], weapon: WeaponJson): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
     ranks: { 'attack:martial': 'trained', 'attack:simple': 'trained' },
-    // SAFETY: the weapon is a test weapon with a slug; wielded() only needs that to build its inputs.
-    weapons: [wielded(weapon as { slug: string })],
+    weapons: [wielded(weapon)],
   });
 
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };

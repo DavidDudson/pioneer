@@ -17,10 +17,10 @@ import type { PgDatabase } from 'drizzle-orm/pg-core';
 import { contentHash } from './content-hash';
 import { contentEntries, contentEntryTexts, contentPacks } from './content.table';
 
-type Database = BunSQLDatabase<Record<string, unknown>>;
+type Database = BunSQLDatabase;
 
 /** The database or a transaction on it: what the seed's writes run on. */
-type Executor = PgDatabase<BunSQLQueryResultHKT, Record<string, unknown>>;
+type Executor = PgDatabase<BunSQLQueryResultHKT>;
 
 type EntryRow = typeof contentEntries.$inferInsert;
 

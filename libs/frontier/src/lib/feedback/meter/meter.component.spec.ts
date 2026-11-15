@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { MAX_SEGMENTS, Meter, MeterVariant } from './meter.component';
 
 /** Renders a meter labelled "Hit points" with `inputs` and returns its host element. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Meter>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Meter);
   fixture.componentRef.setInput('label', 'Hit points');
 

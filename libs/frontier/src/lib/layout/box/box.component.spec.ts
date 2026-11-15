@@ -2,6 +2,7 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Space } from '../../tokens';
 import { Box, BoxWidth } from './box.component';
 
@@ -11,7 +12,7 @@ interface Rendered {
 }
 
 /** Renders `fr-box` with "Ability scores" projected and returns its host and inner element. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Box>): Promise<Rendered> {
   const box = createComponent(Box, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Ability scores')]],

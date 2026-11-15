@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { Book, BOOK_TITLES, BookId, ContentLicense, Publisher, RulesMessage } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fieldIssues, message, Temporal } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -19,7 +20,7 @@ interface BookFixture {
   readonly aonSourceUrl: string;
 }
 
-function playerCore(overrides: Readonly<Record<string, unknown>> = {}): BookFixture {
+function playerCore(overrides: JsonObject = {}): BookFixture {
   return {
     id: 'player-core',
     publisher: Publisher.Paizo,

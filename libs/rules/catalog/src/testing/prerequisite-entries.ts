@@ -1,9 +1,10 @@
 import { ContentEntry, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 const PACK = 'player-core';
 
 /** A Player Core entry of `kind` with `data`. */
-export function entry(name: string, kind: string, data: object): ContentEntry {
+export function entry(name: string, kind: string, data: JsonObject): ContentEntry {
   const slug = `${kind}:${name
     .toLowerCase()
     .replaceAll(/[^a-z]+/gu, '-')

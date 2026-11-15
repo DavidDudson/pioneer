@@ -1,14 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, contentId, ContentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import type { JsonObject, JsonValue } from '@pioneer/rules/sdk/testing';
 
 import { triggerCoverage } from './trigger-coverage';
 
 const PACK = 'player-core';
-const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry of `kind` with `data`. */
-function entry(name: string, kind: string, data: object): ContentEntry {
+function entry(name: string, kind: string, data: JsonObject): ContentEntry {
   const slug = `${kind}:${name}`;
 
   const fields = {

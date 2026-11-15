@@ -10,6 +10,7 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
+import type { JsonValue } from './testing/json-fixture';
 
 /**
  * A druid as the importer gives one (ADR-0050), shrunk to three orders: each order's focus entry and order spell unless
@@ -38,7 +39,7 @@ const FOCUS = {
   preparation: 'focus',
 };
 
-const explored = (order: string): readonly unknown[] => [{ not: `feat:order-explorer:${order}` }];
+const explored = (order: string): readonly JsonValue[] => [{ not: `feat:order-explorer:${order}` }];
 
 for (const [order, spell] of ORDERS) {
   pack.withClassFeature(order, {

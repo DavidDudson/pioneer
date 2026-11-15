@@ -1,3 +1,4 @@
+import type { Fields } from '../translate-choice-reads';
 import type { DocumentFixture } from './import-fixtures';
 import { FOUNDRY_NULL } from './kind-fixtures';
 import { FIREBALL } from './magic-fixtures';
@@ -17,7 +18,7 @@ const PHYSICAL_DEFAULTS = {
   size: 'med',
 };
 
-export function physical({ id, name, type }: DocumentFixture, system: object): DocumentFixture {
+export function physical({ id, name, type }: DocumentFixture, system: Fields): DocumentFixture {
   return { id, name, type, system: { ...PHYSICAL_DEFAULTS, level: { value: 0 }, ...system } };
 }
 
@@ -37,7 +38,7 @@ const WEAPON_DEFAULTS = {
   splashDamage: { value: 0 },
 };
 
-export function weapon(id: string, name: string, system: object): DocumentFixture {
+export function weapon(id: string, name: string, system: Fields): DocumentFixture {
   return physical({ id, name, type: 'weapon' }, { ...WEAPON_DEFAULTS, ...system });
 }
 

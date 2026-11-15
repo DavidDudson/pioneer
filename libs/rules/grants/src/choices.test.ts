@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { SummaryKind } from '@pioneer/rules/predicate';
 import { ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
@@ -37,7 +37,7 @@ interface ChoiceOptionJson {
   readonly label: string;
 }
 
-const option = (slug: string, more: object = {}): ChoiceOptionJson => ({ value: idOf(slug), label: slug, ...more });
+const option = (slug: string, more: JsonObject = {}): ChoiceOptionJson => ({ value: idOf(slug), label: slug, ...more });
 const grantChoice = (flag: string): RuleJson => ({ key: 'GrantItem', item: { choice: flag } });
 
 /** A rogue picks a racket at rule 0, granted at rule 1; each racket grants a feature. */

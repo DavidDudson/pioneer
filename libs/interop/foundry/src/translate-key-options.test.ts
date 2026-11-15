@@ -7,9 +7,10 @@ import { kindDataOf } from './testing/build-helpers';
 import { translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 /** A class feature of Foundry's, as a rogue's racket is, with `subfeatures`. */
-function racket(name: string, subfeatures: object): DocumentFixture {
+function racket(name: string, subfeatures: Fields): DocumentFixture {
   return {
     id: name.toLowerCase().padEnd(16, '0'),
     name,

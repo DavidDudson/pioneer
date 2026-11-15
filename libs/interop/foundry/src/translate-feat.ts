@@ -74,7 +74,7 @@ const FoundrySubfeatureSenses = z.record(
 );
 
 /** Reports each set subfeature but `senses`, `languages`, `proficiencies` and those the kind `read` itself, by name. */
-function reportOtherSubfeatures(others: object, read: readonly string[], { log }: KindInput): void {
+function reportOtherSubfeatures(others: Fields, read: readonly string[], { log }: KindInput): void {
   for (const [field, value] of Object.entries(others)) {
     if (isSet(value) && !read.includes(field)) {
       report(log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
@@ -154,11 +154,6 @@ function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): F
   return options.length === 0 ? {} : { keyAttributeOptions: [...new Set(options)] };
 }
 
-/** A passive feat with nothing an action carries: no `action` data. */
-function isEmpty(data: object): boolean {
-  return Object.keys(data).length === 0;
-}
-
 /**
  * The feat's `action` data, read with its action category where the action translator expects `category` (which on
  * a feat is the feat's own). Absent for a passive feat, or when its cost has no mapping (already reported). Action
@@ -170,7 +165,7 @@ function actionOf(system: FoundryFeatSystem, input: KindInput): Fields {
   const category = system.actionCategory?.value ?? undefined;
   const action = actionData({ ...input, document: { ...document, system: { ...document.system, category } } });
 
-  if (action === undefined || isEmpty(action)) {
+  if (action === undefined || Object.keys(action).length === 0) {
     return {};
   }
 

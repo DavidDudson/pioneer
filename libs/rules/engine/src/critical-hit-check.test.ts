@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Dc, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { DefenceStatusKind, deriveDefences } from './defences';
 import type { CriticalHitCheckLine } from './defences';
@@ -24,7 +24,7 @@ const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NA
 const FORTIFICATION_DC = Dc.parse(17);
 const GREATER_FORTIFICATION_DC = Dc.parse(14);
 
-function check(fields: object = {}): RuleJson {
+function check(fields: JsonObject = {}): RuleJson {
   return { key: 'CriticalHitCheck', selectors: ['ac'], dc: FORTIFICATION_DC, ...fields };
 }
 

@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 
 import { ANCESTRY_SLOT, CharacterCommand, CharacterName, CharacterPatchField } from '@pioneer/character/domain';
 import type { CharacterId, CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import {
   AncestryId,
@@ -160,7 +161,7 @@ interface Saved {
   readonly version: Version;
 }
 
-const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prerequisites = (text: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 describe('CharacterService selectSlot on feat slots', () => {
   const builder = new ContentPackBuilder().withId('player-core');

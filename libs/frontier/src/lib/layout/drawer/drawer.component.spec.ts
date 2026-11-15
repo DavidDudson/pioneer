@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { element, part, renderProjected } from '../../testing/render-projected';
 import { Drawer } from './drawer.component';
@@ -13,7 +14,7 @@ const settle = async (): Promise<void> => {
 };
 
 /** Renders a drawer at `url` with a spell's detail projected. */
-async function render(url: string, inputs: Readonly<Record<string, unknown>> = {}): Promise<HTMLElement> {
+async function render(url: string, inputs: ComponentInputs<Drawer> = {}): Promise<HTMLElement> {
   await TestBed.inject(Router).navigateByUrl(url);
   const root = await renderProjected(Drawer, { title: 'Fireball', ...inputs }, [element('p', 'A burst of flame')]);
   document.body.append(root);

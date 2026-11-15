@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { onTestFinished } from 'vitest';
 
 import { Field } from '../forms/field/field.component';
+import type { ComponentInputs } from './component-inputs';
 
 /**
  * An `fr-field` with parts and controls added one at a time, each created under the field's injector the way
@@ -29,7 +30,7 @@ export class FieldHarness {
   public add<TComponent>(
     component: Type<TComponent>,
     text?: string,
-    inputs: Readonly<Record<string, unknown>> = {},
+    inputs: ComponentInputs<TComponent> = {},
   ): ComponentRef<TComponent> {
     const ref = createComponent(component, {
       environmentInjector: this.#environmentInjector,

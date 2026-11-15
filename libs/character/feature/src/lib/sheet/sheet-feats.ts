@@ -214,7 +214,9 @@ function unavailableReason(option: SheetFeatOption, translate: Translate): strin
   const prerequisites = option.prerequisites ?? '';
 
   if (option.locked !== undefined) {
-    return translate('character.sheet.feats.locked', option.locked);
+    const { archetype, needed } = option.locked;
+
+    return translate('character.sheet.feats.locked', { archetype, needed });
   }
 
   return option.status === PrerequisiteStatus.Unmet

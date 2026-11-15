@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
 import { CORE_RULE_LIMITS } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -22,7 +23,7 @@ function app(): AnyElysia {
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 
-function request(path: string, as: UserId, body?: object): Request {
+function request(path: string, as: UserId, body?: JsonObject): Request {
   const init: RequestInit = {
     method: body === undefined ? 'GET' : 'POST',
     headers: { 'content-type': 'application/json', ...actingAs(as) },

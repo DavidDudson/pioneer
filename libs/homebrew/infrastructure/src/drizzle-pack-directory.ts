@@ -36,10 +36,10 @@ function toListed(row: PackRow): ListedPack {
 }
 
 export class DrizzlePackDirectory extends PackDirectory {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #everyPack = new RequestMemo<'all', readonly ListedPack[]>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

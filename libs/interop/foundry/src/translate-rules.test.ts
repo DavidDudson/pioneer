@@ -5,11 +5,12 @@ import { ConditionValue } from '@pioneer/rules/sdk';
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { condition, dataOf } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 const BLINDED = condition('XgEqL1kFApUbl5Z2', 'Blinded');
 
 /** A condition granting Blinded with `onDeleteActions`, or none. */
-function granting(onDeleteActions?: object): DocumentFixture {
+function granting(onDeleteActions?: Fields): DocumentFixture {
   const grant = { key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Blinded' };
 
   return condition('gRaNtEr000000000', 'Granter', {
@@ -102,7 +103,7 @@ describe('translateRules: GrantItem badge value', () => {
   });
 });
 
-const feat = (raw: object): DocumentFixture => ({
+const feat = (raw: Fields): DocumentFixture => ({
   id: 'cRiTsPeC00000000',
   name: 'Weapon Familiarity',
   type: 'feat',

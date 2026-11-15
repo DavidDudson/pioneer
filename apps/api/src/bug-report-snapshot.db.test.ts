@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, describe, expect, setDefaultTimeout, test } from 'bun:test';
 
 import { Character, CharacterPatchField } from '@pioneer/character/domain';
+import type { CharacterId } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
 import { BugReportService, BugReportTriageService } from '@pioneer/identity/application';
 import { UserId } from '@pioneer/identity/domain';
@@ -58,6 +59,12 @@ const REPORT = {
   steps: 'Open the sheet',
 };
 
+/** What a test chooses about a report beyond the fixed fields: the character it cites and whether it shares it. */
+interface ReportChoice {
+  readonly characterId: CharacterId;
+  readonly shareCharacter: boolean;
+}
+
 /** What the API answers a filed report with. */
 interface Filed {
   readonly id: BugReportId;
@@ -76,7 +83,7 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
     return Character.codec.parse(await created.json());
   }
 
-  async function report(body: object, user: UserId = fixtureOwnerId): Promise<Filed> {
+  async function report(body: ReportChoice, user: UserId = fixtureOwnerId): Promise<Filed> {
     const call = {
       method: 'POST',
       path: '/me/bug-reports',

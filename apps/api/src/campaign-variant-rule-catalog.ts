@@ -12,10 +12,10 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
  * context may import the other.
  */
 export class CampaignVariantRuleCatalog extends VariantRuleCatalog {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #content: ContentSource;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>, content: ContentSource) {
+  public constructor(db: BunSQLDatabase, content: ContentSource) {
     super();
     this.#db = db;
     this.#content = content;

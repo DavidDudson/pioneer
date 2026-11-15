@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Dc, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { DefenceStatusKind, deriveDefences } from './defences';
 import type { PersistentFlatCheckLine } from './defences';
@@ -25,7 +25,7 @@ const factsRaging = new PredicateFacts([RollOption.parse('self:effect:rage')], C
 const QUENCHING_DC = Dc.parse(12);
 const QUENCHING_ASSISTED_DC = Dc.parse(7);
 
-function check(fields: object = {}): RuleJson {
+function check(fields: JsonObject = {}): RuleJson {
   return {
     key: 'PersistentFlatCheck',
     damageTypes: ['acid', 'fire'],

@@ -9,6 +9,7 @@ import { RollOption } from './roll-option';
 import { Domain, Selector, SlotKey } from './selector';
 import { SourceRef } from './source-ref';
 import { keyPathText, predicateJson, predicateStatementJson, rollOptionText } from './testing';
+import type { JsonObject } from './testing';
 
 const OPERATORS: ReadonlySet<string> = new Set([
   'and',
@@ -71,7 +72,7 @@ describe('rules schemas (properties)', () => {
   test('an extra key on any object statement is rejected', () => {
     assert(
       property(
-        predicateStatementJson.filter((statement): statement is object => statement instanceof Object),
+        predicateStatementJson.filter((statement): statement is JsonObject => statement instanceof Object),
         string({ minLength: 1 }).filter((key) => !OPERATORS.has(key)),
         (statement, key) => {
           expect(PredicateStatement.safeParse({ ...statement, [key]: 'a:b' }).success).toBe(false);

@@ -1,6 +1,7 @@
 import type { OutputRefSubscription, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import type { ComponentInputs } from '@pioneer/frontier';
 import { vi } from 'vitest';
 
 import { provideRulesUiI18nTesting } from './provide-rich-text-testing';
@@ -53,7 +54,7 @@ function counting(picker: PickerUnderTest): Pick<Rendered<unknown>, 'commits' | 
 /** Renders `picker` with `inputs` and counts what it commits and cancels. */
 export async function render<TPicker extends PickerUnderTest>(
   picker: Type<TPicker>,
-  inputs: Readonly<Record<string, unknown>>,
+  inputs: ComponentInputs<TPicker>,
 ): Promise<Rendered<TPicker>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(picker);

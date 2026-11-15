@@ -1,6 +1,6 @@
 import type { Type } from '@angular/core';
 import { flexRenderComponent } from '@tanstack/angular-table';
-import type { ColumnDef, RowData } from '@tanstack/angular-table';
+import type { ColumnDef, FlexRenderComponent, RowData } from '@tanstack/angular-table';
 
 import { DateDisplay, DateFormat } from '../../date/date.component';
 import type { DateValue } from '../../date/date.component';
@@ -28,14 +28,17 @@ export interface ColumnOptions {
   readonly code?: string;
 }
 
+/** The signal inputs of a cell component by name, each typed by the value it takes. */
+export type CellInputs<TCell> = NonNullable<FlexRenderComponent<TCell>['inputs']>;
+
 /** A column whose cells are a component, for content richer than text. */
-export interface ComponentColumn<TRow extends RowData> extends ColumnOptions {
+export interface ComponentColumn<TRow extends RowData, TCell = unknown> extends ColumnOptions {
   readonly id: string;
   /** What the column sorts by; the rendered cell is separate. */
   readonly sortValue: (row: TRow) => SortValue;
-  readonly component: Type<unknown>;
+  readonly component: Type<TCell>;
   /** The component's inputs for one row. */
-  readonly inputs: (row: TRow) => Readonly<Record<string, unknown>>;
+  readonly inputs: (row: TRow) => CellInputs<TCell>;
 }
 
 /** What a `fr-tag` cell shows for one row. */
@@ -167,7 +170,7 @@ export class TableSchema<TRow extends RowData> {
    * Adds a column of any component. The step every richer one is made from: it keeps the rendered cell apart
    * from `sortValue`, so a chip or a glyph still sorts by something meaningful.
    */
-  public addComponent(options: ComponentColumn<TRow>): this {
+  public addComponent<TCell>(options: ComponentColumn<TRow, TCell>): this {
     const column = tableColumns<TRow>();
 
     return this.#append(

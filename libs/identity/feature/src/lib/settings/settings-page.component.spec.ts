@@ -4,6 +4,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { AccountPreferences, SessionStore } from '@pioneer/identity/data-access';
+import type { Preferences } from '@pioneer/identity/domain';
 import { DistanceUnit, Locale, MonoFont } from '@pioneer/shared/kernel';
 import { ApiClient, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -12,20 +13,25 @@ import type { Mock } from 'vitest';
 
 import { identityRoutes } from '../identity.routes';
 
+/** The signed-in user the settings page reads. */
+interface SignedInUser {
+  readonly displayName: string;
+}
+
 interface Rendered {
   readonly harness: RouterTestingHarness;
-  readonly update: Mock<(patch: object) => Promise<void>>;
+  readonly update: Mock<(patch: Preferences) => Promise<void>>;
 }
 
 async function render(signedIn: boolean, saves = true): Promise<Rendered> {
-  const update = vi.fn<(patch: object) => Promise<void>>(async () => {
+  const update = vi.fn<(patch: Preferences) => Promise<void>>(async () => {
     if (!saves) {
       throw new Error('unavailable');
     }
   });
 
   const session = {
-    whenKnown: async (): Promise<object | undefined> => (signedIn ? { displayName: 'Amiri' } : undefined),
+    whenKnown: async (): Promise<SignedInUser | undefined> => (signedIn ? { displayName: 'Amiri' } : undefined),
   };
 
   TestBed.configureTestingModule({

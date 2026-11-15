@@ -1,20 +1,21 @@
 import type { ConditionEnding, ConditionValues } from '../condition';
 import type { RichText } from '../rich-text';
+import type { JsonObject, JsonValue } from './json-value';
 
 /** A deity's `data` as tests give it: any field left out is empty, and the category is `deity`. */
 export type DeityFields = Partial<
-  Record<'domains' | 'font' | 'attributes' | 'skills' | 'weapons' | 'spells', unknown>
+  Record<'domains' | 'font' | 'attributes' | 'skills' | 'weapons' | 'spells', JsonValue>
 > & {
   readonly category?: string;
-  readonly sanctification?: object;
-  readonly description?: readonly object[];
+  readonly sanctification?: JsonObject;
+  readonly description?: readonly JsonObject[];
 };
 
 /** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
 export interface MagicItemFields {
-  readonly data: object;
+  readonly data: JsonObject;
   readonly traits?: readonly string[];
-  readonly rules?: readonly object[];
+  readonly rules?: readonly JsonObject[];
   /** Its item level, 0 when left out. */
   readonly level?: number;
 }
@@ -42,7 +43,7 @@ export interface SpellFields {
   readonly traits?: readonly string[];
   readonly rarity?: string;
   /** How long it lasts, as the content writes it. */
-  readonly duration?: object;
+  readonly duration?: JsonObject;
   /** Whether ending it takes the Dismiss action. */
   readonly dismiss?: true;
   /** What ending it early needs, when it is not the Dismiss action. */
@@ -56,14 +57,14 @@ export interface SpellFields {
 /** What a test class has beyond its key attribute. */
 export interface ClassFields {
   readonly hitPoints?: number;
-  readonly rules?: readonly object[];
+  readonly rules?: readonly JsonObject[];
   readonly roles?: readonly string[];
 }
 
 /** What a test class feature has. */
 export interface ClassFeatureFields {
   readonly tags?: readonly string[];
-  readonly rules?: readonly object[];
+  readonly rules?: readonly JsonObject[];
   /** Attributes it adds to its class's key attribute options (a rogue's racket). */
   readonly keyAttributeOptions?: readonly string[];
 }

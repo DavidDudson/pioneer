@@ -1,8 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ConditionValue, ContentId, contentId, ContentKind, entrySlug, PackId } from '@pioneer/rules/sdk';
-import type { JsonValue } from '@pioneer/rules/sdk';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonValue, RuleJson } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constant, integer, oneof, property, record, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 

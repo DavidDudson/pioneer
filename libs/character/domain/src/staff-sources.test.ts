@@ -16,6 +16,7 @@ import {
   itemFixtureRegistry,
   staffSpellId,
 } from './testing';
+import type { JsonObject } from './testing';
 
 const items = itemFixtureContent();
 
@@ -34,7 +35,7 @@ function entry(slug: string, tradition: 'arcane' | 'primal', ranks: readonly num
 
 const STAFF_ID = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 
-function staff(carry: object): InventoryItem {
+function staff(carry: JsonObject): InventoryItem {
   return InventoryItemSchema.parse({
     id: STAFF_ID,
     item: itemFixtureId(ItemFixture.FireStaff),

@@ -62,11 +62,11 @@ function toSummary(row: SummaryRow): CharacterSummary {
  * answers for no one.
  */
 export class OwnedCharacterDirectory extends CharacterDirectory {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #repository: DrizzleCharacterRepository;
   readonly #vitals: CharacterVitals | undefined;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>, vitals?: CharacterVitals) {
+  public constructor(db: BunSQLDatabase, vitals?: CharacterVitals) {
     super();
     this.#db = db;
     this.#repository = new DrizzleCharacterRepository(db);

@@ -5,8 +5,9 @@ import { rulesIn } from './testing/build-helpers';
 import { coreRulesId, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
-function feat(id: string, name: string, system: object): DocumentFixture {
+function feat(id: string, name: string, system: Fields): DocumentFixture {
   return {
     id,
     name,

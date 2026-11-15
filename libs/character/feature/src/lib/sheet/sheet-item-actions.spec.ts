@@ -30,6 +30,7 @@ import { ActionResourceKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import type { JsonObject } from '../testing/json-fixture';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
@@ -92,7 +93,7 @@ async function registryWithItems(): Promise<ContentRegistry> {
   return TestBed.inject(ContentLoader).registry(ACTION_STAFF_CONTENT_KINDS);
 }
 
-function listed(registry: ContentRegistry, character: Character, spent: object = {}): readonly ActionLine[] {
+function listed(registry: ContentRegistry, character: Character, spent: JsonObject = {}): readonly ActionLine[] {
   return sheetItemActions(registry, character, {
     resources: ResourcesSpentSchema.parse(spent),
     turn: undefined,

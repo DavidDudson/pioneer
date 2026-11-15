@@ -25,6 +25,7 @@ import {
   TextMark,
 } from '../rich-text';
 import { keyPathText, rollOptionText } from './arbitraries';
+import type { JsonValue } from './json-value';
 
 const BLOCK_DEPTH_MAX = 3;
 const RUN_LENGTH_MAX = 4;
@@ -114,7 +115,7 @@ const otherTemplate = record({
 });
 
 /** Every inline node kind, as plain JSON (unparsed). */
-const inlineNodeJson: Arbitrary<unknown> = oneof(
+const inlineNodeJson: Arbitrary<JsonValue> = oneof(
   record(
     { type: constant(InlineKind.Text), text, marks: array(marks, { maxLength: 2 }) },
     { requiredKeys: ['type', 'text'] },
@@ -146,7 +147,7 @@ const run = array(inlineNodeJson, { minLength: 1, maxLength: RUN_LENGTH_MAX });
 const cells = array(array(inlineNodeJson, { maxLength: 2 }), { minLength: 1, maxLength: CELLS_MAX });
 
 /** Every block node kind, lists nesting a few levels, as plain JSON (unparsed). */
-const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie) => {
+const blockNodeJson: Arbitrary<JsonValue> = letrec<{ block: JsonValue }>((tie) => {
   const blocks = array(tie('block'), { minLength: 1, maxLength: BLOCKS_MAX });
 
   return {
@@ -178,4 +179,4 @@ const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie) => {
 }).block;
 
 /** A valid rich text document, as plain JSON. */
-export const richTextJson: Arbitrary<unknown> = array(blockNodeJson, { maxLength: BLOCKS_MAX });
+export const richTextJson: Arbitrary<JsonValue> = array(blockNodeJson, { maxLength: BLOCKS_MAX });

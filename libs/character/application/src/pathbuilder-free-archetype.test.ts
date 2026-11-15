@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { Character, CharacterVariantRule } from '@pioneer/character/domain';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { ImportKind, RuleBreakingCount, UnmatchedReason } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
@@ -24,7 +25,7 @@ const amiri = UserId.parse(newId());
 const clock = fixedClock('2026-10-07T10:00:00Z');
 
 /** Free Archetype's feat slot at `level`, as the core rules pack writes it. */
-function freeArchetypeSlot(level: number): object[] {
+function freeArchetypeSlot(level: number): JsonObject[] {
   const flag = `free-archetype-${level}`;
   const predicate = [{ gte: ['self:level', level] }];
 

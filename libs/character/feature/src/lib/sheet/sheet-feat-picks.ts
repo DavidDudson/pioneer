@@ -5,7 +5,7 @@ import type { InlineEdit } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { FeatPickerRow } from '@pioneer/rules/ui';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, MessageParams } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { featSlotFilter } from './sheet-feat-slot-filter';
@@ -23,7 +23,7 @@ export interface FeatPickSources {
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
-  readonly translate: (key: string, params?: object) => string;
+  readonly translate: (key: string, params?: MessageParams) => string;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
   /** Where the pickers keep their filters; without it they list everything their slot offers, unfiltered. */

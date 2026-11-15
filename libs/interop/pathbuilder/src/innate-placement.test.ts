@@ -5,6 +5,7 @@ import type { CharacterDocument } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { ContentId, ContentKind, ContentRegistry, ContentText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { entryLookup } from './content-lookup';
 import { ImportKind, PathbuilderName } from './import-kind';
@@ -25,15 +26,7 @@ const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const GIFT = pack.idOf(ContentKind.ClassFeature, 'fey-gift');
 const OAK = pack.idOf(ContentKind.ClassFeature, 'oak-gift');
 
-interface SpellcastingEntryRule {
-  readonly key: string;
-  readonly slug: string;
-  readonly tradition: string;
-  readonly attribute: string;
-  readonly preparation: string;
-}
-
-const entry = (slug: string): SpellcastingEntryRule => ({
+const entry = (slug: string): JsonObject => ({
   key: 'SpellcastingEntry',
   slug,
   tradition: 'primal',
@@ -47,7 +40,7 @@ interface Gift {
   readonly predicate?: readonly string[];
 }
 
-const gives = (slug: string, { spell, rank, predicate }: Gift): object => {
+const gives = (slug: string, { spell, rank, predicate }: Gift): JsonObject => {
   const grant = {
     key: 'InnateSpells',
     entry: slug,

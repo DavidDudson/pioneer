@@ -33,6 +33,7 @@ import {
 import type { ActiveEffect, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 import { applyPlayCommand, FRESH_PLAY } from './play-state';
 import { within } from './testing';
+import type { JsonObject } from './testing';
 
 const HEROISM = ContentId.parse('00000000-0000-4000-8000-0000000000a1');
 const STANCE = ContentId.parse('00000000-0000-4000-8000-0000000000a2');
@@ -205,7 +206,7 @@ function setBadge(value: number): EffectCommand {
 }
 
 /** The badge terms of an unlimited effect with `counter` as its badge. */
-function counterOf(counter: object): EffectBadgeTerms | undefined {
+function counterOf(counter: JsonObject): EffectBadgeTerms | undefined {
   return effectTerms(EffectData.parse({ category: 'spell', duration: { type: 'unlimited' }, badge: counter })).badge;
 }
 

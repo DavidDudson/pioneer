@@ -6,6 +6,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import campaignMessages from '../../../i18n/en.json';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 import { CampaignSheetPartyInventory } from './campaign-sheet-party-inventory.component';
 
@@ -39,7 +40,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 }
 
 /** Opens Kyra's container, answering the party stash with `answer` and offering `lines` to put in. */
-async function open(answer: object, lines: readonly object[] = []): Promise<Opened> {
+async function open(answer: JsonObject, lines: readonly JsonObject[] = []): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       ...provideServerStateTesting(),

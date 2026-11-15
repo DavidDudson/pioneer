@@ -3,12 +3,13 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { TranslocoTestingModule } from '@jsverse/transloco';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Size } from '../../tokens';
 import { Avatar } from './avatar.component';
 
 const PORTRAIT = 'https://example.test/seelah.webp';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<ComponentFixture<Avatar>> {
+async function render(inputs: ComponentInputs<Avatar>): Promise<ComponentFixture<Avatar>> {
   TestBed.configureTestingModule({
     imports: [TranslocoTestingModule.forRoot({ langs: { en: {} }, translocoConfig: { defaultLang: 'en' } })],
   });

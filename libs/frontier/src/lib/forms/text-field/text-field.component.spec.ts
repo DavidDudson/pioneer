@@ -2,9 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { TextField } from './text-field.component';
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixture<TextField> {
+function render(inputs: ComponentInputs<TextField> = {}): ComponentFixture<TextField> {
   const fixture = TestBed.createComponent(TextField);
   fixture.componentRef.setInput('label', 'Name');
   fixture.componentRef.setInput('hint', 'As it appears on the sheet.');

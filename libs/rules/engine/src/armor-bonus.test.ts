@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { contentId, EntrySlug, PackId, Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine } from './breakdown';
@@ -167,7 +168,7 @@ const DIPLOMACY = StatisticDefinition.parse({
 const PENALISED = { checkPenalty: 2, strength: 2 };
 
 /** A level 1 character with Strength `str` wearing armour with a check penalty of 2 and a Strength entry of 2. */
-function skill(selector: string, str: number, armor: object): StatisticResult | undefined {
+function skill(selector: string, str: number, armor: JsonObject): StatisticResult | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 1,
     attributes: { str, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },

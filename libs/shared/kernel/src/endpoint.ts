@@ -69,10 +69,10 @@ export class Endpoint<
 
   /** Resolve the path with encoded params and query, e.g. `/characters?sort=name`. */
   public url(params: z.output<TParams>, query?: z.output<TQuery>): string {
-    const wire: Readonly<Record<string, unknown>> = z.encode(this.params, params);
+    const wire = Object.entries(z.encode(this.params, params));
 
     const path = this.path.replaceAll(/:(?<name>\w+)/gu, (_match, name: string) => {
-      const value = WireValue.safeParse(wire[name]);
+      const value = WireValue.safeParse(wire.find(([key]) => key === name)?.[1]);
 
       if (!value.success) {
         throw new TypeError(`Missing path param "${name}" for ${this.path}`);
@@ -85,10 +85,10 @@ export class Endpoint<
       return path;
     }
 
-    const encoded: Readonly<Record<string, unknown>> = z.encode(this.query, query);
+    const encoded = Object.entries(z.encode(this.query, query));
     const search = new URLSearchParams();
 
-    for (const [key, value] of Object.entries(encoded)) {
+    for (const [key, value] of encoded) {
       const text = WireValue.safeParse(value);
 
       if (text.success) {

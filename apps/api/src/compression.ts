@@ -68,10 +68,10 @@ async function gzip(bytes: Uint8Array): Promise<Uint8Array> {
   return new Uint8Array(await new Response(stream).arrayBuffer());
 }
 
-/** The gzip of `value`, from the cache when `request` is a GET whose strong `ETag` was already compressed. */
+/** The gzip of the JSON `body` writes, from the cache when `request` is a GET whose strong `ETag` was already compressed. */
 async function gzippedBytes(
   request: Request,
-  value: object,
+  body: () => string,
   etag: string | undefined,
 ): Promise<Uint8Array | undefined> {
   const key = keyOf(request, etag);
@@ -83,7 +83,7 @@ async function gzippedBytes(
     return kept;
   }
 
-  const bytes = new TextEncoder().encode(JSON.stringify(value));
+  const bytes = new TextEncoder().encode(body());
 
   if (bytes.byteLength < MIN_COMPRESSED_BYTES) {
     return undefined;
@@ -129,7 +129,7 @@ export const compression = new Elysia({ name: 'compression' }).mapResponse(
     }
 
     const { etag } = set.headers;
-    const bytes = await gzippedBytes(request, responseValue, etag);
+    const bytes = await gzippedBytes(request, () => JSON.stringify(responseValue), etag);
 
     return bytes === undefined ? undefined : gzipped(bytes, set);
   },

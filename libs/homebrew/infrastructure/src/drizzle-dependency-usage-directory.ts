@@ -16,9 +16,9 @@ function mentionsAny(entry: ContentEntry, ids: ReadonlySet<string>): boolean {
 }
 
 export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

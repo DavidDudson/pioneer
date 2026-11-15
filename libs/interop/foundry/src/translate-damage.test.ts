@@ -2,12 +2,13 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentId, RuleElementKey } from '@pioneer/rules/sdk';
 
+import type { Fields } from './translate-choice-reads';
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
 const ENTRY = ContentId.parse('00000000-0000-5000-8000-000000000000');
 
-function translated(raw: object): RuleTranslation {
+function translated(raw: Fields): RuleTranslation {
   return translateRules(ENTRY, [raw], { lang: {}, values: { item: 'Hunter’s Edge' } });
 }
 

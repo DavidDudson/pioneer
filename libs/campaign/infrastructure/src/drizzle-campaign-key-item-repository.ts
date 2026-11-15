@@ -30,9 +30,9 @@ function toKeyItem(row: CampaignKeyItemRow): CampaignKeyItem {
 }
 
 export class DrizzleCampaignKeyItemRepository extends CampaignKeyItemRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

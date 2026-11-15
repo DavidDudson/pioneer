@@ -21,6 +21,7 @@ import {
   smallint,
   withOptional,
 } from './json-arbitraries';
+import type { JsonObject } from './json-value';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
 
@@ -32,7 +33,7 @@ const contentTextJson: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,
 const modifier: Arbitrary<number> = integer({ min: -MODIFIER_MAX, max: MODIFIER_MAX });
 const uses: Arbitrary<number> = integer({ min: 1, max: USES_MAX });
 const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
-const rules: Arbitrary<object[]> = array(ruleElementJson, { maxLength: RULES_MAX });
+const rules: Arbitrary<JsonObject[]> = array(ruleElementJson, { maxLength: RULES_MAX });
 
 const acuity: Arbitrary<string> = constantFrom(...Object.values(SenseAcuity));
 const movement: Arbitrary<string> = constantFrom(...Object.values(MovementType));
@@ -98,7 +99,10 @@ const spellcasting = withOptional(spellcastingCore, { attack: modifier });
 const item = withOptional(record({ item: contentIdJson }), { quantity: positive });
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
-const adjustments: Arbitrary<object[]> = array(record({ type: damageType, value: positive }), { maxLength: LIST_MAX });
+
+const adjustments: Arbitrary<JsonObject[]> = array(record({ type: damageType, value: positive }), {
+  maxLength: LIST_MAX,
+});
 
 const attributes = record({
   str: attributeModifier,
@@ -151,8 +155,8 @@ const statBlock = {
 };
 
 /** A creature's `data`: the core numbers, any subset of the stat block parts, and NPC details only on an NPC. */
-export const creatureData: Arbitrary<object> = withOptional(creatureCore, statBlock).chain((data) =>
-  'role' in data && data.role === CreatureRole.Npc
+export const creatureData: Arbitrary<JsonObject> = withOptional(creatureCore, statBlock).chain((data) =>
+  'role' in data && data['role'] === CreatureRole.Npc
     ? npcDetails.chain((npc) => constant({ ...data, npc }))
     : constant(data),
 );

@@ -2,13 +2,14 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { Tone } from '../../tokens';
 import { TextVariant } from '../text.variants';
 import { Heading, HeadingLevel } from './heading.component';
 
 /** Renders `fr-heading` with "Identity" projected and returns the heading element it renders. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Heading>): Promise<HTMLElement> {
   const heading = createComponent(Heading, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Identity')]],

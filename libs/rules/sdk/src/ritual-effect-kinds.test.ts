@@ -7,6 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -23,7 +24,7 @@ function found(value: JsonValue): readonly string[] {
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
-const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prose = (text: string): FixtureJson[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The fields every entry carries, before its kind and data. */
 interface Envelope {
@@ -33,15 +34,15 @@ interface Envelope {
   readonly name: string;
   readonly rarity: string;
   readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly sources: readonly FixtureJson[];
+  readonly description: readonly FixtureJson[];
+  readonly rules: readonly FixtureJson[];
 }
 
 /** An entry with its kind and data. */
 interface KindedEntry extends Envelope {
   readonly kind: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -105,7 +106,7 @@ const RANKED = [
 ];
 
 /** Consecrate with a primary check of Arcana and Religion, as `check` says. */
-function withRanks(check: object): KindedEntry {
+function withRanks(check: JsonObject): KindedEntry {
   return {
     ...consecrate,
     data: { ...consecrate.data, primary: { skills: ['skill:arcana', 'skill:religion'], ...check } },

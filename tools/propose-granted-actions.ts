@@ -9,7 +9,7 @@ import path from 'node:path';
 import { proposeGrantedActions } from '@pioneer/rules/catalog';
 import type { ActionGranter } from '@pioneer/rules/catalog';
 import { ContentEntryFile, ContentKind, EnrichmentMappingFile } from '@pioneer/rules/sdk';
-import type { ContentEntry, EnrichmentMapping, EntrySlug } from '@pioneer/rules/sdk';
+import type { ContentEntry, EnrichmentMapping, EntrySlug, JsonValue } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
@@ -18,6 +18,7 @@ const PACKS = path.join(ROOT, 'content', 'packs');
 const ENRICHMENT = path.join(ROOT, 'content', 'enrichment');
 const JSON_INDENT = 2;
 const JsonArray = z.array(z.unknown()).readonly();
+const WrittenMapping = z.record(z.string(), z.json());
 const GrantItemRule = z.object({ key: z.literal('GrantItem'), item: z.string() });
 
 async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
@@ -33,19 +34,20 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 }
 
 /** Every `GrantItem` target inside a rule list, however deep (a choice set nests its grants). */
-function grantedIds(node: object): readonly string[] {
-  const grant = GrantItemRule.safeParse(node);
-  const children: readonly unknown[] = Object.values(node);
+function grantedIds(node: JsonValue): readonly string[] {
+  if (!(node instanceof Object)) {
+    return [];
+  }
 
-  return [
-    ...(grant.success ? [grant.data.item] : []),
-    ...children.flatMap((child) => (child instanceof Object ? grantedIds(child) : [])),
-  ];
+  const grant = GrantItemRule.safeParse(node);
+  const children: readonly JsonValue[] = Object.values(node);
+
+  return [...(grant.success ? [grant.data.item] : []), ...children.flatMap((child) => grantedIds(child))];
 }
 
 /** A pack's enrichment file, as written (to merge into) and as parsed (to read). */
 interface PackMapping {
-  readonly written: Record<string, unknown>;
+  readonly written: z.infer<typeof WrittenMapping>;
   readonly mapping: Record<string, EnrichmentMapping>;
 }
 
@@ -54,7 +56,7 @@ async function readMapping(pack: string): Promise<PackMapping> {
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : {};
 
-  return { written: z.record(z.string(), z.unknown()).parse(json), mapping: EnrichmentMappingFile.parse(json) };
+  return { written: WrittenMapping.parse(json), mapping: EnrichmentMappingFile.parse(json) };
 }
 
 const packFiles = await Array.fromAsync(new Glob('*/pack.json').scan({ cwd: PACKS }));

@@ -8,6 +8,7 @@ import {
   PatchCharacterBody,
 } from '@pioneer/character/domain';
 import type { Character, CharacterPatch } from '@pioneer/character/domain';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, ForbiddenError, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
@@ -27,7 +28,7 @@ const SHIELD = OverrideInput.parse({ target: 'ac', mode: 'adjust', value: 2, typ
 const ADD: CharacterPatch = { field: CharacterPatchField.AddOverride, override: SHIELD };
 const WRITE_APPEARANCE: CharacterPatch = { field: CharacterPatchField.SetAppearance, value: [] };
 
-function at(expectedVersion: Version, patch: object): PatchCharacterBody {
+function at(expectedVersion: Version, patch: CharacterPatch | JsonObject): PatchCharacterBody {
   return PatchCharacterBody.parse({ expectedVersion, patch });
 }
 

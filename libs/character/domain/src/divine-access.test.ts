@@ -8,6 +8,7 @@ import { preparedSlots } from './prepared-spells';
 import { preparedReads, slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /**
  * An oracle as the importer gives one (ADR-0063), shrunk: a spontaneous divine entry with slots by level, and Divine
@@ -26,7 +27,7 @@ for (const [name, rank] of [
 
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
 
-const slotRule = (rank: number, value: number, level: number): object => {
+const slotRule = (rank: number, value: number, level: number): JsonObject => {
   const rule = { key: 'SpellSlots', entry: 'oracle', rank, value };
 
   return level > 1 ? { ...rule, predicate: [{ gte: ['self:level', level] }] } : rule;

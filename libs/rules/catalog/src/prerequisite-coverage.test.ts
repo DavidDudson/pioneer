@@ -1,14 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, contentId, ContentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import type { JsonObject, JsonValue } from '@pioneer/rules/sdk/testing';
 
 import { prerequisiteCoverage } from './prerequisite-coverage';
 
 const PACK = 'player-core';
-const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core feat with `data` beyond its category. */
-function feat(name: string, data: object = {}): ContentEntry {
+function feat(name: string, data: JsonObject = {}): ContentEntry {
   const slug = `feat:${name}`;
 
   return ContentEntry.parse({

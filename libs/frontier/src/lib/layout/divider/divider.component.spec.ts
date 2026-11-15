@@ -2,10 +2,11 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Divider, DividerOrientation, DividerTone } from './divider.component';
 
 /** Renders a divider and returns the element that draws the rule. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Divider>): Promise<HTMLElement> {
   const divider = createComponent(Divider, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
   });

@@ -5,6 +5,7 @@ import { frontierMessages } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { IdentityContract, SessionSummary } from '@pioneer/identity/domain';
 import type { User } from '@pioneer/identity/domain';
+import type { Endpoint } from '@pioneer/shared/kernel';
 import { ApiClient, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -37,10 +38,16 @@ interface FakeSession {
   readonly showSignIn: Mock<() => Promise<void>>;
 }
 
+/** What the page hands the API client besides the endpoint. */
+interface CallInput {
+  readonly params?: { readonly id: string };
+  readonly body?: undefined;
+}
+
 interface Rendered {
   readonly root: HTMLElement;
   readonly session: FakeSession;
-  readonly call: Mock<(endpoint: object, input: object) => Promise<object>>;
+  readonly call: Mock<(endpoint: Endpoint, input: CallInput) => Promise<object>>;
 }
 
 async function render(signedIn: boolean): Promise<Rendered> {
@@ -53,7 +60,7 @@ async function render(signedIn: boolean): Promise<Rendered> {
     showSignIn: vi.fn<() => Promise<void>>(async () => undefined),
   };
 
-  const call = vi.fn<(endpoint: object, input: object) => Promise<object>>(async (endpoint) =>
+  const call = vi.fn<(endpoint: Endpoint, input: CallInput) => Promise<object>>(async (endpoint) =>
     endpoint === IdentityContract.sessions ? [THIS_BROWSER, PHONE] : {},
   );
 

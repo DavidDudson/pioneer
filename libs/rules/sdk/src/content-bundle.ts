@@ -259,13 +259,13 @@ function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames
  * The `ContentPack` a pack's bundles describe, with just the kinds fetched: each entry is checked as a
  * `ContentEntry` once its name is added back, then filed as `contentPackFromFiles` does. An entry has no description.
  */
-export function contentPackFromBundles(packFile: unknown, kinds: readonly FetchedKind[]): ContentPack {
+export function contentPackFromBundles(packFile: JsonValue, kinds: readonly FetchedKind[]): ContentPack {
   const entries = kinds.flatMap((kind) => entriesFromBundles(kind));
 
   return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
 }
 
 /** `id`'s description in a fetched description shard, or undefined when the entry has none. */
-export function descriptionFromBundle(shard: unknown, id: ContentId): RichText | undefined {
+export function descriptionFromBundle(shard: JsonValue, id: ContentId): RichText | undefined {
   return DescriptionsBundle.parse(shard)[id];
 }
