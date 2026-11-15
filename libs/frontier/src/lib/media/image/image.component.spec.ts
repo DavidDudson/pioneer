@@ -79,9 +79,9 @@ describe(ImageDisplay, () => {
     [ImageAspect.Portrait, 'aspect-portrait'],
     [ImageAspect.Landscape, 'aspect-landscape'],
     [ImageAspect.Wide, 'aspect-wide'],
-  ])('shapes the %s frame from a token', async (aspect, shape) => {
+  ])('shapes the %s frame from a token', async (aspect, frameClass) => {
     const { frame } = await render({ alt: 'Art', aspect });
-    expect(frame.classList).toContain(shape);
+    expect(frame.classList).toContain(frameClass);
   });
 
   it.each([

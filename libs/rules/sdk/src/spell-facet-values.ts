@@ -2,7 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { ContentEntry } from './content-entry';
 import type { ContentKind } from './content-kind';
-import { ActionCost, AreaShape } from './rich-text';
+import { ActionCost, AreaKind } from './rich-text';
 import type { Selector } from './selector';
 import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
 import type { SingleCastTime, SingleDuration, SingleRange } from './spell-casting';
@@ -73,7 +73,7 @@ export const DurationValue = {
 export type DurationValue = ValueOf<typeof DurationValue>;
 
 /** An area, or `none` for a spell without one. */
-export const AreaValue = { ...AreaShape, None: 'none' } as const;
+export const AreaValue = { ...AreaKind, None: 'none' } as const;
 
 export type AreaValue = ValueOf<typeof AreaValue>;
 

@@ -26,8 +26,8 @@ import type { SpendCommand, SpendLog } from './spend-log';
 import { applyToggleCommand, isToggleCommand } from './toggle-commands';
 import type { ToggleCommand, Toggles } from './toggle-commands';
 import type { TurnState } from './turn-state';
-import { applyShapeCommand, isShapeCommand } from './weapon-shapes';
-import type { ShapeCommand, Shapes } from './weapon-shapes';
+import { applyShiftCommand, isShiftCommand } from './weapon-shifts';
+import type { ShiftCommand, Shifts } from './weapon-shifts';
 
 /** The charges an edit spends from a staff when it is no staff cast. */
 const NO_CHARGES = ResourceCount.parse(0);
@@ -40,7 +40,7 @@ export type CountingCommand =
   | ActiveSpellCommand
   | RestCommand
   | ToggleCommand
-  | ShapeCommand
+  | ShiftCommand
   | SpendCommand
   | ExplorationCommand
   | EnvironmentCommand
@@ -49,7 +49,7 @@ export type CountingCommand =
 /** The part of a play state a counting edit reads and writes: what a restoring action does, and the toggles. */
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
-  readonly shapes?: Shapes;
+  readonly shapes?: Shifts;
   readonly effects: readonly ActiveEffect[];
   readonly environments: ActiveEnvironments;
   readonly exposure: Exposure;
@@ -84,7 +84,7 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
     isEffectCommand(command) ||
     isRestCommand(command) ||
     isToggleCommand(command) ||
-    isShapeCommand(command) ||
+    isShiftCommand(command) ||
     isSpendCommand(command) ||
     isActiveSpellCommand(command) ||
     isExplorationCommand(command) ||
@@ -123,7 +123,7 @@ function applyEnvironmentSet<Play extends CountingPlay>(
 /** `play` after a toggle or an environment set, or the exploration activity chosen. */
 function applyChoiceCommand<Play extends CountingPlay>(
   play: Play,
-  command: ToggleCommand | ShapeCommand | ExplorationCommand | EnvironmentCommand | BreathCommand,
+  command: ToggleCommand | ShiftCommand | ExplorationCommand | EnvironmentCommand | BreathCommand,
   groups: EnvironmentGroups,
 ): Play {
   if (isExplorationCommand(command)) {
@@ -145,8 +145,8 @@ function applyChoiceCommand<Play extends CountingPlay>(
     return applyEnvironmentSet(play, command, groups);
   }
 
-  if (isShapeCommand(command)) {
-    return { ...play, shapes: applyShapeCommand(play.shapes ?? {}, command) };
+  if (isShiftCommand(command)) {
+    return { ...play, shapes: applyShiftCommand(play.shapes ?? {}, command) };
   }
 
   return { ...play, toggles: applyToggleCommand(play.toggles, command) };
@@ -186,7 +186,7 @@ export function applyCountingCommand<Play extends CountingPlay>(
 
   if (
     isToggleCommand(command) ||
-    isShapeCommand(command) ||
+    isShiftCommand(command) ||
     isExplorationCommand(command) ||
     isEnvironmentCommand(command) ||
     isBreathCommand(command)

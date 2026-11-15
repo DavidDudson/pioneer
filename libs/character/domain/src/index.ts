@@ -1112,18 +1112,18 @@ export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLev
 export { slotCandidates } from './slot-candidates';
 
 export {
-  applyShapeCommand,
+  applyShiftCommand,
   hasShiftingRune,
-  isShapeCommand,
-  ShapeCommandField,
-  type ShapeCommand,
-  ShapeCommandSchema,
-  ShapeProblem,
-  shapeProblem,
-  type ShapeReads,
-  type Shapes,
-  SHAPES_MAX,
-  shapesFor,
-  ShapesSchema,
-  shapedInventory,
-} from './weapon-shapes';
+  isShiftCommand,
+  ShiftCommandField,
+  type ShiftCommand,
+  ShiftCommandSchema,
+  ShiftProblem,
+  shiftProblem,
+  type ShiftReads,
+  type Shifts,
+  SHIFTS_MAX,
+  shiftsFor,
+  ShiftsSchema,
+  shiftedInventory,
+} from './weapon-shifts';

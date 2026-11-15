@@ -26,13 +26,13 @@ const expiries: Arbitrary<EffectExpiry | undefined> = option(constantFrom(...Obj
   nil: undefined,
 });
 
-const shapes = array(record({ remaining: rounds, expiry: expiries }), { maxLength: EFFECTS_MAX });
+const effectRecords = array(record({ remaining: rounds, expiry: expiries }), { maxLength: EFFECTS_MAX });
 
 function instanceId(index: number): EffectInstanceId {
   return EffectInstanceId.parse(`00000000-0000-4000-8000-${String(index).padStart(ID_DIGITS, '0')}`);
 }
 
-const effects: Arbitrary<readonly ActiveEffect[]> = shapes.map((each) =>
+const effects: Arbitrary<readonly ActiveEffect[]> = effectRecords.map((each) =>
   each.map(({ remaining, expiry }, index): ActiveEffect => {
     const left = remaining === undefined ? undefined : { remaining: EffectRounds.parse(remaining) };
     const ending = expiry === undefined ? undefined : { expiry };

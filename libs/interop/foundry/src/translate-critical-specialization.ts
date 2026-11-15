@@ -48,8 +48,8 @@ function persistentOf(dice: unknown): unknown {
 }
 
 /** A `CriticalSpecialization` as Pioneer spells it; any other element as it is. */
-export function withSpecialization<Raw>(shaped: Raw, context: NoteContext): Raw | Fields {
-  const raw = withOwnWeapon(shaped);
+export function withSpecialization<Raw>(element: Raw, context: NoteContext): Raw | Fields {
+  const raw = withOwnWeapon(element);
 
   if (!isSpecialization(raw)) {
     return raw;

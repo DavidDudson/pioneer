@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { hasShiftingRune, InventoryItemId, PlayCommandField, shapesFor } from '@pioneer/character/domain';
+import { hasShiftingRune, InventoryItemId, PlayCommandField, shiftsFor } from '@pioneer/character/domain';
 import type { InventoryItem, RunedContent } from '@pioneer/character/domain';
 import { AsyncButton, AsyncForm, Stack, Text } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
@@ -15,29 +15,29 @@ import * as z from 'zod';
 import { CharacterStore } from '../../../data/character-store';
 import { PlayStore } from '../../../data/play-store';
 import { describeSaveError } from '../../sheet-field';
-import { SHAPE_ORDER, shapeColumns, shapeLabel, shapeValue } from './shape-picker';
-import type { ShapeRow } from './shape-picker';
+import { WEAPON_ORDER, weaponColumns, weaponLabel, weaponValue } from './shift-picker';
+import type { WeaponRow } from './shift-picker';
 
 /** What the shift form submits: the weapon whose shape the item takes. */
-const ShiftForm = z.object({ shape: ContentId });
+const ShiftForm = z.object({ weapon: ContentId });
 
 interface ShiftModel {
-  readonly shape: string;
+  readonly weapon: string;
 }
 
-const EMPTY_SHIFT: ShiftModel = { shape: '' };
+const EMPTY_SHIFT: ShiftModel = { weapon: '' };
 
 /**
  * One item with a shifting rune: the weapon it has the shape of, a picker for another melee weapon that takes the
  * same number of hands, and a button to return it to its own shape. Shown only while the item has the rune.
  */
 @Component({
-  selector: 'pio-item-shape',
+  selector: 'pio-item-shift',
   imports: [AsyncButton, AsyncForm, FormField, PickerField, Stack, Text, TranslocoPipe],
-  templateUrl: './item-shape.component.html',
+  templateUrl: './item-shift.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ItemShape {
+export class ItemShift {
   /** The inventory item's id, as the line carries it. */
   public readonly id = input.required({ transform: (id: string): InventoryItemId => InventoryItemId.parse(id) });
   /** The name the line shows, for the labels. */
@@ -63,30 +63,30 @@ export class ItemShape {
   });
 
   /** The name of the weapon the item has the shape of; none while it has its own. */
-  protected readonly shape: Signal<string | undefined> = computed(() => {
+  protected readonly taken: Signal<string | undefined> = computed(() => {
     const taken = this.#play.play.data()?.play.shapes[this.id()];
 
     return taken === undefined ? undefined : this.content().items.get(taken)?.name;
   });
 
   /** The weapons the item can take the shape of, by name. */
-  protected readonly shapes = new PickerRows<ShapeRow>(
-    computed((): readonly ShapeRow[] => {
+  protected readonly weapons = new PickerRows<WeaponRow>(
+    computed((): readonly WeaponRow[] => {
       const item = this.#item();
 
       return item === undefined
         ? []
-        : shapesFor(item, this.content()).map(({ id, name }): ShapeRow => ({ value: id, label: name }));
+        : shiftsFor(item, this.content()).map(({ id, name }): WeaponRow => ({ value: id, label: name }));
     }),
-    SHAPE_ORDER,
+    WEAPON_ORDER,
   );
-  protected readonly shapeColumns = computed(() => {
+  protected readonly weaponColumns = computed(() => {
     this.#messages();
 
-    return shapeColumns(this.#i18n.translate('character.sheet.shape.columnName'));
+    return weaponColumns(this.#i18n.translate('character.sheet.shape.columnName'));
   });
-  protected readonly shapeValue = shapeValue;
-  protected readonly shapeLabel = shapeLabel;
+  protected readonly weaponValue = weaponValue;
+  protected readonly weaponLabel = weaponLabel;
 
   protected readonly model = signal<ShiftModel>(EMPTY_SHIFT);
   protected readonly form = form(this.model, (path) => {
@@ -94,8 +94,8 @@ export class ItemShape {
   });
 
   protected readonly shift = async (value: ShiftModel): Promise<void> => {
-    const { shape } = ShiftForm.parse(value);
-    await this.#play.send({ field: PlayCommandField.ShiftWeapon, item: this.id(), shape });
+    const { weapon } = ShiftForm.parse(value);
+    await this.#play.send({ field: PlayCommandField.ShiftWeapon, item: this.id(), shape: weapon });
     this.model.set(EMPTY_SHIFT);
   };
 

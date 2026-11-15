@@ -28,7 +28,7 @@ import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
 import { customEffectRules } from './custom-effect';
 import { characterStatisticContent } from './custom-lore';
-import { buildRules, equippedRules, shapedDocument } from './equipped';
+import { buildRules, equippedRules, shiftedDocument } from './equipped';
 import type { EquippedRules } from './equipped';
 import { equippedInputs } from './equipped-inputs';
 import { favoredWeapons } from './favored-weapons';
@@ -81,7 +81,7 @@ export function characterStatisticInputs(
   const favored = favoredWeapons(grants);
   const items = itemContent(registry);
 
-  const equipped = equippedInputs(shapedDocument(document, items, slots).inventory, items, {
+  const equipped = equippedInputs(shiftedDocument(document, items, slots).inventory, items, {
     favored,
     rules: () => equippedRules(document, items, slots),
   });

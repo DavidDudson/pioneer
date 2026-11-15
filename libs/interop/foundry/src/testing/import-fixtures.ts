@@ -50,7 +50,7 @@ export interface DocumentFixture {
   readonly items?: readonly object[];
 }
 
-const FixtureShape = z.looseObject({
+const FixtureSchema = z.looseObject({
   id: z.string(),
   name: z.string(),
   type: z.string(),
@@ -61,7 +61,7 @@ const FixtureShape = z.looseObject({
 
 /** A fixture kept as JSON text, so a real document with its embedded items stays a few lines long. */
 export function parseFixture(json: string): DocumentFixture {
-  const { id, name, type, system, pack: given, items } = FixtureShape.parse(JSON.parse(json));
+  const { id, name, type, system, pack: given, items } = FixtureSchema.parse(JSON.parse(json));
 
   return {
     id,

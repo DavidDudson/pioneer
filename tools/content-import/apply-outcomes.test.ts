@@ -60,10 +60,10 @@ function entry(id: string, description: unknown): OutcomeEntryJson {
   return { id, pack: 'p', slug: `slug-${id}`, rules: [{ effect: 'e', predicate: ['x'] }], description };
 }
 
-/** `shape` with the outcomes the import gives it, when it gives any. */
-function givenOutcomes(shape: unknown, outcome: unknown): unknown {
+/** `node` with the outcomes the import gives it, when it gives any. */
+function givenOutcomes(node: unknown, outcome: unknown): unknown {
   // SAFETY: every caller passes an entry object, and spreading an `object` only copies its own properties.
-  return outcome === undefined ? shape : { ...(shape as object), outcomes: { success: outcome } };
+  return outcome === undefined ? node : { ...(node as object), outcomes: { success: outcome } };
 }
 
 /** A file of the entries `entries`, as JSON text. */
@@ -204,17 +204,17 @@ describe('the merge, with outcomes stripped, is the input', () => {
     outcome === undefined ? {} : { outcomes: { failure: outcome } },
   );
 
-  const shape = record({ basic: boolean(), held }).map((each) =>
+  const node = record({ basic: boolean(), held }).map((each) =>
     check(each.basic ? { basic: true, ...each.held } : each.held),
   );
 
-  const checks = array(record({ shape, outcome: constantFrom(undefined, success, failure) }), { maxLength: 5 });
+  const checks = array(record({ node, outcome: constantFrom(undefined, success, failure) }), { maxLength: 5 });
 
   test('whatever checks the description holds and the import gives', () => {
     assert(
       property(checks, (each) => {
-        const committed = [paragraph(...each.map((one) => one.shape))];
-        const fresh = [paragraph(...each.map((one) => givenOutcomes(one.shape, one.outcome)))];
+        const committed = [paragraph(...each.map((one) => one.node))];
+        const fresh = [paragraph(...each.map((one) => givenOutcomes(one.node, one.outcome)))];
 
         const merged = mergeDescription(committed, fresh).description;
 

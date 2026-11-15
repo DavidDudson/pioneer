@@ -1,6 +1,6 @@
 @let result = check();
 @if (result.status === ActionsStatus.Pending) {
-  <fr-skeleton shape="block" width="full" />
+  <fr-skeleton kind="block" width="full" />
 } @else if (result.status === ActionsStatus.Valid) {
   @if (result.rows.length === 0) {
     <fr-text element="p" tone="muted">{{ 'play.rules.actions.none' | transloco }}</fr-text>

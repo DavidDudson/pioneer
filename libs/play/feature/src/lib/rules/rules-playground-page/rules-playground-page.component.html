@@ -45,7 +45,7 @@
               (chosen)="chooseStatisticSource($event)"
             />
             @if (statisticLoad() === SourceLoad.Loading) {
-              <fr-skeleton shape="block" width="full" />
+              <fr-skeleton kind="block" width="full" />
             } @else {
               <pio-statistics-fields
                 [check]="tool.check"

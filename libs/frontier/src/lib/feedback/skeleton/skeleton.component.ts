@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-export const SkeletonShape = { Text: 'text', Block: 'block', Square: 'square' } as const;
+export const SkeletonKind = { Text: 'text', Block: 'block', Square: 'square' } as const;
 
-export type SkeletonShape = ValueOf<typeof SkeletonShape>;
+export type SkeletonKind = ValueOf<typeof SkeletonKind>;
 
 export const SkeletonWidth = { Xs: 'xs', Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'full' } as const;
 
@@ -12,11 +12,11 @@ export type SkeletonWidth = ValueOf<typeof SkeletonWidth>;
 
 const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text', {
   variants: {
-    shape: {
+    kind: {
       text: 'h-lh',
       block: 'h-2xl',
       square: 'size-xl',
-    } satisfies Record<SkeletonShape, string>,
+    } satisfies Record<SkeletonKind, string>,
     width: {
       xs: 'w-xl',
       sm: 'w-3xl',
@@ -38,12 +38,12 @@ const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton forced-c
   host: { '[class]': 'classes()', 'aria-hidden': 'true' },
 })
 export class Skeleton {
-  public readonly shape = input<SkeletonShape>(SkeletonShape.Text);
+  public readonly kind = input<SkeletonKind>(SkeletonKind.Text);
   public readonly width = input<SkeletonWidth>(SkeletonWidth.Md);
 
   protected readonly classes = computed(() => {
-    const shape = this.shape();
+    const kind = this.kind();
 
-    return skeletonVariants(shape === SkeletonShape.Square ? { shape } : { shape, width: this.width() });
+    return skeletonVariants(kind === SkeletonKind.Square ? { kind } : { kind, width: this.width() });
   });
 }

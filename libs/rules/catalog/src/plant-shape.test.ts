@@ -9,7 +9,7 @@ import { coreNamespaces } from './testing/fighter';
 const PLANT_FORM_RANK_CAP = 10;
 
 /** The rule elements of the Plant Shape feat, read from the player-core pack. */
-async function plantShapeRules(): Promise<readonly RuleElement[]> {
+async function plantFormRules(): Promise<readonly RuleElement[]> {
   const file = await import('@pioneer/content/packs/player-core/feat.json');
 
   const feat = ContentEntryFile.parse(file.default).find(
@@ -28,7 +28,7 @@ async function innateRanks(level: number, untamedForm: boolean): Promise<readonl
     coreNamespaces(),
   );
 
-  const rules = await plantShapeRules();
+  const rules = await plantFormRules();
 
   return rules
     .filter((rule) => rule.key === RuleElementKey.InnateSpells)
@@ -55,7 +55,7 @@ describe('Player Core: Plant Shape', () => {
   });
 
   test('the innate entry exists only without Untamed Form', async () => {
-    const rules = await plantShapeRules();
+    const rules = await plantFormRules();
     const entries = rules.filter((rule) => rule.key === RuleElementKey.SpellcastingEntry);
 
     expect(entries).toHaveLength(1);

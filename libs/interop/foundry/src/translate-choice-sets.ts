@@ -213,7 +213,7 @@ export function withChoiceSet<Raw>(raw: Raw, item: string, references: EntryRefe
 
   const kept = Object.entries(raw).filter(([field]) => !DISPLAY_ONLY_FIELDS.has(field));
 
-  const shaped = Object.fromEntries(
+  const normalised = Object.fromEntries(
     kept.flatMap(([field, value]) => {
       if (field === NO_SELECTION_FIELD) {
         return value === true ? [['optional', true]] : [];
@@ -225,7 +225,7 @@ export function withChoiceSet<Raw>(raw: Raw, item: string, references: EntryRefe
 
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
 
-  return { ...shaped, flag };
+  return { ...normalised, flag };
 }
 
 const TAG = /^item:tag:[a-z0-9-]+$/u;

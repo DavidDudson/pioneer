@@ -235,16 +235,16 @@ describe('translateEnvelopes: description', () => {
 });
 
 describe('translateEnvelopes: rule elements', () => {
-  const pioneerShaped = { key: 'FlatModifier', selectors: ['ac'], type: 'circumstance', value: 2 };
-  const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: '@actor.level', requiresEquipped: false };
+  const pioneerRule = { key: 'FlatModifier', selectors: ['ac'], type: 'circumstance', value: 2 };
+  const foundryRule = { key: 'FlatModifier', selector: 'hp', value: '@actor.level', requiresEquipped: false };
   const unknownKey = { key: 'ActiveEffectLike', mode: 'subtract', path: 'system.attributes.dying.recoveryDC' };
 
   test('keeps elements RuleElement reads and reports the rest with entry, key and raw JSON', () => {
-    const { entries, untranslatedRules } = translateOne({ rules: [pioneerShaped, foundryShaped, unknownKey, 'x'] });
+    const { entries, untranslatedRules } = translateOne({ rules: [pioneerRule, foundryRule, unknownKey, 'x'] });
 
-    expect(entries[0]?.envelope.rules).toEqual([RuleElement.parse(pioneerShaped)]);
+    expect(entries[0]?.envelope.rules).toEqual([RuleElement.parse(pioneerRule)]);
     expect(untranslatedRules).toEqual([
-      { entry: toughnessId, key: 'FlatModifier', raw: foundryShaped },
+      { entry: toughnessId, key: 'FlatModifier', raw: foundryRule },
       { entry: toughnessId, key: 'ActiveEffectLike', raw: unknownKey },
       { entry: toughnessId, key: '', raw: 'x' },
     ]);
@@ -257,7 +257,7 @@ describe('translateEnvelopes: rule elements', () => {
   });
 
   test('imports the entry without any rule elements when none translate', () => {
-    const { entries } = translateOne({ rules: [foundryShaped] });
+    const { entries } = translateOne({ rules: [foundryRule] });
 
     expect(entries[0]?.envelope.rules).toEqual([]);
   });
@@ -265,17 +265,17 @@ describe('translateEnvelopes: rule elements', () => {
 
 describe('translationReport', () => {
   test('counts envelopes, failures, rule element keys, traits, markup and lang keys, most frequent first', () => {
-    const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1, removeAfterRoll: true };
+    const foundryRule = { key: 'FlatModifier', selector: 'hp', value: 1, removeAfterRoll: true };
 
     const translation = translateEnvelopes(
       [
         selected(
-          { traits: { value: ['fortune', 'mental'] }, rules: [foundryShaped, { key: 'Note', text: 'PF2E.Nope' }] },
+          { traits: { value: ['fortune', 'mental'] }, rules: [foundryRule, { key: 'Note', text: 'PF2E.Nope' }] },
           'One',
           'a',
         ),
         selected(
-          { traits: { value: ['fortune'] }, rules: [foundryShaped], description: { value: '<div>Hi</div>' } },
+          { traits: { value: ['fortune'] }, rules: [foundryRule], description: { value: '<div>Hi</div>' } },
           'Two',
           'b',
         ),

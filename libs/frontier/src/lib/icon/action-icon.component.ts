@@ -4,7 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { Glyph } from '../text/glyph/glyph.component';
 import { Size } from '../tokens';
 import type { Tone } from '../tokens';
-import { ACTION_SHAPES, ActionShape } from './action-glyphs';
+import { ACTION_MARKS, ActionMark } from './action-glyphs';
 import { Icon } from './icon.component';
 
 /** What an action costs, as the symbol shows it. */
@@ -12,12 +12,12 @@ export const ActionIconCost = { One: 'one', Two: 'two', Three: 'three', Free: 'f
 
 export type ActionIconCost = ValueOf<typeof ActionIconCost>;
 
-const COST_SHAPES: Readonly<Record<ActionIconCost, readonly ActionShape[]>> = {
-  [ActionIconCost.One]: [ActionShape.Action],
-  [ActionIconCost.Two]: [ActionShape.Action, ActionShape.Action],
-  [ActionIconCost.Three]: [ActionShape.Action, ActionShape.Action, ActionShape.Action],
-  [ActionIconCost.Free]: [ActionShape.Free],
-  [ActionIconCost.Reaction]: [ActionShape.Reaction],
+const COST_MARKS: Readonly<Record<ActionIconCost, readonly ActionMark[]>> = {
+  [ActionIconCost.One]: [ActionMark.Action],
+  [ActionIconCost.Two]: [ActionMark.Action, ActionMark.Action],
+  [ActionIconCost.Three]: [ActionMark.Action, ActionMark.Action, ActionMark.Action],
+  [ActionIconCost.Free]: [ActionMark.Free],
+  [ActionIconCost.Reaction]: [ActionMark.Reaction],
 };
 
 /**
@@ -40,12 +40,12 @@ export class ActionIcon {
   public readonly size = input<Size>(Size.Sm);
   public readonly tone = input<Tone | undefined>(undefined);
 
-  protected readonly shapes = computed((): readonly (typeof ACTION_SHAPES)[ActionShape][] => {
+  protected readonly marks = computed((): readonly (typeof ACTION_MARKS)[ActionMark][] => {
     const end = this.upTo();
 
     const drawn =
-      end === undefined ? COST_SHAPES[this.cost()] : [...COST_SHAPES[this.cost()], ActionShape.To, ...COST_SHAPES[end]];
+      end === undefined ? COST_MARKS[this.cost()] : [...COST_MARKS[this.cost()], ActionMark.To, ...COST_MARKS[end]];
 
-    return drawn.map((shape) => ACTION_SHAPES[shape]);
+    return drawn.map((mark) => ACTION_MARKS[mark]);
   });
 }

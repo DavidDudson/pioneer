@@ -19,7 +19,7 @@ const TRAITS_MAX = 16;
 const Traits = z.array(Trait).max(TRAITS_MAX).readonly().check(uniqueItems);
 
 /** Whether a Strike element gives exactly one shape: the fist, or an attack of its own with a slug, category and damage. */
-function hasOneShape({ fist, slug, category, damage }: StrikeFields): boolean {
+function hasOneSource({ fist, slug, category, damage }: StrikeFields): boolean {
   const own = slug !== undefined && category !== undefined && damage !== undefined;
 
   return fist === true ? slug === undefined && category === undefined && damage === undefined : own;
@@ -50,7 +50,7 @@ type StrikeFields = z.infer<z.ZodObject<typeof strikeFields>>;
  */
 export const StrikeElement = z
   .strictObject(strikeFields)
-  .refine(hasOneShape, issueParams(message(RulesMessage.StrikeShape)));
+  .refine(hasOneSource, issueParams(message(RulesMessage.StrikeSource)));
 
 export type StrikeElement = z.infer<typeof StrikeElement>;
 

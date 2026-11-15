@@ -6,7 +6,7 @@ import { ContentEntryFile, ContentId, ContentKind, RollOption, RuleElementKey } 
 import { coreNamespaces } from './testing/fighter';
 
 /** Mwangi Expanse's Change Shape action, which the kitsune ancestry feature grants. */
-const CHANGE_SHAPE = ContentId.parse('e114f41a-9129-5b91-b7d2-f88e152b9c0c');
+const CHANGE_FORM = ContentId.parse('e114f41a-9129-5b91-b7d2-f88e152b9c0c');
 
 /** The Ancestry Guide's hand-written kitsune form. */
 const KITSUNE_FORM = ContentId.parse('957551d2-bd91-56eb-a759-5ed56187dd90');
@@ -45,7 +45,7 @@ async function grantedByFeature(): Promise<readonly unknown[]> {
 
 describe('Ancestry Guide: kitsune Change Shape', () => {
   test('the kitsune ancestry feature grants the Change Shape action', async () => {
-    expect(await grantedByFeature()).toStrictEqual([CHANGE_SHAPE]);
+    expect(await grantedByFeature()).toStrictEqual([CHANGE_FORM]);
   });
 
   test('a kitsune can take the kitsune form', async () => {
