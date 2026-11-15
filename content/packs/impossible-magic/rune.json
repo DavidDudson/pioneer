@@ -635,7 +635,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["step-distance"],
+        "type": "item",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.DDdYXpxPtjvnJLJH"
     },

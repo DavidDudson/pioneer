@@ -888,6 +888,7 @@
       "fly": "Fly",
       "climb": "Climb",
       "burrow": "Burrow",
+      "step": "Step",
       "feet": "{value} ft",
       "none": "None"
     },

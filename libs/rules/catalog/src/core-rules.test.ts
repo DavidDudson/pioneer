@@ -253,7 +253,7 @@ describe('core rules pack', () => {
     expect(reachedBy('speed')).toStrictEqual(sorted(SPEEDS));
     expect(reachedBy('all-speeds')).toStrictEqual(sorted(SPEEDS));
     expect(reachedBy('land-speed')).toStrictEqual(['speed:land']);
-    expect(reachedBy('fly-speed')).toStrictEqual(['speed:fly']);
+    expect([reachedBy('fly-speed'), reachedBy('step-distance')]).toStrictEqual([['speed:fly'], ['step-distance']]);
     expect(reachedBy('class')).toStrictEqual(['class-dc']);
     expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...checksKeyedTo(Attribute.Dexterity)]));
     expect(reachedBy('wis-based')).toStrictEqual(
