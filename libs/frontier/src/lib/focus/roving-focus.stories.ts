@@ -41,6 +41,7 @@ const meta: Meta = {
     `,
   }),
 };
+
 export default meta;
 
 export const Grid6: RovingFocusStory = {};
@@ -53,6 +54,7 @@ interface Position {
 /** Where an element sits, rounded so sub-pixel layout doesn't matter. */
 function position(element: Element): Position {
   const rect = element.getBoundingClientRect();
+
   return { top: Math.round(rect.top), left: Math.round(rect.left) };
 }
 

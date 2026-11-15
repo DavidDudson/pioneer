@@ -66,6 +66,7 @@ function hardnessWhen(predicate: string): object {
 /** `item` after elements, each `[element, entry]`, in that order. */
 function altered(item: AlterableItem, placed: readonly (readonly [object, string])[]): AlteredItem {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
+
   return alterItem({ rules, facts }, item);
 }
 
@@ -230,7 +231,9 @@ describe('alterItem: an action’s damage dice and description', () => {
     materials: [],
     propertyRunes: [],
   };
+
   const reachBreath = ['item:slug:dragon-breath-dragon-form'];
+
   const extraDice = {
     key: 'ItemAlteration',
     items: reachBreath,
@@ -256,6 +259,7 @@ describe('alterItem: an action’s damage dice and description', () => {
 
   test('a description override replaces the text', () => {
     const text = [{ type: 'paragraph', content: [{ type: 'text', text: 'You exhale fire.' }] }];
+
     const element = {
       key: 'ItemAlteration',
       items: reachBreath,

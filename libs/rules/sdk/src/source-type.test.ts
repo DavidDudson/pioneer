@@ -37,6 +37,7 @@ describe('source type', () => {
       book: book(ProductLine.Rulebooks, true),
       license: ContentLicense.Ogl,
     });
+
     expect(type).toBe(SourceType.RulebookLegacy);
   });
 
@@ -67,6 +68,7 @@ describe('source type', () => {
       author: '00000000-0000-4000-8000-000000000001',
       pack: 'mine',
     });
+
     expect(sourceType({ source, book: undefined, license: ContentLicense.Homebrew })).toBe(SourceType.Homebrew);
   });
 });

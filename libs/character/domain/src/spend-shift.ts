@@ -26,6 +26,7 @@ export interface ShiftChange {
 /** `effect` with the form `form` and the temporary Hit Points `tempHp` set, or left off when there are none. */
 function withForm(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form' | 'tempHp'>): ActiveEffect {
   const { form: _form, tempHp: _tempHp, ...kept } = effect;
+
   return {
     ...kept,
     effect: to.effect,
@@ -62,6 +63,7 @@ export function shiftRefusal({ effects }: ShiftPlay, { shift }: SpendRequest): S
   if (shift === undefined) {
     return undefined;
   }
+
   return effects.some(({ id }) => id === shift.effect) ? undefined : SpendProblem.NoSuchEffect;
 }
 
@@ -78,6 +80,7 @@ interface TempSwap {
  */
 function swapped(temp: HitPoints, from: HitPoints, to: HitPoints): TempSwap {
   const kept = temp <= from ? NONE : temp;
+
   return { temp: HitPoints.parse(Math.max(kept, to)), raised: to > kept ? to : NONE };
 }
 
@@ -89,10 +92,13 @@ function formed(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form'>,
 /** `play`'s active effects and temporary Hit Points after the spend `request`: the effect it shifts has the new form and keeps its time left. */
 export function shiftSpent({ effects, hp }: ShiftPlay, { shift }: SpendRequest): ShiftChange {
   const target = shift === undefined ? undefined : effects.find(({ id }) => id === shift.effect);
+
   if (shift === undefined || target === undefined) {
     return { effects, temp: hp.temp };
   }
+
   const { temp, raised } = swapped(hp.temp, target.tempHp ?? NONE, shift.tempHp ?? NONE);
+
   return {
     effects: effects.map((each) =>
       each.id === shift.effect ? formed(each, { effect: shift.to, form: shift.form }, raised) : each,
@@ -107,6 +113,7 @@ export function shiftUndoRefusal({ effects }: ShiftPlay, { shift, shifted }: Spe
   if (shift === undefined || shifted === undefined) {
     return undefined;
   }
+
   return effects.some(({ id }) => id === shift.effect) ? undefined : SpendProblem.NoSuchEffect;
 }
 
@@ -117,13 +124,18 @@ export function shiftUndone(
 ): Pick<ShiftChange, 'effects' | 'temp'> {
   if (apply !== undefined) {
     const ended = endEffects(play, [apply.id]);
+
     return { effects: ended.effects, temp: ended.hp.temp };
   }
+
   const { effects, hp } = play;
   const target = shift === undefined ? undefined : effects.find(({ id }) => id === shift.effect);
+
   if (shift === undefined || shifted === undefined || target === undefined) {
     return { effects, temp: hp.temp };
   }
+
   const { temp, raised } = swapped(hp.temp, target.tempHp ?? NONE, shifted.tempHp ?? NONE);
+
   return { effects: effects.map((each) => (each.id === shift.effect ? formed(each, shifted, raised) : each)), temp };
 }

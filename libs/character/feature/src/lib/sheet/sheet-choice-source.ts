@@ -25,5 +25,6 @@ const SOURCE_KEYS: Readonly<Record<ChoiceSourceKind, { readonly plain: string; r
 /** A source as text: "Class (Fighter)", "Spellcasting (Wizard)", "General progression". */
 export function sourceMessageOf({ kind, name }: ChoiceSource): MessageDescriptor {
   const keys = SOURCE_KEYS[kind];
+
   return name === undefined ? message(keys.plain) : message(keys.named, { name });
 }

@@ -28,7 +28,9 @@ const fastHealing = element(
   { value: modifierValue },
   { type: anyOf(FastHealingType), deactivatedBy: uniqueArray(damageType, { minLength: 1, maxLength: LIST_MAX }) },
 );
+
 const tempHp = element('TempHP', { value: modifierValue });
+
 const creatureSize = element(
   'CreatureSize',
   { value: oneof(anyOf(Size), integer({ min: -SIZE_STEPS_MAX, max: SIZE_STEPS_MAX })) },
@@ -46,10 +48,12 @@ const formStatistics = record(
   { size: anyOf(Size), tempHP: modifierValue, speeds: record({ fly: feet, swim: feet }, { requiredKeys: [] }) },
   { requiredKeys: [] },
 );
+
 const formBracket = record(
   { start: integer({ min: 1, max: SPELL_RANK_MAX }), size: anyOf(Size) },
   { requiredKeys: ['start'] },
 );
+
 const battleForm = element(
   'BattleForm',
   { form: formStatistics },
@@ -70,7 +74,9 @@ const adjustDegreeOfSuccess = element(
   { selectors: targets, adjustment },
   { checkType: anyOf(AdjustedCheck) },
 );
+
 const rollTwice = element('RollTwice', { selectors: targets, keep: anyOf(RollKept) });
+
 const substituteRoll = element('SubstituteRoll', {
   selectors: targets,
   slug: slugText,
@@ -82,6 +88,7 @@ const auraEffect = withOptional(record({ effect: uuid() }), {
   includesSelf: boolean(),
   events: uniqueArray(anyOf(AuraEvent), { minLength: 1, maxLength: LIST_MAX }),
 });
+
 const aura = element(
   'Aura',
   { radius: oneof(feet, validFormulaText) },
@@ -93,6 +100,7 @@ const aura = element(
 );
 
 const FLAT_DC_MAX = 20;
+
 const criticalHitCheck = element('CriticalHitCheck', {
   selectors: targets,
   dc: integer({ min: 1, max: FLAT_DC_MAX }),
@@ -109,19 +117,24 @@ const timedDuration = record({
   count: integer({ min: 1, max: SMALLINT_MAX }),
   unit: constantFrom('round', 'minute', 'hour', 'day'),
 });
+
 const criticalDuration = oneof(constant({ type: 'next-turn-end' }), constant({ type: 'permanent' }), timedDuration);
+
 const criticalCondition = record({
   kind: constant('condition'),
   condition: constantFrom('clumsy', 'deafened', 'immobilized', 'slowed'),
   duration: criticalDuration,
 });
+
 const criticalArmorDamage = record({
   kind: constant('damage'),
   damageType,
   amount: constant({ type: 'equal' }),
   target: constant({ type: 'armor' }),
 });
+
 const criticalRange = element('CriticalRange', { selectors: targets, natural: integer({ min: 2, max: 19 }) });
+
 const criticalEffect = element('CriticalEffect', {
   selectors: targets,
   effect: oneof(criticalCondition, criticalArmorDamage),

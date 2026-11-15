@@ -40,10 +40,12 @@ describe(`${Combobox.name} with a long list`, () => {
     await press(rendered, 'ArrowDown');
     // Faster than any scroll: each press renders once, then the next comes.
     const steps = 20;
+
     for (let step = 0; step < steps; step += 1) {
       rendered.input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
       rendered.fixture.detectChanges();
     }
+
     await vi.waitFor(() => {
       expect(highlighted(rendered)?.getAttribute('aria-posinset')).toBe(String(steps + 1));
     });

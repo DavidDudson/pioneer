@@ -24,8 +24,10 @@ async function render(url: string, failure?: Error, snapshotTaken = true): Promi
     if (failure !== undefined) {
       throw failure;
     }
+
     return { snapshotTaken };
   });
+
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'account', children: identityRoutes }]),
@@ -43,24 +45,30 @@ async function render(url: string, failure?: Error, snapshotTaken = true): Promi
   });
   const harness = await RouterTestingHarness.create(url);
   await harness.fixture.whenStable();
+
   return { harness, submit };
 }
 
 function root(harness: RouterTestingHarness): HTMLElement {
   const element = harness.routeNativeElement;
+
   if (element === null) {
     throw new Error('Expected a page to render');
   }
+
   return element;
 }
 
 function field(page: HTMLElement, label: string): HTMLTextAreaElement {
   const match = [...page.querySelectorAll('label')].find((each) => each.textContent.includes(label));
+
   const control =
     match?.htmlFor === undefined ? undefined : page.querySelector<HTMLTextAreaElement>(`#${match.htmlFor}`);
+
   if (control === undefined || control === null) {
     throw new Error(`No field labelled ${label}`);
   }
+
   return control;
 }
 
@@ -75,9 +83,11 @@ async function write(harness: RouterTestingHarness, label: string, text: string)
 async function send(harness: RouterTestingHarness): Promise<void> {
   const page = root(harness);
   const button = [...page.querySelectorAll('button')].find((each) => each.type === 'submit');
+
   if (button === undefined) {
     throw new Error('No submit button');
   }
+
   button.click();
   await harness.fixture.whenStable();
 }

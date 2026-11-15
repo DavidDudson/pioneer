@@ -47,6 +47,7 @@ export { DAMAGE_TYPES };
 
 function archive(overrides: Partial<Record<keyof typeof CONFIG_MODULES, string>> = {}): ReadonlyMap<string, string> {
   const texts = { traits: TRAITS, creature: CREATURE, damage: DAMAGE, ...overrides };
+
   return new Map(
     Object.entries(CONFIG_MODULES).map(([name, module]) => [`${ROOT}/${module}`, texts[name as keyof typeof texts]]),
   );
@@ -54,6 +55,7 @@ function archive(overrides: Partial<Record<keyof typeof CONFIG_MODULES, string>>
 
 async function withDirectory<Result>(run: (directory: string) => Promise<Result>): Promise<Result> {
   const directory = await mkdtemp(path.join(tmpdir(), 'foundry-config-'));
+
   try {
     return await run(directory);
   } finally {
@@ -68,6 +70,7 @@ async function failureOf(promise: Promise<unknown>): Promise<string> {
   } catch (error) {
     return error instanceof Error ? error.message : String(error);
   }
+
   throw new Error('expected a failure');
 }
 

@@ -83,6 +83,7 @@ export class AsyncButton {
     const ids = [this.describedBy(), this.state().isError() ? this.errorId : undefined].filter(
       (id) => id !== undefined,
     );
+
     return ids.length === 0 ? undefined : ids.join(' ');
   });
   /** Pressed once with a `confirmLabel`, waiting for the press that confirms. */
@@ -93,10 +94,13 @@ export class AsyncButton {
     if (this.type() === ButtonType.Submit) {
       return;
     }
+
     if (this.confirmLabel() !== undefined && !this.asking()) {
       this.asking.set(true);
+
       return;
     }
+
     this.asking.set(false);
     this.#own.run();
   }

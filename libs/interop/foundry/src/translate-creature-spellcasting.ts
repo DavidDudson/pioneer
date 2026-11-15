@@ -22,6 +22,7 @@ const SpellLocation = z.looseObject({
   heightenedLevel: z.number().nullish(),
   uses: z.looseObject({ max: z.number() }).nullish(),
 });
+
 const FoundrySpell = z.looseObject({ level: Count, location: SpellLocation.default({}) });
 
 const CONSTANT = 'constant';
@@ -42,10 +43,13 @@ interface Qualified {
 function qualified(name: string): Qualified {
   const open = name.lastIndexOf('(');
   const closed = name.endsWith(')');
+
   if (open === -1 || !closed) {
     return { spell: name, constant: false };
   }
+
   const note = name.slice(open + 1, -1).toLowerCase();
+
   return { spell: name.slice(0, open).trim(), constant: note.includes(CONSTANT) };
 }
 
@@ -53,12 +57,16 @@ function spellOf(item: Embedded, input: KindInput): CastSpell | undefined {
   const system = itemSystem(FoundrySpell, item, input);
   const { spell: name, constant } = qualified(item.name);
   const spell = system === undefined ? undefined : resolveSlug(input.references, ContentKind.Spell, slugify(name));
+
   if (system === undefined || spell === undefined) {
     report(input.log, { reason: KindDataGapReason.UnresolvedReference, field: 'spellcasting.spells', raw: item.name });
+
     return undefined;
   }
+
   const max = system.location.uses?.max;
   const uses = max === undefined ? undefined : Uses.safeParse(max).data;
+
   return {
     spell,
     rank: system.location.heightenedLevel ?? system.level.value,
@@ -70,6 +78,7 @@ function spellOf(item: Embedded, input: KindInput): CastSpell | undefined {
 /** Whether a spell item sits in the entry with this id. */
 function placedIn(item: Embedded, entry: string): boolean {
   const { location } = item.system;
+
   return typeof location === 'object' && location !== null && 'value' in location && location.value === entry;
 }
 
@@ -77,6 +86,7 @@ function entryOf(entry: Embedded, items: readonly Embedded[], input: KindInput):
   const system = itemSystem(FoundrySpellcasting, entry, input);
   const { _id: id } = entry;
   const spells = items.filter((item) => item.type === 'spell' && placedIn(item, id));
+
   return system === undefined
     ? undefined
     : {

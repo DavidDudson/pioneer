@@ -66,6 +66,7 @@ describe('root slots', () => {
 });
 
 const HERITAGE = SlotKey.parse('heritage');
+
 const NESTED: readonly RootSlotDefinition[] = [
   ...ROOT_SLOTS,
   { key: HERITAGE, kind: ContentKind.Heritage, within: ANCESTRY },
@@ -74,6 +75,7 @@ const NESTED: readonly RootSlotDefinition[] = [
 /** A heritage of the test pack, of the ancestry `ancestrySlug`, or versatile without one. */
 function heritage(slug: string, ancestrySlug?: string): GrantEntry {
   const base = { ...entry(slug), kind: ContentKind.Heritage, name: ContentText.parse(slug) };
+
   return ancestrySlug === undefined ? base : { ...base, belongsTo: idOf(ancestrySlug) };
 }
 
@@ -81,11 +83,13 @@ const HERITAGES = [heritage('whisper-elf', 'elf'), heritage('skilled-human', 'hu
 
 function nested(picks: readonly (readonly [SlotKey, string])[]): GrantResolution {
   const entries = [...CONTENT, ...HERITAGES];
+
   return resolveGrants(inputsOf({ entries, roots: [], picks: picksOf(picks), rootSlots: NESTED }));
 }
 
 function heritagesOffered(result: GrantResolution): string[] {
   const options = result.rootSlots[1]?.options ?? [];
+
   return options.map((option) => String(option.label));
 }
 
@@ -104,6 +108,7 @@ describe('a root slot within another', () => {
       [ANCESTRY, idOf('human')],
       [HERITAGE, idOf('whisper-elf')],
     ]);
+
     expect(result.rootSlots[1]?.pick).toBeUndefined();
     expect(result.items.map((item) => String(item.entry.name))).toEqual(['Human']);
     expect(result.errors.map((error) => error.hops)).toEqual([[OriginHop.parse({ kind: 'choice', slot: HERITAGE })]]);
@@ -116,6 +121,7 @@ describe('a root slot within another', () => {
         [ANCESTRY, idOf('elf')],
         [HERITAGE, idOf(pick)],
       ]);
+
       expect(result.rootSlots[1]?.pick).toBe(idOf(pick));
       expect(result.errors).toEqual([]);
     },
@@ -130,6 +136,7 @@ describe('root slots over an unsupported pack', () => {
       facts: { rarity: Rarity.Common, traits: [], description: [], unsupported: true as const },
     },
   ];
+
   const read = (picks: readonly (readonly [SlotKey, string])[]): GrantResolution =>
     resolveGrants(inputsOf({ entries: content, roots: [], picks: picksOf(picks), rootSlots: ROOT_SLOTS }));
 

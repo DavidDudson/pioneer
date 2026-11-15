@@ -89,6 +89,7 @@ describe('translateKindData: weapons', () => {
       runes: { potency: 3, striking: 3, property: [] },
       specific: undefined,
     };
+
     const below = translate([weapon('sKyHaMmEr0000001', 'Sky Hammer', { ...skyHammer, bonus: { value: 1 } })]);
     const above = translate([weapon('sKyHaMmEr0000001', 'Sky Hammer', { ...skyHammer, bonus: { value: 4 } })]);
 
@@ -114,6 +115,7 @@ describe('translateKindData: weapons', () => {
       reload: { value: 'varies' },
       bonusDamage: { value: 2 },
     });
+
     const lone = translate([blowgun]);
 
     expect(dataIn(lone, 'blowgun')).toMatchObject({ damage: { dice: 1, damageType: 'piercing' } });
@@ -167,6 +169,7 @@ describe('translateKindData: armour and shields', () => {
       { id: 'bRoKeNsHiElD0001', name: 'Broken Shield', type: 'shield' },
       { ...STEEL_SHIELD.system, hp: { max: 0 } },
     );
+
     const lone = translate([broken]);
 
     expect(dataIn(lone, 'broken-shield')).toBeUndefined();
@@ -193,6 +196,7 @@ describe('translateKindData: equipment and treasure', () => {
         stowing: false,
       },
     );
+
     const lone = translate([sack]);
 
     expect(dataIn(lone, 'sack')).not.toHaveProperty('container');
@@ -221,6 +225,7 @@ describe('translateKindData: equipment and treasure', () => {
       { id: 'mIrRoR0000000001', name: 'Mirror', type: 'equipment' },
       { usage: { value: 'touched' }, size: 'lg' },
     );
+
     const lone = translate([mirror]);
 
     expect(dataIn(lone, 'mirror')).toEqual({ bulk: 'negligible', size: 'large' });

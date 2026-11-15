@@ -20,6 +20,7 @@ const meta: Meta<ActionIcon> = {
   args: { cost: ActionIconCost.Two, label: 'Two actions', size: Size.Md },
   render: (args) => ({ props: args, template: `<fr-action-icon ${argsToTemplate(args)} />` }),
 };
+
 export default meta;
 
 export const Default: ActionIconStory = {};

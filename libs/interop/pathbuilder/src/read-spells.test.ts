@@ -7,6 +7,7 @@ import type { ImportedCaster } from './read-spells';
 import { mordredExport } from './testing';
 
 const read = readPathbuilderExport(mordredExport);
+
 if (!read.ok) {
   throw new Error('fixture must read');
 }

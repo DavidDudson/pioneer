@@ -46,9 +46,11 @@ function compare(left: Feat, right: Feat, column: string): number {
   if (column === 'level') {
     return left.level - right.level;
   }
+
   if (left.name === right.name) {
     return 0;
   }
+
   return left.name < right.name ? -1 : 1;
 }
 
@@ -56,10 +58,13 @@ function compare(left: Feat, right: Feat, column: string): number {
 function matching(query: string, sort: PickerSort | undefined): readonly Feat[] {
   const needle = query.trim().toLowerCase();
   const found = FEATS.filter((feat) => feat.name.toLowerCase().includes(needle));
+
   if (sort === undefined) {
     return found;
   }
+
   const direction = sort.descending ? -1 : 1;
+
   return found.toSorted((left, right) => compare(left, right, sort.column) * direction);
 }
 

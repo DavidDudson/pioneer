@@ -42,9 +42,11 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
   const active = activeItems(document.inventory, content);
   const exclusive = exclusiveEffects(document.play.effects, lookup);
   const level = Level.parse(document.level);
+
   const roots: GrantRoot[] = [
     ...active.flatMap((each) => {
       const hop = inventoryHop(each);
+
       return [each.entry.id, ...workingPropertyRunes(each.item, each.entry, runeReader(lookup))].map((entry) => ({
         entry,
         hop,
@@ -55,6 +57,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     ...effectRoots(exclusive.active),
     ...environmentRoots(document.play.environments),
   ];
+
   return resolveGrants({
     roots,
     lookup,
@@ -90,6 +93,7 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
   const resolution = equippedResolution(shaped, content, slots);
   const rules = rulesOf(resolution, { inventory: shaped.inventory, content }, fromInventory);
   const inputs = { rules, facts: resolution.facts };
+
   return {
     items: resolution.items.filter(({ origin }) => fromInventory(origin)),
     facts: factsUnderForm(inputs),
@@ -110,6 +114,7 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
   const resolution = equippedResolution(shaped, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
   const rules = equippedRulesOf(resolution, { inventory: shaped.inventory, content }, slots.lookup);
+
   return {
     rules,
     facts: factsUnderForm({ rules, facts: resolution.facts }),
@@ -130,6 +135,7 @@ export function buildRules(
 ): readonly RuleInPlay[] {
   const shaped = shapedDocument(document, content, slots);
   const resolution = equippedResolution(shaped, content, slots);
+
   return rulesOf(resolution, { inventory: shaped.inventory, content }, (origin) => !fromInventory(origin));
 }
 
@@ -140,6 +146,7 @@ export function shapedDocument(
   slots: SlotContent,
 ): CharacterDocument {
   const { runes } = slots;
+
   return runes === undefined
     ? document
     : { ...document, inventory: shapedInventory(document.inventory, document.play.shapes, { items: content, runes }) };

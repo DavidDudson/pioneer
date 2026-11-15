@@ -26,6 +26,7 @@ export function movementCostWords(
   if (movementCost === undefined) {
     return undefined;
   }
+
   return translate(
     message(EngineMessage.MovementCostReduces, {
       name: nameOf(movementCost.rule),

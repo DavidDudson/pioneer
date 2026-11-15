@@ -17,6 +17,7 @@ describe('ChoiceSet from Foundry: a pick of values other rules read', () => {
     flag: 'damageType',
     key: RuleElementKey.ChoiceSet,
   };
+
   const lang = { PF2E: { TraitAcid: 'Acid', TraitCold: 'Cold', TraitFire: 'Fire' } };
 
   function resisted(rules: readonly object[]): RuleTranslation {
@@ -43,6 +44,7 @@ describe('ChoiceSet from Foundry: a pick of values other rules read', () => {
       path: 'system.x',
       value: '{item|flags.system.rulesSelections.damageType}',
     };
+
     const { rules, untranslated } = resisted([
       { key: 'Resistance', type: '{item|flags.system.rulesSelections.damageType}', value: 5 },
       reader,

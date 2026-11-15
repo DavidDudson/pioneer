@@ -16,12 +16,15 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Choose a file')]],
   });
+
   onTestFinished(() => {
     ref.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     ref.setInput(name, value);
   }
+
   const chosen: string[] = [];
   ref.instance.chosen.subscribe((text) => {
     chosen.push(text);
@@ -29,6 +32,7 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(ref.hostView);
   await appRef.whenStable();
+
   return { root: ref.location.nativeElement as HTMLElement, ref, chosen };
 }
 
@@ -36,6 +40,7 @@ function present<TValue>(value: TValue | null): TValue {
   if (value === null) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 

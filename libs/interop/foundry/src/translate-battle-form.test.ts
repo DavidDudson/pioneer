@@ -230,6 +230,7 @@ describe('translateRules: BattleForm that reads a dragon type', () => {
 
 const TRADITIONS = ['divine', 'primal', 'primal'];
 const TRADITION_CHOICES = [];
+
 for (const [index, choice] of DRAGON_CHOICES.entries()) {
   TRADITION_CHOICES.push({ label: choice.label, value: { ...choice.value, tradition: TRADITIONS[index] } });
 }

@@ -159,10 +159,12 @@ describe.skipIf(adminUrl === undefined)('HomebrewPackService over CampaignPackEn
       },
       clock,
     );
+
     const seeds = [
       [runelords, 'Rise of the Runelords', ezren],
       [kingmaker, 'Kingmaker', seoni],
     ] as const;
+
     await Promise.all(
       seeds.map(async ([id, name, gm]) => {
         await database.db.execute(

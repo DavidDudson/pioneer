@@ -12,6 +12,7 @@ const SLUG = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*$/u;
 
 /** Kebab-case identifier, e.g. `human`: an entry's name within its kind, a pack id, a trait. */
 export const Slug = z.string().regex(SLUG).brand<'Slug'>();
+
 export type Slug = z.infer<typeof Slug>;
 
 /** The longest a Lore's topic may be: `skill:lore:<topic>` must stay a selector, which holds at most 128 characters. */
@@ -29,10 +30,12 @@ export const LoreChoice = z
   .max(LORE_CHOICE_PREFIX.length + LORE_TOPIC_MAX)
   .regex(/^lore:[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*$/u)
   .brand<'LoreChoice'>();
+
 export type LoreChoice = z.infer<typeof LoreChoice>;
 
 /** A Lore's name as typed or listed, before it is folded to a topic. */
 export const LoreText = z.string().brand<'LoreText'>();
+
 export type LoreText = z.infer<typeof LoreText>;
 
 const MARKS = /\p{Mark}/gu;
@@ -53,6 +56,7 @@ export function loreTopicSlug(name: LoreText): Slug | undefined {
     .toLowerCase()
     .replaceAll(NOT_ALPHANUMERIC, '-')
     .replaceAll(EDGE_HYPHENS, '');
+
   return topic.length > LORE_TOPIC_MAX ? undefined : Slug.safeParse(topic).data;
 }
 
@@ -67,9 +71,11 @@ export const EntrySlug = z
   .string()
   .refine((text) => {
     const [kind, name, ...rest] = text.split(KIND_SEPARATOR);
+
     return rest.length === 0 && ContentKindSchema.safeParse(kind).success && name !== undefined && SLUG.test(name);
   })
   .brand<'EntrySlug'>();
+
 export type EntrySlug = z.infer<typeof EntrySlug>;
 
 /** The entry slug of a name within a kind: `entrySlug('ancestry', 'human')` is `ancestry:human`. */
@@ -89,6 +95,7 @@ export function slugName(slug: EntrySlug): Slug {
 
 /** A content pack's id: its slug, branded so it can't be confused with an entry slug. */
 export const PackId = Slug.brand<'PackId'>();
+
 export type PackId = z.infer<typeof PackId>;
 
 /**
@@ -96,10 +103,12 @@ export type PackId = z.infer<typeof PackId>;
  * `Uuid` themselves; use this where any entry will do (an origin, a grant).
  */
 export const ContentId = Uuid.brand<'ContentId'>();
+
 export type ContentId = z.infer<typeof ContentId>;
 
 /** Human-readable key for a content entry, e.g. `player-core/ancestry:human`. Never stored. */
 export const ContentKey = z.string().brand<'ContentKey'>();
+
 export type ContentKey = z.infer<typeof ContentKey>;
 
 export function contentKey(packId: PackId, slug: EntrySlug): ContentKey {
@@ -117,6 +126,7 @@ export function contentId(packId: PackId, slug: EntrySlug): Uuid {
 
 /** The stored id of a content pack, whatever its owner. */
 export const ContentPackId = Uuid.brand<'ContentPackId'>();
+
 export type ContentPackId = z.infer<typeof ContentPackId>;
 
 /**

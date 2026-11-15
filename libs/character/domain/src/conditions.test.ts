@@ -14,10 +14,12 @@ const MISSING = ContentId.parse('00000000-0000-4000-8000-0000000000ff');
 const FRIGHTENED_ID = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001');
 const BLINDED_ID = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000002');
 const DEMORALIZE = EventRef.parse('00000000-0000-4000-8000-0000000000e1');
+
 const VALUED: ConditionValued = new Map([
   [FRIGHTENED, true],
   [BLINDED, false],
 ]);
+
 const LIMITS = { ...within(HitPoints.parse(10)), valued: VALUED };
 
 const frightened = (value = 2): ActiveCondition => ({
@@ -27,6 +29,7 @@ const frightened = (value = 2): ActiveCondition => ({
   duration: { kind: 'unlimited' },
   appliedBy: DEMORALIZE,
 });
+
 const blinded: ActiveCondition = { id: BLINDED_ID, condition: BLINDED, duration: { kind: 'unlimited' } };
 
 const add = (condition: ActiveCondition): ConditionCommand => ({ field: PlayCommandField.AddCondition, condition });
@@ -34,6 +37,7 @@ const add = (condition: ActiveCondition): ConditionCommand => ({ field: PlayComm
 /** A character with frightened 2 and blinded. */
 function afflicted(): PlayState {
   const withFrightened = applyPlayCommand(FRESH_PLAY, add(frightened()), LIMITS);
+
   return applyPlayCommand(withFrightened, add(blinded), LIMITS);
 }
 

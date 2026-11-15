@@ -6,8 +6,10 @@ import { listColumnsOf } from './character-list-filter';
 import type { characterPlay, characters } from './character.table';
 
 type Row = typeof characters.$inferSelect;
+
 /** What a build save writes: never `archivedAt`, which only archive and restore touch. */
 type SavedRow = Omit<Row, 'archivedAt'>;
+
 type PlayRow = typeof characterPlay.$inferSelect;
 
 /** A character row with its play state, as every read joins them. */
@@ -20,15 +22,18 @@ interface JoinedRow {
 function decodePlay(stored: unknown): PlayState {
   // A missing row (a left join's null) reads as fresh play state.
   const play = PlayStateSchema.safeParse(stored ?? {});
+
   if (!play.success) {
     throw new Error('Stored play state is invalid', { cause: play.error });
   }
+
   return play.data;
 }
 
 /** A character with its play state read into `document.play`; a row with none yet reads as fresh. */
 export function toCharacter({ character: row, play }: JoinedRow): Character {
   const document = decodeCharacterDocument(row.document);
+
   return new Character({
     document: { ...document, play: decodePlay(play) },
     version: row.version,
@@ -43,6 +48,7 @@ export function toCharacter({ character: row, play }: JoinedRow): Character {
  */
 export function toRow(character: Character): SavedRow {
   const { play: _apart, ...document } = character.document;
+
   return {
     id: document.id,
     version: character.version,

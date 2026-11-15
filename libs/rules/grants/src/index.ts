@@ -1,14 +1,27 @@
 export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot } from './choices';
+
 export { FIRST_TAKE, slotKeyOf } from './takes';
+
 export type { OfferedOption } from './offers';
+
 export type { OwnedItem } from './owned-items';
+
 export type { ContentLookup, EntryFacts, GrantEntry, GrantError, GrantRoot, Replacement } from './grant-entry';
+
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
+
 export { GrantsMessage } from './messages';
+
 export { kindOption } from './character-facts';
+
 export { grantLookup } from './grant-lookup';
+
 export { type GrantInputs, type GrantResolution, resolveGrants } from './resolve-grants';
+
 export type { RootSlot, RootSlotDefinition } from './root-slots';
+
 export { type ToggleSlot, type ToggleState, type ToggleStates, toggleKeyOf } from './toggles';
+
 export { default as grantsMessages } from './i18n/en.json';
+
 export { type ResolvedRule, resolvedRules } from './resolved-rules';

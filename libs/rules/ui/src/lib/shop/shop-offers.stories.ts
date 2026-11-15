@@ -10,6 +10,7 @@ const meta: Meta<ShopOffersView> = {
   title: 'Rules/Shop Offers',
   component: ShopOffersView,
 };
+
 export default meta;
 
 /** While the items load. */

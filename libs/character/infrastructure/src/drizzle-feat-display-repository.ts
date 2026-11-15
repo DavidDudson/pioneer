@@ -28,6 +28,7 @@ export class DrizzleFeatDisplayRepository extends FeatDisplayRepository {
           eq(characterFeatDisplays.showGrantOnly, true),
         ),
       );
+
     return rows.map((row) => row.section);
   }
 

@@ -39,6 +39,7 @@ export interface VerdictNode {
 }
 
 export const VerdictStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts', Pending: 'pending' } as const;
+
 export type VerdictStatus = ValueOf<typeof VerdictStatus>;
 
 export type VerdictCheck =
@@ -63,6 +64,7 @@ function codeOf(statement: PredicateStatement): string {
   if (typeof statement === 'string') {
     return statement;
   }
+
   return isPredicateComparison(statement) ? JSON.stringify(statement) : Object.keys(statement).join('/');
 }
 
@@ -82,6 +84,7 @@ export function parseFacts(text: string): FactsParse {
   const lines = text.split(LINE).map((line, index) => ({ text: line.trim(), number: index + 1 }));
   const filled = lines.filter((line) => line.text !== '');
   const bad = filled.filter((line) => !RollOption.safeParse(line.text).success).map((line) => line.number);
+
   return bad.length > 0 ? { lines: bad } : { options: filled.map((line) => RollOption.parse(line.text)) };
 }
 
@@ -91,16 +94,21 @@ export function parseFacts(text: string): FactsParse {
  */
 export function checkVerdict(predicateText: string, factsText: string, namespaces: NamespaceTable): VerdictCheck {
   const checked = checkRulesJson(RulesSchema.Predicate, predicateText);
+
   if (checked.status !== CheckStatus.Valid) {
     return checked;
   }
+
   const facts = parseFacts(factsText);
+
   if ('lines' in facts) {
     return { status: VerdictStatus.InvalidFacts, lines: facts.lines };
   }
+
   const predicate = Predicate.parse(JSON.parse(checked.parsed));
   const given = new PredicateFacts(facts.options, namespaces);
   const trace = tracePredicate(predicate, given);
+
   return {
     status: VerdictStatus.Valid,
     truth: trace.truth,

@@ -21,8 +21,11 @@ import { placeSpells, SpellGapReason } from './spell-placement';
 import type { SpellGap } from './spell-placement';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const SPELL_NAMES: Readonly<Record<SpellFixture, string>> = {
@@ -36,12 +39,14 @@ const SPELL_NAMES: Readonly<Record<SpellFixture, string>> = {
   'ring-of-truth': 'Ring of Truth',
   'force-bolt': 'Force Bolt',
 };
+
 const lookup = entryLookup({
   [ImportKind.Spell]: Object.entries(SPELL_NAMES).map(([fixture, name]) => ({
     id: spellFixtureId(fixture as SpellFixture),
     name: ContentText.parse(name),
   })),
 });
+
 const content = { slots, lookup };
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
@@ -98,6 +103,7 @@ describe('placeSpells', () => {
         ranked(1, 'Force Barrage'),
       ),
     ]);
+
     expect(picked(choices)).toStrictEqual({
       'prepared:wizard:cantrip:0': spellFixtureId('detect-magic'),
       'prepared:wizard:cantrip:1': spellFixtureId('shield'),
@@ -110,6 +116,7 @@ describe('placeSpells', () => {
     const { choices } = placeSpells(wizard, content, [
       caster('Wizard', 'arcane', SpellPreparation.Prepared, ranked(1, 'Force Barrage', 'Force Barrage')),
     ]);
+
     expect(Object.keys(choices)).toStrictEqual(['prepared:wizard:1:0', 'prepared:wizard:1:1']);
   });
 
@@ -122,6 +129,7 @@ describe('placeSpells', () => {
         ranked(1, 'Force Barrage', 'Force Barrage', 'Force Barrage'),
       ),
     ]);
+
     expect(gapLines(gaps)).toStrictEqual([`Wizard 1 Force Barrage ${SpellGapReason.NoSlot}`]);
   });
 
@@ -135,6 +143,7 @@ describe('placeSpells', () => {
         ranked(SlotRank.Cantrip, 'Detect Magic'),
       ),
     ]);
+
     expect(Object.keys(choices)).toStrictEqual(['prepared:wizard:cantrip:0']);
     expect(gapLines(gaps)).toStrictEqual([`Wizard 1 Heal ${SpellGapReason.NotOffered}`]);
   });
@@ -144,6 +153,7 @@ describe('placeSpells', () => {
       caster('Archetype Sorcerer', 'occult', SpellPreparation.Spontaneous, ranked(1, 'Force Barrage')),
       caster('Grown of Oak', 'primal', undefined, ranked(2, 'Heal')),
     ]);
+
     expect(choices).toStrictEqual({});
     expect(gaps.map(({ caster: name, reason }) => `${name}: ${reason}`)).toStrictEqual([
       'Archetype Sorcerer: no-entry',
@@ -155,6 +165,7 @@ describe('placeSpells', () => {
     const { choices, gaps } = placeSpells(wizard, content, [
       caster('Wizard', 'arcane', SpellPreparation.Prepared, ranked(1, 'Not A Spell')),
     ]);
+
     expect(choices).toStrictEqual({});
     expect(gaps).toStrictEqual([]);
   });
@@ -163,6 +174,7 @@ describe('placeSpells', () => {
     const { choices, gaps } = placeSpells(character('bard'), content, [
       caster('Bard', 'occult', SpellPreparation.Spontaneous, ranked(SlotRank.Cantrip, 'Detect Magic')),
     ]);
+
     expect(Object.keys(choices)).toStrictEqual(['repertoire:bard:cantrip:0']);
     expect(gaps).toStrictEqual([]);
   });

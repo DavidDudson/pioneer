@@ -10,6 +10,7 @@ export const UnenabledPack = z.object({
   title: PackTitle,
   publisher: PackPublisher,
 });
+
 export type UnenabledPack = z.output<typeof UnenabledPack>;
 
 /** An item the character carries from a pack its campaign has not enabled. */
@@ -18,6 +19,7 @@ export const UnenabledItem = z.object({
   name: ContentText,
   packTitle: PackTitle,
 });
+
 export type UnenabledItem = z.output<typeof UnenabledItem>;
 
 /**
@@ -34,4 +36,5 @@ export const UnenabledContent = z.object({
   /** The items the character carries from those packs, by name. */
   items: z.array(UnenabledItem).readonly(),
 });
+
 export type UnenabledContent = z.output<typeof UnenabledContent>;

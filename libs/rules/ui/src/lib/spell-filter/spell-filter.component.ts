@@ -58,6 +58,7 @@ export class SpellFilter {
   /** Each group's chips, worded in the UI locale: "Single target (3)". */
   protected readonly options: Signal<ReadonlyMap<string, readonly SelectOption<string>[]>> = computed(() => {
     this.#messages();
+
     return new Map(
       this.shown().map((group) => [
         group.id,

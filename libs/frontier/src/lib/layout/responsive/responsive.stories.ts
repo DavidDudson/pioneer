@@ -21,6 +21,7 @@ const meta: Meta<Responsive> = {
     `,
   }),
 };
+
 export default meta;
 
 /** One of the two shows, by the width of the stack around them. */

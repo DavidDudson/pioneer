@@ -22,9 +22,11 @@ export async function choiceSlotKey(id: ContentId, flag: string): Promise<string
   const contents = await Promise.all(officialPacks.map(async (pack) => pack.load()));
   const rules = contents.flatMap(({ entries }) => entries).find((entry) => entry.id === id)?.rules ?? [];
   const index = rules.findIndex((rule) => isChoiceSet(rule, flag));
+
   if (index === -1) {
     throw new Error(`${id} has no ChoiceSet flagged ${flag}`);
   }
+
   return `${id}:${index}`;
 }
 

@@ -23,9 +23,11 @@ async function render(signedIn: boolean, saves = true): Promise<Rendered> {
       throw new Error('unavailable');
     }
   });
+
   const session = {
     whenKnown: async (): Promise<object | undefined> => (signedIn ? { displayName: 'Amiri' } : undefined),
   };
+
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'account', children: identityRoutes }]),
@@ -40,22 +42,27 @@ async function render(signedIn: boolean, saves = true): Promise<Rendered> {
   });
   const harness = await RouterTestingHarness.create('/account/settings');
   await harness.fixture.whenStable();
+
   return { harness, update };
 }
 
 function root(harness: RouterTestingHarness): HTMLElement {
   const element = harness.routeNativeElement;
+
   if (element === null) {
     throw new Error('Expected a page to render');
   }
+
   return element;
 }
 
 function button(element: HTMLElement, label: string): HTMLButtonElement {
   const match = [...element.querySelectorAll('button')].find((each) => each.textContent.trim() === label);
+
   if (match === undefined) {
     throw new Error(`No button labelled ${label}`);
   }
+
   return match;
 }
 
@@ -100,9 +107,11 @@ describe('SettingsPage', () => {
     await vi.waitFor(() => {
       expect(page.textContent).toContain('Text font');
     });
+
     const picker = harness.fixture.debugElement
       .queryAll((node) => node.componentInstance instanceof PickerField)
       .find((node) => (node.nativeElement as HTMLElement).textContent.includes('Text font'));
+
     const instance = picker?.componentInstance as PickerField<string, { name: string }> | undefined;
     expect(instance?.rows().map((row) => row.name)).toStrictEqual([
       'Crimson Pro (default)',
@@ -133,9 +142,11 @@ describe('SettingsPage', () => {
     await vi.waitFor(() => {
       expect(root(harness).textContent).toContain('Rules language');
     });
+
     const [ui, content] = harness.fixture.debugElement.queryAll(
       (each) => each.componentInstance instanceof PickerField,
     );
+
     // English is the only locale, so no pick in the DOM changes the value; fire each field's output instead.
     ui?.triggerEventHandler('valueChange', Locale.English);
     content?.triggerEventHandler('valueChange', Locale.English);

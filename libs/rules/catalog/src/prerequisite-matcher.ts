@@ -48,9 +48,11 @@ const TRAIT_WORDS: ReadonlySet<string> = new Set(['holy', 'unholy']);
 
 const RANK_CLAUSE = /^(?<rank>trained|expert|master|legendary) in (?<statistics>.+)$/u;
 const ATTRIBUTE_CLAUSE = /^(?<attribute>[a-z]+) \+(?<modifier>\d)$/u;
+
 /** "8th level" (any ordinal suffix) or "level 8". */
 const LEVEL_CLAUSE = /^(?:(?<ordinal>\d+)[a-z]{2} level|level (?<plain>\d+))$/u;
 const TRAIT_SUFFIX = / trait$/u;
+
 /** The words joining a list's last item: "A, B, or C", "A or B", "A and B". Text is normalised to single spaces. */
 const LIST_JOIN = /,? (?:or|and) /gu;
 const OR_JOIN = / or /u;
@@ -67,15 +69,19 @@ interface ListOf {
 /** "A, B, or C" as its items and how they combine; undefined when it mixes "and" and "or". */
 function listOf(words: string): ListOf | undefined {
   const items = words.replaceAll(LIST_JOIN, ', ').split(', ');
+
   if (items.length === 1) {
     return { items, conjunction: undefined };
   }
+
   const or = OR_JOIN.test(words);
   const and = AND_JOIN.test(words);
+
   if (or === and) {
     // Both, or neither ("A, B"): which one holds is not said.
     return undefined;
   }
+
   return { items, conjunction: or ? 'or' : 'and' };
 }
 
@@ -86,9 +92,11 @@ function combined(
 ): readonly PredicateStatement[] | undefined {
   const list = listOf(words);
   const statements = list?.items.map((each) => item(each));
+
   if (list === undefined || statements === undefined || !statements.every((each) => each !== undefined)) {
     return undefined;
   }
+
   return list.conjunction === 'or' ? [{ or: statements }] : statements;
 }
 
@@ -96,16 +104,20 @@ function combined(
 function rankStatement(statistic: string, rank: number, names: PrerequisiteNames): PredicateStatement | undefined {
   const selector = names.statistics.get(statistic);
   const option = RollOption.safeParse(`${selector}:rank`);
+
   return selector === undefined || !option.success ? undefined : { gte: [option.data, PredicateNumber.parse(rank)] };
 }
 
 /** "trained in Athletics", "master in Arcana, Nature, Occultism, or Religion", "trained in Nature and Religion". */
 function rankClause(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
   const { rank, statistics } = RANK_CLAUSE.exec(clause)?.groups ?? {};
+
   if (rank === undefined || statistics === undefined) {
     return undefined;
   }
+
   const value = RANK_WORDS.get(rank);
+
   return value === undefined ? undefined : combined(statistics, (statistic) => rankStatement(statistic, value, names));
 }
 
@@ -113,9 +125,11 @@ function rankClause(clause: string, names: PrerequisiteNames): readonly Predicat
 function attributeClause(clause: string): readonly PredicateStatement[] | undefined {
   const { attribute: word, modifier } = ATTRIBUTE_CLAUSE.exec(clause)?.groups ?? {};
   const attribute = word === undefined ? undefined : ATTRIBUTE_WORDS.get(word);
+
   if (attribute === undefined || modifier === undefined) {
     return undefined;
   }
+
   return [{ gte: [RollOption.parse(`attribute:${attribute}:mod`), PredicateNumber.parse(Number(modifier))] }];
 }
 
@@ -123,6 +137,7 @@ function attributeClause(clause: string): readonly PredicateStatement[] | undefi
 function levelClause(clause: string): readonly PredicateStatement[] | undefined {
   const { ordinal, plain } = LEVEL_CLAUSE.exec(clause)?.groups ?? {};
   const level = ordinal ?? plain;
+
   return level === undefined
     ? undefined
     : [{ gte: [RollOption.parse('self:level'), PredicateNumber.parse(Number(level))] }];
@@ -146,6 +161,7 @@ function namesOf(item: string): readonly NameOf[] {
   const hinted = [...KIND_WORDS].flatMap(([word, kinds]) =>
     item.endsWith(` ${word}`) ? [{ name: item.slice(0, -word.length - 1), kinds }] : [],
   );
+
   return [{ name: item, kinds: NAMED_KINDS }, ...hinted];
 }
 
@@ -158,17 +174,21 @@ function nameStatement(item: string, names: PrerequisiteNames): PredicateStateme
     const options = [...(names.entries.get(name) ?? []), ...(names.variants.get(name) ?? [])]
       .filter(({ kind }) => kinds.includes(kind))
       .map(({ option }) => option);
+
     const [only] = options;
+
     if (only !== undefined) {
       return options.length === 1 ? only : { or: options };
     }
   }
+
   return undefined;
 }
 
 /** "Shield Block", "Rogue Dedication or Swashbuckler Dedication", "Aggressive Block or Brutish Shove". */
 function nameClause(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
   const whole = nameStatement(clause, names);
+
   return whole === undefined ? combined(clause, (item) => nameStatement(item, names)) : [whole];
 }
 
@@ -193,10 +213,13 @@ export interface PrerequisiteReading {
 /** The prerequisites as plain words, or undefined when they are anything richer than one paragraph of text. */
 function prerequisiteWords(prerequisites: RichText): string | undefined {
   const [block, ...rest] = prerequisites;
+
   if (block?.type !== BlockKind.Paragraph || rest.length > 0) {
     return undefined;
   }
+
   const words = block.content.map((node) => (node.type === InlineKind.Text ? node.text : undefined));
+
   return words.every((word) => word !== undefined) ? words.join('') : undefined;
 }
 
@@ -207,24 +230,30 @@ function prerequisiteWords(prerequisites: RichText): string | undefined {
  */
 export function readPrerequisites(prerequisites: RichText, names: PrerequisiteNames): PrerequisiteReading {
   const words = prerequisiteWords(prerequisites);
+
   if (words === undefined) {
     return { predicate: undefined, unparsed: [], clauses: [] };
   }
+
   const clauses = words
     .split(';')
     .map((printed) => ({ printed: printed.replaceAll(/\s+/gu, ' ').trim(), clause: normalise(printed) }))
     .filter(({ clause }) => clause !== '');
+
   const read = clauses.map(({ printed, clause }) => ({ printed, clause, statements: clauseStatements(clause, names) }));
   const unparsed = read.flatMap(({ clause, statements }) => (statements === undefined ? [clause] : []));
+
   // No clause at all says nothing, and an empty predicate would always hold.
   const predicate =
     unparsed.length === 0 && read.length > 0
       ? Predicate.parse(read.flatMap(({ statements }) => statements ?? []))
       : undefined;
+
   const clauseReads = read.map(({ printed, statements }): PrerequisiteClause => ({
     text: ContentText.parse(printed),
     predicate: statements === undefined ? undefined : Predicate.parse(statements),
   }));
+
   return { predicate, unparsed, clauses: clauseReads };
 }
 
@@ -244,14 +273,17 @@ export interface PrerequisiteMatch {
  */
 export function prerequisiteMatches(entries: readonly ContentEntry[]): readonly PrerequisiteMatch[] {
   const names = prerequisiteNames(entries);
+
   return entries.flatMap((entry) => {
     if (entry.kind !== ContentKind.Feat || entry.data.prerequisites === undefined) {
       return [];
     }
+
     const { prerequisites, prerequisitePredicate, prerequisiteClauses } = entry.data;
     const reading = readPrerequisites(prerequisites, names);
     const clauses = prerequisiteClauses === undefined && reading.clauses.length > 1 ? reading.clauses : undefined;
     const predicate = prerequisitePredicate === undefined ? reading.predicate : undefined;
+
     return predicate === undefined && clauses === undefined
       ? []
       : [

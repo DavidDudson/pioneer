@@ -42,8 +42,10 @@ const DERIVABLE: readonly Derivable[] = [
 
 const CLASS_DC_KEY = 'classDC';
 const CLASS_DC = Selector.parse('class-dc');
+
 /** The base of a DC. */
 const BASE_DC = 10;
+
 /** The type Pathbuilder gives a bonus with no type, which stacks. */
 const UNTYPED = 'untyped';
 
@@ -56,24 +58,31 @@ export const DERIVED_TOTAL_STATISTICS: readonly Selector[] = [...DERIVABLE.map((
  */
 function modsTotal(value: PathbuilderImport, key: string): number {
   const name = key.toLowerCase();
+
   const listed = Object.entries(value.reported.mods)
     .filter(([statistic]) => statistic.toLowerCase() === name)
     .flatMap(([, byType]) => Object.entries(byType));
+
   const untyped = listed.filter(([type]) => type.toLowerCase().startsWith(UNTYPED));
+
   const typed = Map.groupBy(
     listed.filter(([type]) => !type.toLowerCase().startsWith(UNTYPED)),
     ([type]) => type,
   );
+
   const bonuses = [...typed.values()].map((group) => {
     const amounts = group.map(([, amount]) => amount);
+
     return Math.max(...amounts) > 0 ? Math.max(...amounts) : Math.min(...amounts);
   });
+
   return [...untyped.map(([, amount]) => amount), ...bonuses].reduce((sum, amount) => sum + amount, 0);
 }
 
 /** A total from a fixed part, the rank's number plus the level when trained or better, and the listed bonuses. */
 function total(value: PathbuilderImport, key: string, fixed: number): number | undefined {
   const rank = value.reported.proficiencies[key];
+
   return rank === undefined ? undefined : fixed + rank + (rank > 0 ? value.level : 0) + modsTotal(value, key);
 }
 
@@ -83,6 +92,7 @@ function total(value: PathbuilderImport, key: string, fixed: number): number | u
  */
 export function derivedTotals(value: PathbuilderImport): [Selector, number][] {
   const keyAttribute = AttributeSchema.safeParse(value.reported.keyability).data;
+
   const all: [Selector, number | undefined][] = [
     ...DERIVABLE.map(({ key, selector, attribute }): [Selector, number | undefined] => [
       selector,
@@ -93,5 +103,6 @@ export function derivedTotals(value: PathbuilderImport): [Selector, number][] {
       keyAttribute === undefined ? undefined : total(value, CLASS_DC_KEY, BASE_DC + value.attributes.get(keyAttribute)),
     ],
   ];
+
   return all.flatMap(([selector, amount]): [Selector, number][] => (amount === undefined ? [] : [[selector, amount]]));
 }

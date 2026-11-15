@@ -20,6 +20,7 @@ import { SKILL_PREFIX } from './skill-content';
 
 /** A Lore as the player names it: `Sailing`, `Sailing Lore`. */
 export const LoreName = z.string().trim().min(1).max(LORE_NAME_MAX_LENGTH).brand<'LoreName'>();
+
 export type LoreName = z.infer<typeof LoreName>;
 
 /** The names of a build's custom Lores, by topic (`sailing`). */
@@ -44,6 +45,7 @@ export function loreChoiceOf(topic: Slug): LoreChoice {
 /** The topic a pick of a custom Lore names; undefined for any other pick. */
 export function loreTopicOfChoice(pick: ChoiceValue): Slug | undefined {
   const choice = LoreChoice.safeParse(pick);
+
   return choice.success ? Slug.safeParse(choice.data.slice(LORE_CHOICE_PREFIX.length)).data : undefined;
 }
 
@@ -68,6 +70,7 @@ function customLoreOption(topic: Slug, name: LoreName): SkillOption {
 function entriesOf(lores: LoreNames): [Slug, LoreName][] {
   return Object.entries(lores).flatMap(([topic, name]): [Slug, LoreName][] => {
     const slug = Slug.safeParse(topic);
+
     return slug.success ? [[slug.data, name]] : [];
   });
 }
@@ -78,21 +81,27 @@ function entriesOf(lores: LoreNames): [Slug, LoreName][] {
  */
 export function withCustomLores(content: SkillContent, lores: LoreNames): SkillContent {
   const loaded = new Map(content.skills.map((skill) => [skill.selector, skill]));
+
   const custom = entriesOf(lores).flatMap(([topic, name]): SkillOption[] =>
     loaded.has(loreSelectorOf(topic)) ? [] : [customLoreOption(topic, name)],
   );
+
   if (custom.length === 0 && Object.keys(lores).length === 0) {
     return content;
   }
+
   const byChoice = new Map(custom.map((skill) => [skill.id, skill]));
+
   return {
     ...content,
     skills: [...content.skills, ...custom].toSorted((left, right) => left.name.localeCompare(right.name)),
     skill: (pick: ChoiceValue): SkillOption | undefined => {
       const topic = loreTopicOfChoice(pick);
+
       if (topic === undefined) {
         return content.skill(pick);
       }
+
       return loaded.get(loreSelectorOf(topic)) ?? byChoice.get(loreChoiceOf(topic));
     },
   };
@@ -101,6 +110,7 @@ export function withCustomLores(content: SkillContent, lores: LoreNames): SkillC
 /** The Lore a document's picks name, with no name kept for it yet: its topic, as `Sailing`. */
 function topicName(topic: Slug): LoreName {
   const spaced = topic.replaceAll('-', ' ').replace(/^./u, (first) => first.toUpperCase());
+
   return LoreName.parse(spaced.slice(0, LORE_NAME_MAX_LENGTH));
 }
 
@@ -108,6 +118,7 @@ function topicName(topic: Slug): LoreName {
 export function loresOf(document: CharacterDocument): LoreNames {
   const picked = Object.values(document.build.choices).flatMap((pick) => loreTopicOfChoice(pick) ?? []);
   const unnamed = picked.filter((topic) => document.build.lores[topic] === undefined);
+
   return { ...document.build.lores, ...Object.fromEntries(unnamed.map((topic) => [topic, topicName(topic)])) };
 }
 
@@ -125,8 +136,10 @@ export function customLoreStatistics(
   loaded: readonly StatisticDefinition[],
 ): readonly StatisticDefinition[] {
   const taken = new Set(loaded.map(({ selector }) => selector));
+
   return entriesOf(loresOf(document)).flatMap(([topic, name]): StatisticDefinition[] => {
     const selector = loreSelectorOf(topic);
+
     return taken.has(selector)
       ? []
       : [
@@ -152,10 +165,13 @@ interface LorePick {
 /** `document` with the name the player gave the custom Lore `pick` names; unchanged for any other pick. */
 export function withPickedLore(document: CharacterDocument, { selection, loreName }: LorePick): CharacterDocument {
   const topic = selection === undefined ? undefined : loreTopicOfChoice(selection);
+
   if (topic === undefined) {
     return document;
   }
+
   const name = loreName ?? document.build.lores[topic] ?? topicName(topic);
+
   return { ...document, build: { ...document.build, lores: { ...document.build.lores, [topic]: name } } };
 }
 
@@ -171,6 +187,7 @@ export function withLoreEdit(document: CharacterDocument, pick: LorePick = {}): 
 export function withoutUnpickedLores(document: CharacterDocument): CharacterDocument {
   const picked = new Set(Object.values(document.build.choices).flatMap((pick) => loreTopicOfChoice(pick) ?? []));
   const lores = Object.fromEntries(entriesOf(document.build.lores).filter(([topic]) => picked.has(topic)));
+
   return Object.keys(lores).length === Object.keys(document.build.lores).length
     ? document
     : { ...document, build: { ...document.build, lores } };
@@ -195,17 +212,22 @@ export function characterStatisticContent(
   const byDocument = STATISTIC_CONTENT.get(registry) ?? new WeakMap<CharacterDocument, StatisticContentRead>();
   STATISTIC_CONTENT.set(registry, byDocument);
   const known = byDocument.get(document);
+
   if (known !== undefined) {
     return known.content;
   }
+
   const content = statisticContent(registry);
+
   const read: StatisticContentRead = {
     content:
       content === undefined
         ? undefined
         : { ...content, definitions: [...content.definitions, ...customLoreStatistics(document, content.definitions)] },
   };
+
   byDocument.set(document, read);
+
   return read.content;
 }
 
@@ -215,6 +237,7 @@ export const TypedLore = z
   .startsWith(LORE_CHOICE_PREFIX)
   .max(LORE_CHOICE_PREFIX.length + LORE_NAME_MAX_LENGTH)
   .brand<'TypedLore'>();
+
 export type TypedLore = z.infer<typeof TypedLore>;
 
 /** What a typed Lore comes to: the pick of its topic and the name the player gave it. */
@@ -227,5 +250,6 @@ export interface LoreSelection {
 export function loreSelectionOf(typed: TypedLore): LoreSelection | undefined {
   const name = LoreName.safeParse(typed.slice(LORE_CHOICE_PREFIX.length));
   const topic = name.success ? loreTopicOf(name.data) : undefined;
+
   return name.success && topic !== undefined ? { selection: loreChoiceOf(topic), loreName: name.data } : undefined;
 }

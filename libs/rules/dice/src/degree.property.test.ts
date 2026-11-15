@@ -12,12 +12,14 @@ const LADDER: readonly DegreeOfSuccess[] = [
   DegreeOfSuccess.Success,
   DegreeOfSuccess.CriticalSuccess,
 ];
+
 const rank = (degree: DegreeOfSuccess): number => LADDER.indexOf(degree);
 
 const dc = integer({ min: 0, max: 60 }).map((value) => Dc.parse(value));
 const total = integer({ min: -20, max: 80 });
 const anyFace = integer({ min: 1, max: 20 }).map((value) => DieFace.parse(value));
 const naturals = constantFrom(DieFace.parse(1), DieFace.parse(20));
+
 /** Naturals 1 and 20 weighted up so the clamped steps at both ends come up in every run. */
 const face = option(oneof({ arbitrary: naturals, weight: 3 }, { arbitrary: anyFace, weight: 1 }), { nil: undefined });
 
@@ -26,6 +28,7 @@ function naturalShift(natural: DieFace | undefined): number {
   if (natural === DieFace.parse(20)) {
     return 1;
   }
+
   return natural === DieFace.parse(1) ? -1 : 0;
 }
 

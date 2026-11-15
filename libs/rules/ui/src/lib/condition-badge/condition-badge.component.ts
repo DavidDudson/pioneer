@@ -35,18 +35,22 @@ export class ConditionBadge {
 
   protected readonly top = computed(() => {
     const [first] = bySeriousness(this.conditions());
+
     if (first === undefined) {
       return undefined;
     }
+
     if (!isConditionSlug(first)) {
       return { icon: OTHER_CONDITION_ICON, name: ConditionBadgeMessage.Other };
     }
+
     return { icon: CONDITION_ICONS[first], name: CONDITION_NAMES[first] };
   });
 
   /** The count shown beside the icon in the active locale: only when there is more than one condition. */
   protected readonly count = computed(() => {
     const total = this.conditions().length;
+
     return total > 1 ? this.#format.number(total) : undefined;
   });
 }

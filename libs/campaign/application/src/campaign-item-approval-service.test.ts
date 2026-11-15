@@ -92,10 +92,12 @@ describe('CampaignItemApprovalService', () => {
     const frost = ReviewedRuneId.parse(newId());
     const misfit = flag(line(caliburn, ItemRule.RuneNotAllowed), 1);
     flagged.flag(vaults.id, [withRune(misfit, flaming), withRune(misfit, frost)]);
+
     const review = await service.approve(amiri, vaults.id, {
       ...target(caliburn, ItemRule.RuneNotAllowed),
       rune: flaming,
     });
+
     expect(review.approved.map(({ rune }) => rune)).toStrictEqual([flaming]);
     expect(review.needsReview.map(({ rune }) => rune)).toStrictEqual([frost]);
   });

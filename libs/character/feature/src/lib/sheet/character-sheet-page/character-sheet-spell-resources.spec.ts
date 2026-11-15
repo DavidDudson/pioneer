@@ -42,6 +42,7 @@ function panelText(root: HTMLElement): string {
 /** The button named `name` in the panel, which must be shown. */
 function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
   const buttons = [...present(panelOf(root)).querySelectorAll('button')];
+
   return present(buttons.find((button) => textOf(button) === name));
 }
 

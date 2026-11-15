@@ -5,10 +5,12 @@ import { Hands, HANDS_MAX, INVESTED_MAX, InvestedCount } from './item-carry';
 
 /** Property runes an item has room for per grade of its potency rune. */
 const PropertyRunesPerGrade = Pg.smallint().positive().brand<'PropertyRunesPerGrade'>();
+
 type PropertyRunesPerGrade = z.infer<typeof PropertyRunesPerGrade>;
 
 /** A count of lines an inventory holds. */
 const ItemsMax = Pg.smallint().positive().brand<'ItemsMax'>();
+
 type ItemsMax = z.infer<typeof ItemsMax>;
 
 /**
@@ -22,6 +24,7 @@ export const RuleLimitsSchema = z.strictObject({
   propertyRunesPerGrade: PropertyRunesPerGrade,
   itemsMax: ItemsMax,
 });
+
 export type RuleLimits = z.infer<typeof RuleLimitsSchema>;
 
 const CORE_ITEMS_MAX = ItemsMax.parse(500);
@@ -55,6 +58,7 @@ export function storableLimits(limits: RuleLimits = CORE_RULE_LIMITS): RuleLimit
 
 /** The limits a table changed; a limit it left out is the core rules'. */
 export const RuleLimitOverridesSchema = RuleLimitsSchema.partial();
+
 export type RuleLimitOverrides = z.infer<typeof RuleLimitOverridesSchema>;
 
 /** `overrides` laid over the core rules' limits. */

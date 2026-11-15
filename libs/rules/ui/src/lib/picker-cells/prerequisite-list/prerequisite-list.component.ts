@@ -7,6 +7,7 @@ import { PickerCellMessage } from '../picker-cell-messages';
 
 /** Whether the character meets a prerequisite; unknown when it can't be checked, which is never read as not met (ADR-0002). */
 export const PrerequisiteState = { Met: 'met', Unmet: 'unmet', Unknown: 'unknown' } as const;
+
 export type PrerequisiteState = (typeof PrerequisiteState)[keyof typeof PrerequisiteState];
 
 /** One prerequisite: its text, already translated, and whether the character meets it. */

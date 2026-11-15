@@ -21,6 +21,7 @@ describe('findMarkers', () => {
       expect(DEV_MARKERS).toContain(id);
       expect(DEV_MARKERS).toContain(displayName);
     }
+
     expect(DEV_MARKERS).toContain('/auth/dev/');
   });
 });

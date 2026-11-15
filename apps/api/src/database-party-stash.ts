@@ -52,6 +52,7 @@ interface Move {
 /** A refusal as the error it is: a line that is gone is a 404, the rest a 409 worded for the move. */
 function refused(refusal: TransferRefusal, { refusals, item }: Move): Error {
   const key = refusals[refusal];
+
   return key === undefined
     ? new NotFoundError('InventoryItem', item)
     : new ConflictError(`The party stash move was refused: ${refusal}`, message(key));
@@ -69,6 +70,7 @@ async function viewOf(
   via: CharacterId | undefined,
 ): Promise<PartyStashContents> {
   const named = await characters.name(stash, via);
+
   return {
     lines: named.map((each) =>
       PartyStashLine.parse({
@@ -102,11 +104,13 @@ export class DatabasePartyStash extends PartyStashKeeper {
     const stored = await new DrizzlePartyStashRepository(this.#db, this.#clock).load(campaign);
     const [via] = party;
     const characters = new CharacterPartyStash(new DrizzleCharacterRepository(this.#db), this.#content, this.#clock);
+
     return viewOf(characters, inventoryOf(stored), via === undefined ? undefined : CharacterId.parse(via));
   }
 
   public override async deposit(actor: UserId, campaign: CampaignId, move: StashLineMove): Promise<PartyStashContents> {
     const line = { character: CharacterId.parse(move.character), item: InventoryItemId.parse(move.item) };
+
     return this.#move(actor, campaign, {
       refusals: DEPOSIT_REFUSALS,
       item: move.item,
@@ -117,6 +121,7 @@ export class DatabasePartyStash extends PartyStashKeeper {
 
   public override async take(actor: UserId, campaign: CampaignId, move: StashLineMove): Promise<PartyStashContents> {
     const line = { character: CharacterId.parse(move.character), item: InventoryItemId.parse(move.item) };
+
     return this.#move(actor, campaign, {
       refusals: TAKE_REFUSALS,
       item: move.item,
@@ -131,14 +136,17 @@ export class DatabasePartyStash extends PartyStashKeeper {
       const characters = new CharacterPartyStash(new DrizzleCharacterRepository(tx), this.#content, this.#clock);
       const stored = await stashes.load(campaign);
       const moved = await move.run(characters, inventoryOf(stored));
+
       if (moved.refusal !== undefined) {
         throw refused(moved.refusal, move);
       }
+
       await stashes.save(actor, {
         campaignId: campaign,
         document: PartyStashDocument.parse(moved.stash),
         expected: stored?.version,
       });
+
       return viewOf(characters, moved.stash, move.line.character);
     });
   }

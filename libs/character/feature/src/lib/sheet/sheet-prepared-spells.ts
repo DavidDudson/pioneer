@@ -97,9 +97,11 @@ function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor 
       ? message('character.sheet.prepared.poolCantripSlot', { pool, number: place })
       : message('character.sheet.prepared.poolRankSlot', { pool, rank: slot.rank, number: place });
   }
+
   if (slot.rank === SlotRank.Cantrip) {
     return message('character.sheet.prepared.cantripSlot', { number: place });
   }
+
   return slot.preparation === SpellPreparation.Spontaneous
     ? message('character.sheet.repertoire.rankSpell', { rank: slot.rank, number: place })
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
@@ -130,10 +132,13 @@ function signatureNote(slot: SignatureSlot | undefined): MessageDescriptor | und
   if (slot?.options.length === 0) {
     return message('character.sheet.repertoire.signatureEmpty');
   }
+
   const [low, high] = [slot?.castRanks.at(0), slot?.castRanks.at(-1)];
+
   if (slot?.pick === undefined || low === undefined || high === undefined) {
     return undefined;
   }
+
   return low === high
     ? message('character.sheet.repertoire.signatureCastAt', { spell: slot.pick.name, rank: low })
     : message('character.sheet.repertoire.signatureCastFrom', { spell: slot.pick.name, low, high });
@@ -146,6 +151,7 @@ function rankHeading({ slot, pool }: NamedSlot): MessageDescriptor {
       ? message('character.sheet.prepared.poolCantrips', { pool, rank: slot.castRank })
       : message('character.sheet.prepared.poolRank', { pool, rank: slot.rank });
   }
+
   return slot.rank === SlotRank.Cantrip
     ? message('character.sheet.prepared.cantrips', { rank: slot.castRank })
     : message('rules.spellcasting.rank', { rank: slot.rank });
@@ -154,6 +160,7 @@ function rankHeading({ slot, pool }: NamedSlot): MessageDescriptor {
 /** A pool that takes no spell waits on a choice: a divine font, until the font is picked. */
 function rankNote({ slot, pool }: NamedSlot): MessageDescriptor | undefined {
   const waiting = pool !== undefined && slot.pool?.spells.length === 0;
+
   return waiting ? message('character.sheet.prepared.poolEmpty', { pool }) : undefined;
 }
 
@@ -169,6 +176,7 @@ function optionOf(spell: SpellOption): SelectOption<string> {
 /** The invalid reason the server read for `key`, if its pick is invalid. */
 function reasonOf(slots: readonly CharacterSlot[], key: SlotKey): MessageDescriptor | undefined {
   const read = slots.find((each) => each.key === key);
+
   return read?.status === SlotStatus.Invalid ? read.reason : undefined;
 }
 
@@ -224,6 +232,7 @@ function signatureField(signature: SignatureSlot, { slots, content, source }: Si
 /** The name of the entry that gave each spellcasting entry, by the entry's slug. */
 function entryNamesOf(character: Character, content: SlotContent): ReadonlyMap<string, string> {
   const entries = characterSpellcasting(characterGrants(character.document, content));
+
   return new Map(entries.map(({ slug, origin }) => [slug, content.lookup.entry(origin.entry)?.name ?? origin.entry]));
 }
 
@@ -242,6 +251,7 @@ export function sheetPreparedSlots(
   const content = sheetSlotContent(registry);
   const entryNames = entryNamesOf(character, content);
   const sourceOf = ({ slot, pool }: NamedSlot): string | undefined => pool ?? entryNames.get(slot.entry);
+
   const sheetSlot = (named: NamedSlot, index: number): SheetPreparedSlot => ({
     key: named.slot.key,
     label: slotLabel(named, index + 1),
@@ -260,15 +270,18 @@ export function sheetPreparedSlots(
       source: sourceOf(named),
     }),
   });
+
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);
   const all = namedSlots(preparedSlots(character.document, reads), content);
+
   return runs(all, ({ slot }) => slot.entry).map(([first, entrySlots]) => ({
     key: first.slot.entry,
     preparation: first.slot.preparation,
     tradition: first.slot.tradition,
     ranks: runs(entrySlots, rankKey).map(([rankFirst, rankSlots]) => {
       const signature = signatureIn(signatures, rankFirst);
+
       return {
         key: rankKey(rankFirst),
         heading: rankHeading(rankFirst),

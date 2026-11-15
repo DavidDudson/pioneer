@@ -20,17 +20,21 @@ export function injectItemNames(content: Signal<RunedContent | undefined>): Sign
   const runedName = injectRunedName();
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
+
   return computed(() => {
     messages();
     const runed = content();
     const named = runedName();
     const items = store.selected()?.document.inventory.items ?? [];
+
     return new Map(
       items.map((item): [string, string] => {
         const entry = runed?.items.get(item.item);
+
         if (item.name !== undefined) {
           return [item.id, item.name];
         }
+
         return entry === undefined || runed === undefined
           ? [item.id, i18n.translate('rules.inventory.unknownItem')]
           : [item.id, named(entry.name, lineRunes(item, entry, runed.runes))];

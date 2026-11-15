@@ -16,9 +16,11 @@ export function addGrantedSpells(
   { entry, spells }: RepertoireSpellsElement,
 ): void {
   const known = gathered.get(entry) ?? [];
+
   const fresh = spells.filter(
     (spell) => !known.some(({ rank, spell: id }) => rank === spell.rank && id === spell.spell),
   );
+
   gathered.set(entry, [...known, ...fresh]);
 }
 

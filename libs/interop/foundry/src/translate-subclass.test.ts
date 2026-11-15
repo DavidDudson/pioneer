@@ -59,11 +59,13 @@ describe('translateRules: subclass choices', () => {
       flag: 'clericDoctrine',
       choices: { filter: ['item:tag:cleric-doctrine'] },
     };
+
     const grant = {
       key: 'GrantItem',
       uuid: '{item|flags.system.rulesSelections.clericDoctrine}',
       onDeleteActions: { grantee: 'cascade' },
     };
+
     const detached = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules: [choiceSet, grant] } }]);
 
     expect(detached.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet', 'GrantItem']);

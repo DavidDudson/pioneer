@@ -13,6 +13,7 @@ const withoutLevel = {
   name: 'Proficiency Without Level',
   packTitle: 'Core Rules',
 };
+
 /** A variant rule of a homebrew pack, which no registry here holds. */
 const gritty = {
   variantId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e11',
@@ -43,12 +44,16 @@ function vitalsOf(root: HTMLElement): readonly string[] {
   const armor = present(root.querySelector('pio-armor-class'));
   const speeds = textOf(present(root.querySelector('pio-sheet-speed-block')));
   const speed = /Walk\s*(?<feet>\d+) ft/u.exec(speeds)?.groups?.['feet'];
+
   const rows = ROWED.map((name) => {
     const roll = present(root.querySelector(`button[aria-label^="Roll ${name}"]`));
+
     return `${name} ${textOf(roll)}`;
   });
+
   const armorName = textOf(present(armor.querySelector('pio-proficiency-badge + fr-text')));
   const armorTotal = textOf(present(armor.querySelector('fr-text[variant="display"]')));
+
   return [`${armorName} ${armorTotal}`, ...rows, `Speed ${speed}`];
 }
 
@@ -59,6 +64,7 @@ async function open(rules: VariantRulesJson): Promise<OpenSheet> {
   await vi.waitFor(() => {
     expect(sheet.root.textContent).toContain('Proficiency Without Level');
   });
+
   return sheet;
 }
 
@@ -75,6 +81,7 @@ describe('SheetVariantRules', () => {
       enabled: [],
       available: [withoutLevel, gritty],
     });
+
     const section = present(root.querySelector('pio-sheet-variant-rules'));
     expect(section.textContent).toContain('Gritty Healing');
     expect(section.textContent).toContain('Table Rules');
@@ -91,6 +98,7 @@ describe('SheetVariantRules', () => {
       enabled: [withoutLevel],
       available: [],
     });
+
     const section = present(root.querySelector<HTMLElement>('pio-sheet-variant-rules'));
     expect(section.textContent).toContain('Abomination Vaults decides which variant rules this character uses.');
     expect(section.textContent).toContain('On');
@@ -105,6 +113,7 @@ describe('SheetVariantRules', () => {
       enabled: [],
       available: [withoutLevel],
     });
+
     const http = TestBed.inject(HttpTestingController);
     await vi.waitFor(() => {
       expect(vitalsOf(root)).toStrictEqual([
@@ -146,6 +155,7 @@ describe('SheetVariantRules', () => {
       enabled: [withoutLevel],
       available: [],
     });
+
     const http = TestBed.inject(HttpTestingController);
 
     present(buttons(root, 'Turn off')[0]).click();
@@ -166,6 +176,7 @@ describe('SheetVariantRules', () => {
       enabled: [],
       available: [withoutLevel],
     });
+
     const http = TestBed.inject(HttpTestingController);
 
     present(buttons(root, 'Turn on')[0]).click();

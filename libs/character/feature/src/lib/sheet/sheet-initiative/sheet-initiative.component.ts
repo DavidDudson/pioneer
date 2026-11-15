@@ -46,10 +46,13 @@ export class SheetInitiative {
     const registry = this.#state.engine();
     const character = this.#state.character();
     const skills = this.#state.picks.skills();
+
     if (registry === undefined || character === undefined || skills === undefined) {
       return [];
     }
+
     const perception = registry.statisticsFor(PERCEPTION).at(-1)?.definition.name ?? PERCEPTION;
+
     return initiativeChoices({ registry, character }, perception, skills);
   });
 
@@ -58,9 +61,11 @@ export class SheetInitiative {
     const choices = this.choices();
     const registry = this.#state.engine();
     const picked = choices.find(({ selector }) => selector === this.#picked());
+
     if (picked !== undefined || registry === undefined) {
       return picked;
     }
+
     return defaultInitiative(registry, this.#play.play.data()?.play.exploration, choices);
   });
 
@@ -77,6 +82,7 @@ export class SheetInitiative {
 
   protected readonly roll = (): void => {
     const choice = this.current();
+
     if (choice !== undefined) {
       this.#rolls.rollInitiative(choice.name, choice.selector);
       this.rolled.set(true);

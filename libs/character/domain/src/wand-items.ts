@@ -23,7 +23,9 @@ export function wandSpellOf(entry: ContentEntry | undefined): WandSpell | undefi
   if (entry?.kind !== ContentKind.Consumable || entry.data.category !== ConsumableCategory.Wand) {
     return undefined;
   }
+
   const { spell, uses } = entry.data;
+
   return spell === undefined ? undefined : { spell: spell.spell, rank: spell.rank, uses: uses ?? ONE_USE };
 }
 
@@ -38,18 +40,23 @@ const WANDS_READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, WandSpell
 /** The wand each item in the registry is, if it is one; read once per registry. */
 export function itemWands(registry: ContentRegistry): ReadonlyMap<ContentId, WandSpell> {
   const existing = WANDS_READ.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
       .flatMap((entry): [ContentId, WandSpell][] => {
         const wand = wandSpellOf(entry);
+
         return wand === undefined ? [] : [[entry.id, wand]];
       }),
   );
+
   WANDS_READ.set(registry, read);
+
   return read;
 }
 

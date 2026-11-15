@@ -29,9 +29,11 @@ function quantityOf(inventory: Inventory): number {
 /** The inventory after `uses` consumables are used from a stack of `start`. */
 function usedFrom(start: number, uses: number): Inventory {
   let inventory = stack(start);
+
   for (let used = 0; used < uses; used += 1) {
     inventory = consumableInventoryAfter(inventory, ITEM);
   }
+
   return inventory;
 }
 

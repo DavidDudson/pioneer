@@ -47,6 +47,7 @@ const FIREBALL: SpellDetailLine = {
   source: 'Sorcerer Spellcasting',
   variants: [],
 };
+
 const CAST: UsableLine = { id: SPELL, name: 'Fireball', cost: ActionCost.Two, affordable: true };
 
 interface Page {
@@ -71,6 +72,7 @@ function render(spell: SpellDetailLine, { panel, roller, spends = true }: Page =
   fixture.componentRef.setInput('spell', spell);
   fixture.componentRef.setInput('use', CAST);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -103,6 +105,7 @@ describe(SpellRow, () => {
       check: vi.fn<InlineRoller['check']>(),
       damage: vi.fn<InlineRoller['damage']>(),
     };
+
     const fixture = render(FIREBALL, { roller });
 
     const dice = buttons(fixture).find((button) => button.textContent.includes('6d6 fire'));

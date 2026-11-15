@@ -31,7 +31,9 @@ function facetsOf(read: SlotReads | undefined, key: SlotKey): readonly FacetDefi
   if (read === undefined) {
     return FEAT_FACETS;
   }
+
   const status = slotPrerequisiteStatus(read.character.document, sheetSlotContent(read.registry), key);
+
   return [...FEAT_FACETS, prerequisitesMetFacet(status)];
 }
 
@@ -40,8 +42,10 @@ export function featSlotFilter({ registry, character, filters, key, options }: F
   const reads: Signal<SlotReads | undefined> = computed(() => {
     const loaded = registry();
     const open = character();
+
     return loaded === undefined || open === undefined ? undefined : { registry: loaded, character: open };
   });
+
   return slotFilter({
     registry,
     filters,
@@ -50,6 +54,7 @@ export function featSlotFilter({ registry, character, filters, key, options }: F
     facets: computed(() => facetsOf(reads(), key)),
     available: computed((): FilterState | undefined => {
       const read = reads();
+
       return read === undefined
         ? undefined
         : availableToYou(read.character.document, sheetSlotContent(read.registry), key);

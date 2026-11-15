@@ -25,6 +25,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -45,6 +46,7 @@ async function openPage(content: readonly Provider[] = []): Promise<OpenPage> {
   });
   const harness = await RouterTestingHarness.create('/characters/new/import/pathbuilder');
   await harness.fixture.whenStable();
+
   return { harness, root: present(harness.routeNativeElement) };
 }
 
@@ -211,6 +213,7 @@ describe('PathbuilderImportPage create', () => {
     await harness.fixture.whenStable();
     const request = http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder' });
     expect(request.request.body).toStrictEqual(mordredExport);
+
     const character = {
       id,
       version: 1,
@@ -221,6 +224,7 @@ describe('PathbuilderImportPage create', () => {
       createdAt: '2026-10-07T10:00:00.000Z',
       updatedAt: '2026-10-07T10:00:00.000Z',
     };
+
     request.flush({
       character,
       report: {

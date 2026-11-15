@@ -29,6 +29,7 @@ function importedInvested(item: InventoryItem): InventoryItem {
 /** One rope more than can be invested, all of them imported and invested. */
 function overInvested(): Inventory {
   let inventory = EMPTY_INVENTORY;
+
   for (let index = 0; index <= INVESTED_MAX; index += 1) {
     inventory = addItem(inventory, {
       id: idAt(index),
@@ -37,11 +38,13 @@ function overInvested(): Inventory {
       container: undefined,
     });
   }
+
   return { ...inventory, items: inventory.items.map((each) => importedInvested(each)) };
 }
 
 function withInventory(inventory: Inventory): Character {
   const built = new CharacterBuilder().named('Kyra').build();
+
   return new Character({
     document: { ...built.document, inventory },
     version: built.version,

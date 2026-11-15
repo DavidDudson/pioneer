@@ -20,9 +20,11 @@ export const cryptoRandom: RandomSource = {
   roll: (size) => {
     const unbiasedLimit = UINT32_RANGE - (UINT32_RANGE % size);
     const sample = new Uint32Array(1);
+
     for (;;) {
       crypto.getRandomValues(sample);
       const [value = unbiasedLimit] = sample;
+
       if (value < unbiasedLimit) {
         return DieFace.parse((value % size) + 1);
       }

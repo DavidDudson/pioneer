@@ -26,6 +26,7 @@ const meta: Meta<ContentPreview> = {
   parameters: { layout: 'padded' },
   render: (args) => ({ props: args, template: `<pio-content-preview [entry]="entry">Fireball</pio-content-preview>` }),
 };
+
 export default meta;
 
 /** The page holds the entry: the card opens at once and links to the entry in full. */

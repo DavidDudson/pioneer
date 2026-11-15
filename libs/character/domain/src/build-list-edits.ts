@@ -13,19 +13,23 @@ export type BuildListPatch = SpellAccessPatch | UnplacedPickPatch;
  */
 export function withBuildListEdit(document: CharacterDocument, patch: BuildListPatch): CharacterDocument {
   const { build } = document;
+
   switch (patch.field) {
     case CharacterPatchField.GrantSpellAccess: {
       const spellAccess = build.spellAccess.includes(patch.spell)
         ? build.spellAccess
         : [...build.spellAccess, patch.spell];
+
       return { ...document, build: { ...build, spellAccess } };
     }
+
     case CharacterPatchField.RevokeSpellAccess: {
       return {
         ...document,
         build: { ...build, spellAccess: build.spellAccess.filter((spell) => spell !== patch.spell) },
       };
     }
+
     case CharacterPatchField.DismissUnplacedFeat:
     case CharacterPatchField.DismissUnplacedHeritage:
     case CharacterPatchField.DismissUnplacedLanguage:
@@ -33,6 +37,7 @@ export function withBuildListEdit(document: CharacterDocument, patch: BuildListP
     case CharacterPatchField.RemoveCustomLanguage: {
       return { ...document, build: dismissedPick(build, patch) };
     }
+
     default: {
       const unreachable: never = patch;
       throw new TypeError(`Unhandled build list edit: ${JSON.stringify(unreachable)}`);

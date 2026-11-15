@@ -8,6 +8,7 @@ export const WoundCue = {
   /** At 0 HP, or death saves are being rolled. */
   Dying: 'dying',
 } as const;
+
 export type WoundCue = ValueOf<typeof WoundCue>;
 
 export interface WoundsInput {
@@ -42,17 +43,22 @@ function clamp01(value: number): number {
  */
 export function wounds({ current, max, failedSaves }: WoundsInput): Wounds {
   const darkness = failedSaves === undefined ? 0 : clamp01(failedSaves / DEATH_SAVE_LIMIT);
+
   if (max <= 0) {
     return { vignette: 0, darkness, cue: failedSaves === undefined ? WoundCue.None : WoundCue.Dying };
   }
+
   const share = clamp01(current / max);
   const vignette = clamp01((BLOODIED_SHARE - share) / BLOODIED_SHARE);
   let cue: WoundCue = WoundCue.None;
+
   if (share <= BLOODIED_SHARE) {
     cue = WoundCue.Bloodied;
   }
+
   if (share === 0 || failedSaves !== undefined) {
     cue = WoundCue.Dying;
   }
+
   return { vignette, darkness, cue };
 }

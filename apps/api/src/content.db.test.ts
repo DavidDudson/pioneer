@@ -39,6 +39,7 @@ import { OFFICIAL_PACK_IDS } from './official-pack-ids';
  * database. No request is signed in: official content is public (ADR-0007).
  */
 setDefaultTimeout(90_000);
+
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 const PACK = PackId.parse('stored-ancestries');
@@ -78,6 +79,7 @@ function ancestryEntry(slug: string, name: string, description: readonly object[
 
 function ancestryPack(name: string, description: readonly object[] = []): PackContents {
   const packFile = { id: PACK, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
+
   return packContentsFromFiles(packFile, [[ancestryEntry('dwarf', name, description)]]);
 }
 
@@ -105,24 +107,29 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
   async function manifest(): Promise<ContentManifest> {
     const response = await api.handle(get('/content/manifest'));
     expect(response.status).toBe(200);
+
     return ContentManifest.parse(await response.json());
   }
 
   async function packIn(id: PackId): Promise<PackBundles> {
     const { packs } = await manifest();
     const found = packs.find((pack) => pack.id === id);
+
     if (found === undefined) {
       throw new Error(`Expected ${id} in the manifest`);
     }
+
     return found;
   }
 
   async function ancestries(): Promise<KindBundles> {
     const pack = await packIn(PACK);
     const found = pack.kinds.find((kind) => kind.kind === 'ancestry');
+
     if (found === undefined) {
       throw new Error('Expected ancestries in the manifest');
     }
+
     return found;
   }
 
@@ -153,12 +160,14 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     await seedOfficialContent(database.db, clock, ignore);
 
     const { packs } = await manifest();
+
     const files = packs.flatMap((pack) =>
       [
         pack.file,
         ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names, ...kind.descriptions.map(({ file }) => file)]),
       ].map((file) => `${pack.id}/${file}`),
     );
+
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
     // The manifest follows the database collation, which orders hyphens differently from code units.

@@ -21,6 +21,7 @@ export function listedChoices(resolution: GrantResolution, lookup: ContentLookup
         const entry = lookup.entry(slot.origin.entry);
         const element = entry?.rules[slot.rule];
         const listed = element?.key === RuleElementKey.ChoiceSet && Array.isArray(element.choices);
+
         return listed && entry !== undefined ? [{ slot, entryName: entry.name }] : [];
       })
       // By the entry asking, then by its rule, so the list keeps its order as slots are answered.

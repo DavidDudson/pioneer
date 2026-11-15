@@ -10,6 +10,7 @@ const meta: Meta<SpellcastingView> = {
   title: 'Rules/Spellcasting',
   component: SpellcastingView,
 };
+
 export default meta;
 
 /** While the character's entries load. */

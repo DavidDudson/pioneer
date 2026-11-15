@@ -92,6 +92,7 @@ export interface FactSources {
 /** `self:level:<level>`. A negative level (a creature's) cannot be written as a roll option, so it sets none. */
 export function levelOptions(level: Level): RollOption[] {
   const option = optionOf(LEVEL_PREFIX, String(level));
+
   return option === undefined ? [] : [option];
 }
 
@@ -102,10 +103,12 @@ export function levelOptions(level: Level): RollOption[] {
 export function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
   return ATTRIBUTES.flatMap((attribute) => {
     const modifier = attributes?.get(attribute);
+
     const option =
       modifier === undefined || modifier < 0
         ? undefined
         : optionOf(`${ATTRIBUTE_PREFIX}:${attribute}:mod`, String(modifier));
+
     return option === undefined ? [] : [option];
   });
 }
@@ -116,12 +119,14 @@ export function attributeOptions(attributes: AttributeModifiers | undefined): Ro
  */
 export function kindOption(kind: ContentKind, slug: Slug): RollOption | undefined {
   const namespace = KIND_NAMESPACES[kind];
+
   return namespace === undefined ? undefined : optionOf(namespace, slug);
 }
 
 /** The option `entry`'s kind sets for it, `feat:<slug>`; none for a kind that sets none. */
 function kindOptions(entry: GrantEntry): RollOption[] {
   const option = kindOption(entry.kind, entry.slug);
+
   return option === undefined ? [] : [option];
 }
 
@@ -141,9 +146,11 @@ function pickNamespaces(entry: GrantEntry): RollOptionNamespace[] {
 /** Records that `by` (none for the level) sets `option`. */
 function tally(setBy: Map<RollOption, ContentId[]>, option: RollOption, by: ContentId | undefined): void {
   const setters = setBy.get(option) ?? [];
+
   if (by !== undefined && !setters.includes(by)) {
     setters.push(by);
   }
+
   setBy.set(option, setters);
 }
 
@@ -161,6 +168,7 @@ class FactCollector {
 
   public constructor(sources: FactSources) {
     this.#sources = sources;
+
     for (const option of [...levelOptions(sources.level), ...attributeOptions(sources.attributes)]) {
       tally(this.#setBy, option, undefined);
     }
@@ -169,24 +177,31 @@ class FactCollector {
   public get facts(): CharacterFacts {
     const known = [...this.#known].toSorted(byCodeUnit);
     const options = [...this.#setBy.keys()].toSorted(byCodeUnit);
+
     return { options, known, setBy: this.#setBy, toggles: this.#toggles };
   }
 
   /** The option the entry's kind sets, what its `RollOption` elements set, and the namespaces its picks write. */
   public item(item: PlacedEntry): void {
     const { entry } = item;
+
     if (this.#seen.has(entry.id)) {
       return;
     }
+
     this.#seen.add(entry.id);
     const set = entryOptions(item, this.#sources.facts, this.#sources.toggles);
+
     for (const option of [...kindOptions(entry), ...(entry.characterOptions ?? []), ...set.options]) {
       tally(this.#setBy, option, entry.id);
     }
+
     this.#toggles.push(...set.toggles);
+
     for (const namespace of pickNamespaces(entry)) {
       this.#known.add(namespace);
     }
+
     this.#actorTraits(entry);
   }
 
@@ -199,11 +214,14 @@ class FactCollector {
         }
       }
     };
+
     given(entry.actorTraits ?? [], this.#traits);
+
     for (const element of entry.rules) {
       const holds =
         element.key === RuleElementKey.ActorTraits &&
         (element.predicate === undefined || evaluatePredicate(element.predicate, this.#sources.facts) === Truth.True);
+
       if (holds) {
         given(element.add ?? [], this.#traits);
         given(element.remove ?? [], this.#removedTraits);
@@ -215,6 +233,7 @@ class FactCollector {
   public traits(): void {
     for (const [trait, entry] of this.#traits) {
       const option = this.#removedTraits.has(trait) ? undefined : optionOf(TRAIT_PREFIX, trait);
+
       if (option !== undefined) {
         tally(this.#setBy, option, entry);
       }
@@ -235,6 +254,7 @@ class FactCollector {
     const { value } = item;
     const [kind] = kindOptions(item.entry);
     const highest = kind === undefined ? undefined : this.#valued.get(kind);
+
     if (kind !== undefined && value !== undefined && (highest === undefined || value > highest.value)) {
       this.#valued.set(kind, { entry: item.entry, value });
     }
@@ -244,6 +264,7 @@ class FactCollector {
   public valued(): void {
     for (const [kind, { entry, value }] of this.#valued) {
       const option = optionOf(kind, String(value));
+
       if (option !== undefined) {
         tally(this.#setBy, option, entry.id);
       }
@@ -265,17 +286,22 @@ class FactCollector {
  */
 export function characterFacts(walk: GrantWalk, sources: FactSources): CharacterFacts {
   const collector = new FactCollector(sources);
+
   for (const item of walk.items) {
     collector.item(item);
     collector.value(item);
   }
+
   for (const duplicate of walk.duplicates) {
     collector.value(duplicate);
   }
+
   collector.valued();
   collector.traits();
+
   for (const slot of walk.answered) {
     collector.answered(slot);
   }
+
   return collector.facts;
 }

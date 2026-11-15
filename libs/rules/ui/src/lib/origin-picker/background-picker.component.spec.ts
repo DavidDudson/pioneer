@@ -15,6 +15,7 @@ import {
 import { BackgroundPicker } from './background-picker.component';
 
 const SCHOLAR = backgroundRow({ id: 'scholar', name: 'Scholar' });
+
 const BARKEEP = backgroundRow({
   id: 'barkeep',
   name: 'Barkeep',
@@ -23,6 +24,7 @@ const BARKEEP = backgroundRow({
   feats: ['Hobnobber'],
   note: 'Already trained in Diplomacy',
 });
+
 const HERMIT = backgroundRow({ id: 'hermit', name: 'Hermit', disabledReason: 'Not in the loaded packs' });
 
 describe(BackgroundPicker, () => {

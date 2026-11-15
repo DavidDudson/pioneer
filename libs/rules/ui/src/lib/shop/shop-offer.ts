@@ -37,6 +37,7 @@ export const ShopMessage = {
 
 /** What a bill is for, which says why the coins fall short: an item's quantity can drop, a kit's can't. */
 export const ShopBillFor = { Item: 'item', Kit: 'kit' } as const;
+
 export type ShopBillFor = ValueOf<typeof ShopBillFor>;
 
 /** An item a kit holds, by name, with how many, and what it holds when it is a container. */
@@ -71,6 +72,7 @@ const COINS: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copp
 export function priceCoins({ coins }: Price): readonly CoinCount[] {
   return COINS.flatMap((coin) => {
     const count = coins[coin];
+
     return count === undefined ? [] : [{ coin, count }];
   });
 }

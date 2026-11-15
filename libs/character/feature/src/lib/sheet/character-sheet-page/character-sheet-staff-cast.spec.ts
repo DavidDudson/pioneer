@@ -48,11 +48,13 @@ function wizardWithStaff(): object {
 /** A 5th-level imperial sorcerer (arcane, spontaneous), who casts 3rd-rank spells, holding the fire staff. */
 function sorcererWithStaff(): object {
   const wizard = wizardWithStaff() as { build: { choices: Record<string, string> } };
+
   const choices = {
     ...wizard.build.choices,
     class: playerCore2('class:sorcerer'),
     [`${playerCore2('class-feature:bloodline')}:0`]: playerCore2('class-feature:bloodline-imperial'),
   };
+
   return { ...wizardWithStaff(), build: { choices, spellAccess: [] } };
 }
 
@@ -67,6 +69,7 @@ function preparedWith(spent: number, revision = 1): object {
 async function stavesOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => {
     present(root.querySelector('pio-spell-item-controls'));
+
     return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
   });
 }
@@ -108,6 +111,7 @@ describe('CharacterSheetPage staff casts', () => {
   /** The play state after one cast of the staff's spell: `spent` charges gone, and the cast on the spend log. */
   function castWith(spent: number, spell: string, revision: number): object {
     const prepared = preparedWith(spent, revision);
+
     return {
       ...prepared,
       events: [],

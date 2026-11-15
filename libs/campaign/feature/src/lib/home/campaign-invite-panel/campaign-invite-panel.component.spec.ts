@@ -21,12 +21,14 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const playerMember = {
   id: '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e11',
   userId: playerId,
   role: 'player',
   joinedAt: '2026-10-11T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -35,12 +37,14 @@ const campaign = {
   members: [gmMember, playerMember],
   createdAt: '2026-10-10T10:00:00.000Z',
 };
+
 const invite = { id: inviteId, createdAt: '2026-10-10T10:00:00.000Z', expiresAt: '2026-10-17T10:00:00.000Z' };
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -49,6 +53,7 @@ function button(root: HTMLElement, label: string): HTMLButtonElement {
   const found = [...root.querySelectorAll('button')].find((candidate) =>
     candidate.textContent.trim().startsWith(label),
   );
+
   return present(found);
 }
 
@@ -72,6 +77,7 @@ async function open(viewerRole: 'gm' | 'player'): Promise<RouterTestingHarness> 
     ],
   });
   await harness.fixture.whenStable();
+
   return harness;
 }
 

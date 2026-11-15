@@ -19,15 +19,20 @@ export interface SourcedEntry {
  */
 export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): readonly FieldIssue[] {
   const key = contentKey(entry.pack, entry.slug);
+
   return entry.sources.flatMap((source, index): FieldIssue[] => {
     if (source.kind === SourceKind.Book && registry.book(source.book) === undefined) {
       const params = { entry: key, index, book: source.book };
+
       return [{ path: ['sources', index, 'book'], message: message(RulesMessage.SourceUnknownBook, params) }];
     }
+
     if (source.kind === SourceKind.Homebrew && source.pack !== entry.pack) {
       const params = { entry: key, index, pack: entry.pack, sourcePack: source.pack };
+
       return [{ path: ['sources', index, 'pack'], message: message(RulesMessage.SourceHomebrewPack, params) }];
     }
+
     return [];
   });
 }
@@ -64,10 +69,13 @@ export class SourceCheckError extends Error {
 export function checkPackSources(pack: ContentPack, registry: BookRegistry): ContentPack {
   const missourced = packEntries(pack).flatMap((entry): MissourcedEntry[] => {
     const issues = sourceIssues(entry, registry);
+
     return issues.length > 0 ? [{ entry: contentKey(entry.pack, entry.slug), issues }] : [];
   });
+
   if (missourced.length > 0) {
     throw new SourceCheckError(pack.id, missourced);
   }
+
   return pack;
 }

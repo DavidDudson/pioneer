@@ -9,6 +9,7 @@ import type { Natural, RollPresentation } from './roll-presentation';
 
 /** How long the dice stay on screen after they settle, so the player can read them. */
 export const DICE_LINGER: Milliseconds = Milliseconds.parse(1500);
+
 /** How long the result toast stays once it shows; a newer roll replaces it sooner. */
 export const TOAST_DURATION: Milliseconds = Milliseconds.parse(5000);
 
@@ -45,10 +46,13 @@ export class RollPresenter {
     this.#reset();
     // oxlint-disable-next-line typescript/no-unnecessary-condition -- the typings promise matchMedia, but jsdom (specs) has none
     const noMotion = this.#document.defaultView?.matchMedia?.(REDUCED_MOTION).matches === true;
+
     if (noMotion || roll.groups.length === 0) {
       this.#show(roll);
+
       return;
     }
+
     this.#throwing.set(roll);
   }
 
@@ -56,15 +60,20 @@ export class RollPresenter {
   public async play(surface: HTMLElement, roll: RollPresentation): Promise<void> {
     const run = this.#run;
     const roller = await this.#start(surface);
+
     if (run !== this.#run) {
       roller?.dispose();
+
       return;
     }
+
     this.#roller = roller;
     await roller?.roll(roll.groups, roll.natural).catch(() => undefined);
+
     if (run !== this.#run) {
       return;
     }
+
     this.#burst.set(roll.natural);
     this.#show(roll);
     setTimeout(() => {

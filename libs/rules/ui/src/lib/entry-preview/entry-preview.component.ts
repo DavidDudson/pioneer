@@ -35,6 +35,7 @@ export class EntryPreviewView {
 
   protected readonly summary = computed((): RichText => {
     const { summary } = this.preview();
+
     return this.full() ? summary : summary.slice(0, SUMMARY_BLOCKS);
   });
 

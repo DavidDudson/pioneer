@@ -79,6 +79,7 @@ export interface DamageView {
 
 /** How an outcome is worded: a message key (a basic save's fixed result) or the check's own text. */
 export const OutcomeKind = { Message: 'message', Text: 'text' } as const;
+
 export type OutcomeKind = (typeof OutcomeKind)[keyof typeof OutcomeKind];
 
 /** What the rolled degree does, per the check in the text: the rule's fixed result, or the paragraph the text gives. */
@@ -106,10 +107,12 @@ export interface RollView {
 function termView(result: TermResult, index: number): TermView {
   const { term } = result;
   const sign = term.sign === Sign.Minus || index > 0 ? term.sign : '';
+
   const damageKeys = [
     term.tags.category === undefined ? undefined : DAMAGE_CATEGORY_KEYS[term.tags.category],
     term.tags.type === undefined ? undefined : DAMAGE_TYPE_KEYS[term.tags.type],
   ].filter((key) => key !== undefined);
+
   return {
     notation: DiceExpressionText.parse(`${sign}${formatTerm(term)}`),
     damageKeys,
@@ -127,6 +130,7 @@ function adjustmentView(result: DegreeResult): DegreeAdjustmentView | undefined 
   const index = result.steps.findIndex((step) => step.kind === DegreeStepKind.Adjustment);
   const adjusted = result.steps[index];
   const before = result.steps[index - 1];
+
   return adjusted === undefined || before === undefined || adjusted.degree === before.degree
     ? undefined
     : { fromKey: DEGREE_KEYS[before.degree], toKey: DEGREE_KEYS[adjusted.degree], reason: adjusted.reason };
@@ -176,9 +180,11 @@ export interface FinishedRoll {
 /** The result the rolled degree has: a basic save's fixed one, or the text the check gives for it. */
 export function outcomeView(degree: DegreeOfSuccess, check: CheckNode | undefined): OutcomeView | undefined {
   const text = check?.outcomes?.[degree];
+
   if (check?.basic === true) {
     return { kind: OutcomeKind.Message, key: BASIC_SAVE_OUTCOME_KEYS[degree] };
   }
+
   return text === undefined
     ? undefined
     : { kind: OutcomeKind.Text, text: [{ type: BlockKind.Paragraph, content: text }] };

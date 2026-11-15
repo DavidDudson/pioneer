@@ -44,12 +44,14 @@ export class CharacterRuleLimitStore {
   /** The open character's limits as the server worked them out. */
   public readonly query = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.ruleLimits(id),
       queryFn: async (): Promise<RuleLimits> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.ruleLimits, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -64,12 +66,14 @@ export class CharacterRuleLimitStore {
    */
   public readonly approvalsQuery = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.itemApprovals(id),
       queryFn: async (): Promise<CharacterItemApprovals> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.itemApprovals, { params: { id }, body: undefined });
       },
       enabled: id !== undefined && this.#approvalsWanted(),
@@ -95,9 +99,11 @@ export class CharacterRuleLimitStore {
 
   #openId(): CharacterId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No character selected');
     }
+
     return id;
   }
 

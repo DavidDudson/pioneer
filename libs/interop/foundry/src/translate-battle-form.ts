@@ -7,6 +7,7 @@ import { senseElement, withSense } from './translate-senses';
 import type { SenseContext } from './translate-senses';
 
 export type { FoundrySenses } from './translate-senses';
+
 export { withFormSpeedBrackets } from './translate-form-speeds';
 
 /**
@@ -38,6 +39,7 @@ function listed(record: unknown, shape: (name: string, fields: Fields) => unknow
   if (!isFields(record)) {
     return record;
   }
+
   return Object.entries(record).map(([name, fields]) => (isFields(fields) ? shape(name, fields) : fields));
 }
 
@@ -52,9 +54,11 @@ function skill(name: string, fields: Fields): unknown {
 
 function sense(name: string, fields: Fields, context: SenseContext): unknown {
   const element = senseElement(kebab(name), fields, context);
+
   if (!isFields(element)) {
     return { sense: name, ...fields };
   }
+
   return Object.fromEntries(Object.entries(element).filter(([field]) => field !== 'key'));
 }
 
@@ -71,12 +75,15 @@ function slugOf(name: string): string {
 function strike(name: string, fields: Fields): unknown {
   const { range, damage, img: _img, ...rest } = withFormulas(fields, ['modifier']);
   const changes: Record<string, unknown> = { slug: slugOf(name), ...rest };
+
   if (range !== undefined) {
     changes['range'] = rangeOf(range);
   }
+
   if (damage !== undefined) {
     changes['damage'] = isFields(damage) ? withFormulas(damage, ['modifier']) : damage;
   }
+
   return changes;
 }
 
@@ -85,16 +92,20 @@ function defences(value: unknown): unknown {
   if (!Array.isArray(value)) {
     return value;
   }
+
   return value.flatMap((item: unknown): unknown[] => {
     if (!isFields(item)) {
       return [item];
     }
+
     const { type, ...rest } = withFormulas(item, ['value']);
     const types: readonly unknown[] = Array.isArray(type) ? type : [type];
     const entries: unknown[] = [];
+
     for (const each of types) {
       entries.push({ type: typeOf(each), ...rest });
     }
+
     return entries;
   });
 }
@@ -119,6 +130,7 @@ function statistics(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw)) {
     return raw;
   }
+
   return Object.fromEntries(
     Object.entries(raw).map(([name, value]) => [
       name,
@@ -132,8 +144,10 @@ function variant(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw)) {
     return raw;
   }
+
   const { predicate, ...rest } = raw;
   const changes = statistics(rest, context);
+
   return { predicate, ...(isFields(changes) ? changes : {}) };
 }
 
@@ -141,8 +155,10 @@ function bracket(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw) || !isFields(raw['value'])) {
     return raw;
   }
+
   const { value, ...rest } = raw;
   const changes = statistics(value, context);
+
   return { ...rest, ...(isFields(changes) ? changes : {}) };
 }
 
@@ -157,13 +173,16 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw) || raw['key'] !== RuleElementKey.BattleForm || !isFields(raw['overrides'])) {
     return raw;
   }
+
   const { overrides, brackets, variants, hasHands, ...rest } = raw;
   const statistic = statistics(overrides, context);
+
   const form = {
     ...BATTLE_FORM_LIMITS,
     ...(hasHands === undefined ? {} : { hasHands }),
     ...(isFields(statistic) ? statistic : {}),
   };
+
   return {
     ...rest,
     form,

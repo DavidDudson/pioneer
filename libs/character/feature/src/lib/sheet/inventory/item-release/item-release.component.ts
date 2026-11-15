@@ -36,12 +36,14 @@ export class ItemRelease {
   /** Whether the item has an animated rune, which is all that lets it be set free. */
   protected readonly animated = computed(() => {
     const item = this.#item();
+
     return item !== undefined && hasAnimatedRune(item, this.content().items.get(item.item), this.content().runes);
   });
 
   /** The attack modifier of the Strikes of the weapon while it is set free; none while it is not. */
   protected readonly attack = computed(() => {
     const item = this.#item();
+
     return item === undefined
       ? undefined
       : releasedAttack(item, this.content().items.get(item.item), this.content().runes);
@@ -55,6 +57,7 @@ export class ItemRelease {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

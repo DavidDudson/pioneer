@@ -26,6 +26,7 @@ const CLERIC = {
 
 function inForm(effect: string, form: string, rank: number): object {
   const effects = [{ id: FIRST, effect, source: { kind: 'self' }, form, rank }];
+
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 
@@ -125,6 +126,7 @@ describe('CharacterSheetPage form limits', () => {
       play: humanoid,
       packs: PACKS,
     });
+
     // A tab builds a section when it is first shown, and keeps it, so visit both.
     await harness.navigateByUrl(`/characters/${id}/encounter/actions`);
 

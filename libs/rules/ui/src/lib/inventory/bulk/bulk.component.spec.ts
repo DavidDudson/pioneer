@@ -12,14 +12,17 @@ async function render(bulk: CarriedBulk | undefined): Promise<HTMLElement> {
   const fixture: ComponentFixture<BulkView> = TestBed.createComponent(BulkView);
   fixture.componentRef.setInput('bulk', bulk);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
 function meter(host: HTMLElement): HTMLMeterElement {
   const found = host.querySelector('meter');
+
   if (found === null) {
     throw new Error('No meter');
   }
+
   return found;
 }
 

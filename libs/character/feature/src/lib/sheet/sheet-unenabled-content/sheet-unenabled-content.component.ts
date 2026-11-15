@@ -54,6 +54,7 @@ function groupsOf(content: UnenabledContent): readonly UnenabledGroup[] {
       })),
     },
   ];
+
   return groups.filter((group) => group.lines.length > 0);
 }
 
@@ -76,10 +77,13 @@ export class SheetUnenabledContent {
   /** What is unenabled, when anything is. */
   protected readonly unenabled = computed((): UnenabledView | undefined => {
     const content = this.#store.content.data();
+
     if (content?.campaign === undefined) {
       return undefined;
     }
+
     const groups = groupsOf(content);
+
     return groups.length === 0 ? undefined : { campaign: content.campaign, groups };
   });
 }

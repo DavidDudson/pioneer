@@ -8,14 +8,19 @@ import { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiati
 installRulesFakes();
 
 const builder = new ContentPackBuilder().withId('exploration-fixtures');
+
 builder.withItem(ContentKind.Action, 'avoid-notice', {
   universal: true,
   modes: ['exploration'],
   skills: ['skill:stealth'],
 });
+
 builder.withItem(ContentKind.Action, 'search', { universal: true, modes: ['exploration'] });
+
 builder.withItem(ContentKind.Action, 'strike', { cost: 'one', universal: true });
+
 const registry = new ContentRegistry();
+
 registry.register(builder.build());
 
 const id = (name: string): ContentId => ContentId.parse(builder.idOf(ContentKind.Action, name));

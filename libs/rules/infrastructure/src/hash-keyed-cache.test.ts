@@ -20,10 +20,12 @@ interface Counter {
 /** A build that counts its calls and answers with the call number. */
 function counter(): Counter {
   let calls = 0;
+
   return {
     calls: (): number => calls,
     build: async (): Promise<number> => {
       calls += 1;
+
       return calls;
     },
   };
@@ -70,6 +72,7 @@ describe('HashKeyedCache', () => {
       () => 'served',
       () => 'refused',
     );
+
     const recovered = await cache.current(hashes('a'), async () => 7);
 
     expect([failed, recovered]).toStrictEqual(['refused', 7]);

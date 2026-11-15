@@ -9,6 +9,7 @@ export const Truth = {
   False: 'false',
   Unknown: 'unknown',
 } as const;
+
 export type Truth = ValueOf<typeof Truth>;
 
 export function truthOf(value: boolean): Truth {
@@ -19,6 +20,7 @@ export function not(truth: Truth): Truth {
   if (truth === Truth.Unknown) {
     return Truth.Unknown;
   }
+
   return truthOf(truth === Truth.False);
 }
 
@@ -27,6 +29,7 @@ export function all(truths: readonly Truth[]): Truth {
   if (truths.includes(Truth.False)) {
     return Truth.False;
   }
+
   return truths.includes(Truth.Unknown) ? Truth.Unknown : Truth.True;
 }
 
@@ -35,19 +38,24 @@ export function any(truths: readonly Truth[]): Truth {
   if (truths.includes(Truth.True)) {
     return Truth.True;
   }
+
   return truths.includes(Truth.Unknown) ? Truth.Unknown : Truth.False;
 }
 
 /** Exactly one is true. Unknown while the unknowns could still make it one, or make it more than one. */
 export function exactlyOne(truths: readonly Truth[]): Truth {
   const trueCount = truths.filter((truth) => truth === Truth.True).length;
+
   if (trueCount > 1) {
     return Truth.False;
   }
+
   const unknownCount = truths.filter((truth) => truth === Truth.Unknown).length;
+
   if (unknownCount > 0) {
     return Truth.Unknown;
   }
+
   return truthOf(trueCount === 1);
 }
 
@@ -59,9 +67,11 @@ export function allSame(truths: readonly Truth[]): Truth {
   if (truths.length <= 1) {
     return Truth.True;
   }
+
   if (truths.includes(Truth.True) && truths.includes(Truth.False)) {
     return Truth.False;
   }
+
   return truths.includes(Truth.Unknown) ? Truth.Unknown : Truth.True;
 }
 

@@ -21,9 +21,11 @@ const inputs: StatisticInputs = StatisticInputsJson.parse({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder().withId('player-core').withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS).build(),
 );
+
 registry.register(
   ContentPack.define({
     manifest: { id: 'warded', title: 'Warded', publisher: 'Pioneer', license: ContentLicense.Homebrew },

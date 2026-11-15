@@ -25,12 +25,15 @@ export interface EntryContext {
  */
 function itemLevelOf({ content, inventory }: EntryContext, { entry, origin }: Resolved): Level | undefined {
   const [hop] = origin.hops;
+
   if (hop?.kind === OriginHopKind.Effect && hop.rank !== undefined) {
     return Level.parse(hop.rank);
   }
+
   const host = hop?.kind === OriginHopKind.Inventory ? inventory.items.find((each) => each.id === hop.item) : undefined;
   const id = entry.kind === ContentKind.Rune && host !== undefined ? host.item : entry.id;
   const level = content.get(id)?.level;
+
   return level === undefined ? undefined : Level.parse(level);
 }
 
@@ -48,6 +51,7 @@ export function rulesOf(
     .filter(({ origin }) => keep(origin))
     .flatMap(({ entry, origin, value }) => {
       const itemLevel = itemLevelOf(context, { entry, origin });
+
       return entry.rules.map((element, rule): RuleInPlay => ({
         element,
         origin,
@@ -80,5 +84,6 @@ const IN_PLAY_HOPS: ReadonlySet<OriginHopKind> = new Set([
 /** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */
 export function fromInventory(origin: Origin): boolean {
   const kind = origin.hops[0]?.kind;
+
   return kind !== undefined && IN_PLAY_HOPS.has(kind);
 }

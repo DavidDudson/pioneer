@@ -9,6 +9,7 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -216,10 +217,12 @@ describe('weapon, armor and shield kinds', () => {
 
   test("a specific item's property runes are each listed once, up to five", () => {
     const flamingId = idOf('rune:flaming');
+
     const repeated = {
       ...fullPlate,
       data: { ...fullPlate.data, runes: { potency: 2, property: [flamingId, flamingId] } },
     };
+
     const six = ['a', 'b', 'c', 'd', 'e', 'f'].map((name) => idOf(`rune:${name}`));
 
     expect(found({ ...fullPlate, data: { ...fullPlate.data, runes: { property: six } } })).toStrictEqual([

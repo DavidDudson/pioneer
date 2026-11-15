@@ -66,6 +66,7 @@ describe('importVocabulary: traits', () => {
 
   test('appliesTo is every kind whose Foundry trait list holds it, in ContentKind order', () => {
     const traits = vocabularyOf(translate([DWARF, KEEN_NOSE]), ContentKind.Trait);
+
     const appliesTo = new Map<string, unknown>(
       traits.map(({ envelope, kindData }) => [slugName(envelope.slug), kindData.data]),
     );
@@ -202,8 +203,10 @@ describe('importVocabulary: damage types', () => {
     const translation = translate([
       { id: 'fIrEbOlT00000000', name: 'Fireball', type: 'spell', system: { traits: { value: ['fire'] } } },
     ]);
+
     const fireOf = (kind: ContentKind): VocabularyEntry | undefined =>
       vocabularyOf(translation, kind).find(({ envelope }) => slugName(envelope.slug) === 'fire');
+
     const trait = fireOf(ContentKind.Trait);
     const damageType = fireOf(ContentKind.DamageType);
 
@@ -255,6 +258,7 @@ describe('importVocabulary: entries parse', () => {
     const entries = vocabularyOf(translate([DWARF, KEEN_NOSE, ACOLYTE], { known: [] }), kind);
 
     expect(entries.length).toBeGreaterThan(0);
+
     for (const { envelope, kindData } of entries) {
       expect(KIND_DATA[kind].safeParse(kindData.data).success).toBe(true);
       expect(

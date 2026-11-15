@@ -42,9 +42,11 @@ export class Responsive {
   protected readonly classes = computed((): string => {
     const show = this.showFrom();
     const hide = this.hideFrom();
+
     if (show !== undefined) {
       return SHOW_FROM[show];
     }
+
     return hide === undefined ? 'block' : HIDE_FROM[hide];
   });
 }

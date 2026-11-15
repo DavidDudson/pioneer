@@ -60,6 +60,7 @@ function inventoryContent(registry: ContentRegistry, lookup: ContentLookup): Inv
 /** How many of `inventory`'s items break a rule: the imported lines kept past a limit. */
 function ruleBreaking(inventory: Inventory, registry: ContentRegistry): RuleBreakingCount {
   const violations = inventoryViolations(inventory, { items: itemContent(registry), runes: runeContent(registry) });
+
   return RuleBreakingCount.parse(new Set(violations.map(({ item }) => item)).size);
 }
 
@@ -89,6 +90,7 @@ function importVariants(value: PathbuilderImport, content: ContentRegistry, look
   const dual = dualClassVariant(value, content);
   const free = freeArchetypeVariant(value, content);
   const unlocked = noDedicationLockVariant(value, content, lookup);
+
   return { dual, wanted: [dual, free, unlocked].filter((each) => each !== undefined) };
 }
 
@@ -118,20 +120,25 @@ export class PathbuilderImportService {
     const value = readExport(raw);
     const content = await this.#content.registry();
     const lookup = registryLookup(content);
+
     const create = this.#newCharacter(actor, value, {
       ancestry: matchedAncestry(value, lookup),
       inventory: importedInventory(value, inventoryContent(content, lookup)),
     });
+
     const variants = importVariants(value, content, lookup);
     const slots = slotContent(content, variants.wanted, true);
+
     const { character, unplaced, skillGaps, spellGaps, notOffered, dualClass } = importedCharacter(
       value,
       { lookup, slots },
       create,
     );
+
     const saved = await this.#characters.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
     const enabled = dualClass ? variants.wanted : variants.wanted.filter((each) => each !== variants.dual);
     await this.#enable(actor, saved, enabled);
+
     const report = characterImportReport(value, lookup, {
       notOffered,
       unplacedBoosts: unplaced,
@@ -147,6 +154,7 @@ export class PathbuilderImportService {
       ruleBreakingFeats: RuleBreakingCount.parse(unplacedFeatBreaks(character.document).length),
       ruleBreakingPicks: RuleBreakingCount.parse(unplacedPickBreaks(character.document).length),
     });
+
     return { character: saved, report };
   }
 
@@ -154,6 +162,7 @@ export class PathbuilderImportService {
   #newCharacter(actor: UserId, value: PathbuilderImport, { ancestry, inventory }: Start): Create {
     const id = CharacterId.parse(newId());
     const now = this.#clock.now();
+
     return (choices, unplaced) =>
       Character.create({
         id,

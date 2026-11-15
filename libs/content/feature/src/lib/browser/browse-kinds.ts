@@ -17,6 +17,7 @@ export const BROWSE_KINDS = [
   ContentKind.Treasure,
   ContentKind.Weapon,
 ] as const satisfies readonly RegisteredKind[];
+
 export type BrowseKind = (typeof BROWSE_KINDS)[number];
 
 /** What the list shows when the link names no kind. */
@@ -48,6 +49,7 @@ export function kindsFromQuery(text: unknown): readonly BrowseKind[] {
   const first: unknown = Array.isArray(text) ? text[0] : text;
   const named = typeof first === 'string' ? new Set(first.split(KIND_SEPARATOR)) : new Set<string>();
   const kinds = BROWSE_KINDS.filter((kind) => named.has(kind));
+
   return kinds.length === 0 ? DEFAULT_KINDS : kinds;
 }
 

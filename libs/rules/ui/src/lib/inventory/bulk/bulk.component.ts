@@ -63,12 +63,15 @@ export class BulkView {
 
   protected readonly shown = computed((): ShownBulk | undefined => {
     const bulk = this.bulk();
+
     if (bulk === undefined) {
       return undefined;
     }
+
     this.#format.locale();
     const whole = Math.floor(bulk.carried / LIGHT_PER_BULK);
     const light = bulk.carried % LIGHT_PER_BULK;
+
     return {
       whole,
       encumberedAfter: bulk.encumberedAfter,

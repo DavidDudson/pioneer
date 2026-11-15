@@ -21,6 +21,7 @@ interface PoolFields {
 function spellId(pack: PackId, spell: string): ContentId {
   const [other, slug] = spell.includes(':') ? spell.split(':') : [undefined, spell];
   const owner = other === undefined ? pack : PackId.parse(other);
+
   return ContentId.parse(contentId(owner, EntrySlug.parse(`spell:${slug}`)));
 }
 
@@ -46,6 +47,8 @@ export function poolSpellRules(slug: string, pack: PackId): readonly object[] {
   if (slug === `class-feature:${DIVINE_FONT}`) {
     return divineFont(pack);
   }
+
   const school = CURRICULA.get(slug.replace(/^class-feature:/u, ''));
+
   return school === undefined ? [] : [poolSpells(pack, { entry: 'wizard', pool: CURRICULUM, spells: school.flat() })];
 }

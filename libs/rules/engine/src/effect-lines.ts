@@ -32,18 +32,23 @@ function lineStatus(status: LineStatus): EffectStatus {
     case LineStatusKind.Applied: {
       return APPLIED;
     }
+
     case LineStatusKind.Suppressed: {
       return { kind: EffectStatusKind.Suppressed, by: status.by, reason: status.reason };
     }
+
     case LineStatusKind.Conditional: {
       return { kind: EffectStatusKind.Conditional, summary: status.summary };
     }
+
     case LineStatusKind.Inactive: {
       return INACTIVE;
     }
+
     case LineStatusKind.Failed: {
       return { kind: EffectStatusKind.Failed, error: status.error, position: status.position };
     }
+
     default: {
       return status satisfies never;
     }
@@ -56,18 +61,23 @@ function overrideStatus(status: OverrideStatus): EffectStatus {
     case OverrideStatusKind.Applied: {
       return APPLIED;
     }
+
     case OverrideStatusKind.Replaced: {
       return { kind: EffectStatusKind.Suppressed, by: status.by, reason: SuppressionReason.Stacking };
     }
+
     case OverrideStatusKind.Conditional: {
       return { kind: EffectStatusKind.Conditional, summary: status.summary };
     }
+
     case OverrideStatusKind.Inactive: {
       return INACTIVE;
     }
+
     case OverrideStatusKind.Failed: {
       return { kind: EffectStatusKind.Failed, error: status.error, position: status.position };
     }
+
     default: {
       return status satisfies never;
     }
@@ -79,15 +89,19 @@ function defenceStatus(status: DefenceStatus): EffectStatus {
     case DefenceStatusKind.Applied: {
       return APPLIED;
     }
+
     case DefenceStatusKind.Superseded: {
       return { kind: EffectStatusKind.Suppressed, by: status.by, reason: SuppressionReason.Stacking };
     }
+
     case DefenceStatusKind.Conditional: {
       return { kind: EffectStatusKind.Conditional, summary: status.summary };
     }
+
     case DefenceStatusKind.Failed: {
       return { kind: EffectStatusKind.Failed, error: status.error, position: status.position };
     }
+
     default: {
       return status satisfies never;
     }
@@ -97,6 +111,7 @@ function defenceStatus(status: DefenceStatus): EffectStatus {
 /** A modifier's line on a statistic: a bonus unless its value is below 0. */
 export function modifierEffect(selector: ModifierEffect['selector'], line: BreakdownLine): ModifierEffect {
   const { modifier, value, adjustedBy, status } = line;
+
   return {
     change: value !== undefined && value < 0 ? EffectChange.Penalty : EffectChange.Bonus,
     rule: modifier.id,
@@ -112,6 +127,7 @@ export function modifierEffect(selector: ModifierEffect['selector'], line: Break
 
 export function setEffect(selector: SetEffect['selector'], line: OverrideLine): SetEffect {
   const { id, label, origin, phase, mode, value, replaced, result, status } = line;
+
   return {
     change: EffectChange.Set,
     rule: id,
@@ -132,6 +148,7 @@ export function adjustmentEffect(
   line: AdjustmentLine,
 ): DamageAdjustmentEffect {
   const { id, label, origin, type, value, exceptions, status } = line;
+
   return {
     change,
     rule: id,
@@ -146,6 +163,7 @@ export function adjustmentEffect(
 
 export function immunityEffect(line: ImmunityLine): ImmunityEffect {
   const { id, label, origin, type, status } = line;
+
   return {
     change: EffectChange.Immunity,
     rule: id,
@@ -163,6 +181,7 @@ function senseHeld(
   senses: readonly SenseInPlay[],
 ): boolean {
   const { sense, acuity = SenseAcuity.Precise, range } = element;
+
   return senses.some(
     (held) =>
       held.sense === sense &&
@@ -181,7 +200,9 @@ export function senseEffect(rule: RuleInPlay, element: SenseElement, reading: Se
   if (truthOf(element.predicate, reading.modifiers.facts) === Truth.False) {
     return undefined;
   }
+
   const { sense, acuity = SenseAcuity.Precise, range } = element;
+
   return {
     change: EffectChange.Sense,
     rule: ruleIdOf(rule),
@@ -203,17 +224,21 @@ export interface SenseReading {
 /** Whether a `Sense` element whose predicate does not fail is conditional, applied, or replaced by a better grant. */
 function senseStatus(rule: RuleInPlay, element: SenseElement, { senses, modifiers }: SenseReading): EffectStatus {
   const { predicate, display } = element;
+
   if (predicate !== undefined && truthOf(predicate, modifiers.facts) === Truth.Unknown) {
     return {
       kind: EffectStatusKind.Conditional,
       summary: summarisePredicate(predicate, modifiers.facts, display?.summary),
     };
   }
+
   if (senseHeld(element, rule.origin.entry, senses)) {
     return APPLIED;
   }
+
   const form = battleFormInPlay(modifiers);
   const reason = form?.form.senses === undefined ? SuppressionReason.Stacking : SuppressionReason.Form;
+
   return { kind: EffectStatusKind.Suppressed, by: form?.id, reason };
 }
 

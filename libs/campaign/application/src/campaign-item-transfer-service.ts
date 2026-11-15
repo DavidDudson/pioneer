@@ -75,6 +75,7 @@ export class CampaignItemTransferService {
   public async list(actor: UserId, id: CampaignId): Promise<PendingTransfers> {
     await this.#viewed(actor, id);
     const pending = await this.#transfers.listPending(id);
+
     return pendingTransferViews(actor, pending, { characters: this.#characters, lines: this.#lines });
   }
 
@@ -88,6 +89,7 @@ export class CampaignItemTransferService {
     await this.#inParty(id, body);
     await this.#owned(actor, body);
     const line = await this.#offerable(id, body);
+
     const transfer: ItemTransfer = {
       id: ItemTransferId.parse(newId()),
       ...body,
@@ -95,7 +97,9 @@ export class CampaignItemTransferService {
       status: TransferStatus.Pending,
       createdAt: this.#clock.now(),
     };
+
     await this.#transfers.insert(actor, id, transfer);
+
     return { id: transfer.id, from: body.from, to: body.to, item: body.item, status: transfer.status };
   }
 
@@ -110,6 +114,7 @@ export class CampaignItemTransferService {
     await this.#inParty(id, body);
     await this.#owned(actor, body);
     const purse = await this.#held(body);
+
     const transfer: CoinTransfer = {
       id: ItemTransferId.parse(newId()),
       ...body,
@@ -117,7 +122,9 @@ export class CampaignItemTransferService {
       status: TransferStatus.Pending,
       createdAt: this.#clock.now(),
     };
+
     await this.#transfers.insertCoins(actor, id, transfer);
+
     return { id: transfer.id, from: body.from, to: body.to, coins: body.coins, status: transfer.status };
   }
 
@@ -129,21 +136,25 @@ export class CampaignItemTransferService {
   public async accept(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
     const transfer = await this.#answerable(actor, id, transferId);
     await this.#settlement.accept(actor, id, transfer);
+
     return { id: transfer.id, status: TransferStatus.Accepted };
   }
 
   /** The recipient's owner declines a pending offer; it stays with the giver. Refused as `accept` is. */
   public async decline(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
     const transfer = await this.#answerable(actor, id, transferId);
+
     const declined = await this.#transfers.answer({
       actor,
       campaignId: id,
       id: transfer.id,
       status: TransferStatus.Declined,
     });
+
     if (!declined) {
       throw new ConflictError(`Transfer ${transfer.id} was already answered`, message(ItemTransferMessage.NotPending));
     }
+
     return { id: transfer.id, status: TransferStatus.Declined };
   }
 
@@ -155,13 +166,17 @@ export class CampaignItemTransferService {
   public async withdraw(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
     const transfer = await this.#withdrawable(actor, id, transferId);
     const withdrawn = { id: transfer.id, status: TransferStatus.Withdrawn };
+
     if (transfer.status === TransferStatus.Withdrawn) {
       return withdrawn;
     }
+
     const answered = await this.#transfers.answer({ actor, campaignId: id, id: transfer.id, status: withdrawn.status });
+
     if (!answered) {
       await this.#settled(id, transfer);
     }
+
     return withdrawn;
   }
 
@@ -169,17 +184,21 @@ export class CampaignItemTransferService {
   async #withdrawable(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<Transfer> {
     await this.#viewed(actor, id);
     const transfer = await this.#transfers.findById(id, transferId);
+
     if (transfer === undefined) {
       throw new NotFoundError('ItemTransfer', transferId);
     }
+
     await this.#inParty(id, transfer);
     await this.#owned(actor, transfer);
+
     return transfer;
   }
 
   /** After a withdraw found its offer no longer pending: fine when a second withdraw got there first, else a 409. */
   async #settled(id: CampaignId, transfer: Transfer): Promise<void> {
     const current = await this.#transfers.findById(id, transfer.id);
+
     if (current?.status !== TransferStatus.Withdrawn) {
       throw new ConflictError(
         `Transfer ${transfer.id} was already answered`,
@@ -192,14 +211,18 @@ export class CampaignItemTransferService {
   async #answerable(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<Transfer> {
     await this.#viewed(actor, id);
     const transfer = await this.#transfers.findById(id, transferId);
+
     if (transfer === undefined) {
       throw new NotFoundError('ItemTransfer', transferId);
     }
+
     await this.#inParty(id, transfer);
     await this.#ownedRecipient(actor, transfer);
+
     if (transfer.status !== TransferStatus.Pending) {
       throw new ConflictError(`Transfer ${transfer.id} was already answered`, message(ItemTransferMessage.NotPending));
     }
+
     return transfer;
   }
 
@@ -207,6 +230,7 @@ export class CampaignItemTransferService {
   async #ownedRecipient(actor: UserId, { to }: Pick<Transfer, 'to'>): Promise<void> {
     const named = await this.#characters.byIds([to]);
     const recipient = named.get(to);
+
     if (recipient === undefined || recipient.ownerId !== actor || recipient.archived) {
       throw new NotFoundError('Character', to);
     }
@@ -215,42 +239,52 @@ export class CampaignItemTransferService {
   /** The giver's purse, when it holds every coin offered: a missing character is a 404, a short purse a 409. */
   async #held({ from, coins }: OfferCoinsBody): Promise<OfferablePurse> {
     const purse = await this.#lines.purse(from);
+
     if (purse === undefined) {
       throw new NotFoundError('Character', from);
     }
+
     if (!covers(purse.coins, coins)) {
       throw new ConflictError('The giver does not hold that many coins', message(ItemTransferMessage.NotEnoughCoins));
     }
+
     return purse;
   }
 
   /** The giver's line, when it can go on offer: a missing one is a 404, a key item's or one already offered a 409. */
   async #offerable(id: CampaignId, { from, item }: OfferItemBody): Promise<OfferableLine> {
     const line = await this.#lines.describe(from, item);
+
     if (line === undefined) {
       throw new NotFoundError('InventoryItem', item);
     }
+
     if (line.keyItem) {
       throw new ConflictError(`Inventory item ${item} is a key item`, message(ItemTransferMessage.KeyItemLine));
     }
+
     const pending = await this.#transfers.listPending(id);
+
     if (pending.some((each) => !isCoinTransfer(each) && each.from === from && each.item === item)) {
       throw new ConflictError(
         `Inventory item ${item} is already on offer`,
         message(ItemTransferMessage.AlreadyOffered),
       );
     }
+
     return line;
   }
 
   /** Both characters are in the campaign's party; one that is not is a 404. The same character twice is a 409. */
   async #inParty(id: CampaignId, { from, to }: Pick<Transfer, 'from' | 'to'>): Promise<void> {
     const party = await this.#party.listForCampaign(id);
+
     for (const character of [from, to]) {
       if (!party.some((each) => each.characterId === character)) {
         throw new NotFoundError('Character', character);
       }
     }
+
     if (from === to) {
       throw new ConflictError('A character cannot offer to itself', message(ItemTransferMessage.SameCharacter));
     }
@@ -263,6 +297,7 @@ export class CampaignItemTransferService {
   async #owned(actor: UserId, { from }: Pick<OfferItemBody, 'from'>): Promise<void> {
     const named = await this.#characters.byIds([from]);
     const giver = named.get(from);
+
     if (giver === undefined || giver.ownerId !== actor || giver.archived) {
       throw new NotFoundError('Character', from);
     }
@@ -271,9 +306,11 @@ export class CampaignItemTransferService {
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 }

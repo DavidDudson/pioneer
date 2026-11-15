@@ -10,10 +10,12 @@ const SMALLINT_MAX = 32_767;
 const SLUG_WORDS_MAX = 3;
 
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
+
 /** Kebab-case: pack ids, slugs, traits. */
 export const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_WORDS_MAX }).map((words) =>
   words.join('-'),
 );
+
 export const smallint: Arbitrary<number> = integer({ min: 0, max: SMALLINT_MAX });
 export const positive: Arbitrary<number> = integer({ min: 1, max: SMALLINT_MAX });
 export const size: Arbitrary<string> = constantFrom(...Object.values(Size));
@@ -30,8 +32,10 @@ export function withOptional<TRequired extends object>(
   const optionals = Object.entries(optional).map(([key, value]) =>
     option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
   );
+
   return tuple(required, ...optionals).map(([fields, ...entries]): object => {
     const present = entries.filter(([, picked]) => picked !== undefined);
+
     return Object.fromEntries([...Object.entries(fields), ...present]);
   });
 }

@@ -33,6 +33,7 @@ async function render(
   fixture.componentRef.setInput('statistics', statistics);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -40,6 +41,7 @@ function present<TValue>(value: TValue | null): TValue {
   if (value === null) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -57,6 +59,7 @@ async function chooseLores(fixture: ComponentFixture<SkillsView>): Promise<void>
   const lores = [...hostOf(fixture).querySelectorAll('fr-segmented button')].find(
     (button) => button.textContent.trim() === 'Lores',
   );
+
   (lores as HTMLElement).click();
   await fixture.whenStable();
 }

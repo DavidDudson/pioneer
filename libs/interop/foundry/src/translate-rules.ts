@@ -69,6 +69,7 @@ function keyOf(raw: unknown): string {
   if (typeof raw !== 'object' || raw === null || !('key' in raw)) {
     return '';
   }
+
   return typeof raw.key === 'string' ? raw.key : '';
 }
 
@@ -77,6 +78,7 @@ function withPioneerFormula(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('value' in raw) || typeof raw.value !== 'string') {
     return raw;
   }
+
   return { ...raw, value: fromFoundryFormula(raw.value) };
 }
 
@@ -88,11 +90,15 @@ function localizedString(value: string, context: RuleContext, unresolved: Unreso
   if (!isLangKey(value)) {
     return value;
   }
+
   const text = localize(context.lang, value, context.values);
+
   if (isUnresolved(text)) {
     unresolved.push(text);
+
     return OMITTED;
   }
+
   return text.text;
 }
 
@@ -101,12 +107,15 @@ function localized(value: unknown, context: RuleContext, unresolved: UnresolvedK
   if (typeof value === 'string') {
     return localizedString(value, context, unresolved);
   }
+
   if (Array.isArray(value)) {
     return value.map((item) => localized(item, context, unresolved)).filter((item) => item !== OMITTED);
   }
+
   if (typeof value !== 'object' || value === null) {
     return value;
   }
+
   return Object.fromEntries(
     Object.entries(value)
       .map(([field, item]) => [field, localized(item, context, unresolved)])
@@ -122,8 +131,10 @@ function withDisplayLabel(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('label' in raw) || typeof raw.label !== 'string') {
     return raw;
   }
+
   const { label, ...rest } = raw;
   const display = 'display' in raw && typeof raw.display === 'object' ? raw.display : {};
+
   return { ...rest, display: { ...display, label } };
 }
 
@@ -156,6 +167,7 @@ interface Shaped {
 function withGrants(raw: unknown, references: EntryReferences): unknown {
   const fields = withGrantFields(raw);
   const granted = withGrantedId(fields, references);
+
   return withAura(granted, references);
 }
 
@@ -175,6 +187,7 @@ function shapeRule(
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
   const font = withActiveEffect(withFavoredWeaponRank(withFontChoice(queried)));
   const senses = { references, senses: context.senses };
+
   return {
     raw,
     plain: withCreatureRule(font, senses),
@@ -187,6 +200,7 @@ function declaredFlags(shaped: readonly Shaped[]): ReadonlySet<string> {
   return new Set(
     shaped.flatMap(({ chosen }) => {
       const element = RuleElement.safeParse(chosen);
+
       return element.success && element.data.key === RuleElementKey.ChoiceSet ? [String(element.data.flag)] : [];
     }),
   );
@@ -197,12 +211,15 @@ type Parsed = z.ZodSafeParseResult<RuleElement>;
 /** The flags (as the translated element spells them) of the `ChoiceSet`s whose pick an element in `failed` reads. */
 function strandedFlags(shaped: readonly Shaped[], kept: readonly boolean[]): ReadonlySet<string> {
   const failed = shaped.filter((_shaped, index) => kept[index] !== true);
+
   return new Set(
     shaped.flatMap(({ raw, chosen }, index) => {
       const foundry = foundryFlagOf(raw);
       const element = RuleElement.safeParse(chosen);
+
       const stranded =
         kept[index] === true && foundry !== undefined && failed.some((each) => readsPick(each.raw, foundry));
+
       return stranded && element.success && element.data.key === RuleElementKey.ChoiceSet
         ? [String(element.data.flag)]
         : [];
@@ -215,8 +232,10 @@ function isStranded(element: RuleElement, flags: ReadonlySet<string>): boolean {
   if (element.key === RuleElementKey.ChoiceSet) {
     return flags.has(String(element.flag));
   }
+
   const text = JSON.stringify(element);
   const picked = pickedFlagsIn(element);
+
   return [...flags].some((flag) => text.includes(`"choice":"${flag}"`) || picked.includes(flag));
 }
 
@@ -233,14 +252,17 @@ function partition(
   const declared = ownedFlagsOnce(standing);
   const rules: RuleElement[] = [];
   const untranslated: UntranslatedRule[] = [];
+
   for (const [index, { raw }] of shaped.entries()) {
     const element = standing[index];
+
     if (element !== undefined && !danglingPick(element, declared) && !ambiguousOwned(element, declared)) {
       rules.push(element);
     } else {
       untranslated.push({ entry, key: keyOf(raw), raw });
     }
   }
+
   return { rules, untranslated };
 }
 
@@ -260,17 +282,23 @@ function settle(
         element.success &&
         (JSON.stringify(element.data).includes(`"choice":"${flag}"`) || pickedFlagsIn(element.data).includes(flag)),
     );
+
   const kept = shaped.map(({ plain }, index) => {
     const element = parsed[index];
+
     return element?.success === true && !isUnread(element.data, plain, reads);
   });
+
   const stranded = strandedFlags(shaped, kept);
+
   const standing = shaped.map((_shaped, index) => {
     const element = parsed[index];
+
     return kept[index] === true && element?.success === true && !isStranded(element.data, stranded)
       ? element.data
       : undefined;
   });
+
   return partition(entry, shaped, standing);
 }
 
@@ -280,11 +308,14 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const { kept, dropped } = withoutDropped(entry, raws);
   const granted = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references)));
   const owned = ownedFlagsOf(granted);
+
   const shaped = withChoiceValues(withSkillPathChoices(granted), context.values.item).map((raw) =>
     shapeRule(raw, context, { unresolved, owned }),
   );
+
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
+
   return {
     ...settle(entry, shaped, parsed),
     dropped,

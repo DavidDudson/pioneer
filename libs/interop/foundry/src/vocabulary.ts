@@ -68,30 +68,38 @@ function collect({ kind, uses, itemOf }: Uses, known: readonly KnownEntry[]): Co
   const skip = knownSlugs(known, kind);
   const items: Item[] = [];
   const gaps: VocabularyGap[] = [];
+
   for (const [slug, book] of uses) {
     const item = skip.has(slug) ? undefined : itemOf(slug, book);
+
     if (item !== undefined && isGap(item)) {
       gaps.push({ kind, slug, ...item });
     } else if (item !== undefined) {
       items.push(item);
     }
   }
+
   return { items, gaps };
 }
 
 function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry | VocabularyGap {
   const { kind, slug: foundrySlug, label: itemLabel, descriptionKeys, rarity, book, kindData } = item;
   const label = 'text' in itemLabel ? itemLabel.text : langLabel(lang, itemLabel.key);
+
   if (label === undefined) {
     const detail = 'key' in itemLabel ? itemLabel.key : itemLabel.text;
+
     return { kind, slug: foundrySlug, reason: VocabularyGapReason.MissingLabel, detail };
   }
+
   const slugText = `${kind}:${foundrySlug}`;
   const slug = EntrySlug.safeParse(slugText);
   const name = ContentText.safeParse(label);
+
   if (!slug.success || !name.success) {
     return { kind, slug: foundrySlug, reason: VocabularyGapReason.Invalid, detail: slug.success ? label : slugText };
   }
+
   const envelope: EnvelopeFields = {
     id: ContentId.parse(contentId(pack, slug.data)),
     pack,
@@ -103,23 +111,28 @@ function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry
     description: descriptionOf(descriptionKeys, lang),
     rules: [],
   };
+
   return { envelope, kindData };
 }
 
 /** A described kind's item that no description key has text for: its entry is kept, and the gap reported. */
 function missingDescription(item: Item, { lang }: VocabularyContext): VocabularyGap[] {
   const { kind, slug, descriptionKeys } = item;
+
   if (descriptionKeys === undefined || descriptionHtml(descriptionKeys, lang) !== undefined) {
     return [];
   }
+
   return [{ kind, slug, reason: VocabularyGapReason.MissingDescription, detail: descriptionKeys.join(' ') }];
 }
 
 function entries(items: readonly Item[], context: VocabularyContext): Vocabulary {
   const imported: VocabularyEntry[] = [];
   const gaps: VocabularyGap[] = [];
+
   for (const item of items) {
     const built = entryOf(item, context);
+
     if ('envelope' in built) {
       imported.push(built);
       gaps.push(...missingDescription(item, context));
@@ -127,12 +140,14 @@ function entries(items: readonly Item[], context: VocabularyContext): Vocabulary
       gaps.push(built);
     }
   }
+
   return { entries: imported, gaps };
 }
 
 function otherUses(selected: readonly SelectedEntry[], { config, books }: VocabularyContext): Uses[] {
   const [firstBook] = books;
   const lores = loreNames(selected);
+
   return [
     {
       kind: ContentKind.Language,
@@ -165,5 +180,6 @@ function otherUses(selected: readonly SelectedEntry[], { config, books }: Vocabu
 export function importVocabulary(selected: readonly SelectedEntry[], context: VocabularyContext): Vocabulary {
   const others = otherUses(selected, context).map((uses) => collect(uses, context.known));
   const built = entries([...traitItems(selected, context), ...others.flatMap(({ items }) => items)], context);
+
   return { entries: built.entries, gaps: [...others.flatMap(({ gaps }) => gaps), ...built.gaps] };
 }

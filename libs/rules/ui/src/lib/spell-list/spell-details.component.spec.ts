@@ -18,12 +18,15 @@ interface Rendered {
 async function render(data: SpellData, rank: number, tags: readonly string[] = []): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const transloco = TestBed.inject(TranslocoService);
+
   const line = lineOf({ slug: 'spell', name: 'Spell', data, rank, tags }, (key, params) =>
     transloco.translate(key, params),
   );
+
   const fixture = TestBed.createComponent(SpellDetails);
   fixture.componentRef.setInput('spell', line);
   await fixture.whenStable();
+
   return { fixture, line };
 }
 
@@ -34,6 +37,7 @@ function textOf(element: Element): string {
 /** The labelled fields as "Term: value". */
 function fieldRows(fixture: ComponentFixture<SpellDetails>): string[] {
   const host = fixture.nativeElement as HTMLElement;
+
   return [...host.querySelectorAll('fr-description-item')].map((row) =>
     [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
   );
@@ -80,6 +84,7 @@ describe(SpellDetails, () => {
 
   it('marks a spell that counteracts and carries its tags', async () => {
     const { fixture } = await render(DISPEL_MAGIC, 2, [SpellListMessage.TagSignature]);
+
     const badges = [...(fixture.nativeElement as HTMLElement).querySelectorAll('fr-badge')].map((badge) =>
       textOf(badge),
     );

@@ -21,8 +21,10 @@ import type { CachePack } from '../cache-pack';
 const BYTES_PER_KILOBYTE = 1000;
 const BYTES_PER_MEGABYTE = 1_000_000;
 const FRACTION_DIGITS = 1;
+
 /** The smallest size whose kilobytes, to one fraction digit, round up to a full megabyte. */
 const MEGABYTE_ROUNDS_FROM = 999_950;
+
 /** Skeleton rows shown while the caches load. */
 const PLACEHOLDERS = ['first', 'second', 'third'] as const;
 
@@ -57,6 +59,7 @@ export class ContentCachesView {
   /** A size in kilobytes, or megabytes from a million bytes, in the viewer's locale. */
   protected size(bytes: number): string {
     const large = bytes >= MEGABYTE_ROUNDS_FROM;
+
     return this.#format.number(bytes / (large ? BYTES_PER_MEGABYTE : BYTES_PER_KILOBYTE), {
       style: 'unit',
       unit: large ? 'megabyte' : 'kilobyte',

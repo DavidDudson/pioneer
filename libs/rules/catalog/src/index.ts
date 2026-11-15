@@ -70,33 +70,61 @@ import {
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
+
 export { proposeAonMappings } from './aon-matcher';
+
 export type { AonListing, AonMatchable, AonProposals } from './aon-matcher';
+
 export { proposeCreatureActions } from './creature-actions';
+
 export { proposeGrantedActions } from './granted-actions';
+
 export type { ActionGranter, GrantedAction, GrantedActionProposals } from './granted-actions';
+
 export { classifyRemasterCandidate, normaliseName } from './remaster-audit';
+
 export type { RemasterCandidate, RemasterClass } from './remaster-audit';
+
 export type { CreatureActionProposals } from './creature-actions';
+
 export { checkEnrichment } from './enrichment-check';
+
 export type { EnrichmentCheck, EnrichmentTarget } from './enrichment-check';
+
 export { checkPackSources, packEntries, SourceCheckError, sourceIssues } from './source-check';
+
 export { FOUNDRY_IMPORTS, foundryReleaseUrl } from './foundry-imports';
+
 export type { FoundryImport } from './foundry-imports';
+
 export type { MissourcedEntry, SourcedEntry } from './source-check';
+
 export { sourceCoverage } from './source-coverage';
+
 export type { BookCoverage } from './source-coverage';
+
 export { prerequisiteCoverage } from './prerequisite-coverage';
+
 export type { PrerequisiteCoverage } from './prerequisite-coverage';
+
 export { triggerCoverage } from './trigger-coverage';
+
 export type { TriggerCoverage } from './trigger-coverage';
+
 export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
+
 export { staffCoverage } from './staff-coverage';
+
 export type { StaffCoverage } from './staff-coverage';
+
 export { isStaffEntry, matchStaffSpells, spellIndex, staffMatches, STAFF_TRAIT } from './staff-matcher';
+
 export type { SpellIndex, StaffMatch } from './staff-matcher';
+
 export { prerequisiteMatches } from './prerequisite-matcher';
+
 export type { PrerequisiteMatch } from './prerequisite-matcher';
+
 export type { RefNames, TriggerMatch } from './trigger-matcher';
 
 /**
@@ -105,15 +133,19 @@ export type { RefNames, TriggerMatch } from './trigger-matcher';
  */
 export function checkedLoader(id: string, load: () => Promise<PackContents>): PackContentsLoader {
   let checked: Promise<PackContents> | undefined = undefined;
+
   const loadChecked = async (): Promise<PackContents> => {
     const contents = await load();
     checkPackSources(contentPackFromContents(contents), bookRegistry);
+
     return contents;
   };
+
   return {
     id: PackId.parse(id),
     load: async () => {
       checked ??= loadChecked();
+
       return checked;
     },
   };
@@ -187,10 +219,12 @@ export const officialPacks: readonly PackContentsLoader[] = [
 function packLoader({ id, load }: PackContentsLoader): ContentPackLoader {
   let pack: Promise<ContentPack> | undefined = undefined;
   const build = async (): Promise<ContentPack> => contentPackFromContents(await load());
+
   return {
     id,
     load: async () => {
       pack ??= build();
+
       return pack;
     },
   };

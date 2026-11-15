@@ -25,12 +25,14 @@ const TEMP = HitPoints.parse(12);
 const NONE = HitPoints.parse(0);
 const ONE_MINUTE = EffectRounds.parse(10);
 const ONE_ROUND = EffectRounds.parse(1);
+
 const LAPSING: EffectContent = new Map([
   [
     PLANT,
     { remaining: ONE_ROUND, expiry: EffectExpiry.TurnStart, sustained: false, badge: undefined, polymorph: true },
   ],
 ]);
+
 const MAX = HitPoints.parse(100);
 
 const CONTENT: EffectContent = new Map([
@@ -120,6 +122,7 @@ describe('ending a form', () => {
 
   test('expiry at a turn start takes the temporary Hit Points back', () => {
     const wild = applyEffectEdit(START, apply(FIRST, PLANT, { tempHp: TEMP }), LAPSING);
+
     const { play } = startTurn(
       { ...FRESH_PLAY, ...wild, effects: [...wild.effects] },
       { limits: { ...within(MAX), effects: LAPSING }, recovery: [] },

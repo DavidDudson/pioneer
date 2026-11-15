@@ -11,15 +11,19 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Hit points')]],
   });
+
   onTestFinished(() => {
     surface.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     surface.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(surface.hostView);
   await appRef.whenStable();
+
   return surface.location.nativeElement as HTMLElement;
 }
 
@@ -44,6 +48,7 @@ describe(Surface, () => {
   ])('styles the %s variant without a look-alike class', async (variant, present, absent) => {
     const host = await render({ variant });
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(present));
+
     for (const name of absent) {
       expect([...host.classList]).not.toContain(name);
     }

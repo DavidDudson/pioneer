@@ -7,6 +7,7 @@ import type { SelectOption } from '../select/select.component';
 import { Segmented } from './segmented.component';
 
 type Unit = 'feet' | 'metres';
+
 type Proficiency = 'trained' | 'expert' | 'master';
 
 type SegmentedStory = StoryObj<Segmented<string>>;
@@ -34,6 +35,7 @@ const meta: Meta<Segmented<string>> = {
     template: `<fr-segmented ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const TwoOptions: SegmentedStory = {};

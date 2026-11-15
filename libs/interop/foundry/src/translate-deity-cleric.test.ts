@@ -44,6 +44,7 @@ describe('translateKindData: the favoured weapon rank', () => {
         ],
       },
     };
+
     expect(untranslatedKeys(formula)).toEqual(['ActiveEffectLike']);
   });
 });

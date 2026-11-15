@@ -61,26 +61,32 @@ export function sheetSkills(
   translate: Translate,
 ): readonly NamedStatistic[] {
   const content = characterStatisticContent(registry, character.document);
+
   if (content === undefined) {
     return [];
   }
+
   const results = sheetDerivation(registry, character);
+
   const skills = content.definitions.filter(
     (definition) =>
       definition.selector !== GENERIC_LORE &&
       (definition.selector === PERCEPTION || definition.selector.startsWith(SKILL_PREFIX)),
   );
+
   const twice = trainedTwiceNotes(registry, character, translate);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
   const rankSources = rankSourcesOf(registry, character, translate);
   const traits = formTraits(character.document, itemContent(registry), sheetSlotContent(registry));
   const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
+
   return skills
     .flatMap((definition): NamedStatistic[] => {
       const { selector } = definition;
       const result = results.get(selector);
       const note = FORM_NOTED_SKILLS.has(selector) ? formNote : undefined;
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
+
       return result === undefined
         ? []
         : [
@@ -126,6 +132,7 @@ function trainedNotes(trained: readonly TrainedSkill[], names: SourceNames): rea
   return trained.flatMap(({ skill, sources }) =>
     sources.map((source): TrainedNote => {
       const named = sourceName(source, names);
+
       return {
         id: `${skill.id}:${source.kind === SkillTrainingSourceKind.Slot ? source.slot : source.entry}`,
         skill: skill.name,
@@ -146,13 +153,17 @@ function trainedTwiceNotes(
 ): ReadonlyMap<string, string> {
   const content = sheetSlotContent(registry);
   const names = sourceNamesOf(registry, skillSlots(character.document, skillReads(character.document, content)));
+
   const named = (source: SkillTrainingSource): string => {
     const { key, params } = sourceName(source, names);
+
     return translate(key, params ?? {});
   };
+
   return new Map(
     skillsTrainedTwice(character.document, content).flatMap(({ skill, sources }): [string, string][] => {
       const [first, second] = sources;
+
       return first === undefined || second === undefined
         ? []
         : [
@@ -177,9 +188,11 @@ function skillRowsOf(registry: ContentRegistry, character: Character): SkillRows
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
   const definitions = characterStatisticContent(registry, character.document)?.definitions ?? [];
   const attributes = new Map(definitions.map(({ selector, keyAttribute }) => [selector, keyAttribute]));
+
   return (options) =>
     options.map(({ id, selector, name }): SkillPickerRow => {
       const result = results.get(selector);
+
       return {
         id,
         name,
@@ -207,6 +220,7 @@ function skillSlotsWhere(
   const slots = skillSlots(character.document, skillReads(character.document, content));
   const names = sourceNamesOf(registry, slots);
   const rowsOf = skillRowsOf(registry, character);
+
   return slots
     .filter((slot) => wanted(slot.level))
     .map((slot) => ({

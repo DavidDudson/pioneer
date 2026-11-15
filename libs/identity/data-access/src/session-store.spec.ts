@@ -18,6 +18,7 @@ const amiri = {
   createdAt: '2026-10-09T08:00:00.000Z',
   updatedAt: '2026-10-09T08:00:00.000Z',
 };
+
 const unauthorized = {
   type: 'unauthorized',
   title: 'Unauthorized',
@@ -45,6 +46,7 @@ function setup(): Harness {
       { provide: DOCUMENT, useValue: { location: { assign } } },
     ],
   });
+
   return { store: TestBed.inject(SessionStore), http: TestBed.inject(HttpTestingController), assign };
 }
 

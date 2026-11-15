@@ -22,13 +22,16 @@ export const FeatCategory = {
   Calling: 'calling',
   Curse: 'curse',
 } as const;
+
 export type FeatCategory = ValueOf<typeof FeatCategory>;
+
 const FeatCategorySchema = z.enum(FeatCategory);
 
 const TAGS_MAX = 16;
 
 /** Which time a character takes a feat, counting from 1: the second Domain Initiate is take 2. */
 export const Take = Pg.smallint().positive().brand<'Take'>();
+
 export type Take = z.infer<typeof Take>;
 
 /** `maxTakable` for a feat a character can take any number of times (Foundry pf2e stores `null`). */
@@ -42,6 +45,7 @@ export const PrerequisiteClause = z.strictObject({
   text: ContentText,
   predicate: Predicate.optional(),
 });
+
 export type PrerequisiteClause = z.infer<typeof PrerequisiteClause>;
 
 /**
@@ -75,6 +79,7 @@ export const FeatData = z.strictObject({
   archetype: ContentId.optional(),
   ...removesConditions,
 });
+
 export type FeatData = z.infer<typeof FeatData>;
 
 /**
@@ -96,6 +101,7 @@ export const ClassFeatureData = z.strictObject({
   keyAttributeOptions: AttributeBoost.optional(),
   ...removesConditions,
 });
+
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;
 
 /**
@@ -107,4 +113,5 @@ export const AncestryFeatureData = z.strictObject({
   /** How it is used when the feature is itself an action. */
   action: ActionData.optional(),
 });
+
 export type AncestryFeatureData = z.infer<typeof AncestryFeatureData>;

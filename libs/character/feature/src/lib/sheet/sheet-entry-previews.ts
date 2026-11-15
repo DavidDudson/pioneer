@@ -24,7 +24,9 @@ function entriesOf(registry: ContentRegistry): ReadonlyMap<ContentId, ContentEnt
   const indexed =
     ENTRIES.get(registry) ??
     new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry]));
+
   ENTRIES.set(registry, indexed);
+
   return indexed;
 }
 
@@ -40,6 +42,7 @@ export function sheetEntry(registry: ContentRegistry, id: ContentId): ContentEnt
  */
 export function sheetEntryPreview(registry: ContentRegistry | undefined, id: ContentId): EntryPreview | undefined {
   const entry = registry === undefined ? undefined : sheetEntry(registry, id);
+
   return entry === undefined ? undefined : previewOf(entry);
 }
 
@@ -51,12 +54,15 @@ function ranksOf(entry: ContentEntry): PreviewRanks | undefined {
   if (entry.kind !== ContentKind.Spell || entry.traits.includes(CANTRIP)) {
     return undefined;
   }
+
   const { data } = entry;
+
   return { from: data.rank, cast: (rank) => spellAtRank(data, rank) };
 }
 
 function previewOf(entry: ContentEntry): EntryPreview {
   const ranks = ranksOf(entry);
+
   return {
     name: entry.name,
     level: 'level' in entry ? entry.level : undefined,
@@ -79,17 +85,22 @@ function withAlterations(
   if (entry.kind !== ContentKind.Action) {
     return preview;
   }
+
   const kept: { altered: AlteredAction | undefined } = { altered: undefined };
+
   const altered = (): AlteredAction => {
     kept.altered ??= alterAction(
       equippedRules(character.document, itemContent(registry), sheetSlotContent(registry)),
       entry,
     );
+
     return kept.altered;
   };
+
   // Inherits the preview, effects included, so that nothing is derived until a card reads the traits or summary.
   // oxlint-disable-next-line typescript/no-unsafe-assignment -- Object.create is typed any; the result is the preview
   const derived: EntryPreview = Object.create(preview);
+
   return Object.defineProperties(derived, {
     traits: { get: (): readonly string[] => altered().traits, enumerable: true },
     summary: { get: (): RichText => altered().description, enumerable: true },
@@ -106,34 +117,45 @@ function previewOnCharacter(
   character: Character | undefined,
 ): EntryPreview {
   const preview = previewOf(entry);
+
   if (registry === undefined || character === undefined) {
     return preview;
   }
+
   // Derived on first read, when the card opens. Every row asks whether it can preview.
   // Deriving the statistics for each would cost the sheet a render.
   const kept: { effects: readonly PreviewEffect[] | undefined } = { effects: undefined };
   const { ranks } = preview;
+
   if (ranks !== undefined) {
     // Each rank derives the first time it is picked; a card shows one rank at a time.
     const keptByRank = new Map<SpellRank, readonly PreviewEffect[]>();
+
     const effects = (rank: SpellRank): readonly PreviewEffect[] => {
       const known = keptByRank.get(rank);
+
       if (known !== undefined) {
         return known;
       }
+
       const derived = sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply, rank });
       keptByRank.set(rank, derived);
+
       return derived;
     };
+
     return { ...preview, ranks: { ...ranks, effects } };
   }
+
   const withEffects: EntryPreview = {
     ...preview,
     get effects(): readonly PreviewEffect[] {
       kept.effects ??= sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply });
+
       return kept.effects;
     },
   };
+
   return withAlterations(withEffects, entry, { registry, character });
 }
 
@@ -169,39 +191,51 @@ export function sheetFetchingPreviews(
   const loader = inject(ContentLoader);
   const router = inject(Router);
   const sidePanel = inject(SheetSidePanelState, { optional: true });
+
   const kept: { attempt: Promise<ContentRegistry> | undefined; fetched: ContentRegistry | undefined } = {
     attempt: undefined,
     fetched: undefined,
   };
+
   const fetchKinds = async (): Promise<ContentRegistry> => {
     kept.attempt ??= loader.registry(kinds);
     const { attempt } = kept;
+
     try {
       kept.fetched = await attempt;
+
       return kept.fetched;
     } catch (error) {
       // Only its own failure: a retry already under way is not this attempt's to forget.
       if (kept.attempt === attempt) {
         kept.attempt = undefined;
       }
+
       throw error;
     }
   };
+
   const target = (id: ContentId): LinkTarget | undefined => {
     const held = registry();
     const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
+
     return entry === undefined ? undefined : entryTarget(entry);
   };
+
   const panel = (id: ContentId): PanelLink | undefined => {
     const held = registry();
     const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
+
     return entry === undefined ? undefined : panelLink(entry, { router, sidePanel });
   };
+
   const onCharacter = (entry: ContentEntry | undefined): EntryPreview | undefined =>
     entry === undefined ? undefined : previewOnCharacter(entry, registry(), character());
+
   return {
     preview: (id) => {
       const held = registry();
+
       return onCharacter(held === undefined ? undefined : sheetEntry(held, id));
     },
     load: async (id) => onCharacter(sheetEntryIn(await fetchKinds(), id)),

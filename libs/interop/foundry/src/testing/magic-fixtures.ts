@@ -150,6 +150,7 @@ export const MAGIC: readonly DocumentFixture[] = [
 /** Bless with a duration of no rounds, ending as `expiry` says. */
 export function effectOfNoTime(expiry: unknown): DocumentFixture {
   const { system } = BLESS_EFFECT;
+
   return { ...BLESS_EFFECT, system: { ...system, duration: { expiry, sustained: false, unit: 'rounds', value: 0 } } };
 }
 
@@ -185,6 +186,7 @@ export function featEffectOf(id: string, name: string): DocumentFixture {
 /** Rage with a rolled badge of `formula`. */
 export function effectWithBadge(formula: string): DocumentFixture {
   const { system } = RAGE_EFFECT;
+
   return {
     ...RAGE_EFFECT,
     system: { ...system, badge: { evaluate: true, reevaluate: FOUNDRY_NULL, type: 'formula', value: formula } },

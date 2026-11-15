@@ -14,6 +14,7 @@ function render(value: string | undefined): ComponentFixture<Segmented<string>> 
   fixture.componentRef.setInput('value', value);
   fixture.componentRef.setInput('ariaLabel', 'Unit');
   fixture.detectChanges();
+
   return fixture;
 }
 

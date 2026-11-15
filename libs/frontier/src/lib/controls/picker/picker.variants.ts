@@ -5,13 +5,16 @@ import { forcedOptionClasses } from '../control.variants';
 /** In the page flow below the trigger, never an overlay: on a phone it pushes content down instead of covering it. */
 export const pickerPanelClasses = cva('mt-2xs block border border-line-default bg-surface-overlay')();
 export const pickerSearchClasses = cva('block border-b border-line-subtle p-xs')();
+
 /** Scrolls both ways, so a wide table moves inside the panel and never the page. */
 export const pickerScrollerClasses = cva('block max-h-picker overflow-auto')();
 export const pickerGridClasses = cva('block w-full')();
+
 /** Sticks to the top of the scroller, and scrolls sideways with the body. */
 export const pickerHeaderRowClasses = cva(
   'sticky top-none z-sticky flex w-max min-w-full border-b border-line-default bg-surface-overlay',
 )();
+
 /** The rows' box: as tall as all the rows together, so the scroll bar is true; rows place themselves inside it. */
 export const pickerBodyClasses = cva('relative block w-max min-w-full')();
 

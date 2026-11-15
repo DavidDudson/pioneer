@@ -19,6 +19,7 @@ export interface BrowserLink {
  */
 export function browserLink(entry: ContentEntryRef, words: string): BrowserLink {
   const trimmed = words.trim();
+
   return {
     commands: ['/content', entry.kind, entry.name],
     queryParams: {
@@ -33,6 +34,8 @@ export function originOf(state: unknown): string | undefined {
   if (typeof state !== 'object' || state === null || !(ORIGIN_STATE in state)) {
     return undefined;
   }
+
   const origin: unknown = state[ORIGIN_STATE];
+
   return typeof origin === 'string' && origin.startsWith('/') && !origin.startsWith('//') ? origin : undefined;
 }

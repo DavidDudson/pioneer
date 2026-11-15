@@ -13,6 +13,7 @@ export const ENVIRONMENTS_MAX = 16;
  * conditions: their rules apply while they are listed, and the player or the GM toggles them.
  */
 export const ActiveEnvironmentsSchema = z.array(ContentId).max(ENVIRONMENTS_MAX).readonly().default([]);
+
 export type ActiveEnvironments = z.infer<typeof ActiveEnvironmentsSchema>;
 
 /** The play edits that put the character in an environment or take it out. */
@@ -20,6 +21,7 @@ export const EnvironmentCommandField = {
   /** An environment turned on or off. */
   SetEnvironment: 'setEnvironment',
 } as const;
+
 export type EnvironmentCommandField = ValueOf<typeof EnvironmentCommandField>;
 
 export const EnvironmentCommandSchema = z.discriminatedUnion('field', [
@@ -29,6 +31,7 @@ export const EnvironmentCommandSchema = z.discriminatedUnion('field', [
     active: z.boolean(),
   }),
 ]);
+
 export type EnvironmentCommand = z.infer<typeof EnvironmentCommandSchema>;
 
 /** Whether `command` turns an environment on or off. */
@@ -47,9 +50,11 @@ export function applyEnvironmentCommand(
   { environment, active }: EnvironmentCommand,
 ): ActiveEnvironments {
   const listed = environments.includes(environment);
+
   if (!active) {
     return environments.filter((each) => each !== environment);
   }
+
   return listed || environments.length >= ENVIRONMENTS_MAX ? environments : [...environments, environment];
 }
 
@@ -66,6 +71,7 @@ export type EnvironmentContent = ReadonlyMap<ContentId, EnvironmentData>;
 
 export function environmentContent(registry: ContentRegistry): EnvironmentContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(
     entries.flatMap((entry) => (entry.kind === ContentKind.Environment ? [[entry.id, entry.data] as const] : [])),
   );
@@ -87,6 +93,7 @@ export function displacedBy(
   environment: ContentId,
 ): ActiveEnvironments {
   const group = groups.get(environment);
+
   return group === undefined ? [] : environments.filter((each) => each !== environment && groups.get(each) === group);
 }
 

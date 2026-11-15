@@ -33,7 +33,9 @@ const TONE_PROPERTIES: Readonly<Record<DamageTone, string>> = {
   spirit: '--fr-damage-spirit',
   bleed: '--fr-damage-bleed',
 };
+
 const UNTYPED_PROPERTY = '--fr-fg-default';
+
 /** The custom property holding the numeral colour of a natural 20 and of a natural 1. */
 const NATURAL_PROPERTIES: Readonly<Record<Natural, string>> = { high: '--fr-natural-max', low: '--fr-natural-min' };
 const DARK_NUMERALS = '#111111';
@@ -67,12 +69,15 @@ function toRgb(colour: string): Rgb {
   canvas.width = PIXEL;
   canvas.height = PIXEL;
   const context = canvas.getContext('2d', { willReadFrequently: true });
+
   if (context === null) {
     return { red: 0, green: 0, blue: 0 };
   }
+
   context.fillStyle = colour;
   context.fillRect(0, 0, PIXEL, PIXEL);
   const [red = 0, green = 0, blue = 0] = context.getImageData(0, 0, PIXEL, PIXEL).data;
+
   return { red, green, blue };
 }
 
@@ -99,6 +104,7 @@ function colorSetFor(tone: DamageTone | undefined, natural: Natural | undefined)
   const contrast = brightness > LIGHTNESS_SPLIT ? DARK_NUMERALS : LIGHT_NUMERALS;
   const numerals = natural === undefined ? contrast : toHex(toRgb(computed(NATURAL_PROPERTIES[natural])));
   const background = toHex(rgb);
+
   return {
     name: `pio-${tone ?? 'untyped'}-${background}-${natural ?? 'plain'}`,
     foreground: numerals,
@@ -122,6 +128,7 @@ export const threeDiceRoller: DiceRollerFactory = async (surface) => {
   surface.id = `pio-dice-surface-${surfaceCount}`;
   const box = new DiceBox(`#${surface.id}`, { sounds: false, shadows: false });
   await box.initialize();
+
   return {
     roll: async (groups, natural) => {
       const tone = groups.find((group) => group.tone !== undefined)?.tone;

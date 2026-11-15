@@ -77,14 +77,18 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     kyraCharacter = character;
 
     const campaigns = new DrizzleCampaignRepository(database.db);
+
     const campaign = await campaigns.insert(
       new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
+
     if (member === undefined) {
       throw new Error('Amiri is not in the campaign');
     }
+
     memberId = member.id;
 
     const packs = new DrizzleHomebrewPackRepository(database.db);
@@ -156,6 +160,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     const refusal = await service
       .enable(amiri, kyra, { packId: ContentPackId.parse(items.id) })
       .catch((error: unknown) => error);
+
     expect(refusal).toMatchObject({ name: 'NotFoundError' });
   });
 

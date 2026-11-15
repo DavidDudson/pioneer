@@ -49,14 +49,18 @@ describe('inventoryViolations (properties)', () => {
     assert(
       property(inventory, investedMax, handsMax, (stock, invested, hands) => {
         const tight = RuleLimitsSchema.parse({ ...CORE_RULE_LIMITS, investedMax: invested, handsMax: hands });
+
         const loose = RuleLimitsSchema.parse({
           ...tight,
           investedMax: invested + SPARE,
           handsMax: hands + SPARE,
         });
+
         const keys = (limits: typeof tight): Set<string> =>
           new Set(inventoryViolations(stock, content, limits).map((each) => `${each.rule}:${each.item}`));
+
         const before = keys(tight);
+
         for (const key of keys(loose)) {
           expect(before.has(key)).toBe(true);
         }

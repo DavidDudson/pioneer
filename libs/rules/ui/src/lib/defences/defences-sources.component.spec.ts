@@ -13,6 +13,7 @@ async function lines(kind: 'weaknesses' | 'resistances', type: 'area-damage' | '
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
+
   return [...host.querySelectorAll('[role="listitem"]')].map(
     (item) => item.querySelector('fr-text')?.textContent.trim() ?? '',
   );

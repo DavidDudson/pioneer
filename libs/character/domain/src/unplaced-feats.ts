@@ -17,6 +17,7 @@ export interface UnplacedFeatBreak {
  */
 export function unplacedFeatBreaks({ build }: Pick<CharacterDocument, 'build'>): readonly UnplacedFeatBreak[] {
   const picked = new Set<string>(Object.values(build.choices));
+
   return build.unplacedFeats
     .filter((feat) => !picked.has(feat))
     .map((feat) => ({ feat, reason: message(SlotInvalidMessage.NoSlot) }));
@@ -25,5 +26,6 @@ export function unplacedFeatBreaks({ build }: Pick<CharacterDocument, 'build'>):
 /** The build without `feat` among its unplaced feats; unchanged when it isn't one. */
 export function withoutUnplacedFeat(build: Build, feat: ChoiceValue | ContentId): Build {
   const listed = build.unplacedFeats.some((each) => each === feat);
+
   return listed ? { ...build, unplacedFeats: build.unplacedFeats.filter((each) => each !== feat) } : build;
 }

@@ -14,6 +14,7 @@ import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 /** The value the character has `id` at: the highest of its instances, as the grants keep; none for an unvalued one. */
 function valueOf(active: readonly ActiveCondition[]): ConditionValue | undefined {
   const values = active.flatMap(({ value }) => (value === undefined ? [] : [value]));
+
   return values.length === 0 ? undefined : ConditionValue.parse(Math.max(...values));
 }
 
@@ -28,17 +29,22 @@ function heldConditionPreview(
   id: ContentId,
 ): EntryPreview | undefined {
   const active = character?.document.play.conditions.filter(({ condition }) => condition === id) ?? [];
+
   if (registry === undefined || character === undefined || active.length === 0) {
     return undefined;
   }
+
   const condition = sheetEntry(registry, id);
   const preview = sheetEntryPreview(registry, id);
+
   if (condition?.kind !== ContentKind.Condition || preview === undefined) {
     return undefined;
   }
+
   const value = valueOf(active);
   const easeOptions = conditionEaseOptions(registry, character, id);
   const endings = heldConditionEndings(registry, character, { endings: condition.data.recovery, value });
+
   return {
     ...preview,
     ...(value === undefined ? {} : { value }),
@@ -63,11 +69,14 @@ export function genericConditionPreview(
 ): EntryPreview | undefined {
   const condition = registry === undefined ? undefined : sheetEntry(registry, id);
   const preview = sheetEntryPreview(registry, id);
+
   if (registry === undefined || condition?.kind !== ContentKind.Condition || preview === undefined) {
     return undefined;
   }
+
   return conditionCard(condition, preview, (source) => {
     const entry = sheetEntry(registry, source);
+
     return entry === undefined ? undefined : { id: source, name: entry.name };
   });
 }

@@ -8,6 +8,7 @@ import { RollOption } from './roll-option';
 
 /** A number a comparison tests a numeric roll option against (`{ "gte": ["self:level", 5] }`). */
 export const PredicateNumber = z.number().brand<'PredicateNumber'>();
+
 export type PredicateNumber = z.infer<typeof PredicateNumber>;
 
 /**
@@ -50,6 +51,7 @@ const Operands = z.tuple([RollOption, z.union([RollOption, PredicateNumber])]);
  */
 const Statement: z.ZodType<PredicateStatement> = z.lazy(() => {
   const statements = z.array(Statement).min(1);
+
   return z.union([
     RollOption,
     z.strictObject({ eq: Operands }),
@@ -81,6 +83,7 @@ const PREDICATE_BOUNDS: JsonBounds = {
  */
 function depthGuarded<TOutput>(schema: z.ZodType<TOutput>): z.ZodType<TOutput> {
   const tooDeepMessage = message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX });
+
   return z
     .unknown()
     .refine((value) => exceededBound(value, PREDICATE_BOUNDS) === undefined, {

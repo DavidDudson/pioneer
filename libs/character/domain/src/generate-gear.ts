@@ -75,6 +75,7 @@ export function fitsTheme(entry: ItemEntry, { group, base }: WeaponTheme): boole
 
 /** The fraction of the coins left one purchase may cost, as its divisor: 3 is a third. */
 const Share = z.int().positive().brand<'Share'>();
+
 type Share = z.infer<typeof Share>;
 
 /** Namespace of the ids a generated character's gear takes, so the same character and seed give the same lines. */
@@ -101,6 +102,7 @@ const ARMOR: Want = { kinds: [ContentKind.Armor], share: THIRD, used: true };
 const WEAPON: Want = { kinds: [ContentKind.Weapon], share: THIRD, used: true };
 const SHIELD: Want = { kinds: [ContentKind.Shield], share: QUARTER, used: true };
 const EXTRA: Want = { kinds: [ContentKind.Consumable, ContentKind.Equipment], share: FIFTH, used: false };
+
 /** How many extras a character is outfitted with, when its coins allow. */
 const EXTRAS_MAX = 6;
 
@@ -112,10 +114,12 @@ function priceOf(entry: ItemEntry): CopperValue | undefined {
 /** What the lines of `inventory` are worth at their content's prices. */
 export function itemsValue(inventory: Inventory, items: ItemContent): CopperValue {
   let total = 0;
+
   for (const line of inventory.items) {
     const price = items.get(line.item)?.data.price;
     total += price === undefined ? FREE : purchaseCost(price, line.quantity);
   }
+
   return CopperValue.parse(total);
 }
 
@@ -130,6 +134,7 @@ function carryOf(entry: ItemEntry): Carry {
 function unencumbered(character: Character, shop: Shop): boolean {
   const { document } = character;
   const strength = attributeModifiers(document, shop.slots.boosts).get(Attribute.Strength);
+
   return (
     inventoryBulk({ ...document.inventory, coins: NO_COINS }, shop.items, strength).encumbrance ===
     Encumbrance.Unencumbered
@@ -154,6 +159,7 @@ function using(character: Character, line: Line, shop: Shop): Character | undefi
   const carry = carryOf(entry);
   const { inventory } = character.document;
   const refused = inventoryRefusal(inventory, { id, carry }) ?? itemRefusal(shop.items, inventory, { id, carry });
+
   return refused === undefined
     ? character.apply({ field: CharacterPatchField.CarryItem, id, carry }, shop.now)
     : undefined;
@@ -164,12 +170,15 @@ function attempt({ character, want }: Buying, entry: ItemEntry, shop: Shop): Cha
   const cost = priceOf(entry);
   const { inventory } = character.document;
   const id = InventoryItemId.parse(derivedId(GEAR_NAMESPACE, `${character.id}:${inventory.items.length}`));
+
   if (cost === undefined || inventoryRefusal(inventory, { item: entry.id }) !== undefined) {
     return undefined;
   }
+
   const patch = { field: CharacterPatchField.BuyItem, item: entry.id, quantity: ONE_ITEM, container: undefined };
   const bought = character.apply(patch, shop.now, { newItemId: id, cost });
   const equipped = want.used ? using(bought, { id, entry }, shop) : bought;
+
   return equipped !== undefined && unencumbered(equipped, shop) ? equipped : undefined;
 }
 
@@ -184,8 +193,10 @@ function wornWeapon(entry: ItemEntry): boolean {
  */
 function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): readonly ItemEntry[] {
   const owned = new Set<ContentId>(character.document.inventory.items.map((line) => line.item));
+
   return [...shop.items.values()].filter((entry) => {
     const cost = priceOf(entry);
+
     return (
       want.kinds.includes(entry.kind) &&
       (want.only === undefined || fitsTheme(entry, want.only)) &&
@@ -207,6 +218,7 @@ const LEVEL_BAND = 2;
 /** The items within `LEVEL_BAND` levels of the highest in `offer`. */
 function topOf(offer: readonly ItemEntry[]): readonly ItemEntry[] {
   const best = Math.max(...offer.map((entry) => entry.level), 0);
+
   return offer.filter((entry) => entry.level + LEVEL_BAND >= best);
 }
 
@@ -220,14 +232,17 @@ function buy(character: Character, want: Want, shop: Shop): Character {
   const cap = CopperValue.parse(Math.floor(left / want.share));
   const offer = candidates({ character, want }, cap, shop);
   const pools = want.used ? [topOf(offer), offer] : [topOf(offer)];
+
   for (const pool of pools) {
     for (const entry of shuffle(shop.source, pool).slice(0, ATTEMPTS_MAX)) {
       const bought = attempt({ character, want }, entry, shop);
+
       if (bought !== undefined) {
         return bought;
       }
     }
   }
+
   return character;
 }
 
@@ -243,15 +258,19 @@ interface Armament {
  */
 function armed(character: Character, shop: Shop, themed: Armament): Character {
   const { weapon, runes } = themed;
+
   if (weapon === undefined) {
     return buy(character, WEAPON, shop);
   }
+
   const bought = buy(character, { ...WEAPON, only: weapon }, shop);
   const line = bought.document.inventory.items.at(-1);
   const gained = bought.document.inventory.items.length > character.document.inventory.items.length;
+
   if (!gained || line === undefined) {
     return buy(character, WEAPON, shop);
   }
+
   return runes === undefined
     ? bought
     : etchWeapon(bought, line.id, { items: shop.items, runes, now: shop.now, source: shop.source });
@@ -263,6 +282,7 @@ function funded(character: Character, shop: Shop, treasure: TreasureByLevel): Ch
   const budget = treasureAt(treasure, document.level);
   const owned = itemsValue(document.inventory, shop.items);
   const coins = coinsOf(CopperValue.parse(Math.max(budget - owned, FREE)));
+
   return character.apply({ field: CharacterPatchField.SetCoins, coins }, shop.now);
 }
 
@@ -270,6 +290,7 @@ function funded(character: Character, shop: Shop, treasure: TreasureByLevel): Ch
 function purseTrimmed(character: Character, shop: Shop): Character {
   const left = Math.min(coinsValue(character.document.inventory.coins), PURSE_MAX);
   const coins = coinsOf(CopperValue.parse(left));
+
   return character.apply({ field: CharacterPatchField.SetCoins, coins }, shop.now);
 }
 
@@ -293,8 +314,10 @@ export function generateGear({
   const shop: Shop = { items, slots, source: seededPicks(seed), now, trained: trainedCategories(character, slots) };
   const wants = [ARMOR, WEAPON, SHIELD, ...Array.from({ length: EXTRAS_MAX }, () => EXTRA)];
   let outfitted = funded(character, shop, treasure);
+
   for (const want of wants) {
     outfitted = want === WEAPON ? armed(outfitted, shop, { weapon, runes }) : buy(outfitted, want, shop);
   }
+
   return purseTrimmed(outfitted, shop);
 }

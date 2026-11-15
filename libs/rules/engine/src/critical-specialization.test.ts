@@ -30,12 +30,14 @@ const DEFINITIONS = [
     per: 'weapon',
   }),
 ];
+
 const LONGSWORD = {
   slug: 'longsword',
   category: 'martial',
   traits: [],
   damage: { dice: 1, die: 'd8', damageType: 'slashing' },
 };
+
 const SWORD = { ...LONGSWORD, group: 'sword', rollOptions: ['group:sword', 'melee'] };
 const ELEMENT = { key: 'CriticalSpecialization' };
 
@@ -58,14 +60,18 @@ function strikeOf(elements: readonly object[], weapon: object, given: Given = {}
     ranks: given.ranks ?? TRAINED,
     weapons: [wielded(weapon as { slug: string })],
   });
+
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
   const facts = new PredicateFacts(
     (given.options ?? RAGING).map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   const rules = elements.map((element, rule) => inPlay(element, `entry-${rule}`, { rule }));
   const modifiers = { rules, facts };
   const results = deriveStatistics(content, inputs, modifiers);
+
   return deriveStrikes(inputs.weapons ?? [], results, {
     inputs: modifiers,
     scope: { statistics: content, character: inputs },
@@ -94,6 +100,7 @@ describe('CriticalSpecialization', () => {
       ...ELEMENT,
       predicate: [{ gte: ['self:level', 5] }, { or: ['item:base:longsword', 'item:base:katana'] }],
     };
+
     const listed = { ...SWORD, rollOptions: ['base:longsword'] };
 
     expect(strikeOf([gated], listed, { options: ['self:level:5'] })?.notes).toHaveLength(1);
@@ -122,6 +129,7 @@ describe('CriticalSpecialization', () => {
       text: [{ type: 'paragraph', content: [{ type: 'text', text: 'The target is wreathed in flame.' }] }],
       damageDice: { formula: '1d6', damageType: 'fire' },
     };
+
     const text = strikeOf([ELEMENT, alternate], SWORD)?.notes.map((note) => JSON.stringify(note.text));
 
     expect(text).toHaveLength(2);
@@ -143,6 +151,7 @@ describe('CriticalSpecialization', () => {
   test('the epithet pair shows only while its toggle is on: the group effect, and the alternate beside it', () => {
     const toggle = 'option:epithet-critical-specialization';
     const base = { ...ELEMENT, predicate: [toggle] };
+
     const alternate = {
       ...base,
       alternate: true,

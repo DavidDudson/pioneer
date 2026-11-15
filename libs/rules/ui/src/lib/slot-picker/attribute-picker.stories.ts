@@ -35,6 +35,7 @@ const meta: Meta<AttributePicker> = {
   args: { rows: ATTRIBUTES, ariaLabel: 'Boost', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** An attribute the slot can't offer stays in the table and says why. */

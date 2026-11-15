@@ -55,6 +55,7 @@ export class ActionsView {
   /** The subtabs, one for each kind the character has actions in, in the UI locale. */
   protected readonly categoryOptions = computed((): readonly SelectOption<ActionCategory>[] => {
     this.#words.changed();
+
     return this.#categories().map((value) => ({ value, label: this.#words.say(ACTION_CATEGORY_MESSAGES[value]) }));
   });
 
@@ -62,6 +63,7 @@ export class ActionsView {
   protected readonly open = computed((): ActionCategory | undefined => {
     const chosen = this.category();
     const categories = this.#categories();
+
     return chosen !== undefined && categories.includes(chosen) ? chosen : categories[0];
   });
 
@@ -69,6 +71,7 @@ export class ActionsView {
   protected readonly shown = computed((): readonly ActionLine[] | undefined => {
     const lines = this.lines();
     const open = this.open();
+
     return lines === undefined || this.#categories().length < 2
       ? lines
       : lines.filter((line) => categoryOf(line) === open);
@@ -77,6 +80,7 @@ export class ActionsView {
   /** The view switch's options, in the UI locale. */
   protected readonly viewOptions = computed((): readonly SelectOption<ActionsViewKind>[] => {
     this.#words.changed();
+
     return [
       { value: ActionsViewKind.Now, label: this.#words.say(ActionsMessage.NowView) },
       { value: ActionsViewKind.All, label: this.#words.say(ActionsMessage.AllView) },

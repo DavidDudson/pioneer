@@ -28,13 +28,16 @@ function urlsBySlug(
   names: ReadonlyMap<AonUrl, string>,
 ): ReadonlyMap<string, AonUrl | undefined> {
   const found = new Map<string, AonUrl | undefined>();
+
   for (const url of urls) {
     const name = names.get(url);
+
     if (name !== undefined) {
       const slug = slugify(name);
       found.set(slug, found.has(slug) ? undefined : url);
     }
   }
+
   return found;
 }
 
@@ -61,7 +64,9 @@ function linked(source: SourceRef, entry: ContentEntry, replaced: ReplacedLegacy
   if (source.kind !== SourceKind.Book || source.aon !== undefined) {
     return source;
   }
+
   const aon = replaced.get(source.book)?.get(plainSlug(entry.slug));
+
   return aon === undefined ? source : { ...source, aon };
 }
 

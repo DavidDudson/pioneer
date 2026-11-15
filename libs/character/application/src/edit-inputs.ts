@@ -38,6 +38,7 @@ function affordable(character: Character, cost: CopperValue, { field, key }: Una
   if (payCost(character.document.inventory.coins, cost) === undefined) {
     throw new ValidationError([{ path: ['patch', field], message: message(key) }]);
   }
+
   return cost;
 }
 
@@ -45,14 +46,19 @@ function affordable(character: Character, cost: CopperValue, { field, key }: Una
 async function kitInputs(content: ContentSource, character: Character, patch: KitPatch): Promise<EditInputs> {
   const registry = await content.registry();
   const kit = kitContent(registry).get(patch.kit);
+
   if (kit === undefined) {
     throw new TypeError(`Kit ${patch.kit} passed the refusals but is not loaded`);
   }
+
   const lines = kitItems(kit.data, patch.container, newItemId);
+
   if (patch.field === CharacterPatchField.GiftKit) {
     return { kitItems: lines };
   }
+
   const cost = purchaseCost(kit.data.price, ONE_KIT);
+
   return { kitItems: lines, cost: affordable(character, cost, UNAFFORDABLE_KIT) };
 }
 
@@ -69,10 +75,13 @@ export async function editInputs(
   if (isKitPatch(patch)) {
     return kitInputs(content, character, patch);
   }
+
   if (patch.field !== CharacterPatchField.BuyItem) {
     return { newItemId: newItemId() };
   }
+
   const registry = await content.registry();
   const cost = purchaseCost(itemContent(registry).get(patch.item)?.data.price, patch.quantity);
+
   return { newItemId: newItemId(), cost: affordable(character, cost, UNAFFORDABLE_ITEM) };
 }

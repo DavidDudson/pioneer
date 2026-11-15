@@ -65,6 +65,7 @@ describe('CampaignPartyStashService', () => {
     });
     vaults = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(merisiel).build());
     const attachedAt = Temporal.Instant.from('2026-10-10T10:00:00Z');
+
     const attach = async (characterId: CharacterId, owner: UserId): Promise<CampaignId | undefined> =>
       party.attach(vaults.id, {
         id: CampaignCharacterId.parse(newId()),
@@ -72,6 +73,7 @@ describe('CampaignPartyStashService', () => {
         memberId: memberIdOf(vaults, owner),
         attachedAt,
       });
+
     await attach(kyra, ezren);
     await attach(seelah, merisiel);
     await attach(dormant, ezren);

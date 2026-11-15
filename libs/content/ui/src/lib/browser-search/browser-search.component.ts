@@ -35,6 +35,7 @@ export class BrowserSearch {
     const kinds = this.kindOptions()
       .map((option) => option.value)
       .filter((kind) => picked.has(kind));
+
     this.state.update((state) => ({ ...state, kinds, selected: undefined }));
   }
 }

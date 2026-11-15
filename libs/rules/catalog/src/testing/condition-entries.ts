@@ -14,9 +14,11 @@ export const conditions: readonly ConditionEntry[] = ContentEntryFile.parse(file
 /** The sources of `entry`, of which an entry has at least one. */
 function sourcesOf({ sources, slug }: ConditionEntry): GrantEntry['sources'] {
   const [first, ...rest] = sources;
+
   if (first === undefined) {
     throw new Error(`${slug} has no source`);
   }
+
   return [first, ...rest];
 }
 
@@ -36,8 +38,10 @@ export const conditionGrantEntries: readonly GrantEntry[] = conditions.map((each
 /** The id of the Player Core condition named `name`. */
 export function idNamed(name: string): ContentId {
   const found = conditions.find((each) => slugName(each.slug) === name);
+
   if (found === undefined) {
     throw new Error(`no Player Core condition ${name}`);
   }
+
   return found.id;
 }

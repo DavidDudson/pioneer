@@ -17,6 +17,7 @@ function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
       ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names, ...kind.descriptions.map(({ file }) => file)]),
     ].map((file) => bundlePath(pack.id, file)),
   );
+
   return new Set<StoredKey>([MANIFEST_KEY, ...paths]);
 }
 
@@ -45,12 +46,14 @@ export class ContentBundleCache {
   public async manifest(): Promise<ContentManifest> {
     const manifest = this.#manifest ?? this.#readManifest();
     this.#manifest = manifest;
+
     try {
       return await manifest;
     } catch (error) {
       if (this.#manifest === manifest) {
         this.#manifest = undefined;
       }
+
       throw error;
     }
   }
@@ -72,15 +75,18 @@ export class ContentBundleCache {
     if (packs.length === 0) {
       return NO_PACKS;
     }
+
     const key = [...new Set(packs)].toSorted().join(',');
     const manifest = this.#homebrewManifests.get(key) ?? this.#delivery.homebrewManifest(packs);
     this.#homebrewManifests.set(key, manifest);
+
     try {
       return await manifest;
     } catch (error) {
       if (this.#homebrewManifests.get(key) === manifest) {
         this.#homebrewManifests.delete(key);
       }
+
       throw error;
     }
   }
@@ -90,12 +96,14 @@ export class ContentBundleCache {
     const path = bundlePath(pack, file);
     const body = this.#homebrewBodies.get(path) ?? this.#delivery.homebrewBundle(pack, file);
     this.#homebrewBodies.set(path, body);
+
     try {
       return await body;
     } catch (error) {
       if (this.#homebrewBodies.get(path) === body) {
         this.#homebrewBodies.delete(path);
       }
+
       throw error;
     }
   }
@@ -120,6 +128,7 @@ export class ContentBundleCache {
     const path = bundlePath(pack, file);
     const reading = this.#bundlesInFlight.get(path) ?? this.#readOrFetch(pack, file, path);
     this.#bundlesInFlight.set(path, reading);
+
     try {
       return await reading;
     } finally {
@@ -131,11 +140,14 @@ export class ContentBundleCache {
 
   async #readOrFetch(pack: PackId, file: BundleFile, path: BundlePath): Promise<unknown> {
     const kept = await this.#read(path);
+
     if (kept !== undefined) {
       return kept;
     }
+
     const body = await this.#delivery.bundle(pack, file);
     await this.#write(path, body);
+
     return body;
   }
 
@@ -145,12 +157,15 @@ export class ContentBundleCache {
       // Kept in the background: only the next session reads it, and the sheet's content waits on this answer.
       // oxlint-disable-next-line typescript/no-floating-promises -- #keep catches every error, so it never rejects
       this.#keep(manifest);
+
       return manifest;
     } catch (error) {
       const kept = ContentManifest.safeParse(await this.#read(MANIFEST_KEY));
+
       if (kept.success) {
         return kept.data;
       }
+
       throw error;
     }
   }
@@ -164,9 +179,11 @@ export class ContentBundleCache {
   /** Removes every bundle `manifest` no longer names. */
   async #evict(manifest: ContentManifest): Promise<void> {
     const current = currentKeys(manifest);
+
     try {
       const kept = await this.#store.keys();
       const stale = kept.filter((key) => !current.has(key));
+
       if (stale.length > 0) {
         await this.#store.remove(stale);
       }

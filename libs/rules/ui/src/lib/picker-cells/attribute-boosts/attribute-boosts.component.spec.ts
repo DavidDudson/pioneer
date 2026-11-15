@@ -7,6 +7,7 @@ import { AttributeBoosts } from './attribute-boosts.component';
 function badges(host: HTMLElement): readonly string[] {
   return [...host.querySelectorAll('fr-badge')].map((badge) => {
     const parts = [...badge.querySelectorAll('fr-text')].map((part) => part.textContent.trim());
+
     return parts.length === 0 ? badge.textContent.trim() : parts.join(' ');
   });
 }
@@ -16,6 +17,7 @@ describe(AttributeBoosts, () => {
     const host = await renderCell(AttributeBoosts, {
       boosts: [[Attribute.Constitution], [Attribute.Strength, Attribute.Dexterity]],
     });
+
     expect(badges(host)).toStrictEqual(['Constitution', 'Strength or Dexterity']);
   });
 

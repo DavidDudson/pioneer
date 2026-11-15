@@ -27,7 +27,9 @@ function sourcesOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly S
         ),
       ),
     );
+
   SOURCES.set(registry, read);
+
   return read;
 }
 
@@ -42,8 +44,10 @@ export function languageRows(
 ): readonly LanguagePickerRow[] {
   const defined = new Map(languageContent(registry).languages.map((each) => [String(each.id), each]));
   const sources = sourcesOf(registry);
+
   return offered.map(({ id, name }): LanguagePickerRow => {
     const content = ContentId.safeParse(id);
+
     return {
       id,
       name,

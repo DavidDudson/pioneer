@@ -18,6 +18,7 @@ const meta: Meta<OptionalNumberInput> = {
     template: `<fr-optional-number-input ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 /** No value: the box is empty and shows what that means. */

@@ -17,6 +17,7 @@ describe(checkVerdict, () => {
       'self:effect:rage',
       CORE_NAMESPACES,
     );
+
     expect(check).toStrictEqual({
       status: VerdictStatus.Valid,
       truth: Truth.Unknown,
@@ -44,6 +45,7 @@ describe(checkVerdict, () => {
       '',
       CORE_NAMESPACES,
     );
+
     expect(check).toMatchObject({
       status: VerdictStatus.Valid,
       truth: Truth.False,

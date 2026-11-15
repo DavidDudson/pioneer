@@ -16,7 +16,9 @@ function summaryKeyOf(row: FacetRow): string {
   if (row.kind === FacetRowKind.Chips) {
     return row.selected.size === 0 ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryPicked;
   }
+
   const open = row.min === undefined && row.max === undefined;
+
   return open ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryBounded;
 }
 
@@ -54,6 +56,7 @@ export class FacetFilterView {
   protected readonly chipOptions: Signal<ReadonlyMap<FacetId, readonly SelectOption<FacetValue>[]>> = computed(() => {
     this.#messages();
     const chips = this.rows().filter((row): row is ChipsRow => row.kind === FacetRowKind.Chips);
+
     return new Map(chips.map((row) => [row.facet.id, row.values.map((chip) => this.#chipOption(chip))]));
   });
 
@@ -79,10 +82,12 @@ export class FacetFilterView {
 
   #chipOption({ value, key, shown, count }: ChipValue): SelectOption<FacetValue> {
     const name = key === undefined ? shown : this.#i18n.translate(key);
+
     const label = this.#i18n.translate(FacetFilterMessage.Chip, {
       value: name,
       count: this.#format.number(count),
     });
+
     return { value, label };
   }
 }

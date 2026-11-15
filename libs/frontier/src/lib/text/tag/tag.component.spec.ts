@@ -7,10 +7,13 @@ import { Tag } from './tag.component';
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Tag);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

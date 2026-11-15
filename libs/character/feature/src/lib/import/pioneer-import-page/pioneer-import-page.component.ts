@@ -105,6 +105,7 @@ export class PioneerImportPage {
   /** Asked of the server once the text is JSON; a file it can't read comes back as the query's error. */
   protected readonly preview = injectQuery(() => {
     const file = this.#file();
+
     return {
       queryKey: ['characters', 'pioneer-import-preview', this.#text()],
       queryFn: async (): Promise<PioneerImportPreview> => this.#store.previewPioneerImport(file?.value),
@@ -118,7 +119,9 @@ export class PioneerImportPage {
     if (this.malformed()) {
       return this.#i18n.translate('character.import.pioneer.problem.malformed');
     }
+
     const error = this.preview.error();
+
     return error === null ? undefined : this.describe(error);
   });
 
@@ -153,6 +156,7 @@ export class PioneerImportPage {
 
   protected describe(error: unknown): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
+
     return issue === undefined
       ? this.#i18n.translate('character.import.pioneer.failed')
       : this.#i18n.translate(issue.message.key, issue.message.params);

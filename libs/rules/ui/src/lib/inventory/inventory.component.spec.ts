@@ -13,6 +13,7 @@ async function render(groups: readonly InventoryGroup[] | undefined): Promise<HT
   const fixture: ComponentFixture<InventoryView> = TestBed.createComponent(InventoryView);
   fixture.componentRef.setInput('groups', groups);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

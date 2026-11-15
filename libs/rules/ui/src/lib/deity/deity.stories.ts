@@ -10,6 +10,7 @@ const meta: Meta<DeityView> = {
   title: 'Rules/Deity',
   component: DeityView,
 };
+
 export default meta;
 
 /** While the character loads. */

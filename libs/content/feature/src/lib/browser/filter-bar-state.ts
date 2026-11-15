@@ -15,6 +15,7 @@ export type Label = (key: string) => string;
 function optionsOf({ facet, values }: FacetCounts, label: Label): readonly FilterOption[] {
   return values.map(({ value, count }) => {
     const key = facet.values?.get(value);
+
     return { value, label: key === undefined ? value : label(key), count };
   });
 }
@@ -27,6 +28,7 @@ export function filterFields(counts: readonly FacetCounts[], label: Label): read
   return counts.map((each) => {
     const kind = KINDS[each.facet.type];
     const base = { id: each.facet.id, label: label(each.facet.label), kind };
+
     return kind === FilterKind.Range ? base : { ...base, options: optionsOf(each, label) };
   });
 }
@@ -40,6 +42,7 @@ function valuesConditions(
     include.length === 0
       ? []
       : [{ field, operator: include.length === 1 ? FilterOperator.Is : FilterOperator.IsAnyOf, values: include }];
+
   return [...included, ...exclude.map((value) => ({ field, operator: FilterOperator.IsNot, values: [value] }))];
 }
 
@@ -47,9 +50,11 @@ function rangeConditions(field: FacetId, min: number | undefined, max: number | 
   if (min === undefined && max === undefined) {
     return [];
   }
+
   if (min === max) {
     return [{ field, operator: FilterOperator.Is, values: [String(min)] }];
   }
+
   return [{ field, operator: FilterOperator.Between, values: [String(min ?? ''), String(max ?? '')] }];
 }
 
@@ -69,6 +74,7 @@ export function filterConditions(state: FilterState): readonly FilterCondition[]
 
 function bound(text: string | undefined): RangeBound | undefined {
   const parsed = RangeBound.safeParse(text === undefined || text === '' ? undefined : Number(text));
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -79,6 +85,7 @@ function union(left: readonly FacetValue[], right: readonly FacetValue[]): reado
 function facetValueList(values: readonly string[]): readonly FacetValue[] {
   return values.flatMap((value) => {
     const parsed = FacetValue.safeParse(value);
+
     return parsed.success ? [parsed.data] : [];
   });
 }
@@ -87,9 +94,11 @@ function addToValues(current: FacetSelection | undefined, condition: FilterCondi
   const values = facetValueList(condition.values);
   const include = current?.kind === SelectionKind.Values ? current.include : [];
   const exclude = current?.kind === SelectionKind.Values ? current.exclude : [];
+
   if (values.length === 0) {
     return current;
   }
+
   return condition.operator === FilterOperator.IsNot
     ? { kind: SelectionKind.Values, include, exclude: union(exclude, values) }
     : { kind: SelectionKind.Values, include: union(include, values), exclude };
@@ -99,6 +108,7 @@ function addToRange(condition: FilterCondition): FacetSelection | undefined {
   const [first, second] = condition.values;
   const min = bound(first);
   const max = condition.operator === FilterOperator.Between ? bound(second) : min;
+
   return min === undefined && max === undefined ? undefined : { kind: SelectionKind.Range, min, max };
 }
 
@@ -109,15 +119,19 @@ function addToRange(condition: FilterCondition): FacetSelection | undefined {
  */
 export function filterState(conditions: readonly FilterCondition[], facets: readonly FacetDefinition[]): FilterState {
   const state = new Map<FacetId, FacetSelection>();
+
   for (const condition of conditions) {
     const facet = facets.find((candidate) => candidate.id === condition.field);
+
     if (facet !== undefined) {
       const isRange = facet.type === FacetType.Range;
       const next = isRange ? addToRange(condition) : addToValues(state.get(facet.id), condition);
+
       if (next !== undefined) {
         state.set(facet.id, next);
       }
     }
   }
+
   return state;
 }

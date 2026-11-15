@@ -4,10 +4,12 @@ import * as z from 'zod';
 
 /** How an item is carried: worn, held in one or two hands, stowed (in a container or loose) or dropped. */
 export const CarryState = { Worn: 'worn', Held: 'held', Stowed: 'stowed', Dropped: 'dropped' } as const;
+
 export type CarryState = ValueOf<typeof CarryState>;
 
 /** A count of hands: those a held item takes, or those in use. */
 export const Hands = Pg.smallint().nonnegative().brand<'Hands'>();
+
 export type Hands = z.infer<typeof Hands>;
 
 export const ONE_HAND = Hands.parse(1);
@@ -22,12 +24,14 @@ export const CarrySchema = z.discriminatedUnion('state', [
   z.strictObject({ state: z.literal(CarryState.Stowed) }),
   z.strictObject({ state: z.literal(CarryState.Dropped) }),
 ]);
+
 export type Carry = z.infer<typeof CarrySchema>;
 
 export const STOWED: Carry = { state: CarryState.Stowed };
 
 /** A count of invested items. */
 export const InvestedCount = Pg.smallint().nonnegative().brand<'InvestedCount'>();
+
 export type InvestedCount = z.infer<typeof InvestedCount>;
 
 /** The most items a character can have invested at once. */

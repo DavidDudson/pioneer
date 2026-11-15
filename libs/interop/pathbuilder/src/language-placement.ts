@@ -28,6 +28,7 @@ function matched(names: readonly ImportedName[], lookup: ContentLookup): Wanted[
     .filter(({ kind }) => kind === ImportKind.Language)
     .flatMap(({ name }): Wanted[] => {
       const match = lookup.resolve(ImportKind.Language, name);
+
       return match === undefined ? [] : [{ name, id: ContentId.parse(match.id) }];
     });
 }
@@ -37,6 +38,7 @@ function unmatched(names: readonly ImportedName[], lookup: ContentLookup): Pathb
   const unknown = names
     .filter(({ kind, name }) => kind === ImportKind.Language && lookup.resolve(ImportKind.Language, name) === undefined)
     .map(({ name }) => name);
+
   return [...new Set(unknown)];
 }
 
@@ -55,16 +57,19 @@ function pick(document: CharacterDocument, slots: SlotContent, wantedIds: Readon
   const level = Level.parse(document.level);
   const picks: Record<SlotKey, ChoiceValue> = {};
   const taken = new Set<ContentId>();
+
   for (const slot of languageSlots(document, languageReads(document, slots))) {
     const option =
       slot.level <= level && slot.stored === undefined
         ? slot.options.find(({ id }) => wantedIds.has(id) && !taken.has(id))
         : undefined;
+
     if (option !== undefined) {
       taken.add(option.id);
       picks[slot.key] = ChoiceValue.parse(option.id);
     }
   }
+
   return picks;
 }
 
@@ -82,6 +87,7 @@ export function placeLanguages(
   const picks = pick(document, slots, new Set(wanted.map(({ id }) => id)));
   const placed = withPicks(document, picks);
   const known = new Set(knownLanguages(placed, languageReads(placed, slots)).map(({ language }) => language.id));
+
   return {
     choices: picks,
     unplaced: wanted.filter(({ id }) => !known.has(id)).map(({ name }) => name),

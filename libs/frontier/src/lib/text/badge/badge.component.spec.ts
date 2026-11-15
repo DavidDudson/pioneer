@@ -8,23 +8,29 @@ import { Badge, BadgeTone, BadgeVariant } from './badge.component';
 /** Renders a badge with `label` projected and returns its `<span>`. */
 async function render(inputs: Readonly<Record<string, unknown>>, label = 'Fire'): Promise<HTMLSpanElement> {
   const text = document.createTextNode(label);
+
   const badge = createComponent(Badge, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[text]],
   });
+
   onTestFinished(() => {
     badge.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     badge.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(badge.hostView);
   await appRef.whenStable();
   const span = (badge.location.nativeElement as HTMLElement).querySelector('span');
+
   if (span === null) {
     throw new Error('fr-badge rendered no <span>');
   }
+
   return span;
 }
 

@@ -183,6 +183,7 @@ describe('mixed namespaces', () => {
       { lt: ['self:participant:initiative:rank', 'target:participant:initiative:rank'] },
       { or: ['self:participant:initiative:stat:deception', 'self:participant:initiative:stat:stealth'] },
     ];
+
     expect(verdict(surpriseAttack, facts())).toBe(Truth.Unknown);
     expect(verdict(['self:action:trait:impulse'], facts())).toBe(Truth.Unknown);
     expect(verdict(['self:effect:rage'], facts())).toBe(Truth.False);

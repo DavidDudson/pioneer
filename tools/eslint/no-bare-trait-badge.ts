@@ -9,11 +9,14 @@ import type { Rule } from 'eslint';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const BADGES = new Set(['fr-badge', 'fr-tag']);
+
 /** What a badge shows: its interpolations and its `[label]` binding. */
 const SHOWN = /\{\{(?<interpolation>[^}]*)\}\}|\[label\]=(?:"(?<label>[^"]*)"|'(?<single>[^']*)')/gu;
 const STRING_LITERAL = /'[^']*'/gu;
+
 /** The identifiers and member paths of an expression: `ability.traits`, `trait`. */
 const PATH = /[\w$.]+/gu;
+
 /** What names a trait: `trait`, `traits`, or a name ending in `Trait` or `Traits` (`ownTrait`), never `portrait`. */
 const TRAIT_NAME = /^(?:traits?|\w*Traits?)$/u;
 
@@ -28,6 +31,7 @@ function readsTrait(source: string): boolean {
       STRING_LITERAL,
       '',
     );
+
     return (shown.match(PATH) ?? []).some((path) => path.split('.').some((segment) => TRAIT_NAME.test(segment)));
   });
 }
@@ -45,13 +49,17 @@ export const noBareTraitBadge: Rule.RuleModule = {
     if (FRONTIER.test(context.filename)) {
       return {};
     }
+
     return {
       Element(node: unknown): void {
         const { name, sourceSpan } = node as ElementNode;
+
         if (typeof name !== 'string' || !BADGES.has(name) || sourceSpan === undefined) {
           return;
         }
+
         const source = context.sourceCode.text.slice(sourceSpan.start.offset, sourceSpan.end.offset);
+
         if (readsTrait(source)) {
           context.report({
             loc: context.sourceCode.getLocFromIndex(sourceSpan.start.offset),

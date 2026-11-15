@@ -31,6 +31,7 @@ function lengthHash(json: CanonicalJson): BundleHash {
 /** A language entry; `slug` is its name, or a whole slug for a fixture that changes the kind. */
 function language(slug: string, name: string): object {
   const full = slug.includes(':') ? slug : `language:${slug}`;
+
   return {
     id: idOf(full),
     pack: PACK,
@@ -61,6 +62,7 @@ const ancestry = {
     reach: 5,
   },
 };
+
 const common = language('common', 'Common');
 const draconic = language('draconic', 'Draconic');
 
@@ -70,31 +72,38 @@ function bundles(entries: readonly object[] = [ancestry, common, draconic]): Con
 
 function onlyPack({ manifest }: ContentBundles): PackBundles {
   const [pack] = manifest.packs;
+
   if (pack === undefined) {
     throw new Error('Expected one pack in the manifest');
   }
+
   return pack;
 }
 
 /** The bundles of `kind` in the only pack. */
 function kindOf(built: ContentBundles, kind: string): KindBundles {
   const found = onlyPack(built).kinds.find((bundled) => bundled.kind === kind);
+
   if (found === undefined) {
     throw new Error(`Expected ${kind} in the manifest`);
   }
+
   return found;
 }
 
 function bodyOf(built: ContentBundles, file: BundleFile): BundleBody {
   const found = built.bodies.get(bundlePath(PACK, file));
+
   if (found === undefined) {
     throw new Error(`Expected a body for ${file}`);
   }
+
   return found;
 }
 
 function fetched(built: ContentBundles, kinds: readonly string[]): ContentPack {
   const pack = onlyPack(built);
+
   return contentPackFromBundles(
     bodyOf(built, pack.file),
     kinds.map((kind) => ({
@@ -111,12 +120,14 @@ function filesOf(pack: PackBundles): readonly BundleFile[] {
   const kinds = pack.kinds.flatMap((kind) =>
     [kind.mechanics, kind.names, kind.descriptions.map(({ file }) => file)].flat(),
   );
+
   return [pack.file, ...kinds];
 }
 
 /** `id`'s description as the bundles give it: undefined when its shard does not exist or does not hold it. */
 function descriptionOf(built: ContentBundles, kind: string, id: ContentId): RichText | undefined {
   const shard = kindOf(built, kind).descriptions.find((each) => each.shard === descriptionShard(id));
+
   return shard === undefined ? undefined : descriptionFromBundle(bodyOf(built, shard.file), id);
 }
 
@@ -185,10 +196,12 @@ describe('contentBundles', () => {
 
   test('a changed description changes only its shard', () => {
     const before = bundles();
+
     const reworded = {
       ...language('draconic', 'Draconic'),
       description: [{ type: 'paragraph', content: [{ type: 'text', text: 'Dragons speak it.' }] }],
     };
+
     const after = bundles([ancestry, common, reworded]);
     const [was, now] = [kindOf(before, 'language'), kindOf(after, 'language')];
     expect(now.mechanics).toBe(was.mechanics);
@@ -225,6 +238,7 @@ describe('contentPackFromBundles', () => {
     const checked = contentPackFromFiles(packFile, [
       [ancestry, { ...common, description: [] }, { ...draconic, description: [] }],
     ]);
+
     const fromBundles = fetched(bundles(), ['ancestry', 'language']);
     expect(fromBundles.otherEntries).toStrictEqual(checked.otherEntries);
   });
@@ -262,6 +276,7 @@ function sizesOf(pack: PackBundles): Record<string, ByteCount> {
   if (pack.sizes === undefined) {
     throw new Error('Expected sizes in the manifest');
   }
+
   return pack.sizes;
 }
 
@@ -270,8 +285,10 @@ describe('manifest sizes', () => {
     const built = bundles();
     const pack = onlyPack(built);
     const files = filesOf(pack);
+
     const served = files.map((file) => {
       const json = canonicalJson(bodyOf(built, file));
+
       return ByteCount.parse(new TextEncoder().encode(json).length);
     });
 

@@ -19,6 +19,7 @@ const READS = {
 
 async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
+
   return TestBed.inject(ContentLoader).registry(kinds);
 }
 

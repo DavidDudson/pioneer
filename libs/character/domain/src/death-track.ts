@@ -6,14 +6,17 @@ export const DEATH_VALUE_MAX = 4;
 
 /** The dying condition's value: 0 when not dying, up to the 4 at which a character dies at doomed 0. */
 export const Dying = z.int().min(0).max(DEATH_VALUE_MAX).brand<'Dying'>();
+
 export type Dying = z.infer<typeof Dying>;
 
 /** The wounded condition's value: how much worse the next dying is. Dying 4 is death, so 4 is as high as it matters. */
 export const Wounded = z.int().min(0).max(DEATH_VALUE_MAX).brand<'Wounded'>();
+
 export type Wounded = z.infer<typeof Wounded>;
 
 /** The doomed condition's value: each point lowers the dying value that kills, so doomed 4 is death at dying 0. */
 export const Doomed = z.int().min(0).max(DEATH_VALUE_MAX).brand<'Doomed'>();
+
 export type Doomed = z.infer<typeof Doomed>;
 
 const NONE = 0;
@@ -31,6 +34,7 @@ export const DeathTrackSchema = z.strictObject({
   doomed: Doomed.default(Doomed.parse(NONE)),
   dead: z.boolean().default(false),
 });
+
 export type DeathTrack = z.infer<typeof DeathTrackSchema>;
 
 /** A character with no conditions who is alive. */
@@ -68,8 +72,10 @@ export function knockedOut(track: DeathTrack, critical: boolean): DeathTrack {
   if (track.dead) {
     return track;
   }
+
   const gain = critical ? TWO : ONE;
   const carried = track.dying > NONE ? NONE : track.wounded;
+
   return settled({ ...track, dying: DyingNear.parse(track.dying + gain + carried) });
 }
 
@@ -78,6 +84,7 @@ export function recovered(track: DeathTrack): DeathTrack {
   if (track.dead || track.dying === NONE) {
     return track;
   }
+
   return { ...track, dying: Dying.parse(NONE), wounded: WoundedNear.parse(track.wounded + ONE) };
 }
 
@@ -97,7 +104,9 @@ export function afterRecoveryCheck(track: DeathTrack, degree: DegreeOfSuccess): 
   if (track.dead || track.dying === NONE) {
     return track;
   }
+
   const dying = DyingNear.parse(track.dying + RECOVERY_CHANGE[degree]);
+
   return dying === NONE ? recovered(track) : settled({ ...track, dying });
 }
 

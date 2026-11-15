@@ -55,6 +55,7 @@ export class IdentityService {
     const now = this.#clock.now();
     const user = await this.#upsertUser(profile, now);
     const { token, session } = await this.startSession(user.id);
+
     return { user, token, session };
   }
 
@@ -67,6 +68,7 @@ export class IdentityService {
     const tokenHash = await hashSessionToken(token);
     const session = Session.start({ id: SessionId.parse(newId()), userId, tokenHash, now: this.#clock.now() });
     await this.#sessions.insert(session);
+
     return { token, session };
   }
 
@@ -78,26 +80,34 @@ export class IdentityService {
     if (presented === undefined) {
       return undefined;
     }
+
     const now = this.#clock.now();
     const tokenHash = await hashSessionToken(presented);
     const active = await this.#sessions.findActive(tokenHash, now);
+
     if (active === undefined) {
       return undefined;
     }
+
     const used = active.session.usedAt(now);
+
     if (used !== active.session) {
       await this.#sessions.touch(used);
     }
+
     const renewed = !used.expiresAt.equals(active.session.expiresAt);
+
     return { user: active.user, session: used, renewed };
   }
 
   /** Like `authenticate`, but no session is a 401. */
   public async requireSession(presented: SessionToken | undefined): Promise<Authenticated> {
     const authenticated = await this.authenticate(presented);
+
     if (authenticated === undefined) {
       throw new UnauthorizedError();
     }
+
     return authenticated;
   }
 
@@ -105,6 +115,7 @@ export class IdentityService {
     if (presented === undefined) {
       return;
     }
+
     const tokenHash = await hashSessionToken(presented);
     await this.#sessions.delete(tokenHash);
   }
@@ -112,6 +123,7 @@ export class IdentityService {
   /** The signed-in user's unexpired sessions, most recently seen first, the caller's marked current. */
   public async listSessions({ user, session }: Authenticated): Promise<SessionSummary[]> {
     const sessions = await this.#sessions.listForUser(user.id, this.#clock.now());
+
     return sessions.map((each) => each.summary(session.id));
   }
 
@@ -121,9 +133,11 @@ export class IdentityService {
    */
   public async revokeSession({ user, session }: Authenticated, id: SessionId): Promise<Revoked> {
     const deleted = await this.#sessions.deleteForUser(user.id, id);
+
     if (!deleted) {
       throw new NotFoundError('Session', id);
     }
+
     return { current: id === session.id };
   }
 
@@ -143,14 +157,19 @@ export class IdentityService {
    */
   async #upsertUser(profile: ProviderProfile, now: Temporal.Instant): Promise<User> {
     const existing = await this.#users.findByProviderAccount(profile.provider, profile.subject);
+
     if (existing !== undefined) {
       return this.#users.update(existing.withProfile(profile, now));
     }
+
     const linked = await this.#linkByVerifiedEmail(profile, now);
+
     if (linked !== undefined) {
       return linked;
     }
+
     const created = User.fromProfile(UserId.parse(newId()), profile, now);
+
     return this.#users.insertWithAccount(created, profile.provider, profile.subject);
   }
 
@@ -158,11 +177,15 @@ export class IdentityService {
     if (!profile.emailVerified || profile.email === undefined) {
       return undefined;
     }
+
     const match = await this.#users.findByVerifiedEmail(profile.email);
+
     if (match === undefined) {
       return undefined;
     }
+
     await this.#users.linkAccount(match.id, profile, now);
+
     return this.#users.update(match.withProfile(profile, now));
   }
 }

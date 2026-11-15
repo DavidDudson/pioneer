@@ -8,35 +8,44 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
   const fixture = TestBed.createComponent(TextField);
   fixture.componentRef.setInput('label', 'Name');
   fixture.componentRef.setInput('hint', 'As it appears on the sheet.');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<TextField>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 function control(fixture: ComponentFixture<TextField>): HTMLInputElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (element === null) {
     throw new Error('Expected an input');
   }
+
   return element;
 }
 
 /** The text of whatever the input's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<TextField>): string {
   const ids = find(fixture, 'input').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 
@@ -79,6 +88,7 @@ describe(TextField, () => {
       ],
       touched: true,
     });
+
     expect(find(fixture, 'input').getAttribute('aria-invalid')).toBe('true');
     expect(description(fixture)).toBe('Name is required.');
   });
@@ -88,6 +98,7 @@ describe(TextField, () => {
       error: 'That name is taken.',
       errors: [{ kind: 'required', message: 'Name is required.' }],
     });
+
     expect(find(fixture, 'input').getAttribute('aria-invalid')).toBe('true');
     expect(description(fixture)).toBe('That name is taken.');
   });

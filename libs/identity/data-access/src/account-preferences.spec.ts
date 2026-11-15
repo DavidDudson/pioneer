@@ -19,12 +19,14 @@ const amiri = {
   createdAt: '2026-10-09T08:00:00.000Z',
   updatedAt: '2026-10-09T08:00:00.000Z',
 };
+
 const unauthorized = {
   type: 'unauthorized',
   title: 'Unauthorized',
   status: 401,
   message: { key: 'problem.unauthorized' },
 };
+
 const metresOnly = { distanceUnit: 'metres' };
 
 interface Harness {
@@ -46,6 +48,7 @@ function setup(): Harness {
       { provide: LocalePreferences, useValue: { adopt, reset } },
     ],
   });
+
   return { preferences: TestBed.inject(AccountPreferences), http: TestBed.inject(HttpTestingController), adopt, reset };
 }
 
@@ -53,6 +56,7 @@ function setup(): Harness {
 async function signedInAs(http: HttpTestingController, user: object | undefined): Promise<void> {
   await vi.waitFor(() => {
     const me = http.expectOne('/api/me');
+
     if (user === undefined) {
       me.flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
     } else {
@@ -130,6 +134,7 @@ describe(AccountPreferences, () => {
   it('puts what the account saved back when it cannot save a change', async () => {
     const { preferences, http, adopt } = setup();
     await loadedAs(preferences, http, metresOnly);
+
     const answering = vi.waitFor(() => {
       http
         .expectOne({ method: 'PATCH', url: '/api/me/preferences' })
@@ -194,6 +199,7 @@ describe(AccountPreferences, () => {
     const { preferences, http, adopt, reset } = setup();
     await loadedAs(preferences, http, metresOnly);
     let adopted = 0;
+
     const answering = (async (): Promise<void> => {
       const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: '/api/me/preferences' }));
       await TestBed.inject(SessionStore).signedOut();

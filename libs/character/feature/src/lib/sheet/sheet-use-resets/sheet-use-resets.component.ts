@@ -39,6 +39,7 @@ export class SheetUseResets {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
+
     return registry === undefined || character === undefined || read === undefined
       ? []
       : resettableUses(registry, character, read.play.resources);
@@ -51,6 +52,7 @@ export class SheetUseResets {
     (use: UseCountKey): (() => Promise<void>) =>
     async (): Promise<void> => {
       this.busy.set(true);
+
       try {
         await this.#play.send({ field: PlayCommandField.ResetUse, use });
       } finally {
@@ -61,6 +63,7 @@ export class SheetUseResets {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

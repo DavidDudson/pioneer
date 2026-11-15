@@ -125,6 +125,7 @@ export function itemTransferService(
   }: ItemTransferWorld = {},
 ): CampaignItemTransferService {
   const transfers = new InMemoryItemTransferRepository();
+
   return new CampaignItemTransferService(
     { campaigns, transfers, party, characters, lines, settlement: new InMemoryTransferSettlement(transfers) },
     clock,

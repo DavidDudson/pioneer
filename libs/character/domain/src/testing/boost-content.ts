@@ -14,10 +14,12 @@ const ANCESTRIES = new Map<ContentId, AncestryBoosts>([
   [boostFixtureId('ancestry:dwarf'), { boosts: [['con'], ['wis'], ALL], flaws: ['cha'] }],
   [boostFixtureId('ancestry:human'), { boosts: [ALL, ALL], flaws: [] }],
 ]);
+
 /** A farmhand: Constitution or Wisdom, then a free boost. */
 const BACKGROUNDS = new Map<ContentId, readonly Boost[]>([
   [boostFixtureId('background:farmhand'), [['con', 'wis'], ALL]],
 ]);
+
 /** A fighter keys off Strength or Dexterity; a wizard off Intelligence alone. */
 const CLASSES = new Map<ContentId, Boost>([
   [boostFixtureId('class:fighter'), ['str', 'dex']],

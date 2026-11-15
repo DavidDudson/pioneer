@@ -28,9 +28,11 @@ export const spellRowDisabled = (row: SpellPickerRow): string | undefined => row
 /** What casting costs: one cost, a variable one when the caster picks, or a time counted in minutes or more. */
 function castKind(cast: readonly CastActions[]): ActionKind {
   const [only] = cast;
+
   if (cast.length !== 1 || only === undefined) {
     return cast.length === 0 ? ActionKind.Passive : ActionKind.Variable;
   }
+
   return only === CastActions.Time ? ActionKind.Time : only;
 }
 
@@ -39,6 +41,7 @@ function traitChips(row: SpellPickerRow, say: Say): readonly Chip[] {
   if (row.rarity === Rarity.Common) {
     return row.traits;
   }
+
   return [{ label: say(SPELL_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...row.traits];
 }
 
@@ -48,6 +51,7 @@ function areaOrTargets(row: SpellPickerRow, say: Say): readonly Chip[] {
     row.area === AreaValue.None
       ? row.targets.filter((target) => target !== TargetValue.None).map((target) => TARGET_MESSAGES[target])
       : [AREA_MESSAGES[row.area]];
+
   return labels.map((key): Chip => ({ label: say(key) }));
 }
 
@@ -152,6 +156,7 @@ function compare(left: SpellPickerRow, right: SpellPickerRow, sort: PickerSort):
     sort.column === SpellPickerColumn.Rank
       ? sortRank(left) - sortRank(right)
       : left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
+
   return sort.descending ? -order : order;
 }
 
@@ -163,5 +168,6 @@ export function shownSpellRows(
 ): readonly SpellPickerRow[] {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.name.toLocaleLowerCase().includes(needle));
+
   return sort === undefined ? matching : matching.toSorted((left, right) => compare(left, right, sort));
 }

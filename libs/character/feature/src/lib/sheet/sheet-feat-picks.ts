@@ -46,6 +46,7 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
   const { key, label } = read;
   const slot = computed(() => feats()?.planned.find((each) => each.key === key));
   const options = computed(() => slot()?.options ?? []);
+
   const field = sheetField<string | undefined>(sources.character, {
     read: (character) => character.document.build.choices[key] ?? NOT_CHOSEN,
     empty: NOT_CHOSEN,
@@ -59,17 +60,22 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
       if (value === undefined || value === NOT_CHOSEN) {
         return sources.translate('character.sheet.notChosen');
       }
+
       const named = options().find((option) => option.value === value)?.label ?? slot()?.storedName;
+
       return named ?? sources.translate('character.sheet.feats.unknownFeat');
     },
   });
+
   const filter =
     sources.filters === undefined ? undefined : featSlotFilter({ ...sources, filters: sources.filters, key, options });
+
   return {
     key,
     label,
     rows: computed(() => {
       sources.messages();
+
       return featRows(
         options(),
         { translate: sources.translate, trainedAgain: slot()?.trainedAgain ?? (() => new Map()) },
@@ -88,6 +94,7 @@ function featsOf(sources: FeatPickSources): Signal<SheetFeats | undefined> {
     const registry = sources.registry();
     const character = sources.character();
     const slots = sources.slots();
+
     return registry === undefined || character === undefined || slots === undefined
       ? undefined
       : sheetFeats(registry, character, slots);
@@ -105,15 +112,19 @@ function fieldsOf(
 ): Signal<readonly FeatField[]> {
   const slots = (): readonly SheetFeatSlot[] => {
     const read = feats();
+
     return read === undefined ? [] : pick(read);
   };
+
   const keys = computed(() =>
     slots()
       .map((slot) => slot.key)
       .join(','),
   );
+
   return computed(() => {
     keys();
+
     return untracked(() => slots().map((slot) => featField(sources, feats, slot)));
   });
 }

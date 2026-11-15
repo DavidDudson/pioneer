@@ -27,6 +27,7 @@ const meta: Meta<SubclassPicker> = {
   args: { rows: SUBCLASSES, ariaLabel: 'Subclass', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A subclass the character can't take yet stays in the table and says why. */

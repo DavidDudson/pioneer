@@ -60,6 +60,7 @@ describe('DamageDice from Foundry', () => {
       predicate: ['dazing-blow'],
       selector: 'strike-damage',
     });
+
     const critical = translated({
       critical: true,
       damageType: 'bleed',
@@ -91,6 +92,7 @@ describe('DamageDice from Foundry', () => {
       key: RuleElementKey.DamageDice,
       selector: '{item|id}-damage',
     });
+
     const picked = translated({
       damageType: '{item|flags.system.rulesSelections.element}',
       diceNumber: 1,
@@ -114,6 +116,7 @@ describe('DamageAlteration from Foundry', () => {
       slug: 'strategic-strike',
       value: 2,
     });
+
     const type = translated({
       key: RuleElementKey.DamageAlteration,
       mode: 'override',

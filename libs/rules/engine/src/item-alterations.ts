@@ -95,6 +95,7 @@ function altered(current: FormulaValue | undefined, { mode, amount }: NumericCha
   if (current === undefined) {
     return SETTING_MODES.has(mode) ? held(changed(NumericAlterationMode.Override, NOTHING, amount)) : undefined;
   }
+
   return held(changed(mode, current, amount));
 }
 
@@ -110,9 +111,11 @@ function tagOption(tag: Slug): RollOptionTail {
 /** `list` with `value` added or removed; the same list when it already is or isn't there. */
 export function withValue<Value>(list: readonly Value[], mode: TraitAlterationMode, value: Value): readonly Value[] {
   const present = list.includes(value);
+
   if (mode === TraitAlterationMode.Add) {
     return present ? list : [...list, value];
   }
+
   return present ? list.filter((each) => each !== value) : list;
 }
 
@@ -129,11 +132,14 @@ export function numberAltered(
   level: Level | undefined,
 ): AlteredItem {
   const outcome = valueOf(element.value, itemLevelOf(level));
+
   if (!outcome.ok) {
     return item;
   }
+
   const current = item.numbers.get(element.property);
   const result = altered(current, { mode: element.mode, amount: outcome.value });
+
   return result === undefined || result === current
     ? item
     : { ...item, numbers: new Map(item.numbers).set(element.property, result) };
@@ -153,16 +159,22 @@ function listAltered(item: AlteredItem, element: ListAlteration): AlteredItem {
   switch (element.property) {
     case ItemProperty.Materials: {
       const materials = withValue(item.materials, element.mode, element.value);
+
       return materials === item.materials ? item : { ...item, materials };
     }
+
     case ItemProperty.PropertyRunes: {
       const propertyRunes = withValue(item.propertyRunes, element.mode, element.value);
+
       return propertyRunes === item.propertyRunes ? item : { ...item, propertyRunes };
     }
+
     case ItemProperty.OtherTags: {
       const rollOptions = withValue(item.rollOptions, element.mode, tagOption(element.value));
+
       return rollOptions === item.rollOptions ? item : { ...item, rollOptions };
     }
+
     default: {
       return element.property satisfies never;
     }
@@ -174,22 +186,28 @@ function alteredBy(item: AlteredItem, { element, itemLevel }: AlterationInPlay):
   if (isNumeric(element)) {
     return numberAltered(item, element, itemLevel);
   }
+
   switch (element.property) {
     case ItemProperty.Traits: {
       const traits = withValue(item.traits, element.mode, element.value);
+
       return traits === item.traits ? item : { ...item, traits };
     }
+
     case ItemProperty.Description: {
       return { ...item, description: element.value };
     }
+
     case ItemProperty.DamageType: {
       return item.damageType === element.value ? item : { ...item, damageType: element.value };
     }
+
     case ItemProperty.Materials:
     case ItemProperty.PropertyRunes:
     case ItemProperty.OtherTags: {
       return listAltered(item, element);
     }
+
     default: {
       return element satisfies never;
     }
@@ -207,6 +225,7 @@ function isAlteration(rule: RuleInPlay): rule is AlterationInPlay {
 function reaches({ facts }: ModifierInputs, { element, origin }: AlterationInPlay, item: AlterableItem): boolean {
   const owned =
     element.etched !== true || (item.inventoryItem !== undefined && item.inventoryItem === inventoryItemOf(origin));
+
   return (
     owned &&
     truthOf(element.predicate, facts) === Truth.True &&
@@ -223,14 +242,17 @@ function reaches({ facts }: ModifierInputs, { element, origin }: AlterationInPla
  */
 export function alterItem(inputs: ModifierInputs, item: AlterableItem): AlteredItem {
   let current: AlteredItem = { ...item, origins: [] };
+
   for (const rule of inputs.rules) {
     if (isAlteration(rule) && reaches(inputs, rule, current)) {
       const next = alteredBy(current, rule);
+
       if (next !== current) {
         current = { ...next, origins: [...current.origins, rule.origin] };
       }
     }
   }
+
   return current;
 }
 
@@ -250,11 +272,14 @@ export function potencyAfter(
   changes: readonly PotencyChange[],
 ): FormulaValue | undefined {
   let current = base;
+
   for (const { mode, value } of changes) {
     const outcome = valueOf(value, itemLevelOf(undefined));
+
     if (outcome.ok) {
       current = altered(current, { mode, amount: outcome.value }) ?? current;
     }
   }
+
   return current;
 }

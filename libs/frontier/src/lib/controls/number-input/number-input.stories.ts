@@ -18,6 +18,7 @@ const meta: Meta<NumberInput> = {
     template: `<fr-number-input ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Default: NumberInputStory = {};

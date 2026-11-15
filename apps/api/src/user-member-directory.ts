@@ -21,10 +21,12 @@ export class UserMemberDirectory extends MemberDirectory {
     if (userIds.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select({ id: users.id, displayName: users.displayName })
       .from(users)
       .where(inArray(users.id, [...userIds]));
+
     return new Map(rows.map((row) => [row.id, MemberName.parse(row.displayName)]));
   }
 }

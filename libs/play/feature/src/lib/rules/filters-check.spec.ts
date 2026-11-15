@@ -11,12 +11,14 @@ function valid(result: FiltersCheck): ValidFilters {
   if (result.status !== FiltersStatus.Valid) {
     throw new Error('Expected the entries to read');
   }
+
   return result;
 }
 
 /** A facet's counts as `value:count`, in the order the result lists them. */
 function counts(result: FiltersCheck, id: string): string[] {
   const facet = valid(result).counts.find((each) => each.facet.id === id);
+
   return (facet?.values ?? []).map(({ value, count }) => `${value}:${count}`);
 }
 

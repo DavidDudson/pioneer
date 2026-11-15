@@ -19,4 +19,5 @@ export const MovementCostElement = z.strictObject({
   movement: z.array(z.enum(FormMovement)).min(1).max(MOVEMENTS_MAX).readonly().optional(),
   ...ruleElementBase,
 });
+
 export type MovementCostElement = z.infer<typeof MovementCostElement>;

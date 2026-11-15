@@ -40,6 +40,7 @@ async function render(json: unknown, headingLevel: HeadingLevel = HeadingLevel.T
   await fixture.whenStable();
   const deferred = await fixture.getDeferBlocks();
   await Promise.all(deferred.map(async (block) => block.render(DeferBlockState.Complete)));
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -78,6 +79,7 @@ const RENDERED_ELEMENTS: ReadonlySet<string> = new Set([
 /** Native elements in the rendered text that frontier's rich text components never produce. */
 function unexpectedElements(rendered: HTMLElement): readonly string[] {
   const tags = [...rendered.querySelectorAll('*')].map((element) => element.tagName.toLowerCase());
+
   return tags.filter((tag) => !tag.includes('-') && !RENDERED_ELEMENTS.has(tag));
 }
 
@@ -104,6 +106,7 @@ describe(RichTextView, () => {
       paragraph({ type: 'ref', id: SEEK, label: 'Seek' }),
       paragraph({ type: 'ref', id: SEEK }),
     ]);
+
     expect(rendered.querySelector('a')).toBeNull();
     expect([...rendered.querySelectorAll('p')].map((element) => squash(element))).toStrictEqual([
       'Seek',

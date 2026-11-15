@@ -36,6 +36,7 @@ const OUT_OF_SCOPE: Readonly<Record<ReferenceScope, ValueOf<typeof RulesMessage>
 
 function outOfScope(reference: KnownReference, { path, position }: FormulaReference): FormulaProblem {
   const key = OUT_OF_SCOPE[REFERENCE_CATALOGUE[reference.kind].scope];
+
   return problem(message(key, { found: `${SIGIL}${path}` }), position);
 }
 
@@ -45,15 +46,20 @@ function referenceProblem(
 ): FormulaProblem | undefined {
   const found = `${SIGIL}${path}`;
   const known = knownReference(path);
+
   if (known !== undefined) {
     return inScope(known, scopes) ? undefined : outOfScope(known, { path, position });
   }
+
   const translated = fromFoundryPath(path);
+
   if (translated === undefined) {
     return problem(message(RulesMessage.UnknownReference, { found }), position);
   }
+
   // Suggesting Pioneer's spelling only helps when that spelling is allowed here.
   const target = knownReference(translated);
+
   return target === undefined || inScope(target, scopes)
     ? problem(message(RulesMessage.FoundryReference, { found, suggestion: `${SIGIL}${translated}` }), position)
     : outOfScope(target, { path, position });
@@ -65,9 +71,11 @@ function referenceProblem(
  */
 export function formulaProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): readonly FormulaProblem[] {
   const parsed = parseFormula(text);
+
   if (!parsed.ok) {
     return [problem(parsed.error, parsed.position)];
   }
+
   return references(parsed.formula).flatMap((reference) => referenceProblem(reference, scopes) ?? []);
 }
 
@@ -77,11 +85,14 @@ export function formulaProblems(text: FormulaText, scopes: ReadonlySet<Reference
  */
 export function scopeProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): readonly FormulaProblem[] {
   const parsed = parseFormula(text);
+
   if (!parsed.ok) {
     return [];
   }
+
   return references(parsed.formula).flatMap((reference) => {
     const known = knownReference(reference.path);
+
     return known === undefined || inScope(known, scopes) ? [] : [outOfScope(known, reference)];
   });
 }
@@ -102,6 +113,7 @@ export function formulaIssues(
 ): z.core.$ZodRawIssue[] {
   return formulaProblems(text, scopes).map(({ error }) => {
     const { params } = issueParams(error);
+
     return { code: 'custom', input: text, params };
   });
 }
@@ -124,6 +136,7 @@ function checkedFormula(scopes: ReadonlySet<ReferenceScope>): FormulaSourceSchem
  * the position in the formula.
  */
 export const FormulaSource = checkedFormula(RULE_ELEMENT_SCOPES);
+
 export type FormulaSource = z.infer<typeof FormulaSource>;
 
 /** A `FormulaSource` that reads only the character's values, as a proficiency bonus formula must. */

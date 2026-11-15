@@ -70,6 +70,7 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
   ],
   [BLESSING, { remaining: undefined, expiry: undefined, sustained: false, badge: undefined }],
 ]);
+
 const LIMITS = { ...within(HitPoints.parse(10)), effects: CONTENT };
 
 const apply = (id: EffectInstanceId, effect: ContentId, rolled?: number): EffectCommand => ({
@@ -95,6 +96,7 @@ describe('duration conversion', () => {
         duration: { type: 'time', count: 1, unit: DurationUnit.Minute },
       }),
     );
+
     expect(timed).toMatchObject({ remaining: 10, expiry: EffectExpiry.TurnStart, sustained: false });
   });
 
@@ -105,6 +107,7 @@ describe('duration conversion', () => {
         duration: { type: 'turn', expiry: EffectExpiry.TurnEnd },
       }),
     );
+
     expect(turn).toMatchObject({ remaining: undefined, expiry: EffectExpiry.TurnEnd });
     const unlimited = effectTerms(EffectData.parse({ category: 'other', duration: { type: 'unlimited' } }));
     expect(unlimited).toMatchObject({ remaining: undefined, expiry: undefined });
@@ -126,6 +129,7 @@ describe('effect commands', () => {
       effect: BLESSING,
       source: { kind: EffectSourceKind.Ally, name: EffectAllyName.parse('Seoni') },
     };
+
     expect(applyPlayCommand(FRESH_PLAY, command, LIMITS).effects[0]?.source).toEqual({
       kind: 'ally',
       name: EffectAllyName.parse('Seoni'),
@@ -157,32 +161,38 @@ describe('effect commands', () => {
       apply(SECOND, BLESSING),
       LIMITS,
     );
+
     const left = applyPlayCommand(both, { field: EffectCommandField.RemoveEffect, id: FIRST }, LIMITS);
     expect(left.effects.map(({ id }) => id)).toEqual([SECOND]);
   });
 
   test('setEffectRemaining and setEffectBadge change that instance', () => {
     const start = applyPlayCommand(FRESH_PLAY, apply(FIRST, HEROISM), LIMITS);
+
     const timed = applyPlayCommand(
       start,
       { field: EffectCommandField.SetEffectRemaining, id: FIRST, remaining: EffectRounds.parse(4) },
       LIMITS,
     );
+
     const stepped = applyPlayCommand(
       timed,
       { field: EffectCommandField.SetEffectBadge, id: FIRST, value: badge(2) },
       LIMITS,
     );
+
     expect(stepped.effects[0]).toMatchObject({ remaining: 4, badge: 2 });
   });
 
   test('setEffectRemaining leaves an effect that has no clock alone', () => {
     const start = applyPlayCommand(FRESH_PLAY, apply(FIRST, STANCE), LIMITS);
+
     const after = applyPlayCommand(
       start,
       { field: EffectCommandField.SetEffectRemaining, id: FIRST, remaining: EffectRounds.parse(4) },
       LIMITS,
     );
+
     expect(after.effects[0]?.remaining).toBeUndefined();
   });
 });
@@ -228,6 +238,7 @@ describe('effect problems', () => {
       effect: BLESSING,
       source: SELF,
     }));
+
     expect(effectProblem(full, apply(FIRST, BLESSING), CONTENT)).toBe(EffectProblem.Full);
     expect(applyEffectCommand(full, apply(FIRST, BLESSING), CONTENT)).toHaveLength(EFFECTS_MAX + 1);
   });

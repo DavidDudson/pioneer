@@ -7,10 +7,12 @@ import type { ActionLine } from './action-line';
 
 /** Which view of the actions is open: those usable at this moment, or every one. */
 export const ActionsViewKind = { Now: 'now', All: 'all' } as const;
+
 export type ActionsViewKind = (typeof ActionsViewKind)[keyof typeof ActionsViewKind];
 
 /** An action with no cost is passive: a group of its own after the costs. */
 export const PASSIVE = 'passive';
+
 export type CostGroup = ActionCost | typeof PASSIVE;
 
 /** The cost groups in the order the Now view lists them. */
@@ -38,9 +40,11 @@ export interface ActionGroup {
 function byPriority(left: ActionLine, right: ActionLine): number {
   const first = left.priority ?? Number.POSITIVE_INFINITY;
   const second = right.priority ?? Number.POSITIVE_INFINITY;
+
   if (first === second) {
     return 0;
   }
+
   return first < second ? -1 : 1;
 }
 
@@ -62,16 +66,20 @@ export function nowGroups(lines: readonly ActionLine[], mode: ActionMode): reado
       line.affordable !== false &&
       line.modes.includes(mode),
   );
+
   const groups = COST_ORDER.map((cost): ActionGroup => ({
     cost,
     lines: usable.filter((line) => costGroupOf(line) === cost).toSorted(byPriority),
   })).filter(({ lines: grouped }) => grouped.length > 0);
+
   return groups.toSorted((left, right) => {
     const first = groupPriority(left);
     const second = groupPriority(right);
+
     if (first === second) {
       return 0;
     }
+
     return first < second ? -1 : 1;
   });
 }
@@ -128,5 +136,6 @@ export function categoryOf(line: ActionLine): ActionCategory {
 /** The categories `lines` have actions in, in the order the subtabs run; a category with none is left out. */
 export function categoriesOf(lines: readonly ActionLine[]): readonly ActionCategory[] {
   const present = new Set(lines.map((line) => categoryOf(line)));
+
   return Object.values(ActionCategory).filter((category) => present.has(category));
 }

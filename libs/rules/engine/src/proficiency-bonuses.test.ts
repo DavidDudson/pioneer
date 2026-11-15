@@ -43,11 +43,13 @@ function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): R
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return deriveStatistics(content, inputs, { rules, facts });
 }
 
 function total(results: ReadonlyMap<Selector, StatisticResult>, selector: string): number | undefined {
   const result = results.get(Selector.parse(selector));
+
   return result?.ok === true ? result.total : undefined;
 }
 
@@ -58,6 +60,7 @@ function termOrigins(
 ): readonly (Origin | undefined)[] {
   const result = results.get(Selector.parse(selector));
   const terms = result?.ok === true ? result.base : [];
+
   return terms.flatMap((term) => (term.kind === BaseTermKind.Term ? [term.origin] : []));
 }
 

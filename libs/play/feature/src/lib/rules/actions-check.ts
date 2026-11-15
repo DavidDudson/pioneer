@@ -59,9 +59,11 @@ const ActionsInput = z.strictObject({
   ranks: z.array(Ranked).default([]),
   spent: z.array(ContentId).default([]),
 });
+
 type ActionsInput = z.output<typeof ActionsInput>;
 
 export const ActionsStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts', Pending: 'pending' } as const;
+
 export type ActionsStatus = ValueOf<typeof ActionsStatus>;
 
 /** One action of the list as the playground shows it. */
@@ -88,6 +90,7 @@ export type ActionsCheck =
 
 function candidateOf({ id, origin, action }: ActionsInput['actions'][number]): ActionCandidate {
   const kind: ActionOrigin = { kind: origin };
+
   return { id, origin: kind, action };
 }
 
@@ -97,15 +100,20 @@ function candidateOf({ id, origin, action }: ActionsInput['actions'][number]): A
  */
 export function checkActions(text: string, factsText: string, namespaces: NamespaceTable): ActionsCheck {
   const read = readJson(ActionsInput, text);
+
   if (read.status !== CheckStatus.Valid) {
     return read;
   }
+
   const facts = parseFacts(factsText);
+
   if ('lines' in facts) {
     return { status: ActionsStatus.InvalidFacts, lines: facts.lines };
   }
+
   const input = read.value;
   const names = new Map(input.actions.map(({ id, name }) => [id, name]));
+
   const listed = availableActions({
     candidates: input.actions.map((offered) => candidateOf(offered)),
     facts: new PredicateFacts(facts.options, namespaces),
@@ -113,6 +121,7 @@ export function checkActions(text: string, factsText: string, namespaces: Namesp
     spent: new Set(input.spent),
     statistics: new Map(),
   });
+
   const rows = listed.map((entry): ActionRow => ({
     id: entry.action,
     name: names.get(entry.action) ?? entry.action,
@@ -123,5 +132,6 @@ export function checkActions(text: string, factsText: string, namespaces: Namesp
     reasons: entry.reasons,
     roll: entry.roll === undefined ? undefined : Number(entry.roll.total),
   }));
+
   return { status: ActionsStatus.Valid, rows };
 }

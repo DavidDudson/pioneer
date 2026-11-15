@@ -22,6 +22,7 @@ export const PioneerReadProblem = {
   /** A Pioneer file whose character is not a valid one; `issues` say where. */
   InvalidCharacter: 'invalid-character',
 } as const;
+
 export type PioneerReadProblem = ValueOf<typeof PioneerReadProblem>;
 
 export interface PioneerRead {
@@ -50,21 +51,25 @@ function failure(problem: PioneerReadProblem, issues: readonly z.core.$ZodIssue[
 /** A reference object becomes the id it hashes to; anything else is left, for the document schema to refuse. */
 function idOf(value: unknown): unknown {
   const reference = ContentReference.safeParse(value);
+
   return reference.success ? referencedId(reference.data) : value;
 }
 
 /** The file's character with its references turned back into ids, read as a stored document of the target. */
 function decode(file: PioneerCharacterFile, target: PioneerImportTarget): PioneerReadResult {
   const stored = rewriteReferences(file.character, idOf);
+
   try {
     return { ok: true, character: decodeCharacterDocument({ ...stored, ...target }) };
   } catch (error) {
     if (error instanceof UnsupportedSchemaVersionError) {
       return failure(PioneerReadProblem.NewerCharacter);
     }
+
     if (error instanceof CorruptCharacterDocumentError && error.cause instanceof z.ZodError) {
       return failure(PioneerReadProblem.InvalidCharacter, error.cause.issues);
     }
+
     throw error;
   }
 }
@@ -76,12 +81,16 @@ function decode(file: PioneerCharacterFile, target: PioneerImportTarget): Pionee
  */
 export function readPioneerCharacter(input: unknown, target: PioneerImportTarget): PioneerReadResult {
   const header = PioneerCharacterHeader.safeParse(input);
+
   if (!header.success) {
     return failure(PioneerReadProblem.Malformed, header.error.issues);
   }
+
   if (header.data.formatVersion > CURRENT_FORMAT_VERSION) {
     return failure(PioneerReadProblem.NewerFormat);
   }
+
   const file = PioneerCharacterFile.safeParse(input);
+
   return file.success ? decode(file.data, target) : failure(PioneerReadProblem.Malformed, file.error.issues);
 }

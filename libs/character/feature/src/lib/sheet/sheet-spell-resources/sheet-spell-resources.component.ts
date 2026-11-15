@@ -51,13 +51,17 @@ export class SheetSpellResources {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
+
     if (registry === undefined || character === undefined || read === undefined) {
       return undefined;
     }
+
     const slots = countedViews(registry, character, read.play.resources).slots.filter(
       ({ preparation }) => preparation === SpellPreparation.Spontaneous,
     );
+
     const focus = (this.#sheet.resourceMaxima()?.[Resource.FocusPoints] ?? 0) > 0;
+
     return slots.length === 0 && !focus ? undefined : { slots, focus };
   });
 
@@ -72,6 +76,7 @@ export class SheetSpellResources {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 
@@ -81,6 +86,7 @@ export class SheetSpellResources {
 
   async #send(command: PlayCommand): Promise<void> {
     this.busy.set(true);
+
     try {
       await this.#play.send(command);
     } finally {

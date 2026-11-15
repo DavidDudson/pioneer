@@ -30,6 +30,7 @@ const meta: Meta<List> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Plain: ListStory = {};

@@ -14,9 +14,12 @@ function resultsOf(
 ): readonly StatisticResult[] {
   if (per === undefined) {
     const result = results.get(selector);
+
     return result === undefined ? [] : [result];
   }
+
   const prefix = `${selector}${INSTANCE_SEPARATOR}`;
+
   return [...results].flatMap(([key, result]) =>
     key.startsWith(prefix) && !key.slice(prefix.length).includes(INSTANCE_SEPARATOR) ? [result] : [],
   );
@@ -39,12 +42,15 @@ export function ownedResults(
   results: ReadonlyMap<Selector, StatisticResult>,
 ): readonly OwnedResult[] {
   const owners = new Map<Selector, StatisticDefinition>();
+
   for (const definition of definitions) {
     for (const result of resultsOf(definition, results)) {
       owners.set(result.selector, definition);
     }
   }
+
   const latest = new Map(definitions.map((definition) => [definition.selector, definition]));
+
   return [...latest.values()].flatMap((definition) =>
     resultsOf(definition, results)
       .filter((result) => owners.get(result.selector) === definition)

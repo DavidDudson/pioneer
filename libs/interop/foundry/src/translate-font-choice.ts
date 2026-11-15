@@ -21,11 +21,14 @@ const FONT_FLAG = 'divine-font';
  */
 export function withFontChoice(raw: unknown): unknown {
   const font = FoundryFontChoice.safeParse(raw);
+
   if (!font.success) {
     return raw;
   }
+
   const choices = font.data.choices.map(({ value, label, predicate }) =>
     predicate === undefined ? { value, label } : { value, label, predicate },
   );
+
   return { ...font.data, flag: FONT_FLAG, choices };
 }

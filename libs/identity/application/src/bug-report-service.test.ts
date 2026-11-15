@@ -14,6 +14,7 @@ const NOW = '2026-10-15T08:00:00Z';
 /** A submission without the sharing flag, which is not part of what is stored. */
 function details(submission: BugReportSubmission): Omit<BugReportSubmission, 'shareCharacter'> {
   const { shareCharacter: _ignored, ...rest } = submission;
+
   return rest;
 }
 
@@ -35,6 +36,7 @@ interface Fixture {
 function fixture(): Fixture {
   const repository = new InMemoryBugReportRepository();
   const characters = new InMemoryCharacterSnapshotSource();
+
   return {
     reports: new BugReportService(repository, characters, fixedClock(NOW)),
     repository,
@@ -58,6 +60,7 @@ async function seed({ repository, reporter, count, at }: Seeding): Promise<void>
     createdAt: at,
     status: BugReportStatus.Open,
   }));
+
   await Promise.all(stored.map(async (report) => repository.insert(report)));
 }
 
@@ -67,6 +70,7 @@ async function storedSnapshot(
   id: BugReport['id'],
 ): Promise<BugReport['snapshot']> {
   const stored = await repository.findById(id);
+
   return stored?.snapshot;
 }
 
@@ -92,10 +96,12 @@ describe('BugReportService', () => {
 
   test('keeps the character the reporter was looking at', async () => {
     const characterId = newId();
+
     const report = await fixture().reports.submit(UserId.parse(newId()), {
       ...SUBMISSION,
       characterId,
     });
+
     expect(report.characterId).toBe(characterId);
   });
 
@@ -140,6 +146,7 @@ describe('BugReportService', () => {
 
 describe('BugReportService character snapshot', () => {
   const characterId = newId();
+
   const FILE = {
     format: 'pioneer-character',
     formatVersion: 1,

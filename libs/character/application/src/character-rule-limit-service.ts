@@ -68,6 +68,7 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
   public override async of(character: Character): Promise<RuleLimits> {
     const campaign = await this.#campaigns.of(character.id);
     const [variant, set] = await Promise.all([this.#variantLimits.of(character), this.#setBy(character.id, campaign)]);
+
     return withOverrides({ ...variant, ...set });
   }
 
@@ -88,11 +89,13 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
   ): Promise<CharacterRuleLimitSettings> {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignDecides(id);
+
     if (value > LIMIT_CEILINGS[limit]) {
       throw new ValidationError([
         { path: ['value'], message: message(CharacterRuleLimitMessage.Ceiling, { maximum: LIMIT_CEILINGS[limit] }) },
       ]);
     }
+
     await this.#limits.set(actor, id, {
       id: CharacterRuleLimitId.parse(newId()),
       limit,
@@ -100,6 +103,7 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
       setBy: actor,
       setAt: this.#clock.now(),
     });
+
     return this.#view(character);
   }
 
@@ -108,20 +112,24 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
     const character = await this.#owned(actor, id);
     await this.#refuseIfCampaignDecides(id);
     await this.#limits.reset(actor, id, limit);
+
     return this.#view(character);
   }
 
   /** One of the actor's characters. Another user's is a 404, the same as a missing one (ADR-0007). */
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 
   async #refuseIfCampaignDecides(id: CharacterId): Promise<void> {
     const campaign = await this.#campaigns.of(id);
+
     if (campaign !== undefined) {
       throw new ConflictError(
         `Character ${id} is held to the table limits of its campaign`,
@@ -135,7 +143,9 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
     if (campaign !== undefined) {
       return campaign.limits ?? {};
     }
+
     const rows = await this.#limits.listForCharacter(id);
+
     return RuleLimitOverridesSchema.parse(Object.fromEntries(rows.map((row) => [row.limit, row.value])));
   }
 
@@ -145,6 +155,7 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
     const [variant, set] = await Promise.all([this.#variantLimits.of(character), this.#setBy(character.id, campaign)]);
     const inForce = withOverrides({ ...variant, ...set });
     const setter = manageable ? RuleLimitSource.Character : RuleLimitSource.Campaign;
+
     return {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
       ...(campaign === undefined ? {} : { campaign: campaign.name }),

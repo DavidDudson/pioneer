@@ -17,6 +17,7 @@ export class InMemoryPathbuilderExportFetcher extends PathbuilderExportFetcher {
 
   public override async fetch(url: PathbuilderExportUrl): Promise<FetchedExport> {
     this.asked.push(url);
+
     return this.#answer;
   }
 }

@@ -97,9 +97,11 @@ describe('CharacterSheetPage conditions', () => {
 
   it('opens a preview of a condition with its value applied, listing the statistics it changes', async () => {
     const { root } = await openSheet(undefined, { play: afflictedWith([clumsy(2)]), packs: PACKS });
+
     const trigger = await vi.waitFor(() =>
       present(conditionsOf(root).querySelector<HTMLElement>('fr-hover-card [tabindex="0"]')),
     );
+
     trigger.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
 
     await vi.waitFor(async () => {

@@ -9,6 +9,7 @@ export const SessionToken = z
   .string()
   .regex(/^[\w-]{43}$/u)
   .brand<'SessionToken'>();
+
 export type SessionToken = z.infer<typeof SessionToken>;
 
 /** SHA-256 of a `SessionToken`, lowercase hex. The only form a token is stored in. */
@@ -16,6 +17,7 @@ export const TokenHash = z
   .string()
   .regex(/^[\da-f]{64}$/u)
   .brand<'TokenHash'>();
+
 export type TokenHash = z.infer<typeof TokenHash>;
 
 const SESSION_DAYS = 30;
@@ -40,6 +42,7 @@ export const SessionSummary = z.object({
   /** True for the session that made the request. */
   current: z.boolean(),
 });
+
 export type SessionSummary = z.output<typeof SessionSummary>;
 
 interface SessionProps {
@@ -106,9 +109,11 @@ export class Session {
   public usedAt(now: Temporal.Instant): Session {
     const renew = this.isRenewableAt(now);
     const stale = Temporal.Instant.compare(now, this.lastSeenAt.add(LAST_SEEN_RESOLUTION)) >= 0;
+
     if (!renew && !stale) {
       return this;
     }
+
     return new Session({
       ...this.#props(),
       lastSeenAt: now,

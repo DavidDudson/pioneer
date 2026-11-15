@@ -24,6 +24,7 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
       .from(campaignPacks)
       .innerJoin(campaigns, eq(campaigns.id, campaignPacks.campaignId))
       .where(eq(campaignPacks.packId, pack.id));
+
     // Sorted here so no query needs an index for it; a pack is enabled in few campaigns.
     return rows.map((row) => EnablingCampaignName.parse(row.name)).toSorted((left, right) => left.localeCompare(right));
   }
@@ -39,6 +40,7 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
       )
       .where(and(eq(campaignPacks.packId, pack.id), isNull(campaigns.archivedAt)))
       .limit(1);
+
     return row !== undefined;
   }
 }

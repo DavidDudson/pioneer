@@ -6,6 +6,7 @@ export function formatCreatures(selection: CreatureSelection): string {
   const { imported, skipped, fieldGaps } = creatureReport(selection);
   const total = imported.reduce((sum, { count }) => sum + count, 0);
   const skippedTotal = skipped.reduce((sum, { count }) => sum + count, 0);
+
   return [
     `Would import ${total} creatures:`,
     ...imported.map(({ book, role, level, count }) => `  ${book}  ${role}  level ${level}  ${count}`),

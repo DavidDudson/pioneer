@@ -85,7 +85,9 @@ function withMark(context: Context, mark: TextMark | undefined): Context {
   if (mark === undefined) {
     return context;
   }
+
   const marks = MARK_ORDER.filter((each) => each === mark || context.marks.includes(each));
+
   return { ...context, marks };
 }
 
@@ -98,14 +100,17 @@ function flatText(root: Element): string {
   const parts: string[] = [];
   const stack: ChildNode[] = [root];
   let node = stack.pop();
+
   while (node !== undefined) {
     if (isText(node)) {
       parts.push(node.data);
     } else if (isTag(node) && !DROPPED.has(node.name)) {
       stack.push(...node.children.toReversed());
     }
+
     node = stack.pop();
   }
+
   return parts.join('');
 }
 
@@ -113,6 +118,7 @@ function flatText(root: Element): string {
 function flush(sink: Sink): void {
   const content = normalised(sink.run);
   sink.run = [];
+
   if (content.length > 0) {
     sink.blocks.push({ type: BlockKind.Paragraph, content });
   }
@@ -126,10 +132,13 @@ function reportAttributes(element: Element, { unknown }: Context): void {
 
 function blocksOf(nodes: readonly ChildNode[], context: Context): BlockNode[] {
   const sink: Sink = { blocks: [], run: [] };
+
   for (const node of nodes) {
     visit(node, sink, context);
   }
+
   flush(sink);
+
   return sink.blocks;
 }
 
@@ -153,13 +162,17 @@ function listOf(list: Element, context: Context): BlockNode[] {
   const items = list.children
     .map((child) => {
       const isItem = isTag(child) && child.name === LIST_ITEM;
+
       if (isItem) {
         reportAttributes(child, context);
       }
+
       return blocksOf(isItem ? child.children : [child], context);
     })
     .filter((item) => item.length > 0);
+
   const [first, ...rest] = items;
+
   return first === undefined
     ? []
     : [{ type: BlockKind.List, ordered: list.name === ORDERED_LIST, items: [first, ...rest] }];
@@ -167,6 +180,7 @@ function listOf(list: Element, context: Context): BlockNode[] {
 
 function headingOf(element: Element, level: RichTextHeadingLevel, context: Context): BlockNode[] {
   const content = inlineOf(element.children, context);
+
   return content.length === 0 ? [] : [{ type: BlockKind.Heading, level, content }];
 }
 
@@ -176,26 +190,33 @@ function headingOf(element: Element, level: RichTextHeadingLevel, context: Conte
  */
 function blockElement(element: Element, context: Context): BlockNode[] | undefined {
   const level = HEADING_LEVELS.get(element.name);
+
   if (level !== undefined) {
     return headingOf(element, level, context);
   }
+
   if (STRUCTURE.has(element.name)) {
     return blocksOf(element.children, context);
   }
+
   switch (element.name) {
     case 'p': {
       return blocksOf(element.children, context);
     }
+
     case 'hr': {
       return [{ type: BlockKind.Rule }];
     }
+
     case 'ul':
     case 'ol': {
       return listOf(element, context);
     }
+
     case 'table': {
       return tableOf(element, tableContext(context));
     }
+
     default: {
       return undefined;
     }
@@ -206,13 +227,18 @@ function blockElement(element: Element, context: Context): BlockNode[] | undefin
 function visitInline(element: Element, sink: Sink, context: Context): void {
   if (element.name === LINE_BREAK) {
     sink.run.push({ type: InlineKind.LineBreak });
+
     return;
   }
+
   const mark = MARKS.get(element.name);
+
   if (mark === undefined) {
     context.unknown.add(element.name);
   }
+
   const inner = withMark(context, mark);
+
   for (const child of element.children) {
     visit(child, sink, inner);
   }
@@ -222,22 +248,28 @@ function visitInline(element: Element, sink: Sink, context: Context): void {
 function skipped(element: Element, sink: Sink, context: Context): boolean {
   if (DROPPED.has(element.name)) {
     context.unknown.add(element.name);
+
     return true;
   }
+
   if (context.depth < ELEMENT_DEPTH_MAX) {
     return false;
   }
+
   context.unknown.add(OVERSIZED_MARKUP);
   sink.run.push({ type: InlineKind.Text, text: flatText(element), marks: context.marks });
+
   return true;
 }
 
 /** Whether the element is an action glyph span, added to the run as its cost. */
 function visitedGlyph(element: Element, sink: Sink): boolean {
   const cost = actionGlyph(element);
+
   if (cost !== undefined) {
     sink.run.push({ type: InlineKind.ActionCost, cost });
   }
+
   return cost !== undefined;
 }
 
@@ -245,15 +277,21 @@ function visitElement(element: Element, sink: Sink, context: Context): void {
   if (visitedGlyph(element, sink)) {
     return;
   }
+
   reportAttributes(element, context);
+
   if (skipped(element, sink, context)) {
     return;
   }
+
   const blocks = blockElement(element, deeper(context));
+
   if (blocks === undefined) {
     visitInline(element, sink, deeper(context));
+
     return;
   }
+
   flush(sink);
   sink.blocks.push(...blocks);
 }
@@ -263,6 +301,7 @@ function visit(node: ChildNode, sink: Sink, context: Context): void {
     const report = (problem: string): void => {
       context.enrichers.add(problem);
     };
+
     sink.run.push(...enrichedRun(node.data, { links: context.links, marks: context.marks, report }));
   } else if (isTag(node)) {
     visitElement(node, sink, context);
@@ -288,10 +327,13 @@ export function htmlToRichText(html: string, links: FoundryLinks = NO_LINKS): Ri
   const blocks = attachCheckOutcomes(blocksOf(parseDocument(html).children, context));
   const richText = RichText.safeParse(blocks);
   const reported = { untranslatedEnrichers: [...context.enrichers] };
+
   if (richText.success) {
     return { richText: richText.data, unknownMarkup: [...context.unknown], ...reported };
   }
+
   context.unknown.add(OVERSIZED_MARKUP);
   const flat = RichText.safeParse(flattened(blocks));
+
   return { richText: flat.success ? flat.data : [], unknownMarkup: [...context.unknown], ...reported };
 }

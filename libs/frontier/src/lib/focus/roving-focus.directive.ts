@@ -24,6 +24,7 @@ function usesArrowKeys(target: HTMLElement): boolean {
   if (target instanceof HTMLInputElement) {
     return !PRESSABLE_INPUT.has(target.type);
   }
+
   return target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement || target.isContentEditable;
 }
 
@@ -69,9 +70,11 @@ export class RovingFocus {
   readonly #tabStop = computed(() => {
     const enabled = this.items().filter((item) => item.enabled());
     const active = this.#active();
+
     if (active !== undefined && enabled.includes(active)) {
       return active;
     }
+
     return enabled.find((item) => item.selected()) ?? enabled[0];
   });
 
@@ -87,12 +90,15 @@ export class RovingFocus {
       write: () => {
         const stop = this.#tabStop();
         const written = new Map<RovingFocusItem, HTMLElement>();
+
         for (const item of this.items()) {
           const target = this.#writeTabIndex(item, item === stop);
+
           if (target !== undefined) {
             written.set(item, target);
           }
         }
+
         this.#written = written;
       },
     });
@@ -105,18 +111,23 @@ export class RovingFocus {
   #writeTabIndex(item: RovingFocusItem, isStop: boolean): HTMLElement | undefined {
     const target = item.focusable();
     const previous = this.#written.get(item);
+
     if (previous !== undefined && previous !== target) {
       previous.removeAttribute('tabindex');
     }
+
     const tabIndex = isStop ? TAB_STOP : SKIPPED;
+
     if (target !== undefined && target.getAttribute('tabindex') !== tabIndex) {
       target.setAttribute('tabindex', tabIndex);
     }
+
     return target;
   }
 
   protected focusin(event: FocusEvent): void {
     const item = this.items().find((candidate) => candidate.target() === event.target);
+
     if (item !== undefined) {
       this.#active.set(item);
     }
@@ -124,6 +135,7 @@ export class RovingFocus {
 
   protected focusout(event: FocusEvent): void {
     const next = event.relatedTarget;
+
     if (!(next instanceof Node) || !this.#host.contains(next)) {
       this.#active.set(undefined);
     }
@@ -133,11 +145,14 @@ export class RovingFocus {
     if (event.altKey || event.metaKey || event.shiftKey) {
       return;
     }
+
     const items = this.items();
     const from = items.findIndex((item) => item.target() === event.target);
+
     if (from === -1 || usesArrowKeys(items[from]?.target() ?? this.#host)) {
       return;
     }
+
     const to = rovingTarget({
       key: event.key,
       ctrl: event.ctrlKey,
@@ -148,6 +163,7 @@ export class RovingFocus {
       columns: this.#columns(items),
       wrap: this.rovingWrap(),
     });
+
     if (to !== undefined) {
       event.preventDefault();
       items[to]?.target().focus();
@@ -157,15 +173,20 @@ export class RovingFocus {
   /** `rovingColumns`, else how many items share the first item's row. Only a grid asks. */
   #columns(items: readonly RovingFocusItem[]): number {
     const columns = this.rovingColumns();
+
     if (columns !== undefined || this.orientation() !== RovingOrientation.Grid) {
       return columns ?? 1;
     }
+
     // A row ends where an item starts below the first item, so items of mixed height still share a row.
     const first = items[0]?.target().getBoundingClientRect();
+
     if (first === undefined || first.height === 0) {
       return items.length;
     }
+
     const nextRow = items.findIndex((item) => item.target().getBoundingClientRect().top >= first.bottom);
+
     return nextRow === -1 ? items.length : nextRow;
   }
 }

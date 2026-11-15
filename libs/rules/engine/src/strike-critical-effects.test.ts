@@ -71,6 +71,7 @@ describe('Strike critical range from rule elements', () => {
 
   test('the lowest of several ranges is the Strike critical range', () => {
     const sharper = { ...keen, natural: 18 };
+
     const range: unknown = strikeOf([
       [keen, 'a'],
       [sharper, 'b'],

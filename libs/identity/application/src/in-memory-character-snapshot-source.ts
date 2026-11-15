@@ -14,6 +14,7 @@ export class InMemoryCharacterSnapshotSource extends CharacterSnapshotSource {
 
   public override async take(actor: UserId, id: Uuid): Promise<CharacterSnapshot | undefined> {
     const found = this.#snapshots.get(`${actor}/${id}`);
+
     return found === undefined ? undefined : structuredClone(found);
   }
 }

@@ -51,11 +51,14 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
       .named(`Hero ${(characterCount += 1)}`)
       .ownedBy(owner)
       .build();
+
     const items =
       rope === undefined
         ? []
         : [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }];
+
     const stocked = built.withInventory({ items, customItems: [], coins: CoinsSchema.parse({}) }, built.updatedAt);
+
     return characters.insert(stocked, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 
@@ -69,7 +72,9 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
       status: TransferStatus.Pending,
       createdAt: clock.now(),
     };
+
     await transfers.insert(amiri, campaignId, transfer);
+
     return transfer;
   }
 
@@ -79,6 +84,7 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
 
   async function statusOf(transfer: ItemTransfer): Promise<string | undefined> {
     const found = await transfers.findById(campaignId, transfer.id);
+
     return found?.status;
   }
 
@@ -98,9 +104,11 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
 
   beforeEach(async () => {
     campaignCount += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaignCount}`).ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
   });
 
@@ -120,10 +128,12 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
       characters.findById(giver.id),
       characters.findById(recipient.id),
     ]);
+
     const audited = await database.db
       .select({ command: auditLog.command })
       .from(auditLog)
       .where(and(eq(auditLog.action, 'update'), eq(auditLog.rowId, offer.id)));
+
     expect(withdrawn).toBe(true);
     expect(await statusOf(offer)).toBe(TransferStatus.Withdrawn);
     expect(giverNow?.version).toBe(giver.version);
@@ -153,18 +163,22 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
     const giver = await characterWith(amiri, rope);
     const recipient = await characterWith(ezren);
     const offer = await offerLine(giver, recipient, rope);
+
     const [accepted, withdrawn] = await Promise.allSettled([
       settlement.accept(ezren, campaignId, offer),
       withdraw(offer),
     ]);
+
     const [giverNow, recipientNow, status] = await Promise.all([
       characters.findById(giver.id),
       characters.findById(recipient.id),
       statusOf(offer),
     ]);
+
     const acceptWon = accepted.status === 'fulfilled';
     const withdrawWon = withdrawn.status === 'fulfilled' && withdrawn.value;
     const loserIsConflict = accepted.status === 'fulfilled' || accepted.reason instanceof ConflictError;
+
     return {
       oneWinner: acceptWon !== withdrawWon,
       loserIsConflict,

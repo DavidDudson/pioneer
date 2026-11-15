@@ -27,6 +27,7 @@ const SCHEMA: TableViewSchema = {
     { id: 'rarity', code: 'rar' },
   ],
 };
+
 const IDS = SCHEMA.columns.map((column) => column.id);
 
 /** A view as the table holds it: sorts over distinct columns, hidden columns in schema order. */
@@ -45,6 +46,7 @@ const viewArb: Arbitrary<TableView> = record({
 /** What a view means once the defaults fill in what it leaves out, with hidden columns in schema order. */
 function meaning(view: TableView): Required<TableView> {
   const hidden = view.hidden ?? ['book'];
+
   return {
     sort: view.sort ?? [],
     hidden: IDS.filter((id) => hidden.includes(id)),
@@ -69,6 +71,7 @@ describe('table view codec', () => {
       hidden: ['source', 'book'],
       facets: 'tr:fire~tr!ice',
     };
+
     expect(encodeTableView(view, SCHEMA)).toStrictEqual({ s: '-lvl,name', f: 'tr:fire~tr!ice', c: '-src' });
     expect(encodeTableView({ ...view, hidden: ['source'] }, SCHEMA)).toStrictEqual({
       s: '-lvl,name',
@@ -101,6 +104,7 @@ describe('table view codec', () => {
       { s: 'nope,,-zzz,lvl,-lvl', c: 'src,*bk,+nope,-', n: '-4', q: ['a', 'b'], f: 7, other: 'x' },
       SCHEMA,
     );
+
     expect(view).toStrictEqual({ sort: [{ column: 'level', descending: false }], hidden: ['book'], search: 'a' });
   });
 
@@ -141,6 +145,7 @@ describe('table view codec', () => {
       pageSize: option(integer({ min: 1, max: 500 }), { nil: undefined }),
       search: option(string({ maxLength: 30 }), { nil: undefined }),
     });
+
     assert(
       property(typical, (view) => {
         const query = new URLSearchParams(encodeTableView(view, SCHEMA)).toString();

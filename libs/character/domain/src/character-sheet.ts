@@ -20,6 +20,7 @@ export const CharacterSheet = z.object({
   /** The names of the users who authored the character's overrides; a user nobody can name is left out. */
   authors: z.array(OverrideAuthor).readonly().optional(),
 });
+
 export type CharacterSheet = z.output<typeof CharacterSheet>;
 
 /**
@@ -27,4 +28,5 @@ export type CharacterSheet = z.output<typeof CharacterSheet>;
  * the old ancestry). Reported once, here; a later read has no record of them.
  */
 export const PatchedCharacterSheet = CharacterSheet.extend({ cleared: z.array(ClearedPick).readonly() });
+
 export type PatchedCharacterSheet = z.output<typeof PatchedCharacterSheet>;

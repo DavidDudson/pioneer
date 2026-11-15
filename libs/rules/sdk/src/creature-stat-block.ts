@@ -19,6 +19,7 @@ import { WeaponDamage } from './weapon';
 
 /** The most of any one list a stat block holds: skills, senses, strikes, abilities, spells, items. */
 const LIST_MAX = 64;
+
 /** The most traits one strike or ability names. */
 const TRAITS_MAX = 16;
 
@@ -26,6 +27,7 @@ const Traits = z.array(Trait).max(TRAITS_MAX).readonly().check(uniqueItems);
 
 /** A skill a creature has a modifier in: a skill slug (`stealth`) or a Lore (`warfare-lore`). */
 export const CreatureSkillName = Slug.brand<'CreatureSkillName'>();
+
 export type CreatureSkillName = z.infer<typeof CreatureSkillName>;
 
 /** A skill modifier on a stat block. `note` carries the book's parenthetical ("+14 in swamps"). */
@@ -34,6 +36,7 @@ export const CreatureSkill = z.strictObject({
   modifier: Modifier,
   note: RichText.optional(),
 });
+
 export type CreatureSkill = z.infer<typeof CreatureSkill>;
 
 /** A sense a creature has: its slug (`darkvision`, `scent`), how exactly it locates, and how far it reaches. */
@@ -42,10 +45,12 @@ export const CreatureSense = z.strictObject({
   acuity: SenseAcuitySchema.optional(),
   range: Feet.optional(),
 });
+
 export type CreatureSense = z.infer<typeof CreatureSense>;
 
 /** How a creature moves besides walking; its land speed is the stat block's `speed`. */
 export const MovementType = { Burrow: 'burrow', Climb: 'climb', Fly: 'fly', Swim: 'swim' } as const;
+
 export type MovementType = ValueOf<typeof MovementType>;
 
 export const CreatureSpeed = z.strictObject({
@@ -53,18 +58,22 @@ export const CreatureSpeed = z.strictObject({
   speed: Feet,
   note: RichText.optional(),
 });
+
 export type CreatureSpeed = z.infer<typeof CreatureSpeed>;
 
 /** Whether a strike is made in melee or at range. */
 export const StrikeRange = { Melee: 'melee', Ranged: 'ranged' } as const;
+
 export type StrikeRange = ValueOf<typeof StrikeRange>;
 
 /** Flat damage added to a strike's dice ("1d8+7"). */
 export const DamageBonus = Pg.smallint().nonnegative().brand<'DamageBonus'>();
+
 export type DamageBonus = z.infer<typeof DamageBonus>;
 
 /** One part of a strike's damage: dice, an optional flat bonus and a type ("1d8+7 slashing"). */
 export const CreatureDamage = WeaponDamage.extend({ bonus: DamageBonus.optional() });
+
 export type CreatureDamage = z.infer<typeof CreatureDamage>;
 
 /**
@@ -83,6 +92,7 @@ export const CreatureStrike = z.strictObject({
   increment: Feet.optional(),
   effects: RichText.optional(),
 });
+
 export type CreatureStrike = z.infer<typeof CreatureStrike>;
 
 /**
@@ -105,6 +115,7 @@ export const CreatureAbility = z
     ...issueParams(message(RulesMessage.ActionReactionTrigger)),
     path: ['trigger'],
   });
+
 export type CreatureAbility = z.infer<typeof CreatureAbility>;
 
 /** A spell a creature casts: the spell, the rank it is cast at, and how often when it is innate. */
@@ -116,6 +127,7 @@ export const CreatureSpell = z.strictObject({
   /** A constant spell is always in effect. */
   constant: z.literal(true).optional(),
 });
+
 export type CreatureSpell = z.infer<typeof CreatureSpell>;
 
 /**
@@ -130,10 +142,12 @@ export const CreatureSpellcasting = z.strictObject({
   attack: Modifier.optional(),
   spells: z.array(CreatureSpell).max(LIST_MAX).readonly(),
 });
+
 export type CreatureSpellcasting = z.infer<typeof CreatureSpellcasting>;
 
 /** How many of an item a creature carries. */
 export const ItemQuantity = Pg.smallint().positive().brand<'ItemQuantity'>();
+
 export type ItemQuantity = z.infer<typeof ItemQuantity>;
 
 /** An item a creature carries, linked to its equipment entry. */
@@ -141,6 +155,7 @@ export const CreatureItem = z.strictObject({
   item: ContentId,
   quantity: ItemQuantity.optional(),
 });
+
 export type CreatureItem = z.infer<typeof CreatureItem>;
 
 /**

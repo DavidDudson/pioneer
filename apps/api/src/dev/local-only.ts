@@ -10,6 +10,7 @@ export const DEV_HOSTNAME = 'localhost';
  */
 export function assertLocalOrigin(publicOrigin: string | undefined): void {
   const origin = publicOrigin === undefined ? undefined : new URL(publicOrigin);
+
   if (origin?.protocol !== 'http:' || !LOCAL_HOSTNAMES.has(origin.hostname)) {
     throw new Error(
       `Refusing to start dev sign-in: PUBLIC_ORIGIN must be http on localhost, got ${publicOrigin ?? 'nothing'}`,
@@ -26,6 +27,7 @@ const TUNNEL_HOST_SUFFIX = '.trycloudflare.com';
  */
 export function assertTunnelOrigin(publicOrigin: string | undefined): void {
   const origin = publicOrigin === undefined ? undefined : new URL(publicOrigin);
+
   if (origin?.protocol !== 'https:' || !origin.hostname.endsWith(TUNNEL_HOST_SUFFIX)) {
     throw new Error(
       `Refusing to expose dev sign-in: PUBLIC_ORIGIN must be https on ${TUNNEL_HOST_SUFFIX}, got ${publicOrigin ?? 'nothing'}`,
@@ -41,5 +43,6 @@ export function assertTunnelOrigin(publicOrigin: string | undefined): void {
  */
 export function isCrossSiteRequest(request: Request): boolean {
   const fetchSite = request.headers.get('sec-fetch-site');
+
   return fetchSite !== null && fetchSite !== 'same-origin' && fetchSite !== 'none';
 }

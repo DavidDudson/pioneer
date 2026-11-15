@@ -10,6 +10,7 @@ const meta: Meta<InventoryView> = {
   title: 'Rules/Inventory',
   component: InventoryView,
 };
+
 export default meta;
 
 /** While the character loads. */

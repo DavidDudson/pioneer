@@ -54,9 +54,11 @@ const official = ContentPack.define({
     },
   ],
 });
+
 const withoutLevel = VariantRuleId.parse(
   contentId(PackId.parse('core-rules'), EntrySlug.parse('variant-rule:without-level')),
 );
+
 const campaignWithoutLevel = EnabledVariantRuleId.parse(withoutLevel);
 const other = VariantRuleId.parse(newId());
 
@@ -64,6 +66,7 @@ const content: ContentSource = {
   registry: async (): Promise<ContentRegistry> => {
     const registry = new ContentRegistry();
     registry.register(official);
+
     return registry;
   },
 };
@@ -118,14 +121,18 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
     kyraCharacter = character;
 
     const campaigns = new DrizzleCampaignRepository(database.db);
+
     const campaign = await campaigns.insert(
       new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
+
     if (member === undefined) {
       throw new Error('Amiri is not in the campaign');
     }
+
     memberId = member.id;
 
     repository = new DrizzleCharacterVariantRepository(database.db);
@@ -175,9 +182,11 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
     expect(rules.enabled.map(({ name, packTitle }) => [String(name), String(packTitle)])).toStrictEqual([
       ['Proficiency Without Level', 'Core Rules'],
     ]);
+
     const refusal = await campaignService
       .enable(amiri, campaignId, { variantId: campaignWithoutLevel })
       .catch((error: unknown) => error);
+
     expect(refusal).toBeInstanceOf(ForbiddenError);
   });
 

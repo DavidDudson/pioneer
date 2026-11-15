@@ -34,6 +34,7 @@ function app(): AnyElysia {
       .withItem(ContentKind.Equipment, 'rope', { bulk: 'light', price: { coins: { sp: 5 } } })
       .build(),
   );
+
   const clock = fixedClock('2026-10-07T10:00:00Z');
   const repository = new InMemoryCharacterRepository();
   const service = new CharacterService(repository, content, clock);
@@ -41,6 +42,7 @@ function app(): AnyElysia {
   const importer = new PathbuilderImportService({ characters: repository, content, variants }, clock);
   const exports = new PathbuilderExportService(new InMemoryPathbuilderExportFetcher());
   const auth = new FakeAuthenticator();
+
   return new Elysia()
     .use(problemHandler)
     .use(characterRoutes(service, auth))
@@ -71,15 +73,18 @@ interface Created {
 
 async function create(api: AnyElysia, as: UserId, name: string): Promise<Created> {
   const response = await api.handle(request('POST', '/characters', { as, body: { name, ancestry: humanAncestryId } }));
+
   return (await response.json()) as Created;
 }
 
 describe('character routes', () => {
   test('create, patch, conflict', async () => {
     const api = app();
+
     const created = await api.handle(
       request('POST', '/characters', { body: { name: 'Ezren', ancestry: humanAncestryId } }),
     );
+
     expect(created.status).toBe(200);
     const character = (await created.json()) as { id: string; version: number; ownerId: string; createdAt: string };
     expect(character.version).toBe(1);
@@ -120,18 +125,23 @@ describe('character routes', () => {
       .withAncestry('human')
       .withAncestry('elf')
       .withHeritage('skilled-human', 'human');
+
     const content = fixedContent(pack.build());
+
     const service = new CharacterService(
       new InMemoryCharacterRepository(),
       content,
       fixedClock('2026-10-07T10:00:00Z'),
     );
+
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const { id } = await create(api, amiri, 'Kyra');
+
     const select = (version: number, slot: string, selection: string): Request =>
       request('PATCH', `/characters/${id}`, {
         body: { expectedVersion: version, patch: { field: 'selectSlot', slot, selection } },
       });
+
     const skilledHuman = pack.idOf(ContentKind.Heritage, 'skilled-human');
 
     const heritagePicked = await api.handle(select(1, 'heritage', skilledHuman));
@@ -189,6 +199,7 @@ describe('character routes', () => {
 describe('character routes without a signed-in user', () => {
   const api = app();
   const id = newId();
+
   const cases: readonly (readonly [string, Request])[] = [
     ['list', request('GET', '/characters', { as: anonymous })],
     ['get', request('GET', `/characters/${id}`, { as: anonymous })],
@@ -260,10 +271,12 @@ describe('Pathbuilder import route', () => {
     const api = app();
     const response = await api.handle(request('POST', path, { body: mordredExport }));
     expect(response.status).toBe(200);
+
     const { character, report } = (await response.json()) as {
       character: { id: string; name: string; level: number; ownerId: string; version: number };
       report: { unmatched: { kind: string }[] };
     };
+
     expect(character).toMatchObject({ name: 'Mordred (Dual Class)', level: 12, ownerId: amiri, version: 1 });
     expect(report.unmatched.map((group) => group.kind)).toContain('heritage');
 

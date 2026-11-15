@@ -27,6 +27,7 @@ export class SheetSidePanelHost {
       this.#destroyed = true;
       this.#release()?.();
     });
+
     if (this.#loader !== undefined) {
       inject(IDLE_SCHEDULER)(() => {
         // oxlint-disable-next-line typescript/no-floating-promises -- #load catches every error, so it never rejects
@@ -38,6 +39,7 @@ export class SheetSidePanelHost {
   async #load(): Promise<void> {
     try {
       const component = await this.#loader?.();
+
       if (component !== undefined && !this.#destroyed) {
         this.#state.panel.set(component);
         this.#release.set(this.#shell.hide());

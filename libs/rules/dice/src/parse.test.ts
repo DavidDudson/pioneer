@@ -9,17 +9,21 @@ import { DiceExpressionText, TextPosition } from './units';
 
 function parsed(text: string): DiceExpression {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(`expected ${text} to parse, got ${outcome.error.key}`);
   }
+
   return outcome.expression;
 }
 
 function failure(text: string): ParseFailure {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (outcome.ok) {
     throw new Error(`expected ${text} to fail`);
   }
+
   return outcome;
 }
 

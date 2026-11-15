@@ -22,6 +22,7 @@ import type { Bindings } from './foundry';
  */
 
 const AT = TextPosition.parse(1);
+
 /** Extra arguments drawn for `min` and `max` beyond their minimum. */
 const MAX_EXTRA_ARGS = 3;
 const MAX_DEPTH = 6;
@@ -31,6 +32,7 @@ const number = integer({ min: 0, max: FORMULA_NUMBER_MAX }).map((value): Formula
   value: FormulaNumber.parse(value),
   position: AT,
 }));
+
 const segment = stringMatching(/^[A-Za-z_][\w-]{0,8}$/u);
 const path = array(segment, { minLength: 1, maxLength: 4 }).map((segments) => ReferencePath.parse(segments.join('.')));
 const reference = path.map((value): FormulaNode => ({ kind: NodeKind.Reference, path: value, position: AT }));
@@ -51,6 +53,7 @@ export function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNo
       ),
       functionName.chain((name) => {
         const { min, max } = ARITY[name];
+
         return array(tie('node'), { minLength: min, maxLength: max ?? min + MAX_EXTRA_ARGS }).map(
           (args): FormulaNode => ({ kind: NodeKind.Call, name, args, position: AT }),
         );
@@ -66,13 +69,16 @@ export const formula: Arbitrary<FormulaNode> = formulaFrom(oneof(number, referen
 const BOUND_PATHS: readonly ReferencePath[] = ['level', 'actor.level', 'item.level', 'attr.dex.capped'].map((text) =>
   ReferencePath.parse(text),
 );
+
 const SMALL_NUMBER_MAX = 12;
 const SMALL_VALUE_MAX = 20;
+
 const smallNumber = integer({ min: 0, max: SMALL_NUMBER_MAX }).map((value): FormulaNode => ({
   kind: NodeKind.Number,
   value: FormulaNumber.parse(value),
   position: AT,
 }));
+
 const boundReference = constantFrom(...BOUND_PATHS).map((value): FormulaNode => ({
   kind: NodeKind.Reference,
   path: value,
@@ -83,6 +89,7 @@ const boundReference = constantFrom(...BOUND_PATHS).map((value): FormulaNode => 
 export const evaluableFormula: Arbitrary<FormulaNode> = formulaFrom(oneof(smallNumber, boundReference));
 
 const boundValue = integer({ min: -SMALL_VALUE_MAX, max: SMALL_VALUE_MAX }).map((value) => FormulaValue.parse(value));
+
 const toBindings = (values: Partial<Record<ReferencePath, FormulaValue>>): Bindings =>
   new Map(Object.entries(values).map(([key, value]) => [ReferencePath.parse(key), FormulaValue.parse(value)]));
 
@@ -108,6 +115,7 @@ export function withoutPositions(node: FormulaNode): unknown {
     case NodeKind.Negate: {
       return { kind: node.kind, operand: withoutPositions(node.operand) };
     }
+
     case NodeKind.Binary: {
       return {
         kind: node.kind,
@@ -116,15 +124,19 @@ export function withoutPositions(node: FormulaNode): unknown {
         right: withoutPositions(node.right),
       };
     }
+
     case NodeKind.Call: {
       return { kind: node.kind, name: node.name, args: node.args.map((arg) => withoutPositions(arg)) };
     }
+
     case NodeKind.Number: {
       return { kind: node.kind, value: node.value };
     }
+
     case NodeKind.Reference: {
       return { kind: node.kind, path: node.path };
     }
+
     default: {
       return unhandledNode(node);
     }
@@ -134,24 +146,31 @@ export function withoutPositions(node: FormulaNode): unknown {
 /** Every node's position in a parsed tree. */
 export function positions(node: FormulaNode, into = new Set<TextPosition>()): Set<TextPosition> {
   into.add(node.position);
+
   switch (node.kind) {
     case NodeKind.Number:
     case NodeKind.Reference: {
       return into;
     }
+
     case NodeKind.Negate: {
       return positions(node.operand, into);
     }
+
     case NodeKind.Binary: {
       positions(node.left, into);
+
       return positions(node.right, into);
     }
+
     case NodeKind.Call: {
       for (const arg of node.args) {
         positions(arg, into);
       }
+
       return into;
     }
+
     default: {
       return unhandledNode(node);
     }
@@ -161,5 +180,6 @@ export function positions(node: FormulaNode, into = new Set<TextPosition>()): Se
 /** The tree as the parser gives it back from its printed text, so positions point into real text. */
 export function reparsed(tree: FormulaNode): FormulaNode | undefined {
   const outcome = parseFormula(printFormula(tree));
+
   return outcome.ok ? outcome.formula : undefined;
 }

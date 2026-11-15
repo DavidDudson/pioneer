@@ -14,5 +14,6 @@ export function sheetRollSetup(
   request: RollRequest,
 ): RollSetup | undefined {
   const sources = sheetSources(registry, character);
+
   return rollSetup(character.document, sources, request);
 }

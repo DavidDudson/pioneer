@@ -20,9 +20,11 @@ function target(route: Route): Route {
   if (route.children !== undefined) {
     return { children: stubbed(route.children) };
   }
+
   if (typeof route.redirectTo === 'string' && route.redirectTo.startsWith('/')) {
     return { redirectTo: route.redirectTo, pathMatch: route.pathMatch ?? 'prefix' };
   }
+
   return { component: StubPage };
 }
 
@@ -34,6 +36,7 @@ function stubbed(routes: readonly Route[]): Route[] {
         ? { provide: CharacterStore, useValue: { selected: signal({ name: 'Briar Rose' }) } }
         : provider,
     );
+
     return {
       ...(route.path === undefined ? {} : { path: route.path }),
       ...(route.data === undefined ? {} : { data: route.data }),

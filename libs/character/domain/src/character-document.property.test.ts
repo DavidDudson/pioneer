@@ -16,6 +16,7 @@ import type { UpgradeStep } from './character-document-upgrades';
 import { characterDocumentJson } from './testing';
 
 installRulesFakes();
+
 const document = characterDocumentJson.map((json) => CharacterDocumentSchema.parse(json));
 
 const CHAIN_LENGTH = 6;
@@ -29,6 +30,7 @@ const chain: readonly UpgradeStep[] = Array.from(
   (): UpgradeStep =>
     (stored: StoredCharacterDocument): StoredCharacterDocument => {
       const marked = Marked.parse(stored);
+
       return { ...marked, upgradedFrom: [...marked.upgradedFrom, marked.schemaVersion] };
     },
 );

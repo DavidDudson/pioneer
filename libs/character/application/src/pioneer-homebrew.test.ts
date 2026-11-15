@@ -42,6 +42,7 @@ function brewEntries(featLevel = 1): readonly ContentEntry[] {
       usage: { type: 'held', hands: 'one' },
     })
     .build();
+
   return otherEntries;
 }
 
@@ -70,15 +71,18 @@ function brewPack(entries: readonly ContentEntry[] = brewEntries()): EmbeddedPac
 
 function entryOf(kind: string): ContentEntry {
   const entry = brewEntries().find((candidate) => candidate.kind === kind);
+
   if (entry === undefined) {
     throw new Error(`Expected a ${kind}`);
   }
+
   return entry;
 }
 
 /** A character of `owner` who picked the homebrew feat and carries the homebrew weapon. */
 function brewer(owner: UserId): Character {
   const picked = new CharacterBuilder().ownedBy(owner).picking(FEAT_SLOT, entryOf('feat').id).build();
+
   return new Character({
     document: {
       ...picked.document,
@@ -105,6 +109,7 @@ function server(): Server {
   const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
   const repository = new InMemoryCharacterRepository();
   const service = new PioneerFileService({ repository, content: fixedContent(core), clock, homebrew });
+
   return { homebrew, repository, service };
 }
 
@@ -117,12 +122,14 @@ describe('Pioneer files with embedded homebrew', () => {
     origin.homebrew.seed(amiri, brewPack());
     const repository = new InMemoryCharacterRepository();
     const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
     const service = new PioneerFileService({
       repository,
       content: fixedContent(core),
       clock,
       homebrew: origin.homebrew,
     });
+
     const saved = await repository.insert(brewer(amiri), { actor: amiri, command: CharacterCommand.CreateCharacter });
     file = await service.export(amiri, saved.id);
   });
@@ -144,12 +151,14 @@ describe('Pioneer files with embedded homebrew', () => {
     const stranger = server();
     const repository = new InMemoryCharacterRepository();
     const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
     const service = new PioneerFileService({
       repository,
       content: fixedContent(core),
       clock,
       homebrew: stranger.homebrew,
     });
+
     const saved = await repository.insert(brewer(ezren), { actor: ezren, command: CharacterCommand.CreateCharacter });
 
     expect(await rejection(service.export(ezren, saved.id))).toBeInstanceOf(ValidationError);

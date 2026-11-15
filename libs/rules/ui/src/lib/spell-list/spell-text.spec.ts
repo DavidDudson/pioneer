@@ -11,6 +11,7 @@ import { areaText, defenceText, durationText, rangeText, targetsText } from './s
 function translator(): Translate {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const transloco = TestBed.inject(TranslocoService);
+
   return (key, params) => transloco.translate(key, params);
 }
 
@@ -72,6 +73,7 @@ describe('spell fields as text', () => {
 
   it('words damage at the cast rank, and healing apart from damage', () => {
     const translate = translator();
+
     const damage = (rank: number): string[] =>
       lineOf({ slug: 'fireball', name: 'Fireball', data: FIREBALL, rank }, translate).effects.map(({ text }) => text);
 

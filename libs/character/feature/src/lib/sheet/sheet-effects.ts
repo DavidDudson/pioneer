@@ -84,6 +84,7 @@ function isEffect(entry: ContentEntry): entry is EffectEntry {
 /** The effects of the registry's packs by id; the last pack's entry wins, as in the registry. */
 function effectEntries(registry: ContentRegistry): ReadonlyMap<ContentId, EffectEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(entries.flatMap((entry) => (isEffect(entry) ? [[entry.id, entry] as const] : [])));
 }
 
@@ -93,24 +94,30 @@ function effectEntries(registry: ContentRegistry): ReadonlyMap<ContentId, Effect
  */
 function formChoicesOf(entry: EffectEntry): readonly FormChoice[] {
   const lowest = formRanks(entry.rules);
+
   const sets = entry.rules.flatMap((rule): FormChoice[][] => {
     if (rule.key !== RuleElementKey.ChoiceSet || rule.rollOption === undefined || !Array.isArray(rule.choices)) {
       return [];
     }
+
     const { rollOption } = rule;
+
     return [
       rule.choices.map(({ value, label }) => {
         const option = RollOption.parse(`${rollOption}:${value}`);
+
         return { option, label, lowestRank: lowest.get(option) };
       }),
     ];
   });
+
   return sets[0] ?? [];
 }
 
 /** The lowest rank an effect is cast at: its level, never below the first rank. */
 function rankFloorOf(entry: EffectEntry): SpellRank {
   const level = SpellRank.safeParse(entry.level);
+
   return level.success ? level.data : SpellRank.parse(1);
 }
 
@@ -121,6 +128,7 @@ function formulaOf(terms: EffectTerms | undefined): DamageFormula | undefined {
 /** Every effect the content has, by name, for the add picker. */
 export function effectOptions(registry: ContentRegistry): readonly EffectOption[] {
   const terms = effectContent(registry);
+
   return [...effectEntries(registry).values()]
     .map((entry) => ({
       id: entry.id,
@@ -147,12 +155,14 @@ function sourceDetail(source: ActiveEffect['source']): readonly EffectDetail[] {
   if (source.kind === EffectSourceKind.Ally) {
     return [{ key: 'character.sheet.effects.fromAlly', params: { name: source.name } }];
   }
+
   return source.kind === EffectSourceKind.Gm ? [{ key: 'character.sheet.effects.fromGm', params: {} }] : [];
 }
 
 /** The rounds left, the form chosen and the rank cast at, as lines the list shows. */
 function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetail[] {
   const form = formChoicesOf(entry).find(({ option }) => option === each.form);
+
   return [
     ...(each.remaining === undefined
       ? []
@@ -168,12 +178,16 @@ function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetai
 export function effectViews(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly EffectView[] {
   const entries = effectEntries(registry);
   const terms = effectContent(registry);
+
   return active.flatMap((each): EffectView[] => {
     const entry = entries.get(each.effect);
+
     if (entry === undefined) {
       return [];
     }
+
     const counter = counterOf(terms.get(each.effect));
+
     return [
       {
         id: each.id,
@@ -205,6 +219,7 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
 /** The ids of the polymorph effects among `active`: the form the character is in, and any a newer one replaced. */
 function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]): ReadonlySet<EffectInstanceId> {
   const terms = effectContent(registry);
+
   return new Set(active.filter(({ effect }) => terms.get(effect)?.polymorph === true).map(({ id }) => id));
 }
 
@@ -212,11 +227,13 @@ function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]
 export function activeFormOf(registry: ContentRegistry, active: readonly ActiveEffect[]): EffectView | undefined {
   const forms = polymorphIds(registry, active);
   const newest = active.findLast(({ id }) => forms.has(id));
+
   return newest === undefined ? undefined : effectViews(registry, [newest]).at(0);
 }
 
 /** `active` without its polymorph effects: the effects the character has outside any form. */
 export function withoutForms(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly ActiveEffect[] {
   const forms = polymorphIds(registry, active);
+
   return active.filter(({ id }) => !forms.has(id));
 }

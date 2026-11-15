@@ -60,6 +60,7 @@ const meta: Meta<FilterBar> = {
     template: `<fr-filter-bar ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: FilterBarStory = {};

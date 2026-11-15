@@ -45,10 +45,12 @@ function entriesOf(
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return [...spellcastingInPlay({ rules, facts })];
 }
 
@@ -102,11 +104,13 @@ describe('spellcastingInPlay', () => {
 
   test("a DeitySpells element in play adds the deity's spells to the entry it names, and only while it holds", () => {
     const cleric = [entry('cleric', 'divine'), 'cleric-spellcasting'] as const;
+
     const placed = [
       cleric,
       [entry('wizard', 'arcane'), 'wizard-dedication'],
       [deitySpells('class:cleric'), 'deity'],
     ] as const;
+
     const takes = entriesOf(placed, ['class:cleric']).map(({ slug, deitySpells: own }) => [String(slug), own]);
 
     expect(takes).toEqual([
@@ -165,6 +169,7 @@ describe('spellcastingInPlay slots', () => {
 
   test('a pool keeps its slots apart, named by the first entry that adds to it', () => {
     const curriculumCantrip = slots('wizard', ['cantrip', 1], { pool: 'curriculum' });
+
     const [wizard] = entriesOf([
       [entry('wizard', 'arcane'), 'wizard-spellcasting'],
       [slots('wizard', [1, 2]), 'wizard-spellcasting'],
@@ -232,6 +237,7 @@ describe('spellcastingInPlay slots', () => {
       slots('wizard', [1, 9]),
       `feat-${rule}`,
     ]);
+
     const [wizard] = entriesOf([[entry('wizard', 'arcane'), 'wizard-spellcasting'], ...many]);
 
     expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: SLOT_COUNT_MAX }] });
@@ -240,6 +246,7 @@ describe('spellcastingInPlay slots', () => {
   test('a pool takes the spells of every pool spells element in play for it, each once', () => {
     const curriculum = (spells: readonly string[]): object =>
       poolSpells({ entry: 'wizard', pool: 'curriculum', spells });
+
     const [wizard] = entriesOf([
       [entry('wizard', 'arcane'), 'wizard-spellcasting'],
       [slots('wizard', [1, 1], { pool: 'curriculum' }), 'school-of-battle-magic'],
@@ -262,6 +269,7 @@ describe('spellcastingInPlay slots', () => {
       [fontSpell(HEAL, 'divine-font:heal'), 'divine-font'],
       [fontSpell(HARM, 'divine-font:harm'), 'divine-font'],
     ];
+
     const spellsOf = (options: readonly string[]): readonly string[] | undefined =>
       entriesOf(placed, options)[0]?.pools[0]?.spells;
 
@@ -272,10 +280,12 @@ describe('spellcastingInPlay slots', () => {
   test('a spontaneous entry a signature spells element names has signature spells, while the element holds', () => {
     const bard = entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' });
     const signatures = { key: 'SignatureSpells', entry: 'bard', predicate: ['feature:signature-spells'] };
+
     const placed: (readonly [object, string])[] = [
       [bard, 'bard-spellcasting'],
       [signatures, 'signature-spells'],
     ];
+
     const signaturesOf = (options: readonly string[]): boolean | undefined => entriesOf(placed, options)[0]?.signatures;
 
     expect(signaturesOf(['feature:signature-spells'])).toBe(true);

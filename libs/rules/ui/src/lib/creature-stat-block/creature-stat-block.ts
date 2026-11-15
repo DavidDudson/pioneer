@@ -2,6 +2,7 @@ import type { ActionCost, ContentText, CreatureData, Level, RefNode, RichText, T
 
 /** How much of the stat block shows: the preview keeps to what a glance needs, the full block is the printed one. */
 export const StatBlockLayout = { Preview: 'preview', Full: 'full' } as const;
+
 export type StatBlockLayout = (typeof StatBlockLayout)[keyof typeof StatBlockLayout];
 
 /** A creature entry as the stat block reads it: the envelope's name, level and traits, and its `data`. */

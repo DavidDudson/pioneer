@@ -49,6 +49,7 @@ export class AttributePicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return attributePickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

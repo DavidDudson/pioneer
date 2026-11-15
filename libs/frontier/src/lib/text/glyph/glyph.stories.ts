@@ -12,6 +12,7 @@ const meta: Meta<Glyph> = {
   args: { label: 'Two actions' },
   render: (args) => ({ props: args, template: `<fr-glyph ${argsToTemplate(args)}>◆◆</fr-glyph>` }),
 };
+
 export default meta;
 
 export const ActionGlyph: GlyphStory = {};

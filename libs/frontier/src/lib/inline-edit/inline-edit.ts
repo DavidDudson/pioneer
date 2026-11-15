@@ -20,6 +20,7 @@ export const InlineEditStatus = {
   /** The server rejected the save because the record changed elsewhere. */
   Conflict: 'conflict',
 } as const;
+
 export type InlineEditStatus = ValueOf<typeof InlineEditStatus>;
 
 /** Fallback messages; their `en` text is in frontier's `i18n/en.json`. */
@@ -30,8 +31,10 @@ const InlineEditMessage = {
 
 /** Quiet time after the last change before it saves. */
 export const SAVE_DEBOUNCE: Milliseconds = Milliseconds.parse(600);
+
 /** How long Revert is offered after a save; the field then closes if untouched. */
 export const REVERT_WINDOW: Milliseconds = Milliseconds.parse(5000);
+
 /** How long the tick shows after a revert, which itself can't be reverted. */
 const REVERTED_FLASH: Milliseconds = Milliseconds.parse(1500);
 
@@ -43,6 +46,7 @@ const Phase = {
   Error: 'error',
   Conflict: 'conflict',
 } as const;
+
 type Phase = ValueOf<typeof Phase>;
 
 export interface InlineEditOptions<TValue> {
@@ -127,15 +131,19 @@ export class InlineEdit<TValue> {
       if (source() === undefined) {
         return InlineEditStatus.Loading;
       }
+
       const phase = this.#phase();
+
       if (phase !== Phase.Idle) {
         return phase;
       }
+
       return this.#open() ? InlineEditStatus.Editing : InlineEditStatus.Idle;
     });
     this.validationError = computed(() => {
       const result = schema.safeParse(this.draft());
       const [issue] = result.success ? [] : result.error.issues;
+
       return issue === undefined ? undefined : issueMessage(issue);
     });
     this.display = computed(() => (source() === undefined ? '' : format(this.draft())));
@@ -147,9 +155,11 @@ export class InlineEdit<TValue> {
     if (this.status() === InlineEditStatus.Loading || this.#open()) {
       return;
     }
+
     if (!this.#canRevert()) {
       this.#original = this.#options.source();
     }
+
     this.#open.set(true);
   }
 
@@ -157,6 +167,7 @@ export class InlineEdit<TValue> {
   public change(value: TValue): void {
     this.draft.set(value);
     this.#debouncer.cancel();
+
     if (this.validationError() === undefined) {
       this.#debouncer.maybeExecute();
     }
@@ -165,6 +176,7 @@ export class InlineEdit<TValue> {
   /** Save a pending change now (Enter, a select pick, blur). */
   public async flush(): Promise<void> {
     this.#debouncer.cancel();
+
     if (this.dirty() && this.validationError() === undefined) {
       await this.#save(this.draft(), true);
     }
@@ -185,6 +197,7 @@ export class InlineEdit<TValue> {
     if (this.validationError() !== undefined) {
       return;
     }
+
     this.#open.set(false);
     this.flushSoon();
   }
@@ -194,18 +207,22 @@ export class InlineEdit<TValue> {
     this.#debouncer.cancel();
     this.draft.set(this.#options.source() ?? this.#options.empty);
     this.#error.set(undefined);
+
     if (this.#phase() === Phase.Error || this.#phase() === Phase.Conflict) {
       this.#phase.set(Phase.Idle);
     }
+
     this.#open.set(false);
   }
 
   /** Put back the value from before this edit session. */
   public async revert(): Promise<void> {
     const original = this.#original;
+
     if (!this.#canRevert() || original === undefined) {
       return;
     }
+
     this.#debouncer.cancel();
     clearTimeout(this.#revertTimer);
     this.#canRevert.set(false);
@@ -218,11 +235,14 @@ export class InlineEdit<TValue> {
   async #save(value: TValue, revertible: boolean): Promise<void> {
     if (this.busy()) {
       this.#queued = true;
+
       return;
     }
+
     const ok = await this.#attempt(value, revertible);
     const queued = this.#queued;
     this.#queued = false;
+
     if (ok && queued) {
       await this.flush();
     }
@@ -232,13 +252,17 @@ export class InlineEdit<TValue> {
     clearTimeout(this.#revertTimer);
     this.#error.set(undefined);
     this.#phase.set(Phase.Pending);
+
     try {
       await this.#options.save(value);
     } catch (error: unknown) {
       this.#fail(error);
+
       return false;
     }
+
     this.#saved(revertible);
+
     return true;
   }
 
@@ -250,9 +274,11 @@ export class InlineEdit<TValue> {
     this.#revertTimer = window.setTimeout(
       () => {
         this.#canRevert.set(false);
+
         if (this.#phase() === Phase.Success) {
           this.#phase.set(Phase.Idle);
         }
+
         if (!this.dirty() && !this.busy()) {
           this.#open.set(false);
         }
@@ -268,6 +294,7 @@ export class InlineEdit<TValue> {
         message(conflict ? InlineEditMessage.Conflict : InlineEditMessage.SaveFailed),
     );
     this.#phase.set(conflict ? Phase.Conflict : Phase.Error);
+
     if (conflict) {
       // Drop the losing change so the draft adopts the server's version when it reloads.
       this.draft.set(this.#options.source() ?? this.#options.empty);

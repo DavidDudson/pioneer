@@ -36,6 +36,7 @@ export const PLAYER_CORE_CLASSES = [
   'Sorcerer',
   'Wizard',
 ] as const;
+
 export const LEVELS = Array.from({ length: 20 }, (_unused, index) => CharacterLevel.parse(index + 1));
 
 const now = fixedClock('2026-01-01T00:00:00Z').now();
@@ -45,6 +46,7 @@ async function registryOf(packs?: readonly string[]): Promise<ContentRegistry> {
   const registry = new ContentRegistry();
   const wanted = contentCatalog.filter((loader) => packs === undefined || packs.includes(loader.id));
   await Promise.all(wanted.map(async (loader) => registry.load(loader)));
+
   return registry;
 }
 
@@ -56,12 +58,14 @@ export async function contentOf(packs?: readonly string[]): Promise<SlotContent>
 /** The items and runes of the catalog's packs, or only of those named by `packs`. */
 export async function itemsOf(packs?: readonly string[]): Promise<RunedContent> {
   const registry = await registryOf(packs);
+
   return { items: itemContent(registry), runes: runeContent(registry) };
 }
 
 /** A character with nothing picked, or only `className` if given: the ancestry its creation asks for is taken out. */
 export function blankIn(content: SlotContent, className?: string): Character {
   const [anyAncestry] = content.lookup.ofKind(ContentKind.Ancestry);
+
   const created = Character.create({
     id: CharacterId.parse(derivedId(FixtureNamespace, 'character:generated')),
     ownerId: UserId.parse(derivedId(FixtureNamespace, 'user:generated')),
@@ -69,8 +73,10 @@ export function blankIn(content: SlotContent, className?: string): Character {
     ancestry: AncestryId.parse(anyAncestry?.id),
     now,
   });
+
   const cleared = created.apply({ field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT }, now);
   const chosen = content.lookup.ofKind(ContentKind.Class).find((entry) => entry.name === className);
+
   return chosen === undefined
     ? cleared
     : cleared.apply(

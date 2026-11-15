@@ -70,6 +70,7 @@ function knownOf({ envelope, kindData }: VocabularyEntry): KnownEntry {
 /** The traits Pioneer knows: its `trait` entries, by name. */
 function traitsOf(known: readonly KnownEntry[]): ReadonlySet<Trait> {
   const entries = known.filter(({ kind }) => kind === ContentKind.Trait);
+
   return new Set(entries.map(({ slug }) => Trait.parse(slugName(slug))));
 }
 
@@ -85,6 +86,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   const references = entryReferences(pack, slugs, { known: all, release: context.documents ?? [] });
   const traits = traitsOf(all);
   const { documents, lang } = context;
+
   const envelopes = translateEnvelopes(selected, {
     pack,
     traits,
@@ -93,16 +95,19 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     senses: context.config.senses,
     ...(documents === undefined ? {} : { documents }),
   });
+
   const links = foundryLinks(
     documents ?? [],
     envelopes.entries.map(({ source, envelope }) => ({ source, id: envelope.id })),
   );
+
   const archetypes = importArchetypes(context.journals ?? [], {
     pack,
     references,
     envelopes: new Map(envelopes.entries.map(({ envelope }) => [envelope.id, envelope])),
     links,
   });
+
   const translated = envelopes.entries.map(({ source, envelope }) => {
     const { rules, ...rest } = translateKindData(source, envelope, {
       references,
@@ -111,8 +116,10 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
       links,
       lang,
     });
+
     return { source, envelope: { ...envelope, rules: [...envelope.rules, ...rules] }, ...rest };
   });
+
   return {
     envelopes,
     entries: withPolymorphTraits(

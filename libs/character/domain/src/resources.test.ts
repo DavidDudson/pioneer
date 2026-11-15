@@ -10,10 +10,12 @@ import type { ResourceMaxima } from './resources';
 import { within } from './testing';
 
 const HP = HitPoints.parse(20);
+
 const MAXIMA: ResourceMaxima = {
   [Resource.HeroPoints]: ResourceCount.parse(HERO_POINTS_MAX),
   [Resource.FocusPoints]: ResourceCount.parse(2),
 };
+
 const LIMITS = within(HP, MAXIMA);
 
 function points(value: number): ResourceCount {
@@ -52,12 +54,15 @@ describe('spend, regain and set a resource', () => {
       { field: PlayCommandField.SpendResource, resource: Resource.FocusPoints, amount: points(1) },
       LIMITS,
     );
+
     expect(held(one, Resource.FocusPoints)).toBe(1);
+
     const past = applyPlayCommand(
       one,
       { field: PlayCommandField.SpendResource, resource: Resource.FocusPoints, amount: points(5) },
       LIMITS,
     );
+
     expect(held(past, Resource.FocusPoints)).toBe(0);
   });
 
@@ -67,17 +72,21 @@ describe('spend, regain and set a resource', () => {
       { field: PlayCommandField.SetResource, resource: Resource.HeroPoints, current: points(0) },
       LIMITS,
     );
+
     const two = applyPlayCommand(
       spent,
       { field: PlayCommandField.RegainResource, resource: Resource.HeroPoints, amount: points(2) },
       LIMITS,
     );
+
     expect(held(two, Resource.HeroPoints)).toBe(2);
+
     const over = applyPlayCommand(
       two,
       { field: PlayCommandField.RegainResource, resource: Resource.HeroPoints, amount: points(9) },
       LIMITS,
     );
+
     expect(held(over, Resource.HeroPoints)).toBe(3);
   });
 
@@ -87,6 +96,7 @@ describe('spend, regain and set a resource', () => {
       { field: PlayCommandField.SetResource, resource: Resource.FocusPoints, current: points(9) },
       LIMITS,
     );
+
     expect(held(set, Resource.FocusPoints)).toBe(2);
     expect(set.resources[Resource.FocusPoints]).toBe(points(0));
   });
@@ -97,6 +107,7 @@ describe('spend, regain and set a resource', () => {
       { field: PlayCommandField.SpendResource, resource: Resource.FocusPoints, amount: points(1) },
       LIMITS,
     );
+
     const grown = { ...MAXIMA, [Resource.FocusPoints]: points(3) };
     expect(currentResource(spent.resources, Resource.FocusPoints, grown)).toBe(points(2));
   });
@@ -107,6 +118,7 @@ describe('spend, regain and set a resource', () => {
       { field: PlayCommandField.SpendResource, resource: Resource.FocusPoints, amount: points(1) },
       within(HP),
     );
+
     expect(after).toStrictEqual(FRESH_PLAY);
   });
 });
@@ -132,6 +144,7 @@ describe('Heroic Recovery', () => {
       { field: PlayCommandField.SpendResource, resource: Resource.HeroPoints, amount: points(1) },
       LIMITS,
     );
+
     expect(after.dying).toBe(Dying.parse(0));
   });
 
@@ -141,6 +154,7 @@ describe('Heroic Recovery', () => {
       { field: PlayCommandField.SpendResource, resource: Resource.HeroPoints, amount: points(2) },
       LIMITS,
     );
+
     expect(after.dying).toBe(Dying.parse(2));
     expect(held(after, Resource.HeroPoints)).toBe(1);
   });
@@ -170,6 +184,7 @@ describe('Heroic Recovery', () => {
       { field: PlayCommandField.SetResource, resource: Resource.HeroPoints, current: points(0) },
       LIMITS,
     );
+
     expect(after.dying).toBe(Dying.parse(2));
   });
 });

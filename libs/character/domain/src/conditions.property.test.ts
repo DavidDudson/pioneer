@@ -37,15 +37,18 @@ function addTo(play: PlayState, condition: ActiveCondition): PlayState {
 /** A fresh character with `conditions` added in turn. */
 function afflictedWith(conditions: readonly ActiveCondition[]): PlayState {
   let play = FRESH_PLAY;
+
   for (const condition of conditions) {
     play = addTo(play, condition);
   }
+
   return play;
 }
 
 /** The roll options the character has with `conditions` on it. */
 function optionsOf(conditions: readonly ActiveCondition[]): readonly string[] {
   const roots = conditionRoots(conditions);
+
   return resolveGrants(inputsOf({ entries: CONTENT, roots })).rollOptions.map(String);
 }
 
@@ -58,6 +61,7 @@ describe('conditions on a character', () => {
         const removed = applyPlayCommand(added, { field: PlayCommandField.RemoveCondition, id: extra.id }, LIMITS);
         const same = before.conditions.some(({ id }) => id === extra.id);
         expect(same ? added.conditions : removed.conditions).toEqual(before.conditions);
+
         if (!same) {
           expect(optionsOf(removed.conditions)).toEqual(optionsOf(before.conditions));
         }
@@ -69,6 +73,7 @@ describe('conditions on a character', () => {
     assert(
       property(array(activeCondition, { minLength: 1, maxLength: CONDITIONS_MAX }), (held) => {
         const options = optionsOf(held);
+
         for (const slug of NAMES) {
           const values = held.filter(({ condition }) => condition === idOf(slug)).map(({ value }) => Number(value));
           const valueOptions = options.filter((option) => option.startsWith(`self:condition:${slug}:`));

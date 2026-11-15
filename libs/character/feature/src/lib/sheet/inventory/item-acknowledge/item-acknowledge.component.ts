@@ -48,12 +48,15 @@ export class ItemAcknowledge {
   protected readonly open: Signal<readonly AcknowledgeItemBody[]> = computed((): readonly AcknowledgeItemBody[] => {
     const registry = this.#items.data();
     const character = this.#store.selected();
+
     if (!this.acknowledgeable() || registry === undefined || character === undefined) {
       return [];
     }
+
     const { limits, approvals } = this.#rules.rules();
     const content = { items: itemContent(registry), runes: runeContent(registry) };
     const { open } = partitionApproved(inventoryViolations(character.document.inventory, content, limits), approvals);
+
     return open
       .filter((violation) => violation.item === this.id())
       .map((violation) => ({

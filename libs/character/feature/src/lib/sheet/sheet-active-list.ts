@@ -17,6 +17,7 @@ export const ACTIVE_CONTENT_KINDS: readonly ContentKind[] = [...EFFECT_CONTENT_K
 
 /** What an active entry is: a sustained spell the character cast, or an effect on the character. */
 export const ActiveKind = { Spell: 'spell', Effect: 'effect' } as const;
+
 export type ActiveKind = (typeof ActiveKind)[keyof typeof ActiveKind];
 
 /** One row of the active list: a spell or an effect with where it came from and how long it has left. */
@@ -52,26 +53,31 @@ export interface ActiveLists {
 }
 
 type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
+
 type ActionEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Action }>;
 
 /** The spells of the registry's packs by id. */
 export function spellEntries(registry: ContentRegistry): ReadonlyMap<ContentId, SpellEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(entries.flatMap((entry) => (entry.kind === ContentKind.Spell ? [[entry.id, entry] as const] : [])));
 }
 
 /** The actions of the registry's packs by id. */
 export function actionEntries(registry: ContentRegistry): ReadonlyMap<ContentId, ActionEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(entries.flatMap((entry) => (entry.kind === ContentKind.Action ? [[entry.id, entry] as const] : [])));
 }
 
 /** The row of an active spell; a spell the content lacks is left out. */
 function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntry>): ActiveRow[] {
   const entry = entries.get(active.spell);
+
   if (entry === undefined) {
     return [];
   }
+
   return [
     {
       kind: ActiveKind.Spell,
@@ -94,6 +100,7 @@ function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntr
 /** Every active spell and effect of `play` in one list: the spells first, then the effects. */
 export function activeRows(registry: ContentRegistry, play: ActiveLists): readonly ActiveRow[] {
   const entries = spellEntries(registry);
+
   const effects = effectViews(registry, play.effects).map((view): ActiveRow => ({
     kind: ActiveKind.Effect,
     id: view.id,
@@ -109,6 +116,7 @@ export function activeRows(registry: ContentRegistry, play: ActiveLists): readon
     dismissNote: undefined,
     editable: view.source.kind !== EffectSourceKind.Self && view.remaining !== undefined,
   }));
+
   return [...play.activeSpells.flatMap((spell) => spellRow(spell, entries)), ...effects];
 }
 
@@ -120,6 +128,7 @@ export function activeCount({ activeSpells, effects }: ActiveLists): number {
 /** The rank a slot key ends in (`<entry>:<rank>`, `<entry>:<pool>:<rank>`), when it names one. */
 export function slotRank(slot: SlotCountKey | undefined): SpellRank | undefined {
   const parsed = SpellRank.safeParse(Number(slot?.split(':').at(-1)));
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -134,9 +143,11 @@ export function sustainedCast(
 ): SpellSpend | undefined {
   const entry = spellEntries(registry).get(spell);
   const rounds = sustainedRounds(entry?.data.duration);
+
   if (entry === undefined || rounds === undefined) {
     return undefined;
   }
+
   return {
     kind: SpellSpendKind.Cast,
     id: ActiveSpellId.parse(newId()),

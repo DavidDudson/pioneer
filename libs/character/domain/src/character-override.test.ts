@@ -24,6 +24,7 @@ const SET = OverrideInput.parse({ target: 'hp:max', mode: 'set', value: 40, reas
 
 function added(character: Character, input: OverrideInput, id: OverrideId): Character {
   const patch: CharacterPatch = { field: CharacterPatchField.AddOverride, override: input };
+
   return character.apply(patch, THEN, { actor: AUTHOR, newOverrideId: id });
 }
 
@@ -71,6 +72,7 @@ describe('editing an override', () => {
     id: FIRST,
     override: OverrideInput.parse({ target: 'ac', mode: 'adjust', value: 3, reason: 'Heightened' }),
   };
+
   const edited = added(blank, ADJUST, FIRST).apply(edit, LATER, { actor: EDITOR });
 
   test('records the editor and keeps the state it replaces', () => {
@@ -92,6 +94,7 @@ describe('removing an override', () => {
     id: FIRST,
     reason: OverrideInput.shape.reason.parse('No longer applies'),
   };
+
   const removed = added(added(blank, ADJUST, FIRST), SET, SECOND).apply(remove, LATER, { actor: EDITOR });
 
   test('keeps it on record with who removed it, when and why', () => {

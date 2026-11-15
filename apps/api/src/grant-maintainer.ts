@@ -14,5 +14,6 @@ export async function grantMaintainer(db: Database, id: string): Promise<boolean
     .set({ role: UserRole.Maintainer })
     .where(eq(users.id, UserId.parse(id)))
     .returning({ id: users.id });
+
   return granted.length > 0;
 }

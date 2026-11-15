@@ -24,7 +24,9 @@ export function describeSaveError(error: unknown): MessageDescriptor {
   if (ApiError.isConflict(error)) {
     return message('character.sheet.conflict');
   }
+
   const [issue] = error instanceof ApiError ? error.issues : [];
+
   return issue?.message ?? message('character.sheet.saveFailed');
 }
 
@@ -36,6 +38,7 @@ export function sheetField<TValue>(
   return new InlineEdit<TValue>({
     source: computed(() => {
       const current = character();
+
       return current === undefined ? undefined : read(current);
     }),
     empty,

@@ -15,6 +15,7 @@ const meta: Meta<SkillsView> = {
   component: SkillsView,
   args: { entryNames: ENTRY_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: placeholder rows. */

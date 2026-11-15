@@ -8,7 +8,9 @@ export const DegreeOfSuccess = {
   Success: 'success',
   CriticalSuccess: 'criticalSuccess',
 } as const;
+
 export type DegreeOfSuccess = ValueOf<typeof DegreeOfSuccess>;
+
 export const DegreeOfSuccessSchema = z.enum(DegreeOfSuccess);
 
 /**
@@ -25,5 +27,7 @@ export const DegreeChange = {
   ToFailure: 'to-failure',
   ToCriticalFailure: 'to-critical-failure',
 } as const;
+
 export type DegreeChange = ValueOf<typeof DegreeChange>;
+
 export const DegreeChangeSchema = z.enum(DegreeChange);

@@ -11,6 +11,7 @@ const meta: Meta<AttributesView> = {
   title: 'Rules/Attributes',
   component: AttributesView,
 };
+
 export default meta;
 
 /** While the content the boosts come from loads. */

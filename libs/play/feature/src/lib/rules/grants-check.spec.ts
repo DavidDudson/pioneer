@@ -33,6 +33,7 @@ function check(texts: Partial<GrantsTexts>): GrantsCheck {
 /** What the example's first open slot offers, as typed, at `level`. */
 function offeredAt(level: number): string[] {
   const result = check({ level });
+
   return result.status === GrantsStatus.Valid ? (result.open[0]?.options.map((option) => option.value) ?? []) : [];
 }
 
@@ -87,6 +88,7 @@ describe(checkGrants, () => {
       },
       { slug: 'sudden-charge', name: 'Sudden Charge', kind: 'feat', rollOptions: ['trait:fighter'], rules: [] },
     ]);
+
     expect(check({ entries, roots: 'fighter', picks: '' })).toMatchObject({
       status: GrantsStatus.Valid,
       open: [{ slot: 'fighter:0', options: [] }],
@@ -138,6 +140,7 @@ describe(checkGrants, () => {
       facts: 'self:level:5\n:bad',
       level: 99,
     };
+
     expect(check(texts)).toMatchObject({
       status: GrantsStatus.Problems,
       entries: { status: CheckStatus.NotJson },
@@ -159,6 +162,7 @@ describe(checkGrants, () => {
       },
       { slug: 'shaken', name: 'Shaken', rules: [] },
     ]);
+
     const valued = check({ entries, roots: 'steady\nfrightened 2', picks: '', toggles: '' });
     expect(itemNames(valued)).toStrictEqual(['Steady', 'Shaken', 'Frightened']);
     expect(valued).toMatchObject({
@@ -201,6 +205,7 @@ describe(checkGrants, () => {
       },
       { slug: 'steady', name: 'Steady', rules: [] },
     ]);
+
     const typed = { entries, roots: 'fighter', picks: '', toggles: '', level: 2 };
     expect(itemNames(check({ ...typed, facts: 'feature:bravery\nterrain:forest' }))).toStrictEqual(['Fighter']);
   });
@@ -224,6 +229,7 @@ describe(checkGrants, () => {
       },
       { slug: 'steady', name: 'Steady', rules: [] },
     ]);
+
     expect(check({ entries, roots: 'fighter\nresolve', picks: '', toggles: '' })).toMatchObject({
       status: GrantsStatus.Valid,
       items: [{ name: 'Resolve' }, { name: 'Steady' }, { name: 'Fighter' }, { name: 'Bravery' }],

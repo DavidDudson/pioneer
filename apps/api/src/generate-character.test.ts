@@ -16,6 +16,7 @@ import {
 import { unfillableSlots } from './level-20-derive';
 
 const PROPERTY_RUNS = 12;
+
 /**
  * Slots a generated character leaves open on top of the ones no build can fill: the generator can pick a feat whose
  * choice it cannot fill yet (a Rogue's Terrain Stalker and Specialty Crafting), which the level 20 build avoids.
@@ -42,8 +43,10 @@ function fillable(result: Generated): readonly string[] {
   const { document } = result.character;
   const slots = characterSlots(document, content);
   const feats = featSlots(document, content);
+
   return result.unfilled.filter((key) => {
     const slot = slots.find((each) => each.key === key);
+
     return (
       slot === undefined ||
       !feats.some((feat) => feat.key === key) ||
@@ -59,6 +62,7 @@ function problems(result: Generated, className: string | undefined): readonly st
   const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE[className] ?? 0);
   const unfilled = fillable(result);
   const open = unfilled.length > allowed ? unfilled.map((key) => `open ${key}`) : [];
+
   return [...invalid, ...open];
 }
 

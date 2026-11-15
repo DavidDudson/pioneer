@@ -32,8 +32,10 @@ export function richTextOf(text: unknown, { lang, values }: NoteContext): unknow
   if (typeof text !== 'string' || text.includes(ITEM_REFERENCE)) {
     return text;
   }
+
   const expanded = expandLocalize(asHtml(text), lang, values);
   const { richText } = htmlToRichText(expanded.text);
+
   return expanded.unresolved.length > 0 || richText.length === 0 ? text : richText;
 }
 
@@ -42,7 +44,9 @@ export function withNoteText(raw: unknown, context: NoteContext): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Note) {
     return raw;
   }
+
   const title = 'title' in raw && raw.title === ITEM_NAME ? { title: context.values.item } : {};
   const text = 'text' in raw ? { text: richTextOf(raw.text, context) } : {};
+
   return { ...raw, ...title, ...text };
 }

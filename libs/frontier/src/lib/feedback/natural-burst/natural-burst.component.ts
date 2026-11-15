@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 
 /** Which natural die the burst marks: a 20 (`high`, gold) or a 1 (`low`, red and shaking). */
 export const NaturalBurstKind = { High: 'high', Low: 'low' } as const;
+
 export type NaturalBurstKind = ValueOf<typeof NaturalBurstKind>;
 
 const burstClasses = cva('border-lg pointer-events-none fixed inset-none z-overlay block', {

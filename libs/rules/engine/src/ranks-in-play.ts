@@ -30,11 +30,14 @@ function raiseOf(element: RuleElement): Raise | undefined {
     if (typeof element.selector !== 'string') {
       return undefined;
     }
+
     return { selector: element.selector, rank: element.rank };
   }
+
   if (element.key === RuleElementKey.SpellcastingEntry) {
     return { selector: SPELLCASTING, rank: Proficiency.Trained };
   }
+
   return undefined;
 }
 
@@ -46,11 +49,14 @@ function raiseOf(element: RuleElement): Raise | undefined {
  */
 export function ranksInPlay({ rules, facts }: ModifierInputs): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map<Selector, Proficiency>();
+
   for (const { element } of rules) {
     const raise = raiseOf(element);
+
     if (raise !== undefined && truthOf(element.predicate, facts) === Truth.True) {
       ranks.set(raise.selector, higher(ranks.get(raise.selector), raise.rank));
     }
   }
+
   return ranks;
 }

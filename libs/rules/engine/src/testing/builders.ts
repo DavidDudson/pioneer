@@ -12,6 +12,7 @@ import {
 import { RuleInPlay } from '../rule-in-play';
 
 const TEST_PACK = PackId.parse('engine-test');
+
 /** The user and time every test override is set by. */
 const OVERRIDE_HOP = {
   kind: 'override',
@@ -55,6 +56,7 @@ function hopsOf(override: boolean | undefined, item: string | undefined): readon
   if (override === true) {
     return [OVERRIDE_HOP];
   }
+
   return item === undefined ? [] : [inventoryHop(item)];
 }
 
@@ -65,6 +67,7 @@ export function inPlay(
   { rule = 0, itemLevel, conditionValue, override, item }: Placement = {},
 ): RuleInPlay {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(entry));
+
   return RuleInPlay.parse({
     element,
     origin: {

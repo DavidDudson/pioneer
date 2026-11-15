@@ -38,9 +38,11 @@ const SPEND: EffectCommand = { field: EffectCommandField.SpendEffectUse, id: FIR
 /** `play` after `times` spends of the boon, however many it has. */
 function spendTimes(play: EffectPlay, times: number, content: EffectContent): EffectPlay {
   let current = play;
+
   for (let spent = 0; spent < times; spent += 1) {
     current = applyEffectEdit(current, SPEND, content);
   }
+
   return current;
 }
 
@@ -98,6 +100,7 @@ describe('a boon with uses', () => {
             },
           ],
         ]);
+
         const after = spendTimes(applyEffectEdit(START, apply(BLESSING), content), spends, content);
         const left = Math.max(start - spends, 0);
 

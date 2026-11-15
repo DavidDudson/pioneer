@@ -11,6 +11,7 @@ import type { SlotContent } from './slot-offer';
  */
 export function trainedCategories(character: Character, slots: SlotContent): ReadonlySet<Selector> {
   const ranks = characterRanks(characterGrants(character.document, slots));
+
   return new Set(
     [...ranks].flatMap(([selector, rank]) =>
       rank !== Proficiency.Untrained && (selector.startsWith('attack:') || selector.startsWith('defense:'))
@@ -25,11 +26,14 @@ export function untrained(entry: ItemEntry, trained: ReadonlySet<Selector>): boo
   if (trained.size === 0) {
     return false;
   }
+
   if (entry.kind === ContentKind.Weapon) {
     return !trained.has(Selector.parse(`attack:${entry.data.category}`));
   }
+
   if (entry.kind === ContentKind.Armor) {
     return !trained.has(Selector.parse(`defense:${entry.data.category}`));
   }
+
   return false;
 }

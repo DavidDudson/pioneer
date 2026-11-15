@@ -8,6 +8,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const OUTPUT = 'dist/apps/web/browser';
+
 // Container query utilities prove frontier's `@sm`/`@md`/`@lg` sizes exist.
 const REQUIRED_UTILITIES = [
   '.gap-md{',
@@ -16,20 +17,26 @@ const REQUIRED_UTILITIES = [
   String.raw`@container (width >= 40rem){.\@md\:`,
   String.raw`@container (width >= 56rem){.\@lg\:`,
 ];
+
 // The splatter mask is bundled and its url rewritten (and hashed in production) to the media folder; left as the source path it would 404 and fill the avatar solid red.
 const SPLATTER_MASK = /mask:\s*url\(["']?(?:\.\/)?media\/blood-splatter[\w.-]*\.png/u;
 const FORBIDDEN_DIRECTIVES = ['@theme', '@source', '@utility'];
+
 // Frontier has no viewport breakpoints; only media queries for preferences and input remain.
 const VIEWPORT_QUERY = /@media\s*\((?:min-|max-)?width/u;
+
 // Frontier is sharp and flat; the only radius and shadow allowed are the base layer's resets and the roll toast's corners (ADR-0074), which `@theme inline` writes as its value, 1rem.
 const ROUNDED = /radius:(?!0[;}]|1rem[;}]|var\(--radius-toast\)[;}])/u;
 const SHADOW = /(?:box|text)-shadow:(?!none[;}])|drop-shadow\(/u;
 
 const stylesheet = readdirSync(OUTPUT).find((file) => file.startsWith('styles') && file.endsWith('.css'));
+
 if (stylesheet === undefined) {
   throw new Error(`No styles*.css in ${OUTPUT}; build the web app first`);
 }
+
 const css = readFileSync(path.join(OUTPUT, stylesheet), 'utf8');
+
 const problems = [
   ...FORBIDDEN_DIRECTIVES.filter((directive) => css.includes(directive)).map(
     (directive) => `raw ${directive} left in output`,
@@ -40,6 +47,7 @@ const problems = [
   ...(ROUNDED.test(css) ? ['rounded corners in output; frontier is sharp'] : []),
   ...(SHADOW.test(css) ? ['shadow in output; frontier is flat'] : []),
 ];
+
 if (problems.length > 0) {
   throw new Error(`Built CSS is wrong:\n- ${problems.join('\n- ')}`);
 }

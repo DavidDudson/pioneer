@@ -66,14 +66,18 @@ function pickedFrom(license: ContentLicense, unsupported = false): ChoiceLine {
   const registry = new ContentRegistry();
   const pack = new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build();
   registry.register(pack);
+
   if (unsupported) {
     putUnsupportedPacks(registry, [contentPackId(pack.id)]);
   }
+
   const lookup = grantLookup(registry, true);
   const [feat] = lookup.ofKind(ContentKind.Feat);
+
   if (feat === undefined) {
     throw new Error('The test pack holds no feat');
   }
+
   const slot: CharacterSlot = {
     status: SlotStatus.Filled,
     key: SlotKey.parse('slot'),
@@ -81,6 +85,7 @@ function pickedFrom(license: ContentLicense, unsupported = false): ChoiceLine {
     selection: feat.id,
     selectionName: feat.name,
   };
+
   return lineOf(slot, lookup);
 }
 
@@ -116,6 +121,7 @@ describe('the pick of a legacy entry a remaster entry replaces', () => {
     const registry = new ContentRegistry();
     registry.register(legacyBuilder.withFeat('old-charge').build());
     registry.register(remasterBuilder.withFeat('charge', { supersedes: [legacyId] }).build());
+
     const slot: CharacterSlot = {
       status: SlotStatus.Filled,
       key: SlotKey.parse('slot'),
@@ -123,6 +129,7 @@ describe('the pick of a legacy entry a remaster entry replaces', () => {
       selection: ChoiceValue.parse(legacyId),
       selectionName: ContentText.parse('Old-charge'),
     };
+
     return lineOf(slot, grantLookup(registry, true));
   }
 

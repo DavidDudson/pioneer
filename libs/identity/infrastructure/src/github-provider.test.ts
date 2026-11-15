@@ -17,6 +17,7 @@ describe('gitHubProfile', () => {
       { email: 'other@example.com', primary: false, verified: true },
       { email: 'Octocat@GitHub.com', primary: true, verified: true },
     ]);
+
     expect(profile).toStrictEqual({
       provider: OAuthProvider.GitHub,
       subject: ProviderSubject.parse('583231'),
@@ -52,6 +53,7 @@ describe('GitHubProvider', () => {
       clientSecret: 'client-secret',
       redirectUri: new URL('https://pioneer.example/api/auth/github/callback'),
     });
+
     const { url, state, codeVerifier } = provider.authorize();
     expect(url.origin + url.pathname).toBe('https://github.com/login/oauth/authorize');
     expect(url.searchParams.get('state')).toBe(state);

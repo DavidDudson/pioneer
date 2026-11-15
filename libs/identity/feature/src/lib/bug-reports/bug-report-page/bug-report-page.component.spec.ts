@@ -12,6 +12,7 @@ import { identityRoutes } from '../../identity.routes';
 import { snapshotFileName } from '../save-snapshot';
 
 const SNAPSHOT = { format: 'pioneer-character', formatVersion: 1, character: { name: 'Amiri' } };
+
 const REPORT = BugReportDetail.parse({
   id: '0199d2a0-0000-7000-8000-000000000001',
   status: 'open',
@@ -34,15 +35,19 @@ interface Rendered {
 
 async function render(report: BugReportDetail): Promise<Rendered> {
   const sent: { status: string }[] = [];
+
   const call = vi.fn<(endpoint: unknown, input: { body?: { status: string } }) => Promise<unknown>>(
     async (endpoint, input) => {
       if (endpoint === IdentityContract.triageBugReport && input.body !== undefined) {
         sent.push(input.body);
+
         return { ...report, status: input.body.status };
       }
+
       return report;
     },
   );
+
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'account', children: identityRoutes }], withComponentInputBinding()),
@@ -56,17 +61,21 @@ async function render(report: BugReportDetail): Promise<Rendered> {
   const harness = await RouterTestingHarness.create(`/account/bug-reports/${report.id}`);
   await harness.fixture.whenStable();
   const element = harness.routeNativeElement;
+
   if (element === null) {
     throw new Error('Expected a page to render');
   }
+
   return { page: element, sent };
 }
 
 function buttonLabelled(page: HTMLElement, label: string): HTMLButtonElement {
   const found = [...page.querySelectorAll('button')].find((each) => each.textContent.includes(label));
+
   if (found === undefined) {
     throw new Error(`No button labelled ${label}`);
   }
+
   return found;
 }
 

@@ -23,10 +23,13 @@ async function render({ senses, own, names = SENSE_NAMES }: Inputs): Promise<HTM
   const fixture = TestBed.createComponent(SensesView);
   fixture.componentRef.setInput('senses', senses);
   fixture.componentRef.setInput('entryNames', names);
+
   if (own !== undefined) {
     fixture.componentRef.setInput('own', own);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

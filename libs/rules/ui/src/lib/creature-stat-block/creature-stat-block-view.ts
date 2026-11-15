@@ -12,6 +12,7 @@ import type { StatBlockWords } from './stat-block-words';
 
 const ATTRIBUTE_ORDER = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
 const SAVE_ORDER = ['fortitude', 'reflex', 'will'] as const;
+
 const SAVE_INITIALS: Readonly<Record<(typeof SAVE_ORDER)[number], string>> = {
   fortitude: 'Fort',
   reflex: 'Ref',
@@ -29,10 +30,12 @@ function slugLabel(slug: Slug | Immunity): string {
 /** The stat block of `creature`, worded: parts the creature lacks are left empty. */
 export function statBlockView(creature: StatBlockCreature, words: StatBlockWords): StatBlockView {
   const { data } = creature;
+
   const level = words.translate(
     data.role === CreatureRole.Npc ? CreatureStatBlockMessage.NpcLevel : CreatureStatBlockMessage.Level,
     { level: words.number(creature.level) },
   );
+
   return {
     level,
     size: words.translate(SIZE_MESSAGES[data.size]),
@@ -60,6 +63,7 @@ export function statBlockView(creature: StatBlockCreature, words: StatBlockWords
 function senseText(sense: CreatureSense, words: StatBlockWords): string {
   const acuity = sense.acuity === undefined ? '' : ` (${words.translate(ACUITY_MESSAGES[sense.acuity])})`;
   const range = sense.range === undefined ? '' : ` ${words.distance(sense.range)}`;
+
   return `${slugLabel(sense.sense)}${acuity}${range}`;
 }
 
@@ -67,6 +71,7 @@ function senseText(sense: CreatureSense, words: StatBlockWords): string {
 function perception({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
   const held = (data.senses ?? []).map((sense) => senseText(sense, words));
   const value = words.number(data.perception, SIGNED);
+
   return [
     {
       label: words.translate(CreatureStatBlockMessage.Perception),
@@ -84,12 +89,14 @@ function skillText(skill: CreatureSkill, words: StatBlockWords): string {
 
 function details({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
   const shown: StatLine[] = [];
+
   if (data.languages !== undefined && data.languages.length > 0) {
     shown.push({
       label: words.translate(CreatureStatBlockMessage.Languages),
       text: words.list(data.languages.map(slugLabel), 'unit'),
     });
   }
+
   if (data.skills !== undefined && data.skills.length > 0) {
     shown.push({
       label: words.translate(CreatureStatBlockMessage.Skills),
@@ -99,6 +106,7 @@ function details({ data }: StatBlockCreature, words: StatBlockWords): readonly S
       ),
     });
   }
+
   shown.push({
     label: words.translate(CreatureStatBlockMessage.Attributes),
     text: words.list(
@@ -109,12 +117,14 @@ function details({ data }: StatBlockCreature, words: StatBlockWords): readonly S
       'unit',
     ),
   });
+
   return shown;
 }
 
 function adjustmentText({ type, value, exceptions }: DamageAdjustment, words: StatBlockWords): string {
   const damageType = DamageTypeSchema.safeParse(type);
   const target = damageType.success ? words.translate(DAMAGE_TYPE_MESSAGES[damageType.data]) : type;
+
   return words.translate(CreatureStatBlockMessage.Adjustment, {
     target,
     value: words.number(value),
@@ -135,12 +145,14 @@ function defences({ data }: StatBlockCreature, words: StatBlockWords): readonly 
     },
     { label: words.translate(CreatureStatBlockMessage.HitPoints), text: words.number(data.hitPoints) },
   ];
+
   if (data.immunities.length > 0) {
     shown.push({
       label: words.translate(CreatureStatBlockMessage.Immunities),
       text: words.list(data.immunities.map(slugLabel), 'unit'),
     });
   }
+
   if (data.weaknesses.length > 0) {
     shown.push({
       label: words.translate(CreatureStatBlockMessage.Weaknesses),
@@ -150,6 +162,7 @@ function defences({ data }: StatBlockCreature, words: StatBlockWords): readonly 
       ),
     });
   }
+
   if (data.resistances.length > 0) {
     shown.push({
       label: words.translate(CreatureStatBlockMessage.Resistances),
@@ -159,6 +172,7 @@ function defences({ data }: StatBlockCreature, words: StatBlockWords): readonly 
       ),
     });
   }
+
   return shown;
 }
 
@@ -169,6 +183,7 @@ function speeds({ data }: StatBlockCreature, words: StatBlockWords): StatLine {
       distance: words.distance(other.speed),
     }),
   );
+
   return {
     label: words.translate(CreatureStatBlockMessage.Speed),
     text: words.list([words.distance(data.speed), ...others], 'unit'),

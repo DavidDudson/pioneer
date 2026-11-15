@@ -64,6 +64,7 @@ describe('translateKindData: consumables and ammunition', () => {
         damage: { formula: '1d6', kind: 'healing', type: 'untyped' },
       },
     );
+
     const lone = translate([elixir]);
 
     expect(dataIn(lone, 'elixir-of-life')).toMatchObject({ damage: { formula: '1d6', kind: 'healing' } });
@@ -76,6 +77,7 @@ describe('translateKindData: consumables and ammunition', () => {
       { id: 'eLiXiR0000000002', name: 'Odd Elixir', type: 'consumable' },
       { ...HEALING_POTION.system, damage: { formula: '1d6', kind: 'healing', type: 'unheard-of' } },
     );
+
     const lone = translate([elixir]);
 
     expect(dataIn(lone, 'odd-elixir')).not.toHaveProperty('damage');

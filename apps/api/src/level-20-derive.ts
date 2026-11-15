@@ -22,6 +22,7 @@ export function deriveSheet(
   document: CharacterDocument,
 ): ReadonlyMap<Selector, StatisticResult> {
   const inputs = characterStatisticInputs(registry, document, slots);
+
   return characterStatistics(document, { registry, slots, inputs, variants: [] });
 }
 

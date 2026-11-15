@@ -7,7 +7,9 @@ import { contentCatalog } from './index';
 /** Every official class names the roles it plays, and every role has a class, so the generator can always offer one. */
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const classes = registry.packs
   .flatMap((pack) => pack.otherEntries)
   .flatMap((entry) => (entry.kind === ContentKind.Class ? [entry] : []));

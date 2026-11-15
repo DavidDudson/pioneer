@@ -28,12 +28,14 @@ export class PriceCell {
 
   protected readonly coins = computed(() => {
     const price = this.price();
+
     return price === undefined
       ? []
       : priceCoins(price).map(({ coin, count }) => ({ coin, count: this.#format.number(count) }));
   });
   protected readonly per = computed(() => {
     const per = this.price()?.per;
+
     return per === undefined ? undefined : this.#format.number(per);
   });
 }

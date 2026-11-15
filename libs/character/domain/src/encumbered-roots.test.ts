@@ -24,6 +24,7 @@ function anvils(count: ItemQuantity): CharacterDocument {
     quantity: count,
     container: undefined,
   });
+
   return { ...new CharacterBuilder().build().document, inventory };
 }
 

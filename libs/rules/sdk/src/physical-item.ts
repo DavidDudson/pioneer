@@ -10,6 +10,7 @@ import { HitPoints } from './units';
 
 /** The coins a price is counted in, largest first, as Foundry pf2e lists them. */
 export const Coin = { Platinum: 'pp', Gold: 'gp', Silver: 'sp', Copper: 'cp' } as const;
+
 export type Coin = ValueOf<typeof Coin>;
 
 /** How many of one coin; prices run past a smallint (90,000 gp). */
@@ -17,6 +18,7 @@ const CoinCount = Pg.integer().positive().brand<'CoinCount'>();
 
 /** How many items a price or bulk is for: arrows are "1 sp for 10". */
 export const ItemCount = Pg.smallint().positive().brand<'ItemCount'>();
+
 export type ItemCount = z.infer<typeof ItemCount>;
 
 /** "1 gp", "3 gp 5 sp": each coin given at most once, at least one of them. */
@@ -33,27 +35,33 @@ const Coins = z
 
 /** What an item costs, for `per` items when it is sold in a batch. An item with no price ("—") has none. */
 export const Price = z.strictObject({ coins: Coins, per: ItemCount.optional() });
+
 export type Price = z.infer<typeof Price>;
 
 /** Bulk below 1: negligible ("—") or light ("L"), which is a tenth of 1 Bulk. */
 export const BulkWeight = { Negligible: 'negligible', Light: 'light' } as const;
+
 export type BulkWeight = ValueOf<typeof BulkWeight>;
 
 /** Whole Bulk: 1, 2, 50. */
 export const BulkCount = Pg.smallint().positive().brand<'BulkCount'>();
+
 export type BulkCount = z.infer<typeof BulkCount>;
 
 /** An item's Bulk at medium size. */
 export const Bulk = z.union([z.enum(BulkWeight), BulkCount]);
+
 export type Bulk = z.infer<typeof Bulk>;
 
 export const Hardness = Pg.smallint().nonnegative().brand<'Hardness'>();
+
 export type Hardness = z.infer<typeof Hardness>;
 
 /** A precious material (`cold-iron`, `dawnsilver`). Foundry pf2e keeps the set in config, so it is a brand. */
 const PreciousMaterial = Slug.brand<'PreciousMaterial'>();
 
 export const MaterialGrade = { Low: 'low', Standard: 'standard', High: 'high' } as const;
+
 export type MaterialGrade = ValueOf<typeof MaterialGrade>;
 
 /** "Standard-grade cold iron". */
@@ -87,10 +95,12 @@ export const UsageType = {
   Carried: 'carried',
   Other: 'other',
 } as const;
+
 export type UsageType = ValueOf<typeof UsageType>;
 
 /** The hands an item is held in: "held in 1 hand", "1+ hands" (two-hand weapons, bucklers), "2 hands". */
 export const UsageHands = { One: 'one', OnePlus: 'one-plus', Two: 'two' } as const;
+
 export type UsageHands = ValueOf<typeof UsageHands>;
 
 /** The slot a worn item takes (`cloak`, `headwear`), Foundry pf2e's `worn<slot>`; none for "worn" alone. */
@@ -111,4 +121,5 @@ export const Usage = z.discriminatedUnion('type', [
     type: z.enum([UsageType.Tattooed, UsageType.Implanted, UsageType.Carried, UsageType.Other]),
   }),
 ]);
+
 export type Usage = z.infer<typeof Usage>;

@@ -43,6 +43,7 @@ export function sheetDerivation(registry: ContentRegistry, character: Character)
   DERIVED.set(registry, byCharacter);
   const derived = byCharacter.get(character) ?? derive(registry, character);
   byCharacter.set(character, derived);
+
   return derived;
 }
 
@@ -57,12 +58,15 @@ function derive(registry: ContentRegistry, character: Character): SheetDerivatio
  */
 export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
   const results = sheetDerivation(registry, character);
+
   return [...SHEET_STATISTICS, STEP_DISTANCE, ...OTHER_SPEEDS].flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);
+
     if (result === undefined || entry === undefined || (OTHER_SPEEDS.includes(selector) && !hasSpeed(result))) {
       return [];
     }
+
     return [{ name: entry.definition.name, kind: entry.definition.kind, result }];
   });
 }
@@ -76,9 +80,11 @@ export function sheetAttributeChecks(
   character: Character,
 ): ReadonlyMap<Attribute, StatisticValue> {
   const results = sheetDerivation(registry, character);
+
   return new Map(
     Object.values(Attribute).flatMap((attribute): [Attribute, StatisticValue][] => {
       const result = results.get(Selector.parse(`attribute:${attribute}`));
+
       return result?.ok === true ? [[attribute, result]] : [];
     }),
   );
@@ -94,10 +100,12 @@ export function namedStatistics(
   selectors: readonly Selector[],
 ): ReadonlyMap<Selector, NamedStatistic> {
   const results = sheetDerivation(registry, character);
+
   return new Map(
     selectors.flatMap((selector): [Selector, NamedStatistic][] => {
       const result = results.get(selector);
       const entry = registry.statisticsFor(selector).at(-1);
+
       return result === undefined || entry === undefined
         ? []
         : [[selector, { name: entry.definition.name, kind: entry.definition.kind, result }]];
@@ -126,6 +134,7 @@ export function sheetFormTempHp(
   const vitals = sheetVitalsInPlay(registry, withPlay(character, { ...character.document.play, effects }));
   const temp = vitals?.temporaryHitPoints;
   const fromEffect = temp?.origins.some(({ entry }) => entry === candidate.effect) === true;
+
   return temp === undefined || !fromEffect ? undefined : HitPoints.parse(temp.amount);
 }
 

@@ -50,6 +50,7 @@ export class DrizzleCharacterItemAcknowledgementRepository extends CharacterItem
         ),
       )
       .orderBy(asc(characterItemAcknowledgements.acknowledgedAt), asc(characterItemAcknowledgements.id));
+
     return rows.map((row) => toAcknowledgement(row));
   }
 

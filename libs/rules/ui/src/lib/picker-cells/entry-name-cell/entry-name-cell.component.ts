@@ -30,6 +30,7 @@ export class EntryNameCell {
   /** Plain text can't be reached by keyboard, so a preview makes it a tab stop. */
   protected readonly previewable = computed((): boolean => {
     const entry = this.entry();
+
     return entry !== undefined && canPreview(this.#previews, entry);
   });
 }

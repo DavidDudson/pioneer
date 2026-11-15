@@ -18,6 +18,7 @@ describe('specRunsOf', () => {
       hasProject,
       everything,
     );
+
     expect([...runs.angular]).toStrictEqual([['libs/character/feature', ['a.spec.ts', 'b.spec.ts']]]);
     expect(runs.bun).toStrictEqual(['apps/api/src/c.test.ts']);
   });

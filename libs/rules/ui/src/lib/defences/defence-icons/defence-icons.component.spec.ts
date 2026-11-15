@@ -21,6 +21,7 @@ async function render(defences: Defences | undefined): Promise<HTMLElement> {
   fixture.componentRef.setInput('defences', defences);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -61,6 +62,7 @@ describe(DefenceIcons, () => {
         }),
       ],
     });
+
     expect(iconsOf(host)).toStrictEqual([]);
   });
 });

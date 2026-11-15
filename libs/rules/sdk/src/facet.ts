@@ -11,10 +11,12 @@ import { Rarity } from './entry-fields';
  * `range` bounds a number from below and above, and `flag` is a yes or no.
  */
 export const FacetType = { Set: 'set', Range: 'range', Flag: 'flag' } as const;
+
 export type FacetType = ValueOf<typeof FacetType>;
 
 /** A facet's id, which is also its name in the URL: `level`, `traits`. */
 export const FacetId = Slug.brand<'FacetId'>();
+
 export type FacetId = z.infer<typeof FacetId>;
 
 /** The value an entry gives a facet when the field the facet reads is missing. Not a slug, so it can't clash. */
@@ -22,6 +24,7 @@ const UNKNOWN_VALUE = '_unknown';
 
 /** A whole number, possibly negative: a creature's level is -1. */
 const INTEGER = /^-?\d+$/u;
+
 /** A slug (content-id.ts), an integer, or the unknown value. */
 const FACET_VALUE = /^(?:_unknown|-?\d+|[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*)$/u;
 
@@ -30,10 +33,12 @@ const FACET_VALUE = /^(?:_unknown|-?\d+|[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*)$/u;
  * range facet, `yes` or `no` for a flag, or `_unknown`.
  */
 export const FacetValue = z.string().regex(FACET_VALUE).brand<'FacetValue'>();
+
 export type FacetValue = z.infer<typeof FacetValue>;
 
 /** A bound of a range facet's selection, inclusive. */
 export const RangeBound = z.int().brand<'RangeBound'>();
+
 export type RangeBound = z.infer<typeof RangeBound>;
 
 /**
@@ -41,13 +46,16 @@ export type RangeBound = z.infer<typeof RangeBound>;
  * only: URL bounds stay in the stored unit (`f.bulk=..10` is up to 1 Bulk).
  */
 export const RangeScale = z.int().positive().brand<'RangeScale'>();
+
 export type RangeScale = z.infer<typeof RangeScale>;
 
 export const FlagValue = { Yes: 'yes', No: 'no' } as const;
+
 export type FlagValue = ValueOf<typeof FlagValue>;
 
 /** A message key for a facet or one of its values, in this lib's `i18n/en.json` under `rules.facet.*`. */
 export const FacetLabel = z.string().brand<'FacetLabel'>();
+
 export type FacetLabel = z.infer<typeof FacetLabel>;
 
 /** Where a facet reads its values: property names from the entry down. An array on the way is read element-wise. */
@@ -144,11 +152,15 @@ function leaves(value: unknown, path: FacetPath): readonly unknown[] {
   if (Array.isArray(value)) {
     return value.flatMap((item: unknown) => leaves(item, path));
   }
+
   const [head, ...rest] = path;
+
   if (head === undefined) {
     return [value];
   }
+
   const child: unknown = typeof value === 'object' && value !== null ? Reflect.get(value, head) : undefined;
+
   return child === undefined ? [undefined] : leaves(child, rest);
 }
 
@@ -158,13 +170,18 @@ function leafValue(leaf: unknown, type: FacetType): FacetValue | undefined {
     if (typeof leaf !== 'boolean') {
       return undefined;
     }
+
     return leaf ? YES : NO;
   }
+
   const text = typeof leaf === 'number' && Number.isInteger(leaf) ? String(leaf) : leaf;
+
   if (type === FacetType.Range && !(typeof text === 'string' && INTEGER.test(text))) {
     return undefined;
   }
+
   const parsed = FacetValue.safeParse(text);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -175,8 +192,10 @@ function leafValue(leaf: unknown, type: FacetType): FacetValue | undefined {
 export function facetValues(entry: ContentEntry, facet: FacetDefinition): readonly FacetValue[] {
   const found = facet.derive === undefined ? leaves(entry, facet.path) : facet.derive(entry);
   const values = new Set(found.flatMap((leaf) => leafValue(leaf, facet.type) ?? []));
+
   if (values.size === 0 && found.includes(undefined)) {
     return [UNKNOWN];
   }
+
   return [...values];
 }

@@ -47,6 +47,7 @@ const meta: Meta<Tabs> = {
     </fr-tabs>`,
   }),
 };
+
 export default meta;
 
 export const Default: TabsStory = {};
@@ -125,6 +126,7 @@ function sectionTabs(canvasElement: HTMLElement): SectionTabs {
   onTestFinished(() => {
     overview.click();
   });
+
   return {
     overview,
     attributes: canvas.getByRole('link', { name: 'Attributes' }),
@@ -163,6 +165,7 @@ export const Keyboard: TabsStory = {
 function insideInline(region: HTMLElement, element: HTMLElement): boolean {
   const bounds = region.getBoundingClientRect();
   const rect = element.getBoundingClientRect();
+
   return rect.left >= Math.floor(bounds.left) && rect.right <= Math.ceil(bounds.right);
 }
 

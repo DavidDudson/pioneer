@@ -33,19 +33,23 @@ describe(PageHeader, () => {
   it('describes the page under the title only when given a description', async () => {
     const plain = await renderProjected(PageHeader, { title: 'Characters' }, []);
     expect(plain.querySelector('p')).toBeNull();
+
     const described = await renderProjected(
       PageHeader,
       { title: 'Characters', description: 'Everyone in this campaign' },
       [],
     );
+
     expect(part(described, 'p').textContent.trim()).toBe('Everyone in this campaign');
   });
 
   it('projects actions beside the title and tabs below it', async () => {
     const root = await renderProjected(PageHeader, { title: 'Characters' }, slots());
+
     const order = ['h1', 'button', '[frPageTabs]'].map((selector) =>
       [...root.querySelectorAll('*')].indexOf(part(root, selector)),
     );
+
     expect(order).toStrictEqual(order.toSorted((first, second) => first - second));
     expect(part(root, 'button').textContent).toBe('Add character');
   });

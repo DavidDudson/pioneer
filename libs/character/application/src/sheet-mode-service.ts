@@ -24,17 +24,20 @@ export class SheetModeService {
   public async get(actor: UserId, id: CharacterId): Promise<SheetModeChoice> {
     await this.#assertAccess(actor, id);
     const mode = await this.#modes.findFor({ userId: actor, characterId: id });
+
     return mode === undefined ? {} : { mode };
   }
 
   public async set(actor: UserId, id: CharacterId, { mode }: SetSheetModeBody): Promise<SheetModeChoice> {
     await this.#assertAccess(actor, id);
     await this.#modes.save({ userId: actor, characterId: id }, mode, this.#clock.now());
+
     return { mode };
   }
 
   async #assertAccess(actor: UserId, id: CharacterId): Promise<void> {
     const ownerId = await this.#characters.findOwner(id);
+
     if (ownerId === undefined || !mayAccessCharacter(actor, { ownerId })) {
       throw new NotFoundError('Character', id);
     }

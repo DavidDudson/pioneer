@@ -6,6 +6,7 @@ const CLEAN = PathbuilderExportUrl.parse('https://pathbuilder2e.com/json.php?id=
 
 function problemOf(text: string): string | undefined {
   const result = exportUrlOf(text);
+
   return result.ok ? undefined : result.problem;
 }
 
@@ -29,6 +30,7 @@ describe('exportUrlOf', () => {
       'https://127.0.0.1/json.php?id=1',
       'https://localhost/json.php?id=1',
     ];
+
     expect(foreign.map((url) => problemOf(url))).toEqual(foreign.map(() => ExportUrlProblem.ForeignHost));
   });
 

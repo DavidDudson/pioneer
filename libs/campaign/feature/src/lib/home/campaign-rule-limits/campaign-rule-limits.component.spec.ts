@@ -18,6 +18,7 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -30,6 +31,7 @@ const campaign = {
 /** The four limits at the core rules' numbers, with `invested` set to `value` when it is not the core number. */
 function limits(manageable: boolean, invested: number, source = invested === 10 ? 'core' : 'campaign'): object {
   const base = { custom: false, source: 'core' };
+
   return {
     manageable,
     limits: [
@@ -45,6 +47,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -77,15 +80,18 @@ async function open(rules: object, gm: boolean): Promise<HTMLElement> {
     expect(root.textContent).toContain('Table limits');
     expect(root.textContent).toContain('Items invested');
   });
+
   return root;
 }
 
 describe('CampaignRuleLimitsPanel', () => {
   it('lists the four limits with the core rules’ number beside each', async () => {
     const root = await open(limits(true, 10), true);
+
     for (const name of ['Items invested', 'Hands to hold things in', 'Property runes per potency rune grade']) {
       expect(root.textContent).toContain(name);
     }
+
     expect(root.textContent).toContain('Core rules: 500');
     expect(root.textContent).toContain('From the core rules');
     expect(buttons(root, 'Reset')).toHaveLength(0);

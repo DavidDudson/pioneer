@@ -19,6 +19,7 @@ async function render(open: number, add: AddLanguage = async () => undefined): P
   fixture.componentRef.setInput('add', add);
   document.body.append(fixture.nativeElement as HTMLElement);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -38,8 +39,10 @@ async function choose(fixture: ComponentFixture<LanguageAdd>, label: string): Pr
   const cell = await vi.waitFor(() => {
     const found = nameCells(host(fixture)).find((each) => each.textContent.trim() === label);
     expect(found).toBeDefined();
+
     return found;
   });
+
   cell?.click();
   await fixture.whenStable();
 }
@@ -100,6 +103,7 @@ describe(LanguageAdd, () => {
     const fixture = await render(1, async () => {
       throw new Error('offline');
     });
+
     addButton(fixture)?.click();
     await fixture.whenStable();
 

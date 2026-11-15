@@ -77,14 +77,17 @@ export class ArmorClass {
 
   protected readonly shown = computed((): ShownArmorClass | undefined => {
     const vital = this.vital();
+
     if (vital === undefined) {
       return undefined;
     }
+
     this.#format.locale();
     const { statistic, rank, basis } = vital;
     const { result, kind, nameKey, rankSources } = statistic;
     const name = nameKey === undefined ? statistic.name : this.#i18n.translate(nameKey);
     const basisText = this.#basisText(basis);
+
     if (!result.ok) {
       return {
         name,
@@ -99,6 +102,7 @@ export class ArmorClass {
         basis: basisText,
       };
     }
+
     return {
       name,
       total: this.#format.number(result.total),
@@ -120,6 +124,7 @@ export class ArmorClass {
     if (basis?.kind === VitalBasisKind.Armor) {
       return basis.name;
     }
+
     return basis?.kind === VitalBasisKind.Unarmored ? this.#i18n.translate(ArmorClassMessage.Unarmored) : undefined;
   }
 }

@@ -11,6 +11,7 @@ import { SOURCE_SLUG_MAX } from './statistic';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

@@ -24,6 +24,7 @@ export const ContentPackManifest = z.object({
   publisher: ContentText,
   license: ContentLicenseSchema,
 });
+
 export type ContentPackManifest = z.infer<typeof ContentPackManifest>;
 
 /** Who can enable a pack: official packs are public; a homebrew pack starts private to its owner. */
@@ -33,6 +34,7 @@ export const PackVisibility = {
   Campaign: 'campaign',
   Public: 'public',
 } as const;
+
 export type PackVisibility = ValueOf<typeof PackVisibility>;
 
 function uniqueSlugs(entries: readonly { readonly slug: EntrySlug }[]): boolean {
@@ -50,12 +52,15 @@ const sourced = { sources: envelope.sources };
  * written before the envelope, which grants nothing.
  */
 export const PackAncestry = AncestryDefinition.extend({ ...sourced, rules: envelope.rules.optional() });
+
 export type PackAncestry = z.infer<typeof PackAncestry>;
 
 export const PackCreature = CreatureDefinition.extend(sourced).refine(npcDetailsOnNpc, NPC_ONLY);
+
 export type PackCreature = z.infer<typeof PackCreature>;
 
 export const PackStatistic = StatisticDefinition.extend(sourced);
+
 export type PackStatistic = z.infer<typeof PackStatistic>;
 
 /** A pack's statistics: modifiers and references find a statistic by selector, so each selector is used once. */
@@ -65,11 +70,13 @@ const Statistics = z
   .refine(uniqueSlugs, 'Duplicate statistic slug')
   .check((context) => {
     const seen = new Set<Selector>();
+
     for (const [index, { selector }] of context.value.entries()) {
       if (seen.has(selector)) {
         const { params } = issueParams(message(RulesMessage.DuplicateSelector, { selector }));
         context.issues.push({ code: 'custom', input: selector, path: [index, 'selector'], params });
       }
+
       seen.add(selector);
     }
   });

@@ -17,6 +17,7 @@ import { CharacterBuilder } from './testing';
  * spell Beastmaster Trance in the beastmaster's primal charisma entry, and a Focus Point with it.
  */
 const OWN = ['order-spell', 'heal-animal', 'untamed-shift'];
+
 const entry = (slug: string, tradition: string, attribute: string): object => ({
   key: 'SpellcastingEntry',
   slug,
@@ -26,9 +27,11 @@ const entry = (slug: string, tradition: string, attribute: string): object => ({
 });
 
 const pack = new ContentPackBuilder().withId('beastmaster');
+
 for (const spell of ['beastmaster-trance', ...OWN]) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
 pack
@@ -44,23 +47,30 @@ pack
       { key: 'FocusSpells', entry: 'druid-focus', spells: OWN.map((spell) => spellId(spell)) },
     ],
   });
+
 const TRANCE = pack.idOf(ContentKind.Feat, 'beastmasters-trance');
 const ORDERS = pack.idOf(ContentKind.ClassFeature, 'druid-orders');
+
 const GRANTS = new Map([
   ['plain', []],
   ['trance', [TRANCE]],
   ['druid', [ORDERS, TRANCE]],
 ]);
+
 for (const [name, items] of GRANTS) {
   pack.withClass(name, ['str'], { rules: items.map((item) => ({ key: 'GrantItem', item })) });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function focusOf(name: string): CharacterFocus {
   const { document } = new CharacterBuilder().atLevel(6).picking('class', pack.idOf(ContentKind.Class, name)).build();
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 

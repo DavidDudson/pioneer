@@ -7,14 +7,17 @@ import { CHARACTER_NAME_MAX_LENGTH, CharacterLevel } from './character-fields';
 
 /** A page of the character list, counted from 1. A query string carries it as text, so it is coerced. */
 export const PageNumber = z.coerce.number().int().min(1).brand<'PageNumber'>();
+
 export type PageNumber = z.infer<typeof PageNumber>;
 
 /** How many characters a page holds. */
 export const PageSize = Pg.integer().min(1).brand<'PageSize'>();
+
 export type PageSize = z.infer<typeof PageSize>;
 
 /** How many characters there are, across every page. */
 export const CharacterCount = Pg.integer().min(0).brand<'CharacterCount'>();
+
 export type CharacterCount = z.infer<typeof CharacterCount>;
 
 /** The characters on a page of the list. */
@@ -25,6 +28,7 @@ export const FIRST_PAGE: PageNumber = PageNumber.parse(1);
 
 /** Text to find in a character's name, ignoring case. */
 export const CharacterSearch = z.string().trim().min(1).max(CHARACTER_NAME_MAX_LENGTH).brand<'CharacterSearch'>();
+
 export type CharacterSearch = z.infer<typeof CharacterSearch>;
 
 /** A level in a query string, which carries it as text. */
@@ -41,6 +45,7 @@ export const CharacterFilter = z.strictObject({
   ancestry: AncestryId.optional(),
   name: CharacterSearch.optional(),
 });
+
 export type CharacterFilter = z.output<typeof CharacterFilter>;
 
 /** One page of the character list with the count behind it, so a client can say "page 2 of 5". */
@@ -50,4 +55,5 @@ export const CharacterPage = z.object({
   page: PageNumber,
   pageSize: PageSize,
 });
+
 export type CharacterPage = z.output<typeof CharacterPage>;

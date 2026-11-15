@@ -14,14 +14,18 @@ import { contentCatalog } from './index';
  */
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
 function idOf(slug: string): ContentId {
   const found = entries.find((entry) => entry.slug === EntrySlug.parse(slug));
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the catalog`);
   }
+
   return found.id;
 }
 
@@ -38,20 +42,26 @@ function withDedication(dedication: string, pick?: string): GrantResolution {
       toggles: new Map(),
       namespaces: registry.rollOptionNamespaces(),
     });
+
   const [open] = resolve(new Map()).open;
+
   if (open === undefined || pick === undefined) {
     return resolve(new Map());
   }
+
   const choice = ChoiceValue.parse(idOf(pick));
+
   return resolve(new Map([[open.key, choice]]));
 }
 
 /** Whether a character with `resolution` meets the prerequisite of the feat `slug`. */
 function meets(resolution: GrantResolution, slug: string): Truth {
   const feat = entries.find((entry) => entry.slug === EntrySlug.parse(slug));
+
   if (feat?.kind !== ContentKind.Feat || feat.data.prerequisitePredicate === undefined) {
     throw new Error(`${slug} has no prerequisite predicate`);
   }
+
   return evaluatePredicate(feat.data.prerequisitePredicate, resolution.facts);
 }
 

@@ -18,19 +18,23 @@ async function open(): Promise<HTMLElement> {
   const harness = await RouterTestingHarness.create('/characters/new');
   await harness.fixture.whenStable();
   const root = harness.routeNativeElement;
+
   if (root === null) {
     throw new Error('Expected the page to render');
   }
+
   return root;
 }
 
 describe(CreationChoicePage, () => {
   it('offers Import, Generate and Create, each linking to its own page', async () => {
     const root = await open();
+
     const cards = [...root.querySelectorAll('fr-surface a')].map((anchor) => [
       anchor.textContent.trim(),
       anchor.getAttribute('href'),
     ]);
+
     expect(cards).toStrictEqual([
       ['Import', '/characters/new/import'],
       ['Generate', '/characters/new/generate'],

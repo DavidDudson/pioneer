@@ -36,6 +36,7 @@ function textOf(element: Element): string {
 async function stavesOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => {
     present(root.querySelector('pio-spell-item-controls'));
+
     return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
   });
 }
@@ -50,6 +51,7 @@ describe('CharacterSheetPage staff spells', () => {
       revision: 1,
       play: { hp: { damage: 0, temp: 0 }, resources: { staff: { [STAFF]: { max: 4, spent: 1 } } } },
     };
+
     const { root } = await openSheet(wizardWith(HELD), { play, packs: PACKS });
     const staves = await stavesOf(root);
 

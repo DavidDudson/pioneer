@@ -55,6 +55,7 @@ export class ItemCoating {
   /** Whether the item has a coating rune, which is all that gives it a space. */
   protected readonly coated = computed(() => {
     const item = this.#item();
+
     return item !== undefined && hasCoatingRune(item, this.content().items.get(item.item), this.content().runes);
   });
 
@@ -74,6 +75,7 @@ export class ItemCoating {
   protected readonly options = computed((): readonly SelectOption<string>[] => {
     const item = this.#item();
     const lines = this.#store.selected()?.document.inventory.items ?? [];
+
     return item === undefined
       ? []
       : lines
@@ -91,9 +93,11 @@ export class ItemCoating {
     const item = this.#item();
     const chosen = this.chosen();
     const line = this.#store.selected()?.document.inventory.items.find((each) => each.id === chosen);
+
     if (item === undefined || line === undefined) {
       return;
     }
+
     const coating = [...(item.state?.coating ?? []), line.item];
     await this.#store.patch({
       field: CharacterPatchField.SetItemState,
@@ -115,9 +119,11 @@ export class ItemCoating {
     (stored: Stored): (() => Promise<void>) =>
     async (): Promise<void> => {
       const item = this.#item();
+
       if (item === undefined) {
         return;
       }
+
       const coating = (item.state?.coating ?? []).filter((_each, index) => index !== stored.index);
       await this.#store.patch({
         field: CharacterPatchField.SetItemState,
@@ -129,6 +135,7 @@ export class ItemCoating {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

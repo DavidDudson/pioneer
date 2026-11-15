@@ -6,6 +6,7 @@ import { RuleTester } from 'eslint';
 import { noLiteralText } from './no-literal-text';
 
 RuleTester.describe = describe;
+
 RuleTester.it = it;
 // No itOnly: Bun throws on reading `it.only` when CI is set, and no case uses `only`.
 

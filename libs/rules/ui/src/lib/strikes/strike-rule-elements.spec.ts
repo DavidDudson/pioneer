@@ -17,6 +17,7 @@ async function render(): Promise<HTMLElement> {
   fixture.componentRef.setInput('strikes', ELEMENT_STRIKE);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

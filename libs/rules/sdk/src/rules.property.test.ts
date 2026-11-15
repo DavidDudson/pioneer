@@ -28,6 +28,7 @@ describe('rules SDK (properties)', () => {
       property(nat(), attribute, modifier, (seed, target, value) => {
         const before = fakeSeeded(AttributeModifiers.codec, seed);
         const after = before.with(target, value);
+
         for (const other of Object.values(Attribute)) {
           expect(after.get(other)).toBe(other === target ? value : before.get(other));
         }

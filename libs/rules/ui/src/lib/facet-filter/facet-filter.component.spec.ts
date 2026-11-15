@@ -19,6 +19,7 @@ async function render(state: FilterState = new Map()): Promise<Rendered> {
   fixture.componentRef.setInput('counts', SHOP_FACET_COUNTS);
   fixture.componentRef.setInput('state', state);
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
@@ -27,14 +28,17 @@ const summaries = (host: HTMLElement): string[] =>
 
 function chips(host: HTMLElement, facet: string): HTMLButtonElement[] {
   const group = host.querySelector(`[role="group"][aria-label="${facet}"]`);
+
   return [...(group?.querySelectorAll<HTMLButtonElement>('button[aria-pressed]') ?? [])];
 }
 
 function input(host: HTMLElement, label: string): HTMLInputElement {
   const found = host.querySelector<HTMLInputElement>(`input[aria-label="${label}"]`);
+
   if (found === null) {
     throw new Error(`No input ${label}`);
   }
+
   return found;
 }
 
@@ -72,6 +76,7 @@ describe(FacetFilterView, () => {
     const excluded: FilterState = new Map([
       [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse('unique')] }],
     ]);
+
     const rendered = await render(excluded);
     const [, uncommon] = chips(rendered.host, 'Rarity');
     uncommon?.click();
@@ -101,6 +106,7 @@ describe(FacetFilterView, () => {
     const level: FilterState = new Map([
       [CommonFacet.Level, { kind: SelectionKind.Range, min: RangeBound.parse(1), max: undefined }],
     ]);
+
     const { host } = await render(level);
     expect(input(host, 'Lowest Level').value).toBe('1');
     expect(input(host, 'Highest Level').value).toBe('');

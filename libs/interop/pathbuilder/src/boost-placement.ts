@@ -8,6 +8,7 @@ import type { ImportedBoosts } from './read-boosts';
 
 /** A boost Pathbuilder recorded that no slot took: its set isn't on the character, or no open slot offers it. */
 export const UnplacedBoost = z.object({ source: z.enum(BoostSource), level: Level, attribute: AttributeSchema });
+
 export type UnplacedBoost = z.infer<typeof UnplacedBoost>;
 
 /** An attribute whose modifier from the placed boosts isn't Pathbuilder's. */
@@ -16,6 +17,7 @@ export const ModifierDifference = z.object({
   imported: AttributeModifier,
   derived: AttributeModifier,
 });
+
 export type ModifierDifference = z.infer<typeof ModifierDifference>;
 
 export type BoostChoices = Readonly<Record<SlotKey, ChoiceValue>>;
@@ -36,6 +38,7 @@ interface Matching {
 /** The slots that offer `pick`'s attribute, in slot order. */
 function offering({ slots, picks }: Matching, pick: number): number[] {
   const attribute = picks[pick];
+
   return [...slots.keys()].filter(
     (slot) => attribute !== undefined && slots[slot]?.options.includes(attribute) === true,
   );
@@ -49,20 +52,27 @@ function place(matching: Matching, pick: number, tried: Set<number>): boolean {
   const { pickBySlot } = matching;
   const slots = offering(matching, pick);
   const empty = slots.find((slot) => !pickBySlot.has(slot));
+
   if (empty !== undefined) {
     pickBySlot.set(empty, pick);
+
     return true;
   }
+
   return slots.some((slot) => {
     const holder = pickBySlot.get(slot);
+
     if (tried.has(slot) || holder === undefined) {
       return false;
     }
+
     tried.add(slot);
     const moved = place(matching, holder, tried);
+
     if (moved) {
       pickBySlot.set(slot, pick);
     }
+
     return moved;
   });
 }
@@ -70,20 +80,25 @@ function place(matching: Matching, pick: number, tried: Set<number>): boolean {
 /** Pick index per slot index, as many picks placed as can be, each taking the first slot free for it in export order. */
 function matchSlots(slots: readonly BoostSlot[], picks: readonly Attribute[]): ReadonlyMap<number, number> {
   const matching: Matching = { slots, picks, pickBySlot: new Map() };
+
   for (const pick of picks.keys()) {
     place(matching, pick, new Set());
   }
+
   return matching.pickBySlot;
 }
 
 /** The attributes left for slots: each once, and none the set's fixed boosts already raise. */
 function slotPicks(attributes: readonly Attribute[], fixed: readonly Attribute[]): Attribute[] {
   const seen = new Set<Attribute>(fixed);
+
   return attributes.filter((attribute) => {
     if (seen.has(attribute)) {
       return false;
     }
+
     seen.add(attribute);
+
     return true;
   });
 }
@@ -91,12 +106,16 @@ function slotPicks(attributes: readonly Attribute[], fixed: readonly Attribute[]
 /** What of `attributes` is left once each of `taken` has taken one. */
 function leftOver(attributes: readonly Attribute[], taken: readonly Attribute[]): Attribute[] {
   const remaining = [...taken];
+
   return attributes.filter((attribute) => {
     const index = remaining.indexOf(attribute);
+
     if (index === -1) {
       return true;
     }
+
     remaining.splice(index, 1);
+
     return false;
   });
 }
@@ -113,21 +132,28 @@ export function placeBoosts(
 ): BoostPlacement {
   const sets = boostSets(document, content);
   const choices: Record<SlotKey, ChoiceValue> = {};
+
   const unplaced = imported.flatMap(({ source, level, attributes }): UnplacedBoost[] => {
     const set = sets.find((each) => each.source === source && each.level === level);
     const open = set?.slots ?? [];
     const picks = slotPicks(attributes, set?.fixed ?? []);
+
     const placed = [...matchSlots(open, picks)].flatMap(([slot, pick]) => {
       const key = open[slot]?.key;
       const attribute = picks[pick];
+
       if (key === undefined || attribute === undefined) {
         return [];
       }
+
       choices[key] = ChoiceValue.parse(attribute);
+
       return [attribute];
     });
+
     return leftOver(attributes, [...(set?.fixed ?? []), ...placed]).map((attribute) => ({ source, level, attribute }));
   });
+
   return { choices, unplaced };
 }
 
@@ -142,10 +168,12 @@ export function placeFlaws(
 ): BoostChoices {
   const slots = flawSlots(document, content);
   const voluntary = [...new Set(flaws)].filter((attribute) => slots[0]?.options.includes(attribute) === true);
+
   // One slot per attribute the ancestry leaves, so every voluntary flaw has one.
   return Object.fromEntries(
     slots.flatMap((slot, index) => {
       const attribute = voluntary[index];
+
       return attribute === undefined ? [] : [[slot.key, ChoiceValue.parse(attribute)]];
     }),
   );
@@ -156,6 +184,7 @@ export function modifierDifferences(imported: AttributeModifiers, derived: Attri
   return Object.values(Attribute).flatMap((attribute): ModifierDifference[] => {
     const theirs = imported.get(attribute);
     const ours = derived.get(attribute);
+
     return theirs === ours ? [] : [{ attribute, imported: theirs, derived: ours }];
   });
 }

@@ -26,6 +26,7 @@ export class StatisticSourceField {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
   protected readonly sources = computed((): readonly SelectOption<StatisticSource>[] => {
     this.#messages();
+
     return Object.values(StatisticSource).map((source) => ({
       value: source,
       label: this.#i18n.translate(STATISTIC_SOURCE_KEYS[source]),

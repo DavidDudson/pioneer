@@ -23,19 +23,24 @@ interface Rendered {
 async function render(items: readonly string[], inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(VirtualListHost);
   fixture.componentRef.setInput('items', items);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   const stable = async (): Promise<void> => {
     await fixture.whenStable();
     fixture.detectChanges();
     await fixture.whenStable();
   };
+
   await stable();
   const list = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-virtual-list');
+
   if (list === null) {
     throw new Error('Expected an fr-virtual-list');
   }
+
   return { fixture, list, stable };
 }
 

@@ -29,18 +29,23 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   const fixture = TestBed.createComponent(Chart);
   fixture.componentRef.setInput('definition', DAMAGE);
   fixture.componentRef.setInput('label', 'Damage per round');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
 function svg(host: HTMLElement): SVGSVGElement {
   const element = host.querySelector('svg');
+
   if (element === null) {
     throw new Error('Expected a rendered chart');
   }
+
   return element;
 }
 
@@ -48,6 +53,7 @@ function svg(host: HTMLElement): SVGSVGElement {
 function aspectRatio(host: HTMLElement): number | undefined {
   const style = host.querySelector('tanstack-chart [style*="aspect-ratio"]')?.getAttribute('style') ?? '';
   const ratio = /aspect-ratio:\s*(?<ratio>[\d.]+)/u.exec(style)?.groups?.['ratio'];
+
   return ratio === undefined ? undefined : Number(ratio);
 }
 

@@ -9,21 +9,27 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId,
 import type { PlayerCoreClass } from './testing';
 
 const ALL = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+
 const backgrounds = new ContentPackBuilder()
   .withId('repeat-backgrounds')
   .withBackground('acolyte', [ALL], [{ key: 'Proficiency', selector: 'skill:religion', rank: 'trained' }])
   .withBackground('gladiator', [ALL], [{ key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' }])
   .withBackground('scribe', [ALL], [{ key: 'Proficiency', selector: 'skill:lore:scribing', rank: 'trained' }])
   .build();
+
 const ids = new ContentPackBuilder().withId('repeat-backgrounds');
 const acolyte = ChoiceValue.parse(ids.idOf(ContentKind.Background, 'acolyte'));
 const gladiator = ChoiceValue.parse(ids.idOf(ContentKind.Background, 'gladiator'));
 const scribe = ChoiceValue.parse(ids.idOf(ContentKind.Background, 'scribe'));
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 registry.register(backgrounds);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const BACKGROUND = SlotKey.parse('background');
@@ -38,6 +44,7 @@ function repeatedBy(
 ): ReadonlyMap<ChoiceValue, ChoiceValue[]> {
   const { document } = builder.build();
   const repeats = repeatedTrainings(document, content, { slot: BACKGROUND, values });
+
   return new Map([...repeats].map(([value, skills]) => [value, skills.map((skill) => skill.id)]));
 }
 

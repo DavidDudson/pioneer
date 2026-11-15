@@ -15,8 +15,11 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, spellFixtureId,
 import type { PlayerCoreClass, SpellFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
@@ -31,9 +34,11 @@ function caster(
     .picking('class', playerCoreClassId(name))
     .picking(KEY_ATTRIBUTE, 'str')
     .atLevel(level);
+
   for (const [slot, spell] of Object.entries(picks)) {
     builder = builder.picking(slot, spellFixtureId(spell));
   }
+
   return builder;
 }
 

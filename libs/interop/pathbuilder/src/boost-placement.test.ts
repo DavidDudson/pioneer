@@ -16,9 +16,11 @@ function dwarf(level: number, roots: { readonly background?: boolean } = {}): Ch
     .withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf')))
     .atLevel(level)
     .picking(CLASS_SLOT, boostFixtureId('class:fighter'));
+
   if (roots.background !== false) {
     builder.picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'));
   }
+
   return builder.build().document;
 }
 
@@ -67,6 +69,7 @@ describe('placeBoosts', () => {
     const { choices, unplaced } = placeBoosts(dwarf(1, { background: false }), BOOST_FIXTURES, [
       boosts(BoostSource.Background, 1, [WIS, CON]),
     ]);
+
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({});
     expect(unplaced).toStrictEqual([
       { source: BoostSource.Background, level: Level.parse(1), attribute: WIS },
@@ -79,6 +82,7 @@ describe('placeBoosts', () => {
       boosts(BoostSource.Class, 1, [STR, CHA]),
       boosts(BoostSource.Free, 5, [STR, STR, DEX]),
     ]);
+
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({
       'boost:1:class:0': STR,
       'boost:5:free:0': STR,
@@ -101,6 +105,7 @@ describe('placeBoosts', () => {
       secondClass: false,
       keyAttributeOptions: () => [],
     };
+
     const { choices, unplaced } = placeBoosts(dwarf(1), narrow, [boosts(BoostSource.Background, 1, [CON, WIS])]);
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({
       'boost:1:background:0': WIS,
@@ -113,6 +118,7 @@ describe('placeBoosts', () => {
     const { choices, unplaced } = placeBoosts(dwarf(1), BOOST_FIXTURES, [
       boosts(BoostSource.Ancestry, 1, [WIS, CON, WIS]),
     ]);
+
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({});
     expect(unplaced).toStrictEqual([{ source: BoostSource.Ancestry, level: Level.parse(1), attribute: WIS }]);
   });
@@ -151,9 +157,11 @@ describe('modifierDifferences', () => {
     const imported = new AttributeModifiers(
       AttributeModifiersWire.parse({ str: 4, dex: 0, con: 1, int: 0, wis: 2, cha: 0 }),
     );
+
     const derived = new AttributeModifiers(
       AttributeModifiersWire.parse({ str: 4, dex: 1, con: 1, int: 0, wis: 1, cha: 0 }),
     );
+
     expect<readonly object[]>(modifierDifferences(imported, derived)).toStrictEqual([
       { attribute: DEX, imported: 0, derived: 1 },
       { attribute: WIS, imported: 2, derived: 1 },

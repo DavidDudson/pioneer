@@ -29,6 +29,7 @@ const inputs = StatisticInputsJson.parse({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder()
     .withId('player-core')
@@ -44,11 +45,13 @@ const BLESSING = CustomEffectInput.parse({
   reason: 'Festival boon',
   lines: [{ target: 'perception', value: 2, type: 'circumstance' }],
 });
+
 const PINNING = CustomEffectInput.parse({
   name: 'Eagle eyes',
   reason: 'GM ruling: the character sees as a hawk',
   lines: [{ target: 'perception', mode: 'set', value: 20 }],
 });
+
 const ADJUST = OverrideInput.parse({
   target: 'perception',
   mode: 'adjust',
@@ -76,9 +79,11 @@ function withPinning(character: Character): Character {
 function perception(character: Character): StatisticValue {
   const results: ReadonlyMap<Selector, StatisticResult> = characterStatistics(character.document, sources);
   const found = results.get(PERCEPTION);
+
   if (found?.ok !== true) {
     throw new Error('Perception was not derived');
   }
+
   return found;
 }
 

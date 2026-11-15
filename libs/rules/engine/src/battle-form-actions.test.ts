@@ -15,9 +15,11 @@ const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 
 function formWith(flags: object): FormInPlay {
   const form = battleFormInPlay({ rules: [formRule(flags)], facts: FORM_FACTS });
+
   if (form === undefined) {
     throw new Error('expected a form');
   }
+
   return form;
 }
 
@@ -30,9 +32,11 @@ function weigh(candidate: Pick<ActionCandidate, 'casts' | 'traits'>, form: FormI
     statistics: new Map(),
     form,
   });
+
   if (first === undefined) {
     throw new Error('expected an action');
   }
+
   return first;
 }
 

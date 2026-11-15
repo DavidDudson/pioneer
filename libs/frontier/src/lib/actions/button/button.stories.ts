@@ -36,6 +36,7 @@ const meta: Meta<ButtonStoryArgs> = {
     template: `<fr-button ${argsToTemplate(args)}>${label}</fr-button>`,
   }),
 };
+
 export default meta;
 
 export const Primary: ButtonStory = { args: { variant: ButtonVariant.Primary } };
@@ -101,18 +102,23 @@ export const IconOnly: ButtonStory = {
 
 /** A roll button with no cue: the neutral default. */
 export const Roll: ButtonStory = { args: { variant: ButtonVariant.Roll, label: '+10' } };
+
 export const RollBonus: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollTone: RollTone.Bonus, label: '+12*' },
 };
+
 export const RollPenalty: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollTone: RollTone.Penalty, label: '+8' },
 };
+
 export const RollFortune: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollLuck: RollLuck.Fortune, label: '+10' },
 };
+
 export const RollMisfortune: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollLuck: RollLuck.Misfortune, label: '+10' },
 };
+
 export const RollShifted: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollShifted: true, label: '+10' },
 };

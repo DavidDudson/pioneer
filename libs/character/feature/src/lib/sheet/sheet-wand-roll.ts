@@ -13,13 +13,17 @@ export interface FlatCheckRoll {
 /** Rolls the flat check of an overcharge. */
 export function rollFlatCheck(random: RandomSource): FlatCheckRoll {
   const outcome = parseDiceExpression(FLAT_CHECK);
+
   if (!outcome.ok) {
     throw new Error('The flat check expression does not parse');
   }
+
   const result = rollDice(outcome.expression, random);
   const natural = naturalD20(result);
+
   if (natural === undefined) {
     throw new Error('A d20 roll has a natural die');
   }
+
   return { natural, result };
 }

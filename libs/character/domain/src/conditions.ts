@@ -21,14 +21,17 @@ const RESTRICTION_MAX = 200;
 
 /** What a condition's source limits the action it gives to ("only to Strike or Stride"). */
 export const ActionRestriction = z.string().trim().min(1).max(RESTRICTION_MAX).brand<'ActionRestriction'>();
+
 export type ActionRestriction = z.infer<typeof ActionRestriction>;
 
 /** One condition on a character, apart from its content: an instance may be removed or changed on its own. */
 export const ConditionInstanceId = Uuid.brand<'ConditionInstanceId'>();
+
 export type ConditionInstanceId = z.infer<typeof ConditionInstanceId>;
 
 /** A count of rounds a condition lasts. */
 export const ConditionRounds = Pg.smallint().positive().brand<'ConditionRounds'>();
+
 export type ConditionRounds = z.infer<typeof ConditionRounds>;
 
 /** How long a condition lasts: for a number of rounds, to a point in a turn, until removed, or while sustained. */
@@ -39,6 +42,7 @@ export const ConditionDurationKind = {
   Unlimited: 'unlimited',
   Sustained: 'sustained',
 } as const;
+
 export type ConditionDurationKind = ValueOf<typeof ConditionDurationKind>;
 
 const ConditionDurationSchema = z.discriminatedUnion('kind', [
@@ -48,6 +52,7 @@ const ConditionDurationSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(ConditionDurationKind.Unlimited) }),
   z.strictObject({ kind: z.literal(ConditionDurationKind.Sustained) }),
 ]);
+
 export type ConditionDuration = z.infer<typeof ConditionDurationSchema>;
 
 /** Until someone removes it. */
@@ -62,6 +67,7 @@ export const PersistentDamageSchema = z.strictObject({
   type: DamageTypeSchema,
   assisted: z.boolean().default(false),
 });
+
 export type PersistentDamage = z.infer<typeof PersistentDamageSchema>;
 
 /**
@@ -79,6 +85,7 @@ export const ActiveConditionSchema = z.strictObject({
   /** What the source limits the quickened extra action to ("only to Strike or Stride"); any other condition has none. */
   restriction: ActionRestriction.optional(),
 });
+
 export type ActiveCondition = z.infer<typeof ActiveConditionSchema>;
 
 export const ActiveConditionsSchema = z.array(ActiveConditionSchema).max(CONDITIONS_MAX).default([]);
@@ -89,6 +96,7 @@ export const ConditionCommandField = {
   SetConditionValue: 'setConditionValue',
   RemoveCondition: 'removeCondition',
 } as const;
+
 export type ConditionCommandField = ValueOf<typeof ConditionCommandField>;
 
 export const ConditionCommandSchema = z.discriminatedUnion('field', [
@@ -100,6 +108,7 @@ export const ConditionCommandSchema = z.discriminatedUnion('field', [
   }),
   z.object({ field: z.literal(ConditionCommandField.RemoveCondition), id: ConditionInstanceId }),
 ]);
+
 export type ConditionCommand = z.infer<typeof ConditionCommandSchema>;
 
 /** Whether each condition the content has carries a value, by id. */
@@ -116,6 +125,7 @@ export const ConditionProblem = {
   /** The character holds as many conditions as it can. */
   Full: 'full',
 } as const;
+
 export type ConditionProblem = ValueOf<typeof ConditionProblem>;
 
 function problemOfAdd(
@@ -124,12 +134,15 @@ function problemOfAdd(
   valued: ConditionValued,
 ): ConditionProblem | undefined {
   const isValued = valued.get(added.condition);
+
   if (isValued === undefined) {
     return ConditionProblem.Unknown;
   }
+
   if (isValued !== (added.value !== undefined)) {
     return ConditionProblem.Value;
   }
+
   return conditions.length >= CONDITIONS_MAX ? ConditionProblem.Full : undefined;
 }
 
@@ -143,16 +156,21 @@ export function conditionProblem(
     case ConditionCommandField.AddCondition: {
       return problemOfAdd(conditions, command.condition, valued);
     }
+
     case ConditionCommandField.SetConditionValue: {
       const target = conditions.find(({ id }) => id === command.id);
+
       if (target === undefined) {
         return ConditionProblem.Missing;
       }
+
       return valued.get(target.condition) === true ? undefined : ConditionProblem.Value;
     }
+
     case ConditionCommandField.RemoveCondition: {
       return conditions.some(({ id }) => id === command.id) ? undefined : ConditionProblem.Missing;
     }
+
     default: {
       return command satisfies never;
     }
@@ -170,14 +188,18 @@ export function applyConditionCommand(
   switch (command.field) {
     case ConditionCommandField.AddCondition: {
       const { condition } = command;
+
       return conditions.some(({ id }) => id === condition.id) ? conditions : [...conditions, condition];
     }
+
     case ConditionCommandField.SetConditionValue: {
       return conditions.map((each) => (each.id === command.id ? { ...each, value: command.value } : each));
     }
+
     case ConditionCommandField.RemoveCondition: {
       return conditions.filter(({ id }) => id !== command.id);
     }
+
     default: {
       return command satisfies never;
     }
@@ -204,6 +226,7 @@ export function conditionRoots(conditions: readonly ActiveCondition[]): readonly
 /** Whether each condition of the registry's packs carries a value, by id; the last pack's entry wins, as in the registry. */
 export function conditionValued(registry: ContentRegistry): ConditionValued {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return new Map(
     entries.flatMap((entry) => (entry.kind === ContentKind.Condition ? [[entry.id, entry.data.valued] as const] : [])),
   );
@@ -219,6 +242,7 @@ export function isConditionCommand<Command extends { readonly field: unknown }>(
     case ConditionCommandField.RemoveCondition: {
       return true;
     }
+
     default: {
       return false;
     }

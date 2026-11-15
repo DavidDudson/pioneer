@@ -30,9 +30,11 @@ const one = ItemQuantity.parse(1);
 /** The id of the one item `character` carries. */
 function onlyItem(character: Character): InventoryItemId {
   const [item] = character.document.inventory.items;
+
   if (item === undefined) {
     throw new Error('Expected one item');
   }
+
   return item.id;
 }
 
@@ -51,6 +53,7 @@ describe('CharacterService inventory edits', () => {
   /** Applies `patch` to the character at its current version and keeps the result. */
   async function edit(patch: CharacterPatch): Promise<Character> {
     ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
+
     return character;
   }
 
@@ -58,15 +61,18 @@ describe('CharacterService inventory edits', () => {
     const item = itemFixtureId(name);
     const saved = await edit({ field: CharacterPatchField.GiftItem, item, quantity: one, container });
     const added = saved.document.inventory.items.at(-1);
+
     if (added === undefined) {
       throw new Error('Nothing was added');
     }
+
     return added.id;
   }
 
   async function refusal(patch: CharacterPatch): Promise<unknown> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
+
     return (error as ValidationError).issues;
   }
 
@@ -273,9 +279,11 @@ describe('CharacterService inventory limits and staleness', () => {
       // oxlint-disable-next-line no-await-in-loop -- each add needs the version the previous one saved
       ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch: rope }));
     }
+
     const error = await rejection(
       service.patch(amiri, character.id, { expectedVersion: character.version, patch: rope }),
     );
+
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['patch', 'item'],
@@ -289,10 +297,12 @@ describe('CharacterService inventory limits and staleness', () => {
     const { character: added } = await service.patch(amiri, character.id, { expectedVersion: stale, patch: rope });
     const removal: CharacterPatch = { field: CharacterPatchField.RemoveItem, id: onlyItem(added) };
     await service.patch(amiri, character.id, { expectedVersion: added.version, patch: removal });
+
     // A second tab, still at the version before the removal, removes the same item.
     const error = await rejection(
       service.patch(amiri, character.id, { expectedVersion: added.version, patch: removal }),
     );
+
     expect(error).toBeInstanceOf(VersionConflictError);
   });
 });

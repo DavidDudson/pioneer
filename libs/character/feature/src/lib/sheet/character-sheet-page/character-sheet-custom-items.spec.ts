@@ -42,6 +42,7 @@ describe('CharacterSheetPage custom items', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({ patch: { field: 'removeItem', id: COMB } });
   });
 

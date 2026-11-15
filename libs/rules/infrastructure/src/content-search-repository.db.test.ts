@@ -39,6 +39,7 @@ interface Found {
 
 function criteria(query: string, rest: Partial<ContentSearchCriteria> = {}): ContentSearchCriteria {
   const parsed = ContentSearchQuery.parse({ query });
+
   return { ...parsed, ...rest };
 }
 
@@ -50,9 +51,11 @@ function language(slug: string, name: string, text?: string): Language {
 function idsAt(contents: PackContents, ...indexes: readonly number[]): readonly string[] {
   return indexes.map((index) => {
     const entry = contents.entries[index];
+
     if (entry === undefined) {
       throw new Error(`Expected an entry at ${index}`);
     }
+
     return entry.id;
   });
 }
@@ -79,6 +82,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
 
   async function ask(query: string, rest: Partial<ContentSearchCriteria> = {}): Promise<Found> {
     const { ids, total } = await search.search(criteria(query, rest));
+
     return { ids: ids.map(String), total: Number(total) };
   }
 
@@ -89,6 +93,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       .update(contentPacks)
       .set({ ownerId: owner, visibility: 'private' })
       .where(eq(contentPacks.id, contentPackId(pack.file.id)));
+
     return pack;
   }
 
@@ -98,6 +103,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       language('ember', 'Ember', 'A spark.'),
       language('ash', 'Ash', 'What a hearth leaves behind.'),
     ]);
+
     await seed(pack);
 
     const byName = await ask('ember');
@@ -112,6 +118,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       language('lantern', 'Lantern', 'Lit by a single gleam in the dark.'),
       language('gleam', 'Gleam', 'A faint light.'),
     ]);
+
     await seed(pack);
 
     const result = await ask('gleam');
@@ -124,6 +131,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       language('quartz', 'Quartz', 'A clear crystal.'),
       language('onyx', 'Onyx', 'A dark crystal.'),
     ]);
+
     await seed(pack);
 
     const without = await ask('crystal -dark');
@@ -170,6 +178,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       language('beacon', 'Legacybeacon remaster'),
       { ...language('lamp', 'Legacybeacon lamp'), license: ContentLicense.Ogl },
     ]);
+
     const oglPack = languagePack('search-legacy-ogl', [language('torch', 'Legacybeacon torch')], ContentLicense.Ogl);
     await seed(remaster);
     await seed(oglPack);
@@ -187,6 +196,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       language('second', 'Pagewise two'),
       language('third', 'Pagewise three'),
     ]);
+
     await seed(pack);
     const { limit, offset } = ContentSearchQuery.parse({ query: 'pagewise', limit: '1', offset: '1' });
 
@@ -220,10 +230,12 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
     const kept = await ask('keepsake');
     expect(lost.total).toBe(0);
     expect(kept.ids).toStrictEqual(idsAt(pack, 0));
+
     const remaining = await database.db
       .select({ id: contentEntrySearch.id })
       .from(contentEntrySearch)
       .where(sql`${contentEntrySearch.entryId} = ${dropped}`);
+
     expect(remaining).toStrictEqual([]);
   });
 
@@ -268,6 +280,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
   test('the words are matched through the GIN index', async () => {
     const plan = await database.db.$client.begin(async (tx): Promise<unknown> => {
       await tx.unsafe('set local enable_seqscan = off');
+
       return tx.unsafe(
         `explain (format json) select entry_id from content_entry_search where vector @@ websearch_to_tsquery('english', 'prismatic')`,
       );

@@ -11,6 +11,7 @@ export const STAFF_CANTRIP = 'cantrip';
 
 /** A rank a staff lists spells under: "Cantrip", "1st", "2nd". */
 export const StaffRank = z.union([z.literal(STAFF_CANTRIP), SpellRank]);
+
 export type StaffRank = z.infer<typeof StaffRank>;
 
 const STAFF_RANKS_MAX = 11;
@@ -21,6 +22,7 @@ const StaffRankSpells = z.strictObject({
   rank: StaffRank,
   spells: z.array(ContentId).min(1).max(STAFF_SPELLS_MAX).readonly().check(uniqueItems),
 });
+
 export type StaffRankSpells = z.infer<typeof StaffRankSpells>;
 
 /**
@@ -35,6 +37,7 @@ export const StaffSpells = z
   .readonly()
   .check((context) => {
     const seen = new Set<StaffRank>();
+
     for (const [index, { rank }] of context.value.entries()) {
       if (seen.has(rank)) {
         context.issues.push({
@@ -44,13 +47,16 @@ export const StaffSpells = z
           ...issueParams(message(RulesMessage.ListDuplicate, { value: rank })),
         });
       }
+
       seen.add(rank);
     }
   });
+
 export type StaffSpells = z.infer<typeof StaffSpells>;
 
 /** How many charges a cast from a staff spends. */
 export const Charges = Pg.smallint().nonnegative().brand<'Charges'>();
+
 export type Charges = z.infer<typeof Charges>;
 
 const NO_CHARGES = Charges.parse(0);

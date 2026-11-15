@@ -30,12 +30,14 @@ const DEFINITIONS = [
     per: 'weapon',
   }),
 ];
+
 const LONGSWORD = {
   slug: 'longsword',
   category: 'martial',
   traits: [],
   damage: { dice: 1, die: 'd8', damageType: 'slashing' },
 };
+
 const GREATSWORD = { ...LONGSWORD, damage: { dice: 2, die: 'd12', damageType: 'slashing' } };
 const BLOWGUN = { slug: 'blowgun', category: 'simple', traits: [], damage: { dice: 1, damageType: 'piercing' } };
 
@@ -55,10 +57,12 @@ function strikeOf(placed: readonly (readonly [object, string])[], weapon: object
     ranks: { 'attack:martial': 'trained', 'attack:simple': 'trained' },
     weapons: [wielded(weapon as { slug: string })],
   });
+
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
   const modifiers = { rules, facts: new PredicateFacts([], CORE_NAMESPACES) };
   const results = deriveStatistics(content, inputs, modifiers);
+
   return deriveStrikes(inputs.weapons ?? [], results, {
     inputs: modifiers,
     scope: { statistics: content, character: inputs },
@@ -76,6 +80,7 @@ describe('flat splash from DamageDice', () => {
 
   test('counts the dice other elements add to the weapon', () => {
     const more = { key: 'DamageDice', selectors: ['damage'], diceNumber: 1 };
+
     const strike = strikeOf(
       [
         [SHOCKWAVE, 'shockwave'],

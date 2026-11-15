@@ -34,6 +34,7 @@ interface Enriched {
 
 function enriched(text: string): Enriched {
   const reported: string[] = [];
+
   const run = enrichedRun(text, {
     links,
     marks: [],
@@ -41,6 +42,7 @@ function enriched(text: string): Enriched {
       reported.push(problem);
     },
   });
+
   return { run, reported };
 }
 

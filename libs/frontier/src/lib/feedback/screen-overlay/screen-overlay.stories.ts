@@ -8,6 +8,7 @@ const meta: Meta<ScreenOverlay> = {
   title: 'Feedback/Screen overlay',
   component: ScreenOverlay,
 };
+
 export default meta;
 
 /** A transparent, click-through layer over the viewport; the page underneath stays usable. */

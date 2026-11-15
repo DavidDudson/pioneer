@@ -13,12 +13,14 @@ const ROW_PX = 44;
 const LONG_LIST = 300;
 
 const ELECTRIC_ARC = spellRow({ id: 'electric-arc', name: 'Electric Arc', cantrip: true, heightenedTo: 3 });
+
 const HYPNOTIC_PATTERN = spellRow({
   id: 'hypnotic-pattern',
   name: 'Hypnotic Pattern',
   rank: 2,
   disabledReason: 'Already picked in this entry',
 });
+
 const FIREBALL = spellRow({ id: 'fireball', name: 'Fireball', rank: 3 });
 const SPELLS: readonly SpellPickerRow[] = [ELECTRIC_ARC, HYPNOTIC_PATTERN, FIREBALL];
 
@@ -48,9 +50,11 @@ async function render(rows: readonly SpellPickerRow[], value?: string): Promise<
   const fixture = TestBed.createComponent(SpellPicker);
   fixture.componentRef.setInput('rows', rows);
   fixture.componentRef.setInput('ariaLabel', '3rd rank slot 1');
+
   if (value !== undefined) {
     fixture.componentRef.setInput('value', value);
   }
+
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.committed.subscribe(() => {
@@ -61,9 +65,11 @@ async function render(rows: readonly SpellPickerRow[], value?: string): Promise<
   });
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected a rendered spell picker');
   }
+
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }
 
@@ -73,9 +79,11 @@ function textOf(element: Element): string {
 
 function firstRow(rendered: Rendered): Element {
   const row = rendered.host.querySelector('fr-picker-row');
+
   if (row === null) {
     throw new Error('Expected a row');
   }
+
   return row;
 }
 
@@ -87,15 +95,18 @@ function headers(rendered: Rendered): string[] {
 function nameCells(rendered: Rendered): HTMLElement[] {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
+
     return cell === null ? [] : [cell];
   });
 }
 
 function searchBox(rendered: Rendered): HTMLInputElement {
   const input = rendered.host.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the table to be open');
   }
+
   return input;
 }
 
@@ -213,6 +224,7 @@ describe(SpellPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_entry, index) =>
       spellRow({ id: `spell-${index}`, name: `Spell ${index + 1}` }),
     );
+
     const rendered = await render(rows);
     expect(rendered.host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
     expect(nameCells(rendered).length).toBeLessThan(LONG_LIST);

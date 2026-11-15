@@ -10,7 +10,9 @@ export function setItemState(inventory: Inventory, id: InventoryItemId, state: I
       if (item.id !== id) {
         return item;
       }
+
       const { state: _old, ...rest } = item;
+
       return isEmptyState(state) ? rest : { ...rest, state };
     }),
   };

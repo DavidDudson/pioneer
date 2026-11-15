@@ -8,6 +8,7 @@ import { Text } from '../../text/text/text.component';
 
 /** One title line tall, so the icon centres on the title's first line. */
 const iconVariants = cva('flex h-lh items-center');
+
 /** The action row collapses when nothing is projected, so it adds no gap. */
 const actionVariants = cva('flex flex-wrap items-center gap-sm pt-xs empty:hidden');
 

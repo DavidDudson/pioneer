@@ -30,6 +30,7 @@ import { answerSheetBundle, NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from 
 beforeAll(async () => {
   await import('../sheet/character-sheet-page/character-sheet-page.component');
 }, PREBUILD_TIMEOUT);
+
 /** How long a sheet may take to open: its registries build from the official packs, slow on a busy CI runner. */
 const SHEET_OPEN_TIMEOUT = 20_000;
 
@@ -144,6 +145,7 @@ export interface SheetOptions {
 const NO_UNENABLED = { variantRules: [], packs: [], items: [] };
 
 export { answerItemApprovalsRead } from './rule-limit-reads-testing';
+
 export { answerSheetBundle, playOf } from './sheet-reads-testing';
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
@@ -155,6 +157,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -162,6 +165,7 @@ function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan, section?: str
   if (tab === NO_TAB) {
     return `/characters/${id}`;
   }
+
   return section === undefined ? `/characters/${id}/${tab}` : `/characters/${id}/${tab}/${section}`;
 }
 
@@ -191,11 +195,13 @@ function bundleOf(character: object, options: SheetOptions): object {
 /** Answers the sheet's read of its character with the bundle, and the panels' reads of what the bundle leaves out. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
   await answerSheetBundle(bundleOf(character, options));
+
   // Plan (the rule-breaking warning) and the Exploration inventory read what the campaign approved; Encounter and Downtime don't, and neither does an Exploration section that is not the inventory, which builds nothing of it.
   const readsApprovals =
     options.tab === undefined ||
     options.tab === SheetMode.Plan ||
     (options.tab === SheetMode.Exploration && options.section === 'inventory');
+
   if (readsApprovals) {
     await answerItemApprovalsRead();
   }
@@ -217,9 +223,11 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
   });
   const harness = await RouterTestingHarness.create(sheetUrl(options.tab, options.section));
   const host: unknown = harness.fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected the harness to render an element');
   }
+
   document.body.append(host);
   onTestFinished(() => {
     host.remove();
@@ -236,21 +244,25 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     },
     { timeout: SHEET_OPEN_TIMEOUT, interval: POLL_INTERVAL },
   );
+
   return remembered({ harness, root });
 }
 
 /** `opened`, with its harness findable by its root. */
 function remembered(opened: OpenSheet): OpenSheet {
   HARNESSES.set(opened.root, opened.harness);
+
   return opened;
 }
 
 /** The harness that rendered `root`, for a spec that reaches a component the page rendered. */
 export function harnessOf(root: HTMLElement): RouterTestingHarness {
   const harness = HARNESSES.get(root);
+
   if (harness === undefined) {
     throw new Error('Expected a root that openSheet rendered');
   }
+
   return harness;
 }
 

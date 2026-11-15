@@ -21,6 +21,7 @@ import type { SheetSubclass } from '../../sheet/sheet-build';
 const FIRST_STEP = 0;
 const STEP_PARAM = 'step';
 const NO_OPTIONS: readonly SelectOption<string>[] = [];
+
 /** What choosing a part empties, because its options were read over the part chosen. */
 const DROPPED: Readonly<Record<DraftField, readonly DraftField[]>> = {
   name: [],
@@ -69,6 +70,7 @@ export class CreateCharacterPage {
 
   protected readonly draft = computed((): CreationDraft => {
     const params = this.#params();
+
     return draftOf((field) => params?.get(field) ?? undefined);
   });
 
@@ -84,6 +86,7 @@ export class CreateCharacterPage {
   protected readonly subclass = computed((): SheetSubclass | undefined => {
     const registry = this.#registry.data();
     const character = this.#character();
+
     return registry === undefined || character === undefined || this.draft().class === ''
       ? undefined
       : sheetSubclass(registry, character);
@@ -106,6 +109,7 @@ export class CreateCharacterPage {
     const answered = [this.isNameValid(), this.isAncestryValid(), this.isHeritageValid(), this.isBackgroundValid()];
     const unanswered = answered.indexOf(false);
     const limit = unanswered === -1 ? answered.length : unanswered;
+
     return Number.isInteger(asked) && asked > FIRST_STEP ? Math.min(asked, limit) : FIRST_STEP;
   });
 
@@ -128,8 +132,10 @@ export class CreateCharacterPage {
     if (this.pending()) {
       return;
     }
+
     this.pending.set(true);
     this.failed.set(false);
+
     try {
       const id = await this.#saver.save(this.draft(), this.subclass()?.key);
       await this.#router.navigate([id], { relativeTo: this.#route });
@@ -152,6 +158,7 @@ export class CreateCharacterPage {
   #rootOptions(slot: SlotKey): readonly SelectOption<string>[] {
     const registry = this.#registry.data();
     const character = this.#character();
+
     return registry === undefined || character === undefined ? NO_OPTIONS : sheetRootOptions(registry, character, slot);
   }
 }

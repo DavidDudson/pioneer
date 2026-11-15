@@ -36,9 +36,11 @@ export function formBlockers(
   if (form === undefined) {
     return [];
   }
+
   const { canCast, canSpeak, hasHands } = form.form;
   const params = { form: form.origin.entry };
   const speaks = traits.some((trait) => SPEECH.has(trait));
+
   return [
     ...reason(canCast === false && casts, EngineMessage.ActionFormCantCast, params),
     ...reason(canSpeak === false && speaks, EngineMessage.ActionFormCantSpeak, params),

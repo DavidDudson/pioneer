@@ -31,6 +31,7 @@ const meta: Meta<BadgeStoryArgs> = {
     template: `<fr-badge [icon]="icon" ${argsToTemplate(args, { exclude: ['icon'] })}>${content}</fr-badge>`,
   }),
 };
+
 export default meta;
 
 export const Default: BadgeStory = {};

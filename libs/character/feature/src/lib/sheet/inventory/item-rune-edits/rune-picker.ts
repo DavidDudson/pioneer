@@ -46,6 +46,7 @@ export interface RuneHeaders {
 
 const NO_EFFECT: RichText = [];
 const ONE_SLOT = 1;
+
 /** Where a row with no level sorts: before every level. */
 const NO_LEVEL = -1;
 
@@ -155,6 +156,7 @@ export function gradeRows(
   const { rune, entry, none, words } = args;
   const runed = runedItemOf(entry);
   const noneRow = rowOf(undefined, { value: none.value, label: none.label, kind: words.fundamental, slots: 0 });
+
   const grades = gradeChoices(rune, entry).map((grade) =>
     rowOf(fundamentalEntry(content, { rune, grade, runed }), {
       value: String(grade),
@@ -163,6 +165,7 @@ export function gradeRows(
       slots: 0,
     }),
   );
+
   return [noneRow, ...grades];
 }
 
@@ -187,14 +190,18 @@ export function etchedRows(
   const { item, entry, runes, key } = etched;
   const { i18n, words } = where;
   const runed = runedItemOf(entry);
+
   return runes.map((rune): RuneRow => {
     if (rune.type === RuneType.Property) {
       const label = runeLabel(i18n, content, { rune, grade: undefined });
+
       return rowOf(content.runes.get(rune.rune), { value: key(rune), label, kind: words.property, slots: ONE_SLOT });
     }
+
     const grade = item?.runes?.[rune.rune];
     const label = runeLabel(i18n, content, { rune, grade });
     const found = fundamentalEntry(content, { rune: rune.rune, grade: grade ?? 0, runed });
+
     return rowOf(found, { value: key(rune), label, kind: words.fundamental, slots: 0 });
   });
 }
@@ -264,7 +271,9 @@ export function slotsOf(item: InventoryItem | undefined, entry: ItemEntry | unde
   if (item === undefined) {
     return { used: 0, room: 0 };
   }
+
   const runes = itemRunes(item, entry);
   const read = readerOf(content);
+
   return { used: slottedRunes(runes, read).length, room: propertyRoom(runes, read) };
 }

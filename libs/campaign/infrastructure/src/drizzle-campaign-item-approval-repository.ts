@@ -46,6 +46,7 @@ export class DrizzleCampaignItemApprovalRepository extends CampaignItemApprovalR
       .from(campaignItemApprovals)
       .where(and(eq(campaignItemApprovals.campaignId, campaignId), isNull(campaignItemApprovals.archivedAt)))
       .orderBy(asc(campaignItemApprovals.approvedAt), asc(campaignItemApprovals.id));
+
     return rows.map((row) => toApproval(row));
   }
 

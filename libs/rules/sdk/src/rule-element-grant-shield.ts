@@ -15,6 +15,7 @@ export const HardnessBonus = z.strictObject({
   types: z.array(DamageTypeSchema).min(1).max(BONUS_TYPES_MAX).readonly(),
   bonus: Hardness,
 });
+
 export type HardnessBonus = z.infer<typeof HardnessBonus>;
 
 /** How many ranks a shield can be heightened to: spell ranks 2 to 10, with room for the rank it starts at. */
@@ -22,6 +23,7 @@ const BRACKETS_MAX = 10;
 
 /** The damage the shards of a shield that breaks deal, to roll with a basic save: Glass Shield's. */
 export const ShardDamage = z.strictObject({ damageType: DamageTypeSchema, damage: DamageFormula });
+
 export type ShardDamage = z.infer<typeof ShardDamage>;
 
 /** What a heightened shield changes from `start`: the spell rank (or higher) at which it applies. */
@@ -58,6 +60,7 @@ export const GrantedShield = z.strictObject({
   shards: ShardDamage.optional(),
   brackets: z.array(ShieldBracket).max(BRACKETS_MAX).readonly().optional(),
 });
+
 export type GrantedShield = z.infer<typeof GrantedShield>;
 
 /**
@@ -69,4 +72,5 @@ export const GrantShieldElement = z.strictObject({
   ...GrantedShield.shape,
   ...ruleElementBase,
 });
+
 export type GrantShieldElement = z.infer<typeof GrantShieldElement>;

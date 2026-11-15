@@ -34,6 +34,7 @@ export const ConsumableCategory = {
   Toolkit: 'toolkit',
   Wand: 'wand',
 } as const;
+
 export type ConsumableCategory = ValueOf<typeof ConsumableCategory>;
 
 /**
@@ -60,6 +61,7 @@ export const ConsumableActivation = z
     upTo: ActionCount.optional(),
   })
   .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO);
+
 export type ConsumableActivation = z.infer<typeof ConsumableActivation>;
 
 /**
@@ -87,4 +89,5 @@ export const ConsumableData = z
     ...issueParams(message(RulesMessage.ConsumableAmmunition)),
     path: ['ammunition'],
   });
+
 export type ConsumableData = z.infer<typeof ConsumableData>;

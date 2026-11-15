@@ -18,6 +18,7 @@ function resolved(text: string): unknown {
 
 function dice(text: string): unknown {
   const parsed = parseDiceExpression(DiceExpressionText.parse(text));
+
   return { ok: true, expression: parsed.ok ? parsed.expression : undefined };
 }
 

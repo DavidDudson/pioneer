@@ -71,9 +71,11 @@ function isSetOverride(source: ChangeSource): boolean {
 
 function bySelector(sources: readonly ChangeSource[]): ReadonlyMap<Selector, readonly ChangeSource[]> {
   const grouped = new Map<Selector, ChangeSource[]>();
+
   for (const source of sources) {
     grouped.set(source.selector, [...(grouped.get(source.selector) ?? []), source]);
   }
+
   return grouped;
 }
 
@@ -85,6 +87,7 @@ export function changeRules(rules: readonly RuleInPlay[]): ChangeRules {
   const sources = rules.flatMap((rule) =>
     rule.element.key === RuleElementKey.Change ? [changeSource(rule, rule.element)] : [],
   );
+
   const base = sources
     .filter((source) => !isSetOverride(source))
     .toSorted(
@@ -93,20 +96,24 @@ export function changeRules(rules: readonly RuleInPlay[]): ChangeRules {
         left.priority - right.priority ||
         Number(left.id > right.id) - Number(left.id < right.id),
     );
+
   const set = sources
     .filter((source) => isSetOverride(source))
     .toSorted(
       (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
     );
+
   return { base: bySelector(base), set: bySelector(set) };
 }
 
 /** Whether a change applies: undefined when its predicate holds, or the status that says why it does not. */
 function gate(source: ChangeSource, context: RuleContext): OverrideStatus | undefined {
   const truth = truthOf(source.predicate, context.facts);
+
   if (truth === Truth.True || source.predicate === undefined) {
     return undefined;
   }
+
   return truth === Truth.False
     ? { kind: OverrideStatusKind.Inactive, reason: InactiveReason.Predicate }
     : {
@@ -135,14 +142,19 @@ function lineFor({ source, current, phase }: Acting, context: RuleContext): Over
   const common = { id, label, origin, phase, mode, replaced: current };
   const blocked = gate(source, context);
   const outcome = valueOf(source.value, context.resolve(source.item));
+
   if (!outcome.ok) {
     const failure = { kind: OverrideStatusKind.Failed, error: outcome.error, position: outcome.position } as const;
+
     return { ...common, value: undefined, result: current, status: blocked ?? failure };
   }
+
   if (blocked !== undefined) {
     return { ...common, value: outcome.value, result: current, status: blocked };
   }
+
   const result = changed(mode, current, outcome.value);
+
   return result === undefined
     ? { ...common, value: outcome.value, result: current, status: OUT_OF_RANGE }
     : { ...common, value: outcome.value, result, status: { kind: OverrideStatusKind.Applied } };
@@ -161,11 +173,13 @@ export interface Overridden {
 export function applyChanges(start: FormulaValue, changes: readonly ChangeSource[], context: RuleContext): Overridden {
   let value = start;
   const lines: OverrideLine[] = [];
+
   for (const source of changes) {
     const line = lineFor({ source, current: value, phase: OverridePhase.Base }, context);
     lines.push(line);
     value = line.result;
   }
+
   return { value, lines };
 }
 
@@ -186,9 +200,11 @@ export interface Pinned extends Overridden {
 export function pinTotal(computed: FormulaValue, sets: readonly ChangeSource[], context: RuleContext): Pinned {
   const lines = sets.map((source) => lineFor({ source, current: computed, phase: OverridePhase.Total }, context));
   const winner = lines.findLast((line) => line.status.kind === OverrideStatusKind.Applied);
+
   if (winner === undefined) {
     return { value: computed, lines, pinnedBy: undefined };
   }
+
   return {
     value: winner.result,
     lines: lines.map((line) =>

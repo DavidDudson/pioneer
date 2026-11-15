@@ -20,6 +20,7 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const content = { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
@@ -27,6 +28,7 @@ const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NA
 const HOLDS = ['self:effect:rage'];
 const FAILS = ['self:effect:fly'];
 const UNKNOWN = ['terrain:forest'];
+
 /** A value formula that fails (no statistic is readable), and one that comes to 0 or less at level 1. */
 const FAILING = '@stat.ac';
 const NOTHING = '@level - 5';
@@ -68,11 +70,13 @@ function checkType(lines: readonly AdjustmentLine[], specs: readonly DefenceSpec
   const [winner] = applied;
   const highest: number | undefined = winner?.value;
   expect(highest).toBe(unconditional.length === 0 ? undefined : Math.max(...values));
+
   for (const line of lines.filter(({ status }) => status.kind === DefenceStatusKind.Superseded)) {
     const status: unknown = line.status;
     expect(status).toStrictEqual({ kind: DefenceStatusKind.Superseded, by: winner?.id });
     expect(line.value ?? 0).toBeLessThanOrEqual(highest ?? 0);
   }
+
   const conditional = lines.filter(({ status }) => status.kind === DefenceStatusKind.Conditional);
   expect(conditional).toHaveLength(valued.filter(({ predicate }) => predicate === UNKNOWN).length);
   const failed = lines.filter(({ status }) => status.kind === DefenceStatusKind.Failed);
@@ -85,6 +89,7 @@ describe('deriveDefences (properties)', () => {
     assert(
       property(array(defenceSpec, { maxLength: DEFENCES_MAX }), (specs) => {
         const defences = derive(rules(specs));
+
         for (const [key, lines] of [
           ['Weakness', defences.weaknesses],
           ['Resistance', defences.resistances],
@@ -105,6 +110,7 @@ describe('deriveDefences (properties)', () => {
       property(
         array(defenceSpec, { maxLength: DEFENCES_MAX }).chain((specs) => {
           const inPlayRules = rules(specs);
+
           return shuffledSubarray(inPlayRules, { minLength: inPlayRules.length }).map((shuffled) => ({
             inPlayRules,
             shuffled,

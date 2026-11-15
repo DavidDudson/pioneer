@@ -31,6 +31,7 @@ function savingTo<TValue>(source: WritableSignal<TValue | undefined>): (value: T
 
 function nameEdit(initial: string | undefined, save?: (value: string) => Promise<void>): InlineEdit<string> {
   const source = signal(initial);
+
   return new InlineEdit<string>({
     source,
     empty: '',
@@ -42,6 +43,7 @@ function nameEdit(initial: string | undefined, save?: (value: string) => Promise
 
 function levelEdit(initial: number): InlineEdit<number> {
   const source = signal<number | undefined>(initial);
+
   return new InlineEdit<number>({ source, empty: 0, schema: LEVEL, save: savingTo(source) });
 }
 
@@ -71,6 +73,7 @@ const meta: Meta<InlineField<string>> = {
   argTypes: { edit: { control: false } },
   render: () => ({ props: { name: nameEdit('Valeros') }, template: NAME_FIELD }),
 };
+
 export default meta;
 
 export const Text: InlineFieldStory = {};

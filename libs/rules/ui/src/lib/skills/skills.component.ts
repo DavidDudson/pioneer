@@ -15,6 +15,7 @@ import { SkillsMessage } from './skills-messages';
 
 /** Which statistics the panel lists: the standard skills, or the character's Lores. */
 const SkillsTab = { Skills: 'skills', Lores: 'lores' } as const;
+
 type SkillsTab = (typeof SkillsTab)[keyof typeof SkillsTab];
 
 /** A Lore's selector starts so: `skill:lore:sailing`. */
@@ -60,6 +61,7 @@ export class SkillsView {
 
   protected readonly options = computed((): readonly SelectOption<SkillsTab>[] => {
     this.#messages();
+
     return [
       { value: SkillsTab.Skills, label: this.#i18n.translate(SkillsMessage.Skills) },
       { value: SkillsTab.Lores, label: this.#i18n.translate(SkillsMessage.Lores) },
@@ -72,11 +74,13 @@ export class SkillsView {
    */
   protected readonly shown = computed((): readonly NamedStatistic[] | undefined => {
     const lores = this.tab() === SkillsTab.Lores;
+
     const own = this.statistics()?.filter(
       ({ result, rank }) =>
         result.selector.startsWith(LORE_PREFIX) === lores &&
         (!lores || (rank !== undefined && rank !== Proficiency.Untrained)),
     );
+
     return lores ? own?.map((each) => ({ ...each, name: each.name.replace(LORE_SUFFIX, '') })) : own;
   });
 }

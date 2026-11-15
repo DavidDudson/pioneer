@@ -37,6 +37,7 @@ export function withKeyItem(
     runes === undefined
       ? { id, item, quantity, name, carry: STOWED, keyItem }
       : { id, item, quantity, name, carry: STOWED, keyItem, runes };
+
   return { ...inventory, items: [...inventory.items, line] };
 }
 
@@ -53,6 +54,7 @@ export function keyItemLine(inventory: Inventory, keyItem: KeyItemId): Inventory
 /** `inventory` without the line of `keyItem`, as when the GM takes it back; what the line held moves out of it. */
 export function withoutKeyItem(inventory: Inventory, keyItem: KeyItemId): Inventory {
   const line = keyItemLine(inventory, keyItem);
+
   return line === undefined ? inventory : removeItem(inventory, line.id);
 }
 
@@ -64,7 +66,9 @@ export function keyItemRefusal(inventory: Inventory, patch: CharacterPatch): Inv
   if (patch.field !== CharacterPatchField.RemoveItem && patch.field !== CharacterPatchField.SetItemQuantity) {
     return undefined;
   }
+
   const line = inventory.items.find((each) => each.id === patch.id);
+
   return line?.keyItem === undefined
     ? undefined
     : { field: InventoryRefusalField.Id, message: message('character.validation.keyItemLocked') };

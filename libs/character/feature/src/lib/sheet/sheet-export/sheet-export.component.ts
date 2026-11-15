@@ -37,6 +37,7 @@ export class SheetExport {
   protected readonly describeError = (error: unknown): string => {
     const [issue] = error instanceof ApiError ? error.issues : [];
     const { key, params } = issue?.message ?? message('character.sheet.export.failed');
+
     return this.#i18n.translate(key, params);
   };
 }

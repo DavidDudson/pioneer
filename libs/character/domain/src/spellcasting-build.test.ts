@@ -10,7 +10,9 @@ import { CharacterBuilder, PLAYER_CORE_CLASSES, playerCoreClasses, playerCoreCla
 import type { PlayerCoreClass } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const classes = classContent(registry);
 
@@ -27,11 +29,13 @@ function caster(name: PlayerCoreClass, level = 1): CharacterBuilder {
 /** The subclass slot's key for `name` at 1st level, and the id of its option `option`. */
 function subclassPick(name: PlayerCoreClass, option: string): readonly [string, string] {
   const slot = subclassSlot(characterGrants(caster(name).build().document, content), content.lookup, classes);
+
   return [String(slot?.key), playerCoreId(ContentKind.ClassFeature, option)];
 }
 
 function entriesOf(builder: CharacterBuilder): string[] {
   const grants = characterGrants(builder.build().document, content);
+
   return characterSpellcasting(grants).map(
     ({ slug, tradition, attribute, preparation }) => `${slug} ${tradition} ${attribute} ${preparation}`,
   );

@@ -28,22 +28,27 @@ export function specRunsOf(
 ): SpecRuns {
   const present = files.filter((file) => exists(file));
   const angular = new Map<string, string[]>();
+
   for (const file of present.filter((each) => isSpec(each))) {
     const root = projectRootOf(file, hasProject);
+
     if (root !== undefined) {
       angular.set(root, [...(angular.get(root) ?? []), path.basename(file)]);
     }
   }
+
   return { angular, bun: present.filter((file) => isBunTest(file)) };
 }
 
 /** The commands that run `runs`, in order; `projectName` is the Nx name of a project root. */
 export function commandsOf(runs: SpecRuns, projectName: (root: string) => string): readonly (readonly string[])[] {
   const commands: (readonly string[])[] = runs.bun.length > 0 ? [['bun', 'test', ...runs.bun]] : [];
+
   for (const [root, names] of runs.angular) {
     const includes = names.map((name) => `--include=**/${name}`);
     commands.push(['bunx', 'nx', 'run', `${projectName(root)}:test`, '--skip-nx-cache', ...includes]);
   }
+
   return commands;
 }
 
@@ -54,10 +59,13 @@ async function run(command: readonly string[]): Promise<number> {
 /** Runs `commands` one at a time, stopping at the first that fails; its exit code, or 0. */
 async function runAll(commands: readonly (readonly string[])[]): Promise<number> {
   const [next, ...rest] = commands;
+
   if (next === undefined) {
     return 0;
   }
+
   const code = await run(next);
+
   return code === 0 ? runAll(rest) : code;
 }
 
@@ -67,6 +75,7 @@ async function main(files: readonly string[]): Promise<number> {
     (directory) => existsSync(path.join(directory, 'project.json')),
     (file) => existsSync(file),
   );
+
   // One at a time: each Angular run builds the app and loads the machine.
   return runAll(commandsOf(runs, nameOf));
 }

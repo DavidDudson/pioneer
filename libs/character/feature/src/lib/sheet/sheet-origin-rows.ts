@@ -30,22 +30,26 @@ export function injectOriginRows(sheet: SheetState): SheetOriginRows {
   const messages = toSignal(merge(i18n.langChanges$, loaded));
   const feats = injectContentRegistry(FEAT_CONTENT_KINDS);
   const reads = { translate: (key: string, params?: object): string => i18n.translate(key, params) };
+
   return {
     loading: computed(() => sheet.registry.data() === undefined),
     ancestries: computed(() => {
       const registry = sheet.registry.data();
+
       return registry === undefined ? [] : ancestryRows(registry, sheet.character());
     }),
     heritages: computed(() => {
       messages();
       const registry = sheet.registry.data();
       const character = sheet.character();
+
       return registry === undefined || character === undefined ? [] : heritageRows(registry, character, reads);
     }),
     backgrounds: computed(() => {
       messages();
       const registry = feats.data() ?? sheet.registry.data();
       const character = sheet.character();
+
       return registry === undefined || character === undefined ? [] : backgroundRows(registry, character, reads);
     }),
   };

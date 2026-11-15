@@ -28,6 +28,7 @@ const meta: Meta<HeadingStoryArgs> = {
     template: `<fr-heading ${argsToTemplate(args)}>${content}</fr-heading>`,
   }),
 };
+
 export default meta;
 
 export const Default: HeadingStory = {};

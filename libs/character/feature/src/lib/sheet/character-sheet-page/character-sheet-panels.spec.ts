@@ -32,9 +32,11 @@ describe('CharacterSheetPage side panels', () => {
     await vi.waitFor(() => {
       expect(panelsOf(root)).toHaveLength(3);
     });
+
     const [first] = present(root.querySelector('pio-sheet-panels')).querySelectorAll(
       'pio-sheet-resources, fr-disclosure',
     );
+
     expect(first?.tagName).toBe('PIO-SHEET-RESOURCES');
     expect(root.querySelectorAll('pio-sheet-conditions')).toHaveLength(1);
   });

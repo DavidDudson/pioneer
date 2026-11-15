@@ -26,12 +26,15 @@ const builder = new ContentPackBuilder()
     kind: StatisticKind.Value,
   })
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS);
+
 builder.withItem(ContentKind.Action, 'avoid-notice', {
   universal: true,
   modes: ['exploration'],
   skills: ['skill:stealth'],
 });
+
 builder.withItem(ContentKind.Action, 'strike', { cost: 'one', universal: true });
+
 const content = fixedContent(builder.build());
 
 const avoidNotice = ContentId.parse(builder.idOf(ContentKind.Action, 'avoid-notice'));

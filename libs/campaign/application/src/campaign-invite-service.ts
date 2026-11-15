@@ -58,6 +58,7 @@ export class CampaignInviteService {
   public async list(actor: UserId, campaignId: CampaignId): Promise<readonly InviteSummary[]> {
     await this.#managedCampaign(actor, campaignId);
     const invites = await this.#invites.listOpen(campaignId, this.#clock.now());
+
     return invites.map((invite) => invite.toSummary());
   }
 
@@ -65,6 +66,7 @@ export class CampaignInviteService {
   public async create(actor: UserId, campaignId: CampaignId): Promise<IssuedInvite> {
     await this.#managedCampaign(actor, campaignId);
     const token = InviteToken.parse(randomSecret());
+
     const invite = CampaignInvite.issue({
       id: CampaignInviteId.parse(newId()),
       campaignId,
@@ -72,7 +74,9 @@ export class CampaignInviteService {
       createdBy: actor,
       now: this.#clock.now(),
     });
+
     const stored = await this.#invites.insert(invite);
+
     return { invite: stored.toSummary(), token };
   }
 
@@ -80,11 +84,14 @@ export class CampaignInviteService {
   public async revoke(actor: UserId, campaignId: CampaignId, inviteId: CampaignInviteId): Promise<InviteSummary> {
     await this.#managedCampaign(actor, campaignId);
     const invite = await this.#invites.findById(inviteId);
+
     if (invite?.campaignId !== campaignId) {
       throw new NotFoundError('CampaignInvite', inviteId);
     }
+
     const revoked = invite.revoke(this.#clock.now());
     const stored = revoked === invite ? invite : await this.#invites.revoke(revoked);
+
     return stored.toSummary();
   }
 
@@ -94,22 +101,29 @@ export class CampaignInviteService {
    */
   public async join(actor: UserId, token: InviteToken): Promise<Campaign> {
     const { invite, campaign } = await this.#invited(token);
+
     if (mayViewCampaign(actor, campaign)) {
       return campaign;
     }
+
     const now = this.#clock.now();
     const status = invite.statusAt(now);
+
     if (status !== InviteStatus.Open) {
       throw new GoneError('CampaignInvite', invite.id, message(CLOSED_MESSAGE[status]));
     }
+
     const player = campaign
       .withPlayer({ memberId: CampaignMemberId.parse(newId()), userId: actor, now })
       .members.find((member) => member.userId === actor);
+
     const joined = player === undefined ? undefined : await this.#campaigns.joinByInvite(invite, player, now);
+
     if (joined === undefined) {
       // The invite stopped working between the check above and the insert: a revoke won the race.
       throw new GoneError('CampaignInvite', invite.id, message(InviteMessage.Revoked));
     }
+
     return joined;
   }
 
@@ -117,9 +131,11 @@ export class CampaignInviteService {
   async #invited(token: InviteToken): Promise<Invited> {
     const invite = await this.#invites.findByTokenHash(await hashToken(token));
     const campaign = invite === undefined ? undefined : await this.#campaigns.findById(invite.campaignId);
+
     if (invite === undefined || campaign === undefined) {
       throw new NotFoundError('CampaignInvite', 'token', message(InviteMessage.Unknown));
     }
+
     return { invite, campaign };
   }
 
@@ -129,12 +145,15 @@ export class CampaignInviteService {
    */
   async #managedCampaign(actor: UserId, campaignId: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(campaignId);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', campaignId);
     }
+
     if (!mayManageInvites(actor, campaign)) {
       throw new ForbiddenError(`Only the GM manages invites to campaign ${campaignId}`);
     }
+
     return campaign;
   }
 }

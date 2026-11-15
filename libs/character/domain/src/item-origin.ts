@@ -9,6 +9,7 @@ import type { ItemRunes } from './rune-etching';
 
 /** Where an inventory line came from: the player added it, or an import brought it in as it was. */
 export const ItemOrigin = { Player: 'player', Import: 'import' } as const;
+
 export type ItemOrigin = ValueOf<typeof ItemOrigin>;
 
 /** A line as the origin checks read it. A line with no `origin` is the player's. */
@@ -31,14 +32,18 @@ function isPlayers({ origin, keyItem }: Originated): boolean {
  */
 export function playerLimits(context: z.core.ParsePayload<readonly Originated[]>): void {
   const player = context.value.filter((each) => isPlayers(each));
+
   if (handsInUse(player) > HANDS_MAX) {
     context.issues.push({ code: 'custom', input: context.value, message: 'More held than hands hold' });
   }
+
   if (investedCount(player) > INVESTED_MAX) {
     context.issues.push({ code: 'custom', input: context.value, message: 'Too many invested' });
   }
+
   for (const [index, each] of context.value.entries()) {
     const { runes } = each;
+
     if (isPlayers(each) && (runes?.property.length ?? 0) > PROPERTY_RUNES_MAX) {
       context.issues.push({
         code: 'custom',

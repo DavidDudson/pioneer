@@ -17,6 +17,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -31,6 +32,7 @@ async function open(url: string): Promise<RouterTestingHarness> {
   });
   const harness = await RouterTestingHarness.create(url);
   await harness.fixture.whenStable();
+
   return harness;
 }
 

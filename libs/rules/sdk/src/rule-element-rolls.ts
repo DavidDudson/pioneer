@@ -17,6 +17,7 @@ const DegreeAdjustments = z.strictObject({
 
 /** The kinds of check an `AdjustDegreeOfSuccess` can be limited to, as Foundry pf2e spells them. */
 export const AdjustedCheck = { Skill: 'skill', Save: 'save' } as const;
+
 export type AdjustedCheck = ValueOf<typeof AdjustedCheck>;
 
 /**
@@ -36,10 +37,12 @@ export const AdjustDegreeOfSuccessElement = z
     ({ adjustment }) => Object.keys(adjustment).length > 0,
     issueParams(message(RulesMessage.AdjustDegreeNeedsChange)),
   );
+
 export type AdjustDegreeOfSuccessElement = z.infer<typeof AdjustDegreeOfSuccessElement>;
 
 /** Which of two rolls a `RollTwice` keeps. */
 export const RollKept = { Higher: 'higher', Lower: 'lower' } as const;
+
 export type RollKept = ValueOf<typeof RollKept>;
 
 /** Rolls the targeted checks twice and keeps the higher or the lower result (fortune and misfortune effects). */
@@ -49,12 +52,14 @@ export const RollTwiceElement = z.strictObject({
   keep: z.enum(RollKept),
   ...ruleElementBase,
 });
+
 export type RollTwiceElement = z.infer<typeof RollTwiceElement>;
 
 const SUBSTITUTED_ROLL_MAX = 99;
 
 /** The result a `SubstituteRoll` stands in for the die, from 1 to 99. */
 export const SubstitutedRoll = Pg.smallint().min(1).max(SUBSTITUTED_ROLL_MAX).brand<'SubstitutedRoll'>();
+
 export type SubstitutedRoll = z.infer<typeof SubstitutedRoll>;
 
 /**
@@ -68,4 +73,5 @@ export const SubstituteRollElement = z.strictObject({
   value: SubstitutedRoll,
   ...ruleElementBase,
 });
+
 export type SubstituteRollElement = z.infer<typeof SubstituteRollElement>;

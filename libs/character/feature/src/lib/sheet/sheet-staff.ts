@@ -29,12 +29,14 @@ export interface StaffSlotOption {
 /** The staves, highest spell rank and expendable slots of the character, as daily preparations reads them. */
 export function sheetStaffLimits(registry: ContentRegistry, character: Character): StaffLimits {
   const grants = characterGrants(character.document, sheetSlotContent(registry));
+
   return staffLimits(grants, character.document.inventory.items, itemContent(registry));
 }
 
 /** The staves daily preparations can prepare, named as the inventory names them. */
 export function staffOptions(registry: ContentRegistry, character: Character, limits: StaffLimits): StaffOption[] {
   const entries = itemContent(registry);
+
   return character.document.inventory.items
     .filter(({ id }) => limits.staves.has(id))
     .map(({ id, item, name }) => ({ id, name: name ?? entries.get(item)?.name ?? item }));
@@ -44,11 +46,13 @@ export function staffOptions(registry: ContentRegistry, character: Character, li
 export function staffSlotOptions(registry: ContentRegistry, character: Character): StaffSlotOption[] {
   const content = sheetSlotContent(registry);
   const grants = characterGrants(character.document, content);
+
   return characterSpellcasting(grants)
     .filter(({ preparation }) => preparation === SpellPreparation.Prepared)
     .flatMap(({ slug, origin, slots }) =>
       slots.ranks.map(({ rank }): StaffSlotOption => {
         const slot: StaffSlot = { entry: slug, rank };
+
         return {
           key: staffSlotKey(slot),
           slot,

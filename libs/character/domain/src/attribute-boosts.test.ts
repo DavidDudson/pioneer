@@ -19,9 +19,11 @@ function dwarfFighter(level: number, picks: Readonly<Record<string, string>> = {
     .atLevel(level)
     .picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'))
     .picking(CLASS_SLOT, boostFixtureId('class:fighter'));
+
   for (const [slot, selection] of Object.entries(picks)) {
     builder.picking(slot, selection);
   }
+
   return builder.build().document;
 }
 
@@ -59,6 +61,7 @@ describe('boostSlots', () => {
     const unpicked = new CharacterBuilder()
       .withAncestry(AncestryId.parse(boostFixtureId('ancestry:elf')))
       .build().document;
+
     expect(boostSlots(unpicked, BOOST_FIXTURES).every((slot) => slot.source === BoostSource.Free)).toBe(true);
   });
 
@@ -80,6 +83,7 @@ describe('boostSlots', () => {
       'boost:1:free:0': 'forest',
       'boost:1:ancestry:2': 'con',
     });
+
     const byKey = new Map(boostSlots(picked, BOOST_FIXTURES).map((slot) => [String(slot.key), slot.pick]));
     expect(byKey.get('boost:1:class:0')).toBe(Attribute.Strength);
     expect(byKey.get('boost:1:free:0')).toBeUndefined();
@@ -104,6 +108,7 @@ describe('attributeModifiers', () => {
       'boost:1:free:2': 'con',
       'boost:1:free:3': 'wis',
     });
+
     expect(modifiers(dwarf)).toStrictEqual({ str: 4, dex: 1, con: 3, int: 0, wis: 2, cha: -1 });
   });
 
@@ -122,6 +127,7 @@ describe('attributeModifiers', () => {
       'boost:5:free:0': 'str',
       'boost:10:free:0': 'str',
     };
+
     expect(modifiers(dwarfFighter(1, strong)).str).toBe(4);
     expect(modifiers(dwarfFighter(5, strong)).str).toBe(4);
     expect(modifiers(dwarfFighter(10, strong)).str).toBe(5);
@@ -161,9 +167,11 @@ describe('flawSlots', () => {
       [0, 1, 2, 3, 4].map((index) => `flaw:1:ancestry:${index}`),
     );
     expect(slots[0]?.options).not.toContain(Attribute.Charisma);
+
     const human = new CharacterBuilder()
       .withAncestry(AncestryId.parse(boostFixtureId('ancestry:human')))
       .build().document;
+
     expect(flawSlots(human, BOOST_FIXTURES)).toHaveLength(Object.values(Attribute).length);
   });
 
@@ -195,6 +203,7 @@ describe('attributeModifiers with voluntary flaws', () => {
       'flaw:1:ancestry:1': 'int',
       'flaw:1:ancestry:2': 'int',
     });
+
     expect(modifiers(twice)).toMatchObject({ cha: -1, int: -1 });
   });
 

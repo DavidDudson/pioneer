@@ -47,6 +47,7 @@ function termText(line: BaseTerm): string {
   if (line.kind === BaseTermKind.Rounding) {
     return `rounding = ${line.value}`;
   }
+
   return `${line.sign} ${line.formula} = ${line.value}${originText(line.origin)}`;
 }
 
@@ -55,6 +56,7 @@ function labelText(label: ModifierLabel): string {
   if ('entry' in label) {
     return itemNames.get(String(label.entry)) ?? String(label.entry);
   }
+
   return 'text' in label ? String(label.text) : label.message.key;
 }
 
@@ -73,7 +75,9 @@ function checked(results: ReadonlyMap<Selector, StatisticResult>): Record<string
       if (!result.ok) {
         throw new Error(`${selector} failed: ${result.error.key}`);
       }
+
       const { base, lines, overrides, total } = result;
+
       return [
         selector,
         {
@@ -107,6 +111,7 @@ const WITHOUT_LEVEL: ProficiencyTable = {
 
 /** The fighter's attribute modifiers, as `level1Fighter` gives them. */
 const ATTRIBUTES = { str: 4, dex: 1, con: 2, int: 0, wis: 1, cha: 1 } as const;
+
 type AttributeSlug = keyof typeof ATTRIBUTES;
 
 /** A base term as checked, with the value it adds. */
@@ -126,6 +131,7 @@ function attribute(slug: AttributeSlug, formula = `@attr.${slug}`): Term {
 /** A statistic with `terms` as its base and `lines` adding `added` to it. */
 function statistic(terms: readonly Term[], lines: readonly string[] = [], added = 0): Checked {
   const base = terms.reduce((sum, { value }) => sum + value, 0);
+
   return { base: terms.map(({ text }) => text), lines, overrides: [], total: base + added };
 }
 
@@ -134,10 +140,13 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
   const prof = (formula: string, rank: Proficiency): Term => term(formula, bonus[rank], mark);
   // Scale mail's check penalty is inactive on the Strength- and Dexterity-based skills: its Strength is met.
   const checkPenalty = [`item ${SCALE_MAIL_CHECK_PENALTY} inactive (scale-mail)`];
+
   const skill = (slug: string, key: AttributeSlug, rank: Proficiency): Checked =>
     statistic([attribute(key), prof(`@prof.skill.${slug}`, rank)], key === 'str' || key === 'dex' ? checkPenalty : []);
+
   const ten = term('10', AC_BASE);
   const { Untrained, Trained, Expert } = Proficiency;
+
   return {
     // Dexterity +1 is under scale mail's +2 cap. Scale mail's bonus applies; the shield is not raised.
     ac: statistic(

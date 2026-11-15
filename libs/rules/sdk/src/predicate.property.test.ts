@@ -25,13 +25,16 @@ const OPERATORS: ReadonlySet<string> = new Set([
   'lt',
   'lte',
 ]);
+
 const SCHEMAS = [Predicate, PredicateStatement, Selector, Domain, SlotKey, RollOption, SourceRef, Origin];
 
 function nestedArrays(depth: number): unknown {
   let value: unknown = 'a:b';
+
   for (let level = 0; level < depth; level += 1) {
     value = [value];
   }
+
   return value;
 }
 
@@ -90,6 +93,7 @@ describe('rules schemas (properties)', () => {
     assert(
       property(integer({ min: 0, max: 5000 }), (depth) => {
         const result = Predicate.safeParse(nestedArrays(depth));
+
         if (depth >= PREDICATE_DEPTH_MAX) {
           expect(result.success).toBe(false);
         }

@@ -27,16 +27,21 @@ const SPELL_DATA = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, SpellEntr
 /** Every spell's data in the registry's packs by id; a later pack's entry with the same id wins. */
 function spellDataIn(registry: ContentRegistry): ReadonlyMap<ContentId, SpellEntry> {
   const cached = SPELL_DATA.get(registry);
+
   if (cached !== undefined) {
     return cached;
   }
+
   const all = new Map<ContentId, SpellEntry>();
+
   for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
     if (entry.kind === ContentKind.Spell) {
       all.set(entry.id, { data: entry.data, traits: entry.traits });
     }
   }
+
   SPELL_DATA.set(registry, all);
+
   return all;
 }
 
@@ -51,11 +56,14 @@ export function sheetSpellDetail(
   translate: Translate,
 ): SpellDetailLine | undefined {
   const found = spellDataIn(registry).get(spell.id);
+
   if (found === undefined) {
     return undefined;
   }
+
   const { data, traits } = found;
   const chips = traitChips(registry, traits);
   const cast = spellAtRank(data, spell.rank < data.rank ? data.rank : spell.rank);
+
   return spellDetailLine({ ...spell, traits: chips }, cast, translate);
 }

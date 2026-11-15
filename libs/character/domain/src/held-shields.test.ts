@@ -18,6 +18,7 @@ import { eraseRune, etchRune } from './rune-edits';
 import { fundamental, fundamentalRef, ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const ID = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
 
@@ -29,6 +30,7 @@ function carrying(item: ItemFixture, carry: Carry): Inventory {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   return carryItem(stock, ID, carry);
 }
 
@@ -73,6 +75,7 @@ describe('heldShields', () => {
 });
 
 const AVATAR = entry('avatar', [{ key: 'BattleForm', form: { shield: { hardness: 15 } } }]);
+
 const SHIELD_SPELL = entry('shield-spell', [
   { key: 'GrantShield', hardness: 5, endsOnBlock: true, raised: true, brackets: [{ start: 3, hardness: 10 }] },
 ]);
@@ -84,6 +87,7 @@ function rulesOfEffect(name: string, rank?: number): ModifierInputs {
     effect: idOf(name),
     ...(rank === undefined ? {} : { rank: SpellRank.parse(rank) }),
   });
+
   const resolution = resolveGrants({
     roots: effectRoots([effect]),
     lookup: lookupOf([AVATAR, SHIELD_SPELL]),
@@ -94,9 +98,12 @@ function rulesOfEffect(name: string, rank?: number): ModifierInputs {
     rootSlots: [],
     namespaces: new Map(),
   });
+
   const rules = rulesOf(resolution, { inventory: EMPTY_INVENTORY, content: itemFixtureContent() }, () => true);
+
   return { rules, facts: resolution.facts };
 }
+
 const avatarRules = (): ModifierInputs => rulesOfEffect('avatar');
 
 describe('heldShields in a battle form with a shield', () => {

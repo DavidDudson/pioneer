@@ -24,6 +24,7 @@ const meta: Meta<TraitChip> = {
   parameters: { layout: 'padded' },
   decorators: [applicationConfig({ providers: [provideEntryPreviews(HELD_TRAIT_PREVIEWS)] })],
 };
+
 export default meta;
 
 /** A trait whose entry has text: the card shows it. */

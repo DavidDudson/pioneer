@@ -17,6 +17,7 @@ export interface TriggerCoverage {
  */
 export function triggerCoverage(entries: readonly ContentEntry[]): TriggerCoverage {
   const triggered = entries.filter((entry) => entryAction(entry)?.trigger !== undefined);
+
   return {
     triggered: triggered.length,
     withoutEvent: triggered

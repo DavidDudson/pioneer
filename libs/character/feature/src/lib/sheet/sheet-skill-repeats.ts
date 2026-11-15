@@ -19,19 +19,24 @@ export type TrainedAgain = (values: readonly string[]) => ReadonlyMap<string, re
 export function sheetTrainedAgain(registry: ContentRegistry, character: Character, slot: SlotKey): TrainedAgain {
   const content = sheetSlotContent(registry);
   const known = new Map<string, readonly string[]>();
+
   return (values) => {
     const unread = values.filter((value) => !known.has(value));
+
     const repeats = repeatedTrainings(character.document, content, {
       slot,
       values: unread.map((value) => ChoiceValue.parse(value)),
     });
+
     for (const value of unread) {
       known.set(
         value,
         (repeats.get(ChoiceValue.parse(value)) ?? []).map((skill) => skill.name),
       );
     }
+
     const repeated = values.map((value): [string, readonly string[]] => [value, known.get(value) ?? []]);
+
     return new Map(repeated.filter(([, skills]) => skills.length > 0));
   };
 }
@@ -48,8 +53,10 @@ export function markTrainedAgain(
   translate: Translate,
 ): readonly SelectOption<string>[] {
   const marks = trainedAgain(options.map((option) => option.value));
+
   return options.map((option) => {
     const skills = marks.get(option.value);
+
     return skills === undefined ? option : { ...option, description: trainedAgainNote(skills, translate) };
   });
 }

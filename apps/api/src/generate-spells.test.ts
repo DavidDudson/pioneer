@@ -28,8 +28,10 @@ const PROPERTY_RUNS = 12;
 const CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'] as const;
 const NON_CASTERS = PLAYER_CORE_CLASSES.filter((name) => !(CASTERS as readonly string[]).includes(name));
 const CORE_PACKS = ['core-rules', 'player-core'];
+
 /** The levels each caster is generated at; the property test covers the rest. */
 const CASTER_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
+
 /** A cleric's deity gives it spells outside its tradition, and a deity is no part of Player Core. */
 const DEITY_CLASSES = new Set<string>(['Cleric']);
 const CORE_CASTERS = CASTERS.filter((name) => !DEITY_CLASSES.has(name));
@@ -74,6 +76,7 @@ interface PickCheck {
 /** The ways a pick breaks the slot it is in: its pack, kind, tradition, rank and rarity. */
 function pickProblems({ slot, spell, className, loaded, access }: PickCheck): readonly string[] {
   const own = slot.pool === undefined && !slot.granted && !slot.deitySpell;
+
   const checks: readonly (readonly [boolean, string])[] = [
     [!loaded.has(spell.id), 'unloaded'],
     [spell.focus, 'focus spell'],
@@ -81,6 +84,7 @@ function pickProblems({ slot, spell, className, loaded, access }: PickCheck): re
     [!fitsRank(spell, slot.rank), 'rank'],
     [own && needsAccess(spell.rarity) && !access.has(spell.id), 'rarity'],
   ];
+
   return checks.filter(([broken]) => broken).map(([, problem]) => `${problem} ${slot.key}`);
 }
 
@@ -90,14 +94,17 @@ function spellProblems(result: Generated, from: SlotContent, className: string):
   const reads = preparedReads(document, from);
   const loaded = new Set<string>(from.spells.spells.map(({ id }) => id));
   const access = new Set<string>(document.build.spellAccess);
+
   const prepared = preparedSlots(document, reads).flatMap((slot) =>
     slot.pick === undefined
       ? [`no pick ${slot.key}`]
       : pickProblems({ slot, spell: slot.pick, className, loaded, access }),
   );
+
   const signature = signatureSlots(document, reads)
     .filter((slot) => slot.pick === undefined)
     .map((slot) => `no pick ${slot.key}`);
+
   return [...openSpellSlots(result, from), ...prepared, ...signature];
 }
 

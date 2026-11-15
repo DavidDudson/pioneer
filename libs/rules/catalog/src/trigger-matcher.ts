@@ -43,19 +43,24 @@ function inlineText(node: InlineNode, names: RefNames): string | undefined {
   if (node.type === InlineKind.Text) {
     return node.text;
   }
+
   if (node.type === InlineKind.Ref) {
     return node.label ?? names.get(node.id);
   }
+
   return undefined;
 }
 
 /** A one-paragraph trigger as plain words, or undefined when it is anything richer. */
 function triggerWords(trigger: RichText, names: RefNames): string | undefined {
   const [block, ...rest] = trigger;
+
   if (block?.type !== BlockKind.Paragraph || rest.length > 0) {
     return undefined;
   }
+
   const words = block.content.map((node) => inlineText(node, names));
+
   return words.every((word) => word !== undefined) ? words.join('') : undefined;
 }
 
@@ -70,6 +75,7 @@ function normalise(words: string): string {
  */
 export function matchTrigger(trigger: RichText, names: RefNames): TriggerEvent | undefined {
   const words = triggerWords(trigger, names);
+
   return words === undefined ? undefined : KNOWN_TRIGGERS.get(normalise(words));
 }
 
@@ -78,9 +84,11 @@ export function entryAction(entry: ContentEntry): ActionData | undefined {
   if (entry.kind === ContentKind.Action) {
     return entry.data;
   }
+
   if (entry.kind === ContentKind.Feat || entry.kind === ContentKind.ClassFeature) {
     return entry.data.action;
   }
+
   return undefined;
 }
 
@@ -103,10 +111,13 @@ export interface TriggerMatch {
 export function triggerMatches(entries: readonly ContentEntry[], names: RefNames): readonly TriggerMatch[] {
   return entries.flatMap((entry) => {
     const action = entryAction(entry);
+
     if (action?.trigger === undefined || action.triggerEvent !== undefined || isWordingOnly(action)) {
       return [];
     }
+
     const triggerEvent = matchTrigger(action.trigger, names);
+
     return triggerEvent === undefined ? [] : [{ entry: contentKey(entry.pack, entry.slug), triggerEvent }];
   });
 }

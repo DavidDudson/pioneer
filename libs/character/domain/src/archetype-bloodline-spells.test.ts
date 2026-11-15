@@ -21,18 +21,23 @@ import { CharacterBuilder } from './testing';
 const INITIAL = 'gluttons-jaws';
 const ADVANCED = 'swamp-of-sloth';
 const CLAWS = 'flurry-of-claws';
+
 const BLOODLINES: Readonly<Record<string, readonly [tradition: string, spell: string]>> = {
   demonic: ['divine', INITIAL],
   'draconic-arcane': ['arcane', CLAWS],
   'draconic-primal': ['primal', CLAWS],
 };
+
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 
 const pack = new ContentPackBuilder().withId('bloodlines');
+
 for (const spell of [INITIAL, ADVANCED, CLAWS]) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
+
 const focusEntry = (tradition: string, predicate: readonly unknown[]): object => ({
   key: 'SpellcastingEntry',
   slug: 'sorcerer-focus',
@@ -41,6 +46,7 @@ const focusEntry = (tradition: string, predicate: readonly unknown[]): object =>
   preparation: 'focus',
   predicate,
 });
+
 const focusSpells = (spell: string, predicate: readonly unknown[]): object => ({
   key: 'FocusSpells',
   entry: 'sorcerer-focus',
@@ -70,10 +76,13 @@ pack
   .withFeat('basic-bloodline-spell', {
     rules: Object.entries(BLOODLINES).flatMap(([bloodline, [tradition, spell]]) => {
       const predicate = [`feat:sorcerer-dedication:${bloodline}`];
+
       return [focusEntry(tradition, predicate), focusSpells(spell, predicate)];
     }),
   });
+
 const DEDICATION = pack.idOf(ContentKind.Feat, 'sorcerer-dedication');
+
 const GRANTS = new Map([
   ['sorcerer', [pack.idOf(ContentKind.ClassFeature, 'bloodline-demonic')]],
   [
@@ -83,16 +92,21 @@ const GRANTS = new Map([
   ['dedicated', [DEDICATION]],
   ['basic-bloodline-spell', [DEDICATION, pack.idOf(ContentKind.Feat, 'basic-bloodline-spell')]],
 ]);
+
 for (const [name, items] of GRANTS) {
   pack.withClass(name, ['str'], { rules: items.map((item) => ({ key: 'GrantItem', item })) });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function focusOf(builder: CharacterBuilder): CharacterFocus {
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 

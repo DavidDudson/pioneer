@@ -31,11 +31,14 @@ export function validSlot(
 ): CharacterSlot {
   if (planned !== undefined) {
     const selection = stored === undefined ? {} : { selection: stored };
+
     return { status: SlotStatus.Planned, key, subject, level: planned, ...selection, ...named(selectionName) };
   }
+
   if (stored === undefined) {
     return { status: SlotStatus.Open, key, subject };
   }
+
   return { status: SlotStatus.Filled, key, subject, selection: stored, ...named(selectionName) };
 }
 
@@ -45,6 +48,7 @@ export function invalidSlot(
   reason: MessageDescriptor,
 ): CharacterSlot {
   const level = planned === undefined ? {} : { level: planned };
+
   return { status: SlotStatus.Invalid, key, subject, selection, reason, ...level };
 }
 
@@ -52,5 +56,6 @@ export function invalidSlot(
 export function invalidReason(value: ChoiceValue, lookup: ContentLookup): MessageDescriptor {
   const id = ContentId.safeParse(value);
   const unloaded = id.success && lookup.entry(id.data) === undefined;
+
   return message(unloaded ? SlotInvalidMessage.ContentNotLoaded : SlotInvalidMessage.NotOffered);
 }

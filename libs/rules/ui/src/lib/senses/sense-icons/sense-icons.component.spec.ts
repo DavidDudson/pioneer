@@ -16,6 +16,7 @@ async function render(senses: readonly SenseInPlay[] | undefined): Promise<HTMLE
   fixture.componentRef.setInput('senses', senses);
   fixture.componentRef.setInput('entryNames', SENSE_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

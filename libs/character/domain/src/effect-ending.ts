@@ -21,6 +21,7 @@ export function endEffects<Play extends EffectPlay>(play: Play, ended: readonly 
   const going = play.effects.filter(({ id }) => ended.includes(id));
   const given = HitPoints.parse(Math.max(NONE, ...going.map(({ tempHp }) => tempHp ?? NONE)));
   const temp = play.hp.temp <= given ? NONE : play.hp.temp;
+
   return { ...play, effects: play.effects.filter(({ id }) => !ended.includes(id)), hp: { ...play.hp, temp } };
 }
 
@@ -42,12 +43,15 @@ function appliedEffect<Play extends EffectPlay>(
 ): Play {
   const terms = content.get(command.effect);
   const present = play.effects.some(({ id }) => id === command.id);
+
   if (terms === undefined || present) {
     return play;
   }
+
   const cleared = terms.polymorph === true ? endEffects(play, polymorphs(play.effects, content)) : play;
   const given = command.tempHp ?? NONE;
   const raised = given > cleared.hp.temp ? given : NONE;
+
   return {
     ...cleared,
     effects: [...applyEffectCommand(cleared.effects, { ...command, tempHp: raised }, content)],
@@ -64,11 +68,14 @@ export function applyEffectEdit<Play extends EffectPlay>(
   if (command.field === EffectCommandField.RemoveEffect) {
     return endEffects(play, [command.id]);
   }
+
   if (command.field === EffectCommandField.SpendEffectUse && play.effects.some(isLastUse(command.id))) {
     return endEffects(play, [command.id]);
   }
+
   if (command.field !== EffectCommandField.ApplyEffect) {
     return { ...play, effects: [...applyEffectCommand(play.effects, command, content)] };
   }
+
   return appliedEffect(play, command, content);
 }

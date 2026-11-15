@@ -6,7 +6,9 @@ import type { ValueOf } from './value-of';
 export const Locale = {
   English: 'en',
 } as const;
+
 export type Locale = ValueOf<typeof Locale>;
+
 export const LocaleSchema = z.enum(Locale);
 
 /** Messages are authored in this locale; every other locale falls back to it per key. */
@@ -16,6 +18,7 @@ export const TextDirection = {
   LeftToRight: 'ltr',
   RightToLeft: 'rtl',
 } as const;
+
 export type TextDirection = ValueOf<typeof TextDirection>;
 
 /** Languages written right to left, by primary language subtag. */

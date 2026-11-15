@@ -21,6 +21,7 @@ export const FastHealingElement = z.strictObject({
   deactivatedBy: z.array(DamageTypeSchema).min(1).max(DEACTIVATORS_MAX).readonly().check(uniqueItems).optional(),
   ...ruleElementBase,
 });
+
 export type FastHealingElement = z.infer<typeof FastHealingElement>;
 
 /** Temporary Hit Points the element gives the character, as Foundry pf2e's `TempHP` does. */
@@ -29,4 +30,5 @@ export const TempHPElement = z.strictObject({
   value: ModifierValue,
   ...ruleElementBase,
 });
+
 export type TempHPElement = z.infer<typeof TempHPElement>;

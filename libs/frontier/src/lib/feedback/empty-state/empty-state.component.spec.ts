@@ -11,16 +11,20 @@ async function render(inputs: Readonly<Record<string, unknown>>, action: readonl
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[...action]],
   });
+
   onTestFinished(() => {
     emptyState.destroy();
   });
   emptyState.setInput('title', 'No rolls yet');
+
   for (const [name, value] of Object.entries(inputs)) {
     emptyState.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(emptyState.hostView);
   await appRef.whenStable();
+
   return emptyState.location.nativeElement as HTMLElement;
 }
 

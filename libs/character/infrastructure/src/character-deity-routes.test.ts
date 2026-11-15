@@ -38,15 +38,18 @@ function api(): AnyElysia {
   const namespaces = new ContentPackBuilder().withId('core-rules').withNamespace('item', NamespaceKind.Known).build();
   const content = fixedContent(namespaces, playerCoreClasses(), deities.build());
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-12T10:00:00Z'));
+
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 
 describe('character routes: the deity', () => {
   test('a pick no loaded pack has puts no deity on the sheet, and reads invalid', async () => {
     const routes = api();
+
     const createdResponse = await routes.handle(
       request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }),
     );
+
     const { id } = (await createdResponse.json()) as Created;
     const gone = new ContentPackBuilder().withId('gone').withDeity('vanished').idOf(ContentKind.Deity, 'vanished');
     const patch = { expectedVersion: 1, patch: { field: 'selectSlot', slot: 'deity', selection: gone } };
@@ -61,15 +64,20 @@ describe('character routes: the deity', () => {
 
   test('a picked deity is on the sheet with its description, and opens a cleric its divine font', async () => {
     const routes = api();
+
     const createdResponse = await routes.handle(
       request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }),
     );
+
     const { id } = (await createdResponse.json()) as Created;
+
     const select = async (version: number, slot: string, selection: string): Promise<PatchedCharacterSheet> => {
       const patch = { expectedVersion: version, patch: { field: 'selectSlot', slot, selection } };
       const response = await routes.handle(request('PATCH', `/characters/${id}`, patch));
+
       return PatchedCharacterSheet.parse(await response.json());
     };
+
     const sarenrae = deities.idOf(ContentKind.Deity, 'sarenrae');
     // Divine Font's first rule element is its ChoiceSet.
     const divineFont = SlotKey.parse(`${playerCoreId(ContentKind.ClassFeature, 'divine-font')}:0`);

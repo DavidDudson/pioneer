@@ -10,6 +10,7 @@ async function packEntries(): Promise<readonly ContentEntry[]> {
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/effect.json'),
   ]);
+
   return files.flatMap((file) => ContentEntryFile.parse(file.default));
 }
 
@@ -22,17 +23,21 @@ function isOffered(entry: SpellEffectEntry, facts: PredicateFacts): boolean {
 async function offered(slug: string, options: readonly string[]): Promise<ReadonlySet<ContentId>> {
   const entries = await packEntries();
   const spell = entries.find((entry) => entry.kind === ContentKind.Spell && entry.slug === slug);
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     new Map(),
   );
+
   const listed = spell?.kind === ContentKind.Spell ? (spell.data.effects ?? []) : [];
+
   return new Set(listed.filter((entry) => isOffered(entry, facts)).map((entry) => spellEffectId(entry)));
 }
 
 /** The ids of the effects whose slug starts with `prefix`. */
 async function effectsNamed(prefix: string): Promise<readonly ContentId[]> {
   const entries = await packEntries();
+
   return entries
     .filter((entry) => entry.kind === ContentKind.Effect && entry.slug.startsWith(prefix))
     .map((entry) => entry.id);

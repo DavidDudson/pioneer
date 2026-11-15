@@ -21,6 +21,7 @@ const CONSUMABLE_MESSAGES = {
 export function checkConsumable(character: Character, registry: ContentRegistry, command: ConsumableCommand): void {
   const held = heldConsumable(character.document.inventory, itemContent(registry), command.item);
   const problem = consumableProblem(command, held);
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(CONSUMABLE_MESSAGES[problem]) }]);
   }

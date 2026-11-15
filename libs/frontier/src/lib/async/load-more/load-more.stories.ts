@@ -40,10 +40,13 @@ class SpellQuery implements LoadMoreQuery {
     this.isFetchingNextPage.set(true);
     await succeedSlowly();
     this.isFetchingNextPage.set(false);
+
     if (this.#failing) {
       return { isError: true, error: new Error('Story failure') };
     }
+
     this.#loaded.update((loaded) => loaded + 1);
+
     return { isError: false, error: undefined };
   };
 }
@@ -79,6 +82,7 @@ const meta: Meta<LoadMore> = {
   ],
   render: () => ({ props: { query: new SpellQuery(3) }, template: LIST }),
 };
+
 export default meta;
 
 /** Three pages; the button goes once the last one lands. */

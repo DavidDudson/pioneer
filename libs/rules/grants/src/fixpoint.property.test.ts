@@ -27,18 +27,21 @@ function positivePredicate(count: number): Arbitrary<unknown[] | undefined> {
     integer({ min: 0, max: count - 1 }).map((index): unknown => `feature:${slugOf(index)}`),
     integer({ min: 1, max: LEVEL_MAX }).map((level): unknown => ({ gte: ['self:level', level] })),
   );
+
   return oneof(constantFrom(undefined), tuple(statement), tuple(statement, statement));
 }
 
 /** Entry `index`, granting some later entries (so grants never loop), each grant gated by a positive predicate. */
 function entryAt(index: number, count: number): Arbitrary<GrantEntry> {
   const later = indexes(count).slice(index + 1);
+
   return subarray(later).chain((targets) =>
     tuple(...targets.map(() => positivePredicate(count))).map((predicates) =>
       entry(
         slugOf(index),
         targets.map((target, at) => {
           const predicate = predicates[at];
+
           return predicate === undefined ? grantOf(slugOf(target)) : { ...grantOf(slugOf(target)), predicate };
         }),
       ),
@@ -71,11 +74,13 @@ describe('resolveGrants fixpoint properties', () => {
         const result = resolve(drawn);
         expect(result.errors.filter((failed) => UNSETTLED.has(failed.error.key))).toEqual([]);
         const present = new Set(result.items.map((item) => item.entry.id));
+
         for (const { entry: on } of result.items) {
           for (const element of on.rules) {
             const holds =
               element.key === RuleElementKey.GrantItem &&
               (element.predicate === undefined || evaluatePredicate(element.predicate, result.facts) === Truth.True);
+
             if (holds && typeof element.item === 'string') {
               expect(present.has(element.item)).toBe(true);
             }
@@ -89,6 +94,7 @@ describe('resolveGrants fixpoint properties', () => {
     const shuffled = monotone.chain((drawn) =>
       shuffledSubarray([...drawn.roots], { minLength: drawn.roots.length }).map((order) => ({ drawn, order })),
     );
+
     assert(
       property(shuffled, ({ drawn, order }) => {
         expect(resolve({ ...drawn, roots: order })).toEqual(resolve(drawn));
@@ -100,10 +106,13 @@ describe('resolveGrants fixpoint properties', () => {
     assert(
       property(monotone, (drawn) => {
         const result = resolve(drawn);
+
         for (const { entry: on } of result.items) {
           expect(result.facts.has(`feature:${on.slug}`)).toBe(true);
         }
+
         const ids = new Set(result.items.map((item) => item.entry.id));
+
         for (const root of drawn.roots) {
           const id = idOf(slugOf(root));
           expect(ids.has(id)).toBe(true);

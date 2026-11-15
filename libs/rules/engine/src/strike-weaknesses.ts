@@ -19,6 +19,7 @@ export function weakenedBy(
   targets: StrikeTargets,
 ): readonly CriticalWeakness[] {
   const { element } = rule;
+
   return element.key === RuleElementKey.CriticalWeakness &&
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
     ? [...weaknesses, { damageType: element.type, amount: element.value, origin: rule.origin }]

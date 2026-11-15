@@ -29,6 +29,7 @@ export function spellUse(spell: SpellOption, payment: SpellPayment, spend: Spell
   const slotLeft = payment.slot === undefined || spend.slotsLeft(payment.slot) > 0;
   const focusLeft = payment.focus !== true || spend.focusLeft > 0;
   const pays = payment.slot !== undefined || payment.focus === true;
+
   return {
     id: spell.id,
     name: spell.name,

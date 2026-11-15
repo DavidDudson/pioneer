@@ -18,13 +18,18 @@ import {
 import type { SkillFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const SKILLS: readonly SkillFixture[] = ['acrobatics', 'athletics', 'medicine', 'religion', 'stealth', 'scribing-lore'];
+
 /** A skill, or nothing, for one slot. */
 const skillPick = option(constantFrom(...SKILLS), { nil: undefined });
+
 /** More picks than any class has skill slots: a rogue's seven trained skills and nineteen increases. */
 const PICKS_MAX = 40;
 
@@ -49,20 +54,27 @@ describe('skill ranks', () => {
             .atLevel(level)
             .picking('class', playerCoreClassId(name))
             .picking('boost:1:class:0', 'dex');
+
           const empty = builder.build().document;
+
           for (const [index, slot] of skillSlots(empty, skillReads(empty, content)).entries()) {
             const pick = picks[index];
+
             if (pick !== undefined) {
               builder.picking(slot.key, skillFixtureId(pick));
             }
           }
+
           const { document } = builder.build();
+
           for (const slot of skillSlots(document, skillReads(document, content))) {
             if (slot.rank !== undefined) {
               expect(RANK_FROM[slot.rank]).toBeLessThanOrEqual(slot.level);
             }
           }
+
           const ranks = buildRanks(document, content);
+
           for (const skill of SKILLS) {
             const selector = registry.statistic(StatisticId.parse(skillFixtureId(skill)))?.definition.selector;
             const rank = selector === undefined ? undefined : ranks.get(selector);
@@ -85,14 +97,19 @@ describe('trained skills a slot cannot offer', () => {
           const builder = new CharacterBuilder()
             .picking('class', playerCoreClassId(name))
             .picking('boost:1:class:0', 'dex');
+
           const empty = builder.build().document;
+
           for (const [index, slot] of skillSlots(empty, skillReads(empty, content)).entries()) {
             const pick = picks[index];
+
             if (pick !== undefined) {
               builder.picking(slot.key, skillFixtureId(pick));
             }
           }
+
           const { document } = builder.build();
+
           for (const slot of skillSlots(document, skillReads(document, content)).filter(
             ({ kind }) => kind === SkillSlotKind.Training,
           )) {

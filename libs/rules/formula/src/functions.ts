@@ -21,11 +21,14 @@ export const FormulaFunction = {
   Lt: 'lt',
   Lte: 'lte',
 } as const;
+
 export type FormulaFunction = ValueOf<typeof FormulaFunction>;
+
 export const FormulaFunctionSchema = z.enum(FormulaFunction);
 
 /** How many arguments a call takes. `max` is unbounded for `min` and `max`. */
 export const ArgumentCount = z.int().nonnegative().brand<'ArgumentCount'>();
+
 export type ArgumentCount = z.infer<typeof ArgumentCount>;
 
 export interface Arity {

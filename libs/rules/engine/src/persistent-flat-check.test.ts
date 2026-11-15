@@ -16,6 +16,7 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const content = { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 const factsRaging = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);

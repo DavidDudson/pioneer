@@ -13,6 +13,7 @@ const meta: Meta<AttributeRolls> = {
   component: AttributeRolls,
   decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: { roll: () => undefined } }] })],
 };
+
 export default meta;
 
 /** While the statistics the checks come from load. */

@@ -20,14 +20,17 @@ export function runeLabel(
   if (rune.type === RuneType.Property) {
     const unknown = i18n.translate('character.sheet.runes.unknownRune');
     const name = runes.get(rune.rune)?.name ?? unknown;
+
     return chosenRuneName(i18n, name, rune.choice);
   }
+
   return grade === undefined ? rune.rune : gradeLabel(i18n, rune.rune, grade);
 }
 
 /** The server's reason a rune edit was refused, else the sheet's own wording. */
 export function describeRuneError(i18n: TranslocoService, error: unknown): string {
   const [issue] = error instanceof ApiError ? error.issues : [];
+
   return issue === undefined
     ? i18n.translate('character.sheet.runes.failed')
     : i18n.translate(issue.message.key, issue.message.params);

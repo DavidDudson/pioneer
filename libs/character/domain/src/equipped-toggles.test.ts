@@ -12,6 +12,7 @@ import { slotContent } from './slot-offer';
 import { CharacterBuilder, ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const CLOAK = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
 
@@ -23,7 +24,9 @@ function wearing(): CharacterDocument {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   const worn = investItem(carryItem(stock, CLOAK, { state: CarryState.Worn }), CLOAK, true);
+
   return { ...new CharacterBuilder().build().document, inventory: worn };
 }
 

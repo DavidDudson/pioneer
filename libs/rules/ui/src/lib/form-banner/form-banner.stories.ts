@@ -20,6 +20,7 @@ const meta: Meta<FormBanner> = {
   component: FormBanner,
   args: { form: PLANT_FORM, dismiss: async () => undefined, baseView: false },
 };
+
 export default meta;
 
 /** The character is in a form: it is named in words with its form, rank and time left, and can be dismissed. */

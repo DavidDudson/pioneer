@@ -8,6 +8,7 @@ import { CampaignStore } from './data/campaign-store';
 export function campaignCrumb(): Signal<string | undefined> {
   const store = inject(CampaignStore);
   const i18n = inject(TranslocoService);
+
   return computed(
     () => store.selected.data()?.name ?? (store.selected.isError() ? i18n.translate('campaign.home.title') : undefined),
   );

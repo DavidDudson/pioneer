@@ -19,9 +19,11 @@ function sanityPack(kind: NamespaceKind): ContentPack {
 /** How a predicate needing `option` reads with no roll options, under the namespaces of `packs`. */
 function missing(option: string, ...packs: readonly ContentPack[]): Truth {
   const registry = new ContentRegistry();
+
   for (const pack of packs) {
     registry.register(pack);
   }
+
   return evaluatePredicate(Predicate.parse([option]), new PredicateFacts([], registry.rollOptionNamespaces()));
 }
 
@@ -51,6 +53,7 @@ describe('core rules roll option namespaces', () => {
       creatures: [],
       rollOptionNamespaces: { feat: NamespaceKind.Situational },
     });
+
     const registry = new ContentRegistry();
     registry.register(coreRules);
     expect(() => {

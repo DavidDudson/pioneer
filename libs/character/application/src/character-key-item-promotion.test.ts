@@ -41,6 +41,7 @@ describe('CharacterKeyItemPromotion', () => {
       ancestry: humanAncestryId,
     });
     const { inventory } = mordred.document;
+
     const items = [
       {
         id: line,
@@ -51,6 +52,7 @@ describe('CharacterKeyItemPromotion', () => {
         runes: ItemRunesSchema.parse({ property: [{ rune: flaming }] }),
       },
     ];
+
     mordred = await repository.update(
       mordred.withInventory({ ...inventory, items }, mordred.updatedAt),
       mordred.version,
@@ -63,6 +65,7 @@ describe('CharacterKeyItemPromotion', () => {
 
   async function keyOfLine(): Promise<KeyItemId | undefined> {
     const found = await repository.findById(mordred.id);
+
     return found?.document.inventory.items.find((each) => each.id === line)?.keyItem;
   }
 

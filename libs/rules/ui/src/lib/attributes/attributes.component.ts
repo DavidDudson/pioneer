@@ -61,6 +61,7 @@ export class AttributesView {
   protected readonly loadingTerms = Object.values(ATTRIBUTE_MESSAGES);
   protected readonly shown = computed((): readonly ShownModifier[] | undefined => {
     const modifiers = this.modifiers();
+
     return modifiers === undefined
       ? undefined
       : Object.values(Attribute).map((attribute) => ({

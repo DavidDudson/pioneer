@@ -43,9 +43,11 @@ describe('CharacterService overrides by a campaign GM', () => {
       fixedClock('2026-10-12T10:00:00Z'),
     );
     kyra = await service.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
+
     const roles = new InMemoryCharacterCampaignRoles()
       .assign(kyra.id, gm, OverrideRole.Gm)
       .assign(kyra.id, ezren, OverrideRole.Player);
+
     service.withCampaignRoles(roles);
   });
 

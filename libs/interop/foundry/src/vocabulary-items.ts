@@ -40,6 +40,7 @@ export const VocabularyGapReason = {
   /** A trait Foundry has no description for: the entry is imported, with an empty description. */
   MissingDescription: 'missing-description',
 } as const;
+
 export type VocabularyGapReason = ValueOf<typeof VocabularyGapReason>;
 
 export interface Gap {
@@ -75,14 +76,18 @@ const LIST_MAX = 100;
 const VALUE_MAX = 64;
 
 const Values = z.array(z.string().max(VALUE_MAX)).max(LIST_MAX);
+
 const LanguageFields = z.looseObject({
   languages: z.looseObject({ value: Values.default([]) }).optional(),
   additionalLanguages: z.looseObject({ value: Values.default([]) }).optional(),
 });
+
 const VisionField = z.looseObject({ vision: z.string().max(VALUE_MAX).optional() });
 const SenseRule = z.looseObject({ key: z.literal(SENSE_RULE), selector: z.string().max(VALUE_MAX) });
+
 /** A feat's `subfeatures.senses`, keyed by sense slug. */
 const SensesBySlug = z.record(z.string().max(VALUE_MAX), z.unknown());
+
 /** A creature's `details.languages` and `perception.senses`. */
 const CreatureLanguageList = z.looseObject({ value: Values.default([]) });
 const CreatureLanguages = z.looseObject({ details: z.looseObject({ languages: CreatureLanguageList }) });
@@ -99,6 +104,7 @@ export function firstUses(
   valuesOf: (entry: SelectedEntry) => readonly string[],
 ): ReadonlyMap<string, BookId> {
   const uses = new Map<string, BookId>();
+
   for (const entry of selected) {
     for (const value of valuesOf(entry)) {
       if (!uses.has(value)) {
@@ -106,6 +112,7 @@ export function firstUses(
       }
     }
   }
+
   return uses;
 }
 
@@ -118,14 +125,18 @@ export function traitItems(selected: readonly SelectedEntry[], { config, known }
   const skip = knownSlugs(known, ContentKind.Trait);
   const uses = firstUses(selected, ({ document }) => document.system.traits?.value ?? []);
   const lists = [...config.traitLists];
+
   return [...uses].flatMap(([slug, book]) => {
     const holding = lists.filter(([, labels]) => labels.has(slug));
     const [first] = holding;
+
     if (first === undefined || skip.has(slug)) {
       return [];
     }
+
     const kinds = new Set(holding.flatMap(([list]: readonly [TraitList, unknown]) => TRAIT_LIST_KINDS[list]));
     const appliesTo = Object.values(ContentKind).filter((kind) => kinds.has(kind));
+
     return [
       {
         kind: ContentKind.Trait,
@@ -144,10 +155,13 @@ export function languagesOf({ type, document }: SelectedEntry): readonly string[
   if (type === FoundryItemType.Npc) {
     return CreatureLanguages.safeParse(document.system).data?.details.languages.value ?? [];
   }
+
   if (type !== FoundryItemType.Ancestry) {
     return [];
   }
+
   const fields = LanguageFields.safeParse(document.system);
+
   return fields.success
     ? [...(fields.data.languages?.value ?? []), ...(fields.data.additionalLanguages?.value ?? [])]
     : [];
@@ -155,6 +169,7 @@ export function languagesOf({ type, document }: SelectedEntry): readonly string[
 
 export function sensesOf({ type, document }: SelectedEntry): readonly string[] {
   const vision = VisionField.safeParse(document.system);
+
   const fromVision =
     (type === FoundryItemType.Ancestry || type === FoundryItemType.Heritage) &&
     vision.success &&
@@ -162,28 +177,37 @@ export function sensesOf({ type, document }: SelectedEntry): readonly string[] {
     vision.data.vision !== NORMAL_VISION
       ? [vision.data.vision]
       : [];
+
   const fromCreature =
     type === FoundryItemType.Npc
       ? (CreatureSenses.safeParse(document.system).data?.perception.senses.map((sense) => sense.type) ?? [])
       : [];
+
   const fromRules = document.system.rules.flatMap((rule) => {
     const sense = SenseRule.safeParse(rule);
+
     return sense.success ? [sense.data.selector] : [];
   });
+
   const subfeatures = SubfeatureSenses.safeParse(document.system);
   const fromSubfeatures = subfeatures.success ? Object.keys(subfeatures.data.subfeatures.senses) : [];
+
   return [...fromVision, ...fromCreature, ...fromRules, ...fromSubfeatures];
 }
 
 export function languageItem(slug: string, book: BookId, config: FoundryConfig): Item | Gap {
   const foundryRarity = config.languages.get(slug);
+
   if (foundryRarity === undefined) {
     return { reason: VocabularyGapReason.UnknownValue, detail: slug };
   }
+
   const rarity = LANGUAGE_RARITIES[foundryRarity];
+
   if (rarity === undefined) {
     return { reason: VocabularyGapReason.UnmappedValue, detail: foundryRarity };
   }
+
   return {
     kind: ContentKind.Language,
     slug,
@@ -196,13 +220,16 @@ export function languageItem(slug: string, book: BookId, config: FoundryConfig):
 
 export function senseItem(slug: string, book: BookId, config: FoundryConfig): Item | Gap {
   const sense = config.senses.get(slug);
+
   if (sense === undefined) {
     return { reason: VocabularyGapReason.UnknownValue, detail: slug };
   }
+
   const data = {
     ...(sense.acuity === undefined ? {} : { acuity: sense.acuity }),
     ...(sense.unlimitedRange ? { unlimitedRange: true } : {}),
   };
+
   return {
     kind: ContentKind.Sense,
     slug,
@@ -217,6 +244,7 @@ export function damageTypeItem(slug: string, book: BookId): Item | Gap {
   if (!DAMAGE_TYPES.has(slug)) {
     return { reason: VocabularyGapReason.UnmappedValue, detail: slug };
   }
+
   return {
     kind: ContentKind.DamageType,
     slug,
@@ -242,9 +270,12 @@ const RitualChecksField = z.looseObject({ ritual: FoundryRitual.nullish() });
 function loreNamesOf({ type, document }: SelectedEntry): readonly string[] {
   if (type === FoundryItemType.Background) {
     const fields = TrainedSkillsField.safeParse(document.system);
+
     return fields.success ? (fields.data.trainedSkills?.lore ?? []) : [];
   }
+
   const ritual = type === FoundryItemType.Spell ? RitualChecksField.safeParse(document.system).data?.ritual : undefined;
+
   return ritual ? [...loresNamed(ritual.primary.check), ...loresNamed(ritual.secondary.checks)] : [];
 }
 
@@ -255,11 +286,13 @@ export function loresOf(entry: SelectedEntry): readonly LoreUse[] {
 /** Each Lore's name by slug, as the first document naming it spells it. */
 export function loreNames(selected: readonly SelectedEntry[]): ReadonlyMap<string, string> {
   const names = new Map<string, string>();
+
   for (const { slug, name } of selected.flatMap((entry) => loresOf(entry))) {
     if (!names.has(slug)) {
       names.set(slug, name);
     }
   }
+
   return names;
 }
 
@@ -269,6 +302,7 @@ export function loreNames(selected: readonly SelectedEntry[]): ReadonlyMap<strin
  */
 export function loreItem(slug: string, names: ReadonlyMap<string, string>, book: BookId): Item | Gap {
   const topic = loreSlugTopic(slug);
+
   const data =
     topic === undefined
       ? undefined
@@ -279,9 +313,11 @@ export function loreItem(slug: string, names: ReadonlyMap<string, string>, book:
           kind: StatisticKind.Check,
           keyAttribute: Attribute.Intelligence,
         });
+
   if (data?.success !== true) {
     return { reason: VocabularyGapReason.Invalid, detail: slug };
   }
+
   return {
     kind: ContentKind.Statistic,
     slug,

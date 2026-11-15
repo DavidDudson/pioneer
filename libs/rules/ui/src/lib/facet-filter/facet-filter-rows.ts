@@ -21,6 +21,7 @@ import type {
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 export const FacetRowKind = { Chips: 'chips', Range: 'range' } as const;
+
 export type FacetRowKind = ValueOf<typeof FacetRowKind>;
 
 /** A value as a chip names it: a message key for a closed set's value or a book, else the value as it is. */
@@ -60,19 +61,24 @@ export type FacetRow = ChipsRow | RangeRow;
 
 /** Which bound of a range a box sets. */
 export const RangeSide = { Min: 'min', Max: 'max' } as const;
+
 export type RangeSide = ValueOf<typeof RangeSide>;
 
 function chipKey(facet: FacetDefinition, value: FacetValue): string | undefined {
   if (value === UNKNOWN) {
     return FacetMessage.Unknown;
   }
+
   if (facet.type === FacetType.Flag) {
     return FLAG_LABELS.get(value);
   }
+
   if (facet.id === CommonFacet.Book) {
     const book = BookId.safeParse(value);
+
     return book.success ? BOOK_TITLES.get(book.data) : undefined;
   }
+
   return facet.values?.get(value);
 }
 
@@ -80,6 +86,7 @@ const shownOf = (value: FacetValue, scale: number): number => Number(value) / sc
 
 function chipsRow({ facet, values }: FacetCounts, selection: FacetSelection | undefined): ChipsRow {
   const selected = new Set(selection?.kind === SelectionKind.Values ? selection.include : []);
+
   return {
     kind: FacetRowKind.Chips,
     facet,
@@ -92,6 +99,7 @@ function rangeRow({ facet, values }: FacetCounts, selection: FacetSelection | un
   const scale = facet.scale ?? 1;
   const shown = values.map(({ value }) => shownOf(value, scale));
   const range = selection?.kind === SelectionKind.Range ? selection : undefined;
+
   return {
     kind: FacetRowKind.Range,
     facet,
@@ -110,9 +118,11 @@ function rangeRow({ facet, values }: FacetCounts, selection: FacetSelection | un
 export function facetRows(counts: readonly FacetCounts[], state: FilterState): readonly FacetRow[] {
   return counts.flatMap((facetCounts): FacetRow[] => {
     const selection = state.get(facetCounts.facet.id);
+
     if (facetCounts.values.length === 0 && selection === undefined) {
       return [];
     }
+
     return facetCounts.facet.type === FacetType.Range
       ? [rangeRow(facetCounts, selection)]
       : [chipsRow(facetCounts, selection)];
@@ -121,11 +131,13 @@ export function facetRows(counts: readonly FacetCounts[], state: FilterState): r
 
 function withSelection(state: FilterState, id: FacetId, selection: FacetSelection | undefined): FilterState {
   const next = new Map(state);
+
   if (selection === undefined) {
     next.delete(id);
   } else {
     next.set(id, selection);
   }
+
   return next;
 }
 
@@ -138,6 +150,7 @@ export function withValues(state: FilterState, facet: FacetDefinition, include: 
   const excluded = current?.kind === SelectionKind.Values ? current.exclude : [];
   const exclude = excluded.filter((value) => !include.has(value));
   const empty = include.size === 0 && exclude.length === 0;
+
   return withSelection(
     state,
     facet.id,
@@ -162,5 +175,6 @@ export function withBound(state: FilterState, facet: FacetDefinition, { side, sh
   const min = side === RangeSide.Min ? bound : range?.min;
   const max = side === RangeSide.Max ? bound : range?.max;
   const open = min === undefined && max === undefined;
+
   return withSelection(state, facet.id, open ? undefined : { kind: SelectionKind.Range, min, max });
 }

@@ -18,7 +18,9 @@ const pack = new ContentPackBuilder()
   .withSpell('mirror', { rank: 3, traditions: [], duration: { type: 'sustained' }, dismiss: true })
   .withSpell('fireball', { rank: 3, traditions: [] })
   .withSpell('mark', { rank: 3, traditions: [], dismissNote: NOTE });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 const BARRIER = ContentId.parse(pack.idOf(ContentKind.Spell, 'barrier'));
@@ -68,6 +70,7 @@ describe(activeRows, () => {
       activeSpells: [active(BARRIER, 9, false), active(MIRROR, 9, false)],
       effects: [],
     });
+
     expect(rows.map(({ dismissAction }) => dismissAction)).toStrictEqual([false, true]);
   });
 

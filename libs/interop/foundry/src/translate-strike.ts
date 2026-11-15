@@ -23,12 +23,16 @@ export function withStrikeDamage(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }
+
   const damage = 'damage' in raw ? FoundryStrikeDamage.safeParse(raw.damage) : undefined;
+
   if (damage === undefined || !damage.success) {
     return raw;
   }
+
   const { base } = damage.data;
   const { damageType, die, dice = 1 } = base;
+
   return { ...raw, damage: { dice, ...(die === undefined ? {} : { die }), damageType } };
 }
 
@@ -46,13 +50,16 @@ function strikeSlug(raw: object): string | undefined {
   if ('slug' in raw && typeof raw.slug === 'string') {
     return raw.slug;
   }
+
   if ('baseType' in raw && typeof raw.baseType === 'string') {
     return raw.baseType;
   }
+
   const label =
     'display' in raw && typeof raw.display === 'object' && raw.display !== null && 'label' in raw.display
       ? raw.display.label
       : undefined;
+
   return typeof label === 'string' ? slugify(label) : undefined;
 }
 
@@ -61,7 +68,9 @@ function strikeRange(raw: object): Record<string, unknown> {
   if (!('range' in raw) || raw.range === null) {
     return {};
   }
+
   const range = FoundryStrikeRange.safeParse(raw.range);
+
   return { range: range.success ? range.data.increment : raw.range };
 }
 
@@ -75,10 +84,13 @@ export function withoutStrikeExtras(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }
+
   const kept = Object.fromEntries(
     Object.entries(raw).filter(([field]) => !STRIKE_FIELDS_DROPPED.has(field) && field !== 'range' && field !== 'slug'),
   );
+
   const slug = 'damage' in raw ? strikeSlug(raw) : undefined;
+
   return { ...kept, ...strikeRange(raw), ...(slug === undefined ? {} : { slug }) };
 }
 
@@ -99,9 +111,12 @@ export function withStrikeScope(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.AdjustStrike) {
     return raw;
   }
+
   if ('selectors' in raw || readsItem(raw)) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => field !== 'definition');
+
   return 'definition' in raw ? { ...Object.fromEntries(rest), strikes: raw.definition } : raw;
 }

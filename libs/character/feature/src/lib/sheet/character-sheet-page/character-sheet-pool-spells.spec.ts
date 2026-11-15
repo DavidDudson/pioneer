@@ -15,11 +15,14 @@ const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
 
 /** Player Core's Divine Font, whose `ChoiceSet` (its first rule) picks the font. */
 const FONT_SLOT = 'd16ad3ee-bbb7-5b48-a4fa-edae86dd367d:0';
+
 /** Player Core's Arcane School, whose `ChoiceSet` (its first rule) picks the school, and the School of Battle Magic. */
 const SCHOOL_SLOT = '6efbc394-745c-5c78-8df1-8a3ebe1cdec2:0';
 const BATTLE_MAGIC = 'cf527c20-a4c9-5301-96f8-fa4da6be9af7';
+
 /** Player Core's heal. */
 const HEAL = '949e0a89-f44b-598d-8adb-3d9d31db900e';
+
 /** Sarenrae, whose font is healing, so a cleric of hers may pick it. */
 const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
 

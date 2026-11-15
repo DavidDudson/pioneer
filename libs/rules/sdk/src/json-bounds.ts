@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 /** A count of JSON nesting levels or containers. */
 export const JsonSize = z.number().int().positive().brand<'JsonSize'>();
+
 export type JsonSize = z.infer<typeof JsonSize>;
 
 /** How deep and how big a parsed JSON value is allowed to be before a recursive schema walks it. */
@@ -15,6 +16,7 @@ export interface JsonBounds {
 
 /** The bound a value breaks first, if any. */
 export const JsonBound = { Depth: 'depth', Containers: 'containers' } as const;
+
 export type JsonBound = ValueOf<typeof JsonBound>;
 
 function isContainer(value: unknown): value is object {
@@ -34,16 +36,21 @@ export function exceededBound(value: unknown, bounds: JsonBounds): JsonBound | u
   let level: readonly object[] = isContainer(value) ? [value] : [];
   let depth = 0;
   let containers = 0;
+
   while (level.length > 0) {
     depth += 1;
     containers += level.length;
+
     if (depth > bounds.depth) {
       return JsonBound.Depth;
     }
+
     if (containers > bounds.containers) {
       return JsonBound.Containers;
     }
+
     level = level.flatMap((node) => innerContainers(node));
   }
+
   return undefined;
 }

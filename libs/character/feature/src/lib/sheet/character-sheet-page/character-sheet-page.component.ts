@@ -18,6 +18,7 @@ import { CHARACTER_SHEET_PAGE_PROVIDERS } from './character-sheet-page-providers
 
 /** Set when the character's header can show: the sheet bundle has arrived and been read. */
 const SHEET_HEADER_MARK = 'sheet:header';
+
 /** Set when the engine's numbers (the vitals) can show: the content the sheet derives them from has loaded too. */
 const SHEET_READY_MARK = 'sheet:ready';
 

@@ -14,6 +14,7 @@ function rowsOf(check: ActionsCheck): ReadonlyMap<string, ActionRow> {
   if (check.status !== ActionsStatus.Valid) {
     throw new Error(`Expected a valid check, got ${check.status}`);
   }
+
   return new Map(check.rows.map((row) => [row.name, row]));
 }
 

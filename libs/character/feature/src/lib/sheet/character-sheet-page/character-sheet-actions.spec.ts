@@ -91,6 +91,7 @@ describe('CharacterSheetPage actions', () => {
     });
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, section: 'actions', packs: PACKS });
     await openActionKind(root, 'Basic actions');
+
     const button = await vi.waitFor(() =>
       present(actionsSection(root).querySelector<HTMLButtonElement>('button[aria-label^="Roll "]')),
     );
@@ -110,11 +111,13 @@ describe('CharacterSheetPage actions', () => {
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');
     });
+
     const stride = present(
       [...actionsSection(root).querySelectorAll('pio-action-row')].find(
         (row) => textOf(present(row.querySelector('fr-text'))) === 'Stride',
       ),
     );
+
     const use = [...stride.querySelectorAll('button')].find((button) => textOf(button) === 'Use');
 
     present(use).click();
@@ -124,6 +127,7 @@ describe('CharacterSheetPage actions', () => {
         method: 'PATCH',
         url: `/api/characters/${id}/play`,
       });
+
       expect(request.request.body).toMatchObject({
         expectedRevision: 1,
         command: { field: 'spendAction', cost: { kind: 'actions', count: 1 } },

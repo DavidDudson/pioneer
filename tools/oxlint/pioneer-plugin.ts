@@ -28,6 +28,7 @@ const noStylesOutsideFrontier: Rule.RuleModule = {
     if (FRONTIER.test(context.filename)) {
       return {};
     }
+
     return {
       Decorator(node: Rule.Node): void {
         for (const key of componentKeys(node).filter((name) => STYLE_KEYS.has(name))) {
@@ -75,6 +76,7 @@ const zodNamespaceImport: Rule.RuleModule = {
       ImportSpecifier(node): void {
         const declaration = node.parent;
         const imported = node.imported.type === 'Identifier' ? node.imported.name : node.imported.value;
+
         if (declaration.type === 'ImportDeclaration' && declaration.source.value === 'zod' && imported === 'z') {
           context.report({ node, messageId: 'named' });
         }
@@ -92,6 +94,7 @@ function isLocation(node: unknown): boolean {
     readonly name?: unknown;
     readonly property?: { readonly name?: unknown };
   };
+
   return (
     (target.type === 'Identifier' && target.name === 'location') ||
     (target.type === 'MemberExpression' && target.property?.name === 'location')
@@ -110,6 +113,7 @@ const noFullPageLoad: Rule.RuleModule = {
     return {
       CallExpression(node): void {
         const { callee } = node;
+
         if (
           callee.type === 'MemberExpression' &&
           callee.property.type === 'Identifier' &&
@@ -122,6 +126,7 @@ const noFullPageLoad: Rule.RuleModule = {
       AssignmentExpression(node): void {
         const { left } = node;
         const isLocationPart = left.type === 'MemberExpression' && isLocation(left.object);
+
         if (isLocation(left) || isLocationPart) {
           context.report({ node, messageId: 'reload', data: { what: 'assigning location' } });
         }
@@ -161,13 +166,17 @@ const layoutVariants: Rule.RuleModule = {
     if (!FRONTIER.test(context.filename)) {
       return {};
     }
+
     const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
+
     const check = (node: Rule.Node, text: unknown): void => {
       const problem = typeof text === 'string' ? layoutVariantProblem(text, inPrimitive) : undefined;
+
       if (problem !== undefined) {
         context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
       }
     };
+
     return {
       Literal(node): void {
         check(node, node.value);
@@ -205,9 +214,11 @@ function stringsUnder(node: unknown): Rule.Node[] {
   if (typeof node !== 'object' || node === null) {
     return [];
   }
+
   if (!Array.isArray(node) && isString(node)) {
     return [node as Rule.Node];
   }
+
   return childrenOf(node).flatMap((child) => stringsUnder(child));
 }
 
@@ -230,17 +241,21 @@ const classTokens: Rule.RuleModule = {
     if (!FRONTIER.test(context.filename)) {
       return {};
     }
+
     const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
+
     const checkAll = (root: unknown): void => {
       for (const node of stringsUnder(root)) {
         const { type, value } = node as AstNode & { readonly value: unknown };
         const text = type === 'TemplateElement' ? (value as { readonly cooked?: unknown }).cooked : value;
         const problem = typeof text === 'string' ? classTokenProblem(text, inPrimitive) : undefined;
+
         if (problem !== undefined && !LAYOUT_MESSAGE_IDS.has(problem.messageId)) {
           context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
         }
       }
     };
+
     return {
       CallExpression(node): void {
         if (node.callee.type === 'Identifier' && CLASS_BUILDERS.has(node.callee.name)) {
@@ -254,6 +269,7 @@ const classTokens: Rule.RuleModule = {
       },
       TSSatisfiesExpression(node: unknown): void {
         const { expression } = node as { readonly expression?: AstNode };
+
         if (expression?.type === 'ObjectExpression') {
           checkAll(expression);
         }

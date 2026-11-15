@@ -10,11 +10,17 @@ import type { ActionContext } from './action-context';
 installRulesFakes();
 
 const builder = new ContentPackBuilder().withId('context-fixtures');
+
 builder.withItem(ContentKind.Action, 'stand', { cost: 'one', universal: true });
+
 builder.withItem(ContentKind.Action, 'crawl', { cost: 'one', universal: true });
+
 builder.withItem(ContentKind.Action, 'escape', { cost: 'one', universal: true });
+
 builder.withItem(ContentKind.Feat, 'shield-block', { category: 'general', action: { cost: 'reaction', trigger: [] } });
+
 const registry = new ContentRegistry();
+
 registry.register(builder.build());
 
 const id = (kind: ContentKind, name: string): ContentId => ContentId.parse(builder.idOf(kind, name));

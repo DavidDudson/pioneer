@@ -5,6 +5,7 @@ import { cva } from 'class-variance-authority';
 import { paddingVariants, Space } from '../../tokens';
 
 export const SurfaceVariant = { Base: 'base', Raised: 'raised', Sunken: 'sunken', Outline: 'outline' } as const;
+
 export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
 
 const surfaceVariants = cva('block', {

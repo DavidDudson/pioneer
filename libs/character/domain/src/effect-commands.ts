@@ -25,6 +25,7 @@ export const EffectCommandField = {
   /** Spends one use of a boon that counts uses down; spending the last one ends it. */
   SpendEffectUse: 'spendEffectUse',
 } as const;
+
 export type EffectCommandField = ValueOf<typeof EffectCommandField>;
 
 export const EffectCommandSchema = z.discriminatedUnion('field', [
@@ -51,6 +52,7 @@ export const EffectCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(EffectCommandField.SetEffectBadge), id: EffectInstanceId, value: EffectBadgeValue }),
   z.object({ field: z.literal(EffectCommandField.SpendEffectUse), id: EffectInstanceId }),
 ]);
+
 export type EffectCommand = z.infer<typeof EffectCommandSchema>;
 
 /** One use: what spending takes, and the count at which a spend ends the boon. */
@@ -71,6 +73,7 @@ export const EffectProblem = {
   /** The effect has no uses to spend: it is not a boon that counts them down. */
   NoUses: 'no-uses',
 } as const;
+
 export type EffectProblem = ValueOf<typeof EffectProblem>;
 
 function withinBounds(terms: CounterTerms, value: EffectBadgeValue): boolean {
@@ -82,12 +85,14 @@ function badgeFits(terms: EffectBadgeTerms | undefined, value: EffectBadgeValue)
   if (terms === undefined) {
     return false;
   }
+
   return terms.type === EffectBadgeType.Formula || withinBounds(terms, value);
 }
 
 /** Whether the rank an effect is cast at reaches the lowest its form can be picked at; a form with no lowest always does. */
 function formReached(form: RollOption | undefined, rank: SpellRank | undefined, terms: EffectTerms): boolean {
   const lowest = form === undefined ? undefined : terms.formRanks?.get(form);
+
   return lowest === undefined || (rank !== undefined && rank >= lowest);
 }
 
@@ -97,19 +102,25 @@ function problemOfApply(
   content: EffectContent,
 ): EffectProblem | undefined {
   const terms = content.get(command.effect);
+
   if (terms === undefined) {
     return EffectProblem.Unknown;
   }
+
   const rolls = terms.badge?.type === EffectBadgeType.Formula;
+
   if (rolls !== (command.rolled !== undefined)) {
     return EffectProblem.Badge;
   }
+
   if (command.rank !== undefined && terms.polymorph !== true) {
     return EffectProblem.Rank;
   }
+
   if (!formReached(command.form, command.rank, terms)) {
     return EffectProblem.Rank;
   }
+
   return effects.length >= EFFECTS_MAX ? EffectProblem.Full : undefined;
 }
 
@@ -122,16 +133,21 @@ export function effectProblem(
   if (command.field === EffectCommandField.ApplyEffect) {
     return problemOfApply(effects, command, content);
   }
+
   const target = effects.find(({ id }) => id === command.id);
+
   if (target === undefined) {
     return EffectProblem.Missing;
   }
+
   if (command.field === EffectCommandField.SpendEffectUse) {
     return target.uses === undefined ? EffectProblem.NoUses : undefined;
   }
+
   if (command.field !== EffectCommandField.SetEffectBadge) {
     return undefined;
   }
+
   return badgeFits(content.get(target.effect)?.badge, command.value) ? undefined : EffectProblem.Badge;
 }
 
@@ -141,6 +157,7 @@ function applied(
   terms: EffectTerms,
 ): ActiveEffect {
   const badge = terms.badge?.type === EffectBadgeType.Counter ? terms.badge.value : command.rolled;
+
   return {
     id: command.id,
     effect: command.effect,
@@ -170,29 +187,36 @@ export function applyEffectCommand(
   switch (command.field) {
     case EffectCommandField.ApplyEffect: {
       const terms = content.get(command.effect);
+
       return terms === undefined || effects.some(({ id }) => id === command.id)
         ? effects
         : [...effects, applied(command, terms)];
     }
+
     case EffectCommandField.RemoveEffect: {
       return effects.filter(({ id }) => id !== command.id);
     }
+
     case EffectCommandField.SetEffectRemaining: {
       return effects.map((each) =>
         each.id === command.id && each.remaining !== undefined ? { ...each, remaining: command.remaining } : each,
       );
     }
+
     case EffectCommandField.SetEffectBadge: {
       return effects.map((each) => (each.id === command.id ? { ...each, badge: command.value } : each));
     }
+
     case EffectCommandField.SpendEffectUse: {
       return effects.flatMap((each): ActiveEffect[] => {
         if (each.id !== command.id || each.uses === undefined) {
           return [each];
         }
+
         return each.uses <= LAST_EFFECT_USE ? [] : [{ ...each, uses: EffectUses.parse(each.uses - LAST_EFFECT_USE) }];
       });
     }
+
     default: {
       return command satisfies never;
     }

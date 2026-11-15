@@ -45,6 +45,7 @@ async function open(tier: ContentBrowserTier, state: ContentBrowserState): Promi
   fixture.componentRef.setInput('tier', tier);
   fixture.componentRef.setInput('state', state);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -57,6 +58,7 @@ async function listed(fixture: ComponentFixture<ContentBrowser>, selector: strin
     fixture.detectChanges();
     expect(names()).toHaveLength(count);
   });
+
   return names();
 }
 
@@ -75,8 +77,10 @@ describe(ContentBrowser, () => {
   it('shows each feat trait as a chip that opens its card, by name and not by slug', async () => {
     const fixture = await open(ContentBrowserTier.Page, FEATS);
     await listed(fixture, 'fr-table tbody tr td:first-child', 4);
+
     const chips = (): string[] =>
       [...root(fixture).querySelectorAll('pio-trait-chip')].map((chip) => chip.textContent.trim());
+
     await vi.waitFor(() => {
       fixture.detectChanges();
       expect(chips()).toContain('Fighter');

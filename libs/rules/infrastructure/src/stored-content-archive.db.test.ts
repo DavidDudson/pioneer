@@ -43,7 +43,9 @@ function elfPack(): PackContents {
       reach: 5,
     },
   };
+
   const file = { id: PACK, title: 'Brew Elves', publisher: 'Pioneer', license: 'homebrew' };
+
   return packContentsFromFiles(file, [[entry]]);
 }
 

@@ -9,6 +9,7 @@ import { provideI18n } from './i18n';
 async function setup(): Promise<TranslocoService> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => kernelMessages })] });
   await TestBed.inject(ApplicationInitStatus).donePromise;
+
   return TestBed.inject(TranslocoService);
 }
 

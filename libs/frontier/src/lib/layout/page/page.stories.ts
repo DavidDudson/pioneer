@@ -14,6 +14,7 @@ interface PageArgs {
   readonly title: string | undefined;
   readonly description: string | undefined;
 }
+
 type PageStory = StoryObj<PageArgs>;
 
 const meta: Meta<PageArgs> = {
@@ -39,6 +40,7 @@ const meta: Meta<PageArgs> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Default: PageStory = {};

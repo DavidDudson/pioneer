@@ -15,6 +15,7 @@ const meta: Meta<PageHeader> = {
   args: { title: 'Briar Rose', description: 'Level 5 druid' },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 export const Default: PageHeaderStory = {};

@@ -57,8 +57,10 @@ export class RefreshableInput extends Control {
     const mine = this.#latest;
     this.loading.set(true);
     this.failed.set(false);
+
     try {
       const loaded = await this.load()();
+
       if (mine === this.#latest) {
         this.value.set(loaded);
       }

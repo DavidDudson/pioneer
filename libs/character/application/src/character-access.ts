@@ -36,13 +36,17 @@ export async function readableCharacter(
   id: CharacterId,
 ): Promise<Character> {
   const character = await repository.findById(id);
+
   if (character === undefined) {
     throw new NotFoundError('Character', id);
   }
+
   const standing = await standingWith(actor, character, roles);
+
   if (standing !== CharacterStanding.Owner && standing !== CharacterStanding.Gm) {
     throw new NotFoundError('Character', id);
   }
+
   return character;
 }
 
@@ -57,16 +61,21 @@ export async function editableCharacter(
   { id, patch }: EditRequest,
 ): Promise<EditableCharacter> {
   const character = await repository.findById(id);
+
   if (character === undefined) {
     throw new NotFoundError('Character', id);
   }
+
   const standing = await standingWith(actor, character, roles);
   const isOverride = isOverridePatch(patch) || isCustomEffectPatch(patch);
+
   if (standing === CharacterStanding.Owner || (standing === CharacterStanding.Gm && isOverride)) {
     return { character, actorRole: overrideRoleOf(standing) };
   }
+
   if (standing === CharacterStanding.Member && isOverride) {
     throw new ForbiddenError(`Only the GM edits the overrides and custom effects of character ${id}`);
   }
+
   throw new NotFoundError('Character', id);
 }

@@ -31,12 +31,14 @@ function isCrumb(value: unknown): value is Crumb {
 /** The crumb a route's own config sets, not one inherited through `data`. */
 function crumbOf(route: ActivatedRouteSnapshot): Crumb | undefined {
   const crumb: unknown = route.routeConfig?.data?.[CRUMB];
+
   return isCrumb(crumb) ? crumb : undefined;
 }
 
 /** The active route and its ancestors, root first, that have a crumb. */
 function activeSteps(router: Router): ActivatedRouteSnapshot[] {
   const steps: ActivatedRouteSnapshot[] = [];
+
   for (
     let route: ActivatedRouteSnapshot | null = router.routerState.snapshot.root;
     route !== null;
@@ -46,12 +48,14 @@ function activeSteps(router: Router): ActivatedRouteSnapshot[] {
       steps.push(route);
     }
   }
+
   return steps;
 }
 
 /** The URL a snapshot is at. */
 function urlOf(route: ActivatedRouteSnapshot): string {
   const segments = route.pathFromRoot.flatMap((ancestor) => ancestor.url.map((segment) => segment.path));
+
   return `/${segments.join('/')}`;
 }
 
@@ -66,10 +70,12 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
   const i18n = inject(TranslocoService);
   const navigated = router.events.pipe(filter((event) => event instanceof NavigationEnd));
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+
   // The router state and the messages are not signals: read them again when navigation settles or messages change.
   const changes = toSignal(merge(navigated, i18n.langChanges$, loaded).pipe(scan((count) => count + 1, 0)), {
     initialValue: 0,
   });
+
   // One name signal per URL, so its query is not repeated on every navigation.
   const names = new Map<string, Signal<string | undefined>>();
 
@@ -77,11 +83,14 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
   const nameOf = (route: ActivatedRouteSnapshot, crumb: Exclude<Crumb, string>): Signal<string | undefined> => {
     const url = urlOf(route);
     const known = names.get(url);
+
     if (known !== undefined) {
       return known;
     }
+
     const created = untracked(() => runInInjectionContext(injector, () => crumb(route)));
     names.set(url, created);
+
     return created;
   };
 
@@ -91,12 +100,15 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
   return computed(() => {
     changes();
     const steps = activeSteps(router);
+
     if (steps.length < 2) {
       return [];
     }
+
     return steps.map((route, index): BreadcrumbItem => {
       const crumb = crumbOf(route);
       const label = crumb === undefined ? undefined : labelOf(route, crumb);
+
       return index === steps.length - 1 ? { label } : { label, to: urlOf(route) };
     });
   });

@@ -12,7 +12,9 @@ function creatureSlug(name: string): EntrySlug | undefined {
     .toLowerCase()
     .replaceAll(/[^a-z0-9]+/gu, '-')
     .replaceAll(/^-|-$/gu, '');
+
   const parsed = EntrySlug.safeParse(`${ContentKind.Creature}:${words}`);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -39,11 +41,14 @@ export function proposeCreatureActions(
   const proposals = new Map<EntrySlug, EnrichmentMapping>();
   const excepted: EntrySlug[] = [];
   const unmapped = actions.filter(({ slug }) => !mapped.has(slug));
+
   for (const { slug, name } of unmapped) {
     const parenthetical = CREATURE_ACTION.exec(name)?.groups?.['creature'];
+
     if (parenthetical !== undefined) {
       const creatureSlugOfName = creatureSlug(parenthetical);
       const creature = creatureSlugOfName === undefined ? undefined : creatures.get(creatureSlugOfName);
+
       if (creature?.aon === undefined) {
         excepted.push(slug);
       } else {
@@ -51,5 +56,6 @@ export function proposeCreatureActions(
       }
     }
   }
+
   return { proposals, excepted };
 }

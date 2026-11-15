@@ -25,6 +25,7 @@ export const FoundryRunes = z.looseObject({
     .transform((keys) => Object.values(keys).filter((key) => key !== ''))
     .default([]),
 });
+
 export type FoundryRunes = z.infer<typeof FoundryRunes>;
 
 /** The fundamental runes an item kind has: a weapon's potency and striking, armour's potency and resilient. */
@@ -34,12 +35,16 @@ export type GradeKey = 'potency' | 'striking' | 'resilient';
 export function itemRunes(runes: FoundryRunes, keys: readonly GradeKey[], input: KindInput): object | undefined {
   const grades = keys.flatMap((key) => {
     const grade = runes[key] ?? 0;
+
     return grade > 0 ? [[key, grade] as const] : [];
   });
+
   const { property, energy } = propertyRunes(runes.property, 'runes.property', input);
+
   if (grades.length === 0 && runes.property.length === 0) {
     return undefined;
   }
+
   return {
     ...Object.fromEntries(grades),
     property,

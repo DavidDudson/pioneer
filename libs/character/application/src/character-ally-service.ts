@@ -28,10 +28,12 @@ export class CharacterAllyService {
   /** The character's allies by name. Not the owner: 404, the same as a missing character (ADR-0007). */
   public async allies(actor: UserId, id: CharacterId): Promise<CharacterAllies> {
     const character = await this.#owned(actor, id);
+
     const [campaign, allies] = await Promise.all([
       this.#campaigns.of(character.id),
       this.#campaigns.alliesOf(character.id),
     ]);
+
     return {
       ...(campaign === undefined ? {} : { campaign: campaign.name }),
       allies: allies.toSorted((left, right) => left.name.localeCompare(right.name)),
@@ -40,9 +42,11 @@ export class CharacterAllyService {
 
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
+
     return character;
   }
 }

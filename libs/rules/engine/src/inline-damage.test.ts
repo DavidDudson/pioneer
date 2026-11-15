@@ -19,6 +19,7 @@ function damage(...instances: DamageNode['instances']): DamageNode {
 
 function tagsOf(node: DamageNode, inputs: typeof INPUTS | undefined = INPUTS): unknown {
   const resolved = resolveDamageNode(node, inputs);
+
   return resolved.ok ? resolved.expression.terms.map(({ tags }) => tags) : resolved;
 }
 
@@ -28,6 +29,7 @@ describe('resolveDamageNode', () => {
       { formula: DamageFormula.parse('2d6+1'), damageType: DamageType.Fire },
       { formula: DamageFormula.parse('1d6'), damageType: DamageType.Fire, category: 'persistent' },
     );
+
     expect(tagsOf(node)).toEqual([{ type: 'fire' }, { type: 'fire' }, { type: 'fire', category: 'persistent' }]);
   });
 

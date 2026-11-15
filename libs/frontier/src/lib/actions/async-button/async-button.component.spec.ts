@@ -18,6 +18,7 @@ interface Deferred {
 
 function deferred(): Deferred {
   const { promise, resolve, reject } = Promise.withResolvers<undefined>();
+
   return {
     promise,
     resolve: () => {
@@ -37,14 +38,17 @@ async function render(action: () => Promise<unknown>): Promise<ComponentFixture<
     failure instanceof Error ? failure.message : 'Failed',
   );
   TestBed.tick();
+
   return fixture;
 }
 
 function button(fixture: ComponentFixture<AsyncButton>): HTMLButtonElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('button');
+
   if (element === null) {
     throw new Error('AsyncButton rendered no button');
   }
+
   return element;
 }
 
@@ -96,9 +100,11 @@ describe(AsyncButton, () => {
   it('shows a failure inline, linked to the button, until the next press', async () => {
     const attempts = [deferred(), deferred()];
     let call = 0;
+
     const fixture = await render(async () => {
       const attempt = attempts[call];
       call += 1;
+
       return attempt?.promise;
     });
 
@@ -120,6 +126,7 @@ describe(AsyncButton, () => {
     const fixture = await render(async () => {
       throw new Error('Server said no');
     });
+
     fixture.componentRef.setInput('describedBy', 'why');
     TestBed.tick();
     expect(button(fixture).getAttribute('aria-describedby')).toBe('why');

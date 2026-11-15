@@ -28,6 +28,7 @@ const meta: Meta<HoverCard> = {
       </fr-text>`,
   }),
 };
+
 export default meta;
 
 export const Default: HoverCardStory = {};

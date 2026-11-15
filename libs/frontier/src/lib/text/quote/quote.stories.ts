@@ -24,6 +24,7 @@ const meta: Meta<Quote> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Passage: QuoteStory = {};

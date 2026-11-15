@@ -36,16 +36,19 @@ export class RollDamage {
 
   protected readonly sections = computed((): readonly SectionDisplay[] => {
     const damage = this.damage();
+
     const immediate: SectionDisplay = {
       headingKey: 'roll.card.damageTaken',
       taken: this.#format.number(damage.taken),
       instances: damage.immediate.map((instance) => this.#instance(instance)),
     };
+
     const persistent: SectionDisplay = {
       headingKey: 'roll.card.persistentTaken',
       taken: this.#format.number(damage.persistentTaken),
       instances: damage.persistent.map((instance) => this.#instance(instance)),
     };
+
     return damage.persistent.length === 0 ? [immediate] : [immediate, persistent];
   });
 

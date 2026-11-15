@@ -47,6 +47,7 @@ export class SheetSpendLog {
     const read = this.#play.play.data();
     const entries: readonly ContentEntry[] = this.registry.data()?.packs.flatMap((pack) => pack.otherEntries) ?? [];
     const names = new Map<ContentId, string>(entries.map((entry): [ContentId, string] => [entry.id, entry.name]));
+
     return read === undefined ? [] : spendRows(read.play.spendLog, names);
   });
 
@@ -60,6 +61,7 @@ export class SheetSpendLog {
   /** The server's reason (a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

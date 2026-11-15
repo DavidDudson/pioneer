@@ -68,9 +68,11 @@ function transfer(
 
 function etched(inventory: Inventory, id: InventoryItemId, ...etchings: readonly RuneEtching[]): Inventory {
   let stock = inventory;
+
   for (const etching of etchings) {
     stock = etchRune(stock, id, etching);
   }
+
   return stock;
 }
 
@@ -188,6 +190,7 @@ describe('runeRefusal: etching a rune made for a choice', () => {
       rune: runeFixtureId(RuneFixture.Shadow),
       choice: RuneChoice.parse('fire'),
     };
+
     expect(refused(potent, etch(Armoury.Armor, chosen))).toBe('character.validation.runeTakesNoChoice');
   });
 });

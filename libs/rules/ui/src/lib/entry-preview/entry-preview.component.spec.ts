@@ -30,6 +30,7 @@ function render(preview: EntryPreview, previews?: EntryPreviews): HTMLElement {
   const fixture: ComponentFixture<EntryPreviewView> = TestBed.createComponent(EntryPreviewView);
   fixture.componentRef.setInput('preview', preview);
   fixture.detectChanges();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -53,10 +54,12 @@ describe(EntryPreviewView, () => {
 
   it('links the statistic name to its breakdown when the page has one', () => {
     const effects = [modifierPreviewEffect(FIREBALL, { statistic: 'Perception', selector: 'perception', value: 1 })];
+
     const previews: EntryPreviews = {
       preview: () => undefined,
       statistic: (selector) => ({ to: ['/sheet'], queryParams: { breakdown: selector } }),
     };
+
     const root = render({ ...FIREBALL_PREVIEW, effects }, previews);
     const link = root.querySelector('a');
     expect(link?.textContent).toBe('Perception');
@@ -78,6 +81,7 @@ describe(EntryPreviewView, () => {
         status: { kind: EffectStatusKind.Conditional, summary: undefined },
       }),
     ];
+
     expect(render({ ...FIREBALL_PREVIEW, effects }).textContent).toContain('Perception +2 status (Conditional)');
   });
 

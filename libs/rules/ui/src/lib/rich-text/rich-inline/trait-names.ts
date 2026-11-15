@@ -58,11 +58,13 @@ interface Linked extends Mention {
 function listEndingAt(run: string, last: Mention): readonly Mention[] {
   const names: Mention[] = [last];
   let earlier = EARLIER_NAME.exec(run.slice(0, last.at));
+
   while (earlier !== null) {
     const name = earlier.groups?.['name'] ?? '';
     names.unshift({ name, at: earlier.index });
     earlier = EARLIER_NAME.exec(run.slice(0, earlier.index));
   }
+
   return names.some((each) => NOT_NAMES.has(each.name.toLowerCase())) ? [] : names;
 }
 
@@ -72,14 +74,17 @@ function mentions(run: string): readonly Mention[] {
     name: match.groups?.['name'] ?? '',
     at: match.index,
   }));
+
   const found = lasts.flatMap((last) => listEndingAt(run, last));
   const unique = new Map(found.map((each): [number, Mention] => [each.at, each]));
+
   return [...unique.values()].toSorted((left, right) => left.at - right.at);
 }
 
 /** The id of the trait a name names, whatever its case; none for a word that is not a slug ("fire-", "a--b"). */
 function idOf(name: string): ContentId | undefined {
   const trait = Trait.safeParse(name.toLowerCase());
+
   return trait.success ? traitId(trait.data) : undefined;
 }
 
@@ -98,20 +103,26 @@ export function linkTraitNames(content: InlineContent, linkable: (id: ContentId)
     if (node.type !== 'text' || node.marks !== undefined) {
       return [node];
     }
+
     const linked = mentions(node.text).flatMap((each): readonly Linked[] => {
       const id = idOf(each.name);
+
       return id !== undefined && linkable(id) ? [{ ...each, id }] : [];
     });
+
     if (linked.length === 0) {
       return [node];
     }
+
     const out: InlineContent[number][] = [];
     let cursor = 0;
+
     for (const { name, at, id } of linked) {
       const ref = { type: InlineKind.Ref, id, label: InlineLabel.parse(name) } as const;
       out.push(...plain(node.text.slice(cursor, at)), ref);
       cursor = at + name.length;
     }
+
     return [...out, ...plain(node.text.slice(cursor))];
   });
 }

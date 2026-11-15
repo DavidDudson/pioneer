@@ -35,6 +35,7 @@ const core = new ContentPackBuilder().withId('player-core').withAncestry('human'
 const lost = new ContentPackBuilder()
   .withId('lost-kits')
   .withKit('lost', { items: [{ item: ContentId.parse(newId()), quantity: 1 }] });
+
 const lostKit = ContentId.parse(lost.idOf(ContentKind.Kit, 'lost'));
 
 describe('CharacterService kit edits', () => {
@@ -52,21 +53,25 @@ describe('CharacterService kit edits', () => {
   /** Applies `patch` to the character at its current version and keeps the result. */
   async function edit(patch: CharacterPatch): Promise<Character> {
     ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
+
     return character;
   }
 
   async function add(name: ItemFixture): Promise<InventoryItemId> {
     const saved = await edit({ field: CharacterPatchField.GiftItem, item: itemFixtureId(name), quantity: one });
     const added = saved.document.inventory.items.at(-1);
+
     if (added === undefined) {
       throw new Error('Nothing was added');
     }
+
     return added.id;
   }
 
   async function refusal(patch: CharacterPatch): Promise<unknown> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
+
     return (error as ValidationError).issues;
   }
 
@@ -75,11 +80,13 @@ describe('CharacterService kit edits', () => {
 
     const { items, coins } = character.document.inventory;
     const backpack = items.find((each) => each.item === itemFixtureId(ItemFixture.Backpack));
+
     const lines = items.map(({ item, quantity, container }) => ({
       item,
       quantity,
       inside: container === backpack?.id,
     }));
+
     expect(lines).toStrictEqual([
       { item: itemFixtureId(ItemFixture.Backpack), quantity: one, inside: false },
       { item: itemFixtureId(ItemFixture.Rope), quantity: one, inside: true },

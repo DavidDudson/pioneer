@@ -33,6 +33,7 @@ async function render({ picked, preview, confirm = async () => undefined }: Inpu
   fixture.componentRef.setInput('preview', preview);
   fixture.componentRef.setInput('confirm', confirm);
   await fixture.whenStable();
+
   return { host: fixture.nativeElement as HTMLElement, cancelled: () => cancelled };
 }
 
@@ -42,9 +43,11 @@ function textOf(element: Element | null | undefined): string | undefined {
 
 function buttonOf(host: HTMLElement, name: string): HTMLButtonElement {
   const found = [...host.querySelectorAll('button')].find((button) => textOf(button) === name);
+
   if (found === undefined) {
     throw new Error(`no button ${name}`);
   }
+
   return found;
 }
 

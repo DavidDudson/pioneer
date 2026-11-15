@@ -25,6 +25,7 @@ async function renderShell(): Promise<ComponentFixture<App>> {
   }).compileComponents();
   const fixture = TestBed.createComponent(App);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -35,6 +36,7 @@ async function answerMe(fixture: ComponentFixture<App>, status: number, body: ob
     .flush(body, { status, statusText: String(status) });
   await TestBed.inject(ApplicationRef).whenStable();
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -50,21 +52,27 @@ async function openMenu(root: HTMLElement, label: string): Promise<HTMLButtonEle
     expect(root.querySelector(selector)).not.toBeNull();
   });
   const trigger = root.querySelector<HTMLButtonElement>(selector);
+
   if (trigger === null) {
     throw new Error(`No menu trigger named ${label}`);
   }
+
   trigger.click();
+
   return trigger;
 }
 
 /** The open account dropdown's panel, which the overlay puts outside the app's root. */
 function accountPanel(): HTMLElement {
   const panel = document.querySelector<HTMLElement>('[role="group"][aria-label="Account menu"]');
+
   if (panel === null) {
     throw new Error('The account menu is closed');
   }
+
   return panel;
 }
+
 /** The shell reads its header height with a `ResizeObserver`, which jsdom lacks. */
 class FakeResizeObserver {
   public readonly observe = vi.fn<() => void>();
@@ -120,12 +128,14 @@ describe(App, () => {
 
   it('offers sign-in, theme and dark mode, and no settings, when signed out', async () => {
     const fixture = await renderShell();
+
     const element = await answerMe(fixture, 401, {
       type: 'unauthorized',
       title: 'Unauthorized',
       status: 401,
       message: { key: 'problem.unauthorized' },
     });
+
     await openMenu(element, 'Account menu');
     await fixture.whenStable();
     const panel = accountPanel();
@@ -136,6 +146,7 @@ describe(App, () => {
 
   it('shows who is signed in, with their settings and sign-out', async () => {
     const fixture = await renderShell();
+
     const element = await answerMe(fixture, 200, {
       id: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
       displayName: 'Amiri',
@@ -143,6 +154,7 @@ describe(App, () => {
       createdAt: '2026-10-09T08:00:00.000Z',
       updatedAt: '2026-10-09T08:00:00.000Z',
     });
+
     await vi.waitFor(() => {
       expect(element.querySelector('[aria-label="Account menu"]')).not.toBeNull();
     });

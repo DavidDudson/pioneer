@@ -13,12 +13,15 @@ const KIT_ITEMS_MAX = 32;
 const QUANTITY_MAX = 100;
 
 const contentIds = uuid({ version: 4 }).map((id) => ContentId.parse(id));
+
 const kitItem = record({
   item: contentIds,
   quantity: integer({ min: 1, max: QUANTITY_MAX }),
 });
+
 /** A kit's `data`: items, some holding others as containers do. */
 const containerContents = option(array(kitItem, { maxLength: KIT_ITEMS_MAX }), { nil: undefined });
+
 const kit: Arbitrary<KitData> = array(record({ line: kitItem, contents: containerContents }), {
   minLength: 1,
   maxLength: KIT_ITEMS_MAX,
@@ -44,6 +47,7 @@ describe('kitItems (properties)', () => {
           { item, quantity: Number(quantity), under: -1 },
           ...contents.map((inner) => ({ item: inner.item, quantity: Number(inner.quantity), under: at })),
         ]);
+
         const tops = lines.filter((line) => line.container === container).map((line) => line.id);
         expect(
           lines.map(({ item, quantity, container: holder }) => ({

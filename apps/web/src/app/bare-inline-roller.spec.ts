@@ -27,6 +27,7 @@ function rollerWith(...faces: readonly number[]): InlineRoller {
       { provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) },
     ],
   });
+
   return TestBed.inject(INLINE_ROLLER);
 }
 

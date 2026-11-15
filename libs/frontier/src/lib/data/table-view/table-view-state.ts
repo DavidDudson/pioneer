@@ -35,6 +35,7 @@ const NO_FILTERS: readonly FilterCondition[] = [];
 /** Every table key, the ones the view leaves out as `undefined`, which the router removes from the URL. */
 function paramsFor(view: TableView, schema: TableViewSchema): Params {
   const written = encodeTableView(view, schema);
+
   return Object.fromEntries(TABLE_KEYS.map((key) => [key, written[key]]));
 }
 

@@ -31,6 +31,7 @@ export class CampaignKeyItemHolder {
   /** The party's characters, less the one holding the key item already. */
   protected readonly options = computed((): readonly SelectOption<string>[] => {
     const { holder } = this.keyItem();
+
     return (this.#campaigns.party.data()?.characters ?? [])
       .filter((character) => character.characterId !== holder)
       .map((character) => ({ value: character.characterId, label: character.name }));
@@ -39,6 +40,7 @@ export class CampaignKeyItemHolder {
 
   protected readonly give = async (): Promise<void> => {
     const chosen = this.chosen();
+
     if (chosen !== undefined) {
       await this.#keyItems.give(this.keyItem().id, CharacterId.parse(chosen));
       this.chosen.set(undefined);

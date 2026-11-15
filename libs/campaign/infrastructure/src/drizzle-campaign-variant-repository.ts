@@ -36,6 +36,7 @@ export class DrizzleCampaignVariantRepository extends CampaignVariantRepository 
       .select()
       .from(campaignVariantRules)
       .where(eq(campaignVariantRules.campaignId, campaignId));
+
     // Sorted here so no query needs an index for it; a campaign enables few variant rules.
     return rows
       .map((row) => toCampaignVariantRule(row))

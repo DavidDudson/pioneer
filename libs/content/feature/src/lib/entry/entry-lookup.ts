@@ -35,6 +35,7 @@ export function entryKinds(kind: ContentKind): readonly ContentKind[] {
 /** The kind a link names, or `undefined` when it is no kind. */
 export function kindOfParam(param: string | null | undefined): ContentKind | undefined {
   const parsed = ContentKindSchema.safeParse(param);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -44,6 +45,7 @@ export function kindOfParam(param: string | null | undefined): ContentKind | und
  */
 function creatureEntry(pack: ContentPack, creature: PackCreature): ContentEntry {
   const { slug, name, sources, traits, level, ...data } = creature;
+
   return {
     id: ContentIdSchema.parse(contentId(pack.id, slug)),
     pack: pack.id,
@@ -66,6 +68,7 @@ function creatureEntry(pack: ContentPack, creature: PackCreature): ContentEntry 
  */
 function statisticEntry(pack: ContentPack, statistic: PackStatistic): ContentEntry {
   const { slug, name, sources, ...data } = statistic;
+
   return {
     id: ContentIdSchema.parse(contentId(pack.id, slug)),
     pack: pack.id,
@@ -104,6 +107,7 @@ export function entryCard(entry: ContentEntry, description: ContentEntry['descri
     summary: description ?? entry.description,
     sources: entry.sources,
   };
+
   return entry.kind === ContentKind.Creature
     ? { ...card, creature: { name: entry.name, level: entry.level, traits: entry.traits, data: entry.data } }
     : card;
@@ -120,6 +124,7 @@ export function entryLinks(index: () => ReadonlyMap<ContentId, ContentEntry> | u
     name: (id): ContentText | undefined => index()?.get(id)?.name,
     target: (id): LinkTarget | undefined => {
       const entry = index()?.get(id);
+
       return entry === undefined ? undefined : entryTarget(entry);
     },
     statisticName: (): undefined => undefined,
@@ -131,10 +136,12 @@ export function entryPreviews(index: () => ReadonlyMap<ContentId, ContentEntry> 
   return {
     preview: (id): EntryPreview | undefined => {
       const entry = index()?.get(id);
+
       return entry === undefined ? undefined : entryCard(entry, undefined);
     },
     target: (id): LinkTarget | undefined => {
       const entry = index()?.get(id);
+
       return entry === undefined ? undefined : entryTarget(entry);
     },
   };

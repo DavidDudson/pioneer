@@ -16,10 +16,13 @@ export interface TransferFailure {
 export function transferFailure(error: unknown, fallback: string): TransferFailure {
   if (ApiError.isConflict(error)) {
     const { key, params } = ApiError.describe(error);
+
     return { key, params: params ?? {} };
   }
+
   if (error instanceof ApiError && error.status === NOT_FOUND) {
     return { key: 'campaign.transfers.notFound', params: {} };
   }
+
   return { key: fallback, params: {} };
 }

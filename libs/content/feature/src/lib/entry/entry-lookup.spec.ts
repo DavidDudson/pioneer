@@ -8,9 +8,11 @@ const VERSATILE = Trait.parse('versatile-p');
 
 function registryOf(...packs: readonly ContentPackBuilder[]): ContentRegistry {
   const registry = new ContentRegistry();
+
   for (const pack of packs) {
     registry.register(pack.build());
   }
+
   return registry;
 }
 
@@ -21,7 +23,9 @@ function packWith(id: string): ContentPackBuilder {
 const official = packWith('player-core').withItem(ContentKind.Trait, 'versatile-p', {
   appliesTo: [ContentKind.Equipment],
 });
+
 official.withFeat('power-attack', { traits: ['fighter'] });
+
 const names = traitNamesOf(registryEntries(registryOf(official)));
 
 describe(traitNamesOf, () => {
@@ -33,6 +37,7 @@ describe(traitNamesOf, () => {
     const homebrew = packWith('homebrew').withItem(ContentKind.Trait, 'versatile-p', {
       appliesTo: [ContentKind.Equipment],
     });
+
     const homebrewName = registryEntries(registryOf(homebrew)).find((entry) => entry.kind === ContentKind.Trait)?.name;
     const both = traitNamesOf(registryEntries(registryOf(official, homebrew)));
 

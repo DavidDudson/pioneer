@@ -26,6 +26,7 @@ const withBackpack = addItem(EMPTY_INVENTORY, {
   quantity: one,
   container: undefined,
 });
+
 const carried: Inventory = addItem(withBackpack, {
   id: ropeId,
   item: itemFixtureId(ItemFixture.Rope),
@@ -90,11 +91,14 @@ const KIT: readonly (readonly [InventoryItemId, ItemFixture])[] = [
 /** `carried` with leather and hide armour, a greatsword and a cloak, all stowed loose. */
 function kitted(): Inventory {
   let stock = carried;
+
   for (const [id, name] of KIT) {
     stock = addItem(stock, { id, item: itemFixtureId(name), quantity: one, container: undefined });
   }
+
   return stock;
 }
+
 const kit = kitted();
 
 describe('itemRefusal: carrying', () => {

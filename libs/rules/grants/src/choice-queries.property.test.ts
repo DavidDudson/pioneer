@@ -15,8 +15,10 @@ const ENTRIES_MAX = 12;
 const TRAITS = ['fighter', 'rogue', 'general', 'flourish'] as const;
 const LEVEL_MAX = 4;
 const NAMES = ['Alpha', 'Beta', 'Gamma'] as const;
+
 /** Levels the character may be, which a filter reads as `self:level`. */
 const LEVELS = [1, 3] as const;
+
 /** Situational facts a filter may read. */
 const SITUATION = ['terrain:forest'] as const;
 
@@ -64,6 +66,7 @@ const factsOf = (options: readonly string[]): PredicateFacts =>
 
 function resolve({ feats, filter, level, situation }: Drawn): GrantResolution {
   const asker = entry('asker', [{ key: 'ChoiceSet', flag: 'pick', choices: { kind: 'feat', filter } }]);
+
   return resolveGrants(inputsOf({ entries: [asker, ...feats], roots: [picked('asker')], level, situation }));
 }
 
@@ -74,6 +77,7 @@ function resolve({ feats, filter, level, situation }: Drawn): GrantResolution {
 function truthFor(candidateFeat: GrantEntry, { filter, level, situation }: Drawn): Truth {
   const own = candidateFeat.rollOptions.map((option) => `item:${option}`);
   const character = [`self:level:${level}`, 'feature:asker', ...situation];
+
   return evaluatePredicate(Predicate.parse(filter), factsOf([...character, ...own]));
 }
 
@@ -84,6 +88,7 @@ describe('choice query properties', () => {
         const [slot] = resolve(draw).open;
         const expected = draw.feats.filter((each) => truthFor(each, draw) !== Truth.False);
         expect(new Set(slot?.options.map((option) => option.value))).toEqual(new Set(expected.map((each) => each.id)));
+
         for (const option of slot?.options ?? []) {
           const found = draw.feats.find((each) => each.id === option.value);
           const unknown = found !== undefined && truthFor(found, draw) === Truth.Unknown;
@@ -97,6 +102,7 @@ describe('choice query properties', () => {
     const shuffled = drawn.chain((draw) =>
       shuffledSubarray([...draw.feats], { minLength: draw.feats.length }).map((order) => ({ draw, order })),
     );
+
     assert(
       property(shuffled, ({ draw, order }) => {
         const options = resolve(draw).open[0]?.options ?? [];

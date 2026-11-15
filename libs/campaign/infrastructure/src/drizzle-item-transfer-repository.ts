@@ -32,6 +32,7 @@ function toTransfer(row: ItemTransferRow): ItemTransfer {
   if (row.itemId === null) {
     throw new Error(`Transfer ${row.id} is not an item offer`);
   }
+
   return {
     id: row.id,
     from: row.fromCharacterId,
@@ -48,6 +49,7 @@ function toCoinTransfer(row: ItemTransferRow): CoinTransfer {
   if (row.platinum === null || row.gold === null || row.silver === null || row.copper === null) {
     throw new Error(`Transfer ${row.id} is not a coin offer`);
   }
+
   return {
     id: row.id,
     from: row.fromCharacterId,
@@ -75,12 +77,14 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
         and(eq(campaignItemTransfers.campaignId, campaignId), eq(campaignItemTransfers.status, TransferStatus.Pending)),
       )
       .orderBy(asc(campaignItemTransfers.createdAt), asc(campaignItemTransfers.id));
+
     return rows.map((row) => (row.itemId === null ? toCoinTransfer(row) : toTransfer(row)));
   }
 
   public override async insert(actor: UserId, campaignId: CampaignId, transfer: ItemTransfer): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: OFFER_COMMAND });
+
       const inserted = await tx
         .insert(campaignItemTransfers)
         .values({
@@ -96,6 +100,7 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
         // The partial unique index allows one pending offer per line: a concurrent second offer loses here.
         .onConflictDoNothing()
         .returning({ id: campaignItemTransfers.id });
+
       if (inserted.length === 0) {
         throw new ConflictError(
           `Inventory item ${transfer.item} is already on offer`,
@@ -130,15 +135,18 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
       .from(campaignItemTransfers)
       .where(and(eq(campaignItemTransfers.campaignId, campaignId), eq(campaignItemTransfers.id, id)))
       .limit(1);
+
     if (row === undefined) {
       return undefined;
     }
+
     return row.itemId === null ? toCoinTransfer(row) : toTransfer(row);
   }
 
   public override async answer({ actor, campaignId, id, status }: TransferAnswer): Promise<boolean> {
     return this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: ANSWER_COMMANDS[status] });
+
       // Pending only: of two answers at once the second finds no pending row and changes nothing.
       const answered = await tx
         .update(campaignItemTransfers)
@@ -151,6 +159,7 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
           ),
         )
         .returning({ id: campaignItemTransfers.id });
+
       return answered.length > 0;
     });
   }

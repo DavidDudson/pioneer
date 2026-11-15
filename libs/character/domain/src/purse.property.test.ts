@@ -13,6 +13,7 @@ const SMALLEST_FIRST = COINS.toReversed();
 const COUNT_MAX = 6;
 const COST_MAX = 8000;
 const QUANTITY_MAX = 32_767;
+
 /** How many of a coin make one of the next larger coin. */
 const PER_LARGER = 10;
 
@@ -28,13 +29,16 @@ const cost: Arbitrary<CopperValue> = integer({ min: 0, max: COST_MAX }).map((val
 /** Every handful of `purse`'s coins, as its value in copper. */
 function handfulValues(purse: Coins): number[] {
   const values: number[] = [0];
+
   for (const coin of COINS) {
     const worth = COPPER_PER_COIN[coin];
     const before = [...values];
+
     for (let count = 1; count <= purse[coin]; count += 1) {
       values.push(...before.map((value) => value + count * worth));
     }
   }
+
   return values;
 }
 
@@ -43,6 +47,7 @@ function leastOverpayment(purse: Coins, target: number): number {
   const overpayments = handfulValues(purse)
     .filter((value) => value >= target)
     .map((value) => value - target);
+
   return Math.min(...overpayments);
 }
 
@@ -56,6 +61,7 @@ describe('payment properties', () => {
     assert(
       property(coins, cost, (purse, price) => {
         const paid = payCost(purse, price);
+
         return (
           paid === undefined ||
           (coinsValue(paid) === coinsValue(purse) - price && COINS.every((coin) => paid[coin] >= 0))
@@ -74,11 +80,14 @@ describe('payment properties', () => {
     assert(
       property(coins, cost, (purse, price) => {
         const paid = payment(purse, price);
+
         if (paid === undefined) {
           return true;
         }
+
         const { handed } = paid;
         const held = COINS.every((coin) => handed[coin] <= purse[coin]);
+
         return held && coinsValue(handed) - price === leastOverpayment(purse, price);
       }),
     );
@@ -89,6 +98,7 @@ describe('payment properties', () => {
       property(coins, cost, (purse, price) => {
         const paid = payment(purse, price);
         const smallest = paid === undefined ? undefined : smallestHanded(paid.handed);
+
         return (
           paid === undefined || smallest === undefined || coinsValue(paid.handed) - price < COPPER_PER_COIN[smallest]
         );
@@ -101,6 +111,7 @@ describe('payment properties', () => {
       property(coins, cost, (purse, price) => {
         const paid = payment(purse, price);
         const below = COINS.slice(1);
+
         return (
           paid === undefined ||
           (coinsValue(paid.change) === coinsValue(paid.handed) - price &&
@@ -114,6 +125,7 @@ describe('payment properties', () => {
     assert(
       property(coins, cost, (purse, price) => {
         const paid = payment(purse, price);
+
         return leastOverpayment(purse, price) !== 0 || coinsValue(paid?.change ?? purse) === 0;
       }),
     );
@@ -124,6 +136,7 @@ describe('payment properties', () => {
     assert(
       property(coins, quantity, (purse, count) => {
         const paid = payCost(purse, purchaseCost(undefined, count));
+
         return JSON.stringify(paid) === JSON.stringify(purse);
       }),
     );

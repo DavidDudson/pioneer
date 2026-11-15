@@ -10,17 +10,21 @@ const PLAYER_CORE = contentPackFromContents(await playerCorePack());
 
 function environment(slug: string): ContentEntry {
   const found = GM_CORE.find((entry) => entry.slug === slug);
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the gm-core entries`);
   }
+
   return found;
 }
 
 function fatiguedId(): string {
   const found = PLAYER_CORE.otherEntries.find(({ slug }) => slug === 'condition:fatigued');
+
   if (found === undefined) {
     throw new Error('condition:fatigued is not in the player-core entries');
   }
+
   return found.id;
 }
 
@@ -105,6 +109,7 @@ describe('GM Core biome environments', () => {
 
 const byGroup = (slug: string): unknown => {
   const found = PLAYER_CORE.otherEntries.find((entry) => entry.slug === slug);
+
   return found === undefined ? undefined : EnvironmentData.parse(found.data).group;
 };
 

@@ -25,6 +25,7 @@ const meta: Meta<PageAside> = {
     `,
   }),
 };
+
 export default meta;
 
 /** Beside the body from the `lg` container size; stacked under it when narrower. */

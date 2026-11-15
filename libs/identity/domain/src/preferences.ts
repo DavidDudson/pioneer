@@ -13,6 +13,7 @@ export const Preferences = z.strictObject({
   bodyFont: BodyFontSchema.optional(),
   monoFont: MonoFontSchema.optional(),
 });
+
 export type Preferences = z.output<typeof Preferences>;
 
 /** Nothing chosen yet: what an account starts with. */

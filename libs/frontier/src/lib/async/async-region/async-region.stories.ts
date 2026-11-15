@@ -73,6 +73,7 @@ const meta: Meta<AsyncRegion<Party>> = {
     template: REGION,
   }),
 };
+
 export default meta;
 
 export const Loaded: AsyncRegionStory = {};

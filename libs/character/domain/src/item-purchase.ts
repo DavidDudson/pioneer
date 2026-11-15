@@ -41,9 +41,11 @@ export type AddPatch = Extract<
 /** `inventory` with `cost` paid from its coins. A missing cost, or one the coins don't cover, is a caller's bug. */
 function paid(inventory: Inventory, cost: CopperValue | undefined): Inventory {
   const coins = cost === undefined ? undefined : payCost(inventory.coins, cost);
+
   if (coins === undefined) {
     throw new TypeError('A purchase needs the cost its caller works out, and coins that cover it');
   }
+
   return { ...inventory, coins };
 }
 
@@ -55,8 +57,10 @@ export function withAddedItem(inventory: Inventory, patch: AddPatch, { newItemId
   if (newItemId === undefined) {
     throw new TypeError('An added item needs the id its caller gives it');
   }
+
   const { item, quantity, container } = patch;
   const added = addItem(inventory, { id: newItemId, item, quantity, container });
+
   return patch.field === CharacterPatchField.GiftItem ? added : paid(added, cost);
 }
 
@@ -68,9 +72,12 @@ export function withAddedKit(inventory: Inventory, patch: KitPatch, { kitItems, 
   if (kitItems === undefined) {
     throw new TypeError('An added kit needs the lines its caller expands it into');
   }
+
   let added = inventory;
+
   for (const line of kitItems) {
     added = addItem(added, line);
   }
+
   return patch.field === CharacterPatchField.GiftKit ? added : paid(added, cost);
 }

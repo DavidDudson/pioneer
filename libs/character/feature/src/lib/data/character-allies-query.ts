@@ -15,14 +15,17 @@ export function injectCharacterAllies(wanted: () => boolean): CreateQueryResult<
   const api = inject(ApiClient);
   const characters = inject(CharacterStore);
   const id = computed(() => characters.selected()?.id);
+
   return injectQuery(() => {
     const characterId = id();
+
     return {
       queryKey: ['characters', 'allies', characterId],
       queryFn: async (): Promise<CharacterAllies> => {
         if (characterId === undefined) {
           throw new Error('No character selected');
         }
+
         return api.call(CharacterContract.allies, { params: { id: characterId }, body: undefined });
       },
       enabled: characterId !== undefined && wanted(),

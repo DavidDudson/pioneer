@@ -10,6 +10,7 @@ import { etchRune } from './rune-edits';
 import { fundamental, ItemFixture, itemFixtureId, itemFixtureRegistry, RuneFixture, runeFixtureId } from './testing';
 
 installRulesFakes();
+
 const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 const HOLY_HEALING = Slug.parse('holy-healing');
 
@@ -21,14 +22,19 @@ function sword(...runes: readonly RuneFixture[]): InventoryItem {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+
   for (const rune of runes) {
     inventory = etchRune(inventory, SWORD, { type: RuneType.Property, rune: runeFixtureId(rune) });
   }
+
   const [line] = inventory.items;
+
   if (line === undefined) {
     throw new Error('the sword was not added');
   }
+
   return line;
 }
 

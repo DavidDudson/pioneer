@@ -127,6 +127,7 @@ export class GenerateCharacterPage {
   /** The step in the URL, but never past the first until an archetype is chosen. */
   protected readonly step = computed(() => {
     const asked = this.#stepParam();
+
     return this.role() === undefined || !Number.isInteger(asked) || asked < FIRST_STEP ? FIRST_STEP : asked;
   });
 
@@ -138,6 +139,7 @@ export class GenerateCharacterPage {
   /** What a picker shows while nothing is chosen. */
   protected readonly noChoice = computed(() => {
     this.#messages();
+
     return this.#i18n.translate('character.list.theme.weaponNone');
   });
   protected readonly classOptions = computed((): readonly SelectOption<string>[] => {
@@ -145,38 +147,46 @@ export class GenerateCharacterPage {
     const role = this.role();
     const any: SelectOption<string> = { value: '', label: this.#i18n.translate('character.generate.anyClass') };
     const played = role === undefined ? [] : this.#classes.playing(role);
+
     return [any, ...played.map((each) => ({ value: each.id, label: String(each.name) }))];
   });
   protected readonly ancestryOptions = computed((): readonly SelectOption<string>[] => {
     this.#messages();
+
     return this.#withAny(this.#origins.ancestries(), 'character.generate.anyAncestry');
   });
   protected readonly backgroundOptions = computed((): readonly SelectOption<string>[] => {
     this.#messages();
+
     return this.#withAny(this.#origins.backgrounds(), 'character.generate.anyBackground');
   });
   protected readonly categoryOptions = computed(() => {
     this.#messages();
+
     return this.#options(WEAPON_CATEGORY_MESSAGES);
   });
   protected readonly groupOptions = computed(() => {
     this.#messages();
+
     return this.#options(WEAPON_GROUP_MESSAGES);
   });
   protected readonly baseOptions = computed(() => {
     this.#messages();
     const none: SelectOption<string> = { value: '', label: this.#i18n.translate('character.list.theme.weaponNone') };
+
     return [none, ...this.#weaponBases.bases().map(({ base, name }) => ({ value: base, label: name }))];
   });
 
   protected readonly roleSummary = computed(() => {
     this.#messages();
     const role = this.role();
+
     return role === undefined ? '' : this.#i18n.translate(ROLE_MESSAGES[role]);
   });
   protected readonly classSummary = computed(() => {
     this.#messages();
     const chosen = this.classOptions().find((option) => option.value === this.classId());
+
     return chosen?.label ?? this.#i18n.translate('character.generate.anyClass');
   });
   protected readonly ancestrySummary = computed(() => this.#summaryOf(this.ancestryOptions(), this.ancestryId()));
@@ -184,12 +194,14 @@ export class GenerateCharacterPage {
   protected readonly styleSummary = computed(() => {
     this.#messages();
     const { favoured, category, group, base } = this.themeChoice();
+
     const parts = [
       ...favoured.map((attribute) =>
         this.#i18n.translate(THEME_ATTRIBUTES.find((each) => each.attribute === attribute)?.label ?? ''),
       ),
       ...[category, group, base].filter((each) => each !== undefined),
     ];
+
     return parts.length === 0 ? this.#i18n.translate('character.generate.noStyle') : parts.join(', ');
   });
 
@@ -248,11 +260,14 @@ export class GenerateCharacterPage {
   /** Makes the character from the answers; the stepper's Finish. */
   protected async generate(): Promise<void> {
     const role = this.role();
+
     if (role === undefined || this.pending()) {
       return;
     }
+
     this.pending.set(true);
     this.failed.set(false);
+
     try {
       const body = this.#body(role);
       const { character, seed } = await this.#generator.generate(body);
@@ -268,29 +283,34 @@ export class GenerateCharacterPage {
   #body(role: ClassRole): GenerateCharacterBody {
     const theme = themeOfChoice(this.themeChoice());
     const classId = this.classId();
+
     const locks = [
       ...lockOf(CLASS_SLOT, classId),
       ...lockOf(ANCESTRY_SLOT, this.ancestryId()),
       ...lockOf(BACKGROUND_SLOT, this.backgroundId()),
     ];
+
     return { ...GenerateCharacterForm.parse(this.details()), role, locks, ...(theme === undefined ? {} : { theme }) };
   }
 
   /** The options of a picker: the chance option first, then each choice by name. */
   #withAny(choices: readonly OriginChoice[], anyKey: string): readonly SelectOption<string>[] {
     const any: SelectOption<string> = { value: '', label: this.#i18n.translate(anyKey) };
+
     return [any, ...choices.map((each) => ({ value: each.id, label: each.name }))];
   }
 
   /** The label of the option chosen, or of the chance option when nothing is. */
   #summaryOf(options: readonly SelectOption<string>[], chosen: string): string {
     this.#messages();
+
     return (options.find((option) => option.value === chosen) ?? options[0])?.label ?? '';
   }
 
   /** The options of a weapon select: no choice first, then each value named by its message. */
   #options(messages: Readonly<Record<string, string>>): readonly SelectOption<string>[] {
     const none: SelectOption<string> = { value: '', label: this.#i18n.translate('character.list.theme.weaponNone') };
+
     return [none, ...Object.entries(messages).map(([value, key]) => ({ value, label: this.#i18n.translate(key) }))];
   }
 }

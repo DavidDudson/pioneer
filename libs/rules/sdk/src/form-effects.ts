@@ -9,6 +9,7 @@ const EFFECTS_MAX = 32;
 
 /** An effect a spell or an action can put on the user: its id, or its id with the predicate that offers it. */
 const SpellEffectEntry = z.union([ContentId, z.strictObject({ effect: ContentId, predicate: Predicate })]);
+
 export type SpellEffectEntry = z.infer<typeof SpellEffectEntry>;
 
 /** The id of the effect `entry` lists. */

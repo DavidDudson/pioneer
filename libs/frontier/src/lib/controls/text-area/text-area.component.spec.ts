@@ -8,14 +8,17 @@ function render(): ComponentFixture<TextArea> {
   const fixture = TestBed.createComponent(TextArea);
   fixture.componentRef.setInput('ariaLabel', 'JSON');
   fixture.detectChanges();
+
   return fixture;
 }
 
 function textarea(fixture: ComponentFixture<TextArea>): HTMLTextAreaElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector('textarea');
+
   if (element === null) {
     throw new Error('Expected a textarea');
   }
+
   return element;
 }
 

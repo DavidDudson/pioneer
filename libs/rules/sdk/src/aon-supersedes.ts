@@ -9,4 +9,5 @@ import { AonUrl } from './source-ref';
 export const AonSupersedesFile = z.strictObject({
   replacedBy: z.record(AonUrl, z.array(AonUrl).min(1).readonly()),
 });
+
 export type AonSupersedesFile = z.infer<typeof AonSupersedesFile>;

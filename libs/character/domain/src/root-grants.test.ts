@@ -11,6 +11,7 @@ const pack = new ContentPackBuilder()
   .withAncestry('human')
   .withHeritage('skilled-human', 'human')
   .withFeat('assurance');
+
 pack.withBackground(
   'farmhand',
   [['con', 'wis']],
@@ -20,7 +21,9 @@ pack.withBackground(
     { key: 'GrantItem', item: pack.idOf(ContentKind.Feat, 'assurance') },
   ],
 );
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 describe('the character’s own slots', () => {
@@ -30,10 +33,12 @@ describe('the character’s own slots', () => {
       [HERITAGE_SLOT, pack.idOf(ContentKind.Heritage, 'skilled-human')],
       [BACKGROUND_SLOT, pack.idOf(ContentKind.Background, 'farmhand')],
     ]);
+
     const resolution = resolveSlotsAt(Level.parse(1), {
       ...slotContent(registry),
       picks: new Map([...picks].map(([key, value]) => [SlotKey.parse(key), ChoiceValue.parse(value)])),
     });
+
     expect(resolution.errors).toEqual([]);
     const granted = resolution.items.map((item) => `${item.entry.kind}: ${item.entry.name}`);
     expect(granted.toSorted((left, right) => left.localeCompare(right))).toEqual([

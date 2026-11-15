@@ -44,6 +44,7 @@ function picksOfKind(character: Character, kind: SlotSubjectKind): readonly Gene
       slot.status === SlotStatus.Filled && slot.subject.kind === kind ? [slot.key] : [],
     ),
   );
+
   return picksOf(character).filter((pick) => wanted.has(pick.slot));
 }
 

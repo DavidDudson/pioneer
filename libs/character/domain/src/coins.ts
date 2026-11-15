@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 /** How many of one coin the character holds; a dragon's hoard runs past a smallint. */
 export const CoinAmount = Pg.integer().nonnegative().brand<'CoinAmount'>();
+
 export type CoinAmount = z.infer<typeof CoinAmount>;
 
 const NO_COINS = CoinAmount.parse(0);
@@ -15,4 +16,5 @@ export const CoinsSchema = z.strictObject({
   [Coin.Silver]: CoinAmount.default(NO_COINS),
   [Coin.Copper]: CoinAmount.default(NO_COINS),
 });
+
 export type Coins = z.infer<typeof CoinsSchema>;

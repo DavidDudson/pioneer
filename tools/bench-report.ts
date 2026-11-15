@@ -50,6 +50,7 @@ export function toMarkdownTable(results: readonly BenchResult[]): string {
   const rows = results.map(
     ({ name, fastestMs, medianMs, budgetMs }) => `| ${name} | ${fastestMs} | ${medianMs} | ${budgetMs ?? ''} |`,
   );
+
   return ['| Benchmark | Fastest (ms) | Median (ms) | Budget (ms) |', '| --- | ---: | ---: | ---: |', ...rows].join(
     '\n',
   );

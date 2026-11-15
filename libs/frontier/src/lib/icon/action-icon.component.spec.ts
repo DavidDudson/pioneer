@@ -5,10 +5,13 @@ import { ActionIcon, ActionIconCost } from './action-icon.component';
 
 async function render(inputs: Record<string, unknown>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(ActionIcon);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

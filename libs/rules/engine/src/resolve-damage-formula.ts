@@ -27,6 +27,7 @@ const SPACES = /\s+/gu;
 /** `text` with the reference at `position` (1-based, the `@` included) replaced by `value`. */
 function replaced(text: FormulaText, { path, position }: FormulaReference, value: FormulaValue): FormulaText {
   const start = position - 1;
+
   return FormulaText.parse(`${text.slice(0, start)}${value}${text.slice(start + path.length + 1)}`);
 }
 
@@ -37,6 +38,7 @@ function tidied(text: FormulaText): DiceExpressionText | undefined {
     .replaceAll(MINUS_NEGATIVE, '+ ')
     .replaceAll(BRACKETED_COUNT, '$<count>')
     .replaceAll(SPACES, '');
+
   return DiceExpressionText.safeParse(tidy).data;
 }
 
@@ -47,20 +49,27 @@ function tidied(text: FormulaText): DiceExpressionText | undefined {
  */
 export function resolveDamageFormula(formula: DamageFormula, inputs: StatisticInputs): ResolvedDamageFormula {
   const parsed = parseFormula(FormulaText.parse(formula.replaceAll(DICE_D, AS_PRODUCT)));
+
   const resolve = resolverFor(
     { inputs, proficiency: { bonuses: new Map(), origin: undefined } },
     (): undefined => undefined,
   );
+
   let text = FormulaText.parse(formula);
+
   for (const reference of parsed.ok ? references(parsed.formula).toReversed() : []) {
     const value = resolve(reference.path);
+
     if (value === undefined) {
       return { ok: false, unresolved: FormulaText.parse(`@${reference.path}`) };
     }
+
     text = replaced(text, reference, value);
   }
+
   const tidy = parsed.ok ? tidied(text) : undefined;
   const dice = tidy === undefined ? undefined : parseDiceExpression(tidy);
+
   return dice?.ok === true
     ? { ok: true, expression: dice.expression }
     : { ok: false, unresolved: FormulaText.parse(formula) };

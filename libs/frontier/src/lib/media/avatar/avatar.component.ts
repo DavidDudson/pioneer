@@ -68,6 +68,7 @@ export class Avatar {
   /** The accessible name. A blank name (a display name not yet loaded) leaves the avatar decorative. */
   protected readonly label = computed(() => {
     const name = this.name().trim();
+
     return this.decorative() || name === '' ? undefined : name;
   });
   protected readonly imageDecorative = computed(() => this.label() === undefined);

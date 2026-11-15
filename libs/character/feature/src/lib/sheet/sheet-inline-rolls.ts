@@ -29,6 +29,7 @@ export class SheetInlineRolls implements InlineRoller {
   /** Rolls a check in text against its DC: a number, or the total of another statistic (`against: class-dc`). */
   public check({ node, label }: InlineCheckRoll): void {
     const statistic = this.#statistic(node.statistic);
+
     if (statistic !== undefined) {
       this.#rolls.rollAgainst({ name: label, statistic }, this.#dcOf(node.dc), node);
     }
@@ -38,10 +39,13 @@ export class SheetInlineRolls implements InlineRoller {
   public damage({ node, label }: InlineDamageRoll): void {
     const registry = this.#state.engine();
     const character = this.#state.character();
+
     if (registry === undefined || character === undefined) {
       return;
     }
+
     const resolved = resolveDamageNode(node, statisticInputsOf(registry, character));
+
     if (resolved.ok) {
       this.#rolls.rollDamage(label, resolved.expression);
     }
@@ -50,6 +54,7 @@ export class SheetInlineRolls implements InlineRoller {
   #statistic(selector: Selector): StatisticValue | undefined {
     const registry = this.#state.engine();
     const character = this.#state.character();
+
     return registry === undefined || character === undefined
       ? undefined
       : sheetRollSetup(registry, character, { selector, chosen: new Set(), as: undefined })?.statistic;
@@ -59,7 +64,9 @@ export class SheetInlineRolls implements InlineRoller {
     if (typeof dc === 'number' || dc === undefined) {
       return dc;
     }
+
     const against = this.#statistic(dc.against);
+
     return against === undefined ? undefined : Dc.parse(Number(against.total));
   }
 }

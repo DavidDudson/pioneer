@@ -13,9 +13,11 @@ export function injectBrowseRegistry(
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+
   return injectQuery(() => {
     const wanted = kinds();
     const { homebrew, ready } = scope();
+
     return {
       queryKey: ['content', 'browse', wanted?.toSorted(), homebrew.toSorted()],
       enabled: wanted !== undefined && ready,

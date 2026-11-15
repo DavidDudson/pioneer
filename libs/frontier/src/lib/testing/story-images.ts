@@ -20,6 +20,7 @@ export function storyImage({ width, height, fromHue, toHue }: StoryImage): strin
     '<rect width="100%" height="100%" fill="url(#g)"/>',
     '</svg>',
   ].join('');
+
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 

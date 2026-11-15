@@ -48,6 +48,7 @@ export function staffSpendRequest(registry: ContentRegistry, cast: StaffCast, id
   const option = spellContent(registry).anySpell(cast.spell);
   const range = option === undefined ? undefined : spellCost(option);
   const cost = spendCostOf(range?.cost ?? ActionCost.Free, undefined) ?? { kind: SpendKind.Free };
+
   return { id, action: cast.spell, cost, staff: cast };
 }
 
@@ -69,6 +70,7 @@ function optionLine(option: StaffCommand, charges: number, ranks: SlotRanks): St
 
 function spellLine(source: StaffSource, spell: StaffSource['spells'][number], context: LineContext): StaffSpellLine {
   const { id, spell: content, rank, charges, problem } = spell;
+
   return {
     key: id,
     id,
@@ -94,6 +96,7 @@ interface LineContext {
 export function sheetStaves(registry: ContentRegistry, character: Character, { resources }: StavesInPlay): StaffLine[] {
   const entries = characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry)));
   const items = itemContent(registry);
+
   const context: LineContext = {
     slots: { spent: resources.slots, maxima: sheetCounted(registry, character).slots },
     ranks: new Map(
@@ -103,6 +106,7 @@ export function sheetStaves(registry: ContentRegistry, character: Character, { r
     ),
     level: character.document.level,
   };
+
   return staffSources({
     inventory: character.document.inventory.items,
     items,

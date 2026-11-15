@@ -19,6 +19,7 @@ const openPlan = openerAt(SheetMode.Plan);
 async function openLevelOne(character: object): Promise<OpenSheet> {
   const opened = await openPlan(character);
   await openLevel(opened.root, 1);
+
   return opened;
 }
 
@@ -29,6 +30,7 @@ const FIRST_SLOT = 'Level 1 trained skill 1';
 /** Merisiel as a fighter, with `choices` picked besides. */
 function fighter(choices: Readonly<Record<string, string>> = {}, lores: Readonly<Record<string, string>> = {}): object {
   const picks = { ...MERISIEL.build.choices, class: playerCoreClassId('fighter'), 'boost:1:class:0': 'str' };
+
   return { ...MERISIEL, build: { choices: { ...picks, ...choices }, lores } };
 }
 
@@ -65,9 +67,11 @@ function rankOf(root: HTMLElement, name: string): ShownRank | undefined {
   const item = [...skillsSection(root).querySelectorAll('fr-list-item')].find((each) =>
     each.textContent.trim().startsWith(name),
   );
+
   const rank = item?.querySelector('pio-proficiency-rank');
   const letter = rank?.querySelector('[aria-hidden="true"]')?.textContent.trim();
   const read = rank?.querySelector('.sr-only')?.textContent.trim();
+
   return letter === undefined || read === undefined ? undefined : { letter, name: read };
 }
 
@@ -106,6 +110,7 @@ describe('CharacterSheetPage skills', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'skill-training:1:0', selection: ATHLETICS },
     });
@@ -157,6 +162,7 @@ describe('CharacterSheetPage skills', () => {
 
   it('lists a custom Lore the character picked with its rank, like a loaded one', async () => {
     const { root } = await openSheet(fighter({ 'skill-training:1:0': 'lore:sailing' }, { sailing: 'Sailing' }));
+
     const tab = await vi.waitFor(() =>
       present(
         [...skillsSection(root).querySelectorAll('fr-segmented button')].find(
@@ -164,6 +170,7 @@ describe('CharacterSheetPage skills', () => {
         ),
       ),
     );
+
     (tab as HTMLElement).click();
 
     await vi.waitFor(() => {
@@ -180,6 +187,7 @@ describe('CharacterSheetPage skills', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'skill-training:1:0', selection: 'lore:sailing', loreName: 'Sailing Lore' },
     });
@@ -197,15 +205,18 @@ describe('CharacterSheetPage skills', () => {
         },
       },
     };
+
     const { root } = await openSheet(cleric);
 
     await vi.waitFor(() => {
       expect(skillRow(root, 'Religion')).toBeDefined();
     });
     expect(skillRow(root, 'Religion')).not.toContain('the second training is lost');
+
     const religion = [...skillsSection(root).querySelectorAll('fr-list-item')].find((item) =>
       item.textContent.trim().startsWith('Religion'),
     );
+
     religion?.querySelector('button')?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
     await vi.waitFor(() => {
       expect(document.querySelector('[role="tooltip"]')?.textContent).toMatch(

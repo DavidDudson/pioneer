@@ -56,10 +56,13 @@ export class ShopOrder {
   protected readonly bill: Signal<Bill | undefined> = computed(() => {
     const coins = this.#store.selected()?.document.inventory.coins;
     const quantity = ItemQuantity.safeParse(this.model().quantity);
+
     if (coins === undefined || !quantity.success) {
       return undefined;
     }
+
     const cost = purchaseCost(this.item().data.price, quantity.data);
+
     return {
       cost: coinCounts(costCoins(cost)),
       coins: coinCounts(coins),
@@ -81,6 +84,7 @@ export class ShopOrder {
   /** Beside the form's submit, so it runs only while the form is valid. */
   protected readonly gift = async (): Promise<void> => {
     this.gifting.set(true);
+
     try {
       await this.#order(CharacterPatchField.GiftItem, this.model());
     } finally {
@@ -91,6 +95,7 @@ export class ShopOrder {
   /** The server's reason (coins that no longer cover the cost, a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 
@@ -99,12 +104,14 @@ export class ShopOrder {
     value: ShopOrderModel,
   ): Promise<void> {
     const { quantity, container } = ShopOrderForm.parse(value);
+
     const patch: CharacterPatch = {
       field,
       item: this.item().id,
       quantity,
       ...(container === LOOSE ? {} : { container }),
     };
+
     await this.#store.patch(patch);
     this.model.set(EMPTY_ORDER);
   }

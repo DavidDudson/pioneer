@@ -22,12 +22,15 @@ export interface Persona {
 /** The persona `seed` rolls on the character roll tables: the same seed always gives the same one. */
 export function rollPersona(seed: Seed): Persona {
   const source = seededPicks(seed);
+
   for (const bound of WARM_UP) {
     source.below(bound);
   }
+
   const name = rollOn(source, CHARACTER_NAMES);
   const trait = rollOn(source, CHARACTER_TRAITS);
   const flaw = rollOn(source, CHARACTER_FLAWS);
+
   return {
     name: CharacterName.parse(name),
     personality: [trait, flaw].map((line) => ({

@@ -57,6 +57,7 @@ function anElf(carrying: boolean): CharacterDocument {
     .withAncestry(AncestryId.parse(idOf('elf')))
     .picking(String(ANCESTRY_SLOT), idOf('elf'))
     .build();
+
   const inventory = carrying
     ? addItem(EMPTY_INVENTORY, {
         id: SWORD_LINE,
@@ -65,12 +66,14 @@ function anElf(carrying: boolean): CharacterDocument {
         container: undefined,
       })
     : EMPTY_INVENTORY;
+
   return { ...document, inventory };
 }
 
 /** The values the owned-item `ChoiceSet` slot would take, best first; none if the slot is not open. */
 function edgeCandidates(document: CharacterDocument): readonly string[] | undefined {
   const fill = openFills(document, content).find(({ slot }) => slot === EDGE_SLOT);
+
   return fill?.candidates.map(String);
 }
 

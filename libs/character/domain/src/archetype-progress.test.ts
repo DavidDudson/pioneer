@@ -20,16 +20,21 @@ import {
 import type { DedicationFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(DEDICATION_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A character at `level` with each feat picked in the archetype slot of its position, the first at 1st level. */
 function taking(level: number, ...feats: readonly DedicationFixture[]): Character {
   let builder = new CharacterBuilder().picking('class', DEDICATION_CLASS).atLevel(level);
+
   for (const [index, feat] of feats.entries()) {
     builder = builder.picking(dedicationSlot(index + 1), dedicationFixtureId(feat));
   }
+
   return builder.build();
 }
 
@@ -71,6 +76,7 @@ describe('archetype progress against the dedication lock', () => {
       taking(6, 'medic-dedication', 'medic-basic', 'medic-advanced', 'sentinel-dedication').document,
       content,
     );
+
     expect(progress.map(({ archetype }) => archetype)).toEqual([MEDIC, dedicationArchetypeId('sentinel')]);
   });
 
@@ -86,6 +92,7 @@ describe('archetype progress against the dedication lock', () => {
           taking(level, 'medic-dedication', 'medic-basic', 'medic-advanced').document,
           content,
         );
+
         expect(Number(medic?.clearsAt)).toBe(3);
         expect(Number(medic?.taken)).toBe(Math.min(Math.max(level - 1, 0), 2));
       }),

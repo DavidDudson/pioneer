@@ -36,6 +36,7 @@ export const BacklogGapType = {
   /** A link in rich text to an entry left out of the pack, which reads as text instead. */
   Link: 'link',
 } as const;
+
 export type BacklogGapType = ValueOf<typeof BacklogGapType>;
 
 export const BacklogGap = z.discriminatedUnion('type', [
@@ -55,6 +56,7 @@ export const BacklogGap = z.discriminatedUnion('type', [
   /** `entry` is the missing entry's `<pack>/<slug>`; `element` is the `Ref` node. */
   z.strictObject({ type: z.literal(BacklogGapType.Link), entry: Text, element: z.unknown() }),
 ]);
+
 export type BacklogGap = z.infer<typeof BacklogGap>;
 
 /** Why a translated entry is not in the pack. */
@@ -66,6 +68,7 @@ export const LeftOutReason = {
   /** It references an entry that is neither in the import nor in another official pack. */
   UnresolvedReference: 'unresolved-reference',
 } as const;
+
 export type LeftOutReason = ValueOf<typeof LeftOutReason>;
 
 export const BacklogItemType = {
@@ -74,6 +77,7 @@ export const BacklogItemType = {
   Document: 'document',
   Vocabulary: 'vocabulary',
 } as const;
+
 export type BacklogItemType = ValueOf<typeof BacklogItemType>;
 
 const EntryItem = z.strictObject({
@@ -87,6 +91,7 @@ const EntryItem = z.strictObject({
   /** Foundry's document as it was, art stripped, when the entry is left out. */
   document: z.unknown().optional(),
 });
+
 export type BacklogEntryItem = z.infer<typeof EntryItem>;
 
 const DocumentItem = z.strictObject({
@@ -106,10 +111,12 @@ const VocabularyItem = z.strictObject({
 });
 
 export const BacklogItem = z.discriminatedUnion('type', [EntryItem, DocumentItem, VocabularyItem]);
+
 export type BacklogItem = z.infer<typeof BacklogItem>;
 
 /** Keys that hold art: a document's and an effect's `img`, a token's `texture`. */
 const ART_KEYS: ReadonlySet<string> = new Set(['img', 'texture']);
+
 /** A path to an image or video file, as Foundry writes art (`systems/pf2e/icons/…webp`). */
 const ART_PATH = /\.(?:webp|png|jpe?g|gif|svg|webm|mp4)$/iu;
 
@@ -118,6 +125,7 @@ export function stripArt(raw: unknown): unknown {
   if (Array.isArray(raw)) {
     return raw.filter((each) => typeof each !== 'string' || !ART_PATH.test(each)).map((each) => stripArt(each));
   }
+
   if (typeof raw === 'object' && raw !== null) {
     return Object.fromEntries(
       Object.entries(raw).flatMap(([key, value]): [string, unknown][] =>
@@ -125,5 +133,6 @@ export function stripArt(raw: unknown): unknown {
       ),
     );
   }
+
   return raw;
 }

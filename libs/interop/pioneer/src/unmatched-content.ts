@@ -11,6 +11,7 @@ export const UnmatchedContentGroup = z.object({
   kind: ContentKindSchema,
   entries: z.array(ContentReference).readonly(),
 });
+
 export type UnmatchedContentGroup = z.infer<typeof UnmatchedContentGroup>;
 
 /**
@@ -21,15 +22,19 @@ export function unmatchedContent(file: PioneerCharacterFile, name: ReferenceName
   const unmatched = new Map<string, ContentReference>();
   rewriteReferences(file.character, (value) => {
     const reference = ContentReference.safeParse(value);
+
     if (reference.success && name(referencedId(reference.data)) === undefined) {
       unmatched.set(`${reference.data.source}/${reference.data.slug}`, reference.data);
     }
+
     return value;
   });
   const groups = new Map<z.infer<typeof ContentKindSchema>, ContentReference[]>();
+
   for (const reference of unmatched.values()) {
     const kind = slugKind(reference.slug);
     groups.set(kind, [...(groups.get(kind) ?? []), reference]);
   }
+
   return [...groups].map(([kind, entries]) => ({ kind, entries }));
 }

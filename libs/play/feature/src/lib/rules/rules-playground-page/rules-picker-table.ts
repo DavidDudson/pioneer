@@ -16,12 +16,16 @@ export function shownRulesRows<TValue extends string>(
 ): readonly RulesPickerRow<TValue>[] {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => `${row.label} ${row.group}`.toLocaleLowerCase().includes(needle));
+
   if (sort === undefined) {
     return matching;
   }
+
   const direction = sort.descending ? -1 : 1;
+
   return matching.toSorted((left, right) => {
     const order = sort.column === 'group' ? left.group.localeCompare(right.group) : 0;
+
     return direction * (order || left.label.localeCompare(right.label));
   });
 }

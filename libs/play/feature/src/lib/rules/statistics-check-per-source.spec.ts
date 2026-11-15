@@ -20,6 +20,7 @@ const perSource = (selector: string, per: string, base: string): object => ({
 /** The statistics tool on `definitions`, the example inputs and no rule elements. */
 function check(definitions: readonly object[]): StatisticsCheck {
   const texts = { inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '' };
+
   return checkStatistics(
     { definitions: JSON.stringify(definitions), ...texts },
     { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
@@ -34,6 +35,7 @@ describe('checkStatistics per source', () => {
       slug: 'statistic:plain-strike',
       per: undefined,
     };
+
     const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
     expect(check([plain, strike])).toMatchObject({
       status: StatisticsStatus.Valid,
@@ -50,6 +52,7 @@ describe('checkStatistics per source', () => {
       slug: 'statistic:custom-strike',
       per: undefined,
     };
+
     const result = checkStatistics(
       {
         definitions: JSON.stringify([perSource('strike', 'weapon', '@weapon.attr'), custom]),
@@ -61,6 +64,7 @@ describe('checkStatistics per source', () => {
       { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
       CORE_NAMESPACES,
     );
+
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [{ selector: 'strike:dagger' }, { selector: 'strike:longsword' }, { selector: 'strike:custom', total: 3 }],
@@ -82,6 +86,7 @@ describe('checkStatistics per source', () => {
       { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
       CORE_NAMESPACES,
     );
+
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [
@@ -105,6 +110,7 @@ describe('checkStatistics per source', () => {
 
 const POTENCY_LABEL = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
 const POTENCY_ID = 'weapon:longsword#weapon-potency';
+
 /** The made-up entry the playground puts typed rule elements on. */
 const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effect:rule-elements'));
 
@@ -112,6 +118,7 @@ const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effec
 function withPotency(grade: number): string {
   const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: object[] };
   const [first, ...rest] = inputs.weapons;
+
   return JSON.stringify({ ...inputs, weapons: [{ ...first, potency: grade }, ...rest] });
 }
 
@@ -124,11 +131,13 @@ function itemBonus(value: number): object {
 function longsword(rules: readonly object[], inputs = EXAMPLE_STATISTIC_INPUTS): unknown {
   const texts = { inputs, rules: JSON.stringify(rules), overrides: '[]', facts: '' };
   const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
+
   const result = checkStatistics(
     { definitions: JSON.stringify([strike]), ...texts },
     { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
     CORE_NAMESPACES,
   );
+
   return result.status === StatisticsStatus.Valid
     ? result.rows.find((row) => row.selector === 'strike:longsword')
     : undefined;

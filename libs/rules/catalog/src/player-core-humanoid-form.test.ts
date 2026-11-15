@@ -29,13 +29,17 @@ const PLAYER_CORE_EFFECTS = contentPackFromContents(await playerCorePack()).othe
 /** The committed Humanoid Form, as grants read an entry. */
 function humanoidForm(): GrantEntry {
   const found = PLAYER_CORE_EFFECTS.find((each) => each.slug === SLUG);
+
   if (found === undefined) {
     throw new Error(`${SLUG} is not in the player-core effects`);
   }
+
   const [first, ...rest] = found.sources;
+
   if (first === undefined) {
     throw new Error(`${SLUG} has no source`);
   }
+
   return {
     id: found.id,
     kind: found.kind,
@@ -79,6 +83,7 @@ describe('Player Core: Humanoid Form, level 10 druid', () => {
 
   test('a sense is added only for the one picked', () => {
     const none = viewOf(effectRulesOf(SLUG, RANK), chosen('humanoid-form:medium'));
+
     const dark = viewOf(
       effectRulesOf(SLUG, RANK),
       chosen('humanoid-form:medium', 'option:humanoid-form-sense:darkvision'),

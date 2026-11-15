@@ -17,6 +17,7 @@ export class HeaderCrumbs {
   /** Shows `trail` in the header until the returned function is called, unless a later page has taken over. */
   public show(trail: Signal<readonly BreadcrumbItem[]>): () => void {
     this.#source.set(trail);
+
     return (): void => {
       if (this.#source() === trail) {
         this.#source.set(undefined);

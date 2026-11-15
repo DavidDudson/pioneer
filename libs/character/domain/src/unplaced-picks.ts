@@ -31,6 +31,7 @@ export const UnplacedPickKind = {
   Language: 'language',
   Spell: 'spell',
 } as const;
+
 export type UnplacedPickKind = (typeof UnplacedPickKind)[keyof typeof UnplacedPickKind];
 
 /** An imported heritage or language no slot holds: kept on the character, and breaks a rule until placed or dismissed. */
@@ -47,6 +48,7 @@ export interface UnplacedPickBreak {
  */
 export function unplacedPickBreaks({ build }: Pick<CharacterDocument, 'build'>): readonly UnplacedPickBreak[] {
   const picked = new Set<string>(Object.values(build.choices));
+
   const heritage =
     build.unplacedHeritage === undefined || HERITAGE_SLOT in build.choices
       ? []
@@ -57,12 +59,15 @@ export function unplacedPickBreaks({ build }: Pick<CharacterDocument, 'build'>):
             reason: message(SlotInvalidMessage.NoHeritageSlot),
           },
         ];
+
   const languages = build.unplacedLanguages
     .filter((language) => !picked.has(language))
     .map((pick) => ({ kind: UnplacedPickKind.Language, pick, reason: message(SlotInvalidMessage.NoLanguageSlot) }));
+
   const spells = build.unplacedSpells
     .filter((spell) => !picked.has(spell))
     .map((pick) => ({ kind: UnplacedPickKind.Spell, pick, reason: message(SlotInvalidMessage.NoSpellSlot) }));
+
   return [...heritage, ...languages, ...spells];
 }
 
@@ -72,18 +77,23 @@ export function dismissedPick(build: Build, patch: UnplacedPickPatch): Build {
     case CharacterPatchField.DismissUnplacedFeat: {
       return withoutUnplacedFeat(build, patch.feat);
     }
+
     case CharacterPatchField.DismissUnplacedHeritage: {
       return build.unplacedHeritage === patch.heritage ? { ...build, unplacedHeritage: undefined } : build;
     }
+
     case CharacterPatchField.DismissUnplacedLanguage: {
       return { ...build, unplacedLanguages: build.unplacedLanguages.filter((each) => each !== patch.language) };
     }
+
     case CharacterPatchField.DismissUnplacedSpell: {
       return { ...build, unplacedSpells: build.unplacedSpells.filter((each) => each !== patch.spell) };
     }
+
     case CharacterPatchField.RemoveCustomLanguage: {
       return { ...build, customLanguages: build.customLanguages.filter((each) => each !== patch.language) };
     }
+
     default: {
       const unreachable: never = patch;
       throw new TypeError(`Unhandled unplaced pick dismissal: ${JSON.stringify(unreachable)}`);
@@ -98,6 +108,7 @@ export function dismissedPick(build: Build, patch: UnplacedPickPatch): Build {
 export function withoutPlacedPick(build: Build, slot: SlotKey, value: ChoiceValue | ContentId): Build {
   const feats = withoutUnplacedFeat(build, value);
   const languages = feats.unplacedLanguages.filter((each) => each !== value);
+
   return {
     ...feats,
     unplacedLanguages: languages,

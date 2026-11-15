@@ -23,12 +23,16 @@ export const DamageType = {
   Bleed: 'bleed',
   Precision: 'precision',
 } as const;
+
 export type DamageType = ValueOf<typeof DamageType>;
+
 export const DamageTypeSchema = z.enum(DamageType);
 
 /** Groups of damage types a weakness or resistance can name instead of one type. */
 export const DamageGroup = { All: 'all', Physical: 'physical', Energy: 'energy' } as const;
+
 export type DamageGroup = ValueOf<typeof DamageGroup>;
+
 export const DamageGroupSchema = z.enum(DamageGroup);
 
 /** The types each listed group covers; `all` covers every type, and untyped damage too. */
@@ -60,12 +64,16 @@ export const DamageContext = {
   Spells: 'spells',
   Environmental: 'environmental',
 } as const;
+
 export type DamageContext = ValueOf<typeof DamageContext>;
+
 export const DamageContextSchema = z.enum(DamageContext);
 
 /** What a weakness or resistance applies to: a damage type, a group (`resistance 5 physical`) or a source. */
 export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup, ...DamageContext } as const;
+
 export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
+
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 
 /**
@@ -73,6 +81,7 @@ export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
  * (`weakness 5 to silver`), named as an exception is.
  */
 export const DamageAdjustmentSubject = z.union([DamageAdjustmentTargetSchema, DamageException]);
+
 export type DamageAdjustmentSubject = z.infer<typeof DamageAdjustmentSubject>;
 
 const EXCEPTIONS_MAX = 8;
@@ -86,6 +95,7 @@ export const DamageAdjustment = z.object({
   value: DamageAmount,
   exceptions: DamageExceptions.optional(),
 });
+
 export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
 
 /**
@@ -94,4 +104,5 @@ export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
  * pf2e keeps it in code, so content can't disagree with the weaknesses and resistances that use it.
  */
 export const DamageTypeData = z.strictObject({});
+
 export type DamageTypeData = z.infer<typeof DamageTypeData>;

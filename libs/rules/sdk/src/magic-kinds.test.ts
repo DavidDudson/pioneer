@@ -9,6 +9,7 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -180,6 +181,7 @@ describe('spell kind', () => {
 
   test('a defence names a save or what it is against', () => {
     const empty = { ...fireball, data: { ...fireball.data, defense: {} } };
+
     const notASave = {
       ...fireball,
       data: { ...fireball.data, defense: { save: { statistic: 'ac', basic: true } } },
@@ -206,6 +208,7 @@ describe('spell kind', () => {
       ...fireball,
       data: { ...fireball.data, damage: [...fireball.data.damage, ...fireball.data.damage] },
     };
+
     const unknownPart = {
       ...fireball,
       data: {
@@ -242,6 +245,7 @@ describe('spell kind', () => {
 
   test('fixed heightening names each rank once, above the spell, and changes something', () => {
     const tenCreatures = { any: [{ count: 10, of: 'creature' }] };
+
     const invalid = {
       ...command,
       data: {
@@ -256,6 +260,7 @@ describe('spell kind', () => {
         },
       },
     };
+
     const unchanged = { ...command, data: { ...command.data, heightening: { type: 'fixed', ranks: [{ rank: 5 }] } } };
 
     expect(issues(invalid)).toStrictEqual([

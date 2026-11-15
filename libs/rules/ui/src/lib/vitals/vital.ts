@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import type { NamedStatistic } from '../statistics/statistics.component';
 
 export const VitalBasisKind = { Armor: 'armor', Unarmored: 'unarmored' } as const;
+
 export type VitalBasisKind = ValueOf<typeof VitalBasisKind>;
 
 /** What sets Armor Class: the worn armour, by name, or none. */

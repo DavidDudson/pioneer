@@ -30,6 +30,7 @@ const BLESSING = CustomEffectInput.parse({
   reason: 'Festival boon',
   lines: [{ target: 'ac', value: 1, type: 'status' }],
 });
+
 const ADD: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: BLESSING };
 
 function at(expectedVersion: Version, patch: object): PatchCharacterBody {
@@ -98,11 +99,13 @@ describe('CharacterService custom effects', () => {
 
   test('refuses an effect past the most a character keeps, before anything is written', async () => {
     let version = FIRST_VERSION;
+
     for (let count = 0; count < CUSTOM_EFFECTS_MAX; count += 1) {
       // oxlint-disable-next-line no-await-in-loop -- each add needs the version the previous one saved
       const { character } = await service.patch(amiri, kyra.id, at(version, ADD));
       ({ version } = character);
     }
+
     const audits = repository.audits.length;
     const error = await rejection(service.patch(amiri, kyra.id, at(version, ADD)));
 

@@ -23,6 +23,7 @@ describe('Endpoint', () => {
 });
 
 const Sort = { Name: 'name', CreatedAt: 'created-at' } as const;
+
 const listThings = new Endpoint({
   method: HttpMethod.Get,
   path: '/things',

@@ -14,6 +14,7 @@ function counts({ id, status }: ImmunityLine | AdjustmentLine, on: ReadonlySet<R
   if (status.kind === DefenceStatusKind.Applied || status.kind === DefenceStatusKind.Superseded) {
     return true;
   }
+
   return status.kind === DefenceStatusKind.Conditional && on.has(id);
 }
 
@@ -22,7 +23,9 @@ function adjustments(lines: readonly AdjustmentLine[], on: ReadonlySet<RuleId>):
     if (line.value === undefined || !counts(line, on)) {
       return [];
     }
+
     const exceptions = line.exceptions.length === 0 ? {} : { exceptions: line.exceptions };
+
     return [{ type: line.type, value: line.value, ...exceptions }];
   });
 }

@@ -14,6 +14,7 @@ const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 
 
 const UNTOUCHED =
   '{ "id": "00000000-0000-5000-8000-000000000002", "description": [{"type":"text","text":"x"}], "rules": [] }';
+
 const HELD =
   '{ "id": "00000000-0000-5000-8000-000000000001", "description": [{"type":"text","text":"y"}],\n    "rules": [{"option":"a:b","key":"RollOption"}] }';
 

@@ -13,7 +13,9 @@ function withMatch(entry: ContentEntry, match: PrerequisiteMatch): ContentEntry 
   if (entry.kind !== ContentKind.Feat) {
     return entry;
   }
+
   const { prerequisitePredicate, prerequisiteClauses } = match;
+
   return {
     ...entry,
     data: {
@@ -33,11 +35,15 @@ export function enrichPrerequisiteFile(
   matches: ReadonlyMap<ContentKey, PrerequisiteMatch>,
 ): readonly unknown[] | undefined {
   const entries = ContentEntryFile.parse(file);
+
   const enriched = file.map((json, index) => {
     const entry = entries[index];
     const match = entry === undefined ? undefined : matches.get(contentKey(entry.pack, entry.slug));
+
     return entry === undefined || match === undefined ? json : z.encode(ContentEntry, withMatch(entry, match));
   });
+
   const changed = enriched.some((json, index) => json !== file[index]);
+
   return changed ? enriched : undefined;
 }

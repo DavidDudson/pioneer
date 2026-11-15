@@ -20,6 +20,7 @@ const dwarven = ContentId.parse(contentId(pack, EntrySlug.parse('language:dwarve
 /** A character carrying the heritage and languages an import found no slot for. */
 function keeping(unplaced: UnplacedPicks): Character {
   const { document } = new CharacterBuilder().build();
+
   return Character.create({
     id: document.id,
     ownerId: document.ownerId,
@@ -49,6 +50,7 @@ describe('unplaced heritage and languages', () => {
       { field: CharacterPatchField.SelectSlot, slot: HERITAGE_SLOT, selection: ChoiceValue.parse(dwarven) },
       later,
     );
+
     expect(next.document.build.unplacedHeritage).toBeUndefined();
     expect(unplacedPickBreaks(next.document)).toStrictEqual([]);
   });
@@ -66,6 +68,7 @@ describe('unplaced heritage and languages', () => {
       { field: CharacterPatchField.DismissUnplacedHeritage, heritage: elven },
       later,
     );
+
     expect(next.document.build.unplacedHeritage).toBe(heritage);
   });
 });

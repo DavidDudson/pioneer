@@ -28,6 +28,7 @@ const navVariants = cva('block overflow-x-auto', {
     { appearance: 'underline', orientation: 'vertical', class: 'border-e' },
   ],
 });
+
 // The padding leaves room for the focus ring, which the scrolling region would otherwise clip.
 // A centred row takes auto margins, not `justify-center`, which would push its first tabs out of reach of the scroll.
 const rowVariants = cva('flex', {
@@ -94,6 +95,7 @@ export class Tabs {
     afterRenderEffect({
       read: () => {
         const current = this.tabs().find((tab) => tab.current());
+
         if (current !== undefined) {
           revealInline(this.nav().nativeElement, current.target());
         }
@@ -109,6 +111,7 @@ export class Tabs {
 function revealInline(region: HTMLElement, element: HTMLElement): void {
   const bounds = region.getBoundingClientRect();
   const rect = element.getBoundingClientRect();
+
   if (rect.left < bounds.left) {
     region.scrollBy({ left: rect.left - bounds.left });
   } else if (rect.right > bounds.right) {

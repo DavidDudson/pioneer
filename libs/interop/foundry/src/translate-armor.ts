@@ -62,9 +62,11 @@ function penalty(value: number | null | undefined): number | undefined {
 export function armorData(input: KindInput): object | undefined {
   const system = systemOf(FoundryArmorSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   return {
     ...physical,
     category: system.category,
@@ -88,10 +90,13 @@ export function armorData(input: KindInput): object | undefined {
 export function shieldData(input: KindInput): object | undefined {
   const system = systemOf(FoundryShieldSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const reinforcing = system.runes?.reinforcing ?? 0;
+
   if ((system.runes?.property.length ?? 0) > 0) {
     report(input.log, {
       reason: KindDataGapReason.UnmappedValue,
@@ -99,6 +104,7 @@ export function shieldData(input: KindInput): object | undefined {
       raw: system.runes?.property,
     });
   }
+
   return {
     ...physical,
     acBonus: system.acBonus,

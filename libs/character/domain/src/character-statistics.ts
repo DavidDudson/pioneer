@@ -46,10 +46,13 @@ export const MAX_HP_SELECTOR = Selector.parse('hp:max');
 function ancestryInputs(registry: ContentRegistry, document: CharacterDocument): Pick<StatisticInputs, 'ancestry'> {
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
   const ancestry = picked.success ? registry.ancestry(picked.data) : undefined;
+
   if (ancestry === undefined) {
     return {};
   }
+
   const { hitPoints, speed } = ancestry.definition;
+
   return { ancestry: { hitPoints, speed } };
 }
 
@@ -60,6 +63,7 @@ function classInputsOf(
   slots: SlotContent,
 ): Pick<StatisticInputs, 'class'> {
   const inputs = classInputs(document, slots, classContent(registry));
+
   return inputs === undefined ? {} : { class: inputs };
 }
 
@@ -76,12 +80,15 @@ export function characterStatisticInputs(
   const grants = characterGrants(document, slots);
   const favored = favoredWeapons(grants);
   const items = itemContent(registry);
+
   const equipped = equippedInputs(shapedDocument(document, items, slots).inventory, items, {
     favored,
     rules: () => equippedRules(document, items, slots),
   });
+
   const held = new Set(equipped.weapons.map(({ slug }) => slug));
   const granted = grantedStrikes(grants, favored).filter(({ slug }) => !held.has(slug));
+
   return {
     level: document.level,
     attributes: attributeModifiers(document, slots.boosts),
@@ -116,6 +123,7 @@ export function rulesInPlay(
   const items = itemContent(registry);
   const equipped = equippedRules(document, items, slots);
   const added = [...customEffectRules(document), ...overrideRules(document)];
+
   return {
     ...equipped,
     rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules, ...added],
@@ -134,10 +142,13 @@ export function characterStatistics(
   situation: ReadonlySet<RuleId> = NO_SITUATION,
 ): ReadonlyMap<Selector, StatisticResult> {
   const content = characterStatisticContent(sources.registry, document);
+
   if (content === undefined) {
     return new Map();
   }
+
   const rolled = contentRolledAs(content, sources.as);
+
   return deriveStatistics(rolled, sources.inputs, { ...rulesInPlay(document, sources), situation });
 }
 
@@ -147,9 +158,11 @@ export function characterStatistics(
  */
 export function maxHitPoints(statistics: ReadonlyMap<Selector, StatisticResult>): HitPoints | undefined {
   const result = statistics.get(MAX_HP_SELECTOR);
+
   if (result === undefined || !result.ok) {
     return undefined;
   }
+
   return HitPoints.parse(Math.max(0, result.total));
 }
 
@@ -184,6 +197,7 @@ export function rollSetup(
 ): RollSetup | undefined {
   const rolled = { ...sources, as };
   const derived = characterStatistics(document, rolled);
+
   return rollSetups(document, rolled, { derived, claims: new Map([[selector, chosen]]) }).get(selector);
 }
 
@@ -211,15 +225,20 @@ export function rollSetups(
   { derived, claims }: RollSetupsRequest,
 ): ReadonlyMap<Selector, RollSetup> {
   const content = characterStatisticContent(sources.registry, document);
+
   if (content === undefined) {
     return new Map();
   }
+
   const rules = rulesInPlay(document, sources);
   const rederivation = { content: contentRolledAs(content, sources.as), inputs: sources.inputs, rules };
+
   const setups = [...claims].flatMap(([selector, chosen]): [Selector, RollSetup][] => {
     const setup = setupFor(derived.get(selector), chosen, rederivation);
+
     return setup === undefined ? [] : [[selector, setup]];
   });
+
   return new Map(setups);
 }
 
@@ -232,12 +251,15 @@ function setupFor(
   if (sheet?.ok !== true) {
     return undefined;
   }
+
   const { conditional, toggles } = offerFor(sheet, rules);
   const claimed = new Set(conditional.map(({ modifier }) => modifier.id).filter((id) => chosen.has(id)));
+
   const statistic =
     claimed.size === 0
       ? sheet
       : deriveStatistics(content, inputs, { ...rules, situation: claimed }).get(sheet.selector);
+
   return statistic?.ok === true ? { statistic, conditional, toggles } : undefined;
 }
 
@@ -246,6 +268,7 @@ function offerFor(sheet: StatisticValue, rules: EquippedRules): Pick<RollSetup, 
   const { conditional, options } = rollSituation(sheet);
   const toggles = rules.toggles.filter(({ option }) => options.has(option));
   const stood = new Set(toggles.map(({ option }) => option));
+
   return {
     toggles,
     conditional: conditional.filter(
@@ -257,6 +280,7 @@ function offerFor(sheet: StatisticValue, rules: EquippedRules): Pick<RollSetup, 
 /** Whether every option `when` reads has a toggle of its own, so a toggle on the line would only repeat it. */
 function standsFor(when: Predicate, stood: ReadonlySet<RollOption>): boolean {
   const read = predicateOptions(when);
+
   return read.size > 0 && [...read].every((option) => stood.has(option));
 }
 
@@ -272,9 +296,11 @@ export function characterVitals(
   const content = characterStatisticContent(registry, document);
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
   const ancestry = picked.success ? registry.ancestry(picked.data) : undefined;
+
   if (content === undefined || ancestry === undefined) {
     return undefined;
   }
+
   return vitalsInPlay(equippedRules(document, itemContent(registry), slots), {
     statistics: content,
     character: inputs,
@@ -291,6 +317,7 @@ export function characterStrikeRules(
   document: CharacterDocument,
 ): StrikeRulesInput | undefined {
   const content = characterStatisticContent(registry, document);
+
   return content === undefined
     ? undefined
     : {

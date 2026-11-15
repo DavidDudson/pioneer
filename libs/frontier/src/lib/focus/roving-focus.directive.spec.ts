@@ -26,9 +26,11 @@ function render(
   fixture.detectChanges();
   const host = fixture.nativeElement as HTMLElement;
   const group = host.querySelector<HTMLElement>('[role="toolbar"]');
+
   if (group === null) {
     throw new Error('Roving focus host has no group');
   }
+
   return { fixture, group, buttons: [...host.querySelectorAll('button')] };
 }
 
@@ -44,6 +46,7 @@ function keydown(key: string, modifiers: KeyboardEventInit = {}): KeyboardEvent 
 function press(rendered: Rendered, key: string, modifiers: KeyboardEventInit = {}): number {
   document.activeElement?.dispatchEvent(keydown(key, modifiers));
   rendered.fixture.detectChanges();
+
   return rendered.buttons.indexOf(document.activeElement as HTMLButtonElement);
 }
 

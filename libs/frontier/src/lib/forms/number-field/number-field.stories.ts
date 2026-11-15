@@ -15,6 +15,7 @@ const meta: Meta<NumberField> = {
     template: `<fr-number-field ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Default: NumberFieldStory = {};

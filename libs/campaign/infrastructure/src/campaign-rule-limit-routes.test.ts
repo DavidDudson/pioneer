@@ -36,6 +36,7 @@ function app(): AnyElysia {
   const campaigns = new InMemoryCampaignRepository();
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -56,6 +57,7 @@ function app(): AnyElysia {
     itemTransfers: itemTransferService(campaigns, clock),
     partyStash: partyStashService(campaigns),
   };
+
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }
 
@@ -80,6 +82,7 @@ interface RuleLimitsJson {
 /** The status `handler` answers `call` with. */
 async function statusOf(handler: AnyElysia, call: Request): Promise<number> {
   const response = await handler.handle(call);
+
   return response.status;
 }
 
@@ -92,10 +95,12 @@ async function campaign(handler: AnyElysia): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = await json<{ readonly id: string }>(created);
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json<{ readonly token: string }>(issued);
   await handler.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
+
   return id;
 }
 
@@ -107,15 +112,18 @@ describe('rule limit routes', () => {
   test('the GM sets a limit and resets it; a player sees it', async () => {
     const handler = app();
     const id = await campaign(handler);
+
     const set = await handler.handle(
       request('POST', `/campaigns/${id}/rule-limits/investedMax`, { as: amiri, body: { value: 12 } }),
     );
+
     expect(set.status).toBe(200);
     expect(invested(await json<RuleLimitsJson>(set))).toBe(12);
 
     const seen = await json<RuleLimitsJson>(
       await handler.handle(request('GET', `/campaigns/${id}/rule-limits`, { as: ezren })),
     );
+
     expect([seen.manageable, invested(seen)]).toStrictEqual([false, 12]);
 
     const reset = await handler.handle(request('DELETE', `/campaigns/${id}/rule-limits/investedMax`, { as: amiri }));
@@ -127,6 +135,7 @@ describe('rule limit routes', () => {
     const id = await campaign(handler);
     const body = { value: 12 };
     const path = `/campaigns/${id}/rule-limits/investedMax`;
+
     const statuses = await Promise.all(
       [
         request('POST', path, { as: ezren, body }),
@@ -136,12 +145,14 @@ describe('rule limit routes', () => {
         new Request(`http://localhost/campaigns/${id}/rule-limits`),
       ].map(async (each) => statusOf(handler, each)),
     );
+
     expect(statuses).toStrictEqual([403, 403, 404, 404, 401]);
   });
 
   test('a number past the ceiling, zero, or an unknown limit is a 422', async () => {
     const handler = app();
     const id = await campaign(handler);
+
     const statuses = await Promise.all(
       [
         ['investedMax', 101],
@@ -151,6 +162,7 @@ describe('rule limit routes', () => {
         statusOf(handler, request('POST', `/campaigns/${id}/rule-limits/${limit}`, { as: amiri, body: { value } })),
       ),
     );
+
     expect(statuses).toStrictEqual([422, 422, 422]);
   });
 });

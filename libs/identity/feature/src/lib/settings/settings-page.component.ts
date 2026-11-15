@@ -74,6 +74,7 @@ export class SettingsPage {
   readonly #locales = computed((): readonly LocaleRow[] => {
     this.#messages();
     const source = this.#i18n.getTranslation(SOURCE_LOCALE);
+
     return localeRows(
       (locale) => this.#i18n.translate(LOCALE_NAMES[locale]),
       (locale) => translatedShare(source, this.#i18n.getTranslation(locale)),
@@ -91,6 +92,7 @@ export class SettingsPage {
   protected readonly localeLabel = localeLabel;
   protected readonly localeColumns = computed(() => {
     this.#messages();
+
     return localeColumns({
       native: this.#i18n.translate('identity.settings.localeColumns.native'),
       english: this.#i18n.translate('identity.settings.localeColumns.english'),
@@ -99,6 +101,7 @@ export class SettingsPage {
   });
   protected readonly distanceUnits = computed((): readonly SelectOption<DistanceUnit>[] => {
     this.#messages();
+
     return Object.values(DistanceUnit).map((unit) => ({
       value: unit,
       label: this.#i18n.translate(DISTANCE_UNIT_NAMES[unit]),
@@ -106,6 +109,7 @@ export class SettingsPage {
   });
   protected readonly bodyFonts = computed((): readonly BodyFontRow[] => {
     this.#messages();
+
     return Object.values(BodyFont).map((font) => ({
       font,
       name: this.#i18n.translate(BODY_FONT_NAMES[font]),
@@ -113,12 +117,14 @@ export class SettingsPage {
   });
   protected readonly bodyFontColumns = computed(() => {
     this.#messages();
+
     return bodyFontColumns(this.#i18n.translate('identity.settings.bodyFontColumn'));
   });
   protected readonly bodyFontValue = bodyFontValue;
   protected readonly bodyFontLabel = bodyFontLabel;
   protected readonly monoFonts = computed((): readonly SelectOption<MonoFont>[] => {
     this.#messages();
+
     return Object.values(MonoFont).map((font) => ({
       value: font,
       label: this.#i18n.translate(MONO_FONT_NAMES[font]),
@@ -129,6 +135,7 @@ export class SettingsPage {
   readonly #failed = signal<PreferenceField | undefined>(undefined);
   readonly #saveFailed = computed((): string => {
     this.#messages();
+
     return this.#i18n.translate('identity.settings.saveFailed');
   });
   protected readonly uiError = computed((): string | undefined => this.#errorFor('uiLocale'));
@@ -174,6 +181,7 @@ export class SettingsPage {
 
   async #save(patch: Preferences, field: PreferenceField): Promise<void> {
     this.#failed.set(undefined);
+
     try {
       await this.#account.update(patch);
     } catch {

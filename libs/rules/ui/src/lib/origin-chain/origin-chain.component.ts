@@ -13,6 +13,7 @@ import { NO_ORIGIN_NAMES } from './origin-names';
 import type { OriginNames } from './origin-names';
 
 const SegmentKind = { Text: 'text', Date: 'date' } as const;
+
 type SegmentKind = ValueOf<typeof SegmentKind>;
 
 /** The chain as flat segments, joins included, so the template adds no whitespace of its own. */
@@ -22,6 +23,7 @@ type Segment =
   | { readonly kind: typeof SegmentKind.Date; readonly at: Temporal.Instant };
 
 type ConditionHop = Extract<OriginHop, { readonly kind: typeof OriginHopKind.Condition }>;
+
 type OverrideHop = Extract<OriginHop, { readonly kind: typeof OriginHopKind.Override }>;
 
 function text(value: string): Segment {
@@ -34,21 +36,26 @@ function entryOf(hop: OriginHop): ContentId | undefined {
     case OriginHopKind.Variant: {
       return hop.rule;
     }
+
     case OriginHopKind.Condition: {
       return hop.condition;
     }
+
     case OriginHopKind.Effect: {
       return hop.effect;
     }
+
     case OriginHopKind.Environment: {
       return hop.environment;
     }
+
     case OriginHopKind.Choice:
     case OriginHopKind.Grant:
     case OriginHopKind.Inventory:
     case OriginHopKind.Override: {
       return undefined;
     }
+
     default: {
       return hop satisfies never;
     }
@@ -58,6 +65,7 @@ function entryOf(hop: OriginHop): ContentId | undefined {
 /** Whether the last hop is the entry holding the rule element, so the chain names it once. */
 function endsAtEntry({ hops, entry }: Origin): boolean {
   const last = hops.at(-1);
+
   return last !== undefined && entryOf(last) === entry;
 }
 
@@ -105,12 +113,15 @@ export class OriginChainView {
     const steps = [...origin.hops.map((hop) => this.#hop(hop)), ...holder];
     const then = text(this.#i18n.translate(OriginChainMessage.Then));
     const segments: Segment[] = [];
+
     for (const step of steps) {
       if (segments.length > 0) {
         segments.push(then);
       }
+
       segments.push(...step);
     }
+
     return segments;
   });
 
@@ -118,30 +129,40 @@ export class OriginChainView {
     switch (hop.kind) {
       case OriginHopKind.Choice: {
         const slot = this.names().slots?.get(hop.slot) ?? hop.slot;
+
         return [text(this.#i18n.translate(OriginChainMessage.Choice, { slot }))];
       }
+
       case OriginHopKind.Grant: {
         return [text(this.#i18n.translate(OriginChainMessage.Grant, { name: this.#entry(hop.by) }))];
       }
+
       case OriginHopKind.Inventory: {
         const item = this.names().items?.get(hop.item) ?? this.#i18n.translate(OriginChainMessage.UnknownItem);
+
         return [text(this.#i18n.translate(OriginChainMessage.Inventory, { item, state: hop.state }))];
       }
+
       case OriginHopKind.Condition: {
         return [text(this.#condition(hop))];
       }
+
       case OriginHopKind.Effect: {
         return [text(this.#appliedBy(this.#entry(hop.effect), hop.appliedBy))];
       }
+
       case OriginHopKind.Environment: {
         return [text(this.#entry(hop.environment))];
       }
+
       case OriginHopKind.Override: {
         return this.#override(hop);
       }
+
       case OriginHopKind.Variant: {
         return [text(this.#entry(hop.rule))];
       }
+
       default: {
         return hop satisfies never;
       }
@@ -154,25 +175,30 @@ export class OriginChainView {
       hasValue: hop.value === undefined ? 'no' : 'yes',
       value: hop.value === undefined ? '' : this.#format.number(hop.value),
     });
+
     return this.#appliedBy(condition, hop.appliedBy);
   }
 
   /** Who set it, then when, relative to now, then their note. */
   #override(hop: OverrideHop): readonly Segment[] {
     const user = this.names().users?.get(hop.by) ?? this.#i18n.translate(OriginChainMessage.UnknownUser);
+
     const setBy: Segment[] = [
       text(this.#i18n.translate(OriginChainMessage.SetBy, { user })),
       { kind: SegmentKind.Date, at: hop.at },
     ];
+
     if (hop.note !== undefined) {
       setBy.push(text(this.#i18n.translate(OriginChainMessage.Note, { note: hop.note })));
     }
+
     return setBy;
   }
 
   /** A condition or effect, with the campaign event that applied it when the caller could name it. */
   #appliedBy(hop: string, appliedBy: EventRef | undefined): string {
     const event = appliedBy === undefined ? undefined : this.names().events?.get(appliedBy);
+
     return event === undefined ? hop : this.#i18n.translate(OriginChainMessage.AppliedBy, { hop, event });
   }
 

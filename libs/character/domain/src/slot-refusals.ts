@@ -8,6 +8,7 @@ import type { CharacterDocument } from './character-document';
 
 /** The part of a pick a refusal blames. */
 export const SlotRefusalField = { Slot: 'slot', Selection: 'selection' } as const;
+
 export type SlotRefusalField = ValueOf<typeof SlotRefusalField>;
 
 /** Why a pick is refused, and which part of it is wrong. */
@@ -30,10 +31,12 @@ export interface BoostSlotIn {
 export function boostSlotIn(document: CharacterDocument, boosts: BoostContent, slot: SlotKey): BoostSlotIn | undefined {
   for (const set of boostSets(document, boosts)) {
     const boost = set.slots.find((each) => each.key === slot);
+
     if (boost !== undefined) {
       return { set, boost };
     }
   }
+
   return undefined;
 }
 
@@ -42,7 +45,9 @@ export function boostRefusal({ set, boost }: BoostSlotIn, selection: ChoiceValue
   if (!boost.options.some((attribute) => attribute === selection)) {
     return NOT_OFFERED;
   }
+
   const taken = set.slots.some((other) => other.key !== boost.key && other.pick === selection);
+
   return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.boostTaken') } : undefined;
 }
 
@@ -55,6 +60,7 @@ export interface FlawSlotIn {
 export function flawSlotIn(document: CharacterDocument, boosts: BoostContent, slot: SlotKey): FlawSlotIn | undefined {
   const slots = flawSlots(document, boosts);
   const flaw = slots.find((each) => each.key === slot);
+
   return flaw === undefined ? undefined : { slots, flaw };
 }
 
@@ -63,6 +69,8 @@ export function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue)
   if (!flaw.options.some((attribute) => attribute === selection)) {
     return NOT_OFFERED;
   }
+
   const taken = slots.some((other) => other.key !== flaw.key && other.pick === selection);
+
   return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.flawTaken') } : undefined;
 }

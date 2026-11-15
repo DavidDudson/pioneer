@@ -10,23 +10,30 @@ import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
  */
 export function lazyEntryPreviews(): EntryPreviews {
   const injector = inject(Injector);
+
   const kept: { loading: Promise<EntryPreviews> | undefined; loaded: EntryPreviews | undefined } = {
     loading: undefined,
     loaded: undefined,
   };
+
   const fetchPreviews = async (): Promise<EntryPreviews> => {
     const { fetchedEntryPreviews } = await import('@pioneer/content/feature');
+
     return runInInjectionContext(injector, fetchedEntryPreviews);
   };
+
   const load = async (): Promise<EntryPreviews> => {
     kept.loading ??= fetchPreviews();
     kept.loaded = await kept.loading;
+
     return kept.loaded;
   };
+
   return {
     preview: (id: ContentId): EntryPreview | undefined => kept.loaded?.preview(id),
     load: async (id: ContentId): Promise<EntryPreview | undefined> => {
       const previews = await load();
+
       return previews.load?.(id);
     },
     target: (id: ContentId): LinkTarget | undefined => kept.loaded?.target?.(id),

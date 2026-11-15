@@ -21,6 +21,7 @@ export interface ConditionWords {
  */
 export function conditionalLineText(line: BreakdownLine, { i18n, format, names }: ConditionWords): string {
   const summary = line.status.kind === LineStatusKind.Conditional ? line.status.summary : undefined;
+
   return i18n.translate(StatisticsMessage.Conditional, {
     value: lineValue(line, i18n, format),
     hasSummary: summary === undefined ? 'no' : 'yes',

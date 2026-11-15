@@ -14,6 +14,7 @@ const ACTIONS_MAX = 4;
 
 /** A count of actions: the ordinary actions of a turn, and what is added or taken from them. */
 export const ActionCount = z.int().min(0).max(ACTIONS_MAX).brand<'ActionCount'>();
+
 export type ActionCount = z.infer<typeof ActionCount>;
 
 /** The most attacks one turn counts: the multiple attack penalty stops growing at the third, but each one made is kept so taking one back is exact. */
@@ -21,10 +22,12 @@ const ATTACKS_MAX = 12;
 
 /** How many attacks have been made this turn. */
 export const AttackCount = z.int().min(0).max(ATTACKS_MAX).brand<'AttackCount'>();
+
 export type AttackCount = z.infer<typeof AttackCount>;
 
 /** The quickened action a turn holds: there is one or there is none. */
 export const QuickenedAction = z.int().min(0).max(1).brand<'QuickenedAction'>();
+
 export type QuickenedAction = z.infer<typeof QuickenedAction>;
 
 const NONE = ActionCount.parse(0);
@@ -41,6 +44,7 @@ export const TurnPhase = {
   OffTurn: 'off-turn',
   OutOfEncounter: 'out-of-encounter',
 } as const;
+
 export type TurnPhase = ValueOf<typeof TurnPhase>;
 
 /**
@@ -48,6 +52,7 @@ export type TurnPhase = ValueOf<typeof TurnPhase>;
  * be spent on a Strike with the weapon of an inventory item (a quickstrike rune's).
  */
 export const QuickenedRestriction = z.union([ActionRestriction, z.strictObject({ strikeWith: InventoryItemId })]);
+
 export type QuickenedRestriction = z.infer<typeof QuickenedRestriction>;
 
 /**
@@ -63,6 +68,7 @@ export const TurnStateSchema = z.strictObject({
   reactionUsed: z.boolean().default(false),
   attacks: AttackCount.default(NO_ATTACKS),
 });
+
 export type TurnState = z.infer<typeof TurnStateSchema>;
 
 /** The turn of a character that has not been in an encounter. */
@@ -82,6 +88,7 @@ const UNCONSCIOUS = Slug.parse('unconscious');
 
 function conditionNamed(registry: ContentRegistry, name: Slug): ContentId | undefined {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   return entries.findLast((entry) => entry.kind === ContentKind.Condition && slugName(entry.slug) === name)?.id;
 }
 
@@ -102,6 +109,7 @@ export function economyConditions(registry: ContentRegistry): EconomyConditions 
 /** What a condition of `id` adds up to among `conditions`: its highest value, 1 for one with no value, 0 for none. */
 function strongest(conditions: readonly ActiveCondition[], id: ContentId | undefined): ActionCount {
   const values = conditions.filter(({ condition }) => condition === id).map(({ value }) => value ?? 1);
+
   return ActionCount.parse(Math.min(Math.max(0, ...values), ACTIONS_MAX));
 }
 
@@ -119,19 +127,26 @@ function stunnedAfter(
   lost: ActionCount,
 ): Pick<Refill, 'conditions' | 'events'> {
   const events: TurnEvent[] = [];
+
   const kept = conditions.flatMap((each): ActiveCondition[] => {
     if (each.condition !== stunned || each.value === undefined || lost === NONE) {
       return [each];
     }
+
     const left = each.value - lost;
+
     if (left <= 0) {
       events.push(conditionEnded(each.condition, each.id));
+
       return [];
     }
+
     const value = ConditionValue.parse(left);
     events.push(conditionLowered(each.condition, each.id, value));
+
     return [{ ...each, value }];
   });
+
   return { conditions: kept, events };
 }
 
@@ -146,6 +161,7 @@ function restrictionOf(
   if (quicker !== undefined) {
     return quicker.restriction;
   }
+
   return wielded === undefined ? undefined : { strikeWith: wielded };
 }
 
@@ -162,14 +178,17 @@ export function refilled(
 ): Refill {
   const quicker = conditions.find(({ condition }) => condition === economy.quickened);
   const slowed = strongest(conditions, economy.slowed);
+
   const stunned = conditions.some(({ condition, value }) => condition === economy.stunned && value === undefined)
     ? ActionCount.parse(ACTIONS_MAX)
     : strongest(conditions, economy.stunned);
+
   const ordinaryLeft = Math.max(TURN_ACTIONS - slowed, 0);
   const wielded = granted.at(0);
   const extra = quicker === undefined && wielded === undefined ? 0 : 1;
   const lost = ActionCount.parse(Math.min(stunned, ordinaryLeft + extra));
   const quickened = QuickenedAction.parse(extra - Math.max(lost - ordinaryLeft, 0));
+
   const turn: TurnState = {
     phase: TurnPhase.Turn,
     actions: ActionCount.parse(Math.max(ordinaryLeft - lost, 0)),
@@ -178,6 +197,7 @@ export function refilled(
     reactionUsed: false,
     attacks: NO_ATTACKS,
   };
+
   return { turn, ...stunnedAfter(conditions, economy.stunned, lost) };
 }
 
@@ -212,6 +232,7 @@ export const TurnCommandField = {
   /** Time passes: each environment the character is in has more time spent in it, and its consequences happen. */
   PassTime: 'passTime',
 } as const;
+
 export type TurnCommandField = ValueOf<typeof TurnCommandField>;
 
 export const TurnCommandSchema = z.discriminatedUnion('field', [
@@ -225,6 +246,7 @@ export const TurnCommandSchema = z.discriminatedUnion('field', [
     duration: z.strictObject({ count: DurationCount, unit: DurationUnitSchema }),
   }),
 ]);
+
 export type TurnCommand = z.infer<typeof TurnCommandSchema>;
 
 /** Whether `command` runs the turn cycle. */

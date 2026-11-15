@@ -20,10 +20,13 @@ interface Rendered {
 
 function element(tag: string, slot: string | undefined, text: string): Element {
   const created = document.createElement(tag);
+
   if (slot !== undefined) {
     created.setAttribute(slot, '');
   }
+
   created.textContent = text;
+
   return created;
 }
 
@@ -36,18 +39,22 @@ async function render(inputs: Readonly<Record<string, boolean | string>> = {}): 
     element('p', undefined, 'Routed page'),
     element('small', 'frShellFooter', 'Licence notice'),
   ];
+
   const component = createComponent(Shell, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: projectBySelector(Shell, elements),
   });
+
   onTestFinished(() => {
     component.destroy();
   });
   component.setInput('brand', 'Pioneer');
   component.setInput('badge', 'Pre-Alpha');
+
   for (const [name, value] of Object.entries(inputs)) {
     component.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
@@ -56,9 +63,11 @@ async function render(inputs: Readonly<Record<string, boolean | string>> = {}): 
   const search = shell.querySelector<HTMLElement>(':scope > header [frShellSearch]');
   const content = shell.querySelector<HTMLElement>(':scope > div main');
   const footer = shell.querySelector<HTMLElement>(':scope > footer');
+
   if (header === null || search === null || content === null || footer === null) {
     throw new Error('fr-shell rendered no header, search slot, main or footer');
   }
+
   return { shell, header, search, content, footer };
 }
 
@@ -85,9 +94,11 @@ async function pressEntry(name: string): Promise<void> {
 /** The classes of the box that holds a header's or footer's content, which cap its width. */
 function boxClasses(region: HTMLElement): string[] {
   const box = region.querySelector('fr-box');
+
   if (box === null) {
     throw new Error('Expected the region to hold an fr-box');
   }
+
   return [...box.classList];
 }
 
@@ -128,6 +139,7 @@ describe(Shell, () => {
     const release = TestBed.inject(HeaderCrumbs).show(
       signal([{ label: 'Characters', to: '/characters' }, { label: 'Valeros' }]),
     );
+
     onTestFinished(release);
     const shown = await render();
     expect(shown.header.querySelector('nav[aria-label="Breadcrumb"]')?.textContent).toContain('Valeros');

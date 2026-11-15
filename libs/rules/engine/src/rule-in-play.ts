@@ -18,6 +18,7 @@ export const RuleInPlay = z.strictObject({
   conditionValue: ConditionValue.optional(),
   originLevel: Level.optional(),
 });
+
 export type RuleInPlay = z.output<typeof RuleInPlay>;
 
 /**
@@ -39,6 +40,7 @@ export function itemScopeOf({ itemLevel, conditionValue, originLevel }: RuleInPl
 
 /** A rule element in play, named by its entry and its position there: `<entry>#<rule>`. Stable across derivations. */
 export const RuleId = z.string().brand<'RuleId'>();
+
 export type RuleId = z.infer<typeof RuleId>;
 
 export function ruleIdOf({ origin, rule }: RuleInPlay): RuleId {
@@ -65,5 +67,6 @@ export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFac
 /** The inventory item an origin starts at, when it starts at one. */
 export function inventoryItemOf(origin: Origin | undefined): InventoryItemId | undefined {
   const [hop] = origin?.hops ?? [];
+
   return hop?.kind === OriginHopKind.Inventory ? hop.item : undefined;
 }

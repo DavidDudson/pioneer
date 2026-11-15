@@ -22,6 +22,7 @@ const TURN = { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false };
 /** A sustained Calm, cast at 1st rank with 10 rounds at most, in a turn with two actions left. */
 function playWith(sustainedThisTurn: boolean, revision = 1, spell = CALM): object {
   const calm = { id: ACTIVE, spell, rank: 1, remaining: 10, sustainedThisTurn };
+
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, activeSpells: [calm] } };
 }
 
@@ -45,6 +46,7 @@ async function answerEdit(play: object): Promise<unknown> {
     ({ command } = request.request.body as { command: unknown });
     request.flush({ ...play, events: [] });
   });
+
   return command;
 }
 

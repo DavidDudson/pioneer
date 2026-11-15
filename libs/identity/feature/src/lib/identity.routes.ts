@@ -15,6 +15,7 @@ export const identityRoutes: Routes = [
         pathMatch: 'full',
         loadComponent: loadWithMessages(async () => {
           const { AccountPage } = await import('./account/account-page.component');
+
           return AccountPage;
         }),
       },
@@ -26,6 +27,7 @@ export const identityRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         loadComponent: loadWithMessages(async () => {
           const { SettingsPage } = await import('./settings/settings-page.component');
+
           return SettingsPage;
         }),
       },
@@ -36,6 +38,7 @@ export const identityRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         loadComponent: loadWithMessages(async () => {
           const { ReportBugPage } = await import('./report-bug/report-bug-page.component');
+
           return ReportBugPage;
         }),
       },
@@ -52,6 +55,7 @@ export const identityRoutes: Routes = [
             loadComponent: loadWithMessages(async () => {
               const { BugReportListPage } =
                 await import('./bug-reports/bug-report-list-page/bug-report-list-page.component');
+
               return BugReportListPage;
             }),
           },
@@ -60,6 +64,7 @@ export const identityRoutes: Routes = [
             data: { [CRUMB]: 'identity.bugReport.title' },
             loadComponent: loadWithMessages(async () => {
               const { BugReportPage } = await import('./bug-reports/bug-report-page/bug-report-page.component');
+
               return BugReportPage;
             }),
           },
@@ -69,6 +74,7 @@ export const identityRoutes: Routes = [
         path: 'sign-in',
         loadComponent: loadWithMessages(async () => {
           const { SignInPage } = await import('./sign-in/sign-in-page.component');
+
           return SignInPage;
         }),
       },
@@ -76,6 +82,7 @@ export const identityRoutes: Routes = [
         path: 'sign-in-failed',
         loadComponent: loadWithMessages(async () => {
           const { SignInFailedPage } = await import('./sign-in-failed/sign-in-failed-page.component');
+
           return SignInFailedPage;
         }),
       },

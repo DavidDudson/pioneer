@@ -14,6 +14,7 @@ export const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 export const campaign = {
   id,
   version: 1,

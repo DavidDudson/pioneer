@@ -7,6 +7,7 @@ import { RulesMessage } from './messages';
 
 /** A trait slug (`humanoid`, `undead`). Content defines the set, so it is a brand, not a const object. */
 export const Trait = Slug.brand<'Trait'>();
+
 export type Trait = z.infer<typeof Trait>;
 
 /** The pack that holds the trait vocabulary: every trait entry, whichever book it came from, is filed here. */
@@ -22,6 +23,7 @@ export function traitId(slug: Trait): ContentId {
 
 /** What a creature is immune to: a damage type, condition or effect (`poison`, `paralyzed`, `death-effects`). */
 export const Immunity = Slug.brand<'Immunity'>();
+
 export type Immunity = z.infer<typeof Immunity>;
 
 /**
@@ -29,6 +31,7 @@ export type Immunity = z.infer<typeof Immunity>;
  * `magical` (`resistance 5 physical except adamantine`). Foundry pf2e keeps the set in config, so it is a brand.
  */
 export const DamageException = Slug.brand<'DamageException'>();
+
 export type DamageException = z.infer<typeof DamageException>;
 
 const KIND_COUNT = Object.keys(ContentKind).length;
@@ -44,6 +47,7 @@ export const TraitData = z
   })
   .check((context) => {
     const seen = new Set<ContentKind>();
+
     for (const [index, kind] of context.value.appliesTo.entries()) {
       if (seen.has(kind)) {
         context.issues.push({
@@ -53,7 +57,9 @@ export const TraitData = z
           ...issueParams(message(RulesMessage.TraitDuplicateKind, { kind })),
         });
       }
+
       seen.add(kind);
     }
   });
+
 export type TraitData = z.infer<typeof TraitData>;

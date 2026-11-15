@@ -155,6 +155,7 @@ const FIELD = 'spellcasting';
  */
 export function spellcastingRules(input: KindInput): void {
   const { slug, pack } = input.envelope;
+
   const elements = [
     ...(SPELLCASTING.get(slug) ?? []),
     ...(SPELL_SLOTS.get(slug) ?? []),
@@ -163,9 +164,11 @@ export function spellcastingRules(input: KindInput): void {
     ...innateSpellRules(slug),
     ...repertoireSpellRules(input),
   ];
+
   for (const element of elements) {
     addRule(input, FIELD, element);
   }
+
   if (UNKNOWN_TRADITION.has(slug)) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: FIELD, raw: slug });
   }

@@ -31,10 +31,12 @@ describe('removing a custom language', () => {
   test('takes the named language off the build and leaves the others', () => {
     const { build } = new CharacterBuilder().build().document;
     const withNames = { ...build, customLanguages: customLanguagesOf(['Wildsong', 'Klingon']) };
+
     const removed = dismissedPick(withNames, {
       field: CharacterPatchField.RemoveCustomLanguage,
       language: LanguageName.parse('Wildsong'),
     });
+
     expect(removed.customLanguages).toStrictEqual(named('Klingon'));
   });
 });

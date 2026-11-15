@@ -58,6 +58,7 @@ interface Carried {
 function carrying(...items: readonly Carried[]): Character {
   const built = new CharacterBuilder().build();
   let inventory: Inventory = EMPTY_INVENTORY;
+
   for (const { id, fixture, quantity = 1, carry = CarryState.Worn, runes = [] } of items) {
     const added = addItem(inventory, {
       id,
@@ -65,14 +66,18 @@ function carrying(...items: readonly Carried[]): Character {
       quantity: ItemQuantity.parse(quantity),
       container: undefined,
     });
+
     inventory = carryItem(added, id, carry === CarryState.Held ? { state: carry, hands: HANDS_ONE } : { state: carry });
+
     if (runes.length > 0) {
       inventory = etchRune(inventory, id, fundamental(FundamentalRune.Potency, 1));
     }
+
     for (const rune of runes) {
       inventory = etchRune(inventory, id, { type: RuneType.Property, rune: runeFixtureId(rune) });
     }
   }
+
   return new Character({
     document: { ...built.document, inventory },
     version: built.version,
@@ -83,6 +88,7 @@ function carrying(...items: readonly Carried[]): Character {
 
 async function registryWithItems(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
+
   return TestBed.inject(ContentLoader).registry(ACTION_STAFF_CONTENT_KINDS);
 }
 
@@ -117,6 +123,7 @@ describe(sheetItemActions, () => {
 
     it('is not listed once dropped', async () => {
       const registry = await registryWithItems();
+
       const lines = listed(
         registry,
         carrying({ id: POTION, fixture: ItemFixture.HealingPotion, carry: CarryState.Dropped }),
@@ -157,12 +164,14 @@ describe(sheetItemActions, () => {
   describe('a rune with an activation that has no frequency', () => {
     it('is a row with its cost and no uses to spend', async () => {
       const registry = await registryWithItems();
+
       const sword = {
         id: SWORD,
         fixture: ItemFixture.Longsword,
         carry: CarryState.Held,
         runes: [RuneFixture.Animated],
       };
+
       const [line] = listed(registry, carrying(sword));
 
       expect(line).toMatchObject({ name: 'Longsword: Set Free', cost: 'two', status: ActionStatus.Available });
@@ -226,6 +235,7 @@ describe(sheetItemActions, () => {
 
     it('is unusable, with the reason, while stowed', async () => {
       const registry = await registryWithItems();
+
       const lines = listed(
         registry,
         carrying({ id: BOOTS, fixture: ItemFixture.WingedBoots, carry: CarryState.Stowed }),
@@ -240,11 +250,13 @@ describe(sheetItemActions, () => {
   describe('a staff', () => {
     it('gives a row for each spell, with the charges the staff has left', async () => {
       const registry = await registryWithItems();
+
       const lines = listed(registry, carrying({ id: STAFF, fixture: ItemFixture.FireStaff, carry: CarryState.Held }), {
         staff: { [STAFF]: { max: 4, spent: 1 } },
       });
 
       expect(lines.length).toBeGreaterThan(0);
+
       for (const line of lines) {
         expect(line.resource).toStrictEqual({ kind: ActionResourceKind.Charges, current: 3, max: 4 });
         expect(line.payment?.staff?.item).toBe(STAFF);
@@ -256,6 +268,7 @@ describe(sheetItemActions, () => {
       const lines = listed(registry, carrying({ id: STAFF, fixture: ItemFixture.FireStaff, carry: CarryState.Held }));
 
       expect(lines.length).toBeGreaterThan(0);
+
       for (const line of lines) {
         expect(line).toMatchObject({
           status: ActionStatus.Unavailable,

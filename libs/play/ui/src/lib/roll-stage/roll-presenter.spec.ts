@@ -38,10 +38,12 @@ function stage(options: { readonly load?: Promise<never> } = {}): Stage {
   const naturals: (string | undefined)[] = [];
   const disposed: number[] = [];
   let release = NOTHING;
+
   const factory: DiceRollerFactory = async () => {
     if (options.load !== undefined) {
       await options.load;
     }
+
     const roller: DiceRoller = {
       roll: async (groups, natural) => {
         naturals.push(natural);
@@ -54,9 +56,12 @@ function stage(options: { readonly load?: Promise<never> } = {}): Stage {
         disposed.push(disposed.length);
       },
     };
+
     return roller;
   };
+
   TestBed.configureTestingModule({ providers: [{ provide: DICE_ROLLER_FACTORY, useValue: factory }] });
+
   return {
     presenter: TestBed.inject(RollPresenter),
     thrown,

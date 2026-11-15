@@ -43,6 +43,7 @@ function carryOf({ carry, hands }: Line, contained: boolean, handsFree: number):
   if (contained || (carry === CarryState.Held && hands > handsFree)) {
     return { state: CarryState.Stowed };
   }
+
   return carry === CarryState.Held ? { state: carry, hands } : { state: carry };
 }
 
@@ -57,17 +58,22 @@ export const inventoryJson: Arbitrary<unknown> = record({
 }).map(({ lines, coins: purse }) => {
   let handsFree: number = HANDS_MAX;
   let investable: number = INVESTED_MAX;
+
   const items = lines.map((each, index) => {
     const { id, item, quantity, holder } = each;
     const invested = each.invested && investable > 0;
+
     if (invested) {
       investable -= 1;
     }
+
     const container = holder === undefined || index === 0 ? undefined : lines[holder % index]?.id;
     const carry = carryOf(each, container !== undefined, handsFree);
+
     if ('hands' in carry && typeof carry.hands === 'number') {
       handsFree -= carry.hands;
     }
+
     return {
       id,
       item,
@@ -77,6 +83,7 @@ export const inventoryJson: Arbitrary<unknown> = record({
       ...(invested ? { invested } : {}),
     };
   });
+
   return { items, coins: purse };
 });
 

@@ -49,6 +49,7 @@ function wandItem(fields: object = {}): InventoryItem {
 /** A 5th-level wizard, who casts 3rd-rank spells, holding the wand of Fireball as `fields` say. */
 function wizardWith(fields: object = {}, name = 'Ezren'): Character {
   const wizard = new CharacterBuilder().named(name).atLevel(5).picking('class', playerCoreClassId('wizard')).build();
+
   return wizard.withInventory(
     { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}) },
     clock.now(),
@@ -79,6 +80,7 @@ describe('PlayService wands', () => {
   async function patch(command: PlayCommand): Promise<CharacterPlay> {
     const saved = await play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command });
     ({ revision } = saved);
+
     return saved;
   }
 
@@ -96,6 +98,7 @@ describe('PlayService wands', () => {
 
   async function itemsNow(): Promise<readonly InventoryItem[]> {
     const { document } = await characters.get(ezren.ownerId, ezren.id);
+
     return document.inventory.items;
   }
 
@@ -145,10 +148,12 @@ describe('PlayService wands', () => {
     await patch(cast);
     await patch(overcharge(15));
     expect(await refused(overcharge(15))).toBeInstanceOf(ValidationError);
+
     const repaired = await characters.patch(ezren.ownerId, ezren.id, {
       expectedVersion: nextVersion(ezren.version),
       patch: { field: CharacterPatchField.SetItemBroken, id: WAND, broken: false },
     });
+
     expect(repaired.character.document.inventory.items[0]?.broken).toBeUndefined();
   });
 

@@ -21,4 +21,5 @@ export const NoteElement = z.strictObject({
   outcome: z.array(DegreeOfSuccessSchema).min(1).max(OUTCOMES_MAX).readonly().check(uniqueItems).optional(),
   ...ruleElementBase,
 });
+
 export type NoteElement = z.infer<typeof NoteElement>;

@@ -22,6 +22,7 @@ const meta: Meta<Section> = {
     </fr-section>`,
   }),
 };
+
 export default meta;
 
 export const Default: SectionStory = {

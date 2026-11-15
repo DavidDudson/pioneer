@@ -15,9 +15,11 @@ import type { RunNode } from './rich-text-run';
 const UUID = '@UUID';
 const ACT = '[[/act]]';
 const SEPARATOR = '.';
+
 /** `Compendium.pf2e.<pack>.<type>.<document>...`: the pack is the third part. */
 const PACK_PART = 2;
 const DOCUMENT_PART = 4;
+
 /** Foundry document ids are 16 letters and digits; anything else in that place is a name. */
 const DOCUMENT_ID = /^[A-Za-z\d]{16}$/u;
 const WHITESPACE = /\s+/u;
@@ -32,17 +34,20 @@ interface Target {
 function refRun({ id, name }: Target, label: string | undefined, context: EnricherContext): RunNode[] {
   // A label that only repeats the target's name adds nothing: the link shows the entry's own name.
   const kept = label === undefined || label.trim() === name ? undefined : inlineLabel(label, `${UUID}[label]`, context);
+
   const node: RefNode = {
     type: InlineKind.Ref,
     id,
     ...(kept === undefined ? {} : { label: kept }),
   };
+
   return [node];
 }
 
 /** The document part of a name-form UUID (`Item.Gird Champion`), which reads as a name. */
 function nameInUuid(uuid: string): string | undefined {
   const document = uuid.split(SEPARATOR)[DOCUMENT_PART];
+
   return document === undefined || DOCUMENT_ID.test(document) ? undefined : document;
 }
 
@@ -51,26 +56,34 @@ export function uuidRun(params: string, label: string | undefined, context: Enri
   const { entries, names, books } = context.links;
   const id = entries.get(uuid);
   const name = names.get(uuid) ?? nameInUuid(uuid);
+
   if (id !== undefined) {
     return refRun({ id, name }, label, context);
   }
+
   const book = books.get(uuid);
   context.report(`${UUID}[${uuid.split(SEPARATOR)[PACK_PART] ?? uuid}]${book === undefined ? '' : ` ${book}`}`);
+
   return textRun(label ?? name, context);
 }
 
 /** `[[/act trip]]`, `[[/act escape dc=20]]`: a link to the action, its options reported by name. */
 export function actRun(args: string, label: string | undefined, context: EnricherContext): RunNode[] {
   const [slug = '', ...options] = args.split(WHITESPACE);
+
   for (const option of options) {
     context.report(`${ACT}[${option.split(ASSIGNMENT)[0] ?? option}]`);
   }
+
   const { actions, actionNames } = context.links;
   const id = actions.get(slug);
   const name = actionNames.get(slug);
+
   if (id !== undefined) {
     return refRun({ id, name }, label, context);
   }
+
   context.report(ACT);
+
   return textRun(label ?? name ?? slug, context);
 }

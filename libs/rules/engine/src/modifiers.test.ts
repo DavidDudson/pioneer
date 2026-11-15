@@ -42,9 +42,11 @@ function derived(
     inputs,
     { rules, facts: known },
   ).get(Selector.parse(definition.selector));
+
   if (result?.ok !== true) {
     throw new Error(`Expected ${definition.selector} to derive`);
   }
+
   return result;
 }
 
@@ -100,6 +102,7 @@ describe('modifiers', () => {
       inPlay(flatModifier('untyped', 1, ['all']), 'everything'),
       inPlay(flatModifier('untyped', 1, ['skill-check', 'perception']), 'elsewhere'),
     ];
+
     expect(derived(rules).lines).toHaveLength(3);
     expect(derived(rules)).toMatchObject({ total: 19 });
   });
@@ -109,6 +112,7 @@ describe('modifiers', () => {
       { ...flatModifier('circumstance', 2, ['ac']), predicate: ['self:effect:raise-a-shield'] },
       'x',
     );
+
     expect(lineOf(derived([raised]), raised)?.status).toStrictEqual({
       kind: LineStatusKind.Inactive,
       reason: InactiveReason.Predicate,
@@ -187,6 +191,7 @@ describe('conditional lines against applied ones', () => {
     const penalty = forestOnly('circumstance', -1, 'penalty');
     const untyped = forestOnly('untyped', 1, 'untyped');
     const value = derived([raised, larger, status, penalty, untyped]);
+
     for (const rule of [larger, status, penalty, untyped]) {
       expect(lineOf(value, rule)?.status).toMatchObject({ kind: LineStatusKind.Conditional, beatenBy: undefined });
     }
@@ -215,10 +220,12 @@ describe('conditional lines against applied ones', () => {
   test('only applied lines beat: a suppressed, conditional or inactive one does not', () => {
     const lower = inPlay(flatModifier('circumstance', 1, ['ac']), 'lower');
     const larger = forestOnly('circumstance', 3, 'larger');
+
     const inactive = inPlay(
       { ...flatModifier('circumstance', 3, ['ac']), predicate: ['self:effect:rage'] },
       'inactive',
     );
+
     const between = forestOnly('circumstance', 2, 'between');
     expect(lineOf(derived([lower, raised, larger, inactive, between]), between)?.status).toMatchObject({
       beatenBy: ruleIdOf(raised),
@@ -282,6 +289,7 @@ describe('@stat in modifier formulas', () => {
     const perception = statistic('perception', '@attr.wis + 2');
     const fromPerception = inPlay(flatModifier('untyped', '@stat.perception', ['ac']), 'reads-perception');
     const perceptionBonus = inPlay(flatModifier('untyped', 5, ['perception']), 'perception-bonus');
+
     const results = deriveStatistics(
       { definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
       inputs,
@@ -290,6 +298,7 @@ describe('@stat in modifier formulas', () => {
         facts: facts(),
       },
     );
+
     expect(results.get(Selector.parse('perception'))).toMatchObject({ baseValue: 3, total: 8 });
     expect(results.get(Selector.parse('ac'))).toMatchObject({ total: 19 });
   });

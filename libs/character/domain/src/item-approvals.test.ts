@@ -19,11 +19,13 @@ const runes = (item: InventoryItemId, actual: number): RuleViolation => ({
   limit: RuleCount.parse(1),
   actual: RuleCount.parse(actual),
 });
+
 const misfit = (item: InventoryItemId, rune: ContentId): RuleViolation => ({
   item,
   rule: RuleBreak.RuneNotAllowed,
   rune,
 });
+
 const approval = (input: unknown): ItemApproval => ItemApproval.parse(input);
 
 describe('partitionApproved', () => {
@@ -48,12 +50,14 @@ describe('partitionApproved', () => {
   test('an approval is for one item and one rule', () => {
     const approved = approval({ item: caliburn, rule: RuleBreak.PropertyRunes, value: 7 });
     const other = runes(longsword, 7);
+
     const otherRule: RuleViolation = {
       item: caliburn,
       rule: RuleBreak.Hands,
       limit: RuleCount.parse(2),
       actual: RuleCount.parse(3),
     };
+
     expect(partitionApproved([other, otherRule], [approved]).open).toStrictEqual([other, otherRule]);
   });
 

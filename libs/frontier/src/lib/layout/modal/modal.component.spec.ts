@@ -16,6 +16,7 @@ const calls: string[] = [];
 /** Jsdom has no `<dialog>` methods: record the calls and mirror `open`. */
 function fakeDialog(): void {
   calls.length = 0;
+
   for (const [name, open] of [
     ['show', true],
     ['showModal', true],
@@ -29,6 +30,7 @@ function fakeDialog(): void {
       },
     });
   }
+
   onTestFinished(() => {
     for (const name of ['show', 'showModal', 'close']) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
@@ -43,6 +45,7 @@ async function render(open: boolean): Promise<HTMLElement> {
     root.remove();
   });
   await settle();
+
   return root;
 }
 

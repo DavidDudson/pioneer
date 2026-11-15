@@ -45,42 +45,51 @@ type EquipmentTranslator = (input: KindInput) => EquipmentKindData | undefined;
 export const EQUIPMENT_TRANSLATORS: Readonly<Partial<Record<ContentKind, EquipmentTranslator>>> = {
   [ContentKind.Armor]: (input) => {
     const data = parsedWith({ schema: ArmorData, fields: ARMOR_FIELDS, build: armorData }, input);
+
     return data && { kind: ContentKind.Armor, data };
   },
   [ContentKind.Consumable]: (input) => {
     const ammo = input.document.type === FoundryItemType.Ammo;
+
     const data = parsedWith(
       ammo
         ? { schema: ConsumableData, fields: AMMO_FIELDS, build: ammoData }
         : { schema: ConsumableData, fields: CONSUMABLE_FIELDS, build: consumableData },
       input,
     );
+
     return data && { kind: ContentKind.Consumable, data };
   },
   [ContentKind.Equipment]: (input) => {
     const container = input.document.type === FoundryItemType.Backpack;
+
     const data = parsedWith(
       container
         ? { schema: EquipmentData, fields: BACKPACK_FIELDS, build: backpackData }
         : { schema: EquipmentData, fields: EQUIPMENT_FIELDS, build: equipmentData },
       input,
     );
+
     return data && { kind: ContentKind.Equipment, data };
   },
   [ContentKind.Rune]: (input) => {
     const data = parsedWith({ schema: RuneData, fields: RUNE_FIELDS, build: runeData }, input);
+
     return data && { kind: ContentKind.Rune, data };
   },
   [ContentKind.Shield]: (input) => {
     const data = parsedWith({ schema: ShieldData, fields: SHIELD_FIELDS, build: shieldData }, input);
+
     return data && { kind: ContentKind.Shield, data };
   },
   [ContentKind.Treasure]: (input) => {
     const data = parsedWith({ schema: TreasureData, fields: TREASURE_FIELDS, build: treasureData }, input);
+
     return data && { kind: ContentKind.Treasure, data };
   },
   [ContentKind.Weapon]: (input) => {
     const data = parsedWith({ schema: WeaponData, fields: WEAPON_FIELDS, build: weaponData }, input);
+
     return data && { kind: ContentKind.Weapon, data };
   },
 };

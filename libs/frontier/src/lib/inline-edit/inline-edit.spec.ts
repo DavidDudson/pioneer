@@ -19,12 +19,15 @@ interface Harness {
 /** A save that behaves like the store: on success the source becomes the saved value. */
 function setup(fail?: () => Error): Harness {
   const source = signal<number | undefined>(undefined);
+
   const save = vi.fn<(value: number) => Promise<void>>(async (value) => {
     if (fail !== undefined) {
       throw fail();
     }
+
     source.set(value);
   });
+
   const edit = new InlineEdit<number>({
     source,
     empty: 0,
@@ -32,6 +35,7 @@ function setup(fail?: () => Error): Harness {
     save,
     isConflict: (error): boolean => error instanceof ConflictError,
   });
+
   return { source, edit, save };
 }
 
@@ -39,6 +43,7 @@ function opened(fail?: () => Error): Harness {
   const harness = setup(fail);
   harness.source.set(3);
   harness.edit.edit();
+
   return harness;
 }
 

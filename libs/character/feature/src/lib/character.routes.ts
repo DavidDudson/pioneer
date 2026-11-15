@@ -40,6 +40,7 @@ export const characterRoutes: Routes = [
         path: '',
         loadComponent: loadWithMessages(async () => {
           const { CharacterListPage } = await import('./list/character-list-page/character-list-page.component');
+
           return CharacterListPage;
         }),
       },
@@ -51,6 +52,7 @@ export const characterRoutes: Routes = [
             path: '',
             loadComponent: loadWithMessages(async () => {
               const { CreationChoicePage } = await import('./new/creation-choice-page/creation-choice-page.component');
+
               return CreationChoicePage;
             }),
           },
@@ -62,6 +64,7 @@ export const characterRoutes: Routes = [
                 path: '',
                 loadComponent: loadWithMessages(async () => {
                   const { ImportHubPage } = await import('./import/import-hub-page/import-hub-page.component');
+
                   return ImportHubPage;
                 }),
               },
@@ -71,6 +74,7 @@ export const characterRoutes: Routes = [
                 loadComponent: loadWithMessages(async () => {
                   const { PathbuilderImportPage } =
                     await import('./import/pathbuilder-import-page/pathbuilder-import-page.component');
+
                   return PathbuilderImportPage;
                 }),
               },
@@ -80,6 +84,7 @@ export const characterRoutes: Routes = [
                 loadComponent: loadWithMessages(async () => {
                   const { PioneerImportPage } =
                     await import('./import/pioneer-import-page/pioneer-import-page.component');
+
                   return PioneerImportPage;
                 }),
               },
@@ -91,6 +96,7 @@ export const characterRoutes: Routes = [
             loadComponent: loadWithMessages(async () => {
               const { GenerateCharacterPage } =
                 await import('./generate/generate-character-page/generate-character-page.component');
+
               return GenerateCharacterPage;
             }),
           },
@@ -103,6 +109,7 @@ export const characterRoutes: Routes = [
                 loadComponent: loadWithMessages(async () => {
                   const { CreateCharacterPage } =
                     await import('./new/create-character-page/create-character-page.component');
+
                   return CreateCharacterPage;
                 }),
               },
@@ -112,6 +119,7 @@ export const characterRoutes: Routes = [
                 loadComponent: loadWithMessages(async () => {
                   const { CreateLevelOnePage } =
                     await import('./new/create-level-one-page/create-level-one-page.component');
+
                   return CreateLevelOnePage;
                 }),
               },
@@ -127,6 +135,7 @@ export const characterRoutes: Routes = [
         data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: characterCrumb },
         loadComponent: loadWithMessages(async () => {
           const { CharacterSheetPage } = await import('./sheet/character-sheet-page/character-sheet-page.component');
+
           return CharacterSheetPage;
         }),
         // One route per tab (play-and-campaigns.md, Sheet modes); the character's own address opens the last one.
@@ -135,6 +144,7 @@ export const characterRoutes: Routes = [
             path: '',
             loadComponent: async () => {
               const { SheetModeRedirect } = await import('./sheet/sheet-mode-redirect/sheet-mode-redirect.component');
+
               return SheetModeRedirect;
             },
           },
@@ -149,6 +159,7 @@ export const characterRoutes: Routes = [
                 data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
+
                   return SheetPlanTab;
                 },
               },
@@ -166,6 +177,7 @@ export const characterRoutes: Routes = [
                 loadComponent: async () => {
                   const { SheetEncounterTab } =
                     await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
+
                   return SheetEncounterTab;
                 },
               },
@@ -183,6 +195,7 @@ export const characterRoutes: Routes = [
                 loadComponent: async () => {
                   const { SheetExplorationTab } =
                     await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
+
                   return SheetExplorationTab;
                 },
               },
@@ -199,6 +212,7 @@ export const characterRoutes: Routes = [
                 data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
+
                   return SheetDowntimeTab;
                 },
               },

@@ -23,8 +23,10 @@ function withOwnWeapon(raw: unknown): unknown {
   if (!isSpecialization(raw) || !Array.isArray(raw['predicate']) || !raw['predicate'].includes(OWN_WEAPON)) {
     return raw;
   }
+
   const rest = Object.fromEntries(Object.entries(raw).filter(([field]) => field !== 'predicate'));
   const kept = raw['predicate'].filter((statement: unknown) => statement !== OWN_WEAPON);
+
   return { ...rest, etched: true, ...(kept.length === 0 ? {} : { predicate: kept }) };
 }
 
@@ -33,8 +35,10 @@ function persistentOf(dice: unknown): unknown {
   if (typeof dice !== 'object' || dice === null) {
     return dice;
   }
+
   const { category, damageType, faces, number } = 'category' in dice ? Object.fromEntries(Object.entries(dice)) : {};
   const valid = category === 'persistent' && typeof damageType === 'string';
+
   return valid && typeof faces === 'number' && typeof number === 'number'
     ? { formula: `${number}d${faces}`, damageType }
     : dice;
@@ -43,9 +47,11 @@ function persistentOf(dice: unknown): unknown {
 /** A `CriticalSpecialization` as Pioneer spells it; any other element as it is. */
 export function withSpecialization(shaped: unknown, context: NoteContext): unknown {
   const raw = withOwnWeapon(shaped);
+
   if (!isSpecialization(raw)) {
     return raw;
   }
+
   return {
     ...raw,
     ...('text' in raw ? { text: richTextOf(raw['text'], context) } : {}),

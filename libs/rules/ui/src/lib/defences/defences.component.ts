@@ -98,15 +98,19 @@ export class DefencesView {
     this.#messages();
     this.#format.locale();
     const defences = this.defences();
+
     if (defences === undefined) {
       return undefined;
     }
+
     const { immunities, weaknesses, resistances } = defences;
+
     const names: DefenceNames = {
       entries: this.entryNames(),
       immunities: this.immunityNames(),
       exceptions: this.exceptionNames(),
     };
+
     const all: readonly (ShownList & { readonly kind: DefenceKind })[] = [
       {
         kind: DefenceKind.Immunities,
@@ -131,15 +135,19 @@ export class DefencesView {
         ),
       },
     ];
+
     const shown = this.kinds();
+
     return all.filter(({ kind }) => shown.includes(kind));
   });
 
   #immunity(line: ImmunityLine, context: ListContext): ShownDefence {
     const damageType = DamageTypeSchema.safeParse(line.type);
+
     const target = damageType.success
       ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
       : (context.names.immunities.get(line.type) ?? line.type);
+
     return {
       text: this.#i18n.translate(DefencesMessage.Immunity, { target }),
       ...this.#standing(line, context),
@@ -148,6 +156,7 @@ export class DefencesView {
 
   #adjustment(key: string, line: AdjustmentLine, context: ListContext): ShownDefence {
     const exceptions = line.exceptions.map((exception) => context.names.exceptions.get(exception) ?? exception);
+
     return {
       text: this.#i18n.translate(key, {
         hasValue: line.value === undefined ? 'no' : 'yes',
@@ -163,14 +172,19 @@ export class DefencesView {
   /** A damage type's name, a source's or a group's; a material or rune reads as its name in the rule list. */
   #target(target: DamageAdjustmentSubject, list: ListContext): string {
     const context = DamageContextSchema.safeParse(target);
+
     if (context.success) {
       return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
     }
+
     const group = DamageGroupSchema.safeParse(target);
+
     if (group.success) {
       return this.#group(group.data);
     }
+
     const damageType = DamageTypeSchema.safeParse(target);
+
     return damageType.success
       ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
       : materialName(DamageException.parse(target), list);
@@ -179,10 +193,13 @@ export class DefencesView {
   /** A group's name with the types it covers; `all` reads as "all damage". */
   #group(group: DamageGroup): string {
     const name = this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group]);
+
     if (group === DamageGroup.All) {
       return name;
     }
+
     const types = DAMAGE_GROUP_TYPES[group].map((type) => this.#i18n.translate(DAMAGE_TYPE_MESSAGES[type]));
+
     return this.#i18n.translate(DefencesMessage.GroupTypes, { group: name, types: this.#format.list(types, 'unit') });
   }
 
@@ -190,9 +207,11 @@ export class DefencesView {
   #standing(line: ImmunityLine | AdjustmentLine, context: ListContext): Standing {
     const { status, origin } = line;
     const fromForm = this.#fromForm(line, context);
+
     if (status.kind === DefenceStatusKind.Applied) {
       return { status: undefined, detail: undefined, fromForm, origin };
     }
+
     return { status: status.kind, detail: this.#detail(status, context), fromForm, origin };
   }
 
@@ -212,16 +231,22 @@ export class DefencesView {
         if (status.summary === undefined) {
           return undefined;
         }
+
         const summary = formatSummary(status.summary, summaryFormat(this.#i18n, this.#format));
+
         return this.#i18n.translate(DefencesMessage.AppliesWhen, { summary });
       }
+
       case DefenceStatusKind.Superseded: {
         return this.#i18n.translate(DefencesMessage.SupersededBy, { name: this.#ruleName(status.by, context) });
       }
+
       case DefenceStatusKind.Failed: {
         const error = this.#translate(status.error);
+
         return status.when === undefined ? error : this.#i18n.translate(DefencesMessage.FailedConditional, { error });
       }
+
       default: {
         return status satisfies never;
       }
@@ -231,6 +256,7 @@ export class DefencesView {
   /** The line a rule id names, by its label; the id itself if no line in the list has it. */
   #ruleName(id: RuleId, { lines, names }: ListContext): string {
     const line = lines.find((candidate) => candidate.id === id);
+
     return line === undefined
       ? id
       : labelName(line.label, { entries: names.entries }, (descriptor) => this.#translate(descriptor));

@@ -16,6 +16,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -42,6 +43,7 @@ async function open(): Promise<RouterTestingHarness> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
+
   return RouterTestingHarness.create('/homebrew');
 }
 
@@ -80,6 +82,7 @@ describe('PackListPage', () => {
     // Text comes from the route's `homebrew` message scope, loaded with the page's code.
     expect(root.textContent).toContain('New pack');
     const [title, slug] = [...root.querySelectorAll('input')];
+
     for (const [input, value] of [
       [present(title), 'Amiri feats'],
       [present(slug), 'amiri-feats'],
@@ -87,6 +90,7 @@ describe('PackListPage', () => {
       input.value = value;
       input.dispatchEvent(new Event('input'));
     }
+
     harness.detectChanges();
     present(root.querySelector<HTMLButtonElement>('button[type="submit"]')).click();
     await harness.fixture.whenStable();

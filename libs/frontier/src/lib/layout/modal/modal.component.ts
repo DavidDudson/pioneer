@@ -13,6 +13,7 @@ import { showDialog } from '../drawer/drawer-overlay';
 const panelClasses = cva(
   'm-auto w-drawer-default max-w-full border border-line-default bg-surface-base p-md text-fg-default backdrop:bg-surface-overlay',
 )();
+
 const contentClasses = cva('flex flex-col gap-md')();
 const headerClasses = cva('flex items-center justify-between gap-sm')();
 const headingClasses = cva('min-w-none focus:outline-hidden')();
@@ -87,10 +88,13 @@ export class Modal {
   /** Takes focus back to what had it when the modal opened. */
   #remember(open: boolean): void {
     const active = this.#document.activeElement;
+
     if (open) {
       this.#opener = active instanceof HTMLElement ? active : undefined;
+
       return;
     }
+
     const opener = this.#opener;
     this.#opener = undefined;
     opener?.focus();

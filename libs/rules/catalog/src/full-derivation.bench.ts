@@ -45,6 +45,7 @@ function grantInputs(): GrantInputs {
     situation: LEVEL_20_SITUATION,
     picks: picksOf(LEVEL_20_PICKS),
   });
+
   return { ...inputs, namespaces };
 }
 
@@ -68,6 +69,7 @@ function given(content: StatisticContent, extra: readonly RuleInPlay[] = []): Gi
 /** A whole derivation: grants to a fixpoint, then every statistic, its predicates read against the grants' facts. */
 function derive({ content, grantInputs: inputs, rules }: Given): Derivation {
   const grants = resolveGrants(inputs);
+
   return { grants, statistics: deriveStatistics(content, level20Fighter, { rules, facts: grants.facts }) };
 }
 
@@ -76,6 +78,7 @@ function lineStatuses(statistics: ReadonlyMap<Selector, StatisticResult>): reado
   const kinds = [...statistics.values()].flatMap((result) =>
     result.ok ? result.lines.map(({ status }) => status.kind) : [],
   );
+
   return [...new Set(kinds)].toSorted();
 }
 
@@ -85,16 +88,22 @@ function failed(statistics: ReadonlyMap<Selector, StatisticResult>): readonly Se
 
 const standard = given(core);
 const { grants, statistics } = derive(standard);
+
 expect(grants.errors).toEqual([]);
+
 expect(grants.answered).toHaveLength(LEVEL_20_PICKS.length);
+
 expect(failed(statistics)).toEqual([]);
+
 expect(statistics.has(Selector.parse('strike:shortbow'))).toBe(true);
+
 expect(lineStatuses(statistics)).toStrictEqual([
   LineStatusKind.Applied,
   LineStatusKind.Conditional,
   LineStatusKind.Inactive,
   LineStatusKind.Suppressed,
 ]);
+
 benchmark({
   name: 'catalog: level 20 Fighter derives grants and every statistic',
   budgetMs: BUDGET_MS,
@@ -104,9 +113,12 @@ benchmark({
 
 const variant = given(contentOf(coreRules, houseRules), withoutLevel());
 const variantDerivation = derive(variant);
+
 expect(failed(variantDerivation.statistics)).toEqual([]);
+
 // Wisdom +3, master without level +6, and the house rule's +1.
 expect(variantDerivation.statistics.get(Selector.parse('perception'))).toMatchObject({ ok: true, formulaValue: 10 });
+
 benchmark({
   name: 'catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception',
   budgetMs: BUDGET_MS,

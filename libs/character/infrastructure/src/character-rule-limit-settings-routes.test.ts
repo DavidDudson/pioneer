@@ -34,6 +34,7 @@ function fixture(): Fixture {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
   const campaigns = new InMemoryAttachedCampaignPacks();
+
   const limits = new CharacterRuleLimitService(
     {
       characters: repository,
@@ -43,11 +44,14 @@ function fixture(): Fixture {
     },
     clock,
   );
+
   const auth = new FakeAuthenticator();
+
   const api = new Elysia()
     .use(problemHandler)
     .use(characterRoutes(new CharacterService(repository, content, clock), auth))
     .use(characterRuleLimitRoutes(limits, auth));
+
   return { api, campaigns };
 }
 
@@ -68,6 +72,7 @@ async function createdBy(api: AnyElysia, owner: UserId): Promise<CharacterId> {
   const response = await api.handle(
     request('/characters', owner, { method: 'POST', body: { name: 'Seelah', ancestry: humanAncestryId } }),
   );
+
   return ((await response.json()) as { id: CharacterId }).id;
 }
 
@@ -89,9 +94,11 @@ describe('character rule-limit settings routes', () => {
   test('a number past the ceiling is a 422', async () => {
     const { api } = fixture();
     const id = await createdBy(api, ezren);
+
     const response = await api.handle(
       request(`/characters/${id}/rule-limit-settings/handsMax`, ezren, { method: 'POST', body: { value: 11 } }),
     );
+
     expect(response.status).toBe(422);
   });
 
@@ -108,9 +115,11 @@ describe('character rule-limit settings routes', () => {
     const { api, campaigns } = fixture();
     const id = await createdBy(api, ezren);
     campaigns.attach(id, { name: AttachedCampaignName.parse('Abomination Vaults'), packs: [], variants: [] });
+
     const response = await api.handle(
       request(`/characters/${id}/rule-limit-settings/itemsMax`, ezren, { method: 'POST', body: { value: 9 } }),
     );
+
     expect(response.status).toBe(409);
   });
 });

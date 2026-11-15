@@ -36,11 +36,13 @@ function replacement(rules: readonly RuleInPlay[], facts: PredicateFacts): Table
       ? [{ rule, table: rule.element.table, priority: rule.element.priority ?? DEFAULT_PRIORITY, id: ruleIdOf(rule) }]
       : [],
   );
+
   const winner = candidates
     .toSorted(
       (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
     )
     .at(-1);
+
   return winner === undefined ? undefined : { table: winner.table, origin: winner.rule.origin };
 }
 
@@ -54,12 +56,16 @@ interface BonusInputs {
 /** A rank's formula at `level`; undefined when it fails to evaluate, so `@prof` reads as unknown. */
 function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue | undefined {
   const parsed = parseFormula(FormulaText.parse(formula));
+
   if (!parsed.ok) {
     return undefined;
   }
+
   const resolve: ResolveReference = (path) =>
     knownReference(path)?.kind === ReferenceKind.Level ? FormulaValue.parse(level) : undefined;
+
   const outcome = evaluate(parsed.formula, resolve);
+
   return outcome.ok ? outcome.value : undefined;
 }
 
@@ -73,11 +79,14 @@ export function proficiencyBonuses(
 ): ProficiencyBonuses {
   const inForce = replacement(rules, facts) ?? { table, origin: undefined };
   const bonuses = new Map<Proficiency, FormulaValue>();
+
   for (const rank of Object.values(Proficiency)) {
     const bonus = bonusAt(inForce.table[rank], level);
+
     if (bonus !== undefined) {
       bonuses.set(rank, bonus);
     }
   }
+
   return { bonuses, origin: inForce.origin };
 }

@@ -15,9 +15,11 @@ describe.skipIf(adminUrl === undefined)('connect (postgres)', () => {
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '');
+
     const [{ name } = { name: '' }] = await database.db.execute<{ name: string }>(
       sql`select current_database() as name`,
     );
+
     await database.db.execute(sql.raw(`alter database ${name} set timezone to 'Pacific/Auckland'`));
     const url = new URL(adminUrl ?? '');
     url.pathname = `/${name}`;
@@ -33,6 +35,7 @@ describe.skipIf(adminUrl === undefined)('connect (postgres)', () => {
     const [row] = await db.execute<{ zone: string; at: string }>(
       sql`select current_setting('TimeZone') as zone, '2026-01-01T00:00:00Z'::timestamptz::text as at`,
     );
+
     expect(row).toStrictEqual({ zone: 'UTC', at: '2026-01-01 00:00:00+00' });
   });
 });

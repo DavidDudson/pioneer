@@ -130,6 +130,7 @@ export type StatisticRow =
   | { readonly ok: false; readonly selector: Selector; readonly error: MessageDescriptor; readonly pointer: string };
 
 export const StatisticsStatus = { Valid: CheckStatus.Valid, Problems: 'problems', Pending: 'pending' } as const;
+
 export type StatisticsStatus = ValueOf<typeof StatisticsStatus>;
 
 /** The texts the statistics tool reads. */
@@ -175,6 +176,7 @@ function rowOf(result: StatisticResult, { base, kind }: StatisticDefinition, nam
   if (!result.ok) {
     return { ok: false, selector: result.selector, error: result.error, pointer: pointAt(base, result.position) };
   }
+
   return {
     ok: true,
     selector: result.selector,
@@ -207,6 +209,7 @@ function readTexts(texts: StatisticsTexts, namespaces: NamespaceTable): TextsRea
   const elements = readJson(RuleElementList, texts.rules);
   const overrides = readJson(RuleElementList, texts.overrides);
   const facts = parseFacts(texts.facts);
+
   if (
     definitions.status === CheckStatus.Valid &&
     inputs.status === CheckStatus.Valid &&
@@ -222,6 +225,7 @@ function readTexts(texts: StatisticsTexts, namespaces: NamespaceTable): TextsRea
       facts: new PredicateFacts(facts.options, namespaces),
     };
   }
+
   return {
     ok: false,
     problems: {
@@ -251,15 +255,19 @@ export function checkStatistics(
   namespaces: NamespaceTable,
 ): StatisticsCheck {
   const read = readTexts(texts, namespaces);
+
   if (!read.ok) {
     return read.problems;
   }
+
   const names = rowNames(ruleNames(read.rules), variant);
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
+
   const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
     rowOf(result, definition, names),
   );
+
   return { status: StatisticsStatus.Valid, rows };
 }

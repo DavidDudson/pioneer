@@ -33,6 +33,7 @@ export function spellFixtureId(name: SpellFixture): ContentId {
  */
 export function spellFixtures(): ContentPack {
   const all = ['arcane', 'divine', 'occult', 'primal'];
+
   return new ContentPackBuilder()
     .withId(SPELL_PACK)
     .withSpell('detect-magic', { rank: 1, traditions: all, traits: ['cantrip'] })

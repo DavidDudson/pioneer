@@ -69,6 +69,7 @@ const meta: Meta<SectionIndex> = {
     </fr-stack>`,
   }),
 };
+
 export default meta;
 
 export const SheetLayout: SectionIndexStory = {

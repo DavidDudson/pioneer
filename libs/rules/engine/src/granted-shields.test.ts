@@ -19,6 +19,7 @@ const SHIELD = {
     { start: 5, hardness: 15 },
   ],
 };
+
 const ARM = {
   key: 'GrantShield',
   hardness: 4,
@@ -33,6 +34,7 @@ function hardnessAt(itemLevel: number | undefined): Hardness | undefined {
     rules: [inPlay(SHIELD, 'shield', itemLevel === undefined ? {} : { itemLevel })],
     facts: FACTS,
   });
+
   return shield?.hardness;
 }
 
@@ -73,6 +75,7 @@ describe('shieldsInPlay', () => {
       shards: { damageType: 'piercing', damage: '1d4' },
       brackets: [{ start: 3, shards: '3d4' }],
     };
+
     const damageAt = (itemLevel: number): string | undefined =>
       shieldsInPlay({ rules: [inPlay(glass, 'glass', { itemLevel })], facts: FACTS })[0]?.shards?.damage;
 
@@ -84,6 +87,7 @@ describe('shieldsInPlay', () => {
       rules: [inPlay({ key: 'GrantShield', hardness: 5, layered: true }, 'amped')],
       facts: FACTS,
     });
+
     const [plain] = shieldsInPlay({ rules: [inPlay(SHIELD, 'shield')], facts: FACTS });
 
     expect([layered?.layered, plain?.layered]).toStrictEqual([true, false]);

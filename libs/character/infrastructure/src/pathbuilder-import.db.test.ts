@@ -20,6 +20,7 @@ import { DrizzleCharacterVariantRepository } from './drizzle-character-variant-r
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-07T10:00:00Z');
 const all = Object.values(Attribute);
+
 /** Briar Rose's content: ancestry, heritage, background and class. */
 const briarPack = new ContentPackBuilder()
   .withId('howl-of-the-wild')

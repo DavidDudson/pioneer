@@ -17,6 +17,7 @@ export class ClassRoleOptions {
   /** Every class, by name; none while the content loads. */
   public readonly classes = computed((): readonly ClassOption[] => {
     const registry = this.#registry.data();
+
     return registry === undefined ? [] : classPickerContent(registry).classes;
   });
 

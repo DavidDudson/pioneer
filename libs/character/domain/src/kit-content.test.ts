@@ -20,21 +20,26 @@ const explorer = kitFixtureId(KitFixture.Explorer);
 function sequentialIds(): () => InventoryItemId {
   const ids = Array.from({ length: 8 }, () => InventoryItemId.parse(newId()));
   let next = 0;
+
   return () => {
     const id = ids[next];
     next += 1;
+
     if (id === undefined) {
       throw new Error('Out of ids');
     }
+
     return id;
   };
 }
 
 function explorerData(): KitData {
   const entry = reads.kits.get(explorer);
+
   if (entry === undefined) {
     throw new Error('Expected the explorer kit');
   }
+
   return entry.data;
 }
 
@@ -75,12 +80,14 @@ describe('kitItems', () => {
 /** An inventory of `count` diamonds, loose. */
 function holding(count: number): Inventory {
   const item = itemFixtureId(ItemFixture.Diamond);
+
   const items = Array.from({ length: count }, (): InventoryItem => ({
     id: InventoryItemId.parse(newId()),
     item,
     quantity: ItemQuantity.parse(1),
     carry: STOWED,
   }));
+
   return { ...EMPTY_INVENTORY, items };
 }
 
@@ -89,9 +96,11 @@ function oneKit(items: readonly object[]): KitEntry {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withId('odd-kits').withKit('odd', { items }).build());
   const [kit] = kitContent(registry).values();
+
   if (kit === undefined) {
     throw new Error('Expected the kit');
   }
+
   return kit;
 }
 

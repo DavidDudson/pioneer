@@ -55,6 +55,7 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
 /** Whether another transaction is refused the row's lock right now, as it is while a change holds it. */
 async function lockedAgainstOthers(database: TestDatabase, id: ContentPackId): Promise<boolean> {
   const probe = sql`select id from content_packs where id = ${id} for update nowait`;
+
   return database.db
     .transaction(async (tx) => tx.execute(probe))
     .then(
@@ -66,6 +67,7 @@ async function lockedAgainstOthers(database: TestDatabase, id: ContentPackId): P
 /** The reasons of the settled promises that were rejected. */
 function reasons(outcomes: readonly PromiseSettledResult<unknown>[]): readonly unknown[] {
   const rejected = outcomes.filter((outcome): outcome is PromiseRejectedResult => outcome.status === 'rejected');
+
   return rejected.map((outcome): unknown => outcome.reason);
 }
 
@@ -105,12 +107,14 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
   async function pack(slug: string): Promise<ContentPackId> {
     const built = new HomebrewPackBuilder().slug(slug).build();
     await packs.insert(built);
+
     return built.id;
   }
 
   /** The dependencies stored for one pack. */
   async function edgesOf(id: ContentPackId): Promise<readonly PackDependencyEdge[]> {
     const edges = await dependencies.edges();
+
     return edges.filter((edge) => edge.pack === id);
   }
 
@@ -170,9 +174,11 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
     await connect({ pack: extension, dependsOn: base });
     const blocked = await rejection(database.db.execute(sql`delete from content_packs where id = ${base}`));
     expect(blocked).toBeInstanceOf(Error);
+
     const extensionDeleted = await rejection(
       database.db.execute(sql`delete from content_packs where id = ${extension}`),
     );
+
     expect(extensionDeleted).toBeInstanceOf(Error);
     await database.db.execute(sql`update content_packs set archived_at = now() where id = ${extension}`);
     expect(await edgesOf(extension)).toStrictEqual([{ pack: extension, dependsOn: base }]);
@@ -182,10 +188,12 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
     const mine = await pack('dep-lock');
     const refusal = new Error('refused');
     const locked: boolean[] = [];
+
     const outcome = dependencies.add(fixtureOwnerId, { pack: mine, dependsOn: official }, async () => {
       locked.push(...(await Promise.all([mine, official].map(async (id) => lockedAgainstOthers(database, id)))));
       throw refusal;
     });
+
     expect(await rejection(outcome)).toBe(refusal);
     expect(locked).toStrictEqual([true, true]);
     expect(await edgesOf(mine)).toStrictEqual([]);
@@ -194,10 +202,12 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
   test('two additions that would close a cycle together: one wins, the other is a 409', async () => {
     const first = await pack('dep-cycle-first');
     const second = await pack('dep-cycle-second');
+
     const outcomes = await Promise.allSettled([
       service.add(fixtureOwnerId, first, { dependsOn: second }),
       service.add(fixtureOwnerId, second, { dependsOn: first }),
     ]);
+
     const refused = reasons(outcomes);
     const stored = [...(await edgesOf(first)), ...(await edgesOf(second))];
     expect(refused).toHaveLength(1);
@@ -210,10 +220,12 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
     const extension = new HomebrewPackBuilder().slug('dep-race-extension').visibleTo(PackVisibility.Public).build();
     await packs.insert(base);
     await packs.insert(extension);
+
     const outcomes = await Promise.allSettled([
       homebrew.setVisibility(fixtureOwnerId, base.id, PackVisibility.Private),
       service.add(fixtureOwnerId, extension.id, { dependsOn: base.id }),
     ]);
+
     const refused = reasons(outcomes);
     expect(refused).toHaveLength(1);
     expect(refused).toSatisfy((all: readonly unknown[]) => all.every((reason) => reason instanceof ConflictError));

@@ -32,10 +32,12 @@ import { describeRuneError } from './rune-text';
 
 /** What the move form submits: the rune, by its key, and the item it goes onto. */
 const MoveRuneForm = z.object({ rune: z.string().min(1), to: InventoryItemId });
+
 interface MoveRuneModel {
   readonly rune: string;
   readonly to: string;
 }
+
 const EMPTY_MOVE: MoveRuneModel = { rune: '', to: '' };
 
 /** Each kind of item a rune goes on, spelled out so the message check sees every key. */
@@ -73,11 +75,13 @@ export class RuneMove {
   );
   readonly #etched: Signal<readonly RuneRef[]> = computed(() => {
     const item = this.#item();
+
     return item === undefined ? [] : etchedRunes(item, this.content().items.get(item.item));
   });
 
   readonly #words = computed(() => {
     this.#messages();
+
     return {
       fundamental: this.#i18n.translate('character.sheet.runes.kind.fundamental'),
       property: this.#i18n.translate('character.sheet.runes.kind.property'),
@@ -89,6 +93,7 @@ export class RuneMove {
     computed(() => {
       const item = this.#item();
       const entry = item === undefined ? undefined : this.content().items.get(item.item);
+
       return etchedRows(
         this.content(),
         { item, entry, runes: this.#etched(), key: runeKey },
@@ -99,6 +104,7 @@ export class RuneMove {
   );
   protected readonly runeColumns = computed(() => {
     this.#messages();
+
     return runeColumns({
       name: this.#i18n.translate('character.sheet.runes.columns.name'),
       kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
@@ -120,14 +126,18 @@ export class RuneMove {
       this.#messages();
       const character = this.#store.selected();
       const names = this.#names();
+
       if (character === undefined) {
         return [];
       }
+
       const { inventory } = character.document;
+
       return transferTargets(inventory, this.content(), this.id()).flatMap((id): RuneTargetRow[] => {
         const item = inventory.items.find((each) => each.id === id);
         const entry = item === undefined ? undefined : this.content().items.get(item.item);
         const runed = runedItemOf(entry);
+
         return item === undefined || runed === undefined
           ? []
           : [
@@ -144,6 +154,7 @@ export class RuneMove {
   );
   protected readonly targetColumns = computed(() => {
     this.#messages();
+
     return targetColumns({
       name: this.#i18n.translate('character.sheet.runes.targetColumns.name'),
       kind: this.#i18n.translate('character.sheet.runes.targetColumns.kind'),
@@ -162,9 +173,11 @@ export class RuneMove {
   protected readonly move = async (value: MoveRuneModel): Promise<void> => {
     const { rune: key, to } = MoveRuneForm.parse(value);
     const rune = runeOfKey(key, this.#etched());
+
     if (rune === undefined) {
       return;
     }
+
     await this.#store.patch({ field: CharacterPatchField.TransferRune, id: this.id(), to, rune });
     this.model.set(EMPTY_MOVE);
   };

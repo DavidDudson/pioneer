@@ -12,17 +12,23 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId,
 import type { PlayerCoreClass, SkillFixture } from './testing';
 
 const ALL = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+
 const backgrounds = new ContentPackBuilder()
   .withId('skill-backgrounds')
   .withBackground('acolyte', [ALL], [{ key: 'Proficiency', selector: 'skill:religion', rank: 'trained' }])
   .withBackground('scribe', [ALL], [{ key: 'Proficiency', selector: 'skill:lore:scribing', rank: 'trained' }])
   .build();
+
 const acolyte = new ContentPackBuilder().withId('skill-backgrounds').idOf(ContentKind.Background, 'acolyte');
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 registry.register(backgrounds);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
@@ -44,6 +50,7 @@ interface TrainedRead {
 function trainedAt(builder: CharacterBuilder, slot: string): readonly TrainedRead[] {
   const { document } = builder.build();
   const found = skillSlots(document, skillReads(document, content)).find((each) => each.key === slot);
+
   return (found?.trained ?? []).map(({ skill: each, sources }) => ({
     skill: each.id,
     sources,

@@ -31,6 +31,7 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
       .from(campaignCharacters)
       .where(eq(campaignCharacters.campaignId, campaignId))
       .orderBy(asc(campaignCharacters.attachedAt), asc(campaignCharacters.id));
+
     return rows.map((row) => toCampaignCharacter(row));
   }
 
@@ -40,10 +41,12 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
     if (characterIds.length === 0) {
       return new Map();
     }
+
     const rows = await this.#db
       .select({ characterId: campaignCharacters.characterId, campaignId: campaignCharacters.campaignId })
       .from(campaignCharacters)
       .where(inArray(campaignCharacters.characterId, [...characterIds]));
+
     return new Map(rows.map((row) => [row.characterId, row.campaignId]));
   }
 
@@ -55,9 +58,11 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
         .from(campaignMembers)
         .where(and(eq(campaignMembers.id, character.memberId), eq(campaignMembers.campaignId, campaignId)))
         .for('key share');
+
       if (member === undefined) {
         return undefined;
       }
+
       // Two attaches racing: the second waits on the unique index, then finds the first's row below.
       const place = async (): Promise<CampaignId | undefined> => {
         await tx
@@ -70,14 +75,18 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
             attachedAt: character.attachedAt.toString(),
           })
           .onConflictDoNothing({ target: campaignCharacters.characterId });
+
         const [placed] = await tx
           .select({ campaignId: campaignCharacters.campaignId })
           .from(campaignCharacters)
           .where(eq(campaignCharacters.characterId, character.characterId));
+
         return placed?.campaignId;
       };
+
       // A blocking row gone by the select (detached or cascaded meanwhile) freed the character: try once more.
       const placed = await place();
+
       return placed ?? place();
     });
   }

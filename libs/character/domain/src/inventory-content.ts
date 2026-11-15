@@ -18,6 +18,7 @@ export const INVENTORY_KINDS = [
   ContentKind.Treasure,
   ContentKind.Weapon,
 ] as const;
+
 export type InventoryKind = (typeof INVENTORY_KINDS)[number];
 
 const KINDS: ReadonlySet<ContentKind> = new Set(INVENTORY_KINDS);
@@ -35,6 +36,7 @@ export type ItemContent = ReadonlyMap<ContentId, ItemEntry>;
 /** The items in `registry`'s packs. A later pack's entry of the same id wins, as in the registry. */
 export function itemContent(registry: ContentRegistry): ItemContent {
   const items = registry.packs.flatMap((pack) => pack.otherEntries.filter((entry) => isItemEntry(entry)));
+
   return new Map(items.map((entry) => [entry.id, entry]));
 }
 
@@ -63,6 +65,7 @@ const INVESTED = Trait.parse('invested');
  */
 export function isWearable(entry: ItemEntry): boolean {
   const usage = usageOf(entry);
+
   return entry.kind === ContentKind.Armor || (usage !== undefined && usage.type !== UsageType.Held);
 }
 
@@ -74,6 +77,7 @@ export function isInvestable(item: InventoryItem | undefined, entry: ItemEntry |
   if (entry?.traits.includes(INVESTED) === true) {
     return true;
   }
+
   return entry?.kind === ContentKind.Armor && item !== undefined && hasRunes(itemRunes(item, entry));
 }
 
@@ -85,11 +89,13 @@ function usageOf(entry: ItemEntry): Usage | undefined {
     case ContentKind.Weapon: {
       return entry.data.usage;
     }
+
     case ContentKind.Armor:
     case ContentKind.Shield:
     case ContentKind.Treasure: {
       return undefined;
     }
+
     default: {
       const unreachable: never = entry;
       throw new TypeError(`Unhandled item kind: ${JSON.stringify(unreachable)}`);
@@ -100,6 +106,7 @@ function usageOf(entry: ItemEntry): Usage | undefined {
 /** The fewest hands `entry` is held in: two for an item held in two hands, else one. */
 export function handsNeeded(entry: ItemEntry | undefined): Hands {
   const usage = entry === undefined ? undefined : usageOf(entry);
+
   return usage?.type === UsageType.Held && usage.hands === UsageHands.Two ? HANDS_MAX : ONE_HAND;
 }
 
@@ -112,10 +119,13 @@ function containerRefusal(
   if (container === undefined) {
     return undefined;
   }
+
   const holder = inventory.items.find((each) => each.id === container);
+
   if (holder === undefined || !isContainer(content.get(holder.item))) {
     return { field: InventoryRefusalField.Container, message: message('character.validation.notAContainer') };
   }
+
   return undefined;
 }
 
@@ -132,13 +142,16 @@ interface CarryEdit {
 /** Refuses wearing what isn't worn (anything but armour or a worn item, or content that is gone) and a second suit of armour. */
 function wearRefusal(content: ItemContent, inventory: Inventory, id: InventoryItemId): InventoryRefusal | undefined {
   const entry = contentOf(content, inventory, id);
+
   if (entry === undefined || !isWearable(entry)) {
     return carryRefused(message('character.validation.notWearable'));
   }
+
   const armorWorn = inventory.items.some(
     (each) =>
       each.id !== id && each.carry.state === CarryState.Worn && content.get(each.item)?.kind === ContentKind.Armor,
   );
+
   return entry.kind === ContentKind.Armor && armorWorn
     ? carryRefused(message('character.validation.armorWorn'))
     : undefined;
@@ -156,9 +169,11 @@ function carryRefusal(
   if (carry.state === CarryState.Worn) {
     return wearRefusal(content, inventory, id);
   }
+
   if (carry.state === CarryState.Held && carry.hands < handsNeeded(contentOf(content, inventory, id))) {
     return carryRefused(message('character.validation.needsTwoHands'));
   }
+
   return undefined;
 }
 
@@ -166,17 +181,21 @@ function carryRefusal(
 function investRefusal(content: ItemContent, inventory: Inventory, id: InventoryItemId): InventoryRefusal | undefined {
   const item = inventory.items.find((each) => each.id === id);
   const entry = item === undefined ? undefined : content.get(item.item);
+
   if (!isInvestable(item, entry)) {
     return { field: InventoryRefusalField.Invested, message: message('character.validation.notInvestable') };
   }
+
   if (item === undefined || equippedState(item, entry) === undefined) {
     return { field: InventoryRefusalField.Invested, message: message('character.validation.investNotWorn') };
   }
+
   return undefined;
 }
 
 function contentOf(content: ItemContent, inventory: Inventory, id: InventoryItemId): ItemEntry | undefined {
   const item = inventory.items.find((each) => each.id === id);
+
   return item === undefined ? undefined : content.get(item.item);
 }
 
@@ -194,8 +213,10 @@ export function itemRefusal(
   if (item !== undefined && !content.has(item)) {
     return { field: InventoryRefusalField.Item, message: message('character.validation.unknownItem') };
   }
+
   const carried = id === undefined || carry === undefined ? undefined : carryRefusal(content, inventory, { id, carry });
   const investing = id === undefined || invested !== true ? undefined : investRefusal(content, inventory, id);
+
   return carried ?? investing ?? containerRefusal(content, inventory, container);
 }
 
@@ -207,12 +228,15 @@ function carriedAsUsed(entry: ItemEntry, carry: Carry): boolean {
   if (entry.kind === ContentKind.Shield) {
     return carry.state === CarryState.Held;
   }
+
   if (usageOf(entry)?.type === UsageType.Held) {
     return carry.state === CarryState.Held && carry.hands >= handsNeeded(entry);
   }
+
   if (isWearable(entry)) {
     return carry.state === CarryState.Worn;
   }
+
   return carry.state === CarryState.Worn || carry.state === CarryState.Held;
 }
 
@@ -224,6 +248,7 @@ export function equippedState(item: InventoryItem, entry: ItemEntry | undefined)
   if (entry === undefined || !carriedAsUsed(entry, item.carry)) {
     return undefined;
   }
+
   return item.carry.state === CarryState.Worn ? ItemState.Worn : ItemState.Held;
 }
 
@@ -234,8 +259,10 @@ export function equippedState(item: InventoryItem, entry: ItemEntry | undefined)
  */
 export function activeState(item: InventoryItem, entry: ItemEntry | undefined): ItemState | undefined {
   const equipped = equippedState(item, entry);
+
   if (equipped === undefined || !isInvestable(item, entry)) {
     return equipped;
   }
+
   return item.invested === true ? ItemState.Invested : undefined;
 }

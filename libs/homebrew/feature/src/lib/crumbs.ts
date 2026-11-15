@@ -8,6 +8,7 @@ import { HomebrewStore } from './data/homebrew-store';
 export function packCrumb(): Signal<string | undefined> {
   const store = inject(HomebrewStore);
   const i18n = inject(TranslocoService);
+
   return computed(
     () =>
       store.selected.data()?.title ?? (store.selected.isError() ? i18n.translate('homebrew.pack.title') : undefined),

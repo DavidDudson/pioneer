@@ -26,6 +26,7 @@ interface Tracked {
 
 function tracker(): Tracked {
   const open = signal(KYRA);
+
   return { edits: new EditTracker(open), open };
 }
 

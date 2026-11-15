@@ -22,6 +22,7 @@ export const AutomaticKind = {
   CantripHeightening: 'cantrip-heightening',
   SpellSlots: 'spell-slots',
 } as const;
+
 export type AutomaticKind = ValueOf<typeof AutomaticKind>;
 
 interface AutomaticBase {
@@ -79,12 +80,14 @@ const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 /** Every level from 1st to `CHARACTER_LEVEL_MAX`, lowest first. */
 function allLevels(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
 /** The character's grants at `level`, over every pick it holds, as the sheet reads them at its own level. */
 function grantsAt(level: Level, document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+
   return resolveSlotsAt(level, slotContextOf(document, content, picks));
 }
 
@@ -105,6 +108,7 @@ interface Moment {
 /** The ranks the grants at the level raise past what they were at the one before. */
 function proficiencyRises({ now, before }: Moment, source: ChoiceSource): readonly AutomaticChange[] {
   const earlier = characterRanks(before);
+
   return [...characterRanks(now)]
     .filter(([selector, rank]) => rises(earlier.get(selector), rank))
     .map(([selector, rank]) => ({
@@ -119,6 +123,7 @@ function proficiencyRises({ now, before }: Moment, source: ChoiceSource): readon
 /** The fixed class features that arrive at the level; a feature the character picked is a choice, not listed. */
 function featuresAt({ level, now, document, content }: Moment, source: ChoiceSource): readonly AutomaticChange[] {
   const picked = new Set<unknown>(Object.values(document.build.choices));
+
   return classFeatures(now, content.lookup)
     .filter((feature) => feature.level === level && !picked.has(feature.id))
     .map((feature) => ({ kind: AutomaticKind.ClassFeature, source, id: feature.id, name: feature.name }));
@@ -129,14 +134,17 @@ function countOf(slots: SpellSlots | undefined, rank: PreparedRank): SlotCount |
   if (rank === SlotRank.Cantrip) {
     return slots?.cantrips;
   }
+
   return slots?.ranks.find((each) => each.rank === rank)?.count;
 }
 
 /** The slots and cantrips an entry has that it lacked at the level before, from 2nd level on. */
 function slotGains(entry: SpellcastingInPlay, prior: SpellcastingInPlay, source: ChoiceSource): AutomaticChange[] {
   const cantrips = entry.slots.cantrips === undefined ? [] : [{ rank: SlotRank.Cantrip, count: entry.slots.cantrips }];
+
   return [...cantrips, ...entry.slots.ranks].flatMap(({ rank, count }): AutomaticChange[] => {
     const had = countOf(prior.slots, rank) ?? 0;
+
     return count > had ? [{ kind: AutomaticKind.SpellSlots, source, rank, count: SlotCount.parse(count - had) }] : [];
   });
 }
@@ -144,8 +152,10 @@ function slotGains(entry: SpellcastingInPlay, prior: SpellcastingInPlay, source:
 /** The entries the character had at the level before and still has, each with the entry it was. */
 function continuing({ now, before }: Moment): readonly (readonly [SpellcastingInPlay, SpellcastingInPlay])[] {
   const earlier = characterSpellcasting(before);
+
   return characterSpellcasting(now).flatMap((entry) => {
     const prior = earlier.find((each) => each.slug === entry.slug);
+
     return prior === undefined ? [] : [[entry, prior] as const];
   });
 }
@@ -156,9 +166,11 @@ function spellChanges(moment: Moment, source: ChoiceSource): readonly AutomaticC
   const heightens = cantripRank(level) > cantripRank(Level.parse(level - 1));
   const entries = continuing(moment);
   const gains = entries.flatMap(([entry, prior]) => slotGains(entry, prior, source));
+
   const heightenings = entries
     .filter(([entry]) => heightens && entry.slots.cantrips !== undefined)
     .map((): AutomaticChange => ({ kind: AutomaticKind.CantripHeightening, source, rank: cantripRank(level) }));
+
   return [...gains, ...heightenings];
 }
 
@@ -176,17 +188,21 @@ function levelChanges(
   content: SlotContent,
 ): readonly AutomaticChange[] {
   const source = sourceOfKind(ChoiceSourceKind.Class, document, content);
+
   if (level === FIRST_LEVEL || prior === undefined) {
     return featuresAt({ level, now, before: now, document, content }, source);
   }
+
   const moment = { level, now, before: prior, document, content };
   const casting = sourceOfKind(ChoiceSourceKind.Spellcasting, document, content);
+
   return [...featuresAt(moment, source), ...proficiencyRises(moment, source), ...spellChanges(moment, casting)];
 }
 
 /** One row per level, 1st to 20th: what it improves with nothing to pick. Level 1 lists fixed class features only. */
 export function automaticTimeline(document: CharacterDocument, content: SlotContent): readonly AutomaticRow[] {
   const resolved = allLevels().map((level) => ({ level, now: grantsAt(level, document, content) }));
+
   return resolved.map(({ level, now }, index) => ({
     level,
     changes: levelChanges({ level, now, prior: resolved[index - 1]?.now }, document, content),

@@ -7,6 +7,7 @@ import type { NamespaceTable } from './namespaces';
 
 /** The number at the end of a roll option, `5` in `self:level:5`, as Foundry reads it with `Number`. */
 export const OptionValue = z.number().brand<'OptionValue'>();
+
 export type OptionValue = z.infer<typeof OptionValue>;
 
 const SEPARATOR = ':';
@@ -18,9 +19,11 @@ const NO_VALUES: readonly OptionValue[] = [];
  */
 function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly OptionValue[]> {
   const values = new Map<string, OptionValue[]>();
+
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
     const value = Number(option.slice(split + 1));
+
     if (Number.isFinite(value)) {
       const prefix = option.slice(0, split);
       const list = values.get(prefix) ?? [];
@@ -28,6 +31,7 @@ function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly Op
       values.set(prefix, list);
     }
   }
+
   return values;
 }
 
@@ -46,13 +50,16 @@ const RANK_OPTION = /:rank:\d+$/u;
 /** The numbers after `rest:` among `options`, which are written without the namespace `rest` was taken off. */
 function layerValues(options: readonly string[], rest: string): OptionValue[] {
   const values: OptionValue[] = [];
+
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
     const value = Number(option.slice(split + 1));
+
     if (split === rest.length && option.startsWith(rest) && Number.isFinite(value)) {
       values.push(OptionValue.parse(value));
     }
   }
+
   return values;
 }
 
@@ -88,39 +95,50 @@ export class PredicateFacts {
   ): PredicateFacts {
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
+
     return layered;
   }
 
   /** These facts with `options` present as well, as a battle form's traits are while it lasts. */
   public plus(options: readonly RollOption[]): PredicateFacts {
     const layer = this.#layer;
+
     if (layer === undefined) {
       const own = [...this.#options].map((option) => RollOption.parse(option));
+
       return this.#sameReading(new PredicateFacts([...own, ...options], this.#namespaces));
     }
+
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { ...layer, base: layer.base.plus(options) };
+
     return layered;
   }
 
   /** These facts without `option`, as a choice reads them apart from the roll option its own pick sets. */
   public minus(option: RollOption): PredicateFacts {
     const layer = this.#layer;
+
     if (layer === undefined) {
       const kept = [...this.#options].filter((each) => each !== option).map((each) => RollOption.parse(each));
+
       return this.#sameReading(new PredicateFacts(kept, this.#namespaces));
     }
+
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { ...layer, base: layer.base.minus(option) };
+
     return layered;
   }
 
   /** Whether `option` is present. Takes plain text because comparisons build options from their operands. */
   public has(option: string): boolean {
     const layer = this.#layer;
+
     if (layer === undefined) {
       return this.#options.has(option);
     }
+
     return option.startsWith(layer.prefix)
       ? layer.options.includes(option.slice(layer.prefix.length))
       : layer.base.has(option);
@@ -129,9 +147,11 @@ export class PredicateFacts {
   /** Every number written after `prefix:` in a present option: `[5]` for `self:level` given `self:level:5`. */
   public values(prefix: RollOption): readonly OptionValue[] {
     const layer = this.#layer;
+
     if (layer === undefined) {
       return this.#values.get(prefix) ?? NO_VALUES;
     }
+
     return prefix.startsWith(layer.prefix)
       ? layerValues(layer.options, prefix.slice(layer.prefix.length))
       : layer.base.values(prefix);
@@ -140,10 +160,13 @@ export class PredicateFacts {
   /** The words after `prefix:` in the present options, each once: `fighter` for `class:fighter` given `class`. */
   public tails(prefix: string): readonly string[] {
     const layer = this.#layer;
+
     if (layer !== undefined) {
       return layer.base.tails(prefix);
     }
+
     const start = `${prefix}${SEPARATOR}`;
+
     return [...this.#options].filter((option) => option.startsWith(start)).map((option) => option.slice(start.length));
   }
 
@@ -156,14 +179,17 @@ export class PredicateFacts {
       [...this.#options].map((each) => RollOption.parse(each)),
       this.#namespaces,
     );
+
     read.#ranksUnread = true;
     const layer = this.#layer;
     read.#layer = layer === undefined ? undefined : { ...layer, base: layer.base.withRanksUnread() };
+
     return read;
   }
 
   #sameReading(facts: PredicateFacts): PredicateFacts {
     facts.#ranksUnread = this.#ranksUnread;
+
     return facts;
   }
 
@@ -172,13 +198,18 @@ export class PredicateFacts {
     if (this.#layer !== undefined) {
       return this.#layer.base.isKnown(option);
     }
+
     const cached = this.#known.get(option);
+
     if (cached !== undefined) {
       return cached;
     }
+
     const known =
       !(this.#ranksUnread && RANK_OPTION.test(option)) && kindOf(option, this.#namespaces) === NamespaceKind.Known;
+
     this.#known.set(option, known);
+
     return known;
   }
 }

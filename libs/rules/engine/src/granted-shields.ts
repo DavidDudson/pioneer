@@ -43,30 +43,38 @@ function heightened(shield: GrantedShield, level: Level | undefined): GrantedShi
       : (shield.brackets ?? [])
           .filter(({ start }) => Number(start) <= Number(level))
           .toSorted((left, right) => Number(left.start) - Number(right.start));
+
   const result: { -readonly [Key in keyof GrantedShield]: GrantedShield[Key] } = { ...shield };
+
   for (const { hardness, hitPoints, brokenThreshold, shards } of applying) {
     if (shards !== undefined && result.shards !== undefined) {
       result.shards = { damageType: result.shards.damageType, damage: shards };
     }
+
     if (hardness !== undefined) {
       result.hardness = hardness;
     }
+
     if (hitPoints !== undefined) {
       result.hitPoints = hitPoints;
     }
+
     if (brokenThreshold !== undefined) {
       result.brokenThreshold = brokenThreshold;
     }
   }
+
   return result;
 }
 
 function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' | 'source'>): ShieldInPlay {
   const { hitPoints } = shield;
+
   const broken =
     hitPoints === undefined
       ? NEVER_BROKEN
       : (shield.brokenThreshold ?? HitPoints.parse(Math.floor(hitPoints / BROKEN_DIVISOR)));
+
   return {
     id,
     source,
@@ -90,13 +98,17 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
 export function shieldsInPlay(inputs: ModifierInputs): readonly ShieldInPlay[] {
   const granted = inputs.rules.flatMap((rule): ShieldInPlay[] => {
     const { element } = rule;
+
     if (element.key !== RuleElementKey.GrantShield || truthOf(element.predicate, inputs.facts) !== Truth.True) {
       return [];
     }
+
     return [inPlay(heightened(element, rule.itemLevel), { id: ruleIdOf(rule), source: rule.origin.entry })];
   });
+
   const form = battleFormInPlay(inputs);
   const shield = form?.form.shield;
+
   return form === undefined || shield === undefined
     ? granted
     : [...granted, inPlay(shield, { id: form.id, source: form.origin.entry })];

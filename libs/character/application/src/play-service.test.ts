@@ -81,10 +81,12 @@ describe('PlayService', () => {
 
   test('rest heals by the Constitution modifier and level the build gives, and is audited as rest', async () => {
     const hurt = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(5) });
+
     const rested = await play.patch(amiri, kyra.id, {
       expectedRevision: hurt.revision,
       command: { field: PlayCommandField.Rest },
     });
+
     expect(rested.play.hp.damage).toBeLessThan(hurt.play.hp.damage);
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.Rest);
   });
@@ -94,16 +96,19 @@ describe('PlayService', () => {
       expectedRevision: FIRST_VERSION,
       command: { field: PlayCommandField.StartSession },
     });
+
     expect(started.play.resources[Resource.HeroPoints]).toBe(ResourceCount.parse(2));
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.StartSession);
   });
 
   test('a build save leaves play state alone', async () => {
     await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(2) });
+
     const renamed = await characters.patch(amiri, kyra.id, {
       expectedVersion: kyra.version,
       patch: { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra of Sarenrae') },
     });
+
     expect(renamed.character.document.play.hp.damage).toBe(HitPoints.parse(2));
     const after = await play.get(amiri, kyra.id);
     expect(after.revision).toBe(nextVersion(FIRST_VERSION));
@@ -157,6 +162,7 @@ describe('PlayService', () => {
       resource: Resource.HeroPoints,
       amount: ResourceCount.parse(1),
     };
+
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
     expect(saved.play.resources[Resource.HeroPoints]).toBe(ResourceCount.parse(1));
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SpendResource);
@@ -171,6 +177,7 @@ describe('PlayService', () => {
       resource: Resource.FocusPoints,
       amount: ResourceCount.parse(1),
     };
+
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
     expect(saved.play.resources[Resource.FocusPoints]).toBe(ResourceCount.parse(0));
   });
@@ -184,11 +191,13 @@ describe('PlayService', () => {
 
   test('spending every hero point while dying stabilises, with no maximum Hit Points needed', async () => {
     const down = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(50) });
+
     const spendAll: PlayCommand = {
       field: PlayCommandField.SpendResource,
       resource: Resource.HeroPoints,
       amount: ResourceCount.parse(3),
     };
+
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: down.revision, command: spendAll });
     expect(saved.play.dying).toBe(Dying.parse(0));
     expect(saved.play.wounded).toBe(Wounded.parse(0));
@@ -203,15 +212,18 @@ describe('PlayService', () => {
   test('daily preparations refuse a staff the character does not have, and a slot with no staff', async () => {
     const absent = newId();
     const staff: PlayCommand = { field: PlayCommandField.DailyPreparations, staff: InventoryItemId.parse(absent) };
+
     const slot: PlayCommand = {
       field: PlayCommandField.DailyPreparations,
       slot: { entry: Slug.parse('wizard'), rank: SpellRank.parse(1) },
     };
+
     const refusals = await Promise.all(
       [staff, slot].map(async (command) =>
         rejection(play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command })),
       ),
     );
+
     for (const refused of refusals) {
       expect(refused).toBeInstanceOf(ValidationError);
     }

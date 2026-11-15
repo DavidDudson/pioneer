@@ -22,4 +22,5 @@ export const CriticalSpecializationElement = z.strictObject({
   damageDice: PersistentDamage.optional(),
   ...ruleElementBase,
 });
+
 export type CriticalSpecializationElement = z.infer<typeof CriticalSpecializationElement>;

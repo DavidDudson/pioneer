@@ -35,6 +35,7 @@ const NAMES = [{ userId: AUTHOR, displayName: 'Ada' }];
 async function openWith(customEffects: readonly object[]): Promise<HTMLElement> {
   const { root } = await openSheet({ ...FIGHTER, customEffects }, { authors: NAMES });
   await openConfiguration(root);
+
   return root;
 }
 
@@ -46,8 +47,10 @@ async function listed(root: HTMLElement): Promise<string> {
   const found = await vi.waitFor(async () => {
     const element = await section(root);
     expect(textOf(element)).toContain('Perception');
+
     return element;
   });
+
   return textOf(found);
 }
 
@@ -69,6 +72,7 @@ async function patchOf(): Promise<unknown> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
+
   return request.request.body;
 }
 
@@ -106,6 +110,7 @@ describe('CharacterSheet custom effects section', () => {
       enabled: false,
       toggles: [{ by: AUTHOR, byRole: 'player', at: '2026-10-31T10:00:00.000Z', enabled: false }],
     };
+
     const root = await openWith([off]);
     const text = await listed(root);
 

@@ -46,9 +46,11 @@ interface Caption {
 
 function childElements(element: Element, names: ReadonlySet<string>, context: TableContext): Element[] {
   const children = element.children.filter((child): child is Element => isTag(child) && names.has(child.name));
+
   for (const child of children) {
     context.report(child);
   }
+
   return children;
 }
 
@@ -61,6 +63,7 @@ function collectStrays(element: Element, allowed: ReadonlySet<string>, reader: R
   const strays = element.children.filter(
     (child) => !(isTag(child) && allowed.has(child.name)) && (isTag(child) || (isText(child) && !isWhitespace(child))),
   );
+
   reader.strays.push(...strays);
 }
 
@@ -68,18 +71,22 @@ function rowOf(row: Element, group: string, context: Reader): Row {
   collectStrays(row, CELLS, context);
   const cells = childElements(row, CELLS, context);
   const allHeadings = cells.length > 0 && cells.every((cell) => cell.name === HEADING_CELL);
+
   return { cells: cells.map((cell) => context.inline(cell.children)), heading: group === HEAD || allHeadings };
 }
 
 /** Rows in document order, whether in a row group or directly in the table. */
 function rowsOf(table: Element, context: Reader): Row[] {
   collectStrays(table, TABLE_PARTS, context);
+
   return childElements(table, ROW_PARTS, context)
     .flatMap((part) => {
       if (ROW.has(part.name)) {
         return [rowOf(part, '', context)];
       }
+
       collectStrays(part, ROW, context);
+
       return childElements(part, ROW, context).map((row) => rowOf(row, part.name, context));
     })
     .filter((row) => row.cells.length > 0);
@@ -87,19 +94,24 @@ function rowsOf(table: Element, context: Reader): Row[] {
 
 function captionOf(table: Element, context: TableContext): Caption {
   const content: InlineNode[] = [];
+
   for (const caption of childElements(table, CAPTION, context)) {
     const line = context.inline(caption.children);
     content.push(...(content.length > 0 && line.length > 0 ? CAPTION_BREAK : []), ...line);
   }
+
   const text = content
     .map((node) => (node.type === InlineKind.Text ? node.text : ' '))
     .join('')
     .trim();
+
   if (text === '' && content.length === 0) {
     return { content };
   }
+
   // A label is plain text: a caption with a link, check or glyph keeps them as a paragraph instead.
   const isPlain = content.every((node) => node.type === InlineKind.Text || node.type === InlineKind.LineBreak);
+
   return isPlain && text.length <= LABEL_MAX
     ? { content, label: InlineLabel.parse(text) }
     : { content, paragraph: { type: BlockKind.Paragraph, content } };
@@ -116,17 +128,22 @@ export function tableOf(table: Element, context: TableContext): BlockNode[] {
   const before = caption.paragraph === undefined ? [] : [caption.paragraph];
   const after = reader.strays.flatMap((stray) => context.blocks([stray]));
   const [first, ...rest] = rows;
+
   if (first === undefined) {
     const captionOnly: BlockNode[] =
       caption.content.length === 0 ? [] : [{ type: BlockKind.Paragraph, content: caption.content }];
+
     return [...captionOnly, ...after];
   }
+
   const hasHeader = first.heading && rest.length > 0;
+
   const node: TableNode = {
     type: BlockKind.Table,
     ...(caption.label === undefined ? {} : { caption: caption.label }),
     ...(hasHeader ? { header: first.cells } : {}),
     rows: (hasHeader ? rest : rows).map((row) => row.cells),
   };
+
   return [...before, node, ...after];
 }

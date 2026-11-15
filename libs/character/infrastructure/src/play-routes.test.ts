@@ -35,12 +35,15 @@ async function setUp(): Promise<SetUp> {
   const clock = fixedClock('2026-10-13T10:00:00Z');
   const content = fixedContent(hitPointsContent());
   const repository = new InMemoryCharacterRepository();
+
   const kyra = await new CharacterService(repository, content, clock).create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   const service = new PlayService(repository, content, clock);
   const api = new Elysia().use(problemHandler).use(playRoutes(service, new FakeAuthenticator()));
+
   return { api, path: `/characters/${kyra.id}/play` };
 }
 
@@ -96,9 +99,11 @@ describe('play routes', () => {
     const accepted = await api.handle(request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command } }));
     expect(accepted.status).toBe(200);
     const bad = { ...command, degree: 'triumph' };
+
     const refused = await api.handle(
       request('PATCH', path, { as: amiri, body: { expectedRevision: 2, command: bad } }),
     );
+
     expect(refused.status).toBe(422);
   });
 
@@ -109,15 +114,18 @@ describe('play routes', () => {
     expect(accepted.status).toBe(200);
     const saved = CharacterPlay.parse(await accepted.json());
     expect(saved.play.resources['hero-points']).toBe(ResourceCount.parse(1));
+
     const bad = [
       { ...command, resource: 'mana' },
       { ...command, amount: -1 },
     ];
+
     const refused = await Promise.all(
       bad.map(async (each) =>
         api.handle(request('PATCH', path, { as: amiri, body: { expectedRevision: 2, command: each } })),
       ),
     );
+
     expect(refused.map((response) => response.status)).toStrictEqual([422, 422]);
   });
 
@@ -125,14 +133,18 @@ describe('play routes', () => {
     const { api, path } = await setUp();
     const item = newId();
     const absent = { field: PlayCommandField.CastWand, item };
+
     const refusedCast = await api.handle(
       request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: absent } }),
     );
+
     expect(refusedCast.status).toBe(422);
     const bad = { field: PlayCommandField.OverchargeWand, item, roll: 21 };
+
     const refusedRoll = await api.handle(
       request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: bad } }),
     );
+
     expect(refusedRoll.status).toBe(422);
   });
 
@@ -141,14 +153,18 @@ describe('play routes', () => {
     const item = newId();
     const spell = staffSpellId('fireball');
     const absent = { field: PlayCommandField.CastStaff, item, spell };
+
     const refusedCast = await api.handle(
       request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: absent } }),
     );
+
     expect(refusedCast.status).toBe(422);
     const bad = { ...absent, field: PlayCommandField.UncastStaff, slot: '' };
+
     const refusedSlot = await api.handle(
       request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: bad } }),
     );
+
     expect(refusedSlot.status).toBe(422);
   });
 

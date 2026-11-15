@@ -23,6 +23,7 @@ import {
 import { rollCues } from './roll-cues';
 
 const APPLIED: RollEffectStatus = { kind: RollEffectStatusKind.Applied };
+
 const CONDITIONAL: RollEffectStatus = {
   kind: RollEffectStatusKind.Conditional,
   when: Predicate.parse(['lighting:darkness']),
@@ -44,6 +45,7 @@ function degree(status: RollEffectStatus = APPLIED): DegreeAdjustmentLine {
 
 function check(lines: readonly BreakdownLine[] = [], rollEffects?: Partial<RollEffects>): StatisticValue {
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
+
   return rollEffects === undefined
     ? base
     : { ...base, rollEffects: { rollTwice: [], degreeAdjustments: [], ...rollEffects } };

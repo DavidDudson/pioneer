@@ -6,18 +6,23 @@ import { Spinner } from './spinner.component';
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Spinner);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
 function iconClasses(host: HTMLElement): string[] {
   const svg = host.querySelector('svg');
+
   if (svg === null) {
     throw new Error('fr-spinner drew no icon');
   }
+
   return [...svg.classList];
 }
 

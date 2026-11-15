@@ -49,6 +49,7 @@ const BAG_OF_HOLDING = PathbuilderName.parse('Spacious Pouch (Type I)');
 
 function grade(value: number | undefined): RuneGrade | undefined {
   const parsed = RuneGrade.safeParse(value);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -59,13 +60,17 @@ function etched(
   { runes: lookup }: InventoryContent,
 ): ItemRunes | undefined {
   const kind = runedItemOf(entry);
+
   if (runes === undefined || kind === undefined || isSpecific(entry)) {
     return undefined;
   }
+
   const property = runes.property.flatMap((name) => {
     const match = lookup.resolve(ImportKind.Item, name);
+
     return match === undefined ? [] : [ContentId.parse(match.id)];
   });
+
   return {
     potency: grade(runes.potency),
     striking: kind === RunedItem.Weapon ? grade(runes.striking) : undefined,
@@ -84,9 +89,11 @@ function carryOf(imported: ImportedItem, entry: ItemEntry, armourWorn: boolean):
   if (!imported.worn) {
     return { state: CarryState.Stowed };
   }
+
   if (entry.kind === ContentKind.Shield) {
     return { state: CarryState.Held, hands: ONE_HAND };
   }
+
   return isWearable(entry) && !(entry.kind === ContentKind.Armor && armourWorn)
     ? { state: CarryState.Worn }
     : { state: CarryState.Stowed };
@@ -103,15 +110,20 @@ function lineFor(imported: ImportedItem, content: InventoryContent, placed: Plac
   const match = content.items.resolve(ImportKind.Item, imported.name);
   const entry = match === undefined ? undefined : content.entries.get(ContentId.parse(match.id));
   const quantity = ItemQuantity.safeParse(imported.quantity);
+
   if (entry === undefined || !quantity.success) {
     return undefined;
   }
+
   const { items, containers } = placed;
   const container = imported.container === undefined ? undefined : containers.get(imported.container);
+
   const armourWorn = items.some(
     (each) => each.carry.state === CarryState.Worn && content.entries.get(each.item)?.kind === ContentKind.Armor,
   );
+
   const name = InventoryItemName.safeParse(imported.displayName);
+
   const base: InventoryItem = {
     id: InventoryItemId.parse(newId()),
     item: entry.id,
@@ -121,6 +133,7 @@ function lineFor(imported: ImportedItem, content: InventoryContent, placed: Plac
     ...(name.success ? { name: name.data } : {}),
     ...(container === undefined ? {} : { container }),
   };
+
   return withRunes(base, etched(imported.runes, entry, content));
 }
 
@@ -131,13 +144,16 @@ function containerEntry(container: ImportedContainer, content: InventoryContent)
     ...(container.backpack ? [BACKPACK] : []),
     ...(container.bagOfHolding ? [BAG_OF_HOLDING] : []),
   ];
+
   for (const name of names) {
     const match = content.items.resolve(ImportKind.Item, name);
     const entry = match === undefined ? undefined : content.entries.get(ContentId.parse(match.id));
+
     if (entry !== undefined && isContainer(entry)) {
       return entry;
     }
   }
+
   return undefined;
 }
 
@@ -147,8 +163,10 @@ function containerLines(
   content: InventoryContent,
 ): ReadonlyMap<PathbuilderContainerKey, InventoryItem> {
   const lines = new Map<PathbuilderContainerKey, InventoryItem>();
+
   for (const container of value.containers) {
     const entry = containerEntry(container, content);
+
     if (entry !== undefined) {
       lines.set(container.key, {
         id: InventoryItemId.parse(newId()),
@@ -159,12 +177,14 @@ function containerLines(
       });
     }
   }
+
   return lines;
 }
 
 /** `line` as an import keeps it: invested when Pathbuilder says so or it is worn and content allows, past any limit. */
 function investedAs(line: InventoryItem, imported: ImportedItem, content: InventoryContent): InventoryItem {
   const wantsInvesting = imported.invested || line.carry.state === CarryState.Worn;
+
   return wantsInvesting && isInvestable(line, content.entries.get(line.item)) ? { ...line, invested: true } : line;
 }
 
@@ -172,6 +192,7 @@ function investedAs(line: InventoryItem, imported: ImportedItem, content: Invent
 function customFor(imported: ImportedItem): CustomItem | undefined {
   const name = InventoryItemName.safeParse(imported.name);
   const quantity = ItemQuantity.safeParse(imported.quantity);
+
   return name.success && quantity.success
     ? { id: InventoryItemId.parse(newId()), name: name.data, quantity: quantity.data, origin: ItemOrigin.Import }
     : undefined;
@@ -188,16 +209,20 @@ export function importedInventory(value: PathbuilderImport, content: InventoryCo
   const containers = new Map([...bags].map(([key, bag]) => [key, bag.id]));
   const items: InventoryItem[] = [...bags.values()];
   const customItems: CustomItem[] = [];
+
   for (const imported of value.items) {
     const line = lineFor(imported, content, { items, containers });
     const custom = line === undefined ? customFor(imported) : undefined;
+
     if (line !== undefined) {
       items.push(investedAs(line, imported, content));
     } else if (custom !== undefined) {
       customItems.push(custom);
     }
   }
+
   const { platinum, gold, silver, copper } = value.coins;
+
   return InventorySchema.parse({
     items,
     customItems,

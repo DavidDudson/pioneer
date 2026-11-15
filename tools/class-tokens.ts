@@ -49,14 +49,18 @@ export interface ClassTokenProblem {
 
 const ARBITRARY = /[[\]()]/u;
 const PIXEL = /(?:^|-)px$|\dpx\b/u;
+
 /** Corner radius (but for the one `rounded-toast`, ADR-0074) and every shadow-like utility (box, inset, ring, drop, text). */
 const SHARP = /^(?:rounded(?!-toast$)|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-shadow)(?:-|$)/u;
+
 /** Token steps like `2xs` / `3xl`: digits that are part of a name, not a value. */
 const TOKEN_STEP = /(?<=-)\d?x[sl](?=$|-)/gu;
 const DIGIT = /\d/u;
+
 /** Left/right utilities; logical equivalents flip with `dir`. Safe-area insets are physical by nature. */
 const PHYSICAL =
   /^(?:(?:scroll-)?[mp][lr]-(?!safe-)|(?:left|right)-|border-[lr](?:-|$)|(?:text|float|clear)-(?:left|right)$|rounded-[lr])/u;
+
 /** Utilities whose number is a count or a flex factor, not a length. */
 const COUNTS =
   /^(?:grid-cols-\d+|grid-rows-\d+|col-span-\d+|row-span-\d+|line-clamp-\d+|order-\d+|flex-1|grow-0|shrink-0)$/u;
@@ -64,20 +68,25 @@ const COUNTS =
 /** A colour utility (`bg-`, `text-`, `border-s-`, …) naming a system colour token (`bg-system-highlight`). */
 const SYSTEM_COLOUR =
   /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-system-/u;
+
 /** A colour utility naming a theme colour token (`text-accent-fg`). */
 const THEME_COLOUR =
   /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info|damage)-/u;
+
 const FORCED_COLORS = 'forced-colors';
 
 /** System colours only under `forced-colors:`, and only system colours there. */
 function forcedColourProblem(variants: readonly string[], base: string, token: string): ClassTokenProblem | undefined {
   const forced = variants.includes(FORCED_COLORS);
+
   if (!forced && SYSTEM_COLOUR.test(base)) {
     return { messageId: 'systemColour', variant: token };
   }
+
   if (forced && THEME_COLOUR.test(base)) {
     return { messageId: 'forcedColour', variant: token };
   }
+
   return undefined;
 }
 
@@ -86,15 +95,19 @@ function baseProblem(base: string, token: string): ClassTokenProblem | undefined
   if (SHARP.test(base)) {
     return { messageId: 'sharp', variant: token };
   }
+
   if (PHYSICAL.test(base)) {
     return { messageId: 'physical', variant: token };
   }
+
   if (PIXEL.test(base)) {
     return { messageId: 'px', variant: token };
   }
+
   if (base.includes('/') || (!COUNTS.test(base) && DIGIT.test(base.replaceAll(TOKEN_STEP, '')))) {
     return { messageId: 'numeric', variant: token };
   }
+
   return undefined;
 }
 
@@ -102,26 +115,34 @@ function tokenProblem(token: string): ClassTokenProblem | undefined {
   if (ARBITRARY.test(token)) {
     return { messageId: 'arbitrary', variant: token };
   }
+
   const parts = token.split(':');
   const utility = parts.at(-1) ?? token;
+
   if (utility.startsWith('!') || utility.endsWith('!')) {
     return { messageId: 'important', variant: token };
   }
+
   const base = utility.replace(/^-/u, '');
+
   return baseProblem(base, token) ?? forcedColourProblem(parts.slice(0, -1), base, token);
 }
 
 /** The first token problem in a class string, if any. */
 export function classTokenProblem(classes: string, inPrimitive: boolean): ClassTokenProblem | undefined {
   const layout = layoutVariantProblem(classes, inPrimitive);
+
   if (layout !== undefined) {
     return layout;
   }
+
   for (const token of classes.split(/\s+/u)) {
     const problem = token === '' ? undefined : tokenProblem(token);
+
     if (problem !== undefined) {
       return problem;
     }
   }
+
   return undefined;
 }

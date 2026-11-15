@@ -48,9 +48,11 @@ function inContext(context: DamageContext, source: Source): boolean {
   if (context === DamageContext.AreaDamage) {
     return source.area;
   }
+
   if (context === DamageContext.Environmental) {
     return source.environmental;
   }
+
   return context === DamageContext.SplashDamage ? source.splash : source.spell;
 }
 
@@ -59,6 +61,7 @@ function inGroup(group: DamageGroup, types: readonly DamageType[]): boolean {
   if (group === DamageGroup.All) {
     return true;
   }
+
   return types.some((type) => DAMAGE_GROUP_TYPES[group].includes(type));
 }
 
@@ -70,9 +73,11 @@ function covers(target: DamageAdjustmentSubject, types: readonly DamageType[], s
   if (!isTarget(target)) {
     return source.counts.includes(target);
   }
+
   if (isContext(target)) {
     return inContext(target, source);
   }
+
   return isGroup(target) ? inGroup(target, types) : types.includes(target);
 }
 
@@ -89,9 +94,11 @@ function nameOf(target: DamageAdjustmentTarget): MessageTarget {
   if (target === DamageContext.AreaDamage) {
     return 'areaDamage';
   }
+
   if (target === DamageContext.SplashDamage) {
     return 'splashDamage';
   }
+
   return target === DamageContext.Spells ? 'spells' : target;
 }
 
@@ -118,6 +125,7 @@ const WEAKNESS_KEYS: AdjustmentKeys = {
   target: DiceMessage.DamageWeakness,
   material: DiceMessage.DamageWeaknessMaterial,
 };
+
 const RESISTANCE_KEYS: AdjustmentKeys = {
   target: DiceMessage.DamageResistance,
   material: DiceMessage.DamageResistanceMaterial,
@@ -142,9 +150,11 @@ function highest(
 /** The highest applicable weakness adds its value once, if the instance deals any damage. */
 export function weaken(amount: DamageTotal, { types, source }: Reach, target: DamageTarget): Applied {
   const weakness = amount > 0 ? highest(target.weaknesses, types, source) : undefined;
+
   if (weakness === undefined) {
     return { amount, lines: [] };
   }
+
   return {
     amount: DamageTotal.parse(amount + weakness.value),
     lines: [lineOf(WEAKNESS_KEYS, weakness)],
@@ -165,6 +175,7 @@ export interface Exposure extends Reach {
 /** How much `resistance` would stop of `amount`. */
 function preventing(resistance: DamageAdjustment, amount: DamageTotal, exposure: Exposure): DamageTotal {
   const reach = resistance.type === DamageType.Precision ? exposure.precision : amount;
+
   return DamageTotal.parse(Math.min(resistance.value, amount, reach));
 }
 
@@ -179,10 +190,13 @@ export function resist(amount: DamageTotal, exposure: Exposure, target: DamageTa
           )
           .toSorted((left, right) => preventing(right, amount, exposure) - preventing(left, amount, exposure))[0]
       : undefined;
+
   if (resistance === undefined) {
     return { amount, lines: [] };
   }
+
   const prevented = preventing(resistance, amount, exposure);
+
   return {
     amount: DamageTotal.parse(amount - prevented),
     lines: [lineOf(RESISTANCE_KEYS, resistance, { prevented })],

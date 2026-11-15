@@ -102,6 +102,7 @@ export function sheetActions(
   const costs = actionCosts(registry);
   const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
+
   return actions.map((action: AvailableAction): ActionLine => {
     const range = costs.get(action.action);
     const fit = turnFit(play.turn, action.cost, range);
@@ -109,6 +110,7 @@ export function sheetActions(
     const altered = entry === undefined ? undefined : alterAction(rules, entry);
     const data = entry?.kind === ContentKind.Action ? entry.data : undefined;
     const blocked = restrictionBlocking(play.restrictions ?? [], traitSlugs(entry));
+
     return {
       id: action.action,
       name: entry?.name ?? action.action,
@@ -154,6 +156,7 @@ export function turnFit(
 ): TurnFit {
   const afford = offTurnWithoutTrigger(turn, range) ? { affordable: false } : affordability(turn, cost, range?.upTo);
   const reason = afford.affordable === false ? turnReason(turn, spendCostOf(cost, undefined)) : undefined;
+
   return { ...afford, reasons: reason === undefined ? [] : [reason] };
 }
 
@@ -165,13 +168,17 @@ export function spendCostOf(cost: ActionCost | undefined, actions: number | unde
   if (cost === undefined) {
     return undefined;
   }
+
   if (cost === ActionCost.Reaction) {
     return { kind: SpendKind.Reaction };
   }
+
   if (cost === ActionCost.Free) {
     return { kind: SpendKind.Free };
   }
+
   const count = actions ?? ACTION_COUNT[cost];
+
   return count === undefined ? undefined : { kind: SpendKind.Actions, count: SpendCount.parse(count) };
 }
 
@@ -193,17 +200,23 @@ export function affordability(
   if (turn === undefined || cost === undefined) {
     return {};
   }
+
   const fewest = spendCostOf(cost, undefined);
+
   if (fewest === undefined) {
     return {};
   }
+
   if (fewest.kind !== SpendKind.Actions) {
     return { affordable: turnAllows(turn, fewest) };
   }
+
   const counts = Array.from(
     { length: (upTo ?? fewest.count) - fewest.count + 1 },
     (_slot, index) => fewest.count + index,
   );
+
   const most = counts.findLast((count) => turnAllows(turn, spendCostOf(cost, count) ?? fewest));
+
   return { affordable: most !== undefined, affordableUpTo: most };
 }

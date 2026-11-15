@@ -8,16 +8,20 @@ import type { SpellRank } from '@pioneer/rules/sdk';
  */
 export function repertoireSlots(slots: SpellSlots, counts: readonly RankSlots[]): SpellSlots {
   const sized = new Map<SpellRank, number>();
+
   for (const { rank, count } of slots.ranks) {
     if (rank < SPELL_RANK_MAX) {
       sized.set(rank, count);
     }
   }
+
   for (const { rank, count } of counts) {
     sized.set(rank, (sized.get(rank) ?? 0) + count);
   }
+
   const ranks = [...sized]
     .map(([rank, count]): RankSlots => ({ rank, count: SlotCount.parse(Math.min(count, SLOT_COUNT_MAX)) }))
     .toSorted((left, right) => left.rank - right.rank);
+
   return slots.cantrips === undefined ? { ranks } : { cantrips: slots.cantrips, ranks };
 }

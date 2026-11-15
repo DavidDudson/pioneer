@@ -69,6 +69,7 @@ export const EaseEffect = {
   Lower: 'lower',
   Counteract: 'counteract',
 } as const;
+
 export type EaseEffect = (typeof EaseEffect)[keyof typeof EaseEffect];
 
 /** Something the character has that ends or eases a condition it holds, and whether it can use it now. */

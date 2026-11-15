@@ -34,6 +34,7 @@ export function characterInnate(
       entry,
       spells: entry.innateSpells.flatMap(({ rank, spell }): InnateSpell[] => {
         const option = content.anySpell(spell);
+
         return option === undefined
           ? []
           : [{ spell: option, rank: rank === SlotRank.Cantrip ? cantripRank(level) : rank }];

@@ -16,10 +16,12 @@ export const CriticalCondition = {
   Immobilized: 'immobilized',
   Slowed: 'slowed',
 } as const;
+
 export type CriticalCondition = ValueOf<typeof CriticalCondition>;
 
 /** How long an effect on the target lasts. */
 export const CriticalDurationType = { NextTurnEnd: 'next-turn-end', Time: 'time', Permanent: 'permanent' } as const;
+
 export type CriticalDurationType = ValueOf<typeof CriticalDurationType>;
 
 /** "Until the end of your next turn", "1 minute", or "permanently". */
@@ -28,14 +30,17 @@ const CriticalDuration = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal(CriticalDurationType.Time), count: DurationCount, unit: DurationUnitSchema }),
   z.strictObject({ type: z.literal(CriticalDurationType.Permanent) }),
 ]);
+
 export type CriticalDuration = z.infer<typeof CriticalDuration>;
 
 /** The saving throws a critical effect can allow. */
 export const CriticalSaveStatistic = { Fortitude: 'fortitude', Reflex: 'reflex', Will: 'will' } as const;
+
 export type CriticalSaveStatistic = ValueOf<typeof CriticalSaveStatistic>;
 
 /** The saving throw the target makes against `dc`. */
 const CriticalSave = z.strictObject({ statistic: z.enum(CriticalSaveStatistic), dc: Dc });
+
 export type CriticalSave = z.infer<typeof CriticalSave>;
 
 export const CriticalEffectKind = {
@@ -44,6 +49,7 @@ export const CriticalEffectKind = {
   Pacify: 'pacify',
   Decapitate: 'decapitate',
 } as const;
+
 export type CriticalEffectKind = ValueOf<typeof CriticalEffectKind>;
 
 /**
@@ -60,6 +66,7 @@ const ConditionEffect = z.strictObject({
 });
 
 export const CriticalDamageAmountType = { Equal: 'equal', Dice: 'dice' } as const;
+
 export type CriticalDamageAmountType = ValueOf<typeof CriticalDamageAmountType>;
 
 /** The damage dealt: as much as the Strike dealt, or `count` dice of `die`. */
@@ -69,10 +76,12 @@ const CriticalDamageAmount = z.discriminatedUnion('type', [
 ]);
 
 export const CriticalDamageTargetType = { Others: 'others', Armor: 'armor' } as const;
+
 export type CriticalDamageTargetType = ValueOf<typeof CriticalDamageTargetType>;
 
 /** How many creatures a critical effect reaches. */
 export const CreatureCount = Pg.smallint().positive().brand<'CreatureCount'>();
+
 export type CreatureCount = z.infer<typeof CreatureCount>;
 
 /** Who takes the damage: up to `count` other creatures within `within` of the target, or the target's armor or raised shield. */
@@ -95,6 +104,7 @@ const DamageEffect = z.strictObject({
  * critical hit. The Strike words it from this field (ADR-0009); the engine does not roll for the player.
  */
 export const CriticalTrigger = { Critical: 'critical', Hit: 'hit', NaturalTwenty: 'natural-twenty' } as const;
+
 export type CriticalTrigger = ValueOf<typeof CriticalTrigger>;
 
 /**
@@ -129,4 +139,5 @@ export const CriticalEffectElement = z.strictObject({
   reaction: z.literal(true).optional(),
   ...ruleElementBase,
 });
+
 export type CriticalEffectElement = z.infer<typeof CriticalEffectElement>;

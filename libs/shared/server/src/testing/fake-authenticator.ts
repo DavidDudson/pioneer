@@ -17,9 +17,11 @@ export class FakeAuthenticator extends RequestAuthenticator {
 
   public override async actingUser({ request }: RequestExchange): Promise<UserId> {
     const header = request.headers.get(this.#header);
+
     if (header === null) {
       throw new UnauthorizedError();
     }
+
     return UserId.parse(header);
   }
 }

@@ -31,6 +31,7 @@ const meta: Meta<Meter> = {
     template: `<fr-meter ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 /** HP above half: success. The meter carries the name and value text; the number is read once. */
@@ -39,6 +40,7 @@ export const Default: MeterStory = {
     const meter = within(canvasElement).getByRole('meter', {
       name: 'Hit points',
     });
+
     await expect(meter).toHaveAttribute('aria-valuetext', '28 of 40');
   },
 };

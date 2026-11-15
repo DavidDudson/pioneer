@@ -52,9 +52,11 @@ function slugsOf(entries: readonly ContentEntry[] = []): string[] {
 
 function entryOfKind(kind: string): ContentEntry {
   const entry = brew.find((candidate) => candidate.kind === kind);
+
   if (entry === undefined) {
     throw new Error(`Expected a ${kind}`);
   }
+
   return entry;
 }
 
@@ -65,6 +67,7 @@ function brewer(owner: UserId, name: string): Character {
     .ownedBy(owner)
     .picking('skill-feat:1', entryOfKind('feat').id)
     .build();
+
   return new Character({
     document: {
       ...picked.document,
@@ -98,12 +101,14 @@ async function openWorld(users: readonly UserId[]): Promise<World> {
   const repository = new DrizzleCharacterRepository(database.db);
   const policy = new PackAccessPolicy(new CampaignPackEnablementDirectory(database.db));
   const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
   const service = new PioneerFileService({
     repository,
     content: fixedContent(core),
     clock,
     homebrew: new PioneerEmbeddedHomebrew(database.db, clock, policy),
   });
+
   return { database, service, repository };
 }
 
@@ -119,6 +124,7 @@ async function exportedBy({ repository, service }: World, owner: UserId, name: s
     actor: owner,
     command: CharacterCommand.CreateCharacter,
   });
+
   return service.export(owner, saved.id);
 }
 
@@ -128,6 +134,7 @@ async function entrySlugsOf({ database }: World, owner: UserId): Promise<readonl
     .from(contentEntries)
     .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
     .where(eq(contentPacks.ownerId, owner));
+
   return rows.map((row) => row.slug).toSorted();
 }
 

@@ -20,10 +20,12 @@ async function render(): Promise<Rendered> {
   const button = document.createElement('button');
   button.type = 'submit';
   button.textContent = 'Create';
+
   const ref: ComponentRef<Form> = createComponent(Form, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: projectBySelector(Form, [input, button]),
   });
+
   const host = ref.location.nativeElement as HTMLElement;
   document.body.append(host);
   onTestFinished(() => {
@@ -38,9 +40,11 @@ async function render(): Promise<Rendered> {
   appRef.attachView(ref.hostView);
   await appRef.whenStable();
   const form = host.querySelector('form');
+
   if (form === null) {
     throw new Error('Expected a form');
   }
+
   return { form, submitButton: button, submits: (): number => submits };
 }
 

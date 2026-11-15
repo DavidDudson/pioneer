@@ -27,4 +27,5 @@ export const CharacterSheetBundle = z.object({
   ruleLimitSettings: CharacterRuleLimitSettings.optional(),
   unenabled: UnenabledContent.optional(),
 });
+
 export type CharacterSheetBundle = z.output<typeof CharacterSheetBundle>;

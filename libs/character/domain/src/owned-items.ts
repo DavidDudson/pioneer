@@ -18,8 +18,10 @@ const RANGED = RollOptionTail.parse('ranged');
 export function itemSlugs(inventory: Inventory, content: ItemContent): ReadonlyMap<InventoryItemId, Slug> {
   const taken = new Map<ContentKind, Set<Slug>>();
   const slugs = new Map<InventoryItemId, Slug>();
+
   for (const line of inventory.items) {
     const entry = content.get(line.item);
+
     if (entry !== undefined) {
       const used = taken.get(entry.kind) ?? new Set<Slug>();
       taken.set(entry.kind, used);
@@ -28,6 +30,7 @@ export function itemSlugs(inventory: Inventory, content: ItemContent): ReadonlyM
       slugs.set(line.id, slug);
     }
   }
+
   return slugs;
 }
 
@@ -41,6 +44,7 @@ function optionsOf(entry: ItemEntry, equipped: boolean): readonly RollOptionTail
           `damage:type:${entry.data.damage.damageType}`,
         ].map((option) => RollOptionTail.parse(option))
       : [];
+
   return [
     RollOptionTail.parse(`type:${entry.kind}`),
     RollOptionTail.parse(`slug:${slugName(entry.slug)}`),
@@ -54,12 +58,15 @@ function optionsOf(entry: ItemEntry, equipped: boolean): readonly RollOptionTail
 /** The items the character owns, as a `ChoiceSet` over them reads them: each line with the slug a pick names it by. */
 export function ownedItems(inventory: Inventory, content: ItemContent): readonly OwnedItem[] {
   const slugs = itemSlugs(inventory, content);
+
   return inventory.items.flatMap((line): OwnedItem[] => {
     const entry = content.get(line.item);
     const slug = slugs.get(line.id);
+
     if (entry === undefined || slug === undefined) {
       return [];
     }
+
     return [
       {
         slug,
@@ -79,14 +86,19 @@ export const NO_PICKED_ITEMS: PickedItems = new Map();
 /** Which items the character's answered `ChoiceSet`s over owned items picked, and under which flags. */
 export function pickedItems(resolution: GrantResolution, lookup: ContentLookup): PickedItems {
   const picked = new Map<Slug, RuleSlug[]>();
+
   for (const { pick, flag, origin, rule } of resolution.answered) {
     const element = lookup.entry(origin.entry)?.rules[rule];
+
     const owned =
       element?.key === RuleElementKey.ChoiceSet && !Array.isArray(element.choices) && 'ownedKinds' in element.choices;
+
     const slug = owned ? Slug.safeParse(pick) : undefined;
+
     if (slug?.success === true) {
       picked.set(slug.data, [...(picked.get(slug.data) ?? []), flag]);
     }
   }
+
   return picked;
 }

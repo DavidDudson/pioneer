@@ -20,6 +20,7 @@ export class OriginChoiceOptions {
   /** Every ancestry; none while the content loads. */
   public readonly ancestries = computed((): readonly OriginChoice[] => {
     const registry = this.#registry.data();
+
     return registry === undefined
       ? []
       : originContent(registry).ancestries.map(({ id, name }) => ({ id, name: String(name) }));
@@ -28,6 +29,7 @@ export class OriginChoiceOptions {
   /** Every background; none while the content loads. */
   public readonly backgrounds = computed((): readonly OriginChoice[] => {
     const registry = this.#registry.data();
+
     return registry === undefined
       ? []
       : originContent(registry).backgrounds.map(({ id, name }) => ({ id, name: String(name) }));

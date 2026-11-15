@@ -38,6 +38,7 @@ export const RuneFixture = {
   /** A weapon rune for bludgeoning weapons only, which a weapon shifted into another damage type can't keep. */
   Crushing: 'crushing',
 } as const;
+
 export type RuneFixture = (typeof RuneFixture)[keyof typeof RuneFixture];
 
 const PERCEPTION_PLUS_ONE = { key: 'FlatModifier', selectors: ['perception'], type: 'status', value: 1 };

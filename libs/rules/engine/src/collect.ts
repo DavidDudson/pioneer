@@ -23,6 +23,7 @@ const ALL = Domain.parse('all');
 export function reaches(targets: readonly ModifierTarget[], definition: StatisticDefinition): boolean {
   const everything = definition.kind === StatisticKind.Value ? [] : [ALL];
   const reached: ReadonlySet<string> = new Set([definition.selector, ...everything, ...definition.domains]);
+
   return targets.some((target) => reached.has(target));
 }
 
@@ -57,9 +58,11 @@ class Collection {
   public line(source: ModifierSource): BreakdownLine {
     const { modifier } = source;
     const outcome = valueOf(source.value, this.#context.resolve(source.item));
+
     if (!outcome.ok) {
       return { modifier, value: undefined, adjustedBy: [], status: failed(outcome) };
     }
+
     return this.#adjust(source, FormulaValue.parse(outcome.value));
   }
 
@@ -68,30 +71,39 @@ class Collection {
     const { modifier } = source;
     let value = written;
     const adjustedBy: RuleId[] = [];
+
     for (const adjustment of this.#adjustments.filter(({ slug }) => slug === undefined || slug === modifier.slug)) {
       adjustedBy.push(adjustment.id);
       const step = this.#step(adjustment, value);
+
       if ('status' in step) {
         return { modifier, value: step.value, adjustedBy, status: step.status };
       }
+
       ({ value } = step);
     }
+
     return { modifier, value, adjustedBy, status: this.#gate(source) };
   }
 
   #step(adjustment: Adjustment, value: FormulaValue): Step {
     const { change } = adjustment;
+
     if (change.suppress) {
       return {
         value,
         status: { kind: LineStatusKind.Suppressed, by: adjustment.id, reason: SuppressionReason.Adjustment },
       };
     }
+
     const outcome = valueOf(change.value, this.#context.resolve(adjustment.item));
+
     if (!outcome.ok) {
       return { value: undefined, status: failed(outcome) };
     }
+
     const result = changed(change.mode, value, outcome.value);
+
     return result === undefined ? { value: undefined, status: OUT_OF_RANGE } : { value: result };
   }
 
@@ -102,15 +114,19 @@ class Collection {
   #gate({ modifier, summary }: ModifierSource): LineStatus {
     const { predicate } = modifier;
     const truth = truthOf(predicate, this.#context.facts);
+
     if (truth === Truth.True || predicate === undefined) {
       return { kind: LineStatusKind.Applied };
     }
+
     if (truth === Truth.False) {
       return { kind: LineStatusKind.Inactive, reason: InactiveReason.Predicate };
     }
+
     if (this.#situation.has(modifier.id)) {
       return { kind: LineStatusKind.Applied };
     }
+
     return {
       kind: LineStatusKind.Conditional,
       when: predicate,
@@ -126,6 +142,7 @@ class Collection {
  */
 function holds({ id, predicate }: Adjustment, facts: PredicateFacts, situation: ReadonlySet<RuleId>): boolean {
   const truth = truthOf(predicate, facts);
+
   return truth === Truth.True || (truth === Truth.Unknown && situation.has(id));
 }
 
@@ -149,20 +166,25 @@ export function collectLines(
   { situation, ...context }: CollectContext,
 ): readonly BreakdownLine[] {
   const reaching = rules.adjustments.filter((adjustment) => reaches(adjustment.targets, definition));
+
   const adjustments = reaching
     .filter((adjustment) => holds(adjustment, context.facts, situation))
     .toSorted(
       (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
     );
+
   const pending = reaching.filter(
     (adjustment) => truthOf(adjustment.predicate, context.facts) === Truth.Unknown && !situation.has(adjustment.id),
   );
+
   const collection = new Collection(context, adjustments, situation);
+
   const lines = rules.modifiers
     .filter(({ modifier }) => reaches(modifier.targets, definition))
     .toSorted(
       (left, right) => Number(left.modifier.id > right.modifier.id) - Number(left.modifier.id < right.modifier.id),
     )
     .map((source) => collection.line(source));
+
   return stack(lines, pending);
 }

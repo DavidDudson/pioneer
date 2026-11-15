@@ -23,6 +23,7 @@ export const SheetDeity = z.strictObject({
   data: DeityData,
   favoredWeapons: z.array(FavoredWeapon).max(WEAPONS_MAX).readonly(),
 });
+
 export type SheetDeity = z.output<typeof SheetDeity>;
 
 /**
@@ -37,12 +38,16 @@ export function characterDeity(
   const grants = skillReads(document, content).grantsAt(Level.parse(document.level));
   const pick = grants.rootSlots.find((slot) => slot.key === DEITY_SLOT)?.pick;
   const deity = pick === undefined ? undefined : deities.deity(pick);
+
   if (deity === undefined) {
     return undefined;
   }
+
   const favoredWeapons = deity.data.weapons.map((weapon) => {
     const name = deities.weaponName(weapon);
+
     return name === undefined ? { weapon } : { weapon, name };
   });
+
   return { ...deity, favoredWeapons };
 }

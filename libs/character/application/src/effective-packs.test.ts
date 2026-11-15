@@ -20,9 +20,11 @@ const brew = ContentPackId.parse(newId());
 /** A content source that remembers which packs each ask named. */
 function recordingContent(asked: (readonly ContentPackId[] | undefined)[]): ContentSource {
   const official = fixedContent(hitPointsContent());
+
   return {
     registry: async (packs): Promise<ContentRegistry> => {
       asked.push(packs);
+
       return official.registry();
     },
   };
@@ -51,17 +53,21 @@ class NoVariants extends EffectiveVariants {
 
 async function sheetAsked(packs: EffectivePacks): Promise<(readonly ContentPackId[] | undefined)[]> {
   const asked: (readonly ContentPackId[] | undefined)[] = [];
+
   const service = new CharacterService(
     new InMemoryCharacterRepository(),
     new CharacterContent(recordingContent(asked), packs, { variants: new NoVariants() }),
     clock,
   );
+
   const kyra = await service.create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   asked.length = 0;
   await service.sheet(kyra);
+
   return asked;
 }
 

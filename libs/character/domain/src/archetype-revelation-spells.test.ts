@@ -21,6 +21,7 @@ const MYSTERIES: Readonly<Record<string, readonly [initial: string, advanced: st
   battle: ['weapon-trance', 'battlefield-persistence'],
   flames: ['incendiary-aura', 'whirling-flames'],
 };
+
 const ORACLE_ENTRY = {
   key: 'SpellcastingEntry',
   slug: 'oracle-focus',
@@ -30,10 +31,13 @@ const ORACLE_ENTRY = {
 };
 
 const pack = new ContentPackBuilder().withId('mysteries');
+
 for (const spell of Object.values(MYSTERIES).flat()) {
   pack.withSpell(spell, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
+
 const focusSpells = (spell: string, predicate?: readonly unknown[]): object => ({
   key: 'FocusSpells',
   entry: 'oracle-focus',
@@ -42,11 +46,13 @@ const focusSpells = (spell: string, predicate?: readonly unknown[]): object => (
 });
 
 pack.withFeat('advanced-revelation');
+
 for (const [name, [initial, advanced]] of Object.entries(MYSTERIES)) {
   pack.withClassFeature(name, {
     rules: [ORACLE_ENTRY, focusSpells(initial), focusSpells(advanced, ['feat:advanced-revelation'])],
   });
 }
+
 pack
   .withFeat('oracle-dedication', {
     rules: [
@@ -66,20 +72,26 @@ pack
       ),
     ],
   });
+
 const DEDICATION = pack.idOf(ContentKind.Feat, 'oracle-dedication');
 const FLAMES = pack.idOf(ContentKind.ClassFeature, 'flames');
 const ADVANCED = pack.idOf(ContentKind.Feat, 'advanced-revelation');
+
 const GRANTS = new Map([
   ['oracle', [FLAMES]],
   ['advanced-oracle', [FLAMES, ADVANCED]],
   ['dedicated', [DEDICATION]],
   ['first-revelation', [DEDICATION, pack.idOf(ContentKind.Feat, 'first-revelation')]],
 ]);
+
 for (const [name, items] of GRANTS) {
   pack.withClass(name, ['str'], { rules: items.map((item) => ({ key: 'GrantItem', item })) });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function focusOf(name: string, mystery = 'battle'): CharacterFocus {
@@ -88,7 +100,9 @@ function focusOf(name: string, mystery = 'battle'): CharacterFocus {
     .picking('class', pack.idOf(ContentKind.Class, name))
     .picking(`${DEDICATION}:0`, mystery)
     .build();
+
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterFocus(entries, spellContent(registry), document.level);
 }
 

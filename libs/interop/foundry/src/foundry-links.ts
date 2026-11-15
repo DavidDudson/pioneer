@@ -30,6 +30,7 @@ export function actorUuid(pack: FoundryPack, document: string): string {
 
 function uuidsOf({ pack, document }: PackDocument): readonly string[] {
   const { _id: id, name } = document;
+
   return [itemUuid(pack, id), itemUuid(pack, name)];
 }
 
@@ -45,11 +46,13 @@ interface Keyed<Value> {
 /** Each document's value by both its UUIDs; where two documents of one pack share a name, the first keeps it. */
 function byUuid<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Value> {
   const map = new Map<string, Value>();
+
   for (const { document, value } of keyed) {
     for (const uuid of uuidsOf(document)) {
       map.set(uuid, map.get(uuid) ?? value);
     }
   }
+
   return map;
 }
 
@@ -76,14 +79,18 @@ export function foundryLinks(
     document,
     value: document.document.name,
   }));
+
   const books = documents.flatMap((document) => {
     const title = document.document.system.publication?.title;
+
     return title === undefined ? [] : [{ document, value: title }];
   });
+
   const ids = entries.map(({ source, id }) => ({
     document: source,
     value: id,
   }));
+
   return {
     entries: new Map([...known, ...byUuid(ids)]),
     names: byUuid(names),

@@ -24,6 +24,7 @@ const LINE_ERRORS = {
   toggles: 'play.rules.badToggles',
   facts: 'play.rules.badFacts',
 } as const;
+
 const FACT_ROWS = 4;
 
 /** An open slot as the fields offer it: its slot as typed, what it asks, and its options. */
@@ -65,31 +66,37 @@ export class GrantsFields {
 
   protected readonly entriesProblem = computed((): JsonProblem | undefined => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems ? result.entries : undefined;
   });
 
   protected readonly badRoots = computed((): readonly number[] => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems ? result.rootLines : [];
   });
 
   protected readonly badPicks = computed((): readonly number[] => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems ? result.pickLines : [];
   });
 
   protected readonly badToggles = computed((): readonly number[] => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems ? result.toggleLines : [];
   });
 
   protected readonly badLevel = computed((): boolean => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems && result.badLevel;
   });
 
   protected readonly openSlots = computed((): readonly OpenSlot[] => {
     const result = this.check();
+
     return result.status === GrantsStatus.Valid
       ? result.open
           .filter((open) => open.options.length > 0)
@@ -109,6 +116,7 @@ export class GrantsFields {
 
   protected readonly badFacts = computed((): readonly number[] => {
     const result = this.check();
+
     return result.status === GrantsStatus.Problems ? result.factLines : [];
   });
 

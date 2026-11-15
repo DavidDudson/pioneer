@@ -13,6 +13,7 @@ export const SaveState = {
   /** An edit lost to someone else's; their version is showing, and resending would overwrite it. */
   Conflict: 'conflict',
 } as const;
+
 export type SaveState = ValueOf<typeof SaveState>;
 
 /** One edit sent: the character it was made on, and its place in the order edits were sent. */
@@ -32,6 +33,7 @@ function targetOf(patch: CharacterPatch): string {
   if ('slot' in patch) {
     return `slot:${patch.slot}`;
   }
+
   return 'id' in patch ? `${patch.field}:${patch.id}` : patch.field;
 }
 
@@ -59,13 +61,17 @@ export class EditTracker {
 
   public readonly state: Signal<SaveState> = computed(() => {
     const id = this.#selectedId();
+
     if (this.#inFlight().some((edit) => edit.id === id)) {
       return SaveState.Saving;
     }
+
     const failed = this.failed();
+
     if (failed === undefined) {
       return SaveState.Saved;
     }
+
     return failed.conflict ? SaveState.Conflict : SaveState.Failed;
   });
 
@@ -74,6 +80,7 @@ export class EditTracker {
     this.#sent += 1;
     const edit = { id, sequence: this.#sent, patch };
     this.#inFlight.update((edits) => [...edits, edit]);
+
     return edit;
   }
 
@@ -95,9 +102,11 @@ export class EditTracker {
   public failedWith(edit: SentEdit, conflict: boolean): void {
     this.#settle(edit);
     const target = targetOf(edit.patch);
+
     if ((this.#lastSaved.get(`${edit.id}|${target}`) ?? 0) > edit.sequence) {
       return;
     }
+
     this.#failed.update((failed) => [
       ...failed.filter((each) => each.id !== edit.id || targetOf(each.patch) !== target),
       { ...edit, conflict },

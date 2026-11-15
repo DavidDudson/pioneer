@@ -122,6 +122,7 @@ describe('translateRules: GrantItem delete actions', () => {
       },
     ],
   });
+
   const DYING = condition('yZRUzMqrMmfLu0V1', 'Dying', {
     value: { isValued: true, value: 1 },
     rules: [
@@ -132,6 +133,7 @@ describe('translateRules: GrantItem delete actions', () => {
       },
     ],
   });
+
   const BLINDED_PLAIN = condition('XgEqL1kFApUbl5Z2', 'Blinded');
 
   test('a grant that goes with its granter and cannot be removed alone is derived, so it is implied', () => {

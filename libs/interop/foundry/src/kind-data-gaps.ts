@@ -27,6 +27,7 @@ export const KindDataGapReason = {
   /** The data as translated fails the kind's schema; the entry has no data. */
   InvalidData: 'invalid-data',
 } as const;
+
 export type KindDataGapReason = ValueOf<typeof KindDataGapReason>;
 
 export interface GapFields {
@@ -91,9 +92,11 @@ export function isSet(value: unknown): boolean {
   if (Array.isArray(value)) {
     return value.length > 0;
   }
+
   if (typeof value === 'object' && value !== null) {
     return Object.values(value).some((each) => isSet(each));
   }
+
   return value !== null && value !== undefined && value !== false && value !== '';
 }
 
@@ -112,6 +115,7 @@ function reportUnmapped(system: Readonly<Record<string, unknown>>, handled: Read
  */
 export function addRule({ rules, log }: KindInput, field: string, raw: object): void {
   const element = RuleElement.safeParse(raw);
+
   if (element.success) {
     rules.push(element.data);
   } else {
@@ -136,8 +140,10 @@ export function parsedWith<Data>({ schema, fields, build }: KindBuilder<Data>, i
   reportUnmapped(input.document.system, fields, input.log);
   const data = build(input);
   const parsed = data === undefined ? undefined : schema.safeParse(data);
+
   if (parsed?.success === false) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: issuePath(parsed.error), raw: data });
   }
+
   return parsed?.success === true ? parsed.data : undefined;
 }

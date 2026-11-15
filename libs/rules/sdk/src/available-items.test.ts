@@ -43,6 +43,7 @@ function sword({ slug, level, rarity = 'common', traits = [] }: SwordFields): Co
 }
 
 const facets = facetsFor(['weapon']);
+
 const available = (entries: readonly ContentEntry[], level: number): readonly string[] =>
   filterEntries(entries, facets, availableItems(Level.parse(level))).map((entry) => entry.name);
 

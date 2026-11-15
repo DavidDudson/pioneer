@@ -15,7 +15,9 @@ export const ContentLicense = {
   /** Original homebrew content owned by its author. */
   Homebrew: 'homebrew',
 } as const;
+
 export type ContentLicense = ValueOf<typeof ContentLicense>;
+
 export const ContentLicenseSchema = z.enum(ContentLicense);
 
 /** The licence an entry is published under: its own when it carries one, else its pack's. */

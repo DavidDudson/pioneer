@@ -74,7 +74,9 @@ export class InventoryRow {
   protected readonly shown = computed((): ShownLine => {
     const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested, melded, keyItem, keyItemLink } =
       this.line();
+
     const named = this.#runedName();
+
     return {
       name: name === undefined || contentName !== undefined ? name : named(name, runes),
       nameTone: name === undefined ? Tone.Subtle : Tone.Default,
@@ -95,6 +97,7 @@ export class InventoryRow {
       typeof bulk === 'number'
         ? message(InventoryMessage.BulkCount, { count: this.#format.number(bulk) })
         : message(BULK_WEIGHT_MESSAGES[bulk]);
+
     return per === undefined
       ? { key: InventoryMessage.Bulk, value, per: undefined }
       : { key: InventoryMessage.BulkPer, value, per: this.#format.number(per) };

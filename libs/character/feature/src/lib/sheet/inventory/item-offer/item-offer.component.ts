@@ -34,6 +34,7 @@ export class ItemOffer {
     const character = this.#characters.selected();
     const { campaign } = this.#limits.rules();
     const line = character?.document.inventory.items.find((each) => each.id === this.id());
+
     return character === undefined || campaign === undefined || line === undefined || line.keyItem !== undefined
       ? undefined
       : { campaign, character: character.id, line: line.id, name: this.name() };

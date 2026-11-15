@@ -17,14 +17,19 @@ import { spellContent } from './spell-content';
 const SPELLS = ['one', 'two', 'three', 'four'];
 const CANTRIPS = ['anthem', 'evil-eye'];
 const pack = new ContentPackBuilder().withId('focus-properties');
+
 for (const name of SPELLS) {
   pack.withSpell(name, { rank: 1, traditions: [], traits: ['focus'] });
 }
+
 for (const name of CANTRIPS) {
   pack.withSpell(name, { rank: 1, traditions: [], traits: ['cantrip', 'hex'] });
 }
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const content = spellContent(registry);
 const idOf = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const CANTRIP_IDS: ReadonlySet<string> = new Set(CANTRIPS.map((name) => idOf(name)));
@@ -39,6 +44,7 @@ const grant: Arbitrary<string[]> = subarray(
   [...SPELLS, ...CANTRIPS].map((name) => idOf(name)),
   { minLength: 1 },
 );
+
 const focusEntries: Arbitrary<FocusEntryCase[]> = subarray(['bard-focus', 'cleric-focus', 'witch-focus']).chain(
   (slugs) =>
     tuple(...slugs.map(() => array(grant, { minLength: 1, maxLength: 3 }))).map((grants) =>
@@ -51,7 +57,9 @@ function entriesOf(cases: readonly FocusEntryCase[]): readonly SpellcastingInPla
     { key: 'SpellcastingEntry', slug, tradition: 'occult', attribute: 'cha', preparation: 'focus' },
     ...grants.map((spells) => ({ key: 'FocusSpells', entry: slug, spells })),
   ]);
+
   const rules = elements.map((element, rule) => inPlay(element, 'feature', { rule }));
+
   return spellcastingInPlay({ rules, facts: new PredicateFacts([], CORE_NAMESPACES) });
 }
 

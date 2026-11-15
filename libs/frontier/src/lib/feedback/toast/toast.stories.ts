@@ -16,6 +16,7 @@ const meta: Meta<Toast> = {
     template: `<fr-toast [open]="open"><fr-text>16</fr-text></fr-toast>`,
   }),
 };
+
 export default meta;
 
 /** The roll result toast, bottom centre. */

@@ -19,6 +19,7 @@ function shown(text: string, linkable: (id: ContentId) => boolean = ALWAYS): str
       if (node.type === 'ref') {
         return `[${node.label ?? ''}]`;
       }
+
       return node.type === 'text' ? node.text : '';
     })
     .join('');

@@ -35,7 +35,9 @@ export async function readSheet(api: ApiClient, client: QueryClient, id: Charact
   if (client.getQueryData(characterKeys.detail(id)) !== undefined) {
     return api.call(CharacterContract.get, { params: { id }, body: undefined });
   }
+
   const bundle = await api.call(CharacterContract.sheetBundle, { params: { id }, body: undefined });
   seedFromSheetBundle(client, id, bundle);
+
   return bundle.sheet;
 }

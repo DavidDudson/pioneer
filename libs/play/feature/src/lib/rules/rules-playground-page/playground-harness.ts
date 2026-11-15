@@ -17,6 +17,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -31,6 +32,7 @@ export async function openPlayground(providers: readonly Provider[] = []): Promi
   });
   const harness = await RouterTestingHarness.create('/play/rules');
   await harness.fixture.whenStable();
+
   return harness;
 }
 
@@ -60,9 +62,11 @@ async function pickByLabel(
 function pickerIn(harness: RouterTestingHarness, label: string): Picker<string, object> {
   const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
   const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+
   const match = harness.fixture.debugElement
     .queryAll(By.directive(Picker))
     .find((candidate) => candidate.nativeElement instanceof Node && field.contains(candidate.nativeElement));
+
   return present(match).injector.get<Picker<string, object>>(Picker);
 }
 
@@ -106,15 +110,18 @@ export async function chooseIn(harness: RouterTestingHarness, label: string, opt
 export async function pickRowIn(harness: RouterTestingHarness, label: string, name: string): Promise<void> {
   const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
   const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+
   const picker = harness.fixture.debugElement
     .queryAll(By.directive(SlotPicker))
     .find((candidate) => field.querySelector('pio-slot-picker') === candidate.nativeElement)
     ?.injector.get(SlotPicker);
+
   const row = present(
     present(picker)
       .rows()
       .find((candidate) => candidate.name === name),
   );
+
   present(picker).value.set(row.id);
   await harness.fixture.whenStable();
 }

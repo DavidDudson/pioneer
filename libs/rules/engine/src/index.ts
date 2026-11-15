@@ -1,5 +1,7 @@
 export { type ArmorInputs, CHECK_PENALTY } from './armor-bonus';
+
 export { type BaseTerm, BaseTermKind, TermSign } from './base-term';
+
 export {
   type BreakdownLine,
   InactiveReason,
@@ -15,9 +17,13 @@ export {
   OverrideStatusKind,
   SuppressionReason,
 } from './breakdown';
+
 export { deriveStatistics, type StatisticContent } from './derive-statistics';
+
 export { damageTargetOf } from './damage-target';
+
 export { ETCHED_ATTACK, ETCHED_DAMAGE } from './strike-targets';
+
 export {
   damageDice,
   deriveStrikes,
@@ -27,6 +33,7 @@ export {
   type StrikeRulesInput,
   type StrikeDamage,
 } from './strikes';
+
 export {
   type AdjustmentLine,
   type CriticalHitCheckLine,
@@ -37,8 +44,11 @@ export {
   deriveDefences,
   type ImmunityLine,
 } from './defences';
+
 export { statisticContent, variantRulesInPlay } from './statistic-content';
+
 export { EngineMessage } from './messages';
+
 export {
   inventoryItemOf,
   type ModifierInputs,
@@ -48,12 +58,19 @@ export {
   ruleIdOf,
   RuleInPlay,
 } from './rule-in-play';
+
 export { ranksInPlay } from './ranks-in-play';
+
 export { type ResolvedDamageNode, resolveDamageNode } from './inline-damage';
+
 export { type ResolvedDamageFormula, resolveDamageFormula } from './resolve-damage-formula';
+
 export { type SpellAtRank, type SpellCast, spellAtRank } from './spell-at-rank';
+
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
+
 export { type LiftedRestriction, liftedRestrictions } from './lifted-restrictions';
+
 export {
   type RankSlots,
   type SlotPool,
@@ -61,16 +78,22 @@ export {
   type SpellSlots,
   spellcastingInPlay,
 } from './spellcasting-in-play';
+
 export {
   type MovementCostReduction,
   type StatisticFailure,
   type StatisticResult,
   type StatisticValue,
 } from './statistic-result';
+
 export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
+
 export { type WeaponInputs } from './source-inputs';
+
 export { default as engineMessages } from './i18n/en.json';
+
 export { rollSituation, type RollSituation } from './roll-situation';
+
 export {
   type RecoveryInPlay,
   type SizeInPlay,
@@ -79,6 +102,7 @@ export {
   type VitalsScope,
   vitalsInPlay,
 } from './vitals-in-play';
+
 export {
   type CriticalEffect,
   type CriticalRange,
@@ -91,7 +115,9 @@ export {
   type StrikeScope,
   strikeRules,
 } from './strike-rules';
+
 export { adjustStrike } from './adjust-strike';
+
 export {
   type AlterableItem,
   type AlteredItem,
@@ -100,7 +126,9 @@ export {
   type PotencyChange,
   potencyAfter,
 } from './item-alterations';
+
 export { type AlteredAction, alterAction } from './altered-action';
+
 export {
   type ActionCandidate,
   type ActionOrigin,
@@ -110,7 +138,9 @@ export {
   availableActions,
   type AvailableActionsInput,
 } from './available-actions';
+
 export { type FormReplacement, FormSource } from './statistic-result';
+
 export {
   type DamageAdjustmentEffect,
   EffectChange,
@@ -124,10 +154,15 @@ export {
   type SenseEffect,
   type SetEffect,
 } from './effect-line';
+
 export { type EffectScope, summariseEffects, type SummarisedEntry } from './effect-summary';
+
 export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
+
 export { type ShieldInPlay, shieldsInPlay } from './granted-shields';
+
 export { applyMovementCost, movementCostsInPlay, type MovementCostInPlay } from './movement-cost';
+
 export {
   type DegreeAdjustment,
   type DegreeAdjustmentLine,

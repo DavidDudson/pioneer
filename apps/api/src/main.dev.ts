@@ -22,11 +22,13 @@ function log(line: string): void {
 }
 
 const command = Bun.argv.at(2);
+
 if (command !== undefined && command !== SEED_COMMAND) {
   throw new Error(`Unknown command "${command}"; expected ${SEED_COMMAND} or none`);
 }
 
 const env = readEnv();
+
 // `just expose` sets DEV_EXPOSE next to the tunnel's origin; the API itself still listens on loopback.
 if (Bun.env['DEV_EXPOSE'] === '1') {
   assertTunnelOrigin(env.PUBLIC_ORIGIN);
@@ -35,8 +37,11 @@ if (Bun.env['DEV_EXPOSE'] === '1') {
 }
 
 const db = connect(env.DATABASE_URL);
+
 await runMigrations(db, env.MIGRATIONS_DIR);
+
 await seedOfficialContent(db, systemClock, log);
+
 await seedDevData(db, systemClock);
 
 if (command === SEED_COMMAND) {

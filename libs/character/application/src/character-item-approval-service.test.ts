@@ -42,6 +42,7 @@ function importedInvested(item: InventoryItem): InventoryItem {
 /** `extra` ropes more than can be invested, all of them imported and invested. */
 function overInvested(extra: number): Inventory {
   let inventory = EMPTY_INVENTORY;
+
   for (let index = 0; index < INVESTED_MAX + extra; index += 1) {
     inventory = addItem(inventory, {
       id: idAt(index),
@@ -50,11 +51,13 @@ function overInvested(extra: number): Inventory {
       container: undefined,
     });
   }
+
   return { ...inventory, items: inventory.items.map((each) => importedInvested(each)) };
 }
 
 function withInventory(inventory: Inventory): Character {
   const built = new CharacterBuilder().named('Kyra').ownedBy(amiri).build();
+
   return new Character({
     document: { ...built.document, inventory },
     version: built.version,
@@ -129,6 +132,7 @@ describe('what silences a character’s rule-breaking warnings', () => {
     const unknown = await rejection(
       service.acknowledge(amiri, character.id, { item: idAt(0), rule: RuleBreak.Invested }),
     );
+
     expect(unknown).toBeInstanceOf(NotFoundError);
   });
 

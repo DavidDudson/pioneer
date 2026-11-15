@@ -22,6 +22,7 @@ const CLERIC = playerCoreClassId('cleric');
 const DOCTRINE = `${playerCoreId(ContentKind.ClassFeature, 'doctrine')}:0`;
 const WARPRIEST = playerCoreId(ContentKind.ClassFeature, 'warpriest');
 const LEATHER = '55555555-5555-4555-8555-555555555555';
+
 /** The official packs, with the item fixtures for her armour. */
 const HEADER_PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
 
@@ -106,6 +107,7 @@ describe('CharacterSheetPage header', () => {
       const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')]
         .filter((rank) => rank.closest('summary') === null)
         .filter((rank) => textOf(rank) !== '');
+
       expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(['EExpert', 'TTrained', 'EExpert', 'TTrained']);
     });
     // The armour is the note of the rank badge on the Armor Class block. The item fixtures name their entries after their slugs.

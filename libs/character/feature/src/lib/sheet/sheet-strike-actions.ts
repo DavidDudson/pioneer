@@ -22,8 +22,10 @@ export function sheetStrikeActions(
   turn: TurnState | undefined,
 ): readonly ActionLine[] {
   const slots = sheetSlotContent(registry);
+
   return sheetStrikes(registry, character).map(({ name, traits, strike }): ActionLine => {
     const fit = turnFit(turn, ActionCost.One, undefined);
+
     return {
       id: strike.weapon.origin.entry,
       name,

@@ -10,6 +10,7 @@ const meta: Meta<BulkView> = {
   title: 'Rules/Bulk',
   component: BulkView,
 };
+
 export default meta;
 
 /** While the inventory loads. */

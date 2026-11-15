@@ -66,34 +66,44 @@ async function render(defences: Defences, names: Names = NAMED): Promise<Rendere
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(DefencesView);
   fixture.componentRef.setInput('defences', defences);
+
   if (names.entries !== undefined) {
     fixture.componentRef.setInput('entryNames', names.entries);
   }
+
   if (names.immunities !== undefined) {
     fixture.componentRef.setInput('immunityNames', names.immunities);
   }
+
   if (names.exceptions !== undefined) {
     fixture.componentRef.setInput('exceptionNames', names.exceptions);
   }
+
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
+
   const lists = [...host.querySelectorAll('h3')].map((heading): ReadList => {
     const list = heading.closest('fr-stack');
     const items = [...(list?.querySelectorAll('[role="listitem"]') ?? [])].map((item) => partsOf(item));
     const empty = list?.querySelector('fr-empty-state');
+
     return {
       heading: textOf(heading),
       items,
       empty: empty === null || empty === undefined ? undefined : textOf(empty),
     };
   });
+
   const [immunities, weaknesses, resistances] = lists;
+
   if (immunities === undefined || weaknesses === undefined || resistances === undefined) {
     throw new Error('pio-defences rendered fewer than three lists');
   }
+
   const origins = [...host.querySelectorAll('pio-origin-chain')].map((chain) =>
     textOf(chain.querySelector('fr-text') ?? chain),
   );
+
   return { lists, immunities, weaknesses, resistances, origins };
 }
 
@@ -151,6 +161,7 @@ describe(DefencesView, () => {
         entries: ENTRY_NAMES,
         immunities: new Map([[SLEEP, 'sleep effects']]),
       });
+
       expect(named.items).toStrictEqual(['Immunity sleep effects']);
 
       TestBed.resetTestingModule();
@@ -234,6 +245,7 @@ describe(DefencesView, () => {
         when: Predicate.parse(['self:effect:rage']),
         summary: undefined,
       };
+
       const { resistances } = await render({
         ...NO_DEFENCES,
         resistances: [adjustment(RAGE, 'fire', { value: 5, status: unsummarised })],
@@ -267,6 +279,7 @@ describe(DefencesView, () => {
 
     it('keeps saying a failed defence was conditional', async () => {
       const failedWhileRaging = { ...OUT_OF_RANGE, when: Predicate.parse(['self:effect:rage']) };
+
       const { weaknesses } = await render({
         ...NO_DEFENCES,
         weaknesses: [adjustment(GOLEM_FORM, 'cold', { status: failedWhileRaging })],

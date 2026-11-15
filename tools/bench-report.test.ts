@@ -13,6 +13,7 @@ const BUDGETED: BenchResult = {
   warmupRuns: 20,
   budgetMs: 3,
 };
+
 const UNBUDGETED: BenchResult = { name: 'grants: b', fastestMs: 1, medianMs: 1.5, timedRuns: 11, warmupRuns: 2 };
 
 describe('parseResults', () => {

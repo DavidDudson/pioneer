@@ -182,9 +182,11 @@ const RANK_MAX = 5;
 
 function says(rank: number): AnimalFormSays {
   const found = ANIMAL_FORM_SAYS.get(rank);
+
   if (found === undefined) {
     throw new Error(`Animal Form has no entry for rank ${rank}`);
   }
+
   return found;
 }
 
@@ -224,9 +226,11 @@ const PLANT_FORM_SAYS = new Map<number, AnimalFormSays>([
 
 function plantSays(rank: number): AnimalFormSays {
   const found = PLANT_FORM_SAYS.get(rank);
+
   if (found === undefined) {
     throw new Error(`Plant Form has no entry for rank ${rank}`);
   }
+
   return found;
 }
 
@@ -244,11 +248,13 @@ describe('Player Core: Plant Form, the druid’s own statistic when it is higher
         (strength, rank, name) => {
           const character = druidWith(strength);
           const own = viewOf([], chosen(), character);
+
           const form = viewOf(
             formRulesOf('effect:spell-effect-plant-form', rank),
             chosen(`plant-form:${name}`),
             character,
           );
+
           const said = plantSays(rank);
 
           expect(form.total('ac')).toBe(Math.max(said.ac + LEVEL, own.total('ac')));

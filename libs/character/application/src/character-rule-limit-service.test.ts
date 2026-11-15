@@ -91,6 +91,7 @@ describe('the table limits a character sets for itself', () => {
     const error = await rejection(
       service.set(amiri, character.id, { limit: 'handsMax', value: value(LIMIT_CEILINGS.handsMax + 1) }),
     );
+
     expect(error).toBeInstanceOf(ValidationError);
     expect(await service.of(character)).toStrictEqual(CORE_RULE_LIMITS);
   });

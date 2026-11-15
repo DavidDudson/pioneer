@@ -42,6 +42,7 @@ function app(): AnyElysia {
   const clock = fixedClock('2026-10-10T10:00:00Z');
   const campaigns = new InMemoryCampaignRepository();
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren').name(seelah, 'Seelah');
+
   const characters = new InMemoryCharacterDirectory()
     .character({ id: valeros, ownerId: ezren, name: 'Valeros', level: 3 })
     .vitals(
@@ -57,13 +58,16 @@ function app(): AnyElysia {
     )
     .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' })
     .character({ id: kyra, ownerId: seelah, name: 'Kyra' });
+
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
+
   const party = new CampaignPartyService(
     { campaigns, party: new InMemoryCampaignPartyRepository(campaigns), characters, directory },
     clock,
   );
+
   return new Elysia().use(problemHandler).use(
     campaignRoutes(
       {
@@ -136,6 +140,7 @@ async function campaign(api: AnyElysia, name = 'Abomination Vaults'): Promise<st
   const { token } = await json<{ readonly token: string }>(issued);
   await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
   await api.handle(request('POST', '/campaigns/join', { as: seelah, body: { token } }));
+
   return id;
 }
 

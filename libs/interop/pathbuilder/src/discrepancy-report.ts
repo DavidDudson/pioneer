@@ -19,6 +19,7 @@ export const TotalDiscrepancy = z.object({
   pathbuilder: z.int(),
   pioneer: z.int(),
 });
+
 export type TotalDiscrepancy = z.infer<typeof TotalDiscrepancy>;
 
 /** A proficiency rank Pathbuilder gives that the build's differs from; `difference` is the steps between them. */
@@ -28,9 +29,11 @@ export const RankDiscrepancy = z.object({
   pathbuilder: ProficiencySchema,
   pioneer: ProficiencySchema,
 });
+
 export type RankDiscrepancy = z.infer<typeof RankDiscrepancy>;
 
 export const Discrepancy = z.discriminatedUnion('kind', [TotalDiscrepancy, RankDiscrepancy]);
+
 export type Discrepancy = z.infer<typeof Discrepancy>;
 
 /** Every number Pathbuilder computed that was compared with the engine's, and those that differ. */
@@ -38,6 +41,7 @@ export const DiscrepancyReport = z.object({
   compared: z.int().nonnegative(),
   differences: z.array(Discrepancy).readonly(),
 });
+
 export type DiscrepancyReport = z.infer<typeof DiscrepancyReport>;
 
 /** The statistics whose rank Pathbuilder gives, by the key it uses in `proficiencies`. */
@@ -148,20 +152,26 @@ const RANKS: readonly Proficiency[] = Object.values(Proficiency);
 function reportedTotals(value: PathbuilderImport): Map<Selector, number> {
   const { acTotal, attributes } = value.reported;
   const totals = new Map<Selector, number>();
+
   if (acTotal !== undefined) {
     totals.set(ARMOR_CLASS, acTotal.acTotal);
   }
+
   if (attributes?.ancestryhp !== undefined && attributes.classhp !== undefined) {
     const perLevel =
       attributes.classhp + (attributes.bonushpPerLevel ?? 0) + value.attributes.get(Attribute.Constitution);
+
     totals.set(MAX_HIT_POINTS, attributes.ancestryhp + perLevel * value.level + (attributes.bonushp ?? 0));
   }
+
   if (attributes?.speed !== undefined) {
     totals.set(LAND_SPEED, attributes.speed + (attributes.speedBonus ?? 0));
   }
+
   if (value.reported.focusPoints !== undefined) {
     totals.set(FOCUS_POINTS, value.reported.focusPoints);
   }
+
   return totals;
 }
 
@@ -175,6 +185,7 @@ function focusDc(
   },
 ): number {
   const rank = entry.proficiency ?? 0;
+
   return BASE_DC + (entry.abilityBonus ?? 0) + rank + (entry.itemBonus ?? 0) + (rank > 0 ? level : 0);
 }
 
@@ -186,6 +197,7 @@ function spellDcPairs(value: PathbuilderImport, { spellDcs }: PioneerValues): Pa
   return Object.entries(value.reported.focus).flatMap(([tradition, byAttribute]) =>
     Object.entries(byAttribute).flatMap(([attribute, entry]) => {
       const pioneer = spellDcs.find((dc) => dc.tradition === tradition && dc.attribute === attribute);
+
       return pioneer === undefined
         ? []
         : [
@@ -211,6 +223,7 @@ function slotsSelector(slug: string, index: number): Selector {
 function spellSlotPairs(value: PathbuilderImport, { spellSlots }: PioneerValues): Pair[] {
   return [...pairCasters(value.casters, spellSlots)].flatMap(([caster, entry]) => {
     const length = Math.max(caster.perDay.length, entry.counts.length);
+
     return Array.from({ length }, (_unused, index): Pair => ({
       selector: slotsSelector(entry.slug, index),
       pathbuilder: caster.perDay[index] ?? 0,
@@ -228,11 +241,13 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
   const compared: Pair[] = [
     ...[...reportedTotals(value), ...derivedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
       const pioneer = totalOf(values, selector);
+
       return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
     }),
     ...spellDcPairs(value, values),
     ...spellSlotPairs(value, values),
   ];
+
   const differing = compared
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): TotalDiscrepancy => ({
@@ -242,6 +257,7 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
       pioneer,
       difference: pioneer - pathbuilder,
     }));
+
   return [compared.length, differing];
 }
 
@@ -252,12 +268,16 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
 function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: PioneerValues): RankPair[] {
   const pioneer = ranks.get(SPELLCASTING);
   const traditions = [...new Set(spellDcs.map(({ tradition }) => tradition))];
+
   const given = traditions.flatMap((tradition): Proficiency[] => {
     const number = value.reported.proficiencies[CASTING_KEYS[tradition] ?? ''];
     const rank = number === undefined ? undefined : RANK_BY_NUMBER[number];
+
     return rank === undefined ? [] : [rank];
   });
+
   const [pathbuilder] = given.toSorted((first, second) => RANKS.indexOf(second) - RANKS.indexOf(first));
+
   return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector: SPELLCASTING, pathbuilder, pioneer }];
 }
 
@@ -267,10 +287,12 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
       const number = value.reported.proficiencies[key];
       const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER[number];
       const pioneer = values.ranks.get(selector);
+
       return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
     }),
     ...castingRankPairs(value, values),
   ];
+
   const differing = compared
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): RankDiscrepancy => ({
@@ -280,6 +302,7 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
       pioneer,
       difference: RANKS.indexOf(pioneer) - RANKS.indexOf(pathbuilder),
     }));
+
   return [compared.length, differing];
 }
 
@@ -291,6 +314,7 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
 export function discrepancyReport(value: PathbuilderImport, pioneer: PioneerValues): DiscrepancyReport {
   const [comparedTotals, totals] = totalDifferences(value, pioneer);
   const [comparedRanks, ranks] = rankDifferences(value, pioneer);
+
   return {
     compared: comparedTotals + comparedRanks,
     differences: [...totals, ...ranks],

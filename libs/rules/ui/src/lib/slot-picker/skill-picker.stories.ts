@@ -44,6 +44,7 @@ const meta: Meta<SkillPicker> = {
   args: { rows: SKILLS, ariaLabel: 'Skill', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A skill the slot can't offer stays in the table and says why. */
@@ -78,13 +79,17 @@ export const TypedLore: SkillPickerStory = {
   args: { allowLore: true },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+
     const search = await waitFor(() => {
       const input = canvasElement.querySelector('input');
+
       if (input === null) {
         throw new Error('The search box has not rendered');
       }
+
       return input;
     });
+
     await userEvent.type(search, 'Sailing');
     await waitFor(async () => {
       await expect(canvas.getByText('Add the Lore "Sailing"')).toBeVisible();

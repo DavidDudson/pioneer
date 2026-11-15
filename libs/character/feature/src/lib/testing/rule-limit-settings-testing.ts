@@ -27,5 +27,6 @@ function sourceOf(changed: number | undefined, variant: number | undefined): Rul
   if (changed !== undefined) {
     return RuleLimitSource.Character;
   }
+
   return variant === undefined ? RuleLimitSource.Core : RuleLimitSource.Variant;
 }

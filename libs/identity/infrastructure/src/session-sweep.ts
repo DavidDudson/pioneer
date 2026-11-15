@@ -31,6 +31,7 @@ class Sweeper {
  */
 export function sessionSweep(service: IdentityService, every: Milliseconds): Elysia {
   const sweeper = new Sweeper();
+
   return new Elysia({ name: 'session-sweep' })
     .onStart(() => {
       sweeper.start(service, every);

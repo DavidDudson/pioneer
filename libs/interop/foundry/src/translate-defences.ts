@@ -29,12 +29,16 @@ export function withDefenceTypes(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
+
   if (!DEFENCE_KEYS.has(raw.key) || !('type' in raw)) {
     return raw;
   }
+
   const { type } = raw;
+
   if (typeof type === 'string') {
     return { ...raw, type: [typeOf(type)] };
   }
+
   return Array.isArray(type) ? { ...raw, type: type.map((each: unknown) => typeOf(each)) } : raw;
 }

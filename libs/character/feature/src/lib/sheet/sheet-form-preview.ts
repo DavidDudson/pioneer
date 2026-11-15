@@ -45,9 +45,11 @@ function rowOf(selector: Selector, { own, form, registry, translate }: Compariso
   const before = totalOf(own.get(selector));
   const after = totalOf(form.get(selector));
   const name = registry.statisticsFor(selector).at(-1)?.definition.name;
+
   if (before === undefined || after === undefined || before === after || name === undefined) {
     return [];
   }
+
   return [
     {
       name,
@@ -84,17 +86,22 @@ export function sheetFormPreview({ registry, character, candidate, translate }: 
   const base = withoutForms(registry, play.effects);
   const own = withPlay(character, { ...play, effects: [...base] });
   const morphed = withPlay(character, { ...play, effects: [...base, candidate] });
+
   const comparison: Comparison = {
     own: sheetDerivation(registry, own),
     form: sheetDerivation(registry, morphed),
     registry,
     translate,
   };
+
   const tempHp = sheetFormTempHp(registry, character, candidate);
+
   const temp: readonly FormPreviewRow[] =
     tempHp === undefined || tempHp === 0
       ? []
       : [{ name: translate(FormPreviewMessage.TempHp), own: String(play.hp.temp), form: String(tempHp) }];
+
   const rest = formRows({ registry, own, morphed, translate: (key) => translate(key) });
+
   return { rows: [...PREVIEWED.flatMap((selector) => rowOf(selector, comparison)), ...temp, ...rest] };
 }

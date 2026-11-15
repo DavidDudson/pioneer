@@ -18,12 +18,14 @@ export function criticallyRangedBy(
   targets: StrikeTargets,
 ): CriticalRange | undefined {
   const { element } = rule;
+
   if (
     element.key !== RuleElementKey.CriticalRange ||
     !reaches(element.selectors, targets.attack, ownsStrike(rule, targets))
   ) {
     return range;
   }
+
   return range === undefined || element.natural < range.natural
     ? { natural: element.natural, origin: rule.origin }
     : range;

@@ -10,6 +10,7 @@ const meta: Meta<SensesView> = {
   component: SensesView,
   args: { entryNames: SENSE_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: a skeleton. */

@@ -36,6 +36,7 @@ export function boundedRecord<Value extends z.ZodType>(value: Value): z.ZodType<
 /** Foundry's attribute slots, keyed `"0"`, `"1"` and so on: `{ "0": { "value": ["dex"] } }`. */
 const FoundryAttributeSlot = z.looseObject({ value: z.array(z.string().max(FIELD_MAX)).max(ENTRIES_MAX) });
 export const FoundryAttributeSlots = boundedRecord(FoundryAttributeSlot);
+
 export type FoundryAttributeSlots = z.infer<typeof FoundryAttributeSlots>;
 
 /** An item Foundry grants by compendium UUID (an ancestry feature, a class feature, a background's skill feat). */
@@ -48,14 +49,17 @@ const FoundryGrantedItem = z.looseObject({
 
 /** Foundry's `items`: what an ancestry, background or class grants, keyed by a random id. */
 export const FoundryGrantedItems = boundedRecord(FoundryGrantedItem);
+
 export type FoundryGrantedItems = z.infer<typeof FoundryGrantedItems>;
 
 /** The `system` parsed as a kind reads it; reported and undefined when it is not shaped as that kind's. */
 export function systemOf<System>(schema: z.ZodType<System>, { document, log }: KindInput): System | undefined {
   const system = schema.safeParse(document.system);
+
   if (!system.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: '', raw: z.prettifyError(system.error) });
   }
+
   return system.data;
 }
 
@@ -66,9 +70,11 @@ export function attributeSlots(slots: FoundryAttributeSlots, field: string, log:
     .map(([key, { value }]) =>
       value.flatMap((each) => {
         const attribute = AttributeSchema.safeParse(each);
+
         if (!attribute.success) {
           report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.${key}`, raw: each });
         }
+
         return attribute.success ? [attribute.data] : [];
       }),
     )
@@ -99,8 +105,10 @@ export function grantItems(items: FoundryGrantedItems, field: string, input: Kin
   const ordered = Object.values(items).toSorted(
     (left, right) => (left.level ?? 0) - (right.level ?? 0) || (left.name ?? '').localeCompare(right.name ?? ''),
   );
+
   for (const { uuid, level } of ordered) {
     const item = resolveUuid(input.references, uuid);
+
     if (item === undefined && uuid === PERCEPTION_EXPERTISE) {
       addRule(input, field, {
         key: RuleElementKey.Proficiency,

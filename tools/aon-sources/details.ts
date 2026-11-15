@@ -39,18 +39,22 @@ function decode(text: string): string {
 /** `11/15/2023` as `2023-11-15`; `undefined` for any other shape. */
 function isoDate(text: string): string | undefined {
   const { month = '', day = '', year = '' } = DATE.exec(text)?.groups ?? {};
+
   return year === '' ? undefined : `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }
 
 export function parseBookDetails(html: string): BookDetails {
   const fields = new Map<string, string>();
+
   for (const { groups } of html.matchAll(FIELD)) {
     fields.set(groups?.['label'] ?? '', decode(groups?.['value'] ?? ''));
   }
+
   const line = PRODUCT_LINES.get(fields.get('Product Line') ?? '');
   const store = PaizoStoreUrl.safeParse(STORE_LINK.exec(html)?.groups?.['href']);
   const errata = ErrataLabel.safeParse(fields.get('Latest Errata'));
   const released = isoDate(fields.get('Release Date') ?? '');
+
   return {
     ...(line === undefined ? {} : { productLine: line }),
     ...(store.success ? { storeUrl: store.data } : {}),

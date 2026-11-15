@@ -9,4 +9,5 @@ export const AonPagesFile = z.strictObject({
   /** Entries the index holds that the book's Sources page does not list (ADR-0074): actions, for one. */
   entries: z.array(AonListedEntry).default([]),
 });
+
 export type AonPagesFile = z.infer<typeof AonPagesFile>;

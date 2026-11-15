@@ -23,7 +23,9 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const content = { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
 /** Raging, so `self:effect:rage` holds and `self:effect:fly` does not; `terrain:*` is unknown on the sheet. */
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
@@ -46,9 +48,11 @@ function weakness(type: readonly string[], value: number | string, fields: objec
 
 function roll(text: string, faces: readonly number[]): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(outcome.error.key);
   }
+
   return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 
@@ -71,12 +75,14 @@ function byId(left: LineSummary, right: LineSummary): number {
 describe('deriveDefences', () => {
   test('an Immunity gives one immunity per type, with its origin and label', () => {
     const rule = inPlay({ key: 'Immunity', type: ['sleep', 'fire'] }, 'dragon-blood');
+
     const shared = {
       id: ruleIdOf(rule),
       label: { entry: rule.origin.entry },
       origin: rule.origin,
       status: { kind: DefenceStatusKind.Applied },
     };
+
     const { immunities }: { readonly immunities: unknown } = defences([rule]);
     expect(immunities).toStrictEqual([
       { ...shared, type: 'fire' },
@@ -86,9 +92,11 @@ describe('deriveDefences', () => {
 
   test('a Weakness gives a line per type or group, with its value', () => {
     const rule = inPlay(weakness(['cold', 'physical'], 5, { display: { label: 'Fire heart' } }), 'fire-heart');
+
     const { weaknesses, resistances }: { readonly weaknesses: unknown; readonly resistances: unknown } = defences([
       rule,
     ]);
+
     expect(resistances).toStrictEqual([]);
     expect(weaknesses).toStrictEqual(
       ['cold', 'physical'].map((type) => ({
@@ -108,6 +116,7 @@ describe('deriveDefences', () => {
       inPlay(resistance(['fire'], '@level'), 'by-level'),
       inPlay(resistance(['cold'], 'floor(@item.level / 2)'), 'by-item', { itemLevel: 6 }),
     ]);
+
     const values: unknown = resistances.map(({ type, value }) => ({ type, value }));
     expect(values).toStrictEqual([
       { type: 'cold', value: 3 },
@@ -121,6 +130,7 @@ describe('deriveDefences', () => {
       inPlay({ key: 'Immunity', type: ['grabbed'], predicate: FLYING }, 'flight'),
       inPlay(resistance(['cold'], 5, { predicate: IN_FOREST }), 'forest-ward'),
     ]);
+
     const immune: unknown = immunities.map(({ type, status }) => ({ type, kind: status.kind }));
     expect(immune).toStrictEqual([{ type: 'fear', kind: DefenceStatusKind.Applied }]);
     const resistant: unknown = resistances;
@@ -153,6 +163,7 @@ describe('deriveDefences', () => {
     const { resistances }: { readonly resistances: unknown } = defences([
       inPlay(resistance(['cold'], '@stat.ac', { predicate: IN_FOREST }), 'forest-ac'),
     ]);
+
     expect(resistances).toMatchObject([{ status: { kind: DefenceStatusKind.Failed, when: IN_FOREST } }]);
   });
 
@@ -171,6 +182,7 @@ describe('deriveDefences', () => {
     const { resistances }: { readonly resistances: unknown } = defences([
       inPlay(resistance(['fire'], '@level * 10000'), 'huge'),
     ]);
+
     expect(resistances).toMatchObject([
       {
         value: undefined,
@@ -190,11 +202,13 @@ describe('deriveDefences', () => {
     const forest = inPlay(resistance(['fire'], 15, { predicate: IN_FOREST }), 'forest');
     const energy = inPlay(resistance(['energy'], 3), 'energy');
     const { resistances } = defences([low, high, forest, energy]);
+
     const fire = [
       { id: ruleIdOf(low), type: 'fire', value: 5, kind: DefenceStatusKind.Superseded },
       { id: ruleIdOf(high), type: 'fire', value: 10, kind: DefenceStatusKind.Applied },
       { id: ruleIdOf(forest), type: 'fire', value: 15, kind: DefenceStatusKind.Conditional },
     ].toSorted(byId);
+
     expect(summaries(resistances)).toStrictEqual([
       { id: ruleIdOf(energy), type: 'energy', value: 3, kind: DefenceStatusKind.Applied },
       ...fire,
@@ -224,6 +238,7 @@ describe('deriveDefences', () => {
 describe('damageTargetOf', () => {
   const forestImmunity = inPlay({ key: 'Immunity', type: ['poison'], predicate: IN_FOREST }, 'forest-immune');
   const forestWeakness = inPlay(weakness(['cold'], 2, { predicate: IN_FOREST }), 'forest-weakness');
+
   const rules = [
     inPlay({ key: 'Immunity', type: ['fire', 'fear'] }, 'immune'),
     inPlay({ key: 'Immunity', type: ['fire'] }, 'immune-again'),
@@ -263,6 +278,7 @@ describe('damageTargetOf', () => {
       inPlay(weakness(['silver'], 5), 'silver-weakness'),
       inPlay(resistance(['ghost-touch'], 2), 'ghost'),
     ];
+
     const target: unknown = damageTargetOf(defences(materials));
     expect(target).toMatchObject({
       weaknesses: [{ type: 'silver', value: 5 }],

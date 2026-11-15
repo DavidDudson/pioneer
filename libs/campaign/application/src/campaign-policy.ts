@@ -36,6 +36,7 @@ export function mayAttachCharacter(actor: UserId, campaign: Campaign, ownerId: U
 /** Who may take a character out of a campaign: its owner, or the GM. */
 export function mayDetachCharacter(actor: UserId, campaign: Campaign, ownerId: UserId): boolean {
   const role = campaign.roleOf(actor);
+
   return role === CampaignRole.Gm || (role !== undefined && ownerId === actor);
 }
 

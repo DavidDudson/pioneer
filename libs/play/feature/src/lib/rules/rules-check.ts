@@ -42,6 +42,7 @@ export const RulesSchema = {
   RichText: 'rich-text',
   ContentEntry: 'content-entry',
 } as const;
+
 export type RulesSchema = ValueOf<typeof RulesSchema>;
 
 const SCHEMAS: Readonly<Record<RulesSchema, z.ZodType>> = {
@@ -84,6 +85,7 @@ export const RulesTool = {
   Filters: 'filters',
   Actions: 'actions',
 } as const;
+
 export type RulesTool = ValueOf<typeof RulesTool>;
 
 export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
@@ -100,8 +102,10 @@ const PLAYER_CORE = PackId.parse('player-core');
 const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 const JSON_INDENT = 2;
+
 /** The level the example predicate tests for. */
 const EXAMPLE_LEVEL = 5;
+
 /** Raise a Shield's circumstance bonus to AC. */
 const RAISED_SHIELD_BONUS = 2;
 
@@ -188,23 +192,30 @@ export function rulesExample(tool: RulesTool): string {
   if (tool === RulesTool.Formula) {
     return EXAMPLE_FORMULA;
   }
+
   if (tool === RulesTool.Statistics) {
     return JSON.stringify(EXAMPLE_STATISTICS, undefined, JSON_INDENT);
   }
+
   if (tool === RulesTool.Grants) {
     return EXAMPLE_GRANT_ENTRIES;
   }
+
   if (tool === RulesTool.Filters) {
     return EXAMPLE_FILTER_ENTRIES;
   }
+
   if (tool === RulesTool.Actions) {
     return EXAMPLE_ACTIONS;
   }
+
   const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
+
   return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);
 }
 
 export const CheckStatus = { Valid: 'valid', NotJson: 'not-json', Invalid: 'invalid' } as const;
+
 export type CheckStatus = ValueOf<typeof CheckStatus>;
 
 export type CheckOutcome =
@@ -231,9 +242,11 @@ function parseJson(text: string): JsonParse {
 /** The value at `path` inside `value`, or undefined when the path leads nowhere. */
 function valueAt(value: unknown, path: FieldIssue['path']): unknown {
   let inside = value;
+
   for (const segment of path) {
     inside = typeof inside === 'object' && inside !== null ? Reflect.get(inside, segment) : undefined;
   }
+
   return inside;
 }
 
@@ -244,6 +257,7 @@ function valueAt(value: unknown, path: FieldIssue['path']): unknown {
 function withPointer(json: unknown, issue: FieldIssue): CheckIssue {
   const formula = valueAt(json, issue.path);
   const position = TextPosition.safeParse(issue.message.params?.['position']);
+
   return typeof formula === 'string' && position.success
     ? { ...issue, pointer: pointAt(formula, position.data) }
     : issue;
@@ -257,10 +271,13 @@ export type JsonRead<Value> = { readonly status: typeof CheckStatus.Valid; reado
 /** Parse `text` as JSON, then decode it with `target`, pointing into formulas that fail. Never throws. */
 export function readJson<Value>(target: z.ZodType<Value>, text: string): JsonRead<Value> {
   const json = parseJson(text);
+
   if (!json.ok) {
     return { status: CheckStatus.NotJson };
   }
+
   const result = target.safeParse(json.value);
+
   return result.success
     ? { status: CheckStatus.Valid, value: result.data }
     : {
@@ -272,6 +289,7 @@ export function readJson<Value>(target: z.ZodType<Value>, text: string): JsonRea
 /** Parse `text` as JSON, then validate it against `schema`. Never throws. */
 export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome {
   const target = SCHEMAS[schema];
+
   return checkOutcome(target, readJson(target, text));
 }
 

@@ -83,9 +83,11 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
   /** A fresh campaign for each test, as offers are never deleted. */
   beforeEach(async () => {
     campaigns += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
   });
 
@@ -108,6 +110,7 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
     await repository.insert(amiri, campaignId, offer());
 
     campaigns += 1;
+
     const other = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).build(),
     );
@@ -154,6 +157,7 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
     await repository.insertCoins(amiri, campaignId, coinOffer({ createdAt: clock.now().add({ minutes: 2 }) }));
 
     const pending = await repository.listPending(campaignId);
+
     const stored = await database.db.execute(
       sql`select count(*)::int as total from campaign_item_transfers where campaign_id = ${campaignId} and item_id is null`,
     );
@@ -169,6 +173,7 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
         sql`insert into campaign_item_transfers (id, campaign_id, from_character_id, to_character_id, item_id, gold, giver_version, status, created_at) values (${newId()}, ${campaignId}, ${kyra.id}, ${mordred.id}, ${newId()}, 1, 1, 'pending', ${at})`,
       ),
     );
+
     const neither = await rejection(
       database.db.execute(
         sql`insert into campaign_item_transfers (id, campaign_id, from_character_id, to_character_id, giver_version, status, created_at) values (${newId()}, ${campaignId}, ${kyra.id}, ${mordred.id}, 1, 'pending', ${at})`,

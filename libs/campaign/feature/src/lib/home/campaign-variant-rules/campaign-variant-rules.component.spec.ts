@@ -18,6 +18,7 @@ const gmMember = {
   role: 'gm',
   joinedAt: '2026-10-10T10:00:00.000Z',
 };
+
 const campaign = {
   id,
   version: 1,
@@ -32,6 +33,7 @@ const withoutLevel = {
   name: 'Proficiency Without Level',
   packTitle: 'Core Rules',
 };
+
 const gritty = {
   variantId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e11',
   name: 'Gritty Healing',
@@ -48,6 +50,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -78,6 +81,7 @@ async function open(rules: VariantRulesJson): Promise<HTMLElement> {
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Proficiency Without Level');
   });
+
   return root;
 }
 

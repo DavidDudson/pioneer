@@ -36,6 +36,7 @@ const CUSTOM_EFFECT_SOURCE = { kind: 'book', book: 'player-core', page: 1 } as c
 function elementOf(name: CustomEffect['name'], line: CustomEffectLine): unknown {
   const display = { label: ContentText.parse(name) };
   const predicate = line.predicate === undefined ? {} : { predicate: line.predicate };
+
   return line.mode === OverrideMode.Set
     ? {
         key: RuleElementKey.Change,
@@ -63,6 +64,7 @@ export function customEffectRules(document: CharacterDocument): readonly RuleInP
   const lines = activeCustomEffects(document)
     .filter((effect) => effect.enabled)
     .flatMap((effect) => effect.lines.map((line) => ({ effect, line })));
+
   return lines.map(({ effect, line }, index) =>
     RuleInPlay.parse({
       element: elementOf(effect.name, line),
@@ -92,6 +94,7 @@ export function customEffectOf(document: CharacterDocument, id: CustomEffectId):
 
 /** Why a custom effect edit cannot be made. */
 export const CustomEffectProblem = { Unknown: 'unknown', Full: 'full' } as const;
+
 export type CustomEffectProblem = ValueOf<typeof CustomEffectProblem>;
 
 /** What stops `patch` from changing the document, or undefined when it can. */
@@ -102,6 +105,7 @@ export function customEffectProblem(
   if (patch.field === CharacterPatchField.AddCustomEffect) {
     return document.customEffects.length >= CUSTOM_EFFECTS_MAX ? CustomEffectProblem.Full : undefined;
   }
+
   return customEffectOf(document, patch.id) === undefined ? CustomEffectProblem.Unknown : undefined;
 }
 
@@ -110,6 +114,7 @@ function added(input: CustomEffectInput, edit: CustomEffectEdit): CustomEffect {
   if (edit.newCustomEffectId === undefined) {
     throw new TypeError('An added custom effect needs the id its caller makes');
   }
+
   return CustomEffectSchema.parse({
     id: edit.newCustomEffectId,
     ...input,
@@ -143,10 +148,12 @@ export function withCustomEffectEdit(
   if (customEffectProblem(document, patch) !== undefined) {
     throw new TypeError(`Custom effect edit ${patch.field} is not allowed on this document`);
   }
+
   switch (patch.field) {
     case CharacterPatchField.AddCustomEffect: {
       return { ...document, customEffects: [...document.customEffects, added(patch.effect, edit)] };
     }
+
     case CharacterPatchField.ToggleCustomEffect: {
       return withChanged(document, patch.id, (each) =>
         each.enabled === patch.enabled
@@ -166,10 +173,13 @@ export function withCustomEffectEdit(
             },
       );
     }
+
     case CharacterPatchField.RemoveCustomEffect: {
       const removed = { by: edit.actor, at: overrideTime(edit.now), reason: patch.reason };
+
       return withChanged(document, patch.id, (each) => ({ ...each, removed }));
     }
+
     default: {
       const unreachable: never = patch;
       throw new TypeError(`Unhandled custom effect edit: ${JSON.stringify(unreachable)}`);

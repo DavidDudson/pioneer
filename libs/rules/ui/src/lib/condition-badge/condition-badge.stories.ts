@@ -10,6 +10,7 @@ const meta: Meta<ConditionBadge> = {
   component: ConditionBadge,
   args: { conditions: [ConditionSlug.Frightened] },
 };
+
 export default meta;
 
 export const One: ConditionBadgeStory = {};

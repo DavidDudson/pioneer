@@ -10,6 +10,7 @@ export const CarryChoice = {
   Stowed: 'stowed',
   Dropped: 'dropped',
 } as const;
+
 export type CarryChoice = ValueOf<typeof CarryChoice>;
 
 const CARRY_OF: Readonly<Record<CarryChoice, Carry>> = {
@@ -38,6 +39,7 @@ export function choiceOf(carry: Carry): CarryChoice {
   if (carry.state === CarryState.Held) {
     return carry.hands === ONE_HAND ? CarryChoice.OneHand : CarryChoice.TwoHands;
   }
+
   return carry.state;
 }
 
@@ -48,6 +50,7 @@ export function choiceOf(carry: Carry): CarryChoice {
 export function carryChoices(entry: ItemEntry | undefined): readonly CarryChoice[] {
   const wearable = entry !== undefined && isWearable(entry);
   const oneHand = handsNeeded(entry) === ONE_HAND;
+
   return Object.values(CarryChoice).filter(
     (choice) => (choice !== CarryChoice.Worn || wearable) && (choice !== CarryChoice.OneHand || oneHand),
   );

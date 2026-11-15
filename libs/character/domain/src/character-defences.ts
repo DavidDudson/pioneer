@@ -20,6 +20,7 @@ const NO_DEFENCE_LINES: Defences = {
  */
 export function characterDefences(document: CharacterDocument, sources: StatisticSources): Defences {
   const content = statisticContent(sources.registry);
+
   return content === undefined
     ? NO_DEFENCE_LINES
     : deriveDefences(content, sources.inputs, rulesInPlay(document, sources));

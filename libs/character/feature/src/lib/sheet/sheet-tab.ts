@@ -13,6 +13,7 @@ export function rememberTab(mode: SheetMode): void {
     if (store.rememberedSheetMode() === undefined) {
       return;
     }
+
     untracked(() => {
       store.rememberSheetMode(mode);
     });

@@ -35,6 +35,7 @@ export const ResourceCommandField = {
   /** A spell cast from a held staff, or such a cast taken back (`staff-commands.ts`). */
   ...StaffCommandField,
 } as const;
+
 export type ResourceCommandField = ValueOf<typeof ResourceCommandField>;
 
 export const ResourceCommandSchema = z.discriminatedUnion('field', [
@@ -49,6 +50,7 @@ export const ResourceCommandSchema = z.discriminatedUnion('field', [
   ...WandCommandSchema.options,
   ...StaffCommandSchema.options,
 ]);
+
 export type ResourceCommand = z.infer<typeof ResourceCommandSchema>;
 
 /** The part of a play state a pool edit reads and writes: the points spent, and the death track Heroic Recovery ends. */
@@ -76,6 +78,7 @@ function afterSpending(play: ResourcePlay, pools: Pools, { resource, amount }: S
   const resources = spendPoints(pools, resource, amount);
   const emptied = heldIn(pools, resource) > NO_POINTS && heldIn({ ...pools, spent: resources }, resource) === NO_POINTS;
   const spent = { ...play, resources };
+
   return resource === Resource.HeroPoints && emptied ? { ...spent, ...stabilised(spent) } : spent;
 }
 
@@ -98,18 +101,24 @@ function applyUseCommand(
 ): ResourcePlay {
   const { use } = command;
   const { resources } = play;
+
   switch (command.field) {
     case ResourceCommandField.SpendUse: {
       const spent = spentAfter({ spent: resources.uses, maxima, key: use }, SPEND);
+
       return withCounts(play, countdownStarted({ ...resources, uses: spent }, maxima, use));
     }
+
     case ResourceCommandField.RefundUse: {
       const spent = spentAfter({ spent: resources.uses, maxima, key: use }, REFUND);
+
       return withCounts(play, countdownCleared({ ...resources, uses: spent }, use));
     }
+
     case ResourceCommandField.ResetUse: {
       return withCounts(play, usesBack(resources, maxima.has(use) ? [use] : []));
     }
+
     default: {
       return command satisfies never;
     }
@@ -134,37 +143,45 @@ export function applyResourceCommand(
   { points, counted, staffCost }: ResourceLimits,
 ): ResourcePlay {
   const pools: Pools = { spent: play.resources, maxima: points };
+
   switch (command.field) {
     case ResourceCommandField.SpendResource: {
       return afterSpending(play, pools, command);
     }
+
     case ResourceCommandField.RegainResource: {
       return { ...play, resources: regainPoints(pools, command.resource, command.amount) };
     }
+
     case ResourceCommandField.SetResource: {
       return { ...play, resources: setPoints(pools, command.resource, command.current) };
     }
+
     case ResourceCommandField.SpendSlot: {
       return withCounts(play, {
         slots: spentAfter({ spent: play.resources.slots, maxima: counted.slots, key: command.slot }, SPEND),
       });
     }
+
     case ResourceCommandField.RefundSlot: {
       return withCounts(play, {
         slots: spentAfter({ spent: play.resources.slots, maxima: counted.slots, key: command.slot }, REFUND),
       });
     }
+
     case ResourceCommandField.SpendUse:
     case ResourceCommandField.RefundUse:
     case ResourceCommandField.ResetUse: {
       return applyUseCommand(play, command, counted);
     }
+
     case ResourceCommandField.CastWand:
     case ResourceCommandField.OverchargeWand:
     case ResourceCommandField.CastStaff:
     case ResourceCommandField.UncastStaff: {
       return applyItemCommand(play, command, { counted, staffCost });
     }
+
     default: {
       return command satisfies never;
     }

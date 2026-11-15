@@ -93,11 +93,14 @@ export function shownDeityRows(
 ): readonly DeityPickerRow[] {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.name.toLocaleLowerCase().includes(needle));
+
   if (sort === undefined) {
     return matching;
   }
+
   return matching.toSorted((left, right) => {
     const order = left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
+
     return sort.descending ? -order : order;
   });
 }

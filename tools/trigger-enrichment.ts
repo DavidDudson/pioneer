@@ -11,12 +11,15 @@ function withEvent(entry: ContentEntry, triggerEvent: TriggerEvent): ContentEntr
   if (entry.kind === ContentKind.Action) {
     return { ...entry, data: { ...entry.data, triggerEvent } };
   }
+
   if (entry.kind === ContentKind.Feat && entry.data.action !== undefined) {
     return { ...entry, data: { ...entry.data, action: { ...entry.data.action, triggerEvent } } };
   }
+
   if (entry.kind === ContentKind.ClassFeature && entry.data.action !== undefined) {
     return { ...entry, data: { ...entry.data, action: { ...entry.data.action, triggerEvent } } };
   }
+
   return entry;
 }
 
@@ -29,13 +32,17 @@ export function enrichTriggerFile(
   matches: ReadonlyMap<ContentKey, TriggerEvent>,
 ): readonly unknown[] | undefined {
   const entries = ContentEntryFile.parse(file);
+
   const enriched = file.map((json, index) => {
     const entry = entries[index];
     const triggerEvent = entry === undefined ? undefined : matches.get(contentKey(entry.pack, entry.slug));
+
     return entry === undefined || triggerEvent === undefined
       ? json
       : z.encode(ContentEntry, withEvent(entry, triggerEvent));
   });
+
   const changed = enriched.some((json, index) => json !== file[index]);
+
   return changed ? enriched : undefined;
 }

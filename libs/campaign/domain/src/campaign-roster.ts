@@ -5,6 +5,7 @@ import { CampaignRole, MemberName } from './campaign-fields';
 
 /** One member with the name identity knows them by. */
 export const NamedMember = CampaignMemberWire.extend({ displayName: MemberName });
+
 export type NamedMember = z.output<typeof NamedMember>;
 
 /** JSON shape of a campaign's member list, as one of its members sees it. */
@@ -14,4 +15,5 @@ export const CampaignRoster = z.object({
   /** Oldest membership first. */
   members: z.array(NamedMember).readonly(),
 });
+
 export type CampaignRoster = z.output<typeof CampaignRoster>;

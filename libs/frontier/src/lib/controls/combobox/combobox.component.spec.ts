@@ -88,6 +88,7 @@ describe(Combobox, () => {
       { value: 'power-attack', label: 'Power Attack' },
       { value: 'sudden-charge', label: 'Sudden Charge', description: 'Needs expert in Athletics', disabled: true },
     ]);
+
     await press(rendered, 'ArrowDown');
     const [, blocked] = optionElements(rendered);
     expect(blocked?.textContent).toContain('Needs expert in Athletics');
@@ -103,6 +104,7 @@ describe(Combobox, () => {
       { value: 'power-attack', label: 'Power Attack' },
       { value: 'sudden-charge', label: 'Sudden Charge', description: 'Needs expert in Athletics', disabled: true },
     ]);
+
     await press(rendered, 'ArrowDown');
     await press(rendered, 'ArrowDown');
     await vi.waitFor(() => {

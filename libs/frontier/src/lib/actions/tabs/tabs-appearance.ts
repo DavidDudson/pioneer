@@ -8,6 +8,7 @@ export const TabsAppearance = {
   /** The look of `fr-segmented`: a track of buttons, the current one filled with the accent. */
   Segment: 'segment',
 } as const;
+
 export type TabsAppearance = ValueOf<typeof TabsAppearance>;
 
 export const TabsOrientation = {
@@ -16,6 +17,7 @@ export const TabsOrientation = {
   /** A column of tabs beside the content. */
   Vertical: 'vertical',
 } as const;
+
 export type TabsOrientation = ValueOf<typeof TabsOrientation>;
 
 /** How the `fr-tabs` around a tab looks, so its tabs take the same appearance. */

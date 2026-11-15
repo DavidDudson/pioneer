@@ -65,6 +65,7 @@ export class SkillLine {
   /** Where the name opens the skill in the side panel; none when the skill has no entry or the page no panel. */
   protected readonly panel = computed((): PanelLink | undefined => {
     const slug = this.slug();
+
     return slug === undefined ? undefined : this.#previews.statisticPanel?.(slug);
   });
   protected readonly roller = inject(STATISTIC_ROLLER, { optional: true });

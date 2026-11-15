@@ -20,10 +20,13 @@ export class RichProse {
 
   protected readonly level = computed((): HeadingLevel | undefined => {
     const block = this.block();
+
     if (block.type !== 'heading') {
       return undefined;
     }
+
     const level = Math.min(this.headingLevel() + block.level - 1, DEEPEST);
+
     return Object.values(HeadingLevel).find((candidate) => candidate === level) ?? DEEPEST;
   });
 }

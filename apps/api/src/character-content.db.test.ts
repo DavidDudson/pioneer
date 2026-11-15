@@ -42,6 +42,7 @@ const CORE = 'registry-core';
 const TABLE = 'registry-table';
 const SHELVED = 'registry-shelved';
 const HIDDEN = 'registry-hidden';
+
 const [core, table, shelved, hidden] = [CORE, TABLE, SHELVED, HIDDEN].map((pack) =>
   contentPackId(PackId.parse(pack)),
 ) as [ContentPackId, ContentPackId, ContentPackId, ContentPackId];
@@ -52,6 +53,7 @@ function entryId(pack: string): ContentId {
 
 function ancestryPack(pack: string, license: string): PackContents {
   const file = { id: pack, title: pack, publisher: 'Pioneer', license };
+
   const entry = {
     id: entryId(pack),
     pack,
@@ -74,6 +76,7 @@ function ancestryPack(pack: string, license: string): PackContents {
       reach: 5,
     },
   };
+
   return packContentsFromFiles(file, [[entry]]);
 }
 
@@ -97,6 +100,7 @@ describe.skipIf(adminUrl === undefined)('CharacterContent over postgres', () => 
   /** The ids of the packs in `character`'s registry among those this test seeds. */
   async function registryOf(character: Character): Promise<readonly ContentPackId[]> {
     const registry = await content.forCharacter(character).registry();
+
     return registry.packs
       .map((pack) => contentPackId(pack.id))
       .filter((id) => [core, table, shelved, hidden].includes(id));
@@ -138,27 +142,35 @@ describe.skipIf(adminUrl === undefined)('CharacterContent over postgres', () => 
     );
 
     const repository = new DrizzleCharacterRepository(database.db);
+
     const build = async (name: string, held: string): Promise<Character> => {
       const character = new CharacterBuilder()
         .named(name)
         .ownedBy(amiri)
         .withAncestry(AncestryId.parse(entryId(held)))
         .build();
+
       await repository.insert(character, { actor: amiri, command: CharacterCommand.CreateCharacter });
+
       return character;
     };
+
     holdsShelved = await build('Shelved', SHELVED);
     holdsHidden = await build('Hidden', HIDDEN);
 
     const campaigns = new DrizzleCampaignRepository(database.db);
+
     const campaign = await campaigns.insert(
       new CampaignBuilder().named('Abomination Vaults').ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
+
     if (member === undefined) {
       throw new Error('Amiri is not in the campaign');
     }
+
     memberId = member.id;
     await new DrizzleCampaignPackRepository(database.db).enable(
       ezren,
@@ -170,11 +182,13 @@ describe.skipIf(adminUrl === undefined)('CharacterContent over postgres', () => 
     );
 
     const source = new StoredContentSource(new ContentRepository(database.db));
+
     const catalog = new HomebrewPackCatalog(
       new DrizzlePackDirectory(database.db),
       new DrizzlePackDependencyRepository(database.db),
       new PackAccessPolicy(new CampaignPackEnablementDirectory(database.db)),
     );
+
     const held = new HeldContentPacks(new StoredPackLookup(source), catalog);
     packs = new CharacterPackService(
       {

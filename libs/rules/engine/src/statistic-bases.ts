@@ -60,6 +60,7 @@ export class StatisticBases {
       facts,
       resolve: (item): ResolveReference => resolverFor(values, (): undefined => undefined, { item }),
     };
+
     for (const component of new Components(this.#graph).inOrder) {
       this.#evaluateComponent(component);
     }
@@ -69,6 +70,7 @@ export class StatisticBases {
   public get bases(): readonly StatisticBase[] {
     return [...this.#graph].flatMap(([selector, { definition }]) => {
       const result = this.#results.get(selector);
+
       return result === undefined ? [] : [{ definition, result }];
     });
   }
@@ -76,6 +78,7 @@ export class StatisticBases {
   /** What `@stat.<selector>` reads: the statistic's base, so modifiers never depend on other modifiers. */
   public baseValue(selector: Selector): FormulaValue | undefined {
     const result = this.#results.get(selector);
+
     return result?.ok === true ? result.baseValue : undefined;
   }
 
@@ -85,9 +88,11 @@ export class StatisticBases {
    */
   #evaluateComponent(members: readonly Selector[]): void {
     const inCycle = new Set(members);
+
     for (const selector of members) {
       const node = this.#graph.get(selector);
       const closing = node?.edges.find((edge) => inCycle.has(edge.selector));
+
       if (closing !== undefined) {
         this.#results.set(selector, cycle(selector, closing, members));
       } else if (node !== undefined) {
@@ -102,10 +107,12 @@ export class StatisticBases {
       if (!this.#graph.has(edge.selector)) {
         return unreadable(selector, edge, EngineMessage.MissingStatistic);
       }
+
       if (this.#results.get(edge.selector)?.ok !== true) {
         return unreadable(selector, edge, EngineMessage.FailedDependency);
       }
     }
+
     return undefined;
   }
 
@@ -115,9 +122,12 @@ export class StatisticBases {
    */
   #evaluationFailure(selector: Selector, formula: FormulaNode, { error, position }: EvaluateFailure): StatisticFailure {
     const written = references(formula).find((reference) => reference.position === position);
+
     const reference =
       error.key === FormulaMessage.UnknownReference && written !== undefined ? knownReference(written.path) : undefined;
+
     const missing = reference === undefined ? undefined : missingInput(reference, this.#values.inputs);
+
     return missing === undefined || written === undefined
       ? failure(selector, error, position)
       : unchosen(selector, written, missing);
@@ -127,16 +137,22 @@ export class StatisticBases {
     if ('ok' in formula) {
       return failure(selector, formula.error, formula.position);
     }
+
     const blocked = this.#dependencyFailure(selector, edges);
+
     if (blocked !== undefined) {
       return blocked;
     }
+
     const resolve = resolverFor(this.#values, (read) => this.baseValue(reads(read)), { source });
     const outcome = evaluate(formula, resolve);
+
     if (!outcome.ok) {
       return this.#evaluationFailure(selector, formula, outcome);
     }
+
     const changed = applyChanges(outcome.value, this.#changes.get(selector) ?? [], this.#context);
+
     return {
       ok: true,
       selector,

@@ -13,13 +13,17 @@ import { CharacterBuilder, playerCoreClasses, playerCoreClassId, spellFixtureId,
 import type { SpellFixture } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const NOW = fixedClock('2026-01-01T00:00:00Z').now();
 const FIRST = 'repertoire:bard:1:0';
 const SECOND = 'repertoire:bard:1:1';
+
 /** A 3rd-rank slot, which a bard first has at 5th level. */
 const NEW_THIRD = 'repertoire:bard:3:0';
 
@@ -36,14 +40,18 @@ function bard(
     .picking('class', playerCoreClassId('bard'))
     .picking('boost:1:class:0', 'cha')
     .atLevel(5);
+
   for (const [key, name] of Object.entries(picks)) {
     builder = builder.picking(key, spellFixtureId(name));
   }
+
   const character = builder.build();
+
   const repertoireSwaps = Object.entries(swaps).map(([level, key]) => ({
     level: Level.parse(Number(level)),
     slot: slot(key),
   }));
+
   return { ...character.document, build: { ...character.document.build, repertoireSwaps } };
 }
 
@@ -114,6 +122,7 @@ describe('Character.apply with a swap', () => {
       .picking('signature:bard:1', spell('force-barrage'))
       .atLevel(5)
       .build();
+
     const swapped = base.apply(
       { field: CharacterPatchField.SelectSlot, slot: slot(FIRST), selection: spellFixtureId('heal') },
       NOW,
@@ -134,6 +143,7 @@ describe('Character.apply with a swap', () => {
       .picking('signature:bard:1', spell('heal'))
       .atLevel(5)
       .build();
+
     const edited = base.apply(
       { field: CharacterPatchField.SelectSlot, slot: slot(FIRST), selection: spellFixtureId('fireball') },
       NOW,
@@ -151,6 +161,7 @@ describe('Character.apply with a swap', () => {
       .picking(FIRST, spell('force-barrage'))
       .atLevel(5)
       .build();
+
     const cleared = base.apply({ field: CharacterPatchField.ClearSlot, slot: slot(FIRST) }, NOW, {
       countsAsSwap: true,
     });

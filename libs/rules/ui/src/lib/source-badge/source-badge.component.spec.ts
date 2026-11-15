@@ -30,6 +30,7 @@ async function render({
   fixture.componentRef.setInput('license', license);
   fixture.componentRef.setInput('mode', mode);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -44,6 +45,7 @@ async function open(fixture: ComponentFixture<SourceBadge>): Promise<string> {
   });
   fixture.detectChanges();
   await fixture.whenStable();
+
   return document.body.textContent;
 }
 
@@ -78,6 +80,7 @@ describe('SourceBadge popover', () => {
   it('gives the details and the links of the book', async () => {
     const fixture = await render({ source: PLAYER_CORE_SOURCE, book: PLAYER_CORE, mode: SourceBadgeMode.Compact });
     const text = await open(fixture);
+
     for (const expected of ['Rulebook', 'Spring 2026', '8.6.0', 'Page: 46', 'AoN', 'Buy Book (Paizo)']) {
       expect(text).toContain(expected);
     }
@@ -90,17 +93,20 @@ describe('SourceBadge popover', () => {
       mode: SourceBadgeMode.Compact,
       license: ContentLicense.Ogl,
     });
+
     expect(host(fixture).querySelector('button')?.getAttribute('aria-label')).toContain('Legacy rulebook');
   });
 
   it('types a legacy adventure by its book', async () => {
     const book = bookOf('the-show-must-go-on', ProductLine.AdventurePaths, false);
+
     const fixture = await render({
       source: PLAYER_CORE_SOURCE,
       book,
       mode: SourceBadgeMode.Compact,
       license: ContentLicense.Ogl,
     });
+
     expect(host(fixture).querySelector('button')?.getAttribute('aria-label')).toContain('Legacy campaign');
   });
 
@@ -111,6 +117,7 @@ describe('SourceBadge popover', () => {
       mode: SourceBadgeMode.Compact,
       license: ContentLicense.Homebrew,
     });
+
     const text = await open(fixture);
     expect(text).toContain('Open the page');
   });

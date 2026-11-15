@@ -19,7 +19,9 @@ export const ActionCategory = {
   Offensive: 'offensive',
   Familiar: 'familiar',
 } as const;
+
 export type ActionCategory = ValueOf<typeof ActionCategory>;
+
 const ActionCategorySchema = z.enum(ActionCategory);
 
 /**
@@ -38,15 +40,19 @@ export const FrequencyPeriod = {
   Month: 'month',
   Year: 'year',
 } as const;
+
 export type FrequencyPeriod = ValueOf<typeof FrequencyPeriod>;
+
 const FrequencyPeriodSchema = z.enum(FrequencyPeriod);
 
 /** How many times something can be used per period. */
 export const Uses = Pg.smallint().positive().brand<'Uses'>();
+
 export type Uses = z.infer<typeof Uses>;
 
 /** "Once per round", "three times per day". */
 export const Frequency = z.strictObject({ max: Uses, per: FrequencyPeriodSchema });
+
 export type Frequency = z.infer<typeof Frequency>;
 
 /**
@@ -66,6 +72,7 @@ export const TriggerEventType = {
   /** The character takes damage. */
   DamageTaken: 'damage-taken',
 } as const;
+
 export type TriggerEventType = ValueOf<typeof TriggerEventType>;
 
 /**
@@ -76,6 +83,7 @@ export const TriggerEvent = z.strictObject({
   event: z.enum(TriggerEventType),
   predicate: Predicate.optional(),
 });
+
 export type TriggerEvent = z.infer<typeof TriggerEvent>;
 
 /** The trigger fields actions and effects share. */
@@ -106,11 +114,13 @@ export const ACTION_COUNT: Readonly<Partial<Record<ActionCost, number>>> = {
 
 /** The fewest actions a variable cost can run to: one to two. */
 const UP_TO_MIN = 2;
+
 /** The most actions a variable cost can run to: an activity can span two turns of three. */
 export const UP_TO_MAX = 6;
 
 /** How many actions a variable cost runs to ("[one-action] to [two-actions]", or across turns). */
 export const ActionCount = Pg.smallint().min(UP_TO_MIN).max(UP_TO_MAX).brand<'ActionCount'>();
+
 export type ActionCount = z.infer<typeof ActionCount>;
 
 /** The most skills one feat or action names: every skill but Lore. */
@@ -120,6 +130,7 @@ const SKILLS_MAX = 16;
 export const Skills = z.array(SkillSelector).max(SKILLS_MAX).readonly().check(uniqueItems);
 
 const UP_TO = { ...issueParams(message(RulesMessage.ActionUpTo)), path: ['upTo'] };
+
 const MINIMUM_PROFICIENCY = {
   ...issueParams(message(RulesMessage.ActionMinimumProficiency)),
   path: ['minimumProficiency'],
@@ -128,12 +139,15 @@ const MINIMUM_PROFICIENCY = {
 /** A variable cost starts at a glyph that counts actions and runs to more of them. */
 export function isVariableCost(cost: ActionCost | undefined, upTo: ActionCount): boolean {
   const from = cost === undefined ? undefined : ACTION_COUNT[cost];
+
   return from !== undefined && from < upTo;
 }
 
 /** The sheet modes an action is used in: a fight, travel and scouting, or the time between adventures. */
 export const ActionMode = { Encounter: 'encounter', Exploration: 'exploration', Downtime: 'downtime' } as const;
+
 export type ActionMode = ValueOf<typeof ActionMode>;
+
 const ActionModeSchema = z.enum(ActionMode);
 
 /** The most modes an action lists: all of them. */
@@ -186,4 +200,5 @@ export const ActionData = z
   )
   .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO)
   .refine(AUTO_APPLY_NEEDS_EVENT.check, AUTO_APPLY_NEEDS_EVENT.params);
+
 export type ActionData = z.infer<typeof ActionData>;

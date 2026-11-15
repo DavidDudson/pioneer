@@ -8,6 +8,7 @@ import { sql } from 'drizzle-orm';
 /** What Postgres said: drizzle wraps it, so the reason is on the cause. */
 function reason(error: unknown): string {
   const cause = error instanceof Error ? error.cause : undefined;
+
   return cause instanceof Error ? cause.message : String(error);
 }
 

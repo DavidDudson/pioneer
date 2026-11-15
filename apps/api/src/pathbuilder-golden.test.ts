@@ -22,9 +22,11 @@ const COMPARED = 62;
 const COMPARED_BRIAR = 63;
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
 
 const actor = UserId.parse(newId());
+
 const service = new PathbuilderImportService(
   {
     characters: new InMemoryCharacterRepository(),
@@ -39,11 +41,14 @@ const imports = new Map<unknown, Promise<PathbuilderImportResponse>>();
 /** Imports an export once; the tests only read the result, so they share it (an import over the packs takes tens of seconds). */
 const imported = async (exported: unknown): Promise<PathbuilderImportResponse> => {
   const cached = imports.get(exported);
+
   if (cached !== undefined) {
     return cached;
   }
+
   const pending = service.importPathbuilder(actor, exported);
   imports.set(exported, pending);
+
   return pending;
 };
 
@@ -224,9 +229,11 @@ describe('Pathbuilder item names over the official packs', () => {
     "Mordred's Healer's Tools, the legacy name of Healer's Toolkit, matches the item",
     async () => {
       const { report } = await imported(mordredExport);
+
       const unmatched = report.unmatched
         .filter((group) => group.kind === ImportKind.Item)
         .flatMap((group) => group.names.map(({ name }) => name));
+
       expect(unmatched).not.toContain("Healer's Tools");
     },
     LOAD_TIMEOUT_MS,

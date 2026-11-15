@@ -41,12 +41,14 @@ const STRIKE = family({
   base: '@weapon.attr + @weapon.prof',
   domains: ['check', 'attack-roll', 'strike-attack-roll'],
 });
+
 const SPELL_ATTACK = family({
   selector: 'spell-attack',
   per: 'spellcasting',
   base: '@spellcasting.attr + @spellcasting.prof',
   domains: ['spell-attack-roll'],
 });
+
 const SPELL_DC = family({ selector: 'spell-dc', per: 'spellcasting', base: '10 + @stat.spell-attack', kind: 'dc' });
 
 const LONGSWORD = wielded({ slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 });
@@ -81,6 +83,7 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
 
 function inputIssues(json: object): readonly FieldIssue[] {
   const result = StatisticInputsJson.safeParse(json);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -94,6 +97,7 @@ function scimitarStrike(favored: boolean, favoredRank: string, martialRank = 'tr
   const scimitar = wielded({ slug: 'scimitar', category: 'martial', traits: [], favored });
   const ranks = { 'attack:martial': martialRank, 'attack:favored-weapon': favoredRank };
   const results = derive([STRIKE], character({ weapons: [scimitar], ranks }));
+
   return totals(results)['strike:scimitar'];
 }
 
@@ -137,6 +141,7 @@ describe('statistics derived per weapon', () => {
       inPlay(flatModifier('circumstance', 2, ['dex-based']), 'dexterous'),
       inPlay(flatModifier('item', 3, ['str-based']), 'mighty'),
     ];
+
     const results = derive([STRIKE], character({ weapons: [LONGSWORD, SHORTBOW] }), rules);
     // The longsword's +1 potency loses to the +3 item bonus: only the highest item bonus applies.
     expect(totals(results)).toStrictEqual({ 'strike:longsword': 6 + 1 + 3, 'strike:shortbow': 9 + 1 + 2 });
@@ -217,6 +222,7 @@ describe('source inputs', () => {
         { slug: 'arcane', tradition: 'occult', attribute: 'cha' },
       ],
     });
+
     expect(issues).toStrictEqual([
       { path: ['weapons', 1, 'slug'], message: message(EngineMessage.DuplicateSource, { slug: 'longsword' }) },
       { path: ['spellcasting', 1, 'slug'], message: message(EngineMessage.DuplicateSource, { slug: 'arcane' }) },

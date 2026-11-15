@@ -22,6 +22,7 @@ const meta: Meta<Tag> = {
     template: `<fr-tag [icon]="icon" ${argsToTemplate(args, { exclude: ['icon'] })} />`,
   }),
 };
+
 export default meta;
 
 export const Default: TagStory = {};

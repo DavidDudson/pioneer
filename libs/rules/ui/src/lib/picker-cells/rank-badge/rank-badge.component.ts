@@ -32,9 +32,11 @@ export class RankBadge {
   protected readonly label = computed((): MessageDescriptor => {
     const to = this.heightenedTo();
     const heightened = to !== undefined && (this.cantrip() || to > this.rank());
+
     if (this.cantrip()) {
       return heightened ? message(SpellcastingMessage.CantripHeightened, { to }) : message(SpellcastingMessage.Cantrip);
     }
+
     return heightened
       ? message(SpellcastingMessage.RankHeightened, { rank: this.rank(), to })
       : message(SpellcastingMessage.Rank, { rank: this.rank() });

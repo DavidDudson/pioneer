@@ -64,11 +64,13 @@ export class SheetEncounterTab {
   /** The Strikes with what using each spends, those the turn has no action for left out of reach. */
   protected readonly strikes = computed((): readonly NamedStrike[] | undefined => {
     const strikes = this.picks.strikes();
+
     return strikes === undefined ? undefined : usableStrikes(strikes, this.#spender.turn());
   });
   /** The attacks made this turn, which mark the next step of the multiple attack penalty; undefined when no turn is running. */
   protected readonly attacksMade = computed((): number | undefined => {
     const turn = this.#spender.turn();
+
     return turn?.phase === TurnPhase.Turn ? turn.attacks : undefined;
   });
   /** Whether the character has a spellcasting entry, so its spell picks load. */

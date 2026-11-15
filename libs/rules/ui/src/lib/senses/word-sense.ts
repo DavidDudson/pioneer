@@ -21,13 +21,16 @@ function say(i18n: TranslocoService, key: string, params?: Readonly<Record<strin
 /** A sense as the panel words it: "Darkvision (precise)", marked "from <form>" when a battle form gives it. */
 export function wordSense({ sense, acuity, range, origins, fromForm }: SenseInPlay, words: SenseWords): ShownSense {
   const { i18n, format, names } = words;
+
   const text = say(i18n, SensesMessage.Sense, {
     name: names.get(sense) ?? sense,
     acuity: say(i18n, ACUITY_MESSAGES[acuity]),
     hasRange: range === undefined ? 'no' : 'yes',
     range: range === undefined ? '' : format.number(range),
   });
+
   const form = origins[0] === undefined ? undefined : names.get(origins[0].entry);
+
   return {
     text,
     fromForm:

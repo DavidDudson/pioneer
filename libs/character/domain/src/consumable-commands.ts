@@ -19,6 +19,7 @@ export const ConsumableCommandField = {
   /** Uses one of a stack: its activation spent from the turn, the stack down by one, and what it does applied. */
   UseConsumable: 'useConsumable',
 } as const;
+
 export type ConsumableCommandField = ValueOf<typeof ConsumableCommandField>;
 
 /** The effect using a consumable puts on the character, with what a formula badge rolled. */
@@ -39,6 +40,7 @@ export const ConsumableCommandSchema = z.discriminatedUnion('field', [
     effect: ConsumableEffectSchema.optional(),
   }),
 ]);
+
 export type ConsumableCommand = z.infer<typeof ConsumableCommandSchema>;
 
 /** A consumable the character holds, as the content gives it. */
@@ -59,6 +61,7 @@ export const ConsumableProblem = {
   /** The effect applied is not the one the consumable gives. */
   WrongEffect: 'wrong-effect',
 } as const;
+
 export type ConsumableProblem = ValueOf<typeof ConsumableProblem>;
 
 /** The consumable `item` is in `inventory`, or undefined when it holds none by that id. */
@@ -69,9 +72,11 @@ export function heldConsumable(
 ): HeldConsumable | undefined {
   const held = inventory.items.find(({ id }) => id === item);
   const entry = held === undefined ? undefined : content.get(held.item);
+
   if (held === undefined || entry?.kind !== ContentKind.Consumable) {
     return undefined;
   }
+
   return { entry: entry.id, quantity: held.quantity, effect: entry.data.effect };
 }
 
@@ -83,9 +88,11 @@ export function consumableProblem(
   if (held === undefined) {
     return ConsumableProblem.NotHeld;
   }
+
   if (command.spend.action !== held.entry) {
     return ConsumableProblem.WrongAction;
   }
+
   return command.effect !== undefined && command.effect.effect !== held.effect
     ? ConsumableProblem.WrongEffect
     : undefined;
@@ -94,9 +101,11 @@ export function consumableProblem(
 /** `inventory` with one of `item` used: the stack down by one, and the item gone once none is left. */
 export function consumableInventoryAfter(inventory: Inventory, item: InventoryItemId): Inventory {
   const held = inventory.items.find(({ id }) => id === item);
+
   if (held === undefined) {
     return inventory;
   }
+
   return held.quantity > ONE
     ? setItemQuantity(inventory, item, ItemQuantity.parse(held.quantity - ONE))
     : removeItem(inventory, item);
@@ -116,9 +125,11 @@ export function isConsumableCommand<Command extends { readonly field: unknown }>
 export function afterConsumable(play: PlayState, command: ConsumableCommand, limits: PlayLimits): PlayState {
   const { spend, effect, heal } = command;
   const spent = applyCountingCommand(play, { field: SpendCommandField.SpendAction, ...spend }, limits);
+
   const applied =
     effect === undefined
       ? spent
       : applyCountingCommand(spent, { field: EffectCommandField.ApplyEffect, ...effect, source: SELF }, limits);
+
   return heal === undefined ? applied : afterHealing(applied, heal, limits.hitPoints);
 }

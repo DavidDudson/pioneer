@@ -11,10 +11,13 @@ const SIGIL = '@';
  */
 export function referenceMeaning(path: ReferencePath): MessageDescriptor {
   const known = knownReference(path);
+
   if (known !== undefined) {
     return message(REFERENCE_CATALOGUE[known.kind].meaning);
   }
+
   const translated = fromFoundryPath(path);
+
   return translated === undefined
     ? message('play.rules.referenceUnknown')
     : message('play.rules.referenceFoundry', { suggestion: `${SIGIL}${translated}` });

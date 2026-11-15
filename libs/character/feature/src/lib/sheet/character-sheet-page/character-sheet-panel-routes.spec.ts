@@ -41,6 +41,7 @@ describe('CharacterSheetPage panel routes', () => {
       expect(root.querySelector(`pio-sheet-section-tabs pio-sheet-panel ${content}`)).not.toBeNull();
     });
     const others = PANELS.filter(([, each]) => each !== content).map(([, each]) => each);
+
     for (const other of others) {
       expect(root.querySelector(`pio-sheet-section-tabs pio-sheet-panel ${other}`)).toBeNull();
     }

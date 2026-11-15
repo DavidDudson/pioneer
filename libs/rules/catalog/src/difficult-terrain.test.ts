@@ -24,14 +24,17 @@ async function rulesOf(
     kind === ContentKind.Environment
       ? await import('@pioneer/content/packs/player-core/environment.json')
       : await import('@pioneer/content/packs/player-core/effect.json');
+
   const entry = ContentEntryFile.parse(file.default).find((each) => each.kind === kind && each.slug === slug);
   const elements = (entry?.rules ?? []).filter((rule) => keys.includes(rule.key));
+
   return elements.map((element) => inPlay(element, slug.replace(/^[a-z]+:/u, '')));
 }
 
 /** The land Speed the fighter has with `rules` in play, the facts read through the immunities among them. */
 function landSpeed(rules: readonly RuleInPlay[]): number | undefined {
   const facts = factsUnderForm({ rules, facts: noFacts() });
+
   return totals(deriveStatistics(core, fighter, { rules, facts }))[LAND];
 }
 

@@ -27,31 +27,37 @@ const INLINE_DAMAGE = '-inline-damage';
 /** The slug of an entry, such as `dragon-breath-dragon-form`, by the id it resolves to. */
 function slugOf(references: EntryReferences, id: ContentId): string | undefined {
   const found = [...references.bySlug].find(([, each]) => each === id);
+
   return found === undefined ? undefined : String(slugName(found[0]));
 }
 
 /** The entries the `GrantItem` elements among `raws` grant, by the flag they store the grant under. */
 function grantedByFlag(raws: readonly unknown[], references: EntryReferences): ReadonlyMap<string, string> {
   const granted = new Map<string, string>();
+
   for (const raw of raws) {
     if (isFields(raw) && raw['key'] === RuleElementKey.GrantItem) {
       const { flag, uuid } = raw;
       const id = typeof uuid === 'string' ? resolveUuid(references, uuid) : undefined;
       const slug = id === undefined ? undefined : slugOf(references, id);
+
       if (typeof flag === 'string' && slug !== undefined) {
         granted.set(flag, slug);
       }
     }
   }
+
   return granted;
 }
 
 /** The flag a text reads the id of a granted item by, when the text is nothing more than that read (plus `suffix`). */
 function flagOf(text: unknown, suffix = ''): string | undefined {
   const ending = `${READ_END}${suffix}`;
+
   if (typeof text !== 'string' || !text.startsWith(READ_START) || !text.endsWith(ending)) {
     return undefined;
   }
+
   return text.slice(READ_START.length, text.length - ending.length);
 }
 
@@ -62,11 +68,14 @@ function rankOf(predicate: unknown): number | undefined {
   if (!Array.isArray(predicate) || predicate.length !== 1) {
     return undefined;
   }
+
   const [statement] = predicate as readonly unknown[];
   const operands = isFields(statement) ? statement['gte'] : undefined;
+
   if (!Array.isArray(operands) || operands[0] !== LEVEL_PREDICATE_FIELD || typeof operands[1] !== 'number') {
     return undefined;
   }
+
   return operands[1];
 }
 
@@ -80,6 +89,7 @@ function damageTarget(raw: Fields, granted: ReadonlyMap<string, string>): string
   const { selectors } = raw;
   const [only, ...others] = Array.isArray(selectors) ? (selectors as readonly unknown[]) : [];
   const flag = others.length === 0 ? flagOf(only, INLINE_DAMAGE) : undefined;
+
   return flag === undefined ? undefined : granted.get(flag);
 }
 
@@ -91,21 +101,25 @@ function reaching(slug: string): string {
 /** `raw` with `statement` added to its predicate. */
 function withStatement(raw: Fields, statement: string): Fields {
   const predicate: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
+
   return { ...raw, predicate: [...predicate, statement] };
 }
 
 /** A `DamageAlteration` of a granted item's inline damage as an `ItemAlteration` of the item; as it is otherwise. */
 function damageAltered(raw: Fields, slug: string): Fields {
   const { selectors: _selectors, property, value, mode, predicate, ...rest } = raw;
+
   if (property === 'damage-type') {
     return withStatement(
       { ...rest, key: RuleElementKey.ItemAlteration, property, mode, value, predicate },
       reaching(slug),
     );
   }
+
   const rank = rankOf(predicate);
   const dice = typeof value === 'number' && rank !== undefined ? fromRank(value, rank) : value;
   const gate = rank === undefined ? { predicate } : {};
+
   return withStatement(
     { ...rest, ...gate, key: RuleElementKey.ItemAlteration, property: 'damage-dice', mode, value: dice },
     reaching(slug),
@@ -116,10 +130,13 @@ function damageAltered(raw: Fields, slug: string): Fields {
 function itemAltered(raw: Fields, granted: ReadonlyMap<string, string>): Fields {
   const flag = flagOf(raw['itemId']);
   const slug = flag === undefined ? undefined : granted.get(flag);
+
   if (slug === undefined) {
     return raw;
   }
+
   const { itemId: _itemId, ...rest } = raw;
+
   return withStatement(rest, reaching(slug));
 }
 
@@ -127,10 +144,13 @@ function altered(raw: unknown, granted: ReadonlyMap<string, string>): unknown {
   if (!isFields(raw)) {
     return raw;
   }
+
   if (raw['key'] === RuleElementKey.ItemAlteration) {
     return itemAltered(raw, granted);
   }
+
   const slug = raw['key'] === RuleElementKey.DamageAlteration ? damageTarget(raw, granted) : undefined;
+
   return slug === undefined ? raw : damageAltered(raw, slug);
 }
 
@@ -138,5 +158,6 @@ function altered(raw: unknown, granted: ReadonlyMap<string, string>): unknown {
 export function withGrantedItems(raws: readonly unknown[], references: EntryReferences): readonly unknown[] {
   const doctrines = withPickRollOptions(withDoctrineGrants(raws, references));
   const granted = grantedByFlag(doctrines, references);
+
   return granted.size === 0 ? doctrines : doctrines.map((raw) => altered(raw, granted));
 }

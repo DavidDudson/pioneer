@@ -41,11 +41,14 @@ export function encumberedRoots(
   if (encumbranceOff(slots)) {
     return [];
   }
+
   const strength = attributeModifiers(document, slots.boosts).get(Attribute.Strength);
   const { encumbrance } = inventoryBulk(document.inventory, content, strength);
   const condition = conditionNamed(slots.lookup, ENCUMBERED);
+
   if (encumbrance === Encumbrance.Unencumbered || condition === undefined) {
     return [];
   }
+
   return [{ entry: condition, hop: { kind: OriginHopKind.Condition, condition } }];
 }

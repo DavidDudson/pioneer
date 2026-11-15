@@ -19,12 +19,15 @@ const ezren = UserId.parse(newId());
 /** A clock that reads each instant in turn, so creation order is visible. */
 function ticking(...instants: readonly string[]): Clock {
   const queue = instants.map((instant) => fixedClock(instant).now());
+
   return {
     now: (): Temporal.Instant => {
       const next = queue.shift();
+
       if (next === undefined) {
         throw new Error('Clock ran out of instants');
       }
+
       return next;
     },
   };
@@ -64,6 +67,7 @@ describe('CampaignService membership', () => {
   test('list holds only the actor’s campaigns, oldest first', async () => {
     // Created newest first, so the order comes from the join times, not insertion.
     const clock = ticking('2026-10-10T12:00:00Z', '2026-10-10T11:00:00Z', '2026-10-10T10:00:00Z');
+
     const service = new CampaignService(
       {
         campaigns: new InMemoryCampaignRepository(),
@@ -72,6 +76,7 @@ describe('CampaignService membership', () => {
       },
       clock,
     );
+
     await service.create(amiri, { name: vaults });
     await service.create(ezren, { name: CampaignName.parse('Kingmaker') });
     await service.create(amiri, { name: CampaignName.parse('Outlaws of Alkenstar') });
@@ -88,6 +93,7 @@ describe('CampaignService membership', () => {
       },
       fixedClock('2026-10-10T10:00:00Z'),
     );
+
     const theirs = await service.create(ezren, { name: vaults });
     const error = await rejection(service.get(amiri, theirs.id));
     expect(error).toBeInstanceOf(NotFoundError);
@@ -99,10 +105,12 @@ describe('CampaignService roster', () => {
   test('names each member and says the actor’s role', async () => {
     const campaigns = new InMemoryCampaignRepository();
     const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
+
     const service = new CampaignService(
       { campaigns, invites: new InMemoryCampaignInviteRepository(), directory },
       fixedClock('2026-10-10T10:00:00Z'),
     );
+
     const created = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).build());
 
     const roster = await service.roster(ezren, created.id);
@@ -119,10 +127,12 @@ describe('CampaignService roster', () => {
     const campaigns = new InMemoryCampaignRepository();
     const seelah = UserId.parse(newId());
     const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(seelah, 'Seelah');
+
     const service = new CampaignService(
       { campaigns, invites: new InMemoryCampaignInviteRepository(), directory },
       fixedClock('2026-10-10T10:00:00Z'),
     );
+
     const party = new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(seelah).build();
     await campaigns.insert(party);
 
@@ -140,6 +150,7 @@ describe('CampaignService roster', () => {
       },
       fixedClock('2026-10-10T10:00:00Z'),
     );
+
     const theirs = await service.create(ezren, { name: vaults });
     expect(await rejection(service.roster(amiri, theirs.id))).toBeInstanceOf(NotFoundError);
   });
@@ -147,9 +158,11 @@ describe('CampaignService roster', () => {
 
 function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
   const member = campaign.members.find((candidate) => candidate.userId === userId);
+
   if (member === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return member;
 }
 

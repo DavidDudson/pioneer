@@ -24,14 +24,18 @@ export function memoizedLookup(
   const packs = registry.packs.length;
   const unsupported = unsupportedPacksOf(registry);
   let lookups = built.get(registry);
+
   if (lookups?.packs !== packs || lookups.unsupported !== unsupported) {
     lookups = { packs, unsupported, byLegacyContent: new Map() };
     built.set(registry, lookups);
   }
+
   let lookup = lookups.byLegacyContent.get(legacyContent);
+
   if (lookup === undefined) {
     lookup = build(unsupported);
     lookups.byLegacyContent.set(legacyContent, lookup);
   }
+
   return lookup;
 }

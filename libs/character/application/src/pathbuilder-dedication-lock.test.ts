@@ -10,18 +10,22 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { noDedicationLockVariant, readExport } from './pathbuilder-import';
 
 const registry = new ContentRegistry();
+
 registry.register(DEDICATION_FIXTURES);
+
 registry.register(
   new ContentPackBuilder()
     .withId('core-rules')
     .withVariantRuleElements('no-dedication-lock', [], [{ key: 'RollOption', option: 'self:dedication-lock:off' }])
     .build(),
 );
+
 const lookup = registryLookup(registry);
 const mordred = readExport(mordredExport);
 
 function feat(name: string, level: number): ImportedFeat {
   const text = PathbuilderName.parse(name);
+
   return {
     name: text,
     choice: undefined,

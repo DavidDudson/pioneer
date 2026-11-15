@@ -26,6 +26,7 @@ const pack = new ContentPackBuilder()
   })
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
   .withEnvironment('underwater', { restrictions: [{ id: 'speech', reason: "You can't speak underwater." }] });
+
 const UNDERWATER = ContentId.parse(pack.idOf('environment', 'underwater'));
 const content = fixedContent(pack.build());
 

@@ -19,6 +19,7 @@ import { damageTone } from './damage-tone';
 
 /** Which natural die a roll earned: a 20 or a 1 on the d20 that counted. */
 export const Natural = { High: 'high', Low: 'low' } as const;
+
 export type Natural = ValueOf<typeof Natural>;
 
 const D20 = 20;
@@ -67,15 +68,18 @@ function isDiceTerm(entry: TermResult): boolean {
 
 function groupOf(term: DiceTermResult): DiceGroup {
   const faces = term.dice.map(({ face }) => face).join(',');
+
   return { notation: `${term.dice.length}d${term.term.size}@${faces}`, tone: damageTone(term.term.tags.type) };
 }
 
 /** Sums the terms per damage type, dice and flat alike; the terms without a type share one line. */
 function linesOf(terms: readonly TermResult[]): DamageLine[] {
   const sums = new Map<DamageType | undefined, number>();
+
   for (const { term, value } of terms) {
     sums.set(term.tags.type, (sums.get(term.tags.type) ?? 0) + value);
   }
+
   return [...sums].map(([type, total]) => ({
     total,
     tone: damageTone(type),
@@ -86,15 +90,18 @@ function linesOf(terms: readonly TermResult[]): DamageLine[] {
 /** A natural 20 or natural 1 on the first d20 that counted (a kept die of a fortune or misfortune pair); unset otherwise. */
 function naturalOf(dice: readonly DiceTermResult[]): Natural | undefined {
   const face = dice.find(({ term }) => term.size === D20)?.dice.find(({ kept }) => kept)?.face;
+
   if (face === NATURAL_20) {
     return Natural.High;
   }
+
   return face === NATURAL_1 ? Natural.Low : undefined;
 }
 
 /** What the roll of `result` looks like on the stage; the engine's faces are the ones the dice land on. */
 export function presentRoll(id: number, label: string, result: RollResult): RollPresentation {
   const dice = result.terms.filter((entry): entry is DiceTermResult => isDiceTerm(entry));
+
   return {
     id,
     label,

@@ -12,6 +12,7 @@ const meta: Meta<CriticalHitChecks> = {
   title: 'Rules/Critical Hit Checks',
   component: CriticalHitChecks,
 };
+
 export default meta;
 
 /** Fortification armour: the check worded from its DC, with a button to roll it. */

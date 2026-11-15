@@ -60,6 +60,7 @@ export class SheetActions {
   readonly #staff = computed((): boolean => {
     const registry = this.registry.data();
     const character = this.#sheet.character();
+
     return registry !== undefined && character !== undefined && holdsStaff(registry, character);
   });
   /** The registry with the spells too, which a staff's spell rows need; loads only for a character holding a staff (#1834). */
@@ -74,6 +75,7 @@ export class SheetActions {
     // A tab opened without a subtab in its address takes the remembered one into it, so the address says what is shown.
     effect(() => {
       const remembered = this.#remembered.kind();
+
       if (remembered !== undefined && this.#urlKind() === undefined) {
         untracked(() => {
           this.#write(remembered);
@@ -102,17 +104,21 @@ export class SheetActions {
     const registry = this.#staff() ? this.#staffRegistry.data() : this.registry.data();
     const character = this.#sheet.character();
     const read = this.#play.play.data();
+
     if (registry === undefined || character === undefined || read === undefined) {
       return undefined;
     }
+
     const engine = this.#sheet.engine();
     const restrictions = sheetRestrictions({ registry, engine, character }, read.play.environments);
     const turn = this.#spender.turn();
+
     const own = sheetActions(registry, character, {
       resources: read.play.resources,
       turn,
       restrictions: restrictionsHolding(restrictions),
     });
+
     const items =
       engine === undefined
         ? []
@@ -121,6 +127,7 @@ export class SheetActions {
             turn,
             inputs: statisticInputsOf(engine, character),
           });
+
     return [
       ...sheetStrikeActions(registry, character, turn),
       ...sheetInnateActions(registry, character, turn),

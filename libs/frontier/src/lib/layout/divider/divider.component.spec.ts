@@ -9,19 +9,24 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
   const divider = createComponent(Divider, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
   });
+
   onTestFinished(() => {
     divider.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     divider.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(divider.hostView);
   await appRef.whenStable();
   const rule = (divider.location.nativeElement as HTMLElement).firstElementChild;
+
   if (!(rule instanceof HTMLElement)) {
     throw new TypeError('fr-divider rendered no rule');
   }
+
   return rule;
 }
 

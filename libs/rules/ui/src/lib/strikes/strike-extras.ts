@@ -20,6 +20,7 @@ import {
   StrikesMessage,
   yesNo,
 } from './strikes-messages';
+
 /** The message of each condition a critical hit can give. */
 const CONDITION_MESSAGES: Readonly<Record<CriticalCondition, string>> = {
   [CriticalCondition.Clumsy]: 'rules.strikes.criticalEffect.conditions.clumsy',
@@ -42,14 +43,17 @@ type Say = (key: string, params?: Readonly<Record<string, string | number>>) => 
 function durationText(say: Say, duration: CriticalDuration): string {
   if (duration.type === CriticalDurationType.Time) {
     const span = say(DURATION_MESSAGES[duration.unit], { count: duration.count });
+
     return say(CRITICAL_DURATION_MESSAGES[CriticalDurationType.Time], { span });
   }
+
   return say(CRITICAL_DURATION_MESSAGES[duration.type]);
 }
 
 /** What makes an effect happen, in words: "on a critical hit", or "when you damage a creature, as a reaction". */
 function whenText(say: Say, { trigger = CriticalTrigger.Critical, reaction }: CriticalEffect): string {
   const when = say(CRITICAL_TRIGGER_MESSAGES[trigger]);
+
   return reaction === true ? say(CriticalEffectMessage.Reaction, { when }) : when;
 }
 
@@ -60,6 +64,7 @@ function saveEffectText(
   effect: Extract<CriticalEffect['effect'], { readonly kind: 'pacify' | 'decapitate' }>,
 ): string {
   const save = { source, when, dc: effect.save.dc, save: say(SAVE_MESSAGES[effect.save.statistic]) };
+
   return effect.kind === CriticalEffectKind.Pacify
     ? say(CriticalEffectMessage.Pacify, {
         ...save,
@@ -77,11 +82,14 @@ export function criticalEffectText(i18n: TranslocoService, source: string, strik
   const say: Say = (key, params): string => i18n.translate(key, params);
   const { effect } = strike;
   const when = whenText(say, strike);
+
   if (effect.kind === CriticalEffectKind.Pacify || effect.kind === CriticalEffectKind.Decapitate) {
     return saveEffectText(say, { source, when }, effect);
   }
+
   if (effect.kind === CriticalEffectKind.Condition) {
     const worse = effect.criticalFailureDuration;
+
     return say(CriticalEffectMessage.Condition, {
       source,
       when,
@@ -96,10 +104,12 @@ export function criticalEffectText(i18n: TranslocoService, source: string, strik
       worse: worse === undefined ? '' : durationText(say, worse),
     });
   }
+
   const amount =
     effect.amount.type === CriticalDamageAmountType.Equal
       ? say(CriticalEffectMessage.EqualDamage)
       : `${effect.amount.count}${effect.amount.die}`;
+
   const damage = {
     source,
     when,
@@ -107,6 +117,7 @@ export function criticalEffectText(i18n: TranslocoService, source: string, strik
     type: say(DAMAGE_TYPE_MESSAGES[effect.damageType]),
     ignores: effect.ignoresResistance === true ? 'yes' : 'no',
   };
+
   return effect.target.type === CriticalDamageTargetType.Others
     ? say(CriticalEffectMessage.DamageOthers, { ...damage, count: effect.target.count, range: effect.target.within })
     : say(CriticalEffectMessage.DamageArmor, damage);
@@ -118,6 +129,7 @@ export function extraDiceText(
   { count, die, damageType, category, critical, ignoresResistance }: ExtraDice,
 ): string {
   const say = (key: string, params?: Readonly<Record<string, string | number>>): string => i18n.translate(key, params);
+
   return say(StrikesMessage.ExtraDice, {
     dice: `${count}${die}`,
     type: say(DAMAGE_TYPE_MESSAGES[damageType]),

@@ -5,6 +5,7 @@ import type { BattleFormBracket, BattleFormElement, Level } from '@pioneer/rules
 import { truthOf } from './rule-value';
 
 type Form = BattleFormElement['form'];
+
 type Strike = NonNullable<Form['strikes']>[number];
 
 /** `base` with each change laid over the item it names (by `keyOf`), and the ones it adds after; undefined for neither. */
@@ -16,11 +17,15 @@ function overlaid<Item extends object>(
   if (changes === undefined) {
     return base;
   }
+
   const kept = base ?? [];
+
   const changed = kept.map((item) => {
     const change = changes.find((each) => keyOf(each) === keyOf(item));
+
     return change === undefined ? item : { ...item, ...change };
   });
+
   return [...changed, ...changes.filter((change) => !kept.some((item) => keyOf(item) === keyOf(change)))];
 }
 
@@ -28,6 +33,7 @@ function overlaid<Item extends object>(
 function strikeOver(base: Strike, change: Strike): Strike {
   const damage =
     base.damage === undefined && change.damage === undefined ? {} : { damage: { ...base.damage, ...change.damage } };
+
   return { ...base, ...change, ...damage };
 }
 
@@ -35,11 +41,15 @@ function strikesOver(base: Form['strikes'], changes: Form['strikes']): Form['str
   if (changes === undefined) {
     return base;
   }
+
   const kept = base ?? [];
+
   const changed = kept.map((strike) => {
     const change = changes.find(({ slug }) => slug === strike.slug);
+
     return change === undefined ? strike : strikeOver(strike, change);
   });
+
   return [...changed, ...changes.filter(({ slug }) => !kept.some((strike) => strike.slug === slug))];
 }
 
@@ -49,6 +59,7 @@ type Change = Omit<BattleFormBracket, 'start'>;
 /** The form with what one bracket or variant changes: a statistic it names is laid over the form's, the rest stays. */
 function withChange(form: Form, change: Change): Form {
   const { armorClass, speeds, skills, senses, strikes, immunities, weaknesses, resistances, ...whole } = change;
+
   return {
     ...form,
     ...whole,
@@ -75,19 +86,23 @@ export function heightened(
   facts: PredicateFacts,
 ): Form {
   let result = form;
+
   const applying =
     level === undefined || brackets === undefined
       ? []
       : brackets
           .filter(({ start }) => Number(start) <= Number(level))
           .toSorted((left, right) => Number(left.start) - Number(right.start));
+
   for (const { start: _start, ...change } of applying) {
     result = withChange(result, change);
   }
+
   for (const { predicate, ...change } of variants ?? []) {
     if (truthOf(predicate, facts) === Truth.True) {
       result = withChange(result, change);
     }
   }
+
   return result;
 }

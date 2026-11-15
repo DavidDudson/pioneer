@@ -10,6 +10,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 /** A Player Core feat with `data` beyond its category. */
 function feat(name: string, data: object = {}): ContentEntry {
   const slug = `feat:${name}`;
+
   return ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,

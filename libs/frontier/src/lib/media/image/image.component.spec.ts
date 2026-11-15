@@ -14,16 +14,20 @@ interface Rendered {
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
   const fixture = TestBed.createComponent(ImageDisplay);
+
   for (const [name, value] of Object.entries({ src: PORTRAIT, ...inputs })) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
   const frame = host.querySelector('span');
   const img = host.querySelector('img');
+
   if (frame === null || img === null) {
     throw new Error('fr-image rendered no frame or <img>');
   }
+
   return { fixture, frame, img };
 }
 

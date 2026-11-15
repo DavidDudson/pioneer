@@ -32,9 +32,11 @@ export class BulkCell {
 
   protected readonly shown = computed((): ShownBulk => {
     const bulk = this.bulk();
+
     if (bulk === undefined) {
       return { key: PickerCellMessage.None, params: {} };
     }
+
     return typeof bulk === 'number'
       ? { key: InventoryMessage.BulkCount, params: { count: this.#format.number(bulk) } }
       : { key: BULK_WEIGHT_MESSAGES[bulk], params: {} };

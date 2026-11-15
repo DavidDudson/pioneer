@@ -123,6 +123,7 @@ describe('spell facets', () => {
 
   test('targets: the caster instead of another, or one target as well as another', () => {
     const hymn = spell('hymn-of-healing', { targets: { any: [{ count: 1, of: 'ally' }], you: 'or' } });
+
     const ward = spell('forbidding-ward', {
       targets: { any: [{ count: 1, of: 'ally' }], plus: [{ count: 1, of: 'enemy' }] },
     });
@@ -149,7 +150,9 @@ describe('spell facets', () => {
     const healCompanion = spell('heal-companion', {
       range: { type: 'either', options: [{ type: 'touch' }, { type: 'feet', feet: 30 }] },
     });
+
     const primalCall = spell('primal-call', { range: { type: 'miles', miles: 100 } });
+
     const mindReading = spell('mind-reading', {
       duration: {
         type: 'either',
@@ -170,6 +173,7 @@ describe('spell facets', () => {
     const controlWeather = spell('control-weather', {
       duration: { type: 'rolled', dice: 4, die: 'd12', unit: 'hour' },
     });
+
     const fear = spell('fear', { duration: { type: 'varies' } });
 
     expect(valuesOf(controlWeather)['duration']).toStrictEqual(['hour']);
@@ -192,6 +196,7 @@ describe('spell facets', () => {
       id: contentId(PackId.parse(PACK), EntrySlug.parse('trait:fireball')),
       data: { appliesTo: [] },
     });
+
     expect(Object.values(valuesOf(trait)).flat()).toStrictEqual([]);
   });
 });

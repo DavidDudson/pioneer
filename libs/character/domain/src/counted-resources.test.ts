@@ -61,7 +61,9 @@ function wizard(): SpellcastingInPlay {
       { rank: SECOND, count: SlotCount.parse(1) },
     ],
   };
+
   const pool = { pool: FONT, ranks: [{ rank: FIRST, count: SlotCount.parse(3) }] };
+
   return { slug: WIZARD, slots, pools: [pool] } as unknown as SpellcastingInPlay;
 }
 
@@ -69,6 +71,7 @@ const COUNTED: CountedMaxima = {
   slots: slotMaxima([wizard()]),
   uses: useMaxima([BLAST, OTHER], (id) => (id === BLAST ? frequency(2, FrequencyPeriod.Day) : undefined)),
 };
+
 const LIMITS = within(HP, undefined, COUNTED);
 const FIRST_SLOT = slotCountKey(WIZARD, undefined, FIRST);
 
@@ -78,9 +81,11 @@ function applied(play: PlayState, command: PlayCommand): PlayState {
 
 function spendSlot(play: PlayState, times: number): PlayState {
   let next = play;
+
   for (let each = 0; each < times; each += 1) {
     next = applied(next, { field: PlayCommandField.SpendSlot, slot: FIRST_SLOT });
   }
+
   return next;
 }
 
@@ -119,8 +124,10 @@ describe('use maxima', () => {
 describe('spending slots and uses', () => {
   test('a slot spent is held one less, and a refund gives it back', () => {
     const spent = spendSlot(FRESH_PLAY, 1);
+
     const held = (play: PlayState): number =>
       heldCount({ spent: play.resources.slots, maxima: COUNTED.slots, key: FIRST_SLOT });
+
     expect(held(FRESH_PLAY)).toBe(count(2));
     expect(held(spent)).toBe(count(1));
     const refunded = applied(spent, { field: PlayCommandField.RefundSlot, slot: FIRST_SLOT });
@@ -154,6 +161,7 @@ describe('spending slots and uses', () => {
       { field: PlayCommandField.SpendSlot, slot: FIRST_SLOT },
       within(HP, undefined, NO_COUNTED),
     );
+
     expect(next).toStrictEqual(FRESH_PLAY);
   });
 });
@@ -168,6 +176,7 @@ describe('activation maxima', () => {
   const SKIES = Slug.parse('take-to-the-skies');
   const FIRST_WINGED = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
   const SECOND_WINGED = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
+
   const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
     id === WINGED
       ? [
@@ -178,6 +187,7 @@ describe('activation maxima', () => {
           },
         ]
       : [];
+
   const maxima = activationMaxima(
     [
       line(FIRST_WINGED, WINGED, 1),
@@ -205,8 +215,10 @@ describe('activation maxima', () => {
   test('uses are spent and refunded within the maximum', () => {
     const limits = within(HP, undefined, { slots: new Map(), uses: maxima });
     const use = activationUseKey(FIRST_WINGED, SKIES);
+
     const spent = (play: PlayState): PlayState =>
       applyPlayCommand(play, { field: PlayCommandField.SpendUse, use }, limits);
+
     expect(spent(spent(FRESH_PLAY)).resources.uses[use]).toBe(count(1));
     const back = applyPlayCommand(spent(FRESH_PLAY), { field: PlayCommandField.RefundUse, use }, limits);
     expect(back.resources.uses[use]).toBe(count(0));
@@ -217,6 +229,7 @@ describe('overcharge', () => {
   const CHARGED = ContentId.parse('00000000-0000-4000-8000-000000000005');
   const SPARK = Slug.parse('spark');
   const STAFF = InventoryItemId.parse('dddddddd-dddd-4ddd-8ddd-dddddddddddd');
+
   const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
     id === CHARGED
       ? [
@@ -228,6 +241,7 @@ describe('overcharge', () => {
           },
         ]
       : [];
+
   const maxima = activationMaxima([line(STAFF, CHARGED, 2)], activations);
 
   test('an overcharge activation has one overcharged use per item, apart from its daily uses, on the same boundary', () => {

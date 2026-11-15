@@ -28,9 +28,11 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
 
 function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
   const member = campaign.members.find((candidate) => candidate.userId === userId);
+
   if (member === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return member;
 }
 
@@ -80,21 +82,25 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
 
   test('a user is a member of a campaign once', async () => {
     const gatewalkers = await repository.insert(new CampaignBuilder().named('Gatewalkers').build());
+
     const error = await rejection(
       database.db.execute(
         sql`insert into campaign_members (id, campaign_id, user_id, role, joined_at) values (${newId()}, ${gatewalkers.id}, ${fixtureGmId}, 'player', ${at.toString()})`,
       ),
     );
+
     expect(String((error as Error).cause)).toContain('campaign_members_campaign_user_idx');
   });
 
   test('a campaign has one GM member', async () => {
     const wardens = await repository.insert(new CampaignBuilder().named('Wardens of Wildwood').build());
+
     const error = await rejection(
       database.db.execute(
         sql`insert into campaign_members (id, campaign_id, user_id, role, joined_at) values (${newId()}, ${wardens.id}, ${ezren}, 'gm', ${at.toString()})`,
       ),
     );
+
     expect(String((error as Error).cause)).toContain('campaign_members_one_gm_idx');
   });
 
@@ -135,6 +141,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     const party = await repository.insert(
       new CampaignBuilder().named('Rusthenge').withPlayer(ezren).withPlayer(seelah).build(),
     );
+
     const removed = party.withoutMember(memberOf(party, ezren).id);
     expect(await repository.updateMembers(removed, party.version)).toStrictEqual(removed);
     expect(await repository.findById(party.id)).toStrictEqual(removed);
@@ -154,6 +161,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     const party = await repository.insert(
       new CampaignBuilder().named('Night of the Gray Death').withPlayer(ezren).withPlayer(seelah).build(),
     );
+
     await repository.updateMembers(party.withoutMember(memberOf(party, seelah).id), party.version);
     const stale = party.withGm(memberOf(party, ezren).id);
     expect(await rejection(repository.updateMembers(stale, party.version))).toBeInstanceOf(VersionConflictError);
@@ -166,6 +174,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     const party = await repository.insert(
       new CampaignBuilder().named('Fists of the Ruby Phoenix').withPlayer(ezren).build(),
     );
+
     const handed = party.withGm(memberOf(party, ezren).id);
     await repository.updateMembers(handed, party.version);
     await repository.updateMembers(handed.withoutMember(memberOf(party, fixtureGmId).id), handed.version);

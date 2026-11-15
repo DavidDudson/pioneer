@@ -71,11 +71,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
 
   test('list returns only the owner’s packs, newest first', async () => {
     const older = new HomebrewPackBuilder().slug('list-older').ownedBy(ezren).build();
+
     const newer = new HomebrewPackBuilder()
       .slug('list-newer')
       .ownedBy(ezren)
       .updatedAt(clock.now().add({ minutes: 1 }))
       .build();
+
     await repository.insert(older);
     await repository.insert(newer);
     const owned = await repository.listOwnedBy(ezren);
@@ -113,6 +115,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
     const shared = pack.withVisibility(PackVisibility.Campaign, pack.updatedAt.add({ minutes: 1 }));
     const refusal = new Error('refused');
     let lockedWhileChecking = false;
+
     const outcome = repository.updateVisibility(shared, async () => {
       const probe = sql`select id from content_packs where id = ${pack.id} for update nowait`;
       lockedWhileChecking = await database.db
@@ -123,6 +126,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
         );
       throw refusal;
     });
+
     expect(await rejection(outcome)).toBe(refusal);
     expect(lockedWhileChecking).toBe(true);
     expect(await repository.findById(pack.id)).toStrictEqual(pack);

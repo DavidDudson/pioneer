@@ -48,6 +48,7 @@ interface Picked<TValue extends string> {
 /** A press inside the panel keeps focus where it is, or the panel would close before the press lands. */
 function keepFocus(event: Event): void {
   const onField = event.target instanceof HTMLInputElement || event.target instanceof HTMLButtonElement;
+
   if (!onField) {
     event.preventDefault();
   }
@@ -116,6 +117,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   protected readonly table = injectTable<TableFeatureSet, TRow>(() => {
     const rowValue = this.rowValue();
+
     return {
       features: TABLE_FEATURES,
       columns: [...this.columns()],
@@ -135,10 +137,13 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   readonly #picked = computed<Picked<TValue>>(
     () => {
       const value = this.value();
+
       if (value === undefined || value === '') {
         return { value: undefined, label: undefined };
       }
+
       const row = this.bodyRows().find((candidate) => candidate.id === value);
+
       return { value, label: row === undefined ? undefined : this.rowLabel()(row.original) };
     },
     { equal: (left, right) => left.value === right.value && left.label === right.label },
@@ -150,6 +155,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
       if (picked.label !== undefined || previous === undefined) {
         return picked.label;
       }
+
       return previous.source.value === picked.value ? previous.value : undefined;
     },
   });
@@ -211,14 +217,17 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   protected cancel(): void {
     this.#debouncer.cancel();
+
     if (this.expanded()) {
       this.#close(true);
     }
+
     this.cancelled.emit();
   }
 
   protected focusOut(event: FocusEvent): void {
     const next = event.relatedTarget;
+
     if (this.expanded() && !(next instanceof Node && this.#host.nativeElement.contains(next))) {
       this.#close(false);
     }
@@ -239,6 +248,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
     this.#debouncer.cancel();
     this.expanded.set(false);
     this.query.set('');
+
     if (refocus) {
       this.#host.nativeElement.querySelector('button')?.focus();
     }
@@ -255,6 +265,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
     if (query === this.#lastSearched) {
       return;
     }
+
     this.#lastSearched = query;
     this.generation.update((count) => count + 1);
     this.searched.emit(query);

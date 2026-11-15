@@ -34,25 +34,31 @@ const ByVariantRule = z.object({ id: CampaignId, variantId: EnabledVariantRuleId
 const Done = z.strictObject({});
 
 export const CreateCampaignBody = z.object({ name: CampaignName });
+
 export type CreateCampaignBody = z.infer<typeof CreateCampaignBody>;
 
 /** What creating an invite returns: the invite, and its token, which is never shown again. */
 export const IssuedInvite = z.object({ invite: InviteSummary, token: InviteToken });
+
 export type IssuedInvite = z.output<typeof IssuedInvite>;
 
 export const JoinCampaignBody = z.object({ token: InviteToken });
+
 export type JoinCampaignBody = z.infer<typeof JoinCampaignBody>;
 
 /** Who becomes the GM: one of the campaign's members. */
 export const TransferGmBody = z.object({ memberId: CampaignMemberId });
+
 export type TransferGmBody = z.infer<typeof TransferGmBody>;
 
 /** Which of the actor's characters joins the party. */
 export const AttachCharacterBody = z.object({ characterId: CharacterId });
+
 export type AttachCharacterBody = z.infer<typeof AttachCharacterBody>;
 
 /** Which pack the GM enables. */
 export const EnablePackBody = z.object({ packId: EnabledPackId });
+
 export type EnablePackBody = z.infer<typeof EnablePackBody>;
 
 /** The campaign HTTP API, shared by `campaign-infrastructure` and `campaign-feature`. */

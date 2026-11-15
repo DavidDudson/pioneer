@@ -7,6 +7,7 @@ import { ThemeStore } from './theme-store';
 function create(): ThemeStore {
   const store = TestBed.inject(ThemeStore);
   TestBed.tick();
+
   return store;
 }
 

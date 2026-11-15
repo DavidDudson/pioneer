@@ -26,6 +26,7 @@ describe.skipIf(adminUrl === undefined)('DrizzlePreferencesRepository (postgres)
     const at = NOW.toString();
     const displayName = DisplayName.parse('Amiri');
     await database.db.insert(users).values({ id, displayName, emailVerified: false, createdAt: at, updatedAt: at });
+
     return id;
   }
 
@@ -54,6 +55,7 @@ describe.skipIf(adminUrl === undefined)('DrizzlePreferencesRepository (postgres)
       .select({ updatedAt: userPreferences.updatedAt })
       .from(userPreferences)
       .where(eq(userPreferences.id, amiri));
+
     const stamped = rows.map((row) => Temporal.Instant.from(row.updatedAt).epochMilliseconds);
     expect(stamped).toStrictEqual([LATER.epochMilliseconds]);
   });

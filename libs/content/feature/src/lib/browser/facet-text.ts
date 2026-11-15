@@ -7,12 +7,14 @@ import { filterConditions, filterState } from './filter-bar-state';
 
 /** Between facets in the `f` segment: `traits:fire,!evil~level:1..5`. */
 const FACET_SEPARATOR = '~';
+
 /** Between a facet's id and its values. Neither can hold it: ids and values are slugs or numbers. */
 const ID_SEPARATOR = ':';
 
 function segmentsOf(text: string): readonly (readonly [string, string])[] {
   return text.split(FACET_SEPARATOR).flatMap((part): (readonly [string, string])[] => {
     const at = part.indexOf(ID_SEPARATOR);
+
     return at < 1 ? [] : [[part.slice(0, at), part.slice(at + ID_SEPARATOR.length)]];
   });
 }
@@ -21,8 +23,10 @@ function segmentsOf(text: string): readonly (readonly [string, string])[] {
 function paramsOf(text: string): QueryParams {
   const named = segmentsOf(text).flatMap(([id, values]): (readonly [string, string])[] => {
     const facet = FacetId.safeParse(id);
+
     return facet.success ? [[filterParamName(facet.data), values]] : [];
   });
+
   return Object.fromEntries(named);
 }
 
@@ -36,10 +40,13 @@ export function facetTextCodec(facets: () => readonly FacetDefinition[]): FacetT
     encode: (conditions: readonly FilterCondition[]): string => {
       const known = facets();
       const query = filterToQuery(filterState(conditions, known), known);
+
       const segments = known.flatMap((facet): string[] => {
         const values = query[filterParamName(facet.id)];
+
         return values === undefined ? [] : [`${facet.id}${ID_SEPARATOR}${values}`];
       });
+
       return segments.join(FACET_SEPARATOR);
     },
     decode: (text: string): readonly FilterCondition[] => filterConditions(filterFromQuery(paramsOf(text), facets())),

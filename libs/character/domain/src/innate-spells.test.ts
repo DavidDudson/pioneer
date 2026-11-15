@@ -15,11 +15,14 @@ import { CharacterBuilder } from './testing';
 const UNLOADED = '00000000-0000-4000-8000-0000000000f0';
 
 const heritage = new ContentPackBuilder().withId('innate');
+
 heritage
   .withSpell('ill-omen', { rank: 1, traditions: [], traits: [] })
   .withSpell('daze', { rank: 1, traditions: [], traits: ['cantrip'] });
+
 const spellId = (name: string): string => heritage.idOf(ContentKind.Spell, name);
 const GRANTED = heritage.idOf(ContentKind.ClassFeature, 'fey-gift');
+
 heritage
   .withClassFeature('fey-gift', {
     rules: [
@@ -36,8 +39,11 @@ heritage
     ],
   })
   .withClass('wizard', ['int'], { rules: [{ key: 'GrantItem', item: GRANTED }] });
+
 const registry = new ContentRegistry();
+
 registry.register(heritage.build());
+
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function innateOf(level: number): readonly InnateEntrySpells[] {
@@ -45,7 +51,9 @@ function innateOf(level: number): readonly InnateEntrySpells[] {
     .atLevel(level)
     .picking('class', heritage.idOf(ContentKind.Class, 'wizard'))
     .build();
+
   const entries = characterSpellcasting(characterGrants(document, content));
+
   return characterInnate(entries, spellContent(registry), document.level);
 }
 

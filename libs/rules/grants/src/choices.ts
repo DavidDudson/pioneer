@@ -140,6 +140,7 @@ const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, s
  */
 function pickName(value: ChoiceValue, lookup: ContentLookup): string {
   const id = ContentId.safeParse(value);
+
   return (id.success ? lookup.entry(id.data)?.slug : undefined) ?? value;
 }
 
@@ -172,11 +173,14 @@ class ChoiceReader {
   public read({ element, rule }: IndexedChoice): void {
     this.#flags.add(element.flag);
     const { predicate } = element;
+
     if (predicate !== undefined && evaluatePredicate(predicate, this.#context.facts) !== Truth.True) {
       return;
     }
+
     const place = this.#place({ element, rule });
     const value = this.#context.picks.get(place.key);
+
     if (value === undefined) {
       this.#open.push(slotOf(place, this.#offer({ element, place }, this.#context)));
     } else {
@@ -196,10 +200,12 @@ class ChoiceReader {
       element.rollOption === undefined
         ? undefined
         : optionOf(element.rollOption, pickName(value, this.#context.lookup));
+
     const apart = option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
     // Order Explorer lists an order unless the druid has it, or this very pick joined it: its own option is the way in.
     const context = isOffered(element, value, apart) ? apart : this.#context;
     const offer = this.#offer({ element, place }, context, value);
+
     if (isOffered(element, value, context) && !this.#earlierPicks(place).has(value)) {
       this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
@@ -218,6 +224,7 @@ class ChoiceReader {
     held?: ChoiceValue,
   ): Offer {
     const earlier = this.#earlierPicks(place);
+
     return new Offer(() => offeredOptions(element, context, held).filter((option) => !earlier.has(option.value)));
   }
 
@@ -232,6 +239,7 @@ class ChoiceReader {
   #place({ element, rule }: IndexedChoice): SlotPlace {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
+
     return {
       key: slotKeyOf(entry.id, rule, this.#at.via),
       take: this.#at.take,
@@ -245,6 +253,7 @@ class ChoiceReader {
 
   #answer(slot: AnsweredSlot): void {
     this.#answered.push(slot);
+
     if (!this.#picks.has(slot.flag)) {
       this.#picks.set(slot.flag, { slot: slot.key, value: slot.pick });
     }
@@ -259,11 +268,13 @@ class ChoiceReader {
  */
 export function readChoices(at: EntryAt, context: ChoiceContext): EntryChoices {
   const reader = new ChoiceReader(at, context);
+
   for (const [index, element] of at.entry.rules.entries()) {
     if (isChoiceSet(element)) {
       reader.read({ element, rule: RuleIndex.parse(index) });
     }
   }
+
   return reader.choices;
 }
 
@@ -275,15 +286,21 @@ export function readChoices(at: EntryAt, context: ChoiceContext): EntryChoices {
 export function choiceTarget(at: EntryAt, flag: RuleSlug, choices: EntryChoices): GrantTarget | GrantError | undefined {
   const { entry, hops } = at;
   const pick = choices.picks.get(flag);
+
   if (pick === undefined) {
     const declared = choices.flags.has(flag);
+
     return declared ? undefined : { error: message(GrantsMessage.UnknownChoice, { entry: entry.name, flag }), hops };
   }
+
   const pickHops = [choiceHop(pick.slot)];
   const id = ContentId.safeParse(pick.value);
+
   if (!id.success) {
     const error = message(GrantsMessage.PickNotEntry, { flag, value: pick.value });
+
     return { error, hops: [...hops, ...pickHops] };
   }
+
   return { id: id.data, hops: pickHops };
 }

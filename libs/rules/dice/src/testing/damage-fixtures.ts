@@ -18,9 +18,11 @@ export const CRITICAL = { critical: true };
 
 export function roll(text: string, faces: readonly number[] = []): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(outcome.error.key);
   }
+
   return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 

@@ -33,6 +33,7 @@ const ancestry = {
     reach: 5,
   },
 };
+
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry]]);
 const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 
@@ -44,6 +45,7 @@ interface Loaded {
 function load(): Loaded {
   const delivery = new TestContentDelivery(packs);
   TestBed.configureTestingModule({ providers: provideContentTesting(delivery, new MemoryBundleStore()) });
+
   return { loader: TestBed.inject(ContentLoader), delivery };
 }
 

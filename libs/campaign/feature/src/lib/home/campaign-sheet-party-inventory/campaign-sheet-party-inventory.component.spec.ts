@@ -56,13 +56,16 @@ async function open(answer: object, lines: readonly object[] = []): Promise<Open
     http.expectOne(stashUrl).flush(answer);
   });
   const root: unknown = fixture.nativeElement;
+
   if (!(root instanceof HTMLElement)) {
     throw new TypeError('The container did not render');
   }
+
   await vi.waitFor(() => {
     fixture.detectChanges();
     expect(root.textContent).toMatch(/Backpack|empty/u);
   });
+
   return { root, http, fixture };
 }
 

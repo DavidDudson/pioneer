@@ -10,6 +10,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 /** A Player Core entry of `kind` with `data`. */
 function entry(name: string, kind: string, data: object): ContentEntry {
   const slug = `${kind}:${name}`;
+
   return ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,

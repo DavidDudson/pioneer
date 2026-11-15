@@ -72,17 +72,22 @@ export class AccountPreferences {
   public async load(): Promise<void> {
     const generation = this.#generation;
     const changes = this.#changes;
+
     try {
       const user = await this.#session.whenKnown();
+
       if (user === undefined) {
         await this.#forget();
+
         return;
       }
+
       const loaded = await this.#api.call(IdentityContract.preferences, {
         params: {},
         body: undefined,
         signedOutIsAnswer: true,
       });
+
       await this.#loaded(loaded, generation, changes);
     } catch (error: unknown) {
       if (ApiError.isUnauthorized(error)) {
@@ -109,11 +114,14 @@ export class AccountPreferences {
     this.#changes += 1;
     const generation = this.#generation;
     const before = this.#saving;
+
     const saving = (async (): Promise<void> => {
       await before;
       await this.#save(patch, generation);
     })();
+
     this.#saving = settled(saving);
+
     return saving;
   }
 
@@ -121,6 +129,7 @@ export class AccountPreferences {
     try {
       await this.#show(patchPreferences(this.#showing, patch), generation);
       const saved = await this.#api.call(IdentityContract.updatePreferences, { params: {}, body: patch });
+
       if (generation === this.#generation) {
         this.#saved = saved;
         await this.#show(saved, generation);
@@ -130,6 +139,7 @@ export class AccountPreferences {
       if (generation === this.#generation && !ApiError.isUnauthorized(error)) {
         await this.#show(this.#saved, generation);
       }
+
       throw error;
     }
   }
@@ -139,6 +149,7 @@ export class AccountPreferences {
     this.#generation += 1;
     this.#saved = NO_PREFERENCES;
     this.#showing = NO_PREFERENCES;
+
     try {
       await this.#apply(async () => this.#locale.reset());
     } catch {
@@ -158,11 +169,14 @@ export class AccountPreferences {
 
   async #apply(change: () => Promise<void>): Promise<void> {
     const before = this.#applying;
+
     const applying = (async (): Promise<void> => {
       await before;
       await change();
     })();
+
     this.#applying = settled(applying);
+
     return applying;
   }
 }

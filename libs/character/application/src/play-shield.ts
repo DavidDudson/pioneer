@@ -35,6 +35,7 @@ const SHIELD_MESSAGES = {
 export function shieldsOf(character: Character, registry: ContentRegistry): ShieldContent {
   const items = itemContent(registry);
   const slots = slotContent(registry);
+
   return shieldContent(
     heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots)),
   );
@@ -43,6 +44,7 @@ export function shieldsOf(character: Character, registry: ContentRegistry): Shie
 /** Refuses a block with a shield the character does not hold, or one that is broken. */
 export function checkShield(play: PlayState, command: PlayEdit, shields: ShieldContent): void {
   const problem = isShieldCommand(command) ? blockProblem(shields, play.shields, command.item) : undefined;
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(SHIELD_MESSAGES[problem]) }]);
   }
@@ -55,21 +57,27 @@ export function checkShield(play: PlayState, command: PlayEdit, shields: ShieldC
 export function shieldInventoryAfter(inventory: Inventory, before: PlayState, block: Block): Inventory | undefined {
   const { command, shields } = block;
   const stats = isShieldCommand(command) ? shields.get(command.item) : undefined;
+
   if (!isShieldCommand(command) || stats === undefined || stats.granted !== undefined) {
     return undefined;
   }
+
   const { item, damage } = command;
   const condition = conditionAfterBlock(stats, before.shields[item] ?? NONE, damage);
+
   switch (condition) {
     case ShieldCondition.Whole: {
       return undefined;
     }
+
     case ShieldCondition.Broken: {
       return breakItem(inventory, item, true);
     }
+
     case ShieldCondition.Destroyed: {
       return removeItem(inventory, item);
     }
+
     default: {
       return condition satisfies never;
     }

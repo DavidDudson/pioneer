@@ -19,6 +19,7 @@ export function itemsIn(inventory: Inventory, content: ItemContent, stateOf: Sta
   return inventory.items.flatMap((item): ActiveItem[] => {
     const entry = content.get(item.item);
     const state = stateOf(item, entry);
+
     return entry === undefined || state === undefined ? [] : [{ item, entry, state }];
   });
 }

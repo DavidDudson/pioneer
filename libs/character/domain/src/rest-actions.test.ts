@@ -114,6 +114,7 @@ describe('rest', () => {
     const tired = played({
       conditions: [condition(FIRST, FATIGUED), condition(SECOND, DRAINED, 2), condition(THIRD, FRIGHTENED, 1)],
     });
+
     const { play, changes } = rested(tired, LIMITS);
     expect(play.conditions.map(({ condition: id, value }) => [id, value])).toStrictEqual([
       [DRAINED, ConditionValue.parse(1)],
@@ -191,6 +192,7 @@ describe('start of session', () => {
     const spent = played({
       resources: { ...FRESH_PLAY.resources, [Resource.HeroPoints]: count(3), uses: { [SESSION_USE]: count(1) } },
     });
+
     const raised = sessionStarted(spent, LIMITS);
     expect(raised.play.resources[Resource.HeroPoints]).toBe(count(2));
     expect(raised.play.resources.uses[SESSION_USE]).toBe(count(0));
@@ -222,11 +224,13 @@ describe('daily preparations with a staff', () => {
   const STAFF = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
   const OTHER = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
   const WIZARD = Slug.parse('wizard');
+
   const STAFF_LIMITS: StaffLimits = {
     staves: new Set([STAFF, OTHER]),
     highestRank: SpellRank.parse(3),
     expendable: new Set([SLOT]),
   };
+
   const limits: PlayLimits = { ...LIMITS, staff: STAFF_LIMITS };
   const slot = { entry: WIZARD, rank: SpellRank.parse(1) };
 
@@ -282,6 +286,7 @@ describe('daily preparations with a staff', () => {
       { field: PlayCommandField.DailyPreparations, staff: STAFF, slot },
       limits,
     );
+
     expect(play.resources.staff[STAFF]?.max).toBe(count(4));
   });
 

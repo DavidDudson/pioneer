@@ -16,6 +16,7 @@ const meta: Meta<SourceLineView> = {
   title: 'Rules/Source line',
   component: SourceLineView,
 };
+
 export default meta;
 
 /** A book page with its AoN entry, the usual source. */

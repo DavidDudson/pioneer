@@ -41,16 +41,21 @@ export class SheetRuleBreaks {
   protected readonly count: Signal<number> = computed(() => {
     const registry = this.#items.data();
     const character = this.#store.selected();
+
     if (character === undefined) {
       return 0;
     }
+
     const feats = unplacedFeatBreaks(character.document).length + unplacedPickBreaks(character.document).length;
+
     if (registry === undefined) {
       return feats;
     }
+
     const { limits, approvals } = this.#limits.rules();
     const content = { items: itemContent(registry), runes: runeContent(registry) };
     const { open } = partitionApproved(inventoryViolations(character.document.inventory, content, limits), approvals);
+
     return ruleBreakingCount(open) + feats;
   });
 }

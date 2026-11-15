@@ -49,8 +49,10 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
     )
     .use(homebrew(db, clock, identityParts.authenticator))
     .use(content(db, identityParts.authenticator));
+
   for (const extend of extensions) {
     app = app.use(extend(identityParts));
   }
+
   return app;
 }

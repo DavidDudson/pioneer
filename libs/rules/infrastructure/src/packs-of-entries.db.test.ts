@@ -27,6 +27,7 @@ function entryId(pack: string, slug: string): ContentId {
 
 function ancestryPack(pack: string, slug: string): PackContents {
   const file = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
+
   const entry = {
     id: entryId(pack, slug),
     pack,
@@ -49,6 +50,7 @@ function ancestryPack(pack: string, slug: string): PackContents {
       reach: 5,
     },
   };
+
   return packContentsFromFiles(file, [[entry]]);
 }
 

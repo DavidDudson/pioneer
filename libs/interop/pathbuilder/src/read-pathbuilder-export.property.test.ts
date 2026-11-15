@@ -20,6 +20,7 @@ describe('readPathbuilderExport (properties)', () => {
     assert(
       property(anyExport, (input) => {
         const result = readPathbuilderExport(input);
+
         if (!result.ok) {
           expect(result.problem).toBe(PathbuilderProblem.Malformed);
           const fields = result.issues.map((issue) => issue.path.slice(0, 2).join('.'));
@@ -33,9 +34,11 @@ describe('readPathbuilderExport (properties)', () => {
     assert(
       property(anyExport, (input) => {
         const result = readPathbuilderExport(input);
+
         if (!result.ok) {
           return;
         }
+
         const rows = buildImportReport(result.value.names, nothingLoaded).groups.flatMap((group) => group.rows);
         const total = rows.reduce((sum, row) => sum + row.occurrences, 0);
         expect(total).toBe(result.value.names.length);
@@ -58,6 +61,7 @@ describe('readPathbuilderExport (properties)', () => {
           abilities: { str: score, dex: 10, con: 10, int: 10, wis: 10, cha: 10 },
           feats: [],
         };
+
         const result = readPathbuilderExport({ success: true, build });
         expect<number | false>(result.ok && result.value.attributes.get(Attribute.Strength)).toBe(
           Math.floor((score - 10) / 2),

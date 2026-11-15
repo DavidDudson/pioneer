@@ -31,6 +31,7 @@ export class ContentCaches {
   protected readonly caches: AsyncQuery<readonly CachePack[]> = {
     data: computed((): readonly CachePack[] | undefined => {
       const manifest = this.#manifest.data();
+
       return manifest === undefined ? undefined : cachePacks(manifest, LEGAL_IMPORTS, this.#downloadUrl);
     }),
     error: this.#manifest.error,

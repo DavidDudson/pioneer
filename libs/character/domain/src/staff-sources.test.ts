@@ -60,6 +60,7 @@ describe('staffSources', () => {
       entries: [entry('wizard', 'arcane', [1, 2, 3])],
       charges: NONE,
     });
+
     expect(source?.spells.map(({ id, rank, charges, problem }) => ({ id, rank, charges, problem }))).toMatchObject([
       { id: staffSpellId('ignition'), rank: STAFF_CANTRIP, charges: 0, problem: undefined },
       { id: staffSpellId('breathe-fire'), rank: 1, charges: 1, problem: undefined },
@@ -88,6 +89,7 @@ describe('staffSources', () => {
       quantity: ItemQuantity.parse(1),
       carry: HELD,
     });
+
     expect(
       staffSources({ inventory: [rope], items, spells, entries: [entry('wizard', 'arcane', [1])], charges: NONE }),
     ).toEqual([]);
@@ -101,6 +103,7 @@ describe('staffSources', () => {
       entries: [entry('wizard', 'arcane', [1, 2])],
       charges: NONE,
     });
+
     expect(source?.spells.map(({ problem }) => problem)).toEqual([
       undefined,
       undefined,
@@ -117,6 +120,7 @@ describe('staffSources', () => {
       entries: [entry('druid', 'primal', [1, 2, 3])],
       charges: NONE,
     });
+
     expect(source?.spells.map(({ problem }) => problem)).toEqual([
       StaffSpellProblem.NotOnList,
       undefined,
@@ -133,6 +137,7 @@ describe('staffSources', () => {
       entries: [entry('wizard', 'arcane', [])],
       charges: NONE,
     });
+
     expect(source?.spells.at(0)?.problem).toBeUndefined();
   });
 

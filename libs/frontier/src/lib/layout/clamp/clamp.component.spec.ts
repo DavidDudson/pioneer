@@ -10,6 +10,7 @@ async function render(lines: ClampLines): Promise<HTMLElement> {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('A long summary.')]],
   });
+
   onTestFinished(() => {
     clamp.destroy();
   });
@@ -18,9 +19,11 @@ async function render(lines: ClampLines): Promise<HTMLElement> {
   appRef.attachView(clamp.hostView);
   await appRef.whenStable();
   const clamped = (clamp.location.nativeElement as HTMLElement).firstElementChild;
+
   if (!(clamped instanceof HTMLElement)) {
     throw new TypeError('fr-clamp rendered no wrapper');
   }
+
   return clamped;
 }
 

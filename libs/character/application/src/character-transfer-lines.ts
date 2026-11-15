@@ -38,9 +38,11 @@ export class CharacterTransferLines {
   /** The character's purse and version; none when the character is gone. */
   public async purse(characterId: CharacterId): Promise<TransferPurse | undefined> {
     const character = await this.#characters.findById(characterId);
+
     if (character === undefined) {
       return undefined;
     }
+
     return { coins: character.document.inventory.coins, version: character.version };
   }
 
@@ -48,13 +50,16 @@ export class CharacterTransferLines {
   public async describe(characterId: CharacterId, item: InventoryItemId): Promise<TransferLine | undefined> {
     const character = await this.#characters.findById(characterId);
     const line = character?.document.inventory.items.find((each) => each.id === item);
+
     if (character === undefined || line === undefined) {
       return undefined;
     }
+
     const registry = await contentOfCharacter(this.#content, character).registry();
     const items = itemContent(registry);
     const nameOf = (each: InventoryItem): string => each.name ?? items.get(each.item)?.name ?? each.item;
     const inside = lineWithContents(character.document.inventory.items, item).filter((each) => each.id !== item);
+
     return {
       keyItem: line.keyItem !== undefined,
       name: nameOf(line),

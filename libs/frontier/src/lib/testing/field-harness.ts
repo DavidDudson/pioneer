@@ -36,10 +36,13 @@ export class FieldHarness {
       elementInjector: this.field.injector,
       projectableNodes: text === undefined ? [] : [[document.createTextNode(text)]],
     });
+
     for (const [name, value] of Object.entries(inputs)) {
       ref.setInput(name, value);
     }
+
     this.#mount(ref);
+
     return ref;
   }
 
@@ -50,15 +53,18 @@ export class FieldHarness {
   /** The text of whatever `element`'s `aria-describedby` points at, in order. */
   public described(element: Element): string[] {
     const ids = element.getAttribute('aria-describedby')?.split(' ') ?? [];
+
     return ids.map((id) => this.root.querySelector(`#${id}`)?.textContent.trim() ?? `missing #${id}`);
   }
 
   #mount(ref: ComponentRef<unknown>): void {
     this.#appRef.attachView(ref.hostView);
     const host: unknown = ref.location.nativeElement;
+
     if (!(host instanceof HTMLElement)) {
       throw new TypeError('Expected a host element');
     }
+
     this.root.append(host);
     onTestFinished(() => {
       ref.destroy();

@@ -16,11 +16,15 @@ export function isCrossSiteWrite(request: Request, publicOrigin: string | undefi
   if (SAFE_METHODS.has(request.method) || !requestCookies(request).has(SESSION_COOKIE)) {
     return false;
   }
+
   const fetchSite = request.headers.get('sec-fetch-site');
+
   if (fetchSite !== null) {
     return fetchSite !== 'same-origin';
   }
+
   const expected = new URL(publicOrigin ?? request.url).origin;
+
   return request.headers.get('origin') !== expected;
 }
 

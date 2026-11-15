@@ -10,6 +10,7 @@ const meta: Meta<ActionCostCell> = {
   component: ActionCostCell,
   argTypes: { cost: { control: 'select', options: Object.values(ActionKind) } },
 };
+
 export default meta;
 
 /** One action. */

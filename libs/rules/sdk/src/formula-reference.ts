@@ -19,6 +19,7 @@ import { Selector } from './selector';
  * entry a statistic derived per source is derived for.
  */
 export const ReferenceScope = { Actor: 'actor', Item: 'item', Weapon: 'weapon', Spellcasting: 'spellcasting' } as const;
+
 export type ReferenceScope = ValueOf<typeof ReferenceScope>;
 
 export const ReferenceKind = {
@@ -42,6 +43,7 @@ export const ReferenceKind = {
   SpellcastingAttributeModifier: 'spellcasting-attribute-modifier',
   SpellcastingProficiencyBonus: 'spellcasting-proficiency-bonus',
 } as const;
+
 export type ReferenceKind = ValueOf<typeof ReferenceKind>;
 
 /** A reference the catalogue knows, with the values its placeholders took. */
@@ -70,6 +72,7 @@ const SOURCE_KINDS = [
   ReferenceKind.SpellcastingAttributeModifier,
   ReferenceKind.SpellcastingProficiencyBonus,
 ] as const;
+
 type SourceReferenceKind = (typeof SOURCE_KINDS)[number];
 
 /** A reference to the weapon or spellcasting entry a statistic derived per source is derived for. */
@@ -90,6 +93,7 @@ export function isSourceReference(known: KnownReference): known is SourceReferen
  * `save:fortitude`).
  */
 export const ReferencePattern = z.string().brand<'ReferencePattern'>();
+
 export type ReferencePattern = z.infer<typeof ReferencePattern>;
 
 /** The message key that describes a reference's value. */
@@ -155,14 +159,17 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
 
 /** An actor flag Foundry rules set and read by name: `consumeFear`, or `corrosiveBody.rank` for a nested one. */
 const FlagName = z.string().brand<'FlagName'>();
+
 type FlagName = z.infer<typeof FlagName>;
 
 /** One dotted segment of a path or pattern: `attr`, `dex`, `<attribute>`. */
 const PathSegment = z.string().brand<'PathSegment'>();
+
 type PathSegment = z.infer<typeof PathSegment>;
 
 const SEPARATOR = '.';
 const SELECTOR_SEPARATOR = ':';
+
 /** The placeholder that takes the rest of the path. */
 const REST = PathSegment.parse('<selector>');
 const FLAG = PathSegment.parse('<flag>');
@@ -186,10 +193,13 @@ function fits(wanted: PathSegment, taken: PathSegment | undefined, captures: Map
   if (taken === undefined) {
     return false;
   }
+
   if (isPlaceholder(wanted)) {
     captures.set(wanted, [taken]);
+
     return true;
   }
+
   return wanted === taken;
 }
 
@@ -202,9 +212,11 @@ export function match(pattern: ReferencePattern | FoundryReferencePattern, path:
   const lengthFits = restAt === -1 ? given.length === wanted.length : given.length > restAt;
   const captures = new Map<PathSegment, PathSegment[]>();
   const rest = wanted[restAt];
+
   if (rest !== undefined) {
     captures.set(rest, given.slice(restAt));
   }
+
   return lengthFits && fixed.every((segment, index) => fits(segment, given[index], captures)) ? captures : undefined;
 }
 
@@ -214,6 +226,7 @@ function captured(captures: Captures, placeholder: PathSegment): readonly PathSe
 
 function attributeReference(captures: Captures): KnownReference | undefined {
   const attribute = AttributeSchema.safeParse(captured(captures, ATTRIBUTE).join(SEPARATOR));
+
   return attribute.success ? { kind: ReferenceKind.AttributeModifier, attribute: attribute.data } : undefined;
 }
 
@@ -223,6 +236,7 @@ function flagIn(captures: Captures): FlagName {
 
 function selectorIn(captures: Captures): Selector | undefined {
   const selector = Selector.safeParse(captured(captures, REST).join(SELECTOR_SEPARATOR));
+
   return selector.success ? selector.data : undefined;
 }
 
@@ -243,6 +257,7 @@ const PLAIN_KINDS = [
   ReferenceKind.SpellcastingAttributeModifier,
   ReferenceKind.SpellcastingProficiencyBonus,
 ] as const;
+
 type PlainKind = (typeof PLAIN_KINDS)[number];
 
 const PLAIN_KIND_SET: ReadonlySet<ReferenceKind> = new Set(PLAIN_KINDS);
@@ -256,19 +271,24 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
   if (isPlainKind(kind)) {
     return { kind };
   }
+
   switch (kind) {
     case ReferenceKind.AttributeModifier: {
       return attributeReference(captures);
     }
+
     case ReferenceKind.Flag: {
       return { kind, flag: flagIn(captures) };
     }
+
     case ReferenceKind.ProficiencyBonus:
     case ReferenceKind.ProficiencyRank:
     case ReferenceKind.Statistic: {
       const selector = selectorIn(captures);
+
       return selector === undefined ? undefined : { kind, selector };
     }
+
     default: {
       return kind satisfies never;
     }
@@ -282,10 +302,12 @@ export function knownReference(path: ReferencePath): KnownReference | undefined 
   for (const kind of KINDS) {
     const captures = match(REFERENCE_CATALOGUE[kind].pattern, path);
     const known = captures === undefined ? undefined : referenceOf(kind, captures);
+
     if (known !== undefined) {
       return known;
     }
   }
+
   return undefined;
 }
 
@@ -294,5 +316,6 @@ export function fill(pattern: ReferencePattern, captures: Captures): ReferencePa
   const filled = segments(pattern).flatMap((segment) =>
     isPlaceholder(segment) ? captured(captures, segment) : segment,
   );
+
   return ReferencePath.parse(filled.join(SEPARATOR));
 }

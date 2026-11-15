@@ -41,16 +41,20 @@ async function render(id: 'name' | 'level'): Promise<Rendered> {
       data: [...PARTY],
     })),
   );
+
   const header: TableHeader<Member> | undefined = table
     .getHeaderGroups()
     .flatMap((group) => group.headers)
     .find((candidate) => candidate.column.id === id);
+
   if (header === undefined) {
     throw new Error(`Expected a ${id} header`);
   }
+
   const fixture = TestBed.createComponent(TableHeaderCell<Member>);
   fixture.componentRef.setInput('header', header);
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement, header };
 }
 
@@ -73,6 +77,7 @@ async function drawing(icon: IconGlyph): Promise<string | undefined> {
   const fixture = TestBed.createComponent(Icon);
   fixture.componentRef.setInput('icon', icon);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).querySelector('svg')?.innerHTML;
 }
 

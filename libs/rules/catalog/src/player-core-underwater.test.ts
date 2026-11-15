@@ -10,9 +10,11 @@ const PLAYER_CORE = contentPackFromContents(await playerCorePack()).otherEntries
 /** The committed underwater environment: Aquatic Combat, Player Core page 437. */
 function underwater(): ContentEntry {
   const found = PLAYER_CORE.find(({ slug }) => slug === 'environment:underwater');
+
   if (found === undefined) {
     throw new Error('environment:underwater is not in the player-core entries');
   }
+
   return found;
 }
 

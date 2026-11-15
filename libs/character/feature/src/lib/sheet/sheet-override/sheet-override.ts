@@ -62,17 +62,22 @@ export class SheetOverrides {
   public readonly target: Signal<OverrideTarget | undefined> = computed(() => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
+
     if (registry === undefined || character === undefined) {
       return undefined;
     }
+
     const id = OverrideId.safeParse(this.#query()?.get(OVERRIDE_ID_PARAM));
     const existing = id.success ? overrideOf(character.document, id.data) : undefined;
     const selector = existing?.target ?? Selector.safeParse(this.#query()?.get(OVERRIDE_STATISTIC_PARAM)).data;
     const mode = existing?.mode ?? z.enum(OverrideMode).safeParse(this.#query()?.get(OVERRIDE_MODE_PARAM)).data;
+
     if (selector === undefined || mode === undefined) {
       return undefined;
     }
+
     const statistic = namedStatistics(registry, character, [selector]).get(selector);
+
     return statistic === undefined ? undefined : { selector, mode, statistic, existing };
   });
 }

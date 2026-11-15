@@ -20,6 +20,7 @@ const meta: Meta<DateInput> = {
     template: `<fr-date-input ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: DateInputStory = {};

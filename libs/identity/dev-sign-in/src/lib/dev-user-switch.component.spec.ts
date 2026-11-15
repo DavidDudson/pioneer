@@ -29,15 +29,18 @@ async function render(): Promise<Rendered> {
   await TestBed.inject(Router).navigateByUrl('/characters/abc?tab=feats');
   const fixture = TestBed.createComponent(DevUserSwitch);
   await fixture.whenStable();
+
   return { root: fixture.nativeElement as HTMLElement, signInAt };
 }
 
 /** Opens the dropdown and returns the user buttons in its panel, which sits in the overlay container. */
 async function openMenu(root: HTMLElement): Promise<HTMLButtonElement[]> {
   root.querySelector('button')?.click();
+
   return vi.waitFor(() => {
     const buttons = [...document.querySelectorAll<HTMLButtonElement>('.cdk-overlay-container [role="group"] button')];
     expect(buttons).toHaveLength(3);
+
     return buttons;
   });
 }

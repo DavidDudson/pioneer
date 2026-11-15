@@ -38,15 +38,19 @@ export function namespacedStatement(statement: unknown): unknown {
   if (typeof statement === 'string') {
     return namespaced(statement);
   }
+
   if (typeof statement !== 'object' || statement === null || Array.isArray(statement)) {
     return statement;
   }
+
   return Object.fromEntries(
     Object.entries(statement).map(([operator, operand]) => {
       if (COMPARISONS.has(operator) && isOperands(operand)) {
         const [option, ...rest] = operand;
+
         return [operator, [namespaced(option), ...rest]];
       }
+
       return [
         operator,
         Array.isArray(operand)
@@ -62,6 +66,7 @@ export function withNamespacedOptions(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('predicate' in raw) || !Array.isArray(raw.predicate)) {
     return raw;
   }
+
   return { ...raw, predicate: raw.predicate.map(namespacedStatement) };
 }
 
@@ -70,6 +75,7 @@ export function selectorOf(selector: string): string {
   if (SKILLS.has(selector)) {
     return `skill${SEPARATOR}${selector}`;
   }
+
   return SAVES.has(selector) ? `save${SEPARATOR}${selector}` : selector;
 }
 
@@ -77,7 +83,9 @@ function selectorsOf(selector: unknown): readonly string[] | undefined {
   if (typeof selector === 'string') {
     return [selectorOf(selector)];
   }
+
   const isList = Array.isArray(selector) && selector.every((each): each is string => typeof each === 'string');
+
   return isList ? selector.map((each) => selectorOf(each)) : undefined;
 }
 
@@ -103,15 +111,20 @@ function withSelectors(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
+
   const selectors = SELECTOR_KEYS.has(raw.key) && 'selector' in raw ? selectorsOf(raw.selector) : undefined;
+
   if (selectors === undefined) {
     return raw;
   }
+
   const flat = raw.key === RuleElementKey.FlatModifier;
   const hideable = HIDEABLE_KEYS.has(raw.key);
+
   const kept = Object.entries(raw).filter(
     ([field]) => field !== 'selector' && !(hideable && DISPLAY_ONLY_FIELDS.has(field)),
   );
+
   return { ...(flat ? { type: 'untyped' } : {}), ...Object.fromEntries(kept), selectors };
 }
 
@@ -129,9 +142,11 @@ export function withDiceFormula(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.DamageDice) {
     return raw;
   }
+
   if (!('diceNumber' in raw) || typeof raw.diceNumber !== 'string') {
     return raw;
   }
+
   return { ...raw, diceNumber: fromFoundryFormula(raw.diceNumber) };
 }
 
@@ -149,10 +164,13 @@ export function withBaseSpeed(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== BASE_SPEED_KEY) {
     return raw;
   }
+
   if (!('selector' in raw) || typeof raw.selector !== 'string' || !MOVEMENT_TYPES.has(raw.selector)) {
     return raw;
   }
+
   const rest = Object.entries(raw).filter(([field]) => field !== 'key' && field !== 'selector');
+
   return {
     ...Object.fromEntries(rest),
     key: RuleElementKey.Change,
@@ -187,10 +205,12 @@ export function withCreatureSize(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== CREATURE_SIZE_KEY) {
     return raw;
   }
+
   const sized = Object.entries(raw).map(([field, value]) => [
     field,
     field === 'value' || field === 'maximumSize' ? sizeOf(value) : value,
   ]);
+
   return Object.fromEntries(sized);
 }
 
@@ -210,11 +230,14 @@ function withRollFields(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
+
   if (!ROLL_KEYS.has(raw.key)) {
     return raw;
   }
+
   const renamed = Object.entries(raw)
     .filter(([field, value]) => !(field === 'removeAfterRoll' && value === false))
     .map(([field, value]) => [field === 'type' ? 'checkType' : field, value]);
+
   return Object.fromEntries(renamed);
 }

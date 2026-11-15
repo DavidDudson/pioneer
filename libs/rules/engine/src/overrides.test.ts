@@ -29,6 +29,7 @@ function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[])
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return deriveStatistics({ definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts,
@@ -37,9 +38,11 @@ function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[])
 
 function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): StatisticValue {
   const result = derivedAll(rules, ...options).get(Selector.parse('ac'));
+
   if (typeof result !== 'object' || result === null || !('ok' in result) || result.ok !== true) {
     throw new Error('Expected AC to derive');
   }
+
   return result as StatisticValue;
 }
 

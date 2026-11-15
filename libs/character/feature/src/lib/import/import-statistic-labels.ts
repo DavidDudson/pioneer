@@ -32,13 +32,17 @@ export interface StatisticLabel {
  */
 export function statisticLabel(selector: Selector, name: string | undefined): StatisticLabel {
   const key = RANK_KEYS[selector];
+
   if (key !== undefined) {
     return { key, params: {} };
   }
+
   if (selector.startsWith(SPELL_SLOTS_PREFIX)) {
     const [entry = '', rank = ''] = selector.slice(SPELL_SLOTS_PREFIX.length).split(':');
+
     return { key: SPELL_SLOTS_KEY, params: { entry, rank } };
   }
+
   return selector.startsWith(SPELL_DC_PREFIX)
     ? { key: SPELL_DC_KEY, params: { entry: selector.slice(SPELL_DC_PREFIX.length) } }
     : { key: NAMED_KEY, params: { name: name ?? selector } };

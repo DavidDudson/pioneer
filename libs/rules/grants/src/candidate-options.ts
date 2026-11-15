@@ -21,8 +21,10 @@ const ACCESS = new WeakMap<ContentLookup, ReadonlyMap<ContentId, readonly Access
 
 function readAccess(lookup: ContentLookup): ReadonlyMap<ContentId, readonly Access[]> {
   const access = new Map<ContentId, Access[]>();
+
   for (const { archetype } of lookup.ofKind(ContentKind.Archetype)) {
     const dedication = archetype === undefined ? undefined : lookup.entry(archetype.dedication);
+
     for (const { feat, level } of archetype?.additionalFeats ?? []) {
       if (dedication !== undefined) {
         const held = RollOption.parse(`feat:${dedication.slug}`);
@@ -30,12 +32,14 @@ function readAccess(lookup: ContentLookup): ReadonlyMap<ContentId, readonly Acce
       }
     }
   }
+
   return access;
 }
 
 function accessTo(feat: ContentId, lookup: ContentLookup): readonly Access[] {
   const index = ACCESS.get(lookup) ?? readAccess(lookup);
   ACCESS.set(lookup, index);
+
   return index.get(feat) ?? [];
 }
 
@@ -45,12 +49,15 @@ function accessTo(feat: ContentId, lookup: ContentLookup): readonly Access[] {
  */
 function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceContext): RollOption[] {
   const general = rollOptions.includes(SKILL_TRAIT) && !rollOptions.includes(GENERAL_TRAIT) ? [GENERAL_TRAIT] : [];
+
   const ancestry = rollOptions.includes(UNIVERSAL_ANCESTRY_TRAIT)
     ? facts.tails('ancestry').map((slug) => RollOption.parse(`trait:${slug}`))
     : [];
+
   const archetype = rollOptions.includes(ARCHETYPE_TRAIT)
     ? facts.tails('class').map((slug) => RollOption.parse(`trait:${slug}`))
     : [];
+
   return [...general, ...ancestry, ...archetype];
 }
 
@@ -70,16 +77,22 @@ function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceCon
  */
 export function candidateOptions(candidate: GrantEntry, context: ChoiceContext): readonly RollOption[] {
   const { rollOptions } = candidate;
+
   if (candidate.kind !== ContentKind.Feat) {
     return rollOptions;
   }
+
   const added = traitAdditions(rollOptions, context);
+
   const levels = accessTo(candidate.id, context.lookup)
     .filter(({ dedication }) => context.facts.has(dedication))
     .map(({ level }) => level);
+
   if (levels.length === 0) {
     return added.length === 0 ? rollOptions : [...rollOptions, ...added];
   }
+
   const level = RollOption.parse(`${LEVEL_PREFIX}${Math.min(...levels)}`);
+
   return [...rollOptions.filter((option) => !option.startsWith(LEVEL_PREFIX)), ...added, ARCHETYPE_TRAIT, level];
 }

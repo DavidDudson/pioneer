@@ -15,6 +15,7 @@ import { characterKeys } from './character-query-keys';
  */
 export function injectCharacterList(state: Signal<CharacterPageQuery>): CreateQueryResult<CharacterPage> {
   const api = inject(ApiClient);
+
   return injectQuery(() => ({
     queryKey: [...characterKeys.list(), state()],
     queryFn: async (): Promise<CharacterPage> =>

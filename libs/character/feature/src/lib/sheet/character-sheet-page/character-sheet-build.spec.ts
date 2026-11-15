@@ -30,10 +30,12 @@ describe('CharacterSheetPage build', () => {
 
   it('shows a stored heritage its slot no longer offers by its value, not as not chosen', async () => {
     const unloaded = '0b7c4f5e-8d1a-5c2b-9e3f-4a6b7c8d9e0f';
+
     const { root } = await openSheet({
       ...MERISIEL,
       build: { choices: { ...MERISIEL.build.choices, heritage: unloaded } },
     });
+
     const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
@@ -44,9 +46,11 @@ describe('CharacterSheetPage build', () => {
   it('says which heritage a new ancestry cleared until dismissed, then moves focus to the heritage picker', async () => {
     const { root } = await openSheet();
     await pickAncestry(root, 'Human');
+
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     const cleared = [{ key: 'heritage', selection: 'whisper-elf', selectionName: 'Whisper Elf' }];
     request.flush(patchedOf({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } }, [], cleared));
     await vi.waitFor(async () => {
@@ -62,6 +66,7 @@ describe('CharacterSheetPage build', () => {
         (button) => button.textContent.trim() === 'Dismiss',
       ),
     );
+
     // A real click moves focus to the button first, closing the ancestry editor it leaves.
     dismiss.focus();
     dismiss.click();

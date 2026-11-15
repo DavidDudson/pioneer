@@ -67,10 +67,12 @@ describe('CampaignRuleLimitService', () => {
 
   test('setting a limit again replaces the number', async () => {
     await service.set(amiri, vaults.id, { limit: RuleLimitKey.InvestedMax, value: twelve });
+
     const again = await service.set(amiri, vaults.id, {
       limit: RuleLimitKey.InvestedMax,
       value: RuleLimitValue.parse(8),
     });
+
     expect(valueOf(again, RuleLimitKey.InvestedMax)).toBe(8);
     expect(again.limits.filter(({ custom }) => custom)).toHaveLength(1);
   });
@@ -119,10 +121,12 @@ describe('CampaignRuleLimitService', () => {
 
     test('the GM’s number beats the variant rule’s, even a lower one', async () => {
       variants.declare(vaults.id, { [RuleLimitKey.InvestedMax]: twelve });
+
       const set = await service.set(amiri, vaults.id, {
         limit: RuleLimitKey.InvestedMax,
         value: RuleLimitValue.parse(8),
       });
+
       expect(set.limits[0]).toMatchObject({ value: 8, custom: true, source: RuleLimitSource.Campaign });
     });
 

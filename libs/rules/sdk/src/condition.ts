@@ -18,7 +18,9 @@ export const ConditionGroup = {
   Detection: 'detection',
   Senses: 'senses',
 } as const;
+
 export type ConditionGroup = ValueOf<typeof ConditionGroup>;
+
 const ConditionGroupSchema = z.enum(ConditionGroup);
 const CONDITION_REFS_MAX = 8;
 const ENDINGS_MAX = 12;
@@ -38,6 +40,7 @@ export const ConditionTrigger = {
   /** The condition's own duration runs out. */
   DurationEnd: 'duration-end',
 } as const;
+
 export type ConditionTrigger = ValueOf<typeof ConditionTrigger>;
 
 /** What an ending does to the condition: end it, or lower its value (it ends at 0). */
@@ -45,6 +48,7 @@ export const ConditionEffect = {
   Remove: 'remove',
   Lower: 'lower',
 } as const;
+
 export type ConditionEffect = ValueOf<typeof ConditionEffect>;
 
 /** How many points a lowering takes off. */
@@ -56,6 +60,7 @@ export const ConditionRemovalEffect = {
   Lower: 'lower',
   Counteract: 'counteract',
 } as const;
+
 export type ConditionRemovalEffect = ValueOf<typeof ConditionRemovalEffect>;
 
 /** What an ending does: remove the condition, or lower its value by `by` (1 when absent). */
@@ -63,6 +68,7 @@ export const ConditionChange = z.strictObject({
   effect: z.enum(ConditionEffect),
   by: LowerBy.optional(),
 });
+
 export type ConditionChange = z.infer<typeof ConditionChange>;
 
 /**
@@ -73,6 +79,7 @@ export const ConditionDc = z
   .string()
   .regex(/^\d{1,2}(?<value> \+ @value)?$/u)
   .brand<'ConditionDc'>();
+
 export type ConditionDc = z.infer<typeof ConditionDc>;
 
 /**
@@ -120,10 +127,12 @@ export const ConditionEnding = z.discriminatedUnion('kind', [
   /** Only the condition's source ends it: the effect, creature or hazard that imposed it. */
   z.strictObject({ kind: z.literal('source'), ...endingText }),
 ]);
+
 export type ConditionEnding = z.infer<typeof ConditionEnding>;
 
 /** What one value of a staged condition does: its rule text, as content in the source locale (ADR-0009). */
 export const ConditionStage = z.strictObject({ value: ConditionValue, text: RichText });
+
 export type ConditionStage = z.infer<typeof ConditionStage>;
 
 /**
@@ -135,6 +144,7 @@ export const ConditionValues = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal('staged'), stages: z.array(ConditionStage).min(1).max(STAGES_MAX).readonly() }),
   z.strictObject({ kind: z.literal('formula'), text: RichText }),
 ]);
+
 export type ConditionValues = z.infer<typeof ConditionValues>;
 
 /**
@@ -157,6 +167,7 @@ export const ConditionData = z.strictObject({
   /** Every way it ends or eases, each with its rule text; Player Core conditions always have at least one. */
   recovery: z.array(ConditionEnding).max(ENDINGS_MAX).readonly().default([]),
 });
+
 export type ConditionData = z.infer<typeof ConditionData>;
 
 const REMOVALS_MAX = 12;
@@ -175,6 +186,7 @@ export const ConditionRemoval = z
   })
   .refine(({ effect, by }) => by === undefined || effect === ConditionRemovalEffect.Lower, { path: ['by'] })
   .refine(({ effect, rank }) => rank === undefined || effect === ConditionRemovalEffect.Counteract, { path: ['rank'] });
+
 export type ConditionRemoval = z.infer<typeof ConditionRemoval>;
 
 /** The conditions an entry removes or lowers: absent where it removes none. */

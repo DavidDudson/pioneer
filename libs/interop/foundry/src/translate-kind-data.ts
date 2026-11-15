@@ -86,6 +86,7 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
   ...EQUIPMENT_TRANSLATORS,
   [ContentKind.Action]: (input) => {
     const data = parsedWith({ schema: ActionData, fields: ACTION_FIELDS, build: actionData }, input);
+
     return data && { kind: ContentKind.Action, data };
   },
   [ContentKind.Ancestry]: (input) => {
@@ -93,6 +94,7 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       { schema: KIND_DATA[ContentKind.Ancestry], fields: ANCESTRY_FIELDS, build: ancestryData },
       input,
     );
+
     return data && { kind: ContentKind.Ancestry, data };
   },
   [ContentKind.AncestryFeature]: (input) => {
@@ -100,6 +102,7 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       { schema: KIND_DATA[ContentKind.AncestryFeature], fields: FEAT_FIELDS, build: ancestryFeatureData },
       input,
     );
+
     return data && { kind: ContentKind.AncestryFeature, data };
   },
   [ContentKind.Background]: (input) => {
@@ -107,10 +110,12 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       { schema: KIND_DATA[ContentKind.Background], fields: BACKGROUND_FIELDS, build: backgroundData },
       input,
     );
+
     return data && { kind: ContentKind.Background, data };
   },
   [ContentKind.Class]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Class], fields: CLASS_FIELDS, build: classData }, input);
+
     return data && { kind: ContentKind.Class, data };
   },
   [ContentKind.ClassFeature]: (input) => {
@@ -118,26 +123,32 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       { schema: KIND_DATA[ContentKind.ClassFeature], fields: FEAT_FIELDS, build: classFeatureData },
       input,
     );
+
     return data && { kind: ContentKind.ClassFeature, data };
   },
   [ContentKind.Condition]: (input) => {
     const data = parsedWith({ schema: ConditionData, fields: CONDITION_FIELDS, build: conditionData }, input);
+
     return data && { kind: ContentKind.Condition, data };
   },
   [ContentKind.Creature]: (input) => {
     const data = parsedWith({ schema: CreatureData, fields: CREATURE_FIELDS, build: creatureData }, input);
+
     return data && { kind: ContentKind.Creature, data };
   },
   [ContentKind.Deity]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Deity], fields: DEITY_FIELDS, build: deityData }, input);
+
     return data && { kind: ContentKind.Deity, data };
   },
   [ContentKind.Effect]: (input) => {
     const data = parsedWith({ schema: EffectData, fields: EFFECT_FIELDS, build: effectData }, input);
+
     return data && { kind: ContentKind.Effect, data };
   },
   [ContentKind.Feat]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Feat], fields: FEAT_FIELDS, build: featData }, input);
+
     return data && { kind: ContentKind.Feat, data };
   },
   [ContentKind.Heritage]: (input) => {
@@ -145,18 +156,22 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       { schema: KIND_DATA[ContentKind.Heritage], fields: HERITAGE_FIELDS, build: heritageData },
       input,
     );
+
     return data && { kind: ContentKind.Heritage, data };
   },
   [ContentKind.Kit]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Kit], fields: KIT_FIELDS, build: kitData }, input);
+
     return data && { kind: ContentKind.Kit, data };
   },
   [ContentKind.Ritual]: (input) => {
     const data = parsedWith({ schema: RitualData, fields: RITUAL_FIELDS, build: ritualData }, input);
+
     return data && { kind: ContentKind.Ritual, data };
   },
   [ContentKind.Spell]: (input) => {
     const data = parsedWith({ schema: SpellData, fields: SPELL_FIELDS, build: spellData }, input);
+
     return data && { kind: ContentKind.Spell, data };
   },
 };
@@ -177,12 +192,15 @@ export function translateKindData(
   { references, archetypes, senses, links, lang }: KindDataContext,
 ): KindDataTranslation {
   const translator = TRANSLATORS[documentKind(entry)];
+
   if (translator === undefined) {
     return { rules: [], gaps: [] };
   }
+
   const log: GapLog = { entry: envelope.id, gaps: [] };
   const rules: RuleElement[] = [];
   const { document, pack } = entry;
+
   const kindData = translator({
     document,
     pack,
@@ -195,5 +213,6 @@ export function translateKindData(
     ...(links === undefined ? {} : { links }),
     ...(lang === undefined ? {} : { lang }),
   });
+
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }

@@ -21,18 +21,23 @@ interface Rendered {
 async function render(gate?: Promise<unknown>, fail = false): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const source: WritableSignal<string | undefined> = signal('Valeros');
+
   const save = vi.fn<(value: string) => Promise<void>>(async (value) => {
     await gate;
+
     if (fail) {
       throw new Error('Offline');
     }
+
     source.set(value);
   });
+
   const edit = new InlineEdit<string>({ source, empty: '', schema: z.string().min(1), save });
   const fixture = TestBed.createComponent(SaveStatus<string>);
   fixture.componentRef.setInput('label', 'Name');
   fixture.componentRef.setInput('edit', edit);
   await settle(fixture);
+
   return { fixture, host: fixture.nativeElement as HTMLElement, edit, save };
 }
 

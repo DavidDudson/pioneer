@@ -9,6 +9,7 @@ export const ChoiceState = {
   Hidden: 'hidden',
   Invalid: 'invalid',
 } as const;
+
 export type ChoiceState = ValueOf<typeof ChoiceState>;
 
 /** What is picked: an attribute, for a boost, or the content's name. */

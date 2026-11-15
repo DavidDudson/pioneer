@@ -20,6 +20,7 @@ import { Feet } from './units';
 
 /** Whether a damage part harms, heals, or both (Heal on the living and the undead). */
 export const DamageKind = { Damage: 'damage', Healing: 'healing' } as const;
+
 export type DamageKind = ValueOf<typeof DamageKind>;
 
 const DAMAGE_KINDS = Object.keys(DamageKind).length;
@@ -28,6 +29,7 @@ const MATERIALS_MAX = 4;
 
 /** Names a damage part so heightening can add to it (Foundry pf2e's damage record key, `0`). */
 const DamagePartKey = Slug.brand<'DamagePartKey'>();
+
 type DamagePartKey = z.infer<typeof DamagePartKey>;
 
 /**
@@ -43,6 +45,7 @@ const SpellDamage = z.strictObject({
   /** The materials the damage counts as (Moonbeam's silver), for weaknesses and resistances that name one. */
   materials: z.array(DamageException).min(1).max(MATERIALS_MAX).readonly().check(uniqueItems).optional(),
 });
+
 export type SpellDamage = z.infer<typeof SpellDamage>;
 
 /** A spell's damage parts, each key once. */
@@ -52,6 +55,7 @@ const SpellDamageParts = z
   .readonly()
   .check((context) => {
     const seen = new Set<DamagePartKey>();
+
     for (const [index, { key }] of context.value.entries()) {
       if (seen.has(key)) {
         context.issues.push({
@@ -61,6 +65,7 @@ const SpellDamageParts = z
           ...issueParams(message(RulesMessage.ListDuplicate, { value: key })),
         });
       }
+
       seen.add(key);
     }
   });
@@ -69,6 +74,7 @@ const SpellDamageParts = z
 const DamageIncrease = z.strictObject({ key: DamagePartKey, formula: DamageFormula });
 
 export const HeighteningType = { Interval: 'interval', Fixed: 'fixed' } as const;
+
 export type HeighteningType = ValueOf<typeof HeighteningType>;
 
 /** How many ranks one heightening step spans: "Heightened (+2)" is 2. */
@@ -117,6 +123,7 @@ const FixedHeightening = z.strictObject({
 });
 
 const Heightening = z.discriminatedUnion('type', [IntervalHeightening, FixedHeightening]);
+
 export type Heightening = z.infer<typeof Heightening>;
 
 const TRADITIONS_MAX = 4;
@@ -142,6 +149,7 @@ const SpellVariant = z
   .refine(({ name: _name, ...changes }) => Object.values(changes).some((change) => change !== undefined), {
     ...issueParams(message(RulesMessage.SpellVariantEmpty)),
   });
+
 export type SpellVariant = z.infer<typeof SpellVariant>;
 
 type SpellCheck = z.core.ParsePayload<{
@@ -169,7 +177,9 @@ function checkIncreasesAt(context: SpellCheck, { path, heightening, damage }: In
   if (heightening?.type !== HeighteningType.Interval) {
     return;
   }
+
   const keys = new Set(damage.map(({ key }) => key));
+
   for (const [index, { key }] of heightening.damage.entries()) {
     if (!keys.has(key)) {
       pushIssue(context, [...path, 'damage', index, 'key'], message(RulesMessage.SpellDamageKey, { key }));
@@ -181,6 +191,7 @@ function checkIncreasesAt(context: SpellCheck, { path, heightening, damage }: In
 function checkIncreases(context: SpellCheck): void {
   const { damage, heightening, variants = [] } = context.value;
   checkIncreasesAt(context, { path: ['heightening'], heightening, damage });
+
   for (const [index, variant] of variants.entries()) {
     const path = ['variants', index, 'heightening'];
     checkIncreasesAt(context, { path, heightening: variant.heightening, damage: variant.damage ?? damage });
@@ -190,17 +201,22 @@ function checkIncreases(context: SpellCheck): void {
 /** Fixed heightening at `path` names each rank once, above the spell's own. */
 function checkRanksAt(context: SpellCheck, path: readonly PropertyKey[], heightening: Heightening | undefined): void {
   const { rank } = context.value;
+
   if (heightening?.type !== HeighteningType.Fixed) {
     return;
   }
+
   const seen = new Set<SpellRank>();
+
   for (const [index, heightened] of heightening.ranks.entries()) {
     const at = [...path, 'ranks', index, 'rank'];
+
     if (heightened.rank <= rank) {
       pushIssue(context, at, message(RulesMessage.SpellHeightenAbove, { rank }));
     } else if (seen.has(heightened.rank)) {
       pushIssue(context, at, message(RulesMessage.ListDuplicate, { value: heightened.rank }));
     }
+
     seen.add(heightened.rank);
   }
 }
@@ -209,6 +225,7 @@ function checkRanksAt(context: SpellCheck, path: readonly PropertyKey[], heighte
 function checkHeightenedRanks(context: SpellCheck): void {
   const { heightening, variants = [] } = context.value;
   checkRanksAt(context, ['heightening'], heightening);
+
   for (const [index, variant] of variants.entries()) {
     checkRanksAt(context, ['variants', index, 'heightening'], variant.heightening);
   }
@@ -217,6 +234,7 @@ function checkHeightenedRanks(context: SpellCheck): void {
 /** A note on ending a spell early is for a spell that does not take the Dismiss action. */
 function checkDismiss(context: SpellCheck): void {
   const { dismiss, dismissNote } = context.value;
+
   if (dismiss === true && dismissNote !== undefined) {
     pushIssue(context, ['dismissNote'], message(RulesMessage.SpellDismissBoth));
   }
@@ -255,4 +273,5 @@ export const SpellData = z
     checkHeightenedRanks(context);
     checkDismiss(context);
   });
+
 export type SpellData = z.infer<typeof SpellData>;

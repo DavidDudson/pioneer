@@ -116,10 +116,12 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
       const { damage } = entry.data;
       // `dice` counts dice, or flat damage with no `die`; at 0 the weapon deals none (a glue bomb).
       const deals = damage.dice > 0;
+
       return [deals ? damage.damageType : undefined, damage.persistent?.damageType].filter(
         (type) => type !== undefined,
       );
     }
+
     // An untyped part has no damage type to filter by.
     return entry.kind === ContentKind.Spell ? entry.data.damage.flatMap((part) => part.damageType ?? []) : [];
   },

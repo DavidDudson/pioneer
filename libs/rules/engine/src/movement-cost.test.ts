@@ -25,6 +25,7 @@ function cost(extra: number, body: object = {}): RuleInPlay {
 function immuneAfter(...elements: readonly object[]): boolean {
   const rules = elements.map((element) => inPlay(element, 'avatar'));
   const facts = factsUnderForm({ rules, facts: FORM_FACTS });
+
   return evaluatePredicate(IMMUNE, facts) === Truth.True;
 }
 
@@ -104,6 +105,7 @@ describe('immunity facts', () => {
 
   test('terrain predicated on the missing immunity lowers the Speed, and on the immunity it does not', () => {
     const terrain = cost(5, { predicate: NOT_IMMUNE });
+
     const facts = factsUnderForm({
       rules: [inPlay({ key: 'Immunity', type: ['difficult-terrain'] }, 'avatar')],
       facts: FORM_FACTS,

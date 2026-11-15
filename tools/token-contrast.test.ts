@@ -135,6 +135,7 @@ describe('measurePairs', () => {
       ['--fr-muted', 'oklch(0.9 0 0)'],
       ['--fr-bg', WHITE],
     ]);
+
     const results = measurePairs(tokens, [{ foreground: ['fg', 'muted'], background: ['bg'], minimum: 4.5 }]);
     expect(results.map(({ foreground, background, ratio }) => [foreground, background, ratio < 4.5])).toStrictEqual([
       ['fg', 'bg', false],
@@ -146,7 +147,9 @@ describe('measurePairs', () => {
 describe('a themed stylesheet end to end', () => {
   const css = `:root { --fr-ink: oklch(0.2 0 0); --fr-paper: oklch(0.98 0 0); }
     :root[data-theme='t'][data-mode='light'] { --fr-paper: oklch(0.5 0 0); }`;
+
   const pairs = [{ foreground: ['ink'], background: ['paper'], minimum: 4.5 }];
+
   const failing = (attributes: Record<string, string>): boolean[] =>
     measurePairs(cascade(parseTokenRules([css]), attributes), pairs).map(({ ratio, minimum }) => ratio < minimum);
 

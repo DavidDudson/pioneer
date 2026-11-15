@@ -23,9 +23,11 @@ function generated(): NamedCharacter {
     namedCharacter.filter(({ ids }) => ids.length >= MIN_IDS),
     SAMPLES,
   );
+
   if (character === undefined) {
     throw new Error('Expected a generated character with content');
   }
+
   return character;
 }
 
@@ -36,12 +38,14 @@ function required<Value>(value: Value | undefined): Value {
   if (value === undefined) {
     throw new Error('Expected a value');
   }
+
   return value;
 }
 
 /** A feat as the content tables hold it, filed under `slug` in the test pack. */
 function featNamed(slug: EntrySlug): ContentEntry {
   const [template] = new ContentPackBuilder().withId(TEST_PACK).withFeat('template').build().otherEntries;
+
   return { ...required(template), slug, id: ContentId.parse(contentId(TEST_PACK, slug)) };
 }
 
@@ -63,6 +67,7 @@ function packOf(entries: readonly ContentEntry[]): EmbeddedPack {
 
 function slugsOf(result: PioneerExportResult): string[] {
   const entries = result.ok ? (result.file.homebrew?.flatMap((pack) => pack.entries) ?? []) : [];
+
   return entries.map((entry) => entry.slug).toSorted();
 }
 
@@ -73,6 +78,7 @@ function unnamedOf(result: PioneerExportResult): ContentId[] {
 const unusedEntry = featNamed(EntrySlug.parse('feat:unused'));
 const homebrewIds = [carriedId, ...otherIds].map((id) => required(id));
 const homebrewSlugs = homebrewIds.map((id) => String(entryFor(id).slug)).toSorted();
+
 function officialOnly(id: ContentId): ContentReference | undefined {
   return id === officialId ? references.get(id) : undefined;
 }

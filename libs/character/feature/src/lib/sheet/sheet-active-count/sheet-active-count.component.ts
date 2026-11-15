@@ -18,6 +18,7 @@ export class SheetActiveCount {
 
   protected readonly count = computed((): number => {
     const read = this.#play.play.data();
+
     return read === undefined ? 0 : activeCount(read.play);
   });
 }

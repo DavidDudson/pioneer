@@ -28,6 +28,7 @@ const SKILLS = [
   'survival',
   'thievery',
 ] as const;
+
 export type SkillFixture = (typeof SKILLS)[number] | 'scribing-lore';
 
 /** The id of a skill's statistic in `skillFixtures`: `athletics`, `scribing-lore`. */
@@ -38,9 +39,11 @@ export function skillFixtureId(name: SkillFixture): ContentId {
 /** A pack of Player Core's skills as statistics (`skill:athletics`), and Scribing Lore (`skill:lore:scribing`). */
 export function skillFixtures(): ContentPack {
   const builder = new ContentPackBuilder().withId(SKILL_PACK);
+
   for (const skill of SKILLS) {
     builder.withStatistic(skill, { selector: `skill:${skill}`, domains: ['skill-check'] });
   }
+
   return builder
     .withStatistic('scribing-lore', {
       name: 'Scribing Lore',

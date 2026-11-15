@@ -44,6 +44,7 @@ const FoundryClassSystem = z.looseObject({
   skillFeatLevels: FoundryLevels.optional(),
   skillIncreaseLevels: FoundryLevels.optional(),
 });
+
 type FoundryClassSystem = z.infer<typeof FoundryClassSystem>;
 
 /** First levels and spacing of Player Core's shared slots: ancestry feats at 1, 5, 9…; skill feats at 2, 4, 6…. */
@@ -69,7 +70,9 @@ const SHARED_SLOT_LEVELS = {
   skillFeatLevels: everyLevel(SKILL_FEAT_FIRST, SKILL_STEP),
   skillIncreaseLevels: everyLevel(SKILL_INCREASE_FIRST, SKILL_STEP),
 } as const;
+
 type SharedSlot = keyof typeof SHARED_SLOT_LEVELS;
+
 const SHARED_SLOTS: readonly SharedSlot[] = [
   'ancestryFeatLevels',
   'generalFeatLevels',
@@ -113,6 +116,7 @@ const SUBCLASS_TAGS: ReadonlyMap<string, string> = new Map([
  */
 function startingRanks(system: FoundryClassSystem): (readonly [string, number])[] {
   const { savingThrows, attacks, defenses } = system;
+
   return [
     ['perception', system.perception],
     ['save:fortitude', savingThrows.fortitude],
@@ -135,14 +139,18 @@ function startingRanks(system: FoundryClassSystem): (readonly [string, number])[
 function proficiencies(system: FoundryClassSystem, input: KindInput): void {
   for (const [selector, rank] of startingRanks(system)) {
     const raised = RANKS[rank];
+
     if (raised !== undefined) {
       addRule(input, selector, { key: RuleElementKey.Proficiency, selector, rank: raised });
     }
   }
+
   const { other } = system.attacks;
+
   if (other !== undefined && other.rank > 0) {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'attacks.other', raw: other });
   }
+
   trainSkills(system.trainedSkills, input);
 }
 
@@ -156,6 +164,7 @@ function sameLevels(levels: readonly number[], schedule: readonly number[]): boo
  */
 function reportAncestryFeatLevels(system: FoundryClassSystem, { log }: KindInput): void {
   const ancestryLevels = system.ancestryFeatLevels?.value ?? ANCESTRY_FEAT_LEVELS;
+
   if (!sameLevels(ancestryLevels, ANCESTRY_FEAT_LEVELS)) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'ancestryFeatLevels', raw: ancestryLevels });
   }
@@ -164,14 +173,17 @@ function reportAncestryFeatLevels(system: FoundryClassSystem, { log }: KindInput
 /** The class's data, unparsed; undefined when its `system` is not shaped as a class's. */
 export function classData(input: KindInput): object | undefined {
   const system = systemOf(FoundryClassSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   proficiencies(system, input);
   grantItems(system.items, 'items', input);
   slots(system, input);
   const [keyAttribute = []] = attributeSlots({ '0': system.keyAbility }, 'keyAbility', input.log);
   const subclass = SUBCLASS_TAGS.get(slugName(input.envelope.slug));
+
   return {
     keyAttribute,
     hitPoints: system.hp,

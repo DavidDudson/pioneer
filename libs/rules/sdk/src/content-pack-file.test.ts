@@ -49,6 +49,7 @@ const ancestry = entry(
   },
   { traits: ['humanoid', 'lizardfolk'] },
 );
+
 const creature = entry(
   {
     kind: 'creature',
@@ -69,6 +70,7 @@ const creature = entry(
   },
   { level: 1, traits: ['animal'] },
 );
+
 const statistic = entry({
   kind: 'statistic',
   slug: 'statistic:swim-check',
@@ -80,6 +82,7 @@ const statistic = entry({
     keyAttribute: 'str',
   },
 });
+
 const variantRule = entry(
   { kind: 'variant-rule', slug: 'variant-rule:flat-bonus', data: {} },
   {
@@ -91,6 +94,7 @@ const variantRule = entry(
     ],
   },
 );
+
 const language = entry({ kind: 'language', slug: 'language:common', data: {} });
 
 describe('contentPackFromFiles', () => {

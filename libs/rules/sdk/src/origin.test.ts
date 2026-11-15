@@ -10,6 +10,7 @@ import { SourceKind, SourceRef } from './source-ref';
 
 function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   const result = schema.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

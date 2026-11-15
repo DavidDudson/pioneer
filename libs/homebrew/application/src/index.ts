@@ -1,19 +1,37 @@
 export { AuthorDirectory } from './author-directory';
+
 export { HomebrewMessage } from './homebrew-message';
+
 export { type GuardedChange, type HomebrewAudit, HomebrewPackRepository } from './homebrew-pack-repository';
+
 export { HomebrewPackService } from './homebrew-pack-service';
+
 export { InMemoryAuthorDirectory } from './in-memory-author-directory';
+
 export { InMemoryHomebrewPackRepository } from './in-memory-homebrew-pack-repository';
+
 export { InMemoryPackEnablementDirectory } from './in-memory-pack-enablement-directory';
+
 export { PackAccessPolicy } from './pack-access-policy';
+
 export { PackEnablementDirectory } from './pack-enablement-directory';
+
 export { DependencyUsageDirectory } from './dependency-usage-directory';
+
 export { InMemoryDependencyUsageDirectory } from './in-memory-dependency-usage-directory';
+
 export { InMemoryPackDependencyRepository } from './in-memory-pack-dependency-repository';
+
 export { InMemoryPackDirectory, type OfficialPack } from './in-memory-pack-directory';
+
 export { PackDependencyRepository } from './pack-dependency-repository';
+
 export { PackDependencyService, type PackDependencyPorts } from './pack-dependency-service';
+
 export { PackDirectory, type ListedPack, type ReadablePack } from './pack-directory';
+
 export { HomebrewBundleService, type HomebrewBundlePorts } from './homebrew-bundle-service';
+
 export { PackBundleSource } from './pack-bundle-source';
+
 export { InMemoryPackBundleSource } from './in-memory-pack-bundle-source';

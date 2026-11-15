@@ -28,6 +28,7 @@ function characterOf(className: PlayerCoreClass): Character {
 
 async function registry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
+
   return TestBed.inject(ContentLoader).registry(CHARACTER_CONTENT_KINDS);
 }
 

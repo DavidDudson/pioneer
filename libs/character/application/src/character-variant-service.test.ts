@@ -65,9 +65,11 @@ function variantContent(): ContentSource {
     registry: async (packs = []): Promise<ContentRegistry> => {
       const registry = new ContentRegistry();
       registry.register(official);
+
       if (packs.includes(brew)) {
         registry.register(homebrew);
       }
+
       return registry;
     },
   };
@@ -116,12 +118,14 @@ describe('CharacterVariantService', () => {
 
   async function enabledNames(): Promise<readonly string[]> {
     const rules = await service.variantRules(amiri, kyra.id);
+
     return names(rules.enabled);
   }
 
   /** The ids of the variant rules the content resolves for Kyra, in id order. */
   async function resolvedIds(content: CharacterContent): Promise<readonly VariantRuleId[]> {
     const entries = await content.variantRules(kyra);
+
     return entries.map(({ id }) => id).toSorted();
   }
 

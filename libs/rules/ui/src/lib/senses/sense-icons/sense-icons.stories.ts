@@ -10,6 +10,7 @@ const meta: Meta<SenseIcons> = {
   component: SenseIcons,
   args: { entryNames: SENSE_NAMES },
 };
+
 export default meta;
 
 /** While the engine's inputs load: a skeleton. */

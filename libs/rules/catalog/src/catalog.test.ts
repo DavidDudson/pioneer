@@ -150,6 +150,7 @@ describe('content catalog', () => {
   test('a pack that cites an unregistered book fails to load', async () => {
     const homebrew = PackId.parse('homebrew');
     const slug = EntrySlug.parse('language:iruxi');
+
     const language = {
       id: contentId(homebrew, slug),
       pack: homebrew,
@@ -163,12 +164,15 @@ describe('content catalog', () => {
       rules: [],
       data: {},
     };
+
     const packFile = { id: homebrew, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
     const loader = checkedLoader('homebrew', async () => packContentsFromFiles(packFile, [[language]]));
+
     const failure: unknown = await loader.load().then(
       () => undefined,
       (error: unknown) => error,
     );
+
     expect(failure).toBeInstanceOf(SourceCheckError);
   });
 });

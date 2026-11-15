@@ -50,6 +50,7 @@ function kindCoverage(
 ): KindCoverage {
   const gaps = new Map(items.map((item) => [contentKey(item.pack, item.slug), item.gaps]));
   const gapsOf = (entry: ContentEntry): readonly BacklogGap[] => gaps.get(contentKey(entry.pack, entry.slug)) ?? [];
+
   return {
     kind,
     entries: entries.length,
@@ -68,6 +69,7 @@ export function importCoverage(
 ): readonly KindCoverage[] {
   const items = backlog.filter((item) => isEntryItem(item));
   const kinds = new Set<ContentKind>([...entries.map(({ kind }) => kind), ...items.map(({ slug }) => slugKind(slug))]);
+
   return [...kinds].toSorted().map((kind) =>
     kindCoverage(
       kind,
@@ -87,6 +89,7 @@ export interface CreatureCoverage {
 /** Creatures per role and level, roles then levels ascending, over the creature entries among `entries`. */
 export function creatureCoverage(entries: readonly ContentEntry[]): readonly CreatureCoverage[] {
   const counts = new Map<string, CreatureCoverage>();
+
   for (const entry of entries) {
     if (entry.kind === ContentKind.Creature) {
       const { role } = entry.data;
@@ -95,6 +98,7 @@ export function creatureCoverage(entries: readonly ContentEntry[]): readonly Cre
       counts.set(key, { role, level, count: (counts.get(key)?.count ?? 0) + 1 });
     }
   }
+
   return [...counts.values()].toSorted(
     (left, right) => left.role.localeCompare(right.role) || left.level - right.level,
   );

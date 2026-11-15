@@ -13,6 +13,7 @@ export function textOf(element: Element | null | undefined): string {
 export function regionsOf(root: HTMLElement): (string | boolean)[][] {
   return [...root.querySelectorAll('router-outlet ~ * section')].map((region) => {
     const heading = present(region.querySelector('h2'));
+
     return [heading.textContent.trim(), region.getAttribute('aria-labelledby') === heading.id];
   });
 }
@@ -44,9 +45,12 @@ export async function openSheetActions(root: HTMLElement): Promise<HTMLElement> 
   const trigger = await vi.waitFor(() =>
     present(root.querySelector<HTMLButtonElement>('pio-sheet-header-actions button[aria-label="Sheet actions"]')),
   );
+
   trigger.click();
+
   return vi.waitFor(() => {
     render();
+
     return present(document.querySelector<HTMLElement>('[role="group"][aria-label="Sheet actions"]'));
   });
 }
@@ -63,6 +67,7 @@ export function fakeDialog(): void {
       },
     });
   }
+
   vi.stubGlobal(
     'ResizeObserver',
     class {
@@ -73,6 +78,7 @@ export function fakeDialog(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of DIALOG_METHODS) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }
@@ -101,11 +107,13 @@ export async function openLevel(root: HTMLElement, level: number): Promise<void>
   ).click();
   await vi.waitFor(async () => {
     await settle();
+
     const region = present(
       root.querySelector(
         level === 0 ? 'section[aria-labelledby="sheet-identity"]' : `section[aria-labelledby="sheet-level-${level}"]`,
       ),
     );
+
     expect(region.closest('.hidden')).toBeNull();
   });
 }
@@ -115,6 +123,7 @@ export async function openActionKind(root: HTMLElement, kind: string): Promise<v
   const tab = await vi.waitFor(() =>
     present([...root.querySelectorAll<HTMLElement>('[role="tab"]')].find((candidate) => textOf(candidate) === kind)),
   );
+
   tab.click();
   await settle();
   render();
@@ -125,11 +134,14 @@ export async function summaryOf(root: HTMLElement, name: string): Promise<string
   const row = await vi.waitFor(() =>
     present([...root.querySelectorAll('pio-action-row')].find((candidate) => textOf(candidate).includes(name))),
   );
+
   present(row.querySelector('fr-hover-card a, fr-hover-card fr-text')).dispatchEvent(
     new FocusEvent('focusin', { bubbles: true }),
   );
+
   return vi.waitFor(() => {
     render();
+
     return textOf(present(document.querySelector('pio-action-summary')));
   });
 }

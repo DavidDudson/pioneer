@@ -18,6 +18,7 @@ export const EquipmentKind = {
   Treasure: ContentKind.Treasure,
   Kit: ContentKind.Kit,
 } as const;
+
 export type EquipmentKind = ValueOf<typeof EquipmentKind>;
 
 export type EquipmentEntry = Extract<ContentEntry, { readonly kind: EquipmentKind }>;
@@ -30,14 +31,17 @@ export function isEquipment(entry: ContentEntry): entry is EquipmentEntry {
 
 /** How an item is used as a facet value: Foundry's usage, and `etched` for a rune. */
 export const UsageValue = { ...UsageType, Etched: 'etched' } as const;
+
 export type UsageValue = ValueOf<typeof UsageValue>;
 
 /** A price in copper pieces, the one currency prices compare in. */
 export const CopperValue = z.int().nonnegative().brand<'CopperValue'>();
+
 export type CopperValue = z.infer<typeof CopperValue>;
 
 /** Bulk in tenths, so light (a tenth) and negligible order below 1 Bulk: 1 Bulk is 10. */
 export const BulkTenths = z.int().nonnegative().brand<'BulkTenths'>();
+
 export type BulkTenths = z.infer<typeof BulkTenths>;
 
 /** Tenths in one Bulk: the bulk facet's scale. */
@@ -64,11 +68,13 @@ const BULK_WEIGHT_TENTHS: Readonly<Record<BulkWeight, BulkTenths>> = {
 const MAGIC_TRAITS: ReadonlySet<Trait> = new Set(
   ['magical', 'arcane', 'divine', 'occult', 'primal'].map((trait) => Trait.parse(trait)),
 );
+
 const CONSUMABLE = Trait.parse('consumable');
 
 /** A price as printed, in copper: a batch's price ("1 sp for 10") is the batch's, not one item's. */
 export function priceInCopper({ coins }: Price): CopperValue {
   const total = Object.values(Coin).reduce((sum, coin) => sum + (coins[coin] ?? 0) * COPPER_PER_COIN[coin], 0);
+
   return CopperValue.parse(total);
 }
 
@@ -101,9 +107,11 @@ const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, readonly UsageValue[]>
  */
 export function itemUsage(entry: EquipmentEntry): readonly (UsageValue | undefined)[] {
   const fixed = FIXED_USAGE[entry.kind];
+
   if (fixed !== undefined) {
     return fixed;
   }
+
   return 'usage' in entry.data ? [entry.data.usage?.type] : [undefined];
 }
 

@@ -22,11 +22,15 @@ import {
 
 const later = fixedClock('2030-01-01T00:00:00Z').now();
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LEVEL_MAX = 20;
+
 /** Each run builds and reads a character up to level 20: more outrun a test's timeout on a busy CI runner. */
 const RUNS = 30;
 const FEATS = ['brawn', 'brutish-shove', 'keen-eye', 'knockdown', 'lunge', 'power-attack'] as const;
@@ -42,17 +46,20 @@ describe('changing level', () => {
           .picking('class', FEAT_SLOT_FIGHTER)
           .picking('boost:1:class:0', 'str')
           .atLevel(start);
+
         for (const [slot, feat] of Object.entries(chosen)) {
           if (feat !== undefined) {
             builder = builder.picking(FEAT_SLOT_KEYS[slot as keyof typeof FEAT_SLOT_KEYS], featSlotFixtureId(feat));
           }
         }
+
         const original = builder.build();
         const down = original.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(lowered) }, later);
         const restored = down.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(start) }, later);
 
         expect(down.document.build.choices).toStrictEqual(original.document.build.choices);
         expect(characterSlots(restored.document, content)).toStrictEqual(characterSlots(original.document, content));
+
         for (const slot of characterSlots(down.document, content)) {
           if (slot.status === SlotStatus.Planned) {
             expect(slot.level).toBeGreaterThan(lowered);
@@ -71,16 +78,20 @@ describe('changing level', () => {
             .picking('class', FEAT_SLOT_FIGHTER)
             .picking('boost:1:class:0', 'str')
             .atLevel(at);
+
           for (const [slot, feat] of Object.entries(chosen)) {
             if (feat !== undefined) {
               builder = builder.picking(FEAT_SLOT_KEYS[slot as keyof typeof FEAT_SLOT_KEYS], featSlotFixtureId(feat));
             }
           }
+
           return builder;
         };
+
         const planned = build(planningAt)
           .build()
           .apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(levelledTo) }, later);
+
         const direct = build(levelledTo).build();
 
         expect(planned.document.build.choices).toStrictEqual(direct.document.build.choices);

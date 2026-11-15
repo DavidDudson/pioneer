@@ -37,6 +37,7 @@ const enabled: EffectiveVariants = {
   of: async (): Promise<readonly VariantRuleId[]> => {
     const registry = new ContentRegistry();
     registry.register(brewPack);
+
     return registry.variantRules().map((entry) => entry.id);
   },
 };
@@ -60,22 +61,26 @@ class Packs implements ContentSource {
     this.asked = packs;
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+
     for (const pack of [brewPack, livePack]) {
       if (packs.includes(contentPackId(pack.id))) {
         registry.register(pack);
       }
     }
+
     return registry;
   }
 }
 
 async function kyra(): Promise<Character> {
   const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
   const service = new CharacterService(
     new InMemoryCharacterRepository(),
     fixedContent(core),
     fixedClock('2026-10-16T10:00:00Z'),
   );
+
   return service.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
 }
 
@@ -86,9 +91,11 @@ function build(options: { readonly readable: boolean }): Built {
     publisher: PackPublisher.parse('Ezren'),
     readers: options.readable ? [amiri] : [],
   });
+
   const source = new Packs();
   const packs = new InForce();
   const held = new HeldContentPacks(holdsBrew, catalog);
+
   return { content: new CharacterContent(source, packs, { variants: enabled, held }), packs, source };
 }
 

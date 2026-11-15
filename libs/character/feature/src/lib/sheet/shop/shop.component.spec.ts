@@ -18,6 +18,7 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 const listed = (scope: Element): string[] =>
   [...scope.querySelectorAll('pio-shop-offers fr-list-item')].flatMap((item) => {
     const name = item.querySelector('fr-text');
+
     return name === null ? [] : [name.textContent.trim()];
   });
 
@@ -32,6 +33,7 @@ async function kitsOf(shop: HTMLElement): Promise<HTMLElement> {
     const kits = present(shop.querySelector('pio-shop-kits'));
     expect(listed(kits)).not.toHaveLength(0);
   });
+
   return present(shop.querySelector<HTMLElement>('pio-shop-kits'));
 }
 
@@ -40,6 +42,7 @@ async function pickKit(shop: HTMLElement, name: string): Promise<HTMLElement> {
   const kits = await kitsOf(shop);
   present(kits.querySelector<HTMLElement>(`button[aria-label="Pick ${name}"]`)).click();
   await settle();
+
   return present(kits.querySelector<HTMLElement>('pio-shop-kit-order'));
 }
 
@@ -66,6 +69,7 @@ const chip = (shop: HTMLElement, label: string): HTMLElement =>
 async function pickOffer(shop: HTMLElement, name: string): Promise<HTMLElement> {
   present(shop.querySelector<HTMLElement>(`button[aria-label="Pick ${name}"]`)).click();
   await settle();
+
   return present(shop.querySelector<HTMLElement>('pio-shop-order'));
 }
 
@@ -73,6 +77,7 @@ async function pickOffer(shop: HTMLElement, name: string): Promise<HTMLElement> 
 const bill = (order: HTMLElement): string[] =>
   [...order.querySelectorAll('pio-shop-bill fr-description-item')].map((item) => {
     const value = present(item.querySelector('fr-text')).textContent.trim();
+
     return `${item.textContent.replace(value, '').trim()}: ${value}`;
   });
 

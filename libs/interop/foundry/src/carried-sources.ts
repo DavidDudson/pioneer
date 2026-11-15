@@ -20,9 +20,11 @@ function located(source: SourceRef, previous: ReadonlyMap<BookId, BookSource>): 
   if (source.kind !== SourceKind.Book) {
     return source;
   }
+
   const before = previous.get(source.book);
   const page = source.page ?? before?.page;
   const aon = source.aon ?? before?.aon;
+
   return {
     ...source,
     ...(page === undefined ? {} : { page }),
@@ -36,12 +38,16 @@ export function carrySources(
   existing: readonly ContentEntry[],
 ): readonly ContentEntry[] {
   const replaced = new Map(existing.map((entry) => [contentKey(entry.pack, entry.slug), entry]));
+
   return entries.map((entry) => {
     const before = replaced.get(contentKey(entry.pack, entry.slug));
+
     if (before === undefined) {
       return entry;
     }
+
     const previous = bookSources(before);
+
     return { ...entry, sources: entry.sources.map((source) => located(source, previous)) };
   });
 }

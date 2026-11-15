@@ -9,9 +9,11 @@ import { ActionOriginKind, ActionStatus, availableActions } from './available-ac
 import type { ActionCandidate, AvailableAction } from './available-actions';
 
 const SKILLS = ['athletics', 'thievery', 'arcana'].map((skill) => Selector.parse(`skill:${skill}`));
+
 const OPTIONS = ['self:effect:shield-raised', 'self:effect:rage', 'target:trait:undead'].map((option) =>
   RollOption.parse(option),
 );
+
 const RANKS = Object.values(Proficiency);
 const MAX_ACTIONS = 8;
 const ID_DIGITS = 12;
@@ -65,6 +67,7 @@ function candidateOf({ requirement, wording, minimum, frequency }: Spec, index: 
 function run(specs: readonly Spec[], held: readonly RollOption[], ranks: readonly Rank[]): readonly AvailableAction[] {
   const candidates = specs.map((one, index) => candidateOf(one, index));
   const spent = candidates.filter((_candidate, index) => specs[index]?.spent === true);
+
   return availableActions({
     candidates,
     facts: new PredicateFacts(held, CORE_NAMESPACES),
@@ -103,9 +106,11 @@ describe('availableActions properties', () => {
       property(world, integer({ min: 0, max: OPTIONS.length }), ({ specs, held, ranks }, extra) => {
         const base = run(specs, held, ranks);
         const more = run(specs, [...new Set([...held, ...OPTIONS.slice(0, extra)])], ranks);
+
         for (const index of selfGated(specs)) {
           const lost =
             base[index]?.status === ActionStatus.Available && more[index]?.status === ActionStatus.Unavailable;
+
           expect(lost).toBe(false);
         }
       }),

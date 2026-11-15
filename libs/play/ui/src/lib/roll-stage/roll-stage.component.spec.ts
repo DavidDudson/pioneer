@@ -54,16 +54,20 @@ interface Rendered {
 
 async function render(): Promise<Rendered> {
   const surfaces: HTMLElement[] = [];
+
   const factory: DiceRollerFactory = async (surface) => {
     surfaces.push(surface);
+
     return { roll: async () => Promise.withResolvers<undefined>().promise, dispose: () => undefined };
   };
+
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
     providers: [providePlayUiI18nTesting(), { provide: DICE_ROLLER_FACTORY, useValue: factory }],
   });
   const fixture = TestBed.createComponent(RollStage);
   await fixture.whenStable();
+
   return { fixture, presenter: TestBed.inject(RollPresenter), surfaces };
 }
 

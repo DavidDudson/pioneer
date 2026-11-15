@@ -33,17 +33,20 @@ async function runFile(file: string): Promise<FileRun> {
   const output = await new Response(child.stdout).text();
   process.stdout.write(output);
   const exitCode = await child.exited;
+
   return { output, passed: exitCode === 0 };
 }
 
 const outputs: string[] = [];
 const failed: string[] = [];
+
 for (const file of files) {
   console.log(`\n== ${file}`);
   // Sequential on purpose: parallel benches would time each other.
   // oxlint-disable-next-line eslint/no-await-in-loop
   const { output, passed } = await runFile(file);
   outputs.push(output);
+
   if (!passed) {
     failed.push(file);
   }
@@ -51,12 +54,17 @@ for (const file of files) {
 
 const results = parseResults(outputs.join('\n'));
 const { out } = values;
+
 await mkdir(path.dirname(out), { recursive: true });
+
 await Bun.write(out, `${JSON.stringify(toTrackerEntries(results), undefined, 2)}\n`);
+
 if (values.summary !== undefined) {
   await Bun.write(values.summary, `${toMarkdownTable(results)}\n`);
 }
+
 console.log(`\n${results.length} benchmarks from ${files.length} files, written to ${out}`);
+
 if (failed.length > 0) {
   console.error(`failed: ${failed.join(', ')}`);
   process.exitCode = 1;

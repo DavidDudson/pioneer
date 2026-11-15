@@ -20,6 +20,7 @@ export const SpellGapReason = {
   /** The character has the innate entry of the feat that grants it, but the entry does not grant the spell: another pick, or another rank (ADR-0067). */
   NotGranted: 'not-granted',
 } as const;
+
 export type SpellGapReason = (typeof SpellGapReason)[keyof typeof SpellGapReason];
 
 /** A matched spell no slot took: the caster it was listed under, the rank it was listed at and why. */
@@ -29,6 +30,7 @@ export const SpellGap = z.object({
   name: PathbuilderName,
   reason: z.enum(SpellGapReason),
 });
+
 export type SpellGap = z.infer<typeof SpellGap>;
 
 /** The picks for the character's prepared and repertoire slots, and the matched spells no slot took. */
@@ -55,6 +57,7 @@ export function listed(caster: ImportedCaster, lookup: ContentLookup): Listed[] 
   return caster.ranks.flatMap(({ rank, spells }) =>
     spells.flatMap((name): Listed[] => {
       const match = lookup.resolve(ImportKind.Spell, name);
+
       return match === undefined ? [] : [{ name, rank, id: ContentId.parse(match.id) }];
     }),
   );

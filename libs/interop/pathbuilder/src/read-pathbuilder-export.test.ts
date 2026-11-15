@@ -12,19 +12,23 @@ import type { PathbuilderImport } from './read-pathbuilder-export';
 
 function read(input: unknown): PathbuilderImport {
   const result = readPathbuilderExport(input);
+
   if (!result.ok) {
     throw new Error(`Expected a readable export, got ${result.problem}`);
   }
+
   return result.value;
 }
 
 function problemOf(input: unknown): PathbuilderProblem | undefined {
   const result = readPathbuilderExport(input);
+
   return result.ok ? undefined : result.problem;
 }
 
 function issuePaths(input: unknown): readonly (readonly PropertyKey[])[] {
   const result = readPathbuilderExport(input);
+
   return result.ok ? [] : result.issues.map((issue) => issue.path);
 }
 
@@ -164,6 +168,7 @@ describe('readPathbuilderExport: golden fixture (Mordred)', () => {
     ]);
   });
 });
+
 describe('readPathbuilderExport', () => {
   test('reads JSON text as well as a parsed object', () => {
     expect(read(JSON.stringify(minimal))).toEqual(read(minimal));
@@ -188,6 +193,7 @@ describe('readPathbuilderExport', () => {
       classBoosts: [],
       mapLevelledBoosts: {},
     };
+
     const abilities = { ...minimal.build.abilities, breakdown };
     const value = read({ ...minimal, build: { ...minimal.build, abilities } });
     expect(value.flaws).toStrictEqual([Attribute.Intelligence, Attribute.Charisma]);

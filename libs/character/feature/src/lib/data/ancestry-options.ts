@@ -16,6 +16,7 @@ export class AncestryOptions {
   /** Every loaded ancestry with the facts to choose by, by name; none while the content loads. */
   public readonly rows = computed((): readonly AncestryPickerRow[] => {
     const registry = this.#registry.data();
+
     return registry === undefined ? [] : ancestryRows(registry, undefined);
   });
 
@@ -27,7 +28,9 @@ export class AncestryOptions {
     if (id === undefined) {
       return '';
     }
+
     const ancestry = AncestryId.safeParse(id);
+
     return (ancestry.success ? this.#registry.data()?.ancestry(ancestry.data)?.definition.name : undefined) ?? id;
   }
 }

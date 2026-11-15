@@ -31,6 +31,7 @@ describe(checkFormula, () => {
       ],
       position: 1,
     };
+
     expect(checkFormula('max(1,@level)', NONE)).toStrictEqual({
       status: CheckStatus.Valid,
       canonical: 'max(1, @level)',
@@ -55,6 +56,7 @@ describe(checkFormula, () => {
       position: 5,
       pointer: '1 + @level\n    ^',
     };
+
     expect(checkFormula('1 + @level', typed(3, false))).toMatchObject({ evaluation: unknown });
     expect(checkFormula('1 + @level', typed(1_000_000))).toMatchObject({ evaluation: unknown });
   });

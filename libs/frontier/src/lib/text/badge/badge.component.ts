@@ -13,6 +13,7 @@ export const BadgeTone = {
   Warning: 'warning',
   Info: 'info',
 } as const;
+
 export type BadgeTone = ValueOf<typeof BadgeTone>;
 
 export const BadgeVariant = {
@@ -21,6 +22,7 @@ export const BadgeVariant = {
   /** Filled with the tone. For the one badge that must stand out, such as a condition. */
   Solid: 'solid',
 } as const;
+
 export type BadgeVariant = ValueOf<typeof BadgeVariant>;
 
 /**

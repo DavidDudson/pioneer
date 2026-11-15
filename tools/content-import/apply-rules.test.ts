@@ -24,6 +24,7 @@ function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
 
 const ruleGap = { type: BacklogGapType.Rule, key: 'FlatModifier', raw: { key: 'FlatModifier' } } as const;
 const enricher = { type: BacklogGapType.Enricher, enricher: '@UUID[spells-srd]' } as const;
+
 function item(gaps: readonly (typeof ruleGap | typeof enricher)[]): BacklogItem {
   return { type: BacklogItemType.Entry, pack, slug, gaps };
 }

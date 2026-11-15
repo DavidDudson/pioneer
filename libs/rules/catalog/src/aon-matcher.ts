@@ -44,6 +44,7 @@ const FALLBACK_KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> =
   Equipment: EQUIPMENT_FALLBACK_KINDS,
   Feats: [ContentKind.Action],
 };
+
 const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_KINDS_BY_PAGE).flat());
 
 /**
@@ -106,6 +107,7 @@ function pageOf(url: AonUrl): string {
 function nameVariants(name: string): readonly string[] {
   const withoutParenthetical = name.replace(/\s*\([^)]*\)\s*$/u, '');
   const withoutSuffix = withoutParenthetical.replace(/,.*$/u, '');
+
   return [...new Set([name, withoutParenthetical, withoutSuffix, `${withoutSuffix}s`])];
 }
 
@@ -118,16 +120,20 @@ function indexKey(name: string, kind: ContentKind, fallback = false): string {
 
 function indexListing({ entries }: AonListing): ListingIndex {
   const index = new Map<string, AonUrl[]>();
+
   for (const { name, url } of entries) {
     const page = pageOf(url);
+
     const keys = [
       ...(KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind)),
       ...(FALLBACK_KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind, true)),
     ];
+
     for (const key of keys) {
       index.set(key, [...(index.get(key) ?? []), url]);
     }
   }
+
   return index;
 }
 
@@ -138,6 +144,7 @@ function openSource(entry: AonMatchable, listings: ReadonlyMap<BookId, ListingIn
       return source.book;
     }
   }
+
   return undefined;
 }
 
@@ -151,16 +158,19 @@ function candidatesIn(index: ListingIndex, entry: AonMatchable, fallback: boolea
   for (const name of nameVariants(entry.name)) {
     const rows = index.get(indexKey(name, entry.kind, fallback));
     const found = rows === undefined ? [] : [...new Set(rows)];
+
     if (found.length > 0) {
       return found;
     }
   }
+
   return [];
 }
 
 /** The candidates on the entry's own pages, else, for a weapon, armor or shield, on the Equipment page. */
 function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[] {
   const own = candidatesIn(index, entry, false);
+
   return own.length > 0 || !FALLBACK_KINDS.has(entry.kind) ? own : candidatesIn(index, entry, true);
 }
 
@@ -170,6 +180,7 @@ function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[]
  */
 function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undefined): readonly AonUrl[] {
   const inBook = printed === undefined ? [] : urls.filter((url) => printed.has(url));
+
   return inBook.length === 1 ? inBook : urls;
 }
 
@@ -183,6 +194,7 @@ function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undef
 function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[] {
   const pages = new Set(urls.map((url) => pageOf(url)));
   const ids = urls.map((url) => ({ url, id: Number(new URL(url).searchParams.get('ID')) }));
+
   if (
     urls.length < 2 ||
     pages.size !== 1 ||
@@ -192,7 +204,9 @@ function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[]
   ) {
     return urls;
   }
+
   const [top] = ids.toSorted((left, right) => right.id - left.id);
+
   return top === undefined ? urls : [top.url];
 }
 
@@ -204,7 +218,9 @@ function elsewhere(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingInde
   if (!EQUIPMENT_FALLBACK_KINDS.includes(entry.kind)) {
     return [];
   }
+
   const found = [...indexes.values()].flatMap((index) => candidates(index, entry));
+
   return [...new Set(found)];
 }
 
@@ -214,19 +230,24 @@ function matchEntry(
   printed: ReadonlyMap<BookId, ReadonlySet<AonUrl> | undefined>,
 ): Outcome {
   const book = openSource(entry, indexes);
+
   if (book === undefined) {
     return { kind: 'skipped' };
   }
+
   if (!LISTED_KINDS.has(entry.kind)) {
     return { kind: 'unlisted' };
   }
+
   const index = indexes.get(book);
   const own = index === undefined ? [] : newest(entry, printedIn(candidates(index, entry), printed.get(book)));
   const urls = own.length > 0 ? own : elsewhere(entry, indexes);
   const [url] = urls;
+
   if (urls.length > 1) {
     return { kind: 'ambiguous' };
   }
+
   return url === undefined ? { kind: 'unmatched' } : { kind: 'proposal', mapping: { book, aon: url } };
 }
 
@@ -245,16 +266,20 @@ export function proposeAonMappings(
 ): AonProposals {
   const indexes = new Map(listings.map((listing) => [listing.book, indexListing(listing)]));
   const printed = new Map(listings.map((listing) => [listing.book, listing.printed]));
+
   const results = entries
     .filter(({ slug }) => !mapped.has(slug))
     .map((entry) => ({ entry, outcome: matchEntry(entry, indexes, printed) }));
+
   const slugsOf = (kind: Outcome['kind']): readonly EntrySlug[] =>
     results.filter(({ outcome }) => outcome.kind === kind).map(({ entry }) => entry.slug);
+
   const proposals = new Map(
     results.flatMap(({ entry, outcome }): [EntrySlug, EnrichmentMapping][] =>
       outcome.kind === 'proposal' ? [[entry.slug, outcome.mapping]] : [],
     ),
   );
+
   return {
     proposals,
     ambiguous: slugsOf('ambiguous'),

@@ -39,6 +39,7 @@ const FORMULA_MAX = 200;
 const AMMUNITION_MAX = 8;
 
 const FoundryUses = z.looseObject({ max: z.number().nullish(), autoDestroy: z.boolean().nullish() }).nullish();
+
 type FoundryUses = z.infer<typeof FoundryUses>;
 
 const FoundryPublication = z.looseObject({ title: z.string().max(NAME_MAX).nullish() });
@@ -46,6 +47,7 @@ const FoundryPublication = z.looseObject({ title: z.string().max(NAME_MAX).nulli
 /** The spell a scroll or wand holds: Foundry embeds the whole spell document, with the rank it is cast at. */
 const FoundrySpellLevel = z.looseObject({ value: z.number() });
 const FoundrySpellLocation = z.looseObject({ heightenedLevel: z.number().nullish() });
+
 const FoundryHeldSpell = z.looseObject({
   name: z.string().max(NAME_MAX),
   system: z.looseObject({
@@ -55,6 +57,7 @@ const FoundryHeldSpell = z.looseObject({
     publication: FoundryPublication.nullish(),
   }),
 });
+
 type FoundryHeldSpell = z.infer<typeof FoundryHeldSpell>;
 
 const FoundryConsumableDamage = z.looseObject({
@@ -62,6 +65,7 @@ const FoundryConsumableDamage = z.looseObject({
   type: z.string().max(FIELD_MAX),
   kind: z.string().max(FIELD_MAX),
 });
+
 type FoundryConsumableDamage = z.infer<typeof FoundryConsumableDamage>;
 
 const FoundryConsumableSystem = FoundryPhysicalSystem.extend({
@@ -81,6 +85,7 @@ const FoundryAmmoSystem = FoundryPhysicalSystem.extend({
 /** Used up after one use unless Foundry gives more; `kept` when Foundry keeps it once spent (a wand). */
 function usesOf(uses: FoundryUses): object {
   const max = uses?.max ?? 1;
+
   return setFields({ uses: max > 1 ? max : undefined, kept: uses?.autoDestroy === false ? true : undefined });
 }
 
@@ -92,11 +97,15 @@ function damageOf(damage: FoundryConsumableDamage, log: GapLog): object | undefi
   if (damage.type === UNTYPED) {
     return { formula: fromFoundryFormula(damage.formula), kind: damage.kind };
   }
+
   const damageType = DamageTypeSchema.safeParse(damage.type);
+
   if (!damageType.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'damage.type', raw: damage.type });
+
     return undefined;
   }
+
   return { formula: fromFoundryFormula(damage.formula), damageType: damageType.data, kind: damage.kind };
 }
 
@@ -107,14 +116,17 @@ function damageOf(damage: FoundryConsumableDamage, log: GapLog): object | undefi
 function spellOf(held: FoundryHeldSpell, { references, log }: KindInput): object | undefined {
   const slug = asciiNameSlug(held.system.slug ?? held.name);
   const spell = resolveSlug(references, ContentKind.Spell, slug);
+
   if (spell === undefined) {
     report(log, {
       reason: KindDataGapReason.UnresolvedReference,
       field: 'spell',
       raw: { spell: slug, book: held.system.publication?.title ?? undefined },
     });
+
     return undefined;
   }
+
   return { spell, rank: held.system.location?.heightenedLevel ?? held.system.level.value };
 }
 
@@ -122,13 +134,17 @@ function spellOf(held: FoundryHeldSpell, { references, log }: KindInput): object
 export function consumableData(input: KindInput): object | undefined {
   const system = systemOf(FoundryConsumableSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const { log } = input;
+
   if (system.usage?.canBeAmmo === true) {
     report(log, { reason: KindDataGapReason.UnmappedField, field: 'usage.canBeAmmo', raw: true });
   }
+
   return {
     ...physical,
     category: system.category,
@@ -151,10 +167,13 @@ export function ammoData(input: KindInput): object | undefined {
   const system = systemOf(FoundryAmmoSystem, input);
   const baseItem = system?.baseItem ?? undefined;
   const physical = system && physicalData(system, input, stackSize(baseItem));
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const kinds = system.craftableAs ?? (baseItem === undefined ? [] : [baseItem]);
+
   return {
     ...physical,
     category: ConsumableCategory.Ammunition,

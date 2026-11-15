@@ -40,18 +40,22 @@ describe('a spend that records a staff cast', () => {
   const SLOT = slotCountKey(Slug.parse('sorcerer'), undefined, SpellRank.parse(1));
   const CAST = { item: STAFF, spell: ACTION, slot: SLOT };
   const CHARGES = ResourceCount.parse(2);
+
   const staffLimits: PlayLimits = {
     ...LIMITS,
     counted: { ...NO_SLOTS, slots: new Map([[SLOT, { max: ResourceCount.parse(1), boundary: Boundary.Day }]]) },
     staff: { ...NO_STAFF, castCost: CHARGES },
   };
+
   const staffPlay = (): PlayState => {
     const play = playIn(OWN_TURN);
+
     return {
       ...play,
       resources: { ...play.resources, staff: { [STAFF]: { max: ResourceCount.parse(4), spent: NONE } } },
     };
   };
+
   const cast = { ...spendOf(FIRST, ONE_ACTION), staff: CAST };
 
   test('pays the staff charges and the slot, and logs the cast with the spend', () => {
@@ -83,6 +87,7 @@ describe('a spend that records a staff cast', () => {
       counted: staffLimits.counted,
       points: { [Resource.HeroPoints]: ONE, [Resource.FocusPoints]: ONE },
     };
+
     const twice: SpendCommand = { ...cast, field: SpendCommandField.SpendAction };
     expect(spendRefusal(staffPlay(), { ...twice, slot: SLOT }, limits)).toBe(SpendProblem.PaymentConflict);
     expect(spendRefusal(staffPlay(), { ...twice, focus: true }, limits)).toBe(SpendProblem.PaymentConflict);
@@ -102,6 +107,7 @@ describe('a spend that records a staff cast', () => {
 
 describe('a spend that expends a slot or a Focus Point', () => {
   const SLOT = slotCountKey(Slug.parse('wizard'), undefined, SpellRank.parse(1));
+
   const withSlots: PlayLimits = {
     ...LIMITS,
     counted: { ...NO_SLOTS, slots: new Map([[SLOT, { max: ONE, boundary: Boundary.Day }]]) },

@@ -28,6 +28,7 @@ export class RoundLog {
   /** The rounds from the one that read `fingerprint` on; undefined when no round has read it. */
   public since(fingerprint: string): readonly Round[] | undefined {
     const start = this.#seen.get(fingerprint);
+
     return start === undefined ? undefined : this.#rounds.slice(start);
   }
 

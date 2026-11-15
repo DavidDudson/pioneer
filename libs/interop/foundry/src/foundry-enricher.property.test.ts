@@ -14,8 +14,10 @@ interface Source {
 
 const PART_MAX = 6;
 const TEXT_MAX = 20;
+
 /** Plain text: with no `[` or capital letter it opens no enricher, and with no `{` it is never read as a label. */
 const PLAIN = ['a', 'b', ' ', '.', '@', '/', ']', '}'];
+
 /** Everything enricher syntax is made of, for arbitrary input. */
 const SYNTAX = ['@', 'U', 'Check', '[', ']', '[[', ']]', '/', 'r', '{', '}', ' ', 'a', '|', ':'];
 
@@ -46,14 +48,17 @@ const words: Arbitrary<Source> = plain.map((text) => ({ text, parts: text === ''
 /** Adjacent text parts as one, as `enricherParts` returns them. */
 function mergedText(parts: readonly EnricherPart[]): EnricherPart[] {
   const out: EnricherPart[] = [];
+
   for (const part of parts) {
     const last = out.at(-1);
+
     if (typeof part === 'string' && typeof last === 'string') {
       out[out.length - 1] = `${last}${part}`;
     } else {
       out.push(part);
     }
   }
+
   return out;
 }
 

@@ -28,6 +28,7 @@ export const DEFINITIONS = [
     per: 'weapon',
   }),
 ];
+
 export const LONGSWORD = {
   slug: 'longsword',
   category: 'martial',
@@ -50,13 +51,17 @@ export function strikeOf(
     ranks: { 'attack:martial': 'trained', 'attack:simple': 'trained' },
     weapons: [wielded(weapon, weaponItem)],
   });
+
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
+
   const rules = placed.map(([element, entry, item], rule) =>
     inPlay(element, entry, item === undefined ? { rule } : { rule, item }),
   );
+
   const modifiers = { rules, facts };
   const results = deriveStatistics(content, inputs, modifiers);
+
   return deriveStrikes(inputs.weapons ?? [], results, {
     inputs: modifiers,
     scope: { statistics: content, character: inputs },

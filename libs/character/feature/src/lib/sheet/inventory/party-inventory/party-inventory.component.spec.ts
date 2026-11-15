@@ -75,6 +75,7 @@ function render(campaignId: string | undefined, loader: LoadContainer): Componen
   const fixture = TestBed.createComponent(PartyInventory);
   fixture.componentRef.setInput('names', names);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -83,6 +84,7 @@ function container(fixture: ComponentFixture<PartyInventory>): StubPartyInventor
   const found: unknown[] = fixture.debugElement
     .queryAll(By.directive(StubPartyInventory))
     .map((element): unknown => element.componentInstance);
+
   return found.find((each) => each instanceof StubPartyInventory);
 }
 
@@ -117,6 +119,7 @@ describe(PartyInventory, () => {
     const loader = vi.fn<LoadContainer>(async () => {
       throw new Error('offline');
     });
+
     const fixture = render(campaign, loader);
 
     await vi.waitFor(() => {

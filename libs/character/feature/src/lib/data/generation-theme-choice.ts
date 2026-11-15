@@ -31,9 +31,12 @@ export function themeOfChoice({ favoured, category, group, base }: GenerationThe
     category === undefined || (group === undefined && base === undefined)
       ? undefined
       : { category, ...(group === undefined ? {} : { group }), ...(base === undefined ? {} : { base }) };
+
   if (favoured.length === 0 && weapon === undefined) {
     return undefined;
   }
+
   const attributes = favoured.length === 0 ? NEUTRAL_THEME : favouring(favoured);
+
   return weapon === undefined ? attributes : withWeapon(attributes, weapon);
 }

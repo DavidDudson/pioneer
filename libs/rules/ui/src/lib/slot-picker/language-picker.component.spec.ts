@@ -58,6 +58,7 @@ describe(LanguagePicker, () => {
     const { host } = await render(LanguagePicker, {
       rows: [COMMON, languageRow({ id: 'draconic', name: 'Draconic', script: 'Iokharic' })],
     });
+
     expect(rowText(host, 0)).not.toContain('Iokharic');
     expect(rowText(host, 1)).toContain('Iokharic');
   });
@@ -66,6 +67,7 @@ describe(LanguagePicker, () => {
     const rendered = await render(LanguagePicker, {
       rows: [languageRow({ id: 'draconic', name: 'Draconic', script: 'Iokharic' }), COMMON],
     });
+
     sortButton(rendered.host, SCRIPT_HEADER).click();
     await settle(rendered.fixture);
     expect(rowLabels(rendered.host)).toStrictEqual(['Common', 'Draconic']);

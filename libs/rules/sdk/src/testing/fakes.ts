@@ -8,9 +8,11 @@ import { ContentKind } from '../content-kind';
 import { SlotKey } from '../selector';
 
 const SLUG_WORDS = 2;
+
 /** A slot key's trailing number, as in `skill-increase:3`: a level. */
 const SLOT_NUMBER = { min: 1, max: 20 } as const;
 const ATTRIBUTES = Object.values(Attribute);
+
 /** How many languages a faked list names. */
 const LANGUAGES = { min: 0, max: 3 } as const;
 

@@ -26,11 +26,13 @@ export async function patchBooks(patches: BookPatches): Promise<void> {
   const raw = (await Bun.file(FILE).json()) as readonly RawBook[];
   Books.parse(raw);
   const known = new Set(raw.map(({ id }) => id));
+
   for (const id of patches.keys()) {
     if (!known.has(id)) {
       throw new Error(`${id} is not in the book registry`);
     }
   }
+
   const merged = raw.map((book) => patched(book, patches.get(book.id)));
   Books.parse(merged);
   await Bun.write(FILE, `${JSON.stringify(merged, undefined, 2)}\n`);

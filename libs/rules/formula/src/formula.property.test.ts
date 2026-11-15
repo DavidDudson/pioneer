@@ -12,6 +12,7 @@ import { FormulaText } from './units';
 /** Generated trees can be too long, deep or big to type; those limits are tested apart. */
 const LIMITS = new Set<string>([FormulaMessage.TooLong, FormulaMessage.TooDeep, FormulaMessage.TooManyNodes]);
 const formulaChar = constantFrom('0', '1', '9', '@', 'a', 'x', '.', '_', '-', '+', '*', '/', '(', ')', ',', ' ');
+
 /** The second half of an emoji or other astral character. */
 const LOW_SURROGATE = /^[\uDC00-\uDFFF]$/u;
 
@@ -32,6 +33,7 @@ describe('formula (properties)', () => {
       property(formula, (original) => {
         const text = printFormula(original);
         const outcome = parseFormula(text);
+
         if (outcome.ok) {
           expect(withoutPositions(outcome.formula)).toEqual(withoutPositions(original));
           expect(printFormula(outcome.formula)).toBe(text);
@@ -55,10 +57,12 @@ describe('formula (properties)', () => {
       property(formula, (original) => {
         const text = printFormula(original);
         const outcome = parseFormula(text);
+
         if (outcome.ok) {
           for (const found of references(outcome.formula)) {
             expect(text.slice(found.position - 1, found.position + found.path.length)).toBe(`@${found.path}`);
           }
+
           expect(references(outcome.formula)).toHaveLength(text.split('@').length - 1);
         }
       }),

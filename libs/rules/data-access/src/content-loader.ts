@@ -41,6 +41,7 @@ const LIKELY_NEXT: Readonly<Partial<Record<ContentKind, readonly ContentKind[]>>
 /** The kinds likely next after `kinds`, less those. */
 function likelyNext(kinds: readonly ContentKind[]): readonly ContentKind[] {
   const next = new Set(kinds.flatMap((kind) => LIKELY_NEXT[kind] ?? []));
+
   return [...next].filter((kind) => !kinds.includes(kind));
 }
 
@@ -50,12 +51,14 @@ type BundleFetch = (pack: PackId, file: BundleFile) => Promise<unknown>;
 /** A kind's two bundles of `pack`, fetched together. */
 async function fetchKind(pack: PackId, { mechanics, names }: KindBundles, fetch: BundleFetch): Promise<FetchedKind> {
   const [mechanicsBody, namesBody] = await Promise.all([fetch(pack, mechanics), fetch(pack, names)]);
+
   return { mechanics: mechanicsBody, names: namesBody };
 }
 
 /** The file of `entry`'s shard of its kind's descriptions, when its pack is in `manifest` and the entry has one. */
 function shardFile(manifest: ContentManifest, entry: ContentEntry): BundleFile | undefined {
   const shard = descriptionShard(entry.id);
+
   return manifest.packs
     .find((pack) => pack.id === entry.pack)
     ?.kinds.find((bundles) => bundles.kind === entry.kind)
@@ -96,6 +99,7 @@ export class ContentLoader {
     } catch {
       this.#cache.forgetManifest();
       this.#cache.forgetHomebrew();
+
       return this.#build(kinds, homebrew);
     }
   }
@@ -144,6 +148,7 @@ export class ContentLoader {
     } catch {
       this.#cache.forgetManifest();
       this.#cache.forgetHomebrew();
+
       return this.#description(entry, homebrew);
     }
   }
@@ -152,10 +157,13 @@ export class ContentLoader {
     const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
     const official = manifest.packs.some((pack) => pack.id === entry.pack);
     const file = shardFile(official ? manifest : brewed, entry);
+
     if (file === undefined) {
       return undefined;
     }
+
     const body = await (official ? this.#official : this.#homebrew)(entry.pack, file);
+
     try {
       return descriptionFromBundle(body, entry.id);
     } catch (error) {
@@ -167,32 +175,42 @@ export class ContentLoader {
 
   async #build(kinds: readonly ContentKind[], homebrew: readonly ContentPackId[]): Promise<ContentRegistry> {
     const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
+
     const packs = await Promise.all([
       ...manifest.packs.map(async (pack) => this.#pack(pack, kinds, this.#official)),
       ...brewed.packs.map(async (pack) => this.#pack(pack, kinds, this.#homebrew)),
     ]);
+
     const registry = new ContentRegistry();
+
     for (const pack of packs) {
       registry.register(pack);
     }
+
     this.#prefetch(manifest, likelyNext(kinds));
+
     return registry;
   }
 
   async #pack(pack: PackBundles, kinds: readonly ContentKind[], fetch: BundleFetch): Promise<ContentPack> {
     const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
+
     const [file, ...fetched] = await Promise.all([
       fetch(pack.id, pack.file),
       ...kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, fetch)),
     ]);
+
     const key = [pack.file, ...used].map((each) => bundlePath(pack.id, each)).join('\n');
     const built = this.#packs.get(key);
+
     if (built !== undefined) {
       return built;
     }
+
     try {
       const contentPack = contentPackFromBundles(file, fetched);
       this.#packs.set(key, contentPack);
+
       return contentPack;
     } catch (error) {
       // A kept body that no longer reads (a truncated record) must not stick: drop it, so the retry fetches it again.
@@ -206,6 +224,7 @@ export class ContentLoader {
     if (kinds.length === 0) {
       return;
     }
+
     this.#whenIdle(() => {
       // oxlint-disable-next-line typescript/no-floating-promises -- fetchKinds catches every error, so it never rejects
       this.#fetchKinds(manifest, kinds);
@@ -216,6 +235,7 @@ export class ContentLoader {
     const fetches = manifest.packs.flatMap((pack) =>
       kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, this.#official)),
     );
+
     try {
       await Promise.all(fetches);
     } catch {

@@ -58,8 +58,10 @@ export class ContractRouter {
   ): this {
     this.app.route(endpoint.method, endpoint.path, async (context) => {
       const output = await readScoped(endpoint, async () => handler(decode(endpoint, context)));
+
       return z.encode(endpoint.response, output);
     });
+
     return this;
   }
 
@@ -80,8 +82,10 @@ export class ContractRouter {
     this.app.route(endpoint.method, endpoint.path, async (context) => {
       const actor = await auth.actingUser({ request: context.request, responseHeaders: context.set.headers });
       const output = await readScoped(endpoint, async () => handler({ ...decode(endpoint, context), actor }));
+
       return z.encode(endpoint.response, output);
     });
+
     return this;
   }
 
@@ -104,9 +108,12 @@ export class ContractRouter {
         request: context.request,
         responseHeaders: context.set.headers,
       });
+
       const output = await readScoped(endpoint, async () => handler({ ...decode(endpoint, context), actor }));
+
       return z.encode(endpoint.response, output);
     });
+
     return this;
   }
 }
@@ -127,6 +134,7 @@ async function actingUserOrNone(auth: RequestAuthenticator, exchange: RequestExc
     if (error instanceof UnauthorizedError) {
       return undefined;
     }
+
     throw error;
   }
 }
@@ -138,6 +146,7 @@ function decode<TParams extends z.ZodObject, TBody extends z.ZodType, TQuery ext
 ): HandlerInput<TParams, TBody, TQuery> {
   // Elysia passes undefined params for routes without path params, despite its types.
   const pathParams: unknown = params;
+
   return {
     params: endpoint.params.parse(pathParams ?? {}),
     query: endpoint.query.parse(query),

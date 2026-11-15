@@ -19,6 +19,7 @@ export function staffSpellsOf(entry: ItemEntry | undefined): readonly StaffSpell
   if (entry?.kind !== ContentKind.Weapon && entry?.kind !== ContentKind.Equipment) {
     return undefined;
   }
+
   return entry.data.staff?.flatMap(({ rank, spells }) =>
     spells.map((spell): StaffSpell => ({ spell, rank, charges: staffCharges(rank) })),
   );

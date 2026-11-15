@@ -16,6 +16,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -36,6 +37,7 @@ async function open(url: string): Promise<Opened> {
     ],
   });
   const harness = await RouterTestingHarness.create(url);
+
   return { root: present(harness.routeNativeElement), harness };
 }
 
@@ -44,6 +46,7 @@ async function headed(root: HTMLElement): Promise<string> {
   await vi.waitFor(() => {
     expect(root.querySelector('pio-entry-preview h2')).not.toBeNull();
   });
+
   return present(root.querySelector('pio-entry-preview h2')).textContent.trim();
 }
 
@@ -138,10 +141,12 @@ describe('EntryPage', () => {
     await vi.waitFor(() => {
       expect(crumbs.trail().map(({ label }) => label)).toStrictEqual(['Content Browser', 'Feats', 'Shield-block']);
     });
+
     const hrefs = crumbs
       .trail()
       .slice(0, -1)
       .map(({ to }) => to);
+
     expect(hrefs).toStrictEqual(['/content', '/content/feat']);
   });
 

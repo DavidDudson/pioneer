@@ -26,16 +26,19 @@ export const EmbeddedPack = z
       }
     }
   });
+
 export type EmbeddedPack = z.infer<typeof EmbeddedPack>;
 
 /** Names each embedded entry by the pack and slug it was written under, as the registry namer does for loaded ones. */
 export function embeddedNamer(embedded: readonly EmbeddedPack[]): ReferenceNamer {
   const named = new Map<ContentId, ContentReference>();
+
   for (const { entries } of embedded) {
     for (const { id, pack, slug } of entries) {
       named.set(id, { source: pack, slug: EntrySlug.parse(slug) });
     }
   }
+
   return (id) => named.get(id);
 }
 
@@ -43,6 +46,7 @@ export function embeddedNamer(embedded: readonly EmbeddedPack[]): ReferenceNamer
 export function embeddedUsing(embedded: readonly EmbeddedPack[], used: ReadonlySet<ContentId>): EmbeddedPack[] {
   return embedded.flatMap((pack) => {
     const entries = pack.entries.filter((entry) => used.has(entry.id));
+
     return entries.length === 0 ? [] : [{ ...pack, entries }];
   });
 }

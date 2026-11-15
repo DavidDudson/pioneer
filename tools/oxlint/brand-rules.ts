@@ -38,6 +38,7 @@ const TYPE_PARENTS = new Set(['TSLiteralType', 'TSEnumMember', 'TSIndexedAccessT
 function isBrandConstant(target: NodeShape): boolean {
   const call = target.parent;
   const declarator = call?.parent;
+
   return (
     call?.type === 'CallExpression' &&
     call.callee?.type === 'MemberExpression' &&
@@ -61,10 +62,13 @@ function isStructural(target: NodeShape, parent: NodeShape): boolean {
 /** Whether `target` (the literal, or its negation) sits where a bare number is allowed by `options`. */
 function isExempt(target: NodeShape, value: number, options: MagicNumberOptions): boolean {
   const { parent } = target;
+
   if (parent === undefined) {
     return false;
   }
+
   const isIndex = parent.type === 'MemberExpression' && parent.computed === true && parent.property === target;
+
   return (
     (options.ignore ?? []).includes(value) ||
     isStructural(target, parent) ||
@@ -78,6 +82,7 @@ function isExempt(target: NodeShape, value: number, options: MagicNumberOptions)
 /** A literal assigned straight to a declaration: fine for `const`, a `useConst` problem otherwise. */
 function declarationKind(target: NodeShape): unknown {
   const { parent } = target;
+
   return parent?.type === 'VariableDeclarator' && parent.init === target ? parent.parent?.kind : undefined;
 }
 
@@ -98,19 +103,24 @@ export const noMagicNumbers: Rule.RuleModule = {
   },
   create(context) {
     const options = (context.options[0] ?? {}) as MagicNumberOptions;
+
     return {
       Literal(node: Rule.Node): void {
         const literal = node as unknown as NodeShape;
+
         if (typeof literal.value !== 'number') {
           return;
         }
+
         const negated = literal.parent?.type === 'UnaryExpression' && literal.parent.operator === '-';
         const [target, value] = negated ? [literal.parent, -literal.value] : [literal, literal.value];
         const kind = declarationKind(target);
         const allowed = kind === 'const' || (kind !== undefined && options.enforceConst !== true);
+
         if (allowed || isExempt(target, value, options)) {
           return;
         }
+
         const raw = String(value);
         context.report({ node, messageId: kind === undefined ? 'noMagic' : 'useConst', data: { raw } });
       },
@@ -121,8 +131,10 @@ export const noMagicNumbers: Rule.RuleModule = {
 /** Domain and rules code: where every value has a meaning a brand or const object can carry. */
 const DOMAIN = /(?:^|\/)libs\/(?:[^/]+\/domain|rules\/(?:sdk|dice|formula|engine))\/src\/(?!testing\/)/u;
 const TEST_FILE = /\.(?:test|spec)\.ts$/u;
+
 /** Wrappers a primitive can sit in and still be the annotated type (`readonly string[]`, `number | undefined`). */
 const TYPE_WRAPPERS = new Set(['TSUnionType', 'TSArrayType', 'TSTypeOperator']);
+
 /** Schema factories that produce bare strings and numbers. */
 const PRIMITIVE_SCHEMAS = new Set([
   'string',
@@ -137,6 +149,7 @@ const PRIMITIVE_SCHEMAS = new Set([
   'real',
   'doublePrecision',
 ]);
+
 const SCHEMA_ROOTS = new Set(['z', 'Pg']);
 
 interface ChainShape {
@@ -150,9 +163,11 @@ interface ChainShape {
 /** Whether a primitive keyword is (part of) a declared type: a field, parameter, return or variable annotation. */
 function isAnnotated(node: unknown): boolean {
   let { parent } = node as ChainShape;
+
   while (parent !== undefined && TYPE_WRAPPERS.has(parent.type)) {
     ({ parent } = parent);
   }
+
   return parent?.type === 'TSTypeAnnotation';
 }
 
@@ -161,13 +176,16 @@ function chainMethods(call: unknown): readonly string[] {
   const names: string[] = [];
   let node = call as ChainShape;
   let member = node.parent;
+
   while (member?.type === 'MemberExpression' && member.object === node && member.parent?.callee === member) {
     if (typeof member.property?.name === 'string') {
       names.push(member.property.name);
     }
+
     node = member.parent;
     member = node.parent;
   }
+
   return names;
 }
 
@@ -176,9 +194,11 @@ function primitiveSchema(node: Rule.Node): string | undefined {
   const { callee } = node as unknown as {
     readonly callee: ChainShape & { readonly object?: { readonly name?: unknown } };
   };
+
   const name = callee.property?.name;
   const root = callee.object?.name;
   const isPrimitive = typeof name === 'string' && PRIMITIVE_SCHEMAS.has(name);
+
   return callee.type === 'MemberExpression' && isPrimitive && SCHEMA_ROOTS.has(String(root)) ? name : undefined;
 }
 
@@ -201,11 +221,13 @@ export const noPrimitiveDomainTypes: Rule.RuleModule = {
     if (!DOMAIN.test(context.filename) || TEST_FILE.test(context.filename)) {
       return {};
     }
+
     const checkKeyword = (node: Rule.Node, keyword: string): void => {
       if (isAnnotated(node)) {
         context.report({ node, messageId: 'type', data: { keyword } });
       }
     };
+
     return {
       TSStringKeyword(node: Rule.Node): void {
         checkKeyword(node, 'string');
@@ -215,6 +237,7 @@ export const noPrimitiveDomainTypes: Rule.RuleModule = {
       },
       CallExpression(node): void {
         const factory = primitiveSchema(node);
+
         if (factory !== undefined && !chainMethods(node).includes('brand')) {
           context.report({ node, messageId: 'schema', data: { factory } });
         }

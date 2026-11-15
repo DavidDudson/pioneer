@@ -45,6 +45,7 @@ const LINES: readonly SpellRowLine[] = [
 ];
 
 const meta: Meta<SpellRowList> = { title: 'Rules/Spell Row List', component: SpellRowList };
+
 export default meta;
 
 /** One list, alphabetical; a spell known from two sources shows once per source. */

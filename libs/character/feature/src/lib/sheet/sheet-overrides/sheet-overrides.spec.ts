@@ -41,6 +41,7 @@ function fakeDialog(): void {
       },
     });
   }
+
   vi.stubGlobal(
     'ResizeObserver',
     class {
@@ -51,6 +52,7 @@ function fakeDialog(): void {
   );
   onTestFinished(() => {
     vi.unstubAllGlobals();
+
     for (const name of DIALOG_METHODS) {
       Reflect.deleteProperty(HTMLDialogElement.prototype, name);
     }
@@ -61,6 +63,7 @@ async function openWith(overrides: readonly object[]): Promise<HTMLElement> {
   fakeDialog();
   const { root } = await openSheet({ ...FIGHTER, overrides }, { authors: NAMES });
   await openConfiguration(root);
+
   return root;
 }
 
@@ -98,9 +101,11 @@ describe('CharacterSheet overrides section', () => {
       await vi.waitFor(async () => {
         const found = await section(root);
         expect(textOf(found)).toContain('Perception');
+
         return found;
       }),
     );
+
     expect(text).toContain('+2 item');
     expect(text).toContain('Goggles');
     expect(text).toContain('Set by Ada');
@@ -112,6 +117,7 @@ describe('CharacterSheet overrides section', () => {
       value: 3,
       revisions: [{ by: AUTHOR, at: '2026-10-29T10:00:00.000Z', value: 1, type: 'item', reason: 'First guess' }],
     };
+
     const root = await openWith([edited]);
 
     const text = textOf(
@@ -119,18 +125,22 @@ describe('CharacterSheet overrides section', () => {
         const found = await section(root);
         expect(textOf(found)).toContain('Earlier states');
         expect(textOf(found)).toContain('Perception');
+
         return found;
       }),
     );
+
     expect(text).toContain('+3 item');
     expect(text).toContain('+1 item, set by Ada, “First guess”');
   });
 
   it('opens an override for editing and saves it as an edit of that override', async () => {
     const root = await openWith([GOGGLES]);
+
     const edit = await vi.waitFor(() =>
       present(root.querySelector<HTMLAnchorElement>('a[aria-label="Edit the override on Perception"]')),
     );
+
     edit.click();
     const form = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-override-form')));
 
@@ -143,6 +153,7 @@ describe('CharacterSheet overrides section', () => {
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: {
         field: 'editOverride',
@@ -166,9 +177,11 @@ describe('CharacterSheet overrides section', () => {
     TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: `/api/characters/${id}` });
 
     button.click();
+
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
+
     expect(request.request.body).toMatchObject({
       patch: { field: 'removeOverride', id: OVERRIDE, reason: 'The goggles broke' },
     });
@@ -181,9 +194,11 @@ describe('CharacterSheet overrides section', () => {
       await vi.waitFor(async () => {
         const found = await section(root);
         expect(textOf(found)).toContain('Perception');
+
         return found;
       }),
     );
+
     expect(text).toContain('GM');
     expect(text).toContain('Your GM set this, so only your GM can remove it.');
     expect(root.querySelector('a[aria-label="Edit the override on Perception"]')).not.toBeNull();

@@ -90,6 +90,7 @@ export class CharacterContent implements CharacterContentSource {
     return {
       registry: async () => {
         const [inForce, unsupported] = await Promise.all([this.#packs.of(character), this.unsupportedPacks(character)]);
+
         return this.#content.registry([...inForce, ...unsupported]);
       },
     };
@@ -99,8 +100,10 @@ export class CharacterContent implements CharacterContentSource {
     if (this.#held === undefined) {
       return [];
     }
+
     const [inForce, held] = await Promise.all([this.#packs.of(character), this.#held.of(character)]);
     const using = new Set(inForce);
+
     return held.filter((pack) => !using.has(pack));
   }
 
@@ -114,9 +117,12 @@ export class CharacterContent implements CharacterContentSource {
       this.#variants.of(character),
       this.unsupportedPacks(character),
     ]);
+
     const dropped = new Set(unsupported);
+
     return ids.flatMap((id): VariantRuleEntry[] => {
       const entry = registry.variantRule(id);
+
       return entry === undefined || dropped.has(contentPackId(entry.pack.id)) ? [] : [entry];
     });
   }

@@ -12,9 +12,11 @@ function withStaff(entry: ContentEntry, staff: StaffSpells): ContentEntry {
   if (entry.kind === ContentKind.Weapon) {
     return { ...entry, data: { ...entry.data, staff } };
   }
+
   if (entry.kind === ContentKind.Equipment) {
     return { ...entry, data: { ...entry.data, staff } };
   }
+
   return entry;
 }
 
@@ -27,11 +29,15 @@ export function enrichStaffFile(
   matches: ReadonlyMap<ContentKey, StaffSpells>,
 ): readonly unknown[] | undefined {
   const entries = ContentEntryFile.parse(file);
+
   const enriched = file.map((json, index) => {
     const entry = entries[index];
     const staff = entry === undefined ? undefined : matches.get(contentKey(entry.pack, entry.slug));
+
     return entry === undefined || staff === undefined ? json : z.encode(ContentEntry, withStaff(entry, staff));
   });
+
   const changed = enriched.some((json, index) => json !== file[index]);
+
   return changed ? enriched : undefined;
 }

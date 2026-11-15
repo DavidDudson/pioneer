@@ -41,6 +41,7 @@ function paragraphs(...texts: readonly string[]): RichText {
     content: [{ type: InlineKind.Text, text: RichTextString.parse(text) }],
   }));
 }
+
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
 const human = ChoiceValue.parse(humanAncestryId);
 
@@ -70,6 +71,7 @@ describe('CharacterService', () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     expect(created.id[14]).toBe('4');
     expect(created.ownerId).toBe(amiri);
+
     const { character: patched } = await service.patch(
       amiri,
       created.id,
@@ -78,12 +80,14 @@ describe('CharacterService', () => {
         value: CharacterLevel.parse(2),
       }),
     );
+
     expect(patched.version).toBe(Version.parse(2));
     expect(patched.level).toBe(CharacterLevel.parse(2));
   });
 
   test('every write names its actor and command for the audit log', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+
     const edits: readonly CharacterPatch[] = [
       { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra the Bold') },
       { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: human },
@@ -95,12 +99,15 @@ describe('CharacterService', () => {
         selection: ChoiceValue.parse('wis'),
       },
     ];
+
     let version = FIRST_VERSION;
+
     for (const patch of edits) {
       // oxlint-disable-next-line no-await-in-loop -- each edit needs the version the previous one saved
       const { character } = await service.patch(amiri, created.id, { expectedVersion: version, patch });
       ({ version } = character);
     }
+
     expect(repository.audits).toStrictEqual([
       { actor: amiri, command: CharacterCommand.CreateCharacter },
       { actor: amiri, command: CharacterCommand.RenameCharacter },
@@ -115,14 +122,17 @@ describe('CharacterService', () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const appearance = paragraphs('Tall, with a scar over the left eye.');
     const personality = paragraphs('Dry humour.', 'Loyal to a fault.');
+
     const first = await service.patch(amiri, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.SetAppearance, value: appearance },
     });
+
     const second = await service.patch(amiri, created.id, {
       expectedVersion: first.character.version,
       patch: { field: CharacterPatchField.SetPersonality, value: personality },
     });
+
     expect(second.character.document.appearance).toStrictEqual(appearance);
     expect(second.character.document.personality).toStrictEqual(personality);
     expect(repository.audits.slice(1)).toStrictEqual([
@@ -141,6 +151,7 @@ describe('CharacterService', () => {
         value: CharacterName.parse('Kyra II'),
       }),
     );
+
     const stale = service.patch(
       amiri,
       created.id,
@@ -149,6 +160,7 @@ describe('CharacterService', () => {
         value: CharacterLevel.parse(3),
       }),
     );
+
     expect(await rejection(stale)).toBeInstanceOf(VersionConflictError);
   });
 
@@ -195,11 +207,13 @@ describe('CharacterService ownership', () => {
   test('another user’s character cannot be patched, even with an invalid edit', async () => {
     const theirs = await service.create(ezren, { name: kyra, ancestry: humanAncestryId });
     const unknownAncestry = AncestryId.parse(newId());
+
     const edit = firstVersion({
       field: CharacterPatchField.SelectSlot,
       slot: ANCESTRY_SLOT,
       selection: ChoiceValue.parse(unknownAncestry),
     });
+
     const edited = service.patch(amiri, theirs.id, edit);
     expect(await rejection(edited)).toBeInstanceOf(NotFoundError);
     const unchanged = await service.get(ezren, theirs.id);

@@ -110,6 +110,7 @@ export const CharacterCommand = {
   /** A member moves a line, with what it holds, between their character and the campaign's party stash. */
   MoveToPartyStash: 'moveToPartyStash',
 } as const;
+
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 
 /** The command each inline field edit runs as. */

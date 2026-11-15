@@ -20,4 +20,5 @@ export const SenseElement = z.strictObject({
   range: Feet.positive().optional(),
   ...ruleElementBase,
 });
+
 export type SenseElement = z.infer<typeof SenseElement>;

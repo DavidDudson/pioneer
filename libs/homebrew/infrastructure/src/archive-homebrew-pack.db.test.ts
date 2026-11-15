@@ -69,12 +69,14 @@ describe.skipIf(adminUrl === undefined)('archived homebrew packs (postgres)', ()
     const items = new HomebrewPackBuilder().slug('refused-items').build();
     await repository.insert(items);
     const refusal = new Error('refused');
+
     const outcome = repository.archive(items.id, NOW, {
       audit: archiving,
       whileLocked: async () => {
         throw refusal;
       },
     });
+
     expect(await rejection(outcome)).toBe(refusal);
     expect(await repository.findById(items.id)).toStrictEqual(items);
   });
@@ -87,19 +89,23 @@ describe.skipIf(adminUrl === undefined)('archived homebrew packs (postgres)', ()
     await repository.archive(second.id, NOW, { audit: archiving });
     const gate = Promise.withResolvers<undefined>();
     let secondChecked = false;
+
     const archiveFirst = repository.archive(first.id, NOW, {
       audit: archiving,
       whileLocked: async () => {
         await gate.promise;
       },
     });
+
     await Bun.sleep(100);
+
     const restoreSecond = repository.restore(second.id, {
       audit: restoring,
       whileLocked: async () => {
         secondChecked = true;
       },
     });
+
     await Bun.sleep(200);
     expect(secondChecked).toBe(false);
     gate.resolve(undefined);
@@ -119,9 +125,11 @@ describe.skipIf(adminUrl === undefined)('archived homebrew packs (postgres)', ()
     await repository.insert(lore);
     await repository.archive(lore.id, NOW, { audit: archiving });
     await repository.restore(lore.id, { audit: restoring });
+
     const rows = await database.db.execute(
       sql`select command from audit.log where table_name = 'content_packs' and row_id = ${lore.id} and action = 'update' order by changed_at`,
     );
+
     expect(rows.map((row) => String(row['command']))).toStrictEqual([
       HomebrewCommand.ArchivePack,
       HomebrewCommand.RestorePack,
@@ -132,10 +140,12 @@ describe.skipIf(adminUrl === undefined)('archived homebrew packs (postgres)', ()
     const maps = new HomebrewPackBuilder().slug('stamped-maps').build();
     await repository.insert(maps);
     await repository.archive(maps.id, NOW, { audit: archiving });
+
     const [row] = await database.db
       .select({ archivedAt: contentPacks.archivedAt })
       .from(contentPacks)
       .where(eq(contentPacks.id, maps.id));
+
     expect(row?.archivedAt).not.toBeNull();
   });
 

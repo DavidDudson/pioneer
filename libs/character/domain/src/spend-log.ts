@@ -14,14 +14,17 @@ const LOG_MAX = 100;
 
 /** A spend's own id, chosen by the client so a retried command lands once and `undoSpend` can name it. */
 export const SpendId = Uuid.brand<'SpendId'>();
+
 export type SpendId = z.infer<typeof SpendId>;
 
 /** How many actions one spend takes: 1 up to what a variable cost can run to. */
 export const SpendCount = Pg.smallint().min(1).max(UP_TO_MAX).brand<'SpendCount'>();
+
 export type SpendCount = z.infer<typeof SpendCount>;
 
 /** What kind of spend a cost is: some actions, the reaction or nothing. */
 export const SpendKind = { Actions: 'actions', Reaction: ActionCost.Reaction, Free: ActionCost.Free } as const;
+
 export type SpendKind = ValueOf<typeof SpendKind>;
 
 /**
@@ -33,10 +36,12 @@ export const SpendCostSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(SpendKind.Reaction) }),
   z.strictObject({ kind: z.literal(SpendKind.Free) }),
 ]);
+
 export type SpendCost = z.infer<typeof SpendCostSchema>;
 
 /** When a spend happened, as an ISO timestamp the server stamps. */
 export const SpendTime = z.iso.datetime().brand<'SpendTime'>();
+
 export type SpendTime = z.infer<typeof SpendTime>;
 
 /** The form an active polymorph effect is changed to (Untamed Shift): the effect, the form chosen within it, and the temporary Hit Points it gives. */
@@ -47,6 +52,7 @@ export const FormShiftSchema = z.strictObject({
   form: RollOption.optional(),
   tempHp: HitPoints.optional(),
 });
+
 export type FormShift = z.infer<typeof FormShiftSchema>;
 
 /** The form a spend puts on the character (casting a form spell): the instance, the form's effect, the rank cast when a spell casts it, the form chosen within it, and the temporary Hit Points it gives. */
@@ -57,6 +63,7 @@ export const FormApplySchema = z.strictObject({
   form: RollOption.optional(),
   tempHp: HitPoints.optional(),
 });
+
 export type FormApply = z.infer<typeof FormApplySchema>;
 
 /** What a client asks to spend: what was used, what it costs, and the frequency use it records. */
@@ -84,6 +91,7 @@ export const SpendRequestSchema = z.strictObject({
   /** The form it puts on the character, in the same edit, so a failed cast never spends without the form. */
   apply: FormApplySchema.optional(),
 });
+
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 
 /**
@@ -99,10 +107,12 @@ export const SpendEntrySchema = z.strictObject({
   /** The effect a form shift changed, as it was, so undoing the spend puts its form back. */
   shifted: ActiveEffectSchema.optional(),
 });
+
 export type SpendEntry = z.infer<typeof SpendEntrySchema>;
 
 /** The spends since the turn began, oldest first; the actions they took are already out of the turn. */
 export const SpendLogSchema = z.array(SpendEntrySchema).readonly();
+
 export type SpendLog = z.infer<typeof SpendLogSchema>;
 
 /** The play edits that spend from the turn and take a spend back. */
@@ -110,12 +120,14 @@ export const SpendCommandField = {
   SpendAction: 'spendAction',
   UndoSpend: 'undoSpend',
 } as const;
+
 export type SpendCommandField = ValueOf<typeof SpendCommandField>;
 
 export const SpendCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(SpendCommandField.SpendAction), ...SpendRequestSchema.shape }),
   z.object({ field: z.literal(SpendCommandField.UndoSpend), id: SpendId }),
 ]);
+
 export type SpendCommand = z.infer<typeof SpendCommandSchema>;
 
 /** Why a spend, or taking one back, is refused. */
@@ -161,6 +173,7 @@ export const SpendProblem = {
   /** The spell's content does not shift a form, or does not list the form asked for. */
   ShiftNotAllowed: 'shift-not-allowed',
 } as const;
+
 export type SpendProblem = ValueOf<typeof SpendProblem>;
 
 /** What an action's content says it costs: the glyph, and for a variable cost the count it runs to. */
@@ -176,7 +189,9 @@ export function costAllowed(spend: SpendCost, { cost, upTo }: ActionCostRange): 
   if (spend.kind !== SpendKind.Actions) {
     return spend.kind === cost;
   }
+
   const from = ACTION_COUNT[cost];
+
   return from !== undefined && spend.count >= from && spend.count <= (upTo ?? from);
 }
 

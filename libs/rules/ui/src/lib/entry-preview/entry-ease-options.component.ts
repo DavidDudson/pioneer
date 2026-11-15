@@ -48,6 +48,7 @@ export class EntryEaseOptionsView {
   protected readonly rows = computed((): readonly EaseRow[] => {
     this.#messages();
     this.#format.locale();
+
     return this.listed().map((option) => ({
       option,
       effect: this.#effect(option),
@@ -62,9 +63,11 @@ export class EntryEaseOptionsView {
     if (effect === EaseEffect.Remove) {
       return this.#i18n.translate(EntryPreviewMessage.EaseRemove);
     }
+
     if (effect === EaseEffect.Lower) {
       return this.#i18n.translate(EntryPreviewMessage.EaseLower, { by: by ?? 1 });
     }
+
     return rank === undefined
       ? this.#i18n.translate(EntryPreviewMessage.EaseCounteract)
       : this.#i18n.translate(EntryPreviewMessage.EaseCounteractRanked, { rank });

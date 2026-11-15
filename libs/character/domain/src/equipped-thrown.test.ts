@@ -10,6 +10,7 @@ import type { Carry } from './item-carry';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const ONE_HANDED: Carry = { state: CarryState.Held, hands: ONE_HAND };
 const STACK = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
@@ -22,6 +23,7 @@ function holding(fixture: ItemFixture, quantity: number): Inventory {
     quantity: ItemQuantity.parse(quantity),
     container: undefined,
   });
+
   return carryItem(stock, STACK, ONE_HANDED);
 }
 

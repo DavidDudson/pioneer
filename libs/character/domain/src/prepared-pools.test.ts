@@ -24,6 +24,7 @@ import type { PlayerCoreClass } from './testing';
  */
 function playerCoreWithSpells(): ContentPack {
   const classes = playerCoreClasses();
+
   const spells = new ContentPackBuilder()
     .withId('player-core')
     .withSpell('heal', { rank: 1, traditions: ['divine', 'primal'] })
@@ -38,6 +39,7 @@ function playerCoreWithSpells(): ContentPack {
     .withDeity('sarenrae', { font: ['heal'] })
     .withDeity('zon-kuthon', { font: ['harm'] })
     .build();
+
   return ContentPack.define({
     manifest: classes.manifest,
     ancestries: classes.ancestries,
@@ -49,11 +51,14 @@ function playerCoreWithSpells(): ContentPack {
 }
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreWithSpells());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const classes = classContent(registry);
 
 const KEY_ATTRIBUTE = 'boost:1:class:0';
+
 /** Divine Font's `ChoiceSet` is its first rule. */
 const FONT_SLOT = `${playerCoreId(ContentKind.ClassFeature, 'divine-font')}:0`;
 
@@ -69,6 +74,7 @@ function caster(name: PlayerCoreClass, level: number): CharacterBuilder {
 function subclassed(name: PlayerCoreClass, level: number, option: string): CharacterBuilder {
   const builder = caster(name, level);
   const slot = subclassSlot(characterGrants(builder.build().document, content), content.lookup, classes);
+
   return builder.picking(String(slot?.key), playerCoreId(ContentKind.ClassFeature, option));
 }
 
@@ -81,6 +87,7 @@ const FONT_DEITY = {
 /** A cleric at `level` of a deity of the font `font` (healing when none), with that font picked, or none. */
 function cleric(level: number, font?: 'heal' | 'harm'): CharacterBuilder {
   const builder = caster('cleric', level).picking(String(DEITY_SLOT), FONT_DEITY[font ?? 'heal']);
+
   return font === undefined ? builder : builder.picking(FONT_SLOT, font);
 }
 
@@ -147,6 +154,7 @@ describe('preparedSlots: divine font', () => {
   test('a font slot refuses the other font, and its pick reads invalid once the font changes', () => {
     const healing = cleric(1, 'heal').picking('prepared:cleric:divine-font:1:0', spellId('heal')).build().document;
     const pick: SlotPick = { slot: SlotKey.parse('prepared:cleric:divine-font:1:0'), selection: spellId('harm') };
+
     const harmful = {
       ...healing,
       build: {

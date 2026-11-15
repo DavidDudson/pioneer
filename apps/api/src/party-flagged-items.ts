@@ -35,10 +35,13 @@ export class PartyFlaggedItems extends FlaggedItems {
       .from(campaignCharacters)
       .where(eq(campaignCharacters.campaignId, campaignId))
       .orderBy(campaignCharacters.attachedAt, campaignCharacters.id);
+
     const found = await Promise.all(party.map(async (row) => this.#characters.findById(row.characterId)));
+
     const lines = await Promise.all(
       found.map(async (character) => (character === undefined ? [] : this.#flagged.of(character))),
     );
+
     return lines.flat().map((line) => toFlaggedItem(line));
   }
 }

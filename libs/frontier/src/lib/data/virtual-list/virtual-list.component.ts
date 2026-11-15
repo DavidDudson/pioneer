@@ -22,6 +22,7 @@ import { VirtualItem } from './virtual-item.directive';
 
 /** Rough row height before rows are measured. Rows are measured once rendered. */
 export const VirtualEstimate = { Sm: 'sm', Md: 'md', Lg: 'lg' } as const;
+
 export type VirtualEstimate = ValueOf<typeof VirtualEstimate>;
 
 /** Initial guesses in CSS pixels; the virtualizer replaces them with measurements. */
@@ -29,6 +30,7 @@ const ESTIMATE_PX: Record<VirtualEstimate, number> = { sm: 48, md: 96, lg: 160 }
 const OVERSCAN = 4;
 
 const listClasses = cva('relative block w-full')();
+
 const rowVariants = cva('absolute start-none top-none block w-full', {
   variants: {
     gap: {
@@ -81,6 +83,7 @@ export class VirtualList<TItem> {
   protected readonly virtualizer = injectWindowVirtualizer<HTMLElement>(() => {
     const items = this.items();
     const itemKey = this.itemKey();
+
     return {
       count: items.length,
       estimateSize: (): number => ESTIMATE_PX[this.estimate()],
@@ -91,6 +94,7 @@ export class VirtualList<TItem> {
         : {
             getItemKey: (index: number): string | number => {
               const item = items[index];
+
               return item === undefined ? index : itemKey(item, index);
             },
           }),

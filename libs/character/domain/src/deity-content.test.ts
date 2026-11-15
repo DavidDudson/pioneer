@@ -11,8 +11,11 @@ const pack = new ContentPackBuilder()
   .withDeity('sarenrae', { font: ['heal'], domains: { primary: ['healing'], alternate: [] } })
   .withDeity('abadar', { font: ['heal'], domains: { primary: ['cities'], alternate: [] } })
   .withDeity('kalistrade', { category: 'philosophy' });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const deities = deityContent(registry);
 
 describe('deityContent', () => {

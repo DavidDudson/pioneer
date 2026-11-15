@@ -24,6 +24,7 @@ export class DamageTargetEditor {
   protected readonly immunities = computed((): readonly DamageType[] =>
     this.target().immunities.flatMap((immunity) => {
       const type = DamageTypeSchema.safeParse(immunity);
+
       return type.success ? [type.data] : [];
     }),
   );

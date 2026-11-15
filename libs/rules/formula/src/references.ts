@@ -15,15 +15,19 @@ function children(node: FormulaNode): readonly FormulaNode[] {
     case NodeKind.Reference: {
       return [];
     }
+
     case NodeKind.Negate: {
       return [node.operand];
     }
+
     case NodeKind.Binary: {
       return [node.left, node.right];
     }
+
     case NodeKind.Call: {
       return node.args;
     }
+
     default: {
       return unhandledNode(node);
     }
@@ -34,6 +38,7 @@ function collect(node: FormulaNode, into: FormulaReference[]): void {
   if (node.kind === NodeKind.Reference) {
     into.push({ path: node.path, position: node.position });
   }
+
   for (const child of children(node)) {
     collect(child, into);
   }
@@ -46,5 +51,6 @@ function collect(node: FormulaNode, into: FormulaReference[]): void {
 export function references(formula: FormulaNode): FormulaReference[] {
   const found: FormulaReference[] = [];
   collect(formula, found);
+
   return found;
 }

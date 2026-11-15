@@ -61,6 +61,7 @@ export class CampaignPartyService {
   /** The campaign's party and the actor's characters that could join it. Not a member: 404. */
   public async party(actor: UserId, id: CampaignId): Promise<CampaignParty> {
     const campaign = await this.#viewed(actor, id);
+
     return this.#partyOf(actor, campaign);
   }
 
@@ -72,16 +73,19 @@ export class CampaignPartyService {
     const campaign = await this.#viewed(actor, id);
     const attachment = await this.#attachment(actor, campaign, characterId);
     const placed = await this.#party.attach(id, attachment);
+
     if (placed === undefined) {
       // The actor was removed after the campaign loaded: it is no longer theirs to see.
       throw new NotFoundError('Campaign', id);
     }
+
     if (placed !== id) {
       throw new ConflictError(
         `Character ${characterId} is already in campaign ${placed}`,
         message(PartyMessage.InOtherCampaign),
       );
     }
+
     return this.#partyOf(actor, campaign);
   }
 
@@ -94,13 +98,17 @@ export class CampaignPartyService {
     const attachments = await this.#party.listForCampaign(id);
     const attachment = attachments.find((candidate) => candidate.characterId === characterId);
     const owner = attachment === undefined ? undefined : campaign.memberById(attachment.memberId);
+
     if (owner === undefined) {
       return this.#partyOf(actor, campaign);
     }
+
     if (!mayDetachCharacter(actor, campaign, owner.userId)) {
       throw new ForbiddenError(`Only its owner or the GM detaches character ${characterId} from campaign ${id}`);
     }
+
     await this.#party.detach(id, characterId);
+
     return this.#partyOf(actor, campaign);
   }
 
@@ -109,6 +117,7 @@ export class CampaignPartyService {
     const characters = await this.#characters.byIds([characterId]);
     const character = characters.get(characterId);
     const member = campaign.members.find((candidate) => candidate.userId === actor);
+
     if (
       character === undefined ||
       character.archived ||
@@ -117,6 +126,7 @@ export class CampaignPartyService {
     ) {
       throw new NotFoundError('Character', characterId);
     }
+
     return {
       id: CampaignCharacterId.parse(newId()),
       characterId,
@@ -128,9 +138,11 @@ export class CampaignPartyService {
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 
@@ -140,22 +152,28 @@ export class CampaignPartyService {
       this.#party.listForCampaign(campaign.id),
       this.#characters.ownedBy(actor),
     ]);
+
     const attachedIds = attachments.map((attachment) => attachment.characterId);
+
     const [summaries, placed, names] = await Promise.all([
       this.#characters.byIds(attachedIds),
       this.#party.campaignsOf(mine.map((character) => character.id)),
       this.#directory.displayNames(campaign.members.map((member) => member.userId)),
     ]);
+
     const live = attachedIds.filter((characterId) => summaries.get(characterId)?.archived === false);
     const vitals = await this.#characters.vitalsOf(live);
+
     // A character goes with its member and its owner's account, so a gap is a change since the campaign loaded.
     const characters = attachments.flatMap((attachment): PartyCharacter[] => {
       const owner = campaign.memberById(attachment.memberId);
       const character = summaries.get(attachment.characterId);
       const ownerName = owner === undefined ? undefined : names.get(owner.userId);
+
       if (owner === undefined || character === undefined || ownerName === undefined) {
         return [];
       }
+
       return [
         {
           ...owned(character),
@@ -168,7 +186,9 @@ export class CampaignPartyService {
         },
       ];
     });
+
     const attachable = mine.filter((character) => !placed.has(character.id)).map((character) => owned(character));
+
     return { characters, attachable };
   }
 }

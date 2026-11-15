@@ -21,7 +21,9 @@ export function viaOf(entry: GrantEntry, hops: readonly OriginHop[]): SlotKey | 
   if (entry.maxTakable === undefined) {
     return undefined;
   }
+
   const hop = hops.findLast((candidate) => candidate.kind === OriginHopKind.Choice);
+
   return hop?.kind === OriginHopKind.Choice ? hop.slot : undefined;
 }
 
@@ -33,6 +35,7 @@ export function viaOf(entry: GrantEntry, hops: readonly OriginHop[]): SlotKey | 
 export function nextTake(entry: GrantEntry, taken: Take, picked: boolean): Take | undefined {
   const { maxTakable } = entry;
   const more = maxTakable !== undefined && (maxTakable === UNLIMITED || taken < maxTakable);
+
   return picked && more ? Take.parse(taken + 1) : undefined;
 }
 
@@ -49,11 +52,14 @@ interface EarlierTakes {
  */
 export function earlierPicks({ entry, rule, before }: EarlierTakes, picks: ChoicePicks): ReadonlySet<ChoiceValue> {
   const found = new Set<ChoiceValue>();
+
   for (const via of before) {
     const value = picks.get(slotKeyOf(entry, rule, via));
+
     if (value !== undefined) {
       found.add(value);
     }
   }
+
   return found;
 }

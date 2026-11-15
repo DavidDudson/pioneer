@@ -66,6 +66,7 @@ function spendOf(command: PlayCommand): SpendCommand | undefined {
   if (isConsumableCommand(command)) {
     return { field: SpendCommandField.SpendAction, ...command.spend };
   }
+
   return isSpendCommand(command) ? command : undefined;
 }
 
@@ -78,10 +79,13 @@ function contentProblem(
   if (command.field !== SpendCommandField.SpendAction) {
     return undefined;
   }
+
   const range = actionCosts(registry).get(command.action);
+
   if (range !== undefined && !costAllowed(command.cost, range)) {
     return SpendProblem.CostNotAllowed;
   }
+
   return contentRefusal(command, registry, { activeSpells: play.activeSpells, activeEffects: play.effects, facts });
 }
 
@@ -94,14 +98,19 @@ function contentProblem(
 function checkSpend(play: PlayState, edit: PlayCommand, context: SpendContext): void {
   const { counted, points } = context;
   const command = spendOf(edit);
+
   if (command === undefined) {
     return;
   }
+
   const refused = contentProblem(command, play, context);
+
   if (refused !== undefined) {
     refuse(refused);
   }
+
   const problem = spendRefusal(play, command, { counted, points });
+
   if (problem !== undefined) {
     refuse(problem);
   }
@@ -123,5 +132,6 @@ export function shiftsForm(command: PlayCommand): boolean {
 /** The limits a play edit reads for spending: the time to stamp with, once a spend passes `checkSpend`. */
 export function spendLimits(command: PlayCommand, { play, now, ...context }: SpendStamp): SpendLimits {
   checkSpend(play, command, context);
+
   return { now: SpendTime.parse(now.toString()) };
 }

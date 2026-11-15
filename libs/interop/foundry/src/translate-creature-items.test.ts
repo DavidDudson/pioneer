@@ -15,6 +15,7 @@ const DAGGER = coreRulesEntry(ContentKind.Weapon, 'dagger');
 
 function dataOf(fixture: typeof ARBITER, known = [...SPELLS, DAGGER]): Record<string, unknown> | undefined {
   const data = entryOf(translate([fixture], { known }), fixture.name.toLowerCase().replaceAll(' ', '-'))?.kindData;
+
   return data?.data;
 }
 
@@ -77,6 +78,7 @@ describe('translateCreature: strikes', () => {
   test('names an attack effect from Foundry’s lang table or the ability it points at', () => {
     const lang = { PF2E: { AttackEffectImprovedGrab: 'Improved Grab' } };
     const translation = translate([TOR_LINNORM_ITEMS], { lang });
+
     const strikes = entryOf(translation, 'tor-linnorm')?.kindData?.data as unknown as {
       effects?: { content: { text: string }[] }[];
     };
@@ -95,9 +97,11 @@ describe('translateCreature: an NPC with gear', () => {
 
   test('gear without an entry is reported, and a reaction keeps its trigger', () => {
     const translation = translate([AZARKETI_CRAB_CATCHER], { known: [DAGGER] });
+
     const abilities = entryOf(translation, 'azarketi-crab-catcher')?.kindData?.data as unknown as {
       abilities: { name: string; cost?: string; trigger?: unknown }[];
     };
+
     const swim = abilities.abilities.find(({ name }) => name === 'Swim Away');
 
     expect(translation.kindDataGaps.filter(({ field }) => field === 'items').map(({ raw }) => raw)).toStrictEqual([

@@ -93,16 +93,20 @@ export class BreakdownView {
     this.#format.locale();
     const statistic = this.statistic();
     const style = numberStyle(this.kind());
+
     const rules: readonly RuleLabel[] = [
       ...statistic.lines.map(({ modifier }): RuleLabel => modifier),
       ...statistic.overrides,
       ...(statistic.form === undefined ? [] : [{ id: statistic.form.rule, label: statistic.form.label }]),
       ...movementCostRule(statistic),
     ];
+
     const placed = statistic.lines.map((line, index): Placed => ({ line, index }));
+
     const ordered = placed.toSorted(
       (left, right) => rank(left.line.status) - rank(right.line.status) || left.index - right.index,
     );
+
     return {
       pinned: this.#pinned(statistic, rules, style),
       form: this.#form(statistic),
@@ -122,6 +126,7 @@ export class BreakdownView {
     if (statistic.pinnedBy === undefined) {
       return undefined;
     }
+
     return this.#i18n.translate(BreakdownMessage.Pinned, {
       name: this.#ruleName(statistic.pinnedBy, rules),
       total: this.#format.number(statistic.total, style),
@@ -134,36 +139,45 @@ export class BreakdownView {
     if (form === undefined) {
       return undefined;
     }
+
     return labelName(form.summary, this.#labelNames(), (descriptor) => this.#translate(descriptor));
   }
 
   #term(term: BaseTerm, index: number): ShownTerm {
     const value = this.#i18n.translate(BreakdownMessage.TermValue, { value: this.#format.number(term.value) });
+
     if (term.kind === BaseTermKind.Rounding) {
       return { name: undefined, value, variant: undefined };
     }
+
     const leading = index === 0 && term.sign === TermSign.Plus;
+
     const variant =
       term.origin === undefined
         ? undefined
         : this.#i18n.translate(BreakdownMessage.TermVariant, { name: this.#entryName(term.origin.entry) });
+
     const words = formulaWords(term.formula, {
       translate: (descriptor) => this.#translate(descriptor),
       statisticName: this.#statisticName,
     });
+
     return { name: leading ? words : `${term.sign} ${words}`, value, variant };
   }
 
   #line(line: BreakdownLine, rules: readonly RuleLabel[]): ShownLine {
     const { modifier, status } = line;
+
     const shown = {
       name: this.#name(modifier),
       origin: modifier.origin,
       value: lineValue(line, this.#i18n, this.#format),
     };
+
     if (status.kind === LineStatusKind.Applied) {
       return { ...shown, status: undefined, detail: undefined };
     }
+
     return { ...shown, status: status.kind, detail: this.#detail(status, rules) };
   }
 
@@ -175,21 +189,26 @@ export class BreakdownView {
       case LineStatusKind.Suppressed: {
         const key =
           status.reason === SuppressionReason.Stacking ? BreakdownMessage.SuppressedBy : BreakdownMessage.RemovedBy;
+
         return this.#i18n.translate(key, {
           name: this.#ruleName(status.by, rules),
         });
       }
+
       case LineStatusKind.Conditional: {
         return status.beatenBy === undefined
           ? this.#appliesWhen(status.summary)
           : this.#beaten(status.summary, this.#ruleName(status.beatenBy, rules));
       }
+
       case LineStatusKind.Inactive: {
         return this.#i18n.translate(BreakdownMessage.Inactive);
       }
+
       case LineStatusKind.Failed: {
         return this.#translate(status.error);
       }
+
       default: {
         return status satisfies never;
       }
@@ -207,6 +226,7 @@ export class BreakdownView {
 
   #override(line: OverrideLine, rules: readonly RuleLabel[], style: Intl.NumberFormatOptions): ShownOverride {
     const { status } = line;
+
     const shown = {
       name: this.#name(line),
       origin: line.origin,
@@ -217,9 +237,11 @@ export class BreakdownView {
       }),
       byHand: line.origin.hops.some(({ kind }) => kind === OriginHopKind.Override),
     };
+
     if (status.kind === OverrideStatusKind.Applied) {
       return { ...shown, status: undefined, detail: undefined };
     }
+
     return {
       ...shown,
       status: status.kind,
@@ -237,15 +259,19 @@ export class BreakdownView {
           name: this.#ruleName(status.by, rules),
         });
       }
+
       case OverrideStatusKind.Conditional: {
         return this.#appliesWhen(status.summary);
       }
+
       case OverrideStatusKind.Inactive: {
         return this.#i18n.translate(BreakdownMessage.Inactive);
       }
+
       case OverrideStatusKind.Failed: {
         return this.#translate(status.error);
       }
+
       default: {
         return status satisfies never;
       }
@@ -256,6 +282,7 @@ export class BreakdownView {
     if (summary === undefined) {
       return undefined;
     }
+
     return this.#i18n.translate(BreakdownMessage.AppliesWhen, {
       summary: formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
     });
@@ -264,10 +291,13 @@ export class BreakdownView {
   /** A rule a line names (the one that beat, removed, replaced or pinned it): by its name; else the caller's; else its id. */
   #ruleName(id: RuleId, rules: readonly RuleLabel[]): string {
     const rule = rules.find((candidate) => candidate.id === id);
+
     if (rule !== undefined) {
       return this.#name(rule);
     }
+
     const named = this.ruleNames().get(id);
+
     return named === undefined ? id : this.#translate(named);
   }
 
@@ -275,10 +305,13 @@ export class BreakdownView {
     if ('text' in label) {
       return label.text;
     }
+
     const named = this.ruleNames().get(id);
+
     if (named !== undefined) {
       return this.#translate(named);
     }
+
     return labelName(label, this.#labelNames(), (descriptor) => this.#translate(descriptor));
   }
 

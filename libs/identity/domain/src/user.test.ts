@@ -17,6 +17,7 @@ describe('User', () => {
       new ProfileBuilder().named('Amiri').withEmail('Amiri@Example.com').build(),
       created,
     );
+
     expect(user.displayName).toBe(DisplayName.parse('Amiri'));
     expect(user.email).toBe(EmailAddress.parse('amiri@example.com'));
     expect(user.emailVerified).toBe(true);
@@ -42,6 +43,7 @@ describe('User', () => {
       new ProfileBuilder().withAvatar('https://avatars.example/1.png').build(),
       created,
     );
+
     const wire = User.codec.encode(user);
     expect(JSON.stringify(wire)).not.toContain('email"');
     expect(wire).toEqual({
@@ -60,6 +62,7 @@ describe('User', () => {
 /** An account that has been made a maintainer. */
 function maintainer(): User {
   const member = User.fromProfile(id, new ProfileBuilder().build(), created);
+
   return User.codec.decode({ ...User.codec.encode(member), role: UserRole.Maintainer });
 }
 

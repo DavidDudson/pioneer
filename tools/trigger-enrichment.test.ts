@@ -11,6 +11,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 /** A Player Core entry's JSON, as a pack file holds it. */
 function entry(name: string, kind: string, data: object): object {
   const slug = `${kind}:${name}`;
+
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
@@ -34,6 +35,7 @@ const FOCUS = { event: 'cast-spell', predicate: ['item:trait:focus'] };
 /** The file after the pass, with matches read from its own entries. */
 function enrich(file: readonly object[]): readonly unknown[] | undefined {
   const matches = triggerMatches(ContentEntryFile.parse(file), new Map());
+
   return enrichTriggerFile(file, new Map(matches.map((match) => [match.entry, match.triggerEvent])));
 }
 
@@ -56,6 +58,7 @@ describe('trigger enrichment', () => {
       ...free('Your turn begins.'),
       triggerEvent: { event: 'turn-end' },
     });
+
     const unmatched = entry('unmatched', 'action', free('An ally is about to use an action.'));
     const steady = entry('steady', 'action', free('Your turn begins.'));
 

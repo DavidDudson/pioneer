@@ -26,6 +26,7 @@ describe('applyDamage with a basic save', () => {
       critical: false,
       save: DegreeOfSuccess.Success,
     });
+
     expect(result.immediate.map((instance) => instance.taken)).toEqual([amount(1), amount(2)]);
   });
 
@@ -34,6 +35,7 @@ describe('applyDamage with a basic save', () => {
       critical: false,
       save: DegreeOfSuccess.CriticalFailure,
     });
+
     expect(result.persistentTaken).toBe(amount(10));
   });
 
@@ -60,10 +62,12 @@ describe('applyDamage with a basic save', () => {
 
   test('immunity still removes the scaled damage', () => {
     const immune = target({ immunities: [Immunity.parse(DamageType.Fire)] });
+
     const result = applyDamage(roll('1d8[fire]', [8]), immune, {
       critical: false,
       save: DegreeOfSuccess.CriticalFailure,
     });
+
     expect(result.taken).toBe(amount(0));
   });
 

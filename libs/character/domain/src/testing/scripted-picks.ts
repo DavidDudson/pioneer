@@ -7,13 +7,16 @@ import type { PickSource } from '../pick-source';
  */
 export function scriptedPicks(indices: readonly PickIndex[]): PickSource {
   let next = 0;
+
   return {
     below: (bound) => {
       const index = indices[next % indices.length];
       next += 1;
+
       if (index === undefined) {
         throw new Error('scriptedPicks needs at least one index');
       }
+
       return PickIndex.parse(index % bound);
     },
   };

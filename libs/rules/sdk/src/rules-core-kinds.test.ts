@@ -9,6 +9,7 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -40,6 +41,7 @@ function entry(slug: string, name: string): object {
 
 const offGuard = idOf('condition:off-guard');
 const immobilized = idOf('condition:immobilized');
+
 const grabbed = {
   ...entry('condition:grabbed', 'Grabbed'),
   kind: 'condition',
@@ -78,17 +80,21 @@ const raiseAShield = {
   kind: 'action',
   data: { cost: 'one', category: 'defensive', selfEffect: idOf('effect:effect-raise-a-shield') },
 };
+
 /** Raise a Shield with `data` merged over its own. */
 const variable = (data: object): object => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
 
 const fire = { ...entry('damage-type:fire', 'Fire'), kind: 'damage-type', data: {} };
+
 const darkvision = {
   ...entry('sense:darkvision', 'Darkvision'),
   kind: 'sense',
   data: { acuity: 'precise', unlimitedRange: true },
 };
+
 const draconic = { ...entry('language:draconic', 'Draconic'), kind: 'language', data: {} };
 const freeArchetype = { ...entry('variant-rule:free-archetype', 'Free Archetype'), kind: 'variant-rule', data: {} };
+
 const manipulate = {
   ...entry('trait:manipulate', 'Manipulate'),
   kind: 'trait',
@@ -130,6 +136,7 @@ describe('rules core kinds', () => {
 
   test('a grant behind a predicate does not apply an implied condition', () => {
     const [offGuardGrant, immobilizedGrant] = grabbed.rules;
+
     const sometimes = {
       ...grabbed,
       rules: [{ ...offGuardGrant, predicate: ['self:action:grapple'] }, immobilizedGrant],

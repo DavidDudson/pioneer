@@ -30,21 +30,26 @@ let coreRules: PackContents;
 
 function registryOf(core: PackContents | undefined): ContentRegistry {
   const registry = new ContentRegistry();
+
   if (core !== undefined) {
     registry.register(contentPackFromContents(core));
   }
+
   registry.register(playerCoreClasses());
+
   return registry;
 }
 
 /** A cloistered cleric at `level`: Wisdom +1 from the class's key attribute, nothing else boosted. */
 function cloisteredCleric(registry: ContentRegistry, level: number): CharacterBuilder {
   const cleric = new CharacterBuilder().picking('class', playerCoreClassId('cleric'));
+
   const slot = subclassSlot(
     characterGrants(cleric.build().document, slotContent(registry)),
     slotContent(registry).lookup,
     classContent(registry),
   );
+
   return cleric.picking(String(slot?.key), playerCoreId(ContentKind.ClassFeature, 'cloistered-cleric')).atLevel(level);
 }
 
@@ -59,9 +64,11 @@ function shown(lines: readonly SpellcastingEntryLine[]): string[][] {
 describe(sheetSpellcasting, () => {
   beforeAll(async () => {
     const loader = officialPacks.find(({ id }) => id === 'core-rules');
+
     if (loader === undefined) {
       throw new Error('Expected the core rules pack');
     }
+
     coreRules = await loader.load();
   });
 
@@ -85,18 +92,23 @@ describe(sheetSpellcasting, () => {
       data: { bulk: 'light', usage: { type: 'worn', slot: 'headwear' } },
       rules: [{ key: 'FlatModifier', selectors: ['spell-attack-roll'], type: 'item', value: 1 }],
     });
+
     const registry = registryOf(coreRules);
     registry.register(items.build());
     const circlet = InventoryItemId.parse('55555555-5555-4555-8555-555555555555');
+
     const item = {
       id: circlet,
       item: ContentId.parse(items.idOf(ContentKind.Equipment, 'circlet')),
       quantity: ItemQuantity.parse(1),
     };
+
     const inventory = carryItem(addItem(EMPTY_INVENTORY, { ...item, container: undefined }), circlet, {
       state: CarryState.Worn,
     });
+
     const built = cloisteredCleric(registry, 1).build();
+
     const wearing = new Character({
       document: { ...built.document, inventory },
       version: built.version,

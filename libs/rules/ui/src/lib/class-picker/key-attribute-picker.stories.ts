@@ -26,6 +26,7 @@ const meta: Meta<KeyAttributePicker> = {
   args: { rows: ATTRIBUTES, ariaLabel: 'Key attribute', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** An attribute the class doesn't allow stays in the table and says why. */

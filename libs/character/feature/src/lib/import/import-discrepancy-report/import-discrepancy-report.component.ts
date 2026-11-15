@@ -65,6 +65,7 @@ export class ImportDiscrepancyReport {
 
   #view(difference: Discrepancy): DiscrepancyView {
     const named = this.statistics().get(difference.selector);
+
     const base = {
       selector: difference.selector,
       label: statisticLabel(difference.selector, named?.name),
@@ -72,6 +73,7 @@ export class ImportDiscrepancyReport {
       kind: named?.kind,
       statistic: named?.result.ok === true ? named.result : undefined,
     };
+
     return difference.kind === DiscrepancyKind.Total
       ? {
           ...base,

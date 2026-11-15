@@ -65,14 +65,18 @@ export async function render(value: StatisticValue, inputs: Inputs = {}): Promis
     ],
   });
   const fixture = TestBed.createComponent(BreakdownView);
+
   for (const [name, input] of Object.entries(inputsOf(value, inputs))) {
     fixture.componentRef.setInput(name, input);
   }
+
   await fixture.whenStable();
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The breakdown rendered no host element');
   }
+
   return read(host);
 }
 
@@ -80,6 +84,7 @@ export async function render(value: StatisticValue, inputs: Inputs = {}): Promis
 function read(host: HTMLElement): Rendered {
   const items = (selector: string): string[] =>
     [...host.querySelectorAll(`${selector} [role="listitem"]`)].map((item) => partsOf(item));
+
   return {
     captions: [...host.querySelectorAll('fr-text')]
       .filter((caption) => caption.closest('fr-list') === null)

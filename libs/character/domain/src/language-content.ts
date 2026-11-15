@@ -33,6 +33,7 @@ const NONE = LanguageCount.parse(0);
 /** The registry's languages and its ancestries' languages. */
 export function languageContent(registry: ContentRegistry): LanguageContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const byId = new Map(
     entries.flatMap((entry): [ContentId, LanguageOption][] =>
       entry.kind === ContentKind.Language
@@ -40,19 +41,25 @@ export function languageContent(registry: ContentRegistry): LanguageContent {
         : [],
     ),
   );
+
   const languages = [...byId.values()].toSorted((left, right) => left.name.localeCompare(right.name));
+
   return {
     languages,
     language: (pick: ChoiceValue): LanguageOption | undefined => {
       const id = ContentId.safeParse(pick);
+
       return id.success ? byId.get(id.data) : undefined;
     },
     ancestry: (id: ContentId): AncestryLanguages | undefined => {
       const definition = registry.ancestry(AncestryId.parse(id))?.definition;
+
       if (definition === undefined) {
         return undefined;
       }
+
       const { languages: spoken = [], additionalLanguages } = definition;
+
       return {
         id,
         name: definition.name,

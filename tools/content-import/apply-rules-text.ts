@@ -28,9 +28,11 @@ function isRecord(node: unknown): node is Readonly<Record<string, unknown>> {
 /** The position just after the last non-space character before `end`. */
 function beforeSpace(text: string, end: number): number {
   let at = end;
+
   while (WHITESPACE.test(text.charAt(at - 1))) {
     at -= 1;
   }
+
   return at;
 }
 
@@ -49,23 +51,31 @@ function editFor(text: string, node: SpanNode, { held, gained }: Gain): readonly
   if (node.kind !== 'object' || gained.length === 0) {
     return [];
   }
+
   const rules = node.members.get('rules');
+
   if (rules?.kind !== 'array') {
     const at = beforeSpace(text, node.end - 1);
+
     return [{ at, remove: 0, insert: `, "rules": [${listed(gained)}]` }];
   }
+
   const last = rules.items.at(-1);
+
   if (last === undefined || !Array.isArray(held)) {
     return [{ at: rules.start, remove: rules.end - rules.start, insert: `[${listed(gained)}]` }];
   }
+
   return [{ at: last.end, remove: 0, insert: `, ${listed(gained)}` }];
 }
 
 function applied(text: string, edits: readonly Edit[]): string {
   let edited = text;
+
   for (const { at, remove, insert } of edits.toSorted((left, right) => right.at - left.at)) {
     edited = `${edited.slice(0, at)}${insert}${edited.slice(at + remove)}`;
   }
+
   return edited;
 }
 
@@ -76,21 +86,29 @@ function applied(text: string, edits: readonly Edit[]): string {
 export function mergeRulesIntoText(text: string, merge: RulesMerge): string {
   const entries: unknown = JSON.parse(text);
   const tree = spansOf(text);
+
   if (!Array.isArray(entries) || tree.kind !== 'array') {
     return text;
   }
+
   const edits = entries.flatMap((entry: unknown, index): readonly Edit[] => {
     const node = tree.items[index];
     const merged = isRecord(entry) && typeof entry['id'] === 'string' ? merge.get(entry['id'] as ContentId) : undefined;
+
     if (node === undefined || merged === undefined || !isRecord(entry)) {
       return [];
     }
+
     const own: readonly unknown[] = Array.isArray(entry['rules']) ? entry['rules'] : [];
+
     return editFor(text, node, { held: entry['rules'], gained: merged.slice(own.length) });
   });
+
   const result = applied(text, edits);
+
   if (!isDeepStrictEqual(JSON.parse(result), withMergedRules(entries, merge))) {
     throw new Error('Splicing the merged rules into the file text changed more than the rules');
   }
+
   return result;
 }

@@ -13,7 +13,9 @@ export const Attribute = {
   Wisdom: 'wis',
   Charisma: 'cha',
 } as const;
+
 export type Attribute = ValueOf<typeof Attribute>;
+
 export const AttributeSchema = z.enum(Attribute);
 
 const ATTRIBUTE_COUNT = Object.keys(Attribute).length;
@@ -26,15 +28,18 @@ export const Attributes = z.array(AttributeSchema).max(ATTRIBUTE_COUNT).readonly
  * one is a fixed boost.
  */
 export const AttributeBoost = z.array(AttributeSchema).min(1).max(ATTRIBUTE_COUNT).readonly().check(uniqueItems);
+
 export type AttributeBoost = z.infer<typeof AttributeBoost>;
 
 /** Remaster attribute modifiers. A level 20 character tops out at +7. */
 export const ATTRIBUTE_MODIFIER_MIN = -5;
 export const ATTRIBUTE_MODIFIER_MAX = 7;
+
 export const AttributeModifier = Pg.smallint()
   .min(ATTRIBUTE_MODIFIER_MIN)
   .max(ATTRIBUTE_MODIFIER_MAX)
   .brand<'AttributeModifier'>();
+
 export type AttributeModifier = z.infer<typeof AttributeModifier>;
 
 export const AttributeModifiersWire = z.object({
@@ -45,6 +50,7 @@ export const AttributeModifiersWire = z.object({
   wis: AttributeModifier,
   cha: AttributeModifier,
 });
+
 export type AttributeModifiersWire = z.infer<typeof AttributeModifiersWire>;
 
 /** Value object: the six attribute modifiers. Immutable. */

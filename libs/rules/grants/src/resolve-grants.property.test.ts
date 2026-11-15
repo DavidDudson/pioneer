@@ -21,6 +21,7 @@ const indexes = (count: number): number[] => Array.from({ length: count }, (_val
 /** Entry `index`, granting some of the entries after it, so the grants never loop. */
 function entryAt(index: number, count: number): Arbitrary<GrantEntry> {
   const later = indexes(count).slice(index + 1);
+
   return subarray(later).map((grants) =>
     entry(
       slugOf(index),
@@ -46,6 +47,7 @@ describe('resolveGrants properties', () => {
         expect(result.errors).toEqual([]);
         const ids = result.items.map((item) => item.entry.id);
         expect(new Set(ids).size).toBe(ids.length);
+
         for (const root of roots) {
           expect(ids).toContain(idOf(slugOf(root)));
         }
@@ -57,6 +59,7 @@ describe('resolveGrants properties', () => {
     const shuffled = acyclic.chain(([content, roots]) =>
       shuffledSubarray(roots, { minLength: roots.length }).map((order): Drawn => [content, roots, order]),
     );
+
     assert(
       property(shuffled, ([content, roots, order]) => {
         expect(resolve(content, order)).toEqual(resolve(content, roots));

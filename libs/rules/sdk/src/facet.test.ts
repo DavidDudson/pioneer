@@ -34,6 +34,7 @@ function entry({
   pack = 'player-core',
 }: EntryShape): ContentEntry {
   const traitSlug = entrySlug(ContentKind.Trait, Slug.parse(slug));
+
   return ContentEntry.parse({
     id: contentId(PackId.parse(pack), traitSlug),
     pack,
@@ -52,30 +53,36 @@ function entry({
 
 function facet(id: string): FacetDefinition {
   const found = COMMON_FACETS.find((candidate) => candidate.id === id);
+
   if (found === undefined) {
     throw new Error(`No facet ${id}`);
   }
+
   return found;
 }
 
 const values = (...texts: string[]): FacetValue[] => texts.map((text) => FacetValue.parse(text));
 const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
+
 const include = (...texts: string[]): FacetSelection => ({
   kind: SelectionKind.Values,
   include: values(...texts),
   exclude: [],
 });
+
 const exclude = (...texts: string[]): FacetSelection => ({
   kind: SelectionKind.Values,
   include: [],
   exclude: values(...texts),
 });
+
 const state = (selections: Record<string, FacetSelection>): FilterState =>
   new Map(Object.entries(selections).map(([id, selection]) => [FacetId.parse(id), selection]));
 
 /** A facet's counts as plain pairs. */
 function pairs(counts: readonly FacetCounts[], id: string): (readonly [string, number])[] {
   const found = counts.find((each) => each.facet.id === id);
+
   return (found?.values ?? []).map(({ value, count }) => [value, count]);
 }
 
@@ -116,6 +123,7 @@ describe('facet values', () => {
       label: facet('rarity').label,
       path: ['data', 'flag'],
     };
+
     const withFlag = { ...fire, data: { flag: true } } as unknown as ContentEntry;
     expect(facetValues(withFlag, flag)).toStrictEqual(values('yes'));
     expect(facetValues(fire, flag)).toStrictEqual([UNKNOWN]);
@@ -205,6 +213,7 @@ describe('query params', () => {
       }),
       COMMON_FACETS,
     );
+
     expect(plainQuery(query)).toStrictEqual({ 'f.level': '1..', 'f.traits': 'cold,fire,!evil' });
   });
 
@@ -228,6 +237,7 @@ describe('query params', () => {
       },
       COMMON_FACETS,
     );
+
     expect(plainQuery(filterToQuery(read, COMMON_FACETS))).toStrictEqual({
       'f.rarity': 'common,!rare',
       'f.traits': '!ok',

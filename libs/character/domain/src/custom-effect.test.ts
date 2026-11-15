@@ -41,11 +41,13 @@ const blank = new CharacterBuilder().build();
 
 function added(character: Character): Character {
   const patch: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: INPUT };
+
   return character.apply(patch, THEN, { actor: AUTHOR, newCustomEffectId: BLESSING });
 }
 
 function toggled(character: Character, enabled: boolean, actor = AUTHOR): Character {
   const patch: CharacterPatch = { field: CharacterPatchField.ToggleCustomEffect, id: BLESSING, enabled };
+
   return character.apply(patch, LATER, { actor });
 }
 
@@ -142,6 +144,7 @@ describe('switching a custom effect', () => {
     const full = added(blank);
     const toggle = { by: AUTHOR, byRole: OverrideRole.Player, at: overrideTime(THEN), enabled: true };
     const toggles = [{ ...toggle, by: GM }, ...Array.from({ length: CUSTOM_EFFECT_TOGGLES_MAX - 1 }, () => toggle)];
+
     const crowded = CustomEffectSchema.parse({
       id: BLESSING,
       ...INPUT,
@@ -151,6 +154,7 @@ describe('switching a custom effect', () => {
       enabled: true,
       toggles,
     });
+
     const document = { ...full.document, customEffects: [crowded] };
     const patch = { field: CharacterPatchField.ToggleCustomEffect, id: BLESSING, enabled: false } as const;
     const [effect] = withCustomEffectEdit(document, patch, { actor: AUTHOR, now: LATER }).customEffects;
@@ -174,6 +178,7 @@ describe('the number of custom effects a character keeps', () => {
       toggles: [],
       removed: { by: AUTHOR, at: overrideTime(THEN), reason: 'Gone' },
     });
+
     const crowded = { ...blank.document, customEffects: Array.from({ length: CUSTOM_EFFECTS_MAX }, () => effect) };
     const patch: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: INPUT };
 
@@ -189,6 +194,7 @@ describe('removing a custom effect', () => {
       id: BLESSING,
       reason: CustomEffectInput.shape.reason.parse('Festival over'),
     };
+
     const removed = added(blank).apply(patch, LATER, { actor: AUTHOR });
 
     expect(removed.document.customEffects).toHaveLength(1);

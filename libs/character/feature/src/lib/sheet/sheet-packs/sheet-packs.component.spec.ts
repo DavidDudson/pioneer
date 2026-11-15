@@ -16,6 +16,7 @@ const core = {
   requiredBy: [],
   removable: false,
 };
+
 const feats = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e02',
   title: 'Amiri’s Feats',
@@ -24,6 +25,7 @@ const feats = {
   requiredBy: [],
   removable: true,
 };
+
 const spells = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e03',
   title: 'Amiri’s Spells',
@@ -32,6 +34,7 @@ const spells = {
   requiredBy: ['Amiri’s Feats'],
   removable: false,
 };
+
 const items = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e04',
   title: 'Amiri’s Items',
@@ -39,6 +42,7 @@ const items = {
   official: false,
   private: false,
 };
+
 const secret = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e05',
   title: 'Amiri’s Secrets',
@@ -67,12 +71,14 @@ async function open(packs: PacksJson): Promise<OpenSheet> {
   await vi.waitFor(() => {
     expect(sheet.root.textContent).toContain('Player Core');
   });
+
   return sheet;
 }
 
 /** The pack picker's control. */
 function picker({ harness }: OpenSheet): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-sheet-pack-picker'));
+
   return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 
@@ -80,6 +86,7 @@ function picker({ harness }: OpenSheet): PickerField<string, object> {
 function labelOf(sheet: OpenSheet): string | undefined {
   const control = picker(sheet);
   const [first] = control.rows();
+
   return first === undefined ? undefined : control.rowLabel()(first);
 }
 
@@ -97,6 +104,7 @@ describe('SheetPacks', () => {
       enabled: [core, feats, spells],
       candidates: [],
     });
+
     expect(root.textContent).toContain('Always on');
     expect(root.textContent).toContain('Needed by Amiri’s Feats');
     expect(buttons(root, 'Disable')).toHaveLength(1);
@@ -110,6 +118,7 @@ describe('SheetPacks', () => {
       enabled: [core, { ...feats, removable: false }],
       candidates: [],
     });
+
     expect(root.textContent).toContain('Abomination Vaults decides which packs this character uses.');
     expect(buttons(root, 'Disable')).toHaveLength(0);
     expect(buttons(root, 'Enable pack')).toHaveLength(0);
@@ -122,6 +131,7 @@ describe('SheetPacks', () => {
       enabled: [core],
       candidates: [items, secret],
     });
+
     const http = TestBed.inject(HttpTestingController);
     const { root } = sheet;
 
@@ -216,6 +226,7 @@ describe('SheetPacks', () => {
       enabled: [core, { ...spells, removable: true }],
       candidates: [],
     });
+
     const http = TestBed.inject(HttpTestingController);
 
     present(buttons(sheet.root, 'Disable')[0]).click();

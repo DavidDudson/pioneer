@@ -44,6 +44,7 @@ export class SessionStore {
       queryFn: async () => this.#fetchMe(),
       staleTime: 'static',
     });
+
     return state.user;
   }
 
@@ -60,6 +61,7 @@ export class SessionStore {
   public async promptSignIn(): Promise<void> {
     // Calls often fail together (a page's list and detail); they share one prompt.
     this.#prompting ??= this.#promptOnce();
+
     return this.#prompting;
   }
 
@@ -114,6 +116,7 @@ export class SessionStore {
   async #prompt(): Promise<void> {
     await this.signedOut();
     const path = this.#router.parseUrl(this.#router.url).root.children['primary']?.toString();
+
     if (`/${path ?? ''}` !== SIGN_IN_PATH) {
       await this.showSignIn();
     }
@@ -130,11 +133,13 @@ export class SessionStore {
   async #fetchMe(): Promise<SessionState> {
     try {
       const user = await this.#api.call(IdentityContract.me, { params: {}, body: undefined, signedOutIsAnswer: true });
+
       return { user };
     } catch (error: unknown) {
       if (ApiError.isUnauthorized(error)) {
         return { user: undefined };
       }
+
       throw error;
     }
   }

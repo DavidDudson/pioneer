@@ -13,6 +13,7 @@ const EFFECT: DocumentFixture = {
   type: 'effect',
   system: { duration: { expiry: 'turn-start', sustained: false, unit: 'hours', value: 1 } },
 };
+
 const EFFECT_UUID = `Compendium.pf2e.equipment-effects.Item.${EFFECT.id}`;
 
 function consumable(fixture: DocumentFixture, category: string, description: string): DocumentFixture {
@@ -31,16 +32,19 @@ const POTION = consumable(
   'elixir',
   `<p><strong>Activate</strong> <span class="action-glyph">1</span> Interact</p><p>You gain @UUID[${EFFECT_UUID}]{Effect: Elixir of Life}.</p>`,
 );
+
 const SCROLL = consumable(
   { id: 'sCrOlLoFfIrEbAl1', name: 'Scroll of Fireball', type: 'consumable' },
   'scroll',
   '<p><strong>Activate</strong> <span class="action-glyph">3</span> Cast a Spell</p>',
 );
+
 const BOMB = consumable(
   { id: 'aLcHeMiStFiRe001', name: 'Alchemist Fire', type: 'consumable' },
   'gadget',
   '<p><strong>Activate—Throw</strong> <span class="action-glyph">a</span> Strike</p>',
 );
+
 const PLAIN = consumable(
   { id: 'pLaInDrAuGhT0001', name: 'Plain Draught', type: 'consumable' },
   'potion',
@@ -89,6 +93,7 @@ describe('translateKindData: consumable use', () => {
       'potion',
       '<p><strong>Activate</strong> <span class="action-glyph">1 to 3</span> Interact</p>',
     );
+
     const lone = translate([odd]);
 
     expect(dataIn(lone, 'odd-draught')).not.toHaveProperty('activation');

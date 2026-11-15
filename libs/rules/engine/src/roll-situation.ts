@@ -27,10 +27,12 @@ function couldChange({ status }: BreakdownLine): boolean {
  */
 export function rollSituation({ lines }: StatisticValue): RollSituation {
   const options = new Set<RollOption>();
+
   for (const { modifier } of lines) {
     for (const option of modifier.predicate === undefined ? [] : predicateOptions(modifier.predicate)) {
       options.add(option);
     }
   }
+
   return { conditional: lines.filter((line) => couldChange(line)), options };
 }

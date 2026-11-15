@@ -9,6 +9,7 @@ export class InMemoryFlaggedItems extends FlaggedItems {
   /** The campaign's party breaks exactly these rules from now on. */
   public flag(campaignId: CampaignId, items: readonly FlaggedItem[]): this {
     this.#flagged.set(campaignId, items);
+
     return this;
   }
 

@@ -37,6 +37,7 @@ function render(recharge: FrequencyPeriod | undefined): ComponentFixture<ActionR
     TestBed.inject(ActionWords).shown({ ...SHIELD_BLOCK_SUMMARY.line, recharge }),
   );
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -44,10 +45,12 @@ function render(recharge: FrequencyPeriod | undefined): ComponentFixture<ActionR
 async function summaryText(fixture: ComponentFixture<ActionRow>): Promise<string> {
   const name = (fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"], a');
   name?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+
   return vi.waitFor(() => {
     fixture.detectChanges();
     const card = document.querySelector<HTMLElement>('[role="tooltip"]');
     expect(card).not.toBeNull();
+
     return card?.textContent ?? '';
   });
 }

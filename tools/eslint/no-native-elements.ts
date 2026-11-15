@@ -17,8 +17,10 @@ import type { Rule } from 'eslint';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\/src\/lib\//u;
 const ALLOWED_OUTSIDE = /^(?:fr-|pio-)|^(?:ng-container|ng-template|ng-content|router-outlet)$/u;
+
 /** Angular names foreign elements `:svg:svg`, `:svg:path`: the outermost is classified by its namespace, its subtree comes with it. */
 const NAMESPACED = /^:(?<namespace>[a-z]+):/u;
+
 /** Free inside frontier: its own components, Angular's structural elements, and elements with no semantics of their own. */
 const STRUCTURAL =
   /^fr-|^(?:ng-container|ng-template|ng-content|div|span|header|footer|nav|main|section|article|aside)$/u;
@@ -169,17 +171,23 @@ function frontierViolation(name: string, local: string): Violation | undefined {
   if (STRUCTURAL.test(name)) {
     return undefined;
   }
+
   const reason = BANNED.get(name);
+
   if (reason !== undefined) {
     return { messageId: 'banned', data: { name, reason } };
   }
+
   const owners = OWNERS.get(name);
+
   if (owners === undefined) {
     return { messageId: 'unknown', data: { name } };
   }
+
   if (owners.some((owner) => local.startsWith(owner))) {
     return undefined;
   }
+
   return owners.length === 0
     ? { messageId: 'unowned', data: { name } }
     : { messageId: 'owned', data: { name, owners: owners.map((owner) => `frontier/${owner}`).join(', ') } };
@@ -190,9 +198,11 @@ function violation(name: string, local: string | undefined): Violation | undefin
   if (local === undefined) {
     return ALLOWED_OUTSIDE.test(name) ? undefined : { messageId: 'outside', data: { name } };
   }
+
   if (!STRUCTURAL.test(name) && ALLOWED_OUTSIDE.test(name)) {
     return { messageId: 'app', data: { name } };
   }
+
   return frontierViolation(name, local);
 }
 
@@ -213,20 +223,26 @@ export const noNativeElements: Rule.RuleModule = {
   },
   create(context) {
     const frontierPath = FRONTIER.exec(context.filename);
+
     const local =
       frontierPath === null ? undefined : context.filename.slice(frontierPath.index + frontierPath[0].length);
+
     // Foreign elements currently open: inside one, the outermost has already been classified.
     let foreignDepth = 0;
+
     return {
       Element(node: unknown): void {
         const { name: rawName, startSourceSpan } = node as ElementNode;
+
         if (typeof rawName !== 'string' || startSourceSpan === undefined) {
           return;
         }
+
         const namespace = NAMESPACED.exec(rawName)?.groups?.['namespace'];
         const nested = namespace !== undefined && foreignDepth > 0;
         foreignDepth += namespace === undefined ? 0 : 1;
         const found = nested ? undefined : violation(namespace ?? rawName, local);
+
         if (found !== undefined) {
           context.report({ loc: context.sourceCode.getLocFromIndex(startSourceSpan.start.offset), ...found });
         }

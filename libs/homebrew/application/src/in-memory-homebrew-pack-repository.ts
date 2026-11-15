@@ -54,6 +54,7 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
     if (!this.#rows.has(id) || this.#archived.has(id)) {
       return;
     }
+
     await whileLocked?.();
     this.#audits.push(audit);
     this.#archived.add(id);
@@ -63,6 +64,7 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
     if (!this.#archived.has(id)) {
       return;
     }
+
     await whileLocked?.();
     this.#audits.push(audit);
     this.#archived.delete(id);
@@ -70,10 +72,13 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
 
   public override async insert(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
     const taken = [...this.#rows.values()].some((row) => row.slug === pack.slug);
+
     if (taken) {
       return undefined;
     }
+
     this.#rows.set(pack.id, pack);
+
     return pack;
   }
 
@@ -84,8 +89,10 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
     if (this.#rows.get(pack.id)?.ownerId !== pack.ownerId || this.#archived.has(pack.id)) {
       return undefined;
     }
+
     await whileLocked?.();
     this.#rows.set(pack.id, pack);
+
     return pack;
   }
 }

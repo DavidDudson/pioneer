@@ -13,6 +13,7 @@ const JSON_INDENT = 2;
 
 /** Where the statistics tool's definitions come from: the tool's example, or a content pack's statistics. */
 export const StatisticSource = { Example: 'example', CoreRules: 'core-rules' } as const;
+
 export type StatisticSource = ValueOf<typeof StatisticSource>;
 
 export const STATISTIC_SOURCE_KEYS: Readonly<Record<StatisticSource, string>> = {
@@ -30,14 +31,18 @@ async function statisticDefinitions(source: StatisticSource): Promise<string> {
   if (source === StatisticSource.Example) {
     return rulesExample(RulesTool.Statistics);
   }
+
   const id = SOURCE_PACKS[source];
   const loader = contentCatalog.find((candidate) => candidate.id === id);
+
   if (loader === undefined) {
     throw new Error(`No content pack "${id}" in the catalog`);
   }
+
   const pack = await loader.load();
   // The tool edits definitions alone; a pack's statistics also carry their sources.
   const definitions = pack.statistics.map(({ sources: _sources, ...definition }) => definition);
+
   return JSON.stringify(definitions, undefined, JSON_INDENT);
 }
 
@@ -72,16 +77,20 @@ const WITHOUT_LEVEL = EntrySlug.parse('variant-rule:proficiency-without-level');
 /** The core rules pack's proficiency bonus table, Proficiency Without Level and namespaces, read through a registry. */
 async function loadCoreRules(): Promise<CoreRules> {
   const loader = contentCatalog.find((candidate) => candidate.id === CORE_RULES_PACK);
+
   if (loader === undefined) {
     throw new Error(`No content pack "${CORE_RULES_PACK}" in the catalog`);
   }
+
   const registry = new ContentRegistry();
   await registry.load(loader);
   const content = statisticContent(registry);
   const variant = registry.variantRule(VariantRuleId.parse(contentId(CORE_RULES_PACK, WITHOUT_LEVEL)));
+
   if (content === undefined || variant === undefined) {
     throw new Error('The core rules pack has no proficiency bonus table or no Proficiency Without Level');
   }
+
   return {
     table: content.proficiencyBonus,
     withoutLevel: { name: variant.definition.name, rules: variantRulesInPlay([variant]) },

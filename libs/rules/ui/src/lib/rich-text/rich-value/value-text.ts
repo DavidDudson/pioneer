@@ -38,6 +38,7 @@ function yesNo(value: boolean): string {
 /** A statistic's name from the page, or a generic word when the page doesn't know it. */
 export function statisticName(selector: Selector, { links, translate }: ValueTextContext): string {
   const isSave = selector.startsWith(SAVE_PREFIX);
+
   return (
     links.statisticName(selector) ?? translate(isSave ? RichTextMessage.UnnamedSave : RichTextMessage.UnnamedCheck)
   );
@@ -47,6 +48,7 @@ function checkText(node: CheckNode, context: ValueTextContext): string {
   const { dc } = node;
   const against = typeof dc === 'object' ? dc.against : undefined;
   const named = context.links.statisticName(node.statistic) !== undefined;
+
   return context.translate(RichTextMessage.Check, {
     statistic: statisticName(node.statistic, context),
     dc: typeof dc === 'number' ? dc : 0,
@@ -64,6 +66,7 @@ function checkText(node: CheckNode, context: ValueTextContext): string {
 
 function instanceText(instance: DamageInstance, { translate }: ValueTextContext): string {
   const { category, damageType } = instance;
+
   return translate(RichTextMessage.Damage, {
     formula: instance.formula,
     hasCategory: yesNo(category !== undefined),
@@ -75,6 +78,7 @@ function instanceText(instance: DamageInstance, { translate }: ValueTextContext)
 
 function damageText(node: DamageNode, context: ValueTextContext): string {
   const amount = context.format.list(node.instances.map((instance) => instanceText(instance, context)));
+
   return node.healing === true ? context.translate(RichTextMessage.Healing, { amount }) : amount;
 }
 
@@ -95,11 +99,14 @@ export function valueText(node: ValueNode, context: ValueTextContext): string {
   if (node.type === InlineKind.Check) {
     return checkText(node, context);
   }
+
   if (node.type === InlineKind.Damage) {
     return damageText(node, context);
   }
+
   if (node.type === InlineKind.Template) {
     return templateText(node, context);
   }
+
   return context.translate(DURATION_MESSAGES[node.unit], { count: node.count });
 }

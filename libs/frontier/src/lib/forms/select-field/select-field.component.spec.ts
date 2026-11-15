@@ -19,27 +19,34 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
   fixture.componentRef.setInput('label', 'Ancestry');
   fixture.componentRef.setInput('hint', 'Sets your hit points and speed.');
   fixture.componentRef.setInput('options', ANCESTRIES);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<SelectField<string>>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 /** The text of whatever the trigger's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<SelectField<string>>): string {
   const ids = find(fixture, 'button').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 
@@ -72,9 +79,11 @@ describe(SelectField, () => {
     find(fixture, 'button').click();
     fixture.detectChanges();
     await fixture.whenStable();
+
     const option = [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
       (element) => element.textContent.trim() === 'Human',
     );
+
     option?.click();
     fixture.detectChanges();
     expect(fixture.componentInstance.value()).toBe('human');

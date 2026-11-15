@@ -10,6 +10,7 @@ import { provideRichTextLinks } from './rich-text-links';
 import { RichTextView } from './rich-text.component';
 
 const KNOWN: ReadonlySet<string> = new Set(['save:reflex', 'save:will']);
+
 const NAMES: ReadonlyMap<string, ContentText> = new Map([
   ['save:reflex', ContentText.parse('Reflex')],
   ['save:will', ContentText.parse('Will')],
@@ -28,6 +29,7 @@ async function render(content: readonly unknown[], withRoller = true): Promise<R
     check: vi.fn<InlineRoller['check']>(),
     damage: vi.fn<InlineRoller['damage']>(),
   };
+
   TestBed.configureTestingModule({
     providers: [
       provideRichTextTesting(),
@@ -42,6 +44,7 @@ async function render(content: readonly unknown[], withRoller = true): Promise<R
   const fixture = TestBed.createComponent(RichTextView);
   fixture.componentRef.setInput('text', RichText.parse([{ type: 'paragraph', content }]));
   await fixture.whenStable();
+
   return { element: fixture.nativeElement as HTMLElement, roller };
 }
 
@@ -75,6 +78,7 @@ describe('rolling a check or damage in text', () => {
     const { element, roller } = await render([
       { type: 'damage', instances: [{ formula: '2d6', damageType: DamageType.Fire }] },
     ]);
+
     const [button] = buttons(element);
     expect(button?.textContent.trim()).toBe('2d6 fire');
     button?.click();
@@ -95,6 +99,7 @@ describe('rolling a check or damage in text', () => {
       ],
       false,
     );
+
     expect(buttons(element)).toHaveLength(0);
     expect(element.textContent).not.toContain('on this character');
   });

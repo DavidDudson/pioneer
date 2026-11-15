@@ -21,8 +21,11 @@ import { skillReads, slotContent, slotRefusal } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtures } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(skillFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const FIRST = SlotKey.parse('skill-training:1:0');
@@ -38,12 +41,14 @@ function fighter(): CharacterBuilder {
 /** The pick of the Lore a name types. */
 function choice(name: string): LoreChoice {
   const typed = Slug.parse(topic(name));
+
   return loreChoiceOf(typed);
 }
 
 function picked(document: CharacterDocument, slot: SlotKey, name: string): CharacterDocument {
   const selection = choice(name);
   const named = withPickedLore(document, { selection, loreName: LoreName.parse(name) });
+
   return { ...named, build: { ...named.build, choices: { ...named.build.choices, [slot]: selection } } };
 }
 
@@ -92,11 +97,13 @@ describe('a custom Lore in a trained skill slot', () => {
 
   test('is one skill however it is typed: the second training is refused as already trained', () => {
     const document = picked(none, FIRST, 'Sailing');
+
     const again = {
       slot: SECOND,
       selection: choice('sailing lore'),
       loreName: LoreName.parse('sailing lore'),
     };
+
     expect(slotRefusal(document, content, again)?.message.key).toBe('character.validation.skillTrained');
   });
 
@@ -112,6 +119,7 @@ describe('a custom Lore in a trained skill slot', () => {
       ...none,
       build: { ...none.build, choices: { ...none.build.choices, [FIRST]: ChoiceValue.parse('lore:harbour-law') } },
     };
+
     expect(skillSlots(document, skillReads(document, content))[0]?.pick?.name).toEqual(
       ContentText.parse('Harbour law Lore'),
     );
@@ -167,6 +175,7 @@ describe('editing a Lore pick', () => {
       },
       now,
     );
+
     expect(Object.entries(next.document.build.lores).map(([key, name]) => `${key}=${name}`)).toEqual([
       'sailing=Sailing',
     ]);
@@ -183,6 +192,7 @@ describe('editing a Lore pick', () => {
       },
       now,
     );
+
     const cleared = named.apply({ field: CharacterPatchField.ClearSlot, slot: FIRST }, now);
     expect(cleared.document.build.lores).toEqual({});
   });

@@ -30,6 +30,7 @@ const meta: Meta<ContentBrowserView> = {
     columns: [],
   },
 };
+
 export default meta;
 
 const FIRST_NAME = BROWSER_ROWS[0]?.name ?? '';

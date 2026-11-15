@@ -36,9 +36,11 @@ const ONE = ItemQuantity.parse(1);
 /** Two longswords, leather armour, a steel shield, a shortbow, a flame tongue and a rope, stowed, no runes etched. */
 export function armoury(): Inventory {
   let inventory = EMPTY_INVENTORY;
+
   for (const [id, fixture] of STOCK) {
     inventory = addItem(inventory, { id, item: itemFixtureId(fixture), quantity: ONE, container: undefined });
   }
+
   return inventory;
 }
 
@@ -60,8 +62,10 @@ export function propertyRune(rune: RuneFixture): RuneEtching & RuneRef {
 /** The line `id` of `inventory`; throws when it has none. */
 export function lineOf(inventory: Inventory, id: InventoryItemId): InventoryItem {
   const line = inventory.items.find((each) => each.id === id);
+
   if (line === undefined) {
     throw new Error(`No item ${id}`);
   }
+
   return line;
 }

@@ -42,10 +42,12 @@ export function staffLimits(
   content: ItemContent,
 ): StaffLimits {
   const entries = characterSpellcasting(resolution);
+
   const ranks = entries.flatMap((entry) => [
     ...entry.slots.ranks.map(({ rank }) => rank),
     ...entry.pools.flatMap(({ ranks: pooled }) => pooled.map(({ rank }) => rank)),
   ]);
+
   return {
     staves: new Set(
       inventory.filter((item) => item.carry.state !== CarryState.Dropped && isStaff(item, content)).map(({ id }) => id),
@@ -68,6 +70,7 @@ export const StaffProblem = {
   /** Only the own slots of a prepared entry can be expended. */
   SlotNotExpendable: 'slot-not-expendable',
 } as const;
+
 export type StaffProblem = ValueOf<typeof StaffProblem>;
 
 /** Why the staff and slot chosen can't be prepared, or undefined when they can. */
@@ -75,8 +78,10 @@ export function staffProblem({ staff, slot }: StaffChoice, limits: StaffLimits):
   if (staff === undefined) {
     return slot === undefined ? undefined : StaffProblem.SlotWithoutStaff;
   }
+
   if (!limits.staves.has(staff)) {
     return StaffProblem.NotAStaff;
   }
+
   return slot === undefined || limits.expendable.has(staffSlotKey(slot)) ? undefined : StaffProblem.SlotNotExpendable;
 }

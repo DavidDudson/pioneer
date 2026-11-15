@@ -50,6 +50,7 @@ export class ClassPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return classPickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

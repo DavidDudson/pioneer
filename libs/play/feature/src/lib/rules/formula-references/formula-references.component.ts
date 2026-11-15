@@ -75,8 +75,10 @@ export class FormulaReferences {
   }));
   protected readonly rows = computed((): readonly ReferenceRow[] => {
     const entries = this.entries();
+
     return this.references().map((path) => {
       const entry = entryFor(entries, path);
+
       return { path, entry, invalid: usableValue(entry) === undefined, meaning: referenceMeaning(path) };
     });
   });
@@ -90,6 +92,7 @@ export class FormulaReferences {
       const shown = new Set(this.references());
       const entries = untracked(this.entries);
       const kept = [...entries].filter(([path, entry]) => entry.complete || shown.has(path));
+
       if (kept.length !== entries.size) {
         this.entries.set(new Map(kept));
       }

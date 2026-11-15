@@ -92,6 +92,7 @@ function level(min: number | undefined, max: number | undefined): FilterState {
 
 const ZERO = 0 as FacetCounts['unknown'];
 const RARE = FacetValue.parse('rare');
+
 /** Every facet's counts: the rarity facet has four rare entries, the others no values. */
 const COUNTS: readonly FacetCounts[] = [
   { facet: RARITY_FACET, values: [{ value: RARE, count: 4 as FacetCounts['unknown'] }], unknown: ZERO },
@@ -123,6 +124,7 @@ describe('filter bar state', () => {
         },
       ],
     ]);
+
     expect(filterConditions(picked)).toStrictEqual([
       { field: 'rarity', operator: FilterOperator.IsAnyOf, values: ['common', 'rare'] },
       { field: 'rarity', operator: FilterOperator.IsNot, values: ['unique'] },
@@ -145,6 +147,7 @@ describe('filter bar state', () => {
       { field: 'rarity', operator: FilterOperator.Is, values: ['rare'] },
       { field: 'rarity', operator: FilterOperator.IsNot, values: ['unique'] },
     ];
+
     expect(filterState(conditions, FACETS).get(RARITY)).toStrictEqual({
       kind: SelectionKind.Values,
       include: ['common', 'rare'],
@@ -160,6 +163,7 @@ describe('filter bar state', () => {
       { field: 'level', operator: FilterOperator.Between, values: ['', ''] },
       { field: 'level', operator: FilterOperator.Is, values: ['abc'] },
     ];
+
     expect(filterState(conditions, FACETS)).toStrictEqual(new Map());
   });
 

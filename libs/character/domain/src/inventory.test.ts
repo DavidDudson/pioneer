@@ -33,12 +33,14 @@ function packed(): Inventory {
     quantity: one,
     container: undefined,
   });
+
   inventory = addItem(inventory, {
     id: pouchId,
     item: itemFixtureId(ItemFixture.Backpack),
     quantity: one,
     container: backpackId,
   });
+
   return addItem(inventory, { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: pouchId });
 }
 
@@ -63,12 +65,14 @@ describe('InventorySchema', () => {
 
   test('refuses containers that hold each other', () => {
     const backpack = itemFixtureId(ItemFixture.Backpack);
+
     const loop = {
       items: [
         { id: backpackId, item: backpack, quantity: 1, container: pouchId },
         { id: pouchId, item: backpack, quantity: 1, container: backpackId },
       ],
     };
+
     expect(InventorySchema.safeParse(loop).success).toBe(false);
   });
 
@@ -90,6 +94,7 @@ describe('inventory edits', () => {
       quantity: one,
       origin: 'import',
     } as const;
+
     const inventory = removeItem({ ...packed(), customItems: [custom] }, missingId);
     expect(inventory.customItems).toStrictEqual([]);
     expect(inventory.items).toHaveLength(3);
@@ -128,10 +133,12 @@ describe('inventory edits', () => {
 describe('inventoryRefusal', () => {
   test('refuses an item added to a full inventory, naming the limit', () => {
     let full = EMPTY_INVENTORY;
+
     for (let index = 0; index < INVENTORY_ITEMS_MAX; index += 1) {
       const id = InventoryItemId.parse(`00000000-0000-4000-8000-${String(index).padStart(12, '0')}`);
       full = addItem(full, { id, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: undefined });
     }
+
     expect(inventoryRefusal(full, { item: itemFixtureId(ItemFixture.Rope) })).toMatchObject({
       field: InventoryRefusalField.Item,
       message: { key: 'character.validation.inventoryFull', params: { maximum: INVENTORY_ITEMS_MAX } },

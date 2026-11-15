@@ -50,13 +50,14 @@ describe('CriticalSpecialization', () => {
   );
 
   test('has no other fields', () => {
-    expect(RuleElement.safeParse({ key: 'CriticalSpecialization', alternate: true }).success).toBe(false);
+    expect(RuleElement.safeParse({ key: 'CriticalSpecialization', unknown: true }).success).toBe(false);
   });
 });
 
 describe('AdjustStrike etched', () => {
   test('parses on every property', () => {
     const base = { key: 'AdjustStrike', etched: true };
+
     const elements = [
       { ...base, property: 'traits', mode: 'add', value: 'returning' },
       { ...base, property: 'property-runes', mode: 'add', value: 'ghost-touch' },

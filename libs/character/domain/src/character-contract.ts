@@ -26,9 +26,11 @@ const ByVariantRule = z.object({ id: CharacterId, variantId: VariantRuleId });
 
 /** The only orders the character list supports; each is backed by an index. */
 export const CharacterSort = { CreatedAt: 'created-at', Name: 'name' } as const;
+
 export type CharacterSort = ValueOf<typeof CharacterSort>;
 
 export const CharacterListQuery = listQuery(CharacterSort, CharacterSort.CreatedAt);
+
 export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
 /** The home list: the list's orders, a page of them, and the filters that narrow it. */
@@ -36,9 +38,11 @@ export const CharacterPageQuery = CharacterListQuery.extend({
   ...CharacterFilter.shape,
   page: PageNumber.default(FIRST_PAGE),
 });
+
 export type CharacterPageQuery = z.output<typeof CharacterPageQuery>;
 
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
+
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */

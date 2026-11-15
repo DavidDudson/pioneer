@@ -15,8 +15,10 @@ import { environment } from './environment';
 /** Offering a line is the campaign context's; the sheet loads its control when a line can be offered. */
 function lineOfferLoader(): InventoryLineOfferLoader {
   const i18n = inject(TranslocoService);
+
   return async () => {
     const { loadLineOffer } = await import('@pioneer/campaign/feature');
+
     return loadLineOffer(i18n);
   };
 }
@@ -24,8 +26,10 @@ function lineOfferLoader(): InventoryLineOfferLoader {
 /** Offering coins is the campaign context's; the sheet loads its control when the purse holds some. */
 function purseOfferLoader(): PurseOfferLoader {
   const i18n = inject(TranslocoService);
+
   return async () => {
     const { loadPurseOffer } = await import('@pioneer/campaign/feature');
+
     return loadPurseOffer(i18n);
   };
 }
@@ -33,8 +37,10 @@ function purseOfferLoader(): PurseOfferLoader {
 /** The Party Inventory is the campaign context's; the sheet loads it for a character in a campaign. */
 function partyInventoryLoader(): PartyInventoryLoader {
   const i18n = inject(TranslocoService);
+
   return async () => {
     const { loadPartyInventory } = await import('@pioneer/campaign/feature');
+
     return loadPartyInventory(i18n);
   };
 }
@@ -59,6 +65,7 @@ export const appRoutes: Routes = [
         PURSE_OFFER,
         SHEET_SIDE_PANEL,
       } = await import('@pioneer/character/feature');
+
       return [
         {
           path: '',
@@ -71,9 +78,11 @@ export const appRoutes: Routes = [
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {
                 const i18n = inject(TranslocoService);
+
                 // The content feature loads at idle after the sheet mounts, not with the sheet itself.
                 return async () => {
                   const { loadSidePanel } = await import('@pioneer/content/feature');
+
                   return loadSidePanel(i18n);
                 };
               },
@@ -89,6 +98,7 @@ export const appRoutes: Routes = [
     path: 'campaigns/join',
     loadChildren: async () => {
       const { campaignJoinRoutes } = await import('@pioneer/campaign/feature');
+
       return campaignJoinRoutes;
     },
   },
@@ -105,6 +115,7 @@ export const appRoutes: Routes = [
           import('./key-item-content-search'),
           import('@pioneer/rules/data-access'),
         ]);
+
       return [
         {
           path: '',
@@ -123,6 +134,7 @@ export const appRoutes: Routes = [
     runGuardsAndResolvers: 'always',
     loadChildren: async () => {
       const { homebrewRoutes } = await import('@pioneer/homebrew/feature');
+
       return homebrewRoutes;
     },
   },
@@ -130,6 +142,7 @@ export const appRoutes: Routes = [
     path: 'account',
     loadChildren: async () => {
       const { identityRoutes } = await import('@pioneer/identity/feature');
+
       return identityRoutes;
     },
   },
@@ -141,6 +154,7 @@ export const appRoutes: Routes = [
         import('@pioneer/content/feature'),
         import('./bare-roller-routes'),
       ]);
+
       return withBareRoller(contentRoutes);
     },
   },
@@ -148,6 +162,7 @@ export const appRoutes: Routes = [
     path: 'legal',
     loadChildren: async () => {
       const { legalRoutes } = await import('@pioneer/legal/feature');
+
       return legalRoutes;
     },
   },
@@ -155,6 +170,7 @@ export const appRoutes: Routes = [
     path: 'play',
     loadChildren: async () => {
       const { playRoutes } = await import('@pioneer/play/feature');
+
       return playRoutes;
     },
   },

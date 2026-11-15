@@ -173,6 +173,7 @@ describe('htmlToRichText: inline', () => {
   test('enrichers become inline nodes, with what does not translate reported', () => {
     const html =
       '<p><em>@Check[reflex|basic]</em> or see @UUID[Compendium.pf2e.journals.JournalEntry.x]{the rules}</p>';
+
     const { untranslatedEnrichers } = htmlToRichText(html);
 
     expect(richTextOf(html)).toEqual([
@@ -238,6 +239,7 @@ describe('htmlToRichText: unknown markup', () => {
     const { richText, unknownMarkup } = htmlToRichText(
       '<p>Stride <span>1</span> or <span>2</span></p><section><h2>Tasks</h2></section>',
     );
+
     const converted: unknown = richText;
 
     expect(converted).toEqual([

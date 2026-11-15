@@ -21,6 +21,7 @@ const SHELL_MESSAGES = {
   'shell.search.placeholder': 'Search content',
   'shell.search.kind.feat': 'Feat',
 };
+
 const SEARCH_LABEL = SHELL_MESSAGES['shell.search.label'];
 const BACK_LABEL = contentMessages.sidePanel.back;
 const OPEN_IN_BROWSER_LABEL = contentMessages.sidePanel.openInBrowser;
@@ -73,9 +74,11 @@ async function open(address = '/'): Promise<Opened> {
   await fixture.whenStable();
   const root = fixture.nativeElement as HTMLElement;
   const input = root.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the search box to render');
   }
+
   return { fixture, root, input, router };
 }
 

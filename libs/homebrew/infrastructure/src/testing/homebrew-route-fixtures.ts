@@ -32,13 +32,16 @@ export function app(
   usage = new InMemoryDependencyUsageDirectory(),
 ): AnyElysia {
   const packs = new InMemoryHomebrewPackRepository();
+
   const directory = new InMemoryPackDirectory(packs).official({
     id: playerCore,
     slug: PLAYER_CORE,
     title: ContentText.parse('Player Core'),
     publisher: ContentText.parse('Paizo'),
   });
+
   const dependencies = new InMemoryPackDependencyRepository();
+
   const service = new HomebrewPackService(
     {
       packs,
@@ -49,7 +52,9 @@ export function app(
     },
     fixedClock('2026-10-10T10:00:00Z'),
   );
+
   const dependencyService = new PackDependencyService({ packs, directory, dependencies, usage, enablement });
+
   return new Elysia()
     .use(problemHandler)
     .use(homebrewRoutes({ packs: service, dependencies: dependencyService }, new FakeAuthenticator()));
@@ -80,6 +85,7 @@ const PackJsonSchema = z.object({
   visibility: z.string(),
   entryCount: z.number(),
 });
+
 export type PackJson = z.infer<typeof PackJsonSchema>;
 
 export const feats = { title: 'Amiri feats', slug: 'amiri-feats' };
@@ -89,6 +95,7 @@ export const coreDependency = { dependsOn: playerCore };
 /** A new pack made by `as`, the way `feats` is by default. */
 export async function makePack(api: AnyElysia, as: UserId = amiri, body: object = feats): Promise<PackJson> {
   const response = await api.handle(request('POST', '/homebrew/packs', { as, body }));
+
   return PackJsonSchema.parse(await response.json());
 }
 

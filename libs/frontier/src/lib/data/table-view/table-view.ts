@@ -11,6 +11,7 @@ export const TYPICAL_VIEW_LENGTH = 200;
 function entries(view: TableView, schema: TableViewSchema): readonly (readonly [string, string])[] {
   const { columns } = schema;
   const pageSize = view.pageSize === schema.defaultPageSize ? undefined : view.pageSize;
+
   return [
     [TableViewKey.Sort, sortText(view.sort ?? [], columns)],
     [TableViewKey.Facets, view.facets ?? ''],
@@ -38,6 +39,7 @@ export function decodeTableView(query: TableViewQuery, schema: TableViewSchema):
   const pageSize = positiveInt(paramText(query, TableViewKey.PageSize));
   const search = paramText(query, TableViewKey.Search);
   const facets = paramText(query, TableViewKey.Facets);
+
   return {
     ...(sort.length === 0 ? {} : { sort }),
     ...(columns === undefined ? {} : { hidden: hiddenOf(columns, schema.columns) }),

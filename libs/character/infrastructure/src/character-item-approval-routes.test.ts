@@ -36,6 +36,7 @@ function fixture(): Fixture {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
   const campaigns = new InMemoryAttachedCampaignPacks();
+
   const approvals = new CharacterItemApprovalService(
     {
       characters: repository,
@@ -45,11 +46,14 @@ function fixture(): Fixture {
     },
     clock,
   );
+
   const auth = new FakeAuthenticator();
+
   const api = new Elysia()
     .use(problemHandler)
     .use(characterRoutes(new CharacterService(repository, content, clock), auth))
     .use(characterItemApprovalRoutes(approvals, auth));
+
   return { api, campaigns };
 }
 
@@ -70,6 +74,7 @@ async function createdBy(api: AnyElysia, owner: UserId): Promise<CharacterId> {
   const response = await api.handle(
     request('/characters', owner, { method: 'POST', body: { name: 'Seelah', ancestry: humanAncestryId } }),
   );
+
   return ((await response.json()) as { id: CharacterId }).id;
 }
 
@@ -114,9 +119,11 @@ describe('character item-approval routes', () => {
     const body = { item: SOME_ITEM, rule: 'invested' };
 
     const read = await api.handle(request(`/characters/${id}/item-approvals`, amiri));
+
     const acknowledge = await api.handle(
       request(`/characters/${id}/item-acknowledgements`, amiri, { method: 'POST', body }),
     );
+
     const revoke = await api.handle(
       request(`/characters/${id}/item-acknowledgements/${SOME_ACKNOWLEDGEMENT}`, amiri, { method: 'DELETE' }),
     );

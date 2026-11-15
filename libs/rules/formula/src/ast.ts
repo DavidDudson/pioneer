@@ -6,7 +6,9 @@ import type { FormulaNumber, ReferencePath, TextPosition } from './units';
 
 /** The four arithmetic operators, all left-associative; `*` and `/` bind tighter than `+` and `-`. */
 export const BinaryOperator = { Add: '+', Subtract: '-', Multiply: '*', Divide: '/' } as const;
+
 export type BinaryOperator = ValueOf<typeof BinaryOperator>;
+
 export const BinaryOperatorSchema = z.enum(BinaryOperator);
 
 export const NodeKind = {
@@ -16,6 +18,7 @@ export const NodeKind = {
   Binary: 'binary',
   Call: 'call',
 } as const;
+
 export type NodeKind = ValueOf<typeof NodeKind>;
 
 /** Every node knows where it starts in the text, so later errors (unknown reference, divide by zero) can point at it. */

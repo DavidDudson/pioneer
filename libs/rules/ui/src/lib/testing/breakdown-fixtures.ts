@@ -47,12 +47,15 @@ const SHIELD = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('shield:st
 const FRIGHTENED = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('condition:frightened')));
 export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:golem-form')));
 export const MAGE_ARMOR = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:mage-armor')));
+
 /** A made-up feat, so the fixture claims nothing about a real one's rules. */
 export const GLOOM_WALKER = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:gloom-walker')));
+
 /** Made up, like Gloom Walker. */
 export const STEADY_GRIP = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:steady-grip')));
 export const SURE_FOOTING = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:sure-footing')));
 export const CLIMBING_HOOKS = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('equipment:climbing-hooks')));
+
 export const WITHOUT_LEVEL = ContentId.parse(
   contentId(CORE_RULES, EntrySlug.parse('variant-rule:proficiency-without-level')),
 );
@@ -139,15 +142,19 @@ interface StatisticOptions {
  */
 export function statistic(selector: string, { base, lines = [], overrides = [] }: StatisticOptions): StatisticValue {
   const formulaValue = base.reduce((sum, { value }) => sum + value, 0);
+
   const changed = overrides.findLast(
     ({ phase, status }) => phase === OverridePhase.Base && status.kind === OverrideStatusKind.Applied,
   );
+
   const baseValue = changed?.result ?? formulaValue;
   const applied = lines.filter(({ status }) => status.kind === LineStatusKind.Applied);
   const computed = applied.reduce((sum, { value }) => sum + (value ?? 0), baseValue);
+
   const pin = overrides.findLast(
     ({ phase, status }) => phase === OverridePhase.Total && status.kind === OverrideStatusKind.Applied,
   );
+
   return {
     ok: true,
     selector: Selector.parse(selector),

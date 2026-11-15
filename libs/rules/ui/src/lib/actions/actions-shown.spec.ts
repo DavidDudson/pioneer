@@ -11,14 +11,17 @@ const DARKNESS_LINE = '+1 circumstance when you are in darkness (Gloom Walker)';
 
 function words(): ActionWords {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+
   return TestBed.inject(ActionWords);
 }
 
 function named(lines: readonly ActionLine[], name: string): ActionLine {
   const found = lines.find((candidate) => candidate.name === name);
+
   if (found === undefined) {
     throw new Error(`No action named ${name}`);
   }
+
   return found;
 }
 

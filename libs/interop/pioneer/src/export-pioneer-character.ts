@@ -31,13 +31,16 @@ function withoutCampaignEvents(play: unknown): unknown {
   if (!isFields(play) || !Array.isArray(play['conditions'])) {
     return play;
   }
+
   const conditions: unknown[] = play['conditions'];
+
   return {
     ...play,
     conditions: conditions.map((condition) => {
       if (!isFields(condition)) {
         return condition;
       }
+
       return Object.fromEntries(Object.entries(condition).filter(([key]) => key !== 'appliedBy'));
     }),
   };
@@ -46,6 +49,7 @@ function withoutCampaignEvents(play: unknown): unknown {
 function portableInputs(document: CharacterDocument): Fields {
   const encoded: Fields = z.encode(CharacterDocumentSchema, document);
   const portable = Object.entries(encoded).filter(([key]) => !SERVER_FIELDS.has(key));
+
   return { ...Object.fromEntries(portable), play: withoutCampaignEvents(encoded['play']) };
 }
 
@@ -62,31 +66,42 @@ export function exportPioneerCharacter(
   const unnamed = new Set<ContentId>();
   const used = new Set<ContentId>();
   const fromEmbedded = embeddedNamer(embedded);
+
   const character = rewriteReferences(portableInputs(document), (value) => {
     const id = ContentId.safeParse(value);
+
     if (!id.success) {
       return value;
     }
+
     const official = loaded(id.data);
     const reference = official ?? fromEmbedded(id.data);
+
     if (official === undefined && reference !== undefined) {
       used.add(id.data);
     }
+
     if (reference === undefined) {
       unnamed.add(id.data);
+
       return value;
     }
+
     return reference;
   });
+
   if (unnamed.size > 0) {
     return { ok: false, unnamed: [...unnamed] };
   }
+
   const homebrew = embeddedUsing(embedded, used);
+
   const file = PioneerCharacterFile.parse({
     format: PIONEER_CHARACTER_FORMAT,
     formatVersion: CURRENT_FORMAT_VERSION,
     character,
     ...(homebrew.length === 0 ? {} : { homebrew }),
   });
+
   return { ok: true, file };
 }

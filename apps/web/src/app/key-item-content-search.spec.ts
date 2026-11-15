@@ -21,13 +21,16 @@ interface Finding {
 /** A finder whose server search finds `ids`, and which records the queries it was asked. */
 function finding(ids: readonly ContentId[]): Finding {
   const asked: ContentSearchQuery[] = [];
+
   const finder: ContentFinder = {
     search: async (query) => {
       asked.push(query);
+
       return ContentSearchResult.parse({ ids, total: ids.length });
     },
     registry: async () => itemFixtureRegistry(),
   };
+
   return { finder, asked };
 }
 

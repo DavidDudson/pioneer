@@ -61,6 +61,7 @@ export class GlobalSearchSession {
 
   readonly #server = injectBrowseSearch(() => {
     const words = searchFromQuery(this.#quiet());
+
     return words === undefined ? undefined : { words, kinds: BROWSE_KINDS };
   });
   readonly #incoming = computed<Incoming>(() => {
@@ -69,6 +70,7 @@ export class GlobalSearchSession {
     // Matches of words typed since are not this query's: they would only be dropped as stale.
     // Blank words ask the server nothing, yet its query still holds the answer to the words before.
     const found = words !== '' && this.#quiet().trim() === words ? (this.#server.data() ?? []) : [];
+
     return {
       words,
       local: nameMatches(this.#index.entries(), words, (left, right) => this.#format.compare(left, right)).map(
@@ -82,6 +84,7 @@ export class GlobalSearchSession {
     source: this.#incoming,
     computation: (next, previous) => {
       const kept = previous?.source.words === next.words ? previous.value : [];
+
       return mergeBelow(mergeBelow(kept, next.local), next.server);
     },
   });
@@ -93,11 +96,14 @@ export class GlobalSearchSession {
     this.#language();
     const held = this.#index.byId();
     const legacy = this.#index.legacy();
+
     return this.#shown().flatMap((id) => {
       const entry = held.get(id);
+
       if (entry === undefined) {
         return [];
       }
+
       return [{ value: entry.id, label: entry.name, tags: this.#tagsOf(entry, legacy.has(entry.id)) }];
     });
   });
@@ -106,6 +112,7 @@ export class GlobalSearchSession {
     const kind = KIND_MESSAGES[entry.kind];
     const level = 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined;
     const tone = RARITY_TONES[entry.rarity];
+
     return [
       ...(kind === undefined ? [] : [{ label: this.#i18n.translate(kind), tone: BadgeTone.Info }]),
       ...(legacy ? [{ label: this.#i18n.translate(LEGACY_MESSAGE), tone: BadgeTone.Warning }] : []),

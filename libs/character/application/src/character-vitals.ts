@@ -48,11 +48,13 @@ export class CharacterVitals {
     const registry = await contentOfCharacter(this.#content, character).registry();
     const max = await maxHitPointsOf(this.#content, { character, play, registry });
     const dying = play.dead ? DEAD : play.dying;
+
     const track: readonly (VitalCondition | undefined)[] = [
       dying > 0 ? { name: 'dying', value: dying } : undefined,
       play.wounded > 0 ? { name: 'wounded', value: play.wounded } : undefined,
       play.doomed > 0 ? { name: 'doomed', value: play.doomed } : undefined,
     ];
+
     return {
       hp: max === undefined ? undefined : { current: currentHitPoints(play.hp, max), max, temp: play.hp.temp },
       dying,
@@ -64,12 +66,14 @@ export class CharacterVitals {
 /** The conditions in `listed` in the order first seen, each once at its highest value; the unnamed are left out. */
 function onceEach(listed: readonly (VitalCondition | undefined)[]): readonly VitalCondition[] {
   const byName = new Map<string, VitalCondition>();
+
   for (const each of listed) {
     if (each !== undefined) {
       const seen = byName.get(each.name);
       byName.set(each.name, seen === undefined ? each : { name: each.name, value: highest(seen.value, each.value) });
     }
   }
+
   return [...byName.values()];
 }
 
@@ -86,9 +90,12 @@ function activeConditions(
   if (active.length === 0) {
     return [];
   }
+
   const slugs = new Map(registry.packs.flatMap((pack) => pack.otherEntries.map((entry) => [entry.id, entry.slug])));
+
   return active.map((each): VitalCondition | undefined => {
     const slug = slugs.get(each.condition);
+
     return slug === undefined ? undefined : { name: slugName(slug), value: each.value };
   });
 }

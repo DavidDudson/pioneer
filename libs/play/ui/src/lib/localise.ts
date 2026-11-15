@@ -7,11 +7,13 @@ export function localised(format: LocaleFormat, descriptor: MessageDescriptor): 
   if (descriptor.params === undefined) {
     return descriptor;
   }
+
   const params = Object.fromEntries(
     Object.entries(descriptor.params).map(([name, value]) => [
       name,
       typeof value === 'number' ? format.number(value) : value,
     ]),
   );
+
   return message(descriptor.key, params);
 }

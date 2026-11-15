@@ -65,6 +65,7 @@ export class InvestmentsView {
   protected readonly count = computed((): string | undefined => {
     this.#messages();
     const investments = this.investments();
+
     return investments === undefined
       ? undefined
       : this.#i18n.translate(InvestmentMessage.Count, {
@@ -76,6 +77,7 @@ export class InvestmentsView {
   protected readonly shown = computed((): readonly ShownInvestment[] | undefined => {
     this.#messages();
     this.#format.locale();
+
     return this.investments()?.map(({ id, name, working, melded, effects }): ShownInvestment => ({
       id,
       name: name ?? this.#i18n.translate(InventoryMessage.UnknownItem),
@@ -87,7 +89,9 @@ export class InvestmentsView {
     if (!working) {
       return [this.#i18n.translate(InvestmentMessage.Off)];
     }
+
     const melding = melded ? [this.#i18n.translate(InvestmentMessage.Melded)] : [];
+
     return effects.length === 0
       ? [...melding, this.#i18n.translate(InvestmentMessage.NothingShown)]
       : [...melding, ...effects.map((effect) => this.#effect(effect))];
@@ -96,10 +100,13 @@ export class InvestmentsView {
   /** "Perception +1 item", with the reason it doesn't count when it doesn't. */
   #effect({ statistic, line }: InvestmentEffect): string {
     const value = lineValue(line, this.#i18n, this.#format);
+
     if (line.status.kind === LineStatusKind.Applied) {
       return this.#i18n.translate(InvestmentMessage.Effect, { statistic, value });
     }
+
     const status: string = this.#i18n.translate(LINE_STATUS_MESSAGES[line.status.kind]);
+
     return this.#i18n.translate(InvestmentMessage.EffectMarked, { statistic, value, status });
   }
 }

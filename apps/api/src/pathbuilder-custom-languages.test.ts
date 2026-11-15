@@ -16,6 +16,7 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 const LOAD_TIMEOUT_MS = 60_000;
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
 
 const service = new PathbuilderImportService(

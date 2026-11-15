@@ -23,6 +23,7 @@ const SCROLL_ITEM = itemFixtureId(ItemFixture.FireballScroll);
 /** A character carrying the scroll of Fireball as `fields` say; `casts` says whether it has a spellcasting class. */
 function carrying(casts: boolean, fields: object = {}): object {
   const cls = casts ? playerCoreClassId('wizard') : playerCoreClassId('fighter');
+
   return {
     ...MERISIEL,
     level: 5,
@@ -38,6 +39,7 @@ function carrying(casts: boolean, fields: object = {}): object {
 async function listOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => {
     present(root.querySelector('pio-spell-item-controls'));
+
     return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
   });
 }

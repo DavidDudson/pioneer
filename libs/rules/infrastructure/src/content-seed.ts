@@ -18,15 +18,20 @@ import { contentHash } from './content-hash';
 import { contentEntries, contentEntryTexts, contentPacks } from './content.table';
 
 type Database = BunSQLDatabase<Record<string, unknown>>;
+
 /** The database or a transaction on it: what the seed's writes run on. */
 type Executor = PgDatabase<BunSQLQueryResultHKT, Record<string, unknown>>;
+
 type EntryRow = typeof contentEntries.$inferInsert;
+
 type TextRow = typeof contentEntryTexts.$inferInsert;
 
 /** First key of the advisory lock a pack's seed holds; the second is the pack. Every seeder must use the same one. */
 const SEED_LOCK = 109_002;
+
 /** Names the seed on the audit rows it writes, as `stampAudit` names a command; there is no actor. */
 const SEED_COMMAND = 'content-seed';
+
 /** Entries per insert: 10 parameters each stays well under Postgres's 65,535 per statement. */
 const BATCH_SIZE = 1000;
 
@@ -36,6 +41,7 @@ export const SeedOutcome = {
   /** The stored hash matched; nothing was written. */
   Unchanged: 'unchanged',
 } as const;
+
 export type SeedOutcome = ValueOf<typeof SeedOutcome>;
 
 /** What seeding one pack did. */
@@ -64,6 +70,7 @@ interface StoredPack {
 
 function batches<Item>(items: readonly Item[]): readonly (readonly Item[])[] {
   const count = Math.ceil(items.length / BATCH_SIZE);
+
   return Array.from({ length: count }, (_unused, index) => items.slice(index * BATCH_SIZE, (index + 1) * BATCH_SIZE));
 }
 
@@ -75,6 +82,7 @@ function levelOf(entry: ContentEntry): ContentLevel | Level | undefined {
 /** The row that stores `entry` in the pack `packId`, as written at `at`. */
 export function contentEntryRow(packId: ContentPackId, entry: ContentEntry, at: string): EntryRow {
   const { id, kind, slug, name, rarity, traits } = entry;
+
   return {
     id,
     packId,
@@ -96,6 +104,7 @@ function entryRow(write: PackWrite, entry: ContentEntry): EntryRow {
 async function upsertPack(write: PackWrite, stored: StoredPack | undefined): Promise<Version> {
   const { file } = write.contents;
   const version = stored === undefined ? FIRST_VERSION : nextVersion(stored.version);
+
   const pack = {
     title: file.title,
     publisher: file.publisher,
@@ -105,15 +114,18 @@ async function upsertPack(write: PackWrite, stored: StoredPack | undefined): Pro
     data: file,
     updatedAt: write.at,
   };
+
   // Only an official row (no owner) is ever updated, so an official pack never lands on a homebrew one.
   const written = await write.tx
     .insert(contentPacks)
     .values({ id: contentPackId(file.id), slug: file.id, visibility: PackVisibility.Public, ...pack })
     .onConflictDoUpdate({ target: contentPacks.id, set: pack, setWhere: isNull(contentPacks.ownerId) })
     .returning({ id: contentPacks.id });
+
   if (written.length === 0) {
     throw new Error(`Pack "${file.id}" is a homebrew pack; an official pack cannot replace it`);
   }
+
   return version;
 }
 
@@ -129,6 +141,7 @@ async function upsertEntries(write: PackWrite): Promise<void> {
     data: sql`excluded.data`,
     updatedAt: sql`excluded.updated_at`,
   };
+
   const setWhere = sql`${contentEntries.data} is distinct from excluded.data`;
   await Promise.all(
     batches(write.contents.entries).map(async (batch) =>
@@ -144,11 +157,14 @@ async function upsertEntries(write: PackWrite): Promise<void> {
 async function removeStale(write: PackWrite): Promise<number> {
   // One array literal, so one parameter however many entries the pack has; ids are UUIDs, which need no quoting.
   const kept = `{${write.contents.entries.map((entry) => entry.id).join(',')}}`;
+
   const stale = and(
     eq(contentEntries.packId, contentPackId(write.contents.file.id)),
     sql`${contentEntries.id} <> all(${kept}::uuid[])`,
   );
+
   const removed = await write.tx.delete(contentEntries).where(stale).returning({ id: contentEntries.id });
+
   return removed.length;
 }
 
@@ -192,32 +208,39 @@ async function removeStaleTexts(write: PackWrite): Promise<void> {
   const kept = `{${described(write)
     .map((entry) => entry.id)
     .join(',')}}`;
+
   const packEntries = write.tx
     .select({ id: contentEntries.id })
     .from(contentEntries)
     .where(eq(contentEntries.packId, contentPackId(write.contents.file.id)));
+
   const stale = and(
     inArray(contentEntryTexts.entryId, packEntries),
     eq(contentEntryTexts.locale, SOURCE_LOCALE),
     eq(contentEntryTexts.field, EntryTextField.Description),
     sql`${contentEntryTexts.entryId} <> all(${kept}::uuid[])`,
   );
+
   await write.tx.delete(contentEntryTexts).where(stale);
 }
 
 async function seedPack(db: Database, contents: PackContents, at: string): Promise<PackSeed> {
   const pack = contents.file.id;
   const hash = contentHash(contents);
+
   return db.transaction(async (tx): Promise<PackSeed> => {
     // Seeds of one pack run one at a time, so a second waits and then finds the hash the first stored.
     await tx.execute(sql`select pg_advisory_xact_lock(${SEED_LOCK}, hashtext(${pack}))`);
+
     const [stored] = await tx
       .select({ unchanged: sql<boolean>`${contentPacks.contentHash} = ${hash}`, version: contentPacks.version })
       .from(contentPacks)
       .where(eq(contentPacks.id, contentPackId(pack)));
+
     if (stored?.unchanged === true) {
       return { pack, outcome: SeedOutcome.Unchanged, version: stored.version, removed: 0 };
     }
+
     await tx.execute(sql`select set_config('pioneer.command', ${SEED_COMMAND}, true)`);
     const write: PackWrite = { tx, contents, hash, at };
     const version = await upsertPack(write, stored);
@@ -225,6 +248,7 @@ async function seedPack(db: Database, contents: PackContents, at: string): Promi
     await upsertTexts(write);
     const removed = await removeStale(write);
     await removeStaleTexts(write);
+
     return { pack, outcome: SeedOutcome.Seeded, version, removed };
   });
 }
@@ -242,5 +266,6 @@ export async function seedContentPacks(
 ): Promise<readonly PackSeed[]> {
   const contents = await Promise.all(packs.map(async (pack) => pack.load()));
   const at = clock.now().toString();
+
   return Promise.all(contents.map(async (pack) => seedPack(db, pack, at)));
 }

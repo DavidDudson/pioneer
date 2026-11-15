@@ -34,11 +34,13 @@ const content: SlotContent = {
 
 function document(ancestry: string, heritage: string): CharacterDocument {
   const builder = new CharacterBuilder().withAncestry(AncestryId.parse(idOf(ancestry)));
+
   return builder.picking(HERITAGE_SLOT, idOf(heritage)).build().document;
 }
 
 function withoutAncestry(before: CharacterDocument): CharacterDocument {
   const choices = Object.fromEntries(Object.entries(before.build.choices).filter(([key]) => key !== ANCESTRY_SLOT));
+
   return { ...before, build: { ...before.build, choices } };
 }
 

@@ -34,6 +34,7 @@ interface Filed {
 
 function reportBy(reporter: UserId, createdAt: Temporal.Instant, { characterId, snapshot }: Filed = {}): BugReport {
   const { shareCharacter: _ignored, ...details } = SUBMISSION;
+
   return {
     ...details,
     id: BugReportId.parse(newId()),
@@ -61,6 +62,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
       createdAt: at,
       updatedAt: at,
     });
+
     return id;
   }
 
@@ -92,10 +94,12 @@ describe.skipIf(adminUrl === undefined)('DrizzleBugReportRepository (postgres)',
       formatVersion: 1,
       character: { name: 'Amiri', level: 3 },
     };
+
     const stored = reportBy(await newUser(), NOW, {
       characterId: newId(),
       snapshot,
     });
+
     await repository.insert(stored);
     expect(await repository.findById(stored.id)).toStrictEqual(stored);
   });

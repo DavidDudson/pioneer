@@ -13,7 +13,9 @@ export const BodyFont = {
   OpenDyslexic: 'opendyslexic',
   System: 'system',
 } as const;
+
 export type BodyFont = ValueOf<typeof BodyFont>;
+
 export const BodyFontSchema = z.enum(BodyFont);
 
 /** The typeface for code, keys and numbers set in monospace. */
@@ -22,5 +24,7 @@ export const MonoFont = {
   Typewriter: 'typewriter',
   System: 'system',
 } as const;
+
 export type MonoFont = ValueOf<typeof MonoFont>;
+
 export const MonoFontSchema = z.enum(MonoFont);

@@ -11,6 +11,7 @@ const RANK_MAX = 10;
 const NO_FACTS = new PredicateFacts([], CORE_NAMESPACES);
 
 const SPEAR = { slug: 'spear', category: 'unarmed', damage: { dice: 2, die: 'd8', damageType: 'piercing' } };
+
 const FORM = BattleFormElement.parse({
   key: 'BattleForm',
   form: {

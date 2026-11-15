@@ -59,6 +59,7 @@ type FundamentalWord = 'striking' | 'resilient';
 /** "greaterStriking" is grade 2 of striking; "striking" grade 1; "" or null none. */
 function runeGrade(word: string | null | undefined, rune: FundamentalWord): number | undefined {
   const groups = RUNE_WORD.exec(word ?? '')?.groups;
+
   return groups?.['rune']?.toLowerCase() === rune ? RUNE_GRADES[(groups['prefix'] ?? '').toLowerCase()] : undefined;
 }
 
@@ -72,6 +73,7 @@ interface RuneRow {
 
 function chosen(name: string | null | undefined): PathbuilderName | undefined {
   const trimmed = name?.trim() ?? '';
+
   return trimmed === '' ? undefined : PathbuilderName.parse(trimmed);
 }
 
@@ -82,13 +84,16 @@ function runesOf(row: RuneRow): ImportedRunes | undefined {
     resilient: runeGrade(row.res, 'resilient'),
     property: row.runes.flatMap((name) => chosen(name) ?? []),
   };
+
   const any = value.potency !== undefined || value.striking !== undefined || value.resilient !== undefined;
+
   return any || value.property.length > 0 ? value : undefined;
 }
 
 /** The name when the display isn't the base item's own name, as in a "Caliburn" bastard sword. */
 function displayName(base: string, display: string | undefined): PathbuilderName | undefined {
   const shown = chosen(display);
+
   return shown === undefined || matchKey(shown).includes(matchKey(base)) ? undefined : shown;
 }
 
@@ -96,6 +101,7 @@ type Carried = Pick<ImportedItem, 'worn' | 'invested' | 'runes' | 'displayName' 
 
 function line(name: string, quantity: number, carried: Carried): ImportedItem[] {
   const chosenName = chosen(name);
+
   return chosenName === undefined || quantity === 0 ? [] : [{ name: chosenName, quantity, ...carried }];
 }
 
@@ -107,6 +113,7 @@ type ArmorRow = PathbuilderBuild['armor'][number];
  */
 function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
   const runes = runesOf(armor);
+
   if (armor.name !== UNARMORED) {
     return line(armor.name, armor.qty, {
       worn: armor.worn,
@@ -116,7 +123,9 @@ function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
       container: undefined,
     });
   }
+
   const clothing = armor.prof?.toLowerCase() === UNARMORED_PROFICIENCY && runes !== undefined;
+
   return clothing
     ? line(CLOTHING, armor.qty, {
         worn: armor.worn || !otherWorn,
@@ -131,6 +140,7 @@ function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
 /** The container an equipment row's trailing flags name, when the export lists it; "Invested" and the rest are not. */
 function containerOf(build: PathbuilderBuild, flags: readonly unknown[]): PathbuilderContainerKey | undefined {
   const key = flags.find((flag) => typeof flag === 'string' && flag in build.equipmentContainers);
+
   return typeof key === 'string' ? PathbuilderContainerKey.parse(key) : undefined;
 }
 
@@ -138,6 +148,7 @@ function containerOf(build: PathbuilderBuild, flags: readonly unknown[]): Pathbu
 export function importedContainers(build: PathbuilderBuild): ImportedContainer[] {
   return Object.entries(build.equipmentContainers).flatMap(([key, container]) => {
     const name = chosen(container.containerName);
+
     return name === undefined
       ? []
       : [
@@ -183,5 +194,6 @@ export function importedItems(build: PathbuilderBuild): ImportedItem[] {
 
 export function importedCoins(build: PathbuilderBuild): ImportedCoins {
   const { pp = 0, gp = 0, sp = 0, cp = 0 } = build.money ?? {};
+
   return { platinum: pp, gold: gp, silver: sp, copper: cp };
 }

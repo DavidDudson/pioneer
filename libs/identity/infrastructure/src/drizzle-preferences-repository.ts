@@ -30,6 +30,7 @@ export class DrizzlePreferencesRepository extends PreferencesRepository {
 
   public override async findFor(userId: UserId): Promise<Preferences> {
     const [row] = await this.#db.select().from(userPreferences).where(eq(userPreferences.id, userId)).limit(1);
+
     return row === undefined ? NO_PREFERENCES : toPreferences(row);
   }
 
@@ -39,14 +40,17 @@ export class DrizzlePreferencesRepository extends PreferencesRepository {
    */
   public override async update(userId: UserId, patch: Preferences, now: Temporal.Instant): Promise<Preferences> {
     const changed = { ...patch, updatedAt: now.toString() };
+
     const [row] = await this.#db
       .insert(userPreferences)
       .values({ ...changed, id: userId })
       .onConflictDoUpdate({ target: userPreferences.id, set: changed })
       .returning();
+
     if (row === undefined) {
       throw new Error(`Upsert of preferences for user ${userId} returned no row`);
     }
+
     return toPreferences(row);
   }
 }

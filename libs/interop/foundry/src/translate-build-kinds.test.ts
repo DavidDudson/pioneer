@@ -107,6 +107,7 @@ describe('translateKindData: ancestries and heritages', () => {
         },
       },
     ]);
+
     const blind = translate([{ ...DWARF, system: { ...DWARF.system, vision: 'tremorsense-x' } }]);
 
     expect(dataIn(odd, 'dwarf')).toMatchObject({ languages: [coreRulesId('language:common')] });
@@ -276,6 +277,7 @@ describe('translateKindData: classes', () => {
 
   test("a class off Player Core's skill increase schedule keeps its own levels", () => {
     const everyLevel = Array.from({ length: 19 }, (_unused, index) => index + 2);
+
     const rogueLike = translate([
       { ...FIGHTER, system: { ...FIGHTER.system, skillIncreaseLevels: { value: everyLevel } } },
     ]);

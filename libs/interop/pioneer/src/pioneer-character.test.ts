@@ -26,9 +26,11 @@ function fileOf(overrides: Record<string, unknown>): unknown {
 
 function failureOf(input: unknown): PioneerReadFailure {
   const result = readPioneerCharacter(input, target);
+
   if (result.ok) {
     throw new Error('Expected the file to be refused');
   }
+
   return result;
 }
 
@@ -37,9 +39,11 @@ function exportedOf(): PioneerExported {
     source: PackId.parse('player-core'),
     slug: entrySlug('feat', Slug.parse('x')),
   }));
+
   if (!result.ok) {
     throw new Error('Expected every id to be named');
   }
+
   return result;
 }
 

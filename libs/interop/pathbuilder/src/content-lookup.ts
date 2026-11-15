@@ -62,20 +62,27 @@ function withinOneEdit(left: string, right: string): boolean {
   if (Math.abs(left.length - right.length) > 1) {
     return false;
   }
+
   let start = 0;
+
   while (start < left.length && start < right.length && left[start] === right[start]) {
     start += 1;
   }
+
   const first = left.slice(start);
   const second = right.slice(start);
+
   if (first.length === second.length) {
     const swapped =
       first.length > 1 &&
       first.startsWith(`${second.charAt(1)}${second.charAt(0)}`) &&
       first.slice(2) === second.slice(2);
+
     return first.slice(1) === second.slice(1) || swapped;
   }
+
   const [long, short] = first.length > second.length ? [first, second] : [second, first];
+
   return long.slice(1) === short;
 }
 
@@ -92,18 +99,22 @@ class NameIndex {
 
   public constructor(entries: readonly LookupEntry[], legacy: ReadonlyMap<string, string> = new Map()) {
     this.#legacy = legacy;
+
     for (const entry of entries) {
       const match: ContentMatch = { id: entry.id, name: entry.name };
       const external = entry.externalIds?.pathbuilder;
+
       if (external !== undefined) {
         this.#byExternal.set(matchKey(external), match);
       }
+
       (entry.legacy === true ? this.#byLegacyName : this.#byName).set(matchKey(entry.name), match);
     }
   }
 
   public resolve(name: PathbuilderName): ContentMatch | undefined {
     const key = matchKey(name);
+
     return this.#exact(key) ?? this.#exact(this.#legacy.get(key)) ?? this.#byLegacyName.get(key) ?? this.#nearby(key);
   }
 
@@ -116,11 +127,15 @@ class NameIndex {
     if (key.length < MIN_FUZZY_LENGTH) {
       return undefined;
     }
+
     const digits = digitsOf(key);
+
     const near = [...this.#byExternal, ...this.#byName].filter(
       ([candidate]) => digitsOf(candidate) === digits && withinOneEdit(key, candidate),
     );
+
     const [only] = near;
+
     return only !== undefined && near.every(([, match]) => match.id === only[1].id) ? only[1] : undefined;
   }
 }
@@ -133,6 +148,7 @@ export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupE
         [ImportKindSchema.parse(kind), new NameIndex(list, LEGACY_KEYS[ImportKindSchema.parse(kind)])] as const,
     ),
   );
+
   return {
     supports: (kind) => indexes.has(kind),
     resolve: (kind, name) => indexes.get(kind)?.resolve(name),
@@ -146,12 +162,15 @@ function envelopeEntries(registry: ContentRegistry, ...kinds: readonly ContentKi
       if (!kinds.includes(entry.kind)) {
         return [];
       }
+
       const pathbuilder = entry.externalIds?.pathbuilder;
+
       const match: LookupEntry = {
         id: entry.id,
         name: entry.name,
         ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true } : {}),
       };
+
       return [pathbuilder === undefined ? match : { ...match, externalIds: { pathbuilder } }];
     }),
   );

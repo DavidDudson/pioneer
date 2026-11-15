@@ -39,6 +39,7 @@ const meta: Meta<ClassPicker> = {
   args: { rows: CLASSES, ariaLabel: 'Class', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A class the content pack lacks stays in the table and says why it can't be picked. */

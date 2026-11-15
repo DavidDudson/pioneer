@@ -36,18 +36,22 @@ describe('PackDependencyService', () => {
       title: ContentText.parse(slug),
       slug: PackId.parse(slug),
     });
+
     await packs.setVisibility(owner, created.id, visibility);
+
     return created.id;
   }
 
   beforeEach(() => {
     const repository = new InMemoryHomebrewPackRepository();
+
     const directory = new InMemoryPackDirectory(repository).official({
       id: playerCore,
       slug: PLAYER_CORE,
       title: ContentText.parse('Player Core'),
       publisher: ContentText.parse('Paizo'),
     });
+
     const dependencies = new InMemoryPackDependencyRepository();
     enablement = new InMemoryPackEnablementDirectory();
     usage = new InMemoryDependencyUsageDirectory();

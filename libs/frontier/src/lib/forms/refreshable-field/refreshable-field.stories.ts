@@ -13,6 +13,7 @@ async function loadName(): Promise<string> {
   setTimeout(() => {
     answer.resolve(NAMES[Math.floor(Math.random() * NAMES.length)] ?? '');
   }, LOAD_MS);
+
   return answer.promise;
 }
 
@@ -23,6 +24,7 @@ const meta: Meta<RefreshableField> = {
   argTypes: { errors: { control: false } },
   args: { label: 'Name', placeholder: 'Name', disabled: false, hideLabel: false, load: loadName },
 };
+
 export default meta;
 
 export const Default: RefreshableFieldStory = {};

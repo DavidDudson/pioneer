@@ -103,6 +103,7 @@ const meta: Meta = {
     `,
   }),
 };
+
 export default meta;
 
 function style(element: Element | null | undefined): CSSStyleDeclaration | undefined {
@@ -112,6 +113,7 @@ function style(element: Element | null | undefined): CSSStyleDeclaration | undef
 /** Whether a box draws a border at top and bottom. */
 function bordered(element: Element | null | undefined): boolean {
   const box = style(element);
+
   return (
     box !== undefined &&
     box.borderTopStyle !== 'none' &&
@@ -198,13 +200,17 @@ async function expectPickerRows(root: HTMLElement): Promise<void> {
   await userEvent.click(canvas.getByRole('button', { name: /^Heritage/u }));
   const elf = await canvas.findByRole('gridcell', { name: 'Elf', selected: true });
   await pressKeys('{ArrowDown}');
+
   const active = await waitFor(() => {
     const cell = root.querySelector<HTMLElement>('[role="gridcell"][data-active="true"]');
+
     if (cell === null) {
       throw new Error('Expected a highlighted cell');
     }
+
     return cell;
   });
+
   await expect([style(active)?.backgroundColor, style(active)?.color]).toEqual([
     systemColour('Highlight'),
     systemColour('HighlightText'),

@@ -54,6 +54,7 @@ export interface ActionContext {
 /** The id of each entry the rules name, by slug. */
 function idsBySlug(registry: ContentRegistry): ReadonlyMap<EntrySlug, ContentId> {
   const named = new Set(CONTEXT_RULES.flatMap(({ first, needs }) => [...first, ...needs]));
+
   return new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
@@ -66,6 +67,7 @@ function idsBySlug(registry: ContentRegistry): ReadonlyMap<EntrySlug, ContentId>
 function idsOf(slugs: readonly EntrySlug[], ids: ReadonlyMap<EntrySlug, ContentId>): readonly ContentId[] {
   return slugs.flatMap((slug): ContentId[] => {
     const id = ids.get(slug);
+
     return id === undefined ? [] : [id];
   });
 }
@@ -77,15 +79,18 @@ export function actionContext(facts: PredicateFacts, registry: ContentRegistry):
   const missing = CONTEXT_RULES.filter(({ option }) => !facts.has(option));
   const first = [...new Set(holding.flatMap((rule) => idsOf(rule.first, ids)))];
   const dormant = new Set(missing.flatMap((rule) => idsOf(rule.needs, ids)));
+
   for (const id of first) {
     dormant.delete(id);
   }
+
   return { first, dormant };
 }
 
 /** The context the character's conditions, items and effects put its actions in. */
 export function characterActionContext(document: CharacterDocument, sources: StatisticSources): ActionContext {
   const { registry, slots } = sources;
+
   return actionContext(equippedGrants(document, itemContent(registry), slots).facts, registry);
 }
 
@@ -102,5 +107,6 @@ export function isSpellEffectOffered(entry: SpellEffectEntry, facts: PredicateFa
   if (typeof entry === 'string') {
     return true;
   }
+
   return facts !== undefined && evaluatePredicate(entry.predicate, facts) === Truth.True;
 }

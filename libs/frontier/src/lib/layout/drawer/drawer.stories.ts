@@ -33,6 +33,7 @@ const meta: Meta<Drawer> = {
     `,
   }),
 };
+
 export default meta;
 
 /** Docked beside the content from the `lg` container size, pushing it aside, non-modal. Narrower, it is a full-screen modal. */

@@ -58,7 +58,9 @@ function withStatus(text: string, status: RollEffectStatus, { i18n, format }: Ro
   if (status.kind === RollEffectStatusKind.Applied) {
     return text;
   }
+
   const summary = status.summary === undefined ? undefined : formatSummary(status.summary, summaryFormat(i18n, format));
+
   return summary === undefined
     ? i18n.translate(RollEffectMessage.InSomeSituations, { text })
     : i18n.translate(RollEffectMessage.When, { text, summary });
@@ -68,21 +70,28 @@ function withStatus(text: string, status: RollEffectStatus, { i18n, format }: Ro
 export function rollTwiceText(line: RollTwiceLine, words: RollEffectWords): string {
   const name = nameOf(line.label, words);
   const key = line.keep === RollKept.Higher ? RollEffectMessage.Fortune : RollEffectMessage.Misfortune;
+
   return withStatus(say(words, key, { name }), line.status, words);
 }
 
 /** "Success: one degree better; failure: two degrees worse (Name)", with when it holds if it is conditional. */
 export function degreeAdjustmentText(line: DegreeAdjustmentLine, words: RollEffectWords): string {
   const name = nameOf(line.label, words);
+
   const changes = DEGREE_ORDER.flatMap((degree) => {
     const change = line.adjustment[degree];
+
     if (change === undefined) {
       return [];
     }
+
     const degreeWords = say(words, DEGREE_MESSAGES[degree]);
     const changeWords = say(words, CHANGE_MESSAGES[change]);
+
     return [say(words, RollEffectMessage.Change, { degree: degreeWords, change: changeWords })];
   });
+
   const text = say(words, RollEffectMessage.Degree, { changes: words.format.list(changes), name });
+
   return withStatus(text, line.status, words);
 }

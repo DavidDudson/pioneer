@@ -49,6 +49,7 @@ describe('Session sliding expiry', () => {
       property(integer({ min: 1, max: HALF_LIFE_SECONDS }), integer({ min: 1, max: 40 }), (gap, uses) => {
         let session = started();
         let now = START;
+
         for (let use = 0; use < uses; use += 1) {
           now = now.add({ seconds: gap });
           expect(session.isExpiredAt(now)).toBe(false);
@@ -72,6 +73,7 @@ describe('Session sliding expiry', () => {
       property(integer({ min: 0, max: HALF_LIFE_SECONDS - 1 }), (offset) => {
         const session = started();
         const used = session.usedAt(at(offset));
+
         if (offset < resolution) {
           expect(used).toBe(session);
         } else {

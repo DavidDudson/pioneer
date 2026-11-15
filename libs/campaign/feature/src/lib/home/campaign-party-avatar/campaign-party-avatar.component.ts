@@ -51,12 +51,14 @@ export class CampaignPartyAvatar {
   /** Whether it is at or below half its Hit Points. */
   protected readonly bloodied = computed((): boolean => {
     const points = this.hp();
+
     return points !== undefined && points.max > 0 && points.current * 2 <= points.max;
   });
 
   /** The avatar's death-save darkening, one step per point of the dying value (not failed saves as such); undefined while not dying. */
   protected readonly failedSaves = computed(() => {
     const { dying } = this.vitals();
+
     return dying > 0 ? dying : undefined;
   });
 

@@ -148,6 +148,7 @@ const cells = array(array(inlineNodeJson, { maxLength: 2 }), { minLength: 1, max
 /** Every block node kind, lists nesting a few levels, as plain JSON (unparsed). */
 const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie) => {
   const blocks = array(tie('block'), { minLength: 1, maxLength: BLOCKS_MAX });
+
   return {
     block: oneof(
       { depthSize: 'small', maxDepth: BLOCK_DEPTH_MAX, withCrossShrink: true },

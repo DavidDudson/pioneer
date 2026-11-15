@@ -32,12 +32,15 @@ async function setUp(): Promise<SetUp> {
   const clock = fixedClock('2026-10-12T10:00:00Z');
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
+
   const kyra = await new CharacterService(repository, content, clock).create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   const service = new FeatDisplayService(repository, new InMemoryFeatDisplayRepository(), clock);
   const api = new Elysia().use(problemHandler).use(featDisplayRoutes(service, new FakeAuthenticator()));
+
   return { api, path: `/characters/${kyra.id}/feat-display` };
 }
 

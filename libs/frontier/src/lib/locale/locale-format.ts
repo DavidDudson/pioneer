@@ -60,6 +60,7 @@ export class LocaleFormat {
         maximumFractionDigits: METRES_FRACTION_DIGITS,
       });
     }
+
     return this.number(feet, { style: 'unit', unit: 'foot' });
   }
 
@@ -70,12 +71,15 @@ export class LocaleFormat {
    */
   public initials(name: string): string {
     const locale = this.locale();
+
     const words = [...new Intl.Segmenter(locale, { granularity: 'word' }).segment(name)]
       .filter((segment) => segment.isWordLike === true)
       .map((segment) => segment.segment);
+
     const graphemes = new Intl.Segmenter(locale, { granularity: 'grapheme' });
     const first = (word: string | undefined): string => [...graphemes.segment(word ?? '')][0]?.segment ?? '';
     const last = words.length > 1 ? first(words.at(-1)) : '';
+
     return `${first(words[0])}${last}`.toLocaleUpperCase(locale);
   }
 

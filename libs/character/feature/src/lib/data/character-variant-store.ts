@@ -23,12 +23,14 @@ export class CharacterVariantStore {
   /** The open character's variant rules in force, and for its owner the ones they could enable. */
   public readonly rules = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: characterKeys.variantRules(id),
       queryFn: async (): Promise<CharacterVariantRules> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.variantRules, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -46,19 +48,23 @@ export class CharacterVariantStore {
   /** Stops the open character using a variant rule. */
   public async disable(variantId: VariantRuleId): Promise<void> {
     const id = this.#openId();
+
     const rules = await this.#api.call(CharacterContract.disableVariantRule, {
       params: { id, variantId },
       body: undefined,
     });
+
     await this.#client.cancelQueries({ queryKey: characterKeys.variantRules(id) });
     this.#client.setQueryData(characterKeys.variantRules(id), rules);
   }
 
   #openId(): CharacterId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No character selected');
     }
+
     return id;
   }
 }

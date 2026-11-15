@@ -18,6 +18,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -29,6 +30,7 @@ async function open(): Promise<RouterTestingHarness> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
+
   return RouterTestingHarness.create(`/homebrew/${id}`);
 }
 
@@ -59,11 +61,13 @@ async function openLoaded(): Promise<RouterTestingHarness> {
   await vi.waitFor(() => {
     expect(present(harness.routeNativeElement).textContent).toContain('amiri-feats');
   });
+
   return harness;
 }
 
 function visibilityField(harness: RouterTestingHarness): DebugElement {
   const [field] = harness.fixture.debugElement.queryAll((each) => each.componentInstance instanceof PickerField);
+
   return present(field);
 }
 

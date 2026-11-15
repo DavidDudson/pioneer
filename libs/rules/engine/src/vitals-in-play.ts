@@ -96,7 +96,9 @@ function active<Element extends RuleInPlay['element']>(
 
 const isFastHealing = (element: RuleInPlay['element']): element is FastHealingElement =>
   element.key === RuleElementKey.FastHealing;
+
 const isTempHp = (element: RuleInPlay['element']): element is TempHPElement => element.key === RuleElementKey.TempHP;
+
 const isCreatureSize = (element: RuleInPlay['element']): element is CreatureSizeElement =>
   element.key === RuleElementKey.CreatureSize;
 
@@ -105,14 +107,17 @@ function stepped(current: Size, steps: SizeSteps, maximum: Size | undefined): Si
   const from = SIZES.indexOf(current);
   const ceiling = maximum === undefined ? SIZES.length - 1 : Math.max(SIZES.indexOf(maximum), from);
   const to = steps < 0 ? Math.max(from + steps, 0) : Math.min(from + steps, ceiling);
+
   return SIZES[to] ?? current;
 }
 
 function reachOf(size: Size, reach: CreatureSizeElement['reach']): Feet {
   const given = SIZE_REACH[size];
+
   if (reach === undefined) {
     return Feet.parse(given);
   }
+
   return Feet.parse('override' in reach ? reach.override : given + reach.add);
 }
 
@@ -131,12 +136,15 @@ interface Highest {
 /** The highest of `given`, with the origin of every one that gives as much. */
 function highest(given: readonly Given[]): Highest | undefined {
   let top = undefined as Given | undefined;
+
   for (const each of given) {
     if (top === undefined || each.amount > top.amount) {
       top = each;
     }
   }
+
   const amount = top?.amount;
+
   return top === undefined
     ? undefined
     : { top, origins: given.filter((each) => each.amount === amount).map(({ origin }) => origin) };
@@ -146,6 +154,7 @@ function highest(given: readonly Given[]): Highest | undefined {
 function givenBy(rule: Kind<FastHealingElement | TempHPElement>, scope: VitalsScope, rules: ModifierInputs): Given[] {
   const deactivatedBy = rule.element.key === RuleElementKey.FastHealing ? (rule.element.deactivatedBy ?? []) : [];
   const source = { value: rule.element.value, origin: rule.origin, item: itemScopeOf(rule), deactivatedBy };
+
   return givenFrom(source, { scope, rules });
 }
 
@@ -169,11 +178,14 @@ function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope
     facts: rules.facts,
     level: scope.character.level,
   });
+
   const resolve = resolverFor({ inputs: scope.character, proficiency }, (): undefined => undefined, { item });
   const outcome = valueOf(value, resolve);
+
   if (!outcome.ok || outcome.value < 1) {
     return [];
   }
+
   return [{ amount: HitPoints.parse(outcome.value), origin, deactivatedBy }];
 }
 
@@ -181,10 +193,12 @@ function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope
 function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form: FormInPlay | undefined): SizeInPlay {
   let size = form?.form.size ?? base;
   let reach = undefined as CreatureSizeElement['reach'];
+
   for (const { element } of resizes) {
     size = typeof element.value === 'number' ? stepped(size, element.value, element.maximumSize) : element.value;
     reach = element.reach ?? reach;
   }
+
   return {
     size,
     base,
@@ -198,6 +212,7 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
 /** The temporary Hit Points a battle form gives, credited to the form; none when it gives none or its formula has no value. */
 function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given[] {
   const value = form?.form.tempHP;
+
   return form === undefined || value === undefined
     ? []
     : givenFrom({ value, origin: form.origin, item: NO_ITEM, deactivatedBy: [] }, reading);
@@ -214,22 +229,28 @@ function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given
  */
 export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): VitalsInPlay {
   const healing = active(inputs, isFastHealing);
+
   const recovery = Object.values(FastHealingType).flatMap((type): RecoveryInPlay[] => {
     const found = highest(
       healing
         .filter(({ element }) => (element.type ?? FastHealingType.FastHealing) === type)
         .flatMap((rule) => givenBy(rule, scope, inputs)),
     );
+
     return found === undefined
       ? []
       : [{ type, amount: found.top.amount, deactivatedBy: found.top.deactivatedBy, origins: found.origins }];
   });
+
   const form = battleFormInPlay(inputs);
+
   const temp = highest([
     ...active(inputs, isTempHp).flatMap((rule) => givenBy(rule, scope, inputs)),
     ...formTempHp(form, { scope, rules: inputs }),
   ]);
+
   const resizes = active(inputs, isCreatureSize);
+
   return {
     recovery,
     ...(temp === undefined ? {} : { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),

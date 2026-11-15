@@ -15,26 +15,35 @@ const EFFECT_LINK = /@UUID\[(?<uuid>Compendium\.pf2e\.[a-z-]*effects\.Item\.[^\]
 
 function activationOf(html: string, input: KindInput): object | undefined {
   const glyph = ACTIVATE_GLYPH.exec(html)?.groups?.['glyph'];
+
   if (glyph === undefined) {
     return undefined;
   }
+
   const cost = glyphCost(glyph);
+
   if (cost === undefined) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'description.activate', raw: glyph });
+
     return undefined;
   }
+
   return { cost };
 }
 
 function effectOf(html: string, input: KindInput): string | undefined {
   const uuid = EFFECT_LINK.exec(html)?.groups?.['uuid'];
+
   if (uuid === undefined) {
     return undefined;
   }
+
   const effect = resolveUuid(input.references, uuid);
+
   if (effect === undefined) {
     report(input.log, { reason: KindDataGapReason.UnresolvedReference, field: 'effect', raw: uuid });
   }
+
   return effect;
 }
 

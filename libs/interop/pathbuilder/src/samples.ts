@@ -3,6 +3,7 @@ export const SampleCharacter = {
   Mordred: 'mordred',
   BriarRose: 'briar-rose',
 } as const;
+
 export type SampleCharacter = (typeof SampleCharacter)[keyof typeof SampleCharacter];
 
 interface SampleModule {
@@ -13,15 +14,18 @@ interface SampleModule {
 const LOADERS: Readonly<Record<SampleCharacter, () => Promise<SampleModule>>> = {
   [SampleCharacter.Mordred]: async () => {
     const module: SampleModule = await import('./fixtures/mordred.json');
+
     return module;
   },
   [SampleCharacter.BriarRose]: async () => {
     const module: SampleModule = await import('./fixtures/briar-rose.json');
+
     return module;
   },
 };
 
 export const loadSampleExport = async (sample: SampleCharacter): Promise<unknown> => {
   const module = await LOADERS[sample]();
+
   return module.default;
 };

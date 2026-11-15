@@ -12,6 +12,7 @@ export const SpellFilterGroupId = {
   Actions: 'actions',
   Source: 'source',
 } as const;
+
 export type SpellFilterGroupId = ValueOf<typeof SpellFilterGroupId>;
 
 /** The picks of each group; a group with none keeps every spell. */
@@ -45,6 +46,7 @@ const TARGET_MESSAGES: Readonly<Record<TargetValue, string>> = {
 
 /** What a spell is cast in: an action count, a free action, a reaction, or a time of minutes or longer. */
 const TIME = 'time';
+
 const ACTION_MESSAGES: Readonly<Record<string, string>> = {
   [ActionCost.One]: 'rules.facet.castActions.one',
   [ActionCost.Two]: 'rules.facet.castActions.two',
@@ -53,17 +55,21 @@ const ACTION_MESSAGES: Readonly<Record<string, string>> = {
   [ActionCost.Reaction]: 'rules.facet.castActions.reaction',
   [TIME]: 'rules.facet.castActions.time',
 };
+
 const ACTION_ORDER: readonly ActionCost[] = [ActionCost.One, ActionCost.Two, ActionCost.Three];
 
 function actionsOf(cost: SpellCostLine): readonly string[] {
   if (cost.kind === 'either') {
     return cost.options.flatMap((option) => actionsOf(option));
   }
+
   if (cost.kind === 'time') {
     return [TIME];
   }
+
   const from = ACTION_ORDER.indexOf(cost.cost);
   const to = cost.upTo === undefined ? from : ACTION_ORDER.indexOf(cost.upTo);
+
   return from === -1 ? [cost.cost] : ACTION_ORDER.slice(from, to + 1);
 }
 
@@ -77,6 +83,7 @@ function damageTypesOf({ detail }: SpellRowLine): readonly DamageType[] {
 /** The values a spell has in each group, unique within the group. */
 function valuesOf({ line, source }: SourcedSpell): Readonly<Record<SpellFilterGroupId, readonly string[]>> {
   const { detail } = line;
+
   return {
     [SpellFilterGroupId.Target]: [...new Set(detail.targetValues)],
     [SpellFilterGroupId.Trait]: [...new Set(detail.traits.map(({ label }) => label))],
@@ -90,10 +97,13 @@ const GROUPS: readonly SpellFilterGroupId[] = Object.values(SpellFilterGroupId);
 
 function passes(spell: SourcedSpell, filter: SpellPicks, skip?: SpellFilterGroupId): boolean {
   const picking = GROUPS.filter((group) => group !== skip && (filter.get(group)?.size ?? 0) > 0);
+
   if (picking.length === 0) {
     return true;
   }
+
   const values = valuesOf(spell);
+
   return picking.every((group) => values[group].some((value) => filter.get(group)?.has(value) === true));
 }
 
@@ -118,6 +128,7 @@ const VALUE_MESSAGES: Readonly<Record<SpellFilterGroupId, ReadonlyMap<string, st
 export function wordValue(translate: (key: string) => string): ValueWords {
   return (group, value) => {
     const key = VALUE_MESSAGES[group].get(value);
+
     return key === undefined ? value : translate(key);
   };
 }
@@ -135,14 +146,17 @@ export function spellFilterGroups(
   return GROUPS.map((group): SpellFilterGroup => {
     const selected = filter.get(group) ?? new Set<string>();
     const counts = new Map<string, number>([...selected].map((value) => [value, 0]));
+
     for (const spell of spells.filter((each) => passes(each, filter, group))) {
       for (const value of valuesOf(spell)[group]) {
         counts.set(value, (counts.get(value) ?? 0) + 1);
       }
     }
+
     const options = [...counts]
       .map(([value, count]): SpellFilterOption => ({ value, label: words.value(group, value), count }))
       .toSorted((left, right) => left.label.localeCompare(right.label));
+
     return { id: group, label: words.label(GROUP_MESSAGES[group]), options, selected };
   });
 }
@@ -161,9 +175,11 @@ export function spellFilterFromQuery(params: QueryParams): SpellPicks {
   return new Map(
     GROUPS.flatMap((group): [SpellFilterGroupId, ReadonlySet<string>][] => {
       const raw: unknown = params[paramOf(group)];
+
       const values = (Array.isArray(raw) ? (raw as unknown[]) : [raw]).filter(
         (value): value is string => typeof value === 'string' && value !== '',
       );
+
       return values.length === 0 ? [] : [[group, new Set(values)]];
     }),
   );
@@ -176,6 +192,7 @@ export function spellFilterToQuery(filter: SpellPicks): Readonly<Record<string, 
     ...Object.fromEntries(
       GROUPS.flatMap((group): [string, readonly string[]][] => {
         const picked = filter.get(group);
+
         return picked === undefined || picked.size === 0 ? [] : [[paramOf(group), [...picked].toSorted()]];
       }),
     ),
@@ -185,14 +202,18 @@ export function spellFilterToQuery(filter: SpellPicks): Readonly<Record<string, 
 /** `filter` with the group named `group` picking `selected`; a group with none picked leaves the filter, and an unknown group changes nothing. */
 export function withSpellPicks(filter: SpellPicks, group: string, selected: ReadonlySet<string>): SpellPicks {
   const id = GROUPS.find((each) => each === group);
+
   if (id === undefined) {
     return filter;
   }
+
   const next = new Map(filter);
+
   if (selected.size === 0) {
     next.delete(id);
   } else {
     next.set(id, selected);
   }
+
   return next;
 }

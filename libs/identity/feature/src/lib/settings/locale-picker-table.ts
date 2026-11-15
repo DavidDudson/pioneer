@@ -27,10 +27,13 @@ function messageKeys(messages: Messages, prefix = ''): readonly string[] {
 /** How much of the UI `target` translates, 0 to 1: the share of the `source` messages it has. A source with none is whole. */
 export function translatedShare(source: Messages, target: Messages): number {
   const wanted = messageKeys(source);
+
   if (wanted.length === 0) {
     return 1;
   }
+
   const have = new Set(messageKeys(target));
+
   return wanted.filter((key) => have.has(key)).length / wanted.length;
 }
 
@@ -55,10 +58,13 @@ export function shownLocales(
 ): readonly LocaleRow[] {
   const typed = query.trim().toLowerCase();
   const matching = rows.filter((row) => `${row.nativeName} ${row.englishName}`.toLowerCase().includes(typed));
+
   if (sort === undefined) {
     return matching;
   }
+
   const direction = sort.descending ? -1 : 1;
+
   return matching.toSorted((left, right) => direction * compare(left, right, sort.column));
 }
 
@@ -66,6 +72,7 @@ function compare(left: LocaleRow, right: LocaleRow, column: string): number {
   if (column === 'coverage') {
     return left.coverage - right.coverage;
   }
+
   return column === 'englishName'
     ? left.englishName.localeCompare(right.englishName)
     : left.nativeName.localeCompare(right.nativeName);

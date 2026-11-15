@@ -23,7 +23,9 @@ const NO_DEITY = deityRow({
   description: RichText.parse([]),
   sources: [],
 });
+
 const SARENRAE = deityRow({ id: 'sarenrae', name: 'Sarenrae', domains: ['fire', 'healing', 'sun', 'truth'] });
+
 const KALISTRADE = deityRow({
   id: 'kalistrade',
   name: 'Prophecies of Kalistrade',
@@ -32,6 +34,7 @@ const KALISTRADE = deityRow({
   domains: [],
   disabledReason: 'A cleric needs a deity with a divine font',
 });
+
 const ZON_KUTHON = deityRow({
   id: 'zon-kuthon',
   name: 'Zon-Kuthon',
@@ -39,6 +42,7 @@ const ZON_KUTHON = deityRow({
   fonts: ['harm'],
   domains: ['darkness', 'pain'],
 });
+
 const DEITIES: readonly DeityPickerRow[] = [NO_DEITY, SARENRAE, KALISTRADE, ZON_KUTHON];
 
 interface Rendered {
@@ -67,9 +71,11 @@ async function render(rows: readonly DeityPickerRow[], value?: string): Promise<
   const fixture = TestBed.createComponent(DeityPicker);
   fixture.componentRef.setInput('rows', rows);
   fixture.componentRef.setInput('ariaLabel', 'Deity');
+
   if (value !== undefined) {
     fixture.componentRef.setInput('value', value);
   }
+
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.committed.subscribe(() => {
@@ -80,9 +86,11 @@ async function render(rows: readonly DeityPickerRow[], value?: string): Promise<
   });
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected a rendered deity picker');
   }
+
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }
 
@@ -103,9 +111,11 @@ const SARENRAE_FACTS = [
 
 function rowAt(rendered: Rendered, index: number): Element {
   const row = [...rendered.host.querySelectorAll('fr-picker-row')].at(index);
+
   if (row === undefined) {
     throw new Error(`Expected row ${index}`);
   }
+
   return row;
 }
 
@@ -117,15 +127,18 @@ function headers(rendered: Rendered): string[] {
 function nameCells(rendered: Rendered): HTMLElement[] {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
+
     return cell === null ? [] : [cell];
   });
 }
 
 function searchBox(rendered: Rendered): HTMLInputElement {
   const input = rendered.host.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the table to be open');
   }
+
   return input;
 }
 
@@ -136,9 +149,11 @@ async function press(rendered: Rendered, key: string): Promise<void> {
 
 function cellAt(rendered: Rendered, index: number): HTMLElement {
   const cell = nameCells(rendered).at(index);
+
   if (cell === undefined) {
     throw new Error(`Expected cell ${index}`);
   }
+
   return cell;
 }
 
@@ -246,6 +261,7 @@ describe(DeityPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_entry, index) =>
       deityRow({ id: `deity-${index}`, name: `Deity ${index + 1}` }),
     );
+
     const rendered = await render(rows);
     expect(rendered.host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
     expect(nameCells(rendered).length).toBeLessThan(LONG_LIST);

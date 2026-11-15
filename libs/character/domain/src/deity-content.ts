@@ -38,11 +38,13 @@ const READ = new WeakMap<ContentRegistry, DeityContent>();
 export function deityContent(registry: ContentRegistry): DeityContent {
   const read = READ.get(registry) ?? readDeities(registry);
   READ.set(registry, read);
+
   return read;
 }
 
 function readDeities(registry: ContentRegistry): DeityContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const deities = new Map(
     entries.flatMap((entry): [ContentId, DeityOption][] =>
       entry.kind === ContentKind.Deity
@@ -61,17 +63,22 @@ function readDeities(registry: ContentRegistry): DeityContent {
         : [],
     ),
   );
+
   const weapons = new Map<BaseWeapon, ContentText>();
+
   for (const entry of entries) {
     const base = entry.kind === ContentKind.Weapon ? entry.data.baseItem : undefined;
+
     if (base !== undefined && !weapons.has(base)) {
       weapons.set(base, entry.name);
     }
   }
+
   return {
     options: [...deities.values()].toSorted((left, right) => left.name.localeCompare(right.name)),
     deity: (id: ContentId): DeityRead | undefined => {
       const option = deities.get(id);
+
       return option === undefined
         ? undefined
         : { id: option.id, name: option.name, description: option.description, data: option.data };

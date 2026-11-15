@@ -17,6 +17,7 @@ function setup(unit: DistanceUnit = DistanceUnit.Feet): LocaleFormat {
     ],
     providers: [{ provide: DISTANCE_UNIT, useValue: signal(unit).asReadonly() }],
   });
+
   return TestBed.inject(LocaleFormat);
 }
 

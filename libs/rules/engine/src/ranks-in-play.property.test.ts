@@ -13,6 +13,7 @@ import { inPlay } from './testing';
 const SELECTORS = ['perception', 'save:will', 'class-dc'] as const;
 const RANKS = ['trained', 'expert', 'master', 'legendary'] as const;
 const ELEMENTS_MAX = 12;
+
 /** Holds for a 1st-level character; fails for one below 5th. */
 const AT_FIFTH = [{ gte: ['self:level', 5] }];
 const facts = new PredicateFacts([RollOption.parse('self:level:1')], CORE_NAMESPACES);
@@ -43,11 +44,13 @@ function ranksOf(raises: readonly Raise[]): Record<string, string> {
 /** The highest rank each selector's ungated raises reach. */
 function highest(raises: readonly Raise[]): Record<string, string> {
   const best = new Map<string, number>();
+
   for (const { selector, rank, gated } of raises) {
     if (!gated) {
       best.set(selector, Math.max(best.get(selector) ?? -1, RANKS.indexOf(rank)));
     }
   }
+
   return Object.fromEntries([...best].map(([selector, at]) => [selector, String(RANKS[at])]));
 }
 

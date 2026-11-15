@@ -16,9 +16,12 @@ import { childStatements } from './evaluate';
 function comparisonOptions(statement: PredicateComparison): readonly RollOption[] {
   if ('eq' in statement) {
     const [left, right] = statement.eq;
+
     return typeof right === 'string' ? [] : [left];
   }
+
   const [left, right] = orderOperands(statement);
+
   return typeof right === 'string' ? [left, right] : [left];
 }
 
@@ -29,9 +32,11 @@ function orderOperands(
   if ('gt' in statement) {
     return statement.gt;
   }
+
   if ('gte' in statement) {
     return statement.gte;
   }
+
   return 'lt' in statement ? statement.lt : statement.lte;
 }
 
@@ -56,8 +61,10 @@ function collect(statement: PredicateStatement, found: Set<RollOption>): void {
  */
 export function predicateOptions(predicate: Predicate): ReadonlySet<RollOption> {
   const found = new Set<RollOption>();
+
   for (const statement of predicate) {
     collect(statement, found);
   }
+
   return found;
 }

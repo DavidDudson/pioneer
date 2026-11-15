@@ -28,6 +28,7 @@ const meta: Meta<RichTextView> = {
   decorators: [applicationConfig({ providers: [provideRichTextLinks(LINKS)] })],
   args: { headingLevel: HeadingLevel.Two },
 };
+
 export default meta;
 
 /** Prose with inline rules: a check, damage, an area, a duration and a link to another entry. */

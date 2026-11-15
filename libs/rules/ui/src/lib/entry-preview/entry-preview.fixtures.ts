@@ -58,6 +58,7 @@ export function modifierPreviewEffect(entryId: typeof FIREBALL, options: Modifie
   const { statistic, selector, value, status } = options;
   const entry = ContentId.parse(entryId);
   const { modifier, adjustedBy } = line(entry, { type: ModifierType.Status, value });
+
   return {
     statistic,
     line: {
@@ -81,6 +82,7 @@ export function sensePreviewEffect(
 ): PreviewEffect {
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
+
   return {
     statistic: undefined,
     ...(options.name === undefined ? {} : { sense: options.name }),
@@ -106,6 +108,7 @@ export function resistancePreviewEffect(
 ): PreviewEffect {
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
+
   return {
     statistic: undefined,
     ...(options.names === undefined ? {} : { exceptions: options.names }),
@@ -126,6 +129,7 @@ export function resistancePreviewEffect(
 export function notSummarisedPreviewEffect(entryId: typeof FIREBALL): PreviewEffect {
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
+
   return {
     statistic: undefined,
     line: {

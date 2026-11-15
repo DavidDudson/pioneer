@@ -17,6 +17,7 @@ const Source = z.object({
   source_markdown: z.string().optional(),
   remaster_id: z.array(z.string()).optional(),
 });
+
 const Hit = z.object({ _id: z.string().optional(), _source: Source });
 const Hits = z.object({ total: z.object({ value: z.number() }), hits: z.array(Hit) });
 const Answer = z.object({ hits: Hits });
@@ -37,10 +38,12 @@ export interface PageHits {
 export function pageIn(markdown: string, sourceId: string): PageNumber | undefined {
   for (const { groups } of markdown.matchAll(PAGE)) {
     const parsed = PageNumber.safeParse(Number(groups?.['page']));
+
     if (groups?.['id'] === sourceId && parsed.success) {
       return parsed.data;
     }
   }
+
   return undefined;
 }
 
@@ -53,15 +56,20 @@ const DOCUMENT_ID = /^(?<category>[a-z-]+)-(?<number>\d+)$/u;
  */
 export function replacements(id: string | undefined, url: AonUrl, remasterIds: readonly string[]): readonly AonUrl[] {
   const category = DOCUMENT_ID.exec(id ?? '')?.groups?.['category'];
+
   const urls = remasterIds.flatMap((remasterId) => {
     const { category: other, number } = DOCUMENT_ID.exec(remasterId)?.groups ?? {};
+
     if (category === undefined || other !== category || number === undefined) {
       return [];
     }
+
     const target = new URL(url);
     target.searchParams.set('ID', number);
+
     return [AonUrl.parse(target.href)];
   });
+
   return [...new Set(urls)].filter((target) => target !== url);
 }
 
@@ -75,19 +83,23 @@ interface ReadHit {
 function readHit(source: z.infer<typeof Source>, sourceId: string): ReadHit {
   const { data: url } = AonUrl.safeParse(`${ORIGIN}${source.url}`);
   const { data: entry } = AonListedEntry.safeParse({ type: source.type, name: source.name, url });
+
   return { url, entry, page: pageIn(source.source_markdown ?? '', sourceId) };
 }
 
 /** Each hit's legacy URL with the URLs AoN says replace it. */
 function replacedByIn(hits: readonly z.infer<typeof Hit>[]): ReadonlyMap<AonUrl, readonly AonUrl[]> {
   const replacedBy = new Map<AonUrl, readonly AonUrl[]>();
+
   for (const { _id: id, _source: source } of hits) {
     const { data: url } = AonUrl.safeParse(`${ORIGIN}${source.url}`);
     const targets = url === undefined ? [] : replacements(id, url, source.remaster_id ?? []);
+
     if (url !== undefined && targets.length > 0) {
       replacedBy.set(url, targets);
     }
   }
+
   return replacedBy;
 }
 
@@ -96,15 +108,18 @@ export function parseHits(json: unknown, sourceId: string): PageHits {
   const pages = new Map<AonUrl, PageNumber>();
   const entries: AonListedEntry[] = [];
   let skipped = 0;
+
   for (const { _source: source } of hits.hits) {
     const { url, entry, page } = readHit(source, sourceId);
     entries.push(...(entry === undefined ? [] : [entry]));
+
     if (url !== undefined && page !== undefined) {
       pages.set(url, page);
     } else {
       skipped += 1;
     }
   }
+
   return {
     total: hits.total.value,
     count: hits.hits.length,

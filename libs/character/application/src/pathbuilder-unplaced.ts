@@ -15,8 +15,10 @@ import { ContentId } from '@pioneer/rules/sdk';
 function kept(kind: ImportKind, names: readonly PathbuilderName[], lookup: ContentLookup): ContentId[] {
   const ids = names.flatMap((name): ContentId[] => {
     const match = lookup.resolve(kind, name);
+
     return match === undefined ? [] : [ContentId.parse(match.id)];
   });
+
   return [...new Set(ids)];
 }
 
@@ -41,6 +43,7 @@ export interface ImportedPicks {
 export function keptPicks(imported: ImportedPicks, lookup: ContentLookup): UnplacedPicks {
   const { feats, languages, customLanguages, rituals, classFeatures, deity, spells } = imported;
   const deityIds = deity === undefined ? [] : kept(ImportKind.Deity, [deity], lookup);
+
   return {
     unplacedFeats: kept(
       ImportKind.Feat,

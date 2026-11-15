@@ -25,12 +25,15 @@ export class PackAccessPolicy {
     if (PackAccessPolicy.owns(actor, pack)) {
       return true;
     }
+
     if (pack.visibility === PackVisibility.Public) {
       return true;
     }
+
     if (pack.visibility === PackVisibility.Campaign) {
       return this.#enablement.belongsToCampaignEnabling(actor, pack);
     }
+
     return false;
   }
 

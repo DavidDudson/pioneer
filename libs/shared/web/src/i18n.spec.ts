@@ -16,6 +16,7 @@ async function setup(): Promise<TranslocoService> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => messages })] });
   // The source locale loads in an app initializer, before anything renders.
   await TestBed.inject(ApplicationInitStatus).donePromise;
+
   return TestBed.inject(TranslocoService);
 }
 

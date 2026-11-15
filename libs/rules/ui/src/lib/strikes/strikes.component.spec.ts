@@ -31,6 +31,7 @@ async function render(strikes: readonly NamedStrike[] | undefined): Promise<Comp
   fixture.componentRef.setInput('strikes', strikes);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -146,6 +147,7 @@ describe(StrikesView, () => {
 
   it('shows holy water splash in its own type', async () => {
     const fixture = await render(THROWN_STRIKES);
+
     const water = rowsOf(fixture)
       .map((row) => textOf(row))
       .at(1);
@@ -221,20 +223,24 @@ async function renderClaiming(
       claims?.push({ selector, rule, on });
     },
   };
+
   const rolling = claims === undefined ? [] : [{ provide: STATISTIC_ROLLER, useValue: roller }];
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting(), ...rolling] });
   const fixture = TestBed.createComponent(StrikesView);
   fixture.componentRef.setInput('strikes', strikes);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture;
 }
 
 function toggleOf(fixture: ComponentFixture<StrikesView>): HTMLButtonElement {
   const toggle = hostOf(fixture).querySelector<HTMLButtonElement>('pio-statistic-conditions button');
+
   if (toggle === null) {
     throw new Error('Expected a situation toggle');
   }
+
   return toggle;
 }
 

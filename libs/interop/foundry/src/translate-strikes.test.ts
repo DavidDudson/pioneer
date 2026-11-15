@@ -6,6 +6,7 @@ import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
 const ENTRY = ContentId.parse('00000000-0000-5000-8000-000000000000');
+
 /** Foundry writes a melee attack's range as `null`. */
 const NO_RANGE: unknown = JSON.parse('null');
 const LANG = { PF2E: { Weapon: { Base: { claw: 'Claw' } } } };
@@ -108,6 +109,7 @@ describe('AdjustStrike from Foundry', () => {
       property: 'materials',
       value: 'silver',
     });
+
     const rune = translated({
       definition: ['item:ranged'],
       key: RuleElementKey.AdjustStrike,
@@ -154,12 +156,14 @@ describe('AdjustStrike from Foundry', () => {
       property: 'materials',
       value: 'silver',
     });
+
     const picked = translated({
       key: RuleElementKey.AdjustStrike,
       mode: 'add',
       property: 'property-runes',
       value: '{item|flags.system.rulesSelections.rune}',
     });
+
     const domain = translated({
       key: RuleElementKey.AdjustStrike,
       mode: 'add',
@@ -182,6 +186,7 @@ describe('Strike from Foundry without a slug', () => {
       label: 'PF2E.Weapon.Base.claw',
       predicate: ['shifting-form:jaws'],
     });
+
     const labelled = translated({
       category: 'unarmed',
       damage: { base: { damageType: 'piercing', dice: 1, die: 'd6' } },
@@ -216,6 +221,7 @@ describe('Strike from Foundry without a slug', () => {
       key: RuleElementKey.Strike,
       otherTags: ['improvised'],
     });
+
     const fist = translated({ key: RuleElementKey.Strike, fist: true });
 
     expect(torch.untranslated).toHaveLength(1);

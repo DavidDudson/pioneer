@@ -19,6 +19,7 @@ const PACK = new ContentPackBuilder()
   .withId('core-rules')
   .withItem(ContentKind.Trait, 'fire', { appliesTo: [] })
   .build();
+
 const LOADER: PackContentsLoader = {
   id: PACK.id,
   load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
@@ -33,6 +34,7 @@ function previews(): EntryPreviews {
       ...provideContentTesting(new TestContentDelivery([LOADER])),
     ],
   });
+
   return TestBed.runInInjectionContext(fetchedEntryPreviews);
 }
 

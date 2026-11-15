@@ -25,6 +25,7 @@ function titled(word: string): string {
 
 function of(slug: string, tradition: string, spells: readonly [string, string, string]): Bloodline {
   const [initial, advanced, greater] = spells;
+
   return { slug, name: titled(slug.replace('bloodline-', '')), traditions: [tradition], initial, advanced, greater };
 }
 
@@ -83,6 +84,7 @@ interface Offered {
 /** A draconic bloodline is offered once for each exemplar, as the exemplar sets the tradition. */
 const OFFERED: readonly Offered[] = BLOODLINES.flatMap(({ slug, name, traditions, initial }): readonly Offered[] => {
   const value = slug.replace('bloodline-', '');
+
   return traditions.map((tradition): Offered =>
     traditions.length === 1
       ? { value, label: name, tradition, initial }
@@ -107,5 +109,6 @@ export const SORCERER_DEDICATION_RULES: Planned = [
 /** Basic Bloodline Spell: the initial bloodline spell of the bloodline Sorcerer Dedication picked, in its tradition. */
 export const BASIC_BLOODLINE_SPELL_RULES: Planned = OFFERED.flatMap(({ value, tradition, initial }): Planned => {
   const predicate = [`${SORCERER_DEDICATION}:${value}`];
+
   return [entryOf(tradition, predicate), grant(initial, predicate)];
 });

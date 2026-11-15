@@ -23,6 +23,7 @@ export class DrizzleSheetModeRepository extends SheetModeRepository {
       .from(characterSheetModes)
       .where(and(eq(characterSheetModes.userId, userId), eq(characterSheetModes.characterId, characterId)))
       .limit(1);
+
     return row?.mode;
   }
 

@@ -51,12 +51,17 @@ function variantPack(): ContentPack {
 }
 
 const registry = new ContentRegistry();
+
 registry.register(playerCoreClasses());
+
 registry.register(variantPack());
+
 const dual: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => each.definition.slug === DUAL_CLASS);
+
 const plain: readonly VariantRuleEntry[] = registry
   .variantRules()
   .filter((each) => each.definition.slug !== DUAL_CLASS);
+
 const classes = classContent(registry);
 
 const withDual = { ...slotContent(registry, dual), namespaces: CORE_NAMESPACES };
@@ -154,6 +159,7 @@ describe('a Fighter with Cleric as the second class', () => {
       .picking(SECOND_CLASS_SLOT, playerCoreClassId('fighter'))
       .picking(SlotKey.parse('boost:1:second-class:0'), 'str')
       .build().document;
+
     const second = boostSets(fighterFighter, withDual.boosts).find((each) => each.source === BoostSource.SecondClass);
     expect(second?.slots.map((slot) => [String(slot.key), slot.pick])).toEqual([['boost:1:second-class:0', 'str']]);
   });

@@ -14,6 +14,7 @@ async function render(kind: NaturalBurstKind): Promise<HTMLElement> {
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(burst.hostView);
   await appRef.whenStable();
+
   return burst.location.nativeElement as HTMLElement;
 }
 

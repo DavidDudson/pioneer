@@ -34,6 +34,7 @@ export class ItemRemove {
   protected readonly lossy = computed((): boolean => {
     const items = this.#store.selected()?.document.inventory.items;
     const item = items?.find((each) => each.id === this.id());
+
     return item?.name !== undefined || items?.some((each) => each.container === this.id()) === true;
   });
 

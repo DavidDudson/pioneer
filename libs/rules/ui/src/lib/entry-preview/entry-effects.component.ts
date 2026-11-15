@@ -56,6 +56,7 @@ export class EntryEffectsView {
   protected readonly worded = computed((): readonly EffectText[] => {
     this.#messages();
     this.#format.locale();
+
     return this.effects().map((effect) => this.#text(effect));
   });
 
@@ -63,10 +64,13 @@ export class EntryEffectsView {
   #text(effect: PreviewEffect): EffectText {
     const { statistic, line } = effect;
     const link = statistic !== undefined && 'selector' in line ? this.#previews.statistic?.(line.selector) : undefined;
+
     if (statistic === undefined || link === undefined) {
       return { before: this.#effect(effect), after: '' };
     }
+
     const [before = '', after = ''] = this.#effect({ ...effect, statistic: NAME_MARK }).split(NAME_MARK);
+
     return { before, after, statistic: { name: statistic, link } };
   }
 
@@ -76,17 +80,22 @@ export class EntryEffectsView {
       case EffectChange.Bonus:
       case EffectChange.Penalty: {
         const value = modifierValue(line, this.#i18n, this.#format);
+
         return this.#marked(line.status, EntryPreviewMessage.Effect, { statistic: statistic ?? '', value });
       }
+
       case EffectChange.Set: {
         const value = line.value === undefined ? '' : this.#format.number(line.value);
+
         return this.#marked(line.status, EntryPreviewMessage.EffectSet, { statistic: statistic ?? '', value });
       }
+
       case EffectChange.Weakness:
       case EffectChange.Resistance:
       case EffectChange.Immunity: {
         return this.#defence(line, exceptions);
       }
+
       case EffectChange.Sense: {
         return this.#marked(line.status, EntryPreviewMessage.EffectSense, {
           sense: sense ?? line.sense,
@@ -95,9 +104,11 @@ export class EntryEffectsView {
           range: line.range === undefined ? '' : this.#format.distance(line.range),
         });
       }
+
       case EffectChange.NotSummarised: {
         return this.#i18n.translate(EntryPreviewMessage.EffectNotSummarised, { element: line.element });
       }
+
       default: {
         return line satisfies never;
       }
@@ -108,12 +119,16 @@ export class EntryEffectsView {
   #defence(line: DamageAdjustmentEffect | ImmunityEffect, exceptionNames: readonly string[] | undefined): string {
     if (line.change === EffectChange.Immunity) {
       const damageType = DamageTypeSchema.safeParse(line.immunity);
+
       const target = damageType.success
         ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
         : String(line.immunity);
+
       return this.#marked(line.status, DefencesMessage.Immunity, { target });
     }
+
     const key = line.change === EffectChange.Weakness ? DefencesMessage.Weakness : DefencesMessage.Resistance;
+
     return this.#marked(line.status, key, {
       hasValue: line.value === undefined ? 'no' : 'yes',
       value: line.value === undefined ? '' : this.#format.number(line.value),
@@ -126,24 +141,32 @@ export class EntryEffectsView {
   /** The line's words, then the status that keeps it from counting when it doesn't. */
   #marked(status: EffectStatus, key: string, params: Readonly<Record<string, string>>): string {
     const words: string = this.#i18n.translate(key, params);
+
     if (status.kind === EffectStatusKind.Applied) {
       return words;
     }
+
     const mark: string = this.#i18n.translate(EFFECT_STATUS_MESSAGES[status.kind]);
+
     return this.#i18n.translate(EntryPreviewMessage.EffectMarked, { words, status: mark });
   }
 
   /** A damage type's name, or a group's; `all` reads as "all damage". */
   #target(target: DamageAdjustmentSubject): string {
     const context = DamageContextSchema.safeParse(target);
+
     if (context.success) {
       return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
     }
+
     const group = DamageGroupSchema.safeParse(target);
+
     if (group.success) {
       return this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group.data]);
     }
+
     const damageType = DamageTypeSchema.safeParse(target);
+
     return damageType.success
       ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
       : target.replaceAll('-', ' ');

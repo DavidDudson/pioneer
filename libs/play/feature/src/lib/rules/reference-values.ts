@@ -23,6 +23,7 @@ export function entryFor(entries: ReferenceEntries, path: ReferencePath): Refere
 /** The entry's value for the formula, or undefined while the box is empty, mid-edit or out of range. */
 export function usableValue(entry: ReferenceEntry): FormulaValue | undefined {
   const inRange = entry.value >= REFERENCE_VALUE_MIN && entry.value <= REFERENCE_VALUE_MAX;
+
   return entry.complete && inRange ? FormulaValue.parse(entry.value) : undefined;
 }
 

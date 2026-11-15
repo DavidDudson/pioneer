@@ -70,6 +70,7 @@ export function classesForRole(classes: readonly ClassOption[], role: ClassRole)
 /** One class that plays `role`, drawn by `seed`: the same seed and classes give the same class. None when no class plays it. */
 export function classForRole(classes: readonly ClassOption[], role: ClassRole, seed: Seed): ClassOption | undefined {
   const outcome = pickOne(seededPicks(seed), classesForRole(classes, role));
+
   return outcome.ok ? outcome.picked : undefined;
 }
 
@@ -80,6 +81,7 @@ const READ = new WeakMap<ContentRegistry, ClassPickerContent>();
 export function classPickerContent(registry: ContentRegistry): ClassPickerContent {
   const read = READ.get(registry) ?? readClasses(registry);
   READ.set(registry, read);
+
   return read;
 }
 
@@ -102,6 +104,7 @@ function traditionsOf(rules: readonly RuleElement[]): MagicTradition[] {
   const found = rules.flatMap((rule): MagicTradition[] =>
     rule.key === RuleElementKey.SpellcastingEntry ? [rule.tradition] : [],
   );
+
   return [...new Set(found)];
 }
 
@@ -114,11 +117,13 @@ function grantedIds(rules: readonly RuleElement[]): ContentId[] {
 
 function readClasses(registry: ContentRegistry): ClassPickerContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const traditions = new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.ClassFeature ? [[entry.id, traditionsOf(entry.rules)] as const] : [],
     ),
   );
+
   const features = new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.ClassFeature
@@ -131,12 +136,15 @@ function readClasses(registry: ContentRegistry): ClassPickerContent {
         : [],
     ),
   );
+
   const classes = entries.flatMap((entry): ClassOption[] => {
     if (entry.kind !== ContentKind.Class) {
       return [];
     }
+
     const ranks = startingRanks(entry.rules);
     const granted = grantedIds(entry.rules).flatMap((id) => traditions.get(id) ?? []);
+
     return [
       {
         id: entry.id,
@@ -152,6 +160,7 @@ function readClasses(registry: ContentRegistry): ClassPickerContent {
       },
     ];
   });
+
   return {
     classes: classes.toSorted((left, right) => left.name.localeCompare(right.name)),
     features,

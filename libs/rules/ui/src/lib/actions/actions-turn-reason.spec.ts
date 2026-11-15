@@ -12,9 +12,11 @@ const REASON = message('rules.actions.turn.tooFewActions', { count: 2, left: 1 }
 /** The first of the standing actions, held back by the turn for want of actions. */
 function tooDear(): ActionLine {
   const [first] = STANDING_ACTIONS;
+
   if (first === undefined) {
     throw new Error('The standing actions are empty');
   }
+
   return { ...first, affordable: false, reasons: [REASON] };
 }
 

@@ -6,11 +6,13 @@ import { describe, expect, it } from 'vitest';
 import { mergeBelow, nameMatches } from './global-search-results';
 
 const BUILDER = new ContentPackBuilder().withId('search-test');
+
 const PACK = BUILDER.withFeat('power-attack', { level: 1, traits: [] })
   .withFeat('attack-of-opportunity', { level: 1, traits: [] })
   .withFeat('sudden-charge', { level: 1, traits: [] })
   .withFeat('attack', { level: 1, traits: [] })
   .build();
+
 const ENTRIES: readonly ContentEntry[] = PACK.otherEntries;
 const compare = (left: string, right: string): number => left.localeCompare(right);
 const namesOf = (entries: readonly ContentEntry[]): string[] => entries.map((entry) => entry.name);

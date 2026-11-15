@@ -20,9 +20,11 @@ function itemName({ item, detail }: SpellRowLine): string | undefined {
   if (item === undefined) {
     return undefined;
   }
+
   if (item.kind === 'wand') {
     return item.wand.name;
   }
+
   return item.kind === 'staff' ? item.staff : detail.source;
 }
 
@@ -33,15 +35,18 @@ function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellO
       detail === undefined ? [] : [{ line: { key: `focus:${entry.key}:${key}`, detail, use }, source: detail.source }],
     ),
   );
+
   const fromInnate = (innate?.entries ?? []).flatMap((entry) =>
     entry.spells.flatMap(({ key, detail, use }) =>
       detail === undefined ? [] : [{ line: { key: `innate:${entry.key}:${key}`, detail, use }, source: detail.source }],
     ),
   );
+
   const fromPrepared = prepared.flatMap((entry) =>
     entry.ranks.flatMap((rank) =>
       rank.fields.flatMap((field) => {
         const detail = field.detail();
+
         return detail === undefined
           ? []
           : [
@@ -53,7 +58,9 @@ function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellO
       }),
     ),
   );
+
   const fromItems = items.map((line): SourcedSpell => ({ line, source: itemName(line) ?? line.detail.source }));
+
   return [...fromFocus, ...fromInnate, ...fromPrepared, ...fromItems];
 }
 
@@ -63,11 +70,13 @@ function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellO
  */
 export function sheetSpells(origins: SpellOrigins): readonly SourcedSpell[] {
   const seen = new Set<string>();
+
   return linesOf(origins)
     .filter(({ line: { detail } }) => {
       const held = `${detail.id}|${detail.source ?? ''}|${detail.rank}`;
       const fresh = !seen.has(held);
       seen.add(held);
+
       return fresh;
     })
     .toSorted(

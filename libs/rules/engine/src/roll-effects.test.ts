@@ -23,6 +23,7 @@ const DEFINITIONS = [
   statistic('save:will', '10', ['saving-throw']),
   statistic('perception', '10'),
 ];
+
 const FACTS = new PredicateFacts([], CORE_NAMESPACES);
 const NONE: RollEffects = { rollTwice: [], degreeAdjustments: [] };
 
@@ -42,9 +43,11 @@ function effectsOn(selector: string, rules: readonly RuleInPlay[], situation: re
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const derived = deriveStatistics(content, inputs, { rules, facts: FACTS, situation: new Set(situation) });
   const result = derived.get(Selector.parse(selector));
+
   if (result?.ok !== true) {
     throw new Error(`Expected ${selector} to derive`);
   }
+
   return result.rollEffects ?? NONE;
 }
 

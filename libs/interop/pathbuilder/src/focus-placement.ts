@@ -54,13 +54,16 @@ function listed(value: PathbuilderImport, content: SpellPlacementContent): Liste
   return Object.entries(value.reported.focus).flatMap(([tradition, byAttribute]) =>
     Object.entries(byAttribute).flatMap(([attribute, listing]) => {
       const caster = PathbuilderName.parse(`${tradition} ${attribute} focus`);
+
       const lists = [
         { cantrip: true, names: named(listing.focusCantrips) },
         { cantrip: false, names: named(listing.focusSpells) },
       ];
+
       return lists.flatMap(({ cantrip, names }) =>
         names.flatMap((name): Listed[] => {
           const match = content.lookup.resolve(ImportKind.Spell, name);
+
           return match === undefined
             ? []
             : [
@@ -108,13 +111,16 @@ const GRANT_DEPTH = 3;
  */
 function givesFocus(content: SpellPlacementContent, id: ContentId, depth: number = GRANT_DEPTH): boolean {
   const rules = content.slots.lookup.entry(id)?.rules ?? [];
+
   return (
     depth >= 0 &&
     rules.some((rule) => {
       if (rule.key === RuleElementKey.FocusSpells) {
         return true;
       }
+
       const granted = rule.key === RuleElementKey.GrantItem ? ContentId.safeParse(rule.item) : undefined;
+
       return granted?.success === true && givesFocus(content, granted.data, depth - 1);
     })
   );
@@ -126,6 +132,7 @@ function answersFocus(content: SpellPlacementContent, slot: ChoiceSlot): boolean
     givesFocus(content, slot.origin.entry) ||
     slot.options.some((option) => {
       const offered = ContentId.safeParse(option.value);
+
       return offered.success && givesFocus(content, offered.data, GRANT_DEPTH - 1);
     })
   );
@@ -134,6 +141,7 @@ function answersFocus(content: SpellPlacementContent, slot: ChoiceSlot): boolean
 /** An option that is an entry itself only helps when that entry gives focus spells: a pick of any other entry does not. */
 function mayGiveFocus(content: SpellPlacementContent, [, value]: ChoicePick): boolean {
   const offered = ContentId.safeParse(value);
+
   return !offered.success || givesFocus(content, offered.data, GRANT_DEPTH - 1);
 }
 
@@ -148,18 +156,25 @@ function labelOf(open: readonly ChoiceSlot[], [key, value]: ChoicePick): string 
  */
 function helpful(placed: Placed, content: SpellPlacementContent, left: readonly Listed[]): ChoicePick | undefined {
   const { document, exported } = placed;
+
   const helping = openPicks(document, content, (slot) => answersFocus(content, slot)).filter((pick) => {
     if (!mayGiveFocus(content, pick)) {
       return false;
     }
+
     const have = held(picking(document, pick), content);
+
     return left.some((spell) => have.has(spell.key));
   });
+
   const { open } = characterGrants(document, content.slots);
+
   const meant = helping.find((pick) => {
     const label = labelOf(open, pick);
+
     return label !== undefined && exported.has(matchKey(label));
   });
+
   return meant ?? helping[0];
 }
 
@@ -168,10 +183,13 @@ function pickChoices(placed: Placed, content: SpellPlacementContent, wanted: rea
   const have = held(placed.document, content);
   const left = wanted.filter((spell) => !have.has(spell.key));
   const pick = left.length === 0 || placed.passes === 0 ? undefined : helpful(placed, content, left);
+
   if (pick === undefined) {
     return placed;
   }
+
   const [slot, value] = pick;
+
   return pickChoices(
     {
       ...placed,
@@ -189,6 +207,7 @@ function lacking(document: CharacterDocument, content: SpellPlacementContent, wa
   const have = held(document, content);
   const { rank, entries } = documentFocus(document, content.slots);
   const homes = new Set(entries.map(({ entry }) => homeOf(entry.tradition, entry.attribute)));
+
   return wanted.flatMap((spell): SpellGap[] =>
     have.has(spell.key)
       ? []
@@ -220,5 +239,6 @@ export function placeFocus(
   const wanted = listed(value, content);
   const exported = new Set(value.names.map((each) => matchKey(each.name)));
   const placed = pickChoices({ document, choices: {}, passes: wanted.length, exported }, content, wanted);
+
   return { choices: placed.choices, gaps: lacking(placed.document, content, wanted) };
 }

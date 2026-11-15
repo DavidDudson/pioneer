@@ -11,6 +11,7 @@ const HP: Omit<MeterRange, 'value'> = {
   high: 20,
   optimum: 40,
 };
+
 /** Dying 0-4: optimum none, low 1, high 2. */
 const DYING: Omit<MeterRange, 'value'> = {
   min: 0,

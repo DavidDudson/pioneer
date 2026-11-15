@@ -47,6 +47,7 @@ describe('PlayService daily preparations changing prepared spells', () => {
   async function patch(command: PlayCommand): Promise<CharacterPlay> {
     const saved = await play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command });
     ({ revision } = saved);
+
     return saved;
   }
 
@@ -56,6 +57,7 @@ describe('PlayService daily preparations changing prepared spells', () => {
 
   async function choice(slot: SlotKey): Promise<string | undefined> {
     const stored = await repository.findById(ezren.id);
+
     return stored?.document.build.choices[slot];
   }
 

@@ -44,6 +44,7 @@ export class ActionsAll {
 
   protected readonly modeOptions = computed((): readonly SelectOption<ActionMode>[] => {
     this.#words.changed();
+
     return Object.values(ActionMode).map((value) => ({
       value,
       label: this.#words.say(ACTION_MODE_MESSAGES[value]),
@@ -52,11 +53,13 @@ export class ActionsAll {
 
   protected readonly costOptions = computed((): readonly SelectOption<CostGroup>[] => {
     this.#words.changed();
+
     return COST_ORDER.map((value) => ({ value, label: this.#words.cost(value) }));
   });
 
   protected readonly sourceOptions = computed((): readonly SelectOption<ActionOriginKind>[] => {
     this.#words.changed();
+
     return Object.values(ActionOriginKind).map((value) => ({
       value,
       label: this.#words.say(ACTION_SOURCE_MESSAGES[value]),
@@ -65,6 +68,7 @@ export class ActionsAll {
 
   protected readonly traitOptions = computed((): readonly SelectOption<string>[] => {
     this.#words.changed();
+
     return traitsOf(this.lines() ?? [], this.#words.compare).map((value) => ({
       value,
       label: value,
@@ -75,6 +79,7 @@ export class ActionsAll {
   protected readonly rows = computed((): readonly ShownAction[] | undefined => {
     this.#words.changed();
     const lines = this.lines();
+
     return lines === undefined
       ? undefined
       : this.#words

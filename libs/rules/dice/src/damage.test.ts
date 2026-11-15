@@ -76,6 +76,7 @@ describe('applyDamage', () => {
       roll('1d8[slashing]+1d6[fire]', [5, 4]),
       target({ immunities: [Immunity.parse('fire')] }),
     );
+
     expect(result.immediate[1]).toEqual(
       expectedInstance({
         type: DamageType.Fire,
@@ -106,6 +107,7 @@ describe('applyDamage', () => {
       weaknesses: [adjustment(DamageType.Slashing, 5)],
       resistances: [adjustment(DamageGroup.Physical, 3)],
     });
+
     expect(applyDamage(roll('2d6+4', [3, 3]), defences).taken).toBe(amount(10));
   });
 
@@ -114,6 +116,7 @@ describe('applyDamage', () => {
       roll('1d6[cold]+1d6[cold]+1d6[fire]', [2, 3, 4]),
       target({ weaknesses: [adjustment(DamageType.Cold, 5)] }),
     );
+
     expect(result.immediate[0]).toEqual(
       expectedInstance({
         type: DamageType.Cold,
@@ -131,6 +134,7 @@ describe('applyDamage', () => {
       roll('1d8[slashing]', [4]),
       target({ weaknesses: [adjustment(DamageType.Slashing, 3), adjustment(DamageGroup.Physical, 5)] }),
     );
+
     expect(result.immediate[0]?.taken).toBe(amount(9));
     expect(result.immediate[0]?.lines).toEqual([
       message(DiceMessage.DamageWeakness, { value: 5, target: DamageGroup.Physical }),
@@ -142,6 +146,7 @@ describe('applyDamage', () => {
       roll('1d4[cold]-5[cold]', [1]),
       target({ weaknesses: [adjustment(DamageType.Cold, 5)] }),
     );
+
     expect(result.taken).toBe(amount(0));
   });
 
@@ -150,6 +155,7 @@ describe('applyDamage', () => {
       roll('1d4[cold]-5[cold]', [1]),
       target({ resistances: [adjustment(DamageType.Cold, 5)] }),
     );
+
     expect(result.immediate[0]?.lines).toEqual([]);
   });
 
@@ -164,6 +170,7 @@ describe('applyDamage', () => {
       roll('1d8[bludgeoning]+1d4[fire]', [6, 2]),
       target({ resistances: [adjustment(DamageGroup.Physical, 3), adjustment(DamageType.Fire, 5)] }),
     );
+
     expect(result.immediate).toEqual([
       expectedInstance({
         type: DamageType.Bludgeoning,
@@ -187,6 +194,7 @@ describe('applyDamage', () => {
       roll('1d6[fire]+1d6[cold]+3', [4, 4]),
       target({ resistances: [adjustment(DamageGroup.All, 2)] }),
     );
+
     expect(result.immediate.map((instance) => instance.taken)).toEqual([amount(2), amount(2), amount(1)]);
   });
 
@@ -195,6 +203,7 @@ describe('applyDamage', () => {
       roll('1d8[fire]', [8]),
       target({ resistances: [adjustment(DamageGroup.All, 2), adjustment(DamageGroup.Energy, 5)] }),
     );
+
     expect(result.taken).toBe(amount(3));
   });
 
@@ -203,6 +212,7 @@ describe('applyDamage', () => {
       roll('1d4[fire]', [1]),
       target({ weaknesses: [adjustment(DamageType.Fire, 5)], resistances: [adjustment(DamageGroup.All, 3)] }),
     );
+
     expect(result.taken).toBe(amount(3));
   });
 
@@ -216,6 +226,7 @@ describe('applyDamage', () => {
       immunities: [Immunity.parse('poison')],
       weaknesses: [adjustment(DamageType.Slashing, 5), adjustment(DamageType.Vitality, 5)],
     });
+
     expect(applyDamage(roll('1d8[slashing]+1d6[poison]', [3, 6]), zombie).taken).toBe(amount(8));
   });
 

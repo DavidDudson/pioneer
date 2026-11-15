@@ -23,12 +23,15 @@ export function costMessage(cost: SpendCost): MessageDescriptor {
         ? message('character.sheet.spend.costOne')
         : message('character.sheet.spend.costMany', { count: cost.count });
     }
+
     case SpendKind.Reaction: {
       return message('character.sheet.spend.costReaction');
     }
+
     case SpendKind.Free: {
       return message('character.sheet.spend.costFree');
     }
+
     default: {
       return cost satisfies never;
     }

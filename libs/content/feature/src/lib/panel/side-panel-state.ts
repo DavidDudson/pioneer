@@ -12,9 +12,11 @@ export function entryFromParam(text: string | undefined): ContentEntryRef | unde
   if (text === undefined) {
     return undefined;
   }
+
   const at = text.indexOf(SEPARATOR);
   const kind = BROWSE_KINDS.find((each) => each === text.slice(0, at));
   const name = text.slice(at + SEPARATOR.length);
+
   return at === -1 || kind === undefined || name === '' ? undefined : { kind, name };
 }
 

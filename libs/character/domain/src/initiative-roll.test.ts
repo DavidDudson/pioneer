@@ -24,6 +24,7 @@ const inputs: StatisticInputs = StatisticInputsJson.parse({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder()
     .withId('player-core')
@@ -31,6 +32,7 @@ registry.register(
     .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
     .build(),
 );
+
 registry.register(
   ContentPack.define({
     manifest: { id: 'initiatives', title: 'Initiatives', publisher: 'Pioneer', license: ContentLicense.Homebrew },
@@ -68,6 +70,7 @@ const PLAIN = 1 + 2 + 3;
 
 function total(as: RollAs | undefined): number {
   const setup = rollSetup(document, sources, { selector: PERCEPTION, chosen: new Set(), as });
+
   return Number(setup?.statistic.total);
 }
 

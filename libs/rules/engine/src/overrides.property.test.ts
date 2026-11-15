@@ -23,6 +23,7 @@ const inputs = StatisticInputsJson.parse({
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const ac = statistic('ac', '10');
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 const TYPES = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
@@ -74,8 +75,10 @@ describe('overrides (properties)', () => {
           pinnedBy: winner === undefined ? undefined : ruleIdOf(winner),
         });
         expect(pinned).toMatchObject({ computed: unpinned?.ok === true ? unpinned.total : undefined });
+
         const applied =
           pinned?.ok === true ? pinned.lines.filter((line) => line.status.kind === LineStatusKind.Applied) : [];
+
         const sum = applied.reduce((total, line) => total + (line.value ?? 0), 0);
         expect(pinned).toMatchObject({ computed: 10 + sum });
       }),

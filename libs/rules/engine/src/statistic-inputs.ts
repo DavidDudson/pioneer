@@ -70,6 +70,7 @@ export interface StatisticInputs {
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
 const ClassInputsJson = z.strictObject({ hitPoints: HitPoints, keyAttribute: AttributeSchema });
+
 const ArmorInputsJson = z.strictObject({
   bonus: Modifier,
   resilient: RuneGrade.optional(),
@@ -123,6 +124,7 @@ function rankOf(inputs: StatisticInputs, selector: Selector): Proficiency {
 function cappedDexterity(inputs: StatisticInputs): FormulaValue {
   const dexterity = inputs.attributes.get(Attribute.Dexterity);
   const cap = inputs.dexterityCap ?? dexterity;
+
   return FormulaValue.parse(Math.min(dexterity, cap));
 }
 
@@ -136,32 +138,41 @@ function inputValue(
     case ReferenceKind.Level: {
       return FormulaValue.parse(inputs.level);
     }
+
     case ReferenceKind.AttributeModifier: {
       return FormulaValue.parse(inputs.attributes.get(reference.attribute));
     }
+
     case ReferenceKind.CappedDexterity: {
       return cappedDexterity(inputs);
     }
+
     case ReferenceKind.KeyAttributeModifier: {
       return inputs.class === undefined
         ? undefined
         : FormulaValue.parse(inputs.attributes.get(inputs.class.keyAttribute));
     }
+
     case ReferenceKind.AncestryHitPoints: {
       return inputs.ancestry === undefined ? undefined : FormulaValue.parse(inputs.ancestry.hitPoints);
     }
+
     case ReferenceKind.AncestrySpeed: {
       return inputs.ancestry === undefined ? undefined : FormulaValue.parse(inputs.ancestry.speed);
     }
+
     case ReferenceKind.ClassHitPoints: {
       return inputs.class === undefined ? undefined : FormulaValue.parse(inputs.class.hitPoints);
     }
+
     case ReferenceKind.ProficiencyBonus: {
       return bonuses.get(rankOf(inputs, reference.selector));
     }
+
     case ReferenceKind.ProficiencyRank: {
       return FormulaValue.parse(RANK_ORDER.indexOf(rankOf(inputs, reference.selector)));
     }
+
     case ReferenceKind.Statistic:
     case ReferenceKind.ItemLevel:
     case ReferenceKind.ItemValue:
@@ -169,6 +180,7 @@ function inputValue(
     case ReferenceKind.Flag: {
       return undefined;
     }
+
     default: {
       return reference satisfies never;
     }
@@ -183,15 +195,18 @@ export function missingInput(reference: KnownReference, inputs: StatisticInputs)
   if (isSourceReference(reference)) {
     return undefined;
   }
+
   switch (reference.kind) {
     case ReferenceKind.AncestryHitPoints:
     case ReferenceKind.AncestrySpeed: {
       return inputs.ancestry === undefined ? EngineMessage.NoAncestry : undefined;
     }
+
     case ReferenceKind.KeyAttributeModifier:
     case ReferenceKind.ClassHitPoints: {
       return inputs.class === undefined ? EngineMessage.NoClass : undefined;
     }
+
     case ReferenceKind.Level:
     case ReferenceKind.AttributeModifier:
     case ReferenceKind.CappedDexterity:
@@ -204,6 +219,7 @@ export function missingInput(reference: KnownReference, inputs: StatisticInputs)
     case ReferenceKind.Flag: {
       return undefined;
     }
+
     default: {
       return reference satisfies never;
     }
@@ -240,23 +256,30 @@ export function resolverFor(
     attributes: inputs.attributes,
     bonus: (selector: Selector): FormulaValue | undefined => proficiency.bonuses.get(rankOf(inputs, selector)),
   };
+
   return (path) => {
     const reference = knownReference(path);
+
     if (reference === undefined) {
       return undefined;
     }
+
     if (reference.kind === ReferenceKind.Statistic) {
       return statistics(reference.selector);
     }
+
     if (reference.kind === ReferenceKind.ItemLevel) {
       return item.level === undefined ? undefined : FormulaValue.parse(item.level);
     }
+
     if (reference.kind === ReferenceKind.ItemValue) {
       return item.value === undefined ? undefined : FormulaValue.parse(item.value);
     }
+
     if (reference.kind === ReferenceKind.ItemOriginLevel) {
       return item.originLevel === undefined ? undefined : FormulaValue.parse(item.originLevel);
     }
+
     return isSourceReference(reference)
       ? sourceValue(reference, source, reading)
       : inputValue(reference, inputs, proficiency);

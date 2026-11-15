@@ -14,7 +14,9 @@ export const Proficiency = {
   Master: 'master',
   Legendary: 'legendary',
 } as const;
+
 export type Proficiency = ValueOf<typeof Proficiency>;
+
 export const ProficiencySchema = z.enum(Proficiency);
 
 const SIGIL = '@';
@@ -25,18 +27,22 @@ const SIGIL = '@';
  */
 export const ProficiencyBonusFormula = ActorFormulaSource.check((context) => {
   const parsed = parseFormula(FormulaText.parse(context.value));
+
   if (!parsed.ok) {
     return;
   }
+
   for (const { path, position } of references(parsed.formula)) {
     if (knownReference(path)?.kind !== ReferenceKind.Level) {
       const { params } = issueParams(
         message(RulesMessage.ProficiencyBonusReference, { found: `${SIGIL}${path}`, position }),
       );
+
       context.issues.push({ code: 'custom', input: context.value, params });
     }
   }
 });
+
 export type ProficiencyBonusFormula = z.infer<typeof ProficiencyBonusFormula>;
 
 /**
@@ -50,4 +56,5 @@ export const ProficiencyBonusTable = z.strictObject({
   [Proficiency.Master]: ProficiencyBonusFormula,
   [Proficiency.Legendary]: ProficiencyBonusFormula,
 });
+
 export type ProficiencyBonusTable = z.infer<typeof ProficiencyBonusTable>;

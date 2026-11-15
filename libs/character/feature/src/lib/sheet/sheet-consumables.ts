@@ -74,6 +74,7 @@ const NO_ROLL: Rolled = { roll: undefined, unresolved: undefined };
 /** The roll a formula makes once its references (`@attr.str`) are read from the character. */
 function rollOf(formula: DamageFormula, kind: DamageKind, inputs: StatisticInputs): Rolled {
   const resolved = resolveDamageFormula(formula, inputs);
+
   return resolved.ok
     ? { roll: { expression: resolved.expression, kind }, unresolved: undefined }
     : { roll: undefined, unresolved: resolved.unresolved };
@@ -93,13 +94,17 @@ export function consumableLines(
 ): readonly ConsumableLine[] {
   const items = itemContent(registry);
   const names = new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry.name]));
+
   return character.document.inventory.items.flatMap((held): readonly ConsumableLine[] => {
     const entry = items.get(held.item);
+
     if (!isListed(entry) || held.carry.state === CarryState.Dropped) {
       return [];
     }
+
     const { activation, damage, effect } = entry.data;
     const cost = activation?.cost ?? DEFAULT_COST;
+
     return [
       {
         key: held.id,
@@ -123,10 +128,13 @@ export function consumableLines(
  */
 export function useCommand(line: ConsumableLine, rolled: RollResult | undefined): ConsumableCommand | undefined {
   const cost = spendCostOf(line.cost, undefined);
+
   if (cost === undefined) {
     return undefined;
   }
+
   const heals = rolled !== undefined && line.roll?.kind === DamageKind.Healing && rolled.total > 0;
+
   return {
     field: ConsumableCommandField.UseConsumable,
     item: line.key,

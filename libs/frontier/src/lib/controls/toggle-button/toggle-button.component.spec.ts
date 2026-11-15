@@ -10,6 +10,7 @@ function render(value: boolean): ComponentFixture<ToggleButton> {
   const fixture = TestBed.createComponent(ToggleButton);
   fixture.componentRef.setInput('value', value);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -62,6 +63,7 @@ describe(ToggleButton, () => {
       describedBy: signal('grip-error'),
       invalid: signal(true),
     };
+
     TestBed.configureTestingModule({ providers: [{ provide: Field, useValue: field }] });
     const native = button(render(false));
     expect(native?.id).toBe('grip-control');

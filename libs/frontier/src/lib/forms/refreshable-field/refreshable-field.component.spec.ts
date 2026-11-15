@@ -12,6 +12,7 @@ function render(): ComponentFixture<RefreshableField> {
   fixture.componentRef.setInput('hint', 'Rolled for you.');
   fixture.componentRef.setInput('load', async () => 'Seelah');
   fixture.detectChanges();
+
   return fixture;
 }
 

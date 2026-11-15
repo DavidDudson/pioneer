@@ -12,5 +12,6 @@ import { SheetState } from './sheet-state';
  */
 export function sheetSectionPreviews(registry: () => ContentRegistry | undefined): EntryPreviews {
   const own = sheetEntryPreviews(registry);
+
   return inject(SheetState, { optional: true })?.withConditions(own) ?? own;
 }

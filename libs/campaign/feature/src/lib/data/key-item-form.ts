@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 /** The grades a potency, striking or resilient rune has, as the select holds them. */
 export const RUNE_GRADES = ['1', '2', '3', '4'] as const;
+
 /** The grades a reinforcing rune has, minor to supreme. */
 export const REINFORCING_GRADES = ['1', '2', '3', '4', '5', '6'] as const;
 
@@ -12,6 +13,7 @@ export const NO_GRADE = '';
 
 /** A grade a select holds, or none. */
 type GradeChoice = typeof NO_GRADE | (typeof RUNE_GRADES)[number];
+
 /** A reinforcing grade a select holds, or none. */
 type ReinforcingChoice = typeof NO_GRADE | (typeof REINFORCING_GRADES)[number];
 
@@ -68,6 +70,7 @@ export function toCreateBody(
   property: readonly KeyPropertyRune[],
 ): CreateKeyItemBody {
   const { name, notes, potency, striking, resilient, reinforcing } = KeyItemForm.parse(model);
+
   return CreateKeyItemBody.parse({
     name,
     base,

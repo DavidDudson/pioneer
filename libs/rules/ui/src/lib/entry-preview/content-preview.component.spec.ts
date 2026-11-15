@@ -39,6 +39,7 @@ function render(known: boolean): ComponentFixture<RichTextView> {
   const fixture = TestBed.createComponent(RichTextView);
   fixture.componentRef.setInput('text', REFERENCE);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -86,6 +87,7 @@ function renderFetching(load: () => Promise<EntryPreview | undefined>): Componen
   const fixture = TestBed.createComponent(RichTextView);
   fixture.componentRef.setInput('text', REFERENCE);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -140,6 +142,7 @@ describe('content preview', () => {
         .fn<() => Promise<EntryPreview | undefined>>()
         .mockRejectedValueOnce(new Error('offline'))
         .mockResolvedValueOnce(FIREBALL_PREVIEW);
+
       const fixture = renderFetching(load);
       await focus(fixture);
       await vi.waitFor(() => {
@@ -182,6 +185,7 @@ describe('content preview', () => {
         .fn<() => Promise<EntryPreview | undefined>>()
         .mockResolvedValueOnce(undefined)
         .mockResolvedValueOnce(FIREBALL_PREVIEW);
+
       const fixture = renderFetching(load);
       await focus(fixture);
       await vi.waitFor(() => {
@@ -203,10 +207,12 @@ describe('content preview', () => {
 
     it('never shows the result of an entry the card has since changed away from', async () => {
       const first = Promise.withResolvers<EntryPreview | undefined>();
+
       const load = vi
         .fn<(id: ContentId) => Promise<EntryPreview | undefined>>()
         .mockImplementationOnce(async () => first.promise)
         .mockResolvedValue(CLUMSY_PREVIEW);
+
       TestBed.configureTestingModule({
         providers: [provideRichTextTesting(), provideEntryPreviews({ preview: (): undefined => undefined, load })],
       });
@@ -238,6 +244,7 @@ describe('content preview', () => {
 
   describe('a mention of a valued condition that names a value', () => {
     const MENTION = RichText.parse([{ type: 'paragraph', content: [{ type: 'ref', id: OTHER, label: 'Clumsy 2' }] }]);
+
     const NOT_HELD: EntryPreview = {
       ...CLUMSY_NOT_HELD_PREVIEW,
       valued: true,
@@ -264,6 +271,7 @@ describe('content preview', () => {
         fixture.detectChanges();
         expect(card()?.textContent).toContain('A flat check.');
       });
+
       return fixture;
     }
 

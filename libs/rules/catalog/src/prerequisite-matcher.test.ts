@@ -8,6 +8,7 @@ import { entry } from './testing/prerequisite-entries';
 
 const prose = (words: string): RichText =>
   RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: words }] }]);
+
 const named = (kind: ContentKind, option: string): NamedEntry => ({ kind, option: RollOption.parse(option) });
 
 const NAMES: PrerequisiteNames = {

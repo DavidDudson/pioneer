@@ -40,6 +40,7 @@ export class Field {
   readonly #errors = signal(0);
   public readonly describedBy = computed(() => {
     const ids = [this.#errors() > 0 ? this.errorId : '', this.#hints() > 0 ? this.hintId : ''].filter(Boolean);
+
     return ids.length === 0 ? undefined : ids.join(' ');
   });
 
@@ -47,6 +48,7 @@ export class Field {
   public register(part: 'hint' | 'error'): () => void {
     const count = part === 'hint' ? this.#hints : this.#errors;
     count.update((value) => value + 1);
+
     return (): void => {
       count.update((value) => value - 1);
     };

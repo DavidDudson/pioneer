@@ -23,6 +23,7 @@ const meta: Meta<SearchInput> = {
     template: `<fr-search-input ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: SearchInputStory = {};

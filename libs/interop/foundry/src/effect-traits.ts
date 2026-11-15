@@ -7,11 +7,13 @@ import type { ImportedKindData } from './translate-kind-data';
 /** What gives an imported effect its traits: the spell, feat or action it is the effect of. */
 
 const POLYMORPH = Trait.parse('polymorph');
+
 /** The name prefixes of Foundry's effects, by the kinds of document each is the effect of. */
 const EFFECT_PREFIXES: readonly (readonly [string, ReadonlySet<string>])[] = [
   ['Spell Effect: ', new Set(['spell'])],
   ['Effect: ', new Set(['feat', 'action'])],
 ];
+
 /** The variant Foundry appends to an effect of a spell with several, `Animal Form (Bear)`. */
 const VARIANT_SUFFIX = / \([^)]*\)$/u;
 
@@ -43,20 +45,27 @@ export function withPolymorphTraits<Entry extends TraitedEntry>(
       .filter(({ envelope }) => envelope.traits.includes(POLYMORPH))
       .map(({ source, envelope }) => `${source.document.type}:${envelope.name}`),
   ]);
+
   return entries.map((entry) => {
     const { kindData, envelope } = entry;
+
     if (kindData?.kind !== ContentKind.Effect || envelope.traits.includes(POLYMORPH)) {
       return entry;
     }
+
     const given = EFFECT_PREFIXES.find(([prefix]) => envelope.name.startsWith(prefix));
+
     if (given === undefined) {
       return entry;
     }
+
     const [prefix, types] = given;
     const name = envelope.name.slice(prefix.length).replace(VARIANT_SUFFIX, '');
+
     if (![...types].some((type) => polymorph.has(`${type}:${name}`))) {
       return entry;
     }
+
     return { ...entry, envelope: { ...envelope, traits: [...envelope.traits, POLYMORPH] } };
   });
 }

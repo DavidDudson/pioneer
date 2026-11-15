@@ -83,12 +83,14 @@ describe('the key item holders over the character context', () => {
   test('the line keeps the choice a property rune was etched for', () => {
     const resistant = { rune: newId(), name: 'Energy Resistant', choice: 'fire' };
     const shadow = { rune: newId(), name: 'Shadow' };
+
     const coat = CreateKeyItemBody.parse({
       name: 'Ember coat',
       base: { item: newId(), name: 'Leather Armor' },
       runes: { property: [resistant, shadow] },
       notes: '',
     });
+
     const line = lineOf({ ...caliburn, ...coat });
 
     expect(line.runes?.property).toMatchObject([{ rune: resistant.rune, choice: 'fire' }, { rune: shadow.rune }]);
@@ -112,6 +114,7 @@ describe('the key item holders over the character context', () => {
   test('describes the choice a property rune was etched for, so a key item keeps it', async () => {
     const id = InventoryItemId.parse(newId());
     const rune = ContentId.parse(newId());
+
     const item = {
       id,
       item: ContentId.parse(newId()),
@@ -119,6 +122,7 @@ describe('the key item holders over the character context', () => {
       carry: STOWED,
       runes: ItemRunesSchema.parse({ property: [{ rune, choice: 'cold' }] }),
     };
+
     const { inventory } = kyra.document;
     await repository.update(kyra.withInventory({ ...inventory, items: [item] }, kyra.updatedAt), kyra.version, {
       actor: gm,
@@ -133,6 +137,7 @@ describe('the key item holders over the character context', () => {
   test('describes a line the way a key item copies it, and linking marks that same line', async () => {
     const id = InventoryItemId.parse(newId());
     const property = Array.from({ length: 6 }, () => ({ rune: ContentId.parse(newId()) }));
+
     const item = {
       id,
       item: ContentId.parse(newId()),
@@ -141,6 +146,7 @@ describe('the key item holders over the character context', () => {
       carry: STOWED,
       runes: ItemRunesSchema.parse({ potency: 4, property }),
     };
+
     const { inventory } = kyra.document;
     const command = CharacterCommand.GiftItem;
     await repository.update(kyra.withInventory({ ...inventory, items: [item] }, kyra.updatedAt), kyra.version, {

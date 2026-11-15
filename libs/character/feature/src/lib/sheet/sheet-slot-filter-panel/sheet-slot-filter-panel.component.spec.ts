@@ -34,6 +34,7 @@ async function render(filter: SlotFilter | undefined): Promise<ComponentFixture<
   fixture.componentRef.setInput('filter', filter);
   fixture.componentRef.setInput('messages', SPELL_FILTER_MESSAGES);
   await fixture.whenStable();
+
   return fixture;
 }
 

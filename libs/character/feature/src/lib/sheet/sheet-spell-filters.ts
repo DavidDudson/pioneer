@@ -55,6 +55,7 @@ export function injectSpellFilters({ origins, translate, messages }: SpellFilter
   return {
     groups: computed((): readonly SpellFilterGroup[] => {
       messages();
+
       return spellFilterGroups(sheetSpells(origins()), picks(), { label: translate, value: wordValue(translate) });
     }),
     list: computed((): readonly SpellRowLine[] => sheetSpellList(origins(), picks())),

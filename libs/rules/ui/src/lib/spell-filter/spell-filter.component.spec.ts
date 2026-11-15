@@ -24,6 +24,7 @@ async function render(groups: readonly SpellFilterGroup[] = GROUPS): Promise<Com
   const fixture = TestBed.createComponent(SpellFilter);
   fixture.componentRef.setInput('groups', groups);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -36,6 +37,7 @@ describe(SpellFilter, () => {
     const summaries = [...host(fixture).querySelectorAll('fr-disclosure summary')].map((each) =>
       each.textContent.trim(),
     );
+
     expect(summaries).toStrictEqual(['Traits']);
   });
 
@@ -66,9 +68,11 @@ describe(SpellFilter, () => {
     });
 
     expect(host(fixture).textContent).toContain('Showing only: Fire, Mental');
+
     const clear = [...host(fixture).querySelectorAll('button')].find(
       (each) => each.textContent.trim() === 'Clear filters',
     );
+
     clear?.click();
 
     expect(cleared).toBe(1);

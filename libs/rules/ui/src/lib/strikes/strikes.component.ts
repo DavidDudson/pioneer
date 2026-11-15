@@ -79,15 +79,19 @@ export class StrikesView {
   protected readonly shown = computed((): readonly ShownStrike[] | undefined => {
     this.#messages();
     this.#format.locale();
+
     const words = {
       i18n: this.#i18n,
       format: this.#format,
       names: { entries: this.entryNames(), items: this.originNames().items },
     };
+
     const claims = this.#roller?.claim !== undefined;
+
     return this.strikes()?.map(({ name, nameKey, traits, strike, situations, damageSituations, use }): ShownStrike => {
       const bonus = strike.damage?.bonus;
       const offered = claims ? (situations?.offered ?? []) : [];
+
       return {
         key: strike.weapon.slug,
         entry: strike.weapon.origin.hops[0]?.kind === OriginHopKind.Inventory ? strike.weapon.origin.entry : undefined,
@@ -136,7 +140,9 @@ export class StrikesView {
     if (attack?.ok !== true) {
       return undefined;
     }
+
     const style = numberStyle(StatisticKind.Check);
+
     return this.#i18n.translate(StrikesMessage.Attacks, {
       first: this.#format.number(attack.total, style),
       second: this.#format.number(attack.total + map.second, style),
@@ -147,10 +153,13 @@ export class StrikesView {
   /** "Next attack: +4": the modifier at the step after the attacks made, the third step for any later one. */
   #next({ attack, map }: Strike): string | undefined {
     const made = this.attacksMade();
+
     if (attack?.ok !== true || made === undefined) {
       return undefined;
     }
+
     const penalty = [0, map.second, map.third][Math.min(made, 2)] ?? 0;
+
     return this.#i18n.translate(StrikesMessage.NextAttack, {
       modifier: this.#format.number(attack.total + penalty, numberStyle(StatisticKind.Check)),
     });
@@ -163,8 +172,10 @@ export class StrikesView {
   protected readonly captions = computed((): readonly string[] => {
     this.#messages();
     const names = this.suppressed();
+
     const replaced =
       names.length === 0 ? [] : [this.#i18n.translate(StrikesMessage.Suppressed, { names: names.join(', ') })];
+
     const shields = this.shields().map((shield) =>
       this.#i18n.translate(shield.undamageable === true ? StrikesMessage.ShieldUndamageable : StrikesMessage.Shield, {
         name: shield.name,
@@ -173,6 +184,7 @@ export class StrikesView {
         brokenThreshold: this.#format.number(shield.brokenThreshold),
       }),
     );
+
     return [...replaced, ...shields];
   });
 
@@ -180,24 +192,31 @@ export class StrikesView {
     if (result === undefined) {
       return { ok: false, error: this.#i18n.translate(StatisticsMessage.None) };
     }
+
     if (!result.ok) {
       return { ok: false, error: this.#i18n.translate(result.error.key, result.error.params) };
     }
+
     const style = numberStyle(StatisticKind.Check);
+
     const unpinned =
       result.pinnedBy === undefined
         ? undefined
         : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
+
     return { ok: true, total: this.#format.number(result.total, style), computed: unpinned, statistic: result };
   }
 
   /** "1d6 persistent fire"; undefined without persistent damage. */
   #persistent(damage: StrikeDamage | undefined): string | undefined {
     const persistent = damage?.persistent;
+
     if (persistent === undefined) {
       return undefined;
     }
+
     const type = this.#i18n.translate(DAMAGE_TYPE_MESSAGES[persistent.damageType]);
+
     return this.#i18n.translate(StrikesMessage.Persistent, { formula: persistent.formula, type });
   }
 
@@ -206,7 +225,9 @@ export class StrikesView {
     if (damage?.splash === undefined) {
       return undefined;
     }
+
     const type = this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damage.damageType]);
+
     return this.#i18n.translate(StrikesMessage.Splash, { amount: this.#format.number(damage.splash), type });
   }
 
@@ -225,6 +246,7 @@ export class StrikesView {
   /** What a bomb or thrown consumable adds to its Strike: range increment, persistent and splash damage, stack size. */
   #thrown({ weapon, damage }: Strike): readonly string[] {
     const { range, quantity } = weapon;
+
     const lines = [
       ...this.#made(weapon),
       range === undefined
@@ -236,6 +258,7 @@ export class StrikesView {
         ? undefined
         : this.#i18n.translate(StrikesMessage.Quantity, { count: this.#format.number(quantity) }),
     ];
+
     return lines.filter((line): line is string => line !== undefined);
   }
 
@@ -244,14 +267,18 @@ export class StrikesView {
     const dice = (damage?.extra ?? []).map((extra) => extraDiceText(this.#i18n, extra));
     const splash = (damage?.ruleSplash ?? []).map((each) => this.#amountOfType(StrikesMessage.Splash, each));
     const weakness = weaknesses.map((each) => this.#amountOfType(StrikesMessage.CriticalWeakness, each));
+
     const effects = criticalEffects.map((each) =>
       criticalEffectText(this.#i18n, this.#nameOf(each.origin.entry), each),
     );
+
     const range =
       criticalRange === undefined
         ? []
         : [criticalRangeText(this.#i18n, this.#nameOf(criticalRange.origin.entry), criticalRange)];
+
     const reach = weapon.reach === undefined ? [] : [reachText(this.#i18n, this.#format.number(weapon.reach))];
+
     return [...dice, ...splash, ...weakness, ...effects, ...range, ...reach];
   }
 
@@ -290,10 +317,12 @@ export class StrikesView {
     if (damage === undefined) {
       return this.#i18n.translate(StrikesMessage.NoDamage);
     }
+
     const dice = damage.die === undefined ? `${damage.dice}` : `${damage.dice}${damage.die}`;
     const flat = damage.bonus?.ok === true && damage.bonus.total !== 0 ? damage.bonus.total : undefined;
     const bonus = flat === undefined ? '' : this.#format.number(flat, SIGNED);
     const type = this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damage.damageType]);
+
     return this.#i18n.translate(StrikesMessage.Damage, { roll: `${dice}${bonus}`, type });
   }
 }

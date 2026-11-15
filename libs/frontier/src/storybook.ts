@@ -12,6 +12,7 @@ const withTheme: Decorator = (story, context) => {
   const root = document.documentElement;
   root.dataset['theme'] = String(context.globals['theme'] ?? Theme.Frontier);
   root.dataset['mode'] = String(context.globals['mode'] ?? ColorMode.Dark);
+
   return story();
 };
 

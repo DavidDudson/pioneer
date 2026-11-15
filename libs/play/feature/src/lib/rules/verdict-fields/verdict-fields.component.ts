@@ -31,6 +31,7 @@ export class VerdictFields {
     this.#format.locale();
     const result = this.check();
     const lines = result.status === VerdictStatus.InvalidFacts ? result.lines : [];
+
     return this.#format.list(lines.map((line) => this.#format.number(line)));
   });
 }

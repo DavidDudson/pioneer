@@ -57,7 +57,9 @@ function slugGrantToId(value: unknown): unknown {
   if (typeof value !== 'object' || value === null || !('key' in value) || value.key !== RuleElementKey.GrantItem) {
     return value;
   }
+
   const item = 'item' in value ? Slug.safeParse(value.item) : undefined;
+
   return item?.success === true ? { ...value, item: idOfSlug(item.data) } : value;
 }
 
@@ -72,6 +74,7 @@ const PlaygroundEntry = z.strictObject({
   rollOptions: z.array(RollOption).default([]),
   rules: z.array(z.preprocess(slugGrantToId, RuleElement)),
 });
+
 type PlaygroundEntry = z.output<typeof PlaygroundEntry>;
 
 const PlaygroundEntries = z.array(PlaygroundEntry);
@@ -92,6 +95,7 @@ interface GrantErrorRow {
 }
 
 export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems', Pending: 'pending' } as const;
+
 export type GrantsStatus = ValueOf<typeof GrantsStatus>;
 
 /** What the grants tool reads: four texts and the level. */
@@ -140,17 +144,20 @@ export type GrantsCheck =
 function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
   const slugs = new Map(entries.map((entry) => [idOfSlug(entry.slug), entry.slug]));
   const known = new Set(slugs.values());
+
   return { idOf: idOfSlug, slugOf: (id) => slugs.get(id), has: (slug) => known.has(slug) };
 }
 
 function entryOf({ slug, name, kind, rollOptions, rules }: PlaygroundEntry, table: SlugTable): GrantEntry {
   const converted = rules.map((rule) => choiceSlugsToIds(rule, table));
+
   return { id: idOfSlug(slug), kind, slug, name, rules: converted, sources: [PLAYGROUND_PAGE], rollOptions };
 }
 
 function lookupOf(content: readonly GrantEntry[]): ContentLookup {
   const byId = new Map(content.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(content, (entry) => entry.kind);
+
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
     ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
@@ -167,12 +174,14 @@ function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, strin
     name: entry.name,
     via: viaOf(origin.hops, names),
   });
+
   const choice = (slot: ChoiceSlot): ChoiceRow =>
     choiceRow(slot, {
       entryName: names.get(slot.origin.entry) ?? slot.origin.entry,
       via: viaOf(slot.origin.hops, names),
       table,
     });
+
   return {
     status: GrantsStatus.Valid,
     items: resolution.items.map(row),
@@ -206,11 +215,13 @@ interface ReadTexts {
 /** The slugs of `entries`, and which of them are conditions. */
 function entrySlugs(entries: readonly PlaygroundEntry[]): EntrySlugs {
   const conditions = entries.filter((entry) => entry.kind === ContentKind.Condition).map((entry) => entry.slug);
+
   return { table: slugTable(entries), conditions: new Set(conditions) };
 }
 
 function readTexts(texts: GrantsTexts, slugs: EntrySlugs): ReadTexts {
   const level = Level.safeParse(texts.level);
+
   return {
     roots: parseRoots(texts.roots, slugs),
     picks: parsePicks(texts.picks, slugs.table),
@@ -247,11 +258,14 @@ export function checkGrants(texts: GrantsTexts, namespaces: NamespaceTable): Gra
   const read = readTexts(texts, slugs);
   const { roots, picks, toggles, facts, level } = read;
   const badLines = [roots.bad, picks.bad, toggles.bad].some((bad) => bad.length > 0);
+
   if (entries.status !== CheckStatus.Valid || level === undefined || 'lines' in facts || badLines) {
     return problemsOf(entries, read);
   }
+
   const content = entries.value.map((entry) => entryOf(entry, slugs.table));
   const names = new Map(content.map((entry) => [entry.id, String(entry.name)]));
+
   const resolution = resolveGrants({
     roots: roots.roots,
     lookup: lookupOf(content),
@@ -262,5 +276,6 @@ export function checkGrants(texts: GrantsTexts, namespaces: NamespaceTable): Gra
     rootSlots: [],
     namespaces,
   });
+
   return rowsOf(resolution, names, slugs.table);
 }

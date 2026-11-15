@@ -24,11 +24,13 @@ function playerCore(overrides: Readonly<Record<string, unknown>> = {}): Record<s
 function registryIssues(input: unknown): readonly FieldIssue[] {
   try {
     BookRegistry.parse(input);
+
     return [];
   } catch (error) {
     if (error instanceof z.ZodError) {
       return fieldIssues(error.issues);
     }
+
     throw error;
   }
 }

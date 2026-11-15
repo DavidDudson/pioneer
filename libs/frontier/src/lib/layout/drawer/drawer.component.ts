@@ -51,6 +51,7 @@ const hostVariants = cva('min-w-none', {
   },
   compoundVariants: [{ open: true, overlay: true, class: 'contents' }],
 });
+
 const panelVariants = cva('flex gap-sm border-none text-fg-default', {
   variants: {
     overlay: {
@@ -59,11 +60,14 @@ const panelVariants = cva('flex gap-sm border-none text-fg-default', {
     },
   },
 });
+
 const contentClasses = cva('flex min-w-none flex-1 flex-col gap-md')();
 const headerClasses = cva('flex items-center justify-between gap-sm')();
+
 const handleClasses = cva(
   'hidden w-sm shrink-0 cursor-col-resize border-s border-line-subtle hover:border-accent-solid focus-visible:focus-ring @lg:block',
 )();
+
 const headingClasses = cva('min-w-none focus:outline-hidden')();
 
 /**
@@ -155,6 +159,7 @@ export class Drawer {
       untracked(() => {
         const applies = fromUrl || this.urlSeen;
         this.urlSeen = true;
+
         if (applies && this.open() !== fromUrl) {
           this.open.set(fromUrl);
         }
@@ -202,6 +207,7 @@ export class Drawer {
   /** Arrow keys step the width: toward the left grows the drawer, since its edge faces the content. */
   protected resizeFromKeyboard(event: KeyboardEvent): void {
     const index = this.widthIndex();
+
     const next = {
       ArrowLeft: index + 1,
       ArrowUp: index + 1,
@@ -210,11 +216,14 @@ export class Drawer {
       Home: 0,
       End: WIDTHS.length - 1,
     }[event.key];
+
     if (next === undefined) {
       return;
     }
+
     event.preventDefault();
     const width = WIDTHS[Math.min(Math.max(next, 0), WIDTHS.length - 1)];
+
     if (width !== undefined) {
       this.width.set(width);
     }
@@ -224,6 +233,7 @@ export class Drawer {
     if (!(event.currentTarget instanceof HTMLElement) || !event.currentTarget.hasPointerCapture(event.pointerId)) {
       return;
     }
+
     const drawerRem = (this.host.nativeElement.getBoundingClientRect().right - event.clientX) / this.remPx();
     this.width.set(nearestWidth(drawerRem));
   }
@@ -233,6 +243,7 @@ export class Drawer {
     if (open === this.queryOpen()) {
       return;
     }
+
     try {
       await this.router.navigate([], {
         relativeTo: this.route,
@@ -249,14 +260,18 @@ export class Drawer {
   private showPanel(dialog: HTMLDialogElement | undefined, modal: boolean): void {
     if (dialog === undefined) {
       this.shown = undefined;
+
       return;
     }
+
     if (this.shown?.dialog === dialog && this.shown.modal === modal) {
       return;
     }
+
     showDialog(dialog, modal);
     this.shown = { dialog, modal };
     this.watchContainer();
+
     if (!this.titleFocused) {
       this.titleFocused = true;
       this.heading()?.nativeElement.focus();
@@ -266,6 +281,7 @@ export class Drawer {
   /** Starts watching the row's width once the host is in the page; the first reading arrives before the next paint. */
   private watchContainer(): void {
     const container = this.host.nativeElement.parentElement;
+
     if (this.stopWatching === undefined && container !== null) {
       this.stopWatching = watchNarrow(container, this.remPx(), (narrow) => {
         this.overlay.set(narrow);
@@ -276,17 +292,22 @@ export class Drawer {
   /** On open focus goes to the title; on close it goes back to what had it when the drawer opened. */
   private moveFocus(open: boolean): void {
     const active = this.document.activeElement;
+
     if (open) {
       if (active instanceof HTMLElement && !this.host.nativeElement.contains(active)) {
         this.opener = active;
       }
+
       // The title takes focus once the dialog is shown, in showPanel.
       this.titleFocused = false;
+
       return;
     }
+
     const { opener } = this;
     this.opener = undefined;
     const focusLost = active === this.document.body || this.host.nativeElement.contains(active);
+
     if (opener !== undefined && focusLost) {
       opener.focus();
     }
@@ -294,6 +315,7 @@ export class Drawer {
 
   private remPx(): number {
     const size = this.document.defaultView?.getComputedStyle(this.document.documentElement).fontSize;
+
     return Number(size?.replace('px', '')) || REM_FALLBACK_PX;
   }
 }

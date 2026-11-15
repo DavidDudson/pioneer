@@ -12,6 +12,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -36,6 +37,7 @@ async function renderRolling(roller: StatisticRoller | undefined): Promise<HTMLE
   fixture.componentRef.setInput('statistics', FIGHTER_STATISTICS);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -48,9 +50,11 @@ describe('StatisticsView rolling', () => {
 
   it('offers a roll button on each check, not on a DC or a value, naming what it rolls', async () => {
     const host = await renderRolling(recordingRoller([]));
+
     const checks = FIGHTER_STATISTICS.filter(({ kind }) => kind === StatisticKind.Check).map(
       ({ name }) => `Roll ${name}`,
     );
+
     const labels = [...host.querySelectorAll('button[aria-label^="Roll "]')].map((button) =>
       String(button.getAttribute('aria-label')).replace(/ [+-]\d+$/u, ''),
     );

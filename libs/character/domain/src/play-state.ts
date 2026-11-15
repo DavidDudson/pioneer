@@ -55,6 +55,7 @@ export const HIT_POINTS_EDIT_MAX: HitPoints = HitPoints.parse(32_767);
 
 /** A `character_play` row's own id, for the audit trail; a character has one row, found by its character id. */
 export const PlayStateId = Uuid.brand<'PlayStateId'>();
+
 export type PlayStateId = z.infer<typeof PlayStateId>;
 
 /**
@@ -66,6 +67,7 @@ export const HitPointsStateSchema = z.strictObject({
   damage: HitPoints.default(NONE),
   temp: HitPoints.default(NONE),
 });
+
 export type HitPointsState = z.infer<typeof HitPointsStateSchema>;
 
 /**
@@ -98,6 +100,7 @@ export const PlayStateSchema = z.strictObject({
   exploration: ExplorationActivitySchema,
   ...DeathTrackSchema.shape,
 });
+
 export type PlayState = z.infer<typeof PlayStateSchema>;
 
 /** Play state before anything has happened at the table: full Hit Points, no temporary Hit Points. */
@@ -144,6 +147,7 @@ export const PlayCommandField = {
   /** The breath set or the character let breathe again (`breath.ts`). */
   ...BreathCommandField,
 } as const;
+
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
 export const PlayCommandSchema = z.discriminatedUnion('field', [
@@ -175,6 +179,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...EnvironmentCommandSchema.options,
   ...BreathCommandSchema.options,
 ]);
+
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
 /** Every edit the play endpoint takes: the sheet's edits, and the turn cycle, which also roll dice and say what they did. */
@@ -182,6 +187,7 @@ export const PlayEditSchema = z.discriminatedUnion('field', [
   ...PlayCommandSchema.options,
   ...TurnCommandSchema.options,
 ]);
+
 export type PlayEdit = z.infer<typeof PlayEditSchema>;
 
 /** PATCH body for play state: the edit plus the revision the client last saw. */
@@ -189,6 +195,7 @@ export const PatchPlayBody = z.object({
   expectedRevision: Version,
   command: PlayEditSchema,
 });
+
 export type PatchPlayBody = z.infer<typeof PatchPlayBody>;
 
 /** A character's play state with the revision it is at, as the play endpoints read and return it. */
@@ -196,10 +203,12 @@ export const CharacterPlay = z.object({
   revision: Version,
   play: PlayStateSchema,
 });
+
 export type CharacterPlay = z.infer<typeof CharacterPlay>;
 
 /** What a play edit answers with: the play state it left, and what the turn cycle did on the way (none for other edits). */
 export const PatchedPlay = CharacterPlay.extend({ events: z.array(TurnEventSchema).default([]) });
+
 export type PatchedPlay = z.infer<typeof PatchedPlay>;
 
 /** What bounds a play edit, as the build and the rules give it. */
@@ -220,9 +229,11 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
   if (isConsumableCommand(command)) {
     return afterConsumable(play, command, limits);
   }
+
   if (isCountingCommand(command)) {
     return afterSustain(play, applyCountingCommand(play, command, limits), { command, limits });
   }
+
   return applyHitPointsEdit(play, command, limits);
 }
 
@@ -237,9 +248,11 @@ function afterSustain(before: PlayState, after: PlayState, { command, limits }: 
   if (command.field !== SpendCommandField.SpendAction || command.spell?.kind !== SpellSpendKind.Sustain) {
     return after;
   }
+
   const { id } = command.spell;
   const wasSustained = before.activeSpells.find((each) => each.id === id)?.sustainedThisTurn;
   const isSustained = after.activeSpells.find((each) => each.id === id)?.sustainedThisTurn;
+
   return wasSustained === false && isSustained === true ? shieldsRecreated(after, id, limits.shields) : after;
 }
 
@@ -249,34 +262,44 @@ type HitPointsCommand = Exclude<PlayCommand, CountingCommand | ConsumableCommand
 /** `play` after an edit of Hit Points or the death track. */
 function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, limits: PlayLimits): PlayState {
   const max = limits.hitPoints;
+
   switch (command.field) {
     case PlayCommandField.Damage: {
       return afterDamage(play, command.damage, max);
     }
+
     case PlayCommandField.BlockWithShield: {
       return afterBlock(play, command, limits);
     }
+
     case PlayCommandField.Heal: {
       return afterHealing(play, command.amount, max);
     }
+
     case PlayCommandField.SetHp: {
       return afterSetting(play, command.current, max);
     }
+
     case PlayCommandField.SetTempHp: {
       return withTempHitPoints(play, command.temp);
     }
+
     case PlayCommandField.RecoveryCheck: {
       return withTrack(play, afterRecoveryCheck(trackOf(play), command.degree));
     }
+
     case PlayCommandField.SetDying: {
       return withTrack(play, withDying(trackOf(play), command.dying));
     }
+
     case PlayCommandField.SetWounded: {
       return withTrack(play, withWounded(trackOf(play), command.wounded));
     }
+
     case PlayCommandField.SetDoomed: {
       return withTrack(play, withDoomed(trackOf(play), command.doomed));
     }
+
     default: {
       return command satisfies never;
     }

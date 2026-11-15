@@ -7,9 +7,11 @@ import { isLegacyEntry, packLicenses, replacedBy, replacementsOf, shownEntries }
 
 const PACK = new ContentPackBuilder().withId('legacy-test').withFeat('sudden-charge').build();
 const FIRST = PACK.otherEntries.at(0);
+
 if (FIRST === undefined) {
   throw new Error('The test pack holds no entry');
 }
+
 const ENTRY: ContentEntry = FIRST;
 const licensed = (license: ContentLicense): ReadonlyMap<PackId, ContentLicense> => new Map([[PACK.id, license]]);
 
@@ -57,10 +59,13 @@ const REMASTER_PACK = new ContentPackBuilder()
   .withFeat('sudden-charge')
   .withFeat('swift-charge')
   .build();
+
 const [LEGACY_FEAT, REMASTER_FEAT] = REMASTER_PACK.otherEntries;
+
 if (LEGACY_FEAT === undefined || REMASTER_FEAT === undefined) {
   throw new Error('The test pack holds too few entries');
 }
+
 const REPLACING: ContentEntry = { ...REMASTER_FEAT, supersedes: [LEGACY_FEAT.id] };
 const REPLACEMENTS = replacementsOf([LEGACY_FEAT, REPLACING]);
 

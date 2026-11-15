@@ -18,6 +18,7 @@ const blinded = condition('blinded', [], ['dazzled']);
 /** The conditions in play once `entries` resolve from the conditions named in `roots`. */
 function active(entries: readonly GrantEntry[], roots: readonly string[]): string[] {
   const result = resolveGrants(inputsOf({ entries, roots: roots.map((slug) => afflicted(slug)) }));
+
   return result.items.map(({ entry: each }) => String(each.slug)).toSorted();
 }
 

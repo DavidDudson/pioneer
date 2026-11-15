@@ -8,6 +8,7 @@ export const WandBlock = {
   /** The holder casts no spell of its rank. */
   RankTooHigh: 'rank-too-high',
 } as const;
+
 export type WandBlock = ValueOf<typeof WandBlock>;
 
 /** What an overcharge would come to, shown before it applies. */
@@ -19,6 +20,7 @@ export const WandCheckOutcome = {
   /** The wand was overcharged already today: it is destroyed without a roll and nothing is cast. */
   Repeated: 'repeated',
 } as const;
+
 export type WandCheckOutcome = ValueOf<typeof WandCheckOutcome>;
 
 /** The flat check of an overcharge waiting for the player to confirm it. */

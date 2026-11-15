@@ -78,12 +78,14 @@ export class CharacterService {
   /** This service naming override authors through `authors`; without it, nobody is named. */
   public withAuthors(authors: OverrideAuthorDirectory): this {
     this.#authors = authors;
+
     return this;
   }
 
   /** This service letting the GM of a character's campaign read it and edit its overrides, as `roles` says who that is. */
   public withCampaignRoles(roles: CharacterCampaignRoles): this {
     this.#roles = roles;
+
     return this;
   }
 
@@ -126,11 +128,14 @@ export class CharacterService {
     const content = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, content);
     const deity = characterDeity(character.document, slots, deityContent(content));
+
     const names = await this.#authors.displayNames([
       ...overrideAuthorIds(character.document.overrides),
       ...customEffectAuthorIds(character.document.customEffects),
     ]);
+
     const authors = [...names].map(([userId, displayName]) => ({ userId, displayName }));
+
     return {
       character,
       slots: characterSlots(character.document, slots),
@@ -151,29 +156,37 @@ export class CharacterService {
    */
   public async archive(actor: UserId, id: CharacterId): Promise<Character> {
     const live = await this.#repository.findById(id);
+
     if (live !== undefined && mayAccessCharacter(actor, live)) {
       await this.#repository.archive(id, this.#clock.now(), { actor, command: CharacterCommand.ArchiveCharacter });
+
       return live;
     }
+
     return this.#archivedOf(actor, id);
   }
 
   /** Brings one of the actor's archived characters back as it was. Restoring a live one is harmless. */
   public async restore(actor: UserId, id: CharacterId): Promise<Character> {
     const archived = await this.#repository.findArchivedById(id);
+
     if (archived !== undefined && mayAccessCharacter(actor, archived)) {
       await this.#repository.restore(id, { actor, command: CharacterCommand.RestoreCharacter });
+
       return archived;
     }
+
     return this.get(actor, id);
   }
 
   /** The actor's archived character, or a 404. */
   async #archivedOf(actor: UserId, id: CharacterId): Promise<Character> {
     const archived = await this.#repository.findArchivedById(id);
+
     if (archived === undefined || !mayAccessCharacter(actor, archived)) {
       throw new NotFoundError('Character', id);
     }
+
     return archived;
   }
 
@@ -181,6 +194,7 @@ export class CharacterService {
   public async create(actor: UserId, input: CreateCharacterBody): Promise<Character> {
     await this.#assertAncestryExists(input.ancestry);
     const id = CharacterId.parse(newId());
+
     const character = Character.create({
       id,
       ownerId: actor,
@@ -188,6 +202,7 @@ export class CharacterService {
       ancestry: input.ancestry,
       now: this.#clock.now(),
     });
+
     return this.#repository.insert(character, { actor, command: CharacterCommand.CreateCharacter });
   }
 
@@ -209,8 +224,10 @@ export class CharacterService {
       id,
       patch,
     });
+
     const { character: current, actorRole } = editable;
     await this.#assertAllowed(editable, expectedVersion, patch);
+
     const inputs = {
       ...(await editInputs(this.#contentOf(current), current, patch)),
       countsAsSwap: (await this.#swapOf(current, patch)) === RepertoireSwap.Counts,
@@ -220,17 +237,21 @@ export class CharacterService {
       newOverrideId: OverrideId.parse(newId()),
       newCustomEffectId: CustomEffectId.parse(newId()),
     };
+
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
     const cleared = await this.#unfitPicks(current, edited, patch);
     let next = edited;
+
     for (const pick of cleared) {
       next = next.apply({ field: CharacterPatchField.ClearSlot, slot: pick.key }, now);
     }
+
     const character = await this.#repository.update(next, expectedVersion, {
       actor,
       command: PATCH_COMMANDS[patch.field],
     });
+
     return { character, cleared };
   }
 
@@ -246,13 +267,16 @@ export class CharacterService {
     if (current.version !== expectedVersion) {
       throw new VersionConflictError('Character', current.id);
     }
+
     if (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) {
       const slots = await this.#slotContent(current, await this.#contentOf(current).registry());
       assertSlotEditAllowed(current, slots, patch);
     }
+
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
       assertSpellNeedsAccess(await this.#contentOf(current).registry(), current, patch.spell);
     }
+
     assertOverrideAllowed(current, patch, actorRole);
     assertCustomEffectAllowed(current, patch, actorRole);
     await assertInventoryAllows(current, patch, {
@@ -269,10 +293,13 @@ export class CharacterService {
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
   async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<readonly ClearedPick[]> {
     const isSlotEdit = patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
+
     if (!isSlotEdit) {
       return [];
     }
+
     const content = await this.#contentOf(before).registry();
+
     return unfitPicks(before.document, after.document, await this.#slotContent(before, content));
   }
 
@@ -281,13 +308,16 @@ export class CharacterService {
     if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
       return RepertoireSwap.Free;
     }
+
     const content = await this.#slotContent(character, await this.#contentOf(character).registry());
     const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
+
     return repertoireSwap(character.document, content, { slot: patch.slot, selection });
   }
 
   async #assertAncestryExists(ref: AncestryId): Promise<void> {
     const content = await this.#content.registry();
+
     if (content.ancestry(ref) === undefined) {
       throw new ValidationError([
         { path: ['ancestry'], message: message('character.validation.unknownAncestry', { ancestry: ref }) },

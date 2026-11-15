@@ -70,9 +70,11 @@ export class CampaignInvitePanel {
   protected readonly copy = async (): Promise<void> => {
     const link = this.newLink();
     const clipboard = this.#document.defaultView?.navigator.clipboard;
+
     if (link === undefined || clipboard === undefined) {
       throw new Error('Nothing to copy, or no clipboard');
     }
+
     await clipboard.writeText(link);
   };
 
@@ -82,17 +84,21 @@ export class CampaignInvitePanel {
 
   protected revoke(invite: InviteSummary): () => Promise<void> {
     const existing = this.#revokes.get(invite.id);
+
     if (existing !== undefined) {
       return existing;
     }
+
     const action = async (): Promise<void> => this.store.revokeInvite(this.campaignId(), invite.id);
     this.#revokes.set(invite.id, action);
+
     return action;
   }
 
   /** The absolute join URL for a token, on this app's origin. The token is the fragment, which browsers never send. */
   #linkFor(token: InviteToken): string {
     const path = this.#router.serializeUrl(this.#router.createUrlTree(['/campaigns', 'join'], { fragment: token }));
+
     return `${this.#document.location.origin}${path}`;
   }
 }

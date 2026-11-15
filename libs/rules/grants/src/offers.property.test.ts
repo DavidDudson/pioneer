@@ -35,6 +35,7 @@ const TRAITS = ['fighter', 'rogue', 'general'] as const;
 const LEVEL_MAX = 4;
 const LEVELS = [1, 3] as const;
 const LISTED = ['a', 'b', 'c'] as const;
+
 /** A slug that is no content id. */
 const NOT_AN_ID = 'not-an-id';
 const UNSETTLED: ReadonlySet<string> = new Set([GrantsMessage.Oscillates, GrantsMessage.TooManyRounds]);
@@ -89,6 +90,7 @@ function outcomeOf({ asker, content, level, pick }: Run): Outcome {
   const result: GrantResolution = resolveGrants(given);
   pre(!result.errors.some(({ error }) => UNSETTLED.has(error.key)));
   const [answered] = result.answered;
+
   return { slot: answered ?? result.open[0], answered: answered !== undefined, facts: result.facts };
 }
 
@@ -103,19 +105,23 @@ describe('offer properties', () => {
       constantFrom(...LEVELS),
       option(integer({ min: 0, max: ENTRIES_MAX + 1 })),
     );
+
     assert(
       property(drawn, ([content, filter, level, at]) => {
         const asker = entry('asker', [
           { key: 'ChoiceSet', flag: 'pick', choices: { kind: 'feat', filter } },
           { key: 'GrantItem', item: { choice: 'pick' } },
         ]);
+
         // A feat, the asker itself (not a feat), an id nothing has, or text that is no id.
         const values = [...content.map((each) => each.id), idOf('asker'), idOf('missing')];
         const pick = at === null ? NOT_AN_ID : (values[at % values.length] ?? NOT_AN_ID);
         const { slot, answered, facts } = outcomeOf({ asker, content, level, pick });
+
         const offered = content
           .filter((each) => notFalse(filter, facts.withNamespace(CANDIDATE_NAMESPACE, each.rollOptions)))
           .map((each) => String(each.id));
+
         expect(answered).toBe(offered.includes(pick));
         expect(new Set(slot?.options.map((each) => String(each.value)))).toEqual(new Set(offered));
       }),
@@ -129,19 +135,24 @@ describe('offer properties', () => {
       constantFrom(...LEVELS),
       constantFrom<string>(...LISTED, NOT_AN_ID),
     );
+
     assert(
       property(drawn, ([content, predicates, level, pick]) => {
         const choices = LISTED.map((value, at) => {
           const predicate = predicates[at];
+
           return predicate === null || predicate === undefined
             ? { value, label: value }
             : { value, label: value, predicate: [predicate] };
         });
+
         const asker = entry('asker', [{ key: 'ChoiceSet', flag: 'pick', choices }]);
         const { slot, answered, facts } = outcomeOf({ asker, content, level, pick });
+
         const offered = choices
           .filter((choice) => !('predicate' in choice) || notFalse(choice.predicate, facts))
           .map((choice) => choice.value);
+
         expect(answered).toBe(offered.some((value) => value === pick));
         expect(slot?.options.map((each) => String(each.value))).toEqual(offered);
       }),

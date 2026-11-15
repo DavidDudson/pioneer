@@ -13,6 +13,7 @@ export function putVariantsInForce(registry: ContentRegistry, enabled: readonly 
     registry,
     enabled.flatMap((id): VariantRuleEntry[] => {
       const entry = registry.variantRule(id);
+
       return entry === undefined ? [] : [entry];
     }),
   );

@@ -47,6 +47,7 @@ export class ActionsNow {
   protected readonly groups = computed((): readonly ShownGroup[] | undefined => {
     this.#words.changed();
     const lines = this.lines();
+
     return lines === undefined
       ? undefined
       : nowGroups(lines, this.mode()).map(({ cost, lines: grouped }): ShownGroup => ({

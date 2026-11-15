@@ -41,6 +41,7 @@ function feat(subfeatures: object, category = 'general'): DocumentFixture {
 
 function heritageRules(rules: readonly object[]): unknown[] {
   const translation = translate([heritage(rules)]);
+
   return rulesIn(translation, 'cavern-elf');
 }
 

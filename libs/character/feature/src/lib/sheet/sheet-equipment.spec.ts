@@ -45,14 +45,17 @@ const WORN: Carry = { state: CarryState.Worn };
 
 function wearing(...items: readonly (readonly [InventoryItemId, ItemFixture])[]): Inventory {
   let stock = EMPTY_INVENTORY;
+
   for (const [id, name] of items) {
     stock = carryItem(addItem(stock, { id, item: itemFixtureId(name), quantity: one, container: undefined }), id, WORN);
   }
+
   return stock;
 }
 
 function carrying(inventory: Inventory): Character {
   const built = new CharacterBuilder().build();
+
   return new Character({
     document: { ...built.document, inventory },
     version: built.version,
@@ -87,6 +90,7 @@ function afflicted(character: Character, conditions: readonly ActiveCondition[])
 /** A character carrying `count` anvils, 2 Bulk each. */
 function anvils(count: number): Character {
   const item = itemFixtureId(ItemFixture.Anvil);
+
   return carrying(
     addItem(EMPTY_INVENTORY, { id: ARMOR, item, quantity: ItemQuantity.parse(count), container: undefined }),
   );
@@ -94,15 +98,18 @@ function anvils(count: number): Character {
 
 async function equipmentRegistry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
+
   return TestBed.inject(ContentLoader).registry(EQUIPMENT_CONTENT_KINDS);
 }
 
 /** The value of the statistic called `name`: its total and lines. Throws when it failed or is missing. */
 function valueOf(statistics: readonly NamedStatistic[], name: string): StatisticValue {
   const result = statistics.find((each) => each.name === name)?.result;
+
   if (result?.ok !== true) {
     throw new Error(`No value for ${name}`);
   }
+
   return result;
 }
 
@@ -124,6 +131,7 @@ describe(carriesAnything, () => {
       quantity: one,
       container: undefined,
     });
+
     expect(carriesAnything(carrying(rope))).toBe(true);
     expect(carriesAnything(carrying(EMPTY_INVENTORY))).toBe(false);
     expect(carriesAnything(withGold(999))).toBe(false);
@@ -217,9 +225,11 @@ describe('conditions in play', () => {
 describe(sheetInvestments, () => {
   it('lists each invested item with whether it works and the lines it adds', async () => {
     const registry = await equipmentRegistry();
+
     const worn = changed(carrying(wearing([CLOAK, ItemFixture.Cloak])), (inventory) =>
       investItem(inventory, CLOAK, true),
     );
+
     const [cloak] = sheetInvestments(worn, itemContent(registry), { statistics: sheetStatistics(registry, worn) });
     expect(cloak).toMatchObject({ id: CLOAK, name: 'Cloak', working: true });
     expect(cloak?.effects.map(({ statistic }) => statistic)).toStrictEqual(['Perception']);
@@ -227,9 +237,11 @@ describe(sheetInvestments, () => {
 
   it('melds an invested item that works in a form, and not one that is off', async () => {
     const registry = await equipmentRegistry();
+
     const worn = changed(carrying(wearing([CLOAK, ItemFixture.Cloak])), (inventory) =>
       investItem(inventory, CLOAK, true),
     );
+
     const content = itemContent(registry);
     const statistics = sheetStatistics(registry, worn);
     expect(sheetInvestments(worn, content, { statistics, melded: true })).toMatchObject([{ id: CLOAK, melded: true }]);

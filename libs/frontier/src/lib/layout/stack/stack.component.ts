@@ -6,6 +6,7 @@ import type { Container } from '../../tokens';
 import { gapVariants, Space } from '../../tokens';
 
 export const StackDirection = { Vertical: 'vertical', Horizontal: 'horizontal' } as const;
+
 export type StackDirection = ValueOf<typeof StackDirection>;
 
 export const StackAlign = {
@@ -15,14 +16,17 @@ export const StackAlign = {
   Stretch: 'stretch',
   Baseline: 'baseline',
 } as const;
+
 export type StackAlign = ValueOf<typeof StackAlign>;
 
 export const StackJustify = { Start: 'start', Center: 'center', End: 'end', Between: 'between' } as const;
+
 export type StackJustify = ValueOf<typeof StackJustify>;
 
 const hostVariants = cva('block min-w-none', {
   variants: { responsive: { true: '@container', false: '' }, grow: { true: 'flex-1', false: '' } },
 });
+
 const stackVariants = cva('flex', {
   variants: {
     direction: { vertical: 'flex-col', horizontal: 'flex-row' } satisfies Record<StackDirection, string>,

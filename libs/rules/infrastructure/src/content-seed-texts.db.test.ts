@@ -55,6 +55,7 @@ describe.skipIf(adminUrl === undefined)('seeded descriptions (postgres)', () => 
       .innerJoin(contentEntries, eq(contentEntries.id, contentEntryTexts.entryId))
       .where(eq(contentEntries.packId, contentPackId(contents.file.id)))
       .orderBy(asc(contentEntries.slug));
+
     return rows.map(({ text }) => text);
   }
 

@@ -43,6 +43,7 @@ describe('GoogleProvider', () => {
       clientSecret: 'client-secret',
       redirectUri: new URL('https://pioneer.example/api/auth/google/callback'),
     });
+
     const { url, state } = provider.authorize();
     expect(url.origin).toBe('https://accounts.google.com');
     expect(url.searchParams.get('state')).toBe(state);

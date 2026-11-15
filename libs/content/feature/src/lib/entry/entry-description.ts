@@ -11,9 +11,11 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 export function injectEntryDescription(entry: () => ContentEntry | undefined): CreateQueryResult<RichText | undefined> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+
   return injectQuery(() => {
     const shown = entry();
     const { homebrew, ready } = scope();
+
     return {
       queryKey: ['content', 'description', shown?.id, homebrew.toSorted()],
       queryFn: async (): Promise<RichText | undefined> =>

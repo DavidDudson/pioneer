@@ -43,6 +43,7 @@ export class RollDegree {
   /** Step reasons carry raw totals and DCs; format them in the viewer's locale like the rest of the card. */
   protected readonly display = computed((): DegreeDisplay => {
     const degree = this.degree();
+
     return {
       degreeKey: degree.degreeKey,
       tint: DEGREE_TINTS[degree.degree],

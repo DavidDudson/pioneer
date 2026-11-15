@@ -54,6 +54,7 @@ export class BackgroundPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return backgroundPickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

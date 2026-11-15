@@ -46,9 +46,11 @@ function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSp
 /** Adds the spells of an `InnateSpells` element to those gathered for its entry, each rank and spell once. */
 function addInnateSpells({ innateSpells }: Gathered, { entry, spells }: InnateSpellsElement): void {
   const known = innateSpells.get(entry) ?? [];
+
   const fresh = spells.filter(
     (spell) => !known.some(({ rank, spell: id }) => rank === spell.rank && id === spell.spell),
   );
+
   innateSpells.set(entry, [...known, ...fresh]);
 }
 
@@ -63,9 +65,11 @@ function gatherRepertoire({ grantedSpells, repertoireCounts, deityRepertoire }: 
   if (element.key === RuleElementKey.RepertoireSpells) {
     addGrantedSpells(grantedSpells, element);
   }
+
   if (element.key === RuleElementKey.RepertoireCount) {
     addRepertoireCount(repertoireCounts, element);
   }
+
   if (element.key === RuleElementKey.RepertoireDeitySpells) {
     addDeityRepertoire(deityRepertoire, element);
   }
@@ -76,17 +80,22 @@ export function gatherSpells(gathered: Gathered, element: RuleElement): void {
   if (element.key === RuleElementKey.PoolSpells) {
     addPoolSpells(gathered, element);
   }
+
   if (element.key === RuleElementKey.DeitySpells) {
     gathered.deitySpells.add(element.entry);
   }
+
   if (element.key === RuleElementKey.SignatureSpells) {
     gathered.signatures.add(element.entry);
   }
+
   if (element.key === RuleElementKey.FocusSpells) {
     addFocusSpells(gathered, element);
   }
+
   if (element.key === RuleElementKey.InnateSpells) {
     addInnateSpells(gathered, element);
   }
+
   gatherRepertoire(gathered, element);
 }

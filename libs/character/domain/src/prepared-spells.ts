@@ -146,10 +146,13 @@ function fitsRank(spell: SpellOption, rank: PreparedRank): boolean {
  */
 function fits(spell: SpellOption, place: SlotPlace): boolean {
   const { tradition, rank, takes } = place;
+
   if (place.preparation === SpellPreparation.Spontaneous && rank === SPELL_RANK_MAX) {
     return !spell.cantrip && spell.rank === SPELL_RANK_MAX && spell.traditions.includes(tradition);
   }
+
   const taken = takes === undefined ? spell.traditions.includes(tradition) : takes.has(spell.id);
+
   return (taken && fitsRank(spell, rank)) || fitsAsDeitySpell(spell, place);
 }
 
@@ -159,9 +162,11 @@ function fits(spell: SpellOption, place: SlotPlace): boolean {
  */
 function fitsAsDeitySpell(spell: SpellOption, { rank, deity }: SlotPlace): boolean {
   const granted = deity.get(spell.id);
+
   if (granted === undefined || !fitsRank(spell, rank)) {
     return false;
   }
+
   return rank === SlotRank.Cantrip || rank >= granted;
 }
 
@@ -172,10 +177,12 @@ function fitsAsDeitySpell(spell: SpellOption, { rank, deity }: SlotPlace): boole
 function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
   const start = PREFIXES[home.preparation];
   const prefix = home.pool === undefined ? `${start}${home.entry}` : `${start}${home.entry}:${home.pool.slug}`;
+
   const counts: RankCount[] = [
     ...(slots.cantrips === undefined ? [] : [{ rank: SlotRank.Cantrip, count: slots.cantrips }]),
     ...slots.ranks,
   ];
+
   return counts.flatMap(({ rank, count }) =>
     Array.from({ length: count }, (_unused, index) => ({
       ...home,
@@ -189,6 +196,7 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 /** The slots of one of an entry's pools, each taking the pool's spells. */
 function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
   const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
+
   return placesOf(slotPool, {
     ...own,
     pool,
@@ -206,6 +214,7 @@ function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
 function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, reads: PreparedReads): SlotPlace[] {
   const { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts, repertoireCounts } = entry;
   const own = deitySpells ? deityRanks(reads.resolution) : NO_DEITY_SPELLS;
+
   const home = {
     entry: slug,
     preparation,
@@ -216,7 +225,9 @@ function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, 
     gifts,
     floating: false,
   };
+
   const sized = preparation === SpellPreparation.Spontaneous ? repertoireSlots(slots, repertoireCounts) : slots;
+
   return [
     ...placesOf(sized, home),
     ...pools.flatMap((pool) => poolPlaces(home, pool)),
@@ -240,15 +251,19 @@ function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, 
 export function preparedSlots(document: CharacterDocument, reads: PreparedReads): PreparedSlot[] {
   const { spells, resolution } = reads;
   const access = new Set<ContentId>(document.build.spellAccess);
+
   const accessible = (spell: SpellOption, place: SlotPlace): boolean =>
     place.takes !== undefined || fitsAsDeitySpell(spell, place) || !needsAccess(spell.rarity) || access.has(spell.id);
+
   return characterSpellcasting(resolution)
     .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation, reads) : []))
     .map((place): PreparedSlot => {
       const { key, entry, preparation, tradition, pool } = place;
       const gift = place.gift === undefined ? undefined : spells.spell(place.gift);
+
       const options =
         gift === undefined ? spells.spells.filter((spell) => fits(spell, place) && accessible(spell, place)) : [gift];
+
       const stored = gift === undefined ? document.build.choices[key] : gift.id;
       const named = stored === undefined ? undefined : spells.spell(stored);
       const pick = options.find((spell) => spell.id === named?.id);
@@ -257,6 +272,7 @@ export function preparedSlots(document: CharacterDocument, reads: PreparedReads)
       const castRank = rank === SlotRank.Cantrip ? cantripRank(document.level) : rank;
       const granted = gift !== undefined;
       const deitySpell = place.floating;
+
       return {
         key,
         entry,
@@ -280,6 +296,7 @@ export function problemOf(spell: SpellOption, place: SlotPlace): PreparedPickPro
   if (place.takes !== undefined && !place.takes.has(spell.id)) {
     return PreparedPickProblem.NotInPool;
   }
+
   return fits(spell, place) ? PreparedPickProblem.NoAccess : PreparedPickProblem.Unfit;
 }
 

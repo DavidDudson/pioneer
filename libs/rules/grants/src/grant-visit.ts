@@ -40,11 +40,14 @@ export function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin 
 /** Why `entry` cannot be followed from here: it is already above itself, or the chain is too long. */
 export function blockedAt(entry: GrantEntry, visit: Visit): MessageDescriptor | undefined {
   const start = visit.chain.findIndex((above) => above.id === entry.id);
+
   if (start !== -1) {
     const loop = visit.chain.slice(start);
     const entries = loop.map((member) => member.name).join(LIST_SEPARATOR);
+
     return message(GrantsMessage.Cycle, { entries, count: loop.length });
   }
+
   return visit.hops.length > HOPS_MAX ? message(GrantsMessage.TooDeep, { maximum: HOPS_MAX }) : undefined;
 }
 

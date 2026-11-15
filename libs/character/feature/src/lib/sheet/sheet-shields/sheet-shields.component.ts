@@ -71,12 +71,15 @@ export class SheetShields {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
+
     if (registry === undefined || character === undefined || read === undefined) {
       return [];
     }
+
     const ids = shieldIds(registry);
     const reactionFree = ids !== undefined && !read.play.turn.reactionUsed;
     const raised = ids !== undefined && shieldRaised(read.play, ids);
+
     return shieldLines(registry, character, read.play).map((line): ShownShield => ({
       line,
       summary: this.#say(
@@ -101,10 +104,13 @@ export class SheetShields {
     const line = this.shields().find((shown) => shown.line.key === key)?.line;
     const shards = line?.shards;
     const ids = registry === undefined ? undefined : shieldIds(registry);
+
     if (ids === undefined) {
       return;
     }
+
     this.busy.set(true);
+
     try {
       await this.#blockWith(key, ids, this.#layersFor(line));
       await this.#characters.reload();
@@ -145,6 +151,7 @@ export class SheetShields {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

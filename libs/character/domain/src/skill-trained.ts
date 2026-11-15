@@ -8,6 +8,7 @@ export const SkillTrainingSourceKind = {
   Entry: 'entry',
   Slot: 'slot',
 } as const;
+
 export type SkillTrainingSourceKind = ValueOf<typeof SkillTrainingSourceKind>;
 
 /** What trains a skill: an entry of the effective set (a class, a background), or an earlier skill slot's pick. */
@@ -50,6 +51,7 @@ export function trainedSkills(
         slot,
       })),
     ];
+
     return isTrained(skill) && sources.length > 0 ? [{ skill, sources }] : [];
   });
 }

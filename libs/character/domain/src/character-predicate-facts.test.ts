@@ -8,11 +8,15 @@ import { slotContent } from './slot-offer';
 import { CharacterBuilder } from './testing';
 
 const pack = new ContentPackBuilder().withId('shapes').withFeat('plant-shape');
+
 pack.withClass('druid', ['wis'], {
   rules: [{ key: 'GrantItem', item: pack.idOf(ContentKind.Feat, 'plant-shape') }],
 });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 describe('characterPredicateFacts', () => {

@@ -22,6 +22,7 @@ export const PLAYER_CORE_SOURCE = SourceRef.parse({
   page: 46,
   aon: 'https://2e.aonprd.com/Ancestries.aspx?ID=64',
 });
+
 export const PLAYER_CORE = bookOf('player-core', ProductLine.Rulebooks, true);
 
 export const WEB_SOURCE = SourceRef.parse({ kind: 'web', url: 'https://paizo.com/errata', title: 'Remaster errata' });

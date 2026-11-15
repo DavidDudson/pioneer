@@ -114,16 +114,19 @@ export class PathbuilderImportPage {
 
   readonly #result = computed((): PathbuilderReadResult | undefined => {
     const text = this.model().json.trim();
+
     return text === '' || this.isLink() ? undefined : readPathbuilderExport(text);
   });
 
   protected readonly preview = computed((): PathbuilderImport | undefined => {
     const result = this.#result();
+
     return result?.ok === true ? result.value : undefined;
   });
 
   protected readonly problemKey = computed((): string | undefined => {
     const result = this.#result();
+
     return result?.ok === false ? PROBLEM_KEYS[result.problem] : undefined;
   });
 
@@ -132,6 +135,7 @@ export class PathbuilderImportPage {
 
   protected readonly modifiers = computed((): readonly ModifierView[] => {
     const preview = this.preview();
+
     return preview === undefined
       ? []
       : Object.values(Attribute).map((attribute) => ({
@@ -145,6 +149,7 @@ export class PathbuilderImportPage {
   protected readonly report = computed((): ImportReport | undefined => {
     const preview = this.preview();
     const registry = this.#registry.data();
+
     return preview === undefined || registry === undefined
       ? undefined
       : buildImportReport(preview.names, registryLookup(registry));
@@ -155,11 +160,14 @@ export class PathbuilderImportPage {
     const link = this.model().json.trim();
     const checked = exportUrlOf(link);
     this.#refusedLinkKey = checked.ok ? undefined : LINK_PROBLEM_KEYS[checked.problem];
+
     if (!checked.ok) {
       throw new Error(LINK_PROBLEM_KEYS[checked.problem]);
     }
+
     const fetched = await this.#exports.fetch(link);
     const stillRequested = this.model().json.trim() === link;
+
     if (stillRequested) {
       this.model.set({ json: JSON.stringify(fetched) });
     }
@@ -186,6 +194,7 @@ export class PathbuilderImportPage {
 
   #describe(error: unknown, fallbackKey: string): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
+
     return issue === undefined
       ? this.#i18n.translate(fallbackKey)
       : this.#i18n.translate(issue.message.key, issue.message.params);

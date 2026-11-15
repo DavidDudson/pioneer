@@ -75,6 +75,7 @@ describe('activationsOf', () => {
 
   test('"plus overcharge" keeps the base frequency and marks the activation as overcharge, with nothing reported', () => {
     const log = freshLog();
+
     const html =
       '<p><strong>Activate—Spark</strong> 1</p><p><strong>Frequency</strong> Once per day, plus overcharge</p>';
 

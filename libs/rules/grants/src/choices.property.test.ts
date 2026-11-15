@@ -24,8 +24,10 @@ interface Shape {
 
 function shapeAt(index: number, count: number): Arbitrary<Shape> {
   const later = indexes(count).slice(index + 1);
+
   const offers =
     later.length === 0 ? constantFrom(undefined) : option(subarray(later, { minLength: 1 }), { nil: undefined });
+
   return tuple(subarray(later), offers).map(([grants, offered]) => ({ grants, offers: offered }));
 }
 
@@ -41,6 +43,7 @@ function entryOf(index: number, { grants, offers }: Shape): GrantEntry {
           },
           { key: 'GrantItem', item: { choice: FLAG } },
         ];
+
   return entry(slugOf(index), [...choice, ...grants.map((target) => grantOf(slugOf(target)))]);
 }
 
@@ -58,6 +61,7 @@ const drawn: Arbitrary<Drawn> = integer({ min: 1, max: ENTRIES_MAX }).chain((cou
       roots,
       picks: shapes.flatMap((shape, index): [SlotKey, string][] => {
         const first = shape.offers?.[0];
+
         return first === undefined ? [] : [[slotOf(slugOf(index), 0), idOf(slugOf(first))]];
       }),
     }),
@@ -94,6 +98,7 @@ describe('resolveGrants choice properties', () => {
     const shuffled = drawn.chain((draw) =>
       shuffledSubarray([...draw.roots], { minLength: draw.roots.length }).map((order) => ({ draw, order })),
     );
+
     assert(
       property(shuffled, ({ draw, order }) => {
         expect(resolve(draw.content, order, draw.picks)).toEqual(resolve(draw.content, draw.roots, draw.picks));
@@ -105,15 +110,18 @@ describe('resolveGrants choice properties', () => {
     const withDrop = drawn
       .filter((draw) => draw.picks.length > 0)
       .chain((draw) => integer({ min: 0, max: draw.picks.length - 1 }).map((drop) => ({ draw, drop })));
+
     assert(
       property(withDrop, ({ draw, drop }) => {
         const before = resolve(draw.content, draw.roots, draw.picks);
         const slot = draw.picks[drop]?.[0];
         const kept = draw.picks.filter((_pick, index) => index !== drop);
         const after = resolve(draw.content, draw.roots, kept);
+
         if (slot === undefined || !before.answered.some((answered) => answered.key === slot)) {
           return;
         }
+
         expect(through(after, slot)).toBe(false);
         expect(after.open.map((open) => open.key)).toContain(slot);
       }),

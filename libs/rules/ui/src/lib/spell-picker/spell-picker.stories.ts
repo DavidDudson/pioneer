@@ -86,6 +86,7 @@ const meta: Meta<SpellPicker> = {
   args: { rows: SPELLS, ariaLabel: '3rd rank slot 1', disabled: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** Opens straight to the table. A spell already picked in the entry can't be taken again and says why. */

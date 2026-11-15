@@ -5,6 +5,7 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
 
 /** A manifest is read for one signed-in user, so only that browser may keep it, and only briefly. */
 export const HOMEBREW_MANIFEST_CACHE_CONTROL = 'private, max-age=10';
+
 /** A bundle's name changes with its contents, so the browser that fetched it never needs asking again. Never shared. */
 export const HOMEBREW_BUNDLE_CACHE_CONTROL = 'private, max-age=31536000, immutable';
 
@@ -21,12 +22,14 @@ export function homebrewBundleRoutes(
     .handleSignedIn(HomebrewContentContract.manifest, auth, async ({ actor, body, responseHeaders }) => {
       const manifest = await service.manifest(actor, body);
       responseHeaders['cache-control'] = HOMEBREW_MANIFEST_CACHE_CONTROL;
+
       return manifest;
     })
     .handleSignedIn(HomebrewContentContract.bundle, auth, async ({ actor, params, responseHeaders }) => {
       const body = await service.bundle(actor, params.pack, params.file);
       responseHeaders['cache-control'] = HOMEBREW_BUNDLE_CACHE_CONTROL;
       responseHeaders.etag = bundleEtag(params.file);
+
       return body;
     }).app;
 }

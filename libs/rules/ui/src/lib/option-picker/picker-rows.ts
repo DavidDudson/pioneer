@@ -20,17 +20,22 @@ export function shownRows<TRow>(rows: readonly TRow[], view: RowView, order: Row
   const matching = rows.filter((row) => order.text(row).toLocaleLowerCase().includes(needle));
   const { sort } = view;
   const key = sort === undefined ? undefined : order.sortKey[sort.column];
+
   if (sort === undefined || key === undefined) {
     return matching;
   }
+
   const direction = sort.descending ? -1 : 1;
+
   return matching.toSorted((left, right) => {
     const leftKey = key(left);
     const rightKey = key(right);
+
     const compared =
       typeof leftKey === 'number' && typeof rightKey === 'number'
         ? leftKey - rightKey
         : String(leftKey).localeCompare(String(rightKey));
+
     return direction * (compared || order.text(left).localeCompare(order.text(right)));
   });
 }

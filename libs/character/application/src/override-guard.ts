@@ -22,12 +22,16 @@ const OVERRIDE_REFUSALS = {
  */
 export function assertOverrideAllowed(character: Character, patch: CharacterPatch, actorRole: OverrideRole): void {
   const problem = isOverridePatch(patch) ? overrideProblem(character.document, patch) : undefined;
+
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['patch'], message: message(OVERRIDE_REFUSALS[problem]) }]);
   }
+
   const removes = patch.field === CharacterPatchField.RemoveOverride;
+
   if (removes && actorRole !== OverrideRole.Gm) {
     const found = overrideOf(character.document, patch.id);
+
     if (found?.byRole === OverrideRole.Gm) {
       throw new ForbiddenError(
         `Override ${patch.id} was written by the GM`,

@@ -25,6 +25,7 @@ describe('seededPicks', () => {
         const second = seededPicks(seed);
         const firstPicks = sequence.map((bound) => first.below(bound));
         const secondPicks = sequence.map((bound) => second.below(bound));
+
         return firstPicks.join(',') === secondPicks.join(',');
       }),
     );
@@ -34,6 +35,7 @@ describe('seededPicks', () => {
     assert(
       property(seeds, array(bounds, { minLength: 1, maxLength: LIST_MAX }), (seed, sequence) => {
         const source = seededPicks(seed);
+
         return sequence.every((bound) => source.below(bound) < bound);
       }),
     );
@@ -43,12 +45,16 @@ describe('seededPicks', () => {
     assert(
       property(seeds, lists, (seed, items) => {
         const entries = items.map((item) => ({ item, weight: PickWeight.parse(item % WEIGHT_KINDS) }));
+
         const run = (): string => {
           const source = seededPicks(seed);
+
           return JSON.stringify([pickOne(source, items), pickWeighted(source, entries), shuffle(source, items)]);
         };
+
         const first = run();
         const second = run();
+
         return first === second;
       }),
     );
@@ -58,6 +64,7 @@ describe('seededPicks', () => {
     assert(
       property(seeds, lists, (seed, items) => {
         const shuffled = shuffle(seededPicks(seed), items);
+
         return shuffled.toSorted(ascending).join(',') === items.toSorted(ascending).join(',');
       }),
     );

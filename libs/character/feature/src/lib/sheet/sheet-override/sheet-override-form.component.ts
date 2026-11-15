@@ -87,6 +87,7 @@ export class SheetOverrideForm {
   protected readonly current = computed(() => {
     const { statistic } = this.target();
     const { result, kind } = statistic;
+
     return result.ok
       ? this.#i18n.translate(Message.Current, { total: this.#format.number(result.total, numberStyle(kind)) })
       : undefined;
@@ -104,6 +105,7 @@ export class SheetOverrideForm {
   protected readonly reasonError = computed((): string | undefined => {
     const reason = this.form.reason();
     const blank = this.model().reason.trim() === '';
+
     return blank && (reason.touched() || reason.dirty()) ? this.#i18n.translate(Message.ReasonRequired) : undefined;
   });
   protected readonly form = form(this.model, (path) => {
@@ -112,6 +114,7 @@ export class SheetOverrideForm {
 
   protected readonly save = async ({ value, type, reason }: OverrideModel): Promise<void> => {
     const { selector, mode, existing } = this.target();
+
     const override = OverrideInput.parse({
       target: selector,
       mode,
@@ -119,6 +122,7 @@ export class SheetOverrideForm {
       ...(mode === OverrideMode.Adjust ? { type } : {}),
       reason,
     });
+
     await this.#store.patch(
       existing === undefined
         ? { field: CharacterPatchField.AddOverride, override }
@@ -130,6 +134,7 @@ export class SheetOverrideForm {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

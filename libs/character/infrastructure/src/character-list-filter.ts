@@ -10,6 +10,7 @@ const LIKE_WILDCARDS = /[%_\\]/gu;
 /** The conditions the list's filters make, to AND; an absent filter makes none. */
 export function filterConditions(filter: CharacterFilter): readonly (SQL | undefined)[] {
   const search = filter.name?.replaceAll(LIKE_WILDCARDS, String.raw`\$&`);
+
   return [
     filter.minLevel === undefined ? undefined : gte(characters.level, filter.minLevel),
     filter.maxLevel === undefined ? undefined : lte(characters.level, filter.maxLevel),

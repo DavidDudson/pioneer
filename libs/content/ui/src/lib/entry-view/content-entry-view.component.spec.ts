@@ -19,6 +19,7 @@ async function render(stores: readonly StoreLink[]): Promise<ComponentFixture<Co
   fixture.componentRef.setInput('card', SHIELD_BLOCK_CARD);
   fixture.componentRef.setInput('stores', stores);
   await fixture.whenStable();
+
   return fixture;
 }
 

@@ -42,11 +42,13 @@ function detailOf(
 export function wandRows(registry: ContentRegistry, wands: readonly WandLine[], words: ItemWords): SpellRowLine[] {
   return wands.flatMap((wand): SpellRowLine[] => {
     const source = words.translate(SOURCE_MESSAGES.wand, { name: wand.name, ...wand.use });
+
     const detail = detailOf(
       registry,
       { id: wand.id, name: wand.spell, rank: wand.rank },
       { ...words, cantrip: false, source },
     );
+
     return detail === undefined ? [] : [{ key: `wand:${wand.key}`, detail, item: { kind: 'wand', wand } }];
   });
 }
@@ -61,10 +63,12 @@ export function staffRows(registry: ContentRegistry, staves: readonly StaffLine[
   return staves.flatMap((staff) =>
     staff.spells.flatMap((spell): SpellRowLine[] => {
       const rank = castRank(spell);
+
       const source =
         staff.charges === undefined
           ? staff.name
           : words.translate(SOURCE_MESSAGES.staff, { name: staff.name, ...staff.charges });
+
       const detail =
         rank === undefined
           ? undefined
@@ -73,6 +77,7 @@ export function staffRows(registry: ContentRegistry, staves: readonly StaffLine[
               { id: spell.id, name: spell.name, rank },
               { ...words, cantrip: spell.rank === STAFF_CANTRIP, source },
             );
+
       return detail === undefined
         ? []
         : [
@@ -101,9 +106,11 @@ export interface ScrollSource {
 /** The scrolls the character has in hand, in inventory order: a scroll is cast from the hand. */
 export function scrollSources(registry: ContentRegistry, character: Character): readonly ScrollSource[] {
   const items = itemContent(registry);
+
   return character.document.inventory.items.flatMap((held): readonly ScrollSource[] => {
     const entry = items.get(held.item);
     const spell = entry?.kind === ContentKind.Consumable ? entry.data.spell : undefined;
+
     return entry?.kind === ContentKind.Consumable &&
       entry.data.category === ConsumableCategory.Scroll &&
       spell !== undefined &&
@@ -134,15 +141,18 @@ export function scrollRows(
   { turn, translate }: ScrollWords,
 ): SpellRowLine[] {
   const spells = spellContent(registry);
+
   return scrolls.flatMap((scroll): SpellRowLine[] => {
     const option = spells.anySpell(scroll.spell);
     const range = option === undefined ? undefined : spellCost(option);
     const castable = affordability(turn, range?.cost ?? ActionCost.Free, undefined).affordable ?? true;
+
     const detail = detailOf(
       registry,
       { id: scroll.spell, name: option?.name ?? scroll.name, rank: scroll.rank },
       { translate, cantrip: false, source: scroll.name },
     );
+
     return detail === undefined
       ? []
       : [{ key: `scroll:${scroll.key}`, detail, item: { kind: 'scroll', scroll: { key: scroll.key, castable } } }];

@@ -12,15 +12,19 @@ function replacementsOf(
   unsupported: ReadonlySet<ContentPackId>,
 ): ReadonlyMap<ContentId, readonly Replacement[]> {
   const replacements = new Map<ContentId, Replacement[]>();
+
   for (const pack of registry.packs) {
     const inForce = !unsupported.has(contentPackId(pack.id));
+
     for (const entry of pack.otherEntries) {
       const remaster = inForce && !isLegacyLicense(effectiveLicense(entry, pack.manifest));
+
       for (const legacy of remaster ? (entry.supersedes ?? []) : []) {
         replacements.set(legacy, [...(replacements.get(legacy) ?? []), { id: entry.id, name: entry.name }]);
       }
     }
   }
+
   return replacements;
 }
 
@@ -30,5 +34,6 @@ export function lazyReplacements(
   unsupported: ReadonlySet<ContentPackId>,
 ): () => ReadonlyMap<ContentId, readonly Replacement[]> {
   const held: { value?: ReadonlyMap<ContentId, readonly Replacement[]> } = {};
+
   return () => (held.value ??= replacementsOf(registry, unsupported));
 }

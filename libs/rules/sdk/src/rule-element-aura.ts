@@ -10,10 +10,12 @@ import { Feet } from './units';
 
 /** Who an aura's effect reaches, besides the bearer unless `includesSelf` says otherwise. */
 export const AuraAffects = { Allies: 'allies', Enemies: 'enemies', All: 'all' } as const;
+
 export type AuraAffects = ValueOf<typeof AuraAffects>;
 
 /** When an aura applies its effect: as a creature enters it, or as a turn starts or ends inside it. */
 export const AuraEvent = { Enter: 'enter', TurnStart: 'turn-start', TurnEnd: 'turn-end' } as const;
+
 export type AuraEvent = ValueOf<typeof AuraEvent>;
 
 /** The most effects, traits and events an aura lists. */
@@ -26,6 +28,7 @@ const AuraEffect = z.strictObject({
   includesSelf: z.boolean().optional(),
   events: z.array(z.enum(AuraEvent)).min(1).max(LIST_MAX).readonly().check(uniqueItems).optional(),
 });
+
 type AuraEffect = z.infer<typeof AuraEffect>;
 
 /**
@@ -40,4 +43,5 @@ export const AuraElement = z.strictObject({
   effects: z.array(AuraEffect).max(LIST_MAX).readonly().optional(),
   ...ruleElementBase,
 });
+
 export type AuraElement = z.infer<typeof AuraElement>;

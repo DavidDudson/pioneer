@@ -30,16 +30,19 @@ export class InMemoryPackDirectory extends PackDirectory {
       visibility: PackVisibility.Public,
       summary: { id, slug, title, publisher, visibility: PackVisibility.Public, official: true },
     });
+
     return this;
   }
 
   public override async findById(id: ContentPackId): Promise<ListedPack | undefined> {
     const pack = await this.#homebrew.findById(id);
+
     return pack === undefined ? this.#official.get(id) : listedHomebrew(pack);
   }
 
   public override async all(): Promise<readonly ListedPack[]> {
     const packs = await this.#homebrew.all();
+
     return [...this.#official.values(), ...packs.map((pack) => listedHomebrew(pack))].toSorted(
       (left, right) => left.summary.title.localeCompare(right.summary.title) || left.id.localeCompare(right.id),
     );

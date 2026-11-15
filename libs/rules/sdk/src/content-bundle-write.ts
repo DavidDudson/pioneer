@@ -48,6 +48,7 @@ class BundleWriter {
     const path = bundlePath(pack, file);
     this.#bodies.set(path, BundleBody.parse(JSON.parse(json)));
     this.#sizes.set(path, ByteCount.parse(new TextEncoder().encode(json).length));
+
     return file;
   }
 
@@ -55,11 +56,14 @@ class BundleWriter {
   public sizes(pack: PackId, files: readonly BundleFile[]): Record<BundleFile, ByteCount> {
     const sized = files.map((file): [BundleFile, ByteCount] => {
       const size = this.#sizes.get(bundlePath(pack, file));
+
       if (size === undefined) {
         throw new Error(`Bundle ${pack}/${file} was not written`);
       }
+
       return [file, size];
     });
+
     return Object.fromEntries(sized);
   }
 }
@@ -67,6 +71,7 @@ class BundleWriter {
 /** An entry as its mechanics bundle holds it: no name and no description. */
 function mechanics(entry: ContentEntry): unknown {
   const { name: _name, description: _description, ...rest } = entry;
+
   return rest;
 }
 
@@ -77,9 +82,11 @@ function names(entries: readonly ContentEntry[]): NamesBundle {
 /** Entries by kind, each kind's sorted by id so a reordered file gives the same bundles. */
 function byKind(entries: readonly ContentEntry[]): ReadonlyMap<ContentKind, readonly ContentEntry[]> {
   const kinds = new Map<ContentKind, ContentEntry[]>();
+
   for (const entry of entries.toSorted((left, right) => (left.id < right.id ? -1 : 1))) {
     kinds.set(entry.kind, [...(kinds.get(entry.kind) ?? []), entry]);
   }
+
   return new Map([...kinds].toSorted(([left], [right]) => (left < right ? -1 : 1)));
 }
 
@@ -88,12 +95,14 @@ function descriptionShards(
   entries: readonly ContentEntry[],
 ): ReadonlyMap<DescriptionShard, Record<ContentId, RichText>> {
   const shards = new Map<DescriptionShard, Record<ContentId, RichText>>();
+
   for (const entry of entries) {
     if (entry.description.length > 0) {
       const shard = descriptionShard(entry.id);
       shards.set(shard, { ...shards.get(shard), [entry.id]: entry.description });
     }
   }
+
   return new Map([...shards].toSorted(([left], [right]) => (left < right ? -1 : 1)));
 }
 
@@ -106,6 +115,7 @@ function bundleFiles({ file, kinds }: Pick<PackBundles, 'file' | 'kinds'>): read
 
 function packBundles(writer: BundleWriter, { file, entries }: PackContents): PackBundles {
   const pack = file.id;
+
   const kinds = [...byKind(entries)].map(([kind, ofKind]): KindBundles => ({
     kind,
     descriptions: [...descriptionShards(ofKind)].map(([shard, descriptions]): DescriptionBundle => ({
@@ -121,8 +131,10 @@ function packBundles(writer: BundleWriter, { file, entries }: PackContents): Pac
     ),
     names: writer.write(pack, names(ofKind), (hash) => BundleFile.parse(`${kind}.names.${SOURCE_LOCALE}.${hash}.json`)),
   }));
+
   const packFile = writer.write(pack, file, (hash) => BundleFile.parse(`pack.${hash}.json`));
   const sizes = writer.sizes(pack, bundleFiles({ file: packFile, kinds }));
+
   return { id: pack, file: packFile, kinds, sizes };
 }
 
@@ -134,5 +146,6 @@ function packBundles(writer: BundleWriter, { file, entries }: PackContents): Pac
 export function contentBundles(packs: readonly PackContents[], hash: BundleHasher): ContentBundles {
   const writer = new BundleWriter(hash);
   const manifest: ContentManifest = { packs: packs.map((contents) => packBundles(writer, contents)) };
+
   return { manifest, bodies: writer.bodies };
 }

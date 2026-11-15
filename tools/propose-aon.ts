@@ -26,16 +26,19 @@ async function indexed(book: BookId): Promise<AonPagesFile> {
   const file = Bun.file(path.join(PAGES, `${book}.json`));
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : {};
+
   return AonPagesFile.parse(json);
 }
 
 async function readListings(): Promise<readonly AonListing[]> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: LISTINGS }));
+
   return Promise.all(
     files.map(async (file) => {
       const json: unknown = await Bun.file(path.join(LISTINGS, file)).json();
       const book = BookId.parse(path.basename(file, '.json'));
       const { entries, pages } = await indexed(book);
+
       return {
         book,
         entries: [...AonListingFile.parse(json).entries, ...entries],
@@ -49,16 +52,19 @@ async function readMapping(pack: string): Promise<EnrichmentMappingFile> {
   const file = Bun.file(path.join(ENRICHMENT, `${pack}.json`));
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : {};
+
   return EnrichmentMappingFile.parse(json);
 }
 
 async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
   const paths = await Array.fromAsync(new Glob('*.json').scan({ cwd: path.join(PACKS, pack), absolute: true }));
+
   const files = await Promise.all(
     paths
       .filter((file) => path.basename(file) !== 'pack.json')
       .map(async (file) => Bun.file(file).json() as Promise<unknown>),
   );
+
   return files.flatMap((json) => ContentEntryFile.parse(JsonArray.parse(json)));
 }
 
@@ -67,20 +73,25 @@ async function proposePack(pack: string, listings: readonly AonListing[]): Promi
   const [entries, mapping] = await Promise.all([readEntries(pack), readMapping(pack)]);
   const mapped = new Set(Object.keys(mapping) as EntrySlug[]);
   const { proposals, ambiguous, unlisted, unmatched } = proposeAonMappings(entries, listings, mapped);
+
   if (proposals.size > 0) {
     const merged = Object.fromEntries(
       [...Object.entries(mapping), ...proposals].toSorted(([left], [right]) => left.localeCompare(right)),
     );
+
     await Bun.write(path.join(ENRICHMENT, `${pack}.json`), `${JSON.stringify(merged, undefined, JSON_INDENT)}\n`);
   }
+
   const lines = [
     `${pack}: ${proposals.size} proposed, ${ambiguous.length} ambiguous, ${unmatched.length} unmatched, ${unlisted} of kinds AoN has no page for`,
     ...ambiguous.map((slug) => `  ambiguous: ${slug}`),
   ];
+
   return lines.join('\n');
 }
 
 const listings = await readListings();
 const packFiles = await Array.fromAsync(new Glob('*/pack.json').scan({ cwd: PACKS }));
 const lines = await Promise.all(packFiles.map(async (file) => proposePack(path.dirname(file), listings)));
+
 console.log(lines.join('\n'));

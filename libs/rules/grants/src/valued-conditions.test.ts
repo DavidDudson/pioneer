@@ -16,6 +16,7 @@ const condition = (slug: string, rules: readonly object[] = []): GrantEntry => (
 });
 
 const frightened = condition('frightened');
+
 /** A condition that carries a value, so a grant of it gives one. */
 const clumsy: GrantEntry = { ...condition('clumsy'), valued: true };
 
@@ -70,11 +71,14 @@ describe('a valued condition', () => {
       entry('shaken'),
       entry('composed'),
     ];
+
     const at = (...values: number[]): string[] => {
       const roots = [picked('steady'), ...values.map((value) => afflicted('frightened', value))];
+
       // Which entries are granted, in name order: the walk's order follows ids.
       return namesOf(resolve(content, roots).items).toSorted();
     };
+
     expect(at(2)).toEqual(['frightened', 'shaken', 'steady']);
     expect(at(1)).toEqual(['composed', 'frightened', 'steady']);
     expect(at(1, 2)).toEqual(['frightened', 'shaken', 'steady']);
@@ -85,10 +89,12 @@ describe('a valued condition', () => {
       ...frightened,
       id: ContentId.parse(contentId(PackId.parse('homebrew'), entrySlug(ContentKind.Condition, frightened.slug))),
     };
+
     const roots: GrantRoot[] = [
       afflicted('frightened', 3),
       { entry: homebrew.id, hop: { kind: 'condition', condition: homebrew.id, value: ConditionValue.parse(1) } },
     ];
+
     expect(conditionOptions([frightened, homebrew], roots)).toEqual([
       'self:condition:frightened',
       'self:condition:frightened:3',
@@ -119,6 +125,7 @@ describe('a valued condition', () => {
       condition('encumbered', [grantOf('clumsy')]),
       clumsy,
     ];
+
     const roots = [afflicted('encumbered'), afflicted('curse')];
     expect(conditionOptions(content, roots)).toContain('self:condition:clumsy:2');
     expect(conditionOptions(content, [...roots, afflicted('clumsy', 4)])).toContain('self:condition:clumsy:4');
@@ -133,8 +140,10 @@ describe('a valued condition', () => {
       condition('encumbered', [grantOf('clumsy')]),
       clumsy,
     ];
+
     const valueOf = (roots: readonly GrantRoot[]): number | undefined =>
       resolve(content, roots).items.find((item) => item.entry.slug === 'clumsy')?.value;
+
     expect(valueOf([afflicted('encumbered'), afflicted('curse')])).toBe(3);
     expect(valueOf([afflicted('encumbered'), afflicted('clumsy', 2)])).toBe(2);
     expect(valueOf([afflicted('clumsy', 4), afflicted('curse')])).toBe(4);
@@ -153,6 +162,7 @@ describe('a valued condition', () => {
       condition('curse', [{ ...grantOf('weakness'), value: 2 }]),
       { ...entry('weakness'), valued: true },
     ];
+
     const weakness = resolve(content, [afflicted('curse')]).items.find((item) => item.entry.slug === 'weakness');
     expect(weakness?.value).toBeUndefined();
   });
@@ -177,6 +187,7 @@ interface Arrival {
 }
 
 const drawnValue: Arbitrary<number | undefined> = oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX }));
+
 const arrivals: Arbitrary<Arrival[]> = array(record({ granted: boolean(), value: drawnValue }), {
   minLength: 1,
   maxLength: ROOTS_MAX,
@@ -201,6 +212,7 @@ function broughtBy({ granted, value }: Arrival): number[] {
   if (granted) {
     return [value ?? 1];
   }
+
   return value === undefined ? [] : [value];
 }
 
@@ -212,10 +224,13 @@ interface ClumsyState {
 
 function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
   const given = drawn.flatMap((arrival) => broughtBy(arrival));
+
   if (given.length === 0) {
     return { value: undefined, options: ['self:condition:clumsy'] };
   }
+
   const highest = Math.max(...given);
+
   return {
     value: ConditionValue.parse(highest),
     options: ['self:condition:clumsy', `self:condition:clumsy:${highest}`],
@@ -225,6 +240,7 @@ function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
 /** What clumsy holds once `drawn` resolve. */
 function resolvedClumsy(drawn: readonly Arrival[]): ClumsyState {
   const result = resolve([clumsy, ...grantersOf(drawn)], arrivalRoots(drawn));
+
   return clumsyOf(result);
 }
 
@@ -242,6 +258,7 @@ const rootsOf = (values: Values): GrantRoot[] => values.map((value) => afflicted
 function expectedOf(values: Values): string[] {
   const given = values.filter((value) => value !== undefined);
   const valued = given.length === 0 ? [] : [`self:condition:frightened:${Math.max(...given)}`];
+
   return ['self:condition:frightened', ...valued];
 }
 

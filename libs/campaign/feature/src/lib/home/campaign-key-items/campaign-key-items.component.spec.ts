@@ -16,6 +16,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
@@ -33,6 +34,7 @@ let opened: RouterTestingHarness | undefined = undefined;
  */
 function pickerIn(host: string): Picker<string, object> {
   const found = present(opened).fixture.debugElement.query(By.css(host)).query(By.directive(Picker));
+
   return found.injector.get<Picker<string, object>>(Picker);
 }
 
@@ -60,9 +62,11 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
   const harness = await RouterTestingHarness.create(`/campaigns/${id}/inventory`);
   opened = harness;
   const host: unknown = harness.fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The page did not render');
   }
+
   document.body.append(host);
   onTestFinished(() => {
     host.remove();
@@ -86,12 +90,14 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Caliburn');
   });
+
   return root;
 }
 
 /** Caliburn held by Kyra, and Excalibur in the party stash. */
 function twoKeyItems(): object {
   const [held] = (keyItems('kyra', false) as { keyItems: object[] }).keyItems;
+
   const stashed = {
     ...held,
     id: '7e1f3a5b-9c2d-4e6f-8a0b-1c3d5e7f9a2b',
@@ -99,6 +105,7 @@ function twoKeyItems(): object {
     holder: undefined,
     holderName: undefined,
   };
+
   return { manageable: false, keyItems: [held, stashed] };
 }
 

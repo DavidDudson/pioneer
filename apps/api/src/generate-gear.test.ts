@@ -44,6 +44,7 @@ const { items } = runed;
 /** A blank character of `className` at `level`, outfitted for it. */
 function geared(className: string, level: CharacterLevel, seed: number): Character {
   const blank = blankIn(content, className).apply({ field: CharacterPatchField.Level, value: level }, now);
+
   return generateGear({ character: blank, seed: Seed.parse(seed), items, slots: content, now });
 }
 
@@ -66,6 +67,7 @@ function gearProblems(character: Character, level: CharacterLevel): readonly str
   const worn = kindsCarried(character, items, CarryState.Worn);
   const held = kindsCarried(character, items, CarryState.Held);
   const bulk = inventoryBulk(inventory, items, strengthOf(character));
+
   const checks: readonly (readonly [boolean, string])[] = [
     [itemsValue(inventory, items) > budget, 'items worth more than the budget'],
     [itemsValue(inventory, items) + coinsValue(inventory.coins) > budget, 'items and coins past the budget'],
@@ -75,24 +77,31 @@ function gearProblems(character: Character, level: CharacterLevel): readonly str
     [inventoryViolations(inventory, runed).length > NONE, 'breaks a rule limit'],
     [bulk.encumbrance !== 'unencumbered', 'encumbered'],
   ];
+
   return checks.filter(([broken]) => broken).map(([, problem]) => problem);
 }
 
 /** The weapons and armour `character` carries that its class is not trained in. */
 function untrainedGear(character: Character): readonly string[] {
   const ranks = characterRanks(characterGrants(character.document, content));
+
   const trainedIn = (selector: string): boolean => {
     const rank = [...ranks].find(([each]) => each === selector)?.[1];
+
     return rank !== undefined && rank !== Proficiency.Untrained;
   };
+
   return character.document.inventory.items.flatMap((line) => {
     const entry = items.get(line.item);
+
     if (entry?.kind === ContentKind.Weapon && !trainedIn(`attack:${entry.data.category}`)) {
       return [`${entry.id} (${entry.data.category} weapon)`];
     }
+
     if (entry?.kind === ContentKind.Armor && !trainedIn(`defense:${entry.data.category}`)) {
       return [`${entry.id} (${entry.data.category} armour)`];
     }
+
     return [];
   });
 }
@@ -166,6 +175,7 @@ describe('a themed weapon etched with runes', () => {
   function propertyRunesFor(className: string): readonly WeaponRunes[] {
     return SEEDS.flatMap((seed) => {
       const blank = blankIn(content, className).apply({ field: CharacterPatchField.Level, value: THEME_LEVEL }, now);
+
       const character = generateGear({
         character: blank,
         seed: Seed.parse(seed),
@@ -175,6 +185,7 @@ describe('a themed weapon etched with runes', () => {
         weapon: { category: 'martial', group: 'sword' },
         runes: runed.runes,
       });
+
       return character.document.inventory.items
         .filter((line) => items.get(line.item)?.kind === ContentKind.Weapon && line.runes !== undefined)
         .map((line) => ({
@@ -187,6 +198,7 @@ describe('a themed weapon etched with runes', () => {
   test('carries property runes, no more than its potency rune leaves room for', () => {
     const weapons = propertyRunesFor('Fighter');
     expect(weapons.some(({ names }) => names.length > NONE)).toBe(true);
+
     for (const { names, room } of weapons) {
       expect(names.length).toBeLessThanOrEqual(room);
     }
@@ -204,6 +216,7 @@ describe('a themed weapon etched with runes', () => {
 describe('generated characters with gear', () => {
   test('a character generated with items is outfitted for its level', () => {
     const level = CharacterLevel.parse(5);
+
     const result = generateCharacter({
       start: blankIn(content, 'Fighter'),
       seed: Seed.parse(SEED),
@@ -212,6 +225,7 @@ describe('generated characters with gear', () => {
       items,
       now,
     });
+
     expect({ unfilled: result.unfilled, problems: gearProblems(result.character, level) }).toEqual({
       unfilled: [],
       problems: [],

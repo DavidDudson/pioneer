@@ -26,12 +26,14 @@ export class CampaignItemReviewStore {
   /** The open campaign's flagged items: the approved ones, and for the GM the ones that need review. */
   public readonly review = injectQuery(() => {
     const id = this.#id();
+
     return {
       queryKey: itemReviewKey(id),
       queryFn: async (): Promise<CampaignItemReview> => {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
+
         return this.#api.call(CampaignContract.itemReview, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -48,10 +50,12 @@ export class CampaignItemReviewStore {
   /** Takes an approval back, so the item needs review again. */
   public async revoke(approvalId: CampaignItemApprovalId): Promise<void> {
     const id = this.#openId();
+
     const review = await this.#api.call(CampaignContract.revokeItemApproval, {
       params: { id, approvalId },
       body: undefined,
     });
+
     await this.#store(id, review);
   }
 
@@ -62,9 +66,11 @@ export class CampaignItemReviewStore {
 
   #openId(): CampaignId {
     const id = this.#id();
+
     if (id === undefined) {
       throw new Error('No campaign selected');
     }
+
     return id;
   }
 }

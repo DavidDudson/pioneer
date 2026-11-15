@@ -34,6 +34,7 @@ const meta: Meta<UseButtons> = {
     }),
   ],
 };
+
 export default meta;
 
 /** A fixed cost: one Use button. */

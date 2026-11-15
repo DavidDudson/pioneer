@@ -24,6 +24,7 @@ export function systemColour(keyword: string): string {
   document.body.append(probe);
   const { color } = getComputedStyle(probe);
   probe.remove();
+
   return color;
 }
 
@@ -43,8 +44,10 @@ export async function paintedAcross(element: Element, fractions: readonly number
   const context = canvas.getContext('2d');
   context?.drawImage(image, 0, 0);
   const middle = Math.floor(image.height / 2);
+
   return fractions.map((fraction) => {
     const [red, green, blue] = context?.getImageData(Math.floor(image.width * fraction), middle, 1, 1).data ?? [];
+
     return `rgb(${red}, ${green}, ${blue})`;
   });
 }

@@ -30,6 +30,7 @@ describe('DamageDice and DamageAlteration', () => {
 
   test('a damage type alteration can only override, and to a damage type', () => {
     const add = { key: 'DamageAlteration', selectors: ['x'], property: 'damage-type', mode: 'add', value: 'fire' };
+
     const unknown = {
       key: 'DamageAlteration',
       selectors: ['x'],

@@ -69,6 +69,7 @@ describe('translateKindData: spell variants', () => {
         o2: { overlayType: 'override', sort: 2, system: { range: { value: '60 feet' }, time: { value: '3' } } },
       },
     });
+
     const data = dataIn(translate([sphere]), 'thunder-sphere');
 
     expect(data).toMatchObject({
@@ -107,6 +108,7 @@ describe('translateKindData: spell variants', () => {
         },
       },
     });
+
     const result = translate([breath]);
     const data = dataIn(result, 'breathe-fire');
 
@@ -139,6 +141,7 @@ describe('translateKindData: spell variants', () => {
       time: { value: '2' },
       overlays: { a1: { overlayType: 'addition', system: { time: { value: '1' } } } },
     });
+
     const result = translate([odd]);
 
     expect(dataIn(result, 'odd')).not.toHaveProperty('variants');
@@ -156,6 +159,7 @@ describe('translateKindData: spell variants', () => {
         levels: { '5': { time: { value: '3' }, traits: { value: ['concentrate', 'manipulate'] } } },
       },
     });
+
     const result = translate([rest]);
     const data = dataIn(result, 'peaceful-rest');
 

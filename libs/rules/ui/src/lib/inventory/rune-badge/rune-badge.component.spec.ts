@@ -17,6 +17,7 @@ async function render(rune: RuneBadgeData): Promise<HTMLElement> {
   const fixture: ComponentFixture<RuneBadge> = TestBed.createComponent(RuneBadge);
   fixture.componentRef.setInput('rune', rune);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

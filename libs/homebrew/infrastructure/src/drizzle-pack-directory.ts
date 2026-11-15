@@ -50,6 +50,7 @@ export class DrizzlePackDirectory extends PackDirectory {
       .from(contentPacks)
       .where(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)))
       .limit(1);
+
     return row === undefined ? undefined : toListed(row);
   }
 
@@ -61,6 +62,7 @@ export class DrizzlePackDirectory extends PackDirectory {
         .from(contentPacks)
         .where(isNull(contentPacks.archivedAt))
         .orderBy(asc(contentPacks.id));
+
       return rows
         .map((row) => toListed(row))
         .toSorted(

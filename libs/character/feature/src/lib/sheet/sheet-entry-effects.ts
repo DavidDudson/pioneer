@@ -13,6 +13,7 @@ function statisticName(registry: ContentRegistry, line: EffectLine): string | un
   if (line.change !== 'bonus' && line.change !== 'penalty' && line.change !== 'set') {
     return undefined;
   }
+
   return registry.statisticsFor(line.selector).at(-1)?.definition.name ?? line.selector;
 }
 
@@ -29,7 +30,9 @@ function senseNames(registry: ContentRegistry): ReadonlyMap<ContentId, string> {
         .filter((entry) => entry.kind === ContentKind.Sense)
         .map((entry) => [ContentId.parse(entry.id), entry.name] as const),
     );
+
   SENSE_NAMES.set(registry, read);
+
   return read;
 }
 
@@ -37,12 +40,16 @@ function senseNames(registry: ContentRegistry): ReadonlyMap<ContentId, string> {
 function namesOf(registry: ContentRegistry, line: EffectLine): Pick<PreviewEffect, 'sense' | 'exceptions'> {
   if (line.change === 'sense') {
     const name = senseNames(registry).get(line.sense);
+
     return name === undefined ? {} : { sense: name };
   }
+
   if ((line.change === 'weakness' || line.change === 'resistance') && line.exceptions.length > 0) {
     const traits = traitNames(registry);
+
     return { exceptions: line.exceptions.map((exception) => traits.get(Trait.parse(exception)) ?? exception) };
   }
+
   return {};
 }
 
@@ -70,9 +77,11 @@ export function sheetEntryEffects(
   { entry, mode, rank }: EntryEffectsRequest,
 ): readonly PreviewEffect[] {
   const level = 'level' in entry ? ContentLevel.safeParse(entry.level).data : undefined;
+
   const lines = characterEffects(character.document, sheetSources(registry, character), {
     entry: { id: entry.id, rules: entry.rules, sources: [...entry.sources], level, rank },
     mode,
   });
+
   return lines.map((line) => previewEffect(registry, line));
 }

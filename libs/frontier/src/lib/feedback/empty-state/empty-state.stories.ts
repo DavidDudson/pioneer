@@ -26,6 +26,7 @@ const meta: Meta<EmptyState> = {
     template: `<fr-empty-state [icon]="icon" ${argsToTemplate(args, { exclude: ['icon'] })} />`,
   }),
 };
+
 export default meta;
 
 export const Default: EmptyStateStory = {};

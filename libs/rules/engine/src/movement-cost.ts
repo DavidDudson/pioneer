@@ -27,6 +27,7 @@ export interface MovementCostInPlay {
 
 function costOf(rule: RuleInPlay): MovementCostInPlay[] {
   const { element } = rule;
+
   return element.key === RuleElementKey.MovementCost
     ? [{ id: ruleIdOf(rule), label: labelOf(rule), extra: element.extra, movement: element.movement ?? LAND }]
     : [];
@@ -54,21 +55,27 @@ function covered(speed: FormulaValue, extra: Feet): FormulaValue | undefined {
  */
 export function applyMovementCost(result: StatisticResult, costs: readonly MovementCostInPlay[]): StatisticResult {
   const movement = movementOf(result.selector);
+
   if (!result.ok || movement === undefined || result.pinnedBy !== undefined) {
     return result;
   }
+
   const [worst] = costs
     .filter((cost) => cost.movement.includes(movement))
     .toSorted((left, right) => right.extra - left.extra);
+
   const value = worst === undefined ? undefined : covered(result.total, worst.extra);
+
   if (worst === undefined || value === undefined || value >= result.total) {
     return result;
   }
+
   const reduction: MovementCostReduction = {
     rule: worst.id,
     label: worst.label,
     extra: worst.extra,
     was: result.total,
   };
+
   return { ...result, computed: value, total: value, movementCost: reduction };
 }

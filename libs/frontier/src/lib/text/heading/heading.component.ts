@@ -9,6 +9,7 @@ import { textVariants } from '../text.variants';
 import type { TextVariant } from '../text.variants';
 
 export const HeadingLevel = { One: 1, Two: 2, Three: 3, Four: 4 } as const;
+
 export type HeadingLevel = ValueOf<typeof HeadingLevel>;
 
 /** Read out while busy: the heading's only text then is a skeleton, so it would otherwise be empty. */

@@ -64,6 +64,7 @@ export class SheetResources {
     const maxima = this.#sheet.resourceMaxima();
     const read = this.#play.play.data();
     const only = this.pool();
+
     return maxima === undefined || read === undefined
       ? undefined
       : viewsOf(read.play.resources, maxima).filter(({ resource }) => only === undefined || resource === only);
@@ -88,10 +89,13 @@ export class SheetResources {
   protected readonly set = async (row: ResourceView, value: number): Promise<void> => {
     const asked = ResourceCount.parse(Math.max(value, 0));
     const step = asked - row.current;
+
     if (step === 0) {
       return;
     }
+
     const { resource } = row;
+
     const command: PlayCommand =
       Math.abs(step) === 1
         ? {
@@ -100,6 +104,7 @@ export class SheetResources {
             amount: ONE,
           }
         : { field: PlayCommandField.SetResource, resource, current: asked };
+
     this.#asked.update((now) => ({ ...now, [resource]: asked }));
     await this.#send(command, resource);
   };
@@ -107,12 +112,14 @@ export class SheetResources {
   /** The server's reason (a conflict), else the sheet's own wording. */
   #describe(error: unknown): string {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   }
 
   async #send(command: PlayCommand, resource: Resource): Promise<void> {
     this.busy.set(true);
     this.error.set(undefined);
+
     try {
       await this.#play.send(command);
     } catch (error: unknown) {

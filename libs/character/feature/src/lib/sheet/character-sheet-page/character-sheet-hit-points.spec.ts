@@ -14,6 +14,7 @@ const CLERIC_MERISIEL = {
   ...MERISIEL,
   build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric') } },
 };
+
 const MAX_HP = 15;
 
 function hitPointsOf(root: HTMLElement): HTMLElement {

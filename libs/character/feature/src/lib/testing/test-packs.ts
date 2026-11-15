@@ -9,14 +9,18 @@ const IMPORTED: ReadonlySet<PackId> = new Set(FOUNDRY_IMPORTS.map(({ pack }) => 
 /** `pack` with only the `kept` kinds, read once like the pack it cuts down. */
 function cutDown(pack: PackContentsLoader, kept: ReadonlySet<ContentKind>): PackContentsLoader {
   let contents: Promise<PackContents> | undefined = undefined;
+
   const cut = async (): Promise<PackContents> => {
     const full = await pack.load();
+
     return { ...full, entries: full.entries.filter(({ kind }) => kept.has(kind)) };
   };
+
   return {
     id: pack.id,
     load: async () => {
       contents ??= cut();
+
       return contents;
     },
   };
@@ -36,5 +40,6 @@ export const TEST_PACKS: readonly PackContentsLoader[] = cutTo(CHARACTER_CONTENT
  */
 export function cutTo(kinds: readonly ContentKind[]): readonly PackContentsLoader[] {
   const kept = new Set(kinds);
+
   return officialPacks.map((pack) => (IMPORTED.has(pack.id) ? cutDown(pack, kept) : pack));
 }

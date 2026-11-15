@@ -15,6 +15,7 @@ describe('heldContentIds', () => {
       name: 'Ada',
       level: 3,
     });
+
     expect([...found].toSorted()).toEqual([FIRST, SECOND]);
   });
 

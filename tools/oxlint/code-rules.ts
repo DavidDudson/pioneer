@@ -11,6 +11,7 @@ const BRANCHES = new Set([
   'ForStatement',
   'ConditionalExpression',
 ]);
+
 const BOUNDARIES = new Set(['Program', 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression']);
 
 interface AncestorShape {
@@ -27,16 +28,20 @@ type OwnsSlot = (parent: AncestorShape, child: AncestorShape) => boolean;
 function hasOwner(node: unknown, ownsSlot: OwnsSlot): boolean {
   let child = node as AncestorShape;
   let { parent } = child;
+
   while (parent !== undefined) {
     if (ownsSlot(parent, child)) {
       return true;
     }
+
     if (BOUNDARIES.has(parent.type)) {
       return false;
     }
+
     child = parent;
     ({ parent } = child);
   }
+
   return false;
 }
 
@@ -102,6 +107,7 @@ export const noDerivedTypes: Rule.RuleModule = {
       TSTypeReference(node: Rule.Node): void {
         const { typeName } = node as unknown as TypeReferenceShape;
         const name = typeName?.type === 'Identifier' ? typeName.name : undefined;
+
         if (typeof name === 'string' && DERIVED_TYPES.has(name)) {
           context.report({ node, messageId: 'derived', data: { name } });
         }

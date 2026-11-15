@@ -44,26 +44,32 @@ import { senseData, statisticData } from './rules-core-kind-arbitraries';
 const AON_ID_MAX = 99_999;
 
 const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
+
 const aonUrl: Arbitrary<string> = integer({ min: 1, max: AON_ID_MAX }).map(
   (id) => `https://2e.aonprd.com/Feats.aspx?ID=${id}`,
 );
 
 const rarity: Arbitrary<string> = constantFrom(...Object.values(Rarity));
 const displayCategory: Arbitrary<string> = constantFrom(...Object.values(DisplayCategory));
+
 const actionUse = {
   category: constantFrom(...Object.values(ActionCategory)),
   requirementsText: richTextJson,
   frequency: record({ max: positive, per: constantFrom(...Object.values(FrequencyPeriod)) }),
   selfEffect: contentIdJson,
 };
+
 const reaction: Arbitrary<object> = withOptional(
   record({ cost: constant(ActionCost.Reaction), trigger: richTextJson }),
   actionUse,
 );
+
 const otherCost: Arbitrary<string> = constantFrom(
   ...Object.values(ActionCost).filter((cost) => cost !== ActionCost.Reaction),
 );
+
 const COUNTED_COSTS = [ActionCost.One, ActionCost.Two, ActionCost.Three];
+
 /** A variable cost: a glyph that counts actions, running to more of them. */
 const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((cost) =>
   record({
@@ -71,16 +77,20 @@ const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((co
     upTo: integer({ min: COUNTED_COSTS.indexOf(cost) + 2, max: UP_TO_MAX }),
   }),
 );
+
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
+
 /** A reaction always has a trigger; anything else may. */
 const untriggeredAction: Arbitrary<object> = oneof(
   reaction,
   withOptional(constant({}), { cost: otherCost, trigger: richTextJson, skills, ...actionUse }),
   withOptional(variableCost, { skills, ...actionUse }),
 );
+
 const actionData: Arbitrary<object> = withTrigger(untriggeredAction);
 
 const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
+
 const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {
   prerequisites: richTextJson,
   prerequisitePredicate: predicateJson,
@@ -90,6 +100,7 @@ const featData: Arbitrary<object> = withOptional(record({ category: featCategory
   maxTakable: oneof(positive, constant(UNLIMITED)),
   action: actionData,
 });
+
 const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
   action: actionData,
   tags: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }),
@@ -99,6 +110,7 @@ const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
 const ancestryFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });
 
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
+
 const conditionData: Arbitrary<object> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant([]) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
@@ -109,16 +121,21 @@ const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: st
   reason: contentText,
   blocks: array(slugText, { maxLength: LIST_MAX }),
 });
+
 const durationUnit: Arbitrary<string> = constantFrom(...Object.values(DurationUnit));
+
 const environmentDamage: Arbitrary<object> = record({
   category: constantFrom('minor', 'moderate', 'major', 'massive'),
   type: constantFrom('cold', 'fire'),
 });
+
 const environmentAfter = record({ count: positive, unit: durationUnit });
+
 const environmentConsequence: Arbitrary<object> = oneof(
   withOptional(record({ after: environmentAfter, applies: contentIdJson }), { repeats: boolean() }),
   withOptional(record({ after: environmentAfter, damage: environmentDamage }), { repeats: boolean() }),
 );
+
 const environmentData: Arbitrary<object> = record({
   restrictions: uniqueArray(environmentRestriction, { selector: ({ id }) => id, maxLength: LIST_MAX }),
   consequences: array(environmentConsequence, { maxLength: LIST_MAX }),
@@ -170,6 +187,7 @@ const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
 const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });
 const bookAon: Arbitrary<object> = record({ kind: constant('book'), book: slugText, aon: aonUrl });
 const webPage: Arbitrary<object> = record({ kind: constant('web'), url: constant('https://example.com/homebrew') });
+
 const source: Arbitrary<object> = oneof(
   withOptional(bookPage, { aon: aonUrl }),
   bookAon,
@@ -186,6 +204,7 @@ interface EntryIdentity {
 function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
   return tuple(slugText, slugText).map(([pack, name]) => {
     const slug = entrySlug(kind, Slug.parse(name));
+
     return { id: contentId(PackId.parse(pack), slug), pack, slug };
   });
 }
@@ -193,6 +212,7 @@ function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
 /** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
 function impliedGrants(data: object): object[] {
   const implies: unknown = Reflect.get(data, 'implies');
+
   return Array.isArray(implies) ? implies.map((item: unknown) => ({ key: 'GrantItem', item })) : [];
 }
 
@@ -205,9 +225,11 @@ interface DataAndRules {
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
 export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
   const { data, level, levelless = false } = KIND_ARBITRARIES[kind];
+
   const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(
     ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
   );
+
   const required = tuple(identity(kind), dataAndRules).chain(([{ id, pack, slug }, kindFields]) =>
     record({
       id: constant(id),
@@ -224,7 +246,9 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
       ...(level === undefined ? {} : { level }),
     }),
   );
+
   const externalIds = withOptional(constant({}), { foundry: contentText, aon: aonUrl, pathbuilder: contentText });
+
   return withOptional(required, {
     ...(level === undefined && !levelless ? { level: entryLevel } : {}),
     display: record({ category: displayCategory }),
@@ -237,5 +261,6 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
 /** A feat taken only at 1st level, which must then be level 1. */
 function onlyLevel1(json: object): boolean {
   const data: unknown = Reflect.get(json, 'data');
+
   return typeof data === 'object' && data !== null && Reflect.get(data, 'onlyLevel1') === true;
 }

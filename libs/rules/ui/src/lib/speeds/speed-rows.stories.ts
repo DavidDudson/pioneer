@@ -9,6 +9,7 @@ const meta: Meta<SpeedRows> = {
   title: 'Rules/Speed Rows',
   component: SpeedRows,
 };
+
 export default meta;
 
 /** While the engine's inputs load: a placeholder per row. */

@@ -16,10 +16,12 @@ const proficiency = (selector: string, rank: string, predicate?: readonly unknow
 
 function ranksOf(elements: readonly object[], options: readonly string[] = []): Record<string, string> {
   const rules = elements.map((element, rule) => inPlay(element, 'cleric', { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return Object.fromEntries(ranksInPlay({ rules, facts }));
 }
 

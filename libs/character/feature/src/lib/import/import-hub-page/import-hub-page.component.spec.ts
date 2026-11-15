@@ -18,19 +18,23 @@ async function open(): Promise<HTMLElement> {
   const harness = await RouterTestingHarness.create('/characters/new/import');
   await harness.fixture.whenStable();
   const root = harness.routeNativeElement;
+
   if (root === null) {
     throw new Error('Expected the page to render');
   }
+
   return root;
 }
 
 describe(ImportHubPage, () => {
   it('offers exactly the Pathbuilder and the Pioneer backup imports, each linking to its page', async () => {
     const root = await open();
+
     const buttons = [...root.querySelectorAll('fr-surface a')].map((anchor) => [
       anchor.textContent.trim(),
       anchor.getAttribute('href'),
     ]);
+
     expect(buttons).toStrictEqual([
       ['Import from Pathbuilder', '/characters/new/import/pathbuilder'],
       ['Import from a Pioneer backup', '/characters/new/import/backup'],
@@ -39,9 +43,11 @@ describe(ImportHubPage, () => {
 
   it('links back to the creation choices', async () => {
     const root = await open();
+
     const back = [...root.querySelectorAll('a')].find((anchor) =>
       anchor.textContent.includes('Back to the creation choices'),
     );
+
     expect(back?.getAttribute('href')).toBe('/characters/new');
   });
 });

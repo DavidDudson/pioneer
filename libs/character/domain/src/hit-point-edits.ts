@@ -50,6 +50,7 @@ export function withTrack(play: PlayState, track: DeathTrack): PlayState {
 /** `play` after Hit Points moved from `before` to `after` without being damaged: coming back above 0 ends dying. */
 function afterRestoring(play: PlayState, before: HitPoints, after: HitPoints): PlayState {
   const revived = before === NONE && after > NONE;
+
   return revived ? withTrack(play, recovered(trackOf(play))) : play;
 }
 
@@ -60,22 +61,27 @@ export function afterDamage(play: PlayState, application: DamageApplication, max
   const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
   const through = DamageTotal.parse(taken - absorbed);
   const damage = plus(atMost(hp.damage, max), through, max);
+
   const hurt: PlayState = {
     ...play,
     hp: { temp: less(hp.temp, absorbed), damage },
     ...(critical && play.breath !== undefined && { breath: criticallyHit(play.breath) }),
   };
+
   const down = through > NONE && currentHitPoints(hurt.hp, max) === NONE;
+
   return down ? withTrack(hurt, knockedOut(trackOf(hurt), critical)) : hurt;
 }
 
 /** `play` after healing `amount`: Hit Points back above 0 end dying. */
 export function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints): PlayState {
   const { hp } = play;
+
   const healed: PlayState = {
     ...play,
     hp: { ...hp, damage: less(atMost(hp.damage, max), amount) },
   };
+
   return afterRestoring(healed, currentHitPoints(hp, max), currentHitPoints(healed.hp, max));
 }
 
@@ -83,11 +89,14 @@ export function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints)
 export function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): PlayState {
   const { hp } = play;
   const before = currentHitPoints(hp, max);
+
   const set: PlayState = {
     ...play,
     hp: { ...hp, damage: less(max, atMost(current, max)) },
   };
+
   const after = currentHitPoints(set.hp, max);
   const down = before > NONE && after === NONE;
+
   return down ? withTrack(set, knockedOut(trackOf(set), false)) : afterRestoring(set, before, after);
 }

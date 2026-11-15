@@ -44,16 +44,20 @@ export class HomebrewBundleService {
    */
   public async manifest(actor: UserId, { packs }: HomebrewManifestRequest): Promise<ContentManifest> {
     const asked = await this.#readable(actor, packs);
+
     if (asked.length === 0) {
       return { packs: [] };
     }
+
     const { manifest } = await this.#bundles.of(asked);
+
     const readable = new Set(
       await this.#readable(
         actor,
         manifest.packs.map((pack) => contentPackId(pack.id)),
       ),
     );
+
     return { packs: manifest.packs.filter((pack) => readable.has(contentPackId(pack.id))) };
   }
 
@@ -62,29 +66,37 @@ export class HomebrewBundleService {
     const id = contentPackId(pack);
     const [readable] = await this.#readable(actor, [id]);
     const path = bundlePath(pack, file);
+
     if (readable === undefined) {
       throw new NotFoundError('Content bundle', path);
     }
+
     const { bodies } = await this.#bundles.of([id]);
     const body = bodies.get(path);
+
     if (body === undefined) {
       throw new NotFoundError('Content bundle', path);
     }
+
     return body;
   }
 
   /** The homebrew packs among `ids` that the actor may read. */
   async #readable(actor: UserId, ids: readonly ContentPackId[]): Promise<readonly ContentPackId[]> {
     const listed = await Promise.all(ids.map(async (id) => this.#directory.findById(id)));
+
     const checked = await Promise.all(
       listed.map(async (pack): Promise<ContentPackId | undefined> => {
         if (pack?.ownerId === undefined) {
           return undefined;
         }
+
         const mayRead = await this.#access.mayRead(actor, pack);
+
         return mayRead ? pack.id : undefined;
       }),
     );
+
     return checked.filter((id) => id !== undefined);
   }
 }

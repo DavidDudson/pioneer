@@ -42,6 +42,7 @@ const RANKS: readonly Proficiency[] = Object.values(Proficiency);
 
 function levels(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
@@ -68,12 +69,15 @@ export function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): RollOpti
  */
 export function levelReads(document: CharacterDocument, reads: LanguageReads): readonly LevelRead[] {
   const skills = skillSlots(document, reads.skills);
+
   return levels().map((level) => {
     const resolution = reads.skills.grantsAt(level);
     const ranks = withSkillPicks(grantedSkillRanks(resolution), slotSkillRanks(skills, level));
     const facts = new PredicateFacts([...resolution.rollOptions, ...rankOptions(ranks)], reads.namespaces);
+
     const holds = (predicate: Predicate | undefined): boolean =>
       predicate === undefined || evaluatePredicate(predicate, facts) === Truth.True;
+
     return { level, elements: languageElements(resolution), holds };
   });
 }

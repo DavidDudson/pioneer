@@ -46,19 +46,23 @@ function pickerOf(root: HTMLElement): HTMLElement | null {
 
 function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
   const found = [...root.querySelectorAll('button')].find((button) => textOf(button) === name);
+
   return present(found);
 }
 
 /** Casts Animal Form from its use button and waits for the picker to open. */
 async function openPicker(): Promise<Opened> {
   const { harness, root } = await openSheet(DRUID, { packs: PACKS, play: PLAY });
+
   const cast = await vi.waitFor(() =>
     present(root.querySelector<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')),
   );
+
   cast.click();
   await vi.waitFor(() => {
     expect(pickerOf(root)).not.toBeNull();
   });
+
   return { harness, root };
 }
 

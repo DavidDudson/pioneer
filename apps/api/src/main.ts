@@ -14,12 +14,16 @@ import { spa } from './spa';
  * deploy runs only `migrate`, so a rollback to an image from before the content seed still deploys.
  */
 const MIGRATE_COMMAND = 'migrate';
+
 /** `pioneer-api content-seed` only seeds the official content packs, and exits (`bun run content:seed`). */
 const CONTENT_SEED_COMMAND = 'content-seed';
+
 /** `pioneer-api health` exits 0 when the server on PORT answers its health check: the container HEALTHCHECK. */
 const HEALTH_COMMAND = 'health';
+
 /** `pioneer-api grant-maintainer <user-id>` makes an account a maintainer (it may triage bug reports), and exits. */
 const GRANT_MAINTAINER_COMMAND = 'grant-maintainer';
+
 /** Where `grant-maintainer` finds the account id: `bun main.ts grant-maintainer <id>`. */
 const USER_ID_ARGUMENT = 3;
 const COMMANDS: readonly string[] = [MIGRATE_COMMAND, CONTENT_SEED_COMMAND, HEALTH_COMMAND, GRANT_MAINTAINER_COMMAND];
@@ -30,6 +34,7 @@ function log(line: string): void {
 }
 
 const command = Bun.argv.at(2);
+
 if (command !== undefined && !COMMANDS.includes(command)) {
   throw new Error(`Unknown command "${command}"; expected one of ${COMMANDS.join(', ')} or none`);
 }
@@ -37,6 +42,7 @@ if (command !== undefined && !COMMANDS.includes(command)) {
 if (command === MIGRATE_COMMAND) {
   const env = readMigrateEnv();
   const db = connect(env.DATABASE_URL);
+
   try {
     await runMigrations(db, env.MIGRATIONS_DIR);
     console.info('migrations applied');
@@ -47,6 +53,7 @@ if (command === MIGRATE_COMMAND) {
 } else if (command === CONTENT_SEED_COMMAND) {
   const env = readMigrateEnv();
   const db = connect(env.DATABASE_URL);
+
   try {
     await seedOfficialContent(db, systemClock, log);
   } finally {
@@ -54,11 +61,14 @@ if (command === MIGRATE_COMMAND) {
   }
 } else if (command === GRANT_MAINTAINER_COMMAND) {
   const userId = Bun.argv.at(USER_ID_ARGUMENT);
+
   if (userId === undefined) {
     throw new Error('Usage: pioneer-api grant-maintainer <user-id>');
   }
+
   const env = readMigrateEnv();
   const db = connect(env.DATABASE_URL);
+
   try {
     const found = await grantMaintainer(db, userId);
     console.info(found ? ` is now a maintainer` : `No account `);
@@ -68,9 +78,11 @@ if (command === MIGRATE_COMMAND) {
   }
 } else if (command === HEALTH_COMMAND) {
   const env = readHealthEnv();
+
   const status = await fetch(`http://127.0.0.1:${env.PORT}${API_PREFIX}/health`, {
     signal: AbortSignal.timeout(HEALTH_TIMEOUT),
   }).then((response): string => (response.ok ? '' : `HTTP ${response.status}`), String);
+
   // One line, not a stack trace: the container runtime keeps the last few as health check logs.
   if (status !== '') {
     console.error(`health check failed: ${status}`);
@@ -79,14 +91,18 @@ if (command === MIGRATE_COMMAND) {
 } else {
   const env = readEnv();
   const db = connect(env.DATABASE_URL);
+
   if (env.MIGRATE_ON_START) {
     await runMigrations(db, env.MIGRATIONS_DIR);
     await seedOfficialContent(db, systemClock, log);
   }
+
   const server = new Elysia().use(createApp(db, env));
+
   if (env.WEB_DIST !== undefined) {
     server.use(spa(env.WEB_DIST));
   }
+
   server.listen(env.PORT);
   console.info(`pioneer api listening on :${env.PORT}`);
 }

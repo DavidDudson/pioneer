@@ -55,6 +55,7 @@ export function loaded<TValue>(
   return computed(() => {
     const content = registry();
     const current = character();
+
     return content === undefined || current === undefined ? undefined : read(content, current);
   });
 }
@@ -63,6 +64,7 @@ export function engineReads(sources: BuildPickSources): EngineReads {
   const engine = { ...sources, registry: sources.engineRegistry };
   const shields = loaded(engine, sheetShields);
   const strikes = loaded(engine, (registry, character) => sheetStrikes(registry, character, sources.claims()));
+
   return {
     statistics: loaded(engine, (registry, character) =>
       withSituations(registry, character, {
@@ -81,6 +83,7 @@ export function engineReads(sources: BuildPickSources): EngineReads {
       const registry = sources.engineRegistry();
       const character = sources.character();
       const inForm = strikes();
+
       return registry === undefined || character === undefined || inForm === undefined
         ? []
         : suppressedStrikes(registry, character, inForm).map(({ name, nameKey }) =>
@@ -91,6 +94,7 @@ export function engineReads(sources: BuildPickSources): EngineReads {
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {
       const registry = sources.engineRegistry() ?? sources.registry();
+
       return registry === undefined ? new Map<ContentId, string>() : sheetEntryNames(registry);
     }),
   };

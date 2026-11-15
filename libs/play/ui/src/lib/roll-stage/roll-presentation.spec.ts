@@ -17,9 +17,11 @@ import { Natural, presentRoll, withSave } from './roll-presentation';
 /** Rolls `text` with the dice landing on `faces`, in order. */
 function roll(text: string, faces: readonly number[]): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
+
   if (!outcome.ok) {
     throw new Error(`${text} does not parse`);
   }
+
   return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 

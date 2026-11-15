@@ -13,28 +13,36 @@ export function bisected<TValue>(
   range: { readonly first: Level; readonly last: Level },
 ): (level: Level) => TValue {
   const exact = new Map<Level, TValue>();
+
   const readOnce = (level: Level): TValue => {
     const value = exact.get(level) ?? read(level);
     exact.set(level, value);
+
     return value;
   };
+
   return (level) => {
     let low = range.first;
     let high = range.last;
+
     while (level > low && level < high) {
       if (same(readOnce(low), readOnce(high))) {
         return readOnce(low);
       }
+
       const middle = Level.parse(Math.floor((low + high) / HALF));
+
       if (middle === low) {
         break;
       }
+
       if (level <= middle) {
         high = middle;
       } else {
         low = middle;
       }
     }
+
     return readOnce(level);
   };
 }

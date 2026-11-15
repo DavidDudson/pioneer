@@ -109,14 +109,19 @@ export function sanctificationMessage(sanctification: DeitySanctificationLine | 
   if (sanctification === undefined) {
     return DeityMessage.NoSanctification;
   }
+
   const { modal, what } = sanctification;
   const must = modal === SanctificationModal.Must;
+
   if (what.length > 1) {
     return must ? DeityMessage.MustEither : DeityMessage.CanEither;
   }
+
   const holy = what.includes(Sanctification.Holy);
+
   if (must) {
     return holy ? DeityMessage.MustHoly : DeityMessage.MustUnholy;
   }
+
   return holy ? DeityMessage.CanHoly : DeityMessage.CanUnholy;
 }

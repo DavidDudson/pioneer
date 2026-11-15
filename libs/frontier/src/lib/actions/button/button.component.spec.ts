@@ -18,12 +18,15 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Save')]],
   });
+
   onTestFinished(() => {
     ref.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     ref.setInput(name, value);
   }
+
   const presses: MouseEvent[] = [];
   ref.instance.pressed.subscribe((event) => {
     presses.push(event);
@@ -32,9 +35,11 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
   appRef.attachView(ref.hostView);
   await appRef.whenStable();
   const button = (ref.location.nativeElement as HTMLElement).querySelector('button');
+
   if (button === null) {
     throw new Error('fr-button rendered no <button>');
   }
+
   return { button, ref, presses };
 }
 
@@ -84,6 +89,7 @@ describe(Button, () => {
     const { button } = await render({ variant });
     const classes = [...button.classList];
     expect(classes).toStrictEqual(expect.arrayContaining([...VARIANT_CLASSES[variant].has]));
+
     for (const lacked of VARIANT_CLASSES[variant].lacks) {
       expect(classes).not.toContain(lacked);
     }
@@ -119,6 +125,7 @@ describe(Button, () => {
 
   it('leaves the optional ARIA and id attributes off by default', async () => {
     const { button } = await render({});
+
     for (const name of [
       'id',
       'aria-label',

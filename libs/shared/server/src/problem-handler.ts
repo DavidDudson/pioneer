@@ -34,9 +34,11 @@ function toProblem(error: unknown): Problem {
       issues: [...error.issues],
     };
   }
+
   if (error instanceof DomainError) {
     return { type: error.type, title: TITLE[error.type], status: error.status, message: error.descriptor };
   }
+
   if (error instanceof z.ZodError) {
     return {
       type: ProblemType.Validation,
@@ -47,6 +49,7 @@ function toProblem(error: unknown): Problem {
       issues: fieldIssues(error.issues),
     };
   }
+
   return {
     type: ProblemType.Internal,
     title: TITLE[ProblemType.Internal],
@@ -61,6 +64,7 @@ export const problemHandler = new Elysia({ name: 'problem-handler' }).onError(
   ({ code, error, set }) => {
     if (code === 'NOT_FOUND') {
       set.status = HttpStatus.NotFound;
+
       return {
         type: ProblemType.NotFound,
         title: 'Route not found',
@@ -68,12 +72,16 @@ export const problemHandler = new Elysia({ name: 'problem-handler' }).onError(
         message: message(ProblemMessage.RouteNotFound),
       } satisfies Problem;
     }
+
     const problem = toProblem(error);
+
     if (problem.status === HttpStatus.InternalServerError) {
       console.error(error);
     }
+
     set.status = problem.status;
     set.headers['content-type'] = 'application/problem+json';
+
     return problem;
   },
 );

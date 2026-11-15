@@ -9,12 +9,15 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
   onTestFinished(() => {
     gem.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     gem.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(gem.hostView);
   await appRef.whenStable();
+
   return gem.location.nativeElement as HTMLElement;
 }
 

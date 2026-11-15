@@ -24,9 +24,11 @@ const withContent = namedCharacter.filter(({ ids }) => ids.length > 0);
 
 function fileOf({ character, name }: NamedCharacter): PioneerCharacterFile {
   const exported = exportPioneerCharacter(character, name);
+
   if (!exported.ok) {
     throw new Error('Expected every id to be named');
   }
+
   return exported.file;
 }
 
@@ -36,9 +38,11 @@ function readBack(named: NamedCharacter): CharacterDocument {
     id: named.character.id,
     ownerId: named.character.ownerId,
   });
+
   if (!read.ok) {
     throw new Error(`Expected the file to be read, got ${read.problem}`);
   }
+
   return read.character;
 }
 
@@ -59,6 +63,7 @@ describe('Pioneer character file (properties)', () => {
         const text = JSON.stringify(fileOf(named));
         expect(text).not.toContain(named.character.id);
         expect(text).not.toContain(named.character.ownerId);
+
         for (const id of named.ids) {
           expect(text).not.toContain(id);
         }

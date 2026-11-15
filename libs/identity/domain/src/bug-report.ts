@@ -16,20 +16,26 @@ export const BugReportStatus = {
   Fixed: 'fixed',
   Declined: 'declined',
 } as const;
+
 export type BugReportStatus = ValueOf<typeof BugReportStatus>;
+
 export const BugReportStatusSchema = z.enum(BugReportStatus);
 
 export const ReportedRoute = z.string().trim().min(1).max(BUG_REPORT_ROUTE_MAX_LENGTH).brand<'ReportedRoute'>();
+
 export type ReportedRoute = z.infer<typeof ReportedRoute>;
 
 export const AppVersion = z.string().trim().min(1).max(BUG_REPORT_APP_VERSION_MAX_LENGTH).brand<'AppVersion'>();
+
 export type AppVersion = z.infer<typeof AppVersion>;
 
 export const UserAgent = z.string().trim().min(1).max(BUG_REPORT_USER_AGENT_MAX_LENGTH).brand<'UserAgent'>();
+
 export type UserAgent = z.infer<typeof UserAgent>;
 
 /** Free text the reporter wrote: what went wrong, or the steps to see it (which may be empty). */
 export const ReportText = z.string().trim().max(BUG_REPORT_TEXT_MAX_LENGTH).brand<'ReportText'>();
+
 export type ReportText = z.infer<typeof ReportText>;
 
 export const ReportDescription = ReportText.refine((text) => text.length > 0);
@@ -57,6 +63,7 @@ export const BugReportSubmission = z.strictObject({
   ...BugReportDetails,
   shareCharacter: z.boolean().default(false),
 });
+
 export type BugReportSubmission = z.output<typeof BugReportSubmission>;
 
 /**
@@ -65,6 +72,7 @@ export type BugReportSubmission = z.output<typeof BugReportSubmission>;
  * is written once, when the report is filed, and later edits to the character never reach it.
  */
 export const CharacterSnapshot = z.looseObject({});
+
 export type CharacterSnapshot = z.output<typeof CharacterSnapshot>;
 
 /** A stored bug report. */
@@ -76,6 +84,7 @@ export const BugReport = z.strictObject({
   status: BugReportStatusSchema,
   snapshot: CharacterSnapshot.optional(),
 });
+
 export type BugReport = z.output<typeof BugReport>;
 
 /**
@@ -87,6 +96,7 @@ export const BugReportReceipt = z.strictObject({
   ...BugReport.omit({ snapshot: true }).shape,
   snapshotTaken: z.boolean(),
 });
+
 export type BugReportReceipt = z.output<typeof BugReportReceipt>;
 
 /** The most reports a maintainer's list shows, newest first. */
@@ -105,6 +115,7 @@ export const BugReportListItem = z.strictObject({
   /** Whether the reporter shared a copy of their character. */
   hasSnapshot: z.boolean(),
 });
+
 export type BugReportListItem = z.output<typeof BugReportListItem>;
 
 /** A report as a maintainer reads it: everything the reporter sent, and the snapshot if they shared one. */
@@ -112,8 +123,10 @@ export const BugReportDetail = z.strictObject({
   ...BugReport.shape,
   reporterName: DisplayName.optional(),
 });
+
 export type BugReportDetail = z.output<typeof BugReportDetail>;
 
 /** A maintainer's change to a report: where it stands now. */
 export const BugReportTriage = z.strictObject({ status: BugReportStatusSchema });
+
 export type BugReportTriage = z.output<typeof BugReportTriage>;

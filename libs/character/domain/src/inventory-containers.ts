@@ -7,10 +7,12 @@ export function containersOf(
 ): InventoryItemId[] {
   const chain: InventoryItemId[] = [];
   let current = items.get(id)?.container;
+
   while (current !== undefined && !chain.includes(current)) {
     chain.push(current);
     current = items.get(current)?.container;
   }
+
   return chain;
 }
 

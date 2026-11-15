@@ -13,10 +13,12 @@ export const SheetMode = {
   Exploration: 'exploration',
   Downtime: 'downtime',
 } as const;
+
 export type SheetMode = ValueOf<typeof SheetMode>;
 
 /** A remembered tab's own row id, for the audit trail. */
 export const SheetModeId = Uuid.brand<'SheetModeId'>();
+
 export type SheetModeId = z.infer<typeof SheetModeId>;
 
 export const SheetModeSchema = z.enum(SheetMode);
@@ -29,8 +31,10 @@ export const DEFAULT_SHEET_MODE: SheetMode = SheetMode.Exploration;
  * switch tabs.
  */
 export const SheetModeChoice = z.strictObject({ mode: SheetModeSchema.optional() });
+
 export type SheetModeChoice = z.output<typeof SheetModeChoice>;
 
 /** A switch to `mode`; a choice is changed, never removed (ADR-0052). */
 export const SetSheetModeBody = z.strictObject({ mode: SheetModeSchema });
+
 export type SetSheetModeBody = z.output<typeof SetSheetModeBody>;

@@ -112,8 +112,10 @@ function dedication(entry: string): readonly object[] {
 const BASIC_TOP = 3;
 const EXPERT_TOP = 6;
 const MASTER_TOP = 8;
+
 /** How many levels after a class caster a multiclass caster gains a rank: 1st rank at 4th level to 3rd at 8th. */
 const BASIC_LAG = 3;
+
 /** From 4th rank: 4th at 12th level to 8th at 20th. */
 const LATER_LAG = 5;
 

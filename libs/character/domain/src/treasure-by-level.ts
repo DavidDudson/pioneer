@@ -11,6 +11,7 @@ import data from './treasure-by-level.json';
  * a table can set its own.
  */
 export const TreasureByLevelSchema = z.array(CopperValue).length(CHARACTER_LEVEL_MAX).readonly();
+
 export type TreasureByLevel = z.infer<typeof TreasureByLevelSchema>;
 
 const FIRST_LEVEL = 1;
@@ -23,8 +24,10 @@ export const CORE_TREASURE_BY_LEVEL: TreasureByLevel = TreasureByLevelSchema.par
 /** What a character of `level` may own, in copper. */
 export function treasureAt(table: TreasureByLevel, level: CharacterLevel): CopperValue {
   const value = table[level - FIRST_LEVEL];
+
   if (value === undefined) {
     throw new TypeError(`The treasure table has no level ${level}`);
   }
+
   return value;
 }

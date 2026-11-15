@@ -48,6 +48,7 @@ describe('a ChoiceSet over owned items from Foundry', () => {
       selector: `${PICK}-damage`,
       value: '@weapon.system.damage.dice',
     };
+
     const { rules, untranslated } = translated([CHOOSE_WEAPON, SPIRIT_DICE, unreadable]);
 
     expect(rules).toEqual([]);
@@ -128,6 +129,7 @@ describe('a CriticalSpecialization that reads a pick', () => {
       ...specialize,
       predicate: [{ gte: ['self:level', 5] }, { or: [`item:id:${PICK}`, 'item:trait:thrown'] }],
     };
+
     const { rules, untranslated } = translated([CHOOSE_WEAPON, specialize, gated]);
 
     expect(untranslated).toEqual([]);

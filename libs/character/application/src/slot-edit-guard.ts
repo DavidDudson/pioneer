@@ -11,10 +11,13 @@ export function assertSlotEditAllowed(character: Character, slots: SlotContent, 
   if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
     return;
   }
+
   const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
+
   const refusal =
     (patch.field === CharacterPatchField.SelectSlot ? slotRefusal(character.document, slots, patch) : undefined) ??
     repertoireSwapRefusal(character.document, slots, { slot: patch.slot, selection });
+
   if (refusal !== undefined) {
     throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
   }

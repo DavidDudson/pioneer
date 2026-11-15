@@ -71,6 +71,7 @@ describe('Player Core: Dragon Form, level 10 druid', () => {
 function jawsExtra(type: string, rank: number): unknown {
   const view = viewOf(effectRulesOf('effect:spell-effect-dragon-form', rank), chosen(`dragon-form:${type}`));
   const jaws = view.strikes.find(({ weapon }) => String(weapon.slug) === 'jaws');
+
   return jaws?.damage?.extra.map(({ count, die, damageType }) => [count, die, damageType]);
 }
 
@@ -107,6 +108,7 @@ function isAnyOf(check: unknown): check is AnyOf {
 /** The dragons the test `check` of a predicate names: one roll option, or an `or` of them. */
 function dragonsOf(check: unknown): readonly string[] {
   const options: readonly unknown[] = isAnyOf(check) ? check.or : [check];
+
   return options.map((option) => String(option).slice('dragon-form:'.length));
 }
 
@@ -124,11 +126,13 @@ const TRADITION_OPTION = 'dragon-form-tradition:';
 /** The dragons each tradition roll option of the effect is switched on by. */
 function traditionOf(): ReadonlyMap<string, readonly string[]> {
   const found = new Map<string, readonly string[]>();
+
   for (const { element } of effectRulesOf('effect:spell-effect-dragon-form', 6)) {
     if (element.key === RuleElementKey.RollOption && element.option.startsWith(TRADITION_OPTION)) {
       found.set(element.option.slice(TRADITION_OPTION.length), dragonsOf(element.predicate?.[0]));
     }
   }
+
   return found;
 }
 
@@ -161,6 +165,7 @@ function grantedSlugs(): readonly string[] {
       element.key === RuleElementKey.GrantItem && typeof element.item === 'string'
         ? PLAYER_CORE_ENTRIES.find(({ id }) => id === element.item)
         : undefined;
+
     return granted === undefined ? [] : [String(granted.slug)];
   });
 }

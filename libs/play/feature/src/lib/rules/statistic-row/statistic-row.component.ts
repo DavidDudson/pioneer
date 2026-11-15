@@ -23,6 +23,7 @@ export class StatisticRow {
   protected readonly total = computed((): string => {
     this.#format.locale();
     const row = this.row();
+
     return row.ok ? this.#format.number(row.total, numberStyle(row.kind)) : '';
   });
 }

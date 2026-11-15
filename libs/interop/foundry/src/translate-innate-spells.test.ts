@@ -14,6 +14,7 @@ function keyed(slug: string, key: string): Record<string, unknown>[] {
   const rules: readonly Record<string, unknown>[] = innateSpellRules(slug).map((rule) =>
     Object.fromEntries(Object.entries(rule)),
   );
+
   return rules.filter((rule) => rule['key'] === key);
 }
 
@@ -29,6 +30,7 @@ describe('innateSpellRules', () => {
   test.each(FEATS)('%s gives an innate entry and every element parses', (slug) => {
     expect(keyed(slug, SpellcastingEntry)).toHaveLength(1);
     expect(keyed(slug, SpellcastingEntry)[0]).toMatchObject({ preparation: 'innate' });
+
     for (const rule of innateSpellRules(slug)) {
       expect(z.safeParse(RuleElement, rule).success).toBe(true);
     }
@@ -70,6 +72,7 @@ describe('innateSpellRules', () => {
 
   test('Mortal Herald casts Heal, or Harm with void healing, heightened to half the level', () => {
     const rules = keyed('feat:mortal-herald-dedication', InnateSpells);
+
     const first = (spellSlug: string): unknown =>
       rules.find(({ spells }) => JSON.stringify(spells).includes(spell(spellSlug)));
 

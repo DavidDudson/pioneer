@@ -30,21 +30,26 @@ interface Run {
 /** `command` made when the wand allows it. */
 function step(play: PlayState, command: WandCommand): Step {
   const source = wandSourceOf([WAND], play);
+
   if (source === undefined || wandProblem(command, source) !== undefined) {
     return { play, cast: false };
   }
+
   const cast = wandOutcome(command, source) !== WandOutcome.Destroyed;
+
   return { play: afterWandCommand(play, [WAND], command), cast };
 }
 
 function run(commands: readonly WandCommand[]): Run {
   let play = FRESH_PLAY;
   let casts = 0;
+
   for (const command of commands) {
     const next = step(play, command);
     ({ play } = next);
     casts += next.cast ? 1 : 0;
   }
+
   return { casts, play };
 }
 

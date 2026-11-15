@@ -33,8 +33,10 @@ export function initiativeChoices(
       result.ok && result.selector !== PERCEPTION ? [{ selector: result.selector, name }] : [],
     ),
   ];
+
   return candidates.flatMap(({ selector, name }): InitiativeChoice[] => {
     const setup = sheetRollSetup(registry, character, { selector, chosen: new Set(), as: initiativeRoll(selector) });
+
     return setup === undefined ? [] : [{ selector, name, total: Number(setup.statistic.total) }];
   });
 }
@@ -46,6 +48,7 @@ export function defaultInitiative(
   choices: readonly InitiativeChoice[],
 ): InitiativeChoice | undefined {
   const suggested = suggestedInitiative(registry, activity);
+
   return (
     choices.find(({ selector }) => selector === suggested) ?? choices.find(({ selector }) => selector === PERCEPTION)
   );

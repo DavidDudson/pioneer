@@ -16,18 +16,22 @@ function actionOf(entry: ContentEntry): ActionCosting | undefined {
   if (entry.kind === ContentKind.Action) {
     return entry.data;
   }
+
   if (entry.kind === ContentKind.Consumable) {
     return entry.data.activation;
   }
+
   return entry.kind === ContentKind.Feat || entry.kind === ContentKind.ClassFeature ? entry.data.action : undefined;
 }
 
 /** What the feat, class feature, action or consumable an entry is costs to use, if it says. */
 function costOf(entry: ContentEntry): ActionCostRange | undefined {
   const action = actionOf(entry);
+
   if (action?.cost === undefined) {
     return undefined;
   }
+
   return {
     cost: action.cost,
     upTo: action.upTo === undefined ? undefined : SpendCount.parse(action.upTo),
@@ -38,18 +42,23 @@ function costOf(entry: ContentEntry): ActionCostRange | undefined {
 /** The cost of each feat, class feature and action in the registry that has one; read once per registry. */
 export function actionCosts(registry: ContentRegistry): ReadonlyMap<ContentId, ActionCostRange> {
   const existing = READ.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
       .flatMap((entry): [ContentId, ActionCostRange][] => {
         const cost = costOf(entry);
+
         return cost === undefined ? [] : [[entry.id, cost]];
       }),
   );
+
   READ.set(registry, read);
+
   return read;
 }
 
@@ -61,11 +70,15 @@ export function spellCost({ cast }: Pick<SpellOption, 'cast'>): ActionCostRange 
   const costs = cast.filter((each): each is ActionCost => each !== CastActions.Time);
   const counted = costs.filter((each) => ACTION_COUNT[each] !== undefined);
   const fewest = counted.toSorted((left, right) => (ACTION_COUNT[left] ?? 0) - (ACTION_COUNT[right] ?? 0)).at(0);
+
   if (fewest === undefined) {
     const single = costs.at(0);
+
     return single === undefined ? undefined : { cost: single };
   }
+
   const most = Math.max(...counted.map((each) => ACTION_COUNT[each] ?? 0));
   const from = ACTION_COUNT[fewest] ?? 0;
+
   return { cost: fewest, upTo: most > from ? SpendCount.parse(most) : undefined };
 }

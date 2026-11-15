@@ -22,6 +22,7 @@ import { itemRunes } from './item-runes';
 import { itemSlugs, NO_PICKED_ITEMS } from './owned-items';
 import type { PickedItems } from './owned-items';
 import { NO_RUNES } from './rune-etching';
+
 /** What the worn armour and held weapons give the statistics. */
 export interface EquippedInputs {
   readonly armor?: ArmorInputs;
@@ -47,6 +48,7 @@ function armorInputs(
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
   }
+
   const { item, entry } = active;
   const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
   const altered = alteredItem(rules, entry, { picked, item: item.id, potency: runes.potency });
@@ -55,6 +57,7 @@ function armorInputs(
   const dexCap = numbers.get(NumericItemProperty.DexCap);
   const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
   const strength = numbers.get(NumericItemProperty.Strength);
+
   const armor = {
     bonus: Modifier.parse(acBonus + (potencyOf(altered) ?? NO_POTENCY)),
     resilient: runes.resilient,
@@ -62,6 +65,7 @@ function armorInputs(
     strength: strength === undefined ? undefined : AttributeModifier.parse(strength),
     origin: originOf(active),
   };
+
   return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };
 }
 
@@ -91,6 +95,7 @@ function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefine
 function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
   const damageType = altered.damageType === undefined ? [] : [`damage:type:${altered.damageType}`];
   const runes = altered.propertyRunes.map((rune) => `rune:property:${rune}`);
+
   return [...altered.rollOptions, ...[...damageType, ...runes].map((option) => RollOptionTail.parse(option))];
 }
 
@@ -104,21 +109,27 @@ function weaponInputs(
 ): readonly WeaponInputs[] {
   return active.flatMap((each): WeaponInputs[] => {
     const { entry } = each;
+
     if (entry.kind !== ContentKind.Weapon) {
       return [];
     }
+
     const slug = slugs.get(each.item.id);
+
     if (slug === undefined) {
       return [];
     }
+
     const flags = picked.get(slug);
     const runes = itemRunes(each.item, entry);
+
     const altered = alteredItem(rules, entry, {
       picked: flags,
       favored: favoredBy(favored, entry.data.baseItem),
       item: each.item.id,
       potency: runes.potency ?? entry.data.itemBonus,
     });
+
     return [
       {
         slug,
@@ -176,6 +187,7 @@ export function equippedInputs(
   const picked = inPlay.picked ?? NO_PICKED_ITEMS;
   const wornSlug = worn === undefined ? undefined : slugs.get(worn.item.id);
   const wornPicks = wornSlug === undefined ? [] : (picked.get(wornSlug) ?? []);
+
   return {
     ...armorInputs(worn, inPlay, wornPicks),
     weapons: weaponInputs(active, { favored, rules: inPlay, slugs, picked }),

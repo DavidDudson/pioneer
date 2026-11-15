@@ -18,6 +18,7 @@ export const ChoiceSourceKind = {
   Archetype: 'archetype',
   General: 'general',
 } as const;
+
 export type ChoiceSourceKind = ValueOf<typeof ChoiceSourceKind>;
 
 /** A choice's source and, where one names it, the entry it comes from: the class, ancestry, background or archetype. */
@@ -53,6 +54,7 @@ const SKILL_SOURCES: Readonly<Record<SkillSlotKind, ChoiceSourceKind>> = {
 function rootName(document: CharacterDocument, content: SlotContent, root: ContentKind): ContentText | undefined {
   const picked = document.build.choices[SlotKey.parse(root)];
   const id = ContentId.safeParse(picked);
+
   return id.success ? content.lookup.entry(id.data)?.name : undefined;
 }
 
@@ -69,6 +71,7 @@ const NAMING_ROOTS: Readonly<Record<ChoiceSourceKind, ContentKind | undefined>> 
 /** The name the source kind is read with: the character's class, ancestry or background; none for the rest. */
 function nameOf(kind: ChoiceSourceKind, document: CharacterDocument, content: SlotContent): ContentText | undefined {
   const root = NAMING_ROOTS[kind];
+
   return root === undefined ? undefined : rootName(document, content, root);
 }
 
@@ -84,14 +87,17 @@ const ENTRY_SOURCES: ReadonlyMap<ContentKind, ChoiceSourceKind> = new Map([
 /** The source of a `ChoiceSet` on `entry`, by the kind of entry that asks it. */
 function entrySource(entry: ContentId | undefined, content: SlotContent): ChoiceSourceKind {
   const found = entry === undefined ? undefined : content.lookup.entry(entry);
+
   if (found === undefined) {
     return ChoiceSourceKind.General;
   }
+
   if (found.kind === ContentKind.Feat) {
     return found.rollOptions.some((option) => option === `trait:${ARCHETYPE_TRAIT}`)
       ? ChoiceSourceKind.Archetype
       : ChoiceSourceKind.General;
   }
+
   return ENTRY_SOURCES.get(found.kind) ?? ChoiceSourceKind.General;
 }
 
@@ -101,25 +107,32 @@ function kindOf(subject: SlotSubject, content: SlotContent): ChoiceSourceKind {
     case SlotSubjectKind.Root: {
       return ROOT_SOURCES.get(subject.content) ?? ChoiceSourceKind.General;
     }
+
     case SlotSubjectKind.Boost: {
       return BOOST_SOURCES[subject.source];
     }
+
     case SlotSubjectKind.Skill: {
       return SKILL_SOURCES[subject.source];
     }
+
     case SlotSubjectKind.Language: {
       return subject.entry === undefined ? ChoiceSourceKind.Ancestry : entrySource(subject.entry, content);
     }
+
     case SlotSubjectKind.Choice: {
       return entrySource(subject.entry, content);
     }
+
     case SlotSubjectKind.Spell:
     case SlotSubjectKind.Signature: {
       return ChoiceSourceKind.Spellcasting;
     }
+
     case SlotSubjectKind.Flaw: {
       return ChoiceSourceKind.Ancestry;
     }
+
     default: {
       const unreachable: never = subject;
       throw new TypeError(`Unhandled slot subject: ${JSON.stringify(unreachable)}`);
@@ -136,10 +149,13 @@ export function choiceSourceOf(
   if (!('subject' in slot)) {
     return undefined;
   }
+
   const { subject } = slot;
   const kind = kindOf(subject, content);
+
   const entryName =
     subject.kind === SlotSubjectKind.Choice && kind === ChoiceSourceKind.Archetype ? subject.entryName : undefined;
+
   return { kind, name: entryName ?? nameOf(kind, document, content) };
 }
 

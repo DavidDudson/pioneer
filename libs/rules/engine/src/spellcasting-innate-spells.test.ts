@@ -40,10 +40,12 @@ function entriesOf(
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, source], rule) => inPlay(element, source, { rule }));
+
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
+
   return [...spellcastingInPlay({ rules, facts })];
 }
 

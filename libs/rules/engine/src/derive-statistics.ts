@@ -22,6 +22,7 @@ import { weaponPotencies } from './weapon-potency';
 
 /** Where a predicate reads a weapon's own roll options (`item:damage:type:slashing`). */
 const ITEM_NAMESPACE = RollOptionNamespace.parse('item');
+
 /** The selector family of a weapon's Strike: `strike:<slug>`. */
 const STRIKE_PREFIX = 'strike:';
 
@@ -34,6 +35,7 @@ function strikeFacts(
   const weapon = selector.startsWith(STRIKE_PREFIX)
     ? weapons.find(({ slug }) => `${STRIKE_PREFIX}${slug}` === selector)
     : undefined;
+
   return weapon === undefined ? facts : facts.withNamespace(ITEM_NAMESPACE, weapon.rollOptions ?? []);
 }
 
@@ -68,14 +70,17 @@ export function deriveStatistics(
   const fromRules = modifierRules(rules);
   const synthetic = [...weaponPotencies(inputs.weapons ?? []), ...armorBonus(inputs.armor, inputs.attributes)];
   const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...synthetic] };
+
   const context = {
     facts,
     resolve: (item: ItemScope): ResolveReference =>
       resolverFor(values, (selector) => bases.baseValue(selector), { item }),
   };
+
   const form = battleFormInPlay({ rules, facts });
   const costs = movementCostsInPlay({ rules, facts });
   const rollEffects = rollEffectsInPlay(rules);
+
   return new Map(
     bases.bases.map(({ definition, result }) => {
       const lineFacts = strikeFacts(context.facts, definition.selector, inputs.weapons ?? []);
@@ -85,6 +90,7 @@ export function deriveStatistics(
       const formed = applyForm(finishedResult, form, context.resolve(NO_ITEM));
       const moved = applyMovementCost(formed, costs);
       const effects = collectRollEffects(definition, rollEffects, { facts, situation });
+
       return [definition.selector, applyRollEffects(moved, effects)];
     }),
   );

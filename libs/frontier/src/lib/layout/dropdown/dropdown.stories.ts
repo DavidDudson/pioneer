@@ -28,6 +28,7 @@ const meta: Meta<Dropdown> = {
       </fr-dropdown>`,
   }),
 };
+
 export default meta;
 
 /** Icon-only: the label names the button. */

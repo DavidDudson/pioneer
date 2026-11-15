@@ -84,6 +84,7 @@ export class CampaignSheetPartyInventory {
 
   protected readonly stash = injectQuery(() => {
     const id = CampaignId.parse(this.campaign());
+
     return {
       queryKey: partyStashKey(id),
       queryFn: async (): Promise<PartyStash> =>
@@ -100,6 +101,7 @@ export class CampaignSheetPartyInventory {
   /** The lines whose name holds the search typed. */
   protected readonly rows = computed((): readonly DepositableLine[] => {
     const needle = this.query().trim().toLocaleLowerCase();
+
     return this.lines().filter((each) => each.name.toLocaleLowerCase().includes(needle));
   });
 
@@ -107,9 +109,11 @@ export class CampaignSheetPartyInventory {
 
   protected readonly deposit = async (): Promise<void> => {
     const item = this.chosen();
+
     if (item === undefined) {
       return;
     }
+
     const id = CampaignId.parse(this.campaign());
     const body = { from: CharacterId.parse(this.character()), item: ReviewedItemId.parse(item) };
     await this.#api.call(CampaignContract.depositToPartyStash, { params: { id }, body });
@@ -121,6 +125,7 @@ export class CampaignSheetPartyInventory {
 
   protected readonly describeDepositError = (error: unknown): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.putFailed');
+
     return this.#i18n.translate(key, params);
   };
 }

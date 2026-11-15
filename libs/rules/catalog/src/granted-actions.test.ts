@@ -11,6 +11,7 @@ const FEAT_PAGE: EnrichmentMapping = {
   aon: AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1'),
   page: PageNumber.parse(40),
 };
+
 const OTHER_PAGE: EnrichmentMapping = { ...FEAT_PAGE, aon: AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=2') };
 const SLUG = EntrySlug.parse('action:break-the-suns-legs');
 
@@ -40,6 +41,7 @@ describe('proposeGrantedActions', () => {
       granter(ContentKind.Feat, { book: FEAT_PAGE.book }),
       { kind: ContentKind.Feat, mapping: undefined },
     ];
+
     for (const one of cases) {
       const { proposals, excepted } = proposeGrantedActions([{ slug: SLUG, grantedBy: [one] }], new Set());
       expect(proposals.size).toBe(0);
@@ -59,6 +61,7 @@ describe('proposeGrantedActions', () => {
       [{ slug: SLUG, grantedBy: [granter(ContentKind.Feat)] }],
       new Set([SLUG]),
     );
+
     expect(proposals.size + excepted.length + unlinked.length).toBe(0);
   });
 });

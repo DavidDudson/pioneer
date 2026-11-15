@@ -34,6 +34,7 @@ const OVER_INVESTED = {
 const OVER = `Cloak ${INVESTED_MAX}`;
 
 const OUTSIDE_A_CAMPAIGN = { acknowledgeable: true, approvals: [] };
+
 const acknowledgedOnce = {
   acknowledgeable: true,
   approvals: [
@@ -59,6 +60,7 @@ async function answerApprovalsRefetch(body: ApprovalsBody): Promise<void> {
       url: `/api/characters/${id}/item-approvals`,
     }),
   );
+
   refetch.flush(body);
 }
 
@@ -80,12 +82,14 @@ describe('acknowledging a rule-breaking item on a character outside a campaign',
     await vi.waitFor(() => {
       button(row(section, OVER), `Acknowledge the warnings on ${OVER}`).click();
     });
+
     const sent = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({
         method: 'POST',
         url: `/api/characters/${id}/item-acknowledgements`,
       }),
     );
+
     expect(sent.request.body).toStrictEqual({ item: cloakId(INVESTED_MAX), rule: RuleBreak.Invested, rune: undefined });
     sent.flush(acknowledgedOnce);
     await answerApprovalsRefetch(acknowledgedOnce);
@@ -102,12 +106,14 @@ describe('acknowledging a rule-breaking item on a character outside a campaign',
     await vi.waitFor(() => {
       button(row(section, OVER), `Take back the acknowledgement on ${OVER}`).click();
     });
+
     const sent = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({
         method: 'DELETE',
         url: `/api/characters/${id}/item-acknowledgements/${ACKNOWLEDGEMENT}`,
       }),
     );
+
     sent.flush(OUTSIDE_A_CAMPAIGN);
     await answerApprovalsRefetch(OUTSIDE_A_CAMPAIGN);
     await settle();
@@ -122,6 +128,7 @@ describe('acknowledging a rule-breaking item on a character outside a campaign',
       acknowledgeable: false,
       approvals: [],
     });
+
     await settle();
     expect(row(section, OVER).textContent).not.toContain('Acknowledge the warnings');
   });

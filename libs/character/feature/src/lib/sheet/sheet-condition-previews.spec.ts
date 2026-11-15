@@ -21,12 +21,14 @@ const INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001
 
 async function registry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
+
   return TestBed.inject(ContentLoader).registry(EQUIPMENT_CONTENT_KINDS);
 }
 
 /** A character with clumsy 2, or with no condition. */
 function clumsyCharacter(clumsy: boolean): Character {
   const built = new CharacterBuilder().build();
+
   return clumsy
     ? withPlay(built, {
         ...built.document.play,
@@ -50,12 +52,14 @@ describe(sheetConditionPreviews, () => {
 
   it('previews a condition the character has with its value and the penalties it applies', async () => {
     const held = await registry();
+
     const previews = TestBed.runInInjectionContext(() =>
       sheetConditionPreviews(
         () => held,
         () => clumsyCharacter(true),
       ),
     );
+
     const preview = previews.preview(clumsyFixtureId());
 
     expect(preview?.value).toBe(2);
@@ -65,12 +69,14 @@ describe(sheetConditionPreviews, () => {
 
   it('previews a condition the character lacks as its entry alone', async () => {
     const held = await registry();
+
     const previews = TestBed.runInInjectionContext(() =>
       sheetConditionPreviews(
         () => held,
         () => clumsyCharacter(false),
       ),
     );
+
     const preview = previews.preview(clumsyFixtureId());
 
     expect(preview?.name).toBeDefined();
@@ -79,12 +85,14 @@ describe(sheetConditionPreviews, () => {
 
   it('previews any entry with what it would do to the character, derived only when the card reads it', async () => {
     const held = await registry();
+
     const previews = TestBed.runInInjectionContext(() =>
       sheetFetchingPreviews(
         () => held,
         () => clumsyCharacter(false),
       ),
     );
+
     const preview = previews.preview(clumsyFixtureId());
 
     expect(preview?.effects?.map(({ statistic }) => statistic)).toContain('Armor Class');
@@ -94,10 +102,12 @@ describe(sheetConditionPreviews, () => {
     it('previews a held condition a section does not hold with its value and effects', async () => {
       const held = await registry();
       const character = clumsyCharacter(true);
+
       const layered = withHeldConditions(
         sheetEntryPreviews(() => undefined),
         { registry: () => held, character: () => character },
       );
+
       const preview = layered.preview(clumsyFixtureId());
 
       expect(preview?.value).toBe(2);
@@ -107,6 +117,7 @@ describe(sheetConditionPreviews, () => {
     it("keeps the section's own preview for a condition the character lacks", async () => {
       const held = await registry();
       const character = clumsyCharacter(false);
+
       const layered = withHeldConditions(
         sheetEntryPreviews(() => held),
         {
@@ -114,6 +125,7 @@ describe(sheetConditionPreviews, () => {
           character: () => character,
         },
       );
+
       const preview = layered.preview(clumsyFixtureId());
 
       expect(preview?.name).toBeDefined();
@@ -125,12 +137,14 @@ describe(sheetConditionPreviews, () => {
 
 describe(genericConditionPreview, () => {
   const ENDING_TEXT = RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'Rest ends it.' }] }]);
+
   const pack = new ContentPackBuilder()
     .withId('generic-condition')
     .withCondition('dazed', [], {
       recovery: [{ kind: 'automatic', trigger: 'rest', change: { effect: 'remove' }, text: ENDING_TEXT }],
     })
     .withCondition('plain');
+
   const held = new ContentRegistry();
   held.register(pack.build());
 

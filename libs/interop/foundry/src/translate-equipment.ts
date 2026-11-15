@@ -37,9 +37,11 @@ const FoundryTreasureSystem = FoundryPhysicalSystem.extend({ category: z.string(
 export function equipmentData(input: KindInput): object | undefined {
   const system = systemOf(FoundryEquipmentSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   return {
     ...physical,
     ...usageField(system, input.log),
@@ -53,15 +55,20 @@ export function equipmentData(input: KindInput): object | undefined {
  */
 function containerOf(bulk: FoundryBulk | null | undefined, log: GapLog): object | undefined {
   const capacity = bulk?.capacity ?? 0;
+
   if (capacity <= 0) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'bulk.capacity', raw: capacity });
+
     return undefined;
   }
+
   const held = bulk?.heldOrStowed ?? undefined;
   const heldBulk = held === undefined || held === bulk?.value ? undefined : bulkOf(held);
+
   if (held !== undefined && held !== bulk?.value && heldBulk === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'bulk.heldOrStowed', raw: held });
   }
+
   return { capacity, ...setFields({ ignored: (bulk?.ignored ?? 0) > 0 ? bulk?.ignored : undefined, heldBulk }) };
 }
 
@@ -72,13 +79,17 @@ function containerOf(bulk: FoundryBulk | null | undefined, log: GapLog): object 
 export function backpackData(input: KindInput): object | undefined {
   const system = systemOf(FoundryBackpackSystem, input);
   const physical = system && physicalData(system, input);
+
   if (system === undefined || physical === undefined) {
     return undefined;
   }
+
   const { log } = input;
+
   if (system.stowing === false) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'stowing', raw: false });
   }
+
   return { ...physical, ...usageField(system, log), ...setFields({ container: containerOf(system.bulk, log) }) };
 }
 
@@ -87,5 +98,6 @@ export function treasureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryTreasureSystem, input);
   const category = system?.category ?? undefined;
   const physical = system && physicalData(system, input, stackSize(category));
+
   return physical && { ...physical, ...setFields({ category }) };
 }

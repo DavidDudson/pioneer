@@ -54,6 +54,7 @@ export class ItemReservoir {
   /** Whether the item has a spell reservoir rune, which is all that lets it hold a spell. */
   protected readonly reserved = computed(() => {
     const item = this.#item();
+
     return item !== undefined && hasReservoirRune(item, this.content().items.get(item.item), this.content().runes);
   });
 
@@ -62,12 +63,14 @@ export class ItemReservoir {
 
   readonly #spells: Signal<SpellContent | undefined> = computed(() => {
     const registry = this.#registry.data();
+
     return registry === undefined ? undefined : spellContent(registry);
   });
 
   /** The spell the weapon holds, by name; its id when the content is not loaded. */
   protected readonly held = computed((): Held | undefined => {
     const spell = this.#item()?.state?.spell;
+
     return spell === undefined
       ? undefined
       : { name: this.#spells()?.anySpell(spell.spell)?.name ?? spell.spell, rank: spell.rank };
@@ -77,10 +80,13 @@ export class ItemReservoir {
   protected readonly options = computed((): readonly SelectOption<string>[] => {
     const item = this.#item();
     const spells = this.#spells();
+
     if (item === undefined || spells === undefined) {
       return [];
     }
+
     const reads = { ...this.content(), spells };
+
     return spells.spells
       .filter((spell) => reservoirRefusal(item, spell.id, reads) === undefined)
       .map((spell) => ({ value: spell.id, label: `${spell.name} (${spell.rank})` }));
@@ -92,9 +98,11 @@ export class ItemReservoir {
   protected readonly store = async (): Promise<void> => {
     const item = this.#item();
     const option = this.#spells()?.spells.find((spell) => spell.id === this.chosen());
+
     if (item === undefined || option === undefined) {
       return;
     }
+
     await this.#store.patch({
       field: CharacterPatchField.SetItemState,
       id: item.id,
@@ -106,15 +114,18 @@ export class ItemReservoir {
   /** Empties the held spell: Channeled Release and Safe Release both leave the weapon with none. */
   protected readonly expend = async (): Promise<void> => {
     const item = this.#item();
+
     if (item === undefined) {
       return;
     }
+
     const { spell: _spent, ...rest } = item.state ?? {};
     await this.#store.patch({ field: CharacterPatchField.SetItemState, id: item.id, state: rest });
   };
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

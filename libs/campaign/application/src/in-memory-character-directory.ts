@@ -41,12 +41,14 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
       ...(ancestry === undefined ? {} : { ancestry: PartyCharacterOrigin.parse(ancestry) }),
       ...(className === undefined ? {} : { class: PartyCharacterOrigin.parse(className) }),
     });
+
     return this;
   }
 
   /** How a character stands: what `vitalsOf` answers for it. */
   public vitals(id: string, vitals: PartyVitals): this {
     this.#vitals.set(CharacterId.parse(id), vitals);
+
     return this;
   }
 
@@ -60,6 +62,7 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     return new Map(
       ids.flatMap((id): [CharacterId, CharacterSummary][] => {
         const character = this.#characters.get(id);
+
         return character === undefined ? [] : [[id, character]];
       }),
     );
@@ -69,6 +72,7 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     return new Map(
       ids.flatMap((id): [CharacterId, PartyVitals][] => {
         const vitals = this.#vitals.get(id);
+
         return vitals === undefined ? [] : [[id, vitals]];
       }),
     );

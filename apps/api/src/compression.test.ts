@@ -15,15 +15,18 @@ function app(): AnyElysia {
     .use(compression)
     .get('/versioned', ({ set }) => {
       set.headers.etag = versioned.etag;
+
       return versioned.body;
     })
     .get('/unversioned', ({ set }) => {
       set.headers.etag = 'W/"weak"';
+
       return versioned.body;
     })
     .get('/big', ({ set }) => {
       set.headers.etag = '"abc"';
       set.headers['cache-control'] = 'public, max-age=10';
+
       return big;
     })
     .get('/small', () => ({ ok: true }))
@@ -32,11 +35,13 @@ function app(): AnyElysia {
 
 async function get(path: string, acceptEncoding?: string): Promise<Response> {
   const headers: Record<string, string> = acceptEncoding === undefined ? {} : { 'accept-encoding': acceptEncoding };
+
   return app().handle(new Request(`http://localhost${path}`, { headers }));
 }
 
 async function gunzipped(response: Response): Promise<unknown> {
   const stream = response.body?.pipeThrough(new DecompressionStream('gzip'));
+
   return new Response(stream).json();
 }
 

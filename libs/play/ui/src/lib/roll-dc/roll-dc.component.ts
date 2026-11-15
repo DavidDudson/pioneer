@@ -26,16 +26,21 @@ export class RollDc {
   protected readonly text = linkedSignal(() => this.dc()?.toString() ?? '');
   protected readonly invalid = computed((): boolean => {
     const text = this.text();
+
     return text !== '' && !(WHOLE_NUMBER.test(text) && Dc.safeParse(Number(text)).success);
   });
 
   protected type(text: string): void {
     this.text.set(text);
+
     if (text === '') {
       this.dcChange.emit(undefined);
+
       return;
     }
+
     const parsed = WHOLE_NUMBER.test(text) ? Dc.safeParse(Number(text)) : undefined;
+
     if (parsed?.success === true) {
       this.dcChange.emit(parsed.data);
     }

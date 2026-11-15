@@ -21,6 +21,7 @@ const meta: Meta<Spinner> = {
     template: `<fr-spinner ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Default: SpinnerStory = {};

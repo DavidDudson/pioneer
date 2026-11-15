@@ -13,14 +13,18 @@ import { contentCatalog } from './index';
  */
 
 const registry = new ContentRegistry();
+
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
 function idOf(slug: string): ContentId {
   const found = entries.find((entry) => entry.slug === EntrySlug.parse(slug));
+
   if (found === undefined) {
     throw new Error(`${slug} is not in the catalog`);
   }
+
   return found.id;
 }
 
@@ -37,10 +41,13 @@ function clericAt(level: number, doctrine: string): GrantResolution {
       toggles: new Map(),
       namespaces: registry.rollOptionNamespaces(),
     });
+
   const open = resolve(new Map()).open.find((slot) => slot.options.some(({ label }) => String(label) === 'Warpriest'));
+
   const picks = new Map<SlotKey, ChoiceValue>(
     open === undefined ? [] : [[open.key, ChoiceValue.parse(idOf(`class-feature:${doctrine}`))]],
   );
+
   return resolve(picks);
 }
 

@@ -12,10 +12,13 @@ export async function signIn(api: string): Promise<string> {
     redirect: 'manual',
     headers: { 'sec-fetch-site': 'same-origin' },
   });
+
   const cookie = response.headers.getSetCookie()[0]?.split(';')[0];
+
   if (cookie === undefined) {
     throw new Error(`Dev sign-in failed with ${response.status}; is the API running with the dev entrypoint?`);
   }
+
   return cookie;
 }
 
@@ -29,14 +32,18 @@ export interface Session {
 export async function createCharacter(session: Session, db: SQL, name: string): Promise<string> {
   const { api, cookie } = session;
   const origin = Bun.env['PUBLIC_ORIGIN'] ?? 'http://localhost:4200';
+
   const [ancestry] = await db<
     { readonly id: string }[]
   >`select id from content_entries where kind = 'ancestry' limit 1`;
+
   const response = await fetch(`${api}/api/characters`, {
     method: 'POST',
     headers: { origin, 'sec-fetch-site': 'same-origin', 'content-type': 'application/json', cookie },
     body: JSON.stringify({ name, ancestry: ancestry?.id }),
   });
+
   const created = (await response.json()) as { readonly id: string };
+
   return created.id;
 }

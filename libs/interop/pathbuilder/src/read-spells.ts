@@ -34,6 +34,7 @@ const PREPARATION_BY_WORD: Readonly<Record<string, CasterPreparation>> = {
 
 function named(raw: string): PathbuilderName | undefined {
   const trimmed = raw.trim();
+
   return trimmed === '' ? undefined : PathbuilderName.parse(trimmed);
 }
 
@@ -42,15 +43,19 @@ export function importedCasters(build: PathbuilderBuild): ImportedCaster[] {
   return build.spellCasters.flatMap((caster): ImportedCaster[] => {
     const name = named(caster.name);
     const tradition = named(caster.magicTradition);
+
     if (name === undefined || tradition === undefined) {
       return [];
     }
+
     const ranks = caster.spells
       .toSorted((left, right) => left.spellLevel - right.spellLevel)
       .flatMap(({ spellLevel, list }): ImportedSpellRank[] => {
         const spells = list.flatMap((spell) => named(spell) ?? []);
+
         return spells.length === 0 ? [] : [{ rank: spellLevel === 0 ? SlotRank.Cantrip : spellLevel, spells }];
       });
+
     return [
       {
         name,

@@ -25,8 +25,10 @@ function sha256(json: CanonicalJson): BundleHash {
 function packEntries(kind: RegisteredKind): Arbitrary<readonly object[]> {
   const rehomed = contentEntryJson(kind).map((json) => {
     const slug = EntrySlug.parse(Reflect.get(json, 'slug'));
+
     return Object.assign(json, { pack: PACK, id: contentId(PACK, slug) });
   });
+
   return uniqueArray(rehomed, {
     selector: (json): unknown => Reflect.get(json, 'slug'),
     minLength: 1,

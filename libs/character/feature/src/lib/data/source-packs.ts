@@ -16,6 +16,7 @@ import { homebrewOf } from './content-registry-query';
 /** The packs the open character uses by id, so a homebrew entry's source line names its pack and publisher. */
 function sourcePacksOf(): Signal<ReadonlyMap<ContentPackId, SourcePack>> {
   const store = inject(CharacterPackStore);
+
   return computed(
     (): ReadonlyMap<ContentPackId, SourcePack> =>
       new Map(
@@ -38,6 +39,7 @@ const SOURCE_PACKS_PROVIDER: Provider = { provide: SOURCE_PACKS, useFactory: sou
 function contentScopeOf(): Signal<ContentScope> {
   const store = inject(CharacterPackStore);
   const variants = inject(CharacterVariantStore);
+
   return computed((): ContentScope => ({
     homebrew: homebrewOf(store.packs.data()),
     legacy: (variants.rules.data()?.enabled ?? []).some((rule) => rule.variantId === LEGACY_CONTENT_VARIANT),

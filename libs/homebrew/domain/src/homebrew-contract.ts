@@ -12,15 +12,18 @@ export const CreateHomebrewPackBody = z.object({
   title: ContentText,
   slug: PackId,
 });
+
 export type CreateHomebrewPackBody = z.infer<typeof CreateHomebrewPackBody>;
 
 export const SetPackVisibilityBody = z.object({
   visibility: z.enum(PackVisibility),
 });
+
 export type SetPackVisibilityBody = z.infer<typeof SetPackVisibilityBody>;
 
 /** Which pack to extend. */
 export const AddPackDependencyBody = z.object({ dependsOn: ContentPackId });
+
 export type AddPackDependencyBody = z.infer<typeof AddPackDependencyBody>;
 
 /** The homebrew pack HTTP API, shared by `homebrew-infrastructure` and `homebrew-feature`. */

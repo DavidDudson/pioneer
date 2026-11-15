@@ -14,8 +14,10 @@ export function injectOptionColumns<TValue extends string>(): Signal<readonly Ta
   const i18n = inject(TranslocoService);
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
+
   return computed(() => {
     messages();
+
     return optionColumns<TValue>(i18n.translate('rules.optionPicker.column.name'));
   });
 }

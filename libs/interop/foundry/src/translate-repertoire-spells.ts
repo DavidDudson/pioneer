@@ -25,6 +25,7 @@ const DIVINE_ACCESS_LEVEL = 11;
 
 /** A rank (a cantrip, or 1 to 9) and the spell by slug. */
 const Gift = z.tuple([z.union([z.literal('cantrip'), z.number()]), z.string()]);
+
 type Gift = z.infer<typeof Gift>;
 
 /** One option of a choice: its value, its label, the tradition and skill it names, if any, and the gifts it adds. */
@@ -39,6 +40,7 @@ const Option = z.object({
 
 /** A choice made on the feature itself: the roll option its pick sets, its prompt, and its options. */
 const Pick = z.object({ flag: z.string(), prompt: z.string(), options: z.array(Option) });
+
 type Pick = z.infer<typeof Pick>;
 
 /**
@@ -53,6 +55,7 @@ const Source = z.object({
   /** The domains a mystery relates to, which Divine Access offers the deities of; an oracle's mystery only. */
   domains: z.array(z.string()).optional(),
 });
+
 type Source = z.infer<typeof Source>;
 
 const SOURCE_TABLE = z.record(z.string(), Source).parse(sourceTable);
@@ -138,9 +141,11 @@ function divineAccessDeity(domains: readonly string[]): object {
 function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: Resolve): readonly object[] {
   const fixed = entry === SORCERER && tradition !== undefined ? [sorcererEntry(tradition)] : [];
   const picked = entry === SORCERER && tradition === undefined && pick !== undefined ? pickedEntries(pick) : [];
+
   const more = (pick?.options ?? []).flatMap((option) =>
     repertoire(entry, resolve(option.gifts), [`${pick?.flag}:${option.value}`]),
   );
+
   return [
     ...fixed,
     ...(pick === undefined ? [] : [choiceSet(pick)]),
@@ -155,18 +160,24 @@ function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: R
 /** The spontaneous entry and `RepertoireSpells` elements the bloodline or mystery of `input` gains, if any. */
 export function repertoireSpellRules(input: KindInput): readonly object[] {
   const source = SOURCES.get(input.envelope.slug);
+
   if (source === undefined) {
     return [];
   }
+
   const resolve: Resolve = (gifts) =>
     gifts.flatMap(([rank, spell]) => {
       const slug = EntrySlug.safeParse(`spell:${spell}`);
       const spellId = slug.success ? input.references.bySlug.get(slug.data) : undefined;
+
       if (spellId === undefined) {
         report(input.log, { reason: KindDataGapReason.UnresolvedReference, field: FIELD, raw: `spell:${spell}` });
+
         return [];
       }
+
       return [{ rank, spell: spellId }];
     });
+
   return elements(source, resolve);
 }

@@ -19,6 +19,7 @@ const NO_NAME = /^\s*<\/strong>/u;
 
 /** Frequencies that name no limit, so there is no use to count. */
 const UNLIMITED = /^(?:at will|any number of times per [a-z0-9 ]+)\.?$/iu;
+
 /** "once per day, plus overcharge": the frequency, then a further use per period at the cost the item gives. */
 const OVERCHARGE = /,?\s*plus overcharge\.?\s*$/iu;
 
@@ -55,11 +56,14 @@ function countOf(count: string | undefined): number | undefined {
   if (count === undefined) {
     return undefined;
   }
+
   const named = COUNT_WORDS.indexOf(count);
+
   const spelled = new Map([
     ['once', ONCE],
     ['twice', TWICE],
   ]).get(count);
+
   return spelled ?? (named === -1 ? Number(count) : named + ONCE);
 }
 
@@ -69,6 +73,7 @@ export function printedFrequency(text: string): Frequency | undefined {
   const { count, unit } = parsed?.groups ?? {};
   const per = PERIODS.find(([pattern]) => unit !== undefined && pattern.test(unit))?.[1];
   const max = Uses.safeParse(countOf(count));
+
   return per === undefined || !max.success ? undefined : { max: max.data, per };
 }
 
@@ -85,12 +90,16 @@ function limitOf(text: string, log: GapLog): Limit | undefined {
   if (UNLIMITED.test(text.trim())) {
     return undefined;
   }
+
   const base = text.replace(OVERCHARGE, '');
   const frequency = printedFrequency(base);
+
   if (frequency === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'description.frequency', raw: text });
+
     return undefined;
   }
+
   return { frequency, overcharge: base !== text };
 }
 
@@ -103,16 +112,21 @@ export function activationsOf(html: string, itemName: string, log: GapLog): obje
       const text = FREQUENCY.exec(section)?.groups?.['text'];
       const name = nameOf(section, itemName);
       const limit = text === undefined || name === undefined ? undefined : limitOf(text, log);
+
       if (name === undefined || limit === undefined) {
         return [];
       }
+
       const slug = Slug.safeParse(asciiNameSlug(name));
       const label = ActivationName.safeParse(name);
       const { frequency, overcharge } = limit;
+
       return slug.success && label.success
         ? [{ slug: slug.data, name: label.data, frequency, ...(overcharge ? { overcharge } : {}) }]
         : [];
     });
+
   const distinct = found.filter(({ slug }, index) => found.findIndex((each) => each.slug === slug) === index);
+
   return setFields({ activations: distinct.length === 0 ? undefined : distinct });
 }

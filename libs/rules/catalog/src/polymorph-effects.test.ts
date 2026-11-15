@@ -6,11 +6,13 @@ import type { ContentEntry, RuleElement } from '@pioneer/rules/sdk';
 import { contentCatalog } from './index';
 
 const POLYMORPH = Trait.parse('polymorph');
+
 /** The name prefix of an effect, by the kinds of entry it is the effect of. */
 const EFFECT_PREFIXES: readonly (readonly [string, readonly ContentKind[]])[] = [
   ['Spell Effect: ', [ContentKind.Spell]],
   ['Effect: ', [ContentKind.Feat, ContentKind.Action]],
 ];
+
 const VARIANT_SUFFIX = / \([^)]*\)$/u;
 
 /** The effects in `entries` of a polymorph spell, feat or action of the same pack that lack the trait, as keys. */
@@ -18,14 +20,18 @@ function untraited(entries: readonly ContentEntry[]): readonly string[] {
   const polymorph = new Set<string>(
     entries.filter(({ traits }) => traits.includes(POLYMORPH)).map(({ kind, name }) => `${kind}:${name}`),
   );
+
   return entries
     .filter(({ kind, name, traits }) => {
       const given = EFFECT_PREFIXES.find(([prefix]) => name.startsWith(prefix));
+
       if (kind !== ContentKind.Effect || given === undefined || traits.includes(POLYMORPH)) {
         return false;
       }
+
       const [prefix, kinds] = given;
       const source = name.slice(prefix.length).replace(VARIANT_SUFFIX, '');
+
       return kinds.some((each) => polymorph.has(`${each}:${source}`));
     })
     .map(({ pack, slug }) => contentKey(pack, slug));
@@ -43,30 +49,36 @@ describe('polymorph effects', () => {
 /** The rule elements of a player-core effect, by slug. */
 async function effectRules(slug: string): Promise<readonly RuleElement[]> {
   const file = await import('@pioneer/content/packs/player-core/effect.json');
+
   const effect = ContentEntryFile.parse(file.default).find(
     (entry) => entry.kind === ContentKind.Effect && entry.slug === slug,
   );
+
   return effect?.rules ?? [];
 }
 
 /** The rules of `slug` with `key`, ignoring battle forms and other keys. */
 async function rulesOf(slug: string, key: RuleElementKey): Promise<readonly RuleElement[]> {
   const rules = await effectRules(slug);
+
   return rules.filter((rule) => rule.key === key);
 }
 
 /** The immunities `slug` gives, flattened. */
 async function immunitiesOf(slug: string): Promise<readonly string[]> {
   const rules = await rulesOf(slug, RuleElementKey.Immunity);
+
   return rules.flatMap((rule) => (rule.key === RuleElementKey.Immunity ? rule.type : []));
 }
 
 /** The movement cost a player-core environment puts on the Speed: what each square costs more, and when it applies. */
 async function movementCostOf(slug: string): Promise<readonly unknown[]> {
   const file = await import('@pioneer/content/packs/player-core/environment.json');
+
   const environment = ContentEntryFile.parse(file.default).find(
     (entry) => entry.kind === ContentKind.Environment && entry.slug === slug,
   );
+
   return (environment?.rules ?? []).flatMap((rule) =>
     rule.key === RuleElementKey.MovementCost ? [{ extra: rule.extra, predicate: rule.predicate }] : [],
   );
@@ -75,6 +87,7 @@ async function movementCostOf(slug: string): Promise<readonly unknown[]> {
 /** A player-core action entry, by slug; undefined when the pack has none. */
 async function playerCoreAction(slug: string): Promise<ContentEntry | undefined> {
   const file = await import('@pioneer/content/packs/player-core/action.json');
+
   return ContentEntryFile.parse(file.default).find((entry) => entry.kind === ContentKind.Action && entry.slug === slug);
 }
 
@@ -145,9 +158,11 @@ describe('polymorph effect gaps in Player Core', () => {
 /** The traits of a player-core effect, by slug; empty when the pack has no such effect. */
 async function traitsOf(slug: string): Promise<readonly string[]> {
   const file = await import('@pioneer/content/packs/player-core/effect.json');
+
   const effect = ContentEntryFile.parse(file.default).find(
     (entry) => entry.kind === ContentKind.Effect && entry.slug === slug,
   );
+
   return effect?.traits ?? [];
 }
 

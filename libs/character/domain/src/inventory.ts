@@ -17,10 +17,12 @@ import { ItemRunesSchema } from './rune-etching';
 
 /** One line of a character's inventory. Branded so it can't be passed where a content id is expected. */
 export const InventoryItemId = Uuid.brand<'InventoryItemId'>();
+
 export type InventoryItemId = z.infer<typeof InventoryItemId>;
 
 /** How many of an item a line holds: 50 arrows are one line. */
 export const ItemQuantity = Pg.smallint().positive().brand<'ItemQuantity'>();
+
 export type ItemQuantity = z.infer<typeof ItemQuantity>;
 
 export const INVENTORY_ITEM_NAME_MAX_LENGTH = 80;
@@ -32,6 +34,7 @@ export const InventoryItemName = z
   .min(1)
   .max(INVENTORY_ITEM_NAME_MAX_LENGTH)
   .brand<'InventoryItemName'>();
+
 export type InventoryItemName = z.infer<typeof InventoryItemName>;
 
 /**
@@ -57,9 +60,11 @@ export const InventoryItemSchema = z.strictObject({
   origin: z.literal(ItemOrigin.Import).optional(),
   keyItem: KeyItemId.optional(),
 });
+
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;
 
 export { CoinAmount, CoinsSchema } from './coins';
+
 export type { Coins } from './coins';
 
 export const INVENTORY_ITEMS_MAX = CORE_RULE_LIMITS.itemsMax;
@@ -74,15 +79,18 @@ const Items = z
   .readonly()
   .check((context) => {
     const items = byId(context.value);
+
     if (items.size !== context.value.length) {
       context.issues.push({ code: 'custom', input: context.value, message: 'Duplicate inventory item id' });
     }
+
     for (const [index, { id, container, carry }] of context.value.entries()) {
       if (container !== undefined && !items.has(container)) {
         context.issues.push({ code: 'custom', input: container, path: [index, 'container'], message: 'No such item' });
       } else if (containersOf(items, id).includes(id)) {
         context.issues.push({ code: 'custom', input: container, path: [index, 'container'], message: 'Inside itself' });
       }
+
       if (container !== undefined && carry.state !== CarryState.Stowed) {
         context.issues.push({ code: 'custom', input: carry, path: [index, 'carry'], message: 'In a container' });
       }
@@ -101,6 +109,7 @@ export const CustomItemSchema = z.strictObject({
   quantity: ItemQuantity,
   origin: z.literal(ItemOrigin.Import),
 });
+
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
 /** What the character carries: items, the custom items an import kept, and coins. Bulk is worked out on every read (`inventoryBulk`). */
@@ -109,6 +118,7 @@ export const InventorySchema = z.strictObject({
   customItems: z.array(CustomItemSchema).max(INVENTORY_ITEMS_MAX).readonly().default([]),
   coins: CoinsSchema.default(CoinsSchema.parse({})),
 });
+
 export type Inventory = z.infer<typeof InventorySchema>;
 
 export const EMPTY_INVENTORY: Inventory = InventorySchema.parse({});
@@ -125,6 +135,7 @@ export interface NewItem {
 export function addItem(inventory: Inventory, { id, item, quantity, container }: NewItem): Inventory {
   const line: InventoryItem =
     container === undefined ? { id, item, quantity, carry: STOWED } : { id, item, quantity, container, carry: STOWED };
+
   return { ...inventory, items: [...inventory.items, line] };
 }
 
@@ -134,13 +145,17 @@ export function addItem(inventory: Inventory, { id, item, quantity, container }:
  */
 export function removeItem(inventory: Inventory, id: InventoryItemId): Inventory {
   const removed = inventory.items.find((each) => each.id === id);
+
   if (removed === undefined) {
     return { ...inventory, customItems: inventory.customItems.filter((each) => each.id !== id) };
   }
+
   const dropped = removed.carry.state === CarryState.Dropped;
+
   const items = inventory.items
     .filter((each) => each.id !== id)
     .map((each) => (each.container === id ? movedOut(each, removed.container, dropped) : each));
+
   return { ...inventory, items };
 }
 
@@ -173,6 +188,7 @@ export function carryItem(inventory: Inventory, id: InventoryItemId, carry: Carr
 export function investItem(inventory: Inventory, id: InventoryItemId, invested: boolean): Inventory {
   return updateItem(inventory, id, (item) => {
     const { invested: _old, ...rest } = item;
+
     return invested ? { ...rest, invested } : rest;
   });
 }
@@ -211,6 +227,7 @@ export const InventoryRefusalField = {
   Rune: 'rune',
   To: 'to',
 } as const;
+
 export type InventoryRefusalField = ValueOf<typeof InventoryRefusalField>;
 
 /** Why an inventory edit is refused, and the patch field it blames. */
@@ -231,19 +248,24 @@ export function inventoryRefusal(
 ): InventoryRefusal | undefined {
   const { id, item, kit } = edit;
   const adds = item !== undefined || kit !== undefined;
+
   if (adds && inventory.items.length >= limits.itemsMax) {
     return {
       field: kit === undefined ? InventoryRefusalField.Item : InventoryRefusalField.Kit,
       message: message('character.validation.inventoryFull', { maximum: limits.itemsMax }),
     };
   }
+
   const items = byId(inventory.items);
+
   if (id !== undefined && !items.has(id)) {
     return { field: InventoryRefusalField.Id, message: message('character.validation.itemNotFound') };
   }
+
   if (edit.to !== undefined && !items.has(edit.to)) {
     return { field: InventoryRefusalField.To, message: message('character.validation.itemNotFound') };
   }
+
   return limitRefusal(inventory, edit, limits) ?? containerRefusal(items, edit);
 }
 
@@ -254,18 +276,21 @@ function limitRefusal(
   limits: RuleLimits,
 ): InventoryRefusal | undefined {
   const others = inventory.items.filter((each) => each.id !== id);
+
   if (carry?.state === CarryState.Held && handsInUse(others) + carry.hands > limits.handsMax) {
     return {
       field: InventoryRefusalField.Carry,
       message: message('character.validation.handsFull', { maximum: limits.handsMax }),
     };
   }
+
   if (invested === true && investedCount(others) >= limits.investedMax) {
     return {
       field: InventoryRefusalField.Invested,
       message: message('character.validation.investmentFull', { maximum: limits.investedMax }),
     };
   }
+
   return undefined;
 }
 
@@ -277,11 +302,14 @@ function containerRefusal(
   if (container === undefined) {
     return undefined;
   }
+
   if (!items.has(container)) {
     return { field: InventoryRefusalField.Container, message: message('character.validation.containerNotFound') };
   }
+
   if (id !== undefined && (container === id || containersOf(items, container).includes(id))) {
     return { field: InventoryRefusalField.Container, message: message('character.validation.containerInsideItself') };
   }
+
   return undefined;
 }

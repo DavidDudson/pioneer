@@ -23,6 +23,7 @@ function isKitEntry(entry: ContentEntry): entry is KitEntry {
 /** The kits in `registry`'s packs. A later pack's entry of the same id wins, as in the registry. */
 export function kitContent(registry: ContentRegistry): KitContent {
   const kits = registry.packs.flatMap((pack) => pack.otherEntries.filter((entry) => isKitEntry(entry)));
+
   return new Map(kits.map((entry) => [entry.id, entry]));
 }
 
@@ -43,12 +44,14 @@ export function kitItems(
 ): readonly NewItem[] {
   return kit.items.flatMap(({ item, quantity, contents = [] }) => {
     const id = newItemId();
+
     const inside = contents.map((inner): NewItem => ({
       id: newItemId(),
       item: inner.item,
       quantity: ItemQuantity.parse(inner.quantity),
       container: id,
     }));
+
     return [{ id, item, quantity: ItemQuantity.parse(quantity), container }, ...inside];
   });
 }
@@ -66,6 +69,7 @@ const KitUnfit = {
   UnknownItem: 'character.validation.unknownKitItem',
   NotAContainer: 'character.validation.kitNotAContainer',
 } as const;
+
 type KitUnfit = ValueOf<typeof KitUnfit>;
 
 /**
@@ -76,9 +80,11 @@ function kitContentRefusal(kit: KitData, items: ItemContent): KitUnfit | undefin
   if (kitItemIds(kit).some((id) => !items.has(id))) {
     return KitUnfit.UnknownItem;
   }
+
   const holdsInNothing = kit.items.some(
     ({ item, contents = [] }) => contents.length > 0 && !isContainer(items.get(item)),
   );
+
   return holdsInNothing ? KitUnfit.NotAContainer : undefined;
 }
 
@@ -98,18 +104,23 @@ export function kitRefusal(
   kit: ContentId,
 ): InventoryRefusal | undefined {
   const entry = kits.get(kit);
+
   if (entry === undefined) {
     return { field: InventoryRefusalField.Kit, message: message('character.validation.unknownKit') };
   }
+
   const unfit = kitContentRefusal(entry.data, items);
+
   if (unfit !== undefined) {
     return { field: InventoryRefusalField.Kit, message: message(unfit) };
   }
+
   if (inventory.items.length + kitItemIds(entry.data).length > limits.itemsMax) {
     return {
       field: InventoryRefusalField.Kit,
       message: message('character.validation.kitOverfills', { maximum: limits.itemsMax }),
     };
   }
+
   return undefined;
 }

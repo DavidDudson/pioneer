@@ -17,11 +17,13 @@ function without<Value>(
   keys: readonly UseCountKey[],
 ): Partial<Record<UseCountKey, Value>> {
   const kept: Partial<Record<UseCountKey, Value>> = {};
+
   for (const [key, value] of Object.entries<Value | undefined>(record)) {
     if (value !== undefined && !keys.some((back) => back === key)) {
       kept[UseCountKey.parse(key)] = value;
     }
   }
+
   return kept;
 }
 
@@ -36,18 +38,22 @@ export function usesBack(counts: UseCounts, keys: readonly UseCountKey[]): UseCo
  */
 export function countdownStarted(counts: UseCounts, maxima: UseMaxima, key: UseCountKey): UseCounts {
   const countdown = maxima.get(key)?.countdown;
+
   if (countdown === undefined || counts.countdowns[key] !== undefined) {
     return counts;
   }
+
   return { ...counts, countdowns: { ...counts.countdowns, [key]: countdown } };
 }
 
 /** `counts` after a use of `key` is refunded: a countdown nothing is left spent under is cleared. */
 export function countdownCleared(counts: UseCounts, key: UseCountKey): UseCounts {
   const spent = counts.uses[key] ?? NONE;
+
   if (spent > NONE || counts.countdowns[key] === undefined) {
     return counts;
   }
+
   return { uses: counts.uses, countdowns: without(counts.countdowns, [key]) };
 }
 
@@ -56,6 +62,7 @@ function backAtTurnStart(counts: UseCounts, maxima: UseMaxima): readonly UseCoun
   return [...maxima].flatMap(([key, { boundary }]) => {
     const running = counts.countdowns[key];
     const periodic = boundary === Boundary.Turn || boundary === Boundary.Round;
+
     return periodic || (running !== undefined && running <= ONE_ROUND) ? [key] : [];
   });
 }
@@ -67,11 +74,13 @@ function backAtTurnStart(counts: UseCounts, maxima: UseMaxima): readonly UseCoun
 export function usesAtTurnStart(counts: UseCounts, maxima: UseMaxima): UseCounts {
   const back = backAtTurnStart(counts, maxima);
   const countdowns: Partial<Record<UseCountKey, UseCountdown>> = {};
+
   for (const [key, rounds] of Object.entries(counts.countdowns)) {
     if (rounds !== undefined && rounds > ONE_ROUND) {
       countdowns[UseCountKey.parse(key)] = UseCountdown.parse(rounds - ONE_ROUND);
     }
   }
+
   return usesBack({ ...counts, countdowns }, back);
 }
 

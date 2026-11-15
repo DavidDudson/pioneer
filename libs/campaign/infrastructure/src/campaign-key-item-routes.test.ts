@@ -40,9 +40,11 @@ function table(): AnyElysia {
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const party = new InMemoryCampaignPartyRepository(campaigns);
+
   const characters = new InMemoryCharacterDirectory()
     .character({ id: kyra, ownerId: ezren, name: 'Kyra' })
     .character({ id: mordred, ownerId: ezren, name: 'Mordred' });
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -55,6 +57,7 @@ function table(): AnyElysia {
     itemTransfers: itemTransferService(campaigns, clock, { party, characters }),
     partyStash: partyStashService(campaigns),
   };
+
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }
 
@@ -87,6 +90,7 @@ async function json<TBody>(response: Response): Promise<TBody> {
 
 async function statusOf(handler: AnyElysia, call: Request): Promise<number> {
   const response = await handler.handle(call);
+
   return response.status;
 }
 
@@ -104,6 +108,7 @@ async function campaign(handler: AnyElysia): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = await json<{ readonly id: string }>(created);
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json<{ readonly token: string }>(issued);
@@ -113,12 +118,14 @@ async function campaign(handler: AnyElysia): Promise<string> {
       handler.handle(request('POST', `/campaigns/${id}/characters`, { as: ezren, body: { characterId } })),
     ),
   );
+
   return id;
 }
 
 async function createdIn(handler: AnyElysia, id: string): Promise<string> {
   const response = await handler.handle(request('POST', `/campaigns/${id}/key-items`, { as: amiri, body: caliburn }));
   const list = await json<KeyItemsJson>(response);
+
   return list.keyItems.map((each) => each.id).join(',');
 }
 
@@ -128,6 +135,7 @@ describe('key item routes', () => {
     const id = await campaign(handler);
 
     await createdIn(handler, id);
+
     const seen = await json<KeyItemsJson>(
       await handler.handle(request('GET', `/campaigns/${id}/key-items`, { as: ezren })),
     );
@@ -146,10 +154,13 @@ describe('key item routes', () => {
     const given = await json<KeyItemsJson>(
       await handler.handle(request('POST', holder, { as: amiri, body: { characterId: kyra } })),
     );
+
     const moved = await json<KeyItemsJson>(
       await handler.handle(request('POST', holder, { as: amiri, body: { characterId: mordred } })),
     );
+
     const back = await json<KeyItemsJson>(await handler.handle(request('DELETE', holder, { as: amiri })));
+
     const archived = await json<KeyItemsJson>(
       await handler.handle(request('POST', `/campaigns/${id}/key-items/${keyItem}/archive`, { as: amiri })),
     );

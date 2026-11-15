@@ -20,5 +20,6 @@ export const DEV_MARKERS: readonly string[] = [
 /** The markers that occur in `contents`, in marker order. */
 export function findMarkers(contents: Uint8Array, markers: readonly string[] = DEV_MARKERS): string[] {
   const buffer = Buffer.from(contents.buffer, contents.byteOffset, contents.byteLength);
+
   return markers.filter((marker) => buffer.includes(marker));
 }

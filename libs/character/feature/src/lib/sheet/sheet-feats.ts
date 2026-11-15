@@ -86,8 +86,10 @@ function plainText(text: RichText, nameOf: (id: ContentId) => string | undefined
     if (node.type === InlineKind.Text) {
       return node.text;
     }
+
     return node.type === InlineKind.Ref ? (node.label ?? nameOf(node.id) ?? '') : '';
   };
+
   return text
     .map((block) => (block.type === BlockKind.Paragraph ? block.content.map((node) => inline(node)).join('') : ''))
     .join(' ')
@@ -106,9 +108,11 @@ interface FeatFacts {
 /** A feat's cost: its action glyph, a variable one, or none for a passive feat. */
 function actionKindOf(entry: ContentEntry & { readonly kind: typeof ContentKind.Feat }): ActionKind {
   const { cost, upTo } = entry.data.action ?? {};
+
   if (cost === undefined) {
     return ActionKind.Passive;
   }
+
   return upTo === undefined ? cost : ActionKind.Variable;
 }
 
@@ -122,6 +126,7 @@ function factsOf(registry: ContentRegistry, entry: ContentEntry | undefined): Fe
       sources: [],
     };
   }
+
   return {
     category: entry.data.category,
     action: actionKindOf(entry),
@@ -143,10 +148,12 @@ interface OptionReads {
 
 function optionOf(option: FeatOption, { registry, nameOf, entryOf }: OptionReads): SheetFeatOption {
   const prerequisites = option.prerequisites === undefined ? undefined : plainText(option.prerequisites, nameOf);
+
   const locked =
     option.locked === undefined
       ? undefined
       : { archetype: nameOf(option.locked.archetype) ?? '', needed: option.locked.needed };
+
   return {
     value: option.value,
     label: option.label,
@@ -164,6 +171,7 @@ function labelOf(slot: FeatSlot, nameOf: (id: ContentId) => string | undefined):
   if (slot.prompt !== undefined) {
     return message('character.sheet.feats.slot', { prompt: slot.prompt, level: slot.level });
   }
+
   return message('character.sheet.feats.slotFrom', { entry: nameOf(slot.entry) ?? '', level: slot.level });
 }
 
@@ -184,8 +192,10 @@ export function sheetFeats(
   const nameOf = (id: ContentId): string | undefined => content.lookup.entry(id)?.name;
   const entryOf = (id: ContentId): ContentEntry | undefined => sheetEntry(registry, id);
   const reads = featSlots(character.document, content);
+
   const slotOf = (slot: FeatSlot): SheetFeatSlot => {
     const read = slotRead(slots, slot.key);
+
     return {
       key: slot.key,
       label: labelOf(slot, nameOf),
@@ -195,15 +205,18 @@ export function sheetFeats(
       reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
     };
   };
+
   return { planned: reads.map((slot) => slotOf(slot)) };
 }
 
 /** Why a feat can't be picked, or that its prerequisites can't be checked; undefined for a feat with nothing in the way. */
 function unavailableReason(option: SheetFeatOption, translate: Translate): string | undefined {
   const prerequisites = option.prerequisites ?? '';
+
   if (option.locked !== undefined) {
     return translate('character.sheet.feats.locked', option.locked);
   }
+
   return option.status === PrerequisiteStatus.Unmet
     ? translate('character.sheet.feats.unmet', { prerequisites })
     : undefined;
@@ -229,9 +242,11 @@ function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[]
   if (option.clauses !== undefined) {
     return option.clauses.map(({ text, status }) => ({ label: text, state: PREREQUISITE_STATES[status] }));
   }
+
   if (option.prerequisites === undefined || option.prerequisites === '') {
     return [];
   }
+
   return [{ label: option.prerequisites, state: PREREQUISITE_STATES[option.status] }];
 }
 
@@ -251,8 +266,10 @@ export function featRows(
 ): readonly FeatPickerRow[] {
   const shown = options.filter((option) => !hidden.has(option.value));
   const marks = trainedAgain(shown.map((option) => option.value));
+
   return shown.map((option): FeatPickerRow => {
     const skills = marks.get(option.value);
+
     return {
       id: option.value,
       name: option.label,

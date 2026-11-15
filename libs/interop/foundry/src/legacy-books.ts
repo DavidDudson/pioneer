@@ -13,5 +13,6 @@ export interface LegacyBooks {
 export function legacyBooks(books: readonly Book[]): LegacyBooks {
   const idsOf = (scope: LegacyImport): ReadonlySet<BookId> =>
     new Set(books.filter(({ legacy }) => legacy === scope).map(({ id }) => id));
+
   return { whole: idsOf(LegacyImport.Whole), listed: idsOf(LegacyImport.Listed) };
 }

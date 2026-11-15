@@ -16,6 +16,7 @@ export const CONFIG_MODULES = {
   creature: 'src/module/actor/creature/values.ts',
   damage: 'src/module/system/damage/values.ts',
 } as const;
+
 export type ConfigModule = keyof typeof CONFIG_MODULES;
 
 /** Each config module's exports, as the CLI imported them. */
@@ -35,6 +36,7 @@ export const TraitList = {
   Spell: 'spellTraits',
   Weapon: 'weaponTraits',
 } as const;
+
 export type TraitList = ValueOf<typeof TraitList>;
 
 /**
@@ -64,6 +66,7 @@ export const FoundryLanguageRarity = {
   Rare: 'rare',
   Secret: 'secret',
 } as const;
+
 export type FoundryLanguageRarity = ValueOf<typeof FoundryLanguageRarity>;
 
 /** Foundry's one language outside its rarity table: everyone's shared tongue. */
@@ -73,6 +76,7 @@ const LABEL_MAX = 200;
 const VOCABULARY_MAX = 2000;
 
 const Key = z.string().min(1).max(SLUG_MAX);
+
 /** Slug to the lang key of its label (`manipulate: "PF2E.TraitManipulate"`). */
 const LabelTable = z.record(Key, z.string().max(LABEL_MAX));
 const Keys = z.array(Key).max(VOCABULARY_MAX).readonly();
@@ -124,11 +128,13 @@ function languagesOf(
   byRarity: Readonly<Record<FoundryLanguageRarity, readonly string[]>>,
 ): Map<string, FoundryLanguageRarity> {
   const languages = new Map<string, FoundryLanguageRarity>([[COMMON_LANGUAGE, FoundryLanguageRarity.Common]]);
+
   for (const rarity of Object.values(FoundryLanguageRarity)) {
     for (const language of byRarity[rarity]) {
       languages.set(language, rarity);
     }
   }
+
   return languages;
 }
 
@@ -139,6 +145,7 @@ export function foundryConfig(modules: ConfigModules): FoundryConfig {
   const damage = DamageModule.parse(modules.damage);
   const unlimited = new Set(creature.SENSES_WITH_UNLIMITED_RANGE);
   const acuities = creature.SENSES_WITH_MANDATORY_ACUITIES;
+
   return {
     traitLists: new Map(Object.values(TraitList).map((list) => [list, new Map(Object.entries(traits[list]))])),
     traitDescriptions: new Map(Object.entries(traits.traitDescriptions)),
@@ -146,6 +153,7 @@ export function foundryConfig(modules: ConfigModules): FoundryConfig {
     senses: new Map(
       [...creature.SENSE_TYPES].map((sense) => {
         const acuity = acuities[sense];
+
         return [sense, { ...(acuity === undefined ? {} : { acuity }), unlimitedRange: unlimited.has(sense) }];
       }),
     ),
@@ -156,12 +164,15 @@ export function foundryConfig(modules: ConfigModules): FoundryConfig {
 /** The text of a lang key (`PF2E.TraitManipulate`), or undefined when the table has no string there. */
 export function langLabel(lang: FoundryLang, key: string): string | undefined {
   let node: unknown = lang;
+
   for (const part of key.split('.')) {
     if (typeof node !== 'object' || node === null || !Object.hasOwn(node, part)) {
       return undefined;
     }
+
     node = Object.getOwnPropertyDescriptor(node, part)?.value;
   }
+
   return typeof node === 'string' ? node : undefined;
 }
 

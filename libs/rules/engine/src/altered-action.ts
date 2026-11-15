@@ -26,16 +26,21 @@ function mapDamage(node: unknown, change: (instance: Record<string, unknown>) =>
   if (Array.isArray(node)) {
     return node.map((each: unknown) => mapDamage(each, change));
   }
+
   if (typeof node !== 'object' || node === null) {
     return node;
   }
+
   const fields = Object.entries(node).map(([field, each]): [string, unknown] => [field, mapDamage(each, change)]);
   const mapped = Object.fromEntries(fields);
   const { instances } = mapped;
+
   if (mapped['type'] === 'damage' && Array.isArray(instances)) {
     const [first, ...others] = instances as readonly Record<string, unknown>[];
+
     return first === undefined ? mapped : { ...mapped, instances: [change(first), ...others] };
   }
+
   return mapped;
 }
 
@@ -45,11 +50,14 @@ function diceOf(description: RichText): FormulaValue | undefined {
   mapDamage(description, (instance) => {
     const count =
       typeof instance['formula'] === 'string' ? DICE.exec(instance['formula'])?.groups?.['count'] : undefined;
+
     if (count !== undefined) {
       found.push(FormulaValue.parse(Number(count)));
     }
+
     return instance;
   });
+
   return found[0];
 }
 
@@ -60,12 +68,15 @@ function withDamage(
 ): RichText {
   const mapped = mapDamage(description, (instance) => {
     const formula = typeof instance['formula'] === 'string' ? DICE.exec(instance['formula']) : undefined;
+
     const counted =
       dice === undefined || formula?.groups === undefined
         ? instance
         : { ...instance, formula: `${dice}${formula.groups['rest']}` };
+
     return damageType === undefined ? counted : { ...counted, damageType };
   });
+
   return RichText.parse(mapped);
 }
 
@@ -83,6 +94,7 @@ function rollOptionsOf(entry: ContentEntry): readonly RollOptionTail[] {
  */
 export function alterAction(inputs: ModifierInputs, entry: ContentEntry): AlteredAction {
   const base = diceOf(entry.description);
+
   const item: AlterableItem = {
     rollOptions: rollOptionsOf(entry),
     numbers: new Map(base === undefined ? [] : [[NumericItemProperty.DamageDice, base]]),
@@ -91,8 +103,10 @@ export function alterAction(inputs: ModifierInputs, entry: ContentEntry): Altere
     materials: [],
     propertyRunes: [],
   };
+
   const altered = alterItem(inputs, item);
   const dice = altered.numbers.get(NumericItemProperty.DamageDice);
+
   return {
     traits: altered.traits,
     description: withDamage(altered.description ?? entry.description, {

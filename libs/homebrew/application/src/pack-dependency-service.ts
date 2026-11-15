@@ -48,6 +48,7 @@ export class PackDependencyService {
   /** The packs a pack the actor may read extends, and, for its owner, the ones they could add. Others: a 404. */
   public async list(actor: UserId, id: ContentPackId): Promise<PackDependencies> {
     const pack = await this.#readable(actor, id);
+
     return this.#view(actor, pack);
   }
 
@@ -58,17 +59,22 @@ export class PackDependencyService {
    */
   public async add(actor: UserId, id: ContentPackId, { dependsOn }: AddPackDependencyBody): Promise<PackDependencies> {
     const pack = await this.#owned(actor, id);
+
     if (dependsOn === id) {
       throw new ConflictError(`Pack ${id} cannot depend on itself`, message(HomebrewMessage.DependsOnItself));
     }
+
     const dependency = await this.#directory.findById(dependsOn);
     const mayRead = dependency !== undefined && (await this.#access.mayRead(actor, dependency));
+
     if (!mayRead) {
       throw new NotFoundError('Pack', dependsOn);
     }
+
     const edge: PackDependencyEdge = { pack: id, dependsOn };
     // Checked inside the repository's transaction, so neither another addition nor a visibility change slips between.
     await this.#dependencies.add(actor, edge, async () => this.#refuseUnsound(edge));
+
     return this.#view(actor, pack);
   }
 
@@ -79,6 +85,7 @@ export class PackDependencyService {
   public async remove(actor: UserId, id: ContentPackId, dependsOn: ContentPackId): Promise<PackDependencies> {
     const pack = await this.#owned(actor, id);
     const entries = await this.#usage.entriesUsing(id, dependsOn);
+
     if (entries.length > 0) {
       throw new ConflictError(
         `Pack ${id} still uses ${dependsOn} in ${entries.join(', ')}`,
@@ -87,7 +94,9 @@ export class PackDependencyService {
         }),
       );
     }
+
     await this.#dependencies.remove(actor, { pack: id, dependsOn });
+
     return this.#view(actor, pack);
   }
 
@@ -98,9 +107,11 @@ export class PackDependencyService {
       this.#directory.findById(edge.dependsOn),
       this.#dependencies.edges(),
     ]);
+
     if (pack === undefined || dependency === undefined) {
       throw new NotFoundError('Pack', pack === undefined ? edge.pack : edge.dependsOn);
     }
+
     if (wouldCycle(edges, edge)) {
       throw new ConflictError(
         `${edge.pack} depending on ${edge.dependsOn} would make a cycle`,
@@ -109,6 +120,7 @@ export class PackDependencyService {
         }),
       );
     }
+
     if (isWiderThan(pack.visibility, dependency.visibility)) {
       throw new ConflictError(
         `Pack ${edge.pack} is visible to more people than ${edge.dependsOn}`,
@@ -124,9 +136,11 @@ export class PackDependencyService {
     const directlyDependedOn = new Set(edges.filter((edge) => edge.pack === pack.id).map((edge) => edge.dependsOn));
     const readable = await this.#readableOf(actor, listed);
     const dependencies = readable.filter((candidate) => directlyDependedOn.has(candidate.id));
+
     if (!PackAccessPolicy.owns(actor, pack)) {
       return { editable: false, dependencies: dependencies.map((dependency) => dependency.summary), candidates: [] };
     }
+
     const candidates = readable.filter(
       (candidate) =>
         candidate.id !== pack.id &&
@@ -134,6 +148,7 @@ export class PackDependencyService {
         !wouldCycle(edges, { pack: pack.id, dependsOn: candidate.id }) &&
         !isWiderThan(pack.visibility, candidate.visibility),
     );
+
     return {
       editable: true,
       dependencies: dependencies.map((dependency) => dependency.summary),
@@ -143,28 +158,35 @@ export class PackDependencyService {
 
   async #readableOf(actor: UserId, listed: readonly ListedPack[]): Promise<readonly ListedPack[]> {
     const allowed = await Promise.all(listed.map(async (candidate) => this.#access.mayRead(actor, candidate)));
+
     return listed.filter((_candidate, index) => allowed[index] === true);
   }
 
   /** A pack the actor may read. Any other is a 404, the same as a missing one. */
   async #readable(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const pack = await this.#packs.findById(id);
+
     if (pack === undefined) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     const mayRead = await this.#access.mayRead(actor, pack);
+
     if (!mayRead) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     return pack;
   }
 
   /** A pack the actor owns. One they can only read is a 403. */
   async #owned(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const pack = await this.#readable(actor, id);
+
     if (!PackAccessPolicy.owns(actor, pack)) {
       throw new ForbiddenError(`User ${actor} does not own pack ${id}`);
     }
+
     return pack;
   }
 }

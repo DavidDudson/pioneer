@@ -17,6 +17,7 @@ export class ShellWidth {
   /** Shows `width` in the shell until the returned function is called, unless a later page has taken over. */
   public show(width: Signal<BoxWidth>): () => void {
     this.#source.set(width);
+
     return (): void => {
       if (this.#source() === width) {
         this.#source.set(undefined);

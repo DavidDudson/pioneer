@@ -11,6 +11,7 @@ import { RichText } from './rich-text';
 
 /** JSON text written so equal values give equal text, whatever order their keys were written in. */
 export const CanonicalJson = z.string().brand<'CanonicalJson'>();
+
 export type CanonicalJson = z.infer<typeof CanonicalJson>;
 
 /** `value` with every object's keys sorted. */
@@ -18,6 +19,7 @@ function sortKeys(value: unknown): unknown {
   if (Array.isArray(value)) {
     return value.map((item) => sortKeys(item));
   }
+
   if (typeof value === 'object' && value !== null) {
     return Object.fromEntries(
       Object.entries(value)
@@ -25,6 +27,7 @@ function sortKeys(value: unknown): unknown {
         .map(([key, item]) => [key, sortKeys(item)]),
     );
   }
+
   return value;
 }
 
@@ -38,6 +41,7 @@ export const BundleHash = z
   .string()
   .regex(/^[\da-f]{16}$/u)
   .brand<'BundleHash'>();
+
 export type BundleHash = z.infer<typeof BundleHash>;
 
 /**
@@ -49,14 +53,17 @@ export const BundleFile = z
   .string()
   .regex(/^(?:pack|[a-z-]+\.(?:mech|names\.[a-z]{2}|desc\.[a-z]{2}\.[\da-f]))\.[\da-f]{16}\.json$/u)
   .brand<'BundleFile'>();
+
 export type BundleFile = z.infer<typeof BundleFile>;
 
 /** A bundle's size in bytes, as served. */
 export const ByteCount = z.number().int().nonnegative().brand<'ByteCount'>();
+
 export type ByteCount = z.infer<typeof ByteCount>;
 
 /** Where a bundle is kept: `<pack>/<file>`, as its URL ends and as the browser caches it. */
 export const BundlePath = z.string().brand<'BundlePath'>();
+
 export type BundlePath = z.infer<typeof BundlePath>;
 
 export function bundlePath(pack: PackId, file: BundleFile): BundlePath {
@@ -65,11 +72,13 @@ export function bundlePath(pack: PackId, file: BundleFile): BundlePath {
 
 /** A bundle's `ETag`: its hash, quoted, as it is already in its file name. */
 export const BundleEtag = z.string().brand<'BundleEtag'>();
+
 export type BundleEtag = z.infer<typeof BundleEtag>;
 
 export function bundleEtag(file: BundleFile): BundleEtag {
   // `<name>.<hash>.json`: the hash is the segment before the extension.
   const [, hash] = file.split('.').toReversed();
+
   return BundleEtag.parse(`"${hash ?? file}"`);
 }
 
@@ -79,6 +88,7 @@ export function bundleEtag(file: BundleFile): BundleEtag {
  * would only cost the main thread time.
  */
 export const BundleBody = z.custom<z.core.util.JSONType>(() => true);
+
 export type BundleBody = z.infer<typeof BundleBody>;
 
 /**
@@ -89,6 +99,7 @@ export const DescriptionShard = z
   .string()
   .regex(/^[\da-f]$/u)
   .brand<'DescriptionShard'>();
+
 export type DescriptionShard = z.infer<typeof DescriptionShard>;
 
 /** The shard that holds `id`'s description. */
@@ -98,6 +109,7 @@ export function descriptionShard(id: ContentId): DescriptionShard {
 
 /** One shard of a kind's descriptions, in the source locale until other locales ship (#693). */
 export const DescriptionBundle = z.strictObject({ shard: DescriptionShard, file: BundleFile });
+
 export type DescriptionBundle = z.infer<typeof DescriptionBundle>;
 
 /**
@@ -110,6 +122,7 @@ export const KindBundles = z.strictObject({
   names: BundleFile,
   descriptions: z.array(DescriptionBundle).readonly(),
 });
+
 export type KindBundles = z.infer<typeof KindBundles>;
 
 /**
@@ -122,14 +135,17 @@ export const PackBundles = z.strictObject({
   kinds: z.array(KindBundles).readonly(),
   sizes: z.record(BundleFile, ByteCount).optional(),
 });
+
 export type PackBundles = z.infer<typeof PackBundles>;
 
 /** Every official pack's current bundles, in registration order. Short-lived; the bundles it names never change. */
 export const ContentManifest = z.strictObject({ packs: z.array(PackBundles).readonly() });
+
 export type ContentManifest = z.infer<typeof ContentManifest>;
 
 /** Names of a kind's entries, by id. Short summaries join them when entries have them. */
 const NamesBundle = z.record(ContentId, z.strictObject({ name: ContentText }));
+
 export type NamesBundle = z.infer<typeof NamesBundle>;
 
 /** The descriptions of one shard of a kind, by id. An entry without a description is not in it. */
@@ -165,6 +181,7 @@ export const ContentContract = {
 
 /** The homebrew packs whose bundles are asked for. */
 export const HomebrewManifestRequest = z.strictObject({ packs: z.array(ContentPackId).readonly() });
+
 export type HomebrewManifestRequest = z.infer<typeof HomebrewManifestRequest>;
 
 /**
@@ -208,6 +225,7 @@ function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
   const names = kind.names as NamesBundle;
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
   const mechanics = kind.mechanics as z.output<typeof MechanicsBundle>;
+
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
   return mechanics.map((entry) => entryFromBundles(entry, names) as ContentEntry);
 }
@@ -215,9 +233,11 @@ function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
 /** An entry put back together from its kind's bundles. Descriptions come with their own bundles (`descriptionFromBundle`). */
 function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames: NamesBundle): unknown {
   const named = entryNames[mechanicsEntry.id];
+
   if (named === undefined) {
     throw new Error(`No name for content entry ${mechanicsEntry.id}`);
   }
+
   return { ...mechanicsEntry, name: named.name, description: [] };
 }
 
@@ -227,6 +247,7 @@ function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames
  */
 export function contentPackFromBundles(packFile: unknown, kinds: readonly FetchedKind[]): ContentPack {
   const entries = kinds.flatMap((kind) => entriesFromBundles(kind));
+
   return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
 }
 

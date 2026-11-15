@@ -17,6 +17,7 @@ async function render(offers: readonly ShopOffer[] | undefined): Promise<Rendere
   const fixture = TestBed.createComponent(ShopOffersView);
   fixture.componentRef.setInput('offers', offers);
   await fixture.whenStable();
+
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 

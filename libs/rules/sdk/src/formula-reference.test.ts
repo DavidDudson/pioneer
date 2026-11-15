@@ -69,6 +69,7 @@ describe('formula reference vocabulary', () => {
     const itemScoped = Object.entries(REFERENCE_CATALOGUE)
       .filter(([, definition]) => definition.scope === 'item')
       .map(([kind]) => kind);
+
     expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel, ReferenceKind.ItemValue, ReferenceKind.ItemOriginLevel]);
   });
 
@@ -82,6 +83,7 @@ describe('formula reference vocabulary', () => {
     const scoped = Object.entries(REFERENCE_CATALOGUE)
       .filter(([, definition]) => definition.scope === scope)
       .map(([kind]) => kind);
+
     expect(scoped).toStrictEqual(kinds);
   });
 });
@@ -130,6 +132,7 @@ describe('Foundry reference translation', () => {
         .replace('<tradition>', 'occult')
         .replace('<flag>', 'consumeFear'),
     );
+
     expect(paths.filter((path) => translated(path) === undefined)).toStrictEqual([]);
   });
 });

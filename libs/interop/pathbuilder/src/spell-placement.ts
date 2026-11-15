@@ -11,6 +11,7 @@ import { listed, SpellGapReason } from './spell-listing';
 import type { Listed, SpellGap, SpellPlacement, SpellPlacementContent } from './spell-listing';
 
 export { SpellGap, SpellGapReason } from './spell-listing';
+
 export type { SpellPicks, SpellPlacement, SpellPlacementContent } from './spell-listing';
 
 /** An entry of the character's own spellcasting that picks its spells: its slots, in key order. */
@@ -31,8 +32,10 @@ function entriesOf(slots: readonly PreparedSlot[]): Entry[] {
     slots.filter((slot) => pickable(slot)),
     (slot) => slot.entry,
   );
+
   return [...bySlug].flatMap(([slug, own]): Entry[] => {
     const [first] = own;
+
     return first === undefined
       ? []
       : [{ slug, preparation: first.preparation, tradition: first.tradition, slots: own }];
@@ -47,6 +50,7 @@ function placeOne(
 ): PreparedSlot | SpellGapReason {
   const open = slots.filter((slot) => slot.rank === rank && !used.has(slot.key));
   const fitting = open.find((slot) => slot.options.some((option) => option.id === id));
+
   return fitting ?? (open.length === 0 ? SpellGapReason.NoSlot : SpellGapReason.NotOffered);
 }
 
@@ -55,8 +59,10 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
   const used = new Set<SlotKey>();
   const picks: Record<SlotKey, ChoiceValue> = {};
   const gaps: SpellGap[] = [];
+
   for (const spell of listed(caster, lookup)) {
     const placed = entry === undefined ? SpellGapReason.NoEntry : placeOne(entry.slots, spell, used);
+
     if (typeof placed === 'string') {
       gaps.push({ caster: caster.name, rank: spell.rank, name: spell.name, reason: placed });
     } else {
@@ -64,6 +70,7 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
       used.add(placed.key);
     }
   }
+
   return { choices: picks, gaps };
 }
 
@@ -84,6 +91,7 @@ export function placeSpells(
   const paired = pairCasters(prepared, entries);
   const placements = prepared.map((caster) => placeCaster(caster, paired.get(caster), lookup));
   const innate = placeInnate(document, { slots, lookup }, casters);
+
   return {
     choices: Object.fromEntries(
       [...placements.map(({ choices }) => choices), innate.choices].flatMap((picks) => Object.entries(picks)),

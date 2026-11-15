@@ -176,6 +176,7 @@ describe('translateKindData: repertoire spells', () => {
       fixture: ORACLE_SPELLCASTING,
       spells: [],
     });
+
     const slots = keyed(SpellSlots, { slug: 'sorcerer-spellcasting', fixture: SORCERER_SPELLCASTING, spells: [] });
     const rankOne = slots.filter(({ rank }) => rank === 1).map(({ value, predicate }) => [value, predicate]);
 

@@ -69,6 +69,7 @@ export function slotContent(
 ): SlotContent {
   const rootSlots = characterRootSlots(variants);
   const lookup = grantLookup(registry, legacyContent);
+
   return {
     lookup,
     namespaces: registry.rollOptionNamespaces(),
@@ -124,10 +125,12 @@ export function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, Choic
 export function attributesAt(document: CharacterDocument, content: SlotContent): (level: Level) => AttributeModifiers {
   const setLevels = boostSets(document, content.boosts).map((set) => set.level);
   const bySetCount = new Map<number, AttributeModifiers>();
+
   return (level) => {
     const setCount = setLevels.filter((each) => each <= level).length;
     const known = bySetCount.get(setCount) ?? attributeModifiers({ ...document, level }, content.boosts);
     bySetCount.set(setCount, known);
+
     return known;
   };
 }
@@ -159,6 +162,7 @@ function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Lev
   RESOLVED.set(content, byDocument);
   const resolved = byDocument.get(document) ?? new Map<Level, GrantResolution>();
   byDocument.set(document, resolved);
+
   return resolved;
 }
 
@@ -168,11 +172,14 @@ function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Lev
  */
 export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
   const resolved = resolvedFor(document, content);
+
   const grantsAt: GrantsAt = (level) => {
     const resolution = resolved.get(level) ?? resolveWithAttributes(document, content, level);
     resolved.set(level, resolution);
+
     return resolution;
   };
+
   return { skills: documentSkills(document, content.skills), boosts: content.boosts, grantsAt };
 }
 
@@ -193,5 +200,6 @@ export function preparedReads(
   const resolved = resolvedFor(document, content);
   const resolution = resolved.get(at) ?? resolveWithAttributes(document, content, at);
   resolved.set(at, resolution);
+
   return { spells: content.spells, resolution, lookup: content.lookup };
 }

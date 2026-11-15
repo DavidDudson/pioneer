@@ -67,12 +67,14 @@ function actionsSection(root: HTMLElement): HTMLElement {
 /** The button of the Fireball row among the item actions that reads `label`. */
 async function castButton(root: HTMLElement, label: string): Promise<HTMLButtonElement> {
   await openActionKind(root, 'Items');
+
   return vi.waitFor(() => {
     const row = present(
       [...actionsSection(root).querySelectorAll('pio-action-row')].find((candidate) =>
         textOf(candidate).includes('Fireball'),
       ),
     );
+
     return present([...row.querySelectorAll('button')].find((button) => textOf(button) === label));
   });
 }
@@ -84,6 +86,7 @@ async function openActions(): Promise<HTMLElement> {
     play: preparedWith(0),
     packs: PACKS,
   });
+
   return root;
 }
 

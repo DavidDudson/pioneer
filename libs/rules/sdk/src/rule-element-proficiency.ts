@@ -17,10 +17,12 @@ export const ChoiceSelector = z.strictObject({
   choice: RuleSlug,
   prefix: Selector,
 });
+
 export type ChoiceSelector = z.infer<typeof ChoiceSelector>;
 
 /** A rank an element raises to. Untrained is every statistic's floor, so raising to it does nothing. */
 export const RaisedRank = ProficiencySchema.exclude(['Untrained']);
+
 export type RaisedRank = z.infer<typeof RaisedRank>;
 
 /**
@@ -34,6 +36,7 @@ export const ProficiencyElement = z.strictObject({
   rank: RaisedRank,
   ...ruleElementBase,
 });
+
 export type ProficiencyElement = z.infer<typeof ProficiencyElement>;
 
 /**
@@ -46,6 +49,7 @@ const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
   .check((context) => {
     const { value } = context;
     const named = RaisedRank.safeParse(value);
+
     if (typeof value === 'string' && !named.success) {
       context.issues.push(...formulaIssues(FormulaText.parse(value)));
     }
@@ -63,6 +67,7 @@ export const MartialKind = {
   Attack: 'attack',
   Defense: 'defense',
 } as const;
+
 export type MartialKind = ValueOf<typeof MartialKind>;
 
 export const WeaponCategory = {
@@ -71,6 +76,7 @@ export const WeaponCategory = {
   Martial: 'martial',
   Advanced: 'advanced',
 } as const;
+
 export type WeaponCategory = ValueOf<typeof WeaponCategory>;
 
 export const ArmorCategory = {
@@ -79,10 +85,12 @@ export const ArmorCategory = {
   Medium: 'medium',
   Heavy: 'heavy',
 } as const;
+
 export type ArmorCategory = ValueOf<typeof ArmorCategory>;
 
 /** A weapon or armour category a martial proficiency can link to, as Foundry's `sameAs` allows. */
 export const MartialCategory = z.enum({ ...WeaponCategory, ...ArmorCategory });
+
 export type MartialCategory = z.infer<typeof MartialCategory>;
 
 /**
@@ -103,6 +111,7 @@ export const MartialProficiencyElement = z.strictObject({
   visible: z.boolean().optional(),
   ...ruleElementBase,
 });
+
 export type MartialProficiencyElement = z.infer<typeof MartialProficiencyElement>;
 
 /**
@@ -115,4 +124,5 @@ export const ProficiencyBonusElement = z.strictObject({
   table: ProficiencyBonusTable,
   ...ruleElementBase,
 });
+
 export type ProficiencyBonusElement = z.infer<typeof ProficiencyBonusElement>;

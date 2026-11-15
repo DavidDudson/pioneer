@@ -33,6 +33,7 @@ export interface PrerequisiteReads {
 
 function levelsUp(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
@@ -42,16 +43,20 @@ function levelsUp(): Level[] {
  */
 function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
   const element = lookup.entry(slot.origin.entry)?.rules[slot.rule];
+
   if (element?.key !== RuleElementKey.ChoiceSet) {
     return false;
   }
+
   if (!Array.isArray(element.choices)) {
     return 'kind' in element.choices && element.choices.kind === ContentKind.Feat;
   }
+
   return (
     element.choices.length > 0 &&
     element.choices.every(({ value }) => {
       const id = ContentId.safeParse(value);
+
       return id.success && lookup.entry(id.data)?.kind === ContentKind.Feat;
     })
   );
@@ -62,15 +67,19 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
   const skills = skillReads(document, content);
   const slots = skillSlots(document, skills);
   const facts = new Map<Level, PredicateFacts>();
+
   const read = (level: Level): PredicateFacts => {
     const resolution = skills.grantsAt(level);
     const ranks = withSkillPicks(grantedSkillRanks(resolution), slotSkillRanks(slots, level));
     const options = [...resolution.rollOptions, ...rankOptions(ranks)];
+
     return new PredicateFacts(options, content.namespaces);
   };
+
   return (level) => {
     const known = facts.get(level) ?? read(level);
     facts.set(level, known);
+
     return known;
   };
 }
@@ -78,10 +87,12 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
 /** The keys of the feat slots the character has at each level, a set that only grows with the level. */
 function featSlotsAt(document: CharacterDocument, content: SlotContent): (level: Level) => ReadonlySet<SlotKey> {
   const { grantsAt } = skillReads(document, content);
+
   return bisected(
     (level) => {
       const resolution = grantsAt(level);
       const slots = [...resolution.open, ...resolution.answered].filter((slot) => isFeatSlot(slot, content.lookup));
+
       return new Set(slots.map(({ key }) => key));
     },
     (left, right) => left.size === right.size && [...left].every((key) => right.has(key)),
@@ -93,6 +104,7 @@ function featSlotsAt(document: CharacterDocument, content: SlotContent): (level:
 function featSlotLevelsOf(document: CharacterDocument, content: SlotContent): ReadonlyMap<SlotKey, Level> {
   const slotsAt = featSlotsAt(document, content);
   const levels = new Map<SlotKey, Level>();
+
   for (const level of levelsUp()) {
     for (const key of slotsAt(level)) {
       if (!levels.has(key)) {
@@ -100,6 +112,7 @@ function featSlotLevelsOf(document: CharacterDocument, content: SlotContent): Re
       }
     }
   }
+
   return levels;
 }
 
@@ -113,20 +126,25 @@ function readPrerequisites(document: CharacterDocument, content: SlotContent): P
   const { grantsAt } = skillReads(document, content);
   const slotKeys = new Set(featSlotLevels.keys());
   const waits = new Map<SlotKey, readonly DedicationWait[]>();
+
   const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
     const level = featSlotLevels.get(slot);
     const unlocked = level === undefined || factsAt(level).has(NO_DEDICATION_LOCK);
     const earlier = order.slice(0, order.indexOf(slot));
+
     const taken = unlocked
       ? []
       : featsTaken(document.build.choices, content.feats, {
           earlier,
           granted: { items: grantsAt(level).items, featSlots: slotKeys },
         });
+
     const known = waits.get(slot) ?? dedicationWaits(content.feats, taken);
     waits.set(slot, known);
+
     return known;
   };
+
   return { feats: content.feats, factsAt, featSlotLevels, waitsAt };
 }
 
@@ -141,6 +159,7 @@ export function prerequisiteReads(document: CharacterDocument, content: SlotCont
   READS.set(content, byDocument);
   const reads = byDocument.get(document) ?? readPrerequisites(document, content);
   byDocument.set(document, reads);
+
   return reads;
 }
 
@@ -160,16 +179,21 @@ export function featPickProblem(reads: PrerequisiteReads, { slot, selection }: F
   const level = reads.featSlotLevels.get(slot);
   const id = ContentId.safeParse(selection);
   const feat = level === undefined || !id.success ? undefined : reads.feats.feat(id.data);
+
   if (level === undefined || !id.success || feat === undefined) {
     return undefined;
   }
+
   if (feat.level > level) {
     return FeatPickProblem.TooHigh;
   }
+
   if (dedicationWait(reads.feats, reads.waitsAt(slot), id.data) !== undefined) {
     return FeatPickProblem.DedicationLocked;
   }
+
   const unmet = prerequisiteStatus(feat, reads.factsAt(level)) === PrerequisiteStatus.Unmet;
+
   return unmet ? FeatPickProblem.Prerequisites : undefined;
 }
 
@@ -200,15 +224,19 @@ export interface FeatSlot {
 function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): FeatOption[] {
   const facts = reads.factsAt(level);
   const waits = reads.waitsAt(slot.key);
+
   return slot.options.flatMap((option): FeatOption[] => {
     const id = ContentId.safeParse(option.value);
     const feat = id.success ? reads.feats.feat(id.data) : undefined;
+
     if (!id.success || feat === undefined) {
       return [];
     }
+
     const status = prerequisiteStatus(feat, facts);
     const clauses = prerequisiteClauseStatuses(feat, facts);
     const locked = dedicationWait(reads.feats, waits, id.data);
+
     return [
       {
         value: id.data,
@@ -231,7 +259,9 @@ export function withoutPick(document: CharacterDocument, slot: SlotKey): Charact
   if (!(slot in document.build.choices)) {
     return document;
   }
+
   const { [slot]: _own, ...choices } = document.build.choices;
+
   return { ...document, build: { ...document.build, choices } };
 }
 
@@ -243,15 +273,19 @@ export function withoutPick(document: CharacterDocument, slot: SlotKey): Charact
 export function featSlots(document: CharacterDocument, content: SlotContent): readonly FeatSlot[] {
   const reads = prerequisiteReads(document, content);
   const grants = skillReads(document, content);
+
   return [...reads.featSlotLevels]
     .toSorted(([, left], [, right]) => left - right)
     .flatMap(([key, level]): FeatSlot[] => {
       const resolution = grants.grantsAt(level);
       const slot = [...resolution.open, ...resolution.answered].find((each) => each.key === key);
+
       if (slot === undefined) {
         return [];
       }
+
       let options: readonly FeatOption[] | undefined = undefined;
+
       return [
         {
           key,
@@ -260,6 +294,7 @@ export function featSlots(document: CharacterDocument, content: SlotContent): re
           prompt: slot.prompt,
           get options(): readonly FeatOption[] {
             options ??= featOptions(slot, level, prerequisiteReads(withoutPick(document, key), content));
+
             return options;
           },
         },

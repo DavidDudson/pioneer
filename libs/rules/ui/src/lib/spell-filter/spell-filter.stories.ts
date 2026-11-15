@@ -14,17 +14,21 @@ const TARGETS = groupOf('target', 'Targets', [
   { value: 'single', label: 'Single target', count: 4 },
   { value: 'multiple', label: 'Multiple targets', count: 2 },
 ]);
+
 const TRAITS = [
   { value: 'Mental', label: 'Mental', count: 3 },
   { value: 'Fire', label: 'Fire', count: 1 },
 ];
+
 const SOURCES = groupOf('source', 'Source', [
   { value: 'Animist spellcasting', label: 'Animist spellcasting', count: 5 },
   { value: 'Wand of Fear', label: 'Wand of Fear', count: 1 },
 ]);
+
 const GROUPS: readonly SpellFilterGroup[] = [TARGETS, groupOf('trait', 'Traits', TRAITS), SOURCES];
 
 const meta: Meta<SpellFilter> = { title: 'Rules/Spell Filter', component: SpellFilter, args: { groups: GROUPS } };
+
 export default meta;
 
 /** Each property collapsed to its name; open one to pick values, each with how many spells it would leave. */

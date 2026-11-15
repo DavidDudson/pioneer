@@ -14,6 +14,7 @@ import { entry, feat, lookupOf, picked, picksOf } from './testing/builders';
 const ENTRIES = 1000;
 const LEVELS = 20;
 const CLASSES = ['fighter', 'rogue', 'wizard', 'cleric', 'ranger'] as const;
+
 /** The issue's budget for one query over a thousand entries. */
 const BUDGET_MS = 2;
 
@@ -38,11 +39,13 @@ function inputs(): WalkInputs {
       choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
     },
   ]);
+
   const options = [
     'self:level:5',
     'class:fighter',
     ...Array.from({ length: 40 }, (_value, index) => `feat:f-${index}`),
   ];
+
   return {
     roots: [picked('fighter')],
     lookup: lookupOf([fighter, ...feats()]),
@@ -65,6 +68,7 @@ function offerOf(given: WalkInputs): readonly OfferedOption[] {
  * only resolution is timed.
  */
 expect(offerOf(inputs()).length).toBeGreaterThan(0);
+
 benchmark({
   name: `grants: a query over ${ENTRIES} entries`,
   budgetMs: BUDGET_MS,

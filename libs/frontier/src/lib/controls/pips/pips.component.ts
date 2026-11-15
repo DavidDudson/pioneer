@@ -40,6 +40,7 @@ export class Pips extends Control {
   /** The places of the pips, from 1. */
   protected readonly places = computed((): readonly number[] => {
     const count = Math.max(Math.floor(this.max()), 0);
+
     return Array.from({ length: count }, (_unused, index) => index + 1);
   });
 

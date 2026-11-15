@@ -9,6 +9,7 @@ export class InMemoryVariantRuleCatalog extends VariantRuleCatalog {
   /** The campaign can use exactly these variant rules from now on. */
   public offer(campaignId: CampaignId, options: readonly VariantRuleOption[]): this {
     this.#options.set(campaignId, options);
+
     return this;
   }
 

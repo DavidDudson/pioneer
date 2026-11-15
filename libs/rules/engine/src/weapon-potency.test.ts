@@ -27,6 +27,7 @@ const STRIKE = StatisticDefinition.parse({
 
 const LONGSWORD = wielded({ slug: 'longsword', category: 'martial', traits: [], potency: 1 });
 const POTENCY_ID = RuleId.parse('weapon:longsword#weapon-potency');
+
 /** Strength 4 plus trained 3 at level 1. */
 const BASE = 4 + 3;
 
@@ -45,6 +46,7 @@ function strike(weapon: object, rules: readonly RuleInPlay[] = []): StatisticRes
   const inputs = StatisticInputsJson.parse(inputsWith(weapon));
   const content = { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const facts = new PredicateFacts([], CORE_NAMESPACES);
+
   return deriveStatistics(content, inputs, { rules, facts }).get(Selector.parse('strike:longsword'));
 }
 
@@ -104,11 +106,13 @@ describe('weapon potency', () => {
 
   test('a higher potency suppresses a lower item bonus; untyped and status bonuses still add', () => {
     const weaker = inPlay(flatModifier('item', 1, ['attack-roll']), 'weaker');
+
     const rules = [
       weaker,
       inPlay(flatModifier('untyped', 1, ['strike-attack-roll']), 'untyped'),
       inPlay(flatModifier('status', 1, ['attack-roll']), 'heroism'),
     ];
+
     const result = strike({ ...LONGSWORD, potency: 2 }, rules);
     expect(result).toMatchObject({ ok: true, total: BASE + 2 + 1 + 1 });
     expect(lineWithId(result, ruleIdOf(weaker))?.status).toStrictEqual({
@@ -123,6 +127,7 @@ describe('weapon potency', () => {
       { key: 'AdjustModifier', selectors: ['strike-attack-roll'], slug: 'weapon-potency', mode: 'upgrade', value: 2 },
       'upgrade',
     );
+
     const result = strike(LONGSWORD, [upgrade]);
     expect(result).toMatchObject({ ok: true, total: BASE + 2 });
     expect(lineWithId(result, POTENCY_ID)).toMatchObject({ value: 2, adjustedBy: [ruleIdOf(upgrade)] });
@@ -130,10 +135,12 @@ describe('weapon potency', () => {
 
   test('a potency-typed bonus, as Automatic Bonus Progression adds, needs no line and stacks apart from item', () => {
     const { potency: _potency, ...runeless } = LONGSWORD;
+
     const rules = [
       inPlay(flatModifier('potency', 1, ['strike-attack-roll']), 'attack-potency'),
       inPlay(flatModifier('item', 2, ['strike-attack-roll']), 'mutagen'),
     ];
+
     const result = strike(runeless, rules);
     expect(result).toMatchObject({ ok: true, total: BASE + 1 + 2 });
     expect(lineWithId(result, POTENCY_ID)).toBeUndefined();
@@ -151,6 +158,7 @@ describe('a Strike read against its weapon', () => {
     { ...flatModifier('circumstance', -2, ['attack-roll']), predicate: [{ not: 'item:rune:property:underwater' }] },
     'underwater',
   );
+
   const PLAIN = { slug: 'longsword', category: 'martial', traits: [] };
 
   test('a rule that lets a rune lift it applies to a weapon without the rune', () => {

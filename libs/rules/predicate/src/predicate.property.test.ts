@@ -30,6 +30,7 @@ const smallNumber = integer({ min: 0, max: VALUE_MAX });
 const statementJson: Arbitrary<unknown> = letrec<{ statement: unknown }>((tie) => {
   const statement = tie('statement');
   const list = array(statement, { minLength: 1, maxLength: LIST_MAX });
+
   return {
     statement: oneof(
       { depthSize: 'small', maxDepth: DEPTH_MAX, withCrossShrink: true },
@@ -46,6 +47,7 @@ const statementJson: Arbitrary<unknown> = letrec<{ statement: unknown }>((tie) =
 }).statement;
 
 const statement: Arbitrary<PredicateStatement> = statementJson.map((json) => PredicateStatement.parse(json));
+
 const predicate: Arbitrary<Predicate> = array(statementJson, { maxLength: LIST_MAX }).map((json) =>
   Predicate.parse(json),
 );
@@ -89,62 +91,80 @@ type FoundryOrder = (left: number, right: number) => boolean;
 /** Foundry's `getValues`: a number as itself, an option as every number written after it, else `[NaN]`. */
 function foundryValues(operand: string | number, domain: ReadonlySet<string>): readonly number[] {
   const asNumber = Number(operand);
+
   if (!Number.isNaN(asNumber)) {
     return [asNumber];
   }
+
   const head = `${operand}:`;
+
   const found = [...domain]
     .filter((option) => option.startsWith(head) && !option.slice(head.length).includes(':'))
     .map((option) => Number(option.slice(head.length)))
     .filter((each) => !Number.isNaN(each));
+
   return found.length > 0 ? found : [Number.NaN];
 }
 
 function foundryOrder(order: FoundryOrder, [left, right]: ComparisonOperands, domain: ReadonlySet<string>): boolean {
   const rightValues = foundryValues(right, domain);
+
   return foundryValues(left, domain).some((value) => rightValues.every((bound) => order(value, bound)));
 }
 
 function foundryComparison(item: PredicateComparison, domain: ReadonlySet<string>): boolean {
   if ('eq' in item) {
     const [left, right] = item.eq;
+
     return typeof right === 'string' ? left === right : domain.has(`${left}:${right}`);
   }
+
   if ('gt' in item) {
     return foundryOrder((left, right) => left > right, item.gt, domain);
   }
+
   if ('gte' in item) {
     return foundryOrder((left, right) => left >= right, item.gte, domain);
   }
+
   if ('lt' in item) {
     return foundryOrder((left, right) => left < right, item.lt, domain);
   }
+
   return foundryOrder((left, right) => left <= right, item.lte, domain);
 }
 
 function foundryCompound(item: PredicateCompound, domain: ReadonlySet<string>): boolean {
   const holds = (inner: PredicateStatement): boolean => foundryStatement(inner, domain);
+
   if ('and' in item) {
     return item.and.every(holds);
   }
+
   if ('nand' in item) {
     return !item.nand.every(holds);
   }
+
   if ('or' in item) {
     return item.or.some(holds);
   }
+
   if ('xor' in item) {
     return item.xor.filter(holds).length === 1;
   }
+
   if ('nor' in item) {
     return !item.nor.some(holds);
   }
+
   if ('not' in item) {
     return !holds(item.not);
   }
+
   if ('iff' in item) {
     return item.iff.every(holds) || item.iff.every((inner) => !holds(inner));
   }
+
   return !(holds(item.if) && !holds(item.then));
 }
 
@@ -152,6 +172,7 @@ function foundryStatement(item: PredicateStatement, domain: ReadonlySet<string>)
   if (typeof item === 'string') {
     return domain.has(item);
   }
+
   return isPredicateComparison(item) ? foundryComparison(item, domain) : foundryCompound(item, domain);
 }
 
@@ -169,6 +190,7 @@ describe('evaluatePredicate (properties)', () => {
     assert(
       property(statement, statement, options, (left, right, present) => {
         const given = defaultFacts(present);
+
         for (const operator of ['and', 'or', 'xor', 'iff'] as const) {
           const forward = evaluateStatement(PredicateStatement.parse({ [operator]: [left, right] }), given);
           const backward = evaluateStatement(PredicateStatement.parse({ [operator]: [right, left] }), given);
@@ -182,6 +204,7 @@ describe('evaluatePredicate (properties)', () => {
     assert(
       property(tuple(statement, statement, statement), options, ([first, second, third], present) => {
         const given = defaultFacts(present);
+
         for (const operator of ['and', 'or'] as const) {
           const leftFirst = PredicateStatement.parse({ [operator]: [{ [operator]: [first, second] }, third] });
           const rightFirst = PredicateStatement.parse({ [operator]: [first, { [operator]: [second, third] }] });
@@ -235,13 +258,16 @@ describe('evaluatePredicate (properties)', () => {
     assert(
       property(predicate, options, options, (given, before, extra) => {
         const settled = new Set(before.map((option) => option.slice(0, option.lastIndexOf(':'))));
+
         const added = extra.filter(
           (option) =>
             (SITUATIONAL_OPTIONS as readonly string[]).includes(option) ||
             (option.startsWith(`${SITUATIONAL_PREFIX}:`) && !settled.has(SITUATIONAL_PREFIX)),
         );
+
         const earlier = evaluatePredicate(given, defaultFacts(before));
         const later = evaluatePredicate(given, defaultFacts([...before, ...added]));
+
         if (earlier !== Truth.Unknown) {
           expect(later).toBe(earlier);
         }

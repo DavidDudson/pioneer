@@ -36,12 +36,15 @@ async function appWith(): Promise<Fixture> {
   const pack = new HomebrewPackBuilder().slug('table-rules').ownedBy(amiri).visibleTo(PackVisibility.Campaign).build();
   const packs = new InMemoryHomebrewPackRepository();
   await packs.insert(pack);
+
   const service = new HomebrewBundleService({
     directory: new InMemoryPackDirectory(packs),
     access: new PackAccessPolicy(new InMemoryPackEnablementDirectory().enable(pack.id, 'The Table', [ezren])),
     bundles: new InMemoryPackBundleSource([pack]),
   });
+
   const api = new Elysia().use(problemHandler).use(homebrewBundleRoutes(service, new FakeAuthenticator()));
+
   return { api, pack };
 }
 

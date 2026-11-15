@@ -28,6 +28,7 @@ function valueOf(slug: Slug, table: SlugTable): ChoiceValue {
 /** A value as the playground shows it: an entry's id as its slug. */
 function shownValue(value: ChoiceValue, table: SlugTable): string {
   const id = ContentId.safeParse(value);
+
   return id.success ? (table.slugOf(id.data) ?? value) : value;
 }
 
@@ -41,30 +42,35 @@ export interface PicksParse {
 export function parsePicks(text: string, table: SlugTable): PicksParse {
   const picks = new Map<SlotKey, ChoiceValue>();
   const bad: number[] = [];
+
   for (const [index, raw] of text.split(LINE).entries()) {
     const line = raw.trim();
     const groups = PICK_LINE.exec(line)?.groups;
     const entry = Slug.safeParse(groups?.['entry']);
     const rule = RuleIndex.safeParse(Number(groups?.['rule']));
     const value = Slug.safeParse(groups?.['value']);
+
     if (entry.success && rule.success && value.success) {
       picks.set(slotKeyOf(table.idOf(entry.data), rule.data), valueOf(value.data, table));
     } else if (line !== '') {
       bad.push(index + 1);
     }
   }
+
   return { picks, bad };
 }
 
 /** The slot a typed line picks for, as typed (`fighter:4`); undefined for a line that is not a pick. */
 function slotOfLine(line: string): string | undefined {
   const groups = PICK_LINE.exec(line.trim())?.groups;
+
   return groups === undefined ? undefined : `${groups['entry']}:${groups['rule']}`;
 }
 
 /** `text` with `slot`'s line replaced by `slot = value` at the end, and blank lines dropped. */
 export function withPick(text: string, slot: string, value: string): string {
   const others = text.split(LINE).filter((line) => line.trim() !== '' && slotOfLine(line) !== slot);
+
   return [...others, `${slot}${PICK_SEPARATOR}${value}`].join('\n');
 }
 
@@ -73,11 +79,15 @@ export function choiceSlugsToIds(element: RuleElement, table: SlugTable): RuleEl
   if (element.key !== RuleElementKey.ChoiceSet || !Array.isArray(element.choices)) {
     return element;
   }
+
   const choices = element.choices.map((option) => {
     const slug = Slug.safeParse(option.value);
+
     return slug.success ? { ...option, value: valueOf(slug.data, table) } : option;
   });
+
   const converted: ChoiceSetElement = { ...element, choices };
+
   return converted;
 }
 
@@ -107,11 +117,13 @@ export interface ChoiceContext {
 /** Shows a slot with its slot as typed and its values as slugs; the prompt, or else the entry's name, is its title. */
 export function choiceRow(slot: ChoiceSlot | AnsweredSlot, { entryName, via, table }: ChoiceContext): ChoiceRow {
   const entry = table.slugOf(slot.origin.entry);
+
   const option = ({ value, label, summary }: OfferedOption): OptionRow => ({
     value: shownValue(value, table),
     label,
     summary,
   });
+
   return {
     slot: entry === undefined ? slot.key : slotName(entry, slot.rule),
     title: slot.prompt ?? entryName,

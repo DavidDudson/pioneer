@@ -30,16 +30,20 @@ export interface VitalReads {
 function armorBasis(registry: ContentRegistry, character: Character, reads: VitalReads): VitalBasis {
   const { armor } = statisticInputsOf(registry, character);
   const name = armor === undefined ? undefined : reads.entryNames.get(armor.origin.entry);
+
   return name === undefined ? { kind: VitalBasisKind.Unarmored } : { kind: VitalBasisKind.Armor, name };
 }
 
 /** Armor Class with the rank its proficiency bonus reads and the armour that sets it; undefined while it is not derived. */
 export function sheetArmorClass(registry: ContentRegistry, character: Character, reads: VitalReads): Vital | undefined {
   const statistic = reads.statistics.find(({ result }) => result.selector === AC);
+
   if (statistic === undefined) {
     return undefined;
   }
+
   const { ranks } = statisticInputsOf(registry, character);
+
   return { statistic, rank: ranks.get(AC) ?? Proficiency.Untrained, basis: armorBasis(registry, character, reads) };
 }
 
@@ -50,17 +54,22 @@ export function sheetArmorClass(registry: ContentRegistry, character: Character,
  */
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
+
   const own = reads.statistics
     // Perception is a row of the Skills panel, and Armor Class and the Speeds are blocks of their own, not vitals.
     .filter(({ result }) => result.selector !== PERCEPTION && result.selector !== AC && !isSpeed(result.selector))
     .map((statistic): Vital => {
       const { selector } = statistic.result;
+
       if (statistic.kind === StatisticKind.Value) {
         return { statistic, rank: undefined };
       }
+
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
+
       return selector === AC ? { statistic, rank, basis: armorBasis(registry, character, reads) } : { statistic, rank };
     });
+
   return [...own, ...spellDcVitals(registry, character)];
 }
 
@@ -70,10 +79,13 @@ export function sheetVitals(registry: ContentRegistry, character: Character, rea
  */
 function spellDcVitals(registry: ContentRegistry, character: Character): readonly Vital[] {
   const entries = sheetSpellcasting(registry, character);
+
   const found = entries.flatMap(({ source, statistics }) =>
     statistics.filter(({ result }) => result.selector.startsWith(SPELL_DC)).map((statistic) => ({ source, statistic })),
   );
+
   const [first] = found;
+
   if (
     first !== undefined &&
     found.every(
@@ -83,6 +95,7 @@ function spellDcVitals(registry: ContentRegistry, character: Character): readonl
   ) {
     return [{ statistic: first.statistic, rank: undefined }];
   }
+
   return found.map(({ source, statistic }): Vital => ({
     statistic: { ...statistic, name: `${statistic.name} · ${source}` },
     rank: undefined,

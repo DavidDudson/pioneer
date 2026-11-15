@@ -60,6 +60,7 @@ export interface TurnCommandInputs {
 function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSource): TurnOutcome {
   const begun = startTurn(play, { limits: inputs.limits, recovery: inputs.recovery }, random);
   const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy, inputs.grantedQuickened);
+
   return {
     play: { ...begun.play, turn, conditions: [...conditions], spendLog: [] },
     events: [...begun.events, ...events],
@@ -80,6 +81,7 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
     },
     random,
   );
+
   return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
 }
 
@@ -101,28 +103,34 @@ export interface TurnRun {
  */
 export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs, random }: TurnRun): TurnOutcome {
   const { phase } = play.turn;
+
   switch (command.field) {
     case TurnCommandField.EnterEncounter: {
       return phase === TurnPhase.OutOfEncounter
         ? { play: { ...play, turn: { ...play.turn, phase: TurnPhase.OffTurn } }, events: [] }
         : unchanged(play);
     }
+
     case TurnCommandField.StartTurn: {
       return phase === TurnPhase.Turn ? unchanged(play) : started(play, inputs, random);
     }
+
     case TurnCommandField.EndTurn: {
       return phase === TurnPhase.Turn ? ended(play, inputs, random) : unchanged(play);
     }
+
     case TurnCommandField.LeaveEncounter: {
       return phase === TurnPhase.OutOfEncounter
         ? unchanged(play)
         : { play: { ...play, turn: OUT_OF_ENCOUNTER, spendLog: [] }, events: [] };
     }
+
     case TurnCommandField.SetAttacks: {
       return phase === TurnPhase.Turn
         ? { play: { ...play, turn: { ...play.turn, attacks: command.count } }, events: [] }
         : unchanged(play);
     }
+
     case TurnCommandField.PassTime: {
       return passTime(play, command.duration, {
         limits: inputs.limits,
@@ -131,6 +139,7 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
         random,
       });
     }
+
     default: {
       return command satisfies never;
     }
@@ -143,6 +152,7 @@ const NO_MODIFIER = RollTotal.parse(0);
 /** The character's Fortitude modifier; none when the content has no Fortitude statistic or it has no value. */
 function fortitudeOf(sources: StatisticSources, document: CharacterDocument): RollTotal {
   const result = characterStatistics(document, sources).get(FORTITUDE);
+
   return result?.ok === true ? RollTotal.parse(result.total) : NO_MODIFIER;
 }
 
@@ -154,8 +164,10 @@ function quickenedByItems(
 ): readonly InventoryItemId[] {
   const granted = equippedGrants(document, itemContent(registry), slots).items.flatMap(({ entry, origin }) => {
     const item = entry.id === quickened ? inventoryItemOf(origin) : undefined;
+
     return item === undefined ? [] : [item];
   });
+
   return [...new Set(granted)];
 }
 
@@ -179,6 +191,7 @@ export function turnCommandInputs(
   const content = statisticContent(registry);
   const economy = economyConditions(registry);
   const defences = content === undefined ? undefined : characterDefences(document, sources);
+
   return {
     limits,
     recovery: characterVitals(sources, document)?.recovery ?? [],

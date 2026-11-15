@@ -67,9 +67,11 @@ class Gear {
     const item = ItemQuantity.parse(quantity);
     this.inventory = addItem(this.inventory, { id, item: entry.id, quantity: item, container: undefined });
     const added = this.inventory.items.find((each) => each.id === id);
+
     if (added === undefined) {
       throw new TypeError('Item was not added');
     }
+
     return added;
   }
 
@@ -82,17 +84,23 @@ class Gear {
   public use(entry: ItemEntry): boolean {
     const added = this.#add(entry, 1);
     const carry = carryOf(entry);
+
     const refused =
       inventoryRefusal(this.inventory, { id: added.id, carry }) ??
       itemRefusal(this.#items, this.inventory, { id: added.id, carry });
+
     if (refused !== undefined) {
       this.inventory = { ...this.inventory, items: this.inventory.items.filter((each) => each.id !== added.id) };
+
       return false;
     }
+
     this.inventory = carryItem(this.inventory, added.id, carry);
+
     if (isInvestable(added, entry)) {
       this.inventory = investItem(this.inventory, added.id, true);
     }
+
     return true;
   }
 }
@@ -106,6 +114,7 @@ function investedWorn(items: ItemContent): ItemEntry[] {
       isWearable(entry) &&
       isInvestable(undefined, entry),
   );
+
   return bestFirst(worn).slice(FIRST, INVESTED_MAX - 1);
 }
 
@@ -113,6 +122,7 @@ function investedWorn(items: ItemContent): ItemEntry[] {
 function defenses(gear: Gear, items: ItemContent): void {
   for (const kind of [ContentKind.Armor, ContentKind.Shield]) {
     const [best] = ofKind(items, kind);
+
     if (best !== undefined) {
       gear.use(best);
     }
@@ -123,11 +133,14 @@ function defenses(gear: Gear, items: ItemContent): void {
 function weapons(gear: Gear, items: ItemContent): void {
   const [...ranked] = ofKind(items, ContentKind.Weapon);
   let carried = 0;
+
   for (const weapon of ranked) {
     if (carried >= WEAPONS) {
       gear.stow(weapon);
+
       return;
     }
+
     if (gear.use(weapon)) {
       carried += 1;
     }
@@ -139,11 +152,14 @@ export function gearedInventory(items: ItemContent): Inventory {
   const gear = new Gear(items);
   defenses(gear, items);
   weapons(gear, items);
+
   for (const entry of investedWorn(items)) {
     gear.use(entry);
   }
+
   for (const entry of ofKind(items, ContentKind.Consumable).slice(FIRST, CONSUMABLES)) {
     gear.stow(entry, CONSUMABLE_QUANTITY);
   }
+
   return gear.inventory;
 }

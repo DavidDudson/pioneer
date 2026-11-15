@@ -13,6 +13,7 @@ async function render(): Promise<ComponentRef<ScreenOverlay>> {
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(overlay.hostView);
   await appRef.whenStable();
+
   return overlay;
 }
 

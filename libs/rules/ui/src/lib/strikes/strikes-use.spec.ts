@@ -32,6 +32,7 @@ async function render(
       await Promise.resolve();
     },
   };
+
   TestBed.configureTestingModule({
     providers: [
       provideRulesUiI18nTesting(),
@@ -43,6 +44,7 @@ async function render(
   fixture.componentRef.setInput('strikes', strikes);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+
   return fixture;
 }
 

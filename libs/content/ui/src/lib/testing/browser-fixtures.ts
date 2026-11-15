@@ -34,6 +34,7 @@ const BOOK = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 /** The feats' rows as the table shows them. */
 export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) => {
   const name = slugName(entry.slug);
+
   return {
     id: entry.id,
     entry: entry.id,

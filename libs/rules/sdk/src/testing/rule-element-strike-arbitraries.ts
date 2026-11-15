@@ -7,9 +7,11 @@ import { ruleElementJson as otherElementJson } from './rule-element-arbitraries'
 
 const SLUG_WORDS_MAX = 3;
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
+
 const slug: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_WORDS_MAX }).map((words) =>
   words.join('-'),
 );
+
 const ruleNumber: Arbitrary<number> = double({ noNaN: true, noDefaultInfinity: true });
 const ruleValue = oneof(ruleNumber, validFormulaText);
 const traitModes = constantFrom(...Object.values(TraitAlterationMode));
@@ -18,6 +20,7 @@ const strikes = option(predicateJson, { nil: undefined });
 
 function adjustment(property: string, mode: Arbitrary<string>, value: Arbitrary<unknown>): Arbitrary<object> {
   const fields = record({ key: constant('AdjustStrike'), property: constant(property), mode, value, strikes });
+
   return fields.map((each) => Object.fromEntries(Object.entries(each).filter(([, picked]) => picked !== undefined)));
 }
 

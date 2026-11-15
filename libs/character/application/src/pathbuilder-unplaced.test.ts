@@ -26,7 +26,9 @@ const lookup = {
       [ImportKind.Deity]: { Iomedae: iomedae },
       [ImportKind.Spell]: { Fireball: fireball },
     };
+
     const id = known[kind]?.[name];
+
     return id === undefined ? undefined : { id, name };
   },
 } as unknown as ContentLookup;
@@ -42,10 +44,12 @@ describe('keptPicks', () => {
       { name: name('Nimble Dodge') },
       { name: name('Nimble Dodge') },
     ] as unknown as readonly ImportedFeat[];
+
     const picks = keptPicks(
       { feats, languages: [name('Elven'), name('Elven')], customLanguages: [], rituals: [], ...NOTHING_ELSE },
       lookup,
     );
+
     expect(picks).toStrictEqual({
       unplacedFeats: [dodge],
       unplacedLanguages: [elven],
@@ -83,6 +87,7 @@ describe('keptPicks', () => {
       },
       lookup,
     );
+
     expect(picks.classFeatures).toStrictEqual([layOnHands]);
     expect(picks.deity).toBe(iomedae);
     expect(picks.unplacedSpells).toStrictEqual([fireball]);
@@ -101,6 +106,7 @@ describe('keptPicks', () => {
       },
       lookup,
     );
+
     expect(picks.deity).toBeUndefined();
   });
 });

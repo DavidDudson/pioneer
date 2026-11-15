@@ -21,6 +21,7 @@ class FakeFetcher extends PathbuilderExportFetcher {
 
   public override async fetch(url: PathbuilderExportUrl): Promise<FetchedExport> {
     this.asked.push(url);
+
     return this.#answer;
   }
 }
@@ -29,6 +30,7 @@ class FakeFetcher extends PathbuilderExportFetcher {
 async function refusedWith(service: PathbuilderExportService, pasted: string): Promise<string | undefined> {
   try {
     await service.fetchExport(pasted);
+
     return undefined;
   } catch (error) {
     return error instanceof ValidationError ? error.issues[0]?.message.key : undefined;

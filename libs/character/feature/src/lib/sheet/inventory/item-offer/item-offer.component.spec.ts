@@ -38,6 +38,7 @@ function render(campaignId: string | undefined, loader: LoadOffer, line: string)
     { id: plain, item: 'rope' },
     { id: gmLine, item: 'sword', keyItem: GM_LINK },
   ];
+
   TestBed.configureTestingModule({
     providers: [
       { provide: INVENTORY_LINE_OFFER, useValue: loader },
@@ -52,6 +53,7 @@ function render(campaignId: string | undefined, loader: LoadOffer, line: string)
   fixture.componentRef.setInput('id', line);
   fixture.componentRef.setInput('name', 'Rope');
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -60,6 +62,7 @@ function control(fixture: ComponentFixture<ItemOffer>): StubOffer | undefined {
   const found: unknown[] = fixture.debugElement
     .queryAll(By.directive(StubOffer))
     .map((element): unknown => element.componentInstance);
+
   return found.find((each) => each instanceof StubOffer);
 }
 

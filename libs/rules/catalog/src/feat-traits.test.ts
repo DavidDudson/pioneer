@@ -15,16 +15,20 @@ const UNRESOLVED: ReadonlyMap<string, string> = new Map([
 const Traits = z.array(z.string());
 const Entry = z.object({ slug: z.string(), traits: Traits });
 const Entries = z.array(Entry);
+
 type Entries = z.infer<typeof Entries>;
 
 async function entriesOf(pattern: string): Promise<Entries> {
   const files = await Array.fromAsync(new Glob(pattern).scan({ cwd: PACKS, onlyFiles: true }));
+
   const parsed = await Promise.all(
     files.map(async (file): Promise<Entries> => {
       const json: unknown = await Bun.file(`${PACKS}/${file}`).json();
+
       return Entries.parse(json);
     }),
   );
+
   return parsed.flat();
 }
 

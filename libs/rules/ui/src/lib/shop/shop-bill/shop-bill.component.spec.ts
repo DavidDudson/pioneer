@@ -21,10 +21,13 @@ async function render({ cost, coins, affordable, subject }: BillInputs): Promise
   fixture.componentRef.setInput('coins', coins);
   fixture.componentRef.setInput('affordable', affordable);
   fixture.componentRef.setInput('reasonId', 'why');
+
   if (subject !== undefined) {
     fixture.componentRef.setInput('subject', subject);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -32,6 +35,7 @@ async function render({ cost, coins, affordable, subject }: BillInputs): Promise
 const lines = (host: HTMLElement): string[] =>
   [...host.querySelectorAll('fr-description-item')].map((item) => {
     const value = item.querySelector('fr-text')?.textContent.trim() ?? '';
+
     return `${item.textContent.replace(value, '').trim()}: ${value}`;
   });
 
@@ -48,6 +52,7 @@ describe(ShopBill, () => {
       ],
       affordable: true,
     });
+
     expect(lines(host)).toStrictEqual(['Cost: 1 gp 5 sp', 'Your coins: 1 pp 7 cp']);
     expect(host.querySelector('#why')).toBeNull();
   });
@@ -69,6 +74,7 @@ describe(ShopBill, () => {
       affordable: false,
       subject: ShopBillFor.Kit,
     });
+
     expect(host.querySelector('#why')?.textContent).toContain("Your coins don't cover the kit's price.");
   });
 });

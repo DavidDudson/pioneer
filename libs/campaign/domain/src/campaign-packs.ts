@@ -20,6 +20,7 @@ export const PackListing = z.object({
   publisher: PackPublisher,
   official: z.boolean(),
 });
+
 export type PackListing = z.output<typeof PackListing>;
 
 /** A pack the campaign uses: an official one, always on, or a homebrew one a GM enabled. */
@@ -29,6 +30,7 @@ export const EnabledPack = PackListing.extend({
   /** Whether the viewer may disable it: the GM, for a homebrew pack nothing enabled extends. */
   removable: z.boolean(),
 });
+
 export type EnabledPack = z.output<typeof EnabledPack>;
 
 /** A pack the GM could enable. */
@@ -36,6 +38,7 @@ export const PackCandidate = PackListing.extend({
   /** A private pack is refused until its owner shares it with campaigns. */
   private: z.boolean(),
 });
+
 export type PackCandidate = z.output<typeof PackCandidate>;
 
 /** JSON shape of a campaign's packs, as one of its members sees them. */
@@ -47,4 +50,5 @@ export const CampaignPacks = z.object({
   /** The packs the GM may read and has not enabled, by title. Empty for a player. */
   candidates: z.array(PackCandidate).readonly(),
 });
+
 export type CampaignPacks = z.output<typeof CampaignPacks>;

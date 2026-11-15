@@ -47,22 +47,28 @@ async function setUp(): Promise<SetUp> {
   const clock = fixedClock('2026-10-14T10:00:00Z');
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
+
   const kyra = await new CharacterService(repository, content, clock).create(amiri, {
     name: CharacterName.parse('Kyra'),
     ancestry: humanAncestryId,
   });
+
   const catalog = new InMemoryCharacterPackCatalog()
     .pack({ ...known(core, 'Player Core'), official: true })
     .pack({ ...known(spells, 'Spells'), readers: [amiri] })
     .pack({ ...known(feats, 'Feats'), readers: [amiri] })
     .pack({ ...known(foreign, 'Foreign'), readers: [ezren] })
     .extend(feats, spells);
+
   const campaigns = new InMemoryAttachedCampaignPacks();
+
   const service = new CharacterPackService(
     { characters: repository, packs: new InMemoryCharacterPackRepository(), catalog, campaigns },
     clock,
   );
+
   const api = new Elysia().use(problemHandler).use(characterPackRoutes(service, new FakeAuthenticator()));
+
   return { api, campaigns, path: `/characters/${kyra.id}/packs`, characterId: kyra.id };
 }
 

@@ -21,6 +21,7 @@ const inputs: StatisticInputs = StatisticInputsJson.parse({
 });
 
 const registry = new ContentRegistry();
+
 registry.register(
   new ContentPackBuilder()
     .withId('player-core')
@@ -28,6 +29,7 @@ registry.register(
     .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
     .build(),
 );
+
 registry.register(
   ContentPack.define({
     manifest: { id: 'variants', title: 'Variants', publisher: 'Pioneer', license: ContentLicense.Homebrew },
@@ -49,9 +51,11 @@ registry.register(
 
 const keen = ((): VariantRuleEntry => {
   const [found] = registry.variantRules();
+
   if (found === undefined) {
     throw new Error('No variant rule');
   }
+
   return found;
 })();
 
@@ -89,11 +93,13 @@ describe('characterEffects', () => {
 
   test('there are none without a proficiency bonus table', () => {
     const bare = new ContentRegistry();
+
     const lines = characterEffects(
       document,
       { ...sources([]), registry: bare },
       { entry, mode: EffectMode.WouldApply },
     );
+
     expect(lines).toStrictEqual([]);
   });
 });

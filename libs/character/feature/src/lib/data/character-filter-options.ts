@@ -20,6 +20,7 @@ export class CharacterFilterOptions {
   /** Every loaded class, by name; none while the content loads. */
   public readonly classes = computed((): readonly FilterOption[] => {
     const registry = this.#registry.data();
+
     return registry === undefined
       ? []
       : classPickerContent(registry)
@@ -30,6 +31,7 @@ export class CharacterFilterOptions {
   /** Every loaded ancestry, by name; none while the content loads. */
   public readonly ancestries = computed((): readonly FilterOption[] => {
     const registry = this.#registry.data();
+
     return registry === undefined
       ? []
       : originContent(registry)

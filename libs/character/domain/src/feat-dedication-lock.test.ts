@@ -26,8 +26,11 @@ import type { DedicationFixture } from './testing';
 const idOf = dedicationFixtureId;
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(DEDICATION_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function character(level = 6): CharacterBuilder {
@@ -37,9 +40,11 @@ function character(level = 6): CharacterBuilder {
 /** A character with each feat picked in the slot of the level of its position: the first at 1st level, and so on. */
 function taking(...feats: readonly DedicationFixture[]): CharacterBuilder {
   let builder = character();
+
   for (const [index, feat] of feats.entries()) {
     builder = builder.picking(dedicationSlot(index + 1), idOf(feat));
   }
+
   return builder;
 }
 
@@ -49,6 +54,7 @@ function slotOf(builder: CharacterBuilder, slot: SlotKey): unknown {
 
 function optionOf(builder: CharacterBuilder, slot: SlotKey, feat: DedicationFixture): unknown {
   const read = featSlots(builder.build().document, content).find((each) => each.key === slot);
+
   return read?.options.find((each) => each.value === idOf(feat))?.locked;
 }
 
@@ -119,6 +125,7 @@ describe('the dedication lock on feat slot offers', () => {
     const planned = character()
       .picking(dedicationSlot(2), idOf('medic-dedication'))
       .picking(dedicationSlot(1), idOf('medic-basic'));
+
     expect(optionOf(planned, dedicationSlot(3), 'sentinel-dedication')).toMatchObject({ needed: 1 });
     expect(optionOf(planned, dedicationSlot(1), 'sentinel-dedication')).toBeUndefined();
   });
@@ -156,6 +163,7 @@ describe('a taken dedication whose lock does not hold', () => {
       dedicationSlot(3),
       idOf('power-attack'),
     );
+
     expect(slotOf(builder, dedicationSlot(4))).toMatchObject({
       status: SlotStatus.Invalid,
       reason: { key: SlotInvalidMessage.DedicationLocked },
@@ -167,13 +175,16 @@ describe('a taken dedication whose lock does not hold', () => {
       dedicationSlot(6),
       idOf('sentinel-dedication'),
     );
+
     const slot = dedicationSlot(6);
     expect(slotOf(planned, slot)).toMatchObject({ status: SlotStatus.Filled });
+
     const early = character(1)
       .picking(dedicationSlot(1), idOf('medic-dedication'))
       .picking(dedicationSlot(2), idOf('medic-basic'))
       .picking(dedicationSlot(3), idOf('medic-advanced'))
       .picking(slot, idOf('sentinel-dedication'));
+
     expect(slotOf(early, slot)).toMatchObject({ status: SlotStatus.Planned });
   });
 });
@@ -191,10 +202,15 @@ const noLockPack = ContentPack.define({
     },
   ],
 });
+
 const unlockedRegistry = new ContentRegistry();
+
 unlockedRegistry.register(skillFixtures());
+
 unlockedRegistry.register(DEDICATION_FIXTURES);
+
 unlockedRegistry.register(noLockPack);
+
 const unlocked = { ...slotContent(unlockedRegistry, unlockedRegistry.variantRules()), namespaces: CORE_NAMESPACES };
 
 describe('the No Dedication Lock variant', () => {
@@ -241,6 +257,7 @@ const FEATS: readonly DedicationFixture[] = [
   'scout-basic',
   'power-attack',
 ];
+
 const featPick = option(constantFrom(...FEATS), { nil: undefined });
 const SLOT_PICKS = 6;
 const picks = array(featPick, { minLength: SLOT_PICKS, maxLength: SLOT_PICKS });
@@ -248,11 +265,13 @@ const picks = array(featPick, { minLength: SLOT_PICKS, maxLength: SLOT_PICKS });
 /** The character with each feat that is picked in the slot of its position. */
 function withPicks(chosen: readonly (DedicationFixture | undefined)[]): CharacterDocument {
   let builder = character();
+
   for (const [index, feat] of chosen.entries()) {
     if (feat !== undefined) {
       builder = builder.picking(dedicationSlot(index + 1), idOf(feat));
     }
   }
+
   return builder.build().document;
 }
 
@@ -271,6 +290,7 @@ describe('the dedication lock, over any picks', () => {
     assert(
       property(picks, (chosen) => {
         const document = withPicks(chosen);
+
         for (const slot of featSlots(document, content)) {
           for (const offered of slot.options) {
             expect(refused(document, slot.key, offered.value)).toBe(isBlocked(offered));

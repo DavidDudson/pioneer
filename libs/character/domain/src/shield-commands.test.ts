@@ -18,12 +18,14 @@ import { untypedDamage } from './untyped-damage';
 const MAX = HitPoints.parse(30);
 const ITEM = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 const OTHER = InventoryItemId.parse('00000000-0000-4000-8000-000000000002');
+
 /** A steel shield: Hardness 5, 20 Hit Points, broken at 10. */
 const STEEL: ShieldStats = {
   hardness: Hardness.parse(5),
   hitPoints: HitPoints.parse(20),
   brokenThreshold: HitPoints.parse(10),
 };
+
 const HELD: ShieldContent = new Map([[ITEM, STEEL]]);
 
 function hp(value: number): HitPoints {
@@ -116,6 +118,7 @@ describe('blockProblem', () => {
 
 describe('Shield Block with the shield of a battle form', () => {
   const FORM: ShieldStats = { ...STEEL, hardness: Hardness.parse(15), undamageable: true };
+
   const formBlock = (taken: number): PlayState =>
     applyPlayCommand(
       FRESH_PLAY,
@@ -134,6 +137,7 @@ describe('Shield Block with the shield of a battle form', () => {
     expect(shieldCondition(FORM, hp(100))).toBe(ShieldCondition.Whole);
   });
 });
+
 const instance = (id: string, effect: ContentId): ActiveEffect =>
   ActiveEffectSchema.parse({ id: EffectInstanceId.parse(id), effect });
 
@@ -169,6 +173,7 @@ describe('Shield Block with a shield an effect gives', () => {
         ]),
       },
     );
+
   const grant = (endsOnBlock: boolean, endsWhenDestroyed: boolean): ShieldGrant => ({
     effect: EFFECT,
     endsOnBlock,
@@ -210,6 +215,7 @@ describe('Shield Block with a shield an effect gives', () => {
 /** Damage of one `type` taken in full, as a roll gives it. */
 function damageOf(amount: number, ...types: readonly (DamageType | undefined)[]): DamageApplication {
   const each = DamageTotal.parse(amount);
+
   return {
     critical: false,
     immediate: types.map((type) => ({ type, rolled: each, dealt: each, taken: each, lines: [] })),

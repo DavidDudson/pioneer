@@ -79,14 +79,18 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
   /** A fresh campaign for each test, as approvals are never deleted. */
   beforeEach(async () => {
     campaigns += 1;
+
     const campaign = await new DrizzleCampaignRepository(database.db).insert(
       new CampaignBuilder().named(`Abomination Vaults ${campaigns}`).ranBy(ezren).withPlayer(amiri).build(),
     );
+
     campaignId = campaign.id;
     const member = campaign.members.find((candidate) => candidate.userId === amiri);
+
     if (member === undefined) {
       throw new Error('Amiri is not in the campaign');
     }
+
     memberId = member.id;
     await database.db.execute(sql`delete from campaign_characters where character_id = ${kyraId}`);
   });
@@ -130,9 +134,11 @@ describe.skipIf(adminUrl === undefined)('approved rule-breaking items over postg
 
   test('the database refuses to delete an approval (ADR-0062)', async () => {
     await repository.approve(ezren, campaignId, approval());
+
     const error = await rejection(
       database.db.$client.unsafe(`delete from campaign_item_approvals where campaign_id = '${campaignId}'`),
     );
+
     expect(error).toBeInstanceOf(Error);
   });
 

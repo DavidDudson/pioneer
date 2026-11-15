@@ -25,6 +25,7 @@ export const KitFixture = {
   /** 20 gp for an anvil: more than a starting purse holds. */
   Smithy: 'smithy',
 } as const;
+
 export type KitFixture = (typeof KitFixture)[keyof typeof KitFixture];
 
 const EXPLORER_ARROWS = 10;
@@ -32,6 +33,7 @@ const EXPLORER_ARROWS = 10;
 /** A kit's items as its `data` lists them: the fixture item and how many, with what a container holds. */
 function kitLine(name: ItemFixture, quantity: number, contents: readonly object[] = []): object {
   const line = { item: itemFixtureId(name), quantity };
+
   return contents.length === 0 ? line : { ...line, contents };
 }
 
@@ -49,9 +51,11 @@ const KITS: Readonly<Record<KitFixture, object>> = {
 
 function kitPack(): ContentPack {
   const builder = new ContentPackBuilder().withId(KIT_PACK);
+
   for (const [name, data] of Object.entries(KITS)) {
     builder.withKit(name, data);
   }
+
   return builder.build();
 }
 
@@ -68,6 +72,7 @@ export function kitFixtureContent(): KitContent {
   const registry = new ContentRegistry();
   registry.register(ITEM_FIXTURES);
   registry.register(KIT_FIXTURES);
+
   return kitContent(registry);
 }
 

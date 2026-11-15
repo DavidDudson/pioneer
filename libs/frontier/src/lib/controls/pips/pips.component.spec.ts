@@ -10,6 +10,7 @@ function render(value: number, max = 3): ComponentFixture<Pips> {
   fixture.componentRef.setInput('value', value);
   fixture.componentRef.setInput('ariaLabel', 'Hero Points');
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -22,6 +23,7 @@ function commits(fixture: ComponentFixture<Pips>): () => number {
   fixture.componentInstance.committed.subscribe(() => {
     count += 1;
   });
+
   return () => count;
 }
 

@@ -86,6 +86,7 @@ export const ORDER_SPELL_RULES: Planned = [
  */
 export function order(slug: string, spell: string): Planned {
   const predicate = [{ not: `${ORDER_EXPLORER}:${slug}` }, { not: `${DRUID_DEDICATION}:${slug}` }];
+
   return [
     { ...DRUID_ENTRY, predicate },
     { entry: DRUID, spells: [spell], predicate },

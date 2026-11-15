@@ -24,13 +24,17 @@ function formAdjustmentLines(
   return (listed ?? []).flatMap(({ type, value, exceptions }): AdjustmentLine[] => {
     const target = DamageAdjustmentTargetSchema.safeParse(type);
     const outcome = valueOf(value, context.resolve(NO_ITEM));
+
     const result = outcome.ok
       ? amountOf(outcome.value, APPLIED)
       : { value: undefined, status: failed(APPLIED, outcome.error, outcome.position) };
+
     if (!target.success || result === undefined) {
       return [];
     }
+
     const { id, label, origin } = form;
+
     return [{ id, label, origin, type: target.data, exceptions: exceptions ?? NONE, ...result, fromForm: true }];
   });
 }
@@ -40,8 +44,10 @@ export function formDefences(form: FormInPlay | undefined, context: RuleContext)
   if (form === undefined) {
     return { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [], persistentFlatChecks: [] };
   }
+
   const { id, label, origin } = form;
   const types = new Set((form.form.immunities ?? []).map(({ type }) => type));
+
   return {
     immunities: [...types].map((type) => ({ id, label, origin, type, status: APPLIED, fromForm: true })),
     weaknesses: formAdjustmentLines(form, form.form.weaknesses, context),

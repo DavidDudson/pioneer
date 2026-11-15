@@ -68,9 +68,11 @@ export class LoadMore {
   protected readonly loadMore = async (): Promise<void> => {
     const before = this.items().length;
     const page = await this.query().fetchNextPage();
+
     if (page.isError) {
       throw page.error;
     }
+
     this.#focusFrom.set(before);
   };
 
@@ -80,9 +82,11 @@ export class LoadMore {
   public constructor() {
     afterRenderEffect(() => {
       const from = this.#focusFrom();
+
       if (from === undefined) {
         return;
       }
+
       this.#focusFrom.set(undefined);
       this.items()[from]?.focus();
     });

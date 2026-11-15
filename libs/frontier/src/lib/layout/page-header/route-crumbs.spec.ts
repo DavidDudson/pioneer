@@ -49,6 +49,7 @@ interface Step {
 async function trailAt(url: string): Promise<Step[]> {
   await TestBed.inject(Router).navigateByUrl(url);
   await renderProjected(PageHeader, { title: 'Fireball' }, []);
+
   return TestBed.inject(HeaderCrumbs)
     .trail()
     .map(({ label, to }) => ({ label, href: to }));

@@ -21,6 +21,7 @@ async function render(rows: readonly LevelTimelineRow[] | undefined): Promise<HT
   const fixture: ComponentFixture<LevelTimeline> = TestBed.createComponent(LevelTimeline);
   fixture.componentRef.setInput('rows', rows);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -47,6 +48,7 @@ describe(LevelTimeline, () => {
     const host = await render(
       withSource(FIGHTER_TIMELINE, message('rules.choices.source.classNamed', { name: 'Fighter' })),
     );
+
     const captions = [...host.querySelectorAll('pio-choice-row fr-text')].map((part) => part.textContent.trim());
     expect(captions).toContain('Class (Fighter)');
   });

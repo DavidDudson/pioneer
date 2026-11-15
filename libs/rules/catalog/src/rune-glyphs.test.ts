@@ -11,12 +11,14 @@ const RUNES = await loadRunes();
 /** The pair each property rune shows, with the runes that share it. */
 function runesByPair(): ReadonlyMap<string, readonly string[]> {
   const byPair = new Map<string, string[]>();
+
   for (const rune of RUNES.filter(
     (entry) => entry.kind === ContentKind.Rune && entry.data.type === RuneType.Property,
   )) {
     const pair = runicPair(rune.id);
     byPair.set(pair, [...(byPair.get(pair) ?? []), rune.slug]);
   }
+
   return byPair;
 }
 

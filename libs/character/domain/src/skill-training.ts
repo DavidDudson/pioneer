@@ -21,6 +21,7 @@ export const SkillSlotKind = {
   Training: 'training',
   Increase: 'increase',
 } as const;
+
 export type SkillSlotKind = ValueOf<typeof SkillSlotKind>;
 
 /** Why a skill pick counts for nothing, when it names a skill the content has. */
@@ -30,6 +31,7 @@ export const SkillPickProblem = {
   /** A skill increase past the rank its level allows. */
   Capped: 'capped',
 } as const;
+
 export type SkillPickProblem = ValueOf<typeof SkillPickProblem>;
 
 /**
@@ -53,6 +55,7 @@ export interface SkillSlot {
 
 const MASTER_FROM = Level.parse(7);
 const LEGENDARY_FROM = Level.parse(15);
+
 /** The lowest level a skill increase may raise to each rank (Player Core): master from 7th, legendary from 15th. */
 const RANK_FROM: Readonly<Record<Proficiency, Level>> = {
   [Proficiency.Untrained]: FIRST_LEVEL,
@@ -65,6 +68,7 @@ const RANK_FROM: Readonly<Record<Proficiency, Level>> = {
 /** The rank a skill increase at `level` raises `rank` to; undefined past legendary or past what the level allows. */
 export function increasedRank(rank: Proficiency | undefined, level: Level): Proficiency | undefined {
   const next = RANKS[RANKS.indexOf(rank ?? Proficiency.Untrained) + 1];
+
   return next !== undefined && RANK_FROM[next] <= level ? next : undefined;
 }
 
@@ -102,13 +106,16 @@ export function intelligenceRaises(document: CharacterDocument, boosts: BoostCon
   const raises: IntelligenceRaise[] = [];
   // Intelligence changes only where boosts are given, so it is read at those levels alone.
   const levels = new Set(boostSets(document, boosts).map((set) => set.level));
+
   for (const level of [...levels].filter((each) => each > FIRST_LEVEL)) {
     const intelligence = intelligenceAt(document, boosts, level);
+
     if (intelligence > highest) {
       raises.push({ level, points: SkillCount.parse(intelligence - highest) });
       highest = intelligence;
     }
   }
+
   return raises;
 }
 
@@ -121,20 +128,25 @@ export function intelligenceRaises(document: CharacterDocument, boosts: BoostCon
 function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt }: SkillReads): SkillSlotPlace[] {
   const picked = ContentId.safeParse(document.build.choices[CLASS_SLOT]);
   const classSkills = picked.success ? skills.classSkills(picked.data) : undefined;
+
   if (classSkills === undefined) {
     return [];
   }
+
   const intelligence = intelligenceAt(document, boosts, FIRST_LEVEL);
   const first = classSkills.additional + intelligence + duplicateTrainings(grantsAt(FIRST_LEVEL));
+
   const increases = classSkills.increaseLevels.map((level) => ({
     key: SlotKey.parse(`skill-increase:${level}`),
     level,
     kind: SkillSlotKind.Increase,
   }));
+
   const trainings = [
     ...trainingSlots(FIRST_LEVEL, SkillCount.parse(Math.max(first, 0))),
     ...intelligenceRaises(document, boosts).flatMap(({ level, points }) => trainingSlots(level, points)),
   ];
+
   return [...trainings, ...increases].toSorted((left, right) => left.level - right.level);
 }
 
@@ -143,6 +155,7 @@ function rankFor(kind: SkillSlotKind, level: Level, rank: Proficiency | undefine
   if (kind === SkillSlotKind.Training) {
     return rank === undefined || rank === Proficiency.Untrained ? Proficiency.Trained : undefined;
   }
+
   return increasedRank(rank, level);
 }
 
@@ -180,6 +193,7 @@ function readPick(
   const pick = options.find((skill) => skill.id === named?.id);
   const rank = pick === undefined ? undefined : rankOf(pick);
   const problem = named !== undefined && pick === undefined ? refusalOf(kind) : undefined;
+
   return { pick, rank, problem };
 }
 
@@ -194,11 +208,13 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
   const grantsAt = skillGrantsAt(reads.grantsAt);
   const grantedAt = (level: Level): ReadonlyMap<Selector, Proficiency> => grantsAt(level).ranks;
   const entriesAt = (level: Level): ReadonlyMap<Selector, readonly ContentId[]> => grantsAt(level).entries;
+
   return skillSlotPlaces(document, reads).map(({ key, level, kind }): SkillSlot => {
     const ranks = grantedAt(level);
     const rankOf = (selector: Selector): Proficiency | undefined => higher(ranks.get(selector), picked.get(selector));
     const open = (skill: SkillOption): boolean => rankFor(kind, level, rankOf(skill.selector)) !== undefined;
     const options = reads.skills.skills.filter(open);
+
     const trained =
       kind === SkillSlotKind.Training
         ? trainedSkills(reads.skills.skills, (skill) => !open(skill), {
@@ -206,17 +222,22 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
             slots: pickedBy,
           })
         : [];
+
     const stored = document.build.choices[key];
+
     const { pick, rank, problem } = readPick(reads.skills, { stored, options, kind }, (skill) =>
       rankFor(kind, level, rankOf(skill.selector)),
     );
+
     if (pick !== undefined && rank !== undefined) {
       picked.set(pick.selector, rank);
+
       // Only a pick that trains the skill is a source; an increase raising a trained skill didn't train it.
       if (rank === Proficiency.Trained) {
         pickedBy.set(pick.selector, [...(pickedBy.get(pick.selector) ?? []), key]);
       }
     }
+
     return {
       key,
       level,
@@ -234,11 +255,13 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
 /** The skill ranks `slots`' picks reach at `level`: each trained skill and skill increase up to it, in order. */
 export function slotSkillRanks(slots: readonly SkillSlot[], level: Level): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map<Selector, Proficiency>();
+
   for (const slot of slots) {
     if (slot.level <= level && slot.pick !== undefined && slot.rank !== undefined) {
       ranks.set(slot.pick.selector, slot.rank);
     }
   }
+
   return ranks;
 }
 
@@ -256,8 +279,10 @@ export function withSkillPicks(
   picks: ReadonlyMap<Selector, Proficiency>,
 ): ReadonlyMap<Selector, Proficiency> {
   const merged = new Map(ranks);
+
   for (const [selector, rank] of picks) {
     merged.set(selector, higher(merged.get(selector), rank) ?? rank);
   }
+
   return merged;
 }

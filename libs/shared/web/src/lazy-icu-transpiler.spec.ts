@@ -12,6 +12,7 @@ function transpile(transpiler: LazyIcuTranspiler, value: string, params: Record<
 
 function setup(): LazyIcuTranspiler {
   TestBed.configureTestingModule({ providers: [LazyIcuTranspiler] });
+
   return TestBed.inject(LazyIcuTranspiler);
 }
 

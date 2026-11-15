@@ -48,6 +48,7 @@ describe('CharacterKeyItems', () => {
 
   async function held(): Promise<Character['document']['inventory']['items']> {
     const found = await repository.findById(kyra.id);
+
     return found?.document.inventory.items ?? [];
   }
 

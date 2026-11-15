@@ -131,12 +131,14 @@ export class SheetPlanTab {
   /** The level the route names, or undefined while a side panel is open instead. */
   protected readonly shownLevel = computed((): number | undefined => {
     const section = this.shown();
+
     return section === undefined ? undefined : levelOfPath(sectionPath(section));
   });
   /** The level 1 to 20 on show, which has the level plan in place of the base character. */
   protected readonly plannedLevel = computed((): PlannedLevel | undefined => {
     const level = this.shownLevel();
     const section = SHEET_LEVELS.find((candidate) => levelOfPath(sectionPath(candidate)) === level);
+
     return level === undefined || level === BASE_LEVEL || section === undefined ? undefined : { level, section };
   });
   protected readonly baseLevel = BASE_LEVEL;

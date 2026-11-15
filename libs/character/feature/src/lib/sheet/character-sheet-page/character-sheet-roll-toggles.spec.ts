@@ -51,6 +51,7 @@ async function pressPerception(root: HTMLElement): Promise<void> {
   const button = await vi.waitFor(() =>
     present(root.querySelector<HTMLButtonElement>('button[aria-label^="Roll Perception"]')),
   );
+
   button.click();
   render();
 }
@@ -72,6 +73,7 @@ function perceptionTotal(root: HTMLElement): number {
 
   const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(roll));
   const value = Number(match?.groups?.['value']);
+
   return match?.groups?.['sign'] === '+' ? value : -value;
 }
 
@@ -87,6 +89,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
     const button = await vi.waitFor(() =>
       present(root.querySelector<HTMLButtonElement>('button[aria-label^="Roll Perception"]')),
     );
+
     button.click();
     render();
 

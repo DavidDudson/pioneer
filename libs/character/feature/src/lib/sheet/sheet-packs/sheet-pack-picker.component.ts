@@ -67,8 +67,10 @@ export class SheetPackPicker {
   protected readonly describeEnableError = (error: unknown): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
+
       return this.#i18n.translate(key, params);
     }
+
     return this.#i18n.translate('character.packs.enableFailed');
   };
 }

@@ -29,7 +29,9 @@ function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts):
     if (predicate === undefined) {
       return [{ value, label, summary: undefined }];
     }
+
     const truth = evaluatePredicate(predicate, facts);
+
     return truth === Truth.False ? [] : [{ value, label, summary: summarisePredicate(predicate, facts) }];
   });
 }
@@ -61,6 +63,7 @@ function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFact
   if (ownTrait === undefined) {
     return true;
   }
+
   return candidateFacts.tails(ownTrait).some((slug) => candidateFacts.has(`item:trait:${slug}`));
 }
 
@@ -73,21 +76,29 @@ function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFact
 function queriedOptions(query: ChoiceQuery, context: ChoiceContext, held: ChoiceValue | undefined): OfferedOption[] {
   const { facts, lookup } = context;
   const { kind, filter } = query;
+
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
     if (candidate.facts?.unsupported === true && candidate.id !== held) {
       return [];
     }
+
     const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidateOptions(candidate, context));
+
     if (!sharesOwnTrait(query, candidateFacts)) {
       return [];
     }
+
     const truth = evaluatePredicate(filter, candidateFacts);
+
     if (truth === Truth.False) {
       return [];
     }
+
     const summary = truth === Truth.True ? undefined : summarisePredicate(filter, candidateFacts);
+
     return [{ value: candidate.id, label: candidate.name, summary }];
   });
+
   return offered.toSorted(byLabel);
 }
 
@@ -106,11 +117,14 @@ function ownedOption(query: OwnedQuery, item: OwnedItem, context: ChoiceContext)
   if (!query.ownedKinds.includes(item.kind)) {
     return undefined;
   }
+
   const itemFacts = ownedFacts(item, context);
   const truth = evaluatePredicate(query.filter, itemFacts);
+
   if (truth === Truth.False) {
     return undefined;
   }
+
   return {
     value: item.slug,
     label: item.name,
@@ -122,8 +136,10 @@ function ownedOption(query: OwnedQuery, item: OwnedItem, context: ChoiceContext)
 function ownedOptions(query: OwnedQuery, context: ChoiceContext): OfferedOption[] {
   const offered = context.owned.flatMap((item): OfferedOption[] => {
     const option = ownedOption(query, item, context);
+
     return option === undefined ? [] : [option];
   });
+
   return offered.toSorted(byLabel);
 }
 
@@ -135,6 +151,7 @@ export function offeredOptions(
   if (Array.isArray(choices)) {
     return listedOptions(choices, context.facts);
   }
+
   return isOwnedQuery(choices) ? ownedOptions(choices, context) : queriedOptions(choices, context, held);
 }
 
@@ -153,16 +170,20 @@ function isQueried(query: ChoiceQuery, value: ChoiceValue, context: ChoiceContex
   const { kind, filter } = query;
   const id = ContentId.safeParse(value);
   const candidate = id.success ? lookup.entry(id.data) : undefined;
+
   if (candidate?.kind !== kind) {
     return false;
   }
+
   const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidateOptions(candidate, context));
+
   return sharesOwnTrait(query, candidateFacts) && evaluatePredicate(filter, candidateFacts) !== Truth.False;
 }
 
 /** Whether `value` is the slug of an owned item the query reaches. */
 function isOwned(query: OwnedQuery, value: ChoiceValue, context: ChoiceContext): boolean {
   const item = context.owned.find((each) => each.slug === value && query.ownedKinds.includes(each.kind));
+
   return item !== undefined && ownedOption(query, item, context) !== undefined;
 }
 
@@ -171,6 +192,7 @@ export function isOffered({ choices }: ChoiceSetElement, value: ChoiceValue, con
   if (Array.isArray(choices)) {
     return isListed(choices, value, context.facts);
   }
+
   return isOwnedQuery(choices) ? isOwned(choices, value, context) : isQueried(choices, value, context);
 }
 
@@ -185,6 +207,7 @@ export class Offer {
 
   public get options(): readonly OfferedOption[] {
     this.#options ??= this.#make();
+
     return this.#options;
   }
 }

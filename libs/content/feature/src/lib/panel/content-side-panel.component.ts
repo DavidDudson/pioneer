@@ -73,18 +73,21 @@ export class ContentSidePanel {
   /** The entry being read, as the browser's state, or nothing while the results show. */
   protected readonly state = computed<ContentBrowserState | undefined>(() => {
     const selected = entryFromParam(this.#params()?.get(PanelParam.Entry) ?? undefined);
+
     return selected === undefined ? undefined : { kinds: [selected.kind], query: '', filters: [], selected };
   });
 
   /** The entry in the full content page, with the panel's kind and words; it remembers the page it came from. */
   protected readonly browserLink = computed((): BrowserLink | undefined => {
     const selected = this.state()?.selected;
+
     return selected === undefined ? undefined : browserLink(selected, this.#params()?.get(PanelParam.Query) ?? '');
   });
   /** Where the entry page's way back leads: this page, drawer and all. */
   protected readonly origin = computed(() => {
     // The router URL is not a signal: the address changing is what makes it current.
     this.#params();
+
     return { [ORIGIN_STATE]: this.#router.url };
   });
 
@@ -106,6 +109,7 @@ export class ContentSidePanel {
     // The sheet's button asking again while the drawer is open does the same.
     effect(() => {
       this.#shell.focusRequests();
+
       if (this.#drawerOpen()) {
         untracked(() => {
           this.#focusSearch();
@@ -141,9 +145,11 @@ export class ContentSidePanel {
   protected async read(): Promise<void> {
     const combobox = this.combobox();
     const entry = this.session.entry(combobox.value());
+
     if (entry === undefined) {
       return;
     }
+
     const words = this.session.words().trim();
     this.#written = words;
     this.query.set(words);
@@ -165,6 +171,7 @@ export class ContentSidePanel {
   protected async shortcut(event: KeyboardEvent): Promise<void> {
     if (isSearchShortcut(event)) {
       event.preventDefault();
+
       if (this.#drawerOpen()) {
         this.#focusSearch();
       } else {

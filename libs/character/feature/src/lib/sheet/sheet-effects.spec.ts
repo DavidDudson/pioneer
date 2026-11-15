@@ -7,10 +7,13 @@ import { describe, expect, it } from 'vitest';
 import { effectViews } from './sheet-effects';
 
 const pack = new ContentPackBuilder().withId('player-core');
+
 pack.withItem(ContentKind.Effect, 'gods-favour', { category: 'other', duration: { type: 'uses', count: 3 } });
+
 const favour = ContentId.parse(pack.idOf(ContentKind.Effect, 'gods-favour'));
 
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
 
 const FIRST = EffectInstanceId.parse('00000000-0000-4000-8000-000000000001');

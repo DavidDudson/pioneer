@@ -15,6 +15,7 @@ export const SHAPES_MAX = 32;
 
 /** The weapon each shapeshifting item has taken the shape of, by its inventory item. An item left out has its own shape. */
 export const ShapesSchema = z.record(InventoryItemId, ContentId).default({});
+
 export type Shapes = z.infer<typeof ShapesSchema>;
 
 /** The play edits that change a weapon's shape. */
@@ -22,11 +23,13 @@ export const ShapeCommandField = {
   /** A weapon with a shifting rune takes the shape of another weapon, or goes back to its own. */
   ShiftWeapon: 'shiftWeapon',
 } as const;
+
 export type ShapeCommandField = ValueOf<typeof ShapeCommandField>;
 
 export const ShapeCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ShapeCommandField.ShiftWeapon), item: InventoryItemId, shape: ContentId.optional() }),
 ]);
+
 export type ShapeCommand = z.infer<typeof ShapeCommandSchema>;
 
 /** Whether `command` is a shape edit. */
@@ -41,7 +44,9 @@ export function applyShapeCommand(shapes: Shapes, command: ShapeCommand): Shapes
   if (command.shape === undefined) {
     return Object.fromEntries(Object.entries(shapes).filter(([item]) => item !== command.item));
   }
+
   const known = command.item in shapes;
+
   return !known && Object.keys(shapes).length >= SHAPES_MAX ? shapes : { ...shapes, [command.item]: command.shape };
 }
 
@@ -62,6 +67,7 @@ function handsOf(entry: ItemEntry): UsageHands | undefined {
   if (entry.kind !== ContentKind.Weapon) {
     return undefined;
   }
+
   return entry.data.usage.type === UsageType.Held ? entry.data.usage.hands : undefined;
 }
 
@@ -84,23 +90,29 @@ export function hasShiftingRune(line: InventoryItem, base: ItemEntry | undefined
 /** The shapes the item can take: the melee weapons of the content that fit it, by name. */
 export function shapesFor(line: InventoryItem, { items, runes }: ShapeReads): readonly ItemEntry[] {
   const base = items.get(line.item);
+
   if (!hasShiftingRune(line, base, runes)) {
     return [];
   }
+
   return [...items.values()].filter((each) => shapeFits(base, each));
 }
 
 /** Why a shape edit is refused, if it is. */
 export const ShapeProblem = { NotShifting: 'notShifting', NoSuchShape: 'noSuchShape' } as const;
+
 export type ShapeProblem = ValueOf<typeof ShapeProblem>;
 
 /** What refuses `command`: the item has no shifting rune, or the shape is not one it can take. Dropping a shape is never refused. */
 export function shapeProblem(inventory: Inventory, reads: ShapeReads, command: ShapeCommand): ShapeProblem | undefined {
   const line = inventory.items.find(({ id }) => id === command.item);
+
   if (line === undefined || !hasShiftingRune(line, reads.items.get(line.item), reads.runes)) {
     return ShapeProblem.NotShifting;
   }
+
   const { shape } = command;
+
   return shape === undefined || shapeFits(reads.items.get(line.item), reads.items.get(shape))
     ? undefined
     : ShapeProblem.NoSuchShape;
@@ -109,6 +121,7 @@ export function shapeProblem(inventory: Inventory, reads: ShapeReads, command: S
 /** Whether a property rune works on the shape: its etching restriction is met. */
 function works(rune: ContentId, shape: ItemEntry, runes: RuneContent): boolean {
   const entry = runes.get(rune);
+
   return entry === undefined || meetsRestriction(shape, entry.data.etchedOnto.restriction);
 }
 
@@ -121,19 +134,24 @@ export function shapedInventory(inventory: Inventory, shapes: Shapes, reads: Sha
   if (Object.keys(shapes).length === 0) {
     return inventory;
   }
+
   return {
     ...inventory,
     items: inventory.items.map((line) => {
       const shapeId = shapes[line.id];
       const base = reads.items.get(line.item);
       const shape = shapeId === undefined ? undefined : reads.items.get(shapeId);
+
       if (shapeId === undefined || shape === undefined || !shapeFits(base, shape)) {
         return line;
       }
+
       if (!hasShiftingRune(line, base, reads.runes)) {
         return line;
       }
+
       const runes = itemRunes(line, base);
+
       return {
         ...line,
         item: shapeId,

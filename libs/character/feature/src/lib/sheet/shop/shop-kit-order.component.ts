@@ -60,12 +60,14 @@ export class ShopKitOrder {
   /** What the kit holds, by the names content gives its items. */
   protected readonly lines: Signal<readonly KitLine[]> = computed(() => {
     const content = this.content();
+
     const named = (item: ContentId, quantity: number, contents: readonly KitLine[]): KitLine => ({
       item,
       name: content.get(item)?.name ?? item,
       quantity,
       contents,
     });
+
     return this.kit().data.items.map(({ item, quantity, contents = [] }) =>
       named(
         item,
@@ -78,10 +80,13 @@ export class ShopKitOrder {
   /** Undefined while the character loads. */
   protected readonly bill: Signal<Bill | undefined> = computed(() => {
     const coins = this.#store.selected()?.document.inventory.coins;
+
     if (coins === undefined) {
       return undefined;
     }
+
     const cost = purchaseCost(this.kit().data.price, ONE_KIT);
+
     return {
       cost: coinCounts(costCoins(cost)),
       coins: coinCounts(coins),
@@ -102,6 +107,7 @@ export class ShopKitOrder {
 
   protected readonly gift = async (): Promise<void> => {
     this.gifting.set(true);
+
     try {
       await this.#order(CharacterPatchField.GiftKit, this.model());
     } finally {
@@ -112,6 +118,7 @@ export class ShopKitOrder {
   /** The server's reason (coins that no longer cover the price, a conflict), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 

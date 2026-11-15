@@ -26,6 +26,7 @@ export function injectOptionVirtualizer(source: OptionVirtualizerSource): Angula
     const keys = source.keys();
     // Read here, not in the extractor: a new extractor makes the virtualizer recalculate its range.
     const pinned = source.pinned();
+
     return {
       scrollElement: source.scroller(),
       count: keys.length,
@@ -39,11 +40,13 @@ export function injectOptionVirtualizer(source: OptionVirtualizerSource): Angula
 
 function renderedIndexes(range: Range, pinned: readonly (number | undefined)[]): number[] {
   const indexes = new Set(defaultRangeExtractor(range));
+
   for (const index of [0, range.count - 1, ...pinned]) {
     if (index !== undefined && index >= 0 && index < range.count) {
       indexes.add(index);
     }
   }
+
   return [...indexes].toSorted((left, right) => left - right);
 }
 

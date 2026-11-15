@@ -39,6 +39,7 @@ function app(): AnyElysia {
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
+
   const partyService = new CampaignPartyService(
     {
       campaigns,
@@ -48,6 +49,7 @@ function app(): AnyElysia {
     },
     clock,
   );
+
   return new Elysia().use(problemHandler).use(
     campaignRoutes(
       {
@@ -112,14 +114,17 @@ async function party(api: AnyElysia): Promise<Party> {
   await api.handle(request('POST', '/campaigns/join', { as: seelah, body: { token } }));
   const roster = await json<RosterJson>(await api.handle(request('GET', `/campaigns/${id}/members`, { as: amiri })));
   const memberIds = new Map(roster.members.map((member) => [UserId.parse(member.userId), member.id] as const));
+
   return { id, memberIds, token };
 }
 
 function memberId({ memberIds }: Party, userId: UserId): string {
   const found = memberIds.get(userId);
+
   if (found === undefined) {
     throw new Error(`No member ${userId}`);
   }
+
   return found;
 }
 
@@ -127,9 +132,11 @@ describe('member routes', () => {
   test('the GM removes a player, who then gets a 404 on the campaign', async () => {
     const api = app();
     const vaults = await party(api);
+
     const removed = await api.handle(
       request('DELETE', `/campaigns/${vaults.id}/members/${memberId(vaults, ezren)}`, { as: amiri }),
     );
+
     expect(removed.status).toBe(200);
     const roster = await json<RosterJson>(removed);
     expect(roster.members.map((member) => member.userId)).toStrictEqual([amiri, seelah]);
@@ -145,9 +152,11 @@ describe('member routes', () => {
 
     const rejoin = await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token: vaults.token } }));
     expect(rejoin.status).toBe(410);
+
     const open = await json<readonly unknown[]>(
       await api.handle(request('GET', `/campaigns/${vaults.id}/invites`, { as: amiri })),
     );
+
     expect(open).toStrictEqual([]);
   });
 
@@ -162,9 +171,11 @@ describe('member routes', () => {
   test('removing the GM is a 403 that says why', async () => {
     const api = app();
     const vaults = await party(api);
+
     const response = await api.handle(
       request('DELETE', `/campaigns/${vaults.id}/members/${memberId(vaults, amiri)}`, { as: amiri }),
     );
+
     expect(response.status).toBe(403);
     const problem = await json<Problem>(response);
     expect(problem.message).toStrictEqual({ key: 'campaign.members.gmNotRemovable' });
@@ -177,13 +188,17 @@ describe('member routes', () => {
     const seelahId = memberId(vaults, seelah);
     const asPlayer = await api.handle(request('DELETE', `/campaigns/${vaults.id}/members/${seelahId}`, { as: ezren }));
     expect(asPlayer.status).toBe(403);
+
     const handOver = await api.handle(
       request('POST', `/campaigns/${vaults.id}/gm`, { as: ezren, body: { memberId: seelahId } }),
     );
+
     expect(handOver.status).toBe(403);
+
     const asStranger = await api.handle(
       request('DELETE', `/campaigns/${vaults.id}/members/${seelahId}`, { as: stranger }),
     );
+
     expect(asStranger.status).toBe(404);
     const leave = await api.handle(request('POST', `/campaigns/${vaults.id}/leave`, { as: stranger }));
     expect(leave.status).toBe(404);
@@ -192,9 +207,11 @@ describe('member routes', () => {
   test('the GM hands the role over and becomes a player', async () => {
     const api = app();
     const vaults = await party(api);
+
     const response = await api.handle(
       request('POST', `/campaigns/${vaults.id}/gm`, { as: amiri, body: { memberId: memberId(vaults, ezren) } }),
     );
+
     expect(response.status).toBe(200);
     const roster = await json<RosterJson>(response);
     expect(roster.viewerRole).toBe('player');
@@ -203,22 +220,28 @@ describe('member routes', () => {
       [ezren, 'gm'],
       [seelah, 'player'],
     ]);
+
     const got = await json<{ readonly gmId: string }>(
       await api.handle(request('GET', `/campaigns/${vaults.id}`, { as: ezren })),
     );
+
     expect(got.gmId).toBe(ezren);
   });
 
   test('handing the role to someone not in the campaign is a 404, and a malformed id a 422', async () => {
     const api = app();
     const vaults = await party(api);
+
     const unknown = await api.handle(
       request('POST', `/campaigns/${vaults.id}/gm`, { as: amiri, body: { memberId: newId() } }),
     );
+
     expect(unknown.status).toBe(404);
+
     const malformed = await api.handle(
       request('POST', `/campaigns/${vaults.id}/gm`, { as: amiri, body: { memberId: 'nope' } }),
     );
+
     expect(malformed.status).toBe(422);
   });
 

@@ -18,6 +18,7 @@ export class SpellTableSchema<TRow extends RowData> extends RulesTableSchema<TRo
   /** A spell rank badge: "3rd rank", "Cantrip", "1st rank, heightened to 3rd". Cantrips sort first. */
   public addRank(options: RankColumn<TRow>): this {
     const { cantrip, heightenedTo, ...column } = options;
+
     return this.addComponent({
       ...column,
       sortValue: (row) => (cantrip?.(row) === true ? 0 : options.value(row)),

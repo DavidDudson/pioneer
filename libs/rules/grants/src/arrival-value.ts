@@ -16,11 +16,14 @@ export function arrivalValue(
   granted: ConditionValue | undefined,
 ): ConditionValue | undefined {
   const hop = hops.at(-1);
+
   if (entry.kind !== ContentKind.Condition) {
     return undefined;
   }
+
   if (hop?.kind === OriginHopKind.Condition) {
     return hop.condition === entry.id ? hop.value : undefined;
   }
+
   return hop?.kind === OriginHopKind.Grant && entry.valued === true ? (granted ?? DEFAULT_VALUE) : undefined;
 }

@@ -26,6 +26,7 @@ const meta: Meta<SlotPicker> = {
   args: { rows: OPTIONS, ariaLabel: 'Choice', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** An option without row data is a name and a source; one the slot can't take says why. */

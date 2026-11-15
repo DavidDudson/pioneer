@@ -128,5 +128,6 @@ export function browseColumns(
       sortValue: (row) => row.levelValue ?? NO_LEVEL,
       hideable: true,
     });
+
   return withClosingColumns(creatures ? withCreatureColumns(base, say) : base, say).build();
 }

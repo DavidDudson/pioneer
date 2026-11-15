@@ -13,6 +13,7 @@ import type { StrikeTargets } from './strike-targets';
 
 /** Which of a Strike's rolls a note is for. */
 export const NoteRoll = { Attack: 'attack', Damage: 'damage' } as const;
+
 export type NoteRoll = (typeof NoteRoll)[keyof typeof NoteRoll];
 
 /** A `Note` element that reaches a Strike's attack or damage roll. */
@@ -33,6 +34,7 @@ function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets)
   // An etched selector names one roll: etched-attack the attack roll only, etched-damage the damage roll only.
   const attackSelectors = selectors.filter((selector) => selector !== ETCHED_DAMAGE);
   const damageSelectors = selectors.filter((selector) => selector !== ETCHED_ATTACK);
+
   return [
     ...(reaches(attackSelectors, targets.attack, owns) ? [{ ...note, roll: NoteRoll.Attack }] : []),
     ...(reaches(damageSelectors, targets.damage, owns) ? [{ ...note, roll: NoteRoll.Damage }] : []),
@@ -47,9 +49,11 @@ function specializationText(element: CriticalSpecializationElement, { group }: S
   if (group === undefined) {
     return undefined;
   }
+
   if (element.alternate === true) {
     return alternateSpecializationOf(element);
   }
+
   return element.grievous === true ? grievousSpecializationOf(group) : criticalSpecializationOf(group);
 }
 
@@ -64,13 +68,17 @@ function withCriticalSpecialization(
   targets: StrikeTargets,
 ): readonly StrikeNote[] {
   const { element } = rule;
+
   if (element.etched === true && !ownsStrike(rule, targets)) {
     return notes;
   }
+
   const text = specializationText(element, targets);
+
   if (text === undefined) {
     return notes;
   }
+
   return notes.some((note) => note.outcome !== undefined && JSON.stringify(note.text) === JSON.stringify(text))
     ? notes
     : [
@@ -88,9 +96,11 @@ function withCriticalSpecialization(
 /** `notes` with what `rule` adds to them: the notes of a `Note` element, or a group's critical specialization. */
 export function notedBy(notes: readonly StrikeNote[], rule: RuleInPlay, targets: StrikeTargets): readonly StrikeNote[] {
   const { element } = rule;
+
   if (element.key === RuleElementKey.Note) {
     return [...notes, ...notesOf(rule, element, targets)];
   }
+
   return element.key === RuleElementKey.CriticalSpecialization
     ? withCriticalSpecialization(notes, { ...rule, element }, targets)
     : notes;

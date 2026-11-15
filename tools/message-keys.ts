@@ -19,18 +19,21 @@ export interface KeyReport {
 export function flattenMessages(tree: MessageTree, prefix = ''): string[] {
   return Object.entries(tree).flatMap(([name, value]) => {
     const key = prefix === '' ? name : `${prefix}.${name}`;
+
     return typeof value === 'string' ? [key] : flattenMessages(value, key);
   });
 }
 
 /** A quoted identifier in TypeScript: `'character.list.title'`, `"problem.notFound"`. */
 const TS_LITERAL = /['"`](?<literal>[a-z][\d.A-Za-z]*)['"`]/gu;
+
 /** In templates double quotes delimit attribute expressions, so only single-quoted strings are literals. */
 const HTML_LITERAL = /'(?<literal>[a-z][\d.A-Za-z]*)'/gu;
 
 /** At least two non-empty dot-separated segments. */
 function isDotted(literal: string): boolean {
   const segments = literal.split('.');
+
   return segments.length > 1 && segments.every((segment) => segment.length > 0);
 }
 
@@ -38,11 +41,13 @@ export const SourceKind = {
   TypeScript: 'ts',
   Template: 'html',
 } as const;
+
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
 /** Key-shaped string literals whose first segment is a known message namespace. */
 export function findKeyLiterals(source: string, kind: SourceKind, namespaces: ReadonlySet<string>): string[] {
   const pattern = kind === SourceKind.Template ? HTML_LITERAL : TS_LITERAL;
+
   return [...source.matchAll(pattern)]
     .map((match) => match.groups?.['literal'] ?? '')
     .filter((literal) => isDotted(literal) && namespaces.has(literal.split('.')[0] ?? ''));

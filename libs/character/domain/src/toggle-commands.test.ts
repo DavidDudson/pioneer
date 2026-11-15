@@ -41,6 +41,7 @@ describe('applyToggleCommand', () => {
         { on: true },
       ]),
     );
+
     expect(applyToggleCommand(full, set(RAGE, true))).toBe(full);
     const [first] = Object.keys(full);
     const key = ToggleKey.parse(first);

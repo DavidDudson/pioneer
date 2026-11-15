@@ -23,12 +23,15 @@ const AC = StatisticDefinition.parse({
 });
 
 const LEATHER = contentId(PackId.parse('engine-test'), EntrySlug.parse('armor:leather-armor'));
+
 const ORIGIN = {
   hops: [{ kind: 'inventory', item: '44444444-4444-4444-8444-444444444444', state: 'worn' }],
   entry: LEATHER,
   sources: [{ kind: 'book', book: 'player-core', page: 1 }],
 };
+
 const ARMOR_ID = RuleId.parse(`${LEATHER}#armor-bonus`);
+
 /** 10, Dexterity 3 capped at 2, untrained. */
 const BASE = 10 + 2;
 
@@ -41,7 +44,9 @@ function ac(bonus: number | undefined, rules: readonly RuleInPlay[] = []): Stati
     dexterityCap: 2,
     ...(bonus === undefined ? {} : { armor: { bonus, origin: ORIGIN } }),
   });
+
   const content = { definitions: [AC], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
   return deriveStatistics(content, inputs, { rules, facts: new PredicateFacts([], CORE_NAMESPACES) }).get(
     Selector.parse('ac'),
   );
@@ -104,7 +109,9 @@ function fortitude(resilient: number | undefined, rules: readonly RuleInPlay[] =
     ranks: {},
     armor: { bonus: 1, origin: ORIGIN, ...(resilient === undefined ? {} : { resilient }) },
   });
+
   const content = { definitions: [FORTITUDE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
   return deriveStatistics(content, inputs, { rules, facts: new PredicateFacts([], CORE_NAMESPACES) }).get(
     Selector.parse('save:fortitude'),
   );
@@ -164,7 +171,9 @@ function skill(selector: string, str: number, armor: object): StatisticResult | 
     ranks: {},
     armor: { bonus: 1, origin: ORIGIN, ...armor },
   });
+
   const content = { definitions: [ATHLETICS, DIPLOMACY], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+
   return deriveStatistics(content, inputs, { rules: [], facts: new PredicateFacts([], CORE_NAMESPACES) }).get(
     Selector.parse(selector),
   );

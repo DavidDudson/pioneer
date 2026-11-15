@@ -13,6 +13,7 @@ export const TimelinePickKind = {
   Boost: 'boost',
   Feat: 'feat',
 } as const;
+
 export type TimelinePickKind = ValueOf<typeof TimelinePickKind>;
 
 interface TimelinePickBase {

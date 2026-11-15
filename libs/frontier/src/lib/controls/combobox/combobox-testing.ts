@@ -61,6 +61,7 @@ function recordOutputs(combobox: Combobox<string>): Outputs {
   combobox.cancelled.subscribe(() => {
     cancels += 1;
   });
+
   return { searches, commits: (): number => commits, cancels: (): number => cancels };
 }
 
@@ -69,11 +70,14 @@ export function render(options: readonly ComboboxOption<string>[] = FEATS, value
   const fixture = TestBed.createComponent(Combobox<string>);
   fixture.componentRef.setInput('ariaLabel', 'Feat');
   fixture.componentRef.setInput('options', options);
+
   if (value !== undefined) {
     fixture.componentRef.setInput('value', value);
   }
+
   const outputs = recordOutputs(fixture.componentInstance);
   fixture.detectChanges();
+
   return { fixture, ...elementsOf(fixture), ...outputs };
 }
 
@@ -85,9 +89,11 @@ interface Elements {
 function elementsOf(fixture: ComponentFixture<Combobox<string>>): Elements {
   const host: unknown = fixture.nativeElement;
   const input = host instanceof HTMLElement ? (host.querySelector('input') ?? undefined) : undefined;
+
   if (!(host instanceof HTMLElement) || input === undefined) {
     throw new Error('Expected a rendered combobox');
   }
+
   return { host, input };
 }
 
@@ -118,5 +124,6 @@ export function optionElements(rendered: Rendered): HTMLElement[] {
 
 export function highlighted(rendered: Rendered): HTMLElement | undefined {
   const id = rendered.input.getAttribute('aria-activedescendant');
+
   return optionElements(rendered).find((option) => option.id === id);
 }

@@ -21,6 +21,7 @@ export const FoundryRitual = z.looseObject({
   primary: z.looseObject({ check: CheckText }),
   secondary: z.looseObject({ casters: z.number().nullish(), checks: CheckText }),
 });
+
 export type FoundryRitual = z.infer<typeof FoundryRitual>;
 
 /** The skills of one check: "Arcana, Nature, or Occultism", "Society or Legal Lore". */
@@ -72,15 +73,18 @@ interface Written {
 function written(text: string): Written {
   const value = text.trim();
   const open = value.lastIndexOf(RANK_OPEN);
+
   if (open === -1 || !value.endsWith(RANK_CLOSE)) {
     return { name: value };
   }
+
   return { name: value.slice(0, open), note: value.slice(open + RANK_OPEN.length, -RANK_CLOSE.length) };
 }
 
 /** Whether the words name a Lore: "Legal Lore", "Pathfinder Society Lore". */
 function isLore(name: string): boolean {
   const words = name.split(' ');
+
   return words.length > 1 && words.at(-1)?.toLowerCase() === LORE && words.every((word) => WORD.test(word));
 }
 
@@ -89,7 +93,9 @@ function skillSelector(name: string): string | undefined {
   if (isLore(name)) {
     return loreSelector(loreTopic(name));
   }
+
   const skill = name.toLowerCase();
+
   return SKILLS.has(skill) ? `skill:${skill}` : undefined;
 }
 
@@ -107,10 +113,13 @@ function anyLoreOf(note: string | undefined): Skill | undefined {
   if (note === LORE_ANY) {
     return { selector: LORE_SELECTOR };
   }
+
   if (note === undefined || !note.startsWith(LORE_RELATED)) {
     return undefined;
   }
+
   const relatedTo = note.slice(LORE_RELATED.length).trim();
+
   return relatedTo === '' ? undefined : { selector: LORE_SELECTOR, relatedTo };
 }
 
@@ -125,23 +134,30 @@ function rankedBy(note: string | undefined): RankAndRemark {
   if (note === undefined) {
     return {};
   }
+
   const [rank = note, ...remark] = note.split(REMARK_SEPARATOR);
+
   return RANK_WORDS.has(rank) && remark.length > 0 ? { rank, remark: remark.join(', ') } : { rank: note };
 }
 
 function skillOf(text: string): Skill | undefined {
   const { name, note } = written(text);
+
   if (name.toLowerCase() === LORE) {
     return anyLoreOf(note);
   }
+
   const selector = skillSelector(name);
   const pick = note === undefined ? undefined : PICKS.get(note);
+
   if (selector === undefined) {
     return undefined;
   }
+
   if (pick !== undefined) {
     return { selector, pick };
   }
+
   return { selector, ...rankedBy(note) };
 }
 
@@ -155,8 +171,10 @@ interface RankedSkill {
 function rankedSkills(skills: readonly Skill[]): RankedSkill[] | undefined {
   const ranked = skills.flatMap(({ selector, rank }) => {
     const proficiency = rank === undefined ? undefined : ProficiencySchema.safeParse(rank.toLowerCase()).data;
+
     return proficiency === undefined ? [] : [{ skill: selector, proficiency }];
   });
+
   return ranked.length === skills.length ? ranked : undefined;
 }
 
@@ -164,24 +182,32 @@ function rankedSkills(skills: readonly Skill[]): RankedSkill[] | undefined {
 function ranksOf(skills: readonly Skill[]): object | undefined {
   const named = skills.flatMap(({ rank }) => rank ?? []);
   const rank = new Set(named);
+
   if (rank.size === 0) {
     return {};
   }
+
   if (rank.size === 1) {
     const [only] = named;
+
     if (only === MYTHIC) {
       return { mythic: true };
     }
+
     const proficiency = only === undefined ? undefined : ProficiencySchema.safeParse(only.toLowerCase()).data;
+
     return proficiency === undefined ? undefined : { proficiency };
   }
+
   const ranked = rankedSkills(skills);
+
   return ranked && { ranked };
 }
 
 /** The one value the skills state, or none; undefined when they state more than one. */
 function single<TValue>(values: readonly TValue[]): TValue[] | undefined {
   const distinct = [...new Set(values)];
+
   return distinct.length > 1 ? undefined : distinct;
 }
 
@@ -198,12 +224,15 @@ function statedOf(skills: readonly Skill[], tradition: boolean): Stated | undefi
   const picked = single(tradition ? [...picks, RitualCheckPick.Tradition] : picks);
   const topics = single(skills.flatMap(({ relatedTo }) => relatedTo ?? []));
   const remarks = single(skills.flatMap(({ remark }) => remark ?? []));
+
   if (picked === undefined || topics === undefined || remarks === undefined) {
     return undefined;
   }
+
   const [pick] = picked;
   const [loreRelatedTo] = topics;
   const [note] = remarks;
+
   return {
     ...(pick === undefined ? {} : { pick }),
     ...(loreRelatedTo === undefined ? {} : { loreRelatedTo }),
@@ -219,9 +248,11 @@ function checkOf(text: string): object | undefined {
   const skills = parts.flatMap((part) => skillOf(part) ?? []);
   const ranks = ranksOf(skills);
   const stated = statedOf(skills, text.endsWith(TRADITION_SUFFIX));
+
   if (skills.length < parts.length || ranks === undefined || stated === undefined) {
     return undefined;
   }
+
   return {
     skills: skills.map(({ selector }) => selector),
     ...ranks,
@@ -243,6 +274,7 @@ function isBare(part: string): boolean {
 /** Whether the comma parts are one choice of skills, "Diplomacy, Intimidation, or Society": none has an `or` but the last. */
 function isListOfAlternatives(parts: readonly string[]): boolean {
   const last = parts.at(-1) ?? '';
+
   return parts.length > 1 && last.startsWith('or ') && parts.slice(0, -1).every((part) => !part.includes(' or '));
 }
 
@@ -254,28 +286,38 @@ function isListOfAlternatives(parts: readonly string[]): boolean {
 function commaChecks(text: string): string[] | undefined {
   const parts = splitOutsideNotes(text, CHECKS);
   const noted = parts.findIndex((part) => PICK_NOTE.test(part) && (part.includes(' or ') || part.includes(NOT_SAME)));
+
   if (noted === -1) {
     return isListOfAlternatives(parts) ? [parts.join(', ')] : parts;
   }
+
   let start = noted;
+
   while (start > 0 && isBare(parts[start - 1] ?? '')) {
     start -= 1;
   }
+
   const group = parts.slice(start, noted + 1).join(', ');
+
   return start > 0 && start < noted ? undefined : [...parts.slice(0, start), group, ...parts.slice(noted + 1)];
 }
 
 /** The secondary checks, each its own; blank text is none. */
 export function secondaryChecksOf(text: string): object[] | undefined {
   const value = text.trim();
+
   if (value === '') {
     return [];
   }
+
   const parts = value.includes(';') ? value.split(CHECKS_SEMICOLON) : commaChecks(value);
+
   if (parts === undefined) {
     return undefined;
   }
+
   const checks = parts.flatMap((part) => checkOf(part.trim()) ?? []);
+
   return checks.length < parts.length ? undefined : checks;
 }
 

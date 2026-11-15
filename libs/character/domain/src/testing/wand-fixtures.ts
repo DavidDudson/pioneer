@@ -95,9 +95,11 @@ export function wandSourceOf(
 /** `wandSourceOf` for a test that needs the wand held. */
 export function heldWandSource(inventory: readonly InventoryItem[], play: PlayState = FRESH_PLAY): WandSource {
   const source = wandSourceOf(inventory, play);
+
   if (source === undefined) {
     throw new TypeError('Expected a held wand');
   }
+
   return source;
 }
 

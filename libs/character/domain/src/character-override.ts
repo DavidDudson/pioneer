@@ -32,6 +32,7 @@ const OVERRIDE_SOURCE = { kind: 'book', book: 'player-core', page: 1 } as const;
 function elementOf(override: Override): unknown {
   const { target, value, predicate } = override;
   const common = predicate === undefined ? {} : { predicate };
+
   return override.mode === OverrideMode.Set
     ? { key: RuleElementKey.Change, selector: target, mode: ChangeMode.Override, value, ...common }
     : {
@@ -73,6 +74,7 @@ export interface OverrideEdit {
 /** The previous state of `override`, to keep when it is edited. */
 function revisionOf(override: Override): OverrideRevision {
   const { by, byRole, at, value, type, predicate, reason } = override;
+
   return { by, byRole, at, value, type, predicate, reason };
 }
 
@@ -100,6 +102,7 @@ export function overrideOf(document: CharacterDocument, id: OverrideId): Overrid
 
 /** Why an override edit cannot be made. */
 export const OverrideProblem = { Unknown: 'unknown', Full: 'full', Exhausted: 'exhausted' } as const;
+
 export type OverrideProblem = ValueOf<typeof OverrideProblem>;
 
 /** What stops `patch` from changing the document, or undefined when it can: an override that isn't there, or one too many. */
@@ -107,10 +110,13 @@ export function overrideProblem(document: CharacterDocument, patch: OverridePatc
   if (patch.field === CharacterPatchField.AddOverride) {
     return document.overrides.length >= OVERRIDES_MAX ? OverrideProblem.Full : undefined;
   }
+
   const found = overrideOf(document, patch.id);
+
   if (found === undefined) {
     return OverrideProblem.Unknown;
   }
+
   return patch.field === CharacterPatchField.EditOverride && found.revisions.length >= OVERRIDE_REVISIONS_MAX
     ? OverrideProblem.Exhausted
     : undefined;
@@ -121,7 +127,9 @@ function added(input: OverrideInput, edit: OverrideEdit): Override {
   if (edit.newOverrideId === undefined) {
     throw new TypeError('An added override needs the id its caller makes');
   }
+
   const byRole = edit.actorRole ?? OverrideRole.Player;
+
   return { id: edit.newOverrideId, ...input, by: edit.actor, byRole, at: overrideTime(edit.now), revisions: [] };
 }
 
@@ -147,17 +155,22 @@ export function withOverrideEdit(
   if (overrideProblem(document, patch) !== undefined) {
     throw new TypeError(`Override edit ${patch.field} is not allowed on this document`);
   }
+
   switch (patch.field) {
     case CharacterPatchField.AddOverride: {
       return { ...document, overrides: [...document.overrides, added(patch.override, edit)] };
     }
+
     case CharacterPatchField.EditOverride: {
       return withChanged(document, patch.id, (each) => revised(each, patch.override, edit));
     }
+
     case CharacterPatchField.RemoveOverride: {
       const removed = { by: edit.actor, at: overrideTime(edit.now), reason: patch.reason };
+
       return withChanged(document, patch.id, (each) => ({ ...each, removed }));
     }
+
     default: {
       const unreachable: never = patch;
       throw new TypeError(`Unhandled override edit: ${JSON.stringify(unreachable)}`);

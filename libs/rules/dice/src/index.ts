@@ -13,6 +13,7 @@ export {
   Term,
   TermKind,
 } from './expression';
+
 export {
   FortunedRoll,
   FortuneRollEntry,
@@ -22,6 +23,7 @@ export {
   RollModeSchema,
   rollWithFortune,
 } from './fortune';
+
 export {
   type CheckOutcome,
   checkOutcome,
@@ -33,6 +35,7 @@ export {
   degreeOfSuccess,
   naturalD20,
 } from './degree';
+
 export {
   applyDamage,
   DamageApplication,
@@ -41,11 +44,17 @@ export {
   DamageTarget,
   NO_DEFENCES,
 } from './damage';
+
 export { formatExpression, formatTerm } from './format';
+
 export { DiceMessage } from './messages';
+
 export { type ParseFailure, type ParseOutcome, type ParseSuccess, parseDiceExpression } from './parse';
+
 export { cryptoRandom, type RandomSource } from './random';
+
 export { DiceTermResult, DieResult, FlatTermResult, rollDice, RollResult, TermResult } from './roll';
+
 export {
   DamageTotal,
   DICE_COUNT_MAX,
@@ -63,4 +72,5 @@ export {
   TERM_COUNT_MAX,
   TextPosition,
 } from './units';
+
 export { default as diceMessages } from './i18n/en.json';

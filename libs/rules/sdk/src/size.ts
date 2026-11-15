@@ -9,5 +9,7 @@ export const Size = {
   Huge: 'huge',
   Gargantuan: 'gargantuan',
 } as const;
+
 export type Size = ValueOf<typeof Size>;
+
 export const SizeSchema = z.enum(Size);

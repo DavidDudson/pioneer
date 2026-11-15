@@ -47,9 +47,11 @@ function derived(
       situation: new Set(situation),
     },
   ).get(Selector.parse('perception'));
+
   if (result?.ok !== true) {
     throw new Error('Expected perception to derive');
   }
+
   return result;
 }
 
@@ -93,6 +95,7 @@ describe('a situation chosen for a roll', () => {
       { key: 'AdjustModifier', selectors: ['perception'], mode: 'multiply', value: 2, ...IN_FOREST },
       'amplify',
     );
+
     const bane = [ruleIdOf(vsUndead)];
     const plain = derived([vsUndead, double], bane);
     const doubled = derived([vsUndead, double], [...bane, ruleIdOf(double)]);

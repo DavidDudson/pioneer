@@ -14,6 +14,7 @@ export const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 
 /** Which spend of a test it is, from 1; it makes the spend's id. */
 export const Serial = Pg.smallint().min(1).brand<'Serial'>();
+
 export type Serial = z.infer<typeof Serial>;
 
 const ID_WIDTH = 12;

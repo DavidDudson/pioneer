@@ -15,6 +15,7 @@ import { CheckStatus, readJson } from './rules-check';
 import type { JsonProblem } from './rules-check';
 
 export const FiltersStatus = { Valid: CheckStatus.Valid, Problems: 'problems' } as const;
+
 export type FiltersStatus = ValueOf<typeof FiltersStatus>;
 
 /** An entry the filters keep: its name, its kind's message key and its sources (ADR-0005). */
@@ -40,9 +41,11 @@ const ENTRY_LIST = z.array(ContentEntry);
 /** The text after `?` as the router would hand it over: one value per name, several when a name repeats. */
 function queryParams(text: string): QueryParams {
   const search = new URLSearchParams(text.trim().replace(/^\?/u, ''));
+
   return Object.fromEntries(
     [...new Set(search.keys())].map((name) => {
       const values = search.getAll(name);
+
       return [name, values.length === 1 ? values[0] : values];
     }),
   );
@@ -54,13 +57,16 @@ function queryParams(text: string): QueryParams {
  */
 export function checkFilters(entriesText: string, queryText: string): FiltersCheck {
   const read = readJson(ENTRY_LIST, entriesText);
+
   if (read.status !== CheckStatus.Valid) {
     return { status: FiltersStatus.Problems, entries: read };
   }
+
   const entries = read.value;
   const facets = facetsFor([...new Set(entries.map((entry) => entry.kind))]);
   const state = filterFromQuery(queryParams(queryText), facets);
   const query = new URLSearchParams(filterToQuery(state, facets)).toString();
+
   return {
     status: FiltersStatus.Valid,
     counts: facetCounts(entries, facets, state),

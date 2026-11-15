@@ -26,19 +26,25 @@ export interface NamedCharacter {
 export const namedCharacter = characterDocumentJson.map((json): NamedCharacter => {
   const references = new Map<ContentId, ContentReference>();
   const encoded = z.encode(CharacterDocumentSchema, CharacterDocumentSchema.parse(json));
+
   const hashed = rewriteReferences(encoded, (value) => {
     const original = ContentId.safeParse(value);
+
     if (!original.success) {
       return value;
     }
+
     const reference: ContentReference = {
       source: TEST_PACK,
       slug: entrySlug('feat', Slug.parse(`n${original.data.replaceAll('-', '').slice(0, NAME_LENGTH)}`)),
     };
+
     const id = referencedId(reference);
     references.set(id, reference);
+
     return id;
   });
+
   return {
     character: CharacterDocumentSchema.parse(hashed),
     name: (id) => references.get(id),

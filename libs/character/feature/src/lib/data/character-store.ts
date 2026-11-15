@@ -54,12 +54,14 @@ export class CharacterStore {
 
   readonly #selected = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: characterKeys.detail(id),
       queryFn: async (): Promise<CharacterSheet> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return readSheet(this.#api, this.#client, id);
       },
       enabled: id !== undefined,
@@ -86,12 +88,14 @@ export class CharacterStore {
 
   readonly #sheetMode = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: characterKeys.sheetMode(id),
       queryFn: async (): Promise<SheetModeChoice> => {
         if (id === undefined) {
           throw new Error('No character selected');
         }
+
         return this.#api.call(CharacterContract.sheetMode, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
@@ -108,7 +112,9 @@ export class CharacterStore {
     if (this.#sheetMode.isError()) {
       return DEFAULT_SHEET_MODE;
     }
+
     const choice = this.#sheetMode.data();
+
     return choice === undefined ? undefined : (choice.mode ?? DEFAULT_SHEET_MODE);
   });
 
@@ -126,9 +132,11 @@ export class CharacterStore {
   /** Remembers `mode` as the open character's tab, unless it already is; the page doesn't wait for it. */
   public rememberSheetMode(mode: SheetMode): void {
     const id = this.#selectedId();
+
     if (id === undefined || this.#sheetMode.data()?.mode === mode) {
       return;
     }
+
     this.#setSheetMode.mutate({ id, mode });
   }
 
@@ -140,9 +148,11 @@ export class CharacterStore {
    */
   public async retry(): Promise<void> {
     const failed = this.#edits.failed();
+
     if (failed === undefined || failed.conflict) {
       return;
     }
+
     await this.patch(failed.patch);
   }
 
@@ -150,6 +160,7 @@ export class CharacterStore {
     if (id !== this.#selectedId()) {
       this.#cleared.set([]);
     }
+
     this.#selectedId.set(id);
   }
 
@@ -158,6 +169,7 @@ export class CharacterStore {
     const character = await this.#api.call(CharacterContract.create, { params: {}, body });
     // Stale, not refetched now: the list refetches when it is next shown, so navigation isn't held up.
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+
     return character;
   }
 
@@ -169,15 +181,18 @@ export class CharacterStore {
     const { character, report } = await this.#api.call(PathbuilderImportContract.import, { params: {}, body: raw });
     this.#importReports.update((reports) => new Map(reports).set(character.id, report));
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+
     return character;
   }
 
   /** The open character as a Pioneer character file, as the server wrote it; refused when none is open. */
   public async exportPioneer(): Promise<PioneerCharacterFile> {
     const id = this.#selectedId();
+
     if (id === undefined) {
       throw new Error('No character selected');
     }
+
     return this.#api.call(PioneerExportContract.export, { params: { id }, body: undefined });
   }
 
@@ -190,23 +205,28 @@ export class CharacterStore {
   public async importPioneer(raw: unknown): Promise<Character> {
     const character = await this.#api.call(PioneerImportContract.import, { params: {}, body: raw });
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+
     return character;
   }
 
   /** The open character's import report, until dismissed; `undefined` for one that wasn't just imported. */
   public readonly importReport: Signal<CharacterImportReport | undefined> = computed(() => {
     const id = this.#selectedId();
+
     return id === undefined ? undefined : this.#importReports().get(id);
   });
 
   public dismissImportReport(): void {
     const id = this.#selectedId();
+
     if (id === undefined) {
       return;
     }
+
     this.#importReports.update((reports) => {
       const next = new Map(reports);
       next.delete(id);
+
       return next;
     });
   }
@@ -224,6 +244,7 @@ export class CharacterStore {
   /** Reads the open character again, after a play edit changed its inventory on the server. */
   public async reload(): Promise<void> {
     const id = this.#selectedId();
+
     if (id !== undefined) {
       await this.#client.invalidateQueries({ queryKey: characterKeys.detail(id) });
       this.#current.set(this.#client.getQueryData<CharacterSheet>(characterKeys.detail(id)));
@@ -236,10 +257,13 @@ export class CharacterStore {
    */
   public async patch(patch: CharacterPatch): Promise<void> {
     const current = this.selected();
+
     if (current === undefined) {
       throw new Error('No character selected');
     }
+
     const edit = this.#edits.begin(current.id, patch);
+
     try {
       await this.#send(current, patch);
       this.#edits.saved(edit);
@@ -252,11 +276,13 @@ export class CharacterStore {
   async #send(current: Character, patch: CharacterPatch): Promise<void> {
     // A notice describes the last edit only: any new edit, saved or refused, retires it.
     this.#cleared.set([]);
+
     try {
       const saved = await this.#api.call(CharacterContract.patch, {
         params: { id: current.id },
         body: { expectedVersion: current.version, patch },
       });
+
       this.#saved(saved);
       // The list shows names and levels; mark it stale without refetching the sheet.
       await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
@@ -266,6 +292,7 @@ export class CharacterStore {
         await this.#client.invalidateQueries({ queryKey: characterKeys.detail(current.id) });
         this.#current.set(this.#client.getQueryData<CharacterSheet>(characterKeys.detail(current.id)));
       }
+
       throw error;
     }
   }

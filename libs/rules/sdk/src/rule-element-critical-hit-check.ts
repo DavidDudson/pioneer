@@ -14,4 +14,5 @@ export const CriticalHitCheckElement = z.strictObject({
   dc: Dc,
   ...ruleElementBase,
 });
+
 export type CriticalHitCheckElement = z.infer<typeof CriticalHitCheckElement>;

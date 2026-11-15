@@ -13,6 +13,7 @@ const RULE_ELEMENT = new Set([ReferenceScope.Actor, ReferenceScope.Item]);
 
 const problems = (text: string, scopes = ANY_SCOPE): readonly unknown[] =>
   formulaProblems(FormulaText.parse(text), scopes).map((problem) => problem.error);
+
 const scoped = (text: string): readonly unknown[] =>
   scopeProblems(FormulaText.parse(text), ACTOR_ONLY).map((problem) => problem.error);
 

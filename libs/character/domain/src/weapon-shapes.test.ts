@@ -29,12 +29,14 @@ import {
 import type { ShapeReads } from './weapon-shapes';
 
 installRulesFakes();
+
 const ITEMS = itemFixtureContent();
 const READS: ShapeReads = { items: ITEMS, runes: runeContent(itemFixtureRegistry()) };
 const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 const LONG = itemFixtureId(ItemFixture.LongSword);
 const GREAT = itemFixtureId(ItemFixture.Greatsword);
 const BOW = itemFixtureId(ItemFixture.Shortbow);
+
 /** Not shapes of a longsword: a two-handed weapon, a ranged one, and the longsword itself. */
 const OTHERS = [GREAT, BOW, itemFixtureId(ItemFixture.Longsword)];
 
@@ -46,10 +48,13 @@ function etched(...runes: readonly RuneFixture[]): Inventory {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   let stock = stocked;
+
   for (const rune of runes) {
     stock = etchRune(stock, SWORD, { type: RuneType.Property, rune: runeFixtureId(rune) });
   }
+
   return stock;
 }
 

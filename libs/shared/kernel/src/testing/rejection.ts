@@ -12,5 +12,6 @@ export async function rejection(promise: Promise<unknown>): Promise<unknown> {
   } catch (error: unknown) {
     return error;
   }
+
   throw new Error('Expected the promise to reject, but it resolved');
 }

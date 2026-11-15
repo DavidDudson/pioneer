@@ -7,6 +7,7 @@ import * as z from 'zod';
  * action; none when it has not picked one. An exploration activity is an action, so the choice is an id, not a copy.
  */
 export const ExplorationActivitySchema = ContentId.optional();
+
 export type ExplorationActivity = z.infer<typeof ExplorationActivitySchema>;
 
 /** The play edits that choose the exploration activity. */
@@ -14,6 +15,7 @@ export const ExplorationCommandField = {
   /** The activity picked, or none when it is left out. */
   SetExplorationActivity: 'setExplorationActivity',
 } as const;
+
 export type ExplorationCommandField = ValueOf<typeof ExplorationCommandField>;
 
 export const ExplorationCommandSchema = z.discriminatedUnion('field', [
@@ -22,6 +24,7 @@ export const ExplorationCommandSchema = z.discriminatedUnion('field', [
     activity: ContentId.optional(),
   }),
 ]);
+
 export type ExplorationCommand = z.infer<typeof ExplorationCommandSchema>;
 
 /** Whether `command` chooses the exploration activity. */

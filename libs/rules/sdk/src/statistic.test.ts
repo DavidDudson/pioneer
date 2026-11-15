@@ -21,6 +21,7 @@ const armorClass = {
 
 function issuesFrom(schema: z.ZodType, json: unknown): readonly FieldIssue[] {
   const result = schema.safeParse(json);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -78,6 +79,7 @@ describe('StatisticDefinition', () => {
       kind: StatisticKind.Check,
       per: StatisticPer.Weapon,
     };
+
     expect(issues(strike)).toStrictEqual([]);
     expect(issues({ ...strike, base: '@spellcasting.attr' })).toStrictEqual([
       {
@@ -97,6 +99,7 @@ describe('StatisticDefinition', () => {
       base: '@spellcasting.attr + @spellcasting.prof',
       per: StatisticPer.Spellcasting,
     };
+
     expect(issues(spellAttack)).toStrictEqual([]);
     expect(issues({ ...spellAttack, base: '@item.level' })).toStrictEqual([
       { path: ['base'], message: message(RulesMessage.ReferenceOutOfScope, { found: '@item.level', position: 1 }) },
@@ -134,6 +137,7 @@ describe('StatisticDefinition', () => {
 describe('statistics in a pack', () => {
   test('two statistics may not share a selector; the second is the problem', () => {
     const sources = [{ kind: 'book', book: 'player-core', page: 404 }];
+
     const pack = {
       manifest: { id: 'test-pack', title: 'Test', publisher: 'Tests', license: 'homebrew' },
       ancestries: [],
@@ -143,6 +147,7 @@ describe('statistics in a pack', () => {
         { ...armorClass, slug: 'statistic:other-armor-class', sources },
       ],
     };
+
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
       { path: ['statistics', 1, 'selector'], message: message(RulesMessage.DuplicateSelector, { selector: 'ac' }) },
     ]);
@@ -158,6 +163,7 @@ describe('statistics in a pack', () => {
         { ...armorClass, slug: 'statistic:other-armor-class', selector: 'other-ac', sources: [] },
       ],
     };
+
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
       { path: ['statistics', 0, 'sources'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
       {

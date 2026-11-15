@@ -14,6 +14,7 @@ export function mayAccessCharacter(actor: UserId, character: Pick<Character, 'ow
 
 /** What an actor is to a character: its owner, the GM or a player of the campaign it is in, or nobody to it. */
 export const CharacterStanding = { Owner: 'owner', Gm: 'gm', Member: 'member', Stranger: 'stranger' } as const;
+
 export type CharacterStanding = ValueOf<typeof CharacterStanding>;
 
 /** The actor's standing with `character`: ownership comes first, so a GM's own character is theirs as a player. */
@@ -25,10 +26,13 @@ export async function standingWith(
   if (mayAccessCharacter(actor, character)) {
     return CharacterStanding.Owner;
   }
+
   const role = await roles.roleOf(character.id, actor);
+
   if (role === undefined) {
     return CharacterStanding.Stranger;
   }
+
   return role === OverrideRole.Gm ? CharacterStanding.Gm : CharacterStanding.Member;
 }
 

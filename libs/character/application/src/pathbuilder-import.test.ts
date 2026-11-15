@@ -40,6 +40,7 @@ const clock = fixedClock('2026-10-07T10:00:00Z');
 /** Briar Rose's goloma animist, everything her export names loaded: a free ancestry boost and no ancestry flaw. */
 function briarContent(): ContentSource {
   const all = Object.values(Attribute);
+
   return fixedContent(
     new ContentPackBuilder()
       .withId('howl-of-the-wild')
@@ -137,7 +138,9 @@ describe('PathbuilderImportService.importPathbuilder', () => {
       .withId('player-core')
       .withAncestry('human')
       .withHeritage('changeling', 'human');
+
     const versatile = new ContentPackBuilder().withId('player-core').withAncestry('human').withHeritage('changeling');
+
     for (const pack of [own, versatile]) {
       const heritages = importerOver(fixedContent(pack.build()), repository);
       // oxlint-disable-next-line no-await-in-loop -- two cases, one after the other
@@ -154,6 +157,7 @@ describe('PathbuilderImportService.importPathbuilder', () => {
       .withAncestry('human')
       .withAncestry('elf')
       .withHeritage('changeling', 'elf');
+
     const elsewhere = importerOver(fixedContent(builder.build()), repository);
     const { character, report } = await elsewhere.importPathbuilder(amiri, mordredExport);
     expect(Object.keys(character.document.build.choices)).not.toContain(HERITAGE_SLOT);
@@ -191,11 +195,14 @@ describe('PathbuilderImportService.importPathbuilder', () => {
       .withClassFeature('apparition-attunement')
       .withDeity('sarenrae')
       .withSpell('stabilize', { rank: 1, traditions: ['divine'] });
+
     const withDeity = { ...briarRoseExport, build: { ...briarRoseExport.build, deity: 'Sarenrae' } };
+
     const { character, report } = await importerOver(fixedContent(builder.build()), repository).importPathbuilder(
       amiri,
       withDeity,
     );
+
     const { build } = character.document;
     expect(build.classFeatures).toStrictEqual([
       ContentId.parse(builder.idOf(ContentKind.ClassFeature, 'apparition-attunement')),
@@ -210,6 +217,7 @@ describe('PathbuilderImportService.importPathbuilder', () => {
   test('writes the voluntary flaws as picks; the modifiers they lower come out as Pathbuilder scored them', async () => {
     const { build } = briarRoseExport;
     const { abilities } = build;
+
     const flawed = {
       ...briarRoseExport,
       build: {
@@ -222,6 +230,7 @@ describe('PathbuilderImportService.importPathbuilder', () => {
         },
       },
     };
+
     const briar = importerOver(briarContent(), repository);
     const { character, report } = await briar.importPathbuilder(amiri, flawed);
     expect<Readonly<Record<string, string>>>(character.document.build.choices).toMatchObject({

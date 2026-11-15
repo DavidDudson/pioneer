@@ -22,6 +22,7 @@ function pick(table: Table, keys: readonly string[]): Table {
 
 function omit(table: Table, keys: readonly string[]): Table {
   const omitted = new Set(keys);
+
   return Object.fromEntries(Object.entries(table).filter(([key]) => !omitted.has(key)));
 }
 
@@ -38,6 +39,7 @@ function registerShims(): void {
   if (registered) {
     return;
   }
+
   registered = true;
   Object.assign(globalThis, { SYSTEM_ID });
   Bun.plugin({
@@ -54,9 +56,11 @@ async function writeModules(files: ReadonlyMap<string, string>, directory: strin
   await Promise.all(
     Object.values(CONFIG_MODULES).map(async (module) => {
       const text = byPath.get(module);
+
       if (text === undefined) {
         throw new Error(`The archive has no ${module}`);
       }
+
       await mkdir(path.dirname(path.join(directory, module)), { recursive: true });
       await Bun.write(path.join(directory, module), text);
     }),
@@ -66,12 +70,16 @@ async function writeModules(files: ReadonlyMap<string, string>, directory: strin
 export async function loadFoundryConfig(files: ReadonlyMap<string, string>, directory: string): Promise<FoundryConfig> {
   await writeModules(files, directory);
   registerShims();
+
   const entries = await Promise.all(
     Object.entries(CONFIG_MODULES).map(async ([name, module]) => {
       const exports: unknown = await import(path.join(directory, module));
+
       return [name, exports] as const;
     }),
   );
+
   const modules: Partial<Record<ConfigModule, unknown>> = Object.fromEntries(entries);
+
   return foundryConfig({ traits: modules.traits, creature: modules.creature, damage: modules.damage });
 }

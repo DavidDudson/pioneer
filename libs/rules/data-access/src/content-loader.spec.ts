@@ -28,6 +28,7 @@ const idOf = (slug: string): string => contentId(PACK, EntrySlug.parse(slug));
 
 function entry(kind: string, name: string, data: object): object {
   const slug = `${kind}:${name}`;
+
   return {
     id: idOf(slug),
     pack: PACK,
@@ -53,14 +54,17 @@ const ancestry = entry('ancestry', 'lizardfolk', {
   additionalLanguages: { count: 0, options: [] },
   reach: 5,
 });
+
 const common = entry('language', 'common', {});
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry, common]]);
 const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 const spoken = [{ type: 'paragraph', content: [{ type: 'text', text: 'Spoken everywhere.' }] }];
 const described: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, description: spoken }]]);
+
 const describedPacks: readonly PackContentsLoader[] = [
   { id: PACK, load: async (): Promise<PackContents> => described },
 ];
+
 const renamed: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, name: 'Common (Taldane)' }]]);
 const reseeded: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => renamed }];
 
@@ -91,11 +95,13 @@ function load(
       },
     ],
   });
+
   const idle = (): void => {
     for (const task of waiting.splice(0)) {
       task();
     }
   };
+
   return { loader: TestBed.inject(ContentLoader), delivery, idle };
 }
 

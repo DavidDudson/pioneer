@@ -39,6 +39,7 @@ const POINTS_KEYS: Readonly<Record<Resource, string>> = {
 function slotLine(slot: SlotCountKey, amount: ResourceCount, views: CountedViews): RestLine {
   const view = views.slots.find(({ key }) => key === slot);
   const key = view?.pool === undefined ? 'character.sheet.rest.slots' : 'character.sheet.rest.poolSlots';
+
   return { key, params: { amount, source: view?.source, pool: view?.pool, rank: view?.rank } };
 }
 
@@ -53,9 +54,12 @@ function staffLine(
 ): RestLine {
   if (change.kind === RestChangeKind.StaffCharges) {
     const name = staves.find(({ id }) => id === change.item)?.name;
+
     return { key: 'character.sheet.rest.staffCharges', params: { name, charges: change.charges } };
   }
+
   const view = views.slots.find(({ key }) => key === change.key);
+
   return { key: 'character.sheet.rest.slotExpended', params: { source: view?.source, rank: view?.rank } };
 }
 
@@ -63,6 +67,7 @@ function staffLine(
 function usesLine(use: UseCountKey, amount: ResourceCount, views: CountedViews): RestLine {
   const view = views.uses.find(({ key }) => key === use);
   const key = view?.overcharge === true ? 'character.sheet.rest.overchargedUses' : 'character.sheet.rest.uses';
+
   return { key, params: { amount, name: view?.name } };
 }
 
@@ -79,34 +84,42 @@ function lineOf(change: RestChange, { views, staves, registry }: RestNames): Res
     case RestChangeKind.HitPoints: {
       return { key: 'character.sheet.rest.hitPoints', params: { gained: change.gained } };
     }
+
     case RestChangeKind.ConditionRemoved: {
       return {
         key: 'character.sheet.rest.conditionRemoved',
         params: { name: conditionName(registry, change.condition) },
       };
     }
+
     case RestChangeKind.ConditionLowered: {
       return {
         key: 'character.sheet.rest.conditionLowered',
         params: { name: conditionName(registry, change.condition), value: change.value },
       };
     }
+
     case RestChangeKind.Doomed: {
       return { key: 'character.sheet.rest.doomedLowered', params: { doomed: change.doomed } };
     }
+
     case RestChangeKind.Points: {
       return { key: POINTS_KEYS[change.resource], params: { from: change.from, to: change.to } };
     }
+
     case RestChangeKind.Slots: {
       return slotLine(change.key, change.amount, views);
     }
+
     case RestChangeKind.StaffCharges:
     case RestChangeKind.SlotExpended: {
       return staffLine(change, views, staves);
     }
+
     case RestChangeKind.Uses: {
       return usesLine(change.key, change.amount, views);
     }
+
     default: {
       return change satisfies never;
     }
@@ -134,5 +147,6 @@ export function restLines(
   const { changes } = applyRestCommand(play, command, limits);
   const views = countedViews(registry, character, play.resources);
   const staves = staffOptions(registry, character, staff);
+
   return changes.map((change) => lineOf(change, { views, staves, registry }));
 }

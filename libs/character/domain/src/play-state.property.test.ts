@@ -48,6 +48,7 @@ describe('applyPlayCommand', () => {
     assert(
       property(max, array(command, { maxLength: COMMANDS_MAX }), (maximum, commands) => {
         let play = FRESH_PLAY;
+
         for (const each of commands) {
           play = applyPlayCommand(play, each, within(maximum));
           const current = currentHitPoints(play.hp, maximum);
@@ -64,12 +65,15 @@ describe('applyPlayCommand', () => {
     assert(
       property(max, array(command, { maxLength: COMMANDS_MAX }), (maximum, commands) => {
         let play = FRESH_PLAY;
+
         for (const each of commands) {
           const before = play;
           play = applyPlayCommand(play, each, within(maximum));
+
           if (!play.dead) {
             expect(play.dying).toBeLessThan(deathThreshold(play.doomed));
           }
+
           if (before.dead && each.field !== PlayCommandField.SetDying) {
             expect(play.dead).toBe(true);
           }
@@ -82,9 +86,11 @@ describe('applyPlayCommand', () => {
 const POOL_MAX = 6;
 
 const resource: Arbitrary<Resource> = oneof(...Object.values(Resource).map((each) => constant(each)));
+
 const points: Arbitrary<ResourceCount> = integer({ min: 0, max: POOL_MAX * 2 }).map((value) =>
   ResourceCount.parse(value),
 );
+
 const poolMaxima: Arbitrary<ResourceMaxima> = tuple(
   integer({ min: 0, max: POOL_MAX }),
   integer({ min: 0, max: POOL_MAX }),
@@ -117,8 +123,10 @@ describe('applyPlayCommand resources', () => {
     assert(
       property(poolMaxima, array(resourceCommand, { maxLength: COMMANDS_MAX }), (maxima, commands) => {
         let play = FRESH_PLAY;
+
         for (const each of commands) {
           play = applyPlayCommand(play, each, within(HitPoints.parse(MAX_HP), maxima));
+
           for (const pool of Object.values(Resource)) {
             const held = currentResource(play.resources, pool, maxima);
             expect(held).toBeGreaterThanOrEqual(0);

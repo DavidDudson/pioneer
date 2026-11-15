@@ -9,6 +9,7 @@ const meta: Meta<EntryNameCell> = {
   component: EntryNameCell,
   args: { name: 'Power Attack', to: ['/content', 'feat', 'power-attack'] },
 };
+
 export default meta;
 
 /** An entry's name, linking to its page. */

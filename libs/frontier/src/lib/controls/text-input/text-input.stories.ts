@@ -19,6 +19,7 @@ const meta: Meta<TextInput> = {
     template: `<fr-text-input ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 export const Empty: TextInputStory = {};

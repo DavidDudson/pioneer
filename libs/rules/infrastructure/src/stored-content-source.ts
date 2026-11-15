@@ -8,9 +8,11 @@ import { PackSetCache } from './pack-set-cache';
 /** The registry of `packs`, registered in order. */
 function registryOf(packs: readonly PackContents[]): ContentRegistry {
   const registry = new ContentRegistry();
+
   for (const contents of packs) {
     registry.register(contentPackFromContents(contents));
   }
+
   return registry;
 }
 
@@ -33,13 +35,16 @@ export class StoredContentSource implements ContentSource {
   public async registry(packs: readonly ContentPackId[] = []): Promise<ContentRegistry> {
     if (packs.length === 0) {
       const hashes = await this.#repository.officialHashes();
+
       // The build reads after the hashes, so it is never older than the key it is cached under.
       return this.#official.current(hashes, async () => registryOf(await this.#repository.loadOfficial()));
     }
+
     const [official, homebrew] = await Promise.all([
       this.#repository.officialHashes(),
       this.#repository.homebrewHashes(packs),
     ]);
+
     return this.#sets.current(packs, [...official, ...homebrew], async () =>
       registryOf([...(await this.#repository.loadOfficial()), ...(await this.#repository.loadHomebrew(packs))]),
     );

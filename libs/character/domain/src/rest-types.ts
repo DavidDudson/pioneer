@@ -28,6 +28,7 @@ export const RestCommandField = {
   /** Hero points to 1, and per-session uses back. */
   StartSession: 'startSession',
 } as const;
+
 export type RestCommandField = ValueOf<typeof RestCommandField>;
 
 /** The most prepared slots one daily preparations can change: far above the slots any character has. */
@@ -35,6 +36,7 @@ export const PREPARED_PICKS_MAX = 100;
 
 /** A prepared slot and the spell to prepare in it, as `selectSlot` asks for it. */
 export const PreparedPickSchema = z.strictObject({ slot: SlotKey, selection: ChoiceValue });
+
 export type PreparedPick = z.infer<typeof PreparedPickSchema>;
 
 export const RestCommandSchema = z.discriminatedUnion('field', [
@@ -49,6 +51,7 @@ export const RestCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(RestCommandField.Refocus) }),
   z.object({ field: z.literal(RestCommandField.StartSession) }),
 ]);
+
 export type RestCommand = z.infer<typeof RestCommandSchema>;
 
 /** What changed, in the terms the preview words; the sheet turns each into a message. */
@@ -63,6 +66,7 @@ export const RestChangeKind = {
   StaffCharges: 'staffCharges',
   SlotExpended: 'slotExpended',
 } as const;
+
 export type RestChangeKind = ValueOf<typeof RestChangeKind>;
 
 export type RestChange =

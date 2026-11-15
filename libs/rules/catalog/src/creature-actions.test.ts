@@ -6,11 +6,13 @@ import type { EnrichmentMapping } from '@pioneer/rules/sdk';
 import { proposeCreatureActions } from './creature-actions';
 
 const BOOK = BookId.parse('monster-core-2');
+
 const ANADI: EnrichmentMapping = {
   book: BOOK,
   aon: AonUrl.parse('https://2e.aonprd.com/Monsters.aspx?ID=1'),
   page: PageNumber.parse(12),
 };
+
 const CREATURES = new Map<EntrySlug, EnrichmentMapping>([
   [EntrySlug.parse('creature:anadi-elder'), ANADI],
   [EntrySlug.parse('creature:unlinked'), { book: BOOK }],
@@ -26,6 +28,7 @@ function action(name: string): TestAction {
     .toLowerCase()
     .replaceAll(/[^a-z]+/gu, '-')
     .replaceAll(/^-|-$/gu, '');
+
   return { slug: EntrySlug.parse(`action:${words}`), name };
 }
 

@@ -30,6 +30,7 @@ function isSkill(selector: Selector): boolean {
 /** The raises the effective set makes of the selectors `ranked` accepts, a choice-driven selector resolved to its pick. */
 function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) => boolean): SkillRaise[] {
   const { facts } = resolution;
+
   return resolvedRules(resolution).flatMap(({ entry, element }): SkillRaise[] => {
     if (
       element.key !== RuleElementKey.Proficiency ||
@@ -38,7 +39,9 @@ function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) =>
     ) {
       return [];
     }
+
     const holds = element.predicate === undefined || evaluatePredicate(element.predicate, facts) === Truth.True;
+
     return holds ? [{ entry: entry.id, selector: element.selector, rank: element.rank }] : [];
   });
 }
@@ -54,9 +57,11 @@ function skillRaises(resolution: GrantResolution): SkillRaise[] {
 export function grantedSkillRanks(resolution: GrantResolution): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map<Selector, Proficiency>();
   const raises = rankRaises(resolution, (selector) => isSkill(selector) || selector === PERCEPTION);
+
   for (const { selector, rank } of raises) {
     ranks.set(selector, higher(ranks.get(selector), rank) ?? rank);
   }
+
   return ranks;
 }
 
@@ -69,7 +74,9 @@ export function duplicateTrainings(resolution: GrantResolution): SkillCount {
     skillRaises(resolution).filter(({ rank }) => rank === Proficiency.Trained),
     ({ selector }) => selector,
   );
+
   const twice = [...trainers.values()].map((raises) => new Set(raises.map(({ entry }) => entry)).size - 1);
+
   return SkillCount.parse(twice.reduce((total, count) => total + count, 0));
 }
 
@@ -82,6 +89,7 @@ function entriesRaising(
     skillRaises(resolution).filter(({ rank }) => wanted(rank)),
     ({ selector }) => selector,
   );
+
   return new Map(
     [...trainers].map(([selector, raises]) => [selector, [...new Set(raises.map(({ entry }) => entry))]] as const),
   );

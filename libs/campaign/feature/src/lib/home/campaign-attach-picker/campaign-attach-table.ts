@@ -47,20 +47,26 @@ export function shownAttachRows(
   sort: PickerSort | undefined,
 ): readonly AttachRow[] {
   const needle = query.trim().toLocaleLowerCase();
+
   const matching = rows.filter((row) =>
     `${row.name} ${row.ancestry} ${row.class}`.toLocaleLowerCase().includes(needle),
   );
+
   const value = columnValue[sort?.column ?? ''];
+
   if (sort === undefined || value === undefined) {
     return matching;
   }
+
   return matching.toSorted((left, right) => {
     const leftValue = value(left);
     const rightValue = value(right);
+
     const order =
       typeof leftValue === 'number' && typeof rightValue === 'number'
         ? leftValue - rightValue
         : String(leftValue).localeCompare(String(rightValue));
+
     return (order || left.name.localeCompare(right.name)) * (sort.descending ? -1 : 1);
   });
 }

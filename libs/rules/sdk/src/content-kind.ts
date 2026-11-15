@@ -38,5 +38,7 @@ export const ContentKind = {
   VariantRule: 'variant-rule',
   Weapon: 'weapon',
 } as const;
+
 export type ContentKind = ValueOf<typeof ContentKind>;
+
 export const ContentKindSchema = z.enum(ContentKind);

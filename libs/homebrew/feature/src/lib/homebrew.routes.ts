@@ -23,6 +23,7 @@ export const homebrewRoutes: Routes = [
         path: '',
         loadComponent: loadWithMessages(async () => {
           const { PackListPage } = await import('./list/pack-list-page/pack-list-page.component');
+
           return PackListPage;
         }),
       },
@@ -32,6 +33,7 @@ export const homebrewRoutes: Routes = [
         data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: packCrumb },
         loadComponent: loadWithMessages(async () => {
           const { PackHomePage } = await import('./home/pack-home-page/pack-home-page.component');
+
           return PackHomePage;
         }),
       },

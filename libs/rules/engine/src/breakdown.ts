@@ -17,6 +17,7 @@ import type { RuleId } from './rule-in-play';
 
 /** The message parameters the UI fills with a name. */
 export const LabelParam = { Weapon: 'weapon', Form: 'form' } as const;
+
 export type LabelParam = ValueOf<typeof LabelParam>;
 
 /**
@@ -56,14 +57,17 @@ export const LineStatusKind = {
   Inactive: 'inactive',
   Failed: 'failed',
 } as const;
+
 export type LineStatusKind = ValueOf<typeof LineStatusKind>;
 
 /** Why a line that would apply does not: a better one of its type, an `AdjustModifier` that suppresses it, or a battle form that replaces what it adds to. */
 export const SuppressionReason = { Stacking: 'stacking', Adjustment: 'adjustment', Form: 'form' } as const;
+
 export type SuppressionReason = ValueOf<typeof SuppressionReason>;
 
 /** Why a line is inactive: its predicate is known not to hold. */
 export const InactiveReason = { Predicate: 'predicate' } as const;
+
 export type InactiveReason = ValueOf<typeof InactiveReason>;
 
 export type LineStatus =
@@ -100,6 +104,7 @@ export interface BreakdownLine {
 
 /** When an override line acts: on the base before modifiers (`Change`), or on the total (a set override). */
 export const OverridePhase = { Base: 'base', Total: 'total' } as const;
+
 export type OverridePhase = ValueOf<typeof OverridePhase>;
 
 export const OverrideStatusKind = {
@@ -109,6 +114,7 @@ export const OverrideStatusKind = {
   Inactive: 'inactive',
   Failed: 'failed',
 } as const;
+
 export type OverrideStatusKind = ValueOf<typeof OverrideStatusKind>;
 
 export type OverrideStatus =

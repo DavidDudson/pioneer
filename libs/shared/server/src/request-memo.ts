@@ -22,13 +22,16 @@ export class RequestMemo<Key, Value> {
 
   public async of(key: Key, read: () => Promise<Value>): Promise<Value> {
     const scope = scopes.getStore();
+
     if (scope === undefined) {
       return read();
     }
+
     const known = this.#byScope.get(scope) ?? new Map<Key, Promise<Value>>();
     this.#byScope.set(scope, known);
     const answer = known.get(key) ?? read();
     known.set(key, answer);
+
     return answer;
   }
 }

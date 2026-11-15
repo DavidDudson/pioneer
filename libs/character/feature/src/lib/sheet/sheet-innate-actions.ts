@@ -23,10 +23,12 @@ export function sheetInnateActions(
 ): readonly ActionLine[] {
   const content = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, content));
+
   return characterInnate(entries, content.spells, character.document.level).flatMap(({ entry, spells }) =>
     spells.map(({ spell }): ActionLine => {
       const range = spellCost(spell);
       const fit = turnFit(turn, range?.cost, range);
+
       return {
         id: spell.id,
         name: spell.name,

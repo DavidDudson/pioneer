@@ -26,9 +26,11 @@ export class SheetBreakdownStatistic {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
     const selector = Selector.safeParse(this.#query()?.get(BREAKDOWN_STATISTIC_PARAM));
+
     if (registry === undefined || character === undefined || !selector.success) {
       return undefined;
     }
+
     return namedStatistics(registry, character, [selector.data]).get(selector.data);
   });
 }

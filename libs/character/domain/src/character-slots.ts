@@ -16,6 +16,7 @@ export const HERITAGE_SLOT = SlotKey.parse('heritage');
 export const BACKGROUND_SLOT = SlotKey.parse('background');
 export const CLASS_SLOT = SlotKey.parse('class');
 export const DEITY_SLOT = SlotKey.parse('deity');
+
 /** The second class's slot, a root slot only while the Dual Class variant is in force (`characterRootSlots`). */
 export const SECOND_CLASS_SLOT = SlotKey.parse('second-class');
 
@@ -42,6 +43,7 @@ export function characterRootSlots(variants: readonly VariantRuleEntry[]): reado
   const dualClass = variants.some(
     (variant) => variant.definition.structure?.includes(VariantStructure.SecondClass) === true,
   );
+
   return dualClass ? [...CHARACTER_ROOT_SLOTS, SECOND_CLASS_ROOT_SLOT] : CHARACTER_ROOT_SLOTS;
 }
 
@@ -60,6 +62,7 @@ export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readon
     )
     .map(({ id }): GrantRoot => {
       const entry = ContentId.parse(id);
+
       return { entry, hop: { kind: OriginHopKind.Variant, rule: entry } };
     });
 }
@@ -81,5 +84,6 @@ export const OPTIONAL_ROOT_SLOTS: ReadonlyMap<SlotKey, readonly RollOption[]> = 
 /** Whether one of the character's roll options makes it need a deity: a cleric's does. */
 export function needsDeity(rollOptions: readonly RollOption[]): boolean {
   const neededBy = OPTIONAL_ROOT_SLOTS.get(DEITY_SLOT) ?? [];
+
   return neededBy.some((option) => rollOptions.includes(option));
 }

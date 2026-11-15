@@ -58,6 +58,7 @@ function isOpen(slot: CharacterSlot): slot is OpenSlot {
 
 /** How many dead ends a search may still back out of. */
 const Backtracks = z.int().nonnegative().brand<'Backtracks'>();
+
 type Backtracks = z.infer<typeof Backtracks>;
 
 /**
@@ -110,14 +111,19 @@ function extend(node: Node, search: Search): Generated | undefined {
   const { character, skipped } = node;
   const { content, now, target } = search;
   const slots = characterSlots(character.document, content);
+
   if (hasInvalid(slots)) {
     return undefined;
   }
+
   const slot = slots.filter((each) => isOpen(each)).find((open) => !skipped.includes(open.key));
+
   if (slot !== undefined) {
     return pickSlot(node, slot, search) ?? (search.lenient ? leave(node, slot, search) : undefined);
   }
+
   const { level } = character.document;
+
   return level >= target
     ? { character, unfilled: skipped, unmet: [] }
     : extend(
@@ -132,6 +138,7 @@ function extend(node: Node, search: Search): Generated | undefined {
 /** The slots of `locks` that `character` does not hold the pick of: the slot never opened, or the pick was refused. */
 function unmetLocks(character: Character, content: SlotContent, locks: readonly SlotPick[]): readonly SlotKey[] {
   const slots = characterSlots(character.document, content);
+
   return locks
     .filter(({ slot, selection }) =>
       slots.every((each) => each.key !== slot || each.status !== SlotStatus.Filled || each.selection !== selection),
@@ -144,16 +151,20 @@ function backOut(search: Search): boolean {
   if (search.left === undefined) {
     return true;
   }
+
   if (search.left === 0) {
     return false;
   }
+
   search.left = Backtracks.parse(search.left - 1);
+
   return true;
 }
 
 /** The weapons of `items` that fit the weapon of `theme`; none without either. */
 function fittingWeapons(items: ItemContent | undefined, theme: GenerationTheme | undefined): readonly ItemEntry[] {
   const weapon = theme?.weapon;
+
   return items === undefined || weapon === undefined
     ? []
     : [...items.values()].filter((entry) => fitsTheme(entry, weapon));
@@ -170,10 +181,13 @@ function tryOrder(
   { content, source, theme, fitting, locks }: Search,
 ): readonly ChoiceValue[] {
   const locked = locks.get(slot.key);
+
   if (locked !== undefined) {
     return [locked];
   }
+
   const candidates = slotCandidates(character.document, content, slot);
+
   return theme === undefined
     ? shuffle(source, candidates)
     : weightedShuffle(source, weighCandidates(slot, candidates, { theme, content, fitting }));
@@ -181,6 +195,7 @@ function tryOrder(
 
 function* acceptable(character: Character, slot: OpenSlot, search: Search): Generator<ChoiceValue> {
   const { content } = search;
+
   for (const selection of tryOrder(character, slot, search)) {
     if (slotRefusal(character.document, content, { slot: slot.key, selection }) === undefined) {
       yield selection;
@@ -195,17 +210,21 @@ function* acceptable(character: Character, slot: OpenSlot, search: Search): Gene
 function pickSlot(node: Node, slot: OpenSlot, search: Search): Generated | undefined {
   const { character } = node;
   let tried = false;
+
   for (const selection of acceptable(character, slot, search)) {
     tried = true;
     const picked = character.apply({ field: CharacterPatchField.SelectSlot, slot: slot.key, selection }, search.now);
     const done = extend({ ...node, character: picked }, search);
+
     if (done !== undefined) {
       return done;
     }
+
     if (!backOut(search)) {
       return undefined;
     }
   }
+
   return tried || search.locks.has(slot.key) ? undefined : leave(node, slot, search);
 }
 
@@ -234,9 +253,12 @@ export function generateCharacter({
   const fitting = fittingWeapons(items, theme);
   const base = { content, source, now, target: level, theme, fitting, locks: kept };
   const root: Node = { character: start, skipped: [] };
+
   const searched = extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
     extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [], unmet: [] };
+
   const built = { ...searched, unmet: unmetLocks(searched.character, content, locks) };
+
   return items === undefined
     ? built
     : {

@@ -27,6 +27,7 @@ const selectorOf = (index: number): string => `stat-${index}`;
 
 function definition(index: number, terms: readonly string[]): StatisticDefinition {
   const selector = selectorOf(index);
+
   return StatisticDefinition.parse({
     slug: `statistic:${selector}`,
     name: selector,
@@ -41,6 +42,7 @@ function definition(index: number, terms: readonly string[]): StatisticDefinitio
 function termsReading(reads: readonly number[]): Arbitrary<string[]> {
   const statistics = reads.map((index) => `@stat.${selectorOf(index)}`);
   const terms = ([value, read]: [number, string[]]): string[] => [String(value), ...read, ...statistics];
+
   return tuple(integer({ min: 0, max: CONSTANT_MAX }), subarray(INPUT_TERMS)).map((drawn) => terms(drawn));
 }
 
@@ -64,9 +66,11 @@ interface WithCycle {
 /** The definitions with each statistic in `onCycle` also reading the next one, and the last reading the first. */
 function closeCycle(definitions: readonly StatisticDefinition[], onCycle: readonly number[]): WithCycle {
   const next = new Map(onCycle.map((index, at) => [index, onCycle[(at + 1) % onCycle.length] ?? index]));
+
   return {
     definitions: definitions.map((existing, index) => {
       const target = next.get(index);
+
       return target === undefined
         ? existing
         : StatisticDefinition.parse({ ...existing, base: `${existing.base} + @stat.${selectorOf(target)}` });
@@ -116,7 +120,9 @@ describe('statistic graph (properties)', () => {
         const results = [
           ...deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs).values(),
         ];
+
         expect(results).toHaveLength(definitions.length);
+
         for (const result of results) {
           expect(result.ok).toBe(true);
           const sum = result.ok ? result.base.reduce((total, term) => total + term.value, 0) : undefined;
@@ -131,12 +137,14 @@ describe('statistic graph (properties)', () => {
     assert(
       property(withCycle, ({ definitions, cycle }) => {
         const results = deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs);
+
         for (const selector of cycle) {
           const result = [...results.values()].find((found) => found.selector === selector);
           expect(result?.ok).toBe(false);
           const error = result?.ok === false ? result.error : undefined;
           expect(error?.key).toBe(EngineMessage.StatisticCycle);
           const named = String(error?.params?.['statistics']).split(', ');
+
           for (const member of cycle) {
             expect(named).toContain(member);
           }

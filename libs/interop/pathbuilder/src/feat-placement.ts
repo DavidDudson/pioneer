@@ -39,6 +39,7 @@ function documentWith(document: CharacterDocument, picks: FeatPicks): CharacterD
 /** "skill" or "general" for a Skill Feat or General Feat and the slots that name them; "other" for the rest. */
 function kindWord(text: string | undefined): string {
   const word = matchKey(text ?? '').split(' ')[0] ?? '';
+
   return SHARED_KINDS.has(word) ? word : 'other';
 }
 
@@ -47,7 +48,9 @@ function labelled(slot: FeatSlot, feat: ImportedFeat): boolean {
   const words = matchKey(feat.slot ?? '')
     .split(' ')
     .filter((word) => !LEVEL_WORD.test(word));
+
   const prompt = matchKey(slot.prompt ?? '').split(' ');
+
   return words.length > 0 && words.every((word) => prompt.includes(word));
 }
 
@@ -58,12 +61,15 @@ function labelled(slot: FeatSlot, feat: ImportedFeat): boolean {
 function candidates(slots: readonly FeatSlot[], { feat, id }: Wanted): FeatSlot[] {
   const fits = slots.filter((slot) => slot.level === feat.level && slot.options.some((option) => option.value === id));
   const named = new Set(fits.filter((slot) => kindWord(slot.prompt) === kindWord(feat.type)));
+
   const rank = (slot: FeatSlot): number => {
     if (labelled(slot, feat)) {
       return 0;
     }
+
     return named.has(slot) ? 1 : 2;
   };
+
   return fits.toSorted((left, right) => rank(left) - rank(right));
 }
 
@@ -71,12 +77,15 @@ function candidates(slots: readonly FeatSlot[], { feat, id }: Wanted): FeatSlot[
 function claim(slots: readonly FeatSlot[], wanted: readonly Wanted[]): Map<SlotKey, Wanted> {
   const fitting = wanted.map((each) => ({ each, fits: candidates(slots, each) }));
   const claimed = new Map<SlotKey, Wanted>();
+
   for (const { each, fits } of fitting.toSorted((left, right) => left.fits.length - right.fits.length)) {
     const free = fits.find((slot) => !claimed.has(slot.key));
+
     if (free !== undefined) {
       claimed.set(free.key, each);
     }
   }
+
   return claimed;
 }
 
@@ -89,10 +98,12 @@ function answers(
   return Object.fromEntries(
     characterGrants(document, content).open.flatMap((slot) => {
       const choice = chosen.get(slot.origin.entry);
+
       const option =
         choice === undefined
           ? undefined
           : slot.options.find((each) => [each.label, each.value].some((text) => matchKey(text) === matchKey(choice)));
+
       return option === undefined ? [] : [[slot.key, ChoiceValue.parse(option.value)]];
     }),
   );
@@ -103,6 +114,7 @@ function matched(feats: readonly ImportedFeat[], lookup: ContentLookup): Wanted[
     .filter((feat) => feat.slotted)
     .flatMap((feat) => {
       const match = lookup.resolve(ImportKind.Feat, feat.name);
+
       return match === undefined ? [] : [{ feat, id: ContentId.parse(match.id) }];
     });
 }
@@ -125,21 +137,27 @@ function advance(document: CharacterDocument, { slots }: FeatPlacementContent, r
   const current = documentWith(document, round.picks);
   const open = featSlots(current, slots).filter((slot) => !(slot.key in current.build.choices));
   const claimed = claim(open, round.left);
+
   if (claimed.size === 0) {
     return undefined;
   }
+
   const placed = new Set(claimed.values());
+
   const chosen = new Map([
     ...round.chosen,
     ...[...placed].flatMap(({ feat, id }): [ContentId, PathbuilderName][] =>
       feat.choice === undefined ? [] : [[id, feat.choice]],
     ),
   ]);
+
   const placedPicks: FeatPicks = {
     ...round.picks,
     ...Object.fromEntries([...claimed].map(([key, { id }]) => [key, ChoiceValue.parse(id)])),
   };
+
   const picks = { ...placedPicks, ...answers(documentWith(document, placedPicks), slots, chosen) };
+
   return { picks, chosen, left: round.left.filter((each) => !placed.has(each)) };
 }
 
@@ -155,12 +173,16 @@ export function placeFeats(
   feats: readonly ImportedFeat[],
 ): FeatPlacement {
   let round: Round = { picks: {}, left: matched(feats, content.lookup), chosen: new Map() };
+
   for (let pass = 0; pass < MAX_ROUNDS; pass += 1) {
     const next = advance(document, content, round);
+
     if (next === undefined) {
       break;
     }
+
     round = next;
   }
+
   return { choices: round.picks, unplaced: round.left.map(({ feat }) => feat) };
 }

@@ -7,6 +7,7 @@ const LETTER_RUNS: readonly (readonly [string, string])[] = [
 function range([first, last]: readonly [string, string]): readonly string[] {
   const start = first.codePointAt(0) ?? 0;
   const end = last.codePointAt(0) ?? 0;
+
   return Array.from({ length: end - start + 1 }, (_unused, offset) => String.fromCodePoint(start + offset));
 }
 
@@ -17,6 +18,7 @@ export const RUNIC_LETTERS: readonly string[] = LETTER_RUNS.flatMap((run) => ran
 const HASH_BITS = 32;
 const HASH_MODULUS = 2 ** HASH_BITS;
 const HASH_MULTIPLIER = 65_599;
+
 /**
  * Where the hash starts. 119 runes into 6,889 pairs usually collide (the birthday bound), so the seed is the first
  * one under which no two loaded property runes share a pair. The catalog test fails when a book adds a collision;
@@ -40,5 +42,6 @@ export function runicPair(text: string): string {
   const count = RUNIC_LETTERS.length;
   const first = hash % count;
   const second = Math.floor(hash / count) % count;
+
   return `${RUNIC_LETTERS[first] ?? ''}${RUNIC_LETTERS[second] ?? ''}`;
 }

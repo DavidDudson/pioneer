@@ -21,14 +21,18 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   const fixture = TestBed.createComponent(LoadMoreHost);
   const query = new FakeInfiniteQuery<string>(FIRST);
   fixture.componentRef.setInput('query', query);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await settle();
   const host = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-load-more');
+
   if (host === null) {
     throw new Error('Expected an fr-load-more');
   }
+
   return { fixture, query, host };
 }
 
@@ -44,9 +48,11 @@ function button(host: HTMLElement): HTMLButtonElement | null {
 
 function press(host: HTMLElement): void {
   const element = button(host);
+
   if (element === null) {
     throw new Error('Expected a load-more button');
   }
+
   element.click();
 }
 

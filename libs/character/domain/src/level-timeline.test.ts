@@ -23,10 +23,15 @@ import {
 } from './testing';
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 registry.register(playerCoreClasses());
+
 registry.register(spellFixtures());
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LEVEL_MAX = 20;
@@ -34,6 +39,7 @@ const THIRD = 3;
 const FOURTH = 4;
 const EIGHTH = 8;
 const FIFTH = 5;
+
 /** Each run reads the progression at every level, so a few cover the levels. */
 const SPELL_RUNS = 6;
 
@@ -88,9 +94,11 @@ describe('level timeline', () => {
       property(integer({ min: 1, max: LEVEL_MAX }), (level) => {
         const { document } = fighter(level).picking(FEAT_SLOT_KEYS.level4, featSlotFixtureId('power-attack')).build();
         const keys = levelTimeline(document, content).flatMap((row) => row.slots.map((slot) => slot.key));
+
         const listed = characterSlots(document, content)
           .filter((slot) => slot.status !== SlotStatus.Hidden)
           .map((slot) => slot.key);
+
         expect(new Set(keys).size).toBe(keys.length);
         expect(new Set(keys)).toStrictEqual(new Set(listed));
       }),
@@ -139,10 +147,13 @@ describe('level timeline', () => {
       property(integer({ min: 1, max: LEVEL_MAX }), (level) => {
         const { document } = bard(level).build();
         const keys = levelTimeline(document, content).flatMap((row) => row.slots.map((slot) => slot.key));
+
         const listed = characterSlots(document, content)
           .filter((slot) => slot.status !== SlotStatus.Hidden)
           .map((slot) => slot.key);
+
         expect(new Set(keys).size).toBe(keys.length);
+
         for (const key of listed) {
           expect(keys).toContain(key);
         }

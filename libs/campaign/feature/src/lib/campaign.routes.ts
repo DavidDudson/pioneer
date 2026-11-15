@@ -38,6 +38,7 @@ export const campaignRoutes: Routes = [
         path: '',
         loadComponent: loadWithMessages(async () => {
           const { CampaignListPage } = await import('./list/campaign-list-page/campaign-list-page.component');
+
           return CampaignListPage;
         }),
       },
@@ -51,6 +52,7 @@ export const campaignRoutes: Routes = [
             data: PREFETCH_WHEN_IDLE,
             loadComponent: loadWithMessages(async () => {
               const { CampaignHomePage } = await import('./home/campaign-home-page/campaign-home-page.component');
+
               return CampaignHomePage;
             }),
           },
@@ -60,6 +62,7 @@ export const campaignRoutes: Routes = [
             loadComponent: loadWithMessages(async () => {
               const { CampaignInventoryPage } =
                 await import('./home/campaign-inventory-page/campaign-inventory-page.component');
+
               return CampaignInventoryPage;
             }),
           },
@@ -80,6 +83,7 @@ export const campaignJoinRoutes: Routes = [
     providers: campaignProviders(),
     loadComponent: loadWithMessages(async () => {
       const { CampaignJoinPage } = await import('./join/campaign-join-page/campaign-join-page.component');
+
       return CampaignJoinPage;
     }),
   },

@@ -36,16 +36,20 @@ const WITHOUT_DESCRIPTION: ReadonlyMap<string, string> = new Map([
 const Block = z.unknown();
 const Trait = z.object({ slug: z.string(), description: z.array(Block) });
 const Traits = z.array(Trait);
+
 type Traits = z.infer<typeof Traits>;
 
 async function traitEntries(): Promise<Traits> {
   const files = await Array.fromAsync(new Glob('**/trait.json').scan({ cwd: PACKS, onlyFiles: true }));
+
   const parsed = await Promise.all(
     files.map(async (file): Promise<Traits> => {
       const json: unknown = await Bun.file(`${PACKS}/${file}`).json();
+
       return Traits.parse(json);
     }),
   );
+
   return parsed.flat();
 }
 
@@ -60,6 +64,7 @@ describe('trait descriptions', () => {
 
   test('a listed trait without a description still has none, so the list shrinks', async () => {
     const traits = await traitEntries();
+
     const described = traits
       .filter(({ description }) => description.length > 0)
       .map(({ slug }) => slug.replace('trait:', ''));

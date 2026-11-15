@@ -14,6 +14,7 @@ import { SheetState } from '../sheet-state';
 /** What a breakdown calls the statistics its references read: the definition's name in the registry the engine reads. */
 function statisticNames(): StatisticNamer {
   const sheet = inject(SheetState);
+
   return (selector): string | undefined => sheet.engine()?.statisticsFor(selector).at(-1)?.definition.name;
 }
 

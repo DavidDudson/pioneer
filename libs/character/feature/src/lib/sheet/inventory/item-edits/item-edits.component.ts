@@ -78,6 +78,7 @@ export class ItemEdits {
   /** "Invested" and "Not invested", re-read when the language changes or the messages load. */
   readonly #investLabels = computed((): InvestLabels => {
     this.#messages();
+
     return {
       on: this.#i18n.translate('character.sheet.inventory.invested'),
       off: this.#i18n.translate('character.sheet.inventory.notInvested'),
@@ -93,6 +94,7 @@ export class ItemEdits {
 
   readonly #entry: Signal<ItemEntry | undefined> = computed(() => {
     const item = this.#item();
+
     return item === undefined ? undefined : this.content().get(item.item);
   });
 
@@ -104,6 +106,7 @@ export class ItemEdits {
    */
   protected readonly investable = computed(() => {
     const item = this.#item();
+
     return isInvestable(item, this.#entry()) || item?.invested === true;
   });
   /** Whether the GM gave the item as a key item: its player cannot change how many there are, or remove or sell it. */

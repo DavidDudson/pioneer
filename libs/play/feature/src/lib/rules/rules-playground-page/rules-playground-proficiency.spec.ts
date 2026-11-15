@@ -17,6 +17,7 @@ function toggle(harness: RouterTestingHarness): HTMLButtonElement {
   const buttons = [
     ...present(harness.routeNativeElement).querySelectorAll<HTMLButtonElement>('fr-toggle-button button'),
   ];
+
   return present(buttons.find((button) => button.textContent.trim() === WITHOUT_LEVEL));
 }
 
@@ -26,6 +27,7 @@ async function openStatistics(): Promise<RouterTestingHarness> {
   await vi.waitFor(() => {
     expect(pageText(harness)).toContain('spell-dc:arcane');
   });
+
   return harness;
 }
 

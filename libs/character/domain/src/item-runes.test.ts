@@ -47,11 +47,13 @@ function runes(json: object): ItemRunes {
 
 function runesOf(inventory: Inventory, id: InventoryItemId): ItemRunes {
   const line = lineOf(inventory, id);
+
   return itemRunes(line, content.get(line.item));
 }
 
 function working(inventory: Inventory, id: InventoryItemId): readonly ContentId[] {
   const line = lineOf(inventory, id);
+
   return workingPropertyRunes(line, content.get(line.item), () => undefined);
 }
 
@@ -59,6 +61,7 @@ function working(inventory: Inventory, id: InventoryItemId): readonly ContentId[
 function runedSword(): Inventory {
   let inventory = etchRune(armoury(), Armoury.Sword, fundamental(FundamentalRune.Potency, 2));
   inventory = etchRune(inventory, Armoury.Sword, fundamental(FundamentalRune.Striking, 1));
+
   return etchRune(inventory, Armoury.Sword, FLAMING);
 }
 
@@ -106,6 +109,7 @@ describe('printed runes made for an energy', () => {
     if (tongue?.kind !== ContentKind.Weapon || tongue.data.runes === undefined) {
       return tongue;
     }
+
     return {
       ...tongue,
       data: { ...tongue.data, runes: { ...tongue.data.runes, propertyEnergy: energy } },
@@ -162,11 +166,14 @@ describe('property runes that work', () => {
 
 describe('runes the engine applies', () => {
   const loaded = runeFixtureContent();
+
   const rune = (name: RuneFixture): RuneEntry => {
     const entry = loaded.get(runeFixtureId(name));
+
     if (entry === undefined) {
       throw new Error(`no ${name} rune`);
     }
+
     return entry;
   };
 
@@ -186,6 +193,7 @@ describe('a rune that raises potency', () => {
   const MYTHIC_ID = ContentId.parse('00000000-0000-4000-8000-00000000a001');
   const SHOCK_ID = runeFixtureId(RuneFixture.Shock);
   const KEEN_ID = runeFixtureId(RuneFixture.Keen);
+
   const mythic: RuneRules = {
     rules: [
       RuleElement.parse({
@@ -198,6 +206,7 @@ describe('a rune that raises potency', () => {
       }),
     ],
   };
+
   const read: RuneReader = (rune) => (rune === MYTHIC_ID ? mythic : undefined);
 
   test('takes no slot of its own', () => {

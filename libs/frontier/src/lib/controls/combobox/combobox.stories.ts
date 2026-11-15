@@ -21,6 +21,7 @@ const FEATS: readonly SelectOption<string>[] = Array.from({ length: FEAT_COUNT }
 
 function matching(query: string): readonly SelectOption<string>[] {
   const needle = query.trim().toLowerCase();
+
   return FEATS.filter((feat) => feat.label.toLowerCase().includes(needle));
 }
 
@@ -50,12 +51,14 @@ const meta: Meta<Combobox<string>> = {
     template: `<fr-combobox ${argsToTemplate(args)} />`,
   }),
 };
+
 export default meta;
 
 /** 400 options, filtered on the client. */
 export const Long: ComboboxStory = {
   render: (args) => {
     const options = signal(FEATS);
+
     return {
       props: {
         ...args,
@@ -74,6 +77,7 @@ export const AsyncSource: ComboboxStory = {
   render: (args) => {
     const options = signal<readonly SelectOption<string>[]>([]);
     const loading = signal(false);
+
     return {
       props: {
         ...args,

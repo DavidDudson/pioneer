@@ -27,10 +27,12 @@ export function homebrew(db: Database, clock: Clock, authenticator: RequestAuthe
   const directory = new DrizzlePackDirectory(db);
   const dependencies = new DrizzlePackDependencyRepository(db);
   const enablement = new CampaignPackEnablementDirectory(db);
+
   const service = new HomebrewPackService(
     { packs, authors: new UserAuthorDirectory(db), enablement, directory, dependencies },
     clock,
   );
+
   const dependencyService = new PackDependencyService({
     packs,
     directory,
@@ -38,12 +40,15 @@ export function homebrew(db: Database, clock: Clock, authenticator: RequestAuthe
     usage: new DrizzleDependencyUsageDirectory(db),
     enablement,
   });
+
   const stored = new StoredPackBundles(new ContentRepository(db));
+
   const bundles = new HomebrewBundleService({
     directory,
     access: new PackAccessPolicy(enablement),
     bundles: new StoredPackBundleSource(stored),
   });
+
   return homebrewRoutes({ packs: service, dependencies: dependencyService }, authenticator).use(
     homebrewBundleRoutes(bundles, authenticator),
   );

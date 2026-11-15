@@ -30,6 +30,7 @@ const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 /** Every level from 1st to `CHARACTER_LEVEL_MAX`, lowest first. */
 function allLevels(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
+
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
@@ -40,14 +41,17 @@ function allLevels(): Level[] {
 function openingLevels(document: CharacterDocument, content: SlotContent): ReadonlyMap<SlotKey, Level> {
   const context = slotContextOf(document, content);
   const opening = new Map<SlotKey, Level>();
+
   for (const at of allLevels().filter((level) => level <= document.level)) {
     const resolution = resolveSlotsAt(at, context);
+
     for (const slot of [...resolution.rootSlots, ...resolution.open, ...resolution.answered]) {
       if (!opening.has(slot.key)) {
         opening.set(slot.key, at);
       }
     }
   }
+
   return opening;
 }
 
@@ -60,16 +64,21 @@ function openedAt(slot: CharacterSlot, opening: ReadonlyMap<SlotKey, Level>): Le
   if (slot.status === SlotStatus.Hidden) {
     return undefined;
   }
+
   if (isSpellSlot(slot)) {
     return undefined;
   }
+
   if (slot.status === SlotStatus.Planned) {
     return slot.level;
   }
+
   if (slot.status === SlotStatus.Invalid && slot.level !== undefined) {
     return slot.level;
   }
+
   const { subject } = slot;
+
   if (
     subject.kind === SlotSubjectKind.Boost ||
     subject.kind === SlotSubjectKind.Skill ||
@@ -77,6 +86,7 @@ function openedAt(slot: CharacterSlot, opening: ReadonlyMap<SlotKey, Level>): Le
   ) {
     return subject.level;
   }
+
   return opening.get(slot.key) ?? FIRST_LEVEL;
 }
 
@@ -94,17 +104,22 @@ function spellPlacements(document: CharacterDocument, content: SlotContent): Pla
   const held = new Map(
     spellSlotsAt(document, content, Level.parse(document.level)).map((slot) => [slot.key, slot] as const),
   );
+
   const placed = new Map<SlotKey, Placed>();
+
   for (const at of allLevels()) {
     const own = at <= document.level;
+
     for (const slot of spellSlotsAt(document, content, at)) {
       const kept = held.get(slot.key);
       const opens = own ? kept !== undefined : kept === undefined;
+
       if (opens && !placed.has(slot.key)) {
         placed.set(slot.key, { slot: kept ?? slot, level: at });
       }
     }
   }
+
   return [...placed.values()];
 }
 
@@ -121,10 +136,12 @@ export function spellSlotOpensAt(document: CharacterDocument, content: SlotConte
  */
 export function levelTimeline(document: CharacterDocument, content: SlotContent): readonly TimelineRow[] {
   const opening = openingLevels(document, content);
+
   const placed: Placed[] = [
     ...characterSlots(document, content).map((slot) => ({ slot, level: openedAt(slot, opening) })),
     ...spellPlacements(document, content),
   ];
+
   return allLevels().map((level) => ({
     level,
     slots: placed.filter((each) => each.level === level).map((each) => each.slot),

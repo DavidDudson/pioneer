@@ -18,7 +18,9 @@ export const RollMode = {
   Misfortune: 'misfortune',
   Cancelled: 'cancelled',
 } as const;
+
 export type RollMode = ValueOf<typeof RollMode>;
+
 export const RollModeSchema = z.enum(RollMode);
 
 /**
@@ -35,6 +37,7 @@ export const NO_FORTUNE: FortuneSources = { fortune: [], misfortune: [] };
 
 /** One roll of the expression, and whether it is the one that counts. */
 export const FortuneRollEntry = z.object({ result: RollResult, kept: z.boolean() });
+
 export type FortuneRollEntry = z.infer<typeof FortuneRollEntry>;
 
 /**
@@ -48,6 +51,7 @@ export const FortunedRoll = z.object({
   explanation: MessageDescriptorSchema,
   sources: z.object({ fortune: z.array(MessageDescriptorSchema), misfortune: z.array(MessageDescriptorSchema) }),
 });
+
 export type FortunedRoll = z.infer<typeof FortunedRoll>;
 
 const EXPLANATION_KEYS: Readonly<Record<RollMode, string>> = {
@@ -60,12 +64,15 @@ const EXPLANATION_KEYS: Readonly<Record<RollMode, string>> = {
 function modeOf(sources: FortuneSources): RollMode {
   const hasFortune = sources.fortune.length > 0;
   const hasMisfortune = sources.misfortune.length > 0;
+
   if (hasFortune && hasMisfortune) {
     return RollMode.Cancelled;
   }
+
   if (hasFortune) {
     return RollMode.Fortune;
   }
+
   return hasMisfortune ? RollMode.Misfortune : RollMode.Normal;
 }
 
@@ -87,11 +94,14 @@ export function rollWithFortune(
   const explanation = message(EXPLANATION_KEYS[mode]);
   const present = { fortune: [...sources.fortune], misfortune: [...sources.misfortune] };
   const first = rollDice(expression, random);
+
   if (mode === RollMode.Normal || mode === RollMode.Cancelled) {
     return { mode, rolls: [{ result: first, kept: true }], total: first.total, explanation, sources: present };
   }
+
   const second = rollDice(expression, random);
   const keepSecond = prefersSecond(mode, first, second);
+
   return {
     mode,
     rolls: [

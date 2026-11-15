@@ -23,6 +23,7 @@ const granted = (by: string, rule: number): OriginHop => OriginHop.parse({ kind:
 /** A chain of `length` entries, each granting the next. */
 function chainOf(length: number): GrantEntry[] {
   const slugs = Array.from({ length }, (_value, index) => `link-${index}`);
+
   return slugs.map((slug, index) =>
     entry(
       slug,
@@ -72,6 +73,7 @@ describe('resolveGrants', () => {
       entry('general-feat', [grantOf('shield-block')]),
       entry('shield-block'),
     ];
+
     const result = resolve(content, [picked('fighter'), picked('general-feat')]);
     expect(names(result.items).filter((name) => name === 'shield-block')).toHaveLength(1);
     expect(names(result.duplicates)).toEqual(['shield-block']);
@@ -83,6 +85,7 @@ describe('resolveGrants', () => {
       entry('fighter', [grantOf('shield-block'), { ...grantOf('shield-block'), allowDuplicate: true }]),
       entry('shield-block'),
     ];
+
     const result = resolve(content, [picked('fighter')]);
     expect(names(result.items)).toEqual(['fighter', 'shield-block', 'shield-block']);
     expect(result.duplicates).toEqual([]);
@@ -94,6 +97,7 @@ describe('resolveGrants', () => {
       entry('beta', [grantOf('alpha')]),
       entry('gamma'),
     ];
+
     const result = resolve(content, [picked('alpha')]);
     expect(names(result.items)).toEqual(['alpha', 'beta', 'gamma']);
     expect(result.errors.map((failure) => failure.error)).toEqual([
@@ -138,6 +142,7 @@ describe('resolveGrants', () => {
       entry('weapon-mastery'),
       entry('battlefield-surveyor'),
     ];
+
     const result = resolve(content, [picked('fighter')], 5);
     expect(names(result.items)).toEqual(['fighter', 'weapon-mastery']);
     expect(result.conditional).toEqual([]);
@@ -149,6 +154,7 @@ describe('resolveGrants', () => {
       entry('forest-stride', [grantOf('trackless-step')]),
       entry('trackless-step'),
     ];
+
     const result = resolve(content, [picked('ranger')]);
     expect(names(result.items)).toEqual(['ranger']);
     expect(names(result.conditional)).toEqual(['forest-stride']);
@@ -164,6 +170,7 @@ describe('resolveGrants', () => {
       ]),
       entry('forest-stride'),
     ];
+
     const summary = resolve(content, [picked('ranger')]).conditional[0]?.summary;
     expect(summary).toEqual({ kind: SummaryKind.Authored, text: ContentText.parse('in a forest') });
   });

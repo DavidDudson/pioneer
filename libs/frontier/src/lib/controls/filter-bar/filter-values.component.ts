@@ -12,6 +12,7 @@ const rangeClasses = cva('flex flex-wrap items-center gap-xs')();
 
 function toNumber(text: string | undefined): number | undefined {
   const parsed = text === undefined || text === '' ? Number.NaN : Number(text);
+
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
@@ -68,8 +69,10 @@ export class FilterValues {
   protected choose(next: ReadonlySet<string>): void {
     if (this.operator() === FilterOperator.IsAnyOf) {
       this.values.set([...next]);
+
       return;
     }
+
     const pressed = [...next].filter((value) => !this.selected().has(value));
     this.values.set(pressed.length > 0 ? pressed : [...next]);
   }

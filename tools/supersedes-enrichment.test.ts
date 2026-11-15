@@ -45,6 +45,7 @@ function patchedEntries({ text }: SupersedesEnrichedFile): readonly ContentEntry
   if (text === undefined) {
     throw new Error('The pass changed nothing');
   }
+
   return ContentEntryFile.parse(JSON.parse(text));
 }
 
@@ -52,6 +53,7 @@ function patchedText({ text }: SupersedesEnrichedFile): string {
   if (text === undefined) {
     throw new Error('The pass changed nothing');
   }
+
   return text;
 }
 

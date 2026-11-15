@@ -41,6 +41,7 @@ describe(placeRows, () => {
 
   it('says what each container does to the Bulk it holds, and nothing for the loose place', () => {
     const bag = '44444444-4444-4444-8444-444444444444';
+
     const withBag = stock([
       ...inventory.items,
       { id: bag, item: itemFixtureId(ItemFixture.BagOfHolding), quantity: 1 },

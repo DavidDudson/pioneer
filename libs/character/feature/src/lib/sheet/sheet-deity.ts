@@ -18,6 +18,7 @@ export interface DeityLineSources {
 function deitySkills(registry: ContentRegistry, data: DeityData): readonly string[] {
   return data.skills.map((skill) => {
     const entry = registry.statisticsFor(Selector.parse(skill)).at(-1);
+
     return entry === undefined ? String(skill) : String(entry.definition.name);
   });
 }
@@ -26,6 +27,7 @@ function deitySkills(registry: ContentRegistry, data: DeityData): readonly strin
 export function sheetDeityLine(deity: SheetDeity, { registry, unlistedWeapon }: DeityLineSources): DeityLine {
   const { data } = deity;
   const skills = deitySkills(registry, data);
+
   return {
     name: String(deity.name),
     fonts: data.font,
@@ -61,6 +63,7 @@ export function sheetDeityRows(
   const offered = new Set(rootSlotOptions(character.document, content, DEITY_SLOT).map((option) => option.value));
   const cleric = needsDeity(characterGrants(character.document, content).rollOptions);
   const deities = deityContent(registry);
+
   const none: DeityPickerRow = {
     id: NOT_CHOSEN,
     name: translate('character.sheet.deity.none'),
@@ -73,10 +76,12 @@ export function sheetDeityRows(
     sources: [],
     disabledReason: undefined,
   };
+
   const rows = deities.options
     .filter((deity) => offered.has(deity.id))
     .map((deity): DeityPickerRow => {
       const { data } = deity;
+
       return {
         id: deity.id,
         name: String(deity.name),
@@ -85,6 +90,7 @@ export function sheetDeityRows(
         domains: data.domains.primary,
         favoredWeapons: data.weapons.map((weapon) => {
           const name = deities.weaponName(weapon);
+
           return name === undefined ? unlistedWeapon(String(weapon)) : String(name);
         }),
         skills: deitySkills(registry, data),
@@ -93,5 +99,6 @@ export function sheetDeityRows(
         disabledReason: cleric && data.font.length === 0 ? translate('character.sheet.deity.needsFont') : undefined,
       };
     });
+
   return [none, ...rows];
 }

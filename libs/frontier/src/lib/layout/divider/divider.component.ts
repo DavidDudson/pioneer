@@ -8,6 +8,7 @@ export const DividerOrientation = {
   /** A rule between items in a row. Decorative: hidden from assistive technology. */
   Vertical: 'vertical',
 } as const;
+
 export type DividerOrientation = ValueOf<typeof DividerOrientation>;
 
 /** The `line-*` token the rule is drawn in. */
@@ -16,6 +17,7 @@ export const DividerTone = {
   Default: 'default',
   Strong: 'strong',
 } as const;
+
 export type DividerTone = ValueOf<typeof DividerTone>;
 
 /**

@@ -38,8 +38,11 @@ import {
 const { level1: LEVEL_1, level2: LEVEL_2, level4: LEVEL_4, bonus: BONUS } = FEAT_SLOT_KEYS;
 
 const registry = new ContentRegistry();
+
 registry.register(skillFixtures());
+
 registry.register(FEAT_SLOT_FIXTURES);
+
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const FEATS = FEAT_SLOT_FIXTURES.otherEntries.filter(({ kind }) => kind === ContentKind.Feat);
@@ -52,6 +55,7 @@ function kept(character: CharacterBuilder, slot: SlotKey): readonly string[] {
   const { document } = character.build();
   const facets = [...facetsFor(['feat']), prerequisitesMetFacet(slotPrerequisiteStatus(document, content, slot))];
   const state = availableToYou(document, content, slot);
+
   return filterEntries(FEATS, facets, state)
     .map(({ name }) => name.toLowerCase())
     .toSorted();
@@ -60,6 +64,7 @@ function kept(character: CharacterBuilder, slot: SlotKey): readonly string[] {
 /** The feats `slot` offers whose prerequisites are not unmet, by name, as the slot itself reads them. */
 function notUnmet(character: CharacterBuilder, slot: SlotKey): readonly string[] {
   const options = featSlots(character.build().document, content).find(({ key }) => key === slot)?.options ?? [];
+
   return options
     .filter(({ status }) => status !== PrerequisiteStatus.Unmet)
     .map(({ label }) => label.toLowerCase())
@@ -112,8 +117,11 @@ describe('availableToYou', () => {
 });
 
 const spellRegistry = new ContentRegistry();
+
 spellRegistry.register(playerCoreClasses());
+
 spellRegistry.register(spellFixtures());
+
 const spellContent = { ...slotContent(spellRegistry), namespaces: CORE_NAMESPACES };
 const SPELLS = spellFixtures().otherEntries.filter(({ kind }) => kind === ContentKind.Spell);
 const SPELL_FACETS = facetsFor([ContentKind.Spell]);
@@ -144,6 +152,7 @@ function readSlot(key: string): SpellSlotRead {
   expect(slot).toBeDefined();
   const options = slot?.options ?? [];
   const state = slot === undefined ? new Map() : availableSpellsToYou(slot);
+
   return {
     kept: names(filterEntries(SPELLS, SPELL_FACETS, state)),
     offered: names(options),
@@ -158,7 +167,9 @@ const place = (tradition: MagicTradition, extra: Partial<SpellSlotPlace> = {}): 
   deitySpell: false,
   ...extra,
 });
+
 const traditionOf = (at: SpellSlotPlace): unknown => availableSpellsToYou(at).get(SpellFacet.Tradition);
+
 describe('availableSpellsToYou', () => {
   test('a cantrip slot keeps every cantrip it offers', () => {
     const { kept: keptSpells, offered } = readSlot('prepared:wizard:cantrip:0');
@@ -198,6 +209,7 @@ describe('availableSpellsToYou', () => {
         entry: playerCoreClassId('cleric'),
         sources: [{ kind: 'book', book: 'player-core', page: 1 }],
       });
+
       const pool: PreparedPool = { slug: RuleSlug.parse('font'), origin, spells: [] };
 
       expect(traditionOf(place('divine', { pool }))).toBeUndefined();

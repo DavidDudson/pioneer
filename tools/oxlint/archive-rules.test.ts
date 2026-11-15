@@ -31,6 +31,7 @@ describe('archivableDeleteTarget', () => {
       callee: { type: 'MemberExpression', property: { name: 'delete' } },
       arguments: [{ type: 'Literal' }],
     };
+
     expect(archivableDeleteTarget(map, TABLES)).toBeUndefined();
   });
 });

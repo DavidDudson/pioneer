@@ -44,9 +44,11 @@ function kindLabelOf(subject: KindSubject): MessageDescriptor {
   if (subject.kind === SlotSubjectKind.Flaw) {
     return message('rules.choices.slot.flaw');
   }
+
   if (subject.kind === SlotSubjectKind.Signature) {
     return message('rules.choices.slot.rankSignatureSpell', { rank: subject.rank });
   }
+
   return subject.rank === SlotRank.Cantrip
     ? message('rules.choices.slot.cantripSpell')
     : message('rules.choices.slot.rankSpell', { rank: subject.rank });
@@ -55,11 +57,13 @@ function kindLabelOf(subject: KindSubject): MessageDescriptor {
 /** "Elf: Skill", "Elf choice"; on a later take of a repeatable feat, "Domain Initiate (take 2): Select a domain.". */
 function choiceLabelOf(subject: ChoiceSubject): MessageDescriptor {
   const { entryName, prompt, take } = subject;
+
   if (take === undefined) {
     return prompt === undefined
       ? message('rules.choices.slot.choiceOf', { entry: entryName })
       : message('rules.choices.slot.choice', { entry: entryName, prompt });
   }
+
   return prompt === undefined
     ? message('rules.choices.slot.choiceOfTake', { entry: entryName, take })
     : message('rules.choices.slot.choiceTake', { entry: entryName, take, prompt });
@@ -71,31 +75,39 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     case SlotSubjectKind.Root: {
       return message(ROOT_LABEL_KEYS.get(subject.content) ?? UNKNOWN_LABEL);
     }
+
     case SlotSubjectKind.Boost: {
       return message(BOOST_LABEL_KEYS[subject.source], { level: subject.level });
     }
+
     case SlotSubjectKind.Skill: {
       return message(SKILL_SLOT_LABEL_KEYS[subject.source], { level: subject.level });
     }
+
     case SlotSubjectKind.Language: {
       return subject.entryName === undefined
         ? message('rules.choices.slot.language', { level: subject.level })
         : message('rules.choices.slot.languageFrom', { entry: subject.entryName });
     }
+
     case SlotSubjectKind.Flaw:
     case SlotSubjectKind.Spell:
     case SlotSubjectKind.Signature: {
       return kindLabelOf(subject);
     }
+
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {
         return message(UNKNOWN_LABEL);
       }
+
       return choiceLabelOf({ ...subject, entryName: subject.entryName });
     }
+
     case undefined: {
       return message(UNKNOWN_LABEL);
     }
+
     default: {
       const unreachable: never = subject;
       throw new TypeError(`Unhandled slot subject: ${JSON.stringify(unreachable)}`);
@@ -114,6 +126,7 @@ interface PickFlags {
 function flagsOfPick(selection: ChoiceValue, lookup: ContentLookup | undefined): PickFlags {
   const entry = ContentId.safeParse(selection);
   const facts = entry.success ? lookup?.entry(entry.data)?.facts : undefined;
+
   return {
     ...(facts?.legacy === true ? { legacy: true as const } : {}),
     ...(facts?.unsupported === true ? { unsupported: true as const } : {}),
@@ -124,18 +137,24 @@ function flagsOfPick(selection: ChoiceValue, lookup: ContentLookup | undefined):
 /** A boost's or flaw's pick is its attribute; anything else shows by the name the server gave it, or not at all. */
 function selectionOf(slot: CharacterSlot, lookup: ContentLookup | undefined): ChoiceSelection | undefined {
   const selection: ChoiceValue | undefined = 'selection' in slot ? slot.selection : undefined;
+
   if (selection === undefined) {
     return undefined;
   }
+
   const attribute = AttributeSchema.safeParse(selection);
   const isAttribute = 'subject' in slot && ATTRIBUTE_SUBJECTS.has(slot.subject.kind);
+
   if (isAttribute && attribute.success) {
     return { attribute: attribute.data };
   }
+
   const name = 'selectionName' in slot ? slot.selectionName : undefined;
+
   if (name === undefined) {
     return undefined;
   }
+
   return { name, ...flagsOfPick(selection, lookup) };
 }
 
@@ -161,6 +180,7 @@ function isShown(slot: CharacterSlot): boolean {
   if ('subject' in slot && SPELL_SUBJECTS.has(slot.subject.kind)) {
     return false;
   }
+
   return slot.status !== SlotStatus.Planned || slot.selection !== undefined;
 }
 

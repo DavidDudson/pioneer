@@ -99,6 +99,7 @@ interface PathIssue {
 
 function issuesOf(data: object): readonly PathIssue[] {
   const result = ContentEntry.safeParse(creature(data));
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

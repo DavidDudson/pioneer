@@ -12,18 +12,21 @@ import en from '../../../i18n/en.json';
 import { ImportSpellReport } from './import-spell-report.component';
 
 const ORACLE = PathbuilderName.parse('Oracle');
+
 const FATED_HEALING: SpellGap = {
   caster: ORACLE,
   rank: 1,
   name: PathbuilderName.parse('Fated Healing'),
   reason: SpellGapReason.NotOffered,
 };
+
 const SHIELD: SpellGap = {
   caster: ORACLE,
   rank: SlotRank.Cantrip,
   name: PathbuilderName.parse('Shield'),
   reason: SpellGapReason.NoSlot,
 };
+
 const FIGMENT: SpellGap = {
   caster: PathbuilderName.parse('Archetype Sorcerer'),
   rank: SlotRank.Cantrip,
@@ -44,6 +47,7 @@ async function render(spellGaps: readonly SpellGap[]): Promise<string> {
   const fixture: ComponentFixture<ImportSpellReport> = TestBed.createComponent(ImportSpellReport);
   fixture.componentRef.setInput('spellGaps', spellGaps);
   await fixture.whenStable();
+
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

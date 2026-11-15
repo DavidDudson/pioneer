@@ -9,6 +9,7 @@ import { RuleElement } from './rule-element';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

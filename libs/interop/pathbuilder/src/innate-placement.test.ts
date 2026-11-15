@@ -14,14 +14,17 @@ import { SpellGapReason } from './spell-listing';
 import type { SpellGap } from './spell-listing';
 
 const pack = new ContentPackBuilder().withId('innate-import');
+
 pack
   .withSpell('ill-omen', { rank: 1, traditions: [], traits: [] })
   .withSpell('bane', { rank: 1, traditions: [], traits: [] })
   .withSpell('slow', { rank: 3, traditions: [], traits: [] })
   .withSpell('oaken-resilience', { rank: 2, traditions: [], traits: [] });
+
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 const GIFT = pack.idOf(ContentKind.ClassFeature, 'fey-gift');
 const OAK = pack.idOf(ContentKind.ClassFeature, 'oak-gift');
+
 const entry = (slug: string): object => ({
   key: 'SpellcastingEntry',
   slug,
@@ -29,17 +32,20 @@ const entry = (slug: string): object => ({
   attribute: 'cha',
   preparation: 'innate',
 });
+
 interface Gift {
   readonly spell: string;
   readonly rank: number;
   readonly predicate?: readonly string[];
 }
+
 const gives = (slug: string, { spell, rank, predicate }: Gift): object => ({
   key: 'InnateSpells',
   entry: slug,
   spells: [{ rank, spell: spellId(spell) }],
   ...(predicate === undefined ? {} : { predicate }),
 });
+
 pack
   .withClassFeature('fey-gift', {
     rules: [
@@ -66,21 +72,27 @@ pack
       { key: 'GrantItem', item: OAK },
     ],
   });
+
 const registry = new ContentRegistry();
+
 registry.register(pack.build());
+
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
+
 const NAMES: readonly (readonly [string, string])[] = [
   ['ill-omen', 'Ill Omen'],
   ['bane', 'Bane'],
   ['slow', 'Slow'],
   ['oaken-resilience', 'Oaken Resilience'],
 ];
+
 const lookup = entryLookup({
   [ImportKind.Spell]: NAMES.map(([slug, name]) => ({
     id: ContentId.parse(spellId(slug)),
     name: ContentText.parse(name),
   })),
 });
+
 const content = { slots, lookup };
 
 function wizard(): CharacterDocument {

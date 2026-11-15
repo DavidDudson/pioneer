@@ -15,12 +15,14 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
   }
+
   return value;
 }
 
 /** The surface whose level-2 heading reads `heading`. */
 function section(root: HTMLElement, heading: string): HTMLElement {
   const title = [...root.querySelectorAll('h2')].find((element) => element.textContent.trim() === heading);
+
   return present(title?.closest<HTMLElement>('fr-surface'));
 }
 
@@ -36,6 +38,7 @@ async function renderLegalPage(): Promise<HTMLElement> {
   });
   const harness = await RouterTestingHarness.create('/legal');
   await harness.fixture.whenStable();
+
   return present(harness.routeNativeElement);
 }
 
@@ -64,9 +67,11 @@ describe('LegalPage', () => {
 
   it('credits every upstream ORC work as a list item, Monster Core included', async () => {
     const root = await renderLegalPage();
+
     const credits = [...section(root, 'ORC License').querySelectorAll('ul [role="listitem"]')].map((item) =>
       item.textContent.trim(),
     );
+
     expect(credits).toHaveLength(ORC_ATTRIBUTION.flatMap((group) => group.works).length);
     expect(credits).toContain('Pathfinder NPC Core © 2025, Paizo Inc.');
     expect(credits.some((credit) => credit.startsWith('Pathfinder Monster Core © 2024, Paizo Inc.'))).toBe(true);
@@ -74,9 +79,11 @@ describe('LegalPage', () => {
 
   it("links the Community Use Policy, Paizo, the ORC License, each pack's Foundry release and the repository", async () => {
     const root = await renderLegalPage();
+
     const links = [...root.querySelectorAll('a')]
       .filter((link) => link.closest('pio-content-caches') === null)
       .map((link) => link.getAttribute('href'));
+
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',
       'https://paizo.com',

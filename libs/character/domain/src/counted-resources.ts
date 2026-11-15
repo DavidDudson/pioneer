@@ -20,6 +20,7 @@ const NONE = ResourceCount.parse(0);
  * pools (a divine font). Cantrips have no key, since they are not spent.
  */
 export const SlotCountKey = z.string().min(1).max(COUNT_KEY_MAX_LENGTH).brand<'SlotCountKey'>();
+
 export type SlotCountKey = z.infer<typeof SlotCountKey>;
 
 /**
@@ -27,6 +28,7 @@ export type SlotCountKey = z.infer<typeof SlotCountKey>;
  * inventory item it is on and its slug (`<item>:<slug>`), since each item of a character is used up on its own.
  */
 export const UseCountKey = z.string().min(1).max(COUNT_KEY_MAX_LENGTH).brand<'UseCountKey'>();
+
 export type UseCountKey = z.infer<typeof UseCountKey>;
 
 /** A key a count is kept under. */
@@ -34,6 +36,7 @@ type CountKey = SlotCountKey | UseCountKey;
 
 /** The rounds a use's countdown has left, once it has started: 600 at most, for an hour. Never 0, since 0 gives the uses back. */
 export const UseCountdown = Pg.smallint().positive().brand<'UseCountdown'>();
+
 export type UseCountdown = z.infer<typeof UseCountdown>;
 
 /**
@@ -47,6 +50,7 @@ export const SpentCountsSchema = z.strictObject({
   countdowns: z.partialRecord(UseCountKey, UseCountdown).default({}),
   staff: StaffChargesSchema.default({}),
 });
+
 export type SpentCounts = z.infer<typeof SpentCountsSchema>;
 
 /**
@@ -63,6 +67,7 @@ export const Boundary = {
   /** Comes back only when the player resets it. */
   Manual: 'manual',
 } as const;
+
 export type Boundary = ValueOf<typeof Boundary>;
 
 /** What a counted resource holds at most, and the boundary it resets on. Derived, never stored. */
@@ -118,6 +123,7 @@ export function wandMaxima(
   return new Map(
     items.flatMap(({ id, item, quantity }): [UseCountKey, CountedMaximum][] => {
       const wand = wandOf(item);
+
       return wand === undefined
         ? []
         : [
@@ -161,6 +167,7 @@ export function frequencyBoundary({ per }: Frequency): Boundary {
 const ONE_MINUTE = UseCountdown.parse(10);
 const TEN_MINUTES = UseCountdown.parse(100);
 const ONE_HOUR = UseCountdown.parse(600);
+
 const FREQUENCY_COUNTDOWNS: Readonly<Partial<Record<FrequencyPeriod, UseCountdown>>> = {
   [FrequencyPeriod.Minute]: ONE_MINUTE,
   [FrequencyPeriod.TenMinutes]: TEN_MINUTES,
@@ -170,6 +177,7 @@ const FREQUENCY_COUNTDOWNS: Readonly<Partial<Record<FrequencyPeriod, UseCountdow
 /** The terms `frequency` gives a count: its boundary, and the countdown its first use starts when it has one. */
 function frequencyTerms(frequency: Frequency): Pick<CountedMaximum, 'boundary' | 'countdown'> {
   const countdown = FREQUENCY_COUNTDOWNS[frequency.per];
+
   return { boundary: frequencyBoundary(frequency), ...(countdown === undefined ? {} : { countdown }) };
 }
 
@@ -199,6 +207,7 @@ export function useMaxima(
   return new Map(
     granted.flatMap((id): [UseCountKey, CountedMaximum][] => {
       const frequency = frequencyOf(id);
+
       return frequency === undefined
         ? []
         : [
@@ -229,12 +238,15 @@ export function activationMaxima(
         if (frequency === undefined) {
           return [];
         }
+
         const { id, quantity } = line;
         const terms = frequencyTerms(frequency);
+
         const daily: [UseCountKey, CountedMaximum] = [
           activationUseKey(id, slug),
           { max: ResourceCount.parse(frequency.max * quantity), ...terms },
         ];
+
         return overcharge === true
           ? [daily, [overchargeUseKey(id, slug), { max: ResourceCount.parse(quantity), ...terms }]]
           : [daily];
@@ -248,6 +260,7 @@ type SpentByKey<Key extends CountKey> = Readonly<Partial<Record<Key, ResourceCou
 
 /** A change in the count spent: 1 to spend one, -1 to refund one. */
 export const CountDelta = z.union([z.literal(1), z.literal(-1)]).brand<'CountDelta'>();
+
 export type CountDelta = z.infer<typeof CountDelta>;
 
 /** One count and the change to make to it. */
@@ -260,6 +273,7 @@ interface CountEdit<Key extends CountKey> {
 /** What `spent` holds of `key` against `maxima`: the maximum less what is spent, never below 0; 0 for an unknown key. */
 export function heldCount<Key extends CountKey>({ spent, maxima, key }: CountEdit<Key>): ResourceCount {
   const max = maxima.get(key)?.max ?? NONE;
+
   return ResourceCount.parse(Math.max(max - (spent[key] ?? NONE), 0));
 }
 
@@ -271,11 +285,14 @@ export function heldCount<Key extends CountKey>({ spent, maxima, key }: CountEdi
 export function spentAfter<Key extends CountKey>(edit: CountEdit<Key>, delta: CountDelta): SpentByKey<Key> {
   const { spent, maxima, key } = edit;
   const known = maxima.get(key);
+
   if (known === undefined) {
     return spent;
   }
+
   const next = Math.min(Math.max((spent[key] ?? NONE) + delta, 0), known.max);
   const changed = { [key]: ResourceCount.parse(next) };
   const counts: Partial<Record<Key, ResourceCount>> = { ...spent, ...changed };
+
   return counts;
 }

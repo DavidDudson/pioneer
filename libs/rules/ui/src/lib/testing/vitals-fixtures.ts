@@ -10,6 +10,7 @@ function present<TValue>(value: TValue | undefined): TValue {
   if (value === undefined) {
     throw new Error('Expected the fighter fixtures to hold AC, Fortitude and Will');
   }
+
   return value;
 }
 

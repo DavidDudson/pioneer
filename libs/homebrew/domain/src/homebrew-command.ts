@@ -3,4 +3,5 @@ export const HomebrewCommand = {
   ArchivePack: 'archiveHomebrewPack',
   RestorePack: 'restoreHomebrewPack',
 } as const;
+
 export type HomebrewCommand = (typeof HomebrewCommand)[keyof typeof HomebrewCommand];

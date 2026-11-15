@@ -61,17 +61,22 @@ export class FilterBar {
 
   protected readonly initial = computed(() => {
     const index = this.editing();
+
     return index === undefined ? undefined : this.value()[index];
   });
   protected readonly chips = computed<readonly Chip[]>(() => {
     const translate: Translate = (key, params) => this.#transloco.translate(key, params);
+
     return this.value().flatMap((condition, index) => {
       const field = this.fields().find((candidate) => candidate.id === condition.field);
+
       if (field === undefined) {
         return [];
       }
+
       const operator = translate(OPERATOR_LABELS[condition.operator]);
       const values = valueText(field, condition, translate);
+
       return [{ index, phrase: `${field.label} ${operator} ${values}` }];
     });
   });

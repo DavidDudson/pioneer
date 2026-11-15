@@ -45,6 +45,7 @@ function entry({ traits = [], ...fields }: EntryFields): ContentEntry {
 
 const feat = (slug: string, data: object, traits: readonly string[]): ContentEntry =>
   entry({ kind: 'feat', slug, data, traits, level: 1 });
+
 const action = (slug: string, data: object, traits: readonly string[] = []): ContentEntry =>
   entry({ kind: 'action', slug, data, traits });
 
@@ -61,17 +62,21 @@ const suddenCharge = feat('sudden-charge', { category: 'class', action: { cost: 
 const assurance = feat('assurance', { category: 'skill', skills: ['skill:athletics'] }, ['general', 'skill']);
 const additionalLore = feat('additional-lore', { category: 'skill' }, ['general', 'skill']);
 const toughness = feat('toughness', { category: 'general' }, ['general']);
+
 const battleMedicine = feat(
   'battle-medicine',
   { category: 'skill', action: { cost: 'one', skills: ['skill:medicine'] } },
   ['general', 'healing', 'manipulate', 'skill'],
 );
+
 const fighterDedication = feat(
   'fighter-dedication',
   { category: 'class', archetype: idOf('archetype:fighter-archetype') },
   ['archetype', 'dedication', 'multiclass'],
 );
+
 const unplacedArchetypeFeat = feat('basic-maneuver', { category: 'class' }, ['archetype']);
+
 /** Skills on the feat and on its action, overlapping. */
 const shieldPush = feat(
   'shield-push',
@@ -89,6 +94,7 @@ const elementalBlast = action('elemental-blast', { cost: 'one', upTo: 2 }, ['att
 const avoidNotice = action('avoid-notice', {}, ['exploration']);
 const earnIncome = action('earn-income', { skills: ['skill:crafting', 'skill:lore:sailing'] }, ['downtime', 'skill']);
 const treatDisease = action('treat-disease', {}, ['downtime', 'manipulate', 'skill']);
+
 const fireball = entry({
   kind: 'spell',
   slug: 'spell:fireball',
@@ -196,6 +202,7 @@ describe('prerequisites met facet', () => {
     'feat:assurance': 'unknown',
     'feat:toughness': 'unmet',
   };
+
   const facet = prerequisitesMetFacet((subject) => statuses[subject.slug] ?? 'unmet');
   const withStatus = [...FEAT_FACETS, facet];
   const candidates = [suddenCharge, assurance, toughness, climb];

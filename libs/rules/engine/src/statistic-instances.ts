@@ -33,9 +33,11 @@ const PICKED_ROLLS: ReadonlyMap<string, string> = new Map([
 /** The domains a weapon's picks add to its instance of `family`: `picked:<flag>-damage` for each flag that picked it. */
 function pickedDomains(family: StatisticDefinition, source: SourceInputs): readonly Domain[] {
   const roll = PICKED_ROLLS.get(family.selector);
+
   if (roll === undefined || source.per !== StatisticPer.Weapon) {
     return [];
   }
+
   return (source.weapon.picked ?? []).map((flag) => Domain.parse(`picked:${flag}-${roll}`));
 }
 
@@ -61,13 +63,16 @@ function instanceOf(
   attributes: AttributeModifiers,
 ): StatisticDefinition | undefined {
   const selector = Selector.safeParse(`${family.selector}${SEPARATOR}${slugOf(source)}`);
+
   if (!selector.success) {
     return undefined;
   }
+
   const keyAttribute = sourceAttribute(source, attributes);
   const domain = Domain.parse(`${keyAttribute}${ATTRIBUTE_DOMAIN_SUFFIX}`);
   const added = [domain, ...pickedDomains(family, source)].filter((each) => !family.domains.includes(each));
   const domains = added.length === 0 ? family.domains : [...family.domains, ...added];
+
   return { ...family, selector: selector.data, domains, keyAttribute };
 }
 
@@ -86,24 +91,31 @@ export function statisticInstances(
 ): readonly StatisticInstance[] {
   const lastGiven = new Map(definitions.map(({ selector }, index) => [selector, index]));
   const latest = definitions.filter(({ selector }, index) => lastGiven.get(selector) === index);
+
   const families = new Map<StatisticPer, ReadonlySet<Selector>>(
     Object.values(StatisticPer).map((per) => [
       per,
       new Set(latest.filter((definition) => definition.per === per).map(({ selector }) => selector)),
     ]),
   );
+
   return latest.flatMap((family): StatisticInstance[] => {
     if (family.per === undefined) {
       return [{ definition: family, source: undefined, reads: same }];
     }
+
     const siblings = families.get(family.per) ?? new Set<Selector>();
+
     return sourcesOf(family.per, inputs).flatMap((source) => {
       const definition = instanceOf(family, source, inputs.attributes);
       const slug = slugOf(source);
+
       const reads = (selector: Selector): Selector => {
         const sibling = Selector.safeParse(`${selector}${SEPARATOR}${slug}`);
+
         return siblings.has(selector) && sibling.success ? sibling.data : selector;
       };
+
       return definition === undefined ? [] : [{ definition, source, reads }];
     });
   });

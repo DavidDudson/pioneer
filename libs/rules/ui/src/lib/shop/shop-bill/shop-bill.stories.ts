@@ -12,6 +12,7 @@ const meta: Meta<ShopBill> = {
   component: ShopBill,
   args: { reasonId: 'shop-bill-reason' },
 };
+
 export default meta;
 
 /** The coins cover the cost. */

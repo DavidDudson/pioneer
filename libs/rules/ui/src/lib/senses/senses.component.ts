@@ -57,6 +57,7 @@ export class SensesView {
     const senses = this.senses();
     const own = this.own();
     const words = { i18n: this.#i18n, format: this.#format, names: this.entryNames() };
+
     return senses === undefined
       ? undefined
       : {

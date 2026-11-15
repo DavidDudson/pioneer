@@ -13,6 +13,7 @@ async function lines(conditions: readonly ConditionLine[], bloodied = false): Pr
   fixture.componentRef.setInput('conditions', conditions);
   fixture.componentRef.setInput('bloodied', bloodied);
   await fixture.whenStable();
+
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('fr-text')].map((text) => text.textContent.trim());
 }
 
@@ -23,6 +24,7 @@ describe(ConditionList, () => {
       { slug: ConditionSlug.Frightened, value: 2 },
       { slug: ConditionSlug.Dying, value: 1 },
     ]);
+
     expect(shown).toStrictEqual(['Dying', '1', 'Frightened', '2', 'Prone']);
   });
 

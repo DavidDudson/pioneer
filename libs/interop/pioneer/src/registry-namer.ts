@@ -10,19 +10,23 @@ import type { ContentReference, ReferenceNamer } from './content-reference';
  */
 export function registryNamer(registry: ContentRegistry): ReferenceNamer {
   const named = new Map<ContentId, ContentReference>();
+
   const indexed = [
     ...registry.ancestries(),
     ...registry.creatures(),
     ...registry.statistics(),
     ...registry.variantRules(),
   ];
+
   for (const { id, pack, definition } of indexed) {
     named.set(ContentId.parse(id), { source: pack.id, slug: definition.slug });
   }
+
   for (const pack of registry.packs) {
     for (const { id, slug } of pack.otherEntries) {
       named.set(id, { source: pack.id, slug });
     }
   }
+
   return (id) => named.get(id);
 }

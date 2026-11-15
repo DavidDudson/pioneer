@@ -12,6 +12,7 @@ const indicatorVariants = cva('inline-flex shrink-0 items-center gap-2xs', {
     status: { idle: '', pending: '', success: 'text-success-fg', error: 'text-danger-fg' },
   },
 });
+
 const labelVariants = cva('', {
   variants: { visible: { true: 'text-caption', false: 'sr-only' } },
 });

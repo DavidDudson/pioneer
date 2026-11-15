@@ -23,6 +23,7 @@ function chipsOf(row: FeatPickerRow, say: (key: string) => string): readonly Chi
   if (row.rarity === Rarity.Common) {
     return row.traits;
   }
+
   return [{ label: say(FEAT_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...row.traits];
 }
 
@@ -31,6 +32,7 @@ function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): n
     sort.column === FeatPickerColumn.Level
       ? left.level - right.level
       : left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
+
   return sort.descending ? -order : order;
 }
 
@@ -75,6 +77,7 @@ export class FeatPicker {
   protected readonly columns = computed(() => {
     this.#messages();
     const say = (key: string): string => this.#i18n.translate(key);
+
     const headers = {
       name: say(FeatPickerMessage.Name),
       level: say(FeatPickerMessage.Level),
@@ -85,6 +88,7 @@ export class FeatPicker {
       source: say(FeatPickerMessage.Source),
       notes: say(FeatPickerMessage.Notes),
     };
+
     return new FeatTableSchema<FeatPickerRow>()
       .addEntryName({
         id: FeatPickerColumn.Name,
@@ -126,6 +130,7 @@ export class FeatPicker {
     const needle = this.query().trim().toLocaleLowerCase();
     const sort = this.sorting();
     const matching = this.rows().filter((row) => row.name.toLocaleLowerCase().includes(needle));
+
     return sort === undefined ? matching : matching.toSorted((left, right) => compare(left, right, sort));
   });
 

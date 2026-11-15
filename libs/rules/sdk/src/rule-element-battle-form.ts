@@ -29,6 +29,7 @@ const VARIANTS_MAX = 64;
 
 /** The ways a form can move, as Foundry pf2e names them. */
 export const FormMovement = { Land: 'land', Burrow: 'burrow', Climb: 'climb', Fly: 'fly', Swim: 'swim' } as const;
+
 export type FormMovement = ValueOf<typeof FormMovement>;
 
 /**
@@ -120,6 +121,7 @@ const changeFields = {
 
 /** A heightened form's changes from `start`: the spell rank (or higher) at which they apply. */
 export const BattleFormBracket = z.strictObject({ start: SpellRank, ...changeFields });
+
 export type BattleFormBracket = z.infer<typeof BattleFormBracket>;
 
 /**
@@ -128,6 +130,7 @@ export type BattleFormBracket = z.infer<typeof BattleFormBracket>;
  * turns on.
  */
 export const BattleFormVariant = z.strictObject({ predicate: Predicate, ...changeFields });
+
 export type BattleFormVariant = z.infer<typeof BattleFormVariant>;
 
 /**
@@ -152,4 +155,5 @@ export const BattleFormElement = z.strictObject({
   variants: z.array(BattleFormVariant).max(VARIANTS_MAX).readonly().optional(),
   ...ruleElementBase,
 });
+
 export type BattleFormElement = z.infer<typeof BattleFormElement>;

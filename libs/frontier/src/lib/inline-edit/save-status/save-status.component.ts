@@ -22,9 +22,11 @@ export class SaveStatus<TValue> {
   /** The save's own state; errors and conflicts are shown by the field as a message. */
   protected readonly indicatorStatus = computed<AsyncStatus>(() => {
     const status = this.edit().status();
+
     if (status === InlineEditStatus.Pending) {
       return AsyncStatus.Pending;
     }
+
     return status === InlineEditStatus.Success ? AsyncStatus.Success : AsyncStatus.Idle;
   });
 }

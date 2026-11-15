@@ -54,10 +54,13 @@ export class SheetConsumables {
     const engine = this.#sheet.engine();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
+
     if (registry === undefined || engine === undefined || character === undefined || read === undefined) {
       return [];
     }
+
     const inputs = statisticInputsOf(engine, character);
+
     return consumableLines(registry, character, { turn: read.play.turn, inputs }).map((line): ShownConsumable => ({
       line,
       summary: this.#say('character.sheet.consumables.summary', {
@@ -75,6 +78,7 @@ export class SheetConsumables {
   /** Uses one with the path the Actions tab uses too: it rolls, sends the use and shows the roll. */
   protected readonly use = (line: ConsumableLine) => async (): Promise<void> => {
     this.busy.set(true);
+
     try {
       await this.#consumableUse.use(line);
     } finally {
@@ -88,6 +92,7 @@ export class SheetConsumables {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);
+
     return this.#i18n.translate(key, params);
   };
 }

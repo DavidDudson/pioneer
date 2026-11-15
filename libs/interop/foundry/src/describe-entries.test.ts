@@ -29,12 +29,14 @@ const PRIMAL_HOWL =
 
 function documentOf(foundryPack: FoundryPack, documentId: string, document: object): PackDocument {
   const parsed = FoundryDocument.parse({ _id: documentId, system: { publication: remaster }, ...document });
+
   return { pack: foundryPack, path: `packs/pf2e/${foundryPack.directory}/${documentId}.json`, document: parsed };
 }
 
 function linked(document: PackDocument, type: FoundryItemType): LinkedEntry {
   const source = { ...document, type, book: playerCore };
   const slug = EntrySlug.parse(entrySlugOf(source));
+
   return { source, id: ContentId.parse(contentId(pack, slug)) };
 }
 
@@ -42,11 +44,13 @@ const frightened = documentOf(conditions, 'TBSHQspnbcqxsmjL', {
   name: 'Frightened',
   type: 'condition',
 });
+
 const primalHowl = documentOf(actions, 'wnZhAUiYcs2mv8sZ', {
   name: 'Primal Howl',
   type: 'action',
   system: { publication: remaster, description: { value: PRIMAL_HOWL } },
 });
+
 const howlEffect = documentOf(effects, 'howlEffect000001', {
   name: 'Effect: Primal Howl',
   type: 'effect',
@@ -123,6 +127,7 @@ describe('describeEntries', () => {
 
   test('without the release, a link outside the import reads as its label', () => {
     const condition = linked(frightened, FoundryItemType.Condition);
+
     const linking = documentOf(actions, 'linking000000001', {
       name: 'Linking',
       type: 'action',
@@ -131,6 +136,7 @@ describe('describeEntries', () => {
         description: { value: '<p>@UUID[Compendium.pf2e.spells-srd.Item.abcdefghijklmnop]{Fear}</p>' },
       },
     });
+
     const entry = linked(linking, FoundryItemType.Action);
 
     const description: unknown = describeEntries([entry, condition], [], { lang: {} }).descriptions.get(entry.id);

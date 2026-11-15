@@ -11,6 +11,7 @@ import type { ExistingPacks } from './homebrew-import-plan';
 installRulesFakes();
 
 const PACK = PackId.parse('my-homebrew');
+
 const built = new ContentPackBuilder()
   .withId(PACK)
   .withFeat('sharpshooter')
@@ -23,11 +24,14 @@ const built = new ContentPackBuilder()
     usage: { type: 'held', hands: 'one' },
   })
   .build();
+
 function builtEntry(index: number): ContentEntry {
   const entry = built.otherEntries[index];
+
   if (entry === undefined) {
     throw new Error('Expected the builder to make a feat and an item');
   }
+
   return entry;
 }
 
@@ -54,6 +58,7 @@ function held(ownedByImporter: boolean, ...entries: ContentEntry[]): ExistingPac
 
 function outcomes(existing: ExistingPacks): (string | undefined)[] {
   const [plan] = planHomebrewImport([embedded([feat, item])], existing);
+
   return plan?.report.entries.map((entry) => entry.outcome) ?? [];
 }
 

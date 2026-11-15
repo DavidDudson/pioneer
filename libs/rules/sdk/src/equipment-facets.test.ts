@@ -50,6 +50,7 @@ const longsword = item({
     usage: { type: 'held', hands: 'one' },
   },
 });
+
 const alchemistsFire = item({
   kind: 'weapon',
   slug: 'weapon:alchemists-fire',
@@ -68,32 +69,38 @@ const alchemistsFire = item({
     usage: { type: 'held', hands: 'one' },
   },
 });
+
 const leatherArmor = item({
   kind: 'armor',
   slug: 'armor:leather-armor',
   data: { price: { coins: { gp: 2 } }, bulk: 1, category: 'light', group: 'leather', acBonus: 1 },
 });
+
 const steelShield = item({
   kind: 'shield',
   slug: 'shield:steel-shield',
   data: { price: { coins: { gp: 2 } }, bulk: 1, acBonus: 2, hardness: 5, hitPoints: 20 },
 });
+
 const backpack = item({
   kind: 'equipment',
   slug: 'equipment:backpack',
   data: { price: { coins: { sp: 1 } }, bulk: 'negligible', usage: { type: 'worn', slot: 'backpack' } },
 });
+
 const healingPotion = item({
   kind: 'consumable',
   slug: 'consumable:minor-healing-potion',
   traits: ['consumable', 'healing', 'magical', 'potion'],
   data: { price: { coins: { gp: 4 } }, bulk: 'light', category: 'potion', usage: { type: 'held', hands: 'one' } },
 });
+
 const arrows = item({
   kind: 'consumable',
   slug: 'consumable:arrows',
   data: { price: { coins: { sp: 1 }, per: 10 }, bulk: 'light', bulkPer: 10, category: 'ammunition' },
 });
+
 const striking = item({
   kind: 'rune',
   slug: 'rune:striking',
@@ -107,16 +114,19 @@ const striking = item({
     etchedOnto: { item: 'weapon' },
   },
 });
+
 const diamond = item({
   kind: 'treasure',
   slug: 'treasure:diamond',
   data: { price: { coins: { pp: 1, gp: 5 } }, bulk: 'negligible', category: 'gem' },
 });
+
 const adventurersPack = item({
   kind: 'kit',
   slug: 'kit:adventurers-pack',
   data: { price: { coins: { sp: 15 } }, items: [{ item: idOf('equipment:backpack'), quantity: 1 }] },
 });
+
 const fireball = ContentEntry.parse({
   id: idOf('spell:fireball'),
   slug: 'spell:fireball',
@@ -158,6 +168,7 @@ function valuesOf(subject: ContentEntry): Record<string, readonly string[]> {
 /** The values `subject` gives the equipment facet `id`. */
 function valueOf(subject: ContentEntry, id: string): readonly string[] {
   const facet = EQUIPMENT_FACETS.find((each) => each.id === id);
+
   return facet === undefined ? [] : facetValues(subject, facet);
 }
 
@@ -168,6 +179,7 @@ const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.m
 
 function filter(entries: readonly ContentEntry[], query: Record<string, string>): readonly string[] {
   const facets = facetsFor([...new Set(entries.map((each) => each.kind))]);
+
   return slugs(filterEntries(entries, facets, filterFromQuery(query, facets)));
 }
 
@@ -201,6 +213,7 @@ describe('equipment facet values', () => {
       traits: ['consumable', 'divine', 'holy', 'splash'],
       data: { bulk: 'light', category: 'other' },
     });
+
     expect(valuesOf(healingPotion)).toMatchObject({ consumable: ['yes'], magical: ['yes'] });
     expect(valuesOf(striking)).toMatchObject({ consumable: ['no'], magical: ['yes'] });
     expect(valuesOf(alchemistsFire)).toMatchObject({ consumable: ['yes'], magical: ['no'] });
@@ -251,9 +264,11 @@ describe('equipment facet values', () => {
 describe('filtering equipment', () => {
   test('every equipment kind gets the one shared facet set', () => {
     const weapon = facetIds('weapon');
+
     for (const kind of ['armor', 'shield', 'equipment', 'consumable', 'rune', 'treasure', 'kit'] as const) {
       expect(facetIds(kind)).toEqual(weapon);
     }
+
     expect(weapon).toContain('weapon-group');
     expect(weapon).toContain('armor-category');
   });

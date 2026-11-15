@@ -30,6 +30,7 @@ export class ShellSearch {
   public hide(): () => void {
     this.#hiders.update((count) => count + ONE);
     let released = false;
+
     return (): void => {
       if (!released) {
         released = true;

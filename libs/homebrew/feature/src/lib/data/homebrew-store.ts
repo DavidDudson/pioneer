@@ -19,6 +19,7 @@ function parsedId(id: string | undefined): ContentPackId {
   if (id === undefined) {
     throw new Error('No pack selected');
   }
+
   return ContentPackId.parse(id);
 }
 
@@ -40,6 +41,7 @@ export class HomebrewStore {
   /** The open pack. */
   public readonly selected = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: homebrewKeys.detail(id),
       queryFn: async (): Promise<HomebrewPack> =>
@@ -51,6 +53,7 @@ export class HomebrewStore {
   /** The open pack's dependencies, and the packs its owner could add. */
   public readonly dependencies = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: homebrewKeys.dependencies(id),
       queryFn: async (): Promise<PackDependencies> =>
@@ -68,6 +71,7 @@ export class HomebrewStore {
     this.#client.setQueryData(homebrewKeys.detail(pack.id), pack);
     // Stale, not refetched now: the list refetches when it is next shown, so navigation isn't held up.
     await this.#client.invalidateQueries({ queryKey: homebrewKeys.list(), refetchType: 'none' });
+
     return pack;
   }
   /** Change who may read the pack. A refusal (409 while campaigns enable it) is thrown for the caller to show. */
@@ -75,6 +79,7 @@ export class HomebrewStore {
     const pack = await this.#api.call(HomebrewContract.setVisibility, { params: { id }, body: { visibility } });
     this.#client.setQueryData(homebrewKeys.detail(pack.id), pack);
     await this.#client.invalidateQueries({ queryKey: homebrewKeys.list(), refetchType: 'none' });
+
     return pack;
   }
 
@@ -82,6 +87,7 @@ export class HomebrewStore {
   public async addDependency(id: ContentPackId, dependsOn: ContentPackId): Promise<PackDependencies> {
     const result = await this.#api.call(HomebrewContract.addDependency, { params: { id }, body: { dependsOn } });
     this.#client.setQueryData(homebrewKeys.dependencies(id), result);
+
     return result;
   }
 
@@ -91,7 +97,9 @@ export class HomebrewStore {
       params: { id, dependsOn },
       body: undefined,
     });
+
     this.#client.setQueryData(homebrewKeys.dependencies(id), result);
+
     return result;
   }
 }

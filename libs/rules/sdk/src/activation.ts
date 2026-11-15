@@ -13,6 +13,7 @@ const UP_TO = { ...issueParams(message(RulesMessage.ActionUpTo)), path: ['upTo']
 
 /** The name of an item activation as the item gives it ("Take to the Skies"). */
 export const ActivationName = z.string().trim().min(1).max(ACTIVATION_NAME_MAX).brand<'ActivationName'>();
+
 export type ActivationName = z.infer<typeof ActivationName>;
 
 /**
@@ -33,6 +34,7 @@ export const Activation = z
     upTo: ActionCount.optional(),
   })
   .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO);
+
 export type Activation = z.infer<typeof Activation>;
 
 /** An item's activations, each named once. */
@@ -43,6 +45,7 @@ export const Activations = z
   .readonly()
   .check((context) => {
     const seen = new Set<Slug>();
+
     for (const [index, { slug }] of context.value.entries()) {
       if (seen.has(slug)) {
         context.issues.push({
@@ -52,7 +55,9 @@ export const Activations = z
           ...issueParams(message(RulesMessage.ListDuplicate, { value: slug })),
         });
       }
+
       seen.add(slug);
     }
   });
+
 export type Activations = z.infer<typeof Activations>;

@@ -65,10 +65,13 @@ function armorLine(origin: Origin, { slug, target, value }: ArmorLine): Modifier
 /** The check penalty lines of armour: one per physical skill, none when it has no penalty or the wearer is strong enough. */
 function checkPenaltyLines(armor: ArmorInputs, attributes: AttributeModifiers): readonly ModifierSource[] {
   const { checkPenalty, strength, origin } = armor;
+
   if (checkPenalty === undefined || (strength !== undefined && attributes.get(Attribute.Strength) >= strength)) {
     return [];
   }
+
   const value = Modifier.parse(0 - Number(checkPenalty));
+
   return PHYSICAL_SKILLS.map((target) => armorLine(origin, { slug: CHECK_PENALTY, target, value }));
 }
 
@@ -82,7 +85,9 @@ export function armorBonus(armor: ArmorInputs | undefined, attributes: Attribute
   if (armor === undefined) {
     return [];
   }
+
   const { bonus, resilient, origin } = armor;
+
   return [
     ...checkPenaltyLines(armor, attributes),
     ...(bonus === 0 ? [] : [armorLine(origin, { slug: ARMOR_BONUS, target: AC, value: bonus })]),

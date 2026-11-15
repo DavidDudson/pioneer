@@ -86,6 +86,7 @@ export class CampaignOfferCoins {
     const held = this.purse();
     const counted = FIELDS.some(({ coin }) => amounts[coin] > 0);
     const within = FIELDS.every(({ coin }) => amounts[coin] <= held[coin]);
+
     return this.chosen() === undefined || !counted || !within;
   });
 
@@ -95,15 +96,19 @@ export class CampaignOfferCoins {
 
   protected readonly offer = async (): Promise<void> => {
     const to = this.chosen();
+
     if (to === undefined) {
       return;
     }
+
     const id = CampaignId.parse(this.campaign());
+
     const body = {
       from: CharacterId.parse(this.character()),
       to: CharacterId.parse(to),
       coins: OfferedCoinsSchema.parse(this.amounts()),
     };
+
     await this.#api.call(CampaignContract.offerCoins, { params: { id }, body });
     this.chosen.set(undefined);
     this.amounts.set(NOTHING);
@@ -112,6 +117,7 @@ export class CampaignOfferCoins {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = transferFailure(error, 'campaign.transfers.offerFailed');
+
     return this.#i18n.translate(key, params);
   };
 }

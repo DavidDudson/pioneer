@@ -16,6 +16,7 @@ export function canRollBadge(formula: DamageFormula): boolean {
  */
 export function rollBadge(formula: DamageFormula, random: RandomSource): EffectBadgeValue | undefined {
   const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
+
   return parsed.ok ? EffectBadgeValue.safeParse(rollDice(parsed.expression, random).total).data : undefined;
 }
 
@@ -26,11 +27,14 @@ export function rollBadge(formula: DamageFormula, random: RandomSource): EffectB
 export function steppedBadge(terms: CounterTerms, value: EffectBadgeValue, up: boolean): EffectBadgeValue {
   const next = value + (up ? 1 : -1);
   const { min, max, loop } = terms;
+
   if (max !== undefined && next > max) {
     return EffectBadgeValue.parse(loop && min !== undefined ? min : max);
   }
+
   if (min !== undefined && next < min) {
     return EffectBadgeValue.parse(loop && max !== undefined ? max : min);
   }
+
   return EffectBadgeValue.parse(next);
 }

@@ -15,11 +15,13 @@ export interface KeyItemHolderChoice {
 /** The characters holding at least one key item, by name, each once. */
 export function holderChoices(keyItems: readonly KeyItemView[]): readonly KeyItemHolderChoice[] {
   const byId = new Map<string, string>();
+
   for (const { holder, holderName } of keyItems) {
     if (holder !== undefined && holderName !== undefined) {
       byId.set(holder, holderName);
     }
   }
+
   return [...byId].map(([id, name]) => ({ id, name })).toSorted((left, right) => left.name.localeCompare(right.name));
 }
 
@@ -28,5 +30,6 @@ export function filterKeyItems(keyItems: readonly KeyItemView[], filter: string)
   if (filter === ALL_HOLDERS) {
     return keyItems;
   }
+
   return keyItems.filter(({ holder }) => (filter === STASH_HOLDER ? holder === undefined : holder === filter));
 }

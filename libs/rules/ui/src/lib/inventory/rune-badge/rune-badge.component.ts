@@ -59,12 +59,15 @@ export class RuneBadge {
       case RuneNote.NotApplied: {
         return this.#i18n.translate(RuneMessage.NotApplied);
       }
+
       case RuneNote.NoEffect: {
         return this.#i18n.translate(RuneMessage.NoEffect);
       }
+
       case undefined: {
         return undefined;
       }
+
       default: {
         return note satisfies never;
       }
@@ -73,6 +76,7 @@ export class RuneBadge {
   protected readonly shown = computed((): ShownRune => {
     const rune = this.rune();
     const { label, note, ...rest } = this.#shownBase(rune);
+
     return {
       ...rest,
       label,
@@ -91,6 +95,7 @@ export class RuneBadge {
           note: undefined,
         };
       }
+
       case RuneBadgeKind.Property: {
         return {
           glyphs: runicPair(rune.id),
@@ -99,10 +104,13 @@ export class RuneBadge {
           note: this.#noteText(rune.note),
         };
       }
+
       case RuneBadgeKind.Fundamental: {
         const tones = rune.rune === FundamentalRune.Reinforcing ? REINFORCING_TONES : GRADE_TONES;
+
         const message =
           rune.rune === FundamentalRune.Potency ? RuneMessage.PotencyName : GRADED_RUNE_MESSAGES[rune.rune];
+
         return {
           glyphs: FUNDAMENTAL_GLYPHS[rune.rune],
           tone: tones[rune.grade - 1] ?? GemTone.Blue,
@@ -110,6 +118,7 @@ export class RuneBadge {
           note: undefined,
         };
       }
+
       default: {
         return rune satisfies never;
       }

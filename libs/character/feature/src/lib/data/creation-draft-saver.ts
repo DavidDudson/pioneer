@@ -24,15 +24,19 @@ export class CreationDraftSaver {
       name: CharacterName.parse(draft.name),
       ancestry: AncestryId.parse(draft.ancestry),
     });
+
     let { version } = created;
+
     for (const [slot, selection] of draftPicks(draft, subclassSlot)) {
       // oxlint-disable-next-line eslint/no-await-in-loop -- each write needs the version the one before answered with
       const saved = await this.#api.call(CharacterContract.patch, {
         params: { id: created.id },
         body: { expectedVersion: version, patch: { field: CharacterPatchField.SelectSlot, slot, selection } },
       });
+
       ({ version } = saved.character);
     }
+
     return created.id;
   }
 }

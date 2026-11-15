@@ -24,6 +24,7 @@ async function offerOfWerecreatureForm(): Promise<Offer> {
   const were = effects.find((entry) => entry.slug === WEREFORM);
   const listed: readonly SpellEffectEntry[] = action?.kind === ContentKind.Action ? (action.data.effects ?? []) : [];
   const entry = listed.find((each) => spellEffectId(each) === were?.id);
+
   return { listed: entry !== undefined, predicate: typeof entry === 'object' ? entry.predicate : [] };
 }
 
@@ -33,6 +34,7 @@ function holds(predicate: Predicate, options: readonly string[]): Truth {
     options.map((option) => RollOption.parse(option)),
     coreNamespaces(),
   );
+
   return evaluatePredicate(predicate, facts);
 }
 

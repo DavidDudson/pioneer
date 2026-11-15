@@ -38,6 +38,7 @@ const builder = new ContentPackBuilder()
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
   .withCondition(SLOWED, [], { valued: true })
   .withCondition(QUICKENED);
+
 const content = fixedContent(builder.build());
 
 const held = (slug: string, value?: number): ActiveCondition => ({
@@ -81,10 +82,12 @@ describe('PlayService turn cycle', () => {
       expectedRevision: FIRST_VERSION,
       command: { field: 'addCondition', condition: held(SLOWED, 1) },
     });
+
     const quickened = await play.patch(amiri, kyra.id, {
       expectedRevision: slowed.revision,
       command: { field: 'addCondition', condition: held(QUICKENED) },
     });
+
     const started = await play.patch(amiri, kyra.id, { expectedRevision: quickened.revision, command: startTurn });
     expect(started.play.turn).toMatchObject({ actions: 2, quickened: 1 });
   });

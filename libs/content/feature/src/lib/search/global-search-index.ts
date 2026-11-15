@@ -45,19 +45,24 @@ export class GlobalSearchIndex {
     if (!this.#scope().ready) {
       return;
     }
+
     if (this.#running) {
       return;
     }
+
     this.#running = true;
     this.#next();
   }
 
   #next(): void {
     const kind = INDEXED_KINDS.find((each) => !this.#done.has(each));
+
     if (kind === undefined) {
       this.#running = false;
+
       return;
     }
+
     this.#whenIdle(() => {
       // oxlint-disable-next-line typescript/no-floating-promises -- #load catches every error, so it never rejects
       this.#load(kind);
@@ -67,11 +72,13 @@ export class GlobalSearchIndex {
   async #load(kind: IndexedKind): Promise<void> {
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
+
       if (kind === ContentKind.Trait) {
         this.#traitNames.set(traitNamesOf(registryEntries(registry)));
       } else {
         this.#add(registry, kind);
       }
+
       this.#done.add(kind);
       this.#next();
     } catch {

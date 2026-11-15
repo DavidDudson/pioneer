@@ -29,6 +29,7 @@ export class LinesField {
   /** The bad lines as a list in the UI locale ("2, 4 and 7"). */
   protected readonly lineList = computed((): string => {
     this.#format.locale();
+
     return this.#format.list(this.bad().map((line) => this.#format.number(line)));
   });
 }

@@ -53,6 +53,7 @@ function table(): Table {
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const flagged = new InMemoryFlaggedItems();
+
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -73,6 +74,7 @@ function table(): Table {
     itemTransfers: itemTransferService(campaigns, clock),
     partyStash: partyStashService(campaigns),
   };
+
   return { handler: new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator())), flagged };
 }
 
@@ -103,6 +105,7 @@ interface ReviewJson {
 
 async function statusOf(handler: AnyElysia, call: Request): Promise<number> {
   const response = await handler.handle(call);
+
   return response.status;
 }
 
@@ -115,6 +118,7 @@ async function campaign({ handler, flagged }: Table): Promise<string> {
   const created = await handler.handle(
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
+
   const { id } = await json<{ readonly id: string }>(created);
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
   const { token } = await json<{ readonly token: string }>(issued);
@@ -129,6 +133,7 @@ async function campaign({ handler, flagged }: Table): Promise<string> {
       count: ReviewedCount.parse(7),
     }),
   ]);
+
   return id;
 }
 
@@ -138,14 +143,17 @@ describe('item approval routes', () => {
   test('the GM sees what needs review, approves it, and revokes it; a player sees the approved item', async () => {
     const { handler, flagged } = table();
     const id = await campaign({ handler, flagged });
+
     const before = await json<ReviewJson>(
       await handler.handle(request('GET', `/campaigns/${id}/item-approvals`, { as: amiri })),
     );
+
     expect(before.needsReview.map(({ item }) => item)).toStrictEqual([caliburn]);
 
     const approved = await handler.handle(
       request('POST', `/campaigns/${id}/item-approvals`, { as: amiri, body: approving }),
     );
+
     expect(approved.status).toBe(200);
     const review = await json<ReviewJson>(approved);
     expect([review.needsReview, review.approved.map(({ approvedCount }) => approvedCount)]).toStrictEqual([[], [7]]);
@@ -153,6 +161,7 @@ describe('item approval routes', () => {
     const seen = await json<ReviewJson>(
       await handler.handle(request('GET', `/campaigns/${id}/item-approvals`, { as: ezren })),
     );
+
     expect([seen.manageable, seen.needsReview, seen.approved.map(({ item }) => item)]).toStrictEqual([
       false,
       [],
@@ -160,9 +169,11 @@ describe('item approval routes', () => {
     ]);
 
     const approval = review.approved.map((each) => each.approval).join(',');
+
     const revoked = await handler.handle(
       request('DELETE', `/campaigns/${id}/item-approvals/${approval}`, { as: amiri }),
     );
+
     const after = await json<ReviewJson>(revoked);
     expect(after.needsReview.map(({ item }) => item)).toStrictEqual([caliburn]);
   });
@@ -172,6 +183,7 @@ describe('item approval routes', () => {
     const id = await campaign({ handler, flagged });
     const path = `/campaigns/${id}/item-approvals`;
     const revoking = `${path}/${newId()}`;
+
     const statuses = await Promise.all(
       [
         request('POST', path, { as: ezren, body: approving }),
@@ -181,6 +193,7 @@ describe('item approval routes', () => {
         new Request(`http://localhost${path}`),
       ].map(async (each) => statusOf(handler, each)),
     );
+
     expect(statuses).toStrictEqual([403, 403, 404, 404, 401]);
   });
 
@@ -188,6 +201,7 @@ describe('item approval routes', () => {
     const { handler, flagged } = table();
     const id = await campaign({ handler, flagged });
     const path = `/campaigns/${id}/item-approvals`;
+
     const statuses = await Promise.all(
       [
         { ...approving, item: newId() },
@@ -195,6 +209,7 @@ describe('item approval routes', () => {
         { ...approving, rule: 'spoons' },
       ].map(async (body) => statusOf(handler, request('POST', path, { as: amiri, body }))),
     );
+
     expect(statuses).toStrictEqual([404, 404, 422]);
   });
 });

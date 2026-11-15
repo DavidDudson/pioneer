@@ -29,6 +29,7 @@ export class SheetSpeedBlock {
   /** Undefined while the statistics load. */
   protected readonly speeds = computed((): readonly SpeedRow[] | undefined => {
     const statistics = this.sheet.picks.statistics();
+
     return statistics === undefined
       ? undefined
       : Object.values(Movement).map((movement) => ({

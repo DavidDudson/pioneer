@@ -12,4 +12,5 @@ export const BackgroundData = z.strictObject({
   /** Usually two: one of two attributes, then a free one; Discarded Duplicate has three free ones. */
   boosts: z.array(AttributeBoost).max(BOOSTS_MAX).readonly(),
 });
+
 export type BackgroundData = z.infer<typeof BackgroundData>;

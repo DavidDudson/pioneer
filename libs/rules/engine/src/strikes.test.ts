@@ -39,12 +39,14 @@ const LONGSWORD = {
   traits: [],
   damage: { dice: 1, die: 'd8', damageType: 'slashing' },
 };
+
 const DAGGER = {
   slug: 'dagger',
   category: 'simple',
   traits: ['agile', 'finesse', 'thrown-10'],
   damage: { dice: 1, die: 'd4', damageType: 'piercing' },
 };
+
 const SHORTBOW = {
   slug: 'shortbow',
   category: 'martial',
@@ -52,6 +54,7 @@ const SHORTBOW = {
   range: 60,
   damage: { dice: 1, die: 'd6', damageType: 'piercing' },
 };
+
 const JEZAIL = {
   slug: 'jezail',
   category: 'martial',
@@ -59,6 +62,7 @@ const JEZAIL = {
   range: 30,
   damage: { dice: 1, die: 'd6', damageType: 'bludgeoning' },
 };
+
 const BLOWGUN = {
   slug: 'blowgun',
   category: 'simple',
@@ -66,6 +70,7 @@ const BLOWGUN = {
   range: 20,
   damage: { dice: 1, damageType: 'piercing' },
 };
+
 const ALCHEMISTS_FIRE = {
   slug: 'alchemists-fire',
   category: 'simple',
@@ -75,6 +80,7 @@ const ALCHEMISTS_FIRE = {
   quantity: 3,
   damage: { dice: 1, die: 'd8', damageType: 'fire', persistent: { formula: '1', damageType: 'fire' } },
 };
+
 const GLUE_BOMB = {
   slug: 'glue-bomb',
   category: 'simple',
@@ -102,8 +108,10 @@ function strikesOf(weapons: readonly object[], strength = 4, made: Made = {}): r
     ranks: { 'attack:martial': 'trained', 'attack:simple': 'trained' },
     weapons: weapons.map((weapon) => wielded(weapon as { slug: string })),
   });
+
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const results = deriveStatistics(content, inputs, { rules: [], facts: new PredicateFacts([], CORE_NAMESPACES) });
+
   return deriveStrikes(
     (inputs.weapons ?? []).map((weapon) => madeOf(weapon, made)),
     results,
@@ -117,6 +125,7 @@ function plain(value: number | undefined): number | undefined {
 
 function bonusOf(strike: Strike | undefined): number | undefined {
   const bonus = strike?.damage?.bonus;
+
   return bonus?.ok === true ? bonus.total : undefined;
 }
 
@@ -139,6 +148,7 @@ describe('Strike damage', () => {
       { ...LONGSWORD, slug: 'greater', striking: 2 },
       { ...BLOWGUN, striking: 1 },
     ]);
+
     expect(strikes.map(({ damage }) => plain(damage?.dice))).toStrictEqual([2, 3, 1]);
     expect(strikes[2]?.damage?.die).toBeUndefined();
   });
@@ -197,10 +207,13 @@ function countsOf(made: Made): readonly string[] {
 function takenBy(weapon: object, made: Made = {}): number | undefined {
   const [strike] = strikesOf([weapon], 4, made);
   const outcome = parseDiceExpression(DiceExpressionText.parse('1d8[slashing]'));
+
   if (!outcome.ok || strike?.damage === undefined) {
     return undefined;
   }
+
   const rolled = rollDice(outcome.expression, scriptedRandom([DieFace.parse(7)]));
+
   return applyDamage(rolled, WEREWOLF, { critical: false, counts: strike.damage.counts }).taken;
 }
 

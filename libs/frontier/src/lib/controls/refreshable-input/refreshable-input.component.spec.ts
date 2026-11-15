@@ -10,6 +10,7 @@ type Load = () => Promise<string>;
 /** A load that answers each call from the next of `answers`, in order. */
 function loadingFrom(answers: readonly Promise<string>[]): Load {
   const remaining = [...answers];
+
   return async () => remaining.splice(0, 1)[0] ?? Promise.reject(new Error('No answer left'));
 }
 
@@ -19,14 +20,17 @@ function render(load: Load): ComponentFixture<RefreshableInput> {
   fixture.componentRef.setInput('ariaLabel', 'Name');
   fixture.componentRef.setInput('load', load);
   fixture.detectChanges();
+
   return fixture;
 }
 
 function element(fixture: ComponentFixture<RefreshableInput>, selector: string): HTMLElement {
   const found = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (found === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return found;
 }
 

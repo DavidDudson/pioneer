@@ -9,10 +9,12 @@ export const JobEntry = z.strictObject({
   /** Runs whatever changed: a check that is not about one project. */
   always: z.boolean().optional(),
 });
+
 export type JobEntry = z.infer<typeof JobEntry>;
 
 /** `.github/ci-jobs.json`: the matrices of the `check` and `test` jobs in ci.yml. */
 export const JobsFile = z.strictObject({ check: z.array(JobEntry), test: z.array(JobEntry) });
+
 export type JobsFile = z.infer<typeof JobsFile>;
 
 /** The `--projects` and `--exclude` an entry passes to Nx; both undefined means every project. */
@@ -27,8 +29,10 @@ export type AffectedIn = (filter: ProjectFilter) => Promise<readonly string[]>;
 /** The `--projects` and `--exclude` flags in an entry's `args`. */
 export function filterOf(args: string): ProjectFilter {
   const flags = args.split(/\s+/v).filter((flag) => flag !== '');
+
   const valueOf = (name: string): string | undefined =>
     flags.find((flag) => flag.startsWith(`--${name}=`))?.slice(`--${name}=`.length);
+
   return { projects: valueOf('projects'), exclude: valueOf('exclude') };
 }
 
@@ -42,6 +46,7 @@ interface Decision {
  */
 function resolvedArgs(args: string, affected: readonly string[]): string {
   const kept = args.split(/\s+/v).filter((flag) => flag !== '' && !/^--(?:projects|exclude)=/v.test(flag));
+
   return [...kept, `--projects=${affected.join(',')}`].join(' ');
 }
 
@@ -52,15 +57,20 @@ export async function selectJobs(entries: readonly JobEntry[], affectedIn: Affec
       if (entry.always === true) {
         return { entry };
       }
+
       const filter = filterOf(entry.args);
       const affected = await affectedIn(filter);
+
       if (affected.length === 0) {
         return { entry: undefined };
       }
+
       const unfiltered = filter.projects === undefined && filter.exclude === undefined;
+
       return { entry: unfiltered ? entry : { ...entry, args: resolvedArgs(entry.args, affected) } };
     }),
   );
+
   return decided.flatMap(({ entry }) => (entry === undefined ? [] : [entry]));
 }
 
@@ -73,6 +83,7 @@ export function touches(changed: readonly string[], prefixes: readonly string[])
 const BUILD_JOB = 'build';
 const PROJECT_SOURCE = /^(?:apps|libs)\/.*\.(?:ts|html)$/v;
 const SPEC_FILE = /\.(?:spec|test)\.ts$/v;
+
 /** The job that also runs the specs under `tools/` (`bun run test:tools`), which no Nx project owns. */
 const LINT_JOB = 'lint';
 const TOOLS_DIRECTORY = 'tools/';
@@ -87,15 +98,20 @@ export function planGaps(
   test: readonly JobEntry[],
 ): readonly string[] {
   const gaps: string[] = [];
+
   if (changed.some((file) => PROJECT_SOURCE.test(file)) && !check.some(({ id }) => id === BUILD_JOB)) {
     gaps.push(`project source changed but the "${BUILD_JOB}" job (typecheck and build) is not planned`);
   }
+
   const specs = changed.filter((file) => SPEC_FILE.test(file));
+
   if (specs.some((file) => !file.startsWith(TOOLS_DIRECTORY)) && test.length === 0) {
     gaps.push('a spec or test changed but no test job is planned');
   }
+
   if (specs.some((file) => file.startsWith(TOOLS_DIRECTORY)) && !check.some(({ id }) => id === LINT_JOB)) {
     gaps.push(`a spec under tools/ changed but the "${LINT_JOB}" job (which runs them) is not planned`);
   }
+
   return gaps;
 }

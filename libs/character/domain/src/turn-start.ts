@@ -41,6 +41,7 @@ function then({ events }: TurnOutcome, play: PlayState, more: readonly TurnEvent
  */
 function healing(outcome: TurnOutcome, { recovery, limits }: TurnInputs): TurnOutcome {
   let current = outcome;
+
   for (const { type, amount } of current.play.dead ? [] : recovery) {
     const { play } = current;
     const before = currentHitPoints(play.hp, limits.hitPoints);
@@ -48,6 +49,7 @@ function healing(outcome: TurnOutcome, { recovery, limits }: TurnInputs): TurnOu
     const gained = HitPoints.parse(currentHitPoints(healed.hp, limits.hitPoints) - before);
     current = then(current, healed, gained > 0 ? [healedEvent(type, gained)] : []);
   }
+
   return current;
 }
 
@@ -58,12 +60,15 @@ function healing(outcome: TurnOutcome, { recovery, limits }: TurnInputs): TurnOu
  */
 function countedDown(effect: ActiveEffect): ActiveEffect | undefined {
   const { remaining, expiry } = effect;
+
   if (remaining === undefined) {
     return expiry === EffectExpiry.TurnStart ? undefined : effect;
   }
+
   if (remaining > ONE_ROUND) {
     return { ...effect, remaining: EffectRounds.parse(remaining - ONE_ROUND) };
   }
+
   // Last round: a turn-start effect is over; a turn-end effect runs to the end of this turn, so it stays for End turn.
   return (effect.expiry ?? EffectExpiry.TurnStart) === EffectExpiry.TurnStart ? undefined : effect;
 }
@@ -71,11 +76,15 @@ function countedDown(effect: ActiveEffect): ActiveEffect | undefined {
 /** Every timed effect counts down a round, including those from other creatures; those whose rounds ran out at a turn start are removed. */
 function countdown(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
+
   const kept = play.effects.flatMap((effect) => {
     const next = countedDown(effect);
+
     return next === undefined ? [] : [next];
   });
+
   const gone = play.effects.filter(({ id }) => !kept.some((each) => each.id === id));
+
   return then(
     outcome,
     {
@@ -93,6 +102,7 @@ function countdown(outcome: TurnOutcome): TurnOutcome {
 function spellsCounting(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
   const { kept, ended } = spellsCountedDown(play.activeSpells);
+
   return then(
     outcome,
     { ...play, activeSpells: [...kept] },
@@ -108,9 +118,11 @@ function endsAtTurnStart({ duration }: ActiveCondition): boolean {
 /** Conditions that end at the start of the turn are removed. */
 function conditionsEnding(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
+
   const ended = play.conditions
     .filter((each) => endsAtTurnStart(each))
     .map(({ condition, id }) => conditionEnded(condition, id));
+
   return then(outcome, { ...play, conditions: play.conditions.filter((each) => !endsAtTurnStart(each)) }, ended);
 }
 
@@ -118,6 +130,7 @@ function conditionsEnding(outcome: TurnOutcome): TurnOutcome {
 function usesRefreshing(outcome: TurnOutcome, { limits }: TurnInputs): TurnOutcome {
   const { play } = outcome;
   const refreshed = usesAtTurnStart(play.resources, limits.counted.uses);
+
   return then(outcome, { ...play, resources: { ...play.resources, ...refreshed } }, []);
 }
 
@@ -131,10 +144,13 @@ export interface Reevaluation {
 /** `effect` with its formula badge rolled again, when the content has it roll again at `when`. */
 function reevaluated(effect: ActiveEffect, { content, when, random }: Reevaluation): ActiveEffect {
   const badge = content.get(effect.effect)?.badge;
+
   if (badge?.type !== EffectBadgeType.Formula || badge.reevaluate !== when) {
     return effect;
   }
+
   const rolled = rollBadge(badge.formula, random);
+
   return rolled === undefined ? effect : { ...effect, badge: rolled };
 }
 
@@ -142,6 +158,7 @@ function reevaluated(effect: ActiveEffect, { content, when, random }: Reevaluati
 export function reevaluateBadges(outcome: TurnOutcome, reevaluation: Reevaluation): TurnOutcome {
   const { play } = outcome;
   const effects = play.effects.map((effect) => reevaluated(effect, reevaluation));
+
   return then(outcome, { ...play, effects }, []);
 }
 
@@ -158,10 +175,12 @@ export function startTurn(play: PlayState, inputs: TurnInputs, random: RandomSou
   const healed = healing(begun, inputs);
   const counted = spellsCounting(countdown(healed));
   const settled = conditionsEnding(usesRefreshing(counted, inputs));
+
   const reevaluation: Reevaluation = {
     content: inputs.limits.effects,
     when: BadgeReevaluation.TurnStart,
     random,
   };
+
   return reevaluateBadges(settled, reevaluation);
 }

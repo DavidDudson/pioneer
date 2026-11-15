@@ -45,6 +45,7 @@ export class CampaignSheetStashLine {
 
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.takeFailed');
+
     return this.#i18n.translate(key, params);
   };
 }

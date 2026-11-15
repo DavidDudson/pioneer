@@ -17,10 +17,12 @@ export function namespaceOf(option: RollOption): RollOptionNamespace {
 export function kindOf(option: RollOption, table: NamespaceTable): NamespaceKind {
   for (let end = option.length; end > 0; end = option.lastIndexOf(SEPARATOR, end - 1)) {
     const kind = table.get(RollOptionNamespace.parse(option.slice(0, end)));
+
     if (kind !== undefined) {
       return kind;
     }
   }
+
   return NamespaceKind.Situational;
 }
 
@@ -32,8 +34,10 @@ export function namespaceTable(entries: Readonly<Record<string, NamespaceKind>>)
 /** `table` with `namespaces` marked known, such as those a character's `ChoiceSet` picks write to. */
 export function withKnown(table: NamespaceTable, namespaces: Iterable<RollOptionNamespace>): NamespaceTable {
   const extended = new Map(table);
+
   for (const namespace of namespaces) {
     extended.set(namespace, NamespaceKind.Known);
   }
+
   return extended;
 }

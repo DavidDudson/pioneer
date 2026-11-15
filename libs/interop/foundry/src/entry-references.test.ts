@@ -23,6 +23,7 @@ function document(pack: string, name: string, documentId: string): PackDocument 
 
 function known(slug: string, foundry?: string): KnownEntry {
   const entrySlug = EntrySlug.parse(slug);
+
   return {
     id: ContentId.parse(contentId(PLAYER_CORE, entrySlug)),
     pack: PLAYER_CORE,
@@ -47,6 +48,7 @@ describe('entryReferences', () => {
 
   test('never resolves a document to a known entry it was not imported from, whatever its name', () => {
     const glossary = document('bestiary-ability-glossary-srd', 'Heal', 'glossaryId');
+
     const references = entryReferences(DIVINE_MYSTERIES, new Map(), {
       known: [heal, known('spell:shield')],
       release: [glossary, document('spells-srd', 'Shield', 'shieldId')],

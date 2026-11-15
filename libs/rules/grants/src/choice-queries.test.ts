@@ -78,12 +78,14 @@ describe('resolveGrants choice queries', () => {
         choices: { kind: 'feat', filter: ['item:trait:general'] },
       },
     ]);
+
     const content = [
       query,
       feat('toughness', ['trait:general'], 'Toughness'),
       feat('break-curse', ['trait:skill'], 'Break Curse'),
       feat('double-slice', ['trait:fighter'], 'Double Slice'),
     ];
+
     expect(offered(resolve(content))).toEqual(['Break Curse', 'Toughness']);
   });
 
@@ -91,12 +93,14 @@ describe('resolveGrants choice queries', () => {
     const query = entry('fighter', [
       { key: 'ChoiceSet', flag: 'ancestry-feat', choices: { kind: 'feat', filter: ['item:trait:human'] } },
     ]);
+
     const content = [
       query,
       feat('fey-influence', ['trait:universal-ancestry'], 'Fey Influence'),
       feat('adapted-cantrip', ['trait:human'], 'Adapted Cantrip'),
       feat('burrow', ['trait:gnome'], 'Burrow'),
     ];
+
     expect(offered(resolve(content, { situation: ['ancestry:human'] }))).toEqual(['Adapted Cantrip', 'Fey Influence']);
     expect(offered(resolve(content, { situation: ['ancestry:gnome'] }))).toEqual(['Adapted Cantrip']);
   });
@@ -109,6 +113,7 @@ describe('resolveGrants choice queries', () => {
         choices: { kind: 'feat', filter: ['item:trait:archetype', { lte: ['item:level', 'self:level'] }] },
       },
     ]);
+
     const archetype: GrantEntry = {
       ...entry('knight-vigilant'),
       kind: ContentKind.Archetype,
@@ -117,12 +122,14 @@ describe('resolveGrants choice queries', () => {
         additionalFeats: [{ feat: idOf('shield-warden'), level: ContentLevel.parse(8) }],
       },
     };
+
     const content = [
       query,
       archetype,
       { ...feat('knight-vigilant-dedication', ['trait:archetype', 'level:6']) },
       feat('shield-warden', ['trait:champion', 'level:6'], 'Shield Warden'),
     ];
+
     const held = ['feat:knight-vigilant-dedication'];
     expect(offered(resolve(content, { level: 8, situation: held }))).toEqual([
       'Shield Warden',
@@ -136,12 +143,14 @@ describe('resolveGrants choice queries', () => {
     const query = entry('fighter', [
       { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:trait:fighter'] } },
     ]);
+
     const content = [
       query,
       feat('double-slice', ['trait:fighter'], 'Double Slice'),
       feat('rogue-dedication', ['trait:archetype'], 'Rogue Dedication'),
       feat('trick-attack', ['trait:rogue'], 'Trick Attack'),
     ];
+
     expect(offered(resolve(content, { situation: ['class:fighter'] }))).toEqual(['Double Slice', 'Rogue Dedication']);
   });
 
@@ -149,6 +158,7 @@ describe('resolveGrants choice queries', () => {
     const query = entry('fighter', [
       { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'class' } },
     ]);
+
     const content = [query, ...feats.filter((each) => each.rollOptions.includes(RollOption.parse('level:1')))];
     expect(offered(resolve(content, { situation: ['class:fighter'] }))).toEqual(['Double Slice', 'Sudden Charge']);
     expect(offered(resolve(content, { situation: ['class:rogue'] }))).toEqual(['Trick Attack']);
@@ -158,6 +168,7 @@ describe('resolveGrants choice queries', () => {
     const query = entry('fighter', [
       { key: 'ChoiceSet', flag: 'class-feat', choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'class' } },
     ]);
+
     const content = [query, ...feats];
     expect(offered(resolve(content, { situation: ['class:fighter', 'class:rogue'] }))).toEqual([
       'Double Slice',
@@ -175,11 +186,13 @@ describe('resolveGrants choice queries', () => {
         choices: { kind: 'feat', filter: ['item:level:1'], ownTrait: 'ancestry' },
       },
     ]);
+
     const content = [
       query,
       feat('adapted-cantrip', ['trait:human', 'level:1'], 'Adapted Cantrip'),
       feat('burrow', ['trait:gnome', 'level:1'], 'Burrow'),
     ];
+
     expect(offered(resolve(content, { situation: ['ancestry:human'] }))).toEqual(['Adapted Cantrip']);
   });
 

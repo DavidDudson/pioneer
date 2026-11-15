@@ -22,6 +22,7 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
       ...(this.#transfers.get(campaignId) ?? []),
       ...(this.#coins.get(campaignId) ?? []),
     ];
+
     return all
       .filter((each) => each.status === TransferStatus.Pending)
       .toSorted(
@@ -39,6 +40,7 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
       ...(this.#transfers.get(campaignId) ?? []),
       ...(this.#coins.get(campaignId) ?? []),
     ];
+
     return all.find((each) => each.id === id);
   }
 
@@ -54,15 +56,19 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
 
   public override async answer({ actor, campaignId, id, status }: TransferAnswer): Promise<boolean> {
     const found = await this.findById(campaignId, id);
+
     if (found?.status !== TransferStatus.Pending) {
       return false;
     }
+
     this.#actors.push(actor);
+
     for (const stored of [...(this.#transfers.get(campaignId) ?? []), ...(this.#coins.get(campaignId) ?? [])]) {
       if (stored.id === id) {
         Object.assign(stored, { status });
       }
     }
+
     return true;
   }
 }

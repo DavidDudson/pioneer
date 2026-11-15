@@ -58,6 +58,7 @@ const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
 /** What `entry` belongs to: a heritage's ancestry; nothing for a versatile heritage or any other kind. */
 function belongsTo(entry: ContentEntry): Pick<GrantEntry, 'belongsTo'> {
   const ancestry = entry.kind === ContentKind.Heritage ? entry.data.ancestry : undefined;
+
   return ancestry === undefined ? {} : { belongsTo: ancestry };
 }
 
@@ -83,6 +84,7 @@ function overrides(entry: ContentEntry): Pick<GrantEntry, 'overrides'> {
 /** How often a feat can be taken; nothing for any other kind, or for a feat taken once. */
 function maxTakable(entry: ContentEntry): Pick<GrantEntry, 'maxTakable'> {
   const max = entry.kind === ContentKind.Feat ? entry.data.maxTakable : undefined;
+
   return max === undefined ? {} : { maxTakable: max };
 }
 
@@ -104,11 +106,14 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
   if (entry.kind !== ContentKind.Deity) {
     return {};
   }
+
   const { sanctification, weapons, font, skills, spells, domains } = entry.data;
+
   const sanctified =
     sanctification === undefined
       ? ['sanctification:none']
       : sanctification.what.map((what) => `sanctification:${sanctification.modal}:${what}`);
+
   const options = [
     ...sanctified,
     ...weapons.map((weapon) => `favored-weapon:${weapon}`),
@@ -117,7 +122,9 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
     ...domains.primary.map((domain) => `domain:${domain}`),
     ...domains.alternate.map((domain) => `alternate-domain:${domain}`),
   ];
+
   const characterOptions = options.map((option) => RollOption.parse(`${DEITY_PREFIX}:${option}`));
+
   return { characterOptions, deitySpells: spells };
 }
 
@@ -129,7 +136,9 @@ function domainOptions(entry: ContentEntry): RollOption[] {
   if (entry.kind !== ContentKind.Deity) {
     return [];
   }
+
   const { primary, alternate } = entry.data.domains;
+
   return [
     ...primary.map((domain) => RollOption.parse(`domain:${domain}`)),
     ...alternate.map((domain) => RollOption.parse(`alternate-domain:${domain}`)),
@@ -143,6 +152,7 @@ function traitOptions(traits: readonly Trait[]): RollOption[] {
 /** A class feature's tags, `tag:cleric-doctrine`, which a subclass's `ChoiceSet` filters on; none for another kind. */
 function tagOptions(entry: ContentEntry): RollOption[] {
   const tags = entry.kind === ContentKind.ClassFeature ? (entry.data.tags ?? []) : [];
+
   return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
@@ -157,6 +167,7 @@ function categoryOptions(entry: ContentEntry): RollOption[] {
  */
 function levelOptions(entry: ContentEntry): RollOption[] {
   const level = 'level' in entry ? entry.level : undefined;
+
   return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
 }
 
@@ -166,6 +177,7 @@ function levelOptions(entry: ContentEntry): RollOption[] {
  */
 function factsOf(entry: ContentEntry, pack: ContentPack, state: LookupState): EntryFacts {
   const level = 'level' in entry ? entry.level : undefined;
+
   return {
     ...(level === undefined ? {} : { level }),
     rarity: entry.rarity,
@@ -182,6 +194,7 @@ function standingOf(
   state: LookupState,
 ): Pick<EntryFacts, 'legacy' | 'replacedBy' | 'unsupported'> {
   const replacedBy = state.replacements().get(entry.id) ?? [];
+
   return {
     ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
     ...(isHeldBack(entry, pack, state) ? { unsupported: true as const } : {}),
@@ -192,10 +205,13 @@ function standingOf(
 /** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */
 function ancestryEntry(pack: ContentPack, ancestry: PackAncestry, state: LookupState): GrantEntry | undefined {
   const [source, ...sources] = ancestry.sources;
+
   if (source === undefined) {
     return undefined;
   }
+
   const id = ContentId.parse(contentId(pack.id, ancestry.slug));
+
   return {
     id,
     kind: ContentKind.Ancestry,
@@ -212,9 +228,11 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry, state: LookupS
 /** A background, class, class feature, feat or heritage, read from its envelope with its rule elements. */
 function envelopeEntry(entry: ContentEntry, pack: ContentPack, state: LookupState): GrantEntry | undefined {
   const [source, ...sources] = entry.sources;
+
   if (source === undefined || !ENVELOPE_KINDS.has(entry.kind)) {
     return undefined;
   }
+
   return {
     id: entry.id,
     kind: entry.kind,
@@ -242,9 +260,11 @@ function envelopeEntry(entry: ContentEntry, pack: ContentPack, state: LookupStat
 /** A variant rule as grants read it: the feat slots (`ChoiceSet`s) it adds while it is in force, as Free Archetype does. */
 function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantEntry | undefined {
   const [source, ...sources] = variant.sources;
+
   if (source === undefined) {
     return undefined;
   }
+
   return {
     id: ContentId.parse(contentId(pack.id, variant.slug)),
     kind: ContentKind.VariantRule,
@@ -258,6 +278,7 @@ function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantE
 
 function heldEnvelope(entry: ContentEntry, pack: ContentPack, state: LookupState): HeldEntry | undefined {
   const read = entry.sources.length > 0 && ENVELOPE_KINDS.has(entry.kind);
+
   return read ? lazyEntry(entry.id, entry.kind, () => envelopeEntry(entry, pack, state)) : undefined;
 }
 
@@ -283,6 +304,7 @@ export function grantLookup(registry: ContentRegistry, legacyContent = false): C
       legacyContent,
       replacements: lazyReplacements(registry, unsupported),
     };
+
     return lookupOf(registry.packs.flatMap((pack) => packEntries(pack, state)));
   });
 }

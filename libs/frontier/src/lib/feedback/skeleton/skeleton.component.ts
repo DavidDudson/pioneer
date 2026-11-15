@@ -3,9 +3,11 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
 export const SkeletonShape = { Text: 'text', Block: 'block', Square: 'square' } as const;
+
 export type SkeletonShape = ValueOf<typeof SkeletonShape>;
 
 export const SkeletonWidth = { Xs: 'xs', Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'full' } as const;
+
 export type SkeletonWidth = ValueOf<typeof SkeletonWidth>;
 
 const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text', {
@@ -41,6 +43,7 @@ export class Skeleton {
 
   protected readonly classes = computed(() => {
     const shape = this.shape();
+
     return skeletonVariants(shape === SkeletonShape.Square ? { shape } : { shape, width: this.width() });
   });
 }

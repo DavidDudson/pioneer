@@ -18,6 +18,7 @@ async function render(anchor: string, heading: string): Promise<Rendered> {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Strength +4')]],
   });
+
   onTestFinished(() => {
     section.destroy();
   });
@@ -33,9 +34,11 @@ async function render(anchor: string, heading: string): Promise<Rendered> {
   });
   const region = host.querySelector<HTMLElement>('section');
   const title = host.querySelector<HTMLElement>('h2');
+
   if (region === null || title === null) {
     throw new Error('fr-section rendered no region or heading');
   }
+
   return { region, heading: title };
 }
 
@@ -77,6 +80,7 @@ class SectionBodyHost {
 describe('Section body', () => {
   let fixture: ComponentFixture<SectionBodyHost>;
   let root: HTMLElement;
+
   const show = async (which: string): Promise<void> => {
     fixture.componentInstance.shown.set(which);
     await fixture.whenStable();

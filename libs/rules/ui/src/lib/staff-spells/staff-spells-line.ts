@@ -8,6 +8,7 @@ export const StaffSpellBlock = {
   /** The holder casts no spell of its rank. */
   RankTooHigh: 'rank-too-high',
 } as const;
+
 export type StaffSpellBlock = ValueOf<typeof StaffSpellBlock>;
 
 /** One way to pay for a cast, which its button shows before the cast applies. */

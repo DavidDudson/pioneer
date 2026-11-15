@@ -19,6 +19,7 @@ async function render(items: readonly BrowseSource[]): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(BrowseSources);
   fixture.componentRef.setInput('sources', items);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 

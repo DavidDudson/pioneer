@@ -40,9 +40,11 @@ async function render(
   const harness = await RouterTestingHarness.create(url);
   await harness.fixture.whenStable();
   const root = harness.routeNativeElement;
+
   if (root === null) {
     throw new Error('Expected the sign-in page to render');
   }
+
   return { root, signIn };
 }
 
@@ -56,6 +58,7 @@ describe('SignInPage', () => {
       OAuthProvider.GitHub,
       OAuthProvider.Google,
     ]);
+
     await vi.waitFor(() => {
       expect(buttons(root).map((button) => button.textContent.trim())).toStrictEqual([
         'Continue with GitHub',

@@ -18,7 +18,9 @@ export const VariantStructure = {
   /** A second class beside the first (Dual Class). */
   SecondClass: 'secondClass',
 } as const;
+
 export type VariantStructure = ValueOf<typeof VariantStructure>;
+
 const VariantStructureSchema = z.enum(VariantStructure);
 
 const StructureList = z.array(VariantStructureSchema).readonly();
@@ -31,10 +33,12 @@ export const VariantRuleData = z.strictObject({
   structure: StructureList.optional(),
   limits: VariantRuleLimits.optional(),
 });
+
 export type VariantRuleData = z.infer<typeof VariantRuleData>;
 
 /** Id of a variant rule content entry (UUIDv5 of `<pack>/<slug>`). */
 export const VariantRuleId = Uuid.brand<'VariantRuleId'>();
+
 export type VariantRuleId = z.infer<typeof VariantRuleId>;
 
 const SOURCES_MAX = 16;
@@ -54,4 +58,5 @@ export const VariantRuleDefinition = z.strictObject({
   /** The table limits it changes while it is in force (ADR-0064); absent when it changes none. */
   limits: VariantRuleLimits.optional(),
 });
+
 export type VariantRuleDefinition = z.infer<typeof VariantRuleDefinition>;

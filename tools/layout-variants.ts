@@ -35,14 +35,19 @@ export interface LayoutVariantProblem {
 /** The first layout-variant problem in a class string, if any. */
 export function layoutVariantProblem(classes: string, inPrimitive: boolean): LayoutVariantProblem | undefined {
   const viewport = VIEWPORT_VARIANT.exec(classes)?.groups?.['variant'];
+
   if (viewport !== undefined) {
     return { messageId: 'viewport', variant: viewport };
   }
+
   const variants = [...classes.matchAll(CONTAINER_VARIANT)].flatMap((match) => match.groups?.['variant'] ?? []);
   const unknown = variants.find((variant) => !CONTAINER_SIZES.has(variant));
+
   if (unknown !== undefined) {
     return { messageId: 'unknownSize', variant: unknown };
   }
+
   const [first] = variants;
+
   return first === undefined || inPrimitive ? undefined : { messageId: 'outsidePrimitive', variant: first };
 }

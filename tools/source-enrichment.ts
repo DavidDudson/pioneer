@@ -20,12 +20,15 @@ interface Fill {
 function fill(sources: readonly SourceRef[], { book, page, aon }: EnrichmentMapping): Fill | undefined {
   const index = sources.findIndex((source) => source.kind === SourceKind.Book && source.book === book);
   const source = sources[index];
+
   if (source?.kind !== SourceKind.Book) {
     return undefined;
   }
+
   const setPage = source.page === undefined && page !== undefined;
   const setAon = source.aon === undefined && aon !== undefined;
   const values = { ...(setPage ? { page } : {}), ...(setAon ? { aon } : {}) };
+
   return { index, values, pages: Number(setPage), aons: Number(setAon) };
 }
 
@@ -38,6 +41,7 @@ const RawSources = z.array(z.record(z.string(), z.unknown())).readonly();
 function patch(json: unknown, { index, values }: Fill): unknown {
   const raw = RawEntry.parse(json);
   const sources = RawSources.parse(raw[SOURCES]);
+
   return { ...raw, sources: sources.with(index, { ...sources[index], ...values }) };
 }
 
@@ -55,14 +59,19 @@ function enrichEntry(
   mapping: EnrichmentMapping | undefined,
 ): EntryResult {
   const unchanged = { json, pages: 0, aons: 0, uncited: false };
+
   if (entry === undefined || mapping === undefined) {
     return unchanged;
   }
+
   const filled = fill(entry.sources, mapping);
+
   if (filled === undefined) {
     return { ...unchanged, uncited: true };
   }
+
   const { pages, aons } = filled;
+
   return pages + aons === 0 ? unchanged : { ...unchanged, json: patch(json, filled), pages, aons };
 }
 
@@ -81,15 +90,19 @@ export function enrichSourcesFile(
   mappings: ReadonlyMap<EntrySlug, EnrichmentMapping>,
 ): EnrichedFile {
   const entries = ContentEntryFile.parse(file);
+
   const results = file.map((json, index) => {
     const entry = entries[index];
+
     return {
       slug: entry?.slug,
       ...enrichEntry(json, entry, entry === undefined ? undefined : mappings.get(entry.slug)),
     };
   });
+
   const pages = results.reduce((sum, result) => sum + result.pages, 0);
   const aons = results.reduce((sum, result) => sum + result.aons, 0);
   const uncited = results.flatMap(({ slug, uncited: flagged }) => (flagged && slug !== undefined ? [slug] : []));
+
   return { json: pages + aons > 0 ? results.map((result) => result.json) : undefined, pages, aons, uncited };
 }

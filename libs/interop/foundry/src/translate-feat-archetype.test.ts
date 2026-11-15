@@ -31,6 +31,7 @@ function paragraph(text: string): unknown[] {
 /** The archetypes journal with `pages` added before its own. */
 function withPages(...pages: FoundryJournalPage[]): JournalDocument {
   const { journal } = ARCHETYPES_JOURNAL;
+
   return { ...ARCHETYPES_JOURNAL, journal: { ...journal, pages: [...pages, ...journal.pages] } };
 }
 
@@ -85,6 +86,7 @@ describe('translateKindData: feats and class features', () => {
 
   test("a reaction feat's trigger keeps its link as rich text", () => {
     const trigger = '<p><strong>Trigger</strong> You cast @UUID[Compendium.pf2e.spells-srd.Item.Heal]{heal}.</p>';
+
     const reaction = translate([
       {
         ...SUDDEN_CHARGE,
@@ -160,6 +162,7 @@ describe('translateKindData: kits at their limits', () => {
       },
     },
   };
+
   const kit = translate([deep, BACKPACK, ROPE]);
 
   test('a container inside a container is reported, the inner container kept as contents', () => {
@@ -189,6 +192,7 @@ describe('importArchetypes', () => {
     const legacy = translate([{ ...FIGHTER_DEDICATION, license: ContentLicense.Ogl }], {
       journals: [ARCHETYPES_JOURNAL],
     });
+
     expect(legacy.archetypes[0]?.envelope.license).toBe(ContentLicense.Ogl);
     expect(translation.archetypes[0]?.envelope).not.toHaveProperty('license');
   });
@@ -215,6 +219,7 @@ describe('importArchetypes', () => {
       BUILD.filter(({ id }) => id !== FIGHTER.id),
       { journals: [ARCHETYPES_JOURNAL] },
     );
+
     const [archetype] = classless.archetypes;
 
     expect(archetype?.kindData.data).toEqual({ dedication: idOf('feat:fighter-dedication') });
@@ -253,6 +258,7 @@ describe('importArchetypes', () => {
         content: '<p><strong>Prerequisites</strong> @UUID[Compendium.pf2e.feats-srd.Item.Fighter Dedication]</p>',
       },
     };
+
     const linked = translate(BUILD, { journals: [withPages(razmiran)] });
 
     expect(archetypeSlugs(linked)).toEqual(['archetype:fighter']);
@@ -270,6 +276,7 @@ describe('importArchetypes', () => {
         '<h2>@UUID[Compendium.pf2e.feats-srd.Item.Basic Maneuver]</h2>',
     },
   };
+
   const dedication = {
     ...FIGHTER_DEDICATION,
     id: 'fEaT000000000099',
@@ -286,6 +293,7 @@ describe('importArchetypes', () => {
 
   test('a feat two pages link, its prerequisites naming neither dedication, is reported with no archetype', () => {
     const unnamed = { ...BASIC_MANEUVER, system: { ...BASIC_MANEUVER.system, prerequisites: { value: [] } } };
+
     const both = translate([...BUILD.filter(({ id }) => id !== BASIC_MANEUVER.id), unnamed, dedication], {
       journals: [withPages(martial)],
     });

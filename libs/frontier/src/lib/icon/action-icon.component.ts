@@ -9,6 +9,7 @@ import { Icon } from './icon.component';
 
 /** What an action costs, as the symbol shows it. */
 export const ActionIconCost = { One: 'one', Two: 'two', Three: 'three', Free: 'free', Reaction: 'reaction' } as const;
+
 export type ActionIconCost = ValueOf<typeof ActionIconCost>;
 
 const COST_SHAPES: Readonly<Record<ActionIconCost, readonly ActionShape[]>> = {
@@ -41,8 +42,10 @@ export class ActionIcon {
 
   protected readonly shapes = computed((): readonly (typeof ACTION_SHAPES)[ActionShape][] => {
     const end = this.upTo();
+
     const drawn =
       end === undefined ? COST_SHAPES[this.cost()] : [...COST_SHAPES[this.cost()], ActionShape.To, ...COST_SHAPES[end]];
+
     return drawn.map((shape) => ACTION_SHAPES[shape]);
   });
 }

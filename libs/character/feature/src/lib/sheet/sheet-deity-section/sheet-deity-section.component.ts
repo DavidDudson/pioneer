@@ -39,6 +39,7 @@ export class SheetDeitySection {
   protected readonly rows = computed((): readonly DeityPickerRow[] => {
     this.#messages();
     const character = this.#sheet.character();
+
     return character === undefined
       ? []
       : sheetDeityRows(this.registry(), character, {
@@ -51,6 +52,7 @@ export class SheetDeitySection {
     this.#messages();
     const deity = this.#store.deity();
     const registry = this.registry();
+
     return deity === undefined
       ? undefined
       : sheetDeityLine(deity, {

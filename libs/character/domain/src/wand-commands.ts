@@ -22,6 +22,7 @@ export const WandCommandField = {
   /** One more cast after the day's, with a flat check: `roll` is the d20, absent once the wand was overcharged today. */
   OverchargeWand: 'overchargeWand',
 } as const;
+
 export type WandCommandField = ValueOf<typeof WandCommandField>;
 
 export const WandCommandSchema = z.discriminatedUnion('field', [
@@ -35,6 +36,7 @@ export const WandCommandSchema = z.discriminatedUnion('field', [
     roll: DieFace.optional(),
   }),
 ]);
+
 export type WandCommand = z.infer<typeof WandCommandSchema>;
 
 /** What a wand cast comes to. */
@@ -46,6 +48,7 @@ export const WandOutcome = {
   /** The flat check failed, or the wand was overcharged already today: nothing is cast and the wand is gone. */
   Destroyed: 'destroyed',
 } as const;
+
 export type WandOutcome = ValueOf<typeof WandOutcome>;
 
 /** Why a wand cast is refused. */
@@ -63,11 +66,13 @@ export const WandProblem = {
   /** An overcharge needs the flat check rolled, unless the wand was overcharged already today. */
   RollMissing: 'roll-missing',
 } as const;
+
 export type WandProblem = ValueOf<typeof WandProblem>;
 
 /** Whether the flat check of `roll` against the overcharge DC passes. */
 export function overchargePasses(roll: DieFace): boolean {
   const { degree } = degreeOfSuccess({ total: RollTotal.parse(roll), natural: roll }, OVERCHARGE_DC);
+
   return degree === DegreeOfSuccess.Success || degree === DegreeOfSuccess.CriticalSuccess;
 }
 
@@ -76,19 +81,25 @@ export function wandProblem(command: WandCommand, source: WandSource | undefined
   if (source === undefined) {
     return WandProblem.NotHeld;
   }
+
   if (source.broken) {
     return WandProblem.Broken;
   }
+
   if (source.entry === undefined) {
     return WandProblem.NotCastable;
   }
+
   const spent = source.use.left === 0;
+
   if (command.field === WandCommandField.CastWand) {
     return spent ? WandProblem.UseSpent : undefined;
   }
+
   if (!spent) {
     return WandProblem.UseLeft;
   }
+
   return source.overcharge.left > 0 && command.roll === undefined ? WandProblem.RollMissing : undefined;
 }
 
@@ -97,10 +108,13 @@ export function wandOutcome(command: WandCommand, source: WandSource): WandOutco
   if (command.field === WandCommandField.CastWand) {
     return WandOutcome.Cast;
   }
+
   const { roll } = command;
+
   if (source.overcharge.left === 0 || roll === undefined) {
     return WandOutcome.Destroyed;
   }
+
   return overchargePasses(roll) ? WandOutcome.Broken : WandOutcome.Destroyed;
 }
 
@@ -111,6 +125,7 @@ export function wandUsesAfter(
   command: WandCommand,
 ): SpentCounts['uses'] {
   const key = command.field === WandCommandField.CastWand ? wandUseKey(command.item) : wandOverchargeKey(command.item);
+
   return spentAfter({ spent: uses, maxima: counted.uses, key }, SPEND);
 }
 
@@ -120,12 +135,15 @@ export function wandInventoryAfter(inventory: Inventory, item: InventoryItemId, 
     case WandOutcome.Cast: {
       return inventory;
     }
+
     case WandOutcome.Broken: {
       return breakItem(inventory, item, true);
     }
+
     case WandOutcome.Destroyed: {
       return removeItem(inventory, item);
     }
+
     default: {
       return outcome satisfies never;
     }

@@ -40,19 +40,23 @@ export class SheetLevelTabs {
   /** The levels with a choice still to make, by level. */
   readonly #unresolved = computed((): ReadonlySet<number> => {
     const levels = new Set<number>();
+
     for (const row of this.#picks.timeline() ?? []) {
       if (row.lines.some((line) => isUnresolved(line))) {
         levels.add(row.level);
       }
     }
+
     if ((this.#picks.choices() ?? []).some((line) => line.level === undefined && isUnresolved(line))) {
       levels.add(BASE_LEVEL);
     }
+
     return levels;
   });
 
   protected readonly links = computed((): readonly LevelLink[] => {
     const unresolved = this.#unresolved();
+
     return SHEET_LEVELS.map((section, index) => ({
       to: ['..', sectionPath(section)],
       headingKey: section.headingKey,

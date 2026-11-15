@@ -50,6 +50,7 @@ export class KeyAttributePicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
+
     return keyAttributePickerColumns((key, params) => this.#i18n.translate(key, params));
   });
 

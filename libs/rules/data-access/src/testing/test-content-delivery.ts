@@ -30,6 +30,7 @@ import { MemoryBundleStore } from '../memory-bundle-store';
 
 /** A prime below 2^32, so a running hash times a small multiplier stays an exact number. */
 const MODULUS = 4_294_967_291;
+
 /** Two small primes, so the two halves of a hash differ. */
 const FIRST_MULTIPLIER = 31;
 const SECOND_MULTIPLIER = 131;
@@ -39,9 +40,11 @@ const WORD_DIGITS = 8;
 /** A polynomial hash of `text` with `multiplier`, as 8 hex digits. */
 function polynomial(text: string, multiplier: number): string {
   let hash = 0;
+
   for (const character of text) {
     hash = (hash * multiplier + (character.codePointAt(0) ?? 0)) % MODULUS;
   }
+
   return hash.toString(HEX).padStart(WORD_DIGITS, '0');
 }
 
@@ -64,17 +67,21 @@ const built: BuiltBundles = { next: new WeakMap() };
 
 async function build(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
   const contents = await Promise.all(packs.map(async (pack) => pack.load()));
+
   return contentBundles(contents, testHash);
 }
 
 async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
   let step = built;
+
   for (const pack of packs) {
     const next = step.next.get(pack) ?? { next: new WeakMap() };
     step.next.set(pack, next);
     step = next;
   }
+
   step.bundles ??= build(packs);
+
   return step.bundles;
 }
 
@@ -83,9 +90,11 @@ function textsOf(value: unknown): readonly string[] {
   if (Array.isArray(value)) {
     return value.flatMap((item) => textsOf(item));
   }
+
   if (typeof value !== 'object' || value === null) {
     return [];
   }
+
   return Object.entries(value).flatMap(([key, item]) =>
     key === 'text' && typeof item === 'string' ? [item] : textsOf(item),
   );
@@ -94,6 +103,7 @@ function textsOf(value: unknown): readonly string[] {
 /** Whether every word of `query` is in the entry's name or description: a stand-in for the server's full-text search. */
 function matches({ name, description }: ContentEntry, query: SearchText): boolean {
   const haystack = [name, ...textsOf(description)].join(' ').toLowerCase();
+
   return query
     .toLowerCase()
     .split(/\s+/u)
@@ -131,6 +141,7 @@ export class TestContentDelivery implements ContentDelivery {
     this.requests.push('manifest');
     this.#checkOnline();
     const { manifest } = await this.#built();
+
     return manifest;
   };
 
@@ -139,9 +150,11 @@ export class TestContentDelivery implements ContentDelivery {
     this.#checkOnline();
     const { bodies } = await this.#built();
     const body = bodies.get(bundlePath(pack, file));
+
     if (body === undefined) {
       throw new Error(`No bundle ${pack}/${file}`);
     }
+
     return body;
   };
 
@@ -149,6 +162,7 @@ export class TestContentDelivery implements ContentDelivery {
     this.requests.push('homebrew-manifest');
     this.#checkOnline();
     const { manifest } = await bundlesOf(this.#homebrew);
+
     return { packs: manifest.packs.filter((pack) => asked.includes(contentPackId(pack.id))) };
   };
 
@@ -157,9 +171,11 @@ export class TestContentDelivery implements ContentDelivery {
     this.#checkOnline();
     const { bodies } = await bundlesOf(this.#homebrew);
     const body = bodies.get(bundlePath(pack, file));
+
     if (body === undefined) {
       throw new Error(`No homebrew bundle ${pack}/${file}`);
     }
+
     return body;
   };
 
@@ -168,15 +184,18 @@ export class TestContentDelivery implements ContentDelivery {
     this.requests.push('search');
     this.#checkOnline();
     const contents = await Promise.all(this.#packs.map(async (pack) => pack.load()));
+
     const found = contents
       .filter((pack) => legacy || !isLegacyLicense(pack.file.license))
       .flatMap((pack) => pack.entries)
       .filter((entry) => (kinds.length === 0 || kinds.includes(entry.kind)) && matches(entry, query));
+
     return { ids: found.map(({ id }) => id), total: SearchTotal.parse(found.length) };
   };
 
   async #built(): Promise<ContentBundles> {
     this.#bundles ??= bundlesOf(this.#packs);
+
     return this.#bundles;
   }
 

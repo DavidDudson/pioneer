@@ -21,6 +21,7 @@ function resolved(roots: readonly ContentId[]): readonly GrantedItem[] {
       roots: roots.map((condition) => ({ entry: condition, hop: { kind: 'condition', condition } })),
     }),
   );
+
   return result.items;
 }
 
@@ -70,6 +71,7 @@ describe('the conditions a condition implies', () => {
     '%s brings each of them into play, with its origin naming %s',
     (_name, parent) => {
       const items = resolved([parent.id]);
+
       for (const impliedId of parent.data.implies) {
         const item = items.find(({ entry }) => entry.id === impliedId);
         expect(item?.entry.id).toBe(impliedId);
@@ -128,12 +130,15 @@ describe('an overridden condition', () => {
 function closure(roots: readonly ContentId[]): string[] {
   const byId = new Map(conditions.map((each) => [each.id, each]));
   const reached = new Set<ContentId>(roots);
+
   for (const id of reached) {
     for (const implied of byId.get(id)?.data.implies ?? []) {
       reached.add(implied);
     }
   }
+
   const overridden = new Set([...reached].flatMap((id) => byId.get(id)?.data.overrides ?? []));
+
   return [...reached]
     .filter((id) => !overridden.has(id))
     .map((id) => named(id))

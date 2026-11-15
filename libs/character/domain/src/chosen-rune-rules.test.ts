@@ -22,6 +22,7 @@ import {
 } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const slots = slotContent(itemFixtureRegistry());
 const ARMOR = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
@@ -29,6 +30,7 @@ const ARMOR = InventoryItemId.parse('00000000-0000-4000-8000-000000000000');
 /** An energy-resistant rune etched for `choice`, or for nothing. */
 function energyRune(rune: RuneFixture, choice?: string): RuneEtching {
   const etching: RuneEtching = { type: RuneType.Property, rune: runeFixtureId(rune) };
+
   return choice === undefined ? etching : { ...etching, choice: RuneChoice.parse(choice) };
 }
 
@@ -40,12 +42,16 @@ function rulesOfArmor(...etchings: readonly RuneEtching[]): readonly object[] {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = carryItem(inventory, ARMOR, { state: CarryState.Worn });
   inventory = etchRune(inventory, ARMOR, fundamental(FundamentalRune.Potency, 2));
+
   for (const etching of etchings) {
     inventory = etchRune(inventory, ARMOR, etching);
   }
+
   const document = { ...new CharacterBuilder().build().document, inventory: investItem(inventory, ARMOR, true) };
+
   return equippedRules(document, content, slots).rules.map(({ element }) => element);
 }
 
@@ -59,12 +65,16 @@ function rulesOfSword(...etchings: readonly RuneEtching[]): readonly object[] {
     quantity: ItemQuantity.parse(1),
     container: undefined,
   });
+
   inventory = carryItem(inventory, SWORD, { state: CarryState.Held, hands: ONE_HAND });
   inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+
   for (const etching of etchings) {
     inventory = etchRune(inventory, SWORD, etching);
   }
+
   const document = { ...new CharacterBuilder().build().document, inventory };
+
   return equippedRules(document, content, slots).rules.map(({ element }) => element);
 }
 
@@ -123,6 +133,7 @@ describe('energy-resistant runes', () => {
       energyRune(RuneFixture.EnergyResistant, 'acid'),
       energyRune(RuneFixture.EnergyResistantGreater, 'fire'),
     );
+
     expect(rules).toStrictEqual([
       { key: 'Resistance', type: ['acid'], value: DamageAmount.parse(5) },
       { key: 'Resistance', type: ['fire'], value: DamageAmount.parse(10) },

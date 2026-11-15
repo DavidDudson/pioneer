@@ -14,10 +14,12 @@ import { Domain } from './selector';
 
 /** A choice's stored value: a content entry (`ContentId`), a plain option (`forest`) or a custom Lore (`lore:sailing`). */
 export const ChoiceValue = z.union([ContentId, Slug, LoreChoice]);
+
 export type ChoiceValue = z.infer<typeof ChoiceValue>;
 
 /** Grants the selection a `ChoiceSet` stored under `choice`, rather than a fixed entry. */
 export const ChoiceRef = z.strictObject({ choice: RuleSlug });
+
 export type ChoiceRef = z.infer<typeof ChoiceRef>;
 
 /** Gives the character another content entry (a feature, action, spell or item), with its own rules. */
@@ -40,6 +42,7 @@ export const GrantItemElement = z.strictObject({
   choices: z.record(RuleSlug, ChoiceValue).optional(),
   ...ruleElementBase,
 });
+
 export type GrantItemElement = z.infer<typeof GrantItemElement>;
 
 const CHOICES_MAX = 64;
@@ -50,6 +53,7 @@ export const ChoiceOption = z.strictObject({
   label: ContentText,
   predicate: Predicate.optional(),
 });
+
 export type ChoiceOption = z.infer<typeof ChoiceOption>;
 
 /**
@@ -59,6 +63,7 @@ export type ChoiceOption = z.infer<typeof ChoiceOption>;
  * roll option cannot spell.
  */
 export const OwnTrait = { Class: 'class', Ancestry: 'ancestry' } as const;
+
 export type OwnTrait = (typeof OwnTrait)[keyof typeof OwnTrait];
 
 /** Every entry of a kind whose roll options satisfy `filter`: "a 1st-level fighter feat". */
@@ -68,6 +73,7 @@ export const ChoiceQuery = z.strictObject({
   /** The candidate must also carry a trait named like one of the character's classes or ancestry. */
   ownTrait: z.enum([OwnTrait.Class, OwnTrait.Ancestry]).optional(),
 });
+
 export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 
 /**
@@ -78,6 +84,7 @@ export const OwnedQuery = z.strictObject({
   ownedKinds: z.array(ContentKindSchema).min(1),
   filter: Predicate,
 });
+
 export type OwnedQuery = z.infer<typeof OwnedQuery>;
 
 /**
@@ -95,6 +102,7 @@ export const ChoiceSetElement = z.strictObject({
   optional: z.boolean().optional(),
   ...ruleElementBase,
 });
+
 export type ChoiceSetElement = z.infer<typeof ChoiceSetElement>;
 
 /** One variant of a toggle the player can switch between (a Rage's anger, an Aura's type). */
@@ -103,6 +111,7 @@ export const RollOptionSuboption = z.strictObject({
   label: ContentText,
   predicate: Predicate.optional(),
 });
+
 export type RollOptionSuboption = z.infer<typeof RollOptionSuboption>;
 
 const SUBOPTIONS_MAX = 32;
@@ -125,4 +134,5 @@ export const RollOptionElement = z
     ...issueParams(message(RulesMessage.SuboptionsNeedToggle)),
     path: ['suboptions'],
   });
+
 export type RollOptionElement = z.infer<typeof RollOptionElement>;

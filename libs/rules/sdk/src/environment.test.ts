@@ -8,6 +8,7 @@ import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = EnvironmentData.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 

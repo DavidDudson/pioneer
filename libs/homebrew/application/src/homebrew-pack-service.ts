@@ -18,6 +18,7 @@ function archivedOwnedBy(actor: UserId, archived: HomebrewPack): HomebrewPack {
   if (!PackAccessPolicy.owns(actor, archived)) {
     throw new NotFoundError('HomebrewPack', archived.id);
   }
+
   return archived;
 }
 
@@ -74,9 +75,11 @@ export class HomebrewPackService {
    */
   public async create(actor: UserId, input: CreateHomebrewPackBody): Promise<HomebrewPack> {
     const publisher = await this.#authors.displayName(actor);
+
     if (publisher === undefined) {
       throw new NotFoundError('User', actor);
     }
+
     const pack = HomebrewPack.create({
       id: contentPackId(input.slug),
       slug: input.slug,
@@ -85,10 +88,13 @@ export class HomebrewPackService {
       ownerId: actor,
       now: this.#clock.now(),
     });
+
     const inserted = await this.#packs.insert(pack);
+
     if (inserted === undefined) {
       throw new ConflictError(`Pack slug ${input.slug} is already in use`, message(HomebrewMessage.SlugTaken));
     }
+
     return inserted;
   }
 
@@ -99,25 +105,32 @@ export class HomebrewPackService {
    */
   public async setVisibility(actor: UserId, id: ContentPackId, visibility: PackVisibility): Promise<HomebrewPack> {
     const pack = await this.#readable(actor, id);
+
     if (!PackAccessPolicy.owns(actor, pack)) {
       throw new ForbiddenError(`User ${actor} does not own pack ${id}`);
     }
+
     if (pack.visibility === visibility) {
       return pack;
     }
+
     // Checked inside the repository's transaction, with the pack locked, so a campaign cannot enable it in between.
     // For the same reason no pack starts or stops depending on it.
     const whileLocked = async (): Promise<void> => {
       if (visibility === PackVisibility.Private) {
         await this.#refuseWhileEnabled(pack);
       }
+
       await this.#refuseBeyondDependencies(pack, visibility);
       await this.#refuseUnderDependents(pack, visibility);
     };
+
     const changed = await this.#packs.updateVisibility(pack.withVisibility(visibility, this.#clock.now()), whileLocked);
+
     if (changed === undefined) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     return changed;
   }
 
@@ -128,9 +141,11 @@ export class HomebrewPackService {
    */
   public async archive(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const live = await this.#packs.findById(id);
+
     if (live === undefined) {
       return this.#archivedOf(actor, id);
     }
+
     const pack = await this.#owned(actor, live);
     const audit = { actor, command: HomebrewCommand.ArchivePack };
     // Checked with the pack locked, so a pack cannot start extending it in between.
@@ -138,6 +153,7 @@ export class HomebrewPackService {
       audit,
       whileLocked: async () => this.#refuseWhileExtended(pack),
     });
+
     return pack;
   }
 
@@ -147,10 +163,13 @@ export class HomebrewPackService {
    */
   public async restore(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const archived = await this.#packs.findArchivedById(id);
+
     if (archived === undefined) {
       const live = await this.#readable(actor, id);
+
       return this.#owned(actor, live);
     }
+
     const pack = archivedOwnedBy(actor, archived);
     const audit = { actor, command: HomebrewCommand.RestorePack };
     await this.#packs.restore(id, {
@@ -161,24 +180,29 @@ export class HomebrewPackService {
         await this.#refuseBeyondDependencies(pack, pack.visibility);
       },
     });
+
     return pack;
   }
 
   /** The pack, when the actor owns it; another reader who may see it: 403. */
   async #owned(actor: UserId, live: HomebrewPack): Promise<HomebrewPack> {
     const pack = await this.#readable(actor, live.id);
+
     if (!PackAccessPolicy.owns(actor, pack)) {
       throw new ForbiddenError(`User ${actor} does not own pack ${live.id}`);
     }
+
     return pack;
   }
 
   /** The actor's archived pack, or a 404: nobody else sees it. */
   async #archivedOf(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const archived = await this.#packs.findArchivedById(id);
+
     if (archived === undefined) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     return archivedOwnedBy(actor, archived);
   }
 
@@ -187,6 +211,7 @@ export class HomebrewPackService {
     const dependentIds = await this.#dependencies.dependentsOf(pack.id);
     const found = await Promise.all(dependentIds.map(async (id) => this.#directory.findById(id)));
     const live = found.filter((dependent) => dependent !== undefined);
+
     if (live.length > 0) {
       throw new ConflictError(
         `${live.length} pack(s) still extend ${pack.id}`,
@@ -198,10 +223,13 @@ export class HomebrewPackService {
   /** A pack comes back only with the packs it extends. A live pack is found by the directory; an archived one is not. */
   async #refuseWhileExtending(pack: HomebrewPack): Promise<void> {
     const edges = await this.#dependencies.edges();
+
     const found = await Promise.all(
       edges.filter((edge) => edge.pack === pack.id).map(async (edge) => this.#directory.findById(edge.dependsOn)),
     );
+
     const archived = found.filter((dependency) => dependency === undefined);
+
     if (archived.length > 0) {
       throw new ConflictError(
         `${archived.length} pack(s) extended by ${pack.id} are archived`,
@@ -212,25 +240,32 @@ export class HomebrewPackService {
 
   async #readable(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
     const pack = await this.#packs.findById(id);
+
     if (pack === undefined) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     const mayRead = await this.#access.mayRead(actor, pack);
+
     if (!mayRead) {
       throw new NotFoundError('HomebrewPack', id);
     }
+
     return pack;
   }
 
   /** A pack may not be visible to more people than any pack it extends. */
   async #refuseBeyondDependencies(pack: HomebrewPack, visibility: PackVisibility): Promise<void> {
     const edges = await this.#dependencies.edges();
+
     const found = await Promise.all(
       edges.filter((edge) => edge.pack === pack.id).map(async (edge) => this.#directory.findById(edge.dependsOn)),
     );
+
     const narrower = found.flatMap((dependency) =>
       dependency !== undefined && isWiderThan(visibility, dependency.visibility) ? [dependency.summary.title] : [],
     );
+
     if (narrower.length > 0) {
       throw new ConflictError(
         `Pack ${pack.id} would be visible to more people than ${narrower.join(', ')}`,
@@ -246,6 +281,7 @@ export class HomebrewPackService {
     const dependentIds = await this.#dependencies.dependentsOf(pack.id);
     const found = await Promise.all(dependentIds.map(async (id) => this.#directory.findById(id)));
     const wider = found.filter((dependent) => dependent !== undefined && isWiderThan(dependent.visibility, visibility));
+
     if (wider.length > 0) {
       // Counted, not named: the owner of this pack may not be allowed to read the others.
       throw new ConflictError(
@@ -259,6 +295,7 @@ export class HomebrewPackService {
 
   async #refuseWhileEnabled(pack: HomebrewPack): Promise<void> {
     const campaigns = await this.#enablement.campaignsEnabling(pack);
+
     if (campaigns.length > 0) {
       throw new ConflictError(
         `Pack ${pack.id} is still enabled in ${campaigns.join(', ')}`,

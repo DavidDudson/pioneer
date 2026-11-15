@@ -24,12 +24,14 @@ export class BugReportTriageService {
   /** The newest reports, newest first. */
   public async list(actor: UserId): Promise<BugReportListItem[]> {
     await this.#requireMaintainer(actor);
+
     return this.#reports.list(BUG_REPORT_LIST_LIMIT);
   }
 
   /** One report with the snapshot the reporter shared, if any. */
   public async read(actor: UserId, id: BugReportDetail['id']): Promise<BugReportDetail> {
     await this.#requireMaintainer(actor);
+
     return this.#found(id);
   }
 
@@ -37,14 +39,17 @@ export class BugReportTriageService {
   public async setStatus(actor: UserId, id: BugReportDetail['id'], status: BugReportStatus): Promise<BugReportDetail> {
     await this.#requireMaintainer(actor);
     const changed = await this.#reports.setStatus(id, status);
+
     if (!changed) {
       throw new NotFoundError(RESOURCE, id);
     }
+
     return this.#found(id);
   }
 
   async #requireMaintainer(actor: UserId): Promise<void> {
     const user = await this.#users.findById(actor);
+
     if (user?.isMaintainer !== true) {
       throw new NotFoundError(RESOURCE, actor);
     }
@@ -52,9 +57,11 @@ export class BugReportTriageService {
 
   async #found(id: BugReportDetail['id']): Promise<BugReportDetail> {
     const report = await this.#reports.findDetail(id);
+
     if (report === undefined) {
       throw new NotFoundError(RESOURCE, id);
     }
+
     return report;
   }
 }

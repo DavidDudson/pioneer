@@ -39,6 +39,7 @@ import {
 } from './testing';
 
 installRulesFakes();
+
 const content = itemFixtureContent();
 const one = ItemQuantity.parse(1);
 const WORN: Carry = { state: CarryState.Worn };
@@ -51,10 +52,12 @@ function idAt(index: number): InventoryItemId {
 /** An inventory of `items`, each carried as given, the nth with id `idAt(n)`. */
 function carrying(...items: readonly (readonly [ItemFixture, Carry])[]): Inventory {
   let stock = EMPTY_INVENTORY;
+
   for (const [index, [name, carry]] of items.entries()) {
     stock = addItem(stock, { id: idAt(index), item: itemFixtureId(name), quantity: one, container: undefined });
     stock = carryItem(stock, idAt(index), carry);
   }
+
   return stock;
 }
 
@@ -100,6 +103,7 @@ describe('equippedInputs', () => {
       carrying([ItemFixture.LongSword, ONE_HANDED], [ItemFixture.LongSword, ONE_HANDED]),
       content,
     );
+
     const [first, second] = inputs.weapons.map(({ slug }) => slug);
     expect(first).toBe(Slug.parse(ItemFixture.LongSword));
     // Cut to leave room for a count, less the hyphen the cut ends on; free as it is, it needs no count.
@@ -111,6 +115,7 @@ describe('equippedInputs', () => {
       carrying([ItemFixture.Longsword, ONE_HANDED], [ItemFixture.Longsword, ONE_HANDED]),
       content,
     );
+
     expect(inputs.weapons.map(({ slug }) => slug)).toStrictEqual(
       ['longsword', 'longsword-2'].map((slug) => Slug.parse(slug)),
     );
@@ -132,6 +137,7 @@ describe('equippedInputs', () => {
       [ItemFixture.Greatsword, ONE_HANDED],
       [ItemFixture.Longsword, { state: CarryState.Dropped }],
     );
+
     expect(equippedInputs(twoHanded, content).weapons).toStrictEqual([]);
     const both = carrying([ItemFixture.Greatsword, { state: CarryState.Held, hands: Hands.parse(2) }]);
     expect(equippedInputs(both, content).weapons).toHaveLength(1);
@@ -217,9 +223,11 @@ describe('equippedRules', () => {
 
 function etched(inventory: Inventory, ...etchings: readonly RuneEtching[]): Inventory {
   let stock = inventory;
+
   for (const etching of etchings) {
     stock = etchRune(stock, idAt(0), etching);
   }
+
   return stock;
 }
 
@@ -234,6 +242,7 @@ describe('equipped runes', () => {
       fundamental(FundamentalRune.Potency, 2),
       fundamental(FundamentalRune.Striking, 1),
     );
+
     expect(equippedInputs(sword, content).weapons[0]).toMatchObject({ potency: 2, striking: 1 });
   });
 
@@ -248,6 +257,7 @@ describe('equipped runes', () => {
       fundamental(FundamentalRune.Potency, 1),
       fundamental(FundamentalRune.Resilient, 2),
     );
+
     expect(equippedInputs(armor, content).armor).toMatchObject({ bonus: 1, resilient: undefined });
     const invested = investItem(armor, idAt(0), true);
     expect(equippedInputs(invested, content).armor).toMatchObject({ bonus: 2, resilient: 2 });
@@ -259,6 +269,7 @@ describe('equipped runes', () => {
       fundamental(FundamentalRune.Potency, 1),
       flaming,
     );
+
     const { rules } = equippedRules(withInventory(sword), content, slots);
     expect(rules).toHaveLength(1);
     expect(rules[0]).toMatchObject({
@@ -278,12 +289,15 @@ describe('equipped runes', () => {
       idAt(0),
       { type: RuneType.Fundamental, rune: FundamentalRune.Potency },
     );
+
     expect(equippedRules(withInventory(dormant), content, slots).rules).toStrictEqual([]);
+
     const stowed = etched(
       carrying([ItemFixture.Longsword, { state: CarryState.Stowed }]),
       fundamental(FundamentalRune.Potency, 1),
       flaming,
     );
+
     expect(equippedRules(withInventory(stowed), content, slots).rules).toStrictEqual([]);
   });
 

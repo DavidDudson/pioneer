@@ -18,11 +18,17 @@ import { SPELL_TIME_UNIT_MESSAGES, SpellListMessage, TARGET_KIND_MESSAGES } from
 export type Translate = (key: string, params?: Readonly<Record<string, string | number>>) => string;
 
 type Range = NonNullable<SpellData['range']>;
+
 type SingleRange = Exclude<Range, { readonly type: typeof SpellRangeType.Either }>;
+
 type Duration = NonNullable<SpellData['duration']>;
+
 type SingleDuration = Exclude<Duration, { readonly type: typeof SpellDurationType.Either }>;
+
 type TimeDuration = Extract<SingleDuration, { readonly type: typeof SpellDurationType.Time }>;
+
 type Targets = NonNullable<SpellData['targets']>;
+
 type Target = Targets['any'][number];
 
 const NONE = 'none';
@@ -53,9 +59,11 @@ function singleRange(range: SingleRange, translate: Translate): string {
   if (range.type === SpellRangeType.Feet) {
     return translate(SpellListMessage.RangeFeet, { feet: range.feet });
   }
+
   if (range.type === SpellRangeType.Miles) {
     return translate(SpellListMessage.RangeMiles, { miles: range.miles });
   }
+
   return translate(FIXED_RANGE_MESSAGES[range.type]);
 }
 
@@ -64,6 +72,7 @@ export function rangeText(range: SpellData['range'], translate: Translate): stri
   if (range === undefined) {
     return undefined;
   }
+
   return range.type === SpellRangeType.Either
     ? joined(
         translate,
@@ -84,26 +93,35 @@ function countText(target: Target, translate: Translate): string {
   if (target.count === TargetCountWord.Any) {
     return translate(SpellListMessage.TargetAny);
   }
+
   if (target.count === TargetCountWord.All) {
     return translate(SpellListMessage.TargetAll);
   }
+
   const key = target.upTo === true ? SpellListMessage.TargetUpTo : SpellListMessage.TargetNumber;
+
   return translate(key, { number: target.count });
 }
 
 function targetText(target: Target, translate: Translate): string {
   const kindCount = typeof target.count === 'number' ? target.count : 2;
   const kind = translate(TARGET_KIND_MESSAGES[target.of], { count: kindCount });
+
   if (target.triggering === true) {
     return translate(SpellListMessage.TargetTriggering, { kind });
   }
+
   const count = countText(target, translate);
+
   const qualifiers = (target.qualifiers ?? []).map((qualifier) =>
     translate(SpellListMessage.TargetQualifier, { qualifier }),
   );
+
   const traits = (target.traits ?? []).map((trait) => translate(SpellListMessage.TargetTrait, { trait }));
+
   const within =
     target.within === undefined ? [] : [translate(SpellListMessage.TargetWithin, { within: target.within })];
+
   return [count, ...qualifiers, kind, ...traits, ...within].join(SEPARATOR);
 }
 
@@ -119,9 +137,11 @@ export function targetsText(targets: SpellData['targets'], translate: Translate)
   if (targets === undefined) {
     return undefined;
   }
+
   const any = targetList(targets.any, translate);
   const plus = targets.plus === undefined ? undefined : targetList(targets.plus, translate);
   const together = plus === undefined ? any : `${any} ${translate(SpellListMessage.And)} ${plus}`;
+
   return targets.you === undefined
     ? together
     : `${translate(SpellListMessage.TargetYou, { you: targets.you })} ${together}`;
@@ -141,9 +161,11 @@ const FIXED_DURATION_MESSAGES = {
 /** A duration counted in a unit: "1 minute", "up to 1 minute", "sustained up to 1 minute". */
 function timeDuration(duration: TimeDuration, translate: Translate): string {
   const text = span(translate, duration.count, duration.unit);
+
   if (duration.sustained === true) {
     return translate(SpellListMessage.DurationSustainedUpTo, { span: text });
   }
+
   return translate(duration.upTo === true ? SpellListMessage.DurationUpTo : SpellListMessage.DurationTime, {
     span: text,
   });
@@ -153,15 +175,18 @@ function singleDuration(duration: SingleDuration, translate: Translate): string 
   if (duration.type === SpellDurationType.Time) {
     return timeDuration(duration, translate);
   }
+
   if (duration.type === SpellDurationType.Rolled) {
     return translate(SpellListMessage.DurationRolled, { dice: duration.dice, die: duration.die, unit: duration.unit });
   }
+
   if (duration.type === SpellDurationType.Until) {
     return translate(SpellListMessage.DurationUntil, {
       when: UNTIL_KEYS[duration.until],
       owner: duration.of ?? TurnOwner.Caster,
     });
   }
+
   return translate(FIXED_DURATION_MESSAGES[duration.type]);
 }
 
@@ -170,6 +195,7 @@ export function durationText(duration: SpellData['duration'], translate: Transla
   if (duration === undefined) {
     return undefined;
   }
+
   return duration.type === SpellDurationType.Either
     ? joined(
         translate,
@@ -188,6 +214,7 @@ export function defenceText(defense: SpellData['defense'], translate: Translate)
   if (defense === undefined) {
     return undefined;
   }
+
   const save =
     defense.save === undefined
       ? []
@@ -197,6 +224,7 @@ export function defenceText(defense: SpellData['defense'], translate: Translate)
             save: saveName(defense.save.statistic),
           }),
         ];
+
   const against =
     defense.against === undefined
       ? []
@@ -205,6 +233,7 @@ export function defenceText(defense: SpellData['defense'], translate: Translate)
             ? translate(SpellListMessage.DefenceAc)
             : translate(SpellListMessage.DefenceDc, { save: saveName(defense.against) }),
         ];
+
   return [...save, ...against].join(', ');
 }
 
@@ -215,11 +244,13 @@ export function effectLines(damage: SpellCast['damage'], translate: Translate): 
     const harms = part.kinds.includes(DamageKind.Damage);
     const damageType = part.damageType === undefined ? undefined : translate(DAMAGE_TYPE_MESSAGES[part.damageType]);
     let key: string = SpellListMessage.EffectDamage;
+
     if (heals && harms) {
       key = SpellListMessage.EffectBoth;
     } else if (heals) {
       key = SpellListMessage.EffectHealing;
     }
+
     return {
       key: part.key,
       roll: {

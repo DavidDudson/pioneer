@@ -37,6 +37,7 @@ function damageFormula(scopes?: ReadonlySet<ReferenceScope>, keeps = false): Dam
  * be a formula the vocabulary knows; each problem is a field issue at its position.
  */
 export const DamageFormula = damageFormula();
+
 export type DamageFormula = z.infer<typeof DamageFormula>;
 
 /**
@@ -49,4 +50,5 @@ export const SpellDamageFormula = damageFormula(
 
 /** A value an effect badge rolls: a damage formula whose dice may keep the highest or lowest (`2d20kh1`). */
 export const RolledFormula = damageFormula(undefined, true);
+
 export type RolledFormula = z.infer<typeof RolledFormula>;

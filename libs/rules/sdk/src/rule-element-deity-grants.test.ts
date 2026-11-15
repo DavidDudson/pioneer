@@ -9,6 +9,7 @@ import { RuleElement } from './rule-element';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
+
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
@@ -42,6 +43,7 @@ describe("a cleric's deity grant elements", () => {
       category: 'unarmed',
       damage: { dice: 1, die: 'd8', damageType: 'piercing' },
     };
+
     expect(issues(jaws)).toStrictEqual([]);
     expect(issues({ key: 'Strike', fist: false })).toMatchObject([{ path: ['fist'] }]);
     expect(issues({ key: 'Strike' })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeShape) }]);

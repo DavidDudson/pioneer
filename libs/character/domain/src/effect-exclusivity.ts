@@ -20,6 +20,7 @@ export interface ExclusiveEffects {
 /** Whether the effect's content is a polymorph effect (`isPolymorphEntry`); an effect the content lacks is not. */
 export function isPolymorph(lookup: ContentLookup, effect: ActiveEffect): boolean {
   const found = lookup.entry(effect.effect);
+
   return found !== undefined && (found.rollOptions.includes(POLYMORPH_OPTION) || isPolymorphEntry([], found.rules));
 }
 
@@ -30,5 +31,6 @@ export function isPolymorph(lookup: ContentLookup, effect: ActiveEffect): boolea
 export function exclusiveEffects(effects: readonly ActiveEffect[], lookup: ContentLookup): ExclusiveEffects {
   const polymorphs = effects.filter((each) => isPolymorph(lookup, each));
   const replaced = polymorphs.slice(0, -1);
+
   return { active: effects.filter((each) => !replaced.includes(each)), replaced };
 }

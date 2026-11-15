@@ -59,6 +59,7 @@ describe(spellRows, () => {
       taken: NONE,
       registry: undefined,
     });
+
     expect(row).toMatchObject({
       id: FIREBALL,
       name: 'Fireball',
@@ -80,6 +81,7 @@ describe(spellRows, () => {
         registry: undefined,
       },
     );
+
     expect(rows.map((row) => row.heightenedTo)).toStrictEqual([4, 4]);
   });
 
@@ -90,12 +92,14 @@ describe(spellRows, () => {
       taken: NONE,
       registry: undefined,
     });
+
     const range = spellRows([spell(FIREBALL, 'Fireball', { rank: 3 })], {
       translate,
       castRank: undefined,
       taken: NONE,
       registry: undefined,
     });
+
     expect([own[0]?.heightenedTo, range[0]?.heightenedTo]).toStrictEqual([undefined, undefined]);
   });
 
@@ -106,6 +110,7 @@ describe(spellRows, () => {
       taken: new Set([FIREBALL]),
       registry: undefined,
     });
+
     expect(rows.map((row) => row.disabledReason)).toStrictEqual([undefined, 'character.sheet.prepared.alreadyKnown']);
   });
 
@@ -116,6 +121,7 @@ describe(spellRows, () => {
       taken: NONE,
       registry: undefined,
     });
+
     expect(row?.traits).toStrictEqual([{ label: 'Fire', trait: 'fire' }]);
   });
 
@@ -124,12 +130,14 @@ describe(spellRows, () => {
     pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Spell] });
     const registry = new ContentRegistry();
     registry.register(pack.build());
+
     const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('cold-iron')] }], {
       translate,
       castRank: undefined,
       taken: NONE,
       registry,
     });
+
     expect(row?.traits).toStrictEqual([{ label: 'Cold-iron', trait: 'cold-iron' }]);
   });
 });

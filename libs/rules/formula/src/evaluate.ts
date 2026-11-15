@@ -41,6 +41,7 @@ function fail(descriptor: MessageDescriptor, position: TextPosition): never {
 /** `value` as a partial value, failing at `position` when it is outside the safe integer range. */
 function inRange(value: unknown, position: TextPosition): PartialValue {
   const checked = PartialValue.safeParse(value);
+
   return checked.success
     ? checked.data
     : fail(message(FormulaMessage.OutOfRange, { maximum: FORMULA_VALUE_MAX, position }), position);
@@ -94,18 +95,23 @@ class Evaluator {
       case NodeKind.Number: {
         return PartialValue.parse(node.value);
       }
+
       case NodeKind.Reference: {
         return this.#reference(node);
       }
+
       case NodeKind.Negate: {
         return PartialValue.parse(ZERO - this.value(node.operand));
       }
+
       case NodeKind.Binary: {
         return this.#binary(node);
       }
+
       case NodeKind.Call: {
         return this.#call(node);
       }
+
       default: {
         return unhandledNode(node);
       }
@@ -115,6 +121,7 @@ class Evaluator {
   #reference(node: ReferenceNode): PartialValue {
     const { path, position } = node;
     const value = this.#resolve(path);
+
     return value === undefined
       ? fail(message(FormulaMessage.UnknownReference, { found: `${REFERENCE_SIGIL}${path}`, position }), position)
       : PartialValue.parse(value);
@@ -124,22 +131,28 @@ class Evaluator {
     const left = this.value(node.left);
     const right = this.value(node.right);
     const { position } = node;
+
     switch (node.operator) {
       case BinaryOperator.Add: {
         return inRange(left + right, position);
       }
+
       case BinaryOperator.Subtract: {
         return inRange(left - right, position);
       }
+
       case BinaryOperator.Multiply: {
         return inRange(left * right, position);
       }
+
       case BinaryOperator.Divide: {
         if (right === ZERO) {
           return fail(message(FormulaMessage.DivisionByZero, { position }), position);
         }
+
         return inRange(left / right, position);
       }
+
       default: {
         const unreachable: never = node.operator;
         throw new TypeError(`Unhandled formula operator: ${String(unreachable)}`);
@@ -149,15 +162,20 @@ class Evaluator {
 
   #call(node: CallNode): PartialValue {
     const { args } = node;
+
     // Only the branch taken is evaluated, so the other may divide by zero or name an unknown reference.
     if (node.name === FormulaFunction.Ternary) {
       const [condition, ifTrue, ifFalse] = args;
+
       if (condition === undefined || ifTrue === undefined || ifFalse === undefined) {
         throw new TypeError('ternary takes three arguments; the parser checks this');
       }
+
       return this.value(condition) === ZERO ? this.value(ifFalse) : this.value(ifTrue);
     }
+
     const values = args.map((arg) => this.value(arg));
+
     // None of these grows a value today; the check keeps any future one from throwing instead of failing.
     return inRange(APPLY[node.name](values), node.position);
   }
@@ -166,6 +184,7 @@ class Evaluator {
 /** The whole number a formula's value rounds to: down, as PF2e rounds unless a rule says otherwise. */
 function rounded(value: PartialValue): FormulaValue {
   const floored = Math.floor(value);
+
   // `-0` (from `-0` or `sign(-0)`) is reported as plain 0.
   return FormulaValue.parse(floored === 0 ? 0 : floored);
 }
@@ -183,6 +202,7 @@ export function evaluate(formula: FormulaNode, resolve: ResolveReference): Evalu
     if (error instanceof FormulaError) {
       return { ok: false, error: error.descriptor, position: error.position };
     }
+
     throw error;
   }
 }

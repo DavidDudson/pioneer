@@ -41,19 +41,25 @@ export class SheetOverridesSection {
   protected readonly rows = computed((): readonly OverrideRow[] => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
+
     if (character === undefined) {
       return [];
     }
+
     const selectors = [...new Set(activeOverrides(character.document).map(({ target }) => target))];
+
     const statistics =
       registry === undefined ? new Map<Selector, NamedStatistic>() : namedStatistics(registry, character, selectors);
+
     return overrideRows(character, {
       authors: this.#sheet.originNames().users ?? new Map(),
       statisticName: ({ target }) => {
         const found = statistics.get(target);
+
         if (found === undefined) {
           return target;
         }
+
         return found.nameKey === undefined ? found.name : this.#i18n.translate(found.nameKey);
       },
       effect: (override, state) => this.#effect(override, state),
@@ -65,7 +71,9 @@ export class SheetOverridesSection {
     if (mode === OverrideMode.Set) {
       return this.#i18n.translate(Message.EffectSet, { value: this.#format.number(value) });
     }
+
     const label: string = this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type ?? ModifierType.Untyped]);
+
     return this.#i18n.translate(Message.EffectAdjust, {
       value: this.#format.number(value, { signDisplay: 'exceptZero' }),
       type: label,

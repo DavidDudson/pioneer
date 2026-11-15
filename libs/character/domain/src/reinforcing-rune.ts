@@ -30,9 +30,11 @@ export interface ShieldFigures {
  */
 export function reinforced(figures: ShieldFigures, grade: ReinforcingGrade | undefined): ShieldFigures {
   const rune = grade === undefined ? undefined : REINFORCING[grade - 1];
+
   if (rune === undefined) {
     return figures;
   }
+
   return {
     hardness: Hardness.parse(Math.max(figures.hardness, Math.min(figures.hardness + rune.hardness, rune.maxHardness))),
     hitPoints: HitPoints.parse(

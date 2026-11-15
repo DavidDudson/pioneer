@@ -23,6 +23,7 @@ export interface Themed {
 }
 
 const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+
 /** An attribute a feat's prerequisite predicate reads: `attribute:str:mod`. */
 const ATTRIBUTE_READ = /attribute:(?<key>str|dex|con|int|wis|cha):/gu;
 
@@ -31,6 +32,7 @@ function featAttributes(content: SlotContent, pick: ChoiceValue): readonly Attri
   const id = ContentId.safeParse(pick);
   const predicate = id.success ? content.feats.feat(id.data)?.predicate : undefined;
   const named = JSON.stringify(predicate ?? []).matchAll(ATTRIBUTE_READ);
+
   return ATTRIBUTES.filter((attribute) => [...named].some((found) => found.groups?.['key'] === attribute));
 }
 
@@ -39,10 +41,13 @@ function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): 
   if (slot.subject.kind === SlotSubjectKind.Boost) {
     return ATTRIBUTES.filter((attribute) => attribute === pick);
   }
+
   if (slot.key === CLASS_SLOT) {
     const id = ContentId.safeParse(pick);
+
     return (id.success ? content.boosts.keyAttribute(id.data) : undefined) ?? [];
   }
+
   return slot.subject.kind === SlotSubjectKind.Choice ? featAttributes(content, pick) : [];
 }
 
@@ -53,12 +58,15 @@ export function weighCandidates(
   { theme, content, fitting }: Themed,
 ): readonly Weighted<ChoiceValue>[] {
   const { weapon } = theme;
+
   return picks.map((item): Weighted<ChoiceValue> => {
     const attribute = themeWeight(theme, attributesOf(slot, item, content));
+
     const weight =
       weapon === undefined || slot.subject.kind === SlotSubjectKind.Boost
         ? attribute
         : composeWeights(attribute, weaponAffinity(content, item, { ...weapon, fitting }));
+
     return { item, weight };
   });
 }

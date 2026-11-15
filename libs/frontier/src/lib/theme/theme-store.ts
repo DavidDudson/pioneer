@@ -31,6 +31,7 @@ export class ThemeStore {
   /** The theme in use: the pick, or for dynamic the context's, falling back to Frontier. */
   public readonly theme = computed<Theme>(() => {
     const choice = this.choice();
+
     return choice === ThemeChoice.Dynamic ? (this.context() ?? Theme.Frontier) : choice;
   });
   /** The viewer's pick for colour mode; `system` follows the device. */
@@ -39,9 +40,11 @@ export class ThemeStore {
   /** The mode in use: the pick, or for system the device's. */
   public readonly mode = computed<ColorMode>(() => {
     const choice = this.modeChoice();
+
     if (choice === ModeChoice.System) {
       return this.#systemDark() ? ColorMode.Dark : ColorMode.Light;
     }
+
     return choice;
   });
 
@@ -60,6 +63,7 @@ export class ThemeStore {
   /** Whether the device prefers dark, kept up to date; dark where the browser cannot say. */
   #watchSystemDark(): Signal<boolean> {
     const dark = signal(true);
+
     try {
       const query = this.#document.defaultView?.matchMedia(DARK_QUERY);
       dark.set(query?.matches ?? true);
@@ -69,6 +73,7 @@ export class ThemeStore {
     } catch {
       // No matchMedia (a locked-down or test browser): stay on the dark default.
     }
+
     return dark.asReadonly();
   }
 
@@ -83,6 +88,7 @@ export class ThemeStore {
   #read<TValue extends string>(key: string, values: Record<string, TValue>, fallback: TValue): TValue {
     try {
       const stored = this.#storage?.getItem(key) ?? undefined;
+
       return isOneOf(values, stored) ? stored : fallback;
     } catch {
       return fallback;

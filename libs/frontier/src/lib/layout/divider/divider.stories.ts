@@ -33,6 +33,7 @@ const meta: Meta<Divider> = {
     `,
   }),
 };
+
 export default meta;
 
 export const Horizontal: DividerStory = {};

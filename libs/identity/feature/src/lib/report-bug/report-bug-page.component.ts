@@ -88,6 +88,7 @@ export class ReportBugPage {
     const params = this.#params();
     const id = Uuid.safeParse(params.get(BugReportParam.Character));
     const name = params.get(BugReportParam.CharacterName)?.trim();
+
     return id.success && name !== undefined && name !== '' ? { id: id.data, name } : undefined;
   });
 
@@ -101,11 +102,13 @@ export class ReportBugPage {
     const { shareCharacter, ...report } = ReportBugForm.parse(value);
     const characterId = this.character()?.id;
     const wanted = characterId !== undefined && shareCharacter;
+
     const receipt = await this.#reporter.submit({
       ...report,
       characterId,
       shareCharacter: wanted,
     });
+
     this.sentWithoutCharacter.set(wanted && !receipt.snapshotTaken);
     this.sent.set(true);
     // The form starts over, so a second tap can't file the same report twice.

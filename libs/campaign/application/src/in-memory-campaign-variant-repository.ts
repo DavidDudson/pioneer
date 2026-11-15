@@ -16,6 +16,7 @@ export class InMemoryCampaignVariantRepository extends CampaignVariantRepository
 
   public override async enable(_actor: UserId, campaignId: CampaignId, rule: CampaignVariantRule): Promise<void> {
     const rows = this.#rows.get(campaignId) ?? [];
+
     if (!rows.some((row) => row.variantId === rule.variantId)) {
       this.#rows.set(campaignId, [...rows, rule]);
     }

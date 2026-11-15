@@ -67,6 +67,7 @@ const meta: Meta<FeatPicker> = {
   args: { rows: FEATS, ariaLabel: 'Class feat, level 1', disabled: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** Opens straight to the table. The second feat can't be taken and says why; one prerequisite can't be checked. */

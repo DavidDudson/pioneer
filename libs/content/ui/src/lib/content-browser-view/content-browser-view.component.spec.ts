@@ -42,6 +42,7 @@ async function render(
   fixture.componentRef.setInput('entry', loaded({ card: SHIELD_BLOCK_CARD, stores: [] }));
   fixture.componentRef.setInput('columns', []);
   await fixture.whenStable();
+
   return fixture;
 }
 

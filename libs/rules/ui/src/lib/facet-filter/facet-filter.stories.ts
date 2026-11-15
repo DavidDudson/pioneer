@@ -13,6 +13,7 @@ const meta: Meta<FacetFilterView> = {
   component: FacetFilterView,
   args: { counts: SHOP_FACET_COUNTS, state: new Map() },
 };
+
 export default meta;
 
 /** A shop's weapons and armour with nothing picked: each facet collapsed, its name only. */

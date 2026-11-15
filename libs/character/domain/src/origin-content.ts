@@ -58,6 +58,7 @@ const READ = new WeakMap<ContentRegistry, OriginContent>();
 export function originContent(registry: ContentRegistry): OriginContent {
   const read = READ.get(registry) ?? readOrigins(registry);
   READ.set(registry, read);
+
   return read;
 }
 
@@ -70,7 +71,9 @@ function grantedNames(rules: readonly RuleElement[], names: ReadonlyMap<ContentI
     if (rule.key !== RuleElementKey.GrantItem || typeof rule.item !== 'string') {
       return [];
     }
+
     const name = names.get(rule.item);
+
     return name === undefined ? [] : [name];
   });
 }
@@ -85,12 +88,14 @@ function trainedSelectors(rules: readonly RuleElement[]): Selector[] {
 function readOrigins(registry: ContentRegistry): OriginContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   const names = new Map<ContentId, ContentText>(entries.map((entry) => [entry.id, entry.name]));
+
   const ancestries = registry.ancestries().map((entry): AncestryOption => ({
     id: ContentId.parse(entry.id),
     name: entry.definition.name,
     definition: entry.definition,
     sources: entry.pack.ancestries.find((ancestry) => ancestry.slug === entry.definition.slug)?.sources ?? [],
   }));
+
   const heritages = entries.flatMap((entry): HeritageOption[] =>
     entry.kind === ContentKind.Heritage
       ? [
@@ -105,6 +110,7 @@ function readOrigins(registry: ContentRegistry): OriginContent {
         ]
       : [],
   );
+
   const backgrounds = entries.flatMap((entry): BackgroundOption[] =>
     entry.kind === ContentKind.Background
       ? [
@@ -120,5 +126,6 @@ function readOrigins(registry: ContentRegistry): OriginContent {
         ]
       : [],
   );
+
   return { ancestries: byName(ancestries), heritages: byName(heritages), backgrounds: byName(backgrounds) };
 }

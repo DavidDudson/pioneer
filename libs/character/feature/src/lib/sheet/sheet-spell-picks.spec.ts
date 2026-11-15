@@ -49,6 +49,7 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
   registry.register(spellFixtures());
   const url = signal<QueryParams>(params);
   const writes: Record<string, string | undefined>[] = [];
+
   const sources: SpellPickSources = {
     registry: signal(registry),
     character: signal<Character | undefined>(character),
@@ -67,6 +68,7 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
                 const named = new Set(Object.keys(changes));
                 const kept = Object.entries(now).filter(([name]) => !named.has(name));
                 const set = Object.entries(changes).filter((change) => change[1] !== undefined);
+
                 return Object.fromEntries([...kept, ...set]);
               });
               await Promise.resolve();
@@ -75,7 +77,9 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
         }
       : {}),
   };
+
   const fields = TestBed.runInInjectionContext(() => preparedFieldsOf(sources));
+
   return {
     fields: fields().flatMap((entry) => entry.ranks.flatMap((rank) => rank.fields)),
     params: url,

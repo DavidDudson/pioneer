@@ -71,6 +71,7 @@ describe('translateKindData: subfeature proficiencies', () => {
       advanced: { rank: 3 },
       perception: { rank: 4 },
     };
+
     const translation = translate([raising('Ranks', proficiencies)]);
 
     expect(ranksIn(translation, 'ranks')).toEqual([
@@ -133,6 +134,7 @@ describe('translateKindData: subfeature proficiencies', () => {
 
 describe('translateKindData: Perception Expertise', () => {
   const EXPERTISE = 'Compendium.pf2e.classfeatures.Item.Perception Expertise';
+
   const WIZARD: DocumentFixture = {
     ...FIGHTER,
     id: 'cLaSs00000000002',
@@ -158,6 +160,7 @@ describe('translateKindData: Perception Expertise', () => {
 
   test('another feature that resolves to nothing is still reported', () => {
     const unknown = 'Compendium.pf2e.classfeatures.Item.Perception Mastery';
+
     const translation = translate([
       {
         ...WIZARD,

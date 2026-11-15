@@ -11,6 +11,7 @@ const meta: Meta<ContentCachesView> = {
   component: ContentCachesView,
   args: { caches: loaded([PLAYER_CORE_CACHE, CORE_RULES_CACHE]) },
 };
+
 export default meta;
 
 /** Each pack with its file count and total size; an imported pack names its book, a bare one its id. */

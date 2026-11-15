@@ -38,6 +38,7 @@ function app(): AnyElysia {
   const directory = new InMemoryMemberDirectory();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
+
   const partyService = new CampaignPartyService(
     {
       campaigns,
@@ -47,6 +48,7 @@ function app(): AnyElysia {
     },
     clock,
   );
+
   return new Elysia().use(problemHandler).use(
     campaignRoutes(
       {
@@ -93,6 +95,7 @@ interface CampaignJson {
 
 async function create(api: AnyElysia, as: UserId, name: string): Promise<CampaignJson> {
   const response = await api.handle(request('POST', '/campaigns', { as, body: { name } }));
+
   return (await response.json()) as CampaignJson;
 }
 
@@ -138,6 +141,7 @@ describe('campaign routes', () => {
 describe('campaign routes without a signed-in user', () => {
   const api = app();
   const id = newId();
+
   const cases: readonly (readonly [string, Request])[] = [
     ['list', request('GET', '/campaigns', { as: anonymous })],
     ['get', request('GET', `/campaigns/${id}`, { as: anonymous })],
@@ -191,11 +195,13 @@ describe('campaign routes across users', () => {
 
 async function status(api: AnyElysia, sent: Request): Promise<number> {
   const response = await api.handle(sent);
+
   return response.status;
 }
 
 async function listFrom(api: AnyElysia, path: string, as: UserId = amiri): Promise<readonly CampaignJson[]> {
   const response = await api.handle(request('GET', path, { as }));
+
   return (await response.json()) as CampaignJson[];
 }
 

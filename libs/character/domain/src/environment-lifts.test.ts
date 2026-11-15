@@ -19,9 +19,11 @@ const INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000401
 /** A character underwater, with the gilled condition when `gilled`. */
 function underwater(gilled: boolean): Character {
   const built = new CharacterBuilder().build();
+
   const conditions = gilled
     ? [{ id: INSTANCE, condition: gilledFixtureId(), duration: { kind: ConditionDurationKind.Unlimited } }]
     : [];
+
   return withPlay(built, { ...built.document.play, environments: [underwaterFixtureId()], conditions });
 }
 

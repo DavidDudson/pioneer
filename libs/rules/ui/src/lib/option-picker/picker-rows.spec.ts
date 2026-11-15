@@ -13,10 +13,12 @@ const rows: readonly Row[] = [
   { name: 'Satchel', size: 10 },
   { name: 'Belt pouch', size: 4 },
 ];
+
 const order: RowOrder<Row> = {
   text: (row) => row.name,
   sortKey: { name: (row) => row.name, size: (row) => row.size },
 };
+
 const names = (shown: readonly Row[]): readonly string[] => shown.map((row) => row.name);
 
 describe(shownRows, () => {

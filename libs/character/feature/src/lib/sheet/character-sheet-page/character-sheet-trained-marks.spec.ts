@@ -33,6 +33,7 @@ const MARKS: PackContentsLoader = {
       marks.otherEntries,
     ]),
 };
+
 const PACKS = [...TEST_PACKS, MARKS];
 
 const ACOLYTE = playerCoreId(ContentKind.Background, 'acolyte');
@@ -46,6 +47,7 @@ const CLERIC_SLOT = {
   selection: playerCoreClassId('cleric'),
   selectionName: 'Cleric',
 };
+
 const AS_CLERIC = { packs: PACKS, slots: [CLERIC_SLOT] };
 
 /** Merisiel as a 1st-level cleric, with `choices` picked besides. */

@@ -18,6 +18,7 @@ const meta: Meta<Breadcrumbs> = {
   },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** The last item is the current page: text, not a link. */

@@ -36,6 +36,7 @@ async function renderStatistic(value: StatisticValue): Promise<ComponentFixture<
   fixture.componentRef.setInput('kind', StatisticKind.Check);
   fixture.componentRef.setInput('statistic', value);
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -51,6 +52,7 @@ async function render(total: number): Promise<ComponentFixture<StatisticRoll>> {
   fixture.componentRef.setInput('kind', StatisticKind.Check);
   fixture.componentRef.setInput('statistic', statistic('skill:acrobatics', { base: [term(`${total}`, total)] }));
   await fixture.whenStable();
+
   return fixture;
 }
 
@@ -65,6 +67,7 @@ async function renderCues(
 ): Promise<HTMLButtonElement | null> {
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
   const fixture = await renderStatistic(rollEffects === undefined ? base : { ...base, rollEffects });
+
   return (fixture.nativeElement as HTMLElement).querySelector('button');
 }
 
@@ -88,12 +91,14 @@ describe(StatisticRoll, () => {
     const BONUS = line(STEADY_GRIP, { type: ModifierType.Status, value: 2 });
     const PENALTY = line(STEADY_GRIP, { type: ModifierType.Status, value: -2 });
     const CONDITIONAL = line(STEADY_GRIP, { type: ModifierType.Status, value: 2, status: IN_DARKNESS });
+
     const FORTUNE: RollTwiceLine = {
       id: ruleId(STEADY_GRIP, 1),
       label: { entry: STEADY_GRIP },
       keep: RollKept.Higher,
       status: { kind: RollEffectStatusKind.Applied },
     };
+
     const SHIFT: DegreeAdjustmentLine = {
       id: ruleId(SURE_FOOTING, 1),
       label: { entry: SURE_FOOTING },
@@ -174,6 +179,7 @@ async function renderFlat(kind: StatisticKind): Promise<Flat> {
   fixture.componentRef.setInput('flat', true);
   fixture.componentRef.setInput('statistic', statistic('class-dc', { base: [term('25', 25)] }));
   await fixture.whenStable();
+
   return { fixture, flats };
 }
 

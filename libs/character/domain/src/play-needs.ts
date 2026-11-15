@@ -17,6 +17,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
   }
+
   if (
     isToggleCommand(command) ||
     isShapeCommand(command) ||
@@ -29,6 +30,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   ) {
     return false;
   }
+
   switch (command.field) {
     case PlayCommandField.Damage:
     case PlayCommandField.BlockWithShield:
@@ -37,6 +39,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.SetHp: {
       return true;
     }
+
     case PlayCommandField.SetTempHp:
     case PlayCommandField.RecoveryCheck:
     case PlayCommandField.SetDying:
@@ -59,6 +62,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.UncastStaff: {
       return false;
     }
+
     default: {
       return command satisfies never;
     }
@@ -71,6 +75,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isRestCommand(command) || isSpendCommand(command)) {
     return true;
   }
+
   if (
     isToggleCommand(command) ||
     isShapeCommand(command) ||
@@ -83,6 +88,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   ) {
     return false;
   }
+
   switch (command.field) {
     case PlayCommandField.SpendResource:
     case PlayCommandField.RegainResource:
@@ -99,6 +105,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     case PlayCommandField.UncastStaff: {
       return true;
     }
+
     case PlayCommandField.Damage:
     case PlayCommandField.BlockWithShield:
     case PlayCommandField.Heal:
@@ -113,6 +120,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     case PlayCommandField.SetDoomed: {
       return false;
     }
+
     default: {
       return command satisfies never;
     }
@@ -125,6 +133,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
   if (isBreathCommand(command)) {
     return command.field === BreathCommandField.SetBreath;
   }
+
   if (
     isRestCommand(command) ||
     isToggleCommand(command) ||
@@ -137,11 +146,13 @@ export function needsConditionContent(command: PlayCommand): boolean {
   ) {
     return false;
   }
+
   switch (command.field) {
     case PlayCommandField.AddCondition:
     case PlayCommandField.SetConditionValue: {
       return true;
     }
+
     case PlayCommandField.RemoveCondition:
     case PlayCommandField.Damage:
     case PlayCommandField.BlockWithShield:
@@ -167,6 +178,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     case PlayCommandField.UncastStaff: {
       return false;
     }
+
     default: {
       return command satisfies never;
     }
@@ -183,9 +195,11 @@ export function needsEffectContent(command: PlayCommand): boolean {
   if (command.field === PlayCommandField.UseConsumable) {
     return command.effect !== undefined;
   }
+
   if (command.field === SpendCommandField.SpendAction) {
     return command.apply !== undefined;
   }
+
   return (
     isEffectCommand(command) &&
     (command.field === PlayCommandField.ApplyEffect || command.field === PlayCommandField.SetEffectBadge)

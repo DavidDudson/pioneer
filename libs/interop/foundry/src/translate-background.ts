@@ -22,6 +22,7 @@ export const FoundryTrainedSkills = z.looseObject({
   value: z.array(z.string().max(FIELD_MAX)).max(SKILLS_MAX).default([]),
   lore: z.array(z.string().max(NAME_MAX)).max(SKILLS_MAX).default([]),
 });
+
 export type FoundryTrainedSkills = z.infer<typeof FoundryTrainedSkills>;
 
 const FoundryBackgroundSystem = z.looseObject({
@@ -45,10 +46,13 @@ export function trainSkills(skills: FoundryTrainedSkills, input: KindInput): voi
 /** The background's data, unparsed; undefined when its `system` is not shaped as a background's. */
 export function backgroundData(input: KindInput): object | undefined {
   const system = systemOf(FoundryBackgroundSystem, input);
+
   if (system === undefined) {
     return undefined;
   }
+
   trainSkills(system.trainedSkills, input);
   grantItems(system.items, 'items', input);
+
   return { boosts: attributeSlots(system.boosts, 'boosts', input.log) };
 }

@@ -28,7 +28,9 @@ function app(): AnyElysia {
       .withKit('climbing', { price: { coins: { sp: 8 } }, items: [{ item: rope, quantity: 2 }] })
       .build(),
   );
+
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
+
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
 
@@ -55,6 +57,7 @@ async function create(api: AnyElysia, as: UserId): Promise<Created> {
   const response = await api.handle(
     request('POST', '/characters', { as, body: { name: 'Kyra', ancestry: humanAncestryId } }),
   );
+
   return (await response.json()) as Created;
 }
 
@@ -115,10 +118,12 @@ describe('character routes: the shop', () => {
   test('buying for another user’s character is a 404', async () => {
     const api = app();
     const theirs = await create(api, ezren);
+
     const bought = await patch(api, theirs.id, {
       expectedVersion: 1,
       patch: { field: 'buyItem', item: rope, quantity: 1 },
     });
+
     expect(bought.status).toBe(404);
   });
 });

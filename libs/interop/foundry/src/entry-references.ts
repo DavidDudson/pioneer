@@ -57,6 +57,7 @@ interface Addressed {
 function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Addressed[] {
   return [...slugs].flatMap(([entry, text]) => {
     const slug = EntrySlug.safeParse(text);
+
     return slug.success ? [{ entry, slug: slug.data, id: ContentId.parse(contentId(pack, slug.data)) }] : [];
   });
 }
@@ -64,6 +65,7 @@ function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Add
 /** Both UUIDs Foundry links a document by: its id and its name. */
 function uuidsOf({ pack, document }: PackDocument, id: ContentId): [string, ContentId][] {
   const { _id: documentId, name } = document;
+
   return [
     [compendiumKey(pack.name, documentId), id],
     [compendiumKey(pack.name, name), id],
@@ -90,9 +92,11 @@ function knownUuids(release: readonly PackDocument[], known: readonly KnownEntry
   const byFoundry = new Map(
     known.flatMap(({ foundry, id }) => (foundry === undefined ? [] : [[foundry, id] as const])),
   );
+
   return release.flatMap((each) => {
     const { _id: documentId } = each.document;
     const id = byFoundry.get(compendiumKey(each.pack.name, documentId));
+
     return id === undefined ? [] : uuidsOf(each, id);
   });
 }
@@ -109,6 +113,7 @@ export function entryReferences(
   { known, release = [] }: ReferenceSources,
 ): EntryReferences {
   const documents = addressed(pack, slugs);
+
   return {
     byUuid: new Map([...knownUuids(release, known), ...documents.flatMap(({ entry, id }) => uuidsOf(entry, id))]),
     byFoundrySlug: new Map(documents.map(({ entry, id }) => [typedKey(entry.type, asciiSlug(entry.document)), id])),
@@ -131,6 +136,7 @@ export const NO_REFERENCES: EntryReferences = {
 /** The id of the known entry or selected document of `kind` with Foundry's slug (`language:dwarven`). */
 export function resolveSlug(references: EntryReferences, kind: ContentKind, slug: string): ContentId | undefined {
   const parsed = EntrySlug.safeParse(`${kind}:${slug}`);
+
   return parsed.success ? references.bySlug.get(parsed.data) : undefined;
 }
 

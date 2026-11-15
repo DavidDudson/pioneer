@@ -69,6 +69,7 @@ function render(): ComponentFixture<Host> {
   TestBed.configureTestingModule({});
   const fixture = TestBed.createComponent(Host);
   fixture.detectChanges();
+
   return fixture;
 }
 
@@ -78,9 +79,11 @@ function card(): HTMLElement | null {
 
 function trigger(fixture: ComponentFixture<unknown>): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('#trigger');
+
   if (element === null) {
     throw new Error('No trigger');
   }
+
   return element;
 }
 
@@ -202,15 +205,18 @@ describe(HoverCard, () => {
 function click(element: HTMLElement, pointerType: string): MouseEvent {
   const event = new PointerEvent('click', { bubbles: true, cancelable: true, pointerType });
   element.dispatchEvent(event);
+
   return event;
 }
 
 /** The span that listens for the pointer: mouseenter does not bubble from the projected trigger. */
 function pointerTarget(fixture: ComponentFixture<Host>): HTMLElement {
   const element = trigger(fixture).parentElement;
+
   if (element === null) {
     throw new Error('No pointer target');
   }
+
   return element;
 }
 
@@ -230,6 +236,7 @@ async function openBoth(): Promise<ComponentFixture<NestedHost>> {
     fixture.detectChanges();
     expect(cards()).toHaveLength(2);
   });
+
   return fixture;
 }
 

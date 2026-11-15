@@ -46,11 +46,13 @@ export class FilterChips<TKey extends string> extends Control {
 
   protected setSelected(key: TKey, on: boolean): void {
     const next = new Set(this.value());
+
     if (on) {
       next.add(key);
     } else {
       next.delete(key);
     }
+
     this.value.set(next);
     this.committed.emit();
   }

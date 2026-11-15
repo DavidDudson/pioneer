@@ -17,24 +17,29 @@ async function run(command: readonly string[], options: CommandOptions = {}): Pr
     stderr: 'pipe',
     env: { ...Bun.env, ...options.env },
   });
+
   const [stdout, stderr, code] = await Promise.all([
     new Response(child.stdout).text(),
     new Response(child.stderr).text(),
     child.exited,
   ]);
+
   return { code, stdout, stderr };
 }
 
 async function get(url: string): Promise<HttpResponse> {
   const response = await fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
   const body = await response.text();
+
   return { status: response.status, body };
 }
 
 const [tag] = Bun.argv.slice(2);
+
 if (tag === undefined) {
   throw new Error('Usage: bun tools/deploy-production.ts sha-<short commit>');
 }
+
 const result = await deploy(tag, {
   run,
   get,
@@ -50,5 +55,7 @@ const result = await deploy(tag, {
     await Bun.sleep(ms);
   },
 });
+
 const previousTag = result.previousImage.split(':').at(-1);
+
 console.info(`Deployed ${result.image}. Roll back with: bun tools/deploy-production.ts ${previousTag}`);

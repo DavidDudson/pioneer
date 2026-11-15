@@ -36,6 +36,7 @@ function parsedId(id: string | undefined): CampaignId {
   if (id === undefined) {
     throw new Error('No campaign selected');
   }
+
   return CampaignId.parse(id);
 }
 
@@ -59,6 +60,7 @@ export class CampaignStore {
   /** The open campaign. */
   public readonly selected = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.detail(id),
       queryFn: async (): Promise<Campaign> =>
@@ -70,6 +72,7 @@ export class CampaignStore {
   /** The open campaign's members with their names, and the user's role in it. */
   public readonly roster = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.roster(id),
       queryFn: async (): Promise<CampaignRoster> =>
@@ -84,6 +87,7 @@ export class CampaignStore {
   /** The open campaign's working invites; only its GM may see them, so it waits for the roster. */
   public readonly invites = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.invites(id),
       queryFn: async (): Promise<InviteSummary[]> =>
@@ -95,6 +99,7 @@ export class CampaignStore {
   /** The open campaign's party, and the user's characters that could join it. */
   public readonly party = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.party(id),
       queryFn: async (): Promise<CampaignParty> =>
@@ -106,6 +111,7 @@ export class CampaignStore {
   /** The open campaign's packs, and for its GM the ones they could enable. */
   public readonly packs = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.packs(id),
       queryFn: async (): Promise<CampaignPacks> =>
@@ -117,6 +123,7 @@ export class CampaignStore {
   /** The open campaign's variant rules, and for its GM the ones they could enable. */
   public readonly variantRules = injectQuery(() => {
     const id = this.#selectedId();
+
     return {
       queryKey: campaignKeys.variantRules(id),
       queryFn: async (): Promise<CampaignVariantRules> =>
@@ -134,6 +141,7 @@ export class CampaignStore {
     this.#client.setQueryData(campaignKeys.detail(campaign.id), campaign);
     // Stale, not refetched now: the list refetches when it is next shown, so navigation isn't held up.
     await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });
+
     return campaign;
   }
 
@@ -146,6 +154,7 @@ export class CampaignStore {
       issued.invite,
       ...(invites ?? []),
     ]);
+
     return issued;
   }
 
@@ -167,6 +176,7 @@ export class CampaignStore {
     this.#client.setQueryData(campaignKeys.detail(campaign.id), campaign);
     await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });
     await this.#client.invalidateQueries({ queryKey: campaignKeys.roster(campaign.id), refetchType: 'none' });
+
     return campaign;
   }
 
@@ -211,6 +221,7 @@ export class CampaignStore {
       params: { id, characterId },
       body: undefined,
     });
+
     await this.#client.cancelQueries({ queryKey: campaignKeys.party(id) });
     this.#client.setQueryData(campaignKeys.party(id), (shown: CampaignParty | undefined) => ({
       characters: shown?.characters ?? party.characters,
@@ -254,6 +265,7 @@ export class CampaignStore {
       params: { id, variantId },
       body: undefined,
     });
+
     await this.#client.cancelQueries({ queryKey: campaignKeys.variantRules(id) });
     this.#client.setQueryData(campaignKeys.variantRules(id), rules);
   }
@@ -261,6 +273,7 @@ export class CampaignStore {
   /** The user leaves the campaign; nothing of it is theirs to see after. */
   public async leave(id: CampaignId): Promise<void> {
     await this.#api.call(CampaignContract.leave, { params: { id }, body: undefined });
+
     for (const key of [
       campaignKeys.detail(id),
       campaignKeys.roster(id),
@@ -271,6 +284,7 @@ export class CampaignStore {
     ]) {
       this.#client.removeQueries({ queryKey: key });
     }
+
     await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });
   }
 }

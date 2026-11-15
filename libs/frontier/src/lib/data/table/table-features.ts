@@ -34,9 +34,11 @@ export const TABLE_FEATURES = tableFeatures({
   sortedRowModel: createSortedRowModel(),
   sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
 });
+
 export type TableFeatureSet = typeof TABLE_FEATURES;
 
 export type TableColumn<TData extends RowData> = ColumnDef<TableFeatureSet, TData>;
+
 export type TableHeader<TData extends RowData> = Header<TableFeatureSet, TData>;
 
 /** Typed column builder for `fr-table`: `const col = tableColumns<Row>(); col.columns([col.accessor('name', …)])`. */

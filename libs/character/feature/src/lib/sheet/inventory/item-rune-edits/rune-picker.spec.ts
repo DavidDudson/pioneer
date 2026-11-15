@@ -26,6 +26,7 @@ const SWORD = items.get(itemFixtureId(ItemFixture.Longsword));
 const WORDS = { fundamental: 'Fundamental', property: 'Property' };
 const FLAMING = runeFixtureId(RuneFixture.Flaming);
 const SWORD_LINE = '11111111-1111-4111-8111-111111111111';
+
 const LINE: InventoryItem = lineOf(
   InventorySchema.parse({
     items: [
@@ -43,6 +44,7 @@ const LINE: InventoryItem = lineOf(
 
 function i18n(): TranslocoService {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
+
   return TestBed.inject(TranslocoService);
 }
 
@@ -66,6 +68,7 @@ describe(propertyRows, () => {
     const entries = propertyRuneEntries(content, { item: LINE, entry: SWORD }, (left, right) =>
       left.localeCompare(right),
     );
+
     const rows = propertyRows(entries, WORDS);
 
     expect(rows.length).toBeGreaterThan(0);
@@ -81,6 +84,7 @@ describe(etchedRows, () => {
       { type: RuneType.Fundamental, rune: FundamentalRune.Potency },
       { type: RuneType.Property, rune: FLAMING },
     ] as const;
+
     const rows = etchedRows(content, { item: LINE, entry: SWORD, runes, key: runeKey }, { i18n: i18n(), words: WORDS });
 
     expect(rows.map((row) => [row.value, row.slots])).toStrictEqual([

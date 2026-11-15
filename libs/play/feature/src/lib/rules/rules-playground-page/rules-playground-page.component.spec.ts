@@ -102,9 +102,11 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');
     const formula = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input:not([type="number"])'));
+
     const proficiency = present(
       [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')][1],
     );
+
     await typeInto(harness, proficiency, '');
 
     await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.ac *');

@@ -8,6 +8,7 @@ export const NamespaceKind = {
   /** Facts about the moment. Absent means unknown: no `terrain:forest` may just mean nobody said. */
   Situational: 'situational',
 } as const;
+
 export type NamespaceKind = ValueOf<typeof NamespaceKind>;
 
 export const NamespaceKindSchema = z.enum(NamespaceKind);
@@ -20,6 +21,7 @@ export const RollOptionNamespace = z
   .string()
   .regex(/^[a-z\d](?:[a-z\d]|[-:](?=[a-z\d]))*$/u)
   .brand<'RollOptionNamespace'>();
+
 export type RollOptionNamespace = z.infer<typeof RollOptionNamespace>;
 
 /**
@@ -27,4 +29,5 @@ export type RollOptionNamespace = z.infer<typeof RollOptionNamespace>;
  * character uses; another pack adds its own (a homebrew `sanity`), and the registry merges them.
  */
 export const RollOptionNamespaces = z.record(RollOptionNamespace, NamespaceKindSchema).readonly();
+
 export type RollOptionNamespaces = z.infer<typeof RollOptionNamespaces>;

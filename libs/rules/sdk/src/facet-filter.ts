@@ -6,6 +6,7 @@ import { FacetType, facetValues, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition, FacetId, FacetValue } from './facet';
 
 export const SelectionKind = { Values: 'values', Range: 'range' } as const;
+
 export type SelectionKind = ValueOf<typeof SelectionKind>;
 
 /** What a `set` or `flag` facet keeps: entries with any `include` value (all, if none) and no `exclude` value. */
@@ -32,6 +33,7 @@ export type FilterState = ReadonlyMap<FacetId, FacetSelection>;
 
 /** How many entries are left. */
 export const EntryCount = z.int().nonnegative().brand<'EntryCount'>();
+
 export type EntryCount = z.infer<typeof EntryCount>;
 
 export interface ValueCount {
@@ -53,22 +55,28 @@ function inRange(value: FacetValue, { min, max }: RangeSelection): boolean {
   if (value === UNKNOWN) {
     return false;
   }
+
   const number = Number(value);
+
   return (min === undefined || number >= min) && (max === undefined || number <= max);
 }
 
 function keeps(values: readonly FacetValue[], selection: FacetSelection): boolean {
   if (selection.kind === SelectionKind.Range) {
     const unbounded = selection.min === undefined && selection.max === undefined;
+
     return unbounded || values.some((value) => inRange(value, selection));
   }
+
   const included = selection.include.length === 0 || values.some((value) => selection.include.includes(value));
+
   return included && !values.some((value) => selection.exclude.includes(value));
 }
 
 function matches(entry: ContentEntry, facets: readonly FacetDefinition[], state: FilterState): boolean {
   return facets.every((facet) => {
     const selection = state.get(facet.id);
+
     return selection === undefined || keeps(facetValues(entry, facet), selection);
   });
 }
@@ -89,12 +97,15 @@ export function filterEntries(
 export function onlyValue(state: FilterState, facet: FacetDefinition, value: FacetValue): FilterState {
   if (facet.type === FacetType.Range) {
     const bound = RangeBound.safeParse(value === UNKNOWN ? undefined : Number(value));
+
     return bound.success
       ? new Map([...state, [facet.id, { kind: SelectionKind.Range, min: bound.data, max: bound.data }]])
       : state;
   }
+
   const current = state.get(facet.id);
   const exclude = current?.kind === SelectionKind.Values ? current.exclude : [];
+
   return new Map([...state, [facet.id, { kind: SelectionKind.Values, include: [value], exclude }]]);
 }
 
@@ -110,14 +121,17 @@ function tally(
 ): Map<FacetValue, EntryCount> {
   const exclude = selection?.kind === SelectionKind.Values ? selection.exclude : [];
   const counts = new Map(selectedValues(selection).map((value) => [value, EntryCount.parse(0)]));
+
   for (const entry of entries) {
     const values = facetValues(entry, facet);
+
     if (!values.some((value) => exclude.includes(value))) {
       for (const value of values) {
         counts.set(value, EntryCount.parse((counts.get(value) ?? 0) + 1));
       }
     }
   }
+
   return counts;
 }
 
@@ -139,11 +153,14 @@ export function facetCounts(
     others.delete(facet.id);
     const counts = tally(filterEntries(entries, facets, others), facet, state.get(facet.id));
     const unknown = counts.get(UNKNOWN) ?? EntryCount.parse(0);
+
     // A range can't pick the unknown value, so its count stands apart; a set or flag facet lists it like any value.
     if (facet.type === FacetType.Range) {
       counts.delete(UNKNOWN);
     }
+
     const values = [...counts].map(([value, count]) => ({ value, count }));
+
     return { facet, values: sortCounts(facet.type, values), unknown };
   });
 }

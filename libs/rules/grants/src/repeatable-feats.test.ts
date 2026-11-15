@@ -54,6 +54,7 @@ const cleric = entry(
     grantChoice(flag),
   ]),
 );
+
 const entries: readonly GrantEntry[] = [cleric, domainInitiate, initiateWarden, toughness];
 
 const FEAT_SLOTS = [slotOf('cleric', 0), slotOf('cleric', 2), slotOf('cleric', 4)] as const;
@@ -66,6 +67,7 @@ type Pick = readonly [SlotKey, string];
 function featPicks(...slugs: readonly string[]): Pick[] {
   return slugs.flatMap((slug, index): Pick[] => {
     const slot = FEAT_SLOTS[index];
+
     return slot === undefined ? [] : [[slot, idOf(slug)]];
   });
 }
@@ -108,6 +110,7 @@ describe('a repeatable feat picked in two feat slots', () => {
       [FIRST_DOMAIN, 'fire'],
       [SECOND_DOMAIN, 'air'],
     ]);
+
     expect(openOf(result, 'domain-initiate')).toEqual([]);
     expect(result.errors).toEqual([]);
     const domains = result.answered.filter((slot) => slot.origin.entry === idOf('domain-initiate'));
@@ -124,6 +127,7 @@ describe('a repeatable feat picked in two feat slots', () => {
       [FEAT_SLOTS[1], idOf('domain-initiate')],
       [SECOND_DOMAIN, 'air'],
     ]);
+
     expectPlain(later.answered.filter(own).map((slot) => [slot.key, slot.take, slot.pick])).toEqual([
       [SECOND_DOMAIN, 1, 'air'],
     ]);
@@ -145,6 +149,7 @@ describe('a repeatable feat picked in two feat slots', () => {
       [FIRST_DOMAIN, 'fire'],
       [SECOND_DOMAIN, 'fire'],
     ]);
+
     const domains = result.answered.filter((slot) => slot.origin.entry === idOf('domain-initiate'));
     expectPlain(domains.map((slot) => slot.take)).toEqual([1]);
     expectPlain(result.open.map((slot) => slot.key)).toContain(SECOND_DOMAIN);
@@ -163,6 +168,7 @@ describe('a repeatable feat picked in two feat slots', () => {
       [slotOf('initiate-warden', 0, FEAT_SLOTS[0]), 'gale-of-leaves'],
       [slotOf('initiate-warden', 0, FEAT_SLOTS[1]), 'wild-morph'],
     ]);
+
     expect(openOf(result, 'initiate-warden')).toEqual([]);
     expect(result.rollOptions).toContain(RollOption.parse('initiate-warden:gale-of-leaves'));
     expect(result.rollOptions).toContain(RollOption.parse('initiate-warden:wild-morph'));

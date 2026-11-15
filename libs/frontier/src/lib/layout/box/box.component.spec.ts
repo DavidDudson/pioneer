@@ -16,20 +16,25 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Ability scores')]],
   });
+
   onTestFinished(() => {
     box.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     box.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(box.hostView);
   await appRef.whenStable();
   const host = box.location.nativeElement as HTMLElement;
   const inner = host.firstElementChild;
+
   if (inner === null) {
     throw new Error('fr-box rendered no inner element');
   }
+
   return { host, inner };
 }
 

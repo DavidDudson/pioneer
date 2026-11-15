@@ -27,6 +27,7 @@ const meta: Meta<HeritagePicker> = {
   args: { rows: HERITAGES, ariaLabel: 'Heritage', disabled: false, loading: false },
   parameters: { layout: 'padded' },
 };
+
 export default meta;
 
 /** A heritage of another ancestry stays in the table and says why it can't be picked. */

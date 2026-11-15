@@ -9,6 +9,7 @@ import { htmlToRichText } from './html-rich-text';
 function outcomesOf(html: string): CheckOutcomes | undefined {
   const [first] = htmlToRichText(html).richText;
   const checks = first?.type === 'paragraph' ? first.content.filter((node) => node.type === InlineKind.Check) : [];
+
   return checks[0]?.outcomes;
 }
 

@@ -13,6 +13,7 @@ async function loadName(): Promise<string> {
   setTimeout(() => {
     answer.resolve(NAMES[Math.floor(Math.random() * NAMES.length)] ?? '');
   }, LOAD_MS);
+
   return answer.promise;
 }
 
@@ -25,6 +26,7 @@ const meta: Meta<RefreshableInput> = {
   component: RefreshableInput,
   args: { ariaLabel: 'Name', placeholder: 'Name', disabled: false, invalid: false, load: loadName },
 };
+
 export default meta;
 
 export const Default: RefreshableInputStory = {};

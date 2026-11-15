@@ -15,9 +15,11 @@ interface Rendered {
 function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
   const fixture = TestBed.createComponent(DateInput);
   fixture.componentRef.setInput('ariaLabel', 'Session date');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.committed.subscribe(() => {
@@ -28,9 +30,11 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
   });
   fixture.detectChanges();
   const input = (fixture.nativeElement as HTMLElement).querySelector('input');
+
   if (input === null) {
     throw new Error('Expected an input');
   }
+
   return { fixture, input, commits: (): number => commits, cancels: (): number => cancels };
 }
 

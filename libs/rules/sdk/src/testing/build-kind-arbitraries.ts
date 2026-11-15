@@ -19,6 +19,7 @@ import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from 
 
 /** The most boosts the ancestry schema allows. */
 const ANCESTRY_BOOSTS_MAX = 4;
+
 /** A class's progression runs from 1st to 20th level. */
 const CLASS_LEVEL_MAX = 20;
 
@@ -42,6 +43,7 @@ export const ancestryData: Arbitrary<object> = withOptional(
 
 export const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
 export const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 3 }) });
+
 export const classData: Arbitrary<object> = withOptional(
   record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint }),
   {
@@ -49,27 +51,33 @@ export const classData: Arbitrary<object> = withOptional(
     subclass: slugText,
   },
 );
+
 export const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
   multiclass: contentIdJson,
   dedicationLock: integer({ min: 1, max: 4 }),
 });
 
 const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
+
 const deityCategory: Arbitrary<string> = constantFrom(
   ...Object.values(DeityCategory).filter((category) => category !== DeityCategory.Philosophy),
 );
+
 const DOMAINS_MAX = 16;
 const domains: Arbitrary<string[]> = shuffledSubarray(Object.values(DeityDomain), { maxLength: DOMAINS_MAX });
 const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
 const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
+
 /** Spells at distinct ranks. */
 const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain((ranks) =>
   tuple(...ranks.map((rank) => deitySpell(rank))),
 );
+
 const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
 const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
+
 const deityData: Arbitrary<object> = withOptional(
   record({
     category: deityCategory,
@@ -82,6 +90,7 @@ const deityData: Arbitrary<object> = withOptional(
   }),
   { sanctification: record({ modal: sanctificationModal, what: sanctified }) },
 );
+
 /** A philosophy grants no font, domains or spells. */
 const philosophyData: Arbitrary<object> = withOptional(
   record({

@@ -41,6 +41,7 @@ describe('item transfer routes', () => {
     const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/items`, { body }));
     const outsider = UserId.parse(newId());
     const stranger = await handler.handle(request('POST', `/campaigns/${id}/transfers/items`, { as: outsider, body }));
+
     const key = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/items`, {
         as: ezren,
@@ -108,6 +109,7 @@ describe('coin transfer routes', () => {
     const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/coins`, { body }));
     const outsider = UserId.parse(newId());
     const stranger = await handler.handle(request('POST', `/campaigns/${id}/transfers/coins`, { as: outsider, body }));
+
     const short = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/coins`, {
         as: ezren,
@@ -149,6 +151,7 @@ describe('answering an offer', () => {
     const accepted = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }),
     );
+
     const again = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }));
     const answer = await json(accepted, Answer);
 
@@ -165,6 +168,7 @@ describe('answering an offer', () => {
     const declined = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${transfer}/decline`, { as: ezren }),
     );
+
     const answer = await json(declined, Answer);
 
     expect(declined.status).toBe(200);
@@ -178,6 +182,7 @@ describe('answering an offer', () => {
 
     const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, {}));
     const gm = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: amiri }));
+
     const unknown = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${newId()}/decline`, { as: ezren }),
     );

@@ -83,6 +83,7 @@ describe(checkStatistics, () => {
       STANDARD,
       CORE_NAMESPACES,
     );
+
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [
@@ -142,6 +143,7 @@ describe(checkStatistics, () => {
       statistic('speed:land', '@ancestry.speed'),
       statistic('class-dc', '10 + @attr.key + @prof.class-dc'),
     );
+
     expect(check({ definitions: character })).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [
@@ -174,11 +176,13 @@ describe(checkStatistics, () => {
       statistic('hp:max', HP_FORMULA),
       statistic('class-dc', '10 + @attr.key + @prof.class-dc'),
     );
+
     const inputs = JSON.stringify({
       level: 3,
       attributes: { str: 4, dex: 2, con: 2, int: 1, wis: 1, cha: 0 },
       ranks: {},
     });
+
     expect(check({ definitions: character, inputs })).toMatchObject({
       rows: [
         {

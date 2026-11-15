@@ -39,7 +39,9 @@ function wizardWithStaff(): Character {
     quantity: ItemQuantity.parse(1),
     carry: { state: 'held', hands: 1 },
   });
+
   const wizard = new CharacterBuilder().named('Ezren').atLevel(5).picking('class', playerCoreClassId('wizard')).build();
+
   return wizard.withInventory({ items: [staff], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
 }
 
@@ -56,6 +58,7 @@ describe('PlayService staves', () => {
   async function patch(command: PlayCommand): Promise<CharacterPlay> {
     const saved = await play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command });
     ({ revision } = saved);
+
     return saved;
   }
 
@@ -105,12 +108,14 @@ describe('PlayService staves', () => {
   test('a prepared caster cannot pay with a slot', async () => {
     await prepared();
     const slot = slotCountKey(Slug.parse('wizard'), undefined, SpellRank.parse(3));
+
     const command: PlayCommand = {
       field: PlayCommandField.CastStaff,
       item: STAFF,
       spell: staffSpellId('fireball'),
       slot,
     };
+
     expect(await refused(command)).toBeInstanceOf(ValidationError);
   });
 

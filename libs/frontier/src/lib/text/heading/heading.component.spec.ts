@@ -13,19 +13,24 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Identity')]],
   });
+
   onTestFinished(() => {
     heading.destroy();
   });
+
   for (const [name, value] of Object.entries(inputs)) {
     heading.setInput(name, value);
   }
+
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(heading.hostView);
   await appRef.whenStable();
   const rendered = (heading.location.nativeElement as HTMLElement).firstElementChild;
+
   if (!(rendered instanceof HTMLElement)) {
     throw new TypeError('fr-heading rendered no element');
   }
+
   return rendered;
 }
 

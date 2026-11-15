@@ -8,18 +8,23 @@ import { MAX_SEGMENTS, Meter, MeterVariant } from './meter.component';
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Meter);
   fixture.componentRef.setInput('label', 'Hit points');
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
 function meter(host: HTMLElement): HTMLMeterElement {
   const element = host.querySelector('meter');
+
   if (element === null) {
     throw new Error('no meter');
   }
+
   return element;
 }
 
@@ -48,6 +53,7 @@ describe(Meter, () => {
       high: 15,
       optimum: 30,
     });
+
     const element = meter(host);
     expect(element.getAttribute('aria-label')).toBe('Hit points');
     expect([element.value, element.min, element.max, element.low, element.high, element.optimum]).toStrictEqual([
@@ -70,6 +76,7 @@ describe(Meter, () => {
   it('fills with the accent without thresholds and a status tone with them', async () => {
     const plain = await render({ value: 2, max: 30 });
     expect(meter(plain).className).toContain('meter-value:bg-accent-solid');
+
     const low = await render({
       value: 2,
       max: 30,
@@ -77,6 +84,7 @@ describe(Meter, () => {
       high: 15,
       optimum: 30,
     });
+
     expect(meter(low).className).toContain('meter-value:bg-danger-solid');
   });
 
@@ -89,6 +97,7 @@ describe(Meter, () => {
       optimum: 0,
       variant: MeterVariant.Segmented,
     });
+
     expect(segments(host).map((segment) => segment.classList.contains('bg-warning-solid'))).toStrictEqual([
       true,
       true,
@@ -105,6 +114,7 @@ describe(Meter, () => {
       max: 4,
       variant: MeterVariant.Segmented,
     });
+
     expect(segments(host).map((segment) => segment.classList.contains('bg-accent-solid'))).toStrictEqual([
       true,
       true,
@@ -118,6 +128,7 @@ describe(Meter, () => {
       max: MAX_SEGMENTS + 1,
       variant: MeterVariant.Segmented,
     });
+
     expect(segments(host)).toHaveLength(0);
     expect(meter(host).classList.contains('sr-only')).toBe(false);
   });
@@ -136,12 +147,15 @@ describe(Meter, () => {
       max: 4,
       variant: MeterVariant.Segmented,
     });
+
     expect(segments(fractionalValue)).toHaveLength(0);
+
     const fractionalRange = await render({
       value: 1,
       max: 3.5,
       variant: MeterVariant.Segmented,
     });
+
     expect(segments(fractionalRange)).toHaveLength(0);
   });
 });

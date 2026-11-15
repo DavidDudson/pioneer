@@ -23,6 +23,7 @@ function actionOf(entry: ContentEntry): ActionData | undefined {
   if (entry.kind === ContentKind.Action) {
     return entry.data;
   }
+
   if (
     entry.kind === ContentKind.Feat ||
     entry.kind === ContentKind.ClassFeature ||
@@ -30,6 +31,7 @@ function actionOf(entry: ContentEntry): ActionData | undefined {
   ) {
     return entry.data.action;
   }
+
   return undefined;
 }
 
@@ -39,18 +41,23 @@ const READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ActionData>>();
 /** How every action, feat, class feature and ancestry feature in the registry is used; read once per registry. */
 export function abilityActions(registry: ContentRegistry): ReadonlyMap<ContentId, ActionData> {
   const existing = READ.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
       .flatMap((entry): [ContentId, ActionData][] => {
         const action = actionOf(entry);
+
         return action === undefined ? [] : [[entry.id, action]];
       }),
   );
+
   READ.set(registry, read);
+
   return read;
 }
 
@@ -68,9 +75,11 @@ const NATURES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, AbilityNatur
 /** The traits of every ability in the registry and whether it casts a spell; read once per registry. */
 function abilityNatures(registry: ContentRegistry): ReadonlyMap<ContentId, AbilityNature> {
   const existing = NATURES.get(registry);
+
   if (existing !== undefined) {
     return existing;
   }
+
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
@@ -79,7 +88,9 @@ function abilityNatures(registry: ContentRegistry): ReadonlyMap<ContentId, Abili
         { traits: entry.traits, casts: entry.kind === ContentKind.Spell || entry.slug === CAST_A_SPELL },
       ]),
   );
+
   NATURES.set(registry, read);
+
   return read;
 }
 
@@ -92,8 +103,10 @@ function universalCandidates(
     if (action.universal !== true) {
       return [];
     }
+
     const rolls = action.skills !== undefined && action.skills.length > 0;
     const origin = { kind: rolls ? ActionOriginKind.Skill : ActionOriginKind.Basic };
+
     return [{ id, action, origin, ...natures.get(id) }];
   });
 }
@@ -112,6 +125,7 @@ function grantedCandidates(
 ): readonly ActionCandidate[] {
   return items.flatMap(({ entry, origin }): ActionCandidate[] => {
     const action = actions.get(entry.id);
+
     return action === undefined
       ? []
       : [
@@ -133,6 +147,7 @@ function formCandidates(
 ): readonly ActionCandidate[] {
   return (form?.form.actions ?? []).flatMap(({ action: id }): ActionCandidate[] => {
     const action = actions.get(id);
+
     return form === undefined || action === undefined
       ? []
       : [{ id, action, origin: { kind: ActionOriginKind.Granted, source: form.origin }, ...natures.get(id) }];
@@ -149,10 +164,12 @@ function spentActions(
   { uses }: Pick<ResourcesSpent, 'uses'>,
 ): ReadonlySet<ContentId> {
   const frequencies = abilityFrequencies(registry);
+
   const maxima = useMaxima(
     candidates.map(({ id }) => id),
     (id) => frequencies.get(id),
   );
+
   return new Set(
     candidates
       .filter(({ id }) => maxima.has(abilityUseKey(id)))
@@ -178,12 +195,14 @@ export function characterActions(
   const equipped = equippedGrants(document, itemContent(registry), slots);
   const actions = abilityActions(registry);
   const natures = abilityNatures(registry);
+
   const candidates = [
     ...universalCandidates(actions, natures),
     ...grantedCandidates(grants.items, actions, natures),
     ...grantedCandidates(equipped.items, actions, natures),
     ...formCandidates(equipped.form, actions, natures),
   ];
+
   return availableActions({
     candidates,
     facts: equipped.facts,

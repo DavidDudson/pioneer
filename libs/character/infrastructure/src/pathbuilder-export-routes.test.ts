@@ -32,16 +32,20 @@ function app(): AppUnderTest {
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const clock = fixedClock('2026-10-07T10:00:00Z');
   const repository = new InMemoryCharacterRepository();
+
   const importer = new PathbuilderImportService(
     { characters: repository, content, variants: new InMemoryCharacterVariantRepository() },
     clock,
   );
+
   const fetcher = new InMemoryPathbuilderExportFetcher({ ok: true, json: briarRoseExport });
+
   const api = new Elysia()
     .use(problemHandler)
     .use(
       pathbuilderImportRoutes({ importer, exports: new PathbuilderExportService(fetcher) }, new FakeAuthenticator()),
     );
+
   return { api, fetcher };
 }
 
@@ -78,6 +82,7 @@ describe('Pathbuilder export fetch route', () => {
 
   test('a fetch that fails is a 422 naming why', async () => {
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+
     const importer = new PathbuilderImportService(
       {
         characters: new InMemoryCharacterRepository(),
@@ -86,12 +91,15 @@ describe('Pathbuilder export fetch route', () => {
       },
       fixedClock('2026-10-07T10:00:00Z'),
     );
+
     const failing = new InMemoryPathbuilderExportFetcher({ ok: false, problem: ExportFetchProblem.TimedOut });
+
     const api = new Elysia()
       .use(problemHandler)
       .use(
         pathbuilderImportRoutes({ importer, exports: new PathbuilderExportService(failing) }, new FakeAuthenticator()),
       );
+
     const response = await api.handle(post('https://pathbuilder2e.com/json.php?id=1'));
 
     expect(response.status).toBe(422);

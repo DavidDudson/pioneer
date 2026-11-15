@@ -56,10 +56,13 @@ async function render<Host>({ component, inputs }: Row<Host>, known: boolean): P
     ],
   });
   const fixture = TestBed.createComponent(component);
+
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
+
   await fixture.whenStable();
+
   return fixture;
 }
 

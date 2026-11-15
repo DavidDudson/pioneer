@@ -43,6 +43,7 @@ export class DrizzleCampaignKeyItemRepository extends CampaignKeyItemRepository 
       .from(campaignKeyItems)
       .where(and(eq(campaignKeyItems.campaignId, campaignId), isNull(campaignKeyItems.archivedAt)))
       .orderBy(asc(campaignKeyItems.createdAt), asc(campaignKeyItems.id));
+
     return rows.map((row) => toKeyItem(row));
   }
 

@@ -9,10 +9,12 @@ import type { Adjustment } from './modifier';
 
 /** Bonuses and penalties of one type stack apart: the best bonus and the worst penalty each apply. */
 const Direction = { Bonus: 'bonus', Penalty: 'penalty' } as const;
+
 type Direction = ValueOf<typeof Direction>;
 
 /** A type and a direction (`status:penalty`): the lines that compete with one another. */
 const StackKey = z.string().brand<'StackKey'>();
+
 type StackKey = z.infer<typeof StackKey>;
 
 /** A typed line with its value: one that competes within its type and direction. */
@@ -24,10 +26,13 @@ interface Competing {
 
 function typed(line: BreakdownLine): Competing | undefined {
   const { value, modifier } = line;
+
   if (value === undefined || modifier.type === ModifierType.Untyped) {
     return undefined;
   }
+
   const direction = value < 0 ? Direction.Penalty : Direction.Bonus;
+
   return { line, value, key: StackKey.parse(`${modifier.type}:${direction}`) };
 }
 
@@ -40,18 +45,22 @@ function beats(challenger: Competing, holder: Competing): boolean {
   if (challenger.value !== holder.value) {
     return Math.abs(challenger.value) > Math.abs(holder.value);
   }
+
   return challenger.line.modifier.id < holder.line.modifier.id;
 }
 
 /** The winning line of each type and direction. */
 function winners(lines: readonly BreakdownLine[]): ReadonlyMap<StackKey, Competing> {
   const best = new Map<StackKey, Competing>();
+
   for (const challenger of lines.map((line) => competing(line))) {
     const holder = challenger === undefined ? undefined : best.get(challenger.key);
+
     if (challenger !== undefined && (holder === undefined || beats(challenger, holder))) {
       best.set(challenger.key, challenger);
     }
   }
+
   return best;
 }
 
@@ -59,6 +68,7 @@ function winners(lines: readonly BreakdownLine[]): ReadonlyMap<StackKey, Competi
 function suppressed(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>): BreakdownLine {
   const competitor = competing(line);
   const winner = competitor === undefined ? undefined : best.get(competitor.key);
+
   return winner === undefined || winner.line === line
     ? line
     : {
@@ -85,6 +95,7 @@ function outmatched(
   const { status } = line;
   const candidate = typed(line);
   const winner = candidate === undefined ? undefined : best.get(candidate.key);
+
   if (
     status.kind !== LineStatusKind.Conditional ||
     candidate === undefined ||
@@ -95,6 +106,7 @@ function outmatched(
   ) {
     return line;
   }
+
   return { ...line, status: { ...status, beatenBy: winner.line.modifier.id } };
 }
 
@@ -108,6 +120,7 @@ function outmatched(
  */
 export function stack(lines: readonly BreakdownLine[], pending: readonly Adjustment[]): BreakdownLine[] {
   const best = winners(lines);
+
   return lines.map((line) =>
     line.status.kind === LineStatusKind.Conditional ? outmatched(line, best, pending) : suppressed(line, best),
   );

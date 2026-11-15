@@ -49,6 +49,7 @@ interface SlotScope {
 /** Whether the slot offers `entry`: of its kind, and when nested, belonging to the parent pick or to none. */
 function offers({ kind, nested, parent }: SlotScope, entry: GrantEntry): boolean {
   const fits = !nested || entry.belongsTo === undefined || entry.belongsTo === parent;
+
   return entry.kind === kind && fits;
 }
 
@@ -62,12 +63,14 @@ function offered(scope: SlotScope): OfferedOption[] {
   const entries = scope.lookup
     .ofKind(scope.kind)
     .filter((entry) => offers(scope, entry) && (entry.facts?.unsupported !== true || entry.id === scope.held));
+
   return entries.map((entry) => ({ value: entry.id, label: entry.name, summary: undefined })).toSorted(byLabel);
 }
 
 /** `definition` with its offer, worked out the first time it is read, and `pick`. */
 function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentId | undefined): RootSlot {
   const offer = new Offer(() => offered({ ...scope, held: pick }));
+
   return {
     ...definition,
     pick,
@@ -81,6 +84,7 @@ function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentI
 function pickOf(value: ChoiceValue, scope: SlotScope): ContentId | undefined {
   const id = ContentId.safeParse(value);
   const entry = id.success ? scope.lookup.entry(id.data) : undefined;
+
   return entry !== undefined && offers(scope, entry) ? entry.id : undefined;
 }
 
@@ -109,6 +113,7 @@ function readSlot(definition: RootSlotDefinition, value: ChoiceValue | undefined
   const pick = value === undefined ? undefined : pickOf(value, scope);
   const hop: OriginHop = { kind: OriginHopKind.Choice, slot: definition.key };
   const unoffered = pick === undefined && value !== undefined;
+
   return {
     slot: slotOf(definition, scope, pick),
     root: pick === undefined ? undefined : { entry: pick, hop },
@@ -131,13 +136,17 @@ export function readRootSlots(
 ): RootSlotsRead {
   const answered = new Map<SlotKey, ContentId>();
   const reads: SlotRead[] = [];
+
   for (const definition of definitions) {
     const read = readSlot(definition, picks.get(definition.key), scopeOf(definition, lookup, answered));
+
     if (read.root !== undefined) {
       answered.set(definition.key, read.root.entry);
     }
+
     reads.push(read);
   }
+
   return {
     slots: reads.map((read) => read.slot),
     roots: reads.flatMap((read) => read.root ?? []),

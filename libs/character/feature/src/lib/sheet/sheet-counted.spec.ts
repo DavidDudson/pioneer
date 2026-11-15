@@ -28,12 +28,14 @@ const SKIES = Slug.parse('take-to-the-skies');
 
 function wearingBoots(quantity: number): Character {
   const built = new CharacterBuilder().build();
+
   const inventory = addItem(EMPTY_INVENTORY, {
     id: BOOTS,
     item: itemFixtureId(ItemFixture.WingedBoots),
     quantity: ItemQuantity.parse(quantity),
     container: undefined,
   });
+
   return new Character({
     document: { ...built.document, inventory },
     version: built.version,
@@ -44,6 +46,7 @@ function wearingBoots(quantity: number): Character {
 
 async function registryWithItems(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
+
   return TestBed.inject(ContentLoader).registry(EQUIPMENT_CONTENT_KINDS);
 }
 

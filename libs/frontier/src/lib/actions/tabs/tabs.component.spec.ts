@@ -31,17 +31,21 @@ async function render(url: string): Promise<Rendered> {
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
   const nav = host.querySelector('nav');
+
   if (nav === null) {
     throw new Error('fr-tabs rendered no <nav>');
   }
+
   return { fixture, nav, links: [...host.querySelectorAll('a')] };
 }
 
 function link(rendered: Rendered, index: number): HTMLAnchorElement {
   const found = rendered.links[index];
+
   if (found === undefined) {
     throw new Error(`No tab at ${String(index)}`);
   }
+
   return found;
 }
 
@@ -59,6 +63,7 @@ function tabStops(rendered: Rendered): boolean[] {
 function press(rendered: Rendered, key: string): number {
   document.activeElement?.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
   rendered.fixture.detectChanges();
+
   return rendered.links.indexOf(document.activeElement as HTMLAnchorElement);
 }
 

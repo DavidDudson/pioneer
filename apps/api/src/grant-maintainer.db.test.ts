@@ -34,6 +34,7 @@ describe.skipIf(adminUrl === undefined)('grantMaintainer (postgres)', () => {
       .select({ role: users.role })
       .from(users)
       .where(sql`${users.id} = ${id}`);
+
     return row?.role;
   }
 

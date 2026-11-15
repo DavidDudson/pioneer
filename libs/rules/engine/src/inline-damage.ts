@@ -25,6 +25,7 @@ function tagged(term: Term, { damageType, category }: DamageInstance): Term {
     ...(damageType === undefined ? {} : { type: damageType }),
     ...(category === undefined ? {} : { category }),
   };
+
   return { ...term, tags };
 }
 
@@ -35,17 +36,23 @@ function tagged(term: Term, { damageType, category }: DamageInstance): Term {
  */
 export function resolveDamageNode(node: DamageNode, inputs: StatisticInputs | undefined): ResolvedDamageNode {
   const terms: Term[] = [];
+
   for (const instance of node.instances) {
     if (inputs === undefined && instance.formula.includes(REFERENCE)) {
       return { ok: false, unresolved: FormulaText.parse(instance.formula) };
     }
+
     const resolved = resolveDamageFormula(instance.formula, inputs ?? NO_INPUTS);
+
     if (!resolved.ok) {
       return { ok: false, unresolved: resolved.unresolved };
     }
+
     terms.push(...resolved.expression.terms.map((term) => tagged(term, instance)));
   }
+
   const [first, ...rest] = terms;
+
   return first === undefined
     ? { ok: false, unresolved: FormulaText.parse('0') }
     : { ok: true, expression: { terms: [first, ...rest] } };

@@ -33,17 +33,22 @@ export function valueOf(value: ModifierValue | RuleValue | DefenceValue, resolve
   if (typeof value === 'number') {
     return { ok: true, value: RuleNumber.parse(value) };
   }
+
   const parsed = parseFormula(FormulaText.parse(value));
+
   if (!parsed.ok) {
     return parsed;
   }
+
   const outcome = evaluate(parsed.formula, resolve);
+
   return outcome.ok ? { ok: true, value: RuleNumber.parse(outcome.value) } : outcome;
 }
 
 /** `value` rounded down, if it is a number inside the safe integer range; undefined when it is not. */
 export function whole(value: unknown): FormulaValue | undefined {
   const parsed = FormulaValue.safeParse(typeof value === 'number' ? Math.floor(value) : value);
+
   return parsed.success ? parsed.data : undefined;
 }
 
@@ -61,21 +66,27 @@ export function changed(
     case AdjustMode.Add: {
       return whole(current + change);
     }
+
     case AdjustMode.Subtract: {
       return whole(current - change);
     }
+
     case AdjustMode.Multiply: {
       return whole(current * change);
     }
+
     case AdjustMode.Upgrade: {
       return whole(Math.max(current, change));
     }
+
     case AdjustMode.Downgrade: {
       return whole(Math.min(current, change));
     }
+
     case AdjustMode.Override: {
       return whole(change);
     }
+
     default: {
       return mode satisfies never;
     }

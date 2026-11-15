@@ -49,10 +49,13 @@ export function inlineLabel(
   if (label === undefined) {
     return undefined;
   }
+
   const parsed = InlineLabel.safeParse(label.trim());
+
   if (!parsed.success) {
     context.report(problem);
   }
+
   return parsed.data;
 }
 

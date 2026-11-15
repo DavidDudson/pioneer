@@ -22,6 +22,7 @@ export const TargetKind = {
   Familiar: 'familiar',
   Eidolon: 'eidolon',
 } as const;
+
 export type TargetKind = ValueOf<typeof TargetKind>;
 
 /** Words that narrow a target: "1 willing creature", "1 unattended magic item", "1 dead creature". */
@@ -37,18 +38,22 @@ export const TargetQualifier = {
   Unattended: 'unattended',
   Magical: 'magical',
 } as const;
+
 export type TargetQualifier = ValueOf<typeof TargetQualifier>;
 
 /** A count that is no number: "any number of creatures", or every one there is ("all creatures in range"). */
 export const TargetCountWord = { Any: 'any', All: 'all' } as const;
+
 export type TargetCountWord = ValueOf<typeof TargetCountWord>;
 
 /** Where `all` targets are: in the spell's area ("enemies in the area") or within its range. */
 export const TargetWithin = { Area: 'area', Range: 'range' } as const;
+
 export type TargetWithin = ValueOf<typeof TargetWithin>;
 
 /** The caster as a target: as well as the others ("you and up to 4 allies") or instead of them ("you or 1 ally"). */
 export const TargetYou = { And: 'and', Or: 'or' } as const;
+
 export type TargetYou = ValueOf<typeof TargetYou>;
 
 /** How many of a kind a spell targets. */

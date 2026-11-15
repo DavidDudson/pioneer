@@ -3,4 +3,5 @@ export const CampaignCommand = {
   ArchiveCampaign: 'archiveCampaign',
   RestoreCampaign: 'restoreCampaign',
 } as const;
+
 export type CampaignCommand = (typeof CampaignCommand)[keyof typeof CampaignCommand];

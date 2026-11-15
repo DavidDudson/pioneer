@@ -16,14 +16,17 @@ function render(): ComponentFixture<PickerField<string, Feat>> {
   fixture.componentRef.setInput('rowValue', (feat: Feat): string => feat.id);
   fixture.componentRef.setInput('rowLabel', (feat: Feat): string => feat.name);
   fixture.detectChanges();
+
   return fixture;
 }
 
 function trigger(fixture: ComponentFixture<PickerField<string, Feat>>): HTMLButtonElement {
   const found = (fixture.nativeElement as HTMLElement).querySelector('button');
+
   if (found === null) {
     throw new Error('Expected a trigger');
   }
+
   return found;
 }
 

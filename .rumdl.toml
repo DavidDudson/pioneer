@@ -1,7 +1,7 @@
 # Markdown lint (rumdl, a Rust port of markdownlint). Strict defaults, with
 # the line length matched to the code formatter.
 [global]
-exclude = ["node_modules", "dist", ".nx", "CHANGELOG.md", ".agents"]
+exclude = ["node_modules", "dist", ".nx", "CHANGELOG.md", ".agents", "tools/oxlint/anti-slop/vendor"]
 
 [MD013]
 line-length = 120

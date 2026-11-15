@@ -42,16 +42,20 @@ function runeTarget(patch: RunePatch): InventoryTarget {
         rune: { action: RuneAction.Etch, id: patch.id, rune: patch.rune },
       };
     }
+
     case CharacterPatchField.EraseRune: {
       return {
         id: patch.id,
         rune: { action: RuneAction.Erase, id: patch.id, rune: patch.rune },
       };
     }
+
     case CharacterPatchField.TransferRune: {
       const { id, to, rune } = patch;
+
       return { id, to, rune: { action: RuneAction.Transfer, id, to, rune } };
     }
+
     default: {
       return patch satisfies never;
     }
@@ -65,20 +69,25 @@ function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>):
     case CharacterPatchField.BuyItem: {
       return { item: patch.item, container: patch.container };
     }
+
     case CharacterPatchField.MoveItem: {
       return { id: patch.id, container: patch.container };
     }
+
     case CharacterPatchField.CarryItem: {
       return { id: patch.id, carry: patch.carry };
     }
+
     case CharacterPatchField.InvestItem: {
       return { id: patch.id, invested: patch.invested };
     }
+
     case CharacterPatchField.EtchRune:
     case CharacterPatchField.EraseRune:
     case CharacterPatchField.TransferRune: {
       return runeTarget(patch);
     }
+
     case CharacterPatchField.SetItemBroken:
     case CharacterPatchField.SetItemState:
     case CharacterPatchField.RemoveItem:
@@ -86,9 +95,11 @@ function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>):
     case CharacterPatchField.RenameItem: {
       return { id: patch.id };
     }
+
     case CharacterPatchField.SetCoins: {
       return {};
     }
+
     default: {
       return patch satisfies never;
     }
@@ -100,5 +111,6 @@ export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefi
   if (isKitPatch(patch)) {
     return { kit: patch.kit, container: patch.container };
   }
+
   return isUntargetedPatch(patch) ? undefined : itemTarget(patch);
 }

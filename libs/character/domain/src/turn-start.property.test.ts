@@ -21,9 +21,11 @@ const CONTENT = ContentId.parse('00000000-0000-4000-8000-0000000000a1');
 const LIMITS = within(HitPoints.parse(10));
 
 const rounds: Arbitrary<number | undefined> = option(integer({ min: 1, max: ROUNDS_MAX }), { nil: undefined });
+
 const expiries: Arbitrary<EffectExpiry | undefined> = option(constantFrom(...Object.values(EffectExpiry)), {
   nil: undefined,
 });
+
 const shapes = array(record({ remaining: rounds, expiry: expiries }), { maxLength: EFFECTS_MAX });
 
 function instanceId(index: number): EffectInstanceId {
@@ -45,6 +47,7 @@ function ranOut({ remaining, expiry }: ActiveEffect): boolean {
   if (remaining === undefined) {
     return expiry === EffectExpiry.TurnStart;
   }
+
   return remaining === 1 && (expiry ?? EffectExpiry.TurnStart) === EffectExpiry.TurnStart;
 }
 
@@ -53,16 +56,19 @@ describe('startTurn properties', () => {
     assert(
       property(effects, integer({ min: 0, max: SEED_MAX }), (before, seed) => {
         const random = seededRandom(RandomSeed.parse(seed));
+
         const { play, events } = startTurn(
           { ...FRESH_PLAY, effects: [...before] },
           { limits: LIMITS, recovery: [] },
           random,
         );
+
         const removed = before.filter(({ id }) => !play.effects.some((each) => each.id === id));
         const expired = events.filter(({ kind }) => kind === TurnEventKind.EffectExpired);
         const floored = play.effects.every(({ remaining }) => remaining === undefined || remaining >= 1);
         const onlyRanOut = removed.every((each) => ranOut(each));
         const allRanOut = before.filter((each) => ranOut(each)).length === removed.length;
+
         return floored && onlyRanOut && allRanOut && expired.length === removed.length;
       }),
       { numRuns: RUNS },

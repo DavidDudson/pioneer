@@ -23,6 +23,7 @@ export class FeatDisplayService {
 
   public async get(actor: UserId, id: CharacterId): Promise<FeatDisplayChoice> {
     await this.#assertAccess(actor, id);
+
     return { showGrantOnly: await this.#display.findShown({ userId: actor, characterId: id }) };
   }
 
@@ -34,11 +35,13 @@ export class FeatDisplayService {
     await this.#assertAccess(actor, id);
     const key = { userId: actor, characterId: id };
     await this.#display.save(key, { section, showGrantOnly }, this.#clock.now());
+
     return { showGrantOnly: await this.#display.findShown(key) };
   }
 
   async #assertAccess(actor: UserId, id: CharacterId): Promise<void> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }

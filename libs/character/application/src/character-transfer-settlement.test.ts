@@ -24,6 +24,7 @@ class StaleRecipient extends InMemoryCharacterRepository {
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {
     const found = await super.findById(id);
+
     return id === this.#stale && found !== undefined ? found.withVersion(nextVersion(found.version)) : found;
   }
 }

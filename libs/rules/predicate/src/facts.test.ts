@@ -9,8 +9,10 @@ import { namespaceTable } from './namespaces';
 import { Truth } from './truth';
 
 const options = (...given: readonly string[]): RollOption[] => given.map((option) => RollOption.parse(option));
+
 const verdict = (predicate: unknown, given: PredicateFacts): Truth =>
   evaluatePredicate(Predicate.parse(predicate), given);
+
 const ITEM = RollOptionNamespace.parse('item');
 const byNumber = (left: number, right: number): number => left - right;
 

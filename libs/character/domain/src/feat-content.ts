@@ -41,11 +41,13 @@ const READ = new WeakMap<ContentRegistry, FeatContent>();
 export function featContent(registry: ContentRegistry): FeatContent {
   const read = READ.get(registry) ?? readFeats(registry);
   READ.set(registry, read);
+
   return read;
 }
 
 function readFeats(registry: ContentRegistry): FeatContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+
   const feats = new Map(
     entries.flatMap((entry): [ContentId, FeatRead][] =>
       entry.kind === ContentKind.Feat
@@ -64,6 +66,7 @@ function readFeats(registry: ContentRegistry): FeatContent {
         : [],
     ),
   );
+
   const archetypes = new Map(
     entries.flatMap((entry): [ContentId, ArchetypeRead][] =>
       entry.kind === ContentKind.Archetype
@@ -80,6 +83,7 @@ function readFeats(registry: ContentRegistry): FeatContent {
         : [],
     ),
   );
+
   return {
     feat: (id: ContentId): FeatRead | undefined => feats.get(id),
     archetype: (id: ContentId): ArchetypeRead | undefined => archetypes.get(id),
@@ -95,4 +99,5 @@ export const FeatPickProblem = {
   Prerequisites: 'prerequisites',
   DedicationLocked: 'dedication-locked',
 } as const;
+
 export type FeatPickProblem = ValueOf<typeof FeatPickProblem>;

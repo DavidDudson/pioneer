@@ -5,9 +5,11 @@ import type { SelectedCreature, SelectedEntry } from './select-entries';
 /** The description Foundry keeps for a creature: its public notes, the book's flavour text. */
 function publicNotes(system: Readonly<Record<string, unknown>>): string {
   const { details } = system;
+
   if (typeof details !== 'object' || details === null || !('publicNotes' in details)) {
     return '';
   }
+
   return typeof details.publicNotes === 'string' ? details.publicNotes : '';
 }
 
@@ -18,6 +20,7 @@ function publicNotes(system: Readonly<Record<string, unknown>>): string {
  */
 export function creatureEntry({ pack, path, actor, book }: SelectedCreature): SelectedEntry {
   const { details, traits } = actor.system;
+
   const document: FoundryDocument = {
     ...actor,
     type: FoundryItemType.Npc,
@@ -30,5 +33,6 @@ export function creatureEntry({ pack, path, actor, book }: SelectedCreature): Se
       rules: [],
     },
   };
+
   return { pack, path, document, type: FoundryItemType.Npc, book };
 }

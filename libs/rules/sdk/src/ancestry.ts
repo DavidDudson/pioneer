@@ -12,6 +12,7 @@ import { Feet, HitPoints } from './units';
 
 /** Id of an ancestry content entry (UUIDv5 of `<pack>/<slug>`). */
 export const AncestryId = Uuid.brand<'AncestryId'>();
+
 export type AncestryId = z.infer<typeof AncestryId>;
 
 const BOOSTS_MAX = 4;
@@ -45,6 +46,7 @@ export const AncestryDefinition = z.object({
   /** The `sense` entry for its vision (darkvision, low-light vision); absent for ordinary vision. */
   vision: ContentId.optional(),
 });
+
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;
 
 /**
@@ -59,4 +61,5 @@ export const AncestryData = z.strictObject({
   additionalLanguages: AdditionalLanguages,
   reach: Feet,
 });
+
 export type AncestryData = z.infer<typeof AncestryData>;

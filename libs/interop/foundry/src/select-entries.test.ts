@@ -55,6 +55,7 @@ const files: Record<string, unknown> = {
 function archiveFiles(extra: Record<string, string> = {}): ReadonlyMap<string, string> {
   const texts = Object.entries(files).map(([path, json]) => [`${ROOT}/${path}`, JSON.stringify(json)] as const);
   const raw = Object.entries(extra).map(([path, text]) => [`${ROOT}/${path}`, text] as const);
+
   return new Map([...texts, ...raw]);
 }
 
@@ -137,6 +138,7 @@ describe('selectEntries', () => {
 
   test('skips an effect that a committed Pioneer entry replaces', () => {
     const aquatic = item('Effect: Aquatic Combat', 'effect', remaster('Pathfinder Player Core'));
+
     const { selected, skipped } = selectEntries(
       release({
         'packs/pf2e/feats/aquatic.json': JSON.stringify({
@@ -157,6 +159,7 @@ describe('selectEntries', () => {
 
   test('skips a remaster entry that is not ORC', () => {
     const cup = item('CUP Feat', 'feat', { title: 'Pathfinder Player Core', license: 'Paizo CUP', remaster: true });
+
     const { selected, skipped } = selectEntries(
       release({ 'packs/pf2e/feats/cup.json': JSON.stringify(cup) }),
       new Set([playerCore]),
@@ -214,6 +217,7 @@ describe('selectEntries', () => {
         license: 'OGL',
         remaster: false,
       });
+
       const { skipped } = selectEntries(
         release({ 'packs/pf2e/feats/old.json': JSON.stringify(legacy) }),
         new Set([mwangiExpanse]),
@@ -274,11 +278,13 @@ describe('selectEntries', () => {
 describe('dryRunReport', () => {
   test('counts imports by book and type, and skips by reason', () => {
     const legacy = item('Older Feat', 'feat', { title: 'Pathfinder Advanced Player\u2019s Guide', remaster: false });
+
     const extra = {
       'packs/pf2e/feats/broken.json': '{',
       'packs/pf2e/feats/bad.json': '[',
       'packs/pf2e/feats/older-feat.json': JSON.stringify(legacy),
     };
+
     const report = dryRunReport(selectEntries(release(extra), new Set([playerCore]), LEGACY));
 
     expect(report).toEqual({

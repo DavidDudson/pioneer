@@ -83,6 +83,7 @@ const ACTION_COST_FACET: FacetDefinition = {
     if (entry.kind === ContentKind.Feat) {
       return [actionCostValue(entry.data.action)];
     }
+
     return entry.kind === ContentKind.Action ? [actionCostValue(entry.data)] : [];
   },
 };
@@ -97,6 +98,7 @@ const SKILL_FACET: FacetDefinition = {
     if (entry.kind === ContentKind.Feat) {
       return featSkills(entry);
     }
+
     return entry.kind === ContentKind.Action ? actionSkills(entry) : [];
   },
 };
@@ -135,6 +137,7 @@ export const ACTION_FACETS: readonly FacetDefinition[] = [
 
 /** Whether a character meets a feat's prerequisites, as a facet value (ADR-0002: unknown is an answer of its own). */
 export const PrerequisiteValue = { Met: 'met', Unknown: 'unknown', Unmet: 'unmet' } as const;
+
 export type PrerequisiteValue = ValueOf<typeof PrerequisiteValue>;
 
 /** How a character's prerequisites read for a feat; the sdk can't see the character, so the caller supplies it. */

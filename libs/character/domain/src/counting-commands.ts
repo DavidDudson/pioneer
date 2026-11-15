@@ -106,11 +106,13 @@ function applyEnvironmentSet<Play extends CountingPlay>(
 ): Play {
   let { environments, exposure } = play;
   const turnedOff = command.active ? displacedBy(environments, groups, command.environment) : [];
+
   for (const environment of turnedOff) {
     const off: EnvironmentCommand = { field: command.field, environment, active: false };
     environments = applyEnvironmentCommand(environments, off);
     exposure = exposureAfterCommand(exposure, off);
   }
+
   return {
     ...play,
     environments: applyEnvironmentCommand(environments, command),
@@ -127,20 +129,26 @@ function applyChoiceCommand<Play extends CountingPlay>(
   if (isExplorationCommand(command)) {
     return { ...play, exploration: applyExplorationCommand(command) };
   }
+
   if (isBreathCommand(command)) {
     const ended = breathRestored(command, play.breath);
+
     const conditions =
       ended === undefined
         ? play.conditions
         : applyConditionCommand(play.conditions, { field: ConditionCommandField.RemoveCondition, id: ended });
+
     return { ...play, breath: applyBreathCommand(command, play.breath), conditions: [...conditions] };
   }
+
   if (isEnvironmentCommand(command)) {
     return applyEnvironmentSet(play, command, groups);
   }
+
   if (isShapeCommand(command)) {
     return { ...play, shapes: applyShapeCommand(play.shapes ?? {}, command) };
   }
+
   return { ...play, toggles: applyToggleCommand(play.toggles, command) };
 }
 
@@ -164,6 +172,7 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isRestCommand(command)) {
     return applyRestCommand(play, command, limits).play;
   }
+
   if (isSpendCommand(command)) {
     return {
       ...play,
@@ -174,6 +183,7 @@ export function applyCountingCommand<Play extends CountingPlay>(
       }),
     };
   }
+
   if (
     isToggleCommand(command) ||
     isShapeCommand(command) ||
@@ -183,11 +193,14 @@ export function applyCountingCommand<Play extends CountingPlay>(
   ) {
     return applyChoiceCommand(play, command, limits.environmentGroups);
   }
+
   if (isEffectCommand(command) || isActiveSpellCommand(command)) {
     return applyListCommand(play, command, limits);
   }
+
   if (isConditionCommand(command)) {
     return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };
   }
+
   return { ...play, ...applyResourceCommand(play, command, resourceLimits(limits)) };
 }

@@ -38,14 +38,17 @@ async function render(): Promise<ComponentFixture<Host>> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Host);
   await fixture.whenStable();
+
   return fixture;
 }
 
 function trigger(fixture: ComponentFixture<unknown>): HTMLButtonElement {
   const button = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>('button[aria-label]');
+
   if (button === null) {
     throw new Error('No trigger');
   }
+
   return button;
 }
 

@@ -23,6 +23,7 @@ export class FormulaResult {
   protected readonly value = computed((): string => {
     const check = this.check();
     const valued = check.status === CheckStatus.Valid && check.evaluation.status === CheckStatus.Valid;
+
     return valued ? this.#format.number(check.evaluation.value) : '';
   });
 }

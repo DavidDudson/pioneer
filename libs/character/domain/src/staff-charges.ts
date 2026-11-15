@@ -15,15 +15,18 @@ export const StaffChargesSchema = z.partialRecord(
   InventoryItemId,
   z.strictObject({ max: ResourceCount, spent: ResourceCount.default(NONE) }),
 );
+
 export type StaffCharges = z.infer<typeof StaffChargesSchema>;
 
 /** The spell slot a prepared caster expends at daily preparations to add charges: an entry's own slot of a rank. */
 export const StaffSlotSchema = z.strictObject({ entry: Slug, rank: SpellRank });
+
 export type StaffSlot = z.infer<typeof StaffSlotSchema>;
 
 /** The charges `charges` holds for `item`: its maximum less what is spent; 0 for a staff not prepared. */
 export function chargesHeld(charges: StaffCharges, item: InventoryItemId): ResourceCount {
   const known = charges[item];
+
   return known === undefined ? NONE : ResourceCount.parse(Math.max(known.max - known.spent, 0));
 }
 

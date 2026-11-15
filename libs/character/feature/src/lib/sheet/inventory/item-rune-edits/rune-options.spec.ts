@@ -106,6 +106,7 @@ function resisting(choice: string): RuneEtching {
 /** The armoury with its armour at +2 energy-resistant for fire. */
 function fireproofArmor(): Inventory {
   const potent = etchRune(armoury(), Armoury.Armor, fundamental(FundamentalRune.Potency, 2));
+
   return etchRune(potent, Armoury.Armor, resisting('fire'));
 }
 
@@ -127,9 +128,11 @@ describe('a rune made for a choice', () => {
 describe(offerableRuneEntries, () => {
   const MYTHIC_ID = ContentId.parse('00000000-0000-4000-8000-00000000a001');
   const frost = content.runes.get(runeFixtureId(RuneFixture.Frost));
+
   if (frost === undefined) {
     throw new Error('the frost rune fixture is missing');
   }
+
   const mythic = {
     ...frost,
     id: MYTHIC_ID,
@@ -145,6 +148,7 @@ describe(offerableRuneEntries, () => {
       }),
     ],
   };
+
   const withMythic = { ...content, runes: new Map([...content.runes, [MYTHIC_ID, mythic]]) };
 
   it('offers a rune that takes no slot even when the item is full, and nothing else', () => {

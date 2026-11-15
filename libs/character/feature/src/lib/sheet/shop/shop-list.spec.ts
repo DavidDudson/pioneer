@@ -30,6 +30,7 @@ interface GearFields {
 /** A Player Core piece of gear with its level, rarity and traits. */
 function gear({ name, level, rarity = 'common', traits = [] }: GearFields): ItemEntry {
   const slug = `equipment:${name.toLowerCase().replaceAll(' ', '-')}`;
+
   const entry = ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     slug,
@@ -44,9 +45,11 @@ function gear({ name, level, rarity = 'common', traits = [] }: GearFields): Item
     rules: [],
     data: { bulk: 'light', price: { coins: { gp: level + 1 } } },
   });
+
   if (entry.kind !== ContentKind.Equipment) {
     throw new TypeError('Expected equipment');
   }
+
   return entry;
 }
 
@@ -82,14 +85,17 @@ describe(shopList, () => {
       ...AVAILABLE,
       [CommonFacet.Level, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(5) }],
     ]);
+
     expect(names({ state: higher })).toStrictEqual(['Boots', 'Lantern', 'Rope', 'Wayfinder']);
   });
 
   it('narrows by name, ignoring case, and by the player’s filters', () => {
     expect(names({ search: 'ROP' })).toStrictEqual(['Rope']);
+
     const magical: FilterState = new Map([
       [CommonFacet.Traits, { kind: SelectionKind.Values, include: [FacetValue.parse('magical')], exclude: [] }],
     ]);
+
     expect(names({ state: magical })).toStrictEqual(['Boots', 'Wayfinder']);
   });
 

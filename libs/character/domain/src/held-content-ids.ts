@@ -10,8 +10,10 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iu;
 export function heldContentIds(document: unknown): readonly ContentId[] {
   const found = new Set<ContentId>();
   const stack: unknown[] = [document];
+
   while (stack.length > 0) {
     const next = stack.pop();
+
     if (typeof next === 'string') {
       if (UUID.test(next)) {
         found.add(ContentId.parse(next.toLowerCase()));
@@ -26,5 +28,6 @@ export function heldContentIds(document: unknown): readonly ContentId[] {
       }
     }
   }
+
   return [...found];
 }

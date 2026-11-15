@@ -19,10 +19,12 @@ export const RuleBreak = {
   PropertyRunes: 'propertyRunes',
   RuneNotAllowed: 'runeNotAllowed',
 } as const;
+
 export type RuleBreak = ValueOf<typeof RuleBreak>;
 
 /** A count a rule limits. */
 export const RuleCount = Pg.smallint().nonnegative().brand<'RuleCount'>();
+
 export type RuleCount = z.infer<typeof RuleCount>;
 
 /** An item over a count: `actual` is the count with this item in it, past the `limit`. */
@@ -53,27 +55,33 @@ interface Counted {
 function overLimit(inventory: Inventory, { step, limit, rule }: Counted): CountViolation[] {
   const violations: CountViolation[] = [];
   let total = 0;
+
   for (const item of inventory.items) {
     const added = step(item);
     total += added;
+
     if (added > 0 && total > limit) {
       violations.push({ item: item.id, rule, limit, actual: RuleCount.parse(total) });
     }
   }
+
   return violations;
 }
 
 function propertyViolations(content: RunedContent, inventory: Inventory, limits: RuleLimits): RuleViolation[] {
   return inventory.items.flatMap((item) => {
     const line = runedLine(content, inventory, item.id);
+
     // A specific item's property runes come with it and don't change, so no limit applies.
     if (line?.runed === undefined || isSpecific(line.entry)) {
       return [];
     }
+
     const runes = itemRunes(item, line.entry);
     const read = readerOf(content.runes);
     const room = propertyRoom(runes, read, limits);
     const slotted = slottedRunes(runes, read).length;
+
     const count: CountViolation[] =
       slotted > room
         ? [
@@ -85,14 +93,17 @@ function propertyViolations(content: RunedContent, inventory: Inventory, limits:
             },
           ]
         : [];
+
     // Each rune is read against the item's other runes, as it was when etched.
     const misfits: RuneViolation[] = runes.property
       .filter((rune) => {
         const others = runes.property.filter((each) => !sameEtchedRune(each, rune));
         const without = { ...item, runes: { ...runes, property: others } };
+
         return propertyFitRefusal(content.runes, { ...line, item: without }, rune.rune) !== undefined;
       })
       .map((rune) => ({ item: item.id, rule: RuleBreak.RuneNotAllowed, rune: rune.rune }));
+
     return [...count, ...misfits];
   });
 }
@@ -109,6 +120,7 @@ export function inventoryViolations(
   limits: RuleLimits = CORE_RULE_LIMITS,
 ): readonly RuleViolation[] {
   const keyed = new Set(inventory.items.filter((each) => each.keyItem !== undefined).map((each) => each.id));
+
   const found = [
     ...overLimit(inventory, {
       step: (each) => RuleCount.parse(each.invested === true ? 1 : 0),
@@ -122,6 +134,7 @@ export function inventoryViolations(
     }),
     ...propertyViolations(content, inventory, limits),
   ];
+
   // A key item's line is the GM's to give, so it breaks nothing (ADR-0064).
   return found.filter((violation) => !keyed.has(violation.item));
 }

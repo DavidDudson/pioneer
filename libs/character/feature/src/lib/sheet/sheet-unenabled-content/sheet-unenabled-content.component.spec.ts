@@ -33,6 +33,7 @@ describe('SheetUnenabledContent', () => {
     const { root } = await openSheet(undefined, {
       unenabledContent: { campaign: 'Abomination Vaults', variantRules: [], packs: [], items: [] },
     });
+
     expect(present(root.querySelector('pio-sheet-unenabled-content')).textContent.trim()).toBe('');
   });
 });

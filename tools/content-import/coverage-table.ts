@@ -13,6 +13,7 @@ function percent(part: number, whole: number): string {
 
 function cells(label: string, row: Omit<KindCoverage, 'kind'>): string[] {
   const { entries, rulesTranslated, complete, withPage, withAon, leftOut } = row;
+
   return [
     label,
     String(entries),
@@ -26,6 +27,7 @@ function cells(label: string, row: Omit<KindCoverage, 'kind'>): string[] {
 
 function total(rows: readonly KindCoverage[]): Omit<KindCoverage, 'kind'> {
   const sum = (field: keyof Omit<KindCoverage, 'kind'>): number => rows.reduce((all, row) => all + row[field], 0);
+
   return {
     entries: sum('entries'),
     rulesTranslated: sum('rulesTranslated'),
@@ -40,6 +42,7 @@ function total(rows: readonly KindCoverage[]): Omit<KindCoverage, 'kind'> {
 export function formatCoverage(rows: readonly KindCoverage[]): string {
   const table = [HEADINGS, ...rows.map((row) => cells(row.kind, row)), cells('total', total(rows))];
   const widths = [...HEADINGS.keys()].map((column) => Math.max(...table.map((row) => row[column]?.length ?? 0)));
+
   return table
     .map((row) =>
       row
@@ -52,10 +55,12 @@ export function formatCoverage(rows: readonly KindCoverage[]): string {
 /** The creatures per role and level, one line per role. */
 export function formatCreatureCoverage(rows: readonly CreatureCoverage[]): string {
   const roles = [...new Set(rows.map(({ role }) => role))];
+
   return roles
     .map((role) => {
       const levels = rows.filter((row) => row.role === role);
       const all = levels.reduce((sum, { count }) => sum + count, 0);
+
       return `creatures ${role} ${all}: ${levels.map(({ level, count }) => `${level}:${count}`).join(' ')}`;
     })
     .join('\n');

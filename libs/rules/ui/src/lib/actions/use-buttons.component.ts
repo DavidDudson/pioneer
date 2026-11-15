@@ -38,6 +38,7 @@ export class UseButtons {
   protected readonly usable = computed((): boolean => {
     const { cost, status, affordable, payment } = this.line() ?? {};
     const spends = cost !== undefined || payment !== undefined;
+
     return this.#user !== null && spends && status !== ActionStatus.Unavailable && affordable !== false;
   });
 
@@ -45,10 +46,13 @@ export class UseButtons {
   protected readonly counts = computed((): readonly number[] => {
     const { cost, upTo, affordableUpTo } = this.line() ?? {};
     const from = cost === undefined ? undefined : ACTION_COUNT[cost];
+
     if (from === undefined || upTo === undefined) {
       return [];
     }
+
     const most = Math.min(upTo, affordableUpTo ?? upTo);
+
     return Array.from({ length: Math.max(most - from + 1, 0) }, (_slot, index) => from + index);
   });
 
@@ -58,6 +62,7 @@ export class UseButtons {
   /** The thing used, paid for as `option` says: its payment in place of the line's own. */
   protected readonly useWith = (option: UsePayOption) => async (): Promise<void> => {
     const line = this.line();
+
     if (line !== undefined) {
       await this.#user?.use({ line: { ...line, payment: option.payment }, actions: undefined });
     }
@@ -66,6 +71,7 @@ export class UseButtons {
   /** The thing used, for `actions` of them when its cost varies; the page spends from the turn. */
   protected readonly useFor = (actions: number | undefined) => async (): Promise<void> => {
     const line = this.line();
+
     if (line !== undefined) {
       await this.#user?.use({ line, actions });
     }

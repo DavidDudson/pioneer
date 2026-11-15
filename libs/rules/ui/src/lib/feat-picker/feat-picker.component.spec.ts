@@ -13,12 +13,14 @@ const ROW_PX = 44;
 const LONG_LIST = 300;
 
 const POWER_ATTACK = featRow({ id: 'power-attack', name: 'Power Attack', level: 1 });
+
 const SUDDEN_CHARGE = featRow({
   id: 'sudden-charge',
   name: 'Sudden Charge',
   level: 1,
   disabledReason: 'Prerequisites not met',
 });
+
 const REACTIVE_SHIELD = featRow({ id: 'reactive-shield', name: 'Reactive Shield', level: 2 });
 const FEATS: readonly FeatPickerRow[] = [POWER_ATTACK, SUDDEN_CHARGE, REACTIVE_SHIELD];
 
@@ -48,9 +50,11 @@ async function render(rows: readonly FeatPickerRow[], value?: string): Promise<R
   const fixture = TestBed.createComponent(FeatPicker);
   fixture.componentRef.setInput('rows', rows);
   fixture.componentRef.setInput('ariaLabel', 'Class feat, level 1');
+
   if (value !== undefined) {
     fixture.componentRef.setInput('value', value);
   }
+
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.committed.subscribe(() => {
@@ -61,9 +65,11 @@ async function render(rows: readonly FeatPickerRow[], value?: string): Promise<R
   });
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
+
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected a rendered feat picker');
   }
+
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }
 
@@ -79,15 +85,18 @@ function headers(rendered: Rendered): string[] {
 function nameCells(rendered: Rendered): HTMLElement[] {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
+
     return cell === null ? [] : [cell];
   });
 }
 
 function searchBox(rendered: Rendered): HTMLInputElement {
   const input = rendered.host.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the table to be open');
   }
+
   return input;
 }
 
@@ -198,6 +207,7 @@ describe(FeatPicker, () => {
     const rows = Array.from({ length: LONG_LIST }, (_entry, index) =>
       featRow({ id: `feat-${index}`, name: `Feat ${index + 1}` }),
     );
+
     const rendered = await render(rows);
     expect(rendered.host.querySelector('[role="grid"]')?.getAttribute('aria-rowcount')).toBe(String(LONG_LIST + 1));
     expect(nameCells(rendered).length).toBeLessThan(LONG_LIST);

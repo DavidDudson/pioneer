@@ -24,14 +24,17 @@ export class SessionAuthenticator extends RequestAuthenticator {
   public async signedIn({ request, responseHeaders }: RequestExchange): Promise<Authenticated> {
     const token = sessionToken(request);
     const authenticated = await this.#service.requireSession(token);
+
     if (authenticated.renewed && token !== undefined) {
       responseHeaders['set-cookie'] = sessionCookie(this.#policy, token);
     }
+
     return authenticated;
   }
 
   public override async actingUser(exchange: RequestExchange): Promise<UserId> {
     const { user } = await this.signedIn(exchange);
+
     return user.id;
   }
 }

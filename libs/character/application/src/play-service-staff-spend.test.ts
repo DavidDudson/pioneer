@@ -41,7 +41,9 @@ function wizardWithStaff(): Character {
     quantity: ItemQuantity.parse(1),
     carry: { state: 'held', hands: 1 },
   });
+
   const caster = new CharacterBuilder().named('Ezren').atLevel(5).picking('class', playerCoreClassId('wizard')).build();
+
   return caster.withInventory({ items: [staff], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
 }
 
@@ -55,12 +57,14 @@ describe('PlayService staff casts on the spend log', () => {
   /** The spend casting `spell` from the staff. */
   function castSpend(spell: string, spendId = id): PlayCommand {
     const staff = { item: STAFF, spell: staffSpellId(spell) };
+
     return { field: PlayCommandField.SpendAction, id: spendId, action: staffSpellId(spell), cost: TWO_ACTIONS, staff };
   }
 
   async function patch(command: PlayCommand): Promise<CharacterPlay> {
     const saved = await play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command });
     ({ revision } = saved);
+
     return saved;
   }
 

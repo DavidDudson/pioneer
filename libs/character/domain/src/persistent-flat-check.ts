@@ -22,10 +22,13 @@ export function flatCheckDc(
   flatChecks: readonly PersistentFlatCheckDc[],
 ): Dc | undefined {
   const matching = flatChecks.filter(({ damageTypes }) => damageTypes.includes(type));
+
   if (assisted && matching.some((each) => each.assisted === undefined)) {
     return undefined;
   }
+
   const base = assisted ? ASSISTED_FLAT_CHECK_DC : FLAT_CHECK_DC;
   const lowered = matching.map((each) => (assisted ? each.assisted : each.dc)).filter((dc) => dc !== undefined);
+
   return Dc.parse(Math.min(base, ...lowered));
 }

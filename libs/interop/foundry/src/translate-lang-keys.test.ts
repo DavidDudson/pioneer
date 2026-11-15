@@ -34,6 +34,7 @@ const choices = [
   { value: 'arcana', label: 'PF2E.Skill.Arcana' },
   { value: 'nature', label: 'PF2E.Skill.Nature' },
 ];
+
 const choiceSet = { key: 'ChoiceSet', flag: 'skill', prompt: 'PF2E.SpecificRule.Prompt.Skill', choices };
 const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'circumstance', value: 1 };
 const entry = idOf('feat:lute-song');
@@ -93,6 +94,7 @@ describe('translateRules: lang keys', () => {
       { ...modifier, label: 'PF2E.SpecificRule.OriginLabel' },
       { ...modifier, label: 'PF2E.SpecificRule.{actor|class.slug}.Label' },
     ];
+
     const { entries, envelopes } = translate([feat(rules)], { lang });
 
     expect(entries[0]?.envelope.rules).toEqual([

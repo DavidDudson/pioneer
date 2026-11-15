@@ -20,21 +20,25 @@ function moved(transfer: InventoryTransfer): Moved {
   if (transfer.refusal !== undefined) {
     throw new Error(`Transfer refused: ${transfer.refusal}`);
   }
+
   return transfer;
 }
 
 /** The line at `index` of a non-empty inventory, wrapping round. */
 function pick(stock: Inventory, index: number): InventoryItem {
   const line = stock.items[index % stock.items.length];
+
   if (line === undefined) {
     throw new Error('pick needs a non-empty inventory');
   }
+
   return line;
 }
 
 /** The coins of each denomination the two inventories hold between them. */
 function coinTotals(giver: Inventory, recipient: Inventory): readonly number[] {
   const [left, right] = [giver.coins, recipient.coins];
+
   return [left.pp + right.pp, left.gp + right.gp, left.sp + right.sp, left.cp + right.cp];
 }
 

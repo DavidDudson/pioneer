@@ -26,10 +26,12 @@ export const UnmatchedReason = {
   /** A language no loaded content defines: kept on the character as a custom language, not lost. */
   Custom: 'custom',
 } as const;
+
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /** How many imported inventory lines or feats break a table rule. */
 export const RuleBreakingCount = z.int().nonnegative().brand<'RuleBreakingCount'>();
+
 export type RuleBreakingCount = z.infer<typeof RuleBreakingCount>;
 
 export const UnmatchedName = z.object({
@@ -37,9 +39,11 @@ export const UnmatchedName = z.object({
   occurrences: Occurrences,
   reason: z.enum(UnmatchedReason),
 });
+
 export type UnmatchedName = z.infer<typeof UnmatchedName>;
 
 export const UnmatchedGroup = z.object({ kind: ImportKindSchema, names: z.array(UnmatchedName).readonly() });
+
 export type UnmatchedGroup = z.infer<typeof UnmatchedGroup>;
 
 /**
@@ -58,6 +62,7 @@ export const CharacterImportReport = z.object({
   /** The imported heritage and languages no slot holds, kept on the character and flagged the same way. */
   ruleBreakingPicks: RuleBreakingCount,
 });
+
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
 /** Why `row` was not carried over, or undefined when it was: matched, and not among the names its slot refused. */
@@ -65,10 +70,13 @@ function unmatchedReason(row: ReportRow, notOffered: readonly ImportedName[]): U
   if (row.status !== MatchStatus.Matched && row.kind === ImportKind.Language) {
     return UnmatchedReason.Custom;
   }
+
   if (row.status !== MatchStatus.Matched) {
     return row.status;
   }
+
   const refused = notOffered.some((name) => name.kind === row.kind && name.name === row.name);
+
   return refused ? UnmatchedReason.NotOffered : undefined;
 }
 
@@ -80,8 +88,10 @@ function unmatchedGroups(
   return buildImportReport(value.names, lookup).groups.flatMap((group): UnmatchedGroup[] => {
     const names = group.rows.flatMap((row): UnmatchedName[] => {
       const reason = unmatchedReason(row, notOffered);
+
       return reason === undefined ? [] : [{ name: row.name, occurrences: row.occurrences, reason }];
     });
+
     return names.length === 0 ? [] : [{ kind: group.kind, names }];
   });
 }
@@ -112,14 +122,17 @@ export function characterImportReport(
 }
 
 export const PathbuilderImportResponse = z.object({ character: Character.codec, report: CharacterImportReport });
+
 export type PathbuilderImportResponse = z.output<typeof PathbuilderImportResponse>;
 
 /** What the user pasted: a link to their export on Pathbuilder. The server decides whether it is one. */
 export const FetchExportBody = z.object({ url: z.string().max(URL_MAX_LENGTH) });
+
 export type FetchExportBody = z.infer<typeof FetchExportBody>;
 
 /** The export as Pathbuilder served it, to read like a pasted one. */
 export const FetchExportResponse = z.object({ export: z.unknown() });
+
 export type FetchExportResponse = z.infer<typeof FetchExportResponse>;
 
 /**

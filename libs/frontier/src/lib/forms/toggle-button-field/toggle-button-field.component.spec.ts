@@ -10,23 +10,28 @@ function render(value: boolean): ComponentFixture<ToggleButtonField> {
   fixture.componentRef.setInput('hint', 'Visible to everyone in the campaign.');
   fixture.componentRef.setInput('value', value);
   fixture.detectChanges();
+
   return fixture;
 }
 
 function find(fixture: ComponentFixture<ToggleButtonField>, selector: string): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
+
   if (element === null) {
     throw new Error(`Expected ${selector}`);
   }
+
   return element;
 }
 
 /** The text of whatever the button's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<ToggleButtonField>): string {
   const ids = find(fixture, 'button').getAttribute('aria-describedby');
+
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
+
   return find(fixture, `#${ids}`).textContent.trim();
 }
 

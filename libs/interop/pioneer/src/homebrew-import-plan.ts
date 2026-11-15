@@ -14,6 +14,7 @@ export const HomebrewPackStatus = {
   /** Another user's pack, or an official one: nothing is added to it, only identical entries are reused. */
   Taken: 'taken',
 } as const;
+
 export type HomebrewPackStatus = ValueOf<typeof HomebrewPackStatus>;
 
 /** What an import does with one embedded entry. A clash is never written over (ADR-0059). */
@@ -24,6 +25,7 @@ export const HomebrewEntryOutcome = {
   /** The pack holds a different entry under the slug, or is another user's and lacks it. */
   Clash: 'clash',
 } as const;
+
 export type HomebrewEntryOutcome = ValueOf<typeof HomebrewEntryOutcome>;
 
 /** A pack the importing server already has, as far as an import needs to know it. */
@@ -40,6 +42,7 @@ export const HomebrewEntryReport = z.object({
   name: ContentText,
   outcome: z.enum(HomebrewEntryOutcome),
 });
+
 export type HomebrewEntryReport = z.infer<typeof HomebrewEntryReport>;
 
 export const HomebrewPackReport = z.object({
@@ -49,6 +52,7 @@ export const HomebrewPackReport = z.object({
   status: z.enum(HomebrewPackStatus),
   entries: z.array(HomebrewEntryReport).readonly(),
 });
+
 export type HomebrewPackReport = z.infer<typeof HomebrewPackReport>;
 
 /** What an import would do with one embedded pack: the report the user sees, and the entries to write. */
@@ -68,9 +72,11 @@ function outcomeOf(
   existing: ExistingPack | undefined,
 ): HomebrewEntryOutcome {
   const held = existing?.entries.get(EntrySlug.parse(entry.slug));
+
   if (held !== undefined) {
     return sameEntry(held, entry) ? HomebrewEntryOutcome.Reuse : HomebrewEntryOutcome.Clash;
   }
+
   return status === HomebrewPackStatus.Taken ? HomebrewEntryOutcome.Clash : HomebrewEntryOutcome.Create;
 }
 
@@ -78,6 +84,7 @@ function statusOf(existing: ExistingPack | undefined): HomebrewPackStatus {
   if (existing === undefined) {
     return HomebrewPackStatus.New;
   }
+
   return existing.ownedByImporter ? HomebrewPackStatus.Own : HomebrewPackStatus.Taken;
 }
 
@@ -91,6 +98,7 @@ export function planHomebrewImport(embedded: readonly EmbeddedPack[], existing: 
     const held = existing.get(pack.pack.id);
     const status = statusOf(held);
     const outcomes = pack.entries.map((entry) => ({ entry, outcome: outcomeOf(entry, status, held) }));
+
     return {
       embedded: pack,
       toCreate: outcomes.filter(({ outcome }) => outcome === HomebrewEntryOutcome.Create).map(({ entry }) => entry),

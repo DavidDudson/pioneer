@@ -27,17 +27,20 @@ export class InMemoryTransferLines extends TransferLines {
       character,
       line: { keyItem: false, name: DEFAULT_NAME, contents: [], version: FIRST_VERSION, ...line },
     });
+
     return this;
   }
 
   /** The character holds these coins (the others are none), at the given version. */
   public hasCoins(character: CharacterId, coins: CoinsGiven, version: Version = FIRST_VERSION): this {
     this.#purses.set(character, { coins: OfferedCoinsSchema.parse(coins), version });
+
     return this;
   }
 
   public override async describe(character: CharacterId, item: ReviewedItemId): Promise<OfferableLine | undefined> {
     const found = this.#lines.get(item);
+
     return found?.character === character ? found.line : undefined;
   }
 

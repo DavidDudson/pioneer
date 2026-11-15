@@ -93,6 +93,7 @@ export class Combobox<TValue extends string> extends Control {
   readonly #picked = computed<Picked<TValue>>(
     () => {
       const value = this.value();
+
       return { value, label: value === undefined ? undefined : this.#labelOf(value) };
     },
     { equal: samePicked },
@@ -104,6 +105,7 @@ export class Combobox<TValue extends string> extends Control {
       if (picked.label !== undefined || previous === undefined) {
         return picked.label;
       }
+
       return previous.source.value === picked.value ? previous.value : undefined;
     },
   });
@@ -122,6 +124,7 @@ export class Combobox<TValue extends string> extends Control {
   /** The picked value while it is among the options; the listbox drops values it has no option for. */
   protected readonly selected = computed<TValue[]>(() => {
     const value = this.value();
+
     return value !== undefined && this.#pickedIndex() !== undefined ? [value] : [];
   });
 
@@ -145,11 +148,13 @@ export class Combobox<TValue extends string> extends Control {
   );
   readonly #pickedIndex = computed(() => {
     const value = this.value();
+
     return value === undefined ? undefined : this.#indexByValue().get(value);
   });
   /** The keyboard-highlighted option's index. */
   readonly #activeIndex = computed(() => {
     const active = this.ariaOptions().find((option) => option.active());
+
     return active === undefined ? undefined : this.#indexByValue().get(active.value());
   });
 
@@ -163,6 +168,7 @@ export class Combobox<TValue extends string> extends Control {
        * the listbox has scrolled; otherwise it would skip to the next rendered one.
        */
       const around = active === undefined ? [] : [active - 1, active, active + 1];
+
       return [...around, this.#pickedIndex()];
     }),
   });
@@ -194,6 +200,7 @@ export class Combobox<TValue extends string> extends Control {
     // Arrow keys move the highlight; keep it in view inside the listbox, never scrolling the page.
     afterRenderEffect(() => {
       const index = this.#activeIndex();
+
       if (index !== undefined) {
         untracked(() => {
           this.virtualizer.scrollToIndex(index, { align: 'auto' });
@@ -207,6 +214,7 @@ export class Combobox<TValue extends string> extends Control {
     afterRenderEffect(() => {
       const listbox = this.listbox();
       const selected = this.selected();
+
       if (listbox !== undefined && listbox.value().join(',') !== selected.join(',')) {
         untracked(() => {
           this.#syncing = true;
@@ -248,12 +256,15 @@ export class Combobox<TValue extends string> extends Control {
     if (this.#syncing) {
       return;
     }
+
     // The listbox toggles: picking the picked option again empties it. That is still a pick.
     const repicked = this.#activeIndex() !== undefined && this.#activeIndex() === this.#pickedIndex();
     const value = values[0] ?? (repicked ? this.value() : undefined);
+
     if (value === undefined) {
       return;
     }
+
     this.expanded.set(false);
     this.value.set(value);
     this.text.set(this.#labelOf(value) ?? this.text());
@@ -263,6 +274,7 @@ export class Combobox<TValue extends string> extends Control {
   /** Closing without a pick puts the picked label back over whatever was typed. */
   protected expandedChange(expanded: boolean): void {
     this.expanded.set(expanded);
+
     if (!expanded) {
       this.#restore();
     }
@@ -294,6 +306,7 @@ export class Combobox<TValue extends string> extends Control {
     if (query === this.#lastSearched) {
       return;
     }
+
     this.#lastSearched = query;
     this.searched.emit(query);
   }

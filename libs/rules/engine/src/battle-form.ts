@@ -45,8 +45,10 @@ const NO_SPEED = RuleNumber.parse(0);
  */
 export function battleFormInPlay({ rules, facts }: ModifierInputs): FormInPlay | undefined {
   const forms: FormInPlay[] = [];
+
   for (const rule of rules) {
     const { element } = rule;
+
     if (element.key === RuleElementKey.BattleForm && truthOf(element.predicate, facts) === Truth.True) {
       forms.push({
         id: ruleIdOf(rule),
@@ -56,6 +58,7 @@ export function battleFormInPlay({ rules, facts }: ModifierInputs): FormInPlay |
       });
     }
   }
+
   return forms.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id))[0];
 }
 
@@ -74,21 +77,27 @@ export function movementOf(selector: Selector): FormMovement | undefined {
 /** What `form` replaces `selector` with: Armor Class, a skill it lists, or a speed when it lists speeds. */
 function replacementOf({ form }: FormInPlay, selector: Selector): Replacement | undefined {
   const checkPenalty = form.armorClass?.ignoreCheckPenalty === false;
+
   if (selector === AC) {
     return form.armorClass === undefined
       ? undefined
       : { value: form.armorClass.modifier, ownIfHigher: true, checkPenalty };
   }
+
   if (selector.startsWith(SKILL_PREFIX)) {
     const skill = form.skills?.find((each) => each.skill === selector);
+
     return skill === undefined
       ? undefined
       : { value: skill.modifier, ownIfHigher: skill.ownIfHigher !== false, checkPenalty };
   }
+
   const movement = movementOf(selector);
+
   if (movement === undefined || form.speeds === undefined) {
     return undefined;
   }
+
   return { value: RuleNumber.parse(form.speeds[movement] ?? NO_SPEED), ownIfHigher: false, checkPenalty };
 }
 
@@ -101,9 +110,11 @@ function removedByForm({ modifier, status, value }: BreakdownLine, { checkPenalt
   if (status.kind !== LineStatusKind.Applied) {
     return false;
   }
+
   if (modifier.slug === CHECK_PENALTY) {
     return !checkPenalty;
   }
+
   return modifier.type === ModifierType.Item && value !== undefined && value > 0;
 }
 
@@ -117,6 +128,7 @@ function withoutRemoved(lines: readonly BreakdownLine[], by: FormInPlay, replace
 
 export function summaryOf(form: FormInPlay, replacement: Omit<FormReplacement, 'summary'>): ModifierLabel {
   const key = replacement.source === FormSource.Form ? EngineMessage.FormReplaces : EngineMessage.FormOwnHigher;
+
   return {
     message: message(key, { value: replacement.value, own: replacement.own, form: form.origin.entry }),
     named: { param: LabelParam.Form, origin: form.origin },
@@ -139,7 +151,9 @@ export function applyForm(
   if (!result.ok || form === undefined || result.pinnedBy !== undefined) {
     return result;
   }
+
   const replacement = replacementOf(form, result.selector);
+
   return replacement === undefined ? result : replaced(result, { form, replacement }, resolve);
 }
 
@@ -150,12 +164,15 @@ function replaced(
   resolve: ResolveReference,
 ): StatisticResult {
   const outcome = valueOf(replacement.value, resolve);
+
   if (!outcome.ok) {
     return failure(result.selector, outcome.error, outcome.position);
   }
+
   const base = whole(outcome.value);
   const lines = withoutRemoved(result.lines, form, replacement);
   const value = base === undefined ? undefined : appliedTotal(base, lines);
+
   return base === undefined || value === undefined
     ? totalOutOfRange(result.selector)
     : formResult(result, { form, replacement, lines, base, value });
@@ -164,11 +181,13 @@ function replaced(
 /** The form's value plus the lines that still apply; undefined when it leaves the safe integer range. */
 function appliedTotal(base: FormulaValue, lines: readonly BreakdownLine[]): FormulaValue | undefined {
   let sum = 0;
+
   for (const { status, value } of lines) {
     if (status.kind === LineStatusKind.Applied && value !== undefined) {
       sum += value;
     }
   }
+
   return whole(base + sum);
 }
 
@@ -183,6 +202,7 @@ interface Worked {
 function formResult(result: StatisticValue, { form, replacement, lines, base, value }: Worked): StatisticValue {
   const own = result.total;
   const ownStands = replacement.ownIfHigher && own >= value;
+
   const parts = {
     source: ownStands ? FormSource.Own : FormSource.Form,
     rule: form.id,
@@ -191,7 +211,9 @@ function formResult(result: StatisticValue, { form, replacement, lines, base, va
     value,
     own,
   };
+
   const reported: FormReplacement = { ...parts, summary: summaryOf(form, parts) };
+
   return ownStands
     ? { ...result, form: reported }
     : { ...result, lines, computed: value, total: value, form: reported };
@@ -207,14 +229,18 @@ function formResult(result: StatisticValue, { form, replacement, lines, base, va
 export function factsUnderForm(inputs: ModifierInputs): PredicateFacts {
   const form = battleFormInPlay(inputs)?.form;
   const traits = (form?.traits ?? []).map((trait) => `${TRAIT_PREFIX}${trait}`);
+
   const given = inputs.rules.flatMap(({ element }) =>
     element.key === RuleElementKey.Immunity && truthOf(element.predicate, inputs.facts) === Truth.True
       ? element.type
       : [],
   );
+
   const immunities = [...given, ...(form?.immunities ?? []).map(({ type }) => type)].map(
     (type) => `${IMMUNITY_PREFIX}${type}`,
   );
+
   const added = [...traits, ...immunities];
+
   return added.length === 0 ? inputs.facts : inputs.facts.plus(added.map((option) => RollOption.parse(option)));
 }

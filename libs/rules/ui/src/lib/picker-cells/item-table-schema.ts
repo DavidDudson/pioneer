@@ -15,6 +15,7 @@ export class ItemTableSchema<TRow extends RowData> extends RulesTableSchema<TRow
       ...options,
       sortValue: (row) => {
         const price = options.value(row);
+
         return price === undefined ? NOTHING : priceInCopper(price);
       },
       component: PriceCell,
@@ -28,6 +29,7 @@ export class ItemTableSchema<TRow extends RowData> extends RulesTableSchema<TRow
       ...options,
       sortValue: (row) => {
         const bulk = options.value(row);
+
         return bulk === undefined ? NOTHING : bulkInTenths(bulk);
       },
       component: BulkCell,

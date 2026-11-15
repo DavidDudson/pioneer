@@ -13,6 +13,7 @@ const SEED_FORMAT = 1;
  */
 export function contentHash({ file, entries }: PackContents): string {
   const sorted = entries.toSorted((left, right) => (left.id < right.id ? -1 : 1));
+
   return new Bun.CryptoHasher('sha256')
     .update(canonicalJson({ format: SEED_FORMAT, file, entries: sorted }))
     .digest('hex');

@@ -33,6 +33,7 @@ async function setup(): Promise<Setup> {
       { provide: APP_VERSION, useValue: '1.4.0' },
     ],
   });
+
   return { reporter: TestBed.inject(BugReporter), call };
 }
 
@@ -93,6 +94,7 @@ describe(BugReporter, () => {
 
   it('shares a copy of the character only when the reporter agreed', async () => {
     const { reporter, call } = await setup();
+
     const draft = {
       description: ReportText.parse('It broke'),
       steps: ReportText.parse(''),

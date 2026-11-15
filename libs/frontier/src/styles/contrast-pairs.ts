@@ -19,6 +19,7 @@ const SURFACES = ['surface-canvas', 'surface-base', 'surface-raised', 'surface-s
 const STATUSES = ['danger', 'success', 'warning', 'info'];
 const ROLES = ['accent', ...STATUSES];
 const RUNE_TIERS = ['rune-base', 'rune-greater', 'rune-major', 'rune-mythic'];
+
 const DAMAGE_TONES = [
   'physical',
   'holy',

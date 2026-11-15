@@ -13,6 +13,7 @@ export const HERO_POINTS_MAX = 3;
 
 /** Points held plus or less what an edit moves them by, before they are held within the pool. */
 const PointsSum = Pg.integer().brand<'PointsSum'>();
+
 type PointsSum = z.infer<typeof PointsSum>;
 
 const NONE = ResourceCount.parse(0);
@@ -22,7 +23,9 @@ export const Resource = {
   HeroPoints: 'hero-points',
   FocusPoints: 'focus-points',
 } as const;
+
 export type Resource = ValueOf<typeof Resource>;
+
 export const ResourceSchema = z.enum(Resource);
 
 /**
@@ -35,6 +38,7 @@ export const ResourcesSpentSchema = z.strictObject({
   [Resource.FocusPoints]: ResourceCount.default(NONE),
   ...SpentCountsSchema.shape,
 });
+
 export type ResourcesSpent = z.infer<typeof ResourcesSpentSchema>;
 
 /** The most each pool holds, as the engine and the rules derive them. */
@@ -73,6 +77,7 @@ export function heldIn(pools: Pools, resource: Resource): ResourceCount {
 /** The spent points with `resource` holding `wanted` points, held within 0 and the pool's maximum. */
 function holding(pools: Pools, resource: Resource, wanted: PointsSum): ResourcesSpent {
   const held = Math.min(Math.max(wanted, 0), pools.maxima[resource]);
+
   return { ...pools.spent, [resource]: ResourceCount.parse(pools.maxima[resource] - held) };
 }
 

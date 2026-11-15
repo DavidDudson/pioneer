@@ -70,6 +70,7 @@ export class RollCard {
   protected readonly display = computed((): RollDisplay => {
     const roll = this.roll();
     const several = roll.attempts.length > 1;
+
     return {
       notation: roll.notation,
       total: this.#format.number(roll.total),
@@ -86,6 +87,7 @@ export class RollCard {
   #attempt(attempt: AttemptView, index: number | undefined): AttemptDisplay {
     const params = { number: this.#format.number((index ?? 0) + 1), total: this.#format.number(attempt.total) };
     const key = attempt.kept ? 'roll.card.keptRoll' : 'roll.card.discardedRoll';
+
     return {
       heading: index === undefined ? undefined : message(key, params),
       tone: attempt.kept ? Tone.Default : Tone.Subtle,

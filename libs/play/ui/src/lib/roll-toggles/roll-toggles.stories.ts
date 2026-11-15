@@ -9,6 +9,7 @@ const meta: Meta<RollToggles> = {
   title: 'Play/Roll toggles',
   component: RollToggles,
 };
+
 export default meta;
 
 const UNDEAD = { id: 'bane', text: '+1 circumstance when the target is undead (Hunter’s cloak)', on: false };

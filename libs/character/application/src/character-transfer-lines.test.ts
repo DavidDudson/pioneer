@@ -41,6 +41,7 @@ describe('CharacterTransferLines', () => {
     });
     const { inventory } = mordred.document;
     const base = { item: itemFixtureId(ItemFixture.Rope), quantity: ItemQuantity.parse(1), carry: STOWED };
+
     const items = [
       { ...base, id: plain },
       { ...base, id: keyed, name: InventoryItemName.parse('Caliburn'), keyItem: KeyItemId.parse(newId()) },
@@ -48,6 +49,7 @@ describe('CharacterTransferLines', () => {
       { ...base, id: pouch, name: InventoryItemName.parse('Pouch'), container: pack },
       { ...base, id: inPouch, name: InventoryItemName.parse('Spare rope'), container: pouch },
     ];
+
     mordred = await repository.update(
       mordred.withInventory({ ...inventory, items }, mordred.updatedAt),
       mordred.version,

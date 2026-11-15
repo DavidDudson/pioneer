@@ -20,6 +20,7 @@ export class StoredPackBundles {
 
   public async of(packs: readonly ContentPackId[]): Promise<ContentBundles> {
     const hashes = await this.#repository.homebrewHashes(packs);
+
     // The build reads after the hashes, so it is never older than the key it is cached under.
     return this.#sets.current(packs, hashes, async () =>
       contentBundles(await this.#repository.loadHomebrew(packs), bundleHash),

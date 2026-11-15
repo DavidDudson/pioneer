@@ -19,26 +19,32 @@ import { readPathbuilderExport } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
 const read = readPathbuilderExport(mordredFixture);
+
 if (!read.ok) {
   throw new Error('The Mordred fixture should be readable');
 }
+
 const mordred: PathbuilderImport = read.value;
 
 const RANK_BY_NUMBER = [Proficiency.Untrained, Proficiency.Trained, Proficiency.Expert, Proficiency.Master] as const;
 const STEP = 2;
+
 /** Mordred's class Hit Points, bonus per level and Constitution 14. */
 const CLASS_HP = 10;
 const HP_PER_LEVEL = 1;
 const CON_MODIFIER = 2;
 const TOTALS_COMPARED = 5 + DERIVED_TOTAL_STATISTICS.length;
 const MORDRED_AC = 34;
+
 /** 10 + Charisma 6 + expert 4 + level 12, from Mordred's divine focus. */
 const MORDRED_SPELL_DC = 32;
 const ORACLE_DC = Selector.parse('spell-dc:oracle');
+
 /** Mordred's Oracle, which Pathbuilder gives these spells a day: five cantrips, then four of each rank 1 to 6. */
 const ORACLE_ENTRY = { slug: 'oracle', preparation: SpellPreparation.Spontaneous, tradition: 'divine' } as const;
 const ORACLE_PER_DAY = [5, 4, 4, 4, 4, 4, 4];
 const ORACLE_THIRD_RANK = 3;
+
 /** Mordred's five focus spells fill the pool to its most. */
 const MORDRED_FOCUS_POINTS = 3;
 
@@ -80,8 +86,10 @@ function agreeing(): Values {
       DERIVED_TOTAL_STATISTICS.map((selector): [Selector, number] => [selector, Number.MIN_SAFE_INTEGER]),
     ),
   }).differences;
+
   const { acTotal, attributes, proficiencies } = mordred.reported;
   const perLevel = CLASS_HP + HP_PER_LEVEL + CON_MODIFIER;
+
   return {
     totals: new Map([
       [ARMOR_CLASS, acTotal?.acTotal ?? 0],
@@ -124,9 +132,11 @@ describe('discrepancyReport', () => {
   test('derives the saves, Perception, skills and class DC from the export, listed bonuses included', () => {
     const values = agreeing();
     const wrong = new Map(HAND_WORKED_TOTALS.map(([selector]) => [Selector.parse(selector), 0] as const));
+
     for (const [selector, total] of wrong) {
       values.totals.set(selector, total);
     }
+
     const { differences } = discrepancyReport(mordred, values);
     expect(differences.map(({ selector, pathbuilder }) => `${selector}=${String(pathbuilder)}`)).toStrictEqual(
       HAND_WORKED_TOTALS.map(([selector, total]) => `${selector}=${String(total)}`),
@@ -178,6 +188,7 @@ describe('discrepancyReport', () => {
 
   test('names a spell DC that differs, for the engine entry with the focus tradition and attribute', () => {
     const agree = agreeing();
+
     const values: Values = {
       ...agree,
       spellDcs: [
@@ -185,6 +196,7 @@ describe('discrepancyReport', () => {
         { selector: ORACLE_DC, tradition: 'divine', attribute: 'cha', total: MORDRED_SPELL_DC + 1 },
       ],
     };
+
     const { differences } = discrepancyReport(mordred, values);
     expect(differences).toStrictEqual([
       {
@@ -283,6 +295,7 @@ describe('discrepancyReport', () => {
       spellSlots: [],
       focusPoints: undefined,
     });
+
     expect(report).toStrictEqual({ compared: 0, differences: [] });
   });
 });

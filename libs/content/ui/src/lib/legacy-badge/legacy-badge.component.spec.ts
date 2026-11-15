@@ -10,6 +10,7 @@ async function render(legacy: boolean): Promise<ComponentFixture<LegacyBadge>> {
   const fixture = TestBed.createComponent(LegacyBadge);
   fixture.componentRef.setInput('legacy', legacy);
   await fixture.whenStable();
+
   return fixture;
 }
 

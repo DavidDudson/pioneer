@@ -7,9 +7,11 @@ function formatSegment(segment: FieldIssue['path'][number], index: number): stri
   if (typeof segment === 'number') {
     return `[${segment}]`;
   }
+
   if (!IDENTIFIER.test(segment)) {
     return `[${JSON.stringify(segment)}]`;
   }
+
   return index === 0 ? segment : `.${segment}`;
 }
 

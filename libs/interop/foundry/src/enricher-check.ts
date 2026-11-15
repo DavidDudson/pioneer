@@ -24,12 +24,14 @@ const BASIC = 'basic';
 const OPTIONS = 'options';
 const ADJUSTMENT = 'adjustment';
 const ROLLER_ROLE = 'rollerRole';
+
 /** Foundry's default roller: the target rolls a save, the origin anything else. */
 const TARGET = 'target';
 const SAVE_PREFIX = 'save:';
 
 /** Parameters that only change how Foundry shows or rolls the check, not what it is. */
 const PRESENTATION = ['showDC', 'name', 'immutable', 'targetOwner'];
+
 const HANDLED: ReadonlySet<string> = new Set([
   TYPE,
   DC,
@@ -43,6 +45,7 @@ const HANDLED: ReadonlySet<string> = new Set([
 ]);
 
 const SAVES: ReadonlySet<string> = new Set(['fortitude', 'reflex', 'will']);
+
 const SKILLS: ReadonlySet<string> = new Set([
   'acrobatics',
   'arcana',
@@ -114,15 +117,19 @@ const LIST_SEPARATOR = ',';
 function statisticSelector(type: string): Selector | undefined {
   const slug = slugify(type);
   const lore = loreSlugTopic(slug);
+
   if (SAVES.has(slug)) {
     return Selector.parse(`save:${slug}`);
   }
+
   if (SKILLS.has(slug)) {
     return Selector.parse(`skill:${slug}`);
   }
+
   if (lore !== undefined) {
     return loreSelector(lore);
   }
+
   return slug === PERCEPTION || slug === FLAT ? Selector.parse(slug) : undefined;
 }
 
@@ -130,19 +137,24 @@ function statisticSelector(type: string): Selector | undefined {
 function againstSelector(against: string): Selector | undefined {
   const slug = slugify(against);
   const named = CLASSES.has(slug) ? 'class-dc' : DC_SELECTORS.get(slug);
+
   if (named !== undefined) {
     return Selector.parse(named);
   }
+
   return slug === FLAT ? undefined : statisticSelector(slug);
 }
 
 /** A whole-number DC with Foundry's `adjustment` added, as Foundry shows and rolls it. */
 function fixedDc(value: string, params: ReadonlyMap<string, string>, context: EnricherContext): Dc | undefined {
   const adjustment = params.get(ADJUSTMENT) ?? '0';
+
   if (!DC_VALUE.test(value) || !INTEGER.test(adjustment)) {
     context.report(`${ENRICHER}[${DC_VALUE.test(value) ? ADJUSTMENT : DC}]`);
+
     return undefined;
   }
+
   return Dc.safeParse(Number(value) + Number(adjustment)).data;
 }
 
@@ -154,11 +166,13 @@ function fixedDc(value: string, params: ReadonlyMap<string, string>, context: En
 function againstDc(against: string, { params, statistic }: CheckInput, context: EnricherContext): CheckDc | undefined {
   const roller = params.get(ROLLER_ROLE) ?? (statistic.startsWith(SAVE_PREFIX) ? TARGET : '');
   const selector = againstSelector(against);
+
   if (selector === undefined) {
     context.report(`${ENRICHER}[${AGAINST}:${against}]`);
   } else if (roller !== TARGET) {
     context.report(`${ENRICHER}[${AGAINST}]`);
   }
+
   return selector === undefined || roller !== TARGET ? undefined : { against: selector };
 }
 
@@ -171,9 +185,11 @@ interface CheckInput {
 function dcOf(input: CheckInput, context: EnricherContext): CheckDc | undefined {
   const value = input.params.get(DC);
   const against = input.params.get(AGAINST) ?? input.params.get(DEFENSE);
+
   if (value !== undefined) {
     return fixedDc(value, input.params, context);
   }
+
   return against === undefined ? undefined : againstDc(against, input, context);
 }
 
@@ -181,18 +197,22 @@ function dcOf(input: CheckInput, context: EnricherContext): CheckDc | undefined 
 function optionsOf(params: ReadonlyMap<string, string>, context: EnricherContext): RollOption[] {
   const values = (params.get(OPTIONS) ?? '').split(LIST_SEPARATOR).map((value) => value.trim());
   const options = values.flatMap((value) => RollOption.safeParse(value).data ?? []);
+
   if (options.length < values.filter((value) => value !== '').length) {
     context.report(`${ENRICHER}[${OPTIONS}]`);
   }
+
   return options;
 }
 
 function isBasic(params: ReadonlyMap<string, string>, statistic: Selector, context: EnricherContext): boolean {
   const basic = params.has(BASIC);
   const isSave = statistic.startsWith('save:');
+
   if (basic && !isSave) {
     context.report(`${ENRICHER}[${BASIC}]`);
   }
+
   return basic && isSave;
 }
 
@@ -211,14 +231,18 @@ export function checkRun(params: string, label: string | undefined, context: Enr
   const parsed = enricherParams(params, TYPE);
   const type = parsed.get(TYPE) ?? '';
   const statistic = type.includes(LIST_SEPARATOR) ? undefined : statisticSelector(type);
+
   if (statistic === undefined) {
     context.report(`${ENRICHER}[${TYPE}:${type}]`);
+
     return textRun(fallbackText(type, label), context);
   }
+
   reportParams(parsed, { enricher: ENRICHER, handled: HANDLED }, context);
   const dc = dcOf({ params: parsed, statistic }, context);
   const options = optionsOf(parsed, context);
   const checkLabel = inlineLabel(label, `${ENRICHER}[label]`, context);
+
   const node: CheckNode = {
     type: InlineKind.Check,
     statistic,
@@ -227,5 +251,6 @@ export function checkRun(params: string, label: string | undefined, context: Enr
     ...(options.length === 0 ? {} : { options }),
     ...(checkLabel === undefined ? {} : { label: checkLabel }),
   };
+
   return [node];
 }

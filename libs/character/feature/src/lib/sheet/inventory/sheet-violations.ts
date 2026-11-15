@@ -22,10 +22,12 @@ const COUNT_MESSAGES = {
 function violationReason(violation: RuleViolation, runes: RuneContent): MessageDescriptor {
   if (violation.rule === RuleBreak.RuneNotAllowed) {
     const name = runes.get(violation.rune)?.name;
+
     return name === undefined
       ? message(ViolationMessage.UnknownRune)
       : message(ViolationMessage.RuneNotAllowed, { rune: name });
   }
+
   return message(COUNT_MESSAGES[violation.rule], { limit: violation.limit, actual: violation.actual });
 }
 
@@ -35,9 +37,11 @@ export function reasonsByItem(
   runes: RuneContent,
 ): ReadonlyMap<InventoryItemId, readonly MessageDescriptor[]> {
   const reasons = new Map<InventoryItemId, MessageDescriptor[]>();
+
   for (const violation of violations) {
     reasons.set(violation.item, [...(reasons.get(violation.item) ?? []), violationReason(violation, runes)]);
   }
+
   return reasons;
 }
 

@@ -17,6 +17,7 @@ export class InMemoryCharacterVariantRepository extends CharacterVariantReposito
 
   public override async enable(_actor: UserId, characterId: CharacterId, rule: CharacterVariantRule): Promise<void> {
     const rows = this.#rows.get(characterId) ?? [];
+
     if (!rows.some((row) => row.variantId === rule.variantId)) {
       this.#rows.set(characterId, [...rows, rule]);
     }

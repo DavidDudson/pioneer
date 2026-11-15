@@ -51,9 +51,11 @@ const GRADE_LABELS: Readonly<Record<FundamentalRune, string>> = {
 
 /** What the add-a-property-rune form submits. */
 const AddRuneForm = z.object({ rune: ContentId });
+
 interface AddRuneModel {
   readonly rune: string;
 }
+
 const EMPTY_ADD: AddRuneModel = { rune: '' };
 
 /** A fundamental rune the item takes, with its select. */
@@ -120,6 +122,7 @@ export class ItemRuneEdits {
   );
   readonly #entry: Signal<ItemEntry | undefined> = computed(() => {
     const item = this.#item();
+
     return item === undefined ? undefined : this.content().items.get(item.item);
   });
 
@@ -129,6 +132,7 @@ export class ItemRuneEdits {
   /** "Fundamental" and "Property", re-read when the language changes or the messages load. */
   readonly #words: Signal<RuneWords> = computed(() => {
     this.#messages();
+
     return {
       fundamental: this.#i18n.translate('character.sheet.runes.kind.fundamental'),
       property: this.#i18n.translate('character.sheet.runes.kind.property'),
@@ -138,6 +142,7 @@ export class ItemRuneEdits {
   /** The columns of every rune picker. */
   protected readonly runeColumns = computed(() => {
     this.#messages();
+
     return runeColumns({
       name: this.#i18n.translate('character.sheet.runes.columns.name'),
       kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
@@ -168,6 +173,7 @@ export class ItemRuneEdits {
   protected readonly gradeRows: Signal<readonly GradeRow[]> = computed(() => {
     this.#messages();
     const entry = this.#entry();
+
     return fundamentalRunesFor(entry).map((rune) => ({
       rune,
       label: this.#i18n.translate(GRADE_LABELS[rune], { name: this.name() }),
@@ -179,6 +185,7 @@ export class ItemRuneEdits {
   protected readonly properties: Signal<readonly PropertyRow[]> = computed(() => {
     const item = this.#item();
     const etched = item === undefined ? [] : etchedRunes(item, this.#entry());
+
     return etched.flatMap((rune): PropertyRow[] =>
       rune.type === RuneType.Property
         ? [{ rune, name: runeLabel(this.#i18n, this.content(), { rune, grade: undefined }), key: runeKey(rune) }]
@@ -191,12 +198,15 @@ export class ItemRuneEdits {
     computed(() => {
       const item = this.#item();
       const entry = this.#entry();
+
       if (item === undefined) {
         return [];
       }
+
       const entries = offerableRuneEntries(this.content(), { item, entry }, (left, right) =>
         this.#format.compare(left, right),
       );
+
       return propertyRows(entries, this.#words());
     }),
     RUNE_ORDER,
@@ -206,10 +216,13 @@ export class ItemRuneEdits {
   protected readonly needsPotency = computed(() => {
     const item = this.#item();
     const entry = this.#entry();
+
     if (item === undefined || hasPropertyRoom(item, entry, this.content().runes)) {
       return false;
     }
+
     const offered = offerableRuneEntries(this.content(), { item, entry }, () => 0);
+
     return offered.length === 0 && propertyRuneOptions(this.content(), { item, entry }, () => 0).length > 0;
   });
 
@@ -226,6 +239,7 @@ export class ItemRuneEdits {
     this.#messages();
     const rune = ContentId.safeParse(this.model().rune);
     const entry = rune.success ? this.content().runes.get(rune.data) : undefined;
+
     return entry === undefined
       ? []
       : runeChoices(entry).map((choice) => ({ value: choice, label: runeChoiceLabel(this.#i18n, choice) }));
@@ -252,6 +266,7 @@ export class ItemRuneEdits {
     return sheetField<string | undefined>(this.#holder, {
       read: () => {
         const grade = this.#item()?.runes?.[rune];
+
         return grade === undefined ? NONE : String(grade);
       },
       empty: NONE,
@@ -266,8 +281,10 @@ export class ItemRuneEdits {
     if (value !== NONE) {
       const etching = RuneEtchingSchema.parse({ type: RuneType.Fundamental, rune, grade: Number(value) });
       await this.#store.patch({ field: CharacterPatchField.EtchRune, id: this.id(), rune: etching });
+
       return;
     }
+
     if (this.#item()?.runes?.[rune] !== undefined) {
       await this.#store.patch({
         field: CharacterPatchField.EraseRune,
@@ -283,16 +300,19 @@ export class ItemRuneEdits {
       this.#messages();
       const entry = this.#entry();
       const printed = printedGrade(rune, entry);
+
       const none =
         printed === undefined
           ? this.#i18n.translate('character.sheet.runes.none')
           : this.#i18n.translate('character.sheet.runes.asMade', { grade: gradeLabel(this.#i18n, rune, printed) });
+
       return gradeRows(
         this.content(),
         { rune, entry, none: { value: NONE, label: none }, words: this.#words() },
         this.#i18n,
       );
     });
+
     return new PickerRows(all, RUNE_ORDER);
   }
 }

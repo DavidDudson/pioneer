@@ -46,6 +46,7 @@ export class CampaignPartyStashService {
   public async view(actor: UserId, id: CampaignId): Promise<PartyStash> {
     await this.#viewed(actor, id);
     const party = await this.#partyCharacters(id);
+
     return this.#seenBy(actor, await this.#stash.view(id, party), party);
   }
 
@@ -56,6 +57,7 @@ export class CampaignPartyStashService {
   public async deposit(actor: UserId, id: CampaignId, { from, item }: DepositBody): Promise<PartyStash> {
     await this.#viewed(actor, id);
     const party = await this.#owned(actor, id, from);
+
     return this.#seenBy(actor, await this.#stash.deposit(actor, id, { character: from, item }), party);
   }
 
@@ -66,23 +68,28 @@ export class CampaignPartyStashService {
   public async take(actor: UserId, id: CampaignId, { to, item }: TakeBody): Promise<PartyStash> {
     await this.#viewed(actor, id);
     const party = await this.#owned(actor, id, to);
+
     return this.#seenBy(actor, await this.#stash.take(actor, id, { character: to, item }), party);
   }
 
   /** The stash with the viewer's own live characters of the party, the ones that may put into it and take from it. */
   async #seenBy(actor: UserId, contents: PartyStashContents, party: readonly CharacterId[]): Promise<PartyStash> {
     const named = await this.#characters.byIds(party);
+
     const characters = party.flatMap((characterId) => {
       const found = named.get(characterId);
+
       return found === undefined || found.ownerId !== actor || found.archived
         ? []
         : [{ characterId, name: found.name }];
     });
+
     return { ...contents, characters };
   }
 
   async #partyCharacters(id: CampaignId): Promise<readonly CharacterId[]> {
     const party = await this.#party.listForCampaign(id);
+
     return party.map((each) => each.characterId);
   }
 
@@ -91,18 +98,22 @@ export class CampaignPartyStashService {
     const party = await this.#partyCharacters(id);
     const named = await this.#characters.byIds([character]);
     const found = named.get(character);
+
     if (!party.includes(character) || found === undefined || found.ownerId !== actor || found.archived) {
       throw new NotFoundError('Character', character);
     }
+
     return party;
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one (ADR-0007). */
   async #viewed(actor: UserId, id: CampaignId): Promise<Campaign> {
     const campaign = await this.#campaigns.findById(id);
+
     if (campaign === undefined || !mayViewCampaign(actor, campaign)) {
       throw new NotFoundError('Campaign', id);
     }
+
     return campaign;
   }
 }

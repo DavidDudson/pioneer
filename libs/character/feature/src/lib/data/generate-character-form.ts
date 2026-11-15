@@ -9,6 +9,7 @@ const SeedText = z.union([
 
 /** What the generate form submits; the same schemas the server validates with. A generated character is level 1. */
 export const GenerateCharacterForm = z.object({ seed: SeedText, name: CharacterName });
+
 export type GenerateCharacterForm = z.output<typeof GenerateCharacterForm>;
 
 /**

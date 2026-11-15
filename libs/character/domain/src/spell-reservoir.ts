@@ -25,6 +25,7 @@ export const ReservoirProblem = {
   RankTooHigh: 'rankTooHigh',
   TooLongToCast: 'tooLongToCast',
 } as const;
+
 export type ReservoirProblem = ValueOf<typeof ReservoirProblem>;
 
 /** Whether the item has a spell reservoir rune etched on it. */
@@ -36,6 +37,7 @@ export function hasReservoirRune(line: InventoryItem, base: ItemEntry | undefine
 function castsTooSlowly(spell: SpellOption): boolean {
   const cost = spellCost(spell);
   const actions = cost === undefined ? undefined : ACTION_COUNT[cost.cost];
+
   return cost === undefined || (actions !== undefined && actions > RESERVOIR_CAST_MAX);
 }
 
@@ -52,15 +54,20 @@ export function reservoirRefusal(
   if (!hasReservoirRune(line, reads.items.get(line.item), reads.runes)) {
     return ReservoirProblem.NoRune;
   }
+
   if (line.state?.spell !== undefined) {
     return ReservoirProblem.Occupied;
   }
+
   const option = reads.spells.anySpell(spell);
+
   if (option === undefined) {
     return ReservoirProblem.UnknownSpell;
   }
+
   if (option.rank > RESERVOIR_RANK_MAX) {
     return ReservoirProblem.RankTooHigh;
   }
+
   return castsTooSlowly(option) ? ReservoirProblem.TooLongToCast : undefined;
 }

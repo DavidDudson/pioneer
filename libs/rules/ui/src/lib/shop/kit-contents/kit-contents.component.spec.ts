@@ -11,6 +11,7 @@ async function render(lines: readonly KitLine[]): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(KitContents);
   fixture.componentRef.setInput('lines', lines);
   await fixture.whenStable();
+
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -18,9 +19,11 @@ async function render(lines: readonly KitLine[]): Promise<HTMLElement> {
 const shown = (host: HTMLElement): string[] =>
   [...host.querySelectorAll('pio-content-preview > fr-text')].map((text) => {
     let depth = 0;
+
     for (let at = text.parentElement; at !== null && at !== host; at = at.parentElement) {
       depth += at.tagName === 'FR-LIST' ? 1 : 0;
     }
+
     return `${'  '.repeat(depth - 1)}${text.textContent.trim()}`;
   });
 
@@ -30,6 +33,7 @@ describe(KitContents, () => {
       kitLine('Backpack', 1, [kitLine('Rope', 1), kitLine('Torch', 5)]),
       kitLine('Longsword', 2),
     ]);
+
     expect(shown(host)).toStrictEqual(['Backpack', '  Rope', '  5 × Torch', '2 × Longsword']);
   });
 });

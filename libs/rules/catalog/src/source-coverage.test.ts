@@ -24,6 +24,7 @@ describe('source coverage', () => {
       entry('fleet', { kind: SourceKind.Book, book: 'player-core' }),
       entry('blast', { kind: SourceKind.Book, book: 'gm-core', page: 2, aon: AON }),
     ];
+
     const coverage = sourceCoverage(entries, bookRegistry);
 
     expect(coverage.map((book) => book.book)).toStrictEqual(bookRegistry.books.map((book) => book.id));

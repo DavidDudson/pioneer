@@ -28,21 +28,25 @@ const DEFINITION = StatisticDefinition.parse({
   base: String(BASE),
   kind: StatisticKind.Check,
 });
+
 const INPUTS = StatisticInputsJson.parse({
   level: 1,
   attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
   ranks: {},
 });
+
 const FACTS = new PredicateFacts([], CORE_NAMESPACES);
 
 /** The armour class the engine derives with the character's overrides in play. */
 function armourClass(character: Character): number | undefined {
   const rules = overrideRules(character.document);
+
   const result = deriveStatistics(
     { definitions: [DEFINITION], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     INPUTS,
     { rules, facts: FACTS },
   ).get(AC);
+
   return result?.ok === true ? Number(result.total) : undefined;
 }
 
@@ -54,6 +58,7 @@ function idOf(index: number): OverrideId {
 /** A character with an untyped adjust of each amount on armour class, the nth with `idOf(n)`. */
 function adjusted(amounts: readonly number[]): Character {
   let character = new CharacterBuilder().build();
+
   for (const [index, value] of amounts.entries()) {
     const override = OverrideInput.parse({ target: 'ac', mode: 'adjust', value, reason: `Reason ${index}` });
     character = character.apply({ field: CharacterPatchField.AddOverride, override }, NOW, {
@@ -61,6 +66,7 @@ function adjusted(amounts: readonly number[]): Character {
       newOverrideId: idOf(index),
     });
   }
+
   return character;
 }
 
@@ -98,6 +104,7 @@ describe('removing an override', () => {
     assert(
       property(AMOUNTS, (amounts) => {
         let character = adjusted(amounts);
+
         for (const index of amounts.keys()) {
           character = without(character, index);
         }
@@ -116,9 +123,11 @@ describe('removing an override', () => {
         const everyone = Array.from({ length: COUNT_MAX }, (_unused, index) => index + 1);
         let forward = adjusted(everyone);
         let backward = adjusted(everyone);
+
         for (const index of order) {
           forward = without(forward, index);
         }
+
         for (const index of order.toReversed()) {
           backward = without(backward, index);
         }

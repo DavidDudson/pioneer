@@ -89,6 +89,7 @@ function recordOutputs(picker: Picker<string, Feat>): Outputs {
   picker.cancelled.subscribe(() => {
     cancels += 1;
   });
+
   return {
     searches,
     sorts,
@@ -109,6 +110,7 @@ function configure(
   fixture.componentRef.setInput('rowValue', (feat: Feat): string => feat.id);
   fixture.componentRef.setInput('rowLabel', (feat: Feat): string => feat.name);
   fixture.componentRef.setInput('rowDisabled', (feat: Feat): string | undefined => feat.locked);
+
   if (value !== undefined) {
     fixture.componentRef.setInput('value', value);
   }
@@ -121,6 +123,7 @@ export function render(rows: readonly Feat[] = FEATS, value?: string, openOnInit
   fixture.componentRef.setInput('openOnInit', openOnInit);
   const outputs = recordOutputs(fixture.componentInstance);
   fixture.detectChanges();
+
   return { fixture, ...elementsOf(fixture), ...outputs };
 }
 
@@ -132,9 +135,11 @@ interface Elements {
 function elementsOf(fixture: ComponentFixture<Picker<string, Feat>>): Elements {
   const host: unknown = fixture.nativeElement;
   const trigger = host instanceof HTMLElement ? (host.querySelector('button') ?? undefined) : undefined;
+
   if (!(host instanceof HTMLElement) || trigger === undefined) {
     throw new Error('Expected a rendered picker');
   }
+
   return { host, trigger };
 }
 
@@ -151,9 +156,11 @@ export async function open(rendered: Rendered): Promise<void> {
 
 export function searchBox(rendered: Rendered): HTMLInputElement {
   const input = rendered.host.querySelector('input');
+
   if (input === null) {
     throw new Error('Expected the panel to be open');
   }
+
   return input;
 }
 
@@ -191,12 +198,14 @@ export function rowCells(rendered: Rendered): HTMLElement[] {
 
 export function highlighted(rendered: Rendered): HTMLElement | undefined {
   const id = searchBox(rendered).getAttribute('aria-activedescendant');
+
   return [...rendered.host.querySelectorAll<HTMLElement>('[role="gridcell"]')].find((cell) => cell.id === id);
 }
 
 /** The text of the element a cell is described by. */
 export function describedText(rendered: Rendered, cell: HTMLElement | undefined): string {
   const id = cell?.getAttribute('aria-describedby') ?? '';
+
   return rendered.host.querySelector(`[id="${id}"]`)?.textContent.trim() ?? '';
 }
 

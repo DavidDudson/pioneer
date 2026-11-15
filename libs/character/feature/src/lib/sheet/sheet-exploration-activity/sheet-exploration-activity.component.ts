@@ -32,10 +32,12 @@ export class SheetExplorationActivity {
 
   protected readonly choices = computed((): readonly SelectOption<string>[] => {
     const registry = this.registry.data();
+
     const none: SelectOption<string> = {
       value: NONE,
       label: this.#i18n.translate('character.sheet.exploration.activity.none'),
     };
+
     return [
       none,
       ...(registry === undefined

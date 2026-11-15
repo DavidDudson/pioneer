@@ -11,6 +11,7 @@ const meta: Meta<InvestmentsView> = {
   component: InvestmentsView,
   args: { maximum: INVESTMENT_LIMIT },
 };
+
 export default meta;
 
 /** While the character loads. */

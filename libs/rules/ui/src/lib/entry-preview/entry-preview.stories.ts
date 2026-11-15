@@ -26,6 +26,7 @@ const meta: Meta<EntryPreviewView> = {
   component: EntryPreviewView,
   args: { preview: FIREBALL_PREVIEW },
 };
+
 export default meta;
 
 /** The card a reference or row opens: name, level, traits, the opening of the description and its source. */

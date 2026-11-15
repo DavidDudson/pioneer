@@ -46,6 +46,7 @@ export class ContentSearchRepository {
     offset,
   }: ContentSearchCriteria): Promise<ContentSearchResult> {
     const words = sql`websearch_to_tsquery(content_search_config(${locale}), ${query})`;
+
     const matches = and(
       eq(contentEntrySearch.locale, locale),
       sql`${contentEntrySearch.vector} @@ ${words}`,
@@ -53,6 +54,7 @@ export class ContentSearchRepository {
       packFilter(packs),
       legacyFilter(legacy),
     );
+
     const [rows, [total]] = await Promise.all([
       this.#db
         .select({ id: contentEntries.id })
@@ -74,6 +76,7 @@ export class ContentSearchRepository {
         .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
         .where(matches),
     ]);
+
     return { ids: rows.map(({ id }): ContentId => id), total: SearchTotal.parse(total?.matched ?? 0) };
   }
 }

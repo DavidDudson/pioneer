@@ -9,6 +9,7 @@ import type { BacklogItem } from '@pioneer/interop/foundry';
 import { ContentKind } from '@pioneer/rules/sdk';
 
 type Json = unknown;
+
 type JsonRecord = Readonly<Record<string, Json>>;
 
 /** The kinds `--apply-descriptions` can fill: the ones the import describes from Foundry's config, not its packs. */
@@ -42,17 +43,23 @@ export function withFilledDescriptions(
   kinds: ReadonlySet<string>,
 ): DescriptionMerge {
   let filled = 0;
+
   const merged = entries.map((entry): Json => {
     if (!isRecord(entry) || !kinds.has(String(entry['kind'])) || !isEmptyList(entry['description'])) {
       return entry;
     }
+
     const description = fresh.get(String(entry['id']));
+
     if (!isFilledList(description)) {
       return entry;
     }
+
     filled += 1;
+
     return { ...entry, description };
   });
+
   return { entries: merged, filled };
 }
 
@@ -82,11 +89,13 @@ export function withDescriptionGaps(
   const kept = backlog.filter((item) => !isDescriptionGap(item, kinds));
   const all = [...kept, ...fresh.filter((item) => isDescriptionGap(item, kinds))];
   const others = all.filter((item) => !isVocabulary(item));
+
   const vocabulary = all
     .filter((item) => isVocabulary(item))
     .toSorted(
       (left, right) =>
         compare(left.kind, right.kind) || compare(left.slug, right.slug) || compare(left.reason, right.reason),
     );
+
   return [...others, ...vocabulary];
 }
