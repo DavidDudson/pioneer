@@ -146,6 +146,8 @@ export {
   ConditionTrigger,
 } from './condition';
 
+export { CompanionKind } from './companion-kind';
+
 export { ContentKind, ContentKindSchema } from './content-kind';
 
 export {
