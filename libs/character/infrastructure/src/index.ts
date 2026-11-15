@@ -34,7 +34,8 @@ export {
   characterRuleLimits,
   characterVariantRules,
 } from './character.table';
-
+export { characterCompanionRoutes } from './character-companion-routes';
+export { DrizzleCharacterCompanionRepository } from './drizzle-character-companion-repository';
 export { DrizzleCharacterItemAcknowledgementRepository } from './drizzle-character-item-acknowledgement-repository';
 
 export { DrizzleCharacterPackRepository } from './drizzle-character-pack-repository';

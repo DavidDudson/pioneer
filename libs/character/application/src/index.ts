@@ -73,7 +73,15 @@ export {
 } from './character-unenabled-service';
 
 export { CharacterRuleLimitMessage } from './character-rule-limit-message';
-
+export { CharacterCompanionMessage } from './character-companion-message';
+export {
+  CharacterCompanionService,
+  type CharacterCompanionPorts,
+  type CompanionRef,
+} from './character-companion-service';
+export { CharacterCompanionRepository } from './character-companion-repository';
+export type { CompanionArchival, CompanionWriteContext } from './character-companion-repository';
+export { InMemoryCharacterCompanionRepository } from './in-memory-character-companion-repository';
 export { CharacterItemAcknowledgementRepository } from './character-item-acknowledgement-repository';
 
 export type { ItemAcknowledgementRevocation } from './character-item-acknowledgement-repository';

@@ -666,7 +666,7 @@ interface Companion {
   readonly name: CompanionName;
   readonly form: CompanionForm; // shape settles with the familiar rules spike
   readonly grantedBy: SlotKey;
-  readonly archived: CompanionArchive | null; // { at, reason: 'replaced' | 'released' }
+  readonly archived?: CompanionArchive; // { at, reason: 'replaced' | 'released' }; absent while live
 }
 
 interface CompanionPlay {
