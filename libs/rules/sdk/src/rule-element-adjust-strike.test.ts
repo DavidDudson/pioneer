@@ -50,7 +50,7 @@ describe('CriticalSpecialization', () => {
   );
 
   test('has no other fields', () => {
-    expect(RuleElement.safeParse({ key: 'CriticalSpecialization', alternate: true }).success).toBe(false);
+    expect(RuleElement.safeParse({ key: 'CriticalSpecialization', unknown: true }).success).toBe(false);
   });
 });
 
