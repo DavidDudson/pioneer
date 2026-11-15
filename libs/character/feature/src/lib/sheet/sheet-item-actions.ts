@@ -26,6 +26,7 @@ import { ActionResourceKind, STAFF_SPELL_BLOCK_MESSAGES, StaffSpellsMessage } fr
 import type {
   ActionLine,
   ActionResource,
+  Chip,
   StaffCastOptionLine,
   StaffSpellLine,
   UsePayment,
@@ -35,7 +36,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { turnFit } from './sheet-actions';
-import { traitNames } from './sheet-build';
+import { traitChips } from './sheet-build';
 import { consumableLines } from './sheet-consumables';
 import { sheetCounted } from './sheet-counted';
 import { sheetStaves } from './sheet-staves';
@@ -77,7 +78,7 @@ export interface SheetItemPlay {
 interface ItemAction {
   readonly id: ContentId;
   readonly name: string;
-  readonly traits: readonly string[];
+  readonly traits: readonly Chip[];
   readonly cost: ActionCost | undefined;
   readonly range: ActionCostRange | undefined;
   /** What it spends; absent for an activation with no frequency, which takes only its actions. */
@@ -128,12 +129,11 @@ function rangeOf(cost: ActionCost, upTo: number | undefined): ActionCostRange {
 
 /** The consumables held, each with its stack as the resource it spends. */
 function consumableActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
-  const traits = traitNames(registry);
   const entries = itemContent(registry);
   return consumableLines(registry, character, { turn: play.turn, inputs: play.inputs }).map((line): ItemAction => ({
     id: line.id,
     name: line.name,
-    traits: (entries.get(line.id)?.traits ?? []).map((trait) => traits.get(trait) ?? trait),
+    traits: traitChips(registry, entries.get(line.id)?.traits ?? []),
     cost: line.cost,
     range: rangeOf(line.cost, line.upTo),
     resource: { kind: ActionResourceKind.Quantity, current: line.quantity },

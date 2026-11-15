@@ -76,11 +76,12 @@ describe(StrikesView, () => {
     expect(rows[1]).toContain('Attack +9 / +5 / +1');
   });
 
-  it("names a Strike's traits", async () => {
-    const rows = rowsOf(await render(FIGHTER_STRIKES)).map((row) => textOf(row));
+  it("names a Strike's traits, each opening its card", async () => {
+    const [, dagger] = rowsOf(await render(FIGHTER_STRIKES));
 
-    expect(rows[1]).toContain('Agile');
-    expect(rows[1]).toContain('Finesse');
+    expect(dagger?.textContent).toContain('Agile');
+    expect(dagger?.textContent).toContain('Finesse');
+    expect(dagger?.querySelectorAll('pio-trait-chip')).toHaveLength(2);
   });
 
   it('words the attack and damage lines that hold only in some situations beneath each', async () => {

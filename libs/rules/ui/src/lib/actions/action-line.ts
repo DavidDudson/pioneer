@@ -2,6 +2,8 @@ import type { ActionOrigin, ActionStatus, StatisticValue } from '@pioneer/rules/
 import type { ActionCost, ActionMode, ContentId, FrequencyPeriod, RichText } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
+
 /** What using something pays besides its actions, as keys the page that spends understands. */
 export interface UsePayment {
   /** The frequency use it counts under. */
@@ -51,8 +53,8 @@ export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory
 export interface ActionLine {
   readonly id: ContentId;
   readonly name: string;
-  /** Its traits by name. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly cost: ActionCost | undefined;
   readonly modes: readonly ActionMode[];
   readonly origin: ActionOrigin;

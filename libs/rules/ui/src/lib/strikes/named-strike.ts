@@ -2,6 +2,7 @@ import type { RuleId, Strike } from '@pioneer/rules/engine';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import type { UsableLine } from '../actions/action-user';
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import type { StatisticSituations } from '../statistics/statistics.component';
 
 /** A rule element that would change a Strike's damage if a roll claimed its situation, with the entry it comes from. */
@@ -21,8 +22,8 @@ export interface NamedStrike {
   readonly name: string;
   /** A message key naming it instead, for one no content names (a fist's Strike). */
   readonly nameKey?: string | undefined;
-  /** Its traits by name. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly strike: Strike;
   /** The situations a roll of its attack can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;

@@ -56,7 +56,7 @@ export interface ShownStrike {
   /** What the Use button spends, when the page can spend. */
   readonly use: UsableLine | undefined;
   readonly attack: ShownAttack;
-  /** Its traits by name. */
+  /** Its traits as chips: each names the trait and carries its slug, which opens its card. */
   readonly traits: readonly Chip[];
   /** "Attack +9 / +4 / -1": the attack at each step of the multiple attack penalty; undefined when it has none. */
   readonly attacks: string | undefined;

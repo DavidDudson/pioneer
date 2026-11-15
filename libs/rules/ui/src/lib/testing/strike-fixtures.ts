@@ -25,6 +25,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { NamedStrike, StrikesShield } from '../strikes/strikes.component';
 import { GLOOM_WALKER, IN_DARKNESS, line, origin, ruleId, statistic, term } from './breakdown-fixtures';
 import { criticalsFrom } from './strike-critical-fixtures';
+import { traitChipsOf } from './trait-chip-fixtures';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const STRENGTH = 4;
@@ -118,7 +119,7 @@ function strikeOf(index: number): Strike {
 /** A longsword, and an agile dagger with a striking rune: 1d8+4 slashing; 2d4 piercing, and the smaller penalty. */
 export const FIGHTER_STRIKES: readonly NamedStrike[] = [
   { name: 'Longsword', traits: [], strike: strikeOf(0) },
-  { name: 'Dagger', traits: ['Agile', 'Finesse'], strike: strikeOf(1) },
+  { name: 'Dagger', traits: traitChipsOf('Agile', 'Finesse'), strike: strikeOf(1) },
 ];
 
 /** The reach of an extended weapon in the element Strike. */
@@ -181,8 +182,8 @@ const WATER_AT = 4;
 
 /** Thrown consumables: a stack of 3 alchemist's fire with persistent damage and splash, and one holy water. */
 export const THROWN_STRIKES: readonly NamedStrike[] = [
-  { name: "Alchemist's fire", traits: ['Bomb', 'Consumable', 'Splash'], strike: strikeOf(FIRE_AT) },
-  { name: 'Holy water', traits: ['Consumable', 'Splash', 'Thrown'], strike: strikeOf(WATER_AT) },
+  { name: "Alchemist's fire", traits: traitChipsOf('Bomb', 'Consumable', 'Splash'), strike: strikeOf(FIRE_AT) },
+  { name: 'Holy water', traits: traitChipsOf('Consumable', 'Splash', 'Thrown'), strike: strikeOf(WATER_AT) },
 ];
 
 /** A steel shield held beside the weapons. */
@@ -274,7 +275,7 @@ function longswordDamage(): StrikeDamage {
 export const ALTERED_STRIKE: readonly NamedStrike[] = [
   {
     name: 'Longsword',
-    traits: ['Agile'],
+    traits: traitChipsOf('Agile'),
     strike: {
       ...strikeOf(0),
       weapon: {

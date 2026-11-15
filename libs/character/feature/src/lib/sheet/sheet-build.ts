@@ -20,8 +20,8 @@ import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ChoiceValue, ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { Attribute, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
-import { BuildPart } from '@pioneer/rules/ui';
-import type { BuildLine, BuildValue } from '@pioneer/rules/ui';
+import { BuildPart, humaniseTrait } from '@pioneer/rules/ui';
+import type { BuildLine, BuildValue, Chip } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
 import { sheetSlotContent } from './sheet-slot-content';
@@ -70,6 +70,12 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
     );
   TRAIT_NAMES.set(registry, read);
   return read;
+}
+
+/** Chips for `slugs`: each carries its slug, which opens its card, and its name where the vocabulary has one, else the slug read as words. */
+export function traitChips(registry: ContentRegistry, slugs: readonly Trait[]): readonly Chip[] {
+  const names = traitNames(registry);
+  return slugs.map((trait): Chip => ({ label: names.get(trait) ?? humaniseTrait(trait), trait }));
 }
 
 /**
