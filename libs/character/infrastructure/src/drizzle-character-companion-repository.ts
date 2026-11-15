@@ -21,7 +21,8 @@ type Database = BunSQLDatabase<Record<string, unknown>>;
 /** What `bumpVersion` needs of a transaction. */
 type VersionWriter = Pick<Database, 'update'>;
 
-const NO_VALUE = sql`null`;
+/** Drizzle skips `undefined`, and the lint rules refuse `null`, so a column is cleared with SQL's own. */
+const SQL_NULL = sql`null`;
 
 function toCompanion(row: CharacterCompanionRow): Companion {
   const archivedAt = row.archivedAt ?? undefined;
@@ -40,9 +41,9 @@ function toCompanion(row: CharacterCompanionRow): Companion {
 }
 
 export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: Database;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: Database) {
     super();
     this.#db = db;
   }
@@ -96,7 +97,8 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
   public override async archive(context: CompanionWriteContext, { id, reason }: CompanionArchival): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor: context.actor, command: ARCHIVE_COMMAND });
-      const archived = await tx
+      await bumpVersion(tx, context);
+      await tx
         .update(characterCompanions)
         .set({ archivedAt: context.at.toString(), archiveReason: reason })
         .where(
@@ -105,18 +107,15 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
             eq(characterCompanions.characterId, context.characterId),
             isNull(characterCompanions.archivedAt),
           ),
-        )
-        .returning({ id: characterCompanions.id });
-      if (archived.length > 0) {
-        await bumpVersion(tx, context);
-      }
+        );
     });
   }
 
   public override async restore(context: CompanionWriteContext, id: CompanionId): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor: context.actor, command: RESTORE_COMMAND });
-      const [archived] = await tx
+      await bumpVersion(tx, context);
+      const [target] = await tx
         .select()
         .from(characterCompanions)
         .where(
@@ -127,7 +126,7 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
           ),
         )
         .limit(1);
-      if (archived === undefined) {
+      if (target === undefined) {
         return;
       }
       const [live] = await tx
@@ -136,22 +135,27 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
         .where(
           and(
             eq(characterCompanions.characterId, context.characterId),
-            eq(characterCompanions.kind, archived.kind),
+            eq(characterCompanions.kind, target.kind),
             isNull(characterCompanions.archivedAt),
           ),
         )
         .limit(1);
       if (live !== undefined) {
         throw new ConflictError(
-          `Character ${context.characterId} already has a live ${archived.kind}`,
-          message(CharacterCompanionMessage.RestoreBlocked, { kind: archived.kind }),
+          `Character ${context.characterId} already has a live ${target.kind}`,
+          message(CharacterCompanionMessage.RestoreBlocked, { kind: target.kind }),
         );
       }
       await tx
         .update(characterCompanions)
-        .set({ archivedAt: NO_VALUE, archiveReason: NO_VALUE })
-        .where(eq(characterCompanions.id, id));
-      await bumpVersion(tx, context);
+        .set({ archivedAt: SQL_NULL, archiveReason: SQL_NULL })
+        .where(
+          and(
+            eq(characterCompanions.id, id),
+            eq(characterCompanions.characterId, context.characterId),
+            isNotNull(characterCompanions.archivedAt),
+          ),
+        );
     });
   }
 }

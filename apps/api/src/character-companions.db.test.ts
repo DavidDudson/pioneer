@@ -141,6 +141,38 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
     expect(rows.map((row) => row.archived)).toStrictEqual([undefined]);
   });
 
+  test('a stale version refuses archive and restore alike, leaving the row as it was', async () => {
+    const pip = familiar(PIP);
+    await repository.add(await context(), pip);
+    const stale = await context();
+    await repository.archive(await context(), { id: pip.id, reason: CompanionArchiveReason.Released });
+
+    const archiveRefused = await rejection(
+      repository.archive(stale, { id: pip.id, reason: CompanionArchiveReason.Replaced }),
+    );
+    const restoreRefused = await rejection(repository.restore(stale, pip.id));
+    expect(archiveRefused).toBeInstanceOf(VersionConflictError);
+    expect(restoreRefused).toBeInstanceOf(VersionConflictError);
+    const rows = await repository.listForCharacter(kyra.id);
+    expect(rows.map((row) => row.archived?.reason)).toStrictEqual([CompanionArchiveReason.Released]);
+  });
+
+  test('only the character’s own companion can be restored through it', async () => {
+    const pip = familiar(PIP);
+    await repository.add(await context(), pip);
+    await repository.archive(await context(), { id: pip.id, reason: CompanionArchiveReason.Released });
+    const seelah = await characters.insert(new CharacterBuilder().named('Seelah the restorer').ownedBy(amiri).build(), {
+      actor: amiri,
+      command: CharacterCommand.CreateCharacter,
+    });
+    await repository.restore(
+      { actor: amiri, characterId: seelah.id, expectedVersion: seelah.version, at: clock.now() },
+      pip.id,
+    );
+    const rows = await repository.listForCharacter(kyra.id);
+    expect(rows.map((row) => row.archived?.reason)).toStrictEqual([CompanionArchiveReason.Released]);
+  });
+
   test('the database refuses to delete a companion (ADR-0062)', async () => {
     await repository.add(await context(), familiar(PIP));
     const error = await rejection(

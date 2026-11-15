@@ -111,10 +111,20 @@ describe('the companions a character owns', () => {
     expect(liveNames(view)).toStrictEqual([PIP]);
   });
 
-  test('another user’s character reads as missing', async () => {
-    const listed = await rejection(service.list(ezren, character.id));
-    const added = await rejection(service.add(ezren, character.id, familiar(PIP)));
-    expect(listed).toBeInstanceOf(NotFoundError);
-    expect(added).toBeInstanceOf(NotFoundError);
+  test('another user’s character reads as missing, whatever is asked of it', async () => {
+    const pip = called(await service.add(amiri, character.id, familiar(PIP)), PIP);
+    const ref = { character: character.id, companion: pip.id };
+    const moth = familiar(MOTH);
+    const released = archival(CompanionArchiveReason.Released);
+    const unarchived = { expectedVersion: character.version };
+    const refusals = await Promise.all([
+      rejection(service.list(ezren, character.id)),
+      rejection(service.add(ezren, character.id, moth)),
+      rejection(service.archive(ezren, ref, released)),
+      rejection(service.restore(ezren, ref, unarchived)),
+    ]);
+    for (const refused of refusals) {
+      expect(refused).toBeInstanceOf(NotFoundError);
+    }
   });
 });

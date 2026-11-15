@@ -50,14 +50,14 @@ export class CharacterCompanionService {
   /** Adds a companion. A live one of the kind is held already: 409. */
   public async add(actor: UserId, id: CharacterId, body: AddCompanionBody): Promise<CharacterCompanions> {
     await this.#owned(actor, id);
-    const at = this.#clock.now();
-    await this.#companions.add(this.#context(actor, id, body.expectedVersion), {
+    const context = this.#context(actor, id, body.expectedVersion);
+    await this.#companions.add(context, {
       id: CompanionId.parse(newId()),
       kind: body.kind,
       name: body.name,
       form: body.form,
       grantedBy: body.grantedBy,
-      createdAt: at,
+      createdAt: context.at,
       archived: undefined,
     });
     return this.#view(id);
