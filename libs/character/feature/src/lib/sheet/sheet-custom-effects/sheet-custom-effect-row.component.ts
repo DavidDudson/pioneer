@@ -77,7 +77,7 @@ export class SheetCustomEffectRow {
     });
   };
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);

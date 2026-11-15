@@ -11,7 +11,7 @@ import type { PioneerExported } from './export-pioneer-character';
 import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT } from './pioneer-character-file';
 import { PioneerReadProblem, readPioneerCharacter } from './read-pioneer-character';
 import type { PioneerReadFailure } from './read-pioneer-character';
-import type { Fields } from './rewrite-references';
+import type { Fields, Stored } from './rewrite-references';
 
 installRulesFakes();
 
@@ -25,7 +25,7 @@ function fileOf(overrides: Fields): Fields {
   return { format: PIONEER_CHARACTER_FORMAT, formatVersion: CURRENT_FORMAT_VERSION, character: {}, ...overrides };
 }
 
-function failureOf(input: unknown): PioneerReadFailure {
+function failureOf(input: Stored): PioneerReadFailure {
   const result = readPioneerCharacter(input, target);
 
   if (result.ok) {

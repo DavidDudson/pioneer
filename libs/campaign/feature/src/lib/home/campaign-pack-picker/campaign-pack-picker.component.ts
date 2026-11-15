@@ -67,7 +67,7 @@ export class CampaignPackPicker {
   };
 
   /** A private pack, or one that cannot be used, says why; anything else is a retry. */
-  protected readonly describeEnableError = (error: unknown): string => {
+  protected readonly describeEnableError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

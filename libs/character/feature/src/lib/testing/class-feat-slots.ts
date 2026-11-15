@@ -1,17 +1,11 @@
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import type { PlayerCoreClass } from '@pioneer/character/domain/testing';
 import { officialPacks } from '@pioneer/rules/catalog';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { RuleElementKey } from '@pioneer/rules/sdk';
+import type { ContentId, RuleElement } from '@pioneer/rules/sdk';
 
-function isChoiceSet(rule: unknown, flag: string): boolean {
-  return (
-    typeof rule === 'object' &&
-    rule !== null &&
-    'key' in rule &&
-    rule.key === 'ChoiceSet' &&
-    'flag' in rule &&
-    rule.flag === flag
-  );
+function isChoiceSet(rule: RuleElement, flag: string): boolean {
+  return rule.key === RuleElementKey.ChoiceSet && rule.flag === flag;
 }
 
 /**

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
-import { RuleElementKey } from '@pioneer/rules/sdk';
+import { isChoiceRef, RuleElementKey } from '@pioneer/rules/sdk';
 import { assert, constantFrom, integer, oneof, property, record, shuffledSubarray, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -81,7 +81,7 @@ describe('resolveGrants fixpoint properties', () => {
               element.key === RuleElementKey.GrantItem &&
               (element.predicate === undefined || evaluatePredicate(element.predicate, result.facts) === Truth.True);
 
-            if (holds && typeof element.item === 'string') {
+            if (holds && !isChoiceRef(element.item)) {
               expect(present.has(element.item)).toBe(true);
             }
           }

@@ -229,25 +229,35 @@ interface CheckIssue extends FieldIssue {
   readonly pointer?: string;
 }
 
-type JsonParse = { readonly ok: true; readonly value: unknown } | { readonly ok: false };
+/** Any JSON value. */
+export const Json = z.json();
+
+export type Json = z.infer<typeof Json>;
+
+type JsonParse = { readonly ok: true; readonly value: Json } | { readonly ok: false };
 
 function parseJson(text: string): JsonParse {
   try {
-    return { ok: true, value: JSON.parse(text) };
+    const json = Json.safeParse(JSON.parse(text));
+
+    return json.success ? { ok: true, value: json.data } : { ok: false };
   } catch {
     return { ok: false };
   }
 }
 
+/** What holds other values by key or position. */
+const Container = z.union([z.array(Json), z.record(z.string(), Json)]);
+
 /** The value at `path` inside `value`, or undefined when the path leads nowhere. */
-function valueAt(value: unknown, path: FieldIssue['path']): unknown {
-  let inside = value;
+function valueAt(value: Json, path: FieldIssue['path']): Json | undefined {
+  let inside: Json | undefined = value;
 
   for (const segment of path) {
-    inside =
-      typeof inside === 'object' && inside !== null
-        ? Object.entries(inside).find(([name]) => name === String(segment))?.[1]
-        : undefined;
+    const container = Container.safeParse(inside);
+    inside = container.success
+      ? Object.entries(container.data).find(([name]) => name === String(segment))?.[1]
+      : undefined;
   }
 
   return inside;
@@ -257,13 +267,11 @@ function valueAt(value: unknown, path: FieldIssue['path']): unknown {
  * The issue, with a pointer when its descriptor names a formula position (`FormulaSource`) and the field holds
  * the formula's text.
  */
-function withPointer(json: unknown, issue: FieldIssue): CheckIssue {
-  const formula = valueAt(json, issue.path);
+function withPointer(json: Json, issue: FieldIssue): CheckIssue {
+  const formula = z.string().safeParse(valueAt(json, issue.path));
   const position = TextPosition.safeParse(issue.message.params?.['position']);
 
-  return typeof formula === 'string' && position.success
-    ? { ...issue, pointer: pointAt(formula, position.data) }
-    : issue;
+  return formula.success && position.success ? { ...issue, pointer: pointAt(formula.data, position.data) } : issue;
 }
 
 /** What stops JSON text from reading: it is not JSON, or the value has issues. */

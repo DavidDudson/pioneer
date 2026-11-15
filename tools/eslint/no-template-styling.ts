@@ -8,6 +8,10 @@
  * TypeScript where the `class-tokens` rule checks it against the tokens.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+import { Span } from './template-nodes.ts';
+import type { VisitedNode } from './template-nodes.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 
@@ -31,9 +35,7 @@ function isStyling(attribute: string): boolean {
   return STYLING_NAMES.has(attribute) || STYLING_PREFIXES.some((prefix) => attribute.startsWith(prefix));
 }
 
-interface TemplateNode {
-  readonly sourceSpan?: { readonly start: { readonly offset: number }; readonly end: { readonly offset: number } };
-}
+const AttributeNode = z.looseObject({ sourceSpan: Span });
 
 export const noTemplateStyling: Rule.RuleModule = {
   meta: {
@@ -48,13 +50,14 @@ export const noTemplateStyling: Rule.RuleModule = {
   create(context) {
     const inFrontier = FRONTIER.test(context.filename);
 
-    const check = (node: unknown): void => {
-      // SAFETY: the template parser calls this visitor with a node of that kind, and `TemplateNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-      const span = (node as TemplateNode).sourceSpan;
+    const check = (node: VisitedNode): void => {
+      const parsed = AttributeNode.safeParse(node);
 
-      if (span === undefined) {
+      if (!parsed.success) {
         return;
       }
+
+      const span = parsed.data.sourceSpan;
 
       const text = context.sourceCode.text.slice(span.start.offset, span.end.offset);
       const [attribute = text] = text.split('=');

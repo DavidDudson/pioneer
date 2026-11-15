@@ -1,5 +1,6 @@
 import { DamageAdjustment } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
+import type * as z from 'zod';
 
 import { DamageInstance, NO_DEFENCES } from '../damage';
 import type { DamageTarget } from '../damage';
@@ -30,7 +31,7 @@ export function amount(value: number): DamageTotal {
   return DamageTotal.parse(value);
 }
 
-export function expectedInstance(raw: unknown): DamageInstance {
+export function expectedInstance(raw: z.input<typeof DamageInstance>): DamageInstance {
   return DamageInstance.parse(raw);
 }
 

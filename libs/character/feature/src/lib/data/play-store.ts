@@ -64,7 +64,7 @@ export class PlayStore {
 
       return events;
     } catch (error: unknown) {
-      if (ApiError.isConflict(error)) {
+      if (error instanceof ApiError && error.isConflict) {
         await this.#client.invalidateQueries({ queryKey: characterKeys.play(id) });
       }
 

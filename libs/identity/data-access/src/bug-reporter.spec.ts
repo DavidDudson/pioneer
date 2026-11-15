@@ -17,11 +17,11 @@ interface Request {
 
 interface Setup {
   readonly reporter: BugReporter;
-  readonly call: Mock<(endpoint: unknown, request: Request) => Promise<object>>;
+  readonly call: Mock<(endpoint: object, request: Request) => Promise<object>>;
 }
 
 async function setup(): Promise<Setup> {
-  const call = vi.fn<(endpoint: unknown, request: Request) => Promise<object>>(async () => ({}));
+  const call = vi.fn<(endpoint: object, request: Request) => Promise<object>>(async () => ({}));
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: '**', children: [] }]),

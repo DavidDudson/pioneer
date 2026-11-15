@@ -2,13 +2,16 @@ import { describe, expect, test } from 'bun:test';
 
 import { DefenceStatusKind, RuleInPlay } from '@pioneer/rules/engine';
 import {
+  ContentId,
   contentPackFromContents,
+  isRollOptionStatement,
   MagicTradition,
   OriginHopKind,
   RuleElementKey,
   Size,
   SpellRank,
 } from '@pioneer/rules/sdk';
+import type { PredicateStatement } from '@pioneer/rules/sdk';
 
 import { playerCorePack } from './json-packs';
 import { chosen, effectRulesOf, formRulesOf, viewOf } from './testing/battle-forms';
@@ -21,7 +24,10 @@ function dragon(type: string, rank: number): FormView {
   return viewOf(formRulesOf('effect:spell-effect-dragon-form', rank), chosen(`dragon-form:${type}`));
 }
 
-function resistances(view: FormView): unknown {
+/** A resistance's damage type and amount. */
+type ResistanceLine = readonly [string, number | undefined];
+
+function resistances(view: FormView): readonly ResistanceLine[] {
   return view.defences.resistances
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ type, value }) => [type, value]);
@@ -68,7 +74,7 @@ describe('Player Core: Dragon Form, level 10 druid', () => {
 });
 
 /** The dice the jaws add to their 2d12 piercing, for the dragon `type` at `rank`: every rule of the effect is in play. */
-function jawsExtra(type: string, rank: number): unknown {
+function jawsExtra(type: string, rank: number): readonly (readonly [number, string, string])[] | undefined {
   const view = viewOf(effectRulesOf('effect:spell-effect-dragon-form', rank), chosen(`dragon-form:${type}`));
   const jaws = view.strikes.find(({ weapon }) => String(weapon.slug) === 'jaws');
 
@@ -96,20 +102,15 @@ function ordered(names: readonly string[]): readonly string[] {
   return names.toSorted((left, right) => Number(left > right) - Number(left < right));
 }
 
-/** A predicate test that holds when any of its options does. */
-interface AnyOf {
-  readonly or: readonly unknown[];
-}
-
-function isAnyOf(check: unknown): check is AnyOf {
-  return typeof check === 'object' && check !== null && 'or' in check && Array.isArray(check.or);
-}
-
 /** The dragons the test `check` of a predicate names: one roll option, or an `or` of them. */
-function dragonsOf(check: unknown): readonly string[] {
-  const options: readonly unknown[] = isAnyOf(check) ? check.or : [check];
+function dragonsOf(check: PredicateStatement | undefined): readonly string[] {
+  if (check === undefined) {
+    return [];
+  }
 
-  return options.map((option) => String(option).slice('dragon-form:'.length));
+  const options: readonly PredicateStatement[] = isRollOptionStatement(check) || !('or' in check) ? [check] : check.or;
+
+  return options.flatMap((option) => (isRollOptionStatement(option) ? [option.slice('dragon-form:'.length)] : []));
 }
 
 /** The dragons the pick of Dragon Form offers, by their roll option. */
@@ -161,10 +162,8 @@ const PLAYER_CORE_ENTRIES = contentPackFromContents(await playerCorePack()).othe
 /** The slugs of the entries the effect grants while it lasts. */
 function grantedSlugs(): readonly string[] {
   return effectRulesOf('effect:spell-effect-dragon-form', 6).flatMap(({ element }) => {
-    const granted =
-      element.key === RuleElementKey.GrantItem && typeof element.item === 'string'
-        ? PLAYER_CORE_ENTRIES.find(({ id }) => id === element.item)
-        : undefined;
+    const item = element.key === RuleElementKey.GrantItem ? ContentId.safeParse(element.item) : undefined;
+    const granted = item?.success === true ? PLAYER_CORE_ENTRIES.find(({ id }) => id === item.data) : undefined;
 
     return granted === undefined ? [] : [String(granted.slug)];
   });
@@ -195,13 +194,9 @@ describe('Player Core: Dragon Form, the tradition it was cast with', () => {
   test('a divine dragon cast by a divine caster resists spirit, void and vitality 10', () => {
     const form = viewOf(castBy(MagicTradition.Divine), chosen('dragon-form:delight', 'dragon-form-tradition:divine'));
 
-    expect(resistances(form)).toEqual(
-      expect.arrayContaining([
-        ['spirit', 10],
-        ['void', 10],
-        ['vitality', 10],
-      ]),
-    );
+    expect(resistances(form)).toContainEqual(['spirit', 10]);
+    expect(resistances(form)).toContainEqual(['void', 10]);
+    expect(resistances(form)).toContainEqual(['vitality', 10]);
   });
 
   test('cast by a caster of another tradition, the dragon has no resistance of its own tradition', () => {

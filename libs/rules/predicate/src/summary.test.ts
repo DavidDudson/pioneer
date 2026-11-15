@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentText, Predicate, RollOption } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -21,7 +22,7 @@ function facts(...options: readonly string[]): PredicateFacts {
   );
 }
 
-function summary(predicate: unknown, given = facts()): PredicateSummary | undefined {
+function summary(predicate: JsonValue, given = facts()): PredicateSummary | undefined {
   return summarisePredicate(Predicate.parse(predicate), given);
 }
 
@@ -43,7 +44,7 @@ const DEBUG_FORMAT: SummaryFormat = {
 };
 
 /** The summary as `DEBUG_FORMAT` text; empty when there is none. */
-function formatted(predicate: unknown, given = facts()): string {
+function formatted(predicate: JsonValue, given = facts()): string {
   const result = summary(predicate, given);
 
   return result === undefined ? '' : formatSummary(result, DEBUG_FORMAT);

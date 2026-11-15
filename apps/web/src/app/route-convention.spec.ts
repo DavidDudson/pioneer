@@ -1,6 +1,8 @@
 import type { Route, Routes } from '@angular/router';
 import { CRUMB } from '@pioneer/frontier';
+import type { Crumb } from '@pioneer/frontier';
 import { describe, expect, it } from 'vitest';
+import * as z from 'zod';
 
 import { appRoutes } from './app.routes';
 
@@ -13,8 +15,22 @@ interface RouteAt {
   readonly path: string;
 }
 
+/** The builder's steps, whose id is a draft's: the step has a fixed title, not a name to look up. */
+const DRAFT_PREFIX = 'new/';
+
+const CRUMB_FUNCTION = z.instanceof(Function);
+
+const CRUMB_SCHEMA = z.union([
+  z.string(),
+  z.custom<Exclude<Crumb, string>>((value) => CRUMB_FUNCTION.safeParse(value).success),
+]);
+
 /** The route's own crumb, if it sets one. */
-const crumbOf = (route: Route): unknown => route.data?.[CRUMB];
+const crumbOf = (route: Route): Crumb | undefined => {
+  const crumb = CRUMB_SCHEMA.safeParse(route.data?.[CRUMB]);
+
+  return crumb.success ? crumb.data : undefined;
+};
 
 /** Every route below `routes`, each with the URL path it is at. */
 function flatten(routes: Routes, parent = ''): RouteAt[] {
@@ -76,6 +92,9 @@ describe.each(CATEGORIES)('the %s routes', (category) => {
   it('name an id with a crumb that is a function of its route, loaded lazily', async () => {
     const ids = await idsOf(category);
     expect(ids.length).toBeGreaterThan(0);
-    expect(ids.filter(({ route }) => typeof crumbOf(route) !== 'function').map(({ path }) => path)).toStrictEqual([]);
+    const named = ids.filter(({ path }) => !path.startsWith(DRAFT_PREFIX));
+    expect(
+      named.filter(({ route }) => !CRUMB_FUNCTION.safeParse(crumbOf(route)).success).map(({ path }) => path),
+    ).toStrictEqual([]);
   });
 });

@@ -21,7 +21,7 @@ const deities = new ContentPackBuilder()
   .withId('deities')
   .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], description: EDICTS });
 
-function request(method: string, path: string, body?: unknown): Request {
+function request(method: string, path: string, body?: object): Request {
   const init: RequestInit = {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(amiri) },

@@ -44,7 +44,7 @@ export class FormBanner {
   public readonly form = input.required<FormSummary | undefined>();
   /** Ends the form. */
   public readonly dismiss = input.required<() => Promise<void>>();
-  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
+  public readonly describeError = input<((error: Error) => string) | undefined>(undefined);
   /** Whether the sheet below shows the character without the form. */
   public readonly baseView = model(false);
 

@@ -65,10 +65,12 @@ async function lockedAgainstOthers(database: TestDatabase, id: ContentPackId): P
 }
 
 /** The reasons of the settled promises that were rejected. */
-function reasons(outcomes: readonly PromiseSettledResult<unknown>[]): readonly unknown[] {
+function reasons(outcomes: readonly PromiseSettledResult<unknown>[]): readonly Error[] {
   const rejected = outcomes.filter((outcome): outcome is PromiseRejectedResult => outcome.status === 'rejected');
 
-  return rejected.map((outcome): unknown => outcome.reason);
+  return rejected.map((outcome): Error =>
+    outcome.reason instanceof Error ? outcome.reason : new Error(String(outcome.reason)),
+  );
 }
 
 interface EntryInput {

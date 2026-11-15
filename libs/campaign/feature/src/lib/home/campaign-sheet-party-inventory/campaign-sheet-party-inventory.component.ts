@@ -123,7 +123,7 @@ export class CampaignSheetPartyInventory {
     await this.#client.invalidateQueries({ queryKey: ['characters'] });
   };
 
-  protected readonly describeDepositError = (error: unknown): string => {
+  protected readonly describeDepositError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.putFailed');
 
     return this.#i18n.translate(key, params);

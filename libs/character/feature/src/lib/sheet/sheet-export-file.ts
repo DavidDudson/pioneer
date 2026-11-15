@@ -1,3 +1,5 @@
+import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
+
 /** Longest a file name's character part runs before it is cut. */
 const NAME_LENGTH_MAX = 60;
 const FALLBACK_NAME = 'character';
@@ -16,7 +18,7 @@ export function exportFileName(characterName: string): string {
 }
 
 /** Offers `value` as a JSON file download called `fileName`. */
-export function saveJsonFile(document: Document, fileName: string, value: unknown): void {
+export function saveJsonFile(document: Document, fileName: string, value: PioneerCharacterFile): void {
   const url = URL.createObjectURL(new Blob([JSON.stringify(value, undefined, 2)], { type: 'application/json' }));
   const link = document.createElement('a');
   link.href = url;

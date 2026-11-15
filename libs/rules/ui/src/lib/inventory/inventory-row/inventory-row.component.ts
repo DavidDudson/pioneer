@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import type { TemplateRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { List, ListItem, LocaleFormat, Stack, Text, Tone } from '@pioneer/frontier';
+import { BulkWeight } from '@pioneer/rules/sdk';
 import type { Bulk } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -94,9 +95,9 @@ export class InventoryRow {
 
   #bulk(bulk: Bulk, per: number | undefined): ShownBulk {
     const value =
-      typeof bulk === 'number'
-        ? message(InventoryMessage.BulkCount, { count: this.#format.number(bulk) })
-        : message(BULK_WEIGHT_MESSAGES[bulk]);
+      bulk === BulkWeight.Negligible || bulk === BulkWeight.Light
+        ? message(BULK_WEIGHT_MESSAGES[bulk])
+        : message(InventoryMessage.BulkCount, { count: this.#format.number(bulk) });
 
     return per === undefined
       ? { key: InventoryMessage.Bulk, value, per: undefined }

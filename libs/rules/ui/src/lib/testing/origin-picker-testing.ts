@@ -1,4 +1,4 @@
-import type { Type } from '@angular/core';
+import type { OutputRefSubscription, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { vi } from 'vitest';
@@ -11,8 +11,8 @@ const ROW_PX = 44;
 /** What each origin picker has in common to drive. */
 export interface PickerUnderTest {
   readonly value: () => string | undefined;
-  readonly committed: { subscribe: (next: () => void) => unknown };
-  readonly cancelled: { subscribe: (next: () => void) => unknown };
+  readonly committed: { subscribe: (next: () => void) => OutputRefSubscription };
+  readonly cancelled: { subscribe: (next: () => void) => OutputRefSubscription };
 }
 
 export interface Rendered<TPicker> {

@@ -6,7 +6,12 @@ import {
   PathbuilderImportService,
 } from '@pioneer/character/application';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
-import type { Discrepancy, PathbuilderImportResponse, SpellGap } from '@pioneer/interop/pathbuilder';
+import type {
+  Discrepancy,
+  PathbuilderFileJson,
+  PathbuilderImportResponse,
+  SpellGap,
+} from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
@@ -36,10 +41,10 @@ const service = new PathbuilderImportService(
   fixedClock('2026-10-16T10:00:00Z'),
 );
 
-const imports = new Map<unknown, Promise<PathbuilderImportResponse>>();
+const imports = new Map<PathbuilderFileJson, Promise<PathbuilderImportResponse>>();
 
 /** Imports an export once; the tests only read the result, so they share it (an import over the packs takes tens of seconds). */
-const imported = async (exported: unknown): Promise<PathbuilderImportResponse> => {
+const imported = async (exported: PathbuilderFileJson): Promise<PathbuilderImportResponse> => {
   const cached = imports.get(exported);
 
   if (cached !== undefined) {

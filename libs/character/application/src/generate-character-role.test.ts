@@ -4,6 +4,7 @@ import { CHARACTER_LEVEL_MIN, CharacterLevel, CLASS_SLOT, Seed } from '@pioneer/
 import { ChoiceValue, ContentKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
+import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { GenerateCharacterService } from './generate-character-service';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
@@ -58,7 +59,7 @@ describe('GenerateCharacterService with a role', () => {
   });
 
   test('refuses a role no class plays as a 422 naming it', async () => {
-    const refusal: unknown = await service.generate(amiri, { role: 'healer', seed }).catch((error: unknown) => error);
+    const refusal = await rejection(service.generate(amiri, { role: 'healer', seed }));
     expect(refusal).toBeInstanceOf(ValidationError);
     expect(refusal).toMatchObject({ issues: [{ path: ['role'] }] });
   });

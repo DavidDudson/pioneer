@@ -54,7 +54,7 @@ const RAGING: readonly string[] = ['self:effect:rage'];
 const TRAINED = { 'attack:martial': 'trained' };
 
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
-function strikeOf(elements: readonly object[], weapon: object, given: Given = {}): Strike | undefined {
+function strikeOf(elements: readonly RuleJson[], weapon: object, given: Given = {}): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },

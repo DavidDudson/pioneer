@@ -13,7 +13,7 @@ import { AonListingFile } from '@pioneer/rules/sdk';
 import type { AonListedEntry, AonUrl, PageNumber } from '@pioneer/rules/sdk';
 
 import { PoliteClient } from '../aon-sources/polite-fetch.ts';
-import { parseHits } from './parse.ts';
+import { Answer, parseHits } from './parse.ts';
 import type { PageHits } from './parse.ts';
 
 const LISTINGS = `${import.meta.dir}/../../content/aon`;
@@ -106,17 +106,22 @@ interface Collected {
   readonly stop?: string;
 }
 
+/** Why the run must stop. */
+interface Stop {
+  readonly stop: string;
+}
+
 /** One window of a book's hits, or the reason the run must stop. */
-async function ask(id: string, sourceId: string, from: number): Promise<PageHits | string> {
+async function ask(id: string, sourceId: string, from: number): Promise<PageHits | Stop> {
   const outcome = await client.postJson(SEARCH, query(sourceId, from));
 
   if (outcome.kind !== 'fresh') {
-    return outcome.kind === 'refused' ? outcome.reason : 'no answer';
+    return { stop: outcome.kind === 'refused' ? outcome.reason : 'no answer' };
   }
 
-  const parsed = parseHits(JSON.parse(outcome.html), sourceId);
+  const parsed = parseHits(Answer.parse(JSON.parse(outcome.html)), sourceId);
 
-  return parsed.total > WINDOW ? `${id} has ${parsed.total} hits, more than one window of ${WINDOW}` : parsed;
+  return parsed.total > WINDOW ? { stop: `${id} has ${parsed.total} hits, more than one window of ${WINDOW}` } : parsed;
 }
 
 function merge<Value>(into: Map<AonUrl, Value>, from: ReadonlyMap<AonUrl, Value>): void {
@@ -149,8 +154,8 @@ async function collect(id: string, sourceId: string): Promise<Collected> {
     // oxlint-disable-next-line eslint/no-await-in-loop
     const answer = await ask(id, sourceId, from);
 
-    if (typeof answer === 'string') {
-      return { ...tally, stop: answer };
+    if ('stop' in answer) {
+      return { ...tally, stop: answer.stop };
     }
 
     ({ total } = answer);

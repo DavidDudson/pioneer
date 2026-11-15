@@ -28,7 +28,7 @@ export function runeLabel(
 }
 
 /** The server's reason a rune edit was refused, else the sheet's own wording. */
-export function describeRuneError(i18n: TranslocoService, error: unknown): string {
+export function describeRuneError(i18n: TranslocoService, error: Error): string {
   const [issue] = error instanceof ApiError ? error.issues : [];
 
   return issue === undefined

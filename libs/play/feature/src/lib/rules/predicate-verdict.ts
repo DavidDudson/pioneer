@@ -1,6 +1,6 @@
 import { PredicateFacts, summarisePredicate, tracePredicate, Truth } from '@pioneer/rules/predicate';
 import type { NamespaceTable, PredicateSummary, StatementTrace } from '@pioneer/rules/predicate';
-import { isPredicateComparison, Predicate, RollOption } from '@pioneer/rules/sdk';
+import { isPredicateComparison, isRollOptionStatement, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { PredicateStatement } from '@pioneer/rules/sdk';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 
@@ -61,7 +61,7 @@ const LINE = /\r?\n/u;
 
 /** The code shown for a statement: an option as is, a comparison as JSON, a compound by its operator. */
 function codeOf(statement: PredicateStatement): string {
-  if (typeof statement === 'string') {
+  if (isRollOptionStatement(statement)) {
     return statement;
   }
 

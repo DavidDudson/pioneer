@@ -14,7 +14,7 @@ const UNDERWATER = ContentId.parse('3b0e2f0e-86b6-5b1b-a0f2-0b1f6d3f6a11');
 const lift = (restriction: string, extra: object = {}): RuleJson => ({ key: 'LiftRestriction', restriction, ...extra });
 
 function liftedBy(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   options: readonly string[] = [],
 ): readonly LiftedRestriction[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));

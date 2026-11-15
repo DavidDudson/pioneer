@@ -3,13 +3,16 @@ import { describe, expect, test } from 'bun:test';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import { ChoiceValue, ContentRegistry, Level, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
 
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { featSlots, withoutPick } from './feat-slots';
 import { PrerequisiteStatus } from './prerequisite-status';
+import type { PrerequisiteClauseStatus } from './prerequisite-status';
 import { skillReads, slotContent, slotRefusal } from './slot-offer';
+import type { SlotRefusal } from './slot-refusals';
 import {
   CharacterBuilder,
   FEAT_SLOT_FIGHTER,
@@ -47,7 +50,7 @@ function offered(character: CharacterBuilder, slot: SlotKey): Statuses {
   return Object.fromEntries(read?.options.map((option) => [option.label.toLowerCase(), option.status]) ?? []);
 }
 
-function slotOf(character: CharacterBuilder, slot: SlotKey): unknown {
+function slotOf(character: CharacterBuilder, slot: SlotKey): CharacterSlot | undefined {
   return characterSlots(character.build().document, content).find((each) => each.key === slot);
 }
 
@@ -98,15 +101,15 @@ describe('featSlots', () => {
   test('reads each clause of a feat with several, and the feat by them when it has no predicate of its own', () => {
     const read = featSlots(fighter().build().document, content).find((each) => each.key === LEVEL_1);
 
-    const clausesOf = (name: string): unknown =>
+    const clausesOf = (name: string): readonly PrerequisiteClauseStatus[] | undefined =>
       read?.options.find((option) => option.label.toLowerCase() === name)?.clauses;
 
-    expect(clausesOf('shield-brawler')).toEqual([
+    expect(plain(clausesOf('shield-brawler'))).toEqual([
       { text: 'expert in Athletics', status: PrerequisiteStatus.Unmet },
       { text: 'expert in Perception', status: PrerequisiteStatus.Met },
       { text: 'an animal companion', status: PrerequisiteStatus.Unknown },
     ]);
-    expect(clausesOf('field-medic')).toEqual([
+    expect(plain(clausesOf('field-medic'))).toEqual([
       { text: 'trained in Athletics', status: PrerequisiteStatus.Met },
       { text: 'expert in Perception', status: PrerequisiteStatus.Met },
     ]);
@@ -219,7 +222,7 @@ describe('characterSlots with feat prerequisites', () => {
   });
 });
 
-function refusal(character: CharacterBuilder, slot: SlotKey, feat: FeatSlotFixture): unknown {
+function refusal(character: CharacterBuilder, slot: SlotKey, feat: FeatSlotFixture): SlotRefusal | undefined {
   return slotRefusal(character.build().document, content, { slot, selection: ChoiceValue.parse(idOf(feat)) });
 }
 

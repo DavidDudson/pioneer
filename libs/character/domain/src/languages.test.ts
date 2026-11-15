@@ -2,10 +2,11 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentRegistry, LanguageCount, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
 
 import { characterLanguages } from './character-languages';
 import { SlotStatus, SlotSubjectKind } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { knownLanguages, languageSlots, LanguageSource, openLanguageSlots } from './languages';
 import { languageReads, slotContent, slotRefusal } from './slot-offer';
@@ -65,7 +66,7 @@ function refusalOf(builder: CharacterBuilder, slot: string, name: LanguageFixtur
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
-function slotOf(builder: CharacterBuilder, key: string): unknown {
+function slotOf(builder: CharacterBuilder, key: string): CharacterSlot | undefined {
   return characterSlots(builder.build().document, content).find((slot) => slot.key === key);
 }
 
@@ -105,7 +106,7 @@ describe('language slots', () => {
 
   test('a pick read as a filled slot names its language and its subject its level', () => {
     const elven = dwarf().picking('language:1:0', language('elven'));
-    expect(slotOf(elven, 'language:1:0')).toEqual({
+    expect(plain(slotOf(elven, 'language:1:0'))).toEqual({
       status: SlotStatus.Filled,
       key: SlotKey.parse('language:1:0'),
       subject: { kind: SlotSubjectKind.Language, level: Level.parse(1) },

@@ -45,8 +45,8 @@ import { Button, ButtonType, ButtonVariant } from '../button/button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '(focusout)': 'standDown()', '(keydown.escape)': 'standDown()' },
 })
-export class AsyncButton {
-  public readonly action = input<() => Promise<unknown>>(async () => undefined);
+export class AsyncButton<TResult = void> {
+  public readonly action = input<(() => Promise<TResult>) | undefined>(undefined);
   public readonly variant = input<ButtonVariant>(ButtonVariant.Secondary);
   public readonly size = input<Size>(Size.Md);
   public readonly type = input<ButtonType>(ButtonType.Button);
@@ -61,17 +61,22 @@ export class AsyncButton {
   /** Ask before acting: the label shown after the first press, which a second press confirms. */
   public readonly confirmLabel = input<string | undefined>(undefined);
   /** Defaults to a generic "Something went wrong" in the viewer's locale. */
-  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
+  public readonly describeError = input<((error: Error) => string) | undefined>(undefined);
   public readonly succeeded = output();
 
   readonly #i18n = inject(TranslocoService);
   readonly #form = inject(AsyncForm, { optional: true }) ?? undefined;
-  readonly #own = injectAsyncAction(() => this.action(), {
-    describeError: (error) => this.describeError()?.(error) ?? this.#i18n.translate('frontier.async.actionFailed'),
-    onSuccess: () => {
-      this.succeeded.emit();
+  readonly #own = injectAsyncAction(
+    () => async (): Promise<void> => {
+      await this.action()?.();
     },
-  });
+    {
+      describeError: (error) => this.describeError()?.(error) ?? this.#i18n.translate('frontier.async.actionFailed'),
+      onSuccess: () => {
+        this.succeeded.emit();
+      },
+    },
+  );
 
   /** A submit button reflects its form; anything else runs its own action. */
   protected readonly state = computed(() =>

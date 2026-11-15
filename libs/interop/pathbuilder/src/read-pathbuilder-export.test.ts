@@ -8,9 +8,9 @@ import mordredFixture from './fixtures/mordred.json';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportKind as ImportKindType } from './import-kind';
 import { PathbuilderProblem, readPathbuilderExport } from './read-pathbuilder-export';
-import type { PathbuilderImport } from './read-pathbuilder-export';
+import type { PathbuilderImport, PathbuilderInput } from './read-pathbuilder-export';
 
-function read(input: unknown): PathbuilderImport {
+function read(input: PathbuilderInput): PathbuilderImport {
   const result = readPathbuilderExport(input);
 
   if (!result.ok) {
@@ -20,13 +20,13 @@ function read(input: unknown): PathbuilderImport {
   return result.value;
 }
 
-function problemOf(input: unknown): PathbuilderProblem | undefined {
+function problemOf(input: PathbuilderInput): PathbuilderProblem | undefined {
   const result = readPathbuilderExport(input);
 
   return result.ok ? undefined : result.problem;
 }
 
-function issuePaths(input: unknown): readonly (readonly PropertyKey[])[] {
+function issuePaths(input: PathbuilderInput): readonly (readonly PropertyKey[])[] {
   const result = readPathbuilderExport(input);
 
   return result.ok ? [] : result.issues.map((issue) => issue.path);

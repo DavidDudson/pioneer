@@ -31,9 +31,9 @@ function playerCore(overrides: Readonly<Record<string, unknown>> = {}): BookFixt
   };
 }
 
-function registryIssues(input: unknown): readonly FieldIssue[] {
+function registryIssues(input: readonly BookFixture[]): readonly FieldIssue[] {
   try {
-    BookRegistry.parse(input);
+    BookRegistry.parse(z.json().parse(input));
 
     return [];
   } catch (error) {

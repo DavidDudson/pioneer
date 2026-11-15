@@ -4,6 +4,7 @@ import { fieldIssues, ValidationMessage } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 
 const PACK = 'player-core';
@@ -49,7 +50,7 @@ function targeting(targets: object): SpellFixture {
 }
 
 /** Each issue as `<path> <message key>`, sorted. */
-function found(value: unknown): readonly string[] {
+function found(value: JsonValue): readonly string[] {
   const result = ContentEntry.safeParse(value);
 
   return result.success

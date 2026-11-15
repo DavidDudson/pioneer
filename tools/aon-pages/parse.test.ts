@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { AonUrl, PageNumber } from '@pioneer/rules/sdk';
 
-import { pageIn, parseHits, replacements } from './parse.ts';
+import { Answer, pageIn, parseHits, replacements } from './parse.ts';
 
 /** One hit of the index's answer. */
 interface HitJson {
@@ -47,7 +47,7 @@ describe('parseHits', () => {
       hit('/Rules.aspx', '[Player Core](/Sources.aspx?ID=216) pg. 2'),
     );
 
-    const parsed = parseHits(json, '216');
+    const parsed = parseHits(Answer.parse(json), '216');
     expect([...parsed.pages]).toEqual([
       [AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=1530'), PageNumber.parse(331)],
     ]);
@@ -60,7 +60,7 @@ describe('parseHits', () => {
       hit('/Rules.aspx'),
     );
 
-    const parsed = parseHits(json, '216');
+    const parsed = parseHits(Answer.parse(json), '216');
     expect(parsed.entries.map(({ name, url }) => `${name} ${url}`)).toEqual([
       'Jinx https://2e.aonprd.com/Actions.aspx?ID=2254',
     ]);
@@ -68,7 +68,7 @@ describe('parseHits', () => {
   });
 
   test('rejects an answer of another shape', () => {
-    expect(() => parseHits({ hits: {} }, '216')).toThrow();
+    expect(() => Answer.parse({ hits: {} })).toThrow();
   });
 });
 
@@ -97,7 +97,7 @@ describe('parseHits replacedBy', () => {
       _source: { url: '/Feats.aspx?ID=1704', name: 'Shield of Faith', type: 'Feat', remaster_id: ['feat-4679'] },
     });
 
-    expect([...parseHits(json, '39').replacedBy]).toEqual([
+    expect([...parseHits(Answer.parse(json), '39').replacedBy]).toEqual([
       [
         AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1704'),
         [AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=4679')],

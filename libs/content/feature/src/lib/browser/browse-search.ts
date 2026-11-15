@@ -7,6 +7,8 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
 import type { BrowseKind } from './browse-kinds';
+import { firstQueryText } from './query-text';
+import type { QueryText } from './query-text';
 
 /** The most matches the browser asks for: the server's largest page. */
 const MATCHES_MAX = SearchLimit.parse(200);
@@ -22,9 +24,8 @@ export interface BrowseSearch {
 }
 
 /** The words a link holds, or undefined when it has none or only blanks. */
-export function searchFromQuery(text: unknown): SearchText | undefined {
-  const first: unknown = Array.isArray(text) ? text[0] : text;
-  const parsed = SearchText.safeParse(first);
+export function searchFromQuery(text: QueryText): SearchText | undefined {
+  const parsed = SearchText.safeParse(firstQueryText(text));
 
   return parsed.success ? parsed.data : undefined;
 }

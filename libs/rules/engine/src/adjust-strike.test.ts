@@ -4,6 +4,7 @@ import { FormulaValue } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageType, InventoryItemId, NumericItemProperty, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { adjustStrike } from './adjust-strike';
 import type { AlteredItem } from './item-alterations';
@@ -31,7 +32,7 @@ const LONGSWORD = weapon(['slug:longsword', 'melee']);
 const SHORTBOW = weapon(['slug:shortbow', 'ranged'], 60);
 
 /** `strike` after the adjustments, each placed in order. */
-function adjusted(strike: AlteredItem, elements: readonly object[]): AlteredItem {
+function adjusted(strike: AlteredItem, elements: readonly RuleJson[]): AlteredItem {
   const rules = elements.map((element, rule) => inPlay(element, 'adjuster', { rule }));
 
   return adjustStrike({ rules, facts }, strike);

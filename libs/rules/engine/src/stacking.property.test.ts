@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, RollOption, Selector } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import {
   array,
   assert,
@@ -116,7 +117,7 @@ const adjustmentSpecs = array(
   { maxLength: ADJUSTMENTS_MAX },
 );
 
-interface AdjustmentFields {
+interface AdjustmentFields extends RuleJson {
   key: string;
   selectors: readonly string[];
   slug?: string;

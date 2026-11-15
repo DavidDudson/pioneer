@@ -65,8 +65,18 @@ const FeatTuple = z.tuple(
 /** `[name, proficiency]`. */
 const LoreTuple = z.tuple([Name, ProficiencyNumber]);
 
+/** What a file is before it is read as an export: any JSON, which the reader judges. */
+export const PathbuilderFileJson = z.json();
+
+export type PathbuilderFileJson = z.infer<typeof PathbuilderFileJson>;
+
+/** What trails an equipment row after its quantity: a container id, "Invested", or whatever else Pathbuilder adds. */
+export const EquipmentFlag = z.json();
+
+export type EquipmentFlag = z.infer<typeof EquipmentFlag>;
+
 /** `[name, quantity, container id or "Invested"?]`. */
-const EquipmentTuple = z.tuple([Name, Count], z.unknown());
+const EquipmentTuple = z.tuple([Name, Count], EquipmentFlag);
 
 /** A potency or resilient/striking grade as Pathbuilder writes it: a number, or "" / null for none. */
 const RuneNumber = z.int().min(0).max(RUNE_GRADE_MAX).nullish();

@@ -7,7 +7,7 @@ import type { ReferenceNamer } from './content-reference';
 import { embeddedNamer, embeddedUsing } from './embedded-homebrew';
 import type { EmbeddedPack } from './embedded-homebrew';
 import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT, PioneerCharacterFile } from './pioneer-character-file';
-import { isFields, rewriteReferences } from './rewrite-references';
+import { FieldsSchema, isFields, isList, rewriteReferences } from './rewrite-references';
 import type { Fields } from './rewrite-references';
 
 export interface PioneerExported {
@@ -30,11 +30,11 @@ const SERVER_FIELDS: ReadonlySet<string> = new Set(['id', 'ownerId']);
 function withoutCampaignEvents(inputs: Fields): Fields {
   const { play } = inputs;
 
-  if (!isFields(play) || !Array.isArray(play['conditions'])) {
+  const conditions = isFields(play) ? play['conditions'] : undefined;
+
+  if (!isFields(play) || !isList(conditions)) {
     return inputs;
   }
-
-  const conditions: unknown[] = play['conditions'];
 
   return {
     ...inputs,
@@ -52,7 +52,9 @@ function withoutCampaignEvents(inputs: Fields): Fields {
 }
 
 function portableInputs(document: CharacterDocument): Fields {
-  const encoded: Fields = z.encode(CharacterDocumentSchema, document);
+  // A file is JSON, which has no `undefined`: the round trip drops the fields an encoded document leaves absent.
+  const json = JSON.stringify(z.encode(CharacterDocumentSchema, document));
+  const encoded = FieldsSchema.parse(JSON.parse(json));
   const portable = Object.entries(encoded).filter(([key]) => !SERVER_FIELDS.has(key));
 
   return withoutCampaignEvents(Object.fromEntries(portable));

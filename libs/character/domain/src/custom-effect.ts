@@ -8,6 +8,7 @@ import {
   ModifierType,
   OriginHopKind,
   PackId,
+  RuleElement,
   RuleElementKey,
 } from '@pioneer/rules/sdk';
 import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
@@ -33,27 +34,29 @@ const CUSTOM_EFFECTS_ENTRY = ContentId.parse(
 const CUSTOM_EFFECT_SOURCE = { kind: 'book', book: 'player-core', page: 1 } as const;
 
 /** The rule element of one line: an adjust is a typed flat modifier, a set a `Change` that pins the value. */
-function elementOf(name: CustomEffect['name'], line: CustomEffectLine): unknown {
+function elementOf(name: CustomEffect['name'], line: CustomEffectLine): RuleElement {
   const display = { label: ContentText.parse(name) };
   const predicate = line.predicate === undefined ? {} : { predicate: line.predicate };
 
-  return line.mode === OverrideMode.Set
-    ? {
-        key: RuleElementKey.Change,
-        selector: line.target,
-        mode: ChangeMode.Override,
-        value: line.value,
-        display,
-        ...predicate,
-      }
-    : {
-        key: RuleElementKey.FlatModifier,
-        selectors: [line.target],
-        type: line.type ?? ModifierType.Untyped,
-        value: line.value,
-        display,
-        ...predicate,
-      };
+  return RuleElement.parse(
+    line.mode === OverrideMode.Set
+      ? {
+          key: RuleElementKey.Change,
+          selector: line.target,
+          mode: ChangeMode.Override,
+          value: line.value,
+          display,
+          ...predicate,
+        }
+      : {
+          key: RuleElementKey.FlatModifier,
+          selectors: [line.target],
+          type: line.type ?? ModifierType.Untyped,
+          value: line.value,
+          display,
+          ...predicate,
+        },
+  );
 }
 
 /**

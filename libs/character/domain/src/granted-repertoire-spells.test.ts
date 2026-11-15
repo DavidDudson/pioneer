@@ -11,6 +11,7 @@ import { preparedSlots } from './prepared-spells';
 import { signatureSlots } from './signature-spells';
 import { preparedReads, slotContent, slotRefusal } from './slot-offer';
 import type { SlotContent } from './slot-offer';
+import type { SlotRefusal } from './slot-refusals';
 import { CharacterBuilder } from './testing';
 
 /**
@@ -98,7 +99,7 @@ function slotsOf(level: number, picks?: Readonly<Record<string, string>>): Prepa
 }
 
 /** Why the first 1st-rank repertoire slot refuses the spell `name`. */
-function refusing(name: string): unknown {
+function refusing(name: string): SlotRefusal | undefined {
   return slotRefusal(sorcerer(3), content, { slot: SlotKey.parse('repertoire:sorcerer:1:0'), selection: spell(name) });
 }
 

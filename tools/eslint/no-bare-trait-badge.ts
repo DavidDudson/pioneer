@@ -6,6 +6,10 @@
  * a `Trait` bound to a badge. `libs/frontier` is exempt, as it knows no schemas.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+import { Span } from './template-nodes.ts';
+import type { VisitedNode } from './template-nodes.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const BADGES = new Set(['fr-badge', 'fr-tag']);
@@ -20,10 +24,7 @@ const PATH = /[\w$.]+/gu;
 /** What names a trait: `trait`, `traits`, or a name ending in `Trait` or `Traits` (`ownTrait`), never `portrait`. */
 const TRAIT_NAME = /^(?:traits?|\w*Traits?)$/u;
 
-interface ElementNode {
-  readonly name?: unknown;
-  readonly sourceSpan?: { readonly start: { readonly offset: number }; readonly end: { readonly offset: number } };
-}
+const ElementNode = z.looseObject({ name: z.string(), sourceSpan: Span });
 
 function readsTrait(source: string): boolean {
   return [...source.matchAll(SHOWN)].some(({ groups }) => {
@@ -51,13 +52,14 @@ export const noBareTraitBadge: Rule.RuleModule = {
     }
 
     return {
-      Element(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, sourceSpan } = node as ElementNode;
+      Element(node: VisitedNode): void {
+        const element = ElementNode.safeParse(node);
 
-        if (typeof name !== 'string' || !BADGES.has(name) || sourceSpan === undefined) {
+        if (!element.success || !BADGES.has(element.data.name)) {
           return;
         }
+
+        const { name, sourceSpan } = element.data;
 
         const source = context.sourceCode.text.slice(sourceSpan.start.offset, sourceSpan.end.offset);
 

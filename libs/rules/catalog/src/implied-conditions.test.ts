@@ -3,8 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantedItem } from '@pioneer/rules/grants';
 import { inputsOf } from '@pioneer/rules/grants/testing';
-import { ConditionValue, OriginHopKind, RuleElementKey, slugName } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentId, OriginHopKind, RuleElementKey, slugName } from '@pioneer/rules/sdk';
 import { assert, property, shuffledSubarray } from 'fast-check';
 
 import { conditionGrantEntries as entries, conditions, idNamed } from './testing/condition-entries';
@@ -32,9 +31,11 @@ const inPlay = (roots: readonly ContentId[]): string[] =>
 
 /** The conditions a condition's `GrantItem` rules give. */
 function grantedBy(each: ConditionEntry): ContentId[] {
-  return each.rules.flatMap((rule) =>
-    rule.key === RuleElementKey.GrantItem && typeof rule.item === 'string' ? [rule.item] : [],
-  );
+  return each.rules.flatMap((rule) => {
+    const item = rule.key === RuleElementKey.GrantItem ? ContentId.safeParse(rule.item) : undefined;
+
+    return item?.success === true ? [item.data] : [];
+  });
 }
 
 const IMPLYING = conditions.filter((each) => each.data.implies.length > 0);

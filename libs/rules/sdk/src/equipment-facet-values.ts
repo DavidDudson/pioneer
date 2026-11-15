@@ -79,7 +79,11 @@ export function priceInCopper({ coins }: Price): CopperValue {
 }
 
 export function bulkInTenths(bulk: Bulk): BulkTenths {
-  return typeof bulk === 'number' ? BulkTenths.parse(bulk * TENTHS_PER_BULK) : BULK_WEIGHT_TENTHS[bulk];
+  if (bulk === BulkWeight.Negligible || bulk === BulkWeight.Light) {
+    return BULK_WEIGHT_TENTHS[bulk];
+  }
+
+  return BulkTenths.parse(bulk * TENTHS_PER_BULK);
 }
 
 /** An item's price in copper; `undefined` (unknown) for one with no price. */

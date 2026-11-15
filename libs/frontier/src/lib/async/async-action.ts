@@ -27,7 +27,7 @@ export interface AsyncActionOptions<TData> {
   /** Return false when the run did nothing (e.g. an invalid form): the action goes straight back to idle. */
   readonly accept?: (data: TData) => boolean;
   /** Turns a failure into the inline message. */
-  readonly describeError?: (error: unknown) => string;
+  readonly describeError?: (error: Error) => string;
   readonly onSuccess?: (data: TData) => void;
 }
 
@@ -125,7 +125,11 @@ export function injectAsyncAction<TData, TVariables = void>(
     isPending: computed(() => status() === AsyncStatus.Pending),
     isSuccess: computed(() => status() === AsyncStatus.Success),
     isError: computed(() => status() === AsyncStatus.Error),
-    errorMessage: computed(() => (status() === AsyncStatus.Error ? describeError(mutation.error()) : undefined)),
+    errorMessage: computed(() => {
+      const failure = mutation.error();
+
+      return status() === AsyncStatus.Error && failure !== null ? describeError(failure) : undefined;
+    }),
     run: (variables) => {
       if (status() !== AsyncStatus.Pending) {
         mutation.mutate(variables);

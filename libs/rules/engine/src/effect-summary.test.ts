@@ -14,6 +14,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { RuleElements } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { EffectChange, EffectMode, EffectStatusKind } from './effect-line';
 import type { EffectLine } from './effect-line';
@@ -43,7 +44,7 @@ function idOf(name: string): ContentId {
   return ContentId.parse(contentId(PackId.parse('engine-test'), slug));
 }
 
-function entryOf(name: string, elements: readonly object[]): SummarisedEntry {
+function entryOf(name: string, elements: readonly RuleJson[]): SummarisedEntry {
   const [first] = elements.map((element, rule) => inPlay(element, name, { rule }));
 
   return {
@@ -55,7 +56,7 @@ function entryOf(name: string, elements: readonly object[]): SummarisedEntry {
 }
 
 /** The rules of the entries named, each element placed in order. */
-function placed(...entries: readonly (readonly [string, readonly object[]])[]): RuleInPlay[] {
+function placed(...entries: readonly (readonly [string, readonly RuleJson[]])[]): RuleInPlay[] {
   return entries.flatMap(([name, elements]) => elements.map((element, rule) => inPlay(element, name, { rule })));
 }
 
@@ -70,8 +71,8 @@ function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
 }
 
 function summary(
-  [name, elements]: readonly [string, readonly object[]],
-  others: readonly (readonly [string, readonly object[]])[],
+  [name, elements]: readonly [string, readonly RuleJson[]],
+  others: readonly (readonly [string, readonly RuleJson[]])[],
   mode: EffectMode,
 ): readonly EffectLine[] {
   return summariseEffects(scopeOf(placed(...others)), entryOf(name, elements), mode);

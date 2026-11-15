@@ -1,3 +1,5 @@
+import { BundleBody, BundlePath } from '@pioneer/rules/sdk';
+
 import type { BundleStore, StoredKey } from './bundle-store';
 
 const DATABASE = 'pioneer-content';
@@ -61,13 +63,14 @@ export class IndexedDbBundleStore implements BundleStore {
     this.#factory = factory;
   }
 
-  public readonly read = async (key: StoredKey): Promise<unknown> => {
+  public readonly read = async (key: StoredKey): Promise<BundleBody | undefined> => {
     const store = await this.#store('readonly');
+    const body = BundleBody.safeParse(await settled(store.get(key)));
 
-    return settled<unknown>(store.get(key));
+    return body.success ? body.data : undefined;
   };
 
-  public readonly write = async (key: StoredKey, body: unknown): Promise<void> => {
+  public readonly write = async (key: StoredKey, body: BundleBody): Promise<void> => {
     const store = await this.#store('readwrite');
     store.put(body, key);
     await committed(store.transaction);
@@ -77,7 +80,11 @@ export class IndexedDbBundleStore implements BundleStore {
     const store = await this.#store('readonly');
     const keys = await settled(store.getAllKeys());
 
-    return keys.filter((key): key is StoredKey => typeof key === 'string');
+    return keys.flatMap((key) => {
+      const stored = BundlePath.safeParse(key);
+
+      return stored.success ? [stored.data] : [];
+    });
   };
 
   public readonly remove = async (keys: readonly StoredKey[]): Promise<void> => {

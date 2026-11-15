@@ -4,6 +4,7 @@ import type { ChoiceSlot, ContentLookup, GrantedItem, GrantResolution } from '@p
 import {
   ContentKind,
   isPredicateComparison,
+  isRollOptionOperand,
   Level,
   OriginHopKind,
   RuleElementKey,
@@ -128,7 +129,7 @@ function levelOf(predicate: Predicate | undefined): Level {
     if (isPredicateComparison(statement) && 'gte' in statement) {
       const [option, level] = statement.gte;
 
-      if (option === SELF_LEVEL && typeof level === 'number') {
+      if (option === SELF_LEVEL && !isRollOptionOperand(level)) {
         return Level.parse(level);
       }
     }

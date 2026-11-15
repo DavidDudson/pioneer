@@ -43,7 +43,7 @@ export class CampaignSheetStashLine {
     await this.#client.invalidateQueries({ queryKey: ['characters'] });
   };
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.takeFailed');
 
     return this.#i18n.translate(key, params);

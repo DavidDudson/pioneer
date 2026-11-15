@@ -77,7 +77,7 @@ export class SheetHitPointControls {
   protected readonly setTempHp = async (): Promise<void> => this.#send(setTempHpOf);
 
   /** The server's reason (no maximum yet, a conflict), else the sheet's own wording. */
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);

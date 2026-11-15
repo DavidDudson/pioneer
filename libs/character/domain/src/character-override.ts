@@ -7,6 +7,7 @@ import {
   ModifierType,
   OriginHopKind,
   PackId,
+  RuleElement,
   RuleElementKey,
 } from '@pioneer/rules/sdk';
 import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
@@ -29,19 +30,21 @@ const OVERRIDES_ENTRY = ContentId.parse(contentId(PackId.parse('character'), Ent
 const OVERRIDE_SOURCE = { kind: 'book', book: 'player-core', page: 1 } as const;
 
 /** The rule element of one override: an adjust is a typed flat modifier, a set a `Change` that pins the value. */
-function elementOf(override: Override): unknown {
+function elementOf(override: Override): RuleElement {
   const { target, value, predicate } = override;
   const common = predicate === undefined ? {} : { predicate };
 
-  return override.mode === OverrideMode.Set
-    ? { key: RuleElementKey.Change, selector: target, mode: ChangeMode.Override, value, ...common }
-    : {
-        key: RuleElementKey.FlatModifier,
-        selectors: [target],
-        type: override.type ?? ModifierType.Untyped,
-        value,
-        ...common,
-      };
+  return RuleElement.parse(
+    override.mode === OverrideMode.Set
+      ? { key: RuleElementKey.Change, selector: target, mode: ChangeMode.Override, value, ...common }
+      : {
+          key: RuleElementKey.FlatModifier,
+          selectors: [target],
+          type: override.type ?? ModifierType.Untyped,
+          value,
+          ...common,
+        },
+  );
 }
 
 /**

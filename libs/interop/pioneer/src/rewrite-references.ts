@@ -1,31 +1,57 @@
-/** Replaces the value at a place a character names a content entry: an id for a reference, or the reverse. */
-export type RewriteReference = (value: unknown) => unknown;
+import * as z from 'zod';
 
-export type Fields = Readonly<Record<string, unknown>>;
+/** A value in a stored character document: what JSON holds, plus the absent fields an encoded document can leave. */
+export type Stored = string | number | boolean | null | undefined | readonly Stored[] | Fields;
+
+export interface Fields {
+  readonly [field: string]: Stored;
+}
+
+const StoredSchema: z.ZodType<Stored> = z.lazy(() =>
+  z.union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.null(),
+    z.undefined(),
+    z.array(StoredSchema).readonly(),
+    z.record(z.string(), StoredSchema),
+  ]),
+);
+
+/** The fields of a stored character document, checked to hold nothing but data: what an encoded document is. */
+export const FieldsSchema = z.record(z.string(), StoredSchema);
+
+/** Replaces the value at a place a character names a content entry: an id for a reference, or the reverse. */
+export type RewriteReference = (value: Stored) => Stored;
 
 const REF_NODE = 'ref';
 const RICH_TEXT_FIELDS: readonly string[] = ['notes', 'appearance', 'personality'];
 
-export function isFields(value: unknown): value is Fields {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
+export function isFields(value: Stored): value is Fields {
+  return value instanceof Object && !Array.isArray(value);
+}
+
+export function isList(value: Stored): value is readonly Stored[] {
+  return Array.isArray(value);
 }
 
 /** `value` with `change` applied to its `key` field; anything that isn't an object holding it is left as it is. */
-function changeField(value: unknown, key: string, change: (field: unknown) => unknown): unknown {
+function changeField(value: Stored, key: string, change: (field: Stored) => Stored): Stored {
   return isFields(value) && key in value ? { ...value, [key]: change(value[key]) } : value;
 }
 
-function changeEach(value: unknown, change: (item: unknown) => unknown): unknown {
-  return Array.isArray(value) ? value.map((item) => change(item)) : value;
+function changeEach(value: Stored, change: (item: Stored) => Stored): Stored {
+  return isList(value) ? value.map((item) => change(item)) : value;
 }
 
-function changeValues(value: unknown, change: (item: unknown) => unknown): unknown {
+function changeValues(value: Stored, change: (item: Stored) => Stored): Stored {
   return isFields(value) ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, change(item)])) : value;
 }
 
 /** Rich text nests blocks in blocks, so every `ref` node is found by walking all of it. */
-function changeRichText(value: unknown, rewrite: RewriteReference): unknown {
-  if (Array.isArray(value)) {
+function changeRichText(value: Stored, rewrite: RewriteReference): Stored {
+  if (isList(value)) {
     return value.map((item) => changeRichText(item, rewrite));
   }
 
@@ -40,7 +66,7 @@ function changeRichText(value: unknown, rewrite: RewriteReference): unknown {
   return changeValues(value, (item) => changeRichText(item, rewrite));
 }
 
-function changeBuild(build: unknown, rewrite: RewriteReference): unknown {
+function changeBuild(build: Stored, rewrite: RewriteReference): Stored {
   return changeField(
     changeField(build, 'choices', (choices) => changeValues(choices, rewrite)),
     'spellAccess',
@@ -48,13 +74,13 @@ function changeBuild(build: unknown, rewrite: RewriteReference): unknown {
   );
 }
 
-function changeItem(item: unknown, rewrite: RewriteReference): unknown {
+function changeItem(item: Stored, rewrite: RewriteReference): Stored {
   return changeField(changeField(item, 'item', rewrite), 'runes', (runes) =>
     changeField(runes, 'property', (property) => changeEach(property, rewrite)),
   );
 }
 
-function changeNotes(document: unknown, rewrite: RewriteReference): unknown {
+function changeNotes(document: Stored, rewrite: RewriteReference): Stored {
   let result = document;
 
   for (const key of RICH_TEXT_FIELDS) {

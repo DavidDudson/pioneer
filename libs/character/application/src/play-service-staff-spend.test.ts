@@ -68,7 +68,7 @@ describe('PlayService staff casts on the spend log', () => {
     return saved;
   }
 
-  async function refused(command: PlayCommand): Promise<unknown> {
+  async function refused(command: PlayCommand): Promise<Error> {
     return rejection(play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command }));
   }
 

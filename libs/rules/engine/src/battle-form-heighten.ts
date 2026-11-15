@@ -12,7 +12,7 @@ type Strike = NonNullable<Form['strikes']>[number];
 function overlaid<Item extends object>(
   base: readonly Item[] | undefined,
   changes: readonly Item[] | undefined,
-  keyOf: (item: Item) => unknown,
+  keyOf: (item: Item) => Item[keyof Item],
 ): readonly Item[] | undefined {
   if (changes === undefined) {
     return base;

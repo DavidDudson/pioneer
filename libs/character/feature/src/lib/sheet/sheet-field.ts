@@ -21,7 +21,7 @@ export interface FieldSpec<TValue> {
 }
 
 /** A rejected save: the server's field issue when it sent one, else the sheet's own wording. */
-export function describeSaveError(error: unknown): MessageDescriptor {
+export function describeSaveError(error: Error): MessageDescriptor {
   if (ApiError.isConflict(error)) {
     return message('character.sheet.conflict');
   }

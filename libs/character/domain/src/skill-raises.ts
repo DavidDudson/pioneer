@@ -32,17 +32,19 @@ function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) =>
   const { facts } = resolution;
 
   return resolvedRules(resolution).flatMap(({ entry, element }): SkillRaise[] => {
-    if (
-      element.key !== RuleElementKey.Proficiency ||
-      typeof element.selector !== 'string' ||
-      !ranked(element.selector)
-    ) {
+    if (element.key !== RuleElementKey.Proficiency) {
+      return [];
+    }
+
+    const selector = Selector.safeParse(element.selector);
+
+    if (!selector.success || !ranked(selector.data)) {
       return [];
     }
 
     const holds = element.predicate === undefined || evaluatePredicate(element.predicate, facts) === Truth.True;
 
-    return holds ? [{ entry: entry.id, selector: element.selector, rank: element.rank }] : [];
+    return holds ? [{ entry: entry.id, selector: selector.data, rank: element.rank }] : [];
   });
 }
 

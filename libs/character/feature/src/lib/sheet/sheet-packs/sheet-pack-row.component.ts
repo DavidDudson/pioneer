@@ -29,7 +29,7 @@ export class SheetPackRow {
   readonly #i18n = inject(TranslocoService);
 
   /** A pack another enabled pack still extends says so; anything else is a retry. */
-  protected readonly describeDisableError = (error: unknown): string => {
+  protected readonly describeDisableError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

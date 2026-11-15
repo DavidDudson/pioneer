@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { assert, constantFrom, integer, jsonValue, property, string } from 'fast-check';
 
+import type { JsonValue } from './json-bounds';
 import { Origin } from './origin';
 import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate';
 import { RollOption } from './roll-option';
@@ -28,8 +29,8 @@ const OPERATORS: ReadonlySet<string> = new Set([
 
 const SCHEMAS = [Predicate, PredicateStatement, Selector, Domain, SlotKey, RollOption, SourceRef, Origin];
 
-function nestedArrays(depth: number): unknown {
-  let value: string | unknown[] = 'a:b';
+function nestedArrays(depth: number): JsonValue {
+  let value: JsonValue = 'a:b';
 
   for (let level = 0; level < depth; level += 1) {
     value = [value];
@@ -70,9 +71,7 @@ describe('rules schemas (properties)', () => {
   test('an extra key on any object statement is rejected', () => {
     assert(
       property(
-        predicateStatementJson.filter(
-          (statement): statement is object => typeof statement === 'object' && statement !== null,
-        ),
+        predicateStatementJson.filter((statement): statement is object => statement instanceof Object),
         string({ minLength: 1 }).filter((key) => !OPERATORS.has(key)),
         (statement, key) => {
           expect(PredicateStatement.safeParse({ ...statement, [key]: 'a:b' }).success).toBe(false);

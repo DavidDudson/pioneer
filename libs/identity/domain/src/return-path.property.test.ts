@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { anything, assert, property, string, webUrl } from 'fast-check';
+import { assert, property, string, webUrl } from 'fast-check';
 
 import { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
 
@@ -22,13 +22,9 @@ describe('returnPathOr', () => {
     expect(returnPathOr(requested)).toBe(HOME_PATH);
   });
 
-  test('falls back home for anything that is not a string', () => {
-    assert(
-      property(
-        anything().filter((value) => typeof value !== 'string'),
-        (value) => returnPathOr(value) === HOME_PATH,
-      ),
-    );
+  test('falls back home when no path was requested', () => {
+    expect(returnPathOr(null)).toBe(HOME_PATH);
+    expect(returnPathOr(undefined)).toBe(HOME_PATH);
   });
 
   test('every accepted path stays on this origin', () => {

@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ConditionValue, ContentId, contentId, ContentKind, entrySlug, PackId } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constant, integer, oneof, property, record, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
@@ -22,7 +23,7 @@ const frightened = condition('frightened');
 const clumsy: GrantEntry = { ...condition('clumsy'), valued: true };
 
 /** A grant of `slug` while `predicate` holds. */
-const grantWhen = (slug: string, predicate: unknown): RuleJson => ({ ...grantOf(slug), predicate });
+const grantWhen = (slug: string, predicate: JsonValue): RuleJson => ({ ...grantOf(slug), predicate });
 
 function resolve(entries: readonly GrantEntry[], roots: readonly GrantRoot[]): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots }));

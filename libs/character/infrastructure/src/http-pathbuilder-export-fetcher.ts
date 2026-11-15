@@ -78,11 +78,6 @@ async function boundedText(response: Response, maxBytes: number): Promise<string
   }
 }
 
-/** Whether `error` is the abort a timeout signal raises. */
-function isTimeout(error: unknown): boolean {
-  return error instanceof DOMException && (error.name === 'TimeoutError' || error.name === 'AbortError');
-}
-
 function parsed(text: string): FetchedExport {
   try {
     return { ok: true, json: JSON.parse(text) };
@@ -128,7 +123,10 @@ export class HttpPathbuilderExportFetcher extends PathbuilderExportFetcher {
 
       return text === undefined ? { ok: false, problem: ExportFetchProblem.TooLarge } : parsed(text);
     } catch (error) {
-      return { ok: false, problem: isTimeout(error) ? ExportFetchProblem.TimedOut : ExportFetchProblem.Unavailable };
+      // The abort a timeout signal raises.
+      const timedOut = error instanceof DOMException && (error.name === 'TimeoutError' || error.name === 'AbortError');
+
+      return { ok: false, problem: timedOut ? ExportFetchProblem.TimedOut : ExportFetchProblem.Unavailable };
     }
   }
 

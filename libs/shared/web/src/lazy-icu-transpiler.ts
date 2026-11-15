@@ -1,6 +1,10 @@
 import { EnvironmentInjector, inject, Injectable, PendingTasks, runInInjectionContext } from '@angular/core';
 import { DefaultTranspiler } from '@jsverse/transloco';
 import type { TranslocoTranspiler, TranspileParams } from '@jsverse/transloco';
+import * as z from 'zod';
+
+/** What a transpiler hands back: the text, or a nested translation object. */
+const Transpiled = z.json();
 
 /**
  * The compiler's own chunk, requested as soon as this module loads so it arrives beside the entry bundle rather than
@@ -50,8 +54,8 @@ export class LazyIcuTranspiler extends DefaultTranspiler {
     }
   }
 
-  public override transpile(params: TranspileParams): unknown {
-    return this.#icu === undefined ? super.transpile(params) : this.#icu.transpile(params);
+  public override transpile(params: TranspileParams): z.core.util.JSONType {
+    return Transpiled.parse(this.#icu === undefined ? super.transpile(params) : this.#icu.transpile(params));
   }
 
   public onLangChanged(lang: string): void {

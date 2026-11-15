@@ -1,6 +1,6 @@
 import { ContentKind } from './content-kind';
 import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
-import type { FacetDefinition, FacetDerive } from './facet';
+import type { FacetDefinition, FacetDerive, FacetLeaf } from './facet';
 import {
   AreaValue,
   CastActions,
@@ -19,8 +19,8 @@ import type { SpellEntry } from './spell-facet-values';
 import { MagicTradition } from './spellcasting-tradition';
 
 /** A facet that reads spells only: entries of other kinds give it no value. */
-function ofSpells(read: (entry: SpellEntry) => readonly unknown[]): FacetDerive {
-  return (entry): readonly unknown[] => (entry.kind === ContentKind.Spell ? read(entry) : []);
+function ofSpells(read: (entry: SpellEntry) => readonly FacetLeaf[]): FacetDerive {
+  return (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Spell ? read(entry) : []);
 }
 
 export const SpellFacetMessage = {
@@ -111,7 +111,7 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: SpellFacetMessage.DamageType,
   appliesTo: [ContentKind.Spell, ContentKind.Weapon],
-  derive: (entry): readonly unknown[] => {
+  derive: (entry): readonly FacetLeaf[] => {
     if (entry.kind === ContentKind.Weapon) {
       const { damage } = entry.data;
       // `dice` counts dice, or flat damage with no `die`; at 0 the weapon deals none (a glue bomb).

@@ -3,9 +3,10 @@ import type { ResolveReference, TextPosition } from '@pioneer/rules/formula';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { AdjustMode, RuleNumber } from '@pioneer/rules/sdk';
-import type { ChangeMode, DefenceValue, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
+import type { ChangeMode, DefenceValue, DiceCount, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import type * as z from 'zod';
 
 import type { EngineMessage } from './messages';
 import type { ItemScope } from './rule-in-play';
@@ -29,9 +30,14 @@ export interface ValueFailure {
 export type ValueOutcome = { readonly ok: true; readonly value: RuleNumber } | ValueFailure;
 
 /** A number as written, or a formula evaluated with the references' values. */
-export function valueOf(value: ModifierValue | RuleValue | DefenceValue, resolve: ResolveReference): ValueOutcome {
-  if (typeof value === 'number') {
-    return { ok: true, value: RuleNumber.parse(value) };
+export function valueOf(
+  value: ModifierValue | RuleValue | DefenceValue | DiceCount,
+  resolve: ResolveReference,
+): ValueOutcome {
+  const number = RuleNumber.safeParse(value);
+
+  if (number.success) {
+    return { ok: true, value: number.data };
   }
 
   const parsed = parseFormula(FormulaText.parse(value));
@@ -45,9 +51,12 @@ export function valueOf(value: ModifierValue | RuleValue | DefenceValue, resolve
   return outcome.ok ? { ok: true, value: RuleNumber.parse(outcome.value) } : outcome;
 }
 
+/** The result of arithmetic on formula values, before it is rounded and checked against the safe range. */
+type Unrounded = z.input<typeof FormulaValue>;
+
 /** `value` rounded down, if it is a number inside the safe integer range; undefined when it is not. */
-export function whole(value: unknown): FormulaValue | undefined {
-  const parsed = FormulaValue.safeParse(typeof value === 'number' ? Math.floor(value) : value);
+export function whole(value: Unrounded): FormulaValue | undefined {
+  const parsed = FormulaValue.safeParse(Math.floor(value));
 
   return parsed.success ? parsed.data : undefined;
 }

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, SLOT_COUNT_MAX } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
 import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
@@ -35,14 +35,14 @@ const poolSpells = (fields: PoolSpellsFields, extra: object = {}): RuleJson => (
 });
 
 /** A divine font's spell, while the font picked is `option`. */
-const fontSpell = (spell: string, option: string): object =>
+const fontSpell = (spell: string, option: string): RuleJson =>
   poolSpells({ entry: 'cleric', pool: 'divine-font', spells: [spell] }, { predicate: [option] });
 
 /** The cleric's `DeitySpells`, while `predicate` holds. */
 const deitySpells = (predicate: string): RuleJson => ({ key: 'DeitySpells', entry: 'cleric', predicate: [predicate] });
 
 function entriesOf(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
@@ -180,7 +180,7 @@ describe('spellcastingInPlay slots', () => {
     ]);
 
     expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: 2 }] });
-    expect<unknown>(wizard?.pools.map(({ pool, cantrips, ranks }) => ({ pool, cantrips, ranks }))).toEqual([
+    expect(plain(wizard?.pools.map(({ pool, cantrips, ranks }) => ({ pool, cantrips, ranks })))).toEqual([
       { pool: 'bonded', cantrips: undefined, ranks: [{ rank: 1, count: 1 }] },
       { pool: 'curriculum', cantrips: 1, ranks: [{ rank: 1, count: 1 }] },
     ]);
@@ -208,7 +208,7 @@ describe('spellcastingInPlay slots', () => {
         { rank: 2, count: 3 },
       ],
     });
-    expect<unknown>(cleric?.pools.map(({ pool, ranks }) => ({ pool, ranks }))).toEqual([
+    expect(plain(cleric?.pools.map(({ pool, ranks }) => ({ pool, ranks })))).toEqual([
       { pool: 'divine-font', ranks: [{ rank: 2, count: 4 }] },
     ]);
   });
@@ -234,7 +234,7 @@ describe('spellcastingInPlay slots', () => {
     expect<object | undefined>(wizard?.pools.map(({ ranks }) => ranks)).toEqual([[{ rank: 9, count: 1 }]]);
   });
   test('a count past the most one rank holds is clamped there', () => {
-    const many = Array.from({ length: 11 }, (_unused, rule): [object, string] => [
+    const many = Array.from({ length: 11 }, (_unused, rule): [RuleJson, string] => [
       slots('wizard', [1, 9]),
       `feat-${rule}`,
     ]);
@@ -245,7 +245,7 @@ describe('spellcastingInPlay slots', () => {
   });
 
   test('a pool takes the spells of every pool spells element in play for it, each once', () => {
-    const curriculum = (spells: readonly string[]): object =>
+    const curriculum = (spells: readonly string[]): RuleJson =>
       poolSpells({ entry: 'wizard', pool: 'curriculum', spells });
 
     const [wizard] = entriesOf([
@@ -257,13 +257,13 @@ describe('spellcastingInPlay slots', () => {
       [poolSpells({ entry: 'cleric', pool: 'curriculum', spells: [HARM] }), 'cleric-feat'],
     ]);
 
-    expect<unknown>(wizard?.pools.map(({ pool, spells }) => ({ pool, spells }))).toEqual([
+    expect(plain(wizard?.pools.map(({ pool, spells }) => ({ pool, spells })))).toEqual([
       { pool: 'curriculum', spells: [HEAL, FIREBALL, HARM] },
     ]);
   });
 
   test('a pool takes only the spells whose element holds, and none without one', () => {
-    const placed: (readonly [object, string])[] = [
+    const placed: (readonly [RuleJson, string])[] = [
       [entry('cleric', 'divine'), 'cleric-spellcasting'],
       [slots('cleric', [1, 2]), 'cleric-spellcasting'],
       [slots('cleric', ['highest', 4], { pool: 'divine-font' }), 'divine-font'],
@@ -282,7 +282,7 @@ describe('spellcastingInPlay slots', () => {
     const bard = entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' });
     const signatures = { key: 'SignatureSpells', entry: 'bard', predicate: ['feature:signature-spells'] };
 
-    const placed: (readonly [object, string])[] = [
+    const placed: (readonly [RuleJson, string])[] = [
       [bard, 'bard-spellcasting'],
       [signatures, 'signature-spells'],
     ];

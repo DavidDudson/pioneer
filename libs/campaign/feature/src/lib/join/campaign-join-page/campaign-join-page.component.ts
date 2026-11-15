@@ -64,7 +64,7 @@ export class CampaignJoinPage {
           await this.#router.navigate(['/campaigns', campaign.id], { replaceUrl: true });
         } catch (error: unknown) {
           // Signed out: keep the token for when sign-in brings the visitor back here.
-          if (!ApiError.isUnauthorized(error)) {
+          if (!(error instanceof ApiError && error.isUnauthorized)) {
             this.#pending.clear();
           }
 

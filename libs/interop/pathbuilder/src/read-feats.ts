@@ -43,7 +43,7 @@ export function importedFeats(build: PathbuilderBuild): ImportedFeat[] {
         choice: named(choice),
         type,
         level: level.data,
-        slot: named(typeof slot === 'string' ? slot : undefined),
+        slot: named(slot),
         slotted: !SLOTLESS_TYPES.has(type),
       },
     ];

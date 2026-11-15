@@ -1,19 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { archivableDeleteTarget } from './archive-rules.ts';
+import type { DeleteCallNode } from './archive-rules.ts';
 
 const TABLES: ReadonlySet<string> = new Set(['characters']);
 
-/** The syntax node of a call, as far as the rule reads it. */
-interface CallNode {
-  readonly type: string;
-  readonly callee: object;
-  readonly arguments: readonly object[];
-}
-
-function call(method: string, table: string): CallNode {
+function call(method: string, table: string): DeleteCallNode {
   return {
-    type: 'CallExpression',
     callee: { type: 'MemberExpression', property: { name: method } },
     arguments: [{ type: 'Identifier', name: table }],
   };
@@ -33,8 +26,7 @@ describe('archivableDeleteTarget', () => {
   });
 
   test('ignores a delete whose argument is not a plain table name', () => {
-    const map = {
-      type: 'CallExpression',
+    const map: DeleteCallNode = {
       callee: { type: 'MemberExpression', property: { name: 'delete' } },
       arguments: [{ type: 'Literal' }],
     };

@@ -4,6 +4,7 @@ import { ContentRegistry } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { assert, integer, property } from 'fast-check';
 
+import type { DedicationWait } from './dedication-lock';
 import { featSlots } from './feat-slots';
 import { slotContent } from './slot-offer';
 import {
@@ -29,7 +30,7 @@ function granted(level: number): CharacterBuilder {
 }
 
 /** What the Sentinel dedication waits on in the archetype slot opening at `slotLevel`, if it is locked. */
-function sentinelWait(builder: CharacterBuilder, slotLevel: number): unknown {
+function sentinelWait(builder: CharacterBuilder, slotLevel: number): DedicationWait | undefined {
   const slot = featSlots(builder.build().document, content).find(
     ({ key }) => key === dedicationSlot(slotLevel, GRANTING_CLASS),
   );

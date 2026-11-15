@@ -1,6 +1,9 @@
 import { ContentKind, facetsFor } from '@pioneer/rules/sdk';
 import type { FacetDefinition, RegisteredKind } from '@pioneer/rules/sdk';
 
+import { firstQueryText } from './query-text';
+import type { QueryText } from './query-text';
+
 /** Kinds the browser lists: the ones with facets declared (content-model.md, "Filters"). Others join as they get them. */
 export const BROWSE_KINDS = [
   ContentKind.Action,
@@ -45,9 +48,9 @@ export const KIND_PARAM = 'kind';
 const KIND_SEPARATOR = ',';
 
 /** The kinds a link names, in browser order; unknown ones are dropped, and none left means the default. */
-export function kindsFromQuery(text: unknown): readonly BrowseKind[] {
-  const first: unknown = Array.isArray(text) ? text[0] : text;
-  const named = typeof first === 'string' ? new Set(first.split(KIND_SEPARATOR)) : new Set<string>();
+export function kindsFromQuery(text: QueryText): readonly BrowseKind[] {
+  const first = firstQueryText(text);
+  const named = new Set(first?.split(KIND_SEPARATOR));
   const kinds = BROWSE_KINDS.filter((kind) => named.has(kind));
 
   return kinds.length === 0 ? DEFAULT_KINDS : kinds;

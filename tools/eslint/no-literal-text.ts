@@ -7,6 +7,10 @@
  * copy, and stays allowed.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+import { Start } from './template-nodes';
+import type { VisitedNode } from './template-nodes';
 
 /** Any letter in any script: what makes text translatable copy rather than a glyph. */
 const LETTER = /\p{L}/u;
@@ -34,46 +38,19 @@ const TEXT_ATTRIBUTES = new Set([
   'title',
 ]);
 
-interface Span {
-  readonly start: { readonly offset: number };
-}
+const TextNode = z.looseObject({ value: z.string(), sourceSpan: Start });
 
-interface TextNode {
-  readonly value?: unknown;
-  readonly sourceSpan?: Span;
-}
+const StringsAst = z.looseObject({ strings: z.array(z.string()) });
+const BoundTextNode = z.looseObject({ value: z.looseObject({ ast: StringsAst }), sourceSpan: Start });
 
-interface InterpolationAst {
-  readonly strings?: unknown;
-}
-
-interface BoundTextNode {
-  readonly value?: { readonly ast?: InterpolationAst };
-  readonly sourceSpan?: Span;
-}
-
-interface AttributeNode {
-  readonly name?: unknown;
-  readonly value?: unknown;
-  readonly keySpan?: Span;
-}
+const TextAttributeNode = z.looseObject({ name: z.string(), value: z.string(), keySpan: Start });
 
 /** `[label]="'Name'"`: the bound expression, which is a string literal when the copy is inline. */
-interface BoundAttributeNode {
-  readonly name?: unknown;
-  readonly value?: { readonly ast?: { readonly value?: unknown } };
-  readonly keySpan?: Span;
-}
+const ValueAst = z.looseObject({ value: z.string() });
+const BoundAttributeNode = z.looseObject({ name: z.string(), value: z.looseObject({ ast: ValueAst }), keySpan: Start });
 
-function hasLetters(value: unknown): boolean {
-  return typeof value === 'string' && LETTER.test(value);
-}
-
-/** Literal parts of `Level {{ level }}`: `['Level ', '']`. */
-function literalParts(node: BoundTextNode): readonly unknown[] {
-  const strings = node.value?.ast?.strings;
-
-  return Array.isArray(strings) ? strings : [];
+function hasLetters(value: string): boolean {
+  return LETTER.test(value);
 }
 
 export const noLiteralText: Rule.RuleModule = {
@@ -87,45 +64,56 @@ export const noLiteralText: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const report = (span: Span | undefined, messageId: string, data: Readonly<Record<string, string>>): void => {
-      if (span !== undefined) {
-        context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
-      }
+    const report = (span: Start, messageId: string, data: Readonly<Record<string, string>>): void => {
+      context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
     };
 
     return {
-      Text(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `TextNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { value, sourceSpan } = node as TextNode;
+      Text(node: VisitedNode): void {
+        const text = TextNode.safeParse(node);
 
-        if (hasLetters(value)) {
-          report(sourceSpan, 'text', { text: String(value).trim() });
+        if (text.success && hasLetters(text.data.value)) {
+          report(text.data.sourceSpan, 'text', { text: text.data.value.trim() });
         }
       },
-      BoundText(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `BoundTextNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const bound = node as BoundTextNode;
-        const copy = literalParts(bound).filter((part) => hasLetters(part));
+      BoundText(node: VisitedNode): void {
+        const bound = BoundTextNode.safeParse(node);
+
+        if (!bound.success) {
+          return;
+        }
+
+        const copy = bound.data.value.ast.strings.filter((part) => hasLetters(part));
 
         if (copy.length > 0) {
-          report(bound.sourceSpan, 'text', { text: copy.join(' ').trim() });
+          report(bound.data.sourceSpan, 'text', { text: copy.join(' ').trim() });
         }
       },
-      TextAttribute(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, value, keySpan } = node as AttributeNode;
+      TextAttribute(node: VisitedNode): void {
+        const attribute = TextAttributeNode.safeParse(node);
 
-        if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(value)) {
-          report(keySpan, 'attribute', { name, text: String(value) });
+        if (!attribute.success) {
+          return;
+        }
+
+        const { name, value, keySpan } = attribute.data;
+
+        if (TEXT_ATTRIBUTES.has(name) && hasLetters(value)) {
+          report(keySpan, 'attribute', { name, text: value });
         }
       },
-      BoundAttribute(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `BoundAttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, value, keySpan } = node as BoundAttributeNode;
-        const literal = value?.ast?.value;
+      BoundAttribute(node: VisitedNode): void {
+        const attribute = BoundAttributeNode.safeParse(node);
 
-        if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(literal)) {
-          report(keySpan, 'attribute', { name, text: String(literal) });
+        if (!attribute.success) {
+          return;
+        }
+
+        const { name, value, keySpan } = attribute.data;
+        const literal = value.ast.value;
+
+        if (TEXT_ATTRIBUTES.has(name) && hasLetters(literal)) {
+          report(keySpan, 'attribute', { name, text: literal });
         }
       },
     };

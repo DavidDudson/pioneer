@@ -25,7 +25,7 @@ const SEED_TIMEOUT_MS = 90_000;
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 
-function request(path: string, body: unknown): Request {
+function request(path: string, body: object): Request {
   return new Request(`http://localhost${path}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', ...actingAs(fixtureOwnerId) },

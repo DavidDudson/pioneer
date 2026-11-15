@@ -65,7 +65,7 @@ function derive(rulesInPlay: readonly RuleInPlay[]): Defences {
 function checkType(lines: readonly AdjustmentLine[], specs: readonly DefenceSpec[]): void {
   const kept = specs.filter(({ predicate, value }) => predicate !== FAILS && value !== NOTHING);
   const failing = kept.filter(({ value }) => value === FAILING);
-  const valued = kept.filter(({ value }) => typeof value === 'number');
+  const valued = kept.filter(({ value }) => value !== FAILING);
   const unconditional = valued.filter(({ predicate }) => predicate === undefined || predicate === HOLDS);
   const values = unconditional.map(({ value }) => Number(value));
   const applied = lines.filter(({ status }) => status.kind === DefenceStatusKind.Applied);

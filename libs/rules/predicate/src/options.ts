@@ -1,4 +1,4 @@
-import { isPredicateComparison } from '@pioneer/rules/sdk';
+import { isPredicateComparison, isRollOptionOperand, isRollOptionStatement } from '@pioneer/rules/sdk';
 import type {
   ComparisonOperands,
   Predicate,
@@ -17,12 +17,12 @@ function comparisonOptions(statement: PredicateComparison): readonly RollOption[
   if ('eq' in statement) {
     const [left, right] = statement.eq;
 
-    return typeof right === 'string' ? [] : [left];
+    return isRollOptionOperand(right) ? [] : [left];
   }
 
   const [left, right] = orderOperands(statement);
 
-  return typeof right === 'string' ? [left, right] : [left];
+  return isRollOptionOperand(right) ? [left, right] : [left];
 }
 
 /** The operands of an order test (`gt`, `gte`, `lt`, `lte`). */
@@ -42,7 +42,7 @@ function orderOperands(
 
 /** Adds the roll options `statement` reads to `found`: a bare option, a comparison's operands, then its children. */
 function collect(statement: PredicateStatement, found: Set<RollOption>): void {
-  if (typeof statement === 'string') {
+  if (isRollOptionStatement(statement)) {
     found.add(statement);
   } else if (isPredicateComparison(statement)) {
     for (const option of comparisonOptions(statement)) {

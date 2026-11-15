@@ -1,7 +1,8 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { EntrySlug, RollOption } from '@pioneer/rules/sdk';
+import { EntrySlug, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SpellEffectEntry } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import type { CharacterDocument } from './character-document';
 import type { StatisticSources } from './character-statistics';
@@ -102,11 +103,16 @@ export function characterPredicateFacts(
   return characterGrants(document, sources.slots).facts;
 }
 
+/** An effect a spell lists with the predicate that offers it; a bare effect id has none. */
+const EffectOffer = z.looseObject({ predicate: Predicate });
+
 /** Whether the character, by its roll options `facts`, is offered the effect a spell lists: it has no predicate, or `facts` satisfy it. */
 export function isSpellEffectOffered(entry: SpellEffectEntry, facts: PredicateFacts | undefined): boolean {
-  if (typeof entry === 'string') {
+  const offer = EffectOffer.safeParse(entry);
+
+  if (!offer.success) {
     return true;
   }
 
-  return facts !== undefined && evaluatePredicate(entry.predicate, facts) === Truth.True;
+  return facts !== undefined && evaluatePredicate(offer.data.predicate, facts) === Truth.True;
 }
