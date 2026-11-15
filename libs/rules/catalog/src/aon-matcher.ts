@@ -2,32 +2,32 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import type { AonListedEntry, AonUrl, BookId, EnrichmentMapping, EntrySlug, SourceRef } from '@pioneer/rules/sdk';
 
 /** The AoN page that lists each kind of entry (`Feats.aspx?ID=…`), and so the kinds it can hold. */
-const KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
-  Actions: [ContentKind.Action],
-  Ancestries: [ContentKind.Ancestry],
-  Archetypes: [ContentKind.Archetype],
-  Armor: [ContentKind.Armor],
-  Backgrounds: [ContentKind.Background],
-  ClassKits: [ContentKind.Kit],
-  Classes: [ContentKind.Class],
-  Conditions: [ContentKind.Condition],
-  Deities: [ContentKind.Deity],
-  Equipment: [ContentKind.Equipment, ContentKind.Consumable, ContentKind.Treasure, ContentKind.Rune],
-  Feats: [ContentKind.Feat],
-  Heritages: [ContentKind.Heritage],
-  Languages: [ContentKind.Language],
-  MonsterAbilities: [ContentKind.Action],
-  Monsters: [ContentKind.Creature],
-  NPCs: [ContentKind.Creature],
-  Relics: [ContentKind.Equipment, ContentKind.Action],
-  Rituals: [ContentKind.Ritual],
-  Rules: [ContentKind.VariantRule],
-  Shields: [ContentKind.Shield],
-  Spells: [ContentKind.Spell],
-  Tactics: [ContentKind.Action],
-  Traits: [ContentKind.Trait],
-  Weapons: [ContentKind.Weapon],
-};
+const KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<string, readonly ContentKind[]>([
+  ['Actions', [ContentKind.Action]],
+  ['Ancestries', [ContentKind.Ancestry]],
+  ['Archetypes', [ContentKind.Archetype]],
+  ['Armor', [ContentKind.Armor]],
+  ['Backgrounds', [ContentKind.Background]],
+  ['ClassKits', [ContentKind.Kit]],
+  ['Classes', [ContentKind.Class]],
+  ['Conditions', [ContentKind.Condition]],
+  ['Deities', [ContentKind.Deity]],
+  ['Equipment', [ContentKind.Equipment, ContentKind.Consumable, ContentKind.Treasure, ContentKind.Rune]],
+  ['Feats', [ContentKind.Feat]],
+  ['Heritages', [ContentKind.Heritage]],
+  ['Languages', [ContentKind.Language]],
+  ['MonsterAbilities', [ContentKind.Action]],
+  ['Monsters', [ContentKind.Creature]],
+  ['NPCs', [ContentKind.Creature]],
+  ['Relics', [ContentKind.Equipment, ContentKind.Action]],
+  ['Rituals', [ContentKind.Ritual]],
+  ['Rules', [ContentKind.VariantRule]],
+  ['Shields', [ContentKind.Shield]],
+  ['Spells', [ContentKind.Spell]],
+  ['Tactics', [ContentKind.Action]],
+  ['Traits', [ContentKind.Trait]],
+  ['Weapons', [ContentKind.Weapon]],
+]);
 
 /**
  * AoN lists magic weapons, armor and shields (staves, bombs, named items with grades) on its Equipment page, not on
@@ -40,12 +40,12 @@ const EQUIPMENT_FALLBACK_KINDS: readonly ContentKind[] = [ContentKind.Weapon, Co
  * The other AoN pages a kind falls back to: the Equipment page for items (above), and the Feats page for an action a
  * feat grants, which AoN prints under the feat of the same name.
  */
-const FALLBACK_KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
-  Equipment: EQUIPMENT_FALLBACK_KINDS,
-  Feats: [ContentKind.Action],
-};
+const FALLBACK_KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<string, readonly ContentKind[]>([
+  ['Equipment', EQUIPMENT_FALLBACK_KINDS],
+  ['Feats', [ContentKind.Action]],
+]);
 
-const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_KINDS_BY_PAGE).flat());
+const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set([...FALLBACK_KINDS_BY_PAGE.values()].flat());
 
 /**
  * The kinds whose superseded rows were checked against AoN's own flag for a hidden row (`exclude_from_search`): the
@@ -56,7 +56,7 @@ const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_
 const NEWEST_KINDS: ReadonlySet<ContentKind> = new Set([ContentKind.Creature, ContentKind.Feat]);
 
 /** The kinds some AoN page holds. An entry of any other kind (effects, class features) has no AoN page to find. */
-const LISTED_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(KINDS_BY_PAGE).flat());
+const LISTED_KINDS: ReadonlySet<ContentKind> = new Set([...KINDS_BY_PAGE.values()].flat());
 
 /** What the matcher reads from an entry. */
 export interface AonMatchable {
@@ -125,8 +125,8 @@ function indexListing({ entries }: AonListing): ListingIndex {
     const page = pageOf(url);
 
     const keys = [
-      ...(KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind)),
-      ...(FALLBACK_KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind, true)),
+      ...(KINDS_BY_PAGE.get(page) ?? []).map((kind) => indexKey(name, kind)),
+      ...(FALLBACK_KINDS_BY_PAGE.get(page) ?? []).map((kind) => indexKey(name, kind, true)),
     ];
 
     for (const key of keys) {

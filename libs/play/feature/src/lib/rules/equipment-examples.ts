@@ -1,15 +1,17 @@
 import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
+import { paragraph } from './example-json';
+import type { JsonObject } from './example-json';
+
 const PLAYER_CORE = PackId.parse('player-core');
 
 /** Examples cite page 1, like the other playground examples; the importer fills real pages. */
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 
-const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 const idOf = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 
 /** The envelope fields every Player Core example shares. */
-function playerCore(slug: string, name: string, description: string): object {
+function playerCore(slug: string, name: string, description: string): JsonObject {
   return {
     id: idOf(slug),
     pack: PLAYER_CORE,
@@ -132,7 +134,7 @@ export const smallDiamond = {
   data: { price: { coins: { gp: DIAMOND_PRICE } }, bulk: 'negligible', category: 'gem' },
 };
 
-const contained = (name: string, quantity: number): object => ({ item: idOf(`equipment:${name}`), quantity });
+const contained = (name: string, quantity: number): JsonObject => ({ item: idOf(`equipment:${name}`), quantity });
 
 export const adventurersPack = {
   ...playerCore('kit:adventurers-pack', 'Adventurer’s Pack', 'The gear most adventurers set out with.'),

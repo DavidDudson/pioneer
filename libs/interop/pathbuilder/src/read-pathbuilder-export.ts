@@ -96,13 +96,17 @@ const UNSET_NAMES: ReadonlySet<string> = new Set(['', 'Not set', 'None']);
 const SCORE_BASE = 10;
 const SCORE_STEP = 2;
 
-export const RANK_BY_NUMBER: Readonly<Record<number, Proficiency>> = {
-  0: Proficiency.Untrained,
-  2: Proficiency.Trained,
-  4: Proficiency.Expert,
-  6: Proficiency.Master,
-  8: Proficiency.Legendary,
-};
+const EXPERT_SCORE = 4;
+const MASTER_SCORE = 6;
+const LEGENDARY_SCORE = 8;
+
+export const RANK_BY_NUMBER: ReadonlyMap<number, Proficiency> = new Map([
+  [0, Proficiency.Untrained],
+  [SCORE_STEP, Proficiency.Trained],
+  [EXPERT_SCORE, Proficiency.Expert],
+  [MASTER_SCORE, Proficiency.Master],
+  [LEGENDARY_SCORE, Proficiency.Legendary],
+]);
 
 function failure(problem: PathbuilderProblem, issues: readonly z.core.$ZodIssue[] = []): PathbuilderReadFailure {
   return { ok: false, problem, issues };
@@ -174,7 +178,7 @@ function contentNames(build: PathbuilderBuild): ImportedName[] {
 function lores(build: PathbuilderBuild): ImportedLore[] {
   return build.lores.flatMap(([raw, number]) => {
     const name = chosen(raw);
-    const rank = RANK_BY_NUMBER[number];
+    const rank = RANK_BY_NUMBER.get(number);
 
     return name === undefined || rank === undefined ? [] : [{ name, rank }];
   });
@@ -183,7 +187,7 @@ function lores(build: PathbuilderBuild): ImportedLore[] {
 function skillRanks(build: PathbuilderBuild): Record<string, Proficiency> {
   return Object.fromEntries(
     Object.entries(build.proficiencies).flatMap(([name, number]) => {
-      const rank = RANK_BY_NUMBER[number];
+      const rank = RANK_BY_NUMBER.get(number);
 
       return rank === undefined ? [] : [[name, rank]];
     }),

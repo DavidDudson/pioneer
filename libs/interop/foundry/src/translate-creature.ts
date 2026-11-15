@@ -6,6 +6,7 @@ import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { FOUNDRY_SIZES, systemOf } from './kind-fields';
 import { creatureRole } from './select-entries';
+import type { Fields } from './translate-choice-reads';
 import { creatureItems } from './translate-creature-items';
 
 /**
@@ -199,7 +200,7 @@ interface FoundrySenseValue {
 }
 
 /** A sense with the acuity and range Foundry gives it, if any. */
-function senseOf({ type, acuity, range }: FoundrySenseValue): object {
+function senseOf({ type, acuity, range }: FoundrySenseValue): Fields {
   return {
     sense: type,
     ...present({ acuity }),
@@ -213,7 +214,7 @@ function listed(key: string, list: readonly unknown[]): object {
 }
 
 /** The optional parts the actor's `system` makes: skills, senses, languages and the other speeds. */
-function optionalParts(system: System, lores: readonly unknown[]): object {
+function optionalParts(system: System, lores: readonly unknown[]): Fields {
   const { attributes, perception } = system;
   const skills = Object.entries(system.skills).map(([skill, { base }]) => ({ skill, modifier: base }));
   const senses = perception.senses.map((sense) => senseOf(sense));
@@ -228,7 +229,7 @@ function optionalParts(system: System, lores: readonly unknown[]): object {
 }
 
 /** The six attribute modifiers, from the abilities' `mod`. */
-function attributeModifiers({ abilities }: System): object {
+function attributeModifiers({ abilities }: System): Fields {
   return {
     str: abilities.str.mod,
     dex: abilities.dex.mod,

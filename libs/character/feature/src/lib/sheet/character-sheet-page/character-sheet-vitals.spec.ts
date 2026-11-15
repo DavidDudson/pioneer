@@ -1,6 +1,7 @@
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, playOf, present } from '../../testing/sheet-page-harness';
 import { fakeDialog, textOf } from '../../testing/sheet-tabs-testing';
@@ -10,7 +11,7 @@ const CHARM = '88888888-8888-4888-8888-888888888888';
 const PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
 
 /** Merisiel as a cleric, and an elf (Medium), wearing a charm of fast healing 2, 4 temporary Hit Points and growth. */
-function wearingCharm(invested: boolean, charm: ItemFixture = ItemFixture.TrollCharm): object {
+function wearingCharm(invested: boolean, charm: ItemFixture = ItemFixture.TrollCharm): JsonObject {
   const investment = invested ? { invested } : undefined;
 
   const worn = {

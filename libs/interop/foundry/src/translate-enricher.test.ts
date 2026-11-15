@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import type { FoundryLinks } from './enricher-context';
+import type { Fields } from './translate-choice-reads';
 import { enrichedRun } from './translate-enricher';
 
 const pack = PackId.parse('player-core');
@@ -50,7 +51,7 @@ function runOf(text: string): unknown {
   return enriched(text).run;
 }
 
-function words(text: string): object {
+function words(text: string): Fields {
   return { type: 'text', text, marks: [] };
 }
 

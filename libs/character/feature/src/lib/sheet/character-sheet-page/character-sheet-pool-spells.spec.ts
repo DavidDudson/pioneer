@@ -3,6 +3,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -27,7 +28,7 @@ const HEAL = '949e0a89-f44b-598d-8adb-3d9d31db900e';
 const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
 
 /** Merisiel as a 1st-level `name`, with `choices` picked besides. */
-function as(name: 'cleric' | 'wizard', choices: Readonly<Record<string, string>> = {}): object {
+function as(name: 'cleric' | 'wizard', choices: Readonly<Record<string, string>> = {}): JsonObject {
   return {
     ...MERISIEL,
     level: 1,

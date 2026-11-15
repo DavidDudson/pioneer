@@ -9,6 +9,7 @@ import { preparedSlots } from './prepared-spells';
 import { preparedReads, slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /**
  * A sorcerer as the importer gives one (ADR-0063), shrunk: slots by level, a 10th-rank slot from 19th level, a count of
@@ -26,15 +27,15 @@ for (const [name, rank] of [
   pack.withSpell(name, { rank, traditions: ['occult'] });
 }
 
-const fromLevel = (level: number): object => ({ predicate: [{ gte: ['self:level', level] }] });
+const fromLevel = (level: number): JsonObject => ({ predicate: [{ gte: ['self:level', level] }] });
 
-const slots = (rank: number, value: number, level = 1): object => {
+const slots = (rank: number, value: number, level = 1): JsonObject => {
   const rule = { key: 'SpellSlots', entry: 'sorcerer', rank, value };
 
   return level > 1 ? { ...rule, ...fromLevel(level) } : rule;
 };
 
-const count = (rank: number, value: number, level: number): object => ({
+const count = (rank: number, value: number, level: number): JsonObject => ({
   key: 'RepertoireCount',
   entry: 'sorcerer',
   rank,

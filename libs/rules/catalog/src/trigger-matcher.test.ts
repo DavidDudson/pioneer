@@ -20,8 +20,20 @@ const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse
 const STRIKE = idOf('action:strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
-const text = (words: string): object => ({ type: 'text', text: words });
-const paragraph = (...content: readonly object[]): object => ({ type: 'paragraph', content });
+/** A text node as JSON. */
+interface TextNode {
+  readonly type: string;
+  readonly text: string;
+}
+
+/** A paragraph node as JSON. */
+interface ParagraphNode {
+  readonly type: string;
+  readonly content: readonly object[];
+}
+
+const text = (words: string): TextNode => ({ type: 'text', text: words });
+const paragraph = (...content: readonly object[]): ParagraphNode => ({ type: 'paragraph', content });
 const trigger = (...blocks: readonly object[]): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
 
@@ -113,7 +125,13 @@ function entry(name: string, kind: string, data: object): ContentEntry {
   return ContentEntry.parse(kind === 'action' ? fields : { ...fields, level: 1 });
 }
 
-const triggered = (words: string, extra: object = {}): object => ({
+/** An action's trigger fields. */
+interface Triggered {
+  readonly cost: string;
+  readonly trigger: RichText;
+}
+
+const triggered = (words: string, extra: object = {}): Triggered => ({
   cost: 'reaction',
   trigger: prose(words),
   ...extra,

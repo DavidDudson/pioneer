@@ -109,8 +109,21 @@ export const allBindings: Arbitrary<Bindings> = record(
   Object.fromEntries(BOUND_PATHS.map((bound) => [bound, boundValue])),
 ).map((values) => toBindings(values));
 
+/** A node of a tree's shape: its kind and whatever else the kind carries, with no position. */
+export interface PositionlessNode {
+  readonly kind: string;
+  readonly operand?: PositionlessNode;
+  readonly operator?: unknown;
+  readonly left?: PositionlessNode;
+  readonly right?: PositionlessNode;
+  readonly name?: unknown;
+  readonly args?: readonly PositionlessNode[];
+  readonly value?: unknown;
+  readonly path?: unknown;
+}
+
 /** A tree's shape with every position dropped, for comparing parsed trees with generated ones. */
-export function withoutPositions(node: FormulaNode): unknown {
+export function withoutPositions(node: FormulaNode): PositionlessNode {
   switch (node.kind) {
     case NodeKind.Negate: {
       return { kind: node.kind, operand: withoutPositions(node.operand) };

@@ -4,7 +4,14 @@ import { archivableDeleteTarget } from './archive-rules.ts';
 
 const TABLES: ReadonlySet<string> = new Set(['characters']);
 
-function call(method: string, table: string): unknown {
+/** The syntax node of a call, as far as the rule reads it. */
+interface CallNode {
+  readonly type: string;
+  readonly callee: object;
+  readonly arguments: readonly object[];
+}
+
+function call(method: string, table: string): CallNode {
   return {
     type: 'CallExpression',
     callee: { type: 'MemberExpression', property: { name: method } },

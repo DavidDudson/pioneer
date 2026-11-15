@@ -1,6 +1,7 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
+import type { Fields } from './translate-choice-reads';
 import { DIVINE_ACCESS_DEITY } from './translate-repertoire-spells';
 
 /**
@@ -21,7 +22,7 @@ function fromLevel(level: number): object {
   return level <= 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
 }
 
-function slots({ entry, rank, value, pool }: SlotFields, level: number): object {
+function slots({ entry, rank, value, pool }: SlotFields, level: number): Fields {
   return {
     key: RuleElementKey.SpellSlots,
     entry,

@@ -3,18 +3,25 @@ import type { Matchers } from 'bun:test';
 
 import { RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import { entry, feat, idOf, inputsOf, picked, picksOf, repeatable, slotOf } from './testing/builders';
 
+/** A choice's option as JSON. */
+interface ChoiceOptionJson {
+  readonly value: string;
+  readonly label: string;
+}
+
 /** `expect` on a value as plain data: branded keys and takes compare with plain literals. */
 const expectPlain = (actual: unknown): Matchers => expect(actual);
 
-const option = (value: string): object => ({ value, label: value });
-const featOption = (slug: string): object => ({ value: idOf(slug), label: slug });
-const grantChoice = (flag: string): object => ({ key: 'GrantItem', item: { choice: flag } });
+const option = (value: string): ChoiceOptionJson => ({ value, label: value });
+const featOption = (slug: string): ChoiceOptionJson => ({ value: idOf(slug), label: slug });
+const grantChoice = (flag: string): RuleJson => ({ key: 'GrantItem', item: { choice: flag } });
 
 /** Domain Initiate: a domain per take. */
 const domainInitiate = repeatable('domain-initiate', [

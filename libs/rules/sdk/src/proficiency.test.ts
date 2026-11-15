@@ -77,8 +77,15 @@ describe('ProficiencyBonus element', () => {
   });
 });
 
+/** A pack as JSON. */
+interface PackFixture {
+  readonly manifest: object;
+  readonly ancestries: readonly unknown[];
+  readonly creatures: readonly unknown[];
+}
+
 /** A pack as JSON with `overrides` added. */
-function pack(overrides: object, id = 'variant-test'): object {
+function pack(overrides: object, id = 'variant-test'): PackFixture {
   return {
     manifest: { id, title: 'Variant test', publisher: 'Pioneer', license: 'homebrew' },
     ancestries: [],

@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -38,7 +39,7 @@ const HOLDING = {
 };
 
 /** The play state with the shield having taken `damage`, raised or not. */
-function playWith(damage: number, effects: readonly object[] = [], revision = 1): object {
+function playWith(damage: number, effects: readonly JsonObject[] = [], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, shields: { [SHIELD]: damage }, effects } };
 }
 

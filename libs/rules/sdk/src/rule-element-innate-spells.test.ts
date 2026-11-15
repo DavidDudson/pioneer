@@ -27,7 +27,14 @@ const examples: object[] = [
 ];
 
 /** An `InnateSpells` element naming one spell at `rank`. */
-function spells(rank: unknown): object {
+interface SpellsElement {
+  readonly key: string;
+  readonly entry: string;
+  readonly spells: readonly { readonly rank: unknown; readonly spell: string }[];
+}
+
+/** An element naming one spell at `rank`. */
+function spells(rank: unknown): SpellsElement {
   return { key: 'InnateSpells', entry: 'grown-of-oak', spells: [{ rank, spell: ILL_OMEN }] };
 }
 

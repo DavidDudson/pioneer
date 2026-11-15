@@ -24,8 +24,21 @@ const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
+/** The fields every entry carries, before its kind and data. */
+interface Envelope {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+}
+
 /** The envelope of a Player Core entry, without its kind and data. */
-function entry(slug: string, name: string): object {
+function entry(slug: string, name: string): Envelope {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -77,7 +90,15 @@ const farmhand = {
   data: { boosts: [['con', 'wis'], FREE] },
 };
 
-const classFeats = (level: number): object => ({
+/** A `ChoiceSet` element for a class feat at `level`. */
+interface ClassFeatChoice {
+  readonly key: string;
+  readonly flag: string;
+  readonly choices: object;
+  readonly predicate: readonly object[];
+}
+
+const classFeats = (level: number): ClassFeatChoice => ({
   key: 'ChoiceSet',
   flag: `class-feat-${level}`,
   choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },

@@ -2,6 +2,8 @@ import { ContentId, ContentKind, SlotKey } from '@pioneer/rules/sdk';
 import type { ContentPack } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
+import type { JsonObject } from './json-fixture';
+
 const builder = new ContentPackBuilder().withId('dedications');
 
 /** The fixture feats, by name: each archetype's dedication and its other feats. */
@@ -34,7 +36,7 @@ const SLOT_COUNT = 6;
 const SLOT_LEVELS: readonly number[] = Array.from({ length: SLOT_COUNT }, (_unused, index) => index + 1);
 
 /** An archetype feat slot at `level`, as the importer writes one (`kind-fields.ts`). */
-function archetypeSlot(level: number): object[] {
+function archetypeSlot(level: number): JsonObject[] {
   const flag = `archetype-feat-${level}`;
   const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
 
@@ -56,13 +58,13 @@ export function dedicationSlot(level: number, klass: ContentId = DEDICATION_CLAS
 }
 
 /** A grant of the fixture feat `name` from `level` on, after the class's slots so their rule indices hold. */
-function grantFrom(name: string, level: number): object {
+function grantFrom(name: string, level: number): JsonObject {
   return { key: 'GrantItem', item: builder.idOf(ContentKind.Feat, name), predicate: [{ gte: ['self:level', level] }] };
 }
 
 const ARCHETYPE = ['archetype'];
 const archetypeId = (name: string): string => builder.idOf(ContentKind.Archetype, name);
-const featData = (archetype: string): object => ({ category: 'class', archetype: archetypeId(archetype) });
+const featData = (archetype: string): JsonObject => ({ category: 'class', archetype: archetypeId(archetype) });
 
 /**
  * A class with archetype feat slots from 1st to 6th level and three archetypes: Medic and Sentinel with Player Core's

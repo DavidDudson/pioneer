@@ -12,7 +12,7 @@ import { RichTextView } from './rich-text.component';
 const MENTION = [{ type: 'text', text: 'You are frightened 2 and blinded.' }];
 
 /** Every place rich text puts inline content: each must open the condition's card for a name in it. */
-const RENDERERS: Readonly<Record<string, unknown>> = {
+const RENDERERS = {
   paragraph: { type: 'paragraph', content: MENTION },
   heading: { type: 'heading', level: 2, content: MENTION },
   'list item': { type: 'list', ordered: false, items: [[{ type: 'paragraph', content: MENTION }]] },

@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
@@ -59,7 +60,7 @@ function fakeDialog(): void {
   });
 }
 
-async function openWith(overrides: readonly object[]): Promise<HTMLElement> {
+async function openWith(overrides: readonly JsonObject[]): Promise<HTMLElement> {
   fakeDialog();
   const { root } = await openSheet({ ...FIGHTER, overrides }, { authors: NAMES });
   await openConfiguration(root);

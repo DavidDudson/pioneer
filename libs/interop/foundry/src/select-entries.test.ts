@@ -7,6 +7,7 @@ import { readFoundryRelease } from './foundry-release';
 import type { FoundryRelease } from './foundry-release';
 import { selectEntries, SkipReason } from './select-entries';
 import { LEGACY } from './testing/legacy';
+import type { Fields } from './translate-choice-reads';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const playerCore = BookId.parse('player-core');
@@ -22,7 +23,7 @@ const manifest = {
   languages: [{ lang: 'en', name: 'Main (English)', path: 'lang/en.json' }],
 };
 
-function item(name: string, type: string, publication?: object): object {
+function item(name: string, type: string, publication?: object): Fields {
   return { _id: `${name}Id`, name, type, img: 'icon.webp', system: { publication, rules: [] } };
 }
 
@@ -32,9 +33,9 @@ function vault(name: string, license: string, isRemaster: boolean): string {
   );
 }
 
-const remaster = (title: string): object => ({ title, license: 'ORC', remaster: true });
+const remaster = (title: string): Fields => ({ title, license: 'ORC', remaster: true });
 
-const files: Record<string, unknown> = {
+const files = {
   'system.pf2e.json': manifest,
   'static/lang/en.json': { PF2E: { TraitFire: 'Fire' } },
   'packs/pf2e/feats/_folders.json': [{ name: 'Class' }],

@@ -1,5 +1,6 @@
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import type { GrantEntry } from '../grant-entry';
 import { entry, feat, grantOf, idOf, slotOf } from './builders';
@@ -17,7 +18,7 @@ const GREATER_SPECIALIZATION_LEVEL = 15;
 const CLASS_FEAT_LEVELS: readonly number[] = [1, ...Array.from({ length: LEVEL_MAX / 2 }, (_v, at) => (at + 1) * 2)];
 
 /** The class features each level brings. */
-const FEATURES: Readonly<Record<string, readonly string[]>> = {
+const FEATURES = {
   '1': ['reactive-strike'],
   '3': ['bravery'],
   '5': ['fighter-weapon-mastery'],
@@ -36,7 +37,7 @@ const FEATURE_LEVELS: readonly (readonly [string, number])[] = Object.entries(FE
 );
 
 /** `GrantItem` of `slug` from `level` on. */
-const atLevel = (slug: string, level: number): object => ({
+const atLevel = (slug: string, level: number): RuleJson => ({
   ...grantOf(slug),
   predicate: [{ gte: ['self:level', level] }],
 });
@@ -89,7 +90,7 @@ const weaponSpecialization = entry('weapon-specialization', [
 ]);
 
 /** Fighter feats by level: one or more for every slot. */
-const FIGHTER_FEATS: Readonly<Record<string, readonly string[]>> = {
+const FIGHTER_FEATS = {
   '1': ['double-slice', 'sudden-charge', 'reactive-shield'],
   '2': ['aggressive-block', 'intimidating-strike', 'lunge'],
   '4': ['powerful-shove'],
@@ -104,13 +105,13 @@ const FIGHTER_FEATS: Readonly<Record<string, readonly string[]>> = {
 };
 
 /** Grants on fighter feats that read other feats: Sudden Leap needs Sudden Charge, Shield Warden the Shield Block feat. */
-const FEAT_GRANTS: Readonly<Record<string, object>> = {
-  'sudden-leap': { ...grantOf('leaping-charge'), predicate: ['feat:sudden-charge'] },
-  'shield-warden': { ...grantOf('warden-stance'), predicate: ['feat:shield-block'] },
-};
+const FEAT_GRANTS: ReadonlyMap<string, RuleJson> = new Map([
+  ['sudden-leap', { ...grantOf('leaping-charge'), predicate: ['feat:sudden-charge'] }],
+  ['shield-warden', { ...grantOf('warden-stance'), predicate: ['feat:shield-block'] }],
+]);
 
 function fighterFeat(slug: string, level: string): GrantEntry {
-  const grant = FEAT_GRANTS[slug];
+  const grant = FEAT_GRANTS.get(slug);
   const made = feat(slug, ['trait:fighter', `level:${level}`]);
 
   return grant === undefined ? made : { ...made, rules: entry(slug, [grant]).rules };
@@ -137,7 +138,7 @@ export function classFeatSlotAt(level: number): SlotKey {
 }
 
 /** The feat picked for each class feat slot, by level. */
-const PICKED_FEATS: Readonly<Record<string, string>> = {
+const PICKED_FEATS = {
   '1': 'sudden-charge',
   '2': 'aggressive-block',
   '4': 'powerful-shove',

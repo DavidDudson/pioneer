@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
@@ -20,7 +21,7 @@ const clericFocus = {
   preparation: 'focus',
 };
 
-const focusSpells = (spells: readonly string[], extra: object = {}): object => ({
+const focusSpells = (spells: readonly string[], extra: object = {}): RuleJson => ({
   key: 'FocusSpells',
   entry: 'cleric-focus',
   spells,

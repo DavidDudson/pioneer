@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import messages from '../../../i18n/en.json';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 import { CampaignOfferItem } from './campaign-offer-item.component';
 
@@ -17,7 +18,7 @@ const dormant = '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e64';
 const longsword = '3b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01';
 
 /** A party member played by someone; `archived` ones stay in the party as placeholders. */
-function member(characterId: string, name: string, archived = false): object {
+function member(characterId: string, name: string, archived = false): JsonObject {
   return {
     characterId,
     name,
@@ -47,7 +48,7 @@ interface Opened {
 }
 
 /** Kyra's longsword on the sheet of a character in the campaign, with the disclosure opened and the party loaded. */
-async function open(characters: readonly object[]): Promise<Opened> {
+async function open(characters: readonly JsonObject[]): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       ...provideServerStateTesting(),

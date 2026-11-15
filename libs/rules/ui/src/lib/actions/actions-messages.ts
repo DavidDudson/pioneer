@@ -99,11 +99,14 @@ export const ACTION_RANGE_MESSAGES: Readonly<Partial<Record<ActionCost, Readonly
   [ActionCost.Two]: { 3: 'rules.actions.costRange.twoToThree' },
 };
 
+const TWO_ACTIONS = 2;
+const THREE_ACTIONS = 3;
+
 /** The cost an action count is drawn as. */
-export const ACTION_COUNT_COSTS: Readonly<Partial<Record<number, ActionCost>>> = {
-  2: ActionCost.Two,
-  3: ActionCost.Three,
-};
+export const ACTION_COUNT_COSTS: ReadonlyMap<number, ActionCost> = new Map([
+  [TWO_ACTIONS, ActionCost.Two],
+  [THREE_ACTIONS, ActionCost.Three],
+]);
 
 /** How each kind of action, a subtab of the Actions tab, is worded. */
 export const ACTION_CATEGORY_MESSAGES: Readonly<Record<ActionCategory, string>> = {

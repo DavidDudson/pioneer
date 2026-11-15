@@ -7,6 +7,7 @@ import { readFoundryRelease } from './foundry-release';
 import { selectCreatures, SkipReason } from './select-entries';
 import type { CreatureSelection } from './select-entries';
 import { LEGACY } from './testing/legacy';
+import type { Fields } from './translate-choice-reads';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const monsterCore = BookId.parse('monster-core');
@@ -22,7 +23,7 @@ const manifest = {
   languages: [{ lang: 'en', name: 'Main (English)', path: 'lang/en.json' }],
 };
 
-const remaster = (title: string): object => ({ title, license: 'ORC', remaster: true });
+const remaster = (title: string): Fields => ({ title, license: 'ORC', remaster: true });
 
 /** A trimmed actor: its publication and level in `system.details`, its traits, and the embedded items it names. */
 interface Extras {
@@ -31,7 +32,7 @@ interface Extras {
   readonly items?: readonly string[];
 }
 
-function creatureDoc(name: string, publication: object | undefined, extras: Extras = {}): object {
+function creatureDoc(name: string, publication: object | undefined, extras: Extras = {}): Fields {
   const { type = 'npc', level = 1, items = [] } = extras;
 
   return {
@@ -48,7 +49,7 @@ function creatureDoc(name: string, publication: object | undefined, extras: Extr
   };
 }
 
-const files: Record<string, unknown> = {
+const files = {
   'system.pf2e.json': manifest,
   'static/lang/en.json': { PF2E: {} },
   'packs/pf2e/pathfinder-monster-core/ogre.json': creatureDoc('Ogre', remaster('Pathfinder Monster Core'), {

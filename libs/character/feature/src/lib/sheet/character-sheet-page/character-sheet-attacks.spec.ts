@@ -5,6 +5,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -29,7 +30,7 @@ const CLERIC = {
 };
 
 /** The play state of a full-health character with `phase` and `attacks` made, at `revision`. */
-function playWith(phase: string, attacks: number, revision = 1): object {
+function playWith(phase: string, attacks: number, revision = 1): JsonObject {
   const turn = { phase, actions: 1, quickened: 0, reactionUsed: false, attacks };
 
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn, spendLog: [] } };

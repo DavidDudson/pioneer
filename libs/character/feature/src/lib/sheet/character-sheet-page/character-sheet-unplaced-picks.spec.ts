@@ -6,6 +6,7 @@ import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { TEST_PACKS } from '../../testing/test-packs';
@@ -30,7 +31,7 @@ const PACKS = [...TEST_PACKS, PICKS];
 const ELVEN = present(picks.otherEntries.find((entry) => entry.name === 'Elven')).id;
 
 /** Merisiel carrying `unplacedLanguages` the import found no slot for. */
-function carrying(unplacedLanguages: readonly string[]): object {
+function carrying(unplacedLanguages: readonly string[]): JsonObject {
   return { ...MERISIEL, build: { ...MERISIEL.build, unplacedLanguages } };
 }
 

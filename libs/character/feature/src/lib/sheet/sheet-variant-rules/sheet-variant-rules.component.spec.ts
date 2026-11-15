@@ -2,6 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -21,12 +22,12 @@ const gritty = {
   packTitle: 'Table Rules',
 };
 
-interface VariantRulesJson {
+interface VariantRulesJson extends JsonObject {
   readonly decidedBy: 'character' | 'campaign';
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly object[];
-  readonly available: readonly object[];
+  readonly enabled: readonly JsonObject[];
+  readonly available: readonly JsonObject[];
 }
 
 const VARIANT_RULES_URL = `/api/characters/${id}/variant-rules`;

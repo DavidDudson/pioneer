@@ -5,6 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
@@ -27,12 +28,12 @@ const SECOND = '00000000-0000-4000-8000-000000000002';
 const UNLIMITED = { kind: 'unlimited' };
 
 /** The play state of a full-health character with `conditions` on it, at `revision`. */
-function afflictedWith(conditions: readonly object[], revision = 1): object {
+function afflictedWith(conditions: readonly JsonObject[], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, conditions } };
 }
 
-const frightened = (value: number): object => ({ id: FIRST, condition: FRIGHTENED, value, duration: UNLIMITED });
-const clumsy = (value: number): object => ({ id: FIRST, condition: CLUMSY, value, duration: UNLIMITED });
+const frightened = (value: number): JsonObject => ({ id: FIRST, condition: FRIGHTENED, value, duration: UNLIMITED });
+const clumsy = (value: number): JsonObject => ({ id: FIRST, condition: CLUMSY, value, duration: UNLIMITED });
 
 function conditionsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-conditions'));
@@ -43,7 +44,7 @@ function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
 }
 
 /** Answers the pending edit of the play state with `answer`, after checking what was sent. */
-async function answerEdit(command: object, answer: object): Promise<void> {
+async function answerEdit(command: JsonObject, answer: JsonObject): Promise<void> {
   await vi.waitFor(() => {
     const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
     expect(request.request.body).toMatchObject({ expectedRevision: 1, command });

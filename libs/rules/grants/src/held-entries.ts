@@ -18,9 +18,14 @@ export function heldEntry(entry: GrantEntry): HeldEntry {
   return { id: entry.id, kind: entry.kind, read: (): GrantEntry => entry };
 }
 
+/** Where a lazy entry keeps what it built. */
+interface LazyCell {
+  built?: { readonly entry: GrantEntry | undefined };
+}
+
 /** A held entry built by `make` on its first read. */
 export function lazyEntry(id: ContentId, kind: ContentKind, make: () => GrantEntry | undefined): HeldEntry {
-  const cell: { built?: { readonly entry: GrantEntry | undefined } } = {};
+  const cell: LazyCell = {};
 
   const read = (): GrantEntry | undefined => {
     cell.built ??= { entry: make() };

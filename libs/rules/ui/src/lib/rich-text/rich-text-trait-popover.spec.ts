@@ -14,7 +14,7 @@ const MENTION = [
 ];
 
 /** Every place rich text puts inline content: each must open the trait's card for a name before the word trait in it. */
-const RENDERERS: Readonly<Record<string, unknown>> = {
+const RENDERERS = {
   paragraph: { type: 'paragraph', content: MENTION },
   heading: { type: 'heading', level: 2, content: MENTION },
   'list item': { type: 'list', ordered: false, items: [[{ type: 'paragraph', content: MENTION }]] },

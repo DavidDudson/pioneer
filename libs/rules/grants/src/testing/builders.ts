@@ -19,6 +19,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ToggleKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
@@ -39,7 +40,7 @@ export function idOf(slug: string): ContentId {
 }
 
 /** A `GrantItem` of the test pack's entry `slug`, as JSON. Spread it to add fields. */
-export function grantOf(slug: string): object {
+export function grantOf(slug: string): RuleJson {
   return { key: 'GrantItem', item: idOf(slug) };
 }
 

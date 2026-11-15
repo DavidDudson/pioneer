@@ -12,6 +12,7 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
+import type { JsonObject, JsonValue } from './testing/json-fixture';
 
 /**
  * A sorcerer and a fighter with the sorcerer archetype as the importer gives them (ADR-0050), shrunk to a demonic and
@@ -22,11 +23,11 @@ const INITIAL = 'gluttons-jaws';
 const ADVANCED = 'swamp-of-sloth';
 const CLAWS = 'flurry-of-claws';
 
-const BLOODLINES: Readonly<Record<string, readonly [tradition: string, spell: string]>> = {
+const BLOODLINES = {
   demonic: ['divine', INITIAL],
   'draconic-arcane': ['arcane', CLAWS],
   'draconic-primal': ['primal', CLAWS],
-};
+} satisfies Readonly<Record<string, readonly [tradition: string, spell: string]>>;
 
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 
@@ -38,7 +39,7 @@ for (const spell of [INITIAL, ADVANCED, CLAWS]) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const focusEntry = (tradition: string, predicate: readonly unknown[]): object => ({
+const focusEntry = (tradition: string, predicate: readonly JsonValue[]): JsonObject => ({
   key: 'SpellcastingEntry',
   slug: 'sorcerer-focus',
   tradition,
@@ -47,7 +48,7 @@ const focusEntry = (tradition: string, predicate: readonly unknown[]): object =>
   predicate,
 });
 
-const focusSpells = (spell: string, predicate: readonly unknown[]): object => ({
+const focusSpells = (spell: string, predicate: readonly JsonValue[]): JsonObject => ({
   key: 'FocusSpells',
   entry: 'sorcerer-focus',
   spells: [spellId(spell)],

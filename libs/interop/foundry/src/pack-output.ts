@@ -9,6 +9,7 @@ import type { BacklogGap } from './import-backlog';
 import type { EnvelopeFields } from './imported-envelope';
 import { firstIssue, resolveReferences } from './pack-references';
 import type { CheckedOutput, EntryGap, LeftOut } from './pack-references';
+import type { Fields } from './translate-choice-reads';
 import { compendiumUuid } from './translate-envelope';
 import type { ImportTranslation } from './translate-import';
 import type { ImportedKindData } from './translate-kind-data';
@@ -58,7 +59,7 @@ function compare(left: string, right: string): number {
 }
 
 /** The entry `ContentEntry` reads: the envelope's address, the kind, the rest of the envelope, then the data. */
-function rawEntry({ id, pack, ...envelope }: EnvelopeFields, { kind, data }: ImportedKindData): object {
+function rawEntry({ id, pack, ...envelope }: EnvelopeFields, { kind, data }: ImportedKindData): Fields {
   return { id, pack, kind, ...envelope, data };
 }
 

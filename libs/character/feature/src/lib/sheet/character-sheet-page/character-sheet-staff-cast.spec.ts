@@ -5,6 +5,7 @@ import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } fro
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -26,7 +27,7 @@ function playerCore2(slug: string): string {
 const STAFF = '55555555-5555-4555-8555-555555555555';
 
 /** A 5th-level wizard, who casts 3rd-rank spells, holding the fire staff. */
-function wizardWithStaff(): object {
+function wizardWithStaff(): JsonObject {
   return {
     ...MERISIEL,
     level: 5,
@@ -46,7 +47,7 @@ function wizardWithStaff(): object {
 }
 
 /** A 5th-level imperial sorcerer (arcane, spontaneous), who casts 3rd-rank spells, holding the fire staff. */
-function sorcererWithStaff(): object {
+function sorcererWithStaff(): JsonObject {
   const wizard = wizardWithStaff() as { build: { choices: Record<string, string> } };
 
   const choices = {
@@ -59,7 +60,7 @@ function sorcererWithStaff(): object {
 }
 
 /** The play state with the staff prepared with 3 charges, `spent` of them spent. */
-function preparedWith(spent: number, revision = 1): object {
+function preparedWith(spent: number, revision = 1): JsonObject {
   return {
     revision,
     play: { hp: { damage: 0, temp: 0 }, resources: { staff: { [STAFF]: { max: 3, spent } } } },
@@ -109,14 +110,14 @@ describe('CharacterSheetPage staff casts', () => {
   const SPEND = '00000000-0000-4000-8000-000000000001';
 
   /** The play state after one cast of the staff's spell: `spent` charges gone, and the cast on the spend log. */
-  function castWith(spent: number, spell: string, revision: number): object {
+  function castWith(spent: number, spell: string, revision: number): JsonObject {
     const prepared = preparedWith(spent, revision);
 
     return {
       ...prepared,
       events: [],
       play: {
-        ...(prepared as { play: object }).play,
+        ...(prepared as { play: JsonObject }).play,
         turn: { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false },
         spendLog: [
           {

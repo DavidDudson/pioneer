@@ -7,6 +7,7 @@ import { fromFoundryFormula } from './foundry-formula';
 import { KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog } from './kind-data-gaps';
 import { boundedRecord } from './kind-fields';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * A spell's damage parts and heightening from Foundry's records. A part keeps Foundry's record key, lower-cased to a
@@ -133,7 +134,7 @@ export const FoundryHeightening = z.looseObject({
 export type FoundryHeightening = z.infer<typeof FoundryHeightening>;
 
 /** "Heightened (+1)": what each step adds to the parts the spell kept, and feet to the area. */
-function intervalOf(heightening: FoundryHeightening, kept: ReadonlySet<string>): object {
+function intervalOf(heightening: FoundryHeightening, kept: ReadonlySet<string>): Fields {
   const damage = Object.entries(heightening.damage ?? {})
     .filter(([key]) => kept.has(partKey(key)))
     .map(([key, formula]) => ({ key: partKey(key), formula: fromFoundryFormula(formula) }));

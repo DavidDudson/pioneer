@@ -7,6 +7,7 @@ import { rulesIn } from './testing/build-helpers';
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { BLOODLINE_DEMONIC, BLOODLINE_DRACONIC } from './testing/spellcasting-fixtures';
+import type { Fields } from './translate-choice-reads';
 import { BLOODLINES } from './translate-sorcerer-bloodlines';
 
 const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
@@ -14,7 +15,7 @@ const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
-const entry = (tradition: string, predicate: readonly unknown[]): Record<string, unknown> => ({
+const entry = (tradition: string, predicate: readonly unknown[]): Fields => ({
   key: SpellcastingEntry,
   slug: 'sorcerer-focus',
   tradition,

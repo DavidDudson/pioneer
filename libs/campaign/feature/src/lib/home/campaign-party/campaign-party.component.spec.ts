@@ -8,6 +8,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -47,7 +48,7 @@ const merisiel = { characterId: '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e61', name: 'M
 const kyra = { characterId: '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e62', name: 'Kyra', level: 2 };
 
 /** `character` in the party, played by Ezren. */
-function inParty(character: typeof valeros, detachable: boolean): object {
+function inParty(character: typeof valeros, detachable: boolean): JsonObject {
   return {
     ...character,
     ownerId: playerId,
@@ -60,7 +61,7 @@ function inParty(character: typeof valeros, detachable: boolean): object {
 }
 
 interface PartyJson {
-  readonly characters: readonly object[];
+  readonly characters: readonly JsonObject[];
   readonly attachable: readonly (typeof valeros)[];
 }
 

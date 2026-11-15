@@ -8,6 +8,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-store';
 import { CharacterStore } from '../../../data/character-store';
 import { PARTY_INVENTORY } from '../../../data/party-inventory';
+import type { JsonObject } from '../../../testing/json-fixture';
 import { PartyInventory } from './party-inventory.component';
 
 const campaign = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -60,6 +61,12 @@ const names = new Map([
   [sunblade, 'Sunblade'],
 ]);
 
+/** The part of the selected character the store stub answers with. */
+interface SelectedCharacter {
+  readonly id: string;
+  readonly document: { readonly inventory: { readonly items: readonly Line[] } };
+}
+
 /** The sheet of a character carrying `items`, in `campaignId` or in none. */
 function render(campaignId: string | undefined, loader: LoadContainer): ComponentFixture<PartyInventory> {
   TestBed.configureTestingModule({
@@ -67,9 +74,11 @@ function render(campaignId: string | undefined, loader: LoadContainer): Componen
       { provide: PARTY_INVENTORY, useValue: loader },
       {
         provide: CharacterStore,
-        useValue: { selected: (): object => ({ id: character, document: { inventory: { items: carried } } }) },
+        useValue: {
+          selected: (): SelectedCharacter => ({ id: character, document: { inventory: { items: carried } } }),
+        },
       },
-      { provide: CharacterRuleLimitStore, useValue: { rules: (): object => ({ campaign: campaignId }) } },
+      { provide: CharacterRuleLimitStore, useValue: { rules: (): JsonObject => ({ campaign: campaignId }) } },
     ],
   });
   const fixture = TestBed.createComponent(PartyInventory);

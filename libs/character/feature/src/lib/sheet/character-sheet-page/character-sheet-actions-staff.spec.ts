@@ -5,6 +5,7 @@ import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/charact
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openActionKind, textOf } from '../../testing/sheet-tabs-testing';
@@ -26,7 +27,7 @@ function playerCore2(slug: string): string {
 }
 
 /** A 5th-level imperial sorcerer (arcane, spontaneous), who casts 3rd-rank spells, holding the fire staff. */
-function sorcererWithStaff(): object {
+function sorcererWithStaff(): JsonObject {
   return {
     ...MERISIEL,
     level: 5,
@@ -53,7 +54,7 @@ function sorcererWithStaff(): object {
 }
 
 /** The play state with the staff prepared with 3 charges, `spent` of them spent. */
-function preparedWith(spent: number, revision = 1): object {
+function preparedWith(spent: number, revision = 1): JsonObject {
   return {
     revision,
     play: { hp: { damage: 0, temp: 0 }, resources: { staff: { [STAFF]: { max: 3, spent } } } },

@@ -32,7 +32,14 @@ pack
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const knows = (spell: string, predicate: readonly (string | object)[]): object => ({
+interface FocusSpellsRule {
+  readonly key: string;
+  readonly entry: string;
+  readonly spells: readonly string[];
+  readonly predicate: readonly (string | object)[];
+}
+
+const knows = (spell: string, predicate: readonly (string | object)[]): FocusSpellsRule => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
   spells: [spellId(spell)],

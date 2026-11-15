@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 import { spellId } from './focus-plan';
 import source from './innate-spells.json';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * The innate entries and innate spells of Player Core's ancestry and archetype feats that teach them, as
@@ -57,7 +58,7 @@ function withPredicate(predicate: readonly unknown[] | undefined): object {
   return predicate === undefined ? {} : { predicate };
 }
 
-function entryRule({ entry }: Feat): object {
+function entryRule({ entry }: Feat): Fields {
   const { slug, tradition, attribute, when } = entry;
 
   return {
@@ -85,7 +86,7 @@ function choiceRule({ choice }: Feat): object[] {
 }
 
 /** The elements that give `spells` while `when` holds. */
-function granting(entry: string, spells: readonly z.infer<typeof Spell>[], when: readonly unknown[]): object {
+function granting(entry: string, spells: readonly z.infer<typeof Spell>[], when: readonly unknown[]): Fields {
   return {
     key: RuleElementKey.InnateSpells,
     entry,

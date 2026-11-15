@@ -6,6 +6,7 @@ import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openPickerTable } from '../../testing/feat-table-testing';
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -25,7 +26,7 @@ const DETECT_MAGIC = 'c91ac947-a9ec-5f07-b5f9-a054617eb571';
 function as(
   name: 'fighter' | 'wizard',
   { level = MERISIEL.level, choices = {}, spellAccess = [] }: CasterOptions = {},
-): object {
+): JsonObject {
   return {
     ...MERISIEL,
     level,
@@ -75,7 +76,7 @@ function section(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('section[aria-labelledby="sheet-spellcasting"]'));
 }
 
-function playOf(turn: object): object {
+function playOf(turn: JsonObject): JsonObject {
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn } };
 }
 

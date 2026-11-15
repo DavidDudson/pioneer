@@ -6,6 +6,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -35,7 +36,7 @@ const SWORDSWOMAN = {
   },
 };
 
-function inForm(effect: string, form: string, rank: number): object {
+function inForm(effect: string, form: string, rank: number): JsonObject {
   const effects = [{ id: FIRST, effect, source: { kind: 'self' }, form, rank }];
 
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, effects } };

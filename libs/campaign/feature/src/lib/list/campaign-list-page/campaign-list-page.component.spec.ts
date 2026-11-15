@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -20,7 +21,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-function campaignJson(name: string, memberCount: number): object {
+function campaignJson(name: string, memberCount: number): JsonObject {
   const members = Array.from({ length: memberCount }, (_unused, index) => ({
     id: `0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e1${index}`,
     userId: index === 0 ? gmId : `1d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e1${index}`,

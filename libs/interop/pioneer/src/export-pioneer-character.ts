@@ -27,22 +27,27 @@ export type PioneerExportResult = PioneerExported | PioneerExportFailure;
 const SERVER_FIELDS: ReadonlySet<string> = new Set(['id', 'ownerId']);
 
 /** A campaign event that applied a condition exists only in its campaign, so a file leaves it out. */
-function withoutCampaignEvents(play: unknown): unknown {
+function withoutCampaignEvents(inputs: Fields): Fields {
+  const { play } = inputs;
+
   if (!isFields(play) || !Array.isArray(play['conditions'])) {
-    return play;
+    return inputs;
   }
 
   const conditions: unknown[] = play['conditions'];
 
   return {
-    ...play,
-    conditions: conditions.map((condition) => {
-      if (!isFields(condition)) {
-        return condition;
-      }
+    ...inputs,
+    play: {
+      ...play,
+      conditions: conditions.map((condition) => {
+        if (!isFields(condition)) {
+          return condition;
+        }
 
-      return Object.fromEntries(Object.entries(condition).filter(([key]) => key !== 'appliedBy'));
-    }),
+        return Object.fromEntries(Object.entries(condition).filter(([key]) => key !== 'appliedBy'));
+      }),
+    },
   };
 }
 
@@ -50,7 +55,7 @@ function portableInputs(document: CharacterDocument): Fields {
   const encoded: Fields = z.encode(CharacterDocumentSchema, document);
   const portable = Object.entries(encoded).filter(([key]) => !SERVER_FIELDS.has(key));
 
-  return { ...Object.fromEntries(portable), play: withoutCampaignEvents(encoded['play']) };
+  return withoutCampaignEvents(Object.fromEntries(portable));
 }
 
 /**

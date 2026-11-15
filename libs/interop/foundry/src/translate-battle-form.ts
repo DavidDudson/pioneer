@@ -2,6 +2,8 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
 import { fromFoundryFormula } from './foundry-formula';
+import { isFields } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
 import { typeOf } from './translate-defences';
 import { sizeOf } from './translate-modifiers';
 import { senseElement, withSense } from './translate-senses';
@@ -16,12 +18,6 @@ export { withFormSpeedBrackets } from './translate-form-speeds';
  * `value`) a heightened change, each of its `variants` (a `predicate` and the statistics it changes) a variant, and the name-keyed records (skills, senses, Strikes) lists. Fields Pioneer does not
  * read stay where they are, so the element fails and is kept for the backlog.
  */
-
-type Fields = Readonly<Record<string, unknown>>;
-
-function isFields(value: unknown): value is Fields {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
 
 /** A formula or number of Foundry's, a formula in Pioneer's reference spelling; anything else as it is. */
 function formula(value: unknown): unknown {
@@ -49,11 +45,11 @@ function kebab(name: string): string {
   return name.replaceAll(/[A-Z]/gu, (letter) => `-${letter.toLowerCase()}`);
 }
 
-function skill(name: string, fields: Fields): unknown {
+function skill(name: string, fields: Fields): Fields {
   return { skill: `skill:${name}`, ...withFormulas(fields, ['modifier']) };
 }
 
-function sense(name: string, fields: Fields, context: SenseContext): unknown {
+function sense(name: string, fields: Fields, context: SenseContext): Fields {
   const element = senseElement(kebab(name), fields, context);
 
   if (!isFields(element)) {
@@ -73,19 +69,15 @@ function slugOf(name: string): string {
   return name.trim().toLowerCase().replaceAll(/\s+/gu, '-');
 }
 
-function strike(name: string, fields: Fields): unknown {
+function strike(name: string, fields: Fields): Fields {
   const { range, damage, img: _img, ...rest } = withFormulas(fields, ['modifier']);
-  const changes: Record<string, unknown> = { slug: slugOf(name), ...rest };
 
-  if (range !== undefined) {
-    changes['range'] = rangeOf(range);
-  }
-
-  if (damage !== undefined) {
-    changes['damage'] = isFields(damage) ? withFormulas(damage, ['modifier']) : damage;
-  }
-
-  return changes;
+  return {
+    slug: slugOf(name),
+    ...rest,
+    ...present({ range: range === undefined ? undefined : rangeOf(range) }),
+    ...present({ damage: isFields(damage) ? withFormulas(damage, ['modifier']) : damage }),
+  };
 }
 
 /** Weaknesses, resistances or immunities with one entry per type Foundry lists, the `value` read as a formula. */
@@ -141,7 +133,7 @@ function statistics(raw: unknown, context: SenseContext): unknown {
 }
 
 /** A variant: its `predicate` kept, the statistics it changes translated as a form's are. */
-function variant(raw: unknown, context: SenseContext): unknown {
+function variant<Raw>(raw: Raw, context: SenseContext): Raw | Fields {
   if (!isFields(raw)) {
     return raw;
   }
@@ -154,7 +146,7 @@ function variant(raw: unknown, context: SenseContext): unknown {
   return { predicate, ...changed };
 }
 
-function bracket(raw: unknown, context: SenseContext): unknown {
+function bracket<Raw>(raw: Raw, context: SenseContext): Raw | Fields {
   if (!isFields(raw) || !isFields(raw['value'])) {
     return raw;
   }
@@ -174,7 +166,7 @@ function bracket(raw: unknown, context: SenseContext): unknown {
 const BATTLE_FORM_LIMITS = { canCast: false, canSpeak: false, hasHands: false };
 
 /** A `BattleForm` as Pioneer's, with its base fields kept; any other element as it is. */
-function withBattleForm(raw: unknown, context: SenseContext): unknown {
+function withBattleForm<Raw>(raw: Raw, context: SenseContext): Raw | Fields {
   if (!isFields(raw) || raw['key'] !== RuleElementKey.BattleForm || !isFields(raw['overrides'])) {
     return raw;
   }
@@ -191,8 +183,12 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
   return {
     ...rest,
     form,
-    ...present({ brackets: Array.isArray(brackets) ? brackets.map((item) => bracket(item, context)) : undefined }),
-    ...present({ variants: Array.isArray(variants) ? variants.map((item) => variant(item, context)) : undefined }),
+    ...present({
+      brackets: Array.isArray(brackets) ? brackets.map((item: unknown) => bracket(item, context)) : undefined,
+    }),
+    ...present({
+      variants: Array.isArray(variants) ? variants.map((item: unknown) => variant(item, context)) : undefined,
+    }),
   };
 }
 

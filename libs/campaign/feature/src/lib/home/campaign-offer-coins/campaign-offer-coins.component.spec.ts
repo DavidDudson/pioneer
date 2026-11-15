@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import messages from '../../../i18n/en.json';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 import { CampaignOfferCoins } from './campaign-offer-coins.component';
 
@@ -16,7 +17,7 @@ const seelah = '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e63';
 const purse = { pp: 1, gp: 10, sp: 5, cp: 0 };
 
 /** A party member played by someone. */
-function member(characterId: string, name: string): object {
+function member(characterId: string, name: string): JsonObject {
   return {
     characterId,
     name,
@@ -46,7 +47,7 @@ interface Opened {
 }
 
 /** Kyra's purse on the sheet of a character in the campaign, with the disclosure opened and the party loaded. */
-async function open(characters: readonly object[]): Promise<Opened> {
+async function open(characters: readonly JsonObject[]): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       ...provideServerStateTesting(),

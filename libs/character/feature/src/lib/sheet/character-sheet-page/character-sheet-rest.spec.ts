@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
@@ -22,7 +23,7 @@ const BARD = {
 };
 
 /** The play state of a hurt character with hero points `heroSpent` spent. */
-function playOf(damage: number, heroSpent: number, revision = 1): object {
+function playOf(damage: number, heroSpent: number, revision = 1): JsonObject {
   return { revision, play: { hp: { damage, temp: 0 }, resources: { 'hero-points': heroSpent } } };
 }
 

@@ -4,6 +4,7 @@ import type { Arbitrary } from 'fast-check';
 import { InventorySchema } from '../inventory';
 import type { Inventory } from '../inventory';
 import { CarryState, HANDS_MAX, INVESTED_MAX } from '../item-carry';
+import type { JsonObject } from './json-fixture';
 
 /** Past the investment limit, so the cap is reached. */
 const ITEMS_MAX = 12;
@@ -39,7 +40,7 @@ const coins = record({
 });
 
 /** How a line is carried: stowed inside a container, else as generated, while hands are left to hold it. */
-function carryOf({ carry, hands }: Line, contained: boolean, handsFree: number): object {
+function carryOf({ carry, hands }: Line, contained: boolean, handsFree: number): JsonObject {
   if (contained || (carry === CarryState.Held && hands > handsFree)) {
     return { state: CarryState.Stowed };
   }
@@ -70,8 +71,8 @@ export const inventoryJson: Arbitrary<unknown> = record({
     const container = holder === undefined || index === 0 ? undefined : lines[holder % index]?.id;
     const carry = carryOf(each, container !== undefined, handsFree);
 
-    if ('hands' in carry && typeof carry.hands === 'number') {
-      handsFree -= carry.hands;
+    if ('hands' in carry && typeof carry['hands'] === 'number') {
+      handsFree -= carry['hands'];
     }
 
     const placed = container === undefined ? undefined : { container };

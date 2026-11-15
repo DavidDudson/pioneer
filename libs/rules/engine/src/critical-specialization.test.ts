@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -41,7 +42,7 @@ const LONGSWORD = {
 const SWORD = { ...LONGSWORD, group: 'sword', rollOptions: ['group:sword', 'melee'] };
 const ELEMENT = { key: 'CriticalSpecialization' };
 
-const only = (option: string): object => ({ ...ELEMENT, predicate: [option] });
+const only = (option: string): RuleJson => ({ ...ELEMENT, predicate: [option] });
 
 /** The roll options the character has, and its proficiency ranks by selector. */
 interface Given {
@@ -50,7 +51,7 @@ interface Given {
 }
 
 const RAGING: readonly string[] = ['self:effect:rage'];
-const TRAINED: Readonly<Record<string, string>> = { 'attack:martial': 'trained' };
+const TRAINED = { 'attack:martial': 'trained' };
 
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
 function strikeOf(elements: readonly object[], weapon: object, given: Given = {}): Strike | undefined {

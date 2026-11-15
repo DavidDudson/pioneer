@@ -9,7 +9,14 @@ const ORIGIN = 'https://2e.aonprd.com/';
 const SECTION = /<h2 class="title">(?<heading>[^<[]+?)\s*\[\d+\]<\/h2>(?<body>[\s\S]*?)(?=<h2 class="title">|$)/gu;
 const LINK = /<a href="(?<href>[A-Za-z]+\.aspx\?[^"]*)">(?<name>[^<]+)<\/a>/gu;
 const ENTITY = /&(?<body>#x[\da-f]+|#\d+|[a-z]+);/giu;
-const ENTITIES: Readonly<Record<string, string>> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+
+const ENTITIES: ReadonlyMap<string, string> = new Map([
+  ['amp', '&'],
+  ['lt', '<'],
+  ['gt', '>'],
+  ['quot', '"'],
+  ['apos', "'"],
+]);
 
 /** One entry in a book's listing. */
 export interface ListedEntry {
@@ -36,7 +43,7 @@ function entity(whole: string, body: string): string {
     return String.fromCodePoint(code);
   }
 
-  return ENTITIES[body] ?? whole;
+  return ENTITIES.get(body) ?? whole;
 }
 
 function decode(text: string): string {

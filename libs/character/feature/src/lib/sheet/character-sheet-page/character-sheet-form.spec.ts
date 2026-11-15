@@ -6,6 +6,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openerAt, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -38,7 +39,7 @@ const humanoid = {
 };
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
-function playWith(effects: readonly object[], revision = 1): object {
+function playWith(effects: readonly JsonObject[], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 

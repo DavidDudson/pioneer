@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { contentId, EnrichmentMapping, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
+import type { EntryJson } from './entry-json.ts';
 import { enrichSourcesFile } from './source-enrichment.ts';
 
 const PACK = 'player-core';
@@ -10,7 +11,7 @@ const OTHER_AON = 'https://2e.aonprd.com/Spells.aspx?ID=2';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 /** A spell's JSON, as a pack file holds it, citing `sources`. */
-function spell(slug: string, sources: readonly object[]): object {
+function spell(slug: string, sources: readonly object[]): EntryJson {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -34,7 +35,13 @@ function spell(slug: string, sources: readonly object[]): object {
   };
 }
 
-const book = (id: string, fields: object = {}): object => ({ kind: 'book', book: id, ...fields });
+/** A source citing a book, as a pack file holds it. */
+interface BookSourceJson {
+  readonly kind: string;
+  readonly book: string;
+}
+
+const book = (id: string, fields: object = {}): BookSourceJson => ({ kind: 'book', book: id, ...fields });
 
 const mappings = (entries: Record<string, object>): ReadonlyMap<EntrySlug, EnrichmentMapping> =>
   new Map(Object.entries(entries).map(([slug, json]) => [EntrySlug.parse(slug), EnrichmentMapping.parse(json)]));

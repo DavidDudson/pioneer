@@ -3,6 +3,7 @@ import { present } from '@pioneer/shared/kernel';
 
 import { fromFoundryFormula } from './foundry-formula';
 import { SKILLS } from './foundry-skills';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * Foundry's `FlatModifier`, `AdjustModifier`, `DamageDice` and `Note`, and the predicate every element carries, in
@@ -63,7 +64,7 @@ export function namespacedStatement(statement: unknown): unknown {
 }
 
 /** `raw` with each bare roll option in its predicate given a namespace, as every element reads one. */
-export function withNamespacedOptions(raw: unknown): unknown {
+export function withNamespacedOptions<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('predicate' in raw) || !Array.isArray(raw.predicate)) {
     return raw;
   }
@@ -108,7 +109,7 @@ const HIDEABLE_KEYS: ReadonlySet<string> = new Set([RuleElementKey.FlatModifier,
  * A `FlatModifier` or `AdjustModifier` as Pioneer's element; any other element, or a selector that is not text, as it
  * is. A `FlatModifier` also defaults to `untyped`, as Foundry does, and drops the fields that only steer its display.
  */
-function withSelectors(raw: unknown): unknown {
+function withSelectors<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
@@ -139,7 +140,7 @@ export function withModifierSelectors(raw: unknown): unknown {
  * built from the item (`{item|id}-damage`), a damage type or dice read from a pick, and a formula Pioneer cannot read
  * are left as they are, so the element fails and is kept for the backlog.
  */
-export function withDiceFormula(raw: unknown): unknown {
+export function withDiceFormula<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.DamageDice) {
     return raw;
   }
@@ -161,7 +162,7 @@ const MOVEMENT_TYPES: ReadonlySet<string> = new Set(['land', 'burrow', 'climb', 
  * movement speed to its value, and never lowers one. A selector that is no movement type (one built from a pick) is
  * left as it is, so the element fails and is kept for the backlog; any other element as it is.
  */
-export function withBaseSpeed(raw: unknown): unknown {
+export function withBaseSpeed<Raw>(raw: Raw): Raw | Fields {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== BASE_SPEED_KEY) {
     return raw;
   }

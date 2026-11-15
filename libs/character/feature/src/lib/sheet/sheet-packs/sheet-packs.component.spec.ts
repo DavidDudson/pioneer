@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { PickerField } from '@pioneer/frontier/data';
 import { describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
 import { openConfiguration } from '../../testing/sheet-tabs-testing';
@@ -51,12 +52,12 @@ const secret = {
   private: true,
 };
 
-interface PacksJson {
+interface PacksJson extends JsonObject {
   readonly decidedBy: 'character' | 'campaign';
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly object[];
-  readonly candidates: readonly object[];
+  readonly enabled: readonly JsonObject[];
+  readonly candidates: readonly JsonObject[];
 }
 
 /** Every button whose text starts with `label`, in document order. */

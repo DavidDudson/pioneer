@@ -24,8 +24,8 @@ const indexes = (count: number): number[] => Array.from({ length: count }, (_val
  */
 function positivePredicate(count: number): Arbitrary<unknown[] | undefined> {
   const statement = oneof(
-    integer({ min: 0, max: count - 1 }).map((index): unknown => `feature:${slugOf(index)}`),
-    integer({ min: 1, max: LEVEL_MAX }).map((level): unknown => ({ gte: ['self:level', level] })),
+    integer({ min: 0, max: count - 1 }).map((index) => `feature:${slugOf(index)}`),
+    integer({ min: 1, max: LEVEL_MAX }).map((level) => ({ gte: ['self:level', level] })),
   );
 
   return oneof(constantFrom(undefined), tuple(statement), tuple(statement, statement));

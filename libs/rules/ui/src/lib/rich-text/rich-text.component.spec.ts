@@ -27,8 +27,20 @@ const LINKS: RichTextLinks = {
   statisticName: (selector): ContentText | undefined => STATISTIC_NAMES.get(selector),
 };
 
-const text = (value: string): unknown => ({ type: 'text', text: value });
-const paragraph = (...content: unknown[]): unknown => ({ type: 'paragraph', content });
+/** A text node as JSON. */
+interface TextNode {
+  readonly type: string;
+  readonly text: string;
+}
+
+/** A paragraph node as JSON. */
+interface ParagraphNode {
+  readonly type: string;
+  readonly content: readonly unknown[];
+}
+
+const text = (value: string): TextNode => ({ type: 'text', text: value });
+const paragraph = (...content: unknown[]): ParagraphNode => ({ type: 'paragraph', content });
 
 async function render(json: unknown, headingLevel: HeadingLevel = HeadingLevel.Two): Promise<HTMLElement> {
   TestBed.configureTestingModule({
