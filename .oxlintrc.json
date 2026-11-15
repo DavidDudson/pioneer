@@ -144,6 +144,10 @@
     "eslint/id-length": ["error", { "exceptions": ["z"] }],
     "eslint/max-classes-per-file": ["error", { "max": 1, "ignoreExpressions": true }],
     "eslint/max-statements": ["error", 12],
+    // Blank lines are layout, not size: the readable-spacing autofix added them between statements, and a file's
+    // length should not grow because of them.
+    "eslint/max-lines": ["error", { "max": 300, "skipBlankLines": true }],
+    "eslint/max-lines-per-function": ["error", { "max": 50, "skipBlankLines": true }],
 
     // ---- anti-slop (vendored: tools/oxlint/anti-slop, see UPSTREAM.md there) ----
     "oxc/no-accumulating-spread": "error",
@@ -441,6 +445,18 @@
       // complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
       "files": ["**/index.ts"],
       "rules": { "eslint/max-lines": "off" }
+    },
+    {
+      // The Foundry importer reads untrusted third-party JSON. It checks `typeof` and handles `unknown` at that
+      // boundary on purpose; a Zod parse of every Foundry document shape would rewrite the translator and change
+      // its output.
+      "files": ["libs/interop/foundry/**", "tools/content-import/**"],
+      "rules": {
+        "anti-slop/no-runtime-typeof": "off",
+        "anti-slop/no-unknown-parameters": "off",
+        "anti-slop/no-unknown-returns": "off",
+        "anti-slop/no-unsafe-dictionary-type": "off"
+      }
     },
     {
       // Process entry points: Bun supports top-level await; logging is the point.
