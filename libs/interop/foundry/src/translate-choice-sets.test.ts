@@ -4,12 +4,13 @@ import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { NO_REFERENCES } from './entry-references';
 import type { EntryReferences } from './entry-references';
+import type { Fields } from './translate-choice-reads';
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
 const ENTRY = ContentId.parse('00000000-0000-5000-8000-000000000000');
 
-function translated(raw: object, item = 'Align the Stars'): RuleTranslation {
+function translated(raw: Fields, item = 'Align the Stars'): RuleTranslation {
   return translateRules(ENTRY, [raw], {
     lang: { PF2E: { Prompt: 'Pick one.', Yes: 'Yes', No: 'No' } },
     values: { item },

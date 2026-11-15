@@ -24,6 +24,7 @@ import * as z from 'zod';
 
 import { EXAMPLE_ACTIONS } from './actions-example';
 import { EXAMPLE_CONTENT_ENTRIES } from './content-entry-examples';
+import type { JsonValue } from './example-json';
 import { EXAMPLE_FILTER_ENTRIES } from './filter-examples';
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
 import { pointAt } from './point-at';
@@ -113,7 +114,7 @@ const RAISED_SHIELD_BONUS = 2;
 const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.ac';
 
 /** A valid starting value per schema, so the page opens on something that passes. */
-const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
+const EXAMPLE_VALUES: Readonly<Record<RulesSchema, JsonValue>> = {
   [RulesSchema.Predicate]: [
     'self:condition:frightened',
     { or: ['action:seek', 'terrain:forest'] },

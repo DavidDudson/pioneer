@@ -3,6 +3,7 @@ import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot, LoreName } from '@pioneer/character/domain';
 import type { ChoiceValue, ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, NamedStrike, SpellcastingEntryLine, StrikesShield } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 
 import { sheetEntryNames } from './sheet-entry-names';
 import { withSituations } from './sheet-situations';
@@ -24,7 +25,7 @@ export interface BuildPickSources {
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue, loreName?: LoreName) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
-  readonly translate: (key: string, params?: object) => string;
+  readonly translate: (key: string, params?: MessageParams) => string;
   /** The situations claimed for the next roll of each statistic; the statistics are derived with them counted. */
   readonly claims: Signal<SituationClaims>;
 }

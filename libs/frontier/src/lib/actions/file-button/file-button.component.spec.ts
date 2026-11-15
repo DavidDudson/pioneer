@@ -3,6 +3,7 @@ import type { ComponentRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { FileButton } from './file-button.component';
 
 interface Rendered {
@@ -11,7 +12,7 @@ interface Rendered {
   readonly chosen: string[];
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<FileButton> = {}): Promise<Rendered> {
   const ref = createComponent(FileButton, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Choose a file')]],

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { tableColumns } from './table-features';
 import type { TableColumn } from './table-features';
@@ -37,7 +38,7 @@ interface Rendered {
   readonly host: HTMLElement;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Table<Member>> = {}): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Table<Member>);
   fixture.componentRef.setInput('data', PARTY);
@@ -113,7 +114,7 @@ function reset(host: HTMLElement): HTMLButtonElement {
   return found;
 }
 
-async function renderHideable(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function renderHideable(inputs: ComponentInputs<Table<Member>> = {}): Promise<Rendered> {
   return render({ columns: HIDEABLE, ...inputs });
 }
 

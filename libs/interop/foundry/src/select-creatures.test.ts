@@ -32,7 +32,7 @@ interface Extras {
   readonly items?: readonly string[];
 }
 
-function creatureDoc(name: string, publication: object | undefined, extras: Extras = {}): Fields {
+function creatureDoc(name: string, publication: Fields | undefined, extras: Extras = {}): Fields {
   const { type = 'npc', level = 1, items = [] } = extras;
 
   return {

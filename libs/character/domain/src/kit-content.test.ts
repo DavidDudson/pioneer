@@ -10,6 +10,7 @@ import type { Inventory, InventoryItem } from './inventory';
 import { STOWED } from './item-carry';
 import { isKitAddable, kitContent, kitItems, kitRefusal } from './kit-content';
 import type { KitEntry, KitReads } from './kit-content';
+import type { JsonObject } from './testing';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing/item-content';
 import { KitFixture, kitFixtureContent, kitFixtureId } from './testing/kit-fixtures';
 
@@ -92,7 +93,7 @@ function holding(count: number): Inventory {
 }
 
 /** The one kit of a pack holding `items`. */
-function oneKit(items: readonly object[]): KitEntry {
+function oneKit(items: readonly JsonObject[]): KitEntry {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withId('odd-kits').withKit('odd', { items }).build());
   const [kit] = kitContent(registry).values();

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { TextInput } from './text-input.component';
 
 interface Rendered {
@@ -11,7 +12,7 @@ interface Rendered {
   readonly cancels: () => number;
 }
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
+function render(inputs: ComponentInputs<TextInput> = {}): Rendered {
   const fixture = TestBed.createComponent(TextInput);
   fixture.componentRef.setInput('ariaLabel', 'Name');
 

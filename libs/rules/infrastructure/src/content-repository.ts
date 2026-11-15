@@ -6,7 +6,7 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { contentEntries, contentPackDeps, contentPacks } from './content.table';
 
-type Database = BunSQLDatabase<Record<string, unknown>>;
+type Database = BunSQLDatabase;
 
 /** What the reads below need of a database or a transaction. */
 type Reader = Pick<Database, 'select'>;

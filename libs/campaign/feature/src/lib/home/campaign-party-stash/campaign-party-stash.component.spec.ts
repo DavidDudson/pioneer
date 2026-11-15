@@ -7,6 +7,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '6b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e6f';
@@ -55,7 +56,7 @@ interface Opened {
 }
 
 /** Opens the Party Inventory page, answering the party stash with `held`. */
-async function open(held: object): Promise<Opened> {
+async function open(held: JsonObject): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),

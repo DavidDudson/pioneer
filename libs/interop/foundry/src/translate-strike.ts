@@ -3,6 +3,7 @@ import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { slugify } from './foundry-slug';
+import { isFields } from './translate-choice-reads';
 import type { Fields } from './translate-choice-reads';
 
 /** Foundry's damage for a `Strike` of its own: `{ base: { damageType, die, dice } }`, `dice` defaulting to 1. */
@@ -48,32 +49,30 @@ const FoundryStrikeRange = z.strictObject({ increment: z.number() });
  * The name Foundry gives an attack of its own: its `slug`, else its base type (`claw`), else its display label (already in
  * English), as Foundry's own default does. None for an attack with neither.
  */
-function strikeSlug(raw: object): string | undefined {
-  if ('slug' in raw && typeof raw.slug === 'string') {
-    return raw.slug;
+function strikeSlug(raw: Fields): string | undefined {
+  if ('slug' in raw && typeof raw['slug'] === 'string') {
+    return raw['slug'];
   }
 
-  if ('baseType' in raw && typeof raw.baseType === 'string') {
-    return raw.baseType;
+  if ('baseType' in raw && typeof raw['baseType'] === 'string') {
+    return raw['baseType'];
   }
 
-  const label =
-    'display' in raw && typeof raw.display === 'object' && raw.display !== null && 'label' in raw.display
-      ? raw.display.label
-      : undefined;
+  const { display } = raw;
+  const label = isFields(display) ? display['label'] : undefined;
 
   return typeof label === 'string' ? slugify(label) : undefined;
 }
 
 /** A `Strike`'s range in Pioneer's spelling: a `null` range is no range, and `{ increment }` is the increment. */
-function strikeRange(raw: object): Fields {
-  if (!('range' in raw) || raw.range === null) {
+function strikeRange(raw: Fields): Fields {
+  if (!('range' in raw) || raw['range'] === null) {
     return {};
   }
 
-  const range = FoundryStrikeRange.safeParse(raw.range);
+  const range = FoundryStrikeRange.safeParse(raw['range']);
 
-  return { range: range.success ? range.data.increment : raw.range };
+  return { range: range.success ? range.data.increment : raw['range'] };
 }
 
 /**

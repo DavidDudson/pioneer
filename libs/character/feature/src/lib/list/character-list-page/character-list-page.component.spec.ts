@@ -26,8 +26,10 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 
 const PAGE_SIZE = PageSize.parse(24);
 
+type CharacterPageWire = z.input<typeof CharacterPage>;
+
 /** The wire form of a page of `names` characters out of `total`, as the API answers. */
-function pageOf(names: readonly string[], total: number, page = 1): object {
+function pageOf(names: readonly string[], total: number, page = 1): CharacterPageWire {
   const items = names.map((name) => new CharacterBuilder().named(name).build());
 
   return z.encode(CharacterPage, {
@@ -38,7 +40,7 @@ function pageOf(names: readonly string[], total: number, page = 1): object {
   });
 }
 
-async function open(address = '/characters', answer: object = pageOf([], 0)): Promise<HTMLElement> {
+async function open(address = '/characters', answer: CharacterPageWire = pageOf([], 0)): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),

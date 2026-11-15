@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ActionData } from './action';
+import type { JsonObject } from './testing/json-value';
 
 const ANT = '0864651a-fc5b-52be-99a6-6f40369fa731';
 const BEAR = '848026fb-0722-5bea-b8de-834d61ed43c4';
 
-function issuesOf(extra: object): readonly object[] {
+function issuesOf(extra: JsonObject): readonly object[] {
   const parsed = ActionData.safeParse({ cost: 'one', ...extra });
 
   return parsed.success ? [] : parsed.error.issues.map(({ path }) => ({ path }));

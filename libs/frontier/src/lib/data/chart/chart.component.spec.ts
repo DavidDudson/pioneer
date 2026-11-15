@@ -5,6 +5,7 @@ import type { ChartDefinition } from '@tanstack/charts/angular';
 import { scaleLinear } from '@tanstack/charts/scales/linear';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Chart, ChartAspect } from './chart.component';
 
 const DAMAGE: ChartDefinition = defineChart({
@@ -25,7 +26,7 @@ interface Rendered {
   readonly host: HTMLElement;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Chart> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(Chart);
   fixture.componentRef.setInput('definition', DAMAGE);
   fixture.componentRef.setInput('label', 'Damage per round');

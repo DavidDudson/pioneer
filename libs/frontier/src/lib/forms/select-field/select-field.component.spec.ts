@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it, vi } from 'vitest';
 
 import type { SelectOption } from '../../controls/select/select.component';
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { SelectField } from './select-field.component';
 
@@ -13,7 +14,7 @@ const ANCESTRIES: readonly SelectOption<string>[] = [
   { value: 'orc', label: 'Orc' },
 ];
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixture<SelectField<string>> {
+function render(inputs: ComponentInputs<SelectField<string>> = {}): ComponentFixture<SelectField<string>> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(SelectField<string>);
   fixture.componentRef.setInput('label', 'Ancestry');

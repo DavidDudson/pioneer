@@ -2,11 +2,12 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Space } from '../../tokens';
 import { Surface, SurfaceVariant } from './surface.component';
 
 /** Renders `fr-surface` with "Hit points" projected and returns its host element. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Surface>): Promise<HTMLElement> {
   const surface = createComponent(Surface, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Hit points')]],

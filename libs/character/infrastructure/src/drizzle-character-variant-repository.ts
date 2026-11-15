@@ -25,10 +25,10 @@ function toCharacterVariantRule(row: CharacterVariantRuleRow): CharacterVariantR
 }
 
 export class DrizzleCharacterVariantRepository extends CharacterVariantRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #listed = new RequestMemo<CharacterId, readonly CharacterVariantRule[]>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

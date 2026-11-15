@@ -24,9 +24,9 @@ function toCampaignVariantRule(row: CampaignVariantRuleRow): CampaignVariantRule
 }
 
 export class DrizzleCampaignVariantRepository extends CampaignVariantRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

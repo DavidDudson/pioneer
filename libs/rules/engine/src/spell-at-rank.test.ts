@@ -1,13 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
 import { SpellData, SpellRank } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { spellAtRank } from './spell-at-rank';
 import type { SpellAtRank, SpellCast } from './spell-at-rank';
 
 const TIME = { type: 'actions', cost: 'two' };
 
-function spell(fields: object): SpellData {
+function spell(fields: JsonObject): SpellData {
   return SpellData.parse({ rank: 1, time: TIME, traditions: ['arcane'], damage: [], ...fields });
 }
 
@@ -19,12 +20,12 @@ const FIREBALL = {
 };
 
 /** `data` cast at `rank`. */
-function castAt(data: object, rank: number): SpellAtRank {
+function castAt(data: JsonObject, rank: number): SpellAtRank {
   return spellAtRank(spell(data), SpellRank.parse(rank));
 }
 
 /** The damage formulas of `data` cast at `rank`, as text. */
-function formulasAt(data: object, rank: number): string[] {
+function formulasAt(data: JsonObject, rank: number): string[] {
   return castAt(data, rank).damage.map(({ formula }) => String(formula));
 }
 

@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { DamageType } from '../damage';
 import { Size } from '../size';
+import type { JsonObject, JsonValue } from './json-value';
 
 /** Longest list most arbitraries generate. */
 export const LIST_MAX = 3;
@@ -28,13 +29,13 @@ type OptionalEntry = readonly [string, unknown];
 /** Builds a record whose optional keys are left out (not set to undefined) when absent. */
 export function withOptional<TRequired extends object>(
   required: Arbitrary<TRequired>,
-  optional: Readonly<Record<string, Arbitrary<unknown>>>,
-): Arbitrary<object> {
+  optional: Readonly<Record<string, Arbitrary<JsonValue>>>,
+): Arbitrary<JsonObject> {
   const optionals = Object.entries(optional).map(([key, value]) =>
     option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
   );
 
-  return tuple(required, ...optionals).map(([fields, ...entries]): object => {
+  return tuple(required, ...optionals).map(([fields, ...entries]): JsonObject => {
     const present = entries.filter(([, picked]) => picked !== undefined);
 
     return Object.fromEntries([...Object.entries(fields), ...present]);
@@ -44,10 +45,10 @@ export function withOptional<TRequired extends object>(
 /** An entry's identity as JSON: the fields a test reads back off a generated entry. */
 export const EntryIdentityJson = z.looseObject({ id: z.string(), pack: z.string(), slug: z.string() });
 
-const ImplyingData = z.looseObject({ implies: z.array(z.unknown()).optional() });
+const ImplyingData = z.looseObject({ implies: z.array(z.json()).optional() });
 
 /** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
-export function impliedGrants(data: object): object[] {
+export function impliedGrants(data: JsonObject): JsonObject[] {
   const { implies = [] } = ImplyingData.parse(data);
 
   return implies.map((item) => ({ key: 'GrantItem', item }));
@@ -56,6 +57,6 @@ export function impliedGrants(data: object): object[] {
 const LevelOneEntry = z.looseObject({ data: z.looseObject({ onlyLevel1: z.boolean().optional() }) });
 
 /** A feat taken only at 1st level, which must then be level 1. */
-export function onlyLevel1(json: object): boolean {
+export function onlyLevel1(json: JsonObject): boolean {
   return LevelOneEntry.parse(json).data.onlyLevel1 === true;
 }

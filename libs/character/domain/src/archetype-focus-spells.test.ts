@@ -11,7 +11,7 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
-import type { JsonObject } from './testing/json-fixture';
+import type { JsonObject, JsonValue } from './testing/json-fixture';
 
 /**
  * A fighter with the druid, wizard and bard archetypes as the importer gives them (ADR-0050), shrunk to two orders and
@@ -45,7 +45,7 @@ const entry = (slug: string, tradition: string, attribute: string): JsonObject =
 });
 
 const DRUID_FOCUS = entry('druid-focus', 'primal', 'wis');
-const unlessDedication = (order: string): readonly unknown[] => [{ not: `feat:druid-dedication:${order}` }];
+const unlessDedication = (order: string): readonly JsonValue[] => [{ not: `feat:druid-dedication:${order}` }];
 
 for (const [order, spell] of ORDERS) {
   pack.withClassFeature(order, {

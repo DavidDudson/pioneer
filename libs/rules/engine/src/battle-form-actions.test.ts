@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionData, ContentId, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { ActionOriginKind, ActionStatus, availableActions } from './available-actions';
 import type { ActionCandidate, AvailableAction } from './available-actions';
@@ -13,7 +14,7 @@ import { FORM_FACTS, formRule } from './testing/battle-form-fixtures';
 
 const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 
-function formWith(flags: object): FormInPlay {
+function formWith(flags: JsonObject): FormInPlay {
   const form = battleFormInPlay({ rules: [formRule(flags)], facts: FORM_FACTS });
 
   if (form === undefined) {

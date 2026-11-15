@@ -1,3 +1,5 @@
+import type { Params } from '@angular/router';
+
 /** A column as the query string knows it: its id, and the short code the URL uses in its place. */
 export interface TableViewColumn {
   readonly id: string;
@@ -34,7 +36,7 @@ export interface TableView {
 }
 
 /** Query params as the router holds them: a name to one value or several. Anything else under a name is ignored. */
-export type TableViewQuery = Readonly<Record<string, unknown>>;
+export type TableViewQuery = Params;
 
 /** The params a view writes. */
 export type TableViewParams = Readonly<Record<string, string>>;

@@ -9,6 +9,7 @@ import type { FoundryDocument } from './foundry-document';
 import type { FoundryLang, FoundryPack } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { ArchetypeLink } from './translate-archetype';
+import type { Fields } from './translate-choice-reads';
 import type { FoundrySenses } from './translate-senses';
 
 /** What a kind translator could not carry over from a document, reported against its entry. */
@@ -113,7 +114,12 @@ function reportUnmapped(system: Readonly<Record<string, unknown>>, handled: Read
  * Adds a rule element a kind's field stands for (a class's starting proficiency), once it parses; one that does
  * not is reported against `field`, so a mapping bug never drops it silently.
  */
-export function addRule({ rules, log }: KindInput, field: string, raw: object): void {
+/** A rule element as a translator builds it, before it parses: only the key is named, so a draft of any kind fits. */
+export interface RuleDraft {
+  readonly key?: unknown;
+}
+
+export function addRule({ rules, log }: KindInput, field: string, raw: Fields | RuleDraft): void {
   const element = RuleElement.safeParse(raw);
 
   if (element.success) {

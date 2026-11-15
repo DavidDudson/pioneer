@@ -13,3 +13,11 @@ export interface EntryJson {
   readonly rules: readonly object[];
   readonly data?: object;
 }
+
+/** A JSON value a spec builds before the schema under test reads it. */
+export type JsonValue = string | number | boolean | null | JsonObject | readonly JsonValue[];
+
+/** A JSON object a spec builds: the fields of an entry's `data`, a source or a mapping. */
+export interface JsonObject {
+  readonly [key: string]: JsonValue | undefined;
+}

@@ -7,6 +7,7 @@ import { entrySlugOf } from './entry-slugs';
 import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { LinkedEntry } from './foundry-links';
 import type { FoundryPack, PackDocument } from './foundry-release';
+import type { Fields } from './translate-choice-reads';
 
 const pack = PackId.parse('player-core');
 const playerCore = BookId.parse('player-core');
@@ -27,7 +28,7 @@ const PRIMAL_HOWL =
   '@UUID[Compendium.pf2e.feat-effects.Item.howlEffect000001] <span class="action-glyph">A</span>.</p>' +
   '<p>[[/act primal-howl]] [[/act grapple]] @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]</p>';
 
-function documentOf(foundryPack: FoundryPack, documentId: string, document: object): PackDocument {
+function documentOf(foundryPack: FoundryPack, documentId: string, document: Fields): PackDocument {
   const parsed = FoundryDocument.parse({ _id: documentId, system: { publication: remaster }, ...document });
 
   return { pack: foundryPack, path: `packs/pf2e/${foundryPack.directory}/${documentId}.json`, document: parsed };

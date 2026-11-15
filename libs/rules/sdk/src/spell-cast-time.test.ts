@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CastTime } from './spell-casting';
+import type { JsonObject } from './testing/json-value';
 
 const actions = { type: 'actions', cost: 'two' };
 const rounds = { type: 'time', count: 2, unit: 'round' };
 
-function accepted(time: object): boolean {
+function accepted(time: JsonObject): boolean {
   return CastTime.safeParse(time).success;
 }
 

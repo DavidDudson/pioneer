@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { DateInput } from './date-input.component';
 
 interface Rendered {
@@ -12,7 +13,7 @@ interface Rendered {
   readonly cancels: () => number;
 }
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
+function render(inputs: ComponentInputs<DateInput> = {}): Rendered {
   const fixture = TestBed.createComponent(DateInput);
   fixture.componentRef.setInput('ariaLabel', 'Session date');
 

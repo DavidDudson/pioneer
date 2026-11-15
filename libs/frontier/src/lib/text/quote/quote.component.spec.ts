@@ -2,13 +2,11 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Quote } from './quote.component';
 
 /** Renders a quote with `passage` projected and returns its host element. */
-async function render(
-  inputs: Readonly<Record<string, unknown>>,
-  passage = 'You are gripped by fear.',
-): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Quote>, passage = 'You are gripped by fear.'): Promise<HTMLElement> {
   const text = document.createTextNode(passage);
 
   const quote = createComponent(Quote, {

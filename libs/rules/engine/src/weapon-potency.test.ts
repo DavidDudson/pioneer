@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { contentId, EntrySlug, PackId, Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import { LineStatusKind, SuppressionReason } from './breakdown';
@@ -36,11 +37,11 @@ interface InputsJson {
   readonly level: number;
   readonly attributes: Readonly<Record<string, number>>;
   readonly ranks: Readonly<Record<string, string>>;
-  readonly weapons: readonly object[];
+  readonly weapons: readonly JsonObject[];
 }
 
 /** A level 1 character with Strength 4, trained in martial weapons, wielding `weapon`. */
-function inputsWith(weapon: object): InputsJson {
+function inputsWith(weapon: JsonObject): InputsJson {
   return {
     level: 1,
     attributes: { str: 4, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
@@ -50,7 +51,7 @@ function inputsWith(weapon: object): InputsJson {
 }
 
 /** The longsword's Strike. */
-function strike(weapon: object, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
+function strike(weapon: JsonObject, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
   const inputs = StatisticInputsJson.parse(inputsWith(weapon));
   const content = { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const facts = new PredicateFacts([], CORE_NAMESPACES);

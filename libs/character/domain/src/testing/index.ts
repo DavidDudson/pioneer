@@ -96,3 +96,5 @@ export {
 } from './feat-slot-fixtures';
 
 export { scriptedPicks } from './scripted-picks';
+
+export type { JsonObject, JsonValue } from './json-fixture';

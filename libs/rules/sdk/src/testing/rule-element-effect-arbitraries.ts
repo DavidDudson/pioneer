@@ -9,6 +9,7 @@ import { FastHealingType } from '../rule-element-healing';
 import { AdjustedCheck, RollKept } from '../rule-element-rolls';
 import { Size } from '../size';
 import { validFormulaText } from './arbitraries';
+import type { JsonObject } from './json-value';
 import {
   anyOf,
   element,
@@ -64,7 +65,7 @@ const DEGREE_FIELDS = ['all', 'criticalFailure', 'failure', 'success', 'critical
 const ROLL_MAX = 99;
 
 /** Some of the degrees, each with a change; never none. */
-const adjustment: Arbitrary<object> = record(
+const adjustment: Arbitrary<JsonObject> = record(
   Object.fromEntries(DEGREE_FIELDS.map((field) => [field, anyOf(DegreeChange)])),
   { requiredKeys: [] },
 ).filter((fields) => Object.keys(fields).length > 0);
@@ -150,7 +151,7 @@ const persistentFlatCheck = element(
 );
 
 /** The effect-group elements, for `ruleElementJson` to draw from. */
-export const effectElements: readonly Arbitrary<object>[] = [
+export const effectElements: readonly Arbitrary<JsonObject>[] = [
   fastHealing,
   tempHp,
   creatureSize,

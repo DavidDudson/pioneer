@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { contentId, EnrichmentMapping, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
-import type { EntryJson } from './entry-json.ts';
+import type { EntryJson, JsonObject } from './entry-json.ts';
 import { enrichSourcesFile } from './source-enrichment.ts';
 
 const PACK = 'player-core';
@@ -41,9 +41,9 @@ interface BookSourceJson {
   readonly book: string;
 }
 
-const book = (id: string, fields: object = {}): BookSourceJson => ({ kind: 'book', book: id, ...fields });
+const book = (id: string, fields: JsonObject = {}): BookSourceJson => ({ kind: 'book', book: id, ...fields });
 
-const mappings = (entries: Record<string, object>): ReadonlyMap<EntrySlug, EnrichmentMapping> =>
+const mappings = (entries: Record<string, JsonObject>): ReadonlyMap<EntrySlug, EnrichmentMapping> =>
   new Map(Object.entries(entries).map(([slug, json]) => [EntrySlug.parse(slug), EnrichmentMapping.parse(json)]));
 
 const HEAL = 'spell:heal';

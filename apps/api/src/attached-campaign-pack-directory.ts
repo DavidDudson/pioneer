@@ -30,10 +30,10 @@ const NO_RUNE = '00000000-0000-0000-0000-000000000000';
  * because neither context may import the other.
  */
 export class CampaignPackDirectory extends AttachedCampaignPacks {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #attached = new RequestMemo<CharacterId, AttachedCampaign | undefined>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

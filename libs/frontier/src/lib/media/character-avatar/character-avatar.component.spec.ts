@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { CharacterAvatar } from './character-avatar.component';
 
@@ -22,7 +23,7 @@ const PORTRAIT = 'https://example.test/seelah.webp';
 })
 class BadgeHost {}
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<ComponentFixture<CharacterAvatar>> {
+async function render(inputs: ComponentInputs<CharacterAvatar>): Promise<ComponentFixture<CharacterAvatar>> {
   TestBed.configureTestingModule({ providers: [provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(CharacterAvatar);
 

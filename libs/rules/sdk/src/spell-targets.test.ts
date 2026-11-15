@@ -6,6 +6,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject } from './testing/json-value';
 
 const PACK = 'player-core';
 const SLUG = 'spell:command';
@@ -22,11 +23,11 @@ interface SpellFixture {
   readonly sources: readonly unknown[];
   readonly description: readonly unknown[];
   readonly rules: readonly unknown[];
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** Command, a Player Core spell, with `targets` in place of its own. */
-function targeting(targets: object): SpellFixture {
+function targeting(targets: JsonObject): SpellFixture {
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(SLUG)),
     pack: PACK,

@@ -5,16 +5,17 @@ import { CopperValue, Price } from '@pioneer/rules/sdk';
 import { CoinsSchema, ItemQuantity } from './inventory';
 import type { Coins } from './inventory';
 import { coinsOf, coinsValue, costCoins, payCost, purchaseCost } from './purse';
+import type { JsonObject } from './testing';
 
-function purse(coins: object): Coins {
+function purse(coins: JsonObject): Coins {
   return CoinsSchema.parse(coins);
 }
 
-function pay(coins: object, cost: number): Coins | undefined {
+function pay(coins: JsonObject, cost: number): Coins | undefined {
   return payCost(purse(coins), CopperValue.parse(cost));
 }
 
-function costOf(price: object | undefined, quantity: number): CopperValue {
+function costOf(price: JsonObject | undefined, quantity: number): CopperValue {
   return purchaseCost(price === undefined ? undefined : Price.parse(price), ItemQuantity.parse(quantity));
 }
 

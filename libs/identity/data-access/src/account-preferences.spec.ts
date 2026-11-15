@@ -12,7 +12,21 @@ import type { Mock } from 'vitest';
 import { AccountPreferences } from './account-preferences';
 import { SessionStore } from './session-store';
 
-const amiri = {
+/** The `/api/me` body of a signed-in user. */
+interface MeBody {
+  readonly id: string;
+  readonly displayName: string;
+  readonly emailVerified: boolean;
+  readonly createdAt: string;
+  readonly updatedAt: string;
+}
+
+/** The `/api/me/preferences` body. */
+interface PreferencesBody {
+  readonly distanceUnit: string;
+}
+
+const amiri: MeBody = {
   id: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
   displayName: 'Amiri',
   emailVerified: false,
@@ -27,7 +41,7 @@ const unauthorized = {
   message: { key: 'problem.unauthorized' },
 };
 
-const metresOnly = { distanceUnit: 'metres' };
+const metresOnly: PreferencesBody = { distanceUnit: 'metres' };
 
 interface Harness {
   readonly preferences: AccountPreferences;
@@ -53,7 +67,7 @@ function setup(): Harness {
 }
 
 /** Answers `/api/me`, then waits for the preferences request. */
-async function signedInAs(http: HttpTestingController, user: object | undefined): Promise<void> {
+async function signedInAs(http: HttpTestingController, user: MeBody | undefined): Promise<void> {
   await vi.waitFor(() => {
     const me = http.expectOne('/api/me');
 
@@ -66,7 +80,11 @@ async function signedInAs(http: HttpTestingController, user: object | undefined)
 }
 
 /** Loads preferences for a signed-in user, answering with `answer`. */
-async function loadedAs(preferences: AccountPreferences, http: HttpTestingController, answer: object): Promise<void> {
+async function loadedAs(
+  preferences: AccountPreferences,
+  http: HttpTestingController,
+  answer: PreferencesBody,
+): Promise<void> {
   const loading = preferences.load();
   await signedInAs(http, amiri);
   await vi.waitFor(() => {

@@ -32,9 +32,9 @@ function toAcknowledgement(row: CharacterItemAcknowledgementRow): ItemAcknowledg
 }
 
 export class DrizzleCharacterItemAcknowledgementRepository extends CharacterItemAcknowledgementRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

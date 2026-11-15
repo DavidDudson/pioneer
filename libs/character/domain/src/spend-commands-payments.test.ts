@@ -16,6 +16,7 @@ import { ACTION, actions, OWN_TURN, playIn, Serial, spendId, spendOf, turnOf } f
 import { StaffCommandField } from './staff-commands';
 import { NO_STAFF } from './staff-limits';
 import { TEST_SPEND, within } from './testing';
+import type { JsonObject } from './testing';
 import { ActionCount, TurnPhase } from './turn-state';
 
 const NONE = ResourceCount.parse(0);
@@ -31,7 +32,7 @@ function undo(serial: Serial): PlayCommand {
 }
 
 /** The first spend, which also pays `extra`. */
-function pays(extra: object): PlayCommand {
+function pays(extra: JsonObject): PlayCommand {
   return { ...spendOf(FIRST, ONE_ACTION), ...extra };
 }
 

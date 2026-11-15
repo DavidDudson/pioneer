@@ -7,6 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
+import type { JsonObject } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -41,7 +42,7 @@ interface Envelope {
 /** An entry with its kind and data. */
 interface KindedEntry extends Envelope {
   readonly kind: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -161,7 +162,7 @@ const dispelMagic = {
 };
 
 /** Fireball with `part` as its only damage part. */
-function withPart(part: object): KindedEntry {
+function withPart(part: JsonObject): KindedEntry {
   return { ...fireball, data: { ...fireball.data, damage: [part] } };
 }
 

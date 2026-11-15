@@ -15,7 +15,7 @@ import { contentEntries, contentEntrySearch, contentPacks } from './content.tabl
 /** The licence stored for Open Game License content, which is legacy. */
 const OGL = 'OGL';
 
-type Database = BunSQLDatabase<Record<string, unknown>>;
+type Database = BunSQLDatabase;
 
 /** A search to run: the caller's `ContentSearchQuery`, with `packs` cut down to the homebrew packs the caller may read. */
 export interface ContentSearchCriteria extends Omit<ContentSearchQuery, 'packs'> {

@@ -3,10 +3,11 @@ import { By } from '@angular/platform-browser';
 import { Check } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../testing/component-inputs';
 import { Size } from '../tokens';
 import { Icon } from './icon.component';
 
-async function render(inputs: Record<string, unknown>): Promise<SVGElement> {
+async function render(inputs: ComponentInputs<Icon>): Promise<SVGElement> {
   const fixture = TestBed.createComponent(Icon);
   fixture.componentRef.setInput('icon', Check);
 

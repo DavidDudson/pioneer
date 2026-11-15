@@ -8,6 +8,7 @@ import {
   InMemoryPackEnablementDirectory,
   PackDependencyService,
 } from '@pioneer/homebrew/application';
+import { CreateHomebrewPackBody } from '@pioneer/homebrew/domain';
 import { contentPackId, ContentText, PackId } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -96,12 +97,16 @@ const PackJsonSchema = z.object({
 
 export type PackJson = z.infer<typeof PackJsonSchema>;
 
-export const feats = { title: 'Amiri feats', slug: 'amiri-feats' };
+export const feats = CreateHomebrewPackBody.parse({ title: 'Amiri feats', slug: 'amiri-feats' });
 export const shareWithAll = { visibility: 'public' };
 export const coreDependency = { dependsOn: playerCore };
 
 /** A new pack made by `as`, the way `feats` is by default. */
-export async function makePack(api: AnyElysia, as: UserId = amiri, body: object = feats): Promise<PackJson> {
+export async function makePack(
+  api: AnyElysia,
+  as: UserId = amiri,
+  body: CreateHomebrewPackBody = feats,
+): Promise<PackJson> {
   const response = await api.handle(request('POST', '/homebrew/packs', { as, body }));
 
   return PackJsonSchema.parse(await response.json());

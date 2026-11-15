@@ -12,9 +12,9 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
  * root because neither context may import the other. An archived campaign has no GM to act: it reads as no campaign.
  */
 export class CampaignCharacterRoles extends CharacterCampaignRoles {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

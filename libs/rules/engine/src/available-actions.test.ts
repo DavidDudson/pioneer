@@ -4,6 +4,7 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionData, ActionMode, ContentId, Origin, Proficiency, RollOption, Selector } from '@pioneer/rules/sdk';
 import type { Predicate } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { ActionOriginKind, ActionStatus, availableActions } from './available-actions';
 import type { ActionCandidate, ActionOrigin, AvailableAction, AvailableActionsInput } from './available-actions';
@@ -28,7 +29,7 @@ function nextId(): ContentId {
   return ContentId.parse(`00000000-0000-4000-8000-${String(counter).padStart(ID_DIGITS, '0')}`);
 }
 
-function candidate(data: object, origin: ActionOrigin = BASIC): ActionCandidate {
+function candidate(data: JsonObject, origin: ActionOrigin = BASIC): ActionCandidate {
   return { id: nextId(), action: ActionData.parse(data), origin };
 }
 

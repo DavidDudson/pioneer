@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { BadgeTone } from '@pioneer/frontier';
+import type { ComponentInputs } from '@pioneer/frontier';
 import { traitId } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
@@ -11,7 +12,10 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import { TraitChip } from './trait-chip.component';
 import { DEADLY_D8, FIRE, HELD_TRAIT_PREVIEWS, MANIPULATE, NOT_A_TRAIT } from './trait-chip.fixtures';
 
-async function render(previews: EntryPreviews, inputs: Record<string, unknown>): Promise<ComponentFixture<TraitChip>> {
+async function render(
+  previews: EntryPreviews,
+  inputs: ComponentInputs<TraitChip>,
+): Promise<ComponentFixture<TraitChip>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting(), provideEntryPreviews(previews)] });
   const fixture = TestBed.createComponent(TraitChip);
 

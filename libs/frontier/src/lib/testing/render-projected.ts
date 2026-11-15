@@ -3,6 +3,7 @@ import type { ComponentRef, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from './component-inputs';
 import { projectBySelector } from './project-by-selector';
 
 /** A projectable element: `tag` with `text`, and `attribute` (empty) when a slot selects on it. */
@@ -17,7 +18,7 @@ export function element(tag: string, text: string, attribute = 'data-part'): HTM
 /** Renders `type` with inputs set and `projected` sorted into its slots, and returns its host. */
 export async function renderProjected<Part>(
   type: Type<Part>,
-  inputs: Readonly<Record<string, unknown>>,
+  inputs: ComponentInputs<Part>,
   projected: readonly Element[],
 ): Promise<HTMLElement> {
   const component: ComponentRef<Part> = createComponent(type, {

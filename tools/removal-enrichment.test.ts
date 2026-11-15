@@ -11,10 +11,11 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ContentKey } from '@pioneer/rules/sdk';
 
+import type { JsonObject, JsonValue } from './entry-json.ts';
 import { enrichRemovalFile, removalMatches } from './removal-enrichment.ts';
 
 const PACK = PackId.parse('player-core');
-const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** The id and key an entry of the test pack has. */
 function idOf(slug: string): ContentId {
@@ -27,7 +28,7 @@ function keyOf(slug: string): ContentKey {
 }
 
 /** A Player Core entry's JSON, as a pack file holds it. */
-function entry(slug: string, kind: string, data: object): object {
+function entry(slug: string, kind: string, data: JsonObject): object {
   const base = {
     id: idOf(slug),
     pack: PACK,

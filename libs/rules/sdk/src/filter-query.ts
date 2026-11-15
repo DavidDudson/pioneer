@@ -16,7 +16,7 @@ export const FilterParamText = z.string().brand<'FilterParamText'>();
 export type FilterParamText = z.infer<typeof FilterParamText>;
 
 /** Query params as the router holds them: a name to one value or several. Anything else under a name is ignored. */
-export type QueryParams = Readonly<Record<string, unknown>>;
+export type QueryParams = Readonly<Record<string, readonly string[] | number | string | undefined>>;
 
 /** Query params a filter state writes, one per facet that narrows the list. */
 export type FilterQuery = Readonly<Record<FilterParam, FilterParamText>>;

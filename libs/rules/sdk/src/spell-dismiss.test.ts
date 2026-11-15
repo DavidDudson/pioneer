@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { SpellData } from './spell';
+import type { JsonObject } from './testing/json-value';
 
 const BASE = { rank: 1, traditions: ['arcane'], time: { type: 'actions', cost: 'two' }, damage: [] };
 const NOTE = [{ type: 'paragraph', content: [{ type: 'text', text: 'A reaction when an ally hits.' }] }];
 
-function issuesOf(extra: object): readonly object[] {
+function issuesOf(extra: JsonObject): readonly object[] {
   const parsed = SpellData.safeParse({ ...BASE, ...extra });
 
   return parsed.success ? [] : parsed.error.issues.map(({ path }) => ({ path }));

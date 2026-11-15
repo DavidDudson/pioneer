@@ -3,6 +3,7 @@ import type { Arbitrary } from 'fast-check';
 
 import { NumericAlterationMode, TraitAlterationMode } from '../rule-element-item-alteration';
 import { predicateJson, validFormulaText } from './arbitraries';
+import type { JsonObject, JsonValue } from './json-value';
 import { ruleElementJson as otherElementJson } from './rule-element-arbitraries';
 
 const SLUG_WORDS_MAX = 3;
@@ -18,14 +19,14 @@ const traitModes = constantFrom(...Object.values(TraitAlterationMode));
 const numericModes = constantFrom(...Object.values(NumericAlterationMode));
 const strikes = option(predicateJson, { nil: undefined });
 
-function adjustment(property: string, mode: Arbitrary<string>, value: Arbitrary<unknown>): Arbitrary<object> {
+function adjustment(property: string, mode: Arbitrary<string>, value: Arbitrary<JsonValue>): Arbitrary<JsonObject> {
   const fields = record({ key: constant('AdjustStrike'), property: constant(property), mode, value, strikes });
 
   return fields.map((each) => Object.fromEntries(Object.entries(each).filter(([, picked]) => picked !== undefined)));
 }
 
 /** Valid `AdjustStrike` elements of every property, as plain JSON (unparsed). */
-const adjustStrikeJson: Arbitrary<object> = oneof(
+const adjustStrikeJson: Arbitrary<JsonObject> = oneof(
   adjustment('traits', traitModes, slug),
   adjustment('materials', constant('add'), slug),
   adjustment('property-runes', constant('add'), slug),
@@ -34,4 +35,4 @@ const adjustStrikeJson: Arbitrary<object> = oneof(
 );
 
 /** Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). */
-export const ruleElementJson: Arbitrary<object> = oneof(otherElementJson, adjustStrikeJson);
+export const ruleElementJson: Arbitrary<JsonObject> = oneof(otherElementJson, adjustStrikeJson);

@@ -11,7 +11,6 @@ import {
 } from '@pioneer/character/domain/testing';
 import type { PlayerCoreClass, SpellFixture } from '@pioneer/character/domain/testing';
 import { ContentRegistry, ContentText, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { entryLookup } from './content-lookup';
@@ -88,10 +87,6 @@ function caster(
   };
 }
 
-function picked(choices: Readonly<Record<SlotKey, unknown>>): Record<string, unknown> {
-  return Object.fromEntries(Object.entries(choices));
-}
-
 describe('placeSpells', () => {
   const wizard = character('wizard');
 
@@ -106,7 +101,7 @@ describe('placeSpells', () => {
       ),
     ]);
 
-    expect(picked(choices)).toStrictEqual({
+    expect(Object.fromEntries(Object.entries(choices))).toStrictEqual({
       'prepared:wizard:cantrip:0': spellFixtureId('detect-magic'),
       'prepared:wizard:cantrip:1': spellFixtureId('shield'),
       'prepared:wizard:1:0': spellFixtureId('force-barrage'),

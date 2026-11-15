@@ -9,8 +9,8 @@ function slotParam(slot: SlotKey, facet: FacetDefinition): string {
 /** `params` read as the filter params of `slot` alone, renamed to the plain `f.<facet id>` the filters read. */
 function plainParams(params: QueryParams, slot: SlotKey, facets: readonly FacetDefinition[]): QueryParams {
   return Object.fromEntries(
-    facets.flatMap((facet): (readonly [FilterParam, unknown])[] => {
-      const value: unknown = params[slotParam(slot, facet)];
+    facets.flatMap((facet): (readonly [FilterParam, NonNullable<QueryParams[string]>])[] => {
+      const value = params[slotParam(slot, facet)];
 
       return value === undefined ? [] : [[filterParamName(facet.id), value]];
     }),

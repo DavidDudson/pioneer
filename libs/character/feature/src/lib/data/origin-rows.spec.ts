@@ -6,6 +6,7 @@ import { ContentLoader } from '@pioneer/rules/data-access';
 import type { ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 import type { HeritagePickerRow } from '@pioneer/rules/ui';
 import { Temporal } from '@pioneer/shared/kernel';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import {
@@ -17,7 +18,7 @@ import { CHARACTER_CONTENT_KINDS } from './content-registry-query';
 import { ancestryRows, backgroundRows, heritageRows } from './origin-rows';
 
 const READS = {
-  translate: (key: string, params?: object): string => `${key} ${JSON.stringify(params ?? {})}`,
+  translate: (key: string, params?: MessageParams): string => `${key} ${JSON.stringify(params ?? {})}`,
 };
 
 async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {

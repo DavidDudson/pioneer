@@ -23,7 +23,7 @@ import {
   Version,
   VersionConflictError,
 } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
+import { errorRejection, rejection } from '@pioneer/shared/kernel/testing';
 import {
   createTestDatabase,
   createTestDatabaseBefore,
@@ -162,12 +162,10 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
 
   test('an owner must be an existing user', async () => {
     const orphan = new CharacterBuilder().named('Orphan').ownedBy(UserId.parse(newId())).build();
-    const error = await rejection(repository.insert(orphan, created));
+    const error = await errorRejection(repository.insert(orphan, created));
     // Drizzle wraps the driver's error; the violated constraint is on the cause.
     expect(error).toBeInstanceOf(Error);
-    // SAFETY: toBeInstanceOf(Error) on the line above proves the type.
-    // The rejection() helper returns the thrown value as unknown.
-    expect(String((error as Error).cause)).toContain('characters_owner_id_users_id_fk');
+    expect(String(error.cause)).toContain('characters_owner_id_users_id_fk');
   });
 
   test('stores the document with its list columns copied from it, at the current schema version', async () => {
