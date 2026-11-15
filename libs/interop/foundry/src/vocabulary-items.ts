@@ -1,6 +1,7 @@
 import { Attribute, ContentKind, DamageType, Rarity, slugName, StatisticData, StatisticKind } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { KnownEntry } from './entry-references';
@@ -231,8 +232,8 @@ export function senseItem(slug: string, book: BookId, config: FoundryConfig): It
   }
 
   const data = {
-    ...(sense.acuity === undefined ? {} : { acuity: sense.acuity }),
-    ...(sense.unlimitedRange ? { unlimitedRange: true } : {}),
+    ...present({ acuity: sense.acuity }),
+    ...present({ unlimitedRange: sense.unlimitedRange ? true : undefined }),
   };
 
   return {

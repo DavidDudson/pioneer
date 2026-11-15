@@ -156,9 +156,8 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
     const inForce = withOverrides({ ...variant, ...set });
     const setter = manageable ? RuleLimitSource.Character : RuleLimitSource.Campaign;
 
-    return {
+    const result = {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
-      ...(campaign === undefined ? {} : { campaign: campaign.name }),
       manageable,
       limits: RULE_LIMIT_FIELDS.map((limit) => ({
         limit,
@@ -169,5 +168,11 @@ export class CharacterRuleLimitService extends EffectiveRuleLimits {
         source: sourceOf(limit, { set, variant, setter }),
       })),
     };
+
+    if (campaign !== undefined) {
+      Object.assign(result, { campaign: campaign.name });
+    }
+
+    return result;
   }
 }

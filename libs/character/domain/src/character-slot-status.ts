@@ -55,16 +55,26 @@ function choiceName(slot: AnsweredSlot, lookup: ContentLookup): ContentText | un
   return isId ? entryName(slot.pick, lookup) : slot.options.find((option) => option.value === slot.pick)?.label;
 }
 
+type ChoiceSubject = Extract<SlotSubject, { readonly kind: typeof SlotSubjectKind.Choice }>;
+
 function choiceSubject(slot: ChoiceSlot, lookup: ContentLookup): SlotSubject {
   const name = lookup.entry(slot.origin.entry)?.name;
 
-  return {
-    kind: SlotSubjectKind.Choice,
-    entry: slot.origin.entry,
-    ...(slot.take === FIRST_TAKE ? {} : { take: slot.take }),
-    ...(name === undefined ? {} : { entryName: name }),
-    ...(slot.prompt === undefined ? {} : { prompt: slot.prompt }),
-  };
+  const subject: ChoiceSubject = { kind: SlotSubjectKind.Choice, entry: slot.origin.entry };
+
+  if (slot.take !== FIRST_TAKE) {
+    subject.take = slot.take;
+  }
+
+  if (name !== undefined) {
+    subject.entryName = name;
+  }
+
+  if (slot.prompt !== undefined) {
+    subject.prompt = slot.prompt;
+  }
+
+  return subject;
 }
 
 /** The slots one resolution has, as read at that level, roots and `ChoiceSet`s apart. */

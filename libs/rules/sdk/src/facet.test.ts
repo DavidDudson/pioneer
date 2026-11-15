@@ -36,20 +36,21 @@ function entry({
 }: EntryShape): ContentEntry {
   const traitSlug = entrySlug(ContentKind.Trait, Slug.parse(slug));
 
-  return ContentEntry.parse({
+  const fields = {
     id: contentId(PackId.parse(pack), traitSlug),
     pack,
     kind: ContentKind.Trait,
     slug: traitSlug,
     name: slug,
-    ...(level === undefined ? {} : { level }),
     rarity,
     traits,
     sources: books.map((book) => ({ kind: 'book', book, page: 1 })),
     description,
     rules: [],
     data: { appliesTo: [] },
-  });
+  };
+
+  return ContentEntry.parse(level === undefined ? fields : { ...fields, level });
 }
 
 function facet(id: string): FacetDefinition {

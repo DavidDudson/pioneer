@@ -1,5 +1,6 @@
 import { Dc, InlineKind, RollOption, Selector } from '@pioneer/rules/sdk';
 import type { CheckDc, CheckNode } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { inlineLabel, reportParams, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
@@ -246,10 +247,10 @@ export function checkRun(params: string, label: string | undefined, context: Enr
   const node: CheckNode = {
     type: InlineKind.Check,
     statistic,
-    ...(dc === undefined ? {} : { dc }),
-    ...(isBasic(parsed, statistic, context) ? { basic: true } : {}),
-    ...(options.length === 0 ? {} : { options }),
-    ...(checkLabel === undefined ? {} : { label: checkLabel }),
+    ...present({ dc }),
+    ...present({ basic: isBasic(parsed, statistic, context) ? true : undefined }),
+    ...present({ options: options.length === 0 ? undefined : options }),
+    ...present({ label: checkLabel }),
   };
 
   return [node];

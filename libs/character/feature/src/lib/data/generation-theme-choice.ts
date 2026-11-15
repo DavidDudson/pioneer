@@ -1,5 +1,5 @@
 import { favouring, NEUTRAL_THEME, withWeapon } from '@pioneer/character/domain';
-import type { GenerationTheme } from '@pioneer/character/domain';
+import type { GenerationTheme, WeaponTheme } from '@pioneer/character/domain';
 import type { Attribute, BaseWeapon, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
 
 /**
@@ -21,16 +21,36 @@ export const NO_THEME_CHOICE: GenerationThemeChoice = {
   base: undefined,
 };
 
+/** The weapon a category with a group or a base names, with only the parts that are set, or undefined when it names none. */
+function weaponOf(
+  category: WeaponCategory | undefined,
+  group: WeaponGroup | undefined,
+  base: BaseWeapon | undefined,
+): WeaponTheme | undefined {
+  if (category === undefined || (group === undefined && base === undefined)) {
+    return undefined;
+  }
+
+  const weapon: WeaponTheme = { category };
+
+  if (group !== undefined) {
+    weapon.group = group;
+  }
+
+  if (base !== undefined) {
+    weapon.base = base;
+  }
+
+  return weapon;
+}
+
 /**
  * The theme `choice` asks for, or undefined when it asks for none, so the request carries no theme at all. A weapon
  * needs its category and a group or a base; with only a category, or a group or base without one, the weapon is left
  * out.
  */
 export function themeOfChoice({ favoured, category, group, base }: GenerationThemeChoice): GenerationTheme | undefined {
-  const weapon =
-    category === undefined || (group === undefined && base === undefined)
-      ? undefined
-      : { category, ...(group === undefined ? {} : { group }), ...(base === undefined ? {} : { base }) };
+  const weapon = weaponOf(category, group, base);
 
   if (favoured.length === 0 && weapon === undefined) {
     return undefined;

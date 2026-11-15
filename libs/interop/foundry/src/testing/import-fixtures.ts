@@ -1,5 +1,6 @@
 import type { ContentLicense } from '@pioneer/rules/sdk';
 import { BookId, ContentId, contentId, ContentKind, EntrySlug, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { KnownEntry } from '../entry-references';
@@ -66,9 +67,9 @@ export function parseFixture(json: string): DocumentFixture {
     id,
     name,
     type,
-    ...(system === undefined ? {} : { system }),
-    ...(given === undefined ? {} : { pack: given }),
-    ...(items === undefined ? {} : { items }),
+    ...present({ system }),
+    ...present({ pack: given }),
+    ...present({ items }),
   };
 }
 
@@ -87,11 +88,11 @@ function selected({ id, name, type, system = {}, pack: given, license, items }: 
       name,
       type,
       system: { publication: remaster, ...system },
-      ...(items === undefined ? {} : { items }),
+      ...present({ items }),
     }),
     type,
     book: playerCore,
-    ...(license === undefined ? {} : { license }),
+    ...present({ license }),
   };
 }
 

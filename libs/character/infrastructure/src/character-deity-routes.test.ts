@@ -22,11 +22,16 @@ const deities = new ContentPackBuilder()
   .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], description: EDICTS });
 
 function request(method: string, path: string, body?: unknown): Request {
-  return new Request(`http://localhost${path}`, {
+  const init: RequestInit = {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(amiri) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 /** The part of a created character these tests need. */

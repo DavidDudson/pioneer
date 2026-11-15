@@ -84,20 +84,24 @@ export class VirtualList<TItem> {
     const items = this.items();
     const itemKey = this.itemKey();
 
-    return {
+    const options = {
       count: items.length,
       estimateSize: (): number => ESTIMATE_PX[this.estimate()],
       overscan: OVERSCAN,
       scrollMargin: this.#offset(),
-      ...(itemKey === undefined
-        ? {}
-        : {
-            getItemKey: (index: number): string | number => {
-              const item = items[index];
+    };
 
-              return item === undefined ? index : itemKey(item, index);
-            },
-          }),
+    if (itemKey === undefined) {
+      return options;
+    }
+
+    return {
+      ...options,
+      getItemKey: (index: number): string | number => {
+        const item = items[index];
+
+        return item === undefined ? index : itemKey(item, index);
+      },
     };
   });
 

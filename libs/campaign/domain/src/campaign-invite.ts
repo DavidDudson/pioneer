@@ -93,12 +93,17 @@ export class CampaignInvite {
   }
 
   public toSummary(): InviteSummary {
-    return {
+    const summary = {
       id: this.id,
       createdAt: this.createdAt,
       expiresAt: this.expiresAt,
-      ...(this.revokedAt === undefined ? {} : { revokedAt: this.revokedAt }),
     };
+
+    if (this.revokedAt !== undefined) {
+      Object.assign(summary, { revokedAt: this.revokedAt });
+    }
+
+    return summary;
   }
 
   #props(): CampaignInviteProps {

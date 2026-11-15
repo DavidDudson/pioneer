@@ -16,6 +16,7 @@ import type {
   StatisticData,
   TraitData,
 } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
 import { documentKind } from './entry-slugs';
@@ -209,10 +210,10 @@ export function translateKindData(
     log,
     rules,
     archetypes,
-    ...(senses === undefined ? {} : { senses }),
-    ...(links === undefined ? {} : { links }),
-    ...(lang === undefined ? {} : { lang }),
+    ...present({ senses }),
+    ...present({ links }),
+    ...present({ lang }),
   });
 
-  return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
+  return { ...present({ kindData }), rules, gaps: log.gaps };
 }

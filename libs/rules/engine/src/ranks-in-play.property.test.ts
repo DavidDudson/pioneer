@@ -33,7 +33,11 @@ const raise: Arbitrary<Raise> = record({
 
 function rulesOf(raises: readonly Raise[]): RuleInPlay[] {
   return raises.map(({ selector, rank, gated }, rule) =>
-    inPlay({ key: 'Proficiency', selector, rank, ...(gated ? { predicate: AT_FIFTH } : {}) }, 'feature', { rule }),
+    inPlay(
+      gated ? { key: 'Proficiency', selector, rank, predicate: AT_FIFTH } : { key: 'Proficiency', selector, rank },
+      'feature',
+      { rule },
+    ),
   );
 }
 

@@ -59,11 +59,19 @@ interface RequestOptions {
 }
 
 function request(method: string, path: string, { as = amiri, body }: RequestOptions = {}): Request {
-  return new Request(`http://localhost${path}`, {
+  const headers = new Headers(as === anonymous ? undefined : actingAs(as));
+  headers.set('content-type', 'application/json');
+
+  const init: RequestInit = {
     method,
-    headers: { 'content-type': 'application/json', ...(as === anonymous ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+    headers,
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 /** The part of a created character these tests need. */

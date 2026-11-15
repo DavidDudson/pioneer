@@ -56,14 +56,15 @@ export class SheetConditionAdd {
       return;
     }
 
+    const instance = {
+      id: ConditionInstanceId.parse(newId()),
+      condition: ContentId.parse(option.id),
+      duration: UNLIMITED,
+    };
+
     await this.send()({
       field: PlayCommandField.AddCondition,
-      condition: {
-        id: ConditionInstanceId.parse(newId()),
-        condition: ContentId.parse(option.id),
-        ...(option.valued ? { value: ConditionValue.parse(this.startValue()) } : {}),
-        duration: UNLIMITED,
-      },
+      condition: option.valued ? { ...instance, value: ConditionValue.parse(this.startValue()) } : instance,
     });
     this.picked.set(undefined);
     this.startValue.set(FIRST_VALUE);

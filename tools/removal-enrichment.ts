@@ -74,12 +74,10 @@ function counteractRank(entry: ContentEntry): SpellRank | undefined {
 function removal(entry: ContentEntry, condition: ContentId, easing: Easing): ConditionRemoval {
   const rank = easing.effect === ConditionRemovalEffect.Counteract ? counteractRank(entry) : undefined;
 
-  return ConditionRemoval.parse({
-    condition,
-    effect: easing.effect,
-    ...(easing.by === undefined ? {} : { by: easing.by }),
-    ...(rank === undefined ? {} : { rank }),
-  });
+  const base = { condition, effect: easing.effect };
+  const withBy = easing.by === undefined ? base : { ...base, by: easing.by };
+
+  return ConditionRemoval.parse(rank === undefined ? withBy : { ...withBy, rank });
 }
 
 /** The conditions each entry eases and what is left unsaid about them: entries a condition names that have no easing here. */

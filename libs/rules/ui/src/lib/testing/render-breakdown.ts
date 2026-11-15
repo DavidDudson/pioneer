@@ -49,13 +49,10 @@ function inputsOf(
   value: StatisticValue,
   { kind = StatisticKind.Dc, entryNames = ENTRY_NAMES, ruleNames, originNames }: Inputs,
 ): Readonly<Record<string, unknown>> {
-  return {
-    statistic: value,
-    kind,
-    entryNames,
-    ...(ruleNames === undefined ? {} : { ruleNames }),
-    ...(originNames === undefined ? {} : { originNames }),
-  };
+  const base = { statistic: value, kind, entryNames };
+  const named = ruleNames === undefined ? base : { ...base, ruleNames };
+
+  return originNames === undefined ? named : { ...named, originNames };
 }
 
 export async function render(value: StatisticValue, inputs: Inputs = {}): Promise<Rendered> {

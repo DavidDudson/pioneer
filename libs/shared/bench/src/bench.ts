@@ -131,14 +131,15 @@ export function summarise(
   times: readonly number[],
   warmupRuns: number,
 ): BenchResult {
-  return {
+  const result: BenchResult = {
     name: spec.name,
     fastestMs: rounded(Math.min(...times)),
     medianMs: rounded(median(times)),
     timedRuns: times.length,
     warmupRuns,
-    ...(spec.budgetMs === undefined ? {} : { budgetMs: spec.budgetMs }),
   };
+
+  return spec.budgetMs === undefined ? result : { ...result, budgetMs: spec.budgetMs };
 }
 
 /** Prints a result and its marker line, and fails the process when the fastest run is over the budget. */

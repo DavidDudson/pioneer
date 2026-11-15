@@ -51,11 +51,19 @@ interface Sent {
 }
 
 function request(method: string, path: string, { as, body }: Sent): Request {
-  return new Request(`http://localhost${path}`, {
+  const headers = new Headers(as === undefined ? undefined : actingAs(as));
+  headers.set('content-type', 'application/json');
+
+  const init: RequestInit = {
     method,
-    headers: { 'content-type': 'application/json', ...(as === undefined ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+    headers,
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 const SHOW = { section: FeatDisplaySection.Feats, showGrantOnly: true };

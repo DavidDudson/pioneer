@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import type { NoteContext } from './translate-notes';
 import { richTextOf } from './translate-notes';
@@ -27,7 +28,7 @@ function withOwnWeapon(raw: unknown): unknown {
   const rest = Object.fromEntries(Object.entries(raw).filter(([field]) => field !== 'predicate'));
   const kept = raw['predicate'].filter((statement: unknown) => statement !== OWN_WEAPON);
 
-  return { ...rest, etched: true, ...(kept.length === 0 ? {} : { predicate: kept }) };
+  return { ...rest, etched: true, ...present({ predicate: kept.length === 0 ? undefined : kept }) };
 }
 
 /** Foundry's persistent damage dice as a formula and a type; anything else as it is. */
@@ -54,7 +55,7 @@ export function withSpecialization(shaped: unknown, context: NoteContext): unkno
 
   return {
     ...raw,
-    ...('text' in raw ? { text: richTextOf(raw['text'], context) } : {}),
-    ...('damageDice' in raw ? { damageDice: persistentOf(raw['damageDice']) } : {}),
+    ...present({ text: 'text' in raw ? richTextOf(raw['text'], context) : undefined }),
+    ...present({ damageDice: 'damageDice' in raw ? persistentOf(raw['damageDice']) : undefined }),
   };
 }

@@ -115,13 +115,8 @@ export class SheetOverrideForm {
   protected readonly save = async ({ value, type, reason }: OverrideModel): Promise<void> => {
     const { selector, mode, existing } = this.target();
 
-    const override = OverrideInput.parse({
-      target: selector,
-      mode,
-      value: Modifier.parse(value),
-      ...(mode === OverrideMode.Adjust ? { type } : {}),
-      reason,
-    });
+    const draft = { target: selector, mode, value: Modifier.parse(value), reason };
+    const override = OverrideInput.parse(mode === OverrideMode.Adjust ? { ...draft, type } : draft);
 
     await this.#store.patch(
       existing === undefined

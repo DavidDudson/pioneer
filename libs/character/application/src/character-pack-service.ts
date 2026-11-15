@@ -278,14 +278,19 @@ export class CharacterPackService extends EffectivePacks {
       enabledEntry(pack, requiredBy.get(pack.id) ?? [], manageable),
     );
 
-    return {
+    const result = {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
-      ...(campaign === undefined ? {} : { campaign: campaign.name }),
       manageable,
       enabled,
       candidates: manageable ? CharacterPackService.#candidates(readable, ids) : [],
       unsupported: await this.#unsupported(character, ids),
     };
+
+    if (campaign !== undefined) {
+      Object.assign(result, { campaign: campaign.name });
+    }
+
+    return result;
   }
 
   /** The packs the character holds content from that are not in `inForce`, by title. */

@@ -200,12 +200,11 @@ export class SheetRest {
     const slot = this.#slots().find(({ key }) => key === this.slotPicked());
     const prepared = this.#picks();
 
-    return {
-      field: RestCommandField.DailyPreparations,
-      ...(staff === undefined ? {} : { staff: staff.id }),
-      ...(staff === undefined || slot === undefined ? {} : { slot: slot.slot }),
-      ...(prepared.length === 0 ? {} : { prepared }),
-    };
+    const preparing: RestCommand = { field: RestCommandField.DailyPreparations };
+    const staffed: RestCommand = staff === undefined ? preparing : { ...preparing, staff: staff.id };
+    const slotted: RestCommand = staff === undefined || slot === undefined ? staffed : { ...staffed, slot: slot.slot };
+
+    return prepared.length === 0 ? slotted : { ...slotted, prepared };
   });
 
   /** What each spell changed would do, worded. */

@@ -63,11 +63,16 @@ interface Init {
 }
 
 function request(path: string, as: UserId, { method = 'GET', body }: Init = {}): Request {
-  return new Request(`http://localhost${path}`, {
+  const init: RequestInit = {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(as) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 async function createdBy(api: AnyElysia, owner: UserId): Promise<CharacterId> {

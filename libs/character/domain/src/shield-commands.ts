@@ -61,6 +61,21 @@ export type ShieldContent = ReadonlyMap<InventoryItemId, ShieldStats>;
 /** No shields held, for edits that don't read them. */
 export const NO_SHIELDS: ShieldContent = new Map();
 
+/** The optional parts of a shield's stats, each present only when the shield has it. */
+interface ShieldExtras {
+  readonly undamageable: true | undefined;
+  readonly granted: ShieldGrant | undefined;
+  readonly hardnessAgainst: readonly HardnessBonus[] | undefined;
+}
+
+/** `core` with each of `extras` the shield has: an absent one stays out of the stats. */
+function shieldStats(core: ShieldStats, { undamageable, granted, hardnessAgainst }: ShieldExtras): ShieldStats {
+  const withUndamageable = undamageable === true ? { ...core, undamageable } : core;
+  const withGrant = granted === undefined ? withUndamageable : { ...withUndamageable, granted };
+
+  return hardnessAgainst === undefined ? withGrant : { ...withGrant, hardnessAgainst };
+}
+
 /** The shields `held` as content, by the inventory item that holds each. */
 export function shieldContent(held: readonly HeldShield[]): ShieldContent {
   return new Map(
@@ -75,14 +90,7 @@ export function shieldContent(held: readonly HeldShield[]): ShieldContent {
         hardnessAgainst,
       }): [InventoryItemId, ShieldStats] => [
         item,
-        {
-          hardness,
-          hitPoints,
-          brokenThreshold,
-          ...(undamageable === true ? { undamageable } : {}),
-          ...(granted === undefined ? {} : { granted }),
-          ...(hardnessAgainst === undefined ? {} : { hardnessAgainst }),
-        },
+        shieldStats({ hardness, hitPoints, brokenThreshold }, { undamageable, granted, hardnessAgainst }),
       ],
     ),
   );

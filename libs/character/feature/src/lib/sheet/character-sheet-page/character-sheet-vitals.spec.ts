@@ -11,19 +11,21 @@ const PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
 
 /** Merisiel as a cleric, and an elf (Medium), wearing a charm of fast healing 2, 4 temporary Hit Points and growth. */
 function wearingCharm(invested: boolean, charm: ItemFixture = ItemFixture.TrollCharm): object {
+  const investment = invested ? { invested } : undefined;
+
+  const worn = {
+    id: CHARM,
+    item: itemFixtureId(charm),
+    quantity: 1,
+    carry: { state: 'worn' },
+    ...investment,
+  };
+
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric') } },
     inventory: {
-      items: [
-        {
-          id: CHARM,
-          item: itemFixtureId(charm),
-          quantity: 1,
-          carry: { state: 'worn' },
-          ...(invested ? { invested } : {}),
-        },
-      ],
+      items: [worn],
       coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
     },
   };

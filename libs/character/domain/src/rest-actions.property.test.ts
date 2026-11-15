@@ -179,12 +179,17 @@ const FATIGUED_ID = ConditionInstanceId.parse('11111111-1111-4111-8111-111111111
 const DRAINED_ID = ConditionInstanceId.parse('22222222-2222-4222-8222-222222222222');
 
 function activeCondition(id: ConditionInstanceId, content: ContentId, value?: number): ActiveCondition {
-  return {
+  const held: ActiveCondition = {
     id,
     condition: content,
-    ...(value === undefined ? {} : { value: ConditionValue.parse(value) }),
     duration: { kind: ConditionDurationKind.Unlimited },
   };
+
+  if (value !== undefined) {
+    held.value = ConditionValue.parse(value);
+  }
+
+  return held;
 }
 
 /** A play state that is doomed and drained, and fatigued when `fatigued`. */

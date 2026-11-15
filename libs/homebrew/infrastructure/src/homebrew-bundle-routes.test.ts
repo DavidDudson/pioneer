@@ -49,15 +49,20 @@ async function appWith(): Promise<Fixture> {
 }
 
 function post(as: UserId | undefined, packs: readonly string[]): Request {
+  const headers = new Headers(as === undefined ? undefined : actingAs(as));
+  headers.set('content-type', 'application/json');
+
   return new Request('http://localhost/content/homebrew/manifest', {
     method: 'POST',
-    headers: { 'content-type': 'application/json', ...(as === undefined ? {} : actingAs(as)) },
+    headers,
     body: JSON.stringify({ packs }),
   });
 }
 
 function get(as: UserId | undefined, path: string): Request {
-  return new Request(`http://localhost${path}`, { headers: as === undefined ? {} : actingAs(as) });
+  const headers = new Headers(as === undefined ? undefined : actingAs(as));
+
+  return new Request(`http://localhost${path}`, { headers });
 }
 
 describe('homebrew bundle routes', () => {

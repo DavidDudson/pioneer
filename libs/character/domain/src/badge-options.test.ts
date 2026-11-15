@@ -11,11 +11,9 @@ const PLAIN = { ...entry('spell-effect-plain'), kind: ContentKind.Effect };
 const LOOKUP = lookupOf([AMPED, PLAIN]);
 
 function active(name: string, badge?: number): ActiveEffect {
-  return ActiveEffectSchema.parse({
-    id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000b1'),
-    effect: idOf(name),
-    ...(badge === undefined ? {} : { badge }),
-  });
+  const input = { id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000b1'), effect: idOf(name) };
+
+  return ActiveEffectSchema.parse(badge === undefined ? input : { ...input, badge });
 }
 
 describe('badgeOptions', () => {

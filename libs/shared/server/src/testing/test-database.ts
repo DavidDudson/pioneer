@@ -71,7 +71,11 @@ async function emptyTestDatabase(adminUrl: string, logger: Logger | undefined, f
   const url = new URL(adminUrl);
   url.pathname = `/${name}`;
   await migrateFrom(url.toString(), folder);
-  const db = drizzle(url.toString(), { casing: 'snake_case', ...(logger === undefined ? {} : { logger }) });
+
+  const db =
+    logger === undefined
+      ? drizzle(url.toString(), { casing: 'snake_case' })
+      : drizzle(url.toString(), { casing: 'snake_case', logger });
 
   const database: TestDatabase = {
     db,

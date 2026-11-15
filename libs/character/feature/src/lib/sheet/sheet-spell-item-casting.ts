@@ -160,13 +160,11 @@ export class SpellItemCasting {
       return;
     }
 
+    const use = { item: InventoryItemId.parse(staff), spell: ContentId.parse(spell) };
+
     const request = staffSpendRequest(
       registry,
-      {
-        item: InventoryItemId.parse(staff),
-        spell: ContentId.parse(spell),
-        ...(slot === undefined ? {} : { slot: SlotCountKey.parse(slot) }),
-      },
+      slot === undefined ? use : { ...use, slot: SlotCountKey.parse(slot) },
       SpendId.parse(newId()),
     );
 

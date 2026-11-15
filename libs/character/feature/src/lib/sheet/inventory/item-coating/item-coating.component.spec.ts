@@ -24,10 +24,12 @@ const ROWS = VALEROS.inventory.items.length + 1;
 function coated(stored: readonly string[]): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
 
+  const state = stored.length > 0 ? { state: { coating: stored } } : undefined;
+
   const etched = {
     ...sword,
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Coating) }] },
-    ...(stored.length > 0 ? { state: { coating: stored } } : {}),
+    ...state,
   };
 
   const items = [...VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item)), OIL_LINE];

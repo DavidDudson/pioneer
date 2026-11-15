@@ -74,12 +74,17 @@ const SECOND = ConditionInstanceId.parse('22222222-2222-4222-8222-222222222222')
 const THIRD = ConditionInstanceId.parse('33333333-3333-4333-8333-333333333333');
 
 function condition(id: ConditionInstanceId, content: ContentId, value?: number): ActiveCondition {
-  return {
+  const held: ActiveCondition = {
     id,
     condition: content,
-    ...(value === undefined ? {} : { value: ConditionValue.parse(value) }),
     duration: { kind: ConditionDurationKind.Unlimited },
   };
+
+  if (value !== undefined) {
+    held.value = ConditionValue.parse(value);
+  }
+
+  return held;
 }
 
 function played(overrides: Partial<PlayState>): PlayState {

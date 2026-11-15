@@ -40,15 +40,30 @@ const placed: Arbitrary<Placed> = record({
   gated: boolean(),
 });
 
+/** A `Sense` element as the generator builds it, with a field set only when its placement gives it. */
+interface SenseFields {
+  key: string;
+  sense: ContentId;
+  acuity?: string;
+  range?: number;
+  predicate?: readonly object[];
+}
+
 function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
   return elements.map(({ sense, acuity, range, gated }, rule) => {
-    const element = {
-      key: 'Sense',
-      sense,
-      ...(acuity === null ? {} : { acuity }),
-      ...(range === null ? {} : { range }),
-      ...(gated ? { predicate: AT_FIFTH } : {}),
-    };
+    const element: SenseFields = { key: 'Sense', sense };
+
+    if (acuity !== null) {
+      element.acuity = acuity;
+    }
+
+    if (range !== null) {
+      element.range = range;
+    }
+
+    if (gated) {
+      element.predicate = AT_FIFTH;
+    }
 
     return inPlay(element, 'feature', { rule });
   });

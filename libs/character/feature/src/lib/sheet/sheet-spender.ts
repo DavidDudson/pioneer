@@ -62,19 +62,22 @@ type SpendPayment = Pick<SpendRequest, 'use' | 'slot' | 'focus' | 'staff'>;
 
 /** What `payment` pays, as the keys and flag a spend records. */
 function paymentOf(payment: UsePayment | undefined): SpendPayment {
+  const used: SpendPayment = payment?.use === undefined ? {} : { use: UseCountKey.parse(payment.use) };
+
+  const slotted: SpendPayment =
+    payment?.slot === undefined ? used : { ...used, slot: SlotCountKey.parse(payment.slot) };
+
+  const focused: SpendPayment = payment?.focus === true ? { ...slotted, focus: true } : slotted;
+
+  if (payment?.staff === undefined) {
+    return focused;
+  }
+
+  const staff = { item: InventoryItemId.parse(payment.staff.item), spell: ContentId.parse(payment.staff.spell) };
+
   return {
-    ...(payment?.use === undefined ? {} : { use: UseCountKey.parse(payment.use) }),
-    ...(payment?.slot === undefined ? {} : { slot: SlotCountKey.parse(payment.slot) }),
-    ...(payment?.focus === true ? { focus: true as const } : {}),
-    ...(payment?.staff === undefined
-      ? {}
-      : {
-          staff: {
-            item: InventoryItemId.parse(payment.staff.item),
-            spell: ContentId.parse(payment.staff.spell),
-            ...(payment.staff.slot === undefined ? {} : { slot: SlotCountKey.parse(payment.staff.slot) }),
-          },
-        }),
+    ...focused,
+    staff: payment.staff.slot === undefined ? staff : { ...staff, slot: SlotCountKey.parse(payment.staff.slot) },
   };
 }
 
@@ -87,6 +90,16 @@ function frequencyOf(registry: ContentRegistry, { line }: ActionUse): SpendPayme
 export interface FormSpend {
   readonly shift?: FormShift;
   readonly apply?: FormApply;
+}
+
+/** The spend of an action, the one spend command that carries the attack and cast flags. */
+type ActionSpend = Extract<SpendCommand, { field: typeof PlayCommandField.SpendAction }>;
+
+/** `spend` with the attack and cast flags, each left off when it does not apply. */
+function flagged(spend: ActionSpend, attacks: boolean, casts: boolean): ActionSpend {
+  const attacking: ActionSpend = attacks ? { ...spend, attack: true } : spend;
+
+  return casts ? { ...attacking, cast: true } : attacking;
 }
 
 /**
@@ -108,17 +121,32 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
   const casts = line.payment?.staff === undefined && spellEntries(registry).has(line.id);
   const cast = sustainedCast(registry, line.id, recorded.slot);
 
-  return {
+  const spend: ActionSpend = {
     field: PlayCommandField.SpendAction,
     id: SpendId.parse(newId()),
     action: line.id,
     cost,
     ...recorded,
-    ...(attacks ? { attack: true as const } : {}),
-    ...(casts ? { cast: true as const } : {}),
-    ...(cast === undefined ? {} : { spell: cast }),
-    ...form,
   };
+
+  const flaggedSpend = flagged(spend, attacks, casts);
+
+  return { ...(cast === undefined ? flaggedSpend : { ...flaggedSpend, spell: cast }), ...form };
+}
+
+/** The form picked and the temporary Hit Points it gives, each left off when there is none. */
+function formChosen(choice: FormCastChoice, tempHp: HitPoints | undefined): Pick<FormApply, 'form' | 'tempHp'> {
+  const chosen: Pick<FormApply, 'form' | 'tempHp'> = {};
+
+  if (choice.form !== undefined) {
+    chosen.form = choice.form;
+  }
+
+  if (tempHp !== undefined) {
+    chosen.tempHp = tempHp;
+  }
+
+  return chosen;
 }
 
 /**
@@ -218,15 +246,13 @@ export class SheetSpender extends ActionUser {
     this.casting.set(true);
 
     try {
-      const chosen = {
-        ...(choice.form === undefined ? {} : { form: choice.form }),
-        ...(tempHp === undefined ? {} : { tempHp }),
-      };
+      const chosen = formChosen(choice, tempHp);
+      const applied: FormApply = { id, effect: choice.effect, ...chosen };
 
       await this.#spend(
         cast.request,
         cast.shift === undefined
-          ? { apply: { id, effect: choice.effect, ...(cast.rank === undefined ? {} : { rank: cast.rank }), ...chosen } }
+          ? { apply: cast.rank === undefined ? applied : { ...applied, rank: cast.rank } }
           : { shift: { effect: cast.shift, to: choice.effect, ...chosen } },
       );
       this.pendingForm.set(undefined);

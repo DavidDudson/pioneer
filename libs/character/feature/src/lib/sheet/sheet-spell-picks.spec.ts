@@ -50,7 +50,7 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
   const url = signal<QueryParams>(params);
   const writes: Record<string, string | undefined>[] = [];
 
-  const sources: SpellPickSources = {
+  const base: SpellPickSources = {
     registry: signal(registry),
     character: signal<Character | undefined>(character),
     slots: signal([]),
@@ -58,25 +58,24 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
     clear: async () => undefined,
     translate: (key) => key,
     messages: signal(undefined),
-    ...(filtering
-      ? {
-          filters: {
-            params: url,
-            write: async (changes: Readonly<Record<string, string | undefined>>) => {
-              writes.push({ ...changes });
-              url.update((now) => {
-                const named = new Set(Object.keys(changes));
-                const kept = Object.entries(now).filter(([name]) => !named.has(name));
-                const set = Object.entries(changes).filter((change) => change[1] !== undefined);
-
-                return Object.fromEntries([...kept, ...set]);
-              });
-              await Promise.resolve();
-            },
-          },
-        }
-      : {}),
   };
+
+  const filters = {
+    params: url,
+    write: async (changes: Readonly<Record<string, string | undefined>>): Promise<void> => {
+      writes.push({ ...changes });
+      url.update((now) => {
+        const named = new Set(Object.keys(changes));
+        const kept = Object.entries(now).filter(([name]) => !named.has(name));
+        const set = Object.entries(changes).filter((change) => change[1] !== undefined);
+
+        return Object.fromEntries([...kept, ...set]);
+      });
+      await Promise.resolve();
+    },
+  };
+
+  const sources: SpellPickSources = filtering ? { ...base, filters } : base;
 
   const fields = TestBed.runInInjectionContext(() => preparedFieldsOf(sources));
 

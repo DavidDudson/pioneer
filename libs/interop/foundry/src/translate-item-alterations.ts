@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { htmlToRichText } from './html-rich-text';
 
@@ -90,5 +91,5 @@ export function withItemScope(scoped: unknown): unknown {
 
   const rest = Object.entries(raw).filter(([field]) => field !== 'itemType' && field !== 'predicate');
 
-  return { ...Object.fromEntries(rest), items, ...(actor.length > 0 ? { predicate: actor } : {}) };
+  return { ...Object.fromEntries(rest), items, ...present({ predicate: actor.length > 0 ? actor : undefined }) };
 }

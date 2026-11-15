@@ -50,6 +50,12 @@ export function unfitPicks(before: CharacterDocument, after: CharacterDocument, 
 
     const name = content.lookup.entry(earlier.pick)?.name;
 
-    return [{ key: slot.key, selection: kept, ...(name === undefined ? {} : { selectionName: name }) }];
+    const cleared: ClearedPick = { key: slot.key, selection: kept };
+
+    if (name !== undefined) {
+      cleared.selectionName = name;
+    }
+
+    return [cleared];
   });
 }

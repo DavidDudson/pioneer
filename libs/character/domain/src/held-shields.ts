@@ -65,21 +65,15 @@ function grantedShield({
   hardnessAgainst,
   shards,
 }: ShieldInPlay): HeldShield {
+  const granted = { effect: source, endsOnBlock, endsWhenDestroyed, raised, layered, recreatedOnSustain };
+
   const held: HeldShield = {
     item: InventoryItemId.parse(derivedId(ContentNamespace, `granted-shield/${id}`)),
     entry: source,
     hardness,
     hitPoints: hitPoints ?? NO_HIT_POINTS,
     brokenThreshold,
-    granted: {
-      effect: source,
-      endsOnBlock,
-      endsWhenDestroyed,
-      raised,
-      layered,
-      recreatedOnSustain,
-      ...(shards === undefined ? {} : { shards }),
-    },
+    granted: shards === undefined ? granted : { ...granted, shards },
   };
 
   const typed = hardnessAgainst.length === 0 ? held : { ...held, hardnessAgainst };

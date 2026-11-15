@@ -57,7 +57,9 @@ const scenario = array(spec, { maxLength: MODIFIERS_MAX });
 function rulesOf(specs: readonly Spec[]): RuleInPlay[] {
   return specs.map(({ type, value, predicate }, index) =>
     inPlay(
-      { ...flatModifier(type, value, ['perception']), ...(predicate === undefined ? {} : { predicate }) },
+      predicate === undefined
+        ? flatModifier(type, value, ['perception'])
+        : { ...flatModifier(type, value, ['perception']), predicate },
       `modifier-${index}`,
     ),
   );

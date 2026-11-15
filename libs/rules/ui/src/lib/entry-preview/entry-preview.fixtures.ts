@@ -1,5 +1,5 @@
 import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
-import type { EffectStatus } from '@pioneer/rules/engine';
+import type { EffectStatus, SenseEffect } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import {
   ConditionValue,
@@ -83,20 +83,22 @@ export function sensePreviewEffect(
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
 
-  return {
-    statistic: undefined,
-    ...(options.name === undefined ? {} : { sense: options.name }),
-    line: {
-      change: EffectChange.Sense,
-      rule: modifier.id,
-      label: modifier.label,
-      origin: modifier.origin,
-      status: { kind: EffectStatusKind.Applied },
-      sense: ContentId.parse(DARKVISION),
-      acuity: 'precise',
-      ...(options.range === undefined ? {} : { range: Feet.parse(options.range) }),
-    },
+  const sense: SenseEffect = {
+    change: EffectChange.Sense,
+    rule: modifier.id,
+    label: modifier.label,
+    origin: modifier.origin,
+    status: { kind: EffectStatusKind.Applied },
+    sense: ContentId.parse(DARKVISION),
+    acuity: 'precise',
   };
+
+  const effect: PreviewEffect = {
+    statistic: undefined,
+    line: options.range === undefined ? sense : { ...sense, range: Feet.parse(options.range) },
+  };
+
+  return options.name === undefined ? effect : { ...effect, sense: options.name };
 }
 
 const RESISTANCE = DamageAmount.parse(5);
@@ -109,9 +111,8 @@ export function resistancePreviewEffect(
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
 
-  return {
+  const effect: PreviewEffect = {
     statistic: undefined,
-    ...(options.names === undefined ? {} : { exceptions: options.names }),
     line: {
       change: EffectChange.Resistance,
       rule: modifier.id,
@@ -123,6 +124,8 @@ export function resistancePreviewEffect(
       exceptions: options.exceptions.map((exception) => DamageException.parse(exception)),
     },
   };
+
+  return options.names === undefined ? effect : { ...effect, exceptions: options.names };
 }
 
 /** A rule element the engine's summary does not cover yet. */

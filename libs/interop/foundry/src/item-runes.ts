@@ -1,3 +1,4 @@
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { KindInput } from './kind-data-gaps';
@@ -48,6 +49,6 @@ export function itemRunes(runes: FoundryRunes, keys: readonly GradeKey[], input:
   return {
     ...Object.fromEntries(grades),
     property,
-    ...(Object.keys(energy).length === 0 ? {} : { propertyEnergy: energy }),
+    ...present({ propertyEnergy: Object.keys(energy).length === 0 ? undefined : energy }),
   };
 }

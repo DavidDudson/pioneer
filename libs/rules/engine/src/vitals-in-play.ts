@@ -206,14 +206,15 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
     reach = element.reach ?? reach;
   }
 
-  return {
+  const inPlay: SizeInPlay = {
     size,
     base,
     reach: reachOf(size, reach),
     resizeEquipment: resizes.some(({ element }) => element.resizeEquipment === true),
     origins: [...(form?.form.size === undefined ? [] : [form.origin]), ...resizes.map(({ origin }) => origin)],
-    ...(form?.form.size === undefined ? {} : { form: form.origin }),
   };
+
+  return form?.form.size === undefined ? inPlay : { ...inPlay, form: form.origin };
 }
 
 /** The temporary Hit Points a battle form gives, credited to the form; none when it gives none or its formula has no value. */
@@ -258,9 +259,14 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
 
   const resizes = active(inputs, isCreatureSize);
 
-  return {
-    recovery,
-    ...(temp === undefined ? {} : { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
-    ...(resizes.length === 0 && form?.form.size === undefined ? {} : { size: resized(resizes, scope.size, form) }),
-  };
+  const recovered: VitalsInPlay = { recovery };
+
+  const warmed: VitalsInPlay =
+    temp === undefined
+      ? recovered
+      : { ...recovered, temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } };
+
+  return resizes.length === 0 && form?.form.size === undefined
+    ? warmed
+    : { ...warmed, size: resized(resizes, scope.size, form) };
 }

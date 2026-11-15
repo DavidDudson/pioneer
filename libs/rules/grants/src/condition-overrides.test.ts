@@ -6,11 +6,11 @@ import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import { afflicted, entry, grantOf, idOf, inputsOf } from './testing/builders';
 
-const condition = (slug: string, rules: readonly object[] = [], overrides: readonly string[] = []): GrantEntry => ({
-  ...entry(slug, rules),
-  kind: ContentKind.Condition,
-  ...(overrides.length === 0 ? {} : { overrides: overrides.map((each) => idOf(each)) }),
-});
+const condition = (slug: string, rules: readonly object[] = [], overrides: readonly string[] = []): GrantEntry => {
+  const base: GrantEntry = { ...entry(slug, rules), kind: ContentKind.Condition };
+
+  return overrides.length === 0 ? base : { ...base, overrides: overrides.map((each) => idOf(each)) };
+};
 
 const dazzled = condition('dazzled');
 const blinded = condition('blinded', [], ['dazzled']);

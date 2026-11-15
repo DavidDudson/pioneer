@@ -23,13 +23,16 @@ const LOCKED_EVERY = 7;
 const LOCKED_REMAINDER = 3;
 const KINDS = ['General', 'Skill', 'Ancestry', 'Class'] as const;
 
-export const FEATS: readonly Feat[] = Array.from({ length: FEAT_COUNT }, (_entry, index) => ({
-  id: `feat-${index + 1}`,
-  name: `Feat ${index + 1}`,
-  level: (index % LEVELS) + 1,
-  kind: KINDS[index % KINDS.length] ?? 'General',
-  ...(index % LOCKED_EVERY === LOCKED_REMAINDER ? { locked: 'Needs expert in Athletics' } : {}),
-}));
+export const FEATS: readonly Feat[] = Array.from({ length: FEAT_COUNT }, (_entry, index): Feat => {
+  const feat: Feat = {
+    id: `feat-${index + 1}`,
+    name: `Feat ${index + 1}`,
+    level: (index % LEVELS) + 1,
+    kind: KINDS[index % KINDS.length] ?? 'General',
+  };
+
+  return index % LOCKED_EVERY === LOCKED_REMAINDER ? { ...feat, locked: 'Needs expert in Athletics' } : feat;
+});
 
 export const COLUMNS = tableSchema<Feat>()
   .addText({ id: 'name', header: 'Name', value: (feat) => feat.name, width: 'md' })

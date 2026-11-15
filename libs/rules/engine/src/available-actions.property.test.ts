@@ -20,6 +20,16 @@ const ID_DIGITS = 12;
 const SELF = 'self:';
 const WORDING = [{ type: 'paragraph', content: [{ type: 'text', text: 'Wording.' }] }];
 
+/** The action data as the generator builds it, with a field set only when its spec gives it. */
+interface ActionFields {
+  cost: string;
+  skills: readonly Selector[];
+  requirements?: readonly RollOption[];
+  requirementsText?: readonly object[];
+  minimumProficiency?: Proficiency;
+  frequency?: { max: number; per: string };
+}
+
 interface Spec {
   readonly requirement: RollOption | undefined;
   readonly wording: boolean;
@@ -50,17 +60,28 @@ const world = record({
 });
 
 function candidateOf({ requirement, wording, minimum, frequency }: Spec, index: number): ActionCandidate {
+  const data: ActionFields = { cost: 'one', skills: SKILLS };
+
+  if (requirement !== undefined) {
+    data.requirements = [requirement];
+  }
+
+  if (wording) {
+    data.requirementsText = WORDING;
+  }
+
+  if (minimum !== undefined) {
+    data.minimumProficiency = minimum;
+  }
+
+  if (frequency) {
+    data.frequency = { max: 1, per: 'round' };
+  }
+
   return {
     id: ContentId.parse(`00000000-0000-4000-8000-${String(index).padStart(ID_DIGITS, '0')}`),
     origin: { kind: ActionOriginKind.Basic },
-    action: ActionData.parse({
-      cost: 'one',
-      skills: SKILLS,
-      ...(requirement === undefined ? {} : { requirements: [requirement] }),
-      ...(wording ? { requirementsText: WORDING } : {}),
-      ...(minimum === undefined ? {} : { minimumProficiency: minimum }),
-      ...(frequency ? { frequency: { max: 1, per: 'round' } } : {}),
-    }),
+    action: ActionData.parse(data),
   };
 }
 

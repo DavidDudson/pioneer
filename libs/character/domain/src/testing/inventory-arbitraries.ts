@@ -74,14 +74,10 @@ export const inventoryJson: Arbitrary<unknown> = record({
       handsFree -= carry.hands;
     }
 
-    return {
-      id,
-      item,
-      quantity,
-      ...(container === undefined ? {} : { container }),
-      carry,
-      ...(invested ? { invested } : {}),
-    };
+    const placed = container === undefined ? undefined : { container };
+    const worn = invested ? { invested } : undefined;
+
+    return { id, item, quantity, ...placed, carry, ...worn };
   });
 
   return { items, coins: purse };

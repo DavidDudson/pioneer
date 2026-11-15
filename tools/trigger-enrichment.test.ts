@@ -12,7 +12,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 function entry(name: string, kind: string, data: object): object {
   const slug = `${kind}:${name}`;
 
-  return {
+  const base = {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
@@ -23,9 +23,9 @@ function entry(name: string, kind: string, data: object): object {
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     description: [],
     rules: [],
-    ...(kind === 'action' ? {} : { level: 1 }),
-    data,
   };
+
+  return kind === 'action' ? { ...base, data } : { ...base, level: 1, data };
 }
 
 const free = (words: string): object => ({ cost: 'free', trigger: prose(words) });

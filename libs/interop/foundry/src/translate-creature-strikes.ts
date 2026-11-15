@@ -1,5 +1,6 @@
 import { BlockKind, DamageTypeSchema, InlineKind, RichTextString, Trait } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Count, itemSystem, Name, Slug, Slugs, Traits } from './creature-embedded';
@@ -60,7 +61,7 @@ function parseDice(formula: string): Pick<Damage, 'dice' | 'die' | 'bonus'> | un
   const shaped = extra.length === 0 && surplus.length === 0 && die !== undefined;
   const numbers = Number.isInteger(dice) && dice > 0 && (flat === undefined || Number.isInteger(flat));
 
-  return shaped && numbers ? { dice, die, ...(flat === undefined ? {} : { bonus: flat }) } : undefined;
+  return shaped && numbers ? { dice, die, ...present({ bonus: flat }) } : undefined;
 }
 
 /** "4d12+19" or "5" as a damage part; a persistent part, an unknown type or a longer formula is reported. */
@@ -122,9 +123,9 @@ function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput):
     bonus: system.bonus.value,
     damage,
     traits: traits.filter((trait) => Trait.safeParse(trait).success),
-    ...(reach === undefined ? {} : { reach }),
-    ...(increment === undefined ? {} : { increment }),
-    ...(effects === undefined ? {} : { effects }),
+    ...present({ reach }),
+    ...present({ increment }),
+    ...present({ effects }),
   };
 }
 

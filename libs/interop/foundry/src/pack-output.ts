@@ -1,5 +1,6 @@
 import { ContentEntry, contentKey } from '@pioneer/rules/sdk';
 import type { ContentId, ContentKind, ExternalId, PackId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import type { KnownEntry } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
@@ -67,7 +68,7 @@ function candidates({ entries, archetypes, vocabulary }: ImportTranslation): rea
       envelope,
       foundry: envelope.externalIds.foundry,
       document: source.document,
-      ...(kindData === undefined ? {} : { raw: rawEntry(envelope, kindData) }),
+      ...present({ raw: kindData === undefined ? undefined : rawEntry(envelope, kindData) }),
     })),
     ...archetypes.map(({ envelope, kindData }) => ({
       envelope,
@@ -154,10 +155,10 @@ function entryItems(
           type: BacklogItemType.Entry,
           pack,
           slug,
-          ...(foundry === undefined ? {} : { foundry }),
-          ...(left === undefined ? {} : { leftOut: left }),
+          ...present({ foundry }),
+          ...present({ leftOut: left }),
           gaps: entryGaps,
-          ...(left === undefined || document === undefined ? {} : { document: stripArt(document) }),
+          ...present({ document: left === undefined || document === undefined ? undefined : stripArt(document) }),
         }),
       ];
     });
