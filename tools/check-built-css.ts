@@ -38,10 +38,12 @@ if (stylesheet === undefined) {
 const css = readFileSync(path.join(OUTPUT, stylesheet), 'utf8');
 
 const problems = [
-  ...FORBIDDEN_DIRECTIVES.filter((directive) => css.includes(directive)).map(
-    (directive) => `raw ${directive} left in output`,
-  ),
-  ...REQUIRED_UTILITIES.filter((utility) => !css.includes(utility)).map((utility) => `missing utility ${utility}`),
+  ...FORBIDDEN_DIRECTIVES.values()
+    .filter((directive) => css.includes(directive))
+    .map((directive) => `raw ${directive} left in output`),
+  ...REQUIRED_UTILITIES.values()
+    .filter((utility) => !css.includes(utility))
+    .map((utility) => `missing utility ${utility}`),
   ...(SPLATTER_MASK.test(css) ? [] : ['splatter mask url not rewritten to the bundled media file']),
   ...(VIEWPORT_QUERY.test(css) ? ['viewport width media query in output; use container queries'] : []),
   ...(ROUNDED.test(css) ? ['rounded corners in output; frontier is sharp'] : []),

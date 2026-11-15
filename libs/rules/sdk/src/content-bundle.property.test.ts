@@ -10,7 +10,7 @@ import { contentId, EntrySlug, PackId } from './content-id';
 import { packContentsFromFiles } from './content-pack-file';
 import { REGISTERED_KINDS } from './kind-data';
 import type { RegisteredKind } from './kind-data';
-import { contentEntryJson } from './testing';
+import { contentEntryJson, EntryIdentityJson } from './testing';
 
 const PACK = PackId.parse('homebrew');
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
@@ -24,13 +24,13 @@ function sha256(json: CanonicalJson): BundleHash {
 /** Valid entries of `kind` filed under one pack, with distinct slugs. */
 function packEntries(kind: RegisteredKind): Arbitrary<readonly object[]> {
   const rehomed = contentEntryJson(kind).map((json) => {
-    const slug = EntrySlug.parse(Reflect.get(json, 'slug'));
+    const slug = EntrySlug.parse(EntryIdentityJson.parse(json).slug);
 
     return Object.assign(json, { pack: PACK, id: contentId(PACK, slug) });
   });
 
   return uniqueArray(rehomed, {
-    selector: (json): unknown => Reflect.get(json, 'slug'),
+    selector: (json): string => EntryIdentityJson.parse(json).slug,
     minLength: 1,
     maxLength: ENTRIES_MAX,
   });

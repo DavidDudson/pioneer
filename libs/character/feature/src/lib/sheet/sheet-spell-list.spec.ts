@@ -1,11 +1,12 @@
 import { signal } from '@angular/core';
-import { TargetValue } from '@pioneer/rules/sdk';
-import type { FocusLine, InnateLine, SpellDetailLine, SpellRowLine } from '@pioneer/rules/ui';
+import { MagicTradition, SpellPreparation, TargetValue } from '@pioneer/rules/sdk';
+import type { SpellDetailLine, SpellRowLine } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
+import { spellLine } from '../testing/spell-line-testing';
 import { NO_SPELL_FILTER, SpellFilterGroupId } from './sheet-spell-filter';
 import { sheetSpellList } from './sheet-spell-list';
-import type { PreparedEntryFields } from './sheet-spell-picks';
+import type { SpellOrigins } from './sheet-spell-list';
 
 interface Spell {
   readonly id: string;
@@ -14,39 +15,26 @@ interface Spell {
   readonly targetValues?: readonly TargetValue[];
 }
 
-function detail({ id, name, source, targetValues = [] }: Spell): SpellDetailLine {
-  return {
-    id,
-    name,
-    rank: 1,
-    source,
-    targetValues,
-    traits: [],
-    effects: [],
-    cost: { kind: 'actions', cost: 'one', upTo: undefined },
-  } as unknown as SpellDetailLine;
+function detail({ id, name, source, targetValues }: Spell): SpellDetailLine {
+  return spellLine({ slug: id, name, source, targets: targetValues });
 }
 
-function focusOf(...spells: readonly SpellDetailLine[]): FocusLine {
-  return {
-    entries: [{ key: 'focus', spells: spells.map((each) => ({ key: each.id, detail: each })) }],
-  } as unknown as FocusLine;
+function focusOf(...spells: readonly SpellDetailLine[]): SpellOrigins['focus'] {
+  return { entries: [{ key: 'focus', spells: spells.map((each) => ({ key: each.name, detail: each })) }] };
 }
 
-function innateOf(...spells: readonly SpellDetailLine[]): InnateLine {
-  return {
-    entries: [{ key: 'innate', spells: spells.map((each) => ({ key: each.id, detail: each })) }],
-  } as unknown as InnateLine;
+function innateOf(...spells: readonly SpellDetailLine[]): SpellOrigins['innate'] {
+  return { entries: [{ key: 'innate', spells: spells.map((each) => ({ key: each.name, detail: each })) }] };
 }
 
 /** A prepared entry with a slot per spell; `undefined` is an empty slot. */
-function preparedOf(...slots: readonly (SpellDetailLine | undefined)[]): readonly PreparedEntryFields[] {
+function preparedOf(...slots: readonly (SpellDetailLine | undefined)[]): SpellOrigins['prepared'] {
   return [
     {
-      key: 'prepared',
+      preparation: SpellPreparation.Prepared,
+      tradition: MagicTradition.Divine,
       ranks: [
         {
-          key: 'rank',
           fields: slots.map((each, index) => ({
             key: `slot-${index}`,
             detail: signal(each),
@@ -55,7 +43,7 @@ function preparedOf(...slots: readonly (SpellDetailLine | undefined)[]): readonl
         },
       ],
     },
-  ] as unknown as readonly PreparedEntryFields[];
+  ];
 }
 
 function namesOf(lines: readonly SpellRowLine[]): string[] {

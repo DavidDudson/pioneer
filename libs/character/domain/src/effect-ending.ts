@@ -27,7 +27,11 @@ export function endEffects<Play extends EffectPlay>(play: Play, ended: readonly 
 
 /** The ids of the polymorph effects among `effects`, the ones a newer polymorph effect replaces. */
 function polymorphs(effects: readonly ActiveEffect[], content: EffectContent): readonly EffectInstanceId[] {
-  return effects.filter(({ effect }) => content.get(effect)?.polymorph === true).map(({ id }) => id);
+  return effects
+    .values()
+    .filter(({ effect }) => content.get(effect)?.polymorph === true)
+    .map(({ id }) => id)
+    .toArray();
 }
 
 /** Whether `id` is an effect on its last use, so spending it ends it and gives back what it gave. */

@@ -18,10 +18,14 @@ const VARIANT_SUFFIX = / \([^)]*\)$/u;
 /** The effects in `entries` of a polymorph spell, feat or action of the same pack that lack the trait, as keys. */
 function untraited(entries: readonly ContentEntry[]): readonly string[] {
   const polymorph = new Set<string>(
-    entries.filter(({ traits }) => traits.includes(POLYMORPH)).map(({ kind, name }) => `${kind}:${name}`),
+    entries
+      .values()
+      .filter(({ traits }) => traits.includes(POLYMORPH))
+      .map(({ kind, name }) => `${kind}:${name}`),
   );
 
   return entries
+    .values()
     .filter(({ kind, name, traits }) => {
       const given = EFFECT_PREFIXES.find(([prefix]) => name.startsWith(prefix));
 
@@ -34,7 +38,8 @@ function untraited(entries: readonly ContentEntry[]): readonly string[] {
 
       return kinds.some((each) => polymorph.has(`${each}:${source}`));
     })
-    .map(({ pack, slug }) => contentKey(pack, slug));
+    .map(({ pack, slug }) => contentKey(pack, slug))
+    .toArray();
 }
 
 describe('polymorph effects', () => {

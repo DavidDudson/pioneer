@@ -45,8 +45,10 @@ function timelineSection(root: HTMLElement): HTMLElement {
 /** The labels of the skill pickers on the Plan tab's Level 1 tab. */
 function pickerLabels(root: HTMLElement): string[] {
   return [...timelineSection(root).querySelectorAll('pio-level-timeline fr-inline-field')]
+    .values()
     .map((field) => present(field.querySelector('fr-text')).textContent.trim())
-    .filter((label) => label.includes('trained skill'));
+    .filter((label) => label.includes('trained skill'))
+    .toArray();
 }
 
 /** The text of the Skills panel's row for `name`. */

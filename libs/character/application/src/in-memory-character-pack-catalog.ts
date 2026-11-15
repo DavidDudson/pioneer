@@ -36,8 +36,10 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
   public override async official(): Promise<readonly CatalogPack[]> {
     return InMemoryCharacterPackCatalog.#order(
       [...this.#packs.values()]
+        .values()
         .filter((known) => known.official === true)
-        .map((known) => InMemoryCharacterPackCatalog.#listed(known)),
+        .map((known) => InMemoryCharacterPackCatalog.#listed(known))
+        .toArray(),
     );
   }
 

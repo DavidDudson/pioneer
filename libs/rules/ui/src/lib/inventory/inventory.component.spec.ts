@@ -20,8 +20,10 @@ async function render(groups: readonly InventoryGroup[] | undefined): Promise<HT
 /** Each line's own texts, not those of what it holds. */
 function lineTexts(row: Element): string[] {
   return [...row.querySelectorAll('fr-text')]
+    .values()
     .filter((part) => part.closest('pio-inventory-row') === row)
-    .map((part) => part.textContent.trim());
+    .map((part) => part.textContent.trim())
+    .toArray();
 }
 
 function rows(host: HTMLElement): string[][] {

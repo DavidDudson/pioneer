@@ -44,6 +44,7 @@ export function restPreparedEntries(
   registry: ContentRegistry,
 ): readonly RestPreparedEntry[] {
   return entries
+    .values()
     .filter(({ preparation }) => preparation === SpellPreparation.Prepared)
     .map(({ key, tradition, ranks }) => ({
       key,
@@ -63,7 +64,8 @@ export function restPreparedEntries(
         }))
         .filter(({ slots }) => slots.length > 0),
     }))
-    .filter(({ ranks }) => ranks.length > 0);
+    .filter(({ ranks }) => ranks.length > 0)
+    .toArray();
 }
 
 /** The slots of `entries`, in order. */

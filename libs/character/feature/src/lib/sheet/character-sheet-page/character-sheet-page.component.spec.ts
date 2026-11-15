@@ -125,8 +125,10 @@ describe('CharacterSheetPage', () => {
     const inlineLabels = (): string[] =>
       [...root.querySelectorAll('section fr-inline-field')]
         .filter((field) => field.closest('pio-level-timeline') === null)
+        .values()
         .filter((field) => field.closest('pio-sheet-rule-limits') === null)
-        .map((field) => present(field.querySelector('fr-text')).textContent.trim());
+        .map((field) => present(field.querySelector('fr-text')).textContent.trim())
+        .toArray();
 
     await vi.waitFor(() => {
       expect(inlineLabels()).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class']);

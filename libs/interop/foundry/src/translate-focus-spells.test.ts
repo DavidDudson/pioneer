@@ -46,7 +46,10 @@ function keyed(key: string, name: string, fixture: DocumentFixture): Record<stri
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
 /** The domains Player Core prints an advanced domain spell for. */
-const WITH_ADVANCED = [...DOMAIN_SPELLS].filter(([, [, advanced]]) => advanced !== undefined).map(([domain]) => domain);
+const WITH_ADVANCED = DOMAIN_SPELLS.entries()
+  .filter(([, [, advanced]]) => advanced !== undefined)
+  .map(([domain]) => domain)
+  .toArray();
 
 describe('translateKindData: focus spells', () => {
   test('Composition Spells makes the bard a focus caster with Counter Performance and Courageous Anthem', () => {

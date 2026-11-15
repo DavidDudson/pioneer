@@ -33,11 +33,13 @@ export function characterFocus(
   level: CharacterLevel,
 ): CharacterFocus {
   const focusEntries = entries
+    .values()
     .filter((entry) => entry.preparation === SpellPreparation.Focus)
     .map((entry): FocusEntrySpells => ({
       entry,
       spells: entry.focusSpells.flatMap((id) => content.anySpell(id) ?? []),
-    }));
+    }))
+    .toArray();
 
   const pointsFrom = new Set<ContentId>(
     focusEntries.flatMap(({ spells }) => spells.filter((spell) => !spell.cantrip).map((spell) => spell.id)),

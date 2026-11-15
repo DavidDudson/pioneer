@@ -120,7 +120,11 @@ export class PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
-      const kept = [...this.#options].filter((each) => each !== option).map((each) => RollOption.parse(each));
+      const kept = this.#options
+        .values()
+        .filter((each) => each !== option)
+        .map((each) => RollOption.parse(each))
+        .toArray();
 
       return this.#sameReading(new PredicateFacts(kept, this.#namespaces));
     }
@@ -167,7 +171,11 @@ export class PredicateFacts {
 
     const start = `${prefix}${SEPARATOR}`;
 
-    return [...this.#options].filter((option) => option.startsWith(start)).map((option) => option.slice(start.length));
+    return this.#options
+      .values()
+      .filter((option) => option.startsWith(start))
+      .map((option) => option.slice(start.length))
+      .toArray();
   }
 
   /**

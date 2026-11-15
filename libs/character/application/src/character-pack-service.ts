@@ -309,6 +309,10 @@ export class CharacterPackService extends EffectivePacks {
   static #candidates(readable: readonly CatalogPack[], ids: readonly ContentPackId[]): readonly PackCandidate[] {
     const used = new Set(ids);
 
-    return readable.filter((pack) => !pack.official && !used.has(pack.id)).map((pack) => candidateEntry(pack));
+    return readable
+      .values()
+      .filter((pack) => !pack.official && !used.has(pack.id))
+      .map((pack) => candidateEntry(pack))
+      .toArray();
   }
 }

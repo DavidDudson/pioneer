@@ -75,7 +75,12 @@ const SINGLE = 1;
 /** Foundry's coins with the unpaid ones left out, and the batch it is for; no price when every coin is zero. */
 export function priceOf(price: FoundryPrice | null | undefined): object {
   const coins = price?.value ?? {};
-  const paid = COINS.filter((coin) => (coins[coin] ?? 0) > 0).map((coin) => [coin, coins[coin]] as const);
+
+  const paid = COINS.values()
+    .filter((coin) => (coins[coin] ?? 0) > 0)
+    .map((coin) => [coin, coins[coin]] as const)
+    .toArray();
+
   const per = price?.per ?? SINGLE;
 
   return paid.length === 0

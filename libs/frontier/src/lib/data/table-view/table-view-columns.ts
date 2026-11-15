@@ -3,7 +3,11 @@ import { listOf, listText } from './table-view-text';
 import type { TableViewColumn } from './table-view.types';
 
 function defaultHiddenIds(columns: readonly TableViewColumn[]): readonly string[] {
-  return columns.filter((column) => column.defaultHidden === true).map((column) => column.id);
+  return columns
+    .values()
+    .filter((column) => column.defaultHidden === true)
+    .map((column) => column.id)
+    .toArray();
 }
 
 /**
@@ -41,5 +45,9 @@ export function hiddenOf(text: string, columns: readonly TableViewColumn[]): rea
     }
   }
 
-  return columns.map((column) => column.id).filter((id) => hidden.has(id));
+  return columns
+    .values()
+    .map((column) => column.id)
+    .filter((id) => hidden.has(id))
+    .toArray();
 }

@@ -127,7 +127,11 @@ export function removalMatches(entries: readonly ContentEntry[]): RemovalMatches
     }
   }
 
-  const unmapped = named.map(({ remover }) => remover.slug).filter((slug) => !EASINGS.has(slug));
+  const unmapped = named
+    .values()
+    .map(({ remover }) => remover.slug)
+    .filter((slug) => !EASINGS.has(slug))
+    .toArray();
 
   return { removals, unmapped: [...new Set(unmapped)] };
 }

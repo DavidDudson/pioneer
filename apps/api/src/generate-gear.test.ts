@@ -78,7 +78,11 @@ function gearProblems(character: Character, level: CharacterLevel): readonly str
     [bulk.encumbrance !== 'unencumbered', 'encumbered'],
   ];
 
-  return checks.filter(([broken]) => broken).map(([, problem]) => problem);
+  return checks
+    .values()
+    .filter(([broken]) => broken)
+    .map(([, problem]) => problem)
+    .toArray();
 }
 
 /** The weapons and armour `character` carries that its class is not trained in. */

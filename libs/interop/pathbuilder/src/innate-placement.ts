@@ -108,8 +108,10 @@ export function placeInnate(
   casters: readonly ImportedCaster[],
 ): InnatePlacement {
   const wanted = casters
+    .values()
     .filter(({ innate }) => innate)
-    .map((caster): Wanted => ({ caster, spells: listed(caster, content.lookup) }));
+    .map((caster): Wanted => ({ caster, spells: listed(caster, content.lookup) }))
+    .toArray();
 
   let placed: Placed = { document, choices: {}, gaps: [] };
 

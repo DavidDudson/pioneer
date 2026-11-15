@@ -48,7 +48,7 @@ function entryOf(name: string, elements: readonly object[]): SummarisedEntry {
 
   return {
     id: idOf(name),
-    rules: elements as unknown as RuleElements,
+    rules: elements as RuleElements,
     sources: first?.origin.sources ?? [],
   };
 }

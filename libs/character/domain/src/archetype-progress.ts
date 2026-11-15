@@ -121,8 +121,10 @@ export function archetypeProgress(document: CharacterDocument, content: SlotCont
 
   const archetypes = taken
     .toSorted((left, right) => left.level - right.level)
+    .values()
     .map(({ id }) => dedicatedArchetype(reads.feats, id))
-    .filter((archetype) => archetype !== undefined);
+    .filter((archetype) => archetype !== undefined)
+    .toArray();
 
   return [...new Set(archetypes)].flatMap((archetype) => progressOf(reads.feats, taken, { archetype, now }));
 }

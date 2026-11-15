@@ -82,9 +82,11 @@ async function type(rendered: Rendered, label: string, text: string): Promise<vo
 
 function chips(host: HTMLElement): string[] {
   return [...host.querySelectorAll('button')]
+    .values()
     .map((candidate) => candidate.getAttribute('aria-label') ?? '')
     .filter((label) => label.startsWith('Edit filter'))
-    .map((label) => label.replace('Edit filter: ', ''));
+    .map((label) => label.replace('Edit filter: ', ''))
+    .toArray();
 }
 
 function echo(key: string): string {

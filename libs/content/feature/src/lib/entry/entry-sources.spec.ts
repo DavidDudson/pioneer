@@ -18,8 +18,8 @@ function entryCiting(...sources: readonly SourceRef[]): ContentEntry {
   return { ...first, sources };
 }
 
-const PLAYER_CORE = { kind: 'book', book: 'player-core' } as unknown as SourceRef;
-const UNREGISTERED = { kind: 'book', book: 'not-a-book' } as unknown as SourceRef;
+const PLAYER_CORE = { kind: 'book', book: 'player-core' } as SourceRef;
+const UNREGISTERED = { kind: 'book', book: 'not-a-book' } as SourceRef;
 
 describe(browseSources, () => {
   it('gives each source its registry book and the entry licence', () => {

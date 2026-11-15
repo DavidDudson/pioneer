@@ -98,10 +98,12 @@ function foundryValues(operand: string | number, domain: ReadonlySet<string>): r
 
   const head = `${operand}:`;
 
-  const found = [...domain]
+  const found = domain
+    .values()
     .filter((option) => option.startsWith(head) && !option.slice(head.length).includes(':'))
     .map((option) => Number(option.slice(head.length)))
-    .filter((each) => !Number.isNaN(each));
+    .filter((each) => !Number.isNaN(each))
+    .toArray();
 
   return found.length > 0 ? found : [Number.NaN];
 }

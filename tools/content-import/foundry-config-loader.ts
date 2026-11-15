@@ -17,7 +17,12 @@ const SYSTEM_ID = 'pf2e';
 type Table = Readonly<Record<string, unknown>>;
 
 function pick(table: Table, keys: readonly string[]): Table {
-  return Object.fromEntries(keys.filter((key) => Object.hasOwn(table, key)).map((key) => [key, table[key]]));
+  return Object.fromEntries(
+    keys
+      .values()
+      .filter((key) => Object.hasOwn(table, key))
+      .map((key) => [key, table[key]]),
+  );
 }
 
 function omit(table: Table, keys: readonly string[]): Table {

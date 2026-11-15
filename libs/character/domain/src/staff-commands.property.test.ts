@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import { Attribute, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 import { array, assert, constantFrom, property } from 'fast-check';
 
 import { slotCountKey, slotMaxima } from './counted-resources';
@@ -13,7 +12,14 @@ import { StaffChargesSchema } from './staff-charges';
 import { staffCastCost, staffCastProblem, StaffCommandField, staffResourcesAfter } from './staff-commands';
 import type { StaffCommand } from './staff-commands';
 import { staffSources } from './staff-sources';
-import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry, staffSpellId } from './testing';
+import {
+  casterEntry,
+  ItemFixture,
+  itemFixtureContent,
+  itemFixtureId,
+  itemFixtureRegistry,
+  staffSpellId,
+} from './testing';
 
 const items = itemFixtureContent();
 const spells = spellContent(itemFixtureRegistry());
@@ -21,25 +27,13 @@ const STAFF_ID = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const MAX_CHARGES = 4;
 const SLOTS_A_RANK = 1;
 
-const ORIGIN = Origin.parse({
-  hops: [],
-  entry: staffSpellId('ignition'),
-  sources: [{ kind: 'web', url: 'https://example.com/' }],
-});
-
-const SORCERER = {
+const SORCERER = casterEntry({
   slug: 'sorcerer',
   tradition: 'arcane',
-  attribute: 'cha',
+  attribute: Attribute.Charisma,
   preparation: SpellPreparation.Spontaneous,
-  origin: ORIGIN,
-  slots: { ranks: [1, 2, 3, 4].map((rank) => ({ rank, count: SLOTS_A_RANK })) },
-  pools: [],
-  signatures: false,
-  focusSpells: [],
-  innateSpells: [],
-  deitySpells: false,
-} as unknown as SpellcastingInPlay;
+  ranks: [1, 2, 3, 4],
+});
 
 const COUNTED = { slots: slotMaxima([SORCERER]), uses: new Map() };
 

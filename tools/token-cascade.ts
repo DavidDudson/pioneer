@@ -110,8 +110,10 @@ function matches(rule: TokenRule, attributes: Attributes): boolean {
 /** The custom properties `<html>` ends up with for these attributes. */
 export function cascade(rules: readonly TokenRule[], attributes: Attributes): ReadonlyMap<string, string> {
   const applied = rules
+    .values()
     .map((rule, order) => ({ rule, order }))
     .filter(({ rule }) => matches(rule, attributes))
+    .toArray()
     .toSorted((first, second) => first.rule.specificity - second.rule.specificity || first.order - second.order);
 
   const tokens = new Map<string, string>();

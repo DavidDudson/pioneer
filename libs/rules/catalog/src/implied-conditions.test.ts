@@ -140,8 +140,10 @@ function closure(roots: readonly ContentId[]): string[] {
   const overridden = new Set([...reached].flatMap((id) => byId.get(id)?.data.overrides ?? []));
 
   return [...reached]
+    .values()
     .filter((id) => !overridden.has(id))
     .map((id) => named(id))
+    .toArray()
     .toSorted();
 }
 

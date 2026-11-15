@@ -110,6 +110,7 @@ function proficiencyRises({ now, before }: Moment, source: ChoiceSource): readon
   const earlier = characterRanks(before);
 
   return [...characterRanks(now)]
+    .values()
     .filter(([selector, rank]) => rises(earlier.get(selector), rank))
     .map(([selector, rank]) => ({
       kind: AutomaticKind.ProficiencyRise,
@@ -117,7 +118,8 @@ function proficiencyRises({ now, before }: Moment, source: ChoiceSource): readon
       selector,
       from: earlier.get(selector) ?? Proficiency.Untrained,
       to: rank,
-    }));
+    }))
+    .toArray();
 }
 
 /** The fixed class features that arrive at the level; a feature the character picked is a choice, not listed. */
