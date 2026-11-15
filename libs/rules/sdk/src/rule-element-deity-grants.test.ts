@@ -46,10 +46,10 @@ describe("a cleric's deity grant elements", () => {
 
     expect(issues(jaws)).toStrictEqual([]);
     expect(issues({ key: 'Strike', fist: false })).toMatchObject([{ path: ['fist'] }]);
-    expect(issues({ key: 'Strike' })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeShape) }]);
-    expect(issues({ ...jaws, fist: true })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeShape) }]);
+    expect(issues({ key: 'Strike' })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeSource) }]);
+    expect(issues({ ...jaws, fist: true })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeSource) }]);
     expect(issues({ key: 'Strike', slug: 'jaws', category: 'unarmed' })).toStrictEqual([
-      { path: [], message: message(RulesMessage.StrikeShape) },
+      { path: [], message: message(RulesMessage.StrikeSource) },
     ]);
   });
 });

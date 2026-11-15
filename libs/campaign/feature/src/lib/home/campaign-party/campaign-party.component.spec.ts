@@ -102,15 +102,15 @@ async function open(party: PartyJson, viewerRole: 'gm' | 'player' = 'player'): P
 }
 
 /** What the spec reads of a row. */
-interface AttachRowShape {
+interface AttachRowFields {
   readonly characterId: string;
 }
 
 /** The picker's control. */
-function picker(harness: RouterTestingHarness): PickerField<string, AttachRowShape> {
+function picker(harness: RouterTestingHarness): PickerField<string, AttachRowFields> {
   // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
   return harness.fixture.debugElement.query((element) => element.componentInstance instanceof PickerField)
-    .componentInstance as PickerField<string, AttachRowShape>;
+    .componentInstance as PickerField<string, AttachRowFields>;
 }
 
 /** The text of every badge, in document order. */

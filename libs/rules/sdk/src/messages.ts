@@ -22,7 +22,7 @@ export const RulesMessage = {
   SpellcastingSlugLength: 'rules.element.spellcastingSlugLength',
   LanguageGrantOrSlots: 'rules.element.languageGrantOrSlots',
   ActorTraitsAddOrRemove: 'rules.element.actorTraitsAddOrRemove',
-  StrikeShape: 'rules.element.strikeShape',
+  StrikeSource: 'rules.element.strikeShape',
   DamageDiceNeedsDice: 'rules.element.damageDiceNeedsDice',
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',

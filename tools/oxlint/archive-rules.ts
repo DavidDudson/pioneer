@@ -17,7 +17,7 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
   'characterItemAcknowledgements',
 ]);
 
-interface DeleteCallShape {
+interface DeleteCallNode {
   readonly callee?: { readonly type?: string; readonly property?: { readonly name?: unknown } };
   readonly arguments?: readonly { readonly type?: string; readonly name?: unknown }[];
 }
@@ -28,7 +28,7 @@ export function archivableDeleteTarget(
   tables: ReadonlySet<string> = ARCHIVABLE_TABLES,
 ): string | undefined {
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  const { callee, arguments: args } = node as DeleteCallShape;
+  const { callee, arguments: args } = node as DeleteCallNode;
 
   if (callee?.type !== 'MemberExpression' || callee.property?.name !== 'delete') {
     return undefined;

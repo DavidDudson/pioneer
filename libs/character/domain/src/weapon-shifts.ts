@@ -11,43 +11,43 @@ import { itemRunes } from './item-runes';
 import type { RuneContent } from './item-runes';
 
 /** The most shaped weapons a character remembers; a shape past it is not kept, so a request cannot grow the play state. */
-export const SHAPES_MAX = 32;
+export const SHIFTS_MAX = 32;
 
 /** The weapon each shapeshifting item has taken the shape of, by its inventory item. An item left out has its own shape. */
-export const ShapesSchema = z.record(InventoryItemId, ContentId).default({});
+export const ShiftsSchema = z.record(InventoryItemId, ContentId).default({});
 
-export type Shapes = z.infer<typeof ShapesSchema>;
+export type Shifts = z.infer<typeof ShiftsSchema>;
 
 /** The play edits that change a weapon's shape. */
-export const ShapeCommandField = {
+export const ShiftCommandField = {
   /** A weapon with a shifting rune takes the shape of another weapon, or goes back to its own. */
   ShiftWeapon: 'shiftWeapon',
 } as const;
 
-export type ShapeCommandField = ValueOf<typeof ShapeCommandField>;
+export type ShiftCommandField = ValueOf<typeof ShiftCommandField>;
 
-export const ShapeCommandSchema = z.discriminatedUnion('field', [
-  z.object({ field: z.literal(ShapeCommandField.ShiftWeapon), item: InventoryItemId, shape: ContentId.optional() }),
+export const ShiftCommandSchema = z.discriminatedUnion('field', [
+  z.object({ field: z.literal(ShiftCommandField.ShiftWeapon), item: InventoryItemId, shape: ContentId.optional() }),
 ]);
 
-export type ShapeCommand = z.infer<typeof ShapeCommandSchema>;
+export type ShiftCommand = z.infer<typeof ShiftCommandSchema>;
 
 /** Whether `command` is a shape edit. */
-export function isShapeCommand<Command extends { readonly field: unknown }>(
+export function isShiftCommand<Command extends { readonly field: unknown }>(
   command: Command,
-): command is Extract<Command, ShapeCommand> {
-  return command.field === ShapeCommandField.ShiftWeapon;
+): command is Extract<Command, ShiftCommand> {
+  return command.field === ShiftCommandField.ShiftWeapon;
 }
 
 /** `shapes` after `command`: the shape taken, or dropped when none is given, unless it is a new one and the character holds the most. */
-export function applyShapeCommand(shapes: Shapes, command: ShapeCommand): Shapes {
+export function applyShiftCommand(shifts: Shifts, command: ShiftCommand): Shifts {
   if (command.shape === undefined) {
-    return Object.fromEntries(Object.entries(shapes).filter(([item]) => item !== command.item));
+    return Object.fromEntries(Object.entries(shifts).filter(([item]) => item !== command.item));
   }
 
-  const known = command.item in shapes;
+  const known = command.item in shifts;
 
-  return !known && Object.keys(shapes).length >= SHAPES_MAX ? shapes : { ...shapes, [command.item]: command.shape };
+  return !known && Object.keys(shifts).length >= SHIFTS_MAX ? shifts : { ...shifts, [command.item]: command.shape };
 }
 
 /** The restriction of a melee weapon. */
@@ -57,7 +57,7 @@ const MELEE = EtchingRestriction.parse('melee');
 const SHIFTING: EntrySlug = entrySlug(ContentKind.Rune, Slug.parse('shifting'));
 
 /** What a shape is read against: the items and the runes the loaded packs offer. */
-export interface ShapeReads {
+export interface ShiftReads {
   readonly items: ItemContent;
   readonly runes: RuneContent;
 }
@@ -72,13 +72,13 @@ function handsOf(entry: ItemEntry): UsageHands | undefined {
 }
 
 /** Whether a weapon can take the shape of `shape`: another melee weapon that takes the same number of hands. */
-export function shapeFits(base: ItemEntry | undefined, shape: ItemEntry | undefined): boolean {
+export function shiftFits(base: ItemEntry | undefined, form: ItemEntry | undefined): boolean {
   return (
     base?.kind === ContentKind.Weapon &&
-    shape?.kind === ContentKind.Weapon &&
-    base.id !== shape.id &&
-    meetsRestriction(shape, MELEE) &&
-    handsOf(base) === handsOf(shape)
+    form?.kind === ContentKind.Weapon &&
+    base.id !== form.id &&
+    meetsRestriction(form, MELEE) &&
+    handsOf(base) === handsOf(form)
   );
 }
 
@@ -88,41 +88,41 @@ export function hasShiftingRune(line: InventoryItem, base: ItemEntry | undefined
 }
 
 /** The shapes the item can take: the melee weapons of the content that fit it, by name. */
-export function shapesFor(line: InventoryItem, { items, runes }: ShapeReads): readonly ItemEntry[] {
+export function shiftsFor(line: InventoryItem, { items, runes }: ShiftReads): readonly ItemEntry[] {
   const base = items.get(line.item);
 
   if (!hasShiftingRune(line, base, runes)) {
     return [];
   }
 
-  return [...items.values()].filter((each) => shapeFits(base, each));
+  return [...items.values()].filter((each) => shiftFits(base, each));
 }
 
 /** Why a shape edit is refused, if it is. */
-export const ShapeProblem = { NotShifting: 'notShifting', NoSuchShape: 'noSuchShape' } as const;
+export const ShiftProblem = { NotShifting: 'notShifting', NoSuchShift: 'noSuchShape' } as const;
 
-export type ShapeProblem = ValueOf<typeof ShapeProblem>;
+export type ShiftProblem = ValueOf<typeof ShiftProblem>;
 
 /** What refuses `command`: the item has no shifting rune, or the shape is not one it can take. Dropping a shape is never refused. */
-export function shapeProblem(inventory: Inventory, reads: ShapeReads, command: ShapeCommand): ShapeProblem | undefined {
+export function shiftProblem(inventory: Inventory, reads: ShiftReads, command: ShiftCommand): ShiftProblem | undefined {
   const line = inventory.items.find(({ id }) => id === command.item);
 
   if (line === undefined || !hasShiftingRune(line, reads.items.get(line.item), reads.runes)) {
-    return ShapeProblem.NotShifting;
+    return ShiftProblem.NotShifting;
   }
 
-  const { shape } = command;
+  const { shape: form } = command;
 
-  return shape === undefined || shapeFits(reads.items.get(line.item), reads.items.get(shape))
+  return form === undefined || shiftFits(reads.items.get(line.item), reads.items.get(form))
     ? undefined
-    : ShapeProblem.NoSuchShape;
+    : ShiftProblem.NoSuchShift;
 }
 
 /** Whether a property rune works on the shape: its etching restriction is met. */
-function works(rune: ContentId, shape: ItemEntry, runes: RuneContent): boolean {
+function works(rune: ContentId, form: ItemEntry, runes: RuneContent): boolean {
   const entry = runes.get(rune);
 
-  return entry === undefined || meetsRestriction(shape, entry.data.etchedOnto.restriction);
+  return entry === undefined || meetsRestriction(form, entry.data.etchedOnto.restriction);
 }
 
 /**
@@ -130,19 +130,19 @@ function works(rune: ContentId, shape: ItemEntry, runes: RuneContent): boolean {
  * material of the item. Property runes the shape can't take stay etched but are left out, so they do nothing until the
  * item takes a shape they fit. A shape the item can no longer take (its shifting rune erased) is ignored.
  */
-export function shapedInventory(inventory: Inventory, shapes: Shapes, reads: ShapeReads): Inventory {
-  if (Object.keys(shapes).length === 0) {
+export function shiftedInventory(inventory: Inventory, shifts: Shifts, reads: ShiftReads): Inventory {
+  if (Object.keys(shifts).length === 0) {
     return inventory;
   }
 
   return {
     ...inventory,
     items: inventory.items.map((line) => {
-      const shapeId = shapes[line.id];
+      const shiftId = shifts[line.id];
       const base = reads.items.get(line.item);
-      const shape = shapeId === undefined ? undefined : reads.items.get(shapeId);
+      const form = shiftId === undefined ? undefined : reads.items.get(shiftId);
 
-      if (shapeId === undefined || shape === undefined || !shapeFits(base, shape)) {
+      if (shiftId === undefined || form === undefined || !shiftFits(base, form)) {
         return line;
       }
 
@@ -154,8 +154,8 @@ export function shapedInventory(inventory: Inventory, shapes: Shapes, reads: Sha
 
       return {
         ...line,
-        item: shapeId,
-        runes: { ...runes, property: runes.property.filter(({ rune }) => works(rune, shape, reads.runes)) },
+        item: shiftId,
+        runes: { ...runes, property: runes.property.filter(({ rune }) => works(rune, form, reads.runes)) },
       };
     }),
   };

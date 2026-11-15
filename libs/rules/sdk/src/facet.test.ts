@@ -15,7 +15,7 @@ import { SPELL_FACETS } from './spell-facets';
 
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A trait.' }] }];
 
-interface EntryShape {
+interface EntryFields {
   readonly slug: string;
   readonly level?: number;
   readonly rarity?: string;
@@ -32,7 +32,7 @@ function entry({
   traits = [],
   books = ['player-core'],
   pack = 'player-core',
-}: EntryShape): ContentEntry {
+}: EntryFields): ContentEntry {
   const traitSlug = entrySlug(ContentKind.Trait, Slug.parse(slug));
 
   const fields = {

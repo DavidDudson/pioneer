@@ -4,7 +4,7 @@ import type { CheckNode, DamageInstance, DamageNode, DurationNode, Selector, Tem
 
 import type { RichTextLinks } from '../rich-text-links';
 import {
-  AREA_SHAPE_MESSAGES,
+  AREA_KIND_MESSAGES,
   DAMAGE_CATEGORY_MESSAGES,
   DAMAGE_TYPE_MESSAGES,
   DURATION_MESSAGES,
@@ -85,7 +85,7 @@ function damageText(node: DamageNode, context: ValueTextContext): string {
 function templateText(node: TemplateNode, { translate, format }: ValueTextContext): string {
   return translate(RichTextMessage.Template, {
     distance: format.distance(node.size),
-    shape: translate(AREA_SHAPE_MESSAGES[node.shape]),
+    shape: translate(AREA_KIND_MESSAGES[node.shape]),
     wide: yesNo(node.width !== undefined),
     width: node.width === undefined ? '' : format.distance(node.width),
   });

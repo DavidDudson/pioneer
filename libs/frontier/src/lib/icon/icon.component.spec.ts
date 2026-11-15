@@ -25,8 +25,8 @@ describe(Icon, () => {
     const svg = await render({ size });
     expect(svg.getAttribute('stroke-width')).toBe('1');
 
-    const effects = [...svg.querySelectorAll('path, line, polyline, circle, rect')].map((shape) =>
-      shape.getAttribute('vector-effect'),
+    const effects = [...svg.querySelectorAll('path, line, polyline, circle, rect')].map((element) =>
+      element.getAttribute('vector-effect'),
     );
 
     expect(effects.length).toBeGreaterThan(0);

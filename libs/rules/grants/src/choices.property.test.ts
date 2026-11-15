@@ -17,12 +17,12 @@ const slugOf = (index: number): string => `entry-${index}`;
 const indexes = (count: number): number[] => Array.from({ length: count }, (_value, index) => index);
 
 /** Entry `index`: fixed grants of some later entries, and maybe a choice of later entries at rule 0. */
-interface Shape {
+interface EntryPlan {
   readonly grants: readonly number[];
   readonly offers: readonly number[] | undefined;
 }
 
-function shapeAt(index: number, count: number): Arbitrary<Shape> {
+function planAt(index: number, count: number): Arbitrary<EntryPlan> {
   const later = indexes(count).slice(index + 1);
 
   const offers =
@@ -31,7 +31,7 @@ function shapeAt(index: number, count: number): Arbitrary<Shape> {
   return tuple(subarray(later), offers).map(([grants, offered]) => ({ grants, offers: offered }));
 }
 
-function entryOf(index: number, { grants, offers }: Shape): GrantEntry {
+function entryOf(index: number, { grants, offers }: EntryPlan): GrantEntry {
   const choice =
     offers === undefined
       ? []
@@ -55,12 +55,12 @@ interface Drawn {
 }
 
 const drawn: Arbitrary<Drawn> = integer({ min: 1, max: ENTRIES_MAX }).chain((count) =>
-  tuple(tuple(...indexes(count).map((index) => shapeAt(index, count))), subarray(indexes(count), { minLength: 1 })).map(
-    ([shapes, roots]) => ({
-      content: shapes.map((shape, index) => entryOf(index, shape)),
+  tuple(tuple(...indexes(count).map((index) => planAt(index, count))), subarray(indexes(count), { minLength: 1 })).map(
+    ([plans, roots]) => ({
+      content: plans.map((plan, index) => entryOf(index, plan)),
       roots,
-      picks: shapes.flatMap((shape, index): [SlotKey, string][] => {
-        const first = shape.offers?.[0];
+      picks: plans.flatMap((plan, index): [SlotKey, string][] => {
+        const first = plan.offers?.[0];
 
         return first === undefined ? [] : [[slotOf(slugOf(index), 0), idOf(slugOf(first))]];
       }),

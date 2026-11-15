@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
-import { Skeleton, SkeletonShape, SkeletonWidth } from './skeleton.component';
+import { Skeleton, SkeletonKind, SkeletonWidth } from './skeleton.component';
 
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Skeleton);
@@ -41,12 +41,12 @@ describe(Skeleton, () => {
   });
 
   it('shapes a block', async () => {
-    const host = await render({ shape: SkeletonShape.Block, width: SkeletonWidth.Full });
+    const host = await render({ kind: SkeletonKind.Block, width: SkeletonWidth.Full });
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(['h-2xl', 'w-full']));
   });
 
   it('keeps a square square, ignoring the width', async () => {
-    const host = await render({ shape: SkeletonShape.Square, width: SkeletonWidth.Full });
+    const host = await render({ kind: SkeletonKind.Square, width: SkeletonWidth.Full });
     expect([...host.classList]).toContain('size-xl');
     expect([...host.classList].filter((name) => name.startsWith('w-'))).toStrictEqual([]);
   });

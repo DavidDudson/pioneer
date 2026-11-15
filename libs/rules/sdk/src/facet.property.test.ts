@@ -21,7 +21,7 @@ const LEVEL_TOP = 6;
 const ENTRIES_MAX = 12;
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A trait.' }] }];
 
-interface EntryShape {
+interface EntryFields {
   readonly level: number | undefined;
   readonly rarity: string;
   readonly traits: readonly string[];
@@ -29,7 +29,7 @@ interface EntryShape {
   readonly pack: string;
 }
 
-const shape: Arbitrary<EntryShape> = record({
+const draft: Arbitrary<EntryFields> = record({
   level: option(integer({ min: 0, max: LEVEL_TOP }), { nil: undefined }),
   rarity: constantFrom(...Object.values(Rarity)),
   traits: subarray(TRAITS),
@@ -37,8 +37,8 @@ const shape: Arbitrary<EntryShape> = record({
   pack: constantFrom(...PACKS),
 });
 
-const entries: Arbitrary<readonly ContentEntry[]> = array(shape, { maxLength: ENTRIES_MAX }).map((shapes) =>
-  shapes.map(({ level, rarity, traits, books, pack }, index) => {
+const entries: Arbitrary<readonly ContentEntry[]> = array(draft, { maxLength: ENTRIES_MAX }).map((drafts) =>
+  drafts.map(({ level, rarity, traits, books, pack }, index) => {
     const fields = {
       id: contentId(PackId.parse(pack), EntrySlug.parse(`trait:entry-${index}`)),
       pack,

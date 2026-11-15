@@ -67,8 +67,8 @@ registry.register(pack.build());
 
 const SLOT = SlotCountKey.parse('wizard:3');
 const EFFECT = EffectInstanceId.parse(newId());
-const SHAPED: ActiveEffect = { id: EFFECT, effect: APE, source: SELF };
-const NO_SPELLS = { activeSpells: [], activeEffects: [SHAPED] };
+const WILD_EFFECT: ActiveEffect = { id: EFFECT, effect: APE, source: SELF };
+const NO_SPELLS = { activeSpells: [], activeEffects: [WILD_EFFECT] };
 const TEN_MINUTES = EffectRounds.parse(100);
 const ONE_MINUTE = EffectRounds.parse(10);
 const ACTIVE = ActiveSpellId.parse(newId());
@@ -247,7 +247,7 @@ describe('contentRefusal for sustained spells', () => {
 
   test('a form shift of an effect that is not a polymorph one is refused', () => {
     const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: APE } });
-    const boon: ActiveEffect = { ...SHAPED, effect: BEAR };
+    const boon: ActiveEffect = { ...WILD_EFFECT, effect: BEAR };
     expect(contentRefusal(shift, registry, { ...NO_SPELLS, activeEffects: [boon] })).toBe(SpendProblem.ShiftNotAllowed);
   });
 

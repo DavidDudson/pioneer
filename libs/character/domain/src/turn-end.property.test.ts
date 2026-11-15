@@ -21,7 +21,7 @@ const BURNING = ContentId.parse('00000000-0000-4000-8000-0000000000c1');
 const FORMULAS = ['1d4', '2d6', '1d8+3', '3d10'].map((text) => DamageFormula.parse(text));
 const LIMITS = within(MAX);
 
-const shapes = array(
+const persistentRecords = array(
   record({
     formula: constantFrom(...FORMULAS),
     type: constantFrom(DamageType.Fire, DamageType.Bleed, DamageType.Poison, DamageType.Acid),
@@ -31,7 +31,7 @@ const shapes = array(
 );
 
 const scenario = record({
-  persistents: shapes,
+  persistents: persistentRecords,
   damage: integer({ min: 0, max: DAMAGE_MAX }),
   temp: integer({ min: 0, max: TEMP_MAX }),
   seed: integer({ min: 0, max: SEED_MAX }),

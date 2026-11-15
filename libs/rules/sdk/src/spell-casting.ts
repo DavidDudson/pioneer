@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { ACTION_COUNT } from './action';
 import { RulesMessage } from './messages';
-import { ActionCost, ActionCostSchema, AreaShape, AreaShapeSchema, RichText } from './rich-text';
+import { ActionCost, ActionCostSchema, AreaKind, AreaKindSchema, RichText } from './rich-text';
 import { SaveSelector, Selector } from './selector';
 import { SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
@@ -124,8 +124,8 @@ export const SpellRange = z.discriminatedUnion('type', [
  * area as printed ("all squares in a 20-foot-radius burst that contain plants").
  */
 export const SpellArea = z
-  .strictObject({ shape: AreaShapeSchema, size: Feet, width: Feet.optional(), details: RichText.optional() })
-  .refine((area) => area.width === undefined || area.shape === AreaShape.Line, {
+  .strictObject({ shape: AreaKindSchema, size: Feet, width: Feet.optional(), details: RichText.optional() })
+  .refine((area) => area.width === undefined || area.shape === AreaKind.Line, {
     ...issueParams(message(RulesMessage.RichTextWidthOnLine)),
     path: ['width'],
   });

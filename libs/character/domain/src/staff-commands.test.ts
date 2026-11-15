@@ -45,14 +45,14 @@ const FIRST = staffSpellId('breathe-fire');
 const THIRD = staffSpellId('fireball');
 
 /** An entry that casts from `ranks`, one slot each, of the arcane tradition. */
-interface EntryShape {
+interface EntryInput {
   readonly slug: string;
   readonly preparation: SpellPreparation;
   readonly ranks: readonly number[];
   readonly tradition?: 'arcane' | 'primal';
 }
 
-function entry({ slug, preparation, ranks, tradition = 'arcane' }: EntryShape): SpellcastingInPlay {
+function entry({ slug, preparation, ranks, tradition = 'arcane' }: EntryInput): SpellcastingInPlay {
   return casterEntry({ slug, tradition, attribute: Attribute.Charisma, preparation, ranks });
 }
 

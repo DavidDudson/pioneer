@@ -1,4 +1,4 @@
-import { ActionCost, AreaShape, DamageCategory, DamageType, DurationUnit } from '@pioneer/rules/sdk';
+import { ActionCost, AreaKind, DamageCategory, DamageType, DurationUnit } from '@pioneer/rules/sdk';
 
 /** Message keys rich text renders with, spelled out so the key check sees them. */
 export const RichTextMessage = {
@@ -61,14 +61,14 @@ export const DAMAGE_CATEGORY_MESSAGES: Readonly<Record<DamageCategory, string>> 
   [DamageCategory.Splash]: 'rules.richText.damageCategory.splash',
 };
 
-export const AREA_SHAPE_MESSAGES: Readonly<Record<AreaShape, string>> = {
-  [AreaShape.Burst]: 'rules.richText.areaShape.burst',
-  [AreaShape.Cone]: 'rules.richText.areaShape.cone',
-  [AreaShape.Cube]: 'rules.richText.areaShape.cube',
-  [AreaShape.Cylinder]: 'rules.richText.areaShape.cylinder',
-  [AreaShape.Emanation]: 'rules.richText.areaShape.emanation',
-  [AreaShape.Line]: 'rules.richText.areaShape.line',
-  [AreaShape.Square]: 'rules.richText.areaShape.square',
+export const AREA_KIND_MESSAGES: Readonly<Record<AreaKind, string>> = {
+  [AreaKind.Burst]: 'rules.richText.areaShape.burst',
+  [AreaKind.Cone]: 'rules.richText.areaShape.cone',
+  [AreaKind.Cube]: 'rules.richText.areaShape.cube',
+  [AreaKind.Cylinder]: 'rules.richText.areaShape.cylinder',
+  [AreaKind.Emanation]: 'rules.richText.areaShape.emanation',
+  [AreaKind.Line]: 'rules.richText.areaShape.line',
+  [AreaKind.Square]: 'rules.richText.areaShape.square',
 };
 
 /** Each unit's message takes `count` and picks its own plural. */

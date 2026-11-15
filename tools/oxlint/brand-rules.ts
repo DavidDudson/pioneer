@@ -4,9 +4,9 @@
  */
 import type { Rule } from 'eslint';
 
-interface NodeShape {
+interface UntypedNode {
   readonly type: string;
-  readonly parent?: NodeShape;
+  readonly parent?: UntypedNode;
   readonly value?: unknown;
   readonly operator?: unknown;
   readonly init?: unknown;
@@ -35,7 +35,7 @@ function isMember(node: { readonly type?: unknown } | undefined): boolean {
 const TYPE_PARENTS = new Set(['TSLiteralType', 'TSEnumMember', 'TSIndexedAccessType']);
 
 /** `const NAME = Brand.parse(<literal>)`: the const names the number, the brand carries its unit. */
-function isBrandConstant(target: NodeShape): boolean {
+function isBrandConstant(target: UntypedNode): boolean {
   const call = target.parent;
   const declarator = call?.parent;
 
@@ -51,7 +51,7 @@ function isBrandConstant(target: NodeShape): boolean {
 }
 
 /** Always allowed: type positions, and (ESLint's `detectObjects` default) object keys, values and `obj.x = 5`. */
-function isStructural(target: NodeShape, parent: NodeShape): boolean {
+function isStructural(target: UntypedNode, parent: UntypedNode): boolean {
   return (
     TYPE_PARENTS.has(parent.type) ||
     parent.type === 'Property' ||
@@ -60,7 +60,7 @@ function isStructural(target: NodeShape, parent: NodeShape): boolean {
 }
 
 /** Whether `target` (the literal, or its negation) sits where a bare number is allowed by `options`. */
-function isExempt(target: NodeShape, value: number, options: MagicNumberOptions): boolean {
+function isExempt(target: UntypedNode, value: number, options: MagicNumberOptions): boolean {
   const { parent } = target;
 
   if (parent === undefined) {
@@ -80,7 +80,7 @@ function isExempt(target: NodeShape, value: number, options: MagicNumberOptions)
 }
 
 /** A literal assigned straight to a declaration: fine for `const`, a `useConst` problem otherwise. */
-function declarationKind(target: NodeShape): unknown {
+function declarationKind(target: UntypedNode): unknown {
   const { parent } = target;
 
   return parent?.type === 'VariableDeclarator' && parent.init === target ? parent.parent?.kind : undefined;
@@ -108,7 +108,7 @@ export const noMagicNumbers: Rule.RuleModule = {
     return {
       Literal(node: Rule.Node): void {
         // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-        const literal = node as NodeShape;
+        const literal = node as UntypedNode;
 
         if (typeof literal.value !== 'number') {
           return;
@@ -154,9 +154,9 @@ const PRIMITIVE_SCHEMAS = new Set([
 
 const SCHEMA_ROOTS = new Set(['z', 'Pg']);
 
-interface ChainShape {
+interface CallChainNode {
   readonly type: string;
-  readonly parent?: ChainShape;
+  readonly parent?: CallChainNode;
   readonly object?: unknown;
   readonly callee?: unknown;
   readonly property?: { readonly name?: unknown };
@@ -165,7 +165,7 @@ interface ChainShape {
 /** Whether a primitive keyword is (part of) a declared type: a field, parameter, return or variable annotation. */
 function isAnnotated(node: unknown): boolean {
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let { parent } = node as ChainShape;
+  let { parent } = node as CallChainNode;
 
   while (parent !== undefined && TYPE_WRAPPERS.has(parent.type)) {
     ({ parent } = parent);
@@ -178,7 +178,7 @@ function isAnnotated(node: unknown): boolean {
 function chainMethods(call: unknown): readonly string[] {
   const names: string[] = [];
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let node = call as ChainShape;
+  let node = call as CallChainNode;
   let member = node.parent;
 
   while (member?.type === 'MemberExpression' && member.object === node && member.parent?.callee === member) {
@@ -197,7 +197,7 @@ function chainMethods(call: unknown): readonly string[] {
 function primitiveSchema(node: Rule.Node): string | undefined {
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   const { callee } = node as {
-    readonly callee: ChainShape & { readonly object?: { readonly name?: unknown } };
+    readonly callee: CallChainNode & { readonly object?: { readonly name?: unknown } };
   };
 
   const name = callee.property?.name;

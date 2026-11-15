@@ -58,10 +58,10 @@ function parseDice(formula: string): Pick<Damage, 'dice' | 'die' | 'bonus'> | un
   const die = DIE_BY_SIDES.get(sides ?? '');
   const dice = Number(count);
   const flat = bonus === undefined ? undefined : Number(bonus);
-  const shaped = extra.length === 0 && surplus.length === 0 && die !== undefined;
+  const recognised = extra.length === 0 && surplus.length === 0 && die !== undefined;
   const numbers = Number.isInteger(dice) && dice > 0 && (flat === undefined || Number.isInteger(flat));
 
-  return shaped && numbers ? { dice, die, ...present({ bonus: flat }) } : undefined;
+  return recognised && numbers ? { dice, die, ...present({ bonus: flat }) } : undefined;
 }
 
 /** "4d12+19" or "5" as a damage part; a persistent part, an unknown type or a longer formula is reported. */

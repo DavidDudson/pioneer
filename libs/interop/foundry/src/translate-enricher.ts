@@ -1,4 +1,4 @@
-import { AreaShape, AreaShapeSchema, DurationCount, DurationUnit, Feet, InlineKind } from '@pioneer/rules/sdk';
+import { AreaKind, AreaKindSchema, DurationCount, DurationUnit, Feet, InlineKind } from '@pioneer/rules/sdk';
 import type { DurationNode, TemplateNode } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
@@ -52,9 +52,9 @@ function feetOf(value: string | undefined): Feet | undefined {
 }
 
 /** A line's width; anything else with a width, or a width that is not whole feet, is reported. */
-function widthOf(params: ReadonlyMap<string, string>, shape: AreaShape, context: EnricherContext): Feet | undefined {
+function widthOf(params: ReadonlyMap<string, string>, kind: AreaKind, context: EnricherContext): Feet | undefined {
   const width = feetOf(params.get(WIDTH));
-  const isWideLine = shape === AreaShape.Line && width !== undefined;
+  const isWideLine = kind === AreaKind.Line && width !== undefined;
 
   if (params.has(WIDTH) && !isWideLine) {
     context.report(`${TEMPLATE}[${WIDTH}]`);
@@ -67,21 +67,21 @@ function widthOf(params: ReadonlyMap<string, string>, shape: AreaShape, context:
 function templateRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
   const parsed = enricherParams(params, TYPE);
   const type = parsed.get(TYPE) ?? '';
-  const shape = AreaShapeSchema.safeParse(type);
+  const kind = AreaKindSchema.safeParse(type);
   const size = feetOf(parsed.get(DISTANCE));
 
-  if (!shape.success || size === undefined) {
-    context.report(shape.success ? `${TEMPLATE}[${DISTANCE}]` : `${TEMPLATE}[${TYPE}:${type}]`);
+  if (!kind.success || size === undefined) {
+    context.report(kind.success ? `${TEMPLATE}[${DISTANCE}]` : `${TEMPLATE}[${TYPE}:${type}]`);
 
     return textRun(label ?? `${parsed.get(DISTANCE) ?? ''}-foot ${type}`, context);
   }
 
   reportParams(parsed, { enricher: TEMPLATE, handled: TEMPLATE_HANDLED }, context);
-  const width = widthOf(parsed, shape.data, context);
+  const width = widthOf(parsed, kind.data, context);
 
   const node: TemplateNode = {
     type: InlineKind.Template,
-    shape: shape.data,
+    shape: kind.data,
     size,
     ...present({ width }),
   };
