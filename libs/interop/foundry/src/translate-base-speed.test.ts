@@ -16,6 +16,8 @@ describe('BaseSpeed from Foundry', () => {
     const { rules, untranslated } = translated({ key: 'BaseSpeed', selector: movement, value: 30 });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       { key: RuleElementKey.Change, selector: `speed:${movement}`, mode: 'upgrade', value: 30 },
     ]);
@@ -55,6 +57,8 @@ describe('BaseSpeed that reads the land speed', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: RuleElementKey.Change,

@@ -20,6 +20,7 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
 }
 
 function find(fixture: ComponentFixture<DateField>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (element === null) {
@@ -30,6 +31,7 @@ function find(fixture: ComponentFixture<DateField>, selector: string): HTMLEleme
 }
 
 function control(fixture: ComponentFixture<DateField>): HTMLInputElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('input');
 
   if (element === null) {

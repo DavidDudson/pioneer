@@ -61,7 +61,7 @@ function withDescriptionText(raw: unknown): unknown {
     return raw;
   }
 
-  const blocks = 'value' in raw && Array.isArray(raw.value) ? (raw.value as readonly unknown[]) : [];
+  const blocks: readonly unknown[] = 'value' in raw && Array.isArray(raw.value) ? raw.value : [];
   const [block] = blocks;
   const text = typeof block === 'object' && block !== null && 'text' in block ? block.text : undefined;
 

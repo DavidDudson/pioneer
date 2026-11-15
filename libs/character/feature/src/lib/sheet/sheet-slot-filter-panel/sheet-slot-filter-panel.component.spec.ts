@@ -39,6 +39,8 @@ async function render(filter: SlotFilter | undefined): Promise<ComponentFixture<
 }
 
 const textOf = (fixture: ComponentFixture<SheetSlotFilterPanel>): string =>
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+  // The nativeElement property is typed any.
   (fixture.nativeElement as HTMLElement).textContent;
 
 describe(SheetSlotFilterPanel, () => {
@@ -64,6 +66,8 @@ describe(SheetSlotFilterPanel, () => {
     const filter = slotFilter(true);
     const fixture = await render(filter);
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+    // The nativeElement property is typed any.
     const toggle = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>('fr-toggle-button button');
     toggle?.click();
     await fixture.whenStable();

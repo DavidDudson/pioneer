@@ -104,6 +104,7 @@ interface CampaignJson {
 async function create(api: AnyElysia, as: UserId, name: string): Promise<CampaignJson> {
   const response = await api.handle(request('POST', '/campaigns', { as, body: { name } }));
 
+  // SAFETY: this route answers with `CampaignJson` JSON, the shape the route's response schema describes.
   return (await response.json()) as CampaignJson;
 }
 
@@ -112,6 +113,7 @@ describe('campaign routes', () => {
     const api = app();
     const created = await api.handle(request('POST', '/campaigns', { body: { name: 'Abomination Vaults' } }));
     expect(created.status).toBe(200);
+    // SAFETY: this route answers with `CampaignJson` JSON, the shape the route's response schema describes.
     const campaign = (await created.json()) as CampaignJson;
     expect(campaign.gmId).toBe(amiri);
     expect(campaign.members).toStrictEqual([
@@ -119,14 +121,17 @@ describe('campaign routes', () => {
     ]);
 
     const got = await api.handle(request('GET', `/campaigns/${campaign.id}`));
+    // SAFETY: this route answers with `CampaignJson` JSON, the shape the route's response schema describes.
     expect(((await got.json()) as CampaignJson).name).toBe('Abomination Vaults');
     const listed = await api.handle(request('GET', '/campaigns'));
+    // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
     expect(((await listed.json()) as CampaignJson[]).map(({ id }) => id)).toStrictEqual([campaign.id]);
   });
 
   test('a blank name is 422', async () => {
     const response = await app().handle(request('POST', '/campaigns', { body: { name: '  ' } }));
     expect(response.status).toBe(422);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.message).toStrictEqual({ key: 'problem.validation' });
     expect(problem.issues).toContainEqual({
@@ -177,6 +182,7 @@ describe('campaign routes without a signed-in user', () => {
     const response = await api.handle(unsigned);
     expect(response.status).toBe(401);
     expect(response.headers.get('content-type')).toContain('application/problem+json');
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('unauthorized');
     expect(problem.message).toStrictEqual({ key: 'problem.unauthorized' });
@@ -191,12 +197,14 @@ describe('campaign routes across users', () => {
 
     const got = await api.handle(request('GET', `/campaigns/${theirs.id}`));
     expect(got.status).toBe(404);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     expect(((await got.json()) as Problem).message).toStrictEqual({ key: 'problem.notFound' });
 
     const missing = await api.handle(request('GET', `/campaigns/${newId()}`));
     expect(missing.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/campaigns'));
+    // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
     expect(((await listed.json()) as CampaignJson[]).map(({ id }) => id)).toStrictEqual([mine.id]);
   });
 });
@@ -210,6 +218,7 @@ async function status(api: AnyElysia, sent: Request): Promise<number> {
 async function listFrom(api: AnyElysia, path: string, as: UserId = amiri): Promise<readonly CampaignJson[]> {
   const response = await api.handle(request('GET', path, { as }));
 
+  // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
   return (await response.json()) as CampaignJson[];
 }
 

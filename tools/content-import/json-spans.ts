@@ -60,6 +60,7 @@ class Reader {
 
     this.position += 1;
 
+    // SAFETY: the slice runs from the opening quote to just past the closing quote scanned above, which is a JSON string literal, so it parses to a string.
     return JSON.parse(this.#text.slice(start, this.position)) as string;
   }
 

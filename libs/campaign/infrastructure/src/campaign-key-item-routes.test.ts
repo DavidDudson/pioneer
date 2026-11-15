@@ -87,6 +87,7 @@ interface KeyItemsJson {
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {
+  // SAFETY: each caller names the body type of the route it called, and this test helper only reads the response as that type.
   return (await response.json()) as TBody;
 }
 

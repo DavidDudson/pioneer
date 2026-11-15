@@ -31,6 +31,7 @@ describe(ChipList, () => {
     const fixture = TestBed.createComponent(ChipList);
     fixture.componentRef.setInput('chips', [{ label: 'Fire', entry: FIREBALL }, { label: 'Plain' }]);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
     const stops = host.querySelectorAll('[tabindex="0"]');
     expect(stops).toHaveLength(1);
@@ -48,6 +49,7 @@ describe(ChipList, () => {
     const fixture = TestBed.createComponent(ChipList);
     fixture.componentRef.setInput('chips', [{ label: 'Flame', trait: FIRE }, { label: 'Plain' }]);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
     expect(host.querySelectorAll('pio-trait-chip')).toHaveLength(1);
     expect(host.querySelector('pio-trait-chip')?.textContent.trim()).toBe('Flame');

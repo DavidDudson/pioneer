@@ -89,6 +89,8 @@ describe('consumableInventoryAfter', () => {
 
 describe('afterConsumable', () => {
   const terms: EffectTerms = { remaining: undefined, expiry: undefined, sustained: false, badge: undefined };
+  // SAFETY: a Map from a ContentId to EffectTerms is exactly an EffectContent; the Map constructor infers a mutable
+  // Map type for the literal.
   const limits = { ...within(MAX), effects: new Map([[BOOST, terms]]) as EffectContent };
   const hurt = { ...FRESH_PLAY, hp: { damage: HitPoints.parse(20), temp: HitPoints.parse(0) } };
 

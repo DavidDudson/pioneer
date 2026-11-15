@@ -20,6 +20,7 @@ describe('rich text (properties)', () => {
   test('a node with a type the schema does not know is always rejected', () => {
     assert(
       property(richTextJson, (json) => {
+        // SAFETY: the richTextJson arbitrary generates a JSON array of nodes.
         const withUnknown = [...(json as unknown[]), { type: 'html', html: '<b>x</b>' }];
         expect(RichText.safeParse(withUnknown).success).toBe(false);
       }),

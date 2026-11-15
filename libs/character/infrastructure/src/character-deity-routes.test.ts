@@ -55,6 +55,8 @@ describe('character routes: the deity', () => {
       request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }),
     );
 
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { id } = (await createdResponse.json()) as Created;
     const gone = new ContentPackBuilder().withId('gone').withDeity('vanished').idOf(ContentKind.Deity, 'vanished');
     const patch = { expectedVersion: 1, patch: { field: 'selectSlot', slot: 'deity', selection: gone } };
@@ -74,6 +76,8 @@ describe('character routes: the deity', () => {
       request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }),
     );
 
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { id } = (await createdResponse.json()) as Created;
 
     const select = async (version: number, slot: string, selection: string): Promise<PatchedCharacterSheet> => {

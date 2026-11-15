@@ -42,6 +42,8 @@ interface Created {
 async function created(api: AnyElysia): Promise<Created> {
   const response = await api.handle(request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }));
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return (await response.json()) as Created;
 }
 
@@ -126,6 +128,7 @@ describe('character routes: skills', () => {
 
     const again = await api.handle(select(3, 'skill-training:1:1', skillFixtureId('athletics')));
     expect(again.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await again.json()) as Problem).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.skillTrained' } },
     ]);
@@ -142,6 +145,8 @@ describe('character routes: languages', () => {
 
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const response = await api.handle(request('POST', '/characters', { name: 'Harsk', ancestry: languageDwarfId }));
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { id } = (await response.json()) as Created;
 
     const select = (version: number, slot: string, selection: string): Request =>
@@ -152,6 +157,7 @@ describe('character routes: languages', () => {
 
     const known = await api.handle(select(1, 'language:1:0', languageFixtureId('dwarven')));
     expect(known.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await known.json()) as Problem).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.languageKnown' } },
     ]);

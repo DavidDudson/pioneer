@@ -48,6 +48,7 @@ function wizardWithStaff(): JsonObject {
 
 /** A 5th-level imperial sorcerer (arcane, spontaneous), who casts 3rd-rank spells, holding the fire staff. */
 function sorcererWithStaff(): JsonObject {
+  // SAFETY: wizardWithStaff() builds a character document whose build holds choices by slot.
   const wizard = wizardWithStaff() as { build: { choices: Record<string, string> } };
 
   const choices = {
@@ -117,6 +118,7 @@ describe('CharacterSheetPage staff casts', () => {
       ...prepared,
       events: [],
       play: {
+        // SAFETY: prepared is the wire character, which always holds a play object.
         ...(prepared as { play: JsonObject }).play,
         turn: { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false },
         spendLog: [
@@ -149,6 +151,8 @@ describe('CharacterSheetPage staff casts', () => {
         expectedRevision: 1,
         command: { field: 'spendAction', staff: { item: STAFF } },
       });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       const { command } = request.request.body as { command: { action: string } };
       spell = command.action;
       request.flush(castWith(1, spell, 2));
@@ -168,6 +172,8 @@ describe('CharacterSheetPage staff casts', () => {
     let spell = '';
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       spell = (request.request.body as { command: { action: string } }).command.action;
       request.flush(castWith(1, spell, 2));
     });
@@ -203,6 +209,8 @@ describe('CharacterSheetPage staff casts', () => {
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({
+        // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+        // It is only compared, never read.
         command: { field: 'spendAction', staff: { item: STAFF, slot: expect.stringContaining('sorcerer') as string } },
       });
       request.flush({ ...preparedWith(1, 2), events: [] });

@@ -39,6 +39,8 @@ describe('character rule-limit routes', () => {
   test('the owner reads the core rules’ limits, and another user gets a 404', async () => {
     const api = app();
     const created = await api.handle(request('/characters', ezren, { name: 'Seelah', ancestry: humanAncestryId }));
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { id } = (await created.json()) as { id: string };
 
     const own = await api.handle(request(`/characters/${id}/rule-limits`, ezren));

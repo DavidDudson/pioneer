@@ -181,6 +181,7 @@ describe('PackDependenciesPanel', () => {
       expect(pickerField(harness)).toBeDefined();
     });
 
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     (pickerField(harness).componentInstance as PickerField<string, object>).value.set(playerCore.id);
     await harness.fixture.whenStable();
     present(present(harness.routeNativeElement).querySelector<HTMLButtonElement>('button[type="submit"]')).click();
@@ -193,6 +194,7 @@ describe('PackDependenciesPanel', () => {
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain('Player Core');
     });
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     const picker = pickerField(harness).componentInstance as PickerField<string, { readonly id: string }>;
     expect(picker.rows().map((row) => row.id)).toStrictEqual([monsterCore.id]);
   });
@@ -203,6 +205,7 @@ describe('PackDependenciesPanel', () => {
       expect(pickerField(harness)).toBeDefined();
     });
 
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     (pickerField(harness).componentInstance as PickerField<string, object>).value.set(playerCore.id);
     await harness.fixture.whenStable();
     present(present(harness.routeNativeElement).querySelector<HTMLButtonElement>('button[type="submit"]')).click();

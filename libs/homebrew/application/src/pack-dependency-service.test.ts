@@ -88,6 +88,7 @@ describe('PackDependencyService', () => {
       const mine = await create(amiri, 'amiri-feats', PackVisibility.Private);
       const error = await rejection(service.add(amiri, mine, { dependsOn: mine }));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.DependsOnItself,
       });
@@ -101,6 +102,7 @@ describe('PackDependencyService', () => {
       await service.add(amiri, second, { dependsOn: third });
       const error = await rejection(service.add(amiri, third, { dependsOn: first }));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.DependencyCycle,
         params: { dependency: 'first' },
@@ -112,6 +114,7 @@ describe('PackDependencyService', () => {
       const base = await create(amiri, 'amiri-base', PackVisibility.Campaign);
       const error = await rejection(service.add(amiri, mine, { dependsOn: base }));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.DependencyNarrower,
         params: { dependency: 'amiri-base' },
@@ -160,6 +163,7 @@ describe('PackDependencyService', () => {
       usage.use(mine, playerCore, 'Whirling Strike').use(mine, playerCore, 'Axe Rush');
       const error = await rejection(service.remove(amiri, mine, playerCore));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.DependencyInUse,
         params: { entries: 'Axe Rush, Whirling Strike' },

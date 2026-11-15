@@ -95,8 +95,10 @@ async function campaign(handler: AnyElysia): Promise<string> {
     request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
   );
 
+  // SAFETY: the create route answers with the new campaign as JSON, which carries its `id`.
   const { id } = (await created.json()) as { readonly id: string };
   const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
+  // SAFETY: the invite route answers with the issued invite as JSON, which carries its `token`.
   const { token } = (await issued.json()) as { readonly token: string };
   await handler.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
 

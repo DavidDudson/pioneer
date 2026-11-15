@@ -78,6 +78,8 @@ async function createdBy(api: AnyElysia, owner: UserId): Promise<CharacterId> {
     request('/characters', owner, { method: 'POST', body: { name: 'Seelah', ancestry: humanAncestryId } }),
   );
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return ((await response.json()) as { id: CharacterId }).id;
 }
 
@@ -89,9 +91,13 @@ describe('character rule-limit settings routes', () => {
 
     const set = await api.handle(request(`${path}/investedMax`, ezren, { method: 'POST', body: { value: 12 } }));
     expect(set.status).toBe(200);
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     expect(((await set.json()) as { limits: { value: number }[] }).limits[0]?.value).toBe(12);
 
     const reset = await api.handle(request(`${path}/investedMax`, ezren, { method: 'DELETE' }));
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const settings = (await reset.json()) as { limits: { value: number; custom: boolean }[] };
     expect(settings.limits[0]).toMatchObject({ value: CORE_RULE_LIMITS.investedMax, custom: false });
   });

@@ -44,6 +44,8 @@ async function answerEdit(play: JsonObject): Promise<unknown> {
   let command: unknown = undefined;
   await vi.waitFor(() => {
     const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+    // SAFETY: HttpTestingController types the request body as any.
+    // The sheet sends this command, and the test reads only the fields named here.
     ({ command } = request.request.body as { command: unknown });
     request.flush({ ...play, events: [] });
   });

@@ -57,6 +57,7 @@ async function render(total: number): Promise<ComponentFixture<StatisticRoll>> {
 }
 
 function labelOf(fixture: ComponentFixture<StatisticRoll>): HTMLElement | null {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('button[aria-label^="Roll Acrobatics"] span');
 }
 
@@ -68,6 +69,7 @@ async function renderCues(
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
   const fixture = await renderStatistic(rollEffects === undefined ? base : { ...base, rollEffects });
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('button');
 }
 
@@ -186,6 +188,7 @@ async function renderFlat(kind: StatisticKind): Promise<Flat> {
 describe('a flat roll', () => {
   it('rolls one d20 plus the total of a DC', async () => {
     const { fixture, flats } = await renderFlat(StatisticKind.Dc);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const button = (fixture.nativeElement as HTMLElement).querySelector('button');
     expect(button?.textContent.trim()).toBe('+25');
     button?.click();

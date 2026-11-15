@@ -59,6 +59,7 @@ describe('CampaignService', () => {
     const missing = CampaignId.parse(newId());
     const error = await rejection(service.get(amiri, missing));
     expect(error).toBeInstanceOf(NotFoundError);
+    // SAFETY: the `toBeInstanceOf(NotFoundError)` assertion above fails the test unless `error` is a NotFoundError, which carries the `descriptor` read here.
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
 });
@@ -97,6 +98,7 @@ describe('CampaignService membership', () => {
     const theirs = await service.create(ezren, { name: vaults });
     const error = await rejection(service.get(amiri, theirs.id));
     expect(error).toBeInstanceOf(NotFoundError);
+    // SAFETY: the `toBeInstanceOf(NotFoundError)` assertion above fails the test unless `error` is a NotFoundError, which carries the `descriptor` read here.
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
 });
@@ -194,6 +196,7 @@ describe('CampaignService member management', () => {
   test('the GM can’t remove themselves', async () => {
     const error = await rejection(service.removeMember(amiri, party.id, memberOf(party, amiri).id));
     expect(error).toBeInstanceOf(ForbiddenError);
+    // SAFETY: the `toBeInstanceOf(ForbiddenError)` assertion above fails the test unless `error` is a ForbiddenError, which carries the `descriptor` read here.
     expect((error as ForbiddenError).descriptor).toStrictEqual({ key: 'campaign.members.gmNotRemovable' });
   });
 
@@ -231,6 +234,7 @@ describe('CampaignService member management', () => {
     expect(await rejection(service.get(ezren, party.id))).toBeInstanceOf(NotFoundError);
     const error = await rejection(service.leave(amiri, party.id));
     expect(error).toBeInstanceOf(ForbiddenError);
+    // SAFETY: the `toBeInstanceOf(ForbiddenError)` assertion above fails the test unless `error` is a ForbiddenError, which carries the `descriptor` read here.
     expect((error as ForbiddenError).descriptor).toStrictEqual({ key: 'campaign.members.gmCannotLeave' });
   });
 

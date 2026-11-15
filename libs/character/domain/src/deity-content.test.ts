@@ -26,6 +26,7 @@ describe('deityContent', () => {
 
   test('reads a deity by id without its sources, which the server contract does not carry', () => {
     const read = deities.deity(ContentId.parse(pack.idOf(ContentKind.Deity, 'sarenrae')));
+    // SAFETY: a deity entry read from the pack is an object, so Object.keys can list its fields.
     expect(Object.keys(read as object).toSorted()).toEqual(['data', 'description', 'id', 'name']);
   });
 });

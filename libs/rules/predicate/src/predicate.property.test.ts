@@ -263,6 +263,8 @@ describe('evaluatePredicate (properties)', () => {
 
         const added = extra.filter(
           (option) =>
+            // SAFETY: widening only: the tuple of option names is assignable to readonly string[].
+            // Includes() takes a string.
             (SITUATIONAL_OPTIONS as readonly string[]).includes(option) ||
             (option.startsWith(`${SITUATIONAL_PREFIX}:`) && !settled.has(SITUATIONAL_PREFIX)),
         );

@@ -106,6 +106,8 @@ describe('CharacterSheetPage casting a form spell', () => {
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       const { command } = request.request.body as { command: object };
       expect(command).toMatchObject({ field: 'spendAction', action: ANIMAL_FORM, apply: { rank: 2 } });
       request.flush({ ...PLAY, events: [] });

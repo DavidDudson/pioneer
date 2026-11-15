@@ -29,6 +29,7 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): Rendered {
     cancels += 1;
   });
   fixture.detectChanges();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const input = (fixture.nativeElement as HTMLElement).querySelector('input');
 
   if (input === null) {

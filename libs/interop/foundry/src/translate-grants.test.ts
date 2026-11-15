@@ -34,6 +34,8 @@ describe('GrantItem from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'GrantItem',
@@ -51,6 +53,8 @@ describe('GrantItem from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([{ key: 'GrantItem', item: ASSURANCE, flag: 'dragon-breath' }]);
   });
 
@@ -65,6 +69,8 @@ describe('GrantItem from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'GrantItem',
@@ -93,6 +99,8 @@ describe('Aura from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'Aura',
@@ -131,6 +139,8 @@ describe('Aura from Foundry', () => {
     const { rules, untranslated } = translated({ key: 'Aura', radius: '5 * @item.badge.value' });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([{ key: 'Aura', radius: '5 * @item.value' }]);
   });
 

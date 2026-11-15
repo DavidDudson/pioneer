@@ -12,6 +12,7 @@ async function lines(kind: 'weaknesses' | 'resistances', type: 'area-damage' | '
   fixture.componentRef.setInput('defences', { ...NO_DEFENCES, [kind]: [adjustment(GOLEM_FORM, type, { value: 5 })] });
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
 
   return [...host.querySelectorAll('[role="listitem"]')].map(

@@ -19,7 +19,7 @@ export function heldContentIds(document: unknown): readonly ContentId[] {
         found.add(ContentId.parse(next.toLowerCase()));
       }
     } else if (Array.isArray(next)) {
-      for (const each of next as readonly unknown[]) {
+      for (const each of next) {
         stack.push(each);
       }
     } else if (typeof next === 'object' && next !== null) {

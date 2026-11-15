@@ -15,6 +15,7 @@ function render(open: boolean, variant: DisclosureVariant = DisclosureVariant.Pl
 }
 
 function details(fixture: ComponentFixture<Disclosure>): HTMLDetailsElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('details');
 
   if (element === null) {
@@ -26,6 +27,7 @@ function details(fixture: ComponentFixture<Disclosure>): HTMLDetailsElement {
 
 /** The path the chevron is drawn with. */
 function chevronPath(fixture: ComponentFixture<Disclosure>): string | undefined {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('summary svg path')?.getAttribute('d') ?? undefined;
 }
 
@@ -76,6 +78,7 @@ describe(Disclosure, () => {
   });
 
   it('keeps the chevron decorative so the summary is named by its content', () => {
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const svg = (render(false).nativeElement as HTMLElement).querySelector('summary svg');
     expect(svg?.getAttribute('aria-hidden')).toBe('true');
   });

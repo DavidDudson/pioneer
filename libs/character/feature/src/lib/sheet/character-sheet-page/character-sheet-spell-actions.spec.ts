@@ -63,7 +63,11 @@ describe('CharacterSheetPage casting a spell', () => {
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       const { command } = request.request.body as { command: JsonObject };
+      // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+      // It is only compared, never read.
       expect(command).toMatchObject({ field: 'spendAction', action: expect.any(String) as string });
       expect(command).not.toHaveProperty('slot');
       request.flush({ ...playOf(OWN_TURN), events: [] });
@@ -101,6 +105,8 @@ describe('CharacterSheetPage casting a spell', () => {
         command: {
           field: 'spendAction',
           cost: { kind: 'actions', count: 3 },
+          // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+          // It is only compared, never read.
           slot: expect.stringContaining('wizard') as string,
         },
       });

@@ -18,6 +18,7 @@ async function render(
   fixture.componentRef.setInput('open', open);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

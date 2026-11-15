@@ -58,7 +58,7 @@ export function ownedQueryOf<Choices extends object>(
     return choices;
   }
 
-  const types = 'types' in choices && Array.isArray(choices.types) ? (choices.types as readonly unknown[]) : [];
+  const types: readonly unknown[] = 'types' in choices && Array.isArray(choices.types) ? choices.types : [];
   const kinds = types.map((type) => (typeof type === 'string' ? OWNED_KINDS.get(type) : undefined));
   const filter = 'predicate' in choices && Array.isArray(choices.predicate) ? choices.predicate : [];
 

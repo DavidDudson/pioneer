@@ -107,6 +107,7 @@ describe('POST /characters/import/pioneer', () => {
 
     const response = await app.handle(request('/characters/import/pioneer', file, ezren));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.issues?.[0]?.message.key).toBe('character.import.pioneer.problem.newerFormat');
     expect(await characters.list(ezren, everything)).toStrictEqual([]);
@@ -118,6 +119,7 @@ describe('POST /characters/import/pioneer', () => {
     );
 
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.issues?.[0]?.message.key).toBe('character.import.pioneer.problem.malformed');
   });

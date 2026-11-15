@@ -43,6 +43,8 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
     const { choices } = ChoiceRule.parse(rules[0]);
     expect(choices).toHaveLength(16);
     expect(choices[0]).toMatchObject({ value: 'acrobatics', predicate: ['skill:acrobatics:rank:0'] });
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules[1] as unknown).toEqual({
       key: 'Proficiency',
       selector: { choice: 'first-trained-skill', prefix: 'skill' },
@@ -67,10 +69,14 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
     );
 
     expect(untranslated).toEqual([]);
+    // SAFETY: the input is the rule under test, so rules[0] is its translation.
+    // The cast names only the fields the test reads from that element.
     expect((rules[0] as { choices: unknown }).choices).toEqual([
       { label: 'Arcana', value: 'arcana' },
       { label: 'Nature', value: 'nature' },
     ]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules[1] as unknown).toEqual({
       key: 'Proficiency',
       selector: { choice: 'elemental-lore', prefix: 'skill' },
@@ -102,6 +108,8 @@ describe('ChoiceSet from Foundry: a config Pioneer has a meaning for', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: the input is the rule under test, so rules[0] is its translation.
+    // The cast names only the fields the test reads from that element.
     const { choices } = rules[0] as { choices: { value: string; label: string }[] };
     expect(choices).toHaveLength(10);
     expect(choices[0]).toEqual({ value: '1', label: 'Rank 1' });
@@ -117,6 +125,8 @@ describe('ChoiceSet from Foundry: a config Pioneer has a meaning for', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: the input is the rule under test, so rules[0] is its translation.
+    // The cast names only the fields the test reads from that element.
     expect((rules[0] as { choices: unknown }).choices).toEqual({ kind: ContentKind.Weapon, filter: [] });
   });
 });

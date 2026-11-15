@@ -62,6 +62,7 @@ function entry(id: string, description: unknown): OutcomeEntryJson {
 
 /** `shape` with the outcomes the import gives it, when it gives any. */
 function givenOutcomes(shape: unknown, outcome: unknown): unknown {
+  // SAFETY: every caller passes an entry object, and spreading an `object` only copies its own properties.
   return outcome === undefined ? shape : { ...(shape as object), outcomes: { success: outcome } };
 }
 

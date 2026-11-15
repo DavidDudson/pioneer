@@ -42,6 +42,7 @@ async function render(statistics: readonly NamedStatistic[] | undefined): Promis
 }
 
 function hostOf(fixture: ComponentFixture<StatisticsView>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -89,6 +90,7 @@ describe(StatisticsView, () => {
   });
 
   it("shows a statistic's note beside its row, and none beside the others", async () => {
+    // SAFETY: FIGHTER_STATISTICS is a non-empty fixture list, so it has the head the tuple type promises.
     const [first, ...rest] = FIGHTER_STATISTICS as [NamedStatistic, ...NamedStatistic[]];
     const note = 'Trained by Acolyte and Cleric; the second training is lost';
     const host = hostOf(await render([{ ...first, note }, ...rest]));

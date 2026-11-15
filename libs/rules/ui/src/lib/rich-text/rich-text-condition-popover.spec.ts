@@ -38,6 +38,7 @@ async function popovers(block: unknown, previews: EntryPreviews | undefined): Pr
   const deferred = await fixture.getDeferBlocks();
   await Promise.all(deferred.map(async (each) => each.render(DeferBlockState.Complete)));
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelectorAll('pio-content-preview').length;
 }
 

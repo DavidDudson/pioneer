@@ -63,6 +63,8 @@ async function create(api: AnyElysia, as: UserId): Promise<Created> {
     request('POST', '/characters', { as, body: { name: 'Kyra', ancestry: humanAncestryId } }),
   );
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return (await response.json()) as Created;
 }
 
@@ -111,6 +113,7 @@ describe('character routes: the shop', () => {
     const buy = { expectedVersion: 1, patch: { field: 'buyItem', item: rope, quantity: 2 } };
     const refused = await patch(api, id, buy);
     expect(refused.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await refused.json()) as Problem;
     expect(problem.issues).toStrictEqual([
       { path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } },
@@ -166,6 +169,7 @@ describe('character routes: kits', () => {
     const { id } = await create(api, amiri);
     const refused = await patch(api, id, { expectedVersion: 1, patch: { field: 'buyKit', kit: climbing } });
     expect(refused.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await refused.json()) as Problem;
     expect(problem.issues).toStrictEqual([
       { path: ['patch', 'kit'], message: { key: 'character.validation.cannotAffordKit' } },

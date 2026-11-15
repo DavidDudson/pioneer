@@ -77,6 +77,7 @@ describe(AsyncForm, () => {
   ])('Mod+Enter submits through the submit button, unless it is disabled ($disabled)', async ({ disabled, runs }) => {
     const action = vi.fn<(value: Model) => Promise<undefined>>(async () => undefined);
     const fixture = await render('Valeros', action);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const element = (fixture.nativeElement as HTMLElement).querySelector('form');
     const submit = document.createElement('button');
     submit.type = 'submit';

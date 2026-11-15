@@ -13,6 +13,7 @@ function render(): ComponentFixture<TextArea> {
 }
 
 function textarea(fixture: ComponentFixture<TextArea>): HTMLTextAreaElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('textarea');
 
   if (element === null) {

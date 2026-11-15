@@ -211,7 +211,7 @@ function resolvedEffects(listed: unknown, references: EntryReferences): readonly
 
   const effects: object[] = [];
 
-  for (const each of listed as readonly unknown[]) {
+  for (const each of listed) {
     const parsed = FoundryAuraEffect.safeParse(each);
     const effect = parsed.success ? resolveUuid(references, parsed.data.uuid) : undefined;
 

@@ -27,6 +27,7 @@ async function render(anchor: string, heading: string): Promise<Rendered> {
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(section.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = section.location.nativeElement as HTMLElement;
   document.body.append(host);
   onTestFinished(() => {
@@ -89,6 +90,7 @@ describe('Section body', () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
     fixture = TestBed.createComponent(SectionBodyHost);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     root = fixture.nativeElement as HTMLElement;
     await fixture.whenStable();
   });

@@ -48,6 +48,8 @@ describe('innateSpellRules', () => {
     expect(keyed('feat:fey-influence', InnateSpells)).toContainEqual({
       key: InnateSpells,
       entry: 'fey-influence',
+      // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+      // It is only compared, never read.
       spells: [{ rank: 1, spell: expect.any(String) as string }],
       predicate: ['fey-influence:cursed-bluebird'],
     });
@@ -64,6 +66,7 @@ describe('innateSpellRules', () => {
 
   test('Grown of Oak is one rank below a druid’s highest, by level', () => {
     const ranks = keyed('feat:grown-of-oak', InnateSpells).map(
+      // SAFETY: keyed() returns InnateSpells rules, whose spells are a list of ranked spells.
       (rule) => (rule['spells'] as { rank: number }[])[0]?.rank,
     );
 

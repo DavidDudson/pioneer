@@ -30,7 +30,11 @@ describe('ChoiceSet from Foundry: a pick of values other rules read', () => {
     ]);
 
     expect(untranslated).toEqual([]);
+    // SAFETY: the input is the rule under test, so rules[0] is its translation.
+    // The cast names only the fields the test reads from that element.
     expect((rules[0] as { rollOption: string }).rollOption).toBe('conduct-energy-damage-type');
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules.slice(1) as readonly unknown[]).toEqual([
       { key: 'Resistance', type: ['acid'], value: 5, predicate: ['conduct-energy-damage-type:acid'] },
       { key: 'Resistance', type: ['cold'], value: 5, predicate: ['conduct-energy-damage-type:cold'] },

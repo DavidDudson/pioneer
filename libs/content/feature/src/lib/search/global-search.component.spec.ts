@@ -75,6 +75,7 @@ async function open(): Promise<Opened> {
   });
   const fixture = TestBed.createComponent(GlobalSearch);
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const root = fixture.nativeElement as HTMLElement;
   const input = root.querySelector('input');
 

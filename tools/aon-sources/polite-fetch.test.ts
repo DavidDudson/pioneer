@@ -28,7 +28,9 @@ function harness(...responses: Response[]): Harness {
     sleep: async (ms): Promise<void> => {
       clock += ms;
     },
+    // SAFETY: the fake implements the call signature of `fetch` the client uses, not `fetch`'s other members (such as `preconnect`).
     fetch: (async (input: URL, init: RequestInit) => {
+      // SAFETY: `PoliteClient` always passes its headers to `fetch` as a plain object, never as a `Headers` or an array.
       calls.push({ url: String(input), headers: init.headers as Record<string, string>, at: clock });
 
       return responses.shift() ?? new Response('', { status: 500 });

@@ -97,6 +97,8 @@ describe('a spend that records a staff cast', () => {
   test('names the staff cast a spend makes and the one its undoing takes back', () => {
     const spent = applyPlayCommand(staffPlay(), cast, staffLimits);
     expect(spentStaffOf(spent, cast)).toStrictEqual({ field: StaffCommandField.CastStaff, ...CAST });
+    // SAFETY: pays() and undo() build a command of the SpendCommand kind; their declared return type is the whole
+    // PlayCommand union.
     expect(spentStaffOf(spent, undo(FIRST) as SpendCommand)).toStrictEqual({
       field: StaffCommandField.UncastStaff,
       ...CAST,
@@ -131,7 +133,11 @@ describe('a spend that expends a slot or a Focus Point', () => {
   test('refuses a slot with none left and a Focus Point with none held', () => {
     const play = playIn(OWN_TURN);
     const none = { counted: NO_SLOTS, points: LIMITS.resources };
+    // SAFETY: pays() and undo() build a command of the SpendCommand kind; their declared return type is the whole
+    // PlayCommand union.
     const slotted = spendRefusal(play, pays({ slot: SLOT }) as SpendCommand, none);
+    // SAFETY: pays() and undo() build a command of the SpendCommand kind; their declared return type is the whole
+    // PlayCommand union.
     const focused = spendRefusal(play, pays({ focus: true }) as SpendCommand, none);
     expect(slotted).toBe(SpendProblem.NoSlotLeft);
     expect(focused).toBe(SpendProblem.NoFocusLeft);
@@ -139,6 +145,8 @@ describe('a spend that expends a slot or a Focus Point', () => {
 
   test('leaves the turn as it was when the slot is gone', () => {
     const spent = applyPlayCommand(playIn(OWN_TURN), pays({ slot: SLOT }), withSlots);
+    // SAFETY: spreading a spend command and replacing its id gives a spend command, a PlayCommand.
+    // The spread is typed loosely.
     const second = { ...pays({ slot: SLOT }), id: spendId(SECOND) } as PlayCommand;
     const refused = applyPlayCommand(spent, second, withSlots);
     expect(refused.spendLog).toHaveLength(1);

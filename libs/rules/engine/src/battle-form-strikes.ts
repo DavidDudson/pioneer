@@ -54,7 +54,7 @@ function plain(selector: Selector, total: FormulaValue, form?: FormReplacement):
 
 /** The best attack modifier among the character's own unarmed Strikes; none when it has no unarmed Strike. */
 function ownUnarmedAttack({ weapons, results }: StrikeSources): FormulaValue | undefined {
-  let best = undefined as FormulaValue | undefined;
+  let best: FormulaValue | undefined = undefined;
 
   for (const unarmed of weapons.filter((weapon) => isUnarmed(weapon))) {
     const result = results.get(Selector.parse(`${ATTACK}:${unarmed.slug}`));

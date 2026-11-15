@@ -18,6 +18,7 @@ describe(Glyph, () => {
     const appRef = TestBed.inject(ApplicationRef);
     appRef.attachView(glyph.hostView);
     await appRef.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = glyph.location.nativeElement as HTMLElement;
 
     expect(host.querySelector('[aria-hidden="true"]')?.textContent).toBe('◆◆');

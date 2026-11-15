@@ -232,6 +232,7 @@ export const noNativeElements: Rule.RuleModule = {
 
     return {
       Element(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name: rawName, startSourceSpan } = node as ElementNode;
 
         if (typeof rawName !== 'string' || startSourceSpan === undefined) {
@@ -248,6 +249,7 @@ export const noNativeElements: Rule.RuleModule = {
         }
       },
       'Element:exit'(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name: rawName } = node as ElementNode;
         foreignDepth -= typeof rawName === 'string' && NAMESPACED.test(rawName) ? 1 : 0;
       },

@@ -15,6 +15,7 @@ function render(value: boolean): ComponentFixture<ToggleButton> {
 }
 
 function button(fixture: ComponentFixture<ToggleButton>): HTMLButtonElement | null {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('button');
 }
 
@@ -52,6 +53,7 @@ describe(ToggleButton, () => {
 
   it('shows no icon: the fill is the state', () => {
     const fixture = render(true);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('svg')).toBeNull();
   });
 

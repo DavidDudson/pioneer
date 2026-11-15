@@ -53,6 +53,7 @@ async function render(json: unknown, headingLevel: HeadingLevel = HeadingLevel.T
   const deferred = await fixture.getDeferBlocks();
   await Promise.all(deferred.map(async (block) => block.render(DeferBlockState.Complete)));
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

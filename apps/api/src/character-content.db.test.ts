@@ -43,9 +43,10 @@ const TABLE = 'registry-table';
 const SHELVED = 'registry-shelved';
 const HIDDEN = 'registry-hidden';
 
-const [core, table, shelved, hidden] = [CORE, TABLE, SHELVED, HIDDEN].map((pack) =>
-  contentPackId(PackId.parse(pack)),
-) as [ContentPackId, ContentPackId, ContentPackId, ContentPackId];
+const core = contentPackId(PackId.parse(CORE));
+const table = contentPackId(PackId.parse(TABLE));
+const shelved = contentPackId(PackId.parse(SHELVED));
+const hidden = contentPackId(PackId.parse(HIDDEN));
 
 function entryId(pack: string): ContentId {
   return ContentId.parse(contentId(PackId.parse(pack), EntrySlug.parse(`ancestry:${pack}`)));

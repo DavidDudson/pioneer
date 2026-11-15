@@ -96,6 +96,7 @@ describe('inventoryViolations', () => {
     let stock = etchRune(armoury(), Armoury.Sword, POTENCY_1);
     stock = etchRune(stock, Armoury.Sword, FLAMING);
     stock = etchRune(stock, Armoury.Sword, FROST);
+    // SAFETY: 2 is a valid property-rune count per grade, within its allowed range.
     const roomy = withLimits({ propertyRunesPerGrade: 2 as RuleLimits['propertyRunesPerGrade'] });
     expect(inventoryViolations(stock, content, roomy)).toStrictEqual([]);
   });

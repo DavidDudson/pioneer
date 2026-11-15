@@ -80,6 +80,8 @@ async function createdBy(api: AnyElysia, owner: UserId): Promise<CharacterId> {
     request('/characters', owner, { method: 'POST', body: { name: 'Seelah', ancestry: humanAncestryId } }),
   );
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return ((await response.json()) as { id: CharacterId }).id;
 }
 
@@ -147,6 +149,8 @@ describe('character item-approval routes', () => {
     );
 
     expect(response.status).toBe(409);
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const problem = (await response.json()) as { message: { key: string; params: object } };
     expect(problem.message).toStrictEqual({
       key: 'character.itemApprovals.campaignApproves',

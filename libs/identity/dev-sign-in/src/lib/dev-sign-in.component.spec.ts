@@ -27,6 +27,7 @@ async function render(returnTo: string): Promise<Rendered> {
   fixture.componentRef.setInput('returnTo', ReturnPath.parse(returnTo));
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { root: fixture.nativeElement as HTMLElement, signInAt };
 }
 

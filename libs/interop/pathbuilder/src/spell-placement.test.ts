@@ -42,6 +42,8 @@ const SPELL_NAMES: Readonly<Record<SpellFixture, string>> = {
 
 const lookup = entryLookup({
   [ImportKind.Spell]: Object.entries(SPELL_NAMES).map(([fixture, name]) => ({
+    // SAFETY: SPELL_NAMES is keyed by SpellFixture, so each key Object.entries yields is one.
+    // It types keys as string.
     id: spellFixtureId(fixture as SpellFixture),
     name: ContentText.parse(name),
   })),

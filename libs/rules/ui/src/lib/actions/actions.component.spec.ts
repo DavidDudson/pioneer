@@ -48,6 +48,7 @@ async function render(
 }
 
 function hostOf(fixture: ComponentFixture<ActionsView>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

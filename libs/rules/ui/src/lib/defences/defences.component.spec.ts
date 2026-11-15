@@ -82,6 +82,7 @@ async function render(defences: Defences, names: Names = NAMED): Promise<Rendere
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
 
   const lists = [...host.querySelectorAll('h3')].map((heading): ReadList => {
@@ -141,6 +142,7 @@ describe(DefencesView, () => {
     const fixture = TestBed.createComponent(DefencesView);
     fixture.componentRef.setInput('defences', undefined);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
 
     expect(host.querySelectorAll('h3')).toHaveLength(0);

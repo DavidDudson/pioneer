@@ -23,6 +23,8 @@ async function mappingFiles(): Promise<readonly MappingFile[]> {
   return Promise.all(
     files.map(async (file) => ({
       pack: file.replace(/\.json$/u, ''),
+      // SAFETY: Response.json() is typed any.
+      // This route's body has the shape its contract gives, and the test reads only the fields named here.
       json: (await Bun.file(`${ENRICHMENT}/${file}`).json()) as unknown,
     })),
   );
