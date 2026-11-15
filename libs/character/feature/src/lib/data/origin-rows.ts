@@ -11,7 +11,7 @@ import { Feet, HitPoints, Trait } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '@pioneer/rules/ui';
 
-import { traitNames } from '../sheet/sheet-build';
+import { traitChips } from '../sheet/sheet-build';
 import { sheetEntryNames } from '../sheet/sheet-entry-names';
 import { sheetTrainedAgain, trainedAgainNote } from '../sheet/sheet-skill-repeats';
 import { sheetSlotContent } from '../sheet/sheet-slot-content';
@@ -37,7 +37,6 @@ export function ancestryRows(
   character: Character | undefined,
 ): readonly AncestryPickerRow[] {
   const names = sheetEntryNames(registry);
-  const traits = traitNames(registry);
   const slot = offered(registry, character, ANCESTRY_SLOT);
   return originContent(registry)
     .ancestries.filter((ancestry) => slot?.has(ancestry.id) ?? true)
@@ -50,7 +49,10 @@ export function ancestryRows(
       boosts: definition.boosts,
       flaws: definition.flaws,
       languages: (definition.languages ?? []).map((language) => names.get(language) ?? language),
-      traits: definition.traits.map((trait) => traits.get(Trait.parse(trait)) ?? trait),
+      traits: traitChips(
+        registry,
+        definition.traits.map((trait) => Trait.parse(trait)),
+      ),
       sources,
       disabledReason: undefined,
     }));

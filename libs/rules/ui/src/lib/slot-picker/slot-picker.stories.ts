@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, waitFor, within } from 'storybook/test';
 
 import { SLOT_FACTS, slotRow } from '../testing/slot-picker-fixtures';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { SlotPickerRow } from './slot-picker-row';
 import { SlotPicker } from './slot-picker.component';
 
@@ -59,7 +60,7 @@ export const EntryFacts: SlotPickerStory = {
   args: {
     rows: [
       slotRow({ id: 'ember', name: 'Ember', facts: SLOT_FACTS }),
-      slotRow({ id: 'frost', name: 'Frost', facts: { ...SLOT_FACTS, level: 1, traits: ['Cold'] } }),
+      slotRow({ id: 'frost', name: 'Frost', facts: { ...SLOT_FACTS, level: 1, traits: traitChipsOf('Cold') } }),
       slotRow({ id: 'plain', name: 'Plain', sources: [] }),
     ],
   },

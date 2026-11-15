@@ -143,6 +143,20 @@ function spellSlotFilter(
       });
 }
 
+/** The rows of a prepared slot's picker: the spells it offers, those held in another slot disabled. */
+function slotRows(
+  sources: SpellPickSources,
+  slot: SheetPreparedSlot | undefined,
+  taken: ReadonlySet<ContentId>,
+): readonly SpellPickerRow[] {
+  return spellRows(slot?.spells ?? [], {
+    translate: sources.translate,
+    castRank: slot?.castRank,
+    taken,
+    registry: sources.registry(),
+  });
+}
+
 /** One prepared slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function preparedField(
   sources: SpellPickSources,
@@ -176,8 +190,7 @@ function preparedField(
     rows: computed(() => {
       sources.messages();
       const taken = takenElsewhere(entries(), sources.character(), key);
-      const rows = spellRows(slot()?.spells ?? [], { translate: sources.translate, castRank: slot()?.castRank, taken });
-      return without(rows, filter?.hidden());
+      return without(slotRows(sources, slot(), taken), filter?.hidden());
     }),
     reason: computed(() => slot()?.reason),
     filter,

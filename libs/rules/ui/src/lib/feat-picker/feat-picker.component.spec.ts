@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { featRow } from '../testing/feat-picker-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { FeatPickerRow } from './feat-picker-row';
 import { FeatPicker } from './feat-picker.component';
 
@@ -110,6 +111,11 @@ describe(FeatPicker, () => {
   afterEach(() => {
     vi.restoreAllMocks();
     vi.useRealTimers();
+  });
+
+  it("opens a trait's card from each trait of a feat", async () => {
+    const rendered = await render([featRow({ id: 'a', name: 'A', traits: traitChipsOf('Fighter', 'Flourish') })]);
+    expect(rendered.host.querySelectorAll('pio-trait-chip')).toHaveLength(2);
   });
 
   it('opens straight to the table, with a column for each fact to choose by', async () => {

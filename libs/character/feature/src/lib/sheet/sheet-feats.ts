@@ -6,7 +6,7 @@ import type {
   FeatSlot,
   PrerequisiteClauseStatus,
 } from '@pioneer/character/domain';
-import { BlockKind, ContentKind, FeatCategory, InlineKind, Rarity } from '@pioneer/rules/sdk';
+import { BlockKind, ContentKind, FeatCategory, InlineKind, Rarity, Trait } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentId,
@@ -17,11 +17,12 @@ import type {
   SourceRef,
 } from '@pioneer/rules/sdk';
 import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
-import type { FeatPickerRow, PrerequisiteLine } from '@pioneer/rules/ui';
+import type { Chip, FeatPickerRow, PrerequisiteLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
+import { traitChips } from './sheet-build';
 import { sheetEntry } from './sheet-entry-previews';
 import { sheetTrainedAgain, trainedAgainNote } from './sheet-skill-repeats';
 import type { TrainedAgain, Translate } from './sheet-skill-repeats';
@@ -64,7 +65,7 @@ export interface SheetFeatOption {
   readonly category: FeatCategory;
   readonly action: ActionKind;
   readonly rarity: Rarity;
-  readonly traits: readonly string[];
+  readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];
   readonly status: PrerequisiteStatus;
   /** Each clause of the prerequisites with its own state, for a feat with several; undefined for any other. */
@@ -98,7 +99,7 @@ interface FeatFacts {
   readonly category: FeatCategory;
   readonly action: ActionKind;
   readonly rarity: Rarity;
-  readonly traits: readonly string[];
+  readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];
 }
 
@@ -111,7 +112,7 @@ function actionKindOf(entry: ContentEntry & { readonly kind: typeof ContentKind.
   return upTo === undefined ? cost : ActionKind.Variable;
 }
 
-function factsOf(entry: ContentEntry | undefined): FeatFacts {
+function factsOf(registry: ContentRegistry, entry: ContentEntry | undefined): FeatFacts {
   if (entry?.kind !== ContentKind.Feat) {
     return {
       category: FeatCategory.General,
@@ -125,16 +126,22 @@ function factsOf(entry: ContentEntry | undefined): FeatFacts {
     category: entry.data.category,
     action: actionKindOf(entry),
     rarity: entry.rarity,
-    traits: entry.traits,
+    traits: traitChips(
+      registry,
+      entry.traits.map((trait) => Trait.parse(trait)),
+    ),
     sources: entry.sources,
   };
 }
 
-function optionOf(
-  option: FeatOption,
-  nameOf: (id: ContentId) => string | undefined,
-  entryOf: (id: ContentId) => ContentEntry | undefined,
-): SheetFeatOption {
+/** What a feat option is worded from: the registry that names its traits, and the entries it reads. */
+interface OptionReads {
+  readonly registry: ContentRegistry;
+  readonly nameOf: (id: ContentId) => string | undefined;
+  readonly entryOf: (id: ContentId) => ContentEntry | undefined;
+}
+
+function optionOf(option: FeatOption, { registry, nameOf, entryOf }: OptionReads): SheetFeatOption {
   const prerequisites = option.prerequisites === undefined ? undefined : plainText(option.prerequisites, nameOf);
   const locked =
     option.locked === undefined
@@ -144,7 +151,7 @@ function optionOf(
     value: option.value,
     label: option.label,
     level: option.level,
-    ...factsOf(entryOf(option.value)),
+    ...factsOf(registry, entryOf(option.value)),
     status: option.status,
     clauses: option.clauses,
     prerequisites,
@@ -182,7 +189,7 @@ export function sheetFeats(
     return {
       key: slot.key,
       label: labelOf(slot, nameOf),
-      options: slot.options.map((option) => optionOf(option, nameOf, entryOf)),
+      options: slot.options.map((option) => optionOf(option, { registry, nameOf, entryOf })),
       trainedAgain: sheetTrainedAgain(registry, character, slot.key),
       storedName: read !== undefined && 'selectionName' in read ? read.selectionName : undefined,
       reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,

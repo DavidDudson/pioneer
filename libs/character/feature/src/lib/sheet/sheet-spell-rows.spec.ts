@@ -3,6 +3,8 @@ import {
   AreaValue,
   CastActions,
   ContentId,
+  ContentKind,
+  ContentRegistry,
   ContentText,
   DefenseValue,
   DurationValue,
@@ -11,7 +13,9 @@ import {
   Rarity,
   SpellRank,
   TargetValue,
+  Trait,
 } from '@pioneer/rules/sdk';
+import { ContentPackBuilder, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { spellRows } from './sheet-spell-rows';
@@ -53,6 +57,7 @@ describe(spellRows, () => {
       translate,
       castRank: SpellRank.parse(3),
       taken: NONE,
+      registry: undefined,
     });
     expect(row).toMatchObject({
       id: FIREBALL,
@@ -72,6 +77,7 @@ describe(spellRows, () => {
         translate,
         castRank: SpellRank.parse(4),
         taken: NONE,
+        registry: undefined,
       },
     );
     expect(rows.map((row) => row.heightenedTo)).toStrictEqual([4, 4]);
@@ -82,11 +88,13 @@ describe(spellRows, () => {
       translate,
       castRank: SpellRank.parse(3),
       taken: NONE,
+      registry: undefined,
     });
     const range = spellRows([spell(FIREBALL, 'Fireball', { rank: 3 })], {
       translate,
       castRank: undefined,
       taken: NONE,
+      registry: undefined,
     });
     expect([own[0]?.heightenedTo, range[0]?.heightenedTo]).toStrictEqual([undefined, undefined]);
   });
@@ -96,7 +104,32 @@ describe(spellRows, () => {
       translate,
       castRank: undefined,
       taken: new Set([FIREBALL]),
+      registry: undefined,
     });
     expect(rows.map((row) => row.disabledReason)).toStrictEqual([undefined, 'character.sheet.prepared.alreadyKnown']);
+  });
+
+  it("carries each trait's slug, which opens its card, labelled by the slug read as words until the registry names it", () => {
+    const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('fire')] }], {
+      translate,
+      castRank: undefined,
+      taken: NONE,
+      registry: undefined,
+    });
+    expect(row?.traits).toStrictEqual([{ label: 'Fire', trait: 'fire' }]);
+  });
+
+  it("names a trait the way the registry's vocabulary does", () => {
+    const pack = new ContentPackBuilder().withId('player-core').withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS);
+    pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Spell] });
+    const registry = new ContentRegistry();
+    registry.register(pack.build());
+    const [row] = spellRows([{ ...spell(FIREBALL, 'Fireball', { rank: 3 }), traits: [Trait.parse('cold-iron')] }], {
+      translate,
+      castRank: undefined,
+      taken: NONE,
+      registry,
+    });
+    expect(row?.traits).toStrictEqual([{ label: 'Cold-iron', trait: 'cold-iron' }]);
   });
 });

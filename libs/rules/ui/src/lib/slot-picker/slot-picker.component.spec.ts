@@ -52,6 +52,11 @@ describe(SlotPicker, () => {
     ).toStrictEqual([]);
   });
 
+  it("opens a trait's card from each trait of an option", async () => {
+    const { host } = await render(SlotPicker, { rows: [EMBER] });
+    expect(host.querySelectorAll('pio-trait-chip')).toHaveLength(SLOT_FACTS.traits.length);
+  });
+
   it('says "Legacy" for an option whose entry is from a pre-remaster book', async () => {
     const legacy = slotRow({ id: 'ember', name: 'Ember', facts: { ...SLOT_FACTS, legacy: true } });
     const { host } = await render(SlotPicker, { rows: [legacy, EMBER] });

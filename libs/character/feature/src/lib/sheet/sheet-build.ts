@@ -72,9 +72,12 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
   return read;
 }
 
-/** Chips for `slugs`: each carries its slug, which opens its card, and its name where the vocabulary has one, else the slug read as words. */
-export function traitChips(registry: ContentRegistry, slugs: readonly Trait[]): readonly Chip[] {
-  const names = traitNames(registry);
+/**
+ * Chips for `slugs`: each carries its slug, which opens its card, and its name where the vocabulary has one, else the
+ * slug read as words (as it is without a registry, still loading).
+ */
+export function traitChips(registry: ContentRegistry | undefined, slugs: readonly Trait[]): readonly Chip[] {
+  const names = registry === undefined ? new Map<Trait, string>() : traitNames(registry);
   return slugs.map((trait): Chip => ({ label: names.get(trait) ?? humaniseTrait(trait), trait }));
 }
 

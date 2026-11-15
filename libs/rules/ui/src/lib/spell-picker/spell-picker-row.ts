@@ -10,6 +10,8 @@ import type {
   TargetValue,
 } from '@pioneer/rules/sdk';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
+
 /** The columns a spell picker sorts by; the others show facts to choose by. */
 export const SpellPickerColumn = { Name: 'name', Rank: 'rank' } as const;
 
@@ -31,8 +33,8 @@ export interface SpellPickerRow {
   /** What it is rolled against: an attack or a save, or none. */
   readonly defense: readonly DefenseValue[];
   readonly duration: readonly DurationValue[];
-  /** Trait names. */
-  readonly traits: readonly string[];
+  /** Its traits, each a chip that opens the trait's card. */
+  readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];
   /** Why the spell can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;

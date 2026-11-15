@@ -59,11 +59,14 @@ function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip
     })),
     ...(facts.unsupported === true ? [{ label: say(SlotPickerMessage.Unsupported), tone: BadgeTone.Warning }] : []),
   ];
-  const traits = facts.traits.map((label): Chip => ({ label }));
   if (facts.rarity === Rarity.Common) {
-    return [...flags, ...traits];
+    return [...flags, ...facts.traits];
   }
-  return [...flags, { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
+  return [
+    ...flags,
+    { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] },
+    ...facts.traits,
+  ];
 }
 
 /**

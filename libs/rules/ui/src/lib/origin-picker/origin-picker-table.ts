@@ -86,7 +86,7 @@ function givesColumns(schema: OriginTableSchema<AncestryPickerRow>, say: Say): O
       id: 'traits',
       header: say(OriginPickerMessage.Traits),
       sortable: false,
-      value: (row) => chips(row.traits),
+      value: (row) => row.traits,
       width: 'md',
     })
     .addSource({

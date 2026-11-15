@@ -12,6 +12,7 @@ import {
 import { expect, waitFor, within } from 'storybook/test';
 
 import { spellRow } from '../testing/spell-picker-fixtures';
+import { traitChipsOf } from '../testing/trait-chip-fixtures';
 import type { SpellPickerRow } from './spell-picker-row';
 import { SpellPicker } from './spell-picker.component';
 
@@ -29,7 +30,7 @@ const SPELLS: readonly SpellPickerRow[] = [
     cast: [CastActions.Two],
     targets: [TargetValue.Multiple],
     defense: [DefenseValue.Reflex],
-    traits: ['Cantrip', 'Electricity'],
+    traits: traitChipsOf('Cantrip', 'Electricity'),
   }),
   spellRow({
     id: 'fireball',
@@ -39,7 +40,7 @@ const SPELLS: readonly SpellPickerRow[] = [
     range: [RangeBand.UpTo120],
     area: AreaValue.Burst,
     defense: [DefenseValue.Reflex],
-    traits: ['Fire'],
+    traits: traitChipsOf('Fire'),
   }),
   spellRow({
     id: 'heal',
@@ -47,7 +48,7 @@ const SPELLS: readonly SpellPickerRow[] = [
     traditions: [MagicTradition.Divine, MagicTradition.Primal],
     cast: [CastActions.One, CastActions.Two, CastActions.Three],
     range: [RangeBand.Touch, RangeBand.UpTo30],
-    traits: ['Healing', 'Vitality'],
+    traits: traitChipsOf('Healing', 'Vitality'),
   }),
   spellRow({
     id: 'hypnotic-pattern',
@@ -58,7 +59,7 @@ const SPELLS: readonly SpellPickerRow[] = [
     area: AreaValue.Burst,
     duration: [DurationValue.Sustained],
     defense: [DefenseValue.Will],
-    traits: ['Incapacitation', 'Visual'],
+    traits: traitChipsOf('Incapacitation', 'Visual'),
     disabledReason: 'Already picked in this entry',
   }),
   spellRow({

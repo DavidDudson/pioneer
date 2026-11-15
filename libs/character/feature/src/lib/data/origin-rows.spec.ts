@@ -71,7 +71,8 @@ describe('origin rows', () => {
 
       expect(elf).toMatchObject({ hitPoints: 6, size: 'medium', speed: 30, flaws: ['con'] });
       expect(elf?.languages).toStrictEqual(expect.arrayContaining(['Common', 'Elven']));
-      expect(elf?.traits).toStrictEqual(expect.arrayContaining(['Elf', 'Humanoid']));
+      expect(elf?.traits.map(({ label }) => label)).toStrictEqual(expect.arrayContaining(['Elf', 'Humanoid']));
+      expect(elf?.traits.map(({ trait }) => trait)).toStrictEqual(expect.arrayContaining(['elf', 'humanoid']));
     });
   });
 
