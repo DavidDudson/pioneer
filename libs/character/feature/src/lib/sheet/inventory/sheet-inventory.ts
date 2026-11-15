@@ -162,7 +162,9 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
     const note = runeNote(rune, working.has(id));
     const badge: RuneBadgeData = { kind: RuneBadgeKind.Property, id, name: rune.name };
 
-    return [{ ...badge, ...(choice === undefined ? {} : { choice }), ...(note === undefined ? {} : { note }) }];
+    const chosen: RuneBadgeData = choice === undefined ? badge : { ...badge, choice };
+
+    return [note === undefined ? chosen : { ...chosen, note }];
   });
 
   const room =

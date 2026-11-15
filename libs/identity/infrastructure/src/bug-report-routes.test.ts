@@ -44,10 +44,8 @@ function fixture(): Fixture {
 }
 
 async function report(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
-  const headers = {
-    'content-type': 'application/json',
-    ...(user === undefined ? {} : actingAs(user)),
-  };
+  const headers = new Headers(user === undefined ? undefined : actingAs(user));
+  headers.set('content-type', 'application/json');
 
   return api.handle(
     new Request('http://localhost/me/bug-reports', {

@@ -32,15 +32,24 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     class: className,
   }: CharacterFixture): this {
     const characterId = CharacterId.parse(id);
-    this.#characters.set(characterId, {
+
+    const entry = {
       id: characterId,
       ownerId,
       name: PartyCharacterName.parse(name),
       level: PartyCharacterLevel.parse(level),
       archived,
-      ...(ancestry === undefined ? {} : { ancestry: PartyCharacterOrigin.parse(ancestry) }),
-      ...(className === undefined ? {} : { class: PartyCharacterOrigin.parse(className) }),
-    });
+    };
+
+    if (ancestry !== undefined) {
+      Object.assign(entry, { ancestry: PartyCharacterOrigin.parse(ancestry) });
+    }
+
+    if (className !== undefined) {
+      Object.assign(entry, { class: PartyCharacterOrigin.parse(className) });
+    }
+
+    this.#characters.set(characterId, entry);
 
     return this;
   }

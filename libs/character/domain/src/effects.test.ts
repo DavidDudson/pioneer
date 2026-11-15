@@ -73,13 +73,15 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
 
 const LIMITS = { ...within(HitPoints.parse(10)), effects: CONTENT };
 
-const apply = (id: EffectInstanceId, effect: ContentId, rolled?: number): EffectCommand => ({
-  field: EffectCommandField.ApplyEffect,
-  id,
-  effect,
-  source: SELF,
-  ...(rolled === undefined ? {} : { rolled: badge(rolled) }),
-});
+const apply = (id: EffectInstanceId, effect: ContentId, rolled?: number): EffectCommand => {
+  const command: EffectCommand = { field: EffectCommandField.ApplyEffect, id, effect, source: SELF };
+
+  if (rolled === undefined) {
+    return command;
+  }
+
+  return { ...command, rolled: badge(rolled) };
+};
 
 describe('duration conversion', () => {
   test('a minute is 10 rounds, an hour 600 and a day 14,400', () => {

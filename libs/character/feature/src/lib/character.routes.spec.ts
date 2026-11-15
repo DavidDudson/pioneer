@@ -37,12 +37,21 @@ function stubbed(routes: readonly Route[]): Route[] {
         : provider,
     );
 
-    return {
-      ...(route.path === undefined ? {} : { path: route.path }),
-      ...(route.data === undefined ? {} : { data: route.data }),
-      ...(providers === undefined ? {} : { providers }),
-      ...target(route),
-    };
+    const kept: Route = {};
+
+    if (route.path !== undefined) {
+      kept.path = route.path;
+    }
+
+    if (route.data !== undefined) {
+      kept.data = route.data;
+    }
+
+    if (providers !== undefined) {
+      kept.providers = providers;
+    }
+
+    return { ...kept, ...target(route) };
   });
 }
 

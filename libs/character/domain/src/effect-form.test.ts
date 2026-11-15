@@ -26,12 +26,13 @@ const LOOKUP = lookupOf([PLANT]);
 
 /** The temporary Hit Points of the plant form in force, for an effect cast at `rank` with `form` chosen. */
 function formTempHp(rank: number, form: string | undefined): string | undefined {
-  const effect = ActiveEffectSchema.parse({
+  const input = {
     id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000001'),
     effect: idOf('plant-form'),
     rank: SpellRank.parse(rank),
-    ...(form === undefined ? {} : { form: RollOption.parse(form) }),
-  });
+  };
+
+  const effect = ActiveEffectSchema.parse(form === undefined ? input : { ...input, form: RollOption.parse(form) });
 
   const resolution = resolveGrants({
     roots: effectRoots([effect]),

@@ -39,12 +39,15 @@ interface Gift {
   readonly predicate?: readonly string[];
 }
 
-const gives = (slug: string, { spell, rank, predicate }: Gift): object => ({
-  key: 'InnateSpells',
-  entry: slug,
-  spells: [{ rank, spell: spellId(spell) }],
-  ...(predicate === undefined ? {} : { predicate }),
-});
+const gives = (slug: string, { spell, rank, predicate }: Gift): object => {
+  const grant = {
+    key: 'InnateSpells',
+    entry: slug,
+    spells: [{ rank, spell: spellId(spell) }],
+  };
+
+  return predicate === undefined ? grant : { ...grant, predicate };
+};
 
 pack
   .withClassFeature('fey-gift', {

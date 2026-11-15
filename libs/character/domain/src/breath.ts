@@ -70,7 +70,13 @@ export function applyBreathCommand(command: BreathCommand, before: BreathState |
 
   const unconscious = command.air === NONE ? before?.unconscious : undefined;
 
-  return { air: command.air, checks: command.checks, ...(unconscious === undefined ? {} : { unconscious }) };
+  const after: BreathState = { air: command.air, checks: command.checks };
+
+  if (unconscious !== undefined) {
+    after.unconscious = unconscious;
+  }
+
+  return after;
 }
 
 /** The Unconscious condition the breath put on that `command` ends: it is gone once the character has air again. */

@@ -40,11 +40,10 @@ export function decodeTableView(query: TableViewQuery, schema: TableViewSchema):
   const search = paramText(query, TableViewKey.Search);
   const facets = paramText(query, TableViewKey.Facets);
 
-  return {
-    ...(sort.length === 0 ? {} : { sort }),
-    ...(columns === undefined ? {} : { hidden: hiddenOf(columns, schema.columns) }),
-    ...(pageSize === undefined ? {} : { pageSize }),
-    ...(search === undefined ? {} : { search }),
-    ...(facets === undefined ? {} : { facets }),
-  };
+  const sorted: TableView = sort.length === 0 ? {} : { sort };
+  const hidden = columns === undefined ? sorted : { ...sorted, hidden: hiddenOf(columns, schema.columns) };
+  const paged = pageSize === undefined ? hidden : { ...hidden, pageSize };
+  const searched = search === undefined ? paged : { ...paged, search };
+
+  return facets === undefined ? searched : { ...searched, facets };
 }

@@ -8,6 +8,7 @@ import {
   InlineKind,
 } from '@pioneer/rules/sdk';
 import type { DamageNode, DamageType } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { inlineLabel, reportParams, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
@@ -194,8 +195,8 @@ function instanceOf(text: string, context: EnricherContext): Instance | undefine
 
   const instance = DamageInstance.safeParse({
     formula: pioneerFormula(body),
-    ...(flavour.damageType === undefined ? {} : { damageType: flavour.damageType }),
-    ...(category === undefined ? {} : { category }),
+    ...present({ damageType: flavour.damageType }),
+    ...present({ category }),
   });
 
   if (!instance.success) {
@@ -239,8 +240,8 @@ export function damageRun(formula: string, label: string | undefined, context: E
   const node: DamageNode = {
     type: InlineKind.Damage,
     instances: [first.instance, ...rest.map(({ instance }) => instance)],
-    ...(first.healing ? { healing: true } : {}),
-    ...(damageLabel === undefined ? {} : { label: damageLabel }),
+    ...present({ healing: first.healing ? true : undefined }),
+    ...present({ label: damageLabel }),
   };
 
   return [node];

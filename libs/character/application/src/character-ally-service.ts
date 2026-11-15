@@ -34,10 +34,13 @@ export class CharacterAllyService {
       this.#campaigns.alliesOf(character.id),
     ]);
 
-    return {
-      ...(campaign === undefined ? {} : { campaign: campaign.name }),
-      allies: allies.toSorted((left, right) => left.name.localeCompare(right.name)),
-    };
+    const result = { allies: allies.toSorted((left, right) => left.name.localeCompare(right.name)) };
+
+    if (campaign !== undefined) {
+      Object.assign(result, { campaign: campaign.name });
+    }
+
+    return result;
   }
 
   async #owned(actor: UserId, id: CharacterId): Promise<Character> {

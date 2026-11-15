@@ -21,6 +21,7 @@ import type {
   DamageFormula,
   DurationCount,
   EffectData,
+  OriginHop,
   RuleElement,
 } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
@@ -198,13 +199,13 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
     return undefined;
   }
 
-  return badge.type === EffectBadgeType.Counter
-    ? counterTerms(badge)
-    : {
-        type: EffectBadgeType.Formula,
-        formula: badge.formula,
-        ...(badge.reevaluate === undefined ? {} : { reevaluate: badge.reevaluate }),
-      };
+  if (badge.type === EffectBadgeType.Counter) {
+    return counterTerms(badge);
+  }
+
+  return badge.reevaluate === undefined
+    ? { type: EffectBadgeType.Formula, formula: badge.formula }
+    : { type: EffectBadgeType.Formula, formula: badge.formula, reevaluate: badge.reevaluate };
 }
 
 /**
@@ -292,13 +293,17 @@ export function badgeOptions(effects: readonly ActiveEffect[], lookup: ContentLo
  * they end. The hop carries no badge yet, so a badge changes what the sheet shows but not what the effect grants.
  */
 export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
-  return effects.map(({ effect, rank, tradition }) => ({
-    entry: effect,
-    hop: {
-      kind: OriginHopKind.Effect,
-      effect,
-      ...(rank === undefined ? {} : { rank }),
-      ...(tradition === undefined ? {} : { tradition }),
-    },
-  }));
+  return effects.map(({ effect, rank, tradition }): GrantRoot => {
+    const hop: OriginHop = { kind: OriginHopKind.Effect, effect };
+
+    if (rank !== undefined) {
+      hop.rank = rank;
+    }
+
+    if (tradition !== undefined) {
+      hop.tradition = tradition;
+    }
+
+    return { entry: effect, hop };
+  });
 }

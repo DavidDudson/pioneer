@@ -28,16 +28,12 @@ const NAME = ContentText.parse('Domain Initiate');
 const PROMPT = ContentText.parse('Select a domain.');
 
 function open(take: number | undefined, prompt: ContentText | undefined): CharacterSlot {
+  const subject = { kind: SlotSubjectKind.Choice, entry: ENTRY, entryName: NAME, prompt } as const;
+
   return {
     status: SlotStatus.Open,
     key: SlotKey.parse('slot'),
-    subject: {
-      kind: SlotSubjectKind.Choice,
-      entry: ENTRY,
-      entryName: NAME,
-      prompt,
-      ...(take === undefined ? {} : { take: Take.parse(take) }),
-    },
+    subject: take === undefined ? subject : { ...subject, take: Take.parse(take) },
   };
 }
 

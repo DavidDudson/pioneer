@@ -92,15 +92,16 @@ async function fixture(): Promise<Fixture> {
 }
 
 async function call(api: AnyElysia, { method, path, user, body }: Call): Promise<Response> {
-  const headers = { 'content-type': 'application/json', ...(user === undefined ? {} : actingAs(user)) };
+  const headers = new Headers(user === undefined ? undefined : actingAs(user));
+  headers.set('content-type', 'application/json');
 
-  return api.handle(
-    new Request(`http://localhost${path}`, {
-      method,
-      headers,
-      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-    }),
-  );
+  const init: RequestInit = { method, headers };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return api.handle(new Request(`http://localhost${path}`, init));
 }
 
 describe('bug report triage routes', () => {

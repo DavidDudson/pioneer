@@ -1,5 +1,6 @@
 import { contentKey, SourceKind } from '@pioneer/rules/sdk';
 import type { BookId, ContentEntry, SourceRef } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 /**
  * Page numbers and AoN links the replaced pack already had (content-model.md, "Foundry import"): an imported entry
@@ -27,8 +28,8 @@ function located(source: SourceRef, previous: ReadonlyMap<BookId, BookSource>): 
 
   return {
     ...source,
-    ...(page === undefined ? {} : { page }),
-    ...(aon === undefined ? {} : { aon }),
+    ...present({ page }),
+    ...present({ aon }),
   };
 }
 

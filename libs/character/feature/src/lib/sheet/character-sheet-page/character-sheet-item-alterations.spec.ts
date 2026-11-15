@@ -18,13 +18,16 @@ function carried(id: string, fixture: ItemFixture, carry: object): object {
 
 /** Merisiel holding a longsword and a steel shield, and wearing a charm whose alterations change them both. */
 function wearingCharm(invested: boolean): object {
+  const investment = invested ? { invested } : undefined;
+  const charm = { ...carried(CHARM, ItemFixture.BulwarkCharm, { state: 'worn' }), ...investment };
+
   return {
     ...MERISIEL,
     inventory: {
       items: [
         carried(SWORD, ItemFixture.Longsword, { state: 'held', hands: 1 }),
         carried(SHIELD, ItemFixture.SteelShield, { state: 'held', hands: 1 }),
-        { ...carried(CHARM, ItemFixture.BulwarkCharm, { state: 'worn' }), ...(invested ? { invested } : {}) },
+        charm,
       ],
       coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
     },

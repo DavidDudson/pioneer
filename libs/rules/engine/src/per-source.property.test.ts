@@ -44,6 +44,15 @@ const STRIKE = StatisticDefinition.parse({
   per: 'weapon',
 });
 
+/** A weapon as JSON, with a field set only when the generated weapon has it. */
+interface WeaponFields {
+  slug: string;
+  category: WeaponCategory;
+  traits: readonly string[];
+  range?: number;
+  potency?: number;
+}
+
 interface GeneratedWeapon {
   readonly slug: string;
   readonly category: WeaponCategory;
@@ -77,13 +86,17 @@ const character = record({
 });
 
 function weaponJson({ slug, category, finesse, ranged, potency }: GeneratedWeapon): object {
-  return wielded({
-    slug,
-    category,
-    traits: finesse ? ['finesse'] : [],
-    ...(ranged ? { range: RANGE } : {}),
-    ...(potency === null ? {} : { potency }),
-  });
+  const json: WeaponFields = { slug, category, traits: finesse ? ['finesse'] : [] };
+
+  if (ranged) {
+    json.range = RANGE;
+  }
+
+  if (potency !== null) {
+    json.potency = potency;
+  }
+
+  return wielded(json);
 }
 
 /** Player Core: Dexterity at range, the better of Strength and Dexterity with finesse, else Strength. */

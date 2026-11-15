@@ -41,11 +41,16 @@ interface Sent {
 }
 
 function request(method: string, path: string, { as, body }: Sent): Request {
-  return new Request(`http://localhost${path}`, {
+  const init: RequestInit = {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(as) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 /** The part of a created character these tests need. */

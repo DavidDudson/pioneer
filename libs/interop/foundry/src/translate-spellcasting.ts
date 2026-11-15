@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
@@ -34,7 +35,7 @@ function raise(rank: string, predicate?: readonly unknown[]): object {
     key: RuleElementKey.Proficiency,
     selector: RANK_SELECTOR,
     rank,
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }
 

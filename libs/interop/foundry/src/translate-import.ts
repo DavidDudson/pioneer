@@ -1,5 +1,6 @@
 import { ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { withPolymorphTraits } from './effect-traits';
 import type { PolymorphSource } from './effect-traits';
@@ -75,7 +76,7 @@ function traitsOf(known: readonly KnownEntry[]): ReadonlySet<Trait> {
 }
 
 function importedEntry({ source, envelope, kindData }: ImportedEntry): ImportedEntry {
-  return { source, envelope, ...(kindData === undefined ? {} : { kindData }) };
+  return { source, envelope, ...present({ kindData }) };
 }
 
 export function translateImport(selected: readonly SelectedEntry[], context: ImportContext): ImportTranslation {
@@ -93,7 +94,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     lang,
     references,
     senses: context.config.senses,
-    ...(documents === undefined ? {} : { documents }),
+    ...present({ documents }),
   });
 
   const links = foundryLinks(

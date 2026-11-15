@@ -37,13 +37,16 @@ const BASE = 10 + 2;
 
 /** A level 1 character with Dexterity 3 wearing armour of `bonus` with a Dexterity cap of 2. */
 function ac(bonus: number | undefined, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
-  const inputs = StatisticInputsJson.parse({
+  const character = {
     level: 1,
     attributes: { str: 0, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
     ranks: {},
     dexterityCap: 2,
-    ...(bonus === undefined ? {} : { armor: { bonus, origin: ORIGIN } }),
-  });
+  };
+
+  const inputs = StatisticInputsJson.parse(
+    bonus === undefined ? character : { ...character, armor: { bonus, origin: ORIGIN } },
+  );
 
   const content = { definitions: [AC], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
 
@@ -107,7 +110,7 @@ function fortitude(resilient: number | undefined, rules: readonly RuleInPlay[] =
     level: 1,
     attributes: { str: 0, dex: 0, con: 2, int: 0, wis: 0, cha: 0 },
     ranks: {},
-    armor: { bonus: 1, origin: ORIGIN, ...(resilient === undefined ? {} : { resilient }) },
+    armor: resilient === undefined ? { bonus: 1, origin: ORIGIN } : { bonus: 1, origin: ORIGIN, resilient },
   });
 
   const content = { definitions: [FORTITUDE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };

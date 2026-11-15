@@ -29,7 +29,8 @@ export function liftedRestrictions({ rules, facts }: ModifierInputs): readonly L
       const held = lifted[index];
 
       if (held === undefined) {
-        lifted.push({ restriction, ...(environment === undefined ? {} : { environment }), origins: [origin] });
+        const lift: LiftedRestriction = { restriction, origins: [origin] };
+        lifted.push(environment === undefined ? lift : { ...lift, environment });
       } else {
         lifted[index] = { ...held, origins: [...held.origins, origin] };
       }

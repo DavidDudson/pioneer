@@ -1,5 +1,6 @@
 import { AreaShape, AreaShapeSchema, DurationCount, DurationUnit, Feet, InlineKind } from '@pioneer/rules/sdk';
 import type { DurationNode, TemplateNode } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { checkRun } from './enricher-check';
 import { reportParams, textRun } from './enricher-context';
@@ -82,7 +83,7 @@ function templateRun(params: string, label: string | undefined, context: Enriche
     type: InlineKind.Template,
     shape: shape.data,
     size,
-    ...(width === undefined ? {} : { width }),
+    ...present({ width }),
   };
 
   return [node];

@@ -90,13 +90,10 @@ function availability(entry: ContentEntry, character: Character, views: CountedV
 }
 
 function optionOf({ entry, removal }: Remover, stock: Availability): PreviewEaseOption {
-  return {
-    source: { id: entry.id, name: entry.name },
-    effect: removal.effect,
-    ...(removal.by === undefined ? {} : { by: removal.by }),
-    ...(removal.rank === undefined ? {} : { rank: removal.rank }),
-    ...stock,
-  };
+  const base: PreviewEaseOption = { source: { id: entry.id, name: entry.name }, effect: removal.effect, ...stock };
+  const byOption: PreviewEaseOption = removal.by === undefined ? base : { ...base, by: removal.by };
+
+  return removal.rank === undefined ? byOption : { ...byOption, rank: removal.rank };
 }
 
 /**

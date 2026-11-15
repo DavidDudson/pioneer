@@ -1,4 +1,5 @@
 import { EntrySlug, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { KindDataGapReason, report } from './kind-data-gaps';
@@ -78,7 +79,7 @@ function sorcererEntry(tradition: string, predicate?: readonly unknown[]): objec
     tradition,
     attribute: CHA,
     preparation: 'spontaneous',
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }
 
@@ -118,7 +119,7 @@ function pickedSkills({ flag, options }: Pick): readonly object[] {
 function repertoire(entry: string, spells: readonly Named[], predicate?: readonly unknown[]): readonly object[] {
   return spells.length === 0
     ? []
-    : [{ key: RuleElementKey.RepertoireSpells, entry, spells, ...(predicate === undefined ? {} : { predicate }) }];
+    : [{ key: RuleElementKey.RepertoireSpells, entry, spells, ...present({ predicate }) }];
 }
 
 /**

@@ -8,7 +8,7 @@ import {
   EventRef,
   OriginHopKind,
 } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentRegistry, OriginHop } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -212,15 +212,19 @@ export function applyConditionCommand(
  * highest value, so the character has the condition once.
  */
 export function conditionRoots(conditions: readonly ActiveCondition[]): readonly GrantRoot[] {
-  return conditions.map(({ condition, value, appliedBy }) => ({
-    entry: condition,
-    hop: {
-      kind: OriginHopKind.Condition,
-      condition,
-      ...(value === undefined ? {} : { value }),
-      ...(appliedBy === undefined ? {} : { appliedBy }),
-    },
-  }));
+  return conditions.map(({ condition, value, appliedBy }): GrantRoot => {
+    const hop: OriginHop = { kind: OriginHopKind.Condition, condition };
+
+    if (value !== undefined) {
+      hop.value = value;
+    }
+
+    if (appliedBy !== undefined) {
+      hop.appliedBy = appliedBy;
+    }
+
+    return { entry: condition, hop };
+  });
 }
 
 /** Whether each condition of the registry's packs carries a value, by id; the last pack's entry wins, as in the registry. */

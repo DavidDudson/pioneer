@@ -22,7 +22,8 @@ const CLERIC = playerCoreClassId('cleric');
 
 /** Merisiel as a fighter, with a cleric as her second class when `second` is set. */
 function fighter(second = false): object {
-  const choices = { class: FIGHTER, ...(second ? { 'second-class': CLERIC } : {}) };
+  const secondClass = second ? { 'second-class': CLERIC } : undefined;
+  const choices = { class: FIGHTER, ...secondClass };
 
   return { ...MERISIEL, build: { choices } };
 }

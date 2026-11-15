@@ -21,10 +21,8 @@ const NO_INPUTS: StatisticInputs = StatisticInputsJson.parse({
 
 /** `term` as damage of the instance's type and category, which its text gives once for all its terms. */
 function tagged(term: Term, { damageType, category }: DamageInstance): Term {
-  const tags: DamageTags = {
-    ...(damageType === undefined ? {} : { type: damageType }),
-    ...(category === undefined ? {} : { category }),
-  };
+  const typed: DamageTags = damageType === undefined ? {} : { type: damageType };
+  const tags: DamageTags = category === undefined ? typed : { ...typed, category };
 
   return { ...term, tags };
 }

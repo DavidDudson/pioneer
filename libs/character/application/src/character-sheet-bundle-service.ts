@@ -56,16 +56,24 @@ export class CharacterSheetBundleService {
         isOwner ? unenabled.unenabled(actor, id) : undefined,
       ]);
 
-    return {
-      sheet,
-      ruleLimits: limits,
-      ...(playState === undefined ? {} : { play: playState }),
-      ...(sheetMode === undefined ? {} : { sheetMode }),
-      ...(display === undefined ? {} : { featDisplay: display }),
-      ...(packList === undefined ? {} : { packs: packList }),
-      ...(variantRules === undefined ? {} : { variantRules }),
-      ...(limitSettings === undefined ? {} : { ruleLimitSettings: limitSettings }),
-      ...(notEnabled === undefined ? {} : { unenabled: notEnabled }),
+    const result = { sheet, ruleLimits: limits };
+
+    const owned = {
+      play: playState,
+      sheetMode,
+      featDisplay: display,
+      packs: packList,
+      variantRules,
+      ruleLimitSettings: limitSettings,
+      unenabled: notEnabled,
     };
+
+    for (const [key, value] of Object.entries(owned)) {
+      if (value !== undefined) {
+        Object.assign(result, { [key]: value });
+      }
+    }
+
+    return result;
   }
 }

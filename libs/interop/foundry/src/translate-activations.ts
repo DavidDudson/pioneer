@@ -1,5 +1,6 @@
 import { ActivationName, FrequencyPeriod, Slug, Uses } from '@pioneer/rules/sdk';
 import type { Frequency } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { asciiNameSlug } from './foundry-slug';
 import { KindDataGapReason, report } from './kind-data-gaps';
@@ -122,7 +123,14 @@ export function activationsOf(html: string, itemName: string, log: GapLog): obje
       const { frequency, overcharge } = limit;
 
       return slug.success && label.success
-        ? [{ slug: slug.data, name: label.data, frequency, ...(overcharge ? { overcharge } : {}) }]
+        ? [
+            {
+              slug: slug.data,
+              name: label.data,
+              frequency,
+              ...present({ overcharge: overcharge || undefined }),
+            },
+          ]
         : [];
     });
 

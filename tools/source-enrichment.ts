@@ -27,7 +27,8 @@ function fill(sources: readonly SourceRef[], { book, page, aon }: EnrichmentMapp
 
   const setPage = source.page === undefined && page !== undefined;
   const setAon = source.aon === undefined && aon !== undefined;
-  const values = { ...(setPage ? { page } : {}), ...(setAon ? { aon } : {}) };
+  const pageValue: Fill['values'] = setPage ? { page } : {};
+  const values = setAon ? { ...pageValue, aon } : pageValue;
 
   return { index, values, pages: Number(setPage), aons: Number(setAon) };
 }

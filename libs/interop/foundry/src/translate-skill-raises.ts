@@ -1,4 +1,5 @@
 import { Proficiency, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { kebab } from './foundry-flags';
@@ -110,7 +111,7 @@ export function withSkillRaise(raw: unknown): unknown {
     key: RuleElementKey.Proficiency,
     selector,
     rank: RANKS[value - LOWEST_RANK],
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }
 

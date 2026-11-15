@@ -28,7 +28,7 @@ function keyOf(slug: string): ContentKey {
 
 /** A Player Core entry's JSON, as a pack file holds it. */
 function entry(slug: string, kind: string, data: object): object {
-  return {
+  const base = {
     id: idOf(slug),
     pack: PACK,
     slug,
@@ -39,9 +39,9 @@ function entry(slug: string, kind: string, data: object): object {
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     description: prose(slug),
     rules: [],
-    ...(kind === 'action' ? {} : { level: 1 }),
-    data,
   };
+
+  return kind === 'action' ? { ...base, data } : { ...base, level: 1, data };
 }
 
 /** A condition that names `by` as easing it. */

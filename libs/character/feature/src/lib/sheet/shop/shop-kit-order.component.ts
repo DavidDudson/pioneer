@@ -127,7 +127,8 @@ export class ShopKitOrder {
     value: ShopKitOrderModel,
   ): Promise<void> {
     const { container } = ShopKitOrderForm.parse(value);
-    const patch: CharacterPatch = { field, kit: this.kit().id, ...(container === LOOSE ? {} : { container }) };
+    const kit = this.kit().id;
+    const patch: CharacterPatch = container === LOOSE ? { field, kit } : { field, kit, container };
     await this.#store.patch(patch);
     this.model.set(EMPTY_KIT_ORDER);
   }

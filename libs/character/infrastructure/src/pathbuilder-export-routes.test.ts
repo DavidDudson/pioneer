@@ -50,9 +50,12 @@ function app(): AppUnderTest {
 }
 
 function post(url: string, signedIn = true): Request {
+  const headers = new Headers(signedIn ? actingAs(amiri) : undefined);
+  headers.set('content-type', 'application/json');
+
   return new Request(`http://localhost${PATH}`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json', ...(signedIn ? actingAs(amiri) : {}) },
+    headers,
     body: JSON.stringify({ url }),
   });
 }

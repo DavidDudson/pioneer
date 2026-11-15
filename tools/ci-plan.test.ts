@@ -3,12 +3,11 @@ import { describe, expect, test } from 'bun:test';
 import { filterOf, planGaps, selectJobs, touches } from './ci-plan.ts';
 import type { AffectedIn, JobEntry } from './ci-plan.ts';
 
-const entry = (id: string, args: string, always?: boolean): JobEntry => ({
-  name: id,
-  id,
-  args,
-  ...(always === undefined ? {} : { always }),
-});
+const entry = (id: string, args: string, always?: boolean): JobEntry => {
+  const job: JobEntry = { name: id, id, args };
+
+  return always === undefined ? job : { ...job, always };
+};
 
 describe('filterOf', () => {
   test('reads projects and exclude, and ignores other flags', () => {

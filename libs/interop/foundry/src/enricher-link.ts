@@ -1,5 +1,6 @@
 import { InlineKind } from '@pioneer/rules/sdk';
 import type { ContentId, RefNode } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { inlineLabel, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
@@ -38,7 +39,7 @@ function refRun({ id, name }: Target, label: string | undefined, context: Enrich
   const node: RefNode = {
     type: InlineKind.Ref,
     id,
-    ...(kept === undefined ? {} : { label: kept }),
+    ...present({ label: kept }),
   };
 
   return [node];

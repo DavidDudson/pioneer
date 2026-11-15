@@ -1,6 +1,6 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { FlexRender, injectTable } from '@tanstack/angular-table';
-import type { RowData } from '@tanstack/angular-table';
+import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
 import type { TableViewSort } from '../table-view/table-view.types';
@@ -112,7 +112,7 @@ export class Table<TData extends RowData> {
   protected readonly table = injectTable<TableFeatureSet, TData>(() => {
     const rowId = this.rowId();
 
-    return {
+    const options = {
       features: TABLE_FEATURES,
       columns: [...this.columns()],
       data: [...this.data()],
@@ -120,11 +120,12 @@ export class Table<TData extends RowData> {
         columnVisibility: Object.fromEntries(this.hidden().map((id) => [id, false])),
         sorting: toSortingState(this.sorting()),
       },
-      onSortingChange: (updater): void => {
+      onSortingChange: (updater: Updater<SortingState>): void => {
         this.sorting.set(sortAfter(this.sorting(), updater));
       },
-      ...(rowId === undefined ? {} : { getRowId: rowId }),
     };
+
+    return rowId === undefined ? options : { ...options, getRowId: rowId };
   });
 
   protected readonly scrollerClasses = scrollerClasses;

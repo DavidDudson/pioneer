@@ -18,13 +18,14 @@ function app(): AnyElysia {
 }
 
 async function read(api: AnyElysia, user?: UserId): Promise<Response> {
-  const headers = user === undefined ? {} : actingAs(user);
+  const headers = new Headers(user === undefined ? undefined : actingAs(user));
 
   return api.handle(new Request('http://localhost/me/preferences', { headers }));
 }
 
 async function patch(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
-  const headers = { 'content-type': 'application/json', ...(user === undefined ? {} : actingAs(user)) };
+  const headers = new Headers(user === undefined ? undefined : actingAs(user));
+  headers.set('content-type', 'application/json');
 
   return api.handle(
     new Request('http://localhost/me/preferences', { method: 'PATCH', headers, body: JSON.stringify(body) }),

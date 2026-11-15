@@ -1,5 +1,6 @@
 import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { resolveSlug } from './entry-references';
@@ -56,7 +57,7 @@ export function languageRules(raw: unknown, input: KindInput): void {
 
   addRule(input, FIELD, {
     key: RuleElementKey.Language,
-    ...(grant.length === 0 ? {} : { grant }),
-    ...(slots === 0 ? {} : { slots }),
+    ...present({ grant: grant.length === 0 ? undefined : grant }),
+    ...present({ slots: slots === 0 ? undefined : slots }),
   });
 }

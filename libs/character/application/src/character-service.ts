@@ -136,13 +136,21 @@ export class CharacterService {
 
     const authors = [...names].map(([userId, displayName]) => ({ userId, displayName }));
 
-    return {
+    const result = {
       character,
       slots: characterSlots(character.document, slots),
       languages: characterLanguages(character.document, slots),
-      ...(deity === undefined ? {} : { deity }),
-      ...(authors.length === 0 ? {} : { authors }),
     };
+
+    if (deity !== undefined) {
+      Object.assign(result, { deity });
+    }
+
+    if (authors.length > 0) {
+      Object.assign(result, { authors });
+    }
+
+    return result;
   }
 
   /** The actor's archived characters (ADR-0062); nobody else's are listed. */

@@ -50,7 +50,10 @@ const defenceSpec: Arbitrary<DefenceSpec> = record({
 /** Each spec as a rule in play on its own entry, so ids are distinct. */
 function rules(specs: readonly DefenceSpec[]): RuleInPlay[] {
   return specs.map(({ key, type, value, predicate }, index) =>
-    inPlay({ key, type: [type], value, ...(predicate === undefined ? {} : { predicate }) }, `defence-${index}`),
+    inPlay(
+      predicate === undefined ? { key, type: [type], value } : { key, type: [type], value, predicate },
+      `defence-${index}`,
+    ),
   );
 }
 

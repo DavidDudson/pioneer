@@ -187,11 +187,11 @@ export class ContentPackBuilder {
   }
 
   /** A one-action action, with the effects using it can put on the user: ids, or ids with the predicate that offers them. */
-  public withAction(name: string, { effects }: ActionFields = {}): this {
+  public withAction(name: string, fields: ActionFields = {}): this {
     this.#entries.push({
       kind: ContentKind.Action,
       name,
-      data: { cost: 'one', ...(effects === undefined ? {} : { effects }) },
+      data: { cost: 'one', ...fields },
     });
 
     return this;
@@ -210,7 +210,8 @@ export class ContentPackBuilder {
       ...fields,
     };
 
-    this.#entries.push({ kind: ContentKind.Deity, name, data, ...(description === undefined ? {} : { description }) });
+    const entry: EnvelopeFields = { kind: ContentKind.Deity, name, data };
+    this.#entries.push(description === undefined ? entry : { ...entry, description });
 
     return this;
   }
@@ -227,12 +228,12 @@ export class ContentPackBuilder {
   public withClass(
     name: string,
     keyAttribute: readonly string[],
-    { hitPoints = 10, rules = [], roles }: ClassFields = {},
+    { hitPoints = 10, rules = [], ...optional }: ClassFields = {},
   ): this {
     this.#entries.push({
       kind: ContentKind.Class,
       name,
-      data: { keyAttribute, hitPoints, additionalSkills: 3, ...(roles === undefined ? {} : { roles }) },
+      data: { keyAttribute, hitPoints, additionalSkills: 3, ...optional },
       rules,
     });
 
@@ -240,12 +241,7 @@ export class ContentPackBuilder {
   }
 
   /** A 1st-level class feature with `tags` (a subclass's `cleric-doctrine`) and `rules` as JSON. */
-  public withClassFeature(name: string, { tags, rules = [], keyAttributeOptions }: ClassFeatureFields = {}): this {
-    const data = {
-      ...(tags === undefined ? {} : { tags }),
-      ...(keyAttributeOptions === undefined ? {} : { keyAttributeOptions }),
-    };
-
+  public withClassFeature(name: string, { rules = [], ...data }: ClassFeatureFields = {}): this {
     this.#entries.push({ kind: ContentKind.ClassFeature, name, data, rules, level: 1 });
 
     return this;
@@ -304,30 +300,17 @@ export class ContentPackBuilder {
   }
 
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
-  public withSpell(
-    name: string,
-    { rank, traditions, traits = [], rarity, duration, dismiss, dismissNote, effects, shiftsForm }: SpellFields,
-  ): this {
+  public withSpell(name: string, { rank, traditions, traits = [], rarity, ...optional }: SpellFields): this {
     const data = {
       rank,
       traditions,
       time: { type: 'actions', cost: 'two' },
       damage: [],
-      ...(duration === undefined ? {} : { duration }),
-      ...(dismiss === undefined ? {} : { dismiss }),
-      ...(dismissNote === undefined ? {} : { dismissNote }),
-      ...(effects === undefined ? {} : { effects }),
-      ...(shiftsForm === undefined ? {} : { shiftsForm }),
+      ...optional,
     };
 
-    this.#entries.push({
-      kind: ContentKind.Spell,
-      name,
-      data,
-      level: rank,
-      traits,
-      ...(rarity === undefined ? {} : { rarity }),
-    });
+    const entry: EnvelopeFields = { kind: ContentKind.Spell, name, data, level: rank, traits };
+    this.#entries.push(rarity === undefined ? entry : { ...entry, rarity });
 
     return this;
   }
@@ -383,14 +366,13 @@ export class ContentPackBuilder {
   public build(): ContentPack {
     const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
 
-    return ContentPack.define({
+    const pack = {
       manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: this.#license },
       ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
       variantRules: this.#variantRules.map((variant) => ({ sources, ...variant })),
-      ...(this.#proficiencyBonus === undefined ? {} : { proficiencyBonus: this.#proficiencyBonus }),
       otherEntries: this.#entries.map(
         ({
           kind,
@@ -402,22 +384,30 @@ export class ContentPackBuilder {
           rarity = 'common',
           description = [],
           supersedes = [],
-        }) => ({
-          id: this.idOf(kind, name),
-          pack: this.#id,
-          kind,
-          slug: `${kind}:${name}`,
-          name: name.charAt(0).toUpperCase() + name.slice(1),
-          rarity,
-          traits,
-          sources,
-          description,
-          rules,
-          data,
-          ...(level === undefined ? {} : { level }),
-          ...(supersedes.length === 0 ? {} : { supersedes }),
-        }),
+        }) => {
+          const entry = {
+            id: this.idOf(kind, name),
+            pack: this.#id,
+            kind,
+            slug: `${kind}:${name}`,
+            name: name.charAt(0).toUpperCase() + name.slice(1),
+            rarity,
+            traits,
+            sources,
+            description,
+            rules,
+            data,
+          };
+
+          const leveled = level === undefined ? entry : { ...entry, level };
+
+          return supersedes.length === 0 ? leveled : { ...leveled, supersedes };
+        },
       ),
-    });
+    };
+
+    return ContentPack.define(
+      this.#proficiencyBonus === undefined ? pack : { ...pack, proficiencyBonus: this.#proficiencyBonus },
+    );
   }
 }

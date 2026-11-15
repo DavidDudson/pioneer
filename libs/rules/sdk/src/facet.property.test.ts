@@ -38,22 +38,23 @@ const shape: Arbitrary<EntryShape> = record({
 });
 
 const entries: Arbitrary<readonly ContentEntry[]> = array(shape, { maxLength: ENTRIES_MAX }).map((shapes) =>
-  shapes.map(({ level, rarity, traits, books, pack }, index) =>
-    ContentEntry.parse({
+  shapes.map(({ level, rarity, traits, books, pack }, index) => {
+    const fields = {
       id: contentId(PackId.parse(pack), EntrySlug.parse(`trait:entry-${index}`)),
       pack,
       kind: ContentKind.Trait,
       slug: `trait:entry-${index}`,
       name: `Entry ${index}`,
-      ...(level === undefined ? {} : { level }),
       rarity,
       traits,
       sources: books.map((book) => ({ kind: 'book', book, page: 1 })),
       description,
       rules: [],
       data: { appliesTo: [] },
-    }),
-  ),
+    };
+
+    return ContentEntry.parse(level === undefined ? fields : { ...fields, level });
+  }),
 );
 
 const POOLS: Readonly<Record<string, readonly string[]>> = {

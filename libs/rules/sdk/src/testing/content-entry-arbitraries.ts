@@ -231,8 +231,8 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
     ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
   );
 
-  const required = tuple(identity(kind), dataAndRules).chain(([{ id, pack, slug }, kindFields]) =>
-    record({
+  const required = tuple(identity(kind), dataAndRules).chain(([{ id, pack, slug }, kindFields]) => {
+    const fields = {
       id: constant(id),
       pack: constant(pack),
       slug: constant(slug),
@@ -244,17 +244,21 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
       description: richTextJson,
       rules: constant(kindFields.rules),
       data: constant(kindFields.data),
-      ...(level === undefined ? {} : { level }),
-    }),
-  );
+    };
+
+    return level === undefined ? record(fields) : record({ ...fields, level });
+  });
 
   const externalIds = withOptional(constant({}), { foundry: contentText, aon: aonUrl, pathbuilder: contentText });
 
-  return withOptional(required, {
-    ...(level === undefined && !levelless ? { level: entryLevel } : {}),
+  const optional = {
     display: record({ category: displayCategory }),
     externalIds,
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.
     supersedes: array(uuid({ version: 4 }), { maxLength: LIST_MAX }),
-  }).map((json) => (onlyLevel1(json) ? Object.assign(json, { level: 1 }) : json));
+  };
+
+  return withOptional(required, level === undefined && !levelless ? { level: entryLevel, ...optional } : optional).map(
+    (json) => (onlyLevel1(json) ? Object.assign(json, { level: 1 }) : json),
+  );
 }

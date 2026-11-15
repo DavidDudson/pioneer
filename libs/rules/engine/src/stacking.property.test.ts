@@ -67,12 +67,28 @@ function modifierSpec(types: Arbitrary<string>): Arbitrary<ModifierSpec> {
 }
 
 /** The fields beside type, value and target: the predicate if any, and the attribute an attribute modifier names. */
-function extraFields({ type, predicate, slug }: ModifierSpec): Record<string, unknown> {
-  return {
-    ...(predicate === undefined ? {} : { predicate }),
-    ...(slug === undefined ? {} : { slug }),
-    ...(type === ModifierType.Attribute ? { attribute: 'dex' } : {}),
-  };
+interface ExtraFields {
+  predicate?: readonly string[];
+  slug?: string;
+  attribute?: string;
+}
+
+function extraFields({ type, predicate, slug }: ModifierSpec): ExtraFields {
+  const fields: ExtraFields = {};
+
+  if (predicate !== undefined) {
+    fields.predicate = predicate;
+  }
+
+  if (slug !== undefined) {
+    fields.slug = slug;
+  }
+
+  if (type === ModifierType.Attribute) {
+    fields.attribute = 'dex';
+  }
+
+  return fields;
 }
 
 /** Each spec as a rule in play on its own entry, so ids are distinct and independent of order. */
@@ -100,19 +116,39 @@ const adjustmentSpecs = array(
   { maxLength: ADJUSTMENTS_MAX },
 );
 
+interface AdjustmentFields {
+  key: string;
+  selectors: readonly string[];
+  slug?: string;
+  suppress?: boolean;
+  mode?: string;
+  value?: number;
+  predicate?: readonly string[];
+}
+
+function adjustmentElement({ slug, suppress, value, predicate }: AdjustmentSpec): AdjustmentFields {
+  const element: AdjustmentFields = { key: 'AdjustModifier', selectors: ['ac'] };
+
+  if (slug !== undefined) {
+    element.slug = slug;
+  }
+
+  if (suppress) {
+    element.suppress = suppress;
+  } else {
+    element.mode = 'add';
+    element.value = value;
+  }
+
+  if (predicate !== undefined) {
+    element.predicate = predicate;
+  }
+
+  return element;
+}
+
 function adjustments(specs: readonly AdjustmentSpec[]): RuleInPlay[] {
-  return specs.map(({ slug, suppress, value, predicate }, index) =>
-    inPlay(
-      {
-        key: 'AdjustModifier',
-        selectors: ['ac'],
-        ...(slug === undefined ? {} : { slug }),
-        ...(suppress ? { suppress } : { mode: 'add', value }),
-        ...(predicate === undefined ? {} : { predicate }),
-      },
-      `adjustment-${index}`,
-    ),
-  );
+  return specs.map((spec, index) => inPlay(adjustmentElement(spec), `adjustment-${index}`));
 }
 
 function deriveIn(rulesInPlay: readonly RuleInPlay[], known: PredicateFacts): StatisticValue {

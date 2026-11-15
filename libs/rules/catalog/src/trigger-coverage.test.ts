@@ -11,7 +11,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 function entry(name: string, kind: string, data: object): ContentEntry {
   const slug = `${kind}:${name}`;
 
-  return ContentEntry.parse({
+  const fields = {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
@@ -22,9 +22,10 @@ function entry(name: string, kind: string, data: object): ContentEntry {
     description: [],
     rules: [],
     kind,
-    ...(kind === 'action' || kind === 'effect' ? {} : { level: 1 }),
     data,
-  });
+  };
+
+  return ContentEntry.parse(kind === 'action' || kind === 'effect' ? fields : { ...fields, level: 1 });
 }
 
 const reaction = { cost: 'reaction', trigger: prose('An ally is about to use an action.') };

@@ -1,5 +1,6 @@
 import { RichText, Trait } from '@pioneer/rules/sdk';
 import type { RuleElement } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { itemSystem, Traits } from './creature-embedded';
@@ -53,7 +54,7 @@ function rulesOf(item: Embedded, input: KindInput): readonly RuleElement[] {
     lang: input.lang ?? {},
     values: { item: item.name },
     references: input.references,
-    ...(input.senses === undefined ? {} : { senses: input.senses }),
+    ...present({ senses: input.senses }),
   });
 
   for (const { key, raw } of translation.untranslated) {
@@ -87,10 +88,8 @@ function abilityOf(item: Embedded, input: KindInput): object | undefined {
 
   return {
     name: item.name,
-    ...(cost === undefined ? {} : { cost }),
-    ...(usage?.trigger === undefined ? {} : { trigger: usage.trigger }),
-    ...(usage?.requirementsText === undefined ? {} : { requirements: usage.requirementsText }),
-    ...(usage?.frequency === undefined ? {} : { frequency: usage.frequency }),
+    ...present({ cost }),
+    ...present({ trigger: usage?.trigger, requirements: usage?.requirementsText, frequency: usage?.frequency }),
     traits: system.traits.value.filter((trait) => Trait.safeParse(trait).success),
     description: htmlToRichText(html.text, input.links).richText,
     rules: rulesOf(item, input),

@@ -2,6 +2,7 @@ import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character } from '@pioneer/character/domain';
 import { InlineEdit } from '@pioneer/frontier';
+import type { InlineEditOptions } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
@@ -35,7 +36,7 @@ export function sheetField<TValue>(
   character: Signal<Character | undefined>,
   { read, empty, schema, save, format }: FieldSpec<TValue>,
 ): InlineEdit<TValue> {
-  return new InlineEdit<TValue>({
+  const options: InlineEditOptions<TValue> = {
     source: computed(() => {
       const current = character();
 
@@ -46,6 +47,7 @@ export function sheetField<TValue>(
     save,
     isConflict: (error) => ApiError.isConflict(error),
     describeError: describeSaveError,
-    ...(format === undefined ? {} : { format }),
-  });
+  };
+
+  return new InlineEdit<TValue>(format === undefined ? options : { ...options, format });
 }

@@ -135,11 +135,15 @@ export function useCommand(line: ConsumableLine, rolled: RollResult | undefined)
 
   const heals = rolled !== undefined && line.roll?.kind === DamageKind.Healing && rolled.total > 0;
 
-  return {
+  const used: ConsumableCommand = {
     field: ConsumableCommandField.UseConsumable,
     item: line.key,
     spend: { id: SpendId.parse(newId()), action: line.id, cost },
-    ...(heals ? { heal: HitPoints.parse(rolled.total) } : {}),
-    ...(line.effect === undefined ? {} : { effect: { id: EffectInstanceId.parse(newId()), effect: line.effect } }),
   };
+
+  const healing: ConsumableCommand = heals ? { ...used, heal: HitPoints.parse(rolled.total) } : used;
+
+  return line.effect === undefined
+    ? healing
+    : { ...healing, effect: { id: EffectInstanceId.parse(newId()), effect: line.effect } };
 }

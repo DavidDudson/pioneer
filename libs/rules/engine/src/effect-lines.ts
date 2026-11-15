@@ -203,16 +203,17 @@ export function senseEffect(rule: RuleInPlay, element: SenseElement, reading: Se
 
   const { sense, acuity = SenseAcuity.Precise, range } = element;
 
-  return {
+  const line: SenseEffect = {
     change: EffectChange.Sense,
     rule: ruleIdOf(rule),
     label: labelOf(rule),
     origin: rule.origin,
     sense,
     acuity,
-    ...(range === undefined ? {} : { range }),
     status: senseStatus(rule, element, reading),
   };
+
+  return range === undefined ? line : { ...line, range };
 }
 
 /** The senses in play, and the rules they were read from. */

@@ -14,6 +14,8 @@ export function tableViewColumns<TRow extends RowData>(
       return [];
     }
 
-    return [{ id, code: meta.code, ...(meta.defaultHidden === true ? { defaultHidden: true } : {}) }];
+    const entry: TableViewColumn = { id, code: meta.code };
+
+    return [meta.defaultHidden === true ? { ...entry, defaultHidden: true } : entry];
   });
 }

@@ -31,7 +31,7 @@ const others = (by: readonly ContentId[]): ConditionEnding => ({ kind: 'others',
 
 const check = (dc?: ConditionDc): ConditionEnding => ({
   kind: 'check',
-  check: { against: [], ...(dc === undefined ? {} : { dc }) },
+  check: dc === undefined ? { against: [] } : { against: [], dc },
   change: { effect: 'remove' },
   text: TEXT,
 });

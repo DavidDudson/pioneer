@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { BookId, ContentId, contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { entryReferences, resolveUuid } from './entry-references';
 import type { KnownEntry } from './entry-references';
@@ -29,7 +30,7 @@ function known(slug: string, foundry?: string): KnownEntry {
     pack: PLAYER_CORE,
     kind: ContentKind.Spell,
     slug: entrySlug,
-    ...(foundry === undefined ? {} : { foundry }),
+    ...present({ foundry }),
   };
 }
 

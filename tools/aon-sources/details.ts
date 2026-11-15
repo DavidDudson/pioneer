@@ -55,10 +55,9 @@ export function parseBookDetails(html: string): BookDetails {
   const errata = ErrataLabel.safeParse(fields.get('Latest Errata'));
   const released = isoDate(fields.get('Release Date') ?? '');
 
-  return {
-    ...(line === undefined ? {} : { productLine: line }),
-    ...(store.success ? { storeUrl: store.data } : {}),
-    ...(errata.success ? { errata: errata.data } : {}),
-    ...(released === undefined ? {} : { released }),
-  };
+  const withLine: BookDetails = line === undefined ? {} : { productLine: line };
+  const withStore = store.success ? { ...withLine, storeUrl: store.data } : withLine;
+  const withErrata = errata.success ? { ...withStore, errata: errata.data } : withStore;
+
+  return released === undefined ? withErrata : { ...withErrata, released };
 }

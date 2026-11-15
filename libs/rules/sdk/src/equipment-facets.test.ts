@@ -23,7 +23,7 @@ interface ItemFields {
 
 /** A Player Core item at level 0; a kit has no level. */
 function item({ traits = [], ...fields }: ItemFields): ContentEntry {
-  return ContentEntry.parse({
+  const base = {
     id: idOf(fields.slug),
     pack: PACK,
     name: fields.slug,
@@ -32,9 +32,9 @@ function item({ traits = [], ...fields }: ItemFields): ContentEntry {
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     description: prose,
     rules: [],
-    ...(fields.kind === 'kit' ? {} : { level: 0 }),
-    ...fields,
-  });
+  };
+
+  return ContentEntry.parse({ ...(fields.kind === 'kit' ? base : { ...base, level: 0 }), ...fields });
 }
 
 const longsword = item({

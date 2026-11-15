@@ -63,18 +63,35 @@ export interface TagColumn<TRow extends RowData> extends ColumnOptions {
   readonly value: (row: TRow) => TagCell;
 }
 
+/** The options `options` sets, leaving out the ones it doesn't, so an absent one stays absent. */
+function presentOptions(options: ColumnOptions): ColumnOptions {
+  const sortable =
+    options.sortable === undefined
+      ? { header: options.header }
+      : { header: options.header, sortable: options.sortable };
+
+  const width = options.width === undefined ? sortable : { ...sortable, width: options.width };
+  const hideable = options.hideable === undefined ? width : { ...width, hideable: options.hideable };
+
+  const defaultHidden =
+    options.defaultHidden === undefined ? hideable : { ...hideable, defaultHidden: options.defaultHidden };
+
+  return options.code === undefined ? defaultHidden : { ...defaultHidden, code: options.code };
+}
+
 /** The TanStack options a column's width, hiding and default visibility become. */
 interface ColumnExtras {
   readonly meta?: FrontierColumnMeta;
 }
 
 function widthMeta(options: ColumnOptions): ColumnExtras {
-  const meta: FrontierColumnMeta = {
-    ...(options.width === undefined ? {} : { width: options.width }),
-    ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
-    ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
-    ...(options.code === undefined ? {} : { code: options.code }),
-  };
+  const sized: FrontierColumnMeta = options.width === undefined ? {} : { width: options.width };
+  const hideable = options.hideable === undefined ? sized : { ...sized, hideable: options.hideable };
+
+  const defaultHidden =
+    options.defaultHidden === undefined ? hideable : { ...hideable, defaultHidden: options.defaultHidden };
+
+  const meta = options.code === undefined ? defaultHidden : { ...defaultHidden, code: options.code };
 
   return Object.keys(meta).length === 0 ? {} : { meta };
 }
@@ -124,12 +141,7 @@ export class TableSchema<TRow extends RowData> {
 
     return this.addComponent({
       id: options.id,
-      header: options.header,
-      ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
-      ...(options.width === undefined ? {} : { width: options.width }),
-      ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
-      ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
-      ...(options.code === undefined ? {} : { code: options.code }),
+      ...presentOptions(options),
       sortValue: (row) => options.value(row).toString(),
       component: DateDisplay,
       inputs: (row) => ({ value: options.value(row), format }),
@@ -140,12 +152,7 @@ export class TableSchema<TRow extends RowData> {
   public addTag(options: TagColumn<TRow>): this {
     return this.addComponent({
       id: options.id,
-      header: options.header,
-      ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
-      ...(options.width === undefined ? {} : { width: options.width }),
-      ...(options.hideable === undefined ? {} : { hideable: options.hideable }),
-      ...(options.defaultHidden === undefined ? {} : { defaultHidden: options.defaultHidden }),
-      ...(options.code === undefined ? {} : { code: options.code }),
+      ...presentOptions(options),
       sortValue: (row) => options.value(row).label,
       component: Tag,
       inputs: (row) => {

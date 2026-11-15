@@ -27,12 +27,10 @@ export interface ShiftChange {
 function withForm(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form' | 'tempHp'>): ActiveEffect {
   const { form: _form, tempHp: _tempHp, ...kept } = effect;
 
-  return {
-    ...kept,
-    effect: to.effect,
-    ...(to.form === undefined ? {} : { form: to.form }),
-    ...(to.tempHp === undefined ? {} : { tempHp: to.tempHp }),
-  };
+  const form = to.form === undefined ? undefined : { form: to.form };
+  const tempHp = to.tempHp === undefined ? undefined : { tempHp: to.tempHp };
+
+  return { ...kept, effect: to.effect, ...form, ...tempHp };
 }
 
 /** `play` with the form the spend `request` puts on the character applied, as the sheet's own apply-effect edit would: it ends the polymorph effect before it and raises the temporary Hit Points. */
@@ -41,21 +39,26 @@ export function formApplied<Play extends EffectPlay>(
   { apply }: SpendRequest,
   content: EffectContent,
 ): Play {
-  return apply === undefined
-    ? play
-    : applyEffectEdit(
-        play,
-        {
-          field: EffectCommandField.ApplyEffect,
-          id: apply.id,
-          effect: apply.effect,
-          source: SELF,
-          rank: apply.rank,
-          ...(apply.form === undefined ? {} : { form: apply.form }),
-          ...(apply.tempHp === undefined ? {} : { tempHp: apply.tempHp }),
-        },
-        content,
-      );
+  if (apply === undefined) {
+    return play;
+  }
+
+  const form = apply.form === undefined ? undefined : { form: apply.form };
+  const tempHp = apply.tempHp === undefined ? undefined : { tempHp: apply.tempHp };
+
+  return applyEffectEdit(
+    play,
+    {
+      field: EffectCommandField.ApplyEffect,
+      id: apply.id,
+      effect: apply.effect,
+      source: SELF,
+      rank: apply.rank,
+      ...form,
+      ...tempHp,
+    },
+    content,
+  );
 }
 
 /** Why the form shift `request` makes is refused, or undefined when it is allowed: the effect it changes must be on the character. */
@@ -86,7 +89,9 @@ function swapped(temp: HitPoints, from: HitPoints, to: HitPoints): TempSwap {
 
 /** `effect` with the form `to` and the temporary Hit Points it raised `raised`, which are left off when it raised none. */
 function formed(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form'>, raised: HitPoints): ActiveEffect {
-  return withForm(effect, { ...to, ...(raised > NONE ? { tempHp: raised } : {}) });
+  const tempHp = raised > NONE ? { tempHp: raised } : undefined;
+
+  return withForm(effect, { ...to, ...tempHp });
 }
 
 /** `play`'s active effects and temporary Hit Points after the spend `request`: the effect it shifts has the new form and keeps its time left. */

@@ -28,13 +28,11 @@ for (const [name, rank] of [
 
 const fromLevel = (level: number): object => ({ predicate: [{ gte: ['self:level', level] }] });
 
-const slots = (rank: number, value: number, level = 1): object => ({
-  key: 'SpellSlots',
-  entry: 'sorcerer',
-  rank,
-  value,
-  ...(level > 1 ? fromLevel(level) : {}),
-});
+const slots = (rank: number, value: number, level = 1): object => {
+  const rule = { key: 'SpellSlots', entry: 'sorcerer', rank, value };
+
+  return level > 1 ? { ...rule, ...fromLevel(level) } : rule;
+};
 
 const count = (rank: number, value: number, level: number): object => ({
   key: 'RepertoireCount',

@@ -56,12 +56,11 @@ const packedInventory: Arbitrary<Inventory> = array(line, { maxLength: LINES_MAX
   InventorySchema.parse({
     items: [
       { id: PACK, item: itemFixtureId(ItemFixture.Backpack), quantity: 1, carry: { state: CarryState.Worn } },
-      ...lines.map(({ item, quantity, packed }, index) => ({
-        id: idOf(index),
-        item: itemFixtureId(item),
-        quantity,
-        ...(packed ? { container: PACK } : {}),
-      })),
+      ...lines.map(({ item, quantity, packed }, index) => {
+        const packedLine = { id: idOf(index), item: itemFixtureId(item), quantity };
+
+        return packed ? { ...packedLine, container: PACK } : packedLine;
+      }),
     ],
   }),
 );
