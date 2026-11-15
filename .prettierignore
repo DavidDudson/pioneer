@@ -1,3 +1,4 @@
 apps/api/migrations/**
 libs/frontier/src/styles/primitives.color.css
 bun.lock
+.agents/**
