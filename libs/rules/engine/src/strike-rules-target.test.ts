@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { ruleIdOf } from './rule-in-play';
@@ -53,7 +54,7 @@ describe('rule elements conditioned on the target', () => {
   function strikeWith(
     options: readonly string[],
     claimed: boolean | Selector,
-    element: object = VITALIZING,
+    element: RuleJson = VITALIZING,
   ): Strike | undefined {
     const inputs = StatisticInputsJson.parse({
       level: 5,
@@ -76,7 +77,7 @@ describe('rule elements conditioned on the target', () => {
 
     const results = deriveStatistics(content, inputs, modifiers);
     const own = new Set([ruleIdOf(rule)]);
-    const situations = typeof claimed === 'boolean' ? undefined : new Map([[claimed, own]]);
+    const situations = claimed === true || claimed === false ? undefined : new Map([[claimed, own]]);
 
     return deriveStrikes(inputs.weapons ?? [], results, {
       inputs: modifiers,

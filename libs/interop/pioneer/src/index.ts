@@ -13,6 +13,7 @@ export {
   PIONEER_CHARACTER_FORMAT,
   PioneerCharacterFile,
   PioneerCharacterHeader,
+  PioneerFileJson,
 } from './pioneer-character-file';
 
 export {

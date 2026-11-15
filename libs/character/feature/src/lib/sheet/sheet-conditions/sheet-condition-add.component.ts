@@ -27,7 +27,7 @@ export class SheetConditionAdd {
   public readonly options = input.required<readonly ConditionOption[]>();
   public readonly busy = input.required<boolean>();
   public readonly send = input.required<(command: PlayCommand) => Promise<void>>();
-  public readonly describeError = input.required<(error: unknown) => string>();
+  public readonly describeError = input.required<(error: Error) => string>();
 
   protected readonly valueMax = CONDITION_VALUE_MAX;
   protected readonly valueMin = FIRST_VALUE;

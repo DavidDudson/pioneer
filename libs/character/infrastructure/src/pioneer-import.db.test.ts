@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { CharacterService, InMemoryEmbeddedHomebrew, PioneerFileService } from '@pioneer/character/application';
 import { CharacterCommand, CharacterName } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
+import { PioneerFileJson } from '@pioneer/interop/pioneer';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -46,7 +47,8 @@ describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => 
 
     const file = await files.export(fixtureOwnerId, original.id);
 
-    const imported = await files.import(fixtureOwnerId, file);
+    const upload = PioneerFileJson.parse(JSON.parse(JSON.stringify(file)));
+    const imported = await files.import(fixtureOwnerId, upload);
 
     expect(imported.id).not.toBe(original.id);
     const entries = await database.db.select().from(auditLog).where(eq(auditLog.rowId, imported.id));

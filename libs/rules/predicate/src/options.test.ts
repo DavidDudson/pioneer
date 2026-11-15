@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
 import { Predicate } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 
 import { predicateOptions } from './options';
 
-function optionsOf(predicate: unknown): readonly string[] {
+function optionsOf(predicate: JsonValue): readonly string[] {
   return [...predicateOptions(Predicate.parse(predicate))].toSorted();
 }
 

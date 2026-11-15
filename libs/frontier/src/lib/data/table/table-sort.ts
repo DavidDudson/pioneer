@@ -14,5 +14,5 @@ function fromSortingState(state: SortingState): readonly TableViewSort[] {
 
 /** The sorts after TanStack's change, which is either the new state or a function of the old one. */
 export function sortAfter(sort: readonly TableViewSort[], updater: Updater<SortingState>): readonly TableViewSort[] {
-  return fromSortingState(typeof updater === 'function' ? updater(toSortingState(sort)) : updater);
+  return fromSortingState(Array.isArray(updater) ? updater : updater(toSortingState(sort)));
 }

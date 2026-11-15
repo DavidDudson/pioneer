@@ -59,9 +59,9 @@ export interface InlineEditOptions<TValue> {
   /** Persist one value. Reject to show the error; the source signal refreshes on success. */
   readonly save: (value: TValue) => Promise<void>;
   readonly format?: (value: TValue) => string;
-  readonly isConflict?: (error: unknown) => boolean;
+  readonly isConflict?: (error: Error) => boolean;
   /** What to show when a save fails; defaults to a generic conflict or save-failed message. */
-  readonly describeError?: (error: unknown) => MessageDescriptor;
+  readonly describeError?: (error: Error) => MessageDescriptor;
 }
 
 /**
@@ -256,7 +256,7 @@ export class InlineEdit<TValue> {
     try {
       await this.#options.save(value);
     } catch (error: unknown) {
-      this.#fail(error);
+      this.#fail(error instanceof Error ? error : new Error(String(error)));
 
       return false;
     }
@@ -287,7 +287,7 @@ export class InlineEdit<TValue> {
     );
   }
 
-  #fail(error: unknown): void {
+  #fail(error: Error): void {
     const conflict = this.#options.isConflict?.(error) ?? false;
     this.#error.set(
       this.#options.describeError?.(error) ??

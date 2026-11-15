@@ -3,6 +3,7 @@
  * plugin (ESLint-compatible API).
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
 
 import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
@@ -87,18 +88,18 @@ const zodNamespaceImport: Rule.RuleModule = {
 
 const RELOADS = new Set(['reload', 'assign', 'replace']);
 
-/** `location` or `<anything>.location`. */
-function isLocation(node: unknown): boolean {
-  // SAFETY: oxlint passes ESTree nodes, and every field of this shape is optional and checked before use.
-  const target = node as {
-    readonly type?: unknown;
-    readonly name?: unknown;
-    readonly property?: { readonly name?: unknown };
-  };
+/** A node, as far as `isLocation` reads it. */
+interface LocationNode {
+  readonly type: string;
+  readonly name?: string;
+  readonly property?: { readonly type?: string; readonly name?: string };
+}
 
+/** `location` or `<anything>.location`. */
+function isLocation(node: LocationNode): boolean {
   return (
-    (target.type === 'Identifier' && target.name === 'location') ||
-    (target.type === 'MemberExpression' && target.property?.name === 'location')
+    (node.type === 'Identifier' && node.name === 'location') ||
+    (node.type === 'MemberExpression' && node.property?.name === 'location')
   );
 }
 
@@ -155,6 +156,11 @@ const noRouteResolvers: Rule.RuleModule = {
   },
 };
 
+/** What a literal node holds, or a template element's cooked text. */
+type LiteralValue = string | number | bigint | boolean | RegExp | null | undefined;
+
+const STRING = z.string();
+
 /** Responsive classes live only in frontier's layout primitives; see tools/layout-variants.ts. */
 const layoutVariants: Rule.RuleModule = {
   meta: {
@@ -170,8 +176,9 @@ const layoutVariants: Rule.RuleModule = {
 
     const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
 
-    const check = (node: Rule.Node, text: unknown): void => {
-      const problem = typeof text === 'string' ? layoutVariantProblem(text, inPrimitive) : undefined;
+    const check = (node: Rule.Node, value: LiteralValue): void => {
+      const text = STRING.safeParse(value);
+      const problem = text.success ? layoutVariantProblem(text.data, inPrimitive) : undefined;
 
       if (problem !== undefined) {
         context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
@@ -192,37 +199,60 @@ const layoutVariants: Rule.RuleModule = {
 const CLASS_BUILDERS = new Set(['cva', 'cx']);
 const LAYOUT_MESSAGE_IDS = new Set(Object.keys(LAYOUT_VARIANT_MESSAGES));
 
+/** A node and the ancestors, as far as `holdsClasses` reads them. */
 interface AstNode {
-  readonly type?: unknown;
-  readonly value?: unknown;
+  readonly type: string;
+  readonly parent?: AstNode | null;
+  readonly name?: string;
+  readonly callee?: AstNode;
+  readonly key?: AstNode;
+  readonly expression?: AstNode | boolean;
+  readonly arguments?: readonly AstNode[];
 }
 
-function isString(node: AstNode): boolean {
-  return (node.type === 'Literal' && typeof node.value === 'string') || node.type === 'TemplateElement';
+function isBuilderArgument(parent: AstNode, child: AstNode): boolean {
+  return (
+    parent.type === 'CallExpression' &&
+    parent.callee?.type === 'Identifier' &&
+    parent.callee.name !== undefined &&
+    CLASS_BUILDERS.has(parent.callee.name) &&
+    parent.arguments?.includes(child) === true
+  );
 }
 
-/** AST children of `node`, skipping the parent link and object keys (keys are variant names, not classes). */
-function childrenOf(node: object): unknown[] {
-  // SAFETY: `Array.isArray` narrows `node` to an array whose elements are AST children, and `Object.entries` of an AST node yields string keys with child values, which the `unknown` typing of both already covers.
-  return Array.isArray(node)
-    ? (node as unknown[])
-    : Object.entries(node as Readonly<Record<string, unknown>>).flatMap(([key, child]) =>
-        key === 'parent' || key === 'key' ? [] : [child],
-      );
+function isClassProperty(parent: AstNode): boolean {
+  return parent.type === 'Property' && parent.key?.type === 'Identifier' && parent.key.name === 'class';
 }
 
-/** String literals (and template text) anywhere under `node`. */
-function stringsUnder(node: unknown): Rule.Node[] {
-  if (typeof node !== 'object' || node === null) {
-    return [];
+function isSatisfiedObject(parent: AstNode, child: AstNode): boolean {
+  return parent.type === 'TSSatisfiesExpression' && parent.expression === child && child.type === 'ObjectExpression';
+}
+
+/**
+ * Whether a string at `child` is a class name: inside the arguments of `cva()` / `cx()`, the value of a `class`
+ * property, or a `{…} satisfies` object. Object keys are variant names, not classes.
+ */
+function holdsClasses(child: AstNode): boolean {
+  let current = child;
+  let { parent } = current;
+
+  while (parent !== undefined && parent !== null) {
+    const isClassSlot =
+      isBuilderArgument(parent, current) || isClassProperty(parent) || isSatisfiedObject(parent, current);
+
+    if (parent.key === current) {
+      return false;
+    }
+
+    if (isClassSlot) {
+      return true;
+    }
+
+    current = parent;
+    ({ parent } = current);
   }
 
-  if (!Array.isArray(node) && isString(node)) {
-    // SAFETY: `isString` accepts only `Literal` and `TemplateElement` nodes, which are AST nodes, and `node` came from an AST walk.
-    return [node as Rule.Node];
-  }
-
-  return childrenOf(node).flatMap((child) => stringsUnder(child));
+  return false;
 }
 
 /**
@@ -247,38 +277,21 @@ const classTokens: Rule.RuleModule = {
 
     const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
 
-    const checkAll = (root: unknown): void => {
-      for (const node of stringsUnder(root)) {
-        // SAFETY: `stringsUnder` yields only `Literal` and `TemplateElement` nodes, and both have `type` and `value`.
-        const { type, value } = node as AstNode & { readonly value: unknown };
-        // SAFETY: `stringsUnder` yields only `Literal` and `TemplateElement` nodes, and both have `type` and `value`; a template element's `value` is an object with an optional `cooked`.
-        const text = type === 'TemplateElement' ? (value as { readonly cooked?: unknown }).cooked : value;
-        const problem = typeof text === 'string' ? classTokenProblem(text, inPrimitive) : undefined;
+    const check = (node: Rule.Node, value: LiteralValue): void => {
+      const text = STRING.safeParse(value);
+      const problem = text.success ? classTokenProblem(text.data, inPrimitive) : undefined;
 
-        if (problem !== undefined && !LAYOUT_MESSAGE_IDS.has(problem.messageId)) {
-          context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
-        }
+      if (problem !== undefined && !LAYOUT_MESSAGE_IDS.has(problem.messageId) && holdsClasses(node)) {
+        context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
       }
     };
 
     return {
-      CallExpression(node): void {
-        if (node.callee.type === 'Identifier' && CLASS_BUILDERS.has(node.callee.name)) {
-          checkAll(node.arguments);
-        }
+      Literal(node): void {
+        check(node, node.value);
       },
-      Property(node): void {
-        if (node.key.type === 'Identifier' && node.key.name === 'class') {
-          checkAll(node.value);
-        }
-      },
-      TSSatisfiesExpression(node: unknown): void {
-        // SAFETY: oxlint calls this listener with a `TSSatisfiesExpression` node, which has an `expression`; the field is typed optional all the same.
-        const { expression } = node as { readonly expression?: AstNode };
-
-        if (expression?.type === 'ObjectExpression') {
-          checkAll(expression);
-        }
+      TemplateElement(node): void {
+        check(node, node.value.cooked);
       },
     };
   },

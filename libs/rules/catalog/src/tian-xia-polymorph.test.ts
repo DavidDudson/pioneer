@@ -1,20 +1,22 @@
 import { describe, expect, test } from 'bun:test';
 
 import { contentPackFromContents } from '@pioneer/rules/sdk';
+import { plain } from '@pioneer/rules/sdk/testing';
+import type { Plain } from '@pioneer/rules/sdk/testing';
 
 import { tianXiaCharacterGuidePack } from './json-packs';
 
 const ENTRIES = contentPackFromContents(await tianXiaCharacterGuidePack()).otherEntries;
 
 /** The rules of the effect `slug` as plain JSON, so a test can compare them with the data it reads. */
-function rulesOf(slug: string): unknown {
+function rulesOf(slug: string): Plain {
   const found = ENTRIES.find((entry) => entry.slug === slug);
 
   if (found === undefined) {
     throw new Error(`${slug} is not in the tian-xia-character-guide pack`);
   }
 
-  return structuredClone(found.rules);
+  return plain(found.rules);
 }
 
 describe('Tian Xia Character Guide: polymorph effects', () => {

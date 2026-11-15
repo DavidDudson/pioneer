@@ -53,8 +53,8 @@ export class CampaignRuleLimitRow {
     empty: NO_LIMIT,
     schema: RuleLimitValue,
     save: async (value: number): Promise<void> => this.#store.set(this.setting().limit, RuleLimitValue.parse(value)),
-    isConflict: (error: unknown): boolean => ApiError.isConflict(error),
-    describeError: (error: unknown): MessageDescriptor => ApiError.describe(error),
+    isConflict: (error: Error): boolean => ApiError.isConflict(error),
+    describeError: (error: Error): MessageDescriptor => ApiError.describe(error),
   });
 
   protected readonly reset = async (): Promise<void> => this.#store.reset(this.setting().limit);

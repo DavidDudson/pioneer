@@ -8,6 +8,7 @@ import {
   descriptionShard,
 } from '@pioneer/rules/sdk';
 import type {
+  BundleBody,
   BundleFile,
   ContentEntry,
   ContentManifest,
@@ -46,7 +47,7 @@ function likelyNext(kinds: readonly ContentKind[]): readonly ContentKind[] {
 }
 
 /** Where a pack's bundles are fetched from: the public ones, or the signed-in user's homebrew. */
-type BundleFetch = (pack: PackId, file: BundleFile) => Promise<unknown>;
+type BundleFetch = (pack: PackId, file: BundleFile) => Promise<BundleBody>;
 
 /** A kind's two bundles of `pack`, fetched together. */
 async function fetchKind(pack: PackId, { mechanics, names }: KindBundles, fetch: BundleFetch): Promise<FetchedKind> {

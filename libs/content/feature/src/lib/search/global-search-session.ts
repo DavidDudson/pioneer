@@ -110,7 +110,7 @@ export class GlobalSearchSession {
   /** What the name alone cannot say: the kind, the level when it has one, and the first traits, toned by rarity. */
   #tagsOf(entry: ContentEntry, legacy: boolean): readonly ComboboxTag[] {
     const kind = KIND_MESSAGES[entry.kind];
-    const level = 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined;
+    const level = 'level' in entry && entry.level !== undefined ? entry.level : undefined;
     const tone = RARITY_TONES[entry.rarity];
 
     return [

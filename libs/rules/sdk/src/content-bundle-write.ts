@@ -16,6 +16,7 @@ import type { ContentEntry } from './content-entry';
 import type { ContentId, PackId } from './content-id';
 import type { ContentKind } from './content-kind';
 import type { PackContents } from './content-pack-file';
+import type { JsonValue } from './json-bounds';
 import type { RichText } from './rich-text';
 
 /** How bundle hashes are taken: the server uses SHA-256, a test may use anything stable. */
@@ -42,7 +43,7 @@ class BundleWriter {
   }
 
   /** Adds `body` to `pack` under the file `name` gives for its hash, and returns that file. */
-  public write(pack: PackId, body: unknown, name: (hash: BundleHash) => BundleFile): BundleFile {
+  public write(pack: PackId, body: JsonValue, name: (hash: BundleHash) => BundleFile): BundleFile {
     const json = canonicalJson(body);
     const file = name(this.#hash(json));
     const path = bundlePath(pack, file);
@@ -69,7 +70,7 @@ class BundleWriter {
 }
 
 /** An entry as its mechanics bundle holds it: no name and no description. */
-function mechanics(entry: ContentEntry): unknown {
+function mechanics(entry: ContentEntry): JsonValue {
   const { name: _name, description: _description, ...rest } = entry;
 
   return rest;

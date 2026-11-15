@@ -103,7 +103,10 @@ const OWN = '';
  * 10th, or nothing without one; counts add up per pool and rank.
  */
 function modelSlots(live: readonly PlacedSlots[]): Map<string, Modelled> {
-  const fixedOwn = live.flatMap(({ pool, rank }) => (pool === undefined && typeof rank === 'number' ? [rank] : []));
+  const fixedOwn = live.flatMap(({ pool, rank }) =>
+    pool === undefined && rank !== 'cantrip' && rank !== 'highest' ? [rank] : [],
+  );
+
   const belowTenth = fixedOwn.filter((rank) => rank < RANK_MAX);
   const highest = belowTenth.length === 0 ? undefined : Math.max(...belowTenth);
   const tallies = new Map<string, Map<number | 'cantrip', number>>();

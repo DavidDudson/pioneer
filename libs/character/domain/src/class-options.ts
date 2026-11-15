@@ -1,8 +1,7 @@
-import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, RuleElementKey, Selector } from '@pioneer/rules/sdk';
 import type {
   AttributeBoost,
   ClassRole,
-  ContentId,
   ContentRegistry,
   ContentText,
   HitPoints,
@@ -10,7 +9,6 @@ import type {
   Proficiency,
   RichText,
   RuleElement,
-  Selector,
   SkillCount,
   SourceRef,
 } from '@pioneer/rules/sdk';
@@ -92,11 +90,15 @@ const unconditional = (rule: RuleElement): boolean => rule.predicate === undefin
 
 /** The `Proficiency` elements `rules` raise outright, in order. */
 function startingRanks(rules: readonly RuleElement[]): ClassProficiency[] {
-  return rules.flatMap((rule): ClassProficiency[] =>
-    rule.key === RuleElementKey.Proficiency && typeof rule.selector === 'string' && unconditional(rule)
-      ? [{ selector: rule.selector, rank: rule.rank }]
-      : [],
-  );
+  return rules.flatMap((rule): ClassProficiency[] => {
+    if (rule.key !== RuleElementKey.Proficiency || !unconditional(rule)) {
+      return [];
+    }
+
+    const selector = Selector.safeParse(rule.selector);
+
+    return selector.success ? [{ selector: selector.data, rank: rule.rank }] : [];
+  });
 }
 
 /** The traditions of the spellcasting entries `rules` give, each once. */
@@ -110,9 +112,15 @@ function traditionsOf(rules: readonly RuleElement[]): MagicTradition[] {
 
 /** The ids `rules` grant outright by their id. */
 function grantedIds(rules: readonly RuleElement[]): ContentId[] {
-  return rules.flatMap((rule): ContentId[] =>
-    rule.key === RuleElementKey.GrantItem && typeof rule.item === 'string' ? [rule.item] : [],
-  );
+  return rules.flatMap((rule): ContentId[] => {
+    if (rule.key !== RuleElementKey.GrantItem) {
+      return [];
+    }
+
+    const item = ContentId.safeParse(rule.item);
+
+    return item.success ? [item.data] : [];
+  });
 }
 
 function readClasses(registry: ContentRegistry): ClassPickerContent {

@@ -14,6 +14,10 @@
  * fails, so a new semantic element gets an owner before it ships.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+import { Start } from './template-nodes.ts';
+import type { VisitedNode } from './template-nodes.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\/src\/lib\//u;
 const ALLOWED_OUTSIDE = /^(?:fr-|pio-)|^(?:ng-container|ng-template|ng-content|router-outlet)$/u;
@@ -156,10 +160,9 @@ const BANNED: ReadonlyMap<string, string> = new Map([
   ['dd', '`fr-description-item` renders its value as `role="definition"`'],
 ]);
 
-interface ElementNode {
-  readonly name?: unknown;
-  readonly startSourceSpan?: { readonly start: { readonly offset: number } };
-}
+const ElementNode = z.looseObject({ name: z.string(), startSourceSpan: Start });
+
+const ElementName = z.looseObject({ name: z.string() });
 
 interface Violation {
   readonly messageId: 'outside' | 'app' | 'owned' | 'unowned' | 'banned' | 'unknown';
@@ -231,13 +234,14 @@ export const noNativeElements: Rule.RuleModule = {
     let foreignDepth = 0;
 
     return {
-      Element(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name: rawName, startSourceSpan } = node as ElementNode;
+      Element(node: VisitedNode): void {
+        const element = ElementNode.safeParse(node);
 
-        if (typeof rawName !== 'string' || startSourceSpan === undefined) {
+        if (!element.success) {
           return;
         }
+
+        const { name: rawName, startSourceSpan } = element.data;
 
         const namespace = NAMESPACED.exec(rawName)?.groups?.['namespace'];
         const nested = namespace !== undefined && foreignDepth > 0;
@@ -248,10 +252,9 @@ export const noNativeElements: Rule.RuleModule = {
           context.report({ loc: context.sourceCode.getLocFromIndex(startSourceSpan.start.offset), ...found });
         }
       },
-      'Element:exit'(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name: rawName } = node as ElementNode;
-        foreignDepth -= typeof rawName === 'string' && NAMESPACED.test(rawName) ? 1 : 0;
+      'Element:exit'(node: VisitedNode): void {
+        const element = ElementName.safeParse(node);
+        foreignDepth -= element.success && NAMESPACED.test(element.data.name) ? 1 : 0;
       },
     };
   },

@@ -10,7 +10,6 @@ import {
   CORE_RULE_LIMITS,
 } from '@pioneer/character/domain';
 import { ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
-import { ApiError } from '@pioneer/shared/web';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
@@ -187,7 +186,7 @@ describe(CharacterStore, () => {
     await vi.waitFor(() => {
       http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(sheet(3, 5));
     });
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
+    await expect(pending).rejects.toHaveProperty('isConflict', true);
     expect(store.selected()?.version).toBe(3);
   });
 
@@ -205,7 +204,7 @@ describe(CharacterStore, () => {
     await vi.waitFor(() => {
       http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(sheet(3, 5));
     });
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
+    await expect(pending).rejects.toHaveProperty('isConflict', true);
     expect(store.cleared()).toStrictEqual([]);
   });
 });

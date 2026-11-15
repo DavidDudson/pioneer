@@ -2,11 +2,11 @@ import { CharacterLevel, CharacterName } from '@pioneer/character/domain';
 import { Attribute, AttributeModifier, AttributeModifiers, Proficiency } from '@pioneer/rules/sdk';
 import type { AttributeModifiersWire } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import type * as z from 'zod';
+import * as z from 'zod';
 
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
-import { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
+import { PathbuilderBuild, PathbuilderExport, PathbuilderFileJson } from './pathbuilder-export';
 import { readBoosts, readFlaws } from './read-boosts';
 import type { ImportedBoosts } from './read-boosts';
 import { importedFeats } from './read-feats';
@@ -256,22 +256,39 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
   return { ok: true, value };
 }
 
+/** An export as it arrives: its text, or JSON already parsed. */
+export type PathbuilderInput =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | readonly PathbuilderInput[]
+  | { readonly [key: string]: PathbuilderInput };
+
 const NOT_JSON = Symbol('not JSON');
 
-function parseJson(text: string): unknown {
+function parseJson(text: string): PathbuilderInput | typeof NOT_JSON {
   try {
-    return JSON.parse(text);
+    return PathbuilderFileJson.parse(JSON.parse(text));
   } catch {
     return NOT_JSON;
   }
+}
+
+/** The export's JSON: a string is its text, parsed; anything else is JSON already. */
+function jsonOf(input: PathbuilderInput): PathbuilderInput | typeof NOT_JSON {
+  const text = z.string().safeParse(input);
+
+  return text.success ? parseJson(text.data) : input;
 }
 
 /**
  * Read a Pathbuilder 2e export: the parsed JSON object, or its text. Never throws; a file that isn't a usable
  * export comes back as a problem with the zod issues that explain it.
  */
-export function readPathbuilderExport(input: unknown): PathbuilderReadResult {
-  const json = typeof input === 'string' ? parseJson(input) : input;
+export function readPathbuilderExport(input: PathbuilderInput): PathbuilderReadResult {
+  const json = jsonOf(input);
 
   if (json === NOT_JSON) {
     return failure(PathbuilderProblem.Malformed);

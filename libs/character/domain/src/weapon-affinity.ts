@@ -2,7 +2,7 @@ import type { GrantEntry } from '@pioneer/rules/grants';
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { ContentId, ContentKind, MartialKind, RollOption, RuleElementKey, Selector } from '@pioneer/rules/sdk';
-import type { ChoiceValue, Trait } from '@pioneer/rules/sdk';
+import type { ChoiceValue, Predicate, Trait } from '@pioneer/rules/sdk';
 
 import { FAVOURED, TRAINS_WEAPON, UNTHEMED } from './generation-theme';
 import type { ThemeWeight, WeaponTheme } from './generation-theme';
@@ -15,7 +15,7 @@ const WEAPON_NAME = /(?<![\w-])(?:group|base):[a-z-]+/gu;
 /** The weapons an entry's rules and prerequisites name, read once per entry as content never changes. */
 const READ = new WeakMap<GrantEntry, ReadonlySet<Selector>>();
 
-function namedBy(entry: GrantEntry, predicate: unknown): ReadonlySet<Selector> {
+function namedBy(entry: GrantEntry, predicate: Predicate | undefined): ReadonlySet<Selector> {
   const text = JSON.stringify([entry.rules, predicate]);
   const read = READ.get(entry) ?? new Set(Array.from(text.matchAll(WEAPON_NAME), ([name]) => Selector.parse(name)));
   READ.set(entry, read);

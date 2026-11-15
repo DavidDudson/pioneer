@@ -182,5 +182,5 @@ export class RuneMove {
     this.model.set(EMPTY_MOVE);
   };
 
-  protected readonly describeError = (error: unknown): string => describeRuneError(this.#i18n, error);
+  protected readonly describeError = (error: Error): string => describeRuneError(this.#i18n, error);
 }

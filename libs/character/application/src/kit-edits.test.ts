@@ -21,6 +21,7 @@ import { ContentId, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentPack } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
+import type { FieldIssue } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';
@@ -68,7 +69,7 @@ describe('CharacterService kit edits', () => {
     return added.id;
   }
 
-  async function refusal(patch: CharacterPatch): Promise<unknown> {
+  async function refusal(patch: CharacterPatch): Promise<readonly FieldIssue[]> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
 

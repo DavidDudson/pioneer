@@ -3,8 +3,10 @@ import { HeadingLevel } from '@pioneer/frontier';
 import { contentId, ContentText, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { richTextJson } from '@pioneer/rules/sdk/testing';
+import type { Plain } from '@pioneer/rules/sdk/testing';
 import { assert, asyncProperty } from 'fast-check';
 import { describe, expect, it } from 'vitest';
+import * as z from 'zod';
 
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
 import { provideRichTextLinks } from './rich-text-links';
@@ -42,7 +44,7 @@ interface ParagraphNode {
 const text = (value: string): TextNode => ({ type: 'text', text: value });
 const paragraph = (...content: unknown[]): ParagraphNode => ({ type: 'paragraph', content });
 
-async function render(json: unknown, headingLevel: HeadingLevel = HeadingLevel.Two): Promise<HTMLElement> {
+async function render(json: Plain, headingLevel: HeadingLevel = HeadingLevel.Two): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [provideRichTextTesting(), provideRichTextLinks(LINKS)],
   });
@@ -220,7 +222,7 @@ describe(RichTextView, () => {
     await assert(
       asyncProperty(richTextJson, async (json) => {
         TestBed.resetTestingModule();
-        const rendered = await render(json);
+        const rendered = await render(z.json().parse(json));
         expect(unexpectedElements(rendered)).toStrictEqual([]);
       }),
       { numRuns: 25 },

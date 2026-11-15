@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
+import * as z from 'zod';
 
 import { compression, MIN_COMPRESSED_BYTES } from './compression';
 
@@ -39,10 +40,11 @@ async function get(path: string, acceptEncoding?: string): Promise<Response> {
   return app().handle(new Request(`http://localhost${path}`, { headers }));
 }
 
-async function gunzipped(response: Response): Promise<unknown> {
+async function gunzipped(response: Response): Promise<object> {
   const stream = response.body?.pipeThrough(new DecompressionStream('gzip'));
+  const body = await new Response(stream).json();
 
-  return new Response(stream).json();
+  return z.object({}).loose().parse(body);
 }
 
 describe('compression', () => {

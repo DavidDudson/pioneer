@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constantFrom, integer, option, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -41,7 +42,7 @@ const placed: Arbitrary<Placed> = record({
 });
 
 /** A `Sense` element as the generator builds it, with a field set only when its placement gives it. */
-interface SenseFields {
+interface SenseFields extends RuleJson {
   key: string;
   sense: ContentId;
   acuity?: string;

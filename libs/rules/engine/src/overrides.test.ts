@@ -10,7 +10,7 @@ import { deriveStatistics } from './derive-statistics';
 import { ruleIdOf } from './rule-in-play';
 import type { RuleInPlay } from './rule-in-play';
 import { StatisticInputsJson } from './statistic-inputs';
-import type { StatisticValue } from './statistic-result';
+import type { StatisticResult, StatisticValue } from './statistic-result';
 import { change, flatModifier, inPlay, statistic } from './testing';
 
 const inputs = StatisticInputsJson.parse({
@@ -24,7 +24,10 @@ const inputs = StatisticInputsJson.parse({
 const ac = statistic('ac', '10 + @attr.dex.capped + @prof.ac');
 const perception = statistic('perception', '@attr.wis + @stat.ac');
 
-function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[]): ReadonlyMap<Selector, unknown> {
+function derivedAll(
+  rules: readonly RuleInPlay[],
+  ...options: readonly string[]
+): ReadonlyMap<Selector, StatisticResult> {
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
@@ -39,12 +42,11 @@ function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[])
 function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): StatisticValue {
   const result = derivedAll(rules, ...options).get(Selector.parse('ac'));
 
-  if (typeof result !== 'object' || result === null || !('ok' in result) || result.ok !== true) {
+  if (result === undefined || !result.ok) {
     throw new Error('Expected AC to derive');
   }
 
-  // SAFETY: the guard above threw unless result is an object with ok true, which is a StatisticValue.
-  return result as StatisticValue;
+  return result;
 }
 
 describe('Change in the base phase', () => {

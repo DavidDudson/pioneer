@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
+import type * as z from 'zod';
 
 import { InventoryItemId } from './inventory';
 import { ItemApproval, partitionApproved } from './item-approvals';
@@ -26,7 +27,7 @@ const misfit = (item: InventoryItemId, rune: ContentId): RuleViolation => ({
   rune,
 });
 
-const approval = (input: unknown): ItemApproval => ItemApproval.parse(input);
+const approval = (input: z.input<typeof ItemApproval>): ItemApproval => ItemApproval.parse(input);
 
 describe('partitionApproved', () => {
   test('with no approval every violation still warns', () => {

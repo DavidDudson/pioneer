@@ -5,6 +5,8 @@
  * migrating is a no-op (migrations are forward-only; the earlier code must cope with the newer schema).
  */
 
+import * as z from 'zod';
+
 export const GHCR_IMAGE = 'ghcr.io/daviddudson/pioneer';
 export const FUNCTION_NAME = 'pioneer-api';
 const TAG = /^sha-[0-9a-f]{7,40}$/u;
@@ -32,10 +34,9 @@ export interface HttpResponse {
 }
 
 /** What a deploy reads from the function's environment. */
-interface FunctionSettings {
-  readonly databaseUrl: string;
-  readonly origin: string;
-}
+const FUNCTION_SETTINGS = z.object({ databaseUrl: z.string(), origin: z.string() });
+
+type FunctionSettings = z.infer<typeof FUNCTION_SETTINGS>;
 
 export interface DeployDeps {
   /** Runs a command to completion and captures its output; never throws on a non-zero exit. */
@@ -100,16 +101,16 @@ async function functionSettings(deps: DeployDeps): Promise<FunctionSettings> {
     'json',
   ]);
 
-  // SAFETY: the `--query` above projects an object with exactly these two keys; their values stay `unknown` and are narrowed by the `typeof` checks below.
-  const settings = JSON.parse(json) as { databaseUrl: unknown; origin: unknown };
+  // The `--query` above projects both variables; a function without one has `null` there.
+  const settings = FUNCTION_SETTINGS.safeParse(JSON.parse(json));
 
-  if (typeof settings.databaseUrl !== 'string' || typeof settings.origin !== 'string') {
+  if (!settings.success) {
     throw new TypeError(`${FUNCTION_NAME} has no DATABASE_URL or PUBLIC_ORIGIN; apply infra/ first`);
   }
 
-  deps.mask(settings.databaseUrl);
+  deps.mask(settings.data.databaseUrl);
 
-  return { databaseUrl: settings.databaseUrl, origin: settings.origin };
+  return settings.data;
 }
 
 async function inEcr(deps: DeployDeps, tag: string): Promise<boolean> {

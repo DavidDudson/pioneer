@@ -101,6 +101,11 @@ async function outcome(url: URL, response: Response): Promise<PageOutcome> {
   return { kind: 'fresh', html: await response.text(), etag: response.headers.get('ETag') ?? undefined };
 }
 
+/** What `robots.txt` lets the robot do: the paths it must not fetch, or why it must not go on. */
+type RobotRules =
+  | { readonly kind: 'allowed'; readonly disallowed: readonly string[] }
+  | { readonly kind: 'refused'; readonly reason: string };
+
 export class PoliteClient {
   private readonly config: PoliteConfig;
   private lastRequestAt: number | undefined;
@@ -131,9 +136,9 @@ export class PoliteClient {
   }
 
   /** The disallowed paths, or a reason the robot must not go on. A missing `robots.txt` (404) allows everything. */
-  private async rules(origin: string): Promise<readonly string[] | string> {
+  private async rules(origin: string): Promise<RobotRules> {
     if (this.robots !== undefined) {
-      return this.robots;
+      return { kind: 'allowed', disallowed: this.robots };
     }
 
     const response = await this.request(new URL('/robots.txt', origin), {});
@@ -145,21 +150,21 @@ export class PoliteClient {
     } else if (response.status === STATUS_FORBIDDEN && this.config.robotsForbiddenIsOpen === true) {
       this.robots = [];
     } else {
-      return `robots.txt answered ${response.status}`;
+      return { kind: 'refused', reason: `robots.txt answered ${response.status}` };
     }
 
-    return this.robots;
+    return { kind: 'allowed', disallowed: this.robots };
   }
 
   /** `body` as JSON to `url`, if `robots.txt` allows it. Nothing is cached, so the answer is always fresh. */
-  public async postJson(url: URL, body: unknown): Promise<PageOutcome> {
+  public async postJson(url: URL, body: object): Promise<PageOutcome> {
     const rules = await this.rules(url.origin);
 
-    if (typeof rules === 'string') {
-      return { kind: 'refused', reason: rules };
+    if (rules.kind === 'refused') {
+      return rules;
     }
 
-    if (rules.some((path) => url.pathname.startsWith(path))) {
+    if (rules.disallowed.some((path) => url.pathname.startsWith(path))) {
       return { kind: 'refused', reason: `robots.txt disallows ${url.pathname}` };
     }
 
@@ -179,13 +184,13 @@ export class PoliteClient {
   public async get(url: URL, etag: string | undefined): Promise<PageOutcome> {
     const rules = await this.rules(url.origin);
 
-    if (typeof rules === 'string') {
-      return { kind: 'refused', reason: rules };
+    if (rules.kind === 'refused') {
+      return rules;
     }
 
     const target = `${url.pathname}${url.search}`;
 
-    if (rules.some((path) => target.startsWith(path))) {
+    if (rules.disallowed.some((path) => target.startsWith(path))) {
       return { kind: 'refused', reason: `robots.txt disallows ${target}` };
     }
 

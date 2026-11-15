@@ -95,13 +95,13 @@ export class CampaignOfferItem {
     await this.#client.invalidateQueries({ queryKey: partyStashKey(id) });
   };
 
-  protected readonly describeDepositError = (error: unknown): string => {
+  protected readonly describeDepositError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.putFailed');
 
     return this.#i18n.translate(key, params);
   };
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.transfers.offerFailed');
 
     return this.#i18n.translate(key, params);

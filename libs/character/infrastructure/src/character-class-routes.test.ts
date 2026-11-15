@@ -26,7 +26,7 @@ import { characterRoutes } from './character-routes';
 
 const amiri = UserId.parse(newId());
 
-function request(method: string, path: string, body: unknown): Request {
+function request(method: string, path: string, body: object): Request {
   return new Request(`http://localhost${path}`, {
     method,
     headers: { 'content-type': 'application/json', ...actingAs(amiri) },

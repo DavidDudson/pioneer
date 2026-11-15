@@ -1,6 +1,7 @@
 import { computed, signal } from '@angular/core';
 import type { Signal, WritableSignal } from '@angular/core';
 import type { PickerSort } from '@pioneer/frontier/data';
+import * as z from 'zod';
 
 /** How a short list is searched and ordered in the page: the text a query reads, and each column's sort key. */
 export interface RowOrder<TRow> {
@@ -31,9 +32,12 @@ export function shownRows<TRow>(rows: readonly TRow[], view: RowView, order: Row
     const leftKey = key(left);
     const rightKey = key(right);
 
+    const leftNumber = z.number().safeParse(leftKey);
+    const rightNumber = z.number().safeParse(rightKey);
+
     const compared =
-      typeof leftKey === 'number' && typeof rightKey === 'number'
-        ? leftKey - rightKey
+      leftNumber.success && rightNumber.success
+        ? leftNumber.data - rightNumber.data
         : String(leftKey).localeCompare(String(rightKey));
 
     return direction * (compared || order.text(left).localeCompare(order.text(right)));

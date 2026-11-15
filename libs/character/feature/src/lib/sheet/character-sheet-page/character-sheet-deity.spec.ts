@@ -3,8 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
 import { openPickerTable } from '../../testing/feat-table-testing';
+import type { JsonValue } from '../../testing/json-fixture';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Exploration, 'deity');
@@ -47,12 +49,12 @@ async function pickDeity(root: HTMLElement, name: string): Promise<void> {
   present(rows.find((row) => row.name === name)).pick();
 }
 
-async function patchBody(): Promise<unknown> {
+async function patchBody(): Promise<JsonValue> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
 
-  return request.request.body;
+  return z.json().parse(request.request.body);
 }
 
 describe('CharacterSheetPage deity', () => {

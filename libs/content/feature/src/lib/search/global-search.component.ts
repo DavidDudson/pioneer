@@ -46,7 +46,7 @@ export class GlobalSearch {
 
     this.#clear();
     const target = entryTarget(entry);
-    await this.#router.navigate(typeof target === 'string' ? [target] : [...target]);
+    await this.#router.navigate([target].flat());
   }
 
   protected cancel(): void {

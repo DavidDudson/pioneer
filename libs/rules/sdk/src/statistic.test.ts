@@ -5,6 +5,7 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
 import { ContentPackSchema } from './content-pack';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { StatisticData, StatisticDefinition, StatisticKind, StatisticPer } from './statistic';
 import { ContentPackBuilder } from './testing';
@@ -19,13 +20,13 @@ const armorClass = {
   keyAttribute: 'dex',
 };
 
-function issuesFrom(schema: z.ZodType, json: unknown): readonly FieldIssue[] {
+function issuesFrom(schema: z.ZodType, json: JsonValue): readonly FieldIssue[] {
   const result = schema.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-const issues = (json: unknown): readonly FieldIssue[] => issuesFrom(StatisticDefinition, json);
+const issues = (json: JsonValue): readonly FieldIssue[] => issuesFrom(StatisticDefinition, json);
 
 describe('StatisticDefinition', () => {
   test('accepts a statistic with an actor-only base formula', () => {

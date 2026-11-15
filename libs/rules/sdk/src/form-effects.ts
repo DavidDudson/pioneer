@@ -10,11 +10,15 @@ const EFFECTS_MAX = 32;
 /** An effect a spell or an action can put on the user: its id, or its id with the predicate that offers it. */
 const SpellEffectEntry = z.union([ContentId, z.strictObject({ effect: ContentId, predicate: Predicate })]);
 
+const WrappedEffect = z.looseObject({ effect: ContentId });
+
 export type SpellEffectEntry = z.infer<typeof SpellEffectEntry>;
 
 /** The id of the effect `entry` lists. */
 export function spellEffectId(entry: SpellEffectEntry): ContentId {
-  return typeof entry === 'string' ? entry : entry.effect;
+  const wrapped = WrappedEffect.safeParse(entry);
+
+  return wrapped.success ? wrapped.data.effect : ContentId.parse(entry);
 }
 
 /** A `.check` for the effects a spell or an action lists: each effect is listed once, whatever its predicate. */

@@ -28,21 +28,19 @@ function deferred(): Deferred {
   };
 }
 
-async function render(action: () => Promise<unknown>): Promise<ComponentFixture<AsyncButton>> {
+async function render(action: () => Promise<undefined>): Promise<ComponentFixture<AsyncButton<undefined>>> {
   TestBed.configureTestingModule({
     providers: [provideTanStackQuery(new QueryClient()), ...provideFrontierI18nTesting()],
   });
-  const fixture = TestBed.createComponent(AsyncButton);
+  const fixture = TestBed.createComponent<AsyncButton<undefined>>(AsyncButton);
   fixture.componentRef.setInput('action', action);
-  fixture.componentRef.setInput('describeError', (failure: unknown) =>
-    failure instanceof Error ? failure.message : 'Failed',
-  );
+  fixture.componentRef.setInput('describeError', (failure: Error) => failure.message);
   TestBed.tick();
 
   return fixture;
 }
 
-function button(fixture: ComponentFixture<AsyncButton>): HTMLButtonElement {
+function button(fixture: ComponentFixture<AsyncButton<undefined>>): HTMLButtonElement {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('button');
 

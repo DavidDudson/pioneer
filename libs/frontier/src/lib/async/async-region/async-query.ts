@@ -6,7 +6,7 @@ import type { Signal } from '@angular/core';
  */
 export interface AsyncQuery<TData> {
   readonly data: Signal<TData | undefined>;
-  readonly error: Signal<unknown>;
+  readonly error: Signal<Error | null | undefined>;
   isPending: () => boolean;
   isError: () => boolean;
   /** An infinite query whose latest next page failed: `fr-load-more` shows that, so the region keeps its data. */

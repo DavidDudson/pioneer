@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import type { BundlePath } from '@pioneer/rules/sdk';
+import type { BundleBody, BundlePath } from '@pioneer/rules/sdk';
 
 import { IndexedDbBundleStore } from './indexed-db-bundle-store';
 import { MemoryBundleStore } from './memory-bundle-store';
@@ -13,8 +13,8 @@ export type StoredKey = BundlePath | typeof MANIFEST_KEY;
 /** Port: where the browser keeps content between visits. Bodies are kept as read and checked again on use. */
 export interface BundleStore {
   /** The body kept under `key`, or undefined when none is. */
-  readonly read: (key: StoredKey) => Promise<unknown>;
-  readonly write: (key: StoredKey, body: unknown) => Promise<void>;
+  readonly read: (key: StoredKey) => Promise<BundleBody | undefined>;
+  readonly write: (key: StoredKey, body: BundleBody) => Promise<void>;
   readonly keys: () => Promise<readonly StoredKey[]>;
   readonly remove: (keys: readonly StoredKey[]) => Promise<void>;
 }

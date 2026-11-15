@@ -4,8 +4,9 @@ import { ReferencePath } from '@pioneer/rules/formula';
 
 import { knownReference, REFERENCE_CATALOGUE, ReferenceKind } from './formula-reference';
 import { FOUNDRY_REFERENCES, fromFoundryPath } from './foundry-reference';
+import type { JsonValue } from './json-bounds';
 
-const known = (path: string): unknown => knownReference(ReferencePath.parse(path));
+const known = (path: string): JsonValue => knownReference(ReferencePath.parse(path));
 const translated = (path: string): string | undefined => fromFoundryPath(ReferencePath.parse(path));
 
 describe('formula reference vocabulary', () => {

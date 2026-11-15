@@ -1,27 +1,18 @@
 import { DependencyUsageDirectory } from '@pioneer/homebrew/application';
 import { UsingEntryName } from '@pioneer/homebrew/domain';
 import { contentEntries } from '@pioneer/rules/infrastructure';
-import type { ContentPackId } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentPackId } from '@pioneer/rules/sdk';
 import { eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
-const UUID = /^[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12}$/iu;
+/** A uuid held as a string value of a JSON document; an object key (a uuid followed by a colon) is not a reference. */
+const REFERENCED_UUID = /"(?<id>[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12})"(?!:)/giu;
 
-/** Whether any string in the JSON value is one of `ids`: an entry references another by its id wherever it does. */
-function mentionsAny(value: unknown, ids: ReadonlySet<string>): boolean {
-  if (typeof value === 'string') {
-    return UUID.test(value) && ids.has(value.toLowerCase());
-  }
-
-  if (Array.isArray(value)) {
-    return value.some((item) => mentionsAny(item, ids));
-  }
-
-  if (typeof value === 'object' && value !== null) {
-    return Object.values(value).some((item) => mentionsAny(item, ids));
-  }
-
-  return false;
+/** Whether any string in the entry's JSON is one of `ids`: an entry references another by its id wherever it does. */
+function mentionsAny(entry: ContentEntry, ids: ReadonlySet<string>): boolean {
+  return JSON.stringify(entry)
+    .matchAll(REFERENCED_UUID)
+    .some((found) => ids.has(found.groups?.['id']?.toLowerCase() ?? ''));
 }
 
 export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {

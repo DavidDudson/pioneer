@@ -7,6 +7,8 @@ import { ContentKindSchema } from './content-kind';
 import type { ContentPack } from './content-pack';
 import { ContentPackFile, contentPackFromTrustedContents } from './content-pack-file';
 import { ContentText } from './content-text';
+import { jsonEntries } from './json-bounds';
+import type { JsonValue } from './json-bounds';
 import { RichText } from './rich-text';
 
 /** JSON text written so equal values give equal text, whatever order their keys were written in. */
@@ -15,16 +17,16 @@ export const CanonicalJson = z.string().brand<'CanonicalJson'>();
 export type CanonicalJson = z.infer<typeof CanonicalJson>;
 
 /** `value` with every object's keys sorted. */
-function sortKeys(value: unknown): unknown {
+function sortKeys(value: JsonValue): JsonValue {
   if (Array.isArray(value)) {
-    return value.map((item) => sortKeys(item));
+    return value.map((item: JsonValue) => sortKeys(item));
   }
 
-  if (typeof value === 'object' && value !== null) {
+  const fields = jsonEntries(value);
+
+  if (fields !== undefined) {
     return Object.fromEntries(
-      Object.entries(value)
-        .toSorted(([left], [right]) => (left < right ? -1 : 1))
-        .map(([key, item]) => [key, sortKeys(item)]),
+      fields.toSorted(([left], [right]) => (left < right ? -1 : 1)).map(([key, item]) => [key, sortKeys(item)]),
     );
   }
 
@@ -32,7 +34,7 @@ function sortKeys(value: unknown): unknown {
 }
 
 /** `value` as JSON with every object's keys sorted: what content and bundle hashes are taken over. */
-export function canonicalJson(value: unknown): CanonicalJson {
+export function canonicalJson(value: JsonValue): CanonicalJson {
   return CanonicalJson.parse(JSON.stringify(sortKeys(value)));
 }
 

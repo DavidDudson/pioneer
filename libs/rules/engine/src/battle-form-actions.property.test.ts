@@ -4,6 +4,7 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionData, ContentId, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constantFrom, property, record, subarray } from 'fast-check';
+import * as z from 'zod';
 
 import { ActionOriginKind, ActionStatus, availableActions } from './available-actions';
 import type { ActionCandidate, AvailableAction } from './available-actions';
@@ -57,7 +58,9 @@ function forbids(action: ActionCandidate, flags: Flags): boolean {
 }
 
 function everyReasonNamesTheForm(result: AvailableAction): boolean {
-  return result.reasons.every(({ key, params }) => FORM_KEYS.has(key) && typeof params?.['form'] === 'string');
+  return result.reasons.every(
+    ({ key, params }) => FORM_KEYS.has(key) && z.string().safeParse(params?.['form']).success,
+  );
 }
 
 /** The actions weighed under a form that sets `flags`, with the form. */

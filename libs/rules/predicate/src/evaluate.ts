@@ -1,4 +1,4 @@
-import { isPredicateComparison } from '@pioneer/rules/sdk';
+import { isPredicateComparison, isRollOptionOperand, isRollOptionStatement } from '@pioneer/rules/sdk';
 import type {
   ComparisonOperands,
   Predicate,
@@ -39,7 +39,7 @@ export function testOption(option: RollOption, facts: PredicateFacts): Truth {
  * `a:b`. Missing `a:b` is false once `a` is known or has any value, and unknown before that.
  */
 function testEquals([left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
-  if (typeof right === 'string') {
+  if (isRollOptionOperand(right)) {
     return truthOf(left === right);
   }
 
@@ -53,7 +53,7 @@ function testEquals([left, right]: ComparisonOperands, facts: PredicateFacts): T
 /** An order test with an operand that has no value: false if a missing operand's namespace is known, else unknown. */
 function missingTruth([left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
   const missing = [left, right].filter(
-    (operand): operand is RollOption => typeof operand === 'string' && facts.values(operand).length === 0,
+    (operand): operand is RollOption => isRollOptionOperand(operand) && facts.values(operand).length === 0,
   );
 
   return missing.some((option) => facts.isKnown(option)) ? Truth.False : Truth.Unknown;
@@ -65,7 +65,7 @@ function missingTruth([left, right]: ComparisonOperands, facts: PredicateFacts):
  */
 function testOrder(order: Order, [left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
   const leftValues = facts.values(left);
-  const rightValues = typeof right === 'string' ? facts.values(right) : [OptionValue.parse(right)];
+  const rightValues = isRollOptionOperand(right) ? facts.values(right) : [OptionValue.parse(right)];
 
   if (leftValues.length === 0 || rightValues.length === 0) {
     return missingTruth([left, right], facts);
@@ -170,7 +170,7 @@ function listStatements(statement: ListCompound): readonly PredicateStatement[] 
 
 /** The statements directly inside `statement`, in order: `[if, then]` for a conditional. */
 export function childStatements(statement: PredicateStatement): readonly PredicateStatement[] {
-  if (typeof statement === 'string' || isPredicateComparison(statement)) {
+  if (isRollOptionStatement(statement) || isPredicateComparison(statement)) {
     return [];
   }
 
@@ -187,7 +187,7 @@ export function childStatements(statement: PredicateStatement): readonly Predica
 
 /** One statement's verdict. Pure and total; nesting is bounded by the schema's depth limit. */
 export function evaluateStatement(statement: PredicateStatement, facts: PredicateFacts): Truth {
-  if (typeof statement === 'string') {
+  if (isRollOptionStatement(statement)) {
     return testOption(statement, facts);
   }
 

@@ -157,9 +157,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
   });
 
   test('a pack its owner cannot read is not found', async () => {
-    const refusal = await service
-      .enable(amiri, kyra, { packId: ContentPackId.parse(items.id) })
-      .catch((error: unknown) => error);
+    const refusal = await rejection(service.enable(amiri, kyra, { packId: ContentPackId.parse(items.id) }));
 
     expect(refusal).toMatchObject({ name: 'NotFoundError' });
   });

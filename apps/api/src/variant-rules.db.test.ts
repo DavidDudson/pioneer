@@ -172,7 +172,7 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
   });
 
   test('a variant rule no pack in force defines is not found', async () => {
-    const refusal = await characterService.enable(amiri, kyra, { variantId: other }).catch((error: unknown) => error);
+    const refusal = await rejection(characterService.enable(amiri, kyra, { variantId: other }));
     expect(refusal).toMatchObject({ name: 'NotFoundError' });
     expect(await stored()).toStrictEqual([]);
   });
@@ -183,9 +183,7 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
       ['Proficiency Without Level', 'Core Rules'],
     ]);
 
-    const refusal = await campaignService
-      .enable(amiri, campaignId, { variantId: campaignWithoutLevel })
-      .catch((error: unknown) => error);
+    const refusal = await rejection(campaignService.enable(amiri, campaignId, { variantId: campaignWithoutLevel }));
 
     expect(refusal).toBeInstanceOf(ForbiddenError);
   });

@@ -7,6 +7,7 @@ import type * as z from 'zod';
 import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import { ContentPack, ContentPackSchema } from './content-pack';
 import { ContentRegistry } from './content-registry';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { ProficiencyBonusTable } from './proficiency';
 import { RuleElement } from './rule-element';
@@ -21,7 +22,7 @@ const PLAYER_CORE = {
   legendary: '8 + @level',
 };
 
-function issuesFrom(schema: z.ZodType, json: unknown): readonly FieldIssue[] {
+function issuesFrom(schema: z.ZodType, json: JsonValue): readonly FieldIssue[] {
   const result = schema.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);

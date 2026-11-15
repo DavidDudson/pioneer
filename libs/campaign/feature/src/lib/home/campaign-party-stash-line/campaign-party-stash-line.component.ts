@@ -41,7 +41,7 @@ export class CampaignPartyStashLine {
     async (): Promise<void> =>
       this.#store.take(character.characterId, this.line().id);
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.partyStash.takeFailed');
 
     return this.#i18n.translate(key, params);

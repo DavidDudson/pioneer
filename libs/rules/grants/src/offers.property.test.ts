@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { Predicate, RollOptionNamespace } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import {
   array,
   assert,
@@ -94,7 +95,7 @@ function outcomeOf({ asker, content, level, pick }: Run): Outcome {
   return { slot: answered ?? result.open[0], answered: answered !== undefined, facts: result.facts };
 }
 
-const notFalse = (predicate: unknown, facts: PredicateFacts): boolean =>
+const notFalse = (predicate: JsonValue, facts: PredicateFacts): boolean =>
   evaluatePredicate(Predicate.parse(predicate), facts) !== Truth.False;
 
 describe('offer properties', () => {

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import { Predicate } from '@pioneer/rules/sdk';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { factsUnderForm } from './battle-form';
 import { EngineMessage } from './messages';
@@ -22,7 +23,7 @@ function cost(extra: number, body: object = {}): RuleInPlay {
 }
 
 /** Whether `self:immunity:difficult-terrain` is among the facts once `rules` are in play. */
-function immuneAfter(...elements: readonly object[]): boolean {
+function immuneAfter(...elements: readonly RuleJson[]): boolean {
   const rules = elements.map((element) => inPlay(element, 'avatar'));
   const facts = factsUnderForm({ rules, facts: FORM_FACTS });
 

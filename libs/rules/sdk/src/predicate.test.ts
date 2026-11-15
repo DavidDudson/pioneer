@@ -4,12 +4,13 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate';
 import { RollOption } from './roll-option';
 import { Domain, Selector } from './selector';
 
-function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

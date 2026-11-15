@@ -273,7 +273,7 @@ export class ContentBrowser {
       ref: refOf(entry),
       kind: isBrowseKind(entry.kind) ? this.#i18n.translate(KIND_MESSAGES[entry.kind]) : '',
       level: this.#levelText(entry),
-      levelValue: 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined,
+      levelValue: 'level' in entry && entry.level !== undefined ? entry.level : undefined,
       creature: entry.kind === ContentKind.Creature ? this.#creatureOf(entry.data) : undefined,
       traits,
       sources: browseSources(entry, this.#licenses()),
@@ -295,6 +295,6 @@ export class ContentBrowser {
 
   /** A kit has no level, so it is read where an entry has one. */
   #levelText(entry: ContentEntry): string {
-    return 'level' in entry && typeof entry.level === 'number' ? this.#format.number(entry.level) : '';
+    return 'level' in entry && entry.level !== undefined ? this.#format.number(entry.level) : '';
   }
 }

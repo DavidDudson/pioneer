@@ -1,3 +1,4 @@
+import type { Location } from '@angular/common';
 import { TableViewKey } from '@pioneer/frontier/data';
 import { describe, expect, it } from 'vitest';
 
@@ -19,9 +20,14 @@ describe(browserLink, () => {
   });
 });
 
+/** The location whose history holds `state`. */
+const historyWith = (state: object | undefined): Pick<Location, 'getState'> => ({ getState: () => state });
+
 describe(originOf, () => {
   it('reads an address of the app', () => {
-    expect(originOf({ [ORIGIN_STATE]: '/characters/1/plan?drawer=open' })).toBe('/characters/1/plan?drawer=open');
+    expect(originOf(historyWith({ [ORIGIN_STATE]: '/characters/1/plan?drawer=open' }))).toBe(
+      '/characters/1/plan?drawer=open',
+    );
   });
 
   it.each([
@@ -31,6 +37,6 @@ describe(originOf, () => {
     { [ORIGIN_STATE]: 'https://evil.example' },
     { [ORIGIN_STATE]: '//evil.example' },
   ])('ignores %j', (state) => {
-    expect(originOf(state)).toBeUndefined();
+    expect(originOf(historyWith(state))).toBeUndefined();
   });
 });

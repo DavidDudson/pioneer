@@ -206,7 +206,8 @@ export class SpellItemCasting {
     try {
       await edit();
     } catch (error: unknown) {
-      const { key, params } = describeSaveError(error);
+      const failure = error instanceof Error ? error : new Error(String(error));
+      const { key, params } = describeSaveError(failure);
       this.error.set(this.#i18n.translate(key, params));
     } finally {
       this.busy.set(false);

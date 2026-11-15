@@ -8,6 +8,7 @@ import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
+import * as z from 'zod';
 
 import { preferenceRoutes } from './preference-routes';
 
@@ -23,7 +24,7 @@ async function read(api: AnyElysia, user?: UserId): Promise<Response> {
   return api.handle(new Request('http://localhost/me/preferences', { headers }));
 }
 
-async function patch(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
+async function patch(api: AnyElysia, body: object, user?: UserId): Promise<Response> {
   const headers = new Headers(user === undefined ? undefined : actingAs(user));
   headers.set('content-type', 'application/json');
 
@@ -31,6 +32,9 @@ async function patch(api: AnyElysia, body: unknown, user?: UserId): Promise<Resp
     new Request('http://localhost/me/preferences', { method: 'PATCH', headers, body: JSON.stringify(body) }),
   );
 }
+
+/** JSON null, which removing a choice would send. */
+const REMOVED_CHOICE = z.looseObject({}).parse(JSON.parse('{ "uiLocale": null }'));
 
 describe('preference routes', () => {
   test('a new account has nothing chosen', async () => {
@@ -63,7 +67,7 @@ describe('preference routes', () => {
     ['an unknown distance unit', { distanceUnit: 'leagues' }],
     ['an unknown field', { theme: 'tavern' }],
     // JSON null, which removing a choice would send.
-    ['a removed choice', JSON.parse('{ "uiLocale": null }')],
+    ['a removed choice', REMOVED_CHOICE],
     ['no change at all', {}],
   ])('PATCH with %s is a 422 problem', async (_case, body) => {
     const response = await patch(app(), body, UserId.parse(newId()));

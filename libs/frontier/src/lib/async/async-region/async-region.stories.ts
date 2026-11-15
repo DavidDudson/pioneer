@@ -24,7 +24,7 @@ const PARTY: Party = ['Valeros', 'Seoni', 'Kyra', 'Merisiel'];
 /** A stand-in for an `injectQuery(...)` result, frozen in one state. */
 function query(state: {
   readonly data?: Party;
-  readonly error?: unknown;
+  readonly error?: Error;
   readonly pending?: boolean;
 }): AsyncQuery<Party> {
   return {

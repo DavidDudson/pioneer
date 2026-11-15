@@ -22,10 +22,6 @@ function acceptsGzip(header: string | null): boolean {
   return (weights.get('gzip') ?? weights.get('*') ?? 0) > 0;
 }
 
-function isJsonValue(value: unknown): boolean {
-  return typeof value === 'object' && value !== null && !(value instanceof Response);
-}
-
 function responseHeaders(set: HTTPHeaders): Headers {
   const headers = new Headers();
 
@@ -75,7 +71,7 @@ async function gzip(bytes: Uint8Array): Promise<Uint8Array> {
 /** The gzip of `value`, from the cache when `request` is a GET whose strong `ETag` was already compressed. */
 async function gzippedBytes(
   request: Request,
-  value: unknown,
+  value: object,
   etag: string | undefined,
 ): Promise<Uint8Array | undefined> {
   const key = keyOf(request, etag);
@@ -126,7 +122,9 @@ function gzipped(bytes: Uint8Array, set: Context['set']): Response {
 export const compression = new Elysia({ name: 'compression' }).mapResponse(
   { as: 'global' },
   async ({ request, responseValue, set }) => {
-    if (!acceptsGzip(request.headers.get('accept-encoding')) || !isJsonValue(responseValue)) {
+    const isJsonBody = responseValue instanceof Object && !(responseValue instanceof Response);
+
+    if (!acceptsGzip(request.headers.get('accept-encoding')) || !isJsonBody) {
       return undefined;
     }
 

@@ -182,7 +182,11 @@ function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | 
  */
 export function fieldIssues(issues: readonly z.core.$ZodIssue[]): FieldIssue[] {
   return issues.flatMap((issue): FieldIssue[] => {
-    const path = issue.path.filter((segment) => typeof segment !== 'symbol');
+    const path = issue.path.flatMap((segment) => {
+      const key = PathSegmentSchema.safeParse(segment);
+
+      return key.success ? [key.data] : [];
+    });
 
     if (issue.code === 'unrecognized_keys') {
       return issue.keys.map((key) => ({ path: [...path, key], message: unrecognizedKeys([key]) }));

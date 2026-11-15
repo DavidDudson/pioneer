@@ -98,8 +98,10 @@ function readerFor({ rules, facts }: ModifierInputs, { statistics, character }: 
   const proficiency = proficiencyBonuses(statistics.proficiencyBonus, { rules, facts, level: character.level });
 
   return (rule, value) => {
-    if (typeof value === 'number') {
-      return RuleNumber.parse(value);
+    const number = RuleNumber.safeParse(value);
+
+    if (number.success) {
+      return number.data;
     }
 
     const resolve = resolverFor({ inputs: character, proficiency }, (): undefined => undefined, {

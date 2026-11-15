@@ -35,7 +35,7 @@ export class FakeInfiniteQuery<TItem> implements LoadMoreQuery {
     this.#finish({ isError: false, error: undefined });
   }
 
-  public fail(error: unknown): void {
+  public fail(error: Error): void {
     this.#finish({ isError: true, error });
   }
 

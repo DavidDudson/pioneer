@@ -22,6 +22,7 @@ import {
   Text,
   TextAreaField,
 } from '@pioneer/frontier';
+import { PioneerFileJson } from '@pioneer/interop/pioneer';
 import type { PioneerImportPreview } from '@pioneer/interop/pioneer';
 import { slugName } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
@@ -44,13 +45,15 @@ interface UnmatchedView {
 
 /** JSON read from the text. */
 interface ParsedFile {
-  readonly value: unknown;
+  readonly value: PioneerFileJson;
 }
 
 /** The text as JSON, or `undefined` when it isn't (yet): the server judges whether the JSON is a Pioneer file. */
 function parsed(text: string): ParsedFile | undefined {
   try {
-    return { value: JSON.parse(text) };
+    const value = PioneerFileJson.safeParse(JSON.parse(text));
+
+    return value.success ? { value: value.data } : undefined;
   } catch {
     return undefined;
   }
@@ -108,7 +111,13 @@ export class PioneerImportPage {
 
     return {
       queryKey: ['characters', 'pioneer-import-preview', this.#text()],
-      queryFn: async (): Promise<PioneerImportPreview> => this.#store.previewPioneerImport(file?.value),
+      queryFn: async (): Promise<PioneerImportPreview> => {
+        if (file === undefined) {
+          throw new Error('No file to preview');
+        }
+
+        return this.#store.previewPioneerImport(file.value);
+      },
       enabled: file !== undefined,
       retry: false,
       staleTime: 0,
@@ -147,14 +156,20 @@ export class PioneerImportPage {
 
   /** Sends the file itself, not the preview. Opens the new character on Plan. */
   protected readonly create = async (): Promise<void> => {
-    const character = await this.#store.importPioneer(this.#file()?.value);
+    const file = this.#file();
+
+    if (file === undefined) {
+      throw new Error('No file to import');
+    }
+
+    const character = await this.#store.importPioneer(file.value);
     await this.#router.navigate(['../../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 
   /** The server's reason when it gave one (a newer format, a character that isn't valid), else a generic retry. */
-  protected readonly describeCreateError = (error: unknown): string => this.describe(error);
+  protected readonly describeCreateError = (error: Error): string => this.describe(error);
 
-  protected describe(error: unknown): string {
+  protected describe(error: Error): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
 
     return issue === undefined

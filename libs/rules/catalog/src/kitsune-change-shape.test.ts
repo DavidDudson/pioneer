@@ -1,9 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
-import { ContentEntryFile, ContentId, ContentKind, RollOption, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentEntryFile, ContentId, ContentKind, Predicate, RollOption, RuleElementKey } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { coreNamespaces } from './testing/fighter';
+
+/** An effect a form is offered with a predicate. */
+const Conditional = z.strictObject({ effect: ContentId, predicate: Predicate });
 
 /** Mwangi Expanse's Change Shape action, which the kitsune ancestry feature grants. */
 const CHANGE_FORM = ContentId.parse('e114f41a-9129-5b91-b7d2-f88e152b9c0c');
@@ -26,10 +30,13 @@ async function formsFor(options: readonly string[]): Promise<readonly ContentId[
 
   const effects = (action?.kind === ContentKind.Action ? action.data.effects : undefined) ?? [];
 
-  return effects
-    .filter((listed): listed is Exclude<typeof listed, ContentId> => typeof listed !== 'string')
-    .filter(({ predicate }) => evaluatePredicate(predicate, facts) === Truth.True)
-    .map(({ effect }) => effect);
+  return effects.flatMap((listed) => {
+    const conditional = Conditional.safeParse(listed);
+
+    return conditional.success && evaluatePredicate(conditional.data.predicate, facts) === Truth.True
+      ? [conditional.data.effect]
+      : [];
+  });
 }
 
 /** The items the kitsune Change Shape ancestry feature grants. */

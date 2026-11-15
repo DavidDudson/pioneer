@@ -1,8 +1,9 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DiceExpressionText, parseDiceExpression } from '@pioneer/rules/dice';
-import type { DiceExpression } from '@pioneer/rules/dice';
 import { DamageFormula } from '@pioneer/rules/sdk';
+import { plain } from '@pioneer/rules/sdk/testing';
+import type { Plain } from '@pioneer/rules/sdk/testing';
 
 import { resolveDamageFormula } from './resolve-damage-formula';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -13,19 +14,14 @@ const INPUTS = StatisticInputsJson.parse({
   ranks: {},
 });
 
-function resolved(text: string): unknown {
-  return resolveDamageFormula(DamageFormula.parse(text), INPUTS);
+function resolved(text: string): Plain {
+  return plain(resolveDamageFormula(DamageFormula.parse(text), INPUTS));
 }
 
-interface ParsedDice {
-  readonly ok: true;
-  readonly expression: DiceExpression | undefined;
-}
-
-function dice(text: string): ParsedDice {
+function dice(text: string): Plain {
   const parsed = parseDiceExpression(DiceExpressionText.parse(text));
 
-  return { ok: true, expression: parsed.ok ? parsed.expression : undefined };
+  return plain({ ok: true, expression: parsed.ok ? parsed.expression : undefined });
 }
 
 describe('resolveDamageFormula', () => {

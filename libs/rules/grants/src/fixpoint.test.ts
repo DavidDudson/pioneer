@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, RollOption, Slug } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import type { RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
@@ -40,7 +41,7 @@ const optionsOf = (
 const ofKind = (made: GrantEntry, kind: ContentKind): GrantEntry => ({ ...made, kind });
 
 /** A grant of `slug` while `predicate` holds. */
-const grantWhen = (slug: string, predicate: unknown): RuleJson => ({ ...grantOf(slug), predicate });
+const grantWhen = (slug: string, predicate: JsonValue): RuleJson => ({ ...grantOf(slug), predicate });
 
 const rollOption = (option: string, more: object = {}): RuleJson => ({ key: 'RollOption', option, ...more });
 

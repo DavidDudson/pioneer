@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { BattleFormElement, Level, RollOption } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
 import { assert, integer, property } from 'fast-check';
 
 import { heightened } from './battle-form-heighten';
@@ -45,11 +45,6 @@ const FORM = BattleFormElement.parse({
 });
 
 type Form = BattleFormElement['form'];
-
-/** Branded values as the plain JSON they come from, so a test compares them with literals. */
-function plain(value: unknown): unknown {
-  return structuredClone(value);
-}
 
 function count(list: readonly unknown[] | undefined): number {
   return list === undefined ? 0 : list.length;

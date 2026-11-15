@@ -37,7 +37,7 @@ function ranked(caster: SpellcastingInPlay | undefined): readonly (readonly [str
 }
 
 function entriesOf(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, source], rule) => inPlay(element, source, { rule }));
@@ -86,7 +86,7 @@ describe('spellcastingInPlay: innate spells', () => {
   });
 
   test('an element gives its spells only while it holds', () => {
-    const placed: (readonly [object, string])[] = [
+    const placed: (readonly [RuleJson, string])[] = [
       [entry('innate', 'fey-influence'), 'fey-influence'],
       [innate([[1, ILL_OMEN]], { predicate: ['fey-influence:cursed-bluebird'] }, 'fey-influence'), 'fey-influence'],
       [innate([[1, OAKEN_RESILIENCE]], { predicate: ['fey-influence:dryad'] }, 'fey-influence'), 'fey-influence'],

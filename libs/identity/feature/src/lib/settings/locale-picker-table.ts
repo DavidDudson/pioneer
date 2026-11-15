@@ -17,10 +17,14 @@ interface Messages {
   readonly [key: string]: string | Messages;
 }
 
+function isGroup(message: string | Messages): message is Messages {
+  return message instanceof Object;
+}
+
 /** The dotted key of every message under `messages`, nested groups walked. */
 function messageKeys(messages: Messages, prefix = ''): readonly string[] {
   return Object.entries(messages).flatMap(([key, message]) =>
-    typeof message === 'string' ? [`${prefix}${key}`] : messageKeys(message, `${prefix}${key}.`),
+    isGroup(message) ? messageKeys(message, `${prefix}${key}.`) : [`${prefix}${key}`],
   );
 }
 

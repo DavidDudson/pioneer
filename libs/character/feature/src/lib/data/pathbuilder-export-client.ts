@@ -10,13 +10,13 @@ import { ApiClient } from '@pioneer/shared/web';
 export class PathbuilderExportClient {
   readonly #api = inject(ApiClient);
 
-  /** The export `url` points at, as the server fetched it. */
-  public async fetch(url: string): Promise<unknown> {
+  /** The export `url` points at, as the server fetched it, as the JSON text it is read from. */
+  public async fetch(url: string): Promise<string> {
     const { export: fetched } = await this.#api.call(PathbuilderImportContract.fetchExport, {
       params: {},
       body: { url },
     });
 
-    return fetched;
+    return JSON.stringify(fetched);
   }
 }

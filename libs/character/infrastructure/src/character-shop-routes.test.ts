@@ -68,7 +68,7 @@ async function create(api: AnyElysia, as: UserId): Promise<Created> {
   return (await response.json()) as Created;
 }
 
-async function patch(api: AnyElysia, id: string, body: unknown): Promise<Response> {
+async function patch(api: AnyElysia, id: string, body: object): Promise<Response> {
   return api.handle(request('PATCH', `/characters/${id}`, { as: amiri, body }));
 }
 

@@ -19,8 +19,16 @@ export const JsonBound = { Depth: 'depth', Containers: 'containers' } as const;
 
 export type JsonBound = ValueOf<typeof JsonBound>;
 
+/** A JSON-shaped value: what a bundle is written from and a facet reads, `undefined` marking a missing field. */
+export type JsonValue = string | number | boolean | null | undefined | readonly JsonValue[] | object;
+
+/** The `[field, value]` pairs of `value` when it is a JSON object, `undefined` when it is a scalar or an array. */
+export function jsonEntries(value: JsonValue): readonly (readonly [string, JsonValue])[] | undefined {
+  return value instanceof Object && !Array.isArray(value) ? Object.entries(value) : undefined;
+}
+
 function isContainer(value: unknown): value is object {
-  return typeof value === 'object' && value !== null;
+  return value instanceof Object;
 }
 
 /** The arrays and objects directly inside an array or object. */

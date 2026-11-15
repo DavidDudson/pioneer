@@ -38,16 +38,16 @@ export class ApiError extends Error {
     return this.problem?.issues ?? [];
   }
 
-  public static isUnauthorized(error: unknown): boolean {
+  public static isUnauthorized(error: Error): boolean {
     return error instanceof ApiError && error.isUnauthorized;
   }
 
-  public static isConflict(error: unknown): boolean {
+  public static isConflict(error: Error): boolean {
     return error instanceof ApiError && error.isConflict;
   }
 
   /** The viewer-facing descriptor for any failure; non-API errors read as internal. */
-  public static describe(error: unknown): MessageDescriptor {
+  public static describe(error: Error): MessageDescriptor {
     return error instanceof ApiError ? error.descriptor : message(ProblemMessage.Internal);
   }
 }

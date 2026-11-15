@@ -9,6 +9,7 @@ import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
 import messages from '../i18n/en.json';
 import { campaignRoutes } from './campaign.routes';
@@ -74,7 +75,11 @@ const trailOf = (): (string | undefined)[] =>
 const hrefsOf = (): string[] =>
   TestBed.inject(HeaderCrumbs)
     .trail()
-    .flatMap(({ to }): string[] => (typeof to === 'string' ? [to] : []));
+    .flatMap(({ to }): string[] => {
+      const href = z.string().safeParse(to);
+
+      return href.success ? [href.data] : [];
+    });
 
 describe('campaign routes', () => {
   it('trails Campaigns and the campaign', async () => {

@@ -14,35 +14,24 @@ export type StoredCharacterDocument = z.infer<typeof StoredCharacterDocument>;
 /** Turns a document of one schema version into the next. Pure; `schemaVersion` is set by `upgradeDocument`. */
 export type UpgradeStep = (document: StoredCharacterDocument) => StoredCharacterDocument;
 
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
+/** A property rune as version 20 stored it: a content id. */
+const StoredRuneId = z.string().brand<'StoredRuneId'>();
 
-/** An etched property rune of version 20, a content id, as the rune it names with no choice. */
-function etchedRune(rune: unknown): unknown {
-  return typeof rune === 'string' ? { rune } : rune;
-}
+/** An etched property rune of version 20, a content id, as the rune it names with no choice; anything else as it is. */
+const EtchedRune = z.union([StoredRuneId.transform((rune) => ({ rune })), z.unknown()]);
+
+const EtchedRunes = z.looseObject({ property: z.array(EtchedRune) });
 
 /** An inventory line with its property runes as etched runes. A line with no runes is as it was. */
-function lineWithEtchedRunes(line: unknown): unknown {
-  const runes = isRecord(line) ? line['runes'] : undefined;
-  const property = isRecord(runes) ? runes['property'] : undefined;
+const LineWithEtchedRunes = z.union([z.looseObject({ runes: EtchedRunes }), z.unknown()]);
 
-  return isRecord(line) && isRecord(runes) && Array.isArray(property)
-    ? { ...line, runes: { ...runes, property: property.map(etchedRune) } }
-    : line;
-}
+const InventoryWithEtchedRunes = z.looseObject({ items: z.array(LineWithEtchedRunes) });
 
 /** 20 → 21: every inventory line's property runes from content ids to etched runes. */
 function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharacterDocument {
-  if (!isRecord(document['inventory']) || !Array.isArray(document['inventory']['items'])) {
-    return document;
-  }
+  const inventory = InventoryWithEtchedRunes.safeParse(document['inventory']);
 
-  return {
-    ...document,
-    inventory: { ...document['inventory'], items: document['inventory']['items'].map(lineWithEtchedRunes) },
-  };
+  return inventory.success ? { ...document, inventory: inventory.data } : document;
 }
 
 /**

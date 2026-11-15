@@ -68,7 +68,7 @@ export class SheetEffectAdd {
   public readonly options = input.required<readonly EffectOption[]>();
   public readonly busy = input.required<boolean>();
   public readonly send = input.required<(command: PlayCommand) => Promise<void>>();
-  public readonly describeError = input.required<(error: unknown) => string>();
+  public readonly describeError = input.required<(error: Error) => string>();
   /** The temporary Hit Points the character would get from `effect`, worked out by the engine; none when it gives none. */
   public readonly tempHpFor = input.required<(effect: ActiveEffect) => HitPoints | undefined>();
   /** The active spells an effect can be cast from, so sustaining one recreates a destroyed shield it gave. */

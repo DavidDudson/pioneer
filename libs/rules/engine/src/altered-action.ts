@@ -1,6 +1,7 @@
 import { FormulaValue } from '@pioneer/rules/formula';
-import { NumericItemProperty, RichText, RollOptionTail, slugName, Trait } from '@pioneer/rules/sdk';
+import { DamageFormula, NumericItemProperty, RichText, RollOptionTail, slugName, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, DamageType } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { alterItem } from './item-alterations';
 import type { AlterableItem } from './item-alterations';
@@ -19,27 +20,35 @@ export interface AlteredAction {
   readonly description: RichText;
 }
 
+type JsonValue = z.core.util.JSONType;
+
+type JsonObject = Readonly<Record<string, JsonValue>>;
+
 const DICE = /^(?<count>\d+)(?<rest>d\d+.*)$/u;
 
+/** Whether `value` is a JSON object rather than a list or a plain value. */
+function isJsonObject(value: JsonValue): value is JsonObject {
+  return value instanceof Object && !Array.isArray(value);
+}
+
 /** A JSON value with each `damage` node's first instance changed by `change`; anything else as it is. */
-function mapDamage(node: unknown, change: (instance: Record<string, unknown>) => Record<string, unknown>): unknown {
+function mapDamage(node: JsonValue, change: (instance: JsonObject) => JsonObject): JsonValue {
   if (Array.isArray(node)) {
-    return node.map((each: unknown) => mapDamage(each, change));
+    return node.map((each) => mapDamage(each, change));
   }
 
-  if (typeof node !== 'object' || node === null) {
+  if (!isJsonObject(node)) {
     return node;
   }
 
-  const fields = Object.entries(node).map(([field, each]): [string, unknown] => [field, mapDamage(each, change)]);
+  const fields = Object.entries(node).map(([field, each]): [string, JsonValue] => [field, mapDamage(each, change)]);
   const mapped = Object.fromEntries(fields);
   const { instances } = mapped;
 
   if (mapped['type'] === 'damage' && Array.isArray(instances)) {
-    // SAFETY: a node of type 'damage' carries its instances as a list of damage instance objects, which change() maps whole.
-    const [first, ...others] = instances as readonly Record<string, unknown>[];
+    const [first, ...others] = instances;
 
-    return first === undefined ? mapped : { ...mapped, instances: [change(first), ...others] };
+    return first === undefined || !isJsonObject(first) ? mapped : { ...mapped, instances: [change(first), ...others] };
   }
 
   return mapped;
@@ -48,9 +57,9 @@ function mapDamage(node: unknown, change: (instance: Record<string, unknown>) =>
 /** The number of dice of the first damage a description deals; undefined when it deals none in dice. */
 function diceOf(description: RichText): FormulaValue | undefined {
   const found: FormulaValue[] = [];
-  mapDamage(description, (instance) => {
-    const count =
-      typeof instance['formula'] === 'string' ? DICE.exec(instance['formula'])?.groups?.['count'] : undefined;
+  mapDamage(z.json().parse(description), (instance) => {
+    const formula = DamageFormula.safeParse(instance['formula']);
+    const count = formula.success ? DICE.exec(formula.data)?.groups?.['count'] : undefined;
 
     if (count !== undefined) {
       found.push(FormulaValue.parse(Number(count)));
@@ -67,8 +76,9 @@ function withDamage(
   description: RichText,
   { dice, damageType }: { readonly dice: FormulaValue | undefined; readonly damageType: DamageType | undefined },
 ): RichText {
-  const mapped = mapDamage(description, (instance) => {
-    const formula = typeof instance['formula'] === 'string' ? DICE.exec(instance['formula']) : undefined;
+  const mapped = mapDamage(z.json().parse(description), (instance) => {
+    const text = DamageFormula.safeParse(instance['formula']);
+    const formula = text.success ? DICE.exec(text.data) : undefined;
 
     const counted =
       dice === undefined || formula?.groups === undefined

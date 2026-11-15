@@ -104,7 +104,7 @@ function countText(target: Target, translate: Translate): string {
 }
 
 function targetText(target: Target, translate: Translate): string {
-  const kindCount = typeof target.count === 'number' ? target.count : 2;
+  const kindCount = target.count === TargetCountWord.Any || target.count === TargetCountWord.All ? 2 : target.count;
   const kind = translate(TARGET_KIND_MESSAGES[target.of], { count: kindCount });
 
   if (target.triggering === true) {

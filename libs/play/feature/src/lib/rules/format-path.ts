@@ -1,18 +1,21 @@
 import type { FieldIssue } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 /** A key that reads unambiguously after a dot; anything else is quoted in brackets. */
 const IDENTIFIER = /^[A-Za-z_$][\w$]*$/u;
 
 function formatSegment(segment: FieldIssue['path'][number], index: number): string {
-  if (typeof segment === 'number') {
+  const name = z.string().safeParse(segment);
+
+  if (!name.success) {
     return `[${segment}]`;
   }
 
-  if (!IDENTIFIER.test(segment)) {
-    return `[${JSON.stringify(segment)}]`;
+  if (!IDENTIFIER.test(name.data)) {
+    return `[${JSON.stringify(name.data)}]`;
   }
 
-  return index === 0 ? segment : `.${segment}`;
+  return index === 0 ? name.data : `.${name.data}`;
 }
 
 /**

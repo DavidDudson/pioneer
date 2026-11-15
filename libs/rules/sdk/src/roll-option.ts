@@ -10,10 +10,6 @@ import { RulesMessage } from './messages';
 const WORDS = /^[a-z\d](?:[a-z\d]|[-:](?=[a-z\d]))*$/u;
 const ROLL_OPTION_LENGTH_MAX = 256;
 
-function isRollOption(value: unknown): boolean {
-  return typeof value === 'string' && WORDS.test(value) && value.includes(':');
-}
-
 /**
  * A fact about the current state, as Foundry pf2e spells them. The namespace (first word) decides
  * whether an absent option means false or unknown (ADR-0002).
@@ -21,7 +17,7 @@ function isRollOption(value: unknown): boolean {
 export const RollOption = z
   .string()
   .max(ROLL_OPTION_LENGTH_MAX)
-  .refine((value) => isRollOption(value), issueParams(message(RulesMessage.RollOptionFormat)))
+  .refine((value) => WORDS.test(value) && value.includes(':'), issueParams(message(RulesMessage.RollOptionFormat)))
   .brand<'RollOption'>();
 
 export type RollOption = z.infer<typeof RollOption>;
