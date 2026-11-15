@@ -7,3 +7,7 @@ condition = "AND"
 paths = ['''content/packs/[a-z0-9-]+/[a-z-]+\.json''']
 regexTarget = "line"
 regexes = ['''"key": "[A-Za-z0-9]{16}",?$''']
+
+[[allowlists]]
+description = "Vendored agent skills: the key-exchange name MLKEM768-X25519 is not a credential."
+paths = ['''\.agents/skills/.*\.md''']
