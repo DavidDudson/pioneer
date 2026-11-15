@@ -1,6 +1,6 @@
 import type { ContentBrowserState, ContentEntryRef } from '@pioneer/content/ui';
-import { slugName } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, slugName } from '@pioneer/rules/sdk';
+import type { ContentEntry } from '@pioneer/rules/sdk';
 
 import { entryKinds } from '../entry/entry-lookup';
 import { BROWSE_KINDS, DEFAULT_KINDS, facetsOf } from './browse-kinds';
@@ -18,12 +18,12 @@ export function refOf(entry: ContentEntry): ContentEntryRef {
 }
 
 /**
- * The kinds to load for a state, whatever the tier: the ones listed, and for a picked entry its own with the ones its
- * text refers to. They come from the cached bundles, so a kind seen before needs no request.
+ * The kinds to load for a state: those listed, a picked entry's own and referenced kinds, and traits for chip names.
  */
 export function kindsToLoad(state: ContentBrowserState): readonly ContentKind[] {
   const listed = listedKinds(state.kinds);
-  return state.selected === undefined ? listed : [...new Set([...listed, ...entryKinds(state.selected.kind)])];
+  const wanted = state.selected === undefined ? listed : [...listed, ...entryKinds(state.selected.kind)];
+  return [...new Set([...wanted, ContentKind.Trait])];
 }
 
 /** The state with the filters its kinds have; one for a facet the kinds drop leaves with them. */

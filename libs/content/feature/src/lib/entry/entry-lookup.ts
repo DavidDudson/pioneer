@@ -1,5 +1,12 @@
 import type { LinkTarget } from '@pioneer/frontier';
-import { ContentId as ContentIdSchema, contentId, ContentKind, ContentKindSchema, slugName } from '@pioneer/rules/sdk';
+import {
+  ContentId as ContentIdSchema,
+  contentId,
+  ContentKind,
+  ContentKindSchema,
+  slugName,
+  Trait,
+} from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentId,
@@ -9,7 +16,7 @@ import type {
   PackCreature,
   PackStatistic,
 } from '@pioneer/rules/sdk';
-import { entryTarget } from '@pioneer/rules/ui';
+import { entryTarget, humaniseTrait } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
@@ -131,4 +138,18 @@ export function entryPreviews(index: () => ReadonlyMap<ContentId, ContentEntry> 
       return entry === undefined ? undefined : entryTarget(entry);
     },
   };
+}
+
+/** The name of each trait the entries hold, by its slug: the vocabulary's own entry, the last one loaded winning. */
+export function traitNamesOf(entries: Iterable<ContentEntry>): ReadonlyMap<Trait, string> {
+  return new Map(
+    [...entries]
+      .filter((entry) => entry.kind === ContentKind.Trait)
+      .map((entry): [Trait, string] => [Trait.parse(slugName(entry.slug)), entry.name]),
+  );
+}
+
+/** What to call a trait: its name when the vocabulary has been loaded, else its slug read as words, never the slug. */
+export function traitLabel(names: ReadonlyMap<Trait, string>, trait: Trait): string {
+  return names.get(trait) ?? humaniseTrait(trait);
 }

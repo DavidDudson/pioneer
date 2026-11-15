@@ -72,6 +72,18 @@ describe(ContentBrowser, () => {
     await expect(listed(fixture, 'fr-table tbody tr td:first-child', 4)).resolves.toStrictEqual(FEAT_NAMES);
   });
 
+  it('shows each feat trait as a chip that opens its card, by name and not by slug', async () => {
+    const fixture = await open(ContentBrowserTier.Page, FEATS);
+    await listed(fixture, 'fr-table tbody tr td:first-child', 4);
+    const chips = (): string[] =>
+      [...root(fixture).querySelectorAll('pio-trait-chip')].map((chip) => chip.textContent.trim());
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(chips()).toContain('Fighter');
+    });
+    expect(chips()).not.toContain('fighter');
+  });
+
   it('lists the same feats compactly at the panel tier', async () => {
     const fixture = await open(ContentBrowserTier.Panel, FEATS);
     await expect(listed(fixture, 'fr-list-item', 4)).resolves.toStrictEqual(FEAT_NAMES);

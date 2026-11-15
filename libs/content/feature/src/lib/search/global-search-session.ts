@@ -9,6 +9,7 @@ import { RARITY_TONES } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import { injectBrowseSearch, searchFromQuery } from '../browser/browse-search';
+import { traitLabel } from '../entry/entry-lookup';
 import { GlobalSearchIndex } from './global-search-index';
 import { mergeBelow, nameMatches } from './global-search-results';
 
@@ -111,7 +112,9 @@ export class GlobalSearchSession {
       ...(level === undefined
         ? []
         : [{ label: this.#i18n.translate('shell.search.level', { level: this.#format.number(level) }) }]),
-      ...entry.traits.slice(0, TRAITS_SHOWN).map((trait): ComboboxTag => ({ label: trait, tone })),
+      ...entry.traits
+        .slice(0, TRAITS_SHOWN)
+        .map((trait): ComboboxTag => ({ label: traitLabel(this.#index.traitNames(), trait), tone })),
     ];
   }
 
