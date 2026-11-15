@@ -27,6 +27,7 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   }
 
   await settle();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-load-more');
 
   if (host === null) {

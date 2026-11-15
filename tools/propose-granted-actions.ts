@@ -26,10 +26,10 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
   const files = await Promise.all(
     paths
       .filter((file) => path.basename(file) !== 'pack.json')
-      .map(async (file) => Bun.file(file).json() as Promise<unknown>),
+      .map(async (file) => ContentEntryFile.parse(JsonArray.parse(await Bun.file(file).json()))),
   );
 
-  return files.flatMap((json) => ContentEntryFile.parse(JsonArray.parse(json)));
+  return files.flat();
 }
 
 /** Every `GrantItem` target inside a rule list, however deep (a choice set nests its grants). */
@@ -92,6 +92,7 @@ for (const { name, entries, mapping } of packs) {
 async function proposePack({ name, entries, written, mapping }: (typeof packs)[number]): Promise<string> {
   const actions = entries.filter((entry) => entry.kind === ContentKind.Action);
 
+  // SAFETY: `mapping` is parsed by `EnrichmentMappingFile`, which keys it by entry slug; `Object.entries` types any key as `string`.
   const mapped = Object.entries(mapping).flatMap(([slug, found]) =>
     found.aon === undefined ? [] : [slug as EntrySlug],
   );

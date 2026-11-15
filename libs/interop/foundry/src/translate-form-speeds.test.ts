@@ -33,6 +33,7 @@ const FLY_BONUS = {
 };
 
 function formRules(rules: readonly object[]): Form[] {
+  // SAFETY: rulesIn() returns the translated rules of the heritage, each of which is a form rule in this test.
   return rulesIn(translate([heritage(rules)]), 'cavern-elf') as Form[];
 }
 

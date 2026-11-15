@@ -177,6 +177,7 @@ describe('CharacterSheetPage skills', () => {
       ),
     );
 
+    // SAFETY: the tab is found among the rendered elements and is an HTMLElement; the lookup types it as Element.
     (tab as HTMLElement).click();
 
     await vi.waitFor(() => {

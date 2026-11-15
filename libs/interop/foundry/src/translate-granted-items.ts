@@ -65,6 +65,7 @@ function rankOf(predicate: unknown): number | undefined {
     return undefined;
   }
 
+  // SAFETY: widening only: Array.isArray narrowed predicate to an array, whose elements are unchecked, so they are unknown.
   const [statement] = predicate as readonly unknown[];
   const operands = isFields(statement) ? statement['gte'] : undefined;
 
@@ -83,6 +84,7 @@ function fromRank(value: number, rank: number): string {
 /** The slug of the granted item the `DamageAlteration` `raw` reaches by its inline damage, if it reaches one. */
 function damageTarget(raw: Fields, granted: ReadonlyMap<string, string>): string | undefined {
   const { selectors } = raw;
+  // SAFETY: widening only: Array.isArray narrowed selectors to an array, whose elements are unchecked, so they are unknown.
   const [only, ...others] = Array.isArray(selectors) ? (selectors as readonly unknown[]) : [];
   const flag = others.length === 0 ? flagOf(only, INLINE_DAMAGE) : undefined;
 

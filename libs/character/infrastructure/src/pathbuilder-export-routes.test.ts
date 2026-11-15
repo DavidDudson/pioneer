@@ -79,6 +79,7 @@ describe('Pathbuilder export fetch route', () => {
     const response = await api.handle(post(url));
 
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await response.json()) as Problem).issues).toStrictEqual([{ path: ['url'], message: { key } }]);
     expect(fetcher.asked).toStrictEqual([]);
   });
@@ -106,6 +107,7 @@ describe('Pathbuilder export fetch route', () => {
     const response = await api.handle(post('https://pathbuilder2e.com/json.php?id=1'));
 
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await response.json()) as Problem).issues?.[0]?.message.key).toBe(
       'character.validation.exportUrl.timedOut',
     );

@@ -115,6 +115,8 @@ describe('CharacterSheetPage actions: a staff spell', () => {
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({
+        // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+        // It is only compared, never read.
         command: { field: 'spendAction', staff: { item: STAFF, slot: expect.stringContaining('sorcerer') as string } },
       });
       request.flush({ ...preparedWith(1, 2), events: [] });

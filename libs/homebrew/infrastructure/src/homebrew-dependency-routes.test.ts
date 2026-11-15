@@ -26,16 +26,19 @@ describe('homebrew dependency routes', () => {
     const api = app();
     const pack = await makePack(api);
     const before = await api.handle(request('GET', dependenciesPath(pack)));
+    // SAFETY: this route answers with `DependenciesJson` JSON, the shape the route's response schema describes.
     expect(((await before.json()) as DependenciesJson).candidates.map(({ title }) => title)).toStrictEqual([
       'Player Core',
     ]);
     const added = await api.handle(request('POST', dependenciesPath(pack), { body: coreDependency }));
     expect(added.status).toBe(200);
+    // SAFETY: this route answers with `DependenciesJson` JSON, the shape the route's response schema describes.
     const afterAdd = (await added.json()) as DependenciesJson;
     expect(afterAdd.dependencies).toMatchObject([{ title: 'Player Core', official: true }]);
     expect(afterAdd.candidates).toStrictEqual([]);
     const removed = await api.handle(request('DELETE', `${dependenciesPath(pack)}/${playerCore}`));
     expect(removed.status).toBe(200);
+    // SAFETY: this route answers with `DependenciesJson` JSON, the shape the route's response schema describes.
     expect(((await removed.json()) as DependenciesJson).dependencies).toStrictEqual([]);
   });
 
@@ -44,6 +47,7 @@ describe('homebrew dependency routes', () => {
     const pack = await makePack(api);
     const response = await api.handle(request('POST', dependenciesPath(pack), { body: { dependsOn: pack.id } }));
     expect(response.status).toBe(409);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     expect(((await response.json()) as Problem).message).toStrictEqual({ key: 'homebrew.pack.dependsOnItself' });
   });
 
@@ -55,6 +59,7 @@ describe('homebrew dependency routes', () => {
     usage.use(ContentPackId.parse(pack.id), playerCore, 'Whirling Strike');
     const response = await api.handle(request('DELETE', `${dependenciesPath(pack)}/${playerCore}`));
     expect(response.status).toBe(409);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     expect(((await response.json()) as Problem).message).toStrictEqual({
       key: 'homebrew.pack.dependencyInUse',
       params: { entries: 'Whirling Strike' },

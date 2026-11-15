@@ -102,10 +102,12 @@ export const noMagicNumbers: Rule.RuleModule = {
     schema: [{ type: 'object', additionalProperties: true }],
   },
   create(context) {
+    // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
     const options = (context.options[0] ?? {}) as MagicNumberOptions;
 
     return {
       Literal(node: Rule.Node): void {
+        // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
         const literal = node as NodeShape;
 
         if (typeof literal.value !== 'number') {
@@ -162,6 +164,7 @@ interface ChainShape {
 
 /** Whether a primitive keyword is (part of) a declared type: a field, parameter, return or variable annotation. */
 function isAnnotated(node: unknown): boolean {
+  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   let { parent } = node as ChainShape;
 
   while (parent !== undefined && TYPE_WRAPPERS.has(parent.type)) {
@@ -174,6 +177,7 @@ function isAnnotated(node: unknown): boolean {
 /** Method names called along `z.string().min(1).brand(...)` after the factory call. */
 function chainMethods(call: unknown): readonly string[] {
   const names: string[] = [];
+  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   let node = call as ChainShape;
   let member = node.parent;
 
@@ -191,6 +195,7 @@ function chainMethods(call: unknown): readonly string[] {
 
 /** `z.string()` / `Pg.smallint()` etc.: the factory name, if this call is one. */
 function primitiveSchema(node: Rule.Node): string | undefined {
+  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   const { callee } = node as {
     readonly callee: ChainShape & { readonly object?: { readonly name?: unknown } };
   };

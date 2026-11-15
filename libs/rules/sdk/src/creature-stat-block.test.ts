@@ -139,6 +139,7 @@ describe('creature stat block', () => {
   });
 
   test('refuses a reaction with no trigger', () => {
+    // SAFETY: the stat block's second ability is an object, and the test only spreads it.
     const { trigger: _trigger, ...reaction } = statBlock.abilities[1] as Record<string, unknown>;
     const issues = ContentEntry.safeParse(creature({ ...core, abilities: [reaction] }));
 

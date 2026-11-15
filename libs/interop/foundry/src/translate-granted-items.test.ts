@@ -29,6 +29,8 @@ describe('Alterations of a granted item from Foundry', () => {
     const { rules, untranslated } = translated();
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([{ key: 'GrantItem', item: BREATH, flag: 'dragon-breath' }]);
   });
 

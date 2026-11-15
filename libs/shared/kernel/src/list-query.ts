@@ -26,6 +26,7 @@ export function listQuery<const TSort extends Readonly<Record<string, string>>>(
   sortOptions: TSort,
   defaultSort: ValueOf<TSort>,
 ): ListQuerySchema<TSort> {
+  // SAFETY: z.enum(sortOptions) accepts exactly the values of TSort and defaultSort is one of them; the generic cannot be tracked through z.enum's output type.
   return z.strictObject({
     sort: z.enum(sortOptions).default(defaultSort as z.output<z.ZodEnum<TSort>>),
     direction: z.enum(SortDirection).default(SortDirection.Asc),

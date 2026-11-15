@@ -81,6 +81,8 @@ describe('CharacterService selecting a custom Lore', () => {
     const again = selectLore(SECOND, 'sailing lore', await versionNow());
     const error = await rejection(service.patch(amiri, id, again));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues[0]?.message.key).toBe('character.validation.skillTrained');
   });
 });

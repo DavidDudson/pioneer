@@ -48,6 +48,7 @@ function entryOf(name: string, elements: readonly object[]): SummarisedEntry {
 
   return {
     id: idOf(name),
+    // SAFETY: the test builds these elements as valid rule elements; they are typed more loosely here.
     rules: elements as RuleElements,
     sources: first?.origin.sources ?? [],
   };

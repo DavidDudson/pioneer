@@ -55,6 +55,8 @@ describe('CharacterService selectSlot', () => {
     const edit = firstVersion({ field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: unknown });
     const error = await rejection(service.patch(amiri, created.id, edit));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['patch', 'selection'],
@@ -69,6 +71,8 @@ describe('CharacterService selectSlot', () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const edit = firstVersion({ field: CharacterPatchField.SelectSlot, slot: featSlot, selection: elf });
     const error = await rejection(service.patch(amiri, created.id, edit));
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['patch', 'slot'],
@@ -142,6 +146,8 @@ describe('CharacterService selectSlot on boost slots', () => {
     });
 
     const error = await rejection(service.patch(amiri, created.id, edit));
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.selectionNotOffered' } },
     ]);
@@ -223,6 +229,8 @@ describe('CharacterService selectSlot on feat slots', () => {
 
     const error = await rejection(service.patch(amiri, id, edit));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.prerequisitesNotMet' } },
     ]);

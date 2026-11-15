@@ -17,6 +17,7 @@ async function render(open: number, add: AddLanguage = async () => undefined): P
   fixture.componentRef.setInput('rows', DWARF_LANGUAGE_ROWS);
   fixture.componentRef.setInput('open', open);
   fixture.componentRef.setInput('add', add);
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   document.body.append(fixture.nativeElement as HTMLElement);
   await fixture.whenStable();
 
@@ -24,6 +25,7 @@ async function render(open: number, add: AddLanguage = async () => undefined): P
 }
 
 function host(fixture: ComponentFixture<LanguageAdd>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

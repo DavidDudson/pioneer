@@ -32,6 +32,7 @@ function render(value = ''): Rendered {
     cancels += 1;
   });
   fixture.detectChanges();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const input = (fixture.nativeElement as HTMLElement).querySelector('input');
 
   if (input === null) {
@@ -53,6 +54,7 @@ function press(rendered: Rendered, key: 'Enter' | 'Escape'): void {
 }
 
 function clearButton(rendered: Rendered): HTMLButtonElement | null {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (rendered.fixture.nativeElement as HTMLElement).querySelector('button');
 }
 

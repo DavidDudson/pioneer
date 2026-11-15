@@ -146,6 +146,7 @@ describe('CharacterSheetPage focus spells', () => {
 
     const buttons = [...focus.querySelectorAll('pio-use-buttons button')];
     expect(buttons).toHaveLength(2);
+    // SAFETY: the use buttons are button elements, as the selector 'pio-use-buttons button' picks.
     (buttons[0] as HTMLButtonElement).click();
 
     await vi.waitFor(() => {

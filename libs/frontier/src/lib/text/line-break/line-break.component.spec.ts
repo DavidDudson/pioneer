@@ -8,6 +8,7 @@ describe(LineBreak, () => {
     const fixture = TestBed.createComponent(LineBreak);
     await fixture.whenStable();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelectorAll('br')).toHaveLength(1);
   });
 });

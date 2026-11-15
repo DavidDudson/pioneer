@@ -18,6 +18,7 @@ async function render(rune: RuneBadgeData): Promise<HTMLElement> {
   fixture.componentRef.setInput('rune', rune);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

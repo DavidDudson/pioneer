@@ -86,6 +86,8 @@ describe('CharacterSheetPage with Dual Class', () => {
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
 
+    // SAFETY: HttpTestingController types the request body as any.
+    // The sheet sends this command, and the test reads only the fields named here.
     const body = request.request.body as { patch: { field: string; selection: unknown } };
     expect(body.patch.field).toBe('selectSlot');
     expect(body.patch.selection).toBeTypeOf('string');

@@ -21,6 +21,8 @@ describe('FlatModifier from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: RuleElementKey.FlatModifier,
@@ -34,6 +36,8 @@ describe('FlatModifier from Foundry', () => {
   test('a bare selector is one selector, and an omitted type is untyped', () => {
     const { rules } = translated({ key: RuleElementKey.FlatModifier, selector: 'strike-damage', value: 1 });
 
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       { key: RuleElementKey.FlatModifier, selectors: ['strike-damage'], type: 'untyped', value: 1 },
     ]);
@@ -49,6 +53,8 @@ describe('FlatModifier from Foundry', () => {
       value: 1,
     });
 
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: RuleElementKey.FlatModifier,
@@ -69,6 +75,8 @@ describe('FlatModifier from Foundry', () => {
     const raw = { key: RuleElementKey.FlatModifier, selector: 'damage', type: 'status', value: 1, ...extra };
     const { rules, untranslated } = translated(raw);
 
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([]);
     expect(untranslated).toEqual([{ entry: ENTRY, key: RuleElementKey.FlatModifier, raw }]);
   });
@@ -113,6 +121,8 @@ describe('AdjustModifier from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: RuleElementKey.AdjustModifier,
@@ -128,6 +138,8 @@ describe('AdjustModifier from Foundry', () => {
   test('suppressing the modifiers of a slug needs no type', () => {
     const { rules } = translated({ key: RuleElementKey.AdjustModifier, selector: 'ac', slug: 'cover', suppress: true });
 
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       { key: RuleElementKey.AdjustModifier, selectors: ['ac'], slug: 'cover', suppress: true },
     ]);

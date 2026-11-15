@@ -34,6 +34,7 @@ async function render({ picked, preview, confirm = async () => undefined }: Inpu
   fixture.componentRef.setInput('confirm', confirm);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { host: fixture.nativeElement as HTMLElement, cancelled: () => cancelled };
 }
 

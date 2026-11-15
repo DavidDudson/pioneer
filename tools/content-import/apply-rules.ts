@@ -65,6 +65,7 @@ export function mergeRules(
 export function withMergedRules(entries: readonly unknown[], merge: RulesMerge): readonly unknown[] {
   return entries.map((entry) => {
     const id = typeof entry === 'object' && entry !== null && 'id' in entry ? entry.id : undefined;
+    // SAFETY: `merge` is keyed by content ids, and `id` is a string here, checked by the `typeof` above; the branded id adds no runtime check.
     const merged = typeof id === 'string' ? merge.get(id as ContentId) : undefined;
 
     if (merged === undefined) {
@@ -72,10 +73,12 @@ export function withMergedRules(entries: readonly unknown[], merge: RulesMerge):
     }
 
     // The entry keeps its own rules as written, so their key order does not churn; only the rules it gains are added.
+    // SAFETY: an entry in the JSON array is an object that may hold `rules`, which `Array.isArray` checks before the array is read; spreading it only copies its own properties.
     const own: readonly unknown[] = Array.isArray((entry as { rules?: unknown }).rules)
       ? (entry as { rules: unknown[] }).rules
       : [];
 
+    // SAFETY: an entry in the JSON array is an object that may hold `rules`, which `Array.isArray` checks before the array is read; spreading it only copies its own properties.
     return { ...(entry as object), rules: [...own, ...merged.slice(own.length)] };
   });
 }

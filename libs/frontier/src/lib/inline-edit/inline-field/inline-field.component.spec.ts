@@ -61,6 +61,7 @@ async function render({ loading = false, save, notice, leading = false }: Option
   });
 
   const editor: ComponentRef<TextInput> = createComponent(TextInput, { environmentInjector });
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const editorHost = editor.location.nativeElement as HTMLElement;
   const projected = leading ? document.createElement('div') : editorHost;
   projected.setAttribute('frInlineEditor', '');
@@ -90,6 +91,7 @@ async function render({ loading = false, save, notice, leading = false }: Option
   field.setInput('label', 'Name');
   field.setInput('edit', edit);
   field.setInput('notice', notice);
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = field.location.nativeElement as HTMLElement;
   document.body.append(host);
   appRef.attachView(editor.hostView);

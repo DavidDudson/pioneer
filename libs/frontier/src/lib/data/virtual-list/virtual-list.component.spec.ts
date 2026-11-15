@@ -35,6 +35,7 @@ async function render(items: readonly string[], inputs: Readonly<Record<string, 
   };
 
   await stable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const list = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-virtual-list');
 
   if (list === null) {

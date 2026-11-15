@@ -20,6 +20,7 @@ function render(endings: readonly PreviewEnding[]): ComponentFixture<EntryEnding
 }
 
 function textOf(fixture: ComponentFixture<EntryEndingsView>): string {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

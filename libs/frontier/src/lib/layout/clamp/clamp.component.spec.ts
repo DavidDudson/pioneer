@@ -18,6 +18,7 @@ async function render(lines: ClampLines): Promise<HTMLElement> {
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(clamp.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const clamped = (clamp.location.nativeElement as HTMLElement).firstElementChild;
 
   if (!(clamped instanceof HTMLElement)) {

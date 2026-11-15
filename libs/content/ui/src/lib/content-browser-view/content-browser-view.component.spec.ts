@@ -47,9 +47,11 @@ async function render(
 }
 
 const has = (fixture: ComponentFixture<ContentBrowserView>, selector: string): boolean =>
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   (fixture.nativeElement as HTMLElement).querySelector(selector) !== null;
 
 const text = (fixture: ComponentFixture<ContentBrowserView>): string =>
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   (fixture.nativeElement as HTMLElement).textContent;
 
 describe('ContentBrowserView page tier', () => {
@@ -107,6 +109,7 @@ describe('ContentBrowserView panel tier', () => {
 
   it('badges a legacy entry in the list', async () => {
     const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE, LEGACY_LIST);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelectorAll('fr-list-item fr-badge')).toHaveLength(1);
     expect(text(fixture)).toContain('Legacy');
   });
@@ -119,7 +122,9 @@ describe('ContentBrowserView panel tier', () => {
 
   it('picks an entry in place when its name is pressed', async () => {
     const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const names = [...(fixture.nativeElement as HTMLElement).querySelectorAll('fr-list-item button')];
+    // SAFETY: names were selected with 'fr-list-item button', so the first entry exists and is a button element.
     (names[0] as HTMLElement).click();
     expect(fixture.componentInstance.state().selected).toStrictEqual(BROWSER_ROWS[0]?.ref);
   });
@@ -131,6 +136,7 @@ describe('ContentBrowserView panel tier', () => {
 
   it('goes back to the list from the entry', async () => {
     const fixture = await render(ContentBrowserTier.Panel, PICKED_STATE);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const buttons = [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
     buttons.find((button) => button.textContent.trim() === 'Back to the list')?.click();
     expect(fixture.componentInstance.state().selected).toBeUndefined();

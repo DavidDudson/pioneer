@@ -52,6 +52,7 @@ export const noBareTraitBadge: Rule.RuleModule = {
 
     return {
       Element(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, sourceSpan } = node as ElementNode;
 
         if (typeof name !== 'string' || !BADGES.has(name) || sourceSpan === undefined) {

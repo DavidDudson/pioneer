@@ -165,6 +165,8 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     const error = await rejection(repository.insert(orphan, created));
     // Drizzle wraps the driver's error; the violated constraint is on the cause.
     expect(error).toBeInstanceOf(Error);
+    // SAFETY: toBeInstanceOf(Error) on the line above proves the type.
+    // The rejection() helper returns the thrown value as unknown.
     expect(String((error as Error).cause)).toContain('characters_owner_id_users_id_fk');
   });
 

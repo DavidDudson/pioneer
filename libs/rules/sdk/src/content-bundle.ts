@@ -221,11 +221,16 @@ export interface FetchedKind {
  * a sheet spent opening. An entry with no name is still an error, since the files no longer agree.
  */
 function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
+  // SAFETY: the server checked this bundle when it built it, and a bundle is immutable and public.
+  // So its names have this shape.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
   const names = kind.names as NamesBundle;
+  // SAFETY: the server checked this bundle when it built it, and a bundle is immutable and public.
+  // So its mechanics have this shape.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
   const mechanics = kind.mechanics as z.output<typeof MechanicsBundle>;
 
+  // SAFETY: the server checked each assembled entry when it built the bundles, so they are valid entries.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
   return mechanics.map((entry) => entryFromBundles(entry, names) as ContentEntry);
 }

@@ -48,6 +48,8 @@ function spendTimes(play: EffectPlay, times: number, content: EffectContent): Ef
 
 describe('a boon with uses', () => {
   test('starts with the uses its duration names and no clock', () => {
+    // SAFETY: the literal carries the one field (duration) this test reads.
+    // The rest of EffectData is optional or not used by the uses clock.
     const data = { duration: { type: EffectDurationType.Uses, count: 3 } } as EffectData;
 
     expect(effectTerms(data)).toMatchObject({ remaining: undefined, uses: 3, expiry: undefined });

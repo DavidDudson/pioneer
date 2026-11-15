@@ -236,7 +236,9 @@ describe(Combobox, () => {
     rendered.fixture.componentRef.setInput('loading', true);
     await press(rendered, 'ArrowDown');
     expect(listbox(rendered)?.getAttribute('aria-busy')).toBe('true');
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((rendered.fixture.nativeElement as HTMLElement).querySelectorAll('fr-skeleton').length).toBeGreaterThan(0);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((rendered.fixture.nativeElement as HTMLElement).textContent).not.toContain('No matches');
   });
 
@@ -245,6 +247,7 @@ describe(Combobox, () => {
     await press(rendered, 'ArrowDown');
     expect(listbox(rendered)?.hasAttribute('aria-busy')).toBe(false);
     await vi.waitFor(() => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       expect((rendered.fixture.nativeElement as HTMLElement).textContent).toContain('No matches');
     });
   });

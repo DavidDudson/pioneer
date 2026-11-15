@@ -72,6 +72,8 @@ describe('CharacterService kit edits', () => {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
 
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     return (error as ValidationError).issues;
   }
 

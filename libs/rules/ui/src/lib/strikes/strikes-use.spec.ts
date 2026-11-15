@@ -49,6 +49,7 @@ async function render(
 }
 
 function useButtons(fixture: ComponentFixture<StrikesView>): HTMLButtonElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('pio-use-buttons button')].filter(
     (button): button is HTMLButtonElement => button instanceof HTMLButtonElement,
   );

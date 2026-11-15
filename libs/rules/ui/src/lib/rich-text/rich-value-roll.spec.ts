@@ -45,6 +45,7 @@ async function render(content: readonly unknown[], withRoller = true): Promise<R
   fixture.componentRef.setInput('text', RichText.parse([{ type: 'paragraph', content }]));
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { element: fixture.nativeElement as HTMLElement, roller };
 }
 

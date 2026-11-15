@@ -14,6 +14,7 @@ describe(EntryNameCell, () => {
     fixture.componentRef.setInput('name', 'Power Attack');
     fixture.componentRef.setInput('to', ['/content', 'feat', 'power-attack']);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const anchor = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(anchor?.textContent.trim()).toBe('Power Attack');
     expect(anchor?.getAttribute('href')).toBe('/content/feat/power-attack');
@@ -28,6 +29,7 @@ describe(EntryNameCell, () => {
     fixture.componentRef.setInput('to', ['/content', 'spell', 'fireball']);
     fixture.componentRef.setInput('entry', FIREBALL);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     (fixture.nativeElement as HTMLElement)
       .querySelector('a')
       ?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
@@ -45,6 +47,7 @@ describe(EntryNameCell, () => {
     fixture.componentRef.setInput('name', 'Fireball');
     fixture.componentRef.setInput('entry', FIREBALL);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"]')?.textContent.trim()).toBe('Fireball');
   });
 });

@@ -80,6 +80,7 @@ async function open(packs: PacksJson): Promise<OpenSheet> {
 function picker({ harness }: OpenSheet): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-sheet-pack-picker'));
 
+  // SAFETY: the matched directive is the PickerField the pack picker renders; componentInstance is typed any.
   return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 

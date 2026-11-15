@@ -114,6 +114,7 @@ interface ProblemJson {
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {
+  // SAFETY: Response.json() is typed any; the caller names the body type its route returns.
   return (await response.json()) as TBody;
 }
 

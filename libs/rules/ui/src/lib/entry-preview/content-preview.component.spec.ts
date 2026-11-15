@@ -55,6 +55,7 @@ function card(): HTMLElement | null {
 }
 
 function tabStop(fixture: ComponentFixture<RichTextView>): Element | null {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"]');
 }
 
@@ -218,6 +219,7 @@ describe('content preview', () => {
       });
       const fixture = TestBed.createComponent(Host);
       fixture.detectChanges();
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const element = (fixture.nativeElement as HTMLElement).querySelector('#trigger');
       element?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
       await vi.waitFor(() => {

@@ -42,6 +42,7 @@ async function readListings(): Promise<readonly AonListing[]> {
       return {
         book,
         entries: [...AonListingFile.parse(json).entries, ...entries],
+        // SAFETY: `pages` is parsed by `AonPagesFile`, which keys it by AoN url; `Object.keys` types any key as `string`.
         printed: new Set(Object.keys(pages) as AonUrl[]),
       };
     }),
@@ -62,15 +63,16 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
   const files = await Promise.all(
     paths
       .filter((file) => path.basename(file) !== 'pack.json')
-      .map(async (file) => Bun.file(file).json() as Promise<unknown>),
+      .map(async (file) => ContentEntryFile.parse(JsonArray.parse(await Bun.file(file).json()))),
   );
 
-  return files.flatMap((json) => ContentEntryFile.parse(JsonArray.parse(json)));
+  return files.flat();
 }
 
 /** Proposes for one pack, writes its mapping file when there is anything new, and returns the report line. */
 async function proposePack(pack: string, listings: readonly AonListing[]): Promise<string> {
   const [entries, mapping] = await Promise.all([readEntries(pack), readMapping(pack)]);
+  // SAFETY: `readMapping` parses the file with `EnrichmentMappingFile`, which keys it by entry slug; `Object.keys` types any key as `string`.
   const mapped = new Set(Object.keys(mapping) as EntrySlug[]);
   const { proposals, ambiguous, unlisted, unmatched } = proposeAonMappings(entries, listings, mapped);
 

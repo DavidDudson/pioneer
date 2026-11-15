@@ -37,6 +37,8 @@ describe(ImportReportGroup, () => {
     fixture.componentRef.setInput('group', group);
     await fixture.whenStable();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+    // The nativeElement property is typed any.
     const text = (fixture.nativeElement as HTMLElement).textContent;
     expect(text).toContain('Class features · 0 of 2 matched');
     expect(text).toContain('Nature');

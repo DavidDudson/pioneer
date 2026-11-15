@@ -39,7 +39,7 @@ const handle = (root: HTMLElement): HTMLElement => part(root, '[role="separator"
 const step = (root: HTMLElement): string | null => handle(root).getAttribute('aria-valuenow');
 
 /** Neither `<dialog>` methods nor `ResizeObserver` exist in jsdom: record the first and let a test drive the second. */
-const dialog = { calls: [] as string[] };
+const dialog = { calls: new Array<string>() };
 
 interface ObservedResize {
   resize: (width: number) => void;

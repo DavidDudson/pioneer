@@ -58,6 +58,7 @@ async function render(inputs: Readonly<Record<string, boolean | string>> = {}): 
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const shell = component.location.nativeElement as HTMLElement;
   const header = shell.querySelector<HTMLElement>(':scope > header');
   const search = shell.querySelector<HTMLElement>(':scope > header [frShellSearch]');

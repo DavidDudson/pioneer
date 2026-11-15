@@ -24,6 +24,7 @@ async function render(sources: readonly RankSource[], note?: string): Promise<Co
 }
 
 function hostOf(fixture: ComponentFixture<ProficiencyBadge>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

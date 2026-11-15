@@ -13,8 +13,9 @@ import {
   Slug,
   SpellPreparation,
   SpellRank,
+  Uses,
 } from '@pioneer/rules/sdk';
-import type { Activation, Frequency, Uses } from '@pioneer/rules/sdk';
+import type { Activation, Frequency } from '@pioneer/rules/sdk';
 
 import {
   abilityUseKey,
@@ -53,7 +54,7 @@ const BLAST_USE = abilityUseKey(BLAST);
 const OTHER_USE = abilityUseKey(OTHER);
 
 function frequency(max: number, per: FrequencyPeriod): Frequency {
-  return { max: max as Uses, per };
+  return { max: Uses.parse(max), per };
 }
 
 /** A wizard with two first-rank and one second-rank slot, and a font pool of three first-rank slots. */

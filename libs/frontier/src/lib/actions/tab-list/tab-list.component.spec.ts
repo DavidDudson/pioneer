@@ -12,6 +12,7 @@ interface Rendered {
 async function render(): Promise<Rendered> {
   const fixture = TestBed.createComponent(TabListHost);
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const tabs = [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 
   return { fixture, tabs };
@@ -24,6 +25,7 @@ function key(target: HTMLElement, name: string): void {
 describe('fr-tab-list', () => {
   it('is a labelled tablist of tabs with the chosen one selected', async () => {
     const { fixture, tabs } = await render();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const list = (fixture.nativeElement as HTMLElement).querySelector('[role="tablist"]');
     expect(list?.getAttribute('aria-label')).toBe('Kinds of action');
     expect(tabs.map((tab) => tab.getAttribute('role'))).toStrictEqual(['tab', 'tab', 'tab']);
@@ -39,10 +41,13 @@ describe('fr-tab-list', () => {
     const { fixture, tabs } = await render();
     const [first, second, third] = tabs;
     second?.focus();
+    // SAFETY: render() builds three tabs, so the destructured tab is defined.
     key(second as HTMLElement, 'ArrowRight');
     expect(document.activeElement).toBe(third);
+    // SAFETY: render() builds three tabs, so the destructured tab is defined.
     key(third as HTMLElement, 'Home');
     expect(document.activeElement).toBe(first);
+    // SAFETY: render() builds three tabs, so the destructured tab is defined.
     key(first as HTMLElement, 'End');
     expect(document.activeElement).toBe(third);
     await fixture.whenStable();

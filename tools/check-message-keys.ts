@@ -42,6 +42,7 @@ async function bundleKeys(bundle: string): Promise<string[]> {
     .map(([, text]) => text)
     .toArray();
 
+  // SAFETY: a messages bundle is a JSON object of nested message strings, which is the `MessageTree` that `flattenMessages` walks.
   const tree = JSON.parse(await read(bundle)) as MessageTree;
 
   return flattenMessages(tree, scopeOf(projectSources) ?? '');

@@ -122,6 +122,7 @@ async function open(packs: PacksJson): Promise<RouterTestingHarness> {
 function picker(harness: RouterTestingHarness): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-campaign-pack-picker'));
 
+  // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
   return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 

@@ -24,9 +24,11 @@ async function render(previews: EntryPreviews, inputs: Record<string, unknown>):
   return fixture;
 }
 
+// SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
 const text = (fixture: ComponentFixture<unknown>): string => (fixture.nativeElement as HTMLElement).textContent.trim();
 
 const stops = (fixture: ComponentFixture<unknown>): NodeListOf<Element> =>
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   (fixture.nativeElement as HTMLElement).querySelectorAll('[tabindex="0"]');
 
 describe(TraitChip, () => {
@@ -52,12 +54,14 @@ describe(TraitChip, () => {
     const fixture = await render(HELD_TRAIT_PREVIEWS, { trait: NOT_A_TRAIT });
 
     expect(stops(fixture)).toHaveLength(0);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelectorAll('fr-badge')).toHaveLength(1);
   });
 
   it('wears the tone it is given', async () => {
     const fixture = await render(HELD_TRAIT_PREVIEWS, { trait: FIRE, tone: BadgeTone.Warning });
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-badge span')?.className).toContain('warning');
   });
 

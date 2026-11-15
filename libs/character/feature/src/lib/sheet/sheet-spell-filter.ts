@@ -176,7 +176,7 @@ export function spellFilterFromQuery(params: QueryParams): SpellPicks {
     GROUPS.flatMap((group): [SpellFilterGroupId, ReadonlySet<string>][] => {
       const raw: unknown = params[paramOf(group)];
 
-      const values = (Array.isArray(raw) ? (raw as unknown[]) : [raw]).filter(
+      const values = (Array.isArray(raw) ? raw : [raw]).filter(
         (value): value is string => typeof value === 'string' && value !== '',
       );
 

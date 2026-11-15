@@ -59,6 +59,7 @@ function strikeOf(elements: readonly object[], weapon: object, given: Given = {}
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
     ranks: given.ranks ?? TRAINED,
+    // SAFETY: the weapon is a test weapon with a slug; wielded() only needs that to build its inputs.
     weapons: [wielded(weapon as { slug: string })],
   });
 

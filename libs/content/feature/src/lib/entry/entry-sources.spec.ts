@@ -18,7 +18,10 @@ function entryCiting(...sources: readonly SourceRef[]): ContentEntry {
   return { ...first, sources };
 }
 
+// SAFETY: a book source ref naming the registered 'player-core' book.
 const PLAYER_CORE = { kind: 'book', book: 'player-core' } as SourceRef;
+
+// SAFETY: a book source ref that deliberately names a book absent from the registry; its shape is still a valid SourceRef.
 const UNREGISTERED = { kind: 'book', book: 'not-a-book' } as SourceRef;
 
 describe(browseSources, () => {

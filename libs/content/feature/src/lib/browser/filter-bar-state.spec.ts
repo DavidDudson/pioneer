@@ -66,6 +66,7 @@ const rangeSelection: Arbitrary<FacetSelection> = record({ min: bound, max: boun
   .filter(({ min, max }) => min !== undefined || max !== undefined)
   .map(({ min, max }) => ({ kind: SelectionKind.Range, min, max }));
 
+// SAFETY: the flatMap keeps only [facet id, defined selection] pairs, the entry shape of FilterState; the array literal merely widens them to a loose union.
 const state: Arbitrary<FilterState> = record({
   rarity: option(valuesSelection, { nil: undefined }),
   level: option(rangeSelection, { nil: undefined }),
@@ -90,11 +91,13 @@ function level(min: number | undefined, max: number | undefined): FilterState {
   return new Map([[LEVEL, { kind: SelectionKind.Range, min: bounded(min), max: bounded(max) }]]);
 }
 
+// SAFETY: zero is a valid facet count.
 const ZERO = 0 as FacetCounts['unknown'];
 const RARE = FacetValue.parse('rare');
 
 /** Every facet's counts: the rarity facet has four rare entries, the others no values. */
 const COUNTS: readonly FacetCounts[] = [
+  // SAFETY: four is a valid facet count.
   { facet: RARITY_FACET, values: [{ value: RARE, count: 4 as FacetCounts['unknown'] }], unknown: ZERO },
   { facet: LEVEL_FACET, values: [], unknown: ZERO },
   { facet: CONSUMABLE_FACET, values: [], unknown: ZERO },

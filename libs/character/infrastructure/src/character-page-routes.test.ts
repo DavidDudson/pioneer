@@ -35,6 +35,8 @@ async function get(api: AnyElysia, path: string): Promise<Response> {
 async function pageAt(api: AnyElysia, path: string): Promise<PageBody> {
   const response = await get(api, path);
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return (await response.json()) as PageBody;
 }
 

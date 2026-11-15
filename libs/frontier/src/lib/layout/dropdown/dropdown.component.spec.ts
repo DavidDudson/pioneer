@@ -43,6 +43,7 @@ async function render(): Promise<ComponentFixture<Host>> {
 }
 
 function trigger(fixture: ComponentFixture<unknown>): HTMLButtonElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const button = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>('button[aria-label]');
 
   if (button === null) {

@@ -238,6 +238,7 @@ describe('CampaignPartyAvatar', () => {
       button.textContent.trim().startsWith('Withdraw'),
     );
 
+    // SAFETY: `withdraw` is found by its button selector in the avatar's template, so it is a button element when present, and `present` fails the test on `undefined`.
     present(withdraw as HTMLButtonElement | undefined).click();
     await vi.waitFor(() => {
       http

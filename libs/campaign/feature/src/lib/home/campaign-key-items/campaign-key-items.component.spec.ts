@@ -97,6 +97,7 @@ async function open(items: JsonObject, gm: boolean): Promise<HTMLElement> {
 
 /** Caliburn held by Kyra, and Excalibur in the party stash. */
 function twoKeyItems(): JsonObject {
+  // SAFETY: `keyItems` builds the list response, an object holding the `keyItems` array, and `twoKeyItems` only reads that array back out of it.
   const [held = {}] = (keyItems('kyra', false) as { keyItems: JsonObject[] }).keyItems;
 
   const stashed = {
@@ -231,6 +232,7 @@ describe('CampaignKeyItemsPanel', () => {
         manageable: true,
         keyItems: [
           {
+            // SAFETY: `keyItems` builds the list response, an object holding the `keyItems` array, and this reads its first item back to reuse it.
             ...(keyItems('kyra') as { keyItems: JsonObject[] }).keyItems[0],
             holder: mordred,
             holderName: 'Mordred',

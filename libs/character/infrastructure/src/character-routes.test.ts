@@ -82,6 +82,8 @@ interface Created {
 async function create(api: AnyElysia, as: UserId, name: string): Promise<Created> {
   const response = await api.handle(request('POST', '/characters', { as, body: { name, ancestry: humanAncestryId } }));
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   return (await response.json()) as Created;
 }
 
@@ -94,6 +96,8 @@ describe('character routes', () => {
     );
 
     expect(created.status).toBe(200);
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const character = (await created.json()) as { id: string; version: number; ownerId: string; createdAt: string };
     expect(character.version).toBe(1);
     expect(character.ownerId).toBe(amiri);
@@ -107,6 +111,7 @@ describe('character routes', () => {
     const stale = await api.handle(request('PATCH', `/characters/${character.id}`, { body: patch }));
     expect(stale.status).toBe(409);
     expect(stale.headers.get('content-type')).toContain('application/problem+json');
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await stale.json()) as Problem).message).toStrictEqual({ key: 'problem.versionConflict' });
   });
 
@@ -171,6 +176,7 @@ describe('character routes', () => {
   test('invalid body is 422', async () => {
     const response = await app().handle(request('POST', '/characters', { body: { name: '' } }));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.message).toStrictEqual({ key: 'problem.validation' });
     expect(problem.issues).toContainEqual({
@@ -185,6 +191,7 @@ describe('character routes', () => {
     const body = { expectedVersion: 1, patch: { field: 'giftItem', item: newId(), quantity: 1 } };
     const response = await api.handle(request('PATCH', `/characters/${id}`, { body }));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await response.json()) as Problem).issues).toStrictEqual([
       { path: ['patch', 'item'], message: { key: 'character.validation.unknownItem' } },
     ]);
@@ -199,6 +206,7 @@ describe('character routes', () => {
     const body = { expectedVersion: 1, patch: { field: 'carryItem', id: newId(), carry } };
     const response = await api.handle(request('PATCH', `/characters/${id}`, { body }));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const { issues } = (await response.json()) as Problem;
     expect(issues?.map(({ path }) => path)).toContainEqual(['patch', 'carry', 'hands']);
   });
@@ -230,6 +238,7 @@ describe('character routes without a signed-in user', () => {
     const response = await api.handle(unsigned);
     expect(response.status).toBe(401);
     expect(response.headers.get('content-type')).toContain('application/problem+json');
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('unauthorized');
     expect(problem.message).toStrictEqual({ key: 'problem.unauthorized' });
@@ -244,6 +253,7 @@ describe('character routes across users', () => {
 
     const got = await api.handle(request('GET', `/characters/${theirs.id}`));
     expect(got.status).toBe(404);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     expect(((await got.json()) as Problem).message).toStrictEqual({ key: 'problem.notFound' });
 
     const patch = { expectedVersion: 1, patch: { field: 'level', value: 5 } };
@@ -255,6 +265,8 @@ describe('character routes across users', () => {
     expect(gifted.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const names = ((await listed.json()) as { items: { name: string }[] }).items.map((character) => character.name);
     expect(names).toStrictEqual(['Kyra']);
   });
@@ -280,6 +292,8 @@ describe('Pathbuilder import route', () => {
     const response = await api.handle(request('POST', path, { body: mordredExport }));
     expect(response.status).toBe(200);
 
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { character, report } = (await response.json()) as {
       character: { id: string; name: string; level: number; ownerId: string; version: number };
       report: { unmatched: { kind: string }[] };
@@ -296,6 +310,7 @@ describe('Pathbuilder import route', () => {
     const api = app();
     const response = await api.handle(request('POST', path, { body: briarRoseExport }));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.issues).toStrictEqual([
       {
@@ -304,6 +319,8 @@ describe('Pathbuilder import route', () => {
       },
     ]);
     const listed = await api.handle(request('GET', '/characters'));
+    // SAFETY: Response.json() is typed any.
+    // This route's body has the shape its contract gives, and the test reads only the fields named here.
     expect(((await listed.json()) as { items: unknown[] }).items).toStrictEqual([]);
   });
 
@@ -313,6 +330,7 @@ describe('Pathbuilder import route', () => {
   ])('%s is a 422 with the problem first', async (_name, body, key) => {
     const response = await app().handle(request('POST', path, { body }));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.issues?.[0]).toStrictEqual({ path: [], message: { key } });
   });

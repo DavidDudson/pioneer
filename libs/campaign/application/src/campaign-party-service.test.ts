@@ -241,6 +241,7 @@ describe('CampaignPartyService', () => {
     await service.attach(ezren, kingmaker.id, { characterId: valeros });
     const error = await rejection(service.attach(ezren, vaults.id, { characterId: valeros }));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor).toStrictEqual({ key: 'campaign.party.inOtherCampaign' });
     // Nor does the picker offer it.
     const party = await service.party(ezren, vaults.id);

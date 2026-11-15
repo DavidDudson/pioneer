@@ -49,6 +49,7 @@ export const noTemplateStyling: Rule.RuleModule = {
     const inFrontier = FRONTIER.test(context.filename);
 
     const check = (node: unknown): void => {
+      // SAFETY: the template parser calls this visitor with a node of that kind, and `TemplateNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
       const span = (node as TemplateNode).sourceSpan;
 
       if (span === undefined) {

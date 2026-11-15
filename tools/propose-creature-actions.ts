@@ -24,10 +24,10 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
   const files = await Promise.all(
     paths
       .filter((file) => path.basename(file) !== 'pack.json')
-      .map(async (file) => Bun.file(file).json() as Promise<unknown>),
+      .map(async (file) => ContentEntryFile.parse(JsonArray.parse(await Bun.file(file).json()))),
   );
 
-  return files.flatMap((json) => ContentEntryFile.parse(JsonArray.parse(json)));
+  return files.flat();
 }
 
 /** Proposes for one pack, writes its mapping file when there is anything new, and returns the report line. */
@@ -44,6 +44,7 @@ async function proposePack(pack: string): Promise<string> {
     entries.filter((entry) => entry.kind === ContentKind.Creature).map((entry) => [entry.slug, mapping[entry.slug]]),
   );
 
+  // SAFETY: `mapping` is parsed by `EnrichmentMappingFile`, which keys it by entry slug; `Object.keys` types any key as `string`.
   const { proposals, excepted } = proposeCreatureActions(
     entries.filter((entry) => entry.kind === ContentKind.Action),
     new Map([...creatures].flatMap(([slug, found]) => (found === undefined ? [] : [[slug, found] as const]))),

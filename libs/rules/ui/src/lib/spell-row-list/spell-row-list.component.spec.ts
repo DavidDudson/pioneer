@@ -56,6 +56,7 @@ function render(lines: readonly SpellRowLine[] | undefined): ComponentFixture<Sp
 }
 
 function rows(fixture: ComponentFixture<SpellRowList>): HTMLElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('pio-spell-row')];
 }
 
@@ -81,6 +82,7 @@ describe(SpellRowList, () => {
     const fixture = render([]);
 
     expect(rows(fixture)).toHaveLength(0);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).textContent).toContain('No spells yet');
   });
 
@@ -88,6 +90,7 @@ describe(SpellRowList, () => {
     const fixture = render(undefined);
 
     expect(rows(fixture)).toHaveLength(0);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-skeleton')).not.toBeNull();
   });
 });

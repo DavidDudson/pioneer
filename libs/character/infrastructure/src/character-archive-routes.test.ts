@@ -58,6 +58,8 @@ async function created(api: AnyElysia): Promise<string> {
     request('POST', '/characters', { body: { name: 'Ezren', ancestry: humanAncestryId } }),
   );
 
+  // SAFETY: Response.json() is typed any.
+  // This route's body has the shape its contract gives, and the test reads only the fields named here.
   const character = (await response.json()) as Created;
 
   return character.id;

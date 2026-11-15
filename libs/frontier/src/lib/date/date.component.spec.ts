@@ -16,6 +16,7 @@ async function render(value: DateValue, format?: DateFormat): Promise<HTMLTimeEl
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const time = (fixture.nativeElement as HTMLElement).querySelector('time');
 
   if (time === null) {

@@ -110,6 +110,8 @@ describe('printed runes made for an energy', () => {
       return tongue;
     }
 
+    // SAFETY: the spread keeps every field of the weapon entry and only replaces its rune data.
+    // That data stays a weapon's.
     return {
       ...tongue,
       data: { ...tongue.data, runes: { ...tongue.data.runes, propertyEnergy: energy } },
@@ -184,6 +186,8 @@ describe('runes the engine applies', () => {
 
   test('a flagged property rune is not applied, whatever its rules', () => {
     const flagged = { ...rune(RuneFixture.Flaming), data: { ...rune(RuneFixture.Flaming).data, unapplied: true } };
+    // SAFETY: the spread keeps every field of a rune entry and only adds data.unapplied.
+    // The unapplied flag allows it.
     expect(runeApplied(flagged as RuneEntry)).toBe(false);
   });
 });

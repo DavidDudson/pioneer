@@ -36,6 +36,7 @@ async function render(origin: Origin, entryNames = ENTRY_NAMES, names: OriginNam
   fixture.componentRef.setInput('entryNames', entryNames);
   fixture.componentRef.setInput('names', names);
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
 
   return { chain: textOf(host.querySelector('fr-text')), sources: textOf(host.querySelector('pio-source-line')) };

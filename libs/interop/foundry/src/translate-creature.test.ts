@@ -93,6 +93,7 @@ describe('translateCreature: core statistics', () => {
       system: {
         ...ZOMBIE_SHAMBLER.system,
         attributes: {
+          // SAFETY: the fixture's system holds an attributes object; the fixture is typed as plain JSON.
           ...(ZOMBIE_SHAMBLER.system as { attributes: object }).attributes,
           speed: { value: FOUNDRY_NULL, otherSpeeds: [{ type: 'fly', value: 60 }] },
         },

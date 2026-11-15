@@ -79,6 +79,7 @@ async function readLoad(page: Page): Promise<Timed> {
           name: new URL(entry.name).pathname,
           startMs: entry.startTime,
           endMs: entry.startTime + entry.duration,
+          // SAFETY: `getEntriesByType('resource')` returns `PerformanceResourceTiming` entries, which `PerformanceEntry` does not show; `transferSize` is one of its fields.
           bytes: (entry as PerformanceResourceTiming).transferSize,
         })),
       marks: Object.fromEntries(marks.map((mark) => [mark, performance.getEntriesByName(mark)[0]?.startTime ?? 0])),

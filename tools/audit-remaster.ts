@@ -45,10 +45,10 @@ async function readPackNames(): Promise<ReadonlySet<string>> {
   const files = await Promise.all(
     paths
       .filter((file) => path.basename(file) !== 'pack.json')
-      .map(async (file) => Bun.file(file).json() as Promise<unknown>),
+      .map(async (file) => ContentEntryFile.parse(JsonArray.parse(await Bun.file(file).json()))),
   );
 
-  const entries = files.flatMap((json) => ContentEntryFile.parse(JsonArray.parse(json)));
+  const entries = files.flat();
 
   return new Set(entries.flatMap(({ name }) => variants(name).map((variant) => normaliseName(variant))));
 }
@@ -71,6 +71,8 @@ async function readRows(book: string): Promise<readonly Row[]> {
 const args = Bun.argv.slice(2);
 const bookFlag = args.indexOf('--book');
 const only = bookFlag === -1 ? undefined : args[bookFlag + 1];
+
+// SAFETY: widening the `CLASSES` tuple of string literals to `readonly string[]` is always sound; it only lets `includes` take any CLI argument.
 const show = args.find((arg) => (CLASSES as readonly string[]).includes(arg));
 const packNames = await readPackNames();
 const books = BOOKS.filter((candidate) => only === undefined || candidate === only);

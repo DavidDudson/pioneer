@@ -105,6 +105,7 @@ describe.skipIf(adminUrl === undefined)('dev sign-in through createApp (postgres
     expect(setCookie).toBeDefined();
     const cookie = String(setCookie).split(';', 1).join('');
     const me = await api.handle(new Request('http://localhost:4200/api/me', { headers: { cookie } }));
+    // SAFETY: `/api/me` answers with the signed-in user as JSON, which carries `displayName`.
     const user = (await me.json()) as { readonly displayName: string };
     expect(user.displayName).toBe(DevUser.Gm.displayName);
   });

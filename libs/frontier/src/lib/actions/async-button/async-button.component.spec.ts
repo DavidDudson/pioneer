@@ -43,6 +43,7 @@ async function render(action: () => Promise<unknown>): Promise<ComponentFixture<
 }
 
 function button(fixture: ComponentFixture<AsyncButton>): HTMLButtonElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('button');
 
   if (element === null) {
@@ -74,6 +75,7 @@ describe(AsyncButton, () => {
     button(fixture).click();
     await settle();
     expect(button(fixture).getAttribute('aria-busy')).toBe('true');
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-spinner')).not.toBeNull();
 
     button(fixture).click();
@@ -88,11 +90,13 @@ describe(AsyncButton, () => {
 
     button(fixture).click();
     await settle();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).not.toBeNull();
 
     await settle(SUCCESS_FLASH);
     // The reset is published on TanStack's notify timer, queued after the flash timer.
     await settle(RESET_NOTIFY_MS);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).toBeNull();
     expect(button(fixture).getAttribute('aria-busy')).toBeNull();
   });
@@ -111,12 +115,14 @@ describe(AsyncButton, () => {
     button(fixture).click();
     attempts[0]?.reject(new Error('Server said no'));
     await settle();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const message = (fixture.nativeElement as HTMLElement).querySelector('[role="alert"]');
     expect(message?.textContent).toContain('Server said no');
     expect(button(fixture).getAttribute('aria-describedby')).toBe(message?.id);
 
     button(fixture).click();
     await settle();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('[role="alert"]')).toBeNull();
     attempts[1]?.resolve();
     await settle();

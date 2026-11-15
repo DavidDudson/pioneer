@@ -85,7 +85,7 @@ function isTimeout(error: unknown): boolean {
 
 function parsed(text: string): FetchedExport {
   try {
-    return { ok: true, json: JSON.parse(text) as unknown };
+    return { ok: true, json: JSON.parse(text) };
   } catch {
     return { ok: false, problem: ExportFetchProblem.NotJson };
   }

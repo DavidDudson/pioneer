@@ -34,6 +34,7 @@ async function render(statistics: ReadonlyMap<Attribute, StatisticValue> | undef
   fixture.componentRef.setInput('statistics', statistics);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { host: fixture.nativeElement as HTMLElement, rolls };
 }
 

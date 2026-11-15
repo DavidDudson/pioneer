@@ -8,6 +8,7 @@ import type { EntryPreview } from './entry-preview';
 
 const TEXT = RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'Rest ends it.' }] }]);
 
+// SAFETY: 'Dazed' is a valid entry name.
 const CARD: EntryPreview = {
   name: 'Dazed' as EntryPreview['name'],
   level: undefined,

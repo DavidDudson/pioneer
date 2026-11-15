@@ -260,7 +260,7 @@ const NOT_JSON = Symbol('not JSON');
 
 function parseJson(text: string): unknown {
   try {
-    return JSON.parse(text) as unknown;
+    return JSON.parse(text);
   } catch {
     return NOT_JSON;
   }
