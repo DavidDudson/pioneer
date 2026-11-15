@@ -127,6 +127,15 @@ const criticalEffect = element('CriticalEffect', {
   effect: oneof(criticalCondition, criticalArmorDamage),
 });
 
+const persistentFlatCheck = element(
+  'PersistentFlatCheck',
+  {
+    damageTypes: uniqueArray(damageType, { minLength: 1, maxLength: LIST_MAX }),
+    dc: integer({ min: 1, max: FLAT_DC_MAX }),
+  },
+  { assistedDc: integer({ min: 1, max: FLAT_DC_MAX }) },
+);
+
 /** The effect-group elements, for `ruleElementJson` to draw from. */
 export const effectElements: readonly Arbitrary<object>[] = [
   fastHealing,
@@ -141,4 +150,5 @@ export const effectElements: readonly Arbitrary<object>[] = [
   criticalWeakness,
   criticalEffect,
   criticalRange,
+  persistentFlatCheck,
 ];

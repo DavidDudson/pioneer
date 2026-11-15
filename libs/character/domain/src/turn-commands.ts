@@ -1,7 +1,7 @@
 import { RollTotal } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
-import { damageTargetOf, inventoryItemOf, statisticContent } from '@pioneer/rules/engine';
-import type { RecoveryInPlay } from '@pioneer/rules/engine';
+import { damageTargetOf, DefenceStatusKind, inventoryItemOf, statisticContent } from '@pioneer/rules/engine';
+import type { Defences, RecoveryInPlay } from '@pioneer/rules/engine';
 import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
 
@@ -15,6 +15,7 @@ import type { EnvironmentContent } from './environments';
 import { equippedGrants } from './equipped';
 import type { InventoryItemId } from './inventory';
 import { itemContent } from './inventory-content';
+import type { PersistentFlatCheckDc } from './persistent-flat-check';
 import type { PlayLimits, PlayState } from './play-state';
 import { conditionRecovery } from './rest-limits';
 import type { RecoveryConditions } from './rest-types';
@@ -39,6 +40,8 @@ export interface TurnCommandInputs {
   readonly recovery: readonly RecoveryInPlay[];
   /** The character's immunities, weaknesses and resistances, which persistent damage goes through. */
   readonly defences: DamageTarget;
+  /** The flat check DCs of the character's rules for persistent damage (quenching runes). */
+  readonly flatChecks: readonly PersistentFlatCheckDc[];
   /** What the end of a turn does to each condition the content eases (Frightened is lowered). */
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
@@ -70,6 +73,7 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
     {
       limits: inputs.limits,
       defences: inputs.defences,
+      flatChecks: inputs.flatChecks,
       recovery: inputs.easing,
       fortitude: inputs.fortitude,
       unconscious: inputs.unconscious,
@@ -155,6 +159,13 @@ function quickenedByItems(
   return [...new Set(granted)];
 }
 
+/** The persistent damage flat check DCs of the lines that apply. */
+function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly PersistentFlatCheckDc[] {
+  return persistentFlatChecks
+    .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
+    .map(({ damageTypes, dc, assistedDc }) => ({ damageTypes, dc, assisted: assistedDc }));
+}
+
 /**
  * What the turn cycle reads for a character, from the build and the content: its fast healing and regeneration, the
  * defences persistent damage goes through, what the end of a turn eases and the conditions that change its actions.
@@ -167,10 +178,12 @@ export function turnCommandInputs(
   const { registry } = sources;
   const content = statisticContent(registry);
   const economy = economyConditions(registry);
+  const defences = content === undefined ? undefined : characterDefences(document, sources);
   return {
     limits,
     recovery: characterVitals(sources, document)?.recovery ?? [],
-    defences: content === undefined ? NO_DEFENCES : damageTargetOf(characterDefences(document, sources)),
+    defences: defences === undefined ? NO_DEFENCES : damageTargetOf(defences),
+    flatChecks: defences === undefined ? [] : flatCheckDcsOf(defences),
     easing: conditionRecovery(registry, ConditionTrigger.TurnEnd),
     economy,
     grantedQuickened: quickenedByItems(sources, document, economy),
