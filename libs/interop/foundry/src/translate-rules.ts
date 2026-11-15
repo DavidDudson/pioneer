@@ -156,8 +156,8 @@ export interface RuleTranslation {
   readonly unresolvedText: readonly UnresolvedText[];
 }
 
-/** A raw rule element shaped two ways: as it was before `withChoiceSet`, and with it. */
-interface Shaped {
+/** A raw rule element prepared two ways: as it was before `withChoiceSet`, and with it. */
+interface PreparedRule {
   readonly raw: unknown;
   readonly plain: unknown;
   readonly chosen: unknown;
@@ -171,11 +171,11 @@ function withGrants(raw: unknown, references: EntryReferences): unknown {
   return withAura(granted, references);
 }
 
-function shapeRule(
+function prepareRule(
   raw: unknown,
   context: RuleContext,
   { unresolved, owned }: { readonly unresolved: UnresolvedKey[]; readonly owned: ReadonlySet<string> },
-): Shaped {
+): PreparedRule {
   const references = context.references ?? NO_REFERENCES;
   const text = withDisplayLabel(localized(withOwnedPicks(raw, owned), context, unresolved));
   const rolled = withRollOption(withNamespacedOptions(text), context.values.item);
@@ -195,10 +195,10 @@ function shapeRule(
   };
 }
 
-/** The flags of the `ChoiceSet`s among `shaped` that translate. */
-function declaredFlags(shaped: readonly Shaped[]): ReadonlySet<string> {
+/** The flags of the `ChoiceSet`s among `prepared` that translate. */
+function declaredFlags(prepared: readonly PreparedRule[]): ReadonlySet<string> {
   return new Set(
-    shaped.flatMap(({ chosen }) => {
+    prepared.flatMap(({ chosen }) => {
       const element = RuleElement.safeParse(chosen);
 
       return element.success && element.data.key === RuleElementKey.ChoiceSet ? [String(element.data.flag)] : [];
@@ -209,11 +209,11 @@ function declaredFlags(shaped: readonly Shaped[]): ReadonlySet<string> {
 type Parsed = z.ZodSafeParseResult<RuleElement>;
 
 /** The flags (as the translated element spells them) of the `ChoiceSet`s whose pick an element in `failed` reads. */
-function strandedFlags(shaped: readonly Shaped[], kept: readonly boolean[]): ReadonlySet<string> {
-  const failed = shaped.filter((_shaped, index) => kept[index] !== true);
+function strandedFlags(prepared: readonly PreparedRule[], kept: readonly boolean[]): ReadonlySet<string> {
+  const failed = prepared.filter((_prepared, index) => kept[index] !== true);
 
   return new Set(
-    shaped.flatMap(({ raw, chosen }, index) => {
+    prepared.flatMap(({ raw, chosen }, index) => {
       const foundry = foundryFlagOf(raw);
       const element = RuleElement.safeParse(chosen);
 
@@ -246,14 +246,14 @@ function isStranded(element: RuleElement, flags: ReadonlySet<string>): boolean {
  */
 function partition(
   entry: ContentId,
-  shaped: readonly Shaped[],
+  prepared: readonly PreparedRule[],
   standing: readonly (RuleElement | undefined)[],
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const declared = ownedFlagsOnce(standing);
   const rules: RuleElement[] = [];
   const untranslated: UntranslatedRule[] = [];
 
-  for (const [index, { raw }] of shaped.entries()) {
+  for (const [index, { raw }] of prepared.entries()) {
     const element = standing[index];
 
     if (element !== undefined && !danglingPick(element, declared) && !ambiguousOwned(element, declared)) {
@@ -267,13 +267,13 @@ function partition(
 }
 
 /**
- * What `shaped` came to, its elements `parsed` the same way: the ones that translate, and those kept for the backlog.
+ * What `prepared` came to, its elements `parsed` the same way: the ones that translate, and those kept for the backlog.
  * A pick whose reader (an element that reads it) stays in the backlog is not offered: the `ChoiceSet` stays with that
  * reader, and so do the grants and selectors that follow it, so the player is never asked what changes nothing.
  */
 function settle(
   entry: ContentId,
-  shaped: readonly Shaped[],
+  prepared: readonly PreparedRule[],
   parsed: readonly Parsed[],
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const reads = (flag: string): boolean =>
@@ -283,15 +283,15 @@ function settle(
         (JSON.stringify(element.data).includes(`"choice":"${flag}"`) || pickedFlagsIn(element.data).includes(flag)),
     );
 
-  const kept = shaped.map(({ plain }, index) => {
+  const kept = prepared.map(({ plain }, index) => {
     const element = parsed[index];
 
     return element?.success === true && !isUnread(element.data, plain, reads);
   });
 
-  const stranded = strandedFlags(shaped, kept);
+  const stranded = strandedFlags(prepared, kept);
 
-  const standing = shaped.map((_shaped, index) => {
+  const standing = prepared.map((_prepared, index) => {
     const element = parsed[index];
 
     return kept[index] === true && element?.success === true && !isStranded(element.data, stranded)
@@ -299,7 +299,7 @@ function settle(
       : undefined;
   });
 
-  return partition(entry, shaped, standing);
+  return partition(entry, prepared, standing);
 }
 
 export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
@@ -309,15 +309,15 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const granted = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references)));
   const owned = ownedFlagsOf(granted);
 
-  const shaped = withChoiceValues(withSkillPathChoices(granted), context.values.item).map((raw) =>
-    shapeRule(raw, context, { unresolved, owned }),
+  const prepared = withChoiceValues(withSkillPathChoices(granted), context.values.item).map((raw) =>
+    prepareRule(raw, context, { unresolved, owned }),
   );
 
-  const declared = declaredFlags(shaped);
-  const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
+  const declared = declaredFlags(prepared);
+  const parsed = prepared.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
 
   return {
-    ...settle(entry, shaped, parsed),
+    ...settle(entry, prepared, parsed),
     dropped,
     unresolvedText: unresolved.map(({ key, reason }) => ({ entry, key, reason })),
   };

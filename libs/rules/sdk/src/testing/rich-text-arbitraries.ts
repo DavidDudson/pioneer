@@ -16,7 +16,7 @@ import type { Arbitrary } from 'fast-check';
 import { DamageType } from '../damage';
 import {
   ActionCost,
-  AreaShape,
+  AreaKind,
   BlockKind,
   DamageCategory,
   DurationUnit,
@@ -65,7 +65,7 @@ export const damageFormulaText: Arbitrary<string> = tuple(
 const marks = constantFrom(...Object.values(TextMark));
 const damageTypes = constantFrom(...Object.values(DamageType));
 const damageCategories = constantFrom(...Object.values(DamageCategory));
-const areaShapes = constantFrom(...Object.values(AreaShape));
+const areaKinds = constantFrom(...Object.values(AreaKind));
 const durationUnits = constantFrom(...Object.values(DurationUnit));
 const actionCosts = constantFrom(...Object.values(ActionCost));
 const headingLevels = constantFrom(...Object.values(RichTextHeadingLevel));
@@ -103,13 +103,13 @@ const basicSave = record(
 );
 
 const lineTemplate = record(
-  { type: constant(InlineKind.Template), shape: constant(AreaShape.Line), size: feet, width: feet },
+  { type: constant(InlineKind.Template), shape: constant(AreaKind.Line), size: feet, width: feet },
   { requiredKeys: ['type', 'shape', 'size'] },
 );
 
 const otherTemplate = record({
   type: constant(InlineKind.Template),
-  shape: areaShapes.filter((shape) => shape !== AreaShape.Line),
+  shape: areaKinds.filter((kind) => kind !== AreaKind.Line),
   size: feet,
 });
 

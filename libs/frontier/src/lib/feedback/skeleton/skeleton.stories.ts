@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { Stack } from '../../layout/stack/stack.component';
 import { Surface } from '../../layout/surface/surface.component';
-import { Skeleton, SkeletonShape, SkeletonWidth } from './skeleton.component';
+import { Skeleton, SkeletonKind, SkeletonWidth } from './skeleton.component';
 
 type SkeletonStory = StoryObj<Skeleton>;
 
@@ -12,10 +12,10 @@ const meta: Meta<Skeleton> = {
   component: Skeleton,
   decorators: [moduleMetadata({ imports: [Stack, Surface] })],
   argTypes: {
-    shape: { control: 'inline-radio', options: Object.values(SkeletonShape) },
+    kind: { control: 'inline-radio', options: Object.values(SkeletonKind) },
     width: { control: 'inline-radio', options: Object.values(SkeletonWidth) },
   },
-  args: { shape: SkeletonShape.Text, width: SkeletonWidth.Md },
+  args: { kind: SkeletonKind.Text, width: SkeletonWidth.Md },
   render: (args) => ({
     props: args,
     template: `<fr-skeleton ${argsToTemplate(args)} />`,
@@ -26,9 +26,9 @@ export default meta;
 
 export const Text: SkeletonStory = {};
 
-export const Block: SkeletonStory = { args: { shape: SkeletonShape.Block, width: SkeletonWidth.Full } };
+export const Block: SkeletonStory = { args: { kind: SkeletonKind.Block, width: SkeletonWidth.Full } };
 
-export const Square: SkeletonStory = { args: { shape: SkeletonShape.Square } };
+export const Square: SkeletonStory = { args: { kind: SkeletonKind.Square } };
 
 export const Widths: SkeletonStory = {
   render: () => ({
@@ -49,7 +49,7 @@ export const Card: SkeletonStory = {
     template: `
       <fr-surface>
         <fr-stack direction="horizontal" align="center" gap="md">
-          <fr-skeleton shape="square" />
+          <fr-skeleton kind="square" />
           <fr-stack grow gap="2xs">
             <fr-skeleton width="md" />
             <fr-skeleton width="lg" />

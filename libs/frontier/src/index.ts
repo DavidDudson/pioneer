@@ -97,7 +97,7 @@ export { Message, MessageTone } from './lib/feedback/message/message.component';
 
 export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 
-export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
+export { Skeleton, SkeletonKind, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 
 export { Spinner } from './lib/feedback/spinner/spinner.component';
 

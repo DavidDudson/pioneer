@@ -7,7 +7,7 @@
         <fr-description-item [term]="term | transloco"><fr-skeleton width="md" /></fr-description-item>
       }
     </fr-description-list>
-    <fr-skeleton shape="block" width="full" />
+    <fr-skeleton kind="block" width="full" />
   </fr-stack>
 } @else if (shown === undefined) {
   <fr-empty-state [title]="Message.None | transloco" />

@@ -4,7 +4,7 @@ import { ContentEntry, ContentKind, KIND_DATA, Rarity, slugName, SourceKind } fr
 
 import { ACOLYTE } from './testing/build-fixtures';
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
-import { DWARF, FIERY, KEEN_NOSE, plain, SHAPELY, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
+import { CURVY, DWARF, FIERY, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
 import type { VocabularyEntry } from './vocabulary';
 import { VocabularyGapReason } from './vocabulary-items';
 
@@ -54,7 +54,7 @@ describe('importVocabulary: traits', () => {
   });
 
   test('a trait Foundry marks as having no description is reported under its conventional key only', () => {
-    const translation = translate([SHAPELY]);
+    const translation = translate([CURVY]);
 
     expect(translation.vocabularyGaps).toContainEqual({
       kind: ContentKind.Trait,

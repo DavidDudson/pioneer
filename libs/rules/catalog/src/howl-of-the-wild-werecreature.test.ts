@@ -9,17 +9,17 @@ import type { FormView } from './testing/battle-forms';
 const SLUG = 'effect:effect-change-shape-werecreature';
 const RANK = 1;
 
-/** The druid as a werecreature of `kind` in `shape` (`animal` or `hybrid`), as the dedication and the form pick set them. */
-function werecreature(kind: string, shape: string): FormView {
+/** The druid as a werecreature of `kind` in `form` (`animal` or `hybrid`), as the dedication and the form pick set them. */
+function werecreature(kind: string, form: string): FormView {
   return viewOf(
     effectRulesOf(SLUG, RANK, HOWL_OF_THE_WILD_EFFECTS),
-    chosen(`werecreature:${kind}`, `change-shape:${shape}`),
+    chosen(`werecreature:${kind}`, `change-shape:${form}`),
   );
 }
 
-/** The slugs of the unarmed attacks the form gives the werecreature of `kind` in `shape`. */
-function attacks(kind: string, shape: string): readonly string[] {
-  const facts = chosen(`werecreature:${kind}`, `change-shape:${shape}`);
+/** The slugs of the unarmed attacks the form gives the werecreature of `kind` in `form`. */
+function attacks(kind: string, form: string): readonly string[] {
+  const facts = chosen(`werecreature:${kind}`, `change-shape:${form}`);
 
   return effectRulesOf(SLUG, RANK, HOWL_OF_THE_WILD_EFFECTS)
     .map(({ element }) => element)

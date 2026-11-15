@@ -1,6 +1,6 @@
 @let result = check();
 @if (result.status === VerdictStatus.Pending) {
-  <fr-skeleton shape="block" width="full" />
+  <fr-skeleton kind="block" width="full" />
 } @else if (result.status === VerdictStatus.Valid) {
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-badge variant="solid" [tone]="TRUTH_TONES[result.truth]">{{ TRUTH_KEYS[result.truth] | transloco }}</fr-badge>

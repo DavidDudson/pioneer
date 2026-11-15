@@ -48,7 +48,7 @@ export const FIERY: DocumentFixture = {
 };
 
 /** A feat whose one trait Foundry marks as having no description. */
-export const SHAPELY: DocumentFixture = {
+export const CURVY: DocumentFixture = {
   id: 'sHaPeLy000000000',
   name: 'Shapely',
   type: 'feat',

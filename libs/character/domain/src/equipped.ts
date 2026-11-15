@@ -22,7 +22,7 @@ import type { PickedItems } from './owned-items';
 import { attributesAt } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { toggleStates } from './toggle-commands';
-import { shapedInventory } from './weapon-shapes';
+import { shiftedInventory } from './weapon-shifts';
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
 export interface EquippedRules extends ModifierInputs {
@@ -89,9 +89,9 @@ export interface EquippedGrants {
 
 /** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
 export function equippedGrants(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedGrants {
-  const shaped = shapedDocument(document, content, slots);
-  const resolution = equippedResolution(shaped, content, slots);
-  const rules = rulesOf(resolution, { inventory: shaped.inventory, content }, fromInventory);
+  const shifted = shiftedDocument(document, content, slots);
+  const resolution = equippedResolution(shifted, content, slots);
+  const rules = rulesOf(resolution, { inventory: shifted.inventory, content }, fromInventory);
   const inputs = { rules, facts: resolution.facts };
 
   return {
@@ -110,10 +110,10 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
  */
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
-  const shaped = shapedDocument(document, content, slots);
-  const resolution = equippedResolution(shaped, content, slots);
+  const shifted = shiftedDocument(document, content, slots);
+  const resolution = equippedResolution(shifted, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
-  const rules = equippedRulesOf(resolution, { inventory: shaped.inventory, content }, slots.lookup);
+  const rules = equippedRulesOf(resolution, { inventory: shifted.inventory, content }, slots.lookup);
 
   return {
     rules,
@@ -133,14 +133,14 @@ export function buildRules(
   content: ItemContent,
   slots: SlotContent,
 ): readonly RuleInPlay[] {
-  const shaped = shapedDocument(document, content, slots);
-  const resolution = equippedResolution(shaped, content, slots);
+  const shifted = shiftedDocument(document, content, slots);
+  const resolution = equippedResolution(shifted, content, slots);
 
-  return rulesOf(resolution, { inventory: shaped.inventory, content }, (origin) => !fromInventory(origin));
+  return rulesOf(resolution, { inventory: shifted.inventory, content }, (origin) => !fromInventory(origin));
 }
 
-/** `document` with each shifted item as the weapon it has taken the shape of (`shapedInventory`). */
-export function shapedDocument(
+/** `document` with each shifted item as the weapon it has taken the shape of (`shiftedInventory`). */
+export function shiftedDocument(
   document: CharacterDocument,
   content: ItemContent,
   slots: SlotContent,
@@ -149,5 +149,5 @@ export function shapedDocument(
 
   return runes === undefined
     ? document
-    : { ...document, inventory: shapedInventory(document.inventory, document.play.shapes, { items: content, runes }) };
+    : { ...document, inventory: shiftedInventory(document.inventory, document.play.shapes, { items: content, runes }) };
 }

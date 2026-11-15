@@ -14,20 +14,20 @@ const BRANCHES = new Set([
 
 const BOUNDARIES = new Set(['Program', 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression']);
 
-interface AncestorShape {
+interface AncestorNode {
   readonly type: string;
-  readonly parent?: AncestorShape;
+  readonly parent?: AncestorNode;
   readonly test?: unknown;
   readonly returnType?: unknown;
 }
 
 /** Whether `parent` owns `child` in the slot a rule cares about (a condition, a return type). */
-type OwnsSlot = (parent: AncestorShape, child: AncestorShape) => boolean;
+type OwnsSlot = (parent: AncestorNode, child: AncestorNode) => boolean;
 
 /** Whether some ancestor of `node`, up to and including the enclosing function, owns it per `ownsSlot`. */
 function hasOwner(node: unknown, ownsSlot: OwnsSlot): boolean {
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let child = node as AncestorShape;
+  let child = node as AncestorNode;
   let { parent } = child;
 
   while (parent !== undefined) {
@@ -89,7 +89,7 @@ export const noInlineReturnTypes: Rule.RuleModule = {
 
 const DERIVED_TYPES = new Set(['ReturnType', 'Parameters', 'InstanceType', 'ConstructorParameters']);
 
-interface TypeReferenceShape {
+interface TypeReferenceNode {
   readonly typeName?: { readonly type?: unknown; readonly name?: unknown };
 }
 
@@ -107,7 +107,7 @@ export const noDerivedTypes: Rule.RuleModule = {
     return {
       TSTypeReference(node: Rule.Node): void {
         // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-        const { typeName } = node as TypeReferenceShape;
+        const { typeName } = node as TypeReferenceNode;
         const name = typeName?.type === 'Identifier' ? typeName.name : undefined;
 
         if (typeof name === 'string' && DERIVED_TYPES.has(name)) {

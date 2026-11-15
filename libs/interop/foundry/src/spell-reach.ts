@@ -1,4 +1,4 @@
-import { AreaShapeSchema } from '@pioneer/rules/sdk';
+import { AreaKindSchema } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -81,15 +81,15 @@ function areaDetails(area: z.infer<typeof FoundryArea>, field: string, log: GapL
 
 /** An area's shape and size, and Foundry's `details` when they narrow it; a shape Pioneer lacks is reported. */
 function areaOf(area: z.infer<typeof FoundryArea>, field: string, log: GapLog): object | undefined {
-  const shape = AreaShapeSchema.safeParse(area.type);
+  const kind = AreaKindSchema.safeParse(area.type);
 
-  if (!shape.success) {
+  if (!kind.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: area.type });
 
     return undefined;
   }
 
-  return { shape: shape.data, size: area.value, ...setFields({ details: areaDetails(area, field, log) }) };
+  return { shape: kind.data, size: area.value, ...setFields({ details: areaDetails(area, field, log) }) };
 }
 
 /** Foundry's DC statistics for a passive defence: `ac`, and `<save>-dc` for a save's DC. */

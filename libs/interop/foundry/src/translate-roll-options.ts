@@ -37,12 +37,12 @@ export function withRollOption(raw: unknown, item: string): unknown {
   }
 
   const kept = Object.entries(raw).filter(([field]) => !PLACEMENT_FIELDS.has(field));
-  const shaped = Object.fromEntries(kept.map(([field, value]) => [field, shapedField(field, value, item)]));
+  const translated = Object.fromEntries(kept.map(([field, value]) => [field, translatedField(field, value, item)]));
 
-  return shaped;
+  return translated;
 }
 
-function shapedField(field: string, value: unknown, item: string): unknown {
+function translatedField(field: string, value: unknown, item: string): unknown {
   if (field === 'option' && typeof value === 'string') {
     return namespaced(value);
   }

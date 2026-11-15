@@ -22,7 +22,7 @@ const PLAY_URL = `/api/characters/${id}/play`;
 const PACKS = cutTo(ACTION_STAFF_CONTENT_KINDS);
 
 /** Mwangi Expanse's Change Shape, whose forms the feats a character has allow. */
-const CHANGE_SHAPE = 'e114f41a-9129-5b91-b7d2-f88e152b9c0c';
+const FORM_ACTION = 'e114f41a-9129-5b91-b7d2-f88e152b9c0c';
 
 const WERECREATURE_DEDICATION = contentId(
   PackId.parse('howl-of-the-wild'),
@@ -110,7 +110,7 @@ describe('CharacterSheetPage using Change Shape', () => {
       // SAFETY: HttpTestingController types the request body as any.
       // The sheet sends this command, and the test reads only the fields named here.
       const { command } = request.request.body as { command: object };
-      expect(command).toMatchObject({ field: 'spendAction', action: CHANGE_SHAPE });
+      expect(command).toMatchObject({ field: 'spendAction', action: FORM_ACTION });
       request.flush({ ...PLAY, events: [] });
     });
   });

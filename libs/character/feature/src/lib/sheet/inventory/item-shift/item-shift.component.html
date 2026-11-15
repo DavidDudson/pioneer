@@ -1,7 +1,7 @@
 @if (shifts()) {
   <fr-stack gap="xs">
-    @if (shape(); as shape) {
-      <fr-text>{{ 'character.sheet.shape.current' | transloco: { name: name(), shape: shape } }}</fr-text>
+    @if (taken(); as taken) {
+      <fr-text>{{ 'character.sheet.shape.current' | transloco: { name: name(), shape: taken } }}</fr-text>
       <fr-async-button
         size="sm"
         [action]="reset"
@@ -15,13 +15,13 @@
       <fr-stack direction="horizontal" gap="sm" align="end" wrap>
         <fr-picker-field
           [label]="'character.sheet.shape.shiftTo' | transloco: { name: name() }"
-          [rows]="shapes.shown()"
-          [columns]="shapeColumns()"
-          [rowValue]="shapeValue"
-          [rowLabel]="shapeLabel"
-          [formField]="form.shape"
-          (searched)="shapes.query.set($event)"
-          (sorted)="shapes.ordering.set($event)"
+          [rows]="weapons.shown()"
+          [columns]="weaponColumns()"
+          [rowValue]="weaponValue"
+          [rowLabel]="weaponLabel"
+          [formField]="form.weapon"
+          (searched)="weapons.query.set($event)"
+          (sorted)="weapons.ordering.set($event)"
         />
         <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.shape.shifting' | transloco">
           {{ 'character.sheet.shape.shift' | transloco: { name: name() } }}

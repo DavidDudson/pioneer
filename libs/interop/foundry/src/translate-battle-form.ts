@@ -31,13 +31,13 @@ function withFormulas(fields: Fields, names: readonly string[]): Fields {
   );
 }
 
-/** A record of name to fields as a list of what `shape` makes of each; anything else as it is. */
-function listed(record: unknown, shape: (name: string, fields: Fields) => unknown): unknown {
+/** A record of name to fields as a list of what `build` makes of each; anything else as it is. */
+function listed(record: unknown, build: (name: string, fields: Fields) => unknown): unknown {
   if (!isFields(record)) {
     return record;
   }
 
-  return Object.entries(record).map(([name, fields]) => (isFields(fields) ? shape(name, fields) : fields));
+  return Object.entries(record).map(([name, fields]) => (isFields(fields) ? build(name, fields) : fields));
 }
 
 /** `lowLightVision` as the slug `low-light-vision`. */
