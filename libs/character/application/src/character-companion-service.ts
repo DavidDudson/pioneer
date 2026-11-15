@@ -44,6 +44,7 @@ export class CharacterCompanionService {
   /** The character's live companions, then its archived ones. Not the owner: 404. */
   public async list(actor: UserId, id: CharacterId): Promise<CharacterCompanions> {
     await this.#owned(actor, id);
+
     return this.#view(id);
   }
 
@@ -60,6 +61,7 @@ export class CharacterCompanionService {
       createdAt: context.at,
       archived: undefined,
     });
+
     return this.#view(id);
   }
 
@@ -74,6 +76,7 @@ export class CharacterCompanionService {
       id: companion,
       reason: body.reason,
     });
+
     return this.#view(character);
   }
 
@@ -85,6 +88,7 @@ export class CharacterCompanionService {
   ): Promise<CharacterCompanions> {
     await this.#owned(actor, character);
     await this.#companions.restore(this.#context(actor, character, body.expectedVersion), companion);
+
     return this.#view(character);
   }
 
@@ -99,6 +103,7 @@ export class CharacterCompanionService {
   /** One of the actor's characters. Another user's is a 404, the same as a missing one (ADR-0007). */
   async #owned(actor: UserId, id: CharacterId): Promise<void> {
     const character = await this.#characters.findById(id);
+
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }

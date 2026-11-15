@@ -48,6 +48,7 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
 
   async function version(): Promise<CompanionWriteContext['expectedVersion']> {
     const current = await characters.findById(kyra.id);
+
     return current?.version ?? kyra.version;
   }
 
@@ -129,10 +130,12 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
   test('only the character’s own companion can be archived through it', async () => {
     const pip = familiar(PIP);
     await repository.add(await context(), pip);
+
     const seelah = await characters.insert(new CharacterBuilder().named('Seelah').ownedBy(amiri).build(), {
       actor: amiri,
       command: CharacterCommand.CreateCharacter,
     });
+
     await repository.archive(
       { actor: amiri, characterId: seelah.id, expectedVersion: seelah.version, at: clock.now() },
       { id: pip.id, reason: CompanionArchiveReason.Released },
@@ -150,6 +153,7 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
     const archiveRefused = await rejection(
       repository.archive(stale, { id: pip.id, reason: CompanionArchiveReason.Replaced }),
     );
+
     const restoreRefused = await rejection(repository.restore(stale, pip.id));
     expect(archiveRefused).toBeInstanceOf(VersionConflictError);
     expect(restoreRefused).toBeInstanceOf(VersionConflictError);
@@ -161,10 +165,12 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
     const pip = familiar(PIP);
     await repository.add(await context(), pip);
     await repository.archive(await context(), { id: pip.id, reason: CompanionArchiveReason.Released });
+
     const seelah = await characters.insert(new CharacterBuilder().named('Seelah the restorer').ownedBy(amiri).build(), {
       actor: amiri,
       command: CharacterCommand.CreateCharacter,
     });
+
     await repository.restore(
       { actor: amiri, characterId: seelah.id, expectedVersion: seelah.version, at: clock.now() },
       pip.id,
@@ -175,9 +181,11 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
 
   test('the database refuses to delete a companion (ADR-0062)', async () => {
     await repository.add(await context(), familiar(PIP));
+
     const error = await rejection(
       database.db.$client.unsafe(`delete from character_companions where character_id = '${kyra.id}'`),
     );
+
     expect(error).toBeInstanceOf(Error);
   });
 });

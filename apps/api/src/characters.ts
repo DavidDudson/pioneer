@@ -215,6 +215,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const service = new CharacterService(repository, characterContent, clock)
     .withCampaignRoles(new CampaignCharacterRoles(db))
     .withAuthors(new UserOverrideAuthorDirectory(db));
+
   const pathbuilder = pathbuilderServices(db, clock, { repository, content });
   const homebrew = embeddedHomebrew(db, clock);
   const itemApprovals = itemApprovalService(db, clock, { repository, campaigns, content: characterContent });

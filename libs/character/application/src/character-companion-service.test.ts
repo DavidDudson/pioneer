@@ -20,9 +20,11 @@ const MOTH = CompanionName.parse('Moth');
 /** The companion called `name`; a test that expects one fails loudly when it is missing. */
 function called(view: CharacterCompanions, name: CompanionName): Companion {
   const found = view.companions.find((each) => each.name === name);
+
   if (found === undefined) {
     throw new Error(`No companion called ${name}`);
   }
+
   return found;
 }
 
@@ -117,12 +119,14 @@ describe('the companions a character owns', () => {
     const moth = familiar(MOTH);
     const released = archival(CompanionArchiveReason.Released);
     const unarchived = { expectedVersion: character.version };
+
     const refusals = await Promise.all([
       rejection(service.list(ezren, character.id)),
       rejection(service.add(ezren, character.id, moth)),
       rejection(service.archive(ezren, ref, released)),
       rejection(service.restore(ezren, ref, unarchived)),
     ]);
+
     for (const refused of refusals) {
       expect(refused).toBeInstanceOf(NotFoundError);
     }

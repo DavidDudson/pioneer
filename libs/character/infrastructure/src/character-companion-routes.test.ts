@@ -26,11 +26,14 @@ function api(): AnyElysia {
   const clock = fixedClock(NOW);
   const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const repository = new InMemoryCharacterRepository();
+
   const companions = new CharacterCompanionService(
     { characters: repository, companions: new InMemoryCharacterCompanionRepository() },
     clock,
   );
+
   const auth = new FakeAuthenticator();
+
   return new Elysia()
     .use(problemHandler)
     .use(characterRoutes(new CharacterService(repository, content, clock), auth))
@@ -43,11 +46,13 @@ interface Init {
 }
 
 function request(path: string, as: UserId, { method = 'GET', body }: Init = {}): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...actingAs(as) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  const init: RequestInit = { method, headers: { 'content-type': 'application/json', ...actingAs(as) } };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 interface Created {
@@ -59,11 +64,22 @@ async function createdBy(server: AnyElysia, owner: UserId): Promise<Created> {
   const response = await server.handle(
     request('/characters', owner, { method: 'POST', body: { name: 'Seelah', ancestry: humanAncestryId } }),
   );
+
+  // SAFETY: the create endpoint answers with the character it made, whose id and version `Created` names.
   return (await response.json()) as Created;
 }
 
+/** The body that adds a familiar. */
+interface PipBody {
+  readonly kind: 'familiar';
+  readonly name: 'Pip';
+  readonly form: Record<string, never>;
+  readonly grantedBy: 'witch-lesson:0';
+  readonly expectedVersion: number;
+}
+
 /** A familiar called Pip, granted by the witch's lesson slot. */
-function pip(version: number): object {
+function pip(version: number): PipBody {
   return { kind: 'familiar', name: 'Pip', form: {}, grantedBy: 'witch-lesson:0', expectedVersion: version };
 }
 
@@ -85,9 +101,11 @@ describe('character companion routes', () => {
     const added = await server.handle(
       request(`/characters/${id}/companions`, amiri, { method: 'POST', body: pip(version) }),
     );
+
     const listed = await server.handle(request(`/characters/${id}/companions`, amiri));
 
     expect(added.status).toBe(200);
+    // SAFETY: the list endpoint answers with the companions, of which the test reads the name and kind.
     const { companions } = (await listed.json()) as { companions: { name: string; kind: string }[] };
     expect(companions.map((each) => [each.name, each.kind])).toStrictEqual([['Pip', 'familiar']]);
   });
@@ -109,6 +127,7 @@ describe('character companion routes', () => {
     const { id, version } = await createdBy(server, amiri);
 
     const read = await server.handle(request(`/characters/${id}/companions`, ezren));
+
     const write = await server.handle(
       request(`/characters/${id}/companions`, ezren, { method: 'POST', body: pip(version) }),
     );

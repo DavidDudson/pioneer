@@ -8,4 +8,5 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 export const CompanionKind = {
   Familiar: 'familiar',
 } as const;
+
 export type CompanionKind = ValueOf<typeof CompanionKind>;
