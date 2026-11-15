@@ -3,7 +3,7 @@ import { InstantCodec, Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-export const COMPANION_NAME_MAX_LENGTH = 80;
+const COMPANION_NAME_MAX_LENGTH = 80;
 
 /** Row id of one companion; the audit log keys every row by an `id`. */
 export const CompanionId = Uuid.brand<'CompanionId'>();
