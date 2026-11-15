@@ -27,12 +27,27 @@ function stubbed(routes: readonly Route[]): Route[] {
         : provider,
     );
 
-    return {
-      ...(route.path === undefined ? {} : { path: route.path }),
-      ...(route.data === undefined ? {} : { data: route.data }),
-      ...(providers === undefined ? {} : { providers }),
-      ...(route.children === undefined ? { component: StubPage } : { children: stubbed(route.children) }),
-    };
+    const stub: Route = {};
+
+    if (route.path !== undefined) {
+      stub.path = route.path;
+    }
+
+    if (route.data !== undefined) {
+      stub.data = route.data;
+    }
+
+    if (providers !== undefined) {
+      stub.providers = providers;
+    }
+
+    if (route.children === undefined) {
+      stub.component = StubPage;
+    } else {
+      stub.children = stubbed(route.children);
+    }
+
+    return stub;
   });
 }
 

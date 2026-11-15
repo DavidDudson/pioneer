@@ -1,3 +1,4 @@
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Count, embeddedOf, itemsOfType, itemSystem } from './creature-embedded';
@@ -62,7 +63,10 @@ function gearOf(item: Embedded, input: KindInput): GearItem | undefined {
     return undefined;
   }
 
-  return { item: found, ...(system === undefined || system.quantity === 1 ? {} : { quantity: system.quantity }) };
+  return {
+    item: found,
+    ...present({ quantity: system === undefined || system.quantity === 1 ? undefined : system.quantity }),
+  };
 }
 
 /** The stat block parts the embedded items make; each list is absent when empty. */

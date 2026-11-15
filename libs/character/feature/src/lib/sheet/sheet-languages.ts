@@ -18,12 +18,12 @@ export interface SheetLanguages {
 /** The server's reading of the character's languages, as the Languages section shows them. */
 export function sheetLanguages({ known, open, next }: CharacterLanguages): SheetLanguages {
   return {
-    lines: known.map(({ id, name, from, slot }) => ({
-      key: id,
-      name,
-      ...(from === undefined ? {} : { from }),
-      ...(slot === undefined ? {} : { slot }),
-    })),
+    lines: known.map(({ id, name, from, slot }): LanguageLine => {
+      const base: LanguageLine = { key: id, name };
+      const sourced: LanguageLine = from === undefined ? base : { ...base, from };
+
+      return slot === undefined ? sourced : { ...sourced, slot };
+    }),
     open,
     next: next?.slot,
     options: (next?.options ?? []).map(({ id, name }) => ({ id, name })),

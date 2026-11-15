@@ -28,10 +28,9 @@ export function sheetDeityLine(deity: SheetDeity, { registry, unlistedWeapon }: 
   const { data } = deity;
   const skills = deitySkills(registry, data);
 
-  return {
+  const line: DeityLine = {
     name: String(deity.name),
     fonts: data.font,
-    ...(data.sanctification === undefined ? {} : { sanctification: data.sanctification }),
     domains: data.domains.primary,
     alternateDomains: data.domains.alternate,
     favoredWeapons: deity.favoredWeapons.map(({ weapon, name }) =>
@@ -41,6 +40,8 @@ export function sheetDeityLine(deity: SheetDeity, { registry, unlistedWeapon }: 
     skills,
     description: deity.description,
   };
+
+  return data.sanctification === undefined ? line : { ...line, sanctification: data.sanctification };
 }
 
 /** What the deity rows read besides the deities: words, and the character they are offered to. */

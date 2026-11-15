@@ -23,7 +23,15 @@ const ONE = ItemQuantity.parse(1);
 function runesOf({ runes }: CampaignKeyItem): ItemRunes {
   return ItemRunesSchema.parse({
     ...runes,
-    property: runes.property.map(({ rune, choice }) => ({ rune, ...(choice === undefined ? {} : { choice }) })),
+    property: runes.property.map(({ rune, choice }) => {
+      const property = { rune };
+
+      if (choice !== undefined) {
+        Object.assign(property, { choice });
+      }
+
+      return property;
+    }),
   });
 }
 

@@ -1,4 +1,5 @@
 import { RuleElementKey, slugName } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { addRule, ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
@@ -189,7 +190,7 @@ export function classData(input: KindInput): object | undefined {
     hitPoints: system.hp,
     additionalSkills: system.trainedSkills.additional,
     skillIncreaseLevels: system.skillIncreaseLevels?.value ?? SHARED_SLOT_LEVELS.skillIncreaseLevels,
-    ...(subclass === undefined ? {} : { subclass }),
+    ...present({ subclass }),
   };
 }
 

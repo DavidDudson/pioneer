@@ -20,7 +20,9 @@ function focusEntry(slug: string, tradition = 'divine'): object {
 
 /** A `FocusSpells` element naming `ids` on `entry`, holding while `predicate` does. */
 function knows(entry: string, ids: readonly string[], predicate?: readonly string[]): object {
-  return { key: 'FocusSpells', entry, spells: ids, ...(predicate === undefined ? {} : { predicate }) };
+  const element = { key: 'FocusSpells', entry, spells: ids };
+
+  return predicate === undefined ? element : { ...element, predicate };
 }
 
 /** What a character's focus spells come to, with `registry`'s content. */

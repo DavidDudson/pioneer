@@ -53,16 +53,18 @@ function active(id: ActiveSpellId, sustainedThisTurn: boolean): ActiveSpell {
 
 /** The shield's effect, applied from `spell` when there is one. */
 function playWith(spell: ActiveSpellId | undefined, sustainedThisTurn = false): PlayState {
+  const casting = spell === undefined ? undefined : { spell };
+
+  const effect = {
+    id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000a1'),
+    effect: EFFECT,
+    ...casting,
+  };
+
   return {
     ...playIn(OWN_TURN),
     activeSpells: [active(CAST, sustainedThisTurn), active(OTHER_CAST, sustainedThisTurn)],
-    effects: [
-      ActiveEffectSchema.parse({
-        id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000a1'),
-        effect: EFFECT,
-        ...(spell === undefined ? {} : { spell }),
-      }),
-    ],
+    effects: [ActiveEffectSchema.parse(effect)],
   };
 }
 

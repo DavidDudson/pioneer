@@ -1,5 +1,6 @@
 import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { resolveUuid } from './entry-references';
@@ -192,8 +193,8 @@ export function withAura(raw: unknown, references: EntryReferences): unknown {
 
   return {
     ...raw,
-    ...(radius === undefined ? {} : { radius }),
-    ...(effects === undefined ? {} : { effects }),
+    ...present({ radius }),
+    ...present({ effects }),
   };
 }
 

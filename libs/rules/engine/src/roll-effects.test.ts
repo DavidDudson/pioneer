@@ -31,7 +31,9 @@ const UNDEAD = ['target:trait:undead'];
 const KNOWN_FALSE = ['self:effect:rage'];
 
 function rollTwice(keep: string, selectors: readonly string[], predicate?: readonly string[]): unknown {
-  return { key: 'RollTwice', selectors, keep, ...(predicate === undefined ? {} : { predicate }) };
+  const element = { key: 'RollTwice', selectors, keep };
+
+  return predicate === undefined ? element : { ...element, predicate };
 }
 
 function adjustDegree(selectors: readonly string[], extra: Readonly<Record<string, unknown>> = {}): unknown {

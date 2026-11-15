@@ -1,4 +1,5 @@
 import { ChangeMode, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { withSkillRaise } from './translate-skill-raises';
@@ -41,7 +42,7 @@ function withStatChange(raw: unknown): unknown {
     return raw;
   }
 
-  return { key: RuleElementKey.Change, selector, mode, value, ...(predicate === undefined ? {} : { predicate }) };
+  return { key: RuleElementKey.Change, selector, mode, value, ...present({ predicate }) };
 }
 
 /**

@@ -101,13 +101,10 @@ function sheetOf(
   character: object,
   { slots = MERISIEL_SLOTS, languages = NO_LANGUAGES, deity, authors }: SheetOptions = {},
 ): object {
-  return {
-    character,
-    slots,
-    languages,
-    ...(deity === undefined ? {} : { deity }),
-    ...(authors === undefined ? {} : { authors }),
-  };
+  const sheet = { character, slots, languages };
+  const withDeity = deity === undefined ? sheet : { ...sheet, deity };
+
+  return authors === undefined ? withDeity : { ...withDeity, authors };
 }
 
 /** Opens a sheet at the character's own address, with no tab named. */
@@ -271,6 +268,9 @@ export type SheetOpener = (character?: object, options?: SheetOptions) => Promis
 
 /** `openSheet` at `tab` unless told otherwise, for a spec whose sections are on one tab. */
 export function openerAt(tab: SheetMode, section?: string): SheetOpener {
-  return async (character = MERISIEL, options = {}) =>
-    openSheet(character, { tab, ...(section === undefined ? {} : { section }), ...options });
+  return async (character = MERISIEL, options = {}) => {
+    const defaults: SheetOptions = section === undefined ? { tab } : { tab, section };
+
+    return openSheet(character, { ...defaults, ...options });
+  };
 }

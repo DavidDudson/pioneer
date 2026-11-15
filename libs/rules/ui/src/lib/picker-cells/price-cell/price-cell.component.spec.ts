@@ -9,7 +9,7 @@ function parts(host: HTMLElement): readonly string[] {
 }
 
 function price(coins: Partial<Record<Coin, number>>, per?: number): Price {
-  return Price.parse({ coins, ...(per === undefined ? {} : { per }) });
+  return Price.parse(per === undefined ? { coins } : { coins, per });
 }
 
 describe(PriceCell, () => {

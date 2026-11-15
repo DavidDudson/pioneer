@@ -38,12 +38,11 @@ for (const spell of Object.values(MYSTERIES).flat()) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const focusSpells = (spell: string, predicate?: readonly unknown[]): object => ({
-  key: 'FocusSpells',
-  entry: 'oracle-focus',
-  spells: [spellId(spell)],
-  ...(predicate === undefined ? {} : { predicate }),
-});
+const focusSpells = (spell: string, predicate?: readonly unknown[]): object => {
+  const element = { key: 'FocusSpells', entry: 'oracle-focus', spells: [spellId(spell)] };
+
+  return predicate === undefined ? element : { ...element, predicate };
+};
 
 pack.withFeat('advanced-revelation');
 

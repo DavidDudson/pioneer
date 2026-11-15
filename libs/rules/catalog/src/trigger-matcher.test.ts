@@ -24,7 +24,9 @@ const text = (words: string): object => ({ type: 'text', text: words });
 const paragraph = (...content: readonly object[]): object => ({ type: 'paragraph', content });
 const trigger = (...blocks: readonly object[]): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
-const ref = (id: ContentId, label?: string): object => ({ type: 'ref', id, ...(label === undefined ? {} : { label }) });
+
+const ref = (id: ContentId, label?: string): object =>
+  label === undefined ? { type: 'ref', id } : { type: 'ref', id, label };
 
 const OTHER = idOf('action:other');
 const TWO_PARAGRAPHS = trigger(paragraph(text('Your turn begins.')), paragraph(text('Your turn ends.')));
@@ -94,7 +96,7 @@ describe('trigger matcher', () => {
 function entry(name: string, kind: string, data: object): ContentEntry {
   const slug = `${kind}:${name}`;
 
-  return ContentEntry.parse({
+  const fields = {
     id: idOf(slug),
     pack: PACK,
     slug,
@@ -105,9 +107,10 @@ function entry(name: string, kind: string, data: object): ContentEntry {
     description: [],
     rules: [],
     kind,
-    ...(kind === 'action' ? {} : { level: 1 }),
     data,
-  });
+  };
+
+  return ContentEntry.parse(kind === 'action' ? fields : { ...fields, level: 1 });
 }
 
 const triggered = (words: string, extra: object = {}): object => ({

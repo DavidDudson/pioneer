@@ -38,7 +38,7 @@ export function backlogPath(pack: PackId): string {
 /** Omits `legacyPin` when absent, so the printed file stays valid JSON. */
 export function backlogWrite(pack: PackId, committed: ImportFile, backlog: readonly BacklogItem[]): PackWrite {
   const { pin, legacyPin } = committed;
-  const json = ImportFile.parse({ pin, ...(legacyPin === undefined ? {} : { legacyPin }), backlog });
+  const json = ImportFile.parse(legacyPin === undefined ? { pin, backlog } : { pin, legacyPin, backlog });
 
   return { path: backlogPath(pack), json };
 }

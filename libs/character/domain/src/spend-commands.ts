@@ -295,12 +295,15 @@ function spent(play: SpendPlay, request: SpendRequest, limits: SpendEffects): Sp
   const { activeSpells, dismissed } = spellSpent(play, request);
   const { effects, temp, shifted } = shiftSpent(play, request);
 
+  const undoDismissed = dismissed === undefined ? undefined : { dismissed };
+  const undoShifted = shifted === undefined ? undefined : { shifted };
+
   const entry: SpendEntry = {
     ...request,
     at: limits.now,
     quickened: taken.quickened,
-    ...(dismissed === undefined ? {} : { dismissed }),
-    ...(shifted === undefined ? {} : { shifted }),
+    ...undoDismissed,
+    ...undoShifted,
   };
 
   const logged: SpendPlay = {

@@ -106,6 +106,21 @@ interface Placed {
   readonly containers: ReadonlyMap<PathbuilderContainerKey, InventoryItemId>;
 }
 
+/** Adds the display name and the container to `line` when the import has them, so an absent one leaves no key. */
+function addOptional(
+  line: InventoryItem,
+  name: InventoryItemName | undefined,
+  container: InventoryItemId | undefined,
+): void {
+  if (name !== undefined) {
+    Object.assign(line, { name });
+  }
+
+  if (container !== undefined) {
+    Object.assign(line, { container });
+  }
+}
+
 function lineFor(imported: ImportedItem, content: InventoryContent, placed: Placed): InventoryItem | undefined {
   const match = content.items.resolve(ImportKind.Item, imported.name);
   const entry = match === undefined ? undefined : content.entries.get(ContentId.parse(match.id));
@@ -130,9 +145,9 @@ function lineFor(imported: ImportedItem, content: InventoryContent, placed: Plac
     quantity: quantity.data,
     carry: carryOf(imported, entry, armourWorn),
     origin: ItemOrigin.Import,
-    ...(name.success ? { name: name.data } : {}),
-    ...(container === undefined ? {} : { container }),
   };
+
+  addOptional(base, name.success ? name.data : undefined, container);
 
   return withRunes(base, etched(imported.runes, entry, content));
 }

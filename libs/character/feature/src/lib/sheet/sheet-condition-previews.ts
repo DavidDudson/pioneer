@@ -18,6 +18,24 @@ function valueOf(active: readonly ActiveCondition[]): ConditionValue | undefined
   return values.length === 0 ? undefined : ConditionValue.parse(Math.max(...values));
 }
 
+/** `preview` with the value held and the values the condition can take, each left off when there are none. */
+function withValues(preview: EntryPreview, value: EntryPreview['value'], values: EntryPreview['values']): EntryPreview {
+  const valued: EntryPreview = value === undefined ? preview : { ...preview, value };
+
+  return values === undefined ? valued : { ...valued, values };
+}
+
+/** `preview` with the endings and ease options, each left off when there are none. */
+function withEndings(
+  preview: EntryPreview,
+  endings: NonNullable<EntryPreview['endings']>,
+  easeOptions: NonNullable<EntryPreview['easeOptions']>,
+): EntryPreview {
+  const ending: EntryPreview = endings.length === 0 ? preview : { ...preview, endings };
+
+  return easeOptions.length === 0 ? ending : { ...ending, easeOptions };
+}
+
 /**
  * What a condition the character has previews as: its entry with the character's value and the lines it adds to the
  * statistics the engine derives, so frightened 2 says "−2 status" where the entry says "the condition's value". None
@@ -45,17 +63,15 @@ function heldConditionPreview(
   const easeOptions = conditionEaseOptions(registry, character, id);
   const endings = heldConditionEndings(registry, character, { endings: condition.data.recovery, value });
 
-  return {
+  const affecting: EntryPreview = {
     ...preview,
-    ...(value === undefined ? {} : { value }),
     effects: sheetEntryEffects(registry, character, {
       entry: condition,
       mode: EffectMode.Applying,
     }),
-    ...(condition.data.values === undefined ? {} : { values: condition.data.values }),
-    ...(endings.length === 0 ? {} : { endings }),
-    ...(easeOptions.length === 0 ? {} : { easeOptions }),
   };
+
+  return withEndings(withValues(affecting, value, condition.data.values), endings, easeOptions);
 }
 
 /**

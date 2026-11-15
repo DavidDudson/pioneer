@@ -8,10 +8,12 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/p
 function reserved(held: boolean): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
 
+  const state = held ? { state: { spell: { spell: spellFixtureId('heal'), rank: 1 } } } : undefined;
+
   const etched = {
     ...sword,
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.SpellReservoir) }] },
-    ...(held ? { state: { spell: { spell: spellFixtureId('heal'), rank: 1 } } } : {}),
+    ...state,
   };
 
   const items = VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item));

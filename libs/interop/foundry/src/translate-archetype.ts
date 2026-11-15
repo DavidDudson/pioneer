@@ -1,5 +1,6 @@
 import { ContentId, contentId, ContentKind, ContentText, EntrySlug, ExternalId, Trait } from '@pioneer/rules/sdk';
 import type { KIND_DATA, PackId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
 import type { FoundryLinks } from './enricher-context';
@@ -157,7 +158,7 @@ function envelopeOf(page: Page, dedication: ImportedEnvelope, context: Archetype
     sources: dedication.sources,
     description: htmlToRichText(introduction, context.links).richText,
     rules: [],
-    ...(dedication.license === undefined ? {} : { license: dedication.license }),
+    ...present({ license: dedication.license }),
     externalIds: { foundry: pageUuid(page) },
   };
 }

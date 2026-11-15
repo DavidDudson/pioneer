@@ -36,7 +36,7 @@ const isUnarmed = ({ category }: WeaponInputs): boolean => category === WeaponCa
 
 /** A statistic that is a single number, as the form gives the attack modifier and the flat damage. */
 function plain(selector: Selector, total: FormulaValue, form?: FormReplacement): StatisticValue {
-  return {
+  const value: StatisticValue = {
     ok: true,
     selector,
     base: [],
@@ -47,8 +47,9 @@ function plain(selector: Selector, total: FormulaValue, form?: FormReplacement):
     total,
     overrides: [],
     pinnedBy: undefined,
-    ...(form === undefined ? {} : { form }),
   };
+
+  return form === undefined ? value : { ...value, form };
 }
 
 /** The best attack modifier among the character's own unarmed Strikes; none when it has no unarmed Strike. */
@@ -110,6 +111,7 @@ interface Attack {
 /** The weapon a form Strike is derived as: an unarmed attack unless the form says otherwise, credited to the form. */
 function weaponOf(strike: FormStrike, form: FormInPlay): WeaponInputs {
   const { dice, die, damageType } = strike.damage ?? {};
+  const damage = dice === undefined || damageType === undefined ? undefined : { dice, damageType };
 
   return {
     slug: strike.slug,
@@ -117,10 +119,7 @@ function weaponOf(strike: FormStrike, form: FormInPlay): WeaponInputs {
     traits: strike.traits ?? [],
     range: strike.range,
     label: strike.label,
-    damage:
-      dice === undefined || damageType === undefined
-        ? undefined
-        : { dice, damageType, ...(die === undefined ? {} : { die }) },
+    damage: damage === undefined || die === undefined ? damage : { ...damage, die },
     origin: form.origin,
   };
 }

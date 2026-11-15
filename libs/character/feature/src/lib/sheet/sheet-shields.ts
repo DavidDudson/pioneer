@@ -86,7 +86,8 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
   const held = heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots));
 
   return held.map(({ entry, item, hardness, hitPoints, brokenThreshold, undamageable, granted }): ShieldLine => {
-    const stats = { hardness, hitPoints, brokenThreshold, ...(undamageable === true ? { undamageable } : {}) };
+    const plain = { hardness, hitPoints, brokenThreshold };
+    const stats = undamageable === true ? { ...plain, undamageable } : plain;
     const damage = play.shields[item] ?? NONE;
 
     return {

@@ -61,9 +61,12 @@ function serverOver(repository: InMemoryCharacterRepository, pack = 'player-core
 }
 
 function request(path: string, body: unknown, as?: UserId): Request {
+  const headers = new Headers(as === undefined ? undefined : actingAs(as));
+  headers.set('content-type', 'application/json');
+
   return new Request(`http://localhost${path}`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json', ...(as === undefined ? {} : actingAs(as)) },
+    headers,
     body: JSON.stringify(body),
   });
 }

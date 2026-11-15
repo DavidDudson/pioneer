@@ -165,11 +165,11 @@ function envelopeEntries(registry: ContentRegistry, ...kinds: readonly ContentKi
 
       const pathbuilder = entry.externalIds?.pathbuilder;
 
-      const match: LookupEntry = {
-        id: entry.id,
-        name: entry.name,
-        ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true } : {}),
-      };
+      const named: LookupEntry = { id: entry.id, name: entry.name };
+
+      const match: LookupEntry = isLegacyLicense(effectiveLicense(entry, pack.manifest))
+        ? { ...named, legacy: true }
+        : named;
 
       return [pathbuilder === undefined ? match : { ...match, externalIds: { pathbuilder } }];
     }),

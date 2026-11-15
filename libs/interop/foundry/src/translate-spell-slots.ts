@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { DIVINE_ACCESS_DEITY } from './translate-repertoire-spells';
 
@@ -26,7 +27,7 @@ function slots({ entry, rank, value, pool }: SlotFields, level: number): object 
     entry,
     rank,
     value,
-    ...(pool === undefined ? {} : { pool }),
+    ...present({ pool }),
     ...fromLevel(level),
   };
 }

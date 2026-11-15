@@ -78,11 +78,19 @@ interface RequestOptions {
 }
 
 function request(method: string, path: string, { as = amiri, body }: RequestOptions = {}): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...(as === anonymous ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  const headers = { 'content-type': 'application/json' };
+
+  if (as !== anonymous) {
+    Object.assign(headers, actingAs(as));
+  }
+
+  const init: RequestInit = { method, headers };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 /** The part of a campaign response these tests read. */

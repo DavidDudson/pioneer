@@ -67,13 +67,17 @@ export function conditionEndings(
     const dc = checkDc(ending, value);
     const action = ending.kind === 'action' && ending.action !== undefined ? sourceOf(ending.action) : undefined;
 
-    return {
+    const preview: PreviewEnding = {
       kind: ending.kind,
       text: ending.text,
-      ...(dc === undefined ? {} : { dc }),
-      ...(dc !== undefined && dcFollowsValue(ending) ? { dcByValue: true as const } : {}),
       against: rolledAt(rolls, checkAgainst(ending)),
-      ...(action === undefined ? {} : { action }),
     };
+
+    const withDc: PreviewEnding = dc === undefined ? preview : { ...preview, dc };
+
+    const withValue: PreviewEnding =
+      dc !== undefined && dcFollowsValue(ending) ? { ...withDc, dcByValue: true as const } : withDc;
+
+    return action === undefined ? withValue : { ...withValue, action };
   });
 }

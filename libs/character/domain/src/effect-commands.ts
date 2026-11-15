@@ -151,28 +151,63 @@ export function effectProblem(
   return badgeFits(content.get(target.effect)?.badge, command.value) ? undefined : EffectProblem.Badge;
 }
 
-/** The instance `command` applies, started from the terms the content gives. */
-function applied(
-  command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
-  terms: EffectTerms,
-): ActiveEffect {
-  const badge = terms.badge?.type === EffectBadgeType.Counter ? terms.badge.value : command.rolled;
+type ApplyEffectCommand = Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>;
 
-  return {
-    id: command.id,
-    effect: command.effect,
-    source: command.source,
-    ...(terms.remaining === undefined ? {} : { remaining: terms.remaining }),
-    ...(terms.uses === undefined ? {} : { uses: terms.uses }),
-    ...(terms.expiry === undefined ? {} : { expiry: terms.expiry }),
-    ...(terms.sustained ? { sustained: true } : {}),
-    ...(badge === undefined ? {} : { badge }),
-    ...(command.form === undefined ? {} : { form: command.form }),
-    ...(command.rank === undefined ? {} : { rank: command.rank }),
-    ...(command.tradition === undefined ? {} : { tradition: command.tradition }),
-    ...(command.spell === undefined ? {} : { spell: command.spell }),
-    ...(command.tempHp === undefined || command.tempHp === 0 ? {} : { tempHp: command.tempHp }),
-  };
+/** Gives `instance` the clock, end and badge the content's terms start it with, each only when there is one. */
+function startFromTerms(instance: ActiveEffect, terms: EffectTerms, badge: ActiveEffect['badge']): void {
+  if (terms.remaining !== undefined) {
+    instance.remaining = terms.remaining;
+  }
+
+  if (terms.uses !== undefined) {
+    instance.uses = terms.uses;
+  }
+
+  if (terms.expiry !== undefined) {
+    instance.expiry = terms.expiry;
+  }
+
+  if (terms.sustained) {
+    instance.sustained = true;
+  }
+
+  if (badge !== undefined) {
+    instance.badge = badge;
+  }
+}
+
+/** Gives `instance` what `command` says about how it was cast, each only when it says so. */
+function startFromCast(instance: ActiveEffect, command: ApplyEffectCommand): void {
+  if (command.form !== undefined) {
+    instance.form = command.form;
+  }
+
+  if (command.rank !== undefined) {
+    instance.rank = command.rank;
+  }
+
+  if (command.tradition !== undefined) {
+    instance.tradition = command.tradition;
+  }
+
+  if (command.spell !== undefined) {
+    instance.spell = command.spell;
+  }
+
+  if (command.tempHp !== undefined && command.tempHp !== 0) {
+    instance.tempHp = command.tempHp;
+  }
+}
+
+/** The instance `command` applies, started from the terms the content gives. */
+function applied(command: ApplyEffectCommand, terms: EffectTerms): ActiveEffect {
+  const badge = terms.badge?.type === EffectBadgeType.Counter ? terms.badge.value : command.rolled;
+  const instance: ActiveEffect = { id: command.id, effect: command.effect, source: command.source };
+
+  startFromTerms(instance, terms, badge);
+  startFromCast(instance, command);
+
+  return instance;
 }
 
 /**

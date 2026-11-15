@@ -72,14 +72,19 @@ async function viewOf(
   const named = await characters.name(stash, via);
 
   return {
-    lines: named.map((each) =>
-      PartyStashLine.parse({
+    lines: named.map((each) => {
+      const line = {
         id: each.id,
         name: ReviewedName.parse(each.name),
         quantity: PartyStashQuantity.parse(each.quantity),
-        ...(each.container === undefined ? {} : { container: each.container }),
-      }),
-    ),
+      };
+
+      if (each.container !== undefined) {
+        Object.assign(line, { container: each.container });
+      }
+
+      return PartyStashLine.parse(line);
+    }),
   };
 }
 

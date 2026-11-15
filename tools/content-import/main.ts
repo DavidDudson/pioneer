@@ -310,9 +310,13 @@ async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]
     entries.flatMap(({ id, pack: entryPack, kind, slug, externalIds }) => {
       const foundry = externalIds?.foundry;
 
-      return replaced.has(id)
-        ? []
-        : [{ id, pack: entryPack, kind, slug, ...(foundry === undefined ? {} : { foundry }) }];
+      if (replaced.has(id)) {
+        return [];
+      }
+
+      const known: KnownEntry = { id, pack: entryPack, kind, slug };
+
+      return [foundry === undefined ? known : { ...known, foundry }];
     }),
   );
 }

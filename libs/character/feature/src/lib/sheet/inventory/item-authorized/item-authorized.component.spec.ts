@@ -8,11 +8,13 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/p
 function authorizedFor(owner: string | undefined): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
 
+  const state = owner === undefined ? undefined : { state: { authorized: { owner, others: [] } } };
+
   const etched = {
     ...sword,
     carry: { state: 'held', hands: 1 },
     runes: { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Authorized) }] },
-    ...(owner === undefined ? {} : { state: { authorized: { owner, others: [] } } }),
+    ...state,
   };
 
   const items = VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item));

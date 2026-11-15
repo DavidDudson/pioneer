@@ -1,4 +1,5 @@
 import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 /** The pieces a focus plan is built from (ADR-0050): focus entries, the plan's element types, and a choice of spells. */
 
@@ -65,7 +66,7 @@ export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): 
     key: RuleElementKey.FocusSpells,
     entry,
     spells: spells.map((spell) => spellId(pack, spell)),
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }
 
@@ -99,7 +100,7 @@ export function focusChoice({ flag, prompt, entry, options }: FocusChoice): Plan
       choices: options.map(({ value, label, predicate }) => ({
         value,
         label,
-        ...(predicate === undefined ? {} : { predicate }),
+        ...present({ predicate }),
       })),
     },
     ...options.map(({ value, spells }): Grant => ({ entry, spells, predicate: [`${flag}:${value}`] })),

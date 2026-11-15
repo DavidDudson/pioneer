@@ -105,12 +105,9 @@ export class ShopOrder {
   ): Promise<void> {
     const { quantity, container } = ShopOrderForm.parse(value);
 
-    const patch: CharacterPatch = {
-      field,
-      item: this.item().id,
-      quantity,
-      ...(container === LOOSE ? {} : { container }),
-    };
+    const item = this.item().id;
+    const patch: CharacterPatch =
+      container === LOOSE ? { field, item, quantity } : { field, item, quantity, container };
 
     await this.#store.patch(patch);
     this.model.set(EMPTY_ORDER);

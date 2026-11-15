@@ -127,7 +127,8 @@ export function sensesInPlay(inputs: ModifierInputs, vision?: AncestryVision): r
 
     if (held === undefined) {
       const { origin, range, ...rest } = grant;
-      senses.push({ ...rest, ...(range === undefined ? {} : { range }), origins: [origin] });
+      const sense: SenseInPlay = { ...rest, origins: [origin] };
+      senses.push(range === undefined ? sense : { ...sense, range });
     } else {
       senses[index] = { ...held, origins: [...held.origins, grant.origin] };
     }

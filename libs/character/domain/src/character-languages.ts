@@ -38,13 +38,17 @@ export const CharacterLanguages = z.strictObject({
 export type CharacterLanguages = z.output<typeof CharacterLanguages>;
 
 function sheetLanguage({ language, source, from, slot }: KnownLanguage): SheetLanguage {
-  return {
-    id: language.id,
-    name: language.name,
-    source,
-    ...(from === undefined ? {} : { from: from.name }),
-    ...(slot === undefined ? {} : { slot }),
-  };
+  const sheet: SheetLanguage = { id: language.id, name: language.name, source };
+
+  if (from !== undefined) {
+    sheet.from = from.name;
+  }
+
+  if (slot !== undefined) {
+    sheet.slot = slot;
+  }
+
+  return sheet;
 }
 
 function nextSlot(slots: readonly LanguageSlot[], level: Level): CharacterLanguages['next'] {
@@ -62,9 +66,14 @@ export function characterLanguages(document: CharacterDocument, content: SlotCon
   const { slots, known } = languagesOf(document, reads);
   const next = nextSlot(slots, level);
 
-  return {
+  const languages: CharacterLanguages = {
     known: known.map((each) => sheetLanguage(each)),
     open: openLanguageSlots(slots, level),
-    ...(next === undefined ? {} : { next }),
   };
+
+  if (next !== undefined) {
+    languages.next = next;
+  }
+
+  return languages;
 }

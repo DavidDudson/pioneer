@@ -82,11 +82,8 @@ const SHIELD_SPELL = entry('shield-spell', [
 
 /** The rules of the effect `name` that is on, cast at `rank`, as `heldShields` reads them. */
 function rulesOfEffect(name: string, rank?: number): ModifierInputs {
-  const effect = ActiveEffectSchema.parse({
-    id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000001'),
-    effect: idOf(name),
-    ...(rank === undefined ? {} : { rank: SpellRank.parse(rank) }),
-  });
+  const input = { id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000001'), effect: idOf(name) };
+  const effect = ActiveEffectSchema.parse(rank === undefined ? input : { ...input, rank: SpellRank.parse(rank) });
 
   const resolution = resolveGrants({
     roots: effectRoots([effect]),

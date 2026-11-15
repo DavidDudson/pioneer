@@ -23,11 +23,16 @@ function app(): AnyElysia {
 }
 
 function request(path: string, as: UserId, body?: object): Request {
-  return new Request(`http://localhost${path}`, {
+  const init: RequestInit = {
     method: body === undefined ? 'GET' : 'POST',
     headers: { 'content-type': 'application/json', ...actingAs(as) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 describe('character rule-limit routes', () => {

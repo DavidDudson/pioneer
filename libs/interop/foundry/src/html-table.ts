@@ -1,5 +1,6 @@
 import { BlockKind, InlineKind, InlineLabel } from '@pioneer/rules/sdk';
 import type { BlockNode, InlineContent, InlineNode, TableNode } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import { isTag, isText } from 'domhandler';
 import type { ChildNode, Element } from 'domhandler';
 
@@ -140,8 +141,8 @@ export function tableOf(table: Element, context: TableContext): BlockNode[] {
 
   const node: TableNode = {
     type: BlockKind.Table,
-    ...(caption.label === undefined ? {} : { caption: caption.label }),
-    ...(hasHeader ? { header: first.cells } : {}),
+    ...present({ caption: caption.label }),
+    ...present({ header: hasHeader ? first.cells : undefined }),
     rows: (hasHeader ? rest : rows).map((row) => row.cells),
   };
 

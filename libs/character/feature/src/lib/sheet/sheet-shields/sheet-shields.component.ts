@@ -8,6 +8,7 @@ import {
   ShieldLayers,
   untypedDamage,
 } from '@pioneer/character/domain';
+import type { PlayCommand } from '@pioneer/character/domain';
 import {
   AsyncButton,
   AsyncData,
@@ -125,12 +126,8 @@ export class SheetShields {
     await this.#play.send(blockSpend(ids));
     const damage = untypedDamage(HitPoints.parse(this.amount()));
     const item = InventoryItemId.parse(key);
-    await this.#play.send({
-      field: PlayCommandField.BlockWithShield,
-      item,
-      damage,
-      ...(layers === undefined ? {} : { layers }),
-    });
+    const block: PlayCommand = { field: PlayCommandField.BlockWithShield, item, damage };
+    await this.#play.send(layers === undefined ? block : { ...block, layers });
   }
 
   /** The layers the block breaks: those typed, never more than the shield has left; none for a shield without layers. */

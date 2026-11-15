@@ -90,10 +90,9 @@ export function spellSpent({ activeSpells }: SpellPlay, { action, spell }: Spend
 
   const dismissed = activeSpellOf(activeSpells, spell.id);
 
-  return {
-    activeSpells: withoutSpell(activeSpells, spell.id),
-    ...(dismissed === undefined ? {} : { dismissed }),
-  };
+  const removed = dismissed === undefined ? undefined : { dismissed };
+
+  return { activeSpells: withoutSpell(activeSpells, spell.id), ...removed };
 }
 
 /**

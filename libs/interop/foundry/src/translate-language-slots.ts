@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 /** Foundry's extra language slots: an `ActiveEffectLike` adding a whole number to the most languages a character knows. */
@@ -23,5 +24,5 @@ export function withLanguageSlots(raw: unknown): unknown {
 
   const { value, predicate } = slots.data;
 
-  return { key: RuleElementKey.Language, slots: value, ...(predicate === undefined ? {} : { predicate }) };
+  return { key: RuleElementKey.Language, slots: value, ...present({ predicate }) };
 }

@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { fromFoundryFormula } from './foundry-formula';
 import { typeOf } from './translate-defences';
@@ -148,7 +149,9 @@ function variant(raw: unknown, context: SenseContext): unknown {
   const { predicate, ...rest } = raw;
   const changes = statistics(rest, context);
 
-  return { predicate, ...(isFields(changes) ? changes : {}) };
+  const changed = isFields(changes) ? changes : {};
+
+  return { predicate, ...changed };
 }
 
 function bracket(raw: unknown, context: SenseContext): unknown {
@@ -159,7 +162,9 @@ function bracket(raw: unknown, context: SenseContext): unknown {
   const { value, ...rest } = raw;
   const changes = statistics(value, context);
 
-  return { ...rest, ...(isFields(changes) ? changes : {}) };
+  const changed = isFields(changes) ? changes : {};
+
+  return { ...rest, ...changed };
 }
 
 /**
@@ -179,15 +184,15 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
 
   const form = {
     ...BATTLE_FORM_LIMITS,
-    ...(hasHands === undefined ? {} : { hasHands }),
-    ...(isFields(statistic) ? statistic : {}),
+    ...present({ hasHands }),
+    ...(isFields(statistic) ? statistic : undefined),
   };
 
   return {
     ...rest,
     form,
-    ...(Array.isArray(brackets) ? { brackets: brackets.map((item) => bracket(item, context)) } : {}),
-    ...(Array.isArray(variants) ? { variants: variants.map((item) => variant(item, context)) } : {}),
+    ...present({ brackets: Array.isArray(brackets) ? brackets.map((item) => bracket(item, context)) : undefined }),
+    ...present({ variants: Array.isArray(variants) ? variants.map((item) => variant(item, context)) : undefined }),
   };
 }
 

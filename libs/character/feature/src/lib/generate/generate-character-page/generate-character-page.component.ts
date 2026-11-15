@@ -290,7 +290,13 @@ export class GenerateCharacterPage {
       ...lockOf(BACKGROUND_SLOT, this.backgroundId()),
     ];
 
-    return { ...GenerateCharacterForm.parse(this.details()), role, locks, ...(theme === undefined ? {} : { theme }) };
+    const themed: Pick<GenerateCharacterBody, 'theme'> = {};
+
+    if (theme !== undefined) {
+      themed.theme = theme;
+    }
+
+    return { ...GenerateCharacterForm.parse(this.details()), role, locks, ...themed };
   }
 
   /** The options of a picker: the chance option first, then each choice by name. */

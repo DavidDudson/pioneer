@@ -93,11 +93,13 @@ interface RequestOptions {
 }
 
 function request(method: string, path: string, { as, body }: RequestOptions): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...actingAs(as) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  const init: RequestInit = { method, headers: { 'content-type': 'application/json', ...actingAs(as) } };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 interface CharacterJson {

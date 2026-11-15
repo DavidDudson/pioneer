@@ -1,5 +1,6 @@
 import { ConditionGroup, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId, RuleElement } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { resolveFoundrySlug } from './entry-references';
@@ -102,7 +103,7 @@ export function conditionData({ document, envelope, references, log }: KindInput
 
   return {
     valued: value.isValued,
-    ...(known === undefined ? {} : { group: known }),
+    ...present({ group: known }),
     overrides: overridesOf(overrides, references, log),
     implies: impliedConditions(envelope.rules, references),
   };

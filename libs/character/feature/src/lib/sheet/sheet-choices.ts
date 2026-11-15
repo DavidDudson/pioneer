@@ -127,11 +127,14 @@ function flagsOfPick(selection: ChoiceValue, lookup: ContentLookup | undefined):
   const entry = ContentId.safeParse(selection);
   const facts = entry.success ? lookup?.entry(entry.data)?.facts : undefined;
 
-  return {
-    ...(facts?.legacy === true ? { legacy: true as const } : {}),
-    ...(facts?.unsupported === true ? { unsupported: true as const } : {}),
-    ...(facts?.replacedBy === undefined ? {} : { replacedBy: facts.replacedBy.map(({ id, name }) => ({ id, name })) }),
-  };
+  const legacy: PickFlags = facts?.legacy === true ? { legacy: true } : {};
+  const flagged: PickFlags = facts?.unsupported === true ? { ...legacy, unsupported: true } : legacy;
+
+  if (facts?.replacedBy === undefined) {
+    return flagged;
+  }
+
+  return { ...flagged, replacedBy: facts.replacedBy.map(({ id, name }) => ({ id, name })) };
 }
 
 /** A boost's or flaw's pick is its attribute; anything else shows by the name the server gave it, or not at all. */

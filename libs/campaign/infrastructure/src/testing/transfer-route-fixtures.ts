@@ -73,11 +73,19 @@ export interface RequestOptions {
 }
 
 export function request(method: string, path: string, { as, body }: RequestOptions): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...(as === undefined ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  const headers = { 'content-type': 'application/json' };
+
+  if (as !== undefined) {
+    Object.assign(headers, actingAs(as));
+  }
+
+  const init: RequestInit = { method, headers };
+
+  if (body !== undefined) {
+    init.body = JSON.stringify(body);
+  }
+
+  return new Request(`http://localhost${path}`, init);
 }
 
 export async function json<Output>(response: Response, schema: z.ZodType<Output>): Promise<Output> {

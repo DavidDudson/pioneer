@@ -9,7 +9,7 @@ export function entry(name: string, kind: string, data: object): ContentEntry {
     .replaceAll(/[^a-z]+/gu, '-')
     .replace(/-$/u, '')}`;
 
-  return ContentEntry.parse({
+  const fields = {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
@@ -20,9 +20,10 @@ export function entry(name: string, kind: string, data: object): ContentEntry {
     description: [],
     rules: [],
     kind,
-    ...(kind === 'statistic' ? {} : { level: 1 }),
     data,
-  });
+  };
+
+  return ContentEntry.parse(kind === 'statistic' ? fields : { ...fields, level: 1 });
 }
 
 export const skill = (name: string, selector: string): ContentEntry =>

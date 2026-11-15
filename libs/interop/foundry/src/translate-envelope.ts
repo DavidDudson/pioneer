@@ -12,6 +12,7 @@ import {
   Trait,
 } from '@pioneer/rules/sdk';
 import type { PackId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { describeEntries } from './describe-entries';
@@ -221,7 +222,7 @@ function scalars(document: FoundryDocument, slugText: string): Scalars | Failed 
     return level;
   }
 
-  return failed(rarity) ? rarity : { ...identity, rarity, ...(level === undefined ? {} : { level }) };
+  return failed(rarity) ? rarity : { ...identity, rarity, ...present({ level }) };
 }
 
 /** A selected document and the slug `entrySlugs` gave it. */
@@ -246,8 +247,8 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const rules = translateRules(id, system.rules, {
     lang,
     values: { item: document.name },
-    ...(references === undefined ? {} : { references }),
-    ...(senses === undefined ? {} : { senses }),
+    ...present({ references }),
+    ...present({ senses }),
   });
 
   return {
@@ -257,7 +258,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       ...fields,
       traits: traits.traits,
       sources: [{ kind: SourceKind.Book, book }],
-      ...(source.license === undefined ? {} : { license: source.license }),
+      ...present({ license: source.license }),
       rules: rules.rules,
       externalIds: { foundry: compendiumUuid(foundryPack, documentId, document.type) },
     },

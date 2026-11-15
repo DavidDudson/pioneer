@@ -40,5 +40,7 @@ export function atValue(card: EntryPreview, value: ConditionValue | undefined): 
 
   const endings = card.endings?.map((ending) => endingAt(ending, value));
 
-  return { ...card, value, ...(endings === undefined ? {} : { endings }) };
+  const held = { ...card, value };
+
+  return endings === undefined ? held : { ...held, endings };
 }

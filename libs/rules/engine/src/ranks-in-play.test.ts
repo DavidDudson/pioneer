@@ -7,12 +7,11 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { ranksInPlay } from './ranks-in-play';
 import { inPlay } from './testing';
 
-const proficiency = (selector: string, rank: string, predicate?: readonly unknown[]): object => ({
-  key: 'Proficiency',
-  selector,
-  rank,
-  ...(predicate === undefined ? {} : { predicate }),
-});
+const proficiency = (selector: string, rank: string, predicate?: readonly unknown[]): object => {
+  const element = { key: 'Proficiency', selector, rank };
+
+  return predicate === undefined ? element : { ...element, predicate };
+};
 
 function ranksOf(elements: readonly object[], options: readonly string[] = []): Record<string, string> {
   const rules = elements.map((element, rule) => inPlay(element, 'cleric', { rule }));

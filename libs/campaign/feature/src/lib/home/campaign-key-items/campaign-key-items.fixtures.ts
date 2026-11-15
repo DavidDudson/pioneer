@@ -42,24 +42,24 @@ export const party = { characters: [partyCharacter(kyra, 'Kyra'), partyCharacter
 
 /** Caliburn with six property runes, one more than the table allows, held by `holder` or the stash. */
 export function keyItems(holder: 'kyra' | 'stash', manageable = true, owned = false): object {
-  return {
-    manageable,
-    keyItems: [
-      {
-        id: caliburn,
-        name: 'Caliburn',
-        base: { item: longsword, name: 'Longsword' },
-        runes: {
-          potency: 3,
-          property: ['Flaming', 'Frost', 'Shock', 'Corrosive', 'Ghost Touch', 'Grievous'].map((name) => ({
-            rune: flaming,
-            name,
-          })),
-        },
-        notes: 'Drawn from the stone.',
-        holderOwned: holder === 'kyra' && owned,
-        ...(holder === 'kyra' ? { holder: kyra, holderName: 'Kyra' } : {}),
-      },
-    ],
+  const caliburnItem = {
+    id: caliburn,
+    name: 'Caliburn',
+    base: { item: longsword, name: 'Longsword' },
+    runes: {
+      potency: 3,
+      property: ['Flaming', 'Frost', 'Shock', 'Corrosive', 'Ghost Touch', 'Grievous'].map((name) => ({
+        rune: flaming,
+        name,
+      })),
+    },
+    notes: 'Drawn from the stone.',
+    holderOwned: holder === 'kyra' && owned,
   };
+
+  if (holder === 'kyra') {
+    Object.assign(caliburnItem, { holder: kyra, holderName: 'Kyra' });
+  }
+
+  return { manageable, keyItems: [caliburnItem] };
 }

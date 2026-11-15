@@ -1,5 +1,6 @@
 import { ContentKind, SenseAcuity } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { FoundryLang } from './foundry-release';
@@ -154,7 +155,7 @@ export function foundryConfig(modules: ConfigModules): FoundryConfig {
       [...creature.SENSE_TYPES].map((sense) => {
         const acuity = acuities[sense];
 
-        return [sense, { ...(acuity === undefined ? {} : { acuity }), unlimitedRange: unlimited.has(sense) }];
+        return [sense, { ...present({ acuity }), unlimitedRange: unlimited.has(sense) }];
       }),
     ),
     damageTypes: [...damage.DAMAGE_TYPES],

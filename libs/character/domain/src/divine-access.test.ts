@@ -26,13 +26,11 @@ for (const [name, rank] of [
 
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
 
-const slotRule = (rank: number, value: number, level: number): object => ({
-  key: 'SpellSlots',
-  entry: 'oracle',
-  rank,
-  value,
-  ...(level > 1 ? { predicate: [{ gte: ['self:level', level] }] } : {}),
-});
+const slotRule = (rank: number, value: number, level: number): object => {
+  const rule = { key: 'SpellSlots', entry: 'oracle', rank, value };
+
+  return level > 1 ? { ...rule, predicate: [{ gte: ['self:level', level] }] } : rule;
+};
 
 const ACCESS = pack.idOf(ContentKind.ClassFeature, 'divine-access');
 
