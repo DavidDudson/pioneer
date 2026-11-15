@@ -10,7 +10,7 @@ import { createApp } from './app';
 import { seedOfficialContent } from './content';
 import { connect, runMigrations } from './database';
 import { devSignInRoutes } from './dev/dev-sign-in';
-import { assertLocalOrigin, DEV_HOSTNAME } from './dev/local-only';
+import { assertLocalOrigin, assertTunnelOrigin, DEV_HOSTNAME } from './dev/local-only';
 import { seedDevData } from './dev/seed';
 import { readEnv } from './env';
 
@@ -27,7 +27,12 @@ if (command !== undefined && command !== SEED_COMMAND) {
 }
 
 const env = readEnv();
-assertLocalOrigin(env.PUBLIC_ORIGIN);
+// `just expose` sets DEV_EXPOSE next to the tunnel's origin; the API itself still listens on loopback.
+if (Bun.env['DEV_EXPOSE'] === '1') {
+  assertTunnelOrigin(env.PUBLIC_ORIGIN);
+} else {
+  assertLocalOrigin(env.PUBLIC_ORIGIN);
+}
 
 const db = connect(env.DATABASE_URL);
 await runMigrations(db, env.MIGRATIONS_DIR);

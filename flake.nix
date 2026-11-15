@@ -50,6 +50,7 @@
             nodejs_24
             just
             postgresql_18
+            cloudflared # `just expose`: public quick tunnel to the dev server
 
             # Rust-first lint/security toolchain (see AGENTS.md#tooling).
             typos

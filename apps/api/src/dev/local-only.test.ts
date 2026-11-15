@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { assertLocalOrigin, isCrossSiteRequest } from './local-only';
+import { assertLocalOrigin, assertTunnelOrigin, isCrossSiteRequest } from './local-only';
 
 function withFetchSite(site?: string): Request {
   return new Request(
@@ -26,6 +26,26 @@ describe(assertLocalOrigin, () => {
     expect(() => {
       assertLocalOrigin(origin);
     }).toThrow('Refusing to start dev sign-in');
+  });
+});
+
+describe(assertTunnelOrigin, () => {
+  test('starts for a quick-tunnel origin', () => {
+    expect(() => {
+      assertTunnelOrigin('https://quiet-river-1234.trycloudflare.com');
+    }).not.toThrow();
+  });
+
+  test.each([
+    'http://quiet-river-1234.trycloudflare.com',
+    'https://pioneer.example',
+    'https://trycloudflare.com.evil.example',
+    'http://localhost:4200',
+    undefined,
+  ])('refuses %s', (origin) => {
+    expect(() => {
+      assertTunnelOrigin(origin);
+    }).toThrow('Refusing to expose dev sign-in');
   });
 });
 

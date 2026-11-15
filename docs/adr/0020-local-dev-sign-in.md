@@ -30,6 +30,10 @@ The alternatives considered:
 - **Local only, even in dev.** The dev server listens on loopback and refuses to start unless `PUBLIC_ORIGIN` is
   plain http on localhost. The route answers 403 to a request whose `Sec-Fetch-Site` is another site: the ids are
   public, so this stands in for the OAuth state check against login CSRF.
+- **Exposing it is opt-in.** `just expose` runs the dev servers behind a Cloudflare quick tunnel and sets
+  `DEV_EXPOSE=1`; the API then accepts only an https `*.trycloudflare.com` `PUBLIC_ORIGIN` instead of a localhost
+  one. It still listens on loopback (the tunnel targets the Angular server), but dev sign-in is open to anyone with
+  the random URL, so share it only with people you trust.
 - **The web app swaps a file, not a flag.** The sign-in page renders `SIGN_IN_EXTRAS` (empty by default). Only the
   `development` build configuration replaces `apps/web/src/app/environment.ts` with `environment.development.ts`,
   which provides the dev sign-in component and its messages from `libs/identity/dev-sign-in`. A production build
