@@ -55,6 +55,7 @@ async function render(id: 'name' | 'level'): Promise<Rendered> {
   fixture.componentRef.setInput('header', header);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { fixture, host: fixture.nativeElement as HTMLElement, header };
 }
 
@@ -78,6 +79,7 @@ async function drawing(icon: IconGlyph): Promise<string | undefined> {
   fixture.componentRef.setInput('icon', icon);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('svg')?.innerHTML;
 }
 

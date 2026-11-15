@@ -31,6 +31,7 @@ const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 
 /** The values a `ChoiceSet` offers. */
 function valuesOf(choice: Record<string, unknown> | undefined): string[] {
+  // SAFETY: Array.isArray on the line above proved choices is an array, and a ChoiceSet's elements carry a value.
   const choices = Array.isArray(choice?.['choices']) ? (choice['choices'] as { value: string }[]) : [];
 
   return choices.map(({ value }) => value);

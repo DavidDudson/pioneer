@@ -14,6 +14,7 @@ async function render(legacy: boolean): Promise<ComponentFixture<LegacyBadge>> {
   return fixture;
 }
 
+// SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
 const text = (fixture: ComponentFixture<LegacyBadge>): string => (fixture.nativeElement as HTMLElement).textContent;
 
 describe(LegacyBadge, () => {

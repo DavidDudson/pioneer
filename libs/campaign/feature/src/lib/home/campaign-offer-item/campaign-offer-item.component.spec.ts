@@ -87,6 +87,7 @@ describe(CampaignOfferItem, () => {
   it('offers the line to the character picked from the party, and refreshes the offers', async () => {
     const { fixture, http, root } = await open([member(kyra, 'Kyra'), member(seelah, 'Seelah')]);
 
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, object>;
 
@@ -115,6 +116,7 @@ describe(CampaignOfferItem, () => {
   it('does not offer the giver itself, or an archived character, as a recipient', async () => {
     const { fixture } = await open([member(kyra, 'Kyra'), member(dormant, 'Dormant', true), member(seelah, 'Seelah')]);
 
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     const picker = fixture.debugElement.query((element) => element.componentInstance instanceof Picker)
       .componentInstance as Picker<string, { name: string }>;
 

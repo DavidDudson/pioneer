@@ -89,6 +89,7 @@ const RELOADS = new Set(['reload', 'assign', 'replace']);
 
 /** `location` or `<anything>.location`. */
 function isLocation(node: unknown): boolean {
+  // SAFETY: oxlint passes ESTree nodes, and every field of this shape is optional and checked before use.
   const target = node as {
     readonly type?: unknown;
     readonly name?: unknown;
@@ -202,6 +203,7 @@ function isString(node: AstNode): boolean {
 
 /** AST children of `node`, skipping the parent link and object keys (keys are variant names, not classes). */
 function childrenOf(node: object): unknown[] {
+  // SAFETY: `Array.isArray` narrows `node` to an array whose elements are AST children, and `Object.entries` of an AST node yields string keys with child values, which the `unknown` typing of both already covers.
   return Array.isArray(node)
     ? (node as unknown[])
     : Object.entries(node as Readonly<Record<string, unknown>>).flatMap(([key, child]) =>
@@ -216,6 +218,7 @@ function stringsUnder(node: unknown): Rule.Node[] {
   }
 
   if (!Array.isArray(node) && isString(node)) {
+    // SAFETY: `isString` accepts only `Literal` and `TemplateElement` nodes, which are AST nodes, and `node` came from an AST walk.
     return [node as Rule.Node];
   }
 
@@ -246,7 +249,9 @@ const classTokens: Rule.RuleModule = {
 
     const checkAll = (root: unknown): void => {
       for (const node of stringsUnder(root)) {
+        // SAFETY: `stringsUnder` yields only `Literal` and `TemplateElement` nodes, and both have `type` and `value`.
         const { type, value } = node as AstNode & { readonly value: unknown };
+        // SAFETY: `stringsUnder` yields only `Literal` and `TemplateElement` nodes, and both have `type` and `value`; a template element's `value` is an object with an optional `cooked`.
         const text = type === 'TemplateElement' ? (value as { readonly cooked?: unknown }).cooked : value;
         const problem = typeof text === 'string' ? classTokenProblem(text, inPrimitive) : undefined;
 
@@ -268,6 +273,7 @@ const classTokens: Rule.RuleModule = {
         }
       },
       TSSatisfiesExpression(node: unknown): void {
+        // SAFETY: oxlint calls this listener with a `TSSatisfiesExpression` node, which has an `expression`; the field is typed optional all the same.
         const { expression } = node as { readonly expression?: AstNode };
 
         if (expression?.type === 'ObjectExpression') {

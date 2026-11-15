@@ -25,6 +25,7 @@ async function render(checks: readonly CriticalHitCheckLine[]): Promise<Rendered
   fixture.componentRef.setInput('checks', checks);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { host: fixture.nativeElement as HTMLElement, rolls };
 }
 

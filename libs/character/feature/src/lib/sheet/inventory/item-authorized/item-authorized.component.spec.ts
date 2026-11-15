@@ -19,6 +19,8 @@ function authorizedFor(owner: string | undefined): typeof VALEROS {
 
   const items = VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item));
 
+  // SAFETY: only the items change, and each is the fixture's item shape (the etched one adds a rune).
+  // The rebuilt character keeps the fixture's type.
   return { ...VALEROS, inventory: { ...VALEROS.inventory, items } } as typeof VALEROS;
 }
 

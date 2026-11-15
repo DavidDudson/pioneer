@@ -78,6 +78,7 @@ function card(): HTMLElement | null {
 }
 
 function trigger(fixture: ComponentFixture<unknown>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('#trigger');
 
   if (element === null) {
@@ -100,6 +101,7 @@ describe(HoverCard, () => {
       fixture.detectChanges();
       expect(card()?.textContent).toContain('Burst of flame');
     });
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect(card()?.id).toBe(
       (fixture.nativeElement as HTMLElement).querySelector('[aria-describedby]')?.getAttribute('aria-describedby'),
     );
@@ -184,6 +186,7 @@ describe(HoverCard, () => {
     TestBed.configureTestingModule({});
     const fixture = TestBed.createComponent(FocusableHost);
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const focusable = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('[tabindex="0"]');
 
     expect(focusable?.getAttribute('aria-label')).toBe('Conditions of Kyra');
@@ -197,6 +200,7 @@ describe(HoverCard, () => {
   it('adds no tab stop of its own without a label', () => {
     const fixture = render();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelectorAll('[tabindex]')).toHaveLength(1);
   });
 });
@@ -295,6 +299,7 @@ describe('a hover card nested in another card', () => {
 
   it('closes only the inner card on Escape while focus is on the outer trigger', async () => {
     const fixture = await openBoth();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const outerTrigger = (fixture.nativeElement as HTMLElement).querySelector('span');
     outerTrigger?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     await vi.waitFor(() => {

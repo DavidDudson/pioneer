@@ -34,6 +34,8 @@ function coated(stored: readonly string[]): typeof VALEROS {
 
   const items = [...VALEROS.inventory.items.map((item) => (item.id === SWORD ? etched : item)), OIL_LINE];
 
+  // SAFETY: only the items change, and each is the fixture's item shape (the etched one adds a rune).
+  // The rebuilt character keeps the fixture's type.
   return { ...VALEROS, inventory: { ...VALEROS.inventory, items } } as typeof VALEROS;
 }
 

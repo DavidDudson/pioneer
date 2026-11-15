@@ -243,6 +243,8 @@ describe('PathbuilderImportService.importPathbuilder', () => {
   test('an ancestry that is not loaded is refused by name and nothing is saved', async () => {
     const error = await rejection(service.importPathbuilder(amiri, briarRoseExport));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['build', 'ancestry'],
@@ -264,6 +266,8 @@ describe('PathbuilderImportService.importPathbuilder', () => {
   ])('%s is refused and nothing is saved', async (_label, raw, key) => {
     const error = await rejection(service.importPathbuilder(amiri, raw));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues[0]).toStrictEqual({ path: [], message: { key } });
     expect(repository.audits).toStrictEqual([]);
   });

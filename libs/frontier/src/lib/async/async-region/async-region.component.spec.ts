@@ -26,6 +26,7 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const region = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-async-region');
 
   if (region === null) {

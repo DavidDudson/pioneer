@@ -14,11 +14,17 @@ const OTHER = ContentId.parse('00000000-0000-5000-8000-000000000002');
 const KEYS: ReadonlySet<string> = new Set(['FlatModifier']);
 const GAPPED: ReadonlySet<string> = new Set([`${pack}/${slug}`]);
 
+// SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const toggle = { key: 'RollOption', option: 'a:b' } as RuleElement;
+
+// SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as RuleElement;
+
+// SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const proficiency = { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' } as RuleElement;
 
 function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
+  // SAFETY: the test entry holds only the fields the merge reads (id, pack, slug and rules), not the rest of a content entry.
   return { id, pack, slug, rules } as ContentEntry;
 }
 

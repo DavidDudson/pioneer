@@ -38,6 +38,7 @@ async function render(
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
   const line = host.querySelector('p');
 
@@ -156,6 +157,7 @@ describe(SourceLineView, () => {
       fixture.componentRef.setInput('sources', [SourceRef.parse({ kind: 'homebrew', pack: PACK, author: AUTHOR })]);
       await fixture.whenStable();
 
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       expect((fixture.nativeElement as HTMLElement).textContent.trim()).toBe('The Lost Lands by Ezren');
     });
   });

@@ -43,6 +43,7 @@ function render(recharge: FrequencyPeriod | undefined): ComponentFixture<ActionR
 
 /** The text of the hover summary after focus reaches the row's name. */
 async function summaryText(fixture: ComponentFixture<ActionRow>): Promise<string> {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const name = (fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"], a');
   name?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
 

@@ -13,8 +13,10 @@ export interface CountsLoadedKeys {
  * count it found instead of counting again.
  */
 export function rememberLoadedLanguages(service: TranslocoService): void {
+  const instance: object = service;
+  // SAFETY: Transloco defines `isLoadedTranslation` on the service at runtime with this signature; only its typings hide it.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the method exists at runtime; only its typings hide it
-  const counting = service as unknown as CountsLoadedKeys;
+  const counting = instance as CountsLoadedKeys;
   const count = counting.isLoadedTranslation.bind(service);
   const remembered = new Map<string, number>();
   counting.isLoadedTranslation = (lang: string): number => {

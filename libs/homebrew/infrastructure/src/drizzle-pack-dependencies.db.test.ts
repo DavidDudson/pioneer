@@ -88,6 +88,7 @@ function entryRow({ pack, slug, name, data }: EntryInput): typeof contentEntries
     name: ContentText.parse(name),
     rarity: 'common',
     traits: [],
+    // SAFETY: `data` is an object of trait data written as the entry's JSON column; the column type is only narrower than the `object` the helper takes.
     data: data as typeof contentEntries.$inferInsert.data,
     updatedAt: clock.now().toString(),
   };

@@ -46,6 +46,7 @@ function present<TValue>(value: TValue | null): TValue {
 }
 
 function hostOf(fixture: ComponentFixture<SkillsView>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -62,6 +63,7 @@ async function chooseLores(fixture: ComponentFixture<SkillsView>): Promise<void>
     (button) => button.textContent.trim() === 'Lores',
   );
 
+  // SAFETY: the 'Lores' option is rendered as a 'fr-segmented button', an HTMLElement.
   (lores as HTMLElement).click();
   await fixture.whenStable();
 }

@@ -19,6 +19,7 @@ function render(creature: StatBlockCreature, layout: StatBlockLayout): string {
   fixture.componentRef.setInput('layout', layout);
   fixture.detectChanges();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 
@@ -109,6 +110,7 @@ describe(CreatureStatBlockView, () => {
     }
 
     it('shows each trait as a chip after the size, which is no trait', () => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = renderWithCards().nativeElement as HTMLElement;
       const traits = [...root.querySelectorAll('pio-trait-chip')].map((each) => each.textContent.trim());
 
@@ -118,6 +120,7 @@ describe(CreatureStatBlockView, () => {
 
     it('opens the trait card from the chip', async () => {
       const fixture = renderWithCards();
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = fixture.nativeElement as HTMLElement;
 
       const stop = [...root.querySelectorAll<HTMLElement>('[tabindex="0"]')].find(
@@ -132,6 +135,7 @@ describe(CreatureStatBlockView, () => {
     });
 
     it('shows the traits of an ability as chips', () => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = renderWithCards().nativeElement as HTMLElement;
       const ability = GOBLIN_WARCHANTER.data.abilities?.find((each) => each.traits.length > 0);
 
@@ -158,6 +162,7 @@ describe(CreatureStatBlockView, () => {
     }
 
     it('reads the same as the joined text it replaced', () => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const text = (renderStrikes().nativeElement as HTMLElement).textContent.replaceAll(/\s+/gu, ' ');
 
       expect(text).toContain('Melee dogslicer +9 (reach 5 ft, Agile, Backstabber)');
@@ -165,6 +170,7 @@ describe(CreatureStatBlockView, () => {
     });
 
     it('shows each real trait as a chip and the reach as plain text', () => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = renderStrikes().nativeElement as HTMLElement;
 
       const chips = [...root.querySelectorAll('pio-stat-strikes pio-trait-chip')].map((each) =>
@@ -176,6 +182,7 @@ describe(CreatureStatBlockView, () => {
 
     it('opens the trait card from the chip', async () => {
       const fixture = renderStrikes();
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = fixture.nativeElement as HTMLElement;
 
       const stop = [...root.querySelectorAll<HTMLElement>('pio-stat-strikes [tabindex="0"]')].find(
@@ -190,6 +197,7 @@ describe(CreatureStatBlockView, () => {
     });
 
     it('keeps no brackets for a Strike with nothing to list', () => {
+      // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
       const root = renderStrikes().nativeElement as HTMLElement;
 
       expect(root.textContent).not.toContain('()');

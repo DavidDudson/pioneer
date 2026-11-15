@@ -95,6 +95,7 @@ describe.skipIf(adminUrl === undefined)('POST /characters/generate (postgres)', 
   test('a level is refused as a typed validation problem, as a character is always made at level 1', async () => {
     const response = await api.handle(post('/characters/generate', { level: 1 }));
     expect(response.status).toBe(422);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('validation');
   });

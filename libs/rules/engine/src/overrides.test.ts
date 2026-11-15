@@ -43,6 +43,7 @@ function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): S
     throw new Error('Expected AC to derive');
   }
 
+  // SAFETY: the guard above threw unless result is an object with ok true, which is a StatisticValue.
   return result as StatisticValue;
 }
 

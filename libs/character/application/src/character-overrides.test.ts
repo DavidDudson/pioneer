@@ -68,6 +68,8 @@ describe('CharacterService overrides', () => {
     const remove = { field: CharacterPatchField.RemoveOverride, id: newId(), reason: 'Nothing to remove' };
     const error = await rejection(service.patch(amiri, created.id, at(FIRST_VERSION, remove)));
 
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch'], message: { key: 'character.validation.overrideUnknown' } },
     ]);

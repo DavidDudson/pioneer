@@ -24,6 +24,7 @@ function render(
   fixture.componentRef.setInput('items', items);
   fixture.componentRef.setInput('orientation', orientation);
   fixture.detectChanges();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
   const group = host.querySelector<HTMLElement>('[role="toolbar"]');
 
@@ -47,6 +48,7 @@ function press(rendered: Rendered, key: string, modifiers: KeyboardEventInit = {
   document.activeElement?.dispatchEvent(keydown(key, modifiers));
   rendered.fixture.detectChanges();
 
+  // SAFETY: the active element is only compared by identity against the rendered buttons, never used as a button; indexOf yields -1 for any other element.
   return rendered.buttons.indexOf(document.activeElement as HTMLButtonElement);
 }
 

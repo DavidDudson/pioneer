@@ -29,6 +29,7 @@ async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'):
   appRef.attachView(link.hostView);
   await appRef.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return link.location.nativeElement as HTMLElement;
 }
 

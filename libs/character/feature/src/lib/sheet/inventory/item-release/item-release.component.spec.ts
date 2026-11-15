@@ -16,6 +16,8 @@ function animated(released: boolean): typeof VALEROS {
     ...state,
   };
 
+  // SAFETY: only the items change, and each is the fixture's item shape (the etched one adds a rune).
+  // The rebuilt character keeps the fixture's type.
   return {
     ...VALEROS,
     inventory: {

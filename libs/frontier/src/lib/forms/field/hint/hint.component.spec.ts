@@ -8,6 +8,7 @@ describe(FieldHint, () => {
     const harness = new FieldHarness();
     const hint = harness.add(FieldHint, 'As it appears on the sheet.');
     await harness.stable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = hint.location.nativeElement as HTMLElement;
     expect(host.id).toBe(harness.field.instance.hintId);
     expect(host.textContent.trim()).toBe('As it appears on the sheet.');

@@ -48,6 +48,7 @@ export { DAMAGE_TYPES };
 function archive(overrides: Partial<Record<keyof typeof CONFIG_MODULES, string>> = {}): ReadonlyMap<string, string> {
   const texts = { traits: TRAITS, creature: CREATURE, damage: DAMAGE, ...overrides };
 
+  // SAFETY: `name` comes from the keys of `CONFIG_MODULES`, and `texts` holds a text for each of them.
   return new Map(
     Object.entries(CONFIG_MODULES).map(([name, module]) => [`${ROOT}/${module}`, texts[name as keyof typeof texts]]),
   );

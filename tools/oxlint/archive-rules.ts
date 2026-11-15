@@ -27,6 +27,7 @@ export function archivableDeleteTarget(
   node: unknown,
   tables: ReadonlySet<string> = ARCHIVABLE_TABLES,
 ): string | undefined {
+  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   const { callee, arguments: args } = node as DeleteCallShape;
 
   if (callee?.type !== 'MemberExpression' || callee.property?.name !== 'delete') {

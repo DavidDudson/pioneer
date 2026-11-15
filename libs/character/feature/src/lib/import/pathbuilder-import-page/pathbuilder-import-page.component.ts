@@ -178,7 +178,7 @@ export class PathbuilderImportPage {
    * where its import report shows.
    */
   protected readonly create = async (): Promise<void> => {
-    const character = await this.#store.importPathbuilder(JSON.parse(this.model().json) as unknown);
+    const character = await this.#store.importPathbuilder(JSON.parse(this.model().json));
     await this.#router.navigate(['../../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 

@@ -37,6 +37,7 @@ async function answerMe(fixture: ComponentFixture<App>, status: number, body: ob
   await TestBed.inject(ApplicationRef).whenStable();
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -91,6 +92,7 @@ describe(App, () => {
 
   it('renders the shell with the Community Use notice', async () => {
     const fixture = await renderShell();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const element = fixture.nativeElement as HTMLElement;
     expect(element.textContent).toContain('Pioneer');
     expect(element.textContent).toContain("Paizo's Community Use Policy");
@@ -98,6 +100,7 @@ describe(App, () => {
 
   it('links the public Legal page from the footer', async () => {
     const fixture = await renderShell();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const element = fixture.nativeElement as HTMLElement;
     const legal = element.querySelector('footer a[href="/legal"]');
     expect(legal?.textContent.trim()).toBe('Legal');
@@ -105,6 +108,7 @@ describe(App, () => {
 
   it('shows the brand with its Pre-Alpha badge in one header row', async () => {
     const fixture = await renderShell();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const header = (fixture.nativeElement as HTMLElement).querySelector('header');
     expect(header?.textContent).toContain('Pioneer');
     expect(header?.textContent).toContain('Pre-Alpha');
@@ -112,6 +116,7 @@ describe(App, () => {
 
   it('lists the site sections in an icon-only dropdown', async () => {
     const fixture = await renderShell();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const trigger = await openMenu(fixture.nativeElement as HTMLElement, 'Sections');
     expect(trigger.textContent.trim()).toBe('');
     await fixture.whenStable();

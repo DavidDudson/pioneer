@@ -79,6 +79,8 @@ describe('CharacterService custom effects', () => {
     const toggle = { field: CharacterPatchField.ToggleCustomEffect, id: newId(), enabled: false };
     const error = await rejection(service.patch(amiri, kyra.id, at(FIRST_VERSION, toggle)));
 
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch'], message: { key: 'character.validation.customEffectUnknown' } },
     ]);
@@ -92,6 +94,8 @@ describe('CharacterService custom effects', () => {
     const { character: removed } = await service.patch(amiri, kyra.id, at(added.version, remove));
     const error = await rejection(service.patch(amiri, kyra.id, at(removed.version, remove)));
 
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch'], message: { key: 'character.validation.customEffectUnknown' } },
     ]);
@@ -109,6 +113,8 @@ describe('CharacterService custom effects', () => {
     const audits = repository.audits.length;
     const error = await rejection(service.patch(amiri, kyra.id, at(version, ADD)));
 
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch'], message: { key: 'character.validation.customEffectFull' } },
     ]);

@@ -108,10 +108,12 @@ describe('SettingsPage', () => {
       expect(page.textContent).toContain('Text font');
     });
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const picker = harness.fixture.debugElement
       .queryAll((node) => node.componentInstance instanceof PickerField)
       .find((node) => (node.nativeElement as HTMLElement).textContent.includes('Text font'));
 
+    // SAFETY: the node was matched by instanceof PickerField above and the page configures it with font rows of this shape.
     const instance = picker?.componentInstance as PickerField<string, { name: string }> | undefined;
     expect(instance?.rows().map((row) => row.name)).toStrictEqual([
       'Crimson Pro (default)',

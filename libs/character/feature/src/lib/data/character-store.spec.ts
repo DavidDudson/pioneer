@@ -62,6 +62,8 @@ interface PatchReply extends SheetReply {
 function sheet(version: number, level: number): SheetReply {
   const character = wire(version, level);
 
+  // SAFETY: the wire character is JSON of the character document, whose build holds the choices.
+  // The test reads only ancestry.
   const {
     choices: { ancestry },
   } = character['build'] as { choices: { ancestry: string } };

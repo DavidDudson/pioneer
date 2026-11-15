@@ -33,6 +33,8 @@ import {
 const WAND = fireballWand();
 const ONE = ResourceCount.parse(1);
 
+// SAFETY: the literal is the four coin counts of an inventory.
+// The annotation alone would reject the unbranded numbers.
 const COINS: Inventory['coins'] = {
   pp: 0,
   gp: 0,

@@ -30,6 +30,7 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
 }
 
 function find(fixture: ComponentFixture<SelectField<string>>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (element === null) {

@@ -36,6 +36,7 @@ function textOf(element: Element): string {
 
 /** The labelled fields as "Term: value". */
 function fieldRows(fixture: ComponentFixture<SpellDetails>): string[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
 
   return [...host.querySelectorAll('fr-description-item')].map((row) =>
@@ -57,6 +58,7 @@ describe(SpellDetails, () => {
 
   it('shows the cost as action glyphs a screen reader can name', async () => {
     const { fixture } = await render(FIREBALL, 3);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const glyph = (fixture.nativeElement as HTMLElement).querySelector('fr-glyph');
 
     expect(glyph?.textContent).toContain('◆◆');
@@ -65,6 +67,7 @@ describe(SpellDetails, () => {
 
   it('shows a variable cost as a run of glyphs', async () => {
     const { fixture } = await render(HEAL, 1);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const text = textOf(fixture.nativeElement as HTMLElement);
 
     expect(text).toContain('Single action');
@@ -74,6 +77,7 @@ describe(SpellDetails, () => {
 
   it('lists each variant under its name', async () => {
     const { fixture } = await render(HEAL, 3);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const text = textOf(fixture.nativeElement as HTMLElement);
 
     expect(text).toContain('One action');
@@ -85,6 +89,7 @@ describe(SpellDetails, () => {
   it('marks a spell that counteracts and carries its tags', async () => {
     const { fixture } = await render(DISPEL_MAGIC, 2, [SpellListMessage.TagSignature]);
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const badges = [...(fixture.nativeElement as HTMLElement).querySelectorAll('fr-badge')].map((badge) =>
       textOf(badge),
     );

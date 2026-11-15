@@ -35,10 +35,12 @@ async function render(lines: readonly ActionLine[]): Promise<ComponentFixture<Ac
 }
 
 function tabsOf(fixture: ComponentFixture<ActionsView>): HTMLElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('[role="tab"]')];
 }
 
 function rowCount(fixture: ComponentFixture<ActionsView>): number {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelectorAll('pio-action-row').length;
 }
 
@@ -50,6 +52,7 @@ describe('ActionsView kind subtabs', () => {
 
   it('is a labelled tablist', async () => {
     const fixture = await render(KINDS);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const list = (fixture.nativeElement as HTMLElement).querySelector('[role="tablist"]');
     expect(list?.getAttribute('aria-label')).toBe('Kinds of action');
   });

@@ -91,6 +91,7 @@ describe('SheetRuleLimits', () => {
   });
 
   it('says a number is the campaign GM’s while a campaign decides', async () => {
+    // SAFETY: the settings are the wire shape, a list of limits as JSON objects.
     const settings = ruleLimitSettingsOf({ handsMax: 1 }) as { limits: JsonObject[] };
     const limits = settings.limits.map((each) => ({ ...each, source: 'campaign' }));
 

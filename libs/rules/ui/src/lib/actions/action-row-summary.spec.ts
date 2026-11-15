@@ -51,6 +51,7 @@ function card(): HTMLElement | null {
 
 /** Focuses the name, which is where a keyboard reaches the summary. */
 async function focusName(fixture: ComponentFixture<ActionRow>): Promise<void> {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const name = (fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"], a');
   name?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
   await vi.waitFor(() => {
@@ -93,12 +94,14 @@ describe('ActionRow summary', () => {
 describe('ActionRow panel link', () => {
   it('links the name to the page with the side panel open on the action', () => {
     const fixture = render(PANEL);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const link = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(link?.getAttribute('href')).toBe('/characters/sheet?drawer=open&se=action:stride');
   });
 
   it('leaves the name plain, and still focusable, when the page has no panel', () => {
     const fixture = render(undefined);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
     expect(host.querySelector('a')).toBeNull();
     expect(host.querySelector('[tabindex="0"]')?.textContent).toContain('Shield Block');
@@ -106,6 +109,7 @@ describe('ActionRow panel link', () => {
 
   it('does not put the roll or use controls inside the link', () => {
     const fixture = render(PANEL);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const link = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(link?.querySelector('button')).toBeNull();
   });

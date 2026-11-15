@@ -14,6 +14,7 @@ async function render(groups: readonly InventoryGroup[] | undefined): Promise<HT
   fixture.componentRef.setInput('groups', groups);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -59,6 +60,7 @@ describe(InventoryView, () => {
     const runes = { potency: 2, fundamental: [], property: [{ name: 'Shadow', choice: undefined }] };
     const [worn] = FIGHTER_INVENTORY;
     const armor = { ...worn?.lines[0], name: 'Lucky coat', contentName: 'Leather Armor', runes };
+    // SAFETY: armor spreads the fighter's first inventory line and only overrides name, contentName and runes, so it keeps every InventoryLine field.
     const shown = rows(await render([{ placement: InventoryPlacement.Worn, lines: [armor as InventoryLine] }]));
     expect(shown[0]?.slice(0, 2)).toStrictEqual(['Lucky coat', '(+2 Shadow Leather Armor)']);
   });

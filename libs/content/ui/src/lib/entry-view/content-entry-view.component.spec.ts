@@ -24,6 +24,7 @@ async function render(stores: readonly StoreLink[]): Promise<ComponentFixture<Co
 }
 
 const links = (fixture: ComponentFixture<ContentEntryView>): readonly HTMLAnchorElement[] => [
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   ...(fixture.nativeElement as HTMLElement).querySelectorAll('a'),
 ];
 

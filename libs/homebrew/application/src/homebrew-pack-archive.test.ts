@@ -97,6 +97,7 @@ describe('archiving a homebrew pack (ADR-0062)', () => {
     await extend(extension.id, base.id);
     const error = await rejection(service.archive(amiri, base.id));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor).toStrictEqual({
       key: HomebrewMessage.ExtendedByPacks,
       params: { count: 1 },
@@ -117,6 +118,7 @@ describe('archiving a homebrew pack (ADR-0062)', () => {
     await service.archive(amiri, base.id);
     const error = await rejection(service.restore(amiri, extension.id));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor).toStrictEqual({
       key: HomebrewMessage.DependsOnArchived,
       params: { count: 1 },
@@ -137,6 +139,7 @@ describe('archiving a homebrew pack (ADR-0062)', () => {
     await service.setVisibility(amiri, base.id, PackVisibility.Private);
     const error = await rejection(service.restore(amiri, extension.id));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor.key).toBe(HomebrewMessage.WiderThanDependencies);
     expect(await service.listArchived(amiri)).toHaveLength(1);
   });

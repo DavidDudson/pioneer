@@ -29,6 +29,7 @@ async function render(url: string): Promise<Rendered> {
   fixture.componentRef.setInput('label', 'Sheet sections');
   fixture.componentRef.setInput('tabs', SECTIONS);
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
   const nav = host.querySelector('nav');
 
@@ -64,6 +65,7 @@ function press(rendered: Rendered, key: string): number {
   document.activeElement?.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
   rendered.fixture.detectChanges();
 
+  // SAFETY: the active element is only compared by identity against the rendered links, never used as an anchor; indexOf yields -1 for any other element.
   return rendered.links.indexOf(document.activeElement as HTMLAnchorElement);
 }
 

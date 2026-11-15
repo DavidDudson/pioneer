@@ -28,6 +28,7 @@ async function render(groups: readonly SpellFilterGroup[] = GROUPS): Promise<Com
   return fixture;
 }
 
+// SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
 const host = (fixture: ComponentFixture<SpellFilter>): HTMLElement => fixture.nativeElement as HTMLElement;
 
 describe(SpellFilter, () => {
@@ -61,6 +62,7 @@ describe(SpellFilter, () => {
   });
 
   it('lists the active filters and clears them in one action', async () => {
+    // SAFETY: GROUPS[0] is defined fixture data; the spread only overrides selected with a Set, which matches SpellFilterGroup.
     const fixture = await render([{ ...GROUPS[0], selected: new Set(['Fire', 'Mental']) } as SpellFilterGroup]);
     let cleared = 0;
     fixture.componentInstance.cleared.subscribe(() => {

@@ -11,6 +11,7 @@ async function render(rank: Proficiency): Promise<HTMLElement> {
   fixture.componentRef.setInput('rank', rank);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

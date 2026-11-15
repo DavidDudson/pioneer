@@ -12,6 +12,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Elemen
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const list = (fixture.nativeElement as HTMLElement).firstElementChild;
 
   if (list === null) {
@@ -46,6 +47,7 @@ describe(ListItem, () => {
   it('is the list item itself, so the <ul> / <ol> holds only items and markers still show', async () => {
     const fixture = TestBed.createComponent(ListItem);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
     expect(host.getAttribute('role')).toBe('listitem');
     expect(host.className).toBe('list-item');

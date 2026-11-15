@@ -95,6 +95,7 @@ export const noLiteralText: Rule.RuleModule = {
 
     return {
       Text(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `TextNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { value, sourceSpan } = node as TextNode;
 
         if (hasLetters(value)) {
@@ -102,6 +103,7 @@ export const noLiteralText: Rule.RuleModule = {
         }
       },
       BoundText(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `BoundTextNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const bound = node as BoundTextNode;
         const copy = literalParts(bound).filter((part) => hasLetters(part));
 
@@ -110,6 +112,7 @@ export const noLiteralText: Rule.RuleModule = {
         }
       },
       TextAttribute(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, value, keySpan } = node as AttributeNode;
 
         if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(value)) {
@@ -117,6 +120,7 @@ export const noLiteralText: Rule.RuleModule = {
         }
       },
       BoundAttribute(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `BoundAttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, value, keySpan } = node as BoundAttributeNode;
         const literal = value?.ast?.value;
 

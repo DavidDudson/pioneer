@@ -20,6 +20,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
   const frame = host.querySelector('span');
   const img = host.querySelector('img');

@@ -16,6 +16,7 @@ async function render(attacksMade: number | undefined): Promise<HTMLElement> {
   fixture.componentRef.setInput('attacksMade', attacksMade);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 

@@ -26,6 +26,7 @@ type OwnsSlot = (parent: AncestorShape, child: AncestorShape) => boolean;
 
 /** Whether some ancestor of `node`, up to and including the enclosing function, owns it per `ownsSlot`. */
 function hasOwner(node: unknown, ownsSlot: OwnsSlot): boolean {
+  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   let child = node as AncestorShape;
   let { parent } = child;
 
@@ -105,6 +106,7 @@ export const noDerivedTypes: Rule.RuleModule = {
   create(context) {
     return {
       TSTypeReference(node: Rule.Node): void {
+        // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
         const { typeName } = node as TypeReferenceShape;
         const name = typeName?.type === 'Identifier' ? typeName.name : undefined;
 

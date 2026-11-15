@@ -26,6 +26,7 @@ async function render(inputs: Readonly<Record<string, unknown>>, content = 'AC')
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(text.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   let rendered = (text.location.nativeElement as HTMLElement).firstElementChild;
 
   // Inline elements render through the internal fr-text-phrase.

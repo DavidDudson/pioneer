@@ -42,6 +42,7 @@ describe(Stepper, () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
     fixture = TestBed.createComponent(StepperHost);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     root = fixture.nativeElement as HTMLElement;
     await settle();
   });

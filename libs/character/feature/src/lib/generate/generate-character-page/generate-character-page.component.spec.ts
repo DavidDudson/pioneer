@@ -85,6 +85,8 @@ describe(GenerateCharacterPage, () => {
           useValue: {
             classes: (): readonly ClassOption[] => CLASSES,
             playing: (role: string): readonly ClassOption[] =>
+              // SAFETY: role comes from the test's own role list.
+              // Never is only to pass it to roles.includes, which takes the role union.
               CLASSES.filter((each) => each.roles.includes(role as never)),
           },
         },

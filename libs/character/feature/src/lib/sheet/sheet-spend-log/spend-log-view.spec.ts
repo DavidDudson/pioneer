@@ -8,6 +8,8 @@ import { costMessage, spendRows } from './spend-log-view';
 
 const STRIDE = ContentId.parse('00000000-0000-4000-8000-000000000001');
 const AT = SpendTime.parse('2026-10-16T12:00:00.000Z');
+
+// SAFETY: 0 is a valid count of quickened actions in a spend entry's cost.
 const NO_QUICKENED = 0 as SpendEntry['quickened'];
 
 function entry(serial: string, cost: SpendEntry['cost']): SpendEntry {

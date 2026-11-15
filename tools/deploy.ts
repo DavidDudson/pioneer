@@ -100,6 +100,7 @@ async function functionSettings(deps: DeployDeps): Promise<FunctionSettings> {
     'json',
   ]);
 
+  // SAFETY: the `--query` above projects an object with exactly these two keys; their values stay `unknown` and are narrowed by the `typeof` checks below.
   const settings = JSON.parse(json) as { databaseUrl: unknown; origin: unknown };
 
   if (typeof settings.databaseUrl !== 'string' || typeof settings.origin !== 'string') {

@@ -103,6 +103,8 @@ describe('CharacterService spell access', () => {
     });
 
     const error = await rejection(service.patch(amiri, created.id, edit));
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['patch', 'spell'],
@@ -120,6 +122,8 @@ describe('CharacterService spell access', () => {
     const edit = at(FIRST_VERSION, { field: CharacterPatchField.GrantSpellAccess, spell });
     const error = await rejection(service.patch(amiri, created.id, edit));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([{ path: ['patch', 'spell'], message: { key } }]);
     const unchanged = await service.get(amiri, created.id);
     expect(unchanged.version).toBe(FIRST_VERSION);

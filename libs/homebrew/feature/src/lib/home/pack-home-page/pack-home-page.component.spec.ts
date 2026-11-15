@@ -157,6 +157,7 @@ describe('PackHomePage', () => {
         'Could not change who can see this pack. Try again.',
       );
     });
+    // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     const field = visibilityField(harness).componentInstance as PickerField<string, object>;
     expect(field.value()).toBe('private');
   });

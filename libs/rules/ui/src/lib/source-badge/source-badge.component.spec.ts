@@ -34,6 +34,7 @@ async function render({
   return fixture;
 }
 
+// SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
 const host = (fixture: ComponentFixture<SourceBadge>): HTMLElement => fixture.nativeElement as HTMLElement;
 
 /** Opens the popover the way a keyboard does, by focusing the trigger. */

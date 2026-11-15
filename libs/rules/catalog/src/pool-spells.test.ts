@@ -24,6 +24,7 @@ function refsIn(node: unknown): ContentId[] {
     return [];
   }
 
+  // SAFETY: a ref node's id is a content id; the node is typed as plain JSON.
   const own = 'type' in node && node.type === 'ref' && 'id' in node ? [node.id as ContentId] : [];
 
   return [...own, ...Object.values(node).flatMap((child) => refsIn(child))];

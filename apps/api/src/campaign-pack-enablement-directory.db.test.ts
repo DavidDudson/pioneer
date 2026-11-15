@@ -185,6 +185,7 @@ describe.skipIf(adminUrl === undefined)('HomebrewPackService over CampaignPackEn
     await service.setVisibility(amiri, pack.id, PackVisibility.Campaign);
     const error = await rejection(service.setVisibility(amiri, pack.id, PackVisibility.Private));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor.params).toStrictEqual({
       campaigns: 'Kingmaker, Rise of the Runelords',
     });

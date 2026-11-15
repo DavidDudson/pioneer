@@ -16,6 +16,7 @@ async function render(inputs: Record<string, unknown>): Promise<SVGElement> {
 
   await fixture.whenStable();
 
+  // SAFETY: the 'svg' selector matches the icon's inline svg, whose DOM node is an SVGElement.
   return fixture.debugElement.query(By.css('svg')).nativeElement as SVGElement;
 }
 

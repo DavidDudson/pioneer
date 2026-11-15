@@ -106,6 +106,7 @@ function strikesOf(weapons: readonly object[], strength = 4, made: Made = {}): r
     level: 1,
     attributes: { str: strength, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
     ranks: { 'attack:martial': 'trained', 'attack:simple': 'trained' },
+    // SAFETY: the weapon is a test weapon with a slug; wielded() only needs that to build its inputs.
     weapons: weapons.map((weapon) => wielded(weapon as { slug: string })),
   });
 

@@ -103,6 +103,7 @@ async function sessionsOf(api: AnyElysia, session: string): Promise<ListedSessio
 
   expect(response.status).toBe(200);
 
+  // SAFETY: the sessions route answers with the signed-in user's sessions as a JSON array of `ListedSession`; the status is asserted above.
   return (await response.json()) as ListedSession[];
 }
 
@@ -142,6 +143,7 @@ describe('identity routes', () => {
     );
 
     expect(me.status).toBe(200);
+    // SAFETY: `/me` answers with the signed-in user as JSON, which carries `displayName`; the status is asserted above.
     const user = (await me.json()) as { displayName: string };
     expect(user.displayName).toBe('Amiri');
   });
@@ -180,6 +182,7 @@ describe('identity routes', () => {
   test('/me without a session is a 401 problem', async () => {
     const response = await app().handle(new Request('http://localhost/me'));
     expect(response.status).toBe(401);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.message).toStrictEqual({ key: 'problem.unauthorized' });
   });
@@ -245,6 +248,7 @@ describe('identity routes', () => {
     const amiri = sessionFrom(await signIn(api, '/'));
     const response = await revoke(api, amiri, '0199d2a0-0000-7000-8000-00000000ffff');
     expect(response.status).toBe(404);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('not-found');
   });

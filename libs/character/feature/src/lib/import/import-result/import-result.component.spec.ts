@@ -40,6 +40,8 @@ async function render(report: CharacterImportReport): Promise<ComponentFixture<I
 }
 
 function text(fixture: ComponentFixture<ImportResult>): string {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+  // The nativeElement property is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 
@@ -139,6 +141,8 @@ describe(ImportResult, () => {
       dismissed();
     });
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+    // The nativeElement property is typed any.
     const dismiss = [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')].find((button) =>
       button.textContent.includes('Dismiss'),
     );

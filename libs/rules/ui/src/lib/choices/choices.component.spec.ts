@@ -18,6 +18,7 @@ async function render(lines: readonly ChoiceLine[] | undefined): Promise<HTMLEle
   fixture.componentRef.setInput('lines', lines);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -39,6 +40,7 @@ async function renderLockable(locked: ReadonlySet<SlotKey>): Promise<LockableRen
   fixture.componentRef.setInput('locked', locked);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { host: fixture.nativeElement as HTMLElement, changes };
 }
 
@@ -126,6 +128,7 @@ describe(ChoicesView, () => {
     );
     await fixture.whenStable();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const [ancestry, background] = rows(fixture.nativeElement as HTMLElement);
     expect(ancestry).toContain('Keep the ancestry when re-rolling');
     expect(background).not.toContain('Keep the ancestry when re-rolling');
@@ -167,5 +170,6 @@ async function renderReplaced(): Promise<ReplacedRender> {
   fixture.componentRef.setInput('lines', [REPLACED_CHOICE]);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { host: fixture.nativeElement as HTMLElement, replaced };
 }

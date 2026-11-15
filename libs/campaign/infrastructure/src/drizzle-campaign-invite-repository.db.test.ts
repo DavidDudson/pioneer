@@ -124,6 +124,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
     });
 
     const error = await rejection(repository.insert(twin));
+    // SAFETY: `error` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
     expect(String((error as Error).cause)).toContain('campaign_invites_token_hash_idx');
   });
 

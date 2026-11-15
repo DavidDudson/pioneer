@@ -95,6 +95,7 @@ describe('GET /characters/:id/export', () => {
 
     const response = await appOver(repository, 'empty').handle(get(`/characters/${id}/export`, amiri));
     expect(response.status).toBe(422);
+    // SAFETY: Response.json() is typed any; a refused request's body is the Problem the problem handler writes.
     const problem = (await response.json()) as Problem;
     expect(problem.issues).toStrictEqual([
       { path: ['content'], message: { key: 'character.validation.exportUnnamedContent', params: { count: 1 } } },

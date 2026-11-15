@@ -19,6 +19,7 @@ describe('StrikesView item alterations', () => {
     fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
     await fixture.whenStable();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const text = textOf(fixture.nativeElement as HTMLElement);
     expect(text).toContain('Made of cold iron');
     expect(text).toContain('Property runes: flaming');
@@ -32,6 +33,7 @@ describe('StrikesView item alterations', () => {
     fixture.componentRef.setInput('shields', [{ ...STEEL_SHIELD, hardness: 8, hitPoints: 40, brokenThreshold: 20 }]);
     await fixture.whenStable();
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect(textOf(fixture.nativeElement as HTMLElement)).toContain(
       'Steel Shield: Hardness 8, HP 40, Broken Threshold 20',
     );

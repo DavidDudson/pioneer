@@ -20,6 +20,7 @@ function render(options: readonly PreviewEaseOption[] | undefined): ComponentFix
 }
 
 function textOf(fixture: ComponentFixture<EntryEaseOptionsView>): string {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 
@@ -51,6 +52,7 @@ describe(EntryEaseOptionsView, () => {
   it('hides itself when the character has nothing to ease it', () => {
     const fixture = render(undefined);
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).hidden).toBe(true);
   });
 });

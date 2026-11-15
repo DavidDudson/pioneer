@@ -40,7 +40,9 @@ describe(provideI18n, () => {
 
   it('knows a language with messages is loaded without counting them again', async () => {
     const i18n = await setup();
-    const counting = i18n as unknown as CountsLoadedKeys;
+    const instance: object = i18n;
+    // SAFETY: Transloco defines `isLoadedTranslation` on the service at runtime; only its typings hide it.
+    const counting = instance as CountsLoadedKeys;
     expect(counting.isLoadedTranslation('en')).toBeGreaterThan(0);
     const counted = vi.spyOn(i18n, 'getTranslation');
     expect(counting.isLoadedTranslation('en')).toBeGreaterThan(0);
@@ -49,6 +51,8 @@ describe(provideI18n, () => {
 
   it('does not take a language with no messages for loaded', async () => {
     const i18n = await setup();
-    expect((i18n as unknown as CountsLoadedKeys).isLoadedTranslation('es')).toBe(0);
+    const instance: object = i18n;
+    // SAFETY: Transloco defines `isLoadedTranslation` on the service at runtime; only its typings hide it.
+    expect((instance as CountsLoadedKeys).isLoadedTranslation('es')).toBe(0);
   });
 });

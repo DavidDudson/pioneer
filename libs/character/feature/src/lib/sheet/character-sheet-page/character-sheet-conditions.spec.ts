@@ -166,6 +166,8 @@ describe('CharacterSheetPage conditions', () => {
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       const { command } = request.request.body as { command: { condition: Record<string, unknown> } };
       expect(command).toMatchObject({ field: 'addCondition', condition: { condition: BLINDED, duration: UNLIMITED } });
       expect(command.condition).not.toHaveProperty('value');

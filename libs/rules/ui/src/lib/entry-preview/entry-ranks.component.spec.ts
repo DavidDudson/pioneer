@@ -29,10 +29,12 @@ function render(ranks: PreviewRanks): ComponentFixture<EntryRanksView> {
 }
 
 function textOf(fixture: ComponentFixture<EntryRanksView>): string {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 
 function pick(fixture: ComponentFixture<EntryRanksView>, rank: string): void {
+  // SAFETY: By.directive(OptionPicker) matches the one picker this view renders, whose options are the string ranks.
   const select = fixture.debugElement.query(By.directive(OptionPicker)).componentInstance as OptionPicker<string>;
   select.value.set(rank);
   fixture.detectChanges();

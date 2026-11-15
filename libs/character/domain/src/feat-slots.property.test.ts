@@ -69,6 +69,8 @@ function fighterWith(chosen: Picks, atLevel: number, extraStrength: boolean): Ch
 
   for (const [slot, feat] of Object.entries(chosen)) {
     if (feat !== undefined) {
+      // SAFETY: chosen is a Record keyed by FEAT_SLOT_KEYS, so every key Object.entries yields is one of them;
+      // Object.entries types keys as string.
       builder = builder.picking(FEAT_SLOT_KEYS[slot as keyof typeof FEAT_SLOT_KEYS], featSlotFixtureId(feat));
     }
   }

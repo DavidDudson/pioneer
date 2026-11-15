@@ -25,6 +25,7 @@ function render(load: Load): ComponentFixture<RefreshableInput> {
 }
 
 function element(fixture: ComponentFixture<RefreshableInput>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const found = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (found === null) {
@@ -44,6 +45,7 @@ describe(RefreshableInput, () => {
       expect(fixture.componentInstance.value()).toBe('Seelah');
     });
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-spinner')).toBeNull();
   });
 

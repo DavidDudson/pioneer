@@ -212,6 +212,8 @@ describe('CharacterSheetPage spellcasting', () => {
             field: 'spendAction',
             action: GREASE,
             cost: { kind: 'actions', count: 2 },
+            // SAFETY: an asymmetric matcher stands in for a string field of the expected literal.
+            // It is only compared, never read.
             slot: expect.stringContaining('wizard') as string,
           },
         });

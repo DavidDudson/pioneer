@@ -115,6 +115,7 @@ describe(DateDisplay, () => {
     const fixture = TestBed.createComponent(DateDisplay);
     fixture.componentRef.setInput('value', Temporal.PlainDate.from('2026-10-07'));
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).textContent.trim()).toBe('07.10.2026');
   });
 });

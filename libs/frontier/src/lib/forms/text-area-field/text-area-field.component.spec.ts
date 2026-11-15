@@ -14,6 +14,7 @@ function render(): ComponentFixture<TextAreaField> {
 }
 
 function find(fixture: ComponentFixture<TextAreaField>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (element === null) {
@@ -24,6 +25,7 @@ function find(fixture: ComponentFixture<TextAreaField>, selector: string): HTMLE
 }
 
 function textarea(fixture: ComponentFixture<TextAreaField>): HTMLTextAreaElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector('textarea');
 
   if (element === null) {
