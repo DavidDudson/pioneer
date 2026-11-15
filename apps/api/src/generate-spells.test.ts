@@ -85,7 +85,11 @@ function pickProblems({ slot, spell, className, loaded, access }: PickCheck): re
     [own && needsAccess(spell.rarity) && !access.has(spell.id), 'rarity'],
   ];
 
-  return checks.filter(([broken]) => broken).map(([, problem]) => `${problem} ${slot.key}`);
+  return checks
+    .values()
+    .filter(([broken]) => broken)
+    .map(([, problem]) => `${problem} ${slot.key}`)
+    .toArray();
 }
 
 /** What is wrong with the spells a generated character holds, against the content it was generated from. */

@@ -249,6 +249,7 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
   ];
 
   const differing = compared
+    .values()
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): TotalDiscrepancy => ({
       kind: DiscrepancyKind.Total,
@@ -256,7 +257,8 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
       pathbuilder,
       pioneer,
       difference: pioneer - pathbuilder,
-    }));
+    }))
+    .toArray();
 
   return [compared.length, differing];
 }
@@ -294,6 +296,7 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
   ];
 
   const differing = compared
+    .values()
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): RankDiscrepancy => ({
       kind: DiscrepancyKind.Rank,
@@ -301,7 +304,8 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
       pathbuilder,
       pioneer,
       difference: RANKS.indexOf(pioneer) - RANKS.indexOf(pathbuilder),
-    }));
+    }))
+    .toArray();
 
   return [compared.length, differing];
 }

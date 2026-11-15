@@ -48,8 +48,10 @@ function hostOf(fixture: ComponentFixture<StatisticsView>): HTMLElement {
 /** An item's texts and badges in order, joined with " | " so the parts stay apart. */
 function partsOf(element: Element): string {
   return [...element.querySelectorAll('fr-text, fr-badge')]
+    .values()
     .filter((part) => part.querySelector('fr-text, fr-badge') === null)
     .map((part) => textOf(part))
+    .toArray()
     .join(' | ');
 }
 

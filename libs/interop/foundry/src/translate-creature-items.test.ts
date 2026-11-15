@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, ContentKind } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { ARBITER } from './testing/arbiter-fixture';
 import { AZARKETI_CRAB_CATCHER } from './testing/azarketi-crab-catcher-fixture';
@@ -9,6 +10,9 @@ import { contentEntry, entryOf } from './testing/kind-fixtures';
 import { TOR_LINNORM_ITEMS } from './testing/tor-linnorm-items-fixture';
 
 /** Golden tests on real Monster Core creatures: a spellcaster, a multiattack monster, and a humanoid with gear. */
+
+const Ability = z.object({ name: z.string(), cost: z.string().optional(), trigger: z.unknown().optional() });
+const Abilities = z.object({ abilities: z.array(Ability) });
 
 const SPELLS = ['read-omens', 'command', 'mending', 'sanctuary'].map((name) => coreRulesEntry(ContentKind.Spell, name));
 const DAGGER = coreRulesEntry(ContentKind.Weapon, 'dagger');
@@ -79,9 +83,7 @@ describe('translateCreature: strikes', () => {
     const lang = { PF2E: { AttackEffectImprovedGrab: 'Improved Grab' } };
     const translation = translate([TOR_LINNORM_ITEMS], { lang });
 
-    const strikes = entryOf(translation, 'tor-linnorm')?.kindData?.data as unknown as {
-      effects?: { content: { text: string }[] }[];
-    };
+    const strikes = entryOf(translation, 'tor-linnorm')?.kindData?.data;
 
     expect(JSON.stringify(strikes)).toContain('Improved Grab');
   });
@@ -98,9 +100,7 @@ describe('translateCreature: an NPC with gear', () => {
   test('gear without an entry is reported, and a reaction keeps its trigger', () => {
     const translation = translate([AZARKETI_CRAB_CATCHER], { known: [DAGGER] });
 
-    const abilities = entryOf(translation, 'azarketi-crab-catcher')?.kindData?.data as unknown as {
-      abilities: { name: string; cost?: string; trigger?: unknown }[];
-    };
+    const abilities = Abilities.parse(entryOf(translation, 'azarketi-crab-catcher')?.kindData?.data);
 
     const swim = abilities.abilities.find(({ name }) => name === 'Swim Away');
 

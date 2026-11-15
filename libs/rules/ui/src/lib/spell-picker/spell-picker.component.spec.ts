@@ -163,7 +163,7 @@ describe(SpellPicker, () => {
     const rendered = await render(SPELLS);
     expect(nameCells(rendered).map((cell) => cell.textContent.trim())).toStrictEqual([
       'Electric Arc',
-      expect.stringContaining('Hypnotic Pattern') as unknown as string,
+      expect.stringContaining('Hypnotic Pattern'),
       'Fireball',
     ]);
   });

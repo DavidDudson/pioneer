@@ -23,8 +23,10 @@ export function staffCoverage(entries: readonly ContentEntry[]): StaffCoverage {
   return {
     staves: staves.length,
     withoutSpells: staves
+      .values()
       .filter((entry) => !hasSpells(entry))
       .map((entry) => contentKey(entry.pack, entry.slug))
+      .toArray()
       .toSorted(),
   };
 }

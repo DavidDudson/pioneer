@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { LanguageName } from '@pioneer/character/domain';
 import { ImportKind, PathbuilderName } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedFeat } from '@pioneer/interop/pathbuilder';
-import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentText, EntrySlug, Level, PackId } from '@pioneer/rules/sdk';
 
 import { keptPicks } from './pathbuilder-unplaced';
 
@@ -16,8 +16,9 @@ const iomedae = ContentId.parse(contentId(pack, EntrySlug.parse('deity:iomedae')
 const fireball = ContentId.parse(contentId(pack, EntrySlug.parse('spell:fireball')));
 
 /** A lookup that knows Elven and Nimble Dodge, by name. */
-const lookup = {
-  resolve: (kind: ImportKind, name: string) => {
+const lookup: ContentLookup = {
+  supports: () => true,
+  resolve: (kind: ImportKind, name: PathbuilderName) => {
     const known: Partial<Record<ImportKind, Record<string, typeof elven>>> = {
       [ImportKind.Language]: { Elven: elven },
       [ImportKind.Feat]: { 'Nimble Dodge': dodge },
@@ -29,21 +30,30 @@ const lookup = {
 
     const id = known[kind]?.[name];
 
-    return id === undefined ? undefined : { id, name };
+    return id === undefined ? undefined : { id, name: ContentText.parse(name) };
   },
-} as unknown as ContentLookup;
+};
 
 const name = (value: string): PathbuilderName => PathbuilderName.parse(value);
+
+/** A slotted level 1 feat by `value`, which is all `keptPicks` reads. */
+function feat(value: string): ImportedFeat {
+  return {
+    name: name(value),
+    choice: undefined,
+    type: name('General Feat'),
+    level: Level.parse(1),
+    slot: undefined,
+    slotted: true,
+  };
+}
 
 /** The picks a test is not about. */
 const NOTHING_ELSE = { classFeatures: [], deity: undefined, spells: [] } as const;
 
 describe('keptPicks', () => {
   test('keeps each matched feat and language once, and leaves out a name that matched nothing', () => {
-    const feats = [
-      { name: name('Nimble Dodge') },
-      { name: name('Nimble Dodge') },
-    ] as unknown as readonly ImportedFeat[];
+    const feats = [feat('Nimble Dodge'), feat('Nimble Dodge')];
 
     const picks = keptPicks(
       { feats, languages: [name('Elven'), name('Elven')], customLanguages: [], rituals: [], ...NOTHING_ELSE },

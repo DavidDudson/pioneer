@@ -9,8 +9,8 @@ import type { RulesMerge } from './apply-rules.ts';
 const ID = ContentId.parse('00000000-0000-5000-8000-000000000001');
 const OTHER = ContentId.parse('00000000-0000-5000-8000-000000000002');
 
-const toggle = { key: 'RollOption', option: 'a:b' } as unknown as RuleElement;
-const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as unknown as RuleElement;
+const toggle = { key: 'RollOption', option: 'a:b' } as RuleElement;
+const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as RuleElement;
 
 const UNTOUCHED =
   '{ "id": "00000000-0000-5000-8000-000000000002", "description": [{"type":"text","text":"x"}], "rules": [] }';

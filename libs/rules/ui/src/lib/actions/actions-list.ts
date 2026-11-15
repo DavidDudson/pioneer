@@ -67,10 +67,13 @@ export function nowGroups(lines: readonly ActionLine[], mode: ActionMode): reado
       line.modes.includes(mode),
   );
 
-  const groups = COST_ORDER.map((cost): ActionGroup => ({
-    cost,
-    lines: usable.filter((line) => costGroupOf(line) === cost).toSorted(byPriority),
-  })).filter(({ lines: grouped }) => grouped.length > 0);
+  const groups = COST_ORDER.values()
+    .map((cost): ActionGroup => ({
+      cost,
+      lines: usable.filter((line) => costGroupOf(line) === cost).toSorted(byPriority),
+    }))
+    .filter(({ lines: grouped }) => grouped.length > 0)
+    .toArray();
 
   return groups.toSorted((left, right) => {
     const first = groupPriority(left);

@@ -108,7 +108,11 @@ export function economyConditions(registry: ContentRegistry): EconomyConditions 
 
 /** What a condition of `id` adds up to among `conditions`: its highest value, 1 for one with no value, 0 for none. */
 function strongest(conditions: readonly ActiveCondition[], id: ContentId | undefined): ActionCount {
-  const values = conditions.filter(({ condition }) => condition === id).map(({ value }) => value ?? 1);
+  const values = conditions
+    .values()
+    .filter(({ condition }) => condition === id)
+    .map(({ value }) => value ?? 1)
+    .toArray();
 
   return ActionCount.parse(Math.min(Math.max(0, ...values), ACTIONS_MAX));
 }

@@ -28,7 +28,12 @@ export function flatCheckDc(
   }
 
   const base = assisted ? ASSISTED_FLAT_CHECK_DC : FLAT_CHECK_DC;
-  const lowered = matching.map((each) => (assisted ? each.assisted : each.dc)).filter((dc) => dc !== undefined);
+
+  const lowered = matching
+    .values()
+    .map((each) => (assisted ? each.assisted : each.dc))
+    .filter((dc) => dc !== undefined)
+    .toArray();
 
   return Dc.parse(Math.min(base, ...lowered));
 }

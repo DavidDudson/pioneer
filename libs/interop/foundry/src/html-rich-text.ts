@@ -311,9 +311,11 @@ function visit(node: ChildNode, sink: Sink, context: Context): void {
 /** Each top-level block as a plain paragraph, its parts on separate lines: what is left when the structure is too big. */
 function flattened(blocks: readonly BlockNode[]): BlockNode[] {
   return blocks
+    .values()
     .map((block) => normalised(runOfBlock(block)))
     .filter((content) => content.length > 0)
-    .map((content) => ({ type: BlockKind.Paragraph, content }));
+    .map((content) => ({ type: BlockKind.Paragraph, content }))
+    .toArray();
 }
 
 /**

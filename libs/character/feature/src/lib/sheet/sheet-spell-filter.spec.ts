@@ -1,7 +1,9 @@
 import { TargetValue } from '@pioneer/rules/sdk';
+import type { DamageType } from '@pioneer/rules/sdk';
 import type { SpellDetailLine, SpellRowLine } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
+import { spellLine } from '../testing/spell-line-testing';
 import {
   filterSpells,
   NO_SPELL_FILTER,
@@ -19,21 +21,12 @@ interface Spell {
   readonly source?: string;
   readonly targets?: readonly TargetValue[];
   readonly traits?: readonly string[];
-  readonly damage?: readonly string[];
+  readonly damage?: readonly DamageType[];
   readonly cost?: SpellDetailLine['cost'];
 }
 
-const ONE_ACTION: SpellDetailLine['cost'] = { kind: 'actions', cost: 'one', upTo: undefined };
-
-function spell({ name, source, targets = [], traits = [], damage = [], cost = ONE_ACTION }: Spell): SourcedSpell {
-  const detail = {
-    id: name,
-    name,
-    targetValues: targets,
-    traits: traits.map((label) => ({ label })),
-    cost,
-    effects: damage.map((damageType) => ({ roll: { instances: [{ damageType }] } })),
-  } as unknown as SpellDetailLine;
+function spell({ name, source, targets, traits, damage, cost }: Spell): SourcedSpell {
+  const detail = spellLine({ slug: name.toLowerCase().replaceAll(' ', '-'), name, targets, traits, damage, cost });
 
   const line: SpellRowLine = { key: name, detail };
 

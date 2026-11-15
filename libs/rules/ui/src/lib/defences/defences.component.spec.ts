@@ -57,8 +57,10 @@ function textOf(element: Element): string {
 /** An item's texts and badges in order, so the parts stay apart. */
 function partsOf(item: Element): string {
   return [...item.querySelectorAll('fr-text, fr-badge')]
+    .values()
     .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
     .map((part) => textOf(part))
+    .toArray()
     .join(' | ');
 }
 

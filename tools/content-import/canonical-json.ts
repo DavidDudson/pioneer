@@ -9,10 +9,8 @@
 const PRINT_WIDTH = 120;
 const INDENT = '  ';
 
-type Json = unknown;
-
 /** The members of an array or object, or none for a scalar. */
-function sizeOf(value: Json): number {
+function sizeOf(value: unknown): number {
   if (Array.isArray(value)) {
     return value.length;
   }
@@ -21,14 +19,14 @@ function sizeOf(value: Json): number {
 }
 
 /** Whether a formatter breaks an array of arrays whatever its width: two or more, each of two or more members. */
-function breaksAlways(items: readonly Json[]): boolean {
+function breaksAlways(items: readonly unknown[]): boolean {
   return items.length > 1 && items.every((item) => Array.isArray(item) && sizeOf(item) > 1);
 }
 
 /** `value` on one line, or nothing if it holds an object or an array that always breaks. */
-function flat(value: Json): string | undefined {
+function flat(value: unknown): string | undefined {
   if (Array.isArray(value)) {
-    const parts = value.map((item: Json) => flat(item));
+    const parts = value.map((item: unknown) => flat(item));
     const joined = parts.every((part) => part !== undefined) ? parts.join(', ') : undefined;
 
     return joined === undefined || breaksAlways(value) ? undefined : `[${joined}]`;
@@ -58,7 +56,7 @@ interface Frame {
 }
 
 /** The lines of `value` placed at `depth`. */
-function lines(value: Json, depth: number, { prefix, suffix }: Around): readonly string[] {
+function lines(value: unknown, depth: number, { prefix, suffix }: Around): readonly string[] {
   const lead = `${indented(depth)}${prefix}`;
 
   if (Array.isArray(value)) {
@@ -72,7 +70,7 @@ function lines(value: Json, depth: number, { prefix, suffix }: Around): readonly
   return [`${lead}${JSON.stringify(value)}${suffix}`];
 }
 
-function arrayLines(items: readonly Json[], depth: number, { lead, suffix }: Frame): readonly string[] {
+function arrayLines(items: readonly unknown[], depth: number, { lead, suffix }: Frame): readonly string[] {
   if (items.length === 0) {
     return [`${lead}[]${suffix}`];
   }
@@ -92,7 +90,7 @@ function arrayLines(items: readonly Json[], depth: number, { lead, suffix }: Fra
 }
 
 function objectLines(
-  members: readonly (readonly [string, Json])[],
+  members: readonly (readonly [string, unknown])[],
   depth: number,
   { lead, suffix }: Frame,
 ): readonly string[] {
@@ -108,6 +106,6 @@ function objectLines(
 }
 
 /** `value` as a committed pack file's text, with the newline that ends it. */
-export function canonicalJson(value: Json): string {
+export function canonicalJson(value: unknown): string {
   return `${lines(value, 0, { prefix: '', suffix: '' }).join('\n')}\n`;
 }

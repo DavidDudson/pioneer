@@ -18,8 +18,10 @@ export function prerequisiteCoverage(entries: readonly ContentEntry[]): Prerequi
   return {
     withPrerequisites: feats.length,
     withoutPredicate: feats
+      .values()
       .filter((feat) => feat.data.prerequisitePredicate === undefined)
       .map((feat) => contentKey(feat.pack, feat.slug))
+      .toArray()
       .toSorted(),
   };
 }

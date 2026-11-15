@@ -150,7 +150,7 @@ export function entryPreviews(index: () => ReadonlyMap<ContentId, ContentEntry> 
 /** The name of each trait the entries hold, by its slug: the vocabulary's own entry, the last one loaded winning. */
 export function traitNamesOf(entries: Iterable<ContentEntry>): ReadonlyMap<Trait, string> {
   return new Map(
-    [...entries]
+    Iterator.from(entries)
       .filter((entry) => entry.kind === ContentKind.Trait)
       .map((entry): [Trait, string] => [Trait.parse(slugName(entry.slug)), entry.name]),
   );

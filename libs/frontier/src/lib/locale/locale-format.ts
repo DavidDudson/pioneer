@@ -73,8 +73,10 @@ export class LocaleFormat {
     const locale = this.locale();
 
     const words = [...new Intl.Segmenter(locale, { granularity: 'word' }).segment(name)]
+      .values()
       .filter((segment) => segment.isWordLike === true)
-      .map((segment) => segment.segment);
+      .map((segment) => segment.segment)
+      .toArray();
 
     const graphemes = new Intl.Segmenter(locale, { granularity: 'grapheme' });
     const first = (word: string | undefined): string => [...graphemes.segment(word ?? '')][0]?.segment ?? '';

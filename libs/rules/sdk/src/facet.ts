@@ -159,7 +159,10 @@ function leaves(value: unknown, path: FacetPath): readonly unknown[] {
     return [value];
   }
 
-  const child: unknown = typeof value === 'object' && value !== null ? Reflect.get(value, head) : undefined;
+  const child: unknown =
+    typeof value === 'object' && value !== null
+      ? Object.entries(value).find(([name]) => name === String(head))?.[1]
+      : undefined;
 
   return child === undefined ? [undefined] : leaves(child, rest);
 }

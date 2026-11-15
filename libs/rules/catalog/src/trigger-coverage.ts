@@ -21,8 +21,10 @@ export function triggerCoverage(entries: readonly ContentEntry[]): TriggerCovera
   return {
     triggered: triggered.length,
     withoutEvent: triggered
+      .values()
       .filter((entry) => entryAction(entry)?.triggerEvent === undefined)
       .map((entry) => contentKey(entry.pack, entry.slug))
+      .toArray()
       .toSorted(),
   };
 }

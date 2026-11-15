@@ -289,9 +289,11 @@ function hiddenSlot(key: SlotKey, selection: ChoiceValue, context: SlotContext):
 function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): CharacterSlot[] {
   const keys = new Set(listed.map((slot) => slot.key));
 
-  return [...context.picks]
+  return context.picks
+    .entries()
     .filter(([key]) => !keys.has(key))
-    .map(([key, selection]) => hiddenSlot(key, selection, context));
+    .map(([key, selection]) => hiddenSlot(key, selection, context))
+    .toArray();
 }
 
 /**

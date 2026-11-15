@@ -1,11 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
 const ENTRY = ContentId.parse('00000000-0000-5000-8000-000000000000');
+
+const Choice = z.object({ value: z.string(), predicate: z.array(z.string()) });
+const ChoiceRule = z.object({ choices: z.array(Choice) });
 
 const YES_NO = [
   { label: 'PF2E.Yes', value: 'yes' },
@@ -35,7 +39,7 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
     );
 
     expect(untranslated).toEqual([]);
-    const { choices } = rules[0] as unknown as { choices: { value: string; predicate: string[] }[] };
+    const { choices } = ChoiceRule.parse(rules[0]);
     expect(choices).toHaveLength(16);
     expect(choices[0]).toMatchObject({ value: 'acrobatics', predicate: ['skill:acrobatics:rank:0'] });
     expect(rules[1] as unknown).toEqual({

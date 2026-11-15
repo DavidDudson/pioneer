@@ -150,8 +150,10 @@ describe('offer properties', () => {
         const { slot, answered, facts } = outcomeOf({ asker, content, level, pick });
 
         const offered = choices
+          .values()
           .filter((choice) => !('predicate' in choice) || notFalse(choice.predicate, facts))
-          .map((choice) => choice.value);
+          .map((choice) => choice.value)
+          .toArray();
 
         expect(answered).toBe(offered.some((value) => value === pick));
         expect(slot?.options.map((each) => String(each.value))).toEqual(offered);

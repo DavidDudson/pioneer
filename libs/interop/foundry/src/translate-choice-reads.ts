@@ -48,8 +48,10 @@ const EMBEDDED_READ = /\{item\|flags\.system\.rulesSelections\.(?<flag>[\w-]+)\.
 /** The paths of the reads of the pick of `flag` inside `text`. */
 function embeddedPaths(text: string, flag: string): readonly string[] {
   return [...text.matchAll(EMBEDDED_READ)]
+    .values()
     .filter((found) => found.groups?.['flag'] === flag)
-    .map((found) => found.groups?.['path'] ?? '');
+    .map((found) => found.groups?.['path'] ?? '')
+    .toArray();
 }
 
 /** Whether anything under `node` reads the pick of `flag`. */

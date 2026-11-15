@@ -9,8 +9,10 @@ export interface PackDependencyEdge {
 /** The packs `pack` extends directly, ordered by id so a walk is the same wherever it runs. */
 function directDependencies(edges: readonly PackDependencyEdge[], pack: ContentPackId): readonly ContentPackId[] {
   return edges
+    .values()
     .filter((edge) => edge.pack === pack)
     .map((edge) => edge.dependsOn)
+    .toArray()
     .toSorted((left, right) => left.localeCompare(right));
 }
 

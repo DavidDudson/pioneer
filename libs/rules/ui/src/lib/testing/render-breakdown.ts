@@ -37,8 +37,10 @@ function textOf(element: Element): string {
 /** An item's texts and badges in order, so the parts stay apart. */
 function partsOf(item: Element): string {
   return [...item.querySelectorAll('fr-text, fr-badge')]
+    .values()
     .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
     .map((part) => textOf(part))
+    .toArray()
     .join(' | ');
 }
 
@@ -87,8 +89,10 @@ function read(host: HTMLElement): Rendered {
 
   return {
     captions: [...host.querySelectorAll('fr-text')]
+      .values()
       .filter((caption) => caption.closest('fr-list') === null)
-      .map((caption) => textOf(caption)),
+      .map((caption) => textOf(caption))
+      .toArray(),
     terms: items('pio-base-terms'),
     lines: items('pio-breakdown-lines'),
     overrides: items('pio-override-lines'),

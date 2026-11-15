@@ -268,11 +268,17 @@ export function proposeAonMappings(
   const printed = new Map(listings.map((listing) => [listing.book, listing.printed]));
 
   const results = entries
+    .values()
     .filter(({ slug }) => !mapped.has(slug))
-    .map((entry) => ({ entry, outcome: matchEntry(entry, indexes, printed) }));
+    .map((entry) => ({ entry, outcome: matchEntry(entry, indexes, printed) }))
+    .toArray();
 
   const slugsOf = (kind: Outcome['kind']): readonly EntrySlug[] =>
-    results.filter(({ outcome }) => outcome.kind === kind).map(({ entry }) => entry.slug);
+    results
+      .values()
+      .filter(({ outcome }) => outcome.kind === kind)
+      .map(({ entry }) => entry.slug)
+      .toArray();
 
   const proposals = new Map(
     results.flatMap(({ entry, outcome }): [EntrySlug, EnrichmentMapping][] =>

@@ -105,7 +105,7 @@ export const noDerivedTypes: Rule.RuleModule = {
   create(context) {
     return {
       TSTypeReference(node: Rule.Node): void {
-        const { typeName } = node as unknown as TypeReferenceShape;
+        const { typeName } = node as TypeReferenceShape;
         const name = typeName?.type === 'Identifier' ? typeName.name : undefined;
 
         if (typeof name === 'string' && DERIVED_TYPES.has(name)) {

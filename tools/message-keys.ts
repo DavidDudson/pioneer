@@ -49,8 +49,10 @@ export function findKeyLiterals(source: string, kind: SourceKind, namespaces: Re
   const pattern = kind === SourceKind.Template ? HTML_LITERAL : TS_LITERAL;
 
   return [...source.matchAll(pattern)]
+    .values()
     .map((match) => match.groups?.['literal'] ?? '')
-    .filter((literal) => isDotted(literal) && namespaces.has(literal.split('.')[0] ?? ''));
+    .filter((literal) => isDotted(literal) && namespaces.has(literal.split('.')[0] ?? ''))
+    .toArray();
 }
 
 export function compareKeys(defined: ReadonlySet<string>, used: ReadonlySet<string>): KeyReport {
