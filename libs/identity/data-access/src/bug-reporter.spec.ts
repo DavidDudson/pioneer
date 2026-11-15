@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { IdentityContract, ReportText } from '@pioneer/identity/domain';
 import { Locale, Uuid } from '@pioneer/shared/kernel';
+import type { Endpoint } from '@pioneer/shared/kernel';
 import { ApiClient, LocalePreferences } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
@@ -17,11 +18,11 @@ interface Request {
 
 interface Setup {
   readonly reporter: BugReporter;
-  readonly call: Mock<(endpoint: object, request: Request) => Promise<object>>;
+  readonly call: Mock<(endpoint: Endpoint, request: Request) => Promise<object>>;
 }
 
 async function setup(): Promise<Setup> {
-  const call = vi.fn<(endpoint: object, request: Request) => Promise<object>>(async () => ({}));
+  const call = vi.fn<(endpoint: Endpoint, request: Request) => Promise<object>>(async () => ({}));
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: '**', children: [] }]),

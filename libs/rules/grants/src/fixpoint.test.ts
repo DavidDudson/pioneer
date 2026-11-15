@@ -1,8 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, RollOption, Slug } from '@pioneer/rules/sdk';
-import type { JsonValue } from '@pioneer/rules/sdk';
-import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, JsonValue, RuleJson } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';

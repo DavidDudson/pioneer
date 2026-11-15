@@ -9,7 +9,7 @@ import path from 'node:path';
 import { proposeGrantedActions } from '@pioneer/rules/catalog';
 import type { ActionGranter } from '@pioneer/rules/catalog';
 import { ContentEntryFile, ContentKind, EnrichmentMappingFile } from '@pioneer/rules/sdk';
-import type { ContentEntry, EnrichmentMapping, EntrySlug } from '@pioneer/rules/sdk';
+import type { ContentEntry, EnrichmentMapping, EntrySlug, JsonValue } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
@@ -34,14 +34,15 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 }
 
 /** Every `GrantItem` target inside a rule list, however deep (a choice set nests its grants). */
-function grantedIds(node: object): readonly string[] {
-  const grant = GrantItemRule.safeParse(node);
-  const children: readonly unknown[] = Object.values(node);
+function grantedIds(node: JsonValue): readonly string[] {
+  if (!(node instanceof Object)) {
+    return [];
+  }
 
-  return [
-    ...(grant.success ? [grant.data.item] : []),
-    ...children.flatMap((child) => (child instanceof Object ? grantedIds(child) : [])),
-  ];
+  const grant = GrantItemRule.safeParse(node);
+  const children: readonly JsonValue[] = Object.values(node);
+
+  return [...(grant.success ? [grant.data.item] : []), ...children.flatMap((child) => grantedIds(child))];
 }
 
 /** A pack's enrichment file, as written (to merge into) and as parsed (to read). */

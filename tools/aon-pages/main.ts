@@ -113,7 +113,7 @@ interface Stop {
 
 /** One window of a book's hits, or the reason the run must stop. */
 async function ask(id: string, sourceId: string, from: number): Promise<PageHits | Stop> {
-  const outcome = await client.postJson(SEARCH, query(sourceId, from));
+  const outcome = await client.postJson(SEARCH, JSON.stringify(query(sourceId, from)));
 
   if (outcome.kind !== 'fresh') {
     return { stop: outcome.kind === 'refused' ? outcome.reason : 'no answer' };

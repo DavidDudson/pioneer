@@ -4,6 +4,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { BugReportDetail, IdentityContract } from '@pioneer/identity/domain';
+import type { Endpoint } from '@pioneer/shared/kernel';
 import { ApiClient, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -36,7 +37,7 @@ interface Rendered {
 async function render(report: BugReportDetail): Promise<Rendered> {
   const sent: { status: string }[] = [];
 
-  const call = vi.fn<(endpoint: object, input: { body?: { status: string } }) => Promise<object>>(
+  const call = vi.fn<(endpoint: Endpoint, input: { body?: { status: string } }) => Promise<object>>(
     async (endpoint, input) => {
       if (endpoint === IdentityContract.triageBugReport && input.body !== undefined) {
         sent.push(input.body);

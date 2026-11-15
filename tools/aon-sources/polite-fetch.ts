@@ -157,7 +157,7 @@ export class PoliteClient {
   }
 
   /** `body` as JSON to `url`, if `robots.txt` allows it. Nothing is cached, so the answer is always fresh. */
-  public async postJson(url: URL, body: object): Promise<PageOutcome> {
+  public async postJson(url: URL, body: string): Promise<PageOutcome> {
     const rules = await this.rules(url.origin);
 
     if (rules.kind === 'refused') {
@@ -173,7 +173,7 @@ export class PoliteClient {
     const response = await this.config.fetch(url, {
       method: 'POST',
       headers: { 'User-Agent': this.config.userAgent, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body,
       redirect: 'error',
     });
 

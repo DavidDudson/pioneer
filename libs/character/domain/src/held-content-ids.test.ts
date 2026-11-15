@@ -15,6 +15,7 @@ describe('heldContentIds', () => {
       .picking('feat:2', SECOND)
       .picking('feat:3', SECOND)
       .build();
+
     const found = heldContentIds(document);
 
     expect(found).toContain(FIRST);

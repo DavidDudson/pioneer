@@ -7,7 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
-import type { JsonObject, JsonValue } from './testing/json-value';
+import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
@@ -27,9 +27,9 @@ interface SpellFixture {
   readonly name: string;
   readonly rarity: string;
   readonly traits: readonly string[];
-  readonly sources: readonly JsonValue[];
-  readonly description: readonly JsonValue[];
-  readonly rules: readonly JsonValue[];
+  readonly sources: readonly FixtureJson[];
+  readonly description: readonly FixtureJson[];
+  readonly rules: readonly FixtureJson[];
   readonly data: JsonObject;
 }
 
