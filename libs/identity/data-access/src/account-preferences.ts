@@ -90,7 +90,7 @@ export class AccountPreferences {
 
       await this.#loaded(loaded, generation, changes);
     } catch (error: unknown) {
-      if (ApiError.isUnauthorized(error)) {
+      if (error instanceof ApiError && error.isUnauthorized) {
         await this.#forget();
       }
       // Otherwise the cached choices stand until the next visit.
@@ -136,7 +136,7 @@ export class AccountPreferences {
       }
     } catch (error: unknown) {
       // Signed out meanwhile: the defaults are showing and stay.
-      if (generation === this.#generation && !ApiError.isUnauthorized(error)) {
+      if (generation === this.#generation && !(error instanceof ApiError && error.isUnauthorized)) {
         await this.#show(this.#saved, generation);
       }
 

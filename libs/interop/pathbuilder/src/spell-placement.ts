@@ -42,16 +42,19 @@ function entriesOf(slots: readonly PreparedSlot[]): Entry[] {
   });
 }
 
+/** Where one listed spell went: a slot, or the reason it found none. */
+type Placed = { readonly slot: PreparedSlot } | { readonly reason: SpellGapReason };
+
 /** Where one listed spell goes: the first open slot of its rank that offers it, else why none did. */
-function placeOne(
-  slots: readonly PreparedSlot[],
-  { rank, id }: Listed,
-  used: ReadonlySet<SlotKey>,
-): PreparedSlot | SpellGapReason {
+function placeOne(slots: readonly PreparedSlot[], { rank, id }: Listed, used: ReadonlySet<SlotKey>): Placed {
   const open = slots.filter((slot) => slot.rank === rank && !used.has(slot.key));
   const fitting = open.find((slot) => slot.options.some((option) => option.id === id));
 
-  return fitting ?? (open.length === 0 ? SpellGapReason.NoSlot : SpellGapReason.NotOffered);
+  if (fitting !== undefined) {
+    return { slot: fitting };
+  }
+
+  return { reason: open.length === 0 ? SpellGapReason.NoSlot : SpellGapReason.NotOffered };
 }
 
 /** One caster's spells in its entry's slots: the picks they make and the gaps they leave. */
@@ -61,13 +64,14 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
   const gaps: SpellGap[] = [];
 
   for (const spell of listed(caster, lookup)) {
-    const placed = entry === undefined ? SpellGapReason.NoEntry : placeOne(entry.slots, spell, used);
+    const placed: Placed =
+      entry === undefined ? { reason: SpellGapReason.NoEntry } : placeOne(entry.slots, spell, used);
 
-    if (typeof placed === 'string') {
-      gaps.push({ caster: caster.name, rank: spell.rank, name: spell.name, reason: placed });
+    if ('slot' in placed) {
+      picks[placed.slot.key] = ChoiceValue.parse(spell.id);
+      used.add(placed.slot.key);
     } else {
-      picks[placed.key] = ChoiceValue.parse(spell.id);
-      used.add(placed.key);
+      gaps.push({ caster: caster.name, rank: spell.rank, name: spell.name, reason: placed.reason });
     }
   }
 

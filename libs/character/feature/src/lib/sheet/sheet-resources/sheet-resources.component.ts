@@ -110,7 +110,7 @@ export class SheetResources {
   };
 
   /** The server's reason (a conflict), else the sheet's own wording. */
-  #describe(error: unknown): string {
+  #describe(error: Error): string {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);
@@ -122,8 +122,9 @@ export class SheetResources {
 
     try {
       await this.#play.send(command);
-    } catch (error: unknown) {
-      this.error.set(this.#describe(error));
+    } catch (error) {
+      const failure = error instanceof Error ? error : new Error(String(error));
+      this.error.set(this.#describe(failure));
     } finally {
       this.#asked.update(({ [resource]: _answered, ...rest }) => rest);
       this.busy.set(false);

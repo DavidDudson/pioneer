@@ -10,6 +10,7 @@ import { ImportKind, ImportKindSchema, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
 import { buildImportReport, MatchStatus, Occurrences } from './import-report';
 import type { ReportRow } from './import-report';
+import { PathbuilderFileJson } from './pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SkillGap } from './skill-placement';
 import { SpellGap } from './spell-listing';
@@ -137,7 +138,7 @@ export type FetchExportResponse = z.infer<typeof FetchExportResponse>;
 
 /**
  * Create a character from a Pathbuilder export. The body is the export itself; the server reads it again and never
- * trusts a client's preview. The body is `z.unknown()` on purpose: the service is the trust boundary, so a bad export
+ * trusts a client's preview. The body is any JSON on purpose: the service is the trust boundary, so a bad export
  * comes back as its own problem rather than a generic schema 422. Lives here, not in `CharacterContract`, because this lib already depends on the
  * character domain.
  */
@@ -147,7 +148,7 @@ export const PathbuilderImportContract = {
     path: '/characters/import/pathbuilder',
     params: NoParams,
     query: NoQuery,
-    body: z.unknown(),
+    body: PathbuilderFileJson,
     response: PathbuilderImportResponse,
   }),
   /** The export a pasted Pathbuilder JSON URL points at, fetched by the server (never by the client). */

@@ -5,9 +5,10 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 
-function issues(value: unknown): readonly FieldIssue[] {
+function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

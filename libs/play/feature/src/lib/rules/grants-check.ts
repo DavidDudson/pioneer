@@ -52,16 +52,18 @@ const PLAYGROUND_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', pag
 const idOfSlug = (slug: Slug): ContentId =>
   ContentId.parse(contentId(PLAYGROUND_PACK, entrySlug(ContentKind.ClassFeature, slug)));
 
-/** A `GrantItem` may name its entry by slug in the playground; stored content always uses the id. */
-function slugGrantToId(value: unknown): unknown {
-  if (typeof value !== 'object' || value === null || !('key' in value) || value.key !== RuleElementKey.GrantItem) {
-    return value;
-  }
+/** A `GrantItem` that names its entry by slug, which stored content never does; read as the id it stands for. */
+const GrantBySlug = z.looseObject({
+  key: z.literal(RuleElementKey.GrantItem),
+  item: Slug.transform((slug) => idOfSlug(slug)),
+});
 
-  const item = 'item' in value ? Slug.safeParse(value.item) : undefined;
+/** A rule element as the playground takes it: a `GrantItem` may name its entry by slug; stored content always uses the id. */
+const PlaygroundRule = z.preprocess((value) => {
+  const grant = GrantBySlug.safeParse(value);
 
-  return item?.success === true ? { ...value, item: idOfSlug(item.data) } : value;
-}
+  return grant.success ? grant.data : value;
+}, RuleElement);
 
 /**
  * An entry as the playground takes it: a slug, a name and its rule elements; a kind (a class feature unless it says)
@@ -72,7 +74,7 @@ const PlaygroundEntry = z.strictObject({
   name: ContentText,
   kind: ContentKindSchema.default(ContentKind.ClassFeature),
   rollOptions: z.array(RollOption).default([]),
-  rules: z.array(z.preprocess(slugGrantToId, RuleElement)),
+  rules: z.array(PlaygroundRule),
 });
 
 type PlaygroundEntry = z.output<typeof PlaygroundEntry>;

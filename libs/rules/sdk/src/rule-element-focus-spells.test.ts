@@ -4,9 +4,10 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: unknown): readonly FieldIssue[] {
+function issues(value: JsonValue): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

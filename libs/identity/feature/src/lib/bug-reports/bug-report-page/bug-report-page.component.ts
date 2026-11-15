@@ -70,6 +70,8 @@ export class BugReportPage {
     this.#desk.setStatus(this.id(), BugReportStatus.Declined);
 
   protected readonly save = (report: BugReportDetail): void => {
-    saveSnapshot(this.#document, report.id, report.snapshot);
+    if (report.snapshot !== undefined) {
+      saveSnapshot(this.#document, report.id, report.snapshot);
+    }
   };
 }

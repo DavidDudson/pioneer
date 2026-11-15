@@ -3,6 +3,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import type { ActionData } from './action';
 import type { ContentEntry } from './content-entry';
 import type { ContentKind } from './content-kind';
+import type { FacetLeaf } from './facet';
 import { FeatCategory } from './feat';
 import { ActionCost } from './rich-text';
 import type { Selector } from './selector';
@@ -108,7 +109,7 @@ export function actionSkills({ data, traits }: ActionEntry): readonly (SkillValu
  * The archetype a feat belongs to. A feat with the `archetype` trait but no archetype named gives `undefined`
  * (unknown); any other feat gives none, so picking an archetype keeps only its feats.
  */
-export function featArchetype({ data, traits }: FeatEntry): readonly unknown[] {
+export function featArchetype({ data, traits }: FeatEntry): readonly FacetLeaf[] {
   if (data.archetype !== undefined) {
     return [data.archetype];
   }

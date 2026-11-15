@@ -128,7 +128,7 @@ export class EntryPage {
     };
   });
   /** The page this one was opened from, when it was the sheet's side panel. */
-  protected readonly origin = originOf(inject(Location).getState());
+  protected readonly origin = originOf(inject(Location));
   protected readonly headingLevel = HeadingLevel.Two;
 
   protected async backToOrigin(): Promise<void> {

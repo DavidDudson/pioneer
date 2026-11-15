@@ -29,7 +29,7 @@ const focusSpells = (spells: readonly string[], extra: object = {}): RuleJson =>
 });
 
 function entriesOf(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
@@ -55,7 +55,7 @@ describe('spellcastingInPlay: focus spells', () => {
   });
 
   test('a focus spells element gives its spells only while it holds', () => {
-    const placed: (readonly [object, string])[] = [
+    const placed: (readonly [RuleJson, string])[] = [
       [clericFocus, 'domain-initiate'],
       [focusSpells([HEALERS_BLESSING], { predicate: ['domain-initiate:healing'] }), 'domain-initiate'],
       [focusSpells([FIRE_RAY], { predicate: ['domain-initiate:fire'] }), 'domain-initiate'],

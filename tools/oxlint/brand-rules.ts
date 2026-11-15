@@ -3,6 +3,9 @@
  * Registered by pioneer-plugin.ts.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+const NUMBER = z.number();
 
 interface UntypedNode {
   readonly type: string;
@@ -14,7 +17,7 @@ interface UntypedNode {
   readonly left?: { readonly type?: unknown };
   readonly property?: unknown;
   readonly computed?: unknown;
-  readonly kind?: unknown;
+  readonly kind?: string;
   readonly callee?: { readonly type?: unknown; readonly property?: { readonly name?: unknown } };
   readonly arguments?: readonly unknown[];
 }
@@ -80,7 +83,7 @@ function isExempt(target: UntypedNode, value: number, options: MagicNumberOption
 }
 
 /** A literal assigned straight to a declaration: fine for `const`, a `useConst` problem otherwise. */
-function declarationKind(target: UntypedNode): unknown {
+function declarationKind(target: UntypedNode): string | undefined {
   const { parent } = target;
 
   return parent?.type === 'VariableDeclarator' && parent.init === target ? parent.parent?.kind : undefined;
@@ -110,12 +113,14 @@ export const noMagicNumbers: Rule.RuleModule = {
         // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
         const literal = node as UntypedNode;
 
-        if (typeof literal.value !== 'number') {
+        const number = NUMBER.safeParse(literal.value);
+
+        if (!number.success) {
           return;
         }
 
         const negated = literal.parent?.type === 'UnaryExpression' && literal.parent.operator === '-';
-        const [target, value] = negated ? [literal.parent, -literal.value] : [literal, literal.value];
+        const [target, value] = negated ? [literal.parent, -number.data] : [literal, number.data];
         const kind = declarationKind(target);
         const allowed = kind === 'const' || (kind !== undefined && options.enforceConst !== true);
 
@@ -156,18 +161,17 @@ const SCHEMA_ROOTS = new Set(['z', 'Pg']);
 
 interface CallChainNode {
   readonly type: string;
-  readonly parent?: CallChainNode;
-  readonly object?: unknown;
-  readonly callee?: unknown;
-  readonly property?: { readonly name?: unknown };
+  readonly parent?: CallChainNode | null;
+  readonly object?: object;
+  readonly callee?: object;
+  readonly property?: { readonly type?: string; readonly name?: string };
 }
 
 /** Whether a primitive keyword is (part of) a declared type: a field, parameter, return or variable annotation. */
-function isAnnotated(node: unknown): boolean {
-  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let { parent } = node as CallChainNode;
+function isAnnotated(node: CallChainNode): boolean {
+  let { parent } = node;
 
-  while (parent !== undefined && TYPE_WRAPPERS.has(parent.type)) {
+  while (parent !== undefined && parent !== null && TYPE_WRAPPERS.has(parent.type)) {
     ({ parent } = parent);
   }
 
@@ -175,18 +179,23 @@ function isAnnotated(node: unknown): boolean {
 }
 
 /** Method names called along `z.string().min(1).brand(...)` after the factory call. */
-function chainMethods(call: unknown): readonly string[] {
+function chainMethods(call: CallChainNode): readonly string[] {
   const names: string[] = [];
-  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let node = call as CallChainNode;
+  let node = call;
   let member = node.parent;
 
-  while (member?.type === 'MemberExpression' && member.object === node && member.parent?.callee === member) {
-    if (typeof member.property?.name === 'string') {
+  while (member?.type === 'MemberExpression' && member.object === node) {
+    const outer = member.parent;
+
+    if (outer === undefined || outer === null || outer.callee !== member) {
+      break;
+    }
+
+    if (member.property?.name !== undefined) {
       names.push(member.property.name);
     }
 
-    node = member.parent;
+    node = outer;
     member = node.parent;
   }
 
@@ -197,12 +206,12 @@ function chainMethods(call: unknown): readonly string[] {
 function primitiveSchema(node: Rule.Node): string | undefined {
   // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
   const { callee } = node as {
-    readonly callee: CallChainNode & { readonly object?: { readonly name?: unknown } };
+    readonly callee: CallChainNode & { readonly object?: { readonly name?: string } };
   };
 
   const name = callee.property?.name;
   const root = callee.object?.name;
-  const isPrimitive = typeof name === 'string' && PRIMITIVE_SCHEMAS.has(name);
+  const isPrimitive = name !== undefined && PRIMITIVE_SCHEMAS.has(name);
 
   return callee.type === 'MemberExpression' && isPrimitive && SCHEMA_ROOTS.has(String(root)) ? name : undefined;
 }

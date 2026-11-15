@@ -16,7 +16,7 @@ const BOUNDARIES = new Set(['Program', 'FunctionDeclaration', 'FunctionExpressio
 
 interface AncestorNode {
   readonly type: string;
-  readonly parent?: AncestorNode;
+  readonly parent?: AncestorNode | null;
   readonly test?: unknown;
   readonly returnType?: unknown;
 }
@@ -25,12 +25,11 @@ interface AncestorNode {
 type OwnsSlot = (parent: AncestorNode, child: AncestorNode) => boolean;
 
 /** Whether some ancestor of `node`, up to and including the enclosing function, owns it per `ownsSlot`. */
-function hasOwner(node: unknown, ownsSlot: OwnsSlot): boolean {
-  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  let child = node as AncestorNode;
+function hasOwner(node: AncestorNode, ownsSlot: OwnsSlot): boolean {
+  let child = node;
   let { parent } = child;
 
-  while (parent !== undefined) {
+  while (parent !== undefined && parent !== null) {
     if (ownsSlot(parent, child)) {
       return true;
     }
@@ -90,7 +89,7 @@ export const noInlineReturnTypes: Rule.RuleModule = {
 const DERIVED_TYPES = new Set(['ReturnType', 'Parameters', 'InstanceType', 'ConstructorParameters']);
 
 interface TypeReferenceNode {
-  readonly typeName?: { readonly type?: unknown; readonly name?: unknown };
+  readonly typeName?: { readonly type?: string; readonly name?: string };
 }
 
 /** Types are declared, not reverse-engineered from an implementation. */
@@ -110,7 +109,7 @@ export const noDerivedTypes: Rule.RuleModule = {
         const { typeName } = node as TypeReferenceNode;
         const name = typeName?.type === 'Identifier' ? typeName.name : undefined;
 
-        if (typeof name === 'string' && DERIVED_TYPES.has(name)) {
+        if (name !== undefined && DERIVED_TYPES.has(name)) {
           context.report({ node, messageId: 'derived', data: { name } });
         }
       },

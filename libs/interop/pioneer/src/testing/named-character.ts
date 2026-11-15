@@ -6,7 +6,7 @@ import * as z from 'zod';
 
 import { referencedId } from '../content-reference';
 import type { ContentReference, ReferenceNamer } from '../content-reference';
-import { rewriteReferences } from '../rewrite-references';
+import { FieldsSchema, rewriteReferences } from '../rewrite-references';
 
 export const TEST_PACK = PackId.parse('test-pack');
 const NAME_LENGTH = 12;
@@ -25,7 +25,7 @@ export interface NamedCharacter {
  */
 export const namedCharacter = characterDocumentJson.map((json): NamedCharacter => {
   const references = new Map<ContentId, ContentReference>();
-  const encoded = z.encode(CharacterDocumentSchema, CharacterDocumentSchema.parse(json));
+  const encoded = FieldsSchema.parse(z.encode(CharacterDocumentSchema, CharacterDocumentSchema.parse(json)));
 
   const hashed = rewriteReferences(encoded, (value) => {
     const original = ContentId.safeParse(value);

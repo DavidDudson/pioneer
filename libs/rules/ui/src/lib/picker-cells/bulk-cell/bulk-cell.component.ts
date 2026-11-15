@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { LocaleFormat, Text } from '@pioneer/frontier';
+import { BulkWeight } from '@pioneer/rules/sdk';
 import type { Bulk } from '@pioneer/rules/sdk';
 
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../../inventory/inventory-messages';
@@ -37,8 +38,8 @@ export class BulkCell {
       return { key: PickerCellMessage.None, params: {} };
     }
 
-    return typeof bulk === 'number'
-      ? { key: InventoryMessage.BulkCount, params: { count: this.#format.number(bulk) } }
-      : { key: BULK_WEIGHT_MESSAGES[bulk], params: {} };
+    return bulk === BulkWeight.Negligible || bulk === BulkWeight.Light
+      ? { key: BULK_WEIGHT_MESSAGES[bulk], params: {} }
+      : { key: InventoryMessage.BulkCount, params: { count: this.#format.number(bulk) } };
   });
 }

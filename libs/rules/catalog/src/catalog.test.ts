@@ -168,11 +168,9 @@ describe('content catalog', () => {
     const packFile = { id: homebrew, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
     const loader = checkedLoader('homebrew', async () => packContentsFromFiles(packFile, [[language]]));
 
-    const failure: unknown = await loader.load().then(
-      () => undefined,
-      (error: unknown) => error,
-    );
+    const failure = loader.load();
 
-    expect(failure).toBeInstanceOf(SourceCheckError);
+    expect(failure).rejects.toThrow(SourceCheckError);
+    await failure.catch(() => undefined);
   });
 });

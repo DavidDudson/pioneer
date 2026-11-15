@@ -259,7 +259,7 @@ export class ItemRuneEdits {
     async () =>
       this.#store.patch({ field: CharacterPatchField.EraseRune, id: this.id(), rune });
 
-  protected readonly describeError = (error: unknown): string => describeRuneError(this.#i18n, error);
+  protected readonly describeError = (error: Error): string => describeRuneError(this.#i18n, error);
 
   /** A fundamental rune's select: its grade etched, or none (a specific item's: as it comes). */
   #gradeField(rune: FundamentalRune): InlineEdit<string | undefined> {

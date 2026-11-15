@@ -1,5 +1,5 @@
-import { TURN_ACTIONS, TurnEventKind, TurnPhase } from '@pioneer/character/domain';
-import type { InventoryItemId, QuickenedRestriction, TurnEvent, TurnState } from '@pioneer/character/domain';
+import { ActionRestriction, InventoryItemId, TURN_ACTIONS, TurnEventKind, TurnPhase } from '@pioneer/character/domain';
+import type { QuickenedRestriction, TurnEvent, TurnState } from '@pioneer/character/domain';
 import { BadgeTone } from '@pioneer/frontier';
 import { rollView } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
@@ -7,6 +7,7 @@ import { DiceMessage, RollMode } from '@pioneer/rules/dice';
 import type { FortunedRoll, RollResult } from '@pioneer/rules/dice';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 /** Whether an action pip is still there to spend or is gone. */
 export const PipState = { Left: 'left', Spent: 'spent' } as const;
@@ -72,16 +73,20 @@ function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponNa
 /** The name of the weapon of an inventory item, when the sheet knows it. */
 export type WeaponName = (item: InventoryItemId) => string | undefined;
 
+/** A quickened action limited to a Strike with one weapon. */
+const StrikeLimit = z.looseObject({ strikeWith: InventoryItemId });
+
 /** The quickened pip: its limit is a note, or a Strike with a weapon (named when the sheet knows its name). */
 function quickenedPip(limit: QuickenedRestriction | undefined, weaponName: WeaponName): ActionPip {
-  const strike = typeof limit === 'object';
+  const strike = StrikeLimit.safeParse(limit);
+  const note = ActionRestriction.safeParse(limit);
 
   return {
     state: PipState.Left,
     quickened: true,
-    restriction: typeof limit === 'string' ? limit : undefined,
-    weapon: strike ? weaponName(limit.strikeWith) : undefined,
-    strikeOnly: strike,
+    restriction: note.success ? note.data : undefined,
+    weapon: strike.success ? weaponName(strike.data.strikeWith) : undefined,
+    strikeOnly: strike.success,
   };
 }
 

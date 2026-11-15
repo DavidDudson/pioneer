@@ -102,7 +102,7 @@ export class ItemShift {
   protected readonly reset = async (): Promise<void> =>
     this.#play.send({ field: PlayCommandField.ShiftWeapon, item: this.id() });
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);

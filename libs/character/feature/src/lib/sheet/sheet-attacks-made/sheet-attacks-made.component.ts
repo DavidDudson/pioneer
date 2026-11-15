@@ -29,7 +29,7 @@ export class SheetAttacksMade {
   protected readonly more = async (): Promise<void> => this.#set((this.made() ?? 0) + 1);
 
   /** The server's reason (a conflict), else the sheet's own wording. */
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);

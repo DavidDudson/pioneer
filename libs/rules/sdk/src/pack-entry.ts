@@ -16,11 +16,7 @@ export class PackEntry<TId extends Uuid, TDefinition extends { readonly slug: En
   public readonly pack: ContentPack;
   public readonly definition: TDefinition;
 
-  public constructor(
-    pack: ContentPack,
-    definition: TDefinition,
-    idSchema: { readonly parse: (value: unknown) => TId },
-  ) {
+  public constructor(pack: ContentPack, definition: TDefinition, idSchema: { readonly parse: (value: Uuid) => TId }) {
     this.id = idSchema.parse(contentId(pack.id, definition.slug));
     this.key = contentKey(pack.id, definition.slug);
     this.pack = pack;

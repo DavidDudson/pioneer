@@ -71,8 +71,8 @@ export const inventoryJson: Arbitrary<unknown> = record({
     const container = holder === undefined || index === 0 ? undefined : lines[holder % index]?.id;
     const carry = carryOf(each, container !== undefined, handsFree);
 
-    if ('hands' in carry && typeof carry['hands'] === 'number') {
-      handsFree -= carry['hands'];
+    if (carry['state'] === CarryState.Held) {
+      handsFree -= each.hands;
     }
 
     const placed = container === undefined ? undefined : { container };

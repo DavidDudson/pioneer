@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -50,7 +51,7 @@ const SHOCKWAVE = {
 };
 
 /** The first Strike of a level 5 character wielding `weapon`, with `placed` rule elements in play. */
-function strikeOf(placed: readonly (readonly [object, string])[], weapon: object): Strike | undefined {
+function strikeOf(placed: readonly (readonly [RuleJson, string])[], weapon: object): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },

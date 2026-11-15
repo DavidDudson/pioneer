@@ -18,6 +18,9 @@ export type Bindings = ReadonlyMap<ReferencePath, FormulaValue>;
  * The `Math` functions formulas call, with the helpers pf2e adds to it (`src/scripts/hooks/load.ts`) as
  * written there: comparisons give booleans, and `ternary` takes both branches already evaluated.
  */
+/** What pf2e's helpers take: numbers, and the booleans its comparisons give. */
+type Operand = number | boolean;
+
 const PF2E_MATH = {
   min: Math.min,
   max: Math.max,
@@ -30,13 +33,13 @@ const PF2E_MATH = {
    * Pf2e compares strictly, so `eq(0, lt(1, 0))` is `0 === false`, false. Pioneer's comparisons give 1 or 0,
    * so it reads that as 0 = 0; the model coerces the same way, a divergence the rules-engine doc lists.
    */
-  eq: (left: unknown, right: unknown): boolean => Number(left) === Number(right),
-  ne: (left: unknown, right: unknown): boolean => Number(left) !== Number(right),
+  eq: (left: Operand, right: Operand): boolean => Number(left) === Number(right),
+  ne: (left: Operand, right: Operand): boolean => Number(left) !== Number(right),
   gt: (left: number, right: number): boolean => left > right,
   gte: (left: number, right: number): boolean => left >= right,
   lt: (left: number, right: number): boolean => left < right,
   lte: (left: number, right: number): boolean => left <= right,
-  ternary: (condition: unknown, ifTrue: unknown, ifFalse: unknown): unknown => {
+  ternary: (condition: Operand, ifTrue: Operand, ifFalse: Operand): Operand => {
     const holds = Boolean(condition);
 
     return holds ? ifTrue : ifFalse;
@@ -88,7 +91,7 @@ export interface FoundryOutcome {
 
 interface Watch {
   /** Operands may be booleans from pf2e's comparisons; JavaScript arithmetic reads them as 1 and 0. */
-  op: (operator: string, left: unknown, right: unknown) => number;
+  op: (operator: string, left: Operand, right: Operand) => number;
 }
 
 /**

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { FormulaValue } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { DamageType, NumericItemProperty, RollOption, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
+import { DamageType, NumericItemProperty, RichText, RollOption, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
@@ -48,7 +48,7 @@ function numberOf({ numbers }: AlteredItem, property: NumericItemProperty): numb
 const reachWeapons = ['item:type:weapon'];
 
 /** An alteration of a weapon: the property, how it changes and to what. */
-function alteration(property: string, mode: string, value: string): [object, string] {
+function alteration(property: string, mode: string, value: string): [RuleJson, string] {
   return [{ key: 'ItemAlteration', items: reachWeapons, property, mode, value }, 'x'];
 }
 
@@ -65,7 +65,7 @@ function hardnessWhen(predicate: string): RuleJson {
 }
 
 /** `item` after elements, each `[element, entry]`, in that order. */
-function altered(item: AlterableItem, placed: readonly (readonly [object, string])[]): AlteredItem {
+function altered(item: AlterableItem, placed: readonly (readonly [RuleJson, string])[]): AlteredItem {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
 
   return alterItem({ rules, facts }, item);
@@ -271,7 +271,7 @@ describe('alterItem: an action’s damage dice and description', () => {
 
     const result = alterItem({ rules: [inPlay(element, 'dragon-form')], facts }, BREATH);
 
-    expect(asUnknown(result.description)).toEqual(text);
+    expect(result.description).toEqual(RichText.parse(text));
   });
 
   test('an alteration that reaches another action changes nothing', () => {
@@ -282,8 +282,3 @@ describe('alterItem: an action’s damage dice and description', () => {
     expect(numberOf(result, 'damage-dice')).toBe(10);
   });
 });
-
-/** `value` with its type forgotten, so that a test compares it with a plain object. */
-function asUnknown(value: unknown): unknown {
-  return value;
-}

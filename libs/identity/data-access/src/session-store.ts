@@ -136,7 +136,7 @@ export class SessionStore {
 
       return { user };
     } catch (error: unknown) {
-      if (ApiError.isUnauthorized(error)) {
+      if (error instanceof ApiError && error.isUnauthorized) {
         return { user: undefined };
       }
 

@@ -1,4 +1,4 @@
-import { RuleElementKey, RuleIndex, Selector } from '@pioneer/rules/sdk';
+import { isChoiceSelector, RuleElementKey, RuleIndex, Selector } from '@pioneer/rules/sdk';
 import type { ChoiceSelector, Origin, RuleElement, Take } from '@pioneer/rules/sdk';
 
 import type { GrantEntry } from './grant-entry';
@@ -49,7 +49,7 @@ export function resolvedRules(resolution: GrantResolution): readonly ResolvedRul
     entry.rules.flatMap((element, index): ResolvedRule[] => {
       const rule = RuleIndex.parse(index);
 
-      if (element.key !== RuleElementKey.Proficiency || typeof element.selector === 'string') {
+      if (element.key !== RuleElementKey.Proficiency || !isChoiceSelector(element.selector)) {
         return take === FIRST_TAKE ? [{ entry, origin, rule, element }] : [];
       }
 

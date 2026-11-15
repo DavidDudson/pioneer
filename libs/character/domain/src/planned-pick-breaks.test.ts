@@ -5,6 +5,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { Character } from './character';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { slotContent } from './slot-offer';
 import {
@@ -34,7 +35,7 @@ function planning(first: 'power-attack' | 'medic-basic'): Character {
     .build();
 }
 
-const slotThree = (first: 'power-attack' | 'medic-basic'): unknown =>
+const slotThree = (first: 'power-attack' | 'medic-basic'): CharacterSlot | undefined =>
   characterSlots(planning(first).document, content).find((slot) => slot.key === dedicationSlot(3));
 
 describe('a planned pick that stops holding (#493)', () => {

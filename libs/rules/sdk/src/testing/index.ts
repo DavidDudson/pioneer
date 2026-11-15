@@ -38,3 +38,7 @@ export { PLAYER_CORE_PROFICIENCY_BONUS } from './proficiency-bonus';
 export { CORE_NAMESPACES } from './roll-option-namespaces';
 
 export type { RuleJson } from './rule-json';
+
+export { plain } from './plain';
+
+export type { Plain } from './plain';

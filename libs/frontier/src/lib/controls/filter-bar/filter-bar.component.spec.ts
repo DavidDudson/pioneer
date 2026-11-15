@@ -54,7 +54,7 @@ function button(host: HTMLElement, name: string | RegExp): HTMLButtonElement {
   const found = [...host.querySelectorAll<HTMLButtonElement>('button')].find((candidate) => {
     const text = (candidate.getAttribute('aria-label') ?? candidate.textContent).trim();
 
-    return typeof name === 'string' ? text === name : name.test(text);
+    return name instanceof RegExp ? name.test(text) : text === name;
   });
 
   if (found === undefined) {

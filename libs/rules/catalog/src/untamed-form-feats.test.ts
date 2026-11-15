@@ -1,8 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
-import { ContentEntryFile, ContentKind, RollOption, spellEffectId } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, SpellEffectEntry } from '@pioneer/rules/sdk';
+import { ContentEntryFile, ContentId, ContentKind, Predicate, RollOption, spellEffectId } from '@pioneer/rules/sdk';
+import type { ContentEntry, SpellEffectEntry } from '@pioneer/rules/sdk';
+import * as z from 'zod';
+
+/** An effect a spell offers under a predicate. */
+const Conditional = z.strictObject({ effect: ContentId, predicate: Predicate });
 
 /** The spells and effects of the player-core pack, read from their JSON files. */
 async function packEntries(): Promise<readonly ContentEntry[]> {
@@ -16,7 +20,9 @@ async function packEntries(): Promise<readonly ContentEntry[]> {
 
 /** Whether `entry` is offered to a character with the roll options `facts`. */
 function isOffered(entry: SpellEffectEntry, facts: PredicateFacts): boolean {
-  return typeof entry === 'string' || evaluatePredicate(entry.predicate, facts) === Truth.True;
+  const conditional = Conditional.safeParse(entry);
+
+  return !conditional.success || evaluatePredicate(conditional.data.predicate, facts) === Truth.True;
 }
 
 /** The effect ids the spell `slug` offers a character with exactly the roll options `options`. */

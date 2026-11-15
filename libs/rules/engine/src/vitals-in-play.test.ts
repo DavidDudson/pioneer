@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageType, FastHealingType, HitPoints, RollOption, Size } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { StatisticInputsJson } from './statistic-inputs';
 import { inPlay } from './testing';
@@ -22,7 +23,7 @@ const scope = {
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
 /** The vitals of elements, each `[element, entry]`, in that order. */
-function vitalsOf(placed: readonly (readonly [object, string])[]): VitalsInPlay {
+function vitalsOf(placed: readonly (readonly [RuleJson, string])[]): VitalsInPlay {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
 
   return vitalsInPlay({ rules, facts }, scope);

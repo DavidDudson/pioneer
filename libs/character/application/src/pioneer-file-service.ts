@@ -10,6 +10,7 @@ import {
 import type {
   HomebrewPackPlan,
   PioneerCharacterFile,
+  PioneerFileJson,
   PioneerImportPreview,
   ReferenceNamer,
 } from '@pioneer/interop/pioneer';
@@ -89,7 +90,7 @@ export class PioneerFileService {
    * homebrew entry, and the content the file names that neither a loaded pack nor the file has. Refused when the file
    * can't be read.
    */
-  public async preview(actor: UserId, raw: unknown): Promise<PioneerImportPreview> {
+  public async preview(actor: UserId, raw: PioneerFileJson): Promise<PioneerImportPreview> {
     const { file, document } = readPioneerFile(raw, actor);
     const content = await this.#deps.content.registry();
     const plans = await this.#plans(actor, file);
@@ -108,7 +109,7 @@ export class PioneerFileService {
    * reused when identical, and never written over. The file is read again here, never taken from the client's
    * preview. Refused, with nothing saved, when it can't be read.
    */
-  public async import(actor: UserId, raw: unknown): Promise<Character> {
+  public async import(actor: UserId, raw: PioneerFileJson): Promise<Character> {
     const { file, document } = readPioneerFile(raw, actor);
     await this.#deps.homebrew.apply(actor, await this.#plans(actor, file));
     const now = this.#deps.clock.now();

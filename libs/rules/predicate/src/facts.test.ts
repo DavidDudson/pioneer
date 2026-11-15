@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { NamespaceKind, Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { evaluatePredicate } from './evaluate';
@@ -10,7 +11,7 @@ import { Truth } from './truth';
 
 const options = (...given: readonly string[]): RollOption[] => given.map((option) => RollOption.parse(option));
 
-const verdict = (predicate: unknown, given: PredicateFacts): Truth =>
+const verdict = (predicate: JsonValue, given: PredicateFacts): Truth =>
   evaluatePredicate(Predicate.parse(predicate), given);
 
 const ITEM = RollOptionNamespace.parse('item');

@@ -14,7 +14,7 @@ import {
   SpellFacet,
   SpellRank,
 } from '@pioneer/rules/sdk';
-import type { FilterState, MagicTradition, SlotKey } from '@pioneer/rules/sdk';
+import type { FacetSelection, FilterState, MagicTradition, SlotKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { availableSpellsToYou, availableToYou, slotPrerequisiteStatus } from './available-to-you';
@@ -71,7 +71,7 @@ function notUnmet(character: CharacterBuilder, slot: SlotKey): readonly string[]
     .toSorted();
 }
 
-function selection(state: FilterState, id: string): unknown {
+function selection(state: FilterState, id: string): FacetSelection | undefined {
   return [...state].find(([facet]) => facet === id)?.[1];
 }
 
@@ -168,7 +168,8 @@ const place = (tradition: MagicTradition, extra: Partial<SpellSlotPlace> = {}): 
   ...extra,
 });
 
-const traditionOf = (at: SpellSlotPlace): unknown => availableSpellsToYou(at).get(SpellFacet.Tradition);
+const traditionOf = (at: SpellSlotPlace): FacetSelection | undefined =>
+  availableSpellsToYou(at).get(SpellFacet.Tradition);
 
 describe('availableSpellsToYou', () => {
   test('a cantrip slot keeps every cantrip it offers', () => {

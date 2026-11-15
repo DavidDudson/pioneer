@@ -8,6 +8,7 @@ import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
+import * as z from 'zod';
 
 import { characterRoutes } from './character-routes';
 
@@ -71,10 +72,15 @@ async function status(api: AnyElysia, sent: Request): Promise<number> {
   return response.status;
 }
 
-async function bodyOf(api: AnyElysia, path: string): Promise<unknown> {
+/** Any JSON a route answers with. */
+const Json = z.json();
+
+type Json = z.infer<typeof Json>;
+
+async function bodyOf(api: AnyElysia, path: string): Promise<Json> {
   const response = await api.handle(request('GET', path));
 
-  return response.json();
+  return Json.parse(await response.json());
 }
 
 describe('archived character routes (ADR-0062)', () => {

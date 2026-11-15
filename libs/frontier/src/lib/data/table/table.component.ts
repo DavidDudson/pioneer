@@ -2,6 +2,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, 
 import { FlexRender, injectTable } from '@tanstack/angular-table';
 import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
+import * as z from 'zod';
 
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
@@ -10,6 +11,8 @@ import { TableHeaderCell } from './header-cell/header-cell.component';
 import { TABLE_FEATURES } from './table-features';
 import type { TableColumn, TableFeatureSet, TableHeader } from './table-features';
 import { sortAfter, toSortingState } from './table-sort';
+
+const HEADER_TEXT = z.string();
 
 const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
 
@@ -48,10 +51,12 @@ function describe<TData extends RowData>(column: TableColumn<TData>): KnownColum
     return [];
   }
 
+  const header = HEADER_TEXT.safeParse(column.header);
+
   return [
     {
       id,
-      label: typeof column.header === 'string' ? column.header : id,
+      label: header.success ? header.data : id,
       hideable: column.meta?.hideable === true || column.meta?.defaultHidden === true,
       defaultHidden: column.meta?.defaultHidden === true,
     },

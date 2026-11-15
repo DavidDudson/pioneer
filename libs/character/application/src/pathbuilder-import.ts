@@ -27,6 +27,7 @@ import type {
   BoostChoices,
   ContentLookup,
   ImportedName,
+  PathbuilderFileJson,
   PathbuilderImport,
   PathbuilderName,
   PathbuilderReadFailure,
@@ -288,7 +289,7 @@ function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
 }
 
 /** The export read again on the server; refused when it can't be read. */
-export function readExport(raw: unknown): PathbuilderImport {
+export function readExport(raw: PathbuilderFileJson): PathbuilderImport {
   const read = readPathbuilderExport(raw);
 
   if (!read.ok) {

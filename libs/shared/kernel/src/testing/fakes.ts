@@ -16,7 +16,7 @@ const overrides = new Map<z.core.$ZodType, z.core.$ZodType>();
 let configured = false;
 
 /** Use `generate` whenever `schema` (this exact instance, including brands of it) is faked. */
-export function registerFake(schema: z.core.$ZodType, generate: () => unknown): void {
+export function registerFake(schema: z.core.$ZodType, generate: () => z.core.util.JSONType): void {
   if (overrides.has(schema)) {
     return;
   }

@@ -1,6 +1,6 @@
 import { matchKey } from './content-lookup';
 import { PathbuilderContainerKey, PathbuilderName } from './import-kind';
-import type { PathbuilderBuild } from './pathbuilder-export';
+import type { EquipmentFlag, PathbuilderBuild } from './pathbuilder-export';
 
 /** Fundamental rune grades and property rune names Pathbuilder lists on a weapon or armour. */
 export interface ImportedRunes {
@@ -148,10 +148,14 @@ function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
 }
 
 /** The container an equipment row's trailing flags name, when the export lists it; "Invested" and the rest are not. */
-function containerOf(build: PathbuilderBuild, flags: readonly unknown[]): PathbuilderContainerKey | undefined {
-  const key = flags.find((flag) => typeof flag === 'string' && flag in build.equipmentContainers);
+function containerOf(build: PathbuilderBuild, flags: readonly EquipmentFlag[]): PathbuilderContainerKey | undefined {
+  const keys = flags.flatMap((flag) => {
+    const key = PathbuilderContainerKey.safeParse(flag);
 
-  return typeof key === 'string' ? PathbuilderContainerKey.parse(key) : undefined;
+    return key.success && key.data in build.equipmentContainers ? [key.data] : [];
+  });
+
+  return keys[0];
 }
 
 /** Pathbuilder's gear containers in export order. */

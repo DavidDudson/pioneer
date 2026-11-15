@@ -1,15 +1,19 @@
 import { inject, Injectable } from '@angular/core';
 import { resolveDamageNode } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
-import { Dc } from '@pioneer/rules/sdk';
-import type { CheckDc, Selector } from '@pioneer/rules/sdk';
+import { Dc, Selector } from '@pioneer/rules/sdk';
+import type { CheckDc } from '@pioneer/rules/sdk';
 import { INLINE_ROLLER } from '@pioneer/rules/ui';
 import type { InlineCheckRoll, InlineDamageRoll, InlineRoller } from '@pioneer/rules/ui';
+import * as z from 'zod';
 
 import { statisticInputsOf } from './sheet-inputs';
 import { sheetRollSetup } from './sheet-roll-setup';
 import { SheetRolls } from './sheet-rolls';
 import { SheetState } from './sheet-state';
+
+/** A check's DC that is another statistic's total. */
+const DcAgainst = z.looseObject({ against: Selector });
 
 /**
  * Rolls the checks and damage that text on the sheet names (#341): a check is rolled like the sheet's own checks, from
@@ -61,13 +65,16 @@ export class SheetInlineRolls implements InlineRoller {
   }
 
   #dcOf(dc: CheckDc | undefined): Dc | undefined {
-    if (typeof dc === 'number' || dc === undefined) {
-      return dc;
+    const fixed = Dc.safeParse(dc);
+
+    if (!fixed.success) {
+      const target = DcAgainst.safeParse(dc);
+      const against = target.success ? this.#statistic(target.data.against) : undefined;
+
+      return against === undefined ? undefined : Dc.parse(Number(against.total));
     }
 
-    const against = this.#statistic(dc.against);
-
-    return against === undefined ? undefined : Dc.parse(Number(against.total));
+    return fixed.data;
   }
 }
 

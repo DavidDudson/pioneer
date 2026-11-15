@@ -70,7 +70,7 @@ export class TableViewState {
 
   public constructor(options: TableViewOptions) {
     const { schema } = options;
-    this.#schema = typeof schema === 'function' ? schema : (): TableViewSchema => schema;
+    this.#schema = 'columns' in schema ? (): TableViewSchema => schema : schema;
     this.#facets = options.facets;
     this.view = computed(() => decodeTableView(this.#query(), this.#schema()));
     this.sorting = computed(() => this.view().sort ?? []);

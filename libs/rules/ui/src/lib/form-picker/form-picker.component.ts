@@ -65,7 +65,7 @@ export class FormPicker {
   public readonly preview = input.required<FormPreview | undefined>();
   /** Casts the spell and applies the picked form. */
   public readonly confirm = input.required<() => Promise<void>>();
-  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
+  public readonly describeError = input<((error: Error) => string) | undefined>(undefined);
   /** Raised when the cast is given up. */
   public readonly cancelled = output();
 

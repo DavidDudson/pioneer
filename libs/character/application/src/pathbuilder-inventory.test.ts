@@ -10,7 +10,12 @@ import {
   readPathbuilderExport,
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
-import type { ImportedContainer, ImportedItem, PathbuilderImport } from '@pioneer/interop/pathbuilder';
+import type {
+  ImportedContainer,
+  ImportedItem,
+  PathbuilderImport,
+  PathbuilderInput,
+} from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentKind, ContentText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
@@ -84,7 +89,7 @@ async function importOf(value: PathbuilderImport): Promise<Imported> {
   };
 }
 
-function readExport(raw: unknown): PathbuilderImport {
+function readExport(raw: PathbuilderInput): PathbuilderImport {
   const read = readPathbuilderExport(raw);
 
   if (!read.ok) {

@@ -3,11 +3,12 @@ import { describe, expect, test } from 'bun:test';
 import * as z from 'zod';
 
 import { ContentSearchQuery } from './content-search';
+import type { JsonValue } from './json-bounds';
 
 const PACK = '6f1f6e0e-6a5f-5a3e-9c0f-2f3b7d1c4a10';
 
 /** `value` as plain data, so a test compares it with unbranded literals. */
-function plain(value: unknown): unknown {
+function plain(value: JsonValue): JsonValue {
   return structuredClone(value);
 }
 

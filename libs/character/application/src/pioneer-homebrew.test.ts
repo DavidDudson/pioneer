@@ -9,7 +9,7 @@ import {
   STOWED,
 } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { EmbeddedPack, HomebrewEntryOutcome, HomebrewPackStatus } from '@pioneer/interop/pioneer';
+import { EmbeddedPack, HomebrewEntryOutcome, HomebrewPackStatus, PioneerFileJson } from '@pioneer/interop/pioneer';
 import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
 import { ContentLicense, ContentText, PackId } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
@@ -116,6 +116,8 @@ function server(): Server {
 describe('Pioneer files with embedded homebrew', () => {
   let origin: Server;
   let file: PioneerCharacterFile;
+  /** The file as it reaches the server: JSON. */
+  let upload: PioneerFileJson;
 
   beforeEach(async () => {
     origin = server();
@@ -132,6 +134,7 @@ describe('Pioneer files with embedded homebrew', () => {
 
     const saved = await repository.insert(brewer(amiri), { actor: amiri, command: CharacterCommand.CreateCharacter });
     file = await service.export(amiri, saved.id);
+    upload = PioneerFileJson.parse(JSON.parse(JSON.stringify(file)));
   });
 
   test('an export carries the homebrew feat and item the character uses, with the pack and its licence', () => {
@@ -167,11 +170,11 @@ describe('Pioneer files with embedded homebrew', () => {
   test('an import makes the pack for the importer, and exporting the result gives the same file', async () => {
     const target = server();
 
-    const preview = await target.service.preview(ezren, file);
+    const preview = await target.service.preview(ezren, upload);
     expect(preview.unmatched).toStrictEqual([]);
     expect(preview.homebrew.map((pack) => [pack.pack, pack.status])).toStrictEqual([[BREW, HomebrewPackStatus.New]]);
 
-    const imported = await target.service.import(ezren, file);
+    const imported = await target.service.import(ezren, upload);
 
     expect(slugsOf(target.homebrew.entriesOf(BREW))).toStrictEqual(FEAT_AND_ITEM);
     expect(await target.service.export(ezren, imported.id)).toStrictEqual(file);
@@ -179,14 +182,14 @@ describe('Pioneer files with embedded homebrew', () => {
 
   test('importing again reuses the identical entries', async () => {
     const target = server();
-    await target.service.import(ezren, file);
+    await target.service.import(ezren, upload);
 
-    const preview = await target.service.preview(ezren, file);
+    const preview = await target.service.preview(ezren, upload);
 
     expect(preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome)])).toStrictEqual([
       [HomebrewPackStatus.Own, [HomebrewEntryOutcome.Reuse, HomebrewEntryOutcome.Reuse]],
     ]);
-    await target.service.import(ezren, file);
+    await target.service.import(ezren, upload);
     expect(target.homebrew.entriesOf(BREW)).toHaveLength(2);
   });
 
@@ -194,19 +197,19 @@ describe('Pioneer files with embedded homebrew', () => {
     const target = server();
     target.homebrew.seed(amiri, brewPack(brewEntries(3)));
 
-    const preview = await target.service.preview(ezren, file);
+    const preview = await target.service.preview(ezren, upload);
 
     expect(
       preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome).toSorted()]),
     ).toStrictEqual([[HomebrewPackStatus.Taken, [HomebrewEntryOutcome.Clash, HomebrewEntryOutcome.Reuse]]]);
     const before = target.homebrew.entriesOf(BREW);
-    await target.service.import(ezren, file);
+    await target.service.import(ezren, upload);
     expect(target.homebrew.entriesOf(BREW)).toStrictEqual(before);
     expect(await target.repository.listForOwner(ezren, CharacterListQuery.parse({}))).toHaveLength(1);
   });
 
   test('does not list embedded entries as unmatched content', async () => {
-    const preview = await server().service.preview(ezren, file);
+    const preview = await server().service.preview(ezren, upload);
 
     expect(preview.unmatched).toStrictEqual([]);
   });

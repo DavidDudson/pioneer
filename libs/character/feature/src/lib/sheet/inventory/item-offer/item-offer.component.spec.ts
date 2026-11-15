@@ -60,11 +60,10 @@ function render(campaignId: string | undefined, loader: LoadOffer, line: string)
 
 /** The campaign's control, when the slot shows it. */
 function control(fixture: ComponentFixture<ItemOffer>): StubOffer | undefined {
-  const found: unknown[] = fixture.debugElement
+  return fixture.debugElement
     .queryAll(By.directive(StubOffer))
-    .map((element): unknown => element.componentInstance);
-
-  return found.find((each) => each instanceof StubOffer);
+    .map((element) => element.injector.get(StubOffer))
+    .at(0);
 }
 
 describe(ItemOffer, () => {

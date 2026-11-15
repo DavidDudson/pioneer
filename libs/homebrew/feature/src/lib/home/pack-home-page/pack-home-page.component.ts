@@ -112,7 +112,8 @@ export class PackHomePage {
     try {
       await this.store.setVisibility(pack.id, visibility);
     } catch (error) {
-      this.visibilityError.set(this.#describe(error));
+      const failure = error instanceof Error ? error : new Error(String(error));
+      this.visibilityError.set(this.#describe(failure));
     } finally {
       this.chosen.set(undefined);
       this.saving.set(false);
@@ -120,7 +121,7 @@ export class PackHomePage {
   }
 
   /** The server's own reason when it gave one the viewer can act on (a 409), else a general failure. */
-  #describe(error: unknown): string {
+  #describe(error: Error): string {
     if (error instanceof ApiError && error.isConflict) {
       return this.#i18n.translate(error.descriptor.key, error.descriptor.params);
     }

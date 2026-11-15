@@ -27,11 +27,13 @@ interface Raise {
 function raiseOf(element: RuleElement): Raise | undefined {
   if (element.key === RuleElementKey.Proficiency) {
     // A selector still waiting on its pick raises nothing (ADR-0053); `resolvedRules` replaces the ones with a pick.
-    if (typeof element.selector !== 'string') {
+    const selector = Selector.safeParse(element.selector);
+
+    if (!selector.success) {
       return undefined;
     }
 
-    return { selector: element.selector, rank: element.rank };
+    return { selector: selector.data, rank: element.rank };
   }
 
   if (element.key === RuleElementKey.SpellcastingEntry) {

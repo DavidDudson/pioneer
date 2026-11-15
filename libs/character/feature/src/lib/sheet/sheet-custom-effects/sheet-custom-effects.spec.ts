@@ -3,8 +3,9 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
-import type { JsonObject } from '../../testing/json-fixture';
+import type { JsonObject, JsonValue } from '../../testing/json-fixture';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
@@ -69,12 +70,12 @@ function button(root: HTMLElement, label: string): HTMLButtonElement {
   return present(root.querySelector<HTMLButtonElement>(`button[aria-label="${label}"]`));
 }
 
-async function patchOf(): Promise<unknown> {
+async function patchOf(): Promise<JsonValue> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
 
-  return request.request.body;
+  return z.json().parse(request.request.body);
 }
 
 describe('CharacterSheet custom effects section', () => {

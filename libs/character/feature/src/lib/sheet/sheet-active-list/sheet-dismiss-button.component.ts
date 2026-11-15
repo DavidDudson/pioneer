@@ -16,9 +16,9 @@ import { RichTextView } from '@pioneer/rules/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
 })
-export class SheetDismissButton {
-  public readonly action = input.required<() => Promise<unknown>>();
+export class SheetDismissButton<TResult> {
+  public readonly action = input.required<() => Promise<TResult>>();
   public readonly disabled = input(false);
-  public readonly describeError = input.required<(error: unknown) => string>();
+  public readonly describeError = input.required<(error: Error) => string>();
   public readonly note = input<RichText | undefined>(undefined);
 }

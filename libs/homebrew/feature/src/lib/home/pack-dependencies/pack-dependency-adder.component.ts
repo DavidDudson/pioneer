@@ -85,7 +85,7 @@ export class PackDependencyAdder {
   };
 
   /** The server's own reason when it gave one the viewer can act on (a 409), else a general failure. */
-  protected readonly describeAddError = (error: unknown): string => {
+  protected readonly describeAddError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

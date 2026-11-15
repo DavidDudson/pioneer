@@ -11,13 +11,13 @@ import { SpellAccessMessage } from './spell-access-messages';
 const LOADING_ROWS = 2;
 
 /** Takes a spell out of the build's access; resolves once it is saved. */
-export type RemoveSpellAccess = (spell: string) => Promise<unknown>;
+export type RemoveSpellAccess = (spell: string) => Promise<void>;
 
 /** A line as the list shows it: by name, or "Unknown spell" when no loaded pack has it, and its Remove. */
 interface AccessRow {
   readonly spell: ContentId;
   readonly name: string;
-  readonly remove: () => Promise<unknown>;
+  readonly remove: () => Promise<void>;
 }
 
 /**

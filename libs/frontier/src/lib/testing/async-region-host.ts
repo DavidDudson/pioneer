@@ -9,7 +9,7 @@ import { Skeleton } from '../feedback/skeleton/skeleton.component';
 import { Stack } from '../layout/stack/stack.component';
 import { Text } from '../text/text/text.component';
 
-function describeError(error: unknown): string {
+function describeError(error: Error | null | undefined): string {
   return error instanceof Error ? error.message : String(error);
 }
 

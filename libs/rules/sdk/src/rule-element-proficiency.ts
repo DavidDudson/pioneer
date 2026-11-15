@@ -20,6 +20,11 @@ export const ChoiceSelector = z.strictObject({
 
 export type ChoiceSelector = z.infer<typeof ChoiceSelector>;
 
+/** Whether a proficiency's `selector` is one the player's pick completes, rather than a fixed selector. */
+export function isChoiceSelector(selector: Selector | ChoiceSelector): selector is ChoiceSelector {
+  return ChoiceSelector.safeParse(selector).success;
+}
+
 /** A rank an element raises to. Untrained is every statistic's floor, so raising to it does nothing. */
 export const RaisedRank = ProficiencySchema.exclude(['Untrained']);
 
@@ -39,6 +44,8 @@ export const ProficiencyElement = z.strictObject({
 
 export type ProficiencyElement = z.infer<typeof ProficiencyElement>;
 
+const RankText = z.string().brand<'RankText'>();
+
 /**
  * A raised rank by name, or a formula giving one from 1 (trained) to 4 (legendary), as Foundry allows. A string
  * that names no rank is checked as a formula first, so the issue says what is wrong with the formula instead of a
@@ -49,9 +56,10 @@ const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
   .check((context) => {
     const { value } = context;
     const named = RaisedRank.safeParse(value);
+    const text = RankText.safeParse(value);
 
-    if (typeof value === 'string' && !named.success) {
-      context.issues.push(...formulaIssues(FormulaText.parse(value)));
+    if (text.success && !named.success) {
+      context.issues.push(...formulaIssues(FormulaText.parse(text.data)));
     }
   })
   .pipe(z.union([RaisedRank, FormulaSource]));

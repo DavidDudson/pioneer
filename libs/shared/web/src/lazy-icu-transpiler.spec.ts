@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
+import type * as z from 'zod';
 
 import { LazyIcuTranspiler } from './lazy-icu-transpiler';
 
 const PLURAL = '{count, plural, one {# character} other {# characters}}';
 const ORDINAL = '{place, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}';
 
-function transpile(transpiler: LazyIcuTranspiler, value: string, params: Record<string, unknown>): unknown {
+function transpile(
+  transpiler: LazyIcuTranspiler,
+  value: string,
+  params: Record<string, string | number>,
+): z.core.util.JSONType {
   return transpiler.transpile({ value, params, translation: {}, key: 'key' });
 }
 

@@ -64,7 +64,7 @@ export class SheetPackPicker {
   };
 
   /** A pack that cannot be used says why; anything else is a retry. */
-  protected readonly describeEnableError = (error: unknown): string => {
+  protected readonly describeEnableError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

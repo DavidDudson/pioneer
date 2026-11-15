@@ -5,16 +5,17 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 
-function issues(value: unknown): readonly FieldIssue[] {
+function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** Each issue as `<path> <message key>`, sorted. */
-function found(value: unknown): readonly string[] {
+function found(value: JsonValue): readonly string[] {
   return issues(value)
     .map((issue) => `${issue.path.join('.')} ${issue.message.key}`)
     .toSorted();

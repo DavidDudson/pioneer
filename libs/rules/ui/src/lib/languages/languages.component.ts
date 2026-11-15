@@ -11,14 +11,14 @@ import { LanguagesMessage } from './languages-messages';
 const LOADING_ROWS = 2;
 
 /** Removes the pick in a slot; resolves once it is saved. */
-export type RemoveLanguage = (slot: string) => Promise<unknown>;
+export type RemoveLanguage = (slot: string) => Promise<void>;
 
 /** A line as the list shows it: where it came from as a message, and removing a pick. */
 interface LanguageRow {
   readonly key: string;
   readonly name: string;
   readonly caption: MessageDescriptor;
-  readonly remove: (() => Promise<unknown>) | undefined;
+  readonly remove: (() => Promise<void>) | undefined;
 }
 
 function rowOf({ key, name, from, slot }: LanguageLine, remove: RemoveLanguage): LanguageRow {

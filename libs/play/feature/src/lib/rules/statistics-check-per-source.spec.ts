@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { JsonObject } from './example-json';
 import { checkStatistics, EXAMPLE_STATISTIC_INPUTS, StatisticsStatus } from './statistics-check';
-import type { StatisticsCheck } from './statistics-check';
+import type { StatisticRow, StatisticsCheck } from './statistics-check';
 
 /** A statistic derived once per `per`, with no domains. */
 const perSource = (selector: string, per: string, base: string): JsonObject => ({
@@ -130,7 +130,7 @@ function itemBonus(value: number): JsonObject {
 }
 
 /** The longsword's Strike row with `rules` in play. */
-function longsword(rules: readonly JsonObject[], inputs = EXAMPLE_STATISTIC_INPUTS): unknown {
+function longsword(rules: readonly JsonObject[], inputs = EXAMPLE_STATISTIC_INPUTS): StatisticRow | undefined {
   const texts = { inputs, rules: JSON.stringify(rules), overrides: '[]', facts: '' };
   const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
 

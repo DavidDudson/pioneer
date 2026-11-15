@@ -219,7 +219,8 @@ export class SheetRolls implements StatisticRoller {
     try {
       await this.#play.send({ field: PlayCommandField.SetToggle, toggle: slot.key, state });
     } catch (error: unknown) {
-      this.saveError.set(describeSaveError(error));
+      const failure = error instanceof Error ? error : new Error(String(error));
+      this.saveError.set(describeSaveError(failure));
     }
   }
 

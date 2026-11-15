@@ -18,7 +18,7 @@ import { enrichSourcesFile } from './source-enrichment.ts';
 
 const ROOT = path.join(import.meta.dir, '..');
 const JSON_INDENT = 2;
-const JsonArray = z.array(z.unknown()).readonly();
+const JsonArray = z.array(z.looseObject({})).readonly();
 
 const { values } = parseArgs({ options: { pack: { type: 'string' } } });
 

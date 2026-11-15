@@ -20,7 +20,12 @@ import {
   registryLookup,
   RuleBreakingCount,
 } from '@pioneer/interop/pathbuilder';
-import type { ContentLookup, PathbuilderImport, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
+import type {
+  ContentLookup,
+  PathbuilderFileJson,
+  PathbuilderImport,
+  PathbuilderImportResponse,
+} from '@pioneer/interop/pathbuilder';
 import type { AncestryId, ContentRegistry, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -116,7 +121,7 @@ export class PathbuilderImportService {
    * not offered. The export is read again here, never taken from the client's preview. Refused, with nothing saved,
    * when it can't be read or its ancestry isn't loaded.
    */
-  public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
+  public async importPathbuilder(actor: UserId, raw: PathbuilderFileJson): Promise<PathbuilderImportResponse> {
     const value = readExport(raw);
     const content = await this.#content.registry();
     const lookup = registryLookup(content);

@@ -3,6 +3,7 @@ import {
   CommonFacet,
   ContentKind,
   FacetValue,
+  isRollOptionStatement,
   Level,
   PREREQUISITES_MET_FACET,
   PrerequisiteValue,
@@ -43,7 +44,7 @@ const ARTIFACT_TRAIT = FacetValue.parse('artifact');
  */
 function filterTraits(statements: readonly PredicateStatement[]): readonly FacetValue[] {
   return statements.flatMap((statement): readonly FacetValue[] => {
-    if (typeof statement === 'string') {
+    if (isRollOptionStatement(statement)) {
       return statement.startsWith(TRAIT_OPTION) ? [FacetValue.parse(statement.slice(TRAIT_OPTION.length))] : [];
     }
 

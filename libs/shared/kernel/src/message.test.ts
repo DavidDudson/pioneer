@@ -26,7 +26,7 @@ const tagged = z.discriminatedUnion('kind', [z.object({ kind: z.literal('a') }),
 interface Case {
   readonly name: string;
   readonly schema: z.ZodType;
-  readonly value: unknown;
+  readonly value: z.core.util.JSONType;
   readonly expected: MessageDescriptor;
 }
 
@@ -90,13 +90,13 @@ const cases: readonly Case[] = [
   },
 ];
 
-function issuesOf(schema: z.ZodType, value: unknown): readonly z.core.$ZodIssue[] {
+function issuesOf(schema: z.ZodType, value: z.core.util.JSONType): readonly z.core.$ZodIssue[] {
   const result = schema.safeParse(value);
 
   return result.success ? [] : result.error.issues;
 }
 
-function described(schema: z.ZodType, value: unknown): readonly MessageDescriptor[] {
+function described(schema: z.ZodType, value: z.core.util.JSONType): readonly MessageDescriptor[] {
   return issuesOf(schema, value).map((issue) => issueMessage(issue));
 }
 

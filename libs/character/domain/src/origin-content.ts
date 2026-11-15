@@ -1,4 +1,4 @@
-import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, RuleElementKey, Selector } from '@pioneer/rules/sdk';
 import type {
   AncestryDefinition,
   AttributeBoost,
@@ -6,7 +6,6 @@ import type {
   ContentText,
   RichText,
   RuleElement,
-  Selector,
   SourceRef,
 } from '@pioneer/rules/sdk';
 
@@ -68,11 +67,12 @@ const byName = <TOption extends { readonly name: ContentText }>(options: readonl
 /** The names of what `rules` grant outright, in order; a grant the player picks (`ChoiceRef`) is not one. */
 function grantedNames(rules: readonly RuleElement[], names: ReadonlyMap<ContentId, ContentText>): ContentText[] {
   return rules.flatMap((rule): ContentText[] => {
-    if (rule.key !== RuleElementKey.GrantItem || typeof rule.item !== 'string') {
+    if (rule.key !== RuleElementKey.GrantItem) {
       return [];
     }
 
-    const name = names.get(rule.item);
+    const item = ContentId.safeParse(rule.item);
+    const name = item.success ? names.get(item.data) : undefined;
 
     return name === undefined ? [] : [name];
   });
@@ -80,9 +80,15 @@ function grantedNames(rules: readonly RuleElement[], names: ReadonlyMap<ContentI
 
 /** The selectors `rules` raise outright, which a background does to train its skill and Lore. */
 function trainedSelectors(rules: readonly RuleElement[]): Selector[] {
-  return rules.flatMap((rule): Selector[] =>
-    rule.key === RuleElementKey.Proficiency && typeof rule.selector === 'string' ? [rule.selector] : [],
-  );
+  return rules.flatMap((rule): Selector[] => {
+    if (rule.key !== RuleElementKey.Proficiency) {
+      return [];
+    }
+
+    const selector = Selector.safeParse(rule.selector);
+
+    return selector.success ? [selector.data] : [];
+  });
 }
 
 function readOrigins(registry: ContentRegistry): OriginContent {

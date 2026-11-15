@@ -34,7 +34,7 @@ export class SheetExport {
   };
 
   /** The server's reason (content not loaded), else the sheet's own wording. */
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const [issue] = error instanceof ApiError ? error.issues : [];
     const { key, params } = issue?.message ?? message('character.sheet.export.failed');
 

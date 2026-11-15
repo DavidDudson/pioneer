@@ -4,9 +4,10 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: unknown): readonly FieldIssue[] {
+function issues(value: JsonValue): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -41,7 +42,7 @@ interface SpellsElement {
 }
 
 /** An element naming one spell at `rank`. */
-function spells(rank: unknown): SpellsElement {
+function spells(rank: JsonValue): SpellsElement {
   return { key: 'RepertoireSpells', entry: 'sorcerer', spells: [{ rank, spell: FEAR }] };
 }
 

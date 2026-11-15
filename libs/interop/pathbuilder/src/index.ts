@@ -26,7 +26,7 @@ export {
   unmatchedRows,
 } from './import-report';
 
-export { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
+export { PathbuilderBuild, PathbuilderExport, PathbuilderFileJson } from './pathbuilder-export';
 
 export type { ImportedBoosts } from './read-boosts';
 
@@ -38,6 +38,7 @@ export {
   type ImportedLore,
   type PathbuilderIdentity,
   type PathbuilderImport,
+  type PathbuilderInput,
   PathbuilderProblem,
   type PathbuilderRead,
   type PathbuilderReadFailure,

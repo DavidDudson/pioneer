@@ -233,6 +233,7 @@ export {
   BundleEtag,
   BundleFile,
   BundleHash,
+  BundlePath,
   bundleEtag,
   bundlePath,
   ContentContract,
@@ -249,14 +250,7 @@ export {
   descriptionShard,
 } from './content-bundle';
 
-export type {
-  BundlePath,
-  DescriptionBundle,
-  DescriptionShard,
-  FetchedKind,
-  KindBundles,
-  PackBundles,
-} from './content-bundle';
+export type { DescriptionBundle, DescriptionShard, FetchedKind, KindBundles, PackBundles } from './content-bundle';
 
 export {
   ContentEntryFile,
@@ -299,6 +293,7 @@ export {
   FlagValue,
   RangeBound,
   type FacetDerive,
+  type FacetLeaf,
   UNKNOWN,
 } from './facet';
 
@@ -459,6 +454,8 @@ export {
 export {
   type ComparisonOperands,
   isPredicateComparison,
+  isRollOptionOperand,
+  isRollOptionStatement,
   Predicate,
   type PredicateComparison,
   type PredicateCompound,
@@ -539,6 +536,7 @@ export {
   OwnedQuery,
   OwnTrait,
   ChoiceRef,
+  isChoiceRef,
   ChoiceSetElement,
   ChoiceValue,
   GrantItemElement,
@@ -651,6 +649,7 @@ export {
   MartialProficiencyElement,
   ProficiencyElement,
   ChoiceSelector,
+  isChoiceSelector,
   RaisedRank,
   WeaponCategory,
 } from './rule-element-proficiency';
@@ -703,3 +702,5 @@ export type { ContentBundles } from './content-bundle-write';
 export { putUnsupportedPacks, unsupportedPacksOf } from './unsupported-packs';
 
 export { LEGACY_CONTENT_VARIANT } from './legacy-content';
+
+export type { JsonValue } from './json-bounds';

@@ -5,7 +5,9 @@ import { SheetMode } from '@pioneer/character/domain';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { LanguagePicker } from '@pioneer/rules/ui';
 import { describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
+import type { JsonValue } from '../../testing/json-fixture';
 import { harnessOf, id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Exploration, 'languages');
@@ -36,12 +38,12 @@ function buttonIn(root: HTMLElement, label: string): HTMLElement | undefined {
   );
 }
 
-async function patchBody(): Promise<unknown> {
+async function patchBody(): Promise<JsonValue> {
   const request = await vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
 
-  return request.request.body;
+  return z.json().parse(request.request.body);
 }
 
 describe('CharacterSheetPage languages', () => {

@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKey, ContentKind, ContentText, Predicate, RichText, RollOption } from '@pioneer/rules/sdk';
+import type * as z from 'zod';
 
 import { prerequisiteMatches, readPrerequisites } from './prerequisite-matcher';
 import type { NamedEntry, PrerequisiteNames } from './prerequisite-names';
@@ -51,7 +52,7 @@ const NAMES: PrerequisiteNames = {
 };
 
 const read = (words: string): Predicate | undefined => readPrerequisites(prose(words), NAMES).predicate;
-const predicate = (statements: unknown): Predicate => Predicate.parse(statements);
+const predicate = (statements: z.core.util.JSONType): Predicate => Predicate.parse(statements);
 
 describe('prerequisite matcher', () => {
   test.each([

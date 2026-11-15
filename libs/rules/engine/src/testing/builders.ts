@@ -70,7 +70,7 @@ function hopsOf(override: boolean | undefined, item: string | undefined): readon
 
 /** A rule element on the test pack's entry named `entry`; ids are opaque to the engine, so every one is an effect. */
 export function inPlay(
-  element: unknown,
+  element: RuleJson,
   entry: string,
   { rule = 0, itemLevel, conditionValue, override, item }: Placement = {},
 ): RuleInPlay {

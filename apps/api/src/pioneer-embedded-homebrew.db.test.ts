@@ -7,7 +7,7 @@ import { DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
 import { DrizzleHomebrewPackRepository } from '@pioneer/homebrew/infrastructure';
-import { HomebrewEntryOutcome, HomebrewPackStatus } from '@pioneer/interop/pioneer';
+import { HomebrewEntryOutcome, HomebrewPackStatus, PioneerFileJson } from '@pioneer/interop/pioneer';
 import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
 import { contentEntries, contentEntryRow, contentPacks } from '@pioneer/rules/infrastructure';
 import { PackId, PackVisibility } from '@pioneer/rules/sdk';
@@ -128,6 +128,11 @@ async function exportedBy({ repository, service }: World, owner: UserId, name: s
   return service.export(owner, saved.id);
 }
 
+/** The file as it reaches the server: JSON. */
+function uploadOf(file: PioneerCharacterFile): PioneerFileJson {
+  return PioneerFileJson.parse(structuredClone(file));
+}
+
 async function entrySlugsOf({ database }: World, owner: UserId): Promise<readonly string[]> {
   const rows = await database.db
     .select({ slug: contentEntries.slug })
@@ -159,7 +164,7 @@ describe.skipIf(adminUrl === undefined)('PioneerEmbeddedHomebrew (postgres)', ()
     const file = await exportedBy(source, amiri, 'Amiri 1');
     expect(slugsOf(file.homebrew?.[0]?.entries)).toStrictEqual(FEAT_AND_ITEM);
 
-    const imported = await target.service.import(ezren, file);
+    const imported = await target.service.import(ezren, uploadOf(file));
 
     expect(await entrySlugsOf(target, ezren)).toStrictEqual(FEAT_AND_ITEM);
     const [pack] = await target.database.db.select().from(contentPacks).where(eq(contentPacks.slug, BREW));
@@ -175,10 +180,10 @@ describe.skipIf(adminUrl === undefined)('PioneerEmbeddedHomebrew (postgres)', ()
   test('importing again reuses what is there and writes nothing', async () => {
     await seedBrew(source, amiri, PackVisibility.Private);
     const file = await exportedBy(source, amiri, 'Amiri 2');
-    await target.service.import(ezren, file);
+    await target.service.import(ezren, uploadOf(file));
 
-    const preview = await target.service.preview(ezren, file);
-    await target.service.import(ezren, file);
+    const preview = await target.service.preview(ezren, uploadOf(file));
+    await target.service.import(ezren, uploadOf(file));
 
     expect(preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome)])).toStrictEqual([
       [HomebrewPackStatus.Own, [HomebrewEntryOutcome.Reuse, HomebrewEntryOutcome.Reuse]],
@@ -191,8 +196,8 @@ describe.skipIf(adminUrl === undefined)('PioneerEmbeddedHomebrew (postgres)', ()
     await seedBrew(source, amiri, PackVisibility.Private);
     const file = await exportedBy(source, amiri, 'Amiri 3');
 
-    const preview = await source.service.preview(ezren, file);
-    await source.service.import(ezren, file);
+    const preview = await source.service.preview(ezren, uploadOf(file));
+    await source.service.import(ezren, uploadOf(file));
 
     expect(preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome)])).toStrictEqual([
       [HomebrewPackStatus.Taken, [HomebrewEntryOutcome.Clash, HomebrewEntryOutcome.Clash]],
@@ -204,7 +209,7 @@ describe.skipIf(adminUrl === undefined)('PioneerEmbeddedHomebrew (postgres)', ()
     await seedBrew(source, amiri, PackVisibility.Public);
     const file = await exportedBy(source, amiri, 'Amiri 4');
 
-    const preview = await source.service.preview(ezren, file);
+    const preview = await source.service.preview(ezren, uploadOf(file));
 
     expect(preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome)])).toStrictEqual([
       [HomebrewPackStatus.Taken, [HomebrewEntryOutcome.Reuse, HomebrewEntryOutcome.Reuse]],
@@ -229,8 +234,8 @@ describe.skipIf(adminUrl === undefined)('PioneerEmbeddedHomebrew (postgres)', ()
 
     const exportError = await rejection(exportedBy(source, amiri, 'Amiri 6'));
 
-    const preview = await source.service.preview(amiri, file);
-    await source.service.import(amiri, file);
+    const preview = await source.service.preview(amiri, uploadOf(file));
+    await source.service.import(amiri, uploadOf(file));
 
     expect(exportError).toBeInstanceOf(ValidationError);
     expect(preview.homebrew.map((pack) => [pack.status, pack.entries.map((entry) => entry.outcome)])).toStrictEqual([

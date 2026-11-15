@@ -1,7 +1,7 @@
 import { Directive, inject, TemplateRef } from '@angular/core';
 
 export interface AsyncErrorContext {
-  readonly $implicit: unknown;
+  readonly $implicit: Error | null | undefined;
 }
 
 /** Replaces an `fr-async-region`'s default failure message. `let-error` is the query's error. */

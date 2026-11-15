@@ -5,6 +5,7 @@ import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, SortDirection, UserId, ValidationError } from '@pioneer/shared/kernel';
+import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';
 import { GenerateCharacterService } from './generate-character-service';
@@ -73,7 +74,7 @@ describe('GenerateCharacterService', () => {
 
     test('refuses a lock the build cannot keep as a 422 naming it, and stores nothing', async () => {
       const locks = [{ slot: CLASS_SLOT, selection: unloaded }];
-      const refusal: unknown = await service.generate(amiri, { seed, locks }).catch((error: unknown) => error);
+      const refusal = await rejection(service.generate(amiri, { seed, locks }));
       expect(refusal).toBeInstanceOf(ValidationError);
       expect(refusal).toMatchObject({ issues: [{ path: ['locks', 0] }] });
       expect(await characters.list(amiri, byName)).toEqual([]);

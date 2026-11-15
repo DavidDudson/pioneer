@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { deriveStatistics, factsUnderForm } from '@pioneer/rules/engine';
 import type { RuleInPlay } from '@pioneer/rules/engine';
 import { flatModifier, inPlay } from '@pioneer/rules/engine/testing';
-import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentEntryFile, ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { core, fighter, noFacts, totals } from './testing/core-rules';
 
@@ -127,9 +127,11 @@ function grantedBy(slug: string): string[] {
   const rules = conditions.find((each) => each.slug === `condition:${slug}`)?.rules ?? [];
 
   const granted = new Set(
-    rules.flatMap((element) =>
-      element.key === RuleElementKey.GrantItem && typeof element.item === 'string' ? [element.item] : [],
-    ),
+    rules.flatMap((element) => {
+      const item = element.key === RuleElementKey.GrantItem ? ContentId.safeParse(element.item) : undefined;
+
+      return item?.success === true ? [item.data] : [];
+    }),
   );
 
   return conditions.filter((each) => granted.has(each.id)).map((each) => each.slug);

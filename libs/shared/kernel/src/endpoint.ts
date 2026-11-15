@@ -11,6 +11,9 @@ export const HttpMethod = {
 
 export type HttpMethod = ValueOf<typeof HttpMethod>;
 
+/** A param that serialises to the URL as text: the string or number it was encoded to. */
+const WireValue = z.union([z.string(), z.number()]);
+
 /** Schema for endpoints that take no path params. */
 export const NoParams = z.object({});
 
@@ -69,13 +72,13 @@ export class Endpoint<
     const wire: Readonly<Record<string, unknown>> = z.encode(this.params, params);
 
     const path = this.path.replaceAll(/:(?<name>\w+)/gu, (_match, name: string) => {
-      const value = wire[name];
+      const value = WireValue.safeParse(wire[name]);
 
-      if (typeof value !== 'string' && typeof value !== 'number') {
+      if (!value.success) {
         throw new TypeError(`Missing path param "${name}" for ${this.path}`);
       }
 
-      return encodeURIComponent(String(value));
+      return encodeURIComponent(String(value.data));
     });
 
     if (query === undefined) {
@@ -86,8 +89,10 @@ export class Endpoint<
     const search = new URLSearchParams();
 
     for (const [key, value] of Object.entries(encoded)) {
-      if (typeof value === 'string' || typeof value === 'number') {
-        search.append(key, String(value));
+      const text = WireValue.safeParse(value);
+
+      if (text.success) {
+        search.append(key, String(text.data));
       }
     }
 

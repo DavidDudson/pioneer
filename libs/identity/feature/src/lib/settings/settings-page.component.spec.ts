@@ -35,7 +35,7 @@ async function render(signedIn: boolean, saves = true): Promise<Rendered> {
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       { provide: PREFERENCE_STORAGE, useValue: undefined },
       // The sign-in page asks for providers when a signed-out visitor lands there.
-      { provide: ApiClient, useValue: { call: async (): Promise<unknown> => [] } },
+      { provide: ApiClient, useValue: { call: async (): Promise<object> => [] } },
       { provide: SessionStore, useValue: session },
       { provide: AccountPreferences, useValue: { update } },
     ],

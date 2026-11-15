@@ -15,8 +15,8 @@ interface Model {
 
 async function render(
   name: string,
-  action: (value: Model) => Promise<unknown>,
-): Promise<ComponentFixture<AsyncForm<Model>>> {
+  action: (value: Model) => Promise<undefined>,
+): Promise<ComponentFixture<AsyncForm<Model, undefined>>> {
   TestBed.configureTestingModule({
     providers: [provideTanStackQuery(new QueryClient()), ...provideFrontierI18nTesting()],
   });
@@ -27,7 +27,7 @@ async function render(
     }),
   );
 
-  const fixture = TestBed.createComponent<AsyncForm<Model>>(AsyncForm);
+  const fixture = TestBed.createComponent<AsyncForm<Model, undefined>>(AsyncForm);
   fixture.componentRef.setInput('form', tree);
   fixture.componentRef.setInput('action', action);
   fixture.componentRef.setInput('describeError', () => 'Could not create');

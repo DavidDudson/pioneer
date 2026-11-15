@@ -33,21 +33,14 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 }
 
 /** Every `GrantItem` target inside a rule list, however deep (a choice set nests its grants). */
-function grantedIds(node: unknown): readonly string[] {
-  if (Array.isArray(node)) {
-    return node.flatMap((child: unknown) => grantedIds(child));
-  }
+function grantedIds(node: object): readonly string[] {
+  const grant = GrantItemRule.safeParse(node);
+  const children: readonly unknown[] = Object.values(node);
 
-  if (typeof node === 'object' && node !== null) {
-    const grant = GrantItemRule.safeParse(node);
-
-    return [
-      ...(grant.success ? [grant.data.item] : []),
-      ...Object.values(node).flatMap((child: unknown) => grantedIds(child)),
-    ];
-  }
-
-  return [];
+  return [
+    ...(grant.success ? [grant.data.item] : []),
+    ...children.flatMap((child) => (child instanceof Object ? grantedIds(child) : [])),
+  ];
 }
 
 /** A pack's enrichment file, as written (to merge into) and as parsed (to read). */

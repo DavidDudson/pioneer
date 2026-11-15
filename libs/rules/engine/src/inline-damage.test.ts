@@ -1,10 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
+import type { DamageTags } from '@pioneer/rules/dice';
 import { FormulaText } from '@pioneer/rules/formula';
 import { DamageFormula, DamageType, InlineKind } from '@pioneer/rules/sdk';
 import type { DamageNode } from '@pioneer/rules/sdk';
 
 import { resolveDamageNode } from './inline-damage';
+import type { ResolvedDamageNode } from './inline-damage';
 import { StatisticInputsJson } from './statistic-inputs';
 
 const INPUTS = StatisticInputsJson.parse({
@@ -17,7 +19,10 @@ function damage(...instances: DamageNode['instances']): DamageNode {
   return { type: InlineKind.Damage, instances };
 }
 
-function tagsOf(node: DamageNode, inputs: typeof INPUTS | undefined = INPUTS): unknown {
+function tagsOf(
+  node: DamageNode,
+  inputs: typeof INPUTS | undefined = INPUTS,
+): readonly DamageTags[] | ResolvedDamageNode {
   const resolved = resolveDamageNode(node, inputs);
 
   return resolved.ok ? resolved.expression.terms.map(({ tags }) => tags) : resolved;

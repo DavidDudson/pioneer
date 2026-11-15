@@ -1,7 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
-import { isPredicateComparison, NamespaceKind, Predicate, PredicateStatement, RollOption } from '@pioneer/rules/sdk';
-import type { ComparisonOperands, PredicateComparison, PredicateCompound } from '@pioneer/rules/sdk';
+import {
+  isPredicateComparison,
+  isRollOptionOperand,
+  isRollOptionStatement,
+  NamespaceKind,
+  Predicate,
+  PredicateStatement,
+  RollOption,
+} from '@pioneer/rules/sdk';
+import type { ComparisonOperands, JsonValue, PredicateComparison, PredicateCompound } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
 import type { Arbitrary } from 'fast-check';
 import { array, assert, constantFrom, integer, letrec, oneof, property, record, subarray, tuple } from 'fast-check';
@@ -118,7 +126,7 @@ function foundryComparison(item: PredicateComparison, domain: ReadonlySet<string
   if ('eq' in item) {
     const [left, right] = item.eq;
 
-    return typeof right === 'string' ? left === right : domain.has(`${left}:${right}`);
+    return isRollOptionOperand(right) ? left === right : domain.has(`${left}:${right}`);
   }
 
   if ('gt' in item) {
@@ -171,7 +179,7 @@ function foundryCompound(item: PredicateCompound, domain: ReadonlySet<string>): 
 }
 
 function foundryStatement(item: PredicateStatement, domain: ReadonlySet<string>): boolean {
-  if (typeof item === 'string') {
+  if (isRollOptionStatement(item)) {
     return domain.has(item);
   }
 
@@ -220,7 +228,7 @@ describe('evaluatePredicate (properties)', () => {
     assert(
       property(statement, statement, options, (left, right, present) => {
         const given = defaultFacts(present);
-        const evaluate = (json: unknown): Truth => evaluateStatement(PredicateStatement.parse(json), given);
+        const evaluate = (json: JsonValue): Truth => evaluateStatement(PredicateStatement.parse(json), given);
         expect(evaluate({ not: { and: [left, right] } })).toBe(evaluate({ or: [{ not: left }, { not: right }] }));
         expect(evaluate({ not: { or: [left, right] } })).toBe(evaluate({ and: [{ not: left }, { not: right }] }));
         expect(evaluate({ nand: [left, right] })).toBe(evaluate({ not: { and: [left, right] } }));

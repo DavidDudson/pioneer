@@ -6,13 +6,19 @@ import { assert, integer, nat, property } from 'fast-check';
 
 import { entryLookup } from './content-lookup';
 import { buildImportReport } from './import-report';
-import { PathbuilderBuild } from './pathbuilder-export';
+import { PathbuilderBuild, PathbuilderFileJson } from './pathbuilder-export';
 import { PathbuilderProblem, readPathbuilderExport } from './read-pathbuilder-export';
 
 const SCORE_MIN = 0;
 const SCORE_MAX = 25;
 
-const anyExport = nat().map((seed) => ({ success: true, build: fakeSeeded(PathbuilderBuild, seed) }));
+// Through JSON text: an export is plain data, as it is once written out and parsed.
+const anyExport = nat().map((seed) => {
+  const written = JSON.stringify({ success: true, build: fakeSeeded(PathbuilderBuild, seed) });
+
+  return PathbuilderFileJson.parse(JSON.parse(written));
+});
+
 const nothingLoaded = entryLookup({});
 
 describe('readPathbuilderExport (properties)', () => {

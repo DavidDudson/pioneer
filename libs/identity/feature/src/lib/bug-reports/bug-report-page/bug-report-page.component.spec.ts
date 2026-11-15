@@ -36,7 +36,7 @@ interface Rendered {
 async function render(report: BugReportDetail): Promise<Rendered> {
   const sent: { status: string }[] = [];
 
-  const call = vi.fn<(endpoint: unknown, input: { body?: { status: string } }) => Promise<unknown>>(
+  const call = vi.fn<(endpoint: object, input: { body?: { status: string } }) => Promise<object>>(
     async (endpoint, input) => {
       if (endpoint === IdentityContract.triageBugReport && input.body !== undefined) {
         sent.push(input.body);

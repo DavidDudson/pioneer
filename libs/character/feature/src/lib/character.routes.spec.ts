@@ -9,6 +9,7 @@ import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
 import messages from '../i18n/en.json';
 import { characterRoutes } from './character.routes';
@@ -21,8 +22,10 @@ function target(route: Route): Route {
     return { children: stubbed(route.children) };
   }
 
-  if (typeof route.redirectTo === 'string' && route.redirectTo.startsWith('/')) {
-    return { redirectTo: route.redirectTo, pathMatch: route.pathMatch ?? 'prefix' };
+  const redirect = z.string().startsWith('/').safeParse(route.redirectTo);
+
+  if (redirect.success) {
+    return { redirectTo: redirect.data, pathMatch: route.pathMatch ?? 'prefix' };
   }
 
   return { component: StubPage };
@@ -78,7 +81,11 @@ const trailOf = (): (string | undefined)[] =>
 const hrefsOf = (): string[] =>
   TestBed.inject(HeaderCrumbs)
     .trail()
-    .flatMap(({ to }): string[] => (typeof to === 'string' ? [to] : []));
+    .flatMap(({ to }): string[] => {
+      const href = z.string().safeParse(to);
+
+      return href.success ? [href.data] : [];
+    });
 
 describe('character routes', () => {
   it('trails Characters, the character and the sheet tab, which is in the URL', async () => {
