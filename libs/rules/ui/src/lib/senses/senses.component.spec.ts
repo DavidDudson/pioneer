@@ -36,8 +36,10 @@ async function render({ senses, own, names = SENSE_NAMES }: Inputs): Promise<HTM
 function rowsOf(host: Element): readonly string[] {
   return [...host.querySelectorAll('[role="listitem"]')].map((item) =>
     [...item.querySelectorAll('fr-text, fr-badge')]
+      .values()
       .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
       .map((part) => textOf(part))
+      .toArray()
       .join(' | '),
   );
 }

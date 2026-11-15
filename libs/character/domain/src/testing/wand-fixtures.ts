@@ -1,6 +1,7 @@
 import { DieFace } from '@pioneer/rules/dice';
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { HitPoints, Origin, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import { Attribute, HitPoints, Origin, SlotCount, Slug, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import type { MagicTradition } from '@pioneer/rules/sdk';
 
 import { wandMaxima } from '../counted-resources';
 import type { CountedMaxima } from '../counted-resources';
@@ -39,22 +40,44 @@ const FIREBALL_RANK = SpellRank.parse(3);
 /** The ranks of slots the default caster has: up to the wand's. */
 const WAND_RANKS = Array.from({ length: FIREBALL_RANK }, (_unused, index) => index + 1);
 
-/** A prepared entry of `tradition` with one slot of each of `ranks`. */
-export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number[]): SpellcastingInPlay {
-  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the engine's entry has more fields than a wand reads
+/** What a test's spellcasting entry sets; everything else is empty. */
+export interface CasterFields {
+  readonly slug: string;
+  readonly tradition: MagicTradition;
+  readonly attribute: Attribute;
+  readonly preparation: SpellPreparation;
+  readonly ranks: readonly number[];
+}
+
+/** A spellcasting entry with one slot of each of `ranks`, and no pools, signature, focus, innate or granted spells. */
+export function casterEntry({ slug, tradition, attribute, preparation, ranks }: CasterFields): SpellcastingInPlay {
   return {
-    slug: 'wizard',
+    slug: Slug.parse(slug),
     tradition,
-    attribute: 'int',
-    preparation: SpellPreparation.Prepared,
+    attribute,
+    preparation,
     origin: ORIGIN,
-    slots: { ranks: ranks.map((rank) => ({ rank, count: 1 })) },
+    slots: { ranks: ranks.map((rank) => ({ rank: SpellRank.parse(rank), count: SlotCount.parse(1) })) },
     pools: [],
     signatures: false,
     focusSpells: [],
     innateSpells: [],
+    grantedSpells: [],
+    repertoireCounts: [],
+    deityRepertoire: [],
     deitySpells: false,
-  } as unknown as SpellcastingInPlay;
+  };
+}
+
+/** A prepared entry of `tradition` with one slot of each of `ranks`. */
+export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number[]): SpellcastingInPlay {
+  return casterEntry({
+    slug: 'wizard',
+    tradition,
+    attribute: Attribute.Intelligence,
+    preparation: SpellPreparation.Prepared,
+    ranks,
+  });
 }
 
 /** A wand of Fireball in the inventory, held unless `fields` say otherwise. */

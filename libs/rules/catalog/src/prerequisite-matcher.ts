@@ -172,8 +172,10 @@ function namesOf(item: string): readonly NameOf[] {
 function nameStatement(item: string, names: PrerequisiteNames): PredicateStatement | undefined {
   for (const { name, kinds } of namesOf(item)) {
     const options = [...(names.entries.get(name) ?? []), ...(names.variants.get(name) ?? [])]
+      .values()
       .filter(({ kind }) => kinds.includes(kind))
-      .map(({ option }) => option);
+      .map(({ option }) => option)
+      .toArray();
 
     const [only] = options;
 

@@ -50,7 +50,10 @@ export function staffLimits(
 
   return {
     staves: new Set(
-      inventory.filter((item) => item.carry.state !== CarryState.Dropped && isStaff(item, content)).map(({ id }) => id),
+      inventory
+        .values()
+        .filter((item) => item.carry.state !== CarryState.Dropped && isStaff(item, content))
+        .map(({ id }) => id),
     ),
     highestRank: ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks)),
     expendable: new Set(

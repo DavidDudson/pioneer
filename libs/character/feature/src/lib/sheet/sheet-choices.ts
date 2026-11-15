@@ -190,5 +190,9 @@ function isShown(slot: CharacterSlot): boolean {
  * section.
  */
 export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLookup): readonly ChoiceLine[] {
-  return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot, lookup));
+  return slots
+    .values()
+    .filter((slot) => isShown(slot))
+    .map((slot) => lineOf(slot, lookup))
+    .toArray();
 }

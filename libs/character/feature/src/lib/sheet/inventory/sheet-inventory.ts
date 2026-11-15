@@ -201,6 +201,24 @@ function loadOf(inventory: Inventory, items: ItemContent, id: InventoryItemId): 
 /** The table's rules, and whether a battle form has the worn and held gear melded into it (#532). */
 export type InventoryRules = TableRules & { readonly melded?: boolean };
 
+/** The loose items grouped by how they are carried, each group with the lines `lineOf` makes; empty groups are left out. */
+function groupsOf(
+  loose: readonly InventoryItem[],
+  lineOf: (item: InventoryItem) => InventoryLine,
+): readonly InventoryGroup[] {
+  return STATES.values()
+    .map((state) => ({
+      placement: GROUP_OF[state],
+      lines: loose
+        .values()
+        .filter((each) => each.carry.state === state)
+        .map((each) => lineOf(each))
+        .toArray(),
+    }))
+    .filter((group) => group.lines.length > 0)
+    .toArray();
+}
+
 /**
  * The inventory as the sheet lists it: loose items grouped worn, held, stowed and dropped as they are carried, each
  * container with what it holds beneath it, and each item named with its runes. Empty groups are left out.
@@ -255,10 +273,7 @@ export function sheetInventory(
 
   const loose = inventory.items.filter((each) => each.container === undefined);
 
-  return STATES.map((state) => ({
-    placement: GROUP_OF[state],
-    lines: loose.filter((each) => each.carry.state === state).map((each) => lineOf(each)),
-  })).filter((group) => group.lines.length > 0);
+  return groupsOf(loose, lineOf);
 }
 
 /** The value of the "carried loose" option where an item can be put. */

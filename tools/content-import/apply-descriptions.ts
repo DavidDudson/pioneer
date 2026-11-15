@@ -8,43 +8,41 @@ import { BacklogItemType, VocabularyGapReason } from '@pioneer/interop/foundry';
 import type { BacklogItem } from '@pioneer/interop/foundry';
 import { ContentKind } from '@pioneer/rules/sdk';
 
-type Json = unknown;
-
-type JsonRecord = Readonly<Record<string, Json>>;
+type JsonRecord = Readonly<Record<string, unknown>>;
 
 /** The kinds `--apply-descriptions` can fill: the ones the import describes from Foundry's config, not its packs. */
 export const DESCRIBED_KINDS: ReadonlySet<string> = new Set([ContentKind.Trait]);
 
 /** The import's description of each entry, by id. */
-export type FreshDescriptions = ReadonlyMap<string, Json>;
+export type FreshDescriptions = ReadonlyMap<string, unknown>;
 
 /** A kind file after the merge, and how many entries it filled. */
 export interface DescriptionMerge {
-  readonly entries: readonly Json[];
+  readonly entries: readonly unknown[];
   readonly filled: number;
 }
 
-function isRecord(node: Json): node is JsonRecord {
+function isRecord(node: unknown): node is JsonRecord {
   return typeof node === 'object' && node !== null && !Array.isArray(node);
 }
 
-function isEmptyList(node: Json): boolean {
+function isEmptyList(node: unknown): boolean {
   return Array.isArray(node) && node.length === 0;
 }
 
-function isFilledList(node: Json): node is readonly Json[] {
+function isFilledList(node: unknown): node is readonly unknown[] {
   return Array.isArray(node) && node.length > 0;
 }
 
 /** The entries of one kind file with each empty description in `kinds` replaced by the import's, when it has one. */
 export function withFilledDescriptions(
-  entries: readonly Json[],
+  entries: readonly unknown[],
   fresh: FreshDescriptions,
   kinds: ReadonlySet<string>,
 ): DescriptionMerge {
   let filled = 0;
 
-  const merged = entries.map((entry): Json => {
+  const merged = entries.map((entry): unknown => {
     if (!isRecord(entry) || !kinds.has(String(entry['kind'])) || !isEmptyList(entry['description'])) {
       return entry;
     }

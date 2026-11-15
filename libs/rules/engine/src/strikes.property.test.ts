@@ -23,7 +23,7 @@ function weapon(traits: readonly string[], dice: number, striking: number | unde
     traits,
     striking,
     damage: { dice, die: 'd8', damageType: 'slashing' },
-  }) as unknown as WeaponInputs;
+  }) as WeaponInputs;
 }
 
 const TRAIT_SETS = array(constantFrom(...TRAITS), { maxLength: 4 });

@@ -140,10 +140,12 @@ function unmetLocks(character: Character, content: SlotContent, locks: readonly 
   const slots = characterSlots(character.document, content);
 
   return locks
+    .values()
     .filter(({ slot, selection }) =>
       slots.every((each) => each.key !== slot || each.status !== SlotStatus.Filled || each.selection !== selection),
     )
-    .map(({ slot }) => slot);
+    .map(({ slot }) => slot)
+    .toArray();
 }
 
 /** Spends a dead end; false when none is left. */

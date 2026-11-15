@@ -42,6 +42,7 @@ export function withPolymorphTraits<Entry extends TraitedEntry>(
   const polymorph = new Set<string>([
     ...committed.map(({ type, name }) => `${type}:${name}`),
     ...entries
+      .values()
       .filter(({ envelope }) => envelope.traits.includes(POLYMORPH))
       .map(({ source, envelope }) => `${source.document.type}:${envelope.name}`),
   ]);

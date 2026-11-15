@@ -8,6 +8,7 @@ import { COMMON_FACETS, FacetId, FacetType, FacetValue, facetValues, RangeBound,
 import type { FacetDefinition } from './facet';
 import { EntryCount, facetCounts, filterEntries, onlyValue, SelectionKind } from './facet-filter';
 import type { FacetCounts, FacetSelection, FilterState } from './facet-filter';
+import { FeatCategory } from './feat';
 import { filterFromQuery, filterToQuery } from './filter-query';
 import type { FilterQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
@@ -121,10 +122,19 @@ describe('facet values', () => {
       id: FacetId.parse('stub'),
       type: FacetType.Flag,
       label: facet('rarity').label,
-      path: ['data', 'flag'],
+      path: ['data', 'onlyLevel1'],
     };
 
-    const withFlag = { ...fire, data: { flag: true } } as unknown as ContentEntry;
+    const featSlug = entrySlug(ContentKind.Feat, Slug.parse('flagged'));
+
+    const withFlag = ContentEntry.parse({
+      ...fire,
+      id: contentId(PackId.parse('player-core'), featSlug),
+      slug: featSlug,
+      kind: ContentKind.Feat,
+      data: { category: FeatCategory.General, onlyLevel1: true },
+    });
+
     expect(facetValues(withFlag, flag)).toStrictEqual(values('yes'));
     expect(facetValues(fire, flag)).toStrictEqual([UNKNOWN]);
   });

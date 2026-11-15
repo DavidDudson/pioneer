@@ -39,6 +39,7 @@ export {
   WAND_ID,
   wandCounted,
   wandEntry,
+  casterEntry,
   wandSourceOf,
 } from './wand-fixtures';
 

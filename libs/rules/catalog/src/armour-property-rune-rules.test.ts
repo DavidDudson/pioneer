@@ -94,7 +94,10 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
 
 describe('armour property rune rules', () => {
   test('every recorded armour gap says why', () => {
-    const unexplained = [...ARMOUR_GAPS].filter(([, reason]) => reason.trim() === '').map(([slug]) => slug);
+    const unexplained = ARMOUR_GAPS.entries()
+      .filter(([, reason]) => reason.trim() === '')
+      .map(([slug]) => slug)
+      .toArray();
 
     expect(unexplained).toEqual([]);
   });

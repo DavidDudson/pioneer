@@ -144,6 +144,10 @@ export function levelTimeline(document: CharacterDocument, content: SlotContent)
 
   return allLevels().map((level) => ({
     level,
-    slots: placed.filter((each) => each.level === level).map((each) => each.slot),
+    slots: placed
+      .values()
+      .filter((each) => each.level === level)
+      .map((each) => each.slot)
+      .toArray(),
   }));
 }

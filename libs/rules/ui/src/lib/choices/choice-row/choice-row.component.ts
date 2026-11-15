@@ -109,8 +109,12 @@ export class ChoiceRow {
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
   /** The lines beneath the choice: its source in a muted tone, then why it is not settled. */
   protected readonly notes = computed((): ShownNote[] => [
-    ...[this.shown().source].filter((text) => text !== undefined).map((text) => ({ text, tone: 'muted' as const })),
+    ...[this.shown().source]
+      .values()
+      .filter((text) => text !== undefined)
+      .map((text) => ({ text, tone: 'muted' as const })),
     ...[this.shown().reason, this.problem()]
+      .values()
       .filter((text) => text !== undefined)
       .map((text) => ({ text, tone: 'danger' as const })),
   ]);

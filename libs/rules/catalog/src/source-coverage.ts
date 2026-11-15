@@ -33,8 +33,10 @@ export function sourceCoverage(entries: readonly SourcedEntry[], registry: BookR
     book: id,
     cited: entries.filter((entry) => cites(entry, id)).length,
     missingPage: entries
+      .values()
       .filter((entry) => lacksPage(entry, id))
       .map((entry) => contentKey(entry.pack, entry.slug))
+      .toArray()
       .toSorted(),
   }));
 }

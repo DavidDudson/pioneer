@@ -58,9 +58,10 @@ function staleFor(files: ReadonlySet<string>, component: string, exemption: Exem
     return [`exemption for a component that no longer exists: ${component}`];
   }
 
-  return COMPANIONS.filter(
-    (companion) => exemption[companion] !== undefined && hasOwn(files, component, companion),
-  ).map((companion) => `${companion} exemption no longer needed, it has its own: ${component}`);
+  return COMPANIONS.values()
+    .filter((companion) => exemption[companion] !== undefined && hasOwn(files, component, companion))
+    .map((companion) => `${companion} exemption no longer needed, it has its own: ${component}`)
+    .toArray();
 }
 
 /**

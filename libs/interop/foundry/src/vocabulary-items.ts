@@ -118,7 +118,12 @@ export function firstUses(
 
 /** The names another official pack already has an entry of `kind` for, so a re-run never imports one twice. */
 export function knownSlugs(known: readonly KnownEntry[], kind: ContentKind): ReadonlySet<string> {
-  return new Set(known.filter((entry) => entry.kind === kind).map(({ slug }) => slugName(slug)));
+  return new Set(
+    known
+      .values()
+      .filter((entry) => entry.kind === kind)
+      .map(({ slug }) => slugName(slug)),
+  );
 }
 
 export function traitItems(selected: readonly SelectedEntry[], { config, known }: VocabularyContext): Item[] {

@@ -147,7 +147,14 @@ function highest(given: readonly Given[]): Highest | undefined {
 
   return top === undefined
     ? undefined
-    : { top, origins: given.filter((each) => each.amount === amount).map(({ origin }) => origin) };
+    : {
+        top,
+        origins: given
+          .values()
+          .filter((each) => each.amount === amount)
+          .map(({ origin }) => origin)
+          .toArray(),
+      };
 }
 
 /** The amount, origin and deactivators a rule gives, none when its formula has no value or the value is below 1. */

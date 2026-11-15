@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import { Attribute, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 
 import { CharacterLevel } from './character-fields';
 import { CountDelta, slotCountKey, slotMaxima, spentAfter } from './counted-resources';
@@ -24,16 +24,17 @@ import {
 import type { StaffCommand, StaffSlots } from './staff-commands';
 import { staffSources } from './staff-sources';
 import type { StaffSource } from './staff-sources';
-import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry, staffSpellId } from './testing';
+import {
+  casterEntry,
+  ItemFixture,
+  itemFixtureContent,
+  itemFixtureId,
+  itemFixtureRegistry,
+  staffSpellId,
+} from './testing';
 
 const items = itemFixtureContent();
 const spells = spellContent(itemFixtureRegistry());
-
-const ORIGIN = Origin.parse({
-  hops: [],
-  entry: staffSpellId('ignition'),
-  sources: [{ kind: 'web', url: 'https://example.com/' }],
-});
 
 const STAFF_ID = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const HELD = { state: 'held', hands: 1 } as const;
@@ -52,19 +53,7 @@ interface EntryShape {
 }
 
 function entry({ slug, preparation, ranks, tradition = 'arcane' }: EntryShape): SpellcastingInPlay {
-  return {
-    slug,
-    tradition,
-    attribute: 'cha',
-    preparation,
-    origin: ORIGIN,
-    slots: { ranks: ranks.map((rank) => ({ rank, count: 1 })) },
-    pools: [],
-    signatures: false,
-    focusSpells: [],
-    innateSpells: [],
-    deitySpells: false,
-  } as unknown as SpellcastingInPlay;
+  return casterEntry({ slug, tradition, attribute: Attribute.Charisma, preparation, ranks });
 }
 
 const SORCERER = entry({ slug: 'sorcerer', preparation: SpellPreparation.Spontaneous, ranks: [1, 2, 3, 4] });

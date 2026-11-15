@@ -51,8 +51,10 @@ function hostOf(fixture: ComponentFixture<SkillsView>): HTMLElement {
 
 function rowNames(host: HTMLElement): string[] {
   return [...host.querySelectorAll('pio-statistics [role="listitem"]')]
+    .values()
     .filter((item) => item.closest('pio-breakdown') === null)
-    .map((item) => item.textContent.trim());
+    .map((item) => item.textContent.trim())
+    .toArray();
 }
 
 async function chooseLores(fixture: ComponentFixture<SkillsView>): Promise<void> {

@@ -29,6 +29,7 @@ export function characterInnate(
   level: CharacterLevel,
 ): readonly InnateEntrySpells[] {
   return entries
+    .values()
     .filter((entry) => entry.preparation === SpellPreparation.Innate)
     .map((entry): InnateEntrySpells => ({
       entry,
@@ -39,5 +40,6 @@ export function characterInnate(
           ? []
           : [{ spell: option, rank: rank === SlotRank.Cantrip ? cantripRank(level) : rank }];
       }),
-    }));
+    }))
+    .toArray();
 }

@@ -36,8 +36,10 @@ function matched(names: readonly ImportedName[], lookup: ContentLookup): Wanted[
 /** The names of the languages in `names` that match no content, each once. */
 function unmatched(names: readonly ImportedName[], lookup: ContentLookup): PathbuilderName[] {
   const unknown = names
+    .values()
     .filter(({ kind, name }) => kind === ImportKind.Language && lookup.resolve(ImportKind.Language, name) === undefined)
-    .map(({ name }) => name);
+    .map(({ name }) => name)
+    .toArray();
 
   return [...new Set(unknown)];
 }

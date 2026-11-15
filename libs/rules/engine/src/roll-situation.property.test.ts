@@ -78,7 +78,12 @@ function derived(rules: readonly RuleInPlay[], situation: ReadonlySet<RuleId>): 
 }
 
 function chosenIn(specs: readonly Spec[], rules: readonly RuleInPlay[]): ReadonlySet<RuleId> {
-  return new Set(rules.filter((_rule, index) => specs[index]?.chosen === true).map((rule) => ruleIdOf(rule)));
+  return new Set(
+    rules
+      .values()
+      .filter((_rule, index) => specs[index]?.chosen === true)
+      .map((rule) => ruleIdOf(rule)),
+  );
 }
 
 describe('the breakdown of a roll with any toggles chosen', () => {

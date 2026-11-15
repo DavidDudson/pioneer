@@ -20,8 +20,10 @@ async function render(investments: readonly Investment[] | undefined): Promise<H
 /** Each investment's texts: its name, then what it turns on. */
 function shown(host: HTMLElement): string[][] {
   return [...host.querySelectorAll('fr-list-item')]
+    .values()
     .filter((item) => item.parentElement?.closest('fr-list-item') === null)
-    .map((item) => [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()));
+    .map((item) => [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()))
+    .toArray();
 }
 
 describe(InvestmentsView, () => {

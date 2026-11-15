@@ -173,6 +173,7 @@ function spentActions(
   return new Set(
     candidates
       .filter(({ id }) => maxima.has(abilityUseKey(id)))
+      .values()
       .filter(({ id }) => heldCount({ spent: uses, maxima, key: abilityUseKey(id) }) === NONE)
       .map(({ id }) => id),
   );

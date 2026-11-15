@@ -80,6 +80,12 @@ export class InMemoryPartyStashKeeper extends PartyStashKeeper {
   }
 
   #stash(): PartyStashContents {
-    return { lines: [...this.#held.values()].filter((each) => each.character === undefined).map((each) => each.line) };
+    return {
+      lines: [...this.#held.values()]
+        .values()
+        .filter((each) => each.character === undefined)
+        .map((each) => each.line)
+        .toArray(),
+    };
   }
 }

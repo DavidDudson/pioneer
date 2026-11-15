@@ -55,6 +55,7 @@ export function characterRootSlots(variants: readonly VariantRuleEntry[]): reado
  */
 export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readonly GrantRoot[] {
   return variants
+    .values()
     .filter(
       ({ definition }) =>
         definition.structure?.includes(VariantStructure.ExtraSlots) === true ||
@@ -64,7 +65,8 @@ export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readon
       const entry = ContentId.parse(id);
 
       return { entry, hop: { kind: OriginHopKind.Variant, rule: entry } };
-    });
+    })
+    .toArray();
 }
 
 /** Whether `rootSlots` hold the second class's slot. */

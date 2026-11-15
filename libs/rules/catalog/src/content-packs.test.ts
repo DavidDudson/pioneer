@@ -77,7 +77,11 @@ async function ancestryAndReferenceEntries(): Promise<readonly ContentEntry[]> {
 }
 
 function idsOf(entries: readonly ContentEntry[], kind: ContentKind): readonly ContentId[] {
-  return entries.filter((entry) => entry.kind === kind).map((entry) => entry.id);
+  return entries
+    .values()
+    .filter((entry) => entry.kind === kind)
+    .map((entry) => entry.id)
+    .toArray();
 }
 
 interface AncestryReferences {

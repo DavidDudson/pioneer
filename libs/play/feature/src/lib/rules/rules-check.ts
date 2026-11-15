@@ -244,7 +244,10 @@ function valueAt(value: unknown, path: FieldIssue['path']): unknown {
   let inside = value;
 
   for (const segment of path) {
-    inside = typeof inside === 'object' && inside !== null ? Reflect.get(inside, segment) : undefined;
+    inside =
+      typeof inside === 'object' && inside !== null
+        ? Object.entries(inside).find(([name]) => name === String(segment))?.[1]
+        : undefined;
   }
 
   return inside;

@@ -81,8 +81,10 @@ describe('LegalPage', () => {
     const root = await renderLegalPage();
 
     const links = [...root.querySelectorAll('a')]
+      .values()
       .filter((link) => link.closest('pio-content-caches') === null)
-      .map((link) => link.getAttribute('href'));
+      .map((link) => link.getAttribute('href'))
+      .toArray();
 
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',

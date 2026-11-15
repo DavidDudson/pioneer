@@ -3,12 +3,15 @@ import { describe, expect, test } from 'bun:test';
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
 import {
   ActivationName,
+  Attribute,
   ContentId,
   FrequencyPeriod,
   HitPoints,
+  MagicTradition,
   RuleSlug,
   SlotCount,
   Slug,
+  SpellPreparation,
   SpellRank,
 } from '@pioneer/rules/sdk';
 import type { Activation, Frequency, Uses } from '@pioneer/rules/sdk';
@@ -33,7 +36,7 @@ import type { InventoryItem } from './inventory';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayCommand, PlayState } from './play-state';
 import { ResourceCount } from './resource-count';
-import { within } from './testing';
+import { casterEntry, within } from './testing';
 
 function count(value: number): ResourceCount {
   return ResourceCount.parse(value);
@@ -55,6 +58,14 @@ function frequency(max: number, per: FrequencyPeriod): Frequency {
 
 /** A wizard with two first-rank and one second-rank slot, and a font pool of three first-rank slots. */
 function wizard(): SpellcastingInPlay {
+  const caster = casterEntry({
+    slug: WIZARD,
+    tradition: MagicTradition.Arcane,
+    attribute: Attribute.Intelligence,
+    preparation: SpellPreparation.Prepared,
+    ranks: [],
+  });
+
   const slots = {
     ranks: [
       { rank: FIRST, count: SlotCount.parse(2) },
@@ -62,9 +73,9 @@ function wizard(): SpellcastingInPlay {
     ],
   };
 
-  const pool = { pool: FONT, ranks: [{ rank: FIRST, count: SlotCount.parse(3) }] };
+  const pool = { pool: FONT, origin: caster.origin, spells: [], ranks: [{ rank: FIRST, count: SlotCount.parse(3) }] };
 
-  return { slug: WIZARD, slots, pools: [pool] } as unknown as SpellcastingInPlay;
+  return { ...caster, slots, pools: [pool] };
 }
 
 const COUNTED: CountedMaxima = {
