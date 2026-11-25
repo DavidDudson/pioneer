@@ -113,12 +113,16 @@ describe('character companion routes', () => {
   test('a second live familiar is a 409', async () => {
     const server = api();
     const { id, version } = await createdBy(server, amiri);
-    await server.handle(request(`/characters/${id}/companions`, amiri, { method: 'POST', body: pip(version) }));
+
+    const first = await server.handle(
+      request(`/characters/${id}/companions`, amiri, { method: 'POST', body: pip(version) }),
+    );
 
     const second = await server.handle(
       request(`/characters/${id}/companions`, amiri, { method: 'POST', body: pip(version) }),
     );
 
+    expect(first.status).toBe(200);
     expect(second.status).toBe(409);
   });
 
