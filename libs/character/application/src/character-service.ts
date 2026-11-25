@@ -15,6 +15,7 @@ import {
   RepertoireSwap,
   repertoireSwap,
   unfitPicks,
+  withCompanions,
 } from '@pioneer/character/domain';
 import type {
   CharacterListQuery,
@@ -36,6 +37,7 @@ import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 import { editableCharacter, readableCharacter } from './character-access';
 import type { EditableCharacter } from './character-access';
 import type { CharacterCampaignRoles } from './character-campaign-roles';
+import type { CharacterCompanionRepository } from './character-companion-repository';
 import { contentOfCharacter, ruleLimitsOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
@@ -43,6 +45,7 @@ import type { CharacterRepository } from './character-repository';
 import { assertCustomEffectAllowed } from './custom-effect-guard';
 import { editInputs } from './edit-inputs';
 import { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-roles';
+import { InMemoryCharacterCompanionRepository } from './in-memory-character-companion-repository';
 import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
 import { assertInventoryAllows } from './inventory-guard';
 import type { OverrideAuthorDirectory } from './override-author-directory';
@@ -68,11 +71,19 @@ export class CharacterService {
   #authors: OverrideAuthorDirectory = new InMemoryOverrideAuthorDirectory();
   #roles: CharacterCampaignRoles = new InMemoryCharacterCampaignRoles();
   readonly #slotContents = new SlotContentCache();
+  #companions: CharacterCompanionRepository = new InMemoryCharacterCompanionRepository();
 
   public constructor(repository: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#repository = repository;
     this.#content = content;
     this.#clock = clock;
+  }
+
+  /** This service reading the companions each character has, which its prerequisites and facts include (ADR-0079). */
+  public withCompanions(companions: CharacterCompanionRepository): this {
+    this.#companions = companions;
+
+    return this;
   }
 
   /** This service naming override authors through `authors`; without it, nobody is named. */
@@ -287,7 +298,13 @@ export class CharacterService {
 
   /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
   async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
-    return this.#slotContents.of(registry, await variantRulesOfCharacter(this.#content, character, registry));
+    const slots = this.#slotContents.of(registry, await variantRulesOfCharacter(this.#content, character, registry));
+    const companions = await this.#companions.listForCharacter(character.id);
+
+    return withCompanions(
+      slots,
+      companions.filter((each) => each.archived === undefined).map((each) => each.kind),
+    );
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */

@@ -309,6 +309,7 @@ export { type LanguageFeature, type LanguageReads } from './language-levels';
 export {
   type SlotContent,
   slotContent,
+  withCompanions,
   type SlotPick,
   type SlotRefusal,
   SlotRefusalField,

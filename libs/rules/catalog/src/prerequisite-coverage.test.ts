@@ -32,15 +32,13 @@ describe('prerequisite coverage', () => {
     const entries = [
       feat('shield-warden', { prerequisites: prose('Shield Block'), prerequisitePredicate: ['feat:shield-block'] }),
       feat('mature-companion', { prerequisites: prose('an animal companion') }),
-      feat('acrobat', { prerequisites: prose('a familiar') }),
+      feat('acrobat', { prerequisites: prose('a familiar'), prerequisitePredicate: ['self:companion:familiar'] }),
       feat('toughness'),
     ];
 
     expect(prerequisiteCoverage(entries)).toStrictEqual({
       withPrerequisites: 3,
-      withoutPredicate: ['player-core/feat:acrobat', 'player-core/feat:mature-companion'].map((key) =>
-        ContentKey.parse(key),
-      ),
+      withoutPredicate: [ContentKey.parse('player-core/feat:mature-companion')],
     });
   });
 
