@@ -32,6 +32,7 @@ export {
   slotContent,
   type SlotContext,
   slotContextOf,
+  withCompanions,
 } from './slot-reads';
 
 /** A selection for a slot, as `selectSlot` asks for it; a custom Lore comes with the player's name for it. */

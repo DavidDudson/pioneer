@@ -12,6 +12,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentKey, PredicateStatement, PrerequisiteClause, RichText } from '@pioneer/rules/sdk';
 
+import { companionClause } from './prerequisite-companions';
 import { NAMED_KINDS, normalise, prerequisiteNames } from './prerequisite-names';
 import type { PrerequisiteNames } from './prerequisite-names';
 
@@ -201,6 +202,7 @@ function clauseStatements(clause: string, names: PrerequisiteNames): readonly Pr
     attributeClause(clause) ??
     levelClause(clause) ??
     traitClause(clause) ??
+    companionClause(clause) ??
     nameClause(clause, names)
   );
 }
