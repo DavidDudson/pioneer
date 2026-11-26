@@ -8,7 +8,7 @@ import type { FoundryDocument } from './foundry-document';
 const NON_WORD = /[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]/gu;
 
 const LOWER_THEN_UPPER =
-  /(?<lower>\p{Lowercase_Letter})(?<upper>\p{Uppercase_Letter}(?=^|$|[\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]))/gu;
+  /(?<lower>\p{Lowercase_Letter})(?<upper>\p{Uppercase_Letter}(?=$|[\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]))/gu;
 
 const APOSTROPHES = /['’]/gu;
 const SEPARATORS = /[-\s]+/gu;

@@ -205,6 +205,41 @@ interface Reading extends DiceAndType {
   readonly conditional: readonly RuleId[];
 }
 
+/** The dice of `reading` with `more` added, when there are some to add. */
+function addedDice(reading: Reading, more: DiceCount | undefined): DiceCount {
+  return more === undefined ? reading.dice : DiceCount.parse(reading.dice + more);
+}
+
+/** The damage type of `reading`, or `override` when a rule changes it. */
+function changedType(reading: Reading, override: Reading['damageType'] | undefined): Reading['damageType'] {
+  return override ?? reading.damageType;
+}
+
+/** `reading` after a damage dice `element` of `rule` that reaches the Strike's damage. */
+function withDamageDice(
+  reading: Reading,
+  { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
+  using: { readonly targets: StrikeTargets; readonly read: Reader },
+): Reading {
+  const rolls = using.targets.die !== undefined;
+  const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
+
+  if (isFlatSplash(element)) {
+    return rolls
+      ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
+      : reading;
+  }
+
+  const changes = rolls && element.dieSize === undefined;
+
+  return {
+    ...reading,
+    dice: addedDice(reading, changes ? more : undefined),
+    damageType: changedType(reading, changes ? element.override?.damageType : undefined),
+    extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
+  };
+}
+
 /** `reading` after `rule`, which applies when its predicate holds and its selectors reach the Strike's rolls. */
 function applied(
   reading: Reading,
@@ -219,22 +254,7 @@ function applied(
     element.key === RuleElementKey.DamageDice &&
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
   ) {
-    const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
-
-    if (isFlatSplash(element)) {
-      return rolls
-        ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
-        : reading;
-    }
-
-    const changes = rolls && element.dieSize === undefined;
-
-    return {
-      ...reading,
-      dice: changes && more !== undefined ? DiceCount.parse(reading.dice + more) : reading.dice,
-      damageType: changes ? (element.override?.damageType ?? reading.damageType) : reading.damageType,
-      extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
-    };
+    return withDamageDice(reading, { rule, element }, using);
   }
 
   if (

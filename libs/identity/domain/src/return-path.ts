@@ -10,7 +10,7 @@ const RETURN_PATH_MAX_LENGTH = 2048;
 export const ReturnPath = z
   .string()
   .max(RETURN_PATH_MAX_LENGTH)
-  .regex(/^\/(?!\/)[!-[\]-~]*$/u)
+  .regex(/^\/(?!\/)[\u0021-\u005B\u005D-\u007E]*$/u)
   .brand<'ReturnPath'>();
 
 export type ReturnPath = z.infer<typeof ReturnPath>;

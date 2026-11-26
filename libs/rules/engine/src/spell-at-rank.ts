@@ -41,7 +41,7 @@ export interface SpellAtRank extends SpellCast {
 }
 
 /** Dice: the `2d6` of `2d6+3 + @spellcasting.attr`. */
-const DICE = /^(?<count>\d+)d(?<die>\d+)(?<rest>.*)$/u;
+const DICE = /^(?<count>\d+)d(?<die>\d+)(?!\d)(?<rest>.*)$/u;
 
 /** A flat amount at the start of what follows dice: the `+3` of ` + 3 + @spellcasting.attr`. */
 const FLAT = /^ ?\+ ?(?<flat>\d+)(?![\dd@(.])/u;

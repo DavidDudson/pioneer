@@ -31,9 +31,7 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
   }
 
   public override async revoke(invite: CampaignInvite): Promise<CampaignInvite> {
-    this.#rows.set(invite.id, invite);
-
-    return invite;
+    return this.insert(invite);
   }
 
   public override async revokeOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<void> {

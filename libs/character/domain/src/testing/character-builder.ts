@@ -58,15 +58,13 @@ export class CharacterBuilder {
     installRulesFakes();
     const fake = fakeSeeded(RandomFields, seedValue);
 
-    const builder = new CharacterBuilder()
+    return new CharacterBuilder()
       .named(fake.name)
       .withAncestry(fake.ancestry)
       .atLevel(fake.level)
       .atVersion(fake.version)
       .ownedBy(fake.ownerId)
       .createdAt(fake.createdAt);
-
-    return builder;
   }
 
   public named(name: string): this {
