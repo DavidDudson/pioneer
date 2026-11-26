@@ -19,9 +19,10 @@ import {
 
 import { Badge, BadgeTone } from '../../text/badge/badge.component';
 import { Control } from '../control';
-import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
 import { injectSearchQuery } from '../search-query';
 import type { SelectOption } from '../select/select.component';
+import { VirtualRow } from '../virtual-rows/virtual-row.directive';
+import { VirtualRows } from '../virtual-rows/virtual-rows.directive';
 import { ComboboxStatus } from './combobox-status.component';
 import { samePicked, sameTextSource, textOf } from './combobox-text';
 import type { Picked, TextSource } from './combobox-text';
@@ -65,7 +66,17 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
  */
 @Component({
   selector: 'fr-combobox',
-  imports: [AriaCombobox, Badge, ComboboxPopup, ComboboxStatus, ComboboxWidget, Listbox, Option],
+  imports: [
+    AriaCombobox,
+    Badge,
+    ComboboxPopup,
+    ComboboxStatus,
+    ComboboxWidget,
+    Listbox,
+    Option,
+    VirtualRow,
+    VirtualRows,
+  ],
   templateUrl: './combobox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class]': 'hostClasses()' },
@@ -124,7 +135,7 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly selected = computed<TValue[]>(() => {
     const value = this.value();
 
-    return value !== undefined && this.#pickedIndex() !== undefined ? [value] : [];
+    return value !== undefined && this.pickedIndex() !== undefined ? [value] : [];
   });
 
   protected readonly inputClasses = comboboxInputClasses;
@@ -135,44 +146,25 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly tagsClasses = comboboxOptionTagsClasses;
   protected readonly neutral = BadgeTone.Neutral;
-  protected readonly translate = optionOffset;
 
   protected readonly field = viewChild<string, ElementRef<HTMLInputElement>>('combobox', { read: ElementRef });
-  protected readonly scroller = viewChild<ElementRef<HTMLElement>>('scroller');
-  protected readonly optionElements = viewChildren<ElementRef<HTMLElement>>('optionElement');
   protected readonly ariaOptions = viewChildren<Option<TValue>>(Option);
   protected readonly listbox = viewChild<Listbox<TValue>>(Listbox);
+  protected readonly keys = computed(() => this.options().map((option) => option.value));
   readonly #indexByValue = computed(
     () => new Map(this.options().map((option, index): [TValue, number] => [option.value, index])),
   );
-  readonly #pickedIndex = computed(() => {
+  protected readonly pickedIndex = computed(() => {
     const value = this.value();
 
     return value === undefined ? undefined : this.#indexByValue().get(value);
   });
   /** The keyboard-highlighted option's index. */
-  readonly #activeIndex = computed(() => {
+  protected readonly activeIndex = computed(() => {
     const active = this.ariaOptions().find((option) => option.active());
 
     return active === undefined ? undefined : this.#indexByValue().get(active.value());
   });
-
-  protected readonly virtualizer = injectOptionVirtualizer({
-    keys: computed(() => this.options().map((option) => option.value)),
-    scroller: this.scroller,
-    pinned: computed(() => {
-      const active = this.#activeIndex();
-      /*
-       * The highlight's neighbours too, so an arrow key always lands on the next option, even before
-       * the listbox has scrolled; otherwise it would skip to the next rendered one.
-       */
-      const around = active === undefined ? [] : [active - 1, active, active + 1];
-
-      return [...around, this.#pickedIndex()];
-    }),
-  });
-  protected readonly virtualRows = computed(() => this.virtualizer.getVirtualItems());
-  protected readonly totalSize = computed(() => this.virtualizer.getTotalSize());
 
   /** Set while the listbox's value is put back, so that write isn't taken for a pick. */
   #syncing = false;
@@ -186,21 +178,6 @@ export class Combobox<TValue extends string> extends Control {
 
   public constructor() {
     super();
-    afterRenderEffect(() => {
-      for (const element of this.optionElements()) {
-        this.virtualizer.measureElement(element.nativeElement);
-      }
-    });
-    // Arrow keys move the highlight; keep it in view inside the listbox, never scrolling the page.
-    afterRenderEffect(() => {
-      const index = this.#activeIndex();
-
-      if (index !== undefined) {
-        untracked(() => {
-          this.virtualizer.scrollToIndex(index, { align: 'auto' });
-        });
-      }
-    });
     /*
      * A listbox that opens before its options register drops the picked value as unknown, and the
      * binding never re-sends it. Put it back so the picked option shows as selected.
@@ -216,13 +193,6 @@ export class Combobox<TValue extends string> extends Control {
           this.#syncing = false;
         });
       }
-    });
-    // New matches start from the top.
-    afterRenderEffect(() => {
-      this.options();
-      untracked(() => {
-        this.virtualizer.scrollToOffset(0);
-      });
     });
   }
 
@@ -252,7 +222,7 @@ export class Combobox<TValue extends string> extends Control {
     }
 
     // The listbox toggles: picking the picked option again empties it. That is still a pick.
-    const repicked = this.#activeIndex() !== undefined && this.#activeIndex() === this.#pickedIndex();
+    const repicked = this.activeIndex() !== undefined && this.activeIndex() === this.pickedIndex();
     const value = values[0] ?? (repicked ? this.value() : undefined);
 
     if (value === undefined) {

@@ -12,14 +12,14 @@ import {
   viewChild,
   viewChildren,
 } from '@angular/core';
-import type { ElementRef } from '@angular/core';
 import type { Row } from '@tanstack/angular-table';
 
 import { TableHeaderCell } from '../../data/table/header-cell/header-cell.component';
 import type { TableFeatureSet, TableHeader } from '../../data/table/table-features';
 import { Size } from '../../tokens';
 import { ComboboxStatus } from '../combobox/combobox-status.component';
-import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
+import { VirtualRow } from '../virtual-rows/virtual-row.directive';
+import { VirtualRows } from '../virtual-rows/virtual-rows.directive';
 import { PickerRow } from './picker-row.component';
 import {
   pickerBodyClasses,
@@ -53,7 +53,7 @@ function ariaSort<TRow extends object>(header: TableHeader<TRow>): string | unde
  */
 @Component({
   selector: 'fr-picker-grid',
-  imports: [ComboboxStatus, ComboboxWidget, Grid, PickerRow, TableHeaderCell],
+  imports: [ComboboxStatus, ComboboxWidget, Grid, PickerRow, TableHeaderCell, VirtualRow, VirtualRows],
   templateUrl: './picker-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -84,20 +84,20 @@ export class PickerGrid<TRow extends object> {
   protected readonly bodyClasses = pickerBodyClasses;
   protected readonly headerClasses = headerClasses<TRow>;
   protected readonly ariaSort = ariaSort<TRow>;
-  protected readonly translate = optionOffset;
   protected readonly headerRowCount = HEADER_ROW_COUNT;
 
-  protected readonly scroller = viewChild<ElementRef<HTMLElement>>('scroller');
+  protected readonly virtual = viewChild.required(VirtualRows);
   protected readonly rowParts = viewChildren(PickerRow);
 
-  readonly #pickedIndex = computed(() => {
+  protected readonly keys = computed(() => this.rows().map((row) => row.id));
+  protected readonly pickedIndex = computed(() => {
     const value = this.value();
     const index = this.rows().findIndex((row) => row.id === value);
 
     return index === -1 ? undefined : index;
   });
   /** The row holding the keyboard's highlight. */
-  readonly #activeIndex = computed(() => {
+  protected readonly activeIndex = computed(() => {
     const active = this.rowParts().find((part) => part.active());
     const id = active?.row().id;
     const index = this.rows().findIndex((row) => row.id === id);
@@ -105,19 +105,6 @@ export class PickerGrid<TRow extends object> {
     return index === -1 ? undefined : index;
   });
 
-  protected readonly virtualizer = injectOptionVirtualizer({
-    keys: computed(() => this.rows().map((row) => row.id)),
-    scroller: this.scroller,
-    pinned: computed(() => {
-      const active = this.#activeIndex();
-      // The highlight's neighbours too, so an arrow key always lands on the next row, even before the panel scrolls.
-      const around = active === undefined ? [] : [active - 1, active, active + 1];
-
-      return [...around, this.#pickedIndex()];
-    }),
-  });
-  protected readonly visibleRows = computed(() => (this.loading() ? [] : this.virtualizer.getVirtualItems()));
-  protected readonly totalSize = computed(() => (this.loading() ? 0 : this.virtualizer.getTotalSize()));
   protected readonly empty = computed(() => !this.loading() && this.rows().length === 0);
   protected readonly busy = computed(() => this.loading() || this.loadingMore());
   protected readonly rowCount = computed(() => (this.hasMore() ? -1 : this.rows().length + HEADER_ROW_COUNT));
@@ -127,25 +114,9 @@ export class PickerGrid<TRow extends object> {
 
   public constructor() {
     afterRenderEffect(() => {
-      for (const part of this.rowParts()) {
-        this.virtualizer.measureElement(part.element);
-      }
-    });
-    // Arrow keys move the highlight; keep it in view inside the panel, never scrolling the page.
-    afterRenderEffect(() => {
-      const index = this.#activeIndex();
-
-      if (index !== undefined) {
-        untracked(() => {
-          this.virtualizer.scrollToIndex(index, { align: 'auto' });
-        });
-      }
-    });
-    afterRenderEffect(() => {
       this.generation();
       untracked(() => {
         this.#loadedFor = undefined;
-        this.virtualizer.scrollToOffset(0);
       });
     });
     // A finished load frees the end of the list to ask again, so a failed one is retried on the next scroll.
@@ -157,7 +128,7 @@ export class PickerGrid<TRow extends object> {
       }
     });
     afterRenderEffect(() => {
-      const lastShown = this.virtualizer.range()?.endIndex;
+      const lastShown = this.virtual().lastShown();
       untracked(() => {
         this.#askForMore(lastShown);
       });

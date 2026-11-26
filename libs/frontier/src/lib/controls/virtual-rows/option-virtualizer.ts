@@ -1,6 +1,6 @@
-import type { ElementRef, Signal } from '@angular/core';
+import type { Signal } from '@angular/core';
 import { defaultRangeExtractor, injectVirtualizer } from '@tanstack/angular-virtual';
-import type { AngularVirtualizer, Range, VirtualItem } from '@tanstack/angular-virtual';
+import type { AngularVirtualizer, Range } from '@tanstack/angular-virtual';
 
 /** Rough option height before options are measured: a touch target. */
 const ESTIMATE_PX = 44;
@@ -9,7 +9,8 @@ const OVERSCAN = 8;
 export interface OptionVirtualizerSource {
   /** Stable key per option, in order. */
   readonly keys: Signal<readonly string[]>;
-  readonly scroller: Signal<ElementRef<HTMLElement> | undefined>;
+  /** The listbox's own scroll container. */
+  readonly scroller: HTMLElement;
   /** Indexes that must stay rendered whatever the scroll position; out-of-range ones are ignored. */
   readonly pinned: Signal<readonly (number | undefined)[]>;
 }
@@ -28,7 +29,7 @@ export function injectOptionVirtualizer(source: OptionVirtualizerSource): Angula
     const pinned = source.pinned();
 
     return {
-      scrollElement: source.scroller(),
+      scrollElement: source.scroller,
       count: keys.length,
       estimateSize: (): number => ESTIMATE_PX,
       overscan: OVERSCAN,
@@ -48,9 +49,4 @@ function renderedIndexes(range: Range, pinned: readonly (number | undefined)[]):
   }
 
   return [...indexes].toSorted((left, right) => left - right);
-}
-
-/** An option's offset inside the listbox. */
-export function optionOffset(row: VirtualItem): string {
-  return `translateY(${row.start}px)`;
 }
