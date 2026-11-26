@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { slugify } from './foundry-slug';
+import { asciiNameSlug, slugify } from './foundry-slug';
 
 describe('slugify', () => {
   test.each([
@@ -16,5 +16,15 @@ describe('slugify', () => {
     ['-', '-'],
   ])('%p is %p', (name, slug) => {
     expect(slugify(name)).toBe(slug);
+  });
+});
+
+describe('asciiNameSlug', () => {
+  test.each([
+    ['Déjà Vu', 'deja-vu'],
+    ['Élan', 'elan'],
+    ['Champion’s Reaction', 'champions-reaction'],
+  ])('%p is %p', (name, slug) => {
+    expect(asciiNameSlug(name)).toBe(slug);
   });
 });

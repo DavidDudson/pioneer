@@ -1,5 +1,6 @@
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { AonListedEntry, AonUrl, BookId, EnrichmentMapping, EntrySlug, SourceRef } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
 /** The AoN page that lists each kind of entry (`Feats.aspx?ID=…`), and so the kinds it can hold. */
 const KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<string, readonly ContentKind[]>([
@@ -85,17 +86,6 @@ export interface AonProposals {
   readonly unmatched: readonly EntrySlug[];
 }
 
-/** Lowercase words with straight apostrophes and no diacritics: "Warrior’s Regret" finds "Warrior's Regret". */
-function normalise(name: string): string {
-  return name
-    .normalize('NFD')
-    .replaceAll(/\p{M}/gu, '')
-    .replaceAll('’', "'")
-    .replaceAll(/\s+/gu, ' ')
-    .trim()
-    .toLowerCase();
-}
-
 function pageOf(url: AonUrl): string {
   return new URL(url).pathname.replace(/^\//u, '').replace(/\.aspx$/iu, '');
 }
@@ -115,7 +105,7 @@ function nameVariants(name: string): readonly string[] {
 type ListingIndex = ReadonlyMap<string, readonly AonUrl[]>;
 
 function indexKey(name: string, kind: ContentKind, fallback = false): string {
-  return `${kind}\u0000${fallback ? 'equipment\u0000' : ''}${normalise(name)}`;
+  return `${kind}\u0000${fallback ? 'equipment\u0000' : ''}${foldName(name)}`;
 }
 
 function indexListing({ entries }: AonListing): ListingIndex {
