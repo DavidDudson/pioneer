@@ -131,7 +131,7 @@ interface ShardedDescription {
 }
 
 /** The description to bundle for `entry`: the locale's, else its own marked `untranslated`, else none. */
-function describe(entry: ContentEntry, texts: LocaleTexts): ShardedDescription | undefined {
+function describedIn(entry: ContentEntry, texts: LocaleTexts): ShardedDescription | undefined {
   const translated = texts.entries.get(entry.id)?.description;
 
   if (translated !== undefined && translated.length > 0) {
@@ -156,7 +156,7 @@ function descriptionShards(
   const shards = new Map<DescriptionShard, Record<ContentId, ShardedDescription>>();
 
   for (const entry of entries) {
-    const description = describe(entry, texts);
+    const description = describedIn(entry, texts);
 
     if (description !== undefined) {
       const shard = descriptionShard(entry.id);
