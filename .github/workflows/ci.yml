@@ -192,7 +192,9 @@ jobs:
           NX_BASE: ${{ needs.plan.outputs.base }}
       - name: Install
         run: bun install --frozen-lockfile
+      # A hung run is stopped by the step, not the job, so its log is kept: a job that times out loses its log.
       - name: Test
+        timeout-minutes: 12
         run: |
           # ARGS holds several nx flags, so it is split on spaces.
           # shellcheck disable=SC2086
@@ -202,6 +204,9 @@ jobs:
           ARGS: ${{ matrix.args }}
           # The Angular compiler worker ran out of its default heap compiling several projects at once.
           NODE_OPTIONS: --max-old-space-size=6144
+      - name: Processes after a stopped test run
+        if: failure() || cancelled()
+        run: ps -eo pid,ppid,pcpu,pmem,etime,args --sort=-pcpu | head -25 && free -m
 
   workflows:
     name: Workflow lint
