@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { focusEntry, SORCERER } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
@@ -20,14 +21,17 @@ export interface Bloodline {
 const DRACONIC = 'bloodline-draconic';
 const DRACONIC_TRADITIONS = ['arcane', 'divine', 'occult', 'primal'];
 
-function titled(word: string): string {
-  return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-}
-
 function of(slug: string, tradition: string, spells: readonly [string, string, string]): Bloodline {
   const [initial, advanced, greater] = spells;
 
-  return { slug, name: titled(slug.replace('bloodline-', '')), traditions: [tradition], initial, advanced, greater };
+  return {
+    slug,
+    name: capitalise(slug.replace('bloodline-', '')),
+    traditions: [tradition],
+    initial,
+    advanced,
+    greater,
+  };
 }
 
 export const BLOODLINES: readonly Bloodline[] = [
@@ -89,7 +93,7 @@ const OFFERED: readonly Offered[] = BLOODLINES.flatMap(({ slug, name, traditions
   return traditions.map((tradition): Offered =>
     traditions.length === 1
       ? { value, label: name, tradition, initial }
-      : { value: `${value}-${tradition}`, label: `${name} (${titled(tradition)})`, tradition, initial },
+      : { value: `${value}-${tradition}`, label: `${name} (${capitalise(tradition)})`, tradition, initial },
   );
 });
 

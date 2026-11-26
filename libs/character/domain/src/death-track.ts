@@ -1,4 +1,5 @@
 import { DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 /** The highest value a death-track condition takes: dying 4 is death. */
@@ -53,10 +54,10 @@ const ConditionSum = z
   .brand<'ConditionSum'>();
 
 /** A sum held to the 0 to 4 a condition's value spans, as a dying value. */
-const DyingNear = ConditionSum.transform((value) => Math.min(Math.max(value, NONE), DEATH_VALUE_MAX)).pipe(Dying);
+const DyingNear = ConditionSum.transform((value) => clamp(value, NONE, DEATH_VALUE_MAX)).pipe(Dying);
 
 /** A sum held to the 0 to 4 a condition's value spans, as a wounded value. */
-const WoundedNear = ConditionSum.transform((value) => Math.min(Math.max(value, NONE), DEATH_VALUE_MAX)).pipe(Wounded);
+const WoundedNear = ConditionSum.transform((value) => clamp(value, NONE, DEATH_VALUE_MAX)).pipe(Wounded);
 
 /** `track` with death recorded if its dying value has reached what its doomed value allows. A death already recorded stays. */
 function settled(track: DeathTrack): DeathTrack {

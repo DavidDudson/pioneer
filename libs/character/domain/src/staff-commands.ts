@@ -1,5 +1,6 @@
 import { ContentId, SpellPreparation, SpellRank, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { CharacterLevel } from './character-fields';
@@ -184,7 +185,7 @@ function chargesSpentAfter(
 ): ResourceCount {
   const next = casting ? known.spent + cost : known.spent - cost;
 
-  return ResourceCount.parse(Math.min(Math.max(next, 0), known.max));
+  return ResourceCount.parse(clamp(next, 0, known.max));
 }
 
 /** The resources after `command` spent, or refunded, `cost` charges and the slot it names; the command must pass `staffCastProblem`. */

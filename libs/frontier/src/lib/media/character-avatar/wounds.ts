@@ -1,4 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 
 /** What the avatar says in words, so the state never rests on colour alone. */
 export const WoundCue = {
@@ -32,24 +33,20 @@ export const DEATH_SAVE_LIMIT = 3;
 /** The vignette starts at the bloodied line (half of max) and reaches full at 0 HP. */
 const BLOODIED_SHARE = 0.5;
 
-function clamp01(value: number): number {
-  return Math.min(Math.max(value, 0), 1);
-}
-
 /**
  * How hurt an avatar looks: a red vignette that deepens from half HP down to 0, and a blackening that deepens with
  * each failed death save. Pure and monotone: less HP never gives a weaker vignette, more failed saves never a lighter
  * darkness. A character with no max HP shows nothing.
  */
 export function wounds({ current, max, failedSaves }: WoundsInput): Wounds {
-  const darkness = failedSaves === undefined ? 0 : clamp01(failedSaves / DEATH_SAVE_LIMIT);
+  const darkness = failedSaves === undefined ? 0 : clamp(failedSaves / DEATH_SAVE_LIMIT, 0, 1);
 
   if (max <= 0) {
     return { vignette: 0, darkness, cue: failedSaves === undefined ? WoundCue.None : WoundCue.Dying };
   }
 
-  const share = clamp01(current / max);
-  const vignette = clamp01((BLOODIED_SHARE - share) / BLOODIED_SHARE);
+  const share = clamp(current / max, 0, 1);
+  const vignette = clamp((BLOODIED_SHARE - share) / BLOODIED_SHARE, 0, 1);
   let cue: WoundCue = WoundCue.None;
 
   if (share <= BLOODIED_SHARE) {

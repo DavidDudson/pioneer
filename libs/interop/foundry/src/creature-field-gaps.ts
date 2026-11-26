@@ -1,3 +1,5 @@
+import { isRecord } from '@pioneer/shared/utils';
+
 import type { SelectedCreature } from './select-entries';
 
 /**
@@ -40,10 +42,6 @@ const MODELLED_ITEMS: ReadonlySet<string> = new Set([
   'treasure',
   'weapon',
 ]);
-
-function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
 
 /** The `group.field` paths one actor's `system` has, less the groups taken whole. */
 function fieldsOf(system: Readonly<Record<string, unknown>>): readonly string[] {

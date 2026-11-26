@@ -1,6 +1,7 @@
 import { Dc, InlineKind, RollOption, Selector } from '@pioneer/rules/sdk';
 import type { CheckDc, CheckNode } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { inlineLabel, reportParams, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
@@ -223,7 +224,7 @@ function fallbackText(type: string, label: string | undefined): string {
     label ??
     type
       .split('-')
-      .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+      .map((word) => capitalise(word))
       .join(' ')
   );
 }

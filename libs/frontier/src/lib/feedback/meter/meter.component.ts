@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import { cva } from 'class-variance-authority';
 
 import { LocaleFormat } from '../../locale/locale-format';
@@ -119,7 +120,7 @@ export class Meter {
   );
 
   /** The value as the native meter takes it: clamped into min..max, so the number never disagrees with the bar. */
-  readonly #current = computed(() => Math.min(Math.max(this.value(), this.min()), this.max()));
+  readonly #current = computed(() => clamp(this.value(), this.min(), this.max()));
 
   /**
    * One entry per point when drawn as segments, whether it is filled; undefined when drawn as a bar. Only whole

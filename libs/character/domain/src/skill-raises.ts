@@ -3,6 +3,7 @@ import type { GrantResolution } from '@pioneer/rules/grants';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import { Proficiency, RuleElementKey, Selector, SkillCount } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { sum } from '@pioneer/shared/utils';
 
 import { SKILL_PREFIX } from './skill-content';
 
@@ -79,7 +80,7 @@ export function duplicateTrainings(resolution: GrantResolution): SkillCount {
 
   const twice = [...trainers.values()].map((raises) => new Set(raises.map(({ entry }) => entry)).size - 1);
 
-  return SkillCount.parse(twice.reduce((total, count) => total + count, 0));
+  return SkillCount.parse(sum(twice));
 }
 
 /** The entries of the effective set whose raises `wanted` accepts for each skill, by selector. */

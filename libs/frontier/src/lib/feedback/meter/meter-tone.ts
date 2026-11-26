@@ -1,4 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 
 /** The colour a meter's fill takes. */
 export const MeterTone = {
@@ -34,11 +35,10 @@ export function meterTone({ value, min, max, low, high, optimum }: MeterRange): 
     return MeterTone.Accent;
   }
 
-  const clamp = (amount: number, from: number): number => Math.min(Math.max(amount, from), max);
-  const current = clamp(value, min);
-  const lowBound = clamp(low ?? min, min);
-  const highBound = clamp(high ?? max, lowBound);
-  const best = clamp(optimum ?? (min + max) / 2, min);
+  const current = clamp(value, min, max);
+  const lowBound = clamp(low ?? min, min, max);
+  const highBound = clamp(high ?? max, lowBound, max);
+  const best = clamp(optimum ?? (min + max) / 2, min, max);
 
   if (best < lowBound) {
     return rank(current <= lowBound, current <= highBound);

@@ -1,6 +1,7 @@
 import type { FocusPoints } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { SpentCountsSchema } from './counted-resources';
@@ -76,7 +77,7 @@ export function heldIn(pools: Pools, resource: Resource): ResourceCount {
 
 /** The spent points with `resource` holding `wanted` points, held within 0 and the pool's maximum. */
 function holding(pools: Pools, resource: Resource, wanted: PointsSum): ResourcesSpent {
-  const held = Math.min(Math.max(wanted, 0), pools.maxima[resource]);
+  const held = clamp(wanted, 0, pools.maxima[resource]);
 
   return { ...pools.spent, [resource]: ResourceCount.parse(pools.maxima[resource] - held) };
 }

@@ -1,6 +1,7 @@
 import { ConditionValue, ContentKind, DurationCount, DurationUnitSchema, Slug, slugName } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { ActionRestriction } from './conditions';
@@ -114,7 +115,7 @@ function strongest(conditions: readonly ActiveCondition[], id: ContentId | undef
     .map(({ value }) => value ?? 1)
     .toArray();
 
-  return ActionCount.parse(Math.min(Math.max(0, ...values), ACTIONS_MAX));
+  return ActionCount.parse(clamp(Math.max(...values), 0, ACTIONS_MAX));
 }
 
 /** The turn a Start turn leaves, the conditions it leaves, and what it did to them. */
@@ -218,7 +219,7 @@ export function turnEnded(turn: TurnState): TurnState {
 
 /** `turn` with `by` more attacks made (fewer when negative), kept between none and the most a turn counts. */
 export function attacksMoved(turn: TurnState, by: 1 | -1): TurnState {
-  return { ...turn, attacks: AttackCount.parse(Math.min(Math.max(turn.attacks + by, 0), ATTACKS_MAX)) };
+  return { ...turn, attacks: AttackCount.parse(clamp(turn.attacks + by, 0, ATTACKS_MAX)) };
 }
 
 /** The play edits that run the turn cycle. */

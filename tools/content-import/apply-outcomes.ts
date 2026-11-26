@@ -10,6 +10,7 @@
  * outcomes are left alone.
  */
 import { InlineKind } from '@pioneer/rules/sdk';
+import { isRecord } from '@pioneer/shared/utils';
 
 import { spansOf } from './json-spans.ts';
 import type { Span, SpanNode } from './json-spans.ts';
@@ -17,10 +18,6 @@ import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
 
 type JsonRecord = Readonly<Record<string, unknown>>;
-
-function isRecord(node: unknown): node is JsonRecord {
-  return typeof node === 'object' && node !== null && !Array.isArray(node);
-}
 
 function isCheck(node: unknown): node is JsonRecord {
   return isRecord(node) && node['type'] === InlineKind.Check;

@@ -1,6 +1,7 @@
 import { Dc, DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { Sign, TermKind } from './expression';
@@ -88,7 +89,7 @@ const BASE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
 function step(degree: DegreeOfSuccess, by: Shift): DegreeOfSuccess {
   const index = LADDER.indexOf(degree) + by;
 
-  return LADDER[Math.min(Math.max(index, 0), LADDER.length - 1)] ?? degree;
+  return LADDER[clamp(index, 0, LADDER.length - 1)] ?? degree;
 }
 
 /** A change as a move along the ladder, or a degree to land on. */
