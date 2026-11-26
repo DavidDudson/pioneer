@@ -11,11 +11,6 @@ const ROOT = 'libs/frontier/src/lib';
 
 /** Parts covered by the component that assembles them. Paths are relative to `ROOT`. */
 const EXEMPTIONS = {
-  'actions/section-link/section-link.component.ts': {
-    reason: 'One link of fr-section-index; only meaningful inside it.',
-    spec: 'actions/section-index/section-index.component.spec.ts',
-    story: 'actions/section-index/section-index.stories.ts',
-  },
   'actions/stepper/step.component.ts': {
     reason: 'One step of fr-stepper; its Back, Next and Edit only work inside it.',
     spec: 'actions/stepper/stepper.component.spec.ts',

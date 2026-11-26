@@ -11,10 +11,6 @@ export { GiftBadge } from './lib/actions/gift-badge/gift-badge.component';
 
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
 
-export { SectionIndex } from './lib/actions/section-index/section-index.component';
-
-export { SectionLink } from './lib/actions/section-link/section-link.component';
-
 export { Step } from './lib/actions/stepper/step.component';
 
 export { StepBody } from './lib/actions/stepper/step-body.directive';

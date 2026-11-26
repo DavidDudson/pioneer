@@ -10,7 +10,7 @@ import { SectionBody } from './section-body.directive';
 /**
  * One section of a long page, such as the character sheet: a raised panel that is a `<section>` region landmark,
  * labelled by its level 2 heading, so both the landmark list and the heading list reach it. `anchor` is the heading's
- * id: `fr-section-index` links to it, and following a link moves focus to the heading.
+ * id: an `fr-link` with `skipTo` moves focus to it.
  *
  * Put the content in an `<ng-template frSectionBody>` and it is built only once the section is first shown (not
  * `concealed`), then kept. Projected content is always built, even while concealed, so use the template for any set
