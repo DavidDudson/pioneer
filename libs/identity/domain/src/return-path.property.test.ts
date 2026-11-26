@@ -23,6 +23,7 @@ describe('returnPathOr', () => {
   });
 
   test('falls back home when no path was requested', () => {
+    // oxlint-disable-next-line unicorn/no-null -- URLSearchParams.get returns null for a missing parameter, so the function takes it
     expect(returnPathOr(null)).toBe(HOME_PATH);
     expect(returnPathOr(undefined)).toBe(HOME_PATH);
   });
