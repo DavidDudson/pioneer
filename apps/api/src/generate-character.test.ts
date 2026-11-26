@@ -19,10 +19,10 @@ const PROPERTY_RUNS = 12;
 
 /**
  * Slots a generated character leaves open on top of the ones no build can fill: the generator can pick a feat whose
- * choice it cannot fill yet (a Rogue's Terrain Stalker and Specialty Crafting, an Alchemist's Signature Weapon, which
- * wants a weapon the build does not own), which the level 20 build avoids.
+ * choice it cannot fill yet (a Rogue's Terrain Stalker and Specialty Crafting, or the Signature Weapon of an Alchemist
+ * and a Fighter, which wants a weapon the build does not own), which the level 20 build avoids.
  */
-const GENERATED_UNFILLABLE: Readonly<Record<string, number>> = { Alchemist: 1, Rogue: 2 };
+const GENERATED_UNFILLABLE: Readonly<Record<string, number>> = { Alchemist: 1, Fighter: 1, Rogue: 2 };
 
 /** The levels each class is generated at: the first, then every fifth, where classes gain most. */
 const CLASS_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
