@@ -17,10 +17,8 @@ export const CONTENT_PACK_CACHE = new InjectionToken<ContentPackCache>('CONTENT_
 });
 
 /**
- * A kind's entries `ContentLoader` has read, keyed by the paths of the kind's mechanics and names bundles. The sheet
- * builds a registry for each set of kinds it reads, and the packs of two sets differ, but a kind they share is read
- * once, so the registries hold the same entry objects. One per injector, unlike the packs: the entries are what
- * registries and what is built from them share, so a session has one set.
+ * A kind's entries, keyed by the paths of its mechanics and names bundles, so registries over different kind sets share
+ * entry objects. One per injector, unlike the pack cache: entry identity is only stable within one injector.
  */
 export type ContentEntryCache = Map<string, readonly ContentEntry[]>;
 

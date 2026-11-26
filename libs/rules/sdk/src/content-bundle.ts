@@ -268,7 +268,7 @@ export function contentPackFromBundles(packFile: JsonValue, kinds: readonly Fetc
 
 /**
  * `contentPackFromBundles` over kinds already read (`entriesFromBundles`), one list of entries per kind. Packs built
- * from the same lists share their entry objects, so what is built from an entry can be shared too.
+ * from the same lists share their entry objects.
  */
 export function contentPackFromKindEntries(
   packFile: JsonValue,

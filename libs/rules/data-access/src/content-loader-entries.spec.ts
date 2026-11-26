@@ -29,7 +29,7 @@ const common = {
 const contents: PackContents = packContentsFromFiles(packFile, [[common]]);
 const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 
-function load(): ContentLoader {
+function createLoader(): ContentLoader {
   TestBed.configureTestingModule({
     providers: [
       ...provideContentTesting(new TestContentDelivery(packs), new MemoryBundleStore()),
@@ -43,7 +43,7 @@ function load(): ContentLoader {
 
 describe('ContentLoader entries', () => {
   it('gives registries of different kind sets the same entry objects for a kind they share', async () => {
-    const loader = load();
+    const loader = createLoader();
     const wider = await loader.registry([ContentKind.Ancestry, ContentKind.Language]);
 
     const narrower = await loader.registry([ContentKind.Language]);

@@ -78,6 +78,11 @@ function bundlesOf(kinds: readonly KindBundles[]): readonly BundleFile[] {
 }
 
 /** What a pack built from `kinds` is kept under: the paths of its bundles, which carry their hashes. */
+/** Where a kind's entries are kept in the entry cache: the paths of its mechanics and names bundles. */
+function entryKey(pack: PackId, bundles: KindBundles): string {
+  return [bundles.mechanics, bundles.names].map((each) => bundlePath(pack, each)).join('\n');
+}
+
 function packKey(pack: PackBundles, kinds: readonly KindBundles[]): string {
   return [pack.file, ...bundlesOf(kinds)].map((each) => bundlePath(pack.id, each)).join('\n');
 }
@@ -231,18 +236,33 @@ export class ContentLoader {
       return contentPack;
     } catch (error) {
       // A kept body that no longer reads (a truncated record) must not stick: drop it, so the retry fetches it again.
-      await this.#cache.forget(pack.id, [pack.file, ...bundlesOf(wanted)]);
+      await this.#forget(pack, wanted);
       throw error;
     }
   }
 
+  /** Drops what was kept of `kinds`, bodies and the entries read from them, so the next try starts from the fetch. */
+  async #forget(pack: PackBundles, kinds: readonly KindBundles[]): Promise<void> {
+    for (const bundles of kinds) {
+      this.#entries.delete(entryKey(pack.id, bundles));
+    }
+
+    await this.#cache.forget(pack.id, [pack.file, ...bundlesOf(kinds)]);
+  }
+
   /** A kind's entries, read once whichever set of kinds asks for them: the same bundles give the same entry objects. */
   #kindEntries(pack: PackId, bundles: KindBundles, fetched: FetchedKind): readonly ContentEntry[] {
-    const key = `${bundlePath(pack, bundles.mechanics)}\n${bundlePath(pack, bundles.names)}`;
-    const kept = this.#entries.get(key) ?? entriesFromBundles(fetched);
-    this.#entries.set(key, kept);
+    const key = entryKey(pack, bundles);
+    const kept = this.#entries.get(key);
 
-    return kept;
+    if (kept !== undefined) {
+      return kept;
+    }
+
+    const read = entriesFromBundles(fetched);
+    this.#entries.set(key, read);
+
+    return read;
   }
 
   /** Fetches `kinds` into the store when the browser is idle. A failure only means they are fetched when needed. */
