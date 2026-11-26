@@ -37,6 +37,13 @@ describe('Player Core companion species', () => {
     );
   });
 
+  test('senses and special rules are structured', () => {
+    expect(named('Bear')?.data).toMatchObject({
+      block: { senses: ['low-light vision', 'scent (imprecise, 30 feet)'] },
+    });
+    expect(named('Horse')?.data).toMatchObject({ block: { special: ['mount'] } });
+  });
+
   test('a horse is Medium or Large, as two entries over one block', () => {
     expect(named('Horse')?.data).toMatchObject({ block: { size: 'medium', speed: 40 } });
     expect(named('Horse (Large)')?.data).toMatchObject({ block: { size: 'large', speed: 40 } });

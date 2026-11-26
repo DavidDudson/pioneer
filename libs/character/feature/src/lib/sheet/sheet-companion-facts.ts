@@ -67,6 +67,8 @@ export const CompanionFactMessage = {
   Attributes: 'character.sheet.companions.attributes',
   Saves: 'character.sheet.companions.saves',
   Skills: 'character.sheet.companions.skills',
+  Senses: 'character.sheet.companions.senses',
+  Special: 'character.sheet.companions.special',
   Strike: 'character.sheet.companions.strike',
 } as const;
 
@@ -161,6 +163,17 @@ export function companionFacts(
       key: CompanionFactMessage.Skills,
       text: translate(CompanionFactMessage.Skills, { list: entries(SKILL_KEYS, skills, translate, signed) }),
     },
+    {
+      key: CompanionFactMessage.Senses,
+      text:
+        statistics.senses.length === 0
+          ? ''
+          : translate(CompanionFactMessage.Senses, { list: statistics.senses.join(', ') }),
+    },
+    ...statistics.special.map((line): CompanionFact => ({
+      key: `${CompanionFactMessage.Special}:${line}`,
+      text: translate(CompanionFactMessage.Special, { line }),
+    })),
     ...statistics.strikes.map((strike): CompanionFact => ({
       key: `${CompanionFactMessage.Strike}:${strike.slug}`,
       text: translate(CompanionFactMessage.Strike, {

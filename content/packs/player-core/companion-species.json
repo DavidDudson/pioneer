@@ -84,7 +84,8 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision"]
       }
     }
   },
@@ -170,7 +171,8 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision"]
       }
     }
   },
@@ -269,7 +271,8 @@
               "damageType": "slashing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   },
@@ -367,6 +370,10 @@
               "damageType": "slashing"
             }
           }
+        ],
+        "senses": [
+          "echolocation 20 feet (the bat can use hearing as a precise sense within this range)",
+          "low-light vision"
         ]
       }
     }
@@ -462,7 +469,8 @@
               "damageType": "slashing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   },
@@ -560,7 +568,8 @@
               "damageType": "slashing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision"]
       }
     }
   },
@@ -646,7 +655,8 @@
               "damageType": "piercing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   },
@@ -750,7 +760,9 @@
               "damageType": "slashing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"],
+        "special": ["Your cat deals 1d4 extra precision damage against off-guard targets."]
       }
     }
   },
@@ -857,7 +869,9 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision"],
+        "special": ["The crocodile can hold its breath for about 2 hours."]
       }
     }
   },
@@ -952,7 +966,8 @@
               "damageType": "slashing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   },
@@ -1047,7 +1062,9 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"],
+        "special": ["mount"]
       }
     }
   },
@@ -1142,7 +1159,9 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"],
+        "special": ["mount"]
       }
     }
   },
@@ -1246,7 +1265,9 @@
               "damageType": "bludgeoning"
             }
           }
-        ]
+        ],
+        "senses": ["darkvision"],
+        "special": ["mount"]
       }
     }
   },
@@ -1350,6 +1371,10 @@
               "damageType": "slashing"
             }
           }
+        ],
+        "senses": ["darkvision"],
+        "special": [
+          "The scorpion's stinger attack deals an additional 1d4 poison damage or 2d4 poison damage if the scorpion is a specialized companion."
         ]
       }
     }
@@ -1448,6 +1473,10 @@
               "damageType": "piercing"
             }
           }
+        ],
+        "senses": ["blood scent", "scent (imprecise, 60 feet)"],
+        "special": [
+          "The shark has the aquatic trait. Its blood scent enables it to smell blood in the water from up to 1 mile away."
         ]
       }
     }
@@ -1538,7 +1567,8 @@
               "damageType": "piercing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   },
@@ -1624,7 +1654,8 @@
               "damageType": "piercing"
             }
           }
-        ]
+        ],
+        "senses": ["low-light vision", "scent (imprecise, 30 feet)"]
       }
     }
   }

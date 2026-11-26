@@ -568,6 +568,8 @@
       "attributes": "{list}",
       "saves": "Fortitude {fortitude}, Reflex {reflex}, Will {will}, Perception {perception}",
       "skills": "Skills: {list}",
+      "senses": "Senses: {list}",
+      "special": "Special: {line}",
       "strike": "Strike {attack}, {dice}{die} {bonus} {type}",
       "replace": "Replace",
       "release": "Release"
