@@ -4,6 +4,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/character/domain';
 import { DateDisplay, Page, PageBody, PageHeader, Skeleton, Stack, Tab, Tabs, Text } from '@pioneer/frontier';
 
+import { SheetContentGate } from '../../data/sheet-content-gate';
 import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
@@ -81,6 +82,13 @@ export class CharacterSheetPage {
   public constructor() {
     effect(() => {
       this.sheet.store.select(this.id());
+    });
+    // The sections load their content once the engine's has settled, loaded or failed.
+    const gate = inject(SheetContentGate);
+    effect(() => {
+      if (!this.sheet.engineQuery().isPending()) {
+        gate.release();
+      }
     });
     markOnce(SHEET_HEADER_MARK, () => this.character() !== undefined);
     markOnce(SHEET_READY_MARK, () => this.sheet.vitals() !== undefined);

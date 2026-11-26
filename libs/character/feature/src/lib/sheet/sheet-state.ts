@@ -9,7 +9,7 @@ import type { Attribute, ContentRegistry, HitPoints, Selector } from '@pioneer/r
 import type { EntryPreviews, Investment, NamedStatistic, OriginNames, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
-import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-registry-query';
+import { CHARACTER_CONTENT_KINDS, ContentPriority, injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
@@ -111,14 +111,19 @@ export class SheetState {
   });
 
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
-  public readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
+  public readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS, undefined, ContentPriority.Engine);
   /**
    * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
    * loads only once the character carries something or has a condition, so a sheet with neither never fetches them for it.
    */
-  public readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () => readsEquipment(this.#full()));
+  public readonly equipment = injectContentRegistry(
+    EQUIPMENT_CONTENT_KINDS,
+    () => readsEquipment(this.#full()),
+    ContentPriority.Engine,
+  );
   /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
   public readonly engineQuery = computed(() => (readsEquipment(this.#full()) ? this.equipment : this.registry));
+
   /** The registry the engine reads: with the item kinds once anything is carried, undefined while they load. */
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     readsEquipment(this.#full()) ? this.equipment.data() : this.registry.data(),

@@ -9,6 +9,7 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 import { CharacterPackStore } from './character-pack-store';
 import { CharacterVariantStore } from './character-variant-store';
 import { putVariantsInForce } from './registry-variants';
+import { SheetContentGate } from './sheet-content-gate';
 
 /**
  * The kinds every character page's registry holds: ancestries, heritages and backgrounds for the options and the
@@ -105,6 +106,16 @@ function variantsOf(rules: CharacterVariantRules | undefined): readonly VariantR
   return (rules?.enabled ?? []).map((rule) => rule.variantId);
 }
 
+/** Whether a registry is what the sheet's header waits on, or a section's, which the sheet's content gate holds back. */
+export const ContentPriority = {
+  /** The registry the engine reads: it loads at once. */
+  Engine: 'engine',
+  /** A section's registry: on the sheet it loads once the engine's has settled. */
+  Section: 'section',
+} as const;
+
+export type ContentPriority = (typeof ContentPriority)[keyof typeof ContentPriority];
+
 /**
  * The registry of `kinds` as a query, in an injection context: the loader and the query in one call. It loads only
  * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment. On the
@@ -114,14 +125,17 @@ function variantsOf(rules: CharacterVariantRules | undefined): readonly VariantR
 export function injectContentRegistry(
   kinds: readonly ContentKind[],
   enabled: () => boolean = (): boolean => true,
+  priority: ContentPriority = ContentPriority.Section,
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
+  const gate = inject(SheetContentGate, { optional: true });
+  const open = (): boolean => enabled() && (priority === ContentPriority.Engine || gate?.released() !== false);
   const packs = inject(CharacterPackStore, { optional: true });
   const variants = inject(CharacterVariantStore, { optional: true });
   const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
   // The official content does not depend on the character: fetch it now, and the build joins it in flight.
   effect(() => {
-    if (enabled()) {
+    if (open()) {
       // oxlint-disable-next-line typescript/no-floating-promises -- warm catches every error, so it never rejects
       loader.warm(loaded);
     }
@@ -140,6 +154,6 @@ export function injectContentRegistry(
       variants: variantsOf(enabledVariants?.data()),
     };
 
-    return { ...contentRegistryQuery(loader, loaded, content), enabled: enabled() && !waiting };
+    return { ...contentRegistryQuery(loader, loaded, content), enabled: open() && !waiting };
   });
 }
