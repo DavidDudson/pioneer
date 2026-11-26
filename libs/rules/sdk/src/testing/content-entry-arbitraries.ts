@@ -146,6 +146,18 @@ const traitData: Arbitrary<object> = record({ appliesTo: uniqueArray(contentKind
 
 const emptyData: Arbitrary<object> = constant({});
 
+/** A companion species's block: one valid wolf-like block, as the kind has no free-form fields worth varying. */
+const companionSpeciesData: Arbitrary<object> = constant({
+  block: {
+    size: 'small',
+    attributes: { str: 2, dex: 2, con: 1, int: -4, wis: 1, cha: 0 },
+    ancestryHp: 8,
+    extraSkill: 'survival',
+    speed: 35,
+    attacks: [{ slug: 'jaws', attribute: 'str', damage: { dice: 1, die: 'd8', damageType: 'piercing' } }],
+  },
+});
+
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
@@ -165,6 +177,7 @@ const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.Background]: { data: backgroundData },
   [ContentKind.Class]: { data: classData },
   [ContentKind.ClassFeature]: { data: classFeatureData, level: entryLevel },
+  [ContentKind.CompanionSpecies]: { data: companionSpeciesData },
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },

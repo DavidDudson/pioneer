@@ -116,6 +116,12 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.CompanionSpecies),
+    ...envelope,
+    data: KIND_DATA[ContentKind.CompanionSpecies],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Language),
     ...envelope,
     data: KIND_DATA[ContentKind.Language],

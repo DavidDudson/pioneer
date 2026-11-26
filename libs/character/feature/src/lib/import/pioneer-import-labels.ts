@@ -11,6 +11,7 @@ export const CONTENT_KIND_KEYS: Readonly<Record<ContentKind, string>> = {
   [ContentKind.Background]: 'character.import.pioneer.kind.background',
   [ContentKind.Class]: 'character.import.pioneer.kind.class',
   [ContentKind.ClassFeature]: 'character.import.pioneer.kind.classFeature',
+  [ContentKind.CompanionSpecies]: 'character.import.pioneer.kind.companionSpecies',
   [ContentKind.Condition]: 'character.import.pioneer.kind.condition',
   [ContentKind.Consumable]: 'character.import.pioneer.kind.consumable',
   [ContentKind.Creature]: 'character.import.pioneer.kind.creature',

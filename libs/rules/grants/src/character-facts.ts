@@ -39,6 +39,7 @@ const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefi
   [ContentKind.Background]: RollOptionNamespace.parse('background'),
   [ContentKind.Class]: RollOptionNamespace.parse('class'),
   [ContentKind.ClassFeature]: RollOptionNamespace.parse('feature'),
+  [ContentKind.CompanionSpecies]: undefined,
   [ContentKind.Condition]: RollOptionNamespace.parse('self:condition'),
   [ContentKind.Consumable]: undefined,
   [ContentKind.Creature]: undefined,

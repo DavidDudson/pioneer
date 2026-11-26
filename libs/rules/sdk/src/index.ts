@@ -148,6 +148,8 @@ export {
 
 export { CompanionKind } from './companion-kind';
 
+export { CompanionSpeciesData } from './companion-species';
+
 export {
   CompanionSpecialization,
   CompanionSpecializationSchema,
