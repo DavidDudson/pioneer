@@ -4,6 +4,8 @@ import type { Temporal } from '@pioneer/shared/kernel';
 import type { Character } from './character';
 import type { CharacterLevel } from './character-fields';
 import { CharacterPatchField } from './character-patch';
+import { LedgerReason } from './coin-ledger';
+import type { Coins } from './coins';
 import { ItemQuantity } from './inventory';
 import type { InventoryItemId } from './inventory';
 import type { ItemContent } from './inventory-content';
@@ -109,9 +111,12 @@ function withPropertyRune(character: Character, { id, entry }: PropertyEtching, 
 
   const paid = coinsOf(CopperValue.parse(left - cost));
 
-  return character
-    .apply({ field: CharacterPatchField.EtchRune, id, rune }, shop.now)
-    .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
+  return paying(character.apply({ field: CharacterPatchField.EtchRune, id, rune }, shop.now), paid, shop);
+}
+
+/** `character` with its purse set to `coins` once the shop took payment for a rune, entered as a purchase. */
+function paying(character: Character, coins: Coins, shop: RuneShop): Character {
+  return character.withInventory({ ...character.document.inventory, coins }, shop.now, LedgerReason.Purchase);
 }
 
 /**
@@ -156,9 +161,11 @@ export function etchWeapon(character: Character, id: InventoryItemId, shop: Etch
 
     if (best !== undefined && allowed(runed, { action: RuneAction.Etch, id, rune: best.etching }, shop)) {
       const paid = coinsOf(CopperValue.parse(left - best.cost));
-      runed = runed
-        .apply({ field: CharacterPatchField.EtchRune, id, rune: best.etching }, shop.now)
-        .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
+      runed = paying(
+        runed.apply({ field: CharacterPatchField.EtchRune, id, rune: best.etching }, shop.now),
+        paid,
+        shop,
+      );
     }
   }
 

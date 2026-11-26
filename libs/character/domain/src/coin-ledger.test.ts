@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { array, assert, integer, property } from 'fast-check';
+import * as z from 'zod';
 
 import { Character } from './character';
 import { decodeCharacterDocument } from './character-document';
@@ -13,6 +14,9 @@ import { CoinsSchema, InventorySchema } from './inventory';
 import type { Inventory } from './inventory';
 import { CharacterBuilder, humanAncestryId } from './testing';
 import { PAST_DOCUMENTS } from './testing/past-documents';
+
+/** A stored document, as far as the test edits it. */
+const StoredDocument = z.looseObject({ inventory: z.looseObject({}) });
 
 installRulesFakes();
 
@@ -60,6 +64,26 @@ describe('coin ledger', () => {
     ]);
   });
 
+  test('a new character with no coins starts with an empty ledger', () => {
+    expect(withPurse(InventorySchema.parse({})).document.inventory.ledger).toStrictEqual([]);
+  });
+
+  test('a payment sets the purse and enters the change as a purchase', () => {
+    const held = withPurse(InventorySchema.parse({ coins: { gp: 1 } }));
+
+    const paid = held.withInventory(
+      { ...held.document.inventory, coins: CoinsSchema.parse({ sp: 6 }) },
+      later,
+      LedgerReason.Purchase,
+    );
+
+    expect(paid.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 6 }));
+    expect(paid.document.inventory.ledger.at(-1)).toMatchObject({
+      reason: LedgerReason.Purchase,
+      change: CoinChangeSchema.parse({ gp: -1, sp: 6 }),
+    });
+  });
+
   test('upgrading a character of the version before the ledger writes an opening entry for its coins', () => {
     const past = PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(22));
     const upgraded = decodeCharacterDocument(past);
@@ -94,5 +118,12 @@ describe('coin ledger', () => {
         expect(ledgerCoins(ledger)).toStrictEqual(coins);
       }),
     );
+  });
+
+  test('upgrading a character with no coins writes no opening entry', () => {
+    const past = StoredDocument.parse(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(22)));
+    const upgraded = decodeCharacterDocument({ ...past, inventory: { ...past.inventory, coins: {} } });
+
+    expect(upgraded.inventory.ledger).toStrictEqual([]);
   });
 });

@@ -406,6 +406,7 @@
         "heading": "Wealth",
         "total": "{total} gp in all",
         "empty": "No changes to the coins yet.",
+        "showAll": "Show every change",
         "amount": "{amount} {coin}",
         "coin": { "pp": "pp", "gp": "gp", "sp": "sp", "cp": "cp" },
         "reason": {

@@ -528,7 +528,8 @@ content it is (`ContentId` of an armour, consumable, equipment, shield, treasure
 item it is stowed in, if any, the player's name for it, if any, how it is carried and whether it is invested (schema
 version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, each 0 or more.
 
-`inventory.ledger` records every change to `inventory.coins`, oldest first (schema version 23, #512). Coins stay stored
+`inventory.ledger` records every change to `inventory.coins`, oldest first (schema version 23, #512;
+[ADR-0082](../adr/0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)). Coins stay stored
 by coin, any mix of platinum, gold, silver and copper. An entry is a reason (`opening`, `purchase`, `adjustment` or
 `transfer`), a signed change for each coin and the time it was made (an opening entry written by the upgrade has none).
 `Character.apply` and `withInventory` write the entry themselves by comparing the coins before and after an edit, so no

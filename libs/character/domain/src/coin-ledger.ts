@@ -6,7 +6,7 @@ import * as z from 'zod';
 import { CoinAmount, CoinsSchema } from './coins';
 import type { Coins } from './coins';
 
-/** Why the coins changed. Later stories add their own: coin gifting, Earn Income, crafting and ritual costs. */
+/** Why the coins changed. */
 export const LedgerReason = {
   /** What the purse held when the ledger began: a new character's coins, or an older character's when it was upgraded. */
   Opening: 'opening',
@@ -77,20 +77,20 @@ export function ledgerCoins(ledger: readonly LedgerEntry[]): Coins {
 /** `ledger` with an entry for the change from `before` to `after`, or as it was when no coin moved. */
 export function withCoinEntry(
   ledger: readonly LedgerEntry[],
-  change: {
+  edit: {
     readonly before: Coins;
     readonly after: Coins;
     readonly reason: LedgerReason;
     readonly now: Temporal.Instant;
   },
 ): readonly LedgerEntry[] {
-  const delta = coinChange(change.before, change.after);
+  const change = coinChange(edit.before, edit.after);
 
-  if (isNoChange(delta)) {
+  if (isNoChange(change)) {
     return ledger;
   }
 
-  const at = LedgerTime.parse(change.now.toString({ smallestUnit: 'millisecond' }));
+  const at = LedgerTime.parse(edit.now.toString({ smallestUnit: 'millisecond' }));
 
-  return [...ledger, { reason: change.reason, change: delta, at }];
+  return [...ledger, { reason: edit.reason, change, at }];
 }
