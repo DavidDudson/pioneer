@@ -17,3 +17,5 @@ export { FontStylesheets } from './font-stylesheets';
 export { type DisplayChoices, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
 
 export { ShellSearch } from './shell-search';
+
+export { injectScopedQuery, type ScopedQuery, type ScopedQueryOptions, type ScopedQueryUpdater } from './scoped-query';

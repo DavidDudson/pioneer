@@ -6,8 +6,8 @@ import type {
   RuleLimitField,
   RuleLimitSettingValue,
 } from '@pioneer/character/domain';
-import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
+import { QueryClient } from '@tanstack/angular-query-experimental';
 
 import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
@@ -23,28 +23,19 @@ export class CharacterRuleLimitSettingStore {
   readonly #api = inject(ApiClient);
   readonly #client = inject(QueryClient);
   readonly #characters = inject(CharacterStore);
-  readonly #id = computed(() => this.#characters.selected()?.id);
+  readonly #settings = injectScopedQuery<CharacterId, CharacterRuleLimitSettings>({
+    id: computed(() => this.#characters.selected()?.id),
+    key: characterKeys.ruleLimitSettings,
+    fetch: async (id) => this.#api.call(CharacterContract.ruleLimitSettings, { params: { id }, body: undefined }),
+    missing: 'No character selected',
+  });
 
   /** The open character's limits, each with the number in force. */
-  public readonly settings = injectQuery(() => {
-    const id = this.#id();
-
-    return {
-      queryKey: characterKeys.ruleLimitSettings(id),
-      queryFn: async (): Promise<CharacterRuleLimitSettings> => {
-        if (id === undefined) {
-          throw new Error('No character selected');
-        }
-
-        return this.#api.call(CharacterContract.ruleLimitSettings, { params: { id }, body: undefined });
-      },
-      enabled: id !== undefined,
-    };
-  });
+  public readonly settings = this.#settings.query;
 
   /** Sets one limit of the open character. */
   public async set(limit: RuleLimitField, value: RuleLimitSettingValue): Promise<void> {
-    const id = this.#openId();
+    const id = this.#settings.openId();
 
     const settings = await this.#api.call(CharacterContract.setRuleLimitSetting, {
       params: { id, limit },
@@ -56,7 +47,7 @@ export class CharacterRuleLimitSettingStore {
 
   /** Returns one limit of the open character to the core rules' number. */
   public async reset(limit: RuleLimitField): Promise<void> {
-    const id = this.#openId();
+    const id = this.#settings.openId();
 
     const settings = await this.#api.call(CharacterContract.resetRuleLimitSetting, {
       params: { id, limit },
@@ -67,18 +58,7 @@ export class CharacterRuleLimitSettingStore {
   }
 
   async #store(id: CharacterId, settings: CharacterRuleLimitSettings): Promise<void> {
-    await this.#client.cancelQueries({ queryKey: characterKeys.ruleLimitSettings(id) });
-    this.#client.setQueryData(characterKeys.ruleLimitSettings(id), settings);
+    await this.#settings.replace(id, settings);
     await this.#client.invalidateQueries({ queryKey: characterKeys.ruleLimits(id) });
-  }
-
-  #openId(): CharacterId {
-    const id = this.#id();
-
-    if (id === undefined) {
-      throw new Error('No character selected');
-    }
-
-    return id;
   }
 }
