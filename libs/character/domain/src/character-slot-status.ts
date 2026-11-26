@@ -1,6 +1,6 @@
 import { FIRST_TAKE } from '@pioneer/rules/grants';
 import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot } from '@pioneer/rules/grants';
-import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, contentIdOf, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -51,7 +51,7 @@ function rootStatus(slot: RootSlot, read: SlotRead, lookup: ContentLookup): Char
 
 /** The name of a `ChoiceSet` pick: the entry it names, else the listed option. */
 function choiceName(slot: AnsweredSlot, lookup: ContentLookup): ContentText | undefined {
-  const isId = ContentId.safeParse(slot.pick).success;
+  const isId = contentIdOf(slot.pick) !== undefined;
 
   return isId ? entryName(slot.pick, lookup) : slot.options.find((option) => option.value === slot.pick)?.label;
 }

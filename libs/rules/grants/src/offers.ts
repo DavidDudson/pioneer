@@ -1,6 +1,6 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { ContentId, RollOptionNamespace } from '@pioneer/rules/sdk';
+import { contentIdOf, RollOptionNamespace } from '@pioneer/rules/sdk';
 import type {
   ChoiceOption,
   ChoiceQuery,
@@ -168,8 +168,8 @@ function isListed(choices: readonly ChoiceOption[], value: ChoiceValue, facts: P
 function isQueried(query: ChoiceQuery, value: ChoiceValue, context: ChoiceContext): boolean {
   const { facts, lookup } = context;
   const { kind, filter } = query;
-  const id = ContentId.safeParse(value);
-  const candidate = id.success ? lookup.entry(id.data) : undefined;
+  const id = contentIdOf(value);
+  const candidate = id === undefined ? undefined : lookup.entry(id);
 
   if (candidate?.kind !== kind) {
     return false;
