@@ -2,7 +2,6 @@ import {
   ANCESTRY_SLOT,
   Character,
   CharacterId,
-  CharacterLevel,
   CharacterName,
   CharacterPatchField,
   CLASS_SLOT,
@@ -12,7 +11,7 @@ import {
   Seed,
   slotContent,
 } from '@pioneer/character/domain';
-import type { Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
+import type { CharacterLevel, Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { AncestryId, ChoiceValue, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 import { derivedId, fixedClock, FixtureNamespace, UserId } from '@pioneer/shared/kernel';
@@ -36,8 +35,6 @@ export const PLAYER_CORE_CLASSES = [
   'Sorcerer',
   'Wizard',
 ] as const;
-
-export const LEVELS = Array.from({ length: 20 }, (_unused, index) => CharacterLevel.parse(index + 1));
 
 const now = fixedClock('2026-01-01T00:00:00Z').now();
 

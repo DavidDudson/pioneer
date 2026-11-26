@@ -19,10 +19,10 @@ import {
   CLASS_TIMEOUT_MS,
   contentOf,
   generatorIn,
-  LEVELS,
   PLAYER_CORE_CLASSES,
   SEED_MAX,
 } from './generate-character-testing';
+import { sweep } from './generation-sweep';
 
 const PROPERTY_RUNS = 12;
 const CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'] as const;
@@ -30,9 +30,6 @@ const CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'] as const;
 // SAFETY: widening the `CASTERS` tuple of string literals to `readonly string[]` is always sound; it only lets `includes` take any class name.
 const NON_CASTERS = PLAYER_CORE_CLASSES.filter((name) => !(CASTERS as readonly string[]).includes(name));
 const CORE_PACKS = ['core-rules', 'player-core'];
-
-/** The levels each caster is generated at; the property test covers the rest. */
-const CASTER_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
 
 /** A cleric's deity gives it spells outside its tradition, and a deity is no part of Player Core. */
 const DEITY_CLASSES = new Set<string>(['Cleric']);
@@ -118,7 +115,7 @@ describe('generated spell picks', () => {
   test.each([...CASTERS])(
     '%s, at levels 1, 5, 10, 15 and 20, holds a spell in every slot',
     (className) => {
-      for (const level of CASTER_LEVELS) {
+      for (const level of sweep.spotLevels) {
         const result = generated(blankIn(content, className), level, level);
         expect({ level, problems: spellProblems(result, content, className) }).toEqual({ level, problems: [] });
       }
@@ -133,11 +130,11 @@ describe('generated spell picks', () => {
         property(
           integer({ min: 0, max: SEED_MAX }),
           constantFrom(...CASTERS),
-          constantFrom(...LEVELS),
+          constantFrom(...sweep.propertyLevels),
           (seed, className, level) =>
             spellProblems(generated(blankIn(content, className), seed, level), content, className).length === 0,
         ),
-        { numRuns: PROPERTY_RUNS },
+        sweep.parameters(PROPERTY_RUNS),
       );
     },
     CLASS_TIMEOUT_MS,

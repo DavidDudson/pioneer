@@ -28,10 +28,10 @@ import type { AttributeModifier, ContentId } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { assert, constantFrom, integer, property } from 'fast-check';
 
-import { blankIn, contentOf, itemsOf, LEVELS, PLAYER_CORE_CLASSES, SEED_MAX } from './generate-character-testing';
+import { blankIn, contentOf, itemsOf, PLAYER_CORE_CLASSES, SEED_MAX } from './generate-character-testing';
+import { sweep } from './generation-sweep';
 
 const PROPERTY_RUNS = 25;
-const SPOT_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
 const SEED = 7;
 const NONE = 0;
 const ONE = 1;
@@ -112,13 +112,13 @@ function untrainedGear(character: Character): readonly string[] {
 
 describe('generated gear', () => {
   test.each([...PLAYER_CORE_CLASSES])('%s carries only weapons and armour its class is trained in', (name) => {
-    for (const level of SPOT_LEVELS) {
+    for (const level of sweep.spotLevels) {
       expect({ level, untrained: untrainedGear(geared(name, level, SEED)) }).toEqual({ level, untrained: [] });
     }
   });
 
   test.each([...PLAYER_CORE_CLASSES])('%s, at levels 1, 5, 10, 15 and 20, is legal and within the budget', (name) => {
-    for (const level of SPOT_LEVELS) {
+    for (const level of sweep.spotLevels) {
       expect({ level, problems: gearProblems(geared(name, level, SEED), level) }).toEqual({ level, problems: [] });
     }
   });
@@ -148,13 +148,13 @@ describe('generated gear', () => {
     assert(
       property(
         constantFrom(...PLAYER_CORE_CLASSES),
-        constantFrom(...LEVELS),
+        constantFrom(...sweep.propertyLevels),
         integer({ min: NONE, max: SEED_MAX }),
         (name, level, seed) => {
           expect(gearProblems(geared(name, level, seed), level)).toEqual([]);
         },
       ),
-      { numRuns: PROPERTY_RUNS },
+      sweep.parameters(PROPERTY_RUNS),
     );
   });
 });

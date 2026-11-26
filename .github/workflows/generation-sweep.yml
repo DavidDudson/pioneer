@@ -1,0 +1,65 @@
+name: Generation sweep
+
+# The api's generation property tests (character, spells, gear) in full: every level, every run. A pull request runs a
+# capped subset from a fixed seed (apps/api/src/generation-sweep.ts); this runs the rest nightly, from a fresh seed each
+# time. A failure prints that seed: replay it locally with
+#   GENERATION_SWEEP=full GENERATION_SEED=<seed> [GENERATION_PATH=<path>] bun test apps/api/src/<file>.test.ts
+# It also runs on a pull request that changes it, so the sweep is seen passing before it lands on main.
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/generation-sweep.yml'
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sweep:
+    name: Sweep (${{ matrix.configuration }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        # The `api:test` configurations that hold generation tests (apps/api/project.json).
+        configuration:
+          - generate-1
+          - generate-2
+          - generate-3
+          - generate-4
+          - generate-spells-1
+          - generate-spells-2
+          - generate-spells-3
+          - generate-spells-4
+          - generation
+    defaults:
+      run:
+        # Same toolchain as local: every step runs inside the flake devshell.
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Sweep
+        timeout-minutes: 25
+        run: bunx nx run "api:test:${CONFIGURATION}"
+        env:
+          CONFIGURATION: ${{ matrix.configuration }}
+          GENERATION_SWEEP: full
