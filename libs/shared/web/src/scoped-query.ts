@@ -3,9 +3,6 @@ import type { Signal } from '@angular/core';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult, QueryKey } from '@tanstack/angular-query-experimental';
 
-/** Builds the cache entry's next value from the one shown now. */
-export type ScopedQueryUpdater<Data> = (shown: Data | undefined) => Data;
-
 /** What a store says about the one record its query belongs to. */
 export interface ScopedQueryOptions<Id, Data> {
   /** The open record's id, `undefined` while none is open. */
@@ -26,7 +23,7 @@ export interface ScopedQuery<Id, Data> {
   /** The open record's id; throws when none is open, so a mutation never runs against nothing. */
   readonly openId: () => Id;
   /** Puts a mutation's answer in the cache, once any read still in flight is cancelled. */
-  readonly replace: (id: Id, data: Data | ScopedQueryUpdater<Data>) => Promise<void>;
+  readonly replace: (id: Id, data: Data | ((shown: Data | undefined) => Data)) => Promise<void>;
   /** Marks the record's data stale; `refetch: false` leaves what is shown until the next load. */
   readonly invalidate: (id: Id, invalidation?: { readonly refetch: boolean }) => Promise<void>;
 }
@@ -56,7 +53,7 @@ export function injectScopedQuery<Id, Data>(options: ScopedQueryOptions<Id, Data
   return {
     query,
     openId: (): Id => requireId(options.id()),
-    replace: async (id: Id, data: Data | ScopedQueryUpdater<Data>): Promise<void> => {
+    replace: async (id: Id, data: Data | ((shown: Data | undefined) => Data)): Promise<void> => {
       await client.cancelQueries({ queryKey: options.key(id) });
       client.setQueryData(options.key(id), data);
     },
