@@ -309,21 +309,57 @@
             "onlyDependOnLibsWithTags": ["type:domain", "type:catalog", "type:ui", "type:data-access", "type:feature"]
           },
           // Each platform bans the packages of the others, so a lib cannot reach for a runtime it will not run on.
-          // `bun:test` stays allowed above. Nested imports count: a lib that re-exports a banned package is banned too.
+          // Nested imports count: a lib that imports a banned package, directly or through its dependencies, is banned too.
+          // Bun's own modules (`bun`, `bun:*`) are not npm packages, so this rule cannot see them.
           {
             "sourceTag": "platform:web",
             "notDependOnLibsWithTags": ["platform:server"],
-            "bannedExternalImports": ["elysia", "drizzle-orm", "drizzle-orm/*", "postgres"]
+            "bannedExternalImports": ["elysia", "elysia/*", "drizzle-orm", "drizzle-orm/*", "arctic", "aws4fetch"]
           },
           {
             "sourceTag": "platform:server",
             "notDependOnLibsWithTags": ["platform:web"],
-            "bannedExternalImports": ["@angular/*"]
+            "bannedExternalImports": [
+              "@angular/*",
+              "@jsverse/transloco",
+              "@lucide/angular",
+              "@tanstack/angular-*",
+              "rxjs"
+            ]
           },
           {
             "sourceTag": "platform:any",
             "onlyDependOnLibsWithTags": ["platform:any"],
-            "bannedExternalImports": ["@angular/*", "elysia", "drizzle-orm", "drizzle-orm/*", "postgres", "bun:*"]
+            "bannedExternalImports": [
+              "@angular/*",
+              "@jsverse/transloco",
+              "@lucide/angular",
+              "@tanstack/angular-*",
+              "rxjs",
+              "elysia",
+              "elysia/*",
+              "drizzle-orm",
+              "drizzle-orm/*",
+              "arctic",
+              "aws4fetch"
+            ]
+          },
+          // The edge worker runs on neither Bun nor a browser: only platform-neutral libraries, no web or database packages.
+          {
+            "sourceTag": "platform:edge",
+            "onlyDependOnLibsWithTags": ["platform:any", "platform:edge"],
+            "bannedExternalImports": [
+              "@angular/*",
+              "@jsverse/transloco",
+              "@lucide/angular",
+              "@tanstack/angular-*",
+              "rxjs",
+              "elysia",
+              "elysia/*",
+              "drizzle-orm",
+              "drizzle-orm/*",
+              "arctic"
+            ]
           },
           // An app composes libraries; it is never a dependency of another app or library.
           { "sourceTag": "type:app", "notDependOnLibsWithTags": ["type:app"] },
