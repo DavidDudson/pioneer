@@ -40,7 +40,7 @@ export interface TemporaryHitPointsInPlay {
 }
 
 /** Hit Points a spell or effect adds to the first healing it gives: the most any element gives. */
-export interface HealingBonusInPlay {
+interface HealingBonusInPlay {
   readonly amount: HitPoints;
   /** Every element that gives this amount, in the order found. */
   readonly origins: readonly Origin[];
