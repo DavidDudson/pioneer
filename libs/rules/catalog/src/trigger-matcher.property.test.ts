@@ -35,13 +35,14 @@ describe('trigger matcher (properties)', () => {
     );
   });
 
-  test('a phrasing is lowercase and has no run of spaces', () => {
+  test('a phrasing is lowercase, trimmed and has no whitespace but spaces', () => {
     assert(
       property(richText, (trigger) => {
         const phrasing = triggerPhrasing(trigger, new Map());
 
         expect(phrasing).toBe(phrasing.toLowerCase());
-        expect(phrasing).not.toMatch(/ {2}/u);
+        expect(phrasing).toBe(phrasing.trim());
+        expect(phrasing).not.toMatch(/[^\S ]/u);
       }),
     );
   });
