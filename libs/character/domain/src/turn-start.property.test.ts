@@ -14,7 +14,7 @@ import { startTurn } from './turn-start';
 
 const ROUNDS_MAX = 20;
 const EFFECTS_MAX = 12;
-const RUNS = 200;
+const RUNS = 100;
 const SEED_MAX = 1000;
 const ID_DIGITS = 12;
 const CONTENT = ContentId.parse('00000000-0000-4000-8000-0000000000a1');
