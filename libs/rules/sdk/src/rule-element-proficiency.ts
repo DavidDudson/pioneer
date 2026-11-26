@@ -20,9 +20,12 @@ export const ChoiceSelector = z.strictObject({
 
 export type ChoiceSelector = z.infer<typeof ChoiceSelector>;
 
+/** `ChoiceSelector` compiled to a fast path: `isChoiceSelector` runs for every proficiency element read. */
+const CompiledChoiceSelector = z.compile(ChoiceSelector);
+
 /** Whether a proficiency's `selector` is one the player's pick completes, rather than a fixed selector. */
 export function isChoiceSelector(selector: Selector | ChoiceSelector): selector is ChoiceSelector {
-  return ChoiceSelector.safeParse(selector).success;
+  return CompiledChoiceSelector.safeParse(selector).success;
 }
 
 /** A rank an element raises to. Untrained is every statistic's floor, so raising to it does nothing. */
