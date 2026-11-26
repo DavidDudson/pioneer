@@ -88,6 +88,16 @@ describe('selectJobs arguments', () => {
   });
 });
 
+describe('selectJobs database flag', () => {
+  test('keeps the db flag on a selected entry, so the matrix reaches the job', async () => {
+    const withDatabase: JobEntry = { ...entry('api', '--projects=api'), db: true };
+
+    const selected = await selectJobs([withDatabase], onlyApi);
+
+    expect(selected.map(({ db }) => db)).toStrictEqual([true]);
+  });
+});
+
 describe('planGaps', () => {
   const build = entry('build', '');
   const lint = entry('lint', '', true);

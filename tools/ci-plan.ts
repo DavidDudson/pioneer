@@ -8,6 +8,8 @@ export const JobEntry = z.strictObject({
   args: z.string(),
   /** Runs whatever changed: a check that is not about one project. */
   always: z.boolean().optional(),
+  /** Runs database suites, so the job needs Postgres. */
+  db: z.boolean().optional(),
 });
 
 export type JobEntry = z.infer<typeof JobEntry>;

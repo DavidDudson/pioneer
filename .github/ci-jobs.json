@@ -131,7 +131,8 @@
     {
       "name": "server api",
       "id": "server-api",
-      "args": "--projects=api --configuration=rest"
+      "args": "--projects=api --configuration=rest",
+      "db": true
     },
     {
       "name": "server api generation",
@@ -166,7 +167,8 @@
     {
       "name": "server api binary",
       "id": "server-api-binary",
-      "args": "--projects=api --configuration=binary"
+      "args": "--projects=api --configuration=binary",
+      "db": true
     },
     {
       "name": "server api characters 1",
@@ -191,12 +193,14 @@
     {
       "name": "server rules",
       "id": "server-rules",
-      "args": "--projects=rules-*,shared-* --exclude=tag:platform:web,api"
+      "args": "--projects=rules-*,shared-* --exclude=tag:platform:web,api",
+      "db": true
     },
     {
       "name": "server contexts",
       "id": "server",
-      "args": "--exclude=tag:platform:web,api,rules-*,shared-*"
+      "args": "--exclude=tag:platform:web,api,rules-*,shared-*",
+      "db": true
     }
   ]
 }
