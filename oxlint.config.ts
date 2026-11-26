@@ -11,6 +11,8 @@ export default defineConfig({
   jsPlugins: [
     '@nx/oxlint/boundaries-plugin',
     'eslint-plugin-security',
+    'eslint-plugin-regexp',
+    'eslint-plugin-sonarjs',
     '@angular-eslint/eslint-plugin',
     './tools/oxlint/pioneer-plugin.ts',
     { name: 'anti-slop', specifier: './tools/oxlint/anti-slop/index.ts' },
@@ -299,12 +301,143 @@ export default defineConfig({
     '@angular-eslint/directive-selector': ['error', { type: 'attribute', prefix: ['pio', 'fr'], style: 'camelCase' }],
     'pioneer/no-styles-outside-frontier': 'error',
 
+    // ---- Regexp: eslint-plugin-regexp's recommended set (ReDoS, dead and misleading patterns) ----
+    'regexp/confusing-quantifier': 'error',
+    'regexp/control-character-escape': 'error',
+    'regexp/match-any': 'error',
+    'regexp/negation': 'error',
+    'regexp/no-contradiction-with-assertion': 'error',
+    'regexp/no-dupe-characters-character-class': 'error',
+    'regexp/no-dupe-disjunctions': 'error',
+    'regexp/no-empty-alternative': 'error',
+    'regexp/no-empty-capturing-group': 'error',
+    'regexp/no-empty-character-class': 'error',
+    'regexp/no-empty-group': 'error',
+    'regexp/no-empty-lookarounds-assertion': 'error',
+    'regexp/no-empty-string-literal': 'error',
+    'regexp/no-escape-backspace': 'error',
+    'regexp/no-extra-lookaround-assertions': 'error',
+    'regexp/no-invalid-regexp': 'error',
+    'regexp/no-invisible-character': 'error',
+    'regexp/no-lazy-ends': 'error',
+    'regexp/no-legacy-features': 'error',
+    'regexp/no-misleading-capturing-group': 'error',
+    'regexp/no-misleading-unicode-character': 'error',
+    'regexp/no-missing-g-flag': 'error',
+    'regexp/no-non-standard-flag': 'error',
+    'regexp/no-obscure-range': 'error',
+    'regexp/no-optional-assertion': 'error',
+    'regexp/no-potentially-useless-backreference': 'error',
+    'regexp/no-super-linear-backtracking': 'error',
+    'regexp/no-trivially-nested-assertion': 'error',
+    'regexp/no-trivially-nested-quantifier': 'error',
+    'regexp/no-unused-capturing-group': 'error',
+    'regexp/no-useless-assertions': 'error',
+    'regexp/no-useless-backreference': 'error',
+    'regexp/no-useless-character-class': 'error',
+    'regexp/no-useless-dollar-replacements': 'error',
+    'regexp/no-useless-escape': 'error',
+    'regexp/no-useless-flag': 'error',
+    'regexp/no-useless-lazy': 'error',
+    'regexp/no-useless-non-capturing-group': 'error',
+    'regexp/no-useless-quantifier': 'error',
+    'regexp/no-useless-range': 'error',
+    'regexp/no-useless-set-operand': 'error',
+    'regexp/no-useless-string-literal': 'error',
+    'regexp/no-useless-two-nums-quantifier': 'error',
+    'regexp/no-zero-quantifier': 'error',
+    'regexp/optimal-lookaround-quantifier': 'error',
+    'regexp/optimal-quantifier-concatenation': 'error',
+    'regexp/prefer-character-class': 'error',
+    'regexp/prefer-d': 'error',
+    'regexp/prefer-plus-quantifier': 'error',
+    'regexp/prefer-predefined-assertion': 'error',
+    'regexp/prefer-question-quantifier': 'error',
+    'regexp/prefer-range': 'error',
+    'regexp/prefer-set-operation': 'error',
+    'regexp/prefer-star-quantifier': 'error',
+    'regexp/prefer-unicode-codepoint-escapes': 'error',
+    'regexp/prefer-w': 'error',
+    'regexp/simplify-set-operations': 'error',
+    'regexp/sort-flags': 'error',
+    'regexp/strict': 'error',
+    'regexp/use-ignore-case': 'error',
+    // ---- SonarJS: the duplication and complexity rules; its style rules overlap the categories above ----
+    'sonarjs/cognitive-complexity': 'error',
+    'sonarjs/no-identical-functions': 'error',
+    'sonarjs/no-collapsible-if': 'error',
+    'sonarjs/no-all-duplicated-branches': 'error',
+    'sonarjs/no-duplicated-branches': 'error',
+    'sonarjs/no-redundant-boolean': 'error',
+    'sonarjs/no-inverted-boolean-check': 'error',
+    'sonarjs/prefer-single-boolean-return': 'error',
+    'sonarjs/no-nested-switch': 'error',
+    // `sonarjs/no-ignored-return` is left out: it needs a TypeScript program, which oxlint JS plugins do not get.
+    'sonarjs/no-small-switch': 'error',
+    'sonarjs/no-useless-catch': 'error',
+    'sonarjs/no-identical-conditions': 'error',
+    'sonarjs/no-identical-expressions': 'error',
+    'sonarjs/no-element-overwrite': 'error',
+    'sonarjs/no-gratuitous-expressions': 'error',
+    'sonarjs/no-redundant-jump': 'error',
+    'sonarjs/no-unused-collection': 'error',
+    'sonarjs/no-use-of-empty-return-value': 'error',
+    'sonarjs/no-same-line-conditional': 'error',
+    'sonarjs/prefer-immediate-return': 'error',
+    'sonarjs/prefer-object-literal': 'error',
+    'sonarjs/no-dead-store': 'error',
+    'sonarjs/updated-loop-counter': 'error',
+    'sonarjs/no-invariant-returns': 'error',
+    'sonarjs/no-incomplete-assertions': 'error',
+    'sonarjs/assertions-in-tests': 'error',
+
+    // ---- Security ------------------------------------------------------------
+    'security/detect-bidi-characters': 'error',
+    'security/detect-buffer-noassert': 'error',
+    'security/detect-child-process': 'error',
+    'security/detect-disable-mustache-escape': 'error',
+    'security/detect-eval-with-expression': 'error',
+    'security/detect-new-buffer': 'error',
+    'security/detect-no-csrf-before-method-override': 'error',
+    'security/detect-non-literal-fs-filename': 'error',
+    'security/detect-non-literal-regexp': 'error',
+    'security/detect-non-literal-require': 'error',
+    'security/detect-possible-timing-attacks': 'error',
+    'security/detect-pseudoRandomBytes': 'error',
+    'security/detect-unsafe-regex': 'error',
+    'pioneer/no-bypass-security-trust': 'error',
+    'pioneer/zod-namespace-import': 'error',
+    // No modals, no toasts, no full page loads (libs/frontier/AGENTS.md#interaction-rules).
+    'pioneer/no-full-page-load': 'error',
+    'pioneer/no-route-resolvers': 'error',
+    'pioneer/layout-variants': 'error',
+    'pioneer/class-tokens': 'error',
+    // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
+    'pioneer/no-await-in-condition': 'error',
+    // User content is archived, never deleted (ADR-0062); the database refuses it too.
+    'pioneer/no-archivable-delete': 'error',
+    // Every function, arrow consts included, declares its return type (restriction
+    // category enables both; pinned). Callbacks typed by their call site are exempt.
+    'typescript/explicit-function-return-type': 'error',
+    'typescript/explicit-module-boundary-types': 'error',
+    // Return types are named, short and declared: no inline object shapes, no
+    // `ReturnType<typeof fn>` reverse-engineering.
+    'pioneer/no-inline-return-types': 'error',
+    'pioneer/no-derived-types': 'error',
+    // Domain and rules values are branded or const objects, never bare string/number
+    // (tools/oxlint/brand-rules.ts; tests and testing/ builders are exempt).
+    'pioneer/no-primitive-domain-types': 'error',
+
+    // Import cycles between files: the boundaries rule below catches them between projects.
+    'import/no-cycle': 'error',
+
     // ---- DDD boundaries ------------------------------------------------------
     '@nx/enforce-module-boundaries': [
       'error',
       {
         enforceBuildableLibDependency: true,
         banTransitiveDependencies: true,
+        checkNestedExternalImports: true,
         checkDynamicDependenciesExceptions: ['@pioneer/content/packs/*'],
         allow: ['bun:test'],
         depConstraints: [
@@ -322,9 +455,61 @@ export default defineConfig({
             sourceTag: 'type:feature',
             onlyDependOnLibsWithTags: ['type:domain', 'type:catalog', 'type:ui', 'type:data-access', 'type:feature'],
           },
-          { sourceTag: 'platform:web', notDependOnLibsWithTags: ['platform:server'] },
-          { sourceTag: 'platform:server', notDependOnLibsWithTags: ['platform:web'] },
-          { sourceTag: 'platform:any', onlyDependOnLibsWithTags: ['platform:any'] },
+          // Each platform bans the packages of the others, so a lib cannot reach for a runtime it will not run on.
+          // Nested imports count: a lib that imports a banned package, directly or through its dependencies, is banned too.
+          // Bun's own modules (`bun`, `bun:*`) are not npm packages, so this rule cannot see them.
+          {
+            sourceTag: 'platform:web',
+            notDependOnLibsWithTags: ['platform:server'],
+            bannedExternalImports: ['elysia', 'elysia/*', 'drizzle-orm', 'drizzle-orm/*', 'arctic', 'aws4fetch'],
+          },
+          {
+            sourceTag: 'platform:server',
+            notDependOnLibsWithTags: ['platform:web'],
+            bannedExternalImports: [
+              '@angular/*',
+              '@jsverse/transloco',
+              '@lucide/angular',
+              '@tanstack/angular-*',
+              'rxjs',
+            ],
+          },
+          {
+            sourceTag: 'platform:any',
+            onlyDependOnLibsWithTags: ['platform:any'],
+            bannedExternalImports: [
+              '@angular/*',
+              '@jsverse/transloco',
+              '@lucide/angular',
+              '@tanstack/angular-*',
+              'rxjs',
+              'elysia',
+              'elysia/*',
+              'drizzle-orm',
+              'drizzle-orm/*',
+              'arctic',
+              'aws4fetch',
+            ],
+          },
+          // The edge worker runs on neither Bun nor a browser: only platform-neutral libraries, no web or database packages.
+          {
+            sourceTag: 'platform:edge',
+            onlyDependOnLibsWithTags: ['platform:any', 'platform:edge'],
+            bannedExternalImports: [
+              '@angular/*',
+              '@jsverse/transloco',
+              '@lucide/angular',
+              '@tanstack/angular-*',
+              'rxjs',
+              'elysia',
+              'elysia/*',
+              'drizzle-orm',
+              'drizzle-orm/*',
+              'arctic',
+            ],
+          },
+          // An app composes libraries; it is never a dependency of another app or library.
+          { sourceTag: 'type:app', notDependOnLibsWithTags: ['type:app'] },
           { sourceTag: 'scope:rules', onlyDependOnLibsWithTags: ['scope:rules', 'scope:shared', 'scope:content'] },
           { sourceTag: 'scope:content', onlyDependOnLibsWithTags: ['scope:rules'] },
           {
@@ -352,6 +537,8 @@ export default defineConfig({
             onlyDependOnLibsWithTags: ['scope:browser', 'scope:rules', 'scope:shared'],
           },
           { sourceTag: 'scope:identity', onlyDependOnLibsWithTags: ['scope:identity', 'scope:shared'] },
+          { sourceTag: 'scope:legal', onlyDependOnLibsWithTags: ['scope:legal', 'scope:rules', 'scope:shared'] },
+          { sourceTag: 'scope:edge', onlyDependOnLibsWithTags: ['scope:edge', 'scope:shared'] },
           // Shared libraries, frontier among them, know no Pioneer schemas or feature areas (ADR-0028).
           { sourceTag: 'scope:shared', onlyDependOnLibsWithTags: ['scope:shared'] },
         ],
@@ -359,6 +546,25 @@ export default defineConfig({
     ],
   },
   overrides: [
+    {
+      // Specs repeat a fixture builder or an assertion helper per describe block on purpose; a shared one hides the setup.
+      files: ['**/*.test.ts', '**/*.spec.ts', '**/*.bench.ts'],
+      rules: { 'sonarjs/no-identical-functions': 'off' },
+    },
+    {
+      // fast-check's `assert(property(...))` is the assertion; the rule only knows `expect`-style calls.
+      files: ['**/*.property.test.ts'],
+      rules: { 'sonarjs/assertions-in-tests': 'off' },
+    },
+    {
+      // These parse Foundry's and Archives of Nethys's markup at build time, from committed or fetched pages, never from a
+      // request, so polynomial backtracking is no attack surface; the patterns are tuned to that markup and each has a spec.
+      files: ['libs/interop/foundry/**', 'tools/**'],
+      rules: {
+        'regexp/no-super-linear-backtracking': 'off',
+        'regexp/optimal-quantifier-concatenation': 'off',
+      },
+    },
     {
       // A generation run builds a whole level 1-20 character, so these tests get a tighter cap.
       files: ['apps/api/src/**/*.test.ts'],
@@ -560,6 +766,7 @@ export default defineConfig({
         'tools/enrich-triggers.ts',
         'tools/enrich-removals.ts',
         'tools/bench.ts',
+        'tools/page-budget.ts',
         'libs/shared/bench/src/bench.ts',
       ],
       rules: { 'eslint/no-console': 'off' },
