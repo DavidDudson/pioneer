@@ -10,7 +10,7 @@ const at = (level: number, ...options: string[]): FamiliarAbilities =>
 
 const totalAt = (level: number, ...options: string[]): number => at(level, ...options).total;
 
-const sourcesOf = (level: number, ...options: string[]): readonly string[] =>
+const sourcesOf = (level: number, ...options: string[]): readonly FamiliarAbilitySource[] =>
   at(level, ...options).parts.map(({ source }) => source);
 
 describe('familiar abilities', () => {
@@ -62,6 +62,10 @@ describe('familiar abilities', () => {
 
   test('stacks a witch with both feats at 18th level', () => {
     expect(totalAt(18, 'class:witch', 'feat:enhanced-familiar', 'feat:incredible-familiar')).toBe(11);
+  });
+
+  test('Incredible Familiar adds its own two whether or not Enhanced Familiar is held', () => {
+    expect(totalAt(1, 'feat:incredible-familiar')).toBe(4);
   });
 
   test('a class other than witch gets no witch part', () => {

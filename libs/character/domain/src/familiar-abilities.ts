@@ -51,34 +51,28 @@ const WITCH_GROWTH_SECOND = Level.parse(12);
 const WITCH_GROWTH_THIRD = Level.parse(18);
 const WITCH_GROWTH_LEVELS: readonly Level[] = [WITCH_GROWTH_FIRST, WITCH_GROWTH_SECOND, WITCH_GROWTH_THIRD];
 
-const ENHANCED = RollOption.parse('feat:enhanced-familiar');
-const INCREDIBLE = RollOption.parse('feat:incredible-familiar');
-const WITCH = RollOption.parse('class:witch');
+const ENHANCED_FAMILIAR_OPTION = RollOption.parse('feat:enhanced-familiar');
+const INCREDIBLE_FAMILIAR_OPTION = RollOption.parse('feat:incredible-familiar');
+const WITCH_CLASS_OPTION = RollOption.parse('class:witch');
+const NONE = FamiliarAbilityCount.parse(0);
 
-/**
- * Two abilities a day, four with Enhanced Familiar and six with Incredible Familiar, which both say to add the witch's
- * bonus on top: two from Familiar (Witch) and one more at 6th, 12th and 18th level. Feats of other books that set
- * their own number, and the arcane thesis, are not read yet.
- */
+/** `amount` from `source` when `applies`, none otherwise. */
+function part(applies: boolean, source: FamiliarAbilitySource, amount: FamiliarAbilityCount): FamiliarAbilityPart {
+  return { source, amount: applies ? amount : NONE };
+}
+
+/** Enhanced and Incredible Familiar each add their own two, and the witch's bonus stacks on top. */
 export function familiarAbilities({ level, options }: FamiliarAbilityInputs): FamiliarAbilities {
   const has = (option: RollOption): boolean => options.includes(option);
-  const grown = WITCH_GROWTH_LEVELS.filter((at) => level >= at).length;
+  const isWitch = has(WITCH_CLASS_OPTION);
+  const growthLevelsReached = WITCH_GROWTH_LEVELS.filter((at) => level >= at).length;
 
   const candidates: readonly FamiliarAbilityPart[] = [
-    { source: FamiliarAbilitySource.Base, amount: BASE },
-    {
-      source: FamiliarAbilitySource.EnhancedFamiliar,
-      amount: has(ENHANCED) ? FEAT_BONUS : FamiliarAbilityCount.parse(0),
-    },
-    {
-      source: FamiliarAbilitySource.IncredibleFamiliar,
-      amount: has(INCREDIBLE) ? FEAT_BONUS : FamiliarAbilityCount.parse(0),
-    },
-    { source: FamiliarAbilitySource.WitchFamiliar, amount: has(WITCH) ? WITCH_BONUS : FamiliarAbilityCount.parse(0) },
-    {
-      source: FamiliarAbilitySource.WitchGrowth,
-      amount: has(WITCH) ? FamiliarAbilityCount.parse(grown * GROWTH) : FamiliarAbilityCount.parse(0),
-    },
+    part(true, FamiliarAbilitySource.Base, BASE),
+    part(has(ENHANCED_FAMILIAR_OPTION), FamiliarAbilitySource.EnhancedFamiliar, FEAT_BONUS),
+    part(has(INCREDIBLE_FAMILIAR_OPTION), FamiliarAbilitySource.IncredibleFamiliar, FEAT_BONUS),
+    part(isWitch, FamiliarAbilitySource.WitchFamiliar, WITCH_BONUS),
+    part(isWitch, FamiliarAbilitySource.WitchGrowth, FamiliarAbilityCount.parse(growthLevelsReached * GROWTH)),
   ];
 
   const parts = candidates.filter(({ amount }) => amount > 0);
