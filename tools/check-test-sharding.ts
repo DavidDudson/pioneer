@@ -5,15 +5,23 @@ import { Glob } from 'bun';
 
 import { nameShards, PROJECT, shardProblems } from './test-sharding.ts';
 
-const found: string[] = [];
+const scanned = await Array.fromAsync(new Glob('{apps,libs,tools}/**/project.json').scan({ onlyFiles: true }));
+const files = scanned.filter((file) => !file.includes('node_modules'));
 
-for await (const file of new Glob('{apps,libs,tools}/**/project.json').scan({ onlyFiles: true })) {
-  if (!file.includes('node_modules')) {
+const perFile = await Promise.all(
+  files.map(async (file): Promise<readonly string[]> => {
     const json: unknown = await Bun.file(file).json();
+    const project = PROJECT.safeParse(json);
 
-    found.push(...nameShards(file, PROJECT.parse(json)));
-  }
-}
+    if (!project.success) {
+      throw new Error(`${file}: not a readable project.json`, { cause: project.error });
+    }
+
+    return nameShards(file, project.data);
+  }),
+);
+
+const found = perFile.flat();
 
 const problems = shardProblems(found);
 

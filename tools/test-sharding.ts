@@ -1,14 +1,10 @@
 /**
- * No sharding by test name (#2243). A `bun test --test-name-pattern 'Bard|Cleric'` target splits slow tests across CI
- * jobs by class name instead of making them cheaper, and every shard repeats about a minute of setup. A shard that
- * exists today is on `NAME_PATTERN_SHARDS`; the list only shrinks. Run by `check-test-sharding.ts`.
+ * Bans `bun test --test-name-pattern` shards, which split slow tests across CI jobs by name instead of making them
+ * cheaper.
  */
 import * as z from 'zod';
 
-/**
- * Targets that still shard by test name, as `<project.json>#<target>:<configuration>`. Remove an entry in the change
- * that merges its shard (#2243). An entry that no longer matches a target fails the check, so the list cannot rot.
- */
+/** Targets that still shard by test name, as `<project.json>#<target>:<configuration>`. The list only shrinks. */
 export const NAME_PATTERN_SHARDS: ReadonlySet<string> = new Set([
   'apps/api/project.json#test:generate-spells-1',
   'apps/api/project.json#test:generate-spells-2',
@@ -20,7 +16,7 @@ export const NAME_PATTERN_SHARDS: ReadonlySet<string> = new Set([
   'apps/api/project.json#test:generate-4',
 ]);
 
-const BUN_TEST_BY_NAME = /\bbun test\b.*(?:--test-name-pattern|\s-t\s)/u;
+const BUN_TEST_BY_NAME = /\bbun test\b.*(?:--test-name-pattern|\s-t)(?:[\s=]|$)/u;
 
 const COMMAND = z.object({ command: z.string().optional() });
 
@@ -32,34 +28,37 @@ const TARGET = COMMAND.extend({
 export const PROJECT = z.object({ targets: z.record(z.string(), TARGET).optional() });
 
 /** Whether a shell command runs bun tests selected by test name. */
-export function shardsByName(command: string): boolean {
+export function isNameShardCommand(command: string): boolean {
   return BUN_TEST_BY_NAME.test(command);
 }
 
 /** A `project.json`, as far as the check reads it. */
-export type Project = z.infer<typeof PROJECT>;
+type Project = z.infer<typeof PROJECT>;
+
+interface TargetCommand {
+  readonly id: string;
+  readonly command: string | undefined;
+}
 
 /** Every `<file>#<target>[:<configuration>]` in a `project.json` whose command shards by test name. */
 export function nameShards(file: string, project: Project): readonly string[] {
-  const found: string[] = [];
+  return Object.entries(project.targets ?? {}).flatMap(([name, target]): readonly string[] => {
+    const id = `${file}#${name}`;
 
-  for (const [name, target] of Object.entries(project.targets ?? {})) {
-    const commands: [string, string | undefined][] = [
-      [`${file}#${name}`, target.command],
-      [`${file}#${name}`, target.options?.command],
-      ...Object.entries(target.configurations ?? {}).map(
-        ([configuration, { command }]): [string, string | undefined] => [`${file}#${name}:${configuration}`, command],
-      ),
+    const configurations = Object.entries(target.configurations ?? {}).map(
+      ([configuration, { command }]): TargetCommand => ({ id: `${id}:${configuration}`, command }),
+    );
+
+    const commands: readonly TargetCommand[] = [
+      { id, command: target.command },
+      { id, command: target.options?.command },
+      ...configurations,
     ];
 
-    for (const [id, command] of commands) {
-      if (command !== undefined && shardsByName(command)) {
-        found.push(id);
-      }
-    }
-  }
-
-  return found;
+    return commands.flatMap(({ id: commandId, command }) =>
+      command !== undefined && isNameShardCommand(command) ? [commandId] : [],
+    );
+  });
 }
 
 /** The problems with `found` shards against the allowlist: new shards, and allowlist entries with no shard. */
@@ -67,9 +66,7 @@ export function shardProblems(found: readonly string[], allowed: ReadonlySet<str
   const foundSet = new Set(found);
 
   return [
-    ...found.flatMap((id) =>
-      allowed.has(id) ? [] : [`${id}: shards tests by name. Make the tests cheaper instead (#2243).`],
-    ),
+    ...found.flatMap((id) => (allowed.has(id) ? [] : [`${id}: shards tests by name. Make the tests cheaper instead.`])),
     ...[...allowed].flatMap((id) =>
       foundSet.has(id) ? [] : [`${id}: no longer shards by name. Remove it from NAME_PATTERN_SHARDS.`],
     ),
