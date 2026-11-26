@@ -156,7 +156,7 @@ const traitData: Arbitrary<JsonObject> = record({ appliesTo: uniqueArray(content
 const emptyData: Arbitrary<JsonObject> = constant({});
 
 /** A companion species's block: one valid wolf-like block, as the kind has no free-form fields worth varying. */
-const companionSpeciesData: Arbitrary<object> = constant({
+const companionSpeciesData: Arbitrary<JsonObject> = constant({
   block: {
     size: 'small',
     attributes: { str: 2, dex: 2, con: 1, int: -4, wis: 1, cha: 0 },
