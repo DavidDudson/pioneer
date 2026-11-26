@@ -8,6 +8,7 @@ import {
   field,
   id,
   openInventory,
+  openInventoryUnder,
   patchSent,
   pickRow,
   present,
@@ -18,6 +19,13 @@ import {
   typeInto,
 } from '../../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
+
+/** The core rules pack's Automatic Bonus Progression, as the character's list names it. */
+const AUTOMATIC_BONUS_PROGRESSION = {
+  variantId: '177bfa5d-9553-593c-9264-f4fddf67ca0c',
+  name: 'Automatic Bonus Progression',
+  packTitle: 'Core Rules',
+};
 
 describe('InventorySection', () => {
   // Loads and bundles the packs once, outside every test's timeout.
@@ -119,5 +127,26 @@ describe('InventorySection', () => {
       expectedVersion: 3,
       patch: { field: 'setCoins', coins: { pp: 0, gp: 15, sp: 7, cp: 0 } },
     });
+  });
+
+  it('says why runes add nothing while Automatic Bonus Progression is on', async () => {
+    const variantRules = {
+      decidedBy: 'character',
+      manageable: true,
+      enabled: [AUTOMATIC_BONUS_PROGRESSION],
+      available: [],
+    };
+
+    const section = await openInventoryUnder(variantRules);
+
+    await vi.waitFor(() => {
+      expect(section.querySelector('fr-message')?.textContent).toContain('Automatic Bonus Progression is on');
+    });
+  });
+
+  it('shows no such note without the variant rule', async () => {
+    const section = await openInventory();
+
+    expect(section.querySelector('fr-message')).toBeNull();
   });
 });

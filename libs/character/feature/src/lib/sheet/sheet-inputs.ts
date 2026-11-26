@@ -3,6 +3,7 @@ import type { Character } from '@pioneer/character/domain';
 import type { StatisticInputs } from '@pioneer/rules/engine';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 
+import { variantsInForce } from '../data/registry-variants';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** Inputs already read, by registry and character: the defences, statistics and skills each read them per edit. */
@@ -16,7 +17,8 @@ export function statisticInputsOf(registry: ContentRegistry, character: Characte
   READ.set(registry, byCharacter);
 
   const inputs =
-    byCharacter.get(character) ?? characterStatisticInputs(registry, character.document, sheetSlotContent(registry));
+    byCharacter.get(character) ??
+    characterStatisticInputs(registry, character.document, sheetSlotContent(registry), variantsInForce(registry));
 
   byCharacter.set(character, inputs);
 

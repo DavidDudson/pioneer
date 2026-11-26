@@ -182,7 +182,7 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const variants = await variantRulesOfCharacter(this.#content, character, registry);
     const slots = slotContent(registry, variants);
-    const inputs = characterStatisticInputs(registry, character.document, slots);
+    const inputs = characterStatisticInputs(registry, character.document, slots, variants);
 
     const limits = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),

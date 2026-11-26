@@ -144,6 +144,7 @@ describe('core rules pack', () => {
     expect(registry.statistics()).toHaveLength(selectors.length);
 
     const variants = [
+      'automatic-bonus-progression',
       'dual-class',
       'free-archetype',
       'legacy-content',

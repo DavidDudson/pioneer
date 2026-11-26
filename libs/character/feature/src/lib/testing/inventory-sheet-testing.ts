@@ -73,10 +73,15 @@ interface SheetReads {
   readonly approvals?: JsonObject | undefined;
   /** Whether the tab reads the rule limits; the Downtime tab does not. */
   readonly limits?: boolean;
+  /** The variant rules the character has enabled; none when omitted. */
+  readonly variantRules?: JsonObject;
 }
 
 /** Answers the sheet's read of Valeros with the bundle, nothing changed, and of the approvals unless `limits` is off (a tab without the table rules never asks). */
-async function answerServerState(character: JsonObject, { approvals, limits = true }: SheetReads): Promise<void> {
+async function answerServerState(
+  character: JsonObject,
+  { approvals, limits = true, variantRules = NO_VARIANT_RULES }: SheetReads,
+): Promise<void> {
   await answerSheetBundle({
     sheet: { character, slots: [], languages: { known: [], open: 0 } },
     ruleLimits: CORE_RULE_LIMITS,
@@ -85,7 +90,7 @@ async function answerServerState(character: JsonObject, { approvals, limits = tr
     ruleLimitSettings: ruleLimitSettingsOf(),
     unenabled: { variantRules: [], packs: [], items: [] },
     packs: NO_CHARACTER_PACKS,
-    variantRules: NO_VARIANT_RULES,
+    variantRules,
   });
 
   if (limits) {
@@ -126,7 +131,16 @@ export async function openInventory(
   rows: number = VALEROS.inventory.items.length,
   approvals?: JsonObject,
 ): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, { approvals });
+  return openInventoryReading(character, rows, { approvals });
+}
+
+/** Opens Valeros's inventory with `variantRules` enabled for him. */
+export async function openInventoryUnder(variantRules: JsonObject): Promise<HTMLElement> {
+  return openInventoryReading(VALEROS, VALEROS.inventory.items.length, { variantRules });
+}
+
+async function openInventoryReading(character: JsonObject, rows: number, reads: SheetReads): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, reads);
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
