@@ -30,6 +30,7 @@ function entry(name: string, kind: string, data: JsonObject): ContentEntry {
 }
 
 const reaction = { cost: 'reaction', trigger: prose('An ally is about to use an action.') };
+const wording = (words: string): JsonObject => ({ cost: 'reaction', trigger: prose(words) });
 const turnStart = { triggerEvent: { event: 'turn-start' } };
 
 describe('trigger coverage', () => {
@@ -46,10 +47,27 @@ describe('trigger coverage', () => {
     expect(triggerCoverage(entries)).toStrictEqual({
       triggered: 4,
       withoutEvent: ['player-core/action:aid', 'player-core/feat:swift'].map((key) => ContentKey.parse(key)),
+      unmatched: [{ phrasing: 'an ally is about to use an action', count: 2 }],
     });
   });
 
   test('an empty pack has nothing to cover', () => {
-    expect(triggerCoverage([])).toStrictEqual({ triggered: 0, withoutEvent: [] });
+    expect(triggerCoverage([])).toStrictEqual({ triggered: 0, withoutEvent: [], unmatched: [] });
+  });
+
+  test('groups unmatched wordings, most common first, ties alphabetically', () => {
+    const entries = [
+      entry('a', 'action', wording('You are hit.')),
+      entry('b', 'action', wording('An ally falls.')),
+      entry('c', 'action', wording('you are  hit')),
+      entry('d', 'action', wording('A trap springs.')),
+      entry('e', 'action', { ...wording('Your turn begins.'), ...turnStart }),
+    ];
+
+    expect(triggerCoverage(entries).unmatched).toStrictEqual([
+      { phrasing: 'you are hit', count: 2 },
+      { phrasing: 'a trap springs', count: 1 },
+      { phrasing: 'an ally falls', count: 1 },
+    ]);
   });
 });

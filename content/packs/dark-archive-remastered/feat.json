@@ -1475,6 +1475,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.6IrNSD0G5AAXPTJq"
     },
+    "supersedes": ["6cbbe01b-189d-5526-b9d5-ae4e85c23269"],
     "data": {
       "category": "class",
       "prerequisites": [
@@ -1501,14 +1502,16 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "minute"
         }
       },
       "archetype": "4f70fa72-5f6b-5b85-a3e4-f7f2f3d50d7e"
-    },
-    "supersedes": ["6cbbe01b-189d-5526-b9d5-ae4e85c23269"]
+    }
   },
   {
     "id": "7b62312a-81ec-54a2-96a1-216932903473",
@@ -5727,6 +5730,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.INqBWbbDHF4DIg8i"
     },
+    "supersedes": ["a4a2ddf1-501f-5a99-be9b-a059869abd67"],
     "data": {
       "category": "class",
       "prerequisites": [
@@ -5753,14 +5757,16 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "day"
         }
       },
       "archetype": "4f70fa72-5f6b-5b85-a3e4-f7f2f3d50d7e"
-    },
-    "supersedes": ["a4a2ddf1-501f-5a99-be9b-a059869abd67"]
+    }
   },
   {
     "id": "ce84bfcf-51ba-59d0-97ab-bd92155cef2d",
@@ -7365,6 +7371,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.xDTjr415ZZM8x2WW"
     },
+    "supersedes": ["b8455cf1-da19-52f7-a4e1-715e678cdb20"],
     "data": {
       "category": "class",
       "action": {
@@ -7379,10 +7386,12 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
-    },
-    "supersedes": ["b8455cf1-da19-52f7-a4e1-715e678cdb20"]
+    }
   },
   {
     "id": "9447500a-5834-5c5f-8688-b181b9008981",
@@ -13922,6 +13931,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.5kua1Kf5Ca85lbzb"
     },
+    "supersedes": ["6c3c87a9-94b0-5ab3-b818-9d19ce3e5691"],
     "data": {
       "category": "class",
       "prerequisites": [
@@ -13948,14 +13958,16 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "ten-minutes"
         }
       },
       "archetype": "4f70fa72-5f6b-5b85-a3e4-f7f2f3d50d7e"
-    },
-    "supersedes": ["6c3c87a9-94b0-5ab3-b818-9d19ce3e5691"]
+    }
   },
   {
     "id": "7813adca-a2ea-5ecc-b2d2-07dcfd8950cd",

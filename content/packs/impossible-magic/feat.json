@@ -7712,7 +7712,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       },
       "archetype": "8f1daf21-1b81-5145-a01e-3a5a30e53959"
     }
@@ -11305,6 +11308,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "ten-minutes"
@@ -12761,7 +12767,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },
@@ -24523,6 +24532,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "selfEffect": "8af0cf43-8cfc-51c5-b4df-fb3148428ce4"
       }
     }

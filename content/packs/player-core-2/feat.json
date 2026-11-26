@@ -53682,7 +53682,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },
@@ -53841,6 +53844,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.LI9VtCaL5ZRk0Wo8"
     },
+    "supersedes": ["8c87e58a-31ad-58f3-87e3-400df3364f46"],
     "data": {
       "category": "class",
       "action": {
@@ -53855,10 +53859,12 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
-    },
-    "supersedes": ["8c87e58a-31ad-58f3-87e3-400df3364f46"]
+    }
   },
   {
     "id": "09f517f0-edbe-5082-97e5-b103bc9d0f2a",
@@ -65978,7 +65984,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       },
       "archetype": "8cafc248-4e40-5b5e-9ff7-9744d55b52d4"
     }

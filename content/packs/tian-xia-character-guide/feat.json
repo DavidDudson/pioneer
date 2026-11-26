@@ -24834,6 +24834,10 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "cast-spell",
+          "predicate": ["item:trait:focus"]
+        },
         "frequency": {
           "max": 1,
           "per": "hour"
