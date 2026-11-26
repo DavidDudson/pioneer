@@ -12,7 +12,7 @@ dependency was added to take a measurement, and the verdicts below do not turn o
 
 | Hand-rolled code                                                     | Candidate library                         | Lines removed | Licence | Verdict                                                                   |
 | -------------------------------------------------------------------- | ----------------------------------------- | ------------- | ------- | ------------------------------------------------------------------------- |
-| `clamp`, `sum`, capitalise, `isRecord` (4 helpers)                   | `es-toolkit`, `remeda`                    | 0 more        | MIT     | No. Moved to `shared/utils`, 1 to 8 lines each (ADR-0080)                 |
+| `clamp`, `sum`, capitalise, `isRecord` (4 helpers)                   | `es-toolkit`, `remeda`                    | 0 more        | MIT     | No. Moved to `shared/utils`, 1 to 8 lines each (ADR-0081)                 |
 | `groupBy`, unique, chunk, `Array.from({ length })`                   | Native (`Map.groupBy`, `Set`)             | 0             | n/a     | No. 568 native uses, no copies                                            |
 | Sort comparators (92 `localeCompare` over 76 files)                  | `es-toolkit` `orderBy`, `remeda` `sortBy` | Unclear, tens | MIT     | No library. Maybe a `compareBy` in `shared/utils`                         |
 | Date and time                                                        | Temporal polyfill (in use)                | 0             | MIT     | Already covered; `Date` is banned by lint                                 |
