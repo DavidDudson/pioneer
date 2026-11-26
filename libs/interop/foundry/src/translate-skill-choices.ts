@@ -1,13 +1,11 @@
-import { SKILLS } from './foundry-skills';
+import { capitalise } from '@pioneer/shared/utils';
 
-function titleCase(slug: string): string {
-  return `${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-}
+import { SKILLS } from './foundry-skills';
 
 /** The skills Foundry's `skills` config lists, as choices. */
 export const SKILL_CHOICES: readonly unknown[] = [...SKILLS].map((skill) => ({
   value: skill,
-  label: titleCase(skill),
+  label: capitalise(skill),
 }));
 
 /** Foundry's read of a choice's own value in the predicate of a config, which each skill choice fills with its skill. */
@@ -34,7 +32,7 @@ function withChoiceValue(node: unknown, value: string): unknown {
 export function skillChoicesWhere(predicate: unknown): readonly unknown[] {
   return [...SKILLS].map((skill) => ({
     value: skill,
-    label: titleCase(skill),
+    label: capitalise(skill),
     predicate: withChoiceValue(predicate, skill),
   }));
 }

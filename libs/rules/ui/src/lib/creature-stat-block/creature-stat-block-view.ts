@@ -1,5 +1,6 @@
 import { CreatureRole, DamageTypeSchema, InlineKind } from '@pioneer/rules/sdk';
 import type { CreatureSense, CreatureSkill, DamageAdjustment, Immunity, Slug } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { SIGNED } from '../breakdown/number-style';
@@ -23,7 +24,7 @@ const SAVE_INITIALS: Readonly<Record<(typeof SAVE_ORDER)[number], string>> = {
 function slugLabel(slug: Slug | Immunity): string {
   return slug
     .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => capitalise(part))
     .join(' ');
 }
 

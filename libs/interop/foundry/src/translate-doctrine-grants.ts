@@ -1,3 +1,4 @@
+import { capitalise } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { EntryReferences } from './entry-references';
@@ -52,7 +53,7 @@ export function isDoctrineFlag(raw: unknown): boolean {
 function featureName(flag: string): string {
   const words = flag.replaceAll(/(?<capital>[A-Z])/gu, ' $<capital>').trim();
 
-  return `${words.charAt(0).toUpperCase()}${words.slice(1)}`;
+  return capitalise(words);
 }
 
 /**

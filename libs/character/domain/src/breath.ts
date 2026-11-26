@@ -2,6 +2,7 @@ import { DiceExpressionText } from '@pioneer/rules/dice';
 import { Attribute, Dc } from '@pioneer/rules/sdk';
 import type { AttributeModifiers } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { ConditionInstanceId } from './conditions';
@@ -93,7 +94,7 @@ const BASE_AIR = 5;
 export function maxAir(attributes: AttributeModifiers): AirRounds {
   const rounds = BASE_AIR + attributes.get(Attribute.Constitution);
 
-  return AirRounds.parse(Math.min(Math.max(rounds, NONE), AIR_ROUNDS_MAX));
+  return AirRounds.parse(clamp(rounds, NONE, AIR_ROUNDS_MAX));
 }
 
 /** Whether the character is out of air, so unconscious and suffocating. */

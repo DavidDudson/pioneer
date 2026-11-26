@@ -17,6 +17,7 @@ import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { brotliCompressSync, gzipSync } from 'node:zlib';
 
+import { sum } from '@pioneer/shared/utils';
 import { SQL } from 'bun';
 
 import { createCharacter, signIn } from './dev-session.ts';
@@ -192,7 +193,7 @@ async function wholeLoad(cookie: string, characterId: string): Promise<WholeLoad
 
   return {
     requests: bodies.length,
-    bytes: bodies.reduce((total, size) => total + size, 0),
+    bytes: sum(bodies),
     wallMs: rounded(wallMs),
     statements: after,
   };

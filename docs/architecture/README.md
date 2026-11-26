@@ -116,7 +116,8 @@ tools/
   content-import/   one-off Foundry pf2e -> Pioneer import CLI over libs/interop/foundry
 ```
 
-Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
+Dependency rule: `rules/*` depends only on `shared/kernel`, `shared/utils` (small helpers with no domain meaning,
+[ADR-0081](../adr/0081-small-shared-helpers-live-in-shared-utils.md)) and other `rules/*` libraries: `rules/formula` on the kernel
 alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`
 and `rules/data-access`, the web-only `rules` libraries, also use frontier and `shared/web` respectively;
 `rules/infrastructure`, the one server-only one, also uses Drizzle and `shared/server` in its tests.

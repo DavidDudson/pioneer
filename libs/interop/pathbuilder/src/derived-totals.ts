@@ -1,4 +1,5 @@
 import { Attribute, AttributeSchema, Selector } from '@pioneer/rules/sdk';
+import { sum } from '@pioneer/shared/utils';
 
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
@@ -76,7 +77,7 @@ function modsTotal(value: PathbuilderImport, key: string): number {
     return Math.max(...amounts) > 0 ? Math.max(...amounts) : Math.min(...amounts);
   });
 
-  return [...untyped.map(([, amount]) => amount), ...bonuses].reduce((sum, amount) => sum + amount, 0);
+  return sum([...untyped.map(([, amount]) => amount), ...bonuses]);
 }
 
 /** A total from a fixed part, the rank's number plus the level when trained or better, and the listed bonuses. */

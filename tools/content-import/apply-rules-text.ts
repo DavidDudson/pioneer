@@ -6,6 +6,7 @@
 import { isDeepStrictEqual } from 'node:util';
 
 import type { ContentId } from '@pioneer/rules/sdk';
+import { isRecord } from '@pioneer/shared/utils';
 
 import { withMergedRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
@@ -19,10 +20,6 @@ interface Edit {
   readonly at: number;
   readonly remove: number;
   readonly insert: string;
-}
-
-function isRecord(node: unknown): node is Readonly<Record<string, unknown>> {
-  return typeof node === 'object' && node !== null && !Array.isArray(node);
 }
 
 /** The position just after the last non-space character before `end`. */
