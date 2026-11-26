@@ -1,8 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CampaignContract } from '@pioneer/campaign/domain';
 import type { ApproveItemBody, CampaignId, CampaignItemApprovalId, CampaignItemReview } from '@pioneer/campaign/domain';
-import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 
 import { CampaignStore } from './campaign-store';
 
@@ -19,58 +18,33 @@ export function itemReviewKey(id: CampaignId | undefined): readonly unknown[] {
 @Injectable()
 export class CampaignItemReviewStore {
   readonly #api = inject(ApiClient);
-  readonly #client = inject(QueryClient);
   readonly #campaigns = inject(CampaignStore);
-  readonly #id = computed(() => this.#campaigns.selected.data()?.id);
+  readonly #reviews = injectScopedQuery<CampaignId, CampaignItemReview>({
+    id: computed(() => this.#campaigns.selected.data()?.id),
+    key: itemReviewKey,
+    fetch: async (id) => this.#api.call(CampaignContract.itemReview, { params: { id }, body: undefined }),
+    missing: 'No campaign selected',
+  });
 
   /** The open campaign's flagged items: the approved ones, and for the GM the ones that need review. */
-  public readonly review = injectQuery(() => {
-    const id = this.#id();
-
-    return {
-      queryKey: itemReviewKey(id),
-      queryFn: async (): Promise<CampaignItemReview> => {
-        if (id === undefined) {
-          throw new Error('No campaign selected');
-        }
-
-        return this.#api.call(CampaignContract.itemReview, { params: { id }, body: undefined });
-      },
-      enabled: id !== undefined,
-    };
-  });
+  public readonly review = this.#reviews.query;
 
   /** Approves an item of the open campaign's party for the count it is flagged at. */
   public async approve(item: ApproveItemBody): Promise<void> {
-    const id = this.#openId();
+    const id = this.#reviews.openId();
     const review = await this.#api.call(CampaignContract.approveItem, { params: { id }, body: item });
-    await this.#store(id, review);
+    await this.#reviews.replace(id, review);
   }
 
   /** Takes an approval back, so the item needs review again. */
   public async revoke(approvalId: CampaignItemApprovalId): Promise<void> {
-    const id = this.#openId();
+    const id = this.#reviews.openId();
 
     const review = await this.#api.call(CampaignContract.revokeItemApproval, {
       params: { id, approvalId },
       body: undefined,
     });
 
-    await this.#store(id, review);
-  }
-
-  async #store(id: CampaignId, review: CampaignItemReview): Promise<void> {
-    await this.#client.cancelQueries({ queryKey: itemReviewKey(id) });
-    this.#client.setQueryData(itemReviewKey(id), review);
-  }
-
-  #openId(): CampaignId {
-    const id = this.#id();
-
-    if (id === undefined) {
-      throw new Error('No campaign selected');
-    }
-
-    return id;
+    await this.#reviews.replace(id, review);
   }
 }
