@@ -12,8 +12,7 @@ export type Translate = (key: string, params?: TranslateParams) => string;
 
 /**
  * `translate` for code that is not a template: a signal of a function that is new whenever the language changes or
- * messages finish loading, so a `computed` that calls it reads its messages again. Without this a column header
- * built before its messages loaded would keep its key as text. Call in an injection context.
+ * messages finish loading, so a `computed` that calls it reads its messages again. Call in an injection context.
  */
 export function injectTranslate(): Signal<Translate> {
   const i18n = inject(TranslocoService);

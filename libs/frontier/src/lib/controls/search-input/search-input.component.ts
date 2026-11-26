@@ -39,7 +39,6 @@ export class SearchInput extends Control {
   protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
   protected readonly clearable = computed(() => this.value() !== '' && !this.disabled());
 
-  // A `value` set from outside since a keystroke makes that query stale, so it is dropped.
   readonly #query = injectSearchQuery({
     current: this.value,
     emit: (query) => {

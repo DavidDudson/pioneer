@@ -173,7 +173,6 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly #injector = inject(Injector);
-  // The panel closing since a keystroke empties `query`, which makes that keystroke's query stale.
   readonly #query = injectSearchQuery({
     current: this.query,
     emit: (query) => {

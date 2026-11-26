@@ -168,7 +168,6 @@ export class Combobox<TValue extends string> extends Control {
 
   /** Set while the listbox's value is put back, so that write isn't taken for a pick. */
   #syncing = false;
-  // A pick or a new value replacing the typed text since a keystroke makes that query stale.
   readonly #query = injectSearchQuery({
     current: this.text,
     emit: (query) => {

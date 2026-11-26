@@ -1,9 +1,11 @@
 <div
   #virtual="frVirtualRows"
+  data-container
   [frVirtualRows]="keys()"
   [activeIndex]="activeIndex()"
   [pickedIndex]="pickedIndex()"
   [suspended]="suspended()"
+  [resetOn]="resetOn()"
 >
   <div data-total [attr.data-size]="virtual.totalSize()">
     @for (row of virtual.rows(); track row.key) {

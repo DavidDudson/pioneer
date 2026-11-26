@@ -21,6 +21,7 @@ class Host {
   public readonly activeIndex = signal<number | undefined>(undefined);
   public readonly pickedIndex = signal<number | undefined>(undefined);
   public readonly suspended = signal(false);
+  public readonly resetOn = signal(0);
 }
 
 function render(): ComponentFixture<Host> {
@@ -38,6 +39,16 @@ function elementOf(fixture: ComponentFixture<Host>): HTMLElement {
   }
 
   return host;
+}
+
+function containerOf(fixture: ComponentFixture<Host>): HTMLElement {
+  const container = elementOf(fixture).querySelector<HTMLElement>('[data-container]');
+
+  if (container === null) {
+    throw new TypeError('Expected the scroll container');
+  }
+
+  return container;
 }
 
 function rowElements(fixture: ComponentFixture<Host>): HTMLElement[] {
@@ -96,6 +107,28 @@ describe(VirtualRows, () => {
 
     await vi.waitFor(() => {
       expect(indexes(fixture)).toStrictEqual(expect.arrayContaining([249, 250, 251, 400]));
+    });
+  });
+
+  it('scrolls back to the top when resetOn changes, and not otherwise', async () => {
+    const fixture = render();
+    const container = containerOf(fixture);
+    // Jsdom does not scroll: watch what the virtualizer asks for.
+    const scrollTo = vi.fn<(options: ScrollToOptions) => void>();
+    Object.defineProperty(container, 'scrollTo', { value: scrollTo });
+    await settle(fixture);
+    scrollTo.mockClear();
+
+    container.dispatchEvent(new Event('scroll'));
+    await settle(fixture);
+
+    expect(scrollTo).not.toHaveBeenCalled();
+
+    fixture.componentInstance.resetOn.set(1);
+    await settle(fixture);
+
+    await vi.waitFor(() => {
+      expect(scrollTo).toHaveBeenCalledWith(expect.objectContaining({ top: 0 }));
     });
   });
 
