@@ -8,6 +8,8 @@ export const JobEntry = z.strictObject({
   args: z.string(),
   /** Runs whatever changed: a check that is not about one project. */
   always: z.boolean().optional(),
+  /** Runs database suites: the `test` job starts Postgres for it. Elsewhere TEST_DATABASE_URL stays unset. */
+  db: z.boolean().optional(),
 });
 
 export type JobEntry = z.infer<typeof JobEntry>;
