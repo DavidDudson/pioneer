@@ -18,4 +18,4 @@ export { type DisplayChoices, LocalePreferences, PREFERENCE_STORAGE } from './lo
 
 export { ShellSearch } from './shell-search';
 
-export { injectScopedQuery, type ScopedQuery, type ScopedQueryOptions, type ScopedQueryUpdater } from './scoped-query';
+export { injectScopedQuery } from './scoped-query';

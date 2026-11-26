@@ -22,7 +22,7 @@ export class CampaignPartyStashStore {
     id: computed(() => this.#campaigns.selected.data()?.id),
     key: partyStashKey,
     fetch: async (id) => this.#api.call(CampaignContract.partyStash, { params: { id }, body: undefined }),
-    missing: 'No campaign selected',
+    missingMessage: 'No campaign selected',
   });
 
   /** The open campaign's stash, with the viewer's own characters that may take from it. */

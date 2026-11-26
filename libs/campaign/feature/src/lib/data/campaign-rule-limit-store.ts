@@ -22,7 +22,7 @@ export class CampaignRuleLimitStore {
     id: computed(() => this.#campaigns.selected.data()?.id),
     key: ruleLimitsKey,
     fetch: async (id) => this.#api.call(CampaignContract.ruleLimits, { params: { id }, body: undefined }),
-    missing: 'No campaign selected',
+    missingMessage: 'No campaign selected',
   });
 
   /** The open campaign's limits, each with the number in force. */

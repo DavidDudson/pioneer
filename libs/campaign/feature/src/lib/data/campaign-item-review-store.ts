@@ -23,7 +23,7 @@ export class CampaignItemReviewStore {
     id: computed(() => this.#campaigns.selected.data()?.id),
     key: itemReviewKey,
     fetch: async (id) => this.#api.call(CampaignContract.itemReview, { params: { id }, body: undefined }),
-    missing: 'No campaign selected',
+    missingMessage: 'No campaign selected',
   });
 
   /** The open campaign's flagged items: the approved ones, and for the GM the ones that need review. */

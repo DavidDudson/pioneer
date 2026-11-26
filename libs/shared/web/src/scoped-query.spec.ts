@@ -13,28 +13,27 @@ const MISSING = 'No record selected';
 interface Setup {
   readonly id: WritableSignal<string | undefined>;
   readonly allowed: WritableSignal<boolean>;
-  readonly fetch: Mock<(id: string) => Promise<string>>;
+  readonly fetchRecord: Mock<(id: string) => Promise<string>>;
   readonly scoped: ScopedQuery<string, string>;
-  readonly client: QueryClient;
 }
 
 function setup(): Setup {
   const id = signal<string | undefined>(undefined);
   const allowed = signal(true);
-  const fetch = vi.fn<(id: string) => Promise<string>>(async (open) => `data of ${open}`);
+  const fetchRecord = vi.fn<(id: string) => Promise<string>>(async (recordId) => `data of ${recordId}`);
   TestBed.configureTestingModule({ providers: [provideTanStackQuery(new QueryClient())] });
 
   const scoped = TestBed.runInInjectionContext(() =>
     injectScopedQuery<string, string>({
       id,
-      key: (open) => ['records', open],
-      fetch,
-      missing: MISSING,
+      key: (recordId) => ['records', recordId],
+      fetch: fetchRecord,
+      missingMessage: MISSING,
       enabled: () => allowed(),
     }),
   );
 
-  return { id, allowed, fetch, scoped, client: TestBed.inject(QueryClient) };
+  return { id, allowed, fetchRecord, scoped };
 }
 
 async function settle(): Promise<void> {
@@ -53,29 +52,29 @@ describe(injectScopedQuery, () => {
   });
 
   it('reads nothing while no record is open', async () => {
-    const { fetch, scoped } = setup();
+    const { fetchRecord, scoped } = setup();
     await settle();
 
-    expect(fetch).not.toHaveBeenCalled();
+    expect(fetchRecord).not.toHaveBeenCalled();
     expect(scoped.query.data()).toBeUndefined();
   });
 
   it('reads the open record', async () => {
-    const { id, fetch, scoped } = setup();
+    const { id, fetchRecord, scoped } = setup();
     id.set('a');
     await settle();
 
-    expect(fetch).toHaveBeenCalledWith('a');
+    expect(fetchRecord).toHaveBeenCalledWith('a');
     expect(scoped.query.data()).toBe('data of a');
   });
 
   it('waits for the extra gate', async () => {
-    const { id, allowed, fetch, scoped } = setup();
+    const { id, allowed, fetchRecord, scoped } = setup();
     allowed.set(false);
     id.set('a');
     await settle();
 
-    expect(fetch).not.toHaveBeenCalled();
+    expect(fetchRecord).not.toHaveBeenCalled();
 
     allowed.set(true);
     await settle();
@@ -110,17 +109,47 @@ describe(injectScopedQuery, () => {
   });
 
   it('refetches after an invalidation, unless told not to', async () => {
-    const { id, fetch, scoped } = setup();
+    const { id, fetchRecord, scoped } = setup();
     id.set('a');
     await settle();
     await scoped.invalidate('a', { refetch: false });
     await settle();
 
-    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetchRecord).toHaveBeenCalledTimes(1);
 
     await scoped.invalidate('a');
     await settle();
 
-    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(fetchRecord).toHaveBeenCalledTimes(2);
+  });
+
+  it('keeps a read that was in flight from overwriting a mutation answer', async () => {
+    const { id, fetchRecord, scoped } = setup();
+    const staleRead = Promise.withResolvers<string>();
+    fetchRecord.mockReturnValueOnce(staleRead.promise);
+    id.set('a');
+    await settle();
+
+    await scoped.replace('a', 'new');
+    staleRead.resolve('stale');
+    await settle();
+
+    expect(scoped.query.data()).toBe('new');
+  });
+
+  it('reads another record when the open one changes, and leaves the first alone', async () => {
+    const { id, fetchRecord, scoped } = setup();
+    id.set('a');
+    await settle();
+    id.set('b');
+    await settle();
+
+    expect(fetchRecord).toHaveBeenCalledWith('b');
+    expect(scoped.query.data()).toBe('data of b');
+
+    await scoped.replace('a', 'new');
+    await settle();
+
+    expect(scoped.query.data()).toBe('data of b');
   });
 });

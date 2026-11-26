@@ -20,6 +20,6 @@ export class CharacterUnenabledStore {
     id: computed(() => this.#characters.selected()?.id),
     key: characterKeys.unenabled,
     fetch: async (id) => this.#api.call(CharacterContract.unenabledContent, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
   }).query;
 }

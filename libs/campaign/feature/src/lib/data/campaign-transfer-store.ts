@@ -29,7 +29,7 @@ export class CampaignTransferStore {
     id: computed(() => this.#campaigns.selected.data()?.id),
     key: transfersKey,
     fetch: async (id) => this.#api.call(CampaignContract.listTransfers, { params: { id }, body: undefined }),
-    missing: 'No campaign selected',
+    missingMessage: 'No campaign selected',
   });
 
   /** The open campaign's pending offers to or from the user's characters, oldest first. */

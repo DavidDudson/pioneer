@@ -27,7 +27,7 @@ export class CharacterRuleLimitSettingStore {
     id: computed(() => this.#characters.selected()?.id),
     key: characterKeys.ruleLimitSettings,
     fetch: async (id) => this.#api.call(CharacterContract.ruleLimitSettings, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
   });
 
   /** The open character's limits, each with the number in force. */

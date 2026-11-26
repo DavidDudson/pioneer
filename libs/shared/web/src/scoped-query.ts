@@ -15,7 +15,7 @@ export interface ScopedQueryOptions<Id, Data> {
   /** Reads the record's data from the server. */
   readonly fetch: (id: Id) => Promise<Data>;
   /** The error message when a call needs the open record and none is open. */
-  readonly missing: string;
+  readonly missingMessage: string;
   /** A further gate on top of a record being open, read as the query's `enabled`. */
   readonly enabled?: (() => boolean) | undefined;
 }
@@ -28,44 +28,34 @@ export interface ScopedQuery<Id, Data> {
   /** Puts a mutation's answer in the cache, once any read still in flight is cancelled. */
   readonly replace: (id: Id, data: Data | ScopedQueryUpdater<Data>) => Promise<void>;
   /** Marks the record's data stale; `refetch: false` leaves what is shown until the next load. */
-  readonly invalidate: (id: Id, options?: { readonly refetch: boolean }) => Promise<void>;
+  readonly invalidate: (id: Id, invalidation?: { readonly refetch: boolean }) => Promise<void>;
 }
 
-/**
- * A TanStack query of one open record's data (a character's packs, a campaign's limits), keyed on its id and held off
- * until one is open. Replaces the `ApiClient` + `QueryClient` + guard + `#openId` shape each per-feature store repeated.
- * Call it in an injection context, as a field initialiser, like `injectQuery`.
- */
+/** A TanStack query of one open record's data, keyed on its id and held off until one is open. */
 export function injectScopedQuery<Id, Data>(options: ScopedQueryOptions<Id, Data>): ScopedQuery<Id, Data> {
   const client = inject(QueryClient);
+
+  const requireId = (id: Id | undefined): Id => {
+    if (id === undefined) {
+      throw new Error(options.missingMessage);
+    }
+
+    return id;
+  };
 
   const query = injectQuery(() => {
     const id = options.id();
 
     return {
       queryKey: options.key(id),
-      queryFn: async (): Promise<Data> => {
-        if (id === undefined) {
-          throw new Error(options.missing);
-        }
-
-        return options.fetch(id);
-      },
+      queryFn: async (): Promise<Data> => options.fetch(requireId(id)),
       enabled: id !== undefined && (options.enabled?.() ?? true),
     };
   });
 
   return {
     query,
-    openId: (): Id => {
-      const id = options.id();
-
-      if (id === undefined) {
-        throw new Error(options.missing);
-      }
-
-      return id;
-    },
+    openId: (): Id => requireId(options.id()),
     replace: async (id: Id, data: Data | ScopedQueryUpdater<Data>): Promise<void> => {
       await client.cancelQueries({ queryKey: options.key(id) });
       client.setQueryData(options.key(id), data);

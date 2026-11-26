@@ -43,14 +43,14 @@ export class CharacterRuleLimitStore {
     id: this.#id,
     key: characterKeys.ruleLimits,
     fetch: async (id) => this.#api.call(CharacterContract.ruleLimits, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
   });
 
   readonly #approvals = injectScopedQuery<CharacterId, CharacterItemApprovals>({
     id: this.#id,
     key: characterKeys.itemApprovals,
     fetch: async (id) => this.#api.call(CharacterContract.itemApprovals, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
     enabled: () => this.#approvalsWanted(),
   });
 

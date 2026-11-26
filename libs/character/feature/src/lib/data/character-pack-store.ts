@@ -20,7 +20,7 @@ export class CharacterPackStore {
     id: computed(() => this.#characters.selected()?.id),
     key: characterKeys.packs,
     fetch: async (id) => this.#api.call(CharacterContract.packs, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
   });
 
   /** The open character's packs, and for its owner the ones they could enable. */

@@ -33,7 +33,7 @@ export class CampaignKeyItemStore {
     id: computed(() => this.#campaigns.selected.data()?.id),
     key: keyItemsKey,
     fetch: async (id) => this.#api.call(CampaignContract.keyItems, { params: { id }, body: undefined }),
-    missing: 'No campaign selected',
+    missingMessage: 'No campaign selected',
   });
 
   /** The open campaign's key items and who holds them. */

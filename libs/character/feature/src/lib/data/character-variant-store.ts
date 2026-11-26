@@ -20,7 +20,7 @@ export class CharacterVariantStore {
     id: computed(() => this.#characters.selected()?.id),
     key: characterKeys.variantRules,
     fetch: async (id) => this.#api.call(CharacterContract.variantRules, { params: { id }, body: undefined }),
-    missing: 'No character selected',
+    missingMessage: 'No character selected',
   });
 
   /** The open character's variant rules in force, and for its owner the ones they could enable. */
