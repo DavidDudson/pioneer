@@ -148,6 +148,8 @@ export {
 
 export { CompanionKind, companionRollOption } from './companion-kind';
 
+export { CompanionSpeciesData } from './companion-species';
+
 export {
   CompanionSpecialization,
   CompanionSpecializationSchema,
