@@ -9,6 +9,7 @@ import type {
   Origin,
   RuleValue,
   TempHPElement,
+  TurnStartSaveElement,
 } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -46,6 +47,12 @@ interface HealingBonusInPlay {
   readonly origins: readonly Origin[];
 }
 
+/** A new save the character may attempt at the start of each turn against a hostile spell: what gives it. */
+export interface TurnStartSaveInPlay {
+  /** Every element that gives it, in the order found. */
+  readonly origins: readonly Origin[];
+}
+
 /** The character's size after its `CreatureSize` elements. */
 export interface SizeInPlay {
   readonly size: Size;
@@ -67,6 +74,8 @@ export interface VitalsInPlay {
   readonly temporaryHitPoints?: TemporaryHitPointsInPlay;
   /** Absent when no element adds Hit Points to healing from a spell or effect. */
   readonly healingBonus?: HealingBonusInPlay;
+  /** Absent when no element gives a new save against a hostile spell at the start of a turn. */
+  readonly hostileSpellSave?: TurnStartSaveInPlay;
   /** Absent when no element changes the size. */
   readonly size?: SizeInPlay;
 }
@@ -110,6 +119,10 @@ const isTempHp = (element: RuleInPlay['element']): element is TempHPElement => e
 
 const isHealingBonus = (element: RuleInPlay['element']): element is HealingBonusElement =>
   element.key === RuleElementKey.HealingBonus;
+
+/** The only new save at the start of a turn there is is against a hostile spell. */
+const isHostileSpellSave = (element: RuleInPlay['element']): element is TurnStartSaveElement =>
+  element.key === RuleElementKey.TurnStartSave;
 
 const isCreatureSize = (element: RuleInPlay['element']): element is CreatureSizeElement =>
   element.key === RuleElementKey.CreatureSize;
@@ -276,12 +289,15 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
 
   const bonus = highest(active(inputs, isHealingBonus).flatMap((rule) => givenBy(rule, scope, inputs)));
 
+  const spellSaves = active(inputs, isHostileSpellSave);
+
   const resizes = active(inputs, isCreatureSize);
 
   const warmed: VitalsInPlay = {
     recovery,
     ...(temp !== undefined && { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
     ...(bonus !== undefined && { healingBonus: { amount: bonus.top.amount, origins: bonus.origins } }),
+    ...(spellSaves.length > 0 && { hostileSpellSave: { origins: spellSaves.map(({ origin }) => origin) } }),
   };
 
   return resizes.length === 0 && form?.form.size === undefined

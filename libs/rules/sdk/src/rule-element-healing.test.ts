@@ -8,6 +8,7 @@ const valid: object[] = [
   { key: 'FastHealing', value: 15, type: 'regeneration', deactivatedBy: ['acid', 'fire'] },
   { key: 'HealingBonus', value: 2 },
   { key: 'HealingBonus', value: '@item.level * 2', predicate: ['self:effect:rage'] },
+  { key: 'TurnStartSave', against: 'hostile-spell' },
   { key: 'TempHP', value: 8 },
   { key: 'TempHP', value: '@level', predicate: ['self:effect:rage'] },
 ];
