@@ -1,0 +1,5 @@
+@if (component(); as cell) {
+  <ng-container *ngComponentOutlet="cell; inputs: inputs()" />
+} @else {
+  <fr-text [numeric]="numeric()">{{ text() }}</fr-text>
+}

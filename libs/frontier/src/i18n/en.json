@@ -32,6 +32,12 @@
       "columns": "Columns",
       "resetColumns": "Reset columns"
     },
+    "property": {
+      "bool": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
     "breadcrumbs": {
       "label": "Breadcrumb"
     },

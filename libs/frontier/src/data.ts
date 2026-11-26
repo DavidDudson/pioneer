@@ -47,6 +47,30 @@ export type {
   TableViewSort,
 } from './lib/data/table-view/table-view.types';
 
+export { PropertyCell } from './lib/data/property/property-cell.component';
+
+export {
+  ENTITY_CELL,
+  findPropertyKind,
+  injectPropertyContext,
+  PROPERTY_KINDS,
+  type PropertyKindMap,
+  providePropertyKinds,
+} from './lib/data/property/property-kind-registry';
+
+export { FRONTIER_PROPERTY_KINDS } from './lib/data/property/property-kinds';
+
+export {
+  PropertyAlign,
+  type PropertyCellInputs,
+  type PropertyContext,
+  type PropertyDescriptor,
+  type PropertyKind,
+  PropertyKindId,
+} from './lib/data/property/property.types';
+
+export { resolvePropertyCell } from './lib/data/property/resolve-property-cell';
+
 export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
