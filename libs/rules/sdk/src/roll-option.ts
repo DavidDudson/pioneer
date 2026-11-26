@@ -14,11 +14,15 @@ const ROLL_OPTION_LENGTH_MAX = 256;
  * A fact about the current state, as Foundry pf2e spells them. The namespace (first word) decides
  * whether an absent option means false or unknown (ADR-0002).
  */
-export const RollOption = z
+const RollOptionFormat = issueParams(message(RulesMessage.RollOptionFormat));
+
+const RollOptionSchema = z
   .string()
   .max(ROLL_OPTION_LENGTH_MAX)
-  .refine((value) => WORDS.test(value) && value.includes(':'), issueParams(message(RulesMessage.RollOptionFormat)))
+  .refine((value) => WORDS.test(value) && value.includes(':'), RollOptionFormat)
   .brand<'RollOption'>();
+
+export const RollOption = z.compile(RollOptionSchema);
 
 export type RollOption = z.infer<typeof RollOption>;
 
