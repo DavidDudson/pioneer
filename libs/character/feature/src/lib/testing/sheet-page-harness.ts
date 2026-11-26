@@ -32,7 +32,7 @@ beforeAll(async () => {
 }, PREBUILD_TIMEOUT);
 
 /** How long a sheet may take to open: its registries build from the official packs, slow on a busy CI runner. */
-const SHEET_OPEN_TIMEOUT = 20_000;
+const SHEET_OPEN_TIMEOUT = 45_000;
 
 /** How often a read waited for is tried again, in ms: the default 50 ms, chained over a page's reads, was most of an open. */
 const POLL_INTERVAL = 5;
