@@ -402,6 +402,19 @@
       "customBadge": "Imported",
       "removing": "Removing…",
       "coinsHeading": "Coins",
+      "ledger": {
+        "heading": "Wealth",
+        "total": "{total} gp in all",
+        "empty": "No changes to the coins yet.",
+        "amount": "{amount} {coin}",
+        "coin": { "pp": "pp", "gp": "gp", "sp": "sp", "cp": "cp" },
+        "reason": {
+          "opening": "Starting coins",
+          "purchase": "Shop purchase",
+          "adjustment": "Set by hand",
+          "transfer": "Moved to or from another purse"
+        }
+      },
       "coin": {
         "pp": "Platinum (pp)",
         "gp": "Gold (gp)",

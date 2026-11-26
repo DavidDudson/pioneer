@@ -1,6 +1,8 @@
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CoinsSchema } from './coins';
+
 /** The schema a stored `CharacterDocument` was written with. Starts at 1; each upgrade step adds one. */
 export const CharacterSchemaVersion = Pg.smallint().min(1).brand<'CharacterSchemaVersion'>();
 
@@ -32,6 +34,24 @@ function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharact
   const inventory = InventoryWithEtchedRunes.safeParse(document['inventory']);
 
   return inventory.success ? { ...document, inventory: inventory.data } : document;
+}
+
+/** The coins of a stored inventory: a count for each coin it holds. */
+const StoredInventoryCoins = z.looseObject({ coins: CoinsSchema.default(CoinsSchema.parse({})) });
+
+/** 22 → 23: a ledger of coin changes (#512). Starts with an opening entry for the coins the character already held. */
+function openingLedger(document: StoredCharacterDocument): StoredCharacterDocument {
+  const inventory = StoredInventoryCoins.safeParse(document['inventory']);
+
+  if (!inventory.success) {
+    return document;
+  }
+
+  const { coins } = inventory.data;
+  const held = Object.values(coins).some((count) => count > 0);
+  const ledger = held ? [{ reason: 'opening', change: coins }] : [];
+
+  return { ...document, inventory: { ...inventory.data, ledger } };
 }
 
 /**
@@ -82,6 +102,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   etchedRunesWithChoice,
   /** 21 → 22: the class features, deity and unplaced spells an import keeps (#1593). A version 21 build keeps none. */
   (document) => document,
+  /** 22 → 23: the coin ledger (#512). */
+  openingLedger,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

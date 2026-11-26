@@ -194,6 +194,13 @@ const VERSION_21 = {
   },
 };
 
+/** Version 22, before the coin ledger (#512): the purse held coins and nothing recorded how they came. */
+const VERSION_22 = {
+  ...VERSION_21,
+  schemaVersion: 22,
+  inventory: { ...VERSION_21.inventory, coins: { gp: 3, cp: 5 } },
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -220,4 +227,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_19.schemaVersion), VERSION_19],
   [CharacterSchemaVersion.parse(VERSION_20.schemaVersion), VERSION_20],
   [CharacterSchemaVersion.parse(VERSION_21.schemaVersion), VERSION_21],
+  [CharacterSchemaVersion.parse(VERSION_22.schemaVersion), VERSION_22],
 ]);

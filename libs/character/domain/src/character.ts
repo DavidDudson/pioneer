@@ -12,6 +12,7 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
+import { withCoinLedger, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
 import { equipmentChange } from './equipment-change';
@@ -135,7 +136,7 @@ export class Character {
           choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) },
           ...input.unplaced,
         },
-        inventory: input.inventory,
+        inventory: input.inventory === undefined ? undefined : withOpeningEntry(input.inventory),
       }),
       version: FIRST_VERSION,
       createdAt: input.now,
@@ -158,7 +159,11 @@ export class Character {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
     }
 
-    return new Character({ ...this.toProps(), document, updatedAt: now });
+    return new Character({
+      ...this.toProps(),
+      document: withCoinLedger({ before: this.document, after: document, patch, now }),
+      updatedAt: now,
+    });
   }
 
   #changes(patch: CharacterPatch, inputs: EditInputs, now: Temporal.Instant): Partial<CharacterProps> {
@@ -313,7 +318,12 @@ export class Character {
   public withInventory(inventory: Inventory, now: Temporal.Instant): Character {
     return new Character({
       ...this.toProps(),
-      document: { ...this.document, inventory },
+      document: withCoinLedger({
+        before: this.document,
+        after: { ...this.document, inventory },
+        patch: undefined,
+        now,
+      }),
       updatedAt: now,
     });
   }

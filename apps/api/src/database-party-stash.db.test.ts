@@ -59,6 +59,7 @@ describe.skipIf(adminUrl === undefined)('the party stash over postgres', () => {
         items: [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }],
         customItems: [],
         coins: CoinsSchema.parse({}),
+        ledger: [],
       },
       built.updatedAt,
     );

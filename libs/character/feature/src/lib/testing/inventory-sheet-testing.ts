@@ -44,6 +44,10 @@ export const VALEROS = {
       { id: CLOAK, item: itemFixtureId(ItemFixture.Cloak), quantity: 1, carry: { state: 'worn' }, invested: true },
     ],
     coins: { pp: 0, gp: 15, sp: 0, cp: 0 },
+    ledger: [
+      { reason: 'opening', change: { pp: 0, gp: 20, sp: 0, cp: 0 } },
+      { reason: 'purchase', change: { pp: 0, gp: -5, sp: 0, cp: 0 }, at: '2026-10-07T09:30:00.000Z' },
+    ],
   },
   createdAt: '2026-10-07T10:00:00.000Z',
   updatedAt: '2026-10-07T10:00:00.000Z',
