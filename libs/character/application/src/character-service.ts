@@ -51,8 +51,9 @@ import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-dir
 import { assertInventoryAllows } from './inventory-guard';
 import type { OverrideAuthorDirectory } from './override-author-directory';
 import { assertOverrideAllowed } from './override-guard';
+import { assertRetrainingAllowed, isRetrainingEdit } from './retraining-guard';
 import { SlotContentCache } from './slot-content-cache';
-import { assertSlotEditAllowed } from './slot-edit-guard';
+import { assertSlotEditAllowed, isSlotEdit } from './slot-edit-guard';
 import { assertSpellNeedsAccess } from './spell-access-guard';
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
@@ -288,9 +289,10 @@ export class CharacterService {
       throw new VersionConflictError('Character', current.id);
     }
 
-    if (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) {
+    if (isSlotEdit(patch) || isRetrainingEdit(patch)) {
       const slots = await this.#slotContent(current, await this.#contentOf(current).registry());
       assertSlotEditAllowed(current, slots, patch);
+      assertRetrainingAllowed(current, slots, patch);
     }
 
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
@@ -315,9 +317,7 @@ export class CharacterService {
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
   async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<ReadonlyArray<ClearedPick>> {
-    const isSlotEdit = patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
-
-    if (!isSlotEdit) {
+    if (!isSlotEdit(patch) && patch.field !== CharacterPatchField.WorkRetraining) {
       return [];
     }
 

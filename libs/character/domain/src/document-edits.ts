@@ -8,6 +8,7 @@ import type { DocumentPatch } from './character-patch';
 import { withProse } from './character-prose';
 import { withCustomEffectEdit } from './custom-effect';
 import type { EditInputs } from './item-purchase';
+import { withRetrainingEdit } from './retraining';
 
 /** The user who makes an edit; an edit that names its author is refused without one. */
 function editor(inputs: EditInputs): NonNullable<EditInputs['actor']> {
@@ -58,6 +59,12 @@ export function withDocumentEdit(
         now,
         newCustomEffectId: inputs.newCustomEffectId,
       });
+    }
+
+    case CharacterPatchField.StartRetraining:
+    case CharacterPatchField.WorkRetraining:
+    case CharacterPatchField.CancelRetraining: {
+      return withRetrainingEdit(document, patch);
     }
 
     case CharacterPatchField.SetAppearance:

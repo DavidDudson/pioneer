@@ -2,6 +2,11 @@ import { CharacterPatchField, repertoireSwapRefusal, slotRefusal } from '@pionee
 import type { Character, CharacterPatch, SlotContent } from '@pioneer/character/domain';
 import { ValidationError } from '@pioneer/shared/kernel';
 
+/** Whether `patch` picks or empties a slot. */
+export function isSlotEdit(patch: CharacterPatch): boolean {
+  return patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
+}
+
 /**
  * Refuses a slot edit the slots `slots` don't allow: a selection the slot doesn't offer at any level up to 20, or for a
  * slot the character never has, and a second repertoire swap at the character's level. A selection already stored is
