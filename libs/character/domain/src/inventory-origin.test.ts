@@ -85,8 +85,11 @@ describe('InventorySchema: origin', () => {
   });
 
   test('refuses a player line past the property rune cap, and keeps an imported one', () => {
-    const runes = Object.values(RuneFixture).map((each) => runeFixtureId(each));
-    expect(runes.length).toBeGreaterThan(PROPERTY_RUNES_MAX);
+    const runes = Object.values(RuneFixture)
+      .slice(0, PROPERTY_RUNES_MAX + 1)
+      .map((each) => runeFixtureId(each));
+
+    expect(runes).toHaveLength(PROPERTY_RUNES_MAX + 1);
 
     const withRunes = (item: InventoryItem): InventoryItem => ({
       ...item,

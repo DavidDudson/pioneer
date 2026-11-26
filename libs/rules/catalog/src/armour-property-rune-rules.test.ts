@@ -43,8 +43,6 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:ready', 'the actions to don armour: donning is not modelled'],
-  ['rune:ready-greater', 'the actions to don armour: donning is not modelled'],
   ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
   ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
 ]);

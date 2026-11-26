@@ -287,6 +287,10 @@
       "safe": "Safe Release of {name}",
       "expending": "Expending…"
     },
+    "donning": {
+      "one": "{name} can be donned as a single action",
+      "two": "{name} can be donned as a 2-action activity"
+    },
     "release": {
       "set": "Set {name} free",
       "setting": "Setting free…",
