@@ -67,6 +67,18 @@ describe(Box, () => {
     expect([...inner.classList]).toStrictEqual(expect.arrayContaining(['px-md', '@lg:px-xl']));
   });
 
+  it('shows content only from a container size, unless revealed', async () => {
+    const hidden = await render({ shownFrom: 'md' });
+    expect([...hidden.inner.classList]).toStrictEqual(expect.arrayContaining(['hidden', '@md:block']));
+    const revealed = await render({ shownFrom: 'md', revealed: '' });
+    expect([...revealed.inner.classList]).not.toContain('hidden');
+  });
+
+  it('hides content from a container size up', async () => {
+    const { inner } = await render({ hiddenFrom: 'md' });
+    expect([...inner.classList]).toContain('@md:hidden');
+  });
+
   it('projects its content into the inner element', async () => {
     const { inner } = await render({});
     expect(inner.textContent).toBe('Ability scores');

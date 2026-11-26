@@ -1,5 +1,4 @@
 <fr-stack gap="md">
-  <fr-text element="p" variant="caption" tone="muted">{{ Message.Count | transloco: { count: list().total } }}</fr-text>
   @if (list().total === 0) {
     <fr-empty-state
       [icon]="emptyIcon"

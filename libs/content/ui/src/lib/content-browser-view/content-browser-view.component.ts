@@ -7,12 +7,11 @@ import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import type { ContentKind, FilterState } from '@pioneer/rules/sdk';
 
 import type { BrowseRow } from '../browse-row';
-import { BrowserFilters } from '../browser-filters/browser-filters.component';
 import type { ContentBrowserEntry, ContentBrowserList } from '../browser-list';
 import { BrowserRows } from '../browser-rows/browser-rows.component';
-import { BrowserSearch } from '../browser-search/browser-search.component';
 import { ContentBrowserTier } from '../browser-state';
 import type { ContentBrowserState, ContentEntryRef } from '../browser-state';
+import { BrowserToolbar } from '../browser-toolbar/browser-toolbar.component';
 import { ContentEntryView } from '../entry-view/content-entry-view.component';
 import { tierRegions } from '../tier-regions';
 import type { TierRegions } from '../tier-regions';
@@ -40,9 +39,8 @@ const LOADING_ROWS = ['first', 'second', 'third', 'fourth'];
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    BrowserFilters,
     BrowserRows,
-    BrowserSearch,
+    BrowserToolbar,
     Button,
     ContentEntryView,
     Skeleton,
@@ -77,6 +75,10 @@ export class ContentBrowserView {
   /** The entry shows when one is picked, and always where there is no list to fall back to. */
   protected readonly showEntry = computed(
     () => this.regions().entry && (this.state().selected !== undefined || !this.regions().list),
+  );
+  /** The loaded list while the list region shows: the toolbar's filters and count come from it. */
+  protected readonly listShown: Signal<ContentBrowserList | undefined> = computed(() =>
+    this.regions().list && !this.showEntry() ? this.list().data() : undefined,
   );
   protected readonly headingLevel = computed(() =>
     this.tier() === ContentBrowserTier.Page ? HeadingLevel.Two : HeadingLevel.Three,

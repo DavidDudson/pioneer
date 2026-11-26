@@ -13,8 +13,10 @@ import {
   LocaleFormat,
   SearchInput,
   Stack,
+  TableToolbar,
   Text,
   ToggleButton,
+  ToolbarFilters,
 } from '@pioneer/frontier';
 import { availableItems, filterFromQuery, filterToQuery, Level } from '@pioneer/rules/sdk';
 import type { ContentId, FilterState, QueryParams } from '@pioneer/rules/sdk';
@@ -56,8 +58,10 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
     ShopOffersView,
     ShopOrder,
     Stack,
+    TableToolbar,
     Text,
     ToggleButton,
+    ToolbarFilters,
     TranslocoPipe,
   ],
   templateUrl: './shop.component.html',

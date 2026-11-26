@@ -1,0 +1,19 @@
+<fr-table-toolbar [label]="Message.Label | transloco">
+  <pio-browser-search frToolbarSearch [kindOptions]="kindOptions()" [(state)]="state" />
+  @if (list(); as shown) {
+    <pio-browser-filters
+      frToolbarFilters
+      [fields]="fields()"
+      [counts]="shown.counts"
+      [facetState]="facetState()"
+      [facets]="facets()"
+      [(state)]="state"
+      (facetChange)="facetChange.emit($event)"
+    />
+  }
+  @if (list(); as shown) {
+    <fr-text frToolbarCount element="p" variant="caption" tone="muted">{{
+      Message.Count | transloco: { count: shown.total }
+    }}</fr-text>
+  }
+</fr-table-toolbar>
