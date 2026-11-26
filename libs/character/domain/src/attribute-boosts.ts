@@ -55,6 +55,8 @@ export interface BoostContent {
   readonly keyAttribute: (id: ContentId) => Boost | undefined;
   /** Whether the character has a second class slot (Dual Class), so its key attribute is a boost of its own. */
   readonly secondClass: boolean;
+  /** Whether the free boosts come one a level over the four levels up to each fifth (Gradual Attribute Boosts). */
+  readonly gradual: boolean;
   /** What the character's 1st-level class features add to its key attribute options: Strength for a ruffian rogue. */
   readonly keyAttributeOptions: (document: CharacterDocument) => readonly Attribute[];
 }
@@ -109,6 +111,15 @@ const FREE_BOOST_LEVELS: readonly Level[] = [
 
 const FREE_BOOSTS: readonly Boost[] = Array.from({ length: FREE_BOOSTS_PER_LEVEL }, () => FREE_BOOST);
 
+/** Gradual Attribute Boosts (GM Core): the four boosts of each fifth level come one a level over it and the three before. */
+const SINGLE_BOOST: readonly Boost[] = [FREE_BOOST];
+
+const GRADUAL_BOOST_LEVELS: readonly Level[] = FREE_BOOST_LEVELS.slice(1).flatMap((last) =>
+  Array.from({ length: FREE_BOOSTS_PER_LEVEL }, (_unused, index) =>
+    Level.parse(last - FREE_BOOSTS_PER_LEVEL + 1 + index),
+  ),
+);
+
 /** A boost to a modifier this high or higher is partial: two partial boosts raise it by one. */
 const PARTIAL_BOOST_FROM = 4;
 
@@ -121,6 +132,7 @@ export function boostContent(
   registry: ContentRegistry,
   rootSlots: readonly RootSlotDefinition[] = CHARACTER_ROOT_SLOTS,
   lookup: () => ContentLookup = () => grantLookup(registry),
+  gradual = false,
 ): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
@@ -143,6 +155,7 @@ export function boostContent(
     background: (id: ContentId): readonly Boost[] | undefined => backgrounds.get(id),
     keyAttribute: (id: ContentId): Boost | undefined => classes.get(id),
     secondClass: hasSecondClass(rootSlots),
+    gradual,
     keyAttributeOptions: grantedKeyOptions({ registry, entries, rootSlots, lookup }),
   };
 }
@@ -239,7 +252,14 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
     ...origins.flatMap(([source, boosts]) =>
       boosts === undefined ? [] : [boostSet(document, { level: FIRST_LEVEL, source, boosts })],
     ),
-    ...FREE_BOOST_LEVELS.map((level) => boostSet(document, { level, source: BoostSource.Free, boosts: FREE_BOOSTS })),
+    boostSet(document, { level: FIRST_LEVEL, source: BoostSource.Free, boosts: FREE_BOOSTS }),
+    ...(content.gradual ? GRADUAL_BOOST_LEVELS : FREE_BOOST_LEVELS.slice(1)).map((level) =>
+      boostSet(document, {
+        level,
+        source: BoostSource.Free,
+        boosts: content.gradual ? SINGLE_BOOST : FREE_BOOSTS,
+      }),
+    ),
   ];
 }
 

@@ -32,5 +32,6 @@ export const BOOST_FIXTURES: BoostContent = {
   background: (id) => BACKGROUNDS.get(id),
   keyAttribute: (id) => CLASSES.get(id),
   secondClass: false,
+  gradual: false,
   keyAttributeOptions: () => [],
 };

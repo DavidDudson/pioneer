@@ -103,6 +103,7 @@ describe('placeBoosts', () => {
       ],
       keyAttribute: () => undefined,
       secondClass: false,
+      gradual: false,
       keyAttributeOptions: () => [],
     };
 

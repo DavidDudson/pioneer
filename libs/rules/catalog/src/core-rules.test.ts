@@ -148,6 +148,7 @@ describe('core rules pack', () => {
       'automatic-bonus-progression',
       'dual-class',
       'free-archetype',
+      'gradual-attribute-boosts',
       'legacy-content',
       'no-dedication-lock',
       'no-encumbrance',
