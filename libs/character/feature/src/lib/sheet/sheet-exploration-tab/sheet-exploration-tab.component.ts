@@ -7,6 +7,7 @@ import { DeityView } from '@pioneer/rules/ui';
 
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
+import { SheetCompanionsSection } from '../sheet-companions-section/sheet-companions-section.component';
 import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
 import { SheetExplorationActivity } from '../sheet-exploration-activity/sheet-exploration-activity.component';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
@@ -32,6 +33,7 @@ import { rememberTab } from '../sheet-tab';
     InventorySection,
     Section,
     SectionBody,
+    SheetCompanionsSection,
     SheetDeitySection,
     SheetExplorationActivity,
     SheetLanguagesSection,
