@@ -8,11 +8,7 @@ export function foldDiacritics(text: string): string {
   return text.normalize('NFKD').replaceAll(MARKS, '');
 }
 
-/**
- * The one key for asking whether two names mean the same entry. Case, accents, apostrophes and punctuation are
- * ignored, so "Healing Potion (Moderate)" meets "Healing Potion, Moderate" and "Nature’s Reprisal" meets
- * "Nature's Reprisal". Words are separated by one space.
- */
+/** The key for whether two names mean the same entry: case, accents, apostrophes and punctuation ignored, words joined by one space. */
 export function foldName(name: string): string {
   return name
     .normalize('NFKD')

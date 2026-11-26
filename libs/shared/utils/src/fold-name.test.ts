@@ -36,6 +36,10 @@ describe('foldName', () => {
     expect(foldName('Potency Crystal +1')).toBe('potency crystal 1');
   });
 
+  test('keeps different variants apart', () => {
+    expect(foldName('Healing Potion (Moderate)')).not.toBe(foldName('Healing Potion (Minor)'));
+  });
+
   test('leaves an empty name empty', () => {
     expect(foldName('')).toBe('');
   });
