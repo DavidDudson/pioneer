@@ -48,7 +48,7 @@ interface HealingBonusInPlay {
 }
 
 /** A new save the character may attempt at the start of each turn against a hostile spell: what gives it. */
-export interface TurnStartSaveInPlay {
+interface TurnStartSaveInPlay {
   /** Every element that gives it, in the order found. */
   readonly origins: readonly Origin[];
 }
