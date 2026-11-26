@@ -89,6 +89,16 @@
       "args": "--projects=character-feature --configuration=page-g"
     },
     {
+      "name": "character rest a",
+      "id": "character-rest-a",
+      "args": "--projects=character-feature --configuration=rest-a"
+    },
+    {
+      "name": "character rest b",
+      "id": "character-rest-b",
+      "args": "--projects=character-feature --configuration=rest-b"
+    },
+    {
       "name": "character rest",
       "id": "character-rest",
       "args": "--projects=character-feature --configuration=rest"
