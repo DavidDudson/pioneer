@@ -46,6 +46,7 @@ export const RuleElementKey = {
   FastHealing: 'FastHealing',
   TempHP: 'TempHP',
   HealingBonus: 'HealingBonus',
+  TurnStartSave: 'TurnStartSave',
   CreatureSize: 'CreatureSize',
   BattleForm: 'BattleForm',
   AdjustDegreeOfSuccess: 'AdjustDegreeOfSuccess',

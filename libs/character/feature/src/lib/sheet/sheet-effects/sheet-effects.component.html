@@ -6,6 +6,7 @@
       <ng-template [frAsyncData]="playQuery">
         <fr-stack gap="xs">
           <fr-text weight="semibold">{{ 'character.sheet.effects.label' | transloco }}</fr-text>
+          <pio-sheet-effect-spell-save-note [source]="spellSaveSource()" />
           @for (view of views(); track view.id) {
             <fr-stack direction="horizontal" align="center" gap="sm" wrap>
               <pio-entry-name-cell [name]="view.name" [entry]="view.effect" />
@@ -43,6 +44,13 @@
                   {{ 'character.sheet.effects.spendUse' | transloco }}
                 </fr-async-button>
               }
+              <pio-sheet-effect-spell-save
+                [offered]="spellSaveSource() !== undefined"
+                [view]="view"
+                [busy]="busy()"
+                [end]="remove(view)"
+                [describeError]="describeError"
+              />
               <fr-async-button size="sm" [action]="remove(view)" [disabled]="busy()" [describeError]="describeError">
                 {{ 'character.sheet.effects.remove' | transloco }}
               </fr-async-button>

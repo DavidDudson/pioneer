@@ -16,7 +16,10 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:advancing-greater',
     'an activation with no frequency, which the content has no place for (armour activations story): a Stride after a kill',
   ],
-  ['rune:aim-aiding', 'stops the wearer giving cover to allies, which no cover calculation reads'],
+  [
+    'rune:aim-aiding',
+    'stops the wearer giving cover to allies, which needs creatures and cover the app does not model (creature model sub-task of the armour runes)',
+  ],
   ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
   ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-resistant-greater', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
@@ -40,8 +43,10 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:winged-greater',
     'an activation with no frequency, which the content has no place for (armour activations story)',
   ],
-  ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
-  ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
+  [
+    'rune:unnerving',
+    'a penalty on the attacker: the attacker is not a creature the app models, so no rule reaches it (creature model sub-task of the armour runes)',
+  ],
 ]);
 
 const ARMOUR_GAP_SLUGS: ReadonlySet<string> = new Set(ARMOUR_GAPS.keys());
@@ -154,5 +159,11 @@ describe('armour property rune rules', () => {
     const entry = RUNES.find((rune) => rune.slug === slug);
 
     expect(entry?.rules).toMatchObject([{ key: 'HealingBonus', value: amount }]);
+  });
+
+  test('spellwatch offers a new save against one hostile spell at the start of each turn', () => {
+    const entry = RUNES.find((rune) => rune.slug === 'rune:spellwatch');
+
+    expect(entry?.rules).toMatchObject([{ key: 'TurnStartSave', against: 'hostile-spell' }]);
   });
 });

@@ -33,6 +33,18 @@ export const HealingBonusElement = z.strictObject({
 
 export type HealingBonusElement = z.infer<typeof HealingBonusElement>;
 
+/** What a new save at the start of a turn is against. */
+export const TurnStartSaveTarget = { HostileSpell: 'hostile-spell' } as const;
+
+/** A new save the character may attempt at the start of each turn against a hostile spell; a success ends the spell. */
+export const TurnStartSaveElement = z.strictObject({
+  key: z.literal(RuleElementKey.TurnStartSave),
+  against: z.enum(TurnStartSaveTarget),
+  ...ruleElementBase,
+});
+
+export type TurnStartSaveElement = z.infer<typeof TurnStartSaveElement>;
+
 /** Temporary Hit Points the element gives the character, as Foundry pf2e's `TempHP` does. */
 export const TempHPElement = z.strictObject({
   key: z.literal(RuleElementKey.TempHP),

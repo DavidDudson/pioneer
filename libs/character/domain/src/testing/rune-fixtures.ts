@@ -35,6 +35,8 @@ export const RuneFixture = {
   Quickstrike: 'quickstrike',
   /** An armour rune that adds 2 Hit Points to the first healing from a spell or effect (the slug is the real rune's). */
   Moonweave: 'moonweave',
+  /** An armour rune that offers a new save against a hostile spell at the start of each turn (the slug is the real rune's). */
+  Spellwatch: 'spellwatch',
   /** Armour runes that shorten donning (the slugs are the real ready runes'). */
   Ready: 'ready',
   ReadyGreater: 'ready-greater',
@@ -100,6 +102,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Shifting]: weaponRune(),
   [RuneFixture.Crushing]: weaponRune('bludgeoning'),
   [RuneFixture.Moonweave]: { ...armorRune(), rules: [{ key: 'HealingBonus', value: 2 }] },
+  [RuneFixture.Spellwatch]: { ...armorRune(), rules: [{ key: 'TurnStartSave', against: 'hostile-spell' }] },
   [RuneFixture.Ready]: armorRune(),
   [RuneFixture.ReadyGreater]: armorRune(),
   [RuneFixture.EnergyResistant]: armorRune(),

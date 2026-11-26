@@ -9,6 +9,7 @@ import type {
   Origin,
   RuleValue,
   TempHPElement,
+  TurnStartSaveElement,
 } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -46,6 +47,12 @@ interface HealingBonusInPlay {
   readonly origins: readonly Origin[];
 }
 
+/** A new save the character may attempt at the start of each turn against a hostile spell: what gives it. */
+interface TurnStartSaveInPlay {
+  /** Every element that gives it, in the order found. */
+  readonly origins: readonly Origin[];
+}
+
 /** The character's size after its `CreatureSize` elements. */
 export interface SizeInPlay {
   readonly size: Size;
@@ -67,6 +74,8 @@ export interface VitalsInPlay {
   readonly temporaryHitPoints?: TemporaryHitPointsInPlay;
   /** Absent when no element adds Hit Points to healing from a spell or effect. */
   readonly healingBonus?: HealingBonusInPlay;
+  /** Absent when no element gives a new save against a hostile spell at the start of a turn. */
+  readonly turnStartSave?: TurnStartSaveInPlay;
   /** Absent when no element changes the size. */
   readonly size?: SizeInPlay;
 }
@@ -110,6 +119,9 @@ const isTempHp = (element: RuleInPlay['element']): element is TempHPElement => e
 
 const isHealingBonus = (element: RuleInPlay['element']): element is HealingBonusElement =>
   element.key === RuleElementKey.HealingBonus;
+
+const isTurnStartSave = (element: RuleInPlay['element']): element is TurnStartSaveElement =>
+  element.key === RuleElementKey.TurnStartSave;
 
 const isCreatureSize = (element: RuleInPlay['element']): element is CreatureSizeElement =>
   element.key === RuleElementKey.CreatureSize;
@@ -244,7 +256,7 @@ function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given
 }
 
 /**
- * What the character's `FastHealing`, `TempHP`, `HealingBonus` and `CreatureSize` elements give. An element whose predicate fails or
+ * What the character's `FastHealing`, `TempHP`, `HealingBonus`, `TurnStartSave` and `CreatureSize` elements give. An element whose predicate fails or
  * depends on the situation gives nothing on the sheet, and one whose formula has no value, or a value below 1, is
  * ignored. Recovery and temporary Hit Points do not add up (Player Core): of each kind the highest counts, with every
  * element that gives it as an origin. Sizes apply in the order found, a named size setting it and a number of steps
@@ -276,12 +288,15 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
 
   const bonus = highest(active(inputs, isHealingBonus).flatMap((rule) => givenBy(rule, scope, inputs)));
 
+  const spellSaves = active(inputs, isTurnStartSave);
+
   const resizes = active(inputs, isCreatureSize);
 
   const warmed: VitalsInPlay = {
     recovery,
     ...(temp !== undefined && { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
     ...(bonus !== undefined && { healingBonus: { amount: bonus.top.amount, origins: bonus.origins } }),
+    ...(spellSaves.length > 0 && { turnStartSave: { origins: spellSaves.map(({ origin }) => origin) } }),
   };
 
   return resizes.length === 0 && form?.form.size === undefined

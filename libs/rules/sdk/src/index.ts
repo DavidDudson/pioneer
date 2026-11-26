@@ -619,7 +619,14 @@ export {
   grievousSpecializationOf,
 } from './critical-specialization';
 
-export { FastHealingElement, FastHealingType, HealingBonusElement, TempHPElement } from './rule-element-healing';
+export {
+  FastHealingElement,
+  FastHealingType,
+  HealingBonusElement,
+  TempHPElement,
+  TurnStartSaveElement,
+  TurnStartSaveTarget,
+} from './rule-element-healing';
 
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
 

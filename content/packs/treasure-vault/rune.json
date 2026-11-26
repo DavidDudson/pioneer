@@ -2015,7 +2015,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TurnStartSave",
+        "against": "hostile-spell"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qfyvOY3JTGUkOipr"
     },

@@ -126,6 +126,30 @@ describe('vitalsInPlay: healing bonus', () => {
   });
 });
 
+describe('vitalsInPlay: a new save against a hostile spell', () => {
+  test('none without a TurnStartSave element', () => {
+    expect(vitalsOf([]).turnStartSave).toBeUndefined();
+  });
+
+  test('every element that gives it is an origin', () => {
+    const save = { key: 'TurnStartSave', against: 'hostile-spell' };
+
+    expect(vitalsOf([[save, 'a']]).turnStartSave?.origins).toHaveLength(1);
+    expect(
+      vitalsOf([
+        [save, 'a'],
+        [save, 'b'],
+      ]).turnStartSave?.origins,
+    ).toHaveLength(2);
+  });
+
+  test('an element whose predicate fails gives nothing', () => {
+    const calm = { key: 'TurnStartSave', against: 'hostile-spell', predicate: ['self:effect:calm'] };
+
+    expect(vitalsOf([[calm, 'a']]).turnStartSave).toBeUndefined();
+  });
+});
+
 describe('vitalsInPlay: size', () => {
   test('none without a CreatureSize element', () => {
     expect(vitalsOf([]).size).toBeUndefined();
