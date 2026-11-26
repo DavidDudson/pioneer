@@ -6,23 +6,13 @@ import { AttributeSchema } from './attribute';
 import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
 import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
+import { SpellPreparation } from './spell-preparation';
 import { SpellRank } from './spell-rank';
 import { MagicTraditionSchema } from './spellcasting-tradition';
 import { SOURCE_SLUG_MAX } from './statistic';
 import { uniqueItems } from './unique-items';
 
-/**
- * How an entry's spells are cast: prepared each day, from a repertoire, innate, or as focus spells for Focus Points
- * (ADR-0050).
- */
-export const SpellPreparation = {
-  Prepared: 'prepared',
-  Spontaneous: 'spontaneous',
-  Innate: 'innate',
-  Focus: 'focus',
-} as const;
-
-export type SpellPreparation = ValueOf<typeof SpellPreparation>;
+export { SpellPreparation } from './spell-preparation';
 
 const SpellPreparationSchema = z.enum(SpellPreparation);
 

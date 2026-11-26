@@ -1,6 +1,6 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import type { ContentKind } from './content-kind';
 import { ActionCost, AreaKind } from './rich-text';
 import type { Selector } from './selector';
@@ -10,7 +10,7 @@ import { TargetKind } from './spell-targets';
 import { Trait } from './trait';
 import { Feet } from './units';
 
-export type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
+export type SpellEntry = Extract<ContentEntryModel, { readonly kind: typeof ContentKind.Spell }>;
 
 type SpellFields = SpellEntry['data'];
 

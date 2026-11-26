@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { availableItems } from './available-items';
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { filterEntries } from './facet-filter';
 import { facetsFor } from './kind-facets';
+import { ContentEntry } from './typed-content-entry';
 import { Level } from './units';
 
 const PACK = 'player-core';

@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { ActionData } from './action';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import type { ContentKind } from './content-kind';
 import type { FacetLeaf } from './facet';
 import { FeatCategory } from './feat';
@@ -9,9 +9,9 @@ import { ActionCost } from './rich-text';
 import type { Selector } from './selector';
 import { Trait } from './trait';
 
-export type FeatEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Feat }>;
+export type FeatEntry = Extract<ContentEntryModel, { readonly kind: typeof ContentKind.Feat }>;
 
-export type ActionEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Action }>;
+export type ActionEntry = Extract<ContentEntryModel, { readonly kind: typeof ContentKind.Action }>;
 
 /** What using something costs: its glyph, `variable` for a range the user picks from, `passive` for no use. */
 export const ActionCostValue = { ...ActionCost, Variable: 'variable', Passive: 'passive' } as const;

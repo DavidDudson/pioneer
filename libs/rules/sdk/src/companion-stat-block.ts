@@ -2,7 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Attribute, AttributeModifiersWire, AttributeSchema } from './attribute';
-import { RuleSlug } from './rule-element-base';
+import { RuleSlug } from './rule-slug';
 import { SizeSchema } from './size';
 import { Feet, HitPoints } from './units';
 import { WeaponDamage } from './weapon';

@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
 import { FEAT_FACETS } from './action-facets';
-import { ContentEntry } from './content-entry';
 import { contentId, entrySlug, PackId, Slug, slugName } from './content-id';
 import { ContentKind } from './content-kind';
 import { COMMON_FACETS, FacetId, FacetType, FacetValue, facetValues, RangeBound, UNKNOWN } from './facet';
@@ -12,6 +11,7 @@ import { FeatCategory } from './feat';
 import { filterFromQuery, filterToQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
 import { SPELL_FACETS } from './spell-facets';
+import { ContentEntry } from './typed-content-entry';
 
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A trait.' }] }];
 

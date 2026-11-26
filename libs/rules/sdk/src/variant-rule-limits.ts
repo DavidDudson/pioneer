@@ -1,9 +1,6 @@
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentRegistry } from './content-registry';
-import type { VariantRuleId } from './variant-rule';
-
 /** A number a variant rule sets a table limit to: a whole number from 1. */
 export const VariantLimitValue = Pg.smallint().positive().brand<'VariantLimitValue'>();
 
@@ -49,15 +46,4 @@ export function mergeVariantLimits(declared: readonly VariantRuleLimits[]): Vari
   }
 
   return merged;
-}
-
-/** The limits changed by the variant rules `enabled` that `registry` defines; one it does not define changes nothing. */
-export function variantLimitsInForce(registry: ContentRegistry, enabled: readonly VariantRuleId[]): VariantRuleLimits {
-  return mergeVariantLimits(
-    enabled.flatMap((id) => {
-      const limits = registry.variantRule(id)?.definition.limits;
-
-      return limits === undefined ? [] : [limits];
-    }),
-  );
 }

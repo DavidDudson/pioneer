@@ -2,10 +2,10 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues } from '@pioneer/shared/kernel';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 import type { JsonObject, JsonValue } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const text = (value: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: value }] }];
 const SPELL = contentId(PackId.parse('player-core'), EntrySlug.parse('spell:fireball'));

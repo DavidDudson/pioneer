@@ -12,7 +12,7 @@ import type {
   NamesBundle,
   PackBundles,
 } from './content-bundle';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import type { ContentId, PackId } from './content-id';
 import type { ContentKind } from './content-kind';
 import type { PackContents } from './content-pack-file';
@@ -70,19 +70,19 @@ class BundleWriter {
 }
 
 /** An entry as its mechanics bundle holds it: no name and no description. */
-function mechanics(entry: ContentEntry): JsonValue {
+function mechanics(entry: ContentEntryModel): JsonValue {
   const { name: _name, description: _description, ...rest } = entry;
 
   return rest;
 }
 
-function names(entries: readonly ContentEntry[]): NamesBundle {
+function names(entries: readonly ContentEntryModel[]): NamesBundle {
   return Object.fromEntries(entries.map((entry) => [entry.id, { name: entry.name }]));
 }
 
 /** Entries by kind, each kind's sorted by id so a reordered file gives the same bundles. */
-function byKind(entries: readonly ContentEntry[]): ReadonlyMap<ContentKind, readonly ContentEntry[]> {
-  const kinds = new Map<ContentKind, ContentEntry[]>();
+function byKind(entries: readonly ContentEntryModel[]): ReadonlyMap<ContentKind, readonly ContentEntryModel[]> {
+  const kinds = new Map<ContentKind, ContentEntryModel[]>();
 
   for (const entry of entries.toSorted((left, right) => (left.id < right.id ? -1 : 1))) {
     kinds.set(entry.kind, [...(kinds.get(entry.kind) ?? []), entry]);
@@ -93,7 +93,7 @@ function byKind(entries: readonly ContentEntry[]): ReadonlyMap<ContentKind, read
 
 /** A kind's descriptions by shard, in shard order. Entries without a description are left out, so some shards may be missing. */
 function descriptionShards(
-  entries: readonly ContentEntry[],
+  entries: readonly ContentEntryModel[],
 ): ReadonlyMap<DescriptionShard, Record<ContentId, RichText>> {
   const shards = new Map<DescriptionShard, Record<ContentId, RichText>>();
 

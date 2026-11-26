@@ -7,9 +7,9 @@ import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
 import { ActionCost, ActionCostSchema, RichText } from './rich-text';
-import { RuleElements } from './rule-element';
-import { SpellPreparation } from './rule-element-spellcasting';
+import { RuleReferences } from './rule-reference';
 import { SenseAcuitySchema } from './sense';
+import { SpellPreparation } from './spell-preparation';
 import { SpellRank } from './spell-rank';
 import { MagicTraditionSchema } from './spellcasting-tradition';
 import { Trait } from './trait';
@@ -18,7 +18,7 @@ import { Dc, Feet, Modifier } from './units';
 import { WeaponDamage } from './weapon';
 
 /** The most of any one list a stat block holds: skills, senses, strikes, abilities, spells, items. */
-const LIST_MAX = 64;
+export const LIST_MAX = 64;
 
 /** The most traits one strike or ability names. */
 const TRAITS_MAX = 16;
@@ -100,23 +100,30 @@ export type CreatureStrike = z.infer<typeof CreatureStrike>;
  * entry, since an ability belongs to one stat block and has no entry of its own to link to or search (a hazard's
  * ability has the same shape). `cost` is absent for a passive ability.
  */
-export const CreatureAbility = z
-  .strictObject({
-    name: ContentText,
-    cost: ActionCostSchema.optional(),
-    trigger: RichText.optional(),
-    requirements: RichText.optional(),
-    frequency: Frequency.optional(),
-    traits: Traits,
-    description: RichText,
-    rules: RuleElements.readonly(),
-  })
-  .refine((ability) => ability.cost !== ActionCost.Reaction || ability.trigger !== undefined, {
-    ...issueParams(message(RulesMessage.ActionReactionTrigger)),
-    path: ['trigger'],
-  });
+export const creatureAbilityFields = {
+  name: ContentText,
+  cost: ActionCostSchema.optional(),
+  trigger: RichText.optional(),
+  requirements: RichText.optional(),
+  frequency: Frequency.optional(),
+  traits: Traits,
+  description: RichText,
+};
 
-export type CreatureAbility = z.infer<typeof CreatureAbility>;
+/** A reaction names its trigger. */
+export function reactionHasTrigger(ability: {
+  readonly cost?: ActionCost | undefined;
+  readonly trigger?: RichText | undefined;
+}): boolean {
+  return ability.cost !== ActionCost.Reaction || ability.trigger !== undefined;
+}
+
+export const REACTION_TRIGGER = { ...issueParams(message(RulesMessage.ActionReactionTrigger)), path: ['trigger'] };
+
+/** A stat block's ability as the content model holds it: `rules` are references (`CreatureAbility` parses them). */
+const CreatureAbilityModel = z
+  .strictObject({ ...creatureAbilityFields, rules: RuleReferences })
+  .refine(reactionHasTrigger, REACTION_TRIGGER);
 
 /** A spell a creature casts: the spell, the rank it is cast at, and how often when it is innate. */
 export const CreatureSpell = z.strictObject({
@@ -169,7 +176,7 @@ export const creatureStatBlockFields = {
   /** Speeds other than the land `speed`. */
   speeds: z.array(CreatureSpeed).max(LIST_MAX).readonly().optional(),
   strikes: z.array(CreatureStrike).max(LIST_MAX).readonly().optional(),
-  abilities: z.array(CreatureAbility).max(LIST_MAX).readonly().optional(),
+  abilities: z.array(CreatureAbilityModel).max(LIST_MAX).readonly().optional(),
   spellcasting: z.array(CreatureSpellcasting).max(LIST_MAX).readonly().optional(),
   items: z.array(CreatureItem).max(LIST_MAX).readonly().optional(),
   /** Conditions the creature starts a fight with, by condition slug. */

@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { facetValues } from './facet';
 import type { FacetDefinition } from './facet';
 import { facetsFor } from './kind-facets';
+import { ContentEntry } from './typed-content-entry';
 
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'A creature.' }] }];
 

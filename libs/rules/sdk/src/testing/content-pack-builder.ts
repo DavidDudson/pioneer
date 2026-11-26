@@ -5,7 +5,6 @@ import type { AncestryDefinition } from '../ancestry';
 import { contentId, EntrySlug, PackId } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { ContentPack } from '../content-pack';
-import type { CreatureDefinition } from '../creature';
 import { ContentLicense } from '../license';
 import type { ProficiencyBonusTable } from '../proficiency';
 import type { NamespaceKind } from '../roll-option-namespace';
@@ -14,7 +13,7 @@ import { SourceKind } from '../source-ref';
 import type { SourceRef } from '../source-ref';
 import type { StatisticDefinition } from '../statistic';
 import { StatisticKind } from '../statistic';
-import type { VariantRuleDefinition } from '../variant-rule';
+import type { CreatureDefinition, VariantRuleDefinition } from '../typed-content';
 import type {
   ActionFields,
   ClassFeatureFields,

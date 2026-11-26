@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { FacetType, facetValues, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition, FacetId, FacetValue } from './facet';
 
@@ -73,7 +73,7 @@ function keeps(values: readonly FacetValue[], selection: FacetSelection): boolea
   return included && !values.some((value) => selection.exclude.includes(value));
 }
 
-function matches(entry: ContentEntry, facets: readonly FacetDefinition[], state: FilterState): boolean {
+function matches(entry: ContentEntryModel, facets: readonly FacetDefinition[], state: FilterState): boolean {
   return facets.every((facet) => {
     const selection = state.get(facet.id);
 
@@ -82,11 +82,11 @@ function matches(entry: ContentEntry, facets: readonly FacetDefinition[], state:
 }
 
 /** The entries `state` keeps: OR within a facet, AND across facets. Order is kept. */
-export function filterEntries(
-  entries: readonly ContentEntry[],
+export function filterEntries<Entry extends ContentEntryModel>(
+  entries: readonly Entry[],
   facets: readonly FacetDefinition[],
   state: FilterState,
-): readonly ContentEntry[] {
+): readonly Entry[] {
   return entries.filter((entry) => matches(entry, facets, state));
 }
 
@@ -115,7 +115,7 @@ function selectedValues(selection: FacetSelection | undefined): readonly FacetVa
 
 /** How many of `entries` have each value of `facet`, skipping entries with a value the selection excludes. */
 function tally(
-  entries: readonly ContentEntry[],
+  entries: readonly ContentEntryModel[],
   facet: FacetDefinition,
   selection: FacetSelection | undefined,
 ): Map<FacetValue, EntryCount> {
@@ -144,7 +144,7 @@ function sortCounts(type: FacetType, counts: readonly ValueCount[]): readonly Va
 
 /** Each facet's value counts over `entries` under `state` (see `FacetCounts`). */
 export function facetCounts(
-  entries: readonly ContentEntry[],
+  entries: readonly ContentEntryModel[],
   facets: readonly FacetDefinition[],
   state: FilterState,
 ): readonly FacetCounts[] {

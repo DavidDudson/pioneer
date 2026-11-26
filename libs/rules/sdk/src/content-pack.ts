@@ -3,11 +3,10 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AncestryDefinition } from './ancestry';
-import { ContentEntry } from './content-entry';
 import { PackId } from './content-id';
 import type { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
-import { CreatureDefinition, NPC_ONLY, npcDetailsOnNpc } from './creature';
+import { NPC_ONLY, npcDetailsOnNpc } from './creature';
 import { envelope } from './entry-envelope';
 import { ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
@@ -15,7 +14,8 @@ import { ProficiencyBonusTable } from './proficiency';
 import { RollOptionNamespaces } from './roll-option-namespace';
 import type { Selector } from './selector';
 import { StatisticDefinition } from './statistic';
-import { VariantRuleDefinition } from './variant-rule';
+import { CreatureDefinition, EntryRules, VariantRuleDefinition } from './typed-content';
+import { ContentEntry } from './typed-content-entry';
 
 export const ContentPackManifest = z.object({
   /** Prefix of every content key in the pack, e.g. `player-core`. */
@@ -51,7 +51,7 @@ const sourced = { sources: envelope.sources };
  * An ancestry with its rule elements: the features it grants (Keen Eyes) and its ancestry feat slots. Absent for a pack
  * written before the envelope, which grants nothing.
  */
-export const PackAncestry = AncestryDefinition.extend({ ...sourced, rules: envelope.rules.optional() });
+export const PackAncestry = AncestryDefinition.extend({ ...sourced, rules: EntryRules.optional() });
 
 export type PackAncestry = z.infer<typeof PackAncestry>;
 

@@ -85,8 +85,8 @@ export function npcDetailsOnNpc({
 
 export const NPC_ONLY = { ...issueParams(message(RulesMessage.CreatureNpcOnly)), path: ['npc'] };
 
-/** Schema every pack's creature (stat block) entries must satisfy. */
-export const CreatureDefinition = z.object({
+/** Schema every pack's creature (stat block) entries must satisfy, with its abilities' `rules` as references. */
+export const CreatureDefinitionModel = z.object({
   slug: EntrySlug,
   name: ContentText,
   /** -1 is valid for the weakest creatures. */
@@ -107,17 +107,17 @@ export const CreatureDefinition = z.object({
   ...creatureStatBlockFields,
 });
 
-export type CreatureDefinition = z.infer<typeof CreatureDefinition>;
+export type CreatureDefinitionModel = z.infer<typeof CreatureDefinitionModel>;
 
 /** A creature's `data` on the `ContentEntry` envelope: the stat block less what the envelope carries. */
-export const CreatureData = z
-  .strictObject(CreatureDefinition.omit({ slug: true, name: true, level: true, traits: true }).shape)
+export const CreatureDataModel = z
+  .strictObject(CreatureDefinitionModel.omit({ slug: true, name: true, level: true, traits: true }).shape)
   .refine(npcDetailsOnNpc, NPC_ONLY);
 
-export type CreatureData = z.infer<typeof CreatureData>;
+export type CreatureDataModel = z.infer<typeof CreatureDataModel>;
 
 /** What a target ignores, takes extra from, and shrugs off: the IWR lines of its stat block, or a character's. */
-export const DamageTarget = CreatureDefinition.pick({ immunities: true, weaknesses: true, resistances: true });
+export const DamageTarget = CreatureDefinitionModel.pick({ immunities: true, weaknesses: true, resistances: true });
 
 export type DamageTarget = z.infer<typeof DamageTarget>;
 

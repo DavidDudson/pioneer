@@ -6,7 +6,6 @@ import type { AncestryDefinition } from './ancestry';
 import type { ContentPackId, PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
-import type { CreatureDefinition } from './creature';
 import { RulesMessage } from './messages';
 import { PackEntry } from './pack-entry';
 import type { ProficiencyBonusTable } from './proficiency';
@@ -15,8 +14,10 @@ import type { NamespaceKind } from './roll-option-namespace';
 import type { Selector } from './selector';
 import { StatisticId } from './statistic';
 import type { StatisticDefinition } from './statistic';
+import type { CreatureDefinition, VariantRuleDefinition } from './typed-content';
 import { VariantRuleId } from './variant-rule';
-import type { VariantRuleDefinition } from './variant-rule';
+import { mergeVariantLimits } from './variant-rule-limits';
+import type { VariantRuleLimits } from './variant-rule-limits';
 
 export type AncestryEntry = PackEntry<AncestryId, AncestryDefinition>;
 
@@ -223,4 +224,15 @@ export class ContentRegistry {
  */
 export interface ContentSource {
   readonly registry: (packs?: readonly ContentPackId[]) => Promise<ContentRegistry>;
+}
+
+/** The limits changed by the variant rules `enabled` that `registry` defines; one it does not define changes nothing. */
+export function variantLimitsInForce(registry: ContentRegistry, enabled: readonly VariantRuleId[]): VariantRuleLimits {
+  return mergeVariantLimits(
+    enabled.flatMap((id) => {
+      const limits = registry.variantRule(id)?.definition.limits;
+
+      return limits === undefined ? [] : [limits];
+    }),
+  );
 }

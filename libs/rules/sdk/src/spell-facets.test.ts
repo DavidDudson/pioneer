@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { facetValues } from './facet';
 import { SPELL_FACETS } from './spell-facets';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'A spell.' }] }];

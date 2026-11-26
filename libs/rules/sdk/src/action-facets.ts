@@ -10,7 +10,7 @@ import {
   featSkills,
   SkillValue,
 } from './action-facet-values';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
 import type { FacetDefinition, FacetLeaf } from './facet';
@@ -141,7 +141,7 @@ export const PrerequisiteValue = { Met: 'met', Unknown: 'unknown', Unmet: 'unmet
 export type PrerequisiteValue = ValueOf<typeof PrerequisiteValue>;
 
 /** How a character's prerequisites read for a feat; the sdk can't see the character, so the caller supplies it. */
-export type PrerequisiteStatusOf = (entry: ContentEntry) => PrerequisiteValue;
+export type PrerequisiteStatusOf = (entry: ContentEntryModel) => PrerequisiteValue;
 
 export const PREREQUISITES_MET_FACET = FacetId.parse('prerequisites-met');
 
