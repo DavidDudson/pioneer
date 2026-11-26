@@ -1,10 +1,7 @@
 name: Generation sweep
 
-# The api's generation property tests (character, spells, gear) in full: every level, every run. A pull request runs a
-# capped subset from a fixed seed (apps/api/src/generation-sweep.ts); this runs the rest nightly, from a fresh seed each
-# time. A failure prints that seed: replay it locally with
-#   GENERATION_SWEEP=full GENERATION_SEED=<seed> [GENERATION_PATH=<path>] bun test apps/api/src/<file>.test.ts
-# It also runs on a pull request that changes it, so the sweep is seen passing before it lands on main.
+# The api's generation property tests in full, nightly from a fresh seed (apps/api/src/generation-sweep.ts). It also runs
+# on a pull request that changes it, so the sweep is seen passing before it lands.
 on:
   schedule:
     - cron: '0 15 * * *'

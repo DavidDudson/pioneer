@@ -117,7 +117,7 @@ describe('generated gear', () => {
     }
   });
 
-  test.each([...PLAYER_CORE_CLASSES])('%s, at levels 1, 5, 10, 15 and 20, is legal and within the budget', (name) => {
+  test.each([...PLAYER_CORE_CLASSES])('%s is legal and within the budget at each spot level', (name) => {
     for (const level of sweep.spotLevels) {
       expect({ level, problems: gearProblems(geared(name, level, SEED), level) }).toEqual({ level, problems: [] });
     }

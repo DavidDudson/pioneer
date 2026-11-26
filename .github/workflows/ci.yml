@@ -30,7 +30,6 @@ jobs:
   # too), and its spell picks in four by the generate-spells-* ones, which name the casters and non-casters (a class
   # added to that test goes in one of them too); the rules-ui stories took over 5 minutes on a cold cache, so they run in three shards. A new project needs
   # no entry: the "rest" entries take every project the others do not name.
-  # The api's generation property tests run a capped subset from a fixed seed here; generation-sweep.yml runs them in full nightly.
   plan:
     name: Plan
     runs-on: ubuntu-24.04

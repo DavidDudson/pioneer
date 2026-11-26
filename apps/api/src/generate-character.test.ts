@@ -81,7 +81,7 @@ describe('generateCharacter over Player Core', () => {
   );
 
   test.each([...PLAYER_CORE_CLASSES])(
-    '%s, at levels 1, 5, 10, 15 and 20 has no open or invalid slot',
+    '%s has no open or invalid slot at each spot level',
     (className) => {
       for (const level of sweep.spotLevels) {
         const result = generated(blank(className), level, level);

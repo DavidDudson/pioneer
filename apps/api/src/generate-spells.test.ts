@@ -113,7 +113,7 @@ function spellProblems(result: Generated, from: SlotContent, className: string):
 
 describe('generated spell picks', () => {
   test.each([...CASTERS])(
-    '%s, at levels 1, 5, 10, 15 and 20, holds a spell in every slot',
+    '%s holds a spell in every slot at each spot level',
     (className) => {
       for (const level of sweep.spotLevels) {
         const result = generated(blankIn(content, className), level, level);
