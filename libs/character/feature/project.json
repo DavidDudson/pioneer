@@ -15,15 +15,26 @@
       },
       "configurations": {
         "page-a": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-e]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-c]*.spec.ts"]
         },
         "page-b": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[f-r]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[d-e]*.spec.ts"]
         },
         "page-c": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[s-z]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-f*.spec.ts"]
         },
-        "rest": { "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"] }
+        "page-d": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[h-p]*.spec.ts"]
+        },
+        "page-e": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[rt-z]*.spec.ts"]
+        },
+        "page-f": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s*.spec.ts"]
+        },
+        "rest": {
+          "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"]
+        }
       }
     }
   }
