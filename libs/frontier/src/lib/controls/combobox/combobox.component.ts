@@ -16,12 +16,11 @@ import {
   viewChild,
   viewChildren,
 } from '@angular/core';
-import { injectDebouncer } from '@tanstack/angular-pacer';
 
 import { Badge, BadgeTone } from '../../text/badge/badge.component';
 import { Control } from '../control';
 import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
-import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
+import { injectSearchQuery } from '../search-query';
 import type { SelectOption } from '../select/select.component';
 import { ComboboxStatus } from './combobox-status.component';
 import { samePicked, sameTextSource, textOf } from './combobox-text';
@@ -175,20 +174,15 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly virtualRows = computed(() => this.virtualizer.getVirtualItems());
   protected readonly totalSize = computed(() => this.virtualizer.getTotalSize());
 
-  /** The query `searched` last fired; undefined until it first fires. */
-  #lastSearched: string | undefined;
   /** Set while the listbox's value is put back, so that write isn't taken for a pick. */
   #syncing = false;
-  /** Cancelled on destroy, so a pending query never fires after the control is gone. */
-  readonly #debouncer = injectDebouncer(
-    (query: string) => {
-      // A pick or a new value replaced the typed query since this keystroke.
-      if (query === this.text()) {
-        this.#search(query);
-      }
+  // A pick or a new value replacing the typed text since a keystroke makes that query stale.
+  readonly #query = injectSearchQuery({
+    current: this.text,
+    emit: (query) => {
+      this.searched.emit(query);
     },
-    { wait: SEARCH_DEBOUNCE },
-  );
+  });
 
   public constructor() {
     super();
@@ -249,7 +243,7 @@ export class Combobox<TValue extends string> extends Control {
   protected type(query: string): void {
     this.text.set(query);
     this.typed.emit(query);
-    this.#debouncer.maybeExecute(query);
+    this.#query.type(query);
   }
 
   protected choose(values: readonly TValue[]): void {
@@ -281,7 +275,7 @@ export class Combobox<TValue extends string> extends Control {
   }
 
   protected escape(): void {
-    this.#debouncer.cancel();
+    this.#query.cancel();
     this.#restore();
     this.cancelled.emit();
   }
@@ -300,14 +294,5 @@ export class Combobox<TValue extends string> extends Control {
 
   #labelOf(value: TValue): string | undefined {
     return this.options()[this.#indexByValue().get(value) ?? -1]?.label;
-  }
-
-  #search(query: string): void {
-    if (query === this.#lastSearched) {
-      return;
-    }
-
-    this.#lastSearched = query;
-    this.searched.emit(query);
   }
 }
