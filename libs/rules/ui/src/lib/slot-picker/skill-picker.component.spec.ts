@@ -53,6 +53,7 @@ describe(SkillPicker, () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.useRealTimers();
   });
 
   it('has a column for the attribute, the rank, the modifier and the armor penalty', async () => {
