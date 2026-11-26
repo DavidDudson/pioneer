@@ -35,6 +35,8 @@ interface CompanionEntry {
   readonly options: readonly CompanionSpeciesOption[];
   /** The form shows when there is no companion for the species picked. */
   readonly naming: boolean;
+  /** The companion is of another species than the choice now holds, so it can be replaced keeping its name. */
+  readonly replaceable: boolean;
 }
 
 /**
@@ -101,6 +103,7 @@ export class SheetCompanionsSection {
         card: companion === undefined ? undefined : { companion, facts },
         options: (picked === undefined ? species : [picked]).map(({ id, name }) => ({ value: id, label: name })),
         naming: picked === undefined || held?.id !== picked.id,
+        replaceable: companion !== undefined && picked !== undefined && held?.id !== picked.id,
       };
     });
   });
@@ -121,6 +124,16 @@ export class SheetCompanionsSection {
     }
 
     await this.#companions.addAnimalCompanion({ name: CompanionName.parse(name), species: chosen, grantedBy: slot });
+  }
+
+  /** Replaces the companion with one of the species the choice now holds, under the same name. */
+  protected async replace({ view }: CompanionEntry): Promise<void> {
+    const { slot, picked, companion } = view;
+
+    if (picked !== undefined && companion !== undefined) {
+      await this.#companions.archive(companion.id, CompanionArchiveReason.Replaced);
+      await this.#companions.addAnimalCompanion({ name: companion.name, species: picked.id, grantedBy: slot });
+    }
   }
 
   protected async release({ companion }: CompanionCard): Promise<void> {
