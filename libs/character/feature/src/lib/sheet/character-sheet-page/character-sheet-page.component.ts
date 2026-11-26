@@ -67,7 +67,7 @@ function markOnce(name: string, reached: () => boolean): void {
     TranslocoPipe,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: CHARACTER_SHEET_PAGE_PROVIDERS,
+  providers: [SheetContentGate, ...CHARACTER_SHEET_PAGE_PROVIDERS],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {
@@ -83,10 +83,10 @@ export class CharacterSheetPage {
     effect(() => {
       this.sheet.store.select(this.id());
     });
-    // The sections load their content once the engine's has settled, loaded or failed.
+    // The sections load once the engine's content has settled, and not before the character is open: until then it reads the registry without items.
     const gate = inject(SheetContentGate);
     effect(() => {
-      if (!this.sheet.engineQuery().isPending()) {
+      if (this.character() !== undefined && !this.sheet.engineQuery().isPending()) {
         gate.release();
       }
     });

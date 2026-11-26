@@ -263,7 +263,7 @@ export class SheetState {
     () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
   );
   /** The registry with the spells, loaded once the character has a focus entry; the spells tab shares the query. */
-  readonly #spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.#focuses());
+  readonly #spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.#focuses(), ContentPriority.Engine);
 
   /**
    * The most each pool of points holds (#345): 3 hero points, and a focus pool from the focus spells. Undefined while

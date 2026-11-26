@@ -1,12 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 
-/**
- * Whether the sheet's sections may load their content. The sheet's header waits on the registry the engine reads, and
- * the sections below it each ask for kinds of their own. Fetched together they share the browser's connections and
- * the store's reads, so the header waits on content only a section needs; the gate holds the sections back until the
- * engine's registry has settled.
- */
+/** Holds the sheet's section registries back until the engine's has settled, so the header does not wait on them. */
 @Injectable()
 export class SheetContentGate {
   readonly #released = signal(false);

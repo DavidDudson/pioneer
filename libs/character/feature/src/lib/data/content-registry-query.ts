@@ -118,7 +118,8 @@ export type ContentPriority = (typeof ContentPriority)[keyof typeof ContentPrior
 
 /**
  * The registry of `kinds` as a query, in an injection context: the loader and the query in one call. It loads only
- * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment. On the
+ * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment. A `Section`
+ * registry on the sheet also waits for the sheet's content gate to release. On the
  * sheet it holds the homebrew packs the character uses (its campaign's, else its own) and the variant rules enabled for
  * it, so its kinds include variant rules.
  */
@@ -129,13 +130,13 @@ export function injectContentRegistry(
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
   const gate = inject(SheetContentGate, { optional: true });
-  const open = (): boolean => enabled() && (priority === ContentPriority.Engine || gate?.released() !== false);
+  const mayLoad = (): boolean => enabled() && (priority === ContentPriority.Engine || gate?.released() !== false);
   const packs = inject(CharacterPackStore, { optional: true });
   const variants = inject(CharacterVariantStore, { optional: true });
   const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
   // The official content does not depend on the character: fetch it now, and the build joins it in flight.
   effect(() => {
-    if (open()) {
+    if (mayLoad()) {
       // oxlint-disable-next-line typescript/no-floating-promises -- warm catches every error, so it never rejects
       loader.warm(loaded);
     }
@@ -154,6 +155,6 @@ export function injectContentRegistry(
       variants: variantsOf(enabledVariants?.data()),
     };
 
-    return { ...contentRegistryQuery(loader, loaded, content), enabled: open() && !waiting };
+    return { ...contentRegistryQuery(loader, loaded, content), enabled: mayLoad() && !waiting };
   });
 }

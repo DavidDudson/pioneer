@@ -11,7 +11,7 @@ const registry = vi.fn<ContentLoader['registry']>();
 const warm = vi.fn<ContentLoader['warm']>();
 
 /** Runs `injectContentRegistry` in an injection context, with the sheet's gate when `gated`. */
-function load(gated: boolean, priority: ContentPriority): SheetContentGate {
+function load(gated: boolean, priority: ContentPriority, enabled: () => boolean = () => true): SheetContentGate {
   const gate = new SheetContentGate();
 
   TestBed.configureTestingModule({
@@ -21,7 +21,7 @@ function load(gated: boolean, priority: ContentPriority): SheetContentGate {
       ...(gated ? [{ provide: SheetContentGate, useValue: gate }] : []),
     ],
   });
-  TestBed.runInInjectionContext(() => injectContentRegistry([ContentKind.Spell], undefined, priority));
+  TestBed.runInInjectionContext(() => injectContentRegistry([ContentKind.Spell], enabled, priority));
   TestBed.tick();
 
   return gate;
@@ -55,6 +55,25 @@ describe(injectContentRegistry, () => {
       expect(registry).toHaveBeenCalledTimes(1);
     });
     expect(warm).toHaveBeenCalledTimes(1);
+  });
+
+  it('loads nothing while the registry is not enabled, whatever the gate and priority', () => {
+    const gate = load(true, ContentPriority.Engine, () => false);
+    gate.release();
+    TestBed.tick();
+
+    expect(registry).not.toHaveBeenCalled();
+    expect(warm).not.toHaveBeenCalled();
+  });
+
+  it('stays released once released', () => {
+    const gate = new SheetContentGate();
+
+    expect(gate.released()).toBe(false);
+
+    gate.release();
+
+    expect(gate.released()).toBe(true);
   });
 
   it('loads a section at once off the sheet, where there is no gate', async () => {
