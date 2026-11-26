@@ -1,6 +1,6 @@
 @let result = check();
 @if (result.status === GrantsStatus.Pending) {
-  <fr-skeleton shape="block" width="full" />
+  <fr-skeleton kind="block" width="full" />
 } @else if (result.status === GrantsStatus.Valid) {
   @let rows = shown();
   <fr-stack gap="lg">

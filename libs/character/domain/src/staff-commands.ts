@@ -27,20 +27,20 @@ export const StaffCommandField = {
 export type StaffCommandField = ValueOf<typeof StaffCommandField>;
 
 /** The spell cast and what pays for it: the staff's charges alone, or with `slot` also one slot of a spontaneous entry. */
-const StaffCastShape = {
+const StaffCastFields = {
   item: InventoryItemId,
   spell: ContentId,
   slot: SlotCountKey.optional(),
 };
 
 /** A staff cast as a spend records it: the staff, the spell and how it was paid for, so undoing the spend gives them back. */
-export const StaffCastSchema = z.strictObject(StaffCastShape);
+export const StaffCastSchema = z.strictObject(StaffCastFields);
 
 export type StaffCast = z.infer<typeof StaffCastSchema>;
 
 export const StaffCommandSchema = z.discriminatedUnion('field', [
-  z.object({ field: z.literal(StaffCommandField.CastStaff), ...StaffCastShape }),
-  z.object({ field: z.literal(StaffCommandField.UncastStaff), ...StaffCastShape }),
+  z.object({ field: z.literal(StaffCommandField.CastStaff), ...StaffCastFields }),
+  z.object({ field: z.literal(StaffCommandField.UncastStaff), ...StaffCastFields }),
 ]);
 
 export type StaffCommand = z.infer<typeof StaffCommandSchema>;

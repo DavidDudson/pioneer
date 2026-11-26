@@ -14,7 +14,7 @@ import type { Arbitrary } from 'fast-check';
 
 import { BadgeReevaluation, EffectBadgeType, EffectCategory, EffectDurationType, EffectExpiry } from '../effect';
 import { Proficiency } from '../proficiency';
-import { ActionCost, AreaShape, DamageCategory, DurationUnit } from '../rich-text';
+import { ActionCost, AreaKind, DamageCategory, DurationUnit } from '../rich-text';
 import { DamageKind, HeighteningType } from '../spell';
 import {
   CastTimeType,
@@ -36,8 +36,8 @@ const spellRank: Arbitrary<number> = integer({ min: 1, max: SPELL_RANK_MAX });
 
 const actionCost: Arbitrary<string> = constantFrom(...Object.values(ActionCost));
 const spellTimeUnit: Arbitrary<string> = constantFrom(...Object.values(SpellTimeUnit));
-const AREA_SHAPES_BUT_LINE = Object.values(AreaShape).filter((shape) => shape !== AreaShape.Line);
-const areaShapeButLine: Arbitrary<string> = constantFrom(...AREA_SHAPES_BUT_LINE);
+const AREA_KINDS_BUT_LINE = Object.values(AreaKind).filter((kind) => kind !== AreaKind.Line);
+const areaKindButLine: Arbitrary<string> = constantFrom(...AREA_KINDS_BUT_LINE);
 const targetKind: Arbitrary<string> = constantFrom(...Object.values(TargetKind));
 const targetQualifiers: Arbitrary<string[]> = shuffledSubarray(Object.values(TargetQualifier));
 const targetWithin: Arbitrary<string> = constantFrom(...Object.values(TargetWithin));
@@ -89,11 +89,11 @@ const range: Arbitrary<object> = oneof(
   record({ type: constant(SpellRangeType.Either), options: array(singleRange, { minLength: 2, maxLength: 3 }) }),
 );
 
-const line: Arbitrary<object> = record({ shape: constant(AreaShape.Line), size: smallint });
+const line: Arbitrary<object> = record({ shape: constant(AreaKind.Line), size: smallint });
 
 /** Only a line has a width. */
 const area: Arbitrary<object> = oneof(
-  withOptional(record({ shape: areaShapeButLine, size: smallint }), { details: richTextJson }),
+  withOptional(record({ shape: areaKindButLine, size: smallint }), { details: richTextJson }),
   withOptional(line, { width: smallint, details: richTextJson }),
 );
 

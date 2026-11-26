@@ -27,7 +27,7 @@ const breath = breathEntry();
 
 const FORMULA = /"formula":"(?<formula>[^"]+)"/u;
 const DAMAGE_TYPE = /"damageType":"(?<type>[^"]+)"/u;
-const SHAPE = /"shape":"(?<shape>[^"]+)"/u;
+const AREA_KIND_FIELD = /"shape":"(?<shape>[^"]+)"/u;
 const SAVE = /"statistic":"(?<save>[^"]+)"/u;
 
 /** What the sheet reads once the druid picks `dragon-form:<type>`: the namespace a choice writes to is known. */
@@ -51,7 +51,7 @@ function breathOf(type: string, rank: number): BreathReading {
   const altered = alterAction({ rules, facts: pickedFacts(type) }, breath);
   const text = JSON.stringify(altered.description);
   const damage = [FORMULA.exec(text)?.groups?.['formula'], DAMAGE_TYPE.exec(text)?.groups?.['type']];
-  const area = [SHAPE.exec(text)?.groups?.['shape'], SAVE.exec(text)?.groups?.['save']];
+  const area = [AREA_KIND_FIELD.exec(text)?.groups?.['shape'], SAVE.exec(text)?.groups?.['save']];
 
   return { traits: altered.traits.map(String), area, damage };
 }

@@ -5,7 +5,7 @@ import { loadRunes } from './rune-fixtures';
 
 /**
  * Weapon property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
- * weapon take the shape of another (`weapon-shapes.ts`), a choice the sheet keeps per item, and authorized hurts a
+ * weapon take the shape of another (`weapon-shifts.ts`), a choice the sheet keeps per item, and authorized hurts a
  * wielder the item's state does not name (`authorized-weapon.ts`).
  */
 export const MODELLED_IN_PLAY: ReadonlySet<string> = new Set(['rune:shifting', 'rune:authorized']);

@@ -53,7 +53,7 @@ export type ActionCost = ValueOf<typeof ActionCost>;
 export const ActionCostSchema = z.enum(ActionCost);
 
 /** Area shapes a spell or effect template can have. */
-export const AreaShape = {
+export const AreaKind = {
   Burst: 'burst',
   Cone: 'cone',
   Cube: 'cube',
@@ -63,9 +63,9 @@ export const AreaShape = {
   Square: 'square',
 } as const;
 
-export type AreaShape = ValueOf<typeof AreaShape>;
+export type AreaKind = ValueOf<typeof AreaKind>;
 
-export const AreaShapeSchema = z.enum(AreaShape);
+export const AreaKindSchema = z.enum(AreaKind);
 
 export const DurationUnit = { Round: 'round', Minute: 'minute', Hour: 'hour', Day: 'day' } as const;
 
@@ -196,11 +196,11 @@ export type DamageNode = z.infer<typeof DamageNode>;
 const TemplateNode = z
   .strictObject({
     type: z.literal(InlineKind.Template),
-    shape: AreaShapeSchema,
+    shape: AreaKindSchema,
     size: Feet,
     width: Feet.optional(),
   })
-  .refine((template) => template.width === undefined || template.shape === AreaShape.Line, {
+  .refine((template) => template.width === undefined || template.shape === AreaKind.Line, {
     ...issueParams(message(RulesMessage.RichTextWidthOnLine)),
     path: ['width'],
   });

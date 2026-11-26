@@ -1,6 +1,6 @@
 @let result = check();
 @if (result.status === StatisticsStatus.Pending) {
-  <fr-skeleton shape="block" width="full" />
+  <fr-skeleton kind="block" width="full" />
 } @else if (result.status === StatisticsStatus.Valid) {
   @if (result.rows.length === 0) {
     <fr-empty-state [title]="'play.rules.noStatistics' | transloco" />
