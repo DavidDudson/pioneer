@@ -205,14 +205,14 @@ interface Reading extends DiceAndType {
   readonly conditional: readonly RuleId[];
 }
 
-/** The dice of `reading` with `more` added, when there are some to add. */
-function addedDice(reading: Reading, more: DiceCount | undefined): DiceCount {
-  return more === undefined ? reading.dice : DiceCount.parse(reading.dice + more);
+/** `reading`'s dice plus `more`, when the element rolls with the Strike's die and does not change its size. */
+function addedDice(reading: Reading, more: DiceCount | undefined, changes: boolean): DiceCount {
+  return changes && more !== undefined ? DiceCount.parse(reading.dice + more) : reading.dice;
 }
 
-/** The damage type of `reading`, or `override` when a rule changes it. */
-function changedType(reading: Reading, override: Reading['damageType'] | undefined): Reading['damageType'] {
-  return override ?? reading.damageType;
+/** The damage type of `reading`, or the one `element` overrides it with when the element changes the dice. */
+function changedType(reading: Reading, element: DamageDiceElement, changes: boolean): DamageType {
+  return changes ? (element.override?.damageType ?? reading.damageType) : reading.damageType;
 }
 
 /** `reading` after a damage dice `element` of `rule` that reaches the Strike's damage. */
@@ -234,8 +234,8 @@ function withDamageDice(
 
   return {
     ...reading,
-    dice: addedDice(reading, changes ? more : undefined),
-    damageType: changedType(reading, changes ? element.override?.damageType : undefined),
+    dice: addedDice(reading, more, changes),
+    damageType: changedType(reading, element, changes),
     extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
   };
 }

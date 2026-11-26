@@ -11,6 +11,7 @@ describe('slugify', () => {
     ['  Spaced   Out  ', 'spaced-out'],
     ['Already-hyphenated -- name', 'already-hyphenated-name'],
     ['camelCase', 'camel-case'],
+    ['planB', 'plan-b'],
     ['Wand of Fireball (3rd-Rank Spell)', 'wand-of-fireball-3rd-rank-spell'],
     ['Élan', 'élan'],
     ['-', '-'],

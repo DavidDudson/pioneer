@@ -243,9 +243,9 @@
     "sonarjs/no-inverted-boolean-check": "error",
     "sonarjs/prefer-single-boolean-return": "error",
     "sonarjs/no-nested-switch": "error",
+    // `sonarjs/no-ignored-return` is left out: it needs a TypeScript program, which oxlint JS plugins do not get.
     "sonarjs/no-small-switch": "error",
     "sonarjs/no-useless-catch": "error",
-    "sonarjs/no-ignored-return": "error",
     "sonarjs/no-identical-conditions": "error",
     "sonarjs/no-identical-expressions": "error",
     "sonarjs/no-element-overwrite": "error",
@@ -501,6 +501,11 @@
       // Specs repeat a fixture builder or an assertion helper per describe block on purpose; a shared one hides the setup.
       "files": ["**/*.test.ts", "**/*.spec.ts", "**/*.bench.ts"],
       "rules": { "sonarjs/no-identical-functions": "off" }
+    },
+    {
+      // fast-check's `assert(property(...))` is the assertion; the rule only knows `expect`-style calls.
+      "files": ["**/*.property.test.ts"],
+      "rules": { "sonarjs/assertions-in-tests": "off" }
     },
     {
       // These parse Foundry's and Archives of Nethys's markup at build time, from committed or fetched pages, never from a
