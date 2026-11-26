@@ -172,7 +172,7 @@ describe('the merge, with outcomes stripped, is the input', () => {
   );
 
   const shape = record({ basic: boolean(), held }).map((each) =>
-    check({ ...(each.basic ? { basic: true } : {}), ...each.held }),
+    check(each.basic ? { basic: true, ...each.held } : each.held),
   );
 
   const checks = array(record({ shape, outcome: constantFrom(undefined, success, failure) }), { maxLength: 5 });

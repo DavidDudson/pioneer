@@ -16,14 +16,10 @@ function withMatch(entry: ContentEntry, match: PrerequisiteMatch): ContentEntry 
 
   const { prerequisitePredicate, prerequisiteClauses } = match;
 
-  return {
-    ...entry,
-    data: {
-      ...entry.data,
-      ...(prerequisitePredicate === undefined ? {} : { prerequisitePredicate }),
-      ...(prerequisiteClauses === undefined ? {} : { prerequisiteClauses }),
-    },
-  };
+  const withPredicate = prerequisitePredicate === undefined ? entry.data : { ...entry.data, prerequisitePredicate };
+  const data = prerequisiteClauses === undefined ? withPredicate : { ...withPredicate, prerequisiteClauses };
+
+  return { ...entry, data };
 }
 
 /**

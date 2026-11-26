@@ -31,12 +31,11 @@ for (const spell of [...DEVOTION, 'protectors-sacrifice']) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const grant = (spell: string, predicate?: readonly unknown[]): object => ({
-  key: 'FocusSpells',
-  entry: 'champion-focus',
-  spells: [spellId(spell)],
-  ...(predicate === undefined ? {} : { predicate }),
-});
+const grant = (spell: string, predicate?: readonly unknown[]): object => {
+  const element = { key: 'FocusSpells', entry: 'champion-focus', spells: [spellId(spell)] };
+
+  return predicate === undefined ? element : { ...element, predicate };
+};
 
 pack
   .withFeat('devout-magic', {

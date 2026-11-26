@@ -184,34 +184,60 @@ export class SheetEffectAdd {
     this.allyChoice.set(undefined);
   };
 
-  /** The edit that applies `option`: who it comes from, the badge it rolls, and for a form its choice, rank and temporary Hit Points. */
-  #command(option: EffectOption): PlayCommand {
-    const rolled = option.formula === undefined ? undefined : rollBadge(option.formula, this.#random);
-    const chosen = this.form();
-    const form = chosen === undefined ? undefined : RollOption.parse(chosen);
+  /** The rank and tradition a polymorph effect is cast at; none for any other effect. */
+  #polymorph(option: EffectOption): Pick<ActiveEffect, 'rank' | 'tradition'> {
     const rank = option.polymorph ? SpellRank.parse(Number(this.rank() ?? option.rankFloor)) : undefined;
     const picked = MagicTraditionSchema.safeParse(this.tradition());
     const tradition = option.polymorph && picked.success ? picked.data : undefined;
+    const fields: Pick<ActiveEffect, 'rank' | 'tradition'> = {};
+
+    if (rank !== undefined) {
+      fields.rank = rank;
+    }
+
+    if (tradition !== undefined) {
+      fields.tradition = tradition;
+    }
+
+    return fields;
+  }
+
+  /** The effect `option` puts on the character: its source, and for a form its choice, rank, tradition and spell. */
+  #applying(option: EffectOption): ActiveEffect {
+    const chosen = this.form();
+    const form = chosen === undefined ? undefined : RollOption.parse(chosen);
     const cast = this.spell();
 
-    const applying = {
+    const applying: ActiveEffect = {
       id: EffectInstanceId.parse(newId()),
       effect: ContentId.parse(option.id),
       source: this.#source(),
-      ...(form === undefined ? {} : { form }),
-      ...(rank === undefined ? {} : { rank }),
-      ...(tradition === undefined ? {} : { tradition }),
-      ...(cast === undefined ? {} : { spell: ActiveSpellId.parse(cast) }),
+      ...this.#polymorph(option),
     };
+
+    if (form !== undefined) {
+      applying.form = form;
+    }
+
+    if (cast !== undefined) {
+      applying.spell = ActiveSpellId.parse(cast);
+    }
+
+    return applying;
+  }
+
+  /** The edit that applies `option`: who it comes from, the badge it rolls, and for a form its choice, rank and temporary Hit Points. */
+  #command(option: EffectOption): PlayCommand {
+    const rolled = option.formula === undefined ? undefined : rollBadge(option.formula, this.#random);
+    const applying = this.#applying(option);
 
     const tempHp = this.tempHpFor()(applying);
+    const applyEdit: PlayCommand = { field: EffectCommandField.ApplyEffect, ...applying };
 
-    return {
-      field: EffectCommandField.ApplyEffect,
-      ...applying,
-      ...(rolled === undefined ? {} : { rolled: EffectBadgeValue.parse(rolled) }),
-      ...(tempHp === undefined ? {} : { tempHp }),
-    };
+    const rolledEdit: PlayCommand =
+      rolled === undefined ? applyEdit : { ...applyEdit, rolled: EffectBadgeValue.parse(rolled) };
+
+    return tempHp === undefined ? rolledEdit : { ...rolledEdit, tempHp };
   }
 
   #source(): EffectSource {

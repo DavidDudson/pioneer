@@ -1,4 +1,5 @@
 import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { resolveSlug } from './entry-references';
 import type { EntryReferences } from './entry-references';
@@ -48,8 +49,8 @@ export function senseElement(
   return {
     key: RuleElementKey.Sense,
     sense,
-    ...(acuity === undefined || fixed?.acuity !== undefined ? {} : { acuity }),
-    ...(range === undefined || fixed?.unlimitedRange === true ? {} : { range }),
+    ...present({ acuity: fixed?.acuity === undefined ? acuity : undefined }),
+    ...present({ range: fixed?.unlimitedRange === true ? undefined : range }),
   };
 }
 
@@ -72,8 +73,8 @@ export function withSense(raw: unknown, context: SenseContext): unknown {
   }
 
   const fields = {
-    ...('acuity' in raw ? { acuity: raw.acuity } : {}),
-    ...('range' in raw ? { range: raw.range } : {}),
+    ...present({ acuity: 'acuity' in raw ? raw.acuity : undefined }),
+    ...present({ range: 'range' in raw ? raw.range : undefined }),
   };
 
   const element = senseElement(raw.selector, fields, context);

@@ -4,7 +4,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { CharacterDocument } from './character-document';
 import { CharacterLevel } from './character-fields';
 import { SlotInvalidMessage, SlotSubjectKind } from './character-slot';
-import type { CharacterSlot } from './character-slot';
+import type { CharacterSlot, SlotSubject } from './character-slot';
 import { PreparedPickProblem } from './prepared-pick-problem';
 import { preparedSlots } from './prepared-spells';
 import { signatureSlots } from './signature-spells';
@@ -12,6 +12,8 @@ import { preparedReads } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { invalidReason, invalidSlot, validSlot } from './slot-read';
 import type { SlotRead } from './slot-read';
+
+type SpellSubject = Extract<SlotSubject, { readonly kind: typeof SlotSubjectKind.Spell }>;
 
 /** The reason a prepared pick that names a loaded spell counts for nothing. */
 const PREPARED_PROBLEMS: Readonly<Record<PreparedPickProblem, string>> = {
@@ -43,18 +45,17 @@ export function preparedStatuses(
   const planned = plannedAt(document, at);
 
   return preparedSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {
-    const read: SlotRead = {
-      key: slot.key,
-      subject: {
-        kind: SlotSubjectKind.Spell,
-        entry: slot.entry,
-        ...(slot.pool === undefined ? {} : { pool: slot.pool.slug }),
-        rank: slot.rank,
-        ...(slot.granted ? { granted: true } : {}),
-      },
-      stored: slot.stored,
-      planned,
-    };
+    const subject: SpellSubject = { kind: SlotSubjectKind.Spell, entry: slot.entry, rank: slot.rank };
+
+    if (slot.pool !== undefined) {
+      subject.pool = slot.pool.slug;
+    }
+
+    if (slot.granted) {
+      subject.granted = true;
+    }
+
+    const read: SlotRead = { key: slot.key, subject, stored: slot.stored, planned };
 
     if (slot.stored === undefined || slot.pick !== undefined) {
       return validSlot(read, slot.pick?.name);

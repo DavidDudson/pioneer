@@ -71,15 +71,14 @@ export class SheetFormPicker {
     const choice = this.#choice();
     const pending = this.pending();
 
-    return choice === undefined || pending === undefined
-      ? undefined
-      : {
-          id: this.#instance(),
-          effect: ContentId.parse(choice.effect),
-          source: SELF,
-          ...(pending.rank === undefined ? {} : { rank: pending.rank }),
-          ...(choice.form === undefined ? {} : { form: choice.form }),
-        };
+    if (choice === undefined || pending === undefined) {
+      return undefined;
+    }
+
+    const base: ActiveEffect = { id: this.#instance(), effect: ContentId.parse(choice.effect), source: SELF };
+    const ranked: ActiveEffect = pending.rank === undefined ? base : { ...base, rank: pending.rank };
+
+    return choice.form === undefined ? ranked : { ...ranked, form: choice.form };
   });
 
   /** What the picked form changes; undefined until one is picked, or while the content loads. */

@@ -24,7 +24,9 @@ const openSheet = openerAt(SheetMode.Exploration, 'exploration-activity');
 
 /** The play state of a full-health character doing `exploration`, at `revision`. */
 function playWith(exploration: string | undefined, revision = 1): object {
-  return { revision, play: { hp: { damage: 0, temp: 0 }, ...(exploration === undefined ? {} : { exploration }) } };
+  const activity = exploration === undefined ? undefined : { exploration };
+
+  return { revision, play: { hp: { damage: 0, temp: 0 }, ...activity } };
 }
 
 function pickerOf(root: HTMLElement): HTMLElement {

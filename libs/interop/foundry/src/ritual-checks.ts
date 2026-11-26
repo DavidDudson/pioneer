@@ -1,4 +1,5 @@
 import { Proficiency, ProficiencySchema, RitualCheckPick } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { loreSelector, loreTopic } from './foundry-lore';
@@ -234,9 +235,9 @@ function statedOf(skills: readonly Skill[], tradition: boolean): Stated | undefi
   const [note] = remarks;
 
   return {
-    ...(pick === undefined ? {} : { pick }),
-    ...(loreRelatedTo === undefined ? {} : { loreRelatedTo }),
-    ...(note === undefined ? {} : { note }),
+    ...present({ pick }),
+    ...present({ loreRelatedTo }),
+    ...present({ note }),
   };
 }
 
@@ -257,7 +258,7 @@ function checkOf(text: string): object | undefined {
     skills: skills.map(({ selector }) => selector),
     ...ranks,
     ...stated,
-    ...(dc === undefined ? {} : { dc: Number(dc) }),
+    ...present({ dc: dc === undefined ? undefined : Number(dc) }),
   };
 }
 

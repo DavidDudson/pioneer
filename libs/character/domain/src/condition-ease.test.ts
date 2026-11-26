@@ -6,12 +6,19 @@ import { easeCondition } from './condition-ease';
 import { ConditionDurationKind, ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 
-const held = (value?: number): ActiveCondition => ({
-  id: ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001'),
-  condition: ContentId.parse('00000000-0000-4000-8000-0000000000c1'),
-  ...(value === undefined ? {} : { value: ConditionValue.parse(value) }),
-  duration: { kind: ConditionDurationKind.Unlimited },
-});
+const held = (value?: number): ActiveCondition => {
+  const condition: ActiveCondition = {
+    id: ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001'),
+    condition: ContentId.parse('00000000-0000-4000-8000-0000000000c1'),
+    duration: { kind: ConditionDurationKind.Unlimited },
+  };
+
+  if (value !== undefined) {
+    condition.value = ConditionValue.parse(value);
+  }
+
+  return condition;
+};
 
 describe('easeCondition', () => {
   test('removing ends the condition whatever its value', () => {

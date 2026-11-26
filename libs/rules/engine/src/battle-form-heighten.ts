@@ -60,11 +60,9 @@ type Change = Omit<BattleFormBracket, 'start'>;
 function withChange(form: Form, change: Change): Form {
   const { armorClass, speeds, skills, senses, strikes, immunities, weaknesses, resistances, ...whole } = change;
 
-  return {
+  const changed: Form = {
     ...form,
     ...whole,
-    ...(armorClass === undefined ? {} : { armorClass: { ...form.armorClass, ...armorClass } }),
-    ...(speeds === undefined ? {} : { speeds: { ...form.speeds, ...speeds } }),
     skills: overlaid(form.skills, skills, ({ skill }) => skill),
     senses: overlaid(form.senses, senses, ({ sense }) => sense),
     strikes: strikesOver(form.strikes, strikes),
@@ -72,6 +70,11 @@ function withChange(form: Form, change: Change): Form {
     weaknesses: overlaid(form.weaknesses, weaknesses, ({ type }) => type),
     resistances: overlaid(form.resistances, resistances, ({ type }) => type),
   };
+
+  const armored: Form =
+    armorClass === undefined ? changed : { ...changed, armorClass: { ...form.armorClass, ...armorClass } };
+
+  return speeds === undefined ? armored : { ...armored, speeds: { ...form.speeds, ...speeds } };
 }
 
 /**

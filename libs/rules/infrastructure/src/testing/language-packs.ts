@@ -15,7 +15,7 @@ export const DRACONIC: Language = { slug: 'draconic', name: 'Draconic' };
 export const ELVEN: Language = { slug: 'elven', name: 'Elven' };
 
 function languageEntry(pack: string, { slug, name, text, license }: Language): object {
-  return {
+  const entry = {
     id: contentId(PackId.parse(pack), EntrySlug.parse(`language:${slug}`)),
     pack,
     kind: 'language',
@@ -27,8 +27,9 @@ function languageEntry(pack: string, { slug, name, text, license }: Language): o
     description: text === undefined ? [] : [{ type: 'paragraph', content: [{ type: 'text', text }] }],
     rules: [],
     data: {},
-    ...(license === undefined ? {} : { license }),
   };
+
+  return license === undefined ? entry : { ...entry, license };
 }
 
 /** A pack of languages, as its JSON files would hold it. */

@@ -1,5 +1,6 @@
 import { ContentKind, Uses } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Count, itemSystem, Slug } from './creature-embedded';
@@ -70,8 +71,8 @@ function spellOf(item: Embedded, input: KindInput): CastSpell | undefined {
   return {
     spell,
     rank: system.location.heightenedLevel ?? system.level.value,
-    ...(uses === undefined ? {} : { uses }),
-    ...(constant ? { constant: true as const } : {}),
+    ...present({ uses }),
+    ...present({ constant: constant ? (true as const) : undefined }),
   };
 }
 

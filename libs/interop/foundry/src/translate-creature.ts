@@ -1,4 +1,5 @@
 import { DamageAdjustmentTargetSchema, Immunity } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
@@ -137,7 +138,7 @@ function adjustments(list: readonly z.infer<typeof Adjustment>[], field: string,
       report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.doubleVs`, raw: doubleVs });
     }
 
-    return [{ type: target.data, value, ...(exceptions.length > 0 ? { exceptions } : {}) }];
+    return [{ type: target.data, value, ...present({ exceptions: exceptions.length > 0 ? exceptions : undefined }) }];
   });
 }
 
@@ -201,8 +202,8 @@ interface FoundrySenseValue {
 function senseOf({ type, acuity, range }: FoundrySenseValue): object {
   return {
     sense: type,
-    ...(acuity === undefined ? {} : { acuity }),
-    ...(range === undefined ? {} : { range }),
+    ...present({ acuity }),
+    ...present({ range }),
   };
 }
 
@@ -254,7 +255,7 @@ export function creatureData(input: KindInput): object | undefined {
 
   return {
     role: creatureRole(pack.directory),
-    ...(size === undefined ? {} : { size }),
+    ...present({ size }),
     perception: perception.mod,
     attributes: attributeModifiers(system),
     armorClass: attributes.ac.value,

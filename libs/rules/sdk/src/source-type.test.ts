@@ -8,13 +8,14 @@ import { SourceType, sourceType } from './source-type';
 const PLAYER_CORE = SourceRef.parse({ kind: 'book', book: 'player-core' });
 
 function book(productLine: ProductLine | undefined, remaster: boolean): Book {
-  return Book.parse({
+  const fields = {
     id: 'player-core',
     publisher: 'paizo',
     license: remaster ? ContentLicense.Orc : ContentLicense.Ogl,
     remaster,
-    ...(productLine === undefined ? {} : { productLine }),
-  });
+  };
+
+  return Book.parse(productLine === undefined ? fields : { ...fields, productLine });
 }
 
 const BOOK_CASES: readonly (readonly [ProductLine, SourceType, SourceType])[] = [

@@ -1,5 +1,6 @@
 import { DamageTypeSchema, HeighteningType } from '@pioneer/rules/sdk';
 import type { DamageType } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { fromFoundryFormula } from './foundry-formula';
@@ -100,9 +101,9 @@ function damagePart(
     key: partKey(key),
     formula: part.applyMod === true ? `${formula}${SPELLCASTING_MODIFIER}` : formula,
     ...damageType,
-    ...(part.category === null || part.category === undefined ? {} : { category: part.category }),
+    ...present({ category: part.category ?? undefined }),
     kinds: part.kinds ?? DEFAULT_KINDS,
-    ...(materials.length > 0 ? { materials } : {}),
+    ...present({ materials: materials.length > 0 ? materials : undefined }),
   };
 }
 
@@ -143,7 +144,7 @@ function intervalOf(heightening: FoundryHeightening, kept: ReadonlySet<string>):
     type: HeighteningType.Interval,
     interval: heightening.interval,
     damage,
-    ...(area > 0 ? { area } : {}),
+    ...present({ area: area > 0 ? area : undefined }),
   };
 }
 

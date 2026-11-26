@@ -33,13 +33,12 @@ function instanceId(index: number): EffectInstanceId {
 }
 
 const effects: Arbitrary<readonly ActiveEffect[]> = shapes.map((each) =>
-  each.map(({ remaining, expiry }, index): ActiveEffect => ({
-    id: instanceId(index),
-    effect: CONTENT,
-    source: SELF,
-    ...(remaining === undefined ? {} : { remaining: EffectRounds.parse(remaining) }),
-    ...(expiry === undefined ? {} : { expiry }),
-  })),
+  each.map(({ remaining, expiry }, index): ActiveEffect => {
+    const left = remaining === undefined ? undefined : { remaining: EffectRounds.parse(remaining) };
+    const ending = expiry === undefined ? undefined : { expiry };
+
+    return { id: instanceId(index), effect: CONTENT, source: SELF, ...left, ...ending };
+  }),
 );
 
 /** Whether the effect ends at this turn start: its last round ends at a turn start, or it has no clock and ends at one. */

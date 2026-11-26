@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { fromFoundryFormula } from './foundry-formula';
 import { SKILLS } from './foundry-skills';
@@ -125,7 +126,7 @@ function withSelectors(raw: unknown): unknown {
     ([field]) => field !== 'selector' && !(hideable && DISPLAY_ONLY_FIELDS.has(field)),
   );
 
-  return { ...(flat ? { type: 'untyped' } : {}), ...Object.fromEntries(kept), selectors };
+  return { ...present({ type: flat ? 'untyped' : undefined }), ...Object.fromEntries(kept), selectors };
 }
 
 /** A modifier-like element with its `selector` as `selectors`, and a check-shaping one with its fields renamed too. */

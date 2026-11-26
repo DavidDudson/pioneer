@@ -1,4 +1,5 @@
 import { FAVORED_WEAPON, Proficiency, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 /** Foundry's ranks by number, trained (1) to legendary (4). */
@@ -32,6 +33,6 @@ export function withFavoredWeaponRank(raw: unknown): unknown {
     key: RuleElementKey.Proficiency,
     selector: FAVORED_WEAPON,
     rank: RANKS[value - LOWEST_RANK],
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }

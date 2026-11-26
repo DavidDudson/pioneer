@@ -1,4 +1,5 @@
 import { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 /**
  * Foundry's spell targets, English text ("1 willing living creature or 1 undead", "you and up to 4 allies", "the
@@ -180,7 +181,7 @@ function numbered(text: string): Counted {
 
   return count === undefined
     ? { words: text }
-    : { count: { count, ...(upTo ? { upTo: true } : {}) }, words: words.join(' ') };
+    : { count: { count, ...present({ upTo: upTo ? true : undefined }) }, words: words.join(' ') };
 }
 
 /** A count in words ("any number of", "the triggering", "all … in range") or a number. */
@@ -213,8 +214,10 @@ function narrowed(target: Described): Pick<Target, 'qualifiers' | 'traits'> | un
   }
 
   return {
-    ...(qualifiers.length === 0 ? {} : { qualifiers }),
-    ...(traits.length === 0 ? {} : { traits }),
+    ...present({
+      qualifiers: qualifiers.length === 0 ? undefined : qualifiers,
+      traits: traits.length === 0 ? undefined : traits,
+    }),
   };
 }
 
@@ -296,5 +299,5 @@ export function targetsOf(text: string): object | undefined {
   const groups = groupsOf(you?.['rest'] ?? value);
   const caster = you?.['you'] === 'or' ? TargetYou.Or : TargetYou.And;
 
-  return groups && { ...groups, ...(you === undefined ? {} : { you: caster }) };
+  return groups && { ...groups, ...present({ you: you === undefined ? undefined : caster }) };
 }

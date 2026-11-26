@@ -36,28 +36,27 @@ describe('Shield Block with a shield of layers', () => {
     },
   };
 
-  const withBadge = (badge: number | undefined): PlayState => ({
-    ...FRESH_PLAY,
-    effects: [
-      ActiveEffectSchema.parse({
-        id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000a3'),
-        effect: EFFECT,
-        ...(badge === undefined ? {} : { badge }),
-      }),
-    ],
-  });
+  const withBadge = (badge: number | undefined): PlayState => {
+    const marked = badge === undefined ? undefined : { badge };
 
-  const blockBreaking = (play: PlayState, layers?: number): PlayState =>
-    applyPlayCommand(
+    const effect = {
+      id: EffectInstanceId.parse('00000000-0000-4000-8000-0000000000a3'),
+      effect: EFFECT,
+      ...marked,
+    };
+
+    return { ...FRESH_PLAY, effects: [ActiveEffectSchema.parse(effect)] };
+  };
+
+  const blockBreaking = (play: PlayState, layers?: number): PlayState => {
+    const breaking = layers === undefined ? undefined : { layers: ShieldLayers.parse(layers) };
+
+    return applyPlayCommand(
       play,
-      {
-        field: PlayCommandField.BlockWithShield,
-        item: ITEM,
-        damage: untypedDamage(hp(20)),
-        ...(layers === undefined ? {} : { layers: ShieldLayers.parse(layers) }),
-      },
+      { field: PlayCommandField.BlockWithShield, item: ITEM, damage: untypedDamage(hp(20)), ...breaking },
       { ...within(MAX), shields: new Map([[ITEM, LAYERED]]) },
     );
+  };
 
   test.each([
     [1, 5],

@@ -96,12 +96,13 @@ export function exportPioneerCharacter(
 
   const homebrew = embeddedUsing(embedded, used);
 
-  const file = PioneerCharacterFile.parse({
+  const envelope = {
     format: PIONEER_CHARACTER_FORMAT,
     formatVersion: CURRENT_FORMAT_VERSION,
     character,
-    ...(homebrew.length === 0 ? {} : { homebrew }),
-  });
+  };
+
+  const file = PioneerCharacterFile.parse(homebrew.length === 0 ? envelope : { ...envelope, homebrew });
 
   return { ok: true, file };
 }

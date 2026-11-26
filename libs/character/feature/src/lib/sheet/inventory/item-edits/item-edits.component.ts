@@ -129,11 +129,14 @@ export class ItemEdits {
     schema: NameDraft,
     save: async (value) => {
       const name = NameDraft.parse(value);
-      await this.#store.patch({
-        field: CharacterPatchField.RenameItem,
-        id: this.id(),
-        ...(name === '' ? {} : { name }),
-      });
+
+      if (name === '') {
+        await this.#store.patch({ field: CharacterPatchField.RenameItem, id: this.id() });
+
+        return;
+      }
+
+      await this.#store.patch({ field: CharacterPatchField.RenameItem, id: this.id(), name });
     },
   });
   protected readonly place = sheetField<string | undefined>(this.#holder, {
@@ -142,11 +145,14 @@ export class ItemEdits {
     schema: PlaceDraft,
     save: async (value) => {
       const container = PlaceDraft.parse(value ?? LOOSE);
-      await this.#store.patch({
-        field: CharacterPatchField.MoveItem,
-        id: this.id(),
-        ...(container === LOOSE ? {} : { container }),
-      });
+
+      if (container === LOOSE) {
+        await this.#store.patch({ field: CharacterPatchField.MoveItem, id: this.id() });
+
+        return;
+      }
+
+      await this.#store.patch({ field: CharacterPatchField.MoveItem, id: this.id(), container });
     },
     format: (value) => this.places.rows.all().find((row) => row.value === value)?.label ?? '',
   });

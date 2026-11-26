@@ -35,13 +35,11 @@ for (const [name, rank] of [
 
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
 
-const slots = (rank: string | number, value: number, level = 1): object => ({
-  key: 'SpellSlots',
-  entry: 'sorcerer',
-  rank,
-  value,
-  ...(level > 1 ? { predicate: [{ gte: ['self:level', level] }] } : {}),
-});
+const slots = (rank: string | number, value: number, level = 1): object => {
+  const rule = { key: 'SpellSlots', entry: 'sorcerer', rank, value };
+
+  return level > 1 ? { ...rule, predicate: [{ gte: ['self:level', level] }] } : rule;
+};
 
 const SPELLCASTING = pack.idOf(ContentKind.ClassFeature, 'sorcerer-spellcasting');
 const BLOODLINE = pack.idOf(ContentKind.ClassFeature, 'bloodline-test');

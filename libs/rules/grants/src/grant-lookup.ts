@@ -178,13 +178,14 @@ function levelOptions(entry: ContentEntry): RollOption[] {
 function factsOf(entry: ContentEntry, pack: ContentPack, state: LookupState): EntryFacts {
   const level = 'level' in entry ? entry.level : undefined;
 
-  return {
-    ...(level === undefined ? {} : { level }),
+  const facts: EntryFacts = {
     rarity: entry.rarity,
     traits: entry.traits,
     description: entry.description,
     ...standingOf(entry, pack, state),
   };
+
+  return level === undefined ? facts : { ...facts, level };
 }
 
 /** Whether an entry is legacy, held back, and replaced: what its facts say of where it stands for the character. */
@@ -195,11 +196,21 @@ function standingOf(
 ): Pick<EntryFacts, 'legacy' | 'replacedBy' | 'unsupported'> {
   const replacedBy = state.replacements().get(entry.id) ?? [];
 
-  return {
-    ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
-    ...(isHeldBack(entry, pack, state) ? { unsupported: true as const } : {}),
-    ...(replacedBy.length > 0 ? { replacedBy } : {}),
-  };
+  const standing: { -readonly [Key in 'legacy' | 'replacedBy' | 'unsupported']?: EntryFacts[Key] } = {};
+
+  if (isLegacyLicense(effectiveLicense(entry, pack.manifest))) {
+    standing.legacy = true;
+  }
+
+  if (isHeldBack(entry, pack, state)) {
+    standing.unsupported = true;
+  }
+
+  if (replacedBy.length > 0) {
+    standing.replacedBy = replacedBy;
+  }
+
+  return standing;
 }
 
 /** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */

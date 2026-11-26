@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { slugify } from './foundry-slug';
@@ -33,7 +34,7 @@ export function withStrikeDamage(raw: unknown): unknown {
   const { base } = damage.data;
   const { damageType, die, dice = 1 } = base;
 
-  return { ...raw, damage: { dice, ...(die === undefined ? {} : { die }), damageType } };
+  return { ...raw, damage: { dice, ...present({ die }), damageType } };
 }
 
 /** The fields of Foundry's `Strike` that mean nothing to Pioneer's: what a weapon is based on, its tags and its token image. */
@@ -91,7 +92,7 @@ export function withoutStrikeExtras(raw: unknown): unknown {
 
   const slug = 'damage' in raw ? strikeSlug(raw) : undefined;
 
-  return { ...kept, ...strikeRange(raw), ...(slug === undefined ? {} : { slug }) };
+  return { ...kept, ...strikeRange(raw), ...present({ slug }) };
 }
 
 const READ_FROM_ITEM = '{item|';

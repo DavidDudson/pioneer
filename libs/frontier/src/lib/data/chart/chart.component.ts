@@ -40,11 +40,12 @@ export class Chart {
   protected readonly options = computed<ChartOptions>(() => {
     const description = this.description();
 
-    return {
+    const options: ChartOptions = {
       definition: this.definition(),
       ariaLabel: this.label(),
       aspectRatio: ASPECT_RATIO[this.aspect()],
-      ...(description === undefined ? {} : { ariaDescription: description }),
     };
+
+    return description === undefined ? options : { ...options, ariaDescription: description };
   });
 }

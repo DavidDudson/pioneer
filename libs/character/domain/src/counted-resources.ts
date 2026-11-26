@@ -178,7 +178,9 @@ const FREQUENCY_COUNTDOWNS: Readonly<Partial<Record<FrequencyPeriod, UseCountdow
 function frequencyTerms(frequency: Frequency): Pick<CountedMaximum, 'boundary' | 'countdown'> {
   const countdown = FREQUENCY_COUNTDOWNS[frequency.per];
 
-  return { boundary: frequencyBoundary(frequency), ...(countdown === undefined ? {} : { countdown }) };
+  const boundary = frequencyBoundary(frequency);
+
+  return countdown === undefined ? { boundary } : { boundary, countdown };
 }
 
 /** The slots of each entry and each of its pools, one maximum per rank that has any; cantrips are not counted. */

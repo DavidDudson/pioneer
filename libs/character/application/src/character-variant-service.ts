@@ -169,9 +169,8 @@ export class CharacterVariantService extends EffectiveVariants {
 
     const used = new Set(inForce.map((entry) => entry.id));
 
-    return {
+    const result = {
       decidedBy: manageable ? PackAuthority.Character : PackAuthority.Campaign,
-      ...(campaign === undefined ? {} : { campaign: campaign.name }),
       manageable,
       enabled: inForce.map((entry) => optionOf(entry)).toSorted(byName),
       available: manageable
@@ -182,5 +181,11 @@ export class CharacterVariantService extends EffectiveVariants {
             .toSorted(byName)
         : [],
     };
+
+    if (campaign !== undefined) {
+      Object.assign(result, { campaign: campaign.name });
+    }
+
+    return result;
   }
 }

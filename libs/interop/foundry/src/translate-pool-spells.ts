@@ -1,4 +1,5 @@
 import { ContentId, contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
+import { present } from '@pioneer/shared/kernel';
 
 import { CURRICULA } from './school-curricula';
 
@@ -31,7 +32,7 @@ function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate
     entry,
     pool,
     spells: spells.map((spell) => spellId(pack, spell)),
-    ...(predicate === undefined ? {} : { predicate }),
+    ...present({ predicate }),
   };
 }
 

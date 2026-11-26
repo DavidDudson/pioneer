@@ -41,13 +41,17 @@ const CONTENT: EffectContent = new Map([
 
 /** Why applying the effect with `form` at `rank` is refused, if it is. */
 function refusal(form: RollOption | undefined, rank: number | undefined): EffectProblem | undefined {
-  const command = EffectCommandSchema.parse({
+  const input = {
     field: EffectCommandField.ApplyEffect,
     id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000001'),
     effect: EFFECT,
-    ...(form === undefined ? {} : { form }),
-    ...(rank === undefined ? {} : { rank: SpellRank.parse(rank) }),
-  });
+  };
+
+  const withForm = form === undefined ? input : { ...input, form };
+
+  const command = EffectCommandSchema.parse(
+    rank === undefined ? withForm : { ...withForm, rank: SpellRank.parse(rank) },
+  );
 
   return effectProblem([], command, CONTENT);
 }

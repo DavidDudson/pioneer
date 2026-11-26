@@ -79,6 +79,13 @@ const ArmorInputsJson = z.strictObject({
   origin: Origin,
 });
 
+/** The inputs that may be absent, set only when the JSON gives them. */
+type Optionals = {
+  -readonly [
+    Key in 'armor' | 'dexterityCap' | 'ancestry' | 'class' | 'weapons' | 'spellcasting'
+  ]?: StatisticInputs[Key];
+};
+
 /** The inputs as JSON, with ranks as an object keyed by selector, decoded into `StatisticInputs`. */
 export const StatisticInputsJson = z
   .strictObject({
@@ -102,16 +109,39 @@ export const StatisticInputsJson = z
       weapons,
       spellcasting,
       ...rest
-    }): StatisticInputs => ({
-      ...rest,
-      ...(armor === undefined ? {} : { armor }),
-      ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
-      ...(dexterityCap === undefined ? {} : { dexterityCap }),
-      ...(ancestry === undefined ? {} : { ancestry }),
-      ...(characterClass === undefined ? {} : { class: characterClass }),
-      ...(weapons === undefined ? {} : { weapons }),
-      ...(spellcasting === undefined ? {} : { spellcasting }),
-    }),
+    }): StatisticInputs => {
+      const optional: Optionals = {};
+
+      if (armor !== undefined) {
+        optional.armor = armor;
+      }
+
+      if (dexterityCap !== undefined) {
+        optional.dexterityCap = dexterityCap;
+      }
+
+      if (ancestry !== undefined) {
+        optional.ancestry = ancestry;
+      }
+
+      if (characterClass !== undefined) {
+        optional.class = characterClass;
+      }
+
+      if (weapons !== undefined) {
+        optional.weapons = weapons;
+      }
+
+      if (spellcasting !== undefined) {
+        optional.spellcasting = spellcasting;
+      }
+
+      return {
+        ...rest,
+        ...optional,
+        ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
+      };
+    },
   );
 
 /** The order of ranks, so `@rank.<selector>` reads 0 for untrained to 4 for legendary. */

@@ -167,13 +167,13 @@ describe('handsNeeded', () => {
 });
 
 function line(name: ItemFixture, carry: Carry, invested?: true): InventoryItem {
-  return {
-    id: ropeId,
-    item: itemFixtureId(name),
-    quantity: one,
-    carry,
-    ...(invested === undefined ? {} : { invested }),
-  };
+  const item: InventoryItem = { id: ropeId, item: itemFixtureId(name), quantity: one, carry };
+
+  if (invested !== undefined) {
+    item.invested = invested;
+  }
+
+  return item;
 }
 
 function held(hands: Hands): Carry {

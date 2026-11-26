@@ -55,13 +55,20 @@ const content = fixedContent(builder.build());
 const FALSE_VITALITY = ContentId.parse(builder.idOf(ContentKind.Effect, FORTITUDE));
 const INSPIRE_ID = ContentId.parse(builder.idOf(ContentKind.Effect, INSPIRE));
 
-const applyEffect = (effect: ContentId, rolled?: number): PlayCommand => ({
-  field: EffectCommandField.ApplyEffect,
-  id: EffectInstanceId.parse(newId()),
-  effect,
-  source: SELF,
-  ...(rolled === undefined ? {} : { rolled: EffectBadgeValue.parse(rolled) }),
-});
+const applyEffect = (effect: ContentId, rolled?: number): PlayCommand => {
+  const command: PlayCommand = {
+    field: EffectCommandField.ApplyEffect,
+    id: EffectInstanceId.parse(newId()),
+    effect,
+    source: SELF,
+  };
+
+  if (rolled === undefined) {
+    return command;
+  }
+
+  return { ...command, rolled: EffectBadgeValue.parse(rolled) };
+};
 
 describe('PlayService effects', () => {
   let repository: InMemoryCharacterRepository;

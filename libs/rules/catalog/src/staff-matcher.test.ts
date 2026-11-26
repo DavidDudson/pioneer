@@ -7,11 +7,11 @@ import { matchStaffSpells, spellIndex, staffMatches } from './staff-matcher';
 const PACK = 'gm-core';
 const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), EntrySlug.parse(slug)));
 
-const text = (words: string, marks?: readonly string[]): object => ({
-  type: 'text',
-  text: words,
-  ...(marks === undefined ? {} : { marks }),
-});
+const text = (words: string, marks?: readonly string[]): object => {
+  const node = { type: 'text', text: words };
+
+  return marks === undefined ? node : { ...node, marks };
+};
 
 const item = (rank: string, spells: string): object[] => [
   { type: 'paragraph', content: [text(rank, ['strong']), text(` ${spells}`)] },

@@ -63,14 +63,15 @@ function ranksOf(entry: ContentEntry): PreviewRanks | undefined {
 function previewOf(entry: ContentEntry): EntryPreview {
   const ranks = ranksOf(entry);
 
-  return {
+  const preview: EntryPreview = {
     name: entry.name,
     level: 'level' in entry ? entry.level : undefined,
     traits: entry.traits,
     summary: entry.description,
     sources: entry.sources,
-    ...(ranks === undefined ? {} : { ranks }),
   };
+
+  return ranks === undefined ? preview : { ...preview, ranks };
 }
 
 /**

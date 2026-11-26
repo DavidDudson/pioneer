@@ -114,7 +114,9 @@ function withSpeeds(bracket: unknown, speeds: Fields): unknown {
   const value = isFields(bracket) && isFields(bracket['value']) ? bracket['value'] : {};
   const held = isFields(value['speeds']) ? value['speeds'] : {};
 
-  return { ...(isFields(bracket) ? bracket : {}), value: { ...value, speeds: { ...held, ...speeds } } };
+  const base = isFields(bracket) ? bracket : {};
+
+  return { ...base, value: { ...value, speeds: { ...held, ...speeds } } };
 }
 
 /** `form` with `speeds` in the bracket that starts at `start`, added to the bracket there is or a new one. */
