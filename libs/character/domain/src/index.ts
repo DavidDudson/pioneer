@@ -1172,3 +1172,7 @@ export {
   ShiftsSchema,
   shiftedInventory,
 } from './weapon-shifts';
+
+export { CORE_EARN_INCOME, earnIncomeDc, incomePerDay } from './earn-income';
+
+export { EarnDays, EarnRank, TASK_LEVEL_MAX, TaskLevel } from './earn-income-fields';

@@ -1,0 +1,47 @@
+<fr-async-form [form]="form" [action]="collect" [describeError]="describeError">
+  <fr-stack gap="sm">
+    <fr-text variant="caption" tone="muted">{{ 'character.sheet.income.explain' | transloco }}</fr-text>
+    @if (skillOptions().length === 0) {
+      <fr-text>{{ 'character.sheet.income.noSkills' | transloco }}</fr-text>
+    } @else {
+      <fr-grid [columns]="2">
+        <pio-option-picker
+          [ariaLabel]="'character.sheet.income.skill' | transloco"
+          [placeholder]="'character.sheet.income.skill' | transloco"
+          [options]="skillOptions()"
+          [value]="model().skill || undefined"
+          (valueChange)="pickSkill($event)"
+        />
+        <fr-number-field [label]="'character.sheet.income.level' | transloco" [formField]="form.level" />
+        <fr-number-field [label]="'character.sheet.income.days' | transloco" [formField]="form.days" />
+        <pio-option-picker
+          [ariaLabel]="'character.sheet.income.result' | transloco"
+          [placeholder]="'character.sheet.income.result' | transloco"
+          [options]="degreeOptions"
+          [value]="model().degree || undefined"
+          (valueChange)="pickDegree($event)"
+        />
+      </fr-grid>
+      @if (dc(); as dc) {
+        <fr-text>{{ 'character.sheet.income.dc' | transloco: { dc } }}</fr-text>
+      }
+      @if (payout(); as payout) {
+        <fr-text>{{ 'character.sheet.income.payout' | transloco: { payout } }}</fr-text>
+      }
+      <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
+        <fr-button [disabled]="model().skill === '' || dc() === undefined" (pressed)="roll()">
+          {{ 'character.sheet.income.roll' | transloco }}
+        </fr-button>
+        <fr-async-button
+          type="submit"
+          variant="primary"
+          [disabled]="form().invalid()"
+          [pendingLabel]="'character.sheet.income.collecting' | transloco"
+          [successLabel]="'character.sheet.income.collected' | transloco"
+        >
+          {{ 'character.sheet.income.collect' | transloco }}
+        </fr-async-button>
+      </fr-stack>
+    }
+  </fr-stack>
+</fr-async-form>

@@ -6,15 +6,17 @@ import type { CharacterPatch } from './character-patch';
 import { coinChange, LedgerReason, withCoinEntry } from './coin-ledger';
 import type { LedgerEntry } from './coin-ledger';
 import { CoinsSchema } from './coins';
+import type { Coins } from './coins';
 import type { Inventory } from './inventory';
 
 const NO_COINS = CoinsSchema.parse({});
 
-/** The reason a patch moves coins: a purchase pays, a hand edit adjusts. Any other change is a transfer between purses. */
+/** The reason a patch moves coins: a purchase pays, earning income credits, a hand edit adjusts. Any other change is a transfer between purses. */
 const REASONS: Readonly<Partial<Record<CharacterPatchField, LedgerReason>>> = {
   [CharacterPatchField.BuyItem]: LedgerReason.Purchase,
   [CharacterPatchField.BuyKit]: LedgerReason.Purchase,
   [CharacterPatchField.SetCoins]: LedgerReason.Adjustment,
+  [CharacterPatchField.EarnIncome]: LedgerReason.Income,
 };
 
 /** The reason `patch` moves coins, for a patch that does. */
@@ -52,4 +54,9 @@ export function withOpeningEntry(inventory: Inventory): Inventory {
   }
 
   return { ...inventory, ledger: [{ reason: LedgerReason.Opening, change }] };
+}
+
+/** `document` holding `coins`, with no ledger entry: `withCoinLedger` adds that once the edit is done. */
+export function withCoins(document: CharacterDocument, coins: Coins): CharacterDocument {
+  return { ...document, inventory: { ...document.inventory, coins } };
 }

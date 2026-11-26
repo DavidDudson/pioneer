@@ -102,6 +102,7 @@ type UnaimedField =
   | typeof CharacterPatchField.SelectSlot
   | typeof CharacterPatchField.ClearSlot
   | typeof CharacterPatchField.SetCoins
+  | typeof CharacterPatchField.EarnIncome
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
   | UnplacedPickPatch['field']
@@ -118,6 +119,7 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.SelectSlot,
   CharacterPatchField.ClearSlot,
   CharacterPatchField.SetCoins,
+  CharacterPatchField.EarnIncome,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,

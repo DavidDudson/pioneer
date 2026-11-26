@@ -96,7 +96,8 @@ function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>):
       return { id: patch.id };
     }
 
-    case CharacterPatchField.SetCoins: {
+    case CharacterPatchField.SetCoins:
+    case CharacterPatchField.EarnIncome: {
       return {};
     }
 

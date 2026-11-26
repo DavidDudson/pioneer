@@ -14,6 +14,8 @@ export const LedgerReason = {
   Purchase: 'purchase',
   /** The player set the coins by hand. */
   Adjustment: 'adjustment',
+  /** Days of work paid out by Earn Income. */
+  Income: 'income',
   /** Coins moved to or from another character or the party stash. */
   Transfer: 'transfer',
 } as const;

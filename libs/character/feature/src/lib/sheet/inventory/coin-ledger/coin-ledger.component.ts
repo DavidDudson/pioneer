@@ -24,11 +24,12 @@ const REASON_MESSAGES: Readonly<Record<LedgerReason, string>> = {
   [LedgerReason.Opening]: 'character.sheet.inventory.ledger.reason.opening',
   [LedgerReason.Purchase]: 'character.sheet.inventory.ledger.reason.purchase',
   [LedgerReason.Adjustment]: 'character.sheet.inventory.ledger.reason.adjustment',
+  [LedgerReason.Income]: 'character.sheet.inventory.ledger.reason.income',
   [LedgerReason.Transfer]: 'character.sheet.inventory.ledger.reason.transfer',
 };
 
 /** Each coin's short name, as an amount is written. */
-const COIN_MESSAGES: Readonly<Record<Coin, string>> = {
+export const COIN_MESSAGES: Readonly<Record<Coin, string>> = {
   [Coin.Platinum]: 'character.sheet.inventory.ledger.coin.pp',
   [Coin.Gold]: 'character.sheet.inventory.ledger.coin.gp',
   [Coin.Silver]: 'character.sheet.inventory.ledger.coin.sp',
