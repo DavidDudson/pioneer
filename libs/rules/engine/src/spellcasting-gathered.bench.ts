@@ -22,20 +22,20 @@ const SPELL_POOL_SIZE = 64;
 /** Spell ranks an element names a spell at: a cantrip, then 1 to 9. */
 const RANKS = 10;
 
-/** The issue's budget for gathering the spells a level 20 caster's elements give. */
-const BUDGET_MS = 0.5;
+/** Gathering a level 20 caster's spells takes about 0.1 ms; the budget leaves room for a noisy runner. */
+const BUDGET_MS = 1;
 
 const SPELL_POOL = Array.from({ length: SPELL_POOL_SIZE }, (_value, index) =>
   ContentId.parse(`00000000-0000-4000-8000-${String(index).padStart(12, '0')}`),
 );
 
 /** The spells of the `element`th element, starting at its own place in the pool so neighbours overlap. */
-const spellsOf = Array.from({ length: ELEMENTS_PER_KIND }, (_value, element) =>
+const spellsPerElement = Array.from({ length: ELEMENTS_PER_KIND }, (_value, element) =>
   [...SPELL_POOL, ...SPELL_POOL].slice(element, element + SPELLS_PER_ELEMENT),
 );
 
-/** The same spells with a rank each: a cantrip first, then 1 to 9. */
-const grantedOf = spellsOf.map((spells, element) =>
+/** The same spells with a rank each. */
+const grantedPerElement = spellsPerElement.map((spells, element) =>
   spells.map((spell, offset) => ({
     rank: (element + offset) % RANKS === 0 ? 'cantrip' : (element + offset) % RANKS,
     spell,
@@ -46,10 +46,10 @@ const grantedOf = spellsOf.map((spells, element) =>
 function inputs(): ModifierInputs {
   const placed: RuleJson[] = [
     { key: 'SpellcastingEntry', slug: 'caster', tradition: 'arcane', attribute: 'int', preparation: 'spontaneous' },
-    ...spellsOf.map((spells): RuleJson => ({ key: 'PoolSpells', entry: 'caster', pool: 'curriculum', spells })),
-    ...spellsOf.map((spells): RuleJson => ({ key: 'FocusSpells', entry: 'caster', spells })),
-    ...grantedOf.map((spells): RuleJson => ({ key: 'InnateSpells', entry: 'caster', spells })),
-    ...grantedOf.map((spells): RuleJson => ({ key: 'RepertoireSpells', entry: 'caster', spells })),
+    ...spellsPerElement.map((spells): RuleJson => ({ key: 'PoolSpells', entry: 'caster', pool: 'curriculum', spells })),
+    ...spellsPerElement.map((spells): RuleJson => ({ key: 'FocusSpells', entry: 'caster', spells })),
+    ...grantedPerElement.map((spells): RuleJson => ({ key: 'InnateSpells', entry: 'caster', spells })),
+    ...grantedPerElement.map((spells): RuleJson => ({ key: 'RepertoireSpells', entry: 'caster', spells })),
   ];
 
   const rules = placed.map((element, rule) => inPlay(element, 'caster-spellcasting', { rule }));

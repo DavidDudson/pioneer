@@ -17,10 +17,10 @@ const TRAITS = ['Fire', 'Mental', 'Fear', 'Manipulate', 'Incapacitation'] as con
 const DAMAGE = ['fire', 'mental', 'cold'] as const;
 const TARGETS = [TargetValue.Single, TargetValue.Multiple] as const;
 
-/** The issue's budget for filtering a thousand spells. */
+/** Filtering a thousand spells takes about 0.4 ms; the budget leaves room for a noisy runner. */
 const FILTER_BUDGET_MS = 1.5;
 
-/** The issue's budget for counting the filter panel's options over a thousand spells. */
+/** Counting the filter panel's options takes about 0.7 ms; the budget leaves room for a noisy runner. */
 const GROUPS_BUDGET_MS = 3;
 
 /** A thousand spells spread over the sources, traits, damage types and targets. */

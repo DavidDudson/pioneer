@@ -36,7 +36,7 @@ export interface Gathered {
 }
 
 /** The ids of `spells` that `known` lacks, in order. */
-function unseen(known: readonly ContentId[], spells: readonly ContentId[]): readonly ContentId[] {
+function freshIds(known: readonly ContentId[], spells: readonly ContentId[]): readonly ContentId[] {
   const held = new Set(known);
 
   return spells.filter((spell) => !held.has(spell));
@@ -46,7 +46,7 @@ function unseen(known: readonly ContentId[], spells: readonly ContentId[]): read
 function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSpellsElement): void {
   const pools = poolSpells.get(entry) ?? new Map<RuleSlug, ContentId[]>();
   const taken = pools.get(pool) ?? [];
-  pools.set(pool, [...taken, ...unseen(taken, spells)]);
+  pools.set(pool, [...taken, ...freshIds(taken, spells)]);
   poolSpells.set(entry, pools);
 }
 
@@ -59,7 +59,7 @@ function addInnateSpells({ innateSpells }: Gathered, { entry, spells }: InnateSp
 /** Adds `spells` to the focus spells of `entry`, each spell once. */
 function addFocusSpells({ focusSpells }: Gathered, { entry, spells }: FocusSpellsElement): void {
   const known = focusSpells.get(entry) ?? [];
-  focusSpells.set(entry, [...known, ...unseen(known, spells)]);
+  focusSpells.set(entry, [...known, ...freshIds(known, spells)]);
 }
 
 /** Adds the repertoire spells and counts an element gives an entry (ADR-0062, ADR-0063). */

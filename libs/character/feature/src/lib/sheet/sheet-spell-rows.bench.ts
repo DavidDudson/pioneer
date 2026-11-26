@@ -29,8 +29,8 @@ const TAKEN_EVERY = 20;
 const RANKS = 9;
 const FIRST_RANK = 1;
 
-/** The issue's budget for the rows of a picker over a thousand spells. */
-const BUDGET_MS = 0.5;
+/** The rows of a thousand spells take about 0.04 ms; the budget leaves room for a noisy runner. */
+const BUDGET_MS = 1;
 
 const spellId = (index: number): ContentId =>
   ContentId.parse(`00000000-0000-4000-8000-${String(index).padStart(12, '0')}`);

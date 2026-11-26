@@ -81,6 +81,9 @@ function damageTypesOf({ detail }: SpellRowLine): readonly DamageType[] {
   );
 }
 
+/** What a spell has in each group. */
+type GroupValues = Readonly<Record<SpellFilterGroupId, readonly string[]>>;
+
 /** The values a spell has in each group, unique within the group. */
 function valuesOf({ line, source }: SourcedSpell): GroupValues {
   const { detail } = line;
@@ -96,22 +99,24 @@ function valuesOf({ line, source }: SourcedSpell): GroupValues {
 
 const GROUPS: readonly SpellFilterGroupId[] = Object.values(SpellFilterGroupId);
 
-/** What a spell has in each group. */
-type GroupValues = Readonly<Record<SpellFilterGroupId, readonly string[]>>;
+/** The groups `filter` has picks in, apart from `skip`. */
+function pickedGroups(filter: SpellPicks, skip?: SpellFilterGroupId): readonly SpellFilterGroupId[] {
+  return GROUPS.filter((group) => group !== skip && (filter.get(group)?.size ?? 0) > 0);
+}
 
-function passes(values: GroupValues, filter: SpellPicks, skip?: SpellFilterGroupId): boolean {
-  const picking = GROUPS.filter((group) => group !== skip && (filter.get(group)?.size ?? 0) > 0);
-
-  return picking.every((group) => values[group].some((value) => filter.get(group)?.has(value) === true));
+function passes(values: GroupValues, picked: readonly SpellFilterGroupId[], filter: SpellPicks): boolean {
+  return picked.every((group) => values[group].some((value) => filter.get(group)?.has(value) === true));
 }
 
 /** The spells every group of `filter` keeps: OR within a group, AND across groups. */
 export function filterSpells(spells: readonly SourcedSpell[], filter: SpellPicks): readonly SourcedSpell[] {
-  if (GROUPS.every((group) => (filter.get(group)?.size ?? 0) === 0)) {
+  const picked = pickedGroups(filter);
+
+  if (picked.length === 0) {
     return spells;
   }
 
-  return spells.filter((spell) => passes(valuesOf(spell), filter));
+  return spells.filter((spell) => passes(valuesOf(spell), picked, filter));
 }
 
 /** Words a value of a group for the viewer. */
@@ -146,15 +151,17 @@ export function spellFilterGroups(
   words: { readonly label: (key: string) => string; readonly value: ValueWords },
 ): readonly SpellFilterGroup[] {
   // Worked out once, so the passes over the groups below do not repeat it for every spell.
-  const values = spells.map((spell) => valuesOf(spell));
+  const valuesPerSpell = spells.map((spell) => valuesOf(spell));
 
   return GROUPS.map((group): SpellFilterGroup => {
     const selected = filter.get(group) ?? new Set<string>();
     const counts = new Map<string, number>([...selected].map((value) => [value, 0]));
 
-    for (const own of values) {
-      if (passes(own, filter, group)) {
-        for (const value of own[group]) {
+    const picked = pickedGroups(filter, group);
+
+    for (const spellValues of valuesPerSpell) {
+      if (passes(spellValues, picked, filter)) {
+        for (const value of spellValues[group]) {
           counts.set(value, (counts.get(value) ?? 0) + 1);
         }
       }
