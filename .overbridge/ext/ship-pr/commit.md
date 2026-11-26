@@ -13,7 +13,7 @@
   printf '%s\n' "<pr title>" | committed --commit-file -
   ```
 
-- Commit and push through the dev shell, because the pre-commit and pre-push hooks (`prek`) live in it:
+- Commit and push through the dev shell, because the pre-commit and commit-msg hooks (`prek`) live in it:
   `overbridge shell pioneer -- git commit ...` and `overbridge shell pioneer -- git push -u origin HEAD`. A hook that
   reformats a file aborts the commit: restage and commit again. Use `--force-with-lease` when a rebase rewrote a
   pushed branch.
