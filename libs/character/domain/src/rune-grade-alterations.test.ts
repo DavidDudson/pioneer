@@ -4,8 +4,9 @@ import type { ModifierInputs } from '@pioneer/rules/engine';
 import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Modifier, RuneGrade } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
+import { ContentPackBuilder, CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
+import { characterStatisticInputs } from './character-statistics';
 import { equippedInputs } from './equipped-inputs';
 import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
@@ -13,7 +14,8 @@ import { CarryState, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';
 import { ItemRunesSchema } from './rune-etching';
 import type { ItemRunes } from './rune-etching';
-import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
+import { slotContent } from './slot-offer';
+import { CharacterBuilder, ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry } from './testing';
 
 installRulesFakes();
 
@@ -82,5 +84,30 @@ describe('equipped items with rune grade alterations', () => {
 
     expect(plain).toMatchObject({ bonus: Modifier.parse(3), resilient: RuneGrade.parse(2) });
     expect(altered).toMatchObject({ bonus: Modifier.parse(1), resilient: undefined });
+  });
+});
+
+describe('a variant rule that alters rune grades', () => {
+  const pack = new ContentPackBuilder()
+    .withId('variants')
+    .withVariantRuleElements('no-runes', [], [overriding('weapon', 'potency', 0)[0]])
+    .build();
+
+  const registry = itemFixtureRegistry();
+  registry.register(pack);
+  const variants = registry.variantRules();
+
+  test('reaches the weapons of the statistic inputs while it is in force, and not otherwise', () => {
+    const runes = ItemRunesSchema.parse({ potency: 2 });
+    const inventory = etched(carrying(ItemFixture.Longsword, HELD), runes);
+    const { document } = new CharacterBuilder().build();
+    const character = { ...document, inventory };
+    const slots = slotContent(registry, variants);
+
+    const [off] = characterStatisticInputs(registry, character, slots).weapons ?? [];
+    const [on] = characterStatisticInputs(registry, character, slots, variants).weapons ?? [];
+
+    expect(off?.potency).toBe(RuneGrade.parse(2));
+    expect(on?.potency).toBeUndefined();
   });
 });
