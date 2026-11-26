@@ -21,6 +21,7 @@
     "affected": "nx affected -t lint lint-templates typecheck test test-storybook build verify-styles verify-dev-free",
     "test:tools": "bun test tools",
     "typecheck:tools": "tsc --noEmit -p tools/tsconfig.json && tsc --noEmit -p libs/frontier/scripts/tsconfig.json",
+    "nx:snapshot": "bun tools/nx-target-snapshot.ts",
     "bench": "bun tools/bench.ts",
     "perf:probe": "bun tools/perf-probe.ts",
     "perf:sheet": "bun tools/sheet-waterfall.ts",
