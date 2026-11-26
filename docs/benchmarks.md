@@ -56,3 +56,33 @@ commits.
 
 The history lives on a `gh-pages` branch, created by the first run on `main`. After it exists, enable GitHub Pages for
 the repository from the `gh-pages` branch, root folder, so the charts are served at the URL above.
+
+## Scans audited
+
+An audit of `.find`, `.some` and `.includes` calls in the hot paths (#1722 perf: replace list scans with maps in hot
+paths). A scan is a problem only inside a loop over a long list; a single lookup on a short list is cheaper than an
+index.
+
+Fixed, with a benchmark each:
+
+| Path                                                               | Before                     | After   | Benchmark                                        |
+| ------------------------------------------------------------------ | -------------------------- | ------- | ------------------------------------------------ |
+| `spellFilterGroups`: each spell's values worked out once per group | 2.43 ms over 1000 spells   | 0.65 ms | `character: count the spell filter options ...`  |
+| `gatherSpells`: `Set` dedupe, not `includes`/`some` per spell      | 0.10 ms (lists of 8 to 64) | 0.10 ms | `engine: gather the spells of a level 20 caster` |
+
+The gather change is for consistency: its lists are capped at 8 to 64 spells, so the nested scan never cost anything
+measurable.
+
+Measured and left alone:
+
+- `spellRows` (the spell picker's row builder): 0.04 ms over 1000 spells, already one pass with a `Set` for the spells
+  the entry holds.
+- `filterSpells`: 0.4 ms over 1000 spells, one pass.
+- Grant resolution (`resolve-grants.ts`), `lookupOf`, the candidate options' access index and `traitNames` (cached
+  per registry in a `WeakMap`): already index-based.
+- The `.find` calls in `slot-candidates.ts` and `sheet-spell-*.ts`: single lookups, not inside a loop over a long
+  list.
+- The other `.find` calls on short lists (a character's slots, a class's levels): not rewritten.
+
+Not a scan: `apps/api/src/level-20-builds.bench.ts` (24 to 48 ms) spends about 40 % of its time in zod parsing
+(`RollOption.parse`, `libs/rules/sdk/src/roll-option.ts`). That is a separate piece of work.
