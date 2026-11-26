@@ -263,8 +263,10 @@ export {
   CanonicalJson,
   canonicalJson,
   contentPackFromBundles,
+  contentPackFromKindEntries,
   descriptionFromBundle,
   descriptionShard,
+  entriesFromBundles,
 } from './content-bundle';
 
 export type { DescriptionBundle, DescriptionShard, FetchedKind, KindBundles, PackBundles } from './content-bundle';

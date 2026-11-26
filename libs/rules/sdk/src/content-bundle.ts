@@ -222,7 +222,7 @@ export interface FetchedKind {
  * when it built them. A bundle is immutable and public, so it is not checked again here: that was most of the time
  * a sheet spent opening. An entry with no name is still an error, since the files no longer agree.
  */
-function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
+export function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
   // SAFETY: the server checked this bundle when it built it, and a bundle is immutable and public.
   // So its names have this shape.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
@@ -260,9 +260,21 @@ function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames
  * `ContentEntry` once its name is added back, then filed as `contentPackFromFiles` does. An entry has no description.
  */
 export function contentPackFromBundles(packFile: JsonValue, kinds: readonly FetchedKind[]): ContentPack {
-  const entries = kinds.flatMap((kind) => entriesFromBundles(kind));
+  return contentPackFromKindEntries(
+    packFile,
+    kinds.map((kind) => entriesFromBundles(kind)),
+  );
+}
 
-  return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
+/**
+ * `contentPackFromBundles` over kinds already read (`entriesFromBundles`), one list of entries per kind. Packs built
+ * from the same lists share their entry objects.
+ */
+export function contentPackFromKindEntries(
+  packFile: JsonValue,
+  kinds: readonly (readonly ContentEntry[])[],
+): ContentPack {
+  return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries: kinds.flat() });
 }
 
 /** `id`'s description in a fetched description shard, or undefined when the entry has none. */
