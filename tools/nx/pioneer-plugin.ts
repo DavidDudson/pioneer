@@ -1,73 +1,38 @@
 /**
- * Local Nx plugin: infers the targets every project gets, so project.json
- * files only declare what is genuinely project-specific (Angular builders,
- * the API's compile step).
- *
- * - `typecheck`: `ngc` for Angular projects (template type-checking),
- *   `bun check` for everything else. Both read tsconfig.json, which includes the specs, so a type error in a spec fails it.
- * - `lint-templates`: ESLint (angular-eslint) on Angular projects' templates.
- * - `test`: `bun test` for projects with `*.test.ts` files (Bun-run code).
- *   Angular projects use `*.spec.ts` with the Angular Vitest builder instead.
+ * Local Nx plugin: infers the targets every project gets, so project.json files only declare what is genuinely
+ * project-specific (Angular builders, the API's compile step). One module per target under `./targets/`; each
+ * answers from a project's `ProjectFacts` and returns `undefined` when the project has nothing for it to run on.
  */
-import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { createNodesFromFiles } from '@nx/devkit';
 import type { CreateNodes, TargetConfiguration } from '@nx/devkit';
 
-function hasMatchingFile(directory: string, matches: (file: string) => boolean): boolean {
-  return readdirSync(directory, { withFileTypes: true })
-    .filter((entry) => entry.name !== 'node_modules' && !entry.name.startsWith('.'))
-    .some((entry) => {
-      const child = path.join(directory, entry.name);
+import { readProjectFacts } from './project-facts.ts';
+import type { ProjectFacts } from './project-facts.ts';
+import { inferBunTest } from './targets/bun-test.ts';
+import { inferLintTemplates } from './targets/lint-templates.ts';
+import { inferTypecheck } from './targets/typecheck.ts';
 
-      return entry.isDirectory() ? hasMatchingFile(child, matches) : matches(entry.name);
-    });
-}
+/** Decides one target for a project: its configuration, or `undefined` for a project it does not apply to. */
+type TargetInferrer = (facts: ProjectFacts) => TargetConfiguration | undefined;
 
-/** The targets every project can get: `typecheck` always, the others when the project has what they run on. */
-interface InferredTargets extends Record<string, TargetConfiguration> {
-  readonly typecheck: TargetConfiguration;
-  'lint-templates'?: TargetConfiguration;
-  test?: TargetConfiguration;
-}
+/** Inferred target name to the module that decides it. */
+const INFERRERS = {
+  typecheck: inferTypecheck,
+  'lint-templates': inferLintTemplates,
+  test: inferBunTest,
+} satisfies Record<string, TargetInferrer>;
 
-function inferTargets(root: string, absoluteRoot: string): InferredTargets {
-  // SAFETY: a project's `tsconfig.json` is a JSON object, and only whether it has `angularCompilerOptions` is read, an optional field.
-  const tsconfig = JSON.parse(readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8')) as {
-    readonly angularCompilerOptions?: unknown;
-  };
+function inferTargets(facts: ProjectFacts): Record<string, TargetConfiguration> {
+  const inferred = Object.entries(INFERRERS).map(([name, infer]): [string, TargetConfiguration | undefined] => [
+    name,
+    infer(facts),
+  ]);
 
-  const angular = tsconfig.angularCompilerOptions !== undefined;
+  const applicable = inferred.filter((entry): entry is [string, TargetConfiguration] => entry[1] !== undefined);
 
-  const targets: InferredTargets = {
-    typecheck: {
-      cache: true,
-      // Dependencies are compiled from their sources only: their specs and stories cannot change this result.
-      inputs: ['default', '^production'],
-      command: angular ? `ngc -p ${root}/tsconfig.json --noEmit` : `bun check --no-script -p ${root}/tsconfig.json`,
-    },
-  };
-
-  if (angular && hasMatchingFile(absoluteRoot, (file) => file.endsWith('.html'))) {
-    targets['lint-templates'] = {
-      cache: true,
-      // The sharedGlobals input carries bun.lock, so an ESLint or angular-eslint bump reruns it.
-      inputs: [
-        '{projectRoot}/**/*.html',
-        '{workspaceRoot}/eslint.config.ts',
-        '{workspaceRoot}/tools/eslint/**/*',
-        'sharedGlobals',
-      ],
-      command: `eslint --max-warnings=0 '${root}/**/*.html'`,
-    };
-  }
-
-  if (hasMatchingFile(absoluteRoot, (file) => file.endsWith('.test.ts'))) {
-    targets.test = { cache: true, inputs: ['default', '^production'], command: `bun test ${root}` };
-  }
-
-  return targets;
+  return Object.fromEntries(applicable);
 }
 
 export const createNodes: CreateNodes = [
@@ -76,8 +41,9 @@ export const createNodes: CreateNodes = [
     createNodesFromFiles(
       (configFile) => {
         const root = path.dirname(configFile);
+        const facts = readProjectFacts(root, context.workspaceRoot);
 
-        return { projects: { [root]: { targets: inferTargets(root, path.join(context.workspaceRoot, root)) } } };
+        return { projects: { [root]: { targets: inferTargets(facts) } } };
       },
       configFiles,
       options,
