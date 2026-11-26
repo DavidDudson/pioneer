@@ -5,12 +5,26 @@ import { contentEntries, contentHash, contentPacks } from '@pioneer/rules/infras
 import type { ContentPackFile, ContentPackId } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { archiveRows, restoreRows, stampAudit } from '@pioneer/shared/server';
+import type { Executor } from '@pioneer/shared/server';
 import { and, count, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { GRAPH_LOCK } from './drizzle-pack-dependency-repository';
+
+/**
+ * Takes the graph lock first, as a dependency addition does. Without it a restore and an archive of the pack it
+ * extends could both pass their checks.
+ */
+async function takeGraphLock(tx: Executor): Promise<void> {
+  await tx.execute(sql`select pg_advisory_xact_lock(${GRAPH_LOCK})`);
+}
+
+/** A homebrew pack: a row with an owner, as official packs have none. */
+function ownedPack(id: ContentPackId): SQL | undefined {
+  return and(eq(contentPacks.id, id), isNotNull(contentPacks.ownerId));
+}
 
 type PackRow = typeof contentPacks.$inferSelect;
 
@@ -121,38 +135,25 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     return toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
   }
 
-  public override async archive(id: ContentPackId, now: Temporal.Instant, guarded: GuardedChange): Promise<void> {
-    await this.#setArchived(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)), now.toString(), guarded);
-  }
-
-  public override async restore(id: ContentPackId, guarded: GuardedChange): Promise<void> {
-    await this.#setArchived(and(eq(contentPacks.id, id), isNotNull(contentPacks.archivedAt)), sql`null`, guarded);
-  }
-
-  /**
-   * Stamps or clears `archivedAt` on the homebrew pack `where` matches, with the audit context. The row is locked first,
-   * as a visibility change and a new dependency lock it, so `whileLocked` sees every change that committed. Version and
-   * `updatedAt` stay: nothing about the pack's content changed.
-   */
-  async #setArchived(
-    where: SQL | undefined,
-    archivedAt: SQL | string,
+  public override async archive(
+    id: ContentPackId,
+    now: Temporal.Instant,
     { audit, whileLocked }: GuardedChange,
   ): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
-      // Takes the graph lock first, as a dependency addition does.
-      // Without it a restore and an archive of the pack it extends could both pass their checks.
-      await tx.execute(sql`select pg_advisory_xact_lock(${GRAPH_LOCK})`);
-      const mine = and(where, isNotNull(contentPacks.ownerId));
-      const [locked] = await tx.select({ id: contentPacks.id }).from(contentPacks).where(mine).for('update');
+      await archiveRows(tx, contentPacks, {
+        where: ownedPack(id),
+        now,
+        guard: { beforeLock: takeGraphLock, whileLocked },
+      });
+    });
+  }
 
-      if (locked === undefined) {
-        return;
-      }
-
-      await whileLocked?.();
-      await tx.update(contentPacks).set({ archivedAt }).where(mine);
+  public override async restore(id: ContentPackId, { audit, whileLocked }: GuardedChange): Promise<void> {
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      await restoreRows(tx, contentPacks, { where: ownedPack(id), guard: { beforeLock: takeGraphLock, whileLocked } });
     });
   }
 
