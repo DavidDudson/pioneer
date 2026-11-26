@@ -55,7 +55,7 @@ export const FlagValue = { Yes: 'yes', No: 'no' } as const;
 
 export type FlagValue = ValueOf<typeof FlagValue>;
 
-/** A message key for a facet or one of its values, in this lib's `i18n/en.json` under `rules.facet.*`. */
+/** A message key for a facet or one of its values, in the `en` bundle of `rules/messages`, under `rules.facet.*`. */
 export const FacetLabel = z.string().brand<'FacetLabel'>();
 
 export type FacetLabel = z.infer<typeof FacetLabel>;
