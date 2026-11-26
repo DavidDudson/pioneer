@@ -4,9 +4,9 @@ import { defineConfig } from 'oxlint';
 export default defineConfig({
   extends: [cloudflare],
   // Strict by default: every category is an error, including nursery and
-  // Restriction. A rule is only relaxed below with a reason, usually because
-  // It contradicts another enabled rule or a deliberate design choice
-  // Recorded in AGENTS.md. Do not add rules here without a reason.
+  // restriction. A rule is only relaxed below with a reason, usually because
+  // it contradicts another enabled rule or a deliberate design choice
+  // recorded in AGENTS.md. Do not add rules here without a reason.
   plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'import', 'jsdoc', 'promise', 'node', 'vitest'],
   jsPlugins: [
     '@nx/oxlint/boundaries-plugin',
@@ -53,44 +53,42 @@ export default defineConfig({
     jsdoc: { ignoreInternal: true },
   },
   rules: {
-    // ---- @cloudflare/oxlint-config baseline ---------------------------------
-    // ---- @cloudflare/oxlint-config: evaluated rule by rule ------------------
-    // Every preset rule is on. quality/* (nkzw's port of anti-slop) replaced the vendored copies of the same rules.
+    // ---- @cloudflare/oxlint-config: preset rules and where Pioneer differs ---
+    // quality/* (nkzw's port of anti-slop) replaces the vendored copies of the same rules.
     'quality/no-array-filter-map': 'error',
     'quality/no-chained-type-assertions': 'error',
     'quality/no-conditional-empty-object-spread': 'error',
     'quality/no-known-value-widening': 'error',
+    'quality/no-object-parameters': 'error',
     'quality/no-reduce-accumulator-copy': 'error',
     'quality/no-reflect-apply': 'error',
     'quality/no-reflect-get': 'error',
+    'quality/no-unknown-returns': 'error',
     'quality/no-unknown-type-aliases': 'error',
+    'quality/no-unsafe-dictionary-type': 'error',
     'quality/no-widen-then-assert': 'error',
     'no-only-tests/no-only-tests': 'error',
-    'quality/no-object-parameters': 'error',
-    'quality/no-unknown-returns': 'error',
-    'quality/no-unsafe-dictionary-type': 'error',
-    // The preset loosens these; Pioneer keeps the stricter default (no option: unused arguments, `return await`
-    // Everywhere, every warning comment, named-function callbacks and mixed promise arrays all stay errors).
+    // Not part of the preset, but on.
+    'promise/prefer-catch': 'error',
+    // The preset loosens these with options; no option here keeps the stricter default.
     'typescript/await-thenable': 'error',
     'typescript/return-await': 'error',
     'no-unused-vars': 'error',
     'no-warning-comments': 'error',
     'prefer-arrow-callback': 'error',
     'typescript/array-type': ['error', { default: 'generic' }],
-    // The only two preset rules left off. rules-of-hooks reads domain helpers named `use*` (`useMaxima`, `useOf`) as
-    // React hooks, and Pioneer has none. no-instanceof flags 93 sites that narrow error classes and Angular
-    // Component instances, where `instanceof` is the guard; replacing them needs a decision per site.
+    // The only preset rules left off. rules-of-hooks reads domain helpers named `use*` as React hooks, and
+    // Pioneer has none. no-instanceof flags sites where `instanceof` is the guard for error classes and Angular
+    // component instances; replacing each needs its own decision.
     'react-hooks/rules-of-hooks': 'off',
     '@nkzw/no-instanceof': 'off',
-    // New in oxlint 1.94, not part of the preset.
-    'promise/prefer-catch': 'error',
     // ---- Contradictory pairs: keep one side --------------------------------
     // Named exports only (no-default-export stays on).
     'import/no-named-export': 'off',
     'import/prefer-default-export': 'off',
     // Explicit imports over test globals (prefer-importing-vitest-globals stays on).
     'vitest/no-importing-vitest-globals': 'off',
-    // ToHaveBeenCalledTimes(n) everywhere (prefer-called-times stays on).
+    // toHaveBeenCalledTimes(n) everywhere (prefer-called-times stays on).
     'vitest/prefer-called-once': 'off',
     // Inline `type` specifiers flagged by no-import-type-side-effects; prefer top-level `import type`.
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
@@ -114,7 +112,7 @@ export default defineConfig({
     'eslint/no-undef': 'off',
     // Key order is meaningful (schemas, token ramps, wire shapes).
     'eslint/sort-keys': 'off',
-    // Oxfmt sorts imports; two sorters fight.
+    // oxfmt sorts imports; two sorters fight.
     'eslint/sort-imports': 'off',
     // Co-located `export const X` / `export type X` is the house style.
     'import/group-exports': 'off',
@@ -128,8 +126,8 @@ export default defineConfig({
     // TS types document params/returns; JSDoc duplicates would drift.
     'jsdoc/require-param': 'off',
     'jsdoc/require-returns': 'off',
-    // Promise-function-async stays on: every Promise-returning function is async, so
-    // Synchronous throws surface as rejections. require-await contradicts it.
+    // promise-function-async stays on: every Promise-returning function is async, so
+    // synchronous throws surface as rejections. require-await contradicts it.
     'eslint/require-await': 'off',
     'typescript/require-await': 'off',
     // Strict boolean matchers (toBe(true)) over truthiness.
@@ -149,15 +147,15 @@ export default defineConfig({
     // ---- Tuned, not disabled -----------------------------------------------
     'eslint/one-var': ['error', 'never'],
     // Every if/else/loop body is a block, one-liners included. The style category
-    // Already enables it; pinned so it is never relaxed to "multi-line".
+    // already enables it; pinned so it is never relaxed to "multi-line".
     'eslint/curly': ['error', 'all'],
     // Hoisted function declarations are safe to reference early (mutual recursion);
-    // Variables and classes still must be declared first.
+    // variables and classes still must be declared first.
     'eslint/no-use-before-define': ['error', { functions: false }],
     'eslint/no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
     'eslint/func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     // ESLint's no-magic-numbers, wrapped so `const SAVE_DEBOUNCE = Milliseconds.parse(600)` counts as
-    // A named constant (tools/oxlint/brand-rules.ts). Same options.
+    // a named constant (tools/oxlint/brand-rules.ts). Same options.
     'eslint/no-magic-numbers': 'off',
     'pioneer/no-magic-numbers': [
       'error',
@@ -170,16 +168,16 @@ export default defineConfig({
       },
     ],
     // Pages compose many frontier parts, a store and an icon or two; 10 forced splits that added
-    // Nothing (an icon import on an empty state tipped two pages over).
+    // nothing (an icon import on an empty state tipped two pages over).
     'import/max-dependencies': ['error', { max: 20 }],
-    // Zod is imported as a namespace (`import * as z from 'zod'`), as zod recommends: the named `{ z }` export
-    // Kept all 64 of its locales (296 kB) in the initial bundle, because the bundler cannot tree-shake it.
+    // zod is imported as a namespace (`import * as z from 'zod'`), as zod recommends: the named `{ z }` export
+    // kept all 64 of its locales (296 kB) in the initial bundle, because the bundler cannot tree-shake it.
     'import/no-namespace': ['error', { ignore: ['zod'] }],
     'eslint/id-length': ['error', { exceptions: ['z'] }],
     'eslint/max-classes-per-file': ['error', { max: 1, ignoreExpressions: true }],
     'eslint/max-statements': ['error', 12],
     // Blank lines are layout, not size: the readable-spacing autofix added them between statements, and a file's
-    // Length should not grow because of them.
+    // length should not grow because of them.
     'eslint/max-lines': ['error', { max: 300, skipBlankLines: true }],
     'eslint/max-lines-per-function': ['error', { max: 50, skipBlankLines: true }],
 
@@ -218,7 +216,7 @@ export default defineConfig({
     // User content is archived, never deleted (ADR-0062); the database refuses it too.
     'pioneer/no-archivable-delete': 'error',
     // Every function, arrow consts included, declares its return type (restriction
-    // Category enables both; pinned). Callbacks typed by their call site are exempt.
+    // category enables both; pinned). Callbacks typed by their call site are exempt.
     'typescript/explicit-function-return-type': 'error',
     'typescript/explicit-module-boundary-types': 'error',
     // Return types are named, short and declared: no inline object shapes, no
@@ -256,7 +254,7 @@ export default defineConfig({
           { name: 'ngx-sonner', message: 'No toasts. Show feedback inline, next to its cause.' },
         ],
         // Testing barrels hold fakes such as FakeAuthenticator, which trusts any caller. Only tests and
-        // Other testing helpers may import them (re-allowed in overrides below).
+        // other testing helpers may import them (re-allowed in overrides below).
         patterns: [
           {
             group: ['@pioneer/*/testing', '@pioneer/*/*/testing'],
@@ -378,7 +376,7 @@ export default defineConfig({
         'typescript/no-unsafe-type-assertion': 'off',
         'promise/avoid-new': 'off',
         'vitest/no-hooks': 'off',
-        // Describe(ClassName) per prefer-describe-function-title.
+        // Suites are titled with the class name, per prefer-describe-function-title.
         'vitest/valid-title': ['error', { allowArguments: true }],
         'vitest/require-test-timeout': 'off',
         'vitest/prefer-expect-assertions': 'off',
@@ -404,13 +402,13 @@ export default defineConfig({
     },
     {
       // Property tests compute the expected value from the input; that oracle is
-      // Usually a conditional. Keep the logic in the oracle, not in branches.
+      // usually a conditional. Keep the logic in the oracle, not in branches.
       files: ['**/*.property.test.ts'],
       rules: { 'vitest/no-conditional-in-test': 'off' },
     },
     {
       // Tests, benchmarks and testing helpers may import testing barrels. Oxlint replaces a rule's options per
-      // Override, so the `paths` list above is repeated here without the testing patterns.
+      // override, so the `paths` list above is repeated here without the testing patterns.
       files: ['**/*.test.ts', '**/*.spec.ts', '**/*.bench.ts', '**/testing/**'],
       rules: {
         'eslint/no-restricted-imports': [
@@ -456,20 +454,20 @@ export default defineConfig({
     },
     {
       // `@3d-dice/dice-box-threejs` ships no types: this ambient module declares the slice the roll stage uses, so the
-      // File is a script on purpose (a module's `declare module` would only augment).
+      // file is a script on purpose (a module's `declare module` would only augment).
       files: ['libs/play/ui/src/lib/roll-stage/dice-box-threejs.d.ts'],
       rules: { 'import/unambiguous': 'off' },
     },
     {
       // A library's public API is one export per module it exposes; its length is the size of the API, not
-      // Complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
+      // complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
       files: ['**/index.ts'],
       rules: { 'eslint/max-lines': 'off' },
     },
     {
       // The Foundry importer reads untrusted third-party JSON. It checks `typeof` and handles `unknown` at that
-      // Boundary on purpose; a Zod parse of every Foundry document shape would rewrite the translator and change
-      // Its output.
+      // boundary on purpose; a Zod parse of every Foundry document shape would rewrite the translator and change
+      // its output.
       files: ['libs/interop/foundry/**', 'tools/content-import/**'],
       rules: {
         'anti-slop/no-runtime-typeof': 'off',
@@ -480,8 +478,8 @@ export default defineConfig({
     },
     {
       // "shape" is Pathfinder's word for the form of an area (burst, cone, line, emanation) and the key a pack, a
-      // Shift command and the play state store it under (`area.shape`, `shape`, `play.shapes`). The names here mirror
-      // That key, so renaming them would mean migrating stored characters and re-importing the packs.
+      // shift command and the play state store it under (`area.shape`, `shape`, `play.shapes`). The names here mirror
+      // that key, so renaming them would mean migrating stored characters and re-importing the packs.
       files: [
         'libs/character/domain/src/counting-commands.ts',
         'libs/character/domain/src/play-state.ts',
@@ -518,7 +516,7 @@ export default defineConfig({
     },
     {
       // These functions are the boundary: each takes untrusted JSON or a stored document and checks it (`safeParse`,
-      // A depth and size walk) before anything downstream sees it, so the `unknown` and `object` input is the point.
+      // a depth and size walk) before anything downstream sees it, so the `unknown` and `object` input is the point.
       files: [
         'libs/rules/sdk/src/json-bounds.ts',
         'libs/character/domain/src/character-document.ts',
@@ -588,7 +586,11 @@ export default defineConfig({
     {
       // The lint config is one data literal: a size or magic-number limit says nothing about it.
       files: ['oxlint.config.ts'],
-      rules: { 'eslint/max-lines': 'off', 'pioneer/no-magic-numbers': 'off' },
+      rules: {
+        'eslint/capitalized-comments': 'off',
+        'eslint/max-lines': 'off',
+        'pioneer/no-magic-numbers': 'off',
+      },
     },
     {
       // Small related error types live together.
@@ -616,8 +618,8 @@ export default defineConfig({
     },
     {
       // Storybook stories: Component Story Format requires the meta as the default export,
-      // And story args are sample data (levels, counts) by nature. A story composes the component with
-      // The primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.
+      // and story args are sample data (levels, counts) by nature. A story composes the component with
+      // the primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.
       // Play functions assert with storybook/test's instrumented `expect`, which the vitest plugin takes for a global.
       files: ['**/*.stories.ts'],
       rules: {
@@ -637,8 +639,8 @@ export default defineConfig({
     },
     {
       // Storybook config: main.ts runs on Node and both files need default exports; preview.ts
-      // Imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
-      // Vitest.config.ts reads the devshell's PLAYWRIGHT_DRIVER_VERSION on Node, where Bun.env does not exist.
+      // imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
+      // vitest.config.ts reads the devshell's PLAYWRIGHT_DRIVER_VERSION on Node, where Bun.env does not exist.
       files: ['**/.storybook/*.ts'],
       rules: {
         'import/no-default-export': 'off',
