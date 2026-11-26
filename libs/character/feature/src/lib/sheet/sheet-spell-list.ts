@@ -19,7 +19,7 @@ interface OriginLine {
 }
 
 /** What the list reads of a prepared or spontaneous entry's pickers. */
-export interface PreparedOrigin {
+interface PreparedOrigin {
   readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
   readonly ranks: readonly {

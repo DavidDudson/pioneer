@@ -29,7 +29,7 @@ export interface ColumnOptions {
 }
 
 /** The signal inputs of a cell component by name, each typed by the value it takes. */
-export type CellInputs<TCell> = NonNullable<FlexRenderComponent<TCell>['inputs']>;
+type CellInputs<TCell> = NonNullable<FlexRenderComponent<TCell>['inputs']>;
 
 /** A column whose cells are a component, for content richer than text. */
 export interface ComponentColumn<TRow extends RowData, TCell = unknown> extends ColumnOptions {
