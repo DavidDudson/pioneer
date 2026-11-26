@@ -1,6 +1,7 @@
 import { ActionOriginKind, availableActions } from '@pioneer/rules/engine';
 import type { ActionCandidate, AvailableAction, FormInPlay } from '@pioneer/rules/engine';
 import type { GrantEntry } from '@pioneer/rules/grants';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ActionData, ContentEntry, ContentId, ContentRegistry, Origin, Trait } from '@pioneer/rules/sdk';
 
@@ -212,4 +213,31 @@ export function characterActions(
     statistics: characterStatistics(document, sources),
     form: equipped.form,
   });
+}
+
+/** The actions the character's build and equipment give, and the roll options that hold for it: what triggers are read from. */
+export interface GrantedActionCandidates {
+  readonly candidates: readonly ActionCandidate[];
+  readonly facts: PredicateFacts;
+}
+
+/** The actions the character's feats, features and equipped items give, without the universal ones. */
+export function grantedActionCandidates(
+  document: CharacterDocument,
+  sources: StatisticSources,
+): GrantedActionCandidates {
+  const { registry, slots } = sources;
+  const grants = characterGrants(document, slots);
+  const equipped = equippedGrants(document, itemContent(registry), slots);
+  const actions = abilityActions(registry);
+  const natures = abilityNatures(registry);
+
+  return {
+    candidates: [
+      ...grantedCandidates(grants.items, actions, natures),
+      ...grantedCandidates(equipped.items, actions, natures),
+      ...formCandidates(equipped.form, actions, natures),
+    ],
+    facts: equipped.facts,
+  };
 }

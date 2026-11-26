@@ -875,7 +875,13 @@ export {
 
 export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';
 
-export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
+export {
+  applyTurnCommand,
+  turnCommandInputs,
+  type TurnCommandContext,
+  type TurnCommandInputs,
+  type TurnRun,
+} from './turn-commands';
 
 export {
   ActionCount,
