@@ -50,8 +50,10 @@ function render(inputs: ComponentInputs<Input> = {}): Rendered {
   };
 }
 
+type CommitKey = 'Enter' | 'Escape';
+
 interface KeyOptions {
-  readonly key: 'Enter' | 'Escape';
+  readonly key: CommitKey;
   readonly isComposing?: boolean;
   readonly keyCode?: number;
 }
@@ -71,6 +73,12 @@ function press(rendered: Rendered, options: KeyOptions): KeyboardEvent {
 
   return event;
 }
+
+/** The two signals of an IME at work, each as the init of a key press that would otherwise commit or cancel. */
+const IME_SIGNALS: readonly { readonly name: string; readonly options: (key: CommitKey) => KeyOptions }[] = [
+  { name: 'isComposing', options: (key) => ({ key, isComposing: true }) },
+  { name: 'keyCode 229, as Safari sends after a composition ends', options: (key) => ({ key, keyCode: 229 }) },
+];
 
 describe(Input, () => {
   it('is a text input named by ariaLabel, with no id or description outside a field', () => {
@@ -116,23 +124,19 @@ describe(Input, () => {
     expect(event.defaultPrevented).toBe(true);
   });
 
-  it('ignores Enter that picks an IME candidate', () => {
-    const rendered = render();
-    press(rendered, { key: 'Enter', isComposing: true });
-    expect(rendered.commits()).toBe(0);
-  });
+  describe.each(IME_SIGNALS)('while an IME composes ($name)', ({ options }) => {
+    it('does not commit on Enter', () => {
+      const rendered = render();
+      press(rendered, options('Enter'));
+      expect(rendered.commits()).toBe(0);
+    });
 
-  it('ignores the Enter Safari sends just after a composition ends (keyCode 229)', () => {
-    const rendered = render();
-    press(rendered, { key: 'Enter', keyCode: 229 });
-    expect(rendered.commits()).toBe(0);
-  });
-
-  it('leaves the Escape that abandons an IME composition to the IME', () => {
-    const rendered = render();
-    const event = press(rendered, { key: 'Escape', isComposing: true });
-    expect(rendered.cancels()).toBe(0);
-    expect(event.defaultPrevented).toBe(false);
+    it('leaves Escape, which abandons the composition, to the IME', () => {
+      const rendered = render();
+      const event = press(rendered, options('Escape'));
+      expect(rendered.cancels()).toBe(0);
+      expect(event.defaultPrevented).toBe(false);
+    });
   });
 
   it('commits again once composition is over', () => {

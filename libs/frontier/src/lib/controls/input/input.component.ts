@@ -23,6 +23,33 @@ export const InputType = {
 
 export type InputType = (typeof InputType)[keyof typeof InputType];
 
+/** The `inputmode` attribute: which on-screen keyboard a touch device shows. */
+export const InputMode = {
+  None: 'none',
+  Text: 'text',
+  Decimal: 'decimal',
+  Numeric: 'numeric',
+  Tel: 'tel',
+  Search: 'search',
+  Email: 'email',
+  Url: 'url',
+} as const;
+
+export type InputMode = (typeof InputMode)[keyof typeof InputMode];
+
+/** The `enterkeyhint` attribute: the label a touch keyboard gives its Enter key. */
+export const EnterKeyHint = {
+  Enter: 'enter',
+  Done: 'done',
+  Go: 'go',
+  Next: 'next',
+  Previous: 'previous',
+  Search: 'search',
+  Send: 'send',
+} as const;
+
+export type EnterKeyHint = (typeof EnterKeyHint)[keyof typeof EnterKeyHint];
+
 /** How `fr-input` styles its box: room for icons at the ends, or none. */
 export const InputAdornment = { None: 'none', Both: 'both', Pair: 'pair' } as const;
 
@@ -30,11 +57,7 @@ export type InputAdornment = (typeof InputAdornment)[keyof typeof InputAdornment
 
 const ADORNED = { none: false, both: true, pair: 'pair' } as const satisfies Record<InputAdornment, boolean | 'pair'>;
 
-/**
- * The one owner of the native `<input>`: its field wiring (id, description, invalid), look and Enter / Escape
- * commit keys, which ignore IME composition. The text, search, number and date controls compose it and parse
- * `value`, the raw text, themselves. Use one of those; use this only to build another.
- */
+/** The one owner of the native `<input>`: the text, search, number and date controls compose it. */
 @Component({
   selector: 'fr-input',
   templateUrl: './input.component.html',
@@ -43,17 +66,15 @@ const ADORNED = { none: false, both: true, pair: 'pair' } as const satisfies Rec
 })
 export class Input extends Control {
   public readonly type = input<InputType>(InputType.Text);
-  /** The text in the box. */
   public readonly value = input('');
   public readonly placeholder = input<string | undefined>(undefined);
-  public readonly inputMode = input<string | undefined>(undefined);
-  public readonly enterKeyHint = input<string | undefined>(undefined);
+  public readonly inputMode = input<InputMode | undefined>(undefined);
+  public readonly enterKeyHint = input<EnterKeyHint | undefined>(undefined);
   public readonly min = input<number | undefined>(undefined);
   public readonly max = input<number | undefined>(undefined);
   public readonly step = input<number | undefined>(undefined);
   /** Code-like text: fixed-width, and no spellcheck, autocapitalise or autocorrect, which would change what is typed. */
   public readonly monospace = input(false, { transform: booleanAttribute });
-  /** Digits line up. */
   public readonly numeric = input(false, { transform: booleanAttribute });
   public readonly adornment = input<InputAdornment>(InputAdornment.None);
   /** The raw text after every edit. */

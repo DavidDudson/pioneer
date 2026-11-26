@@ -5,10 +5,7 @@ import { Input } from './input.component';
 
 type InputStory = StoryObj<Input>;
 
-/**
- * The one owner of the native `<input>`. Enter commits and Escape cancels, except while an IME is composing. The
- * text, search, number and date controls compose it: use those, and this only to build another.
- */
+/** The one owner of the native `<input>`; Enter commits and Escape cancels, except while an IME composes. */
 const meta: Meta<Input> = {
   title: 'Controls/Input',
   component: Input,
