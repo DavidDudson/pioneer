@@ -163,7 +163,7 @@ export { HoverCard } from './lib/layout/hover-card/hover-card.component';
 
 export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.directive';
 
-export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
+export { Divider, DividerTone } from './lib/layout/divider/divider.component';
 
 export { Card } from './lib/layout/card/card.component';
 
