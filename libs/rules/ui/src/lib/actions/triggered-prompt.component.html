@@ -1,0 +1,9 @@
+@if (lines().length > 0) {
+  <fr-stack gap="xs">
+    <fr-heading variant="subheading" [level]="3">{{ Message.TriggeredTitle | transloco }}</fr-heading>
+    <pio-action-list [rows]="rows()" [empty]="Message.TriggeredTitle | transloco" />
+    <fr-button size="sm" [variant]="variant.Secondary" (click)="passed.emit()">
+      {{ Message.TriggeredPass | transloco }}
+    </fr-button>
+  </fr-stack>
+}

@@ -147,7 +147,9 @@ export interface TurnLogLine {
 
 /** The lines of a turn boundary's events, numbering the roll cards from `first`. */
 export function turnLog(events: readonly TurnEvent[], first: number): readonly TurnLogLine[] {
-  return events.map((event, index): TurnLogLine => {
+  const logged = events.filter((event) => event.kind !== TurnEventKind.TriggerOffered);
+
+  return logged.map((event, index): TurnLogLine => {
     if (event.kind !== TurnEventKind.PersistentDamage) {
       return { message: event.message, roll: undefined };
     }

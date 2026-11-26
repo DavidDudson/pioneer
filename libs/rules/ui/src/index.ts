@@ -466,6 +466,8 @@ export { ActionsViewKind } from './lib/actions/actions-list';
 
 export { ActionsView } from './lib/actions/actions.component';
 
+export { TriggeredPrompt } from './lib/actions/triggered-prompt.component';
+
 export { StatBlockLayout, type StatBlockCreature } from './lib/creature-stat-block/creature-stat-block';
 
 export { CreatureStatBlockView } from './lib/creature-stat-block/creature-stat-block.component';

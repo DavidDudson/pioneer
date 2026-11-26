@@ -1,7 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { ActionCost, ContentId, HitPoints, RuleElement, TriggerEvent, TriggerEventType } from '@pioneer/rules/sdk';
+import {
+  ActionCost,
+  ContentId,
+  Frequency,
+  HitPoints,
+  Predicate,
+  RuleElement,
+  TriggerEvent,
+  TriggerEventType,
+} from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { Uuid } from '@pioneer/shared/kernel';
 
@@ -9,15 +18,15 @@ import { ActiveEffectSchema } from './effects';
 import type { EffectContent } from './effects';
 import { FRESH_PLAY } from './play-state';
 import { within } from './testing';
-import { autoTriggers, triggerSpend, withTriggered } from './turn-triggers';
-import type { TriggerInputs, TurnTrigger, TurnTriggers } from './turn-triggers';
+import { autoTriggers, offeredTriggers, triggerSpend, withTriggered } from './turn-triggers';
+import type { AutoTrigger, TriggerInputs, TurnTrigger, TurnTriggers } from './turn-triggers';
 
 const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 const EFFECT = ContentId.parse('00000000-0000-4000-8000-000000000002');
 const FIVE = HitPoints.parse(5);
 const NONE = HitPoints.parse(0);
 
-const trigger = (over: Partial<TurnTrigger> = {}): TurnTrigger => ({
+const trigger = (over: Partial<Omit<AutoTrigger, 'effect'>> = {}): AutoTrigger => ({
   id: ACTION,
   triggerEvent: TriggerEvent.parse({ event: 'turn-start' }),
   rules: [RuleElement.parse({ key: 'TempHP', value: 5 })],
@@ -116,5 +125,48 @@ describe('withTriggered', () => {
 
     expect(play.effects).toHaveLength(1);
     expect(events).toHaveLength(1);
+  });
+});
+
+const REACTION_SPENT = { ...FRESH_PLAY, turn: { ...FRESH_PLAY.turn, reactionUsed: true } };
+
+describe('offered triggers', () => {
+  const costly = trigger({ cost: ActionCost.Free, frequency: Frequency.parse({ max: 1, per: 'day' }) });
+
+  test('one that costs something is offered, not applied', () => {
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(costly), FRESH_PLAY)).toStrictEqual([costly]);
+    expect(autoTriggers(TriggerEventType.TurnStart, triggers(costly), [])).toStrictEqual([]);
+  });
+
+  test('one that applies by itself is not offered', () => {
+    const automatic = triggers(trigger());
+
+    expect(offeredTriggers(TriggerEventType.TurnStart, automatic, FRESH_PLAY)).toStrictEqual([]);
+  });
+
+  test('one with requirements is offered', () => {
+    const needy = trigger({ requirements: Predicate.parse(['self:effect:rage']) });
+
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(needy), FRESH_PLAY)).toStrictEqual([needy]);
+  });
+
+  test('a reaction is offered only while the reaction is unspent', () => {
+    const reaction = trigger({ cost: ActionCost.Reaction });
+
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(reaction), FRESH_PLAY)).toStrictEqual([reaction]);
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(reaction), REACTION_SPENT)).toStrictEqual([]);
+  });
+
+  test('an ability granted twice is offered once, with the others of its event together', () => {
+    const other = trigger({ id: ContentId.parse('00000000-0000-4000-8000-000000000004'), cost: ActionCost.One });
+    const offered = offeredTriggers(TriggerEventType.TurnStart, triggers(costly, costly, other), FRESH_PLAY);
+
+    expect(offered.map(({ id }) => id)).toStrictEqual([ACTION, other.id]);
+  });
+
+  test('applying a turn boundary says which abilities are offered', () => {
+    const { events } = withTriggered({ play: FRESH_PLAY, events: [] }, TriggerEventType.TurnStart, RUN(costly));
+
+    expect(events.map(({ kind }) => kind)).toStrictEqual(['triggerOffered']);
   });
 });
