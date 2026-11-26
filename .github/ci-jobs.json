@@ -79,9 +79,14 @@
       "args": "--projects=character-feature --configuration=page-e"
     },
     {
-      "name": "character sheet page s",
+      "name": "character sheet page sc-sk",
       "id": "character-page-f",
       "args": "--projects=character-feature --configuration=page-f"
+    },
+    {
+      "name": "character sheet page sp-sz",
+      "id": "character-page-g",
+      "args": "--projects=character-feature --configuration=page-g"
     },
     {
       "name": "character rest",

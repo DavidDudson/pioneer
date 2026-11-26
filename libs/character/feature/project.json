@@ -30,7 +30,10 @@
           "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[rt-z]*.spec.ts"]
         },
         "page-f": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s[c-k]*.spec.ts"]
+        },
+        "page-g": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s[p-z]*.spec.ts"]
         },
         "rest": {
           "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"]
