@@ -1,16 +1,45 @@
-import type { EnvironmentProviders } from '@angular/core';
+import type { EnvironmentProviders, Provider } from '@angular/core';
 import type { Route } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
 import { CRUMB } from '@pioneer/frontier';
+import { rollMessages } from '@pioneer/play/ui';
+import { diceMessages } from '@pioneer/rules/dice';
+import { engineMessages } from '@pioneer/rules/engine';
+import { formulaMessages } from '@pioneer/rules/formula';
+import { predicateMessages } from '@pioneer/rules/predicate';
+import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
 import { characterCrumb, sectionCrumb } from './crumbs';
+import { CharacterGenerator } from './data/character-generator';
+import { CharacterStore } from './data/character-store';
 import { firstSectionPath } from './sheet/sheet-sections';
 
 /** The `character` message scope: the keys of this lib's `i18n/en.json`, shared with the flows that lazy-load it. */
-export function provideCharacterMessages(): EnvironmentProviders {
+function provideCharacterMessages(): EnvironmentProviders {
   return provideMessageScope('character', { [Locale.English]: async () => import('../i18n/en.json') });
+}
+
+type RouteProviders = (Provider | EnvironmentProviders)[];
+
+/**
+ * What the sheet and the flows around it need from their parent route: the character stores and the message scopes
+ * of the character, roll, dice, rules, formula, predicate and engine text. The sheet renders engine output, so rules
+ * text from `rules/sdk`, `rules/formula`, `rules/predicate` and `rules/engine` loads as its own scope.
+ */
+export function provideSheetScopes(): RouteProviders {
+  return [
+    CharacterStore,
+    CharacterGenerator,
+    provideCharacterMessages(),
+    provideMessageScope('roll', { [Locale.English]: async () => rollMessages.roll }),
+    provideMessageScope('dice', { [Locale.English]: async () => diceMessages.dice }),
+    provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
+    provideMessageScope('formula', { [Locale.English]: async () => formulaMessages.formula }),
+    provideMessageScope('predicate', { [Locale.English]: async () => predicateMessages.predicate }),
+    provideMessageScope('engine', { [Locale.English]: async () => engineMessages.engine }),
+  ];
 }
 
 /** The sheet of one character, `:id` under the character routes; one child route per tab (play-and-campaigns.md). */

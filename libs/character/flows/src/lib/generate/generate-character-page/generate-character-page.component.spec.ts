@@ -6,12 +6,11 @@ import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat'
 import type { ClassOption } from '@pioneer/character/domain';
 import {
   CharacterGenerator,
-  characterMessages as en,
   ClassRoleOptions,
   OriginChoiceOptions,
   WeaponBaseOptions,
 } from '@pioneer/character/feature';
-import { present } from '@pioneer/character/feature/testing';
+import { characterMessages as en, present } from '@pioneer/character/feature/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import {
   Attribute,

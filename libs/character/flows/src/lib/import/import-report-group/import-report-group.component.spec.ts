@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
-import { characterMessages as en } from '@pioneer/character/feature';
+import { characterMessages as en } from '@pioneer/character/feature/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { ImportKind, MatchStatus, Occurrences, PathbuilderName } from '@pioneer/interop/pathbuilder';
 import type { ReportGroup } from '@pioneer/interop/pathbuilder';

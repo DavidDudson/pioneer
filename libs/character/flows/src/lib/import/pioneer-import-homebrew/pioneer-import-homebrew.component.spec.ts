@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
-import { characterMessages as en } from '@pioneer/character/feature';
+import { characterMessages as en } from '@pioneer/character/feature/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { HomebrewEntryOutcome, HomebrewPackStatus } from '@pioneer/interop/pioneer';
 import type { HomebrewPackReport } from '@pioneer/interop/pioneer';

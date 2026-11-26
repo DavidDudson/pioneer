@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { characterMessages as messages } from '@pioneer/character/feature';
+import { characterMessages as messages } from '@pioneer/character/feature/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';

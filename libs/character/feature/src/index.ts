@@ -1,6 +1,4 @@
-export { characterSheetRoute, provideCharacterMessages } from './lib/sheet.routes';
-
-export { default as characterMessages } from './i18n/en.json';
+export { characterSheetRoute, provideSheetScopes } from './lib/sheet.routes';
 
 export { CHARACTER_LIST_EXTRAS, type CharacterListExtraLoader } from './lib/data/character-list-extras';
 

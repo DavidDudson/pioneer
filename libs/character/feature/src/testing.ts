@@ -1,3 +1,5 @@
+export { default as characterMessages } from './i18n/en.json';
+
 export { present } from './lib/testing/inventory-sheet-testing';
 
 export {

@@ -11,7 +11,7 @@
         "buildTarget": "web:build:development",
         "tsConfig": "libs/character/flows/tsconfig.spec.json",
         "runner": "vitest",
-        "setupFiles": ["libs/character/flows/src/test-setup.ts"],
+        "setupFiles": ["libs/character/feature/src/test-setup.ts"],
         "reporters": ["verbose"]
       }
     }

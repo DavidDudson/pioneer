@@ -1,41 +1,17 @@
 import type { Routes } from '@angular/router';
-import {
-  CharacterGenerator,
-  characterSheetRoute,
-  CharacterStore,
-  provideCharacterMessages,
-} from '@pioneer/character/feature';
+import { characterSheetRoute, provideSheetScopes } from '@pioneer/character/feature';
 import { CRUMB } from '@pioneer/frontier';
-import { rollMessages } from '@pioneer/play/ui';
-import { diceMessages } from '@pioneer/rules/dice';
-import { engineMessages } from '@pioneer/rules/engine';
-import { formulaMessages } from '@pioneer/rules/formula';
-import { predicateMessages } from '@pioneer/rules/predicate';
-import { rulesMessages } from '@pioneer/rules/sdk';
-import { Locale } from '@pioneer/shared/kernel';
-import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
+import { loadWithMessages } from '@pioneer/shared/web';
 
 /**
  * Lazy routes for the character bounded context: the list, the creation flows and, from `character/feature`, the
- * sheet. The sheet renders engine output, so rules text from `rules/sdk`, `rules/formula`, `rules/predicate` and
- * `rules/engine` loads as their own `rules`, `formula`, `predicate` and `engine` scopes; the roll card adds the
- * `roll` and `dice` ones.
+ * sheet with the providers it needs.
  */
 export const characterRoutes: Routes = [
   {
     path: '',
     data: { [CRUMB]: 'character.list.title' },
-    providers: [
-      CharacterStore,
-      CharacterGenerator,
-      provideCharacterMessages(),
-      provideMessageScope('roll', { [Locale.English]: async () => rollMessages.roll }),
-      provideMessageScope('dice', { [Locale.English]: async () => diceMessages.dice }),
-      provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
-      provideMessageScope('formula', { [Locale.English]: async () => formulaMessages.formula }),
-      provideMessageScope('predicate', { [Locale.English]: async () => predicateMessages.predicate }),
-      provideMessageScope('engine', { [Locale.English]: async () => engineMessages.engine }),
-    ],
+    providers: provideSheetScopes(),
     children: [
       {
         path: '',
