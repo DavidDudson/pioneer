@@ -51,6 +51,15 @@ export const COMPANION_SKILL_ATTRIBUTE: Readonly<Record<CompanionSkill, Attribut
   [CompanionSkill.Thievery]: Attribute.Dexterity,
 };
 
+/** The other ways a companion moves, beside its land Speed. */
+export const CompanionMovement = { Burrow: 'burrow', Climb: 'climb', Fly: 'fly', Swim: 'swim' } as const;
+
+export type CompanionMovement = ValueOf<typeof CompanionMovement>;
+
+export const CompanionMovements = z.partialRecord(z.enum(CompanionMovement), Feet).readonly();
+
+export type CompanionMovements = z.infer<typeof CompanionMovements>;
+
 /** One unarmed attack in a companion's stat block, before its tier adds dice and damage. */
 export const CompanionAttack = z.strictObject({
   slug: RuleSlug,
@@ -73,6 +82,8 @@ export const CompanionStatBlock = z.strictObject({
   ancestryHp: HitPoints,
   extraSkill: CompanionSkillSchema,
   speed: Feet,
+  /** Burrow, climb, fly and swim Speeds, where the species has them. */
+  movement: CompanionMovements.optional(),
   attacks: z.array(CompanionAttack).min(1).readonly(),
 });
 

@@ -148,6 +148,8 @@ export {
 
 export { CompanionKind, companionRollOption } from './companion-kind';
 
+export { CompanionSpeciesData } from './companion-species';
+
 export {
   CompanionSpecialization,
   CompanionSpecializationSchema,
@@ -158,6 +160,8 @@ export {
 export {
   COMPANION_SKILL_ATTRIBUTE,
   CompanionAttack,
+  CompanionMovement,
+  CompanionMovements,
   CompanionSkill,
   CompanionSkillSchema,
   CompanionStatBlock,
