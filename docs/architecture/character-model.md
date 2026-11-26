@@ -298,10 +298,19 @@ after its spells and a note saying where the signature spell is cast, or that th
 A spontaneous caster swaps one repertoire spell for another each time they level up (#594). The build keeps
 `repertoireSwaps`, the slot swapped at each level; replacing or emptying a repertoire slot that opened below the
 character's level and holds another spell is that level's swap, and a second slot the same level is refused
-(`character.validation.repertoireSwapUsed`) until retraining (#515) exists. Filling an empty slot, or changing one that
-opened at the character's level, costs nothing, and the swapped slot can change again. A signature pick that held the
-spell swapped out moves to the one that replaces it, at the rank it was learned; emptying a slot leaves the signature
-pick reading invalid until it is picked again. Lowering the level and swapping there records a swap at that level too.
+(`character.validation.repertoireSwapUsed`). Retraining lifts that limit (below). Filling an empty slot, or changing
+one that opened at the character's level, costs nothing, and the swapped slot can change again. A signature pick
+that held the spell swapped out moves to the one that replaces it, at the rank it was learned; emptying a slot
+leaves the signature pick reading invalid until it is picked again. Lowering the level and swapping there records a
+swap at that level too.
+
+Retraining swaps a held feat, skill increase, repertoire spell or class choice for another over days of downtime. The
+build keeps one project, `retraining`: the slot, what it becomes, the days needed (7 for a feat, skill increase or
+repertoire spell, 30 for a class choice) and the days worked. `StartRetraining` refuses a second project, a slot that
+holds nothing or cannot be retrained, the same pick, and a pick the slot does not offer. `WorkRetraining` adds days;
+on the last one the slot's pick and the project change in one write, so a project never finishes half way, and the
+target must still be offered then. `CancelRetraining` drops the project; the days worked are lost. A finished
+retraining is not a level-up swap, so it does not count against the repertoire swap a level.
 
 A `RepertoireSpells` element ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)) fills the first
 repertoire slot of a rank with a spell the entry must know: a sorcerer's bloodline gift, an oracle's granted

@@ -50,6 +50,8 @@ export const SHEET_SECTIONS = {
   rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
   /** Earn Income: work a task for pay. */
   income: { anchor: 'sheet-income', headingKey: 'character.sheet.income.heading' },
+  /** Retraining: swap a feat, skill increase, spell or class choice over days. */
+  retraining: { anchor: 'sheet-retraining', headingKey: 'character.sheet.retraining.heading' },
   /** The shop. */
   downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
@@ -99,7 +101,13 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, ReadonlyArray<SheetS
     SHEET_SECTIONS.languages,
     SHEET_SECTIONS.inventory,
   ],
-  [SheetMode.Downtime]: [SHEET_SECTIONS.rest, SHEET_SECTIONS.actions, SHEET_SECTIONS.income, SHEET_SECTIONS.downtime],
+  [SheetMode.Downtime]: [
+    SHEET_SECTIONS.rest,
+    SHEET_SECTIONS.actions,
+    SHEET_SECTIONS.income,
+    SHEET_SECTIONS.retraining,
+    SHEET_SECTIONS.downtime,
+  ],
 };
 
 /** One tab of the sheet: its route, below the character's, and the message key naming it. */

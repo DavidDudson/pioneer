@@ -1,0 +1,59 @@
+<fr-stack gap="sm">
+  <fr-text variant="caption" tone="muted">{{ 'character.sheet.retraining.explain' | transloco }}</fr-text>
+  @if (projectLine(); as line) {
+    <fr-text>{{ line }}</fr-text>
+    <fr-grid [columns]="2">
+      <fr-number-field [label]="'character.sheet.retraining.days' | transloco" [formField]="workedForm.days" />
+    </fr-grid>
+    <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
+      <fr-async-button
+        [action]="cancel"
+        [describeError]="describeError"
+        [confirmLabel]="'character.sheet.retraining.cancelConfirm' | transloco"
+      >
+        {{ 'character.sheet.retraining.cancel' | transloco }}
+      </fr-async-button>
+      <fr-async-button
+        variant="primary"
+        [action]="work"
+        [describeError]="describeError"
+        [disabled]="workedForm().invalid()"
+        [pendingLabel]="'character.sheet.retraining.working' | transloco"
+        [successLabel]="'character.sheet.retraining.worked' | transloco"
+      >
+        {{ 'character.sheet.retraining.work' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  } @else if (slotOptions().length === 0) {
+    <fr-text>{{ 'character.sheet.retraining.nothing' | transloco }}</fr-text>
+  } @else {
+    <fr-grid [columns]="2">
+      <pio-option-picker
+        [ariaLabel]="'character.sheet.retraining.slot' | transloco"
+        [placeholder]="'character.sheet.retraining.slot' | transloco"
+        [options]="slotOptions()"
+        [value]="slot()"
+        (valueChange)="pickSlot($event)"
+      />
+      <pio-option-picker
+        [ariaLabel]="'character.sheet.retraining.target' | transloco"
+        [placeholder]="'character.sheet.retraining.target' | transloco"
+        [options]="targetOptions()"
+        [value]="target()"
+        (valueChange)="target.set($event)"
+      />
+    </fr-grid>
+    <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
+      <fr-async-button
+        variant="primary"
+        [action]="start"
+        [describeError]="describeError"
+        [disabled]="slot() === undefined || target() === undefined"
+        [pendingLabel]="'character.sheet.retraining.starting' | transloco"
+        [successLabel]="'character.sheet.retraining.started' | transloco"
+      >
+        {{ 'character.sheet.retraining.start' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  }
+</fr-stack>

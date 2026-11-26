@@ -489,6 +489,23 @@
       "formAppearance": "As {name} you look like a creature with the traits {traits}."
     },
     "downtimeHeading": "Downtime",
+    "retraining": {
+      "heading": "Retraining",
+      "explain": "Swap a feat, skill increase, spell or class choice for another. A feat, skill increase or spell takes a week of days, a class choice a month; the pick changes on the last day.",
+      "nothing": "Nothing the character holds can be retrained yet.",
+      "slot": "Pick to retrain",
+      "target": "Retrain to",
+      "start": "Start retraining",
+      "starting": "Starting",
+      "started": "Started",
+      "project": "Retraining {slot}: {from} to {to}, {done} of {needed} days.",
+      "days": "Days worked",
+      "work": "Work the days",
+      "working": "Working",
+      "worked": "Worked",
+      "cancel": "Cancel retraining",
+      "cancelConfirm": "Cancel? Press again"
+    },
     "income": {
       "heading": "Earn Income",
       "explain": "Work a task for pay: roll the skill against the task's DC, and each day is paid by how well it went.",

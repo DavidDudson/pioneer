@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
@@ -18,14 +17,13 @@ import type { StatisticValue } from '@pioneer/rules/engine';
 import { DegreeOfSuccess } from '@pioneer/rules/sdk';
 import type { Coin } from '@pioneer/rules/sdk';
 import { coinCounts, OptionPicker } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
-import type { Observable } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { COIN_MESSAGES } from '../inventory/coin-ledger/coin-messages';
 import { describeSaveError } from '../sheet-field';
 import { SheetRolls } from '../sheet-rolls';
 import { SheetState } from '../sheet-state';
+import { injectTranslationChanges } from '../sheet-translation-changes';
 import { EarnIncomeDraftSchema, EarnIncomeSubmissionSchema, EMPTY_EARN_INCOME } from './sheet-earn-income-form';
 import type { EarnIncomeModel } from './sheet-earn-income-form';
 
@@ -61,7 +59,7 @@ export class SheetEarnIncome {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Changes when the language changes or the messages load, so the words built below are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded()));
+  readonly #messages = injectTranslationChanges();
   protected readonly model = signal<EarnIncomeModel>(EMPTY_EARN_INCOME);
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, EarnIncomeDraftSchema);
@@ -119,10 +117,6 @@ export class SheetEarnIncome {
 
   /** The roll card's id when Roll was pressed: the degree of the next roll after it is the one to take. */
   readonly #awaiting = signal<number | undefined>(undefined);
-
-  #loaded(): Observable<unknown> {
-    return this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  }
 
   public constructor() {
     effect(() => {

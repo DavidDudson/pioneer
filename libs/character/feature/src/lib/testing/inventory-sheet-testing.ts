@@ -249,3 +249,10 @@ export async function openIncome(): Promise<HTMLElement> {
 
   return present(sheet.querySelector<HTMLElement>('pio-sheet-earn-income'));
 }
+
+/** Opens Valeros's Retraining section on the Downtime tab. */
+export async function openRetraining(): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/downtime/retraining`, VALEROS, { limits: false });
+
+  return present(sheet.querySelector<HTMLElement>('pio-sheet-retraining'));
+}
