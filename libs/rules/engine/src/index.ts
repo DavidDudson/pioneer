@@ -172,7 +172,7 @@ export {
   type RollTwiceLine,
 } from './roll-effects';
 
-export { deriveCompanionStatistics } from './companion-statistics';
+export { companionProficiencyBonus, deriveCompanionStatistics } from './companion-statistics';
 
 export { CompanionSource } from './companion-statistic-types';
 
