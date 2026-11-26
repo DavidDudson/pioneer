@@ -1539,6 +1539,14 @@
       "proficiency": "Proficiency",
       "luck": "Luck"
     },
+    "companion": {
+      "pickerTitle": "{source}: choose a companion",
+      "species": "Species",
+      "name": "Name",
+      "confirm": "Choose companion",
+      "cancel": "Cancel",
+      "choiceLabel": "Animal companion"
+    },
     "form": {
       "active": "In form: {name}",
       "dismiss": "Dismiss",
