@@ -74,6 +74,8 @@ export {
 
 export { CharacterRuleLimitMessage } from './character-rule-limit-message';
 
+export { isKindFull, kindFullError } from './character-companion-limit';
+
 export { CharacterCompanionMessage } from './character-companion-message';
 
 export {

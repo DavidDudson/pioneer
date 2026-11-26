@@ -26,7 +26,7 @@ export const characterCompanions = pgTable(
       .references(() => characters.id, { onDelete: 'restrict' }),
     kind: text().$type<CompanionKind>().notNull(),
     name: text().$type<CompanionName>().notNull(),
-    // Its shape settles with the familiar rules; until then it is open jsonb.
+    // Its shape depends on the kind: open for a familiar, `{ species }` for an animal companion.
     form: jsonb().$type<CompanionForm>().notNull(),
     grantedBy: text().$type<SlotKey>().notNull(),
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
@@ -34,10 +34,11 @@ export const characterCompanions = pgTable(
     archiveReason: text().$type<CompanionArchiveReason>(),
   },
   (table) => [
-    // One live companion of each kind per character; an archived one no longer holds the place.
+    // One live familiar per character; an archived one no longer holds the place.
+    // An animal companion has no such index: a Beastmaster holds up to four, and the write holds that cap (ADR-0080).
     uniqueIndex('character_companions_live_kind_idx')
       .on(table.characterId, table.kind)
-      .where(sql`${table.archivedAt} is null`),
+      .where(sql`${table.archivedAt} is null and ${table.kind} = 'familiar'`),
     // Serves the character's companions, newest first.
     index('character_companions_character_idx').on(table.characterId, table.createdAt, table.id),
   ],

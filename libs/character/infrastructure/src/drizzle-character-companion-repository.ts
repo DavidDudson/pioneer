@@ -1,9 +1,11 @@
-import { CharacterCompanionMessage, CharacterCompanionRepository } from '@pioneer/character/application';
+import { CharacterCompanionRepository, isKindFull, kindFullError } from '@pioneer/character/application';
 import type { CompanionArchival, CompanionWriteContext } from '@pioneer/character/application';
+import { AnimalCompanionForm, FamiliarForm } from '@pioneer/character/domain';
 import type { CharacterId, Companion, CompanionId } from '@pioneer/character/domain';
-import { ConflictError, message, nextVersion, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
+import { CompanionKind } from '@pioneer/rules/sdk';
+import { nextVersion, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, desc, eq, isNotNull, isNull, sql } from 'drizzle-orm';
+import { and, count, desc, eq, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { characterCompanions } from './character-companion.table';
@@ -22,7 +24,7 @@ type Database = BunSQLDatabase<Record<string, unknown>>;
 /** What `bumpVersion` needs of a transaction. */
 type VersionWriter = Pick<Database, 'update'>;
 
-/** What `hasLiveCompanion` needs of a transaction. */
+/** What `liveCount` needs of a transaction. */
 type LiveReader = Pick<Database, 'select'>;
 
 /** Drizzle skips `undefined`, and the lint rules refuse `null`, so a column is cleared with SQL's own. */
@@ -35,15 +37,19 @@ function toCompanion(row: CharacterCompanionRow): Companion {
   const archived =
     archivedAt === undefined || reason === undefined ? undefined : { at: Temporal.Instant.from(archivedAt), reason };
 
-  return {
+  const base = {
     id: row.id,
-    kind: row.kind,
     name: row.name,
-    form: row.form,
     grantedBy: row.grantedBy,
     createdAt: Temporal.Instant.from(row.createdAt),
     archived,
   };
+
+  if (row.kind === CompanionKind.Familiar) {
+    return { ...base, kind: row.kind, form: FamiliarForm.parse(row.form) };
+  }
+
+  return { ...base, kind: row.kind, form: AnimalCompanionForm.parse(row.form) };
 }
 
 export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepository {
@@ -73,13 +79,10 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
       await stampAudit(tx, { actor: context.actor, command: ADD_COMMAND });
       await bumpVersion(tx, context);
 
-      const taken = await hasLiveCompanion(tx, context.characterId, companion.kind);
+      const live = await liveCount(tx, context.characterId, companion.kind);
 
-      if (taken) {
-        throw new ConflictError(
-          `Character ${context.characterId} already has a live ${companion.kind}`,
-          message(CharacterCompanionMessage.KindTaken, { kind: companion.kind }),
-        );
+      if (isKindFull(companion.kind, live)) {
+        throw kindFullError(context.characterId, companion.kind, 'add');
       }
 
       await tx.insert(characterCompanions).values({
@@ -132,13 +135,10 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
         return;
       }
 
-      const taken = await hasLiveCompanion(tx, context.characterId, target.kind);
+      const live = await liveCount(tx, context.characterId, target.kind);
 
-      if (taken) {
-        throw new ConflictError(
-          `Character ${context.characterId} already has a live ${target.kind}`,
-          message(CharacterCompanionMessage.RestoreBlocked, { kind: target.kind }),
-        );
+      if (isKindFull(target.kind, live)) {
+        throw kindFullError(context.characterId, target.kind, 'restore');
       }
 
       await tx
@@ -171,10 +171,10 @@ async function bumpVersion(
   }
 }
 
-/** Whether the character holds a live companion of the kind, the place the unique index guards. */
-async function hasLiveCompanion(tx: LiveReader, characterId: CharacterId, kind: Companion['kind']): Promise<boolean> {
+/** How many live companions of the kind the character holds. */
+async function liveCount(tx: LiveReader, characterId: CharacterId, kind: Companion['kind']): Promise<number> {
   const [live] = await tx
-    .select({ id: characterCompanions.id })
+    .select({ total: count() })
     .from(characterCompanions)
     .where(
       and(
@@ -182,8 +182,7 @@ async function hasLiveCompanion(tx: LiveReader, characterId: CharacterId, kind: 
         eq(characterCompanions.kind, kind),
         isNull(characterCompanions.archivedAt),
       ),
-    )
-    .limit(1);
+    );
 
-  return live !== undefined;
+  return live?.total ?? 0;
 }

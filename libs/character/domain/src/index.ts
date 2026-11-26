@@ -624,16 +624,21 @@ export { CharacterCompanionContract } from './character-companion-contract';
 
 export {
   AddCompanionBody,
+  AnimalCompanionForm,
   ArchiveCompanionBody,
   CharacterCompanions,
+  COMPANION_LIVE_LIMIT,
   Companion,
   CompanionArchive,
   CompanionArchiveReason,
-  CompanionForm,
   CompanionId,
   CompanionName,
+  FamiliarForm,
+  LiveCompanionCount,
   RestoreCompanionBody,
 } from './companion';
+
+export type { CompanionForm } from './companion';
 
 export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 

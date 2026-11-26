@@ -4,14 +4,14 @@ import type { CompanionWriteContext } from '@pioneer/character/application';
 import {
   CharacterCommand,
   CompanionArchiveReason,
-  CompanionForm,
   CompanionId,
   CompanionName,
+  FamiliarForm,
 } from '@pioneer/character/domain';
 import type { Character, Companion } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { DrizzleCharacterCompanionRepository, DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
-import { CompanionKind, SlotKey } from '@pioneer/rules/sdk';
+import { CompanionKind, ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, newId, nextVersion, UserId, VersionConflictError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, testDatabaseUrl } from '@pioneer/shared/server/testing';
@@ -30,8 +30,22 @@ function familiar(name: CompanionName): Companion {
     id: CompanionId.parse(newId()),
     kind: CompanionKind.Familiar,
     name,
-    form: CompanionForm.parse({}),
+    form: FamiliarForm.parse({}),
     grantedBy: SlotKey.parse('witch-lesson:0'),
+    createdAt: clock.now(),
+    archived: undefined,
+  };
+}
+
+const WOLF = ContentId.parse(newId());
+
+function wolf(name: CompanionName): Companion {
+  return {
+    id: CompanionId.parse(newId()),
+    kind: CompanionKind.AnimalCompanion,
+    name,
+    form: { species: WOLF },
+    grantedBy: SlotKey.parse('animal-companion:0'),
     createdAt: clock.now(),
     archived: undefined,
   };
@@ -54,6 +68,15 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
 
   async function context(): Promise<CompanionWriteContext> {
     return { actor: amiri, characterId: kyra.id, expectedVersion: await version(), at: clock.now() };
+  }
+
+  /** Adds one animal companion per name, one after another: each write moves the character's version. */
+  async function addWolves(names: readonly string[]): Promise<void> {
+    for (const name of names) {
+      const companion = wolf(CompanionName.parse(name));
+      // oxlint-disable-next-line eslint/no-await-in-loop -- each write moves the version the next one reads
+      await repository.add(await context(), companion);
+    }
   }
 
   beforeAll(async () => {
@@ -177,6 +200,34 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
     );
     const rows = await repository.listForCharacter(kyra.id);
     expect(rows.map((row) => row.archived?.reason)).toStrictEqual([CompanionArchiveReason.Released]);
+  });
+
+  test('an animal companion round-trips its species, beside a familiar', async () => {
+    const ash = wolf(CompanionName.parse('Ash'));
+    await repository.add(await context(), familiar(PIP));
+    await repository.add(await context(), ash);
+    const rows = await repository.listForCharacter(kyra.id);
+    expect(rows.find((row) => row.id === ash.id)?.form).toStrictEqual({ species: WOLF });
+    expect(rows).toHaveLength(2);
+  });
+
+  test('a character holds four live animal companions and not a fifth', async () => {
+    await addWolves(['Ash', 'Birch', 'Cedar', 'Dune']);
+    const elm = wolf(CompanionName.parse('Elm'));
+    const refused = await rejection(repository.add(await context(), elm));
+    expect(refused).toBeInstanceOf(ConflictError);
+    expect(await repository.listForCharacter(kyra.id)).toHaveLength(4);
+  });
+
+  test('restoring an animal companion is refused while four are live', async () => {
+    const ash = wolf(CompanionName.parse('Ash'));
+    await repository.add(await context(), ash);
+    await repository.archive(await context(), { id: ash.id, reason: CompanionArchiveReason.Replaced });
+
+    await addWolves(['Birch', 'Cedar', 'Dune', 'Elm']);
+
+    const refused = await rejection(repository.restore(await context(), ash.id));
+    expect(refused).toBeInstanceOf(ConflictError);
   });
 
   test('the database refuses to delete a companion (ADR-0062)', async () => {

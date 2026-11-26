@@ -1,21 +1,12 @@
 import type { CharacterId, Companion, CompanionId } from '@pioneer/character/domain';
-import { ConflictError, message } from '@pioneer/shared/kernel';
 
-import { CharacterCompanionMessage } from './character-companion-message';
+import { isKindFull, kindFullError } from './character-companion-limit';
 import { CharacterCompanionRepository } from './character-companion-repository';
 import type { CompanionArchival, CompanionWriteContext } from './character-companion-repository';
 
-/** The kinds a live companion holds the place of. */
-function liveKinds(rows: readonly Companion[]): ReadonlySet<Companion['kind']> {
-  const kinds = new Set<Companion['kind']>();
-
-  for (const each of rows) {
-    if (each.archived === undefined) {
-      kinds.add(each.kind);
-    }
-  }
-
-  return kinds;
+/** How many live companions of the kind the rows hold. */
+function liveOfKind(rows: readonly Companion[], kind: Companion['kind']): number {
+  return rows.filter((each) => each.archived === undefined && each.kind === kind).length;
 }
 
 /** Repository adapter for tests and local experiments. It does not model the character's version. */
@@ -34,11 +25,8 @@ export class InMemoryCharacterCompanionRepository extends CharacterCompanionRepo
   public override async add({ characterId }: CompanionWriteContext, companion: Companion): Promise<void> {
     const rows = this.#rows.get(characterId) ?? [];
 
-    if (liveKinds(rows).has(companion.kind)) {
-      throw new ConflictError(
-        `Character ${characterId} already has a live ${companion.kind}`,
-        message(CharacterCompanionMessage.KindTaken, { kind: companion.kind }),
-      );
+    if (isKindFull(companion.kind, liveOfKind(rows, companion.kind))) {
+      throw kindFullError(characterId, companion.kind, 'add');
     }
 
     this.#rows.set(characterId, [...rows, companion]);
@@ -61,11 +49,8 @@ export class InMemoryCharacterCompanionRepository extends CharacterCompanionRepo
       return;
     }
 
-    if (liveKinds(rows).has(target.kind)) {
-      throw new ConflictError(
-        `Character ${characterId} already has a live ${target.kind}`,
-        message(CharacterCompanionMessage.RestoreBlocked, { kind: target.kind }),
-      );
+    if (isKindFull(target.kind, liveOfKind(rows, target.kind))) {
+      throw kindFullError(characterId, target.kind, 'restore');
     }
 
     this.#replace(characterId, id, (each) => ({ ...each, archived: undefined }));
