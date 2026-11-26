@@ -18,12 +18,16 @@ export type RefNames = ReadonlyMap<ContentId, ContentText>;
  */
 const KNOWN_TRIGGERS: ReadonlyMap<string, TriggerEvent> = new Map<string, TriggerEvent>([
   ['you roll initiative', { event: TriggerEventType.Initiative }],
+  ['you roll for initiative', { event: TriggerEventType.Initiative }],
   ['your turn begins', { event: TriggerEventType.TurnStart }],
   ['you begin your turn', { event: TriggerEventType.TurnStart }],
+  ['you start your turn', { event: TriggerEventType.TurnStart }],
+  ['your turn starts', { event: TriggerEventType.TurnStart }],
   ['at the start of your turn', { event: TriggerEventType.TurnStart }],
   ['the start of your turn', { event: TriggerEventType.TurnStart }],
   ['your turn ends', { event: TriggerEventType.TurnEnd }],
   ['you end your turn', { event: TriggerEventType.TurnEnd }],
+  ['you finish your turn', { event: TriggerEventType.TurnEnd }],
   ['at the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['you cast a spell', { event: TriggerEventType.CastSpell }],
@@ -36,6 +40,8 @@ const KNOWN_TRIGGERS: ReadonlyMap<string, TriggerEvent> = new Map<string, Trigge
   ['you make a strike', { event: TriggerEventType.Strike }],
   ['you attempt a strike', { event: TriggerEventType.Strike }],
   ['you take damage', { event: TriggerEventType.DamageTaken }],
+  ['you are dealt damage', { event: TriggerEventType.DamageTaken }],
+  ['you are damaged', { event: TriggerEventType.DamageTaken }],
 ]);
 
 /** The words an inline node shows; undefined for a node that carries more than words (a check, damage, a glyph). */
@@ -66,7 +72,30 @@ function triggerWords(trigger: RichText, names: RefNames): string | undefined {
 
 /** Lowercase, single spaces, no closing full stop. */
 function normalise(words: string): string {
-  return words.replaceAll('’', "'").replaceAll(/\s+/gu, ' ').trim().replace(/\.$/u, '').toLowerCase();
+  return words
+    .replaceAll('’', "'")
+    .replaceAll(/\s+/gu, ' ')
+    .trim()
+    .replace(/\s*\.$/u, '')
+    .toLowerCase();
+}
+
+const NOT_WORDS = '<…>';
+
+function phrasingText(node: InlineNode, names: RefNames): string {
+  return inlineText(node, names) ?? NOT_WORDS;
+}
+
+/**
+ * A trigger's wording normalised for grouping in the coverage report: lowercase, single spaces, no closing full stop,
+ * and `<…>` for anything that isn't words (an unnamed link, a check, a glyph). Paragraphs are joined by ` / `.
+ */
+export function triggerPhrasing(trigger: RichText, names: RefNames): string {
+  const paragraphs = trigger.map((block) =>
+    block.type === BlockKind.Paragraph ? block.content.map((node) => phrasingText(node, names)).join('') : NOT_WORDS,
+  );
+
+  return paragraphs.map((words) => normalise(words)).join(' / ');
 }
 
 /**

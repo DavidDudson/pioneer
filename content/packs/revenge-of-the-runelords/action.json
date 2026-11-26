@@ -786,7 +786,10 @@
             }
           ]
         }
-      ]
+      ],
+      "triggerEvent": {
+        "event": "turn-start"
+      }
     }
   },
   {

@@ -400,6 +400,10 @@ export { breakItem } from './inventory-broken';
 
 export { hasAnimatedRune, releasedAttack } from './animated-weapon';
 
+export { readyDonningCost } from './donning-armor';
+
+export type { ReadyDonningCost } from './donning-armor';
+
 export { authorizedDamage, hasAuthorizedRune, unauthorizedWielder } from './authorized-weapon';
 
 export type { AuthorizedDamage } from './authorized-weapon';
@@ -871,7 +875,13 @@ export {
 
 export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';
 
-export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
+export {
+  applyTurnCommand,
+  turnCommandInputs,
+  type TurnCommandContext,
+  type TurnCommandInputs,
+  type TurnRun,
+} from './turn-commands';
 
 export {
   ActionCount,

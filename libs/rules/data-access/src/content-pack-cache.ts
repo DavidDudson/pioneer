@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import type { ContentPack } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentPack } from '@pioneer/rules/sdk';
 
 /**
  * Packs `ContentLoader` has built, keyed by the bundle paths they were built from. A bundle's path carries its hash,
@@ -14,4 +14,15 @@ const shared: ContentPackCache = new Map();
 export const CONTENT_PACK_CACHE = new InjectionToken<ContentPackCache>('CONTENT_PACK_CACHE', {
   providedIn: 'root',
   factory: (): ContentPackCache => shared,
+});
+
+/**
+ * A kind's entries, keyed by the paths of its mechanics and names bundles, so registries over different kind sets share
+ * entry objects. One per injector, unlike the pack cache: entry identity is only stable within one injector.
+ */
+export type ContentEntryCache = Map<string, readonly ContentEntry[]>;
+
+export const CONTENT_ENTRY_CACHE = new InjectionToken<ContentEntryCache>('CONTENT_ENTRY_CACHE', {
+  providedIn: 'root',
+  factory: (): ContentEntryCache => new Map(),
 });

@@ -19,6 +19,8 @@ import { sheetSectionPreviews } from '../sheet-section-previews';
 import { SheetState } from '../sheet-state';
 import { sheetFormTempHp } from '../sheet-statistics';
 import { SheetEffectAdd } from './sheet-effect-add.component';
+import { SheetEffectSpellSaveNote } from './sheet-effect-spell-save-note.component';
+import { SheetEffectSpellSave } from './sheet-effect-spell-save.component';
 
 /**
  * The effects on the character (#349): each with who it came from, the rounds it has left and its badge, which a
@@ -30,6 +32,8 @@ import { SheetEffectAdd } from './sheet-effect-add.component';
   selector: 'pio-sheet-effects',
   imports: [
     SheetEffectAdd,
+    SheetEffectSpellSave,
+    SheetEffectSpellSaveNote,
     AsyncButton,
     AsyncData,
     AsyncPending,
@@ -51,6 +55,22 @@ export class SheetEffects {
   readonly #sheet = inject(SheetState);
 
   protected readonly registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
+  /** The name of what lets the character attempt a new save against one hostile spell each turn (a spellwatch rune); undefined when nothing does. */
+  protected readonly spellSaveSource = computed((): string | undefined => {
+    const save = this.#sheet.grantedVitals()?.turnStartSave;
+
+    if (save === undefined) {
+      return undefined;
+    }
+
+    const names = this.#sheet.picks.entryNames();
+
+    return (
+      save.origins.map(({ entry }) => names.get(entry)).find((name) => name !== undefined) ??
+      this.#i18n.translate('character.sheet.effects.unnamedSaveSource')
+    );
+  });
+
   /** What an effect's name previews: its entry, from the registry the list was built from. */
   public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;

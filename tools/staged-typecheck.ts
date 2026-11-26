@@ -42,7 +42,7 @@ export function projectRootsOf(files: readonly string[], hasProject: HasProject)
   return [...new Set(roots)].toSorted();
 }
 
-export function nameOf(root: string): string {
+function nameOf(root: string): string {
   // SAFETY: `root` is a directory with a `project.json`, and Nx requires every project's to have a string `name`.
   const project = JSON.parse(readFileSync(path.join(root, PROJECT_FILE), 'utf8')) as { readonly name: string };
 

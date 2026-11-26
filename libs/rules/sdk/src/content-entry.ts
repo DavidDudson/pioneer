@@ -114,6 +114,12 @@ export const ENTRY_ARMS = {
     ...envelope,
     data: KIND_DATA_MODEL[ContentKind.Heritage],
   }),
+  [ContentKind.CompanionSpecies]: z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.CompanionSpecies),
+    ...envelope,
+    data: KIND_DATA_MODEL[ContentKind.CompanionSpecies],
+  }),
   [ContentKind.Language]: z.strictObject({
     ...address,
     kind: z.literal(ContentKind.Language),
@@ -182,6 +188,7 @@ const Entry = z.discriminatedUnion('kind', [
   ENTRY_ARMS[ContentKind.Environment],
   ENTRY_ARMS[ContentKind.Feat],
   ENTRY_ARMS[ContentKind.Heritage],
+  ENTRY_ARMS[ContentKind.CompanionSpecies],
   ENTRY_ARMS[ContentKind.Language],
   ENTRY_ARMS[ContentKind.Ritual],
   ENTRY_ARMS[ContentKind.Sense],

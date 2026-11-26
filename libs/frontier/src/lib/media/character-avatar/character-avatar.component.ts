@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { clamp } from '@pioneer/shared/utils';
 import { cva } from 'class-variance-authority';
 import { Droplet, Skull } from 'lucide';
 
@@ -177,7 +178,7 @@ export class CharacterAvatar {
 
     return {
       max,
-      current: Math.min(Math.max(this.current() ?? 0, 0), max),
+      current: clamp(this.current() ?? 0, 0, max),
       temp: Math.max(this.temp(), 0),
     };
   });

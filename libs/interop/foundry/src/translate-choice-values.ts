@@ -1,6 +1,6 @@
 import { Slug } from '@pioneer/rules/sdk';
 
-import { kebab, slugOf } from './foundry-flags';
+import { defaultFlag, kebab } from './foundry-flags';
 import { EXPANDED_KEYS, pickedOneOf, predicateOf } from './translate-choice-objects';
 import { isFields } from './translate-choice-reads';
 import type { Fields } from './translate-choice-reads';
@@ -188,7 +188,7 @@ function withPick(raws: readonly unknown[], pick: Pick): readonly unknown[] {
 
 /** The roll option namespace a pick sets: its flag, under the item's slug unless the flag starts with it. */
 function namespaceOf(item: string, flag: string): string {
-  const owner = slugOf(item);
+  const owner = defaultFlag(item);
   const picked = kebab(flag);
 
   return picked.startsWith(owner) ? picked : `${owner}-${picked}`;

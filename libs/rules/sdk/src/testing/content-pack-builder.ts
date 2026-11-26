@@ -1,4 +1,5 @@
 // oxlint-disable max-lines -- one fluent builder with a method per kind; splitting it would scatter the test API
+import { capitalise } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { AncestryDefinition } from '../ancestry';
@@ -105,7 +106,7 @@ export class ContentPackBuilder {
   public withAncestry(name: string, overrides: Partial<AncestryFields> = {}): this {
     this.#ancestries.push({
       slug: `ancestry:${name}`,
-      name: name.charAt(0).toUpperCase() + name.slice(1),
+      name: capitalise(name),
       hitPoints: 8,
       size: Size.Medium,
       speed: 25,
@@ -135,7 +136,7 @@ export class ContentPackBuilder {
   public withStatistic(name: string, overrides: Partial<Sourceable<typeof StatisticDefinition>> = {}): this {
     this.#statistics.push({
       slug: `statistic:${name}`,
-      name: name.charAt(0).toUpperCase() + name.slice(1),
+      name: capitalise(name),
       selector: name,
       domains: [],
       base: '0',
@@ -400,7 +401,7 @@ export class ContentPackBuilder {
             pack: this.#id,
             kind,
             slug: `${kind}:${name}`,
-            name: name.charAt(0).toUpperCase() + name.slice(1),
+            name: capitalise(name),
             rarity,
             traits,
             sources,

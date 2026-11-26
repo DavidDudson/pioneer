@@ -4,6 +4,9 @@
     <ng-template [frAsyncData]="items">
       @if (content(); as content) {
         <fr-stack gap="lg">
+          @if (bonusProgression()) {
+            <fr-message tone="info">{{ 'character.sheet.inventory.automaticBonusProgression' | transloco }}</fr-message>
+          }
           <pio-inventory [groups]="groups()" [actions]="itemEdits" />
           <ng-template #itemEdits let-line>
             <fr-stack gap="xs">

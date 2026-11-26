@@ -34,6 +34,10 @@ export const NumericItemProperty = {
   DamageDice: 'damage-dice',
   /** The item's potency grade: a weapon's item bonus to attack, or what an armour adds to its AC bonus. */
   Potency: 'potency',
+  /** The grade of striking rune a weapon has: the damage dice it adds to the weapon's own. */
+  Striking: 'striking',
+  /** The grade of resilient rune an armour has: its item bonus to saving throws. */
+  Resilient: 'resilient',
 } as const;
 
 export type NumericItemProperty = ValueOf<typeof NumericItemProperty>;

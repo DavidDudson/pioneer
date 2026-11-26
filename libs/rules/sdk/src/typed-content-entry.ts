@@ -21,6 +21,7 @@ const Entry = z.discriminatedUnion('kind', [
   ENTRY_ARMS[ContentKind.Environment].extend({ rules: EntryRules }),
   ENTRY_ARMS[ContentKind.Feat].extend({ rules: EntryRules }),
   ENTRY_ARMS[ContentKind.Heritage].extend({ rules: EntryRules }),
+  ENTRY_ARMS[ContentKind.CompanionSpecies].extend({ rules: EntryRules }),
   ENTRY_ARMS[ContentKind.Language].extend({ rules: EntryRules }),
   ENTRY_ARMS[ContentKind.Ritual].extend({ rules: EntryRules }),
   ENTRY_ARMS[ContentKind.Sense].extend({ rules: EntryRules }),

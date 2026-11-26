@@ -3017,6 +3017,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "minute"
@@ -3748,6 +3751,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-end"
+        },
         "frequency": {
           "max": 1,
           "per": "day"

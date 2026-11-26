@@ -1,0 +1,1536 @@
+[
+  {
+    "id": "07b5ebd9-0649-5475-b849-96b5a7e20b40",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:ape",
+    "name": "Ape",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=66"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is an ape or other primate."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your ape threatens your foes with menacing growls. Until the start of your next turn, if you hit and deal damage to a creature in your ape's reach, the creature becomes frightened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Frightening Display"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=66"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 1,
+          "con": 2,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "intimidation",
+        "speed": 25,
+        "movement": {
+          "climb": 25
+        },
+        "attacks": [
+          {
+            "slug": "fist",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "bludgeoning"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e252a1be-caeb-5b7f-be06-e5225929cff7",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:arboreal-sapling",
+    "name": "Arboreal Sapling",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=67"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a walking tree, a cousin of the great arboreal wardens and regents. An arboreal sapling has the plant trait instead of the animal trait, but it otherwise functions normally as an animal companion. They are typically only selected by animal order druids who are also members of the leaf order."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your arboreal sapling plants roots around your foe, impeding its movement. Until the start of your next turn, if you hit and deal damage to a creature in your arboreal sapling's reach, the first square the creature moves into after taking that damage is difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Throw Rock"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=67"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 1,
+          "con": 2,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "stealth",
+        "speed": 25,
+        "attacks": [
+          {
+            "slug": "branch",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "bludgeoning"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b313a3fc-1967-5056-8935-15c41fff98db",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:badger",
+    "name": "Badger",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=68"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a badger, wolverine, or other big mustelid."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your badger digs around your foe's position, interfering with its footing. Until the start of your next turn, if you hit and deal damage to a creature your badger threatens, the target can't use a Step action (unless it can Step through difficult terrain) until it moves from its current position."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Badger Rage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=68"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 2,
+          "con": 2,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "survival",
+        "speed": 25,
+        "movement": {
+          "burrow": 10,
+          "climb": 10
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "claw",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "eb1228f7-4ef4-5b9c-8930-3b937f175f4b",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:bat",
+    "name": "Bat",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=69"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a particularly large bat, such as a giant bat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: echolocation 20 feet (the bat can use hearing as a precise sense within this range), low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your bat flaps around your foes' arms and faces, getting in the way of their attacks. Until the start of your next turn, creatures in your bat's reach that you damage with Strikes take a –1 circumstance penalty to their attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Wing Thrash"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=69"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 3,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 15,
+        "movement": {
+          "fly": 30
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "wing",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "c6e99d5a-f050-56e6-8ac0-258b00a6b5be",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:bear",
+    "name": "Bear",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=70"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a black, grizzly, polar, or other type of bear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your bear mauls your enemies when you create an opening. Until the start of your next turn, each time you hit a creature in the bear's reach with a Strike, the creature takes 1d8 slashing damage from the bear. If your bear is nimble or savage, the slashing damage increases to 2d8."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Bear Hug"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=70"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 2,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "intimidation",
+        "speed": 35,
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "claw",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "aae70187-f4b3-5121-98c8-ed8371aad0a1",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:bird",
+    "name": "Bird",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=71"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a bird of prey, such as an eagle, hawk, or owl."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: The bird pecks at your foes' eyes when you create an opening. Until the start of your next turn, your Strikes that damage a creature that your bird threatens also deal 1d4 persistent bleed damage, and the target is dazzled until it removes the bleed damage. If your bird is nimble or savage, the persistent bleed damage increases to 2d4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Flyby Attack"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=71"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 3,
+          "con": 1,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 4,
+        "extraSkill": "stealth",
+        "speed": 10,
+        "movement": {
+          "fly": 60
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "talon",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "22a08688-b514-5a69-9840-5454868e939d",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:boar",
+    "name": "Boar",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=72"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a boar or pig."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your boar gores your foes. Until the start of your next turn, your Strikes that damage a creature in your boar's reach also deal 1d6 persistent bleed damage. If your boar is nimble or savage, the persistent bleed damage increases to 2d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Boar Charge"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=72"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 1,
+          "con": 2,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "survival",
+        "speed": 35,
+        "attacks": [
+          {
+            "slug": "tusk",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "05b0f47d-6a54-5814-9764-b4c39428bd81",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:cat",
+    "name": "Cat",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=73"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a big cat, such as a leopard or tiger."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: Your cat deals 1d4 extra precision damage against off-guard targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your cat throws your enemies off-balance when you create an opening. Until the start of your next turn, your Strikes that deal damage to a creature within your cat's reach make the target off-guard until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Cat Pounce"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=73"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 3,
+          "con": 1,
+          "int": -4,
+          "wis": 2,
+          "cha": 0
+        },
+        "ancestryHp": 4,
+        "extraSkill": "stealth",
+        "speed": 35,
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "claw",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5dcc3605-4d6b-5729-be98-0a3c6cf497f3",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:crocodile",
+    "name": "Crocodile",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=74"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a crocodile or a similar crocodilian reptile, such as an alligator or caiman."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: The crocodile can hold its breath for about 2 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your crocodile clamps its jaws on your foe, refusing to let go. Until the start of your next turn, if your Strike damages a creature in your crocodile's reach, your crocodile can latch onto the creature. While thus attached, the crocodile can move along with the target whenever the target moves until the end of your next turn. Your crocodile can latch onto only one creature in this way, and it must release the creature to make a jaws Strike. If the target is smaller than the crocodile, it takes a –10-foot circumstance penalty to its Speeds and can't Fly while the crocodile is latched on."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Death Roll"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=74"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 2,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 20,
+        "movement": {
+          "swim": 25
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "tail",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1691af12-1ac3-549a-a40c-b78b6dae78f1",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:dromaeosaur",
+    "name": "Dromaeosaur",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=75"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a dromaeosaur (also called a raptor), such as a velociraptor or deinonychus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your raptor constantly darts into flanking position. Until the start of your next turn, it counts as being in its space or an empty space of your choice within 10 feet when determining whether you and your companion are flanking; you can choose a different space for each of your attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Darting Attack"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=75"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 3,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 50,
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "talon",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "323474bf-bdaf-5849-b898-d58218f38fc8",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:horse",
+    "name": "Horse",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=76"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a horse, pony, or similar equine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: mount"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Until the start of your next turn, if you're mounted on your horse and moved 10 feet or more on the action before a melee Strike, add a circumstance bonus to damage for that Strike equal to twice the number of weapon damage dice. If your weapon already has the jousting weapon trait, increase the trait's damage bonus by 2 per die instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Gallop"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=76"
+    },
+    "data": {
+      "block": {
+        "size": "medium",
+        "attributes": {
+          "str": 3,
+          "dex": 2,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 8,
+        "extraSkill": "survival",
+        "speed": 40,
+        "attacks": [
+          {
+            "slug": "hoof",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "95f8cfa2-b9ac-51fd-bd4a-eaffa03228b9",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:riding-drake",
+    "name": "Riding Drake",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=77"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a swift, flightless drake with limited intelligence, less vicious than most drakes but fiercely loyal to you. A riding drake has the dragon trait instead of the animal trait, but it otherwise functions normally as an animal companion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: mount"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your drake snorts fire in your foes' faces. Until the start of your next turn, each time you Strike while riding the drake and hit a creature in the drake's reach, the creature takes 1d4 fire damage from the drake. If your drake is nimble or savage, the fire damage increases to 2d4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Fire Breath"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=77"
+    },
+    "data": {
+      "block": {
+        "size": "large",
+        "attributes": {
+          "str": 2,
+          "dex": 1,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 2
+        },
+        "ancestryHp": 8,
+        "extraSkill": "intimidation",
+        "speed": 45,
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "tail",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4710ddfc-7194-5465-888a-62503c1821c7",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:scorpion",
+    "name": "Scorpion",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=78"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is one of the various species of giant scorpion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: The scorpion's stinger attack deals an additional 1d4 poison damage or 2d4 poison damage if the scorpion is a specialized companion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your scorpion drips poison from its stinger when you create an opening. Until the start of your next turn, your Strikes that damage a creature in your scorpion's reach also deal 1d6 persistent poison damage. If your scorpion is nimble or savage, the persistent poison damage increases to 2d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Grab and Sting"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=78"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 3,
+          "con": 1,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 30,
+        "attacks": [
+          {
+            "slug": "stinger",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing"
+            }
+          },
+          {
+            "slug": "pincer",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5fe47224-92e1-5ff5-9bc5-9d582f0b8ee8",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:shark",
+    "name": "Shark",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=79"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a shark of any kind, such as a hammerhead, great white, or jigsaw shark."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: blood scent, scent (imprecise, 60 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special: The shark has the aquatic trait. Its blood scent enables it to smell blood in the water from up to 1 mile away."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: When your shark senses blood, it tears into your enemies. Until the start of your next turn, each time you hit a creature in the shark's reach with a Strike and deal slashing or piercing damage, the creature takes 1d8 slashing damage from the shark. If your shark is nimble or savage, the slashing damage increases to 2d8."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Shred"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=79"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 2,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 0,
+        "movement": {
+          "swim": 40
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "str",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f839f636-fde0-5651-a1a5-6b6def2edd32",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:snake",
+    "name": "Snake",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=80"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a constrictor snake, such as a boa or python."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your snake holds your enemies with its coils, interfering with reactions. Until the start of your next turn, any creature your snake threatens can't use reactions triggered by your actions unless its level is higher than yours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Constrict"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=80"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 3,
+          "dex": 3,
+          "con": 1,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "stealth",
+        "speed": 20,
+        "movement": {
+          "climb": 20,
+          "swim": 20
+        },
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f041ce91-d6ff-576a-b1bf-3c3fc09b3a0a",
+    "pack": "player-core",
+    "kind": "companion-species",
+    "slug": "companion-species:wolf",
+    "name": "Wolf",
+    "rarity": "common",
+    "traits": ["animal", "minion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=83"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion is a wolf, dog, or other canine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses: low-light vision, scent (imprecise, 30 feet)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Support Benefit: Your wolf tears tendons with each opening. Until the start of your next turn, your Strikes that damage creatures your wolf threatens give the target a –5-foot status penalty to its Speeds for 1 minute (–10 on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Maneuver: Takedown"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "aon": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=83"
+    },
+    "data": {
+      "block": {
+        "size": "small",
+        "attributes": {
+          "str": 2,
+          "dex": 3,
+          "con": 2,
+          "int": -4,
+          "wis": 1,
+          "cha": 0
+        },
+        "ancestryHp": 6,
+        "extraSkill": "survival",
+        "speed": 40,
+        "attacks": [
+          {
+            "slug": "jaws",
+            "attribute": "dex",
+            "damage": {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          }
+        ]
+      }
+    }
+  }
+]

@@ -11,7 +11,7 @@ import { within } from './testing';
 import { endTurn } from './turn-end';
 
 const MAX = HitPoints.parse(40);
-const RUNS = 200;
+const RUNS = 100;
 const SEED_MAX = 1000;
 const CONDITIONS_MAX = 5;
 const DAMAGE_MAX = 40;

@@ -126,8 +126,9 @@ The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`),
   weapon's `strike:<slug>` as a synthetic `item` modifier with the slug `weapon-potency`, labelled by a message and
   with the weapon's origin, so it stacks with other item bonuses to attack rolls (a mutagen's): only the highest
   applies, and the breakdown shows the potency line suppressed when another wins. Automatic Bonus
-  Progression (GM Core) needs no formula change either: it removes potency runes, so weapons carry no `potency` and
-  get no line, and its variant pack adds its own `potency`-typed `FlatModifier` to attack rolls. The slug lets an
+  Progression (GM Core) needs no formula change either: its variant pack sets the `potency` of weapons and armour to 0
+  with `ItemAlteration`s, so weapons get no line, and adds its own `potency`-typed `FlatModifier` to attack rolls, AC,
+  Perception and saves by level. The slug lets an
   `AdjustModifier` find the line for anything that changes a rune's bonus.
 - Worn armour's bonus (its own and its potency rune's) is not a base term either. The engine adds it to `ac` as a
   synthetic `item` modifier with the slug `armor-bonus`, named by the armour and with its origin (an `inventory`
@@ -734,14 +735,23 @@ Foundry's `force` (a sense replacing a better one) is not read, so the importer 
 
 ### Vitals and size
 
-`vitalsInPlay` in `libs/rules/engine` reads the `FastHealing`, `TempHP` and `CreatureSize` elements whose predicate
-holds; one that depends on the situation gives nothing on the sheet. Values are numbers or formulas over the
-character, and one below 1, or a formula with no value, is ignored. Recovery and temporary Hit Points do not add up
-(Player Core): of fast healing, of regeneration and of temporary Hit Points the highest counts, with every element that
-gives it as an origin. `CreatureSize` applies in the order found: a named size sets the size, a number of steps moves it
+`vitalsInPlay` in `libs/rules/engine` reads the `FastHealing`, `TempHP`, `HealingBonus`, `TurnStartSave` and
+`CreatureSize` elements whose predicate holds; one that depends on the situation gives nothing on the sheet. Values
+are numbers or formulas over the character, and one below 1, or a formula with no value, is ignored. Recovery and
+temporary Hit Points do not add up (Player Core): of fast healing, of regeneration and of temporary Hit Points the
+highest counts, with every element that gives it as an origin. A healing bonus (the Hit Points a moonweave rune adds
+to the first healing from a spell or effect, which the Hit Point controls offer on healing the player marks as from
+one) is Pioneer's own element: the highest counts, by the same choice. `CreatureSize` applies in the order found: a
+named size sets the size, a number of steps moves it
 (never below tiny, never past its `maximumSize` when growing). The reach is the size's, unless the last element that
 names one overrides it or adds to it. The result is read-only on the sheet: the play state still holds the temporary
 Hit Points a player enters, and no recovery is applied for them.
+
+`TurnStartSave` (a spellwatch rune) says the character may attempt a new save against one hostile spell at the start of
+each turn. The engine only reports it (`hostileSpellSave`, with the rune as origin). The effects list then offers "end
+it" on each effect whose source is the GM, for the player to press after rolling the save: effects carry no save type or
+DC, and the once-a-turn limit is a note, not state. Creature-side runes (aim-aiding's cover, unnerving's penalty on the
+attacker) wait for a model of other creatures.
 
 ### Battle forms
 
@@ -871,8 +881,14 @@ numbers from its content. An element that depends on the situation gives nothing
 found:
 
 - A numeric property (`ac-bonus`, `check-penalty`, `dex-cap`, `hardness`, `hp-max`, `range-increment`,
-  `speed-penalty`, `strength`, `potency`) changes by its `mode`, never below 0. An item with no value for the property (armour
-  with no Dexterity cap, a melee weapon's range increment) takes one from `upgrade`, `downgrade` and `override` only.
+  `speed-penalty`, `strength`, `potency`, `striking`, `resilient`) changes by its `mode`, never below 0. An item with no
+  value for the property (armour with no Dexterity cap, a melee weapon's range increment) takes one from `upgrade`,
+  `downgrade` and `override` only.
+- `potency`, `striking` and `resilient` are the grades of the item's fundamental runes, which the Strike's potency and
+  damage dice and the armour's AC bonus and save bonus read after the alterations. Automatic Bonus Progression
+  overrides them (to 0, then to the devastating attack dice of the character's level for `striking`).
+  Overrides apply in array order and the last one that holds wins. Only inventory weapons and armour are altered: a
+  granted or unarmed Strike gets the potency bonus but not the devastating attack dice yet.
 - An `etched` element reaches only the inventory item the rune it comes from is etched onto. `potency` is the grade the
   item's runes give, which a mythic potency rune upgrades to 4 (ADR-0078).
 - `traits`, `materials` and `property-runes` add or remove one value; `damage-type` overrides the weapon's.

@@ -14,6 +14,13 @@ import type { GrantedLine } from './granted-vitals';
 import { hitPointsView } from './hit-points-view';
 import type { HitPointsView } from './hit-points-view';
 
+/** The Hit Points a spell or effect adds to the first healing it gives, and what gives them. */
+interface HealingBonusView {
+  readonly amount: HitPoints;
+  /** The name of the rune or item that gives it, or a generic one while its entry has none. */
+  readonly source: string;
+}
+
 /** Damage of `amount`, entered by hand, from a critical hit when `critical`. */
 function damageOf(amount: HitPoints, critical: boolean): PlayCommand {
   return { field: PlayCommandField.Damage, damage: untypedDamage(amount, critical) };
@@ -66,13 +73,33 @@ export class SheetHitPointControls {
     return vitals === undefined ? [] : grantedLines(vitals).map((line) => this.#grantedText(line));
   });
 
+  /** Whether the healing entered is the first from a spell or effect, which a healing bonus adds to. */
+  protected readonly fromEffect = signal(false);
+
+  /** What adds Hit Points to the first healing from a spell or effect, such as a moonweave rune; undefined when nothing does. */
+  protected readonly healingBonus = computed((): HealingBonusView | undefined => {
+    const bonus = this.#sheet.grantedVitals()?.healingBonus;
+
+    if (bonus === undefined) {
+      return undefined;
+    }
+
+    const names = this.#sheet.picks.entryNames();
+    const source = bonus.origins.map(({ entry }) => names.get(entry)).find((name) => name !== undefined);
+
+    return { amount: bonus.amount, source: source ?? this.#translated('character.sheet.hp.unnamedHealingSource') };
+  });
+
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);
 
   protected readonly ready = computed(() => this.hp() !== undefined && this.complete() && !this.busy());
 
   protected readonly damage = async (): Promise<void> => this.#send((amount) => damageOf(amount, this.critical()));
-  protected readonly heal = async (): Promise<void> => this.#send(healOf);
+  protected readonly heal = async (): Promise<void> => {
+    await this.#send((amount) => healOf(this.#healed(amount)));
+    this.fromEffect.set(false);
+  };
   protected readonly setHp = async (): Promise<void> => this.#send(setHpOf);
   protected readonly setTempHp = async (): Promise<void> => this.#send(setTempHpOf);
 
@@ -82,6 +109,13 @@ export class SheetHitPointControls {
 
     return this.#i18n.translate(key, params);
   };
+
+  /** `amount` with the healing bonus added when the healing is the first from a spell or effect. */
+  #healed(amount: HitPoints): HitPoints {
+    const bonus = this.healingBonus();
+
+    return bonus !== undefined && this.fromEffect() ? HitPoints.parse(amount + bonus.amount) : amount;
+  }
 
   /** The form's name, or a generic one while its entry has none. */
   #formName(entry: ContentId): string {

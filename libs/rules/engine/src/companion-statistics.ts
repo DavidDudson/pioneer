@@ -9,7 +9,12 @@ import {
   Proficiency,
   Size,
 } from '@pioneer/rules/sdk';
-import type { CompanionAttack, CompanionSkill as CompanionSkillName } from '@pioneer/rules/sdk';
+import type {
+  CompanionAttack,
+  CompanionSkill as CompanionSkillName,
+  Level,
+  ProficiencyBonusTable,
+} from '@pioneer/rules/sdk';
 
 import { CompanionSource } from './companion-statistic-types';
 import type {
@@ -20,6 +25,7 @@ import type {
   CompanionStrike,
 } from './companion-statistic-types';
 import { SIZE_ORDER, TIER_ADVANCE } from './companion-tiers';
+import { bonusAt } from './proficiency-bonuses';
 
 const RANKS = [
   Proficiency.Untrained,
@@ -231,6 +237,7 @@ export function deriveCompanionStatistics(inputs: CompanionInputs): CompanionSta
     level: inputs.level,
     size: sizeOf(inputs),
     speed: inputs.block.speed,
+    movement: inputs.block.movement ?? {},
     attributes,
     hitPoints: { total: HitPoints.parse(Math.max(ZERO, sum(hitPointLines))), lines: hitPointLines },
     armorClass: checkStatistic(inputs, attributes, {
@@ -245,4 +252,13 @@ export function deriveCompanionStatistics(inputs: CompanionInputs): CompanionSta
     skills: skillsOf(inputs, attributes),
     strikes: inputs.block.attacks.map((attack) => strikeOf(inputs, attributes, attack)),
   };
+}
+
+/**
+ * The bonus each rank adds at `level`, read from the content's table (ADR-0026), for `deriveCompanionStatistics`. A
+ * rank the table cannot evaluate adds nothing, as `@prof` reading unknown would. A variant rule that replaces the
+ * table on the master does not reach the companion.
+ */
+export function companionProficiencyBonus(table: ProficiencyBonusTable, level: Level): (rank: Proficiency) => Modifier {
+  return (rank) => Modifier.parse(bonusAt(table[rank], level) ?? ZERO);
 }

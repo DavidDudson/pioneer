@@ -1,7 +1,7 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantResolution, GrantRoot, OwnedItem, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
-import { LEGACY_CONTENT_VARIANT, Level, SlotKey } from '@pioneer/rules/sdk';
+import { LEGACY_CONTENT_VARIANT, Level, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
 import type {
   AttributeModifiers,
   ChoiceValue,
@@ -61,6 +61,11 @@ export interface SlotContent {
   readonly runes?: RuneContent | undefined;
 }
 
+/** Whether a variant in force spreads the free boosts over the levels (Gradual Attribute Boosts). */
+function gradualBoosts(variants: readonly VariantRuleEntry[]): boolean {
+  return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.GradualBoosts) === true);
+}
+
 /**
  * The slot content a registry gives, for a character with `variants` in force. Legacy content is on while its variant
  * rule is in force, or when `legacyContent` says so: an import reads a build for what it holds, whatever the table allows.
@@ -78,7 +83,7 @@ export function slotContent(
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),
-    boosts: boostContent(registry, rootSlots, () => lookup),
+    boosts: boostContent(registry, rootSlots, () => lookup, gradualBoosts(variants)),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),

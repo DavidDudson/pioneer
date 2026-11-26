@@ -52,6 +52,45 @@ little more. Shared CI runners are noisier and slower than that, so the regressi
 the baseline, and each budget is far above what the code takes. Compare a chart's points over days, not neighbouring
 commits.
 
+## Page budgets
+
+Benchmarks time code; the page budgets time what a visitor downloads. `bun run perf:pages` (`tools/page-budget.ts`)
+opens the character list and a character sheet in Lighthouse (`@lhci/cli`, desktop preset, three runs per page, the
+median kept) and records the **request count**, the **transfer size** and the **LCP** of each.
+
+Run it: build the app with `nx run web:build:production`, serve it from the dev entrypoint, which serves `WEB_DIST`
+from its own origin and keeps the dev sign-in, then run the tool against that origin:
+
+```sh
+WEB_DIST=dist/apps/web/browser PORT=3000 PUBLIC_ORIGIN=http://localhost:3000 bun apps/api/src/main.dev.ts
+bun tools/page-budget.ts --api http://localhost:3000 --web http://localhost:3000
+```
+
+It signs in as the dev player, makes a throwaway level 1 character (`--character <id>` names a bigger one), writes
+`tmp/page-budget-results.json` (`--out`) and a Markdown table (`--summary`), and keeps the full reports in `tmp/lhci`.
+It exits non-zero when a page is over its budget, after the results are written.
+
+- Read the history: <https://daviddudson.github.io/pioneer/dev/pages/>, one chart per page and metric, recorded on
+  every push to `main`.
+- Pull requests: the Page budgets workflow (`.github/workflows/page-budget.yml`) runs the same tool against the
+  production build, fails the check on a page over its budget, and keeps the Lighthouse reports as an artifact.
+
+The budgets are in `lighthouserc.json`, set about 10 % above the numbers of `main` when they were added, so a story
+that makes a page bigger fails the check. Lower a budget in the PR that earns it; raise one only with a reason in
+the PR.
+
+| Page              | Requests (now / budget) | Transfer (now / budget) | LCP (now / budget) |
+| ----------------- | ----------------------: | ----------------------: | -----------------: |
+| `/characters`     |               464 / 510 |         4.2 MB / 4.7 MB |        0.2 s / 1 s |
+| `/characters/:id` |             1233 / 1360 |         6.3 MB / 7.1 MB |        0.2 s / 1 s |
+
+- The counts and sizes repeat from run to run, so their budgets are tight. LCP is simulated, so it moves with the
+  machine and its budget is far above what the page takes: it catches a page that stops painting early, not a
+  small slip.
+- Requests and transfer count every resource the page fetches while Lighthouse watches it load, third-party fonts
+  included.
+- The sheet redirects to its last tab; the result is named for the sheet (`/characters/:id`) whatever tab it lands on.
+
 ## One-time setup
 
 The history lives on a `gh-pages` branch, created by the first run on `main`. After it exists, enable GitHub Pages for

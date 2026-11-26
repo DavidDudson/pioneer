@@ -4,6 +4,7 @@ import { AncestryData } from './ancestry';
 import { ArchetypeData } from './archetype';
 import { BackgroundData } from './background';
 import { ClassData } from './character-class';
+import { CompanionSpeciesData } from './companion-species';
 import { ConditionData } from './condition';
 import { ContentKind } from './content-kind';
 import { CreatureDataModel } from './creature';
@@ -36,6 +37,7 @@ export const KIND_DATA_MODEL = {
   [ContentKind.Background]: BackgroundData,
   [ContentKind.Class]: ClassData,
   [ContentKind.ClassFeature]: ClassFeatureData,
+  [ContentKind.CompanionSpecies]: CompanionSpeciesData,
   [ContentKind.Condition]: ConditionData,
   [ContentKind.Creature]: CreatureDataModel,
   [ContentKind.DamageType]: DamageTypeData,

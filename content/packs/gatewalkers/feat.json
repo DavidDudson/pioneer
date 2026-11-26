@@ -749,7 +749,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       },
       "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"
     }

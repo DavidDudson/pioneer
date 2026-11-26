@@ -183,7 +183,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },
@@ -13566,6 +13569,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "hour"
@@ -15149,7 +15155,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },
@@ -17760,7 +17769,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },

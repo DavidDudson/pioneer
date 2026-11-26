@@ -1,0 +1,27 @@
+<fr-stack gap="md">
+  @for (entry of entries(); track slotOf(entry)) {
+    <fr-stack gap="sm">
+      @if (entry.card; as card) {
+        <fr-surface padding="sm">
+          <fr-stack gap="xs">
+            <fr-text weight="semibold">{{ card.companion.name }}</fr-text>
+            @for (fact of card.facts; track fact.key) {
+              <fr-text>{{ fact.key | transloco: fact.params }}</fr-text>
+            }
+            <fr-button size="sm" (click)="release(card)">{{ Message.Release | transloco }}</fr-button>
+          </fr-stack>
+        </fr-surface>
+      }
+      @if (entry.naming) {
+        <pio-companion-picker
+          [source]="Message.Source | transloco"
+          [options]="entry.options"
+          [picked]="entry.view.picked?.id"
+          (confirmed)="confirm(entry, $event)"
+        />
+      }
+    </fr-stack>
+  } @empty {
+    <fr-text>{{ Message.None | transloco }}</fr-text>
+  }
+</fr-stack>

@@ -148,6 +148,8 @@ export {
 
 export { CompanionKind, companionRollOption } from './companion-kind';
 
+export { CompanionSpeciesData } from './companion-species';
+
 export {
   CompanionSpecialization,
   CompanionSpecializationSchema,
@@ -158,6 +160,8 @@ export {
 export {
   COMPANION_SKILL_ATTRIBUTE,
   CompanionAttack,
+  CompanionMovement,
+  CompanionMovements,
   CompanionSkill,
   CompanionSkillSchema,
   CompanionStatBlock,
@@ -265,8 +269,10 @@ export {
   CanonicalJson,
   canonicalJson,
   contentPackFromBundles,
+  contentPackFromKindEntries,
   descriptionFromBundle,
   descriptionShard,
+  entriesFromBundles,
 } from './content-bundle';
 
 export type { DescriptionBundle, DescriptionShard, FetchedKind, KindBundles, PackBundles } from './content-bundle';
@@ -612,7 +618,14 @@ export {
   grievousSpecializationOf,
 } from './critical-specialization';
 
-export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
+export {
+  FastHealingElement,
+  FastHealingType,
+  HealingBonusElement,
+  TempHPElement,
+  TurnStartSaveElement,
+  TurnStartSaveTarget,
+} from './rule-element-healing';
 
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
 

@@ -287,6 +287,10 @@
       "safe": "Safe Release of {name}",
       "expending": "Expending…"
     },
+    "donning": {
+      "one": "{name} can be donned as a single action",
+      "two": "{name} can be donned as a 2-action activity"
+    },
     "release": {
       "set": "Set {name} free",
       "setting": "Setting free…",
@@ -378,6 +382,7 @@
       "notInvested": "Not invested",
       "bulkHeading": "Bulk",
       "investmentsHeading": "Investments",
+      "automaticBonusProgression": "Automatic Bonus Progression is on: potency and resilient runes add nothing, and striking runes give way to the devastating attack dice of your level. Those bonuses come with your level instead.",
       "break": {
         "invested": "{actual} items invested, over the limit of {limit}",
         "hands": "Held in {actual} hands, over the {limit} you have",
@@ -550,6 +555,17 @@
       "signatureCastAt": "{spell}, the signature spell, is cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank.",
       "signatureCastFrom": "{spell}, the signature spell, is cast at any rank from {low, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} to {high, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}."
     },
+    "companions": {
+      "heading": "Companions",
+      "none": "No animal companion yet. An Animal Companion feat gives you one to choose.",
+      "source": "Animal Companion",
+      "species": "Species: {species}",
+      "hitPoints": "Hit Points {value}",
+      "armorClass": "AC {value}",
+      "speed": "Speed {value} feet",
+      "replace": "Replace",
+      "release": "Release"
+    },
     "deity": {
       "heading": "Deity",
       "label": "Deity",
@@ -581,6 +597,8 @@
       "damage": "Damage",
       "critical": "Critical hit",
       "heal": "Heal",
+      "fromEffect": "From a spell or effect: +{amount} from {source}",
+      "unnamedHealingSource": "an effect",
       "set": "Set HP",
       "setTemp": "Set temp HP",
       "fastHealing": "Fast healing {amount}.",
@@ -713,6 +731,9 @@
       "form": "{name} form",
       "rank": "Rank {rank}",
       "remove": "Dismiss",
+      "spellSave": "{source}: at the start of each of your turns, attempt a new save against one hostile spell. If you succeed it ends; if you fail it goes on unchanged.",
+      "unnamedSaveSource": "An effect",
+      "endBySave": "New save succeeded: end it",
       "fromAlly": "From {name}",
       "fromGm": "From the GM",
       "remaining": "{count, plural, one {# round left} other {# rounds left}}",
@@ -949,6 +970,7 @@
     "fastHealing": "Fast healing restores {amount} Hit Points.",
     "regeneration": "Regeneration restores {amount} Hit Points.",
     "effectExpired": "An effect ended.",
+    "triggeredAbility": "A triggered ability applied.",
     "spellEnded": "A sustained spell ended.",
     "conditionEnded": "A condition ended.",
     "conditionLowered": "A condition went down to {value}.",
@@ -1108,6 +1130,7 @@
         "background": "Backgrounds",
         "class": "Classes",
         "classFeature": "Class features",
+        "companionSpecies": "Companion species",
         "condition": "Conditions",
         "consumable": "Consumables",
         "creature": "Creatures",

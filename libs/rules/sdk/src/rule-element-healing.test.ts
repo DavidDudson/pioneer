@@ -6,6 +6,9 @@ const valid: object[] = [
   { key: 'FastHealing', value: 5 },
   { key: 'FastHealing', value: '@item.level * 2' },
   { key: 'FastHealing', value: 15, type: 'regeneration', deactivatedBy: ['acid', 'fire'] },
+  { key: 'HealingBonus', value: 2 },
+  { key: 'HealingBonus', value: '@item.level * 2', predicate: ['self:effect:rage'] },
+  { key: 'TurnStartSave', against: 'hostile-spell' },
   { key: 'TempHP', value: 8 },
   { key: 'TempHP', value: '@level', predicate: ['self:effect:rage'] },
 ];
@@ -24,5 +27,10 @@ describe('FastHealing and TempHP', () => {
 
   test('a FastHealing of an unknown type is rejected', () => {
     expect(RuleElement.safeParse({ key: 'FastHealing', value: 5, type: 'leech' }).success).toBe(false);
+  });
+
+  test('a TurnStartSave with no target, or an unknown one, is rejected', () => {
+    expect(RuleElement.safeParse({ key: 'TurnStartSave' }).success).toBe(false);
+    expect(RuleElement.safeParse({ key: 'TurnStartSave', against: 'friendly-spell' }).success).toBe(false);
   });
 });

@@ -1,6 +1,7 @@
 import { BlockKind, DamageTypeSchema, InlineKind, RichTextString, Trait } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { Count, itemSystem, Name, Slug, Slugs, Traits } from './creature-embedded';
@@ -83,7 +84,7 @@ function damagePart(roll: z.infer<typeof DamageRoll>, field: string, input: Kind
 function pascal(slug: string): string {
   return slug
     .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => capitalise(word))
     .join('');
 }
 

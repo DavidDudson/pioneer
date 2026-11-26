@@ -13,7 +13,7 @@ import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/tes
 import type { StatisticResult } from '@pioneer/rules/engine';
 import { HitPoints, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, UserId, Uuid } from '@pioneer/shared/kernel';
 
 import { CharacterService } from './character-service';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
@@ -59,7 +59,10 @@ describe('turn cycle: the Fortitude a suffocation save rolls', () => {
     const sheet = characterStatistics(kyra.document, sources).get(SAVE);
     const limits = turnLimits(HitPoints.parse(10), NO_EFFECTS, NO_VALUED);
 
-    const { fortitude } = turnCommandInputs(sources, kyra.document, limits);
+    const { fortitude } = turnCommandInputs(sources, kyra.document, {
+      limits,
+      newId: () => Uuid.parse(crypto.randomUUID()),
+    });
 
     expect(totalOf(sheet)).toBe(MODIFIER);
     expect(Number(fortitude())).toBe(MODIFIER);

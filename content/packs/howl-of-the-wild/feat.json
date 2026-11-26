@@ -11825,7 +11825,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       },
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
     }
@@ -12893,7 +12896,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },

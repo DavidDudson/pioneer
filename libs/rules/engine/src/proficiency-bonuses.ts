@@ -54,7 +54,7 @@ interface BonusInputs {
 }
 
 /** A rank's formula at `level`; undefined when it fails to evaluate, so `@prof` reads as unknown. */
-function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue | undefined {
+export function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue | undefined {
   const parsed = parseFormula(FormulaText.parse(formula));
 
   if (!parsed.ok) {

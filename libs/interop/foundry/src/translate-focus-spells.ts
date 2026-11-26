@@ -1,4 +1,5 @@
 import type { PackId } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { DOMAIN_SPELLS } from './domain-spells';
 import {
@@ -52,10 +53,6 @@ import { ARCANE_SCHOOL_SPELL_RULES, school, SCHOOLS, WIZARD_DEDICATION_RULES } f
  * are added with its import (#606 for archetypes).
  */
 
-function titleOf(domain: string): string {
-  return `${domain.charAt(0).toUpperCase()}${domain.slice(1)}`;
-}
-
 const DOMAIN_INITIATE = 'domain-initiate';
 const SELECT_DOMAIN = 'Select a domain.';
 
@@ -68,7 +65,7 @@ const DOMAIN_INITIATE_RULES: Planned = [
     entry: CLERIC,
     options: [...DOMAIN_SPELLS].map(([domain, [initial]]) => ({
       value: domain,
-      label: titleOf(domain),
+      label: capitalise(domain),
       spells: [initial],
       predicate: [
         {
@@ -90,7 +87,7 @@ const ADVANCED_DOMAIN_RULES: Planned = focusChoice({
       : [
           {
             value: domain,
-            label: titleOf(domain),
+            label: capitalise(domain),
             spells: [advanced],
             predicate: [`${DOMAIN_INITIATE}:${domain}`],
           },

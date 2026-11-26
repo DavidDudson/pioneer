@@ -1,5 +1,5 @@
-import { NamespaceKind, RollOption } from '@pioneer/rules/sdk';
-import type { RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
+import { NamespaceKind } from '@pioneer/rules/sdk';
+import type { RollOption, RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { kindOf } from './namespaces';
@@ -69,6 +69,8 @@ function layerValues(options: readonly string[], rest: string): OptionValue[] {
  */
 export class PredicateFacts {
   readonly #options: ReadonlySet<string>;
+  /** The same options, already branded, so a copy of these facts need not parse each one again. */
+  readonly #branded: ReadonlySet<RollOption>;
   readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
   readonly #namespaces: NamespaceTable;
   /** `isKnown` answers so far: one query asks the same of every candidate it tests. */
@@ -79,7 +81,8 @@ export class PredicateFacts {
   #ranksUnread = false;
 
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable) {
-    this.#options = new Set<string>(options);
+    this.#branded = new Set<RollOption>(options);
+    this.#options = this.#branded;
     this.#values = indexValues(this.#options);
     this.#namespaces = namespaces;
   }
@@ -104,7 +107,7 @@ export class PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
-      const own = [...this.#options].map((option) => RollOption.parse(option));
+      const own = [...this.#branded];
 
       return this.#sameReading(new PredicateFacts([...own, ...options], this.#namespaces));
     }
@@ -120,10 +123,9 @@ export class PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
-      const kept = this.#options
+      const kept = this.#branded
         .values()
         .filter((each) => each !== option)
-        .map((each) => RollOption.parse(each))
         .toArray();
 
       return this.#sameReading(new PredicateFacts(kept, this.#namespaces));
@@ -183,10 +185,7 @@ export class PredicateFacts {
    * worked out, so a missing `skill:arcana:rank:0` says nothing, and reads unknown rather than false.
    */
   public withRanksUnread(): PredicateFacts {
-    const read = new PredicateFacts(
-      [...this.#options].map((each) => RollOption.parse(each)),
-      this.#namespaces,
-    );
+    const read = new PredicateFacts([...this.#branded], this.#namespaces);
 
     read.#ranksUnread = true;
     const layer = this.#layer;

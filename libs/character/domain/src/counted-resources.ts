@@ -3,6 +3,7 @@ import { FrequencyPeriod } from '@pioneer/rules/sdk';
 import type { Activation, ContentId, Frequency, RuleSlug, Slug, SpellRank } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { InventoryItem, InventoryItemId } from './inventory';
@@ -292,7 +293,7 @@ export function spentAfter<Key extends CountKey>(edit: CountEdit<Key>, delta: Co
     return spent;
   }
 
-  const next = Math.min(Math.max((spent[key] ?? NONE) + delta, 0), known.max);
+  const next = clamp((spent[key] ?? NONE) + delta, 0, known.max);
   const changed = { [key]: ResourceCount.parse(next) };
   const counts: Partial<Record<Key, ResourceCount>> = { ...spent, ...changed };
 

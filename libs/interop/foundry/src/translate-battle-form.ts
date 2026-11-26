@@ -1,7 +1,9 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
 
+import { kebab } from './foundry-flags';
 import { fromFoundryFormula } from './foundry-formula';
+import { slugify } from './foundry-slug';
 import { isFields } from './translate-choice-reads';
 import type { Fields } from './translate-choice-reads';
 import { typeOf } from './translate-defences';
@@ -40,11 +42,6 @@ function listed(record: unknown, build: (name: string, fields: Fields) => unknow
   return Object.entries(record).map(([name, fields]) => (isFields(fields) ? build(name, fields) : fields));
 }
 
-/** `lowLightVision` as the slug `low-light-vision`. */
-function kebab(name: string): string {
-  return name.replaceAll(/[A-Z]/gu, (letter) => `-${letter.toLowerCase()}`);
-}
-
 function skill(name: string, fields: Fields): Fields {
   return { skill: `skill:${name}`, ...withFormulas(fields, ['modifier']) };
 }
@@ -64,16 +61,11 @@ function rangeOf(range: unknown): unknown {
   return isFields(range) ? (range['increment'] ?? range['max']) : range;
 }
 
-/** A Strike's name as the slug it is listed under: `hurled debris` is `hurled-debris`. */
-function slugOf(name: string): string {
-  return name.trim().toLowerCase().replaceAll(/\s+/gu, '-');
-}
-
 function strike(name: string, fields: Fields): Fields {
   const { range, damage, img: _img, ...rest } = withFormulas(fields, ['modifier']);
 
   return {
-    slug: slugOf(name),
+    slug: slugify(name),
     ...rest,
     ...present({ range: range === undefined ? undefined : rangeOf(range) }),
     ...present({ damage: isFields(damage) ? withFormulas(damage, ['modifier']) : damage }),

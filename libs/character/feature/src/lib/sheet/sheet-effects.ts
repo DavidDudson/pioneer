@@ -61,6 +61,8 @@ export interface EffectView {
   readonly effect: ContentId;
   readonly name: string;
   readonly source: EffectSourceView;
+  /** Whether the GM put it there. Effects do not say whether it is a spell, so a new save may end any such effect. */
+  readonly fromGm: boolean;
   /** Rounds left, for an effect with a clock. */
   readonly remaining: number | undefined;
   /** The uses left, for a boon that counts uses down; spending one is the Use button. */
@@ -193,6 +195,7 @@ export function effectViews(registry: ContentRegistry, active: readonly ActiveEf
         id: each.id,
         effect: each.effect,
         name: entry.name,
+        fromGm: each.source.kind === EffectSourceKind.Gm,
         source: {
           kind: each.source.kind,
           name: each.source.kind === EffectSourceKind.Ally ? each.source.name : undefined,

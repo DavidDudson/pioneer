@@ -1,6 +1,7 @@
 import { BulkWeight, Coin, ContentKind, ItemCount } from '@pioneer/rules/sdk';
 import type { AttributeModifier, Bulk, BulkCount, ContentId, ItemContainer } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { sum } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { Coins, Inventory, InventoryItem, InventoryItemId } from './inventory';
@@ -58,8 +59,8 @@ export function wholeBulk(light: LightBulk): WholeBulk {
   return WholeBulk.parse(Math.floor(light / ONE_BULK));
 }
 
-function sum(values: readonly LightBulk[]): LightBulk {
-  return LightBulk.parse(values.reduce((total, value) => total + value, 0));
+function totalBulk(values: readonly LightBulk[]): LightBulk {
+  return LightBulk.parse(sum(values));
 }
 
 /** `count` items when `per` of them weigh `bulk`: only whole batches weigh anything, so 9 arrows are negligible. */
@@ -104,14 +105,14 @@ function lineBulk(context: BulkContext, weighed: Weighed): LightBulk {
   const held = item.carry.state === CarryState.Worn ? undefined : containerOf(entry)?.heldBulk;
   const own = LightBulk.parse(item.quantity * lightBulk(held ?? entry.data.bulk));
 
-  return sum([own, contentsBulk(context, weighed)]);
+  return totalBulk([own, contentsBulk(context, weighed)]);
 }
 
 /** Lines of content sold in batches, added up by content before batches are counted, as Foundry pf2e stacks them. */
 function batchedBulk(batched: readonly Weighed[]): LightBulk {
   const byContent = Map.groupBy(batched, ({ item }): ContentId => item.item);
 
-  return sum(
+  return totalBulk(
     [...byContent.values()].flatMap(([first, ...rest]) => {
       if (first === undefined) {
         return [];
@@ -153,7 +154,7 @@ function levelBulk(context: BulkContext, items: readonly InventoryItem[]): Light
     .map((each) => lineBulk(context, each))
     .toArray();
 
-  return sum([...single, ...unknown, batchedBulk(weighed.filter((each) => isBatched(each)))]);
+  return totalBulk([...single, ...unknown, batchedBulk(weighed.filter((each) => isBatched(each)))]);
 }
 
 /** Coins weigh 1 Bulk a thousand, of every kind together; fewer weigh nothing. */
@@ -187,7 +188,7 @@ export function carriedBulk(inventory: Inventory, content: ItemContent): LightBu
     (each) => each.container === undefined && each.carry.state !== CarryState.Dropped,
   );
 
-  return sum([levelBulk(context, loose), coinBulk(inventory.coins)]);
+  return totalBulk([levelBulk(context, loose), coinBulk(inventory.coins)]);
 }
 
 /** Whether the character carries more than it should: encumbered past one limit, over its maximum past the other. */

@@ -367,8 +367,9 @@ per attribute the ancestry doesn't flaw already, keyed `flaw:1:ancestry:<n>`, it
 by one, as an ancestry flaw does. Each lowers a different attribute, so `selectSlot` refuses the ancestry's own flaw
 (`selectionNotOffered`) and one another voluntary flaw lowers (`character.validation.flawTaken`). A flaw is optional,
 so an empty flaw slot is never open: `characterSlots` lists only the flaws taken (subject `flaw`), filled or invalid,
-and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost; the variant that trades two
-flaws for a free boost belongs with the variant rules ([#51](https://github.com/DavidDudson/pioneer/issues/51)).
+and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost. Decided with
+Gradual Attribute Boosts ([#707](https://github.com/DavidDudson/pioneer/issues/707)): no variant trades two flaws for a free boost, as neither
+Player Core nor GM Core has one, so flaws stay a free choice.
 
 ### Skills
 
@@ -498,6 +499,18 @@ level and each even level above. While it is enabled it is a grant root (`varian
 beside the character's own, keyed by the variant and the rule index of their `ChoiceSet`, and labelled "Free archetype
 feat, level 2". They offer archetype feats under the dedication lock like any other feat slot. A pick is kept when the
 variant is off, reads as hidden, and is read again when it comes back.
+
+**Gradual Attribute Boosts** ([#707](https://github.com/DavidDudson/pioneer/issues/707)): a variant rule whose
+`structure` says `gradualBoosts`. While it is in force `BoostContent.gradual` is set, and the free boosts at 5th, 10th,
+15th and 20th level become one boost a level over that level and the three before it (2nd-5th, 7th-10th, 12th-15th,
+17th-20th), keyed `boost:<level>:free:0`; the four at 1st level are unchanged. A pick in a slot the schedule no longer
+has (`boost:5:free:2`) is kept, reads as hidden, and counts again when the variant is off.
+Each group is one set of boosts, so its four boosts raise different attributes, and a boost counts from the level
+it is taken at. A Pathbuilder import always uses the usual schedule.
+
+**Ancestry Paragon** ([#706](https://github.com/DavidDudson/pioneer/issues/706)): the same `extraSlots` mechanism, with
+an ancestry feat `ChoiceSet` (`ownTrait: ancestry`, feats up to the slot's level) at 1st level and each even level, so
+it opens the same labelled slots beside the character's own and keeps a pick when it is off.
 
 The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
 earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:

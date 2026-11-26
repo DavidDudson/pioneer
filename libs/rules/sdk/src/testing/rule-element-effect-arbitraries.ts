@@ -5,7 +5,7 @@ import { DamageType } from '../damage';
 import { DegreeChange } from '../degree-of-success';
 import { AuraAffects, AuraEvent } from '../rule-element-aura';
 import { SIZE_STEPS_MAX } from '../rule-element-creature-size';
-import { FastHealingType } from '../rule-element-healing';
+import { FastHealingType, TurnStartSaveTarget } from '../rule-element-healing';
 import { AdjustedCheck, RollKept } from '../rule-element-rolls';
 import { Size } from '../size';
 import { validFormulaText } from './arbitraries';
@@ -31,6 +31,10 @@ const fastHealing = element(
 );
 
 const tempHp = element('TempHP', { value: modifierValue });
+
+const healingBonus = element('HealingBonus', { value: modifierValue });
+
+const turnStartSave = element('TurnStartSave', { against: anyOf(TurnStartSaveTarget) });
 
 const creatureSize = element(
   'CreatureSize',
@@ -154,6 +158,8 @@ const persistentFlatCheck = element(
 export const effectElements: readonly Arbitrary<JsonObject>[] = [
   fastHealing,
   tempHp,
+  healingBonus,
+  turnStartSave,
   creatureSize,
   battleForm,
   adjustDegreeOfSuccess,

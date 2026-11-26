@@ -17,6 +17,8 @@ export const VariantStructure = {
   ExtraSlots: 'extraSlots',
   /** A second class beside the first (Dual Class). */
   SecondClass: 'secondClass',
+  /** Free attribute boosts one level at a time instead of four at once (Gradual Attribute Boosts). */
+  GradualBoosts: 'gradualBoosts',
 } as const;
 
 export type VariantStructure = ValueOf<typeof VariantStructure>;

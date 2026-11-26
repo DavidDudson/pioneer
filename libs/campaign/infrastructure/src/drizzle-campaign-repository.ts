@@ -2,9 +2,9 @@ import { CampaignRepository } from '@pioneer/campaign/application';
 import type { CampaignAudit } from '@pioneer/campaign/application';
 import { Campaign, CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
-import { Temporal, VersionConflictError } from '@pioneer/shared/kernel';
+import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { archiveRows, restoreRows, stampAudit, updateVersioned } from '@pioneer/shared/server';
 import { and, asc, eq, gt, inArray, isNotNull, isNull, ne, notInArray, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -110,18 +110,16 @@ export class DrizzleCampaignRepository extends CampaignRepository {
   }
 
   public override async archive(id: CampaignId, now: Temporal.Instant, audit: CampaignAudit): Promise<void> {
-    await this.#setArchived(and(eq(campaigns.id, id), isNull(campaigns.archivedAt)), now.toString(), audit);
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      await archiveRows(tx, campaigns, { where: eq(campaigns.id, id), now });
+    });
   }
 
   public override async restore(id: CampaignId, audit: CampaignAudit): Promise<void> {
-    await this.#setArchived(and(eq(campaigns.id, id), isNotNull(campaigns.archivedAt)), sql`null`, audit);
-  }
-
-  /** Stamps or clears `archivedAt` on the rows `where` matches, with the audit context. Version stays: nothing about the members changed. */
-  async #setArchived(where: SQL | undefined, archivedAt: SQL | string, audit: CampaignAudit): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
-      await tx.update(campaigns).set({ archivedAt }).where(where);
+      await restoreRows(tx, campaigns, { where: eq(campaigns.id, id) });
     });
   }
 
@@ -200,15 +198,12 @@ export class DrizzleCampaignRepository extends CampaignRepository {
 
     await this.#db.transaction(async (tx) => {
       // The version check takes the campaign row's lock, so membership changes to one campaign run one at a time.
-      const [updated] = await tx
-        .update(campaigns)
-        .set({ version: campaign.version, gmId: campaign.gmId })
-        .where(and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion), isNull(campaigns.archivedAt)))
-        .returning({ id: campaigns.id });
-
-      if (updated === undefined) {
-        throw new VersionConflictError('Campaign', campaign.id);
-      }
+      await updateVersioned(tx, campaigns, {
+        set: { version: campaign.version, gmId: campaign.gmId },
+        where: and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion), isNull(campaigns.archivedAt)),
+        resource: 'Campaign',
+        id: campaign.id,
+      });
 
       const kept = campaign.members.map((member) => member.id);
       await tx
