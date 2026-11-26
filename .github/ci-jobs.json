@@ -8,6 +8,20 @@
       "always": true
     },
     {
+      "name": "lint workspace",
+      "id": "lint-workspace",
+      "script": "ci:lint-workspace",
+      "args": "",
+      "always": true
+    },
+    {
+      "name": "lint tools",
+      "id": "lint-tools",
+      "script": "ci:lint-tools",
+      "args": "",
+      "always": true
+    },
+    {
       "name": "typecheck and build",
       "id": "build",
       "script": "ci:build",
