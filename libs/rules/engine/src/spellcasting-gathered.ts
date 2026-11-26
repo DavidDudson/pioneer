@@ -10,7 +10,7 @@ import type {
   Slug,
 } from '@pioneer/rules/sdk';
 
-import { addDeityRepertoire, addGrantedSpells, addRepertoireCount } from './spellcasting-granted-spells';
+import { addDeityRepertoire, addGrantedSpells, addRepertoireCount, freshSpells } from './spellcasting-granted-spells';
 import type { DeityRepertoire } from './spellcasting-granted-spells';
 import type { EntryInPlay, PlacedSlots, RankSlots } from './spellcasting-in-play';
 
@@ -35,29 +35,31 @@ export interface Gathered {
   readonly deityRepertoire: Map<Slug, DeityRepertoire[]>;
 }
 
+/** The ids of `spells` that `known` lacks, in order. */
+function unseen(known: readonly ContentId[], spells: readonly ContentId[]): readonly ContentId[] {
+  const held = new Set(known);
+
+  return spells.filter((spell) => !held.has(spell));
+}
+
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
 function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSpellsElement): void {
   const pools = poolSpells.get(entry) ?? new Map<RuleSlug, ContentId[]>();
   const taken = pools.get(pool) ?? [];
-  pools.set(pool, [...taken, ...spells.filter((spell) => !taken.includes(spell))]);
+  pools.set(pool, [...taken, ...unseen(taken, spells)]);
   poolSpells.set(entry, pools);
 }
 
 /** Adds the spells of an `InnateSpells` element to those gathered for its entry, each rank and spell once. */
 function addInnateSpells({ innateSpells }: Gathered, { entry, spells }: InnateSpellsElement): void {
   const known = innateSpells.get(entry) ?? [];
-
-  const fresh = spells.filter(
-    (spell) => !known.some(({ rank, spell: id }) => rank === spell.rank && id === spell.spell),
-  );
-
-  innateSpells.set(entry, [...known, ...fresh]);
+  innateSpells.set(entry, [...known, ...freshSpells(known, spells)]);
 }
 
 /** Adds `spells` to the focus spells of `entry`, each spell once. */
 function addFocusSpells({ focusSpells }: Gathered, { entry, spells }: FocusSpellsElement): void {
   const known = focusSpells.get(entry) ?? [];
-  focusSpells.set(entry, [...known, ...spells.filter((spell) => !known.includes(spell))]);
+  focusSpells.set(entry, [...known, ...unseen(known, spells)]);
 }
 
 /** Adds the repertoire spells and counts an element gives an entry (ADR-0062, ADR-0063). */
