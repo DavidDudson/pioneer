@@ -52,8 +52,7 @@ if (command === SEED_COMMAND) {
   // Loopback only: nothing else on the network can reach the dev sign-in.
   const server = new Elysia().use(createApp(db, env, [devSignInRoutes]));
 
-  // WEB_DIST serves the production web build from this origin, as the image does, so `perf:pages` measures the
-  // Real bundles with the dev sign-in. Unset, the Angular dev server serves the app and proxies /api here.
+  // WEB_DIST serves the production build from this origin, keeping the dev sign-in; unset, the Angular dev server serves the app.
   if (env.WEB_DIST !== undefined) {
     server.use(spa(env.WEB_DIST));
   }

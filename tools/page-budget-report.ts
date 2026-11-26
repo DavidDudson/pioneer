@@ -76,6 +76,22 @@ export function pageName(finalDisplayedUrl: string, characterId: string): string
   return pathname.startsWith(`/characters/${characterId}`) ? '/characters/:id' : pathname;
 }
 
+/** Throws when Lighthouse ended up away from the app's pages (a rejected session lands on the sign-in page). */
+export function assertOnApp(finalDisplayedUrl: string): void {
+  const { pathname } = new URL(finalDisplayedUrl);
+
+  if (!pathname.startsWith('/characters')) {
+    throw new Error(`Lighthouse measured ${pathname}, not a character page; is the dev session accepted?`);
+  }
+}
+
+/** Throws unless every page asked for has a result, so a page that dropped out cannot pass unnoticed. */
+export function assertPagesMeasured(results: readonly PageResult[], expected: number): void {
+  if (results.length !== expected) {
+    throw new Error(`Expected ${expected} measured pages, got ${results.length}`);
+  }
+}
+
 /** Three entries per page, so each metric has its own chart, unit and trend. */
 export function toTrackerEntries(results: readonly PageResult[]): TrackerEntry[] {
   return results.flatMap(({ page, requests, transferKb, lcpMs }) => [

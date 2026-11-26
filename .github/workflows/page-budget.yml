@@ -1,9 +1,6 @@
 name: Page budgets
 
-# Opens the character list and a character sheet in Lighthouse (`bun run perf:pages`, docs/benchmarks.md) against the
-# production web build, on every push to main, recording each page's request count, transfer size and LCP to the history
-# on GitHub Pages (`gh-pages` branch, `dev/pages`), and on pull requests that touch the app, comparing against that
-# history. A page over its budget in `lighthouserc.json` fails the job.
+# Measures the character list and a sheet in Lighthouse against the production build; see docs/benchmarks.md.
 on:
   pull_request:
     paths:
@@ -89,11 +86,15 @@ jobs:
         # compares them, and the last step fails the job.
         continue-on-error: true
         run: |
-          bun run perf:pages --out tmp/page-budget-results.json --summary tmp/page-budget-summary.md
-          {
-            echo '## Page budgets'
-            cat tmp/page-budget-summary.md
-          } >> "$GITHUB_STEP_SUMMARY"
+          status=0
+          bun run perf:pages --out tmp/page-budget-results.json --summary tmp/page-budget-summary.md || status=$?
+          if [ -f tmp/page-budget-summary.md ]; then
+            {
+              echo '## Page budgets'
+              cat tmp/page-budget-summary.md
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$status"
       - name: Keep the Lighthouse reports
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -102,6 +103,7 @@ jobs:
           path: tmp/lhci
           if-no-files-found: ignore
       - name: Track results
+        if: hashFiles('tmp/page-budget-results.json') != ''
         uses: benchmark-action/github-action-benchmark@4322e5726e6334590d251fc4f92bec0efafc45dc # v1.22.2
         with:
           name: Pioneer page budgets
@@ -112,13 +114,14 @@ jobs:
           github-token: ${{ github.token }}
           # Only main writes history; a pull request reads it as the baseline.
           auto-push: ${{ github.event_name == 'push' }}
-          # The budgets fail the job; the tracker only flags a page that has slipped well past its last run on main.
+          # The budgets fail the job. The tracker only comments on a page well past its last run on main: LCP is
+          # simulated and moves with the runner, so an alert alone does not fail the build.
           alert-threshold: '150%'
           comment-on-alert: ${{ github.event_name == 'push' }}
-          fail-on-alert: ${{ github.event_name == 'push' }}
+          fail-on-alert: false
           summary-always: true
       - name: Fail on a budget
         if: steps.pages.outcome == 'failure'
         run: |
-          echo 'A page is over its budget; see the Measure the pages step.' >&2
+          echo 'The Measure the pages step failed, over a budget or otherwise; see its log.' >&2
           exit 1

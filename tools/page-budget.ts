@@ -25,6 +25,8 @@ import { chromium } from 'playwright';
 
 import { createCharacter, signIn } from './dev-session.ts';
 import {
+  assertOnApp,
+  assertPagesMeasured,
   LighthouseReportSchema,
   ManifestSchema,
   pageName,
@@ -40,10 +42,14 @@ const DEFAULT_SUMMARY = 'tmp/page-budget-summary.md';
 const LHCI_DIR = 'tmp/lhci';
 const LHCI_BIN = 'node_modules/.bin/lhci';
 
+/** The server's own origin: the dev entrypoint serves the web build and the API from one port. */
+const DEFAULT_ORIGIN = `http://localhost:${Bun.env['PORT'] ?? '3000'}`;
+const PAGE_COUNT = 2;
+
 const { values } = parseArgs({
   options: {
-    web: { type: 'string', default: `http://localhost:${Bun.env['API_PORT'] ?? '3000'}` },
-    api: { type: 'string', default: `http://localhost:${Bun.env['API_PORT'] ?? '3000'}` },
+    web: { type: 'string', default: DEFAULT_ORIGIN },
+    api: { type: 'string', default: DEFAULT_ORIGIN },
     character: { type: 'string' },
     out: { type: 'string', default: DEFAULT_OUT },
     summary: { type: 'string', default: DEFAULT_SUMMARY },
@@ -64,7 +70,7 @@ const characterId = values.character ?? (await createCharacter({ api, cookie }, 
 
 await db.close();
 
-/** Runs one lhci command with Playwright's Chromium, as the bench suite does not need a browser of its own. */
+/** Runs one lhci command against Playwright's Chromium, which CHROME_PATH points it at. */
 async function lhci(args: readonly string[]): Promise<number> {
   const child = Bun.spawn([LHCI_BIN, ...args], {
     stdout: 'inherit',
@@ -75,43 +81,46 @@ async function lhci(args: readonly string[]): Promise<number> {
   return child.exited;
 }
 
-const healthy = await lhci(['healthcheck', '--fatal']);
+const healthcheckExitCode = await lhci(['healthcheck', '--fatal']);
 
-if (healthy !== 0) {
-  throw new Error('lhci cannot start; is Chromium available?');
+if (healthcheckExitCode !== 0) {
+  throw new Error(`lhci healthcheck exited ${healthcheckExitCode}; is Chromium available?`);
 }
 
-const collected = await lhci([
+const collectExitCode = await lhci([
   'collect',
   `--url=${web}/characters`,
   `--url=${web}/characters/${characterId}`,
   `--settings.extraHeaders=${JSON.stringify({ Cookie: cookie })}`,
 ]);
 
-if (collected !== 0) {
-  throw new Error('lhci collect failed');
+if (collectExitCode !== 0) {
+  throw new Error(`lhci collect exited ${collectExitCode} for ${web}/characters and ${web}/characters/${characterId}`);
 }
 
-const asserted = await lhci(['assert']);
+const assertExitCode = await lhci(['assert']);
 
-const uploaded = await lhci(['upload']);
+const uploadExitCode = await lhci(['upload']);
 
-if (uploaded !== 0) {
-  throw new Error('lhci upload failed');
+if (uploadExitCode !== 0) {
+  throw new Error(`lhci upload exited ${uploadExitCode}`);
 }
 
 const manifestText = await readFile(path.join(LHCI_DIR, 'manifest.json'), 'utf8');
 const manifest = ManifestSchema.parse(JSON.parse(manifestText));
 
-const results: PageResult[] = [];
+const results = await Promise.all(
+  representativeReports(manifest).map(async (reportPath): Promise<PageResult> => {
+    const reportText = await readFile(reportPath, 'utf8');
+    const report = LighthouseReportSchema.parse(JSON.parse(reportText));
 
-for (const reportPath of representativeReports(manifest)) {
-  // oxlint-disable-next-line eslint/no-await-in-loop
-  const reportText = await readFile(reportPath, 'utf8');
-  const report = LighthouseReportSchema.parse(JSON.parse(reportText));
+    assertOnApp(report.finalDisplayedUrl);
 
-  results.push(toPageResult(pageName(report.finalDisplayedUrl, characterId), report));
-}
+    return toPageResult(pageName(report.finalDisplayedUrl, characterId), report);
+  }),
+);
+
+assertPagesMeasured(results, PAGE_COUNT);
 
 const table = toMarkdownTable(results);
 
@@ -125,7 +134,7 @@ await writeFile(summary, `${table}\n`);
 
 console.info(table);
 
-if (asserted !== 0) {
+if (assertExitCode !== 0) {
   console.error('A page is over its budget; see the lhci assert output above.');
   process.exitCode = 1;
 }

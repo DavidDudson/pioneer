@@ -1,6 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import {
+  assertOnApp,
+  assertPagesMeasured,
+  LighthouseReportSchema,
+  ManifestSchema,
   pageName,
   representativeReports,
   toMarkdownTable,
@@ -77,5 +81,51 @@ describe('page budget report', () => {
 
     expect(table.split('\n')).toHaveLength(3);
     expect(table).toContain('| /characters | 23 | 500 | 1235 |');
+  });
+
+  test('keeps a different character id as its own path', () => {
+    expect(pageName('http://localhost:3000/characters/other-id', CHARACTER_ID)).toBe('/characters/other-id');
+  });
+
+  test('accepts a Lighthouse report and an lhci manifest in their real shape', () => {
+    expect(LighthouseReportSchema.safeParse(report('http://localhost:3000/characters')).success).toBe(true);
+    expect(ManifestSchema.safeParse([{ jsonPath: '/tmp/a.json', isRepresentativeRun: true, url: 'x' }]).success).toBe(
+      true,
+    );
+  });
+
+  test('rejects a report whose LCP audit has no number', () => {
+    const { audits, finalDisplayedUrl } = report('http://x/characters');
+
+    const errored = {
+      finalDisplayedUrl,
+      audits: { ...audits, 'largest-contentful-paint': { numericValue: undefined } },
+    };
+
+    expect(LighthouseReportSchema.safeParse(errored).success).toBe(false);
+  });
+
+  test('rejects a measurement that left the character pages', () => {
+    expect(() => {
+      assertOnApp('http://localhost:3000/sign-in');
+    }).toThrow('not a character page');
+    expect(() => {
+      assertOnApp('http://localhost:3000/characters');
+    }).not.toThrow();
+  });
+
+  test('requires a result for every page asked for', () => {
+    const one = [{ page: '/characters', requests: 1, transferKb: 1, lcpMs: 1 }];
+
+    expect(() => {
+      assertPagesMeasured([], 2);
+    }).toThrow('Expected 2 measured pages, got 0');
+    expect(() => {
+      assertPagesMeasured(one, 1);
+    }).not.toThrow();
+  });
+
+  test('an empty manifest has no representative run', () => {
+    expect(representativeReports([])).toEqual([]);
   });
 });
