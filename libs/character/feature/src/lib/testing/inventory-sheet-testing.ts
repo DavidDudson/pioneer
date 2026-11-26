@@ -74,7 +74,7 @@ interface SheetReads {
   /** Whether the tab reads the rule limits; the Downtime tab does not. */
   readonly limits?: boolean;
   /** The variant rules the character has enabled; none when omitted. */
-  readonly variantRules?: object;
+  readonly variantRules?: JsonObject;
 }
 
 /** Answers the sheet's read of Valeros with the bundle, nothing changed, and of the approvals unless `limits` is off (a tab without the table rules never asks). */
@@ -135,7 +135,7 @@ export async function openInventory(
 }
 
 /** Opens Valeros's inventory with `variantRules` enabled for him. */
-export async function openInventoryUnder(variantRules: object): Promise<HTMLElement> {
+export async function openInventoryUnder(variantRules: JsonObject): Promise<HTMLElement> {
   return openInventoryReading(VALEROS, VALEROS.inventory.items.length, { variantRules });
 }
 

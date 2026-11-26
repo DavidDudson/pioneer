@@ -5,6 +5,7 @@ import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Modifier, RuneGrade } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { characterStatisticInputs } from './character-statistics';
 import { equippedInputs } from './equipped-inputs';
@@ -38,7 +39,7 @@ function carrying(item: ItemFixture, carry: Carry): Inventory {
 }
 
 /** The alterations in play, each `[element, entry]`. */
-function altering(...placed: readonly (readonly [object, string])[]): ModifierInputs {
+function altering(...placed: readonly (readonly [RuleJson, string])[]): ModifierInputs {
   return {
     rules: placed.map(([element, entry], rule) => inPlay(element, entry, { rule })),
     facts: new PredicateFacts([], CORE_NAMESPACES),
@@ -46,7 +47,7 @@ function altering(...placed: readonly (readonly [object, string])[]): ModifierIn
 }
 
 /** An `ItemAlteration` that overrides `property` of the `type` items with `value`. */
-function overriding(type: string, property: string, value: number): readonly [object, string] {
+function overriding(type: string, property: string, value: number): readonly [RuleJson, string] {
   return [{ key: 'ItemAlteration', items: [`item:type:${type}`], property, mode: 'override', value }, property];
 }
 
