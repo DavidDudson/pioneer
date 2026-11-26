@@ -459,6 +459,63 @@
       }
     },
     {
+      // "shape" is Pathfinder's word for the form of an area (burst, cone, line, emanation) and the key a pack, a
+      // shift command and the play state store it under (`area.shape`, `shape`, `play.shapes`). The names here mirror
+      // that key, so renaming them would mean migrating stored characters and re-importing the packs.
+      "files": [
+        "libs/character/domain/src/counting-commands.ts",
+        "libs/character/domain/src/play-state.ts",
+        "libs/character/domain/src/weapon-shifts.test.ts",
+        "libs/character/domain/src/weapon-shifts.ts",
+        "libs/character/feature/src/lib/sheet/inventory/item-shift/item-shift.component.ts",
+        "libs/interop/foundry/src/describe-entries.test.ts",
+        "libs/interop/foundry/src/spell-reach.ts",
+        "libs/interop/foundry/src/translate-enricher.test.ts",
+        "libs/interop/foundry/src/translate-enricher.ts",
+        "libs/interop/foundry/src/translate-magic-kinds.test.ts",
+        "libs/interop/foundry/src/translate-ritual-text.test.ts",
+        "libs/interop/foundry/src/translate-spell-variants.test.ts",
+        "libs/play/feature/src/lib/rules/magic-examples.ts",
+        "libs/play/feature/src/lib/rules/rich-text-example.ts",
+        "libs/rules/engine/src/spell-at-rank.test.ts",
+        "libs/rules/sdk/src/magic-kinds.test.ts",
+        "libs/rules/sdk/src/rich-text.test.ts",
+        "libs/rules/sdk/src/rich-text.ts",
+        "libs/rules/sdk/src/ritual-effect-kinds.test.ts",
+        "libs/rules/sdk/src/spell-casting.ts",
+        "libs/rules/sdk/src/spell-facets.test.ts",
+        "libs/rules/sdk/src/spell-reach.test.ts",
+        "libs/rules/sdk/src/testing/magic-kind-arbitraries.ts",
+        "libs/rules/sdk/src/testing/rich-text-arbitraries.ts",
+        "libs/rules/ui/src/lib/rich-text/rich-text.component.spec.ts",
+        "libs/rules/ui/src/lib/rich-text/rich-text.stories.ts",
+        "libs/rules/ui/src/lib/rich-text/rich-value/value-text.ts",
+        "libs/rules/ui/src/lib/spell-list/spell-text.spec.ts",
+        "libs/rules/ui/src/lib/spell-list/spell-text.ts",
+        "libs/rules/ui/src/lib/testing/spell-fixtures.ts"
+      ],
+      "rules": { "anti-slop/no-shape-in-symbol-names": "off" }
+    },
+    {
+      // These functions are the boundary: each takes untrusted JSON or a stored document and checks it (`safeParse`,
+      // a depth and size walk) before anything downstream sees it, so the `unknown` and `object` input is the point.
+      "files": [
+        "libs/rules/sdk/src/json-bounds.ts",
+        "libs/character/domain/src/character-document.ts",
+        "libs/rules/formula/src/evaluate.ts"
+      ],
+      "rules": {
+        "anti-slop/no-object-parameters": "off",
+        "anti-slop/no-unknown-parameters": "off",
+        "anti-slop/no-unknown-returns": "off"
+      }
+    },
+    {
+      // `returnPathOr` takes the raw `returnTo` query value and brands it; there is no brand before that parse.
+      "files": ["libs/identity/domain/src/return-path.ts"],
+      "rules": { "pioneer/no-primitive-domain-types": "off" }
+    },
+    {
       // Process entry points: Bun supports top-level await; logging is the point.
       "files": [
         "apps/api/src/main.ts",

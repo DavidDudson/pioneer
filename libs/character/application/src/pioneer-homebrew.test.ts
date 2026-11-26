@@ -134,7 +134,8 @@ describe('Pioneer files with embedded homebrew', () => {
 
     const saved = await repository.insert(brewer(amiri), { actor: amiri, command: CharacterCommand.CreateCharacter });
     file = await service.export(amiri, saved.id);
-    upload = PioneerFileJson.parse(JSON.parse(JSON.stringify(file)));
+    const json = JSON.stringify(file);
+    upload = PioneerFileJson.parse(JSON.parse(json));
   });
 
   test('an export carries the homebrew feat and item the character uses, with the pack and its licence', () => {

@@ -231,9 +231,9 @@ interface CheckIssue extends FieldIssue {
 }
 
 /** Any JSON value. */
-export const Json = z.json();
+const Json = z.json();
 
-export type Json = z.infer<typeof Json>;
+type Json = z.infer<typeof Json>;
 
 type JsonParse = { readonly ok: true; readonly value: Json } | { readonly ok: false };
 

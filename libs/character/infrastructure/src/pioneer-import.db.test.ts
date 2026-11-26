@@ -47,7 +47,8 @@ describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => 
 
     const file = await files.export(fixtureOwnerId, original.id);
 
-    const upload = PioneerFileJson.parse(JSON.parse(JSON.stringify(file)));
+    const json = JSON.stringify(file);
+    const upload = PioneerFileJson.parse(JSON.parse(json));
     const imported = await files.import(fixtureOwnerId, upload);
 
     expect(imported.id).not.toBe(original.id);
