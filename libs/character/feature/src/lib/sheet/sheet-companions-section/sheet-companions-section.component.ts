@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { CompanionArchiveReason, CompanionName } from '@pioneer/character/domain';
 import type { Companion } from '@pioneer/character/domain';
 import { Button, Stack, Surface, Text } from '@pioneer/frontier';
+import { companionTiersFromFeats } from '@pioneer/rules/engine';
 import { ChoiceValue, CompanionKind, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { CompanionPicker } from '@pioneer/rules/ui';
@@ -44,7 +45,7 @@ interface CompanionEntry {
  * open the picker takes a species and a name and fills the choice and adds the companion in one go; once the choice is
  * filled elsewhere (in Choices) it takes the name. A companion shows its statistics, derived from the master's level
  * and never stored (ADR-0004, ADR-0080). Changing the species replaces the companion: the old one is archived as
- * replaced (ADR-0062). The tier is read from feats that are not loaded here, so every companion shows as young.
+ * replaced (ADR-0062). The tier is read from the upgrade feats the character picked (nimble and savage wait on their own choice).
  */
 @Component({
   selector: 'pio-sheet-companions-section',
@@ -81,12 +82,13 @@ export class SheetCompanionsSection {
     const species = speciesOf(registry);
     const table = registry.proficiencyBonus();
     const level = Level.parse(character.level);
+    const tiers = companionTiersFromFeats(Object.values(character.document.build.choices));
 
     return companionSlots(slots, species, read).map((view): CompanionEntry => {
       const { companion, picked } = view;
       const held = companion === undefined ? undefined : speciesOfCompanion(companion, species);
       const statistics =
-        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table);
+        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table, tiers);
 
       const facts: readonly CompanionFact[] =
         held === undefined || statistics === undefined
