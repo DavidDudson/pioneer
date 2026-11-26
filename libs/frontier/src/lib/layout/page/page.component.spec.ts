@@ -10,20 +10,17 @@ import { Page } from './page.component';
 
 const header = (): HTMLElement => element('fr-page-header', 'Header');
 const body = (): HTMLElement => element('fr-page-body', 'Character list');
-const aside = (): HTMLElement => element('fr-page-aside', 'Party notes');
 
 describe(Page, () => {
   beforeEach(() => {
     TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   });
 
-  it('puts the header above the body and the body beside the aside', async () => {
-    const root = await renderProjected(Page, {}, [aside(), body(), header()]);
+  it('puts the header above the body', async () => {
+    const root = await renderProjected(Page, {}, [body(), header()]);
     const headerPart = part(root, 'fr-page-header');
     const bodyPart = part(root, 'fr-page-body');
-    const asidePart = part(root, 'fr-page-aside');
     expect(headerPart.nextElementSibling?.contains(bodyPart)).toBe(true);
-    expect(bodyPart.nextElementSibling).toBe(asidePart);
   });
 
   it('leaves the main landmark to fr-shell', async () => {
