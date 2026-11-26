@@ -99,7 +99,8 @@ export class StoredContentBundles {
       this.#repository.officialTextsVersion(locale),
     ]);
 
-    const cache = this.#cacheFor(builtIn(locale, version));
+    const built = builtIn(locale, version);
+    const cache = this.#cacheFor(built);
 
     // The build reads after the hashes and the version, so it is never older than the key it is cached under.
     return cache.current(
@@ -107,7 +108,7 @@ export class StoredContentBundles {
       async () => {
         const [packs, texts] = await Promise.all([
           this.#repository.loadOfficial(),
-          this.#repository.officialTexts(locale),
+          this.#repository.officialTexts(built),
         ]);
 
         return contentBundles(packs, bundleHash, texts);

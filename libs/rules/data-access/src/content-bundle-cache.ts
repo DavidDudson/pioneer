@@ -185,6 +185,12 @@ export class ContentBundleCache {
     }
 
     await this.#write(manifestKey(locale), BundleBody.parse(manifest));
+
+    // A switch during the write makes this locale inactive; its eviction must not remove the active manifest.
+    if (locale !== this.#locale()) {
+      return;
+    }
+
     await this.#evict(manifest, locale);
   }
 

@@ -127,9 +127,10 @@ describe.skipIf(adminUrl === undefined)('content manifest in another locale (pos
     expect(names[translatedId]).toStrictEqual({ name: 'Neuer Name' });
   });
 
-  test('a locale nobody translated is served as the source locale, so it costs no build of its own', async () => {
-    const english = await manifest('/content/manifest');
-    const unknown = await manifest('/content/manifest?locale=zz');
+  test('a locale nobody translated is served as the source locale, whichever is asked first', async () => {
+    const fresh = new Elysia().use(problemHandler).use(content(database.db, new FakeAuthenticator()));
+    const unknown = await fresh.handle(get('/content/manifest?locale=zz'));
+    const english = await fresh.handle(get('/content/manifest'));
     const { status } = unknown;
     const etag = etagOf(unknown);
     const files = await filesOf(unknown);

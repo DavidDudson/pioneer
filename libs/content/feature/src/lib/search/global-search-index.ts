@@ -32,6 +32,8 @@ export class GlobalSearchIndex {
   readonly #traitNames = signal<ReadonlyMap<Trait, string>>(new Map());
   readonly #done = new Set<IndexedKind>();
   #running = false;
+  /** Whether `warm` was ever asked for, so a locale switch starts the new pass the box would have started. */
+  #warmed = false;
   /** Counts the times the index was emptied for a new locale, so a load that started before one is dropped. */
   #generation = 0;
 
@@ -61,6 +63,8 @@ export class GlobalSearchIndex {
     if (!this.#scope().ready) {
       return;
     }
+
+    this.#warmed = true;
 
     if (this.#running) {
       return;
@@ -98,6 +102,10 @@ export class GlobalSearchIndex {
     this.#traitNames.set(new Map());
     this.#done.clear();
     this.#running = false;
+
+    if (this.#warmed) {
+      this.warm();
+    }
   }
 
   async #load(kind: IndexedKind, generation: number): Promise<void> {
