@@ -43,8 +43,8 @@ type RawEntry = z.infer<typeof RawEntry>;
 const RawSources = z.array(z.record(z.string(), z.unknown())).readonly();
 
 /** The raw entry with `values` added to its source at `index`; every other field is as it was. */
-function patch(json: object, { index, values }: Fill): RawEntry {
-  const raw = RawEntry.parse(json);
+function patch(json: RawEntry, { index, values }: Fill): RawEntry {
+  const raw = json;
   const sources = RawSources.parse(raw[SOURCES]);
 
   return { ...raw, sources: sources.with(index, { ...sources[index], ...values }) };
@@ -52,14 +52,14 @@ function patch(json: object, { index, values }: Fill): RawEntry {
 
 /** What the pass did to one entry: its JSON, what it set, and whether its mapping's book is one it cites. */
 interface EntryResult {
-  readonly json: object;
+  readonly json: RawEntry;
   readonly pages: number;
   readonly aons: number;
   readonly uncited: boolean;
 }
 
 function enrichEntry(
-  json: object,
+  json: RawEntry,
   entry: ContentEntry | undefined,
   mapping: EnrichmentMapping | undefined,
 ): EntryResult {
@@ -82,7 +82,7 @@ function enrichEntry(
 
 /** What the pass did to a `<kind>.json` file. `json` is undefined when no entry changed. */
 export interface EnrichedFile {
-  readonly json: readonly object[] | undefined;
+  readonly json: readonly RawEntry[] | undefined;
   readonly pages: number;
   readonly aons: number;
   /** Slugs whose mapping names a book the entry doesn't cite, so nothing was applied. */
@@ -91,7 +91,7 @@ export interface EnrichedFile {
 
 /** A `<kind>.json` file with each mapped entry's page and AoN URL set. Entries the pass doesn't change are untouched. */
 export function enrichSourcesFile(
-  file: readonly object[],
+  file: readonly RawEntry[],
   mappings: ReadonlyMap<EntrySlug, EnrichmentMapping>,
 ): EnrichedFile {
   const entries = ContentEntryFile.parse(file);

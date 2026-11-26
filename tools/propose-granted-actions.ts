@@ -45,6 +45,9 @@ function grantedIds(node: JsonValue): readonly string[] {
   return [...(grant.success ? [grant.data.item] : []), ...children.flatMap((child) => grantedIds(child))];
 }
 
+/** One entry of a pack's enrichment file: its slug and its JSON, as written or as proposed. */
+type MergedEntry = readonly [string, JsonValue | Pick<EnrichmentMapping, 'book' | 'aon' | 'page'>];
+
 /** A pack's enrichment file, as written (to merge into) and as parsed (to read). */
 interface PackMapping {
   readonly written: z.infer<typeof WrittenMapping>;
@@ -99,12 +102,12 @@ async function proposePack({ name, entries, written, mapping }: (typeof packs)[n
 
   if (proposals.size > 0) {
     // Merge into the file as written: parsing reorders each entry's keys, which would rewrite every line.
-    const merged = Object.fromEntries(
-      [
-        ...Object.entries(written),
-        ...[...proposals].map(([slug, { book, aon, page }]) => [slug, { book, aon, page }] as const),
-      ].toSorted(([left], [right]) => left.localeCompare(right)),
-    );
+    const rows: MergedEntry[] = [
+      ...Object.entries(written),
+      ...[...proposals].map(([slug, { book, aon, page }]): MergedEntry => [slug, { book, aon, page }]),
+    ];
+
+    const merged = Object.fromEntries(rows.toSorted(([left], [right]) => left.localeCompare(right)));
 
     await Bun.write(path.join(ENRICHMENT, `${name}.json`), `${JSON.stringify(merged, undefined, JSON_INDENT)}\n`);
   }
