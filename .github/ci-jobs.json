@@ -69,9 +69,14 @@
       "args": "--projects=character-feature --configuration=page-c"
     },
     {
-      "name": "character sheet page h-p",
+      "name": "character sheet page h-l",
       "id": "character-page-d",
       "args": "--projects=character-feature --configuration=page-d"
+    },
+    {
+      "name": "character sheet page m-p",
+      "id": "character-page-h",
+      "args": "--projects=character-feature --configuration=page-h"
     },
     {
       "name": "character sheet page r, t-z",

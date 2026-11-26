@@ -25,7 +25,7 @@
           "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-f*.spec.ts"]
         },
         "page-d": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[h-p]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[h-l]*.spec.ts"]
         },
         "page-e": {
           "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[rt-z]*.spec.ts"]
@@ -35,6 +35,9 @@
         },
         "page-g": {
           "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s[p-z]*.spec.ts"]
+        },
+        "page-h": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[m-p]*.spec.ts"]
         },
         "rest-a": {
           "include": [
