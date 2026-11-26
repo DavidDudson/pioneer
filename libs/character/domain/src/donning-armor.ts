@@ -9,24 +9,28 @@ import type { RuneContent } from './item-runes';
 const READY: EntrySlug = entrySlug(ContentKind.Rune, Slug.parse('ready'));
 const READY_GREATER: EntrySlug = entrySlug(ContentKind.Rune, Slug.parse('ready-greater'));
 
+/** Barding is not donned by its wearer, so a ready rune gives it no cost. */
+const BARDING: ReadonlySet<ArmorItemCategory> = new Set([
+  ArmorItemCategory.LightBarding,
+  ArmorItemCategory.HeavyBarding,
+]);
+
 /** The armour categories a ready rune (not its greater grade) only lets be donned in one action. */
 const ONE_ACTION_WITH_READY: ReadonlySet<ArmorItemCategory> = new Set([
   ArmorItemCategory.Unarmored,
   ArmorItemCategory.Light,
 ]);
 
-/**
- * The actions it takes to don the armour because of a ready rune (GM Core): one action for any armour with a greater
- * ready rune, or for light armour with a ready rune, and a 2-action activity for medium or heavy armour with a ready
- * rune. Undefined for armour with neither rune, whose donning time the rules give in minutes and this does not model,
- * and for anything that is not armour.
- */
+/** The actions a ready rune makes donning take. */
+export type ReadyDonningCost = typeof ActionCost.One | typeof ActionCost.Two;
+
+/** The actions a ready rune makes donning take (GM Core); undefined without one, and for barding or non-armour. */
 export function readyDonningCost(
   line: InventoryItem,
   base: ItemEntry | undefined,
   runes: RuneContent,
-): typeof ActionCost.One | typeof ActionCost.Two | undefined {
-  if (base?.kind !== ContentKind.Armor) {
+): ReadyDonningCost | undefined {
+  if (base?.kind !== ContentKind.Armor || BARDING.has(base.data.category)) {
     return undefined;
   }
 

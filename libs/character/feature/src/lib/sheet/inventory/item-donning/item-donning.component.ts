@@ -1,17 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { InventoryItemId, readyDonningCost } from '@pioneer/character/domain';
-import type { RunedContent } from '@pioneer/character/domain';
+import type { ReadyDonningCost, RunedContent } from '@pioneer/character/domain';
 import { Text } from '@pioneer/frontier';
 import { ActionCost } from '@pioneer/rules/sdk';
 
 import { CharacterStore } from '../../../data/character-store';
 
 /** The message key for each cost a ready rune gives, in full. */
-const DONNING_KEYS = {
+const DONNING_KEYS: Readonly<Record<ReadyDonningCost, string>> = {
   [ActionCost.One]: 'character.sheet.donning.one',
   [ActionCost.Two]: 'character.sheet.donning.two',
-} as const;
+};
 
 /** One armour with a ready rune: the actions it takes to don it. Shown only while the item has the rune. */
 @Component({
@@ -31,7 +32,7 @@ export class ItemDonning {
   readonly #store = inject(CharacterStore);
 
   /** The message key for the actions the ready rune makes donning take; none without one. */
-  protected readonly key = computed(() => {
+  protected readonly donningKey: Signal<string | undefined> = computed(() => {
     const item = this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id());
 
     if (item === undefined) {

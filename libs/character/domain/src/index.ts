@@ -391,6 +391,8 @@ export { hasAnimatedRune, releasedAttack } from './animated-weapon';
 
 export { readyDonningCost } from './donning-armor';
 
+export type { ReadyDonningCost } from './donning-armor';
+
 export { authorizedDamage, hasAuthorizedRune, unauthorizedWielder } from './authorized-weapon';
 
 export type { AuthorizedDamage } from './authorized-weapon';

@@ -3,12 +3,7 @@ import type { ContentEntry } from '@pioneer/rules/sdk';
 
 import { loadRunes } from './rune-fixtures';
 
-/**
- * Property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
- * weapon take the shape of another (`weapon-shifts.ts`), a choice the sheet keeps per item, authorized hurts a
- * wielder the item's state does not name (`authorized-weapon.ts`), and ready runes set the actions it takes to don
- * armour (`donning-armor.ts`).
- */
+/** Property runes the play state models instead of rule elements, so their `rules` stay empty. */
 export const MODELLED_IN_PLAY: ReadonlySet<string> = new Set([
   'rune:shifting',
   'rune:authorized',
