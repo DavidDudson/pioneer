@@ -5,7 +5,7 @@
     <fr-text variant="caption">{{ 'character.sheet.inventory.ledger.empty' | transloco }}</fr-text>
   } @else {
     <fr-list gap="xs">
-      @for (row of rows(); track $index) {
+      @for (row of rows(); track row.key) {
         <fr-list-item>
           <fr-stack gap="xs">
             <fr-text>{{ row.reason | transloco }}</fr-text>
@@ -22,5 +22,10 @@
         </fr-list-item>
       }
     </fr-list>
+    @if (truncated()) {
+      <fr-button size="sm" [variant]="ghost" (pressed)="showEverything()">
+        {{ 'character.sheet.inventory.ledger.showAll' | transloco }}
+      </fr-button>
+    }
   }
 </fr-stack>

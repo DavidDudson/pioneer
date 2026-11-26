@@ -17,18 +17,21 @@ const REASONS: Readonly<Partial<Record<CharacterPatchField, LedgerReason>>> = {
   [CharacterPatchField.SetCoins]: LedgerReason.Adjustment,
 };
 
-/** One edit's document before and after, the patch that made it (none for a transfer) and when. */
+/** The reason `patch` moves coins, for a patch that does. */
+export function reasonFor(patch: CharacterPatch): LedgerReason {
+  return REASONS[patch.field] ?? LedgerReason.Transfer;
+}
+
+/** One edit's document before and after, why any coins moved and when. */
 interface CoinEdit {
   readonly before: CharacterDocument;
   readonly after: CharacterDocument;
-  readonly patch: CharacterPatch | undefined;
+  readonly reason: LedgerReason;
   readonly now: Temporal.Instant;
 }
 
 /** `after` with a ledger entry for any coin it moved from `before`; the ledger is the only thing it appends to. */
-export function withCoinLedger({ before, after, patch, now }: CoinEdit): CharacterDocument {
-  const reason = patch === undefined ? LedgerReason.Transfer : (REASONS[patch.field] ?? LedgerReason.Transfer);
-
+export function withCoinLedger({ before, after, reason, now }: CoinEdit): CharacterDocument {
   const ledger: readonly LedgerEntry[] = withCoinEntry(before.inventory.ledger, {
     before: before.inventory.coins,
     after: after.inventory.coins,
@@ -41,12 +44,12 @@ export function withCoinLedger({ before, after, patch, now }: CoinEdit): Charact
 
 /** `inventory` with its coins entered as the ledger's opening entry, when it holds any and has no ledger yet. */
 export function withOpeningEntry(inventory: Inventory): Inventory {
-  const delta = coinChange(NO_COINS, inventory.coins);
-  const holdsCoins = Object.values(delta).some((count) => count > 0);
+  const change = coinChange(NO_COINS, inventory.coins);
+  const holdsCoins = Object.values(change).some((count) => count > 0);
 
   if (!holdsCoins || inventory.ledger.length > 0) {
     return inventory;
   }
 
-  return { ...inventory, ledger: [{ reason: LedgerReason.Opening, change: delta }] };
+  return { ...inventory, ledger: [{ reason: LedgerReason.Opening, change }] };
 }

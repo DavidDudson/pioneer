@@ -12,7 +12,8 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
-import { withCoinLedger, withOpeningEntry } from './coin-ledger-edits';
+import { LedgerReason } from './coin-ledger';
+import { reasonFor, withCoinLedger, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
 import { equipmentChange } from './equipment-change';
@@ -161,7 +162,7 @@ export class Character {
 
     return new Character({
       ...this.toProps(),
-      document: withCoinLedger({ before: this.document, after: document, patch, now }),
+      document: withCoinLedger({ before: this.document, after: document, reason: reasonFor(patch), now }),
       updatedAt: now,
     });
   }
@@ -314,14 +315,21 @@ export class Character {
     return new Character({ ...this.toProps(), version });
   }
 
-  /** This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. */
-  public withInventory(inventory: Inventory, now: Temporal.Instant): Character {
+  /**
+   * This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. Any
+   * coins it moves are entered as a transfer between purses unless `reason` says otherwise.
+   */
+  public withInventory(
+    inventory: Inventory,
+    now: Temporal.Instant,
+    reason: LedgerReason = LedgerReason.Transfer,
+  ): Character {
     return new Character({
       ...this.toProps(),
       document: withCoinLedger({
         before: this.document,
         after: { ...this.document, inventory },
-        patch: undefined,
+        reason,
         now,
       }),
       updatedAt: now,

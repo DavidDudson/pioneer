@@ -136,6 +136,11 @@ describe('CharacterService inventory edits', () => {
       { item: arrows, quantity: ItemQuantity.parse(15) },
     ]);
     expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 8, cp: 5 }));
+    expect(character.document.inventory.ledger.map(({ reason }) => reason)).toStrictEqual([
+      LedgerReason.Adjustment,
+      LedgerReason.Purchase,
+      LedgerReason.Purchase,
+    ]);
     expect(repository.audits.map(({ command }) => command).slice(-2)).toStrictEqual([
       CharacterCommand.BuyItem,
       CharacterCommand.BuyItem,

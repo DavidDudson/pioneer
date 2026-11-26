@@ -118,7 +118,7 @@ export const InventorySchema = z.strictObject({
   items: Items.default([]),
   customItems: z.array(CustomItemSchema).max(INVENTORY_ITEMS_MAX).readonly().default([]),
   coins: CoinsSchema.default(CoinsSchema.parse({})),
-  /** Every change to `coins` with its reason, oldest first (#512). */
+  /** Every change to `coins` with its reason, oldest first. */
   ledger: z.array(LedgerEntrySchema).readonly().default([]),
 });
 

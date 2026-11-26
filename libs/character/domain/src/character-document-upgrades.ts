@@ -39,7 +39,7 @@ function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharact
 /** The coins of a stored inventory: a count for each coin it holds. */
 const StoredInventoryCoins = z.looseObject({ coins: CoinsSchema.default(CoinsSchema.parse({})) });
 
-/** 22 → 23: a ledger of coin changes (#512). Starts with an opening entry for the coins the character already held. */
+/** 22 → 23: a ledger of coin changes (#512). Written as it was at version 23, so it names the reason as stored. Starts with an opening entry for the coins the character already held. */
 function openingLedger(document: StoredCharacterDocument): StoredCharacterDocument {
   const inventory = StoredInventoryCoins.safeParse(document['inventory']);
 
