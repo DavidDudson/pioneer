@@ -6,7 +6,7 @@
           <fr-stack gap="xs">
             <fr-text weight="semibold">{{ card.companion.name }}</fr-text>
             @for (fact of card.facts; track fact.key) {
-              <fr-text>{{ fact.key | transloco: fact.params }}</fr-text>
+              <fr-text>{{ fact.text }}</fr-text>
             }
             <fr-button size="sm" (click)="release(card)">{{ Message.Release | transloco }}</fr-button>
           </fr-stack>
