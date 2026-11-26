@@ -21,9 +21,7 @@ export const LedgerReason = {
 export type LedgerReason = ValueOf<typeof LedgerReason>;
 
 /** How many of one coin an entry adds (positive) or takes (negative). */
-export const CoinChangeAmount = Pg.integer().brand<'CoinChangeAmount'>();
-
-export type CoinChangeAmount = z.infer<typeof CoinChangeAmount>;
+const CoinChangeAmount = Pg.integer().brand<'CoinChangeAmount'>();
 
 const NO_CHANGE = CoinChangeAmount.parse(0);
 
@@ -61,7 +59,7 @@ export function coinChange(before: Coins, after: Coins): CoinChange {
 }
 
 /** Whether `change` moves no coin. */
-export function isNoChange(change: CoinChange): boolean {
+function isNoChange(change: CoinChange): boolean {
   return COINS.every((coin) => change[coin] === NO_CHANGE);
 }
 
