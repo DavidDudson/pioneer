@@ -5,7 +5,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { filter, merge, scan } from 'rxjs';
 
 /** The values a message's placeholders take. */
-export type TranslateParams = Readonly<Record<string, string | number>>;
+type TranslateParams = Readonly<Record<string, string | number>>;
 
 /** A message in the active language: a key, and the values its placeholders take. */
 export type Translate = (key: string, params?: TranslateParams) => string;
