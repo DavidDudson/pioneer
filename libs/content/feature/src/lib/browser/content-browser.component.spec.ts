@@ -7,7 +7,8 @@ import { contentBrowserMessages, ContentBrowserTier, EMPTY_BROWSER_STATE } from 
 import type { ContentBrowserState } from '@pioneer/content/ui';
 import { frontierMessages } from '@pioneer/frontier';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { ContentKind, rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
+import { ContentKind } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeAll, describe, expect, it, vi } from 'vitest';

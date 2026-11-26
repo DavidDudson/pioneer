@@ -7,7 +7,7 @@ import { diceMessages } from '@pioneer/rules/dice';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { predicateMessages } from '@pioneer/rules/predicate';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 

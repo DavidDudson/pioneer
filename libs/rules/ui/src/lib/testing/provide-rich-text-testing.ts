@@ -6,8 +6,8 @@ import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat'
 import { frontierMessages } from '@pioneer/frontier';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { predicateMessages } from '@pioneer/rules/predicate';
-import { rulesMessages } from '@pioneer/rules/sdk';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
 /**

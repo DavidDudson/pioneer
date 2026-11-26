@@ -1,0 +1,7 @@
+{
+  "name": "rules-messages",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/rules/messages/src",
+  "tags": ["scope:rules", "type:domain", "platform:any"]
+}
