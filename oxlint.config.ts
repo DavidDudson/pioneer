@@ -1,0 +1,791 @@
+import cloudflare from '@cloudflare/oxlint-config';
+import { defineConfig } from 'oxlint';
+
+export default defineConfig({
+  extends: [cloudflare],
+  // Strict by default: every category is an error, including nursery and
+  // Restriction. A rule is only relaxed below with a reason, usually because
+  // It contradicts another enabled rule or a deliberate design choice
+  // Recorded in AGENTS.md. Do not add rules here without a reason.
+  plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'import', 'jsdoc', 'promise', 'node', 'vitest'],
+  jsPlugins: [
+    '@nx/oxlint/boundaries-plugin',
+    'eslint-plugin-security',
+    '@angular-eslint/eslint-plugin',
+    './tools/oxlint/pioneer-plugin.ts',
+    { name: 'anti-slop', specifier: './tools/oxlint/anti-slop/index.ts' },
+  ],
+  categories: {
+    correctness: 'error',
+    suspicious: 'error',
+    pedantic: 'error',
+    perf: 'error',
+    style: 'error',
+    restriction: 'error',
+    nursery: 'error',
+  },
+  options: {
+    typeAware: true,
+    denyWarnings: true,
+    reportUnusedDisableDirectives: 'error',
+  },
+  env: { es2024: true },
+  ignorePatterns: [
+    'dist',
+    'coverage',
+    'node_modules',
+    '.nx',
+    '.angular',
+    'apps/api/migrations',
+    '.agent/**',
+    '.agents/**',
+    '.codex/**',
+    '.continue/**',
+    '.cursor/**',
+    '.gemini/**',
+    '.opencode/**',
+    '.pi/**',
+    '.roo/**',
+    '.windsurf/**',
+    'tools/oxlint/anti-slop/**',
+  ],
+  settings: {
+    jsdoc: { ignoreInternal: true },
+  },
+  rules: {
+    // ---- @cloudflare/oxlint-config baseline ---------------------------------
+    // The preset ships React, jsx-a11y and @nkzw rules; Pioneer is Angular
+    // (templates are linted by ESLint), so they stay off for good.
+    '@nkzw/no-instanceof': 'off',
+    '@nkzw/require-use-effect-arguments': 'off',
+    'jsx_a11y/alt-text': 'off',
+    'jsx_a11y/anchor-ambiguous-text': 'off',
+    'jsx_a11y/anchor-has-content': 'off',
+    'jsx_a11y/anchor-is-valid': 'off',
+    'jsx_a11y/aria-activedescendant-has-tabindex': 'off',
+    'jsx_a11y/aria-props': 'off',
+    'jsx_a11y/aria-proptypes': 'off',
+    'jsx_a11y/aria-role': 'off',
+    'jsx_a11y/aria-unsupported-elements': 'off',
+    'jsx_a11y/autocomplete-valid': 'off',
+    'jsx_a11y/click-events-have-key-events': 'off',
+    'jsx_a11y/control-has-associated-label': 'off',
+    'jsx_a11y/heading-has-content': 'off',
+    'jsx_a11y/html-has-lang': 'off',
+    'jsx_a11y/iframe-has-title': 'off',
+    'jsx_a11y/img-redundant-alt': 'off',
+    'jsx_a11y/interactive-supports-focus': 'off',
+    'jsx_a11y/label-has-associated-control': 'off',
+    'jsx_a11y/lang': 'off',
+    'jsx_a11y/media-has-caption': 'off',
+    'jsx_a11y/mouse-events-have-key-events': 'off',
+    'jsx_a11y/no-access-key': 'off',
+    'jsx_a11y/no-aria-hidden-on-focusable': 'off',
+    'jsx_a11y/no-autofocus': 'off',
+    'jsx_a11y/no-distracting-elements': 'off',
+    'jsx_a11y/no-interactive-element-to-noninteractive-role': 'off',
+    'jsx_a11y/no-noninteractive-element-interactions': 'off',
+    'jsx_a11y/no-noninteractive-element-to-interactive-role': 'off',
+    'jsx_a11y/no-noninteractive-tabindex': 'off',
+    'jsx_a11y/no-redundant-roles': 'off',
+    'jsx_a11y/no-static-element-interactions': 'off',
+    'jsx_a11y/prefer-tag-over-role': 'off',
+    'jsx_a11y/role-has-required-aria-props': 'off',
+    'jsx_a11y/role-supports-aria-props': 'off',
+    'jsx_a11y/scope': 'off',
+    'jsx_a11y/tabindex-no-positive': 'off',
+    'react/button-has-type': 'off',
+    'react/capitalized-calls': 'off',
+    'react/checked-requires-onchange-or-readonly': 'off',
+    'react/display-name': 'off',
+    'react/error-boundaries': 'off',
+    'react/exhaustive-deps': 'off',
+    'react/exhaustive-effect-dependencies': 'off',
+    'react/forbid-component-props': 'off',
+    'react/forbid-dom-props': 'off',
+    'react/forbid-elements': 'off',
+    'react/forward-ref-uses-ref': 'off',
+    'react/function-component-definition': 'off',
+    'react/globals': 'off',
+    'react/hook-use-state': 'off',
+    'react/hooks': 'off',
+    'react/iframe-missing-sandbox': 'off',
+    'react/immutability': 'off',
+    'react/incompatible-library': 'off',
+    'react/invariant': 'off',
+    'react/jsx-boolean-value': 'off',
+    'react/jsx-curly-brace-presence': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/jsx-fragments': 'off',
+    'react/jsx-handler-names': 'off',
+    'react/jsx-key': 'off',
+    'react/jsx-max-depth': 'off',
+    'react/jsx-no-comment-textnodes': 'off',
+    'react/jsx-no-constructed-context-values': 'off',
+    'react/jsx-no-duplicate-props': 'off',
+    'react/jsx-no-literals': 'off',
+    'react/jsx-no-script-url': 'off',
+    'react/jsx-no-target-blank': 'off',
+    'react/jsx-no-undef': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-pascal-case': 'off',
+    'react/jsx-props-no-spread-multi': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/memo-dependencies': 'off',
+    'react/no-array-index-key': 'off',
+    'react/no-children-prop': 'off',
+    'react/no-clone-element': 'off',
+    'react/no-danger': 'off',
+    'react/no-danger-with-children': 'off',
+    'react/no-deriving-state-in-effects': 'off',
+    'react/no-did-mount-set-state': 'off',
+    'react/no-did-update-set-state': 'off',
+    'react/no-direct-mutation-state': 'off',
+    'react/no-find-dom-node': 'off',
+    'react/no-is-mounted': 'off',
+    'react/no-multi-comp': 'off',
+    'react/no-namespace': 'off',
+    'react/no-object-type-as-default-prop': 'off',
+    'react/no-react-children': 'off',
+    'react/no-redundant-should-component-update': 'off',
+    'react/no-render-return-value': 'off',
+    'react/no-set-state': 'off',
+    'react/no-string-refs': 'off',
+    'react/no-this-in-sfc': 'off',
+    'react/no-unescaped-entities': 'off',
+    'react/no-unknown-property': 'off',
+    'react/no-unsafe': 'off',
+    'react/no-unstable-nested-components': 'off',
+    'react/no-will-update-set-state': 'off',
+    'react/only-export-components': 'off',
+    'react/prefer-es6-class': 'off',
+    'react/prefer-function-component': 'off',
+    'react/preserve-manual-memoization': 'off',
+    'react/purity': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/refs': 'off',
+    'react/require-render-return': 'off',
+    'react/rule-suppression': 'off',
+    'react/rules-of-hooks': 'off',
+    'react/self-closing-comp': 'off',
+    'react/set-state-in-effect': 'off',
+    'react/set-state-in-render': 'off',
+    'react/state-in-constructor': 'off',
+    'react/static-components': 'off',
+    'react/style-prop-object': 'off',
+    'react/syntax': 'off',
+    'react/todo': 'off',
+    'react/unsupported-syntax': 'off',
+    'react/use-memo': 'off',
+    'react/void-dom-elements-no-children': 'off',
+    'react/void-use-memo': 'off',
+    // Temporarily off while each preset rule is evaluated in its own commit
+    // (see docs on migrating to @cloudflare/oxlint-config). Remove one at a time.
+    'typescript/array-type': 'error',
+    'typescript/await-thenable': 'error',
+    'typescript/return-await': 'error',
+    'no-unused-vars': 'error',
+    'no-warning-comments': 'error',
+    'prefer-arrow-callback': 'error',
+    // New in oxlint 1.94.
+    'promise/prefer-catch': 'off',
+    'no-only-tests/no-only-tests': 'off',
+    'quality/no-array-filter-map': 'off',
+    'quality/no-chained-type-assertions': 'off',
+    'quality/no-conditional-empty-object-spread': 'off',
+    'quality/no-known-value-widening': 'off',
+    'quality/no-object-parameters': 'off',
+    'quality/no-reduce-accumulator-copy': 'off',
+    'quality/no-reflect-apply': 'off',
+    'quality/no-reflect-get': 'off',
+    'quality/no-unknown-returns': 'off',
+    'quality/no-unknown-type-aliases': 'off',
+    'quality/no-unsafe-dictionary-type': 'off',
+    'quality/no-widen-then-assert': 'off',
+    // ---- Contradictory pairs: keep one side --------------------------------
+    // Named exports only (no-default-export stays on).
+    'import/no-named-export': 'off',
+    'import/prefer-default-export': 'off',
+    // Explicit imports over test globals (prefer-importing-vitest-globals stays on).
+    'vitest/no-importing-vitest-globals': 'off',
+    // ToHaveBeenCalledTimes(n) everywhere (prefer-called-times stays on).
+    'vitest/prefer-called-once': 'off',
+    // Inline `type` specifiers flagged by no-import-type-side-effects; prefer top-level `import type`.
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+
+    // ---- ES5-era restrictions: this codebase targets ES2024 ----------------
+    'oxc/no-async-await': 'off',
+    'oxc/no-optional-chaining': 'off',
+    'oxc/no-rest-spread-properties': 'off',
+
+    // ---- Design choices (see AGENTS.md) -------------------------------------
+    // `undefined` is the only absent value; null is banned instead.
+    'eslint/no-undefined': 'off',
+    'unicorn/no-null': 'error',
+    // Explicit `input<T | undefined>(undefined)` is required under exactOptionalPropertyTypes.
+    'unicorn/no-useless-undefined': 'off',
+    // Const-object pattern: `export const Ancestry = {...}` + `export type Ancestry`.
+    'eslint/no-redeclare': 'off',
+    // Decorators (@Component) and Zod/Temporal factories are capitalised calls.
+    'eslint/new-cap': 'off',
+    // TypeScript resolves identifiers; no-undef cannot see type-only globals.
+    'eslint/no-undef': 'off',
+    // Key order is meaningful (schemas, token ramps, wire shapes).
+    'eslint/sort-keys': 'off',
+    // Oxfmt sorts imports; two sorters fight.
+    'eslint/sort-imports': 'off',
+    // Co-located `export const X` / `export type X` is the house style.
+    'import/group-exports': 'off',
+    'import/exports-last': 'off',
+    // Libs nest folders (frontier/lib/layout/...); parent imports inside a lib are fine. Cross-lib imports go through aliases (enforced by boundaries).
+    'import/no-relative-parent-imports': 'off',
+    // Ternaries are fine; nesting them is not (unicorn/no-nested-ternary stays on).
+    'eslint/no-ternary': 'off',
+    // Deep readonly is impossible for classes with methods (signals, Zod, Temporal).
+    'typescript/prefer-readonly-parameter-types': 'off',
+    // TS types document params/returns; JSDoc duplicates would drift.
+    'jsdoc/require-param': 'off',
+    'jsdoc/require-returns': 'off',
+    // Promise-function-async stays on: every Promise-returning function is async, so
+    // Synchronous throws surface as rejections. require-await contradicts it.
+    'eslint/require-await': 'off',
+    'typescript/require-await': 'off',
+    // Strict boolean matchers (toBe(true)) over truthiness.
+    'vitest/prefer-to-be-truthy': 'off',
+    'vitest/prefer-to-be-falsy': 'off',
+    // ESM-only codebase: nothing require()s our modules, so top-level await is fine
+    // (unicorn/prefer-top-level-await stays on).
+    'node/no-top-level-await': 'off',
+    // Test-only rules; enabled for test files in overrides.
+    'vitest/require-hook': 'off',
+    // TS exhaustiveness is stronger than a default branch.
+    'eslint/default-case': 'off',
+    'typescript/switch-exhaustiveness-check': 'error',
+    // Angular directives/components may legitimately have empty bodies.
+    'typescript/no-extraneous-class': ['error', { allowWithDecorator: true }],
+
+    // ---- Tuned, not disabled -----------------------------------------------
+    'eslint/one-var': ['error', 'never'],
+    // Every if/else/loop body is a block, one-liners included. The style category
+    // Already enables it; pinned so it is never relaxed to "multi-line".
+    'eslint/curly': ['error', 'all'],
+    // Hoisted function declarations are safe to reference early (mutual recursion);
+    // Variables and classes still must be declared first.
+    'eslint/no-use-before-define': ['error', { functions: false }],
+    'eslint/no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
+    'eslint/func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    // ESLint's no-magic-numbers, wrapped so `const SAVE_DEBOUNCE = Milliseconds.parse(600)` counts as
+    // A named constant (tools/oxlint/brand-rules.ts). Same options.
+    'eslint/no-magic-numbers': 'off',
+    'pioneer/no-magic-numbers': [
+      'error',
+      {
+        ignore: [-1, 0, 1, 2],
+        ignoreArrayIndexes: true,
+        ignoreDefaultValues: true,
+        ignoreClassFieldInitialValues: true,
+        enforceConst: true,
+      },
+    ],
+    // Pages compose many frontier parts, a store and an icon or two; 10 forced splits that added
+    // Nothing (an icon import on an empty state tipped two pages over).
+    'import/max-dependencies': ['error', { max: 20 }],
+    // Zod is imported as a namespace (`import * as z from 'zod'`), as zod recommends: the named `{ z }` export
+    // Kept all 64 of its locales (296 kB) in the initial bundle, because the bundler cannot tree-shake it.
+    'import/no-namespace': ['error', { ignore: ['zod'] }],
+    'eslint/id-length': ['error', { exceptions: ['z'] }],
+    'eslint/max-classes-per-file': ['error', { max: 1, ignoreExpressions: true }],
+    'eslint/max-statements': ['error', 12],
+    // Blank lines are layout, not size: the readable-spacing autofix added them between statements, and a file's
+    // Length should not grow because of them.
+    'eslint/max-lines': ['error', { max: 300, skipBlankLines: true }],
+    'eslint/max-lines-per-function': ['error', { max: 50, skipBlankLines: true }],
+
+    // ---- anti-slop (vendored: tools/oxlint/anti-slop, see UPSTREAM.md there) ----
+    'oxc/no-accumulating-spread': 'error',
+    'anti-slop/no-array-filter-map': 'error',
+    'anti-slop/no-reduce-accumulator-copy': 'error',
+    'anti-slop/no-chained-type-assertions': 'error',
+    'anti-slop/no-conditional-empty-object-spread': 'error',
+    'anti-slop/no-known-value-widening': 'error',
+    'anti-slop/no-module-mocking': 'error',
+    'anti-slop/no-object-parameters': 'error',
+    'anti-slop/no-reflect-apply': 'error',
+    'anti-slop/no-reflect-get': 'error',
+    'anti-slop/no-runtime-typeof': 'error',
+    'anti-slop/no-shape-in-symbol-names': 'error',
+    'anti-slop/no-unknown-parameters': 'error',
+    'anti-slop/no-unknown-returns': 'error',
+    'anti-slop/no-unknown-type-aliases': 'error',
+    'anti-slop/no-unsafe-dictionary-type': 'error',
+    'anti-slop/no-widen-then-assert': 'error',
+    'anti-slop/require-readable-spacing': 'error',
+    'anti-slop/require-safety-comment-for-type-assertion': 'error',
+
+    // ---- Security ------------------------------------------------------------
+    'security/detect-bidi-characters': 'error',
+    'security/detect-buffer-noassert': 'error',
+    'security/detect-child-process': 'error',
+    'security/detect-disable-mustache-escape': 'error',
+    'security/detect-eval-with-expression': 'error',
+    'security/detect-new-buffer': 'error',
+    'security/detect-no-csrf-before-method-override': 'error',
+    'security/detect-non-literal-fs-filename': 'error',
+    'security/detect-non-literal-regexp': 'error',
+    'security/detect-non-literal-require': 'error',
+    'security/detect-possible-timing-attacks': 'error',
+    'security/detect-pseudoRandomBytes': 'error',
+    'security/detect-unsafe-regex': 'error',
+    'pioneer/no-bypass-security-trust': 'error',
+    'pioneer/zod-namespace-import': 'error',
+    // No modals, no toasts, no full page loads (libs/frontier/AGENTS.md#interaction-rules).
+    'pioneer/no-full-page-load': 'error',
+    'pioneer/no-route-resolvers': 'error',
+    'pioneer/layout-variants': 'error',
+    'pioneer/class-tokens': 'error',
+    // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
+    'pioneer/no-await-in-condition': 'error',
+    // User content is archived, never deleted (ADR-0062); the database refuses it too.
+    'pioneer/no-archivable-delete': 'error',
+    // Every function, arrow consts included, declares its return type (restriction
+    // Category enables both; pinned). Callbacks typed by their call site are exempt.
+    'typescript/explicit-function-return-type': 'error',
+    'typescript/explicit-module-boundary-types': 'error',
+    // Return types are named, short and declared: no inline object shapes, no
+    // `ReturnType<typeof fn>` reverse-engineering.
+    'pioneer/no-inline-return-types': 'error',
+    'pioneer/no-derived-types': 'error',
+    // Domain and rules values are branded or const objects, never bare string/number
+    // (tools/oxlint/brand-rules.ts; tests and testing/ builders are exempt).
+    'pioneer/no-primitive-domain-types': 'error',
+    // Each fast-check run costs CI time on every PR, so numRuns is capped.
+    'pioneer/max-property-runs': ['error', { max: 100 }],
+    'eslint/no-restricted-globals': [
+      'error',
+      { name: 'Date', message: 'Use Temporal from @pioneer/shared/kernel.' },
+      { name: 'alert', message: 'No modals. Show feedback inline.' },
+      { name: 'confirm', message: 'No modals. Confirm inline (e.g. a second click or an undo).' },
+      { name: 'prompt', message: 'No modals. Ask with an inline field.' },
+    ],
+    'eslint/no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          { name: 'temporal-polyfill', message: 'Import Temporal from @pioneer/shared/kernel.' },
+          { name: '@js-temporal/polyfill', message: 'Import Temporal from @pioneer/shared/kernel.' },
+          { name: '@lucide/angular', message: 'Import icons from lucide and draw them with fr-icon.' },
+          { name: 'luxon', message: 'Use Temporal.' },
+          { name: 'date-fns', message: 'Use Temporal.' },
+          { name: 'dayjs', message: 'Use Temporal.' },
+          { name: 'moment', message: 'Use Temporal.' },
+          { name: '@angular/cdk/dialog', message: 'No modals. Show the content inline or route to it.' },
+          { name: '@angular/material/dialog', message: 'No modals. Show the content inline or route to it.' },
+          { name: '@angular/material/bottom-sheet', message: 'No modals. Show the content inline.' },
+          { name: '@angular/material/snack-bar', message: 'No toasts. Show feedback inline, next to its cause.' },
+          { name: 'ngx-toastr', message: 'No toasts. Show feedback inline, next to its cause.' },
+          { name: 'ngx-sonner', message: 'No toasts. Show feedback inline, next to its cause.' },
+        ],
+        // Testing barrels hold fakes such as FakeAuthenticator, which trusts any caller. Only tests and
+        // Other testing helpers may import them (re-allowed in overrides below).
+        patterns: [
+          {
+            group: ['@pioneer/*/testing', '@pioneer/*/*/testing'],
+            message: 'Testing barrels are for tests. Import them from *.test.ts, *.spec.ts or a testing/ folder.',
+          },
+        ],
+      },
+    ],
+
+    // ---- Angular (TypeScript side; templates are linted by ESLint) ----------
+    '@angular-eslint/component-max-inline-declarations': ['error', { template: 0, styles: 0, animations: 0 }],
+    '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+    '@angular-eslint/prefer-signals': 'error',
+    '@angular-eslint/prefer-standalone': 'error',
+    '@angular-eslint/prefer-output-readonly': 'error',
+    '@angular-eslint/no-input-rename': 'error',
+    '@angular-eslint/no-output-rename': 'error',
+    '@angular-eslint/no-output-native': 'error',
+    '@angular-eslint/no-output-on-prefix': 'error',
+    '@angular-eslint/no-inputs-metadata-property': 'error',
+    '@angular-eslint/no-outputs-metadata-property': 'error',
+    '@angular-eslint/no-lifecycle-call': 'error',
+    '@angular-eslint/no-empty-lifecycle-method': 'error',
+    '@angular-eslint/no-async-lifecycle-method': 'error',
+    '@angular-eslint/no-attribute-decorator': 'error',
+    '@angular-eslint/no-forward-ref': 'error',
+    '@angular-eslint/no-queries-metadata-property': 'error',
+    '@angular-eslint/no-pipe-impure': 'error',
+    '@angular-eslint/use-component-selector': 'error',
+    '@angular-eslint/use-lifecycle-interface': 'error',
+    '@angular-eslint/use-pipe-transform-interface': 'error',
+    '@angular-eslint/use-injectable-provided-in': 'off',
+    '@angular-eslint/relative-url-prefix': 'error',
+    '@angular-eslint/sort-keys-in-type-decorator': 'error',
+    '@angular-eslint/consistent-component-styles': 'error',
+    '@angular-eslint/component-class-suffix': 'off',
+    '@angular-eslint/directive-class-suffix': 'off',
+    '@angular-eslint/component-selector': [
+      'error',
+      { type: ['element', 'attribute'], prefix: ['pio', 'fr'], style: 'kebab-case' },
+    ],
+    '@angular-eslint/directive-selector': ['error', { type: 'attribute', prefix: ['pio', 'fr'], style: 'camelCase' }],
+    'pioneer/no-styles-outside-frontier': 'error',
+
+    // ---- DDD boundaries ------------------------------------------------------
+    '@nx/enforce-module-boundaries': [
+      'error',
+      {
+        enforceBuildableLibDependency: true,
+        banTransitiveDependencies: true,
+        checkDynamicDependenciesExceptions: ['@pioneer/content/packs/*'],
+        allow: ['bun:test'],
+        depConstraints: [
+          { sourceTag: 'type:domain', onlyDependOnLibsWithTags: ['type:domain'] },
+          { sourceTag: 'type:content', onlyDependOnLibsWithTags: ['scope:rules'] },
+          { sourceTag: 'type:catalog', onlyDependOnLibsWithTags: ['type:domain', 'type:content'] },
+          { sourceTag: 'type:application', onlyDependOnLibsWithTags: ['type:domain', 'type:application'] },
+          {
+            sourceTag: 'type:infrastructure',
+            onlyDependOnLibsWithTags: ['type:domain', 'type:application', 'type:infrastructure'],
+          },
+          { sourceTag: 'type:ui', onlyDependOnLibsWithTags: ['type:domain', 'type:ui'] },
+          { sourceTag: 'type:data-access', onlyDependOnLibsWithTags: ['type:domain', 'type:data-access'] },
+          {
+            sourceTag: 'type:feature',
+            onlyDependOnLibsWithTags: ['type:domain', 'type:catalog', 'type:ui', 'type:data-access', 'type:feature'],
+          },
+          { sourceTag: 'platform:web', notDependOnLibsWithTags: ['platform:server'] },
+          { sourceTag: 'platform:server', notDependOnLibsWithTags: ['platform:web'] },
+          { sourceTag: 'platform:any', onlyDependOnLibsWithTags: ['platform:any'] },
+          { sourceTag: 'scope:rules', onlyDependOnLibsWithTags: ['scope:rules', 'scope:shared', 'scope:content'] },
+          { sourceTag: 'scope:content', onlyDependOnLibsWithTags: ['scope:rules'] },
+          {
+            sourceTag: 'scope:character',
+            onlyDependOnLibsWithTags: ['scope:character', 'scope:interop', 'scope:play', 'scope:rules', 'scope:shared'],
+          },
+          // Interop reads other tools' files into a character's terms; the character feature calls it.
+          {
+            sourceTag: 'scope:interop',
+            onlyDependOnLibsWithTags: ['scope:interop', 'scope:character', 'scope:rules', 'scope:shared'],
+          },
+          // The attach picker names a character's ancestry and class from the content bundle.
+          {
+            sourceTag: 'scope:campaign',
+            onlyDependOnLibsWithTags: ['scope:campaign', 'scope:rules', 'scope:shared'],
+          },
+          // Homebrew packs are content rows: it reads and writes the rules context's pack tables and types.
+          {
+            sourceTag: 'scope:homebrew',
+            onlyDependOnLibsWithTags: ['scope:homebrew', 'scope:rules', 'scope:shared'],
+          },
+          { sourceTag: 'scope:play', onlyDependOnLibsWithTags: ['scope:play', 'scope:rules', 'scope:shared'] },
+          {
+            sourceTag: 'scope:browser',
+            onlyDependOnLibsWithTags: ['scope:browser', 'scope:rules', 'scope:shared'],
+          },
+          { sourceTag: 'scope:identity', onlyDependOnLibsWithTags: ['scope:identity', 'scope:shared'] },
+          // Shared libraries, frontier among them, know no Pioneer schemas or feature areas (ADR-0028).
+          { sourceTag: 'scope:shared', onlyDependOnLibsWithTags: ['scope:shared'] },
+        ],
+      },
+    ],
+  },
+  overrides: [
+    {
+      // A generation run builds a whole level 1-20 character, so these tests get a tighter cap.
+      files: ['apps/api/src/**/*.test.ts'],
+      rules: { 'pioneer/max-property-runs': ['error', { max: 25 }] },
+    },
+    {
+      files: ['**/*.test.ts', '**/*.spec.ts', '**/test-setup.ts'],
+      rules: {
+        'pioneer/no-magic-numbers': 'off',
+        'eslint/no-empty-function': 'off',
+        'eslint/init-declarations': 'off',
+        'eslint/max-statements': 'off',
+        'eslint/max-lines-per-function': 'off',
+        'eslint/max-classes-per-file': 'off',
+        'typescript/no-unsafe-type-assertion': 'off',
+        'promise/avoid-new': 'off',
+        'vitest/no-hooks': 'off',
+        // Describe(ClassName) per prefer-describe-function-title.
+        'vitest/valid-title': ['error', { allowArguments: true }],
+        'vitest/require-test-timeout': 'off',
+        'vitest/prefer-expect-assertions': 'off',
+        'vitest/prefer-lowercase-title': 'off',
+        // Bun tests are *.test.ts, Angular/Vitest tests are *.spec.ts (see AGENTS.md).
+        'vitest/consistent-test-filename': 'off',
+      },
+    },
+    {
+      // A benchmark builds its input from the testing barrels and is full of the sizes it measures, as a test is.
+      files: ['**/*.bench.ts'],
+      rules: { 'pioneer/no-magic-numbers': 'off', 'eslint/max-lines-per-function': 'off' },
+    },
+    {
+      // Bun tests and benchmarks import from bun:test, which the vitest plugin does not recognise.
+      files: ['**/*.test.ts', '**/*.bench.ts'],
+      rules: { 'vitest/prefer-importing-vitest-globals': 'off', 'vitest/prefer-describe-function-title': 'off' },
+    },
+    {
+      // A testing helper that loads a lazy chunk before a spec file runs registers the hook itself.
+      files: ['**/testing/**'],
+      rules: { 'vitest/no-hooks': 'off', 'vitest/require-top-level-describe': 'off' },
+    },
+    {
+      // Property tests compute the expected value from the input; that oracle is
+      // Usually a conditional. Keep the logic in the oracle, not in branches.
+      files: ['**/*.property.test.ts'],
+      rules: { 'vitest/no-conditional-in-test': 'off' },
+    },
+    {
+      // Tests, benchmarks and testing helpers may import testing barrels. Oxlint replaces a rule's options per
+      // Override, so the `paths` list above is repeated here without the testing patterns.
+      files: ['**/*.test.ts', '**/*.spec.ts', '**/*.bench.ts', '**/testing/**'],
+      rules: {
+        'eslint/no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              { name: 'temporal-polyfill', message: 'Import Temporal from @pioneer/shared/kernel.' },
+              { name: '@js-temporal/polyfill', message: 'Import Temporal from @pioneer/shared/kernel.' },
+              { name: '@lucide/angular', message: 'Import icons from lucide and draw them with fr-icon.' },
+              { name: 'luxon', message: 'Use Temporal.' },
+              { name: 'date-fns', message: 'Use Temporal.' },
+              { name: 'dayjs', message: 'Use Temporal.' },
+              { name: 'moment', message: 'Use Temporal.' },
+              { name: '@angular/cdk/dialog', message: 'No modals. Show the content inline or route to it.' },
+              { name: '@angular/material/dialog', message: 'No modals. Show the content inline or route to it.' },
+              { name: '@angular/material/bottom-sheet', message: 'No modals. Show the content inline.' },
+              {
+                name: '@angular/material/snack-bar',
+                message: 'No toasts. Show feedback inline, next to its cause.',
+              },
+              { name: 'ngx-toastr', message: 'No toasts. Show feedback inline, next to its cause.' },
+              { name: 'ngx-sonner', message: 'No toasts. Show feedback inline, next to its cause.' },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      // Generated token tables and published colour-science constants are numbers by nature.
+      files: ['libs/frontier/scripts/*.ts', 'tools/colour-space.ts'],
+      rules: { 'pioneer/no-magic-numbers': 'off' },
+    },
+    {
+      // The pack loaders are plain JavaScript on purpose: the compiler never sees their JSON imports (TS2859, and
+      // 2M types of inference), so what they return is typed by the `.d.ts` beside them.
+      files: ['libs/rules/catalog/src/*-packs.js'],
+      rules: { 'typescript/no-unsafe-argument': 'off', 'typescript/no-unsafe-return': 'off' },
+    },
+    {
+      // Declarations of those loaders: an ambient `const` has no initialiser.
+      files: ['libs/rules/catalog/src/*-packs.d.ts'],
+      rules: { 'eslint/init-declarations': 'off' },
+    },
+    {
+      // `@3d-dice/dice-box-threejs` ships no types: this ambient module declares the slice the roll stage uses, so the
+      // File is a script on purpose (a module's `declare module` would only augment).
+      files: ['libs/play/ui/src/lib/roll-stage/dice-box-threejs.d.ts'],
+      rules: { 'import/unambiguous': 'off' },
+    },
+    {
+      // A library's public API is one export per module it exposes; its length is the size of the API, not
+      // Complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
+      files: ['**/index.ts'],
+      rules: { 'eslint/max-lines': 'off' },
+    },
+    {
+      // The Foundry importer reads untrusted third-party JSON. It checks `typeof` and handles `unknown` at that
+      // Boundary on purpose; a Zod parse of every Foundry document shape would rewrite the translator and change
+      // Its output.
+      files: ['libs/interop/foundry/**', 'tools/content-import/**'],
+      rules: {
+        'anti-slop/no-runtime-typeof': 'off',
+        'anti-slop/no-unknown-parameters': 'off',
+        'anti-slop/no-unknown-returns': 'off',
+        'anti-slop/no-unsafe-dictionary-type': 'off',
+      },
+    },
+    {
+      // "shape" is Pathfinder's word for the form of an area (burst, cone, line, emanation) and the key a pack, a
+      // Shift command and the play state store it under (`area.shape`, `shape`, `play.shapes`). The names here mirror
+      // That key, so renaming them would mean migrating stored characters and re-importing the packs.
+      files: [
+        'libs/character/domain/src/counting-commands.ts',
+        'libs/character/domain/src/play-state.ts',
+        'libs/character/domain/src/weapon-shifts.test.ts',
+        'libs/character/domain/src/weapon-shifts.ts',
+        'libs/character/feature/src/lib/sheet/inventory/item-shift/item-shift.component.ts',
+        'libs/interop/foundry/src/describe-entries.test.ts',
+        'libs/interop/foundry/src/spell-reach.ts',
+        'libs/interop/foundry/src/translate-enricher.test.ts',
+        'libs/interop/foundry/src/translate-enricher.ts',
+        'libs/interop/foundry/src/translate-magic-kinds.test.ts',
+        'libs/interop/foundry/src/translate-ritual-text.test.ts',
+        'libs/interop/foundry/src/translate-spell-variants.test.ts',
+        'libs/play/feature/src/lib/rules/magic-examples.ts',
+        'libs/play/feature/src/lib/rules/rich-text-example.ts',
+        'libs/rules/engine/src/spell-at-rank.test.ts',
+        'libs/rules/sdk/src/magic-kinds.test.ts',
+        'libs/rules/sdk/src/rich-text.test.ts',
+        'libs/rules/sdk/src/rich-text.ts',
+        'libs/rules/sdk/src/ritual-effect-kinds.test.ts',
+        'libs/rules/sdk/src/spell-casting.ts',
+        'libs/rules/sdk/src/spell-facets.test.ts',
+        'libs/rules/sdk/src/spell-reach.test.ts',
+        'libs/rules/sdk/src/testing/magic-kind-arbitraries.ts',
+        'libs/rules/sdk/src/testing/rich-text-arbitraries.ts',
+        'libs/rules/ui/src/lib/rich-text/rich-text.component.spec.ts',
+        'libs/rules/ui/src/lib/rich-text/rich-text.stories.ts',
+        'libs/rules/ui/src/lib/rich-text/rich-value/value-text.ts',
+        'libs/rules/ui/src/lib/spell-list/spell-text.spec.ts',
+        'libs/rules/ui/src/lib/spell-list/spell-text.ts',
+        'libs/rules/ui/src/lib/testing/spell-fixtures.ts',
+      ],
+      rules: { 'anti-slop/no-shape-in-symbol-names': 'off' },
+    },
+    {
+      // These functions are the boundary: each takes untrusted JSON or a stored document and checks it (`safeParse`,
+      // A depth and size walk) before anything downstream sees it, so the `unknown` and `object` input is the point.
+      files: [
+        'libs/rules/sdk/src/json-bounds.ts',
+        'libs/character/domain/src/character-document.ts',
+        'libs/rules/formula/src/evaluate.ts',
+      ],
+      rules: {
+        'anti-slop/no-object-parameters': 'off',
+        'anti-slop/no-unknown-parameters': 'off',
+        'anti-slop/no-unknown-returns': 'off',
+      },
+    },
+    {
+      // `returnPathOr` takes the raw `returnTo` query value and brands it; there is no brand before that parse.
+      files: ['libs/identity/domain/src/return-path.ts'],
+      rules: { 'pioneer/no-primitive-domain-types': 'off' },
+    },
+    {
+      // Process entry points: Bun supports top-level await; logging is the point.
+      files: [
+        'apps/api/src/main.ts',
+        'apps/api/src/main.dev.ts',
+        'libs/frontier/scripts/*.ts',
+        'tools/deploy-production.ts',
+        'tools/perf-probe.ts',
+        'tools/sheet-waterfall.ts',
+        'tools/ci-plan-run.ts',
+        'tools/content-coverage.ts',
+        'tools/propose-aon.ts',
+        'tools/propose-creature-actions.ts',
+        'tools/propose-granted-actions.ts',
+        'tools/audit-remaster.ts',
+        'tools/propose-pages.ts',
+        'tools/aon-sources/main.ts',
+        'tools/aon-pages/main.ts',
+        'tools/book-foundry-version/main.ts',
+        'tools/content-import/main.ts',
+        'tools/enrich-content.ts',
+        'tools/enrich-supersedes.ts',
+        'tools/enrich-prerequisites.ts',
+        'tools/enrich-staves.ts',
+        'tools/enrich-triggers.ts',
+        'tools/enrich-removals.ts',
+        'tools/bench.ts',
+        'libs/shared/bench/src/bench.ts',
+      ],
+      rules: { 'eslint/no-console': 'off' },
+    },
+    {
+      files: ['libs/shared/server/src/problem-handler.ts'],
+      rules: { 'eslint/no-console': 'off' },
+    },
+    {
+      // A failed OAuth callback only shows the browser a generic page; operators need the cause.
+      files: ['libs/identity/infrastructure/src/identity-routes.ts'],
+      rules: { 'eslint/no-console': 'off' },
+    },
+    {
+      // The sweep runs on a timer with no caller to report to; operators need to see failures.
+      files: ['libs/identity/infrastructure/src/session-sweep.ts'],
+      rules: { 'eslint/no-console': 'off' },
+    },
+    {
+      // Sign-in leaves the app for the OAuth provider; there is no in-app route to navigate to.
+      files: ['libs/identity/data-access/src/session-store.ts'],
+      rules: { 'pioneer/no-full-page-load': 'off' },
+    },
+    {
+      // The lint config is one data literal: a size or magic-number limit says nothing about it.
+      files: ['oxlint.config.ts'],
+      rules: { 'eslint/max-lines': 'off', 'pioneer/no-magic-numbers': 'off' },
+    },
+    {
+      // Small related error types live together.
+      files: ['libs/shared/kernel/src/errors.ts'],
+      rules: { 'eslint/max-classes-per-file': 'off' },
+    },
+    {
+      // Build tooling runs on Node/Bun and needs fs/path; config files need default exports.
+      files: ['tools/**/*.ts', '**/drizzle.config.ts', 'eslint.config.ts', 'oxlint.config.ts'],
+      rules: {
+        'import/no-nodejs-modules': 'off',
+        'node/no-sync': 'off',
+        'import/no-default-export': 'off',
+        'security/detect-non-literal-fs-filename': 'off',
+        'typescript/no-unsafe-type-assertion': 'off',
+      },
+    },
+    {
+      // The request scope follows an async call chain through adapters that take no request argument, which only
+      // AsyncLocalStorage can do. The file is server-only: the kernel, which the web app shares, stays free of it.
+      files: ['libs/shared/server/src/request-memo.ts'],
+      rules: {
+        'import/no-nodejs-modules': 'off',
+      },
+    },
+    {
+      // Storybook stories: Component Story Format requires the meta as the default export,
+      // And story args are sample data (levels, counts) by nature. A story composes the component with
+      // The primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.
+      // Play functions assert with storybook/test's instrumented `expect`, which the vitest plugin takes for a global.
+      files: ['**/*.stories.ts'],
+      rules: {
+        'vitest/prefer-importing-vitest-globals': 'off',
+        'import/no-default-export': 'off',
+        'pioneer/no-magic-numbers': 'off',
+        'import/max-dependencies': 'off',
+        'eslint/id-length': ['error', { exceptions: ['x', 'y', 'z'] }],
+      },
+    },
+    {
+      // Chart specs build chart definitions, whose marks and scales take `x`/`y` channels.
+      files: ['**/chart/*.spec.ts'],
+      rules: {
+        'eslint/id-length': ['error', { exceptions: ['x', 'y', 'z'] }],
+      },
+    },
+    {
+      // Storybook config: main.ts runs on Node and both files need default exports; preview.ts
+      // Imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
+      // Vitest.config.ts reads the devshell's PLAYWRIGHT_DRIVER_VERSION on Node, where Bun.env does not exist.
+      files: ['**/.storybook/*.ts'],
+      rules: {
+        'import/no-default-export': 'off',
+        'import/no-nodejs-modules': 'off',
+        'import/no-unassigned-import': 'off',
+        'pioneer/no-route-resolvers': 'off',
+        'node/no-process-env': 'off',
+      },
+    },
+    {
+      // Angular dev-server proxy runs on Node: default export required, port from the dev shell.
+      files: ['apps/web/proxy.conf.mjs'],
+      rules: {
+        'import/no-default-export': 'off',
+        'node/no-process-env': 'off',
+        'typescript/no-unsafe-member-access': 'off',
+      },
+    },
+  ],
+});

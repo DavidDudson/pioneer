@@ -37,8 +37,8 @@ PRs that change UI carry before/after screenshots. Pages behind auth: sign in lo
 
 ## Code style
 
-Lint is strict (`.oxlintrc.json`, every category an error) and is the source of truth; fix the code, never
-relax a rule without a reason recorded beside it. Rules that trip agents most:
+Lint is strict (`oxlint.config.ts`, extending `@cloudflare/oxlint-config`, every category an error) and is the
+source of truth; fix the code, never relax a rule without a reason recorded beside it. Rules that trip agents most:
 
 - Braces on every `if`/`else`/loop body, one-liners included (`eslint/curly`).
 - Await into a named const, then branch on the name. `const fileExists = await file.exists(); if (!fileExists)`,

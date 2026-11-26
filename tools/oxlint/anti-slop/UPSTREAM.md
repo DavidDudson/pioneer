@@ -5,7 +5,7 @@ Vendored from <https://github.com/dmmulroy/anti-slop> at commit `13909c9e07590f5
 
 - Installed: generic plugin (`index.ts`). The Effect plugin (`effect/`) is copied but not registered: Pioneer does
   not depend on `effect`.
-- Rules enabled: all 18 generic rules plus native `oxc/no-accumulating-spread`, in `.oxlintrc.json`.
+- Rules enabled: all 18 generic rules plus native `oxc/no-accumulating-spread`, in `oxlint.config.ts`.
 - Deviations: formatted with `bun fmt` to pass `format:check`; two type fixes for
   Pioneer's stricter tsconfig (`no-runtime-typeof.ts` index access,
   `dictionary-types.ts` `?? null`).
