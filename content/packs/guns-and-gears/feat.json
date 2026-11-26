@@ -4134,7 +4134,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },

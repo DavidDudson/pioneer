@@ -18534,7 +18534,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },
@@ -34671,7 +34674,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },
@@ -38251,7 +38257,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "initiative"
+        }
       }
     }
   },

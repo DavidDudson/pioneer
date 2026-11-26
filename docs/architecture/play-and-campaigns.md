@@ -169,7 +169,9 @@ needs a structured trigger, since `trigger` is rich text. Actions and effects ga
 `damage-taken`) that the engine matches against turn events; the rich text stays as the displayed wording
 (content-model.md, "Trigger events"). Foundry has no such field, so a matcher over the trigger text fills it with
 `bun run content:triggers`, a pass over the committed packs (ADR-0031), and corrections are edits to the packs;
-actions with a trigger but no `triggerEvent` show in the coverage report. An ability
+actions with a trigger but no `triggerEvent` show in the coverage report, grouped by normalised wording with a count each,
+most common first, which shows the wordings to teach the matcher next. A wording matches only as a whole, so one with a
+condition the predicate can't express ("You Strike a creature that is off-guard") stays unmatched. An ability
 without a `triggerEvent` is never prompted or applied; it stays in the action lists for the player to use by hand.
 
 When an event fires, the matching abilities are collected:

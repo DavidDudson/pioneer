@@ -109,7 +109,7 @@ export type { PrerequisiteCoverage } from './prerequisite-coverage';
 
 export { triggerCoverage } from './trigger-coverage';
 
-export type { TriggerCoverage } from './trigger-coverage';
+export type { TriggerCoverage, UnmatchedPhrasing } from './trigger-coverage';
 
 export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
 

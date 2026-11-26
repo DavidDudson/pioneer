@@ -133,8 +133,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7514",
-        "page": 275
+        "page": 275,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7514"
       }
     ],
     "description": [
@@ -195,7 +195,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },
@@ -2902,7 +2905,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       },
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
