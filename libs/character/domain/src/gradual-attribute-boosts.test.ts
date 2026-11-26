@@ -111,13 +111,18 @@ describe('the Gradual Attribute Boosts variant rule', () => {
       .withVariantRule('plain')
       .build(),
   );
-  const variantBySlug = new Map(registry.variantRules().map((variant) => [variant.definition.slug, variant]));
-  const gradual = [...variantBySlug.values()].filter(({ definition }) => definition.slug.endsWith('gradual'));
-  const plain = [...variantBySlug.values()].filter(({ definition }) => definition.slug.endsWith('plain'));
+
+  const gradualVariants = registry
+    .variantRules()
+    .filter(({ definition }) => definition.slug === 'variant-rule:gradual');
+
+  const plainVariants = registry.variantRules().filter(({ definition }) => definition.slug === 'variant-rule:plain');
 
   test('turns the schedule on while it is in force, and off with a variant that does not name it', () => {
-    expect(slotContent(registry, gradual).boosts.gradual).toBe(true);
-    expect(slotContent(registry, plain).boosts.gradual).toBe(false);
+    expect(gradualVariants).toHaveLength(1);
+    expect(plainVariants).toHaveLength(1);
+    expect(slotContent(registry, gradualVariants).boosts.gradual).toBe(true);
+    expect(slotContent(registry, plainVariants).boosts.gradual).toBe(false);
     expect(slotContent(registry).boosts.gradual).toBe(false);
   });
 });
