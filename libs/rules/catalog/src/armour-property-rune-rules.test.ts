@@ -92,7 +92,7 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
 
-const MOONWEAVE_HEALING: readonly (readonly [string, number])[] = [
+const MOONWEAVE_HEALING: ReadonlyArray<readonly [string, number]> = [
   ['rune:moonweave', 2],
   ['rune:moonweave-greater', 5],
   ['rune:moonweave-major', 10],
