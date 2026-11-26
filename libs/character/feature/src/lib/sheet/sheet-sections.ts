@@ -78,7 +78,7 @@ export function levelOfPath(path: string | undefined): number | undefined {
 }
 
 /**
- * Each tab's sections in page order, for its section index (play-and-campaigns.md, Sheet modes). Later stories add
+ * Each tab's sections in page order, for its section tabs (play-and-campaigns.md, Sheet modes). Later stories add
  * theirs: crafting, income and retraining to Downtime.
  */
 export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, ReadonlyArray<SheetSection>>> = {

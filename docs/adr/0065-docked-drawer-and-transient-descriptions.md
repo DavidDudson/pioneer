@@ -35,5 +35,5 @@ are a library or a floating `role="status"`), so rule 1 of the interaction rules
 
 - Detail views can open beside their list without a route change per row.
 - A popover is a description, never a control surface; reviewers hold features to that.
-- `fr-drawer` is the second component (after `fr-page-aside`, since removed) allowed container-query classes,
+- `fr-drawer` is allowed container-query classes, like `fr-rail`,
   since its width beside the page body is its whole job.
