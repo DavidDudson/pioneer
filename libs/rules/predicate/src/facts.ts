@@ -80,6 +80,9 @@ export class PredicateFacts {
   /** Set by `withRanksUnread`: a missing `<skill>:rank:<n>` is unknown, not false. */
   #ranksUnread = false;
 
+  /** These facts read with ranks unread, made on first ask: the facts never change, and every `ChoiceSet` offer asks. */
+  #unread: PredicateFacts | undefined;
+
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable) {
     this.#branded = new Set<RollOption>(options);
     this.#options = this.#branded;
@@ -185,6 +188,12 @@ export class PredicateFacts {
    * worked out, so a missing `skill:arcana:rank:0` says nothing, and reads unknown rather than false.
    */
   public withRanksUnread(): PredicateFacts {
+    this.#unread ??= this.#readUnread();
+
+    return this.#unread;
+  }
+
+  #readUnread(): PredicateFacts {
     const read = new PredicateFacts([...this.#branded], this.#namespaces);
 
     read.#ranksUnread = true;
