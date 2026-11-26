@@ -2,10 +2,11 @@ import { inject, Injectable } from '@angular/core';
 import {
   bundlePath,
   ContentKind,
-  contentPackFromBundles,
+  contentPackFromKindEntries,
   ContentRegistry,
   descriptionFromBundle,
   descriptionShard,
+  entriesFromBundles,
 } from '@pioneer/rules/sdk';
 import type {
   BundleBody,
@@ -26,7 +27,7 @@ import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { ContentBundleCache } from './content-bundle-cache';
 import { CONTENT_DELIVERY } from './content-delivery';
-import { CONTENT_PACK_CACHE } from './content-pack-cache';
+import { CONTENT_ENTRY_CACHE, CONTENT_PACK_CACHE } from './content-pack-cache';
 
 /**
  * Kinds a page is likely to need after one it loaded: the next steps of building a character. Prefetched when idle,
@@ -71,6 +72,16 @@ function kindsIn(pack: PackBundles, kinds: readonly ContentKind[]): readonly Kin
   return pack.kinds.filter((bundles) => kinds.includes(bundles.kind));
 }
 
+/** The files of the bundles of `kinds`: each one's mechanics and names. */
+function bundlesOf(kinds: readonly KindBundles[]): readonly BundleFile[] {
+  return kinds.flatMap(({ mechanics, names }) => [mechanics, names]);
+}
+
+/** What a pack built from `kinds` is kept under: the paths of its bundles, which carry their hashes. */
+function packKey(pack: PackBundles, kinds: readonly KindBundles[]): string {
+  return [pack.file, ...bundlesOf(kinds)].map((each) => bundlePath(pack.id, each)).join('\n');
+}
+
 /**
  * Builds `ContentRegistry`s in the browser from the content bundles: every pack the manifest names, with only the
  * kinds asked for, so a page fetches only what its engine reads (spells only when a caster needs them).
@@ -82,6 +93,7 @@ export class ContentLoader {
   readonly #delivery = inject(CONTENT_DELIVERY);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #packs = inject(CONTENT_PACK_CACHE);
+  readonly #entries = inject(CONTENT_ENTRY_CACHE);
   readonly #official: BundleFetch = async (pack, file) => this.#cache.bundle(pack, file);
   readonly #homebrew: BundleFetch = async (pack, file) => this.#cache.homebrewBundle(pack, file);
 
@@ -194,14 +206,14 @@ export class ContentLoader {
   }
 
   async #pack(pack: PackBundles, kinds: readonly ContentKind[], fetch: BundleFetch): Promise<ContentPack> {
-    const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
+    const wanted = kindsIn(pack, kinds);
 
-    const [file, ...fetched] = await Promise.all([
+    const [file, ...kindBodies] = await Promise.all([
       fetch(pack.id, pack.file),
-      ...kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, fetch)),
+      ...wanted.map(async (bundles) => ({ bundles, fetched: await fetchKind(pack.id, bundles, fetch) })),
     ]);
 
-    const key = [pack.file, ...used].map((each) => bundlePath(pack.id, each)).join('\n');
+    const key = packKey(pack, wanted);
     const built = this.#packs.get(key);
 
     if (built !== undefined) {
@@ -209,15 +221,28 @@ export class ContentLoader {
     }
 
     try {
-      const contentPack = contentPackFromBundles(file, fetched);
+      const contentPack = contentPackFromKindEntries(
+        file,
+        kindBodies.map(({ bundles, fetched }) => this.#kindEntries(pack.id, bundles, fetched)),
+      );
+
       this.#packs.set(key, contentPack);
 
       return contentPack;
     } catch (error) {
       // A kept body that no longer reads (a truncated record) must not stick: drop it, so the retry fetches it again.
-      await this.#cache.forget(pack.id, [pack.file, ...used]);
+      await this.#cache.forget(pack.id, [pack.file, ...bundlesOf(wanted)]);
       throw error;
     }
+  }
+
+  /** A kind's entries, read once whichever set of kinds asks for them: the same bundles give the same entry objects. */
+  #kindEntries(pack: PackId, bundles: KindBundles, fetched: FetchedKind): readonly ContentEntry[] {
+    const key = `${bundlePath(pack, bundles.mechanics)}\n${bundlePath(pack, bundles.names)}`;
+    const kept = this.#entries.get(key) ?? entriesFromBundles(fetched);
+    this.#entries.set(key, kept);
+
+    return kept;
   }
 
   /** Fetches `kinds` into the store when the browser is idle. A failure only means they are fetched when needed. */
