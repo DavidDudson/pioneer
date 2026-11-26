@@ -171,3 +171,15 @@ export {
   RollEffectStatusKind,
   type RollTwiceLine,
 } from './roll-effects';
+
+export { deriveCompanionStatistics } from './companion-statistics';
+
+export { CompanionSource } from './companion-statistic-types';
+
+export type {
+  CompanionInputs,
+  CompanionLine,
+  CompanionStatistic,
+  CompanionStatistics,
+  CompanionStrike,
+} from './companion-statistic-types';
