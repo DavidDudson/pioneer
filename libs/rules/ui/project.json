@@ -12,20 +12,6 @@
       }
     },
     "test-storybook": {
-      "cache": true,
-      "parallelism": false,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "env": "PLAYWRIGHT_BROWSERS_PATH"
-        },
-        {
-          "env": "PLAYWRIGHT_DRIVER_VERSION"
-        },
-        "{workspaceRoot}/libs/frontier/.storybook/storybook-project.ts"
-      ],
-      "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts",
       "configurations": {
         "shard-1": {
           "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts --shard=1/3"

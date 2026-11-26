@@ -13,6 +13,7 @@ import type { ProjectFacts } from './project-facts.ts';
 import { inferAngularTest } from './targets/angular-test.ts';
 import { inferBunTest } from './targets/bun-test.ts';
 import { inferLintTemplates } from './targets/lint-templates.ts';
+import { inferTestStorybook } from './targets/test-storybook.ts';
 import { inferTypecheck } from './targets/typecheck.ts';
 
 /** Decides one target for a project: its configuration, or `undefined` for a project it does not apply to. */
@@ -21,6 +22,7 @@ type TargetInferrer = (facts: ProjectFacts) => TargetConfiguration | undefined;
 /** Inferred target name to the module that decides it. */
 const INFERRERS = {
   typecheck: inferTypecheck,
+  'test-storybook': inferTestStorybook,
   'lint-templates': inferLintTemplates,
   test: (facts: ProjectFacts): TargetConfiguration | undefined => inferAngularTest(facts) ?? inferBunTest(facts),
 } satisfies Record<string, TargetInferrer>;
