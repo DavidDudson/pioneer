@@ -6,7 +6,7 @@ import type { AsyncQuery } from '../async/async-region/async-query';
 /** A stand-in for an `injectQuery(...)` result that a spec moves between states. Starts pending. */
 export class FakeQuery<TData> implements AsyncQuery<TData> {
   public readonly data = signal<TData | undefined>(undefined);
-  public readonly error = signal<unknown>(undefined);
+  public readonly error = signal<Error | undefined>(undefined);
   readonly #pending: WritableSignal<boolean> = signal(true);
   readonly #nextPageFailed: WritableSignal<boolean> = signal(false);
 
@@ -29,13 +29,13 @@ export class FakeQuery<TData> implements AsyncQuery<TData> {
     this.#pending.set(false);
   }
 
-  public fail(error: unknown): void {
+  public fail(error: Error): void {
     this.error.set(error);
     this.#pending.set(false);
   }
 
   /** An infinite query's next page fails: the query errors but keeps its data. */
-  public failNextPage(error: unknown): void {
+  public failNextPage(error: Error): void {
     this.fail(error);
     this.#nextPageFailed.set(true);
   }

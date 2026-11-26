@@ -5,26 +5,21 @@
  * Feedback lives inline, next to the thing it is about.
  */
 import type { Rule } from 'eslint';
+import * as z from 'zod';
+
+import { Start } from './template-nodes.ts';
+import type { VisitedNode } from './template-nodes.ts';
 
 const OVERLAY_ROLES = new Set(['dialog', 'alertdialog']);
 
 /** Hrefs that leave the app, so a document load is expected. */
 const EXTERNAL_HREF = /^(?:https?:|mailto:|tel:)/u;
 
-interface Span {
-  readonly start: { readonly offset: number };
-}
+const ElementNode = z.looseObject({ name: z.string(), startSourceSpan: Start });
 
-interface ElementNode {
-  readonly name?: unknown;
-  readonly startSourceSpan?: Span;
-}
+const TextAttributeNode = z.looseObject({ name: z.string(), value: z.string(), keySpan: Start });
 
-interface AttributeNode {
-  readonly name?: unknown;
-  readonly value?: unknown;
-  readonly keySpan?: Span;
-}
+const BoundAttributeNode = z.looseObject({ name: z.string(), keySpan: Start });
 
 export const noInterruptions: Rule.RuleModule = {
   meta: {
@@ -39,38 +34,39 @@ export const noInterruptions: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const report = (span: Span | undefined, messageId: string, data: Readonly<Record<string, string>> = {}): void => {
-      if (span !== undefined) {
-        context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
-      }
+    const report = (span: Start, messageId: string, data: Readonly<Record<string, string>> = {}): void => {
+      context.report({ loc: context.sourceCode.getLocFromIndex(span.start.offset), messageId, data });
     };
 
     return {
-      Element(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, startSourceSpan } = node as ElementNode;
+      Element(node: VisitedNode): void {
+        const element = ElementNode.safeParse(node);
 
-        if (name === 'dialog') {
-          report(startSourceSpan, 'dialog');
+        if (element.success && element.data.name === 'dialog') {
+          report(element.data.startSourceSpan, 'dialog');
         }
       },
-      TextAttribute(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, value, keySpan } = node as AttributeNode;
+      TextAttribute(node: VisitedNode): void {
+        const attribute = TextAttributeNode.safeParse(node);
 
-        if (name === 'role' && typeof value === 'string' && OVERLAY_ROLES.has(value)) {
+        if (!attribute.success) {
+          return;
+        }
+
+        const { name, value, keySpan } = attribute.data;
+
+        if (name === 'role' && OVERLAY_ROLES.has(value)) {
           report(keySpan, 'role', { role: value });
-        } else if (name === 'href' && typeof value === 'string' && !EXTERNAL_HREF.test(value)) {
+        } else if (name === 'href' && !EXTERNAL_HREF.test(value)) {
           report(keySpan, 'href');
         }
       },
       // Bound names arrive without brackets or `attr.`: `[attr.href]` is `href`.
-      BoundAttribute(node: unknown): void {
-        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
-        const { name, keySpan } = node as AttributeNode;
+      BoundAttribute(node: VisitedNode): void {
+        const attribute = BoundAttributeNode.safeParse(node);
 
-        if (name === 'href') {
-          report(keySpan, 'boundHref');
+        if (attribute.success && attribute.data.name === 'href') {
+          report(attribute.data.keySpan, 'boundHref');
         }
       },
     };

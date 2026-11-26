@@ -24,7 +24,14 @@ const TITLE: Readonly<Record<ProblemType, string>> = {
   [ProblemType.Internal]: 'Internal error',
 };
 
-function toProblem(error: unknown): Problem {
+const INTERNAL_PROBLEM: Problem = {
+  type: ProblemType.Internal,
+  title: TITLE[ProblemType.Internal],
+  status: HttpStatus.InternalServerError,
+  message: message(ProblemMessage.Internal),
+};
+
+function toProblem(error: Error): Problem {
   if (error instanceof ValidationError) {
     return {
       type: error.type,
@@ -50,12 +57,7 @@ function toProblem(error: unknown): Problem {
     };
   }
 
-  return {
-    type: ProblemType.Internal,
-    title: TITLE[ProblemType.Internal],
-    status: HttpStatus.InternalServerError,
-    message: message(ProblemMessage.Internal),
-  };
+  return INTERNAL_PROBLEM;
 }
 
 /** Maps every thrown error to an RFC 9457 problem response. */
@@ -73,7 +75,7 @@ export const problemHandler = new Elysia({ name: 'problem-handler' }).onError(
       } satisfies Problem;
     }
 
-    const problem = toProblem(error);
+    const problem = error instanceof Error ? toProblem(error) : INTERNAL_PROBLEM;
 
     if (problem.status === HttpStatus.InternalServerError) {
       console.error(error);

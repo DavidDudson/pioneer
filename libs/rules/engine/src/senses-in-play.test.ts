@@ -24,7 +24,7 @@ interface Situation {
 }
 
 function sensesOf(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   { options = [], vision }: Situation = {},
 ): SenseInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
@@ -37,7 +37,7 @@ function sensesOf(
   return [...sensesInPlay({ rules, facts }, vision)];
 }
 
-function rowsOf(placed: readonly (readonly [object, string])[], situation: Situation = {}): Row[] {
+function rowsOf(placed: readonly (readonly [RuleJson, string])[], situation: Situation = {}): Row[] {
   const senses = sensesOf(placed, situation);
 
   return senses.map(({ sense: id, acuity, range }): Row => [id, acuity, range ?? 'unlimited']);

@@ -90,11 +90,10 @@ function render(campaignId: string | undefined, loader: LoadContainer): Componen
 
 /** The campaign's container, when the slot shows it. */
 function container(fixture: ComponentFixture<PartyInventory>): StubPartyInventory | undefined {
-  const found: unknown[] = fixture.debugElement
+  return fixture.debugElement
     .queryAll(By.directive(StubPartyInventory))
-    .map((element): unknown => element.componentInstance);
-
-  return found.find((each) => each instanceof StubPartyInventory);
+    .map((element) => element.injector.get(StubPartyInventory))
+    .at(0);
 }
 
 describe(PartyInventory, () => {

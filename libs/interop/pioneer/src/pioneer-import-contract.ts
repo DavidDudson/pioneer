@@ -3,6 +3,7 @@ import { Endpoint, HttpMethod, NoParams, NoQuery } from '@pioneer/shared/kernel'
 import * as z from 'zod';
 
 import { HomebrewPackReport } from './homebrew-import-plan';
+import { PioneerFileJson } from './pioneer-character-file';
 import { UnmatchedContentGroup } from './unmatched-content';
 
 /**
@@ -19,7 +20,7 @@ export const PioneerImportPreview = z.object({
 export type PioneerImportPreview = z.infer<typeof PioneerImportPreview>;
 
 /**
- * The Pioneer character file import API. Both bodies are the file itself, `z.unknown()` on purpose: the service is the
+ * The Pioneer character file import API. Both bodies are the file itself, any JSON on purpose: the service is the
  * trust boundary, so a file it can't read is its own problem (a newer format, a newer character) rather than a generic
  * schema 422. Preview saves nothing; import reads the file again and never trusts a client's preview.
  */
@@ -29,7 +30,7 @@ export const PioneerImportContract = {
     path: '/characters/import/pioneer/preview',
     params: NoParams,
     query: NoQuery,
-    body: z.unknown(),
+    body: PioneerFileJson,
     response: PioneerImportPreview,
   }),
   import: new Endpoint({
@@ -37,7 +38,7 @@ export const PioneerImportContract = {
     path: '/characters/import/pioneer',
     params: NoParams,
     query: NoQuery,
-    body: z.unknown(),
+    body: PioneerFileJson,
     response: Character.codec,
   }),
 } as const;

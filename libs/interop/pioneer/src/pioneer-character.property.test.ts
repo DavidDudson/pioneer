@@ -11,6 +11,7 @@ import { exportPioneerCharacter } from './export-pioneer-character';
 import type { PioneerExportResult } from './export-pioneer-character';
 import type { PioneerCharacterFile } from './pioneer-character-file';
 import { readPioneerCharacter } from './read-pioneer-character';
+import { FieldsSchema } from './rewrite-references';
 import { namedCharacter } from './testing/named-character';
 import type { NamedCharacter } from './testing/named-character';
 
@@ -34,7 +35,9 @@ function fileOf({ character, name }: NamedCharacter): PioneerCharacterFile {
 
 function readBack(named: NamedCharacter): CharacterDocument {
   // Through structuredClone: the file is plain data, as it is once written out and parsed.
-  const read = readPioneerCharacter(structuredClone(fileOf(named)), {
+  const file = FieldsSchema.parse(structuredClone(fileOf(named)));
+
+  const read = readPioneerCharacter(file, {
     id: named.character.id,
     ownerId: named.character.ownerId,
   });

@@ -28,6 +28,7 @@ import {
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
 import type { ImportReport, PathbuilderImport, PathbuilderReadResult } from '@pioneer/interop/pathbuilder';
+import { PioneerFileJson } from '@pioneer/interop/pioneer';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { Attribute } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
@@ -169,7 +170,7 @@ export class PathbuilderImportPage {
     const stillRequested = this.model().json.trim() === link;
 
     if (stillRequested) {
-      this.model.set({ json: JSON.stringify(fetched) });
+      this.model.set({ json: fetched });
     }
   };
 
@@ -178,21 +179,22 @@ export class PathbuilderImportPage {
    * where its import report shows.
    */
   protected readonly create = async (): Promise<void> => {
-    const character = await this.#store.importPathbuilder(JSON.parse(this.model().json));
+    const file = PioneerFileJson.parse(JSON.parse(this.model().json));
+    const character = await this.#store.importPathbuilder(file);
     await this.#router.navigate(['../../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 
   /** The server's reason when it gave one (an ancestry that isn't loaded), else a generic retry. */
-  protected readonly describeCreateError = (error: unknown): string =>
+  protected readonly describeCreateError = (error: Error): string =>
     this.#describe(error, 'character.import.createFailed');
 
   /** The server's reason the link was refused (another host, no id, no answer), else a generic retry. */
-  protected readonly describeFetchError = (error: unknown): string =>
+  protected readonly describeFetchError = (error: Error): string =>
     this.#refusedLinkKey !== undefined && !(error instanceof ApiError)
       ? this.#i18n.translate(this.#refusedLinkKey)
       : this.#describe(error, 'character.import.fetchFailed');
 
-  #describe(error: unknown, fallbackKey: string): string {
+  #describe(error: Error, fallbackKey: string): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
 
     return issue === undefined

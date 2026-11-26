@@ -1,6 +1,7 @@
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from '../derive-statistics';
 import { StatisticInputsJson } from '../statistic-inputs';
@@ -41,7 +42,7 @@ export const LONGSWORD = {
  * rule elements in play; a third entry in a placed tuple is the inventory item the element comes from, as for a rune.
  */
 export function strikeOf(
-  placed: readonly (readonly [object, string, string?])[],
+  placed: readonly (readonly [RuleJson, string, string?])[],
   weapon: { readonly slug: string } = LONGSWORD,
   weaponItem?: string,
 ): Strike | undefined {

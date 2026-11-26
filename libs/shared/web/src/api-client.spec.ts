@@ -41,7 +41,7 @@ describe(ApiClient, () => {
     http
       .expectOne('/api/things/x')
       .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
+    await expect(pending).rejects.toHaveProperty('isConflict', true);
   });
 });
 
@@ -73,14 +73,14 @@ describe('ApiClient on a 401', () => {
   it('tells the unauthorized handler, then fails', async () => {
     const pending = client.call(getThing, { params: { id: 'x' }, body: undefined });
     http.expectOne('/api/things/x').flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isUnauthorized(error));
+    await expect(pending).rejects.toHaveProperty('isUnauthorized', true);
     expect(handler).toHaveBeenCalledTimes(1);
   });
 
   it('leaves the handler out when signed out is an answer', async () => {
     const pending = client.call(getThing, { params: { id: 'x' }, body: undefined, signedOutIsAnswer: true });
     http.expectOne('/api/things/x').flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isUnauthorized(error));
+    await expect(pending).rejects.toHaveProperty('isUnauthorized', true);
     expect(handler).not.toHaveBeenCalled();
   });
 
@@ -115,6 +115,6 @@ describe('ApiClient when the unauthorized handler fails', () => {
         { type: 'unauthorized', title: 'Unauthorized', status: 401, message: { key: 'problem.unauthorized' } },
         { status: 401, statusText: 'Unauthorized' },
       );
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isUnauthorized(error));
+    await expect(pending).rejects.toHaveProperty('isUnauthorized', true);
   });
 });

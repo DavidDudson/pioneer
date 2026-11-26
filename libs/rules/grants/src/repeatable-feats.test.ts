@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import type { Matchers } from 'bun:test';
 
 import { RollOption } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import type { JsonValue, SlotKey } from '@pioneer/rules/sdk';
 import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import type { GrantEntry } from './grant-entry';
@@ -17,7 +17,7 @@ interface ChoiceOptionJson {
 }
 
 /** `expect` on a value as plain data: branded keys and takes compare with plain literals. */
-const expectPlain = (actual: unknown): Matchers => expect(actual);
+const expectPlain = (actual: JsonValue): Matchers => expect(actual);
 
 const option = (value: string): ChoiceOptionJson => ({ value, label: value });
 const featOption = (slug: string): ChoiceOptionJson => ({ value: idOf(slug), label: slug });

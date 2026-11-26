@@ -24,7 +24,7 @@ const LEVEL = Level.parse(1);
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-27T10:00:00Z');
 
-function post(path: string, body: unknown, headers: Record<string, string> = actingAs(fixtureOwnerId)): Request {
+function post(path: string, body: object, headers: Record<string, string> = actingAs(fixtureOwnerId)): Request {
   return new Request(`http://localhost${path}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', ...headers },

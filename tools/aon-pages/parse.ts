@@ -20,7 +20,11 @@ const Source = z.object({
 
 const Hit = z.object({ _id: z.string().optional(), _source: Source });
 const Hits = z.object({ total: z.object({ value: z.number() }), hits: z.array(Hit) });
-const Answer = z.object({ hits: Hits });
+
+/** The index's answer to a search, as the parsed JSON of its response. */
+export const Answer = z.object({ hits: Hits });
+
+export type Answer = z.infer<typeof Answer>;
 
 /** What one answer held. */
 export interface PageHits {
@@ -103,8 +107,7 @@ function replacedByIn(hits: readonly z.infer<typeof Hit>[]): ReadonlyMap<AonUrl,
   return replacedBy;
 }
 
-export function parseHits(json: unknown, sourceId: string): PageHits {
-  const { hits } = Answer.parse(json);
+export function parseHits({ hits }: Answer, sourceId: string): PageHits {
   const pages = new Map<AonUrl, PageNumber>();
   const entries: AonListedEntry[] = [];
   let skipped = 0;

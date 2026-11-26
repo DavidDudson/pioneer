@@ -40,7 +40,7 @@ interface FakeSession {
 interface Rendered {
   readonly root: HTMLElement;
   readonly session: FakeSession;
-  readonly call: Mock<(endpoint: unknown, input: unknown) => Promise<unknown>>;
+  readonly call: Mock<(endpoint: object, input: object) => Promise<object>>;
 }
 
 async function render(signedIn: boolean): Promise<Rendered> {
@@ -53,7 +53,7 @@ async function render(signedIn: boolean): Promise<Rendered> {
     showSignIn: vi.fn<() => Promise<void>>(async () => undefined),
   };
 
-  const call = vi.fn<(endpoint: unknown, input: unknown) => Promise<unknown>>(async (endpoint) =>
+  const call = vi.fn<(endpoint: object, input: object) => Promise<object>>(async (endpoint) =>
     endpoint === IdentityContract.sessions ? [THIS_BROWSER, PHONE] : {},
   );
 

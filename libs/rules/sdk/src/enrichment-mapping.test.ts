@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { EnrichmentMappingFile } from './enrichment-mapping';
+import type { JsonValue } from './json-bounds';
 
 const FEAT = 'feat:power-attack';
 const AON = 'https://2e.aonprd.com/Feats.aspx?ID=4689';
 
-function accepts(mapping: unknown): boolean {
+function accepts(mapping: JsonValue): boolean {
   return EnrichmentMappingFile.safeParse({ [FEAT]: mapping }).success;
 }
 

@@ -1,6 +1,7 @@
 import { DeferBlockState, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RichText } from '@pioneer/rules/sdk';
+import type { Plain } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideEntryPreviews } from '../entry-preview/entry-preview';
@@ -24,7 +25,7 @@ const RENDERERS = {
 /** A page that can show any condition. */
 const PREVIEWS: EntryPreviews = { preview: () => CLUMSY_PREVIEW };
 
-async function popovers(block: unknown, previews: EntryPreviews | undefined): Promise<number> {
+async function popovers(block: Plain, previews: EntryPreviews | undefined): Promise<number> {
   TestBed.configureTestingModule({
     providers: [
       provideRichTextTesting(),

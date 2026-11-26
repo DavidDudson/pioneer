@@ -12,14 +12,17 @@ type SavedRow = Omit<Row, 'archivedAt'>;
 
 type PlayRow = typeof characterPlay.$inferSelect;
 
+/** Play state as stored: absent for a character with no play row yet (a left join's null). */
+type StoredPlay = PlayRow['state'] | null | undefined;
+
 /** A character row with its play state, as every read joins them. */
 interface JoinedRow {
   readonly character: Row;
-  readonly play: unknown;
+  readonly play: StoredPlay;
 }
 
 /** Stored play state, read at the current shape: a field added since it was written takes its default. */
-function decodePlay(stored: unknown): PlayState {
+function decodePlay(stored: StoredPlay): PlayState {
   // A missing row (a left join's null) reads as fresh play state.
   const play = PlayStateSchema.safeParse(stored ?? {});
 

@@ -1,3 +1,4 @@
+import { isRollOptionStatement } from '@pioneer/rules/sdk';
 import type { Predicate, PredicateStatement } from '@pioneer/rules/sdk';
 
 import { childStatements, combine, testOption } from './evaluate';
@@ -19,7 +20,7 @@ export interface PredicateTrace {
 }
 
 function traceStatement(statement: PredicateStatement, facts: PredicateFacts): StatementTrace {
-  if (typeof statement === 'string') {
+  if (isRollOptionStatement(statement)) {
     return { statement, truth: testOption(statement, facts), children: [] };
   }
 

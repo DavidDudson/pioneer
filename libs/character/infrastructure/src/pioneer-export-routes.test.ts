@@ -8,7 +8,7 @@ import {
 } from '@pioneer/character/application';
 import { CharacterName } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { PioneerCharacterFile, readPioneerCharacter } from '@pioneer/interop/pioneer';
+import { PioneerCharacterFile, PioneerFileJson, readPioneerCharacter } from '@pioneer/interop/pioneer';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
@@ -67,10 +67,11 @@ describe('GET /characters/:id/export', () => {
 
     const response = await appOver(repository).handle(get(`/characters/${id}/export`, amiri));
     expect(response.status).toBe(200);
-    const file = PioneerCharacterFile.parse(await response.json());
+    const sent = PioneerFileJson.parse(await response.json());
+    const file = PioneerCharacterFile.parse(sent);
     expect(file.character).not.toHaveProperty('id');
     expect(file.character).not.toHaveProperty('ownerId');
-    expect(readPioneerCharacter(file, { id, ownerId })).toStrictEqual({ ok: true, character: document });
+    expect(readPioneerCharacter(sent, { id, ownerId })).toStrictEqual({ ok: true, character: document });
   });
 
   test("is a 404 for another user's character, the same as a missing one", async () => {

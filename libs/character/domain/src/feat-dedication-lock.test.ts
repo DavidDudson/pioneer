@@ -7,11 +7,14 @@ import { array, assert, constantFrom, option, property } from 'fast-check';
 
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
+import type { DedicationWait } from './dedication-lock';
 import { featSlots } from './feat-slots';
 import type { FeatOption } from './feat-slots';
 import { PrerequisiteStatus } from './prerequisite-status';
 import { slotContent, slotRefusal } from './slot-offer';
+import type { SlotRefusal } from './slot-refusals';
 import {
   CharacterBuilder,
   DEDICATION_CLASS,
@@ -48,17 +51,17 @@ function taking(...feats: readonly DedicationFixture[]): CharacterBuilder {
   return builder;
 }
 
-function slotOf(builder: CharacterBuilder, slot: SlotKey): unknown {
+function slotOf(builder: CharacterBuilder, slot: SlotKey): CharacterSlot | undefined {
   return characterSlots(builder.build().document, content).find((each) => each.key === slot);
 }
 
-function optionOf(builder: CharacterBuilder, slot: SlotKey, feat: DedicationFixture): unknown {
+function optionOf(builder: CharacterBuilder, slot: SlotKey, feat: DedicationFixture): DedicationWait | undefined {
   const read = featSlots(builder.build().document, content).find((each) => each.key === slot);
 
   return read?.options.find((each) => each.value === idOf(feat))?.locked;
 }
 
-function refusal(builder: CharacterBuilder, slot: SlotKey, feat: DedicationFixture): unknown {
+function refusal(builder: CharacterBuilder, slot: SlotKey, feat: DedicationFixture): SlotRefusal | undefined {
   return slotRefusal(builder.build().document, content, { slot, selection: ChoiceValue.parse(idOf(feat)) });
 }
 

@@ -10,6 +10,7 @@ import * as z from 'zod';
 import { ContentReference, referencedId } from './content-reference';
 import { CURRENT_FORMAT_VERSION, PioneerCharacterFile, PioneerCharacterHeader } from './pioneer-character-file';
 import { rewriteReferences } from './rewrite-references';
+import type { Stored } from './rewrite-references';
 
 /** Why a file could not be read. The UI maps each to a message key. */
 export const PioneerReadProblem = {
@@ -49,7 +50,7 @@ function failure(problem: PioneerReadProblem, issues: readonly z.core.$ZodIssue[
 }
 
 /** A reference object becomes the id it hashes to; anything else is left, for the document schema to refuse. */
-function idOf(value: unknown): unknown {
+function idOf(value: Stored): Stored {
   const reference = ContentReference.safeParse(value);
 
   return reference.success ? referencedId(reference.data) : value;
@@ -79,7 +80,7 @@ function decode(file: PioneerCharacterFile, target: PioneerImportTarget): Pionee
  * schema version are upgraded as stored documents are; a file whose format or character is newer than this code is
  * refused by version, never guessed at.
  */
-export function readPioneerCharacter(input: unknown, target: PioneerImportTarget): PioneerReadResult {
+export function readPioneerCharacter(input: Stored, target: PioneerImportTarget): PioneerReadResult {
   const header = PioneerCharacterHeader.safeParse(input);
 
   if (!header.success) {

@@ -13,7 +13,7 @@ export interface TransferFailure {
  * What to tell the viewer when an offer call fails: a 409 says why in the server's words (already answered, no room, the
  * giver's sheet changed), a 404 that the offer is gone, and anything else asks for a retry with `fallback`.
  */
-export function transferFailure(error: unknown, fallback: string): TransferFailure {
+export function transferFailure(error: Error, fallback: string): TransferFailure {
   if (ApiError.isConflict(error)) {
     const { key, params } = ApiError.describe(error);
 

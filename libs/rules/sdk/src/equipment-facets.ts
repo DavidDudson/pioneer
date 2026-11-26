@@ -14,13 +14,13 @@ import {
 } from './equipment-facet-values';
 import type { EquipmentEntry } from './equipment-facet-values';
 import { FacetId, FacetLabel, facetLabels, FacetType, RangeScale } from './facet';
-import type { FacetDefinition, FacetDerive } from './facet';
+import type { FacetDefinition, FacetDerive, FacetLeaf } from './facet';
 import { DAMAGE_TYPE_FACET } from './spell-facets';
 import { WeaponGroup } from './weapon';
 
 /** A facet that reads items only: entries of other kinds give it no value. */
-function ofItems(read: (entry: EquipmentEntry) => readonly unknown[]): FacetDerive {
-  return (entry: ContentEntry): readonly unknown[] => (isEquipment(entry) ? read(entry) : []);
+function ofItems(read: (entry: EquipmentEntry) => readonly FacetLeaf[]): FacetDerive {
+  return (entry: ContentEntry): readonly FacetLeaf[] => (isEquipment(entry) ? read(entry) : []);
 }
 
 const EquipmentFacetMessage = {

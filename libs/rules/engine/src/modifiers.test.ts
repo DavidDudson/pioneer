@@ -7,7 +7,7 @@ import type { StatisticDefinition } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
-import type { BreakdownLine } from './breakdown';
+import type { BreakdownLine, LineStatus } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
 import { ruleIdOf } from './rule-in-play';
 import type { RuleInPlay } from './rule-in-play';
@@ -211,7 +211,7 @@ describe('conditional lines against applied ones', () => {
     const removesCover = adjust({ suppress: true, predicate: ['terrain:forest'] }, 'removes-cover');
     const raisesAny = adjust({ slug: undefined, mode: 'add', value: 2, predicate: ['terrain:forest'] }, 'raises-any');
     const removesOther = adjust({ slug: 'other', suppress: true, predicate: ['terrain:forest'] }, 'removes-other');
-    const beatenBy = (rules: readonly RuleInPlay[]): unknown => lineOf(derived(rules), smaller)?.status;
+    const beatenBy = (rules: readonly RuleInPlay[]): LineStatus | undefined => lineOf(derived(rules), smaller)?.status;
     expect(beatenBy([cover, smaller, removesCover])).toMatchObject({ beatenBy: undefined });
     expect(beatenBy([cover, smaller, raisesAny])).toMatchObject({ beatenBy: undefined });
     expect(beatenBy([cover, smaller, removesOther])).toMatchObject({ beatenBy: ruleIdOf(cover) });

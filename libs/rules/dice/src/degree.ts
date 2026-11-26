@@ -91,22 +91,25 @@ function step(degree: DegreeOfSuccess, by: Shift): DegreeOfSuccess {
   return LADDER[Math.min(Math.max(index, 0), LADDER.length - 1)] ?? degree;
 }
 
+/** A change as a move along the ladder, or a degree to land on. */
+type Change = { readonly shift: Shift } | { readonly land: DegreeOfSuccess };
+
 /** Each change as a move along the ladder, or a degree to land on. */
-const CHANGES: Readonly<Record<DegreeChange, Shift | DegreeOfSuccess>> = {
-  [DegreeChange.OneDegreeBetter]: Shift.Better,
-  [DegreeChange.OneDegreeWorse]: Shift.Worse,
-  [DegreeChange.TwoDegreesBetter]: Shift.TwoBetter,
-  [DegreeChange.TwoDegreesWorse]: Shift.TwoWorse,
-  [DegreeChange.ToCriticalSuccess]: DegreeOfSuccess.CriticalSuccess,
-  [DegreeChange.ToSuccess]: DegreeOfSuccess.Success,
-  [DegreeChange.ToFailure]: DegreeOfSuccess.Failure,
-  [DegreeChange.ToCriticalFailure]: DegreeOfSuccess.CriticalFailure,
+const CHANGES: Readonly<Record<DegreeChange, Change>> = {
+  [DegreeChange.OneDegreeBetter]: { shift: Shift.Better },
+  [DegreeChange.OneDegreeWorse]: { shift: Shift.Worse },
+  [DegreeChange.TwoDegreesBetter]: { shift: Shift.TwoBetter },
+  [DegreeChange.TwoDegreesWorse]: { shift: Shift.TwoWorse },
+  [DegreeChange.ToCriticalSuccess]: { land: DegreeOfSuccess.CriticalSuccess },
+  [DegreeChange.ToSuccess]: { land: DegreeOfSuccess.Success },
+  [DegreeChange.ToFailure]: { land: DegreeOfSuccess.Failure },
+  [DegreeChange.ToCriticalFailure]: { land: DegreeOfSuccess.CriticalFailure },
 };
 
 function applyChange(degree: DegreeOfSuccess, change: DegreeChange): DegreeOfSuccess {
   const target = CHANGES[change];
 
-  return typeof target === 'number' ? step(degree, target) : target;
+  return 'shift' in target ? step(degree, target.shift) : target.land;
 }
 
 /** A one-degree move that the ladder's end would swallow; Foundry passes over these to the next match. */

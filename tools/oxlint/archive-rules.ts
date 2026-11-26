@@ -17,18 +17,18 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
   'characterItemAcknowledgements',
 ]);
 
-interface DeleteCallNode {
-  readonly callee?: { readonly type?: string; readonly property?: { readonly name?: unknown } };
-  readonly arguments?: readonly { readonly type?: string; readonly name?: unknown }[];
+/** The syntax node of a call, as far as the rule reads it. */
+export interface DeleteCallNode {
+  readonly callee?: { readonly type?: string; readonly property?: { readonly type?: string; readonly name?: string } };
+  readonly arguments?: readonly { readonly type?: string; readonly name?: string }[];
 }
 
 /** The archivable table `db.delete(table)` names, or `undefined` for any other call. */
 export function archivableDeleteTarget(
-  node: unknown,
+  node: DeleteCallNode,
   tables: ReadonlySet<string> = ARCHIVABLE_TABLES,
 ): string | undefined {
-  // SAFETY: oxlint passes ESTree nodes, and this local shape lists only the fields read here, each optional or guarded before use.
-  const { callee, arguments: args } = node as DeleteCallNode;
+  const { callee, arguments: args } = node;
 
   if (callee?.type !== 'MemberExpression' || callee.property?.name !== 'delete') {
     return undefined;
@@ -36,7 +36,7 @@ export function archivableDeleteTarget(
 
   const [table] = args ?? [];
 
-  if (table?.type !== 'Identifier' || typeof table.name !== 'string') {
+  if (table?.type !== 'Identifier' || table.name === undefined) {
     return undefined;
   }
 

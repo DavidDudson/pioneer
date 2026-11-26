@@ -133,7 +133,7 @@ export class ItemCoating {
       await this.#store.patch({ field: CharacterPatchField.GiftItem, item: stored.item, quantity: ONE });
     };
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = describeSaveError(error);
 
     return this.#i18n.translate(key, params);

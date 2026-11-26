@@ -122,7 +122,7 @@ export class CampaignAttachPicker {
   };
 
   /** A character another campaign took since the picker loaded says so; anything else is a retry. */
-  protected readonly describeAttachError = (error: unknown): string => {
+  protected readonly describeAttachError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

@@ -18,6 +18,7 @@ import { searchFromQuery } from './browse-search';
 import { listedKinds } from './browse-state';
 import { ContentBrowser } from './content-browser.component';
 import { facetTextCodec } from './facet-text';
+import { queryTextOf } from './query-text';
 
 const NO_PARAMS: QueryParams = {};
 
@@ -49,7 +50,7 @@ export class ContentBrowserPage {
   protected readonly Message = BrowseMessage;
   protected readonly tier = ContentBrowserTier.Page;
 
-  readonly #kinds = computed(() => kindsFromQuery(this.#params()[KIND_PARAM]));
+  readonly #kinds = computed(() => kindsFromQuery(queryTextOf(this.#params(), KIND_PARAM)));
   readonly #codec = facetTextCodec(() => facetsOf(this.#kinds()));
   readonly #columns = injectBrowseColumns(() => this.#kinds());
   /**

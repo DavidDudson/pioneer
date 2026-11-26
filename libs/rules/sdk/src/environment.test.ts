@@ -4,9 +4,10 @@ import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { EnvironmentData } from './environment';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 
-function issues(value: unknown): readonly FieldIssue[] {
+function issues(value: JsonValue): readonly FieldIssue[] {
   const result = EnvironmentData.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

@@ -115,7 +115,7 @@ export class ReportBugPage {
     this.form().reset(EMPTY_REPORT);
   };
 
-  protected readonly describeError = (error: unknown): string =>
+  protected readonly describeError = (error: Error): string =>
     this.#i18n.translate(
       error instanceof ApiError && error.status === HttpStatus.TooManyRequests
         ? 'identity.reportBug.tooMany'

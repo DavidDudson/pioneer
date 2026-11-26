@@ -32,7 +32,7 @@ const CALIBRATION_STRIDE = 7919;
 /** Extra rounds of timed runs a case over its budget gets: a slow stretch on a shared runner passes, a regression does not. */
 const RETRY_ROUNDS = 2;
 
-export interface BenchSpec<Given> {
+export interface BenchSpec<Given, TResult = void> {
   /** The key the history tracks the case under: renaming it starts a new chart. */
   readonly name: string;
   /**
@@ -44,7 +44,7 @@ export interface BenchSpec<Given> {
   /** Builds what one run is given, outside the timer, fresh for every run. */
   readonly prepare: () => Given;
   /** The work under test. */
-  readonly run: (given: Given) => unknown;
+  readonly run: (given: Given) => TResult;
   readonly warmupRuns?: number;
   readonly timedRuns?: number;
 }
@@ -127,7 +127,7 @@ function rounded(milliseconds: number): number {
 
 /** The result of timings taken in milliseconds. */
 export function summarise(
-  spec: Pick<BenchSpec<unknown>, 'name' | 'budgetMs'>,
+  spec: Pick<BenchSpec<unknown, unknown>, 'name' | 'budgetMs'>,
   times: readonly number[],
   warmupRuns: number,
 ): BenchResult {
@@ -155,7 +155,7 @@ function report(result: BenchResult): void {
 }
 
 /** One round of timed runs, in milliseconds. */
-function timeRound<Given>(spec: BenchSpec<Given>, timedRuns: number): number[] {
+function timeRound<Given, TResult>(spec: BenchSpec<Given, TResult>, timedRuns: number): number[] {
   return Array.from({ length: timedRuns }, (): number => {
     const given = spec.prepare();
     const start = performance.now();
@@ -171,7 +171,11 @@ function overBudget(times: readonly number[], budgetMs: number | undefined): boo
 }
 
 /** Times a round, then up to `RETRY_ROUNDS` more while the fastest run stays over the budget. */
-function timeWithRetries<Given>(spec: BenchSpec<Given>, timedRuns: number, budgetMs: number | undefined): number[] {
+function timeWithRetries<Given, TResult>(
+  spec: BenchSpec<Given, TResult>,
+  timedRuns: number,
+  budgetMs: number | undefined,
+): number[] {
   const times = timeRound(spec, timedRuns);
 
   for (let retry = 0; retry < RETRY_ROUNDS && overBudget(times, budgetMs); retry += 1) {
@@ -186,7 +190,7 @@ function timeWithRetries<Given>(spec: BenchSpec<Given>, timedRuns: number, budge
  * (`RETRY_ROUNDS` times) before it fails. A fastest run still over the budget prints why and sets a failing exit code,
  * after the result is reported, so the history still records the regression.
  */
-export function benchmark<Given>(spec: BenchSpec<Given>, speed?: number): BenchResult {
+export function benchmark<Given, TResult>(spec: BenchSpec<Given, TResult>, speed?: number): BenchResult {
   const warmupRuns = spec.warmupRuns ?? DEFAULT_WARMUP_RUNS;
   const timedRuns = spec.timedRuns ?? DEFAULT_TIMED_RUNS;
 

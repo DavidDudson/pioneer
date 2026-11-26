@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { bundlePath, ContentManifest } from '@pioneer/rules/sdk';
+import { BundleBody, bundlePath, ContentManifest } from '@pioneer/rules/sdk';
 import type { BundleFile, BundlePath, ContentPackId, PackId } from '@pioneer/rules/sdk';
 
 import { CONTENT_BUNDLE_STORE, MANIFEST_KEY } from './bundle-store';
@@ -35,12 +35,12 @@ export class ContentBundleCache {
   #manifest: Promise<ContentManifest> | undefined;
   /** Homebrew manifests and bundles of this session, kept in memory only: they are private to the signed-in user. */
   readonly #homebrewManifests = new Map<string, Promise<ContentManifest>>();
-  readonly #homebrewBodies = new Map<BundlePath, Promise<unknown>>();
+  readonly #homebrewBodies = new Map<BundlePath, Promise<BundleBody>>();
   /**
    * Official bundles being read or fetched right now. The sheet builds a dozen registries at once, each asking for the
    * same files, so a second ask for a bundle in flight joins the first rather than fetching it again.
    */
-  readonly #bundlesInFlight = new Map<BundlePath, Promise<unknown>>();
+  readonly #bundlesInFlight = new Map<BundlePath, Promise<BundleBody>>();
 
   /** The current manifest, read once a session. A failed read is not kept, so the next ask tries again. */
   public async manifest(): Promise<ContentManifest> {
@@ -92,7 +92,7 @@ export class ContentBundleCache {
   }
 
   /** A homebrew bundle's body, fetched once a session. */
-  public async homebrewBundle(pack: PackId, file: BundleFile): Promise<unknown> {
+  public async homebrewBundle(pack: PackId, file: BundleFile): Promise<BundleBody> {
     const path = bundlePath(pack, file);
     const body = this.#homebrewBodies.get(path) ?? this.#delivery.homebrewBundle(pack, file);
     this.#homebrewBodies.set(path, body);
@@ -124,7 +124,7 @@ export class ContentBundleCache {
   }
 
   /** A bundle's body: from the store when kept, else fetched and kept. Asks made while it is read share one read. */
-  public async bundle(pack: PackId, file: BundleFile): Promise<unknown> {
+  public async bundle(pack: PackId, file: BundleFile): Promise<BundleBody> {
     const path = bundlePath(pack, file);
     const reading = this.#bundlesInFlight.get(path) ?? this.#readOrFetch(pack, file, path);
     this.#bundlesInFlight.set(path, reading);
@@ -138,7 +138,7 @@ export class ContentBundleCache {
     }
   }
 
-  async #readOrFetch(pack: PackId, file: BundleFile, path: BundlePath): Promise<unknown> {
+  async #readOrFetch(pack: PackId, file: BundleFile, path: BundlePath): Promise<BundleBody> {
     const kept = await this.#read(path);
 
     if (kept !== undefined) {
@@ -172,7 +172,7 @@ export class ContentBundleCache {
 
   /** Keeps `manifest` for offline starts, then removes the bundles it no longer names. */
   async #keep(manifest: ContentManifest): Promise<void> {
-    await this.#write(MANIFEST_KEY, manifest);
+    await this.#write(MANIFEST_KEY, BundleBody.parse(manifest));
     await this.#evict(manifest);
   }
 
@@ -192,7 +192,7 @@ export class ContentBundleCache {
     }
   }
 
-  async #read(key: StoredKey): Promise<unknown> {
+  async #read(key: StoredKey): Promise<BundleBody | undefined> {
     try {
       return await this.#store.read(key);
     } catch {
@@ -200,7 +200,7 @@ export class ContentBundleCache {
     }
   }
 
-  async #write(key: StoredKey, body: unknown): Promise<void> {
+  async #write(key: StoredKey, body: BundleBody): Promise<void> {
     try {
       await this.#store.write(key, body);
     } catch {

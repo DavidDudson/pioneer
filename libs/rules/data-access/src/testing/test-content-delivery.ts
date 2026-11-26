@@ -21,6 +21,7 @@ import type {
   PackId,
   SearchText,
 } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { CONTENT_BUNDLE_STORE } from '../bundle-store';
 import type { BundleStore } from '../bundle-store';
@@ -85,24 +86,30 @@ async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentB
   return step.bundles;
 }
 
+const JsonObject = z.record(z.string(), z.json());
+
 /** Every string under a `text` key in `value`: the words of a rich text description. */
-function textsOf(value: unknown): readonly string[] {
+function textsOf(value: z.core.util.JSONType): readonly string[] {
   if (Array.isArray(value)) {
     return value.flatMap((item) => textsOf(item));
   }
 
-  if (typeof value !== 'object' || value === null) {
+  const object = JsonObject.safeParse(value);
+
+  if (!object.success) {
     return [];
   }
 
-  return Object.entries(value).flatMap(([key, item]) =>
-    key === 'text' && typeof item === 'string' ? [item] : textsOf(item),
-  );
+  return Object.entries(object.data).flatMap(([key, item]) => {
+    const text = z.string().safeParse(item);
+
+    return key === 'text' && text.success ? [text.data] : textsOf(item);
+  });
 }
 
 /** Whether every word of `query` is in the entry's name or description: a stand-in for the server's full-text search. */
 function matches({ name, description }: ContentEntry, query: SearchText): boolean {
-  const haystack = [name, ...textsOf(description)].join(' ').toLowerCase();
+  const haystack = [name, ...textsOf(z.json().parse(description))].join(' ').toLowerCase();
 
   return query
     .toLowerCase()

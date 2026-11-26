@@ -4,11 +4,12 @@ import { fieldIssues, message, Temporal, ValidationMessage } from '@pioneer/shar
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { Origin, OriginHopKind } from './origin';
 import { SourceKind, SourceRef } from './source-ref';
 
-function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

@@ -66,11 +66,10 @@ function render(campaignId: string | undefined, loader: LoadOffer, coins: Coins)
 
 /** The campaign's control, when the slot shows it. */
 function control(fixture: ComponentFixture<CoinOffer>): StubCoinOffer | undefined {
-  const found: unknown[] = fixture.debugElement
+  return fixture.debugElement
     .queryAll(By.directive(StubCoinOffer))
-    .map((element): unknown => element.componentInstance);
-
-  return found.find((each) => each instanceof StubCoinOffer);
+    .map((element) => element.injector.get(StubCoinOffer))
+    .at(0);
 }
 
 describe(CoinOffer, () => {

@@ -1,12 +1,18 @@
+import * as z from 'zod';
+
 import { LIST_SEPARATOR } from './table-view-keys';
 import type { TableViewQuery } from './table-view.types';
+
+const NON_EMPTY_TEXT = z.string().min(1);
 
 /** The first text under `key`: the router gives an array when a param repeats. Anything but text is `undefined`. */
 export function paramText(query: TableViewQuery, key: string): string | undefined {
   const value: unknown = query[key];
   const first: unknown = Array.isArray(value) ? value[0] : value;
 
-  return typeof first === 'string' && first !== '' ? first : undefined;
+  const text = NON_EMPTY_TEXT.safeParse(first);
+
+  return text.success ? text.data : undefined;
 }
 
 /** The non-empty items of a comma-separated param. */

@@ -4,6 +4,7 @@ import { entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 
 import { referencedId } from './content-reference';
 import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT, PioneerCharacterFile } from './pioneer-character-file';
+import type { Fields } from './rewrite-references';
 import { unmatchedContent } from './unmatched-content';
 
 const pack = PackId.parse('player-core');
@@ -11,7 +12,7 @@ const human = { source: pack, slug: entrySlug('ancestry', Slug.parse('human')) }
 const sword = { source: pack, slug: entrySlug('weapon', Slug.parse('longsword')) };
 const shield = { source: pack, slug: entrySlug('shield', Slug.parse('steel-shield')) };
 
-function fileOf(character: Record<string, unknown>): PioneerCharacterFile {
+function fileOf(character: Fields): PioneerCharacterFile {
   return PioneerCharacterFile.parse({
     format: PIONEER_CHARACTER_FORMAT,
     formatVersion: CURRENT_FORMAT_VERSION,

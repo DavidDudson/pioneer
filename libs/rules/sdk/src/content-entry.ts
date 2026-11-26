@@ -168,16 +168,10 @@ const Entry = z.discriminatedUnion('kind', [
 export type ContentEntry = z.output<typeof Entry>;
 
 /** Names the `kind` when the value is an object whose `kind` is a string with no registered schema. */
-function unknownKindMessage(value: unknown): MessageDescriptor | undefined {
-  if (typeof value !== 'object' || value === null || !('kind' in value)) {
-    return undefined;
-  }
+const KindedValue = z.looseObject({ kind: z.string().brand<'EntryKind'>() });
 
-  const { kind } = value;
-
-  return typeof kind === 'string' && !KNOWN_KINDS.has(kind)
-    ? message(RulesMessage.EntryUnknownKind, { kind })
-    : undefined;
+function unknownKindMessage(kinded: z.output<typeof KindedValue>): MessageDescriptor | undefined {
+  return KNOWN_KINDS.has(kinded.kind) ? undefined : message(RulesMessage.EntryUnknownKind, { kind: kinded.kind });
 }
 
 type EntryCheck = z.core.ParsePayload<ContentEntry>;
@@ -267,7 +261,8 @@ function checkImplies(context: EntryCheck): void {
 export const ContentEntry: z.ZodType<ContentEntry> = z
   .unknown()
   .check((context) => {
-    const unknown = unknownKindMessage(context.value);
+    const kinded = KindedValue.safeParse(context.value);
+    const unknown = kinded.success ? unknownKindMessage(kinded.data) : undefined;
 
     if (unknown !== undefined) {
       context.issues.push({

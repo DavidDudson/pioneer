@@ -5,6 +5,8 @@ import type { ContentEntry } from './content-entry';
 import { Slug } from './content-id';
 import type { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
+import { jsonEntries } from './json-bounds';
+import type { JsonValue } from './json-bounds';
 
 /**
  * How a facet narrows a list (content-model.md, "Filters"): `set` picks values (OR within, exclusions allowed),
@@ -65,7 +67,10 @@ export type FacetPath = readonly PropertyKey[];
  * Reads what a field path can't: the leaves an entry gives a facet, computed (a range band from a range in feet).
  * `undefined` among them marks a missing field, as a path would; an entry of a kind the facet isn't about gives none.
  */
-export type FacetDerive = (entry: ContentEntry) => readonly unknown[];
+/** A scalar a facet reads from an entry: `undefined` marks a missing field. */
+export type FacetLeaf = string | number | boolean | null | undefined;
+
+export type FacetDerive = (entry: ContentEntry) => readonly FacetLeaf[];
 
 interface FacetBase {
   readonly id: FacetId;
@@ -147,10 +152,12 @@ export const COMMON_FACETS: readonly FacetDefinition[] = [
   { id: CommonFacet.Pack, type: FacetType.Set, path: ['pack'], label: FacetMessage.Pack },
 ];
 
+const FLAG = z.boolean();
+
 /** What a field path finds: the leaves it reaches, `undefined` where a step was missing. */
-function leaves(value: unknown, path: FacetPath): readonly unknown[] {
+function leaves(value: JsonValue, path: FacetPath): readonly JsonValue[] {
   if (Array.isArray(value)) {
-    return value.flatMap((item: unknown) => leaves(item, path));
+    return value.flatMap((item: JsonValue) => leaves(item, path));
   }
 
   const [head, ...rest] = path;
@@ -159,33 +166,31 @@ function leaves(value: unknown, path: FacetPath): readonly unknown[] {
     return [value];
   }
 
-  const child: unknown =
-    typeof value === 'object' && value !== null
-      ? Object.entries(value).find(([name]) => name === String(head))?.[1]
-      : undefined;
+  const child = jsonEntries(value)?.find(([name]) => name === String(head))?.[1];
 
   return child === undefined ? [undefined] : leaves(child, rest);
 }
 
 /** A leaf as a value of a facet of `type`, or `undefined` if it isn't one. */
-function leafValue(leaf: unknown, type: FacetType): FacetValue | undefined {
+function leafValue(leaf: JsonValue, type: FacetType): FacetValue | undefined {
   if (type === FacetType.Flag) {
-    if (typeof leaf !== 'boolean') {
+    const flag = FLAG.safeParse(leaf);
+
+    if (!flag.success) {
       return undefined;
     }
 
-    return leaf ? YES : NO;
+    return flag.data ? YES : NO;
   }
 
-  const text = typeof leaf === 'number' && Number.isInteger(leaf) ? String(leaf) : leaf;
+  const text = Number.isInteger(leaf) ? Number(leaf).toString() : leaf;
+  const parsed = FacetValue.safeParse(text);
 
-  if (type === FacetType.Range && !(typeof text === 'string' && INTEGER.test(text))) {
+  if (!parsed.success || (type === FacetType.Range && !INTEGER.test(parsed.data))) {
     return undefined;
   }
 
-  const parsed = FacetValue.safeParse(text);
-
-  return parsed.success ? parsed.data : undefined;
+  return parsed.data;
 }
 
 /**

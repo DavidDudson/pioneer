@@ -43,7 +43,7 @@ function fixture(): Fixture {
   return { api: new Elysia().use(problemHandler).use(routes), repository };
 }
 
-async function report(api: AnyElysia, body: unknown, user?: UserId): Promise<Response> {
+async function report(api: AnyElysia, body: object, user?: UserId): Promise<Response> {
   const headers = new Headers(user === undefined ? undefined : actingAs(user));
   headers.set('content-type', 'application/json');
 

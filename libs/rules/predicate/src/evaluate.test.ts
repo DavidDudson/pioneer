@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { NamespaceKind, Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import type { JsonValue } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { evaluatePredicate } from './evaluate';
@@ -16,7 +17,7 @@ function facts(...options: readonly string[]): PredicateFacts {
   );
 }
 
-function verdict(predicate: unknown, given: PredicateFacts): Truth {
+function verdict(predicate: JsonValue, given: PredicateFacts): Truth {
   return evaluatePredicate(Predicate.parse(predicate), given);
 }
 

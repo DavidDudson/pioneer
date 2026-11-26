@@ -30,7 +30,7 @@ export class SheetVariantRuleRow {
   protected readonly disable = async (): Promise<void> => this.#store.disable(this.rule().variantId);
 
   /** A variant rule the character cannot change says why; anything else is a retry. */
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     if (ApiError.isConflict(error)) {
       const { key, params } = ApiError.describe(error);
 

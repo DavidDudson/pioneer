@@ -105,14 +105,10 @@ const Element = z.discriminatedUnion('key', [
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */
-function unknownKeyMessage(value: unknown): MessageDescriptor | undefined {
-  if (typeof value !== 'object' || value === null || !('key' in value)) {
-    return undefined;
-  }
+const KeyedValue = z.looseObject({ key: z.string().brand<'RuleKey'>() });
 
-  const { key } = value;
-
-  return typeof key === 'string' && !KNOWN_KEYS.has(key) ? message(RulesMessage.UnknownElement, { key }) : undefined;
+function unknownKeyMessage(keyed: z.output<typeof KeyedValue>): MessageDescriptor | undefined {
+  return KNOWN_KEYS.has(keyed.key) ? undefined : message(RulesMessage.UnknownElement, { key: keyed.key });
 }
 
 /**
@@ -122,7 +118,8 @@ function unknownKeyMessage(value: unknown): MessageDescriptor | undefined {
 export const RuleElement: z.ZodType<RuleElement> = z
   .unknown()
   .check((context) => {
-    const unknown = unknownKeyMessage(context.value);
+    const keyed = KeyedValue.safeParse(context.value);
+    const unknown = keyed.success ? unknownKeyMessage(keyed.data) : undefined;
 
     if (unknown !== undefined) {
       context.issues.push({ code: 'custom', input: context.value, path: ['key'], ...issueParams(unknown) });

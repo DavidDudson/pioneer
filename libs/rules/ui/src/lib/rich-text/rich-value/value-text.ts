@@ -1,5 +1,5 @@
 import type { LocaleFormat } from '@pioneer/frontier';
-import { InlineKind } from '@pioneer/rules/sdk';
+import { CheckDc, InlineKind } from '@pioneer/rules/sdk';
 import type { CheckNode, DamageInstance, DamageNode, DurationNode, Selector, TemplateNode } from '@pioneer/rules/sdk';
 
 import type { RichTextLinks } from '../rich-text-links';
@@ -46,13 +46,16 @@ export function statisticName(selector: Selector, { links, translate }: ValueTex
 
 function checkText(node: CheckNode, context: ValueTextContext): string {
   const { dc } = node;
-  const against = typeof dc === 'object' ? dc.against : undefined;
+  const [fixedDc, againstDc] = CheckDc.options;
+  const fixed = fixedDc.safeParse(dc);
+  const versus = againstDc.safeParse(dc);
+  const against = versus.success ? versus.data.against : undefined;
   const named = context.links.statisticName(node.statistic) !== undefined;
 
   return context.translate(RichTextMessage.Check, {
     statistic: statisticName(node.statistic, context),
-    dc: typeof dc === 'number' ? dc : 0,
-    hasDc: yesNo(typeof dc === 'number'),
+    dc: fixed.success ? fixed.data : 0,
+    hasDc: yesNo(fixed.success),
     basic: yesNo(node.basic === true),
     // "basic Reflex save"; an unnamed save already reads "saving throw".
     save: yesNo(named && node.statistic.startsWith(SAVE_PREFIX)),

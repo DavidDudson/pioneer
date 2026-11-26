@@ -1,5 +1,5 @@
 import { Truth } from '@pioneer/rules/predicate';
-import { FastHealingType, Feet, HitPoints, RuleElementKey, Size } from '@pioneer/rules/sdk';
+import { FastHealingType, Feet, HitPoints, RuleElementKey, Size, SizeSchema, SizeSteps } from '@pioneer/rules/sdk';
 import type {
   CreatureSizeElement,
   DamageType,
@@ -7,7 +7,6 @@ import type {
   ModifierValue,
   Origin,
   RuleValue,
-  SizeSteps,
   TempHPElement,
 } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -202,7 +201,8 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
   let reach: CreatureSizeElement['reach'] = undefined;
 
   for (const { element } of resizes) {
-    size = typeof element.value === 'number' ? stepped(size, element.value, element.maximumSize) : element.value;
+    const named = SizeSchema.safeParse(element.value);
+    size = named.success ? named.data : stepped(size, SizeSteps.parse(element.value), element.maximumSize);
     reach = element.reach ?? reach;
   }
 

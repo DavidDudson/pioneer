@@ -17,6 +17,11 @@ export type FormatVersion = z.infer<typeof FormatVersion>;
 
 export const CURRENT_FORMAT_VERSION: FormatVersion = FormatVersion.parse(1);
 
+/** What a file is before it is read as one: any JSON, which the reader judges. */
+export const PioneerFileJson = z.json();
+
+export type PioneerFileJson = z.infer<typeof PioneerFileJson>;
+
 /** Just enough of a file to tell what it is and which version of the format it was written with. */
 export const PioneerCharacterHeader = z.looseObject({
   format: z.literal(PIONEER_CHARACTER_FORMAT),
@@ -30,7 +35,7 @@ export const PioneerCharacterHeader = z.looseObject({
  */
 export const PioneerCharacterFile = PioneerCharacterHeader.extend({
   formatVersion: z.literal(CURRENT_FORMAT_VERSION),
-  character: z.record(z.string(), z.unknown()),
+  character: z.record(z.string(), z.json()),
   /** The homebrew the character uses, so the file is portable; absent when it uses none (ADR-0059). */
   homebrew: z
     .array(EmbeddedPack)

@@ -13,7 +13,7 @@ import {
 import type { ContentEntry } from './content-entry';
 import { ContentKind } from './content-kind';
 import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
-import type { FacetDefinition } from './facet';
+import type { FacetDefinition, FacetLeaf } from './facet';
 import { FeatCategory } from './feat';
 
 const ActionFacetMessage = {
@@ -79,7 +79,7 @@ const ACTION_COST_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: ActionFacetMessage.ActionCost,
   values: ACTION_COST_LABELS,
-  derive: (entry): readonly unknown[] => {
+  derive: (entry): readonly FacetLeaf[] => {
     if (entry.kind === ContentKind.Feat) {
       return [actionCostValue(entry.data.action)];
     }
@@ -94,7 +94,7 @@ const SKILL_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: ActionFacetMessage.Skill,
   values: SKILL_LABELS,
-  derive: (entry): readonly unknown[] => {
+  derive: (entry): readonly FacetLeaf[] => {
     if (entry.kind === ContentKind.Feat) {
       return featSkills(entry);
     }
@@ -110,14 +110,14 @@ export const FEAT_FACETS: readonly FacetDefinition[] = [
     type: FacetType.Set,
     label: ActionFacetMessage.FeatCategory,
     values: FEAT_CATEGORY_LABELS,
-    derive: (entry): readonly unknown[] => (entry.kind === ContentKind.Feat ? [entry.data.category] : []),
+    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? [entry.data.category] : []),
   },
   ACTION_COST_FACET,
   {
     id: FacetId.parse('archetype'),
     type: FacetType.Set,
     label: ActionFacetMessage.Archetype,
-    derive: (entry): readonly unknown[] => (entry.kind === ContentKind.Feat ? featArchetype(entry) : []),
+    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? featArchetype(entry) : []),
   },
   SKILL_FACET,
 ];
@@ -130,7 +130,7 @@ export const ACTION_FACETS: readonly FacetDefinition[] = [
     type: FacetType.Set,
     label: ActionFacetMessage.Mode,
     values: MODE_LABELS,
-    derive: (entry): readonly unknown[] => (entry.kind === ContentKind.Action ? [actionMode(entry)] : []),
+    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Action ? [actionMode(entry)] : []),
   },
   SKILL_FACET,
 ];
@@ -161,6 +161,6 @@ export function prerequisitesMetFacet(statusOf: PrerequisiteStatusOf): FacetDefi
     type: FacetType.Set,
     label: ActionFacetMessage.Prerequisites,
     values: PREREQUISITE_LABELS,
-    derive: (entry): readonly unknown[] => (entry.kind === ContentKind.Feat ? [statusOf(entry)] : []),
+    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? [statusOf(entry)] : []),
   };
 }

@@ -6,7 +6,7 @@ import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
 
 /** What Postgres said: drizzle wraps it, so the reason is on the cause. */
-function reason(error: unknown): string {
+function reason(error: Error): string {
   const cause = error instanceof Error ? error.cause : undefined;
 
   return cause instanceof Error ? cause.message : String(error);

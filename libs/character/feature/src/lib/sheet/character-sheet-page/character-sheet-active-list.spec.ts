@@ -3,9 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
+import * as z from 'zod';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
-import type { JsonObject } from '../../testing/json-fixture';
+import type { JsonObject, JsonValue } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -40,13 +41,11 @@ function press(scope: HTMLElement, label: string): void {
 }
 
 /** Answers the next play edit and returns the command it carried. */
-async function answerEdit(play: JsonObject): Promise<unknown> {
-  let command: unknown = undefined;
+async function answerEdit(play: JsonObject): Promise<JsonValue | undefined> {
+  let command: JsonValue | undefined;
   await vi.waitFor(() => {
     const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
-    // SAFETY: HttpTestingController types the request body as any.
-    // The sheet sends this command, and the test reads only the fields named here.
-    ({ command } = request.request.body as { command: unknown });
+    ({ command } = z.looseObject({ command: z.json() }).parse(request.request.body));
     request.flush({ ...play, events: [] });
   });
 

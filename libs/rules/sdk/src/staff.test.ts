@@ -4,10 +4,11 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { contentId, EntrySlug, PackId } from './content-id';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { Charges, STAFF_CANTRIP, staffCharges, StaffRank, StaffSpells } from './staff';
 
-function issuesOf(value: unknown): readonly FieldIssue[] {
+function issuesOf(value: JsonValue): readonly FieldIssue[] {
   const result = StaffSpells.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

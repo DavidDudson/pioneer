@@ -38,7 +38,7 @@ function ranked(caster: SpellcastingInPlay | undefined): readonly (readonly [str
 }
 
 function entriesOf(
-  placed: readonly (readonly [object, string])[],
+  placed: readonly (readonly [RuleJson, string])[],
   options: readonly string[] = [],
 ): SpellcastingInPlay[] {
   const rules = placed.map(([element, source], rule) => inPlay(element, source, { rule }));
@@ -94,7 +94,7 @@ describe('spellcastingInPlay: repertoire spells', () => {
   });
 
   test('an element gives its spells only while it holds', () => {
-    const placed: (readonly [object, string])[] = [
+    const placed: (readonly [RuleJson, string])[] = [
       [entry('spontaneous'), 'sorcerer-spellcasting'],
       [gifts([[2, FEAR]], { predicate: ['draconic-exemplar:diabolic'] }), 'bloodline-draconic'],
       [gifts([[2, HEAL]], { predicate: ['draconic-exemplar:imperial'] }), 'bloodline-draconic'],

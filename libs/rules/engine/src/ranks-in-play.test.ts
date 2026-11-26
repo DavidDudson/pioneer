@@ -3,17 +3,18 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { ranksInPlay } from './ranks-in-play';
 import { inPlay } from './testing';
 
-const proficiency = (selector: string, rank: string, predicate?: readonly unknown[]): object => {
+const proficiency = (selector: string, rank: string, predicate?: readonly unknown[]): RuleJson => {
   const element = { key: 'Proficiency', selector, rank };
 
   return predicate === undefined ? element : { ...element, predicate };
 };
 
-function ranksOf(elements: readonly object[], options: readonly string[] = []): Record<string, string> {
+function ranksOf(elements: readonly RuleJson[], options: readonly string[] = []): Record<string, string> {
   const rules = elements.map((element, rule) => inPlay(element, 'cleric', { rule }));
 
   const facts = new PredicateFacts(

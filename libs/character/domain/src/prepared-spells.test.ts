@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentRegistry, ContentText, SlotKey, SpellRank } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { PreparedPickProblem } from './prepared-pick-problem';
 import { preparedSlots } from './prepared-spells';
@@ -159,7 +160,7 @@ describe('slotRefusal for a prepared slot', () => {
   });
 });
 
-function statusOf(document: CharacterDocument, key: string): unknown {
+function statusOf(document: CharacterDocument, key: string): CharacterSlot | undefined {
   return characterSlots(document, content).find((slot) => slot.key === SlotKey.parse(key));
 }
 
@@ -167,7 +168,7 @@ describe('characterSlots with prepared slots', () => {
   test('a prepared pick is filled and named, with its entry and rank', () => {
     const { document } = caster('wizard', 5, { 'prepared:wizard:3:0': 'fireball' }).build();
 
-    expect(statusOf(document, 'prepared:wizard:3:0')).toStrictEqual({
+    expect(plain(statusOf(document, 'prepared:wizard:3:0'))).toStrictEqual({
       status: SlotStatus.Filled,
       key: 'prepared:wizard:3:0',
       subject: { kind: 'spell', entry: 'wizard', rank: 3 },
@@ -188,7 +189,7 @@ describe('characterSlots with prepared slots', () => {
   test('a pick kept for a slot gone with a lower level is hidden, named, never planned', () => {
     const { document } = caster('wizard', 1, { 'prepared:wizard:3:0': 'fireball' }).build();
 
-    expect(statusOf(document, 'prepared:wizard:3:0')).toStrictEqual({
+    expect(plain(statusOf(document, 'prepared:wizard:3:0'))).toStrictEqual({
       status: SlotStatus.Hidden,
       key: 'prepared:wizard:3:0',
       selection: spellFixtureId('fireball'),

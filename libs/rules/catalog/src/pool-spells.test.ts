@@ -1,9 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentRegistry, RuleElementKey, Trait } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, RuleElementKey, Trait } from '@pioneer/rules/sdk';
+import type { ContentEntry } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { contentCatalog } from './index';
+
+/** A rich text `ref` node, read for the entry it links. */
+const RefNode = z.looseObject({ type: z.literal('ref'), id: ContentId });
 
 const FOCUS = Trait.parse('focus');
 
@@ -14,20 +18,24 @@ await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
 const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
+const JsonObject = z.record(z.string(), z.json());
+
 /** Every entry a rich text value links, in reading order. */
-function refsIn(node: unknown): ContentId[] {
+function refsIn(node: z.core.util.JSONType): ContentId[] {
   if (Array.isArray(node)) {
     return node.flatMap((child) => refsIn(child));
   }
 
-  if (typeof node !== 'object' || node === null) {
+  const object = JsonObject.safeParse(node);
+
+  if (!object.success) {
     return [];
   }
 
-  // SAFETY: a ref node's id is a content id; the node is typed as plain JSON.
-  const own = 'type' in node && node.type === 'ref' && 'id' in node ? [node.id as ContentId] : [];
+  const ref = RefNode.safeParse(object.data);
+  const own = ref.success ? [ref.data.id] : [];
 
-  return [...own, ...Object.values(node).flatMap((child) => refsIn(child))];
+  return [...own, ...Object.values(object.data).flatMap((child) => refsIn(child))];
 }
 
 /** The spells an entry's `PoolSpells` elements name, in order. */
@@ -50,7 +58,7 @@ describe('Player Core pool spells', () => {
   test.each(schools.map((school) => [school.slug, school] as const))(
     "%s's curriculum is the spells its description's table lists, cantrips then by rank",
     (_slug, school) => {
-      const listed = refsIn(school.description).filter((id) => isSlotSpell(id));
+      const listed = refsIn(z.json().parse(school.description)).filter((id) => isSlotSpell(id));
 
       expect(poolSpellsOf(school)).toStrictEqual(listed);
     },

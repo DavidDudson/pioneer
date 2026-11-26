@@ -1,6 +1,7 @@
 import { CharacterId } from '@pioneer/character/domain';
 import type { CharacterDocument } from '@pioneer/character/domain';
 import { PioneerCharacterFile, PioneerReadProblem, readPioneerCharacter } from '@pioneer/interop/pioneer';
+import type { PioneerFileJson } from '@pioneer/interop/pioneer';
 import { fieldIssues, message, newId, ValidationError } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 
@@ -18,7 +19,7 @@ export interface ReadPioneerFile {
 }
 
 /** The file read again on the server, as a new character of `ownerId`; refused, naming the problem, when it can't be. */
-export function readPioneerFile(raw: unknown, ownerId: UserId): ReadPioneerFile {
+export function readPioneerFile(raw: PioneerFileJson, ownerId: UserId): ReadPioneerFile {
   const read = readPioneerCharacter(raw, { id: CharacterId.parse(newId()), ownerId });
 
   if (!read.ok) {

@@ -278,14 +278,16 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
   });
 
   test('the words are matched through the GIN index', async () => {
-    const plan = await database.db.$client.begin(async (tx): Promise<unknown> => {
+    const plan = await database.db.$client.begin(async (tx): Promise<string> => {
       await tx.unsafe('set local enable_seqscan = off');
 
-      return tx.unsafe(
+      const rows: unknown = await tx.unsafe(
         `explain (format json) select entry_id from content_entry_search where vector @@ websearch_to_tsquery('english', 'prismatic')`,
       );
+
+      return JSON.stringify(rows);
     });
 
-    expect(JSON.stringify(plan)).toContain('content_entry_search_vector_idx');
+    expect(plan).toContain('content_entry_search_vector_idx');
   });
 });

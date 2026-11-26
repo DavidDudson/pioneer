@@ -84,7 +84,10 @@ const SpellTarget = z
     /** The one that triggered the spell ("the triggering creature"). */
     triggering: z.boolean().optional(),
   })
-  .refine(({ count, upTo }) => upTo === undefined || typeof count === 'number', TARGET_UP_TO)
+  .refine(
+    ({ count, upTo }) => upTo === undefined || (count !== TargetCountWord.Any && count !== TargetCountWord.All),
+    TARGET_UP_TO,
+  )
   .refine(({ count, within }) => (within === undefined) === (count !== TargetCountWord.All), TARGET_WITHIN);
 
 const Targets = z.array(SpellTarget).min(1).max(TARGETS_MAX).readonly();

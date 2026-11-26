@@ -2,6 +2,8 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, contentPackFromContents, EnvironmentData, RollOption, Slug } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
+import { plain } from '@pioneer/rules/sdk/testing';
+import type { Plain } from '@pioneer/rules/sdk/testing';
 
 import { gmCorePack, playerCorePack } from './json-packs';
 
@@ -28,11 +30,11 @@ function fatiguedId(): string {
   return found.id;
 }
 
-const damage = (slug: string): unknown =>
-  EnvironmentData.parse(environment(slug).data).consequences.filter((each) => each.damage !== undefined);
+const damage = (slug: string): Plain =>
+  plain(EnvironmentData.parse(environment(slug).data).consequences.filter((each) => each.damage !== undefined));
 
-const fatigue = (slug: string): unknown =>
-  EnvironmentData.parse(environment(slug).data).consequences.find((each) => each.applies !== undefined);
+const fatigue = (slug: string): Plain =>
+  plain(EnvironmentData.parse(environment(slug).data).consequences.find((each) => each.applies !== undefined));
 
 describe('GM Core temperature environments', () => {
   test('has Mild, Severe, Extreme and Incredible Cold and Heat citing GM Core page 95', () => {
@@ -107,7 +109,7 @@ describe('GM Core biome environments', () => {
   });
 });
 
-const byGroup = (slug: string): unknown => {
+const byGroup = (slug: string): Plain => {
   const found = PLAYER_CORE.otherEntries.find((entry) => entry.slug === slug);
 
   return found === undefined ? undefined : EnvironmentData.parse(found.data).group;

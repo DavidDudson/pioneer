@@ -5,6 +5,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
+import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { preparedSlots } from './prepared-spells';
 import { castRanks, SignaturePickProblem, signatureSlots } from './signature-spells';
@@ -146,7 +147,8 @@ describe('signature slots', () => {
 
   test('character reads carry repertoire and signature slots', () => {
     const document = bard(5, { 'repertoire:bard:1:0': 'force-barrage', 'signature:bard:1': 'force-barrage' });
-    const read = (key: string): unknown => characterSlots(document, content).find((each) => each.key === key);
+    const read = (key: string): CharacterSlot | undefined =>
+      characterSlots(document, content).find((each) => each.key === key);
 
     expect(read('repertoire:bard:1:0')).toMatchObject({
       status: SlotStatus.Filled,

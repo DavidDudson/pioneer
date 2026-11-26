@@ -1,4 +1,4 @@
-import { isPredicateComparison } from '@pioneer/rules/sdk';
+import { isPredicateComparison, isRollOptionStatement } from '@pioneer/rules/sdk';
 import type {
   ComparisonOperands,
   ContentText,
@@ -240,7 +240,7 @@ function summariseCompound(statement: PredicateCompound, facts: PredicateFacts):
 
 /** The summary of a statement already known to be unknown. */
 function summariseStatement(statement: PredicateStatement, facts: PredicateFacts): PredicateSummary {
-  if (typeof statement === 'string') {
+  if (isRollOptionStatement(statement)) {
     return optionPhrase(statement);
   }
 

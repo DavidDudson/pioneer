@@ -22,7 +22,17 @@ function animal(name: string, rank: number): FormView {
 }
 
 /** What a Strike makes of itself: its slug, attack modifier, damage dice and type, damage bonus and reach traits. */
-function summary(view: FormView): unknown {
+/** What `summary` reads from one Strike. */
+interface StrikeSummary {
+  readonly slug: string;
+  readonly attack: number | undefined;
+  readonly dice: string;
+  readonly type: string | undefined;
+  readonly bonus: number | undefined;
+  readonly traits: readonly string[];
+}
+
+function summary(view: FormView): readonly StrikeSummary[] {
   return view.strikes.map(({ weapon, attack, damage }) => ({
     slug: weapon.slug,
     attack: attack?.ok === true ? Number(attack.total) : undefined,
@@ -33,7 +43,10 @@ function summary(view: FormView): unknown {
   }));
 }
 
-function resistances(view: FormView): unknown {
+/** A resistance's damage type and amount. */
+type ResistanceLine = readonly [string, number | undefined];
+
+function resistances(view: FormView): readonly ResistanceLine[] {
   return view.defences.resistances
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ type, value }) => [type, value]);

@@ -1,3 +1,5 @@
+import type { PathbuilderFileJson } from './pathbuilder-export';
+
 /** Ready-made Pathbuilder exports, for trying the importer with one click. */
 export const SampleCharacter = {
   Mordred: 'mordred',
@@ -7,7 +9,7 @@ export const SampleCharacter = {
 export type SampleCharacter = (typeof SampleCharacter)[keyof typeof SampleCharacter];
 
 interface SampleModule {
-  readonly default: unknown;
+  readonly default: PathbuilderFileJson;
 }
 
 /** Loaded on demand, so the exports stay out of the main bundle. */
@@ -24,7 +26,7 @@ const LOADERS: Readonly<Record<SampleCharacter, () => Promise<SampleModule>>> = 
   },
 };
 
-export const loadSampleExport = async (sample: SampleCharacter): Promise<unknown> => {
+export const loadSampleExport = async (sample: SampleCharacter): Promise<PathbuilderFileJson> => {
   const module = await LOADERS[sample]();
 
   return module.default;

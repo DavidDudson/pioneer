@@ -33,14 +33,14 @@ export function attachRows(
   }));
 }
 
-/** What a column sorts by. */
-type ColumnValue = (row: AttachRow) => number | string;
+/** How a column orders two rows. */
+type ColumnOrder = (left: AttachRow, right: AttachRow) => number;
 
-const columnValue: ReadonlyMap<string, ColumnValue> = new Map<string, ColumnValue>([
-  ['name', (row) => row.name],
-  ['ancestry', (row) => row.ancestry],
-  ['class', (row) => row.class],
-  ['level', (row) => row.level],
+const columnOrder: ReadonlyMap<string, ColumnOrder> = new Map<string, ColumnOrder>([
+  ['name', (left, right) => left.name.localeCompare(right.name)],
+  ['ancestry', (left, right) => left.ancestry.localeCompare(right.ancestry)],
+  ['class', (left, right) => left.class.localeCompare(right.class)],
+  ['level', (left, right) => left.level - right.level],
 ]);
 
 /** The rows whose name, ancestry or class hold `query`, in the order asked for, then by name. */
@@ -55,23 +55,15 @@ export function shownAttachRows(
     `${row.name} ${row.ancestry} ${row.class}`.toLocaleLowerCase().includes(needle),
   );
 
-  const value = columnValue.get(sort?.column ?? '');
+  const orderOf = columnOrder.get(sort?.column ?? '');
 
-  if (sort === undefined || value === undefined) {
+  if (sort === undefined || orderOf === undefined) {
     return matching;
   }
 
-  return matching.toSorted((left, right) => {
-    const leftValue = value(left);
-    const rightValue = value(right);
-
-    const order =
-      typeof leftValue === 'number' && typeof rightValue === 'number'
-        ? leftValue - rightValue
-        : String(leftValue).localeCompare(String(rightValue));
-
-    return (order || left.name.localeCompare(right.name)) * (sort.descending ? -1 : 1);
-  });
+  return matching.toSorted(
+    (left, right) => (orderOf(left, right) || left.name.localeCompare(right.name)) * (sort.descending ? -1 : 1),
+  );
 }
 
 /** The columns of the attach picker: the character, its ancestry and class as chips, and its level. */

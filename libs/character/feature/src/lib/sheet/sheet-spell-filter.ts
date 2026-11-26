@@ -3,6 +3,7 @@ import type { DamageType, QueryParams } from '@pioneer/rules/sdk';
 import { DAMAGE_TYPE_MESSAGES } from '@pioneer/rules/ui';
 import type { SpellCostLine, SpellFilterGroup, SpellFilterOption, SpellRowLine } from '@pioneer/rules/ui';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 /** The properties the Spells tab filters by (#1785); each is a group of values, and a spell must pass every group that has a pick. */
 export const SpellFilterGroupId = {
@@ -170,15 +171,15 @@ export const SPELL_FILTER_CLEARED: Readonly<Record<string, undefined>> = Object.
   GROUPS.map((group) => [paramOf(group), undefined]),
 );
 
+/** The values one param holds, once or repeated; a param holding anything else reads as none. */
+const ParamValues = z.union([z.string().transform((value) => [value]), z.array(z.string())]);
+
 /** The filters the URL holds; a param repeats once per value (`s.source=A&s.source=B`), so a name with a comma is safe. */
 export function spellFilterFromQuery(params: QueryParams): SpellPicks {
   return new Map(
     GROUPS.flatMap((group): [SpellFilterGroupId, ReadonlySet<string>][] => {
-      const raw: unknown = params[paramOf(group)];
-
-      const values = (Array.isArray(raw) ? raw : [raw]).filter(
-        (value): value is string => typeof value === 'string' && value !== '',
-      );
+      const raw = ParamValues.safeParse(params[paramOf(group)]);
+      const values = raw.success ? raw.data.filter((value) => value !== '') : [];
 
       return values.length === 0 ? [] : [[group, new Set(values)]];
     }),

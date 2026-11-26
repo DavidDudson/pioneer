@@ -3,7 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
-import { ApiClient, ApiError } from '@pioneer/shared/web';
+import { ApiClient } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 import * as z from 'zod';
@@ -96,7 +96,7 @@ describe(provideSignInOnUnauthorized, () => {
     await router.navigateByUrl('/elsewhere');
     const pending = TestBed.inject(ApiClient).call(getThings, { params: {}, body: undefined });
     http.expectOne('/api/things').flush(unauthorized, UNAUTHORIZED);
-    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isUnauthorized(error));
+    await expect(pending).rejects.toHaveProperty('isUnauthorized', true);
     await vi.waitFor(() => {
       expect(router.url).toBe('/account/sign-in?returnTo=%2Felsewhere');
     });

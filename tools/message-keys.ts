@@ -15,12 +15,16 @@ export interface KeyReport {
   readonly unused: readonly string[];
 }
 
+function isGroup(value: MessageTree | string): value is MessageTree {
+  return value instanceof Object;
+}
+
 /** `{ list: { title: 'x' } }` with prefix `character` → `['character.list.title']`. */
 export function flattenMessages(tree: MessageTree, prefix = ''): string[] {
   return Object.entries(tree).flatMap(([name, value]) => {
     const key = prefix === '' ? name : `${prefix}.${name}`;
 
-    return typeof value === 'string' ? [key] : flattenMessages(value, key);
+    return isGroup(value) ? flattenMessages(value, key) : [key];
   });
 }
 

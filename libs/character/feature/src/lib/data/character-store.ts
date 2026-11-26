@@ -18,9 +18,9 @@ import type {
   SheetModeChoice,
 } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
-import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
+import type { CharacterImportReport, PathbuilderFileJson } from '@pioneer/interop/pathbuilder';
 import { PioneerExportContract, PioneerImportContract } from '@pioneer/interop/pioneer';
-import type { PioneerCharacterFile, PioneerImportPreview } from '@pioneer/interop/pioneer';
+import type { PioneerCharacterFile, PioneerFileJson, PioneerImportPreview } from '@pioneer/interop/pioneer';
 import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -125,7 +125,7 @@ export class CharacterStore {
       this.#client.setQueryData<SheetModeChoice>(characterKeys.sheetMode(id), { mode });
     },
     // The tab is a display preference: a failed save is dropped, and the next switch tries again.
-    onError: async (_error: unknown, { id }: SheetModeSwitch): Promise<void> =>
+    onError: async (_error: Error, { id }: SheetModeSwitch): Promise<void> =>
       this.#client.invalidateQueries({ queryKey: characterKeys.sheetMode(id), refetchType: 'none' }),
   }));
 
@@ -177,7 +177,7 @@ export class CharacterStore {
    * A new character from a Pathbuilder export (`raw`, the export as pasted). The server reads it again. Its import
    * report is kept for the sheet until dismissed; it is held here, not stored, so a reload drops it.
    */
-  public async importPathbuilder(raw: unknown): Promise<Character> {
+  public async importPathbuilder(raw: PathbuilderFileJson): Promise<Character> {
     const { character, report } = await this.#api.call(PathbuilderImportContract.import, { params: {}, body: raw });
     this.#importReports.update((reports) => new Map(reports).set(character.id, report));
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
@@ -197,12 +197,12 @@ export class CharacterStore {
   }
 
   /** What importing a Pioneer character file would make and what in it no loaded pack has; saves nothing. */
-  public async previewPioneerImport(raw: unknown): Promise<PioneerImportPreview> {
+  public async previewPioneerImport(raw: PioneerFileJson): Promise<PioneerImportPreview> {
     return this.#api.call(PioneerImportContract.preview, { params: {}, body: raw });
   }
 
   /** A new character from a Pioneer character file (`raw`, the file as read). The server reads it again. */
-  public async importPioneer(raw: unknown): Promise<Character> {
+  public async importPioneer(raw: PioneerFileJson): Promise<Character> {
     const character = await this.#api.call(PioneerImportContract.import, { params: {}, body: raw });
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
 
@@ -267,8 +267,8 @@ export class CharacterStore {
     try {
       await this.#send(current, patch);
       this.#edits.saved(edit);
-    } catch (error: unknown) {
-      this.#edits.failedWith(edit, ApiError.isConflict(error));
+    } catch (error) {
+      this.#edits.failedWith(edit, error instanceof ApiError && error.isConflict);
       throw error;
     }
   }
@@ -286,8 +286,8 @@ export class CharacterStore {
       this.#saved(saved);
       // The list shows names and levels; mark it stale without refetching the sheet.
       await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
-    } catch (error: unknown) {
-      if (ApiError.isConflict(error)) {
+    } catch (error) {
+      if (error instanceof ApiError && error.isConflict) {
         // Someone else saved first: pull their version so every field re-syncs.
         await this.#client.invalidateQueries({ queryKey: characterKeys.detail(current.id) });
         this.#current.set(this.#client.getQueryData<CharacterSheet>(characterKeys.detail(current.id)));

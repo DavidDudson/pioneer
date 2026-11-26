@@ -1,5 +1,6 @@
 import { Books } from '@pioneer/rules/sdk';
 import type { Book, BookId } from '@pioneer/rules/sdk';
+import type * as z from 'zod';
 
 import registry from './books.json';
 
@@ -17,7 +18,7 @@ export class BookRegistry {
   }
 
   /** Validates `input` as the registry; throws a `ZodError` whose issues are message descriptors. */
-  public static parse(input: unknown): BookRegistry {
+  public static parse(input: z.core.util.JSONType): BookRegistry {
     return new BookRegistry(Books.parse(input));
   }
 

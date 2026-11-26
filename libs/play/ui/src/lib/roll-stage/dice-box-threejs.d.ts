@@ -32,9 +32,9 @@ declare module '@3d-dice/dice-box-threejs' {
     public initialize(): Promise<void>;
     public updateConfig(config: DiceBoxConfig): Promise<void>;
     /** Rolls dice notation such as `2d10@1,10`, landing on the faces after the `@`. */
-    public roll(notation: string): Promise<unknown>;
+    public roll(notation: string): Promise<void>;
     /** Throws more dice beside the ones on the table. */
-    public add(notation: string): Promise<unknown>;
+    public add(notation: string): Promise<void>;
     public clearDice(): void;
   }
 }

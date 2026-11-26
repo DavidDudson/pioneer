@@ -6,10 +6,11 @@ import type * as z from 'zod';
 
 import { contentId, EntrySlug, PackId } from './content-id';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
+import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { RICH_TEXT_CONTAINERS_MAX, RICH_TEXT_DEPTH_MAX, RichText } from './rich-text';
 
-function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -167,7 +168,7 @@ describe('DamageFormula', () => {
   });
 });
 
-const inline = (node: unknown): readonly Block[] => [{ type: 'paragraph', content: [node] }];
+const inline = (node: JsonValue): readonly Block[] => [{ type: 'paragraph', content: [node] }];
 
 describe('RichText inline rules', () => {
   test('only a saving throw can be basic', () => {

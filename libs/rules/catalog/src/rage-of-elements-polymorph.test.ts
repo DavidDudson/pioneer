@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { contentPackFromContents } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
+import { plain } from '@pioneer/rules/sdk/testing';
 
 import { rageOfElementsPack } from './json-packs';
 
@@ -9,11 +10,6 @@ const ENTRIES = contentPackFromContents(await rageOfElementsPack()).otherEntries
 
 const CLUMSY = '69f88e3c-d871-5fb9-82c6-120348a7c0e8';
 const IMMOBILIZED = '64278392-4910-5a32-b819-56f6e54952dd';
-
-/** `value` as plain JSON, so a test can compare it with the data it reads. */
-function plain(value: unknown): unknown {
-  return structuredClone(value);
-}
 
 function effect(slug: string): ContentEntry {
   const found = ENTRIES.find((entry) => entry.slug === slug);

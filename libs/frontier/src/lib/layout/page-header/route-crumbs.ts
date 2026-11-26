@@ -5,6 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import type { ActivatedRouteSnapshot } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
 import { filter, merge, scan } from 'rxjs';
+import * as z from 'zod';
 
 import type { BreadcrumbItem } from '../../actions/breadcrumbs/breadcrumbs.component';
 
@@ -24,15 +25,17 @@ export const CRUMB = 'crumb';
  */
 export type Crumb = string | ((route: ActivatedRouteSnapshot) => Signal<string | undefined>);
 
-function isCrumb(value: unknown): value is Crumb {
-  return typeof value === 'string' || typeof value === 'function';
-}
+type CrumbName = Exclude<Crumb, string>;
+
+const CRUMB_KEY = z.string();
+const CRUMB_NAME = z.custom<CrumbName>((value) => z.instanceof(Function).safeParse(value).success);
+const CRUMB_SCHEMA = z.union([CRUMB_KEY, CRUMB_NAME]);
 
 /** The crumb a route's own config sets, not one inherited through `data`. */
 function crumbOf(route: ActivatedRouteSnapshot): Crumb | undefined {
-  const crumb: unknown = route.routeConfig?.data?.[CRUMB];
+  const crumb = CRUMB_SCHEMA.safeParse(route.routeConfig?.data?.[CRUMB]);
 
-  return isCrumb(crumb) ? crumb : undefined;
+  return crumb.success ? crumb.data : undefined;
 }
 
 /** The active route and its ancestors, root first, that have a crumb. */
@@ -80,7 +83,7 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
   const names = new Map<string, Signal<string | undefined>>();
 
   /** Runs a crumb function once, in the header's injection context and outside the trail's own reactive one. */
-  const nameOf = (route: ActivatedRouteSnapshot, crumb: Exclude<Crumb, string>): Signal<string | undefined> => {
+  const nameOf = (route: ActivatedRouteSnapshot, crumb: CrumbName): Signal<string | undefined> => {
     const url = urlOf(route);
     const known = names.get(url);
 
@@ -94,8 +97,17 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
     return created;
   };
 
-  const labelOf = (route: ActivatedRouteSnapshot, crumb: Crumb): string | undefined =>
-    typeof crumb === 'string' ? i18n.translate(crumb) : nameOf(route, crumb)();
+  const labelOf = (route: ActivatedRouteSnapshot, crumb: Crumb): string | undefined => {
+    const name = CRUMB_NAME.safeParse(crumb);
+
+    if (name.success) {
+      return nameOf(route, name.data)();
+    }
+
+    const key = CRUMB_KEY.safeParse(crumb);
+
+    return key.success ? i18n.translate(key.data) : undefined;
+  };
 
   return computed(() => {
     changes();

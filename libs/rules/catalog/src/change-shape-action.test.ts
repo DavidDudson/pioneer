@@ -1,10 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
-import { ContentEntryFile, ContentKind, RollOption, spellEffectId } from '@pioneer/rules/sdk';
-import type { Predicate, SpellEffectEntry } from '@pioneer/rules/sdk';
+import { ContentEntryFile, ContentId, ContentKind, Predicate, RollOption, spellEffectId } from '@pioneer/rules/sdk';
+import type { SpellEffectEntry } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { coreNamespaces } from './testing/fighter';
+
+/** An effect an action offers under a predicate. */
+const Conditional = z.strictObject({ effect: ContentId, predicate: Predicate });
 
 const WEREFORM = 'effect:effect-change-shape-werecreature';
 
@@ -25,7 +29,9 @@ async function offerOfWerecreatureForm(): Promise<Offer> {
   const listed: readonly SpellEffectEntry[] = action?.kind === ContentKind.Action ? (action.data.effects ?? []) : [];
   const entry = listed.find((each) => spellEffectId(each) === were?.id);
 
-  return { listed: entry !== undefined, predicate: typeof entry === 'object' ? entry.predicate : [] };
+  const conditional = Conditional.safeParse(entry);
+
+  return { listed: entry !== undefined, predicate: conditional.success ? conditional.data.predicate : [] };
 }
 
 /** Whether `predicate` holds for a character with exactly the roll options `options`. */

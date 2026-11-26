@@ -1,6 +1,6 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { OriginHopKind, RuleIndex } from '@pioneer/rules/sdk';
+import { isChoiceRef, OriginHopKind, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ConditionValue,
   ContentId,
@@ -235,7 +235,7 @@ class Walker {
     if (target !== undefined) {
       const hops = [...visit.hops, ...target.hops, hop];
       const allowDuplicate = element.allowDuplicate === true;
-      const picked = typeof element.item !== 'string';
+      const picked = isChoiceRef(element.item);
       const arrival = { hops, chain: visit.chain, flag: element.flag, allowDuplicate, picked, value: element.value };
       this.#grant(element, target.id, arrival);
     }
@@ -268,7 +268,7 @@ class Walker {
   #target(at: EntryAt, { element, hop }: GrantAt, choices: EntryChoices): GrantTarget | undefined {
     const { item } = element;
 
-    if (typeof item === 'string') {
+    if (!isChoiceRef(item)) {
       return { id: item, hops: [] };
     }
 

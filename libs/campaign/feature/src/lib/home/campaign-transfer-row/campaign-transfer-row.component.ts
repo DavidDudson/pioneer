@@ -53,7 +53,7 @@ export class CampaignTransferRow {
   protected readonly decline = async (): Promise<void> => this.#store.decline(this.transfer().id);
   protected readonly withdraw = async (): Promise<void> => this.#store.withdraw(this.transfer().id);
 
-  protected readonly describeError = (error: unknown): string => {
+  protected readonly describeError = (error: Error): string => {
     const { key, params } = transferFailure(error, 'campaign.transfers.answerFailed');
 
     return this.#i18n.translate(key, params);

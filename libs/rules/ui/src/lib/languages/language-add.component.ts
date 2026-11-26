@@ -17,7 +17,7 @@ import type { LanguagePickerRow } from '../slot-picker/slot-picker-row';
 import { LanguagesMessage } from './languages-messages';
 
 /** Adds a language in the next open slot; resolves once it is saved. */
-export type AddLanguage = (language: string) => Promise<unknown>;
+export type AddLanguage = (language: string) => Promise<void>;
 
 /**
  * Add language, while the character has languages left to add: how many are left, and a button that shows a table of

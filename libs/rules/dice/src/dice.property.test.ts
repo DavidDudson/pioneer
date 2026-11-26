@@ -27,7 +27,7 @@ describe('dice (properties)', () => {
     assert(
       property(string({ maxLength: 60 }), (text) => {
         const outcome = parseDiceExpression(DiceExpressionText.parse(text));
-        expect(typeof outcome.ok).toBe('boolean');
+        expect([true, false]).toContain(outcome.ok);
       }),
     );
   });

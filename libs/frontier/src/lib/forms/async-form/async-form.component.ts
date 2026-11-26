@@ -34,12 +34,12 @@ const formClasses = cva('block')();
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
 })
-export class AsyncForm<TModel> {
+export class AsyncForm<TModel, TResult = void> {
   readonly #i18n = inject(TranslocoService);
   public readonly form = input.required<FieldTree<TModel>>();
-  public readonly action = input.required<(value: TModel) => Promise<unknown>>();
+  public readonly action = input.required<(value: TModel) => Promise<TResult>>();
   /** Defaults to a generic "Could not save" in the viewer's locale. */
-  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
+  public readonly describeError = input<((error: Error) => string) | undefined>(undefined);
   public readonly succeeded = output();
 
   /** The submission's state, for the submit button and anything else in the form. */
@@ -47,7 +47,7 @@ export class AsyncForm<TModel> {
     // An invalid form never ran the action: back to idle, no tick.
     accept: (submitted) => submitted,
     describeError: (error) =>
-      this.describeError()?.(error instanceof SubmitFailureError ? error.cause : error) ??
+      this.describeError()?.(error instanceof SubmitFailureError ? error.failure : error) ??
       this.#i18n.translate('frontier.async.saveFailed'),
     onSuccess: () => {
       this.succeeded.emit();
