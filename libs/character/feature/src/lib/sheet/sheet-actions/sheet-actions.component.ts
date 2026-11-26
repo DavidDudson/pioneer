@@ -106,7 +106,7 @@ export class SheetActions {
     return (this.lines() ?? []).filter(({ id }) => offers.has(id));
   });
 
-  protected pass(): void {
+  protected onPass(): void {
     this.#play.passOffers();
   }
 

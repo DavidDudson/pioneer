@@ -17,7 +17,7 @@ import { AirRounds, SuffocationChecks } from './breath';
 import { ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { EffectInstanceId } from './effects';
-import { TriggerOfferedEvent } from './turn-offer-event';
+import { TriggerOfferedEvent } from './trigger-offered-event';
 
 /** What happened to a character as a turn started or ended: the turn bar, the spend log and triggered abilities read these. */
 export const TurnEventKind = {

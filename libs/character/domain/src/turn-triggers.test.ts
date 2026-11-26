@@ -26,13 +26,13 @@ const EFFECT = ContentId.parse('00000000-0000-4000-8000-000000000002');
 const FIVE = HitPoints.parse(5);
 const NONE = HitPoints.parse(0);
 
-const trigger = (over: Partial<Omit<AutoTrigger, 'effect'>> = {}): AutoTrigger => ({
+const trigger = (over: Partial<TurnTrigger> = {}): AutoTrigger => ({
   id: ACTION,
   triggerEvent: TriggerEvent.parse({ event: 'turn-start' }),
   rules: [RuleElement.parse({ key: 'TempHP', value: 5 })],
-  effect: EFFECT,
   tempHp: FIVE,
   ...over,
+  effect: EFFECT,
 });
 
 const triggers = (...list: readonly TurnTrigger[]): TurnTriggers => ({
@@ -142,6 +142,12 @@ describe('offered triggers', () => {
     const automatic = triggers(trigger());
 
     expect(offeredTriggers(TriggerEventType.TurnStart, automatic, FRESH_PLAY)).toStrictEqual([]);
+  });
+
+  test('one that needs a choice is offered', () => {
+    const choosy = trigger({ needsChoice: true });
+
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(choosy), FRESH_PLAY)).toStrictEqual([choosy]);
   });
 
   test('one with requirements is offered', () => {

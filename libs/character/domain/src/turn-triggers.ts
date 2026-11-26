@@ -37,7 +37,7 @@ export interface TurnTrigger extends TriggerableAbility {
   readonly effect: ContentId | undefined;
   /** The temporary Hit Points the effect gives; none when it gives none. */
   readonly tempHp: HitPoints;
-  /** What must hold to use it; nothing here tests it, so an ability with requirements is left to the player. */
+  /** What must hold to use it; an ability with requirements is never applied automatically. */
   readonly requirements?: Predicate | undefined;
 }
 
@@ -108,8 +108,8 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
   return { triggers, facts };
 }
 
-/** Whether `trigger` applies by itself: it has an effect to put on the character, nothing to test, and costs nothing. */
-function isAutomatic(trigger: TurnTrigger): boolean {
+/** Whether `trigger` applies without the player: it has an effect to put on the character, nothing to test, and costs nothing. */
+function appliesWithoutPlayer(trigger: TurnTrigger): trigger is AutoTrigger {
   return trigger.requirements === undefined && trigger.effect !== undefined && appliesAutomatically(trigger);
 }
 
@@ -119,24 +119,20 @@ export function autoTriggers(
   { triggers, facts }: TurnTriggers,
   active: readonly ActiveEffect[],
 ): readonly AutoTrigger[] {
-  return triggeredAbilities(event, facts, triggers).flatMap(({ effect, ...trigger }): AutoTrigger[] => {
-    const held = effect !== undefined && active.some((each) => each.effect === effect);
-
-    return effect === undefined || held || !isAutomatic({ ...trigger, effect }) ? [] : [{ ...trigger, effect }];
-  });
+  return triggeredAbilities(event, facts, triggers).filter(
+    (trigger): trigger is AutoTrigger =>
+      appliesWithoutPlayer(trigger) && !active.some(({ effect }) => effect === trigger.effect),
+  );
 }
 
-/**
- * The triggers that fire on `event` and are left to the player: they cost something, need a choice or have
- * requirements. Each ability once, and a reaction only while the reaction is unspent.
- */
+/** The triggers on `event` left to the player rather than applied, each ability once; a reaction only while it is unspent. */
 export function offeredTriggers(
   event: TriggerEventType,
   { triggers, facts }: TurnTriggers,
   { turn }: Pick<PlayState, 'turn'>,
 ): readonly TurnTrigger[] {
   const fired = triggeredAbilities(event, facts, triggers).filter(
-    (trigger) => !isAutomatic(trigger) && !(trigger.cost === ActionCost.Reaction && turn.reactionUsed),
+    (trigger) => !appliesWithoutPlayer(trigger) && !(trigger.cost === ActionCost.Reaction && turn.reactionUsed),
   );
 
   return [...new Map(fired.map((trigger) => [trigger.id, trigger])).values()];
@@ -186,11 +182,13 @@ function applyTrigger(current: TurnOutcome, trigger: AutoTrigger, inputs: Trigge
 export function withTriggered(outcome: TurnOutcome, event: TriggerEventType, inputs: TriggerInputs): TurnOutcome {
   let current = outcome;
 
-  for (const trigger of autoTriggers(event, inputs.triggered(), outcome.play.effects)) {
+  const triggered = inputs.triggered();
+
+  for (const trigger of autoTriggers(event, triggered, outcome.play.effects)) {
     current = applyTrigger(current, trigger, inputs);
   }
 
-  const offers = offeredTriggers(event, inputs.triggered(), current.play).map(({ id }) => abilityOffered(id));
+  const offers = offeredTriggers(event, triggered, current.play).map(({ id }) => abilityOffered(id));
 
   return { play: current.play, events: [...current.events, ...offers] };
 }
