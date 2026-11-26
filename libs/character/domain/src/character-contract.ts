@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterAllies } from './character-allies';
+import { CharacterCompanionContract } from './character-companion-contract';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterPacks, EnablePackBody } from './character-packs';
 import { CharacterFilter, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
@@ -284,4 +285,5 @@ export const CharacterContract = {
     response: UnenabledContent,
   }),
   ...CharacterRuleLimitContract,
+  ...CharacterCompanionContract,
 } as const;

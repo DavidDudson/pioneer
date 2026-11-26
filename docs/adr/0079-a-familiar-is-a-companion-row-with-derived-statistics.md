@@ -80,6 +80,10 @@ Alternatives:
   row.
 - The prerequisite "a familiar" ([#2052](https://github.com/DavidDudson/pioneer/issues/2052)) reads "has an active
   companion of kind `familiar`".
+- The companion endpoints ([#2049](https://github.com/DavidDudson/pioneer/issues/2049)) add, archive and restore one
+  row per call and return only the companions. Replacing is archive then add, and the owner refetches the character for
+  its new version between them. The Angular feature story returns the version in the write responses and adds the
+  atomic replace.
 - A build save that adds or replaces a companion writes two tables in one transaction. A conflict on
   `characters.version` rolls both back.
 - The shape of `form` waits on [#2041](https://github.com/DavidDudson/pioneer/issues/2041). Until then it stays an open

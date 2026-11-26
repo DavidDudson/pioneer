@@ -666,7 +666,7 @@ interface Companion {
   readonly name: CompanionName;
   readonly form: CompanionForm; // shape settles with the familiar rules spike
   readonly grantedBy: SlotKey;
-  readonly archived: CompanionArchive | null; // { at, reason: 'replaced' | 'released' }
+  readonly archived?: CompanionArchive; // { at, reason: 'replaced' | 'released' }; absent while live
 }
 
 interface CompanionPlay {
@@ -681,6 +681,8 @@ interface CompanionPlay {
   `companion:<id>:spell:<n>`.
 - **Play:** `PlayState.companions: Record<CompanionId, CompanionPlay>`. Death is a status, not an archive.
 - **Writes:** a build write to a companion row shares the character's transaction and bumps `characters.version`.
+- **Animal companion:** same row, `kind = 'animal-companion'`, `form = { species: ContentId }`; up to four live, one
+  `active`; tier derived from feats ([ADR-0080](../adr/0080-an-animal-companion-is-a-companion-row-with-a-species.md)).
 - **Archive:** replacing or releasing sets `archived_at` and a reason; `restore` brings it back while no other active
   companion of the kind holds the one-active-per-kind index.
 

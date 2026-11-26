@@ -1,5 +1,6 @@
 import {
   CharacterAllyService,
+  CharacterCompanionService,
   CharacterContent,
   CharacterFlaggedItems,
   CharacterItemApprovalService,
@@ -21,7 +22,9 @@ import {
 } from '@pioneer/character/application';
 import type { CharacterContentSource } from '@pioneer/character/application';
 import {
+  characterCompanionRoutes,
   characterRoutes,
+  DrizzleCharacterCompanionRepository,
   DrizzleCharacterItemAcknowledgementRepository,
   DrizzleCharacterPackRepository,
   DrizzleCharacterRepository,
@@ -32,6 +35,7 @@ import {
   pathbuilderImportRoutes,
   pioneerFileRoutes,
 } from '@pioneer/character/infrastructure';
+import type { PathbuilderImportServices } from '@pioneer/character/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
@@ -134,6 +138,39 @@ function embeddedHomebrew(db: Database, clock: Clock): PioneerEmbeddedHomebrew {
   return new PioneerEmbeddedHomebrew(db, clock, new PackAccessPolicy(new CampaignPackEnablementDirectory(db)));
 }
 
+/** What the Pathbuilder import reads and writes through. */
+interface PathbuilderParts {
+  readonly repository: DrizzleCharacterRepository;
+  readonly content: StoredContentSource;
+}
+
+/** The Pathbuilder import, and the export fetched from Pathbuilder's own site. */
+function pathbuilderServices(
+  db: Database,
+  clock: Clock,
+  { repository, content }: PathbuilderParts,
+): PathbuilderImportServices {
+  return {
+    importer: new PathbuilderImportService(
+      { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
+      clock,
+    ),
+    exports: new PathbuilderExportService(new HttpPathbuilderExportFetcher()),
+  };
+}
+
+/** The companions a character owns, written through the character's own transaction (ADR-0079). */
+function companionService(
+  db: Database,
+  clock: Clock,
+  repository: DrizzleCharacterRepository,
+): CharacterCompanionService {
+  return new CharacterCompanionService(
+    { characters: repository, companions: new DrizzleCharacterCompanionRepository(db) },
+    clock,
+  );
+}
+
 /** What the owner's acknowledgements are read against: the characters, the campaign each is in and the rules they break. */
 interface ItemApprovalParts {
   readonly repository: DrizzleCharacterRepository;
@@ -179,14 +216,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     .withCampaignRoles(new CampaignCharacterRoles(db))
     .withAuthors(new UserOverrideAuthorDirectory(db));
 
-  const pathbuilder = {
-    importer: new PathbuilderImportService(
-      { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
-      clock,
-    ),
-    exports: new PathbuilderExportService(new HttpPathbuilderExportFetcher()),
-  };
-
+  const pathbuilder = pathbuilderServices(db, clock, { repository, content });
   const homebrew = embeddedHomebrew(db, clock);
   const itemApprovals = itemApprovalService(db, clock, { repository, campaigns, content: characterContent });
   const pioneerFiles = new PioneerFileService({ repository, content: characterContent, clock, homebrew });
@@ -202,6 +232,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(pathbuilder, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))
+      .use(characterCompanionRoutes(companionService(db, clock, repository), authenticator))
       .use(generateCharacterRoutes(new GenerateCharacterService(repository, characterContent, clock), authenticator))
       .use(
         characterSheetRoutes({

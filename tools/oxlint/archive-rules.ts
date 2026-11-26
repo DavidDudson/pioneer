@@ -15,6 +15,7 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
   'campaignItemApprovals',
   'campaignKeyItems',
   'characterItemAcknowledgements',
+  'characterCompanions',
 ]);
 
 /** The syntax node of a call, as far as the rule reads it. */

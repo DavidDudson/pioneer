@@ -146,6 +146,23 @@ export {
   ConditionTrigger,
 } from './condition';
 
+export { CompanionKind } from './companion-kind';
+
+export {
+  CompanionSpecialization,
+  CompanionSpecializationSchema,
+  CompanionTier,
+  CompanionTierSchema,
+} from './companion-tier';
+
+export {
+  COMPANION_SKILL_ATTRIBUTE,
+  CompanionAttack,
+  CompanionSkill,
+  CompanionSkillSchema,
+  CompanionStatBlock,
+} from './companion-stat-block';
+
 export { ContentKind, ContentKindSchema } from './content-kind';
 
 export {

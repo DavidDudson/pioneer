@@ -1141,6 +1141,12 @@
     "items": "Items:",
     "entry": "{name} ({pack})"
   },
+  "companions": {
+    "kindTaken": "This character already has a {kind}. Archive it before adding another.",
+    "restoreBlocked": "This character already has a {kind}. Archive it before restoring this one.",
+    "limitReached": "This character already has {limit} live {kind} companions. Archive one before adding another.",
+    "restoreLimitReached": "This character already has {limit} live {kind} companions. Archive one before restoring this one."
+  },
   "itemApprovals": {
     "campaignApproves": "{campaign} approves the rule-breaking items of this character. Its GM decides, not you."
   },

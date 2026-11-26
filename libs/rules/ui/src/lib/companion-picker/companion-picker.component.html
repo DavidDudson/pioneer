@@ -1,0 +1,18 @@
+<fr-surface padding="sm">
+  <fr-stack gap="sm">
+    <fr-text weight="semibold">{{ Message.Title | transloco: { source: source() } }}</fr-text>
+    <pio-option-picker
+      [ariaLabel]="Message.Species | transloco"
+      [placeholder]="Message.Species | transloco"
+      [options]="selectOptions()"
+      [(value)]="picked"
+    />
+    <fr-text-input [ariaLabel]="Message.Name | transloco" [placeholder]="Message.Name | transloco" [(value)]="name" />
+    <fr-stack direction="horizontal" gap="sm">
+      <fr-button size="sm" [disabled]="pick() === undefined" (click)="confirm()">{{
+        Message.Confirm | transloco
+      }}</fr-button>
+      <fr-button size="sm" (click)="cancelled.emit()">{{ Message.Cancel | transloco }}</fr-button>
+    </fr-stack>
+  </fr-stack>
+</fr-surface>

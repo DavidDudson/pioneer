@@ -620,6 +620,26 @@ export {
 
 export type { RuleLimitOverrides, RuleLimits } from './rule-limits';
 
+export { CharacterCompanionContract } from './character-companion-contract';
+
+export {
+  AddCompanionBody,
+  AnimalCompanionForm,
+  ArchiveCompanionBody,
+  CharacterCompanions,
+  COMPANION_LIVE_LIMIT,
+  Companion,
+  CompanionArchive,
+  CompanionArchiveReason,
+  CompanionId,
+  CompanionName,
+  FamiliarForm,
+  LiveCompanionCount,
+  RestoreCompanionBody,
+} from './companion';
+
+export type { CompanionForm } from './companion';
+
 export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 
 export type { CountViolation, RuleViolation, RuneViolation } from './rule-violations';

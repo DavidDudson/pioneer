@@ -316,6 +316,20 @@
       "when": 1794643965547,
       "tag": "0044_character_list_filters",
       "breakpoints": true
+    },
+    {
+      "idx": 45,
+      "version": "7",
+      "when": 1794749943704,
+      "tag": "0045_character_companions",
+      "breakpoints": true
+    },
+    {
+      "idx": 46,
+      "version": "7",
+      "when": 1795653034853,
+      "tag": "0046_companion_live_limits",
+      "breakpoints": true
     }
   ]
 }
