@@ -33,10 +33,7 @@ function declaredInputs(component: Type<unknown>, available: Required<CellInputs
   return takesEntity ? { entity: available.entity } : {};
 }
 
-/**
- * One property of one entity as a table cell. It picks what to render in this order: the property's own cell, its
- * kind's cell, the entity's cell (`ENTITY_CELL`), then the kind's text.
- */
+/** One property of one entity as a table cell. */
 @Component({
   selector: 'fr-property-cell',
   imports: [NgComponentOutlet, Text],

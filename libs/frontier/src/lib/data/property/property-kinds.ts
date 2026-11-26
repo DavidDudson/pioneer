@@ -1,3 +1,5 @@
+import { Temporal } from '@pioneer/shared/kernel';
+
 import { FilterOperator } from '../../controls/filter-bar/filter-bar.types';
 import { DateDisplay } from '../../date/date.component';
 import type { DateValue } from '../../date/date.component';
@@ -10,6 +12,8 @@ export const BOOL_MESSAGES = {
   no: 'frontier.property.bool.no',
 } as const;
 
+const UTC = 'UTC';
+
 const TEXT_KIND: PropertyKind<string> = {
   id: PropertyKindId.Text,
   align: PropertyAlign.Start,
@@ -18,15 +22,24 @@ const TEXT_KIND: PropertyKind<string> = {
   text: (value: string): string => value,
 };
 
+/** Not `left - right`, which is `NaN` for two infinities. */
+function compareNumbers(left: number, right: number): number {
+  if (left < right) {
+    return -1;
+  }
+
+  return left > right ? 1 : 0;
+}
+
 const NUMBER_KIND: PropertyKind<number> = {
   id: PropertyKindId.Number,
   align: PropertyAlign.End,
   operators: [FilterOperator.Is, FilterOperator.Between],
-  compare: (left: number, right: number): number => left - right,
+  compare: compareNumbers,
   text: (value: number, context: PropertyContext): string => context.formatNumber(value),
 };
 
-/** No before-or-after: `false` sorts ahead of `true`. */
+/** `false` sorts ahead of `true`. */
 function compareBool(left: boolean, right: boolean): number {
   if (left === right) {
     return 0;
@@ -44,13 +57,21 @@ const BOOL_KIND: PropertyKind<boolean> = {
     context.translate(value ? BOOL_MESSAGES.yes : BOOL_MESSAGES.no),
 };
 
+/** The moment a date value stands for; a plain date is its start in UTC. */
+function toInstant(value: DateValue): Temporal.Instant {
+  if (value instanceof Temporal.PlainDate) {
+    return value.toZonedDateTime(UTC).toInstant();
+  }
+
+  return value instanceof Temporal.Instant ? value : value.toInstant();
+}
+
 const DATE_KIND: PropertyKind<DateValue> = {
   id: PropertyKindId.Date,
   align: PropertyAlign.Start,
   operators: [FilterOperator.Is, FilterOperator.Between],
   cell: DateDisplay,
-  // ISO strings of one kind of value sort chronologically, as `TableSchema.addDate` already relies on.
-  compare: (left: DateValue, right: DateValue): number => left.toString().localeCompare(right.toString()),
+  compare: (left: DateValue, right: DateValue): number => Temporal.Instant.compare(toInstant(left), toInstant(right)),
   text: (value: DateValue, context: PropertyContext): string => context.formatDate(value),
 };
 

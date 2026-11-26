@@ -5,7 +5,7 @@ import type { FilterOperator } from '../../controls/filter-bar/filter-bar.types'
 import type { DateValue } from '../../date/date.component';
 import type { Size } from '../../tokens';
 
-/** The kinds frontier ships. A `ui` library registers its own under other ids (`providePropertyKinds`). */
+/** The kinds frontier ships. Others are registered with `providePropertyKinds`. */
 export const PropertyKindId = {
   Text: 'text',
   Number: 'number',
@@ -20,10 +20,7 @@ export const PropertyAlign = { Start: 'start', End: 'end' } as const;
 
 export type PropertyAlign = ValueOf<typeof PropertyAlign>;
 
-/**
- * What a kind needs from the viewer's locale. Kinds are plain data that take it as an argument, so they run (and
- * are tested) without Angular.
- */
+/** What a kind needs from the viewer's locale, passed in so a kind runs without Angular. */
 export interface PropertyContext {
   /** Compares two strings by the active locale. */
   readonly compareText: (left: string, right: string) => number;
@@ -33,13 +30,7 @@ export interface PropertyContext {
   readonly translate: (key: string) => string;
 }
 
-/**
- * How one kind of value behaves wherever a property appears: shown, sorted, read aloud, filtered and edited. The
- * registry holds one per id, so a table, a column chooser and a filter bar all agree on what a `number` is.
- *
- * The members are methods, not properties, so a `PropertyKind<number>` is a `PropertyKind<unknown>` and the
- * registry can hold them together.
- */
+/** How one kind of value is shown, sorted, read aloud, filtered and edited. */
 export interface PropertyKind<TValue = unknown> {
   readonly id: string;
   readonly align: PropertyAlign;
@@ -55,10 +46,7 @@ export interface PropertyKind<TValue = unknown> {
   text(value: TValue, context: PropertyContext): string;
 }
 
-/**
- * One column-sized fact about an entity: where its value comes from and which kind it is. An entity type exposes a
- * list of these and tables, column choosers and filters are derived from it, so a new property is one entry.
- */
+/** One fact about an entity: where its value comes from and which kind it is. */
 export interface PropertyDescriptor<TEntity, TValue = unknown> {
   readonly id: string;
   /** A message key, translated where the property is shown; a list of descriptors holds no copy. */
@@ -66,7 +54,7 @@ export interface PropertyDescriptor<TEntity, TValue = unknown> {
   /** The id of a registered `PropertyKind`. */
   readonly kind: string;
   readonly value: (entity: TEntity) => TValue;
-  /** Renders this property's value, ahead of its kind's cell and the entity's cell. */
+  /** Renders this property's value. */
   readonly cell?: Type<unknown>;
   /** The same options as a table column (`ColumnOptions`). */
   readonly width?: Size;

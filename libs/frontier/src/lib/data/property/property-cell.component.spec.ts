@@ -37,6 +37,17 @@ class EntityName {
   public readonly entity = input.required<Hero>();
 }
 
+// oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+@Component({ selector: 'fr-test-both', template: '<u>{{ value() }} of {{ entity().name }}</u>' })
+class Both {
+  public readonly value = input.required<string>();
+  public readonly entity = input.required<Hero>();
+}
+
+// oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+@Component({ selector: 'fr-test-neither', template: '<s>fixed</s>' })
+class Neither {}
+
 const NAME: PropertyDescriptor<Hero> = {
   id: 'name',
   label: 'hero.name',
@@ -89,6 +100,33 @@ describe(PropertyCell, () => {
   it('uses the entity cell when the property and its kind have none', async () => {
     const host = await render(NAME, [{ provide: ENTITY_CELL, useValue: EntityName }]);
     expect(host.querySelector('i')?.textContent).toBe('Valeros');
+  });
+
+  it('gives a cell that declares both inputs the value and the entity', async () => {
+    const host = await render({ ...NAME, cell: Both });
+
+    expect(host.querySelector('u')?.textContent).toBe('Valeros of Valeros');
+  });
+
+  it('renders a cell that declares no inputs without passing it any', async () => {
+    const host = await render({ ...NAME, cell: Neither });
+
+    expect(host.querySelector('s')?.textContent).toBe('fixed');
+  });
+
+  it('lets a registered kind replace a frontier one of the same id', async () => {
+    const shouting: PropertyKind<number> = {
+      id: PropertyKindId.Number,
+      align: PropertyAlign.Start,
+      operators: [],
+      cell: Shout,
+      compare: () => 0,
+      text: () => '',
+    };
+
+    const host = await render({ ...NAME, kind: PropertyKindId.Number }, [providePropertyKinds(shouting)]);
+
+    expect(host.querySelector('b')?.textContent).toBe('VALEROS');
   });
 
   it('uses a kind a ui library registers', async () => {

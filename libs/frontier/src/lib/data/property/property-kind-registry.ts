@@ -18,23 +18,22 @@ function kindMap(kinds: readonly PropertyKind[], base: PropertyKindMap): Propert
   return merged;
 }
 
+const DEFAULT_KINDS: PropertyKindMap = kindMap(FRONTIER_PROPERTY_KINDS, new Map());
+
 /** Every kind by id. Frontier's four by default; `providePropertyKinds` adds more. */
 export const PROPERTY_KINDS = new InjectionToken<PropertyKindMap>('PROPERTY_KINDS', {
   providedIn: 'root',
-  factory: (): PropertyKindMap => kindMap(FRONTIER_PROPERTY_KINDS, new Map()),
+  factory: (): PropertyKindMap => DEFAULT_KINDS,
 });
 
-/**
- * Adds kinds to the ones above, or replaces a kind of the same id (a `ui` library's `number` that links a rule).
- * Provide it where the tables that need them live.
- */
+/** Adds kinds to the ones above, or replaces a kind of the same id. */
 export function providePropertyKinds(...kinds: readonly PropertyKind[]): Provider {
   return {
     provide: PROPERTY_KINDS,
     useFactory: (): PropertyKindMap => {
       const parent = inject(PROPERTY_KINDS, { skipSelf: true, optional: true });
 
-      return kindMap(kinds, parent ?? kindMap(FRONTIER_PROPERTY_KINDS, new Map()));
+      return kindMap(kinds, parent ?? DEFAULT_KINDS);
     },
   };
 }
@@ -50,10 +49,7 @@ export function findPropertyKind(kinds: PropertyKindMap, id: string): PropertyKi
   return kind;
 }
 
-/**
- * The component a table renders for entities whose columns all look alike (a name cell with an icon). Below a
- * property's own cell and its kind's, above plain text.
- */
+/** The component rendered for a property that has no cell of its own and whose kind has none. */
 export const ENTITY_CELL = new InjectionToken<Type<unknown> | undefined>('ENTITY_CELL', {
   providedIn: 'root',
   factory: (): undefined => undefined,
@@ -68,6 +64,7 @@ export function injectPropertyContext(): PropertyContext {
     compareText: (left, right) => format.compare(left, right),
     formatNumber: (value) => format.number(value),
     formatDate: (value) => value.toLocaleString(format.locale(), { dateStyle: 'medium' }),
-    translate: (key) => i18n.translate(key),
+    // The language is passed so reading it makes a cell's text follow a locale switch.
+    translate: (key) => i18n.translate(key, {}, format.locale()),
   };
 }

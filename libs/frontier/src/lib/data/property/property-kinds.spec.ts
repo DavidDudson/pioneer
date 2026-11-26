@@ -40,6 +40,7 @@ describe('frontier property kinds', () => {
   it('number sorts by size, reads through the locale and lines up on the end', () => {
     const number = kindOf(PropertyKindId.Number);
     expect(number.compare(9, 10, CONTEXT)).toBeLessThan(0);
+    expect(number.compare(Infinity, Infinity, CONTEXT)).toBe(0);
     expect(number.text(12, CONTEXT)).toBe('#12');
     expect(number.operators).toStrictEqual([FilterOperator.Is, FilterOperator.Between]);
     expect(number.align).toBe(PropertyAlign.End);
@@ -61,5 +62,16 @@ describe('frontier property kinds', () => {
     expect(date.compare(earlier, later, CONTEXT)).toBeLessThan(0);
     expect(date.text(later, CONTEXT)).toBe('on 2026-10-07');
     expect(date.cell).toBe(DateDisplay);
+  });
+
+  it('date compares moments, not their text, across offsets and kinds of value', () => {
+    const date = kindOf(PropertyKindId.Date);
+    const paris = Temporal.ZonedDateTime.from('2024-01-01T10:00:00+01:00[Europe/Paris]');
+    const earlierUtc = Temporal.ZonedDateTime.from('2024-01-01T08:30:00+00:00[UTC]');
+    const midnight = Temporal.PlainDate.from('2024-01-01');
+
+    expect(date.compare(earlierUtc, paris, CONTEXT)).toBeLessThan(0);
+    expect(date.compare(midnight, paris, CONTEXT)).toBeLessThan(0);
+    expect(date.compare(paris, paris.toInstant(), CONTEXT)).toBe(0);
   });
 });
