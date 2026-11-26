@@ -1,0 +1,36 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "desktop",
+        "onlyCategories": ["performance"],
+        "chromeFlags": "--headless=new --no-sandbox"
+      }
+    },
+    "assert": {
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": "/characters$",
+          "assertions": {
+            "resource-summary:total:count": ["error", { "aggregationMethod": "median", "maxNumericValue": 510 }],
+            "resource-summary:total:size": ["error", { "aggregationMethod": "median", "maxNumericValue": 4700000 }],
+            "largest-contentful-paint": ["error", { "aggregationMethod": "median", "maxNumericValue": 1000 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "/characters/[0-9a-f-]+$",
+          "assertions": {
+            "resource-summary:total:count": ["error", { "aggregationMethod": "median", "maxNumericValue": 1360 }],
+            "resource-summary:total:size": ["error", { "aggregationMethod": "median", "maxNumericValue": 7100000 }],
+            "largest-contentful-paint": ["error", { "aggregationMethod": "median", "maxNumericValue": 1000 }]
+          }
+        }
+      ]
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "tmp/lhci"
+    }
+  }
+}

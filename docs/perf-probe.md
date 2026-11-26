@@ -46,4 +46,6 @@ from one machine, one after another.
 `GET /characters/:id` takes 93 ms for 17 statements while every other endpoint takes 3 to 4 ms, so one of its steps
 costs about 90 ms. That is the first thing to look at for the DB story.
 
+The page budgets (`docs/benchmarks.md`) hold the sheet's request count, transfer size and LCP in CI.
+
 Record each performance change's probe result in its PR next to this baseline.

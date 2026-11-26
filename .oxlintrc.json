@@ -549,6 +549,7 @@
         "tools/enrich-triggers.ts",
         "tools/enrich-removals.ts",
         "tools/bench.ts",
+        "tools/page-budget.ts",
         "libs/shared/bench/src/bench.ts"
       ],
       "rules": { "eslint/no-console": "off" }
