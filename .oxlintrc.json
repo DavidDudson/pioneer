@@ -206,8 +206,7 @@
     // Domain and rules values are branded or const objects, never bare string/number
     // (tools/oxlint/brand-rules.ts; tests and testing/ builders are exempt).
     "pioneer/no-primitive-domain-types": "error",
-    // Each fast-check run costs CI time on every PR; cap numRuns and run the full sweep nightly
-    // (tools/oxlint/property-rules.ts, #2243).
+    // Each fast-check run costs CI time on every PR, so numRuns is capped.
     "pioneer/max-property-runs": ["error", { "max": 100 }],
     "eslint/no-restricted-globals": [
       "error",
@@ -350,7 +349,7 @@
   },
   "overrides": [
     {
-      // A generation run builds a whole level 1-20 character (about 6.6 s), so these tests get a tighter cap.
+      // A generation run builds a whole level 1-20 character, so these tests get a tighter cap.
       "files": ["apps/api/src/**/*.test.ts"],
       "rules": { "pioneer/max-property-runs": ["error", { "max": 25 }] }
     },
