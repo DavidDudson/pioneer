@@ -60,15 +60,16 @@ function assertWorkAllowed(character: Character, slots: SlotContent, { days }: W
   }
 }
 
-/**
- * Refuses a retraining edit the character can't make: a second project, a pick that can't be retrained, nothing held
- * to swap or the same pick again, a replacement the slot doesn't offer, and work on no project. The last day's work
- * swaps the pick, so it checks that the slot still offers the replacement. Any other edit is let by.
- */
+/** Refuses a retraining edit the character can't make, or a slot edit on the slot being retrained; else lets it by. */
 export function assertRetrainingAllowed(character: Character, slots: SlotContent, patch: CharacterPatch): void {
   if (patch.field === CharacterPatchField.StartRetraining) {
     assertStartAllowed(character, slots, patch);
   } else if (patch.field === CharacterPatchField.WorkRetraining) {
     assertWorkAllowed(character, slots, patch);
+  } else if (
+    (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) &&
+    patch.slot === character.document.build.retraining?.slot
+  ) {
+    throw refused(message('character.validation.retrainingSlotBusy'));
   }
 }

@@ -40,15 +40,32 @@ describe('CharacterService retraining', () => {
     return repository.insert(built, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 
-  /** The reasons the service refuses `patch` with. */
-  async function refusal(patch: CharacterPatch): Promise<readonly string[]> {
-    const character = await held();
+  /** `held()` with a project to `NEW` on `FEAT` that has `daysDone` of its 7 days worked. */
+  async function retraining(daysDone: number): Promise<Character> {
+    const base = await held();
+    const started = base.apply({ field: CharacterPatchField.StartRetraining, slot: FEAT, to: NEW }, clock.now());
+
+    const worked =
+      daysDone === 0
+        ? started
+        : started.apply({ field: CharacterPatchField.WorkRetraining, days: RetrainDays.parse(daysDone) }, clock.now());
+
+    return repository.update(worked, base.version, { actor: owner, command: CharacterCommand.StartRetraining });
+  }
+
+  /** The reasons the service refuses `patch` for `character` with. */
+  async function refusalFor(character: Character, patch: CharacterPatch): Promise<readonly string[]> {
     const error = await rejection(service.patch(owner, character.id, { expectedVersion: character.version, patch }));
 
-    expect(error).toBeInstanceOf(ValidationError);
+    if (!(error instanceof ValidationError)) {
+      throw new TypeError('expected the patch to be refused with a ValidationError');
+    }
 
-    // SAFETY: the call under test rejects with a ValidationError for this patch.
-    return (error as ValidationError).issues.map((issue) => issue.message.key);
+    return error.issues.map((issue) => issue.message.key);
+  }
+
+  async function refusal(patch: CharacterPatch): Promise<readonly string[]> {
+    return refusalFor(await held(), patch);
   }
 
   test('refuses a pick that can not be retrained', async () => {
@@ -93,5 +110,44 @@ describe('CharacterService retraining', () => {
     const stored = await service.get(owner, character.id);
 
     expect(stored.version).toBe(FIRST_VERSION);
+  });
+
+  test('refuses a second project', async () => {
+    const started = await retraining(0);
+    const patch = { field: CharacterPatchField.StartRetraining, slot: FEAT, to: ChoiceValue.parse('other-feat') };
+
+    expect(await refusalFor(started, patch)).toEqual(['character.validation.retrainingBusy']);
+  });
+
+  test('refuses the last day when the slot no longer offers the replacement', async () => {
+    const almost = await retraining(6);
+    const patch = { field: CharacterPatchField.WorkRetraining, days: RetrainDays.parse(1) };
+
+    expect(await refusalFor(almost, patch)).toEqual(['character.validation.slotNotOpen']);
+  });
+
+  test('treats more days than are left as the last day', async () => {
+    const started = await retraining(0);
+    const patch = { field: CharacterPatchField.WorkRetraining, days: RetrainDays.parse(30) };
+
+    expect(await refusalFor(started, patch)).toEqual(['character.validation.slotNotOpen']);
+  });
+
+  test('lets a day that is not the last through without asking the slot', async () => {
+    const started = await retraining(2);
+    const patch = { field: CharacterPatchField.WorkRetraining, days: RetrainDays.parse(1) };
+
+    const { character: worked } = await service.patch(owner, started.id, { expectedVersion: started.version, patch });
+
+    expect(Number(worked.document.build.retraining?.daysDone)).toBe(3);
+  });
+
+  test.each([
+    { field: CharacterPatchField.SelectSlot, slot: FEAT, selection: ChoiceValue.parse('third-feat') },
+    { field: CharacterPatchField.ClearSlot, slot: FEAT },
+  ])('refuses a slot edit on the slot being retrained: $field', async (patch) => {
+    const started = await retraining(0);
+
+    expect(await refusalFor(started, patch)).toEqual(['character.validation.retrainingSlotBusy']);
   });
 });

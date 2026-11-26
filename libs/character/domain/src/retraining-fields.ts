@@ -19,6 +19,7 @@ export type RetrainProgress = z.infer<typeof RetrainProgress>;
 export const RetrainingProject = z.strictObject({
   slot: SlotKey,
   to: ChoiceValue,
+  /** Kept from the day the project started, so a later rules change doesn't move a project under way. */
   daysNeeded: RetrainDays,
   daysDone: RetrainProgress,
 });
@@ -34,10 +35,7 @@ const WEEK_PREFIXES = ['feat:', 'skill-increase:', 'repertoire:'] as const;
 /** The slot kinds that take a month: a class choice. */
 const MONTH_PREFIXES = ['choice:'] as const;
 
-/**
- * The days retraining the pick in `slot` takes: a week for a feat, a skill increase or a repertoire spell, a month for
- * a choice a class feature gives. Undefined for a slot that can't be retrained (an ability boost, the ancestry).
- */
+/** The days retraining `slot` takes: a week, or a month for a class choice; undefined when it can't be retrained. */
 export function retrainDaysFor(slot: SlotKey): RetrainDays | undefined {
   if (WEEK_PREFIXES.some((prefix) => slot.startsWith(prefix))) {
     return WEEK;

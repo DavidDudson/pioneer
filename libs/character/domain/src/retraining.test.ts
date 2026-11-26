@@ -101,3 +101,25 @@ describe('retraining patch', () => {
     expect(CharacterPatchSchema.safeParse({ field: CharacterPatchField.CancelRetraining }).success).toBe(true);
   });
 });
+
+describe('retraining a repertoire spell', () => {
+  const SPELL = SlotKey.parse('repertoire:bard:1:0');
+  const SIGNATURE = SlotKey.parse('signature:bard:1');
+  const OLD_SPELL = ChoiceValue.parse('old-spell');
+  const NEW_SPELL = ChoiceValue.parse('new-spell');
+
+  function finished(): Character {
+    const character = new CharacterBuilder().picking(SPELL, OLD_SPELL).picking(SIGNATURE, OLD_SPELL).build();
+    const begun = character.apply({ field: CharacterPatchField.StartRetraining, slot: SPELL, to: NEW_SPELL }, now);
+
+    return worked(begun, 7);
+  }
+
+  test('moves the signature pick that held the old spell, and counts no swap', () => {
+    const { build } = finished().document;
+
+    expect(build.choices[SPELL]).toBe(NEW_SPELL);
+    expect(build.choices[SIGNATURE]).toBe(NEW_SPELL);
+    expect(build.repertoireSwaps).toEqual([]);
+  });
+});

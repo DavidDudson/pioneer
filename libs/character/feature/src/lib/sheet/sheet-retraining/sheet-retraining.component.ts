@@ -15,7 +15,7 @@ import { describeSaveError } from '../sheet-field';
 import { sheetSlotContent } from '../sheet-slot-content';
 import { SheetState } from '../sheet-state';
 import { injectTranslationChanges } from '../sheet-translation-changes';
-import { retrainableSlots, retrainTargets } from './sheet-retraining-options';
+import { pickName, retrainableSlots, retrainTargets } from './sheet-retraining-options';
 
 /** What the days field checks: the days the server takes for one edit. */
 const WorkedSchema = z.object({ days: RetrainDays });
@@ -25,10 +25,7 @@ interface WorkedModel {
   readonly days: number;
 }
 
-/**
- * Retraining: swap a feat, skill increase, spell or class choice for another, a week or a month of days at a time.
- * The pick changes on the last day, and only the slot's own rules decide what it can become.
- */
+/** Retraining: start a project to swap a held pick, work its days, or cancel it; the pick changes on the last day. */
 @Component({
   selector: 'pio-sheet-retraining',
   imports: [AsyncButton, FormField, Grid, NumberField, OptionPicker, Stack, Text, TranslocoPipe],
@@ -89,6 +86,7 @@ export class SheetRetraining {
   protected readonly projectLine: Signal<string | undefined> = computed(() => {
     this.#messages();
     const project = this.project();
+    const content = this.#content();
     const held = this.#retrainable().find(({ key }) => key === project?.slot);
 
     return project === undefined
@@ -96,7 +94,7 @@ export class SheetRetraining {
       : this.#i18n.translate('character.sheet.retraining.project', {
           slot: held === undefined ? project.slot : this.#words(held.label),
           from: held?.holds ?? '',
-          to: project.to,
+          to: content === undefined ? project.to : pickName(content, project.to),
           done: project.daysDone,
           needed: project.daysNeeded,
         });

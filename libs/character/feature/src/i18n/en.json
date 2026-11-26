@@ -965,6 +965,7 @@
     "customEffectFull": "This character has as many custom effects as it can hold. Remove one first.",
     "customEffectGmOwned": "Your GM set this effect, so only your GM can remove it. Ask them if it should go.",
     "overrideGmOwned": "Your GM set this override, so only your GM can remove it. Ask them if it should go.",
+    "retrainingSlotBusy": "This pick is being retrained. Cancel the retraining or finish it first.",
     "retrainingBusy": "This character is retraining already. Finish or cancel it first.",
     "retrainingNone": "This character is not retraining anything.",
     "retrainingNotAllowed": "This pick can't be retrained.",

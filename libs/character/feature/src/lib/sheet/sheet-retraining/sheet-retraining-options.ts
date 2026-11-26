@@ -14,7 +14,7 @@ export interface RetrainSlot {
 }
 
 /** The name of a pick: its entry's name, or the pick itself for a skill or a spell rank. */
-function nameOf(content: SlotContent, value: string): string {
+export function pickName(content: SlotContent, value: string): string {
   const id = ContentId.safeParse(value);
 
   return (id.success ? content.lookup.entry(id.data)?.name : undefined) ?? value;
@@ -29,14 +29,11 @@ export function retrainableSlots(slots: readonly CharacterSlot[], content: SlotC
 
     const line = lineOf(slot, content.lookup);
 
-    return [{ key: slot.key, label: line.label, holds: slot.selectionName ?? nameOf(content, slot.selection) }];
+    return [{ key: slot.key, label: line.label, holds: slot.selectionName ?? pickName(content, slot.selection) }];
   });
 }
 
-/**
- * What `slot` can be retrained to: the picks it offers with its own pick out of the way, as the server reads a
- * replacement, without the one it holds. Empty for a slot that is not a filled one.
- */
+/** What `slot` can become: what it offers with its own pick out of the way, as the server reads it, minus that pick. */
 export function retrainTargets({
   character,
   content,
@@ -56,5 +53,5 @@ export function retrainTargets({
 
   return slotCandidates(emptied, content, open)
     .filter((value) => value !== held)
-    .map((value) => ({ value, label: nameOf(content, value) }));
+    .map((value) => ({ value, label: pickName(content, value) }));
 }

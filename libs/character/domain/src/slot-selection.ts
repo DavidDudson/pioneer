@@ -16,6 +16,8 @@ export interface SelectionEdit {
   readonly slot: SlotKey;
   readonly value: ChoiceValue;
   readonly countsAsSwap: boolean;
+  /** Move a signature pick that held the pick replaced even when this is not a counted swap (a retraining). */
+  readonly movesSignature?: true;
 }
 
 /** Emptying `slot`; `countsAsSwap` when it is the level's repertoire swap. */
@@ -24,31 +26,30 @@ export interface ClearEdit {
   readonly countsAsSwap: boolean;
 }
 
-/**
- * The document with `value` picked in `slot`. A pick that is the level's repertoire swap (`countsAsSwap`) is recorded
- * as it, and moves a signature pick that held the spell swapped out.
- */
+/** The document with `value` picked in `slot`; a counted swap is recorded, and moves a signature pick on the old spell. */
 export function withSelection(
   document: CharacterDocument,
-  { slot, value, countsAsSwap }: SelectionEdit,
+  { slot, value, countsAsSwap, movesSignature }: SelectionEdit,
 ): CharacterDocument {
   const { build } = document;
   const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
   const old = build.choices[slot];
 
-  if (!countsAsSwap || old === undefined) {
-    return { ...document, build: { ...withoutPlacedPick(build, slot, value), choices } };
-  }
-
   const signature = signatureKeyOf(slot);
 
-  if (signature !== undefined && choices[signature] === old) {
+  const movesPick = old !== undefined && (countsAsSwap || movesSignature === true);
+
+  if (movesPick && signature !== undefined && choices[signature] === old) {
     choices[signature] = value;
   }
 
-  const recorded = { ...withoutPlacedPick(build, slot, value), choices, repertoireSwaps: swapped(document, slot) };
+  const placed = { ...withoutPlacedPick(build, slot, value), choices };
 
-  return { ...document, build: recorded };
+  if (!countsAsSwap || old === undefined) {
+    return { ...document, build: placed };
+  }
+
+  return { ...document, build: { ...placed, repertoireSwaps: swapped(document, slot) } };
 }
 
 /** The document without a selection for `slot`; every other pick, shown or hidden, stays. */

@@ -2,6 +2,13 @@ import { CharacterPatchField, repertoireSwapRefusal, slotRefusal } from '@pionee
 import type { Character, CharacterPatch, SlotContent } from '@pioneer/character/domain';
 import { ValidationError } from '@pioneer/shared/kernel';
 
+import { assertRetrainingAllowed, isRetrainingEdit } from './retraining-guard';
+
+/** Whether `patch` needs the slot content to be allowed: it picks, empties or retrains a slot. */
+export function needsSlotContent(patch: CharacterPatch): boolean {
+  return isSlotEdit(patch) || isRetrainingEdit(patch);
+}
+
 /** Whether `patch` picks or empties a slot. */
 export function isSlotEdit(patch: CharacterPatch): boolean {
   return patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
@@ -13,6 +20,8 @@ export function isSlotEdit(patch: CharacterPatch): boolean {
  * never checked again here: one a lower level hides, or content later invalidates, stays. Any other edit is let by.
  */
 export function assertSlotEditAllowed(character: Character, slots: SlotContent, patch: CharacterPatch): void {
+  assertRetrainingAllowed(character, slots, patch);
+
   if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
     return;
   }

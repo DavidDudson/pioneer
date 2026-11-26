@@ -9,7 +9,7 @@ const NO_DAYS = RetrainProgress.parse(0);
 
 /** The document without its retraining project. */
 function withoutProject(document: CharacterDocument): CharacterDocument {
-  const { retraining: _done, ...build } = document.build;
+  const { retraining: _project, ...build } = document.build;
 
   return { ...document, build };
 }
@@ -25,11 +25,8 @@ function projectOf(document: CharacterDocument): RetrainingProject {
   return retraining;
 }
 
-/**
- * The document with `days` more days worked on its project. The last day swaps the pick in the slot for the one
- * retrained to, with no repertoire swap counted, and ends the project.
- */
-function worked(document: CharacterDocument, days: RetrainDays): CharacterDocument {
+/** `days` more days worked; the last swaps the slot's pick (and a signature pick on it), with no swap counted. */
+function withDaysWorked(document: CharacterDocument, days: RetrainDays): CharacterDocument {
   const project = projectOf(document);
   const done = Math.min(project.daysNeeded, project.daysDone + days);
 
@@ -40,10 +37,15 @@ function worked(document: CharacterDocument, days: RetrainDays): CharacterDocume
     };
   }
 
-  return withSelection(withoutProject(document), { slot: project.slot, value: project.to, countsAsSwap: false });
+  return withSelection(withoutProject(document), {
+    slot: project.slot,
+    value: project.to,
+    countsAsSwap: false,
+    movesSignature: true,
+  });
 }
 
-/** The document with the retraining edit `patch` made. */
+/** The document with the retraining edit `patch` made; the application guard decides whether the character may. */
 export function withRetrainingEdit(document: CharacterDocument, patch: RetrainingPatch): CharacterDocument {
   switch (patch.field) {
     case CharacterPatchField.StartRetraining: {
@@ -59,7 +61,7 @@ export function withRetrainingEdit(document: CharacterDocument, patch: Retrainin
     }
 
     case CharacterPatchField.WorkRetraining: {
-      return worked(document, patch.days);
+      return withDaysWorked(document, patch.days);
     }
 
     case CharacterPatchField.CancelRetraining: {
