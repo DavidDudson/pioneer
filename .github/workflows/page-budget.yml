@@ -1,0 +1,124 @@
+name: Page budgets
+
+# Opens the character list and a character sheet in Lighthouse (`bun run perf:pages`, docs/benchmarks.md) against the
+# production web build, on every push to main, recording each page's request count, transfer size and LCP to the history
+# on GitHub Pages (`gh-pages` branch, `dev/pages`), and on pull requests that touch the app, comparing against that
+# history. A page over its budget in `lighthouserc.json` fails the job.
+on:
+  pull_request:
+    paths:
+      - 'apps/**'
+      - 'libs/**'
+      - 'tools/page-budget*'
+      - 'lighthouserc.json'
+      - 'bun.lock'
+      - 'tsconfig.base.json'
+      - '.github/workflows/page-budget.yml'
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  # A push to main records history, so none is dropped; a superseded pull request run is not worth finishing.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  pages:
+    name: Page budgets
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      # Pushes the history to gh-pages on main, and comments on the commit of a regression.
+      contents: write
+    services:
+      postgres:
+        # Same major/minor as the devshell's postgresql_18.
+        image: postgres:18.6@sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+      PORT: '3000'
+      PUBLIC_ORIGIN: http://localhost:3000
+      WEB_DIST: dist/apps/web/browser
+    defaults:
+      run:
+        # Same toolchain as local: every step runs inside the flake devshell.
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Build the web app
+        run: bunx nx run web:build:production
+      - name: Start the API with the web build
+        # The dev entrypoint migrates and seeds, then serves WEB_DIST from the API's own origin with the dev sign-in.
+        run: |
+          mkdir -p tmp
+          bun apps/api/src/main.dev.ts > tmp/api.log 2>&1 &
+          for _ in $(seq 1 120); do
+            if curl --silent --fail --output /dev/null "$PUBLIC_ORIGIN/"; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat tmp/api.log >&2
+          echo 'The API did not come up.' >&2
+          exit 1
+      - name: Measure the pages
+        id: pages
+        # A budget over fails the run, but only after the results are written: the tracker below still records and
+        # compares them, and the last step fails the job.
+        continue-on-error: true
+        run: |
+          bun run perf:pages --out tmp/page-budget-results.json --summary tmp/page-budget-summary.md
+          {
+            echo '## Page budgets'
+            cat tmp/page-budget-summary.md
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse-reports
+          path: tmp/lhci
+          if-no-files-found: ignore
+      - name: Track results
+        uses: benchmark-action/github-action-benchmark@4322e5726e6334590d251fc4f92bec0efafc45dc # v1.22.2
+        with:
+          name: Pioneer page budgets
+          tool: customSmallerIsBetter
+          output-file-path: tmp/page-budget-results.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/pages
+          github-token: ${{ github.token }}
+          # Only main writes history; a pull request reads it as the baseline.
+          auto-push: ${{ github.event_name == 'push' }}
+          # The budgets fail the job; the tracker only flags a page that has slipped well past its last run on main.
+          alert-threshold: '150%'
+          comment-on-alert: ${{ github.event_name == 'push' }}
+          fail-on-alert: ${{ github.event_name == 'push' }}
+          summary-always: true
+      - name: Fail on a budget
+        if: steps.pages.outcome == 'failure'
+        run: |
+          echo 'A page is over its budget; see the Measure the pages step.' >&2
+          exit 1
