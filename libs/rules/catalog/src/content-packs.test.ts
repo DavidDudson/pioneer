@@ -121,10 +121,11 @@ describe('content packs', () => {
     expect(listed.filter((id) => !effects.has(id))).toStrictEqual([]);
   });
 
+  // Loading every pack takes about 7 s on a busy CI runner, past bun's 5 s default.
   test('every pinned id is unchanged', async () => {
     const ids = await registryIds();
     expect(ids).toMatchObject(PINNED_IDS);
-  });
+  }, 30_000);
 
   test('every language and vision an ancestry names is a core rules entry of that kind', async () => {
     const entries = await ancestryAndReferenceEntries();

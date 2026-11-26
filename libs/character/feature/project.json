@@ -11,19 +11,67 @@
         "buildTarget": "web:build:development",
         "tsConfig": "libs/character/feature/tsconfig.spec.json",
         "runner": "vitest",
-        "setupFiles": ["libs/character/feature/src/test-setup.ts"]
+        "setupFiles": ["libs/character/feature/src/test-setup.ts"],
+        "reporters": ["verbose"]
       },
       "configurations": {
         "page-a": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-e]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[a-c]*.spec.ts"]
         },
         "page-b": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[f-r]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[d-e]*.spec.ts"]
         },
         "page-c": {
-          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[s-z]*.spec.ts"]
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-f*.spec.ts"]
         },
-        "rest": { "exclude": ["libs/character/feature/src/lib/sheet/character-sheet-page/**"] }
+        "page-d": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[h-l]*.spec.ts"]
+        },
+        "page-e": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[rt-z]*.spec.ts"]
+        },
+        "page-f": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s[c-k]*.spec.ts"]
+        },
+        "page-g": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-s[p-z]*.spec.ts"]
+        },
+        "page-h": {
+          "include": ["libs/character/feature/src/lib/sheet/character-sheet-page/character-sheet-[m-p]*.spec.ts"]
+        },
+        "rest-a": {
+          "include": [
+            "libs/character/feature/src/lib/data/**/*.spec.ts",
+            "libs/character/feature/src/lib/import/**/*.spec.ts",
+            "libs/character/feature/src/lib/generate/**/*.spec.ts",
+            "libs/character/feature/src/lib/list/**/*.spec.ts",
+            "libs/character/feature/src/lib/new/**/*.spec.ts",
+            "libs/character/feature/src/lib/character.routes.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[a-c]*/**/*.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[a-c]*.spec.ts"
+          ]
+        },
+        "rest-b": {
+          "include": [
+            "libs/character/feature/src/lib/sheet/sheet-[d-o]*/**/*.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[d-o]*.spec.ts"
+          ]
+        },
+        "rest": {
+          "exclude": [
+            "libs/character/feature/src/lib/sheet/character-sheet-page/**",
+            "libs/character/feature/src/lib/data/**/*.spec.ts",
+            "libs/character/feature/src/lib/import/**/*.spec.ts",
+            "libs/character/feature/src/lib/generate/**/*.spec.ts",
+            "libs/character/feature/src/lib/list/**/*.spec.ts",
+            "libs/character/feature/src/lib/new/**/*.spec.ts",
+            "libs/character/feature/src/lib/character.routes.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[a-c]*/**/*.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[a-c]*.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[d-o]*/**/*.spec.ts",
+            "libs/character/feature/src/lib/sheet/sheet-[d-o]*.spec.ts"
+          ]
+        }
       }
     }
   }

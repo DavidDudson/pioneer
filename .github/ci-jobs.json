@@ -8,6 +8,20 @@
       "always": true
     },
     {
+      "name": "lint workspace",
+      "id": "lint-workspace",
+      "script": "ci:lint-workspace",
+      "args": "",
+      "always": true
+    },
+    {
+      "name": "lint tools",
+      "id": "lint-tools",
+      "script": "ci:lint-tools",
+      "args": "",
+      "always": true
+    },
+    {
       "name": "typecheck and build",
       "id": "build",
       "script": "ci:build",
@@ -40,19 +54,54 @@
   ],
   "test": [
     {
-      "name": "character sheet page a-e",
+      "name": "character sheet page a-c",
       "id": "character-page-a",
       "args": "--projects=character-feature --configuration=page-a"
     },
     {
-      "name": "character sheet page f-r",
+      "name": "character sheet page d-e",
       "id": "character-page-b",
       "args": "--projects=character-feature --configuration=page-b"
     },
     {
-      "name": "character sheet page s-z",
+      "name": "character sheet page f",
       "id": "character-page-c",
       "args": "--projects=character-feature --configuration=page-c"
+    },
+    {
+      "name": "character sheet page h-l",
+      "id": "character-page-d",
+      "args": "--projects=character-feature --configuration=page-d"
+    },
+    {
+      "name": "character sheet page m-p",
+      "id": "character-page-h",
+      "args": "--projects=character-feature --configuration=page-h"
+    },
+    {
+      "name": "character sheet page r, t-z",
+      "id": "character-page-e",
+      "args": "--projects=character-feature --configuration=page-e"
+    },
+    {
+      "name": "character sheet page sc-sk",
+      "id": "character-page-f",
+      "args": "--projects=character-feature --configuration=page-f"
+    },
+    {
+      "name": "character sheet page sp-sz",
+      "id": "character-page-g",
+      "args": "--projects=character-feature --configuration=page-g"
+    },
+    {
+      "name": "character rest a",
+      "id": "character-rest-a",
+      "args": "--projects=character-feature --configuration=rest-a"
+    },
+    {
+      "name": "character rest b",
+      "id": "character-rest-b",
+      "args": "--projects=character-feature --configuration=rest-b"
     },
     {
       "name": "character rest",
@@ -60,9 +109,14 @@
       "args": "--projects=character-feature --configuration=rest"
     },
     {
+      "name": "web rules ui",
+      "id": "web-rules-ui",
+      "args": "--projects=rules-ui"
+    },
+    {
       "name": "web ui",
       "id": "web-ui",
-      "args": "--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
+      "args": "--projects=content-ui,play-ui,frontier,rules-data-access --parallel=2"
     },
     {
       "name": "web accounts and tables",
