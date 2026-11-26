@@ -160,6 +160,8 @@ export {
 export {
   COMPANION_SKILL_ATTRIBUTE,
   CompanionAttack,
+  CompanionMovement,
+  CompanionMovements,
   CompanionSkill,
   CompanionSkillSchema,
   CompanionStatBlock,
