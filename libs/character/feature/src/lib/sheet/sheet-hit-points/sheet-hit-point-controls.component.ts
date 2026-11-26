@@ -96,7 +96,10 @@ export class SheetHitPointControls {
   protected readonly ready = computed(() => this.hp() !== undefined && this.complete() && !this.busy());
 
   protected readonly damage = async (): Promise<void> => this.#send((amount) => damageOf(amount, this.critical()));
-  protected readonly heal = async (): Promise<void> => this.#send((amount) => healOf(this.#healed(amount)));
+  protected readonly heal = async (): Promise<void> => {
+    await this.#send((amount) => healOf(this.#healed(amount)));
+    this.fromEffect.set(false);
+  };
   protected readonly setHp = async (): Promise<void> => this.#send(setHpOf);
   protected readonly setTempHp = async (): Promise<void> => this.#send(setTempHpOf);
 

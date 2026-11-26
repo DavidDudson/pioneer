@@ -28,7 +28,7 @@ const PACKS = [
 
 const ARMOUR = '55555555-5555-4555-8555-555555555555';
 const BONUS = 2;
-const TYPED = 4;
+const TYPED_AMOUNT = 4;
 
 /** Merisiel as a cleric, wearing invested leather armour with a moonweave rune when `moonweave`. */
 function wearing(moonweave: boolean): JsonObject {
@@ -76,7 +76,7 @@ describe('CharacterSheetPage healing from a spell or effect', () => {
     await openControls(root);
 
     await vi.waitFor(() => {
-      expect(textOf(controlsOf(root))).toContain(`From a spell or effect: +${BONUS} from`);
+      expect(textOf(controlsOf(root))).toContain(`From a spell or effect: +${BONUS} from Moonweave`);
     });
   });
 
@@ -88,7 +88,7 @@ describe('CharacterSheetPage healing from a spell or effect', () => {
     });
 
     const input = present(controlsOf(root).querySelector<HTMLInputElement>('input[aria-label="Amount"]'));
-    input.value = String(TYPED);
+    input.value = String(TYPED_AMOUNT);
     input.dispatchEvent(new Event('input'));
     render();
     buttonOf(root, 'From a spell or effect').click();
@@ -99,9 +99,31 @@ describe('CharacterSheetPage healing from a spell or effect', () => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toStrictEqual({
         expectedRevision: 1,
-        command: { field: 'heal', amount: TYPED + BONUS },
+        command: { field: 'heal', amount: TYPED_AMOUNT + BONUS },
       });
       request.flush(playOf(0, 0, 2));
+    });
+  });
+
+  it('adds nothing to healing not marked as from a spell or effect', async () => {
+    const { root } = await openSheet(wearing(true), { play: playOf(6, 0), packs: PACKS });
+    await openControls(root);
+    await vi.waitFor(() => {
+      expect(textOf(controlsOf(root))).toContain('From a spell or effect');
+    });
+
+    const input = present(controlsOf(root).querySelector<HTMLInputElement>('input[aria-label="Amount"]'));
+    input.value = String(TYPED_AMOUNT);
+    input.dispatchEvent(new Event('input'));
+    render();
+    buttonOf(root, 'Heal').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toStrictEqual({
+        expectedRevision: 1,
+        command: { field: 'heal', amount: TYPED_AMOUNT },
+      });
     });
   });
 

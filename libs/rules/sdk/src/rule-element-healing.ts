@@ -24,10 +24,7 @@ export const FastHealingElement = z.strictObject({
 
 export type FastHealingElement = z.infer<typeof FastHealingElement>;
 
-/**
- * Hit Points added the first time a spell or effect heals the character (a moonweave rune). It adds no Hit Points
- * itself: the sheet offers it on healing the player says comes from a spell or effect.
- */
+/** Hit Points added to the first healing from a spell or effect; Pioneer's own element, with no Foundry counterpart. */
 export const HealingBonusElement = z.strictObject({
   key: z.literal(RuleElementKey.HealingBonus),
   value: ModifierValue,

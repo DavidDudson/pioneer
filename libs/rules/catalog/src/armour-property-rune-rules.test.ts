@@ -87,7 +87,6 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
 
-/** The Hit Points each moonweave grade adds to the first healing from a spell or effect. */
 const MOONWEAVE_HEALING: readonly (readonly [string, number])[] = [
   ['rune:moonweave', 2],
   ['rune:moonweave-greater', 5],

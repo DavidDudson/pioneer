@@ -33,9 +33,9 @@ export const RuneFixture = {
   Unholy: 'unholy',
   /** A weapon rune that grants the clumsy condition (as quickstrike grants quickened) while the weapon is wielded. */
   Quickstrike: 'quickstrike',
-  /** Armour runes that shorten donning (the slugs are the real ready runes'). */
   /** An armour rune that adds 2 Hit Points to the first healing from a spell or effect (the slug is the real rune's). */
   Moonweave: 'moonweave',
+  /** Armour runes that shorten donning (the slugs are the real ready runes'). */
   Ready: 'ready',
   ReadyGreater: 'ready-greater',
   /** A weapon rune that lets the weapon take the shape of another (the slug is the real shifting rune's). */
