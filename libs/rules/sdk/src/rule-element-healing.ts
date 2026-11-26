@@ -24,6 +24,18 @@ export const FastHealingElement = z.strictObject({
 
 export type FastHealingElement = z.infer<typeof FastHealingElement>;
 
+/**
+ * Hit Points added the first time a spell or effect heals the character (a moonweave rune). It adds no Hit Points
+ * itself: the sheet offers it on healing the player says comes from a spell or effect.
+ */
+export const HealingBonusElement = z.strictObject({
+  key: z.literal(RuleElementKey.HealingBonus),
+  value: ModifierValue,
+  ...ruleElementBase,
+});
+
+export type HealingBonusElement = z.infer<typeof HealingBonusElement>;
+
 /** Temporary Hit Points the element gives the character, as Foundry pf2e's `TempHP` does. */
 export const TempHPElement = z.strictObject({
   key: z.literal(RuleElementKey.TempHP),

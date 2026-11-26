@@ -16,7 +16,7 @@ import { CriticalWeaknessElement } from './rule-element-critical-weakness';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { GrantShieldElement } from './rule-element-grant-shield';
-import { FastHealingElement, TempHPElement } from './rule-element-healing';
+import { FastHealingElement, HealingBonusElement, TempHPElement } from './rule-element-healing';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
 import { LiftRestrictionElement } from './rule-element-lift-restriction';
@@ -88,6 +88,7 @@ const Element = z.discriminatedUnion('key', [
   NoteElement,
   FastHealingElement,
   TempHPElement,
+  HealingBonusElement,
   CreatureSizeElement,
   BattleFormElement,
   AdjustDegreeOfSuccessElement,

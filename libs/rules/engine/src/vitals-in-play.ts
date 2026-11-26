@@ -4,6 +4,7 @@ import type {
   CreatureSizeElement,
   DamageType,
   FastHealingElement,
+  HealingBonusElement,
   ModifierValue,
   Origin,
   RuleValue,
@@ -38,6 +39,13 @@ export interface TemporaryHitPointsInPlay {
   readonly origins: readonly Origin[];
 }
 
+/** Hit Points a spell or effect adds to the first healing it gives: the most any element gives. */
+export interface HealingBonusInPlay {
+  readonly amount: HitPoints;
+  /** Every element that gives this amount, in the order found. */
+  readonly origins: readonly Origin[];
+}
+
 /** The character's size after its `CreatureSize` elements. */
 export interface SizeInPlay {
   readonly size: Size;
@@ -57,6 +65,8 @@ export interface VitalsInPlay {
   readonly recovery: readonly RecoveryInPlay[];
   /** Absent when no element gives temporary Hit Points. */
   readonly temporaryHitPoints?: TemporaryHitPointsInPlay;
+  /** Absent when no element adds Hit Points to healing from a spell or effect. */
+  readonly healingBonus?: HealingBonusInPlay;
   /** Absent when no element changes the size. */
   readonly size?: SizeInPlay;
 }
@@ -97,6 +107,9 @@ const isFastHealing = (element: RuleInPlay['element']): element is FastHealingEl
   element.key === RuleElementKey.FastHealing;
 
 const isTempHp = (element: RuleInPlay['element']): element is TempHPElement => element.key === RuleElementKey.TempHP;
+
+const isHealingBonus = (element: RuleInPlay['element']): element is HealingBonusElement =>
+  element.key === RuleElementKey.HealingBonus;
 
 const isCreatureSize = (element: RuleInPlay['element']): element is CreatureSizeElement =>
   element.key === RuleElementKey.CreatureSize;
@@ -157,7 +170,11 @@ function highest(given: readonly Given[]): Highest | undefined {
 }
 
 /** The amount, origin and deactivators a rule gives, none when its formula has no value or the value is below 1. */
-function givenBy(rule: Kind<FastHealingElement | TempHPElement>, scope: VitalsScope, rules: ModifierInputs): Given[] {
+function givenBy(
+  rule: Kind<FastHealingElement | HealingBonusElement | TempHPElement>,
+  scope: VitalsScope,
+  rules: ModifierInputs,
+): Given[] {
   const deactivatedBy = rule.element.key === RuleElementKey.FastHealing ? (rule.element.deactivatedBy ?? []) : [];
   const source = { value: rule.element.value, origin: rule.origin, item: itemScopeOf(rule), deactivatedBy };
 
@@ -227,7 +244,7 @@ function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given
 }
 
 /**
- * What the character's `FastHealing`, `TempHP` and `CreatureSize` elements give. An element whose predicate fails or
+ * What the character's `FastHealing`, `TempHP`, `HealingBonus` and `CreatureSize` elements give. An element whose predicate fails or
  * depends on the situation gives nothing on the sheet, and one whose formula has no value, or a value below 1, is
  * ignored. Recovery and temporary Hit Points do not add up (Player Core): of each kind the highest counts, with every
  * element that gives it as an origin. Sizes apply in the order found, a named size setting it and a number of steps
@@ -257,14 +274,15 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
     ...formTempHp(form, { scope, rules: inputs }),
   ]);
 
+  const bonus = highest(active(inputs, isHealingBonus).flatMap((rule) => givenBy(rule, scope, inputs)));
+
   const resizes = active(inputs, isCreatureSize);
 
-  const recovered: VitalsInPlay = { recovery };
-
-  const warmed: VitalsInPlay =
-    temp === undefined
-      ? recovered
-      : { ...recovered, temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } };
+  const warmed: VitalsInPlay = {
+    recovery,
+    ...(temp !== undefined && { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
+    ...(bonus !== undefined && { healingBonus: { amount: bonus.top.amount, origins: bonus.origins } }),
+  };
 
   return resizes.length === 0 && form?.form.size === undefined
     ? warmed

@@ -40,9 +40,6 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
     'rune:winged-greater',
     'an activation with no frequency, which the content has no place for (armour activations story)',
   ],
-  ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
   ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
 ]);
@@ -89,6 +86,13 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
 
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
+
+/** The Hit Points each moonweave grade adds to the first healing from a spell or effect. */
+const MOONWEAVE_HEALING: readonly (readonly [string, number])[] = [
+  ['rune:moonweave', 2],
+  ['rune:moonweave-greater', 5],
+  ['rune:moonweave-major', 10],
+];
 
 describe('armour property rune rules', () => {
   test('every recorded armour gap says why', () => {
@@ -145,5 +149,11 @@ describe('armour property rune rules', () => {
     const entry = RUNES.find((rune) => rune.slug === slug);
 
     expect(entry?.rules).toMatchObject([{ key: 'CriticalHitCheck', selectors: ['ac'], dc }]);
+  });
+
+  test.each(MOONWEAVE_HEALING)('%s adds %i Hit Points to the first healing from a spell or effect', (slug, amount) => {
+    const entry = RUNES.find((rune) => rune.slug === slug);
+
+    expect(entry?.rules).toMatchObject([{ key: 'HealingBonus', value: amount }]);
   });
 });

@@ -34,6 +34,8 @@ export const RuneFixture = {
   /** A weapon rune that grants the clumsy condition (as quickstrike grants quickened) while the weapon is wielded. */
   Quickstrike: 'quickstrike',
   /** Armour runes that shorten donning (the slugs are the real ready runes'). */
+  /** An armour rune that adds 2 Hit Points to the first healing from a spell or effect (the slug is the real rune's). */
+  Moonweave: 'moonweave',
   Ready: 'ready',
   ReadyGreater: 'ready-greater',
   /** A weapon rune that lets the weapon take the shape of another (the slug is the real shifting rune's). */
@@ -97,6 +99,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Quickstrike]: { ...weaponRune(), rules: [{ key: 'GrantItem', item: clumsyFixtureId() }] },
   [RuneFixture.Shifting]: weaponRune(),
   [RuneFixture.Crushing]: weaponRune('bludgeoning'),
+  [RuneFixture.Moonweave]: { ...armorRune(), rules: [{ key: 'HealingBonus', value: 2 }] },
   [RuneFixture.Ready]: armorRune(),
   [RuneFixture.ReadyGreater]: armorRune(),
   [RuneFixture.EnergyResistant]: armorRune(),
