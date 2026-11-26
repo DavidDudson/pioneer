@@ -81,7 +81,7 @@ export const wizard: StatisticInputs = StatisticInputsJson.parse({
 const DEFENCES = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'];
 
 /** Each Player Core skill and its key attribute. */
-export const SKILLS: Readonly<Record<string, Attribute>> = {
+export const SKILLS = {
   acrobatics: Attribute.Dexterity,
   arcana: Attribute.Intelligence,
   athletics: Attribute.Strength,

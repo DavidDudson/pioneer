@@ -32,7 +32,7 @@ function same(left: unknown, right: unknown): boolean {
 
 /** The members of `node` to look into: all of them, but a check's own `outcomes`, which are text. */
 function membersOf(node: JsonRecord): readonly (readonly [string, unknown])[] {
-  return Object.entries(node).filter(([key]) => !(key === 'outcomes' && isCheck(node)));
+  return Object.entries(node).filter(([key]) => !(key === 'outcomes' && node['type'] === InlineKind.Check));
 }
 
 /** `node` without the `outcomes` of any check in it. */

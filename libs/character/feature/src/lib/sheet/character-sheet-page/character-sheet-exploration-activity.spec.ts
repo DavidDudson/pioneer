@@ -7,6 +7,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { pickLoadedRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
@@ -23,7 +24,7 @@ const AVOID_NOTICE = 'c51e323a-8364-5dc1-89f7-4f3216a699a8';
 const openSheet = openerAt(SheetMode.Exploration, 'exploration-activity');
 
 /** The play state of a full-health character doing `exploration`, at `revision`. */
-function playWith(exploration: string | undefined, revision = 1): object {
+function playWith(exploration: string | undefined, revision = 1): JsonObject {
   const activity = exploration === undefined ? undefined : { exploration };
 
   return { revision, play: { hp: { damage: 0, temp: 0 }, ...activity } };

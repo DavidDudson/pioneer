@@ -14,6 +14,7 @@ import {
   grantItems,
   systemOf,
 } from './kind-fields';
+import type { Fields } from './translate-choice-reads';
 import { ANCESTRY_FEAT_LEVELS } from './translate-class';
 
 /**
@@ -88,7 +89,7 @@ function languagesOf({ value, custom }: FoundryLanguages, field: string, { refer
   });
 }
 
-function visionOf(vision: string, { references, log }: KindInput): object {
+function visionOf(vision: string, { references, log }: KindInput): Fields {
   if (vision === NORMAL_VISION) {
     return {};
   }

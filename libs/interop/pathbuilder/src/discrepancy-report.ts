@@ -91,12 +91,12 @@ export const RANKED_STATISTICS: Readonly<Record<string, Selector>> = Object.from
 export const SPELLCASTING = Selector.parse('spellcasting');
 
 /** Pathbuilder's key in `proficiencies` for the rank of each tradition. */
-const CASTING_KEYS: Readonly<Record<string, string>> = {
-  arcane: 'castingArcane',
-  divine: 'castingDivine',
-  occult: 'castingOccult',
-  primal: 'castingPrimal',
-};
+const CASTING_KEYS: ReadonlyMap<string, string> = new Map([
+  ['arcane', 'castingArcane'],
+  ['divine', 'castingDivine'],
+  ['occult', 'castingOccult'],
+  ['primal', 'castingPrimal'],
+]);
 
 export const ARMOR_CLASS = Selector.parse('ac');
 export const MAX_HIT_POINTS = Selector.parse('hp:max');
@@ -272,8 +272,8 @@ function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: Pioneer
   const traditions = [...new Set(spellDcs.map(({ tradition }) => tradition))];
 
   const given = traditions.flatMap((tradition): Proficiency[] => {
-    const number = value.reported.proficiencies[CASTING_KEYS[tradition] ?? ''];
-    const rank = number === undefined ? undefined : RANK_BY_NUMBER[number];
+    const number = value.reported.proficiencies[CASTING_KEYS.get(tradition) ?? ''];
+    const rank = number === undefined ? undefined : RANK_BY_NUMBER.get(number);
 
     return rank === undefined ? [] : [rank];
   });
@@ -287,7 +287,7 @@ function rankDifferences(value: PathbuilderImport, values: PioneerValues): [numb
   const compared: RankPair[] = [
     ...Object.entries(RANKED_STATISTICS).flatMap(([key, selector]): RankPair[] => {
       const number = value.reported.proficiencies[key];
-      const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER[number];
+      const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER.get(number);
       const pioneer = values.ranks.get(selector);
 
       return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];

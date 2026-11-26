@@ -55,5 +55,5 @@ export function slotEverythingFromQuery(params: QueryParams, slot: SlotKey): boo
 
 /** The query param that asks `slot`'s picker to show everything, or clears the ask. */
 export function slotEverythingToQuery(slot: SlotKey, on: boolean): Readonly<Record<string, string | undefined>> {
-  return { [`f.${slot}`]: on ? EVERYTHING : undefined };
+  return Object.fromEntries([[`f.${slot}`, on ? EVERYTHING : undefined]]);
 }

@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageAmount } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -17,7 +18,7 @@ const SENSATE = 'a bright flash of light';
 const text = (words: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A `Note` on `selector`, as a rune etched on a weapon gives it. */
-const etchedNote = (selector: string): object => ({ key: 'Note', selectors: [selector], text: text(SENSATE) });
+const etchedNote = (selector: string): RuleJson => ({ key: 'Note', selectors: [selector], text: text(SENSATE) });
 
 function numbers(strike: Strike | undefined): readonly number[] {
   return [Number(strike?.damage?.dice), ...(strike?.damage?.extra.map(({ count }) => Number(count)) ?? [])];
@@ -172,7 +173,7 @@ describe('Strike notes from rule elements', () => {
 
 const PICKED = { ...LONGSWORD, picked: ['edge'] };
 
-const spiritDice = (selectors: readonly string[]): object => ({
+const spiritDice = (selectors: readonly string[]): RuleJson => ({
   key: 'DamageDice',
   selectors,
   diceNumber: 1,
@@ -180,7 +181,7 @@ const spiritDice = (selectors: readonly string[]): object => ({
   damageType: 'spirit',
 });
 
-const statusBonus = (selector: string): object => ({
+const statusBonus = (selector: string): RuleJson => ({
   key: 'FlatModifier',
   selectors: [selector],
   type: 'status',

@@ -6,6 +6,7 @@ import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -16,7 +17,7 @@ const PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
 const CLOAK = '66666666-6666-4666-8666-666666666666';
 const openAtEncounter = openerAt(SheetMode.Encounter);
 
-async function openSheet(character: object): Promise<OpenSheet> {
+async function openSheet(character: JsonObject): Promise<OpenSheet> {
   return openAtEncounter(character, { packs: PACKS });
 }
 

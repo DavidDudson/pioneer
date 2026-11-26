@@ -136,7 +136,7 @@ if (gaps.length > 0) {
   throw new Error(`The plan skips what the change needs:\n- ${gaps.join('\n- ')}`);
 }
 
-const outputs: Readonly<Record<string, string>> = {
+const outputs = {
   base,
   fetch_base: String(base !== EMPTY_TREE),
   check: matrixOf(check),

@@ -17,7 +17,14 @@ const item = (rank: string, spells: string): object[] => [
   { type: 'paragraph', content: [text(rank, ['strong']), text(` ${spells}`)] },
 ];
 
-const list = (...items: readonly object[][]): object => ({ type: 'list', ordered: false, items });
+/** A list node as JSON. */
+interface ListNode {
+  readonly type: string;
+  readonly ordered: boolean;
+  readonly items: readonly (readonly object[])[];
+}
+
+const list = (...items: readonly object[][]): ListNode => ({ type: 'list', ordered: false, items });
 
 /** A Game Master Core entry of `kind`; the spells' data is what a spell needs. */
 function entry(slug: string, name: string, fields: object): ContentEntry {

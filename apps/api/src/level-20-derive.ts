@@ -8,11 +8,16 @@ import type { ContentRegistry, Selector } from '@pioneer/rules/sdk';
  * nothing, and Commander's eleven tactic choices have no tactics to pick from. Every other slot of every class is
  * filled.
  */
-const UNFILLABLE: Readonly<Record<string, number>> = { Monk: 1, Commander: 11 };
+const COMMANDER_UNFILLABLE = 11;
+
+const UNFILLABLE: ReadonlyMap<string, number> = new Map([
+  ['Monk', 1],
+  ['Commander', COMMANDER_UNFILLABLE],
+]);
 
 /** How many slots of the class `name` no build can fill yet. */
 export function unfillableSlots(name: string): number {
-  return UNFILLABLE[name] ?? 0;
+  return UNFILLABLE.get(name) ?? 0;
 }
 
 /** The whole derivation a sheet makes: the statistic inputs from the build and its gear, then every statistic. */

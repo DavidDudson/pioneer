@@ -1,6 +1,8 @@
 import { CORE_RULE_LIMITS, LIMIT_CEILINGS, RULE_LIMIT_FIELDS, RuleLimitSource } from '@pioneer/character/domain';
 import type { RuleLimitField } from '@pioneer/character/domain';
 
+import type { JsonObject } from './json-fixture';
+
 /** The limits some layer sets, by name. */
 type LimitNumbers = Partial<Record<RuleLimitField, number>>;
 
@@ -8,7 +10,7 @@ type LimitNumbers = Partial<Record<RuleLimitField, number>>;
  * The server's answer for a character's own table limits: the core rules' numbers, `variant` laid over them (what the
  * variant rules in force change), then `changed` (what the owner set).
  */
-export function ruleLimitSettingsOf(changed: LimitNumbers = {}, variant: LimitNumbers = {}): object {
+export function ruleLimitSettingsOf(changed: LimitNumbers = {}, variant: LimitNumbers = {}): JsonObject {
   return {
     decidedBy: 'character',
     manageable: true,

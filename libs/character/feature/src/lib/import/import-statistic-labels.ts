@@ -1,18 +1,18 @@
 import type { Selector } from '@pioneer/rules/sdk';
 
 /** Label key per statistic no statistic definition names: armor and weapon categories, casting and the focus pool. */
-const RANK_KEYS: Readonly<Record<string, string>> = {
-  'defense:unarmored': 'character.import.result.statistic.defenseUnarmored',
-  'defense:light': 'character.import.result.statistic.defenseLight',
-  'defense:medium': 'character.import.result.statistic.defenseMedium',
-  'defense:heavy': 'character.import.result.statistic.defenseHeavy',
-  'attack:unarmed': 'character.import.result.statistic.attackUnarmed',
-  'attack:simple': 'character.import.result.statistic.attackSimple',
-  'attack:martial': 'character.import.result.statistic.attackMartial',
-  'attack:advanced': 'character.import.result.statistic.attackAdvanced',
-  spellcasting: 'character.import.result.statistic.spellcasting',
-  'focus-points': 'character.import.result.statistic.focusPoints',
-};
+const RANK_KEYS: ReadonlyMap<string, string> = new Map([
+  ['defense:unarmored', 'character.import.result.statistic.defenseUnarmored'],
+  ['defense:light', 'character.import.result.statistic.defenseLight'],
+  ['defense:medium', 'character.import.result.statistic.defenseMedium'],
+  ['defense:heavy', 'character.import.result.statistic.defenseHeavy'],
+  ['attack:unarmed', 'character.import.result.statistic.attackUnarmed'],
+  ['attack:simple', 'character.import.result.statistic.attackSimple'],
+  ['attack:martial', 'character.import.result.statistic.attackMartial'],
+  ['attack:advanced', 'character.import.result.statistic.attackAdvanced'],
+  ['spellcasting', 'character.import.result.statistic.spellcasting'],
+  ['focus-points', 'character.import.result.statistic.focusPoints'],
+]);
 
 const SPELL_DC_PREFIX = 'spell-dc:';
 const SPELL_SLOTS_PREFIX = 'spell-slots:';
@@ -31,7 +31,7 @@ export interface StatisticLabel {
  * message; every other row shows its definition's `name`, or its selector when the engine could not derive it.
  */
 export function statisticLabel(selector: Selector, name: string | undefined): StatisticLabel {
-  const key = RANK_KEYS[selector];
+  const key = RANK_KEYS.get(selector);
 
   if (key !== undefined) {
     return { key, params: {} };

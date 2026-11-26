@@ -9,7 +9,7 @@ import { contentCatalog } from './index';
  * Every id the TypeScript packs had when they moved to `content/packs` (#323), as kind-prefixed slugs (ADR-0034)
  * renamed them. Ids are stored on characters, so a pack edit that changes one is a data migration, not a JSON change.
  */
-const PINNED_IDS: Readonly<Record<string, string>> = {
+const PINNED_IDS = {
   'core-rules/statistic:acrobatics': 'a6e7e63b-84e0-54eb-90db-dad5349cc11a',
   'core-rules/statistic:arcana': 'a696ec98-9f99-54e7-b01f-8492aeda31e3',
   'core-rules/statistic:armor-class': '7737d8ba-61d5-58d1-9215-46987c2bb483',

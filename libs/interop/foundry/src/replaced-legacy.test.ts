@@ -9,6 +9,7 @@ import type { ReplacedLegacy } from './replaced-legacy';
 import { selectReplacedLegacy, SkipReason } from './select-entries';
 import type { Selection } from './select-entries';
 import { LEGACY } from './testing/legacy';
+import type { Fields } from './translate-choice-reads';
 
 const ROOT = 'pf2e-5.16.1';
 const guide = BookId.parse('advanced-players-guide');
@@ -20,7 +21,7 @@ const manifest = {
   languages: [{ lang: 'en', name: 'Main (English)', path: 'lang/en.json' }],
 };
 
-function feat(name: string, title: string, remaster = false): object {
+function feat(name: string, title: string, remaster = false): Fields {
   const publication = { title, license: 'OGL', remaster };
 
   return { _id: `${name}Id`, name, type: 'feat', img: 'icon.webp', system: { publication, rules: [] } };

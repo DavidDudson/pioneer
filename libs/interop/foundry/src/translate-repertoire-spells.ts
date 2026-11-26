@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import sourceTable from './repertoire-spells.json';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * The spontaneous entries and repertoire spells of Player Core 2's sorcerer bloodlines and oracle mysteries, as
@@ -72,7 +73,7 @@ interface Named {
 type Resolve = (gifts: readonly Gift[]) => readonly Named[];
 
 /** The sorcerer's entry in `tradition`, which the bloodline (or its draconic exemplar) names, holding while `predicate` does. */
-function sorcererEntry(tradition: string, predicate?: readonly unknown[]): object {
+function sorcererEntry(tradition: string, predicate?: readonly unknown[]): Fields {
   return {
     key: RuleElementKey.SpellcastingEntry,
     slug: SORCERER,
@@ -84,7 +85,7 @@ function sorcererEntry(tradition: string, predicate?: readonly unknown[]): objec
 }
 
 /** A `ChoiceSet` under the pick's flag, whose answer becomes the roll option `<flag>:<value>`. */
-function choiceSet({ flag, prompt, options }: Pick): object {
+function choiceSet({ flag, prompt, options }: Pick): Fields {
   return {
     key: RuleElementKey.ChoiceSet,
     flag,
@@ -126,7 +127,7 @@ function repertoire(entry: string, spells: readonly Named[], predicate?: readonl
  * The deity Divine Access picks (ADR-0063): a `ChoiceSet` offering the deities that grant one of the mystery's domains,
  * primary or alternate, from the level the feature arrives at.
  */
-function divineAccessDeity(domains: readonly string[]): object {
+function divineAccessDeity(domains: readonly string[]): Fields {
   return {
     key: RuleElementKey.ChoiceSet,
     flag: DIVINE_ACCESS_DEITY,

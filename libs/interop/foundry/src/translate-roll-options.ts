@@ -1,5 +1,6 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 
+import type { Fields } from './translate-choice-reads';
 import { namespaced, selectorOf } from './translate-modifiers';
 
 /**
@@ -15,7 +16,7 @@ const PLACEMENT_FIELDS: ReadonlySet<string> = new Set(['alwaysActive', 'placemen
 /** What Foundry writes in a suboption's label for the name of the item the suboption is on. */
 const ITEM_NAME = '{item|name}';
 
-function suboptionOf(suboption: unknown, item: string): unknown {
+function suboptionOf<Raw>(suboption: Raw, item: string): Raw | Fields {
   if (typeof suboption !== 'object' || suboption === null || !('label' in suboption)) {
     return suboption;
   }
@@ -51,7 +52,7 @@ function shapedField(field: string, value: unknown, item: string): unknown {
   }
 
   if (field === 'suboptions' && Array.isArray(value)) {
-    return value.map((suboption) => suboptionOf(suboption, item));
+    return value.map((suboption: unknown) => suboptionOf(suboption, item));
   }
 
   return value;

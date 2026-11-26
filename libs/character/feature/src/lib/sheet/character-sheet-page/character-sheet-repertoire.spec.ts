@@ -3,6 +3,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
@@ -22,7 +23,7 @@ function playerCore2(slug: string): string {
 }
 
 /** Merisiel as a bard of `level`, with `choices` picked besides. */
-function bard(level: number, choices: Readonly<Record<string, string>> = {}): object {
+function bard(level: number, choices: Readonly<Record<string, string>> = {}): JsonObject {
   return {
     ...MERISIEL,
     level,
@@ -159,7 +160,7 @@ describe('CharacterSheetPage spell details', () => {
 });
 
 /** Merisiel as a demonic sorcerer of `level`. */
-function demonicSorcerer(level: number): object {
+function demonicSorcerer(level: number): JsonObject {
   const choices = {
     ...MERISIEL.build.choices,
     class: playerCore2('class:sorcerer'),

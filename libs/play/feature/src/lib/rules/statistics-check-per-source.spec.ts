@@ -3,11 +3,12 @@ import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { JsonObject } from './example-json';
 import { checkStatistics, EXAMPLE_STATISTIC_INPUTS, StatisticsStatus } from './statistics-check';
 import type { StatisticsCheck } from './statistics-check';
 
 /** A statistic derived once per `per`, with no domains. */
-const perSource = (selector: string, per: string, base: string): object => ({
+const perSource = (selector: string, per: string, base: string): JsonObject => ({
   slug: `statistic:${selector.replaceAll(':', '-')}`,
   name: selector,
   selector,
@@ -18,7 +19,7 @@ const perSource = (selector: string, per: string, base: string): object => ({
 });
 
 /** The statistics tool on `definitions`, the example inputs and no rule elements. */
-function check(definitions: readonly object[]): StatisticsCheck {
+function check(definitions: readonly JsonObject[]): StatisticsCheck {
   const texts = { inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '' };
 
   return checkStatistics(
@@ -116,19 +117,19 @@ const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effec
 
 /** The example inputs with the longsword's potency set to `grade`. */
 function withPotency(grade: number): string {
-  const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: object[] };
+  const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: JsonObject[] };
   const [first, ...rest] = inputs.weapons;
 
   return JSON.stringify({ ...inputs, weapons: [{ ...first, potency: grade }, ...rest] });
 }
 
 /** A typed item bonus of `value` to the longsword's Strike. */
-function itemBonus(value: number): object {
+function itemBonus(value: number): JsonObject {
   return { key: 'FlatModifier', selectors: ['strike:longsword'], type: 'item', value };
 }
 
 /** The longsword's Strike row with `rules` in play. */
-function longsword(rules: readonly object[], inputs = EXAMPLE_STATISTIC_INPUTS): unknown {
+function longsword(rules: readonly JsonObject[], inputs = EXAMPLE_STATISTIC_INPUTS): unknown {
   const texts = { inputs, rules: JSON.stringify(rules), overrides: '[]', facts: '' };
   const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
 

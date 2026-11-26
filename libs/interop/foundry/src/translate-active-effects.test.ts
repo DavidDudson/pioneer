@@ -3,9 +3,10 @@ import { describe, expect, test } from 'bun:test';
 import { RuleElement } from '@pioneer/rules/sdk';
 
 import { withActiveEffect } from './translate-active-effects';
+import type { Fields } from './translate-choice-reads';
 
 /** Foundry's `ActiveEffectLike` with `fields`. */
-function effect(fields: object): object {
+function effect(fields: object): Fields {
   return { key: 'ActiveEffectLike', ...fields };
 }
 

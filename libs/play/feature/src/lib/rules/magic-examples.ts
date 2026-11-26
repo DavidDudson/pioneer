@@ -1,14 +1,15 @@
 import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
+import { paragraph } from './example-json';
+import type { JsonObject } from './example-json';
+
 const PLAYER_CORE = PackId.parse('player-core');
 
 /** Examples cite page 1, like the other playground examples; the importer fills real pages. */
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 
-const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
-
 /** The envelope fields every Player Core example shares. */
-function playerCore(slug: string, name: string, description: string): object {
+function playerCore(slug: string, name: string, description: string): JsonObject {
   return {
     id: contentId(PLAYER_CORE, EntrySlug.parse(slug)),
     pack: PLAYER_CORE,

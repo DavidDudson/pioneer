@@ -26,8 +26,8 @@ describe('filterOf', () => {
   });
 });
 
-const AFFECTED_BY_PROJECT: Readonly<Record<string, readonly string[]>> = { api: ['api'] };
-const onlyApi: AffectedIn = async ({ projects }) => AFFECTED_BY_PROJECT[projects ?? ''] ?? [];
+const AFFECTED_BY_PROJECT: ReadonlyMap<string, readonly string[]> = new Map([['api', ['api']]]);
+const onlyApi: AffectedIn = async ({ projects }) => AFFECTED_BY_PROJECT.get(projects ?? '') ?? [];
 const everything: AffectedIn = async () => ['shared-kernel'];
 const nothing: AffectedIn = async () => [];
 

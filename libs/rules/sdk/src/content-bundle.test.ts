@@ -28,8 +28,23 @@ function lengthHash(json: CanonicalJson): BundleHash {
   return BundleHash.parse(json.length.toString(16).padStart(16, '0'));
 }
 
+/** A language entry as JSON. */
+interface LanguageFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
 /** A language entry; `slug` is its name, or a whole slug for a fixture that changes the kind. */
-function language(slug: string, name: string): object {
+function language(slug: string, name: string): LanguageFixture {
   const full = slug.includes(':') ? slug : `language:${slug}`;
 
   return {

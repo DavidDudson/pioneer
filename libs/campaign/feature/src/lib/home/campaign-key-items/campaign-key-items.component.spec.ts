@@ -9,6 +9,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { campaignRoutes } from '../../campaign.routes';
+import type { JsonObject } from '../../testing/json-fixture';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 import { caliburn, campaign, gmMember, id, keyItems, kyra, mordred, party } from './campaign-key-items.fixtures';
 
@@ -51,7 +52,7 @@ function pickLabel(picker: Picker<string, object>, label: string): void {
 }
 
 /** Opens the campaign home as its GM or as a player, answering the key items load with `items`. */
-async function open(items: object, gm: boolean): Promise<HTMLElement> {
+async function open(items: JsonObject, gm: boolean): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),
@@ -95,8 +96,8 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
 }
 
 /** Caliburn held by Kyra, and Excalibur in the party stash. */
-function twoKeyItems(): object {
-  const [held] = (keyItems('kyra', false) as { keyItems: object[] }).keyItems;
+function twoKeyItems(): JsonObject {
+  const [held = {}] = (keyItems('kyra', false) as { keyItems: JsonObject[] }).keyItems;
 
   const stashed = {
     ...held,
@@ -230,7 +231,7 @@ describe('CampaignKeyItemsPanel', () => {
         manageable: true,
         keyItems: [
           {
-            ...(keyItems('kyra') as { keyItems: object[] }).keyItems[0],
+            ...(keyItems('kyra') as { keyItems: JsonObject[] }).keyItems[0],
             holder: mordred,
             holderName: 'Mordred',
           },

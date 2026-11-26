@@ -3,6 +3,7 @@ import { present } from '@pioneer/shared/kernel';
 
 import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
+import type { Fields } from './translate-choice-reads';
 import { focusSpellRules } from './translate-focus-spells';
 import { innateSpellRules } from './translate-innate-spells';
 import { poolSpellRules } from './translate-pool-spells';
@@ -25,12 +26,12 @@ interface EntryFields {
 
 const RANK_SELECTOR = 'spellcasting';
 
-function entry(fields: EntryFields): object {
+function entry(fields: EntryFields): Fields {
   return { key: RuleElementKey.SpellcastingEntry, ...fields };
 }
 
 /** Raises the character's one spellcasting rank, which every entry's spell attack and DC read. */
-function raise(rank: string, predicate?: readonly unknown[]): object {
+function raise(rank: string, predicate?: readonly unknown[]): Fields {
   return {
     key: RuleElementKey.Proficiency,
     selector: RANK_SELECTOR,
@@ -60,7 +61,7 @@ function patron(tradition: string): readonly object[] {
 const DIVINE = 'divine';
 
 /** Holds for a cleric of `doctrine` from `level` on. */
-function doctrineFrom(doctrine: string, level: number): object {
+function doctrineFrom(doctrine: string, level: number): Fields {
   return { and: [`feature:${doctrine}`, { gte: ['self:level', level] }] };
 }
 

@@ -7,6 +7,7 @@ import type { ClassPickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openFeatTable, stubTableLayout } from '../../testing/feat-table-testing';
+import type { JsonObject } from '../../testing/json-fixture';
 import { backgroundRowsShown, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
@@ -51,7 +52,7 @@ const CLERIC_SLOT = {
 const AS_CLERIC = { packs: PACKS, slots: [CLERIC_SLOT] };
 
 /** Merisiel as a 1st-level cleric, with `choices` picked besides. */
-function cleric(choices: Readonly<Record<string, string>> = {}): object {
+function cleric(choices: Readonly<Record<string, string>> = {}): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), ...choices } },
@@ -59,7 +60,7 @@ function cleric(choices: Readonly<Record<string, string>> = {}): object {
 }
 
 /** Merisiel as a 1st-level fighter, with `choices` picked besides. */
-function fighter(choices: Readonly<Record<string, string>> = {}): object {
+function fighter(choices: Readonly<Record<string, string>> = {}): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('fighter'), ...choices } },

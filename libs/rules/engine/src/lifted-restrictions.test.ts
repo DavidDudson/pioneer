@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, RollOption, Slug } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { liftedRestrictions } from './lifted-restrictions';
 import type { LiftedRestriction } from './lifted-restrictions';
@@ -10,7 +11,7 @@ import { inPlay } from './testing';
 
 const UNDERWATER = ContentId.parse('3b0e2f0e-86b6-5b1b-a0f2-0b1f6d3f6a11');
 
-const lift = (restriction: string, extra: object = {}): object => ({ key: 'LiftRestriction', restriction, ...extra });
+const lift = (restriction: string, extra: object = {}): RuleJson => ({ key: 'LiftRestriction', restriction, ...extra });
 
 function liftedBy(
   placed: readonly (readonly [object, string])[],

@@ -47,7 +47,7 @@ const TARGET_MESSAGES: Readonly<Record<TargetValue, string>> = {
 /** What a spell is cast in: an action count, a free action, a reaction, or a time of minutes or longer. */
 const TIME = 'time';
 
-const ACTION_MESSAGES: Readonly<Record<string, string>> = {
+const ACTION_MESSAGES = {
   [ActionCost.One]: 'rules.facet.castActions.one',
   [ActionCost.Two]: 'rules.facet.castActions.two',
   [ActionCost.Three]: 'rules.facet.castActions.three',
@@ -187,16 +187,14 @@ export function spellFilterFromQuery(params: QueryParams): SpellPicks {
 
 /** The query params that put `filter` in the URL, with every group it leaves out cleared. */
 export function spellFilterToQuery(filter: SpellPicks): Readonly<Record<string, readonly string[] | undefined>> {
-  return {
-    ...SPELL_FILTER_CLEARED,
-    ...Object.fromEntries(
-      GROUPS.flatMap((group): [string, readonly string[]][] => {
-        const picked = filter.get(group);
+  return Object.fromEntries([
+    ...Object.entries(SPELL_FILTER_CLEARED),
+    ...GROUPS.flatMap((group): [string, readonly string[]][] => {
+      const picked = filter.get(group);
 
-        return picked === undefined || picked.size === 0 ? [] : [[paramOf(group), [...picked].toSorted()]];
-      }),
-    ),
-  };
+      return picked === undefined || picked.size === 0 ? [] : [[paramOf(group), [...picked].toSorted()]];
+    }),
+  ]);
 }
 
 /** `filter` with the group named `group` picking `selected`; a group with none picked leaves the filter, and an unknown group changes nothing. */

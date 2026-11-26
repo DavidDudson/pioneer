@@ -51,7 +51,17 @@ const UNARMORED_PROFICIENCY = 'unarmored';
 const CLOTHING = "Explorer's Clothing";
 
 /** "greater" and "major" prefix a rune word; the plain word is grade 1. */
-const RUNE_GRADES: Readonly<Record<string, number>> = { '': 1, greater: 2, major: 3, true: 4 };
+const GREATER_GRADE = 2;
+const MAJOR_GRADE = 3;
+const TRUE_GRADE = 4;
+
+const RUNE_GRADES: ReadonlyMap<string, number> = new Map([
+  ['', 1],
+  ['greater', GREATER_GRADE],
+  ['major', MAJOR_GRADE],
+  ['true', TRUE_GRADE],
+]);
+
 const RUNE_WORD = /^(?<prefix>greater|major|true)?(?<rune>striking|resilient)$/iu;
 
 type FundamentalWord = 'striking' | 'resilient';
@@ -60,7 +70,7 @@ type FundamentalWord = 'striking' | 'resilient';
 function runeGrade(word: string | null | undefined, rune: FundamentalWord): number | undefined {
   const groups = RUNE_WORD.exec(word ?? '')?.groups;
 
-  return groups?.['rune']?.toLowerCase() === rune ? RUNE_GRADES[(groups['prefix'] ?? '').toLowerCase()] : undefined;
+  return groups?.['rune']?.toLowerCase() === rune ? RUNE_GRADES.get((groups['prefix'] ?? '').toLowerCase()) : undefined;
 }
 
 /** The runes Pathbuilder wrote on one weapon or armour row. */

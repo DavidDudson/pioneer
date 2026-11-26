@@ -156,8 +156,23 @@ interface Scalars {
   readonly rarity: Rarity;
 }
 
-function failed(value: unknown): value is Failed {
-  return typeof value === 'object' && value !== null && 'reason' in value;
+/** Anything the envelope's steps produce: each value, or the failure that stopped it. */
+type Outcome =
+  | Failed
+  | EntrySlug
+  | ContentText
+  | ContentLevel
+  | Level
+  | Rarity
+  | Identity
+  | Scalars
+  | Translated
+  | Done
+  | EnvelopeFailure
+  | undefined;
+
+function failed(value: Outcome): value is Failed {
+  return typeof value === 'object' && 'reason' in value;
 }
 
 function slugOf(text: string): EntrySlug | Failed {

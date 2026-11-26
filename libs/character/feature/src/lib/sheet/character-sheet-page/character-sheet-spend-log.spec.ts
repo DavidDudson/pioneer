@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -15,7 +16,7 @@ const ACTION = '00000000-0000-4000-8000-0000000000aa';
 const TURN = { phase: 'turn', actions: 1, quickened: 0, reactionUsed: false };
 
 /** The play state of a full-health character in a turn with `spendLog`, at `revision`. */
-function playWith(spendLog: readonly object[], revision = 1): object {
+function playWith(spendLog: readonly JsonObject[], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, spendLog } };
 }
 

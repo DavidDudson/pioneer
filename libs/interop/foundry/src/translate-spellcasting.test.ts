@@ -15,6 +15,7 @@ import {
   WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
+import type { Fields } from './translate-choice-reads';
 import type { ImportTranslation } from './translate-import';
 
 const { SpellcastingEntry: Entry, Proficiency, SpellSlots, ChoiceSet, FocusSpells } = RuleElementKey;
@@ -28,7 +29,7 @@ function castingRules(translation: ImportTranslation, name: string): unknown[] {
 }
 
 /** Holds for a cleric of `doctrine` from `level` on. */
-function from(doctrine: string, level: number): object {
+function from(doctrine: string, level: number): Fields {
   return { and: [`feature:${doctrine}`, { gte: ['self:level', level] }] };
 }
 

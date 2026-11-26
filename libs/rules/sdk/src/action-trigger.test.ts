@@ -24,7 +24,26 @@ const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
-function entry(slug: string, name: string): object {
+/** The fields every entry carries, before its kind and data. */
+interface Envelope {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+}
+
+/** An entry with its kind and data. */
+interface KindedEntry extends Envelope {
+  readonly kind: string;
+  readonly data: object;
+}
+
+function entry(slug: string, name: string): Envelope {
   return {
     id: idOf(slug),
     pack: PACK,
@@ -41,7 +60,7 @@ function entry(slug: string, name: string): object {
 const afterFocusSpell = { event: 'cast-spell', predicate: ['item:trait:focus'] };
 
 /** A free action that fires after a focus spell, with `data` merged over its own. */
-function action(data: object = {}): object {
+function action(data: object = {}): KindedEntry {
   return {
     ...entry('action:focused-step', 'Focused Step'),
     kind: 'action',
@@ -50,7 +69,7 @@ function action(data: object = {}): object {
 }
 
 /** An effect that fires at the start of the bearer's turn, with `data` merged over its own. */
-function effect(data: object = {}): object {
+function effect(data: object = {}): KindedEntry {
   return {
     ...entry('effect:effect-renewal', 'Effect: Renewal'),
     kind: 'effect',

@@ -16,8 +16,23 @@ function issues(value: unknown): readonly FieldIssue[] {
 const PACK = 'player-core';
 const SLUG = 'spell:heal';
 
+/** A spell as JSON. */
+interface SpellFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
 /** Heal, with `data` laid over its own. */
-function heal(data: object): object {
+function heal(data: object): SpellFixture {
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(SLUG)),
     pack: PACK,

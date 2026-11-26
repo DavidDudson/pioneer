@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { AonSupersedesFile, ContentEntryFile, ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 
+import type { EntryJson } from './entry-json.ts';
 import { enrichSupersedesText, supersedesLinks } from './supersedes-enrichment.ts';
 import type { SupersedesEnrichedFile } from './supersedes-enrichment.ts';
 
@@ -11,7 +12,7 @@ const aonOf = (id: number): string => `https://2e.aonprd.com/Spells.aspx?ID=${id
 const idOf = (slug: string): ContentId => ContentId.parse(contentId(PACK, EntrySlug.parse(slug)));
 
 /** A spell as a pack file holds it, citing the AoN URL `aon`, with its other fields as `extra`. */
-function spell(slug: string, aon: string, extra: object = {}): object {
+function spell(slug: string, aon: string, extra: object = {}): EntryJson {
   return {
     id: idOf(slug),
     pack: PACK,

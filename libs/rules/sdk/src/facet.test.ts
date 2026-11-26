@@ -10,7 +10,6 @@ import { EntryCount, facetCounts, filterEntries, onlyValue, SelectionKind } from
 import type { FacetCounts, FacetSelection, FilterState } from './facet-filter';
 import { FeatCategory } from './feat';
 import { filterFromQuery, filterToQuery } from './filter-query';
-import type { FilterQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
 import { SPELL_FACETS } from './spell-facets';
 
@@ -87,8 +86,6 @@ function pairs(counts: readonly FacetCounts[], id: string): (readonly [string, n
 
   return (found?.values ?? []).map(({ value, count }) => [value, count]);
 }
-
-const plainQuery = (query: FilterQuery): Record<string, string> => ({ ...query });
 
 const fire = entry({ slug: 'fire', level: 1, traits: ['fire', 'evocation'] });
 const cold = entry({ slug: 'cold', level: 3, rarity: 'uncommon', traits: ['cold'] });
@@ -225,12 +222,15 @@ describe('query params', () => {
       COMMON_FACETS,
     );
 
-    expect(plainQuery(query)).toStrictEqual({ 'f.level': '1..', 'f.traits': 'cold,fire,!evil' });
+    expect<Readonly<Record<string, string>>>({ ...query }).toStrictEqual({
+      'f.level': '1..',
+      'f.traits': 'cold,fire,!evil',
+    });
   });
 
   test('reads its own params back', () => {
     const read = filterFromQuery({ 'f.traits': 'fire,!evil', 'f.level': '..5', page: '2' }, COMMON_FACETS);
-    expect(plainQuery(filterToQuery(read, COMMON_FACETS))).toStrictEqual({
+    expect<Readonly<Record<string, string>>>({ ...filterToQuery(read, COMMON_FACETS) }).toStrictEqual({
       'f.level': '..5',
       'f.traits': 'fire,!evil',
     });
@@ -249,7 +249,7 @@ describe('query params', () => {
       COMMON_FACETS,
     );
 
-    expect(plainQuery(filterToQuery(read, COMMON_FACETS))).toStrictEqual({
+    expect<Readonly<Record<string, string>>>({ ...filterToQuery(read, COMMON_FACETS) }).toStrictEqual({
       'f.rarity': 'common,!rare',
       'f.traits': '!ok',
       'f.pack': 'player-core',

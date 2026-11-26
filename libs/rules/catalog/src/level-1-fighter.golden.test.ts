@@ -69,8 +69,8 @@ function overrideText({ phase, mode, value, result, status }: OverrideLine): str
 }
 
 /** Every statistic, as checked; a statistic that fails throws with its error key. */
-function checked(results: ReadonlyMap<Selector, StatisticResult>): Record<string, Checked> {
-  return Object.fromEntries(
+function checked(results: ReadonlyMap<Selector, StatisticResult>): ReadonlyMap<string, Checked> {
+  return new Map(
     [...results].map(([selector, result]): [string, Checked] => {
       if (!result.ok) {
         throw new Error(`${selector} failed: ${result.error.key}`);
@@ -136,7 +136,7 @@ function statistic(terms: readonly Term[], lines: readonly string[] = [], added 
 }
 
 /** The fighter's breakdowns, with proficiency bonuses from `table`. */
-function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
+function golden({ bonus, mark }: ProficiencyTable): ReadonlyMap<string, Checked> {
   const prof = (formula: string, rank: Proficiency): Term => term(formula, bonus[rank], mark);
   // Scale mail's check penalty is inactive on the Strength- and Dexterity-based skills: its Strength is met.
   const checkPenalty = [`item ${SCALE_MAIL_CHECK_PENALTY} inactive (scale-mail)`];
@@ -147,7 +147,7 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
   const ten = term('10', AC_BASE);
   const { Untrained, Trained, Expert } = Proficiency;
 
-  return {
+  const breakdowns = {
     // Dexterity +1 is under scale mail's +2 cap. Scale mail's bonus applies; the shield is not raised.
     ac: statistic(
       [ten, attribute('dex', '@attr.dex.capped'), prof('@prof.ac', Trained)],
@@ -207,10 +207,12 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
       ]),
     ),
   };
+
+  return new Map(Object.entries(breakdowns));
 }
 
-function totals(sheet: Record<string, Checked>): Record<string, number> {
-  return Object.fromEntries(Object.entries(sheet).map(([selector, { total }]) => [selector, total]));
+function totals(sheet: ReadonlyMap<string, Checked>): Record<string, number> {
+  return Object.fromEntries([...sheet].map(([selector, { total }]) => [selector, total]));
 }
 
 const facts = level1FighterFacts();
@@ -278,15 +280,15 @@ describe('Level 1 Fighter (golden)', () => {
     const unmet = checked(deriveStatistics(core, level1Fighter, { rules: level1FighterRules, facts: noFacts() }));
     const checkPenalty = [`item ${SCALE_MAIL_CHECK_PENALTY} applied (scale-mail)`];
     // Each total is the sheet's less 2; land Speed is 25 less 5.
-    expect(unmet['skill:acrobatics']).toMatchObject({ lines: checkPenalty, total: 2 });
-    expect(unmet['skill:athletics']).toMatchObject({ lines: checkPenalty, total: 5 });
-    expect(unmet['skill:stealth']).toMatchObject({ lines: checkPenalty, total: -1 });
-    expect(unmet['skill:thievery']).toMatchObject({ lines: checkPenalty, total: -1 });
-    expect(unmet['speed:land']).toMatchObject({
+    expect(unmet.get('skill:acrobatics')).toMatchObject({ lines: checkPenalty, total: 2 });
+    expect(unmet.get('skill:athletics')).toMatchObject({ lines: checkPenalty, total: 5 });
+    expect(unmet.get('skill:stealth')).toMatchObject({ lines: checkPenalty, total: -1 });
+    expect(unmet.get('skill:thievery')).toMatchObject({ lines: checkPenalty, total: -1 });
+    expect(unmet.get('speed:land')).toMatchObject({
       lines: [`item ${SCALE_MAIL_SPEED_PENALTY} applied (scale-mail)`],
       total: 20,
     });
     // Skills keyed to other attributes take no check penalty.
-    expect(unmet['skill:medicine']).toStrictEqual(derived['skill:medicine']);
+    expect(unmet.get('skill:medicine')).toStrictEqual(derived.get('skill:medicine'));
   });
 });

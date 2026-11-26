@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -18,7 +19,7 @@ const PLAY_URL = `/api/characters/${id}/play`;
 const PACKS = cutTo([...FEAT_CONTENT_KINDS, ...SPELL_CONTENT_KINDS]);
 
 /** Merisiel as a `name`: a bard casts spontaneously and has focus spells, a cleric prepares and has none at level 1. */
-function as(name: 'bard' | 'cleric'): object {
+function as(name: 'bard' | 'cleric'): JsonObject {
   return {
     ...MERISIEL,
     build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId(name) }, spellAccess: [] },
@@ -26,7 +27,7 @@ function as(name: 'bard' | 'cleric'): object {
 }
 
 /** The play state of a full-health character with `resources` spent, at `revision`. */
-function spentOf(resources: object, revision = 1): object {
+function spentOf(resources: JsonObject, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, resources } };
 }
 
@@ -46,7 +47,7 @@ function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
   return present(buttons.find((button) => textOf(button) === name));
 }
 
-async function openSpells(character: object, resources: object = {}): Promise<OpenSheet> {
+async function openSpells(character: JsonObject, resources: JsonObject = {}): Promise<OpenSheet> {
   return openSheet(character, {
     tab: SheetMode.Encounter,
     section: 'spellcasting',

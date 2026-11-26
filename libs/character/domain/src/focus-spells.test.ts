@@ -12,14 +12,15 @@ import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /** A focus entry with `slug`, as a class feature's `SpellcastingEntry` element. */
-function focusEntry(slug: string, tradition = 'divine'): object {
+function focusEntry(slug: string, tradition = 'divine'): JsonObject {
   return { key: 'SpellcastingEntry', slug, tradition, attribute: 'wis', preparation: 'focus' };
 }
 
 /** A `FocusSpells` element naming `ids` on `entry`, holding while `predicate` does. */
-function knows(entry: string, ids: readonly string[], predicate?: readonly string[]): object {
+function knows(entry: string, ids: readonly string[], predicate?: readonly string[]): JsonObject {
   const element = { key: 'FocusSpells', entry, spells: ids };
 
   return predicate === undefined ? element : { ...element, predicate };
@@ -139,7 +140,7 @@ for (const [, spell] of DOMAIN_SPELLS) {
 const twiceSpell = (name: string): string => twice.idOf(ContentKind.Spell, name);
 const REPEATABLE_INITIATE = twice.idOf(ContentKind.Feat, 'domain-initiate');
 
-const featSlot = (flag: string): object => ({
+const featSlot = (flag: string): JsonObject => ({
   key: 'ChoiceSet',
   flag,
   choices: [{ value: REPEATABLE_INITIATE, label: 'Domain Initiate' }],
@@ -237,7 +238,7 @@ const casters = new ContentPackBuilder().withId('pool');
 const poolSpell = (name: string): string => casters.idOf(ContentKind.Spell, name);
 const UNLOADED = '00000000-0000-4000-8000-0000000000f0';
 
-const CASTERS: readonly (readonly [string, readonly object[]])[] = [
+const CASTERS: readonly (readonly [string, readonly JsonObject[]])[] = [
   ['two', [focusEntry('bard-focus'), knows('bard-focus', [poolSpell('one'), poolSpell('two')])]],
   [
     'four',

@@ -4,16 +4,48 @@ import { array, assert, boolean, constantFrom, property, record } from 'fast-che
 
 import { addOutcomesToText, mergeDescription, withoutOutcomes } from './apply-outcomes.ts';
 
-const plain = (value: string): unknown => ({ type: 'text', text: value });
+/** The rich-text nodes and the entry the fixtures build, as a kind file holds them. */
+interface TextJson {
+  readonly type: string;
+  readonly text: string;
+}
+
+interface CheckJson {
+  readonly type: string;
+  readonly statistic: string;
+  readonly dc: number;
+}
+
+interface CheckExtras {
+  readonly basic?: boolean;
+  readonly statistic?: string;
+  readonly dc?: number;
+  readonly outcomes?: object;
+}
+
+interface ParagraphJson {
+  readonly type: string;
+  readonly content: readonly unknown[];
+}
+
+interface OutcomeEntryJson {
+  readonly id: string;
+  readonly pack: string;
+  readonly slug: string;
+  readonly rules: readonly object[];
+  readonly description: unknown;
+}
+
+const plain = (value: string): TextJson => ({ type: 'text', text: value });
 const success = [plain('You are unharmed.')];
 const failure = [plain('You are slowed.')];
 const NO_COUNTS = { added: 0, kept: 0, ambiguous: 0 };
 
-function check(extra: Record<string, unknown> = {}): unknown {
+function check(extra: CheckExtras = {}): CheckJson {
   return { type: 'check', statistic: 'save:reflex', dc: 20, ...extra };
 }
 
-function paragraph(...content: unknown[]): unknown {
+function paragraph(...content: unknown[]): ParagraphJson {
   return { type: 'paragraph', content };
 }
 
@@ -24,7 +56,7 @@ function described(first: unknown): readonly unknown[] {
   return [paragraph(plain('Attempt '), first), paragraph(label, plain(' You are unharmed.'))];
 }
 
-function entry(id: string, description: unknown): Record<string, unknown> {
+function entry(id: string, description: unknown): OutcomeEntryJson {
   return { id, pack: 'p', slug: `slug-${id}`, rules: [{ effect: 'e', predicate: ['x'] }], description };
 }
 

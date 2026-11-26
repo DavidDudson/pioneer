@@ -33,8 +33,15 @@ const examples: object[] = [
   },
 ];
 
-/** A `RepertoireSpells` element naming one spell at `rank`. */
-function spells(rank: unknown): object {
+/** A `RepertoireSpells` element as JSON. */
+interface SpellsElement {
+  readonly key: string;
+  readonly entry: string;
+  readonly spells: readonly { readonly rank: unknown; readonly spell: string }[];
+}
+
+/** An element naming one spell at `rank`. */
+function spells(rank: unknown): SpellsElement {
   return { key: 'RepertoireSpells', entry: 'sorcerer', spells: [{ rank, spell: FEAR }] };
 }
 

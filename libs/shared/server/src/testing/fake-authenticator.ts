@@ -8,7 +8,7 @@ const TEST_USER_HEADER = 'x-test-user';
 
 /** Headers that make `FakeAuthenticator` treat a request as sent by `user`. */
 export function actingAs(user: UserId): Record<string, string> {
-  return { [TEST_USER_HEADER]: user };
+  return Object.fromEntries([[TEST_USER_HEADER, user]]);
 }
 
 /** Authenticates whoever `actingAs` names; a request without it is a 401, like a missing session. */

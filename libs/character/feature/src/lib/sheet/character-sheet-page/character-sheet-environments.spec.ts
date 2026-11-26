@@ -5,6 +5,7 @@ import { gilledFixtureId, ITEM_FIXTURE_FILES, underwaterFixtureId } from '@pione
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -21,7 +22,7 @@ const NO_SPEECH = "You can't speak underwater.";
 const openSheet = openerAt(SheetMode.Exploration, 'environments');
 
 /** The play state of a full-health character in `environments`, at `revision`. */
-function playIn(environments: readonly string[], revision = 1): object {
+function playIn(environments: readonly string[], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, environments } };
 }
 

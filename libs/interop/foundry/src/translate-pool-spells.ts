@@ -2,6 +2,7 @@ import { ContentId, contentId, EntrySlug, PackId, RuleElementKey } from '@pionee
 import { present } from '@pioneer/shared/kernel';
 
 import { CURRICULA } from './school-curricula';
+import type { Fields } from './translate-choice-reads';
 
 /**
  * The spells Player Core's pools of slots take, as `PoolSpells` elements by the entry slug they go on (ADR-0045).
@@ -26,7 +27,7 @@ function spellId(pack: PackId, spell: string): ContentId {
   return ContentId.parse(contentId(owner, EntrySlug.parse(`spell:${slug}`)));
 }
 
-function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate?: readonly string[]): object {
+function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate?: readonly string[]): Fields {
   return {
     key: RuleElementKey.PoolSpells,
     entry,

@@ -44,7 +44,7 @@ function heightened(shield: GrantedShield, level: Level | undefined): GrantedShi
           .filter(({ start }) => Number(start) <= Number(level))
           .toSorted((left, right) => Number(left.start) - Number(right.start));
 
-  const result: { -readonly [Key in keyof GrantedShield]: GrantedShield[Key] } = { ...shield };
+  const result = { ...shield };
 
   for (const { hardness, hitPoints, brokenThreshold, shards } of applying) {
     if (shards !== undefined && result.shards !== undefined) {

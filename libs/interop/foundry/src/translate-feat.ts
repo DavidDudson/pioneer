@@ -16,6 +16,7 @@ import type { KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import type { ArchetypeLink } from './translate-archetype';
+import type { Fields } from './translate-choice-reads';
 import { languageRules } from './translate-languages';
 import { proficiencyRules } from './translate-proficiencies';
 import { senseElement } from './translate-senses';
@@ -125,7 +126,7 @@ function senseRules(senses: unknown, input: KindInput): void {
  * A class feature's `subfeatures.keyOptions` as the attributes it adds to its class's key attribute options
  * (Ruffian's `str`); one that is no attribute is reported and left off.
  */
-function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): object {
+function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): Fields {
   const raw = system.subfeatures?.['keyOptions'];
 
   if (!isSet(raw)) {
@@ -164,7 +165,7 @@ function isEmpty(data: object): boolean {
  * data its schema rejects (a reaction whose trigger was left for the rich text stories) is reported and left off, so
  * the rest of the feat still imports.
  */
-function actionOf(system: FoundryFeatSystem, input: KindInput): object {
+function actionOf(system: FoundryFeatSystem, input: KindInput): Fields {
   const { document, log } = input;
   const category = system.actionCategory?.value ?? undefined;
   const action = actionData({ ...input, document: { ...document, system: { ...document.system, category } } });

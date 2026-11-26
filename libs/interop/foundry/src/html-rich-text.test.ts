@@ -3,12 +3,13 @@ import { describe, expect, test } from 'bun:test';
 import { RichText } from '@pioneer/rules/sdk';
 
 import { htmlToRichText, OVERSIZED_MARKUP } from './html-rich-text';
+import type { Fields } from './translate-choice-reads';
 
 function richTextOf(html: string): unknown {
   return htmlToRichText(html).richText;
 }
 
-function text(value: string, marks?: readonly string[]): object {
+function text(value: string, marks?: readonly string[]): Fields {
   return marks === undefined ? { type: 'text', text: value } : { type: 'text', text: value, marks };
 }
 
@@ -19,7 +20,7 @@ function textsOf(richText: RichText): string[] {
   );
 }
 
-function paragraph(...content: object[]): object {
+function paragraph(...content: object[]): Fields {
   return { type: 'paragraph', content };
 }
 

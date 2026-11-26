@@ -2,10 +2,11 @@ import { describe, expect, test } from 'bun:test';
 
 import { RuleElement } from '@pioneer/rules/sdk';
 
+import type { Fields } from './translate-choice-reads';
 import { withSkillRaise } from './translate-skill-raises';
 
 /** Foundry's upgrade of `path` to `value`, with whatever `extra` fields it carries. */
-function upgrade(path: string, value: unknown, extra: object = {}): object {
+function upgrade(path: string, value: unknown, extra: object = {}): Fields {
   return { key: 'ActiveEffectLike', mode: 'upgrade', path, value, ...extra };
 }
 

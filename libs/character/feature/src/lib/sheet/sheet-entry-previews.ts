@@ -17,6 +17,22 @@ import { sheetEntryEffects } from './sheet-entry-effects';
 import { SheetSidePanelState } from './sheet-side-panel/sheet-side-panel-state';
 import { sheetSlotContent } from './sheet-slot-content';
 
+/** The alteration of an action, derived once on first read. */
+interface KeptAlteration {
+  altered: AlteredAction | undefined;
+}
+
+/** The effects of an entry's rank, derived once on first read. */
+interface KeptEffects {
+  effects: readonly PreviewEffect[] | undefined;
+}
+
+/** The registry's one load, and what it fetched. */
+interface KeptRegistry {
+  attempt: Promise<ContentRegistry> | undefined;
+  fetched: ContentRegistry | undefined;
+}
+
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
 const ENTRIES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ContentEntry>>();
 
@@ -87,7 +103,7 @@ function withAlterations(
     return preview;
   }
 
-  const kept: { altered: AlteredAction | undefined } = { altered: undefined };
+  const kept: KeptAlteration = { altered: undefined };
 
   const altered = (): AlteredAction => {
     kept.altered ??= alterAction(
@@ -125,7 +141,7 @@ function previewOnCharacter(
 
   // Derived on first read, when the card opens. Every row asks whether it can preview.
   // Deriving the statistics for each would cost the sheet a render.
-  const kept: { effects: readonly PreviewEffect[] | undefined } = { effects: undefined };
+  const kept: KeptEffects = { effects: undefined };
   const { ranks } = preview;
 
   if (ranks !== undefined) {
@@ -193,10 +209,7 @@ export function sheetFetchingPreviews(
   const router = inject(Router);
   const sidePanel = inject(SheetSidePanelState, { optional: true });
 
-  const kept: { attempt: Promise<ContentRegistry> | undefined; fetched: ContentRegistry | undefined } = {
-    attempt: undefined,
-    fetched: undefined,
-  };
+  const kept: KeptRegistry = { attempt: undefined, fetched: undefined };
 
   const fetchKinds = async (): Promise<ContentRegistry> => {
     kept.attempt ??= loader.registry(kinds);

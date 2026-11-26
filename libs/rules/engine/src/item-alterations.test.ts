@@ -4,6 +4,7 @@ import { FormulaValue } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageType, NumericItemProperty, RollOption, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { alterItem } from './item-alterations';
 import type { AlterableItem, AlteredItem } from './item-alterations';
@@ -52,7 +53,7 @@ function alteration(property: string, mode: string, value: string): [object, str
 }
 
 /** A hardness alteration of shields that only holds while `predicate` does. */
-function hardnessWhen(predicate: string): object {
+function hardnessWhen(predicate: string): RuleJson {
   return {
     key: 'ItemAlteration',
     items: ['item:trait:shield'],

@@ -7,17 +7,17 @@ import { parseFormula } from './parse';
 import { FORMULA_VALUE_MAX, FormulaText, FormulaValue, TextPosition } from './units';
 
 /** Values for the references these tests use; anything else is unknown. */
-const VALUES: Readonly<Record<string, number>> = {
-  'actor.level': 5,
-  'item.level': 3,
-  'attr.dex.capped': 2,
-  negative: -7,
-  zero: 0,
-  huge: FORMULA_VALUE_MAX,
-};
+const VALUES: ReadonlyMap<string, number> = new Map([
+  ['actor.level', 5],
+  ['item.level', 3],
+  ['attr.dex.capped', 2],
+  ['negative', -7],
+  ['zero', 0],
+  ['huge', FORMULA_VALUE_MAX],
+]);
 
 const resolve: ResolveReference = (path) => {
-  const known = VALUES[path];
+  const known = VALUES.get(path);
 
   return known === undefined ? undefined : FormulaValue.parse(known);
 };

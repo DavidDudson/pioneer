@@ -14,6 +14,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
+import type { JsonObject } from './json-fixture';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerItemApprovalsRead, answerSheetBundle } from './sheet-page-harness';
@@ -69,13 +70,13 @@ let opened: RouterTestingHarness | undefined = undefined;
 /** What the sheet reads once it opens beyond its character. */
 interface SheetReads {
   /** The rule-breaking items the campaign approved; none when omitted. */
-  readonly approvals?: object | undefined;
+  readonly approvals?: JsonObject | undefined;
   /** Whether the tab reads the rule limits; the Downtime tab does not. */
   readonly limits?: boolean;
 }
 
 /** Answers the sheet's read of Valeros with the bundle, nothing changed, and of the approvals unless `limits` is off (a tab without the table rules never asks). */
-async function answerServerState(character: object, { approvals, limits = true }: SheetReads): Promise<void> {
+async function answerServerState(character: JsonObject, { approvals, limits = true }: SheetReads): Promise<void> {
   await answerSheetBundle({
     sheet: { character, slots: [], languages: { known: [], open: 0 } },
     ruleLimits: CORE_RULE_LIMITS,
@@ -93,7 +94,7 @@ async function answerServerState(character: object, { approvals, limits = true }
 }
 
 /** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */
-async function openSheet(url: string, character: object, reads: SheetReads = {}): Promise<HTMLElement> {
+async function openSheet(url: string, character: JsonObject, reads: SheetReads = {}): Promise<HTMLElement> {
   await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
@@ -121,9 +122,9 @@ async function openSheet(url: string, character: object, reads: SheetReads = {})
 
 /** Opens the sheet of `character` (Valeros unless given) with the item fixtures loaded and waits for the inventory to list their items, `rows` of them. */
 export async function openInventory(
-  character: object = VALEROS,
+  character: JsonObject = VALEROS,
   rows: number = VALEROS.inventory.items.length,
-  approvals?: object,
+  approvals?: JsonObject,
 ): Promise<HTMLElement> {
   const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, { approvals });
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));

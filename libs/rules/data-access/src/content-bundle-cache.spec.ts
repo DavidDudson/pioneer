@@ -12,7 +12,22 @@ import { provideContentTesting, TestContentDelivery } from './testing';
 const PACK = PackId.parse('homebrew');
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
 
-function language(name: string, label: string): object {
+/** An entry as JSON. */
+interface EntryFixture {
+  readonly id: string;
+  readonly pack: string;
+  readonly kind: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly rarity: string;
+  readonly traits: readonly string[];
+  readonly sources: readonly unknown[];
+  readonly description: readonly unknown[];
+  readonly rules: readonly unknown[];
+  readonly data: object;
+}
+
+function language(name: string, label: string): EntryFixture {
   const slug = `language:${name}`;
 
   return {

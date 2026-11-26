@@ -2,6 +2,8 @@ import { FAVORED_WEAPON, Proficiency, RuleElementKey } from '@pioneer/rules/sdk'
 import { present } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { Fields } from './translate-choice-reads';
+
 /** Foundry's ranks by number, trained (1) to legendary (4). */
 const RANKS = [Proficiency.Trained, Proficiency.Expert, Proficiency.Master, Proficiency.Legendary] as const;
 const LOWEST_RANK = 1;
@@ -20,7 +22,7 @@ const FoundryFavoredWeaponRank = z.strictObject({
  * which `DeityPF2e.setFavoredWeaponRank` applies to each of the deity's favoured weapons, as a `Proficiency` element
  * raising `attack:favored-weapon` (ADR-0048). A formula value or any other field leaves it for the backlog.
  */
-export function withFavoredWeaponRank(raw: unknown): unknown {
+export function withFavoredWeaponRank<Raw>(raw: Raw): Raw | Fields {
   const raise = FoundryFavoredWeaponRank.safeParse(raw);
 
   if (!raise.success) {

@@ -5,6 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -20,7 +21,7 @@ const ACTIVE = '00000000-0000-4000-8000-0000000000a5';
 const TURN = { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false };
 
 /** A sustained Calm, cast at 1st rank with 10 rounds at most, in a turn with two actions left. */
-function playWith(sustainedThisTurn: boolean, revision = 1, spell = CALM): object {
+function playWith(sustainedThisTurn: boolean, revision = 1, spell = CALM): JsonObject {
   const calm = { id: ACTIVE, spell, rank: 1, remaining: 10, sustainedThisTurn };
 
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, activeSpells: [calm] } };
@@ -39,7 +40,7 @@ function press(scope: HTMLElement, label: string): void {
 }
 
 /** Answers the next play edit and returns the command it carried. */
-async function answerEdit(play: object): Promise<unknown> {
+async function answerEdit(play: JsonObject): Promise<unknown> {
   let command: unknown = undefined;
   await vi.waitFor(() => {
     const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });

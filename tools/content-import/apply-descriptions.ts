@@ -42,7 +42,7 @@ export function withFilledDescriptions(
 ): DescriptionMerge {
   let filled = 0;
 
-  const merged = entries.map((entry): unknown => {
+  const merged = entries.map((entry) => {
     if (!isRecord(entry) || !kinds.has(String(entry['kind'])) || !isEmptyList(entry['description'])) {
       return entry;
     }

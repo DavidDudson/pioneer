@@ -2,6 +2,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../../testing/json-fixture';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -12,12 +13,12 @@ const SHIELD = '66666666-6666-4666-8666-666666666666';
 const SWORD = '55555555-5555-4555-8555-555555555555';
 const PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
 
-function carried(id: string, fixture: ItemFixture, carry: object): object {
+function carried(id: string, fixture: ItemFixture, carry: JsonObject): JsonObject {
   return { id, item: itemFixtureId(fixture), quantity: 1, carry };
 }
 
 /** Merisiel holding a longsword and a steel shield, and wearing a charm whose alterations change them both. */
-function wearingCharm(invested: boolean): object {
+function wearingCharm(invested: boolean): JsonObject {
   const investment = invested ? { invested } : undefined;
   const charm = { ...carried(CHARM, ItemFixture.BulwarkCharm, { state: 'worn' }), ...investment };
 
