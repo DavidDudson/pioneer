@@ -1,5 +1,7 @@
 export { API_BASE_URL, ApiClient } from './api-client';
 
+export { CONTENT_LOCALE } from './content-locale';
+
 export { ApiError } from './api-error';
 
 export { UNAUTHORIZED_HANDLER, type UnauthorizedHandler } from './unauthorized-handler';

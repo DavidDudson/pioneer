@@ -61,7 +61,16 @@ export { commaList } from './comma-list';
 
 export { InstantCodec, PlainDateCodec } from './temporal-codecs';
 
-export { Locale, LocaleSchema, SOURCE_LOCALE, TextDirection, textDirection } from './locale';
+export {
+  ContentLocale,
+  contentLocaleOf,
+  Locale,
+  LocaleSchema,
+  SOURCE_CONTENT_LOCALE,
+  SOURCE_LOCALE,
+  TextDirection,
+  textDirection,
+} from './locale';
 
 export {
   type FieldIssue,

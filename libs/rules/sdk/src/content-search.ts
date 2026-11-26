@@ -1,4 +1,12 @@
-import { commaList, Endpoint, HttpMethod, LocaleSchema, NoBody, NoParams, SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import {
+  commaList,
+  ContentLocale,
+  Endpoint,
+  HttpMethod,
+  NoBody,
+  NoParams,
+  SOURCE_CONTENT_LOCALE,
+} from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId, ContentPackId } from './content-id';
@@ -40,7 +48,7 @@ export type SearchTotal = z.infer<typeof SearchTotal>;
  */
 export const ContentSearchQuery = z.strictObject({
   query: SearchText,
-  locale: LocaleSchema.default(SOURCE_LOCALE),
+  locale: ContentLocale.default(SOURCE_CONTENT_LOCALE),
   kinds: commaList(ContentKindSchema, SEARCH_LIST_MAX),
   packs: commaList(ContentPackId, SEARCH_LIST_MAX),
   legacy: z.stringbool().default(false),

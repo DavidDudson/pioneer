@@ -1,5 +1,7 @@
 import { contentBundles } from '@pioneer/rules/sdk';
 import type { ContentBundles, ContentPackId } from '@pioneer/rules/sdk';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 
 import type { ContentRepository } from './content-repository';
 import { PackSetCache } from './pack-set-cache';
@@ -18,12 +20,24 @@ export class StoredPackBundles {
     this.#repository = repository;
   }
 
-  public async of(packs: readonly ContentPackId[]): Promise<ContentBundles> {
-    const hashes = await this.#repository.homebrewHashes(packs);
+  public async of(
+    packs: readonly ContentPackId[],
+    locale: ContentLocale = SOURCE_CONTENT_LOCALE,
+  ): Promise<ContentBundles> {
+    const [hashes, version] = await Promise.all([
+      this.#repository.homebrewHashes(packs),
+      this.#repository.homebrewTextsVersion(locale, packs),
+    ]);
 
-    // The build reads after the hashes, so it is never older than the key it is cached under.
-    return this.#sets.current(packs, hashes, async () =>
-      contentBundles(await this.#repository.loadHomebrew(packs), bundleHash),
-    );
+    // The build reads after the hashes and the version, so it is never older than the key it is cached under. A
+    // Translation edited changes no pack hash, so the locale's text version is part of the key.
+    return this.#sets.current({ packs, variant: `${locale}|${version}` }, hashes, async () => {
+      const [contents, texts] = await Promise.all([
+        this.#repository.loadHomebrew(packs),
+        this.#repository.homebrewTexts(locale, packs),
+      ]);
+
+      return contentBundles(contents, bundleHash, texts);
+    });
   }
 }

@@ -8,7 +8,7 @@ import type {
   PackContentsLoader,
   PackId,
 } from '@pioneer/rules/sdk';
-import { FIRST_VERSION, newId, nextVersion, SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, newId, nextVersion, SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
 import type { Clock, ValueOf, Version } from '@pioneer/shared/kernel';
 import { and, eq, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase, BunSQLQueryResultHKT } from 'drizzle-orm/bun-sql';
@@ -185,7 +185,7 @@ async function upsertTexts(write: PackWrite): Promise<void> {
           batch.map((entry): TextRow => ({
             id: newId(),
             entryId: entry.id,
-            locale: SOURCE_LOCALE,
+            locale: SOURCE_CONTENT_LOCALE,
             field: EntryTextField.Description,
             text: entry.description,
             updatedAt: write.at,
@@ -216,7 +216,7 @@ async function removeStaleTexts(write: PackWrite): Promise<void> {
 
   const stale = and(
     inArray(contentEntryTexts.entryId, packEntries),
-    eq(contentEntryTexts.locale, SOURCE_LOCALE),
+    eq(contentEntryTexts.locale, SOURCE_CONTENT_LOCALE),
     eq(contentEntryTexts.field, EntryTextField.Description),
     sql`${contentEntryTexts.entryId} <> all(${kept}::uuid[])`,
   );

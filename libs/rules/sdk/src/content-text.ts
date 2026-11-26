@@ -11,6 +11,7 @@ export type ContentText = z.infer<typeof ContentText>;
 
 /** The translatable fields of an entry that are stored per locale (`content_entry_texts`). */
 export const EntryTextField = {
+  Name: 'name',
   Description: 'description',
 } as const;
 

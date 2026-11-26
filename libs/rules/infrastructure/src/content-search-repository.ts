@@ -5,7 +5,10 @@ import type {
   ContentPackId,
   ContentSearchQuery,
   ContentSearchResult,
+  SearchText,
 } from '@pioneer/rules/sdk';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 import { and, asc, count, desc, eq, inArray, isNull, or, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -45,15 +48,9 @@ export class ContentSearchRepository {
     limit,
     offset,
   }: ContentSearchCriteria): Promise<ContentSearchResult> {
-    const words = sql`websearch_to_tsquery(content_search_config(${locale}), ${query})`;
+    const { matched, rank } = localeMatch(locale, query);
 
-    const matches = and(
-      eq(contentEntrySearch.locale, locale),
-      sql`${contentEntrySearch.vector} @@ ${words}`,
-      kindFilter(kinds),
-      packFilter(packs),
-      legacyFilter(legacy),
-    );
+    const matches = and(matched, kindFilter(kinds), packFilter(packs), legacyFilter(legacy));
 
     const [rows, [total]] = await Promise.all([
       this.#db
@@ -62,11 +59,7 @@ export class ContentSearchRepository {
         .innerJoin(contentEntries, eq(contentEntries.id, contentEntrySearch.entryId))
         .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
         .where(matches)
-        .orderBy(
-          desc(sql`ts_rank(${contentEntrySearch.vector}, ${words})`),
-          asc(contentEntries.name),
-          asc(contentEntries.id),
-        )
+        .orderBy(desc(rank), asc(contentEntries.name), asc(contentEntries.id))
         .limit(limit)
         .offset(offset),
       this.#db
@@ -79,6 +72,44 @@ export class ContentSearchRepository {
 
     return { ids: rows.map(({ id }): ContentId => id), total: SearchTotal.parse(total?.matched ?? 0) };
   }
+}
+
+/** How an entry matches a search in a locale, and how well it ranks. */
+interface LocaleMatch {
+  readonly matched: SQL | undefined;
+  readonly rank: SQL;
+}
+
+/**
+ * What matches `query` in `locale`, and how well. An entry matches through its vector in the locale, which the
+ * translation triggers keep with each field falling back to the entry's own; an entry with no translation in the locale
+ * matches through its source-locale vector, read in the source language, so no entry drops out of a search for want
+ * of a translation (content-model.md, "Search").
+ */
+function localeMatch(locale: ContentLocale, query: SearchText): LocaleMatch {
+  const words = sql`websearch_to_tsquery(content_search_config(${locale}), ${query})`;
+
+  if (locale === SOURCE_CONTENT_LOCALE) {
+    return {
+      matched: and(eq(contentEntrySearch.locale, locale), sql`${contentEntrySearch.vector} @@ ${words}`),
+      rank: sql`ts_rank(${contentEntrySearch.vector}, ${words})`,
+    };
+  }
+
+  const sourceWords = sql`websearch_to_tsquery(content_search_config(${SOURCE_CONTENT_LOCALE}), ${query})`;
+  const translated = sql`not exists (select 1 from content_entry_search other where other.entry_id = ${contentEntrySearch.entryId} and other.locale = ${locale})`;
+
+  return {
+    matched: or(
+      and(eq(contentEntrySearch.locale, locale), sql`${contentEntrySearch.vector} @@ ${words}`),
+      and(
+        eq(contentEntrySearch.locale, SOURCE_CONTENT_LOCALE),
+        translated,
+        sql`${contentEntrySearch.vector} @@ ${sourceWords}`,
+      ),
+    ),
+    rank: sql`ts_rank(${contentEntrySearch.vector}, case when ${contentEntrySearch.locale} = ${locale} then ${words} else ${sourceWords} end)`,
+  };
 }
 
 /** Every kind when none is named. */

@@ -18,9 +18,9 @@ import type {
   ContentSearchResult,
   FetchedKind,
   KindBundles,
+  LocalisedDescription,
   PackBundles,
   PackId,
-  RichText,
 } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
@@ -135,15 +135,16 @@ export class ContentLoader {
   }
 
   /**
-   * `entry`'s description, fetched from its shard of the kind's description bundles: a shard is fetched when an entry
-   * in it is first opened and kept in the store after, so the entry's neighbours cost nothing. Undefined when the
-   * entry has no description, so the caller shows its summary. A failed fetch reads the manifests again and tries once
-   * more, as `registry` does.
+   * `entry`'s description in the viewer's content locale, fetched from its shard of the kind's description bundles: a
+   * shard is fetched when an entry in it is first opened and kept in the store after, so the entry's neighbours cost
+   * nothing. It is the source locale's, marked `untranslated`, when the locale has no translation of it. Undefined when
+   * the entry has no description, so the caller shows its summary. A failed fetch reads the manifests again and tries
+   * once more, as `registry` does.
    */
   public async description(
     entry: ContentEntry,
     homebrew: readonly ContentPackId[] = [],
-  ): Promise<RichText | undefined> {
+  ): Promise<LocalisedDescription | undefined> {
     try {
       return await this.#description(entry, homebrew);
     } catch {
@@ -154,7 +155,10 @@ export class ContentLoader {
     }
   }
 
-  async #description(entry: ContentEntry, homebrew: readonly ContentPackId[]): Promise<RichText | undefined> {
+  async #description(
+    entry: ContentEntry,
+    homebrew: readonly ContentPackId[],
+  ): Promise<LocalisedDescription | undefined> {
     const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
     const official = manifest.packs.some((pack) => pack.id === entry.pack);
     const file = shardFile(official ? manifest : brewed, entry);

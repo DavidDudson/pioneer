@@ -237,7 +237,7 @@ describe(ContentLoader, () => {
 
       const description = await loader.description(language);
 
-      expect(description).toStrictEqual(spoken);
+      expect(description).toStrictEqual({ text: spoken, untranslated: false });
       expect(descriptionRequests(delivery.requests)).toHaveLength(1);
       expect(descriptionRequests(delivery.requests)[0]).toMatch(/^homebrew\/language\.desc\.en\.[\da-f]\./u);
     });
@@ -253,7 +253,7 @@ describe(ContentLoader, () => {
 
       const description = await loader.description(language);
 
-      expect(description).toStrictEqual(spoken);
+      expect(description).toStrictEqual({ text: spoken, untranslated: false });
       expect(delivery.requests).toStrictEqual(['manifest']);
     });
 
@@ -278,7 +278,7 @@ describe(ContentLoader, () => {
 
       const description = await loader.description(language);
 
-      expect(description).toStrictEqual(spoken);
+      expect(description).toStrictEqual({ text: spoken, untranslated: false });
     });
   });
 

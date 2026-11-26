@@ -21,6 +21,11 @@ export function browseSources(
   }));
 }
 
+/** `storeLinks` of an entry that may not be known yet: none until it is. */
+export function storeLinksOf(entry: ContentEntry | undefined): readonly StoreLink[] {
+  return entry === undefined ? [] : storeLinks(entry);
+}
+
 /** Where the entry's books are sold: one link per book the Paizo Store lists, in the order the sources cite them. */
 export function storeLinks(entry: ContentEntry): readonly StoreLink[] {
   const links = new Map<string, StoreLink>();

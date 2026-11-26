@@ -1,6 +1,7 @@
 import { PackBundleSource } from '@pioneer/homebrew/application';
 import type { StoredPackBundles } from '@pioneer/rules/infrastructure';
 import type { ContentBundles, ContentPackId } from '@pioneer/rules/sdk';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 
 /**
  * Homebrew's `PackBundleSource` over the rules context's stored bundles. It lives in the composition root because the
@@ -14,7 +15,7 @@ export class StoredPackBundleSource extends PackBundleSource {
     this.#bundles = bundles;
   }
 
-  public override async of(packs: readonly ContentPackId[]): Promise<ContentBundles> {
-    return this.#bundles.of(packs);
+  public override async of(packs: readonly ContentPackId[], locale: ContentLocale): Promise<ContentBundles> {
+    return this.#bundles.of(packs, locale);
   }
 }

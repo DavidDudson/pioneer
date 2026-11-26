@@ -19,4 +19,6 @@ export interface ContentBrowserEntry {
   readonly card: EntryPreview | undefined;
   /** Where the entry's books are sold. */
   readonly stores: readonly StoreLink[];
+  /** Whether the description is the source language's, for want of a translation in the viewer's content locale. */
+  readonly untranslated: boolean;
 }

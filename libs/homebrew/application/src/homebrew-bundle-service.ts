@@ -1,4 +1,4 @@
-import { bundlePath, contentPackId } from '@pioneer/rules/sdk';
+import { bundleLocale, bundlePath, contentPackId } from '@pioneer/rules/sdk';
 import type {
   BundleBody,
   BundleFile,
@@ -42,14 +42,14 @@ export class HomebrewBundleService {
    * read, each after what it extends. A pack the actor may not read, an official one and one that does not exist are
    * left out, so the answer says nothing about them.
    */
-  public async manifest(actor: UserId, { packs }: HomebrewManifestRequest): Promise<ContentManifest> {
+  public async manifest(actor: UserId, { packs, locale }: HomebrewManifestRequest): Promise<ContentManifest> {
     const asked = await this.#readable(actor, packs);
 
     if (asked.length === 0) {
       return { packs: [] };
     }
 
-    const { manifest } = await this.#bundles.of(asked);
+    const { manifest } = await this.#bundles.of(asked, locale);
 
     const readable = new Set(
       await this.#readable(
@@ -71,7 +71,7 @@ export class HomebrewBundleService {
       throw new NotFoundError('Content bundle', path);
     }
 
-    const { bodies } = await this.#bundles.of([id]);
+    const { bodies } = await this.#bundles.of([id], bundleLocale(file));
     const body = bodies.get(path);
 
     if (body === undefined) {

@@ -1,9 +1,11 @@
 import { loadOrder, packContentsFromFiles } from '@pioneer/rules/sdk';
-import type { ContentId, ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentPackId, LocaleTexts, PackContents, PackId } from '@pioneer/rules/sdk';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 import { RequestMemo } from '@pioneer/shared/server';
 import { and, asc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
+import { textsOf, textsVersion } from './content-texts';
 import { contentEntries, contentPackDeps, contentPacks } from './content.table';
 
 type Database = BunSQLDatabase;
@@ -52,6 +54,36 @@ export class ContentRepository {
 
   public constructor(db: Database) {
     this.#db = db;
+  }
+
+  /**
+   * The official entries' text in `locale`, for the bundles built in it. The source locale's text is the entries' own,
+   * so it is never read.
+   */
+  public async officialTexts(locale: ContentLocale): Promise<LocaleTexts> {
+    return textsOf(this.#db, locale, isNull(contentPacks.ownerId));
+  }
+
+  /** The text in `locale` of the entries of the homebrew `packs` and the packs they extend, for the bundles built in it. */
+  public async homebrewTexts(locale: ContentLocale, packs: readonly ContentPackId[]): Promise<LocaleTexts> {
+    const ordered = await homebrewOrder(this.#db, packs);
+
+    return textsOf(this.#db, locale, inArray(contentPacks.id, [...ordered]));
+  }
+
+  /**
+   * What the official text in `locale` was at last write: how many rows and the newest, so a manifest's validator
+   * changes when a translation is added, edited or removed, with no pack hash changing.
+   */
+  public async officialTextsVersion(locale: ContentLocale): Promise<string> {
+    return textsVersion(this.#db, locale, isNull(contentPacks.ownerId));
+  }
+
+  /** What the text in `locale` of the homebrew `packs` and the packs they extend was at last write, as `officialTextsVersion`. */
+  public async homebrewTextsVersion(locale: ContentLocale, packs: readonly ContentPackId[]): Promise<string> {
+    const ordered = await homebrewOrder(this.#db, packs);
+
+    return textsVersion(this.#db, locale, inArray(contentPacks.id, [...ordered]));
   }
 
   /** Every official pack's hash, by slug: one small query, cheap enough to ask before every use of content. */

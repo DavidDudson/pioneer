@@ -9,7 +9,7 @@ import type {
   ContentSearchQuery,
   ContentSearchResult,
 } from '@pioneer/rules/sdk';
-import { SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
 
 /** How many matches a key item's picker lists. */
 const MATCHES_MAX = SearchLimit.parse(20);
@@ -44,7 +44,7 @@ async function find(
 
   const query: ContentSearchQuery = {
     query: text.data,
-    locale: SOURCE_LOCALE,
+    locale: SOURCE_CONTENT_LOCALE,
     kinds: [...kinds],
     packs: [],
     legacy: false,

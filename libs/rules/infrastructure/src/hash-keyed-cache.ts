@@ -6,8 +6,8 @@ interface CachedValue<TValue> {
   readonly value: Promise<TValue>;
 }
 
-function cacheKey(hashes: readonly StoredPackHash[]): string {
-  return hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',');
+function cacheKey(hashes: readonly StoredPackHash[], variant: string): string {
+  return `${hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',')}|${variant}`;
 }
 
 /**
@@ -18,9 +18,12 @@ function cacheKey(hashes: readonly StoredPackHash[]): string {
 export class HashKeyedCache<TValue> {
   #cached: CachedValue<TValue> | undefined;
 
-  /** The value for `hashes`, built with `build` unless it is already cached for them. `build` must read after them. */
-  public async current(hashes: readonly StoredPackHash[], build: () => Promise<TValue>): Promise<TValue> {
-    const key = cacheKey(hashes);
+  /**
+   * The value for `hashes`, built with `build` unless it is already cached for them. `build` must read after them.
+   * `variant` is whatever else the value is made from and that changes without a pack hash: a locale's text version.
+   */
+  public async current(hashes: readonly StoredPackHash[], build: () => Promise<TValue>, variant = ''): Promise<TValue> {
+    const key = cacheKey(hashes, variant);
     const cached = this.#cached?.key === key ? this.#cached : { key, value: build() };
     this.#cached = cached;
 

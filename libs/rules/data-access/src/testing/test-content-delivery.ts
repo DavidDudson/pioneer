@@ -1,6 +1,7 @@
 import type { Provider } from '@angular/core';
 import {
   BundleHash,
+  bundleLocale,
   bundlePath,
   contentBundles,
   contentPackId,
@@ -17,10 +18,13 @@ import type {
   ContentPackId,
   ContentSearchQuery,
   ContentSearchResult,
+  LocaleTexts,
   PackContentsLoader,
   PackId,
   SearchText,
 } from '@pioneer/rules/sdk';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CONTENT_BUNDLE_STORE } from '../bundle-store';
@@ -66,13 +70,17 @@ interface BuiltBundles {
  */
 const built: BuiltBundles = { next: new WeakMap() };
 
-async function build(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
+async function build(packs: readonly PackContentsLoader[], texts?: LocaleTexts): Promise<ContentBundles> {
   const contents = await Promise.all(packs.map(async (pack) => pack.load()));
 
-  return contentBundles(contents, testHash);
+  return contentBundles(contents, testHash, texts);
 }
 
-async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
+async function bundlesOf(packs: readonly PackContentsLoader[], texts?: LocaleTexts): Promise<ContentBundles> {
+  if (texts !== undefined) {
+    return build(packs, texts);
+  }
+
   let step = built;
 
   for (const pack of packs) {
@@ -130,6 +138,7 @@ export class TestContentDelivery implements ContentDelivery {
   public readonly requests: DeliveryRequest[] = [];
   #packs: readonly PackContentsLoader[];
   readonly #homebrew: readonly PackContentsLoader[];
+  readonly #translations = new Map<ContentLocale, LocaleTexts>();
   #bundles: Promise<ContentBundles> | undefined;
 
   /** Serves `packs` publicly, and `homebrew` to the signed-in user who asks for them. */
@@ -144,10 +153,16 @@ export class TestContentDelivery implements ContentDelivery {
     this.#bundles = undefined;
   }
 
-  public readonly manifest = async (): Promise<ContentManifest> => {
+  /** Serves `texts` as the translation of the served entries into its locale, from now on. */
+  public translate(texts: LocaleTexts): void {
+    this.#translations.set(texts.locale, texts);
+    this.#bundles = undefined;
+  }
+
+  public readonly manifest = async (locale: ContentLocale = SOURCE_CONTENT_LOCALE): Promise<ContentManifest> => {
     this.requests.push('manifest');
     this.#checkOnline();
-    const { manifest } = await this.#built();
+    const { manifest } = await this.#built(locale);
 
     return manifest;
   };
@@ -155,7 +170,7 @@ export class TestContentDelivery implements ContentDelivery {
   public readonly bundle = async (pack: PackId, file: BundleFile): Promise<BundleBody> => {
     this.requests.push(`${pack}/${file}`);
     this.#checkOnline();
-    const { bodies } = await this.#built();
+    const { bodies } = await this.#built(bundleLocale(file));
     const body = bodies.get(bundlePath(pack, file));
 
     if (body === undefined) {
@@ -165,10 +180,13 @@ export class TestContentDelivery implements ContentDelivery {
     return body;
   };
 
-  public readonly homebrewManifest = async (asked: readonly ContentPackId[]): Promise<ContentManifest> => {
+  public readonly homebrewManifest = async (
+    asked: readonly ContentPackId[],
+    locale: ContentLocale = SOURCE_CONTENT_LOCALE,
+  ): Promise<ContentManifest> => {
     this.requests.push('homebrew-manifest');
     this.#checkOnline();
-    const { manifest } = await bundlesOf(this.#homebrew);
+    const { manifest } = await bundlesOf(this.#homebrew, this.#translations.get(locale));
 
     return { packs: manifest.packs.filter((pack) => asked.includes(contentPackId(pack.id))) };
   };
@@ -176,7 +194,7 @@ export class TestContentDelivery implements ContentDelivery {
   public readonly homebrewBundle = async (pack: PackId, file: BundleFile): Promise<BundleBody> => {
     this.requests.push(`homebrew:${pack}/${file}`);
     this.#checkOnline();
-    const { bodies } = await bundlesOf(this.#homebrew);
+    const { bodies } = await bundlesOf(this.#homebrew, this.#translations.get(bundleLocale(file)));
     const body = bodies.get(bundlePath(pack, file));
 
     if (body === undefined) {
@@ -200,7 +218,13 @@ export class TestContentDelivery implements ContentDelivery {
     return { ids: found.map(({ id }) => id), total: SearchTotal.parse(found.length) };
   };
 
-  async #built(): Promise<ContentBundles> {
+  async #built(locale: ContentLocale): Promise<ContentBundles> {
+    const texts = this.#translations.get(locale);
+
+    if (texts !== undefined) {
+      return bundlesOf(this.#packs, texts);
+    }
+
     this.#bundles ??= bundlesOf(this.#packs);
 
     return this.#bundles;

@@ -16,7 +16,7 @@ import type {
   RichText,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { Locale, UserId, Uuid, Version } from '@pioneer/shared/kernel';
+import type { ContentLocale, UserId, Uuid, Version } from '@pioneer/shared/kernel';
 import {
   customType,
   index,
@@ -134,13 +134,17 @@ export const contentEntryTexts = pgTable(
       .$type<ContentId>()
       .notNull()
       .references(() => contentEntries.id, { onDelete: 'cascade' }),
-    locale: text().$type<Locale>().notNull(),
+    locale: text().$type<ContentLocale>().notNull(),
     field: text().$type<EntryTextField>().notNull(),
-    // Rich text for a description; the shape depends on the field.
-    text: jsonb().$type<RichText>().notNull(),
+    // Rich text for a description, a plain string for a name: the shape depends on the field.
+    text: jsonb().$type<RichText | ContentText>().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
-  (table) => [uniqueIndex('content_entry_texts_entry_locale_field_idx').on(table.entryId, table.locale, table.field)],
+  (table) => [
+    uniqueIndex('content_entry_texts_entry_locale_field_idx').on(table.entryId, table.locale, table.field),
+    // Serves the reads of one locale's texts: the bundles built in it and the version its manifest's ETag is taken over.
+    index('content_entry_texts_locale_idx').on(table.locale),
+  ],
 );
 
 /** Postgres `tsvector`: the lexemes of a text, searched with `@@`. Written and read in SQL only, so it has no JS value. */
@@ -163,7 +167,7 @@ export const contentEntrySearch = pgTable(
       .$type<ContentId>()
       .notNull()
       .references(() => contentEntries.id, { onDelete: 'cascade' }),
-    locale: text().$type<Locale>().notNull(),
+    locale: text().$type<ContentLocale>().notNull(),
     vector: tsvector().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },

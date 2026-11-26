@@ -27,6 +27,15 @@ export const Full: ContentEntryViewStory = {
   args: { full: true },
 };
 
+/** A description the viewer's content locale has no translation of: the source language's, marked. */
+export const Untranslated: ContentEntryViewStory = {
+  args: { untranslated: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Not translated yet: shown in English')).toBeVisible();
+  },
+};
+
 /** A link no entry has. */
 export const Missing: ContentEntryViewStory = {
   args: { card: undefined },

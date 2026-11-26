@@ -6,6 +6,12 @@ import { HashKeyedCache } from './hash-keyed-cache';
 /** Sets of packs kept built at once. Past this the one asked for longest ago is dropped and built again. */
 const KEPT_SETS = 64;
 
+/** The packs a value is built from, and what else it varies by (see `HashKeyedCache`). */
+export interface PackSet {
+  readonly packs: readonly ContentPackId[];
+  readonly variant: string;
+}
+
 /**
  * A `HashKeyedCache` for each set of packs asked for, up to `KEPT_SETS`, so alternating between sets does not rebuild
  * either. A set is the same in any order and with a pack named twice.
@@ -13,13 +19,13 @@ const KEPT_SETS = 64;
 export class PackSetCache<TValue> {
   readonly #sets = new Map<string, HashKeyedCache<TValue>>();
 
-  /** The value for `packs` under `hashes` of all of them, built with `build` unless it is already cached for them. */
+  /** The value for `packs` under `hashes` of all of them (and `variant`), built with `build` unless it is already cached for them. */
   public async current(
-    packs: readonly ContentPackId[],
+    { packs, variant }: PackSet,
     hashes: readonly StoredPackHash[],
     build: () => Promise<TValue>,
   ): Promise<TValue> {
-    return this.#cacheFor(packs).current(hashes, build);
+    return this.#cacheFor(packs).current(hashes, build, variant);
   }
 
   /** The cache for this set of packs, now the most recently asked for. */

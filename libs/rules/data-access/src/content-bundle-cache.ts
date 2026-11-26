@@ -1,16 +1,18 @@
 import { inject, Injectable } from '@angular/core';
 import { BundleBody, bundlePath, ContentManifest } from '@pioneer/rules/sdk';
 import type { BundleFile, BundlePath, ContentPackId, PackId } from '@pioneer/rules/sdk';
+import type { ContentLocale } from '@pioneer/shared/kernel';
+import { CONTENT_LOCALE } from '@pioneer/shared/web';
 
-import { CONTENT_BUNDLE_STORE, MANIFEST_KEY } from './bundle-store';
+import { CONTENT_BUNDLE_STORE, manifestKey } from './bundle-store';
 import type { StoredKey } from './bundle-store';
 import { CONTENT_DELIVERY } from './content-delivery';
 
 /** The manifest of no packs. */
 const NO_PACKS: ContentManifest = { packs: [] };
 
-/** Every key a manifest keeps in the store: itself and each bundle it names. */
-function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
+/** Every key a manifest read in `locale` keeps in the store: itself and each bundle it names. */
+function currentKeys(manifest: ContentManifest, locale: ContentLocale): ReadonlySet<StoredKey> {
   const paths = manifest.packs.flatMap((pack) =>
     [
       pack.file,
@@ -18,13 +20,15 @@ function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
     ].map((file) => bundlePath(pack.id, file)),
   );
 
-  return new Set<StoredKey>([MANIFEST_KEY, ...paths]);
+  return new Set<StoredKey>([manifestKey(locale), ...paths]);
 }
 
 /**
  * Content as the browser holds it (content-model.md, "Delivery to the browser"). The manifest is read once a session;
  * a bundle is fetched once ever, kept by path (its hash is in the name), and served from the store after. Bundles no
  * current manifest names are evicted. Offline, the last manifest read stands in, so every kind kept still loads.
+ * Text is read in the viewer's content locale (`CONTENT_LOCALE`): a manifest is kept for each locale read this session,
+ * and only the locale in use keeps its text bundles in the store, so a switch downloads text and never mechanics.
  *
  * The store is a cache: when it fails, content is fetched as if nothing were kept.
  */
@@ -32,7 +36,8 @@ function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
 export class ContentBundleCache {
   readonly #delivery = inject(CONTENT_DELIVERY);
   readonly #store = inject(CONTENT_BUNDLE_STORE);
-  #manifest: Promise<ContentManifest> | undefined;
+  readonly #locale = inject(CONTENT_LOCALE);
+  readonly #manifests = new Map<ContentLocale, Promise<ContentManifest>>();
   /** Homebrew manifests and bundles of this session, kept in memory only: they are private to the signed-in user. */
   readonly #homebrewManifests = new Map<string, Promise<ContentManifest>>();
   readonly #homebrewBodies = new Map<BundlePath, Promise<BundleBody>>();
@@ -44,14 +49,15 @@ export class ContentBundleCache {
 
   /** The current manifest, read once a session. A failed read is not kept, so the next ask tries again. */
   public async manifest(): Promise<ContentManifest> {
-    const manifest = this.#manifest ?? this.#readManifest();
-    this.#manifest = manifest;
+    const locale = this.#locale();
+    const manifest = this.#manifests.get(locale) ?? this.#readManifest(locale);
+    this.#manifests.set(locale, manifest);
 
     try {
       return await manifest;
     } catch (error) {
-      if (this.#manifest === manifest) {
-        this.#manifest = undefined;
+      if (this.#manifests.get(locale) === manifest) {
+        this.#manifests.delete(locale);
       }
 
       throw error;
@@ -63,7 +69,7 @@ export class ContentBundleCache {
    * it was read, or another tab evicted it).
    */
   public forgetManifest(): void {
-    this.#manifest = undefined;
+    this.#manifests.clear();
   }
 
   /**
@@ -76,8 +82,9 @@ export class ContentBundleCache {
       return NO_PACKS;
     }
 
-    const key = [...new Set(packs)].toSorted().join(',');
-    const manifest = this.#homebrewManifests.get(key) ?? this.#delivery.homebrewManifest(packs);
+    const locale = this.#locale();
+    const key = `${locale}|${[...new Set(packs)].toSorted().join(',')}`;
+    const manifest = this.#homebrewManifests.get(key) ?? this.#delivery.homebrewManifest(packs, locale);
     this.#homebrewManifests.set(key, manifest);
 
     try {
@@ -151,16 +158,16 @@ export class ContentBundleCache {
     return body;
   }
 
-  async #readManifest(): Promise<ContentManifest> {
+  async #readManifest(locale: ContentLocale): Promise<ContentManifest> {
     try {
-      const manifest = await this.#delivery.manifest();
+      const manifest = await this.#delivery.manifest(locale);
       // Kept in the background: only the next session reads it, and the sheet's content waits on this answer.
       // oxlint-disable-next-line typescript/no-floating-promises -- #keep catches every error, so it never rejects
-      this.#keep(manifest);
+      this.#keep(manifest, locale);
 
       return manifest;
     } catch (error) {
-      const kept = ContentManifest.safeParse(await this.#read(MANIFEST_KEY));
+      const kept = ContentManifest.safeParse(await this.#read(manifestKey(locale)));
 
       if (kept.success) {
         return kept.data;
@@ -171,14 +178,14 @@ export class ContentBundleCache {
   }
 
   /** Keeps `manifest` for offline starts, then removes the bundles it no longer names. */
-  async #keep(manifest: ContentManifest): Promise<void> {
-    await this.#write(MANIFEST_KEY, BundleBody.parse(manifest));
-    await this.#evict(manifest);
+  async #keep(manifest: ContentManifest, locale: ContentLocale): Promise<void> {
+    await this.#write(manifestKey(locale), BundleBody.parse(manifest));
+    await this.#evict(manifest, locale);
   }
 
-  /** Removes every bundle `manifest` no longer names. */
-  async #evict(manifest: ContentManifest): Promise<void> {
-    const current = currentKeys(manifest);
+  /** Removes every bundle `manifest` no longer names, and the manifests of the other locales. */
+  async #evict(manifest: ContentManifest, locale: ContentLocale): Promise<void> {
+    const current = currentKeys(manifest, locale);
 
     try {
       const kept = await this.#store.keys();

@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, LocalisedDescription } from '@pioneer/rules/sdk';
 import { conditionCard, entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
@@ -14,10 +14,10 @@ import { entryCard, entryIndex, entryKinds } from './entry-lookup';
  */
 function fetchedCard(
   entry: ContentEntry,
-  description: ContentEntry['description'] | undefined,
+  description: LocalisedDescription | undefined,
   index: ReadonlyMap<ContentId, ContentEntry>,
 ): EntryPreview {
-  return conditionCard(entry, entryCard(entry, description), (id) => {
+  return conditionCard(entry, entryCard(entry, description?.text), (id) => {
     const named = index.get(id);
 
     return named === undefined ? undefined : { id, name: named.name };

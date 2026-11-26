@@ -235,11 +235,13 @@ export {
   BundleHash,
   BundlePath,
   bundleEtag,
+  bundleLocale,
   bundlePath,
   ContentContract,
   ContentManifest,
   HomebrewContentContract,
   HomebrewManifestRequest,
+  ManifestQuery,
 } from './content-bundle';
 
 export {
@@ -250,7 +252,14 @@ export {
   descriptionShard,
 } from './content-bundle';
 
-export type { DescriptionBundle, DescriptionShard, FetchedKind, KindBundles, PackBundles } from './content-bundle';
+export type {
+  DescriptionBundle,
+  DescriptionShard,
+  FetchedKind,
+  KindBundles,
+  LocalisedDescription,
+  PackBundles,
+} from './content-bundle';
 
 export {
   ContentEntryFile,
@@ -697,7 +706,7 @@ export {
 
 export { contentBundles } from './content-bundle-write';
 
-export type { ContentBundles } from './content-bundle-write';
+export type { ContentBundles, EntryTexts, LocaleTexts } from './content-bundle-write';
 
 export { putUnsupportedPacks, unsupportedPacksOf } from './unsupported-packs';
 

@@ -316,6 +316,13 @@
       "when": 1794643965547,
       "tag": "0044_character_list_filters",
       "breakpoints": true
+    },
+    {
+      "idx": 45,
+      "version": "7",
+      "when": 1795690368147,
+      "tag": "0045_content_entry_texts_locales",
+      "breakpoints": true
     }
   ]
 }

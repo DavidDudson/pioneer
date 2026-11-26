@@ -4,7 +4,7 @@ import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import { HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
 import { BundleFile, ContentPackId, contentPackId, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { BundleBody, HomebrewManifestRequest } from '@pioneer/rules/sdk';
-import { newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
+import { newId, NotFoundError, SOURCE_CONTENT_LOCALE, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { HomebrewBundleService } from './homebrew-bundle-service';
@@ -19,7 +19,7 @@ const member = UserId.parse(newId());
 const stranger = UserId.parse(newId());
 
 function request(...packs: readonly HomebrewPack[]): HomebrewManifestRequest {
-  return { packs: packs.map((pack) => pack.id) };
+  return { packs: packs.map((pack) => pack.id), locale: SOURCE_CONTENT_LOCALE };
 }
 
 describe('HomebrewBundleService', () => {
@@ -70,7 +70,10 @@ describe('HomebrewBundleService', () => {
   test('leaves out an official pack and one that does not exist, saying nothing about them', async () => {
     const official = contentPackId(PackId.parse('player-core'));
 
-    const manifest = await service.manifest(owner, { packs: [official, ContentPackId.parse(newId())] });
+    const manifest = await service.manifest(owner, {
+      packs: [official, ContentPackId.parse(newId())],
+      locale: SOURCE_CONTENT_LOCALE,
+    });
 
     expect(manifest.packs).toStrictEqual([]);
   });

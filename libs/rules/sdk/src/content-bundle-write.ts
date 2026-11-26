@@ -1,4 +1,5 @@
-import { SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 
 import { BundleBody, BundleFile, bundlePath, ByteCount, canonicalJson, descriptionShard } from './content-bundle';
 import type {
@@ -16,8 +17,24 @@ import type { ContentEntry } from './content-entry';
 import type { ContentId, PackId } from './content-id';
 import type { ContentKind } from './content-kind';
 import type { PackContents } from './content-pack-file';
+import type { ContentText } from './content-text';
 import type { JsonValue } from './json-bounds';
 import type { RichText } from './rich-text';
+
+/** What a locale has of one entry's text; a field it lacks falls back to the source locale's. */
+export interface EntryTexts {
+  readonly name?: ContentText;
+  readonly description?: RichText;
+}
+
+/** An entry's texts in one locale, by id: what `contentBundles` puts in that locale's names and description bundles. */
+export interface LocaleTexts {
+  readonly locale: ContentLocale;
+  readonly entries: ReadonlyMap<ContentId, EntryTexts>;
+}
+
+/** No translations: bundles are in the source locale. */
+const SOURCE_TEXTS: LocaleTexts = { locale: SOURCE_CONTENT_LOCALE, entries: new Map() };
 
 /** How bundle hashes are taken: the server uses SHA-256, a test may use anything stable. */
 export type BundleHasher = (json: CanonicalJson) => BundleHash;
@@ -76,8 +93,24 @@ function mechanics(entry: ContentEntry): JsonValue {
   return rest;
 }
 
-function names(entries: readonly ContentEntry[]): NamesBundle {
-  return Object.fromEntries(entries.map((entry) => [entry.id, { name: entry.name }]));
+/** Whether `texts` is a translation: the source locale's bundles hold the entries' own text, never marked. */
+function isTranslation(texts: LocaleTexts): boolean {
+  return texts.locale !== SOURCE_CONTENT_LOCALE;
+}
+
+/** Each entry's name in the locale, or its own with `untranslated` when the locale has none. */
+function names(entries: readonly ContentEntry[], texts: LocaleTexts): NamesBundle {
+  return Object.fromEntries(
+    entries.map((entry) => {
+      const translated = texts.entries.get(entry.id)?.name;
+
+      if (translated !== undefined || !isTranslation(texts)) {
+        return [entry.id, { name: translated ?? entry.name }];
+      }
+
+      return [entry.id, { name: entry.name, untranslated: true }];
+    }),
+  );
 }
 
 /** Entries by kind, each kind's sorted by id so a reordered file gives the same bundles. */
@@ -91,16 +124,43 @@ function byKind(entries: readonly ContentEntry[]): ReadonlyMap<ContentKind, read
   return new Map([...kinds].toSorted(([left], [right]) => (left < right ? -1 : 1)));
 }
 
-/** A kind's descriptions by shard, in shard order. Entries without a description are left out, so some shards may be missing. */
+/** One description as a shard holds it. */
+interface ShardedDescription {
+  readonly text: RichText;
+  readonly untranslated?: true;
+}
+
+/** The description to bundle for `entry`: the locale's, else its own marked `untranslated`, else none. */
+function describe(entry: ContentEntry, texts: LocaleTexts): ShardedDescription | undefined {
+  const translated = texts.entries.get(entry.id)?.description;
+
+  if (translated !== undefined && translated.length > 0) {
+    return { text: translated };
+  }
+
+  if (entry.description.length === 0) {
+    return undefined;
+  }
+
+  return isTranslation(texts) ? { text: entry.description, untranslated: true } : { text: entry.description };
+}
+
+/**
+ * A kind's descriptions by shard, in shard order. Entries without a description in any locale are left out, so some
+ * shards may be missing; the shards are the same whatever the locale, so a locale never changes which exist.
+ */
 function descriptionShards(
   entries: readonly ContentEntry[],
-): ReadonlyMap<DescriptionShard, Record<ContentId, RichText>> {
-  const shards = new Map<DescriptionShard, Record<ContentId, RichText>>();
+  texts: LocaleTexts,
+): ReadonlyMap<DescriptionShard, Record<ContentId, ShardedDescription>> {
+  const shards = new Map<DescriptionShard, Record<ContentId, ShardedDescription>>();
 
   for (const entry of entries) {
-    if (entry.description.length > 0) {
+    const description = describe(entry, texts);
+
+    if (description !== undefined) {
       const shard = descriptionShard(entry.id);
-      shards.set(shard, { ...shards.get(shard), [entry.id]: entry.description });
+      shards.set(shard, { ...shards.get(shard), [entry.id]: description });
     }
   }
 
@@ -114,15 +174,15 @@ function bundleFiles({ file, kinds }: Pick<PackBundles, 'file' | 'kinds'>): read
   ];
 }
 
-function packBundles(writer: BundleWriter, { file, entries }: PackContents): PackBundles {
+function packBundles(writer: BundleWriter, { file, entries }: PackContents, texts: LocaleTexts): PackBundles {
   const pack = file.id;
 
   const kinds = [...byKind(entries)].map(([kind, ofKind]): KindBundles => ({
     kind,
-    descriptions: [...descriptionShards(ofKind)].map(([shard, descriptions]): DescriptionBundle => ({
+    descriptions: [...descriptionShards(ofKind, texts)].map(([shard, descriptions]): DescriptionBundle => ({
       shard,
       file: writer.write(pack, descriptions, (hash) =>
-        BundleFile.parse(`${kind}.desc.${SOURCE_LOCALE}.${shard}.${hash}.json`),
+        BundleFile.parse(`${kind}.desc.${texts.locale}.${shard}.${hash}.json`),
       ),
     })),
     mechanics: writer.write(
@@ -130,7 +190,9 @@ function packBundles(writer: BundleWriter, { file, entries }: PackContents): Pac
       ofKind.map((entry) => mechanics(entry)),
       (hash) => BundleFile.parse(`${kind}.mech.${hash}.json`),
     ),
-    names: writer.write(pack, names(ofKind), (hash) => BundleFile.parse(`${kind}.names.${SOURCE_LOCALE}.${hash}.json`)),
+    names: writer.write(pack, names(ofKind, texts), (hash) =>
+      BundleFile.parse(`${kind}.names.${texts.locale}.${hash}.json`),
+    ),
   }));
 
   const packFile = writer.write(pack, file, (hash) => BundleFile.parse(`pack.${hash}.json`));
@@ -142,11 +204,17 @@ function packBundles(writer: BundleWriter, { file, entries }: PackContents): Pac
 /**
  * The bundles the browser loads `packs` from (content-model.md, "Delivery to the browser"): per pack its `pack.json`,
  * and per kind its mechanics and its names, each named by the hash of its canonical JSON. Equal packs give equal
- * bundles, whatever order their files list entries in.
+ * bundles, whatever order their files list entries in. `texts` puts names and descriptions in another locale, each
+ * field falling back to the entry's own (marked `untranslated`); mechanics are the same in every locale, so their
+ * files, and the pack's, keep their hashes and a locale switch fetches only text.
  */
-export function contentBundles(packs: readonly PackContents[], hash: BundleHasher): ContentBundles {
+export function contentBundles(
+  packs: readonly PackContents[],
+  hash: BundleHasher,
+  texts: LocaleTexts = SOURCE_TEXTS,
+): ContentBundles {
   const writer = new BundleWriter(hash);
-  const manifest: ContentManifest = { packs: packs.map((contents) => packBundles(writer, contents)) };
+  const manifest: ContentManifest = { packs: packs.map((contents) => packBundles(writer, contents, texts)) };
 
   return { manifest, bodies: writer.bodies };
 }

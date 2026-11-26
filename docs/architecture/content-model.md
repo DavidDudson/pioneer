@@ -603,9 +603,12 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
 
 - **Descriptions, by shard.** A kind's descriptions are many and long, so `<kind>.desc.<locale>.<shard>.<hash>.json`
   holds those of the entries whose id starts with one hex digit (`descriptionShard`), as an object from id to
-  `RichText`. An entry with no description is in none, and a kind with none has no description bundles; the manifest
-  lists each kind's shards (`KindBundles.descriptions`). Only the source locale `en` ships; per-locale shards and the
-  `en` fallback when a translation is missing arrive with [#693](https://github.com/DavidDudson/pioneer/issues/693).
+  `{ text: RichText, untranslated? }`. An entry with no description is in none, and a kind with none has no description
+  bundles; the manifest lists each kind's shards (`KindBundles.descriptions`). The manifest is asked for in a locale
+  (`GET /content/manifest?locale=de`, `locale` in the homebrew request body; default `en`), and its names and shards are
+  that locale's. A name or description the locale has no translation of is the `en` one with `untranslated: true`, so
+  nothing is blank; the entry page marks a fallback description. The manifest's `ETag` is taken over the pack hashes and
+  the locale's texts, so an edited translation is served on the next ask.
 - **Built from the seeded rows.** `contentBundles` (`libs/rules/sdk`) makes, per official pack, `pack.<hash>.json`
   (its `pack.json`), and per kind `<kind>.mech.<hash>.json` (entries sorted by id, without `name` or `description`)
   and `<kind>.names.en.<hash>.json` (id to name). The hash is the first 16 hex digits of SHA-256 of the bundle's
@@ -656,9 +659,11 @@ stay in the browser (see "Filters"): the server finds the entries, the browser n
   keeps the source-locale (`en`) vector current whenever an entry's `name` or `data` is written, by the seed or a
   homebrew import alike, so no writer has to remember. It reads the description from the entry's `data` and flattens the
   rich text to its words (`content_rich_text_plain`). The text search configuration comes from the locale
-  (`content_search_config`: `english` for `en`, `simple` for a locale without stemming). Other locales' vectors arrive
-  with translated text in [#693](https://github.com/DavidDudson/pioneer/issues/693), which also adds the per-locale
-  fallback to `en`; until then only `en` exists. The trait and level indexes the filters use are on `content_entries`.
+  (`content_search_config`: `english` for `en`, the language's own configuration for the ones Postgres stems, `simple`
+  for any other). A trigger on `content_entry_texts` keeps a translated locale's vector current: the locale's name and
+  description, each the entry's own where it has no translation, and it drops the vector with the last translated row.
+  A search in a locale matches an entry through its vector in that locale, or through its `en` vector when it has none
+  there, so an untranslated entry is still found. The trait and level indexes the filters use are on `content_entries`.
 - **`GET /api/content/search`** (`ContentSearchContract`, `libs/rules/sdk`) takes `query` (the words), `locale`, `kinds`
   and `packs` (comma-separated), `limit` (at most 200, default 50) and `offset`, and answers `{ ids, total }`: the ids of
   one page of matches, best first, and how many entries matched in all. The words are read as a search box is used
@@ -781,9 +786,10 @@ Names, descriptions, summaries and rule element labels are translatable; mechani
 `id` for the audit log), with `en` as the source and per-field fallback, marked in the UI when a fallback is shown.
 The seed writes each official entry's `description` as an `en` row beside its `data`, and removes the row when the
 entry loses its description; it never touches another locale's rows. Description bundles are built from the pack's
-entries until translations exist. Homebrew authors can add translations for their packs. Community Foundry
-translation modules (Babele-based) can be imported as text-only packs keyed by Foundry id. See
-[ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
+entries and the locale's rows (`name` and `description` fields; `ContentLocale` is any two or three letter tag, wider
+than the UI's `Locale`, so content can exist before a UI catalogue does). Homebrew authors can add translations for
+their packs. Community Foundry translation modules (Babele-based) can be imported as text-only packs keyed by
+Foundry id. See [ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
 
 ## Foundry import
 

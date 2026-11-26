@@ -1,8 +1,8 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, Trait } from '@pioneer/rules/sdk';
-import { IDLE_SCHEDULER } from '@pioneer/shared/web';
+import { CONTENT_LOCALE, IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import type { BrowseKind } from '../browser/browse-kinds';
@@ -25,12 +25,28 @@ const INDEXED_KINDS: readonly IndexedKind[] = [ContentKind.Trait, ...BROWSE_KIND
 export class GlobalSearchIndex {
   readonly #loader = inject(ContentLoader);
   readonly #scope = inject(CONTENT_SCOPE);
+  readonly #locale = inject(CONTENT_LOCALE);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #byId = signal<ReadonlyMap<ContentId, ContentEntry>>(new Map());
   readonly #legacy = signal<ReadonlySet<ContentId>>(new Set());
   readonly #traitNames = signal<ReadonlyMap<Trait, string>>(new Map());
   readonly #done = new Set<IndexedKind>();
   #running = false;
+  /** Counts the times the index was emptied for a new locale, so a load that started before one is dropped. */
+  #generation = 0;
+
+  public constructor() {
+    let shown = this.#locale();
+
+    effect(() => {
+      const next = this.#locale();
+
+      if (next !== shown) {
+        shown = next;
+        this.#reset();
+      }
+    });
+  }
 
   /** The entries loaded so far, and by id. */
   public readonly entries = computed<readonly ContentEntry[]>(() => [...this.#byId().values()]);
@@ -69,9 +85,25 @@ export class GlobalSearchIndex {
     });
   }
 
+  /** Names are in the locale they were loaded in, so a new locale starts the index over; the next `warm` loads it. */
+  #reset(): void {
+    this.#generation += 1;
+    this.#byId.set(new Map());
+    this.#legacy.set(new Set());
+    this.#traitNames.set(new Map());
+    this.#done.clear();
+    this.#running = false;
+  }
+
   async #load(kind: IndexedKind): Promise<void> {
+    const generation = this.#generation;
+
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
+
+      if (generation !== this.#generation) {
+        return;
+      }
 
       if (kind === ContentKind.Trait) {
         this.#traitNames.set(traitNamesOf(registryEntries(registry)));

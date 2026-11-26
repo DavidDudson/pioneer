@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
 import { SearchLimit, SearchOffset, SearchText } from '@pioneer/rules/sdk';
 import type { ContentId, ContentSearchQuery } from '@pioneer/rules/sdk';
-import { SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { CONTENT_LOCALE } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
@@ -37,13 +37,14 @@ export function searchFromQuery(text: QueryText): SearchText | undefined {
 export function injectBrowseSearch(search: () => BrowseSearch | undefined): CreateQueryResult<readonly ContentId[]> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+  const locale = inject(CONTENT_LOCALE);
 
   return injectQuery(() => {
     const wanted = search();
     const { homebrew, legacy, ready } = scope();
 
     return {
-      queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted(), legacy],
+      queryKey: ['content', 'search', locale(), wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted(), legacy],
       enabled: wanted !== undefined && ready,
       staleTime: SEARCH_STALE_MS,
       queryFn: async (): Promise<readonly ContentId[]> => {
@@ -53,7 +54,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
 
         const query: ContentSearchQuery = {
           query: wanted.words,
-          locale: SOURCE_LOCALE,
+          locale: locale(),
           kinds: [...wanted.kinds],
           packs: [...homebrew],
           legacy,

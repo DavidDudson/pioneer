@@ -1,4 +1,4 @@
-import { bundleEtag, ContentContract } from '@pioneer/rules/sdk';
+import { bundleEtag, ContentContract, ManifestQuery } from '@pioneer/rules/sdk';
 import { ContractRouter } from '@pioneer/shared/server';
 
 import type { StoredContentBundles } from './stored-content-bundles';
@@ -37,7 +37,13 @@ export function contentRoutes(bundles: StoredContentBundles): ContractRouter['ap
       return undefined;
     }
 
-    const etag = await bundles.manifestEtag();
+    const asked = ManifestQuery.safeParse(Object.fromEntries(new URL(request.url).searchParams));
+
+    if (!asked.success) {
+      return undefined;
+    }
+
+    const etag = await bundles.manifestEtag(asked.data.locale);
 
     if (!matches(request.headers.get('if-none-match'), etag)) {
       return undefined;
@@ -50,8 +56,8 @@ export function contentRoutes(bundles: StoredContentBundles): ContractRouter['ap
   });
 
   return router
-    .handle(ContentContract.manifest, async ({ responseHeaders }) => {
-      const [manifest, etag] = await Promise.all([bundles.manifest(), bundles.manifestEtag()]);
+    .handle(ContentContract.manifest, async ({ query, responseHeaders }) => {
+      const [manifest, etag] = await Promise.all([bundles.manifest(query.locale), bundles.manifestEtag(query.locale)]);
       responseHeaders['cache-control'] = MANIFEST_CACHE_CONTROL;
       responseHeaders.etag = etag;
 

@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
 import type { ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import { CONTENT_LOCALE } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
@@ -13,13 +14,14 @@ export function injectBrowseRegistry(
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
+  const locale = inject(CONTENT_LOCALE);
 
   return injectQuery(() => {
     const wanted = kinds();
     const { homebrew, ready } = scope();
 
     return {
-      queryKey: ['content', 'browse', wanted?.toSorted(), homebrew.toSorted()],
+      queryKey: ['content', 'browse', locale(), wanted?.toSorted(), homebrew.toSorted()],
       enabled: wanted !== undefined && ready,
       queryFn: async (): Promise<ContentRegistry> => loader.registry(wanted ?? [], homebrew),
       staleTime: Number.POSITIVE_INFINITY,

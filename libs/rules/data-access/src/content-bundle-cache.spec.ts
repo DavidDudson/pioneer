@@ -1,9 +1,12 @@
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { bundlePath, contentId, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { BundleFile, ContentManifest, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
+import { ContentLocale, SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import { CONTENT_LOCALE } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
-import { MANIFEST_KEY } from './bundle-store';
+import { manifestKey } from './bundle-store';
 import type { BundleStore } from './bundle-store';
 import { ContentBundleCache } from './content-bundle-cache';
 import { MemoryBundleStore } from './memory-bundle-store';
@@ -164,7 +167,7 @@ describe(ContentBundleCache, () => {
     await settle();
 
     expect(newNames).not.toBe(oldNames);
-    await expect(store.keys()).resolves.toStrictEqual(['manifest', bundlePath(PACK, newNames)]);
+    await expect(store.keys()).resolves.toStrictEqual([manifestKey(SOURCE_CONTENT_LOCALE), bundlePath(PACK, newNames)]);
   });
 
   it('offline, serves the last manifest read and every bundle kept', async () => {
@@ -212,10 +215,10 @@ describe(ContentBundleCache, () => {
     const manifest = await cache.manifest();
 
     expect(manifest.packs).toHaveLength(1);
-    await expect(store.read(MANIFEST_KEY)).resolves.toBeUndefined();
+    await expect(store.read(manifestKey(SOURCE_CONTENT_LOCALE))).resolves.toBeUndefined();
     release();
     await settle();
-    await expect(store.read(MANIFEST_KEY)).resolves.toStrictEqual(manifest);
+    await expect(store.read(manifestKey(SOURCE_CONTENT_LOCALE))).resolves.toStrictEqual(manifest);
   });
 
   it('shares one fetch between asks for a bundle made while it is in flight', async () => {
@@ -242,5 +245,34 @@ describe(ContentBundleCache, () => {
     delivery.offline = false;
 
     await expect(cache.bundle(PACK, names)).resolves.toBeDefined();
+  });
+
+  describe('in another content locale', () => {
+    const GERMAN = ContentLocale.parse('de');
+
+    it('reads a manifest for each locale and keeps text only for the one in use', async () => {
+      const store = new MemoryBundleStore();
+      TestBed.resetTestingModule();
+      const delivery = new TestContentDelivery(homebrew('Common'));
+      const locale = signal(SOURCE_CONTENT_LOCALE);
+      delivery.translate({ locale: GERMAN, entries: new Map() });
+      TestBed.configureTestingModule({
+        providers: [...provideContentTesting(delivery, store), { provide: CONTENT_LOCALE, useValue: locale }],
+      });
+      const cache = TestBed.inject(ContentBundleCache);
+      const englishNames = languageNames(await cache.manifest());
+      await cache.bundle(PACK, englishNames);
+      await settle();
+
+      locale.set(GERMAN);
+      const germanNames = languageNames(await cache.manifest());
+      await cache.bundle(PACK, germanNames);
+      await settle();
+
+      expect(germanNames).toContain('.names.de.');
+      expect(germanNames).not.toBe(englishNames);
+      expect(delivery.requests.filter((request) => request === 'manifest')).toHaveLength(2);
+      await expect(store.keys()).resolves.toStrictEqual([manifestKey(GERMAN), bundlePath(PACK, germanNames)]);
+    });
   });
 });

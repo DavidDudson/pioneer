@@ -39,7 +39,7 @@ async function render(
   fixture.componentRef.setInput('fields', BROWSER_FIELDS);
   fixture.componentRef.setInput('facetState', NO_FACETS);
   fixture.componentRef.setInput('list', loaded(list));
-  fixture.componentRef.setInput('entry', loaded({ card: SHIELD_BLOCK_CARD, stores: [] }));
+  fixture.componentRef.setInput('entry', loaded({ card: SHIELD_BLOCK_CARD, stores: [], untranslated: false }));
   fixture.componentRef.setInput('columns', []);
   await fixture.whenStable();
 

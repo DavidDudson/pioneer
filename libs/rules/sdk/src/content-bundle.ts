@@ -1,4 +1,12 @@
-import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
+import {
+  ContentLocale,
+  Endpoint,
+  HttpMethod,
+  NoBody,
+  NoParams,
+  NoQuery,
+  SOURCE_CONTENT_LOCALE,
+} from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { ContentEntry } from './content-entry';
@@ -53,10 +61,20 @@ export type BundleHash = z.infer<typeof BundleHash>;
  */
 export const BundleFile = z
   .string()
-  .regex(/^(?:pack|[a-z-]+\.(?:mech|names\.[a-z]{2}|desc\.[a-z]{2}\.[\da-f]))\.[\da-f]{16}\.json$/u)
+  .regex(/^(?:pack|[a-z-]+\.(?:mech|names\.[a-z]{2,3}|desc\.[a-z]{2,3}\.[\da-f]))\.[\da-f]{16}\.json$/u)
   .brand<'BundleFile'>();
 
 export type BundleFile = z.infer<typeof BundleFile>;
+
+/**
+ * The locale a bundle's text is in: the one its name carries, or the source locale for a bundle with none (`pack.json`
+ * and mechanics are the same in every locale).
+ */
+export function bundleLocale(file: BundleFile): ContentLocale {
+  const locale = /\.(?:names|desc)\.(?<locale>[a-z]{2,3})\./u.exec(file)?.groups?.['locale'];
+
+  return locale === undefined ? SOURCE_CONTENT_LOCALE : ContentLocale.parse(locale);
+}
 
 /** A bundle's size in bytes, as served. */
 export const ByteCount = z.number().int().nonnegative().brand<'ByteCount'>();
@@ -109,13 +127,13 @@ export function descriptionShard(id: ContentId): DescriptionShard {
   return DescriptionShard.parse(id.slice(0, 1).toLowerCase());
 }
 
-/** One shard of a kind's descriptions, in the source locale until other locales ship (#693). */
+/** One shard of a kind's descriptions, in the locale of the manifest that names it. */
 export const DescriptionBundle = z.strictObject({ shard: DescriptionShard, file: BundleFile });
 
 export type DescriptionBundle = z.infer<typeof DescriptionBundle>;
 
 /**
- * The bundles of one kind in a pack. Mechanics never depend on locale; names and descriptions are in the source
+ * The bundles of one kind in a pack. Mechanics never depend on locale; names and descriptions are in the manifest's
  * locale. `descriptions` has a shard for each id prefix that has an entry with a description.
  */
 export const KindBundles = z.strictObject({
@@ -145,13 +163,24 @@ export const ContentManifest = z.strictObject({ packs: z.array(PackBundles).read
 
 export type ContentManifest = z.infer<typeof ContentManifest>;
 
-/** Names of a kind's entries, by id. Short summaries join them when entries have them. */
-const NamesBundle = z.record(ContentId, z.strictObject({ name: ContentText }));
+/** Names of a kind's entries, by id, in the bundle's locale; one it has no translation of is the source's, `untranslated`. */
+const NamesBundle = z.record(
+  ContentId,
+  z.strictObject({ name: ContentText, untranslated: z.literal(true).optional() }),
+);
 
 export type NamesBundle = z.infer<typeof NamesBundle>;
 
-/** The descriptions of one shard of a kind, by id. An entry without a description is not in it. */
-const DescriptionsBundle = z.record(ContentId, RichText);
+/** One shard's descriptions, by id, in the bundle's locale; one it has no translation of is the source's, `untranslated`. */
+const DescriptionsBundle = z.record(
+  ContentId,
+  z.strictObject({ text: RichText, untranslated: z.literal(true).optional() }),
+);
+
+/** The locale a manifest is asked for: names and descriptions come in it, with source-locale fallback. */
+export const ManifestQuery = z.strictObject({ locale: ContentLocale.default(SOURCE_CONTENT_LOCALE) });
+
+export type ManifestQuery = z.output<typeof ManifestQuery>;
 
 /** A kind's mechanics: its entries without names or descriptions, each read once its name is added back. */
 const MechanicsBundle = z.array(z.looseObject({ id: ContentId })).readonly();
@@ -167,7 +196,7 @@ export const ContentContract = {
     method: HttpMethod.Get,
     path: '/content/manifest',
     params: NoParams,
-    query: NoQuery,
+    query: ManifestQuery,
     body: NoBody,
     response: ContentManifest,
   }),
@@ -182,7 +211,10 @@ export const ContentContract = {
 } as const;
 
 /** The homebrew packs whose bundles are asked for. */
-export const HomebrewManifestRequest = z.strictObject({ packs: z.array(ContentPackId).readonly() });
+export const HomebrewManifestRequest = z.strictObject({
+  packs: z.array(ContentPackId).readonly(),
+  locale: ContentLocale.default(SOURCE_CONTENT_LOCALE),
+});
 
 export type HomebrewManifestRequest = z.infer<typeof HomebrewManifestRequest>;
 
@@ -265,7 +297,15 @@ export function contentPackFromBundles(packFile: JsonValue, kinds: readonly Fetc
   return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
 }
 
+/** An entry's description as a shard holds it: the text, and whether it is the source locale's for want of a translation. */
+export interface LocalisedDescription {
+  readonly text: RichText;
+  readonly untranslated: boolean;
+}
+
 /** `id`'s description in a fetched description shard, or undefined when the entry has none. */
-export function descriptionFromBundle(shard: JsonValue, id: ContentId): RichText | undefined {
-  return DescriptionsBundle.parse(shard)[id];
+export function descriptionFromBundle(shard: JsonValue, id: ContentId): LocalisedDescription | undefined {
+  const held = DescriptionsBundle.parse(shard)[id];
+
+  return held === undefined ? undefined : { text: held.text, untranslated: held.untranslated === true };
 }

@@ -1,6 +1,7 @@
 import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import { BundleHash, contentBundles, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentBundles, ContentPackId } from '@pioneer/rules/sdk';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 
 import { PackBundleSource } from './pack-bundle-source';
 
@@ -22,7 +23,7 @@ export class InMemoryPackBundleSource extends PackBundleSource {
     this.#packs = packs;
   }
 
-  public override async of(asked: readonly ContentPackId[]): Promise<ContentBundles> {
+  public override async of(asked: readonly ContentPackId[], _locale: ContentLocale): Promise<ContentBundles> {
     const contents = this.#packs
       .filter((pack) => asked.includes(pack.id))
       .map((pack) =>

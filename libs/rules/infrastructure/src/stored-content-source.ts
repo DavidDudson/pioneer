@@ -45,7 +45,7 @@ export class StoredContentSource implements ContentSource {
       this.#repository.homebrewHashes(packs),
     ]);
 
-    return this.#sets.current(packs, [...official, ...homebrew], async () =>
+    return this.#sets.current({ packs, variant: '' }, [...official, ...homebrew], async () =>
       registryOf([...(await this.#repository.loadOfficial()), ...(await this.#repository.loadHomebrew(packs))]),
     );
   }
