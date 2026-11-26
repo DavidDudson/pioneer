@@ -948,6 +948,26 @@
     }
   },
   {
+    "id": "f9a5a07d-df42-57fc-bbd1-601eed4d325c",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:gradual-attribute-boosts",
+    "name": "Gradual Attribute Boosts",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "structure": ["gradualBoosts"]
+    }
+  },
+  {
     "id": "d92b05a2-c2d4-56b0-b03e-2f96d848bed5",
     "pack": "core-rules",
     "kind": "variant-rule",
