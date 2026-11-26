@@ -96,10 +96,12 @@ export function noDedicationLockVariant(
 /** The label Pathbuilder gives the feat slots of Free Archetype: "Free Archetype 2", "Free Archetype 4"…. */
 const FREE_ARCHETYPE_LABEL = 'free archetype';
 
+const FREE_ARCHETYPE_SLUG = 'variant-rule:free-archetype';
+
 /**
  * The Free Archetype variant rule an export with feats in "Free Archetype N" slots needs, from the loaded packs;
- * undefined for an export without any, or content that doesn't define the variant. `extraSlots` is Free Archetype's
- * alone among the packs, so the structure picks it out.
+ * undefined for an export without any, or content that doesn't define the variant. Ancestry Paragon also adds slots
+ * (`extraSlots`), so the slug picks Free Archetype out.
  */
 export function freeArchetypeVariant(
   value: PathbuilderImport,
@@ -107,11 +109,7 @@ export function freeArchetypeVariant(
 ): VariantRuleEntry | undefined {
   const free = value.feats.some(({ slot }) => slot !== undefined && matchKey(slot).startsWith(FREE_ARCHETYPE_LABEL));
 
-  return free
-    ? registry
-        .variantRules()
-        .find((entry) => entry.definition.structure?.includes(VariantStructure.ExtraSlots) === true)
-    : undefined;
+  return free ? registry.variantRules().find((entry) => entry.definition.slug === FREE_ARCHETYPE_SLUG) : undefined;
 }
 
 /**

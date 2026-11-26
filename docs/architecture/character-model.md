@@ -499,6 +499,10 @@ beside the character's own, keyed by the variant and the rule index of their `Ch
 feat, level 2". They offer archetype feats under the dedication lock like any other feat slot. A pick is kept when the
 variant is off, reads as hidden, and is read again when it comes back.
 
+**Ancestry Paragon** ([#706](https://github.com/DavidDudson/pioneer/issues/706)): the same `extraSlots` mechanism, with
+an ancestry feat `ChoiceSet` (`ownTrait: ancestry`, feats up to the slot's level) at 1st level and each even level, so
+it opens the same labelled slots beside the character's own and keeps a pick when it is off.
+
 The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
 earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:
 1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above
