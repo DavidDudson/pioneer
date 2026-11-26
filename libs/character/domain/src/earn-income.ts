@@ -1,5 +1,4 @@
 import { Coin, CopperValue, Dc, DegreeOfSuccess, Proficiency } from '@pioneer/rules/sdk';
-import type { DegreeOfSuccess as Degree } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import type { CharacterDocument } from './character-document';
@@ -21,10 +20,7 @@ const EarnRanksSchema = z.strictObject({
 
 const TaskLevelRowSchema = EarnRanksSchema.extend({ dc: Dc, failed: CopperValue });
 
-/**
- * What a day of a task earns, in copper, level 0 first: Player Core, Earn Income, Table 4-2. Table data like the
- * treasure table (ADR-0064).
- */
+/** What a day of a task earns, in copper, level 0 first: Player Core Table 4-2, as data like the treasure table (ADR-0064). */
 const EarnIncomeTableSchema = z.strictObject({
   levels: z
     .array(TaskLevelRowSchema)
@@ -45,38 +41,36 @@ export type EarnIncomePatch = Extract<CharacterPatch, { readonly field: typeof C
 export interface EarnCheck {
   readonly level: TaskLevel;
   readonly rank: EarnRank;
-  readonly degree: Degree;
+  readonly degree: DegreeOfSuccess;
 }
 
-const NOTHING = CopperValue.parse(0);
+const NO_INCOME = CopperValue.parse(0);
 const NEXT_LEVEL = 1;
+
+type TaskLevelRow = z.infer<typeof TaskLevelRowSchema>;
+
+function levelRow(table: EarnIncomeTable, level: TaskLevel): TaskLevelRow {
+  const row = table.levels[level];
+
+  if (row === undefined) {
+    throw new TypeError(`The income table has no task level ${level}`);
+  }
+
+  return row;
+}
 
 /** The DC to roll against for a task of `level`. */
 export function earnIncomeDc(table: EarnIncomeTable, level: TaskLevel): Dc {
-  const row = table.levels[level];
-
-  if (row === undefined) {
-    throw new TypeError(`The income table has no task level ${level}`);
-  }
-
-  return row.dc;
+  return levelRow(table, level).dc;
 }
 
-/**
- * What one day of the task earns, in copper. A critical failure earns nothing, a failure the table's failed column, a
- * success the rank's column at the task's level and a critical success the rank's column one level up (at the top
- * level, the table's own critical row).
- */
+/** What one day earns, in copper: nothing on a critical failure, the failed column on a failure, else the rank's column. */
 export function incomePerDay(table: EarnIncomeTable, { level, rank, degree }: EarnCheck): CopperValue {
-  const row = table.levels[level];
-
-  if (row === undefined) {
-    throw new TypeError(`The income table has no task level ${level}`);
-  }
+  const row = levelRow(table, level);
 
   switch (degree) {
     case DegreeOfSuccess.CriticalFailure: {
-      return NOTHING;
+      return NO_INCOME;
     }
 
     case DegreeOfSuccess.Failure: {
@@ -97,9 +91,14 @@ export function incomePerDay(table: EarnIncomeTable, { level, rank, degree }: Ea
   }
 }
 
+/** What `days` days of the task earn in all, in copper. */
+export function incomeForDays(table: EarnIncomeTable, check: EarnCheck, days: EarnDays): CopperValue {
+  return CopperValue.parse(incomePerDay(table, check) * days);
+}
+
 /** The purse with the income of `days` days of the task added, in the fewest coins and each coin kept as it was. */
 function withIncomeCoins(coins: Coins, check: EarnCheck, days: EarnDays): Coins {
-  const earned = coinsOf(CopperValue.parse(incomePerDay(CORE_EARN_INCOME, check) * days));
+  const earned = coinsOf(incomeForDays(CORE_EARN_INCOME, check, days));
 
   return {
     [Coin.Platinum]: CoinAmount.parse(coins[Coin.Platinum] + earned[Coin.Platinum]),

@@ -13,8 +13,8 @@ import { rememberTab } from '../sheet-tab';
 import { Shop } from '../shop/shop.component';
 
 /**
- * The Downtime tab: what the character does between adventures. Rest and the other restoring actions, and the shop;
- * Earn Income; rituals, crafting and retraining join as their stories land.
+ * The Downtime tab: what the character does between adventures. Rest and the other restoring actions, Earn Income and
+ * the shop.
  */
 @Component({
   selector: 'pio-sheet-downtime-tab',

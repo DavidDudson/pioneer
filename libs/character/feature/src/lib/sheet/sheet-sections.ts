@@ -48,9 +48,9 @@ export const SHEET_SECTIONS = {
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
   /** Rest, daily preparations, Refocus and start of session (#347). */
   rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
-  /** Earn Income: work a task for pay (#513). */
+  /** Earn Income: work a task for pay. */
   income: { anchor: 'sheet-income', headingKey: 'character.sheet.income.heading' },
-  /** The shop, and later crafting (#517). */
+  /** The shop. */
   downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 

@@ -17,7 +17,7 @@
         <pio-option-picker
           [ariaLabel]="'character.sheet.income.result' | transloco"
           [placeholder]="'character.sheet.income.result' | transloco"
-          [options]="degreeOptions"
+          [options]="degreeOptions()"
           [value]="model().degree || undefined"
           (valueChange)="pickDegree($event)"
         />

@@ -6,7 +6,7 @@ import * as z from 'zod';
  * What the form checks while it is filled in: the task level and days use the schemas the server validates with, and
  * the degree is any of the degrees, as a string like the model's.
  */
-export const EarnIncomeFields = z.object({
+export const EarnIncomeDraftSchema = z.object({
   skill: z.string().min(1),
   level: TaskLevel,
   days: EarnDays,
@@ -14,7 +14,7 @@ export const EarnIncomeFields = z.object({
 });
 
 /** What it submits: the same, with the degree as one of the degrees. */
-export const EarnIncomeForm = EarnIncomeFields.extend({ degree: DegreeOfSuccessSchema });
+export const EarnIncomeSubmissionSchema = EarnIncomeDraftSchema.extend({ degree: DegreeOfSuccessSchema });
 
 /** The form's model. Signal forms need concrete field types, so a degree not yet rolled is ''. */
 export interface EarnIncomeModel {
