@@ -72,6 +72,29 @@ describe('Gradual Attribute Boosts', () => {
   });
 });
 
+describe('a group of gradual boosts', () => {
+  test('raises an attribute once, however many of its four levels name it', () => {
+    const picks = {
+      'boost:2:free:0': 'str',
+      'boost:3:free:0': 'str',
+      'boost:4:free:0': 'str',
+      'boost:5:free:0': 'str',
+    };
+    const once = attributeModifiers(fighter(5, { 'boost:2:free:0': 'str' }), GRADUAL).toWire();
+    const four = attributeModifiers(fighter(5, picks), GRADUAL).toWire();
+
+    expect(four.str).toBe(once.str);
+  });
+
+  test('counts the same attribute again in the next group', () => {
+    const picks = { 'boost:5:free:0': 'str', 'boost:10:free:0': 'str' };
+    const one = attributeModifiers(fighter(10, { 'boost:5:free:0': 'str' }), GRADUAL).toWire();
+    const two = attributeModifiers(fighter(10, picks), GRADUAL).toWire();
+
+    expect(two.str).toBeGreaterThan(one.str);
+  });
+});
+
 describe('the Gradual Attribute Boosts variant rule', () => {
   const registry = new ContentRegistry();
   registry.register(

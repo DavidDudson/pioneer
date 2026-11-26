@@ -111,13 +111,17 @@ const FREE_BOOST_LEVELS: readonly Level[] = [
 
 const FREE_BOOSTS: readonly Boost[] = Array.from({ length: FREE_BOOSTS_PER_LEVEL }, () => FREE_BOOST);
 
-/** Gradual Attribute Boosts (GM Core): the four boosts of each fifth level come one a level over it and the three before. */
-const SINGLE_BOOST: readonly Boost[] = [FREE_BOOST];
-
-const GRADUAL_BOOST_LEVELS: readonly Level[] = FREE_BOOST_LEVELS.slice(1).flatMap((last) =>
-  Array.from({ length: FREE_BOOSTS_PER_LEVEL }, (_unused, index) =>
-    Level.parse(last - FREE_BOOSTS_PER_LEVEL + 1 + index),
-  ),
+/**
+ * Gradual Attribute Boosts (GM Core): the four boosts of each fifth level come one a level over it and the three before.
+ * Each group is still one set, so its four boosts raise different attributes.
+ */
+const GRADUAL_BOOST_PLACES: ReadonlyMap<Level, readonly Level[]> = new Map(
+  FREE_BOOST_LEVELS.slice(1).map((last) => [
+    last,
+    Array.from({ length: FREE_BOOSTS_PER_LEVEL }, (_unused, index) =>
+      Level.parse(last - FREE_BOOSTS_PER_LEVEL + 1 + index),
+    ),
+  ]),
 );
 
 /** A boost to a modifier this high or higher is partial: two partial boosts raise it by one. */
@@ -182,13 +186,15 @@ interface BoostOrigin {
   readonly level: Level;
   readonly source: BoostSource;
   readonly boosts: readonly Boost[];
+  /** The level each boost is taken at, when the set's boosts come over several levels; `level` for each if unset. */
+  readonly places?: readonly Level[] | undefined;
 }
 
 /**
  * One set of boosts: a boost with one option is fixed, every other is a slot keyed `boost:<level>:<source>:<n>`,
  * `n` its place among the set's boosts. A slot offers what its boost allows less the set's fixed attributes.
  */
-function boostSet(document: CharacterDocument, { level, source, boosts }: BoostOrigin): BoostSet {
+function boostSet(document: CharacterDocument, { level, source, boosts, places }: BoostOrigin): BoostSet {
   const fixed = boosts.flatMap((boost) => (boost.length === 1 ? boost : []));
 
   const slots = boosts.flatMap((boost, index): BoostSlot[] => {
@@ -196,10 +202,12 @@ function boostSet(document: CharacterDocument, { level, source, boosts }: BoostO
       return [];
     }
 
-    const key = SlotKey.parse(`boost:${level}:${source}:${index}`);
+    const place = places?.[index];
+    const slotLevel = place ?? level;
+    const key = SlotKey.parse(`boost:${slotLevel}:${source}:${place === undefined ? index : 0}`);
     const options = boost.filter((attribute) => !fixed.includes(attribute));
 
-    return [{ key, level, source, options, pick: offeredPick(document.build.choices[key], options) }];
+    return [{ key, level: slotLevel, source, options, pick: offeredPick(document.build.choices[key], options) }];
   });
 
   return { level, source, fixed, slots };
@@ -253,11 +261,12 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
       boosts === undefined ? [] : [boostSet(document, { level: FIRST_LEVEL, source, boosts })],
     ),
     boostSet(document, { level: FIRST_LEVEL, source: BoostSource.Free, boosts: FREE_BOOSTS }),
-    ...(content.gradual ? GRADUAL_BOOST_LEVELS : FREE_BOOST_LEVELS.slice(1)).map((level) =>
+    ...FREE_BOOST_LEVELS.slice(1).map((level) =>
       boostSet(document, {
         level,
         source: BoostSource.Free,
-        boosts: content.gradual ? SINGLE_BOOST : FREE_BOOSTS,
+        boosts: FREE_BOOSTS,
+        ...(content.gradual ? { places: GRADUAL_BOOST_PLACES.get(level) } : {}),
       }),
     ),
   ];
@@ -321,6 +330,17 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
   return AttributeModifier.parse(total);
 }
 
+/** The part of `set` taken by `level`: all of it from the set's level, or the boosts of a gradual set taken so far. */
+function takenBy(set: BoostSet, level: Level): readonly BoostSet[] {
+  if (set.level <= level) {
+    return [set];
+  }
+
+  const slots = set.slots.filter((slot) => slot.level <= level);
+
+  return slots.length === 0 ? [] : [{ ...set, slots }];
+}
+
 /**
  * The attribute modifiers the character's picks give at its level, from its ancestry's flaws, its voluntary flaws and
  * every boost. Sets above the character's level are the plan, and don't count yet.
@@ -328,7 +348,7 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
 export function attributeModifiers(document: CharacterDocument, content: BoostContent): AttributeModifiers {
   const voluntary = flawSlots(document, content).flatMap((slot) => slot.pick ?? []);
   const flaws = new Set([...(ancestryFlaws(document, content) ?? []), ...voluntary]);
-  const current = boostSets(document, content).filter((set) => set.level <= document.level);
+  const current = boostSets(document, content).flatMap((set) => takenBy(set, document.level));
 
   const wire = Object.fromEntries(
     ATTRIBUTES.map((attribute) => [attribute, modifierOf(attribute, flaws.has(attribute), current)]),

@@ -505,6 +505,8 @@ variant is off, reads as hidden, and is read again when it comes back.
 15th and 20th level become one boost a level over that level and the three before it (2nd-5th, 7th-10th, 12th-15th,
 17th-20th), keyed `boost:<level>:free:0`; the four at 1st level are unchanged. A pick in a slot the schedule no longer
 has (`boost:5:free:2`) is kept, reads as hidden, and counts again when the variant is off.
+Each group is one set of boosts, so its four boosts raise different attributes, and a boost counts from the level
+it is taken at. A Pathbuilder import always uses the usual schedule.
 
 **Ancestry Paragon** ([#706](https://github.com/DavidDudson/pioneer/issues/706)): the same `extraSlots` mechanism, with
 an ancestry feat `ChoiceSet` (`ownTrait: ancestry`, feats up to the slot's level) at 1st level and each even level, so
