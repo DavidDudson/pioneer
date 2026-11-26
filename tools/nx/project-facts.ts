@@ -1,12 +1,14 @@
-/** What the inferrers of `pioneer-plugin.ts` ask about a project. Read once per project, from its folder. */
+/** What the target inferrers ask about a project, read once from its folder. */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+
+import * as z from 'zod';
 
 export interface ProjectFacts {
   /** The project's folder, relative to the workspace root. */
   readonly root: string;
   /** Whether the project's `tsconfig.json` sets `angularCompilerOptions`: an Angular project, checked with `ngc`. */
-  readonly angular: boolean;
+  readonly isAngular: boolean;
   /** Whether a file exists at this path, relative to the project's folder. */
   readonly exists: (file: string) => boolean;
   /** Whether a file anywhere under the project (not in `node_modules` or a dot folder) has a name that passes. */
@@ -23,19 +25,17 @@ function hasMatchingFile(directory: string, matches: (file: string) => boolean):
     });
 }
 
-/** The tsconfig fields the inferrers read: only whether `angularCompilerOptions` is set. */
-interface TsconfigFields {
-  readonly angularCompilerOptions?: object;
-}
+/** The only tsconfig field the inferrers read: whether `angularCompilerOptions` is set. */
+const TsconfigSchema = z.object({ angularCompilerOptions: z.json().optional() });
 
 export function readProjectFacts(root: string, workspaceRoot: string): ProjectFacts {
   const absoluteRoot = path.join(workspaceRoot, root);
-  // SAFETY: a project's `tsconfig.json` is a JSON object, and only whether it has `angularCompilerOptions` is read, an optional field.
-  const tsconfig = JSON.parse(readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8')) as TsconfigFields;
+  const text = readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8');
+  const tsconfig = TsconfigSchema.parse(JSON.parse(text));
 
   return {
     root,
-    angular: tsconfig.angularCompilerOptions !== undefined,
+    isAngular: tsconfig.angularCompilerOptions !== undefined,
     exists: (file) => existsSync(path.join(absoluteRoot, file)),
     hasFile: (matches) => hasMatchingFile(absoluteRoot, matches),
   };

@@ -5,22 +5,20 @@ import type { ProjectFacts } from '../project-facts.ts';
 /** Every Angular project's specs compile with the web app's development build, so they share its providers and polyfills. */
 const BUILD_TARGET = 'web:build:development';
 
+const SPEC_CONFIG = 'tsconfig.spec.json';
+
 /** A test setup file a project keeps beside its sources: the Angular test builder loads it before the specs. */
 const SETUP_FILE = 'src/test-setup.ts';
 
-/**
- * `test` for an Angular project with a `tsconfig.spec.json`: the Angular unit-test builder on Vitest. Caching and
- * inputs come from the `@angular/build:unit-test` entry in `nx.json` `targetDefaults`. A project adds its own
- * reporters and sharding `configurations` in `project.json`, which Nx merges over this.
- */
-export function inferAngularTest({ root, angular, exists, hasFile }: ProjectFacts): TargetConfiguration | undefined {
-  const hasSpecConfig = angular && hasFile((file) => file === 'tsconfig.spec.json');
+/** `test` for an Angular project with a spec tsconfig: the Angular unit-test builder on Vitest. `nx.json` `targetDefaults` give its caching. */
+export function inferAngularTest({ root, isAngular, exists }: ProjectFacts): TargetConfiguration | undefined {
+  const hasSpecConfig = isAngular && exists(SPEC_CONFIG);
 
   if (!hasSpecConfig) {
     return undefined;
   }
 
-  const options = { buildTarget: BUILD_TARGET, tsConfig: `${root}/tsconfig.spec.json`, runner: 'vitest' };
+  const options = { buildTarget: BUILD_TARGET, tsConfig: `${root}/${SPEC_CONFIG}`, runner: 'vitest' };
 
   return {
     executor: '@angular/build:unit-test',

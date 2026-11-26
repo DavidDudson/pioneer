@@ -3,8 +3,8 @@ import type { TargetConfiguration } from '@nx/devkit';
 import type { ProjectFacts } from '../project-facts.ts';
 
 /** `lint-templates`: ESLint (angular-eslint) on an Angular project's templates, when it has any. */
-export function inferLintTemplates({ root, angular, hasFile }: ProjectFacts): TargetConfiguration | undefined {
-  const hasTemplates = angular && hasFile((file) => file.endsWith('.html'));
+export function inferLintTemplates({ root, isAngular, hasFile }: ProjectFacts): TargetConfiguration | undefined {
+  const hasTemplates = isAngular && hasFile((file) => file.endsWith('.html'));
 
   if (!hasTemplates) {
     return undefined;

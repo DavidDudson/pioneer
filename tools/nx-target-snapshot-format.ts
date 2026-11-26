@@ -46,6 +46,15 @@ export function parseGraphNodes(text: string): Readonly<Record<string, GraphProj
   return GraphFileSchema.parse(document).graph.nodes;
 }
 
+/** Orders by UTF-16 code unit, the same on every machine; `localeCompare` depends on the runtime's locale data. */
+function compareCodeUnits(left: string, right: string): number {
+  if (left === right) {
+    return 0;
+  }
+
+  return left < right ? -1 : 1;
+}
+
 /** A `JSON.stringify` replacer that writes every plain object with its keys sorted, so equal values print equal. */
 function sortedKeys(_key: string, value: Json): Json {
   const isPlainObject = value !== null && Object.getPrototypeOf(value) === Object.prototype;
@@ -57,7 +66,7 @@ function sortedKeys(_key: string, value: Json): Json {
   // SAFETY: the prototype check above proves `value` is a plain object, so its entries are string-keyed JSON.
   const entries = Object.entries(value as Record<string, Json>);
 
-  const sorted = entries.toSorted(([left], [right]) => left.localeCompare(right));
+  const sorted = entries.toSorted(([left], [right]) => compareCodeUnits(left, right));
 
   return Object.fromEntries(sorted);
 }
