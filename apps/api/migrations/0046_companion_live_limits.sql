@@ -1,0 +1,2 @@
+DROP INDEX "character_companions_live_kind_idx";--> statement-breakpoint
+CREATE UNIQUE INDEX "character_companions_live_kind_idx" ON "character_companions" USING btree ("character_id","kind") WHERE "character_companions"."archived_at" is null and "character_companions"."kind" = 'familiar';

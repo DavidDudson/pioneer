@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterCommand, CompanionArchiveReason, CompanionForm, CompanionName } from '@pioneer/character/domain';
+import { CharacterCommand, CompanionArchiveReason, CompanionName, FamiliarForm } from '@pioneer/character/domain';
 import type { AddCompanionBody, Character, CharacterCompanions, Companion } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { CompanionKind, SlotKey } from '@pioneer/rules/sdk';
+import { CompanionKind, ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
@@ -16,6 +16,13 @@ const ezren = UserId.parse(newId());
 const FAMILIAR_SLOT = SlotKey.parse('witch-lesson:0');
 const PIP = CompanionName.parse('Pip');
 const MOTH = CompanionName.parse('Moth');
+const COMPANION_SLOT = SlotKey.parse('animal-companion:0');
+const WOLF = ContentId.parse(newId());
+const ASH = CompanionName.parse('Ash');
+const BIRCH = CompanionName.parse('Birch');
+const CEDAR = CompanionName.parse('Cedar');
+const DUNE = CompanionName.parse('Dune');
+const ELM = CompanionName.parse('Elm');
 
 /** The companion called `name`; a test that expects one fails loudly when it is missing. */
 function called(view: CharacterCompanions, name: CompanionName): Companion {
@@ -48,8 +55,19 @@ describe('the companions a character owns', () => {
     return {
       kind: CompanionKind.Familiar,
       name,
-      form: CompanionForm.parse({}),
+      form: FamiliarForm.parse({}),
       grantedBy: FAMILIAR_SLOT,
+      expectedVersion: character.version,
+    };
+  }
+
+  /** An animal companion called `name`, read at the character's current version. */
+  function wolf(name: CompanionName): AddCompanionBody {
+    return {
+      kind: CompanionKind.AnimalCompanion,
+      name,
+      form: { species: WOLF },
+      grantedBy: COMPANION_SLOT,
       expectedVersion: character.version,
     };
   }
@@ -111,6 +129,30 @@ describe('the companions a character owns', () => {
     await service.archive(amiri, ref, archival(CompanionArchiveReason.Released));
     const view = await service.restore(amiri, ref, { expectedVersion: character.version });
     expect(liveNames(view)).toStrictEqual([PIP]);
+  });
+
+  test('an animal companion keeps its species, and a familiar can live beside it', async () => {
+    await service.add(amiri, character.id, familiar(PIP));
+    const view = await service.add(amiri, character.id, wolf(MOTH));
+    const moth = called(view, MOTH);
+    expect(moth.kind).toBe(CompanionKind.AnimalCompanion);
+    expect(moth.form).toStrictEqual({ species: WOLF });
+    expect(liveNames(view)).toHaveLength(2);
+  });
+
+  test('a character holds up to four live animal companions, and a fifth is refused', async () => {
+    await Promise.all([ASH, BIRCH, CEDAR, DUNE].map(async (name) => service.add(amiri, character.id, wolf(name))));
+    const refused = await rejection(service.add(amiri, character.id, wolf(ELM)));
+    expect(refused).toBeInstanceOf(ConflictError);
+  });
+
+  test('restoring an animal companion is refused while four are live', async () => {
+    const ash = called(await service.add(amiri, character.id, wolf(ASH)), ASH);
+    const ref = { character: character.id, companion: ash.id };
+    await service.archive(amiri, ref, archival(CompanionArchiveReason.Replaced));
+    await Promise.all([BIRCH, CEDAR, DUNE, ELM].map(async (name) => service.add(amiri, character.id, wolf(name))));
+    const refused = await rejection(service.restore(amiri, ref, { expectedVersion: character.version }));
+    expect(refused).toBeInstanceOf(ConflictError);
   });
 
   test('another user’s character reads as missing, whatever is asked of it', async () => {
