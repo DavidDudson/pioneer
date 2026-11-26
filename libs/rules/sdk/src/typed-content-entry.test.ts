@@ -5,8 +5,9 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
 import { ContentEntryModel } from './content-entry';
-import { contentId, EntrySlug, PackId } from './content-id';
+import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
+import { RuleReferences, unconditionalGrants } from './rule-reference';
 import { ContentEntry } from './typed-content-entry';
 
 function issuesOf(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
@@ -121,5 +122,19 @@ describe('ContentEntry over the content model', () => {
     const entry = { ...language, id: idOf('language:other'), rules: [{ key: 'NotAnElement' }] };
 
     expect(paths(typed(entry))).toStrictEqual([['rules', 0, 'key']]);
+  });
+});
+
+describe('unconditionalGrants', () => {
+  const item = ContentId.parse(idOf('feat:toughness'));
+
+  const rules = RuleReferences.parse([
+    { key: 'GrantItem', item },
+    { key: 'GrantItem', item: idOf('feat:guarded'), predicate: ['self:trained'] },
+    { key: 'FlatModifier' },
+  ]);
+
+  test('names the items granted behind no predicate, and only those', () => {
+    expect([...unconditionalGrants(rules)]).toStrictEqual([item]);
   });
 });

@@ -49,7 +49,7 @@ const SOURCES_MAX = 16;
  * written, since every breakdown line it explains cites them. Here `rules` are references; `VariantRuleDefinition`
  * (`typed-content.ts`) parses the elements.
  */
-export const VariantRuleModel = z.strictObject({
+export const VariantRuleDefinitionModel = z.strictObject({
   slug: EntrySlug,
   name: ContentText,
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX),
@@ -60,4 +60,4 @@ export const VariantRuleModel = z.strictObject({
   limits: VariantRuleLimits.optional(),
 });
 
-export type VariantRuleModel = z.infer<typeof VariantRuleModel>;
+export type VariantRuleDefinitionModel = z.infer<typeof VariantRuleDefinitionModel>;

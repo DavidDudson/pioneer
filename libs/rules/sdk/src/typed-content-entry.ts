@@ -41,9 +41,5 @@ const Entry = z.discriminatedUnion('kind', [
 
 export type ContentEntry = z.output<typeof Entry>;
 
-/**
- * One content entry of any kind (content-model.md): the shared envelope, `data` checked by the schema for its `kind`,
- * and every rule element parsed. It reports what `ContentEntryModel` does and, beyond it, whatever is wrong with a rule
- * element, at the same paths and in the same order as when the model held the elements itself.
- */
+/** One content entry of any kind (content-model.md) with every rule element parsed; the issues of `ContentEntryModel` plus rule element errors. */
 export const ContentEntry: z.ZodType<ContentEntry> = z.unknown().check(checkKnownKind).pipe(Entry.check(checkEntry));

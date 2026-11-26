@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 import { RuleElementKey } from './rule-key';
 
-/** A class carries its whole progression as rule elements: Player Core's rogue has 102. */
+/** A class carries its whole progression as rule elements, so the cap is generous. */
 export const RULES_MAX = 256;
 
 /**

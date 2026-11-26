@@ -5,13 +5,9 @@ import { CreatureDefinitionModel, NPC_ONLY, npcDetailsOnNpc } from './creature';
 import { creatureAbilityFields, LIST_MAX, REACTION_TRIGGER, reactionHasTrigger } from './creature-stat-block';
 import { KIND_DATA_MODEL } from './kind-data';
 import { RuleElements } from './rule-element';
-import { VariantRuleModel } from './variant-rule';
+import { VariantRuleDefinitionModel } from './variant-rule';
 
-/**
- * The content model holds `rules` as references (`rule-reference.ts`); this file is where the elements are parsed
- * whole. A content entry, pack or stat block read through these schemas has typed rule elements, and every one is
- * validated, as it was when the model held `RuleElements` itself.
- */
+/** Schemas that parse a content entry's `rules` into full rule elements; the content model keeps them as references. */
 
 /** A content entry's `rules`: every element parsed, in order. */
 export const EntryRules = RuleElements.readonly();
@@ -38,7 +34,7 @@ export const CreatureData = z
 export type CreatureData = z.infer<typeof CreatureData>;
 
 /** A variant rule as a pack defines it, with its rule elements parsed. */
-export const VariantRuleDefinition = VariantRuleModel.extend({ rules: RuleElements });
+export const VariantRuleDefinition = VariantRuleDefinitionModel.extend({ rules: RuleElements });
 
 export type VariantRuleDefinition = z.infer<typeof VariantRuleDefinition>;
 

@@ -311,11 +311,8 @@ export function checkEntry(context: EntryCheck): void {
 }
 
 /**
- * One content entry of any kind (content-model.md) as the content model sees it: the shared envelope, with `data`
- * checked by the schema for its `kind` and `rules` held as references. `ContentEntry` (`typed-content-entry.ts`) is
- * the same with every rule element parsed. A kind with no schema yet is an error naming it. The id must be UUIDv5 of
- * `<pack>/<slug>`, traits are unique, an entry never supersedes itself, and a condition grants every condition it
- * implies.
+ * One content entry of any kind (content-model.md) with `rules` held as references. Never validate pack or API input
+ * with it: `ContentEntry` parses the rule elements.
  */
 export const ContentEntryModel: z.ZodType<ContentEntryModel> = z
   .unknown()
