@@ -418,6 +418,17 @@ export { AuthorizedName, AuthorizedSchema, isEmptyState, ItemStateSchema } from 
 
 export type { Authorized, ItemState } from './item-state';
 
+export {
+  type CoinChange,
+  CoinChangeAmount,
+  CoinChangeSchema,
+  coinChange,
+  type LedgerEntry,
+  LedgerEntrySchema,
+  LedgerReason,
+  ledgerCoins,
+} from './coin-ledger';
+
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 
 export {

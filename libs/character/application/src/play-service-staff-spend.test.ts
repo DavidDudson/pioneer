@@ -44,7 +44,10 @@ function wizardWithStaff(): Character {
 
   const caster = new CharacterBuilder().named('Ezren').atLevel(5).picking('class', playerCoreClassId('wizard')).build();
 
-  return caster.withInventory({ items: [staff], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
+  return caster.withInventory(
+    { items: [staff], customItems: [], coins: CoinsSchema.parse({}), ledger: [] },
+    clock.now(),
+  );
 }
 
 describe('PlayService staff casts on the spend log', () => {
@@ -99,7 +102,12 @@ describe('PlayService staff casts on the spend log', () => {
 
   test('takes the spend back after the staff is gone, since the log entry says what it spent', async () => {
     await patch(castSpend('fireball'));
-    const bare = ezren.withInventory({ items: [], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
+
+    const bare = ezren.withInventory(
+      { items: [], customItems: [], coins: CoinsSchema.parse({}), ledger: [] },
+      clock.now(),
+    );
+
     await repository.update(bare, ezren.version, {
       actor: bare.ownerId,
       command: CharacterCommand.CreateCharacter,

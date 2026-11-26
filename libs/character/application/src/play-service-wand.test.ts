@@ -52,7 +52,7 @@ function wizardWith(fields: JsonObject = {}, name = 'Ezren'): Character {
   const wizard = new CharacterBuilder().named(name).atLevel(5).picking('class', playerCoreClassId('wizard')).build();
 
   return wizard.withInventory(
-    { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}) },
+    { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}), ledger: [] },
     clock.now(),
   );
 }
