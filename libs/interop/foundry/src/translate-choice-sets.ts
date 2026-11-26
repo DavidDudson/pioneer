@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
-import { kebab, slugOf } from './foundry-flags';
+import { defaultFlag, kebab } from './foundry-flags';
 import type { Fields } from './translate-choice-reads';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
 import { ownedQueryOf } from './translate-owned-picks';
@@ -223,7 +223,7 @@ export function withChoiceSet<Raw>(raw: Raw, item: string, references: EntryRefe
     }),
   );
 
-  const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
+  const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : defaultFlag(item);
 
   return { ...normalised, flag };
 }
