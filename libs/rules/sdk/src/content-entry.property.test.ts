@@ -11,7 +11,7 @@ import { ContentKind } from './content-kind';
 import { REGISTERED_KINDS } from './kind-data';
 import type { RegisteredKind } from './kind-data';
 import { RulesMessage } from './messages';
-import { contentEntryJson, slugText } from './testing';
+import { contentEntryJson, EntryIdentityJson, slugText } from './testing';
 
 /** A valid entry of `kind` and a slug to rename it to. */
 function renames(kind: RegisteredKind): Arbitrary<readonly [object, string]> {
@@ -31,7 +31,7 @@ describe('content entries (properties)', () => {
   test.each([...REGISTERED_KINDS])("changing a %s entry's slug without its id is always rejected", (kind) => {
     assert(
       property(renames(kind), ([json, slug]) => {
-        const original: unknown = Reflect.get(json, 'slug');
+        const original = EntryIdentityJson.parse(json).slug;
         const candidate = `${kind}:${slug}`;
         const renamed = { ...json, slug: candidate === original ? `${candidate}-renamed` : candidate };
         const rejected = fieldIssues(ContentEntry.safeParse(renamed).error?.issues ?? []);
@@ -48,9 +48,10 @@ describe('content entry slugs (properties)', () => {
     const other = kind === ContentKind.Trait ? ContentKind.Language : ContentKind.Trait;
     assert(
       property(contentEntryJson(kind), (json) => {
-        const name = String(Reflect.get(json, 'slug')).split(':')[1] ?? '';
+        const identity = EntryIdentityJson.parse(json);
+        const name = identity.slug.split(':')[1] ?? '';
         const slug = EntrySlug.parse(`${other}:${name}`);
-        const id = contentId(PackId.parse(Reflect.get(json, 'pack')), slug);
+        const id = contentId(PackId.parse(identity.pack), slug);
         const rejected = fieldIssues(ContentEntry.safeParse({ ...json, slug, id }).error?.issues ?? []);
         expect(rejected.map((issue) => [issue.path, issue.message.key])).toStrictEqual([
           [['slug'], RulesMessage.EntrySlugKindMismatch],

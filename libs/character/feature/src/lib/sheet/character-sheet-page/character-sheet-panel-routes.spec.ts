@@ -40,7 +40,11 @@ describe('CharacterSheetPage panel routes', () => {
     await vi.waitFor(() => {
       expect(root.querySelector(`pio-sheet-section-tabs pio-sheet-panel ${content}`)).not.toBeNull();
     });
-    const others = PANELS.filter(([, each]) => each !== content).map(([, each]) => each);
+
+    const others = PANELS.values()
+      .filter(([, each]) => each !== content)
+      .map(([, each]) => each)
+      .toArray();
 
     for (const other of others) {
       expect(root.querySelector(`pio-sheet-section-tabs pio-sheet-panel ${other}`)).toBeNull();

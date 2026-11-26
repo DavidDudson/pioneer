@@ -60,8 +60,9 @@ function byUuid<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Valu
 function bySlug<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Value> {
   return new Map(
     keyed
+      .values()
       .filter(({ document }) => isAction(document))
-      .map(({ document, value }) => [foundrySlug(document.document), value]),
+      .map(({ document, value }): [string, Value] => [foundrySlug(document.document), value]),
   );
 }
 

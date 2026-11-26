@@ -53,8 +53,10 @@ function headings(root: HTMLElement): string[] {
       'pio-spellcasting fr-heading, pio-spellcasting fr-text, pio-spellcasting fr-badge',
     ),
   ]
+    .values()
     .filter((part) => part.closest('pio-statistics') === null && part.closest('pio-spell-slots') === null)
-    .map((part) => textOf(part));
+    .map((part) => textOf(part))
+    .toArray();
 }
 
 /** Each slot list's rows as their term and count. */

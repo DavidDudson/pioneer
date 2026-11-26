@@ -69,7 +69,10 @@ describe('weapon property rune rules', () => {
   });
 
   test('every recorded weapon gap says why', () => {
-    const unexplained = [...WEAPON_GAPS].filter(([, reason]) => reason.trim() === '').map(([slug]) => slug);
+    const unexplained = WEAPON_GAPS.entries()
+      .filter(([, reason]) => reason.trim() === '')
+      .map(([slug]) => slug)
+      .toArray();
 
     expect(unexplained).toEqual([]);
   });

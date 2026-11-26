@@ -96,8 +96,10 @@ function trainingFills(document: CharacterDocument, content: SlotContent): Fill[
   const languages = languageSlots(document, languageReads(document, content));
 
   return [...skills, ...languages]
+    .values()
     .filter((slot) => slot.pick === undefined)
-    .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }));
+    .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }))
+    .toArray();
 }
 
 /** The `ChoiceSet` slots not answered: feats, subclasses and the like. */
@@ -114,8 +116,10 @@ function spellFills(document: CharacterDocument, content: SlotContent): Fill[] {
   const reads = preparedReads(document, content);
 
   return [...preparedSlots(document, reads), ...signatureSlots(document, reads)]
+    .values()
     .filter((slot) => slot.pick === undefined)
-    .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }));
+    .map((slot) => ({ slot: slot.key, candidates: slot.options.map((option) => ChoiceValue.parse(option.id)) }))
+    .toArray();
 }
 
 /** The slots that are open, in the order a builder fills them: its own, boosts, skills, languages, choices, spells. */

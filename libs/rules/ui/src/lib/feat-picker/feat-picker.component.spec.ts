@@ -146,7 +146,7 @@ describe(FeatPicker, () => {
     const rendered = await render(FEATS);
     expect(nameCells(rendered).map((cell) => cell.textContent.trim())).toStrictEqual([
       'Power Attack',
-      expect.stringContaining('Sudden Charge') as unknown as string,
+      expect.stringContaining('Sudden Charge'),
       'Reactive Shield',
     ]);
   });

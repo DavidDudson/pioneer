@@ -5,7 +5,15 @@ import { TranslocoTestingModule } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import type { ClassOption } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
-import { ContentId } from '@pioneer/rules/sdk';
+import {
+  Attribute,
+  AttributeBoost,
+  ClassRole,
+  ContentId,
+  ContentText,
+  HitPoints,
+  SkillCount,
+} from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -18,9 +26,22 @@ import { WeaponBaseOptions } from '../../data/weapon-bases';
 import { present } from '../../testing/inventory-sheet-testing';
 import { GenerateCharacterPage } from './generate-character-page.component';
 
-const FIGHTER = { id: ContentId.parse('7d1c4a5e-0b6c-4c58-9d3f-1c2f6a8e9b01'), name: 'Fighter', roles: ['melee'] };
-const WIZARD = { id: ContentId.parse('2b9e3f10-5a47-4d6e-8c21-7f4d0a3b5c02'), name: 'Wizard', roles: ['spellcaster'] };
-const CLASSES = [FIGHTER, WIZARD] as unknown as readonly ClassOption[];
+const classOption = (id: string, name: string, role: ClassRole): ClassOption => ({
+  id: ContentId.parse(id),
+  name: ContentText.parse(name),
+  keyAttribute: AttributeBoost.parse([Attribute.Strength]),
+  hitPoints: HitPoints.parse(8),
+  trained: [],
+  additionalSkills: SkillCount.parse(2),
+  traditions: [],
+  proficiencies: [],
+  roles: [role],
+  sources: [],
+});
+
+const FIGHTER = classOption('7d1c4a5e-0b6c-4c58-9d3f-1c2f6a8e9b01', 'Fighter', ClassRole.Melee);
+const WIZARD = classOption('2b9e3f10-5a47-4d6e-8c21-7f4d0a3b5c02', 'Wizard', ClassRole.Spellcaster);
+const CLASSES: readonly ClassOption[] = [FIGHTER, WIZARD];
 
 const ELF = { id: 'ancestry-elf', name: 'Elf' };
 const ACOLYTE = { id: 'background-acolyte', name: 'Acolyte' };

@@ -32,7 +32,7 @@ function harness(...responses: Response[]): Harness {
       calls.push({ url: String(input), headers: init.headers as Record<string, string>, at: clock });
 
       return responses.shift() ?? new Response('', { status: 500 });
-    }) as unknown as typeof fetch,
+    }) as typeof fetch,
   });
 
   return { client, calls };

@@ -19,9 +19,10 @@ type SayWith = (key: string, params: Readonly<Record<string, number>>) => string
 
 /** The coins an offer carries as a short list in the active language, e.g. "4 gp, 2 sp"; a denomination of none is left out. */
 export function coinsText(coins: CoinCounts, say: SayWith, language: string): string {
-  const parts = DENOMINATIONS.filter((coin) => coins[coin] > 0).map((coin) =>
-    say(COIN_MESSAGES[coin], { count: coins[coin] }),
-  );
+  const parts = DENOMINATIONS.values()
+    .filter((coin) => coins[coin] > 0)
+    .map((coin) => say(COIN_MESSAGES[coin], { count: coins[coin] }))
+    .toArray();
 
   return new Intl.ListFormat(language, { style: 'short', type: 'unit' }).format(parts);
 }

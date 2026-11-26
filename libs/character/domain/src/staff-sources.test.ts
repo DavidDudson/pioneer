@@ -1,40 +1,35 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, Slug, SpellPreparation, STAFF_CANTRIP } from '@pioneer/rules/sdk';
+import { Attribute, Slug, SpellPreparation, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 
 import { InventoryItemId, InventoryItemSchema, ItemQuantity } from './inventory';
 import type { InventoryItem } from './inventory';
 import { spellContent } from './spell-content';
 import { StaffChargesSchema } from './staff-charges';
 import { staffSources, StaffSpellProblem } from './staff-sources';
-import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry, staffSpellId } from './testing';
+import {
+  casterEntry,
+  ItemFixture,
+  itemFixtureContent,
+  itemFixtureId,
+  itemFixtureRegistry,
+  staffSpellId,
+} from './testing';
 
 const items = itemFixtureContent();
 
 const spells = spellContent(itemFixtureRegistry());
 
-const ORIGIN = Origin.parse({
-  hops: [],
-  entry: staffSpellId('ignition'),
-  sources: [{ kind: 'web', url: 'https://example.com/' }],
-});
-
 /** A prepared entry of `tradition` with slots of `ranks`, one each. */
 function entry(slug: string, tradition: 'arcane' | 'primal', ranks: readonly number[]): SpellcastingInPlay {
-  return {
+  return casterEntry({
     slug,
     tradition,
-    attribute: 'int',
+    attribute: Attribute.Intelligence,
     preparation: SpellPreparation.Prepared,
-    origin: ORIGIN,
-    slots: { ranks: ranks.map((rank) => ({ rank, count: 1 })) },
-    pools: [],
-    signatures: false,
-    focusSpells: [],
-    innateSpells: [],
-    deitySpells: false,
-  } as unknown as SpellcastingInPlay;
+    ranks,
+  });
 }
 
 const STAFF_ID = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');

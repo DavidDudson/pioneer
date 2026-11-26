@@ -106,7 +106,7 @@ export const noMagicNumbers: Rule.RuleModule = {
 
     return {
       Literal(node: Rule.Node): void {
-        const literal = node as unknown as NodeShape;
+        const literal = node as NodeShape;
 
         if (typeof literal.value !== 'number') {
           return;
@@ -191,7 +191,7 @@ function chainMethods(call: unknown): readonly string[] {
 
 /** `z.string()` / `Pg.smallint()` etc.: the factory name, if this call is one. */
 function primitiveSchema(node: Rule.Node): string | undefined {
-  const { callee } = node as unknown as {
+  const { callee } = node as {
     readonly callee: ChainShape & { readonly object?: { readonly name?: unknown } };
   };
 

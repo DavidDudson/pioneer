@@ -214,7 +214,11 @@ interface ReadTexts {
 
 /** The slugs of `entries`, and which of them are conditions. */
 function entrySlugs(entries: readonly PlaygroundEntry[]): EntrySlugs {
-  const conditions = entries.filter((entry) => entry.kind === ContentKind.Condition).map((entry) => entry.slug);
+  const conditions = entries
+    .values()
+    .filter((entry) => entry.kind === ContentKind.Condition)
+    .map((entry) => entry.slug)
+    .toArray();
 
   return { table: slugTable(entries), conditions: new Set(conditions) };
 }

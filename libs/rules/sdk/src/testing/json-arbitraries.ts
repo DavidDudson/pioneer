@@ -1,5 +1,6 @@
 import { array, constantFrom, integer, option, stringMatching, tuple, uuid } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
+import * as z from 'zod';
 
 import { DamageType } from '../damage';
 import { Size } from '../size';
@@ -38,4 +39,23 @@ export function withOptional<TRequired extends object>(
 
     return Object.fromEntries([...Object.entries(fields), ...present]);
   });
+}
+
+/** An entry's identity as JSON: the fields a test reads back off a generated entry. */
+export const EntryIdentityJson = z.looseObject({ id: z.string(), pack: z.string(), slug: z.string() });
+
+const ImplyingData = z.looseObject({ implies: z.array(z.unknown()).optional() });
+
+/** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
+export function impliedGrants(data: object): object[] {
+  const { implies = [] } = ImplyingData.parse(data);
+
+  return implies.map((item) => ({ key: 'GrantItem', item }));
+}
+
+const LevelOneEntry = z.looseObject({ data: z.looseObject({ onlyLevel1: z.boolean().optional() }) });
+
+/** A feat taken only at 1st level, which must then be level 1. */
+export function onlyLevel1(json: object): boolean {
+  return LevelOneEntry.parse(json).data.onlyLevel1 === true;
 }

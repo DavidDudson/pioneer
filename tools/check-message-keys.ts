@@ -35,7 +35,13 @@ const sources = new Map(await Promise.all(sourcePaths.map(async (path) => [path,
 
 async function bundleKeys(bundle: string): Promise<string[]> {
   const projectSrc = bundle.slice(0, bundle.indexOf('/i18n/en.json'));
-  const projectSources = [...sources].filter(([path]) => path.startsWith(`${projectSrc}/`)).map(([, text]) => text);
+
+  const projectSources = sources
+    .entries()
+    .filter(([path]) => path.startsWith(`${projectSrc}/`))
+    .map(([, text]) => text)
+    .toArray();
+
   const tree = JSON.parse(await read(bundle)) as MessageTree;
 
   return flattenMessages(tree, scopeOf(projectSources) ?? '');

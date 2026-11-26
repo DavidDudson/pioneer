@@ -142,10 +142,16 @@ function levelBulk(context: BulkContext, items: readonly InventoryItem[]): Light
   });
 
   const unknown = items
+    .values()
     .filter((item) => !context.content.has(item.item))
-    .map((item) => levelBulk(context, context.contents.get(item.id) ?? []));
+    .map((item) => levelBulk(context, context.contents.get(item.id) ?? []))
+    .toArray();
 
-  const single = weighed.filter((each) => !isBatched(each)).map((each) => lineBulk(context, each));
+  const single = weighed
+    .values()
+    .filter((each) => !isBatched(each))
+    .map((each) => lineBulk(context, each))
+    .toArray();
 
   return sum([...single, ...unknown, batchedBulk(weighed.filter((each) => isBatched(each)))]);
 }

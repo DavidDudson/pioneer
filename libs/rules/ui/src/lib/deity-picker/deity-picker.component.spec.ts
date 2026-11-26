@@ -201,7 +201,7 @@ describe(DeityPicker, () => {
     expect(nameCells(rendered).map((cell) => cell.textContent.trim())).toStrictEqual([
       'No deity',
       'Sarenrae',
-      expect.stringContaining('Prophecies of Kalistrade') as unknown as string,
+      expect.stringContaining('Prophecies of Kalistrade'),
       'Zon-Kuthon',
     ]);
   });

@@ -220,7 +220,12 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
 function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]): ReadonlySet<EffectInstanceId> {
   const terms = effectContent(registry);
 
-  return new Set(active.filter(({ effect }) => terms.get(effect)?.polymorph === true).map(({ id }) => id));
+  return new Set(
+    active
+      .values()
+      .filter(({ effect }) => terms.get(effect)?.polymorph === true)
+      .map(({ id }) => id),
+  );
 }
 
 /** The form the character is in: its newest polymorph effect, the one that wins; undefined in no form. */

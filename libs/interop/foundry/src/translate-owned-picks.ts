@@ -199,6 +199,7 @@ export function ownedFlagsOnce(elements: readonly (RuleElement | undefined)[]): 
 
   return new Set(
     sets
+      .values()
       .filter((set) => isOwnedChoiceSet(set) && counts.get(String(set.flag))?.length === 1)
       .map((set) => String(set.flag)),
   );

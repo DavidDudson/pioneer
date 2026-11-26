@@ -20,8 +20,10 @@ const FIRST_SECTIONS: readonly (readonly [SheetMode, string, string])[] = [
 /** The headings of the sections in view: those of the tab's regions that are not concealed. */
 function shownHeadings(root: HTMLElement): string[] {
   return [...root.querySelectorAll('router-outlet ~ * section')]
+    .values()
     .filter((region) => !region.classList.contains('hidden') && !region.closest('.hidden'))
-    .map((region) => textOf(region.querySelector('h2')));
+    .map((region) => textOf(region.querySelector('h2')))
+    .toArray();
 }
 
 describe('CharacterSheetPage sections', () => {

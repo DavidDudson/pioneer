@@ -148,8 +148,10 @@ export function lapsingSpells(spells: readonly ActiveSpell[]): readonly ActiveSp
 /** `spells` after End turn: those that were not sustained are gone, and the rest must be sustained again next turn. */
 export function spellsAfterTurnEnd(spells: readonly ActiveSpell[]): readonly ActiveSpell[] {
   return spells
+    .values()
     .filter((spell) => spell.sustainedThisTurn)
-    .map((spell) => activeSpellWith(spell, { sustainedThisTurn: false }));
+    .map((spell) => activeSpellWith(spell, { sustainedThisTurn: false }))
+    .toArray();
 }
 
 /** `spells` a round on at Start turn, and those whose rounds have run out, which are gone. */
@@ -163,8 +165,10 @@ export function spellsCountedDown(spells: readonly ActiveSpell[]): CountedSpells
   const ended = spells.filter(({ remaining }) => remaining <= ONE_ROUND);
 
   const kept = spells
+    .values()
     .filter(({ remaining }) => remaining > ONE_ROUND)
-    .map((spell) => activeSpellWith(spell, { remaining: EffectRounds.parse(spell.remaining - ONE_ROUND) }));
+    .map((spell) => activeSpellWith(spell, { remaining: EffectRounds.parse(spell.remaining - ONE_ROUND) }))
+    .toArray();
 
   return { kept, ended };
 }

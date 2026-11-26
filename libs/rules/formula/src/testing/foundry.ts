@@ -121,7 +121,7 @@ export function foundryOutcome(node: FormulaNode, values: Bindings): FoundryOutc
 
   // oxlint-disable-next-line typescript/no-implied-eval, no-new-func -- this models Foundry's own eval of the text; test only, and the text is printed from a tree
   const run = new Function('Math', 'Watch', `"use strict"; return (${javascript(node, values)});`);
-  const result: unknown = Reflect.apply(run, undefined, [PF2E_MATH, watch]);
+  const result: unknown = run.call(globalThis, PF2E_MATH, watch);
   const floored = Math.floor(Number(result));
   const value = FormulaValue.safeParse(floored === 0 ? 0 : floored);
 

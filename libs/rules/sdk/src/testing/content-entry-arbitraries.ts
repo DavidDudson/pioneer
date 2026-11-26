@@ -35,7 +35,15 @@ import {
 } from './build-kind-arbitraries';
 import { creatureData } from './creature-arbitraries';
 import { EQUIPMENT_KIND_ARBITRARIES } from './equipment-kind-arbitraries';
-import { contentIdJson, LIST_MAX, positive, slugText, withOptional } from './json-arbitraries';
+import {
+  contentIdJson,
+  impliedGrants,
+  LIST_MAX,
+  onlyLevel1,
+  positive,
+  slugText,
+  withOptional,
+} from './json-arbitraries';
 import { effectData, ritualData, spellcastingTraditionData, spellData } from './magic-kind-arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
@@ -209,13 +217,6 @@ function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
   });
 }
 
-/** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
-function impliedGrants(data: object): object[] {
-  const implies: unknown = Reflect.get(data, 'implies');
-
-  return Array.isArray(implies) ? implies.map((item: unknown) => ({ key: 'GrantItem', item })) : [];
-}
-
 /** A kind's `data` with rules that keep it valid. */
 interface DataAndRules {
   readonly data: object;
@@ -256,11 +257,4 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.
     supersedes: array(uuid({ version: 4 }), { maxLength: LIST_MAX }),
   }).map((json) => (onlyLevel1(json) ? Object.assign(json, { level: 1 }) : json));
-}
-
-/** A feat taken only at 1st level, which must then be level 1. */
-function onlyLevel1(json: object): boolean {
-  const data: unknown = Reflect.get(json, 'data');
-
-  return typeof data === 'object' && data !== null && Reflect.get(data, 'onlyLevel1') === true;
 }

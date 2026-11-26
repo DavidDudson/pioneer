@@ -14,12 +14,12 @@ const OTHER = ContentId.parse('00000000-0000-5000-8000-000000000002');
 const KEYS: ReadonlySet<string> = new Set(['FlatModifier']);
 const GAPPED: ReadonlySet<string> = new Set([`${pack}/${slug}`]);
 
-const toggle = { key: 'RollOption', option: 'a:b' } as unknown as RuleElement;
-const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as unknown as RuleElement;
-const proficiency = { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' } as unknown as RuleElement;
+const toggle = { key: 'RollOption', option: 'a:b' } as RuleElement;
+const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as RuleElement;
+const proficiency = { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' } as RuleElement;
 
 function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
-  return { id, pack, slug, rules } as unknown as ContentEntry;
+  return { id, pack, slug, rules } as ContentEntry;
 }
 
 const ruleGap = { type: BacklogGapType.Rule, key: 'FlatModifier', raw: { key: 'FlatModifier' } } as const;

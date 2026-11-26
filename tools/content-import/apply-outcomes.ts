@@ -16,8 +16,6 @@ import type { Span, SpanNode } from './json-spans.ts';
 import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
 
-type Json = unknown;
-
 type JsonRecord = Readonly<Record<string, unknown>>;
 
 function isRecord(node: unknown): node is JsonRecord {
@@ -33,27 +31,27 @@ function same(left: unknown, right: unknown): boolean {
 }
 
 /** The members of `node` to look into: all of them, but a check's own `outcomes`, which are text. */
-function membersOf(node: JsonRecord): readonly (readonly [string, Json])[] {
+function membersOf(node: JsonRecord): readonly (readonly [string, unknown])[] {
   return Object.entries(node).filter(([key]) => !(key === 'outcomes' && isCheck(node)));
 }
 
 /** `node` without the `outcomes` of any check in it. */
-export function withoutOutcomes(node: Json): Json {
+export function withoutOutcomes(node: unknown): unknown {
   if (Array.isArray(node)) {
-    return node.map((each: Json) => withoutOutcomes(each));
+    return node.map((each: unknown) => withoutOutcomes(each));
   }
 
   if (!isRecord(node)) {
     return node;
   }
 
-  return Object.fromEntries(membersOf(node).map(([key, value]): [string, Json] => [key, withoutOutcomes(value)]));
+  return Object.fromEntries(membersOf(node).map(([key, value]): [string, unknown] => [key, withoutOutcomes(value)]));
 }
 
 /** The checks in `node`, in document order, those inside another check's outcomes left out. */
-function checksIn(node: Json): readonly JsonRecord[] {
+function checksIn(node: unknown): readonly JsonRecord[] {
   if (Array.isArray(node)) {
-    return node.flatMap((each: Json) => checksIn(each));
+    return node.flatMap((each: unknown) => checksIn(each));
   }
 
   if (!isRecord(node)) {
@@ -79,7 +77,7 @@ const NONE: OutcomeCounts = { added: 0, kept: 0, ambiguous: 0 };
 
 /** A description after the merge, and what it did. */
 export interface DescriptionMerge {
-  readonly description: Json;
+  readonly description: unknown;
   readonly counts: OutcomeCounts;
   /** The description differs from the import's apart from outcomes, so it was left as it was. */
   readonly handFixed: boolean;
@@ -93,7 +91,7 @@ interface Pairs {
 
 /** The outcomes to lay, by the position of the check that takes them, and how many checks were left for being ambiguous. */
 interface Plan {
-  readonly added: ReadonlyMap<number, Json>;
+  readonly added: ReadonlyMap<number, unknown>;
   readonly ambiguous: number;
 }
 
@@ -114,7 +112,7 @@ function planGroup(pairs: Pairs, members: readonly number[]): Plan {
     return { added: new Map(), ambiguous: taking.length };
   }
 
-  return { added: new Map(taking.map((at): [number, Json] => [at, first])), ambiguous: 0 };
+  return { added: new Map(taking.map((at): [number, unknown] => [at, first])), ambiguous: 0 };
 }
 
 /** The outcomes `fresh` gives each check of `committed` that takes them, by the check's position in the description. */
@@ -124,7 +122,7 @@ function planOutcomes(pairs: Pairs): Plan {
     (at) => JSON.stringify(withoutOutcomes(pairs.committed[at])),
   );
 
-  const added = new Map<number, Json>();
+  const added = new Map<number, unknown>();
   let ambiguous = 0;
 
   for (const members of groups.values()) {
@@ -140,9 +138,9 @@ function planOutcomes(pairs: Pairs): Plan {
 }
 
 /** `node` with `added` laid over its checks, which `next` numbers in document order. */
-function laid(node: Json, added: ReadonlyMap<number, Json>, next: { at: number }): Json {
+function laid(node: unknown, added: ReadonlyMap<number, unknown>, next: { at: number }): unknown {
   if (Array.isArray(node)) {
-    return node.map((each: Json) => laid(each, added, next));
+    return node.map((each: unknown) => laid(each, added, next));
   }
 
   if (!isRecord(node)) {
@@ -152,7 +150,7 @@ function laid(node: Json, added: ReadonlyMap<number, Json>, next: { at: number }
   const own = isCheck(node) ? next.at : undefined;
   next.at += own === undefined ? 0 : 1;
 
-  const members = Object.entries(node).map(([key, value]): [string, Json] => [
+  const members = Object.entries(node).map(([key, value]): [string, unknown] => [
     key,
     own !== undefined && key === 'outcomes' ? value : laid(value, added, next),
   ]);
@@ -164,12 +162,12 @@ function laid(node: Json, added: ReadonlyMap<number, Json>, next: { at: number }
 
 /** What merging one description does: the outcomes to add, by the position of the check that takes them. */
 interface Planned {
-  readonly added: ReadonlyMap<number, Json>;
+  readonly added: ReadonlyMap<number, unknown>;
   readonly counts: OutcomeCounts;
   readonly handFixed: boolean;
 }
 
-function planDescription(committed: Json, fresh: Json): Planned {
+function planDescription(committed: unknown, fresh: unknown): Planned {
   const unchanged: Planned = { added: new Map(), counts: NONE, handFixed: false };
   const freshChecks = checksIn(fresh);
   const wanted = freshChecks.filter((check) => check['outcomes'] !== undefined).length;
@@ -188,23 +186,23 @@ function planDescription(committed: Json, fresh: Json): Planned {
 }
 
 /** `committed` with the outcomes of `fresh` laid on the checks that take them. */
-export function mergeDescription(committed: Json, fresh: Json): DescriptionMerge {
+export function mergeDescription(committed: unknown, fresh: unknown): DescriptionMerge {
   const { added, counts, handFixed } = planDescription(committed, fresh);
 
   return { description: laid(committed, added, { at: 0 }), counts, handFixed };
 }
 
 /** The import's description of each entry, by id. */
-export type FreshDescriptions = ReadonlyMap<string, Json>;
+export type FreshDescriptions = ReadonlyMap<string, unknown>;
 
 /** The spans of the checks of `data` in `span`, in the order `checksIn` lists them. */
-function locate(data: Json, span: SpanNode | undefined): readonly Span[] {
+function locate(data: unknown, span: SpanNode | undefined): readonly Span[] {
   if (span === undefined) {
     return [];
   }
 
   if (Array.isArray(data) && span.kind === 'array') {
-    return data.flatMap((each: Json, at) => locate(each, span.items[at]));
+    return data.flatMap((each: unknown, at) => locate(each, span.items[at]));
   }
 
   if (!isRecord(data) || span.kind !== 'object') {
@@ -232,7 +230,7 @@ function insertionPoint(text: string, { end }: Span): number {
 /** An edit of the committed text: `outcomes` added to the object that ends at `at`. */
 interface Insertion {
   readonly at: number;
-  readonly outcomes: Json;
+  readonly outcomes: unknown;
 }
 
 /** What one committed entry takes: the edits to its text, and the tally. */
@@ -245,7 +243,7 @@ interface EntryMerge {
 interface Entry {
   readonly entry: JsonRecord;
   readonly node: SpanNode;
-  readonly incoming: Json;
+  readonly incoming: unknown;
 }
 
 /** The entry of the committed `text`, merged with the import's description of it. */
@@ -292,14 +290,14 @@ export interface TextMerge {
  * is inserted into the text at its check, so every other byte of the file stays as it was.
  */
 export function addOutcomesToText(text: string, fresh: FreshDescriptions): TextMerge {
-  const entries: Json = JSON.parse(text);
+  const entries: unknown = JSON.parse(text);
   const tree = spansOf(text);
 
   if (!Array.isArray(entries) || tree.kind !== 'array') {
     return { text, report: NO_REPORT };
   }
 
-  const merges = entries.flatMap((entry: Json, index): EntryMerge[] => {
+  const merges = entries.flatMap((entry: unknown, index): EntryMerge[] => {
     const node = tree.items[index];
     const incoming = isRecord(entry) && typeof entry['id'] === 'string' ? fresh.get(entry['id']) : undefined;
     const described = isRecord(entry) && entry['description'] !== undefined;

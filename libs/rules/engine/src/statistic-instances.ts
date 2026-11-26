@@ -95,7 +95,12 @@ export function statisticInstances(
   const families = new Map<StatisticPer, ReadonlySet<Selector>>(
     Object.values(StatisticPer).map((per) => [
       per,
-      new Set(latest.filter((definition) => definition.per === per).map(({ selector }) => selector)),
+      new Set(
+        latest
+          .values()
+          .filter((definition) => definition.per === per)
+          .map(({ selector }) => selector),
+      ),
     ]),
   );
 

@@ -146,10 +146,12 @@ export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): 
   }
 
   return [
-    ...FUNDAMENTALS.filter((rune) => runes[rune] !== undefined).map((rune): RuneRef => ({
-      type: RuneType.Fundamental,
-      rune,
-    })),
+    ...FUNDAMENTALS.values()
+      .filter((rune) => runes[rune] !== undefined)
+      .map((rune): RuneRef => ({
+        type: RuneType.Fundamental,
+        rune,
+      })),
     ...runes.property.map(({ rune, choice }): RuneRef => propertyRef(rune, choice)),
   ];
 }

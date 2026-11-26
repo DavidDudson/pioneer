@@ -13,7 +13,12 @@ export function slotsOpenTo(
   feats: readonly SheetFeatSlot[],
   slots: readonly CharacterSlot[],
 ): readonly SheetFeatSlot[] {
-  const open = new Set<SlotKey>(slots.filter((slot) => slot.status === SlotStatus.Open).map((slot) => slot.key));
+  const open = new Set<SlotKey>(
+    slots
+      .values()
+      .filter((slot) => slot.status === SlotStatus.Open)
+      .map((slot) => slot.key),
+  );
 
   return feats.filter(
     (slot) => open.has(slot.key) && slot.options.some((option) => option.value === feat && option.locked === undefined),

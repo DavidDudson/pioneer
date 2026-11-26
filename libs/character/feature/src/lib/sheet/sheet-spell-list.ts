@@ -1,18 +1,45 @@
-import type { FocusLine, InnateLine, SpellRowLine } from '@pioneer/rules/ui';
+import type { Signal } from '@angular/core';
+import type { PickedPreparation } from '@pioneer/character/domain';
+import type { MagicTradition } from '@pioneer/rules/sdk';
+import type { SpellDetailLine, SpellRowLine, UsableLine } from '@pioneer/rules/ui';
 
 import { filterSpells } from './sheet-spell-filter';
 import type { SourcedSpell, SpellPicks } from './sheet-spell-filter';
-import type { PreparedEntryFields } from './sheet-spell-picks';
+
+/** What the list reads of a focus or innate spell. */
+interface OriginSpell {
+  readonly key: string;
+  readonly detail: SpellDetailLine | undefined;
+  readonly use?: UsableLine | undefined;
+}
+
+/** What the list reads of a focus or innate line: its entries, each with the spells it holds. */
+interface OriginLine {
+  readonly entries: readonly { readonly key: string; readonly spells: readonly OriginSpell[] }[];
+}
+
+/** What the list reads of a prepared or spontaneous entry's pickers. */
+export interface PreparedOrigin {
+  readonly preparation: PickedPreparation;
+  readonly tradition: MagicTradition;
+  readonly ranks: readonly {
+    readonly fields: readonly {
+      readonly key: string;
+      readonly detail: Signal<SpellDetailLine | undefined>;
+      readonly use: Signal<UsableLine | undefined>;
+    }[];
+  }[];
+}
 
 /** Where the sheet's spell lines come from: each origin's own line, undefined where the character has none. */
 export interface SpellOrigins {
-  readonly focus: FocusLine | undefined;
-  readonly innate: InnateLine | undefined;
-  readonly prepared: readonly PreparedEntryFields[];
+  readonly focus: OriginLine | undefined;
+  readonly innate: OriginLine | undefined;
+  readonly prepared: readonly PreparedOrigin[];
   /** The rows of the wands, staves and scrolls the character carries. */
   readonly items?: readonly SpellRowLine[];
   /** The name of a prepared or spontaneous entry, which the source filter lists its spells under. */
-  readonly preparedSource?: (entry: PreparedEntryFields) => string;
+  readonly preparedSource?: (entry: PreparedOrigin) => string;
 }
 
 /** The name of the item a row is cast from, without the charges the row's source counts; undefined for a spell the character knows. */

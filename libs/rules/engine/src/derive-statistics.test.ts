@@ -47,7 +47,8 @@ function alone(selector: string, base: string): StatisticResult | undefined {
 describe('deriveStatistics', () => {
   test('evaluates the base with one term per top-level term of the formula', () => {
     const ac = alone('ac', '10 + @attr.dex.capped + @prof.ac');
-    expect(ac).toStrictEqual({
+    const actual: unknown = ac;
+    expect(actual).toStrictEqual({
       ok: true,
       selector: 'ac',
       formulaValue: 16,
@@ -76,7 +77,7 @@ describe('deriveStatistics', () => {
           origin: undefined,
         },
       ],
-    } as unknown as StatisticResult);
+    });
   });
 
   test('reads inputs: attributes, ranks, proficiency bonus and an untrained selector', () => {
@@ -137,12 +138,13 @@ describe('deriveStatistics', () => {
     );
 
     const statistics = 'a, b, c';
-    expect(resultOf(results, 'a')).toStrictEqual({
+    const cycled: unknown = resultOf(results, 'a');
+    expect(cycled).toStrictEqual({
       ok: false,
       selector: 'a',
       error: message(EngineMessage.StatisticCycle, { found: '@stat.b', position: 1, statistics, count: 3 }),
       position: 1,
-    } as unknown as StatisticResult);
+    });
     expect(resultOf(results, 'b')).toMatchObject({ error: { params: { found: '@stat.c', position: 5, statistics } } });
     expect(resultOf(results, 'c')).toMatchObject({ error: { params: { found: '@stat.a', position: 10, statistics } } });
     expect(resultOf(results, 'd')).toMatchObject({
