@@ -2,10 +2,10 @@ import { VersionConflictError } from '@pioneer/shared/kernel';
 import type { SQL } from 'drizzle-orm';
 import type { PgTable } from 'drizzle-orm/pg-core';
 
-import type { Executor } from './archivable';
+import type { Executor } from './executor';
 
 /** The write: the columns to set, the row it belongs to and the condition that carries the expected version. */
-export interface VersionedChange<TTable extends PgTable> {
+interface VersionedChange<TTable extends PgTable> {
   // The bare `PgTable` constraint has an empty insert shape; each call site's table narrows it.
   // oxlint-disable-next-line typescript/no-generated-empty-object-type
   readonly set: Partial<TTable['$inferInsert']>;

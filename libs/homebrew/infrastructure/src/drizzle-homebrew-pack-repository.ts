@@ -13,10 +13,7 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { GRAPH_LOCK } from './drizzle-pack-dependency-repository';
 
-/**
- * Takes the graph lock first, as a dependency addition does. Without it a restore and an archive of the pack it
- * extends could both pass their checks.
- */
+/** Serialises with dependency changes: without it a restore and an archive of the pack it extends could both pass their checks. */
 async function takeGraphLock(tx: Executor): Promise<void> {
   await tx.execute(sql`select pg_advisory_xact_lock(${GRAPH_LOCK})`);
 }

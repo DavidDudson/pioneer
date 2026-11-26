@@ -25,6 +25,24 @@ class CountingGuard {
   };
 }
 
+/** The steps of a guard, recording the order they ran in. */
+class OrderedGuard {
+  public readonly steps: string[] = [];
+
+  public readonly beforeLock = async (): Promise<void> => {
+    this.steps.push('beforeLock');
+  };
+
+  public readonly whileLocked = async (): Promise<void> => {
+    this.steps.push('whileLocked');
+  };
+}
+
+interface ArchiveGuardSteps {
+  readonly beforeLock?: () => Promise<void>;
+  readonly whileLocked?: () => Promise<void>;
+}
+
 async function refuse(): Promise<void> {
   throw new Error('refused');
 }
@@ -67,6 +85,13 @@ describe.skipIf(adminUrl === undefined)('archive, restore and versioned update (
     await database.db.transaction(async (tx) => {
       await stampAudit(tx, AUDIT);
       await archiveRows(tx, things, { where: eq(things.id, id), now: NOW, guard: { whileLocked } });
+    });
+  }
+
+  async function restoreGuarded(id: string, guard: ArchiveGuardSteps): Promise<void> {
+    await database.db.transaction(async (tx) => {
+      await stampAudit(tx, AUDIT);
+      await restoreRows(tx, things, { where: eq(things.id, id), guard });
     });
   }
 
@@ -125,6 +150,38 @@ describe.skipIf(adminUrl === undefined)('archive, restore and versioned update (
     await archiveGuarded(id, runs.run);
 
     expect(runs.count).toBe(1);
+  });
+
+  test('a guard takes its wider lock before the row lock, then checks', async () => {
+    const id = await seed();
+    const guard = new OrderedGuard();
+    await database.db.transaction(async (tx) => {
+      await archiveRows(tx, things, { where: eq(things.id, id), now: NOW, guard });
+    });
+
+    expect(guard.steps).toEqual(['beforeLock', 'whileLocked']);
+  });
+
+  test('a guarded restore checks only an archived row', async () => {
+    const id = await seed();
+    const guard = new OrderedGuard();
+    await restoreGuarded(id, guard);
+    await archive(id, NOW);
+    await restoreGuarded(id, guard);
+    const row = await read(id);
+
+    expect(guard.steps).toEqual(['beforeLock', 'beforeLock', 'whileLocked']);
+    expect(row.archivedAt).toBeNull();
+  });
+
+  test('a restore guard that throws leaves the row archived', async () => {
+    const id = await seed();
+    await archive(id, NOW);
+
+    await rejection(restoreGuarded(id, { whileLocked: refuse }));
+    const row = await read(id);
+
+    expect(row.archivedAt).not.toBeNull();
   });
 
   test('a guard that throws leaves the row live', async () => {

@@ -10,13 +10,8 @@ export { type RequestExchange, RequestAuthenticator } from './request-authentica
 
 export { inRequestScope, RequestMemo } from './request-memo';
 
-export {
-  archiveRows,
-  restoreRows,
-  type ArchiveGuard,
-  type ArchivableTable,
-  type ArchiveRows,
-  type Executor,
-} from './archivable';
+export { archiveRows, restoreRows } from './archivable';
 
-export { updateVersioned, type VersionedChange } from './versioned-update';
+export type { Executor } from './executor';
+
+export { updateVersioned } from './versioned-update';
