@@ -29,7 +29,7 @@ const meta: Meta<TableToolbar> = {
     template: `
       <fr-table-toolbar [label]="label">
         <fr-search-input frToolbarSearch ariaLabel="Search spells" placeholder="Search spells" />
-        <fr-filter-chips frToolbarFilters ariaLabel="Kinds" [options]="kinds" [value]="[]" />
+        <fr-filter-chips frToolbarFilters ariaLabel="Kinds" [options]="kinds" />
         <fr-text frToolbarView>Columns: name, level</fr-text>
         <fr-text frToolbarCount tone="muted">3 results</fr-text>
       </fr-table-toolbar>
@@ -40,8 +40,14 @@ const meta: Meta<TableToolbar> = {
 
 export default meta;
 
-/** One row from the `md` container size. */
-export const Default: TableToolbarStory = {};
+/** One row from the `md` container size: the filters and view show, the Filters and Columns buttons do not. */
+export const Default: TableToolbarStory = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Columns: name, level')).toBeVisible();
+    await expect(canvas.queryByRole('button', { name: 'Filters' })).toBeNull();
+  },
+};
 
 /** Search alone: no Filters or Columns buttons. */
 export const SearchOnly: TableToolbarStory = {

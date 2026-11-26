@@ -38,16 +38,21 @@ async function render(inputs: HostInputs = {}): Promise<Rendered> {
   return { root, component };
 }
 
+/** Waits for the change from a click to render. */
+async function settle(): Promise<void> {
+  await TestBed.inject(ApplicationRef).whenStable();
+}
+
 /** The toolbar's Filters and Columns buttons. */
 function buttons(root: HTMLElement): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')];
 }
 
-/** The classes of the box that holds `text`: its inner element carries the visibility classes. */
+/** The classes of the box that holds `text`: its host carries the visibility classes. */
 function classesOf(root: HTMLElement, text: string): string[] {
-  return [...root.querySelectorAll('fr-box > div')]
-    .filter((inner) => inner.textContent.trim() === text)
-    .flatMap((inner) => inner.className.split(' '));
+  return [...root.querySelectorAll('fr-box')]
+    .filter((box) => box.textContent.trim() === text)
+    .flatMap((box) => box.className.split(' '));
 }
 
 describe(TableToolbar, () => {
@@ -86,16 +91,30 @@ describe(TableToolbar, () => {
     expect(buttons(none.root)).toStrictEqual([]);
   });
 
-  it('keeps a slot hidden below md until its button is pressed', async () => {
+  it('opens each slot with its own button', async () => {
     const { root } = await render();
+    const [, columns] = buttons(root);
     expect(classesOf(root, 'Filter content')).toContain('hidden');
     expect(classesOf(root, 'View content')).toContain('hidden');
 
+    columns?.click();
+    await settle();
+    expect(columns?.getAttribute('aria-pressed')).toBe('true');
+    expect(classesOf(root, 'View content')).not.toContain('hidden');
+    expect(classesOf(root, 'Filter content')).toContain('hidden');
+  });
+
+  it('closes a slot when its button is pressed again', async () => {
+    const { root } = await render();
     const [filters] = buttons(root);
+
     filters?.click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    expect(filters?.getAttribute('aria-pressed')).toBe('true');
+    await settle();
     expect(classesOf(root, 'Filter content')).not.toContain('hidden');
-    expect(classesOf(root, 'View content')).toContain('hidden');
+
+    filters?.click();
+    await settle();
+    expect(filters?.getAttribute('aria-pressed')).toBe('false');
+    expect(classesOf(root, 'Filter content')).toContain('hidden');
   });
 });

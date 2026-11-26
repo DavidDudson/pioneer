@@ -1,4 +1,4 @@
-<fr-stack gap="sm">
+<fr-stack gap="none">
   <fr-stack horizontalFrom="md" gap="sm" align="start">
     <fr-box grow><ng-content select="[frToolbarSearch]" /></fr-box>
     @if (hasButtons()) {
@@ -22,5 +22,5 @@
       <fr-box grow shownFrom="md" [revealed]="viewOpen()"><ng-content select="[frToolbarView]" /></fr-box>
     }
   </fr-stack>
-  <div aria-live="polite" aria-atomic="true"><ng-content select="[frToolbarCount]" /></div>
+  <div aria-live="polite" aria-atomic="true" [class]="liveClasses"><ng-content select="[frToolbarCount]" /></div>
 </fr-stack>

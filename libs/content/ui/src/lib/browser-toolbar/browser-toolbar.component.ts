@@ -14,10 +14,7 @@ const ToolbarMessage = {
   Label: 'contentBrowser.search.label',
 } as const;
 
-/**
- * The strip above the browser's list: the words and kinds, the filters and how many entries the filters leave. The
- * filters and the count come with the list, so they show once it has loaded.
- */
+/** The strip above the browser's list: search, filters and the entry count. */
 @Component({
   selector: 'pio-browser-toolbar',
   imports: [BrowserFilters, BrowserSearch, TableToolbar, Text, ToolbarFilters, TranslocoPipe],
@@ -27,15 +24,11 @@ const ToolbarMessage = {
 export class BrowserToolbar {
   public readonly state = model.required<ContentBrowserState>();
   public readonly kindOptions = input.required<readonly SelectOption<ContentKind>[]>();
-  /** What the filter bar offers. */
   public readonly fields = input.required<readonly FilterField[]>();
-  /** What the filters mean for the list's facets. */
   public readonly facetState = input.required<FilterState>();
-  /** Shows the facet panel under the filter bar. */
   public readonly facets = input.required<boolean>();
   /** The loaded list, or `undefined` while there is none to filter or count. */
   public readonly list = input.required<ContentBrowserList | undefined>();
-  /** The facet panel changed a filter. */
   public readonly facetChange = output<FilterState>();
 
   protected readonly Message = ToolbarMessage;
