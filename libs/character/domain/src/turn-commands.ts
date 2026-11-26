@@ -2,8 +2,9 @@ import { RollTotal } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
 import { damageTargetOf, DefenceStatusKind, inventoryItemOf, statisticContent } from '@pioneer/rules/engine';
 import type { Defences, RecoveryInPlay } from '@pioneer/rules/engine';
-import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
+import { ConditionTrigger, NO_DEFENCES, Selector, TriggerEventType } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
+import { Uuid } from '@pioneer/shared/kernel';
 
 import { characterDefences } from './character-defences';
 import type { CharacterDocument } from './character-document';
@@ -32,6 +33,8 @@ import {
   unconsciousCondition,
 } from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';
+import { turnTriggers, withTriggered } from './turn-triggers';
+import type { TurnTriggers } from './turn-triggers';
 
 /** What the turn cycle reads besides the play state: the limits, and what the build and the content give. */
 export interface TurnCommandInputs {
@@ -54,6 +57,10 @@ export interface TurnCommandInputs {
   readonly fortitude: () => RollTotal;
   /** What the environments of the content do to a character that stays in them. */
   readonly environments: EnvironmentContent;
+  /** The triggered abilities that apply by themselves as a turn starts or ends. */
+  readonly triggered: TurnTriggers;
+  /** A new unique id, for the spend and the effect a triggered ability logs. */
+  readonly newId: () => Uuid;
 }
 
 /** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
@@ -61,10 +68,12 @@ function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSourc
   const begun = startTurn(play, { limits: inputs.limits, recovery: inputs.recovery }, random);
   const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy, inputs.grantedQuickened);
 
-  return {
+  const outcome = {
     play: { ...begun.play, turn, conditions: [...conditions], spendLog: [] },
     events: [...begun.events, ...events],
   };
+
+  return withTriggered(outcome, TriggerEventType.TurnStart, inputs);
 }
 
 /** End turn: the bookkeeping, then no actions left and off-turn. */
@@ -82,7 +91,9 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
     random,
   );
 
-  return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
+  const triggered = withTriggered(done, TriggerEventType.TurnEnd, inputs);
+
+  return { play: { ...triggered.play, turn: turnEnded(triggered.play.turn) }, events: triggered.events };
 }
 
 /** A command that does not apply in the current phase. */
@@ -203,5 +214,7 @@ export function turnCommandInputs(
     unconscious: unconsciousCondition(registry),
     fortitude: () => fortitudeOf(sources, document),
     environments: environmentContent(registry),
+    triggered: turnTriggers(document, sources),
+    newId: () => Uuid.parse(crypto.randomUUID()),
   };
 }

@@ -29,6 +29,7 @@ import {
   restHealing,
   restRecovery,
   slotContent,
+  SpendTime,
   turnCommandInputs,
   unconsciousCondition,
 } from '@pioneer/character/domain';
@@ -184,11 +185,13 @@ export class PlayService {
     const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots, variants);
 
-    const limits = turnLimits(
+    const turnLimited = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),
       await this.#effects(character),
       conditionValued(registry),
     );
+
+    const limits = { ...turnLimited, spend: { now: SpendTime.parse(this.#clock.now().toString()) } };
 
     const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
 

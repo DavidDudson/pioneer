@@ -94,7 +94,7 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
 }
 
 /** What bounds a pool edit, from the limits of a counting edit. */
-function resourceLimits(limits: CountingLimits): ResourceLimits {
+export function resourceLimits(limits: CountingLimits): ResourceLimits {
   return { points: limits.resources, counted: limits.counted, staffCost: limits.staff.castCost ?? NO_CHARGES };
 }
 

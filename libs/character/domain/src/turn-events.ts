@@ -23,6 +23,7 @@ export const TurnEventKind = {
   TurnStart: 'turnStart',
   Healed: 'healed',
   EffectExpired: 'effectExpired',
+  TriggeredAbility: 'triggeredAbility',
   SpellEnded: 'spellEnded',
   ConditionEnded: 'conditionEnded',
   ConditionLowered: 'conditionLowered',
@@ -43,6 +44,7 @@ export const TurnMessage = {
   FastHealing: 'character.turn.fastHealing',
   Regeneration: 'character.turn.regeneration',
   EffectExpired: 'character.turn.effectExpired',
+  TriggeredAbility: 'character.turn.triggeredAbility',
   SpellEnded: 'character.turn.spellEnded',
   ConditionEnded: 'character.turn.conditionEnded',
   ConditionLowered: 'character.turn.conditionLowered',
@@ -76,6 +78,16 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     kind: z.literal(TurnEventKind.EffectExpired),
     effect: ContentId,
     instance: EffectInstanceId,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.TriggeredAbility),
+    /** The action that fired. */
+    ability: ContentId,
+    effect: ContentId,
+    instance: EffectInstanceId,
+    /** The temporary Hit Points it gave; 0 when it gave none. */
+    tempHp: HitPoints,
     message: MessageDescriptorSchema,
   }),
   z.object({
