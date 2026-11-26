@@ -11,6 +11,7 @@ import { noArchivableDelete } from './archive-rules.ts';
 import { noMagicNumbers, noPrimitiveDomainTypes } from './brand-rules.ts';
 import { noAwaitInCondition, noDerivedTypes, noInlineReturnTypes } from './code-rules.ts';
 import { componentKeys } from './component-keys.ts';
+import { maxPropertyRuns } from './property-rules.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const STYLE_KEYS = new Set(['styles', 'styleUrl', 'styleUrls']);
@@ -313,6 +314,7 @@ const plugin = {
     'no-derived-types': noDerivedTypes,
     'no-magic-numbers': noMagicNumbers,
     'no-primitive-domain-types': noPrimitiveDomainTypes,
+    'max-property-runs': maxPropertyRuns,
   },
 };
 

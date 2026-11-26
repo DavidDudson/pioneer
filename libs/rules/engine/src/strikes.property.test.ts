@@ -9,7 +9,7 @@ import { wielded } from './testing';
 const TRAITS = ['agile', 'finesse', 'thrown-10', 'reach', 'versatile-p'] as const;
 const STRIKING_MAX = 4;
 const DICE_MAX = 4;
-const RUNS = 200;
+const RUNS = 100;
 
 /** A branded number as the plain one a test compares. */
 function plain(value: number | undefined): number | undefined {
