@@ -9,3 +9,9 @@ export { problemHandler } from './problem-handler';
 export { type RequestExchange, RequestAuthenticator } from './request-authenticator';
 
 export { inRequestScope, RequestMemo } from './request-memo';
+
+export { archiveRows, restoreRows } from './archivable';
+
+export type { Executor } from './executor';
+
+export { updateVersioned } from './versioned-update';
