@@ -11,7 +11,7 @@ import { Label } from '../field/label/label.component';
 
 /**
  * Labelled single-select for forms, preferred for two or three options. Bind with `[formField]`; for
- * inline editing use the plain `fr-segmented`. Prefer `fr-select-field` for four or more.
+ * inline editing use the plain `fr-segmented`.
  */
 @Component({
   selector: 'fr-segmented-field',

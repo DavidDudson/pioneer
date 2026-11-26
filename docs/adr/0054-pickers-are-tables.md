@@ -36,8 +36,9 @@ Alternatives considered:
   the caller appends and shows `loadingMore`. No pages. Rows are virtualised inside the panel, with a sticky header,
   and a narrow screen scrolls the table inside the panel, not the page.
 - **Features pick with `fr-picker`, never `fr-select`.** A short fixed list is a picker whose caller holds all the
-  rows and filters them in the page. `fr-select` and `fr-select-field` stay in frontier for a future short list, but
-  no feature or ui library uses them; a lint rule bans them outside `libs/frontier`, so features do not drift back.
+  rows and filters them in the page. `fr-select` stays in frontier for a future short list, but
+  no feature or ui library uses it (`fr-select-field` was removed with the other unused components in #2310).
+  A lint rule bans it outside `libs/frontier`, so features do not drift back.
 - **`fr-combobox` stays for the content search** (the shell's global search and the sheet's side panel). Those are
   typed searches for a name, not a pick from a table to compare: a dropdown list suits them. Its options carry `tags`
   (the kind, the level, the traits) so a result says what it is. `fr-combobox-field` is removed.

@@ -54,8 +54,6 @@ export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-q
 
 // Plain controls (inline editing)
 
-export { DateInput } from './lib/controls/date-input/date-input.component';
-
 export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
 
 export { FilterKind, FilterOperator } from './lib/controls/filter-bar/filter-bar.types';
@@ -112,8 +110,6 @@ export { RovingOrientation } from './lib/focus/roving-keys';
 // Forms (create flows; prefer inline editing)
 export { AsyncForm } from './lib/forms/async-form/async-form.component';
 
-export { DateField } from './lib/forms/date-field/date-field.component';
-
 export { FieldError } from './lib/forms/field/error/error.component';
 
 export { Field } from './lib/forms/field/field.component';
@@ -122,13 +118,9 @@ export { FieldHint } from './lib/forms/field/hint/hint.component';
 
 export { Label } from './lib/forms/field/label/label.component';
 
-export { Form } from './lib/forms/form/form.component';
-
 export { NumberField } from './lib/forms/number-field/number-field.component';
 
 export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
-
-export { SelectField } from './lib/forms/select-field/select-field.component';
 
 export { TextAreaField } from './lib/forms/text-area-field/text-area-field.component';
 
