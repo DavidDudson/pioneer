@@ -6,6 +6,9 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
+    <!-- FontStylesheets adds the face stylesheets after boot; connecting now saves the TLS handshakes then. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script>
       // Apply the stored theme and mode before first paint; ThemeStore (frontier) owns them after boot.
       try {

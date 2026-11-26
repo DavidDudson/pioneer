@@ -153,10 +153,10 @@ with Foundry Gaming LLC or the pf2e system maintainers.
 
 ## Artwork
 
-The blood-splatter overlay on a wounded character avatar (`libs/frontier/src/styles/blood-splatter.png`) is
+The blood-splatter overlay on a wounded character avatar (`libs/frontier/src/styles/blood-splatter.webp`) is
 ["Slightly blue ink splatter – Cropped"](https://commons.wikimedia.org/wiki/File:Slightly_blue_ink_splatter_%E2%80%93_Cropped.png)
 by Balthazar on Wikimedia Commons, released into the public domain. No credit is required; it is used as a mask, so
-only its shape shows, in the danger colour.
+only its shape shows, in the danger colour. The file keeps only the shape (its alpha channel), as lossless WebP.
 
 ## Contributor checklist for content packs
 
