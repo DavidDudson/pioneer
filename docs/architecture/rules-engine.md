@@ -735,11 +735,14 @@ Foundry's `force` (a sense replacing a better one) is not read, so the importer 
 
 ### Vitals and size
 
-`vitalsInPlay` in `libs/rules/engine` reads the `FastHealing`, `TempHP` and `CreatureSize` elements whose predicate
-holds; one that depends on the situation gives nothing on the sheet. Values are numbers or formulas over the
-character, and one below 1, or a formula with no value, is ignored. Recovery and temporary Hit Points do not add up
-(Player Core): of fast healing, of regeneration and of temporary Hit Points the highest counts, with every element that
-gives it as an origin. `CreatureSize` applies in the order found: a named size sets the size, a number of steps moves it
+`vitalsInPlay` in `libs/rules/engine` reads the `FastHealing`, `TempHP`, `HealingBonus` and `CreatureSize` elements
+whose predicate holds; one that depends on the situation gives nothing on the sheet. Values are numbers or formulas
+over the character, and one below 1, or a formula with no value, is ignored. Recovery and temporary Hit Points do not
+add up (Player Core): of fast healing, of regeneration and of temporary Hit Points the highest counts, with every
+element that gives it as an origin. A healing bonus (the Hit Points a moonweave rune adds to the first healing from a
+spell or effect, which the Hit Point controls offer on healing the player marks as from one) is Pioneer's own element:
+the highest counts, by the same choice.
+`CreatureSize` applies in the order found: a named size sets the size, a number of steps moves it
 (never below tiny, never past its `maximumSize` when growing). The reach is the size's, unless the last element that
 names one overrides it or adds to it. The result is read-only on the sheet: the play state still holds the temporary
 Hit Points a player enters, and no recovery is applied for them.

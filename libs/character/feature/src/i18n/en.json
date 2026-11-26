@@ -586,6 +586,8 @@
       "damage": "Damage",
       "critical": "Critical hit",
       "heal": "Heal",
+      "fromEffect": "From a spell or effect: +{amount} from {source}",
+      "unnamedHealingSource": "an effect",
       "set": "Set HP",
       "setTemp": "Set temp HP",
       "fastHealing": "Fast healing {amount}.",

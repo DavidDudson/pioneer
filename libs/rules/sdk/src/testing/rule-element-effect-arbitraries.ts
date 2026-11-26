@@ -32,6 +32,8 @@ const fastHealing = element(
 
 const tempHp = element('TempHP', { value: modifierValue });
 
+const healingBonus = element('HealingBonus', { value: modifierValue });
+
 const creatureSize = element(
   'CreatureSize',
   { value: oneof(anyOf(Size), integer({ min: -SIZE_STEPS_MAX, max: SIZE_STEPS_MAX })) },
@@ -154,6 +156,7 @@ const persistentFlatCheck = element(
 export const effectElements: readonly Arbitrary<JsonObject>[] = [
   fastHealing,
   tempHp,
+  healingBonus,
   creatureSize,
   battleForm,
   adjustDegreeOfSuccess,

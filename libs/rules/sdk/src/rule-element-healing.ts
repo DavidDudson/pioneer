@@ -24,6 +24,15 @@ export const FastHealingElement = z.strictObject({
 
 export type FastHealingElement = z.infer<typeof FastHealingElement>;
 
+/** Hit Points added to the first healing from a spell or effect; Pioneer's own element, with no Foundry counterpart. */
+export const HealingBonusElement = z.strictObject({
+  key: z.literal(RuleElementKey.HealingBonus),
+  value: ModifierValue,
+  ...ruleElementBase,
+});
+
+export type HealingBonusElement = z.infer<typeof HealingBonusElement>;
+
 /** Temporary Hit Points the element gives the character, as Foundry pf2e's `TempHP` does. */
 export const TempHPElement = z.strictObject({
   key: z.literal(RuleElementKey.TempHP),
