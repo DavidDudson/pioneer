@@ -159,9 +159,7 @@ jobs:
         # Same toolchain as local: every step runs inside the flake devshell.
         shell: nix develop --command bash -euo pipefail {0}
     steps:
-      # Only the groups marked `db` in .github/ci-jobs.json run database suites. Elsewhere TEST_DATABASE_URL stays
-      # unset, so a database suite added to an unmarked group throws in CI (testDatabaseUrl) instead of skipping.
-      # Started in the background while the other steps run, and waited for just before the tests.
+      # Only the groups marked `db` in .github/ci-jobs.json run database suites; a suite in another group cannot connect.
       - name: Start Postgres
         if: matrix.db == true
         shell: bash
@@ -180,8 +178,6 @@ jobs:
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
         with:
           github_access_token: ${{ github.token }}
-      # The devshell's store paths, restored instead of downloaded from cache.nixos.org by every job. Main saves it;
-      # pull requests only read it, so a branch never fills the repository's cache quota.
       - uses: nix-community/cache-nix-action@7df957e333c1e5da7721f60227dbba6d06080569 # v7.0.2
         with:
           primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.nix', 'flake.lock') }}
@@ -202,7 +198,6 @@ jobs:
             .nx/workspace-data/*.db
           key: nx-${{ runner.os }}-test-${{ matrix.id }}-${{ github.sha }}
           restore-keys: nx-${{ runner.os }}-test-${{ matrix.id }}-
-      # The devshell on its own line, so the step timings show what it costs and Base commit shows the fetch alone.
       - name: Devshell
         run: 'true'
       # nx affected measures against the plan's base commit; only its tree is needed, not its history.
@@ -220,7 +215,7 @@ jobs:
         shell: bash
         run: |
           for _ in $(seq 1 60); do
-            if docker exec postgres pg_isready --username postgres; then
+            if docker exec postgres pg_isready --host 127.0.0.1 --username postgres --quiet; then
               exit 0
             fi
             sleep 1
