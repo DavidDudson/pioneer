@@ -3,10 +3,11 @@ import { TestBed } from '@angular/core/testing';
 import { Flame } from 'lucide';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Badge, BadgeTone, BadgeVariant } from './badge.component';
 
 /** Renders a badge with `label` projected and returns its `<span>`. */
-async function render(inputs: Readonly<Record<string, unknown>>, label = 'Fire'): Promise<HTMLSpanElement> {
+async function render(inputs: ComponentInputs<Badge>, label = 'Fire'): Promise<HTMLSpanElement> {
   const text = document.createTextNode(label);
 
   const badge = createComponent(Badge, {

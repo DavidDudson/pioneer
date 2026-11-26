@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { originRowDisabled, originRowLabel, originRowValue } from '../origin-picker/origin-picker-table';
@@ -49,7 +50,7 @@ export class SkillPicker {
   /** Changes when the language changes or the messages load, so the headers and labels are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  readonly #say = (key: string, params?: object): string => this.#i18n.translate(key, params);
+  readonly #say = (key: string, params?: MessageParams): string => this.#i18n.translate(key, params);
 
   protected readonly columns = computed(() => {
     this.#messages();

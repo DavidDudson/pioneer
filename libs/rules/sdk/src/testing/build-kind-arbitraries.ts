@@ -16,6 +16,7 @@ import { DeityCategory, DeityDomain, DivineFont, Sanctification, SanctificationM
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { skillSelectorText } from './arbitraries';
 import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from './json-arbitraries';
+import type { JsonObject } from './json-value';
 
 /** The most boosts the ancestry schema allows. */
 const ANCESTRY_BOOSTS_MAX = 4;
@@ -27,7 +28,7 @@ const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute
 const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
 const contentIds: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
-export const ancestryData: Arbitrary<object> = withOptional(
+export const ancestryData: Arbitrary<JsonObject> = withOptional(
   record({
     hitPoints: smallint,
     size,
@@ -41,10 +42,10 @@ export const ancestryData: Arbitrary<object> = withOptional(
   { vision: contentIdJson },
 );
 
-export const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
-export const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 3 }) });
+export const heritageData: Arbitrary<JsonObject> = withOptional(constant({}), { ancestry: contentIdJson });
+export const backgroundData: Arbitrary<JsonObject> = record({ boosts: array(boost, { maxLength: 3 }) });
 
-export const classData: Arbitrary<object> = withOptional(
+export const classData: Arbitrary<JsonObject> = withOptional(
   record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint }),
   {
     skillIncreaseLevels: uniqueArray(integer({ min: 1, max: CLASS_LEVEL_MAX }), { maxLength: CLASS_LEVEL_MAX }),
@@ -52,7 +53,7 @@ export const classData: Arbitrary<object> = withOptional(
   },
 );
 
-export const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
+export const archetypeData: Arbitrary<JsonObject> = withOptional(record({ dedication: contentIdJson }), {
   multiclass: contentIdJson,
   dedicationLock: integer({ min: 1, max: 4 }),
 });
@@ -68,17 +69,17 @@ const domains: Arbitrary<string[]> = shuffledSubarray(Object.values(DeityDomain)
 const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
-const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
+const deitySpell = (rank: number): Arbitrary<JsonObject> => record({ rank: constant(rank), spell: contentIdJson });
 
 /** Spells at distinct ranks. */
-const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain((ranks) =>
-  tuple(...ranks.map((rank) => deitySpell(rank))),
+const deitySpells: Arbitrary<JsonObject[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain(
+  (ranks) => tuple(...ranks.map((rank) => deitySpell(rank))),
 );
 
 const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
 const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
 
-const deityData: Arbitrary<object> = withOptional(
+const deityData: Arbitrary<JsonObject> = withOptional(
   record({
     category: deityCategory,
     domains: record({ primary: domains, alternate: domains }),
@@ -92,7 +93,7 @@ const deityData: Arbitrary<object> = withOptional(
 );
 
 /** A philosophy grants no font, domains or spells. */
-const philosophyData: Arbitrary<object> = withOptional(
+const philosophyData: Arbitrary<JsonObject> = withOptional(
   record({
     category: constant(DeityCategory.Philosophy),
     domains: constant({ primary: [], alternate: [] }),
@@ -106,4 +107,4 @@ const philosophyData: Arbitrary<object> = withOptional(
 );
 
 /** A deity's `data`, philosophies included. */
-export const deityOrPhilosophyData: Arbitrary<object> = oneof(deityData, philosophyData);
+export const deityOrPhilosophyData: Arbitrary<JsonObject> = oneof(deityData, philosophyData);

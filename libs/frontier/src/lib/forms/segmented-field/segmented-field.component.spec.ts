@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import type { SelectOption } from '../../controls/select/select.component';
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { SegmentedField } from './segmented-field.component';
 
 const UNITS: readonly SelectOption<string>[] = [
@@ -10,7 +11,7 @@ const UNITS: readonly SelectOption<string>[] = [
   { value: 'metres', label: 'Metres' },
 ];
 
-function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixture<SegmentedField<string>> {
+function render(inputs: ComponentInputs<SegmentedField<string>> = {}): ComponentFixture<SegmentedField<string>> {
   const fixture = TestBed.createComponent(SegmentedField<string>);
   fixture.componentRef.setInput('label', 'Distance unit');
   fixture.componentRef.setInput('hint', 'Rules distances are in feet.');

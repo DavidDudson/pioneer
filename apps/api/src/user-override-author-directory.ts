@@ -10,9 +10,9 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
  * context may import the other.
  */
 export class UserOverrideAuthorDirectory extends OverrideAuthorDirectory {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

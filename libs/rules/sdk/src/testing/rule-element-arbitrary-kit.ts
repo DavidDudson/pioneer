@@ -14,6 +14,7 @@ import {
 import type { Arbitrary } from 'fast-check';
 
 import { keyPathText, predicateJson, validFormulaText } from './arbitraries';
+import type { JsonObject, JsonValue } from './json-value';
 
 export const LIST_MAX = 3;
 export const SMALLINT_MAX = 32_767;
@@ -36,13 +37,13 @@ type OptionalEntry = readonly [string, unknown];
 /** Builds a record whose optional keys are left out (not set to undefined) when absent. */
 export function withOptional<TRequired extends object>(
   required: Arbitrary<TRequired>,
-  optional: Readonly<Record<string, Arbitrary<unknown>>>,
-): Arbitrary<object> {
+  optional: Readonly<Record<string, Arbitrary<JsonValue>>>,
+): Arbitrary<JsonObject> {
   const optionals = Object.entries(optional).map(([key, value]) =>
     option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
   );
 
-  return tuple(required, ...optionals).map(([fields, ...entries]): object => {
+  return tuple(required, ...optionals).map(([fields, ...entries]): JsonObject => {
     const present = entries.filter(([, picked]) => picked !== undefined);
 
     return Object.fromEntries([...Object.entries(fields), ...present]);
@@ -57,9 +58,9 @@ const base = {
 
 export function element(
   key: string,
-  required: Readonly<Record<string, Arbitrary<unknown>>>,
+  required: Readonly<Record<string, Arbitrary<JsonValue>>>,
   optional = {},
-): Arbitrary<object> {
+): Arbitrary<JsonObject> {
   return withOptional(record({ key: constant(key), ...required }), { ...base, ...optional });
 }
 

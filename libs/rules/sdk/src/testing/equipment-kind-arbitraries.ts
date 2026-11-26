@@ -34,6 +34,7 @@ import {
   smallint,
   withOptional,
 } from './json-arbitraries';
+import type { JsonObject, JsonValue } from './json-value';
 import { damageFormulaText } from './rich-text-arbitraries';
 
 const RUNE_GRADE_MAX = 4;
@@ -45,21 +46,21 @@ const runeGrade: Arbitrary<number> = integer({ min: 1, max: RUNE_GRADE_MAX });
 const coinCount: Arbitrary<number> = integer({ min: 1, max: COIN_COUNT_MAX });
 
 /** One or more coins, each given once. */
-const coins: Arbitrary<object> = subarray(Object.values(Coin), { minLength: 1 }).chain((picked) =>
+const coins: Arbitrary<JsonObject> = subarray(Object.values(Coin), { minLength: 1 }).chain((picked) =>
   record(Object.fromEntries(picked.map((coin) => [coin, coinCount]))),
 );
 
-const price: Arbitrary<object> = withOptional(record({ coins }), { per: positive });
-const bulk: Arbitrary<unknown> = oneof(constantFrom(...Object.values(BulkWeight)), positive);
+const price: Arbitrary<JsonObject> = withOptional(record({ coins }), { per: positive });
+const bulk: Arbitrary<JsonValue> = oneof(constantFrom(...Object.values(BulkWeight)), positive);
 
-const material: Arbitrary<object> = withOptional(record({ type: slugText }), {
+const material: Arbitrary<JsonObject> = withOptional(record({ type: slugText }), {
   grade: constantFrom(...Object.values(MaterialGrade)),
 });
 
 const usageHands: Arbitrary<string> = constantFrom(...Object.values(UsageHands));
 
 /** Every usage shape: held, worn in a slot or not, affixed or the like to something, or on its own. */
-const usage: Arbitrary<object> = oneof(
+const usage: Arbitrary<JsonObject> = oneof(
   record({ type: constant(UsageType.Held), hands: usageHands }),
   withOptional(constant({ type: UsageType.Worn }), { slot: slugText }),
   record({
@@ -71,9 +72,9 @@ const usage: Arbitrary<object> = oneof(
 
 /** An item's `data`: the physical fields, `required` and `optional` beside them. */
 function physical(
-  required: Readonly<Record<string, Arbitrary<unknown>>>,
-  optional: Readonly<Record<string, Arbitrary<unknown>>> = {},
-): Arbitrary<object> {
+  required: Readonly<Record<string, Arbitrary<JsonValue>>>,
+  optional: Readonly<Record<string, Arbitrary<JsonValue>>> = {},
+): Arbitrary<JsonObject> {
   return withOptional(record({ bulk, ...required }), {
     price,
     size,
@@ -86,7 +87,7 @@ function physical(
 }
 
 /** A specific item's runes, property runes up to a potency rune's highest grade and one for orichalcum. */
-function runesWith(secondary: string): Arbitrary<object> {
+function runesWith(secondary: string): Arbitrary<JsonObject> {
   return withOptional(record({ property: uniqueArray(contentIdJson, { maxLength: PROPERTY_RUNES_MAX }) }), {
     potency: runeGrade,
     [secondary]: runeGrade,
@@ -95,12 +96,12 @@ function runesWith(secondary: string): Arbitrary<object> {
 
 const dieSize: Arbitrary<string> = constantFrom(...Object.values(DieSize));
 
-const weaponDamage: Arbitrary<object> = withOptional(record({ dice: smallint, damageType }), {
+const weaponDamage: Arbitrary<JsonObject> = withOptional(record({ dice: smallint, damageType }), {
   die: dieSize,
   persistent: record({ formula: damageFormulaText, damageType }),
 });
 
-const weaponData: Arbitrary<object> = physical(
+const weaponData: Arbitrary<JsonObject> = physical(
   { category: constantFrom(...Object.values(WeaponCategory)), damage: weaponDamage, usage },
   {
     group: constantFrom(...Object.values(WeaponGroup)),
@@ -114,7 +115,7 @@ const weaponData: Arbitrary<object> = physical(
   },
 );
 
-const armorData: Arbitrary<object> = physical(
+const armorData: Arbitrary<JsonObject> = physical(
   { category: constantFrom(...Object.values(ArmorItemCategory)), acBonus: smallint },
   {
     group: constantFrom(...Object.values(ArmorGroup)),
@@ -127,7 +128,7 @@ const armorData: Arbitrary<object> = physical(
   },
 );
 
-const shieldData: Arbitrary<object> = physical(
+const shieldData: Arbitrary<JsonObject> = physical(
   { acBonus: smallint, hardness: smallint, hitPoints: smallint },
   {
     baseItem: slugText,
@@ -137,7 +138,7 @@ const shieldData: Arbitrary<object> = physical(
   },
 );
 
-const equipmentData: Arbitrary<object> = physical(
+const equipmentData: Arbitrary<JsonObject> = physical(
   {},
   {
     usage,
@@ -159,7 +160,7 @@ const consumableUse = {
 };
 
 /** Only ammunition names the ammunition it can be fired as. */
-const consumableData: Arbitrary<object> = oneof(
+const consumableData: Arbitrary<JsonObject> = oneof(
   physical({ category: constantFrom(...NOT_AMMUNITION) }, consumableUse),
   physical(
     { category: constant(ConsumableCategory.Ammunition) },
@@ -167,7 +168,7 @@ const consumableData: Arbitrary<object> = oneof(
   ),
 );
 
-const etchedOnto = (items: readonly string[]): Arbitrary<object> =>
+const etchedOnto = (items: readonly string[]): Arbitrary<JsonObject> =>
   withOptional(record({ item: constantFrom(...items) }), { restriction: slugText });
 
 /** The items each fundamental rune goes on, and its highest grade. */
@@ -178,7 +179,7 @@ const FUNDAMENTALS: readonly (readonly [string, readonly string[], number])[] = 
   [FundamentalRune.Reinforcing, [RunedItem.Shield], REINFORCING_GRADE_MAX],
 ];
 
-const fundamentalRune: Arbitrary<object> = constantFrom(...FUNDAMENTALS).chain(([rune, items, max]) =>
+const fundamentalRune: Arbitrary<JsonObject> = constantFrom(...FUNDAMENTALS).chain(([rune, items, max]) =>
   physical({
     type: constant(RuneType.Fundamental),
     rune: constant(rune),
@@ -187,23 +188,26 @@ const fundamentalRune: Arbitrary<object> = constantFrom(...FUNDAMENTALS).chain((
   }),
 );
 
-const anyRunedItem: Arbitrary<object> = etchedOnto(Object.values(RunedItem));
-const propertyRune: Arbitrary<object> = physical({ type: constant(RuneType.Property), etchedOnto: anyRunedItem });
+const anyRunedItem: Arbitrary<JsonObject> = etchedOnto(Object.values(RunedItem));
+const propertyRune: Arbitrary<JsonObject> = physical({ type: constant(RuneType.Property), etchedOnto: anyRunedItem });
 
-const runeData: Arbitrary<object> = oneof(fundamentalRune, propertyRune);
+const runeData: Arbitrary<JsonObject> = oneof(fundamentalRune, propertyRune);
 
-const treasureData: Arbitrary<object> = physical({}, { category: constantFrom(...Object.values(TreasureCategory)) });
+const treasureData: Arbitrary<JsonObject> = physical(
+  {},
+  { category: constantFrom(...Object.values(TreasureCategory)) },
+);
 
-const kitItem: Arbitrary<object> = record({ item: contentIdJson, quantity: positive });
+const kitItem: Arbitrary<JsonObject> = record({ item: contentIdJson, quantity: positive });
 
 /** A kit item, holding others when it is a container. */
-function kitEntryOf([item, contents]: readonly [object, object[]]): Arbitrary<object> {
+function kitEntryOf([item, contents]: readonly [JsonObject, JsonObject[]]): Arbitrary<JsonObject> {
   return withOptional(constant(item), { contents: constant(contents) });
 }
 
-const kitEntry: Arbitrary<object> = tuple(kitItem, array(kitItem, { maxLength: LIST_MAX })).chain(kitEntryOf);
+const kitEntry: Arbitrary<JsonObject> = tuple(kitItem, array(kitItem, { maxLength: LIST_MAX })).chain(kitEntryOf);
 
-const kitData: Arbitrary<object> = withOptional(
+const kitData: Arbitrary<JsonObject> = withOptional(
   record({ items: array(kitEntry, { minLength: 1, maxLength: LIST_MAX }) }),
   { price },
 );

@@ -25,10 +25,10 @@ function toCharacterPack(row: CharacterPackRow): CharacterPack {
 }
 
 export class DrizzleCharacterPackRepository extends CharacterPackRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #listed = new RequestMemo<CharacterId, readonly CharacterPack[]>();
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

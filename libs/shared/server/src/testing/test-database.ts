@@ -12,7 +12,7 @@ const JournalEntry = z.looseObject({ tag: z.string() });
 const Journal = z.looseObject({ entries: z.array(JournalEntry) });
 
 export interface TestDatabase {
-  readonly db: BunSQLDatabase<Record<string, unknown>> & { readonly $client: Bun.SQL };
+  readonly db: BunSQLDatabase & { readonly $client: Bun.SQL };
   readonly drop: () => Promise<void>;
 }
 

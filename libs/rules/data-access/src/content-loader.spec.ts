@@ -12,6 +12,7 @@ import {
   SearchText,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
@@ -38,10 +39,10 @@ interface EntryFixture {
   readonly sources: readonly unknown[];
   readonly description: readonly unknown[];
   readonly rules: readonly unknown[];
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
-function entry(kind: string, name: string, data: object): EntryFixture {
+function entry(kind: string, name: string, data: JsonObject): EntryFixture {
   const slug = `${kind}:${name}`;
 
   return {

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { RollEffectStatusKind } from './roll-effects';
@@ -37,7 +37,7 @@ function rollTwice(keep: string, selectors: readonly string[], predicate?: reado
   return predicate === undefined ? element : { ...element, predicate };
 }
 
-function adjustDegree(selectors: readonly string[], extra: Readonly<Record<string, unknown>> = {}): RuleJson {
+function adjustDegree(selectors: readonly string[], extra: JsonObject = {}): RuleJson {
   return { key: 'AdjustDegreeOfSuccess', selectors, adjustment: { all: 'one-degree-better' }, ...extra };
 }
 

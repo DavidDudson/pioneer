@@ -9,6 +9,7 @@ import {
   PatchCharacterBody,
 } from '@pioneer/character/domain';
 import type { CharacterPatch } from '@pioneer/character/domain';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId } from '@pioneer/shared/kernel';
@@ -26,7 +27,7 @@ const clock = fixedClock('2026-10-12T10:00:00Z');
 const SHIELD = OverrideInput.parse({ target: 'ac', mode: 'adjust', value: 2, type: 'item', reason: 'Shield spell' });
 const ADD: CharacterPatch = { field: CharacterPatchField.AddOverride, override: SHIELD };
 
-function at(expectedVersion: Version, patch: object): PatchCharacterBody {
+function at(expectedVersion: Version, patch: CharacterPatch | JsonObject): PatchCharacterBody {
   return PatchCharacterBody.parse({ expectedVersion, patch });
 }
 

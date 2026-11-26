@@ -6,6 +6,7 @@ import { CLASS_SLOT, SECOND_CLASS_SLOT } from '@pioneer/character/domain';
 import { AttributeModifiers } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { classRows, keyAttributeRows, subclassRows } from '../data/class-rows';
@@ -32,7 +33,7 @@ export function injectClassRows(sheet: SheetState, second: () => boolean = () =>
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the rows' words are read again. */
   const messages = toSignal(merge(i18n.langChanges$, loaded));
-  const reads = { translate: (key: string, params?: object): string => i18n.translate(key, params) };
+  const reads = { translate: (key: string, params?: MessageParams): string => i18n.translate(key, params) };
 
   return {
     loading: computed(() => sheet.registry.data() === undefined),

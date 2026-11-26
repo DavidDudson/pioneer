@@ -2,7 +2,7 @@ import type { PreparedPick } from '@pioneer/character/domain';
 import { ChoiceValue, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
 import type { SpellPickerRow } from '@pioneer/rules/ui';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, MessageParams } from '@pioneer/shared/kernel';
 
 import type { SheetPreparedEntry } from './sheet-prepared-spells';
 import type { RestLine } from './sheet-rest';
@@ -110,6 +110,6 @@ export function preparedLines(
 
 /** What names the slots and spells a pick mentions. */
 export interface PreparedNames {
-  readonly translate: (key: string, params?: Record<string, unknown>) => string;
+  readonly translate: (key: string, params?: MessageParams) => string;
   readonly spell: (id: ChoiceValue) => string | undefined;
 }

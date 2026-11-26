@@ -11,6 +11,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { classFeatSlotKey } from '../testing/class-feat-slots';
+import type { JsonObject } from '../testing/json-fixture';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
@@ -26,7 +27,7 @@ const FIGHTER = ['fighter'];
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);
 const FIGHTER_FEAT_1 = await classFeatSlotKey('fighter', 1);
 
-const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prerequisites = (text: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 function keysOf(read: readonly { readonly key: string }[] | undefined): readonly string[] {
   return (read ?? []).map((each) => each.key);

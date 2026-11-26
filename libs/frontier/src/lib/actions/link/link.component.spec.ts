@@ -3,11 +3,12 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { TextVariant } from '../../text/text.variants';
 import { Link, LinkAppearance } from './link.component';
 
 /** Renders `fr-link` with "Valeros" projected, with the app at `url`, and returns its host. */
-async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'): Promise<HTMLElement> {
+async function renderHost(inputs: ComponentInputs<Link>, url = '/'): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRouter([{ path: '**', children: [] }])] });
   const navigated = await TestBed.inject(Router).navigateByUrl(url);
   expect(navigated).toBe(true);
@@ -34,7 +35,7 @@ async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'):
 }
 
 /** Renders `fr-link` with "Valeros" projected, with the app at `url`, and returns its anchor. */
-async function render(inputs: Readonly<Record<string, unknown>>, url?: string): Promise<HTMLAnchorElement> {
+async function render(inputs: ComponentInputs<Link>, url?: string): Promise<HTMLAnchorElement> {
   const host = await renderHost(inputs, url);
   const anchor = host.querySelector('a');
 

@@ -1,4 +1,5 @@
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
+import type { MessageParams } from '@pioneer/shared/kernel';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { SIZE_MESSAGES } from '../build-summary/build-summary-messages';
@@ -9,7 +10,7 @@ import { OriginPickerColumn } from './origin-picker-row';
 import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from './origin-picker-row';
 
 /** Reads a message key in the active language. */
-export type Say = (key: string, params?: object) => string;
+export type Say = (key: string, params?: MessageParams) => string;
 
 /** What a row needs to be picked, searched and sorted by name. */
 export interface NamedRow {

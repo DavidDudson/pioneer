@@ -143,7 +143,7 @@ describe('spell filters in the URL', () => {
   });
 
   it('reads a single param and ignores what is not text', () => {
-    const filter = spellFilterFromQuery({ 's.trait': 'Mental', 's.source': [1, ''], 's.damage': undefined });
+    const filter = spellFilterFromQuery({ 's.trait': 'Mental', 's.source': 1, 's.damage': undefined });
 
     expect(filter).toStrictEqual(picks([SpellFilterGroupId.Trait, ['Mental']]));
   });

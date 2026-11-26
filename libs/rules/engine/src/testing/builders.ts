@@ -8,7 +8,7 @@ import {
   StatisticDefinition,
   StatisticKind,
 } from '@pioneer/rules/sdk';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { RuleInPlay } from '../rule-in-play';
 
@@ -47,15 +47,8 @@ interface Placement {
   readonly item?: string;
 }
 
-/** The origin hop of an inventory item, as JSON. */
-interface InventoryHopJson {
-  readonly kind: string;
-  readonly item: string;
-  readonly state: string;
-}
-
 /** The hop of an inventory item, held. */
-function inventoryHop(item: string): InventoryHopJson {
+function inventoryHop(item: string): JsonObject {
   return { kind: 'inventory', item, state: 'held' };
 }
 
@@ -100,7 +93,7 @@ export function change(selector: string, mode: string, value: number | string): 
 }
 
 /** A weapon's inputs as JSON, with its origin. */
-type Wielded<Weapon> = Weapon & { readonly origin: object };
+type Wielded<Weapon> = Weapon & { readonly origin: JsonObject };
 
 /** A weapon's inputs as JSON: `weapon` with an origin on the test pack's entry of the same slug. */
 export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon, item?: string): Wielded<Weapon> {

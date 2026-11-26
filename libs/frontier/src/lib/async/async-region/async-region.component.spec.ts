@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { AsyncRegionHost } from '../../testing/async-region-host';
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { FakeQuery } from '../../testing/fake-query';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncRegion } from './async-region.component';
@@ -16,7 +17,7 @@ interface Rendered {
   readonly stable: () => Promise<void>;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered> {
+async function render(inputs: ComponentInputs<AsyncRegionHost> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(AsyncRegionHost);
   const query = new FakeQuery<readonly string[]>();
   fixture.componentRef.setInput('query', query);

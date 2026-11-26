@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { ListItem } from '../list-item/list-item.component';
 import { List } from './list.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Element> {
+async function render(inputs: ComponentInputs<List>): Promise<Element> {
   const fixture = TestBed.createComponent(List);
 
   for (const [name, value] of Object.entries(inputs)) {

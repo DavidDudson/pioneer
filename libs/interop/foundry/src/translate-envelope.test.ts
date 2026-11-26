@@ -18,6 +18,7 @@ import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
+import type { Fields } from './translate-choice-reads';
 import { EnvelopeFailureReason, translateEnvelopes } from './translate-envelope';
 import type { EnvelopeContext, EnvelopeTranslation } from './translate-envelope';
 
@@ -33,7 +34,7 @@ const context: EnvelopeContext = {
 
 const remaster = { title: 'Pathfinder Player Core', license: 'ORC', remaster: true };
 
-function selected(system: object, name = 'Toughness', documentId = 'AmP0qu7c5dlBSath'): SelectedEntry {
+function selected(system: Fields, name = 'Toughness', documentId = 'AmP0qu7c5dlBSath'): SelectedEntry {
   const document = FoundryDocument.parse({
     _id: documentId,
     name,
@@ -50,11 +51,11 @@ function selected(system: object, name = 'Toughness', documentId = 'AmP0qu7c5dlB
   };
 }
 
-function translateOne(system: object, name?: string): EnvelopeTranslation {
+function translateOne(system: Fields, name?: string): EnvelopeTranslation {
   return translateEnvelopes([selected(system, name)], context);
 }
 
-function envelopeOf(system: object, name?: string): ImportedEnvelope | undefined {
+function envelopeOf(system: Fields, name?: string): ImportedEnvelope | undefined {
   return translateOne(system, name).entries[0]?.envelope;
 }
 

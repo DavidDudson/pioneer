@@ -4,6 +4,7 @@ import type * as z from 'zod';
 
 import { BacklogGapType, LeftOutReason } from './import-backlog';
 import type { BacklogGap } from './import-backlog';
+import { isFields } from './translate-choice-reads';
 
 /**
  * Pack output's reference check (content-model.md, "Foundry import"): every id an entry holds must land on an entry
@@ -100,8 +101,8 @@ interface RefLike {
   readonly label?: string;
 }
 
-function isRefNode(value: object): value is RefLike {
-  return 'type' in value && value.type === InlineKind.Ref && 'id' in value && typeof value.id === 'string';
+function isRefNode<TNode>(value: TNode): value is TNode & RefLike {
+  return isFields(value) && value['type'] === InlineKind.Ref && typeof value['id'] === 'string';
 }
 
 /** A `Ref` node as the text of its label, else of its entry's name; checked when the entry is parsed. */

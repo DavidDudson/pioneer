@@ -3,11 +3,12 @@ import type { Character } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { MessageParams } from '@pioneer/shared/kernel';
 
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** Words a message key with its parameters. */
-export type Translate = (key: string, params: object) => string;
+export type Translate = (key: string, params: MessageParams) => string;
 
 /** The skills among the character's trained ones that each of `values` would train again, by name, for those that do. */
 export type TrainedAgain = (values: readonly string[]) => ReadonlyMap<string, readonly string[]>;

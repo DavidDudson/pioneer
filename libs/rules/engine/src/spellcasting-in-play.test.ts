@@ -3,13 +3,13 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, SLOT_COUNT_MAX } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, plain } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
 import { inPlay } from './testing';
 
-const entry = (slug: string, tradition: string, extra: object = {}): RuleJson => ({
+const entry = (slug: string, tradition: string, extra: JsonObject = {}): RuleJson => ({
   key: 'SpellcastingEntry',
   slug,
   tradition,
@@ -28,7 +28,7 @@ interface PoolSpellsFields {
   readonly spells: readonly string[];
 }
 
-const poolSpells = (fields: PoolSpellsFields, extra: object = {}): RuleJson => ({
+const poolSpells = (fields: PoolSpellsFields, extra: JsonObject = {}): RuleJson => ({
   key: 'PoolSpells',
   ...fields,
   ...extra,
@@ -122,7 +122,11 @@ describe('spellcastingInPlay', () => {
   });
 });
 
-const slots = (entrySlug: string, [rank, value]: readonly [number | string, number], extra: object = {}): RuleJson => ({
+const slots = (
+  entrySlug: string,
+  [rank, value]: readonly [number | string, number],
+  extra: JsonObject = {},
+): RuleJson => ({
   key: 'SpellSlots',
   entry: entrySlug,
   rank,

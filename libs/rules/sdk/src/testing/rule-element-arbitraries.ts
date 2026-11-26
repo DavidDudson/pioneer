@@ -28,6 +28,7 @@ import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
 import { DieSize } from '../weapon';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
+import type { JsonObject, JsonValue } from './arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import {
   anyOf,
@@ -210,7 +211,7 @@ const diceOptional = {
   ignoreResistance: boolean(),
 };
 
-const dice = (required: Readonly<Record<string, Arbitrary<unknown>>>, optional = {}): Arbitrary<object> =>
+const dice = (required: Readonly<Record<string, Arbitrary<JsonValue>>>, optional = {}): Arbitrary<JsonObject> =>
   element('DamageDice', { selectors: targets, ...required }, { ...diceOptional, ...optional });
 
 const damageDice = oneof(
@@ -219,7 +220,7 @@ const damageDice = oneof(
   dice({ override: record({ damageType }) }),
 );
 
-const alteration = (property: string, mode: Arbitrary<string>, value: Arbitrary<unknown>): Arbitrary<object> =>
+const alteration = (property: string, mode: Arbitrary<string>, value: Arbitrary<JsonValue>): Arbitrary<JsonObject> =>
   element('DamageAlteration', { selectors: targets, property: constant(property), mode, value });
 
 const damageAlteration = oneof(
@@ -277,7 +278,7 @@ const language = oneof(
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
  */
-export const ruleElementJson: Arbitrary<object> = oneof(
+export const ruleElementJson: Arbitrary<JsonObject> = oneof(
   grantItem,
   choiceSet,
   rollOption,

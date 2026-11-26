@@ -13,7 +13,7 @@ import { AonListingFile } from '@pioneer/rules/sdk';
 import type { Book } from '@pioneer/rules/sdk';
 
 import { patchBooks } from '../books-file.ts';
-import type { BookPatches } from '../books-file.ts';
+import type { BookPatch, BookPatches } from '../books-file.ts';
 import { parseBookDetails } from './details.ts';
 import { parseSources } from './parse.ts';
 import type { ListedEntry } from './parse.ts';
@@ -62,7 +62,7 @@ interface BookResult {
 }
 
 /** The details found on each book's page, to write into the registry once the run ends. */
-const found = new Map<string, Record<string, unknown>>();
+const found = new Map<string, BookPatch>();
 
 /** Keeps what the page says about `book` for the registry, and says when AoN dates it differently. */
 function recordDetails(book: Book, html: string): string {

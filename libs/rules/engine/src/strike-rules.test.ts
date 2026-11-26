@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageAmount } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -15,7 +15,7 @@ import { DEFINITIONS, LONGSWORD, strikeOf } from './testing/strike-test-fixtures
 
 const BLOWGUN = { slug: 'blowgun', category: 'simple', traits: [], damage: { dice: 1, damageType: 'piercing' } };
 const SENSATE = 'a bright flash of light';
-const text = (words: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const text = (words: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A `Note` on `selector`, as a rune etched on a weapon gives it. */
 const etchedNote = (selector: string): RuleJson => ({ key: 'Note', selectors: [selector], text: text(SENSATE) });

@@ -3,4 +3,4 @@ export { fakeSeeded, registerFake } from './fakes';
 
 export { ManualClock } from './manual-clock';
 
-export { rejection } from './rejection';
+export { errorRejection, rejection } from './rejection';

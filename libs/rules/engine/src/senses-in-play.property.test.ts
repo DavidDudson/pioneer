@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonValue, RuleJson } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constantFrom, integer, option, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -47,7 +47,7 @@ interface SenseFields extends RuleJson {
   sense: ContentId;
   acuity?: string;
   range?: number;
-  predicate?: readonly object[];
+  predicate?: readonly JsonValue[];
 }
 
 function rulesOf(elements: readonly Placed[]): RuleInPlay[] {

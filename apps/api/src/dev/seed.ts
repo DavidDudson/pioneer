@@ -29,7 +29,7 @@ const DEV_CAMPAIGN = {
  * Seeds the local database with the dev users and their campaign. Idempotent: rows that already exist are left
  * as they are, so a reseed keeps whatever was changed through the app. Only the dev entrypoint calls it.
  */
-export async function seedDevData(db: BunSQLDatabase<Record<string, unknown>>, clock: Clock): Promise<void> {
+export async function seedDevData(db: BunSQLDatabase, clock: Clock): Promise<void> {
   const now = clock.now().toString();
   await db.transaction(async (tx) => {
     await tx

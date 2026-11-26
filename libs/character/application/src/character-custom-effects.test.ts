@@ -11,6 +11,7 @@ import {
   PatchCharacterBody,
 } from '@pioneer/character/domain';
 import type { Character, CharacterPatch } from '@pioneer/character/domain';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, ForbiddenError, newId, UserId } from '@pioneer/shared/kernel';
@@ -33,7 +34,7 @@ const BLESSING = CustomEffectInput.parse({
 
 const ADD: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: BLESSING };
 
-function at(expectedVersion: Version, patch: object): PatchCharacterBody {
+function at(expectedVersion: Version, patch: CharacterPatch | JsonObject): PatchCharacterBody {
   return PatchCharacterBody.parse({ expectedVersion, patch });
 }
 

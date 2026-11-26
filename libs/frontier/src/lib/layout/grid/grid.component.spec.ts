@@ -2,7 +2,9 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Grid } from './grid.component';
+import type { GridColumns } from './grid.component';
 
 interface Rendered {
   readonly host: HTMLElement;
@@ -11,7 +13,7 @@ interface Rendered {
 }
 
 /** Renders `fr-grid` with two spans projected and returns its host, inner element and the spans. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Grid>): Promise<Rendered> {
   const items = [document.createElement('span'), document.createElement('span')];
 
   const component = createComponent(Grid, {
@@ -65,7 +67,7 @@ describe(Grid, () => {
     expect(grid.className).toContain('items-baseline');
   });
 
-  it.each([
+  it.each<[GridColumns, string[], string[]]>([
     [1, ['grid-cols-1'], ['@md:grid-cols-2']],
     [2, ['grid-cols-1', '@md:grid-cols-2'], ['@lg:grid-cols-3']],
     [3, ['grid-cols-1', '@md:grid-cols-2', '@lg:grid-cols-3'], []],

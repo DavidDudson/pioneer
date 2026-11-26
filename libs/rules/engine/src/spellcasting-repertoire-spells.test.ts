@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
 import type { SpellcastingInPlay } from './spellcasting-in-play';
@@ -23,7 +23,7 @@ const entry = (preparation: string, slug = 'sorcerer'): RuleJson => ({
 
 const gifts = (
   spells: readonly (readonly [string | number, string])[],
-  extra: object = {},
+  extra: JsonObject = {},
   on = 'sorcerer',
 ): RuleJson => ({
   key: 'RepertoireSpells',

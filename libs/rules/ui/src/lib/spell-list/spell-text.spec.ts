@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
 import { SpellData } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
@@ -16,7 +17,7 @@ function translator(): Translate {
 }
 
 /** A 1st-rank spell with `fields` over a two-action cast, to read one field of. */
-function spellWith(fields: object): SpellData {
+function spellWith(fields: JsonObject): SpellData {
   return SpellData.parse({
     rank: 1,
     time: { type: 'actions', cost: 'two' },

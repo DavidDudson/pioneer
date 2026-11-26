@@ -2,6 +2,8 @@ import { ContentId, ContentKind, SlotKey } from '@pioneer/rules/sdk';
 import type { ContentPack } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
+import type { JsonObject } from './json-fixture';
+
 const builder = new ContentPackBuilder().withId('feat-slots');
 
 /** The fixture feats, by name. */
@@ -28,7 +30,7 @@ export function featSlotFixtureId(name: FeatSlotFixture): ContentId {
 export const FEAT_SLOT_FIGHTER = ContentId.parse(builder.idOf(ContentKind.Class, 'fighter'));
 
 /** A class feat slot at `level`, as the importer writes one (`kind-fields.ts`). */
-function classFeatSlot(level: number): object[] {
+function classFeatSlot(level: number): JsonObject[] {
   const flag = `class-feat-${level}`;
   const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
 
@@ -77,7 +79,7 @@ export const FEAT_SLOT_KEYS = {
   bonus: SlotKey.parse(`${builder.idOf(ContentKind.ClassFeature, 'bonus-feat')}:0`),
 } as const;
 
-const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prerequisites = (text: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /**
  * A fighter trained in Athletics and expert in Perception, with feat slots at 1st, 2nd and 4th level and, from 8th, a

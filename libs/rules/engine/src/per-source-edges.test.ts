@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
@@ -47,7 +48,7 @@ const CHARACTER = {
 
 function derive(
   definitions: readonly StatisticDefinition[],
-  json: object,
+  json: JsonObject,
   rules: readonly RuleInPlay[] = [],
 ): ReadonlyMap<Selector, StatisticResult> {
   const inputs = StatisticInputsJson.parse({ ...CHARACTER, ...json });
@@ -62,7 +63,7 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
   return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
 }
 
-function inputIssues(json: object): readonly FieldIssue[] {
+function inputIssues(json: JsonObject): readonly FieldIssue[] {
   const result = StatisticInputsJson.safeParse({ ...CHARACTER, ...json });
 
   return result.success ? [] : fieldIssues(result.error.issues);

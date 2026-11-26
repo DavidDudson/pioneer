@@ -86,6 +86,32 @@ type Optionals = {
   ]?: StatisticInputs[Key];
 };
 
+/** The class, weapon and spellcasting inputs as the JSON gives them. */
+interface ClassBasedJson {
+  readonly characterClass: StatisticInputs['class'];
+  readonly weapons: StatisticInputs['weapons'];
+  readonly spellcasting: StatisticInputs['spellcasting'];
+}
+
+/** The class, weapon and spellcasting inputs the JSON gives, left out when it does not. */
+function classBased({ characterClass, weapons, spellcasting }: ClassBasedJson): Optionals {
+  const optional: Optionals = {};
+
+  if (characterClass !== undefined) {
+    optional.class = characterClass;
+  }
+
+  if (weapons !== undefined) {
+    optional.weapons = weapons;
+  }
+
+  if (spellcasting !== undefined) {
+    optional.spellcasting = spellcasting;
+  }
+
+  return optional;
+}
+
 /** The inputs as JSON, with ranks as an object keyed by selector, decoded into `StatisticInputs`. */
 export const StatisticInputsJson = z
   .strictObject({
@@ -124,21 +150,10 @@ export const StatisticInputsJson = z
         optional.ancestry = ancestry;
       }
 
-      if (characterClass !== undefined) {
-        optional.class = characterClass;
-      }
-
-      if (weapons !== undefined) {
-        optional.weapons = weapons;
-      }
-
-      if (spellcasting !== undefined) {
-        optional.spellcasting = spellcasting;
-      }
-
       return {
         ...rest,
         ...optional,
+        ...classBased({ characterClass, weapons, spellcasting }),
         ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
       };
     },

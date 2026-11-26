@@ -5,6 +5,7 @@ import { CharacterSheet, CoinsSchema } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -68,7 +69,7 @@ async function create(api: AnyElysia, as: UserId): Promise<Created> {
   return (await response.json()) as Created;
 }
 
-async function patch(api: AnyElysia, id: string, body: object): Promise<Response> {
+async function patch(api: AnyElysia, id: string, body: JsonObject): Promise<Response> {
   return api.handle(request('PATCH', `/characters/${id}`, { as: amiri, body }));
 }
 

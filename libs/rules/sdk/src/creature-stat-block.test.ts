@@ -5,8 +5,9 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
+import type { JsonObject, JsonValue } from './testing/json-value';
 
-const text = (value: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: value }] }];
+const text = (value: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: value }] }];
 const SPELL = contentId(PackId.parse('player-core'), EntrySlug.parse('spell:fireball'));
 const ITEM = contentId(PackId.parse('player-core'), EntrySlug.parse('weapon:longsword'));
 
@@ -86,13 +87,13 @@ interface CreatureFixture {
   readonly level: number;
   readonly rarity: string;
   readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
-  readonly data: object;
+  readonly sources: readonly JsonValue[];
+  readonly description: readonly JsonValue[];
+  readonly rules: readonly JsonValue[];
+  readonly data: JsonObject;
 }
 
-function creature(data: object): CreatureFixture {
+function creature(data: JsonObject): CreatureFixture {
   return {
     id: contentId(PackId.parse('monster-core'), EntrySlug.parse('creature:ogre')),
     pack: 'monster-core',
@@ -113,7 +114,7 @@ interface PathIssue {
   readonly path: readonly PropertyKey[];
 }
 
-function issuesOf(data: object): readonly PathIssue[] {
+function issuesOf(data: JsonObject): readonly PathIssue[] {
   const result = ContentEntry.safeParse(creature(data));
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -139,9 +140,8 @@ describe('creature stat block', () => {
   });
 
   test('refuses a reaction with no trigger', () => {
-    // SAFETY: the stat block's second ability is an object, and the test only spreads it.
-    const { trigger: _trigger, ...reaction } = statBlock.abilities[1] as Record<string, unknown>;
-    const issues = ContentEntry.safeParse(creature({ ...core, abilities: [reaction] }));
+    const reactions = statBlock.abilities.slice(1, 2).map(({ trigger: _trigger, ...reaction }) => reaction);
+    const issues = ContentEntry.safeParse(creature({ ...core, abilities: reactions }));
 
     expect(issues.success).toBe(false);
     expect(JSON.stringify(issues.error?.issues)).toContain(RulesMessage.ActionReactionTrigger);

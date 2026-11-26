@@ -6,7 +6,7 @@ import type { Fields } from './translate-choice-reads';
 import { withSkillRaise } from './translate-skill-raises';
 
 /** Foundry's upgrade of `path` to `value`, with whatever `extra` fields it carries. */
-function upgrade(path: string, value: unknown, extra: object = {}): Fields {
+function upgrade(path: string, value: unknown, extra: Fields = {}): Fields {
   return { key: 'ActiveEffectLike', mode: 'upgrade', path, value, ...extra };
 }
 

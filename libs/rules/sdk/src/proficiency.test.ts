@@ -12,6 +12,7 @@ import { RulesMessage } from './messages';
 import { ProficiencyBonusTable } from './proficiency';
 import { RuleElement } from './rule-element';
 import { ContentPackBuilder } from './testing';
+import type { JsonObject } from './testing/json-value';
 import { VariantRuleId } from './variant-rule';
 
 const PLAYER_CORE = {
@@ -80,13 +81,13 @@ describe('ProficiencyBonus element', () => {
 
 /** A pack as JSON. */
 interface PackFixture {
-  readonly manifest: object;
+  readonly manifest: JsonObject;
   readonly ancestries: readonly unknown[];
   readonly creatures: readonly unknown[];
 }
 
 /** A pack as JSON with `overrides` added. */
-function pack(overrides: object, id = 'variant-test'): PackFixture {
+function pack(overrides: JsonObject, id = 'variant-test'): PackFixture {
   return {
     manifest: { id, title: 'Variant test', publisher: 'Pioneer', license: 'homebrew' },
     ancestries: [],

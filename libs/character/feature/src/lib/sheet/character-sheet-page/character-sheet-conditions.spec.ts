@@ -168,7 +168,7 @@ describe('CharacterSheetPage conditions', () => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       // SAFETY: HttpTestingController types the request body as any.
       // The sheet sends this command, and the test reads only the fields named here.
-      const { command } = request.request.body as { command: { condition: Record<string, unknown> } };
+      const { command } = request.request.body as { command: { condition: JsonObject } };
       expect(command).toMatchObject({ field: 'addCondition', condition: { condition: BLINDED, duration: UNLIMITED } });
       expect(command.condition).not.toHaveProperty('value');
       request.flush(afflictedWith([{ id: FIRST, condition: BLINDED, duration: UNLIMITED }], 2));

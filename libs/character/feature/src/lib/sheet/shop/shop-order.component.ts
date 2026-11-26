@@ -106,6 +106,7 @@ export class ShopOrder {
     const { quantity, container } = ShopOrderForm.parse(value);
 
     const item = this.item().id;
+
     const patch: CharacterPatch =
       container === LOOSE ? { field, item, quantity } : { field, item, quantity, container };
 

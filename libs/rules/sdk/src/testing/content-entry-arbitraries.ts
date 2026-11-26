@@ -25,6 +25,7 @@ import type { RegisteredKind } from '../kind-data';
 import { ActionCost, DurationUnit } from '../rich-text';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
 import { predicateJson, skillSelectorText, withTrigger } from './arbitraries';
+import type { JsonObject } from './arbitraries';
 import {
   ancestryData,
   archetypeData,
@@ -67,7 +68,7 @@ const actionUse = {
   selfEffect: contentIdJson,
 };
 
-const reaction: Arbitrary<object> = withOptional(
+const reaction: Arbitrary<JsonObject> = withOptional(
   record({ cost: constant(ActionCost.Reaction), trigger: richTextJson }),
   actionUse,
 );
@@ -79,7 +80,7 @@ const otherCost: Arbitrary<string> = constantFrom(
 const COUNTED_COSTS = [ActionCost.One, ActionCost.Two, ActionCost.Three];
 
 /** A variable cost: a glyph that counts actions, running to more of them. */
-const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((cost) =>
+const variableCost: Arbitrary<JsonObject> = constantFrom(...COUNTED_COSTS).chain((cost) =>
   record({
     cost: constant(cost),
     upTo: integer({ min: COUNTED_COSTS.indexOf(cost) + 2, max: UP_TO_MAX }),
@@ -89,17 +90,17 @@ const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((co
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 
 /** A reaction always has a trigger; anything else may. */
-const untriggeredAction: Arbitrary<object> = oneof(
+const untriggeredAction: Arbitrary<JsonObject> = oneof(
   reaction,
   withOptional(constant({}), { cost: otherCost, trigger: richTextJson, skills, ...actionUse }),
   withOptional(variableCost, { skills, ...actionUse }),
 );
 
-const actionData: Arbitrary<object> = withTrigger(untriggeredAction);
+const actionData: Arbitrary<JsonObject> = withTrigger(untriggeredAction);
 
 const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
 
-const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {
+const featData: Arbitrary<JsonObject> = withOptional(record({ category: featCategory }), {
   prerequisites: richTextJson,
   prerequisitePredicate: predicateJson,
   onlyLevel1: boolean(),
@@ -109,17 +110,17 @@ const featData: Arbitrary<object> = withOptional(record({ category: featCategory
   action: actionData,
 });
 
-const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
+const classFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), {
   action: actionData,
   tags: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }),
   keyAttributeOptions: shuffledSubarray(Object.values(Attribute), { minLength: 1 }),
 });
 
-const ancestryFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });
+const ancestryFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), { action: actionData });
 
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
-const conditionData: Arbitrary<object> = withOptional(
+const conditionData: Arbitrary<JsonObject> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant([]) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
@@ -132,27 +133,27 @@ const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: st
 
 const durationUnit: Arbitrary<string> = constantFrom(...Object.values(DurationUnit));
 
-const environmentDamage: Arbitrary<object> = record({
+const environmentDamage: Arbitrary<JsonObject> = record({
   category: constantFrom('minor', 'moderate', 'major', 'massive'),
   type: constantFrom('cold', 'fire'),
 });
 
 const environmentAfter = record({ count: positive, unit: durationUnit });
 
-const environmentConsequence: Arbitrary<object> = oneof(
+const environmentConsequence: Arbitrary<JsonObject> = oneof(
   withOptional(record({ after: environmentAfter, applies: contentIdJson }), { repeats: boolean() }),
   withOptional(record({ after: environmentAfter, damage: environmentDamage }), { repeats: boolean() }),
 );
 
-const environmentData: Arbitrary<object> = record({
+const environmentData: Arbitrary<JsonObject> = record({
   restrictions: uniqueArray(environmentRestriction, { selector: ({ id }) => id, maxLength: LIST_MAX }),
   consequences: array(environmentConsequence, { maxLength: LIST_MAX }),
 });
 
 const contentKind: Arbitrary<string> = constantFrom(...Object.values(ContentKind));
-const traitData: Arbitrary<object> = record({ appliesTo: uniqueArray(contentKind, { maxLength: LIST_MAX }) });
+const traitData: Arbitrary<JsonObject> = record({ appliesTo: uniqueArray(contentKind, { maxLength: LIST_MAX }) });
 
-const emptyData: Arbitrary<object> = constant({});
+const emptyData: Arbitrary<JsonObject> = constant({});
 
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
@@ -160,7 +161,7 @@ const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MA
 
 /** Valid `data` for each registered kind, its level when the kind always has one, and whether it never has one. */
 interface KindArbitrary {
-  readonly data: Arbitrary<object>;
+  readonly data: Arbitrary<JsonObject>;
   readonly level?: Arbitrary<number>;
   readonly levelless?: boolean;
 }
@@ -192,11 +193,11 @@ const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   ...EQUIPMENT_KIND_ARBITRARIES,
 };
 
-const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });
-const bookAon: Arbitrary<object> = record({ kind: constant('book'), book: slugText, aon: aonUrl });
-const webPage: Arbitrary<object> = record({ kind: constant('web'), url: constant('https://example.com/homebrew') });
+const bookPage: Arbitrary<JsonObject> = record({ kind: constant('book'), book: slugText, page: positive });
+const bookAon: Arbitrary<JsonObject> = record({ kind: constant('book'), book: slugText, aon: aonUrl });
+const webPage: Arbitrary<JsonObject> = record({ kind: constant('web'), url: constant('https://example.com/homebrew') });
 
-const source: Arbitrary<object> = oneof(
+const source: Arbitrary<JsonObject> = oneof(
   withOptional(bookPage, { aon: aonUrl }),
   bookAon,
   withOptional(webPage, { title: contentText }),
@@ -219,12 +220,12 @@ function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
 
 /** A kind's `data` with rules that keep it valid. */
 interface DataAndRules {
-  readonly data: object;
-  readonly rules: object[];
+  readonly data: JsonObject;
+  readonly rules: JsonObject[];
 }
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
-export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
+export function contentEntryJson(kind: RegisteredKind): Arbitrary<JsonObject> {
   const { data, level, levelless = false } = KIND_ARBITRARIES[kind];
 
   const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(

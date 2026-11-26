@@ -6,6 +6,7 @@ import { entry, idOf, inputsOf, picked, picksOf, slotOf } from '@pioneer/rules/g
 import { BaseWeapon, Feet, RollOption, Trait, WeaponDamage } from '@pioneer/rules/sdk';
 
 import { grantedStrikes } from './granted-strikes';
+import type { JsonObject } from './testing';
 
 const FIST = { key: 'Strike', fist: true };
 
@@ -22,7 +23,7 @@ const NO_FAVOURED: ReadonlySet<BaseWeapon> = new Set();
 const FAVOURS_FIST: ReadonlySet<BaseWeapon> = new Set([BaseWeapon.parse('fist')]);
 
 /** A level 1 character with each of `rules` on its own picked entry, named by the key. */
-function resolved(rules: Readonly<Record<string, object>>): GrantResolution {
+function resolved(rules: Readonly<Record<string, JsonObject>>): GrantResolution {
   const entries = Object.entries(rules).map(([slug, rule]) => entry(slug, [rule]));
   const roots = Object.keys(rules).map((slug) => picked(slug));
 

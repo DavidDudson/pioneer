@@ -2,10 +2,11 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Message, MessageTone } from './message.component';
 
 /** Renders `fr-message` with "Name is required" projected and returns the element it renders. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Message>): Promise<HTMLElement> {
   const message = createComponent(Message, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Name is required')]],

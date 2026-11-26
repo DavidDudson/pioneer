@@ -4,6 +4,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import { Grid } from '../../layout/grid/grid.component';
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { DescriptionItem } from '../description-item/description-item.component';
 import { DescriptionList } from './description-list.component';
 
@@ -13,7 +14,7 @@ interface Rendered {
 }
 
 /** Renders a list and puts one `fr-description-item` per term into its list element, each with a projected value. */
-async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly string[]): Promise<Rendered> {
+async function render(inputs: ComponentInputs<DescriptionList>, terms: readonly string[]): Promise<Rendered> {
   const fixture = TestBed.createComponent(DescriptionList);
 
   for (const [name, value] of Object.entries(inputs)) {
@@ -72,7 +73,7 @@ function sorted(classes: string | undefined): readonly string[] {
 }
 
 /** The inner grid's classes for these inputs, so assertions don't restate the primitive's class strings. */
-async function gridClasses(inputs: Readonly<Record<string, unknown>>): Promise<string | undefined> {
+async function gridClasses(inputs: ComponentInputs<Grid>): Promise<string | undefined> {
   const fixture = TestBed.createComponent(Grid);
 
   for (const [name, value] of Object.entries(inputs)) {
@@ -121,7 +122,7 @@ describe(DescriptionList, () => {
 
   it('puts term and value side by side from columnsFrom, following later changes', async () => {
     const { fixture, list } = await render({}, ['Speed']);
-    const shared = { query: 'parent', gap: '2xs', align: 'baseline' };
+    const shared: ComponentInputs<Grid> = { query: 'parent', gap: '2xs', align: 'baseline' };
     expect(sorted(row(list).className)).toStrictEqual(sorted(await gridClasses({ ...shared, termFrom: 'sm' })));
     fixture.componentRef.setInput('columnsFrom', 'lg');
     await TestBed.inject(ApplicationRef).whenStable();

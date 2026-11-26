@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Skeleton, SkeletonKind, SkeletonWidth } from './skeleton.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Skeleton>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Skeleton);
 
   for (const [name, value] of Object.entries(inputs)) {

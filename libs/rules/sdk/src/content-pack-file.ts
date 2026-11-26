@@ -5,6 +5,7 @@ import type { EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
 import type { ContentPackSchema, PackAncestry, PackCreature, PackStatistic } from './content-pack';
+import type { JsonValue } from './json-bounds';
 import { ProficiencyBonusTable } from './proficiency';
 import { RollOptionNamespaces } from './roll-option-namespace';
 import type { VariantRuleDefinition } from './variant-rule';
@@ -84,7 +85,7 @@ export interface PackContentsLoader {
  * Checks a pack's JSON files: `pack.json` and the entries of every `<kind>.json`. An entry filed under another pack,
  * or a slug used twice across the pack's kinds, is an error naming it.
  */
-export function packContentsFromFiles(packFile: unknown, entryFiles: readonly unknown[]): PackContents {
+export function packContentsFromFiles(packFile: JsonValue, entryFiles: readonly JsonValue[]): PackContents {
   const file = ContentPackFile.parse(packFile);
   const entries = entryFiles.flatMap((entryFile) => ContentEntryFile.parse(entryFile));
   const taken = new Set<EntrySlug>();
@@ -131,6 +132,6 @@ function packParts({ file, entries }: PackContents): PackParts {
 }
 
 /** The `ContentPack` a pack's JSON files describe: `packContentsFromFiles`, then `contentPackFromContents`. */
-export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unknown[]): ContentPack {
+export function contentPackFromFiles(packFile: JsonValue, entryFiles: readonly JsonValue[]): ContentPack {
   return contentPackFromContents(packContentsFromFiles(packFile, entryFiles));
 }

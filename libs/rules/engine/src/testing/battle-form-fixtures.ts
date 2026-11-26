@@ -9,6 +9,7 @@ import {
   StatisticKind,
 } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from '../derive-statistics';
 import type { RuleInPlay } from '../rule-in-play';
@@ -73,7 +74,7 @@ const CONTENT = {
 };
 
 /** A `BattleForm` with `body` as its form, on the entry `plant-form`. */
-export function formRule(body: object, extra: object = {}): RuleInPlay {
+export function formRule(body: JsonObject, extra: JsonObject = {}): RuleInPlay {
   return inPlay({ key: 'BattleForm', form: body, ...extra }, 'plant-form');
 }
 

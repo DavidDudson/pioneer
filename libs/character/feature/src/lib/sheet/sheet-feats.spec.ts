@@ -2,6 +2,7 @@ import { PrerequisiteStatus } from '@pioneer/character/domain';
 import { ContentText, FeatCategory, Rarity, Trait } from '@pioneer/rules/sdk';
 import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
 import type { Chip, FeatPickerRow } from '@pioneer/rules/ui';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { featRows } from './sheet-feats';
@@ -10,7 +11,7 @@ import type { TrainedAgain } from './sheet-skill-repeats';
 
 const FIGHTER_CHIP: Chip = { label: 'Fighter', trait: Trait.parse('fighter') };
 const FLOURISH_CHIP: Chip = { label: 'Flourish', trait: Trait.parse('flourish') };
-const translate = (key: string, params: object): string => `${key} ${JSON.stringify(params)}`;
+const translate = (key: string, params: MessageParams): string => `${key} ${JSON.stringify(params)}`;
 const none: TrainedAgain = () => new Map();
 const twice: TrainedAgain = () => new Map([['feat', ['Religion', 'Medicine']]]);
 

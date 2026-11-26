@@ -29,8 +29,21 @@ async function renderShell(): Promise<ComponentFixture<App>> {
   return fixture;
 }
 
+/** What `/api/me` answers with: the signed-in user, or a problem when signed out. */
+interface MeBody {
+  readonly id?: string;
+  readonly displayName?: string;
+  readonly emailVerified?: boolean;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  readonly type?: string;
+  readonly title?: string;
+  readonly status?: number;
+  readonly message?: { readonly key: string };
+}
+
 /** Answers the shell's `/api/me` and waits for the account slot to render. */
-async function answerMe(fixture: ComponentFixture<App>, status: number, body: object): Promise<HTMLElement> {
+async function answerMe(fixture: ComponentFixture<App>, status: number, body: MeBody): Promise<HTMLElement> {
   TestBed.inject(HttpTestingController)
     .expectOne('/api/me')
     .flush(body, { status, statusText: String(status) });

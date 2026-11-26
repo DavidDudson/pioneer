@@ -23,9 +23,9 @@ function toSession(row: SessionRow): Session {
 }
 
 export class DrizzleSessionRepository extends SessionRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }

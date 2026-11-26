@@ -5,6 +5,7 @@ import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
 import { RollOption, Selector } from '@pioneer/rules/sdk';
 import type { StatisticDefinition } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine, LineStatus } from './breakdown';
@@ -60,7 +61,7 @@ function byId(first: RuleInPlay, second: RuleInPlay): readonly [RuleInPlay, Rule
 }
 
 /** An `AdjustModifier` on AC for the modifier with slug `cover`. */
-function adjust(fields: Readonly<Record<string, unknown>>, entry: string): RuleInPlay {
+function adjust(fields: JsonObject, entry: string): RuleInPlay {
   return inPlay({ key: 'AdjustModifier', selectors: ['ac'], slug: 'cover', ...fields }, entry);
 }
 

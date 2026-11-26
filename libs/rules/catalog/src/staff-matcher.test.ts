@@ -1,33 +1,27 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, ContentId, contentId, ContentKey, EntrySlug, PackId, StaffSpells } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { matchStaffSpells, spellIndex, staffMatches } from './staff-matcher';
 
 const PACK = 'gm-core';
 const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), EntrySlug.parse(slug)));
 
-const text = (words: string, marks?: readonly string[]): object => {
+const text = (words: string, marks?: readonly string[]): JsonObject => {
   const node = { type: 'text', text: words };
 
   return marks === undefined ? node : { ...node, marks };
 };
 
-const item = (rank: string, spells: string): object[] => [
+const item = (rank: string, spells: string): JsonObject[] => [
   { type: 'paragraph', content: [text(rank, ['strong']), text(` ${spells}`)] },
 ];
 
-/** A list node as JSON. */
-interface ListNode {
-  readonly type: string;
-  readonly ordered: boolean;
-  readonly items: readonly (readonly object[])[];
-}
-
-const list = (...items: readonly object[][]): ListNode => ({ type: 'list', ordered: false, items });
+const list = (...items: readonly JsonObject[][]): JsonObject => ({ type: 'list', ordered: false, items });
 
 /** A Game Master Core entry of `kind`; the spells' data is what a spell needs. */
-function entry(slug: string, name: string, fields: object): ContentEntry {
+function entry(slug: string, name: string, fields: JsonObject): ContentEntry {
   return ContentEntry.parse({
     id: idOf(slug),
     pack: PACK,
@@ -79,7 +73,7 @@ const SPELLS = [
 
 function staff(
   slug: string,
-  description: readonly object[],
+  description: readonly JsonObject[],
   traits: readonly string[] = ['magical', 'staff'],
 ): ContentEntry {
   return entry(`weapon:${slug}`, slug, {
@@ -98,7 +92,7 @@ function staff(
 const idsOf = (...names: readonly string[]): readonly ContentId[] => names.map((name) => idOf(spellSlug(name)));
 const index = spellIndex(SPELLS);
 
-const read = (...items: readonly object[][]): StaffSpells | undefined =>
+const read = (...items: readonly JsonObject[][]): StaffSpells | undefined =>
   matchStaffSpells(staff('test', [list(...items)]), index);
 
 describe('matchStaffSpells', () => {

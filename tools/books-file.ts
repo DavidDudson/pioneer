@@ -5,11 +5,21 @@
  * order.
  */
 import { Books } from '@pioneer/rules/sdk';
+import type { ErrataLabel, FoundryVersion, PaizoStoreUrl, ProductLine } from '@pioneer/rules/sdk';
 
 const FILE = `${import.meta.dir}/../libs/rules/catalog/src/books.json`;
 
+/** The fields a tool may set on a book as the file writes them (the release date is its ISO text). */
+export interface BookPatch {
+  readonly productLine?: ProductLine;
+  readonly storeUrl?: PaizoStoreUrl;
+  readonly errata?: ErrataLabel;
+  readonly released?: string;
+  readonly foundryVersion?: FoundryVersion;
+}
+
 /** The fields to set on each book, by book id. */
-export type BookPatches = ReadonlyMap<string, Readonly<Record<string, unknown>>>;
+export type BookPatches = ReadonlyMap<string, BookPatch>;
 
 /** One book as the file writes it. */
 interface RawBook {
@@ -17,7 +27,7 @@ interface RawBook {
 }
 
 /** `book` with `fields` set over it. */
-function patched(book: RawBook, fields: Readonly<Record<string, unknown>> | undefined): RawBook {
+function patched(book: RawBook, fields: BookPatch | undefined): RawBook {
   return { ...book, ...fields };
 }
 

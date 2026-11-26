@@ -46,8 +46,8 @@ interface SplitPredicate {
   readonly actor: readonly unknown[];
 }
 
-function splitPredicate(raw: object): SplitPredicate {
-  const statements: readonly unknown[] = 'predicate' in raw && Array.isArray(raw.predicate) ? raw.predicate : [];
+function splitPredicate(raw: Fields): SplitPredicate {
+  const statements: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
 
   return {
     item: statements.filter((statement) => readsOnlyItem(statement)),

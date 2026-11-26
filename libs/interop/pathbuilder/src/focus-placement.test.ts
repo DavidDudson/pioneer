@@ -5,6 +5,7 @@ import type { CharacterDocument } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { ContentId, ContentKind, ContentRegistry, ContentText, SlotRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { entryLookup } from './content-lookup';
 import mordredFixture from './fixtures/mordred.json';
@@ -32,14 +33,7 @@ pack
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-interface FocusSpellsRule {
-  readonly key: string;
-  readonly entry: string;
-  readonly spells: readonly string[];
-  readonly predicate: readonly (string | object)[];
-}
-
-const knows = (spell: string, predicate: readonly (string | object)[]): FocusSpellsRule => ({
+const knows = (spell: string, predicate: readonly (JsonObject | string)[]): JsonObject => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
   spells: [spellId(spell)],

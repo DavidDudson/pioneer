@@ -21,6 +21,7 @@ import {
   playerCoreClasses,
   playerCoreClassId,
 } from '@pioneer/character/domain/testing';
+import type { JsonObject } from '@pioneer/character/domain/testing';
 import { DieFace } from '@pioneer/rules/dice';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, nextVersion, ValidationError } from '@pioneer/shared/kernel';
@@ -36,7 +37,7 @@ const WAND = InventoryItemId.parse(newId());
 const ONE = ResourceCount.parse(1);
 const HELD = { state: 'held', hands: 1 };
 
-function wandItem(fields: object = {}): InventoryItem {
+function wandItem(fields: JsonObject = {}): InventoryItem {
   return InventoryItemSchema.parse({
     id: WAND,
     item: itemFixtureId(ItemFixture.FireballWand),
@@ -47,7 +48,7 @@ function wandItem(fields: object = {}): InventoryItem {
 }
 
 /** A 5th-level wizard, who casts 3rd-rank spells, holding the wand of Fireball as `fields` say. */
-function wizardWith(fields: object = {}, name = 'Ezren'): Character {
+function wizardWith(fields: JsonObject = {}, name = 'Ezren'): Character {
   const wizard = new CharacterBuilder().named(name).atLevel(5).picking('class', playerCoreClassId('wizard')).build();
 
   return wizard.withInventory(

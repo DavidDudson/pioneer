@@ -7,6 +7,7 @@ import { rulesIn } from './testing/build-helpers';
 import { coreRulesId, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 const { Sense } = RuleElementKey;
 const DARKVISION = coreRulesId('sense:darkvision');
@@ -23,7 +24,7 @@ function heritage(rules: readonly object[]): DocumentFixture {
 }
 
 /** A passive feat of `category` with `subfeatures`. */
-function feat(subfeatures: object, category = 'general'): DocumentFixture {
+function feat(subfeatures: Fields, category = 'general'): DocumentFixture {
   return {
     id: 'sEnSeFeAt0000000',
     name: 'Keen Feat',

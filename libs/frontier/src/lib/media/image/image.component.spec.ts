@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './image.component';
 
 const PORTRAIT = 'https://example.test/portrait.webp';
@@ -12,7 +13,7 @@ interface Rendered {
   readonly img: HTMLImageElement;
 }
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
+async function render(inputs: ComponentInputs<ImageDisplay>): Promise<Rendered> {
   const fixture = TestBed.createComponent(ImageDisplay);
 
   for (const [name, value] of Object.entries({ src: PORTRAIT, ...inputs })) {

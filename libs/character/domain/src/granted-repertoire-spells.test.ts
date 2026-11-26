@@ -13,6 +13,7 @@ import { preparedReads, slotContent, slotRefusal } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import type { SlotRefusal } from './slot-refusals';
 import { CharacterBuilder } from './testing';
+import type { JsonObject } from './testing/json-fixture';
 
 /**
  * A sorcerer as the importer gives one (ADR-0062), shrunk: a spontaneous entry with slots by level, signature spells, and
@@ -36,7 +37,7 @@ for (const [name, rank] of [
 
 const spell = (name: string): ContentId => ContentId.parse(pack.idOf(ContentKind.Spell, name));
 
-const slots = (rank: string | number, value: number, level = 1): object => {
+const slots = (rank: string | number, value: number, level = 1): JsonObject => {
   const rule = { key: 'SpellSlots', entry: 'sorcerer', rank, value };
 
   return level > 1 ? { ...rule, predicate: [{ gte: ['self:level', level] }] } : rule;

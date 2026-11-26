@@ -3,14 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { prerequisiteMatches } from '@pioneer/rules/catalog';
 import { ContentEntryFile, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
-import type { EntryJson } from './entry-json.ts';
+import type { EntryJson, JsonObject, JsonValue } from './entry-json.ts';
 import { enrichPrerequisiteFile } from './prerequisite-enrichment.ts';
 
 const PACK = 'player-core';
-const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core feat's JSON, as a pack file holds it. */
-function feat(name: string, data: object = {}): EntryJson {
+function feat(name: string, data: JsonObject = {}): EntryJson {
   const slug = `feat:${name.toLowerCase().replaceAll(' ', '-')}`;
 
   return {

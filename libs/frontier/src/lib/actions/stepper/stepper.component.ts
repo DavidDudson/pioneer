@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 
 import { Step } from './step.component';
 import { STEPPER } from './stepper-context';
-import type { StepperContext } from './stepper-context';
+import type { StepperContext, StepperStep } from './stepper-context';
 
 /**
  * A guided sequence with progressive disclosure: only the current `fr-step` shows its controls, steps before it
@@ -37,8 +37,8 @@ export class Stepper implements StepperContext {
   private readonly steps = contentChildren(Step);
   public readonly count: Signal<number> = computed(() => this.steps().length);
 
-  public position(step: object): number {
-    const steps: readonly object[] = this.steps();
+  public position(step: StepperStep): number {
+    const steps: readonly StepperStep[] = this.steps();
 
     return steps.indexOf(step);
   }

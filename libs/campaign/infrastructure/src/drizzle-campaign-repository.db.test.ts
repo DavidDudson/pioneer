@@ -4,7 +4,7 @@ import { CampaignRole } from '@pioneer/campaign/domain';
 import type { Campaign, CampaignMember } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
 import { fixedClock, newId, UserId, VersionConflictError } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
+import { errorRejection, rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
@@ -83,40 +83,36 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
   test('a user is a member of a campaign once', async () => {
     const gatewalkers = await repository.insert(new CampaignBuilder().named('Gatewalkers').build());
 
-    const error = await rejection(
+    const error = await errorRejection(
       database.db.execute(
         sql`insert into campaign_members (id, campaign_id, user_id, role, joined_at) values (${newId()}, ${gatewalkers.id}, ${fixtureGmId}, 'player', ${at.toString()})`,
       ),
     );
 
-    // SAFETY: `error` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
-    expect(String((error as Error).cause)).toContain('campaign_members_campaign_user_idx');
+    expect(String(error.cause)).toContain('campaign_members_campaign_user_idx');
   });
 
   test('a campaign has one GM member', async () => {
     const wardens = await repository.insert(new CampaignBuilder().named('Wardens of Wildwood').build());
 
-    const error = await rejection(
+    const error = await errorRejection(
       database.db.execute(
         sql`insert into campaign_members (id, campaign_id, user_id, role, joined_at) values (${newId()}, ${wardens.id}, ${ezren}, 'gm', ${at.toString()})`,
       ),
     );
 
-    // SAFETY: `error` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
-    expect(String((error as Error).cause)).toContain('campaign_members_one_gm_idx');
+    expect(String(error.cause)).toContain('campaign_members_one_gm_idx');
   });
 
   test('a GM and every member must be existing users', async () => {
     const orphanGm = new CampaignBuilder().named('Orphaned').ranBy(UserId.parse(newId())).build();
-    const gmError = await rejection(repository.insert(orphanGm));
-    // SAFETY: `gmError` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
-    expect(String((gmError as Error).cause)).toContain('campaigns_gm_id_users_id_fk');
+    const gmError = await errorRejection(repository.insert(orphanGm));
+    expect(String(gmError.cause)).toContain('campaigns_gm_id_users_id_fk');
     expect(await repository.findById(orphanGm.id)).toBeUndefined();
 
     const orphanPlayer = new CampaignBuilder().named('Stray').withPlayer(UserId.parse(newId())).build();
-    const playerError = await rejection(repository.insert(orphanPlayer));
-    // SAFETY: `playerError` is what the repository threw: a driver error whose `cause` holds the Postgres constraint name; a non-Error would have no `cause` and fail the match.
-    expect(String((playerError as Error).cause)).toContain('campaign_members_user_id_users_id_fk');
+    const playerError = await errorRejection(repository.insert(orphanPlayer));
+    expect(String(playerError.cause)).toContain('campaign_members_user_id_users_id_fk');
     // The campaign and its members are written together or not at all.
     expect(await repository.findById(orphanPlayer.id)).toBeUndefined();
   });

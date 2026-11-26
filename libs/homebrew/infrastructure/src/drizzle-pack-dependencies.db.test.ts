@@ -16,6 +16,7 @@ import {
   PackVisibility,
 } from '@pioneer/rules/sdk';
 import type { ContentPackId, PackContents, PackContentsLoader, PackDependencyEdge } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { ConflictError, fixedClock, newId } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -77,7 +78,7 @@ interface EntryInput {
   readonly pack: ContentPackId;
   readonly slug: EntrySlug;
   readonly name: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** A trait entry row, written directly: only its `data` matters to what is tested. */

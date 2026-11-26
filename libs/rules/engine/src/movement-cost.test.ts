@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import { Predicate } from '@pioneer/rules/sdk';
-import type { RuleJson } from '@pioneer/rules/sdk/testing';
+import type { JsonObject, RuleJson } from '@pioneer/rules/sdk/testing';
 
 import { factsUnderForm } from './battle-form';
 import { EngineMessage } from './messages';
@@ -18,7 +18,7 @@ const IMMUNE = Predicate.parse(['self:immunity:difficult-terrain']);
 const NOT_IMMUNE = Predicate.parse([{ not: 'self:immunity:difficult-terrain' }]);
 
 /** Terrain that costs `extra` feet more per square, from the entry `terrain`, beyond what `body` sets. */
-function cost(extra: number, body: object = {}): RuleInPlay {
+function cost(extra: number, body: JsonObject = {}): RuleInPlay {
   return inPlay({ key: 'MovementCost', extra, ...body }, 'terrain');
 }
 

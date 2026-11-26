@@ -30,10 +30,10 @@ export interface StoredPartyStash {
  * moves lines, so the stash and the character are written, or refused, together.
  */
 export class DrizzlePartyStashRepository {
-  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #db: BunSQLDatabase;
   readonly #clock: Clock;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>, clock: Clock) {
+  public constructor(db: BunSQLDatabase, clock: Clock) {
     this.#db = db;
     this.#clock = clock;
   }

@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../testing/component-inputs';
 import { ActionIcon, ActionIconCost } from './action-icon.component';
 
-async function render(inputs: Record<string, unknown>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<ActionIcon>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(ActionIcon);
 
   for (const [name, value] of Object.entries(inputs)) {

@@ -3,10 +3,11 @@ import { TestBed } from '@angular/core/testing';
 import { Dices } from 'lucide';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { EmptyState } from './empty-state.component';
 
 /** Renders an empty state with `action` projected (none by default) and returns its host element. */
-async function render(inputs: Readonly<Record<string, unknown>>, action: readonly Node[] = []): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<EmptyState>, action: readonly Node[] = []): Promise<HTMLElement> {
   const emptyState = createComponent(EmptyState, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[...action]],

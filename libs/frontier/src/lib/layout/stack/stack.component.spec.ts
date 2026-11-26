@@ -2,6 +2,7 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { Stack, StackAlign, StackJustify } from './stack.component';
 
 interface Rendered {
@@ -11,7 +12,7 @@ interface Rendered {
 }
 
 /** Renders `fr-stack` with two spans projected and returns its host, inner element and the spans. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
+async function render(inputs: ComponentInputs<Stack>): Promise<Rendered> {
   const items = [document.createElement('span'), document.createElement('span')];
 
   const component = createComponent(Stack, {

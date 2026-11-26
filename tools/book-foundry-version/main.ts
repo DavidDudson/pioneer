@@ -11,6 +11,7 @@ import { bookRegistry } from '@pioneer/rules/catalog';
 import { BookId, FoundryVersion } from '@pioneer/rules/sdk';
 
 import { patchBooks } from '../books-file.ts';
+import type { BookPatch } from '../books-file.ts';
 
 const ROOT = path.resolve(import.meta.dir, '..', '..');
 const TAG_PREFIX = 'pf2e-';
@@ -44,7 +45,7 @@ async function booksCited(pack: string): Promise<ReadonlySet<string>> {
   return cited;
 }
 
-const patches = new Map<string, Record<string, unknown>>();
+const patches = new Map<string, BookPatch>();
 const importDir = path.join(ROOT, 'content/import');
 const importNames = await readdir(importDir);
 

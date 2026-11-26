@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { AttributeModifier, AttributeModifiers, SlotKey } from '@pioneer/rules/sdk';
 import type { ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import type { MessageParams } from '@pioneer/shared/kernel';
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import type { SheetKeyAttribute } from '../sheet/sheet-build';
@@ -14,7 +15,7 @@ import { classRows, keyAttributeRows } from './class-rows';
 import { CHARACTER_CONTENT_KINDS } from './content-registry-query';
 
 const READS = {
-  translate: (key: string, params?: object): string => `${key} ${JSON.stringify(params ?? {})}`,
+  translate: (key: string, params?: MessageParams): string => `${key} ${JSON.stringify(params ?? {})}`,
 };
 
 async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {

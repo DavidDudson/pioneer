@@ -2,10 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { Flame } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { BadgeTone } from '../badge/badge.component';
 import { Tag } from './tag.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Tag>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(Tag);
 
   for (const [name, value] of Object.entries(inputs)) {

@@ -5,6 +5,7 @@ import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageAdjustment, Selector, Slug, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
@@ -101,7 +102,7 @@ function madeOf<Weapon extends object>(weapon: Weapon, made: Made): Weapon & Mad
 }
 
 /** Strikes for `weapons` of a level 1 character with Strength `strength` and Dexterity 3. */
-function strikesOf(weapons: readonly object[], strength = 4, made: Made = {}): readonly Strike[] {
+function strikesOf(weapons: readonly JsonObject[], strength = 4, made: Made = {}): readonly Strike[] {
   const inputs = StatisticInputsJson.parse({
     level: 1,
     attributes: { str: strength, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -205,7 +206,7 @@ function countsOf(made: Made): readonly string[] {
 }
 
 /** The damage a Strike of `weapon` does to the werewolf on a roll of 7. */
-function takenBy(weapon: object, made: Made = {}): number | undefined {
+function takenBy(weapon: JsonObject, made: Made = {}): number | undefined {
   const [strike] = strikesOf([weapon], 4, made);
   const outcome = parseDiceExpression(DiceExpressionText.parse('1d8[slashing]'));
 

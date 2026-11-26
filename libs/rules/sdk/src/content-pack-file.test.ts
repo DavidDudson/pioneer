@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { contentPackFromFiles } from './content-pack-file';
 import { ProficiencyBonusTable } from './proficiency';
+import type { JsonObject } from './testing/json-value';
 
 const PACK = 'homebrew';
 const idOf = (slug: string, pack: string = PACK): string => contentId(PackId.parse(pack), EntrySlug.parse(slug));
@@ -12,7 +13,7 @@ const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: '
 interface EntryFields {
   readonly kind: string;
   readonly slug: string;
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
 /** An entry as a pack file holds it. */
@@ -27,10 +28,10 @@ interface FileEntry {
   readonly sources: readonly unknown[];
   readonly description: readonly unknown[];
   readonly rules: readonly unknown[];
-  readonly data: object;
+  readonly data: JsonObject;
 }
 
-function entry({ kind, slug, data }: EntryFields, extra: object = {}): FileEntry {
+function entry({ kind, slug, data }: EntryFields, extra: JsonObject = {}): FileEntry {
   return {
     id: idOf(slug),
     pack: PACK,

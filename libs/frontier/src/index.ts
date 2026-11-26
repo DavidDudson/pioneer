@@ -257,3 +257,5 @@ export { Distance } from './lib/locale/distance/distance.component';
 export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
 
 export type { ListPart } from './lib/locale/locale-format';
+
+export type { ComponentInputs } from './lib/testing/component-inputs';

@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { InMemoryDependencyUsageDirectory, InMemoryPackEnablementDirectory } from '@pioneer/homebrew/application';
+import { CreateHomebrewPackBody } from '@pioneer/homebrew/domain';
 import { ContentPackId } from '@pioneer/rules/sdk';
 import type { Problem } from '@pioneer/shared/kernel';
 
@@ -90,7 +91,9 @@ describe('homebrew dependency routes', () => {
   test('depending on another user’s private pack is 404', async () => {
     const api = app();
     const mine = await makePack(api);
-    const theirs = await makePack(api, ezren, { title: 'Ezren spells', slug: 'ezren-spells' });
+    const draft = CreateHomebrewPackBody.parse({ title: 'Ezren spells', slug: 'ezren-spells' });
+    const theirs = await makePack(api, ezren, draft);
+
     const response = await api.handle(request('POST', dependenciesPath(mine), { body: { dependsOn: theirs.id } }));
     expect(response.status).toBe(404);
   });

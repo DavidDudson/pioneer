@@ -12,6 +12,7 @@ import {
 import { ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../testing/json-fixture';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
@@ -21,13 +22,13 @@ import { CharacterStore } from './character-store';
 
 const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
-interface WireCharacter {
+interface WireCharacter extends JsonObject {
   readonly id: string;
   readonly version: number;
   readonly level: number;
 }
 
-function wire(version: number, level: number): WireCharacter & Record<string, unknown> {
+function wire(version: number, level: number): WireCharacter {
   return {
     id,
     version,
@@ -48,14 +49,14 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
 /** The sheet the server sends: the character, and a filled ancestry slot. */
 /** What the server answers with when a spec reads or edits a character's sheet. */
 interface SheetReply {
-  readonly character: WireCharacter & Record<string, unknown>;
-  readonly slots: readonly object[];
+  readonly character: WireCharacter;
+  readonly slots: readonly JsonObject[];
   readonly languages: { readonly known: readonly string[]; readonly open: number };
 }
 
 /** A PATCH's answer: the sheet, and the picks the edit cleared. */
 interface PatchReply extends SheetReply {
-  readonly cleared: readonly object[];
+  readonly cleared: readonly JsonObject[];
 }
 
 function sheet(version: number, level: number): SheetReply {
@@ -75,7 +76,7 @@ function sheet(version: number, level: number): SheetReply {
 }
 
 /** A PATCH's answer: the sheet, and the picks the edit cleared. */
-function patched(version: number, level: number, cleared: readonly object[] = []): PatchReply {
+function patched(version: number, level: number, cleared: readonly JsonObject[] = []): PatchReply {
   return { ...sheet(version, level), cleared };
 }
 

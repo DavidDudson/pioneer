@@ -11,6 +11,7 @@ import { humanAncestryId } from '@pioneer/character/domain/testing';
 import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
+import type { JsonValue } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -60,7 +61,7 @@ function serverOver(repository: InMemoryCharacterRepository, pack = 'player-core
   return { characters, files, app };
 }
 
-function request(path: string, body: unknown, as?: UserId): Request {
+function request(path: string, body: JsonValue, as?: UserId): Request {
   const headers = new Headers(as === undefined ? undefined : actingAs(as));
   headers.set('content-type', 'application/json');
 

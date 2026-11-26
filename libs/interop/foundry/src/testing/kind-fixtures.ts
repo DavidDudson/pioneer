@@ -2,6 +2,7 @@ import { slugName, SourceKind } from '@pioneer/rules/sdk';
 
 import type { ImportedEnvelope } from '../imported-envelope';
 import type { GapFields } from '../kind-data-gaps';
+import type { Fields } from '../translate-choice-reads';
 import type { ImportedEntry, ImportTranslation } from '../translate-import';
 import type { ImportedKindData } from '../translate-kind-data';
 import { playerCore, translate } from './import-fixtures';
@@ -69,7 +70,7 @@ export const GRABBED: DocumentFixture = {
   },
 };
 
-export function condition(id: string, name: string, system: object = {}): DocumentFixture {
+export function condition(id: string, name: string, system: Fields = {}): DocumentFixture {
   return { id, name, type: 'condition', system: { value: { isValued: false, value: FOUNDRY_NULL }, ...system } };
 }
 
@@ -80,7 +81,7 @@ export const BLINDED = condition('XgEqL1kFApUbl5Z2', 'Blinded', { group: 'senses
 export const DAZZLED = condition('TkIyaNPgTZFBCCuh', 'Dazzled', { group: 'senses' });
 export const FRIGHTENED = condition('TBSHQspnbcqxsmjL', 'Frightened', { value: { isValued: true, value: 1 } });
 
-export function action(system: object, name = 'Test Action'): DocumentFixture {
+export function action(system: Fields, name = 'Test Action'): DocumentFixture {
   return { id: 'tSTAcT10n0000000', name, type: 'action', system: { actionType: { value: 'action' }, ...system } };
 }
 

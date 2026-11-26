@@ -11,6 +11,7 @@ import {
   RichText,
   TriggerEvent,
 } from '@pioneer/rules/sdk';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 import { matchTrigger, triggerMatches } from './trigger-matcher';
 import type { RefNames } from './trigger-matcher';
@@ -20,31 +21,19 @@ const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse
 const STRIKE = idOf('action:strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
-/** A text node as JSON. */
-interface TextNode {
-  readonly type: string;
-  readonly text: string;
-}
-
-/** A paragraph node as JSON. */
-interface ParagraphNode {
-  readonly type: string;
-  readonly content: readonly object[];
-}
-
-const text = (words: string): TextNode => ({ type: 'text', text: words });
-const paragraph = (...content: readonly object[]): ParagraphNode => ({ type: 'paragraph', content });
-const trigger = (...blocks: readonly object[]): RichText => RichText.parse(blocks);
+const text = (words: string): JsonObject => ({ type: 'text', text: words });
+const paragraph = (...content: readonly JsonObject[]): JsonObject => ({ type: 'paragraph', content });
+const trigger = (...blocks: readonly JsonObject[]): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
 
-const ref = (id: ContentId, label?: string): object =>
+const ref = (id: ContentId, label?: string): JsonObject =>
   label === undefined ? { type: 'ref', id } : { type: 'ref', id, label };
 
 const OTHER = idOf('action:other');
 const TWO_PARAGRAPHS = trigger(paragraph(text('Your turn begins.')), paragraph(text('Your turn ends.')));
 const WITH_GLYPH = trigger(paragraph(text('You cast a spell '), { type: 'action-cost', cost: 'one' }));
 
-const event = (value: object): TriggerEvent => TriggerEvent.parse(value);
+const event = (value: JsonObject): TriggerEvent => TriggerEvent.parse(value);
 
 describe('trigger matcher', () => {
   test.each([
@@ -105,7 +94,7 @@ describe('trigger matcher', () => {
 });
 
 /** A Player Core entry of `kind` with `data`. */
-function entry(name: string, kind: string, data: object): ContentEntry {
+function entry(name: string, kind: string, data: JsonObject): ContentEntry {
   const slug = `${kind}:${name}`;
 
   const fields = {
@@ -126,12 +115,7 @@ function entry(name: string, kind: string, data: object): ContentEntry {
 }
 
 /** An action's trigger fields. */
-interface Triggered {
-  readonly cost: string;
-  readonly trigger: RichText;
-}
-
-const triggered = (words: string, extra: object = {}): Triggered => ({
+const triggered = (words: string, extra: JsonObject = {}): JsonObject => ({
   cost: 'reaction',
   trigger: prose(words),
   ...extra,

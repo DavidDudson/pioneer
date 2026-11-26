@@ -15,6 +15,7 @@ import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
+import * as z from 'zod';
 
 import { bugReportRoutes } from './bug-report-routes';
 
@@ -28,6 +29,11 @@ const BODY = {
   description: 'The AC is wrong',
   steps: 'Open the sheet',
 };
+
+const JsonBody = z.record(z.string(), z.json());
+
+/** A request body as JSON, before the route parses it. */
+type JsonBody = z.infer<typeof JsonBody>;
 
 interface Fixture {
   readonly api: AnyElysia;
@@ -43,7 +49,7 @@ function fixture(): Fixture {
   return { api: new Elysia().use(problemHandler).use(routes), repository };
 }
 
-async function report(api: AnyElysia, body: object, user?: UserId): Promise<Response> {
+async function report(api: AnyElysia, body: JsonBody, user?: UserId): Promise<Response> {
   const headers = new Headers(user === undefined ? undefined : actingAs(user));
   headers.set('content-type', 'application/json');
 

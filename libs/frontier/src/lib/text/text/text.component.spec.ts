@@ -2,12 +2,13 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
+import type { ComponentInputs } from '../../testing/component-inputs';
 import { DamageTone, Tone } from '../../tokens';
 import { FontWeight, TextVariant } from '../text.variants';
 import { INHERIT_TONE, Text, TextElement } from './text.component';
 
 /** Renders `fr-text` with `content` projected and returns the element it renders. */
-async function render(inputs: Readonly<Record<string, unknown>>, content = 'AC'): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<Text>, content = 'AC'): Promise<HTMLElement> {
   const node = document.createTextNode(content);
 
   const text = createComponent(Text, {

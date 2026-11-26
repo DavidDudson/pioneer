@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { Character } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -25,7 +26,7 @@ const SEED_TIMEOUT_MS = 90_000;
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 
-function request(path: string, body: object): Request {
+function request(path: string, body: JsonObject): Request {
   return new Request(`http://localhost${path}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', ...actingAs(fixtureOwnerId) },

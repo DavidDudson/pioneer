@@ -3,13 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { triggerMatches } from '@pioneer/rules/catalog';
 import { ContentEntryFile, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
+import type { JsonObject, JsonValue } from './entry-json.ts';
 import { enrichTriggerFile } from './trigger-enrichment.ts';
 
 const PACK = 'player-core';
-const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry's JSON, as a pack file holds it. */
-function entry(name: string, kind: string, data: object): object {
+function entry(name: string, kind: string, data: JsonObject): object {
   const slug = `${kind}:${name}`;
 
   const base = {
@@ -29,9 +30,9 @@ function entry(name: string, kind: string, data: object): object {
 }
 
 /** A free action as a pack file holds it, with the words of its trigger. */
-interface FreeActionJson {
+interface FreeActionJson extends JsonObject {
   readonly cost: string;
-  readonly trigger: readonly unknown[];
+  readonly trigger: readonly JsonValue[];
 }
 
 const free = (words: string): FreeActionJson => ({ cost: 'free', trigger: prose(words) });

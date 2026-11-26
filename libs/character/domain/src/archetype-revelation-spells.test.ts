@@ -10,6 +10,7 @@ import { slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { spellContent } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
+import type { JsonObject, JsonValue } from './testing';
 import { CharacterBuilder } from './testing';
 
 /**
@@ -38,7 +39,7 @@ for (const spell of Object.values(MYSTERIES).flat()) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const focusSpells = (spell: string, predicate?: readonly unknown[]): object => {
+const focusSpells = (spell: string, predicate?: readonly JsonValue[]): JsonObject => {
   const element = { key: 'FocusSpells', entry: 'oracle-focus', spells: [spellId(spell)] };
 
   return predicate === undefined ? element : { ...element, predicate };

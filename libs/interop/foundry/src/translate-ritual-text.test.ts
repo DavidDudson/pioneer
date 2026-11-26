@@ -4,9 +4,10 @@ import { dataIn, gapKeys } from './testing/build-helpers';
 import { translate } from './testing/import-fixtures';
 import { FOUNDRY_NULL } from './testing/kind-fixtures';
 import { CONSECRATE } from './testing/magic-fixtures';
+import type { Fields } from './translate-choice-reads';
 
 /** Consecrate with `ritual` for its checks and casters, and `more` for the rest of its system. */
-function ritualWith(ritual: object, more: object = {}): typeof CONSECRATE {
+function ritualWith(ritual: Fields, more: Fields = {}): typeof CONSECRATE {
   return { ...CONSECRATE, system: { ...CONSECRATE.system, ritual, ...more } };
 }
 
