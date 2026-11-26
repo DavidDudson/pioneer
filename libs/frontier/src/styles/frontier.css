@@ -380,22 +380,22 @@
 
 @utility splatter-faint {
   background: color-mix(in oklab, var(--color-danger-solid) 40%, transparent);
-  mask: url('./blood-splatter.png') center / cover no-repeat;
+  mask: url('./blood-splatter.webp') center / cover no-repeat;
 }
 
 @utility splatter-light {
   background: color-mix(in oklab, var(--color-danger-solid) 60%, transparent);
-  mask: url('./blood-splatter.png') center / cover no-repeat;
+  mask: url('./blood-splatter.webp') center / cover no-repeat;
 }
 
 @utility splatter-heavy {
   background: color-mix(in oklab, var(--color-danger-solid) 80%, transparent);
-  mask: url('./blood-splatter.png') center / cover no-repeat;
+  mask: url('./blood-splatter.webp') center / cover no-repeat;
 }
 
 @utility splatter-full {
   background: var(--color-danger-solid);
-  mask: url('./blood-splatter.png') center / cover no-repeat;
+  mask: url('./blood-splatter.webp') center / cover no-repeat;
 }
 
 @utility darkness-dim {

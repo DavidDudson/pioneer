@@ -19,7 +19,7 @@ const REQUIRED_UTILITIES = [
 ];
 
 // The splatter mask is bundled and its url rewritten (and hashed in production) to the media folder; left as the source path it would 404 and fill the avatar solid red.
-const SPLATTER_MASK = /mask:\s*url\(["']?(?:\.\/)?media\/blood-splatter[\w.-]*\.png/u;
+const SPLATTER_MASK = /mask:\s*url\(["']?(?:\.\/)?media\/blood-splatter[\w.-]*\.webp/u;
 const FORBIDDEN_DIRECTIVES = ['@theme', '@source', '@utility'];
 
 // Frontier has no viewport breakpoints; only media queries for preferences and input remain.
