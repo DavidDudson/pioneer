@@ -21,7 +21,7 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
 /** The syntax node of a call, as far as the rule reads it. */
 export interface DeleteCallNode {
   readonly callee?: { readonly type?: string; readonly property?: { readonly type?: string; readonly name?: string } };
-  readonly arguments?: readonly { readonly type?: string; readonly name?: string }[];
+  readonly arguments?: ReadonlyArray<{ readonly type?: string; readonly name?: string }>;
 }
 
 /** The archivable table `db.delete(table)` names, or `undefined` for any other call. */

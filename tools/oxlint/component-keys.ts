@@ -11,7 +11,7 @@ const ComponentCall = z.looseObject({ expression: ComponentExpression });
 const NamedProperty = z.looseObject({ key: z.looseObject({ name: z.string() }) });
 
 /** Property names of the object literal passed to `@Component({...})`, if this node is one. */
-export function componentKeys(decorator: Rule.Node): readonly string[] {
+export function componentKeys(decorator: Rule.Node): ReadonlyArray<string> {
   const call = ComponentCall.safeParse(decorator);
 
   if (!call.success) {
