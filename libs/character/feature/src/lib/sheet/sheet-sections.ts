@@ -23,6 +23,8 @@ export const SHEET_SECTIONS = {
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   /** What the character can do now and ever, in the tab's mode (#353). */
   actions: { anchor: 'sheet-actions', headingKey: 'character.sheet.actionsHeading' },
+  /** The animal companions the character's feats grant. */
+  companions: { anchor: 'sheet-companions', headingKey: 'character.sheet.companions.heading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
   /** What the character is doing while exploring (#501). */
   explorationActivity: { anchor: 'sheet-exploration-activity', headingKey: 'character.sheet.exploration.heading' },
@@ -91,6 +93,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.explorationActivity,
     SHEET_SECTIONS.actions,
     SHEET_SECTIONS.deity,
+    SHEET_SECTIONS.companions,
     SHEET_SECTIONS.languages,
     SHEET_SECTIONS.inventory,
   ],

@@ -47,6 +47,16 @@
   </fr-section>
 
   <fr-section
+    [concealed]="shown()?.anchor !== sections.companions.anchor"
+    [anchor]="sections.companions.anchor"
+    [heading]="sections.companions.headingKey | transloco"
+  >
+    <ng-template frSectionBody>
+      <pio-sheet-companions-section />
+    </ng-template>
+  </fr-section>
+
+  <fr-section
     [concealed]="shown()?.anchor !== sections.languages.anchor"
     [anchor]="sections.languages.anchor"
     [heading]="sections.languages.headingKey | transloco"

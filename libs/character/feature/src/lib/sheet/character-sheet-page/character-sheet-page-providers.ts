@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { STATISTIC_NAMES } from '@pioneer/rules/ui';
 import type { StatisticNamer } from '@pioneer/rules/ui';
 
+import { CharacterCompanionStore } from '../../data/character-companion-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
@@ -20,6 +21,7 @@ function statisticNames(): StatisticNamer {
 
 /** What the sheet page provides to every region below it. */
 export const CHARACTER_SHEET_PAGE_PROVIDERS = [
+  CharacterCompanionStore,
   SheetConfigurationState,
   SheetSidePanelState,
   SheetState,
