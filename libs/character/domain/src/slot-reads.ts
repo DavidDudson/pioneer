@@ -53,7 +53,7 @@ export interface SlotContent {
   readonly feats: FeatContent;
   /** The roll options a roll supplies (an initiative roll's), which the facts every predicate reads include. */
   readonly situation?: readonly RollOption[] | undefined;
-  /** The kinds of companion the character has live (ADR-0079), which the facts every predicate reads include as `self:companion:familiar`. */
+  /** The kinds of companion the character has live (ADR-0079). */
   readonly companions?: readonly CompanionKind[] | undefined;
   /** The items the loaded packs offer, which the character's inventory is read against; none when absent. */
   readonly items?: ItemContent | undefined;

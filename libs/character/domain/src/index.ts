@@ -651,6 +651,8 @@ export {
 
 export type { CompanionForm } from './companion';
 
+export { liveCompanionKinds } from './live-companion-kinds';
+
 export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 
 export type { CountViolation, RuleViolation, RuneViolation } from './rule-violations';

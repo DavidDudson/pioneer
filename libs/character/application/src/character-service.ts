@@ -9,6 +9,7 @@ import {
   customEffectAuthorIds,
   CustomEffectId,
   deityContent,
+  liveCompanionKinds,
   overrideAuthorIds,
   OverrideId,
   PATCH_COMMANDS,
@@ -309,10 +310,7 @@ export class CharacterService {
     const slots = this.#slotContents.of(registry, await variantRulesOfCharacter(this.#content, character, registry));
     const companions = await this.#companions.listForCharacter(character.id);
 
-    return withCompanions(
-      slots,
-      companions.filter((each) => each.archived === undefined).map((each) => each.kind),
-    );
+    return withCompanions(slots, liveCompanionKinds(companions));
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */

@@ -93,7 +93,7 @@ export interface FactSources {
   readonly level: Level;
   /** The character's attribute modifiers, an input; undefined for a set read without them. */
   readonly attributes?: AttributeModifiers | undefined;
-  /** The kinds of companion the character has live (ADR-0079), set as `self:companion:<kind>`; none for a set read without them. */
+  /** The kinds of companion the character has live (ADR-0079). */
   readonly companions?: readonly CompanionKind[] | undefined;
   /** The facts the walk was tested against, for `RollOption` predicates. */
   readonly facts: PredicateFacts;
@@ -101,22 +101,31 @@ export interface FactSources {
 }
 
 /** `self:level:<level>`. A negative level (a creature's) cannot be written as a roll option, so it sets none. */
-export function levelOptions(level: Level): RollOption[] {
+function levelOptions(level: Level): RollOption[] {
   const option = optionOf(LEVEL_PREFIX, String(level));
 
   return option === undefined ? [] : [option];
 }
 
 /** `self:companion:<kind>` for each kind of companion the character has live. */
-export function companionOptions(companions: readonly CompanionKind[] | undefined): RollOption[] {
+function companionOptions(companions: readonly CompanionKind[] | undefined): RollOption[] {
   return (companions ?? []).map((kind) => companionRollOption(kind));
+}
+
+/** The options the inputs alone set, before any rule does: level, attribute modifiers and live companions. */
+export function inputOptions(sources: Pick<FactSources, 'level' | 'attributes' | 'companions'>): RollOption[] {
+  return [
+    ...levelOptions(sources.level),
+    ...attributeOptions(sources.attributes),
+    ...companionOptions(sources.companions),
+  ];
 }
 
 /**
  * `attribute:<attribute>:mod:<n>` for each modifier. A negative one can't be written as a roll option, and no
  * prerequisite asks for one, so it sets none: a minimum then reads as not met.
  */
-export function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
+function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
   return ATTRIBUTES.flatMap((attribute) => {
     const modifier = attributes?.get(attribute);
 
@@ -185,11 +194,7 @@ class FactCollector {
   public constructor(sources: FactSources) {
     this.#sources = sources;
 
-    for (const option of [
-      ...levelOptions(sources.level),
-      ...attributeOptions(sources.attributes),
-      ...companionOptions(sources.companions),
-    ]) {
+    for (const option of inputOptions(sources)) {
       tally(this.#setBy, option, undefined);
     }
   }
