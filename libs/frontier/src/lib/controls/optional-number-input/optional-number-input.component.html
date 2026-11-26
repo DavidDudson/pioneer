@@ -1,17 +1,16 @@
-<input
-  #control
+<fr-input
   type="number"
-  [attr.inputmode]="inputMode()"
+  numeric
+  [inputMode]="inputMode()"
   [step]="step()"
-  [class]="classes"
-  [attr.id]="id() ?? null"
-  [value]="value() ?? ''"
-  [attr.min]="min() ?? null"
-  [attr.max]="max() ?? null"
-  [attr.placeholder]="placeholder() ?? null"
+  [min]="min()"
+  [max]="max()"
+  [value]="text()"
+  [placeholder]="placeholder()"
   [disabled]="disabled()"
-  [attr.aria-label]="ariaLabel() ?? null"
-  [attr.aria-describedby]="describedBy() ?? null"
-  [attr.aria-invalid]="ariaInvalid() || null"
-  (input)="onInput(control.value)"
+  [invalid]="invalid()"
+  [ariaLabel]="ariaLabel()"
+  (typed)="onInput($event)"
+  (committed)="committed.emit()"
+  (cancelled)="cancelled.emit()"
 />
