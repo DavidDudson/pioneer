@@ -125,14 +125,25 @@ export function autoTriggers(
   );
 }
 
-/** The triggers on `event` left to the player rather than applied, each ability once; a reaction only while it is unspent. */
+/** Whether the player can use `trigger` once `event` is over: it has a cost to pay, and at End turn only a reaction can be spent. */
+function usableAfter(event: TriggerEventType, trigger: TurnTrigger, { turn }: Pick<PlayState, 'turn'>): boolean {
+  const reaction = trigger.cost === ActionCost.Reaction;
+
+  if (trigger.cost === undefined || (reaction && turn.reactionUsed)) {
+    return false;
+  }
+
+  return event !== TriggerEventType.TurnEnd || reaction;
+}
+
+/** The triggers on `event` left to the player rather than applied, each ability once, and only those the player can then use. */
 export function offeredTriggers(
   event: TriggerEventType,
   { triggers, facts }: TurnTriggers,
-  { turn }: Pick<PlayState, 'turn'>,
+  play: Pick<PlayState, 'turn'>,
 ): readonly TurnTrigger[] {
   const fired = triggeredAbilities(event, facts, triggers).filter(
-    (trigger) => !appliesWithoutPlayer(trigger) && !(trigger.cost === ActionCost.Reaction && turn.reactionUsed),
+    (trigger) => !appliesWithoutPlayer(trigger) && usableAfter(event, trigger, play),
   );
 
   return [...new Map(fired.map((trigger) => [trigger.id, trigger])).values()];

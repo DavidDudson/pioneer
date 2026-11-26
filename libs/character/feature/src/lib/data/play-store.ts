@@ -55,10 +55,6 @@ export class PlayStore {
     const id = this.#id();
     const boundary = command.field === TurnCommandField.StartTurn || command.field === TurnCommandField.EndTurn;
 
-    if (boundary) {
-      this.#offered.set(undefined);
-    }
-
     const events = await this.#patch(command);
 
     if (boundary && id !== undefined && id === this.#id()) {

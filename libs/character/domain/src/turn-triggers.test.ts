@@ -145,15 +145,30 @@ describe('offered triggers', () => {
   });
 
   test('one that needs a choice is offered', () => {
-    const choosy = trigger({ needsChoice: true });
+    const choosy = trigger({ needsChoice: true, cost: ActionCost.Free });
 
     expect(offeredTriggers(TriggerEventType.TurnStart, triggers(choosy), FRESH_PLAY)).toStrictEqual([choosy]);
   });
 
   test('one with requirements is offered', () => {
-    const needy = trigger({ requirements: Predicate.parse(['self:effect:rage']) });
+    const needy = trigger({ requirements: Predicate.parse(['self:effect:rage']), cost: ActionCost.One });
 
     expect(offeredTriggers(TriggerEventType.TurnStart, triggers(needy), FRESH_PLAY)).toStrictEqual([needy]);
+  });
+
+  test('one with no cost has no way to be used, so it is not offered', () => {
+    const free = trigger({ requirements: Predicate.parse(['self:effect:rage']) });
+
+    expect(offeredTriggers(TriggerEventType.TurnStart, triggers(free), FRESH_PLAY)).toStrictEqual([]);
+  });
+
+  test('at End turn only a reaction is offered: no actions are left to spend', () => {
+    const ending = TriggerEvent.parse({ event: 'turn-end' });
+    const action = trigger({ cost: ActionCost.One, triggerEvent: ending });
+    const reaction = trigger({ cost: ActionCost.Reaction, triggerEvent: ending });
+
+    expect(offeredTriggers(TriggerEventType.TurnEnd, triggers(action), FRESH_PLAY)).toStrictEqual([]);
+    expect(offeredTriggers(TriggerEventType.TurnEnd, triggers(reaction), FRESH_PLAY)).toStrictEqual([reaction]);
   });
 
   test('a reaction is offered only while the reaction is unspent', () => {
