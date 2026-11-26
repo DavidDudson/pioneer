@@ -179,29 +179,35 @@ export default defineConfig({
     'react/use-memo': 'off',
     'react/void-dom-elements-no-children': 'off',
     'react/void-use-memo': 'off',
-    // Temporarily off while each preset rule is evaluated in its own commit
-    // (see docs on migrating to @cloudflare/oxlint-config). Remove one at a time.
-    'typescript/array-type': 'error',
+    // ---- @cloudflare/oxlint-config: evaluated rule by rule ------------------
+    // Adopted: quality/* (nkzw's port of anti-slop; it replaced the vendored copies of the same rules) and
+    // No-only-tests. Declined below, each with its reason.
+    'quality/no-array-filter-map': 'error',
+    'quality/no-chained-type-assertions': 'error',
+    'quality/no-conditional-empty-object-spread': 'error',
+    'quality/no-known-value-widening': 'error',
+    'quality/no-reduce-accumulator-copy': 'error',
+    'quality/no-reflect-apply': 'error',
+    'quality/no-reflect-get': 'error',
+    'quality/no-unknown-type-aliases': 'error',
+    'quality/no-widen-then-assert': 'error',
+    'no-only-tests/no-only-tests': 'error',
+    // The vendored versions (anti-slop/*) stay for these three: Pioneer's per-path overrides below are written
+    // Against them, and the quality/* ports report 108 findings the vendored ones do not.
+    'quality/no-object-parameters': 'off',
+    'quality/no-unknown-returns': 'off',
+    'quality/no-unsafe-dictionary-type': 'off',
+    // The preset loosens these; Pioneer keeps the stricter default (no option: unused arguments, `return await`
+    // Everywhere, every warning comment, named-function callbacks and mixed promise arrays all stay errors).
     'typescript/await-thenable': 'error',
     'typescript/return-await': 'error',
     'no-unused-vars': 'error',
     'no-warning-comments': 'error',
     'prefer-arrow-callback': 'error',
-    // New in oxlint 1.94.
-    'promise/prefer-catch': 'off',
-    'no-only-tests/no-only-tests': 'off',
-    'quality/no-array-filter-map': 'off',
-    'quality/no-chained-type-assertions': 'off',
-    'quality/no-conditional-empty-object-spread': 'off',
-    'quality/no-known-value-widening': 'off',
-    'quality/no-object-parameters': 'off',
-    'quality/no-reduce-accumulator-copy': 'off',
-    'quality/no-reflect-apply': 'off',
-    'quality/no-reflect-get': 'off',
-    'quality/no-unknown-returns': 'off',
-    'quality/no-unknown-type-aliases': 'off',
-    'quality/no-unsafe-dictionary-type': 'off',
-    'quality/no-widen-then-assert': 'off',
+    // The preset wants `Array<T>`/`ReadonlyArray<T>`; Pioneer writes `T[]`/`readonly T[]` (6,700 sites).
+    'typescript/array-type': 'error',
+    // New in oxlint 1.94, not part of the preset.
+    'promise/prefer-catch': 'error',
     // ---- Contradictory pairs: keep one side --------------------------------
     // Named exports only (no-default-export stays on).
     'import/no-named-export': 'off',
@@ -303,22 +309,13 @@ export default defineConfig({
 
     // ---- anti-slop (vendored: tools/oxlint/anti-slop, see UPSTREAM.md there) ----
     'oxc/no-accumulating-spread': 'error',
-    'anti-slop/no-array-filter-map': 'error',
-    'anti-slop/no-reduce-accumulator-copy': 'error',
-    'anti-slop/no-chained-type-assertions': 'error',
-    'anti-slop/no-conditional-empty-object-spread': 'error',
-    'anti-slop/no-known-value-widening': 'error',
     'anti-slop/no-module-mocking': 'error',
     'anti-slop/no-object-parameters': 'error',
-    'anti-slop/no-reflect-apply': 'error',
-    'anti-slop/no-reflect-get': 'error',
     'anti-slop/no-runtime-typeof': 'error',
     'anti-slop/no-shape-in-symbol-names': 'error',
     'anti-slop/no-unknown-parameters': 'error',
     'anti-slop/no-unknown-returns': 'error',
-    'anti-slop/no-unknown-type-aliases': 'error',
     'anti-slop/no-unsafe-dictionary-type': 'error',
-    'anti-slop/no-widen-then-assert': 'error',
     'anti-slop/require-readable-spacing': 'error',
     'anti-slop/require-safety-comment-for-type-assertion': 'error',
 

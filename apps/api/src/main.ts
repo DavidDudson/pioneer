@@ -81,7 +81,9 @@ if (command === MIGRATE_COMMAND) {
 
   const status = await fetch(`http://127.0.0.1:${env.PORT}${API_PREFIX}/health`, {
     signal: AbortSignal.timeout(HEALTH_TIMEOUT),
-  }).then((response): string => (response.ok ? '' : `HTTP ${response.status}`), String);
+  })
+    .then((response): string => (response.ok ? '' : `HTTP ${response.status}`))
+    .catch(String);
 
   // One line, not a stack trace: the container runtime keeps the last few as health check logs.
   if (status !== '') {

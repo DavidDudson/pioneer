@@ -174,10 +174,10 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
       .set({ data: sql`${contentPacks.data} || '{"unknownField": true}'::jsonb` })
       .where(stored);
 
-    const failed = await source.registry().then(
-      () => 'served',
-      () => 'refused',
-    );
+    const failed = await source
+      .registry()
+      .then(() => 'served')
+      .catch(() => 'refused');
 
     await database.db.update(contentPacks).set({ data: pack.file }).where(stored);
 

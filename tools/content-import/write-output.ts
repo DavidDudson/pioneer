@@ -31,10 +31,9 @@ const MANIFEST = 'pack.json';
 async function scan(pattern: string, directory: string): Promise<readonly string[]> {
   const cwd = path.join(ROOT, directory);
 
-  const present = await stat(cwd).then(
-    (stats) => stats.isDirectory(),
-    () => false,
-  );
+  const present = await stat(cwd)
+    .then((stats) => stats.isDirectory())
+    .catch(() => false);
 
   const found = present ? await Array.fromAsync(new Glob(pattern).scan({ cwd, onlyFiles: true })) : [];
 

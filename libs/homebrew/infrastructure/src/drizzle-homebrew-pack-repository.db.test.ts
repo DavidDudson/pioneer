@@ -120,10 +120,8 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
       const probe = sql`select id from content_packs where id = ${pack.id} for update nowait`;
       lockedWhileChecking = await database.db
         .transaction(async (tx) => tx.execute(probe))
-        .then(
-          () => false,
-          () => true,
-        );
+        .then(() => false)
+        .catch(() => true);
       throw refusal;
     });
 

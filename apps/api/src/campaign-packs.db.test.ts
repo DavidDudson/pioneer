@@ -150,10 +150,7 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
     const going = homebrew.setVisibility(amiri, feats.id, PackVisibility.Private);
 
     const outcome = await Promise.race([
-      going.then(
-        () => 'finished',
-        () => 'finished',
-      ),
+      going.then(() => 'finished').catch(() => 'finished'),
       Bun.sleep(150).then(() => 'waiting'),
     ]);
 

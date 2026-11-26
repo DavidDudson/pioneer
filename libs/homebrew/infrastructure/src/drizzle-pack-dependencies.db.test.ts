@@ -57,12 +57,13 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
 async function lockedAgainstOthers(database: TestDatabase, id: ContentPackId): Promise<boolean> {
   const probe = sql`select id from content_packs where id = ${id} for update nowait`;
 
-  return database.db
-    .transaction(async (tx) => tx.execute(probe))
-    .then(
-      () => false,
-      () => true,
-    );
+  try {
+    await database.db.transaction(async (tx) => tx.execute(probe));
+  } catch {
+    return true;
+  }
+
+  return false;
 }
 
 /** The reasons of the settled promises that were rejected. */
