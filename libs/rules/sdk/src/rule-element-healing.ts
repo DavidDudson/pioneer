@@ -36,11 +36,7 @@ export type HealingBonusElement = z.infer<typeof HealingBonusElement>;
 /** What a new save at the start of a turn is against. */
 export const TurnStartSaveTarget = { HostileSpell: 'hostile-spell' } as const;
 
-/**
- * A new saving throw the character may attempt at the start of each turn, against one hostile spell affecting it (a
- * spellwatch rune): on a success the spell ends, on a failure it goes on unchanged. The sheet offers it on the effects
- * from another creature; the player rolls the save.
- */
+/** A new save the character may attempt at the start of each turn against a hostile spell; a success ends the spell. */
 export const TurnStartSaveElement = z.strictObject({
   key: z.literal(RuleElementKey.TurnStartSave),
   against: z.enum(TurnStartSaveTarget),

@@ -54,8 +54,8 @@ function wearing(spellwatch: boolean): JsonObject {
 }
 
 /** The play state of a full-health character with an effect from `source` on it. */
-function playFrom(source: string): JsonObject {
-  const effect = { id: FIRST, effect: CONSULT_THE_SPIRITS, source: { kind: source } };
+function playFrom(source: JsonObject): JsonObject {
+  const effect = { id: FIRST, effect: CONSULT_THE_SPIRITS, source };
 
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, effects: [effect] } };
 }
@@ -74,7 +74,7 @@ describe('CharacterSheetPage spellwatch', () => {
   }, PREBUILD_TIMEOUT);
 
   it('offers a new save against a hostile spell, and a success ends it', async () => {
-    const { root } = await openSheet(wearing(true), { play: playFrom('gm'), packs: PACKS });
+    const { root } = await openSheet(wearing(true), { play: playFrom({ kind: 'gm' }), packs: PACKS });
 
     await vi.waitFor(() => {
       expect(endButtons(root)).toHaveLength(1);
@@ -92,17 +92,20 @@ describe('CharacterSheetPage spellwatch', () => {
     });
   });
 
-  it('offers nothing against an effect the character cast itself', async () => {
-    const { root } = await openSheet(wearing(true), { play: playFrom('self'), packs: PACKS });
+  it.each([{ kind: 'self' }, { kind: 'ally', name: 'Seoni' }])(
+    'offers nothing against an effect from $kind',
+    async (source) => {
+      const { root } = await openSheet(wearing(true), { play: playFrom(source), packs: PACKS });
 
-    await vi.waitFor(() => {
-      expect(textOf(effectsOf(root))).toContain('attempt a new save');
-    });
-    expect(endButtons(root)).toHaveLength(0);
-  });
+      await vi.waitFor(() => {
+        expect(textOf(effectsOf(root))).toContain('attempt a new save');
+      });
+      expect(endButtons(root)).toHaveLength(0);
+    },
+  );
 
   it('offers nothing without a spellwatch rune', async () => {
-    const { root } = await openSheet(wearing(false), { play: playFrom('gm'), packs: PACKS });
+    const { root } = await openSheet(wearing(false), { play: playFrom({ kind: 'gm' }), packs: PACKS });
 
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('From the GM');

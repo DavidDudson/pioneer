@@ -28,4 +28,9 @@ describe('FastHealing and TempHP', () => {
   test('a FastHealing of an unknown type is rejected', () => {
     expect(RuleElement.safeParse({ key: 'FastHealing', value: 5, type: 'leech' }).success).toBe(false);
   });
+
+  test('a TurnStartSave with no target, or an unknown one, is rejected', () => {
+    expect(RuleElement.safeParse({ key: 'TurnStartSave' }).success).toBe(false);
+    expect(RuleElement.safeParse({ key: 'TurnStartSave', against: 'friendly-spell' }).success).toBe(false);
+  });
 });

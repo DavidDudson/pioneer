@@ -1,4 +1,4 @@
-@if (offered() && view().hostile) {
+@if (offered() && view().fromGm) {
   <fr-async-button size="sm" [action]="end()" [disabled]="busy()" [describeError]="describeError()">
     {{ 'character.sheet.effects.endBySave' | transloco }}
   </fr-async-button>

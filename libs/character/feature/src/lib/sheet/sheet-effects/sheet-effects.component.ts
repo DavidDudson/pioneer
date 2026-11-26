@@ -57,7 +57,7 @@ export class SheetEffects {
   protected readonly registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
   /** The name of what lets the character attempt a new save against one hostile spell each turn (a spellwatch rune); undefined when nothing does. */
   protected readonly spellSaveSource = computed((): string | undefined => {
-    const save = this.#sheet.grantedVitals()?.hostileSpellSave;
+    const save = this.#sheet.grantedVitals()?.turnStartSave;
 
     if (save === undefined) {
       return undefined;
