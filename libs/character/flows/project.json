@@ -1,0 +1,19 @@
+{
+  "name": "character-flows",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/character/flows/src",
+  "tags": ["scope:character", "type:feature", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/character/flows/tsconfig.spec.json",
+        "runner": "vitest",
+        "setupFiles": ["libs/character/flows/src/test-setup.ts"],
+        "reporters": ["verbose"]
+      }
+    }
+  }
+}

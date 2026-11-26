@@ -40,7 +40,7 @@ import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
 import { AncestryPicker, AttributesView, BackgroundPicker, HeritagePicker } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
-import { ImportResult } from '../../import/import-result/import-result.component';
+import { ImportResult } from '../import-reports/import-result/import-result.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
