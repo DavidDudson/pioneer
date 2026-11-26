@@ -6,8 +6,11 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { Uuid } from '@pioneer/shared/kernel';
 
 import { ActiveEffectSchema } from './effects';
-import { autoTriggers, triggerSpend } from './turn-triggers';
-import type { TurnTrigger, TurnTriggers } from './turn-triggers';
+import type { EffectContent } from './effects';
+import { FRESH_PLAY } from './play-state';
+import { within } from './testing';
+import { autoTriggers, triggerSpend, withTriggered } from './turn-triggers';
+import type { TriggerInputs, TurnTrigger, TurnTriggers } from './turn-triggers';
 
 const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 const EFFECT = ContentId.parse('00000000-0000-4000-8000-000000000002');
@@ -30,7 +33,7 @@ const triggers = (...list: readonly TurnTrigger[]): TurnTriggers => ({
 
 let counter = 0;
 
-const ids = (): Uuid => {
+const newId = (): Uuid => {
   counter += 1;
 
   return Uuid.parse(`00000000-0000-4000-8000-${String(counter).padStart(12, '0')}`);
@@ -52,13 +55,13 @@ describe('turn triggers', () => {
 
   test('is not applied again while its effect is on the character', () => {
     const single = triggers(trigger());
-    const active = [ActiveEffectSchema.parse({ id: ids(), effect: EFFECT })];
+    const active = [ActiveEffectSchema.parse({ id: newId(), effect: EFFECT })];
 
     expect(autoTriggers(TriggerEventType.TurnStart, single, active)).toHaveLength(0);
   });
 
   test('the spend is free and carries the effect and its temporary Hit Points', () => {
-    const request = triggerSpend(trigger(), ids);
+    const request = triggerSpend(trigger(), newId);
 
     expect(request.cost).toStrictEqual({ kind: 'free' });
     expect(request.apply?.effect).toBe(EFFECT);
@@ -66,6 +69,52 @@ describe('turn triggers', () => {
   });
 
   test('a trigger with no temporary Hit Points leaves them off', () => {
-    expect(triggerSpend(trigger({ tempHp: NONE }), ids).apply?.tempHp).toBeUndefined();
+    expect(triggerSpend(trigger({ tempHp: NONE }), newId).apply?.tempHp).toBeUndefined();
+  });
+});
+
+const EFFECTS: EffectContent = new Map([
+  [EFFECT, { remaining: undefined, expiry: undefined, sustained: false, badge: undefined }],
+]);
+
+const RUN = (...list: readonly TurnTrigger[]): TriggerInputs => ({
+  limits: { ...within(HitPoints.parse(30)), effects: EFFECTS },
+  triggered: () => triggers(...list),
+  newId,
+});
+
+describe('withTriggered', () => {
+  test('puts the effect and its temporary Hit Points on the character, logs the spend and says so', () => {
+    const { play, events } = withTriggered(
+      { play: FRESH_PLAY, events: [] },
+      TriggerEventType.TurnStart,
+      RUN(trigger()),
+    );
+
+    expect(play.effects.map(({ effect }) => effect)).toStrictEqual([EFFECT]);
+    expect(play.hp.temp).toBe(FIVE);
+    expect(play.spendLog).toHaveLength(1);
+    expect(events.map(({ kind }) => kind)).toStrictEqual(['triggeredAbility']);
+  });
+
+  test('does nothing for an event nothing fires on', () => {
+    const outcome = withTriggered({ play: FRESH_PLAY, events: [] }, TriggerEventType.TurnEnd, RUN(trigger()));
+
+    expect(outcome.play).toBe(FRESH_PLAY);
+    expect(outcome.events).toStrictEqual([]);
+  });
+
+  test('two triggers of one effect put it on once', () => {
+    const other = ContentId.parse('00000000-0000-4000-8000-000000000003');
+    const second = trigger({ id: other });
+
+    const { play, events } = withTriggered(
+      { play: FRESH_PLAY, events: [] },
+      TriggerEventType.TurnStart,
+      RUN(trigger(), second),
+    );
+
+    expect(play.effects).toHaveLength(1);
+    expect(events).toHaveLength(1);
   });
 });

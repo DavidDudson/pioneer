@@ -216,13 +216,16 @@ export function characterActions(
 }
 
 /** The actions the character's build and equipment give, and the roll options that hold for it: what triggers are read from. */
-export interface GrantedCandidates {
+export interface GrantedActionCandidates {
   readonly candidates: readonly ActionCandidate[];
   readonly facts: PredicateFacts;
 }
 
 /** The actions the character's feats, features and equipped items give, without the universal ones. */
-export function grantedActionCandidates(document: CharacterDocument, sources: StatisticSources): GrantedCandidates {
+export function grantedActionCandidates(
+  document: CharacterDocument,
+  sources: StatisticSources,
+): GrantedActionCandidates {
   const { registry, slots } = sources;
   const grants = characterGrants(document, slots);
   const equipped = equippedGrants(document, itemContent(registry), slots);

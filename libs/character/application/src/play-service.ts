@@ -52,7 +52,7 @@ import type {
 import { cryptoRandom } from '@pioneer/rules/dice';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import type { ContentRegistry, ContentSource, HitPoints } from '@pioneer/rules/sdk';
-import { NotFoundError, VersionConflictError } from '@pioneer/shared/kernel';
+import { NotFoundError, Uuid, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
@@ -82,6 +82,9 @@ import { checkStaffCast, staffCastOf, takesBackCast } from './play-staff';
  * bumps the character's version and a build save never writes play state. Only a user who may access the character
  * reads or edits it; anyone else gets the same 404 as for a missing character.
  */
+/** A new random id, minted at the edge so the domain stays deterministic. */
+const newUuid = (): Uuid => Uuid.parse(crypto.randomUUID());
+
 export class PlayService {
   readonly #characters: CharacterRepository;
   readonly #content: CharacterContentSource;
@@ -185,15 +188,18 @@ export class PlayService {
     const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots, variants);
 
-    const turnLimited = turnLimits(
+    const baseLimits = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),
       await this.#effects(character),
       conditionValued(registry),
     );
 
-    const limits = { ...turnLimited, spend: { now: SpendTime.parse(this.#clock.now().toString()) } };
+    const limits = { ...baseLimits, spend: { now: SpendTime.parse(this.#clock.now().toString()) } };
 
-    const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
+    const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, {
+      limits,
+      newId: newUuid,
+    });
 
     return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });
   }

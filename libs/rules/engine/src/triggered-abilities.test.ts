@@ -23,6 +23,8 @@ const factsOf = (...options: readonly string[]): PredicateFacts =>
     CORE_NAMESPACES,
   );
 
+const HEALING = RuleElement.parse({ key: 'FastHealing', value: 5 });
+const ZERO = RuleElement.parse({ key: 'FlatModifier', selectors: ['ac'], type: 'status', value: 0 });
 const TEMP_HP = RuleElement.parse({ key: 'TempHP', value: 5 });
 const BONUS = RuleElement.parse({ key: 'FlatModifier', selectors: ['ac'], type: 'status', value: 1 });
 const PENALTY = RuleElement.parse({ key: 'FlatModifier', selectors: ['ac'], type: 'status', value: -1 });
@@ -74,6 +76,7 @@ describe('applying automatically', () => {
   test.each<readonly [string, Partial<TriggerableAbility>]>([
     ['temporary Hit Points', { rules: [TEMP_HP] }],
     ['a bonus', { rules: [BONUS] }],
+    ['fast healing', { rules: [HEALING] }],
     ['temporary Hit Points and a bonus', { rules: [TEMP_HP, BONUS] }],
   ])('applies %s', (_name, data) => {
     expect(appliesAutomatically(ability(data))).toBe(true);
@@ -88,6 +91,7 @@ describe('applying automatically', () => {
     ['a choice', { needsChoice: true }],
     ['an opt-out', { autoApply: false }],
     ['a penalty', { rules: [TEMP_HP, PENALTY] }],
+    ['a bonus of nothing', { rules: [ZERO] }],
     ['a bonus the engine cannot read', { rules: [FORMULA] }],
     ['a rule that is no benefit (a roll option)', { rules: [NEUTRAL] }],
     ['nothing to apply', { rules: [] }],

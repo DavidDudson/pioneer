@@ -4,7 +4,7 @@ import { Modifier, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ActionCost, ContentId, Frequency, RuleElement, TriggerEvent, TriggerEventType } from '@pioneer/rules/sdk';
 
 /**
- * An action or effect that fires on an event (play-and-campaigns.md, "Triggered abilities"), as the engine reads it:
+ * An action or effect that fires on an event, as the engine reads it:
  * what it costs, what it does and whether its content opts out of applying itself. The caller builds these from the
  * character's granted actions and effects.
  */

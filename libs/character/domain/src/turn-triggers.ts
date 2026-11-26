@@ -23,7 +23,10 @@ import type { TurnOutcome } from './turn-start';
 const NO_HIT_POINTS = HitPoints.parse(0);
 
 /** The events whose triggered abilities play applies: the ends of the character's own turn. */
-export const TURN_EVENTS: readonly TriggerEventType[] = [TriggerEventType.TurnStart, TriggerEventType.TurnEnd];
+const TURN_TRIGGER_EVENTS: ReadonlySet<TriggerEventType> = new Set([
+  TriggerEventType.TurnStart,
+  TriggerEventType.TurnEnd,
+]);
 
 /**
  * A granted action that fires at a turn boundary and puts an effect on the character: what it costs and what the effect
@@ -41,11 +44,6 @@ export interface TurnTriggers {
   readonly triggers: readonly TurnTrigger[];
   /** The roll options that hold for the character, which a trigger's predicate reads. */
   readonly facts: PredicateFacts;
-}
-
-/** No triggered abilities. */
-export function noTurnTriggers(facts: PredicateFacts): TurnTriggers {
-  return { triggers: [], facts };
 }
 
 function effectEntries(registry: ContentRegistry): ReadonlyMap<ContentId, ContentEntry> {
@@ -84,7 +82,7 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
       effect === undefined ||
       event === undefined ||
       action.requirements !== undefined ||
-      !TURN_EVENTS.includes(event.event)
+      !TURN_TRIGGER_EVENTS.has(event.event)
     ) {
       return [];
     }
@@ -96,6 +94,7 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
         autoApply: action.autoApply,
         cost: action.cost,
         frequency: action.frequency,
+        needsChoice: action.effects !== undefined,
         rules: effect.rules,
         effect: effect.id,
         tempHp: tempHpOf(effect.rules),
@@ -118,43 +117,51 @@ export function autoTriggers(
 }
 
 /** The free spend that applies `trigger`: it is logged, and taking it back ends the effect and the temporary Hit Points. */
-export function triggerSpend(trigger: TurnTrigger, ids: () => Uuid): SpendRequest {
+export function triggerSpend(trigger: TurnTrigger, newId: () => Uuid): SpendRequest {
   const tempHp = trigger.tempHp > NO_HIT_POINTS ? { tempHp: trigger.tempHp } : undefined;
 
   return {
-    id: SpendId.parse(ids()),
+    id: SpendId.parse(newId()),
     action: trigger.id,
     cost: { kind: SpendKind.Free },
-    apply: { id: EffectInstanceId.parse(ids()), effect: trigger.effect, ...tempHp },
+    apply: { id: EffectInstanceId.parse(newId()), effect: trigger.effect, ...tempHp },
   };
+}
+
+/** `current` with `trigger` applied as a free spend; unchanged when its effect is already on the character or the turn refuses it. */
+function applyTrigger(current: TurnOutcome, trigger: TurnTrigger, inputs: TriggerInputs): TurnOutcome {
+  const { limits, newId } = inputs;
+  const request = triggerSpend(trigger, newId);
+  const alreadyOn = current.play.effects.some(({ effect }) => effect === trigger.effect);
+  const spendLimits = { ...resourceLimits(limits), ...limits.spend, effects: limits.effects };
+  const next = applySpendCommand(current.play, { field: SpendCommandField.SpendAction, ...request }, spendLimits);
+
+  if (alreadyOn || next === current.play || request.apply === undefined) {
+    return current;
+  }
+
+  const applied = { effect: request.apply.effect, instance: request.apply.id, tempHp: trigger.tempHp };
+
+  const play: PlayState = {
+    ...current.play,
+    ...next,
+    effects: [...next.effects],
+    activeSpells: [...next.activeSpells],
+    spendLog: [...next.spendLog],
+  };
+
+  return { play, events: [...current.events, abilityTriggered(trigger.id, applied)] };
 }
 
 /**
  * `outcome` with each ability that fires on `event` and applies by itself put on the character, as a free spend so the
- * log shows it and taking it back ends its effect. A spend the turn refuses changes nothing.
+ * log shows it and taking it back ends its effect.
  */
-export function withTriggered(outcome: TurnOutcome, event: TriggerEventType, inputs: TriggerRun): TurnOutcome {
-  const limits = { ...resourceLimits(inputs.limits), ...inputs.limits.spend, effects: inputs.limits.effects };
-
+export function withTriggered(outcome: TurnOutcome, event: TriggerEventType, inputs: TriggerInputs): TurnOutcome {
   let current = outcome;
 
-  for (const trigger of autoTriggers(event, inputs.triggered, outcome.play.effects)) {
-    const request = triggerSpend(trigger, inputs.newId);
-    const next = applySpendCommand(current.play, { field: SpendCommandField.SpendAction, ...request }, limits);
-
-    if (next !== current.play && request.apply !== undefined) {
-      const applied = { effect: request.apply.effect, instance: request.apply.id, tempHp: trigger.tempHp };
-
-      const play: PlayState = {
-        ...current.play,
-        ...next,
-        effects: [...next.effects],
-        activeSpells: [...next.activeSpells],
-        spendLog: [...next.spendLog],
-      };
-
-      current = { play, events: [...current.events, abilityTriggered(trigger.id, applied)] };
-    }
+  for (const trigger of autoTriggers(event, inputs.triggered(), outcome.play.effects)) {
+    current = applyTrigger(current, trigger, inputs);
   }
 
   return current;
@@ -170,7 +177,7 @@ function abilityTriggered(ability: ContentId, applied: EffectApplied): TurnEvent
     effect,
     instance,
     tempHp,
-    message: message(TurnMessage.TriggeredAbility, { amount: tempHp }),
+    message: message(TurnMessage.TriggeredAbility),
   };
 }
 
@@ -182,8 +189,8 @@ interface EffectApplied {
 }
 
 /** What applying triggered abilities reads: the limits, the triggers and a source of new ids. */
-export interface TriggerRun {
+export interface TriggerInputs {
   readonly limits: PlayLimits;
-  readonly triggered: TurnTriggers;
+  readonly triggered: () => TurnTriggers;
   readonly newId: () => Uuid;
 }

@@ -4,7 +4,7 @@ import { damageTargetOf, DefenceStatusKind, inventoryItemOf, statisticContent } 
 import type { Defences, RecoveryInPlay } from '@pioneer/rules/engine';
 import { ConditionTrigger, NO_DEFENCES, Selector, TriggerEventType } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
-import { Uuid } from '@pioneer/shared/kernel';
+import type { Uuid } from '@pioneer/shared/kernel';
 
 import { characterDefences } from './character-defences';
 import type { CharacterDocument } from './character-document';
@@ -58,7 +58,7 @@ export interface TurnCommandInputs {
   /** What the environments of the content do to a character that stays in them. */
   readonly environments: EnvironmentContent;
   /** The triggered abilities that apply by themselves as a turn starts or ends. */
-  readonly triggered: TurnTriggers;
+  readonly triggered: () => TurnTriggers;
   /** A new unique id, for the spend and the effect a triggered ability logs. */
   readonly newId: () => Uuid;
 }
@@ -189,6 +189,12 @@ function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly Persistent
     .map(({ damageTypes, dc, assistedDc }) => ({ damageTypes, dc, assisted: assistedDc }));
 }
 
+/** What a character's turn inputs are built with: the limits, and a source of new ids. */
+export interface TurnCommandContext {
+  readonly limits: PlayLimits;
+  readonly newId: () => Uuid;
+}
+
 /**
  * What the turn cycle reads for a character, from the build and the content: its fast healing and regeneration, the
  * defences persistent damage goes through, what the end of a turn eases and the conditions that change its actions.
@@ -196,7 +202,7 @@ function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly Persistent
 export function turnCommandInputs(
   sources: StatisticSources,
   document: CharacterDocument,
-  limits: PlayLimits,
+  { limits, newId }: TurnCommandContext,
 ): TurnCommandInputs {
   const { registry } = sources;
   const content = statisticContent(registry);
@@ -214,7 +220,7 @@ export function turnCommandInputs(
     unconscious: unconsciousCondition(registry),
     fortitude: () => fortitudeOf(sources, document),
     environments: environmentContent(registry),
-    triggered: turnTriggers(document, sources),
-    newId: () => Uuid.parse(crypto.randomUUID()),
+    triggered: () => turnTriggers(document, sources),
+    newId,
   };
 }
