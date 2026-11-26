@@ -2,7 +2,7 @@ import { ContentText, EntryTextField } from '@pioneer/rules/sdk';
 import type { ContentId, EntryTexts, LocaleTexts, RichText } from '@pioneer/rules/sdk';
 import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
 import type { ContentLocale } from '@pioneer/shared/kernel';
-import { and, count, eq, max } from 'drizzle-orm';
+import { and, count, eq, max, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -31,9 +31,10 @@ function entryTexts(held: Map<ContentId, EntryTexts>, row: TextRow): void {
 }
 
 /**
- * What the text in `locale` of the entries in `packs` was at last write: how many rows and the newest, so a manifest's
- * validator changes when a translation is added, edited or removed, with no pack hash changing. The source locale's
- * text is the entries' own, so it has none.
+ * What the text in `locale` of the entries in `packs` was at last write: how many rows, the newest and the sum of their
+ * times, so a manifest's validator changes when a translation is added, edited or removed (a row swapped for an older
+ * one included), with no pack hash changing. Empty when there is none: the source locale's text is the entries' own,
+ * and a locale nobody translated is served as the source.
  */
 export async function textsVersion(reader: Reader, locale: ContentLocale, packs: SQL | undefined): Promise<string> {
   if (locale === SOURCE_CONTENT_LOCALE) {
@@ -41,13 +42,17 @@ export async function textsVersion(reader: Reader, locale: ContentLocale, packs:
   }
 
   const [row] = await reader
-    .select({ rows: count(), newest: max(contentEntryTexts.updatedAt) })
+    .select({
+      rows: count(),
+      newest: max(contentEntryTexts.updatedAt),
+      moments: sql<string>`sum(extract(epoch from ${contentEntryTexts.updatedAt}))`,
+    })
     .from(contentEntryTexts)
     .innerJoin(contentEntries, eq(contentEntries.id, contentEntryTexts.entryId))
     .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
     .where(and(eq(contentEntryTexts.locale, locale), packs));
 
-  return `${row?.rows ?? 0}@${row?.newest ?? ''}`;
+  return row === undefined || row.rows === 0 ? '' : `${row.rows}@${row.newest}@${row.moments}`;
 }
 
 /** The text in `locale` of the entries in `packs`, for the bundles built in it. The source locale's is never read. */

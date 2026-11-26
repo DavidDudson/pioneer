@@ -9,7 +9,7 @@ import type {
   ContentSearchQuery,
   ContentSearchResult,
 } from '@pioneer/rules/sdk';
-import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
+import type { ContentLocale } from '@pioneer/shared/kernel';
 
 /** How many matches a key item's picker lists. */
 const MATCHES_MAX = SearchLimit.parse(20);
@@ -28,13 +28,15 @@ type Entries = ReadonlyMap<ContentId, Pick<ContentEntry, 'name'>>;
 interface Searched {
   readonly kinds: readonly ContentKind[];
   readonly entriesOf: (registry: ContentRegistry) => Entries;
+  /** The language the words are searched in: the viewer's content locale. */
+  readonly locale: ContentLocale;
 }
 
 /** The matches for `words` among `searched`, best first, each named as its entry is; none for words that are blank. */
 async function find(
   finder: ContentFinder,
   words: string,
-  { kinds, entriesOf }: Searched,
+  { kinds, entriesOf, locale }: Searched,
 ): Promise<readonly ContentChoice[]> {
   const text = SearchText.safeParse(words);
 
@@ -44,7 +46,7 @@ async function find(
 
   const query: ContentSearchQuery = {
     query: text.data,
-    locale: SOURCE_CONTENT_LOCALE,
+    locale,
     kinds: [...kinds],
     packs: [],
     legacy: false,
@@ -66,9 +68,10 @@ async function find(
  * The campaign's search for a key item's base item and runes, over the rules content: the server finds the ids, and the
  * bundles the browser already holds name them. A key item's base is any item a character can carry (ADR-0064).
  */
-export function keyItemContentSearch(finder: ContentFinder): KeyItemContentSearch {
+export function keyItemContentSearch(finder: ContentFinder, locale: () => ContentLocale): KeyItemContentSearch {
   return {
-    items: async (words) => find(finder, words, { kinds: INVENTORY_KINDS, entriesOf: itemContent }),
-    runes: async (words) => find(finder, words, { kinds: [ContentKind.Rune], entriesOf: runeContent }),
+    items: async (words) => find(finder, words, { kinds: INVENTORY_KINDS, entriesOf: itemContent, locale: locale() }),
+    runes: async (words) =>
+      find(finder, words, { kinds: [ContentKind.Rune], entriesOf: runeContent, locale: locale() }),
   };
 }

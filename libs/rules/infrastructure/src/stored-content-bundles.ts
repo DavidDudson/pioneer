@@ -18,6 +18,14 @@ export function bundleHash(json: CanonicalJson): BundleHash {
 const KEPT_LOCALES = 8;
 
 /**
+ * The locale a build is made in: one nobody translated is built, cached and named as the source locale, so a request
+ * for any two letters can neither force a rebuild nor push a real locale out of the cache.
+ */
+function builtIn(locale: ContentLocale, version: string): ContentLocale {
+  return version === '' ? SOURCE_CONTENT_LOCALE : locale;
+}
+
+/**
  * The browser's bundles of the official packs in the content tables (content-model.md, "Delivery to the browser"),
  * built once per set of stored hashes like `StoredContentSource`'s registry, so a re-seed is served on the next ask.
  */
@@ -38,7 +46,8 @@ export class StoredContentBundles {
   /**
    * A validator for the current manifest: it changes exactly when a stored pack hash does, so a client holding it
    * can be told "not modified" without the manifest being built or sent. It also changes with the locale's text
-   * (a translation edited changes no pack hash), and a locale's manifest never shares one with another's.
+   * (a translation edited changes no pack hash), and a locale's manifest never shares one with another's. A locale
+   * with no translation shares the source locale's.
    */
   public async manifestEtag(locale: ContentLocale = SOURCE_CONTENT_LOCALE): Promise<string> {
     const [hashes, version] = await Promise.all([
@@ -46,7 +55,7 @@ export class StoredContentBundles {
       this.#repository.officialTextsVersion(locale),
     ]);
 
-    const joined = `${hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',')}|${locale}|${version}`;
+    const joined = `${hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',')}|${builtIn(locale, version)}|${version}`;
 
     return `"${bundleHash(CanonicalJson.parse(joined))}"`;
   }
@@ -90,7 +99,7 @@ export class StoredContentBundles {
       this.#repository.officialTextsVersion(locale),
     ]);
 
-    const cache = this.#cacheFor(locale);
+    const cache = this.#cacheFor(builtIn(locale, version));
 
     // The build reads after the hashes and the version, so it is never older than the key it is cached under.
     return cache.current(

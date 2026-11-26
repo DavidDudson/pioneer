@@ -36,6 +36,11 @@ function ignore(): void {
   // Seed log lines are not under test.
 }
 
+/** The validator a response carries; the manifest route always sends one. */
+function etagOf(response: Response): string {
+  return z.string().parse(response.headers.get('etag'));
+}
+
 async function filesOf(response: Response): Promise<readonly string[]> {
   const body = ContentManifest.parse(await response.json());
   const pack = body.packs.filter((candidate) => candidate.id === IMPORTED);
@@ -120,5 +125,39 @@ describe.skipIf(adminUrl === undefined)('content manifest in another locale (pos
 
     expect(after.headers.get('etag')).not.toBe(before.headers.get('etag'));
     expect(names[translatedId]).toStrictEqual({ name: 'Neuer Name' });
+  });
+
+  test('a locale nobody translated is served as the source locale, so it costs no build of its own', async () => {
+    const english = await manifest('/content/manifest');
+    const unknown = await manifest('/content/manifest?locale=zz');
+    const { status } = unknown;
+    const etag = etagOf(unknown);
+    const files = await filesOf(unknown);
+
+    expect(status).toBe(200);
+    expect(etag).toBe(etagOf(english));
+    expect(files.map((file) => file.includes('.names.en.'))).not.toContain(false);
+  });
+
+  test('a validator is not modified for its own locale', async () => {
+    const german = await manifest('/content/manifest?locale=de');
+    const etag = etagOf(german);
+
+    const same = await api.handle(
+      new Request('http://localhost/content/manifest?locale=de', { headers: { 'if-none-match': etag } }),
+    );
+
+    expect(same.status).toBe(304);
+  });
+
+  test('a validator of another locale is not taken for this one', async () => {
+    const english = await manifest('/content/manifest');
+    const etag = etagOf(english);
+
+    const german = await api.handle(
+      new Request('http://localhost/content/manifest?locale=de', { headers: { 'if-none-match': etag } }),
+    );
+
+    expect(german.status).toBe(200);
   });
 });

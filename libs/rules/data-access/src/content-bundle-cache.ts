@@ -179,6 +179,11 @@ export class ContentBundleCache {
 
   /** Keeps `manifest` for offline starts, then removes the bundles it no longer names. */
   async #keep(manifest: ContentManifest, locale: ContentLocale): Promise<void> {
+    // A read that finishes after a locale switch must not clear what the new locale kept.
+    if (locale !== this.#locale()) {
+      return;
+    }
+
     await this.#write(manifestKey(locale), BundleBody.parse(manifest));
     await this.#evict(manifest, locale);
   }

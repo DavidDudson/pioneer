@@ -7,6 +7,7 @@ import {
 } from '@pioneer/character/domain/testing';
 import { ContentKind, ContentSearchResult } from '@pioneer/rules/sdk';
 import type { ContentId, ContentSearchQuery } from '@pioneer/rules/sdk';
+import { SOURCE_CONTENT_LOCALE } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { keyItemContentSearch } from './key-item-content-search';
@@ -38,7 +39,7 @@ describe('the key item content search', () => {
   it('names the items the server finds, in its order', async () => {
     const { finder } = finding([itemFixtureId(ItemFixture.Longsword), itemFixtureId(ItemFixture.Rope)]);
 
-    const found = await keyItemContentSearch(finder).items('sword');
+    const found = await keyItemContentSearch(finder, () => SOURCE_CONTENT_LOCALE).items('sword');
 
     expect(found.map(({ name }) => name)).toStrictEqual(['Longsword', 'Rope']);
   });
@@ -46,14 +47,14 @@ describe('the key item content search', () => {
   it('names the runes the server finds', async () => {
     const { finder } = finding([runeFixtureId(RuneFixture.Flaming)]);
 
-    const found = await keyItemContentSearch(finder).runes('flam');
+    const found = await keyItemContentSearch(finder, () => SOURCE_CONTENT_LOCALE).runes('flam');
 
     expect(found.map(({ name }) => name)).toStrictEqual(['Flaming']);
   });
 
   it('asks the server for runes among runes, and items among what a character carries', async () => {
     const { finder, asked } = finding([]);
-    const search = keyItemContentSearch(finder);
+    const search = keyItemContentSearch(finder, () => SOURCE_CONTENT_LOCALE);
 
     await search.runes('flam');
     await search.items('sword');
@@ -66,7 +67,7 @@ describe('the key item content search', () => {
 
   it('leaves out a match no loaded content names, and asks nothing for blank words', async () => {
     const { finder, asked } = finding([itemFixtureId(ItemFixture.Longsword), runeFixtureId(RuneFixture.Flaming)]);
-    const search = keyItemContentSearch(finder);
+    const search = keyItemContentSearch(finder, () => SOURCE_CONTENT_LOCALE);
 
     const found = await search.items('sword');
     const blank = await search.items('   ');

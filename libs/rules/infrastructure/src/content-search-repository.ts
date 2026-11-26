@@ -97,14 +97,14 @@ function localeMatch(locale: ContentLocale, query: SearchText): LocaleMatch {
   }
 
   const sourceWords = sql`websearch_to_tsquery(content_search_config(${SOURCE_CONTENT_LOCALE}), ${query})`;
-  const translated = sql`not exists (select 1 from content_entry_search other where other.entry_id = ${contentEntrySearch.entryId} and other.locale = ${locale})`;
+  const untranslated = sql`not exists (select 1 from content_entry_search other where other.entry_id = ${contentEntrySearch.entryId} and other.locale = ${locale})`;
 
   return {
     matched: or(
       and(eq(contentEntrySearch.locale, locale), sql`${contentEntrySearch.vector} @@ ${words}`),
       and(
         eq(contentEntrySearch.locale, SOURCE_CONTENT_LOCALE),
-        translated,
+        untranslated,
         sql`${contentEntrySearch.vector} @@ ${sourceWords}`,
       ),
     ),

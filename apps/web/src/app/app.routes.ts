@@ -8,7 +8,7 @@ import type {
   SheetSidePanelLoader,
 } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
-import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
+import { CONTENT_LOCALE, PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
 import { environment } from './environment';
 
@@ -120,7 +120,10 @@ export const appRoutes: Routes = [
         {
           path: '',
           providers: [
-            { provide: KEY_ITEM_CONTENT_SEARCH, useFactory: () => keyItemContentSearch(inject(ContentLoader)) },
+            {
+              provide: KEY_ITEM_CONTENT_SEARCH,
+              useFactory: () => keyItemContentSearch(inject(ContentLoader), inject(CONTENT_LOCALE)),
+            },
           ],
           children: campaignRoutes,
         },

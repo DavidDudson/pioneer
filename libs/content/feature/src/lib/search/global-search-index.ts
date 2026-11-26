@@ -67,10 +67,10 @@ export class GlobalSearchIndex {
     }
 
     this.#running = true;
-    this.#next();
+    this.#next(this.#generation);
   }
 
-  #next(): void {
+  #next(generation: number): void {
     const kind = INDEXED_KINDS.find((each) => !this.#done.has(each));
 
     if (kind === undefined) {
@@ -80,8 +80,13 @@ export class GlobalSearchIndex {
     }
 
     this.#whenIdle(() => {
+      // A callback queued before a locale switch belongs to the index that was emptied: it does nothing.
+      if (generation !== this.#generation) {
+        return;
+      }
+
       // oxlint-disable-next-line typescript/no-floating-promises -- #load catches every error, so it never rejects
-      this.#load(kind);
+      this.#load(kind, generation);
     });
   }
 
@@ -95,9 +100,7 @@ export class GlobalSearchIndex {
     this.#running = false;
   }
 
-  async #load(kind: IndexedKind): Promise<void> {
-    const generation = this.#generation;
-
+  async #load(kind: IndexedKind, generation: number): Promise<void> {
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
 
@@ -112,10 +115,12 @@ export class GlobalSearchIndex {
       }
 
       this.#done.add(kind);
-      this.#next();
+      this.#next(generation);
     } catch {
-      // Not loaded: the kind is tried again the next time the box opens.
-      this.#running = false;
+      // Not loaded: the kind is tried again the next time the box opens. A pass from before a switch is not this one.
+      if (generation === this.#generation) {
+        this.#running = false;
+      }
     }
   }
 
