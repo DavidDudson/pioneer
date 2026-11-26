@@ -237,6 +237,14 @@ export {
   type FormPreviewRow,
 } from './lib/form-picker/form-picker.component';
 
+export {
+  CompanionPicker,
+  type CompanionPick,
+  type CompanionSpeciesOption,
+} from './lib/companion-picker/companion-picker.component';
+
+export { companionChoiceLine, type CompanionChoice } from './lib/companion-picker/companion-choice-line';
+
 export { type Vital, type VitalBasis, VitalBasisKind } from './lib/vitals/vital';
 
 export { VitalsView } from './lib/vitals/vitals.component';
