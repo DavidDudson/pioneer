@@ -58,7 +58,8 @@ describe('trigger matcher', () => {
     ['You start your turn.', { event: 'turn-start' }],
     ['Your turn starts.', { event: 'turn-start' }],
     ['You finish your turn.', { event: 'turn-end' }],
-    ['You finish casting a spell.', { event: 'cast-spell' }],
+    ['You are damaged.', { event: 'damage-taken' }],
+    ['Your turn begins .', { event: 'turn-start' }],
   ])('reads "%s"', (words, expected) => {
     expect(matchTrigger(prose(words), NAMES)).toStrictEqual(event(expected));
   });
@@ -170,6 +171,7 @@ describe('trigger phrasing', () => {
     const linked = trigger(paragraph(text('  You  USE '), ref(STRIKE), text('.')));
 
     expect(triggerPhrasing(linked, NAMES)).toBe('you use strike');
+    expect(triggerPhrasing(prose('Your turn begins .'), NAMES)).toBe('your turn begins');
   });
 
   test('marks what is not words, and joins paragraphs', () => {

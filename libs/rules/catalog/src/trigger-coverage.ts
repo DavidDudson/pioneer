@@ -17,7 +17,7 @@ export interface TriggerCoverage {
   /** Those with a trigger but no `triggerEvent`, used only by hand until one is set; sorted. */
   readonly withoutEvent: readonly ContentKey[];
   /** The wordings of `withoutEvent`, normalised, most common first (ties in alphabetical order). */
-  readonly unmatched: readonly UnmatchedPhrasing[];
+  readonly unmatchedPhrasings: readonly UnmatchedPhrasing[];
 }
 
 /** Wordings by how many entries use them, most common first. */
@@ -44,7 +44,7 @@ export function triggerCoverage(entries: readonly ContentEntry[], names: RefName
   return {
     triggered: triggered.length,
     withoutEvent: unmatched.map((entry) => contentKey(entry.pack, entry.slug)).toSorted(),
-    unmatched: groupPhrasings(
+    unmatchedPhrasings: groupPhrasings(
       unmatched.flatMap((entry) => {
         const trigger = entryAction(entry)?.trigger;
 

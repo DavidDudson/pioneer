@@ -53,9 +53,9 @@ function formatPrerequisites({ withPrerequisites, withoutPredicate }: Prerequisi
   return [heading, ...formatList(withoutPredicate)].join('\n');
 }
 
-function formatTriggers({ triggered, withoutEvent, unmatched }: TriggerCoverage): string {
+function formatTriggers({ triggered, withoutEvent, unmatchedPhrasings }: TriggerCoverage): string {
   const heading = `triggers: ${triggered} actions with a trigger, ${withoutEvent.length} without a trigger event`;
-  const phrasings = unmatched.map(({ phrasing, count }) => `${count}\u00D7 ${phrasing}`);
+  const phrasings = unmatchedPhrasings.map(({ phrasing, count }) => `${count}\u00D7 ${phrasing}`);
 
   return [heading, ...formatList(phrasings)].join('\n');
 }

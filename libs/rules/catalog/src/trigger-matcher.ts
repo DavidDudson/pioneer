@@ -31,7 +31,6 @@ const KNOWN_TRIGGERS: ReadonlyMap<string, TriggerEvent> = new Map<string, Trigge
   ['at the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['you cast a spell', { event: TriggerEventType.CastSpell }],
-  ['you finish casting a spell', { event: TriggerEventType.CastSpell }],
   [
     'you cast a focus spell',
     TriggerEvent.parse({ event: TriggerEventType.CastSpell, predicate: ['item:trait:focus'] }),
@@ -73,13 +72,16 @@ function triggerWords(trigger: RichText, names: RefNames): string | undefined {
 
 /** Lowercase, single spaces, no closing full stop. */
 function normalise(words: string): string {
-  return words.replaceAll('’', "'").replaceAll(/\s+/gu, ' ').trim().replace(/\.$/u, '').toLowerCase();
+  return words
+    .replaceAll('’', "'")
+    .replaceAll(/\s+/gu, ' ')
+    .trim()
+    .replace(/\s*\.$/u, '')
+    .toLowerCase();
 }
 
-/** What a node that is not words stands for in a phrasing. */
 const NOT_WORDS = '<…>';
 
-/** An inline node as words, or a placeholder when it is not words. */
 function phrasingText(node: InlineNode, names: RefNames): string {
   return inlineText(node, names) ?? NOT_WORDS;
 }
