@@ -2839,7 +2839,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "companion-species",
+        "choices": {
+          "kind": "companion-species",
+          "filter": []
+        },
+        "prompt": "Select your animal companion's species."
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.f2Pl5dWEL9ZvEyI1"
     },
@@ -2895,7 +2905,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "companion-species",
+        "choices": {
+          "kind": "companion-species",
+          "filter": []
+        },
+        "prompt": "Select your animal companion's species."
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.1JnERVwnPtX620f2"
     },
