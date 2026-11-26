@@ -1,5 +1,260 @@
 [
   {
+    "id": "177bfa5d-9553-593c-9264-f4fddf67ca0c",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:automatic-bonus-progression",
+    "name": "Automatic Bonus Progression",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 10]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 16]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 11]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 18]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 13]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 19]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 14]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 20]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "potency",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "potency",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "resilient",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
+    "data": {}
+  },
+  {
     "id": "c46b73e0-50a1-523c-a265-c4037861c84e",
     "pack": "core-rules",
     "kind": "variant-rule",

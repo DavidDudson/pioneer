@@ -1,5 +1,6 @@
 import { slotContent } from '@pioneer/character/domain';
 import type { SlotContent } from '@pioneer/character/domain';
+import { contentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 
 import { variantsInForce } from '../data/registry-variants';
@@ -16,4 +17,15 @@ export function sheetSlotContent(registry: ContentRegistry): SlotContent {
   CONTENT.set(registry, content);
 
   return content;
+}
+
+/** The core rules pack's Automatic Bonus Progression, which replaces the bonuses of magic items with level ones. */
+const AUTOMATIC_BONUS_PROGRESSION = contentKey(
+  PackId.parse('core-rules'),
+  EntrySlug.parse('variant-rule:automatic-bonus-progression'),
+);
+
+/** Whether Automatic Bonus Progression is in force for the registry's character. */
+export function sheetHasAutomaticBonusProgression(registry: ContentRegistry): boolean {
+  return variantsInForce(registry).some(({ key }) => key === AUTOMATIC_BONUS_PROGRESSION);
 }

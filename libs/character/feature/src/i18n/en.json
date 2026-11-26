@@ -378,6 +378,7 @@
       "notInvested": "Not invested",
       "bulkHeading": "Bulk",
       "investmentsHeading": "Investments",
+      "automaticBonusProgression": "Automatic Bonus Progression is on: potency and resilient runes add nothing, and striking runes give way to the devastating attack dice of your level. Those bonuses come with your level instead.",
       "break": {
         "invested": "{actual} items invested, over the limit of {limit}",
         "hands": "Held in {actual} hands, over the {limit} you have",

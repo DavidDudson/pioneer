@@ -27,6 +27,7 @@ const PINNED_IDS = {
   'core-rules/statistic:occultism': 'be4749d6-c4e0-5f2d-8282-5966cc2cbc94',
   'core-rules/statistic:perception': 'd7d3a54b-f54a-5756-8341-4ad40b1444ba',
   'core-rules/statistic:performance': '23d62123-d33e-5440-be8b-c957a6f06f37',
+  'core-rules/variant-rule:automatic-bonus-progression': '177bfa5d-9553-593c-9264-f4fddf67ca0c',
   'core-rules/variant-rule:dual-class': 'c46b73e0-50a1-523c-a265-c4037861c84e',
   'core-rules/variant-rule:free-archetype': 'e3987b2d-66c3-5fc9-a208-c77d07fbe9ef',
   'core-rules/variant-rule:no-dedication-lock': '740e30fe-b997-5430-9a5b-6eab94136a61',

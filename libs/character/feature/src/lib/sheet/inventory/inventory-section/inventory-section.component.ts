@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { attributeModifiers, itemContent, runeContent } from '@pioneer/character/domain';
 import type { InvestedCount, ItemContent, RunedContent } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Heading, Message, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
@@ -14,7 +14,7 @@ import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-stor
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetSectionPreviews } from '../../sheet-section-previews';
-import { sheetSlotContent } from '../../sheet-slot-content';
+import { sheetHasAutomaticBonusProgression, sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsSection } from '../coins-section/coins-section.component';
 import { CustomItems } from '../custom-items/custom-items.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
@@ -47,6 +47,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     ItemEdits,
     ItemOffer,
     ItemRuneEdits,
+    Message,
     PartyInventory,
     Stack,
     TranslocoPipe,
@@ -83,6 +84,12 @@ export class InventorySection {
     return registry === undefined || character === undefined
       ? undefined
       : attributeModifiers(character.document, sheetSlotContent(registry).boosts).get(Attribute.Strength);
+  });
+  /** Whether Automatic Bonus Progression is on, which is why the runes' bonuses read as nothing. */
+  protected readonly bonusProgression: Signal<boolean> = computed(() => {
+    const registry = this.items.data();
+
+    return registry !== undefined && sheetHasAutomaticBonusProgression(registry);
   });
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
