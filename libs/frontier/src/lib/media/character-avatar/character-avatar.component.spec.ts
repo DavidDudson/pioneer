@@ -36,6 +36,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Compon
 }
 
 function host(fixture: ComponentFixture<CharacterAvatar>): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -147,6 +148,7 @@ describe(CharacterAvatar, () => {
     TestBed.configureTestingModule({ providers: [provideFrontierI18nTesting()] });
     const fixture = TestBed.createComponent(BadgeHost);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const corners = (fixture.nativeElement as HTMLElement).querySelectorAll('.-top-2xs');
     const [start, end] = corners;
     expect(start?.textContent.trim()).toBe('start');

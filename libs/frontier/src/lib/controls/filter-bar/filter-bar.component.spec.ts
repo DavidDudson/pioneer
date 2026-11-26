@@ -46,6 +46,7 @@ async function render(value: readonly FilterCondition[] = []): Promise<Rendered>
   fixture.componentRef.setInput('value', value);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return { fixture, host: fixture.nativeElement as HTMLElement, value: () => fixture.componentInstance.value() };
 }
 

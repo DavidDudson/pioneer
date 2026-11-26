@@ -87,7 +87,9 @@ describe('SheetVariantRules', () => {
     expect(section.textContent).toContain('Gritty Healing');
     expect(section.textContent).toContain('Table Rules');
     expect(section.textContent).toContain('Core Rules');
+    // SAFETY: querySelector found the pio-sheet-variant-rules host, an HTMLElement in the DOM; it is typed Element.
     expect(buttons(section as HTMLElement, 'Turn on')).toHaveLength(2);
+    // SAFETY: querySelector found the pio-sheet-variant-rules host, an HTMLElement in the DOM; it is typed Element.
     expect(buttons(section as HTMLElement, 'Turn off')).toHaveLength(0);
   });
 

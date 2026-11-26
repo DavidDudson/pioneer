@@ -16,6 +16,7 @@ async function render(reasons: readonly MessageDescriptor[]): Promise<HTMLElemen
   fixture.componentRef.setInput('reasons', reasons);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -31,6 +32,7 @@ describe(InventoryBreaks, () => {
     fixture.componentRef.setInput('reasons', []);
     fixture.componentRef.setInput('approved', [REASON]);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
     expect(host.querySelector('fr-tag')?.textContent.trim()).toBe('Approved by the GM');
     expect(host.textContent).not.toContain('Breaks a rule');

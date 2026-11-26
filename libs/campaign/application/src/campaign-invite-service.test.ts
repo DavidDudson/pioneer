@@ -115,6 +115,7 @@ describe('CampaignInviteService joining', () => {
     const unknown = InviteToken.parse('A'.repeat(43));
     const error = await rejection(service.join(seelah, unknown));
     expect(error).toBeInstanceOf(NotFoundError);
+    // SAFETY: the `toBeInstanceOf(NotFoundError)` assertion above fails the test unless `error` is a NotFoundError, which carries the `descriptor` read here.
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: InviteMessage.Unknown });
   });
 
@@ -123,6 +124,7 @@ describe('CampaignInviteService joining', () => {
     await service.revoke(fixtureGmId, vaults.id, invite.id);
     const error = await rejection(service.join(seelah, token));
     expect(error).toBeInstanceOf(GoneError);
+    // SAFETY: the `toBeInstanceOf(GoneError)` assertion above fails the test unless `error` is a GoneError, which carries the `descriptor` read here.
     expect((error as GoneError).descriptor).toStrictEqual({ key: InviteMessage.Revoked });
   });
 
@@ -131,6 +133,7 @@ describe('CampaignInviteService joining', () => {
     clock.advance(INVITE_LIFETIME);
     const error = await rejection(service.join(seelah, token));
     expect(error).toBeInstanceOf(GoneError);
+    // SAFETY: the `toBeInstanceOf(GoneError)` assertion above fails the test unless `error` is a GoneError, which carries the `descriptor` read here.
     expect((error as GoneError).descriptor).toStrictEqual({ key: InviteMessage.Expired });
   });
 });

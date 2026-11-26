@@ -33,6 +33,7 @@ interface InferredTargets extends Record<string, TargetConfiguration> {
 }
 
 function inferTargets(root: string, absoluteRoot: string): InferredTargets {
+  // SAFETY: a project's `tsconfig.json` is a JSON object, and only whether it has `angularCompilerOptions` is read, an optional field.
   const tsconfig = JSON.parse(readFileSync(path.join(absoluteRoot, 'tsconfig.json'), 'utf8')) as {
     readonly angularCompilerOptions?: unknown;
   };

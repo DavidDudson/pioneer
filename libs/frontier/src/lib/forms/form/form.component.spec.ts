@@ -26,6 +26,7 @@ async function render(): Promise<Rendered> {
     projectableNodes: projectBySelector(Form, [input, button]),
   });
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = ref.location.nativeElement as HTMLElement;
   document.body.append(host);
   onTestFinished(() => {

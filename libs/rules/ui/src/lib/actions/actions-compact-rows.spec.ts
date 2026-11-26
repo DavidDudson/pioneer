@@ -33,6 +33,7 @@ async function render(view: ActionsViewKind): Promise<HTMLElement> {
   fixture.componentRef.setInput('view', view);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
@@ -52,6 +53,7 @@ describe('the compact action rows', () => {
     expect(names).toHaveLength(NAMES.length);
 
     for (const group of host.querySelectorAll('pio-action-list')) {
+      // SAFETY: the 'pio-action-list' selector only matches HTML custom elements.
       const inGroup = shownNames(group as HTMLElement);
       expect(inGroup).toStrictEqual(
         inGroup.toSorted((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' })),

@@ -9,7 +9,10 @@ import type { RulesMerge } from './apply-rules.ts';
 const ID = ContentId.parse('00000000-0000-5000-8000-000000000001');
 const OTHER = ContentId.parse('00000000-0000-5000-8000-000000000002');
 
+// SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const toggle = { key: 'RollOption', option: 'a:b' } as RuleElement;
+
+// SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 1 } as RuleElement;
 
 const UNTOUCHED =

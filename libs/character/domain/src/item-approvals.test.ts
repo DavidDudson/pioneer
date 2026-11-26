@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ContentId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { InventoryItemId } from './inventory';
@@ -10,8 +10,8 @@ import type { RuleViolation } from './rule-violations';
 
 const caliburn = InventoryItemId.parse(newId());
 const longsword = InventoryItemId.parse(newId());
-const flaming = newId() as ContentId;
-const frost = newId() as ContentId;
+const flaming = ContentId.parse(newId());
+const frost = ContentId.parse(newId());
 
 const runes = (item: InventoryItemId, actual: number): RuleViolation => ({
   item,

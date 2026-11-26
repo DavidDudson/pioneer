@@ -23,6 +23,7 @@ function patched(book: RawBook, fields: Readonly<Record<string, unknown>> | unde
 
 /** Merges `patches` into the registry and writes it; a book id the registry does not hold is an error. */
 export async function patchBooks(patches: BookPatches): Promise<void> {
+  // SAFETY: the registry file is a JSON array of books, and `Books.parse(raw)` on the next line throws on any other shape.
   const raw = (await Bun.file(FILE).json()) as readonly RawBook[];
   Books.parse(raw);
   const known = new Set(raw.map(({ id }) => id));

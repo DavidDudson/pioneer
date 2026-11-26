@@ -202,6 +202,7 @@ describe('deriveStatistics', () => {
   });
 
   test('an item reference has no value here', () => {
+    // SAFETY: the literal is a statistic definition whose base is overridden with a formula string.
     const definition = { ...statistic('item', '@level'), base: '@item.level' } as StatisticDefinition;
     expect(resultOf(derive(definition), 'item')).toMatchObject({
       ok: false,

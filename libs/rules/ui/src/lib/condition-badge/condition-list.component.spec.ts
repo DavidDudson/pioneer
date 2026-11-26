@@ -14,6 +14,7 @@ async function lines(conditions: readonly ConditionLine[], bloodied = false): Pr
   fixture.componentRef.setInput('bloodied', bloodied);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('fr-text')].map((text) => text.textContent.trim());
 }
 

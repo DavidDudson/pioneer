@@ -135,7 +135,7 @@ interface Highest {
 
 /** The highest of `given`, with the origin of every one that gives as much. */
 function highest(given: readonly Given[]): Highest | undefined {
-  let top = undefined as Given | undefined;
+  let top: Given | undefined = undefined;
 
   for (const each of given) {
     if (top === undefined || each.amount > top.amount) {
@@ -199,7 +199,7 @@ function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope
 /** The size after `resizes`, in order, with the reach the last element that names one gives. */
 function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form: FormInPlay | undefined): SizeInPlay {
   let size = form?.form.size ?? base;
-  let reach = undefined as CreatureSizeElement['reach'];
+  let reach: CreatureSizeElement['reach'] = undefined;
 
   for (const { element } of resizes) {
     size = typeof element.value === 'number' ? stepped(size, element.value, element.maximumSize) : element.value;

@@ -21,6 +21,8 @@ describe('AdjustDegreeOfSuccess from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'AdjustDegreeOfSuccess',
@@ -41,6 +43,8 @@ describe('AdjustDegreeOfSuccess from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       expect.objectContaining({ selectors: ['skill:athletics'], checkType: 'skill' }),
     ]);
@@ -67,6 +71,8 @@ describe('RollTwice from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'RollTwice',
@@ -107,6 +113,8 @@ describe('SubstituteRoll from Foundry', () => {
     });
 
     expect(untranslated).toEqual([]);
+    // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
+    // The wider type lets toEqual take the partial expected literals.
     expect(rules as readonly unknown[]).toEqual([
       {
         key: 'SubstituteRoll',

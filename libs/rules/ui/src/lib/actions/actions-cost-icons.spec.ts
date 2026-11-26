@@ -57,6 +57,7 @@ describe('an action cost as icons', () => {
     fixture.componentRef.setInput('mode', ActionMode.Encounter);
     fixture.componentRef.setInput('view', ActionsViewKind.All);
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const icon = (fixture.nativeElement as HTMLElement).querySelector('fr-action-icon');
 
     expect(icon?.querySelectorAll('svg')).toHaveLength(2);

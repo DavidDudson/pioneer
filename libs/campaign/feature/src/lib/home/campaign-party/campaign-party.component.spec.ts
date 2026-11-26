@@ -108,6 +108,7 @@ interface AttachRowShape {
 
 /** The picker's control. */
 function picker(harness: RouterTestingHarness): PickerField<string, AttachRowShape> {
+  // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
   return harness.fixture.debugElement.query((element) => element.componentInstance instanceof PickerField)
     .componentInstance as PickerField<string, AttachRowShape>;
 }

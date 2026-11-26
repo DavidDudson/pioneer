@@ -20,6 +20,7 @@ async function render(): Promise<ComponentRef<ScreenOverlay>> {
 describe(ScreenOverlay, () => {
   it('covers the viewport, takes no clicks and is hidden from assistive technology', async () => {
     const overlay = await render();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = overlay.location.nativeElement as HTMLElement;
     expect(host.getAttribute('aria-hidden')).toBe('true');
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(['fixed', 'inset-none', 'pointer-events-none']));

@@ -29,6 +29,7 @@ describe('findMarkers', () => {
 describe('DEV_MESSAGE_SCOPE', () => {
   test('is the dev sign-in bundle’s namespace', async () => {
     const bundle: unknown = await Bun.file('libs/identity/dev-sign-in/src/i18n/en.json').json();
+    // SAFETY: the dev sign-in bundle file is a JSON object, so `Object.keys` reads its top-level scopes; any other value would fail the equality.
     expect(Object.keys(bundle as object)).toStrictEqual([DEV_MESSAGE_SCOPE]);
   });
 });

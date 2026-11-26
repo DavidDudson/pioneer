@@ -82,6 +82,7 @@ describe('csrfGuard', () => {
   test('a refused write is a 403 problem and never reaches the handler', async () => {
     const response = await api.handle(request({ method: 'POST', cookie: true, origin: 'https://evil.example' }));
     expect(response.status).toBe(403);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('forbidden');
     expect(problem.message).toStrictEqual({ key: 'problem.forbidden' });

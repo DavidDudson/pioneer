@@ -19,6 +19,7 @@ function render(value: string | undefined): ComponentFixture<Segmented<string>> 
 }
 
 function buttons(fixture: ComponentFixture<Segmented<string>>): HTMLButtonElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }
 
@@ -30,6 +31,7 @@ describe(Segmented, () => {
 
   it('labels the group', () => {
     const fixture = render(undefined);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const group = (fixture.nativeElement as HTMLElement).querySelector('[role="toolbar"]');
     expect(group?.getAttribute('aria-label')).toBe('Unit');
   });
@@ -76,6 +78,7 @@ describe(Segmented, () => {
     const fixture = render(undefined);
     fixture.componentRef.setInput('invalid', true);
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const group = (fixture.nativeElement as HTMLElement).querySelector('[role="toolbar"]');
     expect(group?.getAttribute('aria-invalid')).toBe('true');
   });

@@ -26,6 +26,8 @@ import {
 
 const PROPERTY_RUNS = 12;
 const CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'] as const;
+
+// SAFETY: widening the `CASTERS` tuple of string literals to `readonly string[]` is always sound; it only lets `includes` take any class name.
 const NON_CASTERS = PLAYER_CORE_CLASSES.filter((name) => !(CASTERS as readonly string[]).includes(name));
 const CORE_PACKS = ['core-rules', 'player-core'];
 

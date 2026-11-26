@@ -98,6 +98,8 @@ describe('CharacterSheetPage consumables', () => {
           expectedRevision: 1,
           command: { field: 'useConsumable', item: POTIONS, spend: { cost: { kind: 'actions', count: 1 } } },
         });
+        // SAFETY: HttpTestingController types the request body as any.
+        // The sheet sends this command, and the test reads only the fields named here.
         const { command } = request.request.body as { command: { heal: number } };
         const healed = command.heal;
         expect(healed).toBeGreaterThanOrEqual(1);
@@ -129,6 +131,8 @@ describe('CharacterSheetPage consumables', () => {
     await vi.waitFor(
       () => {
         const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+        // SAFETY: HttpTestingController types the request body as any.
+        // The sheet sends this command, and the test reads only the fields named here.
         const { command } = request.request.body as { command: { heal: number } };
         expect(command.heal).toBeGreaterThanOrEqual(1 + LEVEL_BONUS);
         expect(command.heal).toBeLessThanOrEqual(HEALING_DIE + LEVEL_BONUS);

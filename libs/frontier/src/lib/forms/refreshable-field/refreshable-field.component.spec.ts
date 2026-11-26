@@ -19,6 +19,7 @@ function render(): ComponentFixture<RefreshableField> {
 describe(RefreshableField, () => {
   it('labels the input and loads its value', async () => {
     const fixture = render();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const element = fixture.nativeElement as HTMLElement;
     expect(element.querySelector('label')?.textContent.trim()).toBe('Name');
     await vi.waitFor(() => {
@@ -30,6 +31,7 @@ describe(RefreshableField, () => {
     const fixture = render();
     fixture.componentRef.setInput('error', 'Name is required.');
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const element = fixture.nativeElement as HTMLElement;
     expect(element.textContent).toContain('Name is required.');
     expect(element.textContent).not.toContain('Rolled for you.');

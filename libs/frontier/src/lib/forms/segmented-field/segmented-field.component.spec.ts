@@ -26,6 +26,7 @@ function render(inputs: Readonly<Record<string, unknown>> = {}): ComponentFixtur
 }
 
 function find(fixture: ComponentFixture<SegmentedField<string>>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (element === null) {
@@ -36,6 +37,7 @@ function find(fixture: ComponentFixture<SegmentedField<string>>, selector: strin
 }
 
 function buttons(fixture: ComponentFixture<SegmentedField<string>>): HTMLButtonElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }
 

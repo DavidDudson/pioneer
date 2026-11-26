@@ -26,12 +26,15 @@ describe('homebrew routes', () => {
     const api = app();
     const created = await api.handle(request('POST', '/homebrew/packs', { body: feats }));
     expect(created.status).toBe(200);
+    // SAFETY: this route answers with `PackJson` JSON, the shape the route's response schema describes.
     const pack = (await created.json()) as PackJson;
     expect(pack).toMatchObject({ slug: 'amiri-feats', ownerId: amiri, visibility: 'private', entryCount: 0 });
 
     const got = await api.handle(request('GET', `/homebrew/packs/${pack.id}`));
+    // SAFETY: this route answers with `PackJson` JSON, the shape the route's response schema describes.
     expect(((await got.json()) as PackJson).id).toBe(pack.id);
     const listed = await api.handle(request('GET', '/homebrew/packs'));
+    // SAFETY: this route answers with an array of `PackJson` JSON, the shape the route's response schema describes.
     expect(((await listed.json()) as PackJson[]).map(({ id }) => id)).toStrictEqual([pack.id]);
   });
 
@@ -40,12 +43,14 @@ describe('homebrew routes', () => {
     await api.handle(request('POST', '/homebrew/packs', { body: feats }));
     const response = await api.handle(request('POST', '/homebrew/packs', { as: ezren, body: feats }));
     expect(response.status).toBe(409);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     expect(((await response.json()) as Problem).message).toStrictEqual({ key: 'homebrew.pack.slugTaken' });
   });
 
   test('another user’s pack is 404', async () => {
     const api = app();
     const created = await api.handle(request('POST', '/homebrew/packs', { body: feats }));
+    // SAFETY: this route answers with `PackJson` JSON, the shape the route's response schema describes.
     const pack = (await created.json()) as PackJson;
     const response = await api.handle(request('GET', `/homebrew/packs/${pack.id}`, { as: ezren }));
     expect(response.status).toBe(404);
@@ -82,6 +87,7 @@ describe('homebrew routes', () => {
       const pack = await makePack(api);
       const changed = await api.handle(request('PATCH', visibilityPath(pack), { body: shareWithAll }));
       expect(changed.status).toBe(200);
+      // SAFETY: this route answers with `PackJson` JSON, the shape the route's response schema describes.
       expect(((await changed.json()) as PackJson).visibility).toBe('public');
       const read = await api.handle(request('GET', `/homebrew/packs/${pack.id}`, { as: ezren }));
       expect(read.status).toBe(200);
@@ -154,6 +160,7 @@ describe('homebrew routes', () => {
       );
 
       expect(response.status).toBe(409);
+      // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
       expect(((await response.json()) as Problem).message).toStrictEqual({
         key: 'homebrew.pack.campaignsEnableIt',
         params: { campaigns: 'Kingmaker' },
@@ -183,6 +190,7 @@ async function statusOf(api: AnyElysia, sent: Request): Promise<number> {
 
 async function idsFrom(api: AnyElysia, path: string): Promise<readonly string[]> {
   const response = await api.handle(request('GET', path));
+  // SAFETY: this route answers with an array of `PackJson` JSON, the shape the route's response schema describes.
   const packs = (await response.json()) as PackJson[];
 
   return packs.map(({ id }) => id);

@@ -31,6 +31,8 @@ async function render(packs: readonly HomebrewPackReport[]): Promise<string> {
   fixture.componentRef.setInput('packs', packs);
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+  // The nativeElement property is typed any.
   return (fixture.nativeElement as HTMLElement).textContent;
 }
 

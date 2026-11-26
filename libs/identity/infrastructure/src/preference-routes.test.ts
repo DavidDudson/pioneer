@@ -68,6 +68,7 @@ describe('preference routes', () => {
   ])('PATCH with %s is a 422 problem', async (_case, body) => {
     const response = await patch(app(), body, UserId.parse(newId()));
     expect(response.status).toBe(422);
+    // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
     const problem = (await response.json()) as Problem;
     expect(problem.type).toBe('validation');
   });

@@ -15,6 +15,7 @@ function render(value: number, max = 3): ComponentFixture<Pips> {
 }
 
 function buttons(fixture: ComponentFixture<Pips>): HTMLButtonElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }
 
@@ -39,6 +40,7 @@ describe(Pips, () => {
 
   it('names the group and each pip by its place', () => {
     const fixture = render(1);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const group = (fixture.nativeElement as HTMLElement).querySelector('[role="toolbar"]');
     expect(group?.getAttribute('aria-label')).toBe('Hero Points');
     expect(buttons(fixture).map((button) => button.getAttribute('aria-label'))).toStrictEqual([

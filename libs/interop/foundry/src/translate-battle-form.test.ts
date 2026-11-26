@@ -251,6 +251,7 @@ const TRADITION_RULES = [
 describe('translateRules: elements that read another field of a dragon type', () => {
   test('a roll option and damage dice are made for each value the types have, switched on by the types with it', () => {
     const rules = formRules(TRADITION_RULES).filter(
+      // SAFETY: every rule element is an object with a key; the cast reads only that.
       (rule) => (rule as { key: unknown }).key !== RuleElementKey.ChoiceSet,
     );
 

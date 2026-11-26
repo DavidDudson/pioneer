@@ -50,7 +50,7 @@ interface ParsedFile {
 /** The text as JSON, or `undefined` when it isn't (yet): the server judges whether the JSON is a Pioneer file. */
 function parsed(text: string): ParsedFile | undefined {
   try {
-    return { value: JSON.parse(text) as unknown };
+    return { value: JSON.parse(text) };
   } catch {
     return undefined;
   }

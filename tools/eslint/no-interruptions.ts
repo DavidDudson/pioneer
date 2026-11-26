@@ -47,6 +47,7 @@ export const noInterruptions: Rule.RuleModule = {
 
     return {
       Element(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `ElementNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, startSourceSpan } = node as ElementNode;
 
         if (name === 'dialog') {
@@ -54,6 +55,7 @@ export const noInterruptions: Rule.RuleModule = {
         }
       },
       TextAttribute(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, value, keySpan } = node as AttributeNode;
 
         if (name === 'role' && typeof value === 'string' && OVERLAY_ROLES.has(value)) {
@@ -64,6 +66,7 @@ export const noInterruptions: Rule.RuleModule = {
       },
       // Bound names arrive without brackets or `attr.`: `[attr.href]` is `href`.
       BoundAttribute(node: unknown): void {
+        // SAFETY: the template parser calls this visitor with a node of that kind, and `AttributeNode` names only the fields read here; the visitor takes `unknown` because the parser's node types are not exported.
         const { name, keySpan } = node as AttributeNode;
 
         if (name === 'href') {

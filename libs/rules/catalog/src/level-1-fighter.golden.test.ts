@@ -181,6 +181,7 @@ function golden({ bonus, mark }: ProficiencyTable): ReadonlyMap<string, Checked>
     'strike-damage:longsword': statistic([attribute('str', '@weapon.damage')]),
     'strike-damage:javelin': statistic([attribute('str', '@weapon.damage')]),
     ...Object.fromEntries(
+      // SAFETY: ATTRIBUTES is keyed by attribute slugs; Object.keys types keys as string.
       (Object.keys(ATTRIBUTES) as AttributeSlug[]).map((key) => [`attribute:${key}`, statistic([attribute(key)])]),
     ),
     'skill:acrobatics': skill('acrobatics', 'dex', Trained),

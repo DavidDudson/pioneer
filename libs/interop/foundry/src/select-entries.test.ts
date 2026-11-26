@@ -144,6 +144,7 @@ describe('selectEntries', () => {
       release({
         'packs/pf2e/feats/aquatic.json': JSON.stringify({
           ...aquatic,
+          // SAFETY: an item pack entry always has a system object; the fixture is typed as plain JSON.
           system: { ...(aquatic as { system: object }).system, slug: 'effect-aquatic-combat' },
         }),
       }),

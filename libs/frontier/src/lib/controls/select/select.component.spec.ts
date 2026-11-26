@@ -23,6 +23,7 @@ function render(scoped: boolean): ComponentFixture<Select<string>> {
 function trigger(fixture: ComponentFixture<Select<string>>): string {
   fixture.detectChanges();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).querySelector('button')?.textContent.trim() ?? '';
 }
 
@@ -42,6 +43,7 @@ describe(Select, () => {
     ]);
     fixture.detectChanges();
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     (fixture.nativeElement as HTMLElement).querySelector('button')?.click();
     fixture.detectChanges();
     await vi.waitFor(() => {

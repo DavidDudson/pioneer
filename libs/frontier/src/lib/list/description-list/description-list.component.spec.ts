@@ -21,6 +21,7 @@ async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly
   }
 
   await fixture.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const list = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('[role="list"]');
 
   if (list === null) {
@@ -45,6 +46,7 @@ async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly
 
     item.setInput('term', term);
     appRef.attachView(item.hostView);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     list.append(item.location.nativeElement as HTMLElement);
   }
 
@@ -79,6 +81,7 @@ async function gridClasses(inputs: Readonly<Record<string, unknown>>): Promise<s
 
   await fixture.whenStable();
 
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).firstElementChild?.className;
 }
 
@@ -87,6 +90,7 @@ describe(DescriptionList, () => {
     const { fixture, list } = await render({}, []);
     expect(list.className).toContain('flex-col');
     expect(list.className).toContain('gap-xs');
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-box')?.contains(list)).toBe(true);
   });
 

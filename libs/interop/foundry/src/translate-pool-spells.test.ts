@@ -74,6 +74,7 @@ describe('translateKindData: pool spells', () => {
   test("a curriculum names another pack's spells as pack:slug and its own pack's by slug", () => {
     const impossibleMagic = PackId.parse('impossible-magic');
     const [curriculum] = poolSpellRules('class-feature:school-of-keen-inquiry', impossibleMagic);
+    // SAFETY: the first pool spell rule of the curriculum holds a list of spell references.
     const { spells } = curriculum as { readonly spells: readonly string[] };
 
     expect(spells).toContain(contentId(PackId.parse('player-core'), EntrySlug.parse('spell:detect-magic')));

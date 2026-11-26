@@ -169,6 +169,8 @@ describe('CharacterService', () => {
     const created = service.create(amiri, { name: CharacterName.parse('X'), ancestry: unknown });
     const error = await rejection(created);
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['ancestry'], message: { key: 'character.validation.unknownAncestry', params: { ancestry: unknown } } },
     ]);
@@ -178,6 +180,8 @@ describe('CharacterService', () => {
     const missing = CharacterId.parse(newId());
     const error = await rejection(service.get(amiri, missing));
     expect(error).toBeInstanceOf(NotFoundError);
+    // SAFETY: toBeInstanceOf(NotFoundError) on the line above proves the type.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
 });
@@ -201,6 +205,8 @@ describe('CharacterService ownership', () => {
     const theirs = await service.create(ezren, { name: kyra, ancestry: humanAncestryId });
     const error = await rejection(service.get(amiri, theirs.id));
     expect(error).toBeInstanceOf(NotFoundError);
+    // SAFETY: toBeInstanceOf(NotFoundError) on the line above proves the type.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
 

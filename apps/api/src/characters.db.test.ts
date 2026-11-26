@@ -59,6 +59,7 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
     async () => {
       const unseeded = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
       expect(unseeded.status).toBe(422);
+      // SAFETY: the API's error handler answers failures with an RFC 9457 `Problem` body, and the status asserted above is such a failure.
       const problem = (await unseeded.json()) as Problem;
       expect(problem.message).toStrictEqual({ key: 'problem.validation' });
 
@@ -79,6 +80,7 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
       const response = await api.handle(request('/characters/import/pathbuilder', mordredExport));
 
       expect(response.status).toBe(200);
+      // SAFETY: the create route answers with `{ character }`, and the next line parses `character` with `Character.codec` before using it; the status is asserted above.
       const { character } = (await response.json()) as { character: unknown };
       expect(Character.codec.parse(character).ancestry).toBe(humanAncestryId);
     },

@@ -15,6 +15,7 @@ function render(value: boolean): ComponentFixture<ToggleButtonField> {
 }
 
 function find(fixture: ComponentFixture<ToggleButtonField>, selector: string): HTMLElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>(selector);
 
   if (element === null) {

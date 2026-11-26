@@ -94,6 +94,8 @@ describe('CharacterSheetPage spell resources panel', () => {
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
       expect(request.request.body).toMatchObject({ expectedRevision: 1, command: { field: 'spendSlot' } });
+      // SAFETY: HttpTestingController types the request body as any.
+      // The sheet sends this command, and the test reads only the fields named here.
       const { slot } = (request.request.body as { command: { slot: string } }).command;
       request.flush(spentOf({ slots: { [slot]: 1 } }, 2));
     });

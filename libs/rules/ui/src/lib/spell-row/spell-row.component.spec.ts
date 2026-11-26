@@ -77,10 +77,12 @@ function render(spell: SpellDetailLine, { panel, roller, spends = true }: Page =
 }
 
 function textOf(fixture: ComponentFixture<SpellRow>): string {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return (fixture.nativeElement as HTMLElement).textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
 function buttons(fixture: ComponentFixture<SpellRow>): HTMLButtonElement[] {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }
 
@@ -123,6 +125,7 @@ describe(SpellRow, () => {
   it('opens the spell in the side panel from its name when the page has one', () => {
     const fixture = render(FIREBALL, { panel: PANEL });
 
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const link = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(link?.textContent.trim()).toBe('Fireball');
   });

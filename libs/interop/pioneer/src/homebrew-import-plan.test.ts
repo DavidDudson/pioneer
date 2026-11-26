@@ -102,6 +102,7 @@ describe('planHomebrewImport', () => {
   });
 
   test('treats entries with the same content as identical whatever the key order', () => {
+    // SAFETY: reversing the key order keeps every field of the entry; only the order differs.
     const reordered = Object.fromEntries(Object.entries(feat).toReversed()) as ContentEntry;
     const [plan] = planHomebrewImport([embedded([feat])], held(false, reordered));
 

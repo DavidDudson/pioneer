@@ -49,6 +49,7 @@ async function open(tier: ContentBrowserTier, state: ContentBrowserState): Promi
   return fixture;
 }
 
+// SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
 const root = (fixture: ComponentFixture<ContentBrowser>): HTMLElement => fixture.nativeElement as HTMLElement;
 
 /** The names the list shows, in order, once `count` of them have loaded. */

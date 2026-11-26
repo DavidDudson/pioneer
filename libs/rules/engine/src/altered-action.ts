@@ -36,6 +36,7 @@ function mapDamage(node: unknown, change: (instance: Record<string, unknown>) =>
   const { instances } = mapped;
 
   if (mapped['type'] === 'damage' && Array.isArray(instances)) {
+    // SAFETY: a node of type 'damage' carries its instances as a list of damage instance objects, which change() maps whole.
     const [first, ...others] = instances as readonly Record<string, unknown>[];
 
     return first === undefined ? mapped : { ...mapped, instances: [change(first), ...others] };

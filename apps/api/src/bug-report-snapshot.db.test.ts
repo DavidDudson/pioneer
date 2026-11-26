@@ -87,6 +87,7 @@ describe.skipIf(adminUrl === undefined)('bug report character snapshot (postgres
     const response = await api.handle(send(call));
     expect(response.status).toBe(200);
 
+    // SAFETY: the filing route answers with the `Filed` JSON body this test describes; the status is asserted above.
     return (await response.json()) as Filed;
   }
 

@@ -44,6 +44,7 @@ interface Rendered {
 }
 
 async function render(signedIn: boolean): Promise<Rendered> {
+  // SAFETY: the page only branches on whether session.user() is set, so a partial User stands in for a signed-in one.
   const session: FakeSession = {
     user: (): User | undefined => (signedIn ? ({ displayName: 'Amiri' } as User) : undefined),
     known: (): boolean => true,

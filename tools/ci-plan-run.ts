@@ -44,6 +44,7 @@ async function lastPassedOnMain(): Promise<string | undefined> {
     return undefined;
   }
 
+  // SAFETY: GitHub's list-workflow-runs response holds a `workflow_runs` array whose runs carry `head_sha`; both are optional here, so a missing one reads as `undefined`.
   const body = (await response.json()) as { readonly workflow_runs?: readonly { readonly head_sha?: string }[] };
 
   return body.workflow_runs?.[0]?.head_sha;
@@ -113,6 +114,7 @@ function parseProjects(stdout: string): readonly string[] {
     throw new Error(`nx show projects printed no project list: ${JSON.stringify(stdout.slice(0, SHOWN_OUTPUT))}`);
   }
 
+  // SAFETY: `nx show projects --json` prints a JSON array of project names, the list found after the first `[` above.
   return JSON.parse(stdout.slice(start)) as string[];
 }
 

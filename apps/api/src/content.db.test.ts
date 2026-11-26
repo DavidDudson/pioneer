@@ -201,6 +201,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     const namesResponse = await api.handle(get(`/content/bundles/${PACK}/${names}`));
 
     const dwarf = AncestryId.parse(contentId(PACK, EntrySlug.parse('ancestry:dwarf')));
+    // SAFETY: the mechanics route answers with a JSON array of entries; only its length is read.
     const entries = (await mechanicsResponse.json()) as readonly object[];
     expect(entries).toHaveLength(1);
     expect(entries[0]).not.toHaveProperty('name');

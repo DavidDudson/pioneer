@@ -42,6 +42,7 @@ describe(linkConditionNames, () => {
     const [, lower] = linkConditionNames(words(BLINDED), ALWAYS);
     const [, upper] = linkConditionNames(words('The target is Blinded.'), ALWAYS);
 
+    // SAFETY: linking the capitalised 'Blinded' word yields a condition link, which carries an id.
     expect(lower).toMatchObject({ id: (upper as { id: string }).id });
   });
 

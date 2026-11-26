@@ -66,6 +66,7 @@ describe('HomebrewPackService', () => {
     await service.create(amiri, feats);
     const error = await rejection(service.create(ezren, feats));
     expect(error).toBeInstanceOf(ConflictError);
+    // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
     expect((error as ConflictError).descriptor).toStrictEqual({
       key: HomebrewMessage.SlugTaken,
     });
@@ -87,6 +88,7 @@ describe('HomebrewPackService', () => {
     const unknown = ContentPackId.parse(newId());
     const missing = await rejection(service.get(ezren, unknown));
     expect(hidden).toBeInstanceOf(NotFoundError);
+    // SAFETY: `hidden` is asserted to be a NotFoundError just above, and `missing` comes from the same lookup failing for a non-existent pack; a non-NotFoundError would have no `descriptor` and fail the comparison.
     expect((hidden as NotFoundError).descriptor).toStrictEqual((missing as NotFoundError).descriptor);
   });
 
@@ -133,6 +135,7 @@ describe('HomebrewPackService', () => {
       const hidden = await rejection(service.setVisibility(ezren, created.id, PackVisibility.Public));
       const missing = await rejection(service.setVisibility(ezren, unknown, PackVisibility.Public));
       expect(hidden).toBeInstanceOf(NotFoundError);
+      // SAFETY: `hidden` is asserted to be a NotFoundError just above, and `missing` comes from the same lookup failing for a non-existent pack; a non-NotFoundError would have no `descriptor` and fail the comparison.
       expect((hidden as NotFoundError).descriptor).toStrictEqual((missing as NotFoundError).descriptor);
       expect(await visibilityOf(service, amiri, created.id)).toBe(PackVisibility.Private);
     });
@@ -143,6 +146,7 @@ describe('HomebrewPackService', () => {
       enablement.enable(created.id, 'Rise of the Runelords', [ezren]).enable(created.id, 'Kingmaker', [seoni]);
       const error = await rejection(service.setVisibility(amiri, created.id, PackVisibility.Private));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.CampaignsEnableIt,
         params: { campaigns: 'Kingmaker, Rise of the Runelords' },
@@ -189,6 +193,7 @@ describe('HomebrewPackService', () => {
       await dependencies.add(amiri, { pack: created.id, dependsOn: base.id }, async () => {});
       const error = await rejection(service.setVisibility(amiri, created.id, PackVisibility.Public));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.WiderThanDependencies,
         params: { packs: 'Ezren base' },
@@ -229,6 +234,7 @@ describe('HomebrewPackService', () => {
       await dependencies.add(amiri, { pack: extension.id, dependsOn: base.id }, async () => {});
       const error = await rejection(service.setVisibility(amiri, base.id, PackVisibility.Campaign));
       expect(error).toBeInstanceOf(ConflictError);
+      // SAFETY: the `toBeInstanceOf(ConflictError)` assertion above fails the test unless `error` is a ConflictError, which carries the `descriptor` read here.
       expect((error as ConflictError).descriptor).toStrictEqual({
         key: HomebrewMessage.NarrowerThanDependents,
         params: { count: 1 },

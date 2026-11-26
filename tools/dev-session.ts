@@ -43,6 +43,7 @@ export async function createCharacter(session: Session, db: SQL, name: string): 
     body: JSON.stringify({ name, ancestry: ancestry?.id }),
   });
 
+  // SAFETY: the create-character route answers with the new character as JSON, which carries its `id`.
   const created = (await response.json()) as { readonly id: string };
 
   return created.id;

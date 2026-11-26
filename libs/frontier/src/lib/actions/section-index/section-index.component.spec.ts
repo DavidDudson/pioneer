@@ -24,6 +24,7 @@ async function render(sections: readonly SectionIndexHostLink[]): Promise<HTMLEl
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(index.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = index.location.nativeElement as HTMLElement;
   document.body.append(host);
 

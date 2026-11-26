@@ -31,6 +31,7 @@ async function booksCited(pack: string): Promise<ReadonlySet<string>> {
     // oxlint-disable-next-line eslint/no-await-in-loop
     const entries: unknown = await Bun.file(path.join(dir, name)).json();
 
+    // SAFETY: each pack file is a JSON array of Foundry entries, and `PackEntry` lists only the optional `sources` field read here.
     for (const entry of Array.isArray(entries) ? (entries as readonly PackEntry[]) : []) {
       for (const source of entry.sources ?? []) {
         if (source.book !== undefined) {

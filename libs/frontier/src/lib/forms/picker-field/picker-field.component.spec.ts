@@ -21,6 +21,7 @@ function render(): ComponentFixture<PickerField<string, Feat>> {
 }
 
 function trigger(fixture: ComponentFixture<PickerField<string, Feat>>): HTMLButtonElement {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const found = (fixture.nativeElement as HTMLElement).querySelector('button');
 
   if (found === null) {
@@ -33,6 +34,7 @@ function trigger(fixture: ComponentFixture<PickerField<string, Feat>>): HTMLButt
 describe(PickerField, () => {
   it('names the trigger with the field label', () => {
     const fixture = render();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const label = (fixture.nativeElement as HTMLElement).querySelector('label');
     expect(label?.textContent.trim()).toBe('Feat');
     expect(label?.getAttribute('for')).toBe(trigger(fixture).id);
@@ -42,9 +44,11 @@ describe(PickerField, () => {
     const fixture = render();
     fixture.componentRef.setInput('hint', 'Pick one you qualify for.');
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).textContent).toContain('Pick one you qualify for.');
     fixture.componentRef.setInput('error', 'Choose a feat.');
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).textContent).toContain('Choose a feat.');
     expect(trigger(fixture).getAttribute('aria-invalid')).toBe('true');
   });
@@ -57,7 +61,9 @@ describe(PickerField, () => {
     trigger(fixture).click();
     fixture.detectChanges();
     await fixture.whenStable();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const label = (fixture.nativeElement as HTMLElement).querySelector('label');
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const grid = (fixture.nativeElement as HTMLElement).querySelector('[role="grid"]');
     expect(grid?.getAttribute('aria-labelledby')).toBe(label?.id);
   });

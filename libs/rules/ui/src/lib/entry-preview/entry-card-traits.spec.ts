@@ -50,6 +50,7 @@ describe('the entry card', () => {
     const fixture: ComponentFixture<EntryPreviewView> = TestBed.createComponent(EntryPreviewView);
     fixture.componentRef.setInput('preview', FIREBALL_PREVIEW);
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const root = fixture.nativeElement as HTMLElement;
 
     expect(root.querySelectorAll('pio-trait-chip')).toHaveLength(FIREBALL_PREVIEW.traits.length);
@@ -66,6 +67,7 @@ describe('the entry card', () => {
     });
     const fixture = TestBed.createComponent(Host);
     fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     focus((fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('#outer'));
     await vi.waitFor(() => {
       fixture.detectChanges();

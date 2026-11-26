@@ -93,6 +93,7 @@ export function mergeRulesIntoText(text: string, merge: RulesMerge): string {
 
   const edits = entries.flatMap((entry: unknown, index): readonly Edit[] => {
     const node = tree.items[index];
+    // SAFETY: `merge` is keyed by content ids, and the id is a string here, checked by the `typeof` above; the branded id adds no runtime check.
     const merged = isRecord(entry) && typeof entry['id'] === 'string' ? merge.get(entry['id'] as ContentId) : undefined;
 
     if (node === undefined || merged === undefined || !isRecord(entry)) {

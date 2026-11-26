@@ -30,6 +30,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = component.location.nativeElement as HTMLElement;
   const flex = host.firstElementChild;
 

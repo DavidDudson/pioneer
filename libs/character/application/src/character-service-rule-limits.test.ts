@@ -122,6 +122,8 @@ describe('a character held to its campaign’s table limits', () => {
     attach({ handsMax: ONE_HAND });
     const error = await rejection(hold(ItemFixture.Greatsword, HANDS_MAX));
     expect(error).toBeInstanceOf(ValidationError);
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'carry'], message: { key: 'character.validation.handsFull', params: { maximum: ONE_HAND } } },
     ]);
@@ -131,6 +133,8 @@ describe('a character held to its campaign’s table limits', () => {
     attach({ handsMax: Hands.parse(3) });
     await hold(ItemFixture.Greatsword, HANDS_MAX);
     const error = await rejection(hold(ItemFixture.Rope, ONE_HAND));
+    // SAFETY: the call under test rejects with a ValidationError for this patch.
+    // The rejection() helper returns the thrown value as unknown.
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'carry'], message: { key: 'character.validation.handsFull', params: { maximum: HANDS_MAX } } },
     ]);
