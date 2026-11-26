@@ -307,6 +307,16 @@ export {
 export { type LanguageFeature, type LanguageReads } from './language-levels';
 
 export {
+  familiarAbilities,
+  familiarAbilitiesOf,
+  FamiliarAbilityCount,
+  FamiliarAbilitySource,
+  type FamiliarAbilityInputs,
+  type FamiliarAbilityPart,
+  type FamiliarAbilities,
+} from './familiar-abilities';
+
+export {
   type SlotContent,
   slotContent,
   withCompanions,
