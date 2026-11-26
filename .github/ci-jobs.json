@@ -60,9 +60,14 @@
       "args": "--projects=character-feature --configuration=rest"
     },
     {
+      "name": "web rules ui",
+      "id": "web-rules-ui",
+      "args": "--projects=rules-ui"
+    },
+    {
       "name": "web ui",
       "id": "web-ui",
-      "args": "--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
+      "args": "--projects=content-ui,play-ui,frontier,rules-data-access --parallel=2"
     },
     {
       "name": "web accounts and tables",
