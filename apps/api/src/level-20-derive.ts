@@ -26,7 +26,7 @@ export function deriveSheet(
   slots: SlotContent,
   document: CharacterDocument,
 ): ReadonlyMap<Selector, StatisticResult> {
-  const inputs = characterStatisticInputs(registry, document, slots);
+  const inputs = characterStatisticInputs(registry, document, { slots });
 
   return characterStatistics(document, { registry, slots, inputs, variants: [] });
 }

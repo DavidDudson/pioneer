@@ -4,7 +4,7 @@ import { AncestryId, ChoiceValue, ContentRegistry, SlotKey, VariantStructure } f
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { attributeModifiers, boostSlots, BoostSource } from './attribute-boosts';
-import type { BoostContent } from './attribute-boosts';
+import type { BoostContent, BoostSlot } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { BACKGROUND_SLOT, CLASS_SLOT } from './character-slots';
 import { slotContent } from './slot-offer';
@@ -36,6 +36,11 @@ function freeLevels(document: CharacterDocument, content: BoostContent): number[
     .map((slot) => slot.level);
 }
 
+/** A free boost slot taken after 1st level, which the schedule spreads out. */
+function isLaterFreeBoost(slot: BoostSlot): boolean {
+  return slot.source === BoostSource.Free && slot.level > 1;
+}
+
 describe('Gradual Attribute Boosts', () => {
   test('keeps four free boosts at 1st level, then one a level over the four levels up to each fifth', () => {
     const expected = [1, 1, 1, 1, ...GRADUAL_LEVELS];
@@ -48,7 +53,7 @@ describe('Gradual Attribute Boosts', () => {
 
   test('keys each single boost by its level', () => {
     const keys = boostSlots(fighter(1), GRADUAL)
-      .filter((slot) => slot.source === BoostSource.Free && slot.level > 1)
+      .filter((slot) => isLaterFreeBoost(slot))
       .map((slot) => String(slot.key));
 
     expect(keys).toStrictEqual(GRADUAL_LEVELS.map((level) => `boost:${level}:free:0`));
@@ -80,6 +85,7 @@ describe('a group of gradual boosts', () => {
       'boost:4:free:0': 'str',
       'boost:5:free:0': 'str',
     };
+
     const once = attributeModifiers(fighter(5, { 'boost:2:free:0': 'str' }), GRADUAL).toWire();
     const four = attributeModifiers(fighter(5, picks), GRADUAL).toWire();
 
@@ -88,6 +94,7 @@ describe('a group of gradual boosts', () => {
 
   test('counts the same attribute again in the next group', () => {
     const picks = { 'boost:5:free:0': 'str', 'boost:10:free:0': 'str' };
+
     const one = attributeModifiers(fighter(10, { 'boost:5:free:0': 'str' }), GRADUAL).toWire();
     const two = attributeModifiers(fighter(10, picks), GRADUAL).toWire();
 
@@ -104,13 +111,13 @@ describe('the Gradual Attribute Boosts variant rule', () => {
       .withVariantRule('plain')
       .build(),
   );
-  const [gradual, plain] = registry
-    .variantRules()
-    .toSorted((left, right) => left.definition.slug.localeCompare(right.definition.slug));
+  const variantBySlug = new Map(registry.variantRules().map((variant) => [variant.definition.slug, variant]));
+  const gradual = [...variantBySlug.values()].filter(({ definition }) => definition.slug.endsWith('gradual'));
+  const plain = [...variantBySlug.values()].filter(({ definition }) => definition.slug.endsWith('plain'));
 
   test('turns the schedule on while it is in force, and off with a variant that does not name it', () => {
-    expect(slotContent(registry, gradual === undefined ? [] : [gradual]).boosts.gradual).toBe(true);
-    expect(slotContent(registry, plain === undefined ? [] : [plain]).boosts.gradual).toBe(false);
+    expect(slotContent(registry, gradual).boosts.gradual).toBe(true);
+    expect(slotContent(registry, plain).boosts.gradual).toBe(false);
     expect(slotContent(registry).boosts.gradual).toBe(false);
   });
 });

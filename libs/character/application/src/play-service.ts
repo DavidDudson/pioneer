@@ -186,7 +186,7 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const variants = await variantRulesOfCharacter(this.#content, character, registry);
     const slots = slotContent(registry, variants);
-    const inputs = characterStatisticInputs(registry, character.document, slots, variants);
+    const inputs = characterStatisticInputs(registry, character.document, { slots, variants });
 
     const baseLimits = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),
@@ -272,7 +272,7 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const slots = await slotsOf(this.#content, character, registry);
 
-    return restHealing(characterStatisticInputs(registry, character.document, slots));
+    return restHealing(characterStatisticInputs(registry, character.document, { slots }));
   }
 
   /** What Rest heals, and what it does to the conditions the character's content eases on Rest. */

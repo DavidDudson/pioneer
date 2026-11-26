@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import type { ModifierInputs } from '@pioneer/rules/engine';
+import type { ModifierInputs, StatisticInputs } from '@pioneer/rules/engine';
 import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Modifier, RuneGrade } from '@pioneer/rules/sdk';
@@ -56,6 +56,11 @@ function etched(inventory: Inventory, runes: ItemRunes): Inventory {
   return { ...inventory, items: inventory.items.map((line) => ({ ...line, runes, invested: true as const })) };
 }
 
+/** The potency of each weapon the statistic inputs read. */
+function potencies({ weapons = [] }: StatisticInputs): readonly (RuneGrade | undefined)[] {
+  return weapons.map(({ potency }) => potency);
+}
+
 describe('equipped items with rune grade alterations', () => {
   const rules = altering(
     overriding('weapon', 'potency', 0),
@@ -105,10 +110,10 @@ describe('a variant rule that alters rune grades', () => {
     const character = { ...document, inventory };
     const slots = slotContent(registry, variants);
 
-    const [off] = characterStatisticInputs(registry, character, slots).weapons ?? [];
-    const [on] = characterStatisticInputs(registry, character, slots, variants).weapons ?? [];
+    const off = potencies(characterStatisticInputs(registry, character, { slots }));
+    const on = potencies(characterStatisticInputs(registry, character, { slots, variants }));
 
-    expect(off?.potency).toBe(RuneGrade.parse(2));
-    expect(on?.potency).toBeUndefined();
+    expect(off).toStrictEqual([RuneGrade.parse(2)]);
+    expect(on).toStrictEqual([undefined]);
   });
 });
