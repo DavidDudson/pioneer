@@ -146,7 +146,7 @@ export {
   ConditionTrigger,
 } from './condition';
 
-export { CompanionKind } from './companion-kind';
+export { CompanionKind, companionRollOption } from './companion-kind';
 
 export {
   CompanionSpecialization,

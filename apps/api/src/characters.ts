@@ -206,14 +206,11 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     repository,
   });
 
-  const characterContent = new CharacterContent(content, packs, {
-    variants,
-    limits: ruleLimits,
-    held,
-  });
+  const characterContent = new CharacterContent(content, packs, { variants, limits: ruleLimits, held });
 
   const service = new CharacterService(repository, characterContent, clock)
     .withCampaignRoles(new CampaignCharacterRoles(db))
+    .withCompanions(new DrizzleCharacterCompanionRepository(db))
     .withAuthors(new UserOverrideAuthorDirectory(db));
 
   const pathbuilder = pathbuilderServices(db, clock, { repository, content });

@@ -56,6 +56,14 @@ const predicate = (statements: z.core.util.JSONType): Predicate => Predicate.par
 
 describe('prerequisite matcher', () => {
   test.each([
+    ['a familiar', ['self:companion:familiar']],
+    ['A Familiar', ['self:companion:familiar']],
+    ['trained in Athletics; a familiar', [{ gte: ['skill:athletics:rank', 1] }, 'self:companion:familiar']],
+  ])('reads a companion the character has: "%s"', (words, expected) => {
+    expect(read(words)).toStrictEqual(predicate(expected));
+  });
+
+  test.each([
     ['trained in Athletics', [{ gte: ['skill:athletics:rank', 1] }]],
     ['expert in Perception', [{ gte: ['perception:rank', 2] }]],
     ['master in Cooking Lore', [{ gte: ['skill:lore:cooking:rank', 3] }]],

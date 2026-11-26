@@ -5,6 +5,7 @@ import { LEGACY_CONTENT_VARIANT, Level, SlotKey } from '@pioneer/rules/sdk';
 import type {
   AttributeModifiers,
   ChoiceValue,
+  CompanionKind,
   ContentRegistry,
   RollOption,
   VariantRuleEntry,
@@ -52,6 +53,8 @@ export interface SlotContent {
   readonly feats: FeatContent;
   /** The roll options a roll supplies (an initiative roll's), which the facts every predicate reads include. */
   readonly situation?: readonly RollOption[] | undefined;
+  /** The kinds of companion the character has live (ADR-0079). */
+  readonly companions?: readonly CompanionKind[] | undefined;
   /** The items the loaded packs offer, which the character's inventory is read against; none when absent. */
   readonly items?: ItemContent | undefined;
   /** The runes the loaded packs offer, which a shifting weapon's property runes are read against; none when absent. */
@@ -97,13 +100,14 @@ export interface SlotContext extends SlotContent {
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
 export function resolveSlotsAt(
   level: Level,
-  { picks, lookup, namespaces, rootSlots, variantRoots, modifiersAt, owned = [] }: SlotContext,
+  { picks, lookup, namespaces, rootSlots, variantRoots, modifiersAt, companions, owned = [] }: SlotContext,
 ): GrantResolution {
   return resolveGrants({
     roots: variantRoots,
     lookup,
     level,
     attributes: modifiersAt?.(level),
+    companions,
     situation: [],
     picks,
     owned,
@@ -133,6 +137,11 @@ export function attributesAt(document: CharacterDocument, content: SlotContent):
 
     return known;
   };
+}
+
+/** `content` read for a character that has a live companion of each of `companions` (ADR-0079). */
+export function withCompanions(content: SlotContent, companions: readonly CompanionKind[]): SlotContent {
+  return companions.length === 0 ? content : { ...content, companions };
 }
 
 /** `content` over `picks` (the character's own unless given) with its attribute modifiers, which the engine sets facts from. */

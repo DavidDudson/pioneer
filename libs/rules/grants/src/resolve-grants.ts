@@ -1,11 +1,19 @@
 import { PredicateFacts, withKnown } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
-import type { AttributeModifiers, ContentId, ContentText, Level, OriginHop, RollOption } from '@pioneer/rules/sdk';
+import type {
+  AttributeModifiers,
+  CompanionKind,
+  ContentId,
+  ContentText,
+  Level,
+  OriginHop,
+  RollOption,
+} from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { attributeOptions, characterFacts, levelOptions } from './character-facts';
+import { characterFacts, inputOptions } from './character-facts';
 import type { CharacterFacts, FactState } from './character-facts';
 import type { AnsweredSlot, ChoicePicks, ChoiceSlot } from './choices';
 import type { ContentLookup, GrantError, GrantRoot } from './grant-entry';
@@ -27,6 +35,8 @@ export interface GrantInputs {
   readonly level: Level;
   /** The character's attribute modifiers, read as `attribute:str:mod:2`; none when the caller has no boosts to give. */
   readonly attributes?: AttributeModifiers | undefined;
+  /** The kinds of companion the character has live (ADR-0079). */
+  readonly companions?: readonly CompanionKind[] | undefined;
   /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
   readonly situation: readonly RollOption[];
   readonly picks: ChoicePicks;
@@ -198,6 +208,7 @@ class Fixpoint {
     const derived = characterFacts(walk, {
       level: this.#inputs.level,
       attributes: this.#inputs.attributes,
+      companions: this.#inputs.companions,
       facts,
       toggles: this.#inputs.toggles,
     });
@@ -206,7 +217,7 @@ class Fixpoint {
   }
 
   #initialOptions(): RollOption[] {
-    return [...levelOptions(this.#inputs.level), ...attributeOptions(this.#inputs.attributes)].toSorted(byCodeUnit);
+    return inputOptions(this.#inputs).toSorted(byCodeUnit);
   }
 
   #factsOf({ options, known }: FactState): PredicateFacts {

@@ -1,7 +1,16 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { Attribute, ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
-import type { AttributeModifiers, ConditionValue, ContentId, Level, RollOption, Slug, Trait } from '@pioneer/rules/sdk';
+import { Attribute, companionRollOption, ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
+import type {
+  AttributeModifiers,
+  CompanionKind,
+  ConditionValue,
+  ContentId,
+  Level,
+  RollOption,
+  Slug,
+  Trait,
+} from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
@@ -84,23 +93,39 @@ export interface FactSources {
   readonly level: Level;
   /** The character's attribute modifiers, an input; undefined for a set read without them. */
   readonly attributes?: AttributeModifiers | undefined;
+  /** The kinds of companion the character has live (ADR-0079). */
+  readonly companions?: readonly CompanionKind[] | undefined;
   /** The facts the walk was tested against, for `RollOption` predicates. */
   readonly facts: PredicateFacts;
   readonly toggles: ToggleStates;
 }
 
 /** `self:level:<level>`. A negative level (a creature's) cannot be written as a roll option, so it sets none. */
-export function levelOptions(level: Level): RollOption[] {
+function levelOptions(level: Level): RollOption[] {
   const option = optionOf(LEVEL_PREFIX, String(level));
 
   return option === undefined ? [] : [option];
+}
+
+/** `self:companion:<kind>` for each kind of companion the character has live. */
+function companionOptions(companions: readonly CompanionKind[] | undefined): RollOption[] {
+  return (companions ?? []).map((kind) => companionRollOption(kind));
+}
+
+/** The options the inputs alone set, before any rule does: level, attribute modifiers and live companions. */
+export function inputOptions(sources: Pick<FactSources, 'level' | 'attributes' | 'companions'>): RollOption[] {
+  return [
+    ...levelOptions(sources.level),
+    ...attributeOptions(sources.attributes),
+    ...companionOptions(sources.companions),
+  ];
 }
 
 /**
  * `attribute:<attribute>:mod:<n>` for each modifier. A negative one can't be written as a roll option, and no
  * prerequisite asks for one, so it sets none: a minimum then reads as not met.
  */
-export function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
+function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
   return ATTRIBUTES.flatMap((attribute) => {
     const modifier = attributes?.get(attribute);
 
@@ -169,7 +194,7 @@ class FactCollector {
   public constructor(sources: FactSources) {
     this.#sources = sources;
 
-    for (const option of [...levelOptions(sources.level), ...attributeOptions(sources.attributes)]) {
+    for (const option of inputOptions(sources)) {
       tally(this.#setBy, option, undefined);
     }
   }
@@ -280,6 +305,8 @@ class FactCollector {
  * A condition put on with a value (_frightened 2_), or a valued condition granted by another entry (at the grant's
  * value, else 1), also sets `self:condition:<slug>:<value>`. One that arrives twice keeps its highest value alone, as
  * comparisons hold if any value does.
+ *
+ * Each live companion's kind sets `self:companion:<kind>` (ADR-0079).
  *
  * Each of the character's traits sets `self:trait:<trait>`: its ancestry's, and those `ActorTraits` elements add, less
  * those they remove (ADR-0048).
