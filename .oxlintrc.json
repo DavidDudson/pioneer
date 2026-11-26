@@ -283,11 +283,14 @@
     "pioneer/no-styles-outside-frontier": "error",
 
     // ---- DDD boundaries ------------------------------------------------------
+    // Import cycles between files: the boundaries rule below catches them between projects.
+    "import/no-cycle": "error",
     "@nx/enforce-module-boundaries": [
       "error",
       {
         "enforceBuildableLibDependency": true,
         "banTransitiveDependencies": true,
+        "checkNestedExternalImports": true,
         "checkDynamicDependenciesExceptions": ["@pioneer/content/packs/*"],
         "allow": ["bun:test"],
         "depConstraints": [
@@ -305,9 +308,25 @@
             "sourceTag": "type:feature",
             "onlyDependOnLibsWithTags": ["type:domain", "type:catalog", "type:ui", "type:data-access", "type:feature"]
           },
-          { "sourceTag": "platform:web", "notDependOnLibsWithTags": ["platform:server"] },
-          { "sourceTag": "platform:server", "notDependOnLibsWithTags": ["platform:web"] },
-          { "sourceTag": "platform:any", "onlyDependOnLibsWithTags": ["platform:any"] },
+          // Each platform bans the packages of the others, so a lib cannot reach for a runtime it will not run on.
+          // `bun:test` stays allowed above. Nested imports count: a lib that re-exports a banned package is banned too.
+          {
+            "sourceTag": "platform:web",
+            "notDependOnLibsWithTags": ["platform:server"],
+            "bannedExternalImports": ["elysia", "drizzle-orm", "drizzle-orm/*", "postgres"]
+          },
+          {
+            "sourceTag": "platform:server",
+            "notDependOnLibsWithTags": ["platform:web"],
+            "bannedExternalImports": ["@angular/*"]
+          },
+          {
+            "sourceTag": "platform:any",
+            "onlyDependOnLibsWithTags": ["platform:any"],
+            "bannedExternalImports": ["@angular/*", "elysia", "drizzle-orm", "drizzle-orm/*", "postgres", "bun:*"]
+          },
+          // An app composes libraries; it is never a dependency of another app or library.
+          { "sourceTag": "type:app", "notDependOnLibsWithTags": ["type:app"] },
           { "sourceTag": "scope:rules", "onlyDependOnLibsWithTags": ["scope:rules", "scope:shared", "scope:content"] },
           { "sourceTag": "scope:content", "onlyDependOnLibsWithTags": ["scope:rules"] },
           {
@@ -341,6 +360,8 @@
             "onlyDependOnLibsWithTags": ["scope:browser", "scope:rules", "scope:shared"]
           },
           { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] },
+          { "sourceTag": "scope:legal", "onlyDependOnLibsWithTags": ["scope:legal", "scope:rules", "scope:shared"] },
+          { "sourceTag": "scope:edge", "onlyDependOnLibsWithTags": ["scope:edge", "scope:shared"] },
           // Shared libraries, frontier among them, know no Pioneer schemas or feature areas (ADR-0028).
           { "sourceTag": "scope:shared", "onlyDependOnLibsWithTags": ["scope:shared"] }
         ]
