@@ -11,6 +11,8 @@ const block = CompanionStatBlock.parse({
   extraSkill: 'survival',
   speed: 35,
   movement: { fly: 60 },
+  senses: ['low-light vision', 'scent (imprecise, 30 feet)'],
+  special: ['mount'],
   attacks: [{ slug: 'jaws', attribute: 'str', damage: { dice: 1, die: 'd8', damageType: 'piercing' } }],
 });
 
@@ -36,6 +38,13 @@ describe(companionFacts, () => {
 
   it('lists the movement a species has beyond walking', () => {
     expect(facts.find(({ key }) => key.endsWith('movement'))?.text).toBe('movement fly 60');
+  });
+
+  it('lists senses and special rules', () => {
+    expect(facts.find(({ key }) => key.endsWith('senses'))?.text).toBe(
+      'senses low-light vision, scent (imprecise, 30 feet)',
+    );
+    expect(facts.some(({ text }) => text === 'special mount')).toBe(true);
   });
 
   it('shows a strike per attack, with its damage type', () => {
