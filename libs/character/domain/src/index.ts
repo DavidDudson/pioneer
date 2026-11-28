@@ -424,9 +424,11 @@ export { type CoinChange, CoinChangeSchema, type LedgerEntry, LedgerNote, Ledger
 
 export { CoinGrantReason, SomeCoinsSchema } from './coin-grant';
 
-export { canHoldCoins, canTakeCoins } from './coin-gifts';
+export { canHoldCoins, canTakeCoins, isCoinPatch } from './coin-gifts';
 
-export type { CoinGrantPatch } from './coin-gifts';
+export type { CoinPatch } from './coin-gifts';
+
+export { canSimplify, simplifiedCoins } from './coin-simplify';
 
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 

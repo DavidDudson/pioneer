@@ -1,0 +1,19 @@
+<fr-stack gap="xs">
+  <fr-stack direction="horizontal" justify="end">
+    <fr-async-button
+      [action]="simplify"
+      [disabled]="!tradable()"
+      [describedBy]="tradable() ? undefined : nothingToTradeId"
+      [describeError]="describeError"
+      [pendingLabel]="'character.sheet.inventory.simplify.pending' | transloco"
+      [successLabel]="'character.sheet.inventory.simplify.done' | transloco"
+    >
+      {{ 'character.sheet.inventory.simplify.label' | transloco }}
+    </fr-async-button>
+  </fr-stack>
+  @if (!tradable()) {
+    <fr-text variant="caption" tone="muted" [id]="nothingToTradeId">{{
+      'character.sheet.inventory.simplify.nothing' | transloco
+    }}</fr-text>
+  }
+</fr-stack>

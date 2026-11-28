@@ -107,4 +107,16 @@ describe('CharacterService coin gifts and takes', () => {
     ).toStrictEqual([{ path: ['patch', 'coins'], message: { key: 'character.validation.cannotHoldCoins' } }]);
     expect(await service.get(amiri, character.id)).toStrictEqual(before);
   });
+
+  test('simplifies the purse as simplifyCoins, and refuses it when no coin can be traded up', async () => {
+    await edit({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ sp: 14, cp: 3 }) });
+    await edit({ field: CharacterPatchField.SimplifyCoins });
+
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 1, sp: 4, cp: 3 }));
+    expect(character.document.inventory.ledger.at(-1)).toMatchObject({ reason: LedgerReason.Simplify });
+    expect(repository.audits.map(({ command }) => command).at(-1)).toBe(CharacterCommand.SimplifyCoins);
+    expect(await refusal({ field: CharacterPatchField.SimplifyCoins })).toStrictEqual([
+      { path: ['patch', 'coins'], message: { key: 'character.validation.nothingToSimplify' } },
+    ]);
+  });
 });

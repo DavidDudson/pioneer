@@ -17,6 +17,7 @@ const REASONS: Readonly<Partial<Record<CharacterPatchField, LedgerReason>>> = {
   [CharacterPatchField.BuyKit]: LedgerReason.Purchase,
   [CharacterPatchField.SetCoins]: LedgerReason.Adjustment,
   [CharacterPatchField.EarnIncome]: LedgerReason.Income,
+  [CharacterPatchField.SimplifyCoins]: LedgerReason.Simplify,
 };
 
 /** The reason `patch` moves coins, for a patch that does. A gift or a take names its own reason. */
