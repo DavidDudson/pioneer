@@ -1,6 +1,6 @@
 @let result = outcome();
 @if (result.status === CheckStatus.Valid) {
-  <fr-message tone="success">{{ 'play.rules.valid' | transloco }}</fr-message>
+  <fr-alert tone="success">{{ 'play.rules.valid' | transloco }}</fr-alert>
   <fr-text element="pre">{{ result.parsed }}</fr-text>
 } @else if (result.status === CheckStatus.Invalid) {
   <fr-list gap="sm">

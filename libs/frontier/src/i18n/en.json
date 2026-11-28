@@ -1,5 +1,8 @@
 {
   "frontier": {
+    "alert": {
+      "dismiss": "Dismiss"
+    },
     "async": {
       "pending": "Working",
       "loading": "Loading",

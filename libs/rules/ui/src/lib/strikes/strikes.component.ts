@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, injectTranslate, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateTitle,
+  injectTranslate,
+  List,
+  ListItem,
+  LocaleFormat,
+  Skeleton,
+  Text,
+} from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
 import type { CriticalWeakness, StatisticResult, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
@@ -46,7 +55,7 @@ const LOADING_ROWS = 2;
  */
 @Component({
   selector: 'pio-strikes',
-  imports: [EmptyState, List, ListItem, Skeleton, StrikeRow, Text, TranslocoPipe],
+  imports: [EmptyState, EmptyStateTitle, List, ListItem, Skeleton, StrikeRow, Text, TranslocoPipe],
   templateUrl: './strikes.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

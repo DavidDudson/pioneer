@@ -25,7 +25,7 @@ describe('CharacterSheetPage build', () => {
     await vi.waitFor(() => {
       expect(identity.textContent).toContain('Not chosen');
     });
-    expect(identity.querySelectorAll('fr-message')).toHaveLength(0);
+    expect(identity.querySelectorAll('fr-alert')).toHaveLength(0);
   });
 
   it('shows a stored heritage its slot no longer offers by its value, not as not chosen', async () => {

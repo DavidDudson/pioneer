@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, Heading, List, ListItem, Skeleton } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, Heading, List, ListItem, Skeleton } from '@pioneer/frontier';
 
 import { RulesResult } from '../rules-result/rules-result.component';
 import { StatisticRow } from '../statistic-row/statistic-row.component';
@@ -13,7 +13,7 @@ import type { StatisticsCheck } from '../statistics-check';
  */
 @Component({
   selector: 'pio-statistics-result',
-  imports: [EmptyState, Heading, List, ListItem, RulesResult, Skeleton, StatisticRow, TranslocoPipe],
+  imports: [EmptyState, EmptyStateTitle, Heading, List, ListItem, RulesResult, Skeleton, StatisticRow, TranslocoPipe],
   templateUrl: './statistics-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

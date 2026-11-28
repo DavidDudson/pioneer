@@ -12,7 +12,11 @@
       </ng-template>
       <ng-template let-stash [frAsyncData]="store.stash">
         @if (stash.lines.length === 0) {
-          <fr-empty-state [icon]="emptyIcon" [title]="'campaign.partyStash.none' | transloco" />
+          <fr-empty-state
+            ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+              'campaign.partyStash.none' | transloco
+            }}</fr-empty-state-title></fr-empty-state
+          >
         }
         <fr-list gap="sm">
           @for (line of stash.lines; track line.id) {

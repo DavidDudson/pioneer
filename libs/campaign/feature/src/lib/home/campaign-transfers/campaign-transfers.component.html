@@ -13,10 +13,14 @@
         <fr-stack gap="md">
           @let waiting = incoming(transfers);
           @if (waiting > 0) {
-            <fr-message tone="info">{{ 'campaign.transfers.incoming' | transloco: { count: waiting } }}</fr-message>
+            <fr-alert tone="info">{{ 'campaign.transfers.incoming' | transloco: { count: waiting } }}</fr-alert>
           }
           @if (transfers.length === 0) {
-            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.transfers.none' | transloco" />
+            <fr-empty-state
+              ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+                'campaign.transfers.none' | transloco
+              }}</fr-empty-state-title></fr-empty-state
+            >
           }
           <fr-list gap="sm">
             @for (transfer of transfers; track transfer.id) {

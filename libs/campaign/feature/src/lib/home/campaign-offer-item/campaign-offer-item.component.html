@@ -2,7 +2,7 @@
   <fr-text frDisclosureSummary>{{ 'campaign.transfers.offer' | transloco }}</fr-text>
   <fr-stack gap="sm">
     @if (party.isError()) {
-      <fr-message>{{ 'campaign.transfers.partyLoadError' | transloco }}</fr-message>
+      <fr-alert>{{ 'campaign.transfers.partyLoadError' | transloco }}</fr-alert>
     }
     @if (!party.isPending() && !party.isError() && rows().length === 0 && query() === '') {
       <fr-text variant="caption" tone="subtle">{{ 'campaign.transfers.noRecipients' | transloco }}</fr-text>

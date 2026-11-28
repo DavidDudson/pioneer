@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncButton, Message, MessageTone, Stack, Surface, Text, ToggleButton } from '@pioneer/frontier';
+import { Alert, AlertTone, AsyncButton, Stack, Surface, Text, ToggleButton } from '@pioneer/frontier';
 
 /** A line of what a form was applied with: a message key and the parameters it reads. */
 export interface FormDetail {
@@ -36,7 +36,7 @@ const FormMessage = {
  */
 @Component({
   selector: 'pio-form-banner',
-  imports: [AsyncButton, Message, Stack, Surface, Text, ToggleButton, TranslocoPipe],
+  imports: [AsyncButton, Alert, Stack, Surface, Text, ToggleButton, TranslocoPipe],
   templateUrl: './form-banner.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -49,5 +49,5 @@ export class FormBanner {
   public readonly baseView = model(false);
 
   protected readonly Message = FormMessage;
-  protected readonly info = MessageTone.Info;
+  protected readonly info = AlertTone.Info;
 }

@@ -4,7 +4,7 @@
     <fr-surface>
       @if (parsed === undefined || joining.isError()) {
         <fr-stack gap="md">
-          <fr-message>{{ joining.errorMessage() ?? ('campaign.join.unknownInvite' | transloco) }}</fr-message>
+          <fr-alert>{{ joining.errorMessage() ?? ('campaign.join.unknownInvite' | transloco) }}</fr-alert>
           <fr-link exact [to]="['/campaigns']">{{ 'campaign.join.toCampaigns' | transloco }}</fr-link>
         </fr-stack>
       } @else {

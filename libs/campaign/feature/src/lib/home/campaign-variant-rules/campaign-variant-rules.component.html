@@ -16,7 +16,11 @@
         <fr-stack gap="md">
           @if (linesOf(rules); as lines) {
             @if (lines.length === 0) {
-              <fr-empty-state [icon]="emptyIcon" [title]="'campaign.variantRules.empty' | transloco" />
+              <fr-empty-state
+                ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+                  'campaign.variantRules.empty' | transloco
+                }}</fr-empty-state-title></fr-empty-state
+              >
             } @else {
               <fr-list gap="sm">
                 @for (line of lines; track line.rule.variantId) {

@@ -16,7 +16,11 @@
       <ng-template let-result [frAsyncData]="store.dependencies">
         <fr-stack gap="md">
           @if (result.dependencies.length === 0) {
-            <fr-empty-state [icon]="emptyIcon" [title]="'homebrew.dependencies.empty' | transloco" />
+            <fr-empty-state
+              ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+                'homebrew.dependencies.empty' | transloco
+              }}</fr-empty-state-title></fr-empty-state
+            >
           } @else {
             <fr-list gap="sm">
               @for (dependency of result.dependencies; track dependency.id) {

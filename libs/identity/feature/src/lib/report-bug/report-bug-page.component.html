@@ -34,13 +34,13 @@
           />
           <fr-stack direction="horizontal" justify="end" align="center" gap="sm">
             @if (sent()) {
-              <fr-message [tone]="successTone">
+              <fr-alert [tone]="successTone">
                 @if (sentWithoutCharacter()) {
                   {{ 'identity.reportBug.sentWithoutCharacter' | transloco }}
                 } @else {
                   {{ 'identity.reportBug.sent' | transloco }}
                 }
-              </fr-message>
+              </fr-alert>
             }
             <fr-async-button
               type="submit"

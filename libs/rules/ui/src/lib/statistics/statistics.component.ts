@@ -3,6 +3,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   Badge,
   EmptyState,
+  EmptyStateTitle,
   injectTranslate,
   List,
   ListItem,
@@ -115,6 +116,7 @@ const LOADING_ROWS = 5;
   imports: [
     Badge,
     EmptyState,
+    EmptyStateTitle,
     List,
     ListItem,
     Skeleton,

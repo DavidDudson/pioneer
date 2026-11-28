@@ -154,13 +154,13 @@ describe('InventorySection', () => {
     const section = await openInventoryUnder(variantRules);
 
     await vi.waitFor(() => {
-      expect(section.querySelector('fr-message')?.textContent).toContain('Automatic Bonus Progression is on');
+      expect(section.querySelector('fr-alert')?.textContent).toContain('Automatic Bonus Progression is on');
     });
   });
 
   it('shows no such note without the variant rule', async () => {
     const section = await openInventory();
 
-    expect(section.querySelector('fr-message')).toBeNull();
+    expect(section.querySelector('fr-alert')).toBeNull();
   });
 });

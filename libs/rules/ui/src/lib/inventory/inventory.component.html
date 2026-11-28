@@ -1,6 +1,8 @@
 @if (groups(); as groups) {
   @if (groups.length === 0) {
-    <fr-empty-state [title]="Message.None | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-stack gap="md">
       @for (group of groups; track group.placement) {

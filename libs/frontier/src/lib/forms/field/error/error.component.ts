@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
 
-import { Message } from '../../../feedback/message/message.component';
+import { Alert } from '../../../feedback/alert/alert.component';
 import { Field } from '../field.component';
 
 /** The field's problem, inline under the control; the control is described by it while present. */
 @Component({
   selector: 'fr-field-error',
-  imports: [Message],
+  imports: [Alert],
   templateUrl: './error.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },

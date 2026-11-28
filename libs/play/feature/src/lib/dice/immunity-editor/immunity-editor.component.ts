@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, model, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, EmptyState, Field, Heading, Label, Stack, Text } from '@pioneer/frontier';
+import { Button, EmptyState, EmptyStateTitle, Field, Heading, Label, Stack, Text } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { DAMAGE_TYPE_KEYS } from '@pioneer/play/ui';
@@ -12,7 +12,7 @@ import { shownTargets, targetLabel, targetValue } from '../damage-target-table';
 /** A target's immunities: each damage type it ignores, with a picker to add one and a button to remove each. */
 @Component({
   selector: 'pio-immunity-editor',
-  imports: [Button, EmptyState, Field, Heading, Label, Picker, Stack, Text, TranslocoPipe],
+  imports: [Button, EmptyState, EmptyStateTitle, Field, Heading, Label, Picker, Stack, Text, TranslocoPipe],
   templateUrl: './immunity-editor.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -2,7 +2,7 @@ import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { signal } from '@angular/core';
 
-import { Message } from '../../feedback/message/message.component';
+import { Alert } from '../../feedback/alert/alert.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { Stack } from '../../layout/stack/stack.component';
 import { Surface } from '../../layout/surface/surface.component';
@@ -65,7 +65,7 @@ const meta: Meta<AsyncRegion<Party>> = {
   component: AsyncRegion,
   decorators: [
     moduleMetadata({
-      imports: [AsyncData, AsyncError, AsyncPending, List, ListItem, Message, Skeleton, Stack, Surface, Text],
+      imports: [AsyncData, AsyncError, AsyncPending, List, ListItem, Alert, Skeleton, Stack, Surface, Text],
     }),
   ],
   render: (args) => ({
@@ -100,7 +100,7 @@ export const CustomErrorSlot: AsyncRegionStory = {
     template: `
       <fr-async-region>
         <ng-template frAsyncPending><fr-skeleton /></ng-template>
-        <ng-template frAsyncError><fr-message tone="warning">The party is resting. Check back soon.</fr-message></ng-template>
+        <ng-template frAsyncError><fr-alert tone="warning">The party is resting. Check back soon.</fr-alert></ng-template>
         <ng-template let-party [frAsyncData]="query">{{ party.length }}</ng-template>
       </fr-async-region>
     `,

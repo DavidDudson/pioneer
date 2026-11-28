@@ -12,12 +12,12 @@ import {
   SIGNED,
 } from '@pioneer/character/feature';
 import {
+  Alert,
   AsyncButton,
   DescriptionItem,
   DescriptionList,
   Heading,
   LocaleFormat,
-  Message,
   Page,
   PageBody,
   PageHeader,
@@ -80,7 +80,7 @@ interface ModifierView {
     FormField,
     Heading,
     ImportContentReport,
-    Message,
+    Alert,
     Page,
     PageBody,
     PageHeader,

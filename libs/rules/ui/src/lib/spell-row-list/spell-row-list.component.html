@@ -5,7 +5,9 @@
     <fr-skeleton width="md" />
   </fr-stack>
 } @else if (spells.length === 0) {
-  <fr-empty-state [title]="Message.Empty | transloco" />
+  <fr-empty-state
+    ><fr-empty-state-title>{{ Message.Empty | transloco }}</fr-empty-state-title></fr-empty-state
+  >
 } @else {
   @if (error(); as failure) {
     <fr-text element="p" variant="caption" tone="danger">{{ failure }}</fr-text>

@@ -15,7 +15,11 @@
       <ng-template let-packs [frAsyncData]="store.packs">
         <fr-stack gap="md">
           @if (packs.enabled.length === 0) {
-            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.packs.empty' | transloco" />
+            <fr-empty-state
+              ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+                'campaign.packs.empty' | transloco
+              }}</fr-empty-state-title></fr-empty-state
+            >
           } @else {
             <fr-list gap="sm">
               @for (pack of packs.enabled; track pack.packId) {

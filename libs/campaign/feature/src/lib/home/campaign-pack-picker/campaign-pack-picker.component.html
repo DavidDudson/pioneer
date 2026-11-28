@@ -1,7 +1,10 @@
 <fr-stack gap="sm">
   <fr-heading variant="label" [level]="3">{{ 'campaign.packs.enableHeading' | transloco }}</fr-heading>
   @if (candidates().length === 0) {
-    <fr-empty-state [icon]="emptyIcon" [title]="'campaign.packs.noneToEnable' | transloco">
+    <fr-empty-state
+      ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+        'campaign.packs.noneToEnable' | transloco
+      }}</fr-empty-state-title>
       <fr-link [to]="['/homebrew']">{{ 'campaign.packs.toHomebrew' | transloco }}</fr-link>
     </fr-empty-state>
   }

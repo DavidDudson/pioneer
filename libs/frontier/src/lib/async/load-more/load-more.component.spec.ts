@@ -152,7 +152,7 @@ describe(LoadMore, () => {
     await settle();
     query.fail(new Error('500'));
     await settle();
-    expect(host.querySelector('fr-message')?.textContent.trim()).toBe('Could not load more. Try again.');
+    expect(host.querySelector('fr-alert')?.textContent.trim()).toBe('Could not load more. Try again.');
     expect(host.querySelector('fr-skeleton')).toBeNull();
     expect(names(host)).toStrictEqual([...FIRST]);
     expect(document.activeElement).toBe(button(host));
@@ -168,7 +168,7 @@ describe(LoadMore, () => {
     await settle();
     query.land(SECOND);
     await settle();
-    expect(host.querySelector('fr-message')).toBeNull();
+    expect(host.querySelector('fr-alert')).toBeNull();
     expect(names(host)).toStrictEqual([...FIRST, ...SECOND]);
   });
 
@@ -178,6 +178,6 @@ describe(LoadMore, () => {
     await settle();
     query.fail(new Error('500'));
     await settle();
-    expect(host.querySelector('fr-message')?.textContent.trim()).toBe('Could not load more spells.');
+    expect(host.querySelector('fr-alert')?.textContent.trim()).toBe('Could not load more spells.');
   });
 });

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { EmptyState, List, ListItem, Skeleton } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, List, ListItem, Skeleton } from '@pioneer/frontier';
 
 import { ActionRow } from './action-row.component';
 import type { ShownAction } from './action-row.component';
@@ -13,7 +13,7 @@ const LOADING_ROWS = 3;
  */
 @Component({
   selector: 'pio-action-list',
-  imports: [ActionRow, EmptyState, List, ListItem, Skeleton],
+  imports: [ActionRow, EmptyState, EmptyStateTitle, List, ListItem, Skeleton],
   templateUrl: './action-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -105,6 +105,36 @@ const EXEMPTIONS = {
     spec: 'list/list-item/list-item.component.spec.ts',
     story: 'list/list-item/list-item.stories.ts',
   },
+  'feedback/alert/alert-title.component.ts': {
+    reason: 'The heading line of fr-alert; only meaningful inside it.',
+    spec: 'feedback/alert/alert.component.spec.ts',
+    story: 'feedback/alert/alert.stories.ts',
+  },
+  'feedback/alert/alert-description.component.ts': {
+    reason: 'The detail line of fr-alert; only meaningful inside it.',
+    spec: 'feedback/alert/alert.component.spec.ts',
+    story: 'feedback/alert/alert.stories.ts',
+  },
+  'feedback/empty-state/empty-state-media.component.ts': {
+    reason: 'The leading part of fr-empty-state; only meaningful inside it.',
+    spec: 'feedback/empty-state/empty-state.component.spec.ts',
+    story: 'feedback/empty-state/empty-state.stories.ts',
+  },
+  'feedback/empty-state/empty-state-header.component.ts': {
+    reason: 'Groups the title and description of fr-empty-state; only meaningful inside it.',
+    spec: 'feedback/empty-state/empty-state.component.spec.ts',
+    story: 'feedback/empty-state/empty-state.stories.ts',
+  },
+  'feedback/empty-state/empty-state-title.component.ts': {
+    reason: 'The title of fr-empty-state; only meaningful inside it.',
+    spec: 'feedback/empty-state/empty-state.component.spec.ts',
+    story: 'feedback/empty-state/empty-state.stories.ts',
+  },
+  'feedback/empty-state/empty-state-description.component.ts': {
+    reason: 'The description of fr-empty-state; only meaningful inside it.',
+    spec: 'feedback/empty-state/empty-state.component.spec.ts',
+    story: 'feedback/empty-state/empty-state.stories.ts',
+  },
   'text/text/phrase.component.ts': {
     reason: 'Internal to fr-text, reached through its element input.',
     spec: 'text/text/text.component.spec.ts',

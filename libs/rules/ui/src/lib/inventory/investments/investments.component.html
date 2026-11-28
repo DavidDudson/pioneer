@@ -3,7 +3,9 @@
     <fr-meter [label]="Message.Meter | transloco" [value]="shown.length" [max]="maximum()" />
     <fr-text variant="caption" tone="subtle">{{ count() }}</fr-text>
     @if (shown.length === 0) {
-      <fr-empty-state [title]="Message.None | transloco" />
+      <fr-empty-state
+        ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+      >
     } @else {
       <fr-list gap="sm">
         @for (investment of shown; track investment.id) {

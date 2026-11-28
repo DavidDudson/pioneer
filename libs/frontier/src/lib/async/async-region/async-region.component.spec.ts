@@ -49,7 +49,7 @@ function names(region: HTMLElement): Array<string> {
 }
 
 function message(region: HTMLElement): HTMLElement | null {
-  return region.querySelector('fr-message');
+  return region.querySelector('fr-alert');
 }
 
 describe(AsyncRegion, () => {

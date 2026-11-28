@@ -12,7 +12,7 @@
         </fr-async-button>
       </fr-stack>
       @if (baseView()) {
-        <fr-message [tone]="info">{{ Message.Reference | transloco }}</fr-message>
+        <fr-alert [tone]="info">{{ Message.Reference | transloco }}</fr-alert>
       }
     </fr-stack>
   </fr-surface>

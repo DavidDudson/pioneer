@@ -10,7 +10,7 @@ import {
   signal,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncIndicator, Button, injectAsyncAction, Message, Stack, Text } from '@pioneer/frontier';
+import { Alert, AsyncIndicator, Button, injectAsyncAction, Stack, Text } from '@pioneer/frontier';
 
 import { LanguagePicker } from '../slot-picker/language-picker.component';
 import type { LanguagePickerRow } from '../slot-picker/slot-picker-row';
@@ -31,7 +31,7 @@ export type AddLanguage = (language: string) => Promise<void>;
  */
 @Component({
   selector: 'pio-language-add',
-  imports: [AsyncIndicator, Button, LanguagePicker, Message, Stack, Text, TranslocoPipe],
+  imports: [AsyncIndicator, Button, LanguagePicker, Alert, Stack, Text, TranslocoPipe],
   templateUrl: './language-add.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

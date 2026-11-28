@@ -2,7 +2,15 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { activeOverrides, OverrideMode } from '@pioneer/character/domain';
 import type { Override, OverrideRevision } from '@pioneer/character/domain';
-import { EmptyState, List, ListItem, LocaleFormat } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateHeader,
+  EmptyStateTitle,
+  List,
+  ListItem,
+  LocaleFormat,
+} from '@pioneer/frontier';
 import type { Selector } from '@pioneer/rules/sdk';
 import { ModifierType } from '@pioneer/rules/sdk';
 import { MODIFIER_TYPE_MESSAGES } from '@pioneer/rules/ui';
@@ -28,7 +36,16 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-overrides',
-  imports: [EmptyState, List, ListItem, SheetOverrideRow, TranslocoPipe],
+  imports: [
+    EmptyState,
+    EmptyStateHeader,
+    EmptyStateTitle,
+    EmptyStateDescription,
+    List,
+    ListItem,
+    SheetOverrideRow,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-overrides.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

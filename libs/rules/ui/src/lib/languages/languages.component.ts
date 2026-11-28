@@ -1,6 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  EmptyState,
+  EmptyStateTitle,
+  Icon,
+  List,
+  ListItem,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { X } from 'lucide';
@@ -40,7 +50,7 @@ function rowOf({ key, name, from, slot }: LanguageLine, remove: RemoveLanguage):
  */
 @Component({
   selector: 'pio-languages',
-  imports: [AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, EmptyState, EmptyStateTitle, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './languages.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

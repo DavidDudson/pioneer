@@ -1,6 +1,13 @@
 <fr-stack gap="lg">
   @if (rows().length === 0) {
-    <fr-empty-state [title]="Message.Empty | transloco" [description]="Message.EmptyHint | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-header
+        ><fr-empty-state-title>{{ Message.Empty | transloco }}</fr-empty-state-title
+        ><fr-empty-state-description>{{
+          Message.EmptyHint | transloco
+        }}</fr-empty-state-description></fr-empty-state-header
+      ></fr-empty-state
+    >
   } @else {
     <fr-list gap="md">
       @for (row of rows(); track row.effect.id) {

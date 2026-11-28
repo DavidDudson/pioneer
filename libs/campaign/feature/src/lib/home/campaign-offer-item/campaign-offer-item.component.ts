@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CampaignContract, CampaignId, CharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
 import type { CampaignParty, PartyCharacter } from '@pioneer/campaign/domain';
-import { AsyncButton, Disclosure, Message, Stack, Text } from '@pioneer/frontier';
+import { Alert, AsyncButton, Disclosure, Stack, Text } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { ApiClient } from '@pioneer/shared/web';
@@ -21,7 +21,7 @@ import { otherRecipients, recipientColumns, recipientLabel, recipientValue } fro
  */
 @Component({
   selector: 'pio-campaign-offer-item',
-  imports: [AsyncButton, Disclosure, Message, Picker, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, Disclosure, Alert, Picker, Stack, Text, TranslocoPipe],
   templateUrl: './campaign-offer-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

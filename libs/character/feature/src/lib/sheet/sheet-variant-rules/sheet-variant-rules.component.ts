@@ -1,7 +1,18 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { CharacterVariantRules, VariantRuleOption } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, EmptyState, List, Message, Skeleton, Stack } from '@pioneer/frontier';
+import {
+  Alert,
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  EmptyState,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  List,
+  Skeleton,
+  Stack,
+} from '@pioneer/frontier';
 import { Dices } from 'lucide';
 
 import { CharacterVariantStore } from '../../data/character-variant-store';
@@ -39,8 +50,10 @@ function variantRuleLines(rules: CharacterVariantRules): ReadonlyArray<VariantRu
     AsyncPending,
     AsyncRegion,
     EmptyState,
+    EmptyStateMedia,
+    EmptyStateTitle,
     List,
-    Message,
+    Alert,
     SheetVariantRuleRow,
     Skeleton,
     Stack,

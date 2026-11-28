@@ -1,6 +1,8 @@
 @if (lines(); as choices) {
   @if (choices.length === 0) {
-    <fr-empty-state [title]="Message.None | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-list gap="xs">
       @for (choice of choices; track choice.key) {

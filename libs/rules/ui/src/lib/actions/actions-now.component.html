@@ -6,7 +6,9 @@
         <pio-action-list [rows]="group.rows" [empty]="Message.EmptyNow | transloco" />
       </fr-stack>
     } @empty {
-      <fr-empty-state [title]="Message.EmptyNow | transloco" />
+      <fr-empty-state
+        ><fr-empty-state-title>{{ Message.EmptyNow | transloco }}</fr-empty-state-title></fr-empty-state
+      >
     }
   </fr-stack>
 } @else {

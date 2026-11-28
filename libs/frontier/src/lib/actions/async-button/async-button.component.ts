@@ -12,7 +12,7 @@ import { TranslocoService } from '@jsverse/transloco';
 
 import { injectAsyncAction } from '../../async/async-action';
 import { AsyncIndicator } from '../../async/async-indicator/async-indicator.component';
-import { Message } from '../../feedback/message/message.component';
+import { Alert } from '../../feedback/alert/alert.component';
 import { AsyncForm } from '../../forms/async-form/async-form.component';
 import { uniqueId } from '../../ids';
 import { Stack } from '../../layout/stack/stack.component';
@@ -40,7 +40,7 @@ import { Button, ButtonType, ButtonVariant } from '../button/button.component';
  */
 @Component({
   selector: 'fr-async-button',
-  imports: [AsyncIndicator, Button, Message, Stack],
+  imports: [AsyncIndicator, Button, Alert, Stack],
   templateUrl: './async-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '(focusout)': 'standDown()', '(keydown.escape)': 'standDown()' },

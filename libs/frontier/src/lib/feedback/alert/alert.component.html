@@ -1,0 +1,17 @@
+<div [class]="classes()">
+  @if (icon(); as icon) {
+    <span [class]="iconClasses"><fr-icon size="md" [icon]="icon" /></span>
+  }
+  <div [class]="bodyClasses" [attr.role]="role()" [attr.id]="id() ?? null"><ng-content /></div>
+  @if (dismissible()) {
+    <fr-button
+      iconOnly
+      size="xs"
+      [variant]="ButtonVariant.Ghost"
+      [ariaLabel]="'frontier.alert.dismiss' | transloco"
+      (pressed)="dismiss()"
+    >
+      <fr-icon [icon]="closeIcon" />
+    </fr-button>
+  }
+</div>

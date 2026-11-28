@@ -23,6 +23,6 @@
     }
   </fr-button>
   @if (state().errorMessage(); as message) {
-    <fr-message [id]="errorId">{{ message }}</fr-message>
+    <fr-alert [id]="errorId">{{ message }}</fr-alert>
   }
 </fr-stack>

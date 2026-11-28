@@ -1,6 +1,15 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { DescriptionItem, DescriptionList, EmptyState, HeadingLevel, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  DescriptionItem,
+  DescriptionList,
+  EmptyState,
+  EmptyStateTitle,
+  HeadingLevel,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { RichTextView } from '../rich-text/rich-text.component';
@@ -68,7 +77,17 @@ function termsOf(deity: DeityLine): ReadonlyArray<DeityTerm> {
  */
 @Component({
   selector: 'pio-deity',
-  imports: [DescriptionItem, DescriptionList, EmptyState, RichTextView, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    DescriptionItem,
+    DescriptionList,
+    EmptyState,
+    EmptyStateTitle,
+    RichTextView,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './deity.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

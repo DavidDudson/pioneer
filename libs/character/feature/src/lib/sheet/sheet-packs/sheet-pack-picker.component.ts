@@ -3,7 +3,16 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EnablePackBody } from '@pioneer/character/domain';
 import type { PackCandidate } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncForm,
+  EmptyState,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  Heading,
+  Link,
+  Stack,
+} from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import type { ContentPackId } from '@pioneer/rules/sdk';
@@ -20,7 +29,19 @@ interface EnableModel {
 /** The packs the owner may read that the character does not use, to enable one, with the packs it extends. */
 @Component({
   selector: 'pio-sheet-pack-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncForm,
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateTitle,
+    FormField,
+    Heading,
+    Link,
+    PickerField,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-pack-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -3,7 +3,9 @@
     @for (row of shown; track row.line.id) {
       <fr-list-item><pio-action-row [action]="row" [showStatus]="showStatus()" /></fr-list-item>
     } @empty {
-      <fr-empty-state [title]="empty()" />
+      <fr-empty-state
+        ><fr-empty-state-title>{{ empty() }}</fr-empty-state-title></fr-empty-state
+      >
     }
   </fr-list>
 } @else {

@@ -2,7 +2,16 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { OverrideMode } from '@pioneer/character/domain';
 import type { CustomEffectLine } from '@pioneer/character/domain';
-import { EmptyState, List, ListItem, LocaleFormat, Stack } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateHeader,
+  EmptyStateTitle,
+  List,
+  ListItem,
+  LocaleFormat,
+  Stack,
+} from '@pioneer/frontier';
 import type { Selector } from '@pioneer/rules/sdk';
 import { ModifierType } from '@pioneer/rules/sdk';
 import { MODIFIER_TYPE_MESSAGES } from '@pioneer/rules/ui';
@@ -29,7 +38,18 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-custom-effects',
-  imports: [EmptyState, List, ListItem, SheetCustomEffectForm, SheetCustomEffectRow, Stack, TranslocoPipe],
+  imports: [
+    EmptyState,
+    EmptyStateHeader,
+    EmptyStateTitle,
+    EmptyStateDescription,
+    List,
+    ListItem,
+    SheetCustomEffectForm,
+    SheetCustomEffectRow,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-custom-effects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

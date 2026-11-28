@@ -5,6 +5,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
 import { CharacterStore } from '@pioneer/character/feature';
 import {
+  Alert,
   AsyncButton,
   Button,
   DescriptionItem,
@@ -14,7 +15,6 @@ import {
   Heading,
   List,
   ListItem,
-  Message,
   Page,
   PageBody,
   PageHeader,
@@ -77,7 +77,7 @@ function parsed(text: string): ParsedFile | undefined {
     Heading,
     List,
     ListItem,
-    Message,
+    Alert,
     Page,
     PageBody,
     PageHeader,

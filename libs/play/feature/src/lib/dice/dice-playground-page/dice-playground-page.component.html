@@ -64,10 +64,13 @@
           <pio-roll-card [roll]="entry" />
         } @empty {
           <fr-empty-state
-            [icon]="emptyIcon"
-            [title]="'play.dice.empty' | transloco"
-            [description]="'play.dice.emptyHint' | transloco"
-          />
+            ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-header
+              ><fr-empty-state-title>{{ 'play.dice.empty' | transloco }}</fr-empty-state-title
+              ><fr-empty-state-description>{{
+                'play.dice.emptyHint' | transloco
+              }}</fr-empty-state-description></fr-empty-state-header
+            ></fr-empty-state
+          >
         }
       </fr-stack>
     </fr-stack>

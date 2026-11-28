@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, Heading, Stack } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, Heading, Stack } from '@pioneer/frontier';
 import type { ActionMode, ContentId } from '@pioneer/rules/sdk';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -24,7 +24,7 @@ interface ShownGroup {
  */
 @Component({
   selector: 'pio-actions-now',
-  imports: [ActionList, EmptyState, Heading, Stack, TranslocoPipe],
+  imports: [ActionList, EmptyState, EmptyStateTitle, Heading, Stack, TranslocoPipe],
   templateUrl: './actions-now.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

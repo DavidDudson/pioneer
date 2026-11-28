@@ -6,7 +6,7 @@
       }}</fr-heading>
       <fr-text tone="muted">{{ 'character.import.pioneer.homebrew.summary' | transloco }}</fr-text>
       @if (clashes() > 0) {
-        <fr-message>{{ 'character.import.pioneer.homebrew.clashes' | transloco: { count: clashes() } }}</fr-message>
+        <fr-alert>{{ 'character.import.pioneer.homebrew.clashes' | transloco: { count: clashes() } }}</fr-alert>
       }
       @for (pack of views(); track pack.pack) {
         <fr-disclosure>

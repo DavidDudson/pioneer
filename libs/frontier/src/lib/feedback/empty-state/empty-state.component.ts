@@ -1,41 +1,33 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
-import type { IconGlyph } from '../../icon/icon-glyph';
-import { Icon } from '../../icon/icon.component';
 import { Stack } from '../../layout/stack/stack.component';
-import { Text } from '../../text/text/text.component';
-
-/** One title line tall, so the icon centres on the title's first line. */
-const iconVariants = cva('flex h-lh items-center');
 
 /** The action row collapses when nothing is projected, so it adds no gap. */
 const actionVariants = cva('flex flex-wrap items-center gap-sm pt-xs empty:hidden');
 
 /**
- * What a list or search shows when it has nothing: an optional icon, a title,
- * an optional description and an optional action (projected). The title is
- * text, not a heading, so empty regions stay out of the document outline.
+ * What a list or search shows when it has nothing, from parts: media, then a header (or a bare title and
+ * description), then the projected action. The title is text, not a heading, so empty regions stay out of the
+ * document outline.
  *
  * ```html
- * <fr-empty-state [icon]="Dices" [title]="'play.dice.empty' | transloco">
+ * <fr-empty-state>
+ *   <fr-empty-state-media [icon]="Dices" />
+ *   <fr-empty-state-header>
+ *     <fr-empty-state-title>{{ 'play.dice.empty' | transloco }}</fr-empty-state-title>
+ *   </fr-empty-state-header>
  *   <fr-button (pressed)="roll()">{{ 'play.dice.roll' | transloco }}</fr-button>
  * </fr-empty-state>
  * ```
  */
 @Component({
   selector: 'fr-empty-state',
-  imports: [Icon, Stack, Text],
+  imports: [Stack],
   templateUrl: './empty-state.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
 })
 export class EmptyState {
-  /** Decorative; the title carries the meaning. */
-  public readonly icon = input<IconGlyph | undefined>(undefined);
-  public readonly title = input.required<string>();
-  public readonly description = input<string | undefined>(undefined);
-
-  protected readonly iconClasses = iconVariants();
   protected readonly actionClasses = actionVariants();
 }

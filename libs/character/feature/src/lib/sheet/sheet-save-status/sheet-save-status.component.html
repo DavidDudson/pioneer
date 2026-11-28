@@ -4,12 +4,12 @@
   }
   @case (State.Failed) {
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-      <fr-message>{{ 'character.sheet.saveState.failed' | transloco }}</fr-message>
+      <fr-alert>{{ 'character.sheet.saveState.failed' | transloco }}</fr-alert>
       <fr-async-button size="sm" [action]="retry">{{ 'character.sheet.saveState.retry' | transloco }}</fr-async-button>
     </fr-stack>
   }
   @case (State.Conflict) {
-    <fr-message tone="warning">{{ 'character.sheet.conflict' | transloco }}</fr-message>
+    <fr-alert tone="warning">{{ 'character.sheet.conflict' | transloco }}</fr-alert>
   }
   @default {
     <fr-text variant="caption" tone="muted">{{ 'character.sheet.saveState.saved' | transloco }}</fr-text>
