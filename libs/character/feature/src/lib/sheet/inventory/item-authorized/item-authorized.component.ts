@@ -80,7 +80,11 @@ export class ItemAuthorized {
 
     return item === undefined || wielder === undefined
       ? undefined
-      : unauthorizedWielder(item, this.content().items.get(item.item), { runes: this.content().runes, wielder });
+      : unauthorizedWielder(item, this.content().items.get(item.item), {
+          runes: this.content().runes,
+          rules: this.content().rules?.(),
+          wielder,
+        });
   });
 
   protected readonly owner = sheetField<string>(this.#holder, {

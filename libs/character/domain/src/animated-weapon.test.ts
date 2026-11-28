@@ -1,7 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
+import type { ModifierInputs } from '@pioneer/rules/engine';
+import { inPlay } from '@pioneer/rules/engine/testing';
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import { FundamentalRune, Modifier, RuneType } from '@pioneer/rules/sdk';
-import { installRulesFakes } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { hasAnimatedRune, releasedAttack } from './animated-weapon';
 import { addItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } from './inventory';
@@ -53,16 +56,36 @@ describe('animated weapons', () => {
   });
 
   test('a set-free weapon attacks at 24 plus its item bonus', () => {
-    expect(releasedAttack(sword({ potency: 1, animated: true, released: true }), base, runes)).toBe(Modifier.parse(25));
-    expect(releasedAttack(sword({ potency: 2, animated: true, released: true }), base, runes)).toBe(Modifier.parse(26));
+    expect(releasedAttack(sword({ potency: 1, animated: true, released: true }), base, { runes })).toBe(
+      Modifier.parse(25),
+    );
+    expect(releasedAttack(sword({ potency: 2, animated: true, released: true }), base, { runes })).toBe(
+      Modifier.parse(26),
+    );
   });
 
   test('a weapon not set free, or with no animated rune, makes no attacks of its own', () => {
-    expect(releasedAttack(sword({ potency: 1, animated: true, released: false }), base, runes)).toBeUndefined();
-    expect(releasedAttack(sword({ potency: 1, animated: false, released: true }), base, runes)).toBeUndefined();
+    expect(releasedAttack(sword({ potency: 1, animated: true, released: false }), base, { runes })).toBeUndefined();
+    expect(releasedAttack(sword({ potency: 1, animated: false, released: true }), base, { runes })).toBeUndefined();
   });
 
   test('recalling the weapon leaves its line with no state at all', () => {
     expect(sword({ potency: 1, animated: true, released: false }).state).toBeUndefined();
+  });
+
+  test('reads the potency grade the alterations in play give, not the rune', () => {
+    const rules: ModifierInputs = {
+      rules: [
+        inPlay(
+          { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'potency', mode: 'override', value: 0 },
+          'potency',
+        ),
+      ],
+      facts: new PredicateFacts([], CORE_NAMESPACES),
+    };
+
+    expect(releasedAttack(sword({ potency: 2, animated: true, released: true }), base, { runes, rules })).toBe(
+      Modifier.parse(24),
+    );
   });
 });

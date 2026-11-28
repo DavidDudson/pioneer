@@ -553,6 +553,7 @@ export {
   characterStatistics,
   characterStrikeRules,
   characterVitals,
+  equippedRulesWithVariants,
   MAX_HP_SELECTOR,
   maxHitPoints,
   type RollRequest,

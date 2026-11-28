@@ -1,5 +1,5 @@
 import { potencyAfter } from '@pioneer/rules/engine';
-import type { PotencyChange } from '@pioneer/rules/engine';
+import type { ModifierInputs, PotencyChange } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import type { ContentLookup } from '@pioneer/rules/grants';
 import {
@@ -54,6 +54,8 @@ export interface RunedContent {
   readonly runes: RuneContent;
   /** The limits the table holds items to; the core rules' when absent. */
   readonly limits?: RuleLimits | undefined;
+  /** The rules in play, whose alterations change the weapons' grades (Automatic Bonus Progression); none when absent. */
+  readonly rules?: (() => ModifierInputs) | undefined;
 }
 
 /** What an item's content is, as runes read it: a weapon, armour or a shield; undefined for anything else. */

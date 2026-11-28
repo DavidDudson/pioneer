@@ -14,7 +14,7 @@ import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-stor
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetSectionPreviews } from '../../sheet-section-previews';
-import { sheetHasAutomaticBonusProgression, sheetSlotContent } from '../../sheet-slot-content';
+import { sheetEquippedRules, sheetHasAutomaticBonusProgression, sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsSection } from '../coins-section/coins-section.component';
 import { CustomItems } from '../custom-items/custom-items.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
@@ -101,7 +101,15 @@ export class InventorySection {
     const registry = this.items.data();
     const items = this.content();
 
-    return registry === undefined || items === undefined ? undefined : { items, runes: runeContent(registry) };
+    if (registry === undefined || items === undefined) {
+      return undefined;
+    }
+
+    return {
+      items,
+      runes: runeContent(registry),
+      rules: sheetEquippedRules(registry, items, () => this.#store.selected()),
+    };
   });
   protected readonly bulk: Signal<CarriedBulk | undefined> = computed(() => {
     const content = this.content();

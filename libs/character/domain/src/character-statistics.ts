@@ -36,6 +36,7 @@ import { grantedStrikes } from './granted-strikes';
 import { contentRolledAs } from './initiative-roll';
 import type { RollAs } from './initiative-roll';
 import { itemContent } from './inventory-content';
+import type { ItemContent } from './inventory-content';
 import type { SlotContent } from './slot-offer';
 import { characterSpellcasting } from './spellcasting-build';
 
@@ -74,6 +75,15 @@ function withVariants(equipped: EquippedRules, variants: ReadonlyArray<VariantRu
     : { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
 }
 
+/** The rules the character's gear puts in play with those of the `variants` in force ahead of them, as its Strikes read them. */
+export function equippedRulesWithVariants(
+  document: CharacterDocument,
+  items: ItemContent,
+  { slots, variants = [] }: StatisticInputContent,
+): EquippedRules {
+  return withVariants(equippedRules(document, items, slots), variants);
+}
+
 /** The content `characterStatisticInputs` reads a character against: its slots, and the variant rules in force. */
 export interface StatisticInputContent {
   readonly slots: SlotContent;
@@ -95,13 +105,12 @@ export function characterStatisticInputs(
   const favored = favoredWeapons(grants);
   const items = itemContent(registry);
 
-  const equipped = equippedInputs(shiftedDocument(document, items, slots).inventory, items, {
-    favored,
-    rules: () => withVariants(equippedRules(document, items, slots), variants),
-  });
+  const read: Array<EquippedRules> = [];
+  const rules = (): EquippedRules => (read[0] ??= equippedRulesWithVariants(document, items, { slots, variants }));
 
+  const equipped = equippedInputs(shiftedDocument(document, items, slots).inventory, items, { favored, rules });
   const held = new Set(equipped.weapons.map(({ slug }) => slug));
-  const granted = grantedStrikes(grants, favored).filter(({ slug }) => !held.has(slug));
+  const granted = grantedStrikes(grants, favored, rules).filter(({ slug }) => !held.has(slug));
 
   return {
     level: document.level,

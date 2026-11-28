@@ -887,8 +887,10 @@ found:
 - `potency`, `striking` and `resilient` are the grades of the item's fundamental runes, which the Strike's potency and
   damage dice and the armour's AC bonus and save bonus read after the alterations. Automatic Bonus Progression
   overrides them (to 0, then to the devastating attack dice of the character's level for `striking`).
-  Overrides apply in array order and the last one that holds wins. Only inventory weapons and armour are altered: a
-  granted or unarmed Strike gets the potency bonus but not the devastating attack dice yet.
+  Overrides apply in array order and the last one that holds wins. Inventory weapons and armour are altered, and so are
+  the Strikes the character's grants give (a fist): `grantedStrikes` runs each through the same alterations, so an
+  unarmed Strike gets the devastating attack dice. An authorized rune's needles and a released animated weapon's attack
+  read the altered grades too (`weaponGrades`), never the raw runes.
 - An `etched` element reaches only the inventory item the rune it comes from is etched onto. `potency` is the grade the
   item's runes give, which a mythic potency rune upgrades to 4 (ADR-0078).
 - `traits`, `materials` and `property-runes` add or remove one value; `damage-type` overrides the weapon's.

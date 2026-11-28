@@ -1,10 +1,13 @@
-import type { WeaponInputs } from '@pioneer/rules/engine';
+import { alterItem, NO_MODIFIERS } from '@pioneer/rules/engine';
+import type { ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import type { GrantResolution } from '@pioneer/rules/grants';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import {
   BaseWeapon,
   DamageType,
   DieSize,
+  NumericItemProperty,
+  RollOptionTail,
   RuleElementKey,
   Slug,
   Trait,
@@ -12,6 +15,8 @@ import {
   WeaponDamage,
 } from '@pioneer/rules/sdk';
 import type { Origin, StrikeElement } from '@pioneer/rules/sdk';
+
+import { gradeOf } from './item-alteration-inputs';
 
 /** A fist's base, which a deity may favour (Irori's). */
 const FIST = BaseWeapon.parse('fist');
@@ -48,14 +53,47 @@ function ownStrike({ element, origin }: GivenStrike): WeaponInputs | undefined {
     : { slug, category, traits, range, damage, label: display?.label, origin };
 }
 
+/** The roll options of a granted Strike, as a held weapon's are, so an alteration of weapons reaches it. */
+function strikeRollOptions({ category, range, traits }: WeaponInputs): ReadonlyArray<RollOptionTail> {
+  return [
+    'type:weapon',
+    `category:${category}`,
+    range === undefined ? 'melee' : 'ranged',
+    ...(category === WeaponCategory.Unarmed ? ['unarmed'] : []),
+    ...traits.map((trait) => `trait:${trait}`),
+    'equipped',
+  ].map((option) => RollOptionTail.parse(option));
+}
+
+/** `strike` with the potency and striking grades the `ItemAlteration` elements in play give it (Automatic Bonus Progression). */
+function altered(strike: WeaponInputs, rules: ModifierInputs): WeaponInputs {
+  const item = alterItem(rules, {
+    rollOptions: strikeRollOptions(strike),
+    numbers: new Map(),
+    traits: strike.traits,
+    damageType: undefined,
+    materials: [],
+    propertyRunes: [],
+  });
+
+  return {
+    ...strike,
+    potency: gradeOf(item, NumericItemProperty.Potency),
+    striking: gradeOf(item, NumericItemProperty.Striking),
+  };
+}
+
 /**
  * The Strikes the character's grants give (ADR-0048): a fist for each `Strike` element in its fist form whose predicate
  * holds, once however many give one, with the origin of the first the grants list, and an attack of its own for each
- * element that defines one, the first of a slug winning. A favoured weapon when the deity favours the fist.
+ * element that defines one, the first of a slug winning. A favoured weapon when the deity favours the fist. Each goes
+ * through the `ItemAlteration` elements of `rules`, so Automatic Bonus Progression gives a fist the devastating attack
+ * dice of the character's level.
  */
 export function grantedStrikes(
   { items, facts }: GrantResolution,
   favored: ReadonlySet<BaseWeapon>,
+  rules: () => ModifierInputs = () => NO_MODIFIERS,
 ): ReadonlyArray<WeaponInputs> {
   const given = items.flatMap(({ entry, origin }): Array<GivenStrike> =>
     entry.rules.flatMap((element) =>
@@ -70,10 +108,18 @@ export function grantedStrikes(
   const own = given.flatMap((strike) => ownStrike(strike) ?? []);
   const taken = new Set<Slug>();
 
-  return [...(fist === undefined ? [] : [fistStrike(fist.origin, favored)]), ...own].filter(({ slug }) => {
+  const strikes = [...(fist === undefined ? [] : [fistStrike(fist.origin, favored)]), ...own].filter(({ slug }) => {
     const fresh = !taken.has(slug);
     taken.add(slug);
 
     return fresh;
   });
+
+  if (strikes.length === 0) {
+    return strikes;
+  }
+
+  const inPlay = rules();
+
+  return strikes.map((strike) => altered(strike, inPlay));
 }

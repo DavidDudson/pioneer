@@ -5,9 +5,11 @@ import type { CharacterName } from './character-fields';
 import type { InventoryItem } from './inventory';
 import type { ItemEntry } from './inventory-content';
 import { CarryState } from './item-carry';
-import { hasEtchedRune, itemRunes } from './item-runes';
+import { hasEtchedRune } from './item-runes';
 import type { RuneContent } from './item-runes';
 import { AuthorizedName } from './item-state';
+import { weaponGrades } from './weapon-grades';
+import type { GradeReads } from './weapon-grades';
 
 const AUTHORIZED: EntrySlug = entrySlug(ContentKind.Rune, Slug.parse('authorized'));
 
@@ -24,19 +26,20 @@ export function hasAuthorizedRune(line: InventoryItem, base: ItemEntry | undefin
 
 /**
  * The damage of the needles of an authorized weapon: one d8 piercing and one d4 persistent bleed for each damage die,
- * which is the weapon's base die and the dice its striking rune adds (two for striking, three for greater, four for
- * major). Undefined when the item has no authorized rune.
+ * which is the weapon's base die and the dice its striking grade adds (two for striking, three for greater, four for
+ * major), after the alterations in play (Automatic Bonus Progression gives the dice of the character's level). Undefined
+ * when the item has no authorized rune.
  */
 export function authorizedDamage(
   line: InventoryItem,
   base: ItemEntry | undefined,
-  runes: RuneContent,
+  reads: GradeReads,
 ): AuthorizedDamage | undefined {
-  if (!hasAuthorizedRune(line, base, runes)) {
+  if (!hasAuthorizedRune(line, base, reads.runes)) {
     return undefined;
   }
 
-  const dice = (itemRunes(line, base).striking ?? 0) + 1;
+  const dice = (weaponGrades(line, base, reads).striking ?? 0) + 1;
 
   return { piercing: DamageFormula.parse(`${dice}d8`), bleed: DamageFormula.parse(`${dice}d4`) };
 }
@@ -54,7 +57,7 @@ function named(name: AuthorizedName | CharacterName): AuthorizedName {
 export function unauthorizedWielder(
   line: InventoryItem,
   base: ItemEntry | undefined,
-  reads: { readonly runes: RuneContent; readonly wielder: CharacterName },
+  reads: GradeReads & { readonly wielder: CharacterName },
 ): AuthorizedDamage | undefined {
   const allowed = line.state?.authorized;
 
@@ -68,5 +71,5 @@ export function unauthorizedWielder(
     return undefined;
   }
 
-  return authorizedDamage(line, base, reads.runes);
+  return authorizedDamage(line, base, reads);
 }

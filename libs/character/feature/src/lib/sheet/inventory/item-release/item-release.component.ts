@@ -46,7 +46,10 @@ export class ItemRelease {
 
     return item === undefined
       ? undefined
-      : releasedAttack(item, this.content().items.get(item.item), this.content().runes);
+      : releasedAttack(item, this.content().items.get(item.item), {
+          runes: this.content().runes,
+          rules: this.content().rules?.(),
+        });
   });
 
   protected readonly setFree = async (): Promise<void> =>
