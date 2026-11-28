@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831128205,
+  "lastUpdate": 1795831159117,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -238,6 +238,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 209,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8352e80fdf73939f7b05e000f0cc4b2d5c4ba9d2",
+          "message": "refactor(rules-sdk): decouple content model from rule-element-* (#2278)\n\n* refactor(rules-sdk): decouple content model from rule-element-*\n\nContent entries, variant rules and creature abilities hold `rules` as\nslim references (`rule-reference.ts`), so the content model imports\nnothing from `rule-element*`. A typed overlay (`typed-content.ts`,\n`typed-content-entry.ts`) rebuilds the same schemas with `RuleElements`\nvia `.extend`, keeping issue paths, order and abort behaviour; the index\nexports it under the existing names, so consumers are unchanged.\n\nWeaponCategory, ArmorCategory, LanguageCount, SpellPreparation, RuleSlug\nand RuleElementKey move to neutral files; potency-element becomes\nrule-element-potency. variantLimitsInForce moves to content-registry so\nthe limits file no longer reaches the pack layer. A boundary spec holds\nthe import rule.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(rules-sdk): apply review fixes to the content model split\n\nTrim narrating comments, name the slim variant rule schema\nVariantRuleDefinitionModel, make the boundary test catch side-effect and\ndynamic imports, point the docs at typed-content.ts, and add specs for\nunconditionalGrants and a variant rule's rules inside a pack.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:37:50+10:00",
+          "tree_id": "bac3b768a2f11bb934051e134de73cd27b8c1030",
+          "url": "https://github.com/DavidDudson/pioneer/commit/8352e80fdf73939f7b05e000f0cc4b2d5c4ba9d2"
+        },
+        "date": 1795831155443,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6377,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 214,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
