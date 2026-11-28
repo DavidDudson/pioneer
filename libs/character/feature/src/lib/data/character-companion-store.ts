@@ -76,8 +76,14 @@ export class CharacterCompanionStore {
    * place with the same name, form and granting slot. Its known spells are the witch's and carry over without copying.
    */
   public async replaceFamiliar(dead: Familiar): Promise<void> {
+    const archivedFrom = this.#open().id;
+
     await this.archive(dead.id, CompanionArchiveReason.Replaced);
     const open = this.#open();
+
+    if (open.id !== archivedFrom) {
+      throw new Error('The open character changed while its familiar was replaced');
+    }
 
     const companions = await this.#api.call(CharacterCompanionContract.addCompanion, {
       params: { id: open.id },

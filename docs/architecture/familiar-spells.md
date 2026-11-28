@@ -34,6 +34,8 @@ design on the build records what it knows.
    "the spells I may prepare from". Prepared slots offer the repository's spells and no longer the tradition's whole
    list (`preparedSlots` reads the repository for an entry that has one). **Reason.** This ends the caveat in ADR-0044
    without a second picker: preparation is still a choice slot, with its statuses and refusals.
+   Limiting a witch's prepared offerings to the familiar's known spells is the follow-up story; until it lands, prepared
+   slots still offer the tradition's list.
 3. **Starting spells are slots opened by the witch class at level 1; each level opens two more.** The starting count
    (10, 5, 1) and the level-up count (2) are `ChoiceSlots` elements on the class, as ADR-0041 does for spell slots.
    A level-up slot takes a spell of any rank the character can cast at that level. Feat grants add slots the same way.
