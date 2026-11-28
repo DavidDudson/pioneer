@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836148464,
+  "lastUpdate": 1795836185274,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1198,6 +1198,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 214,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "51647f1d40498407203b33ef170ed9c4c096ad2d",
+          "message": "refactor(frontier): inset tokens, drop baked and negative margins (#2458)\n\n* refactor(frontier): inset tokens, drop baked and negative margins\n\nAdd inset-control/panel/page tokens. Overlay panels get their gap from per-position CDK offsetY so it flips with them; combobox and picker gap is owned by the host. Drop negative margins from inline button and plain disclosure.\n\nRefs #2280\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review findings\n\nShare OverlayAlign, name the gap unit, use flex columns for the in-flow picker and combobox so a wide panel cannot widen the host, and use inset-panel on the hover card.\n\nRefs #2280\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:59:57+10:00",
+          "tree_id": "dd43cd647ad32cd3c71d9d114cf7a1e6f800cd9f",
+          "url": "https://github.com/DavidDudson/pioneer/commit/51647f1d40498407203b33ef170ed9c4c096ad2d"
+        },
+        "date": 1795836181875,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4281,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 221,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6386,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 215,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
