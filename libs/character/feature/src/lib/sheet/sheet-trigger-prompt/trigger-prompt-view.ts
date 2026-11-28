@@ -14,7 +14,7 @@ const COST_KEYS: Readonly<Record<ActionCost, string>> = {
 };
 
 /** The uses of an ability with a frequency: what is left of its most. */
-export interface UsesLeft {
+interface UsesLeft {
   readonly current: number;
   readonly max: number;
 }
