@@ -64,6 +64,8 @@ export type { FilterCodec } from './lib/controls/filter-bar/filter-codec';
 
 export type { FilterCondition, FilterField, FilterOption } from './lib/controls/filter-bar/filter-bar.types';
 
+export { FilterChip, FilterChipSegment } from './lib/controls/filter-chip/filter-chip.component';
+
 export { FilterChips } from './lib/controls/filter-chips/filter-chips.component';
 
 export { NumberInput } from './lib/controls/number-input/number-input.component';

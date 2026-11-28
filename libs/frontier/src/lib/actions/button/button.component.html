@@ -8,6 +8,7 @@
   [attr.aria-invalid]="invalid() || null"
   [attr.aria-pressed]="toggled() ?? null"
   [attr.aria-expanded]="expanded() ?? null"
+  [attr.aria-controls]="controls() ?? null"
   [attr.aria-haspopup]="expanded() === undefined ? null : 'true'"
   [attr.data-status]="dataStatus()"
   [attr.aria-busy]="busy() || null"

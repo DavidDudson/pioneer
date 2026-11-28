@@ -1,0 +1,19 @@
+@for (part of segments(); track part.segment) {
+  <fr-button
+    [size]="Size.Sm"
+    [variant]="ButtonVariant.Ghost"
+    [expanded]="expanded()"
+    [controls]="controls()"
+    (pressed)="segmentPressed.emit(part.segment)"
+    >{{ part.label }}</fr-button
+  >
+}
+<fr-button
+  iconOnly
+  [size]="Size.Sm"
+  [variant]="ButtonVariant.Ghost"
+  [ariaLabel]="'frontier.filterChip.remove' | transloco: { phrase: phrase() }"
+  (pressed)="removed.emit()"
+>
+  <fr-icon [icon]="closeIcon" />
+</fr-button>
