@@ -15,6 +15,7 @@ the delivery plan is in [`../roadmap.md`](../roadmap.md).
 | [animal-companions.md](animal-companions.md)   | Animal companion rules with citations: tiers, statistics, Command      |
 | [familiars.md](familiars.md)                   | Familiar rules, ability counts, lifecycle, with citations              |
 | [familiar-spells.md](familiar-spells.md)       | A witch's familiar as the spell repository, learning, formulas         |
+| [companion-kinds.md](companion-kinds.md)       | Companion kinds: where stat blocks come from, gaps, story changes      |
 
 ## Pillars
 
