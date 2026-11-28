@@ -15,6 +15,9 @@
     "apps/web/src/styles.css",
     "apps/web/src/app/environment.development.ts",
     "libs/*/*/src/test-setup.ts",
+    "libs/*/.storybook/vitest.{config,setup}.ts",
+    "libs/*/*/.storybook/vitest.{config,setup}.ts",
+    "libs/frontier/.storybook/storybook-project.ts",
     "libs/rules/catalog/src/*-packs.{js,d.ts}"
   ],
   "project": [
