@@ -335,7 +335,6 @@
       "columns": {
         "name": "Rune",
         "kind": "Kind",
-        "level": "Level",
         "effect": "Effect",
         "price": "Price",
         "slots": "Property slot",

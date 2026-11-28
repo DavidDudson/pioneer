@@ -1207,7 +1207,6 @@
     "featPicker": {
       "column": {
         "name": "Name",
-        "level": "Level",
         "category": "Category",
         "actions": "Actions",
         "traits": "Traits",
@@ -1677,7 +1676,6 @@
       "column": {
         "name": "Name",
         "source": "Source",
-        "level": "Level",
         "traits": "Traits",
         "summary": "Summary",
         "attribute": "Attribute",
@@ -1701,6 +1699,9 @@
       "legacy": "Legacy",
       "replacedBy": "Replaced by {name}",
       "unsupported": "Unsupported"
+    },
+    "column": {
+      "level": "Level"
     }
   }
 }

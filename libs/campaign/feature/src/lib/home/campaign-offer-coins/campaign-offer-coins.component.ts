@@ -66,7 +66,7 @@ export class CampaignOfferCoins {
     enabled: this.open(),
   }));
 
-  protected readonly columns = computed(() => recipientColumns((key) => this.#i18n.translate(key)));
+  protected readonly columns = computed(() => recipientColumns());
 
   protected readonly rows = computed((): ReadonlyArray<PartyCharacter> =>
     otherRecipients({

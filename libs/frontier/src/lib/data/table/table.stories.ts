@@ -20,6 +20,16 @@ interface PartyMember {
 
 type TableStory = StoryObj<Table<PartyMember>>;
 
+/** The sample headers' message keys, spelled out in full so the key check sees them. */
+const SampleMessage = {
+  Name: 'frontier.table.sample.name',
+  Ancestry: 'frontier.table.sample.ancestry',
+  Class: 'frontier.table.sample.class',
+  Level: 'frontier.table.sample.level',
+  Rarity: 'frontier.table.sample.rarity',
+  Added: 'frontier.table.sample.added',
+} as const;
+
 const PARTY: ReadonlyArray<PartyMember> = [
   { id: 'valeros', name: 'Valeros', ancestry: 'Human', className: 'Fighter', level: 3 },
   { id: 'seoni', name: 'Seoni', ancestry: 'Human', className: 'Sorcerer', level: 3 },
@@ -32,10 +42,10 @@ const PARTY: ReadonlyArray<PartyMember> = [
 const column = tableColumns<PartyMember>();
 
 const COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
-  column.accessor('name', { header: 'Name' }),
-  column.accessor('ancestry', { header: 'Ancestry' }),
-  column.accessor('className', { header: 'Class' }),
-  column.accessor('level', { header: 'Level' }),
+  column.accessor('name', { header: SampleMessage.Name }),
+  column.accessor('ancestry', { header: SampleMessage.Ancestry }),
+  column.accessor('className', { header: SampleMessage.Class }),
+  column.accessor('level', { header: SampleMessage.Level }),
 ]);
 
 /** A semantic table on TanStack Table. Press a column header to sort by it. */
@@ -82,13 +92,13 @@ const TRAITS: ReadonlyArray<Trait> = [
 const RARITY_TONE = { common: BadgeTone.Neutral, uncommon: BadgeTone.Warning, rare: BadgeTone.Info } as const;
 
 const MIXED_COLUMNS = tableSchema<Trait>()
-  .addText({ id: 'name', header: 'Name', value: (trait) => trait.name })
+  .addText({ id: 'name', header: SampleMessage.Name, value: (trait) => trait.name })
   .addTag({
     id: 'rarity',
-    header: 'Rarity',
+    header: SampleMessage.Rarity,
     value: (trait) => ({ label: trait.rarity, tone: RARITY_TONE[trait.rarity] }),
   })
-  .addDate({ id: 'added', header: 'Added', value: (trait) => trait.added })
+  .addDate({ id: 'added', header: SampleMessage.Added, value: (trait) => trait.added })
   .build();
 
 /**
@@ -100,10 +110,10 @@ export const BuiltFromSchema: StoryObj<Table<Trait>> = {
 };
 
 const HIDEABLE_COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
-  column.accessor('name', { header: 'Name' }),
-  column.accessor('ancestry', { header: 'Ancestry', meta: { hideable: true } }),
-  column.accessor('className', { header: 'Class', meta: { hideable: true } }),
-  column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
+  column.accessor('name', { header: SampleMessage.Name }),
+  column.accessor('ancestry', { header: SampleMessage.Ancestry, meta: { hideable: true } }),
+  column.accessor('className', { header: SampleMessage.Class, meta: { hideable: true } }),
+  column.accessor('level', { header: SampleMessage.Level, meta: { defaultHidden: true } }),
 ]);
 
 /** Open *Columns* to show or hide columns. Name stays; Level starts hidden; Reset returns to that. */

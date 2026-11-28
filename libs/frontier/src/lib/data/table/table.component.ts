@@ -4,6 +4,7 @@ import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 import * as z from 'zod';
 
+import { injectTranslate } from '../../locale/inject-translate';
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser/column-chooser.component';
@@ -140,7 +141,10 @@ export class Table<TData extends RowData> {
   protected readonly captionClasses = computed(() => captionVariants({ hidden: this.hideCaption() }));
   protected readonly ariaSort = ariaSort<TData>;
 
+  readonly #translate = injectTranslate();
+
   protected readonly toggles = computed<ReadonlyArray<ColumnToggle>>(() => {
+    const translate = this.#translate();
     const hidden = this.hidden();
     const lastShown = this.known().length - hidden.length === 1;
 
@@ -149,7 +153,7 @@ export class Table<TData extends RowData> {
       .map((column) => {
         const visible = !hidden.includes(column.id);
 
-        return { id: column.id, label: column.label, visible, locked: visible && lastShown };
+        return { id: column.id, label: translate(column.label), visible, locked: visible && lastShown };
       });
   });
   protected readonly isDefault = computed(() => sameIds(this.hidden(), this.defaultHidden()));

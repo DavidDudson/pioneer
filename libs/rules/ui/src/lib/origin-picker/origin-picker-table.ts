@@ -26,10 +26,10 @@ export const originRowDisabled = (row: NamedRow): string | undefined => row.disa
 export const chips = (labels: ReadonlyArray<string>): ReadonlyArray<Chip> => labels.map((label): Chip => ({ label }));
 
 /** The name column every origin picker starts with. */
-function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: Say): OriginTableSchema<TRow> {
+function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>): OriginTableSchema<TRow> {
   return schema.addText({
     id: OriginPickerColumn.Name,
-    header: say(OriginPickerMessage.Name),
+    header: OriginPickerMessage.Name,
     value: (row) => row.name,
     width: 'md',
   });
@@ -37,23 +37,23 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
 
 /** What an ancestry is: its name, hit points, size and speed. */
 function bodyColumns(say: Say): OriginTableSchema<AncestryPickerRow> {
-  return withName(new OriginTableSchema<AncestryPickerRow>(), say)
+  return withName(new OriginTableSchema<AncestryPickerRow>())
     .addFacts({
       id: OriginPickerColumn.HitPoints,
-      header: say(OriginPickerMessage.HitPoints),
+      header: OriginPickerMessage.HitPoints,
       value: (row) => chips([say(OriginPickerMessage.HitPointsValue, { value: row.hitPoints })]),
       width: 'sm',
     })
     .addFacts({
       id: 'size',
-      header: say(OriginPickerMessage.Size),
+      header: OriginPickerMessage.Size,
       sortable: false,
       value: (row) => chips([say(SIZE_MESSAGES[row.size])]),
       width: 'sm',
     })
     .addFacts({
       id: OriginPickerColumn.Speed,
-      header: say(OriginPickerMessage.Speed),
+      header: OriginPickerMessage.Speed,
       value: (row) => chips([say(OriginPickerMessage.SpeedValue, { value: row.speed })]),
       width: 'sm',
     });
@@ -64,35 +64,35 @@ function givesColumns(schema: OriginTableSchema<AncestryPickerRow>, say: Say): O
   return schema
     .addBoosts({
       id: 'boosts',
-      header: say(OriginPickerMessage.Boosts),
+      header: OriginPickerMessage.Boosts,
       sortable: false,
       value: (row) => row.boosts,
       width: 'md',
     })
     .addFacts({
       id: 'flaws',
-      header: say(OriginPickerMessage.Flaws),
+      header: OriginPickerMessage.Flaws,
       sortable: false,
       value: (row) => chips(row.flaws.map((flaw) => say(ATTRIBUTE_MESSAGES[flaw]))),
       width: 'sm',
     })
     .addFacts({
       id: 'languages',
-      header: say(OriginPickerMessage.Languages),
+      header: OriginPickerMessage.Languages,
       sortable: false,
       value: (row) => chips(row.languages),
       width: 'md',
     })
     .addTraits({
       id: 'traits',
-      header: say(OriginPickerMessage.Traits),
+      header: OriginPickerMessage.Traits,
       sortable: false,
       value: (row) => row.traits,
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(OriginPickerMessage.Source),
+      header: OriginPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -106,31 +106,31 @@ export function ancestryPickerColumns(say: Say): ReadonlyArray<TableColumn<Ances
 
 /** The columns of a heritage picker: its ancestry, what it does and what it grants. */
 export function heritagePickerColumns(say: Say): ReadonlyArray<TableColumn<HeritagePickerRow>> {
-  return withName(new OriginTableSchema<HeritagePickerRow>(), say)
+  return withName(new OriginTableSchema<HeritagePickerRow>())
     .addFacts({
       id: 'ancestry',
-      header: say(OriginPickerMessage.Ancestry),
+      header: OriginPickerMessage.Ancestry,
       sortable: false,
       value: (row) => chips([row.ancestry ?? say(OriginPickerMessage.Versatile)]),
       width: 'sm',
     })
     .addSummary({
       id: 'summary',
-      header: say(OriginPickerMessage.Summary),
+      header: OriginPickerMessage.Summary,
       sortable: false,
       value: (row) => row.summary,
       width: 'lg',
     })
     .addFacts({
       id: 'grants',
-      header: say(OriginPickerMessage.Grants),
+      header: OriginPickerMessage.Grants,
       sortable: false,
       value: (row) => chips(row.grants),
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(OriginPickerMessage.Source),
+      header: OriginPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -139,46 +139,46 @@ export function heritagePickerColumns(say: Say): ReadonlyArray<TableColumn<Herit
 }
 
 /** The columns of a background picker: its boosts, the skill and Lore it trains, and the feat it grants. */
-export function backgroundPickerColumns(say: Say): ReadonlyArray<TableColumn<BackgroundPickerRow>> {
-  return withName(new OriginTableSchema<BackgroundPickerRow>(), say)
+export function backgroundPickerColumns(): ReadonlyArray<TableColumn<BackgroundPickerRow>> {
+  return withName(new OriginTableSchema<BackgroundPickerRow>())
     .addBoosts({
       id: 'boosts',
-      header: say(OriginPickerMessage.Boosts),
+      header: OriginPickerMessage.Boosts,
       sortable: false,
       value: (row) => row.boosts,
       width: 'md',
     })
     .addFacts({
       id: 'skill',
-      header: say(OriginPickerMessage.Skill),
+      header: OriginPickerMessage.Skill,
       sortable: false,
       value: (row) => chips(row.skills),
       width: 'sm',
     })
     .addFacts({
       id: 'lore',
-      header: say(OriginPickerMessage.Lore),
+      header: OriginPickerMessage.Lore,
       sortable: false,
       value: (row) => chips(row.lores),
       width: 'sm',
     })
     .addFacts({
       id: 'feat',
-      header: say(OriginPickerMessage.Feat),
+      header: OriginPickerMessage.Feat,
       sortable: false,
       value: (row) => chips(row.feats),
       width: 'md',
     })
     .addFacts({
       id: 'notes',
-      header: say(OriginPickerMessage.Notes),
+      header: OriginPickerMessage.Notes,
       sortable: false,
       value: (row) => chips(row.note === undefined ? [] : [row.note]),
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(OriginPickerMessage.Source),
+      header: OriginPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',

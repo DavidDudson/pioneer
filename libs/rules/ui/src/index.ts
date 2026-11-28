@@ -267,7 +267,7 @@ export { EntryNameCell } from './lib/picker-cells/entry-name-cell/entry-name-cel
 
 export { LevelCell } from './lib/picker-cells/level-cell/level-cell.component';
 
-export { ActionKind } from './lib/picker-cells/picker-cell-messages';
+export { ActionKind, PickerCellMessage } from './lib/picker-cells/picker-cell-messages';
 
 export { PriceCell } from './lib/picker-cells/price-cell/price-cell.component';
 

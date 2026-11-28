@@ -1,5 +1,7 @@
+import { importProvidersFrom } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { TranslocoService, TranslocoTestingModule } from '@jsverse/transloco';
 import { injectTable } from '@tanstack/angular-table';
 import { ChevronDown, ChevronUp } from 'lucide';
 import { describe, expect, it } from 'vitest';
@@ -18,8 +20,8 @@ interface Member {
 const column = tableColumns<Member>();
 
 const COLUMNS = column.columns([
-  column.accessor('name', { header: 'Name' }),
-  column.accessor('level', { header: 'Level', enableSorting: false }),
+  column.accessor('name', { header: 'member.name' }),
+  column.accessor('level', { header: 'member.level', enableSorting: false }),
 ]);
 
 const PARTY: ReadonlyArray<Member> = [
@@ -33,7 +35,25 @@ interface Rendered {
   readonly header: TableHeader<Member>;
 }
 
+/** The two languages the specs switch between: English, and a second that spells every header differently. */
+const LANGS = {
+  en: { member: { name: 'Name', level: 'Level' } },
+  fr: { member: { name: 'Nom', level: 'Niveau' } },
+};
+
 async function render(id: 'name' | 'level'): Promise<Rendered> {
+  TestBed.configureTestingModule({
+    providers: [
+      importProvidersFrom(
+        TranslocoTestingModule.forRoot({
+          langs: LANGS,
+          preloadLangs: true,
+          translocoConfig: { availableLangs: ['en', 'fr'], defaultLang: 'en' },
+        }),
+      ),
+    ],
+  });
+
   const table = TestBed.runInInjectionContext(() =>
     injectTable<TableFeatureSet, Member>(() => ({
       features: TABLE_FEATURES,
@@ -119,5 +139,15 @@ describe(TableHeaderCell, () => {
     await press(rendered, 3);
     expect(rendered.header.column.getIsSorted()).toBe(false);
     expect(rendered.host.querySelector('fr-icon')).toBeNull();
+  });
+
+  it('translates the header key, and again when the language changes', async () => {
+    const { fixture, host } = await render('name');
+    expect(host.textContent.trim()).toBe('Name');
+
+    TestBed.inject(TranslocoService).setActiveLang('fr');
+    await fixture.whenStable();
+
+    expect(host.textContent.trim()).toBe('Nom');
   });
 });

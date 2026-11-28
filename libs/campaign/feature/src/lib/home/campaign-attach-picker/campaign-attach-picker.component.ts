@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/campaign/domain';
@@ -10,10 +9,10 @@ import type { PickerSort } from '@pioneer/frontier/data';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { AncestryId, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
+import { PickerCellMessage } from '@pioneer/rules/ui';
 import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { UserPlus } from 'lucide';
-import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CampaignStore } from '../../data/campaign-store';
@@ -40,9 +39,6 @@ export class CampaignAttachPicker {
 
   readonly #store = inject(CampaignStore);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  /** Ticks when the language changes or the messages load, so the headers are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly emptyIcon = UserPlus;
   /**
@@ -96,16 +92,14 @@ export class CampaignAttachPicker {
       this.sorting(),
     ),
   );
-  protected readonly columns = computed(() => {
-    this.#messages();
-
-    return attachColumns({
-      name: this.#i18n.translate('campaign.party.columns.name'),
-      ancestry: this.#i18n.translate('campaign.party.columns.ancestry'),
-      class: this.#i18n.translate('campaign.party.columns.class'),
-      level: this.#i18n.translate('campaign.party.columns.level'),
-    });
-  });
+  protected readonly columns = computed(() =>
+    attachColumns({
+      name: 'campaign.party.columns.name',
+      ancestry: 'campaign.party.columns.ancestry',
+      class: 'campaign.party.columns.class',
+      level: PickerCellMessage.LevelColumn,
+    }),
+  );
   protected readonly rowValue = attachValue;
   protected readonly rowLabel = attachLabel;
 

@@ -21,27 +21,27 @@ function grantColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): Deity
   return schema
     .addText({
       id: DeityPickerColumn.Name,
-      header: say(DeityPickerMessage.Name),
+      header: DeityPickerMessage.Name,
       value: (row) => row.name,
       width: 'md',
     })
     .addFacts({
       id: 'sanctification',
-      header: say(DeityPickerMessage.Sanctification),
+      header: DeityPickerMessage.Sanctification,
       sortable: false,
       value: (row) => (row.sanctification === undefined ? [] : chips([say(sanctificationMessage(row.sanctification))])),
       width: 'sm',
     })
     .addFacts({
       id: 'font',
-      header: say(DeityPickerMessage.Font),
+      header: DeityPickerMessage.Font,
       sortable: false,
       value: (row) => chips(row.fonts.map((font) => say(DIVINE_FONT_MESSAGES[font]))),
       width: 'sm',
     })
     .addFacts({
       id: 'domains',
-      header: say(DeityPickerMessage.Domains),
+      header: DeityPickerMessage.Domains,
       sortable: false,
       value: (row) => chips(row.domains.map((domain) => say(DEITY_DOMAIN_MESSAGES[domain]))),
       width: 'md',
@@ -49,31 +49,31 @@ function grantColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): Deity
 }
 
 /** What a follower takes up and lives by: favoured weapon, divine skill, edicts and anathema, then the source. */
-function followerColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): DeityTableSchema<DeityPickerRow> {
+function followerColumns(schema: DeityTableSchema<DeityPickerRow>): DeityTableSchema<DeityPickerRow> {
   return schema
     .addFacts({
       id: 'favoredWeapon',
-      header: say(DeityPickerMessage.FavoredWeapon),
+      header: DeityPickerMessage.FavoredWeapon,
       sortable: false,
       value: (row) => chips(row.favoredWeapons),
       width: 'sm',
     })
     .addFacts({
       id: 'skill',
-      header: say(DeityPickerMessage.Skill),
+      header: DeityPickerMessage.Skill,
       sortable: false,
       value: (row) => chips(row.skills),
       width: 'sm',
     })
     .addSummary({
       id: 'edictsAnathema',
-      header: say(DeityPickerMessage.EdictsAnathema),
+      header: DeityPickerMessage.EdictsAnathema,
       value: (row) => row.description,
       width: 'lg',
     })
     .addSource({
       id: 'source',
-      header: say(DeityPickerMessage.Source),
+      header: DeityPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -82,7 +82,7 @@ function followerColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): De
 
 /** The columns of a deity picker, each fact to choose by a rich cell. */
 export function deityPickerColumns(say: Say): ReadonlyArray<TableColumn<DeityPickerRow>> {
-  return followerColumns(grantColumns(new DeityTableSchema<DeityPickerRow>(), say), say).build();
+  return followerColumns(grantColumns(new DeityTableSchema<DeityPickerRow>(), say)).build();
 }
 
 /** The rows whose name holds `query`, by name when asked; unsorted, the row that picks no deity stays first. */

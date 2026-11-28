@@ -56,13 +56,13 @@ export class PackDependencyAdder {
     tableSchema<PackSummary>()
       .addText({
         id: 'title',
-        header: this.#i18n.translate('homebrew.dependencies.titleColumn'),
+        header: 'homebrew.dependencies.titleColumn',
         value: (pack) => pack.title,
         sortable: false,
       })
       .addText({
         id: 'publisher',
-        header: this.#i18n.translate('homebrew.dependencies.publisherColumn'),
+        header: 'homebrew.dependencies.publisherColumn',
         value: (pack) => pack.publisher,
         sortable: false,
       })
