@@ -1,5 +1,4 @@
 import { grantLookup } from '@pioneer/rules/grants';
-import type { ContentLookup, RootSlotDefinition } from '@pioneer/rules/grants';
 import {
   AncestryId,
   Attribute,
@@ -15,6 +14,7 @@ import {
 import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import type { BoostContentOptions } from './boost-content-options';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import {
@@ -134,9 +134,7 @@ const PARTIAL_BOOST_FROM = 4;
  */
 export function boostContent(
   registry: ContentRegistry,
-  rootSlots: readonly RootSlotDefinition[] = CHARACTER_ROOT_SLOTS,
-  lookup: () => ContentLookup = () => grantLookup(registry),
-  gradual = false,
+  { rootSlots = CHARACTER_ROOT_SLOTS, lookup = () => grantLookup(registry), gradual = false }: BoostContentOptions = {},
 ): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
@@ -266,7 +264,7 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
         level,
         source: BoostSource.Free,
         boosts: FREE_BOOSTS,
-        ...(content.gradual ? { places: GRADUAL_BOOST_PLACES.get(level) } : {}),
+        places: content.gradual ? GRADUAL_BOOST_PLACES.get(level) : undefined,
       }),
     ),
   ];

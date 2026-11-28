@@ -83,7 +83,7 @@ export function slotContent(
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),
-    boosts: boostContent(registry, rootSlots, () => lookup, gradualBoosts(variants)),
+    boosts: boostContent(registry, { rootSlots, lookup: () => lookup, gradual: gradualBoosts(variants) }),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),

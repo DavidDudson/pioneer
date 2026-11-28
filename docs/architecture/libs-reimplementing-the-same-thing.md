@@ -11,7 +11,7 @@ as a duplicate only where two libs do the same job; similar shape alone is not e
 
 | Candidate                               | Verdict                    | Owner                               | Follow-up                                                   |
 | --------------------------------------- | -------------------------- | ----------------------------------- | ----------------------------------------------------------- |
-| Name folded for matching, three ways    | Duplicate                  | One function, `shared/utils`        | [#2215](https://github.com/DavidDudson/pioneer/issues/2215) |
+| Name folded for matching, three ways    | Duplicate                  | One function, `shared/utils` (done) | [#2215](https://github.com/DavidDudson/pioneer/issues/2215) |
 | Foundry name-to-slug shortcuts          | Duplicate (inside one lib) | `interop/foundry/foundry-slug.ts`   | [#2216](https://github.com/DavidDudson/pioneer/issues/2216) |
 | Drizzle archive, restore, version check | Repeated pattern           | `shared/server`                     | [#2217](https://github.com/DavidDudson/pioneer/issues/2217) |
 | Per-feature query stores                | Repeated shape             | `shared/web`, where it deletes code | [#2218](https://github.com/DavidDudson/pioneer/issues/2218) |
@@ -24,8 +24,13 @@ as a duplicate only where two libs do the same job; similar shape alone is not e
 lower case), the lookup key in `interop/pathbuilder/src/content-lookup.ts` (NFKD, strip diacritics, drop apostrophes,
 lower case, non-alphanumerics to spaces) and `folded` in `interop/foundry/src/foundry-slug.ts` (NFKD, strip marks) all
 answer "do these two names mean the same item". They disagree on apostrophes (kept, dropped, untouched) and punctuation,
-so one name can match in one importer and miss in another. The story picks one key and pins each behaviour in a test
-before any caller changes.
+so one name can match in one importer and miss in another.
+
+Done: `foldName` in `shared/utils` is the one key (NFKD, strip marks, drop apostrophes, lower case, non-alphanumerics
+to one space), taken from the Pathbuilder lookup as the most forgiving. The AoN matcher and the Pathbuilder lookup call
+it, and `foldDiacritics` (the accent step alone) serves Foundry's slug fold, which must keep hyphens and case. Moving
+the AoN matcher to it changes no match: no two rows of one AoN page share a `foldName` key without already sharing the
+old one (23,737 listed rows checked). `fold-name.test.ts` pins apostrophes, accents and punctuation.
 
 ### Foundry slug shortcuts
 

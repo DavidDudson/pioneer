@@ -188,7 +188,7 @@ export {
   PackVisibility,
 } from './content-pack';
 
-export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
+export { contentId, ContentId, contentIdOf, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
 
 export {
   EntrySlug,
@@ -502,8 +502,6 @@ export { AonSupersedesFile } from './aon-supersedes';
 export { EnrichmentMapping, EnrichmentMappingFile } from './enrichment-mapping';
 
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
-
-export { default as rulesMessages } from './i18n/en.json';
 
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
 

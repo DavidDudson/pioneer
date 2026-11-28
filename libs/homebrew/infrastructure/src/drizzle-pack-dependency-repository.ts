@@ -26,12 +26,10 @@ export class DrizzlePackDependencyRepository extends PackDependencyRepository {
   }
 
   public override async edges(): Promise<readonly PackDependencyEdge[]> {
-    const rows = await this.#db
+    return this.#db
       .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
       .from(contentPackDeps)
       .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
-
-    return rows;
   }
 
   public override async add(actor: UserId, edge: PackDependencyEdge, whileLocked: () => Promise<void>): Promise<void> {

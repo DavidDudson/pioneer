@@ -4,14 +4,5 @@
   "projectType": "library",
   "sourceRoot": "libs/identity/data-access/src",
   "tags": ["scope:identity", "type:data-access", "platform:web"],
-  "targets": {
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "libs/identity/data-access/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    }
-  }
+  "targets": {}
 }

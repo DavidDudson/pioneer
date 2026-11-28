@@ -18,7 +18,10 @@ export function statisticInputsOf(registry: ContentRegistry, character: Characte
 
   const inputs =
     byCharacter.get(character) ??
-    characterStatisticInputs(registry, character.document, sheetSlotContent(registry), variantsInForce(registry));
+    characterStatisticInputs(registry, character.document, {
+      slots: sheetSlotContent(registry),
+      variants: variantsInForce(registry),
+    });
 
   byCharacter.set(character, inputs);
 

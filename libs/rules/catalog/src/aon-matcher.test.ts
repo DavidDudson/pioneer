@@ -35,6 +35,8 @@ const LISTING: AonListing = {
     listed('Twin', 'Spells', 3),
     listed('Twin', 'Spells', 4),
     listed('Warrior’s Regret', 'Spells', 5),
+    listed('Hand-Cannon', 'Weapons', 6),
+    listed('Déjà Vu', 'Spells', 7),
   ],
 };
 
@@ -54,6 +56,14 @@ describe('proposeAonMappings', () => {
     const { proposals, unmatched } = proposeAonMappings([feat, spell], [LISTING], new Set());
     expect([...proposals.keys()]).toEqual([spell.slug]);
     expect(unmatched).toEqual([feat.slug]);
+  });
+
+  test('ignores punctuation, hyphens and accents in a name', () => {
+    const cannon = entry(ContentKind.Weapon, 'Hand Cannon');
+    const vu = entry(ContentKind.Spell, 'Deja Vu');
+    const { proposals } = proposeAonMappings([cannon, vu], [LISTING], new Set());
+    expect(proposals.get(cannon.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Weapons.aspx?ID=6'));
+    expect(proposals.get(vu.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=7'));
   });
 
   test('reports two candidates instead of guessing', () => {

@@ -198,3 +198,21 @@ Allies and item approvals already load only when their tab or panel asks. Not ch
 - `/me/preferences` waits on `/me` but blocks nothing on the sheet.
 - About 980 bundle requests remain on a cold load. Many are the idle prefetch and the per-kind and per-pack split of
   the bundles; fewer, larger bundles would cut them and is a content-delivery change.
+
+## Character generation (audit, 2026-11-26)
+
+Profile of `generateCharacter` at level 20 (`bun --cpu-prof`), CPU time on a loaded machine, so read the ratios: Cleric
+19.4s and Wizard 9.2s before, 10.6s and 5.7s after the stack below. About 60% of the time was zod.
+
+- **Guards that parse.** `isRollOptionStatement`, `isRollOptionOperand`, `isChoiceRef` and `isChoiceSelector` ran
+  `safeParse(...).success`, and nearly every input they see is a rejection, which builds a full issue list. They now
+  use `schema.validate`, the compiled assert-only path. `anti-slop/no-runtime-typeof` rules out a `typeof` check.
+- **Grants resolved twice.** `characterSlots` resolved the grants at each level above the character's own again,
+  although `skillReads` holds them for the document; `grantRefusal` resolved the picks without the slot at up to 20
+  levels for every candidate. Both share one resolution per document, level and slot.
+- **Fact sets rebuilt.** `PredicateFacts.withRanksUnread` rebuilt and re-indexed the set on every `ChoiceSet` offer.
+  It builds the copy once.
+- **`z.compile` does not reach the content schemas.** `z.compile(ContentEntry, { strict: true })` and the same for
+  `ContentPackSchema` throw `ZodCompileUnsupportedError`: the schema's subtree contains a reference cycle (the
+  recursive predicate and rule elements). Compiling the pack files made no difference to load time. A model that
+  compiles is a model without cycles: tracked in the follow-up on re-architecting the schemas.

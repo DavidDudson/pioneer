@@ -116,19 +116,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   // Forms
   ['form', ['forms/form/', 'forms/async-form/']],
   ['label', ['forms/field/label/']],
-  [
-    'input',
-    [
-      'controls/text-input/',
-      'controls/number-input/',
-      'controls/optional-number-input/',
-      'controls/date-input/',
-      'controls/search-input/',
-      'actions/file-button/',
-      'controls/combobox/',
-      'controls/picker/',
-    ],
-  ],
+  ['input', ['controls/input/', 'actions/file-button/', 'controls/combobox/', 'controls/picker/']],
   ['button', ['actions/button/', 'actions/tab-list/', 'controls/select/', 'controls/picker/']],
   ['textarea', ['controls/text-area/']],
   ['datalist', []],

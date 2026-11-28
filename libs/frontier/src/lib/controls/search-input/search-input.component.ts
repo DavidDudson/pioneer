@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output, viewChild } from '@angular/core';
-import type { ElementRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Search, X } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
-import { injectCommitKeys } from '../commit-keys';
 import { Control } from '../control';
-import { adornmentVariants, controlVariants } from '../control.variants';
+import { adornmentVariants } from '../control.variants';
+import { Input } from '../input/input.component';
 import { injectSearchQuery } from '../search-query';
 
 /**
@@ -20,7 +19,7 @@ import { injectSearchQuery } from '../search-query';
  */
 @Component({
   selector: 'fr-search-input',
-  imports: [Button, Icon, TranslocoPipe],
+  imports: [Button, Icon, Input, TranslocoPipe],
   templateUrl: './search-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'relative block' },
@@ -35,8 +34,7 @@ export class SearchInput extends Control {
   protected readonly ClearIcon = X;
   protected readonly iconSlotClasses = computed(() => adornmentVariants({ edge: 'start', disabled: this.disabled() }));
   protected readonly clearSlotClasses = adornmentVariants({ edge: 'end' });
-  protected readonly classes = controlVariants({ adorned: true });
-  protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
+  protected readonly control = viewChild.required(Input);
   protected readonly clearable = computed(() => this.value() !== '' && !this.disabled());
 
   readonly #query = injectSearchQuery({
@@ -46,18 +44,16 @@ export class SearchInput extends Control {
     },
   });
 
-  public constructor() {
-    super();
-    injectCommitKeys(this.control, {
-      commit: () => {
-        this.#searchNow();
-        this.committed.emit();
-      },
-      cancel: () => {
-        this.#clear();
-        this.cancelled.emit();
-      },
-    });
+  /** Enter: run the query now, without waiting for typing to go quiet. */
+  protected commit(): void {
+    this.#searchNow();
+    this.committed.emit();
+  }
+
+  /** Escape: clear the query, then cancel. */
+  protected cancel(): void {
+    this.#clear();
+    this.cancelled.emit();
   }
 
   protected type(query: string): void {
@@ -68,7 +64,7 @@ export class SearchInput extends Control {
   /** The clear button: empty the query and put focus back in the input, which the button replaced. */
   protected clearAndFocus(): void {
     this.#clear();
-    this.control()?.nativeElement.focus();
+    this.control().focus();
   }
 
   #clear(): void {

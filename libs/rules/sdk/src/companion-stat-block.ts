@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Attribute, AttributeModifiersWire, AttributeSchema } from './attribute';
+import { ContentText } from './content-text';
 import { RuleSlug } from './rule-element-base';
 import { SizeSchema } from './size';
 import { Feet, HitPoints } from './units';
@@ -84,6 +85,10 @@ export const CompanionStatBlock = z.strictObject({
   speed: Feet,
   /** Burrow, climb, fly and swim Speeds, where the species has them. */
   movement: CompanionMovements.optional(),
+  /** The senses the species has, as the book words them: `scent (imprecise, 30 feet)`. */
+  senses: z.array(ContentText).readonly().optional(),
+  /** What the book lists under Special, one line each. */
+  special: z.array(ContentText).readonly().optional(),
   attacks: z.array(CompanionAttack).min(1).readonly(),
 });
 

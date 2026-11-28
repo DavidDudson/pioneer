@@ -1,4 +1,4 @@
-/** Keys for rules text; their `en` text ships in this lib's `i18n/en.json` under `rules.*`. */
+/** Keys for rules text; their `en` text ships in the `rules/messages` bundle under `rules.*`. */
 export const RulesMessage = {
   KeyFormat: 'rules.key.format',
   SkillSelector: 'rules.selector.skill',

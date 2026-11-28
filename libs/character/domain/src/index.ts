@@ -163,6 +163,8 @@ export {
   flawSlots,
 } from './attribute-boosts';
 
+export { type BoostContentOptions } from './boost-content-options';
+
 export {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
@@ -537,6 +539,7 @@ export { type HeldShield, heldShields, type ShieldGrant } from './held-shields';
 
 export {
   characterStatisticInputs,
+  type StatisticInputContent,
   characterStatistics,
   characterStrikeRules,
   characterVitals,

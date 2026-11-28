@@ -4,6 +4,7 @@
  * AoN typo, or left for review (a real gap until a person says otherwise). Nothing here guesses a gap away: a row no
  * rule explains stays in `review`.
  */
+import { foldName } from '@pioneer/shared/utils';
 
 /** Why a row has no pack entry of its name. */
 export type RemasterClass = 'activation' | 'variant' | 'missing-kind' | 'non-entry' | 'typo' | 'review';
@@ -100,17 +101,6 @@ const RANKED_SCROLL = /^\d+(?:st|nd|rd|th)-rank\s+scroll$/iu;
 const MIN_TYPO_LENGTH = 8;
 const MAX_TYPO_DISTANCE = 2;
 
-/** Lowercase words with straight apostrophes and no diacritics, as the AoN matcher reads a name. */
-export function normaliseName(name: string): string {
-  return name
-    .normalize('NFD')
-    .replaceAll(/\p{M}/gu, '')
-    .replaceAll('’', "'")
-    .replaceAll(/\s+/gu, ' ')
-    .trim()
-    .toLowerCase();
-}
-
 function editDistance(left: string, right: string): number {
   const leftChars = left.split('');
   const rightChars = right.split('');
@@ -133,7 +123,7 @@ function editDistance(left: string, right: string): number {
 
 /** A pack name one or two edits from the row's name, in a name long enough to mean it. */
 function nearTypo(name: string, packNames: ReadonlySet<string>): boolean {
-  const normal = normaliseName(name);
+  const normal = foldName(name);
 
   return (
     normal.length >= MIN_TYPO_LENGTH &&
@@ -153,9 +143,9 @@ function isVariant(name: string, packNames: ReadonlySet<string>): boolean {
     return true;
   }
 
-  const base = normaliseName(name.replace(TIER_SUFFIX, '').replace(TIER_PREFIX, ''));
+  const base = foldName(name.replace(TIER_SUFFIX, '').replace(TIER_PREFIX, ''));
 
-  return base !== normaliseName(name) && packNames.has(base);
+  return base !== foldName(name) && packNames.has(base);
 }
 
 /**

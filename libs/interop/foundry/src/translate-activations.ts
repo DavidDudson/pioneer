@@ -38,8 +38,8 @@ const TWICE = 2;
 
 /** What follows "once per" or "three times every": a unit with its number of them. */
 const PERIODS: readonly (readonly [RegExp, FrequencyPeriod])[] = [
-  [/^(?:turn)$/u, FrequencyPeriod.Turn],
-  [/^(?:round)$/u, FrequencyPeriod.Round],
+  [/^turn$/u, FrequencyPeriod.Turn],
+  [/^round$/u, FrequencyPeriod.Round],
   [/^(?:1 )?minute$/u, FrequencyPeriod.Minute],
   [/^10 minutes$/u, FrequencyPeriod.TenMinutes],
   [/^(?:1 )?hour$/u, FrequencyPeriod.Hour],

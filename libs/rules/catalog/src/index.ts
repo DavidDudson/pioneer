@@ -81,7 +81,7 @@ export { proposeGrantedActions } from './granted-actions';
 
 export type { ActionGranter, GrantedAction, GrantedActionProposals } from './granted-actions';
 
-export { classifyRemasterCandidate, normaliseName } from './remaster-audit';
+export { classifyRemasterCandidate } from './remaster-audit';
 
 export type { RemasterCandidate, RemasterClass } from './remaster-audit';
 

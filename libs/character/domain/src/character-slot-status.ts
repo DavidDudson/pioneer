@@ -1,6 +1,6 @@
 import { FIRST_TAKE } from '@pioneer/rules/grants';
 import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot } from '@pioneer/rules/grants';
-import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, contentIdOf, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -16,8 +16,9 @@ import { FeatPickProblem } from './feat-content';
 import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { languageStatuses } from './language-slot-status';
 import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
+import type { GrantsAt } from './skill-grants';
 import { SkillPickProblem, skillSlots } from './skill-training';
-import { resolveSlotsAt, skillReads, slotContextOf } from './slot-offer';
+import { skillReads, slotContextOf } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
 import { invalidReason, invalidSlot, named, validSlot } from './slot-read';
 import type { SlotRead } from './slot-read';
@@ -50,7 +51,7 @@ function rootStatus(slot: RootSlot, read: SlotRead, lookup: ContentLookup): Char
 
 /** The name of a `ChoiceSet` pick: the entry it names, else the listed option. */
 function choiceName(slot: AnsweredSlot, lookup: ContentLookup): ContentText | undefined {
-  const isId = ContentId.safeParse(slot.pick).success;
+  const isId = contentIdOf(slot.pick) !== undefined;
 
   return isId ? entryName(slot.pick, lookup) : slot.options.find((option) => option.value === slot.pick)?.label;
 }
@@ -269,12 +270,16 @@ function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterS
 }
 
 /** The root and `ChoiceSet` slots, each as read at the lowest level from the character's up that has it. */
-function grantStatuses(level: Level, context: SlotContext, check: PickCheck): ResolvedSlots {
+function grantStatuses(
+  level: Level,
+  context: SlotContext,
+  { check, grantsAt }: { readonly check: PickCheck; readonly grantsAt: GrantsAt },
+): ResolvedSlots {
   const roots = new Map<SlotKey, CharacterSlot>();
   const choices = new Map<SlotKey, CharacterSlot>();
 
   for (const at of levelsUpFrom(level)) {
-    const read = resolvedSlots(resolveSlotsAt(at, context), context, { planned: at > level ? at : undefined, check });
+    const read = resolvedSlots(grantsAt(at), context, { planned: at > level ? at : undefined, check });
     addUnseen(roots, read.roots);
     addUnseen(choices, read.choices);
   }
@@ -317,7 +322,9 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   const context = slotContextOf(document, content, picks);
-  const { roots, choices } = grantStatuses(Level.parse(document.level), context, featCheck(document, content));
+  const { grantsAt } = skillReads(document, content);
+  const check = featCheck(document, content);
+  const { roots, choices } = grantStatuses(Level.parse(document.level), context, { check, grantsAt });
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);
   const skills = skillStatuses(document, content);
