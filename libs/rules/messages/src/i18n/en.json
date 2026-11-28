@@ -425,6 +425,8 @@
       "will": "Will",
       "perception": "Perception",
       "senses": "Senses",
+      "species": "Familiar",
+      "otherSkills": "Other skills",
       "absorbedNote": "Carried as a mark on its master. It can only turn back.",
       "status": {
         "active": "Active",

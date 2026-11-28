@@ -2,7 +2,7 @@
   <pio-sheet-turn-panel />
   <pio-sheet-spend-log />
 
-  <pio-sheet-section-tabs [sections]="sectionOrder" />
+  <pio-sheet-section-tabs [sections]="sectionOrder()" />
 
   <fr-section
     [concealed]="shown()?.anchor !== sections.defences.anchor"
@@ -70,6 +70,16 @@
   >
     <ng-template frSectionBody>
       <pio-sheet-actions [mode]="Mode" />
+    </ng-template>
+  </fr-section>
+
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.familiar.anchor"
+    [anchor]="sections.familiar.anchor"
+    [heading]="sections.familiar.headingKey | transloco"
+  >
+    <ng-template frSectionBody>
+      <pio-sheet-familiar-section />
     </ng-template>
   </fr-section>
 

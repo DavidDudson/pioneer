@@ -9,8 +9,9 @@ import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetCastItems } from '../sheet-cast-items/sheet-cast-items.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
+import { encounterSections } from '../sheet-encounter-sections';
+import { SheetFamiliarSection } from '../sheet-familiar-section/sheet-familiar-section.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
-import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetSpendLog } from '../sheet-spend-log/sheet-spend-log.component';
@@ -37,6 +38,7 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
     Section,
     SectionBody,
     SheetCastItems,
+    SheetFamiliarSection,
     SheetSpells,
     SheetSpendLog,
     SheetTurnPanel,
@@ -55,12 +57,13 @@ export class SheetEncounterTab {
   protected readonly sheet = inject(SheetState);
   protected readonly picks = this.sheet.picks;
   readonly #spender = inject(SheetSpender);
-  protected readonly sections = SHEET_SECTIONS;
   protected readonly Mode = ActionMode.Encounter;
   /** The section the route names, bound from the route's `:section` parameter. */
   public readonly section = input<string>();
-  protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
-  protected readonly shown = shownSection(this.sectionOrder, this.section);
+  readonly #tabSections = encounterSections(this.section);
+  protected readonly sections = this.#tabSections.sections;
+  protected readonly sectionOrder = this.#tabSections.order;
+  protected readonly shown = this.#tabSections.shown;
   /** The Strikes with what using each spends, those the turn has no action for left out of reach. */
   protected readonly strikes = computed((): ReadonlyArray<NamedStrike> | undefined => {
     const strikes = this.picks.strikes();

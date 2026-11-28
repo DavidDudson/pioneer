@@ -18,7 +18,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from './provide-server-state-testing';
-import { answerItemApprovalsRead } from './rule-limit-reads-testing';
+import { answerCompanionsRead, answerItemApprovalsRead } from './rule-limit-reads-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerSheetBundle, NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
 import { SHEET_TEST_ROUTES } from './sheet-routes-testing';
@@ -206,6 +206,11 @@ async function answerReads(character: JsonObject, options: SheetOptions): Promis
 
   if (readsApprovals) {
     await answerItemApprovalsRead();
+  }
+
+  // The Encounter tab asks for the companions to know whether the character has a familiar to list.
+  if (options.tab === SheetMode.Encounter) {
+    await answerCompanionsRead();
   }
 }
 

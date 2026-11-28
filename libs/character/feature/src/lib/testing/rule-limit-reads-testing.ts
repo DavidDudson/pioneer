@@ -28,3 +28,21 @@ export async function answerItemApprovalsRead(approvals: JsonObject = NO_ITEM_AP
     { interval: POLL_INTERVAL },
   );
 }
+
+/** The character has no companions. */
+const NO_COMPANIONS = { companions: [] };
+
+/**
+ * Answers the read of the character's companions (none, unless `companions` says so), which the Encounter tab makes to
+ * know whether to list its Familiar section. An unanswered request fails the spec at teardown.
+ */
+export async function answerCompanionsRead(companions: JsonObject = NO_COMPANIONS): Promise<void> {
+  await vi.waitFor(
+    () => {
+      TestBed.inject(HttpTestingController)
+        .expectOne({ method: 'GET', url: `/api/characters/${SHEET_CHARACTER}/companions` })
+        .flush(companions);
+    },
+    { interval: POLL_INTERVAL },
+  );
+}
