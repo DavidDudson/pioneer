@@ -6,23 +6,69 @@ const GOOGLE_FONT_FILES = 'https://fonts.gstatic.com';
 const FONTSOURCE = 'https://cdn.jsdelivr.net/npm/@fontsource/opendyslexic@5';
 
 /**
- * Where each face's stylesheet lives. Google's CSS API splits a face by `unicode-range`, so the browser downloads
- * only the pieces the page's text uses. Faces left out are the device's own (`System`) and need nothing.
+ * A Google Fonts family as the `css2` API spells it: `family` orders the request (the API wants families sorted by
+ * name) and `spec` is the part after `family=`. Google's CSS splits a face by `unicode-range`, so the browser
+ * downloads only the pieces the page's text uses.
  */
-const BODY_STYLESHEETS: Readonly<Partial<Record<BodyFont, ReadonlyArray<string>>>> = {
-  [BodyFont.Thematic]: [`${GOOGLE_FONTS}?family=Crimson+Pro:ital,wght@0,400..700;1,400..700&display=swap`],
-  [BodyFont.Readable]: [
-    `${GOOGLE_FONTS}?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap`,
-  ],
-  [BodyFont.Lexend]: [`${GOOGLE_FONTS}?family=Lexend:wght@400..700&display=swap`],
-  // OpenDyslexic is not on Google Fonts; Fontsource serves it from jsDelivr.
+interface FamilySpec {
+  readonly family: string;
+  readonly spec: string;
+}
+
+const FRAUNCES: FamilySpec = { family: 'Fraunces', spec: 'Fraunces:opsz,wght@9..144,400..700' };
+
+const CRIMSON_PRO: FamilySpec = { family: 'Crimson Pro', spec: 'Crimson+Pro:ital,wght@0,400..700;1,400..700' };
+
+const ATKINSON: FamilySpec = {
+  family: 'Atkinson Hyperlegible Next',
+  spec: 'Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800',
+};
+
+const LEXEND: FamilySpec = { family: 'Lexend', spec: 'Lexend:wght@400..700' };
+
+const FIRA_CODE: FamilySpec = { family: 'Fira Code', spec: 'Fira+Code:wght@400..700' };
+
+const COURIER_PRIME: FamilySpec = {
+  family: 'Courier Prime',
+  spec: 'Courier+Prime:ital,wght@0,400;0,700;1,400;1,700',
+};
+
+/**
+ * The families each body choice needs from Google Fonts: the display role's face (`System` uses the device's) and
+ * the UI and text roles' faces. Faces left out are the device's own and need nothing; OpenDyslexic is not on Google
+ * Fonts, so it comes from Fontsource (below).
+ */
+const BODY_FAMILIES: Readonly<Record<BodyFont, ReadonlyArray<FamilySpec>>> = {
+  [BodyFont.Thematic]: [FRAUNCES, CRIMSON_PRO, ATKINSON],
+  [BodyFont.Readable]: [FRAUNCES, ATKINSON],
+  [BodyFont.Lexend]: [FRAUNCES, LEXEND],
+  [BodyFont.OpenDyslexic]: [FRAUNCES],
+  [BodyFont.System]: [],
+};
+
+const FONTSOURCE_STYLESHEETS: Readonly<Partial<Record<BodyFont, ReadonlyArray<string>>>> = {
   [BodyFont.OpenDyslexic]: [`${FONTSOURCE}/400.css`, `${FONTSOURCE}/700.css`],
 };
 
-const MONO_STYLESHEETS: Readonly<Partial<Record<MonoFont, ReadonlyArray<string>>>> = {
-  [MonoFont.Standard]: [`${GOOGLE_FONTS}?family=Fira+Code:wght@400..700&display=swap`],
-  [MonoFont.Typewriter]: [`${GOOGLE_FONTS}?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap`],
+const MONO_FAMILIES: Readonly<Record<MonoFont, ReadonlyArray<FamilySpec>>> = {
+  [MonoFont.Standard]: [FIRA_CODE],
+  [MonoFont.Typewriter]: [COURIER_PRIME],
+  [MonoFont.System]: [],
 };
+
+/** One `css2` URL for every family the choices need, so the faces cost a single request. */
+function googleStylesheet(families: ReadonlyArray<FamilySpec>): ReadonlyArray<string> {
+  if (families.length === 0) {
+    return [];
+  }
+
+  const query = families
+    .toSorted((first, second) => first.family.localeCompare(second.family))
+    .map(({ spec }) => `family=${spec}`)
+    .join('&');
+
+  return [`${GOOGLE_FONTS}?${query}&display=swap`];
+}
 
 /** The wordmark only: `text=` asks for just the letters of "Pioneer", a few hundred bytes. */
 const BRAND_STYLESHEET = `${GOOGLE_FONTS}?family=Pirata+One&text=Pioneer&display=swap`;
@@ -36,9 +82,13 @@ export class FontStylesheets {
   readonly #document = inject(DOCUMENT);
   readonly #loaded = new Set<string>();
 
-  /** Makes sure the wordmark face and the chosen body and mono faces are on their way. */
+  /** Makes sure the wordmark face and the faces the chosen body and mono fonts need are on their way. */
   public load(body: BodyFont, mono: MonoFont): void {
-    const urls = [BRAND_STYLESHEET, ...(BODY_STYLESHEETS[body] ?? []), ...(MONO_STYLESHEETS[mono] ?? [])];
+    const urls = [
+      BRAND_STYLESHEET,
+      ...googleStylesheet([...BODY_FAMILIES[body], ...MONO_FAMILIES[mono]]),
+      ...(FONTSOURCE_STYLESHEETS[body] ?? []),
+    ];
 
     if (urls.some((url) => !this.#loaded.has(url))) {
       this.#preconnect(GOOGLE_FONTS.replace('/css2', ''));

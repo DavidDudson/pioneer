@@ -56,6 +56,35 @@ export const Variants: TextStory = {
   }),
 };
 
+/**
+ * The three font roles (ADR-0085): display for titles and headings, UI for controls, labels and tables, text for
+ * long rules prose. Switch the body font in the toolbar to see the accessibility faces take over the UI and text
+ * roles while display keeps its own face.
+ */
+export const FontRoles: TextStory = {
+  render: () => ({
+    template: `
+      <fr-stack gap="md">
+        <div>
+          <fr-text variant="label" tone="muted">font-display</fr-text>
+          <p class="font-display text-title font-semibold">Rise of the Runelords</p>
+        </div>
+        <div>
+          <fr-text variant="label" tone="muted">font-ui</fr-text>
+          <p class="font-ui text-label font-medium">Armor Class &middot; Hit Points &middot; Perception</p>
+        </div>
+        <div>
+          <fr-text variant="label" tone="muted">font-text</fr-text>
+          <p class="font-text text-body">
+            You gain a +1 circumstance bonus to AC until the start of your next turn. If you take the Raise a Shield
+            action while wielding a shield, the bonus applies to saving throws against area effects as well.
+          </p>
+        </div>
+      </fr-stack>
+    `,
+  }),
+};
+
 export const Tones: TextStory = {
   render: () => ({
     props: { tones: Object.values(Tone) },

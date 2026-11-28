@@ -15,36 +15,106 @@ function removeLinks(): void {
   }
 }
 
+/** Stylesheets each choice took before the roles: the body face (OpenDyslexic took two, the device's none). */
+const BODY_REQUESTS: Readonly<Record<BodyFont, number>> = {
+  [BodyFont.Thematic]: 1,
+  [BodyFont.Readable]: 1,
+  [BodyFont.Lexend]: 1,
+  [BodyFont.OpenDyslexic]: 2,
+  [BodyFont.System]: 0,
+};
+
+/** The mono face took one, the device's none. */
+const MONO_REQUESTS: Readonly<Record<MonoFont, number>> = {
+  [MonoFont.Standard]: 1,
+  [MonoFont.Typewriter]: 1,
+  [MonoFont.System]: 0,
+};
+
+const WORDMARK_REQUESTS = 1;
+
+/**
+ * The one choice that costs a request more than before: OpenDyslexic comes from Fontsource in two files, and the
+ * display face then needs a Google request of its own (with a Google mono face it shares that request).
+ */
+const DISPLAY_FACE_EXTRA = (body: BodyFont, mono: MonoFont): number =>
+  body === BodyFont.OpenDyslexic && mono === MonoFont.System ? 1 : 0;
+
+const BUDGET = Object.values(BodyFont).flatMap((body) =>
+  Object.values(MonoFont).map((mono) => ({
+    body,
+    mono,
+    limit: WORDMARK_REQUESTS + BODY_REQUESTS[body] + MONO_REQUESTS[mono] + DISPLAY_FACE_EXTRA(body, mono),
+  })),
+);
+
 describe(FontStylesheets, () => {
   // Another spec in the same worker may have left its links in the shared document.
   beforeEach(removeLinks);
 
   afterEach(removeLinks);
 
-  it('loads the wordmark, body and mono faces from Google Fonts', () => {
+  it('loads the wordmark and one stylesheet for every Google face the choices need', () => {
     TestBed.inject(FontStylesheets).load(BodyFont.Thematic, MonoFont.Standard);
 
     const loaded = stylesheets();
-    expect(loaded).toHaveLength(3);
+    expect(loaded).toHaveLength(2);
     expect(loaded.some((href) => href.includes('family=Pirata+One&text=Pioneer'))).toBe(true);
-    expect(loaded.some((href) => href.includes('family=Crimson+Pro'))).toBe(true);
-    expect(loaded.some((href) => href.includes('family=Fira+Code'))).toBe(true);
+
+    const faces = loaded.find((href) => href.includes('family=Fraunces'));
+    expect(faces).toContain('family=Crimson+Pro');
+    expect(faces).toContain('family=Atkinson+Hyperlegible+Next');
+    expect(faces).toContain('family=Fira+Code');
+  });
+
+  it('lists the families sorted by name, as the css2 API requires', () => {
+    TestBed.inject(FontStylesheets).load(BodyFont.Thematic, MonoFont.Typewriter);
+
+    const families = stylesheets()
+      .filter((href) => href.includes('family=Fraunces'))
+      .flatMap((href) => new URL(href).searchParams.getAll('family'))
+      .map((family) => family.slice(0, family.indexOf(':')));
+
+    expect(families).toHaveLength(4);
+
+    expect(families).toStrictEqual(families.toSorted((first, second) => first.localeCompare(second)));
   });
 
   it('adds only the faces not loaded yet', () => {
     const fonts = TestBed.inject(FontStylesheets);
     fonts.load(BodyFont.Thematic, MonoFont.Standard);
     fonts.load(BodyFont.Thematic, MonoFont.Standard);
-    expect(stylesheets()).toHaveLength(3);
+    expect(stylesheets()).toHaveLength(2);
 
     fonts.load(BodyFont.Lexend, MonoFont.Standard);
-    expect(stylesheets()).toHaveLength(4);
+    expect(stylesheets()).toHaveLength(3);
+  });
+
+  it.each([BodyFont.Thematic, BodyFont.Readable, BodyFont.Lexend, BodyFont.OpenDyslexic])(
+    'asks for the display face with the %s body font',
+    (body) => {
+      TestBed.inject(FontStylesheets).load(body, MonoFont.System);
+
+      expect(stylesheets().some((href) => href.includes('family=Fraunces'))).toBe(true);
+    },
+  );
+
+  it('asks for no display face with the device body font', () => {
+    TestBed.inject(FontStylesheets).load(BodyFont.System, MonoFont.Standard);
+
+    expect(stylesheets().some((href) => href.includes('family=Fraunces'))).toBe(false);
   });
 
   it('loads OpenDyslexic from Fontsource, since Google Fonts does not have it', () => {
     TestBed.inject(FontStylesheets).load(BodyFont.OpenDyslexic, MonoFont.System);
 
     expect(stylesheets().filter((href) => href.includes('fontsource/opendyslexic'))).toHaveLength(2);
+  });
+
+  it.each(BUDGET)('never asks for more than $limit stylesheets for $body + $mono', ({ body, mono, limit }) => {
+    TestBed.inject(FontStylesheets).load(body, mono);
+
+    expect(stylesheets().length).toBeLessThanOrEqual(limit);
   });
 
   it('loads nothing for the device fonts beyond the wordmark', () => {
