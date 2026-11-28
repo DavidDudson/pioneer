@@ -155,6 +155,51 @@ function featRefusal(document: CharacterDocument, content: SlotContent, pick: Sl
   return problem === undefined ? undefined : FEAT_REFUSALS[problem];
 }
 
+/** What a slot offers at each level over the other picks, by content, document and slot: read once, however many candidates ask. */
+type OfferedByLevelValue = readonly OfferedOption[] | undefined;
+
+type OfferedByLevel = Map<Level, OfferedByLevelValue>;
+
+type OfferedBySlot = Map<SlotKey, OfferedByLevel>;
+
+const OFFERED = new WeakMap<SlotContent, WeakMap<CharacterDocument, OfferedBySlot>>();
+
+function offeredLevels(
+  document: CharacterDocument,
+  content: SlotContent,
+  slot: SlotKey,
+): Map<Level, readonly OfferedOption[] | undefined> {
+  const byDocument = OFFERED.get(content) ?? new WeakMap<CharacterDocument, OfferedBySlot>();
+  OFFERED.set(content, byDocument);
+  const bySlot = byDocument.get(document) ?? new Map<SlotKey, OfferedByLevel>();
+  byDocument.set(document, bySlot);
+  const levels = bySlot.get(slot) ?? new Map<Level, readonly OfferedOption[] | undefined>();
+  bySlot.set(slot, levels);
+
+  return levels;
+}
+
+/** What `slot` offers at each level over the character's other picks, each level read once for the same content and document. */
+function offeredAt(
+  document: CharacterDocument,
+  content: SlotContent,
+  slot: SlotKey,
+): (level: Level) => OfferedByLevelValue {
+  const levels = offeredLevels(document, content, slot);
+  const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
+  const picks = new Map(others.map(([key, value]) => [SlotKey.parse(key), value]));
+
+  return (level) => {
+    const known = levels.has(level)
+      ? levels.get(level)
+      : offerAt(resolveSlotsAt(level, slotContextOf(document, content, picks)), slot);
+
+    levels.set(level, known);
+
+    return known;
+  };
+}
+
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
  * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
@@ -165,12 +210,11 @@ function grantRefusal(
   content: SlotContent,
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
-  const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
-  const context = slotContextOf(document, content, new Map(others.map(([key, value]) => [SlotKey.parse(key), value])));
+  const offered = offeredAt(document, content, slot);
   let open = false;
 
   for (const level of levelsDown()) {
-    const options = offerAt(resolveSlotsAt(level, context), slot);
+    const options = offered(level);
 
     if (options?.some((option) => option.value === selection) === true) {
       return featRefusal(document, content, { slot, selection });
