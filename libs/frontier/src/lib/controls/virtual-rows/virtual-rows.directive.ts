@@ -37,7 +37,7 @@ import { injectOptionVirtualizer } from './option-virtualizer';
 })
 export class VirtualRows {
   /** A stable key per row, in order. */
-  public readonly keys = input.required<readonly string[]>({ alias: 'frVirtualRows' });
+  public readonly keys = input.required<ReadonlyArray<string>>({ alias: 'frVirtualRows' });
   /** The row holding the keyboard's highlight. */
   public readonly activeIndex = input<number | undefined>(undefined);
   /** The picked row. */
@@ -62,7 +62,7 @@ export class VirtualRows {
   });
 
   /** The rows to render now. */
-  public readonly rows: Signal<readonly VirtualItem[]> = computed(() =>
+  public readonly rows: Signal<ReadonlyArray<VirtualItem>> = computed(() =>
     this.suspended() ? [] : this.#virtualizer.getVirtualItems(),
   );
   /** The height of the body the rows are placed in. */

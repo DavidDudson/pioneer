@@ -51,12 +51,12 @@ function containerOf(fixture: ComponentFixture<Host>): HTMLElement {
   return container;
 }
 
-function rowElements(fixture: ComponentFixture<Host>): HTMLElement[] {
+function rowElements(fixture: ComponentFixture<Host>): Array<HTMLElement> {
   return [...elementOf(fixture).querySelectorAll<HTMLElement>('[data-row]')];
 }
 
 /** The `data-index` of every row rendered. */
-function indexes(fixture: ComponentFixture<Host>): number[] {
+function indexes(fixture: ComponentFixture<Host>): Array<number> {
   return rowElements(fixture).map((row) => Number(row.dataset['index']));
 }
 

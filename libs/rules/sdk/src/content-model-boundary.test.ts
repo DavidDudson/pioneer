@@ -18,7 +18,7 @@ const FORBIDDEN = /^(?:rule-element|typed-|content-pack|content-registry|content
 
 const IMPORT = /(?:from|import)[\s(]*['"]\.\/(?<name>[\w-]+)['"]/gu;
 
-async function importsOf(file: string): Promise<readonly string[]> {
+async function importsOf(file: string): Promise<ReadonlyArray<string>> {
   const source = await Bun.file(`${import.meta.dir}/${file}`).text();
 
   return [...source.matchAll(IMPORT)].flatMap((match) => {
@@ -29,7 +29,7 @@ async function importsOf(file: string): Promise<readonly string[]> {
 }
 
 /** Adds every file reached from `files` by relative imports, type-only ones included, with the file that imports it. */
-async function reach(files: readonly string[], reached: Map<string, string>): Promise<void> {
+async function reach(files: ReadonlyArray<string>, reached: Map<string, string>): Promise<void> {
   const found = await Promise.all(files.map(async (file) => ({ file, imports: await importsOf(file) })));
 
   const next = found.flatMap(({ file, imports }) =>
@@ -50,7 +50,7 @@ async function reach(files: readonly string[], reached: Map<string, string>): Pr
 }
 
 /** The imports that cross out of the content model, each as `importer -> imported`. */
-async function crossings(): Promise<readonly string[]> {
+async function crossings(): Promise<ReadonlyArray<string>> {
   const reached = new Map<string, string>();
   await reach(ROOTS, reached);
 

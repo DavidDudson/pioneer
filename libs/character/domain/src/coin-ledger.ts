@@ -66,7 +66,7 @@ function isNoChange(change: CoinChange): boolean {
 }
 
 /** The purse the entries add up to: every change summed, coin by coin. */
-export function ledgerCoins(ledger: readonly LedgerEntry[]): Coins {
+export function ledgerCoins(ledger: ReadonlyArray<LedgerEntry>): Coins {
   return CoinsSchema.parse(
     Object.fromEntries(
       COINS.map((coin) => [coin, CoinAmount.parse(ledger.reduce((total, entry) => total + entry.change[coin], 0))]),
@@ -76,14 +76,14 @@ export function ledgerCoins(ledger: readonly LedgerEntry[]): Coins {
 
 /** `ledger` with an entry for the change from `before` to `after`, or as it was when no coin moved. */
 export function withCoinEntry(
-  ledger: readonly LedgerEntry[],
+  ledger: ReadonlyArray<LedgerEntry>,
   edit: {
     readonly before: Coins;
     readonly after: Coins;
     readonly reason: LedgerReason;
     readonly now: Temporal.Instant;
   },
-): readonly LedgerEntry[] {
+): ReadonlyArray<LedgerEntry> {
   const change = coinChange(edit.before, edit.after);
 
   if (isNoChange(change)) {

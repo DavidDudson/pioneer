@@ -68,7 +68,7 @@ export class SheetEarnIncome {
   });
 
   /** The skills the character can earn income with: trained or better, and derived. */
-  readonly #skills: Signal<readonly EarnSkill[]> = computed(() =>
+  readonly #skills: Signal<ReadonlyArray<EarnSkill>> = computed(() =>
     (this.#sheet.picks.skills() ?? []).flatMap(({ name, rank, result }) => {
       const earnRank = EarnRank.safeParse(rank);
 
@@ -76,11 +76,11 @@ export class SheetEarnIncome {
     }),
   );
 
-  protected readonly skillOptions: Signal<readonly SelectOption<string>[]> = computed(() =>
+  protected readonly skillOptions: Signal<ReadonlyArray<SelectOption<string>>> = computed(() =>
     this.#skills().map((skill) => ({ value: skill.name, label: skill.name })),
   );
 
-  protected readonly degreeOptions: Signal<readonly SelectOption<string>[]> = computed(() => {
+  protected readonly degreeOptions: Signal<ReadonlyArray<SelectOption<string>>> = computed(() => {
     this.#messages();
 
     return Object.values(DegreeOfSuccess).map((degree) => ({

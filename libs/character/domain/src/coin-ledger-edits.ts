@@ -34,7 +34,7 @@ interface CoinEdit {
 
 /** `after` with a ledger entry for any coin it moved from `before`; the ledger is the only thing it appends to. */
 export function withCoinLedger({ before, after, reason, now }: CoinEdit): CharacterDocument {
-  const ledger: readonly LedgerEntry[] = withCoinEntry(before.inventory.ledger, {
+  const ledger: ReadonlyArray<LedgerEntry> = withCoinEntry(before.inventory.ledger, {
     before: before.inventory.coins,
     after: after.inventory.coins,
     reason,

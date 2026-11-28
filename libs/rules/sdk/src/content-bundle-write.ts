@@ -54,7 +54,7 @@ class BundleWriter {
   }
 
   /** The size in bytes of each of `files` in `pack`, as written. */
-  public sizes(pack: PackId, files: readonly BundleFile[]): Record<BundleFile, ByteCount> {
+  public sizes(pack: PackId, files: ReadonlyArray<BundleFile>): Record<BundleFile, ByteCount> {
     const sized = files.map((file): [BundleFile, ByteCount] => {
       const size = this.#sizes.get(bundlePath(pack, file));
 
@@ -76,13 +76,13 @@ function mechanics(entry: ContentEntryModel): JsonValue {
   return rest;
 }
 
-function names(entries: readonly ContentEntryModel[]): NamesBundle {
+function names(entries: ReadonlyArray<ContentEntryModel>): NamesBundle {
   return Object.fromEntries(entries.map((entry) => [entry.id, { name: entry.name }]));
 }
 
 /** Entries by kind, each kind's sorted by id so a reordered file gives the same bundles. */
-function byKind(entries: readonly ContentEntryModel[]): ReadonlyMap<ContentKind, readonly ContentEntryModel[]> {
-  const kinds = new Map<ContentKind, ContentEntryModel[]>();
+function byKind(entries: ReadonlyArray<ContentEntryModel>): ReadonlyMap<ContentKind, ReadonlyArray<ContentEntryModel>> {
+  const kinds = new Map<ContentKind, Array<ContentEntryModel>>();
 
   for (const entry of entries.toSorted((left, right) => (left.id < right.id ? -1 : 1))) {
     kinds.set(entry.kind, [...(kinds.get(entry.kind) ?? []), entry]);
@@ -93,7 +93,7 @@ function byKind(entries: readonly ContentEntryModel[]): ReadonlyMap<ContentKind,
 
 /** A kind's descriptions by shard, in shard order. Entries without a description are left out, so some shards may be missing. */
 function descriptionShards(
-  entries: readonly ContentEntryModel[],
+  entries: ReadonlyArray<ContentEntryModel>,
 ): ReadonlyMap<DescriptionShard, Record<ContentId, RichText>> {
   const shards = new Map<DescriptionShard, Record<ContentId, RichText>>();
 
@@ -107,7 +107,7 @@ function descriptionShards(
   return new Map([...shards].toSorted(([left], [right]) => (left < right ? -1 : 1)));
 }
 
-function bundleFiles({ file, kinds }: Pick<PackBundles, 'file' | 'kinds'>): readonly BundleFile[] {
+function bundleFiles({ file, kinds }: Pick<PackBundles, 'file' | 'kinds'>): ReadonlyArray<BundleFile> {
   return [
     file,
     ...kinds.flatMap((kind) => [kind.mechanics, kind.names, ...kind.descriptions.map((shard) => shard.file)]),
@@ -144,7 +144,7 @@ function packBundles(writer: BundleWriter, { file, entries }: PackContents): Pac
  * and per kind its mechanics and its names, each named by the hash of its canonical JSON. Equal packs give equal
  * bundles, whatever order their files list entries in.
  */
-export function contentBundles(packs: readonly PackContents[], hash: BundleHasher): ContentBundles {
+export function contentBundles(packs: ReadonlyArray<PackContents>, hash: BundleHasher): ContentBundles {
   const writer = new BundleWriter(hash);
   const manifest: ContentManifest = { packs: packs.map((contents) => packBundles(writer, contents)) };
 

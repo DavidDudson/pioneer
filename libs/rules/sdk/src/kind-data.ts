@@ -58,6 +58,6 @@ export const KIND_DATA_MODEL = {
 export type RegisteredKind = keyof typeof KIND_DATA_MODEL;
 
 /** Every kind with a `data` schema, in `ContentKind` order. */
-export const REGISTERED_KINDS: readonly RegisteredKind[] = Object.values(ContentKind).filter(
+export const REGISTERED_KINDS: ReadonlyArray<RegisteredKind> = Object.values(ContentKind).filter(
   (kind): kind is RegisteredKind => Object.hasOwn(KIND_DATA_MODEL, kind),
 );

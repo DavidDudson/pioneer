@@ -19,7 +19,7 @@ function line(id: InventoryItemId, rest: Partial<InventoryItem> = {}): Inventory
   return { id, item: itemFixtureId(ItemFixture.Rope), quantity: QUANTITY, carry: STOWED, ...rest };
 }
 
-function stock(items: readonly InventoryItem[]): Inventory {
+function stock(items: ReadonlyArray<InventoryItem>): Inventory {
   return { items, customItems: [], coins: CoinsSchema.parse({}), ledger: [] };
 }
 

@@ -227,7 +227,10 @@ export interface ContentSource {
 }
 
 /** The limits changed by the variant rules `enabled` that `registry` defines; one it does not define changes nothing. */
-export function variantLimitsInForce(registry: ContentRegistry, enabled: readonly VariantRuleId[]): VariantRuleLimits {
+export function variantLimitsInForce(
+  registry: ContentRegistry,
+  enabled: ReadonlyArray<VariantRuleId>,
+): VariantRuleLimits {
   return mergeVariantLimits(
     enabled.flatMap((id) => {
       const limits = registry.variantRule(id)?.definition.limits;

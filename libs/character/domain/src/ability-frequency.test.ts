@@ -42,7 +42,7 @@ function sword(...runes: ReadonlyArray<RuneFixture>): InventoryItem {
 }
 
 /** The inventory line of leather armour with a +1 potency rune and `runes` etched onto it. */
-function armor(...runes: readonly RuneFixture[]): InventoryItem {
+function armor(...runes: ReadonlyArray<RuneFixture>): InventoryItem {
   let inventory: Inventory = addItem(EMPTY_INVENTORY, {
     id: ARMOR,
     item: itemFixtureId(ItemFixture.LeatherArmor),

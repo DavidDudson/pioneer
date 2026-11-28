@@ -8,11 +8,11 @@ const OVERSCAN = 8;
 
 export interface OptionVirtualizerSource {
   /** Stable key per option, in order. */
-  readonly keys: Signal<readonly string[]>;
+  readonly keys: Signal<ReadonlyArray<string>>;
   /** The listbox's own scroll container. */
   readonly scroller: HTMLElement;
   /** Indexes that must stay rendered whatever the scroll position; out-of-range ones are ignored. */
-  readonly pinned: Signal<readonly (number | undefined)[]>;
+  readonly pinned: Signal<ReadonlyArray<number | undefined>>;
 }
 
 /**
@@ -34,12 +34,12 @@ export function injectOptionVirtualizer(source: OptionVirtualizerSource): Angula
       estimateSize: (): number => ESTIMATE_PX,
       overscan: OVERSCAN,
       getItemKey: (index: number): string => keys[index] ?? String(index),
-      rangeExtractor: (range: Range): number[] => renderedIndexes(range, pinned),
+      rangeExtractor: (range: Range): Array<number> => renderedIndexes(range, pinned),
     };
   });
 }
 
-function renderedIndexes(range: Range, pinned: readonly (number | undefined)[]): number[] {
+function renderedIndexes(range: Range, pinned: ReadonlyArray<number | undefined>): Array<number> {
   const indexes = new Set(defaultRangeExtractor(range));
 
   for (const index of [0, range.count - 1, ...pinned]) {
