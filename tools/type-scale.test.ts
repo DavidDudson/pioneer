@@ -21,7 +21,8 @@ const CQI_PER_CONTAINER = 100;
 /** Slack for the rounding of the slope and intercept written in the clamp. */
 const TOLERANCE_REM = 0.01;
 
-const SQUEEZE = 2;
+const MIDPOINT_DIVISOR = 2;
+const MAX_LINE_HEIGHT_RATIO = 2;
 
 const DECLARATION = /(?<name>--[\w-]+):\s*(?<value>[^;]+);/gu;
 
@@ -114,8 +115,8 @@ const ROLES = [...SEMANTIC_TEXT.keys()].flatMap(
   (name) => /^--fr-text-(?<role>[a-z]+)$/u.exec(name)?.groups?.['role'] ?? [],
 );
 
-const FIXED_ROLES = ['caption', 'label', 'body', 'lead', 'subheading', 'heading'];
-const FLUID_ROLES = ['title', 'display'];
+const FIXED_ROLES = ['caption', 'label', 'body', 'lead', 'subheading', 'heading'] as const;
+const FLUID_ROLES = ['title', 'display'] as const;
 
 /** The font size a fluid role has in a container of the given width, as the clamp computes it. */
 function sizeAt(role: string, containerRem: number): number {
@@ -167,7 +168,7 @@ describe('fluid display steps', () => {
   });
 
   test.each(FLUID_ROLES)('%s only grows as the container does', (role) => {
-    const middle = (MIN_CONTAINER_REM + MAX_CONTAINER_REM) / SQUEEZE;
+    const middle = (MIN_CONTAINER_REM + MAX_CONTAINER_REM) / MIDPOINT_DIVISOR;
 
     expect(sizeAt(role, middle)).toBeGreaterThan(sizeAt(role, MIN_CONTAINER_REM));
     expect(sizeAt(role, middle)).toBeLessThan(sizeAt(role, MAX_CONTAINER_REM));
@@ -193,6 +194,6 @@ describe('text line-heights', () => {
     const { min, max } = sizeOf(role);
 
     expect(lineHeightRem(role)).toBeGreaterThanOrEqual(max);
-    expect(lineHeightRem(role)).toBeLessThan(min * SQUEEZE);
+    expect(lineHeightRem(role)).toBeLessThan(min * MAX_LINE_HEIGHT_RATIO);
   });
 });

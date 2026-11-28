@@ -79,7 +79,7 @@
    * Caption to heading are fixed: body and UI text never reflow with the container, so dense screens stay put.
    * Title and display are fluid, Utopia-style: a clamp between two scale steps, growing linearly with the
    * container's inline size (`cqi`, so it falls back to the viewport outside a container) from 20rem to 60rem.
-   * Their line-height clears the larger step.
+   * Their line-height clears the larger step: title's is 2.5rem, up from 2.25rem, so it clears step 8.
    *   title:   step 7 to step 8, 1.6875rem + 0.9375cqi
    *   display: step 8 to step 9, 1.875rem + 1.875cqi
    */

@@ -80,7 +80,7 @@ export const FluidDisplay: TextStory = {
           <fr-text variant="title" element="p">Title</fr-text>
           <fr-text variant="body" element="p">Body stays one size in a narrow container.</fr-text>
         </div>
-        <div class="@container max-w-lg">
+        <div class="@container max-w-page">
           <fr-text variant="display" element="p">Display</fr-text>
           <fr-text variant="title" element="p">Title</fr-text>
           <fr-text variant="body" element="p">Body stays one size in a wide container.</fr-text>
