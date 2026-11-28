@@ -102,7 +102,7 @@ export type PackId = z.infer<typeof PackId>;
  * The stored id of any content entry, whatever its kind. Kind-specific ids (`AncestryId`) brand
  * `Uuid` themselves; use this where any entry will do (an origin, a grant).
  */
-export const ContentId = Uuid.brand<'ContentId'>();
+export const ContentId = z.compile(Uuid.brand<'ContentId'>());
 
 export type ContentId = z.infer<typeof ContentId>;
 
