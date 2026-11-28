@@ -139,6 +139,17 @@
         "upTo": "up to {value}"
       }
     },
+    "filterChip": {
+      "phrase": {
+        "is": "{property} is {value}",
+        "isNot": "{property} is not {value}",
+        "isAnyOf": "{property} is any of {value}",
+        "between": "{property} is between {value}"
+      },
+      "draftPhrase": "{property} {operator}",
+      "emptyValue": "Choose a value",
+      "remove": "Remove filter: {phrase}"
+    },
     "stepper": {
       "back": "Back",
       "next": "Next",

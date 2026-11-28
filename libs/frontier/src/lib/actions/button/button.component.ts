@@ -185,6 +185,8 @@ export class Button {
   public readonly toggled = input<boolean | undefined>(undefined);
   /** The button opens a popup, and whether it is open now (`aria-expanded`, `aria-haspopup`). Unset for a plain button. */
   public readonly expanded = input<boolean | undefined>(undefined);
+  /** Id of the element this button opens or controls (`aria-controls`), e.g. the editor an expanded chip owns. */
+  public readonly controls = input<string | undefined>(undefined);
   /** The content is a lone `fr-icon`: a square button. Give it an `ariaLabel`. */
   public readonly iconOnly = input(false, { transform: booleanAttribute });
   /** The `roll` variant's text colour: green for a net bonus, red for a net penalty. */

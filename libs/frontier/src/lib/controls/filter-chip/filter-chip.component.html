@@ -1,0 +1,33 @@
+<fr-button
+  [size]="Size.Sm"
+  [variant]="ButtonVariant.Ghost"
+  [expanded]="expanded()"
+  [controls]="controls()"
+  (pressed)="edit.emit(Segment.Property)"
+  >{{ property() }}</fr-button
+>
+<fr-button
+  [size]="Size.Sm"
+  [variant]="ButtonVariant.Ghost"
+  [expanded]="expanded()"
+  [controls]="controls()"
+  (pressed)="edit.emit(Segment.Operator)"
+  >{{ operatorLabels[operator()] | transloco }}</fr-button
+>
+<fr-button
+  [size]="Size.Sm"
+  [variant]="ButtonVariant.Ghost"
+  [expanded]="expanded()"
+  [controls]="controls()"
+  (pressed)="edit.emit(Segment.Value)"
+  >{{ draft() ? ('frontier.filterChip.emptyValue' | transloco) : value() }}</fr-button
+>
+<fr-button
+  iconOnly
+  [size]="Size.Sm"
+  [variant]="ButtonVariant.Ghost"
+  [ariaLabel]="'frontier.filterChip.remove' | transloco: { phrase: phrase() }"
+  (pressed)="removed.emit()"
+>
+  <fr-icon [icon]="closeIcon" />
+</fr-button>
