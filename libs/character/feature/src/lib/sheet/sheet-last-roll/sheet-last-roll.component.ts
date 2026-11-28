@@ -5,6 +5,7 @@ import { RollCard } from '@pioneer/play/ui';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { BreakdownView } from '@pioneer/rules/ui';
 
+import { SheetRollHistoryButton } from '../sheet-roll-history/sheet-roll-history-button.component';
 import { SheetRollSetup } from '../sheet-roll-setup/sheet-roll-setup.component';
 import { SheetRolls } from '../sheet-rolls';
 import { SheetState } from '../sheet-state';
@@ -16,7 +17,7 @@ import { SheetState } from '../sheet-state';
  */
 @Component({
   selector: 'pio-sheet-last-roll',
-  imports: [BreakdownView, Disclosure, RollCard, SheetRollSetup, Stack, Text, TranslocoPipe],
+  imports: [BreakdownView, Disclosure, RollCard, SheetRollHistoryButton, SheetRollSetup, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-last-roll.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

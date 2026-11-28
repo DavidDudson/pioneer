@@ -1,0 +1,31 @@
+<fr-drawer [title]="'character.sheet.roll.history.title' | transloco" [(open)]="history.open">
+  <fr-stack gap="md">
+    @for (entry of history.entries(); track entry) {
+      <fr-stack gap="xs">
+        <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+          <fr-text weight="semibold">{{ 'character.sheet.roll.heading' | transloco: { name: entry.name } }}</fr-text>
+          <fr-text variant="caption" tone="subtle"><fr-date format="relative" [value]="when(entry)" /></fr-text>
+        </fr-stack>
+        <pio-roll-card [roll]="view(entry)" [dc]="entry.dc" />
+        @if (entry.statistic; as statistic) {
+          <fr-disclosure>
+            <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
+            <pio-breakdown
+              [statistic]="statistic"
+              [kind]="kind"
+              [entryNames]="entryNames()"
+              [originNames]="originNames()"
+            />
+          </fr-disclosure>
+        }
+      </fr-stack>
+    } @empty {
+      <fr-text tone="subtle">{{ 'character.sheet.roll.history.empty' | transloco }}</fr-text>
+    }
+    @if (history.entries().length > 0) {
+      <fr-button [variant]="clearVariant" (pressed)="history.clear()">{{
+        'character.sheet.roll.history.clear' | transloco
+      }}</fr-button>
+    }
+  </fr-stack>
+</fr-drawer>

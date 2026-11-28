@@ -7,6 +7,7 @@ import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
+import { SheetRollHistory } from '../sheet-roll-history/sheet-roll-history';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
@@ -28,6 +29,7 @@ export const CHARACTER_SHEET_PAGE_PROVIDERS = [
   { provide: STATISTIC_NAMES, useFactory: statisticNames },
   ...SHEET_PLAY_PROVIDERS,
   ...CHARACTER_CONTENT_PROVIDERS,
+  SheetRollHistory,
   ...SHEET_ROLLS_PROVIDERS,
   ...SHEET_INLINE_ROLLS_PROVIDERS,
   ...SHEET_OVERRIDES_PROVIDERS,

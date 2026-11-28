@@ -6,6 +6,7 @@ import { Drawer } from '@pioneer/frontier';
 import { SheetBreakdown } from '../sheet-breakdown/sheet-breakdown.component';
 import { SheetConfigurationDrawer } from '../sheet-configuration/sheet-configuration-drawer.component';
 import { SheetOverrideDrawer } from '../sheet-override/sheet-override-drawer.component';
+import { SheetRollHistoryDrawer } from '../sheet-roll-history/sheet-roll-history-drawer.component';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 
 /**
@@ -14,7 +15,15 @@ import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state'
  */
 @Component({
   selector: 'pio-sheet-drawers',
-  imports: [Drawer, NgComponentOutlet, SheetBreakdown, SheetConfigurationDrawer, SheetOverrideDrawer, TranslocoPipe],
+  imports: [
+    Drawer,
+    NgComponentOutlet,
+    SheetBreakdown,
+    SheetConfigurationDrawer,
+    SheetOverrideDrawer,
+    SheetRollHistoryDrawer,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-drawers.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },

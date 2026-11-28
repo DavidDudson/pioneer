@@ -1,0 +1,12 @@
+@if (last(); as last) {
+  <fr-button [variant]="variant" (pressed)="history.open.set(true)">
+    @if (last.view.degree; as degree) {
+      {{
+        'character.sheet.roll.history.lastWithDegree'
+          | transloco: { name: last.name, total: last.view.total, degree: (degree.degreeKey | transloco) }
+      }}
+    } @else {
+      {{ 'character.sheet.roll.history.last' | transloco: { name: last.name, total: last.view.total } }}
+    }
+  </fr-button>
+}
