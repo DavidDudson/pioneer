@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836131388,
+  "lastUpdate": 1795836148464,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1138,6 +1138,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 212,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e08d57b84c30f42166d465305687bd1f24b9e850",
+          "message": "feat(frontier): add FilterCodec for filter conditions (#2457)\n\n* feat(frontier): add FilterCodec and per-kind default operators\n\nReads and writes FilterCondition[] as link text for any fields: the default operator is left unwritten, several conditions per field are allowed, and the earlier traits:fire,!evil form still decodes.\n\nRefs #2334\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(frontier): keep FilterCodec to operators and numbers a field reads\n\nDecode drops conditions whose operator the field kind lacks, bounds must be plain numbers, empty values are left out of the link, and the codec takes its default from defaultOperator.\n\nRefs #2334\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:59:36+10:00",
+          "tree_id": "f11a62055dcce12e6d8f64ef97f04b153ae2aee0",
+          "url": "https://github.com/DavidDudson/pioneer/commit/e08d57b84c30f42166d465305687bd1f24b9e850"
+        },
+        "date": 1795836144993,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4281,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6385,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 214,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
