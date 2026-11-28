@@ -754,8 +754,9 @@ each turn. The engine only reports it (`hostileSpellSave`, with the rune as orig
 it" on each effect whose source is the GM, for the player to press after rolling the save: effects carry no save type or
 DC, and the once-a-turn limit is a note, not state. Creature-side runes (aim-aiding's cover, unnerving's penalty on the
 attacker) stay recorded gaps: ADR-0018 leaves other creatures and cover to Foundry. Armour runes whose only mechanic is
-an activation (advancing, gliding, portable, raiment, malleable, swallow-spike, greater winged) list it in the pack, with
-its action cost and no frequency; play shows it on the sheet but applies none of its effect.
+an activation (advancing, gliding, portable, raiment, malleable, swallow-spike and winged (greater), with their greater
+and major grades) list it in the pack, with its action cost and no frequency; play shows it on the sheet but applies
+none of its effect.
 
 ### Battle forms
 

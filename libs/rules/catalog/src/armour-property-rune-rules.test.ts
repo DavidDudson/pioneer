@@ -64,18 +64,35 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
 
-/** The armour runes whose only mechanic is an activation the content lists without a frequency: slug, activation, glyph. */
-const ACTIVATION_RUNES: ReadonlyArray<readonly [string, string, string]> = [
-  ['rune:advancing', 'advancing', 'free'],
-  ['rune:advancing-greater', 'advancing-greater', 'free'],
-  ['rune:gliding', 'gliding', 'one'],
-  ['rune:portable', 'portable', 'three'],
-  ['rune:raiment', 'costume-change', 'one'],
-  ['rune:malleable', 'reconfigure-armor', 'one'],
-  ['rune:swallow-spike', 'swallow-spike', 'reaction'],
-  ['rune:swallow-spike-greater', 'swallow-spike-greater', 'reaction'],
-  ['rune:swallow-spike-major', 'swallow-spike-major', 'reaction'],
-  ['rune:winged-greater', 'take-to-the-skies', 'two'],
+interface ActivationRune {
+  readonly slug: string;
+  readonly activation: string;
+  readonly name: string;
+  readonly cost: string;
+}
+
+/** The armour runes whose only mechanic is an activation the content lists with a cost and no frequency. */
+const ACTIVATION_RUNES: ReadonlyArray<ActivationRune> = [
+  { slug: 'rune:advancing', activation: 'advancing', name: 'Advancing', cost: 'free' },
+  { slug: 'rune:advancing-greater', activation: 'advancing-greater', name: 'Advancing (Greater)', cost: 'free' },
+  { slug: 'rune:gliding', activation: 'gliding', name: 'Gliding', cost: 'one' },
+  { slug: 'rune:portable', activation: 'portable', name: 'Portable', cost: 'three' },
+  { slug: 'rune:raiment', activation: 'costume-change', name: 'Costume Change', cost: 'one' },
+  { slug: 'rune:malleable', activation: 'reconfigure-armor', name: 'Reconfigure Armor', cost: 'one' },
+  { slug: 'rune:swallow-spike', activation: 'swallow-spike', name: 'Swallow-Spike', cost: 'reaction' },
+  {
+    slug: 'rune:swallow-spike-greater',
+    activation: 'swallow-spike-greater',
+    name: 'Swallow-Spike (Greater)',
+    cost: 'reaction',
+  },
+  {
+    slug: 'rune:swallow-spike-major',
+    activation: 'swallow-spike-major',
+    name: 'Swallow-Spike (Major)',
+    cost: 'reaction',
+  },
+  { slug: 'rune:winged-greater', activation: 'take-to-the-skies', name: 'Take to the Skies', cost: 'two' },
 ];
 
 const MOONWEAVE_HEALING: ReadonlyArray<readonly [string, number]> = [
@@ -153,13 +170,13 @@ describe('armour property rune rules', () => {
     expect(entry?.rules).toMatchObject([{ key: 'TurnStartSave', against: 'hostile-spell' }]);
   });
 
-  test.each(ACTIVATION_RUNES)(
-    '%s lists its activation %s with the cost %s and no frequency',
-    (slug, activation, cost) => {
-      const entry = RUNES.find((rune) => rune.slug === slug);
+  test.each(ACTIVATION_RUNES)('$slug lists its activation with a cost and no frequency', (rune) => {
+    const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
-      expect(entry?.data).toMatchObject({ activations: [{ slug: activation, cost }] });
-      expect(entry?.data).not.toMatchObject({ activations: [{ frequency: expect.anything() }] });
-    },
-  );
+    expect(entry?.data).toStrictEqual(
+      expect.objectContaining({
+        activations: [{ slug: rune.activation, name: rune.name, cost: rune.cost }],
+      }),
+    );
+  });
 });
