@@ -557,6 +557,16 @@ export default defineConfig({
       rules: { 'sonarjs/assertions-in-tests': 'off' },
     },
     {
+      // These assert through a helper (`expectPlain` wraps `expect`) or a bare `assert(property(...))`, which the rule does
+      // not follow; each test does assert.
+      files: [
+        'libs/rules/grants/src/repeatable-feats.test.ts',
+        'apps/api/src/generate-character.test.ts',
+        'apps/api/src/generate-spells.test.ts',
+      ],
+      rules: { 'sonarjs/assertions-in-tests': 'off' },
+    },
+    {
       // These parse Foundry's and Archives of Nethys's markup at build time, from committed or fetched pages, never from a
       // request, so polynomial backtracking is no attack surface; the patterns are tuned to that markup and each has a spec.
       files: ['libs/interop/foundry/**', 'tools/**'],

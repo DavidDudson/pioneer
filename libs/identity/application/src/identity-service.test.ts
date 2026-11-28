@@ -230,7 +230,9 @@ describe('IdentityService', () => {
 
   test('signing out without a session is a no-op', async () => {
     const { service } = harness();
+    const unknownToken = SessionToken.parse('B'.repeat(43));
     await service.signOut(undefined);
-    await service.signOut(SessionToken.parse('B'.repeat(43)));
+    await service.signOut(unknownToken);
+    expect(await service.authenticate(unknownToken)).toBeUndefined();
   });
 });
