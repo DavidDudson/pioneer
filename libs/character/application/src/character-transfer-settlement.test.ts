@@ -40,7 +40,10 @@ describe('CharacterTransferSettlement', () => {
     settlement = new CharacterTransferSettlement(characters, fixedClock('2026-10-17T10:00:00Z'));
     const kyra = new CharacterBuilder().named('Kyra').ownedBy(amiri).build();
     giver = await characters.insert(
-      kyra.withInventory({ items: [], customItems: [], coins: CoinsSchema.parse({ gp: 10 }) }, kyra.updatedAt),
+      kyra.withInventory(
+        { items: [], customItems: [], coins: CoinsSchema.parse({ gp: 10 }), ledger: [] },
+        kyra.updatedAt,
+      ),
       create,
     );
     recipient = await characters.insert(new CharacterBuilder().named('Mordred').ownedBy(ezren).build(), create);

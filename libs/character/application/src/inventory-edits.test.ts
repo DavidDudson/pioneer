@@ -5,12 +5,14 @@ import {
   CharacterCommand,
   CharacterName,
   CharacterPatchField,
+  CoinChangeSchema,
   CoinsSchema,
   HANDS_MAX,
   INVENTORY_ITEMS_MAX,
   InventoryItemId,
   InventoryItemName,
   ItemQuantity,
+  LedgerReason,
   ONE_HAND,
   STOWED,
 } from '@pioneer/character/domain';
@@ -100,6 +102,9 @@ describe('CharacterService inventory edits', () => {
       ],
       customItems: [],
       coins: CoinsSchema.parse({ gp: 15 }),
+      ledger: [
+        expect.objectContaining({ reason: LedgerReason.Adjustment, change: CoinChangeSchema.parse({ gp: 15 }) }),
+      ],
     });
     expect(repository.audits.map(({ command }) => command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
@@ -131,6 +136,11 @@ describe('CharacterService inventory edits', () => {
       { item: arrows, quantity: ItemQuantity.parse(15) },
     ]);
     expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 8, cp: 5 }));
+    expect(character.document.inventory.ledger.map(({ reason }) => reason)).toStrictEqual([
+      LedgerReason.Adjustment,
+      LedgerReason.Purchase,
+      LedgerReason.Purchase,
+    ]);
     expect(repository.audits.map(({ command }) => command).slice(-2)).toStrictEqual([
       CharacterCommand.BuyItem,
       CharacterCommand.BuyItem,

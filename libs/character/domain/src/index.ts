@@ -420,6 +420,8 @@ export { AuthorizedName, AuthorizedSchema, isEmptyState, ItemStateSchema } from 
 
 export type { Authorized, ItemState } from './item-state';
 
+export { type CoinChange, CoinChangeSchema, type LedgerEntry, LedgerReason } from './coin-ledger';
+
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 
 export {
@@ -1173,3 +1175,7 @@ export {
   ShiftsSchema,
   shiftedInventory,
 } from './weapon-shifts';
+
+export { CORE_EARN_INCOME, earnIncomeDc, incomeForDays } from './earn-income';
+
+export { EarnDays, EarnRank, TASK_LEVEL_MAX, TaskLevel } from './earn-income-fields';

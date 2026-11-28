@@ -528,6 +528,22 @@ content it is (`ContentId` of an armour, consumable, equipment, shield, treasure
 item it is stowed in, if any, the player's name for it, if any, how it is carried and whether it is invested (schema
 version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, each 0 or more.
 
+`inventory.ledger` records every change to `inventory.coins`, oldest first (schema version 23, #512;
+[ADR-0082](../adr/0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)). Coins stay stored
+by coin, any mix of platinum, gold, silver and copper. An entry is a reason (`opening`, `purchase`, `income`,
+`adjustment` or `transfer`), a signed change for each coin and the time it was made (an opening entry written by the
+upgrade has none).
+`Character.apply` and `withInventory` write the entry themselves by comparing the coins before and after an edit, so no
+path can change the purse without one: `coins` always equals the sum of the entries, coin by coin. A new character's
+coins and an older character's, on upgrade, become the `opening` entry. A purchase pays with exact coins where the
+purse allows and otherwise breaks the next larger coin and gives change ([Shop](#shop)); its entry holds the net change.
+Earn Income (#513) is the `earnIncome` patch: a task level (0 to 20), the rank in the skill (trained or better: the
+Income Earned table has no untrained column), the degree of success the skill check reached and the days worked. The
+domain pays the table's amount for each day (`earn-income.json`, Player Core Table 4-2) into the purse as one `income`
+entry, so a critical failure leaves no entry. The client rolls, as for every check, and sends the degree.
+Later stories add their own reasons (coin gifting, crafting and ritual costs). The Wealth section shows
+the purse's worth in gold and the entries, newest first.
+
 `inventory.customItems` lists the items an import found no content for (schema version 19, #310): an id, the name
 Pathbuilder gave, a quantity and `origin: import`. A custom item weighs nothing, takes no container, carry state, rune
 or investment, and is never dropped by the import. `removeItem` takes it off by its id.

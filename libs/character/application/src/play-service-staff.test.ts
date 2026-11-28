@@ -42,7 +42,10 @@ function wizardWithStaff(): Character {
 
   const wizard = new CharacterBuilder().named('Ezren').atLevel(5).picking('class', playerCoreClassId('wizard')).build();
 
-  return wizard.withInventory({ items: [staff], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
+  return wizard.withInventory(
+    { items: [staff], customItems: [], coins: CoinsSchema.parse({}), ledger: [] },
+    clock.now(),
+  );
 }
 
 function cast(spell: string, field: 'castStaff' | 'uncastStaff' = PlayCommandField.CastStaff): PlayCommand {

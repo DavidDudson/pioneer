@@ -44,6 +44,20 @@ describe('InventorySection', () => {
     expect(field(section, 'Silver (sp)').textContent).toContain('0');
   });
 
+  it('shows the coins in gold and every change to them, newest first', async () => {
+    const section = await openInventory();
+    const ledger = present(section.querySelector('pio-coin-ledger'));
+    expect(ledger.textContent).toContain('15 gp in all');
+
+    const entries = [...ledger.querySelectorAll('fr-list-item')].map((entry) =>
+      entry.textContent.replaceAll(/\s+/gu, ' ').trim(),
+    );
+
+    expect(entries).toHaveLength(2);
+    expect(entries[0]).toMatch(/Shop purchase.*-5 gp/u);
+    expect(entries[1]).toMatch(/Starting coins.*\+20 gp/u);
+  });
+
   it('meters the Bulk carried against the limits Strength sets, the rope in the backpack ignored', async () => {
     const section = await openInventory();
     const bulk = present(section.querySelector('pio-bulk'));

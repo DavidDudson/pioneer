@@ -5,6 +5,7 @@ import { Section, SectionBody, Stack } from '@pioneer/frontier';
 import { ActionMode } from '@pioneer/rules/sdk';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
+import { SheetEarnIncome } from '../sheet-earn-income/sheet-earn-income.component';
 import { SheetRest } from '../sheet-rest/sheet-rest.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
@@ -12,12 +13,22 @@ import { rememberTab } from '../sheet-tab';
 import { Shop } from '../shop/shop.component';
 
 /**
- * The Downtime tab: what the character does between adventures. Rest and the other restoring actions, and the shop;
- * rituals, crafting, Earn Income and retraining join as their stories land.
+ * The Downtime tab: what the character does between adventures. Rest and the other restoring actions, Earn Income and
+ * the shop.
  */
 @Component({
   selector: 'pio-sheet-downtime-tab',
-  imports: [SheetSectionTabs, SheetActions, Section, SectionBody, SheetRest, Shop, Stack, TranslocoPipe],
+  imports: [
+    SheetSectionTabs,
+    SheetActions,
+    Section,
+    SectionBody,
+    SheetEarnIncome,
+    SheetRest,
+    Shop,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-downtime-tab.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

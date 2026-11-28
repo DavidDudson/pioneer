@@ -1,0 +1,31 @@
+<fr-stack gap="sm">
+  <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.inventory.ledger.heading' | transloco }}</fr-heading>
+  <fr-text>{{ 'character.sheet.inventory.ledger.total' | transloco: { total: total() } }}</fr-text>
+  @if (rows().length === 0) {
+    <fr-text variant="caption">{{ 'character.sheet.inventory.ledger.empty' | transloco }}</fr-text>
+  } @else {
+    <fr-list gap="xs">
+      @for (row of rows(); track row.key) {
+        <fr-list-item>
+          <fr-stack gap="xs">
+            <fr-text>{{ row.reason | transloco }}</fr-text>
+            @for (part of row.amounts; track part.coin) {
+              <fr-text>{{
+                'character.sheet.inventory.ledger.amount'
+                  | transloco: { amount: part.amount, coin: (part.coin | transloco) }
+              }}</fr-text>
+            }
+            @if (row.at; as at) {
+              <fr-text variant="caption"><fr-date [value]="at" [format]="dateFormat" /></fr-text>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+    @if (truncated()) {
+      <fr-button size="sm" [variant]="ghost" (pressed)="showEverything()">
+        {{ 'character.sheet.inventory.ledger.showAll' | transloco }}
+      </fr-button>
+    }
+  }
+</fr-stack>

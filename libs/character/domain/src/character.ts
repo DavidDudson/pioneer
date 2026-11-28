@@ -12,8 +12,11 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
+import { LedgerReason } from './coin-ledger';
+import { reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
+import { withEarnedIncome } from './earn-income';
 import { equipmentChange } from './equipment-change';
 import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
@@ -135,7 +138,7 @@ export class Character {
           choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) },
           ...input.unplaced,
         },
-        inventory: input.inventory,
+        inventory: input.inventory === undefined ? undefined : withOpeningEntry(input.inventory),
       }),
       version: FIRST_VERSION,
       createdAt: input.now,
@@ -158,7 +161,11 @@ export class Character {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
     }
 
-    return new Character({ ...this.toProps(), document, updatedAt: now });
+    return new Character({
+      ...this.toProps(),
+      document: withCoinLedger({ before: this.document, after: document, reason: reasonFor(patch), now }),
+      updatedAt: now,
+    });
   }
 
   #changes(patch: CharacterPatch, inputs: EditInputs, now: Temporal.Instant): Partial<CharacterProps> {
@@ -234,12 +241,11 @@ export class Character {
       }
 
       case CharacterPatchField.SetCoins: {
-        return {
-          document: {
-            ...this.document,
-            inventory: { ...this.document.inventory, coins: patch.coins },
-          },
-        };
+        return { document: withCoins(this.document, patch.coins) };
+      }
+
+      case CharacterPatchField.EarnIncome: {
+        return { document: withEarnedIncome(this.document, patch) };
       }
 
       default: {
@@ -309,11 +315,23 @@ export class Character {
     return new Character({ ...this.toProps(), version });
   }
 
-  /** This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. */
-  public withInventory(inventory: Inventory, now: Temporal.Instant): Character {
+  /**
+   * This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. Any
+   * coins it moves are entered as a transfer between purses unless `reason` says otherwise.
+   */
+  public withInventory(
+    inventory: Inventory,
+    now: Temporal.Instant,
+    reason: LedgerReason = LedgerReason.Transfer,
+  ): Character {
     return new Character({
       ...this.toProps(),
-      document: { ...this.document, inventory },
+      document: withCoinLedger({
+        before: this.document,
+        after: { ...this.document, inventory },
+        reason,
+        now,
+      }),
       updatedAt: now,
     });
   }

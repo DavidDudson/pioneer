@@ -20,6 +20,7 @@ import { Character } from './character';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
+import { CoinChangeSchema, LedgerReason, LedgerTime } from './coin-ledger';
 import { CoinsSchema, InventoryItemId, ItemQuantity } from './inventory';
 import { STOWED } from './item-carry';
 import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId, KitFixture, kitFixtureId } from './testing';
@@ -201,6 +202,13 @@ describe('Character inventory edits', () => {
       items: withBackpack().document.inventory.items,
       customItems: [],
       coins,
+      ledger: [
+        {
+          reason: LedgerReason.Adjustment,
+          change: CoinChangeSchema.parse({ gp: 15, sp: 3 }),
+          at: LedgerTime.parse(later.toString({ smallestUnit: 'millisecond' })),
+        },
+      ],
     });
   });
 

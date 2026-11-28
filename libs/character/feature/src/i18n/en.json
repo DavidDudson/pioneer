@@ -402,6 +402,21 @@
       "customBadge": "Imported",
       "removing": "Removing…",
       "coinsHeading": "Coins",
+      "ledger": {
+        "heading": "Wealth",
+        "total": "{total} gp in all",
+        "empty": "No changes to the coins yet.",
+        "showAll": "Show every change",
+        "amount": "{amount} {coin}",
+        "coin": { "pp": "pp", "gp": "gp", "sp": "sp", "cp": "cp" },
+        "reason": {
+          "opening": "Starting coins",
+          "purchase": "Shop purchase",
+          "adjustment": "Set by hand",
+          "income": "Earned income",
+          "transfer": "Moved to or from another purse"
+        }
+      },
       "coin": {
         "pp": "Platinum (pp)",
         "gp": "Gold (gp)",
@@ -474,6 +489,28 @@
       "formAppearance": "As {name} you look like a creature with the traits {traits}."
     },
     "downtimeHeading": "Downtime",
+    "income": {
+      "heading": "Earn Income",
+      "explain": "Work a task for pay: roll the skill against the task's DC, and each day is paid by how well it went.",
+      "noSkills": "Earn Income needs a skill you are trained in.",
+      "skill": "Skill",
+      "level": "Task level",
+      "days": "Days",
+      "result": "Result",
+      "dc": "DC {dc}",
+      "payout": "Earns {payout}",
+      "nothing": "Nothing",
+      "roll": "Roll",
+      "collect": "Collect",
+      "collecting": "Collecting…",
+      "collected": "Collected",
+      "degree": {
+        "criticalSuccess": "Critical success",
+        "success": "Success",
+        "failure": "Failure",
+        "criticalFailure": "Critical failure"
+      }
+    },
     "shop": {
       "heading": "Shop",
       "loadError": "The shop could not be loaded. Try again.",
