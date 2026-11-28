@@ -208,8 +208,12 @@ async function answerReads(character: JsonObject, options: SheetOptions): Promis
     await answerItemApprovalsRead();
   }
 
-  // The Encounter and Downtime tabs ask for the companions: whether there is a familiar to list, or a dead one to replace.
-  if (options.tab === SheetMode.Encounter || options.tab === SheetMode.Downtime) {
+  // The Encounter tab and the Downtime rest section ask for the companions: whether there is a familiar to list, or a dead one to replace.
+  const readsCompanions =
+    options.tab === SheetMode.Encounter ||
+    (options.tab === SheetMode.Downtime && (options.section === undefined || options.section === 'rest'));
+
+  if (readsCompanions) {
     await answerCompanionsRead();
   }
 }
