@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795835781142,
+  "lastUpdate": 1795835855598,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -958,6 +958,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a0dcfd33540b074128013f152b086231e90f02c",
+          "message": "fix(knip): enter the storybook vitest configs, drop an unused export (#2452)\n\ntest-storybook is inferred by an Nx plugin since #2438, so knip no longer\nsees the .storybook vitest configs through project.json and reports them\nunused. List them as entries. DEFAULT_CARD_PADDING is only used in its\nown file.\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:58:41+10:00",
+          "tree_id": "cc50b464248459645c666aa6d2e95ed8fb24ba0b",
+          "url": "https://github.com/DavidDudson/pioneer/commit/6a0dcfd33540b074128013f152b086231e90f02c"
+        },
+        "date": 1795835851782,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4281,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6385,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 1559,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
