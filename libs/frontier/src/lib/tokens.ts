@@ -51,6 +51,9 @@ export const Container = {
 
 export type Container = ValueOf<typeof Container>;
 
+/** Figures that line up in a column and do not shift as a value changes. Literal, so Tailwind's scanner sees it. */
+export const figureClasses = 'lining-nums tabular-nums';
+
 /**
  * Shared CVA variant maps. Every class string is a literal so Tailwind's
  * scanner sees it; components spread these into their own `cva()` configs.

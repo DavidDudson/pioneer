@@ -1,7 +1,7 @@
 <fr-stack gap="sm">
   @if (shown(); as shown) {
     <fr-meter [label]="Message.Meter | transloco" [value]="shown.length" [max]="maximum()" />
-    <fr-text variant="caption" tone="subtle">{{ count() }}</fr-text>
+    <fr-text variant="caption" tone="subtle" numeric>{{ count() }}</fr-text>
     @if (shown.length === 0) {
       <fr-empty-state
         ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state

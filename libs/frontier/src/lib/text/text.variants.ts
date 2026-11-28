@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-import { toneVariants } from '../tokens';
+import { figureClasses, toneVariants } from '../tokens';
 
 export const TextVariant = {
   Display: 'display',
@@ -44,7 +44,7 @@ export const textVariants = cva('', {
       bold: 'font-bold',
     } satisfies Record<FontWeight, string>,
     truncate: { true: 'truncate', false: '' },
-    numeric: { true: 'tabular-nums', false: '' },
+    numeric: { true: figureClasses, false: '' },
     monospace: { true: 'font-mono', false: '' },
     minWidth: { modifier: 'min-w-modifier' } satisfies Record<MinWidth, string>,
   },

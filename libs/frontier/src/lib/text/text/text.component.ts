@@ -95,6 +95,7 @@ export class Text {
   public readonly damage = input<DamageTone | undefined>(undefined);
   public readonly weight = input<FontWeight | undefined>(undefined);
   public readonly truncate = input(false, { transform: booleanAttribute });
+  /** Sets figures tabular and lining. A `minWidth` text is a figure, so it sets them without this. */
   public readonly numeric = input(false, { transform: booleanAttribute });
   /** Sets the text in the monospace face, so digits line up in a column. */
   public readonly monospace = input(false, { transform: booleanAttribute });
@@ -126,7 +127,7 @@ export class Text {
         tone: damage === undefined && tone !== INHERIT_TONE ? tone : undefined,
         weight: this.weight(),
         truncate: this.truncate(),
-        numeric: this.numeric(),
+        numeric: this.numeric() || this.minWidth() !== undefined,
         monospace,
         minWidth: this.minWidth(),
       }),

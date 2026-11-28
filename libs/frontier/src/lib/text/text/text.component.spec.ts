@@ -177,6 +177,18 @@ describe(Text, () => {
     expect(rendered.classList).toContain('font-mono');
   });
 
+  it('sets a text with a width floor in tabular, lining figures, since it is a figure', async () => {
+    const rendered = await render({ minWidth: 'modifier' }, '+10');
+
+    expect([...rendered.classList]).toStrictEqual(expect.arrayContaining(['tabular-nums', 'lining-nums']));
+  });
+
+  it('sets no figure classes on prose', async () => {
+    const rendered = await render({});
+
+    expect([...rendered.classList]).not.toContain('tabular-nums');
+  });
+
   it('keeps a floor for the width, centring shorter text in it', async () => {
     const rendered = await render({ minWidth: 'modifier' }, '-3');
 
