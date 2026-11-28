@@ -1,5 +1,5 @@
 <fr-stack direction="horizontal" gap="2xs" wrap>
-  @for (chip of chips(); track chip.label) {
+  @for (chip of value(); track chip.label) {
     @if (chip.trait; as trait) {
       <pio-trait-chip [trait]="trait" [label]="chip.label" [tone]="chip.tone ?? 'neutral'" />
     } @else {

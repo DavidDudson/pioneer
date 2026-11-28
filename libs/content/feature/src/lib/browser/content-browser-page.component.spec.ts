@@ -156,6 +156,21 @@ describe('ContentBrowserPage', () => {
     expect(headers(root)).not.toContain('HP');
   });
 
+  it('shows the feat columns, from the feat properties, in a list of feats only', async () => {
+    const { root } = await open('/content?kind=feat');
+    await loaded(root, 4);
+    expect(headers(root)).toStrictEqual(
+      expect.arrayContaining(['Name', 'Level', 'Category', 'Actions', 'Traits', 'Prerequisites', 'Source']),
+    );
+  });
+
+  it('leaves the feat columns out of a list of another kind', async () => {
+    const { root } = await open('/content?kind=creature');
+    await loaded(root, 1);
+    expect(headers(root)).not.toContain('Category');
+    expect(headers(root)).not.toContain('Prerequisites');
+  });
+
   it('filters creatures by role and size from the link', async () => {
     const { root } = await open('/content?kind=creature&f=role:monster~size:small');
     await expect(loaded(root, 1)).resolves.toStrictEqual(['Giant Rat']);

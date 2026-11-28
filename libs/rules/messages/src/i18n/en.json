@@ -1207,12 +1207,9 @@
     },
     "featPicker": {
       "column": {
-        "name": "Name",
         "category": "Category",
         "actions": "Actions",
-        "traits": "Traits",
         "prerequisites": "Prerequisites",
-        "source": "Source",
         "notes": "Notes"
       },
       "category": {
@@ -1702,7 +1699,10 @@
       "unsupported": "Unsupported"
     },
     "column": {
-      "level": "Level"
+      "name": "Name",
+      "level": "Level",
+      "traits": "Traits",
+      "source": "Source"
     }
   }
 }

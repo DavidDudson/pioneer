@@ -11,7 +11,7 @@ export default meta;
 /** One met, one not. */
 export const Mixed: PrerequisiteStory = {
   args: {
-    prerequisites: [
+    value: [
       { label: 'Trained in Athletics', state: PrerequisiteState.Met },
       { label: 'Strength 16', state: PrerequisiteState.Unmet },
     ],
@@ -20,13 +20,13 @@ export const Mixed: PrerequisiteStory = {
 
 /** All met. */
 export const AllMet: PrerequisiteStory = {
-  args: { prerequisites: [{ label: 'Trained in Stealth', state: PrerequisiteState.Met }] },
+  args: { value: [{ label: 'Trained in Stealth', state: PrerequisiteState.Met }] },
 };
 
 /** One that can't be checked: neither met nor unmet. */
 export const Unknown: PrerequisiteStory = {
-  args: { prerequisites: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }] },
+  args: { value: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }] },
 };
 
 /** None. */
-export const None: PrerequisiteStory = { args: { prerequisites: [] } };
+export const None: PrerequisiteStory = { args: { value: [] } };

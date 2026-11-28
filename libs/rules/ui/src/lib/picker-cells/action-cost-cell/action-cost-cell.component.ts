@@ -10,7 +10,7 @@ import type { ActionKind } from '../picker-cell-messages';
  * passive ability has its own glyph.
  *
  * ```html
- * <pio-action-cost-cell [cost]="feat.actions" />
+ * <pio-action-cost-cell [value]="feat.actions" />
  * ```
  */
 @Component({
@@ -20,7 +20,7 @@ import type { ActionKind } from '../picker-cell-messages';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionCostCell {
-  public readonly cost = input.required<ActionKind>();
+  public readonly value = input.required<ActionKind>();
 
-  protected readonly messages = computed(() => ACTION_KIND_MESSAGES[this.cost()]);
+  protected readonly messages = computed(() => ACTION_KIND_MESSAGES[this.value()]);
 }

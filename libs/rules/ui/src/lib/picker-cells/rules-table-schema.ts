@@ -45,7 +45,7 @@ export interface EntryNameColumn<TRow> extends ColumnOptions {
 }
 
 /** Cheapest first: a free action, a reaction, then one to three actions, a cost that varies, none at all. */
-const ACTION_ORDER: ReadonlyArray<ActionKind> = [
+export const ACTION_ORDER: ReadonlyArray<ActionKind> = [
   ActionKind.Free,
   ActionKind.Reaction,
   ActionKind.One,
@@ -74,7 +74,7 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
       ...options,
       sortValue: (row) => ACTION_ORDER.indexOf(options.value(row)),
       component: ActionCostCell,
-      inputs: (row) => ({ cost: options.value(row) }),
+      inputs: (row) => ({ value: options.value(row) }),
     });
   }
 
@@ -94,7 +94,7 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
       ...options,
       sortValue: (row) => options.value(row) ?? NOTHING,
       component: LevelCell,
-      inputs: (row) => ({ level: options.value(row) }),
+      inputs: (row) => ({ value: options.value(row) }),
     });
   }
 
@@ -148,7 +148,7 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
       ...options,
       sortValue: (row) => sortedLabels(options.value(row)),
       component: ChipList,
-      inputs: (row) => ({ chips: options.value(row) }),
+      inputs: (row) => ({ value: options.value(row) }),
     });
   }
 }

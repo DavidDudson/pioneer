@@ -14,7 +14,7 @@ describe(ActionCostCell, () => {
     [ActionKind.Variable, '◆ to ◆◆◆', 'One to three actions'],
     [ActionKind.Passive, '—', 'Passive'],
   ])('shows %s as its glyph, read out in words', async (cost, glyph, words) => {
-    const host = await renderCell(ActionCostCell, { cost });
+    const host = await renderCell(ActionCostCell, { value: cost });
     expect(host.querySelector('[aria-hidden="true"]')?.textContent.trim()).toBe(glyph);
     expect(host.querySelector('.sr-only')?.textContent.trim()).toBe(words);
   });

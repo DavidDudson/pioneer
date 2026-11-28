@@ -31,7 +31,7 @@ export const RARITY_TONES: Readonly<Record<Rarity, BadgeTone>> = {
  * `pio-trait-chip`; one that names another entry opens a preview of it on hover and focus.
  *
  * ```html
- * <pio-chip-list [chips]="traits()" />
+ * <pio-chip-list [value]="traits()" />
  * ```
  */
 @Component({
@@ -41,7 +41,7 @@ export const RARITY_TONES: Readonly<Record<Rarity, BadgeTone>> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipList {
-  public readonly chips = input.required<ReadonlyArray<Chip>>();
+  public readonly value = input.required<ReadonlyArray<Chip>>();
 
   readonly #previews = inject(ENTRY_PREVIEWS);
 

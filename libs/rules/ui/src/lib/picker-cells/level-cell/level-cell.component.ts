@@ -8,7 +8,7 @@ import { PickerCellMessage } from '../picker-cell-messages';
  * A level as its number, read out as "Level 3". Nothing when the row has no level.
  *
  * ```html
- * <pio-level-cell [level]="feat.level" />
+ * <pio-level-cell [value]="feat.level" />
  * ```
  */
 @Component({
@@ -18,12 +18,12 @@ import { PickerCellMessage } from '../picker-cell-messages';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LevelCell {
-  public readonly level = input.required<number | undefined>();
+  public readonly value = input.required<number | undefined>();
 
   readonly #format = inject(LocaleFormat);
   protected readonly Message = PickerCellMessage;
   protected readonly shown = computed(() => {
-    const level = this.level();
+    const level = this.value();
 
     return level === undefined ? undefined : this.#format.number(level);
   });

@@ -1,30 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
-import { BadgeTone, injectTranslate } from '@pioneer/frontier';
-import { Picker } from '@pioneer/frontier/data';
+import { injectTranslate } from '@pioneer/frontier';
+import { injectPropertyContext, Picker, PROPERTY_KINDS, tableFromProperties } from '@pioneer/frontier/data';
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
-import { ContentId, Rarity } from '@pioneer/rules/sdk';
 
-import type { Chip } from '../picker-cells/chip-list/chip-list.component';
-import { RARITY_TONES } from '../picker-cells/chip-list/chip-list.component';
-import { FeatTableSchema } from '../picker-cells/feat-table-schema';
-import { PickerCellMessage } from '../picker-cells/picker-cell-messages';
-import { FEAT_CATEGORY_MESSAGES, FEAT_RARITY_MESSAGES, FeatPickerMessage } from './feat-picker-messages';
+import { FEAT_PICKER_COLUMNS, FEAT_PROPERTIES } from '../properties/feat-properties';
+import { provideRulesPropertyKinds } from '../properties/rules-property-kinds';
 import { FeatPickerColumn } from './feat-picker-row';
 import type { FeatPickerRow } from './feat-picker-row';
 
 const rowValue = (row: FeatPickerRow): string => row.id;
 const rowLabel = (row: FeatPickerRow): string => row.name;
 const rowDisabled = (row: FeatPickerRow): string | undefined => row.disabledReason;
-
-/** The traits as chips, a feat above common rarity first and toned by it. */
-function chipsOf(row: FeatPickerRow, say: (key: string) => string): ReadonlyArray<Chip> {
-  if (row.rarity === Rarity.Common) {
-    return row.traits;
-  }
-
-  return [{ label: say(FEAT_RARITY_MESSAGES[row.rarity]), tone: RARITY_TONES[row.rarity] }, ...row.traits];
-}
 
 function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): number {
   const order =
@@ -33,72 +19,6 @@ function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): n
       : left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
 
   return sort.descending ? -order : order;
-}
-
-/** What a feat is: name, level, category, action cost and traits. `say` reads the cells in the active language. */
-function whatColumns(say: (key: string) => string): FeatTableSchema<FeatPickerRow> {
-  return new FeatTableSchema<FeatPickerRow>()
-    .addEntryName({
-      id: FeatPickerColumn.Name,
-      header: FeatPickerMessage.Name,
-      value: (row) => row.name,
-      entry: (row) => ContentId.safeParse(row.id).data,
-      width: 'md',
-    })
-    .addLevel({
-      id: FeatPickerColumn.Level,
-      header: PickerCellMessage.LevelColumn,
-      value: (row) => row.level,
-      width: 'sm',
-    })
-    .addTag({
-      id: 'category',
-      header: FeatPickerMessage.Category,
-      sortable: false,
-      value: (row) => ({ label: say(FEAT_CATEGORY_MESSAGES[row.category]), tone: BadgeTone.Neutral }),
-      width: 'sm',
-    })
-    .addActions({
-      id: 'actions',
-      header: FeatPickerMessage.Actions,
-      sortable: false,
-      value: (row) => row.action,
-      width: 'sm',
-    })
-    .addTraits({
-      id: 'traits',
-      header: FeatPickerMessage.Traits,
-      sortable: false,
-      value: (row) => chipsOf(row, say),
-      width: 'md',
-    });
-}
-
-/** What a feat asks of the character and where it comes from: prerequisites, source and notes. */
-function featColumns(say: (key: string) => string): ReadonlyArray<TableColumn<FeatPickerRow>> {
-  return whatColumns(say)
-    .addPrerequisites({
-      id: 'prerequisites',
-      header: FeatPickerMessage.Prerequisites,
-      sortable: false,
-      value: (row) => row.prerequisites,
-      width: 'lg',
-    })
-    .addSource({
-      id: 'source',
-      header: FeatPickerMessage.Source,
-      sortable: false,
-      value: (row) => row.sources,
-      width: 'md',
-    })
-    .addText({
-      id: 'notes',
-      header: FeatPickerMessage.Notes,
-      sortable: false,
-      value: (row) => row.note ?? '',
-      width: 'md',
-    })
-    .build();
 }
 
 /**
@@ -115,6 +35,7 @@ function featColumns(say: (key: string) => string): ReadonlyArray<TableColumn<Fe
   selector: 'pio-feat-picker',
   imports: [Picker],
   templateUrl: './feat-picker.component.html',
+  providers: [provideRulesPropertyKinds()],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
 })
@@ -134,14 +55,18 @@ export class FeatPicker {
   protected readonly query = signal('');
   protected readonly sorting = signal<PickerSort | undefined>(undefined);
 
-  readonly #i18n = inject(TranslocoService);
-  /** Changes when the language changes or the messages load, so the headers and labels are read again. */
+  readonly #kinds = inject(PROPERTY_KINDS);
+  readonly #context = injectPropertyContext();
+  /** Changes when the language changes or the messages load, so the headers are read again. */
   readonly #messages = injectTranslate();
 
-  protected readonly columns = computed(() => {
+  protected readonly columns = computed((): ReadonlyArray<TableColumn<FeatPickerRow>> => {
     this.#messages();
 
-    return featColumns((key) => this.#i18n.translate(key));
+    return tableFromProperties<FeatPickerRow>(FEAT_PROPERTIES, FEAT_PICKER_COLUMNS, {
+      kinds: this.#kinds,
+      context: this.#context,
+    }).build();
   });
 
   /** The rows whose name holds what was typed, in the order asked for. */

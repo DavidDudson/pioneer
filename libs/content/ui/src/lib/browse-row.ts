@@ -1,6 +1,6 @@
 import type { LinkTarget } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
-import type { Chip } from '@pioneer/rules/ui';
+import type { Chip, FeatFacts } from '@pioneer/rules/ui';
 
 import type { BrowseSource } from './browse-source';
 import type { ContentEntryRef } from './browser-state';
@@ -37,6 +37,8 @@ export interface BrowseRow {
   readonly levelValue: number | undefined;
   /** The creature's part of the row; `undefined` for any other kind. */
   readonly creature: BrowseCreature | undefined;
+  /** The feat's part of the row, which `FEAT_PROPERTIES` read; `undefined` for any other kind. */
+  readonly feat: FeatFacts | undefined;
   readonly traits: ReadonlyArray<Chip>;
   readonly sources: ReadonlyArray<BrowseSource>;
   /** The entry is legacy content: under the Open Game License, from before the remaster. */

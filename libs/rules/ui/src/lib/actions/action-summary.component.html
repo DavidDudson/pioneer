@@ -6,7 +6,7 @@
     <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
   </fr-stack>
   @if (badges().length > 0) {
-    <pio-chip-list [chips]="badges()" />
+    <pio-chip-list [value]="badges()" />
   }
   @for (fact of facts(); track fact.label) {
     <fr-stack gap="3xs">

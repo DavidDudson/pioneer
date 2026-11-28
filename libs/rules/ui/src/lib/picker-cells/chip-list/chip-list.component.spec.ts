@@ -12,7 +12,7 @@ import { ChipList } from './chip-list.component';
 describe(ChipList, () => {
   it('shows a chip per trait, in order', async () => {
     const host = await renderCell(ChipList, {
-      chips: [{ label: 'Fire' }, { label: 'Rare trait', tone: BadgeTone.Info }],
+      value: [{ label: 'Fire' }, { label: 'Rare trait', tone: BadgeTone.Info }],
     });
 
     const chips = [...host.querySelectorAll('fr-badge')].map((chip) => chip.textContent.trim());
@@ -20,7 +20,7 @@ describe(ChipList, () => {
   });
 
   it('shows nothing for no traits', async () => {
-    const host = await renderCell(ChipList, { chips: [] });
+    const host = await renderCell(ChipList, { value: [] });
     expect(host.querySelectorAll('fr-badge')).toHaveLength(0);
   });
 
@@ -29,7 +29,7 @@ describe(ChipList, () => {
       providers: [provideRulesUiI18nTesting(), provideEntryPreviews(FIREBALL_PREVIEWS)],
     });
     const fixture = TestBed.createComponent(ChipList);
-    fixture.componentRef.setInput('chips', [{ label: 'Fire', entry: FIREBALL }, { label: 'Plain' }]);
+    fixture.componentRef.setInput('value', [{ label: 'Fire', entry: FIREBALL }, { label: 'Plain' }]);
     await fixture.whenStable();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
@@ -47,7 +47,7 @@ describe(ChipList, () => {
       providers: [provideRulesUiI18nTesting(), provideEntryPreviews(HELD_TRAIT_PREVIEWS)],
     });
     const fixture = TestBed.createComponent(ChipList);
-    fixture.componentRef.setInput('chips', [{ label: 'Flame', trait: FIRE }, { label: 'Plain' }]);
+    fixture.componentRef.setInput('value', [{ label: 'Flame', trait: FIRE }, { label: 'Plain' }]);
     await fixture.whenStable();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
