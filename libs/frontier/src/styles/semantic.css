@@ -71,10 +71,19 @@
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;
 
-  --fr-duration-fast: var(--fr-scale-duration-1);
-  --fr-duration-base: var(--fr-scale-duration-2);
-  --fr-duration-slow: var(--fr-scale-duration-3);
-  --fr-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* Motion: four duration and easing pairs. Reduced motion collapses every one (frontier.css). */
+  /* enter: a thing arriving; decelerates in. */
+  --fr-duration-enter: var(--fr-scale-duration-2);
+  --fr-ease-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
+  /* exit: a thing leaving; accelerates out, shorter than enter. */
+  --fr-duration-exit: var(--fr-scale-duration-1);
+  --fr-ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+  /* move: a thing changing place or state. */
+  --fr-duration-move: var(--fr-scale-duration-2);
+  --fr-ease-move: cubic-bezier(0.2, 0, 0, 1);
+  /* emphasis: a one-off attention cue. Looping and multi-beat animations are multiples of it. */
+  --fr-duration-emphasis: var(--fr-scale-duration-4);
+  --fr-ease-emphasis: cubic-bezier(0.2, 0, 0, 1);
 }
 
 /* Compact control sizes for a mouse or trackpad; touch keeps the 2.75rem targets above. */

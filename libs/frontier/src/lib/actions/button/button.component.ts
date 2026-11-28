@@ -3,7 +3,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
 import { AsyncStatus } from '../../async/async-action';
-import { Size } from '../../tokens';
+import { motionVariants, Size } from '../../tokens';
 
 export const ButtonVariant = {
   Primary: 'primary',
@@ -66,7 +66,7 @@ const forcedPressed = cva([
 const buttonVariants = cva(
   [
     'inline-flex items-center gap-xs font-ui whitespace-nowrap',
-    'transition-colors duration-fast ease-standard focus-visible:focus-ring',
+    `transition-colors ${motionVariants.move} focus-visible:focus-ring`,
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
     'status-border forced-colors:border',
   ],

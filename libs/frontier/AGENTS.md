@@ -65,7 +65,7 @@ Read this before touching any UI.
   `h-px`, `opacity-50`, `z-10`, `duration-150`, `w-1/2`, `bg-x/50` or `!`.
   Need a value? Add a semantic token (tier 2) and map it in `@theme`
   (`h-touch`, `max-h-listbox`, `w-placeholder-md`, `grid-cols-fill-md`,
-  `opacity-disabled`, `z-sticky`, `duration-fast`, `pt-safe-top`). Need a
+  `opacity-disabled`, `z-sticky`, `duration-move`, `pt-safe-top`). Need a
   state selector? Add a `@custom-variant` (`highlighted:`). Counts are fine
   (`grid-cols-3`, `flex-1`, `shrink-0`), as are token steps (`gap-2xs`).
 - **CVA for every class.** Variants are `cva()` configs
