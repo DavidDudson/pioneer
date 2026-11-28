@@ -40,6 +40,7 @@ describe('CharacterSheetPage', () => {
       ['Senses', true],
       ['Strikes', true],
       ['Actions', true],
+      ['Familiar', true],
       ['Spellcasting', true],
     ]);
     await openTab(root, 'Exploration', 'Appearance and personality');
@@ -57,6 +58,7 @@ describe('CharacterSheetPage', () => {
       ['Rest and preparations', true],
       ['Actions', true],
       ['Earn Income', true],
+      ['Retraining', true],
       ['Downtime', true],
     ]);
   });

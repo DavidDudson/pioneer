@@ -25,6 +25,8 @@ export const SHEET_SECTIONS = {
   actions: { anchor: 'sheet-actions', headingKey: 'character.sheet.actionsHeading' },
   /** The animal companions the character's feats grant. */
   companions: { anchor: 'sheet-companions', headingKey: 'character.sheet.companions.heading' },
+  /** The character's familiar, as its stat block. */
+  familiar: { anchor: 'sheet-familiar', headingKey: 'character.sheet.familiar.heading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
   /** What the character is doing while exploring (#501). */
   explorationActivity: { anchor: 'sheet-exploration-activity', headingKey: 'character.sheet.exploration.heading' },
@@ -90,6 +92,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, ReadonlyArray<SheetS
     SHEET_SECTIONS.senses,
     SHEET_SECTIONS.strikes,
     SHEET_SECTIONS.actions,
+    SHEET_SECTIONS.familiar,
     SHEET_SECTIONS.spellcasting,
   ],
   [SheetMode.Exploration]: [
@@ -145,11 +148,21 @@ export function shownSection(
   order: ReadonlyArray<SheetSection>,
   path: Signal<string | undefined>,
 ): Signal<SheetSection | undefined> {
-  return computed(() =>
-    panelOfPath(path()) === undefined
-      ? (order.find((section) => sectionPath(section) === path()) ?? order[0])
-      : undefined,
-  );
+  return shownSectionOf(() => order, path);
+}
+
+/** `shownSection` for a tab whose sections change: some only show while the character has what they hold. */
+export function shownSectionOf(
+  order: Signal<ReadonlyArray<SheetSection>> | (() => ReadonlyArray<SheetSection>),
+  path: Signal<string | undefined>,
+): Signal<SheetSection | undefined> {
+  return computed(() => {
+    const sections = order();
+
+    return panelOfPath(path()) === undefined
+      ? (sections.find((section) => sectionPath(section) === path()) ?? sections[0])
+      : undefined;
+  });
 }
 
 /** A side panel of the sheet, on every mode. */
