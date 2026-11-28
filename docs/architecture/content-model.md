@@ -354,8 +354,9 @@ invested or identified is play state, not content.
 
 ### Creatures
 
-A `creature` entry holds a full stat block in `data` (`CreatureData`, `libs/rules/sdk/src/creature.ts`); its level,
-rarity and traits are the envelope's. The core numbers are required: `role`, `size`, `perception`, `attributes`,
+A `creature` entry holds a full stat block in `data` (`CreatureData`, `libs/rules/sdk/src/typed-content.ts`;
+`creature.ts` holds the same schema with `rules` as references); its level, rarity and traits are the envelope's.
+The core numbers are required: `role`, `size`, `perception`, `attributes`,
 `armorClass`, `saves`, `hitPoints`, the three IWR lists and the land `speed`. The rest is optional, so an entry
 written with only the core numbers still validates (`creature-stat-block.ts`):
 

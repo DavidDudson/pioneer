@@ -1,5 +1,5 @@
 import { ArmorItemCategory } from './armor';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import {
   EquipmentKind,
@@ -20,7 +20,7 @@ import { WeaponGroup } from './weapon';
 
 /** A facet that reads items only: entries of other kinds give it no value. */
 function ofItems(read: (entry: EquipmentEntry) => readonly FacetLeaf[]): FacetDerive {
-  return (entry: ContentEntry): readonly FacetLeaf[] => (isEquipment(entry) ? read(entry) : []);
+  return (entry: ContentEntryModel): readonly FacetLeaf[] => (isEquipment(entry) ? read(entry) : []);
 }
 
 const EquipmentFacetMessage = {

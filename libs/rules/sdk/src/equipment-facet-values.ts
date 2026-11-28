@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import { BulkWeight, Coin, UsageType } from './physical-item';
 import type { Bulk, Price } from './physical-item';
@@ -21,11 +21,11 @@ export const EquipmentKind = {
 
 export type EquipmentKind = ValueOf<typeof EquipmentKind>;
 
-export type EquipmentEntry = Extract<ContentEntry, { readonly kind: EquipmentKind }>;
+export type EquipmentEntry = Extract<ContentEntryModel, { readonly kind: EquipmentKind }>;
 
 const EQUIPMENT_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(EquipmentKind));
 
-export function isEquipment(entry: ContentEntry): entry is EquipmentEntry {
+export function isEquipment(entry: ContentEntryModel): entry is EquipmentEntry {
   return EQUIPMENT_KINDS.has(entry.kind);
 }
 

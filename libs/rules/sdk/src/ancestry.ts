@@ -4,7 +4,7 @@ import * as z from 'zod';
 import { AttributeBoost, Attributes } from './attribute';
 import { ContentId, EntrySlug } from './content-id';
 import { ContentText } from './content-text';
-import { LanguageCount } from './rule-element-language';
+import { LanguageCount } from './language-count';
 import { SizeSchema } from './size';
 import { Trait } from './trait';
 import { uniqueItems } from './unique-items';

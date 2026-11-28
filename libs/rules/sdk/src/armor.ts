@@ -4,8 +4,8 @@ import * as z from 'zod';
 
 import { AttributeModifier } from './attribute';
 import { Slug } from './content-id';
+import { ArmorCategory } from './martial-category';
 import { Hardness, physicalFields } from './physical-item';
-import { ArmorCategory } from './rule-element-proficiency';
 import { PropertyRuneEnergies, PropertyRunes, ReinforcingGrade, RuneGrade } from './rune';
 import { Feet, HitPoints } from './units';
 import { WeaponRunes } from './weapon';

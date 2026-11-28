@@ -1,6 +1,5 @@
 import * as z from 'zod';
 
-import { ContentEntry } from './content-entry';
 import type { EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
@@ -8,7 +7,8 @@ import type { ContentPackSchema, PackAncestry, PackCreature, PackStatistic } fro
 import type { JsonValue } from './json-bounds';
 import { ProficiencyBonusTable } from './proficiency';
 import { RollOptionNamespaces } from './roll-option-namespace';
-import type { VariantRuleDefinition } from './variant-rule';
+import type { VariantRuleDefinition } from './typed-content';
+import { ContentEntry } from './typed-content-entry';
 
 /**
  * A pack's `pack.json` under `content/packs/<pack>/`: its manifest, plus the pack-wide data no entry holds. The core

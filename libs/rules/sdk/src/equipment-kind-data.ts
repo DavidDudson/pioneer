@@ -5,7 +5,7 @@ import { EquipmentData, KitData, TreasureData } from './equipment';
 import { RuneData } from './rune';
 import { WeaponData } from './weapon';
 
-/** The `data` schemas of the equipment kinds, which `KIND_DATA` (`kind-data.ts`) takes in. */
+/** The `data` schemas of the equipment kinds, which `KIND_DATA_MODEL` (`kind-data.ts`) takes in. */
 export const EQUIPMENT_KIND_DATA = {
   [ContentKind.Armor]: ArmorData,
   [ContentKind.Consumable]: ConsumableData,

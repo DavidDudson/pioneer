@@ -112,6 +112,15 @@ describe('variant rules in packs', () => {
     expect(paths).toStrictEqual([['variantRules', 0, 'sources']]);
   });
 
+  test("a variant rule's rule elements are parsed in full", () => {
+    const paths = issuesFrom(
+      ContentPackSchema,
+      pack({ variantRules: [{ ...variant, rules: [{ key: 'GrantItem' }] }] }),
+    ).map(({ path }) => path);
+
+    expect(paths).toStrictEqual([['variantRules', 0, 'rules', 0, 'item']]);
+  });
+
   test('variant rule slugs are unique within a pack', () => {
     expect(issuesFrom(ContentPackSchema, pack({ variantRules: [variant, variant] }))).not.toStrictEqual([]);
   });

@@ -2,7 +2,6 @@ import { describe, expect, test } from 'bun:test';
 
 import { ACTION_FACETS, FEAT_FACETS, prerequisitesMetFacet } from './action-facets';
 import type { PrerequisiteValue } from './action-facets';
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { COMMON_FACETS, facetValues, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
@@ -10,6 +9,7 @@ import { filterEntries } from './facet-filter';
 import { filterFromQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An entry.' }] }];

@@ -1,7 +1,6 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
 import { ContentId, ContentPackId, PackId } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import type { ContentPack } from './content-pack';
@@ -10,6 +9,7 @@ import { ContentText } from './content-text';
 import { jsonEntries } from './json-bounds';
 import type { JsonValue } from './json-bounds';
 import { RichText } from './rich-text';
+import type { ContentEntry } from './typed-content-entry';
 
 /** JSON text written so equal values give equal text, whatever order their keys were written in. */
 export const CanonicalJson = z.string().brand<'CanonicalJson'>();

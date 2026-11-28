@@ -47,6 +47,7 @@ import {
 } from './rule-element-spellcasting';
 import { AdjustStrikeElement, StrikeElement } from './rule-element-strike';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
+import { RULES_MAX } from './rule-reference';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));
 
@@ -130,9 +131,6 @@ export const RuleElement: z.ZodType<RuleElement> = z
   .pipe(Element);
 
 export type RuleElement = z.output<typeof Element>;
-
-/** A class carries its whole progression as rule elements: Player Core's rogue has 102. */
-const RULES_MAX = 256;
 
 /** A content entry's `rules`: its elements in order (an origin's `RuleIndex` points into it). */
 export const RuleElements = z.array(RuleElement).max(RULES_MAX);

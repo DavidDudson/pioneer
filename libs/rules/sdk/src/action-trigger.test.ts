@@ -3,11 +3,11 @@ import { describe, expect, test } from 'bun:test';
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 function issues(value: JsonValue): readonly FieldIssue[] {
   const result = ContentEntry.safeParse(value);

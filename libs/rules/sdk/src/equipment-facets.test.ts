@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { EQUIPMENT_FACETS } from './equipment-facets';
 import { facetValues, UNKNOWN } from './facet';
@@ -9,6 +8,7 @@ import { facetCounts, filterEntries } from './facet-filter';
 import { filterFromQuery } from './filter-query';
 import type { RegisteredKind } from './kind-data';
 import { facetsFor } from './kind-facets';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An item.' }] }];

@@ -3,7 +3,6 @@ import { describe, expect, test } from 'bun:test';
 import { array, assert, constantFrom, integer, option, property, record, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
@@ -12,6 +11,7 @@ import type { FacetDefinition, FacetId } from './facet';
 import { facetCounts, filterEntries, onlyValue, SelectionKind } from './facet-filter';
 import type { FacetSelection, FilterState } from './facet-filter';
 import { filterFromQuery, filterToQuery } from './filter-query';
+import { ContentEntry } from './typed-content-entry';
 
 /** Small pools, so generated lists share values and filters have something to do. */
 const TRAITS = ['fire', 'cold', 'evil', 'magical', 'rare-trait'];

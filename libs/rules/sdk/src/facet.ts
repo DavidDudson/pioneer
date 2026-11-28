@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { Slug } from './content-id';
 import type { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
@@ -70,7 +70,7 @@ export type FacetPath = readonly PropertyKey[];
 /** A scalar a facet reads from an entry: `undefined` marks a missing field. */
 export type FacetLeaf = string | number | boolean | null | undefined;
 
-export type FacetDerive = (entry: ContentEntry) => readonly FacetLeaf[];
+export type FacetDerive = (entry: ContentEntryModel) => readonly FacetLeaf[];
 
 interface FacetBase {
   readonly id: FacetId;
@@ -197,7 +197,7 @@ function leafValue(leaf: JsonValue, type: FacetType): FacetValue | undefined {
  * The values `entry` gives `facet`, each once. An entry with none where the field is missing gives the unknown
  * value, so it stays findable; an empty list (no traits) gives none.
  */
-export function facetValues(entry: ContentEntry, facet: FacetDefinition): readonly FacetValue[] {
+export function facetValues(entry: ContentEntryModel, facet: FacetDefinition): readonly FacetValue[] {
   const found = facet.derive === undefined ? leaves(entry, facet.path) : facet.derive(entry);
   const values = new Set(found.flatMap((leaf) => leafValue(leaf, facet.type) ?? []));
 

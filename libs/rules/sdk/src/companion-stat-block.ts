@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { Attribute, AttributeModifiersWire, AttributeSchema } from './attribute';
 import { ContentText } from './content-text';
-import { RuleSlug } from './rule-element-base';
+import { RuleSlug } from './rule-slug';
 import { SizeSchema } from './size';
 import { Feet, HitPoints } from './units';
 import { WeaponDamage } from './weapon';

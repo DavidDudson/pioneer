@@ -3,7 +3,6 @@ import * as z from 'zod';
 
 import { ContentKindSchema } from './content-kind';
 import type { ContentKind } from './content-kind';
-import type { ChoiceValue } from './rule-element-structure';
 
 /**
  * Kebab-case identifier: lowercase alphanumerics separated by single hyphens.
@@ -106,6 +105,11 @@ export type PackId = z.infer<typeof PackId>;
 export const ContentId = z.compile(Uuid.brand<'ContentId'>());
 
 export type ContentId = z.infer<typeof ContentId>;
+
+/** A choice's stored value: a content entry (`ContentId`), a plain option (`forest`) or a custom Lore (`lore:sailing`). */
+export const ChoiceValue = z.union([ContentId, Slug, LoreChoice]);
+
+export type ChoiceValue = z.infer<typeof ChoiceValue>;
 
 /**
  * `value` as a content id, or undefined when it is not one. A pick is often a plain option (`arcana`) and not an id,

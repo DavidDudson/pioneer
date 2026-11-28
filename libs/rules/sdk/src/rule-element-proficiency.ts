@@ -3,10 +3,13 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { formulaIssues, FormulaSource } from './formula-source';
+import { ArmorCategory, WeaponCategory } from './martial-category';
 import { Predicate } from './predicate';
 import { ProficiencyBonusTable, ProficiencySchema } from './proficiency';
 import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Selector } from './selector';
+
+export { ArmorCategory, WeaponCategory } from './martial-category';
 
 /**
  * A selector the player's pick completes: the pick a `ChoiceSet` stored under `choice`, after `prefix` and a colon
@@ -80,24 +83,6 @@ export const MartialKind = {
 } as const;
 
 export type MartialKind = ValueOf<typeof MartialKind>;
-
-export const WeaponCategory = {
-  Unarmed: 'unarmed',
-  Simple: 'simple',
-  Martial: 'martial',
-  Advanced: 'advanced',
-} as const;
-
-export type WeaponCategory = ValueOf<typeof WeaponCategory>;
-
-export const ArmorCategory = {
-  Unarmored: 'unarmored',
-  Light: 'light',
-  Medium: 'medium',
-  Heavy: 'heavy',
-} as const;
-
-export type ArmorCategory = ValueOf<typeof ArmorCategory>;
 
 /** A weapon or armour category a martial proficiency can link to, as Foundry's `sameAs` allows. */
 export const MartialCategory = z.enum({ ...WeaponCategory, ...ArmorCategory });

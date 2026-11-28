@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, entrySlug, PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
+import { ContentEntry } from './typed-content-entry';
 
 const slug = entrySlug(ContentKind.CompanionSpecies, Slug.parse('wolf'));
 

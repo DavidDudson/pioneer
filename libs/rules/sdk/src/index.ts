@@ -242,11 +242,13 @@ export { LanguageData, LanguageScript } from './language';
 
 export { SenseAcuity, SenseData } from './sense';
 
-export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';
+export { VariantRuleData, VariantRuleId, VariantStructure } from './variant-rule';
 
-export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits, variantLimitsInForce } from './variant-rule-limits';
+export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits } from './variant-rule-limits';
 
-export { ContentEntry } from './content-entry';
+export { ContentEntry } from './typed-content-entry';
+
+export { CreatureAbility, CreatureData, CreatureDefinition, KIND_DATA, VariantRuleDefinition } from './typed-content';
 
 export {
   BundleBody,
@@ -297,7 +299,7 @@ export {
 
 export { AdditionalFeat, ArchetypeData, DEDICATION_LOCK_DEFAULT, DedicationLock } from './archetype';
 
-export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
+export { REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 
 export { ClassRole, ClassRoleSchema, SkillCount } from './character-class';
 
@@ -378,27 +380,18 @@ export {
   type CreatureEntry,
   type StatisticEntry,
   type VariantRuleEntry,
+  variantLimitsInForce,
 } from './content-registry';
 
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 
 export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
 
-export {
-  CreatureData,
-  CreatureDefinition,
-  CreatureId,
-  CreatureRole,
-  DamageTarget,
-  NO_DEFENCES,
-  NpcDetails,
-  NpcLevelRange,
-} from './creature';
+export { CreatureId, CreatureRole, DamageTarget, NO_DEFENCES, NpcDetails, NpcLevelRange } from './creature';
 
 export { CREATURE_FACETS } from './creature-facets';
 
 export {
-  CreatureAbility,
   CreatureDamage,
   CreatureItem,
   CreatureSense,
@@ -573,7 +566,7 @@ export {
   TraitAlterationMode,
 } from './rule-element-item-alteration';
 
-export { raisesPotency } from './potency-element';
+export { raisesPotency } from './rule-element-potency';
 
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 
