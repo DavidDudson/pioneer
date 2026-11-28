@@ -88,6 +88,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0081](0081-small-shared-helpers-live-in-shared-utils.md)                    | Small shared helpers live in `shared/utils`                                                   |
 | [0082](0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)       | The coin ledger is stored beside the coins it explains                                        |
 | [0083](0083-frontier-primitive-tokens-are-dtcg-generated-by-terrazzo.md)     | Frontier primitive tokens are DTCG, generated to CSS by Terrazzo                              |
+| [0084](0084-first-ui-languages-and-translation-workflow.md)                  | German and French first; translators submit pull requests against catalog files               |
 
 Template:
 

@@ -2,7 +2,8 @@
 
 - Status: Accepted
 - Date: 2026-10-09
-- Amended by: [0052](0052-character-scoped-display-preferences.md) (preferences scoped to a character)
+- Amended by: [0052](0052-character-scoped-display-preferences.md) (preferences scoped to a character),
+  [0084](0084-first-ui-languages-and-translation-workflow.md) (an unchosen content locale follows the UI locale)
 
 ## Context
 
