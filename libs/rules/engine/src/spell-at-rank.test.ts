@@ -55,6 +55,19 @@ describe('spellAtRank', () => {
     expect(formulasAt(wide, 5)).toEqual(['8d6']);
   });
 
+  test('counts every digit of a die size, so d10 and d12 dice still add up', () => {
+    const tens = {
+      ...FIREBALL,
+      damage: [{ key: '0', formula: '2d10', damageType: 'fire', kinds: ['damage'] }],
+      heightening: { type: 'interval', interval: 1, damage: [{ key: '0', formula: '1d10' }] },
+    };
+
+    const mixed = { ...tens, heightening: { ...tens.heightening, damage: [{ key: '0', formula: '1d12' }] } };
+
+    expect(formulasAt(tens, 4)).toEqual(['3d10']);
+    expect(formulasAt(mixed, 4)).toEqual(['2d10 + 1d12']);
+  });
+
   test('a step that is not the base die is added as a term', () => {
     const mixed = { ...FIREBALL, heightening: { ...FIREBALL.heightening, damage: [{ key: '0', formula: '1d4' }] } };
 

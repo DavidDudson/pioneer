@@ -10,6 +10,10 @@ describe('returnPathOr', () => {
     expect(returnPathOr('/')).toBe(HOME_PATH);
   });
 
+  test.each(['/!', '/a[0]', '/~user', '/a?x=[1]'])('keeps %p, whose edge characters are valid', (requested) => {
+    expect(returnPathOr(requested)).toBe(ReturnPath.parse(requested));
+  });
+
   test.each([
     'https://evil.example/',
     '//evil.example',
@@ -17,6 +21,8 @@ describe('returnPathOr', () => {
     'characters',
     '/characters\n',
     '/cha racters',
+    '/a\u007F',
+    '/é',
     '',
   ])('falls back home for %p', (requested) => {
     expect(returnPathOr(requested)).toBe(HOME_PATH);

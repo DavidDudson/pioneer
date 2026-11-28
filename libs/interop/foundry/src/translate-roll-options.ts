@@ -37,9 +37,8 @@ export function withRollOption(raw: unknown, item: string): unknown {
   }
 
   const kept = Object.entries(raw).filter(([field]) => !PLACEMENT_FIELDS.has(field));
-  const translated = Object.fromEntries(kept.map(([field, value]) => [field, translatedField(field, value, item)]));
 
-  return translated;
+  return Object.fromEntries(kept.map(([field, value]) => [field, translatedField(field, value, item)]));
 }
 
 function translatedField(field: string, value: unknown, item: string): unknown {
