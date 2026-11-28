@@ -21,7 +21,10 @@ export function pickName(content: SlotContent, value: string): string {
 }
 
 /** The filled slots a retraining can change, with what each holds. */
-export function retrainableSlots(slots: readonly CharacterSlot[], content: SlotContent): readonly RetrainSlot[] {
+export function retrainableSlots(
+  slots: ReadonlyArray<CharacterSlot>,
+  content: SlotContent,
+): ReadonlyArray<RetrainSlot> {
   return slots.flatMap((slot) => {
     if (slot.status !== SlotStatus.Filled || retrainDaysFor(slot.key) === undefined) {
       return [];
@@ -42,7 +45,7 @@ export function retrainTargets({
   character: Character;
   content: SlotContent;
   slot: CharacterSlot;
-}): readonly SelectOption<string>[] {
+}): ReadonlyArray<SelectOption<string>> {
   if (slot.status !== SlotStatus.Filled) {
     return [];
   }

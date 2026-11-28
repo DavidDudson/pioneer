@@ -63,7 +63,7 @@ export class SheetRetraining {
     return content === undefined || slots === undefined ? [] : retrainableSlots(slots, content);
   });
 
-  protected readonly slotOptions: Signal<readonly SelectOption<string>[]> = computed(() => {
+  protected readonly slotOptions: Signal<ReadonlyArray<SelectOption<string>>> = computed(() => {
     this.#messages();
 
     return this.#retrainable().map(({ key, label, holds }) => ({
@@ -72,7 +72,7 @@ export class SheetRetraining {
     }));
   });
 
-  protected readonly targetOptions: Signal<readonly SelectOption<string>[]> = computed(() => {
+  protected readonly targetOptions: Signal<ReadonlyArray<SelectOption<string>>> = computed(() => {
     const character = this.#sheet.character();
     const content = this.#content();
     const slot = this.#characters.slots()?.find(({ key }) => key === this.slot());

@@ -199,7 +199,7 @@ export type SpellAccessPatch = Extract<
 export type DocumentPatch =
   SpellAccessPatch | UnplacedPickPatch | OverridePatch | CustomEffectPatch | ProsePatch | RetrainingPatch;
 
-const DOCUMENT_FIELD_LIST: readonly DocumentPatch['field'][] = [
+const DOCUMENT_FIELD_LIST: ReadonlyArray<DocumentPatch['field']> = [
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,

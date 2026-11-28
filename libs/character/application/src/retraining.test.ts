@@ -54,7 +54,7 @@ describe('CharacterService retraining', () => {
   }
 
   /** The reasons the service refuses `patch` for `character` with. */
-  async function refusalFor(character: Character, patch: CharacterPatch): Promise<readonly string[]> {
+  async function refusalFor(character: Character, patch: CharacterPatch): Promise<ReadonlyArray<string>> {
     const error = await rejection(service.patch(owner, character.id, { expectedVersion: character.version, patch }));
 
     if (!(error instanceof ValidationError)) {
@@ -64,7 +64,7 @@ describe('CharacterService retraining', () => {
     return error.issues.map((issue) => issue.message.key);
   }
 
-  async function refusal(patch: CharacterPatch): Promise<readonly string[]> {
+  async function refusal(patch: CharacterPatch): Promise<ReadonlyArray<string>> {
     return refusalFor(await held(), patch);
   }
 
