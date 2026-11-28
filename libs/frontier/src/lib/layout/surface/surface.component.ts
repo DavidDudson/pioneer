@@ -1,29 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-import { elevationVariants, paddingVariants, Space } from '../../tokens';
+import { elevationVariants, Inset, paddingVariants } from '../../tokens';
+import type { Padding } from '../../tokens';
 
-export const SurfaceVariant = { Base: 'base', Raised: 'raised', Sunken: 'sunken', Outline: 'outline' } as const;
+/** What a panel pads itself with unless told otherwise. */
+export const DEFAULT_SURFACE_PADDING: Padding = Inset.Panel;
 
-export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
-
-export const surfaceVariants = cva('block', {
-  variants: {
-    variant: {
-      base: `forced-colors:border ${elevationVariants.flat}`,
-      raised: `border ${elevationVariants.raised}`,
-      sunken: 'bg-surface-sunken forced-colors:border',
-      outline: 'border border-line-default',
-    } satisfies Record<SurfaceVariant, string>,
-    padding: paddingVariants,
-  },
+export const surfaceVariants = cva(`block border ${elevationVariants.raised}`, {
+  variants: { padding: paddingVariants },
 });
 
-/**
- * A panel: background, border and padding from tokens. Sharp and flat: raised means a stronger border, not a shadow.
- * Base and sunken panels get a border under forced colours, where their fill no longer sets them apart.
- */
+/** A panel: background, border and padding from tokens. Sharp and flat: a stronger border, not a shadow. */
 @Component({
   selector: 'fr-surface',
   templateUrl: './surface.component.html',
@@ -31,8 +19,7 @@ export const surfaceVariants = cva('block', {
   host: { '[class]': 'classes()' },
 })
 export class Surface {
-  public readonly variant = input<SurfaceVariant>(SurfaceVariant.Raised);
-  public readonly padding = input<Space>(Space.Lg);
+  public readonly padding = input<Padding>(DEFAULT_SURFACE_PADDING);
 
-  protected readonly classes = computed(() => surfaceVariants({ variant: this.variant(), padding: this.padding() }));
+  protected readonly classes = computed(() => surfaceVariants({ padding: this.padding() }));
 }

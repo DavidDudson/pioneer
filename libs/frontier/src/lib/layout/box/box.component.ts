@@ -2,8 +2,8 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input }
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
-import type { Container } from '../../tokens';
-import { paddingVariants, Space } from '../../tokens';
+import type { Container, Padding } from '../../tokens';
+import { paddingBlockVariants, paddingInlineVariants, Space } from '../../tokens';
 
 export const BoxWidth = { Full: 'full', Prose: 'prose', Page: 'page' } as const;
 
@@ -20,31 +20,10 @@ const hostVariants = cva('@container min-w-none', {
   },
 });
 
-/** `paddingVariants` on the inline axis alone, for content that lines up with a row's text but keeps its own height. */
-const inlinePaddingVariants = {
-  none: 'px-none',
-  '3xs': 'px-3xs',
-  '2xs': 'px-2xs',
-  xs: 'px-xs',
-  sm: 'px-sm',
-  md: 'px-md',
-  lg: 'px-lg',
-  xl: 'px-xl',
-  '2xl': 'px-2xl',
-  '3xl': 'px-3xl',
-} as const satisfies Record<Space, string>;
-
 const innerVariants = cva('', {
   variants: {
-    padding: paddingVariants,
-    gutter: { true: 'px-md @lg:px-xl', false: '' },
-  },
-});
-
-const inlineVariants = cva('', {
-  variants: {
-    padding: inlinePaddingVariants,
-    gutter: { true: 'px-md @lg:px-xl', false: '' },
+    paddingBlock: paddingBlockVariants,
+    paddingInline: { ...paddingInlineVariants, gutter: 'px-md @lg:px-xl' },
   },
 });
 
@@ -69,9 +48,9 @@ const displayVariants = cva('', {
 
 /**
  * A region: query container, max width and padding. Wrap a region in a box
- * when what is inside should respond to the region's width. `gutter` adds
- * inline padding that widens with the box (md, then xl from the `lg`
- * container size).
+ * when what is inside should respond to the region's width. `paddingBlock` and
+ * `paddingInline` each take a token; `paddingInline="gutter"` widens with the box
+ * (md, then xl from the `lg` container size).
  *
  * `shownFrom` shows the box only once the region around it is that wide and `hiddenFrom` hides it from that width up;
  * `revealed` keeps a `shownFrom` box visible in a narrower region (something the user pressed opened it).
@@ -84,10 +63,8 @@ const displayVariants = cva('', {
 })
 export class Box {
   public readonly width = input<BoxWidth>(BoxWidth.Full);
-  public readonly padding = input<Space>(Space.None);
-  public readonly gutter = input(false, { transform: booleanAttribute });
-  /** `padding` applies to the left and right only. */
-  public readonly inline = input(false, { transform: booleanAttribute });
+  public readonly paddingBlock = input<Padding>(Space.None);
+  public readonly paddingInline = input<Padding | 'gutter'>(Space.None);
 
   /** Show the box only from this size of the container around it up. */
   public readonly shownFrom = input<Container | undefined>(undefined);
@@ -110,6 +87,6 @@ export class Box {
   });
 
   protected readonly classes = computed(() =>
-    (this.inline() ? inlineVariants : innerVariants)({ padding: this.padding(), gutter: this.gutter() }),
+    innerVariants({ paddingBlock: this.paddingBlock(), paddingInline: this.paddingInline() }),
   );
 }

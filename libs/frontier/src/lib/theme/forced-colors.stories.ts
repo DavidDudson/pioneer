@@ -11,7 +11,6 @@ import { tableSchema } from '../data/table/table-schema';
 import { Meter } from '../feedback/meter/meter.component';
 import { Skeleton } from '../feedback/skeleton/skeleton.component';
 import { Stack } from '../layout/stack/stack.component';
-import { Surface } from '../layout/surface/surface.component';
 import { emulateForcedColors, paintedAcross, systemColour } from '../testing/story-forced-colors';
 import { pressKeys } from '../testing/story-keyboard';
 import { hover } from '../testing/story-pointer';
@@ -58,7 +57,7 @@ const meta: Meta = {
   title: 'Accessibility/Forced Colours',
   decorators: [
     moduleMetadata({
-      imports: [Badge, Button, Meter, Picker, Segmented, Select, Skeleton, Stack, Surface, Text, ToggleButton],
+      imports: [Badge, Button, Meter, Picker, Segmented, Select, Skeleton, Stack, Text, ToggleButton],
     }),
   ],
   parameters: { layout: 'padded' },
@@ -92,12 +91,6 @@ const meta: Meta = {
         </fr-stack>
         <fr-meter label="Hero points" variant="segmented" [value]="2" [max]="3" />
         <fr-meter label="Hit points" [value]="28" [max]="40" />
-        <fr-surface variant="sunken" padding="sm">
-          <fr-text element="p">A sunken panel</fr-text>
-        </fr-surface>
-        <fr-surface variant="base" padding="sm">
-          <fr-text element="p">A base panel</fr-text>
-        </fr-surface>
         <fr-skeleton />
       </fr-stack>
     `,
@@ -126,7 +119,6 @@ function bordered(element: Element | null | undefined): boolean {
 async function expectEdgesAndFocus(root: HTMLElement): Promise<void> {
   const canvas = within(root);
   await expect(globalThis.matchMedia('(forced-colors: active)').matches).toBe(true);
-  await expect(style(canvas.getByText('A sunken panel'))?.color).toBe(systemColour('CanvasText'));
   const buttons = ['Secondary', 'Primary', 'Ghost', 'Danger'].map((name) => canvas.getByRole('button', { name }));
   await expect(buttons.map((button) => bordered(button))).toEqual([true, true, true, true]);
   await pressKeys('{Tab}');
@@ -152,7 +144,7 @@ async function expectPressed(root: HTMLElement): Promise<void> {
   await expect(unpressed.map((button) => style(button)?.backgroundColor === highlight)).toEqual([false, false]);
 }
 
-/** A solid badge inverts the palette; meter fills, a skeleton and base and sunken panels stay visible. */
+/** A solid badge inverts the palette; meter fills and a skeleton stay visible. */
 async function expectFills(root: HTMLElement): Promise<void> {
   const canvas = within(root);
   const solid = style(canvas.getByText('Solid'));
@@ -161,8 +153,6 @@ async function expectFills(root: HTMLElement): Promise<void> {
   const highlight = systemColour('Highlight');
   await expect(segments.map((segment) => style(segment)?.backgroundColor === highlight)).toEqual([true, true, false]);
   await expect(style(root.querySelector('fr-skeleton'))?.backgroundColor).toBe(systemColour('GrayText'));
-  const panels = [...root.querySelectorAll('fr-surface')];
-  await expect(panels.map((panel) => bordered(panel))).toEqual([true, true]);
 }
 
 /**

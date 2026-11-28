@@ -4,6 +4,8 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
+import { Inset } from '../../tokens';
+import { DEFAULT_SURFACE_PADDING } from '../surface/surface.component';
 import { SectionBody } from './section-body.directive';
 import { Section } from './section.component';
 
@@ -67,6 +69,18 @@ describe(Section, () => {
     const { region } = await render('sheet-identity', 'Identity');
 
     expect(region.querySelector('fr-card fr-card-header h2')).not.toBeNull();
+  });
+
+  it('pads like a bare surface', async () => {
+    const { region } = await render('sheet-identity', 'Identity');
+
+    const parts = ['fr-card-header', 'fr-card-content'].map(
+      (part) => region.querySelector<HTMLElement>(part)?.className,
+    );
+
+    expect(parts.map((name) => name?.includes(`p-${DEFAULT_SURFACE_PADDING}`))).toStrictEqual([true, true]);
+
+    expect(DEFAULT_SURFACE_PADDING).toBe(Inset.Panel);
   });
 
   it('projects its content after the heading', async () => {

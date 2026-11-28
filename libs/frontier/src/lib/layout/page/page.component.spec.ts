@@ -31,7 +31,7 @@ describe(Page, () => {
   it('sits in a page-width box with a gutter', async () => {
     const box = part(await renderProjected(Page, {}, [header(), body()]), 'fr-box');
     expect([...box.classList]).toContain('max-w-page');
-    expect(box.querySelector(':scope > .p-lg.px-md')).not.toBeNull();
+    expect(box.querySelector(':scope > .py-lg.px-md')).not.toBeNull();
   });
 
   it('drops the page-width cap when its width is full', async () => {

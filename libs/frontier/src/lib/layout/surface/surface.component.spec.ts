@@ -3,8 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import type { ComponentInputs } from '../../testing/component-inputs';
-import { Space } from '../../tokens';
-import { Surface, SurfaceVariant } from './surface.component';
+import { Inset, Space } from '../../tokens';
+import { Surface } from './surface.component';
 
 /** Renders `fr-surface` with "Hit points" projected and returns its host element. */
 async function render(inputs: ComponentInputs<Surface>): Promise<HTMLElement> {
@@ -30,35 +30,22 @@ async function render(inputs: ComponentInputs<Surface>): Promise<HTMLElement> {
 }
 
 describe(Surface, () => {
-  it('is a raised, large-padded panel by default and projects its content', async () => {
+  it('is a raised panel padded by the panel inset by default and projects its content', async () => {
     const host = await render({});
     expect([...host.classList]).toStrictEqual(
-      expect.arrayContaining(['bg-surface-raised', 'border', 'border-line-default', 'p-lg']),
+      expect.arrayContaining(['bg-elevation-raised', 'border', 'border-elevation-raised-line', 'p-inset-panel']),
     );
     expect(host.textContent).toBe('Hit points');
   });
 
-  it.each([
-    [SurfaceVariant.Base, ['bg-surface-base'], ['border']],
-    [SurfaceVariant.Raised, ['bg-surface-raised', 'border'], []],
-    [SurfaceVariant.Sunken, ['bg-surface-sunken'], ['border']],
-    [
-      SurfaceVariant.Outline,
-      ['border', 'border-line-default'],
-      ['bg-surface-raised', 'bg-surface-base', 'bg-surface-sunken'],
-    ],
-  ])('styles the %s variant without a look-alike class', async (variant, present, absent) => {
-    const host = await render({ variant });
-    expect([...host.classList]).toStrictEqual(expect.arrayContaining(present));
-
-    for (const name of absent) {
-      expect([...host.classList]).not.toContain(name);
-    }
-  });
-
-  it('pads from the space token', async () => {
+  it('pads from one token only', async () => {
     const host = await render({ padding: Space.None });
     expect([...host.classList]).toContain('p-none');
-    expect([...host.classList]).not.toContain('p-lg');
+    expect([...host.classList]).not.toContain('p-inset-panel');
+  });
+
+  it('takes an inset by role', async () => {
+    const host = await render({ padding: Inset.Page });
+    expect([...host.classList]).toContain('p-inset-page');
   });
 });
