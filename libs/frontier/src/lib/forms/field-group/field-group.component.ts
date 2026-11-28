@@ -22,6 +22,5 @@ import { Space } from '../../tokens';
   host: { class: 'block' },
 })
 export class FieldGroup {
-  /** The space between fields. */
   protected readonly gap = Space.Md;
 }
