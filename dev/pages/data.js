@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795835536070,
+  "lastUpdate": 1795835545261,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -838,6 +838,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7aa7a5c1b1fb00b48b9b6de9175288ff8aa0d81f",
+          "message": "feat(play): retraining (#2423)\n\n* feat(play): retraining projects in the build\n\nA character keeps one retraining: the pick in a feat, skill increase,\nrepertoire or class choice slot and the pick it becomes. A week of days\nfor a feat, skill increase or spell, a month for a class choice. The last\nday's work swaps the pick through the same slot checks as selectSlot and\nlifts the one-repertoire-swap-a-level limit. Schema version 24.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(play): retraining section on the Downtime tab\n\nPick a held feat, skill increase, spell or class choice and what it\nbecomes, work the days, cancel. A shared injectTranslationChanges\nsignal replaces Earn Income's own copy.\n\nRefs #515\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(play): act on review of retraining\n\nRefuse slot edits on the slot being retrained, move a signature pick\nwith a retrained repertoire spell, show the pick's name in the project\nline, and test the last-day guard.\n\nRefs #515\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(play): use ReadonlyArray in retraining code\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:54:27+10:00",
+          "tree_id": "811d99f01e19cadb54003910a91639a0aeaee301",
+          "url": "https://github.com/DavidDudson/pioneer/commit/7aa7a5c1b1fb00b48b9b6de9175288ff8aa0d81f"
+        },
+        "date": 1795835540814,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4282,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 220,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6386,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 219,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
