@@ -1,7 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Disclosure, FilterChips, Grid, injectTranslate, LocaleFormat, NumberInput, Stack, Text } from '@pioneer/frontier';
+import {
+  Disclosure,
+  FilterChips,
+  Grid,
+  injectTranslate,
+  LocaleFormat,
+  NumberInput,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { FacetCounts, FacetDefinition, FacetId, FacetValue, FilterState } from '@pioneer/rules/sdk';
 
