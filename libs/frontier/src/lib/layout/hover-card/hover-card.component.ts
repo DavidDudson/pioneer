@@ -20,7 +20,7 @@ import type { Subscription } from 'rxjs';
 
 import { uniqueId } from '../../ids';
 import { OverlayAlign, overlayPositions } from '../../overlay-positions';
-import { elevationVariants } from '../../tokens';
+import { elevationVariants, leaveMotion } from '../../tokens';
 import { HoverCardContent } from './hover-card-content.directive';
 
 const HOVER_DELAY: Milliseconds = Milliseconds.parse(200);
@@ -32,9 +32,6 @@ const triggerClasses = cva('inline')();
 const cardClasses = cva(
   `z-overlay max-w-prose border p-inset-panel text-body transition-fade ${elevationVariants.overlay}`,
 )();
-
-/** Applied while the card leaves: it fades out on the exit pair and is removed once that ends. */
-const leaveClasses = 'fade-out';
 
 /**
  * A preview that opens beside what it describes while the pointer rests on it or focus is inside it, and closes
@@ -77,7 +74,7 @@ export class HoverCard {
   protected readonly id = uniqueId('fr-hover-card');
   protected readonly triggerClasses = triggerClasses;
   protected readonly cardClasses = cardClasses;
-  protected readonly leaveClasses = leaveClasses;
+  protected readonly leaveClasses = leaveMotion;
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   /** The card whose content this one sits in, which stays open while this one is. */

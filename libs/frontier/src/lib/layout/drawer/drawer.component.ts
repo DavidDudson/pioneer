@@ -23,7 +23,8 @@ import { X } from 'lucide';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
-import { dockedLeaveClasses, hostVariants, panelVariants } from './drawer-classes';
+import { leaveMotion } from '../../tokens';
+import { hostVariants, panelVariants } from './drawer-classes';
 import { showDialog, watchNarrow } from './drawer-overlay';
 import { DRAWER_OPEN, DRAWER_PARAM } from './drawer-query';
 import type { DrawerWidth } from './drawer-width';
@@ -118,7 +119,7 @@ export class Drawer {
     hostVariants({ open: this.open(), overlay: this.overlay(), width: this.width() }),
   );
   protected readonly panelClasses = computed(() => panelVariants({ overlay: this.overlay(), width: this.width() }));
-  protected readonly leaveClasses = computed(() => (this.overlay() ? '' : dockedLeaveClasses));
+  protected readonly leaveClasses = computed(() => (this.overlay() ? '' : leaveMotion));
 
   private readonly queryParams = toSignal(this.route.queryParamMap);
   private readonly queryOpen = computed(() => this.queryParams()?.get(this.param()) === DRAWER_OPEN);

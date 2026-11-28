@@ -2,13 +2,18 @@ import { cva } from 'class-variance-authority';
 
 import { elevationVariants } from '../../tokens';
 import type { DrawerWidth } from './drawer-width';
+import { WIDTHS } from './drawer-width';
 
-/**
- * Docked, the host's width runs between nothing and the drawer's width, so the page's content is pushed aside and
- * back; `display` is part of the transition, so the host stays in the page until it has closed. Opening takes the
- * enter pair and closing the exit pair. Below `lg` the drawer is a modal and none of this applies.
- */
-export const hostVariants = cva('min-w-none @lg:overflow-clip @lg:transition-dock', {
+const WIDTH_CLASSES: Readonly<Record<DrawerWidth, string>> = {
+  narrow: '@lg:w-drawer-narrow',
+  default: '@lg:w-drawer-default',
+  wide: '@lg:w-drawer-wide',
+};
+
+const WIDTH_KEYS = WIDTHS;
+
+/** `display` is in the transition, so the docked host stays in the page until it has closed. */
+export const hostVariants = cva('min-w-none @lg:transition-dock', {
   variants: {
     open: {
       true: 'block @lg:shrink-0 @lg:duration-enter @lg:ease-enter starting:@lg:w-none',
@@ -16,17 +21,11 @@ export const hostVariants = cva('min-w-none @lg:overflow-clip @lg:transition-doc
     },
     // A modal drawer sits in the top layer, so its host takes no room in the page.
     overlay: { true: '', false: '' },
-    width: {
-      narrow: '',
-      default: '',
-      wide: '',
-    } satisfies Record<DrawerWidth, string>,
+    width: { narrow: '', default: '', wide: '' } satisfies Record<DrawerWidth, string>,
   },
   compoundVariants: [
     { open: true, overlay: true, class: 'contents' },
-    { open: true, width: 'narrow', class: '@lg:w-drawer-narrow' },
-    { open: true, width: 'default', class: '@lg:w-drawer-default' },
-    { open: true, width: 'wide', class: '@lg:w-drawer-wide' },
+    ...WIDTH_KEYS.map((width) => ({ open: true, width, class: WIDTH_CLASSES[width] })),
   ],
 });
 
@@ -37,18 +36,7 @@ export const panelVariants = cva('flex gap-sm border-none text-fg-default', {
       // Docked, the panel keeps its own width while the host opens and closes, so the content is revealed, not reflowed.
       false: `static m-none w-full p-none transition-fade-width ${elevationVariants.overlay}`,
     },
-    width: {
-      narrow: '',
-      default: '',
-      wide: '',
-    } satisfies Record<DrawerWidth, string>,
+    width: { narrow: '', default: '', wide: '' } satisfies Record<DrawerWidth, string>,
   },
-  compoundVariants: [
-    { overlay: false, width: 'narrow', class: '@lg:w-drawer-narrow' },
-    { overlay: false, width: 'default', class: '@lg:w-drawer-default' },
-    { overlay: false, width: 'wide', class: '@lg:w-drawer-wide' },
-  ],
+  compoundVariants: WIDTH_KEYS.map((width) => ({ overlay: false, width, class: WIDTH_CLASSES[width] })),
 });
-
-/** Applied while the docked panel leaves: it fades on the exit pair. The modal one leaves at once, so focus can return. */
-export const dockedLeaveClasses = 'fade-out';

@@ -620,11 +620,7 @@
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 }
 
-/*
- * fr-disclosure: the content of a `<details>` grows from nothing on open and folds back on close. The browser owns
- * the open state, so focus, keys and find-in-page are untouched; only the box animates. Under reduced motion, and
- * where `::details-content` is unknown, it shows its end state at once.
- */
+/* fr-disclosure: animates only the `<details>` content box; reduced motion, and browsers without `::details-content`, get the end state at once. */
 @utility details-motion {
   @media (prefers-reduced-motion: no-preference) {
     interpolate-size: allow-keywords;
@@ -632,6 +628,7 @@
     &::details-content {
       block-size: 0;
       overflow: clip;
+      overflow-clip-margin: calc(var(--fr-focus-ring-width) + var(--fr-focus-ring-offset));
       transition-property: block-size, content-visibility;
       transition-duration: var(--fr-duration-exit);
       transition-timing-function: var(--fr-ease-exit);
@@ -646,11 +643,7 @@
   }
 }
 
-/*
- * Fade and dock motion for what appears in place: overlay panels (fr-dropdown, fr-hover-card) and the docked
- * fr-drawer. A thing arrives on the enter pair; `fade-out`, put on it as it leaves (Angular's `animate.leave`),
- * switches the same transition to the exit pair. Neither ever delays input or focus.
- */
+/* Fade and dock motion for overlay panels and the docked drawer: they arrive on the enter pair, and `fade-out` (from `animate.leave`) switches to the exit pair. */
 @utility transition-fade {
   transition-property: opacity;
   transition-duration: var(--fr-leave-duration, var(--fr-duration-enter));
@@ -674,12 +667,15 @@
 
 @utility fade-out {
   opacity: 0;
+  pointer-events: none;
   --fr-leave-duration: var(--fr-duration-exit);
   --fr-leave-ease: var(--fr-ease-exit);
 }
 
 /* The docked drawer's host: its width, and `display`, so it stays in the page until it has closed. */
 @utility transition-dock {
+  overflow: clip;
+  overflow-clip-margin: calc(var(--fr-focus-ring-width) + var(--fr-focus-ring-offset));
   transition-property: width, display;
   transition-behavior: allow-discrete;
 }

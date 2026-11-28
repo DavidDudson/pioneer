@@ -187,6 +187,9 @@ export const motionVariants = {
   emphasis: 'duration-emphasis ease-emphasis',
 } as const satisfies Record<Motion, string>;
 
+/** Put on a panel as it leaves (`animate.leave`): it fades out on the exit pair (`fade-out` in `frontier.css`). */
+export const leaveMotion = 'fade-out';
+
 export const toneVariants = {
   default: 'text-fg-default',
   muted: 'text-fg-muted',

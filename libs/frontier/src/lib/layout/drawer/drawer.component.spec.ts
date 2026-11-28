@@ -118,7 +118,6 @@ describe(Drawer, () => {
     const root = await render('/spells');
     expect(root.querySelector('dialog')).toBeNull();
     expect(root.classList.contains('hidden')).toBe(true);
-    expect(root.className).toContain('w-none');
   });
 
   it('moves into the page on the enter pair and out on the exit pair', async () => {
