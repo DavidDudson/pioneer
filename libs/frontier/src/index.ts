@@ -128,6 +128,10 @@ export { FieldError } from './lib/forms/field/error/error.component';
 
 export { Field } from './lib/forms/field/field.component';
 
+export { FieldGroup } from './lib/forms/field-group/field-group.component';
+
+export { FieldSet } from './lib/forms/field-set/field-set.component';
+
 export { FieldHint } from './lib/forms/field/hint/hint.component';
 
 export { Label } from './lib/forms/field/label/label.component';
@@ -247,6 +251,8 @@ export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './
 export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
 
 export { Tag } from './lib/text/tag/tag.component';
+
+export { Stat } from './lib/text/stat/stat.component';
 
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 

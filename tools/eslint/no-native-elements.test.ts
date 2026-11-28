@@ -47,6 +47,10 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<pre></pre><code></code><kbd></kbd><abbr></abbr><q></q>`,
     },
     { filename: frontier('text/quote/quote.component.html'), code: `<blockquote><fr-text /></blockquote>` },
+    {
+      filename: frontier('forms/field-set/field-set.component.html'),
+      code: `<fieldset><legend></legend><fr-field-group /></fieldset>`,
+    },
   ],
   invalid: [
     { filename: FEATURE, code: `<div></div>`, errors: [{ messageId: 'outside' }] },
@@ -61,18 +65,16 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<tanstack-chart />`,
       errors: [{ messageId: 'owned' }],
     },
-    ...['pre', 'code', 'kbd', 'abbr', 'q', 'blockquote', 'meter'].map((name) => ({
+    ...['pre', 'code', 'kbd', 'abbr', 'q', 'blockquote', 'meter', 'fieldset', 'legend'].map((name) => ({
       filename: frontier('layout/card/card.component.html'),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'owned' }],
     })),
-    ...['cite', 'fieldset', 'legend', 'progress', 'output', 'picture', 'video', 'audio', 'canvas', 'h5'].map(
-      (name) => ({
-        filename: frontier('layout/card/card.component.html'),
-        code: `<${name}></${name}>`,
-        errors: [{ messageId: 'unowned' }],
-      }),
-    ),
+    ...['cite', 'progress', 'output', 'picture', 'video', 'audio', 'canvas', 'h5'].map((name) => ({
+      filename: frontier('layout/card/card.component.html'),
+      code: `<${name}></${name}>`,
+      errors: [{ messageId: 'unowned' }],
+    })),
     {
       filename: frontier('layout/card/card.component.html'),
       code: `<dialog></dialog>`,
