@@ -14,7 +14,7 @@ import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { BoostContentOptions } from './boost-content-options';
-import { modifierOf } from './boost-modifier';
+import { APEX_LEVEL, BoostKind, inLevelOrder, modifierOf } from './boost-modifier';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import {
@@ -128,9 +128,6 @@ const GRADUAL_BOOST_PLACES: ReadonlyMap<Level, ReadonlyArray<Level>> = new Map(
   ]),
 );
 
-/** The level of the apex attribute increase (GM Core's Automatic Bonus Progression). */
-const APEX_LEVEL = Level.parse(17);
-
 /**
  * The boosts of the registry's ancestries, and of the backgrounds and classes its packs hold as entries, for a
  * character with `rootSlots`. `lookup` is the grant lookup the key attribute options are read from, which a caller that
@@ -234,7 +231,7 @@ const BOOST_SETS = new WeakMap<BoostContent, WeakMap<CharacterDocument['build'],
 export function boostSets(document: CharacterDocument, content: BoostContent): ReadonlyArray<BoostSet> {
   const byBuild = BOOST_SETS.get(content) ?? new WeakMap<CharacterDocument['build'], ReadonlyArray<BoostSet>>();
   BOOST_SETS.set(content, byBuild);
-  const known = byBuild.get(document.build) ?? readBoostSets(document, content);
+  const known = byBuild.get(document.build) ?? inLevelOrder(readBoostSets(document, content));
   byBuild.set(document.build, known);
 
   return known;
@@ -345,7 +342,9 @@ export function attributeModifiers(document: CharacterDocument, content: BoostCo
       attribute,
       modifierOf(
         flaws.has(attribute),
-        current.filter((set) => raised(set).has(attribute)).map(({ source }) => source === BoostSource.Apex),
+        current
+          .filter((set) => raised(set).has(attribute))
+          .map(({ source }) => (source === BoostSource.Apex ? BoostKind.Apex : BoostKind.Regular)),
       ),
     ]),
   );

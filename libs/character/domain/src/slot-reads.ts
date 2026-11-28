@@ -61,14 +61,9 @@ export interface SlotContent {
   readonly runes?: RuneContent | undefined;
 }
 
-/** Whether a variant in force spreads the free boosts over the levels (Gradual Attribute Boosts). */
-function gradualBoosts(variants: ReadonlyArray<VariantRuleEntry>): boolean {
-  return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.GradualBoosts) === true);
-}
-
-/** Whether a variant in force gives an apex attribute increase at 17th level (Automatic Bonus Progression). */
-function apexBoost(variants: ReadonlyArray<VariantRuleEntry>): boolean {
-  return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.ApexBoost) === true);
+/** Whether a variant in force declares `structure`: the free boosts a level at a time, the apex increase. */
+function hasStructure(variants: ReadonlyArray<VariantRuleEntry>, structure: VariantStructure): boolean {
+  return variants.some(({ definition }) => definition.structure?.includes(structure) === true);
 }
 
 /**
@@ -91,8 +86,8 @@ export function slotContent(
     boosts: boostContent(registry, {
       rootSlots,
       lookup: () => lookup,
-      gradual: gradualBoosts(variants),
-      apex: apexBoost(variants),
+      gradual: hasStructure(variants, VariantStructure.GradualBoosts),
+      apex: hasStructure(variants, VariantStructure.ApexBoost),
     }),
     skills: skillContent(registry),
     languages: languageContent(registry),

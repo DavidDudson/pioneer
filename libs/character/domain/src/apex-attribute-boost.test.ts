@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { AncestryId, Attribute, AttributeModifier, ContentRegistry, VariantStructure } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
-import { attributeModifiers, boostSlots, BoostSource } from './attribute-boosts';
+import { attributeModifiers, boostSets, boostSlots, BoostSource } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { BACKGROUND_SLOT, CLASS_SLOT } from './character-slots';
@@ -83,5 +83,26 @@ describe('a variant rule with the apex boost structure', () => {
   test('turns the apex increase on in the slot content, and nothing else does', () => {
     expect(slotContent(registry, variant === undefined ? [] : [variant]).boosts.apex).toBe(true);
     expect(slotContent(registry).boosts.apex).toBe(false);
+  });
+});
+
+describe('the apex increase beside other boosts', () => {
+  test.each([17, 18, 19, 20])('counts at level %i, the 17th level on', (level) => {
+    const raised = attributeModifiers(fighter(level, Attribute.Strength), APEX).toWire().str;
+    const plain = attributeModifiers(fighter(level), APEX).toWire().str;
+
+    expect(raised).toBeGreaterThan(plain);
+  });
+
+  test('comes after the 15th level boosts and before the 20th, in level order', () => {
+    const levels = boostSets(fighter(20), APEX).map((set) => set.level);
+
+    expect(levels).toStrictEqual(levels.toSorted((first, second) => first - second));
+  });
+
+  test('works with gradual boosts', () => {
+    const both: BoostContent = { ...APEX, gradual: true };
+
+    expect(boostSlots(fighter(20), both).filter((slot) => slot.source === BoostSource.Apex)).toHaveLength(1);
   });
 });
