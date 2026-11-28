@@ -122,12 +122,6 @@ export function intelligenceRaises(
   return raises;
 }
 
-/**
- * The character's skill slots up to 20th level, in the order they are read, by level and trained skills first: once a
- * class is picked, its trained skills at 1st level (its count, the Intelligence modifier, and one for each skill its
- * grants train twice), one more for each point a boost raises Intelligence past what it was, and a skill increase at
- * each of the class's levels.
- */
 /** What the class picked in `slot` gives the skills; undefined while the slot is empty or names no class. */
 function classSkillsAt(document: CharacterDocument, skills: SkillContent, slot: SlotKey): ClassSkills | undefined {
   const picked = ContentId.safeParse(document.build.choices[slot]);
@@ -145,6 +139,12 @@ function increaseLevels(first: ClassSkills, second: ClassSkills | undefined): Re
   );
 }
 
+/**
+ * The character's skill slots up to 20th level, in the order they are read, by level and trained skills first: once a
+ * class is picked, its trained skills at 1st level (its count, the Intelligence modifier, and one for each skill its
+ * grants train twice), one more for each point a boost raises Intelligence past what it was, and a skill increase at
+ * each of the class's levels.
+ */
 function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt }: SkillReads): Array<SkillSlotPlace> {
   const classSkills = classSkillsAt(document, skills, CLASS_SLOT);
 
