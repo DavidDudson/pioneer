@@ -79,6 +79,10 @@
       "valueText": "{value} of {max}",
       "fraction": "{value}/{max}"
     },
+    "numberInput": {
+      "decrease": "Decrease {label}",
+      "increase": "Increase {label}"
+    },
     "picker": {
       "placeholder": "Select…",
       "search": "Search",

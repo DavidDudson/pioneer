@@ -1,6 +1,12 @@
 <fr-field [invalid]="message() !== undefined">
   <fr-label [visuallyHidden]="hideLabel()">{{ label() }}</fr-label>
-  <fr-number-input [disabled]="disabled()" [min]="min()" [max]="max()" [(value)]="value" />
+  <fr-number-input
+    [disabled]="disabled()"
+    [min]="min()"
+    [max]="max()"
+    [value]="value()"
+    (entered)="value.set($event)"
+  />
   @if (message(); as message) {
     <fr-field-error>{{ message }}</fr-field-error>
   } @else if (hint(); as hint) {

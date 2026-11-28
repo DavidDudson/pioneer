@@ -9,7 +9,7 @@
             [min]="1"
             [max]="setting().ceiling"
             [value]="edit.draft()"
-            (valueChange)="edit.change($event)"
+            (entered)="edit.change($event)"
             (committed)="edit.flushSoon()"
             (cancelled)="edit.cancel()"
           />

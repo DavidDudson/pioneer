@@ -37,7 +37,12 @@ export const controlVariants = cva(
  */
 export const adornmentVariants = cva('absolute inset-y-none flex w-control-md items-center justify-center', {
   variants: {
-    edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none' },
+    edge: {
+      start: 'pointer-events-none start-none text-fg-subtle',
+      end: 'end-none',
+      /** A start slot that takes presses. */
+      startAction: 'start-none',
+    },
     /** Dims with the disabled control. */
     disabled: { true: 'opacity-disabled', false: '' },
   },

@@ -6,7 +6,7 @@
         [ariaLabel]="field.label | transloco"
         [min]="0"
         [value]="field.edit.draft()"
-        (valueChange)="field.edit.change($event)"
+        (entered)="field.edit.change($event)"
         (committed)="field.edit.flushSoon()"
         (cancelled)="field.edit.cancel()"
       />

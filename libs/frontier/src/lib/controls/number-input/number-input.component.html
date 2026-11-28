@@ -1,15 +1,43 @@
+@if (steppers()) {
+  <span [class]="startSlotClasses">
+    <fr-button
+      variant="ghost"
+      size="sm"
+      iconOnly
+      [disabled]="disabled() || !canDecrease()"
+      [ariaLabel]="'frontier.numberInput.decrease' | transloco: { label: ariaLabel() ?? '' }"
+      (pressed)="move(DOWN)"
+      ><fr-icon [icon]="MinusIcon"
+    /></fr-button>
+  </span>
+}
 <fr-input
   type="number"
-  inputMode="numeric"
   numeric
-  [step]="1"
+  [adornment]="adornment()"
+  [inputMode]="inputMode()"
+  [step]="step()"
   [min]="min()"
   [max]="max()"
-  [value]="value().toString()"
+  [value]="text()"
+  [placeholder]="placeholder()"
   [disabled]="disabled()"
   [invalid]="invalid()"
   [ariaLabel]="ariaLabel()"
   (typed)="onInput($event)"
-  (committed)="committed.emit()"
+  (committed)="commit()"
   (cancelled)="cancelled.emit()"
 />
+@if (steppers()) {
+  <span [class]="endSlotClasses">
+    <fr-button
+      variant="ghost"
+      size="sm"
+      iconOnly
+      [disabled]="disabled() || !canIncrease()"
+      [ariaLabel]="'frontier.numberInput.increase' | transloco: { label: ariaLabel() ?? '' }"
+      (pressed)="move(UP)"
+      ><fr-icon [icon]="PlusIcon"
+    /></fr-button>
+  </span>
+}

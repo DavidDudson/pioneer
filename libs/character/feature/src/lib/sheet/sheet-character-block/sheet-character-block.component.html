@@ -24,7 +24,7 @@
               [min]="levelMin"
               [max]="levelMax"
               [value]="level.draft()"
-              (valueChange)="level.change($event)"
+              (entered)="level.change($event)"
               (committed)="level.flushSoon()"
               (cancelled)="level.cancel()"
             />

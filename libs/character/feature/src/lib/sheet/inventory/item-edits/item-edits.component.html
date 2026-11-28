@@ -7,7 +7,7 @@
           [ariaLabel]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }"
           [min]="1"
           [value]="quantity.draft()"
-          (valueChange)="quantity.change($event)"
+          (entered)="quantity.change($event)"
           (committed)="quantity.flushSoon()"
           (cancelled)="quantity.cancel()"
         />

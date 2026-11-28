@@ -19,8 +19,9 @@
               <fr-number-input
                 [min]="dcMin"
                 [max]="dcMax"
-                [(value)]="dcValue"
+                [value]="dcValue()"
                 [(complete)]="dcComplete"
+                (entered)="dcValue.set($event)"
                 (committed)="roll()"
               />
               @if (dcInvalid()) {
