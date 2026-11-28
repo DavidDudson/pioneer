@@ -63,19 +63,25 @@ export function companionSlots(
   species: readonly SpeciesOption[],
   companions: readonly Companion[],
 ): readonly CompanionSlotView[] {
-  return slots.filter(grantsCompanion).map((slot): CompanionSlotView => {
+  return slots.flatMap((slot): readonly CompanionSlotView[] => {
+    if (!grantsCompanion(slot)) {
+      return [];
+    }
+
     const chosen = slot.status === SlotStatus.Filled ? slot.selection : undefined;
 
-    return {
-      slot: slot.key,
-      picked: species.find(({ id }) => id === chosen),
-      companion: companions.find(
-        (companion) =>
-          companion.kind === CompanionKind.AnimalCompanion &&
-          companion.archived === undefined &&
-          companion.grantedBy === slot.key,
-      ),
-    };
+    return [
+      {
+        slot: slot.key,
+        picked: species.find(({ id }) => id === chosen),
+        companion: companions.find(
+          (companion) =>
+            companion.kind === CompanionKind.AnimalCompanion &&
+            companion.archived === undefined &&
+            companion.grantedBy === slot.key,
+        ),
+      },
+    ];
   });
 }
 

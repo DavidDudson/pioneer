@@ -11,9 +11,9 @@ const feat = ContentId.parse(contentId(pack, EntrySlug.parse('feat:animal-compan
 const wolf = ContentId.parse(contentId(pack, EntrySlug.parse('companion-species:wolf')));
 const key = SlotKey.parse('class-feat-1:0');
 
-const species: readonly SpeciesOption[] = [
-  { id: wolf, name: ContentText.parse('Wolf'), block: {} as SpeciesOption['block'] },
-];
+// SAFETY: the helpers under test read only a species' id and name, never its block.
+const block = {} as SpeciesOption['block'];
+const species: readonly SpeciesOption[] = [{ id: wolf, name: ContentText.parse('Wolf'), block }];
 
 function slot(selection: ContentId | undefined): CharacterSlot {
   const subject = {
@@ -27,6 +27,8 @@ function slot(selection: ContentId | undefined): CharacterSlot {
     ? { status: SlotStatus.Open, key, subject }
     : { status: SlotStatus.Filled, key, subject, selection };
 }
+
+const none: readonly Companion[] = [];
 
 describe(companionSlots, () => {
   it('lists the species choice of an Animal Companion feat, open while nothing is picked', () => {
@@ -54,6 +56,6 @@ describe(companionSlots, () => {
       },
     };
 
-    expect(companionSlots([other], species, [] as readonly Companion[])).toStrictEqual([]);
+    expect(companionSlots([other], species, none)).toStrictEqual([]);
   });
 });

@@ -27,7 +27,7 @@ const PR_PROPERTY_LEVELS = [FIRST_LEVEL, TENTH_LEVEL, LAST_LEVEL];
 const ALL_LEVELS = Array.from({ length: LAST_LEVEL }, (_unused, index) => index + FIRST_LEVEL);
 
 /** What `fast-check`'s `assert` takes: how many runs, and where to start. */
-export interface SweepParameters {
+interface SweepParameters {
   numRuns: number;
   seed?: number;
   path?: string;

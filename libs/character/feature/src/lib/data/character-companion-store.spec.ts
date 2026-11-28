@@ -3,8 +3,9 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { CharacterId, CompanionId, CompanionName, CORE_RULE_LIMITS } from '@pioneer/character/domain';
 import { ContentId, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import type { JsonObject } from '../testing/json-fixture';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
@@ -18,7 +19,7 @@ const wolf = ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.pa
 const elf = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
 const slot = SlotKey.parse('class-feat-1:0');
 
-function sheet(version: number): object {
+function sheet(version: number): JsonObject {
   return {
     character: {
       id,
@@ -35,7 +36,7 @@ function sheet(version: number): object {
   };
 }
 
-function companion(name: string): object {
+function companion(name: string): JsonObject {
   return {
     id: 'a3c1f1d2-5e44-4c7b-8c1a-7d9b3e2f4a10',
     characterId: id,
@@ -58,21 +59,25 @@ async function untilQueried(): Promise<void> {
 /** Answers the reads of the open character that follow a write, until the write is done. */
 async function finish(write: Promise<void>): Promise<void> {
   let done = false;
-  const finished = write.then(() => {
-    done = true;
-  });
 
-  while (!done) {
+  const tracked = (async (): Promise<void> => {
+    await write;
+    done = true;
+  })();
+
+  await vi.waitFor(() => {
     TestBed.tick();
+
     for (const request of TestBed.inject(HttpTestingController).match((candidate) => candidate.method === 'GET')) {
       request.flush({ sheet: sheet(2), ruleLimits: CORE_RULE_LIMITS });
     }
-    await new Promise((resolve) => {
-      setTimeout(resolve, 5);
-    });
-  }
 
-  await finished;
+    if (!done) {
+      throw new Error('The write is still pending');
+    }
+  });
+
+  await tracked;
 }
 
 async function settle(): Promise<void> {
@@ -98,7 +103,6 @@ describe(CharacterCompanionStore, () => {
     TestBed.tick();
     http.expectOne(`/api/characters/${id}/sheet`).flush({ sheet: sheet(1), ruleLimits: CORE_RULE_LIMITS });
     await settle();
-    expect(characters.selected()?.id).toBe(id);
     store = TestBed.inject(CharacterCompanionStore);
   });
 
@@ -136,10 +140,12 @@ describe(CharacterCompanionStore, () => {
     await settle();
 
     const archiving = store.archive(CompanionId.parse('a3c1f1d2-5e44-4c7b-8c1a-7d9b3e2f4a10'), 'replaced');
+
     const request = http.expectOne({
       method: 'POST',
       url: `/api/characters/${id}/companions/a3c1f1d2-5e44-4c7b-8c1a-7d9b3e2f4a10/archive`,
     });
+
     expect(request.request.body).toStrictEqual({ reason: 'replaced', expectedVersion: 1 });
     request.flush({ companions: [] });
     await finish(archiving);

@@ -55,6 +55,7 @@ export class CharacterCompanionStore {
   /** Adds an animal companion to the open character. */
   public async addAnimalCompanion({ name, species, grantedBy }: NewAnimalCompanion): Promise<void> {
     const open = this.#open();
+
     const companions = await this.#api.call(CharacterCompanionContract.addCompanion, {
       params: { id: open.id },
       body: { kind: CompanionKind.AnimalCompanion, name, form: { species }, grantedBy, expectedVersion: open.version },
@@ -66,6 +67,7 @@ export class CharacterCompanionStore {
   /** Archives a live companion of the open character, as replaced or released. */
   public async archive(companionId: CompanionId, reason: CompanionArchiveReason): Promise<void> {
     const open = this.#open();
+
     const companions = await this.#api.call(CharacterCompanionContract.archiveCompanion, {
       params: { id: open.id, companionId },
       body: { reason, expectedVersion: open.version },

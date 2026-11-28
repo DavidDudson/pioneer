@@ -3,8 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { CompanionArchiveReason, CompanionName } from '@pioneer/character/domain';
 import type { Companion } from '@pioneer/character/domain';
 import { Button, Stack, Surface, Text } from '@pioneer/frontier';
-import { ChoiceValue, CompanionKind, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
 import { CompanionPicker } from '@pioneer/rules/ui';
 import type { CompanionPick, CompanionSpeciesOption } from '@pioneer/rules/ui';
 
@@ -83,6 +82,7 @@ export class SheetCompanionsSection {
     return companionSlots(slots, species, read).map((view): CompanionEntry => {
       const { companion, picked } = view;
       const held = companion === undefined ? undefined : speciesOfCompanion(companion, species);
+
       const statistics =
         held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table);
 
@@ -125,13 +125,5 @@ export class SheetCompanionsSection {
 
   protected async release({ companion }: CompanionCard): Promise<void> {
     await this.#companions.archive(companion.id, CompanionArchiveReason.Released);
-  }
-
-  protected isAnimalCompanion(companion: Companion): boolean {
-    return companion.kind === CompanionKind.AnimalCompanion;
-  }
-
-  protected slotOf(entry: CompanionEntry): SlotKey {
-    return entry.view.slot;
   }
 }

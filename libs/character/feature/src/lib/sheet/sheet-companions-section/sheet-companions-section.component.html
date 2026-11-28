@@ -1,5 +1,5 @@
 <fr-stack gap="md">
-  @for (entry of entries(); track slotOf(entry)) {
+  @for (entry of entries(); track entry.view.slot) {
     <fr-stack gap="sm">
       @if (entry.card; as card) {
         <fr-surface padding="sm">
