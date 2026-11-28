@@ -31,7 +31,10 @@ const TableMessage = {
 
 /** `isolate` keeps the pinned cells' z-index inside the table; a sticky header needs a height to scroll under. */
 const scrollerVariants = cva('block w-full overflow-x-auto', {
-  variants: { stickyHeader: { true: 'isolate max-h-picker overflow-y-auto', false: '' } },
+  variants: {
+    stickyHeader: { true: 'max-h-picker overflow-y-auto', false: '' },
+    pinned: { true: 'isolate', false: '' },
+  },
 });
 
 const footerVariants = cva('justify-center pt-sm', { variants: { shown: { true: 'flex', false: 'hidden' } } });
@@ -212,7 +215,9 @@ export class Table<TData extends RowData> {
     return rowId === undefined ? options : { ...options, getRowId: rowId };
   });
 
-  protected readonly scrollerClasses = computed(() => scrollerVariants({ stickyHeader: this.stickyHeader() }));
+  protected readonly scrollerClasses = computed(() =>
+    scrollerVariants({ stickyHeader: this.stickyHeader(), pinned: this.stickyHeader() || this.stickyFirstColumn() }),
+  );
   protected readonly footerClasses = computed(() => footerVariants({ shown: this.hasMore() }));
   protected readonly tableClasses = tableClasses;
   protected readonly headerCellClasses = computed<PinnedClasses>(() => {

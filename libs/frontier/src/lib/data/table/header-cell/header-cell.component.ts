@@ -12,6 +12,7 @@ import { HEADER_KEY } from '../table-features';
 import type { TableHeader } from '../table-features';
 
 const rankClasses = cva('text-caption text-fg-muted')();
+const hiddenClasses = cva('sr-only')();
 
 const SORT_ICON = { asc: ChevronUp, desc: ChevronDown } as const;
 
@@ -25,7 +26,7 @@ const SORT_ICON = { asc: ChevronUp, desc: ChevronDown } as const;
 })
 export class TableHeaderCell<TData extends RowData> {
   public readonly header = input.required<TableHeader<TData>>();
-  /** How many columns the table sorts by; each shows its place in the sort when it is more than one. */
+  /** How many columns the table sorts by. */
   public readonly sortCount = input(0);
 
   readonly #translate = injectTranslate();
@@ -53,6 +54,13 @@ export class TableHeaderCell<TData extends RowData> {
   });
 
   protected readonly rankClasses = rankClasses;
+  protected readonly hiddenClasses = hiddenClasses;
+  /** Says what the rank digit means to a screen reader. */
+  protected readonly rankLabel = computed(() => {
+    const place = this.rank();
+
+    return place === undefined ? '' : this.#translate()('frontier.table.sortRank', { rank: place });
+  });
 
   /** Shift adds the column to the sort; a plain press sorts by it alone. */
   protected sort(press: MouseEvent): void {

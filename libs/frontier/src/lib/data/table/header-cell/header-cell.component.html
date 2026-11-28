@@ -10,7 +10,8 @@
     <ng-container *ngTemplateOutlet="content" />
     @if (sortIcon(); as icon) {
       <fr-icon [icon]="icon" />
-      <span [class]="rankClasses">{{ rank() }}</span>
+      <span aria-hidden="true" [class]="rankClasses">{{ rank() }}</span>
+      <span [class]="hiddenClasses">{{ rankLabel() }}</span>
     }
   </fr-button>
 } @else {

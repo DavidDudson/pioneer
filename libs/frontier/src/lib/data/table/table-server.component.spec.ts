@@ -77,6 +77,11 @@ function loadMoreButton(host: HTMLElement): HTMLButtonElement | null {
   return host.querySelector<HTMLButtonElement>(':scope > div > fr-button button');
 }
 
+/** The classes of the element that scrolls the table. */
+function scrollerClasses(host: HTMLElement): string {
+  return host.querySelector('table')?.parentElement?.className ?? '';
+}
+
 /** Counts `loadMore` emissions. */
 function countLoadMore({ fixture }: Rendered): () => number {
   let count = 0;
@@ -116,6 +121,32 @@ describe('Table for a server list', () => {
       expect(headers(rendered.host).map((header) => header.querySelector('span')?.textContent.trim())).toStrictEqual([
         '2',
         '1',
+      ]);
+    });
+
+    it('names each rank for a screen reader', async () => {
+      const rendered = await render({ data: TIED });
+      await press(rendered, 1, false);
+      await press(rendered, 0, true);
+      expect(
+        headers(rendered.host).map((header) => header.querySelector('.sr-only')?.textContent.trim()),
+      ).toStrictEqual(['Sort position 2', 'Sort position 1']);
+    });
+
+    it('flips a sorted column on a second Shift press and drops it after the cycle, renumbering the rest', async () => {
+      const rendered = await render({ data: TIED });
+      await press(rendered, 1, false);
+      await press(rendered, 0, true);
+      await press(rendered, 0, true);
+      expect(rendered.fixture.componentInstance.sorting()).toStrictEqual([
+        { column: 'level', descending: true },
+        { column: 'name', descending: true },
+      ]);
+      await press(rendered, 0, true);
+      expect(rendered.fixture.componentInstance.sorting()).toStrictEqual([{ column: 'level', descending: true }]);
+      expect(headers(rendered.host).map((header) => header.querySelector('span')?.textContent.trim())).toStrictEqual([
+        undefined,
+        '',
       ]);
     });
   });
@@ -166,7 +197,22 @@ describe('Table for a server list', () => {
       const { host } = await render({ stickyHeader: true });
       expect(headers(host).every((header) => header.classList.contains('sticky'))).toBe(true);
       expect(host.querySelector('td.sticky')).toBeNull();
-      expect(host.querySelector('table')?.parentElement?.className).toContain('max-h-picker');
+      expect(scrollerClasses(host)).toContain('max-h-picker');
+    });
+
+    it('isolates the pinned cells from the page when the first column is pinned', async () => {
+      const { host } = await render({ stickyFirstColumn: true });
+      expect(scrollerClasses(host)).toContain('isolate');
+    });
+
+    it('isolates the pinned cells from the page when the header is pinned', async () => {
+      const { host } = await render({ stickyHeader: true });
+      expect(scrollerClasses(host)).toContain('isolate');
+    });
+
+    it('does not isolate the table when nothing is pinned', async () => {
+      const { host } = await render();
+      expect(scrollerClasses(host)).not.toContain('isolate');
     });
 
     it('pins the first column, header cell and cells', async () => {
