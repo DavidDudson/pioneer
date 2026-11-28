@@ -1,4 +1,3 @@
-import { LOCALE_STATUS, LocaleStatus } from '@pioneer/shared/kernel';
 /**
  * Fails when the message catalogs and the code disagree (ADR-0009, ADR-0084).
  *
@@ -16,6 +15,7 @@ import { LOCALE_STATUS, LocaleStatus } from '@pioneer/shared/kernel';
  * objects (`ProblemMessage.NotFound`). Keys built at runtime cannot be seen,
  * so code spells keys out in full.
  */
+import { LOCALE_STATUS, LocaleStatus } from '@pioneer/shared/kernel';
 import { Glob } from 'bun';
 
 import {
@@ -49,8 +49,14 @@ async function scan(glob: Glob): Promise<Array<string>> {
 }
 
 async function readTree(path: string): Promise<MessageTree> {
-  // SAFETY: a messages bundle is a JSON object of nested message strings, which is the `MessageTree` type.
-  return JSON.parse(await read(path)) as MessageTree;
+  const text = await read(path);
+
+  try {
+    // SAFETY: a messages bundle is a JSON object of nested message strings, which is the `MessageTree` type.
+    return JSON.parse(text) as MessageTree;
+  } catch (error) {
+    throw new Error(`${path} is not valid JSON`, { cause: error });
+  }
 }
 
 const allSourcePaths = await scan(SOURCES);
@@ -104,7 +110,7 @@ const shipped = new Set(
 /** What one locale's catalogs say about one bundle: how much they translate, and what is wrong with them. */
 interface BundleCheck {
   readonly covered: Coverage;
-  readonly found: ReadonlyArray<string>;
+  readonly issues: ReadonlyArray<string>;
 }
 
 function checkBundle(locale: string, { dir, scope, tree }: Bundle): BundleCheck {
@@ -112,20 +118,20 @@ function checkBundle(locale: string, { dir, scope, tree }: Bundle): BundleCheck 
   const own = catalogs.get(`${dir}/${locale}.json`);
   const covered = coverage(tree, chain);
 
-  const found =
+  const issues =
     own === undefined ? [] : catalogProblems(tree, own).map((problem) => `${dir}/${locale}.json: ${problem}`);
 
-  const underBar = shipped.has(locale) && isCoreScope(scope) && !isComplete(covered);
+  const missesCoreBar = shipped.has(locale) && isCoreScope(scope) && !isComplete(covered);
 
   return {
     covered,
-    found: underBar
+    issues: missesCoreBar
       ? [
-          ...found,
+          ...issues,
           `${dir}/${locale}.json: core scope "${scope ?? 'shell'}" is ${covered.translated}/${covered.total} ` +
             `translated, a shipped locale needs all of it (ADR-0084)`,
         ]
-      : found,
+      : issues,
   };
 }
 
@@ -136,7 +142,7 @@ for (const locale of new Set([...locales, ...shipped])) {
   const translated = results.reduce((sum, { covered }) => sum + covered.translated, 0);
   const total = results.reduce((sum, { covered }) => sum + covered.total, 0);
 
-  problems.push(...results.flatMap(({ found }) => found));
+  problems.push(...results.flatMap(({ issues }) => issues));
   console.info(
     `${locale}: ${PERCENT.format(total === 0 ? 1 : translated / total)} translated (${translated}/${total}); the rest shows en`,
   );

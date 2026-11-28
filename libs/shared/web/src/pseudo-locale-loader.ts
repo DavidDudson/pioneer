@@ -6,6 +6,7 @@ import { LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
 
 import type { LocaleMessages } from './i18n';
+import { withoutUntranslated } from './untranslated';
 
 /**
  * The pseudo-locale (ADR-0084): `en` text accented and about 40% longer, to expose text that bypasses messages and
@@ -27,13 +28,27 @@ function pseudoLoader(messages: LocaleMessages): MessageLoader {
   };
 }
 
+/** A locale's loader without the messages nobody translated yet, so Transloco falls back to `en` for them. */
+function translatedOnly(load: MessageLoader): MessageLoader {
+  return async () => withoutUntranslated(await load());
+}
+
+/** The loader of one shipped locale; the source locale is not a translation and loads as it is. */
+function localeLoader(load: MessageLoader, lang: string): MessageLoader {
+  return lang === SOURCE_LOCALE ? load : translatedOnly(load);
+}
+
 /** The loaders by language for Transloco's scope registration: the shipped locales, plus the pseudo-locale in development. */
 export function withPseudoLocale(messages: LocaleMessages): Readonly<Record<string, MessageLoader>> {
-  return isDevMode() ? { ...messages, [PSEUDO_LOCALE]: pseudoLoader(messages) } : messages;
+  const shipped = Object.fromEntries(
+    Object.entries(messages).map(([lang, load]): [string, MessageLoader] => [lang, localeLoader(load, lang)]),
+  );
+
+  return isDevMode() ? { ...shipped, [PSEUDO_LOCALE]: pseudoLoader(messages) } : shipped;
 }
 
 /** The loader for one language of a message set; a language Pioneer has no messages for is an error. */
-export function messagesFor(messages: LocaleMessages, lang: string): MessageLoader {
+export function loaderFor(messages: LocaleMessages, lang: string): MessageLoader {
   if (lang === PSEUDO_LOCALE && isDevMode()) {
     return pseudoLoader(messages);
   }
@@ -44,7 +59,7 @@ export function messagesFor(messages: LocaleMessages, lang: string): MessageLoad
     throw new Error(`No messages for locale "${lang}"`);
   }
 
-  return messages[locale.data];
+  return localeLoader(messages[locale.data], lang);
 }
 
 /**

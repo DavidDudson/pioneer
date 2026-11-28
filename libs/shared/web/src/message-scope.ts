@@ -4,7 +4,7 @@ import { provideTranslocoScope, TranslocoService } from '@jsverse/transloco';
 import { firstValueFrom } from 'rxjs';
 
 import type { LocaleMessages } from './i18n';
-import { messagesFor, withPseudoLocale } from './pseudo-locale-loader';
+import { loaderFor, withPseudoLocale } from './pseudo-locale-loader';
 
 export interface MessageScope {
   readonly scope: string;
@@ -50,7 +50,7 @@ export async function loadMessageScopes(i18n: TranslocoService, scopes: Readonly
       const path = `${scope}/${lang}`;
 
       // Transloco keys inline loaders by `<scope>/<lang>`.
-      return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: messagesFor(messages, lang) } }));
+      return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: loaderFor(messages, lang) } }));
     }),
   );
 }

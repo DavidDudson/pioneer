@@ -13,7 +13,7 @@ import { Locale, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 
 import { LazyIcuTranspiler } from './lazy-icu-transpiler';
 import { LocalePreferences } from './locale-preferences';
-import { messagesFor, PSEUDO_LOCALE, pseudoLocaleActivator } from './pseudo-locale-loader';
+import { loaderFor, PSEUDO_LOCALE, pseudoLocaleActivator } from './pseudo-locale-loader';
 import { rememberLoadedLanguages } from './remember-loaded-languages';
 
 /** How to fetch each locale's root messages. Keys are ICU MessageFormat strings. */
@@ -28,7 +28,7 @@ class MessageLoader implements TranslocoLoader {
 
   public async getTranslation(lang: string): Promise<Translation> {
     // Messages are ICU strings: none may exist before the compiler that reads them.
-    const [translation] = await Promise.all([messagesFor(this.#messages, lang)(), this.#icu.load()]);
+    const [translation] = await Promise.all([loaderFor(this.#messages, lang)(), this.#icu.load()]);
 
     return translation;
   }

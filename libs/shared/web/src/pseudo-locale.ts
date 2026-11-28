@@ -1,6 +1,9 @@
 import { parse } from '@messageformat/parser';
 import type { SelectCase, Token } from '@messageformat/parser';
 
+import { isGroup } from './message-tree';
+import type { MessageTree } from './message-tree';
+
 /** Latin letters, and the accented look-alike at the same position in {@link ACCENTED}, so text stays readable and anything left plain stands out. */
 const PLAIN = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const ACCENTED = 'áƀçðéƒĝĥíĵķĺḿñóþɋŕšţúṽŵẋýžÁƁÇÐÉƑĜĤÍĴĶĹḾÑÓÞɊŔŠŢÚṼŴẊÝŽ';
@@ -52,7 +55,7 @@ function serialiseToken(token: Token, inPlural: boolean, transform: boolean): st
   }
 
   const offset = token.pluralOffset === undefined || token.pluralOffset === 0 ? '' : ` offset:${token.pluralOffset}`;
-  const arms = token.cases.map((arm) => serialiseArm(arm, token.type !== 'select', transform)).join('');
+  const arms = token.cases.map((arm) => serialiseArm(arm, inPlural || token.type !== 'select', transform)).join('');
 
   return `{${token.arg}, ${token.type},${offset}${arms}}`;
 }
@@ -70,19 +73,10 @@ export function pseudoLocalise(message: string): string {
   return serialise(parse(message), false, true);
 }
 
-/** A catalog: messages, or groups of them. */
-export interface Messages {
-  readonly [key: string]: Messages | string;
-}
-
-function isGroup(value: Messages | string): value is Messages {
-  return value instanceof Object;
-}
-
 /** Every message of a catalog pseudo-localised, its nesting kept. */
-export function pseudoLocaliseTree(tree: Messages): Messages {
+export function pseudoLocaliseTree(tree: MessageTree): MessageTree {
   return Object.fromEntries(
-    Object.entries(tree).map(([key, value]): [string, Messages | string] => [
+    Object.entries(tree).map(([key, value]): [string, MessageTree | string] => [
       key,
       isGroup(value) ? pseudoLocaliseTree(value) : pseudoLocalise(value),
     ]),

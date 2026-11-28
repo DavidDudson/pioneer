@@ -126,12 +126,13 @@ export function localeChain(locale: string): ReadonlyArray<string> {
   return subtags.map((_subtag, index) => subtags.slice(0, subtags.length - index).join('-'));
 }
 
-/** How much of `source` the catalogs of a fallback chain translate, the first in the chain winning. */
+/** Translated and total message counts. */
 export interface Coverage {
   readonly translated: number;
   readonly total: number;
 }
 
+/** How much of `source` the catalogs of a fallback chain translate, the first in the chain winning. */
 export function coverage(source: MessageTree, chain: ReadonlyArray<MessageTree>): Coverage {
   const wanted = [...messageEntries(source).keys()];
   const layers = chain.map((catalog) => messageEntries(catalog));
@@ -185,7 +186,7 @@ export function catalogProblems(source: MessageTree, catalog: MessageTree): Read
 /** Scopes whose messages every shipped locale must translate in full, besides the shell's root messages (ADR-0084). */
 const CORE_SCOPES: ReadonlySet<string> = new Set(['identity', 'character']);
 
-/** The shell (root messages, no scope) and the settings and character scopes are core; the rest may be partial. */
+/** Whether every shipped locale must translate this scope in full. */
 export function isCoreScope(scope: string | undefined): boolean {
   return scope === undefined || CORE_SCOPES.has(scope);
 }

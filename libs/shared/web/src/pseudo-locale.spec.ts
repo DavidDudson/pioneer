@@ -31,6 +31,22 @@ describe(pseudoLocalise, () => {
     expect(result).toContain("'{'");
   });
 
+  it('keeps # quoted inside a select nested in a plural, and ordinal and offset arms valid', () => {
+    for (const message of [
+      '{n, plural, other {{g, select, other {Item #1}}}}',
+      '{n, selectordinal, one {#st} other {#th}}',
+      '{n, plural, offset:1 one {# other} other {# others}}',
+      '{d, date, short} {p, number, ::currency/USD}',
+    ]) {
+      const result = pseudoLocalise(message);
+      expect(() => parse(result)).not.toThrow();
+    }
+  });
+
+  it('keeps a quoted # quoted in a select nested in a plural', () => {
+    expect(pseudoLocalise("{n, plural, other {{g, select, other {Item '#'1}}}}")).toContain("'#'");
+  });
+
   it('leaves a message with no text alone, whitespace included', () => {
     expect(pseudoLocalise('{count}')).toBe('{count}');
     expect(pseudoLocalise('{a} {b}')).toBe('{a} {b}');

@@ -1,4 +1,3 @@
-import { LOCALE_STATUS, LocaleStatus } from '@pioneer/shared/kernel';
 /**
  * Writes each message scope's translation catalogs from its `en.json` (ADR-0084): `bun run i18n:extract [locale…]`.
  *
@@ -10,6 +9,7 @@ import { LOCALE_STATUS, LocaleStatus } from '@pioneer/shared/kernel';
  * Targets are the locales named on the command line, or else every shipped locale but the source. A locale is named
  * on the command line to seed its catalogs before it is added to `Locale`.
  */
+import { LOCALE_STATUS, LocaleStatus, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import { Glob } from 'bun';
 
 import { syncCatalog } from './message-keys.ts';
@@ -21,15 +21,40 @@ const shipped = Object.entries(LOCALE_STATUS)
   .filter(([, status]) => status !== LocaleStatus.Source)
   .map(([locale]) => locale);
 
+const PRIMARY_SUBTAG = /^[a-z]{2,3}$/u;
+const SUBTAG = /^[A-Za-z0-9]{2,8}$/u;
+
+function isLocaleTag(tag: string): boolean {
+  const [primary = '', ...rest] = tag.split('-');
+
+  return PRIMARY_SUBTAG.test(primary) && rest.every((subtag) => SUBTAG.test(subtag));
+}
+
 const requested = Bun.argv.slice(2);
+const invalid = requested.filter((tag) => !isLocaleTag(tag) || tag === SOURCE_LOCALE);
+
+if (invalid.length > 0) {
+  throw new Error(
+    `Not a translation target locale (a language tag other than ${SOURCE_LOCALE}): ${invalid.join(', ')}`,
+  );
+}
+
 const targets = requested.length > 0 ? requested : shipped;
 
 async function readTree(path: string): Promise<MessageTree | undefined> {
   const file = Bun.file(path);
   const present = await file.exists();
 
-  // SAFETY: a messages catalog is a JSON object of nested message strings, which is the `MessageTree` type.
-  return present ? ((await file.json()) as MessageTree) : undefined;
+  if (!present) {
+    return undefined;
+  }
+
+  try {
+    // SAFETY: a messages catalog is a JSON object of nested message strings, which is the `MessageTree` type.
+    return (await file.json()) as MessageTree;
+  } catch (error) {
+    throw new Error(`${path} is not valid JSON`, { cause: error });
+  }
 }
 
 /** Writes one catalog if it differs from what `en` now asks for; the path when it did. */
