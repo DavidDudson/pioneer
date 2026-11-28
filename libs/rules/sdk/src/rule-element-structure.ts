@@ -27,7 +27,7 @@ const CompiledChoiceRef = z.compile(ChoiceRef);
 
 /** Whether a granted `item` is a reference to a choice, rather than the id of a fixed entry. */
 export function isChoiceRef(item: ContentId | ChoiceRef): item is ChoiceRef {
-  return CompiledChoiceRef.safeParse(item).success;
+  return CompiledChoiceRef.validate(item);
 }
 
 /** Gives the character another content entry (a feature, action, spell or item), with its own rules. */

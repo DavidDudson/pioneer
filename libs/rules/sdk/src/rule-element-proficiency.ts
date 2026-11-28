@@ -25,7 +25,7 @@ const CompiledChoiceSelector = z.compile(ChoiceSelector);
 
 /** Whether a proficiency's `selector` is one the player's pick completes, rather than a fixed selector. */
 export function isChoiceSelector(selector: Selector | ChoiceSelector): selector is ChoiceSelector {
-  return CompiledChoiceSelector.safeParse(selector).success;
+  return CompiledChoiceSelector.validate(selector);
 }
 
 /** A rank an element raises to. Untrained is every statistic's floor, so raising to it does nothing. */

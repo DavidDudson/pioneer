@@ -105,12 +105,12 @@ const CompiledPredicateNumber = z.compile(PredicateNumber);
 
 /** Whether a statement is a bare roll option rather than a comparison or compound. */
 export function isRollOptionStatement(statement: PredicateStatement): statement is RollOption {
-  return CompiledRollOption.safeParse(statement).success;
+  return CompiledRollOption.validate(statement);
 }
 
 /** Whether a comparison's right operand is another roll option rather than a number. */
 export function isRollOptionOperand(operand: RollOption | PredicateNumber): operand is RollOption {
-  return !CompiledPredicateNumber.safeParse(operand).success;
+  return !CompiledPredicateNumber.validate(operand);
 }
 
 /** Whether a statement is a numeric or text comparison (`eq`, `gt`, `gte`, `lt`, `lte`) rather than an option or compound. */
