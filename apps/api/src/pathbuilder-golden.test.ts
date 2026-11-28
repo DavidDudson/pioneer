@@ -198,6 +198,7 @@ describe('Pathbuilder spells over the official packs', () => {
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
+        // The focus spells and the other two focus points come from the apparitions the Animist attunes (#2518 to #2521).
         'divine wis focus no-entry: 3',
         'occult wis focus no-entry: 3',
       ]);
@@ -215,9 +216,9 @@ describe('Pathbuilder spells over the official packs', () => {
         // The extra ones are not divine: Sure Strike, Weapon Storm and Telekinetic Maneuver.
         // The uncommon and rare divine ones are offered, since the import grants access to the spells it lists.
         'Oracle no-slot: 6',
-        // Read Fate, and Lay on Hands too.
-        // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot.
-        // That slot took the Blessed One Dedication, which granted Lay on Hands, before.
+        // Lay on Hands: Devotion Spells offers it only with a deity whose font heals, and his export has "Not set".
+        // Read Fate: the Deity's Domain feat has no rules in the content yet, and a domain comes from a deity too.
+        // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot, so the Blessed One Dedication is not taken.
         'divine cha focus not-granted: 2',
       ]);
     },
