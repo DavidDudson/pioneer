@@ -13,6 +13,7 @@ the delivery plan is in [`../roadmap.md`](../roadmap.md).
 | [character-model.md](character-model.md)       | Build choices, inventory, play state, overrides, persistence           |
 | [play-and-campaigns.md](play-and-campaigns.md) | Actions, conditions, dice, campaigns, live sync, interop               |
 | [animal-companions.md](animal-companions.md)   | Animal companion rules with citations: tiers, statistics, Command      |
+| [familiars.md](familiars.md)                   | Familiar rules, ability counts, lifecycle, with citations              |
 
 ## Pillars
 
