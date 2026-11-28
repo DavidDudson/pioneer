@@ -147,12 +147,12 @@ describe('Pathbuilder exports over the official packs', () => {
 /** Plant Empathy, which Voice of Nature offers, and Break Curse, a skill feat taken in a general slot. */
 const BRIAR_PLACED = ['8f39d3b1-bedb-5ed6-8fc1-f43753c4f8ad', '36f19b8e-8242-5707-9cbb-5785601e83e5'];
 
-/** Fey Influence and Fey Ascension, Universal Ancestry feats taken in a human's ancestry slots, and Shield Warden, which Knight Vigilant lists as an additional feat. */
-const MORDRED_PLACED = [
-  '2a081489-546b-5c7d-8df0-9d1c77ec1fb0',
-  '7cf63233-3636-5cdc-bd75-e068057a2ee2',
-  'be7de1bc-ac66-55d9-b822-68ccc2b6529f',
-];
+/**
+ * Fey Influence and Fey Ascension, Universal Ancestry feats taken in a human's ancestry slots.
+ * Shield Warden, which Knight Vigilant lists as an additional feat, is not here: since the Knights of Lastwall pack
+ * (#2545) the export's Emissary of Peace resolves to a Lastwall archetype feat and takes that Free Archetype slot.
+ */
+const MORDRED_PLACED = ['2a081489-546b-5c7d-8df0-9d1c77ec1fb0', '7cf63233-3636-5cdc-bd75-e068057a2ee2'];
 
 describe('Pathbuilder feats over the official packs', () => {
   test(
@@ -196,7 +196,7 @@ describe('Pathbuilder spells over the official packs', () => {
     "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters whose feats are not placed have no entry",
     async () => {
       const { character, report } = await imported(briarRoseExport);
-      expect(spellPickCount(character.document.build.choices)).toBe(21);
+      expect(spellPickCount(character.document.build.choices)).toBe(22);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
@@ -212,7 +212,7 @@ describe('Pathbuilder spells over the official packs', () => {
     "Mordred's Oracle fills its repertoire; the archetype caster has no entry; Lay on Hands and Read Fate are not granted",
     async () => {
       const { character, report } = await imported(mordredExport);
-      expect(spellPickCount(character.document.build.choices)).toBe(22);
+      expect(spellPickCount(character.document.build.choices)).toBe(23);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         // Pathbuilder lists one more Oracle spell than the repertoire has slots at each rank up to 4.
         // The extra ones are not divine: Sure Strike, Weapon Storm and Telekinetic Maneuver.
