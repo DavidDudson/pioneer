@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795846488194,
+  "lastUpdate": 1795846746660,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2338,6 +2338,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4f0c8244a0b643da06cbbe0e704dc80bb0f2c991",
+          "message": "feat(frontier): fr-table manual sorting, load more and sticky pins (#2516)\n\n* feat(frontier): fr-table manual sorting, load more and sticky pins\n\nAdd manualSorting, hasMore/loadingMore/loadMore, stickyHeader and\nstickyFirstColumn inputs to fr-table. Shift-press on a header adds the\ncolumn to the sort, and sorted columns show their place once there are\nseveral. Stories and specs included; keys in the en bundle.\n\nRefs #2320\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(frontier): fr-table rank label and pin isolation\n\nName the sort rank for screen readers, isolate the scroller whenever\nthe first column or header is pinned so its z-index stays inside the\ntable, and cover repeat and removal transitions of a multi-sort.\n\nRefs #2320\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T15:35:19+10:00",
+          "tree_id": "5b4a8a32c4cebe48fd1848df2f9595675376e179",
+          "url": "https://github.com/DavidDudson/pioneer/commit/4f0c8244a0b643da06cbbe0e704dc80bb0f2c991"
+        },
+        "date": 1795846743084,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 467,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4403,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 207,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6513,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 218,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
