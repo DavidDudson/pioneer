@@ -25,10 +25,8 @@ export function hasAuthorizedRune(line: InventoryItem, base: ItemEntry | undefin
 }
 
 /**
- * The damage of the needles of an authorized weapon: one d8 piercing and one d4 persistent bleed for each damage die,
- * which is the weapon's base die and the dice its striking grade adds (two for striking, three for greater, four for
- * major), after the alterations in play (Automatic Bonus Progression gives the dice of the character's level). Undefined
- * when the item has no authorized rune.
+ * The needles of an authorized weapon: one d8 piercing and one d4 bleed per damage die, which is the base die and the
+ * dice its altered striking grade adds. Undefined when the item has no authorized rune.
  */
 export function authorizedDamage(
   line: InventoryItem,

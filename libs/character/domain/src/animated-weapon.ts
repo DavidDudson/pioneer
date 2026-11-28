@@ -20,9 +20,8 @@ export function hasAnimatedRune(line: InventoryItem, base: ItemEntry | undefined
 }
 
 /**
- * The attack modifier of the Strikes a set-free animated weapon makes: 24 plus its item bonus, which its potency grade
- * gives after the alterations in play, plus the potency bonus the rules in play give every Strike (Automatic Bonus Progression
- * sets the runes' to nothing and adds its level bonus). Undefined while the item is not set free or has no animated rune.
+ * The attack modifier of the Strikes a set-free animated weapon makes: 24 plus the higher of its altered potency grade
+ * and the level potency of the rules in play, as a Strike takes the highest item bonus. Undefined unless it is set free.
  */
 export function releasedAttack(
   line: InventoryItem,
@@ -33,7 +32,7 @@ export function releasedAttack(
     return undefined;
   }
 
-  const bonus = (weaponGrades(line, base, reads).potency ?? 0) + levelPotency(reads.rules ?? NO_MODIFIERS);
+  const bonus = Math.max(weaponGrades(line, base, reads).potency ?? 0, levelPotency(reads.rules ?? NO_MODIFIERS));
 
   return Modifier.parse(ANIMATED_ATTACK + bonus);
 }

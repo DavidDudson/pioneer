@@ -23,9 +23,8 @@ export interface GradeReads {
 }
 
 /**
- * The potency and striking grades of the weapon on `line` after the `ItemAlteration` elements in play changed them, as
- * its Strike reads them: Automatic Bonus Progression sets them by the character's level, whatever the runes are.
- * Without a weapon entry or any alteration they are the runes' own.
+ * The potency and striking grades of the weapon on `line` after the `ItemAlteration` elements in play (Automatic Bonus
+ * Progression sets them by level); the runes' own without a weapon entry or any alteration.
  */
 export function weaponGrades(
   line: InventoryItem,

@@ -11,9 +11,8 @@ const STRIKE_ATTACK = Selector.parse('strike-attack-roll');
 const NONE = Modifier.parse(0);
 
 /**
- * The potency bonus the rules in play give Strike attack rolls whatever the weapon, which is what Automatic
- * Bonus Progression adds by level: the highest numeric `potency` `FlatModifier` on `strike-attack-roll` whose predicate
- * holds. None when no rule applies.
+ * The potency bonus the rules in play give every Strike's attack roll (Automatic Bonus Progression's, by level): the
+ * highest plain-number `potency` `FlatModifier` whose predicate holds. A formula value or an `AdjustModifier` is not read.
  */
 export function levelPotency({ rules, facts }: ModifierInputs): Modifier {
   const bonuses = rules.flatMap(({ element }): Array<Modifier> => {

@@ -122,8 +122,8 @@ describe('grantedStrikes', () => {
   });
 });
 
-/** An alteration giving the striking grade `value` from `minimum` level. */
-function alteration(value: number, minimum: number): RuleInPlay {
+/** An alteration giving the striking grade `value` from `fromLevel` level. */
+function alteration(value: number, fromLevel: number): RuleInPlay {
   return inPlay(
     {
       key: 'ItemAlteration',
@@ -131,7 +131,7 @@ function alteration(value: number, minimum: number): RuleInPlay {
       property: 'striking',
       mode: 'override',
       value,
-      predicate: [{ gte: ['self:level', minimum] }],
+      predicate: [{ gte: ['self:level', fromLevel] }],
     },
     'striking',
   );

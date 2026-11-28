@@ -1,5 +1,5 @@
 import { equippedRulesWithVariants, slotContent } from '@pioneer/character/domain';
-import type { Character, ItemContent, SlotContent } from '@pioneer/character/domain';
+import type { Character, CharacterDocument, ItemContent, SlotContent } from '@pioneer/character/domain';
 import { NO_MODIFIERS } from '@pioneer/rules/engine';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { contentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
@@ -38,14 +38,26 @@ export function sheetEquippedRules(
   items: ItemContent,
   selected: () => Character | undefined,
 ): () => ModifierInputs {
+  const built = new WeakMap<CharacterDocument, ModifierInputs>();
+
   return (): ModifierInputs => {
     const character = selected();
 
-    return character === undefined
-      ? NO_MODIFIERS
-      : equippedRulesWithVariants(character.document, items, {
-          slots: sheetSlotContent(registry),
-          variants: variantsInForce(registry),
-        });
+    if (character === undefined) {
+      return NO_MODIFIERS;
+    }
+
+    const { document } = character;
+
+    const rules =
+      built.get(document) ??
+      equippedRulesWithVariants(document, items, {
+        slots: sheetSlotContent(registry),
+        variants: variantsInForce(registry),
+      });
+
+    built.set(document, rules);
+
+    return rules;
   };
 }

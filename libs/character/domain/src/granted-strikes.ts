@@ -87,8 +87,7 @@ function altered(strike: WeaponInputs, rules: ModifierInputs): WeaponInputs {
  * The Strikes the character's grants give (ADR-0048): a fist for each `Strike` element in its fist form whose predicate
  * holds, once however many give one, with the origin of the first the grants list, and an attack of its own for each
  * element that defines one, the first of a slug winning. A favoured weapon when the deity favours the fist. Each goes
- * through the `ItemAlteration` elements of `rules`, so Automatic Bonus Progression gives a fist the devastating attack
- * dice of the character's level.
+ * through the `ItemAlteration` elements of `rules`.
  */
 export function grantedStrikes(
   { items, facts }: GrantResolution,

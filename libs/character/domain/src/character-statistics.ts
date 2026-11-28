@@ -105,8 +105,8 @@ export function characterStatisticInputs(
   const favored = favoredWeapons(grants);
   const items = itemContent(registry);
 
-  const read: Array<EquippedRules> = [];
-  const rules = (): EquippedRules => (read[0] ??= equippedRulesWithVariants(document, items, { slots, variants }));
+  const memo: Array<EquippedRules> = [];
+  const rules = (): EquippedRules => (memo[0] ??= equippedRulesWithVariants(document, items, { slots, variants }));
 
   const equipped = equippedInputs(shiftedDocument(document, items, slots).inventory, items, { favored, rules });
   const held = new Set(equipped.weapons.map(({ slug }) => slug));
