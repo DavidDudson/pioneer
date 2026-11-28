@@ -23,6 +23,7 @@ import {
   secondSubclassSlot,
   subclassSlot,
 } from './class-build';
+import { featSlots } from './feat-slots';
 import type { SkillSlot } from './skill-training';
 import { SkillSlotKind, skillSlots } from './skill-training';
 import { rootSlotOptions, skillReads, slotContent } from './slot-offer';
@@ -203,5 +204,26 @@ describe('skill slots with a second class', () => {
     const levels = increaseLevels(slotsOf(document, withDual));
     expect(levels).toEqual(Array.from({ length: 19 }, (_unused, index) => index + 2));
     expect(increaseLevels(slotsOf(document, withoutDual))).toEqual([3, 5, 7, 9, 11, 13, 15, 17, 19]);
+  });
+});
+
+const sharedFeats = (document: CharacterDocument, content: typeof withDual): number =>
+  featSlots(document, content).filter(({ prompt }) => /^(?:General|Skill) feat$/u.test(String(prompt))).length;
+
+const classFeats = (document: CharacterDocument, content: typeof withDual): number =>
+  featSlots(document, content).filter(({ prompt }) => /^(?:Fighter|Cleric) feat$/u.test(String(prompt))).length;
+
+describe('general and skill feat slots with a second class', () => {
+  test('are had once per level, not once for each class', () => {
+    const document = dualOf('fighter', 'cleric');
+
+    expect(sharedFeats(document, withoutDual)).toBeGreaterThan(0);
+    expect(sharedFeats(document, withDual)).toBe(sharedFeats(document, withoutDual));
+  });
+
+  test('still add a class feat for each class', () => {
+    const document = dualOf('fighter', 'cleric');
+
+    expect(classFeats(document, withDual)).toBeGreaterThan(classFeats(document, withoutDual));
   });
 });
