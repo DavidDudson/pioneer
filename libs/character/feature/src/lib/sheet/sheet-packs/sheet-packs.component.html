@@ -10,7 +10,7 @@
     </fr-stack>
   </ng-template>
   <ng-template let-packs [frAsyncData]="store.packs">
-    <fr-stack gap="md">
+    <fr-stack>
       @if (packs.campaign; as campaign) {
         <fr-alert tone="info">{{ 'character.packs.campaignDecides' | transloco: { campaign } }}</fr-alert>
       }
@@ -21,7 +21,7 @@
           }}</fr-empty-state-title></fr-empty-state
         >
       } @else {
-        <fr-list gap="sm">
+        <fr-list>
           @for (pack of packs.enabled; track pack.packId) {
             <pio-sheet-pack-row
               [pack]="pack"

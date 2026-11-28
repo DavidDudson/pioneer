@@ -5,7 +5,7 @@
   @if (result.rows.length === 0) {
     <fr-text element="p" tone="muted">{{ 'play.rules.actions.none' | transloco }}</fr-text>
   } @else {
-    <fr-list gap="sm" markers>
+    <fr-list markers>
       @for (row of result.rows; track row.id) {
         <fr-list-item>
           <pio-actions-row [row]="row" />

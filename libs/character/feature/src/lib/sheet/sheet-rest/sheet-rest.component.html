@@ -4,7 +4,7 @@
     <fr-async-region>
       <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
       <ng-template [frAsyncData]="playQuery">
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-stack direction="horizontal" gap="sm" wrap>
             @for (action of actions; track action.command.field) {
               <fr-button [disabled]="busy()" (pressed)="choose(action)()">

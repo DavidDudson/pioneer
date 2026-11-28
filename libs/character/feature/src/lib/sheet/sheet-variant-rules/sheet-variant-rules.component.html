@@ -10,7 +10,7 @@
     </fr-stack>
   </ng-template>
   <ng-template let-rules [frAsyncData]="store.rules">
-    <fr-stack gap="md">
+    <fr-stack>
       @if (rules.campaign; as campaign) {
         <fr-alert tone="info">{{ 'character.variantRules.campaignDecides' | transloco: { campaign } }}</fr-alert>
       }
@@ -22,7 +22,7 @@
             }}</fr-empty-state-title></fr-empty-state
           >
         } @else {
-          <fr-list gap="sm">
+          <fr-list>
             @for (line of lines; track line.rule.variantId) {
               <pio-sheet-variant-rule-row [rule]="line.rule" [on]="line.on" [manageable]="rules.manageable" />
             }

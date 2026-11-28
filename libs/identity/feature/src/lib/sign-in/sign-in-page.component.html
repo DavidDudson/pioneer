@@ -4,7 +4,7 @@
     [description]="'identity.signIn.description' | transloco"
   />
   <fr-page-body>
-    <fr-stack gap="lg">
+    <fr-stack gap="xl">
       @for (extra of extras; track extra) {
         <ng-container *ngComponentOutlet="extra; inputs: { returnTo: destination() }" />
       }

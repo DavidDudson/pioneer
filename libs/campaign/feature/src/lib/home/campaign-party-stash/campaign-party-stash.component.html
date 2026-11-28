@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.partyStash.heading' | transloco }}</fr-heading>
     <fr-text tone="subtle" variant="caption">{{ 'campaign.partyStash.hint' | transloco }}</fr-text>
     <fr-async-region [errorMessage]="'campaign.partyStash.loadError' | transloco">
@@ -18,7 +18,7 @@
             }}</fr-empty-state-title></fr-empty-state
           >
         }
-        <fr-list gap="sm">
+        <fr-list>
           @for (line of stash.lines; track line.id) {
             <pio-campaign-party-stash-line
               [line]="line"

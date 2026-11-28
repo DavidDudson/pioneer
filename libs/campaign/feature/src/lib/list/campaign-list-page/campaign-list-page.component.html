@@ -4,7 +4,7 @@
     <fr-stack gap="xl">
       <fr-surface>
         <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
-          <fr-stack gap="md">
+          <fr-stack>
             <fr-heading variant="subheading" [level]="2">{{ 'campaign.list.newHeading' | transloco }}</fr-heading>
             <fr-text-field
               [label]="'campaign.list.nameLabel' | transloco"
@@ -28,7 +28,7 @@
 
       <fr-async-region [errorMessage]="'campaign.list.loadError' | transloco">
         <ng-template frAsyncPending>
-          <fr-stack gap="md">
+          <fr-stack>
             @for (placeholder of placeholders; track placeholder) {
               <fr-surface><fr-skeleton width="lg" /></fr-surface>
             }

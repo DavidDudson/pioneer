@@ -10,7 +10,7 @@
         @if (note !== undefined) {
           <fr-text element="p" variant="caption" tone="subtle">{{ note.key | transloco: note.params }}</fr-text>
         }
-        <fr-list gap="sm">
+        <fr-list>
           @for (slot of rank.fields; track slot.key) {
             <fr-list-item>
               <pio-sheet-prepared-slot [slot]="slot" />

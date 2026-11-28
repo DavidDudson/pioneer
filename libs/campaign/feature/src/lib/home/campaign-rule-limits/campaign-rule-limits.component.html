@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.ruleLimits.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.ruleLimits.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -10,8 +10,8 @@
         </fr-stack>
       </ng-template>
       <ng-template let-rules [frAsyncData]="store.limits">
-        <fr-stack gap="md">
-          <fr-list gap="sm">
+        <fr-stack>
+          <fr-list>
             @for (setting of rules.limits; track setting.limit) {
               <pio-campaign-rule-limit-row [setting]="setting" [manageable]="rules.manageable" />
             }

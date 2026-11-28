@@ -1,6 +1,6 @@
 <fr-rail hiddenNarrow [label]="'character.sheet.panels.label' | transloco">
   @defer (on idle) {
-    <fr-stack gap="md">
+    <fr-stack>
       <pio-sheet-resources pool="hero-points" />
 
       @for (entry of panels; track entry.panel) {
@@ -11,7 +11,7 @@
       }
     </fr-stack>
   } @placeholder {
-    <fr-stack gap="md">
+    <fr-stack>
       <fr-skeleton kind="block" width="full" />
       @for (entry of panels; track entry.panel) {
         <fr-skeleton kind="block" width="full" />

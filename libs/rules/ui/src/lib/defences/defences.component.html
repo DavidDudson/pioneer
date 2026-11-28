@@ -1,4 +1,4 @@
-<fr-stack gap="md">
+<fr-stack>
   @if (lists(); as lists) {
     @for (list of lists; track list.heading) {
       <pio-defence-list [list]="list" [entryNames]="entryNames()" [names]="originNames()" />

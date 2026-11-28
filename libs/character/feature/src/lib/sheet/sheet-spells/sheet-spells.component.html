@@ -2,7 +2,7 @@
   <pio-sheet-form-limits />
   <fr-async-region>
     <ng-template frAsyncPending>
-      <fr-stack gap="md">
+      <fr-stack>
         <fr-stack gap="sm">
           <fr-skeleton width="md" />
           <fr-grid [columns]="3">
@@ -16,7 +16,7 @@
     <ng-template [frAsyncData]="spells">
       <fr-stack horizontalFrom="lg" gap="lg" align="start">
         <pio-sheet-spell-resources />
-        <fr-stack gap="md" grow>
+        <fr-stack grow>
           <pio-spell-filter [groups]="filters.groups()" (changed)="filters.pick($event)" (cleared)="filters.clear()" />
           <pio-spell-row-list
             [lines]="filters.list()"

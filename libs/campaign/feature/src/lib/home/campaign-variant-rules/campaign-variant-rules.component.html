@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.variantRules.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.variantRules.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -13,7 +13,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-rules [frAsyncData]="store.variantRules">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (linesOf(rules); as lines) {
             @if (lines.length === 0) {
               <fr-empty-state
@@ -22,7 +22,7 @@
                 }}</fr-empty-state-title></fr-empty-state
               >
             } @else {
-              <fr-list gap="sm">
+              <fr-list>
                 @for (line of lines; track line.rule.variantId) {
                   <pio-campaign-variant-rule-row [rule]="line.rule" [on]="line.on" [manageable]="rules.manageable" />
                 }

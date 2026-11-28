@@ -1,6 +1,6 @@
 @let shown = deity();
 @if (loading()) {
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-skeleton width="sm" />
     <fr-description-list>
       @for (term of loadingTerms; track term) {
@@ -14,7 +14,7 @@
     ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
   >
 } @else {
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-text variant="subheading">{{ shown.name }}</fr-text>
     <fr-description-list>
       @for (term of terms(); track term.term) {

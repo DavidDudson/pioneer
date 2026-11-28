@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.keyItems.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.keyItems.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -10,7 +10,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-key [frAsyncData]="store.keyItems">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (key.keyItems.length > 0) {
             <pio-campaign-key-item-filter [keyItems]="key.keyItems" [(value)]="filter" />
           }
@@ -22,7 +22,7 @@
               }}</fr-empty-state-title></fr-empty-state
             >
           }
-          <fr-list gap="sm">
+          <fr-list>
             @for (keyItem of shown; track keyItem.id) {
               <pio-campaign-key-item-row [keyItem]="keyItem" [manageable]="key.manageable" />
             }

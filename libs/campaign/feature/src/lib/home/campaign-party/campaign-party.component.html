@@ -1,10 +1,10 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.party.heading' | transloco }}</fr-heading>
     <fr-link [to]="['inventory']">{{ 'campaign.party.inventoryLink' | transloco }}</fr-link>
     <fr-async-region [errorMessage]="'campaign.party.loadError' | transloco">
       <ng-template frAsyncPending>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-stack gap="sm">
             @for (placeholder of placeholders; track placeholder) {
               <fr-stack direction="horizontal" gap="sm" align="center">
@@ -21,7 +21,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-party [frAsyncData]="store.party">
-        <fr-stack gap="md">
+        <fr-stack>
           <pio-campaign-gm-avatar [name]="gmName()" />
           @if (party.characters.length === 0) {
             <fr-empty-state
@@ -30,7 +30,7 @@
               }}</fr-empty-state-title></fr-empty-state
             >
           } @else {
-            <fr-list gap="sm">
+            <fr-list>
               @for (character of party.characters; track character.characterId) {
                 <fr-list-item>
                   <fr-stack gap="sm">
