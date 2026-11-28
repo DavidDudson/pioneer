@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 import { forcedOptionClasses } from '../control.variants';
 
 /** In the page flow below the trigger, never an overlay: on a phone it pushes content down instead of covering it. */
-export const pickerPanelClasses = cva('mt-2xs block border border-line-default bg-surface-overlay')();
+export const pickerPanelClasses = cva('block border border-line-default bg-surface-overlay')();
 export const pickerSearchClasses = cva('block border-b border-line-subtle p-xs')();
 
 /** Scrolls both ways, so a wide table moves inside the panel and never the page. */

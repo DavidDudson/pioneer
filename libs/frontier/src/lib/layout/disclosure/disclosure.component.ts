@@ -33,7 +33,7 @@ const summaryVariants = cva(
   {
     variants: {
       variant: {
-        plain: '-mx-2xs px-2xs',
+        plain: 'px-inset-control',
         bordered: 'px-md',
       } satisfies Record<DisclosureVariant, string>,
     },

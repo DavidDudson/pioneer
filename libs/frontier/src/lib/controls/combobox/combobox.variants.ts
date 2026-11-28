@@ -11,11 +11,14 @@ export const comboboxInputClasses = controlVariants();
 export const comboboxPopupClasses = cva(
   'block max-h-listbox overflow-auto border border-line-default bg-surface-overlay',
   {
-    variants: { floating: { true: 'absolute inset-x-none top-full z-overlay', false: 'mt-2xs' } },
+    variants: { floating: { true: 'absolute inset-x-none top-full z-overlay', false: '' } },
   },
 );
 
-export const comboboxHostClasses = cva('block', { variants: { floating: { true: 'relative', false: '' } } });
+export const comboboxHostClasses = cva('', {
+  variants: { floating: { true: 'relative block', false: 'flex flex-col gap-2xs' } },
+});
+
 export const comboboxListboxClasses = cva('relative block w-full')();
 
 /** Placed by the virtualizer: absolute, offset with a runtime transform. */
