@@ -8,7 +8,7 @@ export const ToastEmphasis = { None: 'none', High: 'high', Low: 'low' } as const
 export type ToastEmphasis = ValueOf<typeof ToastEmphasis>;
 
 const toastClasses = cva(
-  'pointer-events-auto inline-flex items-center gap-xs rounded-toast border bg-surface-raised px-md py-xs text-fg-default',
+  'pointer-events-auto inline-flex items-center gap-xs rounded-toast border bg-elevation-overlay px-md py-xs text-fg-default',
   {
     variants: {
       emphasis: {

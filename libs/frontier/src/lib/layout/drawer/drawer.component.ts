@@ -23,6 +23,7 @@ import { X } from 'lucide';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
+import { elevationVariants } from '../../tokens';
 import { showDialog, watchNarrow } from './drawer-overlay';
 import { DRAWER_OPEN, DRAWER_PARAM } from './drawer-query';
 import type { DrawerWidth } from './drawer-width';
@@ -56,8 +57,8 @@ const hostVariants = cva('min-w-none', {
 const panelVariants = cva('flex gap-sm border-none text-fg-default', {
   variants: {
     overlay: {
-      true: 'fixed inset-none m-none size-full max-h-none max-w-none overflow-auto bg-surface-base p-md backdrop:bg-surface-overlay',
-      false: 'static m-none w-full bg-transparent p-none',
+      true: `fixed inset-none m-none size-full max-h-none max-w-none overflow-auto p-md backdrop:bg-surface-overlay ${elevationVariants.modal}`,
+      false: `static m-none w-full p-none ${elevationVariants.overlay}`,
     },
   },
 });

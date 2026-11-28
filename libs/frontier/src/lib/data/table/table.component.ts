@@ -4,6 +4,7 @@ import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
 import { injectTranslate } from '../../locale/inject-translate';
+import { elevationVariants } from '../../tokens';
 import { TableDensity } from '../table-view/table-view-store';
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
@@ -29,9 +30,12 @@ const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-mut
   variants: { hidden: { true: 'sr-only', false: '' } },
 });
 
-const headerCellVariants = cva('border-b border-line-default px-sm text-start text-label font-medium text-fg-muted', {
-  variants: { density: { comfortable: 'py-xs', compact: 'py-3xs' } },
-});
+const headerCellVariants = cva(
+  `border-b px-sm text-start text-label font-medium text-fg-muted ${elevationVariants.raised}`,
+  {
+    variants: { density: { comfortable: 'py-xs', compact: 'py-3xs' } },
+  },
+);
 
 const densitySwitchVariants = cva('pb-xs', { variants: { shown: { true: '', false: 'hidden' } } });
 
