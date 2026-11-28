@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795838915642,
+  "lastUpdate": 1795840056059,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1618,6 +1618,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 219,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0b0c6ff60128d43f7b7ce081bde0515e3de63126",
+          "message": "docs(adr): first UI languages and translation workflow (#2472)\n\n* docs(adr): first UI languages and translation workflow\n\nPick de and fr as the first UI locales, translators submitting pull\nrequests against per-scope catalog files, machine-drafted first\ncatalogs marked by a locale status, a shippability bar on the core\nscopes, primary-tag locales with per-key regional fallback, and an\nunchosen content locale following the UI locale. Amends ADR-0009 and\nADR-0013.\n\nRefs #2206\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* docs(adr): act on review of the language workflow ADR\n\nCorrect the plural-category claim (German matches English; French adds\nmany), state that an unchosen content locale follows the UI locale\nwithout a way back, as ADR-0013 requires, say the locale registry and\nper-locale checks do not exist yet, and add cost and licence to the\nWeblate and Crowdin rejections.\n\nRefs #2206\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:23:03+10:00",
+          "tree_id": "64e05c36209686f62990cf7249de016fae21458d",
+          "url": "https://github.com/DavidDudson/pioneer/commit/0b0c6ff60128d43f7b7ce081bde0515e3de63126"
+        },
+        "date": 1795840052166,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4291,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6401,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 217,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
