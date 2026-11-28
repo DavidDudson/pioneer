@@ -3,14 +3,12 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { FlexRender } from '@tanstack/angular-table';
 import type { RowData } from '@tanstack/angular-table';
 import { ChevronDown, ChevronUp } from 'lucide';
-import * as z from 'zod';
 
 import { Button } from '../../../actions/button/button.component';
 import { Icon } from '../../../icon/icon.component';
 import { injectTranslate } from '../../../locale/inject-translate';
+import { HEADER_KEY } from '../table-features';
 import type { TableHeader } from '../table-features';
-
-const HEADER_KEY = z.string();
 
 const SORT_ICON = { asc: ChevronUp, desc: ChevronDown } as const;
 
@@ -27,16 +25,13 @@ export class TableHeaderCell<TData extends RowData> {
 
   readonly #translate = injectTranslate();
 
-  /**
-   * A string header is a message key, shown in the active language so a switch re-renders it. Any other header
-   * (a component, for rich text) renders as TanStack gives it.
-   */
+  /** A string header is a message key, translated so a language switch re-renders it. */
   protected readonly label = computed(() => {
     const { header } = this.header().column.columnDef;
 
-    const key = HEADER_KEY.safeParse(header);
+    const parsed = HEADER_KEY.safeParse(header);
 
-    return key.success ? this.#translate()(key.data) : undefined;
+    return parsed.success ? this.#translate()(parsed.data) : undefined;
   });
 
   protected readonly sortIcon = computed(() => {

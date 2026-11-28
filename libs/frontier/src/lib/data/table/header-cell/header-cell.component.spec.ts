@@ -22,6 +22,7 @@ const column = tableColumns<Member>();
 const COLUMNS = column.columns([
   column.accessor('name', { header: 'member.name' }),
   column.accessor('level', { header: 'member.level', enableSorting: false }),
+  column.accessor('level', { id: 'rank', header: () => 'Rank', enableSorting: false }),
 ]);
 
 const PARTY: ReadonlyArray<Member> = [
@@ -41,7 +42,7 @@ const LANGS = {
   fr: { member: { name: 'Nom', level: 'Niveau' } },
 };
 
-async function render(id: 'name' | 'level'): Promise<Rendered> {
+async function render(id: 'name' | 'level' | 'rank'): Promise<Rendered> {
   TestBed.configureTestingModule({
     providers: [
       importProvidersFrom(
@@ -139,6 +140,11 @@ describe(TableHeaderCell, () => {
     await press(rendered, 3);
     expect(rendered.header.column.getIsSorted()).toBe(false);
     expect(rendered.host.querySelector('fr-icon')).toBeNull();
+  });
+
+  it('shows a header that is not a key as it is', async () => {
+    const { host } = await render('rank');
+    expect(host.textContent.trim()).toBe('Rank');
   });
 
   it('translates the header key, and again when the language changes', async () => {

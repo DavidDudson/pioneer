@@ -208,6 +208,17 @@ describe(Table, () => {
       expect(host.querySelector('fr-column-chooser details')).toBeNull();
     });
 
+    it('labels a toggle with the translated header key, and an id for a header that is not one', async () => {
+      const keyed = column.columns([
+        column.accessor('name', { header: 'frontier.table.sample.name', meta: { hideable: true } }),
+        column.accessor('level', { id: 'rank', header: () => 'Rank', meta: { hideable: true } }),
+      ]);
+
+      const { host } = await render({ columns: keyed });
+
+      expect(toggles(host).map((button) => button.textContent.trim())).toStrictEqual(['Name', 'rank']);
+    });
+
     it('lists every column as a pressed toggle', async () => {
       const { host } = await renderHideable();
       expect(

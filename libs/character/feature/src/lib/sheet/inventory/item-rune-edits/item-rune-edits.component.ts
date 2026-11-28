@@ -15,7 +15,7 @@ import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } 
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { Picker, PickerField } from '@pioneer/frontier/data';
 import { ContentId, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
-import { PickerCellMessage, PickerRows, runeChoiceLabel } from '@pioneer/rules/ui';
+import { PickerRows, runeChoiceLabel } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
@@ -33,7 +33,7 @@ import {
   propertyRuneOptions,
   runeKey,
 } from './rune-options';
-import { gradeRows, propertyRows, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
+import { gradeRows, propertyRows, RUNE_HEADERS, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
 import type { RuneRow, RuneWords } from './rune-picker';
 import { describeRuneError, gradeLabel, runeLabel } from './rune-text';
 
@@ -140,17 +140,7 @@ export class ItemRuneEdits {
   });
 
   /** The columns of every rune picker. */
-  protected readonly runeColumns = computed(() =>
-    runeColumns({
-      name: 'character.sheet.runes.columns.name',
-      kind: 'character.sheet.runes.columns.kind',
-      level: PickerCellMessage.LevelColumn,
-      effect: 'character.sheet.runes.columns.effect',
-      price: 'character.sheet.runes.columns.price',
-      slots: 'character.sheet.runes.columns.slots',
-      slotsUsed: 'character.sheet.runes.columns.slotsUsed',
-    }),
-  );
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 

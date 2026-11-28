@@ -1,6 +1,6 @@
 <ng-template #content>
-  @if (label(); as text) {
-    {{ text }}
+  @if (label() !== undefined) {
+    {{ label() }}
   } @else {
     <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>
   }

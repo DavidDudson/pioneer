@@ -12,7 +12,7 @@ import type {
 import type { TableColumn } from '@pioneer/frontier/data';
 import { RuneType } from '@pioneer/rules/sdk';
 import type { FundamentalRune, Price, RichText, RunedItem } from '@pioneer/rules/sdk';
-import { ItemTableSchema } from '@pioneer/rules/ui';
+import { ItemTableSchema, PickerCellMessage } from '@pioneer/rules/ui';
 import type { Chip, RowOrder } from '@pioneer/rules/ui';
 
 import { gradeChoices } from './rune-options';
@@ -59,6 +59,17 @@ export const RUNE_ORDER: RowOrder<RuneRow> = {
     level: (row) => row.level ?? NO_LEVEL,
     slots: (row) => row.slots,
   },
+};
+
+/** The header keys of every rune picker. */
+export const RUNE_HEADERS: RuneHeaders = {
+  name: 'character.sheet.runes.columns.name',
+  kind: 'character.sheet.runes.columns.kind',
+  level: PickerCellMessage.LevelColumn,
+  effect: 'character.sheet.runes.columns.effect',
+  price: 'character.sheet.runes.columns.price',
+  slots: 'character.sheet.runes.columns.slots',
+  slotsUsed: 'character.sheet.runes.columns.slotsUsed',
 };
 
 /** The columns of a rune picker: the name, its kind, level, effect, price, and the property slot it uses. */

@@ -8,7 +8,7 @@ import type { InventoryItem, RunedContent, RuneRef } from '@pioneer/character/do
 import { AsyncButton, AsyncForm, Stack } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { RunedItem } from '@pioneer/rules/sdk';
-import { PickerCellMessage, PickerRows } from '@pioneer/rules/ui';
+import { PickerRows } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
@@ -17,6 +17,7 @@ import { injectItemNames } from '../item-names';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
 import {
   etchedRows,
+  RUNE_HEADERS,
   RUNE_ORDER,
   runeColumns,
   runeRowLabel,
@@ -102,17 +103,7 @@ export class RuneMove {
     }),
     RUNE_ORDER,
   );
-  protected readonly runeColumns = computed(() =>
-    runeColumns({
-      name: 'character.sheet.runes.columns.name',
-      kind: 'character.sheet.runes.columns.kind',
-      level: PickerCellMessage.LevelColumn,
-      effect: 'character.sheet.runes.columns.effect',
-      price: 'character.sheet.runes.columns.price',
-      slots: 'character.sheet.runes.columns.slots',
-      slotsUsed: 'character.sheet.runes.columns.slotsUsed',
-    }),
-  );
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 

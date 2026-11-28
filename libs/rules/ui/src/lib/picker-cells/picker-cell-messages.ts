@@ -6,7 +6,7 @@ import type { ActionCostMessages } from '../rich-text/rich-text-messages';
 /** Message keys the picker cells render with, spelled out so the key check sees them. */
 export const PickerCellMessage = {
   Level: 'rules.pickerCell.level',
-  /** The header of every level column, shared so the four pickers that show one agree. */
+  /** The header of every level column. */
   LevelColumn: 'rules.column.level',
   PrerequisiteMet: 'rules.pickerCell.prerequisite.met',
   PrerequisiteUnmet: 'rules.pickerCell.prerequisite.unmet',
