@@ -1,6 +1,7 @@
 import { TableViewRepository } from '@pioneer/identity/application';
-import { NO_TABLE_VIEW_PREFERENCES } from '@pioneer/identity/domain';
-import type { TableViewPreferences, TableViewTarget } from '@pioneer/identity/domain';
+import { NO_TABLE_VIEW_PREFERENCES, TableViewPreferences } from '@pioneer/identity/domain';
+import type { TableViewTarget } from '@pioneer/identity/domain';
+import { newId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { and, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -22,7 +23,10 @@ export class DrizzleTableViewRepository extends TableViewRepository {
       .where(and(eq(userTableViews.userId, userId), eq(userTableViews.entity, entity)))
       .limit(1);
 
-    return row?.preferences ?? NO_TABLE_VIEW_PREFERENCES;
+    // A row written under an older, looser schema reads as nothing stored rather than failing the page.
+    const parsed = TableViewPreferences.safeParse(row?.preferences);
+
+    return parsed.success ? parsed.data : NO_TABLE_VIEW_PREFERENCES;
   }
 
   /** One upsert, so two first changes at once can't both insert. */
@@ -35,7 +39,7 @@ export class DrizzleTableViewRepository extends TableViewRepository {
 
     const [row] = await this.#db
       .insert(userTableViews)
-      .values({ ...changed, userId, entity })
+      .values({ ...changed, id: newId(), userId, entity })
       .onConflictDoUpdate({ target: [userTableViews.userId, userTableViews.entity], set: changed })
       .returning({ preferences: userTableViews.preferences });
 

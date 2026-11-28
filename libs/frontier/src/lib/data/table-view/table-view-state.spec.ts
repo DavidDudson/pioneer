@@ -128,9 +128,9 @@ class MemoryStore extends TableViewStore {
     return this.#view;
   }
 
-  public override async save(_entity: string, view: StoredTableView): Promise<void> {
-    this.saved.push(view);
-    this.#view = view;
+  public override async update(_entity: string, change: (current: StoredTableView) => StoredTableView): Promise<void> {
+    this.#view = change(this.#view);
+    this.saved.push(this.#view);
   }
 }
 
@@ -174,6 +174,26 @@ describe('table view state with a stored view', () => {
     await state.setDensity('compact');
     expect(store.saved).toStrictEqual([{ columns: ['name'], density: 'compact' }]);
     expect(TestBed.inject(Router).url).toBe('/list');
+  });
+
+  it('ignores a stored list that names none of this table columns', async () => {
+    const state = await openStored('/list', new MemoryStore({ columns: ['rarity'] }));
+    expect(state.hidden()).toBeUndefined();
+  });
+
+  it('keeps stored columns this schema does not know when it stores a change', async () => {
+    const store = new MemoryStore({ columns: ['name', 'rarity'] });
+    const state = await openStored('/list', store);
+    await state.setHidden(['level', 'source']);
+    expect(store.saved).toStrictEqual([{ columns: ['name', 'rarity'] }]);
+  });
+
+  it('stores the table default again when the columns are reset', async () => {
+    const store = new MemoryStore({ columns: ['name'] });
+    const state = await openStored('/list', store);
+    await state.setHidden(undefined);
+    expect(store.saved).toStrictEqual([{ columns: undefined }]);
+    expect(state.hidden()).toBeUndefined();
   });
 
   it('stores nothing for a table with no entity', async () => {

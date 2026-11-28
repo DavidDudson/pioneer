@@ -104,7 +104,7 @@ export class TableViewState {
 
   /** Stores the density. It is not part of a shared link, so it never reaches the URL. */
   public async setDensity(density: StoredDensity | undefined): Promise<void> {
-    await this.#save({ ...this.#stored(), density });
+    await this.#update((current) => ({ ...current, density }));
   }
 
   public async setFilters(filters: ReadonlyArray<FilterCondition>): Promise<void> {
@@ -128,31 +128,38 @@ export class TableViewState {
   /** The stored visible columns as the hidden ones: every schema column the account's list leaves out. */
   #storedHidden(): ReadonlyArray<string> | undefined {
     const { columns } = this.#stored();
+    const known = this.#schema().columns.map((column) => column.id);
 
-    if (columns === undefined) {
+    // Stored for another kind of this table (other columns): nothing here to apply, so the default shows.
+    if (columns === undefined || !columns.some((id) => known.includes(id))) {
       return undefined;
     }
 
-    return this.#schema()
-      .columns.map((column) => column.id)
-      .filter((id) => !columns.includes(id));
+    return known.filter((id) => !columns.includes(id));
   }
 
-  /** Stores the visible columns, in schema order, once the user changes which are hidden. */
+  /**
+   * Stores the visible columns, in schema order, once the user changes which are hidden. Stored ids this schema
+   * does not know belong to another kind of the table and are kept.
+   */
   async #storeColumns(hidden: ReadonlyArray<string> | undefined): Promise<void> {
-    const visible =
-      hidden === undefined
-        ? undefined
-        : this.#schema()
-            .columns.map((column) => column.id)
-            .filter((id) => !hidden.includes(id));
+    const known = this.#schema().columns.map((column) => column.id);
 
-    await this.#save({ ...this.#stored(), columns: visible });
+    await this.#update((current) => ({
+      ...current,
+      columns:
+        hidden === undefined
+          ? undefined
+          : [
+              ...known.filter((id) => !hidden.includes(id)),
+              ...(current.columns ?? []).filter((id) => !known.includes(id)),
+            ],
+    }));
   }
 
-  async #save(view: StoredTableView): Promise<void> {
+  async #update(change: (current: StoredTableView) => StoredTableView): Promise<void> {
     if (this.#entity !== undefined) {
-      await this.#store?.save(this.#entity, view);
+      await this.#store?.update(this.#entity, change);
     }
   }
 

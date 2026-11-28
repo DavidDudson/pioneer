@@ -1,5 +1,5 @@
 {
-  "id": "ac014054-e8b2-49ac-a890-f5bad06f6a0e",
+  "id": "b79287be-b24d-474a-9882-d7b361d530e7",
   "prevId": "d6a48f40-adaf-456f-937b-932324e292aa",
   "version": "7",
   "dialect": "postgresql",
@@ -2787,6 +2787,12 @@
       "name": "user_table_views",
       "schema": "",
       "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
         "user_id": {
           "name": "user_id",
           "type": "uuid",
@@ -2812,7 +2818,29 @@
           "notNull": true
         }
       },
-      "indexes": {},
+      "indexes": {
+        "user_table_views_user_entity_idx": {
+          "name": "user_table_views_user_entity_idx",
+          "columns": [
+            {
+              "expression": "user_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
       "foreignKeys": {
         "user_table_views_user_id_users_id_fk": {
           "name": "user_table_views_user_id_users_id_fk",
@@ -2828,15 +2856,7 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {
-        "user_table_views_user_id_entity_pk": {
-          "name": "user_table_views_user_id_entity_pk",
-          "columns": [
-            "user_id",
-            "entity"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},

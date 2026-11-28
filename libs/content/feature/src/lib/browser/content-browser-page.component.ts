@@ -20,6 +20,9 @@ import { ContentBrowser } from './content-browser.component';
 import { facetTextCodec } from './facet-text';
 import { queryTextOf } from './query-text';
 
+/** The account's stored view of the browser's table, shared by every kind. */
+const BROWSER_TABLE = 'content-browser';
+
 const NO_PARAMS: QueryParams = {};
 
 /** Every facet's query param cleared, so a facet the new list drops leaves the URL. */
@@ -55,11 +58,12 @@ export class ContentBrowserPage {
   readonly #columns = injectBrowseColumns(() => this.#kinds());
   /**
    * The table's view in the URL: sort (`s`), filters (`f`), hidden columns (`c`) and words (`q`). The kinds stay the
-   * page's own param.
+   * page's own param. A signed-in user's columns are kept on their account: the URL wins, then what they stored.
    */
   protected readonly view = injectTableView({
     schema: (): TableViewSchema => ({ columns: tableViewColumns(this.#columns()) }),
     facets: this.#codec,
+    entity: BROWSER_TABLE,
   });
 
   /** What the link holds, as the browser's state. */

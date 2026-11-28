@@ -106,6 +106,15 @@ describe('table view routes', () => {
     ['a repeated column', { columns: ['name', 'name'] }],
     ['two saved views with one name', { savedViews: [{ name: 'A' }, { name: 'A' }] }],
     ['a saved view with no name', { savedViews: [{ density: 'compact' }] }],
+    [
+      'more columns than a table has',
+      { columns: Array.from({ length: 65 }, (_item, position) => `column-${position}`) },
+    ],
+    [
+      'more saved views than a user keeps',
+      { savedViews: Array.from({ length: 21 }, (_item, position) => ({ name: `View ${position}` })) },
+    ],
+    ['a saved view name that is blank', { savedViews: [{ name: '   ' }] }],
   ])('PUT with %s is a 422 problem', async (_case, body) => {
     const response = await save(app(), { entity: 'characters', body, user: amiri() });
     expect(response.status).toBe(422);

@@ -17,6 +17,10 @@ export abstract class TableViewStore {
   /** What is stored for `entity` right now; empty while loading or when nobody is signed in. */
   public abstract stored(entity: string): StoredTableView;
 
-  /** Saves `view` as the whole preference for `entity`. Never rejects: a failed save leaves the view on screen. */
-  public abstract save(entity: string, view: StoredTableView): Promise<void>;
+  /**
+   * Changes the stored view for `entity` with `change`, which gets what is stored once any load under way has
+   * answered, so a change never overwrites fields it did not touch. Never rejects: a failed save leaves the view on
+   * screen.
+   */
+  public abstract update(entity: string, change: (current: StoredTableView) => StoredTableView): Promise<void>;
 }

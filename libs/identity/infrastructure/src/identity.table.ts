@@ -21,7 +21,7 @@ import type {
 } from '@pioneer/identity/domain';
 import type { BodyFont, DistanceUnit, Locale, MonoFont, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
-import { boolean, index, jsonb, pgTable, primaryKey, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import { boolean, index, jsonb, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for identity (ADR-0010). Migrations live in apps/api/migrations. Every lookup a
@@ -111,12 +111,13 @@ export const userPreferences = pgTable('user_preferences', {
 
 /**
  * One user's view preferences for one table (ADR-0068's table views), a row once they first change the view. The
- * preferences are one document: the client sends the whole value and the last write wins. Only ever read by the
- * primary key, `(user, entity)`.
+ * preferences are one document: the client sends the whole value and the last write wins. `id` is there for the audit
+ * trail, which keys on it; the table is only ever read by `(user, entity)`, which the unique index serves.
  */
 export const userTableViews = pgTable(
   'user_table_views',
   {
+    id: uuid().$type<Uuid>().primaryKey(),
     userId: uuid()
       .$type<UserId>()
       .notNull()
@@ -125,7 +126,7 @@ export const userTableViews = pgTable(
     preferences: jsonb().$type<TableViewPreferences>().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
-  (table) => [primaryKey({ columns: [table.userId, table.entity] })],
+  (table) => [uniqueIndex('user_table_views_user_entity_idx').on(table.userId, table.entity)],
 );
 
 /**
