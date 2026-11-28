@@ -33,7 +33,7 @@ describe(Surface, () => {
   it('is a raised panel padded by the panel inset by default and projects its content', async () => {
     const host = await render({});
     expect([...host.classList]).toStrictEqual(
-      expect.arrayContaining(['bg-surface-raised', 'border', 'border-line-default', 'p-inset-panel']),
+      expect.arrayContaining(['bg-elevation-raised', 'border', 'border-elevation-raised-line', 'p-inset-panel']),
     );
     expect(host.textContent).toBe('Hit points');
   });
