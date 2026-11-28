@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, model, output } from '@angular/core';
-import { FilterBar, Stack } from '@pioneer/frontier';
+import { Stack } from '@pioneer/frontier';
 import type { FilterCondition, FilterField } from '@pioneer/frontier';
+import { FilterBar } from '@pioneer/frontier/data';
 import type { FacetCounts, FilterState } from '@pioneer/rules/sdk';
 import { FacetFilterView } from '@pioneer/rules/ui';
 

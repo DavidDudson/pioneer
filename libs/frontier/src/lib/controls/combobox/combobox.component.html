@@ -28,6 +28,8 @@
     [pickedIndex]="pickedIndex()"
     [resetOn]="options()"
     [suspended]="loading()"
+    [endAhead]="hasMore() ? loadAhead : undefined"
+    (endNear)="askForMore()"
   >
     <fr-combobox-status [loading]="loading()" [empty]="options().length === 0" />
     <!-- Inline styles: the virtualizer measures options at runtime, so the listbox's height can't be a token. -->
@@ -38,6 +40,7 @@
       ngComboboxWidget
       focusMode="activedescendant"
       selectionMode="explicit"
+      [multi]="multi()"
       [activeDescendant]="listbox.activeDescendant()"
       [wrap]="false"
       [class]="listboxClasses"
@@ -77,5 +80,6 @@
       }
     </div>
     <!-- eslint-enable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -->
+    <fr-combobox-status [loading]="loadingMore()" />
   </div>
 </ng-template>

@@ -4,7 +4,7 @@
       <fr-text frDisclosureSummary>{{
         summaryKey(group) | transloco: { facet: group.label, count: count(group) }
       }}</fr-text>
-      <fr-filter-chips
+      <fr-toggle-group
         [ariaLabel]="group.label"
         [options]="optionsOf(group)"
         [value]="group.selected"

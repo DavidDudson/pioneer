@@ -1,0 +1,22 @@
+@if (fewOptions()) {
+  <fr-toggle-group
+    [options]="options()"
+    [value]="selected()"
+    [ariaLabel]="field().label"
+    (valueChange)="choose($event)"
+  />
+} @else {
+  <fr-combobox
+    multi
+    [options]="matches()"
+    [values]="values()"
+    [hasMore]="field().hasMore ?? false"
+    [loadingMore]="field().loadingMore ?? false"
+    [ariaLabel]="field().label"
+    [placeholder]="'frontier.filterBar.search' | transloco"
+    (valuesChange)="chooseAll($event)"
+    (typed)="typed($event)"
+    (searched)="searched.emit($event)"
+    (loadMore)="moreRequested.emit()"
+  />
+}

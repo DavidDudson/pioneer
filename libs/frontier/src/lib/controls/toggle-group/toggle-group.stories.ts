@@ -2,9 +2,9 @@ import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import type { SelectOption } from '../select/select.component';
-import { FilterChips } from './filter-chips.component';
+import { ToggleGroup } from './toggle-group.component';
 
-type FilterChipsStory = StoryObj<FilterChips<string>>;
+type ToggleGroupStory = StoryObj<ToggleGroup<string>>;
 
 const RARITIES: ReadonlyArray<SelectOption<string>> = [
   { value: 'common', label: 'Common' },
@@ -41,9 +41,9 @@ const TRAITS: ReadonlyArray<SelectOption<string>> = [
 ].map((label) => ({ value: label.toLowerCase(), label }));
 
 /** Several independent filters as a wrapping row of toggle buttons, with clear all. */
-const meta: Meta<FilterChips<string>> = {
-  title: 'Controls/Filter Chips',
-  component: FilterChips,
+const meta: Meta<ToggleGroup<string>> = {
+  title: 'Controls/Toggle Group',
+  component: ToggleGroup,
   argTypes: { committed: { action: 'committed' } },
   args: {
     options: RARITIES,
@@ -54,18 +54,18 @@ const meta: Meta<FilterChips<string>> = {
   parameters: { layout: 'padded' },
   render: (args) => ({
     props: args,
-    template: `<fr-filter-chips ${argsToTemplate(args)} />`,
+    template: `<fr-toggle-group ${argsToTemplate(args)} />`,
   }),
 };
 
 export default meta;
 
-export const Rarity: FilterChipsStory = {};
+export const Rarity: ToggleGroupStory = {};
 
-export const NothingSelected: FilterChipsStory = { args: { value: new Set() } };
+export const NothingSelected: ToggleGroupStory = { args: { value: new Set() } };
 
 /** Many chips wrap onto new rows; the row never scrolls sideways. Try it at phone width. */
-export const ManyTraits: FilterChipsStory = {
+export const ManyTraits: ToggleGroupStory = {
   args: {
     options: TRAITS,
     value: new Set(['fire', 'mental', 'visual']),
@@ -73,7 +73,7 @@ export const ManyTraits: FilterChipsStory = {
   },
 };
 
-export const Disabled: FilterChipsStory = { args: { disabled: true } };
+export const Disabled: ToggleGroupStory = { args: { disabled: true } };
 
 /** Announced as invalid on the group (`aria-invalid`); the chips draw no error state of their own. */
-export const Invalid: FilterChipsStory = { args: { invalid: true } };
+export const Invalid: ToggleGroupStory = { args: { invalid: true } };

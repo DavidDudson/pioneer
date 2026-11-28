@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 import { X } from 'lucide';
@@ -8,7 +8,7 @@ import { Icon } from '../../icon/icon.component';
 import { Text } from '../../text/text/text.component';
 import { Size } from '../../tokens';
 import { OPERATOR_LABELS, valueText } from './filter-bar.types';
-import type { FilterCondition, FilterField, Translate } from './filter-bar.types';
+import type { FilterCondition, FilterField, FilterSearch, Translate } from './filter-bar.types';
 import { FilterEditor } from './filter-editor.component';
 
 const barClasses = cva('flex flex-col gap-sm')();
@@ -25,8 +25,8 @@ interface Chip {
 /**
  * Narrows a list with filters, each an editable chip: *Add filter* opens a panel in place under the bar, where a
  * field, then an operator (is, is not, is any of, between), then the values are picked. A chip opens the same
- * panel on its filter; its cross removes it; *Clear all* removes every one. The bar wraps and never scrolls
- * sideways.
+ * panel on its filter; its cross removes it; *Clear all* removes every one. There is no Apply: a filter joins
+ * `value` as soon as it has a value, and follows each change after. The bar wraps and never scrolls sideways.
  *
  * `fields` are what the list can be narrowed by; `value` is the filters, each `{ field, operator, values }`.
  * frontier knows no schemas, so the app maps a field list and a value to and from its own filter state.
@@ -45,6 +45,10 @@ interface Chip {
 export class FilterBar {
   public readonly fields = input.required<ReadonlyArray<FilterField>>();
   public readonly value = model<ReadonlyArray<FilterCondition>>([]);
+  /** A person typed in the option search of a long `set` field: answer by giving the field the matching options. */
+  public readonly searched = output<FilterSearch>();
+  /** A long `set` field was scrolled near its end: give the field with this id its next options. */
+  public readonly moreRequested = output<string>();
 
   protected readonly barClasses = barClasses;
   protected readonly rowClasses = rowClasses;
@@ -96,12 +100,27 @@ export class FilterBar {
     this.editing.set(undefined);
   }
 
-  protected apply(condition: FilterCondition): void {
+  /** The panel's filter changed: add it on its first value, then keep the chip following it. */
+  protected change(condition: FilterCondition): void {
     const index = this.editing();
-    this.value.update((filters) =>
-      index === undefined ? [...filters, condition] : filters.map((filter, at) => (at === index ? condition : filter)),
-    );
-    this.close();
+
+    if (index === undefined) {
+      this.editing.set(this.value().length);
+      this.value.update((filters) => [...filters, condition]);
+
+      return;
+    }
+
+    this.value.update((filters) => filters.map((filter, at) => (at === index ? condition : filter)));
+  }
+
+  /** The panel was closed with every value of the filter cleared. */
+  protected drop(): void {
+    const index = this.editing();
+
+    if (index !== undefined) {
+      this.value.update((filters) => filters.filter((_filter, at) => at !== index));
+    }
   }
 
   protected remove(index: number): void {

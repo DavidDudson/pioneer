@@ -70,7 +70,7 @@
     "combobox": {
       "noMatches": "No matches"
     },
-    "filterChips": {
+    "toggleGroup": {
       "clearAll": "Clear all",
       "clearAllNamed": "Clear all {label}"
     },
@@ -125,8 +125,9 @@
       "remove": "Remove filter: {filter}",
       "editor": "Filter",
       "field": "Field",
-      "apply": "Apply",
-      "cancel": "Cancel",
+      "done": "Done",
+      "search": "Search",
+      "text": "Contains",
       "min": "Minimum",
       "max": "Maximum",
       "value": "Value",

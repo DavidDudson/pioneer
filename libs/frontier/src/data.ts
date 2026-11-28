@@ -81,6 +81,8 @@ export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-li
 
 export { Combobox, type ComboboxOption, type ComboboxTag } from './lib/controls/combobox/combobox.component';
 
+export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
+
 export { Picker, type PickerSort } from './lib/controls/picker/picker.component';
 
 export { PickerField } from './lib/forms/picker-field/picker-field.component';

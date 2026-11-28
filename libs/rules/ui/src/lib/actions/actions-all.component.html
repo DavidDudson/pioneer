@@ -2,25 +2,25 @@
   <fr-disclosure>
     <fr-text frDisclosureSummary>{{ Message.Filters | transloco }}</fr-text>
     <fr-stack gap="sm">
-      <fr-filter-chips
+      <fr-toggle-group
         [options]="modeOptions()"
         [value]="modes()"
         [ariaLabel]="Message.FilterMode | transloco"
         (valueChange)="setModes($event)"
       />
-      <fr-filter-chips
+      <fr-toggle-group
         [options]="costOptions()"
         [value]="costs()"
         [ariaLabel]="Message.FilterCost | transloco"
         (valueChange)="setCosts($event)"
       />
-      <fr-filter-chips
+      <fr-toggle-group
         [options]="traitOptions()"
         [value]="traits()"
         [ariaLabel]="Message.FilterTrait | transloco"
         (valueChange)="setTraits($event)"
       />
-      <fr-filter-chips
+      <fr-toggle-group
         [options]="sourceOptions()"
         [value]="sources()"
         [ariaLabel]="Message.FilterSource | transloco"

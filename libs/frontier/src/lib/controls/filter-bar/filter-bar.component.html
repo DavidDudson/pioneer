@@ -31,6 +31,14 @@
     }
   </div>
   @if (open()) {
-    <fr-filter-editor [fields]="fields()" [initial]="initial()" (applied)="apply($event)" (cancelled)="close()" />
+    <fr-filter-editor
+      [fields]="fields()"
+      [initial]="initial()"
+      (changed)="change($event)"
+      (cleared)="drop()"
+      (closed)="close()"
+      (searched)="searched.emit($event)"
+      (moreRequested)="moreRequested.emit($event)"
+    />
   }
 </div>

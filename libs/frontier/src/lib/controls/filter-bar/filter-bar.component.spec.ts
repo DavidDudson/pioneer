@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { FilterBar } from './filter-bar.component';
@@ -18,8 +18,22 @@ const RARITY: FilterField = {
   ],
 };
 
+const TRAITS: FilterField = {
+  id: 'trait',
+  label: 'Trait',
+  kind: FilterKind.Set,
+  options: ['Acid', 'Air', 'Cold', 'Earth', 'Fire', 'Mental', 'Poison', 'Sonic', 'Water'].map((label) => ({
+    value: label.toLowerCase(),
+    label,
+    count: label.length,
+  })),
+};
+
 const FIELDS: ReadonlyArray<FilterField> = [
   RARITY,
+  TRAITS,
+  { id: 'name', label: 'Name', kind: FilterKind.Text },
+  { id: 'released', label: 'Released', kind: FilterKind.Date },
   { id: 'level', label: 'Level', kind: FilterKind.Range },
   {
     id: 'consumable',
@@ -110,15 +124,29 @@ describe(FilterBar, () => {
     expect(host.querySelector('fr-filter-editor')).toBeNull();
   });
 
-  it('adds a set filter: field, operator, value, apply', async () => {
+  it('adds a set filter as its value is picked, with no Apply', async () => {
     const rendered = await render();
     await press(rendered, 'Add filter');
     await press(rendered, 'Rarity');
     await press(rendered, 'is not');
+    expect(rendered.value()).toStrictEqual([]);
     await press(rendered, 'Rare (3)');
-    await press(rendered, 'Apply');
     expect(rendered.value()).toStrictEqual([{ field: 'rarity', operator: 'isNot', values: ['rare'] }]);
+    expect(() => button(rendered.host, 'Apply')).toThrow('Expected a button named Apply');
+  });
+
+  it('keeps the panel open on the filter just added, and closes it on Done', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Rarity');
+    await press(rendered, 'Common (12)');
+    expect(rendered.host.querySelector('fr-filter-editor')).not.toBeNull();
+    await press(rendered, 'is any of');
+    await press(rendered, 'Rare (3)');
+    expect(rendered.value()).toStrictEqual([{ field: 'rarity', operator: 'isAnyOf', values: ['common', 'rare'] }]);
+    await press(rendered, 'Done');
     expect(rendered.host.querySelector('fr-filter-editor')).toBeNull();
+    expect(rendered.value()).toHaveLength(1);
   });
 
   it('defaults to the first operator of the field', async () => {
@@ -126,7 +154,6 @@ describe(FilterBar, () => {
     await press(rendered, 'Add filter');
     await press(rendered, 'Rarity');
     await press(rendered, 'Common (12)');
-    await press(rendered, 'Apply');
     expect(rendered.value()).toStrictEqual([{ field: 'rarity', operator: 'is', values: ['common'] }]);
   });
 
@@ -136,16 +163,10 @@ describe(FilterBar, () => {
     await press(rendered, 'Rarity');
     await press(rendered, 'Common (12)');
     await press(rendered, 'Rare (3)');
-    await press(rendered, 'Apply');
     expect(rendered.value()[0]?.values).toStrictEqual(['rare']);
-
-    await press(rendered, 'Add filter');
-    await press(rendered, 'Rarity');
     await press(rendered, 'is any of');
     await press(rendered, 'Common (12)');
-    await press(rendered, 'Rare (3)');
-    await press(rendered, 'Apply');
-    expect(rendered.value()[1]).toStrictEqual({ field: 'rarity', operator: 'isAnyOf', values: ['common', 'rare'] });
+    expect(rendered.value()[0]).toStrictEqual({ field: 'rarity', operator: 'isAnyOf', values: ['rare', 'common'] });
   });
 
   it('adds a range filter with an open end', async () => {
@@ -154,37 +175,88 @@ describe(FilterBar, () => {
     await press(rendered, 'Level');
     await press(rendered, 'is between');
     await type(rendered, 'Minimum', '3');
-    await press(rendered, 'Apply');
     expect(rendered.value()).toStrictEqual([{ field: 'level', operator: 'between', values: ['3', ''] }]);
     expect(chips(rendered.host)).toStrictEqual(['Level is between from 3']);
   });
 
-  it('adds a flag filter', async () => {
+  it('adds a flag filter from a segmented yes or no', async () => {
     const rendered = await render();
     await press(rendered, 'Add filter');
     await press(rendered, 'Consumable');
     await press(rendered, 'Yes');
-    await press(rendered, 'Apply');
     expect(rendered.value()).toStrictEqual([{ field: 'consumable', operator: 'is', values: ['yes'] }]);
   });
 
-  it('will not apply a filter with no value', async () => {
+  it('adds a date filter from date boxes', async () => {
     const rendered = await render();
     await press(rendered, 'Add filter');
-    expect(button(rendered.host, 'Apply').disabled).toBe(true);
-    await press(rendered, 'Rarity');
-    expect(button(rendered.host, 'Apply').disabled).toBe(true);
-    await press(rendered, 'Common (12)');
-    expect(button(rendered.host, 'Apply').disabled).toBe(false);
+    await press(rendered, 'Released');
+    await press(rendered, 'is between');
+    await type(rendered, 'Minimum', '2026-01-02');
+    await type(rendered, 'Maximum', '2026-03-04');
+    expect(rendered.value()).toStrictEqual([
+      { field: 'released', operator: 'between', values: ['2026-01-02', '2026-03-04'] },
+    ]);
   });
 
-  it('changes a filter in place, starting from its values', async () => {
+  it('adds a text filter once the typing settles', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Name');
+    await type(rendered, 'Name', 'kyra');
+    await vi.waitFor(() => {
+      expect(rendered.value()).toStrictEqual([{ field: 'name', operator: 'is', values: ['kyra'] }]);
+    });
+  });
+
+  it('shows up to 8 options as a toggle group and more as a searchable list', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Rarity');
+    expect(rendered.host.querySelector('fr-toggle-group')).not.toBeNull();
+    expect(rendered.host.querySelector('fr-combobox')).toBeNull();
+    await press(rendered, 'Trait');
+    expect(rendered.host.querySelector('fr-toggle-group')).toBeNull();
+    expect(rendered.host.querySelector('fr-combobox')).not.toBeNull();
+  });
+
+  it('keeps the search box while the app answers a search with a few options', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Trait');
+    await type(rendered, 'Trait', 'so');
+    const fewer = { ...TRAITS, options: TRAITS.options?.filter((option) => option.value === 'sonic') };
+    rendered.fixture.componentRef.setInput('fields', [RARITY, fewer]);
+    rendered.fixture.detectChanges();
+    await rendered.fixture.whenStable();
+    expect(rendered.host.querySelector('fr-combobox')).not.toBeNull();
+    expect(rendered.host.querySelector('fr-toggle-group')).toBeNull();
+  });
+
+  it('shows no filter until the panel has a value', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Rarity');
+    expect(rendered.value()).toStrictEqual([]);
+    await press(rendered, 'Common (12)');
+    expect(rendered.value()).toHaveLength(1);
+  });
+
+  it('changes a filter in place as its values change, starting from its values', async () => {
     const rendered = await render([RARE, LEVELS]);
     await press(rendered, 'Edit filter: Rarity is Rare');
     expect(button(rendered.host, 'Rare (3)').getAttribute('aria-pressed')).toBe('true');
     await press(rendered, 'Common (12)');
-    await press(rendered, 'Apply');
     expect(rendered.value()).toStrictEqual([{ field: 'rarity', operator: 'is', values: ['common'] }, LEVELS]);
+  });
+
+  it('drops a filter whose values were all cleared when the panel is closed', async () => {
+    const rendered = await render([RARE, LEVELS]);
+    await press(rendered, 'Edit filter: Rarity is Rare');
+    await press(rendered, 'Rare (3)');
+    expect(rendered.value()).toStrictEqual([RARE, LEVELS]);
+    await press(rendered, 'Done');
+    expect(rendered.value()).toStrictEqual([LEVELS]);
   });
 
   it('removes one filter, or all of them', async () => {
@@ -195,10 +267,10 @@ describe(FilterBar, () => {
     expect(rendered.value()).toStrictEqual([]);
   });
 
-  it('closes the panel on cancel without changing anything', async () => {
+  it('closes the panel on Done without changing anything', async () => {
     const rendered = await render([RARE]);
     await press(rendered, 'Add filter');
-    await press(rendered, 'Cancel');
+    await press(rendered, 'Done');
     expect(rendered.host.querySelector('fr-filter-editor')).toBeNull();
     expect(rendered.value()).toStrictEqual([RARE]);
   });
@@ -209,6 +281,8 @@ describe('filter bar types', () => {
     expect(operatorsFor(FilterKind.Set)).toStrictEqual(['is', 'isNot', 'isAnyOf']);
     expect(operatorsFor(FilterKind.Flag)).toStrictEqual(['is', 'isNot']);
     expect(operatorsFor(FilterKind.Range)).toStrictEqual(['is', 'between']);
+    expect(operatorsFor(FilterKind.Text)).toStrictEqual(['is', 'isNot']);
+    expect(operatorsFor(FilterKind.Date)).toStrictEqual(['is', 'between']);
   });
 
   it('calls a filter complete once it has what its operator needs', () => {
@@ -217,6 +291,18 @@ describe('filter bar types', () => {
     expect(isComplete({ field: 'a', operator: FilterOperator.IsAnyOf, values: [] })).toBe(false);
     expect(isComplete({ field: 'a', operator: FilterOperator.Between, values: ['', ''] })).toBe(false);
     expect(isComplete({ field: 'a', operator: FilterOperator.Between, values: ['', '4'] })).toBe(true);
+  });
+
+  it('reads a date span like a range', () => {
+    const released: FilterField = { id: 'released', label: 'Released', kind: FilterKind.Date };
+
+    const condition: FilterCondition = {
+      field: 'released',
+      operator: FilterOperator.Between,
+      values: ['2026-01-02', ''],
+    };
+
+    expect(valueText(released, condition, echo)).toBe('frontier.filterBar.range.from');
   });
 
   it('reads option labels, falling back to the value', () => {

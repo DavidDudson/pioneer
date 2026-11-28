@@ -36,6 +36,9 @@ import {
   comboboxPopupClasses,
 } from './combobox.variants';
 
+/** How many rows from the end of the loaded options `loadMore` fires. */
+const LOAD_AHEAD = 8;
+
 /** A small badge under an option's name: what kind it is, its level, a trait. */
 export interface ComboboxTag {
   readonly label: string;
@@ -63,6 +66,11 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
  * Options are virtualised (TanStack Virtual on the listbox's own scroll), so
  * hundreds stay cheap. `committed` fires on a pick, or Enter on a closed
  * list; Escape puts the picked label back and fires `cancelled`.
+ *
+ * `multi` picks any number: `values` is the picked set, a press toggles one option and the list stays open, so
+ * a person ticks several in one visit. Picks made under an earlier query stay picked while a later query hides
+ * their options. Past the loaded options, `hasMore` and `loadingMore` let the list ask for the next page: `loadMore`
+ * fires once the end is near.
  */
 @Component({
   selector: 'fr-combobox',
@@ -84,6 +92,14 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
 export class Combobox<TValue extends string> extends Control {
   /** The picked value; `undefined` until the user picks. */
   public readonly value = model<TValue | undefined>(undefined);
+  /** Pick any number of options: `values` is the picked set, and a press toggles one without closing the list. */
+  public readonly multi = input(false, { transform: booleanAttribute });
+  /** The picked values of a `multi` combobox; `value` is for a single pick. */
+  public readonly values = model<ReadonlyArray<TValue>>([]);
+  /** There are options past the loaded ones: scrolling near the end fires `loadMore`. */
+  public readonly hasMore = input(false, { transform: booleanAttribute });
+  /** The next page is loading: skeleton rows sit under the options. */
+  public readonly loadingMore = input(false, { transform: booleanAttribute });
   /** The matches for the last `searched` query. */
   public readonly options = input.required<ReadonlyArray<ComboboxOption<TValue>>>();
   /** The text the input shows while nothing is picked. Setting it again replaces whatever was typed. */
@@ -97,6 +113,8 @@ export class Combobox<TValue extends string> extends Control {
   public readonly typed = output<string>();
   /** The typed query, debounced. Never fired for the label a pick fills in. */
   public readonly searched = output<string>();
+  /** The end of the loaded options is near and `hasMore`: append the next page. */
+  public readonly loadMore = output();
 
   protected readonly expanded = signal(false);
   /** The picked value and its label, once an option for it has loaded. */
@@ -133,6 +151,13 @@ export class Combobox<TValue extends string> extends Control {
   });
   /** The picked value while it is among the options; the listbox drops values it has no option for. */
   protected readonly selected = computed<Array<TValue>>(() => {
+    if (this.multi()) {
+      // The listbox only knows the options rendered now and drops the rest, so offer it just those.
+      const rendered = new Set(this.ariaOptions().map((option) => option.value()));
+
+      return this.values().filter((value) => rendered.has(value));
+    }
+
     const value = this.value();
 
     return value !== undefined && this.pickedIndex() !== undefined ? [value] : [];
@@ -150,6 +175,7 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly field = viewChild<string, ElementRef<HTMLInputElement>>('combobox', { read: ElementRef });
   protected readonly ariaOptions = viewChildren<Option<TValue>>(Option);
   protected readonly listbox = viewChild<Listbox<TValue>>(Listbox);
+  protected readonly loadAhead = LOAD_AHEAD;
   protected readonly keys = computed(() => this.options().map((option) => option.value));
   readonly #indexByValue = computed(
     () => new Map(this.options().map((option, index): [TValue, number] => [option.value, index])),
@@ -193,6 +219,14 @@ export class Combobox<TValue extends string> extends Control {
         });
       }
     });
+    // A finished load frees the end of the list to ask again, so a failed one is retried on the next scroll.
+    afterRenderEffect(() => {
+      if (!this.loadingMore()) {
+        untracked(() => {
+          this.#loadedFor = undefined;
+        });
+      }
+    });
   }
 
   protected optionAt(index: number): ComboboxOption<TValue> | undefined {
@@ -220,6 +254,14 @@ export class Combobox<TValue extends string> extends Control {
       return;
     }
 
+    if (this.multi()) {
+      this.#chooseMany(values);
+    } else {
+      this.#chooseOne(values);
+    }
+  }
+
+  #chooseOne(values: ReadonlyArray<TValue>): void {
     // The listbox toggles: picking the picked option again empties it. That is still a pick.
     const repicked = this.activeIndex() !== undefined && this.activeIndex() === this.pickedIndex();
     const value = values[0] ?? (repicked ? this.value() : undefined);
@@ -253,6 +295,33 @@ export class Combobox<TValue extends string> extends Control {
   protected enter(): void {
     if (!this.expanded()) {
       this.committed.emit();
+    }
+  }
+
+  /**
+   * The listbox reports the picks among the options rendered now; picks whose options are not rendered (a query hides
+   * them, or they are scrolled out of the window) stay as they were. The list stays open, so several can be ticked in
+   * one visit.
+   */
+  #chooseMany(shown: ReadonlyArray<TValue>): void {
+    const rendered = new Set(this.ariaOptions().map((option) => option.value()));
+    const unseen = this.values().filter((value) => !rendered.has(value));
+
+    this.values.set([...unseen, ...shown.filter((value) => rendered.has(value))]);
+    this.committed.emit();
+  }
+
+  /** The row count `loadMore` last fired for, so one end of the list asks once. */
+  #loadedFor: number | undefined;
+
+  /** The end of the options is in view: ask for the next page, once for each length the list has. */
+  protected askForMore(): void {
+    const count = this.options().length;
+    const busy = this.loading() || this.loadingMore();
+
+    if (this.hasMore() && !busy && this.#loadedFor !== count) {
+      this.#loadedFor = count;
+      this.loadMore.emit();
     }
   }
 

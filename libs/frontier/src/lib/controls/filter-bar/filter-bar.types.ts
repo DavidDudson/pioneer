@@ -1,7 +1,10 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-/** How a field narrows a list: `set` picks values, `range` bounds a number, `flag` is a yes or no. */
-export const FilterKind = { Set: 'set', Range: 'range', Flag: 'flag' } as const;
+/**
+ * How a field narrows a list: `set` picks values, `range` bounds a number, `flag` is a yes or no, `text` matches
+ * typed text, `date` is one day or a span of days (written `2026-10-07`).
+ */
+export const FilterKind = { Set: 'set', Range: 'range', Flag: 'flag', Text: 'text', Date: 'date' } as const;
 
 export type FilterKind = ValueOf<typeof FilterKind>;
 
@@ -29,9 +32,22 @@ export interface FilterField {
   /** Already translated. */
   readonly label: string;
   readonly kind: FilterKind;
-  /** The values of a `set` or `flag` field; a `range` field has none. */
+  /** The values of a `set` or `flag` field; the other kinds have none. */
   readonly options?: ReadonlyArray<FilterOption>;
+  /** There are options past the loaded ones: a long `set` asks for them as its list is scrolled. */
+  readonly hasMore?: boolean;
+  /** The next options are loading. */
+  readonly loadingMore?: boolean;
 }
+
+/** A person typed in the option search of a long `set` field: the app answers with the matching options. */
+export interface FilterSearch {
+  readonly field: string;
+  readonly query: string;
+}
+
+/** A `set` field with this many options or fewer shows them all as a toggle group; more are searched in a list. */
+export const TOGGLE_GROUP_LIMIT = 8;
 
 /**
  * One filter. `values` holds option values for a `set` or `flag` field (one for `is` and `isNot`, any number for
@@ -48,6 +64,8 @@ const OPERATORS: Readonly<Record<FilterKind, ReadonlyArray<FilterOperator>>> = {
   set: [FilterOperator.Is, FilterOperator.IsNot, FilterOperator.IsAnyOf],
   flag: [FilterOperator.Is, FilterOperator.IsNot],
   range: [FilterOperator.Is, FilterOperator.Between],
+  text: [FilterOperator.Is, FilterOperator.IsNot],
+  date: [FilterOperator.Is, FilterOperator.Between],
 };
 
 /** The operator a field of this kind starts with, and the one a link leaves unwritten. */
@@ -55,7 +73,14 @@ const DEFAULT_OPERATORS: Readonly<Record<FilterKind, FilterOperator>> = {
   set: FilterOperator.Is,
   flag: FilterOperator.Is,
   range: FilterOperator.Is,
+  text: FilterOperator.Is,
+  date: FilterOperator.Is,
 };
+
+/** Kinds whose `between` bounds an ordered value: a number or a day. */
+export function isBounded(kind: FilterKind): boolean {
+  return kind === FilterKind.Range || kind === FilterKind.Date;
+}
 
 export function defaultOperator(kind: FilterKind): FilterOperator {
   return DEFAULT_OPERATORS[kind];
@@ -90,7 +115,7 @@ export type Translate = (key: string, params?: Readonly<Record<string, string>>)
 
 /** The values as a person reads them: option labels, or `3 to 5`, `from 3`, `up to 5`. */
 export function valueText(field: FilterField, condition: FilterCondition, translate: Translate): string {
-  if (field.kind === FilterKind.Range) {
+  if (isBounded(field.kind)) {
     const [min = '', max = ''] = condition.values;
 
     if (condition.operator !== FilterOperator.Between) {

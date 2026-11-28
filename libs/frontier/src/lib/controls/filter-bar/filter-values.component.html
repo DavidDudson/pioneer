@@ -1,27 +1,31 @@
-@if (isRange()) {
-  <div [class]="rangeClasses">
-    <fr-number-input
-      optional
-      [value]="min()"
-      [ariaLabel]="minLabel() | transloco"
-      [placeholder]="'frontier.filterBar.any' | transloco"
-      (valueChange)="setMin($event)"
-    />
-    @if (isBetween()) {
-      <fr-number-input
-        optional
-        [value]="max()"
-        [ariaLabel]="'frontier.filterBar.max' | transloco"
-        [placeholder]="'frontier.filterBar.any' | transloco"
-        (valueChange)="setMax($event)"
+@if (bounded()) {
+  <fr-filter-bound-values [field]="field()" [operator]="operator()" [(values)]="values" />
+} @else {
+  @switch (field().kind) {
+    @case (Kind.Text) {
+      <fr-search-input
+        [value]="text()"
+        [ariaLabel]="field().label"
+        [placeholder]="'frontier.filterBar.text' | transloco"
+        (searched)="setText($event)"
       />
     }
-  </div>
-} @else {
-  <fr-filter-chips
-    [options]="options()"
-    [value]="selected()"
-    [ariaLabel]="field().label"
-    (valueChange)="choose($event)"
-  />
+    @case (Kind.Flag) {
+      <fr-segmented
+        [options]="options()"
+        [value]="values()[0]"
+        [ariaLabel]="field().label"
+        (valueChange)="setFlag($event)"
+      />
+    }
+    @default {
+      <fr-filter-set-values
+        [field]="field()"
+        [operator]="operator()"
+        [(values)]="values"
+        (searched)="searched.emit($event)"
+        (moreRequested)="moreRequested.emit()"
+      />
+    }
+  }
 }

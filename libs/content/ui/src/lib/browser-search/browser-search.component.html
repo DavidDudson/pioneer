@@ -5,7 +5,7 @@
     [value]="state().query"
     (searched)="searched($event)"
   />
-  <fr-filter-chips
+  <fr-toggle-group
     [ariaLabel]="Message.Kinds | transloco"
     [options]="kindOptions()"
     [value]="kindSet()"
