@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831453858,
+  "lastUpdate": 1795831506288,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -478,6 +478,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb1f844a55df0c398c6af8583afbc453260be4e8",
+          "message": "refactor(frontier): one control-size scale under pointer:fine (#2447)\n\n* refactor(frontier): one control-size scale under pointer:fine\n\nControl sizes were hand-paired in every component as\n`h-touch pointer-fine:h-control-*`. The `--fr-size-control-*` variables\nnow default to the 2.75rem touch size and shrink once, under\n`@media (pointer: fine)` in semantic.css, so components write a single\n`h-control-*` or `min-h-control-*` class.\n\nHeights use `min-h-*` where text can wrap (button, link, tab, disclosure);\nan icon-only button keeps a fixed height so `aspect-square` stays square.\nButton lg now has a fine-pointer size (3rem touch, 2.75rem fine).\n\nRefs #2279\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on mob-review findings\n\nFix the AGENTS.md and semantic.css wording that said every control size\nis 2.75rem on touch (lg is 3rem), shorten the new doc comments, add the\nxs size to the Button Sizes story and tighten the inline link spec.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:39:26+10:00",
+          "tree_id": "7067ba1a3144406c75590bfb2416b964000cf38f",
+          "url": "https://github.com/DavidDudson/pioneer/commit/eb1f844a55df0c398c6af8583afbc453260be4e8"
+        },
+        "date": 1795831502191,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 214,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6377,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 213,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
