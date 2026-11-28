@@ -145,7 +145,7 @@ async function press(rendered: Rendered, input: HTMLInputElement, key: 'Enter' |
 
 function revertButton(rendered: Rendered): HTMLButtonElement {
   const button = [...rendered.host.querySelectorAll('button')].find(
-    (element) => element.textContent.trim() === 'Revert',
+    (element) => element.getAttribute('aria-label') === 'Revert',
   );
 
   if (button === undefined) {
