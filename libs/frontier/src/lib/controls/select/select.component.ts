@@ -34,7 +34,7 @@ const caretClasses = cva('text-fg-subtle')();
 /**
  * Plain single-select on `@angular/aria` (combobox + listbox): keyboard
  * navigation, typeahead and ARIA come from the primitive, looks from tokens.
- * `committed` fires when the user picks. In a form use `fr-select-field`.
+ * `committed` fires when the user picks.
  */
 @Component({
   selector: 'fr-select',

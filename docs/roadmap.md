@@ -134,7 +134,7 @@ Exit: every number on the sheet opens a breakdown that explains it; conditional 
 can be filtered to what matters.
 
 - **Sheet layout**: text-only sheet sections built from frontier components in a fixed order; keyboard navigation
-  through a section index and roving focus in grids. A defences panel lists immunities, weaknesses and resistances
+  through section tabs and roving focus in grids. A defences panel lists immunities, weaknesses and resistances
   by damage type, spells out groups (physical, energy, all), marks conditional ones and names each origin.
 - **Breakdown inspector**: applied, suppressed, conditional and overridden lines; origin chains; sources.
 - **Conditional adjustments**: shown beside each statistic and on skill and action rows.

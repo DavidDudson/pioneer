@@ -11,10 +11,6 @@ export { GiftBadge } from './lib/actions/gift-badge/gift-badge.component';
 
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
 
-export { SectionIndex } from './lib/actions/section-index/section-index.component';
-
-export { SectionLink } from './lib/actions/section-link/section-link.component';
-
 export { Step } from './lib/actions/stepper/step.component';
 
 export { StepBody } from './lib/actions/stepper/step-body.directive';
@@ -57,8 +53,6 @@ export { LoadMoreItem } from './lib/async/load-more/load-more-item.directive';
 export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-query';
 
 // Plain controls (inline editing)
-
-export { DateInput } from './lib/controls/date-input/date-input.component';
 
 export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
 
@@ -116,8 +110,6 @@ export { RovingOrientation } from './lib/focus/roving-keys';
 // Forms (create flows; prefer inline editing)
 export { AsyncForm } from './lib/forms/async-form/async-form.component';
 
-export { DateField } from './lib/forms/date-field/date-field.component';
-
 export { FieldError } from './lib/forms/field/error/error.component';
 
 export { Field } from './lib/forms/field/field.component';
@@ -126,13 +118,9 @@ export { FieldHint } from './lib/forms/field/hint/hint.component';
 
 export { Label } from './lib/forms/field/label/label.component';
 
-export { Form } from './lib/forms/form/form.component';
-
 export { NumberField } from './lib/forms/number-field/number-field.component';
 
 export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
-
-export { SelectField } from './lib/forms/select-field/select-field.component';
 
 export { TextAreaField } from './lib/forms/text-area-field/text-area-field.component';
 
@@ -163,7 +151,7 @@ export { HoverCard } from './lib/layout/hover-card/hover-card.component';
 
 export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.directive';
 
-export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
+export { Divider, DividerTone } from './lib/layout/divider/divider.component';
 
 export { Card } from './lib/layout/card/card.component';
 
@@ -178,8 +166,6 @@ export { Clamp, ClampLines } from './lib/layout/clamp/clamp.component';
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 
 export { Page } from './lib/layout/page/page.component';
-
-export { PageAside } from './lib/layout/page-aside/page-aside.component';
 
 export { Rail } from './lib/layout/rail/rail.component';
 

@@ -15,8 +15,6 @@ export const LinkAppearance = {
   Tab: 'tab',
   /** One tab of `fr-tabs` in its segment look: a button in a track, filled with the accent while current. Features use `fr-tab`. */
   Segment: 'segment',
-  /** One link of `fr-section-index`: inline-link look at touch height. Features use `fr-section-link`. */
-  Index: 'index',
   /** One row of a menu or dropdown panel: looks like `fr-button` variant `menu`, with the current page filled. */
   Menu: 'menu',
   /** A call to action that navigates: looks like a primary `fr-button`, but stays a real link. */
@@ -31,9 +29,6 @@ const linkVariants = cva('focus-visible:focus-ring', {
       inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
       // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
       tab: 'inline-flex min-h-control-sm items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link',
-      // Touch-sized like a tab, but reads as a link: the index wraps instead of scrolling.
-      index:
-        'inline-flex min-h-control-sm items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg',
       segment:
         'inline-flex min-h-control-sm items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline',
       menu: 'flex min-h-control-sm w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken',

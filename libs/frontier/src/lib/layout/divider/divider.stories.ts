@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { Text } from '../../text/text/text.component';
 import { Stack } from '../stack/stack.component';
-import { Divider, DividerOrientation, DividerTone } from './divider.component';
+import { Divider, DividerTone } from './divider.component';
 
 type DividerStory = StoryObj<Divider>;
 
@@ -12,14 +12,9 @@ const meta: Meta<Divider> = {
   component: Divider,
   decorators: [moduleMetadata({ imports: [Stack, Text] })],
   argTypes: {
-    orientation: {
-      control: 'inline-radio',
-      options: Object.values(DividerOrientation),
-    },
     tone: { control: 'inline-radio', options: Object.values(DividerTone) },
   },
   args: {
-    orientation: DividerOrientation.Horizontal,
     tone: DividerTone.Subtle,
   },
   render: (args) => ({
@@ -36,22 +31,7 @@ const meta: Meta<Divider> = {
 
 export default meta;
 
-export const Horizontal: DividerStory = {};
-
-/** Between items in a row. Stretches to the row's height and is decorative. */
-export const Vertical: DividerStory = {
-  render: () => ({
-    template: `
-      <fr-stack direction="horizontal" gap="sm" align="center">
-        <fr-text>AC 18</fr-text>
-        <fr-divider orientation="vertical" />
-        <fr-text>HP 32</fr-text>
-        <fr-divider orientation="vertical" />
-        <fr-text>Speed 25 feet</fr-text>
-      </fr-stack>
-    `,
-  }),
-};
+export const Default: DividerStory = {};
 
 /** Every tone. Switch theme and mode in the toolbar to compare. */
 export const Tones: DividerStory = {

@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import type { ComponentInputs } from '../../testing/component-inputs';
-import { Divider, DividerOrientation, DividerTone } from './divider.component';
+import { Divider, DividerTone } from './divider.component';
 
 /** Renders a divider and returns the element that draws the rule. */
 async function render(inputs: ComponentInputs<Divider>): Promise<HTMLElement> {
@@ -40,20 +40,8 @@ describe(Divider, () => {
     expect(rule.hasAttribute('aria-hidden')).toBe(false);
   });
 
-  it('draws a vertical rule that stretches to its row and is hidden from assistive technology', async () => {
-    const rule = await render({ orientation: DividerOrientation.Vertical });
-    expect(rule.tagName).toBe('SPAN');
-    expect([...rule.classList]).toStrictEqual(expect.arrayContaining(['border-s', 'self-stretch']));
-    expect([...rule.classList]).not.toContain('border-t');
-    expect(rule.getAttribute('aria-hidden')).toBe('true');
-  });
-
-  it.each(
-    Object.values(DividerOrientation).flatMap((orientation) =>
-      Object.values(DividerTone).map((tone) => [orientation, tone] as const),
-    ),
-  )('draws a %s rule in line-%s', async (orientation, tone) => {
-    const rule = await render({ orientation, tone });
+  it.each(Object.values(DividerTone))('draws a rule in line-%s', async (tone) => {
+    const rule = await render({ tone });
     expect([...rule.classList]).toContain(`border-line-${tone}`);
   });
 });

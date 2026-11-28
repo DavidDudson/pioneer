@@ -204,8 +204,7 @@ epics fill (skills, Strikes, spells, actions, feats and features, inventory, not
   are read-only too.
 - Each section is a region labelled by its level 2 heading, so both the landmark list and the heading list reach
   it.
-- A section index after the shell's skip link links to each section; following a link moves focus to that
-  section's heading. Sections are `fr-section`s and the index is `fr-section-index`; the order lives in one const in
+- Sections are `fr-section`s, reached through the sheet's section tabs; the order lives in one const in
   the sheet feature (`SHEET_SECTIONS`), which later epics extend. A section whose content has not landed yet still
   takes its place in the order, holding an empty state.
 - In a grid of like values whose cells are edited in place (attributes), arrow keys move between cells with roving
