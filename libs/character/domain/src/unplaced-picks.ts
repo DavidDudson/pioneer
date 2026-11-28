@@ -18,6 +18,7 @@ export type UnplacedPicks = Partial<
     | 'classFeatures'
     | 'deity'
     | 'unplacedSpells'
+    | 'spellAccess'
     | 'unplacedFeats'
     | 'unplacedHeritage'
     | 'unplacedLanguages'

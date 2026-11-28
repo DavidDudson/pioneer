@@ -251,6 +251,7 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
         content.lookup,
       ),
       lores: skills.lores,
+      spellAccess: [...spells.access],
     },
     skillGaps: skills.gaps,
     spellGaps: gaps,
