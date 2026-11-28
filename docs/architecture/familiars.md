@@ -61,12 +61,53 @@ Incredible replace the base; the witch and thesis extras add. Which one applies 
 | Tucked away           | Absorb Familiar: a 1-minute concentrate activity turns it into a mark; it cannot act except to turn back, is untouched by area effects, and can be healed. Recall Familiar: once a day, teleport it to your space from up to 1 mile. | Player Core pg. 214                        |
 | Language lockout      | A changed familiar locks Familiar's Language for 1 week.                                                                                                                                                                             | Player Core pg. 187                        |
 | Dying at 0 HP         | **Assumption.** No quoted rule. A familiar has no dying condition: at 0 HP it dies and fires its death effects (#2072).                                                                                                              | none                                       |
-| Resurrection          | **Assumption.** No quoted rule, and a construct familiar is immune to healing. Raising is modelled as a state change back to active (#2078); the cost of any spell is the spell's own.                                               | none                                       |
+| Resurrection          | Familiar's Resurrection (Impossible Magic): 10-minute cast, range 10 ft, targets your dead familiar of 4th level or lower (+2 levels per heightened rank); it returns with 1 HP. Cost is the spell's own.                            | Impossible Magic pg. 137                   |
 
 **Decision.** The lifecycle is one state: active, absent (recalled, not present), absorbed or dead. A witch's dead
 familiar is replaced at the next daily preparation and keeps its known spells; anyone else's needs a week of downtime.
 **Reason.** Both come straight from the text above. Dead familiars keep their known spells in the record so
 replacement can copy them.
+
+### 3a. Lifecycle state machine
+
+Spike [#2046 spike(play): familiar lifecycle, death, replacement and resurrection](https://github.com/DavidDudson/pioneer/issues/2046).
+Five states: **active**, **absent**, **absorbed**, **dead**, **none** (no familiar). Replaced and released are
+transitions to **none** then **active**, not states.
+
+| From             | To       | Trigger                                                                                                    | Cost and time                                                                           | Source                                             |
+| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| none             | active   | Gain by class, feat or dedication                                                                          | Free                                                                                    | Player Core pg. 178, 201; Player Core 2 pg. 200    |
+| active           | absent   | Player marks it away from the master (**assumption**: no rule names it)                                    | None. Recall Familiar (once a day, 3 actions, within 1 mile) returns it to active.      | Player Core pg. 214                                |
+| active           | absorbed | Absorb Familiar, or a Familiar Tattoo                                                                      | 1 minute (ability); 1 action, adjacent (tattoo, 60 gp). Cannot act except to turn back. | Player Core pg. 214; Impossible Magic pg. 242      |
+| absent           | active   | Recall Familiar                                                                                            | Once a day, 3 actions, within 1 mile; fails beyond                                      | Player Core pg. 214                                |
+| absorbed         | active   | Turn back                                                                                                  | Same activity or action                                                                 | Player Core pg. 214; Impossible Magic pg. 242      |
+| active, absorbed | dead     | 0 HP (assumption), Fearsome Familiar's second return in a day, destruction of a spirit-familiar apparition | None                                                                                    | Rage of Elements pg. 22; War of Immortals pg. 23   |
+| dead             | active   | Witch: next daily preparations. Others: 1 week of downtime. Resurrection: Familiar's Resurrection          | Witch free; others 1 week; spell 10 minutes, 1 HP                                       | Player Core pg. 178, 259; Impossible Magic pg. 137 |
+| active           | none     | Release: gain a different familiar by Pet or Familiar Master                                               | 1 week of downtime; Familiar Master has no extra rule                                   | Player Core pg. 259; Player Core 2 pg. 200         |
+
+**Death triggers.** Verdant Burst heals at death (Player Core pg. 130). A Familiar Tattoo loses its magic and becomes
+mundane when the familiar dies (Impossible Magic pg. 242). An animist's spirit familiar costs the master every other
+apparition benefit until the next daily preparations (War of Immortals pg. 23); dispersing the apparition destroys
+the familiar. Specific familiars punish the master (Player Core 2 pg. 171).
+
+**Decisions.**
+
+1. **0 HP is death.** A familiar has no dying condition. "Slain" and "destroyed" are the same state: one `dead`.
+   **Reason.** No source distinguishes them, and the Animist text uses both words for one outcome.
+2. **Death triggers are rule elements on the familiar's abilities and on the master's items.** The engine emits a
+   `FamiliarDied` event; elements subscribe. **Reason.** ADR-0048 style: content owns effects, engine owns timing.
+3. **Prepared spells are unaffected.** They live on the master (Player Core pg. 178, Undying).
+4. **Replacement keeps known spells and the form.** A new witch familiar may look different but has the same spells.
+   **Reason.** The spell list is the character's data, not the creature's.
+5. **Downtime replacement plugs in as a downtime activity** once [Epic 5.13: Downtime activities](https://github.com/DavidDudson/pioneer/issues/461)
+   exists. Until then a manual "replace familiar" action on the sheet sets the state and logs it.
+6. **Swapping to a different creature type locks Familiar's Language for 1 week** (Player Core pg. 187). The lockout
+   is a dated flag on the character, cleared by the date.
+7. **Healing a familiar.** Spells that target a companion or a familiar apply to it. Construct familiars are immune to
+   healing, vitality and void (Player Core pg. 212, Construct). **Reason.** The spell target kind exists already.
+8. **Daily preparations reset:** the day's chosen abilities (reselected), once-per-day uses (Recall Familiar), a
+   witch's dead-familiar replacement and an animist's apparition manifestation. Familiar's Language, 10-minute
+   frequencies and Fearsome Familiar's once-per-day return counter reset on the same cadence or on their own timer.
 
 ### 4. Remaster and legacy
 
@@ -102,3 +143,12 @@ The stories were filed before this spike. Findings:
 | [#2074 other classes replace a dead familiar in downtime](https://github.com/DavidDudson/pioneer/issues/2074)   | Confirmed. 1 week of downtime. Blocked by Epic 5.13: Downtime activities.                                                                                                                                    |
 | [#2077 Recall, Absorb and Stitched Familiar change state](https://github.com/DavidDudson/pioneer/issues/2077)   | **Correct.** Stitched Familiar and Spirit Familiar are activities that re-form the familiar in place; they are not state changes. Only Absorb and Recall move state. Move the two feats to the feat stories. |
 | [#2079 effects that need a living familiar end with it](https://github.com/DavidDudson/pioneer/issues/2079)     | Confirmed. The witch clarification names hexes and Refocus.                                                                                                                                                  |
+
+### Stories checked against the lifecycle
+
+| Story                                                                                                      | Verdict                                                                       |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [#2071 a familiar is active, absent, absorbed or dead](https://github.com/DavidDudson/pioneer/issues/2071) | Confirmed. Add `none` and keep the states above.                              |
+| [#2075 replacing a living familiar by choice](https://github.com/DavidDudson/pioneer/issues/2075)          | Confirmed. 1 week of downtime, releases the old one.                          |
+| [#2078 healing and resurrection of a familiar](https://github.com/DavidDudson/pioneer/issues/2078)         | Confirmed. Name Familiar's Resurrection (level 4 or lower, 1 HP, 10 minutes). |
+| [#2076 daily preparations reset the familiar's uses](https://github.com/DavidDudson/pioneer/issues/2076)   | Confirmed. List in decision 8.                                                |
