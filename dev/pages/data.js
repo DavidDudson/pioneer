@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795843317102,
+  "lastUpdate": 1795846277056,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2218,6 +2218,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 210,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f6fe9c168de96c027096ceda7e30c467b16e0c36",
+          "message": "refactor(frontier): gap ladder by role, caption and hint tones (#2512)\n\n* refactor(frontier): gap ladder by role, caption and hint tones\n\nAdd GapRole (page xl, card md, list item sm, row sm, text 2xs) and document\nthe ladder in AGENTS.md and on fr-stack's gap. fr-list and fr-description-list\ndefault to sm, item content and inline field stack their text at 2xs. A\ncaption stays subtle (item byline), a field hint becomes muted.\n\nRefs #2284\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review of the gap ladder\n\nShow the list default gap in the list stories, set the item skeleton's\ntitle gap to 2xs like the item it stands for, shorten the GapRole doc, and\ncover the item byline's tone and gap.\n\nRefs #2284\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T15:34:24+10:00",
+          "tree_id": "ec2717dea7362cb3de1bd49d13e1d7d01abfe676",
+          "url": "https://github.com/DavidDudson/pioneer/commit/f6fe9c168de96c027096ceda7e30c467b16e0c36"
+        },
+        "date": 1795846273172,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 467,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4400,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 212,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6510,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 216,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
