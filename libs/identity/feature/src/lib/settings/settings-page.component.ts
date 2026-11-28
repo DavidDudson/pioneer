@@ -90,15 +90,13 @@ export class SettingsPage {
   );
   protected readonly localeValue = localeValue;
   protected readonly localeLabel = localeLabel;
-  protected readonly localeColumns = computed(() => {
-    this.#messages();
-
-    return localeColumns({
-      native: this.#i18n.translate('identity.settings.localeColumns.native'),
-      english: this.#i18n.translate('identity.settings.localeColumns.english'),
-      coverage: this.#i18n.translate('identity.settings.localeColumns.coverage'),
-    });
-  });
+  protected readonly localeColumns = computed(() =>
+    localeColumns({
+      native: 'identity.settings.localeColumns.native',
+      english: 'identity.settings.localeColumns.english',
+      coverage: 'identity.settings.localeColumns.coverage',
+    }),
+  );
   protected readonly distanceUnits = computed((): ReadonlyArray<SelectOption<DistanceUnit>> => {
     this.#messages();
 
@@ -115,11 +113,7 @@ export class SettingsPage {
       name: this.#i18n.translate(BODY_FONT_NAMES[font]),
     }));
   });
-  protected readonly bodyFontColumns = computed(() => {
-    this.#messages();
-
-    return bodyFontColumns(this.#i18n.translate('identity.settings.bodyFontColumn'));
-  });
+  protected readonly bodyFontColumns = computed(() => bodyFontColumns('identity.settings.bodyFontColumn'));
   protected readonly bodyFontValue = bodyFontValue;
   protected readonly bodyFontLabel = bodyFontLabel;
   protected readonly monoFonts = computed((): ReadonlyArray<SelectOption<MonoFont>> => {

@@ -32,9 +32,9 @@ export class DamageTargetOptions {
 
     return damageTargetColumns(
       {
-        name: this.#i18n.translate('play.dice.targetColumns.name'),
-        category: this.#i18n.translate('play.dice.targetColumns.category'),
-        includes: this.#i18n.translate('play.dice.targetColumns.includes'),
+        name: 'play.dice.targetColumns.name',
+        category: 'play.dice.targetColumns.category',
+        includes: 'play.dice.targetColumns.includes',
       },
       (category) => this.#i18n.translate(CATEGORY_KEYS[category]),
     );

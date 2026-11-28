@@ -25,15 +25,10 @@ export function injectMessagesChanged(): Signal<unknown> {
 export function injectBrowseColumns(
   kinds: () => ReadonlyArray<BrowseKind>,
 ): Signal<ReadonlyArray<TableColumn<BrowseRow>>> {
-  const i18n = inject(TranslocoService);
-  const changed = injectMessagesChanged();
-
   return computed(() => {
-    changed();
     const listed = kinds();
 
     return browseColumns(
-      (key) => i18n.translate(key),
       listed.length === 1,
       listed.some((kind) => kind === ContentKind.Creature),
     );

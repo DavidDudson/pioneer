@@ -15,7 +15,7 @@ export type SortValue = number | string;
 
 /** A header and whether pressing it sorts the column. Sorting is on unless `sortable` is `false`. */
 export interface ColumnOptions {
-  /** Already translated: the schema never holds copy. */
+  /** A message key: the table translates it, so a language switch re-renders the header. */
   readonly header: string;
   readonly sortable?: boolean;
   /** Width in `fr-picker`, where rows are not a table; `fr-table` ignores it. Defaults to `md`. */

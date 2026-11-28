@@ -94,7 +94,7 @@ export class CampaignSheetPartyInventory {
 
   protected readonly columns = computed(() =>
     tableSchema<DepositableLine>()
-      .addText({ id: 'name', header: this.#i18n.translate('campaign.partyStash.lineName'), value: (row) => row.name })
+      .addText({ id: 'name', header: 'campaign.partyStash.lineName', value: (row) => row.name })
       .build(),
   );
 

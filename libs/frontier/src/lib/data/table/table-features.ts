@@ -8,6 +8,7 @@ import {
   tableFeatures,
 } from '@tanstack/angular-table';
 import type { ColumnDef, ColumnHelper, Header, RowData } from '@tanstack/angular-table';
+import * as z from 'zod';
 
 import type { Size } from '../../tokens';
 
@@ -38,6 +39,9 @@ export const TABLE_FEATURES = tableFeatures({
 export type TableFeatureSet = typeof TABLE_FEATURES;
 
 export type TableColumn<TData extends RowData> = ColumnDef<TableFeatureSet, TData>;
+
+/** A header that is a message key: any other header (a component, for rich text) is not translated. */
+export const HEADER_KEY = z.string();
 
 export type TableHeader<TData extends RowData> = Header<TableFeatureSet, TData>;
 

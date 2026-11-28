@@ -140,9 +140,9 @@ export function injectPlacePicker(
 
     return placeColumns(
       {
-        name: i18n.translate('character.sheet.inventory.placeColumns.name'),
-        bulk: i18n.translate('character.sheet.inventory.placeColumns.bulk'),
-        items: i18n.translate('character.sheet.inventory.placeColumns.items'),
+        name: 'character.sheet.inventory.placeColumns.name',
+        bulk: 'character.sheet.inventory.placeColumns.bulk',
+        items: 'character.sheet.inventory.placeColumns.items',
       },
       {
         bulk: (row) => bulkChips(row, i18n, format),

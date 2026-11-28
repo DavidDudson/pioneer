@@ -3,7 +3,6 @@ import { FeatCategory, Rarity } from '@pioneer/rules/sdk';
 /** Message keys the feat picker renders with, spelled out so the key check sees them. */
 export const FeatPickerMessage = {
   Name: 'rules.featPicker.column.name',
-  Level: 'rules.featPicker.column.level',
   Category: 'rules.featPicker.column.category',
   Actions: 'rules.featPicker.column.actions',
   Traits: 'rules.featPicker.column.traits',

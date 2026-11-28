@@ -2,14 +2,11 @@ import type { PartyCharacter } from '@pioneer/campaign/domain';
 import { tableSchema } from '@pioneer/frontier/data';
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 
-/** Reads a message key in the active language. */
-type Say = (key: string) => string;
-
 /** The picker's columns: who, and how far along. */
-export function recipientColumns(say: Say): ReadonlyArray<TableColumn<PartyCharacter>> {
+export function recipientColumns(): ReadonlyArray<TableColumn<PartyCharacter>> {
   return tableSchema<PartyCharacter>()
-    .addText({ id: 'name', header: say('campaign.transfers.recipientName'), value: (row) => row.name })
-    .addText({ id: 'level', header: say('campaign.transfers.recipientLevel'), value: (row) => row.level })
+    .addText({ id: 'name', header: 'campaign.transfers.recipientName', value: (row) => row.name })
+    .addText({ id: 'level', header: 'campaign.transfers.recipientLevel', value: (row) => row.level })
     .build();
 }
 

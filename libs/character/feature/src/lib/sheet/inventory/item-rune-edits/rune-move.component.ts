@@ -17,6 +17,7 @@ import { injectItemNames } from '../item-names';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
 import {
   etchedRows,
+  RUNE_HEADERS,
   RUNE_ORDER,
   runeColumns,
   runeRowLabel,
@@ -102,19 +103,7 @@ export class RuneMove {
     }),
     RUNE_ORDER,
   );
-  protected readonly runeColumns = computed(() => {
-    this.#messages();
-
-    return runeColumns({
-      name: this.#i18n.translate('character.sheet.runes.columns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
-      level: this.#i18n.translate('character.sheet.runes.columns.level'),
-      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
-      price: this.#i18n.translate('character.sheet.runes.columns.price'),
-      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
-    });
-  });
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 
@@ -152,16 +141,14 @@ export class RuneMove {
     }),
     TARGET_ORDER,
   );
-  protected readonly targetColumns = computed(() => {
-    this.#messages();
-
-    return targetColumns({
-      name: this.#i18n.translate('character.sheet.runes.targetColumns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.targetColumns.kind'),
-      slots: this.#i18n.translate('character.sheet.runes.targetColumns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.targetColumns.slotsUsed'),
-    });
-  });
+  protected readonly targetColumns = computed(() =>
+    targetColumns({
+      name: 'character.sheet.runes.targetColumns.name',
+      kind: 'character.sheet.runes.targetColumns.kind',
+      slots: 'character.sheet.runes.targetColumns.slots',
+      slotsUsed: 'character.sheet.runes.targetColumns.slotsUsed',
+    }),
+  );
   protected readonly targetValue = targetValue;
   protected readonly targetLabel = targetRowLabel;
 

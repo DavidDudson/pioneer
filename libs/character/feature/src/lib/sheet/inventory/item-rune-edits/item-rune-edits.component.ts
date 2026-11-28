@@ -33,7 +33,7 @@ import {
   propertyRuneOptions,
   runeKey,
 } from './rune-options';
-import { gradeRows, propertyRows, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
+import { gradeRows, propertyRows, RUNE_HEADERS, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
 import type { RuneRow, RuneWords } from './rune-picker';
 import { describeRuneError, gradeLabel, runeLabel } from './rune-text';
 
@@ -140,19 +140,7 @@ export class ItemRuneEdits {
   });
 
   /** The columns of every rune picker. */
-  protected readonly runeColumns = computed(() => {
-    this.#messages();
-
-    return runeColumns({
-      name: this.#i18n.translate('character.sheet.runes.columns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
-      level: this.#i18n.translate('character.sheet.runes.columns.level'),
-      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
-      price: this.#i18n.translate('character.sheet.runes.columns.price'),
-      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
-    });
-  });
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 

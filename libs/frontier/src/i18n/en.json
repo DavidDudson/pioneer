@@ -34,7 +34,15 @@
     },
     "table": {
       "columns": "Columns",
-      "resetColumns": "Reset columns"
+      "resetColumns": "Reset columns",
+      "sample": {
+        "name": "Name",
+        "ancestry": "Ancestry",
+        "class": "Class",
+        "level": "Level",
+        "rarity": "Rarity",
+        "added": "Added"
+      }
     },
     "property": {
       "bool": {

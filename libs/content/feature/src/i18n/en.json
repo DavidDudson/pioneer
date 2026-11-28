@@ -33,7 +33,6 @@
   "column": {
     "name": "Name",
     "kind": "Kind",
-    "level": "Level",
     "role": "Role",
     "size": "Size",
     "hitPoints": "HP",

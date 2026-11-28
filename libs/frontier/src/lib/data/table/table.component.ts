@@ -2,17 +2,15 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, 
 import { FlexRender, injectTable } from '@tanstack/angular-table';
 import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
-import * as z from 'zod';
 
+import { injectTranslate } from '../../locale/inject-translate';
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser/column-chooser.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
-import { TABLE_FEATURES } from './table-features';
+import { HEADER_KEY, TABLE_FEATURES } from './table-features';
 import type { TableColumn, TableFeatureSet, TableHeader } from './table-features';
 import { sortAfter, toSortingState } from './table-sort';
-
-const HEADER_TEXT = z.string();
 
 const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
 
@@ -38,7 +36,10 @@ const cellClasses = cva('border-b border-line-subtle px-sm py-xs text-fg-default
 /** What the *Columns* control needs to know of a column. */
 interface KnownColumn {
   readonly id: string;
+  /** The header's message key, or the id for a header that is not one. */
   readonly label: string;
+  /** Whether `label` is a message key, so a header that is not one is shown as it is. */
+  readonly translated: boolean;
   readonly hideable: boolean;
   readonly defaultHidden: boolean;
 }
@@ -51,12 +52,13 @@ function describe<TData extends RowData>(column: TableColumn<TData>): Array<Know
     return [];
   }
 
-  const header = HEADER_TEXT.safeParse(column.header);
+  const header = HEADER_KEY.safeParse(column.header);
 
   return [
     {
       id,
       label: header.success ? header.data : id,
+      translated: header.success,
       hideable: column.meta?.hideable === true || column.meta?.defaultHidden === true,
       defaultHidden: column.meta?.defaultHidden === true,
     },
@@ -140,7 +142,10 @@ export class Table<TData extends RowData> {
   protected readonly captionClasses = computed(() => captionVariants({ hidden: this.hideCaption() }));
   protected readonly ariaSort = ariaSort<TData>;
 
+  readonly #translate = injectTranslate();
+
   protected readonly toggles = computed<ReadonlyArray<ColumnToggle>>(() => {
+    const translate = this.#translate();
     const hidden = this.hidden();
     const lastShown = this.known().length - hidden.length === 1;
 
@@ -149,7 +154,12 @@ export class Table<TData extends RowData> {
       .map((column) => {
         const visible = !hidden.includes(column.id);
 
-        return { id: column.id, label: column.label, visible, locked: visible && lastShown };
+        return {
+          id: column.id,
+          label: column.translated ? translate(column.label) : column.label,
+          visible,
+          locked: visible && lastShown,
+        };
       });
   });
   protected readonly isDefault = computed(() => sameIds(this.hidden(), this.defaultHidden()));

@@ -87,8 +87,7 @@
     "columns": {
       "name": "Character",
       "ancestry": "Ancestry",
-      "class": "Class",
-      "level": "Level"
+      "class": "Class"
     },
     "loadError": "Could not load the party.",
     "empty": "No characters in the party yet.",

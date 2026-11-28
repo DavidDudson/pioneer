@@ -117,14 +117,9 @@ export class RulesPlaygroundPage {
   protected readonly schemaQuery = signal('');
   protected readonly schemaSort = signal<PickerSort | undefined>(undefined);
   protected readonly schemas = computed(() => shownRulesRows(this.#schemas(), this.schemaQuery(), this.schemaSort()));
-  protected readonly schemaColumns = computed(() => {
-    this.#messages();
-
-    return rulesPickerColumns<RulesTool>(
-      this.#i18n.translate('play.rules.columns.name'),
-      this.#i18n.translate('play.rules.columns.group'),
-    );
-  });
+  protected readonly schemaColumns = computed(() =>
+    rulesPickerColumns<RulesTool>('play.rules.columns.name', 'play.rules.columns.group'),
+  );
 
   /** Example entries for the content entry mode, one per kind with a schema. */
   readonly #entryKinds = computed((): ReadonlyArray<RulesPickerRow<RegisteredKind>> => {
@@ -141,14 +136,9 @@ export class RulesPlaygroundPage {
   protected readonly entryKinds = computed(() =>
     shownRulesRows(this.#entryKinds(), this.entryKindQuery(), this.entryKindSort()),
   );
-  protected readonly entryKindColumns = computed(() => {
-    this.#messages();
-
-    return rulesPickerColumns<RegisteredKind>(
-      this.#i18n.translate('play.rules.columns.name'),
-      this.#i18n.translate('play.rules.columns.kind'),
-    );
-  });
+  protected readonly entryKindColumns = computed(() =>
+    rulesPickerColumns<RegisteredKind>('play.rules.columns.name', 'play.rules.columns.kind'),
+  );
   protected readonly rowValue = rulesRowValue;
   protected readonly rowLabel = rulesRowLabel;
 
