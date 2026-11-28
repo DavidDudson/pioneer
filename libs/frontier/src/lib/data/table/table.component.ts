@@ -1,9 +1,11 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import { FlexRender, injectTable } from '@tanstack/angular-table';
 import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
 import { Button } from '../../actions/button/button.component';
+import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { injectTranslate } from '../../locale/inject-translate';
 import { elevationVariants, figureClasses } from '../../tokens';
 import { TableDensity } from '../table-view/table-view-store';
@@ -14,6 +16,7 @@ import { TableHeaderCell } from './header-cell/header-cell.component';
 import { TableDensityControl } from './table-density/table-density.component';
 import { HEADER_KEY, TABLE_FEATURES } from './table-features';
 import type { TableColumn, TableFeatureSet, TableHeader } from './table-features';
+import { TableNotice } from './table-notice/table-notice.component';
 import { sortAfter, toSortingState } from './table-sort';
 
 const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
@@ -27,7 +30,18 @@ function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | u
 const TableMessage = {
   LoadMore: 'frontier.table.loadMore',
   LoadingMore: 'frontier.table.loadingMore',
+  Loading: 'frontier.async.loading',
 } as const;
+
+const SKELETON_ROW_COUNT = 5;
+
+/** The placeholder rows shown while the first rows load. */
+const SKELETON_ROWS: ReadonlyArray<number> = Array.from({ length: SKELETON_ROW_COUNT }).map((_empty, row) => row);
+
+/** What the body shows. */
+const TableBody = { Loading: 'loading', Failed: 'failed', Empty: 'empty', Rows: 'rows' } as const;
+
+type TableBody = ValueOf<typeof TableBody>;
 
 /** `isolate` keeps the pinned cells' z-index inside the table; a sticky header needs a height to scroll under. */
 const scrollerVariants = cva('block w-full overflow-x-auto', {
@@ -141,11 +155,15 @@ function sameIds(left: ReadonlyArray<string>, right: ReadonlyArray<string>): boo
  *
  * A table over a server's list sets `manualSorting` (the rows arrive sorted; `sorting` only reports the choice) and
  * `hasMore`: a *Load more* button follows the rows and emits `loadMore`, busy while `loadingMore`.
+ * While the first rows load (`loading`) the body is a skeleton with one cell per visible column, never a spinner.
+ * `failed` replaces the rows with an inline error and a *Retry* button that emits `retry`. With no rows left the
+ * table shows an empty state; when `filtered` says a filter caused that, it offers *Clear filters*, which emits
+ * `cleared`.
  * `stickyHeader` and `stickyFirstColumn` keep the header row and the first column in view as the table scrolls.
  */
 @Component({
   selector: 'fr-table',
-  imports: [Button, ColumnChooser, FlexRender, TableDensityControl, TableHeaderCell],
+  imports: [Button, ColumnChooser, FlexRender, TableDensityControl, TableHeaderCell, Skeleton, TableNotice],
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -173,8 +191,18 @@ export class Table<TData extends RowData> {
   public readonly stickyHeader = input(false, { transform: booleanAttribute });
   /** Keeps the first column at the start while the table scrolls sideways. */
   public readonly stickyFirstColumn = input(false, { transform: booleanAttribute });
+  /** The first rows are on their way: the body is a skeleton, one cell per visible column. */
+  public readonly loading = input(false, { transform: booleanAttribute });
+  /** The rows could not be loaded: the body is an inline error with *Retry*. */
+  public readonly failed = input(false, { transform: booleanAttribute });
+  /** A filter or search is narrowing the rows: an empty table offers *Clear filters*. */
+  public readonly filtered = input(false, { transform: booleanAttribute });
   /** The user asked for the next rows. */
   public readonly loadMore = output();
+  /** The user pressed *Retry* after a failed load. */
+  public readonly retry = output();
+  /** The user pressed *Clear filters* on the empty state. */
+  public readonly cleared = output();
   /** Shows the *Row density* switch beside the *Columns* control. */
   public readonly showDensity = input(false, { transform: booleanAttribute });
 
@@ -245,8 +273,30 @@ export class Table<TData extends RowData> {
     return translate(this.loadingMore() ? TableMessage.LoadingMore : TableMessage.LoadMore);
   });
   protected readonly statusClasses = statusClasses;
-  /** Said to a screen reader while the next rows load, and nothing otherwise. */
-  protected readonly status = computed(() => (this.loadingMore() ? this.loadMoreLabel() : ''));
+  /** Which of loading, failed, empty or rows the body shows. Loading wins over a failure, which wins over empty. */
+  protected readonly body = computed<TableBody>(() => {
+    if (this.loading()) {
+      return TableBody.Loading;
+    }
+
+    if (this.failed()) {
+      return TableBody.Failed;
+    }
+
+    return this.data().length === 0 ? TableBody.Empty : TableBody.Rows;
+  });
+  /** One cell spans every visible column, so a message sits across the whole table. */
+  protected readonly columnCount = computed(() => Math.max(this.table.getVisibleLeafColumns().length, 1));
+  protected readonly busy = computed(() => (this.loading() ? 'true' : undefined));
+  protected readonly skeletonRows = SKELETON_ROWS;
+  /** Said to a screen reader while rows load, and nothing otherwise. */
+  protected readonly status = computed(() => {
+    if (this.loading()) {
+      return this.#translate()(TableMessage.Loading);
+    }
+
+    return this.loadingMore() ? this.loadMoreLabel() : '';
+  });
 
   protected headerClass(first: boolean): string {
     const classes = this.headerCellClasses();

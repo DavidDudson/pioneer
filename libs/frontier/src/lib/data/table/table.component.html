@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/cyclomatic-complexity -- the body is one switch over loading, rows and the notice; each branch is trivial -->
 <fr-column-chooser
   [columns]="toggles()"
   [atDefault]="isDefault()"
@@ -6,7 +7,7 @@
 />
 <fr-table-density [class]="densitySwitchClasses()" [(value)]="density" />
 <div [class]="scrollerClasses()">
-  <table [class]="tableClasses">
+  <table [class]="tableClasses" [attr.aria-busy]="busy()">
     <caption [class]="captionClasses()">
       {{
         caption()
@@ -26,14 +27,39 @@
       }
     </thead>
     <tbody>
-      @for (row of table.getRowModel().rows; track row.id) {
-        <tr>
-          @for (cell of row.getVisibleCells(); track cell.id; let first = $first) {
-            <td [class]="cellClass(first)">
-              <ng-container *flexRenderCell="cell; let value">{{ value }}</ng-container>
-            </td>
+      @switch (body()) {
+        @case ('loading') {
+          @for (row of skeletonRows; track row) {
+            <tr>
+              @for (column of table.getVisibleLeafColumns(); track column.id; let first = $first) {
+                <td [class]="cellClass(first)"><fr-skeleton width="full" /></td>
+              }
+            </tr>
           }
-        </tr>
+        }
+        @case ('rows') {
+          @for (row of table.getRowModel().rows; track row.id) {
+            <tr>
+              @for (cell of row.getVisibleCells(); track cell.id; let first = $first) {
+                <td [class]="cellClass(first)">
+                  <ng-container *flexRenderCell="cell; let value">{{ value }}</ng-container>
+                </td>
+              }
+            </tr>
+          }
+        }
+        @default {
+          <tr>
+            <td [class]="cellClass(true)" [attr.colspan]="columnCount()">
+              <fr-table-notice
+                [failed]="body() === 'failed'"
+                [filtered]="filtered()"
+                (retry)="retry.emit()"
+                (cleared)="cleared.emit()"
+              />
+            </td>
+          </tr>
+        }
       }
     </tbody>
   </table>

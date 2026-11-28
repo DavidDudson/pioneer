@@ -43,6 +43,7 @@
       "resetColumns": "Reset columns",
       "loadMore": "Load more",
       "loadingMore": "Loading more",
+      "retry": "Retry",
       "sortRank": "Sort position {rank}",
       "sample": {
         "name": "Name",

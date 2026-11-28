@@ -154,10 +154,10 @@ describe(Table, () => {
     expect(caption?.classList).toContain('sr-only');
   });
 
-  it('renders a header row and an empty body with no data', async () => {
+  it('renders a header row and one empty-state row with no data', async () => {
     const { host } = await render({ data: [] });
     expect(headers(host)).toHaveLength(2);
-    expect(rows(host)).toStrictEqual([]);
+    expect(rows(host)).toStrictEqual([['Nothing here yet.']]);
   });
 
   it('follows new data', async () => {

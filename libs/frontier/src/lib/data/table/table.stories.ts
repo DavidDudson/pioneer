@@ -79,7 +79,37 @@ export const Default: TableStory = {};
 /** The caption still names the table for screen readers. */
 export const HiddenCaption: TableStory = { args: { hideCaption: true } };
 
+/** No rows: an empty state fills the body, under the header. */
 export const Empty: TableStory = { args: { data: [] } };
+
+/** A filter caused the empty table: *Clear filters* emits `cleared`. */
+export const FilteredEmpty: TableStory = {
+  args: { data: [], filtered: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Nothing matches.')).toBeVisible();
+    await expect(canvas.getByRole('button', { name: 'Clear filters' })).toBeEnabled();
+  },
+};
+
+/** The first rows are loading: one skeleton cell per visible column, no spinner. */
+export const Loading: TableStory = {
+  args: { data: [], loading: true },
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelectorAll('tbody td fr-skeleton')).toHaveLength(20);
+    await expect(canvasElement.querySelector('table')).toHaveAttribute('aria-busy', 'true');
+  },
+};
+
+/** The rows could not load: an inline error and *Retry*, which emits `retry`. */
+export const Failed: TableStory = {
+  args: { data: [], failed: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('alert')).toHaveTextContent('Could not load this.');
+    await expect(canvas.getByRole('button', { name: 'Retry' })).toBeEnabled();
+  },
+};
 
 interface Trait {
   readonly id: string;
