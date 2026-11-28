@@ -15,7 +15,8 @@ const meta: Meta<CardHeader> = {
   args: { heading: 'Notes', description: 'Visible to the GM' },
   render: (args) => ({
     props: args,
-    template: `<fr-card-header ${argsToTemplate(args)}><fr-button variant="ghost">Edit</fr-button></fr-card-header>`,
+    // `argsToTemplate` leaves out an `undefined` arg, and `heading` is a required input: bind the two explicitly.
+    template: `<fr-card-header [heading]="heading" [description]="description" ${argsToTemplate(args, { exclude: ['heading', 'description'] })}><fr-button variant="ghost">Edit</fr-button></fr-card-header>`,
   }),
 };
 
