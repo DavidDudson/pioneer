@@ -10980,7 +10980,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["self:companion:animal-companion"]
     }
   },
   {
@@ -51020,7 +51021,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["self:companion:animal-companion"]
     }
   },
   {

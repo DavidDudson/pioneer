@@ -22305,7 +22305,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["self:companion:animal-companion"]
     }
   },
   {

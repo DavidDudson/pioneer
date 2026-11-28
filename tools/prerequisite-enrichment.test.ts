@@ -49,7 +49,7 @@ describe('prerequisite enrichment', () => {
   });
 
   test('sets each clause of a feat with several, parsed or not', () => {
-    const prerequisites = prose('Shield Block; an animal companion');
+    const prerequisites = prose('Shield Block; a construct companion');
     const warden = feat('Shield Warden', { prerequisites });
 
     expect(enrich([SHIELD_BLOCK, warden])).toStrictEqual([
@@ -58,7 +58,7 @@ describe('prerequisite enrichment', () => {
         prerequisites,
         prerequisiteClauses: [
           { text: 'Shield Block', predicate: ['feat:shield-block'] },
-          { text: 'an animal companion', predicate: undefined },
+          { text: 'a construct companion', predicate: undefined },
         ],
       }),
     ]);
@@ -83,8 +83,8 @@ describe('prerequisite enrichment', () => {
 
   test('leaves a feat that already has its clauses', () => {
     const read = feat('Read', {
-      prerequisites: prose('Shield Block; an animal companion'),
-      prerequisiteClauses: [{ text: 'Shield Block' }, { text: 'an animal companion' }],
+      prerequisites: prose('Shield Block; a construct companion'),
+      prerequisiteClauses: [{ text: 'Shield Block' }, { text: 'a construct companion' }],
     });
 
     expect(enrich([SHIELD_BLOCK, read])).toBeUndefined();
@@ -96,7 +96,7 @@ describe('prerequisite enrichment', () => {
       prerequisitePredicate: ['feat:other'],
     });
 
-    const unmatched = feat('Unmatched', { prerequisites: prose('an animal companion') });
+    const unmatched = feat('Unmatched', { prerequisites: prose('a construct companion') });
 
     const enriched = enrich([
       SHIELD_BLOCK,

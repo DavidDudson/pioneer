@@ -32,14 +32,18 @@ describe('prerequisite coverage', () => {
   test('counts feats with prerequisites and lists those without a predicate', () => {
     const entries = [
       feat('shield-warden', { prerequisites: prose('Shield Block'), prerequisitePredicate: ['feat:shield-block'] }),
-      feat('mature-companion', { prerequisites: prose('an animal companion') }),
+      feat('mature-companion', {
+        prerequisites: prose('an animal companion'),
+        prerequisitePredicate: ['self:companion:animal-companion'],
+      }),
+      feat('follower', { prerequisites: prose('a construct companion') }),
       feat('acrobat', { prerequisites: prose('a familiar'), prerequisitePredicate: ['self:companion:familiar'] }),
       feat('toughness'),
     ];
 
     expect(prerequisiteCoverage(entries)).toStrictEqual({
-      withPrerequisites: 3,
-      withoutPredicate: [ContentKey.parse('player-core/feat:mature-companion')],
+      withPrerequisites: 4,
+      withoutPredicate: [ContentKey.parse('player-core/feat:follower')],
     });
   });
 
