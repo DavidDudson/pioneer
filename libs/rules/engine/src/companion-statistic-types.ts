@@ -30,8 +30,12 @@ export const CompanionSource = {
   Proficiency: 'proficiency',
   /** An attribute modifier. */
   Attribute: 'attribute',
-  /** The fixed part of a formula: 10 for AC. */
+  /** The fixed part of a formula: 10 for AC, and the 3 of a familiar's Perception. */
   Base: 'base',
+  /** The master's own number: a familiar's AC and saves are its master's. */
+  Master: 'master',
+  /** A familiar ability, such as Tough or Skilled. */
+  Ability: 'ability',
 } as const;
 
 export type CompanionSource = ValueOf<typeof CompanionSource>;

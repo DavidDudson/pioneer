@@ -178,6 +178,12 @@ export {
 
 export { companionProficiencyBonus, deriveCompanionStatistics } from './companion-statistics';
 
+export { deriveFamiliarStatistics } from './familiar-statistics';
+
+export { FamiliarAbility, FamiliarSense, FamiliarSpeed } from './familiar-statistic-types';
+
+export type { FamiliarInputs, FamiliarStatistics, MasterSaves } from './familiar-statistic-types';
+
 export { companionTiersFromFeats } from './companion-tier-feats';
 
 export { CompanionSource } from './companion-statistic-types';
