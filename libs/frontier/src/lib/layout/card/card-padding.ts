@@ -4,7 +4,7 @@ import type { Signal } from '@angular/core';
 import { Space } from '../../tokens';
 
 /** Padding a part takes when it is not inside an `fr-card`. */
-export const DEFAULT_CARD_PADDING: Space = Space.Lg;
+const DEFAULT_CARD_PADDING: Space = Space.Lg;
 
 /** Lends parts the card's padding token so header, content and footer line up. */
 @Injectable()
