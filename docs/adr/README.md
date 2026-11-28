@@ -91,6 +91,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0084](0084-first-ui-languages-and-translation-workflow.md)                      | German and French first; translators submit pull requests against catalog files               |
 | [0085](0085-frontier-has-display-ui-and-text-font-roles.md)                      | Frontier has display, UI and text font roles                                                  |
 | [0086](0086-frontier-colour-scales-are-12-steps-with-both-modes-in-one-token.md) | Frontier colour scales are 12 steps with both modes in one token                              |
+| [0087](0087-hand-edited-rules-text-comes-from-foundry-first.md)                  | Hand-edited rules text comes from Foundry first, then Archives of Nethys                      |
 
 Template:
 

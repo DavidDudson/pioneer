@@ -1,6 +1,6 @@
 # 0031. Official packs are imported once from Foundry, then owned in the repo
 
-- Status: Proposed
+- Status: Proposed (the hand-edit sourcing bullet is superseded by [0087](0087-hand-edited-rules-text-comes-from-foundry-first.md))
 - Date: 2026-10-11
 
 ## Context
