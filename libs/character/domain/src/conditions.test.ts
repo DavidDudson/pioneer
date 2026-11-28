@@ -65,7 +65,7 @@ describe('condition commands', () => {
 });
 
 /** The problem `command` runs into on a character holding `held`. */
-function refusedWith(held: readonly ActiveCondition[], command: ConditionCommand): ConditionProblem | undefined {
+function refusedWith(held: ReadonlyArray<ActiveCondition>, command: ConditionCommand): ConditionProblem | undefined {
   return conditionProblem(held, command, VALUED);
 }
 

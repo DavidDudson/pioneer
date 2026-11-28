@@ -6,13 +6,13 @@ export interface ShownSense {
   /** "from Plant Form" when a battle form gives the sense; undefined otherwise. */
   readonly fromForm: string | undefined;
   /** Shown as each origin's chain and sources. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /** The senses in play, and the ones the character has without its form when a form replaced them. */
 export interface ShownSenses {
-  readonly senses: readonly ShownSense[];
-  readonly own: readonly ShownSense[];
+  readonly senses: ReadonlyArray<ShownSense>;
+  readonly own: ReadonlyArray<ShownSense>;
   /** Whether the character has no sense in play. */
   readonly empty: boolean;
   /** Whether there are own senses to offer. */

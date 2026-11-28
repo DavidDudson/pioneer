@@ -33,7 +33,7 @@ describe('Strike from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.Strike,
         slug: 'jaws',

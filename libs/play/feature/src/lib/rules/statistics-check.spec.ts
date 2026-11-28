@@ -25,7 +25,7 @@ const statistic = (selector: string, base: string): JsonObject => ({
   kind: 'check',
 });
 
-const definitions = (...statistics: readonly JsonObject[]): string => JSON.stringify(statistics);
+const definitions = (...statistics: ReadonlyArray<JsonObject>): string => JSON.stringify(statistics);
 
 /** The core rules pack's Hit Points formula. */
 const HP_FORMULA = '@ancestry.hp + (@class.hp + @attr.con) * @level';

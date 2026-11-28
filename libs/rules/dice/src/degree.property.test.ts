@@ -6,7 +6,7 @@ import { assert, constantFrom, integer, oneof, option, property, tuple } from 'f
 import { degreeOfSuccess, DegreeStepKind } from './degree';
 import { DieFace, RollTotal } from './units';
 
-const LADDER: readonly DegreeOfSuccess[] = [
+const LADDER: ReadonlyArray<DegreeOfSuccess> = [
   DegreeOfSuccess.CriticalFailure,
   DegreeOfSuccess.Failure,
   DegreeOfSuccess.Success,

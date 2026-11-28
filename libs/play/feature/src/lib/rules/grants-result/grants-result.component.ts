@@ -19,14 +19,14 @@ import { RulesResult } from '../rules-result/rules-result.component';
 const PATH_SEPARATOR = ' → ';
 
 interface ShownGrants {
-  readonly items: readonly ShownRow[];
-  readonly duplicates: readonly ShownRow[];
-  readonly conditional: readonly ShownRow[];
-  readonly open: readonly ShownRow[];
-  readonly answered: readonly ShownRow[];
-  readonly toggles: readonly ShownRow[];
-  readonly rollOptions: readonly ShownRow[];
-  readonly errors: readonly ShownRow[];
+  readonly items: ReadonlyArray<ShownRow>;
+  readonly duplicates: ReadonlyArray<ShownRow>;
+  readonly conditional: ReadonlyArray<ShownRow>;
+  readonly open: ReadonlyArray<ShownRow>;
+  readonly answered: ReadonlyArray<ShownRow>;
+  readonly toggles: ReadonlyArray<ShownRow>;
+  readonly rollOptions: ReadonlyArray<ShownRow>;
+  readonly errors: ReadonlyArray<ShownRow>;
 }
 
 const NO_ROWS: ShownGrants = {
@@ -114,19 +114,19 @@ export class GrantsResult {
   }
 
   /** The chain that led to a row, or nothing for a root the player picked. */
-  #via(via: readonly string[]): string[] {
+  #via(via: ReadonlyArray<string>): Array<string> {
     return via.length === 0
       ? []
       : [this.#i18n.translate('play.rules.grantedThrough', { path: via.join(PATH_SEPARATOR) })];
   }
 
   /** The slot as typed, and the chain to its entry. */
-  #slot(slot: string, via: readonly string[]): string[] {
+  #slot(slot: string, via: ReadonlyArray<string>): Array<string> {
     return [this.#i18n.translate('play.rules.slot', { slot }), ...this.#via(via)];
   }
 
   /** What a slot offers, or that nothing can be picked: a query no entry satisfies, or listed options none of which apply. */
-  #options(options: readonly OptionRow[]): string[] {
+  #options(options: ReadonlyArray<OptionRow>): Array<string> {
     return options.length === 0
       ? [this.#i18n.translate('play.rules.noOptions')]
       : options.map(({ value, label, summary }) => this.#option(label, value, summary));

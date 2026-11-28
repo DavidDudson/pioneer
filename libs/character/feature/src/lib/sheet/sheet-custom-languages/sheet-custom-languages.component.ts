@@ -21,7 +21,7 @@ export class SheetCustomLanguages {
   readonly #store = inject(CharacterStore);
   protected readonly Tone = BadgeTone;
 
-  protected readonly names: Signal<readonly LanguageName[]> = computed(
+  protected readonly names: Signal<ReadonlyArray<LanguageName>> = computed(
     () => this.#store.selected()?.document.build.customLanguages ?? [],
   );
 

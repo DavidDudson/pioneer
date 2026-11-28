@@ -6,7 +6,7 @@ import type { JsonObject, JsonValue } from '@pioneer/rules/sdk/testing';
 import { prerequisiteCoverage } from './prerequisite-coverage';
 
 const PACK = 'player-core';
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core feat with `data` beyond its category. */
 function feat(name: string, data: JsonObject = {}): ContentEntry {

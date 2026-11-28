@@ -266,7 +266,7 @@ export const ARCHETYPES_JOURNAL: JournalDocument = {
 };
 
 /** Every build document, so each kind's references resolve. */
-export const BUILD: readonly DocumentFixture[] = [
+export const BUILD: ReadonlyArray<DocumentFixture> = [
   DWARF,
   ANCIENT_BLOODED_DWARF,
   CHANGELING,

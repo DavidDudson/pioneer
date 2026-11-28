@@ -27,7 +27,7 @@ const STAND = ContentId.parse(pack.idOf(ContentKind.Action, 'stand'));
 const FORTITUDE = Selector.parse('save:fortitude');
 const WILL = Selector.parse('save:will');
 
-const others = (by: readonly ContentId[]): ConditionEnding => ({ kind: 'others', by, text: TEXT });
+const others = (by: ReadonlyArray<ContentId>): ConditionEnding => ({ kind: 'others', by, text: TEXT });
 
 const check = (dc?: ConditionDc): ConditionEnding => ({
   kind: 'check',

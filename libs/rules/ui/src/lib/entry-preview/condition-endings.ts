@@ -4,7 +4,7 @@ import type { PreviewEnding, PreviewEndingSource, PreviewEndingStatistic } from 
 
 /** A condition a character holds: the ways it ends, and the value held, none for an unvalued one. */
 export interface HeldCondition {
-  readonly endings: readonly ConditionEnding[];
+  readonly endings: ReadonlyArray<ConditionEnding>;
   readonly value: ConditionValue | undefined;
   /** What the character rolls for the statistics its checks name, by selector; none for a character not yet worked out. */
   readonly rolls?: ReadonlyMap<Selector, PreviewEndingStatistic>;
@@ -42,15 +42,15 @@ function checkDc(ending: ConditionEnding, value: ConditionValue | undefined): nu
 }
 
 /** The statistics the check of an ending may be rolled against; none for an ending without a check. */
-export function checkAgainst(ending: ConditionEnding): readonly Selector[] {
+export function checkAgainst(ending: ConditionEnding): ReadonlyArray<Selector> {
   return ending.kind === 'check' || ending.kind === 'action' ? (ending.check?.against ?? []) : [];
 }
 
 /** What the character rolls for each of `against` that the engine has a total for, in the order given. */
 function rolledAt(
   stats: ReadonlyMap<Selector, PreviewEndingStatistic>,
-  against: readonly Selector[],
-): readonly PreviewEndingStatistic[] {
+  against: ReadonlyArray<Selector>,
+): ReadonlyArray<PreviewEndingStatistic> {
   return against.flatMap((selector) => stats.get(selector) ?? []);
 }
 
@@ -62,7 +62,7 @@ function rolledAt(
 export function conditionEndings(
   sourceOf: EndingSourceOf,
   { endings, value, rolls = new Map() }: HeldCondition,
-): readonly PreviewEnding[] {
+): ReadonlyArray<PreviewEnding> {
   return endings.map((ending): PreviewEnding => {
     const dc = checkDc(ending, value);
     const action = ending.kind === 'action' && ending.action !== undefined ? sourceOf(ending.action) : undefined;

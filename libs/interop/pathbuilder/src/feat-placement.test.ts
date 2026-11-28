@@ -27,7 +27,7 @@ registry.register(FEAT_SLOT_FIXTURES);
 
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const NAMES: readonly FeatSlotFixture[] = ['power-attack', 'lunge', 'knockdown', 'skill-training', 'assurance'];
+const NAMES: ReadonlyArray<FeatSlotFixture> = ['power-attack', 'lunge', 'knockdown', 'skill-training', 'assurance'];
 
 const lookup = entryLookup({
   [ImportKind.Feat]: NAMES.map((name) => ({ id: featSlotFixtureId(name), name: ContentText.parse(name) })),

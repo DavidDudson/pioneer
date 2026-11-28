@@ -17,10 +17,10 @@ interface Remover {
 }
 
 /** The entries that ease each condition, by registry: a loaded registry never changes, so each is indexed once. */
-const REMOVERS = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, readonly Remover[]>>();
+const REMOVERS = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ReadonlyArray<Remover>>>();
 
 /** The removals an entry declares; none for a kind that declares none. */
-function removalsOf(entry: ContentEntry): readonly ConditionRemoval[] {
+function removalsOf(entry: ContentEntry): ReadonlyArray<ConditionRemoval> {
   if (
     entry.kind === ContentKind.Spell ||
     entry.kind === ContentKind.Feat ||
@@ -33,14 +33,14 @@ function removalsOf(entry: ContentEntry): readonly ConditionRemoval[] {
   return [];
 }
 
-function removersOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly Remover[]> {
+function removersOf(registry: ContentRegistry): ReadonlyMap<ContentId, ReadonlyArray<Remover>> {
   const cached = REMOVERS.get(registry);
 
   if (cached !== undefined) {
     return cached;
   }
 
-  const byCondition = new Map<ContentId, Remover[]>();
+  const byCondition = new Map<ContentId, Array<Remover>>();
 
   for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
     for (const removal of removalsOf(entry)) {
@@ -105,7 +105,7 @@ export function conditionEaseOptions(
   registry: ContentRegistry,
   character: Character,
   condition: ContentId,
-): readonly PreviewEaseOption[] {
+): ReadonlyArray<PreviewEaseOption> {
   const removers = removersOf(registry).get(condition) ?? [];
 
   if (removers.length === 0) {

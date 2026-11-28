@@ -13,7 +13,7 @@ export interface IdentityParams {
   readonly subclass: string;
 }
 
-function nameOf(lines: readonly BuildLine[], part: BuildPart): string | undefined {
+function nameOf(lines: ReadonlyArray<BuildLine>, part: BuildPart): string | undefined {
   const value = lines.find((line) => line.part === part)?.value;
 
   return value !== undefined && 'name' in value ? value.name : undefined;
@@ -23,7 +23,7 @@ function nameOf(lines: readonly BuildLine[], part: BuildPart): string | undefine
  * The character's level, ancestry, class and subclass for the header line, each by the name the build summary shows;
  * a part not picked yet is left out.
  */
-export function sheetIdentity(character: Character, lines: readonly BuildLine[]): IdentityParams {
+export function sheetIdentity(character: Character, lines: ReadonlyArray<BuildLine>): IdentityParams {
   const ancestry = nameOf(lines, BuildPart.Ancestry);
   const characterClass = nameOf(lines, BuildPart.Class);
   const subclass = nameOf(lines, BuildPart.Subclass);

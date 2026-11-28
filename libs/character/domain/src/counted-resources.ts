@@ -118,11 +118,11 @@ export function wandOverchargeKey(item: InventoryItemId): UseCountKey {
  * several wands has that many casts, since each one is used up on its own. Both come back at daily preparations.
  */
 export function wandMaxima(
-  items: readonly InventoryItem[],
+  items: ReadonlyArray<InventoryItem>,
   wandOf: (id: ContentId) => WandSpell | undefined,
 ): ReadonlyMap<UseCountKey, CountedMaximum> {
   return new Map(
-    items.flatMap(({ id, item, quantity }): [UseCountKey, CountedMaximum][] => {
+    items.flatMap(({ id, item, quantity }): Array<[UseCountKey, CountedMaximum]> => {
       const wand = wandOf(item);
 
       return wand === undefined
@@ -185,7 +185,7 @@ function frequencyTerms(frequency: Frequency): Pick<CountedMaximum, 'boundary' |
 }
 
 /** The slots of each entry and each of its pools, one maximum per rank that has any; cantrips are not counted. */
-export function slotMaxima(entries: readonly SpellcastingInPlay[]): ReadonlyMap<SlotCountKey, CountedMaximum> {
+export function slotMaxima(entries: ReadonlyArray<SpellcastingInPlay>): ReadonlyMap<SlotCountKey, CountedMaximum> {
   return new Map(
     entries.flatMap((entry) => [
       ...entry.slots.ranks.map(({ rank, count }): [SlotCountKey, CountedMaximum] => [
@@ -204,11 +204,11 @@ export function slotMaxima(entries: readonly SpellcastingInPlay[]): ReadonlyMap<
 
 /** The uses of each feat or action the character has with a `frequency`. */
 export function useMaxima(
-  granted: readonly ContentId[],
+  granted: ReadonlyArray<ContentId>,
   frequencyOf: (id: ContentId) => Frequency | undefined,
 ): ReadonlyMap<UseCountKey, CountedMaximum> {
   return new Map(
-    granted.flatMap((id): [UseCountKey, CountedMaximum][] => {
+    granted.flatMap((id): Array<[UseCountKey, CountedMaximum]> => {
       const frequency = frequencyOf(id);
 
       return frequency === undefined
@@ -232,12 +232,12 @@ export function useMaxima(
  * own.
  */
 export function activationMaxima(
-  items: readonly InventoryItem[],
-  activationsOf: (item: InventoryItem) => readonly Activation[],
+  items: ReadonlyArray<InventoryItem>,
+  activationsOf: (item: InventoryItem) => ReadonlyArray<Activation>,
 ): ReadonlyMap<UseCountKey, CountedMaximum> {
   return new Map(
     items.flatMap((line) =>
-      activationsOf(line).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
+      activationsOf(line).flatMap(({ slug, frequency, overcharge }): Array<[UseCountKey, CountedMaximum]> => {
         if (frequency === undefined) {
           return [];
         }

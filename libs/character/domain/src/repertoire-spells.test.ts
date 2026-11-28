@@ -40,11 +40,11 @@ function bard(level: number, picks: Readonly<Record<string, SpellFixture>> = {})
   return builder.build().document;
 }
 
-function repertoireKeys(document: CharacterDocument): string[] {
+function repertoireKeys(document: CharacterDocument): Array<string> {
   return preparedSlots(document, preparedReads(document, content)).map((slot) => String(slot.key));
 }
 
-function signaturesOf(document: CharacterDocument): SignatureSlot[] {
+function signaturesOf(document: CharacterDocument): Array<SignatureSlot> {
   return signatureSlots(document, preparedReads(document, content));
 }
 
@@ -52,7 +52,7 @@ function signatureOf(document: CharacterDocument, key: string): SignatureSlot | 
   return signaturesOf(document).find((slot) => slot.key === SlotKey.parse(key));
 }
 
-function ranks(...values: readonly number[]): SpellRank[] {
+function ranks(...values: ReadonlyArray<number>): Array<SpellRank> {
   return values.map((value) => SpellRank.parse(value));
 }
 

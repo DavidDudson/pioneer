@@ -123,7 +123,7 @@ describe('heldShields in a battle form with a shield', () => {
   });
 });
 
-const held = (rank: number): readonly HeldShield[] =>
+const held = (rank: number): ReadonlyArray<HeldShield> =>
   heldShields(EMPTY_INVENTORY, content, () => rulesOfEffect('shield-spell', rank));
 
 describe('heldShields with a shield an effect gives', () => {

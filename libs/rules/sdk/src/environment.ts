@@ -62,7 +62,7 @@ export const EnvironmentConsequence = z
 export type EnvironmentConsequence = z.infer<typeof EnvironmentConsequence>;
 
 /** Restrictions name one thing each: a repeated id is an error at its index naming it. */
-function uniqueRestrictionIds(context: z.core.ParsePayload<readonly EnvironmentRestriction[]>): void {
+function uniqueRestrictionIds(context: z.core.ParsePayload<ReadonlyArray<EnvironmentRestriction>>): void {
   const seen = new Set<string>();
 
   for (const [index, { id }] of context.value.entries()) {

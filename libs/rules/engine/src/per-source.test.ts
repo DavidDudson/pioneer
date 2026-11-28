@@ -19,7 +19,7 @@ interface Family {
   readonly selector: string;
   readonly per: string;
   readonly base: string;
-  readonly domains?: readonly string[];
+  readonly domains?: ReadonlyArray<string>;
   readonly kind?: string;
 }
 
@@ -68,9 +68,9 @@ function character(json: JsonObject = {}): StatisticInputs {
 }
 
 function derive(
-  definitions: readonly StatisticDefinition[],
+  definitions: ReadonlyArray<StatisticDefinition>,
   inputs: StatisticInputs,
-  rules: readonly RuleInPlay[] = [],
+  rules: ReadonlyArray<RuleInPlay> = [],
 ): ReadonlyMap<Selector, StatisticResult> {
   return deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
@@ -82,7 +82,7 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
   return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
 }
 
-function inputIssues(json: JsonObject): readonly FieldIssue[] {
+function inputIssues(json: JsonObject): ReadonlyArray<FieldIssue> {
   const result = StatisticInputsJson.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);

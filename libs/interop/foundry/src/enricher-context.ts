@@ -36,7 +36,7 @@ export interface EnricherContext {
 }
 
 /** `text` as a run piece with the surrounding marks; nothing for empty text. */
-export function textRun(text: string | undefined, { marks }: EnricherContext): RunNode[] {
+export function textRun(text: string | undefined, { marks }: EnricherContext): Array<RunNode> {
   return text === undefined || text === '' ? [] : [{ type: InlineKind.Text, text, marks }];
 }
 

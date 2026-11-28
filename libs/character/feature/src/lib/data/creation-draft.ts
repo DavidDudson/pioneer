@@ -53,8 +53,8 @@ export function isValidName(name: string): boolean {
 export function draftPicks(
   draft: CreationDraft,
   subclassSlot: SlotKey | undefined,
-): readonly (readonly [SlotKey, ChoiceValue])[] {
-  const wanted: readonly (readonly [SlotKey | undefined, string])[] = [
+): ReadonlyArray<readonly [SlotKey, ChoiceValue]> {
+  const wanted: ReadonlyArray<readonly [SlotKey | undefined, string]> = [
     [HERITAGE_SLOT, draft.heritage],
     [BACKGROUND_SLOT, draft.background],
     [CLASS_SLOT, draft.class],

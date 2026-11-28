@@ -31,7 +31,7 @@ type AdjustmentChange =
 /** An `AdjustModifier` in play. */
 export interface Adjustment {
   readonly id: RuleId;
-  readonly targets: readonly ModifierTarget[];
+  readonly targets: ReadonlyArray<ModifierTarget>;
   /** Only modifiers with this slug; all of them on the statistic when undefined. */
   readonly slug: RuleSlug | undefined;
   readonly predicate: Predicate | undefined;
@@ -42,8 +42,8 @@ export interface Adjustment {
 
 /** The rule elements in play that bear on statistics' modifiers. */
 export interface ModifierRules {
-  readonly modifiers: readonly ModifierSource[];
-  readonly adjustments: readonly Adjustment[];
+  readonly modifiers: ReadonlyArray<ModifierSource>;
+  readonly adjustments: ReadonlyArray<Adjustment>;
 }
 
 /** Foundry's default rule element priority, for an element that sets none. */
@@ -91,9 +91,9 @@ function adjustment(rule: RuleInPlay, element: AdjustModifierElement): Adjustmen
 }
 
 /** The modifiers (`FlatModifier`) and adjustments (`AdjustModifier`) among the rules; other elements are ignored. */
-export function modifierRules(rules: readonly RuleInPlay[]): ModifierRules {
-  const modifiers: ModifierSource[] = [];
-  const adjustments: Adjustment[] = [];
+export function modifierRules(rules: ReadonlyArray<RuleInPlay>): ModifierRules {
+  const modifiers: Array<ModifierSource> = [];
+  const adjustments: Array<Adjustment> = [];
 
   for (const rule of rules) {
     const { element } = rule;

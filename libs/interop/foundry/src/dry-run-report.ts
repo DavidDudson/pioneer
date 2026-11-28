@@ -24,11 +24,11 @@ export interface SkipCount {
 }
 
 export interface DryRunReport {
-  readonly imported: readonly ImportCount[];
-  readonly skipped: readonly SkipCount[];
+  readonly imported: ReadonlyArray<ImportCount>;
+  readonly skipped: ReadonlyArray<SkipCount>;
 }
 
-const REASON_ORDER: readonly SkipReason[] = Object.values(Reason);
+const REASON_ORDER: ReadonlyArray<SkipReason> = Object.values(Reason);
 
 /**
  * Reasons counted as one group whatever the detail: parse errors differ per file (the CLI lists them), and legacy
@@ -36,7 +36,7 @@ const REASON_ORDER: readonly SkipReason[] = Object.values(Reason);
  */
 const UNGROUPED: ReadonlySet<SkipReason> = new Set([Reason.Unreadable, Reason.Legacy]);
 
-function tally<Key>(keys: readonly Key[], keyOf: (key: Key) => string): Map<string, [Key, number]> {
+function tally<Key>(keys: ReadonlyArray<Key>, keyOf: (key: Key) => string): Map<string, [Key, number]> {
   const counts = new Map<string, [Key, number]>();
 
   for (const key of keys) {
@@ -76,20 +76,20 @@ export interface KeyCount {
 /** What translating the selected entries' envelopes left over, each list most frequent first. */
 export interface TranslationReport {
   readonly entries: number;
-  readonly failures: readonly KeyCount[];
-  readonly untranslatedRules: readonly KeyCount[];
+  readonly failures: ReadonlyArray<KeyCount>;
+  readonly untranslatedRules: ReadonlyArray<KeyCount>;
   /** By key and reason (`TokenLight token-only`): dropped on purpose, so not gaps. */
-  readonly droppedRules: readonly KeyCount[];
-  readonly unknownTraits: readonly KeyCount[];
+  readonly droppedRules: ReadonlyArray<KeyCount>;
+  readonly unknownTraits: ReadonlyArray<KeyCount>;
   /** By entries that use it. */
-  readonly unknownMarkup: readonly KeyCount[];
+  readonly unknownMarkup: ReadonlyArray<KeyCount>;
   /** By entries that use it. */
-  readonly untranslatedEnrichers: readonly KeyCount[];
+  readonly untranslatedEnrichers: ReadonlyArray<KeyCount>;
   /** By reason and key (`missing-key PF2E.SpecificRule.Prompt.Skill`). */
-  readonly unresolvedText: readonly KeyCount[];
+  readonly unresolvedText: ReadonlyArray<KeyCount>;
 }
 
-function keyCounts(keys: readonly string[]): readonly KeyCount[] {
+function keyCounts(keys: ReadonlyArray<string>): ReadonlyArray<KeyCount> {
   return [...tally(keys, (key) => key).values()]
     .map(([key, count]) => ({ key, count }))
     .toSorted((left, right) => right.count - left.count || left.key.localeCompare(right.key));
@@ -124,17 +124,17 @@ export interface KindCount {
 
 /** What building kind data and vocabulary entries brought in and left over, each list most frequent first. */
 export interface KindDataReport {
-  readonly kindData: readonly KindCount[];
-  readonly vocabulary: readonly KindCount[];
+  readonly kindData: ReadonlyArray<KindCount>;
+  readonly vocabulary: ReadonlyArray<KindCount>;
   /** By reason and field (`unmapped-field deathNote`). */
-  readonly kindDataGaps: readonly KeyCount[];
+  readonly kindDataGaps: ReadonlyArray<KeyCount>;
   /** By kind and reason (`language unmapped-value`). */
-  readonly vocabularyGaps: readonly KeyCount[];
+  readonly vocabularyGaps: ReadonlyArray<KeyCount>;
   /** The archetypes that set a dedication lock of their own, by slug and lock; Player Core's two are the default. */
-  readonly dedicationLocks: readonly KeyCount[];
+  readonly dedicationLocks: ReadonlyArray<KeyCount>;
 }
 
-function kindCounts(kinds: readonly ContentKind[]): readonly KindCount[] {
+function kindCounts(kinds: ReadonlyArray<ContentKind>): ReadonlyArray<KindCount> {
   return keyCounts(kinds).map(({ key, count }) => ({ kind: ContentKindSchema.parse(key), count }));
 }
 
@@ -170,10 +170,10 @@ interface CreatureCount {
 
 /** What a creature import would bring in, by book, role and level; what it would skip; and what it has no home for. */
 export interface CreatureReport {
-  readonly imported: readonly CreatureCount[];
-  readonly skipped: readonly SkipCount[];
+  readonly imported: ReadonlyArray<CreatureCount>;
+  readonly skipped: ReadonlyArray<SkipCount>;
   /** Foundry actor fields and embedded item types the stat block has no home for, by how many creatures have each. */
-  readonly fieldGaps: readonly KeyCount[];
+  readonly fieldGaps: ReadonlyArray<KeyCount>;
 }
 
 export function creatureReport({ selected, skipped }: CreatureSelection): CreatureReport {

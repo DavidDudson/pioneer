@@ -36,14 +36,14 @@ function pick(stock: Inventory, index: number): InventoryItem {
 }
 
 /** The coins of each denomination the two inventories hold between them. */
-function coinTotals(giver: Inventory, recipient: Inventory): readonly number[] {
+function coinTotals(giver: Inventory, recipient: Inventory): ReadonlyArray<number> {
   const [left, right] = [giver.coins, recipient.coins];
 
   return [left.pp + right.pp, left.gp + right.gp, left.sp + right.sp, left.cp + right.cp];
 }
 
 /** The ids of every line the two inventories hold between them, sorted. */
-function lineIds(giver: Inventory, recipient: Inventory): readonly string[] {
+function lineIds(giver: Inventory, recipient: Inventory): ReadonlyArray<string> {
   return [...giver.items, ...recipient.items].map((each) => each.id).toSorted();
 }
 

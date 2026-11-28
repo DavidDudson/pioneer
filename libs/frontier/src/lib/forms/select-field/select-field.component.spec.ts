@@ -7,7 +7,7 @@ import type { ComponentInputs } from '../../testing/component-inputs';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { SelectField } from './select-field.component';
 
-const ANCESTRIES: readonly SelectOption<string>[] = [
+const ANCESTRIES: ReadonlyArray<SelectOption<string>> = [
   { value: 'elf', label: 'Elf' },
   { value: 'dwarf', label: 'Dwarf' },
   { value: 'human', label: 'Human' },

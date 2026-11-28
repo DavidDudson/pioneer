@@ -22,7 +22,7 @@ export interface TransferAnswer {
  */
 export abstract class ItemTransferRepository {
   /** The campaign's offers of either kind that have not been answered or withdrawn, oldest first; id breaks ties. */
-  public abstract listPending(campaignId: CampaignId): Promise<readonly Transfer[]>;
+  public abstract listPending(campaignId: CampaignId): Promise<ReadonlyArray<Transfer>>;
 
   /** The campaign's offer of either kind, in any status; none when the campaign has no such offer. */
   public abstract findById(campaignId: CampaignId, id: ItemTransferId): Promise<Transfer | undefined>;

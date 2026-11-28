@@ -15,7 +15,7 @@ export interface StaffSpell {
  * The spells a staff entry holds, cantrips first, or undefined when the entry is no staff: only a weapon or an item
  * with typed `staff` spells is one (play-and-campaigns.md, "Staves and charged items").
  */
-export function staffSpellsOf(entry: ItemEntry | undefined): readonly StaffSpell[] | undefined {
+export function staffSpellsOf(entry: ItemEntry | undefined): ReadonlyArray<StaffSpell> | undefined {
   if (entry?.kind !== ContentKind.Weapon && entry?.kind !== ContentKind.Equipment) {
     return undefined;
   }
@@ -26,7 +26,7 @@ export function staffSpellsOf(entry: ItemEntry | undefined): readonly StaffSpell
 }
 
 /** The spells an inventory item holds as a staff, or undefined when the item is not one. */
-export function staffSpells(item: InventoryItem, content: ItemContent): readonly StaffSpell[] | undefined {
+export function staffSpells(item: InventoryItem, content: ItemContent): ReadonlyArray<StaffSpell> | undefined {
   return staffSpellsOf(content.get(item.item));
 }
 

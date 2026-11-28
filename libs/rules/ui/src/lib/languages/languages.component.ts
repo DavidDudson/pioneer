@@ -46,7 +46,7 @@ function rowOf({ key, name, from, slot }: LanguageLine, remove: RemoveLanguage):
 })
 export class LanguagesView {
   /** The languages in sheet order, or undefined while they load. */
-  public readonly lines = input<readonly LanguageLine[] | undefined>();
+  public readonly lines = input<ReadonlyArray<LanguageLine> | undefined>();
   public readonly remove = input<RemoveLanguage>(async () => undefined);
 
   protected readonly rows = computed(() => {

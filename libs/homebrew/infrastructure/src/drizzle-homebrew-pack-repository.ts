@@ -87,19 +87,19 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     this.#db = db;
   }
 
-  public override async listOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+  public override async listOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return this.#listFor(and(eq(contentPacks.ownerId, ownerId), isNull(contentPacks.archivedAt)));
   }
 
-  public override async listArchivedOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+  public override async listArchivedOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return this.#listFor(and(eq(contentPacks.ownerId, ownerId), isNotNull(contentPacks.archivedAt)));
   }
 
-  async #listFor(where: SQL | undefined): Promise<readonly HomebrewPack[]> {
+  async #listFor(where: SQL | undefined): Promise<ReadonlyArray<HomebrewPack>> {
     const rows = await this.#db.select().from(contentPacks).where(where);
     const counts = await this.#entryCounts(rows.map((row) => row.id));
 
-    const packs = rows.flatMap((row): HomebrewPack[] => {
+    const packs = rows.flatMap((row): Array<HomebrewPack> => {
       const pack = toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
 
       return pack === undefined ? [] : [pack];
@@ -202,7 +202,7 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     return updated.length === 0 ? undefined : pack;
   }
 
-  async #entryCounts(packIds: readonly ContentPackId[]): Promise<ReadonlyMap<ContentPackId, EntryCount>> {
+  async #entryCounts(packIds: ReadonlyArray<ContentPackId>): Promise<ReadonlyMap<ContentPackId, EntryCount>> {
     if (packIds.length === 0) {
       return new Map();
     }

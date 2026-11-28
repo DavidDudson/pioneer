@@ -44,13 +44,13 @@ export class ProficiencyBadge {
   /** Undefined for a statistic with no rank: nothing is shown. */
   public readonly rank = input<Proficiency | undefined>();
   /** What gave the current rank, then the ranks ahead, in the order to list them. */
-  public readonly sources = input<readonly RankSource[]>([]);
+  public readonly sources = input<ReadonlyArray<RankSource>>([]);
   /** A line under the sources, already worded: the skill two sources train. */
   public readonly note = input<string | undefined>();
 
   protected readonly hasPopover = computed((): boolean => this.sources().length > 0 || this.note() !== undefined);
   protected readonly inline = ButtonVariant.Inline;
-  protected readonly shown = computed((): readonly ShownSource[] =>
+  protected readonly shown = computed((): ReadonlyArray<ShownSource> =>
     this.sources().map(({ rank, source, level, future }) => ({
       key: future ? ProficiencyBadgeMessage.Future : ProficiencyBadgeMessage.Source,
       params: { rank: PROFICIENCY_NAMES[rank], source, level },

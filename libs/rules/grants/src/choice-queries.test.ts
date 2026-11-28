@@ -13,23 +13,26 @@ import type { GrantResolution } from './resolve-grants';
 import { entry, feat, idOf, inputsOf, picked, picksOf, slotOf } from './testing/builders';
 
 interface Situation {
-  readonly picks?: readonly (readonly [SlotKey, string])[];
+  readonly picks?: ReadonlyArray<readonly [SlotKey, string]>;
   readonly level?: number;
-  readonly situation?: readonly string[];
+  readonly situation?: ReadonlyArray<string>;
 }
 
-function resolve(entries: readonly GrantEntry[], { picks = [], level, situation }: Situation = {}): GrantResolution {
+function resolve(
+  entries: ReadonlyArray<GrantEntry>,
+  { picks = [], level, situation }: Situation = {},
+): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots: [picked('fighter')], level, situation, picks: picksOf(picks) }));
 }
 
 /** What the first open slot offers. */
-const optionsOf = (result: GrantResolution): readonly OfferedOption[] => result.open[0]?.options ?? [];
+const optionsOf = (result: GrantResolution): ReadonlyArray<OfferedOption> => result.open[0]?.options ?? [];
 
-const offered = (result: GrantResolution): string[] =>
+const offered = (result: GrantResolution): Array<string> =>
   result.open.flatMap((slot) => slot.options.map((option) => option.label));
 
 /** A fighter whose rule 0 asks for a feat matching `filter`, granted by rule 1 and recorded as `class-feat:<pick>`. */
-function fighter(filter: readonly unknown[]): GrantEntry {
+function fighter(filter: ReadonlyArray<unknown>): GrantEntry {
   return entry('fighter', [
     { key: 'ChoiceSet', flag: 'class-feat', rollOption: 'class-feat', choices: { kind: 'feat', filter } },
     { key: 'GrantItem', item: { choice: 'class-feat' } },
@@ -226,7 +229,7 @@ describe('resolveGrants choice queries', () => {
     const forward = optionsOf(resolve(content));
     const backward = optionsOf(resolve(content.toReversed()));
     expect(forward).toEqual(backward);
-    const twinIds: readonly string[] = [idOf('a-twin'), idOf('b-twin')].toSorted();
+    const twinIds: ReadonlyArray<string> = [idOf('a-twin'), idOf('b-twin')].toSorted();
     const values = forward.map((option) => String(option.value));
     expect(values.filter((value) => twinIds.includes(value))).toEqual([...twinIds]);
   });

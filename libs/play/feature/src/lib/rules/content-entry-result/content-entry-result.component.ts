@@ -19,5 +19,5 @@ import { RulesResult } from '../rules-result/rules-result.component';
 })
 export class ContentEntryResult {
   public readonly outcome = input.required<CheckOutcome>();
-  public readonly sources = input.required<readonly SourceRef[] | undefined>();
+  public readonly sources = input.required<ReadonlyArray<SourceRef> | undefined>();
 }

@@ -94,7 +94,7 @@ function button(root: HTMLElement, label: string): HTMLButtonElement {
   return match;
 }
 
-function rows(root: HTMLElement): string[] {
+function rows(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('pio-session-row')].map((row) => row.textContent.replaceAll(/\s+/gu, ' ').trim());
 }
 

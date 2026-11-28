@@ -64,7 +64,7 @@ export class CharacterVariantService extends EffectiveVariants {
    * The variant rules enabled for the character: the attached campaign's, else the owner's own, whether or not a pack
    * in force still defines them. No access check; the caller has one.
    */
-  public override async of(character: Character): Promise<readonly VariantRuleId[]> {
+  public override async of(character: Character): Promise<ReadonlyArray<VariantRuleId>> {
     return this.#enabledIds(character, await this.#campaigns.of(character.id));
   }
 
@@ -72,7 +72,7 @@ export class CharacterVariantService extends EffectiveVariants {
    * The variant rules the owner has enabled for the character, whether or not a campaign decides instead, and whether
    * or not a pack it uses still defines them. No access check; the caller has one.
    */
-  public async own(character: Character): Promise<readonly VariantRuleId[]> {
+  public async own(character: Character): Promise<ReadonlyArray<VariantRuleId>> {
     return this.#enabledIds(character, undefined);
   }
 
@@ -144,7 +144,10 @@ export class CharacterVariantService extends EffectiveVariants {
     return this.#content.registry(await this.#packs.of(character));
   }
 
-  async #enabledIds(character: Character, campaign: AttachedCampaign | undefined): Promise<readonly VariantRuleId[]> {
+  async #enabledIds(
+    character: Character,
+    campaign: AttachedCampaign | undefined,
+  ): Promise<ReadonlyArray<VariantRuleId>> {
     if (campaign !== undefined) {
       return campaign.variants;
     }
@@ -161,7 +164,7 @@ export class CharacterVariantService extends EffectiveVariants {
     const [registry, ids] = await Promise.all([this.#registryOf(character), this.#enabledIds(character, campaign)]);
 
     // A variant rule whose pack is not in force has no entry; it comes back with its pack.
-    const inForce = ids.flatMap((variantId): VariantRuleEntry[] => {
+    const inForce = ids.flatMap((variantId): Array<VariantRuleEntry> => {
       const entry = registry.variantRule(variantId);
 
       return entry === undefined ? [] : [entry];

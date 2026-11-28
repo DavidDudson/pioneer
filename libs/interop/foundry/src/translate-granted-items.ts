@@ -28,7 +28,7 @@ function slugOf(references: EntryReferences, id: ContentId): string | undefined 
 }
 
 /** The entries the `GrantItem` elements among `raws` grant, by the flag they store the grant under. */
-function grantedByFlag(raws: readonly unknown[], references: EntryReferences): ReadonlyMap<string, string> {
+function grantedByFlag(raws: ReadonlyArray<unknown>, references: EntryReferences): ReadonlyMap<string, string> {
   const granted = new Map<string, string>();
 
   for (const raw of raws) {
@@ -66,7 +66,7 @@ function rankOf(predicate: unknown): number | undefined {
   }
 
   // SAFETY: widening only: Array.isArray narrowed predicate to an array, whose elements are unchecked, so they are unknown.
-  const [statement] = predicate as readonly unknown[];
+  const [statement] = predicate as ReadonlyArray<unknown>;
   const operands = isFields(statement) ? statement['gte'] : undefined;
 
   if (!Array.isArray(operands) || operands[0] !== LEVEL_PREDICATE_FIELD || typeof operands[1] !== 'number') {
@@ -85,7 +85,7 @@ function fromRank(value: number, rank: number): string {
 function damageTarget(raw: Fields, granted: ReadonlyMap<string, string>): string | undefined {
   const { selectors } = raw;
   // SAFETY: widening only: Array.isArray narrowed selectors to an array, whose elements are unchecked, so they are unknown.
-  const [only, ...others] = Array.isArray(selectors) ? (selectors as readonly unknown[]) : [];
+  const [only, ...others] = Array.isArray(selectors) ? (selectors as ReadonlyArray<unknown>) : [];
   const flag = others.length === 0 ? flagOf(only, INLINE_DAMAGE) : undefined;
 
   return flag === undefined ? undefined : granted.get(flag);
@@ -98,7 +98,7 @@ function reaching(slug: string): string {
 
 /** `raw` with `statement` added to its predicate. */
 function withStatement(raw: Fields, statement: string): Fields {
-  const predicate: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
+  const predicate: ReadonlyArray<unknown> = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
 
   return { ...raw, predicate: [...predicate, statement] };
 }
@@ -153,7 +153,7 @@ function altered(raw: unknown, granted: ReadonlyMap<string, string>): unknown {
 }
 
 /** `raws` with the alterations of the items they grant in Pioneer's spelling; the grants' flags in Pioneer's too. */
-export function withGrantedItems(raws: readonly unknown[], references: EntryReferences): readonly unknown[] {
+export function withGrantedItems(raws: ReadonlyArray<unknown>, references: EntryReferences): ReadonlyArray<unknown> {
   const doctrines = withPickRollOptions(withDoctrineGrants(raws, references));
   const granted = grantedByFlag(doctrines, references);
 

@@ -22,8 +22,8 @@ interface Rendered {
 /** Renders the page with `/api/auth/providers` answering `providers`, and any sign-in `extras`. */
 async function render(
   url: string,
-  providers: readonly OAuthProvider[],
-  extras?: readonly Type<SignInExtra>[],
+  providers: ReadonlyArray<OAuthProvider>,
+  extras?: ReadonlyArray<Type<SignInExtra>>,
 ): Promise<Rendered> {
   const signIn = vi.fn<(provider: OAuthProvider, returnTo: ReturnPath) => void>();
   TestBed.configureTestingModule({
@@ -31,7 +31,7 @@ async function render(
       provideRouter([{ path: 'account', children: identityRoutes }], withComponentInputBinding()),
       provideI18n({ en: async () => frontierMessages }),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
-      { provide: ApiClient, useValue: { call: async (): Promise<readonly OAuthProvider[]> => providers } },
+      { provide: ApiClient, useValue: { call: async (): Promise<ReadonlyArray<OAuthProvider>> => providers } },
       { provide: SessionStore, useValue: { signIn } },
       // Without extras, the token's own default applies, as in production.
       ...(extras === undefined ? [] : [{ provide: SIGN_IN_EXTRAS, useValue: extras }]),
@@ -48,7 +48,7 @@ async function render(
   return { root, signIn };
 }
 
-function buttons(root: HTMLElement): HTMLButtonElement[] {
+function buttons(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')];
 }
 

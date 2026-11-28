@@ -9,7 +9,7 @@ import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
  * The registry kinds the sheet's engine reads once the character carries anything: its own, the item kinds, the runes
  * etched onto them, and conditions for the encumbered condition its Bulk can bring and the ones active in play.
  */
-export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
+export const EQUIPMENT_CONTENT_KINDS: ReadonlyArray<ContentKind> = [
   ...CHARACTER_CONTENT_KINDS,
   ...INVENTORY_KINDS,
   ContentKind.Rune,
@@ -40,7 +40,7 @@ export function readsEquipment(character: Character | undefined): boolean {
 }
 
 /** The lines `item` adds to the statistics, each with its statistic's name. */
-function effectsOf(item: InventoryItem, statistics: readonly NamedStatistic[]): readonly InvestmentEffect[] {
+function effectsOf(item: InventoryItem, statistics: ReadonlyArray<NamedStatistic>): ReadonlyArray<InvestmentEffect> {
   return statistics.flatMap(({ name, result }) =>
     result.ok
       ? result.lines
@@ -56,7 +56,7 @@ function effectsOf(item: InventoryItem, statistics: readonly NamedStatistic[]): 
 
 /** What the investments read: the sheet's statistics, and whether a battle form has the gear melded into it (#532). */
 export interface InvestmentReads {
-  readonly statistics: readonly NamedStatistic[];
+  readonly statistics: ReadonlyArray<NamedStatistic>;
   readonly melded?: boolean;
 }
 
@@ -68,7 +68,7 @@ export function sheetInvestments(
   character: Character,
   content: ItemContent,
   { statistics, melded = false }: InvestmentReads,
-): readonly Investment[] {
+): ReadonlyArray<Investment> {
   return character.document.inventory.items
     .filter(({ invested }) => invested === true)
     .map((item) => {

@@ -168,11 +168,11 @@ const consumableData: Arbitrary<JsonObject> = oneof(
   ),
 );
 
-const etchedOnto = (items: readonly string[]): Arbitrary<JsonObject> =>
+const etchedOnto = (items: ReadonlyArray<string>): Arbitrary<JsonObject> =>
   withOptional(record({ item: constantFrom(...items) }), { restriction: slugText });
 
 /** The items each fundamental rune goes on, and its highest grade. */
-const FUNDAMENTALS: readonly (readonly [string, readonly string[], number])[] = [
+const FUNDAMENTALS: ReadonlyArray<readonly [string, ReadonlyArray<string>, number]> = [
   [FundamentalRune.Potency, [RunedItem.Weapon, RunedItem.Armor], RUNE_GRADE_MAX],
   [FundamentalRune.Striking, [RunedItem.Weapon], RUNE_GRADE_MAX],
   [FundamentalRune.Resilient, [RunedItem.Armor], RUNE_GRADE_MAX],
@@ -201,7 +201,7 @@ const treasureData: Arbitrary<JsonObject> = physical(
 const kitItem: Arbitrary<JsonObject> = record({ item: contentIdJson, quantity: positive });
 
 /** A kit item, holding others when it is a container. */
-function kitEntryOf([item, contents]: readonly [JsonObject, JsonObject[]]): Arbitrary<JsonObject> {
+function kitEntryOf([item, contents]: readonly [JsonObject, Array<JsonObject>]): Arbitrary<JsonObject> {
   return withOptional(constant(item), { contents: constant(contents) });
 }
 

@@ -78,12 +78,12 @@ function request(method: string, path: string, { as, body }: RequestOptions): Re
 
 interface KeyItemsJson {
   readonly manageable: boolean;
-  readonly keyItems: readonly {
+  readonly keyItems: ReadonlyArray<{
     readonly id: string;
     readonly name: string;
     readonly holder?: string;
-    readonly runes: { readonly property: readonly unknown[] };
-  }[];
+    readonly runes: { readonly property: ReadonlyArray<unknown> };
+  }>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {

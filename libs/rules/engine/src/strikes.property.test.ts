@@ -16,7 +16,7 @@ function plain(value: number | undefined): number | undefined {
   return value;
 }
 
-function weapon(traits: readonly string[], dice: number, striking: number | undefined): WeaponInputs {
+function weapon(traits: ReadonlyArray<string>, dice: number, striking: number | undefined): WeaponInputs {
   // SAFETY: the literal holds every field a weapon's inputs need; wielded() types its result more loosely.
   return wielded({
     slug: 'sword',

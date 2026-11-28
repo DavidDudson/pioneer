@@ -102,7 +102,7 @@ export function browseColumns(
   say: (key: string) => string,
   kindHidden: boolean,
   creatures: boolean,
-): readonly TableColumn<BrowseRow>[] {
+): ReadonlyArray<TableColumn<BrowseRow>> {
   const base = new RulesTableSchema<BrowseRow>()
     .addEntryName({
       id: BrowseColumn.Name,

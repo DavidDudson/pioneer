@@ -75,14 +75,14 @@ export class SheetEffects {
   public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;
 
-  protected readonly views = computed((): readonly EffectView[] | undefined => {
+  protected readonly views = computed((): ReadonlyArray<EffectView> | undefined => {
     const registry = this.registry.data();
     const read = this.#play.play.data();
 
     return registry === undefined || read === undefined ? undefined : effectViews(registry, read.play.effects);
   });
 
-  protected readonly options = computed((): readonly EffectOption[] => {
+  protected readonly options = computed((): ReadonlyArray<EffectOption> => {
     const registry = this.registry.data();
 
     return registry === undefined ? [] : effectOptions(registry);
@@ -97,7 +97,7 @@ export class SheetEffects {
   };
 
   /** The active spells an effect can be cast from. */
-  protected readonly spells = computed((): readonly SelectOption<string>[] => {
+  protected readonly spells = computed((): ReadonlyArray<SelectOption<string>> => {
     const registry = this.registry.data();
     const spells = this.#play.play.data()?.play.activeSpells ?? [];
 

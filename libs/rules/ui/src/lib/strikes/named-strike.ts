@@ -13,7 +13,7 @@ export interface StrikeOffer {
 
 /** The situations a Strike's damage can claim: those offered, and those claimed for its next roll. */
 export interface StrikeSituations {
-  readonly offered: readonly StrikeOffer[];
+  readonly offered: ReadonlyArray<StrikeOffer>;
   readonly claimed: ReadonlySet<RuleId>;
 }
 
@@ -23,7 +23,7 @@ export interface NamedStrike {
   /** A message key naming it instead, for one no content names (a fist's Strike). */
   readonly nameKey?: string | undefined;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   readonly strike: Strike;
   /** The situations a roll of its attack can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;

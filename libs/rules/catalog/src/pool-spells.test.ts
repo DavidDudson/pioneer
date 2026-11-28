@@ -21,7 +21,7 @@ const byId = new Map(entries.map((entry) => [entry.id, entry]));
 const JsonObject = z.record(z.string(), z.json());
 
 /** Every entry a rich text value links, in reading order. */
-function refsIn(node: z.core.util.JSONType): ContentId[] {
+function refsIn(node: z.core.util.JSONType): Array<ContentId> {
   if (Array.isArray(node)) {
     return node.flatMap((child) => refsIn(child));
   }
@@ -39,7 +39,7 @@ function refsIn(node: z.core.util.JSONType): ContentId[] {
 }
 
 /** The spells an entry's `PoolSpells` elements name, in order. */
-function poolSpellsOf(entry: ContentEntry): ContentId[] {
+function poolSpellsOf(entry: ContentEntry): Array<ContentId> {
   return entry.rules.flatMap((rule) => (rule.key === RuleElementKey.PoolSpells ? rule.spells : []));
 }
 

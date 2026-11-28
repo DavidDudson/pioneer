@@ -7,7 +7,10 @@ export interface PackDependencyEdge {
 }
 
 /** The packs `pack` extends directly, ordered by id so a walk is the same wherever it runs. */
-function directDependencies(edges: readonly PackDependencyEdge[], pack: ContentPackId): readonly ContentPackId[] {
+function directDependencies(
+  edges: ReadonlyArray<PackDependencyEdge>,
+  pack: ContentPackId,
+): ReadonlyArray<ContentPackId> {
   return edges
     .values()
     .filter((edge) => edge.pack === pack)
@@ -17,7 +20,7 @@ function directDependencies(edges: readonly PackDependencyEdge[], pack: ContentP
 }
 
 /** Whether `from` is `to` or extends it, through any number of packs. */
-export function reaches(edges: readonly PackDependencyEdge[], from: ContentPackId, to: ContentPackId): boolean {
+export function reaches(edges: ReadonlyArray<PackDependencyEdge>, from: ContentPackId, to: ContentPackId): boolean {
   const seen = new Set<ContentPackId>();
   const pending = [from];
 
@@ -36,7 +39,7 @@ export function reaches(edges: readonly PackDependencyEdge[], from: ContentPackI
 }
 
 /** Whether adding `edge` to an acyclic graph would close a cycle; a pack depending on itself is one. */
-export function wouldCycle(edges: readonly PackDependencyEdge[], edge: PackDependencyEdge): boolean {
+export function wouldCycle(edges: ReadonlyArray<PackDependencyEdge>, edge: PackDependencyEdge): boolean {
   return reaches(edges, edge.dependsOn, edge.pack);
 }
 
@@ -46,8 +49,8 @@ export function wouldCycle(edges: readonly PackDependencyEdge[], edge: PackDepen
  * graph is acyclic (`wouldCycle` keeps it so); a cycle in stored data is cut where the walk meets it instead of
  * looping.
  */
-export function loadOrder(edges: readonly PackDependencyEdge[], root: ContentPackId): readonly ContentPackId[] {
-  const ordered: ContentPackId[] = [];
+export function loadOrder(edges: ReadonlyArray<PackDependencyEdge>, root: ContentPackId): ReadonlyArray<ContentPackId> {
+  const ordered: Array<ContentPackId> = [];
   const visited = new Set<ContentPackId>();
 
   const visit = (pack: ContentPackId): void => {

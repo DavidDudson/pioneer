@@ -19,7 +19,7 @@ import type { BrowseSource } from '../browse-source';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrowseSources {
-  public readonly sources = input.required<readonly BrowseSource[]>();
+  public readonly sources = input.required<ReadonlyArray<BrowseSource>>();
 
   protected readonly Mode = SourceBadgeMode;
 }

@@ -18,7 +18,7 @@ export class OriginChoiceOptions {
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
 
   /** Every ancestry; none while the content loads. */
-  public readonly ancestries = computed((): readonly OriginChoice[] => {
+  public readonly ancestries = computed((): ReadonlyArray<OriginChoice> => {
     const registry = this.#registry.data();
 
     return registry === undefined
@@ -27,7 +27,7 @@ export class OriginChoiceOptions {
   });
 
   /** Every background; none while the content loads. */
-  public readonly backgrounds = computed((): readonly OriginChoice[] => {
+  public readonly backgrounds = computed((): ReadonlyArray<OriginChoice> => {
     const registry = this.#registry.data();
 
     return registry === undefined

@@ -27,7 +27,7 @@ import { keyAttributePickerColumns, shownKeyAttributeRows } from './class-picker
 })
 export class KeyAttributePicker {
   /** Every attribute the class allows, with the character's standing in it. */
-  public readonly rows = input.required<readonly KeyAttributePickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<KeyAttributePickerRow>>();
   /** The picked key attribute; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

@@ -40,7 +40,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     this.#db = db;
   }
 
-  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     return this.#listFor(and(eq(characters.ownerId, ownerId), isNull(characters.archivedAt)), query);
   }
 
@@ -71,11 +71,11 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   public override async listArchivedForOwner(
     ownerId: UserId,
     query: CharacterListQuery,
-  ): Promise<readonly Character[]> {
+  ): Promise<ReadonlyArray<Character>> {
     return this.#listFor(and(eq(characters.ownerId, ownerId), isNotNull(characters.archivedAt)), query);
   }
 
-  async #listFor(where: SQL | undefined, query: CharacterListQuery): Promise<readonly Character[]> {
+  async #listFor(where: SQL | undefined, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     const order = query.direction === SortDirection.Asc ? asc : desc;
 
     const rows = await this.#db
@@ -101,7 +101,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return row?.ownerId;
   }
 
-  public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
+  public override async findByIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyArray<Character>> {
     if (ids.length === 0) {
       return [];
     }

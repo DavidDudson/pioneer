@@ -39,7 +39,7 @@ for (const spell of Object.values(MYSTERIES).flat()) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const focusSpells = (spell: string, predicate?: readonly JsonValue[]): JsonObject => {
+const focusSpells = (spell: string, predicate?: ReadonlyArray<JsonValue>): JsonObject => {
   const element = { key: 'FocusSpells', entry: 'oracle-focus', spells: [spellId(spell)] };
 
   return predicate === undefined ? element : { ...element, predicate };
@@ -106,7 +106,7 @@ function focusOf(name: string, mystery = 'battle'): CharacterFocus {
   return characterFocus(entries, spellContent(registry), document.level);
 }
 
-function spellsOf(name: string, mystery?: string): string[] {
+function spellsOf(name: string, mystery?: string): Array<string> {
   return focusOf(name, mystery).entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

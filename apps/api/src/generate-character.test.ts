@@ -41,7 +41,7 @@ const generated = generatorIn(content);
  * The slots left open that something could fill. A feat slot whose every feat with known-met prerequisites is taken
  * elsewhere stays open by design: a feat whose prerequisites the builder can't read is never picked.
  */
-function fillable(result: Generated): readonly string[] {
+function fillable(result: Generated): ReadonlyArray<string> {
   const { document } = result.character;
   const slots = characterSlots(document, content);
   const feats = featSlots(document, content);
@@ -58,7 +58,7 @@ function fillable(result: Generated): readonly string[] {
 }
 
 /** What is wrong with a generated character: slots read invalid, and more open than no build can fill yet. */
-function problems(result: Generated, className: string | undefined): readonly string[] {
+function problems(result: Generated, className: string | undefined): ReadonlyArray<string> {
   const slots = characterSlots(result.character.document, content);
   const invalid = slots.filter((slot) => slot.status === SlotStatus.Invalid).map((slot) => `invalid ${slot.key}`);
   const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE.get(className) ?? 0);

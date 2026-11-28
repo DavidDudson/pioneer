@@ -15,7 +15,7 @@ import { describe, expect, it } from 'vitest';
 import { Natural, presentRoll, withSave } from './roll-presentation';
 
 /** Rolls `text` with the dice landing on `faces`, in order. */
-function roll(text: string, faces: readonly number[]): RollResult {
+function roll(text: string, faces: ReadonlyArray<number>): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {

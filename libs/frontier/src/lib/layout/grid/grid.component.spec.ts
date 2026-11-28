@@ -9,7 +9,7 @@ import type { GridColumns } from './grid.component';
 interface Rendered {
   readonly host: HTMLElement;
   readonly grid: Element;
-  readonly items: readonly Element[];
+  readonly items: ReadonlyArray<Element>;
 }
 
 /** Renders `fr-grid` with two spans projected and returns its host, inner element and the spans. */
@@ -67,7 +67,7 @@ describe(Grid, () => {
     expect(grid.className).toContain('items-baseline');
   });
 
-  it.each<[GridColumns, string[], string[]]>([
+  it.each<[GridColumns, Array<string>, Array<string>]>([
     [1, ['grid-cols-1'], ['@md:grid-cols-2']],
     [2, ['grid-cols-1', '@md:grid-cols-2'], ['@lg:grid-cols-3']],
     [3, ['grid-cols-1', '@md:grid-cols-2', '@lg:grid-cols-3'], []],

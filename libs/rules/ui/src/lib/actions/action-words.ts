@@ -50,7 +50,7 @@ export class ActionWords {
   }
 
   /** The lines by name, ignoring case and accents; lines of one name keep their order. */
-  public byName(lines: readonly ActionLine[]): readonly ActionLine[] {
+  public byName(lines: ReadonlyArray<ActionLine>): ReadonlyArray<ActionLine> {
     return lines.toSorted((left, right) => this.#format.compareNames(left.name, right.name));
   }
 

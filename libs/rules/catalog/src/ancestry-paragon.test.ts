@@ -13,7 +13,7 @@ registry.register(coreRules);
 const variant = registry.variantRules().find(({ definition }) => definition.slug === 'variant-rule:ancestry-paragon');
 
 /** The level each ancestry feat slot of the variant opens at, read from its `self:level` predicate. */
-function slotLevels(): number[] {
+function slotLevels(): Array<number> {
   return (variant?.definition.rules ?? [])
     .filter(({ key }) => key === RuleElementKey.ChoiceSet)
     .map(({ predicate }) => JSON.stringify(predicate))

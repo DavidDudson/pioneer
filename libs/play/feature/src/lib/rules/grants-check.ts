@@ -84,7 +84,7 @@ const PlaygroundEntries = z.array(PlaygroundEntry);
 /** An entry in a result, with the entries whose grants led to it, outermost first. */
 interface GrantRow {
   readonly name: string;
-  readonly via: readonly string[];
+  readonly via: ReadonlyArray<string>;
 }
 
 interface ConditionalRow extends GrantRow {
@@ -93,7 +93,7 @@ interface ConditionalRow extends GrantRow {
 
 interface GrantErrorRow {
   readonly error: MessageDescriptor;
-  readonly via: readonly string[];
+  readonly via: ReadonlyArray<string>;
 }
 
 export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems', Pending: 'pending' } as const;
@@ -119,31 +119,31 @@ export type GrantsCheck =
   | { readonly status: typeof GrantsStatus.Pending }
   | {
       readonly status: typeof GrantsStatus.Valid;
-      readonly items: readonly GrantRow[];
-      readonly duplicates: readonly GrantRow[];
-      readonly conditional: readonly ConditionalRow[];
-      readonly open: readonly ChoiceRow[];
-      readonly answered: readonly ChoiceRow[];
-      readonly toggles: readonly ToggleRow[];
+      readonly items: ReadonlyArray<GrantRow>;
+      readonly duplicates: ReadonlyArray<GrantRow>;
+      readonly conditional: ReadonlyArray<ConditionalRow>;
+      readonly open: ReadonlyArray<ChoiceRow>;
+      readonly answered: ReadonlyArray<ChoiceRow>;
+      readonly toggles: ReadonlyArray<ToggleRow>;
       /** Every roll option the set derives, level included. */
-      readonly rollOptions: readonly string[];
-      readonly errors: readonly GrantErrorRow[];
+      readonly rollOptions: ReadonlyArray<string>;
+      readonly errors: ReadonlyArray<GrantErrorRow>;
     }
   /** Some text does not read; each problem is undefined or empty when its text is fine. */
   | {
       readonly status: typeof GrantsStatus.Problems;
       readonly entries: JsonProblem | undefined;
       /** The 1-based root lines that are not slugs, or give a value to anything but a condition. */
-      readonly rootLines: readonly number[];
-      readonly pickLines: readonly number[];
-      readonly toggleLines: readonly number[];
-      readonly factLines: readonly number[];
+      readonly rootLines: ReadonlyArray<number>;
+      readonly pickLines: ReadonlyArray<number>;
+      readonly toggleLines: ReadonlyArray<number>;
+      readonly factLines: ReadonlyArray<number>;
       /** Whether the level is outside what a level can be. */
       readonly badLevel: boolean;
     };
 
 /** The slugs of `entries`, each standing for its id. */
-function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
+function slugTable(entries: ReadonlyArray<PlaygroundEntry>): SlugTable {
   const slugs = new Map(entries.map((entry) => [idOfSlug(entry.slug), entry.slug]));
   const known = new Set(slugs.values());
 
@@ -156,18 +156,18 @@ function entryOf({ slug, name, kind, rollOptions, rules }: PlaygroundEntry, tabl
   return { id: idOfSlug(slug), kind, slug, name, rules: converted, sources: [PLAYGROUND_PAGE], rollOptions };
 }
 
-function lookupOf(content: readonly GrantEntry[]): ContentLookup {
+function lookupOf(content: ReadonlyArray<GrantEntry>): ContentLookup {
   const byId = new Map(content.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(content, (entry) => entry.kind);
 
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
-    ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
+    ofKind: (kind: ContentKind): ReadonlyArray<GrantEntry> => byKind.get(kind) ?? [],
   };
 }
 
 /** Names the granting entries along `hops`, falling back to the id for one that is missing. */
-function viaOf(hops: readonly OriginHop[], names: ReadonlyMap<ContentId, string>): string[] {
+function viaOf(hops: ReadonlyArray<OriginHop>, names: ReadonlyMap<ContentId, string>): Array<string> {
   return hops.flatMap((hop) => (hop.kind === OriginHopKind.Grant ? [names.get(hop.by) ?? hop.by] : []));
 }
 
@@ -215,7 +215,7 @@ interface ReadTexts {
 }
 
 /** The slugs of `entries`, and which of them are conditions. */
-function entrySlugs(entries: readonly PlaygroundEntry[]): EntrySlugs {
+function entrySlugs(entries: ReadonlyArray<PlaygroundEntry>): EntrySlugs {
   const conditions = entries
     .values()
     .filter((entry) => entry.kind === ContentKind.Condition)
@@ -239,7 +239,7 @@ function readTexts(texts: GrantsTexts, slugs: EntrySlugs): ReadTexts {
 
 /** Each text's problem, for texts some of which do not read. */
 function problemsOf(
-  entries: JsonRead<PlaygroundEntry[]>,
+  entries: JsonRead<Array<PlaygroundEntry>>,
   { roots, picks, toggles, facts, level }: ReadTexts,
 ): GrantsCheck {
   return {

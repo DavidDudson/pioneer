@@ -154,22 +154,22 @@ export type SpellVariant = z.infer<typeof SpellVariant>;
 
 type SpellCheck = z.core.ParsePayload<{
   readonly rank: SpellRank;
-  readonly damage: readonly SpellDamage[];
+  readonly damage: ReadonlyArray<SpellDamage>;
   readonly heightening?: Heightening | undefined;
-  readonly variants?: readonly SpellVariant[] | undefined;
+  readonly variants?: ReadonlyArray<SpellVariant> | undefined;
   readonly dismiss?: true | undefined;
   readonly dismissNote?: RichText | undefined;
 }>;
 
-function pushIssue(context: SpellCheck, path: readonly PropertyKey[], descriptor: MessageDescriptor): void {
+function pushIssue(context: SpellCheck, path: ReadonlyArray<PropertyKey>, descriptor: MessageDescriptor): void {
   context.issues.push({ code: 'custom', input: context.value, path: [...path], ...issueParams(descriptor) });
 }
 
 /** The heightening at `path`, and the damage parts it adds to. */
 interface Increases {
-  readonly path: readonly PropertyKey[];
+  readonly path: ReadonlyArray<PropertyKey>;
   readonly heightening: Heightening | undefined;
-  readonly damage: readonly SpellDamage[];
+  readonly damage: ReadonlyArray<SpellDamage>;
 }
 
 /** Interval heightening adds to damage parts in `damage`. */
@@ -199,7 +199,11 @@ function checkIncreases(context: SpellCheck): void {
 }
 
 /** Fixed heightening at `path` names each rank once, above the spell's own. */
-function checkRanksAt(context: SpellCheck, path: readonly PropertyKey[], heightening: Heightening | undefined): void {
+function checkRanksAt(
+  context: SpellCheck,
+  path: ReadonlyArray<PropertyKey>,
+  heightening: Heightening | undefined,
+): void {
   const { rank } = context.value;
 
   if (heightening?.type !== HeighteningType.Fixed) {

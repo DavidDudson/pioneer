@@ -19,11 +19,11 @@ interface RollDisplay {
   readonly notation: DiceExpressionText;
   readonly total: string;
   readonly explanation: MessageDescriptor | undefined;
-  readonly attempts: readonly AttemptDisplay[];
+  readonly attempts: ReadonlyArray<AttemptDisplay>;
   readonly degree: DegreeView | undefined;
   readonly outcome: OutcomeView | undefined;
   readonly damage: DamageView | undefined;
-  readonly reasons: readonly string[];
+  readonly reasons: ReadonlyArray<string>;
 }
 
 /**

@@ -32,6 +32,6 @@ export function deriveSheet(
 }
 
 /** The selectors in `statistics` that did not resolve. */
-export function failedSelectors(statistics: ReadonlyMap<Selector, StatisticResult>): readonly Selector[] {
+export function failedSelectors(statistics: ReadonlyMap<Selector, StatisticResult>): ReadonlyArray<Selector> {
   return [...statistics].flatMap(([selector, result]) => (result.ok ? [] : [selector]));
 }

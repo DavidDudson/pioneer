@@ -30,7 +30,7 @@ function fighter(level: number, picks: Readonly<Record<string, string>> = {}): C
 }
 
 /** The levels of the free boost slots, in order, one entry per slot. */
-function freeLevels(document: CharacterDocument, content: BoostContent): number[] {
+function freeLevels(document: CharacterDocument, content: BoostContent): Array<number> {
   return boostSlots(document, content)
     .filter((slot) => slot.source === BoostSource.Free)
     .map((slot) => slot.level);

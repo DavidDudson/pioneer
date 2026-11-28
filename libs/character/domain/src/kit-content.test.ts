@@ -93,7 +93,7 @@ function holding(count: number): Inventory {
 }
 
 /** The one kit of a pack holding `items`. */
-function oneKit(items: readonly JsonObject[]): KitEntry {
+function oneKit(items: ReadonlyArray<JsonObject>): KitEntry {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withId('odd-kits').withKit('odd', { items }).build());
   const [kit] = kitContent(registry).values();

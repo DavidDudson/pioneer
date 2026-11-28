@@ -12,9 +12,9 @@ export class MemoryBundleStore implements BundleStore {
     this.#bodies.set(key, body);
   };
 
-  public readonly keys = async (): Promise<readonly StoredKey[]> => [...this.#bodies.keys()];
+  public readonly keys = async (): Promise<ReadonlyArray<StoredKey>> => [...this.#bodies.keys()];
 
-  public readonly remove = async (keys: readonly StoredKey[]): Promise<void> => {
+  public readonly remove = async (keys: ReadonlyArray<StoredKey>): Promise<void> => {
     for (const key of keys) {
       this.#bodies.delete(key);
     }

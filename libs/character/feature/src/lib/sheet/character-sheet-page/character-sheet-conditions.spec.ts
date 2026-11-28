@@ -28,7 +28,7 @@ const SECOND = '00000000-0000-4000-8000-000000000002';
 const UNLIMITED = { kind: 'unlimited' };
 
 /** The play state of a full-health character with `conditions` on it, at `revision`. */
-function afflictedWith(conditions: readonly JsonObject[], revision = 1): JsonObject {
+function afflictedWith(conditions: ReadonlyArray<JsonObject>, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, conditions } };
 }
 

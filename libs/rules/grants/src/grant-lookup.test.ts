@@ -26,7 +26,7 @@ function featLegacy(license: ContentLicense): boolean | undefined {
   return grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.legacy;
 }
 
-function registryOf(...slugs: readonly string[]): ContentRegistry {
+function registryOf(...slugs: ReadonlyArray<string>): ContentRegistry {
   const builder = new ContentPackBuilder();
 
   for (const slug of slugs) {

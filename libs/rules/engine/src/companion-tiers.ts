@@ -89,4 +89,11 @@ export const TIER_ADVANCE: Readonly<Record<CompanionTier, TierAdvance>> = {
 };
 
 /** The sizes in order, so a companion can grow one. */
-export const SIZE_ORDER: readonly Size[] = [Size.Tiny, Size.Small, Size.Medium, Size.Large, Size.Huge, Size.Gargantuan];
+export const SIZE_ORDER: ReadonlyArray<Size> = [
+  Size.Tiny,
+  Size.Small,
+  Size.Medium,
+  Size.Large,
+  Size.Huge,
+  Size.Gargantuan,
+];

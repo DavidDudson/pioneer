@@ -61,7 +61,7 @@ export class DrizzleSessionRepository extends SessionRepository {
       .where(eq(sessions.id, session.id));
   }
 
-  public override async listForUser(userId: UserId, now: Temporal.Instant): Promise<Session[]> {
+  public override async listForUser(userId: UserId, now: Temporal.Instant): Promise<Array<Session>> {
     const unexpired = gt(sessions.expiresAt, now.toString());
 
     const rows = await this.#db

@@ -2,7 +2,7 @@ import { Attribute, ClassRole, WeaponCategory, WeaponGroup } from '@pioneer/rule
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 
 /** The attributes the theme can favour, in sheet order, each with the message that names it. */
-export const THEME_ATTRIBUTES: readonly { readonly attribute: Attribute; readonly label: string }[] = Object.values(
+export const THEME_ATTRIBUTES: ReadonlyArray<{ readonly attribute: Attribute; readonly label: string }> = Object.values(
   Attribute,
 ).map((attribute) => ({ attribute, label: ATTRIBUTE_MESSAGES[attribute] }));
 

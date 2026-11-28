@@ -11,10 +11,10 @@ import { Tabs } from './tabs.component';
 interface Rendered {
   readonly fixture: ComponentFixture<TabsHost>;
   readonly nav: HTMLElement;
-  readonly links: readonly HTMLAnchorElement[];
+  readonly links: ReadonlyArray<HTMLAnchorElement>;
 }
 
-const SECTIONS: readonly TabsHostTab[] = [
+const SECTIONS: ReadonlyArray<TabsHostTab> = [
   { label: 'Overview', to: '/sheet', exact: true },
   { label: 'Feats', to: '/sheet/feats' },
   { label: 'Spells', to: '/sheet/spells' },
@@ -51,12 +51,12 @@ function link(rendered: Rendered, index: number): HTMLAnchorElement {
 }
 
 /** Which tabs are marked as the current page. */
-function current(rendered: Rendered): boolean[] {
+function current(rendered: Rendered): Array<boolean> {
   return rendered.links.map((anchor) => anchor.getAttribute('aria-current') === 'page');
 }
 
 /** Which tab is the group's Tab stop. */
-function tabStops(rendered: Rendered): boolean[] {
+function tabStops(rendered: Rendered): Array<boolean> {
   return rendered.links.map((anchor) => anchor.getAttribute('tabindex') === '0');
 }
 

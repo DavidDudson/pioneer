@@ -11,7 +11,7 @@ export const ORIGIN_STATE = 'origin';
 
 /** Where the full content page shows `entry`, as `routerLink` takes it. */
 export interface BrowserLink {
-  readonly commands: readonly string[];
+  readonly commands: ReadonlyArray<string>;
   readonly queryParams: Params;
 }
 

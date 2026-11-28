@@ -17,7 +17,7 @@ export class UserOverrideAuthorDirectory extends OverrideAuthorDirectory {
     this.#db = db;
   }
 
-  public override async displayNames(userIds: readonly UserId[]): Promise<ReadonlyMap<UserId, OverrideAuthorName>> {
+  public override async displayNames(userIds: ReadonlyArray<UserId>): Promise<ReadonlyMap<UserId, OverrideAuthorName>> {
     if (userIds.length === 0) {
       return new Map();
     }

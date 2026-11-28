@@ -45,7 +45,7 @@ export function grantOf(slug: string): RuleJson {
 }
 
 /** The test pack's entry `slug`, named after it, with `rules` as JSON. A class feature unless `feat` says otherwise. */
-export function entry(slug: string, rules: readonly object[] = []): GrantEntry {
+export function entry(slug: string, rules: ReadonlyArray<object> = []): GrantEntry {
   return {
     id: idOf(slug),
     kind: ContentKind.ClassFeature,
@@ -58,7 +58,7 @@ export function entry(slug: string, rules: readonly object[] = []): GrantEntry {
 }
 
 /** A feat of the test pack named `name`, with its own roll options (`trait:fighter`, `level:1`). */
-export function feat(slug: string, options: readonly string[], name = slug): GrantEntry {
+export function feat(slug: string, options: ReadonlyArray<string>, name = slug): GrantEntry {
   return {
     ...entry(slug),
     kind: ContentKind.Feat,
@@ -68,7 +68,7 @@ export function feat(slug: string, options: readonly string[], name = slug): Gra
 }
 
 /** A feat that can be taken `times` times, or any number of times without one. */
-export function repeatable(slug: string, rules: readonly object[], times?: number): GrantEntry {
+export function repeatable(slug: string, rules: ReadonlyArray<object>, times?: number): GrantEntry {
   return {
     ...feat(slug, []),
     rules: entry(slug, rules).rules,
@@ -77,13 +77,13 @@ export function repeatable(slug: string, rules: readonly object[], times?: numbe
 }
 
 /** Looks entries up by id, and lists them by kind, among `entries`. */
-export function lookupOf(entries: readonly GrantEntry[]): ContentLookup {
+export function lookupOf(entries: ReadonlyArray<GrantEntry>): ContentLookup {
   const byId = new Map(entries.map((found) => [found.id, found]));
   const byKind = Map.groupBy(entries, (found) => found.kind);
 
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
-    ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
+    ofKind: (kind: ContentKind): ReadonlyArray<GrantEntry> => byKind.get(kind) ?? [],
   };
 }
 
@@ -101,7 +101,7 @@ export function afflicted(slug: string, value?: number): GrantRoot {
 }
 
 /** The player's picks, as `[slot, value]` pairs. */
-export function picksOf(pairs: readonly (readonly [SlotKey, string])[] = []): ChoicePicks {
+export function picksOf(pairs: ReadonlyArray<readonly [SlotKey, string]> = []): ChoicePicks {
   return new Map(pairs.map(([slot, value]) => [slot, ChoiceValue.parse(value)]));
 }
 
@@ -112,16 +112,16 @@ export function slotOf(slug: string, rule: number, via?: SlotKey): SlotKey {
 
 /** What a test resolves: everything but the content and roots has a default. */
 export interface TestInputs {
-  readonly entries: readonly GrantEntry[];
-  readonly roots: readonly GrantRoot[];
+  readonly entries: ReadonlyArray<GrantEntry>;
+  readonly roots: ReadonlyArray<GrantRoot>;
   /** 1 unless given. */
   readonly level?: number | undefined;
   /** Roll options the caller supplies, situational or not. */
-  readonly situation?: readonly string[] | undefined;
+  readonly situation?: ReadonlyArray<string> | undefined;
   readonly picks?: ChoicePicks | undefined;
   readonly toggles?: ToggleStates | undefined;
   /** None unless given. */
-  readonly rootSlots?: readonly RootSlotDefinition[] | undefined;
+  readonly rootSlots?: ReadonlyArray<RootSlotDefinition> | undefined;
 }
 
 /** Grant inputs for test content: a 1st-level character with no picks or toggles unless given, under the core namespaces. */

@@ -121,7 +121,7 @@ export class IdentityService {
   }
 
   /** The signed-in user's unexpired sessions, most recently seen first, the caller's marked current. */
-  public async listSessions({ user, session }: Authenticated): Promise<SessionSummary[]> {
+  public async listSessions({ user, session }: Authenticated): Promise<Array<SessionSummary>> {
     const sessions = await this.#sessions.listForUser(user.id, this.#clock.now());
 
     return sessions.map((each) => each.summary(session.id));

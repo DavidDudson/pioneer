@@ -26,20 +26,20 @@ import { FUNDAMENTAL_RUNE_ITEMS, FundamentalRune, RuneType } from '@pioneer/rule
 import type { ContentId } from '@pioneer/rules/sdk';
 
 /** The fundamental runes in the order the sheet offers them. */
-const FUNDAMENTALS: readonly FundamentalRune[] = Object.values(FundamentalRune);
+const FUNDAMENTALS: ReadonlyArray<FundamentalRune> = Object.values(FundamentalRune);
 
 /** The fundamental runes that go on `entry`: potency and striking on a weapon, potency and resilient on armour, reinforcing on a shield. */
-export function fundamentalRunesFor(entry: ItemEntry | undefined): readonly FundamentalRune[] {
+export function fundamentalRunesFor(entry: ItemEntry | undefined): ReadonlyArray<FundamentalRune> {
   const runed = runedItemOf(entry);
 
   return runed === undefined ? [] : FUNDAMENTALS.filter((rune) => FUNDAMENTAL_RUNE_ITEMS[rune].includes(runed));
 }
 
 /** The grades of `rune` that can be etched onto `entry`: 1 up to the rune's highest, above what a specific item comes with. */
-export function gradeChoices(rune: FundamentalRune, entry: ItemEntry | undefined): readonly number[] {
+export function gradeChoices(rune: FundamentalRune, entry: ItemEntry | undefined): ReadonlyArray<number> {
   const printed = printedRunes(entry)?.[rune] ?? 0;
   const max = FUNDAMENTAL_GRADE_MAX[rune];
-  const grades: number[] = [];
+  const grades: Array<number> = [];
 
   for (let grade = printed + 1; grade <= max; grade += 1) {
     grades.push(grade);
@@ -69,7 +69,7 @@ export function propertyRuneEntries(
   { runes }: RunedContent,
   { item, entry }: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
   compare: (left: string, right: string) => number,
-): readonly RuneEntry[] {
+): ReadonlyArray<RuneEntry> {
   const runed = runedItemOf(entry);
 
   if (runed === undefined || isSpecific(entry)) {
@@ -96,7 +96,7 @@ export function offerableRuneEntries(
   content: RunedContent,
   slot: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
   compare: (left: string, right: string) => number,
-): readonly RuneEntry[] {
+): ReadonlyArray<RuneEntry> {
   const entries = propertyRuneEntries(content, slot, compare);
 
   if (hasPropertyRoom(slot.item, slot.entry, content.runes)) {
@@ -113,7 +113,7 @@ export function propertyRuneOptions(
   content: RunedContent,
   slot: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
   compare: (left: string, right: string) => number,
-): readonly SelectOption<ContentId>[] {
+): ReadonlyArray<SelectOption<ContentId>> {
   return propertyRuneEntries(content, slot, compare).map(({ id, name }) => ({ value: id, label: name }));
 }
 
@@ -125,7 +125,7 @@ export function runeKey(rune: RuneRef): string {
 }
 
 /** The rune a key names. */
-export function runeOfKey(key: string, etched: readonly RuneRef[]): RuneRef | undefined {
+export function runeOfKey(key: string, etched: ReadonlyArray<RuneRef>): RuneRef | undefined {
   return etched.find((rune) => runeKey(rune) === key);
 }
 
@@ -138,7 +138,7 @@ function propertyRef(rune: ContentId, choice: RuneChoice | undefined): RuneRef {
  * The runes etched onto `item` that can move or be erased, in the order the rules name them: none on a specific item,
  * whose runes are its own.
  */
-export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): readonly RuneRef[] {
+export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): ReadonlyArray<RuneRef> {
   const { runes } = item;
 
   if (runes === undefined || isSpecific(entry)) {
@@ -164,7 +164,7 @@ export function transferTargets(
   inventory: Inventory,
   { items }: RunedContent,
   id: InventoryItemId,
-): readonly InventoryItemId[] {
+): ReadonlyArray<InventoryItemId> {
   const from = inventory.items.find((each) => each.id === id);
   const runed = from === undefined ? undefined : runedItemOf(items.get(from.item));
 
@@ -172,7 +172,7 @@ export function transferTargets(
     return [];
   }
 
-  return inventory.items.flatMap((each): InventoryItemId[] => {
+  return inventory.items.flatMap((each): Array<InventoryItemId> => {
     const entry = items.get(each.item);
 
     return each.id === id || isSpecific(entry) || runedItemOf(entry) !== runed ? [] : [each.id];

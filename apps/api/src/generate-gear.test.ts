@@ -49,7 +49,7 @@ function geared(className: string, level: CharacterLevel, seed: number): Charact
 }
 
 /** The kinds of the items a character carries in the way given. */
-function kindsCarried(character: Character, from: ItemContent, state: CarryState): readonly ContentKind[] {
+function kindsCarried(character: Character, from: ItemContent, state: CarryState): ReadonlyArray<ContentKind> {
   return character.document.inventory.items
     .filter((line) => line.carry.state === state)
     .flatMap((line) => from.get(line.item)?.kind ?? []);
@@ -61,14 +61,14 @@ function strengthOf(character: Character): AttributeModifier {
 }
 
 /** What is wrong with the gear of a generated character, against its level's budget and the rules. */
-function gearProblems(character: Character, level: CharacterLevel): readonly string[] {
+function gearProblems(character: Character, level: CharacterLevel): ReadonlyArray<string> {
   const { inventory } = character.document;
   const budget = treasureAt(CORE_TREASURE_BY_LEVEL, level);
   const worn = kindsCarried(character, items, CarryState.Worn);
   const held = kindsCarried(character, items, CarryState.Held);
   const bulk = inventoryBulk(inventory, items, strengthOf(character));
 
-  const checks: readonly (readonly [boolean, string])[] = [
+  const checks: ReadonlyArray<readonly [boolean, string]> = [
     [itemsValue(inventory, items) > budget, 'items worth more than the budget'],
     [itemsValue(inventory, items) + coinsValue(inventory.coins) > budget, 'items and coins past the budget'],
     [handsInUse(inventory.items) > 2, 'more than two hands in use'],
@@ -86,7 +86,7 @@ function gearProblems(character: Character, level: CharacterLevel): readonly str
 }
 
 /** The weapons and armour `character` carries that its class is not trained in. */
-function untrainedGear(character: Character): readonly string[] {
+function untrainedGear(character: Character): ReadonlyArray<string> {
   const ranks = characterRanks(characterGrants(character.document, content));
 
   const trainedIn = (selector: string): boolean => {
@@ -166,17 +166,17 @@ describe('a themed weapon etched with runes', () => {
 
   /** The property runes on one weapon, and how many its potency rune leaves room for. */
   interface WeaponRunes {
-    readonly names: readonly ContentId[];
+    readonly names: ReadonlyArray<ContentId>;
     readonly room: number;
   }
 
   /** The level of each rune in `names`; a rune the content lacks is level 99, so it fails the level check. */
-  function levelsOf(names: readonly ContentId[]): readonly number[] {
+  function levelsOf(names: ReadonlyArray<ContentId>): ReadonlyArray<number> {
     return names.map((name) => runed.runes.get(name)?.level ?? MISSING_RUNE_LEVEL);
   }
 
   /** The property runes on the weapons `className` is armed with at `THEME_LEVEL`, for each seed. */
-  function propertyRunesFor(className: string): readonly WeaponRunes[] {
+  function propertyRunesFor(className: string): ReadonlyArray<WeaponRunes> {
     return SEEDS.flatMap((seed) => {
       const blank = blankIn(content, className).apply({ field: CharacterPatchField.Level, value: THEME_LEVEL }, now);
 

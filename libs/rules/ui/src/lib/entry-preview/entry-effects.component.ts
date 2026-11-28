@@ -42,7 +42,7 @@ export interface EffectText {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntryEffectsView {
-  public readonly effects = input.required<readonly PreviewEffect[]>();
+  public readonly effects = input.required<ReadonlyArray<PreviewEffect>>();
 
   protected readonly Message = EntryPreviewMessage;
 
@@ -53,7 +53,7 @@ export class EntryEffectsView {
 
   readonly #previews = inject(ENTRY_PREVIEWS);
 
-  protected readonly worded = computed((): readonly EffectText[] => {
+  protected readonly worded = computed((): ReadonlyArray<EffectText> => {
     this.#messages();
     this.#format.locale();
 
@@ -116,7 +116,7 @@ export class EntryEffectsView {
   }
 
   /** "Weakness 5 fire", "Resistance 5 physical", "Immunity fire". */
-  #defence(line: DamageAdjustmentEffect | ImmunityEffect, exceptionNames: readonly string[] | undefined): string {
+  #defence(line: DamageAdjustmentEffect | ImmunityEffect, exceptionNames: ReadonlyArray<string> | undefined): string {
     if (line.change === EffectChange.Immunity) {
       const damageType = DamageTypeSchema.safeParse(line.immunity);
 

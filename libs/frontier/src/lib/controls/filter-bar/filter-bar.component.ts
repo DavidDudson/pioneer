@@ -43,8 +43,8 @@ interface Chip {
   host: { class: 'block' },
 })
 export class FilterBar {
-  public readonly fields = input.required<readonly FilterField[]>();
-  public readonly value = model<readonly FilterCondition[]>([]);
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
+  public readonly value = model<ReadonlyArray<FilterCondition>>([]);
 
   protected readonly barClasses = barClasses;
   protected readonly rowClasses = rowClasses;
@@ -64,7 +64,7 @@ export class FilterBar {
 
     return index === undefined ? undefined : this.value()[index];
   });
-  protected readonly chips = computed<readonly Chip[]>(() => {
+  protected readonly chips = computed<ReadonlyArray<Chip>>(() => {
     const translate: Translate = (key, params) => this.#transloco.translate(key, params);
 
     return this.value().flatMap((condition, index) => {

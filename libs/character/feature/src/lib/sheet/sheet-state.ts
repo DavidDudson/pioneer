@@ -194,7 +194,7 @@ export class SheetState {
   });
 
   /** The invested items and what each turns on, from the statistics; undefined while they load. */
-  public readonly investments = computed((): readonly Investment[] | undefined => {
+  public readonly investments = computed((): ReadonlyArray<Investment> | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
     const statistics = this.picks.statistics();
@@ -205,7 +205,7 @@ export class SheetState {
   });
 
   /** AC, saves and Perception with their ranks, for the header; undefined while they load. */
-  public readonly vitals = computed((): readonly Vital[] | undefined => {
+  public readonly vitals = computed((): ReadonlyArray<Vital> | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
     const statistics = this.picks.statistics();

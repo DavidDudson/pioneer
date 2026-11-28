@@ -45,10 +45,10 @@ export class EntryRanksView {
 
   protected readonly rank = computed((): SpellRank => this.#picked() ?? this.ranks().from);
 
-  protected readonly options = computed((): readonly SelectOption<string>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#messages();
     const first: number = this.ranks().from;
-    const options: SelectOption<string>[] = [];
+    const options: Array<SelectOption<string>> = [];
 
     for (let rank = first; rank <= SPELL_RANK_MAX; rank += 1) {
       options.push({ value: String(rank), label: this.#i18n.translate(EntryPreviewMessage.Rank, { rank }) });
@@ -66,7 +66,7 @@ export class EntryRanksView {
     return spellCastLine(this.ranks().cast(this.rank()), this.name(), translate);
   });
 
-  protected readonly effects = computed((): readonly PreviewEffect[] | undefined =>
+  protected readonly effects = computed((): ReadonlyArray<PreviewEffect> | undefined =>
     this.ranks().effects?.(this.rank()),
   );
 

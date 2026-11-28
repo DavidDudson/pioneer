@@ -59,8 +59,8 @@ function ariaSort<TRow extends object>(header: TableHeader<TRow>): string | unde
   host: { class: 'block' },
 })
 export class PickerGrid<TRow extends object> {
-  public readonly headers = input.required<readonly TableHeader<TRow>[]>();
-  public readonly rows = input.required<readonly Row<TableFeatureSet, TRow>[]>();
+  public readonly headers = input.required<ReadonlyArray<TableHeader<TRow>>>();
+  public readonly rows = input.required<ReadonlyArray<Row<TableFeatureSet, TRow>>>();
   /** The picked row's id. */
   public readonly value = input<string | undefined>(undefined);
   /** Why a row can't be picked; `undefined` when it can. */

@@ -98,7 +98,7 @@ interface CampaignJson {
   readonly id: string;
   readonly name: string;
   readonly gmId: string;
-  readonly members: readonly { readonly userId: string; readonly role: string; readonly joinedAt: string }[];
+  readonly members: ReadonlyArray<{ readonly userId: string; readonly role: string; readonly joinedAt: string }>;
 }
 
 async function create(api: AnyElysia, as: UserId, name: string): Promise<CampaignJson> {
@@ -125,7 +125,7 @@ describe('campaign routes', () => {
     expect(((await got.json()) as CampaignJson).name).toBe('Abomination Vaults');
     const listed = await api.handle(request('GET', '/campaigns'));
     // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
-    expect(((await listed.json()) as CampaignJson[]).map(({ id }) => id)).toStrictEqual([campaign.id]);
+    expect(((await listed.json()) as Array<CampaignJson>).map(({ id }) => id)).toStrictEqual([campaign.id]);
   });
 
   test('a blank name is 422', async () => {
@@ -155,7 +155,7 @@ describe('campaign routes without a signed-in user', () => {
   const api = app();
   const id = newId();
 
-  const cases: readonly (readonly [string, Request])[] = [
+  const cases: ReadonlyArray<readonly [string, Request]> = [
     ['list', request('GET', '/campaigns', { as: anonymous })],
     ['get', request('GET', `/campaigns/${id}`, { as: anonymous })],
     ['create', request('POST', '/campaigns', { as: anonymous, body: { name: 'Kingmaker' } })],
@@ -205,7 +205,7 @@ describe('campaign routes across users', () => {
 
     const listed = await api.handle(request('GET', '/campaigns'));
     // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
-    expect(((await listed.json()) as CampaignJson[]).map(({ id }) => id)).toStrictEqual([mine.id]);
+    expect(((await listed.json()) as Array<CampaignJson>).map(({ id }) => id)).toStrictEqual([mine.id]);
   });
 });
 
@@ -215,11 +215,11 @@ async function status(api: AnyElysia, sent: Request): Promise<number> {
   return response.status;
 }
 
-async function listFrom(api: AnyElysia, path: string, as: UserId = amiri): Promise<readonly CampaignJson[]> {
+async function listFrom(api: AnyElysia, path: string, as: UserId = amiri): Promise<ReadonlyArray<CampaignJson>> {
   const response = await api.handle(request('GET', path, { as }));
 
   // SAFETY: this route answers with an array of `CampaignJson` JSON, the shape the route's response schema describes.
-  return (await response.json()) as CampaignJson[];
+  return (await response.json()) as Array<CampaignJson>;
 }
 
 describe('archived campaign routes (ADR-0062)', () => {

@@ -20,17 +20,17 @@ export interface CatalogPack {
  */
 export abstract class CharacterPackCatalog {
   /** Every official pack, by title: the ones every character has on. */
-  public abstract official(): Promise<readonly CatalogPack[]>;
+  public abstract official(): Promise<ReadonlyArray<CatalogPack>>;
 
   /** Every pack the user may read, official ones included, by title then id. */
-  public abstract readableBy(viewer: UserId): Promise<readonly CatalogPack[]>;
+  public abstract readableBy(viewer: UserId): Promise<ReadonlyArray<CatalogPack>>;
 
   /** These packs, whoever may read them; one that does not exist is left out. */
-  public abstract byIds(ids: readonly ContentPackId[]): Promise<ReadonlyMap<ContentPackId, CatalogPack>>;
+  public abstract byIds(ids: ReadonlyArray<ContentPackId>): Promise<ReadonlyMap<ContentPackId, CatalogPack>>;
 
   /**
    * The pack and every pack it extends, transitively, the pack last and each after the packs it extends. An unknown
    * pack is only itself.
    */
-  public abstract closure(id: ContentPackId): Promise<readonly ContentPackId[]>;
+  public abstract closure(id: ContentPackId): Promise<ReadonlyArray<ContentPackId>>;
 }

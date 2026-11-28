@@ -10,7 +10,7 @@ import { RulesMessage } from './messages';
 import { RuleElement } from './rule-element';
 import { SOURCE_SLUG_MAX } from './statistic';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -19,7 +19,7 @@ function issues(value: JsonValue): readonly FieldIssue[] {
 const SHIELD_BLOCK = '5c2d9a7e-3b1f-5e8c-a4d6-7f0b1c2e3d4f';
 
 /** Remastered content written as rule elements, one or more per key. */
-const examples: object[] = [
+const examples: Array<object> = [
   { key: 'GrantItem', item: SHIELD_BLOCK },
   { key: 'GrantItem', item: { choice: 'weapon-group' }, flag: 'weapon-mastery', allowDuplicate: false },
   {

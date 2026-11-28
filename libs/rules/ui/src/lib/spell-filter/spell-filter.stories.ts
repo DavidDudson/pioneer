@@ -6,7 +6,7 @@ import { SpellFilter } from './spell-filter.component';
 
 type SpellFilterStory = StoryObj<SpellFilter>;
 
-function groupOf(id: string, label: string, options: readonly SpellFilterOption[]): SpellFilterGroup {
+function groupOf(id: string, label: string, options: ReadonlyArray<SpellFilterOption>): SpellFilterGroup {
   return { id, label, options, selected: new Set() };
 }
 
@@ -25,7 +25,7 @@ const SOURCES = groupOf('source', 'Source', [
   { value: 'Wand of Fear', label: 'Wand of Fear', count: 1 },
 ]);
 
-const GROUPS: readonly SpellFilterGroup[] = [TARGETS, groupOf('trait', 'Traits', TRAITS), SOURCES];
+const GROUPS: ReadonlyArray<SpellFilterGroup> = [TARGETS, groupOf('trait', 'Traits', TRAITS), SOURCES];
 
 const meta: Meta<SpellFilter> = { title: 'Rules/Spell Filter', component: SpellFilter, args: { groups: GROUPS } };
 
@@ -40,7 +40,7 @@ export const Default: SpellFilterStory = {
   },
 };
 
-const PICKED: readonly SpellFilterGroup[] = [
+const PICKED: ReadonlyArray<SpellFilterGroup> = [
   TARGETS,
   { ...groupOf('trait', 'Traits', TRAITS), selected: new Set(['Mental']) },
   SOURCES,

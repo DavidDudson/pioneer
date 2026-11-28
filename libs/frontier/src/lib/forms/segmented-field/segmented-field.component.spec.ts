@@ -6,7 +6,7 @@ import type { SelectOption } from '../../controls/select/select.component';
 import type { ComponentInputs } from '../../testing/component-inputs';
 import { SegmentedField } from './segmented-field.component';
 
-const UNITS: readonly SelectOption<string>[] = [
+const UNITS: ReadonlyArray<SelectOption<string>> = [
   { value: 'feet', label: 'Feet' },
   { value: 'metres', label: 'Metres' },
 ];
@@ -37,7 +37,7 @@ function find(fixture: ComponentFixture<SegmentedField<string>>, selector: strin
   return element;
 }
 
-function buttons(fixture: ComponentFixture<SegmentedField<string>>): HTMLButtonElement[] {
+function buttons(fixture: ComponentFixture<SegmentedField<string>>): Array<HTMLButtonElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }

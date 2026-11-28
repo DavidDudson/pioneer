@@ -16,7 +16,10 @@ type Reader = Pick<Database, 'select'>;
  * them in this order resolves a pack's references as it goes. Official packs are left out: a registry holds them already.
  * An archived pack is left out (ADR-0062): it is not in force.
  */
-async function homebrewOrder(reader: Reader, roots: readonly ContentPackId[]): Promise<readonly ContentPackId[]> {
+async function homebrewOrder(
+  reader: Reader,
+  roots: ReadonlyArray<ContentPackId>,
+): Promise<ReadonlyArray<ContentPackId>> {
   const edges = await reader
     .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
     .from(contentPackDeps)
@@ -47,15 +50,15 @@ export interface StoredPackHash {
 /** Reads the content tables (content-model.md, "Packs and storage"); the seed writes them. */
 export class ContentRepository {
   readonly #db: Database;
-  readonly #official = new RequestMemo<'hashes', readonly StoredPackHash[]>();
-  readonly #definingPacks = new RequestMemo<string, readonly ContentPackId[]>();
+  readonly #official = new RequestMemo<'hashes', ReadonlyArray<StoredPackHash>>();
+  readonly #definingPacks = new RequestMemo<string, ReadonlyArray<ContentPackId>>();
 
   public constructor(db: Database) {
     this.#db = db;
   }
 
   /** Every official pack's hash, by slug: one small query, cheap enough to ask before every use of content. */
-  public async officialHashes(): Promise<readonly StoredPackHash[]> {
+  public async officialHashes(): Promise<ReadonlyArray<StoredPackHash>> {
     return this.#official.of('hashes', async () =>
       this.#db
         .select({ pack: contentPacks.slug, hash: contentPacks.contentHash })
@@ -69,9 +72,9 @@ export class ContentRepository {
    * Every official pack, by slug, with its entries. One snapshot, so a pack row and its entries come from the same
    * seed even while one runs. The rows are checked again as the files they hold (`packContentsFromFiles`).
    */
-  public async loadOfficial(): Promise<readonly PackContents[]> {
+  public async loadOfficial(): Promise<ReadonlyArray<PackContents>> {
     return this.#db.transaction(
-      async (tx): Promise<readonly PackContents[]> => {
+      async (tx): Promise<ReadonlyArray<PackContents>> => {
         const packs = await tx
           .select({ id: contentPacks.id, data: contentPacks.data })
           .from(contentPacks)
@@ -99,9 +102,9 @@ export class ContentRepository {
    * so registering them in this order resolves a pack's references as it goes. Official or homebrew alike; one
    * snapshot, like `loadOfficial`. Empty when the pack does not exist.
    */
-  public async loadWithDependencies(root: ContentPackId): Promise<readonly PackContents[]> {
+  public async loadWithDependencies(root: ContentPackId): Promise<ReadonlyArray<PackContents>> {
     return this.#db.transaction(
-      async (tx): Promise<readonly PackContents[]> => {
+      async (tx): Promise<ReadonlyArray<PackContents>> => {
         const edges = await tx
           .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
           .from(contentPackDeps)
@@ -138,7 +141,7 @@ export class ContentRepository {
    * The homebrew packs, not archived, that define any of the entries with these ids. An id that is no entry (most
    * uuids in a character document are not) matches nothing.
    */
-  public async homebrewPacksOfEntries(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+  public async homebrewPacksOfEntries(entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>> {
     if (entryIds.length === 0) {
       return [];
     }
@@ -161,7 +164,7 @@ export class ContentRepository {
   }
 
   /** The hashes of the homebrew packs `homebrewOrder` gives for `roots`, by slug: what a registry of them is cached under. */
-  public async homebrewHashes(roots: readonly ContentPackId[]): Promise<readonly StoredPackHash[]> {
+  public async homebrewHashes(roots: ReadonlyArray<ContentPackId>): Promise<ReadonlyArray<StoredPackHash>> {
     if (roots.length === 0) {
       return [];
     }
@@ -183,13 +186,13 @@ export class ContentRepository {
    * The homebrew packs among `roots` and the packs they extend, each after the packs it extends (`homebrewOrder`), with
    * their entries. One snapshot, like `loadOfficial`. A pack that does not exist is left out.
    */
-  public async loadHomebrew(roots: readonly ContentPackId[]): Promise<readonly PackContents[]> {
+  public async loadHomebrew(roots: ReadonlyArray<ContentPackId>): Promise<ReadonlyArray<PackContents>> {
     if (roots.length === 0) {
       return [];
     }
 
     return this.#db.transaction(
-      async (tx): Promise<readonly PackContents[]> => {
+      async (tx): Promise<ReadonlyArray<PackContents>> => {
         const order = await homebrewOrder(tx, roots);
 
         return Promise.all(

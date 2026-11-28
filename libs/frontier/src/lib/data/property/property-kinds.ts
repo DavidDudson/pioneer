@@ -76,4 +76,4 @@ const DATE_KIND: PropertyKind<DateValue> = {
 };
 
 /** The kinds frontier ships, in registry order. */
-export const FRONTIER_PROPERTY_KINDS: readonly PropertyKind[] = [TEXT_KIND, NUMBER_KIND, BOOL_KIND, DATE_KIND];
+export const FRONTIER_PROPERTY_KINDS: ReadonlyArray<PropertyKind> = [TEXT_KIND, NUMBER_KIND, BOOL_KIND, DATE_KIND];

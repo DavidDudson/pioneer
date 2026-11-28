@@ -43,7 +43,7 @@ export class UseButtons {
   });
 
   /** For a variable cost, the counts it can be used for, fewest first; empty for a fixed cost. */
-  protected readonly counts = computed((): readonly number[] => {
+  protected readonly counts = computed((): ReadonlyArray<number> => {
     const { cost, upTo, affordableUpTo } = this.line() ?? {};
     const from = cost === undefined ? undefined : ACTION_COUNT[cost];
 
@@ -57,7 +57,7 @@ export class UseButtons {
   });
 
   /** The ways to pay for using it, one button each; empty when it is paid for one way. */
-  protected readonly payOptions = computed((): readonly UsePayOption[] => this.line()?.payOptions ?? []);
+  protected readonly payOptions = computed((): ReadonlyArray<UsePayOption> => this.line()?.payOptions ?? []);
 
   /** The thing used, paid for as `option` says: its payment in place of the line's own. */
   protected readonly useWith = (option: UsePayOption) => async (): Promise<void> => {

@@ -31,7 +31,7 @@ class MemoryCache implements EdgeCache {
 }
 
 class Context implements EdgeContext {
-  public readonly pending: Promise<unknown>[] = [];
+  public readonly pending: Array<Promise<unknown>> = [];
 
   public readonly waitUntil = (promise: Promise<unknown>): void => {
     this.pending.push(promise);
@@ -42,13 +42,13 @@ interface Harness {
   readonly dependencies: ProxyDependencies;
   readonly cache: MemoryCache;
   readonly context: Context;
-  readonly sent: Request[];
+  readonly sent: Array<Request>;
 }
 
 function harness(respond: (request: Request) => Response): Harness {
   const cache = new MemoryCache();
   const context = new Context();
-  const sent: Request[] = [];
+  const sent: Array<Request> = [];
 
   const upstream: Upstream = async (request: Request): Promise<Response> => {
     sent.push(request);

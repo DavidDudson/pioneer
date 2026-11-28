@@ -10,7 +10,7 @@ import { describe, expect, it } from 'vitest';
 
 import { PioneerImportHomebrew } from './pioneer-import-homebrew.component';
 
-function pack(status: HomebrewPackStatus, outcomes: readonly HomebrewEntryOutcome[]): HomebrewPackReport {
+function pack(status: HomebrewPackStatus, outcomes: ReadonlyArray<HomebrewEntryOutcome>): HomebrewPackReport {
   return {
     pack: PackId.parse('moon-brew'),
     title: ContentText.parse('Moon brew'),
@@ -24,7 +24,7 @@ function pack(status: HomebrewPackStatus, outcomes: readonly HomebrewEntryOutcom
   };
 }
 
-async function render(packs: readonly HomebrewPackReport[]): Promise<string> {
+async function render(packs: ReadonlyArray<HomebrewPackReport>): Promise<string> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en }, 'en', { merge: true });
   const fixture = TestBed.createComponent(PioneerImportHomebrew);

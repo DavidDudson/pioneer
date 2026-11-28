@@ -43,7 +43,7 @@ export interface HeldShield {
   /** A shield an effect gives, which no inventory item holds: what ends that effect. */
   readonly granted?: ShieldGrant;
   /** Extra Hardness against damage of some types. */
-  readonly hardnessAgainst?: readonly HardnessBonus[];
+  readonly hardnessAgainst?: ReadonlyArray<HardnessBonus>;
 }
 
 const BROKEN_DIVISOR = 2;
@@ -82,7 +82,7 @@ function grantedShield({
 }
 
 /** The shields the effects in play give, as held ones. */
-function grantedShields(inputs: ModifierInputs): readonly HeldShield[] {
+function grantedShields(inputs: ModifierInputs): ReadonlyArray<HeldShield> {
   return shieldsInPlay(inputs).map((shield) => grantedShield(shield));
 }
 
@@ -94,11 +94,11 @@ export function heldShields(
   inventory: Inventory,
   content: ItemContent,
   rules: () => ModifierInputs = () => NO_MODIFIERS,
-): readonly HeldShield[] {
+): ReadonlyArray<HeldShield> {
   const shields = itemsIn(inventory, content, equippedState).filter(({ entry }) => entry.kind === ContentKind.Shield);
   const inPlay = rules();
 
-  const held = shields.flatMap(({ entry, item }): HeldShield[] => {
+  const held = shields.flatMap(({ entry, item }): Array<HeldShield> => {
     if (entry.kind !== ContentKind.Shield) {
       return [];
     }

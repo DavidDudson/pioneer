@@ -6,7 +6,7 @@ import type { SpellRank } from '@pioneer/rules/sdk';
  * The slots a spontaneous entry's repertoire has: one spell per slot of each rank below 10th, the counts of its
  * `RepertoireCount` elements besides, and at 10th rank those counts alone, as its slots never size it (ADR-0063).
  */
-export function repertoireSlots(slots: SpellSlots, counts: readonly RankSlots[]): SpellSlots {
+export function repertoireSlots(slots: SpellSlots, counts: ReadonlyArray<RankSlots>): SpellSlots {
   const sized = new Map<SpellRank, number>();
 
   for (const { rank, count } of slots.ranks) {

@@ -11,7 +11,7 @@ export class StoredPackLookup extends PackLookup {
     this.#content = content;
   }
 
-  public override async packsOf(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+  public override async packsOf(entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>> {
     return this.#content.packsOfEntries(entryIds);
   }
 }

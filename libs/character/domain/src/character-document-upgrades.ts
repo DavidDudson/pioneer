@@ -59,7 +59,7 @@ function openingLedger(document: StoredCharacterDocument): StoredCharacterDocume
  * Every change to the schema's shape adds a step, a new defaulted field included (its step returns the document
  * as it is), so code older than a document always refuses it by version (character-model.md, "Schema versions").
  */
-const UPGRADES: readonly UpgradeStep[] = [
+const UPGRADES: ReadonlyArray<UpgradeStep> = [
   /** 1 → 2: inventory items and coins (#471). A version 1 inventory is empty, which reads as no items and no coins. */
   (document) => document,
   /** 2 → 3: how each item is carried and whether it is invested (#472). A version 2 item reads as stowed, not invested. */
@@ -107,7 +107,7 @@ const UPGRADES: readonly UpgradeStep[] = [
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */
-export function currentVersion(upgrades: readonly UpgradeStep[]): CharacterSchemaVersion {
+export function currentVersion(upgrades: ReadonlyArray<UpgradeStep>): CharacterSchemaVersion {
   return CharacterSchemaVersion.parse(upgrades.length + 1);
 }
 
@@ -132,7 +132,7 @@ export class UnsupportedSchemaVersionError extends Error {
 /** Runs every step from the document's version up to the chain's current version. A current document is unchanged. */
 export function upgradeDocument(
   stored: StoredCharacterDocument,
-  upgrades: readonly UpgradeStep[] = UPGRADES,
+  upgrades: ReadonlyArray<UpgradeStep> = UPGRADES,
 ): StoredCharacterDocument {
   const current = currentVersion(upgrades);
 

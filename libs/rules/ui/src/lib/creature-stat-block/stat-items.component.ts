@@ -14,7 +14,7 @@ import { CreatureStatBlockMessage } from './creature-stat-block-messages';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatItemsView {
-  public readonly items = input.required<readonly ItemLine[]>();
+  public readonly items = input.required<ReadonlyArray<ItemLine>>();
 
   protected readonly Message = CreatureStatBlockMessage;
 }

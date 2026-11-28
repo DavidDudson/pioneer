@@ -11,7 +11,7 @@ export interface RollSituation {
    * The conditional lines that could change the total if their situation held, in the breakdown's order. One an
    * applied line already beats (`beatenBy`) is left out, as choosing it would change nothing.
    */
-  readonly conditional: readonly BreakdownLine[];
+  readonly conditional: ReadonlyArray<BreakdownLine>;
   /** Every roll option the predicates of the statistic's lines read, whatever their status. */
   readonly options: ReadonlySet<RollOption>;
 }

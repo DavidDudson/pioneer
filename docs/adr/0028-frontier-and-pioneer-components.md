@@ -16,7 +16,7 @@ loading the pack or running the engine can only be shown or tested with a live b
 - **Frontier knows nothing about Pioneer's schemas.** It never imports `rules/*` or another domain library, and its
   stories never show content entries, source references or engine output. A component that needs a schema type is
   a Pioneer component, not a frontier one. Lint enforces the import half: a `scope:shared` library may depend only
-  on `scope:shared` libraries (`.oxlintrc.json`).
+  on `scope:shared` libraries (`oxlint.config.ts`).
 - **Pioneer components that render rules data come in two kinds:**
   - **Presentational** (dumb): in a `type:ui` library (`libs/rules/ui`, later `libs/<scope>/ui`). They take
     resolved data through inputs, such as an entry's `sources` and a map of author display names, and are built

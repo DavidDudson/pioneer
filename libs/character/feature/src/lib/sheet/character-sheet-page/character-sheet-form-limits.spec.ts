@@ -62,7 +62,7 @@ function allFilter(root: HTMLElement): HTMLElement {
 }
 
 /** Resolves once the text of `sections` has been the same for `AGREEING_READS` reads, so a check that a text is absent is not met by one not yet there. */
-async function settled(root: HTMLElement, sections: readonly string[]): Promise<void> {
+async function settled(root: HTMLElement, sections: ReadonlyArray<string>): Promise<void> {
   const read = (): string => sections.map((anchor) => textOf(section(root, anchor))).join('\n');
   let last = '';
   let agreeing = 0;

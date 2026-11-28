@@ -6,7 +6,7 @@ import type { FormPickerOption, FormPreview } from './form-picker.component';
 
 type FormPickerStory = StoryObj<FormPicker>;
 
-const FORMS: readonly FormPickerOption[] = [
+const FORMS: ReadonlyArray<FormPickerOption> = [
   { value: 'animal-form:bear', label: 'Bear' },
   { value: 'animal-form:ape', label: 'Ape' },
   { value: 'animal-form:cat', label: 'Cat' },

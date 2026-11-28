@@ -5,7 +5,7 @@ import type { ContentEntry, FacetCounts, FacetDefinition, FilterState } from '@p
 import type { ShopOffer } from '@pioneer/rules/ui';
 
 /** The facets the shop filters by: the common ones and the equipment kinds'. */
-export const SHOP_FACETS: readonly FacetDefinition[] = facetsFor(INVENTORY_KINDS);
+export const SHOP_FACETS: ReadonlyArray<FacetDefinition> = facetsFor(INVENTORY_KINDS);
 
 /** What the player has asked the shop for. */
 export interface ShopQuery {
@@ -16,8 +16,8 @@ export interface ShopQuery {
 
 /** What the shop shows: each facet's value counts and the items left, by name. */
 export interface ShopList {
-  readonly counts: readonly FacetCounts[];
-  readonly offers: readonly ShopOffer[];
+  readonly counts: ReadonlyArray<FacetCounts>;
+  readonly offers: ReadonlyArray<ShopOffer>;
 }
 
 function offerOf({ id, name, level, rarity, data }: ItemEntry): ShopOffer {
@@ -25,7 +25,7 @@ function offerOf({ id, name, level, rarity, data }: ItemEntry): ShopOffer {
 }
 
 /** The entries of `entries` that `state` keeps, as the item entries they are. */
-function kept(entries: readonly ItemEntry[], state: FilterState): readonly ItemEntry[] {
+function kept(entries: ReadonlyArray<ItemEntry>, state: FilterState): ReadonlyArray<ItemEntry> {
   const keep: ReadonlySet<ContentEntry> = new Set(filterEntries(entries, SHOP_FACETS, state));
 
   return entries.filter((entry) => keep.has(entry));

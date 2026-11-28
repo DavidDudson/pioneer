@@ -8,7 +8,7 @@ import { RefreshableInput } from './refreshable-input.component';
 type Load = () => Promise<string>;
 
 /** A load that answers each call from the next of `answers`, in order. */
-function loadingFrom(answers: readonly Promise<string>[]): Load {
+function loadingFrom(answers: ReadonlyArray<Promise<string>>): Load {
   const remaining = [...answers];
 
   return async () => remaining.splice(0, 1)[0] ?? Promise.reject(new Error('No answer left'));

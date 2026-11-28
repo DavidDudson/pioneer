@@ -5,7 +5,7 @@ import type { PredicateStatement } from '@pioneer/rules/sdk';
 const COMPANION_WORDS: ReadonlyMap<string, CompanionKind> = new Map([['a familiar', CompanionKind.Familiar]]);
 
 /** "a familiar": the character has a live companion of that kind, `self:companion:familiar`. */
-export function companionClause(clause: string): readonly PredicateStatement[] | undefined {
+export function companionClause(clause: string): ReadonlyArray<PredicateStatement> | undefined {
   const kind = COMPANION_WORDS.get(clause);
 
   return kind === undefined ? undefined : [companionRollOption(kind)];

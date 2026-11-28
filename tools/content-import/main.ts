@@ -253,11 +253,11 @@ function formatReport({ imported, skipped }: DryRunReport, { skipped: entries }:
   ].join('\n');
 }
 
-function sumOf(counts: readonly KeyCount[]): number {
+function sumOf(counts: ReadonlyArray<KeyCount>): number {
   return counts.reduce((sum, { count }) => sum + count, 0);
 }
 
-function formatCounts(counts: readonly KeyCount[]): string[] {
+function formatCounts(counts: ReadonlyArray<KeyCount>): Array<string> {
   const shown = counts.slice(0, KEYS_SHOWN).map(({ key, count }) => `  ${key === '' ? '-' : key}  ${count}`);
   const rest = counts.length - shown.length;
 
@@ -301,7 +301,7 @@ function formatTranslation(translation: EnvelopeTranslation): string {
  * The entries of the official packs other than the one being imported, which the import replaces, less what its
  * earlier runs added to the vocabulary pack, which it replaces too.
  */
-async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]> {
+async function knownEntries(targets: PackTargets): Promise<ReadonlyArray<KnownEntry>> {
   const others = officialPacks.filter(({ id }) => id !== targets.pack);
   const packs = await Promise.all(others.map(async ({ load }) => load()));
   const replaced = await previousImport(targets);
@@ -321,7 +321,7 @@ async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]
   );
 }
 
-function formatLeftOut(backlog: readonly BacklogItem[]): string {
+function formatLeftOut(backlog: ReadonlyArray<BacklogItem>): string {
   const leftOut = backlog.flatMap((item) =>
     item.type === BacklogItemType.Entry && item.leftOut !== undefined
       ? [{ key: `${item.leftOut.reason} ${item.pack}/${item.slug}`, detail: item.leftOut.detail }]
@@ -334,7 +334,7 @@ function formatLeftOut(backlog: readonly BacklogItem[]): string {
   ].join('\n');
 }
 
-function formatKinds(counts: readonly KindCount[]): string[] {
+function formatKinds(counts: ReadonlyArray<KindCount>): Array<string> {
   return counts.map(({ kind, count }) => `  ${kind}  ${count}`);
 }
 

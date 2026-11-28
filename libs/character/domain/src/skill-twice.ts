@@ -11,9 +11,12 @@ import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 
 /** The trained skill slots' picks up to the character's level, by the skill they name, in the order they are read. */
-function slotTrainings(document: CharacterDocument, content: SlotContent): ReadonlyMap<Selector, readonly SlotKey[]> {
+function slotTrainings(
+  document: CharacterDocument,
+  content: SlotContent,
+): ReadonlyMap<Selector, ReadonlyArray<SlotKey>> {
   const level = Level.parse(document.level);
-  const picked = new Map<Selector, SlotKey[]>();
+  const picked = new Map<Selector, Array<SlotKey>>();
   const skills = documentSkills(document, content.skills);
 
   for (const slot of skillSlots(document, skillReads(document, content))) {
@@ -32,7 +35,7 @@ function slotTrainings(document: CharacterDocument, content: SlotContent): Reado
  * background, a feat) and the trained skill slots' picks. The first source trains it; every later one is lost, since a
  * skill is trained once. Each skill comes with all its sources, entries first, then slots in the order they are read.
  */
-export function skillsTrainedTwice(document: CharacterDocument, content: SlotContent): readonly TrainedSkill[] {
+export function skillsTrainedTwice(document: CharacterDocument, content: SlotContent): ReadonlyArray<TrainedSkill> {
   const entries = trainedEntries(skillReads(document, content).grantsAt(Level.parse(document.level)));
 
   return trainedSkills(documentSkills(document, content.skills).skills, () => true, {

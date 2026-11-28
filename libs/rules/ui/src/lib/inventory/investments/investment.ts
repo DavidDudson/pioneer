@@ -18,5 +18,5 @@ export interface Investment {
   /** Whether a battle form has it melded into the character (#532): its constant effects still apply. */
   readonly melded?: boolean | undefined;
   /** The lines it adds to the statistics the sheet shows. */
-  readonly effects: readonly InvestmentEffect[];
+  readonly effects: ReadonlyArray<InvestmentEffect>;
 }

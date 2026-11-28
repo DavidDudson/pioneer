@@ -93,7 +93,7 @@ export class AsyncForm<TModel, TResult = void> {
 
   /** Resolves whether the form was valid and submitted; rejects with the action's failure. */
   async #submit(): Promise<boolean> {
-    const failures: SubmitFailureError[] = [];
+    const failures: Array<SubmitFailureError> = [];
 
     const submitted = await submit(this.form(), async (field) => {
       try {

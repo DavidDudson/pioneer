@@ -123,7 +123,7 @@ describe('CharacterSheetPage', () => {
   it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background and class', async () => {
     const { root } = await openSheet();
 
-    const inlineLabels = (): string[] =>
+    const inlineLabels = (): Array<string> =>
       [...root.querySelectorAll('section fr-inline-field')]
         .filter((field) => field.closest('pio-level-timeline') === null)
         .values()

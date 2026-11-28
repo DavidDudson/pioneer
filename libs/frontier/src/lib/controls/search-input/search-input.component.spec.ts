@@ -10,7 +10,7 @@ interface Rendered {
   readonly fixture: ComponentFixture<SearchInput>;
   readonly input: HTMLInputElement;
   /** Every query `searched` fired, in order. */
-  readonly searches: string[];
+  readonly searches: Array<string>;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
@@ -20,7 +20,7 @@ function render(value = ''): Rendered {
   const fixture = TestBed.createComponent(SearchInput);
   fixture.componentRef.setInput('ariaLabel', 'Search feats');
   fixture.componentRef.setInput('value', value);
-  const searches: string[] = [];
+  const searches: Array<string> = [];
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.searched.subscribe((query) => {

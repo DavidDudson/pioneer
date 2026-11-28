@@ -13,7 +13,7 @@ import type { AutomaticLine } from '../level-timeline-row';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LevelTimelineAutomatic {
-  public readonly lines = input.required<readonly AutomaticLine[]>();
+  public readonly lines = input.required<ReadonlyArray<AutomaticLine>>();
 
   protected readonly Message = LevelTimelineMessage;
 }

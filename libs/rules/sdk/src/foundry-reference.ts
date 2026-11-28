@@ -50,7 +50,7 @@ const FOUNDRY_SPELLINGS = [
 /** Foundry spelling, then Pioneer path, of the actor flags a rolled badge reads (`@actor.flags.system.consumeFear`). */
 const FOUNDRY_FLAG_SPELLINGS = [['actor.flags.system.<flag>', 'flag.<flag>']] as const;
 
-function referencesOf(spellings: readonly (readonly [string, string])[]): readonly FoundryReference[] {
+function referencesOf(spellings: ReadonlyArray<readonly [string, string]>): ReadonlyArray<FoundryReference> {
   return spellings.map(([foundry, pioneer]) => ({
     foundry: FoundryReferencePattern.parse(foundry),
     pioneer: ReferencePattern.parse(pioneer),
@@ -62,15 +62,15 @@ function referencesOf(spellings: readonly (readonly [string, string])[]): readon
  * getters and through its `system` data; the exporter writes the first spelling listed for a path. Any other
  * Foundry path is reported as untranslatable.
  */
-export const FOUNDRY_REFERENCES: readonly FoundryReference[] = referencesOf(FOUNDRY_SPELLINGS);
+export const FOUNDRY_REFERENCES: ReadonlyArray<FoundryReference> = referencesOf(FOUNDRY_SPELLINGS);
 
 /**
  * The actor flags a rolled badge may read. Nothing sets a flag yet, so a rule element that read one would never
  * resolve: only the importer's badge formulas translate them.
  */
-const FOUNDRY_FLAG_REFERENCES: readonly FoundryReference[] = referencesOf(FOUNDRY_FLAG_SPELLINGS);
+const FOUNDRY_FLAG_REFERENCES: ReadonlyArray<FoundryReference> = referencesOf(FOUNDRY_FLAG_SPELLINGS);
 
-function translatedBy(references: readonly FoundryReference[], path: ReferencePath): ReferencePath | undefined {
+function translatedBy(references: ReadonlyArray<FoundryReference>, path: ReferencePath): ReferencePath | undefined {
   for (const { foundry, pioneer } of references) {
     const captures = match(foundry, path);
     const translated = captures === undefined ? undefined : fill(pioneer, captures);

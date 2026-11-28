@@ -97,7 +97,7 @@ export function itemBulk(entry: EquipmentEntry): BulkTenths | undefined {
 }
 
 /** Kinds whose use is fixed: armour is worn, a shield held, a rune etched; treasure and kits aren't used. */
-const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, readonly UsageValue[]>>> = {
+const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, ReadonlyArray<UsageValue>>>> = {
   [EquipmentKind.Armor]: [UsageValue.Worn],
   [EquipmentKind.Shield]: [UsageValue.Held],
   [EquipmentKind.Rune]: [UsageValue.Etched],
@@ -109,7 +109,7 @@ const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, readonly UsageValue[]>
  * How an item is used: fixed for some kinds (`FIXED_USAGE`); a weapon says, and equipment or a consumable may
  * (`undefined`, unknown, when it doesn't).
  */
-export function itemUsage(entry: EquipmentEntry): readonly (UsageValue | undefined)[] {
+export function itemUsage(entry: EquipmentEntry): ReadonlyArray<UsageValue | undefined> {
   const fixed = FIXED_USAGE[entry.kind];
 
   if (fixed !== undefined) {

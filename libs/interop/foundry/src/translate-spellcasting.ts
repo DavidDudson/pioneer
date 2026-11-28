@@ -31,7 +31,7 @@ function entry(fields: EntryFields): Fields {
 }
 
 /** Raises the character's one spellcasting rank, which every entry's spell attack and DC read. */
-function raise(rank: string, predicate?: readonly unknown[]): Fields {
+function raise(rank: string, predicate?: ReadonlyArray<unknown>): Fields {
   return {
     key: RuleElementKey.Proficiency,
     selector: RANK_SELECTOR,
@@ -44,7 +44,7 @@ function raise(rank: string, predicate?: readonly unknown[]): Fields {
  * A class's entry, raised to expert, master and legendary by the Expert, Master and Legendary Spellcaster class
  * features, which every Player Core caster but the cleric shares and gets at 7th, 15th and 19th level.
  */
-function classEntry(fields: EntryFields): readonly object[] {
+function classEntry(fields: EntryFields): ReadonlyArray<object> {
   return [
     entry(fields),
     raise('expert', ['feature:expert-spellcaster']),
@@ -54,7 +54,7 @@ function classEntry(fields: EntryFields): readonly object[] {
 }
 
 /** A witch's entry: the patron's tradition, read with Intelligence and prepared. */
-function patron(tradition: string): readonly object[] {
+function patron(tradition: string): ReadonlyArray<object> {
   return classEntry({ slug: 'witch', tradition, attribute: 'int', preparation: 'prepared' });
 }
 
@@ -77,7 +77,7 @@ const NINETEENTH = 19;
  * and 19th. The doctrine's Third to Final Doctrine features say so, but nothing grants them: Foundry's generic doctrine
  * features grant them by a lookup the importer does not translate, so the raises read the doctrine and the level.
  */
-const CLERIC: readonly object[] = [
+const CLERIC: ReadonlyArray<object> = [
   entry({ slug: 'cleric', tradition: DIVINE, attribute: 'wis', preparation: 'prepared' }),
   raise('expert', [{ or: [doctrineFrom(CLOISTERED, SEVENTH), doctrineFrom(WARPRIEST, ELEVENTH)] }]),
   raise('master', [{ or: [doctrineFrom(CLOISTERED, FIFTEENTH), doctrineFrom(WARPRIEST, NINETEENTH)] }]),
@@ -85,7 +85,7 @@ const CLERIC: readonly object[] = [
 ];
 
 /** The rule elements each entry gains, by its entry slug. */
-const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
+const SPELLCASTING: ReadonlyMap<string, ReadonlyArray<object>> = new Map([
   [
     'class-feature:bard-spellcasting',
     classEntry({ slug: 'bard', tradition: 'occult', attribute: 'cha', preparation: 'spontaneous' }),

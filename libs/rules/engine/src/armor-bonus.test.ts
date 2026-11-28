@@ -37,7 +37,7 @@ const ARMOR_ID = RuleId.parse(`${LEATHER}#armor-bonus`);
 const BASE = 10 + 2;
 
 /** A level 1 character with Dexterity 3 wearing armour of `bonus` with a Dexterity cap of 2. */
-function ac(bonus: number | undefined, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
+function ac(bonus: number | undefined, rules: ReadonlyArray<RuleInPlay> = []): StatisticResult | undefined {
   const character = {
     level: 1,
     attributes: { str: 0, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -106,7 +106,7 @@ const FORTITUDE = StatisticDefinition.parse({
 });
 
 /** A level 1 character with Constitution 2 wearing armour with a resilient rune of `resilient`. */
-function fortitude(resilient: number | undefined, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
+function fortitude(resilient: number | undefined, rules: ReadonlyArray<RuleInPlay> = []): StatisticResult | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 1,
     attributes: { str: 0, dex: 0, con: 2, int: 0, wis: 0, cha: 0 },

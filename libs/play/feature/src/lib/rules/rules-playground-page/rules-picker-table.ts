@@ -10,10 +10,10 @@ export interface RulesPickerRow<TValue extends string> {
 
 /** The rows whose name or group hold `query`, in the order asked for; the list is short, so the page holds it all. */
 export function shownRulesRows<TValue extends string>(
-  rows: readonly RulesPickerRow<TValue>[],
+  rows: ReadonlyArray<RulesPickerRow<TValue>>,
   query: string,
   sort: PickerSort | undefined,
-): readonly RulesPickerRow<TValue>[] {
+): ReadonlyArray<RulesPickerRow<TValue>> {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => `${row.label} ${row.group}`.toLocaleLowerCase().includes(needle));
 
@@ -34,7 +34,7 @@ export function shownRulesRows<TValue extends string>(
 export function rulesPickerColumns<TValue extends string>(
   nameHeader: string,
   groupHeader: string,
-): readonly TableColumn<RulesPickerRow<TValue>>[] {
+): ReadonlyArray<TableColumn<RulesPickerRow<TValue>>> {
   return tableSchema<RulesPickerRow<TValue>>()
     .addText({ id: 'name', header: nameHeader, value: (row) => row.label, width: 'md' })
     .addTag({ id: 'group', header: groupHeader, value: (row) => ({ label: row.group }), width: 'sm' })

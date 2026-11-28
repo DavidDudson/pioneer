@@ -15,7 +15,7 @@ const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
-const entry = (tradition: string, predicate: readonly unknown[]): Fields => ({
+const entry = (tradition: string, predicate: ReadonlyArray<unknown>): Fields => ({
   key: SpellcastingEntry,
   slug: 'sorcerer-focus',
   tradition,
@@ -24,7 +24,7 @@ const entry = (tradition: string, predicate: readonly unknown[]): Fields => ({
   predicate,
 });
 
-function keyed(key: string, name: string, fixture: DocumentFixture): Record<string, unknown>[] {
+function keyed(key: string, name: string, fixture: DocumentFixture): Array<Record<string, unknown>> {
   return rulesIn(translate([fixture]), name).filter(
     (rule): rule is Record<string, unknown> =>
       typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
@@ -32,7 +32,7 @@ function keyed(key: string, name: string, fixture: DocumentFixture): Record<stri
 }
 
 /** The focus entries a feature gains, not the sorcerer's own. */
-function focusEntries(name: string, fixture: DocumentFixture): Record<string, unknown>[] {
+function focusEntries(name: string, fixture: DocumentFixture): Array<Record<string, unknown>> {
   return keyed(SpellcastingEntry, name, fixture).filter(({ preparation }) => preparation === 'focus');
 }
 

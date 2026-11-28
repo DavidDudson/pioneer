@@ -9,8 +9,8 @@ import type { StatisticResult } from './statistic-result';
 
 /** What the modifier phase found for one statistic: its lines, and the set overrides on it. */
 export interface Finishing {
-  readonly lines: readonly BreakdownLine[];
-  readonly sets: readonly ChangeSource[];
+  readonly lines: ReadonlyArray<BreakdownLine>;
+  readonly sets: ReadonlyArray<ChangeSource>;
   readonly context: RuleContext;
 }
 

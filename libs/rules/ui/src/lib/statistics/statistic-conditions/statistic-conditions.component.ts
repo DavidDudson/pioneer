@@ -32,9 +32,9 @@ export interface ConditionChange {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatisticConditions {
-  public readonly conditions = input.required<readonly string[]>();
+  public readonly conditions = input.required<ReadonlyArray<string>>();
   /** Lines whose situation can be claimed; none unless the page lets the player claim them. */
-  public readonly toggles = input<readonly ConditionToggle[]>([]);
+  public readonly toggles = input<ReadonlyArray<ConditionToggle>>([]);
   public readonly toggled = output<ConditionChange>();
 
   protected readonly small = Size.Sm;

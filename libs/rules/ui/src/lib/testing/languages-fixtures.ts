@@ -5,7 +5,7 @@ import type { LanguagePickerRow } from '../slot-picker/slot-picker-row';
 import { languageRow } from './slot-picker-fixtures';
 
 /** A dwarf who knows Common and Dwarven, Empyrean from a feat, and picked Goblin. */
-export const DWARF_LANGUAGES: readonly LanguageLine[] = [
+export const DWARF_LANGUAGES: ReadonlyArray<LanguageLine> = [
   { key: 'common', name: 'Common', from: 'Dwarf' },
   { key: 'dwarven', name: 'Dwarven', from: 'Dwarf' },
   { key: 'empyrean', name: 'Empyrean', from: 'Angelkin' },
@@ -13,7 +13,7 @@ export const DWARF_LANGUAGES: readonly LanguageLine[] = [
 ];
 
 /** What the dwarf's next language slot offers. */
-export const DWARF_LANGUAGE_ROWS: readonly LanguagePickerRow[] = [
+export const DWARF_LANGUAGE_ROWS: ReadonlyArray<LanguagePickerRow> = [
   languageRow({ id: 'draconic', name: 'Draconic', rarity: Rarity.Uncommon }),
   languageRow({ id: 'elven', name: 'Elven' }),
   languageRow({ id: 'petran', name: 'Petran', rarity: Rarity.Rare }),

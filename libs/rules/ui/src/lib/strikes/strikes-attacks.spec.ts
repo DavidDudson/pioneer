@@ -21,7 +21,7 @@ async function render(attacksMade: number | undefined): Promise<HTMLElement> {
 }
 
 /** The three modifiers of the first Strike's "Attack +9 / +4 / -1" line. */
-function steps(page: HTMLElement): string[] {
+function steps(page: HTMLElement): Array<string> {
   const line = [...page.querySelectorAll('fr-text')]
     .map((text) => text.textContent.trim())
     .find((text) => text.startsWith('Attack ') && text.includes(' / '));

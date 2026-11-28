@@ -99,7 +99,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Opens the campaign home as Ezren with the party and `transfers` answered. */
-async function open(transfers: readonly object[], badges: number): Promise<HTMLElement> {
+async function open(transfers: ReadonlyArray<object>, badges: number): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),
@@ -128,7 +128,7 @@ async function open(transfers: readonly object[], badges: number): Promise<HTMLE
 }
 
 /** The gift badges' buttons, in document order. */
-function gifts(root: HTMLElement): HTMLButtonElement[] {
+function gifts(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll<HTMLButtonElement>('fr-gift-badge button')];
 }
 

@@ -44,7 +44,7 @@ export function claimSituation(claims: SituationClaims, { selector, rule, on }: 
 
 /** The statistics to count the claims in, and the situations claimed for each. */
 export interface SituationsRequest {
-  readonly statistics: readonly NamedStatistic[];
+  readonly statistics: ReadonlyArray<NamedStatistic>;
   readonly claims: SituationClaims;
 }
 
@@ -61,7 +61,7 @@ export interface CheckSituations {
 export function checkSituations(
   registry: ContentRegistry,
   character: Character,
-  { selectors, claims }: { readonly selectors: readonly Selector[]; readonly claims: SituationClaims },
+  { selectors, claims }: { readonly selectors: ReadonlyArray<Selector>; readonly claims: SituationClaims },
 ): ReadonlyMap<Selector, CheckSituations> {
   const sources = sheetSources(registry, character);
 
@@ -74,7 +74,7 @@ export function checkSituations(
     claims: wanted,
   });
 
-  const found = [...setups].flatMap(([selector, { statistic, conditional }]): [Selector, CheckSituations][] =>
+  const found = [...setups].flatMap(([selector, { statistic, conditional }]): Array<[Selector, CheckSituations]> =>
     conditional.length === 0
       ? []
       : [[selector, { statistic, situations: { offered: conditional, claimed: wanted.get(selector) ?? new Set() } }]],
@@ -91,7 +91,7 @@ export function withSituations(
   registry: ContentRegistry,
   character: Character,
   { statistics, claims }: SituationsRequest,
-): readonly NamedStatistic[] {
+): ReadonlyArray<NamedStatistic> {
   const selectors = statistics
     .filter(({ kind, result }) => kind === StatisticKind.Check && result.ok)
     .map(({ result }) => result.selector);

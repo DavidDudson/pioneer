@@ -12,7 +12,7 @@ import cachesMessages from '../../i18n/en.json';
  * The `en` messages legal UI renders with: its own `legalCaches` scope and the `rules` book titles, preloaded with the
  * ICU transpiler, for stories.
  */
-export function provideLegalUiI18nTesting(): EnvironmentProviders[] {
+export function provideLegalUiI18nTesting(): Array<EnvironmentProviders> {
   return [
     importProvidersFrom(
       TranslocoTestingModule.forRoot({

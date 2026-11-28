@@ -6,7 +6,7 @@ import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's rule-breaking items. */
-export function itemReviewKey(id: CampaignId | undefined): readonly unknown[] {
+export function itemReviewKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'item-review', id];
 }
 

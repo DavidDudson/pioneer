@@ -59,7 +59,7 @@ export type HomebrewPackReport = z.infer<typeof HomebrewPackReport>;
 export interface HomebrewPackPlan {
   readonly embedded: EmbeddedPack;
   readonly report: HomebrewPackReport;
-  readonly toCreate: readonly ContentEntry[];
+  readonly toCreate: ReadonlyArray<ContentEntry>;
 }
 
 function sameEntry(left: ContentEntry, right: ContentEntry): boolean {
@@ -93,7 +93,10 @@ function statusOf(existing: ExistingPack | undefined): HomebrewPackStatus {
  * pack already holds is reused when identical and reported as a clash when not. A clash leaves the character's
  * reference as an id that resolves to the other entry (or none), exactly as unmatched content does.
  */
-export function planHomebrewImport(embedded: readonly EmbeddedPack[], existing: ExistingPacks): HomebrewPackPlan[] {
+export function planHomebrewImport(
+  embedded: ReadonlyArray<EmbeddedPack>,
+  existing: ExistingPacks,
+): Array<HomebrewPackPlan> {
   return embedded.map((pack) => {
     const held = existing.get(pack.pack.id);
     const status = statusOf(held);

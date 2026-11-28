@@ -43,10 +43,10 @@ const candidate = (index: number): Arbitrary<GrantEntry> =>
   );
 
 interface Drawn {
-  readonly feats: readonly GrantEntry[];
-  readonly filter: readonly unknown[];
+  readonly feats: ReadonlyArray<GrantEntry>;
+  readonly filter: ReadonlyArray<unknown>;
   readonly level: number;
-  readonly situation: readonly string[];
+  readonly situation: ReadonlyArray<string>;
 }
 
 const drawn: Arbitrary<Drawn> = integer({ min: 0, max: ENTRIES_MAX }).chain((count) =>
@@ -58,7 +58,7 @@ const drawn: Arbitrary<Drawn> = integer({ min: 0, max: ENTRIES_MAX }).chain((cou
   ).map(([feats, filter, level, situation]) => ({ feats, filter, level, situation })),
 );
 
-const factsOf = (options: readonly string[]): PredicateFacts =>
+const factsOf = (options: ReadonlyArray<string>): PredicateFacts =>
   new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,

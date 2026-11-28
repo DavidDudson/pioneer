@@ -4,8 +4,8 @@ import type { InventoryItem, InventoryItemId } from './inventory';
 export function containersOf(
   items: ReadonlyMap<InventoryItemId, InventoryItem>,
   id: InventoryItemId,
-): InventoryItemId[] {
-  const chain: InventoryItemId[] = [];
+): Array<InventoryItemId> {
+  const chain: Array<InventoryItemId> = [];
   let current = items.get(id)?.container;
 
   while (current !== undefined && !chain.includes(current)) {
@@ -16,6 +16,6 @@ export function containersOf(
   return chain;
 }
 
-export function byId(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, InventoryItem> {
+export function byId(items: ReadonlyArray<InventoryItem>): ReadonlyMap<InventoryItemId, InventoryItem> {
   return new Map(items.map((each) => [each.id, each]));
 }

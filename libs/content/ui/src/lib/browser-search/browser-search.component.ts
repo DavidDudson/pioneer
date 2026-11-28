@@ -22,7 +22,7 @@ const SearchMessage = {
 export class BrowserSearch {
   public readonly state = model.required<ContentBrowserState>();
   /** The kinds on offer, named in the UI language. */
-  public readonly kindOptions = input.required<readonly SelectOption<ContentKind>[]>();
+  public readonly kindOptions = input.required<ReadonlyArray<SelectOption<ContentKind>>>();
 
   protected readonly Message = SearchMessage;
   protected readonly kindSet: Signal<ReadonlySet<ContentKind>> = computed(() => new Set(this.state().kinds));

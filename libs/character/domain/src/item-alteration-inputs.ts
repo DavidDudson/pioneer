@@ -26,7 +26,7 @@ const THROWN = Trait.parse('thrown');
 const MAGICAL = Trait.parse('magical');
 
 /** A number of an item that may be missing, by the property an alteration names it by. */
-type Candidates = readonly (readonly [NumericItemProperty, number | undefined])[];
+type Candidates = ReadonlyArray<readonly [NumericItemProperty, number | undefined]>;
 
 /** The numbers among `candidates` the item has. */
 function numbers(candidates: Candidates): ItemNumbers {
@@ -92,7 +92,7 @@ function damageTypeOf(entry: ItemEntry): DamageType | undefined {
   return entry.kind === ContentKind.Weapon ? entry.data.damage.damageType : undefined;
 }
 
-function materialsOf(entry: ItemEntry): readonly Slug[] {
+function materialsOf(entry: ItemEntry): ReadonlyArray<Slug> {
   const material = 'material' in entry.data ? entry.data.material : undefined;
 
   return material === undefined ? [] : [material.type];
@@ -102,7 +102,7 @@ function materialsOf(entry: ItemEntry): readonly Slug[] {
 function weaponRollOptions(
   entry: Extract<ItemEntry, { readonly kind: typeof ContentKind.Weapon }>,
   favored: boolean,
-): readonly RollOptionTail[] {
+): ReadonlyArray<RollOptionTail> {
   const { category, group, baseItem, range, tags = [] } = entry.data;
   const thrown = entry.traits.includes(THROWN);
 
@@ -120,7 +120,7 @@ function weaponRollOptions(
 }
 
 /** The roll options of an equipped item that a predicate over `item:` reads: `type:armor`, `trait:shield`, `slug:…`; a weapon's too. */
-function rollOptionsOf(entry: ItemEntry, favored: boolean): readonly RollOptionTail[] {
+function rollOptionsOf(entry: ItemEntry, favored: boolean): ReadonlyArray<RollOptionTail> {
   return [
     RollOptionTail.parse(`type:${entry.kind}`),
     RollOptionTail.parse(`slug:${slugName(entry.slug)}`),
@@ -138,7 +138,7 @@ function rollOptionsOf(entry: ItemEntry, favored: boolean): readonly RollOptionT
  */
 /** What else an item's roll options say: the picks of owned items that name it, and whether its deity favours it. */
 export interface AlteredContext {
-  readonly picked?: readonly RuleSlug[] | undefined;
+  readonly picked?: ReadonlyArray<RuleSlug> | undefined;
   readonly favored?: boolean;
   /** The inventory line the item is, which an `etched` adjustment of its Strike is read against. */
   readonly item?: InventoryItemId | undefined;

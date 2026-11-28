@@ -67,8 +67,8 @@ function customLoreOption(topic: Slug, name: LoreName): SkillOption {
 }
 
 /** The topic and name of each custom Lore a build names. */
-function entriesOf(lores: LoreNames): [Slug, LoreName][] {
-  return Object.entries(lores).flatMap(([topic, name]): [Slug, LoreName][] => {
+function entriesOf(lores: LoreNames): Array<[Slug, LoreName]> {
+  return Object.entries(lores).flatMap(([topic, name]): Array<[Slug, LoreName]> => {
     const slug = Slug.safeParse(topic);
 
     return slug.success ? [[slug.data, name]] : [];
@@ -82,7 +82,7 @@ function entriesOf(lores: LoreNames): [Slug, LoreName][] {
 export function withCustomLores(content: SkillContent, lores: LoreNames): SkillContent {
   const loaded = new Map(content.skills.map((skill) => [skill.selector, skill]));
 
-  const custom = entriesOf(lores).flatMap(([topic, name]): SkillOption[] =>
+  const custom = entriesOf(lores).flatMap(([topic, name]): Array<SkillOption> =>
     loaded.has(loreSelectorOf(topic)) ? [] : [customLoreOption(topic, name)],
   );
 
@@ -133,11 +133,11 @@ export function documentSkills(document: CharacterDocument, content: SkillConten
  */
 export function customLoreStatistics(
   document: CharacterDocument,
-  loaded: readonly StatisticDefinition[],
-): readonly StatisticDefinition[] {
+  loaded: ReadonlyArray<StatisticDefinition>,
+): ReadonlyArray<StatisticDefinition> {
   const taken = new Set(loaded.map(({ selector }) => selector));
 
-  return entriesOf(loresOf(document)).flatMap(([topic, name]): StatisticDefinition[] => {
+  return entriesOf(loresOf(document)).flatMap(([topic, name]): Array<StatisticDefinition> => {
     const selector = loreSelectorOf(topic);
 
     return taken.has(selector)

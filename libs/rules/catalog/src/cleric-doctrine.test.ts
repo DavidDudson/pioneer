@@ -51,7 +51,7 @@ function clericAt(level: number, doctrine: string): GrantResolution {
   return resolve(picks);
 }
 
-const names = (result: GrantResolution): string[] => result.items.map(({ entry }) => entry.name);
+const names = (result: GrantResolution): Array<string> => result.items.map(({ entry }) => entry.name);
 
 describe('a cleric’s doctrine', () => {
   test('a 1st-level warpriest has First Doctrine (Warpriest) and Shield Block', () => {

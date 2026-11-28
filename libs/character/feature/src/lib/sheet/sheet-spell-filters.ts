@@ -22,9 +22,9 @@ const NO_PARAMS: QueryParams = {};
 /** What the Spells tab filters its list with (#1785): the groups the panel shows, the rows left, and what the player picks. */
 export interface SpellFilters {
   /** The filter panel's groups, from the character's own spells so no option matches nothing. */
-  readonly groups: Signal<readonly SpellFilterGroup[]>;
+  readonly groups: Signal<ReadonlyArray<SpellFilterGroup>>;
   /** Every spell the character can cast, one row per source, that passes the picks. */
-  readonly list: Signal<readonly SpellRowLine[]>;
+  readonly list: Signal<ReadonlyArray<SpellRowLine>>;
   readonly pick: (change: SpellFilterChange) => Promise<void>;
   /** Clears every pick at once. */
   readonly clear: () => Promise<void>;
@@ -48,17 +48,17 @@ export function injectSpellFilters({ origins, translate, messages }: SpellFilter
   const params = toSignal(route.queryParams, { initialValue: NO_PARAMS });
   const picks = computed((): SpellPicks => spellFilterFromQuery(params()));
 
-  const write = async (queryParams: Readonly<Record<string, readonly string[] | undefined>>): Promise<void> => {
+  const write = async (queryParams: Readonly<Record<string, ReadonlyArray<string> | undefined>>): Promise<void> => {
     await router.navigate([], { relativeTo: route, queryParams, queryParamsHandling: 'merge', replaceUrl: true });
   };
 
   return {
-    groups: computed((): readonly SpellFilterGroup[] => {
+    groups: computed((): ReadonlyArray<SpellFilterGroup> => {
       messages();
 
       return spellFilterGroups(sheetSpells(origins()), picks(), { label: translate, value: wordValue(translate) });
     }),
-    list: computed((): readonly SpellRowLine[] => sheetSpellList(origins(), picks())),
+    list: computed((): ReadonlyArray<SpellRowLine> => sheetSpellList(origins(), picks())),
     pick: async ({ group, selected }) => {
       const next = withSpellPicks(picks(), group, selected);
       await write(spellFilterToQuery(next));

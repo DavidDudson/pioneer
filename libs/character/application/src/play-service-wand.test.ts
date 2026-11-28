@@ -97,7 +97,7 @@ describe('PlayService wands', () => {
     return rejection(play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command }));
   }
 
-  async function itemsNow(): Promise<readonly InventoryItem[]> {
+  async function itemsNow(): Promise<ReadonlyArray<InventoryItem>> {
     const { document } = await characters.get(ezren.ownerId, ezren.id);
 
     return document.inventory.items;

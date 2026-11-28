@@ -24,7 +24,7 @@ export class StatisticSourceField {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
-  protected readonly sources = computed((): readonly SelectOption<StatisticSource>[] => {
+  protected readonly sources = computed((): ReadonlyArray<SelectOption<StatisticSource>> => {
     this.#messages();
 
     return Object.values(StatisticSource).map((source) => ({

@@ -11,16 +11,16 @@ import type { PackDependencyEdge } from './pack-dependencies';
 const PACKS = 8;
 const MAX_EDGES = 20;
 
-const packs: readonly ContentPackId[] = Array.from({ length: PACKS }, (_pack, index) =>
+const packs: ReadonlyArray<ContentPackId> = Array.from({ length: PACKS }, (_pack, index) =>
   contentPackId(PackId.parse(`pack-${index}`)),
 );
 
 /** Acyclic by construction: a pack only ever extends one with a lower index. */
-const acyclicEdges: Arbitrary<readonly PackDependencyEdge[]> = array(
+const acyclicEdges: Arbitrary<ReadonlyArray<PackDependencyEdge>> = array(
   tuple(integer({ min: 1, max: PACKS - 1 }), integer({ min: 0, max: PACKS - 2 })),
   { maxLength: MAX_EDGES },
 ).map((pairs) =>
-  pairs.flatMap(([from, to]): PackDependencyEdge[] => {
+  pairs.flatMap(([from, to]): Array<PackDependencyEdge> => {
     const pack = packs[from];
     const dependsOn = packs[to];
 
@@ -118,7 +118,7 @@ describe('wouldCycle', () => {
   test('keeps the graph acyclic when only accepted edges are added', () => {
     assert(
       property(candidatePairs, (candidates) => {
-        const accepted: PackDependencyEdge[] = [];
+        const accepted: Array<PackDependencyEdge> = [];
 
         for (const [pack, dependsOn] of candidates) {
           if (!wouldCycle(accepted, { pack, dependsOn })) {

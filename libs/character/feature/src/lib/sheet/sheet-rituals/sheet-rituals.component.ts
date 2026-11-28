@@ -30,7 +30,7 @@ export class SheetRituals {
   readonly #store = inject(CharacterStore);
   readonly #content = injectContentRegistry([ContentKind.Ritual]);
 
-  protected readonly rows: Signal<readonly RitualRow[]> = computed(() => {
+  protected readonly rows: Signal<ReadonlyArray<RitualRow>> = computed(() => {
     const registry = this.#content.data();
 
     return (this.#store.selected()?.document.build.rituals ?? []).map((id) => ({

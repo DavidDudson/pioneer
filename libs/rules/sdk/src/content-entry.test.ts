@@ -8,7 +8,7 @@ import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { ContentEntry } from './typed-content-entry';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = ContentEntry.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

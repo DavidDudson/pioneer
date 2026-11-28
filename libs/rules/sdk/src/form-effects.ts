@@ -22,7 +22,7 @@ export function spellEffectId(entry: SpellEffectEntry): ContentId {
 }
 
 /** A `.check` for the effects a spell or an action lists: each effect is listed once, whatever its predicate. */
-function uniqueEffects(context: z.core.ParsePayload<readonly SpellEffectEntry[]>): void {
+function uniqueEffects(context: z.core.ParsePayload<ReadonlyArray<SpellEffectEntry>>): void {
   uniqueItems({ ...context, value: context.value.map((entry) => spellEffectId(entry)) });
 }
 

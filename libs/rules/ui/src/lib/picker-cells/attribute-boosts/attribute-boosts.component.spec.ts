@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { renderCell } from '../../testing/render-cell';
 import { AttributeBoosts } from './attribute-boosts.component';
 
-function badges(host: HTMLElement): readonly string[] {
+function badges(host: HTMLElement): ReadonlyArray<string> {
   return [...host.querySelectorAll('fr-badge')].map((badge) => {
     const parts = [...badge.querySelectorAll('fr-text')].map((part) => part.textContent.trim());
 

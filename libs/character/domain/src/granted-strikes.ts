@@ -17,7 +17,7 @@ import type { Origin, StrikeElement } from '@pioneer/rules/sdk';
 const FIST = BaseWeapon.parse('fist');
 
 /** A fist's traits, as Foundry pf2e's `Strike` gives its fist. */
-const FIST_TRAITS: readonly Trait[] = ['agile', 'finesse', 'nonlethal'].map((trait) => Trait.parse(trait));
+const FIST_TRAITS: ReadonlyArray<Trait> = ['agile', 'finesse', 'nonlethal'].map((trait) => Trait.parse(trait));
 
 /** A fist's damage, as Foundry pf2e's `Strike` gives its fist: 1d4 bludgeoning. */
 const FIST_DAMAGE: WeaponDamage = WeaponDamage.parse({ dice: 1, die: DieSize.D4, damageType: DamageType.Bludgeoning });
@@ -56,8 +56,8 @@ function ownStrike({ element, origin }: GivenStrike): WeaponInputs | undefined {
 export function grantedStrikes(
   { items, facts }: GrantResolution,
   favored: ReadonlySet<BaseWeapon>,
-): readonly WeaponInputs[] {
-  const given = items.flatMap(({ entry, origin }): GivenStrike[] =>
+): ReadonlyArray<WeaponInputs> {
+  const given = items.flatMap(({ entry, origin }): Array<GivenStrike> =>
     entry.rules.flatMap((element) =>
       element.key === RuleElementKey.Strike &&
       (element.predicate === undefined || evaluatePredicate(element.predicate, facts) === Truth.True)

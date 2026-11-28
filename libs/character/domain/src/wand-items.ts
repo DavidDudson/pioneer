@@ -48,7 +48,7 @@ export function itemWands(registry: ContentRegistry): ReadonlyMap<ContentId, Wan
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
-      .flatMap((entry): [ContentId, WandSpell][] => {
+      .flatMap((entry): Array<[ContentId, WandSpell]> => {
         const wand = wandSpellOf(entry);
 
         return wand === undefined ? [] : [[entry.id, wand]];

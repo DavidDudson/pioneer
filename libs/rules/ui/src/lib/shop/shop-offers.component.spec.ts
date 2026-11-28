@@ -12,7 +12,7 @@ interface Rendered {
   readonly host: HTMLElement;
 }
 
-async function render(offers: readonly ShopOffer[] | undefined): Promise<Rendered> {
+async function render(offers: ReadonlyArray<ShopOffer> | undefined): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(ShopOffersView);
   fixture.componentRef.setInput('offers', offers);
@@ -23,7 +23,7 @@ async function render(offers: readonly ShopOffer[] | undefined): Promise<Rendere
 }
 
 /** Each row's texts: its name, its badge if any, then its level and price. */
-const rows = (host: HTMLElement): string[][] =>
+const rows = (host: HTMLElement): Array<Array<string>> =>
   [...host.querySelectorAll('fr-list-item')].map((item) =>
     [...item.querySelectorAll('fr-text, fr-badge')].map((text) => text.textContent.trim()),
   );

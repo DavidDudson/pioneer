@@ -31,14 +31,14 @@ function check(texts: Partial<GrantsTexts>): GrantsCheck {
 }
 
 /** What the example's first open slot offers, as typed, at `level`. */
-function offeredAt(level: number): string[] {
+function offeredAt(level: number): Array<string> {
   const result = check({ level });
 
   return result.status === GrantsStatus.Valid ? (result.open[0]?.options.map((option) => option.value) ?? []) : [];
 }
 
 /** The names on the character, for a check that resolves. */
-function itemNames(result: GrantsCheck): string[] {
+function itemNames(result: GrantsCheck): Array<string> {
   return result.status === GrantsStatus.Valid ? result.items.map((item) => item.name) : [];
 }
 

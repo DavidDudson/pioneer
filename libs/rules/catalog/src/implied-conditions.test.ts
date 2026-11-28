@@ -13,7 +13,7 @@ const nameOf = new Map(conditions.map((each) => [each.id, String(slugName(each.s
 const named = (id: ContentId): string => nameOf.get(id) ?? id;
 
 /** The conditions in play when the character is put under `roots`, each with the items that brought it. */
-function resolved(roots: readonly ContentId[]): readonly GrantedItem[] {
+function resolved(roots: ReadonlyArray<ContentId>): ReadonlyArray<GrantedItem> {
   const result = resolveGrants(
     inputsOf({
       entries,
@@ -24,13 +24,13 @@ function resolved(roots: readonly ContentId[]): readonly GrantedItem[] {
   return result.items;
 }
 
-const inPlay = (roots: readonly ContentId[]): string[] =>
+const inPlay = (roots: ReadonlyArray<ContentId>): Array<string> =>
   resolved(roots)
     .map(({ entry }) => String(entry.slug))
     .toSorted();
 
 /** The conditions a condition's `GrantItem` rules give. */
-function grantedBy(each: ConditionEntry): ContentId[] {
+function grantedBy(each: ConditionEntry): Array<ContentId> {
   return each.rules.flatMap((rule) => {
     const item = rule.key === RuleElementKey.GrantItem ? ContentId.safeParse(rule.item) : undefined;
 
@@ -128,7 +128,7 @@ describe('an overridden condition', () => {
 });
 
 /** The conditions that end up on the character: `roots` and all they imply, less what another overrides. */
-function closure(roots: readonly ContentId[]): string[] {
+function closure(roots: ReadonlyArray<ContentId>): Array<string> {
   const byId = new Map(conditions.map((each) => [each.id, each]));
   const reached = new Set<ContentId>(roots);
 

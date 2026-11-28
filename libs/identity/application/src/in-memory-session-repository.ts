@@ -37,7 +37,7 @@ export class InMemorySessionRepository extends SessionRepository {
     }
   }
 
-  public override async listForUser(userId: UserId, now: Temporal.Instant): Promise<Session[]> {
+  public override async listForUser(userId: UserId, now: Temporal.Instant): Promise<Array<Session>> {
     return [...this.#sessions.values()]
       .filter((session) => session.userId === userId && !session.isExpiredAt(now))
       .toSorted((left, right) => Temporal.Instant.compare(right.lastSeenAt, left.lastSeenAt));

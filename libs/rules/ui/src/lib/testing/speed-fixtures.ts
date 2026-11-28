@@ -9,7 +9,7 @@ const FLY_SPEED = 30;
 const STEP_DISTANCE = 5;
 
 /** A character that only walks: 25 feet, and no swim or fly Speed. */
-export const WALKER_SPEEDS: readonly SpeedRow[] = [
+export const WALKER_SPEEDS: ReadonlyArray<SpeedRow> = [
   {
     movement: Movement.Walk,
     speed: {
@@ -21,7 +21,7 @@ export const WALKER_SPEEDS: readonly SpeedRow[] = [
 ];
 
 /** A winged character: walks 25 feet and flies 30. */
-export const FLYER_SPEEDS: readonly SpeedRow[] = [
+export const FLYER_SPEEDS: ReadonlyArray<SpeedRow> = [
   ...WALKER_SPEEDS,
   {
     movement: Movement.Fly,
@@ -34,7 +34,7 @@ export const FLYER_SPEEDS: readonly SpeedRow[] = [
 ];
 
 /** A walker with a Step of 5 feet. */
-export const STEP_SPEEDS: readonly SpeedRow[] = [
+export const STEP_SPEEDS: ReadonlyArray<SpeedRow> = [
   ...WALKER_SPEEDS,
   {
     movement: Movement.Step,

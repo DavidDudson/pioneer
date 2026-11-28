@@ -62,7 +62,7 @@ const cleric = entry(
   ]),
 );
 
-const entries: readonly GrantEntry[] = [cleric, domainInitiate, initiateWarden, toughness];
+const entries: ReadonlyArray<GrantEntry> = [cleric, domainInitiate, initiateWarden, toughness];
 
 const FEAT_SLOTS = [slotOf('cleric', 0), slotOf('cleric', 2), slotOf('cleric', 4)] as const;
 const FIRST_DOMAIN = slotOf('domain-initiate', 0, FEAT_SLOTS[0]);
@@ -71,22 +71,22 @@ const SECOND_DOMAIN = slotOf('domain-initiate', 0, FEAT_SLOTS[1]);
 type Pick = readonly [SlotKey, string];
 
 /** The feats the player picked in the class's feat slots, in order. */
-function featPicks(...slugs: readonly string[]): Pick[] {
-  return slugs.flatMap((slug, index): Pick[] => {
+function featPicks(...slugs: ReadonlyArray<string>): Array<Pick> {
+  return slugs.flatMap((slug, index): Array<Pick> => {
     const slot = FEAT_SLOTS[index];
 
     return slot === undefined ? [] : [[slot, idOf(slug)]];
   });
 }
 
-function resolve(picks: readonly Pick[]): GrantResolution {
+function resolve(picks: ReadonlyArray<Pick>): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots: [picked('cleric', 'class')], picks: picksOf(picks) }));
 }
 
 const own = (slot: { readonly origin: { readonly entry: string } }): boolean =>
   slot.origin.entry === idOf('domain-initiate');
 
-const takesOf = (result: GrantResolution, slug: string): number[] =>
+const takesOf = (result: GrantResolution, slug: string): Array<number> =>
   result.items.filter((item) => item.entry.id === idOf(slug)).map((item) => item.take);
 
 /** The slots of the feat `slug` still to answer; the class's unfilled feat slot is not one. */

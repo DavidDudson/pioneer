@@ -223,7 +223,7 @@ export type CheckOutcome =
   /** `parsed` is the validated value encoded back to JSON, as Pioneer would store or send it. */
   | { readonly status: typeof CheckStatus.Valid; readonly parsed: string }
   | { readonly status: typeof CheckStatus.NotJson }
-  | { readonly status: typeof CheckStatus.Invalid; readonly issues: readonly CheckIssue[] };
+  | { readonly status: typeof CheckStatus.Invalid; readonly issues: ReadonlyArray<CheckIssue> };
 
 /** A problem with the checked value; one in a formula also has the formula with a caret under the mistake. */
 interface CheckIssue extends FieldIssue {

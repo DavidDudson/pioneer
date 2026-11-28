@@ -84,7 +84,7 @@ class NameIndex {
   readonly #byLegacyName = new Map<string, ContentMatch>();
   readonly #legacy: ReadonlyMap<string, string>;
 
-  public constructor(entries: readonly LookupEntry[], legacy: ReadonlyMap<string, string> = new Map()) {
+  public constructor(entries: ReadonlyArray<LookupEntry>, legacy: ReadonlyMap<string, string> = new Map()) {
     this.#legacy = legacy;
 
     for (const entry of entries) {
@@ -128,7 +128,7 @@ class NameIndex {
 }
 
 /** A lookup over in-memory entries per kind; a kind left out is not loaded. */
-export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupEntry[]>>): ContentLookup {
+export function entryLookup(entries: Partial<Record<ImportKind, ReadonlyArray<LookupEntry>>>): ContentLookup {
   const indexes = new Map(
     Object.entries(entries).map(
       ([kind, list]) =>
@@ -143,9 +143,9 @@ export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupE
 }
 
 /** The packs' envelope entries of any of `kinds`, as lookup entries. */
-function envelopeEntries(registry: ContentRegistry, ...kinds: readonly ContentKind[]): LookupEntry[] {
+function envelopeEntries(registry: ContentRegistry, ...kinds: ReadonlyArray<ContentKind>): Array<LookupEntry> {
   return registry.packs.flatMap((pack) =>
-    pack.otherEntries.flatMap((entry): LookupEntry[] => {
+    pack.otherEntries.flatMap((entry): Array<LookupEntry> => {
       if (!kinds.includes(entry.kind)) {
         return [];
       }

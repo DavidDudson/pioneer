@@ -33,7 +33,7 @@ function subclassPick(name: PlayerCoreClass, option: string): readonly [string, 
   return [String(slot?.key), playerCoreId(ContentKind.ClassFeature, option)];
 }
 
-function entriesOf(builder: CharacterBuilder): string[] {
+function entriesOf(builder: CharacterBuilder): Array<string> {
   const grants = characterGrants(builder.build().document, content);
 
   return characterSpellcasting(grants).map(
@@ -48,7 +48,7 @@ function rankOf(builder: CharacterBuilder): string | undefined {
   return characterRanks(characterGrants(builder.build().document, content)).get(SPELLCASTING);
 }
 
-const CASTERS: Readonly<Record<PlayerCoreClass, readonly string[]>> = {
+const CASTERS: Readonly<Record<PlayerCoreClass, ReadonlyArray<string>>> = {
   bard: ['bard occult cha spontaneous'],
   cleric: ['cleric divine wis prepared'],
   druid: ['druid primal wis prepared'],

@@ -191,7 +191,7 @@ export const DeityData = z
       return;
     }
 
-    const granted: readonly (readonly PropertyKey[])[] = [
+    const granted: ReadonlyArray<ReadonlyArray<PropertyKey>> = [
       ...(domains.primary.length > 0 ? [['domains', 'primary']] : []),
       ...(domains.alternate.length > 0 ? [['domains', 'alternate']] : []),
       ...(font.length > 0 ? [['font']] : []),

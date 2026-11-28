@@ -16,7 +16,7 @@ pack.withItem(ContentKind.Trait, 'cold-iron', { appliesTo: [ContentKind.Equipmen
 const darkvision = pack.idOf(ContentKind.Sense, 'darkvision');
 
 /** A charm that gives darkvision and resistance 5 to physical damage, except from cold iron and from silver. */
-function charm(exceptions: readonly string[]): ContentEntry {
+function charm(exceptions: ReadonlyArray<string>): ContentEntry {
   const built = new ContentPackBuilder().withId('player-core');
   built.withMagicItem(ContentKind.Equipment, 'night-charm', {
     data: { bulk: 'light', usage: { type: 'worn', slot: 'necklace' } },

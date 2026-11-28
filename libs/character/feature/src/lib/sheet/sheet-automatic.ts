@@ -78,7 +78,7 @@ function lineOf(change: AutomaticChange): AutomaticText {
 export function sheetAutomatic(
   character: Character,
   content: SlotContent,
-): ReadonlyMap<Level, readonly AutomaticLine[]> {
+): ReadonlyMap<Level, ReadonlyArray<AutomaticLine>> {
   return new Map(
     automaticTimeline(character.document, content).map(({ level, changes }) => [
       level,

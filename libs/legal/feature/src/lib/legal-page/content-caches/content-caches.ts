@@ -17,9 +17,9 @@ function byFileName(left: CacheFile, right: CacheFile): number {
  */
 export function cachePacks(
   manifest: ContentManifest,
-  imports: readonly LegalImport[],
+  imports: ReadonlyArray<LegalImport>,
   downloadUrl: DownloadUrl,
-): readonly CachePack[] {
+): ReadonlyArray<CachePack> {
   const imported = new Map(imports.map((each) => [each.pack, each]));
 
   return manifest.packs.map((pack): CachePack => {

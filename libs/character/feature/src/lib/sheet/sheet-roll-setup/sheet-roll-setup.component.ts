@@ -15,8 +15,8 @@ import { SheetState } from '../sheet-state';
 interface SetupDisplay {
   readonly name: string;
   readonly modifier: string;
-  readonly situations: readonly RollToggleView[];
-  readonly remembered: readonly RollToggleView[];
+  readonly situations: ReadonlyArray<RollToggleView>;
+  readonly remembered: ReadonlyArray<RollToggleView>;
 }
 
 /**

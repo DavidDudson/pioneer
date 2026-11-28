@@ -58,11 +58,11 @@ function press(host: HTMLElement): void {
   element.click();
 }
 
-function items(host: HTMLElement): HTMLElement[] {
+function items(host: HTMLElement): Array<HTMLElement> {
   return [...host.querySelectorAll<HTMLElement>('fr-list-item')];
 }
 
-function names(host: HTMLElement): string[] {
+function names(host: HTMLElement): Array<string> {
   return items(host).map((item) => item.textContent.trim());
 }
 

@@ -77,7 +77,7 @@ function variant(slug: string): VariantRuleEntry {
 
 const { document } = new CharacterBuilder().build();
 
-function sources(...variants: readonly VariantRuleEntry[]): StatisticSources {
+function sources(...variants: ReadonlyArray<VariantRuleEntry>): StatisticSources {
   return { registry, slots: slotContent(registry), inputs, variants };
 }
 
@@ -93,7 +93,7 @@ function perception(result: ReadonlyMap<Selector, StatisticResult>): StatisticVa
 }
 
 /** The origin hops of the last term of a statistic's base, which reads `@prof`. */
-function lastTermHops({ base }: StatisticValue): readonly OriginHop[] | undefined {
+function lastTermHops({ base }: StatisticValue): ReadonlyArray<OriginHop> | undefined {
   return base.findLast((term) => term.kind === BaseTermKind.Term)?.origin?.hops;
 }
 

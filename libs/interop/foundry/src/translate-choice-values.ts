@@ -102,7 +102,7 @@ function plainValue(choice: unknown): string | number | undefined {
 }
 
 /** The values of a `ChoiceSet` of plain choices, all of them; undefined when any choice is not. */
-function plainValues(raw: Fields): readonly (string | number)[] | undefined {
+function plainValues(raw: Fields): ReadonlyArray<string | number> | undefined {
   const { choices } = raw;
 
   if (!Array.isArray(choices) || choices.length === 0) {
@@ -118,12 +118,12 @@ function plainValues(raw: Fields): readonly (string | number)[] | undefined {
 interface Pick {
   readonly flag: string;
   readonly namespace: string;
-  readonly values: readonly (string | number)[];
+  readonly values: ReadonlyArray<string | number>;
 }
 
 /** `raw`, an element that reads the pick, made once for each distinct way the values read it, switched on by the roll option. */
-function expanded(raw: Fields, pick: Pick): readonly Fields[] {
-  const groups = new Map<string, { element: Fields; slugs: string[] }>();
+function expanded(raw: Fields, pick: Pick): ReadonlyArray<Fields> {
+  const groups = new Map<string, { element: Fields; slugs: Array<string> }>();
 
   for (const value of pick.values) {
     const element = substituted(raw, pick.flag, value);
@@ -136,7 +136,7 @@ function expanded(raw: Fields, pick: Pick): readonly Fields[] {
     }
   }
 
-  const made: Fields[] = [];
+  const made: Array<Fields> = [];
 
   for (const { element, slugs } of groups.values()) {
     made.push({ ...element, predicate: [...predicateOf(raw), pickedOneOf(pick.namespace, slugs)] });
@@ -146,8 +146,8 @@ function expanded(raw: Fields, pick: Pick): readonly Fields[] {
 }
 
 /** The `ChoiceSet`s among `raws` that can be made to set a roll option: their flag and values. */
-function plainPicks(raws: readonly unknown[]): ReadonlyMap<string, readonly (string | number)[]> {
-  const found = new Map<string, readonly (string | number)[]>();
+function plainPicks(raws: ReadonlyArray<unknown>): ReadonlyMap<string, ReadonlyArray<string | number>> {
+  const found = new Map<string, ReadonlyArray<string | number>>();
 
   for (const raw of raws) {
     const flag = isFields(raw) && raw['key'] === 'ChoiceSet' ? raw['flag'] : undefined;
@@ -167,7 +167,7 @@ function isReader(raw: unknown, flag: string): raw is Fields {
 }
 
 /** Whether the pick of `flag` has a reader, and every rule that mentions it is one that is made for each value. */
-function allReadersExpand(raws: readonly unknown[], flag: string): boolean {
+function allReadersExpand(raws: ReadonlyArray<unknown>, flag: string): boolean {
   const readers = raws.filter((raw) => isReader(raw, flag));
   const others = raws.filter((raw) => isFields(raw) && raw['key'] !== 'ChoiceSet' && mentionsPick(raw, flag));
 
@@ -176,8 +176,8 @@ function allReadersExpand(raws: readonly unknown[], flag: string): boolean {
   );
 }
 
-function withPick(raws: readonly unknown[], pick: Pick): readonly unknown[] {
-  return raws.flatMap((raw): readonly unknown[] => {
+function withPick(raws: ReadonlyArray<unknown>, pick: Pick): ReadonlyArray<unknown> {
+  return raws.flatMap((raw): ReadonlyArray<unknown> => {
     if (isFields(raw) && raw['key'] === 'ChoiceSet' && raw['flag'] === pick.flag) {
       return [{ ...raw, rollOption: pick.namespace }];
     }
@@ -198,7 +198,7 @@ function namespaceOf(item: string, flag: string): string {
  * `raws` with every `ChoiceSet` of plain values that only the rules above read whole made to set a roll option of the
  * item, and each of those rules made for each value. Any other rule, and any other `ChoiceSet`, is as it was.
  */
-export function withChoiceValues(raws: readonly unknown[], item: string): readonly unknown[] {
+export function withChoiceValues(raws: ReadonlyArray<unknown>, item: string): ReadonlyArray<unknown> {
   let current = raws;
 
   for (const [flag, values] of plainPicks(raws)) {

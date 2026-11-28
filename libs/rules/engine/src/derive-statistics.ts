@@ -30,7 +30,7 @@ const STRIKE_PREFIX = 'strike:';
 function strikeFacts(
   facts: ModifierInputs['facts'],
   selector: Selector,
-  weapons: readonly WeaponInputs[],
+  weapons: ReadonlyArray<WeaponInputs>,
 ): ModifierInputs['facts'] {
   const weapon = selector.startsWith(STRIKE_PREFIX)
     ? weapons.find(({ slug }) => `${STRIKE_PREFIX}${slug}` === selector)
@@ -41,7 +41,7 @@ function strikeFacts(
 
 /** The content a derivation reads: the statistic definitions and the proficiency bonus table, from the registry. */
 export interface StatisticContent {
-  readonly definitions: readonly StatisticDefinition[];
+  readonly definitions: ReadonlyArray<StatisticDefinition>;
   readonly proficiencyBonus: ProficiencyBonusTable;
 }
 

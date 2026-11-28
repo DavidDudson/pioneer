@@ -28,10 +28,10 @@ interface EntryFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: object;
 }
 

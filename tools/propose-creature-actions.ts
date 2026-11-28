@@ -18,7 +18,7 @@ const ENRICHMENT = path.join(ROOT, 'content', 'enrichment');
 const JSON_INDENT = 2;
 const JsonArray = z.array(z.unknown()).readonly();
 
-async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
+async function readEntries(pack: string): Promise<ReadonlyArray<ContentEntry>> {
   const paths = await Array.fromAsync(new Glob('*.json').scan({ cwd: path.join(PACKS, pack), absolute: true }));
 
   const files = await Promise.all(
@@ -48,7 +48,7 @@ async function proposePack(pack: string): Promise<string> {
   const { proposals, excepted } = proposeCreatureActions(
     entries.filter((entry) => entry.kind === ContentKind.Action),
     new Map([...creatures].flatMap(([slug, found]) => (found === undefined ? [] : [[slug, found] as const]))),
-    new Set(Object.keys(mapping) as EntrySlug[]),
+    new Set(Object.keys(mapping) as Array<EntrySlug>),
   );
 
   if (proposals.size > 0) {

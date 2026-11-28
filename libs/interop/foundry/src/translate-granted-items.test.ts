@@ -20,7 +20,7 @@ const references: EntryReferences = {
 
 const grant = { key: 'GrantItem', flag: 'dragonBreath', uuid: BREATH_UUID };
 
-function translated(...raws: readonly object[]): RuleTranslation {
+function translated(...raws: ReadonlyArray<object>): RuleTranslation {
   return translateRules(ENTRY, [grant, ...raws], { lang: {}, values: { item: '' }, references });
 }
 
@@ -31,7 +31,7 @@ describe('Alterations of a granted item from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: 'GrantItem', item: BREATH, flag: 'dragon-breath' }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: 'GrantItem', item: BREATH, flag: 'dragon-breath' }]);
   });
 
   test('an ItemAlteration by itemId reaches the granted action by its slug', () => {
@@ -112,6 +112,6 @@ describe('Alterations of a granted item from Foundry', () => {
 });
 
 /** The last of `rules`, its type forgotten, so that a test compares it with a plain object. */
-function last(rules: readonly unknown[]): unknown {
+function last(rules: ReadonlyArray<unknown>): unknown {
   return rules.at(-1);
 }

@@ -2,7 +2,7 @@
  * Pre-remaster spell names and the remaster name that replaced them (Zone of Truth is Ring of Truth), from the same
  * Archives of Nethys replacements (`content/aon/supersedes`). Only renames whose target our packs load.
  */
-export const LEGACY_SPELL_NAMES: readonly (readonly [legacy: string, remaster: string])[] = [
+export const LEGACY_SPELL_NAMES: ReadonlyArray<readonly [legacy: string, remaster: string]> = [
   ['Abundant Step', 'Shrink the Span'],
   ['Abyssal Wrath', 'Chthonian Wrath'],
   ['Acid Arrow', 'Acid Grip'],

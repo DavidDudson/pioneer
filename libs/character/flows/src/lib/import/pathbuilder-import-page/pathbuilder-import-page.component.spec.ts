@@ -35,7 +35,7 @@ interface OpenPage {
 }
 
 /** Opens the import page; `content` replaces where its content comes from. */
-async function openPage(content: readonly Provider[] = []): Promise<OpenPage> {
+async function openPage(content: ReadonlyArray<Provider> = []): Promise<OpenPage> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),

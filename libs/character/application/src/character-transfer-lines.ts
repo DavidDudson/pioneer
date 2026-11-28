@@ -12,7 +12,7 @@ export interface TransferLine {
   /** The player's name for the line, else the item's. */
   readonly name: string;
   /** The names of the lines inside it, however deep, in the order the inventory lists them; empty for a line that holds none. */
-  readonly contents: readonly string[];
+  readonly contents: ReadonlyArray<string>;
   readonly version: Version;
 }
 

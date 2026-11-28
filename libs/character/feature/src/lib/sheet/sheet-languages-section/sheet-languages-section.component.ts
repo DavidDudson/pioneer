@@ -45,7 +45,7 @@ export class SheetLanguagesSection {
   });
 
   /** What the next open slot offers, with the facts to choose by; none while the content loads. */
-  protected readonly rows = computed((): readonly LanguagePickerRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<LanguagePickerRow> => {
     const registry = this.#sheet.registry.data();
     const languages = this.languages();
 

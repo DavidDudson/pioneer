@@ -64,7 +64,7 @@ function effectsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-effects'));
 }
 
-function endButtons(root: HTMLElement): readonly HTMLButtonElement[] {
+function endButtons(root: HTMLElement): ReadonlyArray<HTMLButtonElement> {
   return [...effectsOf(root).querySelectorAll('button')].filter((button) => textOf(button) === END_BY_SAVE);
 }
 

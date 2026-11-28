@@ -10,15 +10,17 @@ import type { JsonValue } from './json-bounds';
 import { RuleReferences, unconditionalGrants } from './rule-reference';
 import { ContentEntry } from './typed-content-entry';
 
-function issuesOf(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
+function issuesOf(schema: z.ZodType, value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-const typed = (value: JsonValue): readonly FieldIssue[] => issuesOf(ContentEntry, value);
-const model = (value: JsonValue): readonly FieldIssue[] => issuesOf(ContentEntryModel, value);
-const paths = (issues: readonly FieldIssue[]): readonly (readonly PropertyKey[])[] => issues.map((issue) => issue.path);
+const typed = (value: JsonValue): ReadonlyArray<FieldIssue> => issuesOf(ContentEntry, value);
+const model = (value: JsonValue): ReadonlyArray<FieldIssue> => issuesOf(ContentEntryModel, value);
+
+const paths = (issues: ReadonlyArray<FieldIssue>): ReadonlyArray<ReadonlyArray<PropertyKey>> =>
+  issues.map((issue) => issue.path);
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));

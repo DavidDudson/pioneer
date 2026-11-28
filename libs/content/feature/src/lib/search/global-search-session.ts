@@ -39,8 +39,8 @@ const TRAITS_SHOWN = 3;
 /** What the list is made from: the words typed, the entries their names match and what the server found for them. */
 interface Incoming {
   readonly words: string;
-  readonly local: readonly ContentId[];
-  readonly server: readonly ContentId[];
+  readonly local: ReadonlyArray<ContentId>;
+  readonly server: ReadonlyArray<ContentId>;
 }
 
 /**
@@ -80,7 +80,7 @@ export class GlobalSearchSession {
     };
   });
   /** The ids listed, best first: for the same words only ever added to below, so the list never reshuffles. */
-  readonly #shown = linkedSignal<Incoming, readonly ContentId[]>({
+  readonly #shown = linkedSignal<Incoming, ReadonlyArray<ContentId>>({
     source: this.#incoming,
     computation: (next, previous) => {
       const kept = previous?.source.words === next.words ? previous.value : [];
@@ -92,7 +92,7 @@ export class GlobalSearchSession {
   /** The words last typed, whole. */
   public readonly words = this.#typed.asReadonly();
 
-  public readonly options = computed<readonly ComboboxOption<ContentId>[]>(() => {
+  public readonly options = computed<ReadonlyArray<ComboboxOption<ContentId>>>(() => {
     this.#language();
     const held = this.#index.byId();
     const legacy = this.#index.legacy();
@@ -108,7 +108,7 @@ export class GlobalSearchSession {
     });
   });
   /** What the name alone cannot say: the kind, the level when it has one, and the first traits, toned by rarity. */
-  #tagsOf(entry: ContentEntry, legacy: boolean): readonly ComboboxTag[] {
+  #tagsOf(entry: ContentEntry, legacy: boolean): ReadonlyArray<ComboboxTag> {
     const kind = KIND_MESSAGES[entry.kind];
     const level = 'level' in entry && entry.level !== undefined ? entry.level : undefined;
     const tone = RARITY_TONES[entry.rarity];

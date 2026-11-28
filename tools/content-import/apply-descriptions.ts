@@ -18,7 +18,7 @@ export type FreshDescriptions = ReadonlyMap<string, unknown>;
 
 /** A kind file after the merge, and how many entries it filled. */
 export interface DescriptionMerge {
-  readonly entries: readonly unknown[];
+  readonly entries: ReadonlyArray<unknown>;
   readonly filled: number;
 }
 
@@ -30,13 +30,13 @@ function isEmptyList(node: unknown): boolean {
   return Array.isArray(node) && node.length === 0;
 }
 
-function isFilledList(node: unknown): node is readonly unknown[] {
+function isFilledList(node: unknown): node is ReadonlyArray<unknown> {
   return Array.isArray(node) && node.length > 0;
 }
 
 /** The entries of one kind file with each empty description in `kinds` replaced by the import's, when it has one. */
 export function withFilledDescriptions(
-  entries: readonly unknown[],
+  entries: ReadonlyArray<unknown>,
   fresh: FreshDescriptions,
   kinds: ReadonlySet<string>,
 ): DescriptionMerge {
@@ -80,10 +80,10 @@ function isDescriptionGap(item: BacklogItem, kinds: ReadonlySet<string>): boolea
  * no text for. The other items stay as they were, the vocabulary ones last and in the order the import writes them.
  */
 export function withDescriptionGaps(
-  backlog: readonly BacklogItem[],
-  fresh: readonly BacklogItem[],
+  backlog: ReadonlyArray<BacklogItem>,
+  fresh: ReadonlyArray<BacklogItem>,
   kinds: ReadonlySet<string>,
-): readonly BacklogItem[] {
+): ReadonlyArray<BacklogItem> {
   const kept = backlog.filter((item) => !isDescriptionGap(item, kinds));
   const all = [...kept, ...fresh.filter((item) => isDescriptionGap(item, kinds))];
   const others = all.filter((item) => !isVocabulary(item));

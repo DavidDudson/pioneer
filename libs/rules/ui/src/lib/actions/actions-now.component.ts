@@ -15,7 +15,7 @@ import { ActionsMessage } from './actions-messages';
 /** A group of actions under its cost, as shown. */
 interface ShownGroup {
   readonly heading: string;
-  readonly rows: readonly ShownAction[];
+  readonly rows: ReadonlyArray<ShownAction>;
 }
 
 /**
@@ -30,7 +30,7 @@ interface ShownGroup {
 })
 export class ActionsNow {
   /** Undefined while loading. */
-  public readonly lines = input.required<readonly ActionLine[] | undefined>();
+  public readonly lines = input.required<ReadonlyArray<ActionLine> | undefined>();
   public readonly mode = input.required<ActionMode>();
   /** What names the entries and items a conditional line comes from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
@@ -44,7 +44,7 @@ export class ActionsNow {
     items: this.originNames().items,
   }));
 
-  protected readonly groups = computed((): readonly ShownGroup[] | undefined => {
+  protected readonly groups = computed((): ReadonlyArray<ShownGroup> | undefined => {
     this.#words.changed();
     const lines = this.lines();
 

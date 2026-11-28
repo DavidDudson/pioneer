@@ -50,7 +50,7 @@ function strikesSection(root: HTMLElement): HTMLElement {
 }
 
 /** The Strikes listed, each row's summary. */
-function rowsOf(root: HTMLElement): string[] {
+function rowsOf(root: HTMLElement): Array<string> {
   return [...strikesSection(root).querySelectorAll('[frDisclosureSummary]')].map((row) => textOf(row));
 }
 

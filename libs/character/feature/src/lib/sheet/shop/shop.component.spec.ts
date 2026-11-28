@@ -15,7 +15,7 @@ import {
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 
 /** The names the shop lists in `scope`, in order; a row still loading has none. */
-const listed = (scope: Element): string[] =>
+const listed = (scope: Element): Array<string> =>
   [...scope.querySelectorAll('pio-shop-offers fr-list-item')].flatMap((item) => {
     const name = item.querySelector('fr-text');
 
@@ -23,7 +23,7 @@ const listed = (scope: Element): string[] =>
   });
 
 /** The items the shop lists, in order, leaving out its kits. */
-const offered = (shop: HTMLElement): string[] =>
+const offered = (shop: HTMLElement): Array<string> =>
   listed(shop).filter((name) => !listed(present(shop.querySelector('pio-shop-kits'))).includes(name));
 
 /** The shop's kits section, once its kits have loaded. */
@@ -74,7 +74,7 @@ async function pickOffer(shop: HTMLElement, name: string): Promise<HTMLElement> 
 }
 
 /** The bill's rows, each its term and value. */
-const bill = (order: HTMLElement): string[] =>
+const bill = (order: HTMLElement): Array<string> =>
   [...order.querySelectorAll('pio-shop-bill fr-description-item')].map((item) => {
     const value = present(item.querySelector('fr-text')).textContent.trim();
 

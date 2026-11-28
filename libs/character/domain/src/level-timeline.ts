@@ -19,7 +19,7 @@ interface Placed {
 /** One level of the timeline: the slots it opens, each as the sheet reads it, picked or not. */
 export interface TimelineRow {
   readonly level: Level;
-  readonly slots: readonly CharacterSlot[];
+  readonly slots: ReadonlyArray<CharacterSlot>;
 }
 
 /** Spell slots are placed apart from the rest: their class progression is read at each level, not once. */
@@ -28,7 +28,7 @@ const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Sp
 const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 
 /** Every level from 1st to `CHARACTER_LEVEL_MAX`, lowest first. */
-function allLevels(): Level[] {
+function allLevels(): Array<Level> {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
 
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
@@ -91,7 +91,7 @@ function openedAt(slot: CharacterSlot, opening: ReadonlyMap<SlotKey, Level>): Le
 }
 
 /** Every prepared, repertoire and signature slot the character has at `at`, as read there. */
-function spellSlotsAt(document: CharacterDocument, content: SlotContent, at: Level): CharacterSlot[] {
+function spellSlotsAt(document: CharacterDocument, content: SlotContent, at: Level): Array<CharacterSlot> {
   return [...preparedStatuses(document, content, at), ...signatureStatuses(document, content, at)];
 }
 
@@ -100,7 +100,7 @@ function spellSlotsAt(document: CharacterDocument, content: SlotContent, at: Lev
  * character has at its level opens at the lowest level up to it that has it, and reads as the sheet does; one it
  * doesn''t opens at the lowest level above that has it, and reads there, planned.
  */
-function spellPlacements(document: CharacterDocument, content: SlotContent): Placed[] {
+function spellPlacements(document: CharacterDocument, content: SlotContent): Array<Placed> {
   const held = new Map(
     spellSlotsAt(document, content, Level.parse(document.level)).map((slot) => [slot.key, slot] as const),
   );
@@ -134,10 +134,10 @@ export function spellSlotOpensAt(document: CharacterDocument, content: SlotConte
  * is invalid at its level. A slot sits at the level it first opens. A prepared, repertoire or signature spell slot
  * sits at the level its rank''s count first reaches it (#634), planned above the character''s level.
  */
-export function levelTimeline(document: CharacterDocument, content: SlotContent): readonly TimelineRow[] {
+export function levelTimeline(document: CharacterDocument, content: SlotContent): ReadonlyArray<TimelineRow> {
   const opening = openingLevels(document, content);
 
-  const placed: Placed[] = [
+  const placed: Array<Placed> = [
     ...characterSlots(document, content).map((slot) => ({ slot, level: openedAt(slot, opening) })),
     ...spellPlacements(document, content),
   ];

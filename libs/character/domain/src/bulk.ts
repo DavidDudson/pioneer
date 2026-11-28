@@ -59,7 +59,7 @@ export function wholeBulk(light: LightBulk): WholeBulk {
   return WholeBulk.parse(Math.floor(light / ONE_BULK));
 }
 
-function totalBulk(values: readonly LightBulk[]): LightBulk {
+function totalBulk(values: ReadonlyArray<LightBulk>): LightBulk {
   return LightBulk.parse(sum(values));
 }
 
@@ -76,7 +76,7 @@ function containerOf(entry: ItemEntry): ItemContainer | undefined {
 /** What items are weighed against: the content, and what each container holds. */
 interface BulkContext {
   readonly content: ItemContent;
-  readonly contents: ReadonlyMap<InventoryItemId, readonly InventoryItem[]>;
+  readonly contents: ReadonlyMap<InventoryItemId, ReadonlyArray<InventoryItem>>;
 }
 
 /** An inventory line with its content. */
@@ -109,7 +109,7 @@ function lineBulk(context: BulkContext, weighed: Weighed): LightBulk {
 }
 
 /** Lines of content sold in batches, added up by content before batches are counted, as Foundry pf2e stacks them. */
-function batchedBulk(batched: readonly Weighed[]): LightBulk {
+function batchedBulk(batched: ReadonlyArray<Weighed>): LightBulk {
   const byContent = Map.groupBy(batched, ({ item }): ContentId => item.item);
 
   return totalBulk(
@@ -135,8 +135,8 @@ function isBatched({ entry }: Weighed): boolean {
  * (`batchedBulk`), so 5 arrows and 5 more are light; each other line counts on its own with what it holds. An item no
  * loaded pack has weighs nothing itself, but what it holds still counts, none of it ignored.
  */
-function levelBulk(context: BulkContext, items: readonly InventoryItem[]): LightBulk {
-  const weighed = items.flatMap((item): Weighed[] => {
+function levelBulk(context: BulkContext, items: ReadonlyArray<InventoryItem>): LightBulk {
+  const weighed = items.flatMap((item): Array<Weighed> => {
     const entry = context.content.get(item.item);
 
     return entry === undefined ? [] : [{ item, entry }];
@@ -165,8 +165,10 @@ export function coinBulk(coins: Coins): LightBulk {
 }
 
 /** What each container holds, by the container's id. */
-function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, readonly InventoryItem[]> {
-  const contents = new Map<InventoryItemId, InventoryItem[]>();
+function contentsByContainer(
+  items: ReadonlyArray<InventoryItem>,
+): ReadonlyMap<InventoryItemId, ReadonlyArray<InventoryItem>> {
+  const contents = new Map<InventoryItemId, Array<InventoryItem>>();
 
   for (const each of items) {
     if (each.container !== undefined) {

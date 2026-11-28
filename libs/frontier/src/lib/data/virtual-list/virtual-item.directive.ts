@@ -15,7 +15,7 @@ export interface VirtualItemContext<TItem> {
  */
 @Directive({ selector: 'ng-template[frVirtualItem]' })
 export class VirtualItem<TItem> {
-  public readonly items = input.required<readonly TItem[]>({ alias: 'frVirtualItem' });
+  public readonly items = input.required<ReadonlyArray<TItem>>({ alias: 'frVirtualItem' });
   public readonly template = inject<TemplateRef<VirtualItemContext<TItem>>>(TemplateRef);
 
   public static ngTemplateContextGuard<TItem>(

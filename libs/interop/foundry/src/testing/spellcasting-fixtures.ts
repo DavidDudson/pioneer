@@ -10,10 +10,10 @@ export interface Fixture {
   readonly id: string;
   readonly name: string;
   readonly level: number;
-  readonly traits: readonly string[];
+  readonly traits: ReadonlyArray<string>;
 }
 
-function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
+function classFeature({ id, name, level, traits }: Fixture, rules: ReadonlyArray<object> = []): DocumentFixture {
   return {
     id,
     name,
@@ -47,7 +47,7 @@ export function archetypeFeat({ id, name, level, traits }: Fixture): DocumentFix
 }
 
 /** A class feat, as Foundry keeps one: Domain Initiate, Initiate Warden. */
-function classFeat({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
+function classFeat({ id, name, level, traits }: Fixture, rules: ReadonlyArray<object> = []): DocumentFixture {
   return {
     id,
     name,

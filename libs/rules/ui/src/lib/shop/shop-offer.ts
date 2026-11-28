@@ -46,7 +46,7 @@ export interface KitLine {
   readonly item: ContentId;
   readonly name: string;
   readonly quantity: number;
-  readonly contents: readonly KitLine[];
+  readonly contents: ReadonlyArray<KitLine>;
 }
 
 /** A rarity's badge: its name and tone. Common items carry none. */
@@ -67,9 +67,9 @@ export interface CoinCount {
   readonly count: number;
 }
 
-const COINS: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
+const COINS: ReadonlyArray<Coin> = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
 
-export function priceCoins({ coins }: Price): readonly CoinCount[] {
+export function priceCoins({ coins }: Price): ReadonlyArray<CoinCount> {
   return COINS.flatMap((coin) => {
     const count = coins[coin];
 
@@ -78,11 +78,11 @@ export function priceCoins({ coins }: Price): readonly CoinCount[] {
 }
 
 /** A purse or a cost as coin counts, largest first, leaving out the coins it has none of. */
-export function coinCounts(coins: Readonly<Record<Coin, number>>): readonly CoinCount[] {
+export function coinCounts(coins: Readonly<Record<Coin, number>>): ReadonlyArray<CoinCount> {
   return COINS.flatMap((coin) => (coins[coin] > 0 ? [{ coin, count: coins[coin] }] : []));
 }
 
 /** Coin counts as one line, each coin as `coinText` writes it: "3 gp 5 sp". */
-export function coinsText(counts: readonly CoinCount[], coinText: (coin: Coin, count: number) => string): string {
+export function coinsText(counts: ReadonlyArray<CoinCount>, coinText: (coin: Coin, count: number) => string): string {
   return counts.map(({ coin, count }) => coinText(coin, count)).join(' ');
 }

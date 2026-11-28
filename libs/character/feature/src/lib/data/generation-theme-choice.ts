@@ -7,7 +7,7 @@ import type { Attribute, BaseWeapon, WeaponCategory, WeaponGroup } from '@pionee
  * a base or both.
  */
 export interface GenerationThemeChoice {
-  readonly favoured: readonly Attribute[];
+  readonly favoured: ReadonlyArray<Attribute>;
   readonly category: WeaponCategory | undefined;
   readonly group: WeaponGroup | undefined;
   readonly base: BaseWeapon | undefined;

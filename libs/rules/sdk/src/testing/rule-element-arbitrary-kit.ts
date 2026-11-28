@@ -30,7 +30,7 @@ export const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength
 export const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
 const modifierNumber: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
 export const ruleNumber: Arbitrary<number> = double({ noNaN: true, noDefaultInfinity: true });
-export const targets: Arbitrary<string[]> = array(keyPathText, { minLength: 1, maxLength: LIST_MAX });
+export const targets: Arbitrary<Array<string>> = array(keyPathText, { minLength: 1, maxLength: LIST_MAX });
 
 type OptionalEntry = readonly [string, unknown];
 

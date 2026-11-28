@@ -11,13 +11,13 @@ import { FIGHTER_CONTENT, LEVEL_20_PICKS } from './testing/fighter';
 
 const FILLER_FEATS = 1000;
 const LEVEL_MAX = 20;
-const TRAITS: readonly string[] = ['fighter', 'rogue', 'wizard', 'general', 'skill', 'human'];
+const TRAITS: ReadonlyArray<string> = ['fighter', 'rogue', 'wizard', 'general', 'skill', 'human'];
 
 /** The issue's budget for a level 20 character over real content, within the 10 ms budget for a derivation. */
 const BUDGET_MS = 3;
 
 /** Feats spread over the traits and levels, as an installed core pack has them. */
-function fillerFeats(): GrantEntry[] {
+function fillerFeats(): Array<GrantEntry> {
   return Array.from({ length: FILLER_FEATS }, (_value, index) =>
     feat(`filler-${index}`, [
       `trait:${TRAITS[Math.floor(index / LEVEL_MAX) % TRAITS.length] ?? 'general'}`,
@@ -34,14 +34,14 @@ const SLOT_LEVELS = {
 };
 
 /** Every slot the ancestry adds: its trait and the level it arrives at, in rule order. */
-const SLOTS: readonly (readonly [string, number])[] = Object.entries(SLOT_LEVELS).flatMap(([trait, levels]) =>
+const SLOTS: ReadonlyArray<readonly [string, number]> = Object.entries(SLOT_LEVELS).flatMap(([trait, levels]) =>
   levels.map((level): readonly [string, number] => [trait, level]),
 );
 
 const RULES_PER_SLOT = 2;
 
 /** A feat slot for `trait` at `level`: a feat with the trait of the character's level or lower, granted once picked. */
-function slotRules([trait, level]: readonly [string, number]): readonly object[] {
+function slotRules([trait, level]: readonly [string, number]): ReadonlyArray<object> {
   const flag = `${trait}-feat-${level}`;
 
   return [
@@ -62,7 +62,7 @@ const ancestry: GrantEntry = entry(
 );
 
 /** A filler feat for each ancestry slot: the one with its trait at its level. */
-const ANCESTRY_PICKS: readonly (readonly [SlotKey, string])[] = SLOTS.map(([trait, level], at) => {
+const ANCESTRY_PICKS: ReadonlyArray<readonly [SlotKey, string]> = SLOTS.map(([trait, level], at) => {
   const filler = TRAITS.indexOf(trait) * LEVEL_MAX + level - 1;
 
   return [slotOf('human', at * RULES_PER_SLOT), idOf(`filler-${filler}`)];

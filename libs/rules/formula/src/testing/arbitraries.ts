@@ -66,8 +66,8 @@ export function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNo
 export const formula: Arbitrary<FormulaNode> = formulaFrom(oneof(number, reference));
 
 /** The references {@link evaluableFormula} draws from: few, so generated bindings cover them. */
-const BOUND_PATHS: readonly ReferencePath[] = ['level', 'actor.level', 'item.level', 'attr.dex.capped'].map((text) =>
-  ReferencePath.parse(text),
+const BOUND_PATHS: ReadonlyArray<ReferencePath> = ['level', 'actor.level', 'item.level', 'attr.dex.capped'].map(
+  (text) => ReferencePath.parse(text),
 );
 
 const SMALL_NUMBER_MAX = 12;
@@ -117,7 +117,7 @@ export interface PositionlessNode {
   readonly left?: PositionlessNode;
   readonly right?: PositionlessNode;
   readonly name?: unknown;
-  readonly args?: readonly PositionlessNode[];
+  readonly args?: ReadonlyArray<PositionlessNode>;
   readonly value?: unknown;
   readonly path?: unknown;
 }

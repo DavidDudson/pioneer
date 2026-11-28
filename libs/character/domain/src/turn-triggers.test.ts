@@ -26,7 +26,7 @@ const trigger = (over: Partial<TurnTrigger> = {}): TurnTrigger => ({
   ...over,
 });
 
-const triggers = (...list: readonly TurnTrigger[]): TurnTriggers => ({
+const triggers = (...list: ReadonlyArray<TurnTrigger>): TurnTriggers => ({
   triggers: list,
   facts: new PredicateFacts([], CORE_NAMESPACES),
 });
@@ -77,7 +77,7 @@ const EFFECTS: EffectContent = new Map([
   [EFFECT, { remaining: undefined, expiry: undefined, sustained: false, badge: undefined }],
 ]);
 
-const RUN = (...list: readonly TurnTrigger[]): TriggerInputs => ({
+const RUN = (...list: ReadonlyArray<TurnTrigger>): TriggerInputs => ({
   limits: { ...within(HitPoints.parse(30)), effects: EFFECTS },
   triggered: () => triggers(...list),
   newId,

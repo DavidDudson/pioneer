@@ -7,15 +7,15 @@ export interface EntryJson {
   readonly kind?: string;
   readonly level?: number;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly object[];
-  readonly description: readonly object[];
-  readonly rules: readonly object[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<object>;
+  readonly description: ReadonlyArray<object>;
+  readonly rules: ReadonlyArray<object>;
   readonly data?: object;
 }
 
 /** A JSON value a spec builds before the schema under test reads it. */
-export type JsonValue = string | number | boolean | null | JsonObject | readonly JsonValue[];
+export type JsonValue = string | number | boolean | null | JsonObject | ReadonlyArray<JsonValue>;
 
 /** A JSON object a spec builds: the fields of an entry's `data`, a source or a mapping. */
 export interface JsonObject {

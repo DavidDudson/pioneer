@@ -61,7 +61,7 @@ export class SheetEnvironments {
   protected readonly registry = injectContentRegistry(ENVIRONMENT_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
 
-  protected readonly options = computed((): readonly EnvironmentOption[] => {
+  protected readonly options = computed((): ReadonlyArray<EnvironmentOption> => {
     const registry = this.registry.data();
 
     return registry === undefined ? [] : environmentOptions(registry);
@@ -73,7 +73,7 @@ export class SheetEnvironments {
   );
 
   /** What the environments the character is in forbid, with what lifts each, if anything. */
-  protected readonly restrictions = computed((): readonly RestrictionRow[] => {
+  protected readonly restrictions = computed((): ReadonlyArray<RestrictionRow> => {
     const registry = this.registry.data();
     const engine = this.#state.engine();
     const character = this.#state.character();
@@ -87,7 +87,7 @@ export class SheetEnvironments {
   });
 
   /** What the last passing of time did, in order. */
-  protected readonly log = signal<readonly string[]>([]);
+  protected readonly log = signal<ReadonlyArray<string>>([]);
 
   protected readonly set = async (environment: ContentId, active: boolean): Promise<void> => {
     await this.#play.send({ field: EnvironmentCommandField.SetEnvironment, environment, active });

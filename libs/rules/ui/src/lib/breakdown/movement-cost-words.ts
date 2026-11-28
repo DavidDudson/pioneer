@@ -10,7 +10,7 @@ export interface RuleLabel {
 }
 
 /** The rule that lowered the Speed, so the breakdown can name it like any other rule: none when nothing did. */
-export function movementCostRule({ movementCost }: StatisticValue): readonly RuleLabel[] {
+export function movementCostRule({ movementCost }: StatisticValue): ReadonlyArray<RuleLabel> {
   return movementCost === undefined ? [] : [{ id: movementCost.rule, label: movementCost.label }];
 }
 

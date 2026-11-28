@@ -19,7 +19,7 @@ const JsonArray = z.array(z.unknown()).readonly();
 
 interface EntryFile {
   readonly path: string;
-  readonly json: readonly unknown[];
+  readonly json: ReadonlyArray<unknown>;
 }
 
 async function readEntryFile(file: string): Promise<EntryFile> {

@@ -26,7 +26,7 @@ import { languagePickerColumns, shownLanguageRows } from './slot-picker-table';
 })
 export class LanguagePicker {
   /** Every language the next open slot offers. */
-  public readonly rows = input.required<readonly LanguagePickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<LanguagePickerRow>>();
   /** The picked language; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

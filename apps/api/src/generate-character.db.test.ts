@@ -34,7 +34,7 @@ function post(path: string, body: JsonObject, headers: Record<string, string> = 
 }
 
 /** What the character holds, without the line ids, which come from the character's own id. */
-function heldItems(character: Character): readonly string[] {
+function heldItems(character: Character): ReadonlyArray<string> {
   return character.document.inventory.items.map((line) => `${line.item}x${line.quantity}`).toSorted();
 }
 

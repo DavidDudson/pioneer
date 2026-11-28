@@ -31,7 +31,7 @@ import {
 })
 export class BackgroundPicker {
   /** Every background the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly BackgroundPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<BackgroundPickerRow>>();
   /** The picked background's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

@@ -58,7 +58,7 @@ export function ownedQueryOf<Choices extends object>(
     return choices;
   }
 
-  const types: readonly unknown[] = 'types' in choices && Array.isArray(choices.types) ? choices.types : [];
+  const types: ReadonlyArray<unknown> = 'types' in choices && Array.isArray(choices.types) ? choices.types : [];
   const kinds = types.map((type) => (typeof type === 'string' ? OWNED_KINDS.get(type) : undefined));
   const filter = 'predicate' in choices && Array.isArray(choices.predicate) ? choices.predicate : [];
 
@@ -70,9 +70,9 @@ export function ownedQueryOf<Choices extends object>(
 }
 
 /** The Foundry flags of the `ChoiceSet`s among `raws` that pick an owned item. */
-export function ownedFlagsOf(raws: readonly unknown[]): ReadonlySet<string> {
+export function ownedFlagsOf(raws: ReadonlyArray<unknown>): ReadonlySet<string> {
   return new Set(
-    raws.flatMap((raw): string[] => {
+    raws.flatMap((raw): Array<string> => {
       const isOwned =
         isFields(raw) &&
         raw['key'] === RuleElementKey.ChoiceSet &&
@@ -127,7 +127,7 @@ function pickedStatement(statement: unknown, flags: ReadonlySet<string>): unknow
 
 /** An `ItemAlteration` aimed at a pick (`itemId`), or whose predicate names it, as `item:picked:<flag>` in its predicate. */
 function alterationOf(raw: Record<string, unknown>, flags: ReadonlySet<string>): Record<string, unknown> {
-  const statements: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
+  const statements: ReadonlyArray<unknown> = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
   const flag = flagRead(raw['itemId']);
   const aimed = flag !== undefined && flags.has(flag) ? [`item:picked:${kebab(flag)}`] : [];
   const rest = Object.fromEntries(Object.entries(raw).filter(([field]) => field !== 'itemId'));
@@ -173,7 +173,7 @@ export function withOwnedPicks<Raw>(raw: Raw, flags: ReadonlySet<string>): Raw |
 const PICKED = /picked:(?<flag>[a-z0-9-]+?)(?:-(?:attack|damage))?"/gu;
 
 /** The flags an element names as `picked:<flag>`: in a selector, or `item:picked:<flag>` in a predicate. */
-export function pickedFlagsIn(element: unknown): readonly string[] {
+export function pickedFlagsIn(element: unknown): ReadonlyArray<string> {
   return [...JSON.stringify(element).matchAll(PICKED)].flatMap((found) => found.groups?.['flag'] ?? []);
 }
 
@@ -197,7 +197,7 @@ function isOwnedChoiceSet(element: RuleElement | undefined): element is ChoiceSe
  * by the item when it has none, so a second `ChoiceSet` can land on the same flag; a read of `picked:<flag>` would not
  * say which pick it meant, so neither the owned `ChoiceSet` nor its readers are translated.
  */
-export function ownedFlagsOnce(elements: readonly (RuleElement | undefined)[]): ReadonlySet<string> {
+export function ownedFlagsOnce(elements: ReadonlyArray<RuleElement | undefined>): ReadonlySet<string> {
   const sets = elements.filter((element): element is ChoiceSetElement => element?.key === RuleElementKey.ChoiceSet);
   const counts = Map.groupBy(sets, (set) => String(set.flag));
 

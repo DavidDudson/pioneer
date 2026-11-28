@@ -16,7 +16,7 @@ const SYSTEM_ID = 'pf2e';
 
 type Table = Readonly<Record<string, unknown>>;
 
-function pick(table: Table, keys: readonly string[]): Table {
+function pick(table: Table, keys: ReadonlyArray<string>): Table {
   return Object.fromEntries(
     keys
       .values()
@@ -25,15 +25,15 @@ function pick(table: Table, keys: readonly string[]): Table {
   );
 }
 
-function omit(table: Table, keys: readonly string[]): Table {
+function omit(table: Table, keys: ReadonlyArray<string>): Table {
   const omitted = new Set(keys);
 
   return Object.fromEntries(Object.entries(table).filter(([key]) => !omitted.has(key)));
 }
 
 const REMEDA = {
-  keys: (table: Table): string[] => Object.keys(table),
-  values: (table: Table): unknown[] => Object.values(table),
+  keys: (table: Table): Array<string> => Object.keys(table),
+  values: (table: Table): Array<unknown> => Object.values(table),
   pick,
   omit,
 };

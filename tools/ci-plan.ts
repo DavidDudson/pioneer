@@ -26,7 +26,7 @@ export interface ProjectFilter {
 }
 
 /** The affected projects that match `filter`. */
-export type AffectedIn = (filter: ProjectFilter) => Promise<readonly string[]>;
+export type AffectedIn = (filter: ProjectFilter) => Promise<ReadonlyArray<string>>;
 
 /** The `--projects` and `--exclude` flags in an entry's `args`. */
 export function filterOf(args: string): ProjectFilter {
@@ -46,14 +46,14 @@ interface Decision {
  * `nx affected` has no `--projects` (Nx forwards it to the target, where vitest rejects it), so an entry that names
  * projects is handed the affected ones it covers, by `nx run-many --projects`; its `--exclude` is already applied.
  */
-function resolvedArgs(args: string, affected: readonly string[]): string {
+function resolvedArgs(args: string, affected: ReadonlyArray<string>): string {
   const kept = args.split(/\s+/v).filter((flag) => flag !== '' && !/^--(?:projects|exclude)=/v.test(flag));
 
   return [...kept, `--projects=${affected.join(',')}`].join(' ');
 }
 
 /** The entries worth running: those that always run, and those with an affected project in their filter. */
-export async function selectJobs(entries: readonly JobEntry[], affectedIn: AffectedIn): Promise<JobEntry[]> {
+export async function selectJobs(entries: ReadonlyArray<JobEntry>, affectedIn: AffectedIn): Promise<Array<JobEntry>> {
   const decided = await Promise.all(
     entries.map(async (entry): Promise<Decision> => {
       if (entry.always === true) {
@@ -77,7 +77,7 @@ export async function selectJobs(entries: readonly JobEntry[], affectedIn: Affec
 }
 
 /** Whether any changed file is at or under one of `prefixes`. */
-export function touches(changed: readonly string[], prefixes: readonly string[]): boolean {
+export function touches(changed: ReadonlyArray<string>, prefixes: ReadonlyArray<string>): boolean {
   return changed.some((file) => prefixes.some((prefix) => file === prefix || file.startsWith(prefix)));
 }
 
@@ -95,11 +95,11 @@ const TOOLS_DIRECTORY = 'tools/';
  * clean change, and a silent one let type errors and failing specs reach main (see #1386). Empty when the plan is sound.
  */
 export function planGaps(
-  changed: readonly string[],
-  check: readonly JobEntry[],
-  test: readonly JobEntry[],
-): readonly string[] {
-  const gaps: string[] = [];
+  changed: ReadonlyArray<string>,
+  check: ReadonlyArray<JobEntry>,
+  test: ReadonlyArray<JobEntry>,
+): ReadonlyArray<string> {
+  const gaps: Array<string> = [];
 
   if (changed.some((file) => PROJECT_SOURCE.test(file)) && !check.some(({ id }) => id === BUILD_JOB)) {
     gaps.push(`project source changed but the "${BUILD_JOB}" job (typecheck and build) is not planned`);

@@ -8,7 +8,7 @@ import { harnessOf, present } from './sheet-page-harness';
 
 /** What a table picker gives a spec to drive: its rows, its pick, and the commit that saves it. */
 interface RowPicker<TRow> {
-  readonly rows: Signal<readonly TRow[]>;
+  readonly rows: Signal<ReadonlyArray<TRow>>;
   readonly value: ModelSignal<string | undefined>;
   readonly committed: OutputEmitterRef<void>;
 }
@@ -63,7 +63,7 @@ async function openPicker<TRow, TPicker extends RowPicker<TRow>>(
 export async function rowsShown<TRow, TPicker extends RowPicker<TRow>>(
   root: HTMLElement,
   target: PickerTarget<TPicker>,
-): Promise<readonly TRow[]> {
+): Promise<ReadonlyArray<TRow>> {
   const { picker } = await openPicker<TRow, TPicker>(root, target);
 
   return vi.waitFor(() => {
@@ -111,7 +111,7 @@ export async function pickValue<TRow, TPicker extends RowPicker<TRow>>(
 }
 
 /** Opens the Background field and lists the rows its picker was given. */
-export async function backgroundRowsShown(root: HTMLElement): Promise<readonly BackgroundPickerRow[]> {
+export async function backgroundRowsShown(root: HTMLElement): Promise<ReadonlyArray<BackgroundPickerRow>> {
   return rowsShown(root, { label: 'Background', type: BackgroundPicker });
 }
 

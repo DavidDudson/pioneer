@@ -18,7 +18,7 @@ export interface PioneerExported {
 /** The ids the namer could not name: the character uses content that is not loaded, so a file would lose it. */
 export interface PioneerExportFailure {
   readonly ok: false;
-  readonly unnamed: readonly ContentId[];
+  readonly unnamed: ReadonlyArray<ContentId>;
 }
 
 export type PioneerExportResult = PioneerExported | PioneerExportFailure;
@@ -68,7 +68,7 @@ function portableInputs(document: CharacterDocument): Fields {
 export function exportPioneerCharacter(
   document: CharacterDocument,
   loaded: ReferenceNamer,
-  embedded: readonly EmbeddedPack[] = [],
+  embedded: ReadonlyArray<EmbeddedPack> = [],
 ): PioneerExportResult {
   const unnamed = new Set<ContentId>();
   const used = new Set<ContentId>();

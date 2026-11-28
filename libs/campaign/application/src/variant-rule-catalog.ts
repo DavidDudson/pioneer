@@ -7,5 +7,5 @@ import type { CampaignId, VariantRuleOption } from '@pioneer/campaign/domain';
  */
 export abstract class VariantRuleCatalog {
   /** The variant rules of the packs the campaign uses now, in no particular order. */
-  public abstract of(campaignId: CampaignId): Promise<readonly VariantRuleOption[]>;
+  public abstract of(campaignId: CampaignId): Promise<ReadonlyArray<VariantRuleOption>>;
 }

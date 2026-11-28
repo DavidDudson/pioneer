@@ -26,7 +26,7 @@ function actionsSection(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('section[aria-labelledby="sheet-actions"]'));
 }
 
-function rowNames(root: HTMLElement): string[] {
+function rowNames(root: HTMLElement): Array<string> {
   return [...actionsSection(root).querySelectorAll('pio-action-row')].map((row) =>
     textOf(present(row.querySelector('fr-text'))),
   );

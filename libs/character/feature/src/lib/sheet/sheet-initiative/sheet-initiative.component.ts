@@ -42,7 +42,7 @@ export class SheetInitiative {
   protected readonly rolled = signal(false);
 
   /** Perception, then each skill and Lore, with its modifier as an initiative roll. */
-  protected readonly choices = computed((): readonly InitiativeChoice[] => {
+  protected readonly choices = computed((): ReadonlyArray<InitiativeChoice> => {
     const registry = this.#state.engine();
     const character = this.#state.character();
     const skills = this.#state.picks.skills();
@@ -69,7 +69,7 @@ export class SheetInitiative {
     return defaultInitiative(registry, this.#play.play.data()?.play.exploration, choices);
   });
 
-  protected readonly options = computed((): readonly SelectOption<string>[] =>
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> =>
     this.choices().map(({ selector, name, total }) => ({
       value: selector,
       label: this.#i18n.translate('character.sheet.initiative.option', { name, modifier: modifierText(total) }),

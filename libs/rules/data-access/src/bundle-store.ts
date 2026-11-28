@@ -15,8 +15,8 @@ export interface BundleStore {
   /** The body kept under `key`, or undefined when none is. */
   readonly read: (key: StoredKey) => Promise<BundleBody | undefined>;
   readonly write: (key: StoredKey, body: BundleBody) => Promise<void>;
-  readonly keys: () => Promise<readonly StoredKey[]>;
-  readonly remove: (keys: readonly StoredKey[]) => Promise<void>;
+  readonly keys: () => Promise<ReadonlyArray<StoredKey>>;
+  readonly remove: (keys: ReadonlyArray<StoredKey>) => Promise<void>;
 }
 
 /** Where content is kept: IndexedDB when the browser has it, else memory for the page's life. */

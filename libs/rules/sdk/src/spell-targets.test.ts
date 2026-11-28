@@ -19,10 +19,10 @@ interface SpellFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: JsonObject;
 }
 
@@ -51,7 +51,7 @@ function targeting(targets: JsonObject): SpellFixture {
 }
 
 /** Each issue as `<path> <message key>`, sorted. */
-function found(value: JsonValue): readonly string[] {
+function found(value: JsonValue): ReadonlyArray<string> {
   const result = ContentEntry.safeParse(value);
 
   return result.success

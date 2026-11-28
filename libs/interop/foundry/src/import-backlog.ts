@@ -128,7 +128,7 @@ export function stripArt(raw: unknown): unknown {
 
   if (typeof raw === 'object' && raw !== null) {
     return Object.fromEntries(
-      Object.entries(raw).flatMap(([key, value]): [string, unknown][] =>
+      Object.entries(raw).flatMap(([key, value]): Array<[string, unknown]> =>
         ART_KEYS.has(key) || (typeof value === 'string' && ART_PATH.test(value)) ? [] : [[key, stripArt(value)]],
       ),
     );

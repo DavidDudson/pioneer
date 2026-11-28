@@ -39,7 +39,7 @@ function carrying(item: ItemFixture, carry: Carry): Inventory {
 }
 
 /** The alterations in play, each `[element, entry]`. */
-function altering(...placed: readonly (readonly [RuleJson, string])[]): ModifierInputs {
+function altering(...placed: ReadonlyArray<readonly [RuleJson, string]>): ModifierInputs {
   return {
     rules: placed.map(([element, entry], rule) => inPlay(element, entry, { rule })),
     facts: new PredicateFacts([], CORE_NAMESPACES),
@@ -57,7 +57,7 @@ function etched(inventory: Inventory, runes: ItemRunes): Inventory {
 }
 
 /** The potency of each weapon the statistic inputs read. */
-function potencies({ weapons = [] }: StatisticInputs): readonly (RuneGrade | undefined)[] {
+function potencies({ weapons = [] }: StatisticInputs): ReadonlyArray<RuneGrade | undefined> {
   return weapons.map(({ potency }) => potency);
 }
 

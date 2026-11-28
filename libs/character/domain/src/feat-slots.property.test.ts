@@ -26,7 +26,7 @@ registry.register(FEAT_SLOT_FIXTURES);
 
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const FEATS: readonly FeatSlotFixture[] = [
+const FEATS: ReadonlyArray<FeatSlotFixture> = [
   'brawn',
   'brutish-shove',
   'keen-eye',

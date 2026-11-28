@@ -45,7 +45,7 @@ const hit = hitOf(expression);
 const typedHit = hitOf(typedExpression);
 
 /** Everything taken: now, and per turn from persistent damage. */
-function takenOf(result: DamageApplication): readonly number[] {
+function takenOf(result: DamageApplication): ReadonlyArray<number> {
   return [result.taken, result.persistentTaken];
 }
 

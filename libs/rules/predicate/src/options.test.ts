@@ -5,7 +5,7 @@ import type { JsonValue } from '@pioneer/rules/sdk';
 
 import { predicateOptions } from './options';
 
-function optionsOf(predicate: JsonValue): readonly string[] {
+function optionsOf(predicate: JsonValue): ReadonlyArray<string> {
   return [...predicateOptions(Predicate.parse(predicate))].toSorted();
 }
 

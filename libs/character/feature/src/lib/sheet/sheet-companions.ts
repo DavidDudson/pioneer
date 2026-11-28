@@ -21,7 +21,7 @@ export interface SpeciesOption {
 }
 
 /** The feats whose species choice grants an animal companion, by the pack that holds each and its slug. */
-const GRANTING_FEATS: readonly (readonly [string, string])[] = [
+const GRANTING_FEATS: ReadonlyArray<readonly [string, string]> = [
   ['player-core', 'feat:animal-companion'],
   ['player-core', 'feat:animal-companion-ranger'],
   ['player-core-2', 'feat:beastmaster-dedication'],
@@ -37,10 +37,10 @@ const GRANTING_FEAT_IDS: ReadonlySet<ContentId> = new Set(
 );
 
 /** Every companion species the registry holds, by name. */
-export function speciesOf(registry: ContentRegistry): readonly SpeciesOption[] {
+export function speciesOf(registry: ContentRegistry): ReadonlyArray<SpeciesOption> {
   return registry.packs
     .flatMap((pack) => pack.otherEntries)
-    .flatMap((entry): readonly SpeciesOption[] =>
+    .flatMap((entry): ReadonlyArray<SpeciesOption> =>
       entry.kind === ContentKind.CompanionSpecies
         ? [{ id: ContentId.parse(entry.id), name: entry.name, block: entry.data.block }]
         : [],
@@ -68,11 +68,11 @@ function grantsCompanion(slot: CharacterSlot): boolean {
 
 /** The species choices the character has, each with the live animal companion it granted. */
 export function companionSlots(
-  slots: readonly CharacterSlot[],
-  species: readonly SpeciesOption[],
-  companions: readonly Companion[],
-): readonly CompanionSlotView[] {
-  return slots.flatMap((slot): readonly CompanionSlotView[] => {
+  slots: ReadonlyArray<CharacterSlot>,
+  species: ReadonlyArray<SpeciesOption>,
+  companions: ReadonlyArray<Companion>,
+): ReadonlyArray<CompanionSlotView> {
+  return slots.flatMap((slot): ReadonlyArray<CompanionSlotView> => {
     if (!grantsCompanion(slot)) {
       return [];
     }
@@ -95,7 +95,10 @@ export function companionSlots(
 }
 
 /** The species a companion is, when the content still holds it. */
-export function speciesOfCompanion(companion: Companion, species: readonly SpeciesOption[]): SpeciesOption | undefined {
+export function speciesOfCompanion(
+  companion: Companion,
+  species: ReadonlyArray<SpeciesOption>,
+): SpeciesOption | undefined {
   return companion.kind === CompanionKind.AnimalCompanion
     ? species.find(({ id }) => id === companion.form.species)
     : undefined;

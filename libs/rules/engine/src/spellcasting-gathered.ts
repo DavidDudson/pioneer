@@ -17,26 +17,26 @@ import type { EntryInPlay, PlacedSlots, RankSlots } from './spellcasting-in-play
 /** What the rules in play give, by entry slug, as `spellcastingInPlay` reads them. */
 export interface Gathered {
   readonly entries: Map<Slug, EntryInPlay>;
-  readonly slots: Map<Slug, PlacedSlots[]>;
-  readonly poolSpells: Map<Slug, Map<RuleSlug, ContentId[]>>;
+  readonly slots: Map<Slug, Array<PlacedSlots>>;
+  readonly poolSpells: Map<Slug, Map<RuleSlug, Array<ContentId>>>;
   /** The entries a `DeitySpells` element names. */
   readonly deitySpells: Set<Slug>;
   /** The entries a `SignatureSpells` element names. */
   readonly signatures: Set<Slug>;
   /** The spells the `FocusSpells` elements give, by the entry they name. */
-  readonly focusSpells: Map<Slug, ContentId[]>;
+  readonly focusSpells: Map<Slug, Array<ContentId>>;
   /** The spells the `InnateSpells` elements give, by the entry they name. */
-  readonly innateSpells: Map<Slug, GrantedSpell[]>;
+  readonly innateSpells: Map<Slug, Array<GrantedSpell>>;
   /** The spells the `RepertoireSpells` elements give, by the entry they name. */
-  readonly grantedSpells: Map<Slug, GrantedSpell[]>;
+  readonly grantedSpells: Map<Slug, Array<GrantedSpell>>;
   /** The counts the `RepertoireCount` elements give, by the entry they name. */
-  readonly repertoireCounts: Map<Slug, RankSlots[]>;
+  readonly repertoireCounts: Map<Slug, Array<RankSlots>>;
   /** The deity spells the `RepertoireDeitySpells` elements let an entry add, by the entry they name. */
-  readonly deityRepertoire: Map<Slug, DeityRepertoire[]>;
+  readonly deityRepertoire: Map<Slug, Array<DeityRepertoire>>;
 }
 
 /** The ids of `spells` that `known` lacks, in order. */
-function freshIds(known: readonly ContentId[], spells: readonly ContentId[]): readonly ContentId[] {
+function freshIds(known: ReadonlyArray<ContentId>, spells: ReadonlyArray<ContentId>): ReadonlyArray<ContentId> {
   const held = new Set(known);
 
   return spells.filter((spell) => !held.has(spell));
@@ -44,7 +44,7 @@ function freshIds(known: readonly ContentId[], spells: readonly ContentId[]): re
 
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
 function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSpellsElement): void {
-  const pools = poolSpells.get(entry) ?? new Map<RuleSlug, ContentId[]>();
+  const pools = poolSpells.get(entry) ?? new Map<RuleSlug, Array<ContentId>>();
   const taken = pools.get(pool) ?? [];
   pools.set(pool, [...taken, ...freshIds(taken, spells)]);
   poolSpells.set(entry, pools);

@@ -30,7 +30,7 @@ export const EmbeddedPack = z
 export type EmbeddedPack = z.infer<typeof EmbeddedPack>;
 
 /** Names each embedded entry by the pack and slug it was written under, as the registry namer does for loaded ones. */
-export function embeddedNamer(embedded: readonly EmbeddedPack[]): ReferenceNamer {
+export function embeddedNamer(embedded: ReadonlyArray<EmbeddedPack>): ReferenceNamer {
   const named = new Map<ContentId, ContentReference>();
 
   for (const { entries } of embedded) {
@@ -43,7 +43,10 @@ export function embeddedNamer(embedded: readonly EmbeddedPack[]): ReferenceNamer
 }
 
 /** `embedded` cut down to the entries in `used`, without the packs left with none. */
-export function embeddedUsing(embedded: readonly EmbeddedPack[], used: ReadonlySet<ContentId>): EmbeddedPack[] {
+export function embeddedUsing(
+  embedded: ReadonlyArray<EmbeddedPack>,
+  used: ReadonlySet<ContentId>,
+): Array<EmbeddedPack> {
   return embedded.flatMap((pack) => {
     const entries = pack.entries.filter((entry) => used.has(entry.id));
 

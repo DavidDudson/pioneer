@@ -171,7 +171,7 @@ export class RovingFocus {
   }
 
   /** `rovingColumns`, else how many items share the first item's row. Only a grid asks. */
-  #columns(items: readonly RovingFocusItem[]): number {
+  #columns(items: ReadonlyArray<RovingFocusItem>): number {
     const columns = this.rovingColumns();
 
     if (columns !== undefined || this.orientation() !== RovingOrientation.Grid) {

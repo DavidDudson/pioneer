@@ -85,7 +85,7 @@ const ARMOR_CLASS = 'ac';
 const SAVE_PREFIX = 'save:';
 
 /** Cast actions in order, so a variable casting time ("one to three") gives each in between. */
-const ACTION_ORDER: readonly ActionCost[] = [ActionCost.One, ActionCost.Two, ActionCost.Three];
+const ACTION_ORDER: ReadonlyArray<ActionCost> = [ActionCost.One, ActionCost.Two, ActionCost.Three];
 
 /** A duration counted in a unit: by that unit, a week or more as long. */
 const TIME_DURATIONS: Readonly<Record<SpellTimeUnit, DurationValue>> = {
@@ -125,7 +125,7 @@ function singleBand(range: SingleRange): RangeBand {
 }
 
 /** A range's band, or each option's when the caster picks one. */
-export function rangeBands({ range }: SpellFields): readonly RangeBand[] {
+export function rangeBands({ range }: SpellFields): ReadonlyArray<RangeBand> {
   if (range === undefined) {
     return [RangeBand.None];
   }
@@ -135,7 +135,7 @@ export function rangeBands({ range }: SpellFields): readonly RangeBand[] {
   return [...new Set(ranges.map((each) => singleBand(each)))];
 }
 
-function singleCastActions(time: SingleCastTime): readonly CastActions[] {
+function singleCastActions(time: SingleCastTime): ReadonlyArray<CastActions> {
   if (time.type !== CastTimeType.Actions) {
     return [CastActions.Time];
   }
@@ -147,13 +147,13 @@ function singleCastActions(time: SingleCastTime): readonly CastActions[] {
 }
 
 /** The action counts a spell can be cast in, or `time`; each option's when the caster picks one. */
-export function castActions({ time }: SpellFields): readonly CastActions[] {
+export function castActions({ time }: SpellFields): ReadonlyArray<CastActions> {
   const times = time.type === CastTimeType.Either ? time.options : [time];
 
   return [...new Set(times.flatMap((each) => singleCastActions(each)))];
 }
 
-export function targetValues({ targets }: Pick<SpellFields, 'targets'>): readonly TargetValue[] {
+export function targetValues({ targets }: Pick<SpellFields, 'targets'>): ReadonlyArray<TargetValue> {
   if (targets === undefined) {
     return [TargetValue.None];
   }
@@ -182,7 +182,7 @@ function defenseOf(selector: Selector): DefenseValue | undefined {
   return selector.startsWith(SAVE_PREFIX) ? SAVES.get(selector.slice(SAVE_PREFIX.length)) : undefined;
 }
 
-export function defenseValues(entry: SpellEntry): readonly DefenseValue[] {
+export function defenseValues(entry: SpellEntry): ReadonlyArray<DefenseValue> {
   const { defense } = entry.data;
 
   const found = [
@@ -201,7 +201,7 @@ function singleDurationValue(duration: SingleDuration): DurationValue {
 }
 
 /** The durations a spell has: one, or each option's when the caster picks one. */
-function durationsOf({ duration }: SpellFields): readonly SingleDuration[] {
+function durationsOf({ duration }: SpellFields): ReadonlyArray<SingleDuration> {
   if (duration === undefined) {
     return [];
   }
@@ -209,7 +209,7 @@ function durationsOf({ duration }: SpellFields): readonly SingleDuration[] {
   return duration.type === SpellDurationType.Either ? duration.options : [duration];
 }
 
-export function durationValues(data: SpellFields): readonly DurationValue[] {
+export function durationValues(data: SpellFields): ReadonlyArray<DurationValue> {
   const durations = durationsOf(data);
 
   return durations.length === 0

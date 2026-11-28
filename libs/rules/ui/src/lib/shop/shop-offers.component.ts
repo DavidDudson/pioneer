@@ -36,7 +36,7 @@ interface OfferRow {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopOffersView {
-  public readonly offers = input<readonly ShopOffer[] | undefined>();
+  public readonly offers = input<ReadonlyArray<ShopOffer> | undefined>();
   public readonly picked = model<ContentId | undefined>(undefined);
 
   readonly #i18n = inject(TranslocoService);
@@ -49,7 +49,7 @@ export class ShopOffersView {
   protected readonly emptyIcon = PackageSearch;
   protected readonly loadingRows = LOADING_ROWS;
 
-  protected readonly rows: Signal<readonly OfferRow[]> = computed(() => {
+  protected readonly rows: Signal<ReadonlyArray<OfferRow>> = computed(() => {
     this.#messages();
 
     return (this.offers() ?? []).slice(0, SHOWN_MAX).map((offer) => {

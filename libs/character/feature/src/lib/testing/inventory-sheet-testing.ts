@@ -202,7 +202,7 @@ async function openPicker(target: HTMLElement): Promise<Picker<string, object>> 
 }
 
 /** Opens the inline picker in `target` and names the rows it offers, in order. */
-export async function rowLabels(target: HTMLElement): Promise<readonly string[]> {
+export async function rowLabels(target: HTMLElement): Promise<ReadonlyArray<string>> {
   const picker = await openPicker(target);
 
   return vi.waitFor(() => {

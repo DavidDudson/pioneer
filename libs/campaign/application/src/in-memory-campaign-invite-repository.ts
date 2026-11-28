@@ -20,7 +20,10 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
     return this.#rows.get(id);
   }
 
-  public override async listOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<readonly CampaignInvite[]> {
+  public override async listOpen(
+    campaignId: CampaignId,
+    now: Temporal.Instant,
+  ): Promise<ReadonlyArray<CampaignInvite>> {
     return [...this.#rows.values()]
       .filter((invite) => invite.campaignId === campaignId && invite.statusAt(now) === InviteStatus.Open)
       .toSorted(

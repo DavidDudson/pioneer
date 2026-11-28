@@ -14,7 +14,7 @@ type UseMaxima = ReadonlyMap<UseCountKey, CountedMaximum>;
 /** `record` without the entries of `keys`. */
 function without<Value>(
   record: Partial<Record<UseCountKey, Value>>,
-  keys: readonly UseCountKey[],
+  keys: ReadonlyArray<UseCountKey>,
 ): Partial<Record<UseCountKey, Value>> {
   const kept: Partial<Record<UseCountKey, Value>> = {};
 
@@ -28,7 +28,7 @@ function without<Value>(
 }
 
 /** `counts` with the spent uses and the countdown of `keys` cleared: those uses are back, as Rest, daily preparations or Reset give them. */
-export function usesBack(counts: UseCounts, keys: readonly UseCountKey[]): UseCounts {
+export function usesBack(counts: UseCounts, keys: ReadonlyArray<UseCountKey>): UseCounts {
   return { uses: without(counts.uses, keys), countdowns: without(counts.countdowns, keys) };
 }
 
@@ -58,7 +58,7 @@ export function countdownCleared(counts: UseCounts, key: UseCountKey): UseCounts
 }
 
 /** The keys of the uses that come back at the start of a turn: a turn or round frequency, or a countdown that runs out. */
-function backAtTurnStart(counts: UseCounts, maxima: UseMaxima): readonly UseCountKey[] {
+function backAtTurnStart(counts: UseCounts, maxima: UseMaxima): ReadonlyArray<UseCountKey> {
   return [...maxima].flatMap(([key, { boundary }]) => {
     const running = counts.countdowns[key];
     const periodic = boundary === Boundary.Turn || boundary === Boundary.Round;

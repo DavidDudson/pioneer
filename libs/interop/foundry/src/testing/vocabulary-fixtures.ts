@@ -55,7 +55,7 @@ export const CURVY: DocumentFixture = {
   system: { traits: { value: ['polymorph'] } },
 };
 
-export function vocabularyOf(translation: ImportTranslation, kind: ContentKind): readonly VocabularyEntry[] {
+export function vocabularyOf(translation: ImportTranslation, kind: ContentKind): ReadonlyArray<VocabularyEntry> {
   return translation.vocabulary.filter(({ kindData }) => kindData.kind === kind);
 }
 
@@ -64,6 +64,6 @@ export function plain(value: unknown): unknown {
   return value;
 }
 
-export function slugsOf(translation: ImportTranslation, kind: ContentKind): readonly string[] {
+export function slugsOf(translation: ImportTranslation, kind: ContentKind): ReadonlyArray<string> {
   return vocabularyOf(translation, kind).map(({ envelope }) => slugName(envelope.slug));
 }

@@ -34,7 +34,7 @@ function toText(value: number | undefined): string {
 export class FilterValues {
   public readonly field = input.required<FilterField>();
   public readonly operator = input.required<FilterOperator>();
-  public readonly values = model<readonly string[]>([]);
+  public readonly values = model<ReadonlyArray<string>>([]);
 
   protected readonly rangeClasses = rangeClasses;
 
@@ -48,7 +48,7 @@ export class FilterValues {
   protected readonly min = computed(() => toNumber(this.values()[0]));
   protected readonly max = computed(() => toNumber(this.values()[1]));
   protected readonly selected = computed<ReadonlySet<string>>(() => new Set(this.values()));
-  protected readonly options = computed<readonly SelectOption<string>[]>(() =>
+  protected readonly options = computed<ReadonlyArray<SelectOption<string>>>(() =>
     (this.field().options ?? []).map(({ value, label, count }) => ({
       value,
       label:

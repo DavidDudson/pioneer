@@ -19,7 +19,7 @@ import { Label } from '../field/label/label.component';
 })
 export class SelectField<TValue extends string> extends BoundField implements FormValueControl<TValue | undefined> {
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** Defaults to "Select…" in the viewer's locale. */
   public readonly placeholder = input<string | undefined>(undefined);
 }

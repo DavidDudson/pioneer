@@ -36,11 +36,11 @@ function playOf(turn: JsonObject): JsonObject {
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn } };
 }
 
-function useButtons(root: HTMLElement): HTMLButtonElement[] {
+function useButtons(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')];
 }
 
-function labels(buttons: readonly HTMLButtonElement[]): string[] {
+function labels(buttons: ReadonlyArray<HTMLButtonElement>): Array<string> {
   return buttons.map(({ textContent }) => textContent.replaceAll(/\s+/gu, ' ').trim());
 }
 

@@ -15,12 +15,12 @@ import { DEFINITIONS, LONGSWORD, strikeOf } from './testing/strike-test-fixtures
 
 const BLOWGUN = { slug: 'blowgun', category: 'simple', traits: [], damage: { dice: 1, damageType: 'piercing' } };
 const SENSATE = 'a bright flash of light';
-const text = (words: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const text = (words: string): Array<JsonObject> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A `Note` on `selector`, as a rune etched on a weapon gives it. */
 const etchedNote = (selector: string): RuleJson => ({ key: 'Note', selectors: [selector], text: text(SENSATE) });
 
-function numbers(strike: Strike | undefined): readonly number[] {
+function numbers(strike: Strike | undefined): ReadonlyArray<number> {
   return [Number(strike?.damage?.dice), ...(strike?.damage?.extra.map(({ count }) => Number(count)) ?? [])];
 }
 
@@ -83,7 +83,7 @@ describe('Strike damage dice from rule elements', () => {
 });
 
 /** The weapon's dice, and its extra ones, after a dice-number alteration of `mode` and `value`. */
-function diceAfter(mode: string, value: number): readonly number[] {
+function diceAfter(mode: string, value: number): ReadonlyArray<number> {
   const alteration = { key: 'DamageAlteration', selectors: ['strike-damage'], property: 'dice-number', mode, value };
 
   return numbers(strikeOf([[alteration, 'a']]));
@@ -173,7 +173,7 @@ describe('Strike notes from rule elements', () => {
 
 const PICKED = { ...LONGSWORD, picked: ['edge'] };
 
-const spiritDice = (selectors: readonly string[]): RuleJson => ({
+const spiritDice = (selectors: ReadonlyArray<string>): RuleJson => ({
   key: 'DamageDice',
   selectors,
   diceNumber: 1,
@@ -218,7 +218,7 @@ describe('Strike rules aimed at the weapon they are etched on', () => {
   const FLAMING = { key: 'DamageDice', selectors: ['etched-damage'], dieSize: 'd6', damageType: 'fire' };
 
   /** Both weapons' Strikes, with `FLAMING` in play from `item`. */
-  function strikes(item: string | undefined): readonly Strike[] {
+  function strikes(item: string | undefined): ReadonlyArray<Strike> {
     const weapons = [wielded(LONGSWORD, LONGSWORD_ITEM), wielded(SHORTSWORD, SHORTSWORD_ITEM)];
 
     const inputs = StatisticInputsJson.parse({

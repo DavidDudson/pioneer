@@ -13,12 +13,12 @@ interface Call {
 
 interface Harness {
   readonly client: PoliteClient;
-  readonly calls: Call[];
+  readonly calls: Array<Call>;
 }
 
 /** A client over scripted responses; the clock moves only when the client sleeps. */
-function harness(...responses: Response[]): Harness {
-  const calls: Call[] = [];
+function harness(...responses: Array<Response>): Harness {
+  const calls: Array<Call> = [];
   let clock = 0;
 
   const client = new PoliteClient({

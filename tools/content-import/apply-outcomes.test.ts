@@ -25,14 +25,14 @@ interface CheckExtras {
 
 interface ParagraphJson {
   readonly type: string;
-  readonly content: readonly unknown[];
+  readonly content: ReadonlyArray<unknown>;
 }
 
 interface OutcomeEntryJson {
   readonly id: string;
   readonly pack: string;
   readonly slug: string;
-  readonly rules: readonly object[];
+  readonly rules: ReadonlyArray<object>;
   readonly description: unknown;
 }
 
@@ -45,12 +45,12 @@ function check(extra: CheckExtras = {}): CheckJson {
   return { type: 'check', statistic: 'save:reflex', dc: 20, ...extra };
 }
 
-function paragraph(...content: unknown[]): ParagraphJson {
+function paragraph(...content: Array<unknown>): ParagraphJson {
   return { type: 'paragraph', content };
 }
 
 /** A description with one check, then the per-degree paragraph that follows it. */
-function described(first: unknown): readonly unknown[] {
+function described(first: unknown): ReadonlyArray<unknown> {
   const label = { type: 'text', text: 'Success', marks: ['strong'] };
 
   return [paragraph(plain('Attempt '), first), paragraph(label, plain(' You are unharmed.'))];
@@ -67,12 +67,12 @@ function givenOutcomes(node: unknown, outcome: unknown): unknown {
 }
 
 /** A file of the entries `entries`, as JSON text. */
-function fileOf(...entries: unknown[]): string {
+function fileOf(...entries: Array<unknown>): string {
   return JSON.stringify(entries);
 }
 
 /** The import's descriptions, by entry id. */
-function importOf(...pairs: (readonly [string, unknown])[]): ReadonlyMap<string, unknown> {
+function importOf(...pairs: Array<readonly [string, unknown]>): ReadonlyMap<string, unknown> {
   return new Map(pairs);
 }
 

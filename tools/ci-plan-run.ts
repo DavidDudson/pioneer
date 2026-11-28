@@ -21,7 +21,7 @@ interface GitResult {
   readonly stdout: string;
 }
 
-async function git(...args: readonly string[]): Promise<GitResult> {
+async function git(...args: ReadonlyArray<string>): Promise<GitResult> {
   const child = Bun.spawn(['git', ...args], { stdout: 'pipe', stderr: 'ignore' });
   const [stdout, code] = await Promise.all([new Response(child.stdout).text(), child.exited]);
 
@@ -45,7 +45,7 @@ async function lastPassedOnMain(): Promise<string | undefined> {
   }
 
   // SAFETY: GitHub's list-workflow-runs response holds a `workflow_runs` array whose runs carry `head_sha`; both are optional here, so a missing one reads as `undefined`.
-  const body = (await response.json()) as { readonly workflow_runs?: readonly { readonly head_sha?: string }[] };
+  const body = (await response.json()) as { readonly workflow_runs?: ReadonlyArray<{ readonly head_sha?: string }> };
 
   return body.workflow_runs?.[0]?.head_sha;
 }
@@ -82,7 +82,7 @@ async function baseCommit(): Promise<string> {
 }
 
 function affectedBy(base: string): AffectedIn {
-  return async ({ projects, exclude }: ProjectFilter): Promise<readonly string[]> => {
+  return async ({ projects, exclude }: ProjectFilter): Promise<ReadonlyArray<string>> => {
     const flags = [
       ...(projects === undefined ? [] : [`--projects=${projects}`]),
       ...(exclude === undefined ? [] : [`--exclude=${exclude}`]),
@@ -107,7 +107,7 @@ function affectedBy(base: string): AffectedIn {
 }
 
 /** The project names Nx printed. Nothing affected prints `[]`, so output without a list is an error, not no projects. */
-function parseProjects(stdout: string): readonly string[] {
+function parseProjects(stdout: string): ReadonlyArray<string> {
   const start = stdout.indexOf('[');
 
   if (start === -1) {
@@ -115,10 +115,10 @@ function parseProjects(stdout: string): readonly string[] {
   }
 
   // SAFETY: `nx show projects --json` prints a JSON array of project names, the list found after the first `[` above.
-  return JSON.parse(stdout.slice(start)) as string[];
+  return JSON.parse(stdout.slice(start)) as Array<string>;
 }
 
-const matrixOf = (entries: readonly JobEntry[]): string => JSON.stringify({ include: entries });
+const matrixOf = (entries: ReadonlyArray<JobEntry>): string => JSON.stringify({ include: entries });
 
 const base = await baseCommit();
 const diff = await git('diff', '--name-only', base, 'HEAD');

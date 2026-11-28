@@ -50,7 +50,7 @@ const EASINGS: ReadonlyMap<string, Easing> = new Map([
   ['feat:unusual-treatment', LOWER],
   ['feat:dwarven-doughtiness', LOWER_BY_TWO],
   ['action:verdant-rest', REMOVE],
-  ...['minor', 'lesser', 'moderate', 'greater', 'major'].flatMap((grade): [string, Easing][] => [
+  ...['minor', 'lesser', 'moderate', 'greater', 'major'].flatMap((grade): Array<[string, Easing]> => [
     [`consumable:surging-serum-${grade}`, COUNTERACT],
     [`consumable:bottled-catharsis-${grade}`, COUNTERACT],
   ]),
@@ -82,9 +82,9 @@ function removal(entry: ContentEntry, condition: ContentId, easing: Easing): Con
 
 /** The conditions each entry eases and what is left unsaid about them: entries a condition names that have no easing here. */
 export interface RemovalMatches {
-  readonly removals: ReadonlyMap<ContentKey, readonly ConditionRemoval[]>;
+  readonly removals: ReadonlyMap<ContentKey, ReadonlyArray<ConditionRemoval>>;
   /** Slugs of entries some condition names as easing it that the table above does not describe. */
-  readonly unmapped: readonly EntrySlug[];
+  readonly unmapped: ReadonlyArray<EntrySlug>;
 }
 
 /** An entry a condition names as easing it. */
@@ -94,7 +94,7 @@ interface Named {
 }
 
 /** The ids of the entries `condition` names as easing it; none for any other entry. */
-function easingIds(condition: ContentEntry): readonly ContentId[] {
+function easingIds(condition: ContentEntry): ReadonlyArray<ContentId> {
   if (condition.kind !== ContentKind.Condition) {
     return [];
   }
@@ -103,18 +103,18 @@ function easingIds(condition: ContentEntry): readonly ContentId[] {
 }
 
 /** The entries every condition names as easing it, each with the conditions it eases, from the pack entries. */
-export function removalMatches(entries: readonly ContentEntry[]): RemovalMatches {
+export function removalMatches(entries: ReadonlyArray<ContentEntry>): RemovalMatches {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
   const named = entries.flatMap((condition) =>
-    easingIds(condition).flatMap((id): Named[] => {
+    easingIds(condition).flatMap((id): Array<Named> => {
       const remover = byId.get(id);
 
       return remover === undefined ? [] : [{ condition: condition.id, remover }];
     }),
   );
 
-  const removals = new Map<ContentKey, ConditionRemoval[]>();
+  const removals = new Map<ContentKey, Array<ConditionRemoval>>();
 
   for (const { condition, remover } of named) {
     const easing = EASINGS.get(remover.slug);
@@ -135,7 +135,10 @@ export function removalMatches(entries: readonly ContentEntry[]): RemovalMatches
 }
 
 /** `entry` with `removesConditions`; undefined for a kind that has none. */
-function withRemovals(entry: ContentEntry, removesConditions: readonly ConditionRemoval[]): ContentEntry | undefined {
+function withRemovals(
+  entry: ContentEntry,
+  removesConditions: ReadonlyArray<ConditionRemoval>,
+): ContentEntry | undefined {
   if (entry.kind === ContentKind.Spell) {
     return { ...entry, data: { ...entry.data, removesConditions } };
   }
@@ -164,9 +167,9 @@ function withRemovals(entry: ContentEntry, removesConditions: readonly Condition
  * entries are re-encoded; the rest are the file's own JSON.
  */
 export function enrichRemovalFile(
-  file: readonly unknown[],
-  matches: ReadonlyMap<ContentKey, readonly ConditionRemoval[]>,
-): readonly unknown[] | undefined {
+  file: ReadonlyArray<unknown>,
+  matches: ReadonlyMap<ContentKey, ReadonlyArray<ConditionRemoval>>,
+): ReadonlyArray<unknown> | undefined {
   const entries = ContentEntryFile.parse(file);
 
   const enriched = file.map((json, index) => {

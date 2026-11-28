@@ -56,7 +56,7 @@ function idOf(index: number): OverrideId {
 }
 
 /** A character with an untyped adjust of each amount on armour class, the nth with `idOf(n)`. */
-function adjusted(amounts: readonly number[]): Character {
+function adjusted(amounts: ReadonlyArray<number>): Character {
   let character = new CharacterBuilder().build();
 
   for (const [index, value] of amounts.entries()) {

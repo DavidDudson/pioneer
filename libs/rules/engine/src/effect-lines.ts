@@ -178,7 +178,7 @@ export function immunityEffect(line: ImmunityLine): ImmunityEffect {
 function senseHeld(
   element: SenseElement,
   entry: RuleInPlay['origin']['entry'],
-  senses: readonly SenseInPlay[],
+  senses: ReadonlyArray<SenseInPlay>,
 ): boolean {
   const { sense, acuity = SenseAcuity.Precise, range } = element;
 
@@ -218,7 +218,7 @@ export function senseEffect(rule: RuleInPlay, element: SenseElement, reading: Se
 
 /** The senses in play, and the rules they were read from. */
 export interface SenseReading {
-  readonly senses: readonly SenseInPlay[];
+  readonly senses: ReadonlyArray<SenseInPlay>;
   readonly modifiers: ModifierInputs;
 }
 

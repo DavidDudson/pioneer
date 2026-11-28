@@ -61,7 +61,7 @@ function reportRecovery(description: string | undefined, log: GapLog): void {
   }
 }
 
-function overridesOf(slugs: readonly string[], references: EntryReferences, log: GapLog): ContentId[] {
+function overridesOf(slugs: ReadonlyArray<string>, references: EntryReferences, log: GapLog): Array<ContentId> {
   return slugs.flatMap((slug) => {
     const id = resolveFoundrySlug(references, FoundryItemType.Condition, slug);
 
@@ -76,7 +76,7 @@ function overridesOf(slugs: readonly string[], references: EntryReferences, log:
 }
 
 /** Conditions the entry grants whatever the situation: Foundry's implied conditions, now granted by content id. */
-function impliedConditions(rules: readonly RuleElement[], references: EntryReferences): ContentId[] {
+function impliedConditions(rules: ReadonlyArray<RuleElement>, references: EntryReferences): Array<ContentId> {
   return rules.flatMap((rule) =>
     rule.key === RuleElementKey.GrantItem &&
     rule.predicate === undefined &&

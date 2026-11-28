@@ -35,10 +35,10 @@ interface EntryFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: JsonObject;
 }
 
@@ -73,16 +73,16 @@ const ancestry = entry('ancestry', 'lizardfolk', {
 
 const common = entry('language', 'common', {});
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry, common]]);
-const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
+const packs: ReadonlyArray<PackContentsLoader> = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 const spoken = [{ type: 'paragraph', content: [{ type: 'text', text: 'Spoken everywhere.' }] }];
 const described: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, description: spoken }]]);
 
-const describedPacks: readonly PackContentsLoader[] = [
+const describedPacks: ReadonlyArray<PackContentsLoader> = [
   { id: PACK, load: async (): Promise<PackContents> => described },
 ];
 
 const renamed: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, name: 'Common (Taldane)' }]]);
-const reseeded: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => renamed }];
+const reseeded: ReadonlyArray<PackContentsLoader> = [{ id: PACK, load: async (): Promise<PackContents> => renamed }];
 
 interface Loaded {
   readonly loader: ContentLoader;
@@ -95,10 +95,10 @@ interface Loaded {
 function load(
   store: BundleStore = new MemoryBundleStore(),
   packCache: ContentPackCache = new Map(),
-  served: readonly PackContentsLoader[] = packs,
+  served: ReadonlyArray<PackContentsLoader> = packs,
 ): Loaded {
   const delivery = new TestContentDelivery(served);
-  const waiting: (() => void)[] = [];
+  const waiting: Array<() => void> = [];
   TestBed.configureTestingModule({
     providers: [
       ...provideContentTesting(delivery, store),
@@ -122,12 +122,12 @@ function load(
 }
 
 /** The description shards `requests` fetched. */
-function descriptionRequests(requests: readonly string[]): readonly string[] {
+function descriptionRequests(requests: ReadonlyArray<string>): ReadonlyArray<string> {
   return requests.filter((request) => request.includes('.desc.'));
 }
 
 /** The kinds `requests` fetched bundles of, in order. */
-function kindsFetched(requests: readonly string[]): readonly string[] {
+function kindsFetched(requests: ReadonlyArray<string>): ReadonlyArray<string> {
   return requests.flatMap((request) => /\/(?<kind>[a-z-]+)\.mech\./u.exec(request)?.groups?.['kind'] ?? []);
 }
 
@@ -285,7 +285,7 @@ describe(ContentLoader, () => {
   describe('search', () => {
     const words = SearchText.parse('common');
 
-    function query(kinds: readonly ContentKind[]): ContentSearchQuery {
+    function query(kinds: ReadonlyArray<ContentKind>): ContentSearchQuery {
       return ContentSearchQuery.parse({ query: words, kinds: kinds.join(',') });
     }
 

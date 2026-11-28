@@ -7,7 +7,7 @@ import * as z from 'zod';
 import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -17,7 +17,7 @@ const HEAL = '8c3e6b1e-2a54-5f43-9b49-5ce7c7a2b2a1';
 const FIREBALL = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
 
 /** A healing font's heal, and part of the School of Battle Magic's curriculum. */
-const examples: object[] = [
+const examples: Array<object> = [
   {
     key: 'PoolSpells',
     entry: 'cleric',

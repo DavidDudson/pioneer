@@ -31,15 +31,15 @@ export interface ClassOption {
   readonly keyAttribute: AttributeBoost;
   readonly hitPoints: HitPoints;
   /** The skills it trains outright, as selectors (`skill:athletics`); the player picks `additionalSkills` more. */
-  readonly trained: readonly Selector[];
+  readonly trained: ReadonlyArray<Selector>;
   readonly additionalSkills: SkillCount;
   /** The traditions of the spellcasting its features give; none for a class that casts no spells. */
-  readonly traditions: readonly MagicTradition[];
+  readonly traditions: ReadonlyArray<MagicTradition>;
   /** The ranks it starts with, skills aside. */
-  readonly proficiencies: readonly ClassProficiency[];
+  readonly proficiencies: ReadonlyArray<ClassProficiency>;
   /** The roles it plays, for filtering classes by play style; none for a class that sets no role. */
-  readonly roles: readonly ClassRole[];
-  readonly sources: readonly SourceRef[];
+  readonly roles: ReadonlyArray<ClassRole>;
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** A subclass (a doctrine, muse, order or school) as a picker row reads it: a class feature and what it says. */
@@ -47,26 +47,30 @@ export interface SubclassOption {
   readonly id: ContentId;
   readonly name: ContentText;
   readonly description: RichText;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** What the class pickers read: each loaded class, and each class feature a subclass slot may offer. */
 export interface ClassPickerContent {
   /** By name. */
-  readonly classes: readonly ClassOption[];
+  readonly classes: ReadonlyArray<ClassOption>;
   /** By id: the class features, which is what a subclass is. */
   readonly features: ReadonlyMap<ContentId, SubclassOption>;
   /** The traditions of a class feature's spellcasting, by feature id. */
-  readonly traditions: ReadonlyMap<ContentId, readonly MagicTradition[]>;
+  readonly traditions: ReadonlyMap<ContentId, ReadonlyArray<MagicTradition>>;
 }
 
 /** The classes that play `role`, in the order given. */
-export function classesForRole(classes: readonly ClassOption[], role: ClassRole): readonly ClassOption[] {
+export function classesForRole(classes: ReadonlyArray<ClassOption>, role: ClassRole): ReadonlyArray<ClassOption> {
   return classes.filter((option) => option.roles.includes(role));
 }
 
 /** One class that plays `role`, drawn by `seed`: the same seed and classes give the same class. None when no class plays it. */
-export function classForRole(classes: readonly ClassOption[], role: ClassRole, seed: Seed): ClassOption | undefined {
+export function classForRole(
+  classes: ReadonlyArray<ClassOption>,
+  role: ClassRole,
+  seed: Seed,
+): ClassOption | undefined {
   const outcome = pickOne(seededPicks(seed), classesForRole(classes, role));
 
   return outcome.ok ? outcome.picked : undefined;
@@ -89,8 +93,8 @@ const SKILL_PREFIX = 'skill:';
 const unconditional = (rule: RuleElement): boolean => rule.predicate === undefined || rule.predicate.length === 0;
 
 /** The `Proficiency` elements `rules` raise outright, in order. */
-function startingRanks(rules: readonly RuleElement[]): ClassProficiency[] {
-  return rules.flatMap((rule): ClassProficiency[] => {
+function startingRanks(rules: ReadonlyArray<RuleElement>): Array<ClassProficiency> {
+  return rules.flatMap((rule): Array<ClassProficiency> => {
     if (rule.key !== RuleElementKey.Proficiency || !unconditional(rule)) {
       return [];
     }
@@ -102,8 +106,8 @@ function startingRanks(rules: readonly RuleElement[]): ClassProficiency[] {
 }
 
 /** The traditions of the spellcasting entries `rules` give, each once. */
-function traditionsOf(rules: readonly RuleElement[]): MagicTradition[] {
-  const found = rules.flatMap((rule): MagicTradition[] =>
+function traditionsOf(rules: ReadonlyArray<RuleElement>): Array<MagicTradition> {
+  const found = rules.flatMap((rule): Array<MagicTradition> =>
     rule.key === RuleElementKey.SpellcastingEntry ? [rule.tradition] : [],
   );
 
@@ -111,8 +115,8 @@ function traditionsOf(rules: readonly RuleElement[]): MagicTradition[] {
 }
 
 /** The ids `rules` grant outright by their id. */
-function grantedIds(rules: readonly RuleElement[]): ContentId[] {
-  return rules.flatMap((rule): ContentId[] => {
+function grantedIds(rules: ReadonlyArray<RuleElement>): Array<ContentId> {
+  return rules.flatMap((rule): Array<ContentId> => {
     if (rule.key !== RuleElementKey.GrantItem) {
       return [];
     }
@@ -145,7 +149,7 @@ function readClasses(registry: ContentRegistry): ClassPickerContent {
     ),
   );
 
-  const classes = entries.flatMap((entry): ClassOption[] => {
+  const classes = entries.flatMap((entry): Array<ClassOption> => {
     if (entry.kind !== ContentKind.Class) {
       return [];
     }

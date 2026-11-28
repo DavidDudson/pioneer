@@ -38,11 +38,11 @@ function pickedFacts(type?: string): PredicateFacts {
 }
 
 interface BreathReading {
-  readonly traits: readonly string[];
+  readonly traits: ReadonlyArray<string>;
   /** The shape of the area the description names, and the save it calls for. */
-  readonly area: readonly (string | undefined)[];
+  readonly area: ReadonlyArray<string | undefined>;
   /** The dice and the damage type of the first damage the description deals. */
-  readonly damage: readonly (string | undefined)[];
+  readonly damage: ReadonlyArray<string | undefined>;
 }
 
 /** The Dragon Breath of a druid in Dragon Form as the dragon `type`, cast at `rank`, as its traits and damage read. */

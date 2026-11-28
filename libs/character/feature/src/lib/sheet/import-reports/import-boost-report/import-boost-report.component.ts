@@ -29,15 +29,15 @@ interface UnplacedView {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImportBoostReport {
-  public readonly modifierDifferences = input.required<readonly ModifierDifference[]>();
-  public readonly unplacedBoosts = input.required<readonly UnplacedBoost[]>();
+  public readonly modifierDifferences = input.required<ReadonlyArray<ModifierDifference>>();
+  public readonly unplacedBoosts = input.required<ReadonlyArray<UnplacedBoost>>();
 
   readonly #format = inject(LocaleFormat);
 
   protected readonly modifiersMatch = computed(() => this.modifierDifferences().length === 0);
   protected readonly anyUnplaced = computed(() => this.unplacedBoosts().length > 0);
 
-  protected readonly differences = computed((): readonly DifferenceView[] =>
+  protected readonly differences = computed((): ReadonlyArray<DifferenceView> =>
     this.modifierDifferences().map((difference) => ({
       labelKey: ATTRIBUTE_LABEL_KEYS[difference.attribute],
       imported: this.#format.number(difference.imported, SIGNED),
@@ -45,7 +45,7 @@ export class ImportBoostReport {
     })),
   );
 
-  protected readonly unplaced = computed((): readonly UnplacedView[] =>
+  protected readonly unplaced = computed((): ReadonlyArray<UnplacedView> =>
     this.unplacedBoosts().map((boost) => ({
       boostKey: BOOST_LABEL_KEYS[boost.source],
       level: boost.level,

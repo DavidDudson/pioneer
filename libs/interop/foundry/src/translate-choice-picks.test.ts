@@ -110,7 +110,7 @@ describe('ChoiceSet from Foundry: a config Pioneer has a meaning for', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: the input is the rule under test, so rules[0] is its translation.
     // The cast names only the fields the test reads from that element.
-    const { choices } = rules[0] as { choices: { value: string; label: string }[] };
+    const { choices } = rules[0] as { choices: Array<{ value: string; label: string }> };
     expect(choices).toHaveLength(10);
     expect(choices[0]).toEqual({ value: '1', label: 'Rank 1' });
     expect(choices[9]).toEqual({ value: '10', label: 'Rank 10' });

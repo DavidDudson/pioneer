@@ -15,15 +15,15 @@ export interface AncestryLanguages {
   /** The ancestry, which the languages it grants are known from. */
   readonly id: ContentId;
   readonly name: ContentText;
-  readonly granted: readonly ContentId[];
+  readonly granted: ReadonlyArray<ContentId>;
   readonly count: LanguageCount;
-  readonly options: readonly ContentId[];
+  readonly options: ReadonlyArray<ContentId>;
 }
 
 /** What language slots are read from: every loaded language, the one a pick names, and each ancestry's languages. */
 export interface LanguageContent {
   /** By name. */
-  readonly languages: readonly LanguageOption[];
+  readonly languages: ReadonlyArray<LanguageOption>;
   readonly language: (pick: ChoiceValue) => LanguageOption | undefined;
   readonly ancestry: (id: ContentId) => AncestryLanguages | undefined;
 }
@@ -35,7 +35,7 @@ export function languageContent(registry: ContentRegistry): LanguageContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
   const byId = new Map(
-    entries.flatMap((entry): [ContentId, LanguageOption][] =>
+    entries.flatMap((entry): Array<[ContentId, LanguageOption]> =>
       entry.kind === ContentKind.Language
         ? [[entry.id, { id: entry.id, name: entry.name, rarity: entry.rarity, script: entry.data.script }]]
         : [],

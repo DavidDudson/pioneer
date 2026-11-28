@@ -31,18 +31,22 @@ const NONE: RollEffects = { rollTwice: [], degreeAdjustments: [] };
 const UNDEAD = ['target:trait:undead'];
 const KNOWN_FALSE = ['self:effect:rage'];
 
-function rollTwice(keep: string, selectors: readonly string[], predicate?: readonly string[]): RuleJson {
+function rollTwice(keep: string, selectors: ReadonlyArray<string>, predicate?: ReadonlyArray<string>): RuleJson {
   const element = { key: 'RollTwice', selectors, keep };
 
   return predicate === undefined ? element : { ...element, predicate };
 }
 
-function adjustDegree(selectors: readonly string[], extra: JsonObject = {}): RuleJson {
+function adjustDegree(selectors: ReadonlyArray<string>, extra: JsonObject = {}): RuleJson {
   return { key: 'AdjustDegreeOfSuccess', selectors, adjustment: { all: 'one-degree-better' }, ...extra };
 }
 
 /** The roll effects the statistic carries, or none when it carries none. */
-function effectsOn(selector: string, rules: readonly RuleInPlay[], situation: readonly RuleId[] = []): RollEffects {
+function effectsOn(
+  selector: string,
+  rules: ReadonlyArray<RuleInPlay>,
+  situation: ReadonlyArray<RuleId> = [],
+): RollEffects {
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const derived = deriveStatistics(content, inputs, { rules, facts: FACTS, situation: new Set(situation) });
   const result = derived.get(Selector.parse(selector));
@@ -54,11 +58,11 @@ function effectsOn(selector: string, rules: readonly RuleInPlay[], situation: re
   return result.rollEffects ?? NONE;
 }
 
-function kept(effects: RollEffects): readonly string[] {
+function kept(effects: RollEffects): ReadonlyArray<string> {
   return effects.rollTwice.map((line) => line.keep).toSorted();
 }
 
-function ids(effects: RollEffects): readonly RuleId[] {
+function ids(effects: RollEffects): ReadonlyArray<RuleId> {
   return effects.degreeAdjustments.map((line) => line.id);
 }
 

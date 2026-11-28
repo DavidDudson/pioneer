@@ -27,7 +27,7 @@ function formula(value: unknown): unknown {
 }
 
 /** `fields` with each of `names` that it has run through `formula`. */
-function withFormulas(fields: Fields, names: readonly string[]): Fields {
+function withFormulas(fields: Fields, names: ReadonlyArray<string>): Fields {
   return Object.fromEntries(
     Object.entries(fields).map(([name, value]) => [name, names.includes(name) ? formula(value) : value]),
   );
@@ -78,14 +78,14 @@ function defences(value: unknown): unknown {
     return value;
   }
 
-  return value.flatMap((item: unknown): unknown[] => {
+  return value.flatMap((item: unknown): Array<unknown> => {
     if (!isFields(item)) {
       return [item];
     }
 
     const { type, ...rest } = withFormulas(item, ['value']);
-    const types: readonly unknown[] = Array.isArray(type) ? type : [type];
-    const entries: unknown[] = [];
+    const types: ReadonlyArray<unknown> = Array.isArray(type) ? type : [type];
+    const entries: Array<unknown> = [];
 
     for (const each of types) {
       entries.push({ type: typeOf(each), ...rest });

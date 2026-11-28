@@ -68,7 +68,7 @@ function fileName(path: string): string {
   return path.slice(path.lastIndexOf('/') + 1);
 }
 
-function names(paths: readonly { readonly path: string }[]): string[] {
+function names(paths: ReadonlyArray<{ readonly path: string }>): Array<string> {
   return paths.map(({ path }) => fileName(path));
 }
 

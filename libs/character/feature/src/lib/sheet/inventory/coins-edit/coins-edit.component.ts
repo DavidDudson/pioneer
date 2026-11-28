@@ -34,7 +34,7 @@ export class CoinsEdit {
   readonly #store = inject(CharacterStore);
   readonly #format = inject(LocaleFormat);
 
-  protected readonly fields: readonly CoinField[] = Object.values(Coin).map((coin) => ({
+  protected readonly fields: ReadonlyArray<CoinField> = Object.values(Coin).map((coin) => ({
     coin,
     label: COIN_LABELS[coin],
     edit: sheetField<number>(this.#store.selected, {

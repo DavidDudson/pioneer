@@ -4,7 +4,7 @@ import { RuleElement } from './rule-element';
 
 const EFFECT = '00000000-0000-5000-8000-000000000001';
 
-const valid: object[] = [
+const valid: Array<object> = [
   { key: 'Aura', radius: 30 },
   { key: 'Aura', radius: '5 * @level', slug: 'protective-ward' },
   {

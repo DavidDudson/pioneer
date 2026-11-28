@@ -35,13 +35,13 @@ function shownValue(value: ChoiceValue, table: SlugTable): string {
 export interface PicksParse {
   readonly picks: ChoicePicks;
   /** The 1-based lines that are not `entry:rule = value`. */
-  readonly bad: readonly number[];
+  readonly bad: ReadonlyArray<number>;
 }
 
 /** Each filled line as a pick; a later line for the same slot wins. */
 export function parsePicks(text: string, table: SlugTable): PicksParse {
   const picks = new Map<SlotKey, ChoiceValue>();
-  const bad: number[] = [];
+  const bad: Array<number> = [];
 
   for (const [index, raw] of text.split(LINE).entries()) {
     const line = raw.trim();
@@ -101,8 +101,8 @@ export interface OptionRow {
 export interface ChoiceRow {
   readonly slot: string;
   readonly title: string;
-  readonly via: readonly string[];
-  readonly options: readonly OptionRow[];
+  readonly via: ReadonlyArray<string>;
+  readonly options: ReadonlyArray<OptionRow>;
   /** The picked value as typed, for an answered slot. */
   readonly pick: string | undefined;
 }
@@ -110,7 +110,7 @@ export interface ChoiceRow {
 /** How a slot reads in the playground: the entry's name, the names along its chain, and the slugs. */
 export interface ChoiceContext {
   readonly entryName: string;
-  readonly via: readonly string[];
+  readonly via: ReadonlyArray<string>;
   readonly table: SlugTable;
 }
 

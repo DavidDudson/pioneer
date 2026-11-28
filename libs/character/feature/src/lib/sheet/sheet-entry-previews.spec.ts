@@ -176,7 +176,7 @@ function firstFeat(registry: ContentRegistry): ContentId {
   return ContentId.parse(feat?.id);
 }
 
-type LoadRegistry = (kinds: readonly ContentKind[]) => Promise<ContentRegistry>;
+type LoadRegistry = (kinds: ReadonlyArray<ContentKind>) => Promise<ContentRegistry>;
 
 describe(sheetFetchingPreviews, () => {
   it('loads only the named kinds, once for concurrent calls', async () => {

@@ -22,7 +22,7 @@ function damage(...instances: DamageNode['instances']): DamageNode {
 function tagsOf(
   node: DamageNode,
   inputs: typeof INPUTS | undefined = INPUTS,
-): readonly DamageTags[] | ResolvedDamageNode {
+): ReadonlyArray<DamageTags> | ResolvedDamageNode {
   const resolved = resolveDamageNode(node, inputs);
 
   return resolved.ok ? resolved.expression.terms.map(({ tags }) => tags) : resolved;

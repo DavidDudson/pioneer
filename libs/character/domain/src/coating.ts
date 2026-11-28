@@ -50,7 +50,7 @@ export function fitsCoating(entry: ItemEntry | undefined): boolean {
 }
 
 /** The Bulk the items stored in the space come to, in tenths; one the content does not know weighs nothing. */
-export function coatingBulk(stored: readonly ContentId[], items: ItemContent): BulkTenths {
+export function coatingBulk(stored: ReadonlyArray<ContentId>, items: ItemContent): BulkTenths {
   let total = 0;
 
   for (const id of stored) {

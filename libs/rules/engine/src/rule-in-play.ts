@@ -49,7 +49,7 @@ export function ruleIdOf({ origin, rule }: RuleInPlay): RuleId {
 
 /** The rule elements in play and the roll options their predicates are tested against. */
 export interface ModifierInputs {
-  readonly rules: readonly RuleInPlay[];
+  readonly rules: ReadonlyArray<RuleInPlay>;
   readonly facts: PredicateFacts;
   /**
    * The rules whose situation a roll says holds: a modifier or adjustment whose predicate depends on facts nobody

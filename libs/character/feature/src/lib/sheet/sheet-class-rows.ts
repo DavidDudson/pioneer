@@ -17,9 +17,9 @@ import type { SheetState } from './sheet-state';
 export interface SheetClassRows {
   /** The content is still loading, so the pickers show their loading state. */
   readonly loading: Signal<boolean>;
-  readonly classes: Signal<readonly ClassPickerRow[]>;
-  readonly subclasses: Signal<readonly SubclassPickerRow[]>;
-  readonly keyAttributes: Signal<readonly KeyAttributePickerRow[]>;
+  readonly classes: Signal<ReadonlyArray<ClassPickerRow>>;
+  readonly subclasses: Signal<ReadonlyArray<SubclassPickerRow>>;
+  readonly keyAttributes: Signal<ReadonlyArray<KeyAttributePickerRow>>;
 }
 
 /**

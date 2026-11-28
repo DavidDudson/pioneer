@@ -36,7 +36,7 @@ const STRIKING = RuneGrade.parse(1);
 /** A weapon of the fixtures: martial, in the Player Core pack, with the traits and damage it names. */
 interface FixtureWeapon {
   readonly slug: string;
-  readonly traits: readonly string[];
+  readonly traits: ReadonlyArray<string>;
   readonly damage: object;
   readonly striking?: RuneGrade;
   readonly splash?: number;
@@ -72,7 +72,7 @@ function results(slug: string, damageBonus: number): ReadonlyMap<Selector, Stati
   ]);
 }
 
-const WEAPONS: readonly WeaponInputs[] = [
+const WEAPONS: ReadonlyArray<WeaponInputs> = [
   weapon({ slug: 'longsword', traits: [], damage: { dice: 1, die: 'd8', damageType: 'slashing' } }),
   weapon({
     slug: 'dagger',
@@ -121,7 +121,7 @@ function strikeOf(index: number): Strike {
 }
 
 /** A longsword, and an agile dagger with a striking rune: 1d8+4 slashing; 2d4 piercing, and the smaller penalty. */
-export const FIGHTER_STRIKES: readonly NamedStrike[] = [
+export const FIGHTER_STRIKES: ReadonlyArray<NamedStrike> = [
   { name: 'Longsword', traits: [], strike: strikeOf(0) },
   { name: 'Dagger', traits: traitChipsOf('Agile', 'Finesse'), strike: strikeOf(1) },
 ];
@@ -137,7 +137,7 @@ const FAILED_ATTACK = {
 } as const;
 
 /** A Strike whose attack the engine could not derive: marked failed, with why. */
-export const FAILED_STRIKE: readonly NamedStrike[] = [
+export const FAILED_STRIKE: ReadonlyArray<NamedStrike> = [
   { name: 'Longsword', traits: [], strike: { ...strikeOf(0), attack: FAILED_ATTACK } },
 ];
 
@@ -156,7 +156,7 @@ const DARKNESS_ATTACK_BONUS = 1;
 const DARKNESS_DAMAGE_BONUS = 2;
 
 /** A longsword whose attack and flat damage each carry a line that holds only in darkness. */
-export const CONDITIONAL_STRIKE: readonly NamedStrike[] = [
+export const CONDITIONAL_STRIKE: ReadonlyArray<NamedStrike> = [
   {
     name: 'Longsword',
     traits: [],
@@ -180,13 +180,13 @@ export const CONDITIONAL_STRIKE: readonly NamedStrike[] = [
 ];
 
 /** A weapon that rolls no damage says so. */
-export const NO_DAMAGE_STRIKE: readonly NamedStrike[] = [{ name: 'Glue bomb', traits: [], strike: strikeOf(2) }];
+export const NO_DAMAGE_STRIKE: ReadonlyArray<NamedStrike> = [{ name: 'Glue bomb', traits: [], strike: strikeOf(2) }];
 
 const FIRE_AT = 3;
 const WATER_AT = 4;
 
 /** Thrown consumables: a stack of 3 alchemist's fire with persistent damage and splash, and one holy water. */
-export const THROWN_STRIKES: readonly NamedStrike[] = [
+export const THROWN_STRIKES: ReadonlyArray<NamedStrike> = [
   { name: "Alchemist's fire", traits: traitChipsOf('Bomb', 'Consumable', 'Splash'), strike: strikeOf(FIRE_AT) },
   { name: 'Holy water', traits: traitChipsOf('Consumable', 'Splash', 'Thrown'), strike: strikeOf(WATER_AT) },
 ];
@@ -207,7 +207,7 @@ const DARKNESS_LINE = line(GLOOM_WALKER, {
  * A longsword whose attack offers Gloom Walker's situation for claiming, as the sheet derives it: with it claimed the
  * line applies and the attack is +1.
  */
-export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
+export function claimableStrike(claimed: boolean): ReadonlyArray<NamedStrike> {
   const applied = { ...DARKNESS_LINE, status: { kind: LineStatusKind.Applied } } as const;
 
   return [
@@ -237,7 +237,7 @@ const FLAME_DICE: ExtraDice = {
 };
 
 /** A longsword with a precision die of fire damage, a critical-hit-only die of cold, a weakness on a critical hit, and notes on each roll. */
-export const ELEMENT_STRIKE: readonly NamedStrike[] = [
+export const ELEMENT_STRIKE: ReadonlyArray<NamedStrike> = [
   {
     name: 'Longsword',
     traits: [],
@@ -280,7 +280,7 @@ function longswordDamage(): StrikeDamage {
 }
 
 /** A longsword that item alterations made of cold iron, with the flaming rune and the agile trait. */
-export const ALTERED_STRIKE: readonly NamedStrike[] = [
+export const ALTERED_STRIKE: ReadonlyArray<NamedStrike> = [
   {
     name: 'Longsword',
     traits: traitChipsOf('Agile'),

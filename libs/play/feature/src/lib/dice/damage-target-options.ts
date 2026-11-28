@@ -40,7 +40,7 @@ export class DamageTargetOptions {
     );
   });
 
-  public readonly types = computed((): readonly DamageTargetRow[] => {
+  public readonly types = computed((): ReadonlyArray<DamageTargetRow> => {
     this.#messages();
 
     return Object.values(DamageType).map((value) => ({
@@ -51,7 +51,7 @@ export class DamageTargetOptions {
     }));
   });
 
-  public readonly targets = computed((): readonly DamageTargetRow[] => {
+  public readonly targets = computed((): ReadonlyArray<DamageTargetRow> => {
     this.#messages();
 
     // Groups first: `physical` and `all` are the common stat-block entries.

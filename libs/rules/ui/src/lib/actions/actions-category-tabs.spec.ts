@@ -19,12 +19,12 @@ function inCategory(line: ActionLine, category: ActionCategory): ActionLine {
 }
 
 /** Two basic actions and one spell, so there are two subtabs. */
-const KINDS: readonly ActionLine[] = [
+const KINDS: ReadonlyArray<ActionLine> = [
   ...STANDING_ACTIONS.slice(0, 2),
   ...SHIELD_RAISED_ACTIONS.slice(0, 1).map((line) => inCategory(line, ActionCategory.Spells)),
 ];
 
-async function render(lines: readonly ActionLine[]): Promise<ComponentFixture<ActionsView>> {
+async function render(lines: ReadonlyArray<ActionLine>): Promise<ComponentFixture<ActionsView>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting(), provideTanStackQuery(new QueryClient())] });
   const fixture = TestBed.createComponent(ActionsView);
   fixture.componentRef.setInput('lines', lines);
@@ -34,7 +34,7 @@ async function render(lines: readonly ActionLine[]): Promise<ComponentFixture<Ac
   return fixture;
 }
 
-function tabsOf(fixture: ComponentFixture<ActionsView>): HTMLElement[] {
+function tabsOf(fixture: ComponentFixture<ActionsView>): Array<HTMLElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('[role="tab"]')];
 }

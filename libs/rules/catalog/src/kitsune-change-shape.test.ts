@@ -16,7 +16,7 @@ const CHANGE_FORM = ContentId.parse('e114f41a-9129-5b91-b7d2-f88e152b9c0c');
 const KITSUNE_FORM = ContentId.parse('957551d2-bd91-56eb-a759-5ed56187dd90');
 
 /** The forms Change Shape offers a character with `options`, as the entry ids of their effects. */
-async function formsFor(options: readonly string[]): Promise<readonly ContentId[]> {
+async function formsFor(options: ReadonlyArray<string>): Promise<ReadonlyArray<ContentId>> {
   const file = await import('@pioneer/content/packs/mwangi-expanse/action.json');
 
   const action = ContentEntryFile.parse(file.default).find(
@@ -40,7 +40,7 @@ async function formsFor(options: readonly string[]): Promise<readonly ContentId[
 }
 
 /** The items the kitsune Change Shape ancestry feature grants. */
-async function grantedByFeature(): Promise<readonly unknown[]> {
+async function grantedByFeature(): Promise<ReadonlyArray<unknown>> {
   const file = await import('@pioneer/content/packs/ancestry-guide/ancestry-feature.json');
 
   const feature = ContentEntryFile.parse(file.default).find(

@@ -25,7 +25,7 @@ export type ImportKind = ValueOf<typeof ImportKind>;
 export const ImportKindSchema = z.enum(ImportKind);
 
 /** Report order: identity first, then build, magic, gear and languages. */
-export const IMPORT_KIND_ORDER: readonly ImportKind[] = Object.values(ImportKind);
+export const IMPORT_KIND_ORDER: ReadonlyArray<ImportKind> = Object.values(ImportKind);
 
 /** A name as Pathbuilder wrote it. Never shown as app text; it is the user's own data. */
 export const PathbuilderName = z.string().min(1).brand<'PathbuilderName'>();

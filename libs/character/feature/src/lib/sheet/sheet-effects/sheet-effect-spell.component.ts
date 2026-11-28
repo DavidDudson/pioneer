@@ -11,7 +11,7 @@ import { OptionPicker } from '@pioneer/rules/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetEffectSpell {
-  public readonly spells = input.required<readonly SelectOption<string>[]>();
+  public readonly spells = input.required<ReadonlyArray<SelectOption<string>>>();
   public readonly value = input.required<string | undefined>();
   public readonly valueChange = output<string | undefined>();
 }

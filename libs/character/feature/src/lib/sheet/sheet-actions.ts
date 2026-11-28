@@ -36,7 +36,7 @@ import { sheetSources } from './sheet-sources';
  * What the actions list reads beside the equipment: the actions themselves and the feats that grant some. The spells a
  * staff casts are read only once the character holds a staff (`ACTION_STAFF_CONTENT_KINDS`).
  */
-export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
+export const ACTION_CONTENT_KINDS: ReadonlyArray<ContentKind> = [
   ...new Set([
     ...EQUIPMENT_CONTENT_KINDS,
     ...CHARACTER_CONTENT_KINDS,
@@ -48,7 +48,7 @@ export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
 ];
 
 /** What the actions list reads for a character holding a staff: its spells, to resolve the staff's spell lists. */
-export const ACTION_STAFF_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ContentKind.Spell];
+export const ACTION_STAFF_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...ACTION_CONTENT_KINDS, ContentKind.Spell];
 
 const ATTACK = Trait.parse('attack');
 
@@ -73,7 +73,7 @@ function entriesById(registry: ContentRegistry): ReadonlyMap<ContentId, ContentE
 }
 
 /** The trait slugs an entry carries, to match against what an environment forbids. */
-function traitSlugs(entry: ContentEntry | undefined): readonly Trait[] {
+function traitSlugs(entry: ContentEntry | undefined): ReadonlyArray<Trait> {
   return (entry?.traits ?? []).map((trait) => Trait.parse(trait));
 }
 
@@ -82,7 +82,7 @@ export interface SheetActionsPlay {
   readonly resources: Pick<ResourcesSpent, 'uses'>;
   readonly turn?: TurnState | undefined;
   /** The restrictions that hold now, from the environments the character is in; an action they forbid is unavailable. */
-  readonly restrictions?: readonly RestrictionInPlay[] | undefined;
+  readonly restrictions?: ReadonlyArray<RestrictionInPlay> | undefined;
 }
 
 /**
@@ -94,7 +94,7 @@ export function sheetActions(
   registry: ContentRegistry,
   character: Character,
   play: SheetActionsPlay,
-): readonly ActionLine[] {
+): ReadonlyArray<ActionLine> {
   const sources = sheetSources(registry, character);
   const actions = characterActions(character.document, sources, play.resources);
   const context = characterActionContext(character.document, sources);
@@ -142,7 +142,7 @@ export function sheetActions(
 
 /** What the turn leaves of an action, with the reason it can't be used when it can't. */
 export interface TurnFit extends Affordability {
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
 }
 
 /**

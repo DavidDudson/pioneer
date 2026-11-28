@@ -34,7 +34,7 @@ interface AttachModel {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignAttachPicker {
-  public readonly attachable = input.required<readonly OwnedCharacter[]>();
+  public readonly attachable = input.required<ReadonlyArray<OwnedCharacter>>();
   /** A character joined the party from here. */
   public readonly attached = output<CharacterId>();
 
@@ -69,7 +69,9 @@ export class CampaignAttachPicker {
     const classes = new Map<string, string>(
       (registry?.packs ?? [])
         .flatMap((pack) => pack.otherEntries)
-        .flatMap((entry): [string, string][] => (entry.kind === ContentKind.Class ? [[entry.id, entry.name]] : [])),
+        .flatMap((entry): Array<[string, string]> =>
+          entry.kind === ContentKind.Class ? [[entry.id, entry.name]] : [],
+        ),
     );
 
     return (id: string | undefined): string => {

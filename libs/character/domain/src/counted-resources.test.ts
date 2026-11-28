@@ -189,7 +189,7 @@ describe('activation maxima', () => {
   const FIRST_WINGED = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
   const SECOND_WINGED = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
 
-  const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
+  const activations = ({ item: id }: InventoryItem): ReadonlyArray<Activation> =>
     id === WINGED
       ? [
           {
@@ -242,7 +242,7 @@ describe('overcharge', () => {
   const SPARK = Slug.parse('spark');
   const STAFF = InventoryItemId.parse('dddddddd-dddd-4ddd-8ddd-dddddddddddd');
 
-  const activations = ({ item: id }: InventoryItem): readonly Activation[] =>
+  const activations = ({ item: id }: InventoryItem): ReadonlyArray<Activation> =>
     id === CHARGED
       ? [
           {

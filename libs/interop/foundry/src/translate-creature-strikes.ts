@@ -45,7 +45,7 @@ interface Damage {
 }
 
 /** The feet after a trait prefix (`reach-30`), if the strike has such a trait. */
-function feetOf(prefix: string, traits: readonly string[]): number | undefined {
+function feetOf(prefix: string, traits: ReadonlyArray<string>): number | undefined {
   const trait = traits.find((each) => each.startsWith(prefix));
   const feet = trait === undefined ? Number.NaN : Number(trait.slice(prefix.length));
 
@@ -89,7 +89,11 @@ function pascal(slug: string): string {
 }
 
 /** What a strike adds to a hit ("Improved Grab"), named from the lang table, an embedded ability, or its slug. */
-function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: KindInput): RichText | undefined {
+function effectsOf(
+  slugs: ReadonlyArray<string>,
+  items: ReadonlyArray<Embedded>,
+  input: KindInput,
+): RichText | undefined {
   const names = slugs.map((slug) => {
     const label = input.lang === undefined ? undefined : langLabel(input.lang, `PF2E.AttackEffect${pascal(slug)}`);
 
@@ -103,7 +107,7 @@ function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: 
     : undefined;
 }
 
-function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput): object | undefined {
+function strikeOf(item: Embedded, items: ReadonlyArray<Embedded>, input: KindInput): object | undefined {
   const system = itemSystem(FoundryStrike, item, input);
 
   if (system === undefined) {
@@ -131,6 +135,6 @@ function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput):
 }
 
 /** The creature's strikes, one per `melee` item. */
-export function strikesOf(items: readonly Embedded[], input: KindInput): readonly object[] {
+export function strikesOf(items: ReadonlyArray<Embedded>, input: KindInput): ReadonlyArray<object> {
   return items.filter((item) => item.type === 'melee').flatMap((item) => strikeOf(item, items, input) ?? []);
 }

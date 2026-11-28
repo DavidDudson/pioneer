@@ -11,7 +11,7 @@ interface Use {
 
 /** Directory adapter for tests: uses given up front. */
 export class InMemoryDependencyUsageDirectory extends DependencyUsageDirectory {
-  readonly #uses: Use[] = [];
+  readonly #uses: Array<Use> = [];
 
   /** The entry `entry` of `pack` references something in `dependsOn`. */
   public use(pack: ContentPackId, dependsOn: ContentPackId, entry: string): this {
@@ -23,7 +23,7 @@ export class InMemoryDependencyUsageDirectory extends DependencyUsageDirectory {
   public override async entriesUsing(
     pack: ContentPackId,
     dependsOn: ContentPackId,
-  ): Promise<readonly UsingEntryName[]> {
+  ): Promise<ReadonlyArray<UsingEntryName>> {
     return this.#uses
       .filter((use) => use.pack === pack && use.dependsOn === dependsOn)
       .map((use) => use.entry)

@@ -28,7 +28,10 @@ const skillTraining = entry('skill-training', [
   { key: 'Proficiency', selector: 'perception', rank: 'expert' },
 ]);
 
-function resolve(entries: readonly GrantEntry[], picks: readonly (readonly [SlotKey, string])[] = []): GrantResolution {
+function resolve(
+  entries: ReadonlyArray<GrantEntry>,
+  picks: ReadonlyArray<readonly [SlotKey, string]> = [],
+): GrantResolution {
   return resolveGrants(
     inputsOf({
       entries,
@@ -38,7 +41,7 @@ function resolve(entries: readonly GrantEntry[], picks: readonly (readonly [Slot
   );
 }
 
-function selectorsOf(picks: readonly (readonly [SlotKey, string])[]): unknown[] {
+function selectorsOf(picks: ReadonlyArray<readonly [SlotKey, string]>): Array<unknown> {
   return resolvedRules(resolve([skillTraining], picks)).flatMap(({ element }) =>
     element.key === 'Proficiency' ? [element.selector] : [],
   );

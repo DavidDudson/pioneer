@@ -3,13 +3,13 @@ import { describe, expect, it } from 'vitest';
 import { shownRulesRows } from './rules-picker-table';
 import type { RulesPickerRow } from './rules-picker-table';
 
-const rows: readonly RulesPickerRow<string>[] = [
+const rows: ReadonlyArray<RulesPickerRow<string>> = [
   { value: 'b', label: 'Bravo', group: 'Core' },
   { value: 'a', label: 'Alpha', group: 'Extra' },
   { value: 'c', label: 'Charlie', group: 'Core' },
 ];
 
-const values = (shown: readonly RulesPickerRow<string>[]): readonly string[] => shown.map((row) => row.value);
+const values = (shown: ReadonlyArray<RulesPickerRow<string>>): ReadonlyArray<string> => shown.map((row) => row.value);
 
 describe(shownRulesRows, () => {
   it('keeps the given order when no sort is asked for', () => {

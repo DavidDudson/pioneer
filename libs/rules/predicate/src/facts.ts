@@ -11,14 +11,14 @@ export const OptionValue = z.number().brand<'OptionValue'>();
 export type OptionValue = z.infer<typeof OptionValue>;
 
 const SEPARATOR = ':';
-const NO_VALUES: readonly OptionValue[] = [];
+const NO_VALUES: ReadonlyArray<OptionValue> = [];
 
 /**
  * Each option's number, if its last word is a finite one, grouped by the text before it: `self:level` → `[5]`.
  * `1e309` reads as Infinity, which no level or rank reaches, so it gives no value.
  */
-function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly OptionValue[]> {
-  const values = new Map<string, OptionValue[]>();
+function indexValues(options: Iterable<string>): ReadonlyMap<string, ReadonlyArray<OptionValue>> {
+  const values = new Map<string, Array<OptionValue>>();
 
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
@@ -41,15 +41,15 @@ interface Layer {
   /** The namespace and its separator, `item:`. */
   readonly prefix: string;
   /** Written without the namespace. */
-  readonly options: readonly string[];
+  readonly options: ReadonlyArray<string>;
 }
 
 /** A skill's rank as a roll option: `skill:arcana:rank:0`, `perception:rank:2`. */
 const RANK_OPTION = /:rank:\d+$/u;
 
 /** The numbers after `rest:` among `options`, which are written without the namespace `rest` was taken off. */
-function layerValues(options: readonly string[], rest: string): OptionValue[] {
-  const values: OptionValue[] = [];
+function layerValues(options: ReadonlyArray<string>, rest: string): Array<OptionValue> {
+  const values: Array<OptionValue> = [];
 
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
@@ -71,7 +71,7 @@ export class PredicateFacts {
   readonly #options: ReadonlySet<string>;
   /** The same options, already branded, so a copy of these facts need not parse each one again. */
   readonly #branded: ReadonlySet<RollOption>;
-  readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
+  readonly #values: ReadonlyMap<string, ReadonlyArray<OptionValue>>;
   readonly #namespaces: NamespaceTable;
   /** `isKnown` answers so far: one query asks the same of every candidate it tests. */
   readonly #known = new Map<string, boolean>();
@@ -97,7 +97,7 @@ export class PredicateFacts {
    */
   public withNamespace(
     namespace: RollOptionNamespace,
-    options: readonly (RollOption | RollOptionTail)[],
+    options: ReadonlyArray<RollOption | RollOptionTail>,
   ): PredicateFacts {
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
@@ -106,7 +106,7 @@ export class PredicateFacts {
   }
 
   /** These facts with `options` present as well, as a battle form's traits are while it lasts. */
-  public plus(options: readonly RollOption[]): PredicateFacts {
+  public plus(options: ReadonlyArray<RollOption>): PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
@@ -154,7 +154,7 @@ export class PredicateFacts {
   }
 
   /** Every number written after `prefix:` in a present option: `[5]` for `self:level` given `self:level:5`. */
-  public values(prefix: RollOption): readonly OptionValue[] {
+  public values(prefix: RollOption): ReadonlyArray<OptionValue> {
     const layer = this.#layer;
 
     if (layer === undefined) {
@@ -167,7 +167,7 @@ export class PredicateFacts {
   }
 
   /** The words after `prefix:` in the present options, each once: `fighter` for `class:fighter` given `class`. */
-  public tails(prefix: string): readonly string[] {
+  public tails(prefix: string): ReadonlyArray<string> {
     const layer = this.#layer;
 
     if (layer !== undefined) {

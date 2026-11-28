@@ -32,7 +32,7 @@ export class DrizzleCampaignPackRepository extends CampaignPackRepository {
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignPack[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignPack>> {
     const rows = await this.#db.select().from(campaignPacks).where(eq(campaignPacks.campaignId, campaignId));
 
     // Sorted here so no query needs an index for it; a campaign enables few packs.

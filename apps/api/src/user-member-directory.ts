@@ -17,7 +17,7 @@ export class UserMemberDirectory extends MemberDirectory {
     this.#db = db;
   }
 
-  public override async displayNames(userIds: readonly UserId[]): Promise<ReadonlyMap<UserId, MemberName>> {
+  public override async displayNames(userIds: ReadonlyArray<UserId>): Promise<ReadonlyMap<UserId, MemberName>> {
     if (userIds.length === 0) {
       return new Map();
     }

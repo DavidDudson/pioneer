@@ -39,7 +39,7 @@ const tabVariants = cva(
 export class TabList<TValue extends string> {
   /** Names the tab list, already translated. */
   public readonly label = input.required<string>();
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** The chosen tab. */
   public readonly value = model<TValue | undefined>(undefined);
 

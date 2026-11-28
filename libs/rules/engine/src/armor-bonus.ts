@@ -63,7 +63,7 @@ function armorLine(origin: Origin, { slug, target, value }: ArmorLine): Modifier
 }
 
 /** The check penalty lines of armour: one per physical skill, none when it has no penalty or the wearer is strong enough. */
-function checkPenaltyLines(armor: ArmorInputs, attributes: AttributeModifiers): readonly ModifierSource[] {
+function checkPenaltyLines(armor: ArmorInputs, attributes: AttributeModifiers): ReadonlyArray<ModifierSource> {
   const { checkPenalty, strength, origin } = armor;
 
   if (checkPenalty === undefined || (strength !== undefined && attributes.get(Attribute.Strength) >= strength)) {
@@ -81,7 +81,10 @@ function checkPenaltyLines(armor: ArmorInputs, attributes: AttributeModifiers): 
  * Acrobatics, Athletics, Stealth and Thievery unless the wearer's Strength meets the armour's. No armour adds none,
  * nor does armour with no bonus (clothing) to AC, no resilient rune to saves, or no check penalty to skills.
  */
-export function armorBonus(armor: ArmorInputs | undefined, attributes: AttributeModifiers): readonly ModifierSource[] {
+export function armorBonus(
+  armor: ArmorInputs | undefined,
+  attributes: AttributeModifiers,
+): ReadonlyArray<ModifierSource> {
   if (armor === undefined) {
     return [];
   }

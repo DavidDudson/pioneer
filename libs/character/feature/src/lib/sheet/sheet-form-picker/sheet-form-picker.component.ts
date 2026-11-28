@@ -19,7 +19,7 @@ import { SheetState } from '../sheet-state';
 import { sheetFormTempHp } from '../sheet-statistics';
 
 /** What the preview reads: the content the engine derives the sheet from, and the spells and effects the cast offers, so a choice always resolves. */
-const FORM_PICKER_CONTENT_KINDS: readonly ContentKind[] = [...EQUIPMENT_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
+const FORM_PICKER_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...EQUIPMENT_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
 
 /**
  * The picker a battle form spell opens when it is cast from the sheet (#525): the forms its effects offer at the rank
@@ -51,7 +51,7 @@ export class SheetFormPicker {
     });
   }
 
-  protected readonly options = computed((): readonly FormPickerOption[] =>
+  protected readonly options = computed((): ReadonlyArray<FormPickerOption> =>
     (this.pending()?.choices ?? []).map(({ value, label }) => ({ value, label })),
   );
 

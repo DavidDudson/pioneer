@@ -14,7 +14,7 @@ interface Rendered {
 }
 
 /** Renders a list and puts one `fr-description-item` per term into its list element, each with a projected value. */
-async function render(inputs: ComponentInputs<DescriptionList>, terms: readonly string[]): Promise<Rendered> {
+async function render(inputs: ComponentInputs<DescriptionList>, terms: ReadonlyArray<string>): Promise<Rendered> {
   const fixture = TestBed.createComponent(DescriptionList);
 
   for (const [name, value] of Object.entries(inputs)) {
@@ -68,7 +68,7 @@ function row(list: HTMLElement): HTMLElement {
 }
 
 /** Classes in a stable order: Angular keeps a bound class list in update order, not cva order. */
-function sorted(classes: string | undefined): readonly string[] {
+function sorted(classes: string | undefined): ReadonlyArray<string> {
   return (classes ?? '').split(' ').toSorted();
 }
 

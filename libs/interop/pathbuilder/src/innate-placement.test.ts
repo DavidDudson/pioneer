@@ -37,7 +37,7 @@ const entry = (slug: string): JsonObject => ({
 interface Gift {
   readonly spell: string;
   readonly rank: number;
-  readonly predicate?: readonly string[];
+  readonly predicate?: ReadonlyArray<string>;
 }
 
 const gives = (slug: string, { spell, rank, predicate }: Gift): JsonObject => {
@@ -83,7 +83,7 @@ registry.register(pack.build());
 
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const NAMES: readonly (readonly [string, string])[] = [
+const NAMES: ReadonlyArray<readonly [string, string]> = [
   ['ill-omen', 'Ill Omen'],
   ['bane', 'Bane'],
   ['slow', 'Slow'],
@@ -103,7 +103,7 @@ function wizard(): CharacterDocument {
   return new CharacterBuilder().picking('class', pack.idOf(ContentKind.Class, 'wizard')).atLevel(5).build().document;
 }
 
-function innate(name: string, ...ranks: readonly ImportedSpellRank[]): ImportedCaster {
+function innate(name: string, ...ranks: ReadonlyArray<ImportedSpellRank>): ImportedCaster {
   return {
     name: PathbuilderName.parse(name),
     tradition: PathbuilderName.parse('primal'),
@@ -114,7 +114,7 @@ function innate(name: string, ...ranks: readonly ImportedSpellRank[]): ImportedC
   };
 }
 
-function ranked(at: ImportedSpellRank['rank'], ...spells: readonly string[]): ImportedSpellRank {
+function ranked(at: ImportedSpellRank['rank'], ...spells: ReadonlyArray<string>): ImportedSpellRank {
   return { rank: at, spells: spells.map((spell) => PathbuilderName.parse(spell)) };
 }
 

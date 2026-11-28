@@ -10,7 +10,10 @@ const UNDEAD: RollToggleView = { id: 'bane', text: '+1 circumstance when the tar
 const FOCUS: RollToggleView = { id: 'focus', text: "Hunter's focus", on: true };
 
 async function render(
-  inputs: { readonly perRoll?: readonly RollToggleView[]; readonly remembered?: readonly RollToggleView[] } = {},
+  inputs: {
+    readonly perRoll?: ReadonlyArray<RollToggleView>;
+    readonly remembered?: ReadonlyArray<RollToggleView>;
+  } = {},
 ): Promise<ComponentFixture<RollToggles>> {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({ providers: [providePlayUiI18nTesting()] });
@@ -56,8 +59,8 @@ describe(RollToggles, () => {
 
   it('says which toggle was flipped in which group, and to what', async () => {
     const fixture = await render({ perRoll: [UNDEAD], remembered: [FOCUS] });
-    const perRoll: RollToggleChange[] = [];
-    const remembered: RollToggleChange[] = [];
+    const perRoll: Array<RollToggleChange> = [];
+    const remembered: Array<RollToggleChange> = [];
     fixture.componentInstance.perRollChange.subscribe((change) => {
       perRoll.push(change);
     });

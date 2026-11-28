@@ -137,7 +137,7 @@ export class PathbuilderImportPage {
   /** Class and dual class, as a list in the viewer's locale. */
   protected readonly classes = computed((): string => this.#format.list(this.preview()?.identity.classes ?? []));
 
-  protected readonly modifiers = computed((): readonly ModifierView[] => {
+  protected readonly modifiers = computed((): ReadonlyArray<ModifierView> => {
     const preview = this.preview();
 
     return preview === undefined

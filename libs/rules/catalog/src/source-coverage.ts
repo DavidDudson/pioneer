@@ -10,7 +10,7 @@ export interface BookCoverage {
   /** How many entries cite the book. */
   readonly cited: number;
   /** Entries citing the book with no page number, by AoN link alone or by the book alone; sorted. */
-  readonly missingPage: readonly ContentKey[];
+  readonly missingPage: ReadonlyArray<ContentKey>;
 }
 
 /** Whether `entry` cites `book` with no page. */
@@ -28,7 +28,10 @@ function cites(entry: SourcedEntry, book: BookId): boolean {
  * Page coverage per registered book, in registry order (content-model.md, "Books and source references"). A report,
  * never a check: a book source may cite AoN, or the book alone, until its page is known.
  */
-export function sourceCoverage(entries: readonly SourcedEntry[], registry: BookRegistry): readonly BookCoverage[] {
+export function sourceCoverage(
+  entries: ReadonlyArray<SourcedEntry>,
+  registry: BookRegistry,
+): ReadonlyArray<BookCoverage> {
   return registry.books.map(({ id }) => ({
     book: id,
     cited: entries.filter((entry) => cites(entry, id)).length,

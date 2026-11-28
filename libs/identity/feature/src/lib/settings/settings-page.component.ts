@@ -71,7 +71,7 @@ export class SettingsPage {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** Every locale; the list is short, so the pickers search and sort these in the page. */
-  readonly #locales = computed((): readonly LocaleRow[] => {
+  readonly #locales = computed((): ReadonlyArray<LocaleRow> => {
     this.#messages();
     const source = this.#i18n.getTranslation(SOURCE_LOCALE);
 
@@ -99,7 +99,7 @@ export class SettingsPage {
       coverage: this.#i18n.translate('identity.settings.localeColumns.coverage'),
     });
   });
-  protected readonly distanceUnits = computed((): readonly SelectOption<DistanceUnit>[] => {
+  protected readonly distanceUnits = computed((): ReadonlyArray<SelectOption<DistanceUnit>> => {
     this.#messages();
 
     return Object.values(DistanceUnit).map((unit) => ({
@@ -107,7 +107,7 @@ export class SettingsPage {
       label: this.#i18n.translate(DISTANCE_UNIT_NAMES[unit]),
     }));
   });
-  protected readonly bodyFonts = computed((): readonly BodyFontRow[] => {
+  protected readonly bodyFonts = computed((): ReadonlyArray<BodyFontRow> => {
     this.#messages();
 
     return Object.values(BodyFont).map((font) => ({
@@ -122,7 +122,7 @@ export class SettingsPage {
   });
   protected readonly bodyFontValue = bodyFontValue;
   protected readonly bodyFontLabel = bodyFontLabel;
-  protected readonly monoFonts = computed((): readonly SelectOption<MonoFont>[] => {
+  protected readonly monoFonts = computed((): ReadonlyArray<SelectOption<MonoFont>> => {
     this.#messages();
 
     return Object.values(MonoFont).map((font) => ({

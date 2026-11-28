@@ -31,7 +31,7 @@ const FOURTH = Level.parse(4);
 const FIFTH = Level.parse(5);
 
 /** A 2nd-level fighter: a feat picked at 1st, one still open at 2nd (the current level), nothing at 3rd, a plan at 4th. */
-export const FIGHTER_TIMELINE: readonly LevelTimelineRow[] = [
+export const FIGHTER_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   {
     level: FIRST,
     current: false,
@@ -57,7 +57,7 @@ const spellLine = (key: string, rank: number, pick: Partial<ChoiceLine>): Choice
 });
 
 /** A 2nd-level bard: a repertoire spell picked at 1st, one not chosen, and a 2nd-rank spell planned for 3rd. */
-export const BARD_TIMELINE: readonly LevelTimelineRow[] = [
+export const BARD_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   {
     level: FIRST,
     current: false,
@@ -112,7 +112,7 @@ const FEAT_PICK: TimelinePick = {
 };
 
 /** A 2nd-level fighter whose 4th-level feat, still unpicked, can be planned. */
-export const PLANNING_TIMELINE: readonly LevelTimelineRow[] = [
+export const PLANNING_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   { level: FIRST, current: false, lines: [], picks: [] },
   { level: SECOND, current: true, lines: [], picks: [] },
   {
@@ -154,7 +154,7 @@ const BOOST_PICK: TimelinePick = {
 };
 
 /** A 4th-level character whose 5th-level skill increase and free boost, still unpicked, can be planned. */
-export const PLANNING_SKILLS_TIMELINE: readonly LevelTimelineRow[] = [
+export const PLANNING_SKILLS_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   { level: FOURTH, current: true, lines: [], picks: [] },
   {
     level: FIFTH,
@@ -168,7 +168,7 @@ export const PLANNING_SKILLS_TIMELINE: readonly LevelTimelineRow[] = [
 ];
 
 /** A 4th-level fighter whose feat planned for 4th level no longer has its prerequisites (#493). */
-export const BROKEN_PLAN_TIMELINE: readonly LevelTimelineRow[] = [
+export const BROKEN_PLAN_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   {
     level: FIRST,
     current: false,
@@ -189,7 +189,7 @@ export const BROKEN_PLAN_TIMELINE: readonly LevelTimelineRow[] = [
 ];
 
 /** A 5th-level fighter's 2nd level: a feat to choose, and below it what the level improves by itself. */
-export const AUTOMATIC_TIMELINE: readonly LevelTimelineRow[] = [
+export const AUTOMATIC_TIMELINE: ReadonlyArray<LevelTimelineRow> = [
   {
     level: SECOND,
     current: false,

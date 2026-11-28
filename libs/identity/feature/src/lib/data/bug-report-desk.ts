@@ -23,7 +23,7 @@ export class BugReportDesk {
 
   public readonly list = injectQuery(() => ({
     queryKey: bugReportKeys.list(),
-    queryFn: async (): Promise<BugReportListItem[]> =>
+    queryFn: async (): Promise<Array<BugReportListItem>> =>
       this.#api.call(IdentityContract.listBugReports, { params: {}, body: undefined }),
   }));
 
@@ -40,7 +40,7 @@ export class BugReportDesk {
   public async setStatus(id: BugReportDetail['id'], status: BugReportStatus): Promise<void> {
     const updated = await this.#api.call(IdentityContract.triageBugReport, { params: { id }, body: { status } });
     this.#client.setQueryData<BugReportDetail>(bugReportKeys.detail(id), updated);
-    this.#client.setQueryData<BugReportListItem[]>(bugReportKeys.list(), (items) =>
+    this.#client.setQueryData<Array<BugReportListItem>>(bugReportKeys.list(), (items) =>
       items?.map((item) => (item.id === id ? { ...item, status } : item)),
     );
   }

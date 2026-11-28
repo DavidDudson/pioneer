@@ -9,7 +9,7 @@ import { coreNamespaces } from './testing/fighter';
 const PLANT_FORM_RANK_CAP = 10;
 
 /** The rule elements of the Plant Shape feat, read from the player-core pack. */
-async function plantFormRules(): Promise<readonly RuleElement[]> {
+async function plantFormRules(): Promise<ReadonlyArray<RuleElement>> {
   const file = await import('@pioneer/content/packs/player-core/feat.json');
 
   const feat = ContentEntryFile.parse(file.default).find(
@@ -20,7 +20,7 @@ async function plantFormRules(): Promise<readonly RuleElement[]> {
 }
 
 /** The ranks Plant Form is innate at for a druid of `level`, with Untamed Form or without it. */
-async function innateRanks(level: number, untamedForm: boolean): Promise<readonly number[]> {
+async function innateRanks(level: number, untamedForm: boolean): Promise<ReadonlyArray<number>> {
   const options = [`self:level:${level}`, 'feat:plant-shape', ...(untamedForm ? ['feat:untamed-form'] : [])];
 
   const facts = new PredicateFacts(

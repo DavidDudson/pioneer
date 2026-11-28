@@ -27,7 +27,7 @@ async function render(defences: Defences | undefined): Promise<HTMLElement> {
 }
 
 /** The names of the icons shown, in order. */
-function iconsOf(host: HTMLElement): readonly (string | null)[] {
+function iconsOf(host: HTMLElement): ReadonlyArray<string | null> {
   return [...host.querySelectorAll('button')].map((button) => button.getAttribute('aria-label'));
 }
 

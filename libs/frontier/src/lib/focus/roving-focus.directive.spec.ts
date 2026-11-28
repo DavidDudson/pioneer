@@ -11,13 +11,13 @@ import { RovingOrientation } from './roving-keys';
 interface Rendered {
   readonly fixture: ComponentFixture<RovingFocusHost>;
   readonly group: HTMLElement;
-  readonly buttons: readonly HTMLButtonElement[];
+  readonly buttons: ReadonlyArray<HTMLButtonElement>;
 }
 
-const THREE: readonly RovingFocusHostItem[] = [{ label: 'A' }, { label: 'B' }, { label: 'C' }];
+const THREE: ReadonlyArray<RovingFocusHostItem> = [{ label: 'A' }, { label: 'B' }, { label: 'C' }];
 
 function render(
-  items: readonly RovingFocusHostItem[],
+  items: ReadonlyArray<RovingFocusHostItem>,
   orientation: RovingOrientation = RovingOrientation.Horizontal,
 ): Rendered {
   const fixture = TestBed.createComponent(RovingFocusHost);
@@ -35,7 +35,7 @@ function render(
   return { fixture, group, buttons: [...host.querySelectorAll('button')] };
 }
 
-function tabIndexes(rendered: Rendered): (string | null)[] {
+function tabIndexes(rendered: Rendered): Array<string | null> {
   return rendered.buttons.map((button) => button.getAttribute('tabindex'));
 }
 

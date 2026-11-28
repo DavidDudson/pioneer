@@ -34,7 +34,7 @@ export class ApiError extends Error {
   }
 
   /** Per-field validation issues from a 422, empty otherwise. */
-  public get issues(): readonly FieldIssue[] {
+  public get issues(): ReadonlyArray<FieldIssue> {
     return this.problem?.issues ?? [];
   }
 

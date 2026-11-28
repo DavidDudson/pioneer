@@ -12,7 +12,7 @@ import { registryEntries } from '../entry/entry-lookup';
 import type { BrowseKind } from './browse-kinds';
 
 /** The entries of `kinds` in the registry's packs. A later pack's entry of the same id wins, as in the registry. */
-export function entriesOf(registry: ContentRegistry, kinds: readonly BrowseKind[]): readonly ContentEntry[] {
+export function entriesOf(registry: ContentRegistry, kinds: ReadonlyArray<BrowseKind>): ReadonlyArray<ContentEntry> {
   const held = registryEntries(registry).filter((entry) => kinds.some((kind) => kind === entry.kind));
 
   return [...new Map(held.map((entry) => [entry.id, entry])).values()];
@@ -20,8 +20,8 @@ export function entriesOf(registry: ContentRegistry, kinds: readonly BrowseKind[
 
 /** What the browser shows: each facet's value counts and the entries `state` keeps, by name or by relevance. */
 export interface BrowseList {
-  readonly counts: readonly FacetCounts[];
-  readonly entries: readonly ContentEntry[];
+  readonly counts: ReadonlyArray<FacetCounts>;
+  readonly entries: ReadonlyArray<ContentEntry>;
 }
 
 /**
@@ -29,14 +29,14 @@ export interface BrowseList {
  * With `matches`, the ids a search found best first, only those entries are listed, in that order.
  */
 export interface BrowseQuery {
-  readonly entries: readonly ContentEntry[];
-  readonly facets: readonly FacetDefinition[];
+  readonly entries: ReadonlyArray<ContentEntry>;
+  readonly facets: ReadonlyArray<FacetDefinition>;
   readonly state: FilterState;
-  readonly matches?: readonly ContentId[] | undefined;
+  readonly matches?: ReadonlyArray<ContentId> | undefined;
 }
 
 /** The entries whose ids are in `matches`, in the order of `matches`. A match the bundles do not hold is skipped. */
-function matched(entries: readonly ContentEntry[], matches: readonly ContentId[]): readonly ContentEntry[] {
+function matched(entries: ReadonlyArray<ContentEntry>, matches: ReadonlyArray<ContentId>): ReadonlyArray<ContentEntry> {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
   return matches.flatMap((id) => byId.get(id) ?? []);

@@ -7,7 +7,7 @@ import type { JsonObject, JsonValue } from './entry-json.ts';
 import { enrichTriggerFile } from './trigger-enrichment.ts';
 
 const PACK = 'player-core';
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry's JSON, as a pack file holds it. */
 function entry(name: string, kind: string, data: JsonObject): object {
@@ -32,7 +32,7 @@ function entry(name: string, kind: string, data: JsonObject): object {
 /** A free action as a pack file holds it, with the words of its trigger. */
 interface FreeActionJson extends JsonObject {
   readonly cost: string;
-  readonly trigger: readonly JsonValue[];
+  readonly trigger: ReadonlyArray<JsonValue>;
 }
 
 const free = (words: string): FreeActionJson => ({ cost: 'free', trigger: prose(words) });
@@ -40,7 +40,7 @@ const TURN_START = { event: 'turn-start' };
 const FOCUS = { event: 'cast-spell', predicate: ['item:trait:focus'] };
 
 /** The file after the pass, with matches read from its own entries. */
-function enrich(file: readonly object[]): readonly unknown[] | undefined {
+function enrich(file: ReadonlyArray<object>): ReadonlyArray<unknown> | undefined {
   const matches = triggerMatches(ContentEntryFile.parse(file), new Map());
 
   return enrichTriggerFile(file, new Map(matches.map((match) => [match.entry, match.triggerEvent])));

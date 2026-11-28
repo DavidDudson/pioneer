@@ -24,10 +24,10 @@ async function render(state: FilterState = new Map()): Promise<Rendered> {
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
-const summaries = (host: HTMLElement): string[] =>
+const summaries = (host: HTMLElement): Array<string> =>
   [...host.querySelectorAll('fr-disclosure summary')].map((summary) => summary.textContent.trim());
 
-function chips(host: HTMLElement, facet: string): HTMLButtonElement[] {
+function chips(host: HTMLElement, facet: string): Array<HTMLButtonElement> {
   const group = host.querySelector(`[role="group"][aria-label="${facet}"]`);
 
   return [...(group?.querySelectorAll<HTMLButtonElement>('button[aria-pressed]') ?? [])];
@@ -66,7 +66,7 @@ describe(FacetFilterView, () => {
 
   it('labels chips with their value and count: a closed set’s name, a book’s title, an open set’s value', async () => {
     const { host } = await render();
-    const label = (facet: string): string[] => chips(host, facet).map((chip) => chip.textContent.trim());
+    const label = (facet: string): Array<string> => chips(host, facet).map((chip) => chip.textContent.trim());
     expect(label('Rarity')).toStrictEqual(['Common (21)', 'Uncommon (2)', 'Rare (1)']);
     expect(label('Book')).toStrictEqual(['Player Core (24)']);
     expect(label('Traits')).toStrictEqual(['magical (4)', 'versatile-p (3)', 'agile (2)']);

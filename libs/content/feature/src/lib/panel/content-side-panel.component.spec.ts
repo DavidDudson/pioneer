@@ -96,7 +96,7 @@ async function press({ fixture, input }: Opened, key: string): Promise<void> {
   fixture.detectChanges();
 }
 
-const listed = ({ root }: Opened): string[] =>
+const listed = ({ root }: Opened): Array<string> =>
   [...root.querySelectorAll('[role="option"]')].map((option) => (option.firstChild?.textContent ?? '').trim());
 
 const backLink = ({ root }: Opened): HTMLElement | undefined =>

@@ -60,7 +60,7 @@ export interface BenchResult {
 }
 
 /** The middle of the timings, or the mean of the two in the middle. */
-export function median(times: readonly number[]): number {
+export function median(times: ReadonlyArray<number>): number {
   const sorted = times.toSorted((left, right) => left - right);
   const middle = Math.floor(sorted.length / HALF);
   const upper = sorted[middle] ?? Number.NaN;
@@ -77,7 +77,7 @@ export function budgetFor(budgetMs: number | undefined, speed: number): number |
 /** One pass of a fixed workload shaped like the code under test: objects, a map and a sort over string keys. */
 function calibrationWork(): number {
   const counts = new Map<string, number>();
-  const items: { readonly key: string; readonly value: number }[] = [];
+  const items: Array<{ readonly key: string; readonly value: number }> = [];
 
   for (let index = 0; index < CALIBRATION_ITEMS; index += 1) {
     const key = `key-${(index * CALIBRATION_STRIDE) % CALIBRATION_KEYS}`;
@@ -128,7 +128,7 @@ function rounded(milliseconds: number): number {
 /** The result of timings taken in milliseconds. */
 export function summarise(
   spec: Pick<BenchSpec<unknown, unknown>, 'name' | 'budgetMs'>,
-  times: readonly number[],
+  times: ReadonlyArray<number>,
   warmupRuns: number,
 ): BenchResult {
   const result: BenchResult = {
@@ -155,7 +155,7 @@ function report(result: BenchResult): void {
 }
 
 /** One round of timed runs, in milliseconds. */
-function timeRound<Given, TResult>(spec: BenchSpec<Given, TResult>, timedRuns: number): number[] {
+function timeRound<Given, TResult>(spec: BenchSpec<Given, TResult>, timedRuns: number): Array<number> {
   return Array.from({ length: timedRuns }, (): number => {
     const given = spec.prepare();
     const start = performance.now();
@@ -166,7 +166,7 @@ function timeRound<Given, TResult>(spec: BenchSpec<Given, TResult>, timedRuns: n
 }
 
 /** Whether the fastest of the timings is not under the budget. */
-function overBudget(times: readonly number[], budgetMs: number | undefined): boolean {
+function overBudget(times: ReadonlyArray<number>, budgetMs: number | undefined): boolean {
   return budgetMs !== undefined && Math.min(...times) >= budgetMs;
 }
 
@@ -175,7 +175,7 @@ function timeWithRetries<Given, TResult>(
   spec: BenchSpec<Given, TResult>,
   timedRuns: number,
   budgetMs: number | undefined,
-): number[] {
+): Array<number> {
   const times = timeRound(spec, timedRuns);
 
   for (let retry = 0; retry < RETRY_ROUNDS && overBudget(times, budgetMs); retry += 1) {

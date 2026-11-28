@@ -19,7 +19,7 @@ const LOADING_ROWS = 3;
 })
 export class ActionList {
   /** Undefined while loading. */
-  public readonly rows = input.required<readonly ShownAction[] | undefined>();
+  public readonly rows = input.required<ReadonlyArray<ShownAction> | undefined>();
   /** What to say when there are no rows, already translated. */
   public readonly empty = input.required<string>();
   /** Whether each row shows its status, which the All view needs and the Now view does not. */

@@ -27,8 +27,8 @@ const coins: Arbitrary<Coins> = record({
 const cost: Arbitrary<CopperValue> = integer({ min: 0, max: COST_MAX }).map((value) => CopperValue.parse(value));
 
 /** Every handful of `purse`'s coins, as its value in copper. */
-function handfulValues(purse: Coins): number[] {
-  const values: number[] = [0];
+function handfulValues(purse: Coins): Array<number> {
+  const values: Array<number> = [0];
 
   for (const coin of COINS) {
     const worth = COPPER_PER_COIN[coin];

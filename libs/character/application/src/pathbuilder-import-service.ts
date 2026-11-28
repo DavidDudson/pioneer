@@ -88,7 +88,7 @@ export interface PathbuilderImportPorts {
 interface ImportVariants {
   readonly dual: VariantRuleEntry | undefined;
   /** Those the loaded packs define, in force while the export is placed. */
-  readonly wanted: readonly VariantRuleEntry[];
+  readonly wanted: ReadonlyArray<VariantRuleEntry>;
 }
 
 function importVariants(value: PathbuilderImport, content: ContentRegistry, lookup: ContentLookup): ImportVariants {
@@ -183,7 +183,7 @@ export class PathbuilderImportService {
   }
 
   /** The variant rules `character` needs, enabled for its owner; nothing when it needs none. */
-  async #enable(actor: UserId, character: Character, variants: readonly VariantRuleEntry[]): Promise<void> {
+  async #enable(actor: UserId, character: Character, variants: ReadonlyArray<VariantRuleEntry>): Promise<void> {
     await Promise.all(
       variants.map(async (variant) =>
         this.#variants.enable(actor, character.id, {

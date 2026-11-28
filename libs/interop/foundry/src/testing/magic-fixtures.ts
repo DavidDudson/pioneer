@@ -8,7 +8,7 @@ const SPELL_EFFECTS = { name: 'spell-effects', directory: 'spell-effects' };
 const FEAT_EFFECTS = { name: 'feat-effects', directory: 'feat-effects' };
 
 /** A part of a spell's damage as Foundry writes it. */
-export function damagePart(formula: string, type: string, kinds: readonly string[] = ['damage']): Fields {
+export function damagePart(formula: string, type: string, kinds: ReadonlyArray<string> = ['damage']): Fields {
   return { applyMod: false, category: FOUNDRY_NULL, formula, kinds, materials: [], type };
 }
 
@@ -137,7 +137,7 @@ export const RAGE_EFFECT: DocumentFixture = {
 };
 
 /** Every magic and effect fixture. */
-export const MAGIC: readonly DocumentFixture[] = [
+export const MAGIC: ReadonlyArray<DocumentFixture> = [
   FIREBALL,
   HEAL,
   COMMAND,

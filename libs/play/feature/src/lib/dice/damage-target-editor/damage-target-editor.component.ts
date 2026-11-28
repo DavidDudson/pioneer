@@ -21,7 +21,7 @@ export class DamageTargetEditor {
   protected readonly resistance = AdjustmentKind.Resistance;
 
   /** Immunities that are damage types; the editor only adds those. */
-  protected readonly immunities = computed((): readonly DamageType[] =>
+  protected readonly immunities = computed((): ReadonlyArray<DamageType> =>
     this.target().immunities.flatMap((immunity) => {
       const type = DamageTypeSchema.safeParse(immunity);
 
@@ -29,15 +29,15 @@ export class DamageTargetEditor {
     }),
   );
 
-  protected setImmunities(types: readonly DamageType[]): void {
+  protected setImmunities(types: ReadonlyArray<DamageType>): void {
     this.target.update((target) => ({ ...target, immunities: types.map((type) => Immunity.parse(type)) }));
   }
 
-  protected setWeaknesses(weaknesses: readonly DamageAdjustment[]): void {
+  protected setWeaknesses(weaknesses: ReadonlyArray<DamageAdjustment>): void {
     this.target.update((target) => ({ ...target, weaknesses }));
   }
 
-  protected setResistances(resistances: readonly DamageAdjustment[]): void {
+  protected setResistances(resistances: ReadonlyArray<DamageAdjustment>): void {
     this.target.update((target) => ({ ...target, resistances }));
   }
 }

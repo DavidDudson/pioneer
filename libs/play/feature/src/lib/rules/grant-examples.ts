@@ -6,7 +6,7 @@ const grantOf = (slug: string, more: JsonObject = {}): JsonObject => ({ key: 'Gr
 const levelAtLeast = (level: number): JsonObject => ({ predicate: [{ gte: ['self:level', level] }] });
 const option = (value: string, label: string): JsonObject => ({ value, label });
 
-const featOf = (slug: string, name: string, rollOptions: readonly string[]): JsonObject => ({
+const featOf = (slug: string, name: string, rollOptions: ReadonlyArray<string>): JsonObject => ({
   slug,
   name,
   kind: 'feat',

@@ -12,7 +12,7 @@ import type { PathbuilderBuild } from './pathbuilder-export';
 export interface ImportedBoosts {
   readonly source: BoostSource;
   readonly level: Level;
-  readonly attributes: readonly Attribute[];
+  readonly attributes: ReadonlyArray<Attribute>;
 }
 
 const FIRST_LEVEL = Level.parse(1);
@@ -21,7 +21,7 @@ const FIRST_LEVEL = Level.parse(1);
 const FREE_BOOST_INTERVAL = 5;
 
 /** Pathbuilder's attribute abbreviations ("Str", "Dex") as attributes; anything else is left out. */
-function namedAttributes(names: readonly string[]): Attribute[] {
+function namedAttributes(names: ReadonlyArray<string>): Array<Attribute> {
   return names.flatMap((name) => {
     const parsed = AttributeSchema.safeParse(name.trim().toLowerCase());
 
@@ -34,7 +34,7 @@ function freeSetLevel(level: Level): Level {
   return level <= FIRST_LEVEL ? FIRST_LEVEL : Level.parse(Math.ceil(level / FREE_BOOST_INTERVAL) * FREE_BOOST_INTERVAL);
 }
 
-function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): ImportedBoosts[] {
+function freeBoosts(levelled: Readonly<Record<string, ReadonlyArray<string>>>): Array<ImportedBoosts> {
   const levels = Object.entries(levelled)
     .flatMap(([key, names]) => {
       const level = Level.safeParse(Number(key));
@@ -43,7 +43,7 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
     })
     .toSorted((left, right) => left.level - right.level);
 
-  const bySet = new Map<Level, Attribute[]>();
+  const bySet = new Map<Level, Array<Attribute>>();
 
   for (const { level, names } of levels) {
     const set = freeSetLevel(level);
@@ -57,7 +57,7 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
  * The boosts Pathbuilder recorded, by set; none for an export without a breakdown. A dual class build records one
  * class boost for each class in `classBoosts`, the first class's then the second's, which are two sets here.
  */
-export function readBoosts(build: PathbuilderBuild, dualClass: boolean): ImportedBoosts[] {
+export function readBoosts(build: PathbuilderBuild, dualClass: boolean): Array<ImportedBoosts> {
   const { breakdown } = build.abilities;
 
   if (breakdown === undefined) {
@@ -68,7 +68,7 @@ export function readBoosts(build: PathbuilderBuild, dualClass: boolean): Importe
     ? breakdown.classBoosts.map((name) => [name])
     : [breakdown.classBoosts];
 
-  const firstLevel: [BoostSource, readonly string[]][] = [
+  const firstLevel: Array<[BoostSource, ReadonlyArray<string>]> = [
     [BoostSource.Ancestry, [...breakdown.ancestryBoosts, ...breakdown.ancestryFree]],
     [BoostSource.Background, breakdown.backgroundBoosts],
     [BoostSource.Class, firstClass],
@@ -76,7 +76,7 @@ export function readBoosts(build: PathbuilderBuild, dualClass: boolean): Importe
   ];
 
   return [
-    ...firstLevel.flatMap(([source, names]): ImportedBoosts[] => {
+    ...firstLevel.flatMap(([source, names]): Array<ImportedBoosts> => {
       const attributes = namedAttributes(names);
 
       return attributes.length === 0 ? [] : [{ source, level: FIRST_LEVEL, attributes }];
@@ -89,6 +89,6 @@ export function readBoosts(build: PathbuilderBuild, dualClass: boolean): Importe
  * The attributes Pathbuilder flawed at 1st level, in export order: voluntary flaws, and possibly the ancestry's own.
  * None for an export without a breakdown.
  */
-export function readFlaws(build: PathbuilderBuild): Attribute[] {
+export function readFlaws(build: PathbuilderBuild): Array<Attribute> {
   return namedAttributes(build.abilities.breakdown?.ancestryFlaws ?? []);
 }

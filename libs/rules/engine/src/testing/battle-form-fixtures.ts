@@ -21,7 +21,7 @@ interface Spec {
   readonly selector: string;
   readonly base: string;
   readonly kind: StatisticKind;
-  readonly domains?: readonly string[];
+  readonly domains?: ReadonlyArray<string>;
 }
 
 function definition({ selector, base, kind, domains = [] }: Spec): StatisticDefinition {
@@ -79,12 +79,12 @@ export function formRule(body: JsonObject, extra: JsonObject = {}): RuleInPlay {
 }
 
 /** One statistic derived with `rules` in play. */
-export function derived(rules: readonly RuleInPlay[], selector: string): StatisticResult | undefined {
+export function derived(rules: ReadonlyArray<RuleInPlay>, selector: string): StatisticResult | undefined {
   return deriveStatistics(CONTENT, FORM_INPUTS, { rules, facts: FORM_FACTS }).get(Selector.parse(selector));
 }
 
 /** One statistic that has a value, derived with `rules` in play. */
-export function valued(rules: readonly RuleInPlay[], selector: string): StatisticValue {
+export function valued(rules: ReadonlyArray<RuleInPlay>, selector: string): StatisticValue {
   const result = derived(rules, selector);
 
   if (result === undefined || !result.ok) {
@@ -95,7 +95,7 @@ export function valued(rules: readonly RuleInPlay[], selector: string): Statisti
 }
 
 /** The total of one statistic, as a plain number. */
-export function totalOf(rules: readonly RuleInPlay[], selector: string): number {
+export function totalOf(rules: ReadonlyArray<RuleInPlay>, selector: string): number {
   const { total }: { total: number } = valued(rules, selector);
 
   return total;

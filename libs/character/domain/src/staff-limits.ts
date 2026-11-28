@@ -38,7 +38,7 @@ export function staffSlotKey({ entry, rank }: StaffSlot): SlotCountKey {
  */
 export function staffLimits(
   resolution: GrantResolution,
-  inventory: readonly InventoryItem[],
+  inventory: ReadonlyArray<InventoryItem>,
   content: ItemContent,
 ): StaffLimits {
   const entries = characterSpellcasting(resolution);

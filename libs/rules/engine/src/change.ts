@@ -36,12 +36,12 @@ export interface ChangeSource {
 
 /** The `Change`s in play by selector: those for the base phase, and set overrides for the total. */
 export interface ChangeRules {
-  readonly base: ReadonlyMap<Selector, readonly ChangeSource[]>;
-  readonly set: ReadonlyMap<Selector, readonly ChangeSource[]>;
+  readonly base: ReadonlyMap<Selector, ReadonlyArray<ChangeSource>>;
+  readonly set: ReadonlyMap<Selector, ReadonlyArray<ChangeSource>>;
 }
 
 /** Foundry's order for `Change` modes: add, multiply, upgrade, downgrade, override. */
-const MODE_ORDER: readonly ChangeMode[] = [
+const MODE_ORDER: ReadonlyArray<ChangeMode> = [
   ChangeMode.Add,
   ChangeMode.Multiply,
   ChangeMode.Upgrade,
@@ -69,8 +69,8 @@ function isSetOverride(source: ChangeSource): boolean {
   return source.mode === ChangeMode.Override && source.origin.hops.some(({ kind }) => kind === OriginHopKind.Override);
 }
 
-function bySelector(sources: readonly ChangeSource[]): ReadonlyMap<Selector, readonly ChangeSource[]> {
-  const grouped = new Map<Selector, ChangeSource[]>();
+function bySelector(sources: ReadonlyArray<ChangeSource>): ReadonlyMap<Selector, ReadonlyArray<ChangeSource>> {
+  const grouped = new Map<Selector, Array<ChangeSource>>();
 
   for (const source of sources) {
     grouped.set(source.selector, [...(grouped.get(source.selector) ?? []), source]);
@@ -83,7 +83,7 @@ function bySelector(sources: readonly ChangeSource[]): ReadonlyMap<Selector, rea
  * The `Change`s among the rules, by selector. Base changes run in mode order (add, multiply, upgrade, downgrade,
  * override), then priority, then id; set overrides in priority order, then id, so the last one wins.
  */
-export function changeRules(rules: readonly RuleInPlay[]): ChangeRules {
+export function changeRules(rules: ReadonlyArray<RuleInPlay>): ChangeRules {
   const sources = rules.flatMap((rule) =>
     rule.element.key === RuleElementKey.Change ? [changeSource(rule, rule.element)] : [],
   );
@@ -163,16 +163,20 @@ function lineFor({ source, current, phase }: Acting, context: RuleContext): Over
 /** A value and the override lines that led to it. */
 export interface Overridden {
   readonly value: FormulaValue;
-  readonly lines: readonly OverrideLine[];
+  readonly lines: ReadonlyArray<OverrideLine>;
 }
 
 /**
  * The base phase's changes on one statistic, each acting on the value the one before left. A change whose
  * predicate does not hold, depends on the situation, or whose formula fails leaves the value as it was.
  */
-export function applyChanges(start: FormulaValue, changes: readonly ChangeSource[], context: RuleContext): Overridden {
+export function applyChanges(
+  start: FormulaValue,
+  changes: ReadonlyArray<ChangeSource>,
+  context: RuleContext,
+): Overridden {
   let value = start;
-  const lines: OverrideLine[] = [];
+  const lines: Array<OverrideLine> = [];
 
   for (const source of changes) {
     const line = lineFor({ source, current: value, phase: OverridePhase.Base }, context);
@@ -197,7 +201,7 @@ export interface Pinned extends Overridden {
  * Set overrides on one statistic's total. The last one that applies, by priority and then id, pins the total;
  * the others that applied are listed as replaced by it. The computed total stays in each line's `replaced`.
  */
-export function pinTotal(computed: FormulaValue, sets: readonly ChangeSource[], context: RuleContext): Pinned {
+export function pinTotal(computed: FormulaValue, sets: ReadonlyArray<ChangeSource>, context: RuleContext): Pinned {
   const lines = sets.map((source) => lineFor({ source, current: computed, phase: OverridePhase.Total }, context));
   const winner = lines.findLast((line) => line.status.kind === OverrideStatusKind.Applied);
 

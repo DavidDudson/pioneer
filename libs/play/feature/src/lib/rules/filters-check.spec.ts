@@ -16,7 +16,7 @@ function valid(result: FiltersCheck): ValidFilters {
 }
 
 /** A facet's counts as `value:count`, in the order the result lists them. */
-function counts(result: FiltersCheck, id: string): string[] {
+function counts(result: FiltersCheck, id: string): Array<string> {
   const facet = valid(result).counts.find((each) => each.facet.id === id);
 
   return (facet?.values ?? []).map(({ value, count }) => `${value}:${count}`);

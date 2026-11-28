@@ -24,7 +24,7 @@ export interface TrackerEntry {
 }
 
 /** The results in `output`, one per marker line; anything else a bench printed is skipped. */
-export function parseResults(output: string): BenchResult[] {
+export function parseResults(output: string): Array<BenchResult> {
   return output
     .split('\n')
     .filter((line) => line.startsWith(BENCH_MARKER))
@@ -32,7 +32,7 @@ export function parseResults(output: string): BenchResult[] {
 }
 
 /** The tracker tracks the fastest run, the stablest of them; the median and budget ride along as context. */
-export function toTrackerEntries(results: readonly BenchResult[]): TrackerEntry[] {
+export function toTrackerEntries(results: ReadonlyArray<BenchResult>): Array<TrackerEntry> {
   return results.map(({ name, fastestMs, medianMs, timedRuns, warmupRuns, budgetMs }) => ({
     name,
     unit: 'ms',
@@ -46,7 +46,7 @@ export function toTrackerEntries(results: readonly BenchResult[]): TrackerEntry[
 }
 
 /** A Markdown table of the results, for the job summary. */
-export function toMarkdownTable(results: readonly BenchResult[]): string {
+export function toMarkdownTable(results: ReadonlyArray<BenchResult>): string {
   const rows = results.map(
     ({ name, fastestMs, medianMs, budgetMs }) => `| ${name} | ${fastestMs} | ${medianMs} | ${budgetMs ?? ''} |`,
   );

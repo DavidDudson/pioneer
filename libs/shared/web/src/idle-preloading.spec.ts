@@ -12,7 +12,7 @@ interface Setup {
 }
 
 function setup(): Setup {
-  const tasks: (() => void)[] = [];
+  const tasks: Array<() => void> = [];
   TestBed.configureTestingModule({
     providers: [
       {
@@ -38,7 +38,7 @@ describe(IdlePreloading, () => {
   it('loads a marked route only once the browser is idle', () => {
     const { strategy, runIdle } = setup();
     const load = vi.fn<() => Observable<string>>(() => of('loaded'));
-    const emitted: unknown[] = [];
+    const emitted: Array<unknown> = [];
 
     strategy.preload({ path: 'next', data: PREFETCH_WHEN_IDLE }, load).subscribe((value) => {
       emitted.push(value);

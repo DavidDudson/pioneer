@@ -26,11 +26,11 @@ interface SlotBlock {
 /** An entry with the blocks of slots it shows. */
 interface EntryRow {
   readonly entry: SpellcastingEntryLine;
-  readonly slots: readonly SlotBlock[];
+  readonly slots: ReadonlyArray<SlotBlock>;
 }
 
 /** The own slots and pools an entry shows; none for a focus entry, which casts with Focus Points. */
-function slotBlocks(entry: SpellcastingEntryLine): readonly SlotBlock[] {
+function slotBlocks(entry: SpellcastingEntryLine): ReadonlyArray<SlotBlock> {
   if (entry.preparation === SpellPreparation.Focus) {
     return [];
   }
@@ -81,7 +81,7 @@ function slotBlocks(entry: SpellcastingEntryLine): readonly SlotBlock[] {
 })
 export class SpellcastingView {
   /** The entries in slug order, or undefined while they load. */
-  public readonly entries = input<readonly SpellcastingEntryLine[] | undefined>();
+  public readonly entries = input<ReadonlyArray<SpellcastingEntryLine> | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
@@ -90,7 +90,7 @@ export class SpellcastingView {
   protected readonly Message = SpellcastingMessage;
   protected readonly traditions = TRADITION_MESSAGES;
   protected readonly preparations = PREPARATION_MESSAGES;
-  protected readonly rows = computed((): readonly EntryRow[] | undefined =>
+  protected readonly rows = computed((): ReadonlyArray<EntryRow> | undefined =>
     this.entries()?.map((entry) => ({ entry, slots: slotBlocks(entry) })),
   );
   protected readonly loadingRows = Array.from({ length: LOADING_ROWS }, (_unused, index) => index);

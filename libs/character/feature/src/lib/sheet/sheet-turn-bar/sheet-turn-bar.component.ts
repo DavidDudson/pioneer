@@ -86,7 +86,7 @@ export class SheetTurnBar {
   }
 
   /** What the last Start turn or End turn did, in order. */
-  protected readonly log = signal<readonly TurnLogLine[]>([]);
+  protected readonly log = signal<ReadonlyArray<TurnLogLine>>([]);
 
   /** Whether the initiative roll is on offer: Enter encounter opens it, rolling or skipping closes it. */
   protected readonly choosingInitiative = signal(false);
@@ -97,7 +97,7 @@ export class SheetTurnBar {
   };
   protected readonly startTurn = async (): Promise<void> => this.#send({ field: TurnCommandField.StartTurn });
   /** The sustained spells End turn would end, as long as the turn is waiting on the player to say so. */
-  protected readonly lapsing = computed((): readonly ActiveSpell[] =>
+  protected readonly lapsing = computed((): ReadonlyArray<ActiveSpell> =>
     lapsingSpells(this.#play.play.data()?.play.activeSpells ?? []),
   );
 
@@ -105,7 +105,9 @@ export class SheetTurnBar {
   protected readonly confirmingEnd = signal(false);
 
   /** The spells End turn would end while it waits to be confirmed: the live ones, so a spell sustained or dismissed meanwhile drops off. */
-  protected readonly pendingEnd = computed((): readonly ActiveSpell[] => (this.confirmingEnd() ? this.lapsing() : []));
+  protected readonly pendingEnd = computed((): ReadonlyArray<ActiveSpell> =>
+    this.confirmingEnd() ? this.lapsing() : [],
+  );
 
   /** End turn, after asking first when a sustained spell would lapse. */
   protected readonly endTurn = async (): Promise<void> => {

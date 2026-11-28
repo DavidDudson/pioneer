@@ -23,7 +23,7 @@ const ATTRIBUTE_TOTAL = Object.keys(ATTRIBUTE_MESSAGES).length;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AttributeBoosts {
-  public readonly boosts = input.required<readonly AttributeBoost[]>();
+  public readonly boosts = input.required<ReadonlyArray<AttributeBoost>>();
 
   protected readonly Message = PickerCellMessage;
   protected readonly names = ATTRIBUTE_MESSAGES;

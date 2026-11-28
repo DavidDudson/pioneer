@@ -34,7 +34,7 @@ export interface PioneerRead {
 export interface PioneerReadFailure {
   readonly ok: false;
   readonly problem: PioneerReadProblem;
-  readonly issues: readonly z.core.$ZodIssue[];
+  readonly issues: ReadonlyArray<z.core.$ZodIssue>;
 }
 
 export type PioneerReadResult = PioneerRead | PioneerReadFailure;
@@ -45,7 +45,7 @@ export interface PioneerImportTarget {
   readonly ownerId: UserId;
 }
 
-function failure(problem: PioneerReadProblem, issues: readonly z.core.$ZodIssue[] = []): PioneerReadFailure {
+function failure(problem: PioneerReadProblem, issues: ReadonlyArray<z.core.$ZodIssue> = []): PioneerReadFailure {
   return { ok: false, problem, issues };
 }
 

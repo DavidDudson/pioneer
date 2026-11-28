@@ -40,12 +40,12 @@ async function pickersOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-prepared-spells')));
 }
 
-function headingsIn(pickers: HTMLElement): string[] {
+function headingsIn(pickers: HTMLElement): Array<string> {
   return [...pickers.querySelectorAll('fr-heading')].map((heading) => textOf(heading));
 }
 
 /** The labels of the inline pickers within `root`. */
-function pickerLabels(root: HTMLElement): string[] {
+function pickerLabels(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('fr-inline-field')].map((field) => textOf(present(field.querySelector('fr-text'))));
 }
 
@@ -101,19 +101,19 @@ function nameOf(row: Element): HTMLElement {
 }
 
 /** The spell rows of Soothe under `list`. */
-function soothes(list: HTMLElement): Element[] {
+function soothes(list: HTMLElement): Array<Element> {
   return [...list.querySelectorAll('pio-spell-row')].filter((row) => textOf(nameOf(row)).startsWith('Soothe'));
 }
 
 /** The rank line of each given spell row, as its second row words it. */
-function ranksIn(rows: readonly Element[]): string[] {
+function ranksIn(rows: ReadonlyArray<Element>): Array<string> {
   return rows.map((row) =>
     textOf(present([...row.querySelectorAll('fr-text')].find((text) => text.closest('fr-hover-card') === null))),
   );
 }
 
 /** The labelled fields of the summary a spell row shows on focus, as "Term: value", closed again after. */
-async function summaryOf(row: Element): Promise<string[]> {
+async function summaryOf(row: Element): Promise<Array<string>> {
   const name = nameOf(row);
   name.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
   const card = await vi.waitFor(() => present(document.querySelector<HTMLElement>('[role="tooltip"]')));

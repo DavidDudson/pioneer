@@ -29,7 +29,7 @@ const remaster = (title: string): Fields => ({ title, license: 'ORC', remaster: 
 interface Extras {
   readonly type?: string;
   readonly level?: number;
-  readonly items?: readonly string[];
+  readonly items?: ReadonlyArray<string>;
 }
 
 function creatureDoc(name: string, publication: Fields | undefined, extras: Extras = {}): Fields {

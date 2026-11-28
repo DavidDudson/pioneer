@@ -21,7 +21,7 @@ const lang: FoundryLang = {
   },
 };
 
-function feat(rules: readonly object[], description = ''): DocumentFixture {
+function feat(rules: ReadonlyArray<object>, description = ''): DocumentFixture {
   return {
     id: 'lUtEfEaT00000000',
     name: 'Lute Song',

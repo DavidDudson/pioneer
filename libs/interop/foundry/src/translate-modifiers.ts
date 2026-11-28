@@ -26,7 +26,7 @@ const DISPLAY_ONLY_FIELDS: ReadonlySet<string> = new Set(['hideIfDisabled']);
 const COMPARISONS: ReadonlySet<string> = new Set(['eq', 'gt', 'gte', 'lt', 'lte']);
 
 /** A comparison's operands: the option, then the number or option it is compared with. */
-function isOperands(operand: unknown): operand is [string, ...unknown[]] {
+function isOperands(operand: unknown): operand is [string, ...Array<unknown>] {
   return Array.isArray(operand) && typeof operand[0] === 'string';
 }
 
@@ -81,7 +81,7 @@ export function selectorOf(selector: string): string {
   return SAVES.has(selector) ? `save${SEPARATOR}${selector}` : selector;
 }
 
-function selectorsOf(selector: unknown): readonly string[] | undefined {
+function selectorsOf(selector: unknown): ReadonlyArray<string> | undefined {
   if (typeof selector === 'string') {
     return [selectorOf(selector)];
   }

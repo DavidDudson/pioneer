@@ -135,4 +135,4 @@ export type RuleElement = z.output<typeof Element>;
 /** A content entry's `rules`: its elements in order (an origin's `RuleIndex` points into it). */
 export const RuleElements = z.array(RuleElement).max(RULES_MAX);
 
-export type RuleElements = readonly RuleElement[];
+export type RuleElements = ReadonlyArray<RuleElement>;

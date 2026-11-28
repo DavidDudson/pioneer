@@ -9,7 +9,7 @@ type BackgroundPickerStory = StoryObj<BackgroundPicker>;
 
 const LONG_LIST = 300;
 
-const BACKGROUNDS: readonly BackgroundPickerRow[] = [
+const BACKGROUNDS: ReadonlyArray<BackgroundPickerRow> = [
   backgroundRow({
     id: 'barkeep',
     name: 'Barkeep',

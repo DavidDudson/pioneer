@@ -145,7 +145,7 @@ export class GenerateCharacterPage {
 
     return this.#i18n.translate('character.list.theme.weaponNone');
   });
-  protected readonly classOptions = computed((): readonly SelectOption<string>[] => {
+  protected readonly classOptions = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#messages();
     const role = this.role();
     const any: SelectOption<string> = { value: '', label: this.#i18n.translate('character.generate.anyClass') };
@@ -153,12 +153,12 @@ export class GenerateCharacterPage {
 
     return [any, ...played.map((each) => ({ value: each.id, label: String(each.name) }))];
   });
-  protected readonly ancestryOptions = computed((): readonly SelectOption<string>[] => {
+  protected readonly ancestryOptions = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#messages();
 
     return this.#withAny(this.#origins.ancestries(), 'character.generate.anyAncestry');
   });
-  protected readonly backgroundOptions = computed((): readonly SelectOption<string>[] => {
+  protected readonly backgroundOptions = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#messages();
 
     return this.#withAny(this.#origins.backgrounds(), 'character.generate.anyBackground');
@@ -303,21 +303,21 @@ export class GenerateCharacterPage {
   }
 
   /** The options of a picker: the chance option first, then each choice by name. */
-  #withAny(choices: readonly OriginChoice[], anyKey: string): readonly SelectOption<string>[] {
+  #withAny(choices: ReadonlyArray<OriginChoice>, anyKey: string): ReadonlyArray<SelectOption<string>> {
     const any: SelectOption<string> = { value: '', label: this.#i18n.translate(anyKey) };
 
     return [any, ...choices.map((each) => ({ value: each.id, label: each.name }))];
   }
 
   /** The label of the option chosen, or of the chance option when nothing is. */
-  #summaryOf(options: readonly SelectOption<string>[], chosen: string): string {
+  #summaryOf(options: ReadonlyArray<SelectOption<string>>, chosen: string): string {
     this.#messages();
 
     return (options.find((option) => option.value === chosen) ?? options[0])?.label ?? '';
   }
 
   /** The options of a weapon select: no choice first, then each value named by its message. */
-  #options(messages: Readonly<Record<string, string>>): readonly SelectOption<string>[] {
+  #options(messages: Readonly<Record<string, string>>): ReadonlyArray<SelectOption<string>> {
     const none: SelectOption<string> = { value: '', label: this.#i18n.translate('character.list.theme.weaponNone') };
 
     return [none, ...Object.entries(messages).map(([value, key]) => ({ value, label: this.#i18n.translate(key) }))];

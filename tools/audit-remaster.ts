@@ -16,7 +16,7 @@ const ROOT = path.join(import.meta.dir, '..');
 const PACKS = path.join(ROOT, 'content', 'packs');
 const LISTINGS = path.join(ROOT, 'content', 'aon');
 
-const BOOKS: readonly string[] = [
+const BOOKS: ReadonlyArray<string> = [
   'player-core',
   'gm-core',
   'player-core-2',
@@ -30,11 +30,11 @@ const BOOKS: readonly string[] = [
   'rival-academies',
 ];
 
-const CLASSES: readonly RemasterClass[] = ['activation', 'variant', 'missing-kind', 'non-entry', 'typo', 'review'];
+const CLASSES: ReadonlyArray<RemasterClass> = ['activation', 'variant', 'missing-kind', 'non-entry', 'typo', 'review'];
 const JsonArray = z.array(z.unknown()).readonly();
 
 /** The pack names AoN's matcher reads: the name, without its parenthetical, and without its comma suffix. */
-function variants(name: string): readonly string[] {
+function variants(name: string): ReadonlyArray<string> {
   const withoutParenthetical = name.replace(/\s*\([^)]*\)\s*$/u, '');
 
   return [name, withoutParenthetical, withoutParenthetical.replace(/,.*$/u, '')];
@@ -60,7 +60,7 @@ interface Row {
   readonly name: string;
 }
 
-async function readRows(book: string): Promise<readonly Row[]> {
+async function readRows(book: string): Promise<ReadonlyArray<Row>> {
   const listing = AonListingFile.parse(await Bun.file(path.join(LISTINGS, `${book}.json`)).json());
   const pagesFile = Bun.file(path.join(LISTINGS, 'pages', `${book}.json`));
   const pagesExist = await pagesFile.exists();
@@ -74,12 +74,12 @@ const bookFlag = args.indexOf('--book');
 const only = bookFlag === -1 ? undefined : args[bookFlag + 1];
 
 // SAFETY: widening the `CLASSES` tuple of string literals to `readonly string[]` is always sound; it only lets `includes` take any CLI argument.
-const show = args.find((arg) => (CLASSES as readonly string[]).includes(arg));
+const show = args.find((arg) => (CLASSES as ReadonlyArray<string>).includes(arg));
 const packNames = await readPackNames();
 const books = BOOKS.filter((candidate) => only === undefined || candidate === only);
 
 /** The report lines of one book: its counts per class and, when a class is asked for, that class's rows. */
-async function report(book: string): Promise<readonly string[]> {
+async function report(book: string): Promise<ReadonlyArray<string>> {
   const rows = await readRows(book);
   const missing = rows.filter((row) => !variants(row.name).some((variant) => packNames.has(foldName(variant))));
   const classified = missing.map((row) => ({ row, class: classifyRemasterCandidate(row, packNames) }));

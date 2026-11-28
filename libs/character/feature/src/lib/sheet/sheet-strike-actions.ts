@@ -10,7 +10,7 @@ import { sheetSlotContent } from './sheet-slot-content';
 import { sheetStrikes } from './sheet-strikes';
 
 /** The sheet modes a Strike is made in: a fight, and exploring when something turns up. */
-const STRIKE_MODES: readonly ActionMode[] = [ActionMode.Encounter, ActionMode.Exploration];
+const STRIKE_MODES: ReadonlyArray<ActionMode> = [ActionMode.Encounter, ActionMode.Exploration];
 
 /**
  * The character's Strikes as lines of the action list (#1778): each one action, rolling its attack, and made with its
@@ -20,7 +20,7 @@ export function sheetStrikeActions(
   registry: ContentRegistry,
   character: Character,
   turn: TurnState | undefined,
-): readonly ActionLine[] {
+): ReadonlyArray<ActionLine> {
   const slots = sheetSlotContent(registry);
 
   return sheetStrikes(registry, character).map(({ name, traits, strike }): ActionLine => {

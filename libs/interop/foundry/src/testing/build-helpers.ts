@@ -26,7 +26,7 @@ export function dataIn(translation: ImportTranslation, name: string): unknown {
   return entryOf(translation, name)?.kindData?.data;
 }
 
-export function rulesIn(translation: ImportTranslation, name: string): unknown[] {
+export function rulesIn(translation: ImportTranslation, name: string): Array<unknown> {
   return [...(entryOf(translation, name)?.envelope.rules ?? [])];
 }
 
@@ -40,26 +40,26 @@ function selectorText(selector: Selector | ChoiceSelector): string {
 }
 
 /** Each `Proficiency` element as its selector and rank. */
-export function ranksIn(translation: ImportTranslation, name: string): string[][] {
+export function ranksIn(translation: ImportTranslation, name: string): Array<Array<string>> {
   return (entryOf(translation, name)?.envelope.rules ?? []).flatMap((rule) =>
     rule.key === RuleElementKey.Proficiency ? [[selectorText(rule.selector), rule.rank]] : [],
   );
 }
 
 /** The rules besides `Proficiency` elements. */
-export function grantsIn(translation: ImportTranslation, name: string): unknown[] {
+export function grantsIn(translation: ImportTranslation, name: string): Array<unknown> {
   return rulesIn(translation, name).filter(
     (rule) => typeof rule === 'object' && rule !== null && 'key' in rule && rule.key !== RuleElementKey.Proficiency,
   );
 }
 
 /** Each gap as `<reason> <field>`. */
-export function gapKeys({ kindDataGaps }: ImportTranslation): string[] {
+export function gapKeys({ kindDataGaps }: ImportTranslation): Array<string> {
   return kindDataGaps.map(({ reason, field }) => `${reason} ${field}`);
 }
 
 /** The flags of the entry's `ChoiceSet` slots whose flag starts with `slot` (`general-feat`). */
-export function slotFlagsIn(translation: ImportTranslation, name: string, slot: string): string[] {
+export function slotFlagsIn(translation: ImportTranslation, name: string, slot: string): Array<string> {
   return (entryOf(translation, name)?.envelope.rules ?? []).flatMap((rule) =>
     rule.key === RuleElementKey.ChoiceSet && rule.flag.startsWith(`${slot}-`) ? [String(rule.flag)] : [],
   );

@@ -52,7 +52,7 @@ export interface EndTurnInputs {
   /** The character's immunities, weaknesses and resistances, which persistent damage goes through. */
   readonly defences: DamageTarget;
   /** The flat check DCs that replace 15 (10 assisted) for some persistent damage types; the lowest counts. */
-  readonly flatChecks?: readonly PersistentFlatCheckDc[];
+  readonly flatChecks?: ReadonlyArray<PersistentFlatCheckDc>;
   /** What the end of the turn does to each condition the content says it eases (Frightened is lowered). */
   readonly recovery: RecoveryConditions;
   /** The character's Fortitude modifier, read only for a save against suffocation; none counts as 0. */
@@ -62,7 +62,7 @@ export interface EndTurnInputs {
 }
 
 /** `outcome` moved on to `play`, with the `events` that led there. */
-function then({ events }: TurnOutcome, play: PlayState, more: readonly TurnEvent[]): TurnOutcome {
+function then({ events }: TurnOutcome, play: PlayState, more: ReadonlyArray<TurnEvent>): TurnOutcome {
   return { play, events: [...events, ...more] };
 }
 
@@ -101,7 +101,7 @@ interface Turn extends EndTurnInputs {
 
 /** What the flat check of a persistent damage condition did: its events, and whether the condition ended. */
 interface FlatChecked {
-  readonly events: readonly TurnEvent[];
+  readonly events: ReadonlyArray<TurnEvent>;
   readonly ended: boolean;
 }
 
@@ -153,8 +153,8 @@ function persistentDamages(outcome: TurnOutcome, turn: Turn): TurnOutcome {
 
 /** A condition after the end of the turn: what is kept of it, and the event when it changed. */
 interface Eased {
-  readonly kept: readonly ActiveCondition[];
-  readonly events: readonly TurnEvent[];
+  readonly kept: ReadonlyArray<ActiveCondition>;
+  readonly events: ReadonlyArray<TurnEvent>;
 }
 
 /** `condition` after the end of the turn eases it: gone if the content removes it or its value is spent, else a point lower. */

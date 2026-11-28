@@ -24,7 +24,7 @@ const ENCHANTMENT: SkillGap = {
   reached: undefined,
 };
 
-async function render(skillGaps: readonly SkillGap[]): Promise<string> {
+async function render(skillGaps: ReadonlyArray<SkillGap>): Promise<string> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en, ...rulesMessages }, 'en', { merge: true });
   const fixture: ComponentFixture<ImportSkillReport> = TestBed.createComponent(ImportSkillReport);

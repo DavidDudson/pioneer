@@ -171,7 +171,7 @@ describe('CharacterSheetPage side panel', () => {
   });
 
   it('waits for the browser to be idle before loading the panel', async () => {
-    const idleTasks: (() => void)[] = [];
+    const idleTasks: Array<() => void> = [];
     const loader = vi.fn<() => Promise<Type<unknown>>>(async () => StubSidePanel);
     await openSheet(undefined, {
       providers: [

@@ -20,7 +20,7 @@ const runes = runeContent(registry);
 const ARMOUR = InventoryItemId.parse('00000000-0000-4000-8000-000000000002');
 
 /** The armour `item`, with each of `etched` on it. */
-function armour(item: ItemFixture, ...etched: readonly (RuneFixture | undefined)[]): InventoryItem {
+function armour(item: ItemFixture, ...etched: ReadonlyArray<RuneFixture | undefined>): InventoryItem {
   let inventory = addItem(EMPTY_INVENTORY, {
     id: ARMOUR,
     item: itemFixtureId(item),

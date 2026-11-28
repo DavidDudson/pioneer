@@ -23,7 +23,7 @@ import { spendRows } from './spend-log-view';
 import type { SpendRow } from './spend-log-view';
 
 /** What the log names: the actions, items and spells that can be used. */
-const SPEND_CONTENT_KINDS: readonly ContentKind[] = [...new Set([...ACTION_CONTENT_KINDS, ...SPELL_CONTENT_KINDS])];
+const SPEND_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...new Set([...ACTION_CONTENT_KINDS, ...SPELL_CONTENT_KINDS])];
 
 /**
  * The spend log (#355): what was used since the turn began, newest first, each with what it cost and a button that
@@ -43,9 +43,9 @@ export class SheetSpendLog {
   protected readonly playQuery = this.#play.play;
 
   /** The log's rows, with the names of the actions the content has. */
-  protected readonly rows = computed((): readonly SpendRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<SpendRow> => {
     const read = this.#play.play.data();
-    const entries: readonly ContentEntry[] = this.registry.data()?.packs.flatMap((pack) => pack.otherEntries) ?? [];
+    const entries: ReadonlyArray<ContentEntry> = this.registry.data()?.packs.flatMap((pack) => pack.otherEntries) ?? [];
     const names = new Map<ContentId, string>(entries.map((entry): [ContentId, string] => [entry.id, entry.name]));
 
     return read === undefined ? [] : spendRows(read.play.spendLog, names);

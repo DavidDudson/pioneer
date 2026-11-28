@@ -72,7 +72,7 @@ function level1(name: PlayerCoreClass, deity?: ContentId): CharacterBuilder {
 }
 
 /** The values a cleric's `ChoiceSet` under `flag` offers. */
-function offered(name: PlayerCoreClass, deity: ContentId | undefined, flag: string): readonly string[] | undefined {
+function offered(name: PlayerCoreClass, deity: ContentId | undefined, flag: string): ReadonlyArray<string> | undefined {
   const { document } = level1(name, deity).build();
   const slot = characterGrants(document, content).open.find((each) => each.flag === RuleSlug.parse(flag));
 
@@ -198,7 +198,7 @@ describe("a cleric's favoured weapon", () => {
 });
 
 /** A human cleric of Sarenrae's traits, with `sanctification` picked. */
-function sanctifiedTraits(sanctification: string): readonly string[] {
+function sanctifiedTraits(sanctification: string): ReadonlyArray<string> {
   const builder = level1('cleric', SARENRAE).picking(slotKey(SARENRAE, 'sanctification'), sanctification);
 
   return characterTraits(characterGrants(builder.build().document, content)).map(String);
@@ -212,7 +212,7 @@ describe("a cleric's sanctification", () => {
 });
 
 /** The Strikes a level 1 `name` of `deity` has from its features, by slug and whether favoured. */
-function strikesOf(name: PlayerCoreClass, deity: ContentId): readonly (readonly [string, boolean | undefined])[] {
+function strikesOf(name: PlayerCoreClass, deity: ContentId): ReadonlyArray<readonly [string, boolean | undefined]> {
   const grants = characterGrants(level1(name, deity).build().document, content);
 
   return grantedStrikes(grants, favoredWeapons(grants)).map(({ slug, favored }) => [String(slug), favored] as const);

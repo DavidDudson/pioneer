@@ -34,7 +34,7 @@ function summaryKeyOf(group: SpellFilterGroup): string {
 })
 export class SpellFilter {
   /** The properties to filter by; one with nothing to pick and nothing picked is left out. */
-  public readonly groups = input.required<readonly SpellFilterGroup[]>();
+  public readonly groups = input.required<ReadonlyArray<SpellFilterGroup>>();
 
   /** The player toggled a value of a group. */
   public readonly changed = output<SpellFilterChange>();
@@ -51,12 +51,12 @@ export class SpellFilter {
   protected readonly summaryKey = summaryKeyOf;
   protected readonly clearVariant = ButtonVariant.Ghost;
 
-  protected readonly shown: Signal<readonly SpellFilterGroup[]> = computed(() =>
+  protected readonly shown: Signal<ReadonlyArray<SpellFilterGroup>> = computed(() =>
     this.groups().filter((group) => group.options.length > 0 || group.selected.size > 0),
   );
 
   /** Each group's chips, worded in the UI locale: "Single target (3)". */
-  protected readonly options: Signal<ReadonlyMap<string, readonly SelectOption<string>[]>> = computed(() => {
+  protected readonly options: Signal<ReadonlyMap<string, ReadonlyArray<SelectOption<string>>>> = computed(() => {
     this.#messages();
 
     return new Map(
@@ -79,7 +79,7 @@ export class SpellFilter {
       .join(', '),
   );
 
-  protected optionsOf(group: SpellFilterGroup): readonly SelectOption<string>[] {
+  protected optionsOf(group: SpellFilterGroup): ReadonlyArray<SelectOption<string>> {
     return this.options().get(group.id) ?? [];
   }
 

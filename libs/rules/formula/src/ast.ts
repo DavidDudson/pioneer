@@ -55,7 +55,7 @@ export interface BinaryNode extends NodeBase {
 export interface CallNode extends NodeBase {
   readonly kind: typeof NodeKind.Call;
   readonly name: FormulaFunction;
-  readonly args: readonly FormulaNode[];
+  readonly args: ReadonlyArray<FormulaNode>;
 }
 
 /** A parsed formula. Parentheses are not kept: the tree's shape is the grouping. */

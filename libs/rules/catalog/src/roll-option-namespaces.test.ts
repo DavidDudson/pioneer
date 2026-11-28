@@ -17,7 +17,7 @@ function sanityPack(kind: NamespaceKind): ContentPack {
 }
 
 /** How a predicate needing `option` reads with no roll options, under the namespaces of `packs`. */
-function missing(option: string, ...packs: readonly ContentPack[]): Truth {
+function missing(option: string, ...packs: ReadonlyArray<ContentPack>): Truth {
   const registry = new ContentRegistry();
 
   for (const pack of packs) {

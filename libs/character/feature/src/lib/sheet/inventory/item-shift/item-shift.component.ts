@@ -71,7 +71,7 @@ export class ItemShift {
 
   /** The weapons the item can take the shape of, by name. */
   protected readonly weapons = new PickerRows<WeaponRow>(
-    computed((): readonly WeaponRow[] => {
+    computed((): ReadonlyArray<WeaponRow> => {
       const item = this.#item();
 
       return item === undefined

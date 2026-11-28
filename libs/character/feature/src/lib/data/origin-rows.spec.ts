@@ -21,7 +21,7 @@ const READS = {
   translate: (key: string, params?: MessageParams): string => `${key} ${JSON.stringify(params ?? {})}`,
 };
 
-async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
+async function registry(kinds: ReadonlyArray<ContentKind> = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
 
   return TestBed.inject(ContentLoader).registry(kinds);
@@ -45,8 +45,8 @@ function withoutAncestry(character: Character): Character {
 
 /** The heritages split by whose they are, for the Elf character. */
 function heritagesOf(
-  rows: readonly HeritagePickerRow[],
-): Record<'elven' | 'others' | 'versatile', HeritagePickerRow[]> {
+  rows: ReadonlyArray<HeritagePickerRow>,
+): Record<'elven' | 'others' | 'versatile', Array<HeritagePickerRow>> {
   return {
     elven: rows.filter((row) => row.ancestry === 'Elf'),
     others: rows.filter((row) => row.ancestry !== undefined && row.ancestry !== 'Elf'),

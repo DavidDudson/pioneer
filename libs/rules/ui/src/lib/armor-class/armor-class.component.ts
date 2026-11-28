@@ -36,7 +36,7 @@ interface ShownArmorClass {
   readonly statistic: StatisticValue | undefined;
   readonly kind: StatisticKind;
   readonly rank: Proficiency | undefined;
-  readonly rankSources: readonly RankSource[];
+  readonly rankSources: ReadonlyArray<RankSource>;
   /** "computed 18" when a set override pinned the total. */
   readonly computed: string | undefined;
   /** A user added a modifier by hand that counts toward the total. */

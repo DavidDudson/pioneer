@@ -45,7 +45,7 @@ export interface KindDataGap extends GapFields {
 /** One entry's gaps, collected while its data is built. */
 export interface GapLog {
   readonly entry: ContentId;
-  readonly gaps: KindDataGap[];
+  readonly gaps: Array<KindDataGap>;
 }
 
 /**
@@ -59,9 +59,9 @@ export interface KindInput {
   readonly envelope: ImportedEnvelope;
   readonly references: EntryReferences;
   readonly log: GapLog;
-  readonly rules: RuleElement[];
+  readonly rules: Array<RuleElement>;
   /** The archetypes whose journal pages link each feat (`importArchetypes`). */
-  readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
+  readonly archetypes: ReadonlyMap<ContentId, ReadonlyArray<ArchetypeLink>>;
   /** What each Foundry sense fixes; without it a feat's senses keep the acuity and range they give. */
   readonly senses?: FoundrySenses;
   /** Foundry's English lang table, for the `@Localize` text of an embedded item; without it keys stay unresolved. */
@@ -78,7 +78,7 @@ export function report(log: GapLog, gap: GapFields): void {
  * `system` fields every kind reads elsewhere: the envelope's, Foundry's migration stamp, and the description, which
  * the rich text stories translate.
  */
-export const ENVELOPE_FIELDS: readonly string[] = [
+export const ENVELOPE_FIELDS: ReadonlyArray<string> = [
   'description',
   'publication',
   'rules',

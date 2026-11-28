@@ -17,7 +17,7 @@ import type { JsonObject } from '@pioneer/rules/sdk/testing';
 import { appliesAutomatically, triggeredAbilities } from './triggered-abilities';
 import type { TriggerableAbility } from './triggered-abilities';
 
-const factsOf = (...options: readonly string[]): PredicateFacts =>
+const factsOf = (...options: ReadonlyArray<string>): PredicateFacts =>
   new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,

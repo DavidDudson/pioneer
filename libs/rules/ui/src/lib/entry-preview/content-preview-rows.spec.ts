@@ -30,7 +30,7 @@ function rowOf<Host>(row: Row<Host>): Row<unknown> {
   return row;
 }
 
-const ROWS: readonly Row<unknown>[] = [
+const ROWS: ReadonlyArray<Row<unknown>> = [
   rowOf({
     name: 'spell access',
     component: SpellAccessListView,

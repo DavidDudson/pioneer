@@ -31,7 +31,7 @@ const groupClasses = cva('flex flex-wrap items-center gap-xs')();
 })
 export class FilterChips<TKey extends string> extends Control {
   public readonly value = model<ReadonlySet<TKey>>(new Set());
-  public readonly options = input.required<readonly SelectOption<TKey>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TKey>>>();
 
   protected readonly chipSize = Size.Sm;
   protected readonly clearVariant = ButtonVariant.Ghost;

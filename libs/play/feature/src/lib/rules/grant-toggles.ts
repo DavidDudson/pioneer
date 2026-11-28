@@ -23,13 +23,13 @@ function stateOf(text: Slug): ToggleState {
 export interface TogglesParse {
   readonly toggles: ToggleStates;
   /** The 1-based lines that are not `entry:rule = state`. */
-  readonly bad: readonly number[];
+  readonly bad: ReadonlyArray<number>;
 }
 
 /** Each filled line as a toggle's state; a later line for the same toggle wins. */
 export function parseToggles(text: string, table: SlugTable): TogglesParse {
   const toggles = new Map<ToggleKey, ToggleState>();
-  const bad: number[] = [];
+  const bad: Array<number> = [];
 
   for (const [index, raw] of text.split(LINE).entries()) {
     const line = raw.trim();

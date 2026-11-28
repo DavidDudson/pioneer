@@ -60,19 +60,19 @@ export interface ConditionalGrant {
  * failed.
  */
 export interface GrantWalk {
-  readonly items: readonly GrantedItem[];
+  readonly items: ReadonlyArray<GrantedItem>;
   /** Grants of an entry already on the character, without `allowDuplicate`. */
-  readonly duplicates: readonly GrantedItem[];
-  readonly conditional: readonly ConditionalGrant[];
+  readonly duplicates: ReadonlyArray<GrantedItem>;
+  readonly conditional: ReadonlyArray<ConditionalGrant>;
   /** Choices the player has yet to make, or whose pick is not on offer. */
-  readonly open: readonly ChoiceSlot[];
-  readonly answered: readonly AnsweredSlot[];
-  readonly errors: readonly GrantError[];
+  readonly open: ReadonlyArray<ChoiceSlot>;
+  readonly answered: ReadonlyArray<AnsweredSlot>;
+  readonly errors: ReadonlyArray<GrantError>;
 }
 
 /** What one walk reads: the roots, the content, the facts every predicate is tested against, the picks and the items owned. */
 export interface WalkInputs extends Partial<Pick<ChoiceContext, 'owned'>> {
-  readonly roots: readonly GrantRoot[];
+  readonly roots: ReadonlyArray<GrantRoot>;
   readonly lookup: ContentLookup;
   readonly facts: PredicateFacts;
   readonly picks: ChoicePicks;
@@ -94,15 +94,15 @@ class Walker {
   /** How many times each entry is on the character. */
   readonly #takes = new Map<ContentId, Take>();
   /** The slot whose pick put each take of an entry there (see `viaOf`), in take order. */
-  readonly #vias = new Map<ContentId, (SlotKey | undefined)[]>();
+  readonly #vias = new Map<ContentId, Array<SlotKey | undefined>>();
   /** The takes of entries whose slots are recorded, as `<entry>#<take>`. */
   readonly #chosen = new Set<string>();
-  readonly #items: GrantedItem[] = [];
-  readonly #duplicates: GrantedItem[] = [];
-  readonly #conditional: ConditionalGrant[] = [];
-  readonly #open: ChoiceSlot[] = [];
-  readonly #answered: AnsweredSlot[] = [];
-  readonly #errors: GrantError[] = [];
+  readonly #items: Array<GrantedItem> = [];
+  readonly #duplicates: Array<GrantedItem> = [];
+  readonly #conditional: Array<ConditionalGrant> = [];
+  readonly #open: Array<ChoiceSlot> = [];
+  readonly #answered: Array<AnsweredSlot> = [];
+  readonly #errors: Array<GrantError> = [];
 
   public constructor({ lookup, facts, picks, owned = [] }: WalkInputs) {
     this.#lookup = lookup;
@@ -126,7 +126,7 @@ class Walker {
     this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false, picked, value: undefined });
   }
 
-  #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
+  #find(id: ContentId, hops: ReadonlyArray<OriginHop>): GrantEntry | undefined {
     const entry = this.#lookup.entry(id);
 
     if (entry === undefined) {

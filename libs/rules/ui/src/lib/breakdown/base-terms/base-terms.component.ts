@@ -13,7 +13,7 @@ import type { ShownTerm } from '../shown-breakdown';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BaseTerms {
-  public readonly terms = input.required<readonly ShownTerm[]>();
+  public readonly terms = input.required<ReadonlyArray<ShownTerm>>();
 
   protected readonly Rounding = BreakdownMessage.Rounding;
 }

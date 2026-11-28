@@ -37,7 +37,7 @@ export const PackVisibility = {
 
 export type PackVisibility = ValueOf<typeof PackVisibility>;
 
-function uniqueSlugs(entries: readonly { readonly slug: EntrySlug }[]): boolean {
+function uniqueSlugs(entries: ReadonlyArray<{ readonly slug: EntrySlug }>): boolean {
   return new Set(entries.map((entry) => entry.slug)).size === entries.length;
 }
 
@@ -107,13 +107,13 @@ export const ContentPackSchema = z.object({
  */
 export class ContentPack {
   public readonly manifest: ContentPackManifest;
-  public readonly ancestries: readonly PackAncestry[];
-  public readonly creatures: readonly PackCreature[];
-  public readonly statistics: readonly PackStatistic[];
+  public readonly ancestries: ReadonlyArray<PackAncestry>;
+  public readonly creatures: ReadonlyArray<PackCreature>;
+  public readonly statistics: ReadonlyArray<PackStatistic>;
   public readonly proficiencyBonus: ProficiencyBonusTable | undefined;
-  public readonly variantRules: readonly VariantRuleDefinition[];
+  public readonly variantRules: ReadonlyArray<VariantRuleDefinition>;
   public readonly rollOptionNamespaces: RollOptionNamespaces;
-  public readonly otherEntries: readonly ContentEntry[];
+  public readonly otherEntries: ReadonlyArray<ContentEntry>;
 
   private constructor(data: z.output<typeof ContentPackSchema>) {
     this.manifest = data.manifest;

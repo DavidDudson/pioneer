@@ -37,7 +37,7 @@ interface KitItem {
   readonly quantity: number;
 }
 
-function itemOf({ uuid, quantity }: FoundryInnerItem, field: string, { references, log }: KindInput): KitItem[] {
+function itemOf({ uuid, quantity }: FoundryInnerItem, field: string, { references, log }: KindInput): Array<KitItem> {
   const item = resolveUuid(references, uuid);
 
   if (item === undefined) {

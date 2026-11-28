@@ -25,10 +25,10 @@ import { map } from 'rxjs';
 
 const FIRST_STEP = 0;
 const STEP_PARAM = 'step';
-const NO_OPTIONS: readonly SelectOption<string>[] = [];
+const NO_OPTIONS: ReadonlyArray<SelectOption<string>> = [];
 
 /** What choosing a part empties, because its options were read over the part chosen. */
-const DROPPED: Readonly<Record<DraftField, readonly DraftField[]>> = {
+const DROPPED: Readonly<Record<DraftField, ReadonlyArray<DraftField>>> = {
   name: [],
   ancestry: [DraftField.Heritage],
   heritage: [],
@@ -37,11 +37,11 @@ const DROPPED: Readonly<Record<DraftField, readonly DraftField[]>> = {
   subclass: [],
 };
 
-function isOffered(options: readonly SelectOption<string>[], value: string): boolean {
+function isOffered(options: ReadonlyArray<SelectOption<string>>, value: string): boolean {
   return options.some((option) => option.value === value);
 }
 
-function labelOf(options: readonly SelectOption<string>[], value: string): string {
+function labelOf(options: ReadonlyArray<SelectOption<string>>, value: string): string {
   return options.find((option) => option.value === value)?.label ?? '';
 }
 
@@ -82,7 +82,7 @@ export class CreateCharacterPage {
   /** The character the draft would make, so each step's options read over the picks before it. */
   readonly #character = computed(() => draftCharacter(this.draft(), Temporal.Now.instant()));
 
-  protected readonly ancestryOptions = computed((): readonly SelectOption<string>[] =>
+  protected readonly ancestryOptions = computed((): ReadonlyArray<SelectOption<string>> =>
     this.#origins.ancestries().map(({ id, name }) => ({ value: id, label: name })),
   );
   protected readonly heritageOptions = computed(() => this.#rootOptions(HERITAGE_SLOT));
@@ -160,7 +160,7 @@ export class CreateCharacterPage {
     });
   }
 
-  #rootOptions(slot: SlotKey): readonly SelectOption<string>[] {
+  #rootOptions(slot: SlotKey): ReadonlyArray<SelectOption<string>> {
     const registry = this.#registry.data();
     const character = this.#character();
 

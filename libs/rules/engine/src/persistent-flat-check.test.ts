@@ -35,7 +35,10 @@ function check(fields: JsonObject = {}): RuleJson {
   };
 }
 
-function checks(rules: readonly RuleInPlay[], using: PredicateFacts = facts): readonly PersistentFlatCheckLine[] {
+function checks(
+  rules: ReadonlyArray<RuleInPlay>,
+  using: PredicateFacts = facts,
+): ReadonlyArray<PersistentFlatCheckLine> {
   return deriveDefences(content, inputs, { rules, facts: using }).persistentFlatChecks;
 }
 

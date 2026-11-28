@@ -14,7 +14,7 @@ import { activationsOf } from './translate-activations';
  */
 
 /** `system` fields every physical kind reads here or leaves as play state. */
-export const PHYSICAL_FIELDS: readonly string[] = [
+export const PHYSICAL_FIELDS: ReadonlyArray<string> = [
   'price',
   'bulk',
   'size',
@@ -67,7 +67,7 @@ export const FoundryPhysicalSystem = z.looseObject({
 
 export type FoundryPhysicalSystem = z.infer<typeof FoundryPhysicalSystem>;
 
-const COINS: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
+const COINS: ReadonlyArray<Coin> = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
 
 /** A price for one item needs no `per`. */
 const SINGLE = 1;
@@ -200,7 +200,7 @@ const BARE: ReadonlyMap<string, UsageType> = new Map([
 ]);
 
 /** Usages that name what the item goes on after a prefix: `affixed-to-armor`. */
-const TARGETED: readonly (readonly [string, UsageType])[] = [
+const TARGETED: ReadonlyArray<readonly [string, UsageType]> = [
   ['affixed-to-', UsageType.Affixed],
   ['attached-to-', UsageType.Attached],
   ['applied-to-', UsageType.Applied],

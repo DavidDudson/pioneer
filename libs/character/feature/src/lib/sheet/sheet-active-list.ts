@@ -13,7 +13,7 @@ import { newId } from '@pioneer/shared/kernel';
 import { EFFECT_CONTENT_KINDS, effectViews } from './sheet-effects';
 
 /** The registry kinds the active list reads: the effects and the spells that are sustained. */
-export const ACTIVE_CONTENT_KINDS: readonly ContentKind[] = [...EFFECT_CONTENT_KINDS, ContentKind.Spell];
+export const ACTIVE_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...EFFECT_CONTENT_KINDS, ContentKind.Spell];
 
 /** What an active entry is: a sustained spell the character cast, or an effect on the character. */
 export const ActiveKind = { Spell: 'spell', Effect: 'effect' } as const;
@@ -48,8 +48,8 @@ export interface ActiveRow {
 
 /** The active spells and effects of a play state, which the list is made from. */
 export interface ActiveLists {
-  readonly activeSpells: readonly ActiveSpell[];
-  readonly effects: readonly ActiveEffect[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
+  readonly effects: ReadonlyArray<ActiveEffect>;
 }
 
 type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
@@ -71,7 +71,7 @@ export function actionEntries(registry: ContentRegistry): ReadonlyMap<ContentId,
 }
 
 /** The row of an active spell; a spell the content lacks is left out. */
-function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntry>): ActiveRow[] {
+function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntry>): Array<ActiveRow> {
   const entry = entries.get(active.spell);
 
   if (entry === undefined) {
@@ -98,7 +98,7 @@ function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntr
 }
 
 /** Every active spell and effect of `play` in one list: the spells first, then the effects. */
-export function activeRows(registry: ContentRegistry, play: ActiveLists): readonly ActiveRow[] {
+export function activeRows(registry: ContentRegistry, play: ActiveLists): ReadonlyArray<ActiveRow> {
   const entries = spellEntries(registry);
 
   const effects = effectViews(registry, play.effects).map((view): ActiveRow => ({

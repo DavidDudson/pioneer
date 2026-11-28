@@ -8,7 +8,7 @@ import { canonicalJson } from './canonical-json.ts';
 const ROOT = path.resolve(import.meta.dir, '..', '..');
 const PATTERNS = ['content/packs/**/*.json', 'content/import/*.json'];
 
-async function committedFiles(): Promise<readonly string[]> {
+async function committedFiles(): Promise<ReadonlyArray<string>> {
   const found = await Promise.all(
     PATTERNS.map(async (pattern) => Array.fromAsync(new Glob(pattern).scan({ cwd: ROOT }))),
   );

@@ -8,7 +8,7 @@ import type { GrantResolution } from './resolve-grants';
 import { resolveGrants } from './resolve-grants';
 import { entry, inputsOf, picked, picksOf, slotOf } from './testing/builders';
 
-function owned(slug: string, kind: ContentKind, options: readonly string[] = []): OwnedItem {
+function owned(slug: string, kind: ContentKind, options: ReadonlyArray<string> = []): OwnedItem {
   return {
     slug: Slug.parse(slug),
     name: ContentText.parse(slug.toUpperCase()),
@@ -24,7 +24,10 @@ const INVENTORY = [
 ];
 
 /** A fighter whose rule 0 asks for one of the owned items of `ownedKinds` that satisfy `filter`. */
-function resolve(filter: readonly unknown[], picks: readonly (readonly [SlotKey, string])[] = []): GrantResolution {
+function resolve(
+  filter: ReadonlyArray<unknown>,
+  picks: ReadonlyArray<readonly [SlotKey, string]> = [],
+): GrantResolution {
   const fighter = entry('fighter', [
     { key: 'ChoiceSet', flag: 'edge', rollOption: 'edge', choices: { ownedKinds: ['weapon'], filter } },
   ]);

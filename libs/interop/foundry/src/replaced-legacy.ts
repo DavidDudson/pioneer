@@ -18,13 +18,13 @@ export const NO_REPLACED: ReplacedLegacy = new Map();
 /** What `content/aon` says of one book: the URLs of its replaced legacy entries and the names it lists by URL. */
 export interface BookReplacements {
   readonly book: BookId;
-  readonly replaced: readonly AonUrl[];
+  readonly replaced: ReadonlyArray<AonUrl>;
   readonly names: ReadonlyMap<AonUrl, string>;
 }
 
 /** The URL of each slug among `urls`, or none for a slug more than one URL names. */
 function urlsBySlug(
-  urls: readonly AonUrl[],
+  urls: ReadonlyArray<AonUrl>,
   names: ReadonlyMap<AonUrl, string>,
 ): ReadonlyMap<string, AonUrl | undefined> {
   const found = new Map<string, AonUrl | undefined>();
@@ -42,7 +42,7 @@ function urlsBySlug(
 }
 
 /** The replaced entries of each book; one whose name AoN does not list is left out. */
-export function replacedLegacy(books: readonly BookReplacements[]): ReplacedLegacy {
+export function replacedLegacy(books: ReadonlyArray<BookReplacements>): ReplacedLegacy {
   return new Map(books.map(({ book, replaced, names }) => [book, urlsBySlug(replaced, names)]));
 }
 
@@ -71,7 +71,10 @@ function linked(source: SourceRef, entry: ContentEntry, replaced: ReplacedLegacy
 }
 
 /** `entries`, each book source of a replaced entry with the AoN link of the legacy entry it is, where it lacks one. */
-export function withLegacyLinks(entries: readonly ContentEntry[], replaced: ReplacedLegacy): readonly ContentEntry[] {
+export function withLegacyLinks(
+  entries: ReadonlyArray<ContentEntry>,
+  replaced: ReplacedLegacy,
+): ReadonlyArray<ContentEntry> {
   return entries.map((entry) => ({
     ...entry,
     sources: entry.sources.map((source) => linked(source, entry, replaced)),

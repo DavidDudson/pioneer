@@ -35,7 +35,7 @@ async function render(): Promise<Rendered> {
 }
 
 /** Opens the dropdown and returns the user buttons in its panel, which sits in the overlay container. */
-async function openMenu(root: HTMLElement): Promise<HTMLButtonElement[]> {
+async function openMenu(root: HTMLElement): Promise<Array<HTMLButtonElement>> {
   root.querySelector('button')?.click();
 
   return vi.waitFor(() => {

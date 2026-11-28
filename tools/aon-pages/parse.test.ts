@@ -18,7 +18,7 @@ const hit = (url: string, markdown?: string, name?: string): HitJson => ({
   _source: { url, name, type: 'Action', source_markdown: markdown },
 });
 
-const answer = (...hits: unknown[]): AnswerJson => ({ hits: { total: { value: 9 }, hits } });
+const answer = (...hits: Array<unknown>): AnswerJson => ({ hits: { total: { value: 9 }, hits } });
 
 describe('pageIn', () => {
   test('reads the page printed for the asked book', () => {

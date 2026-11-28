@@ -42,7 +42,7 @@ describe('buildImportReport', () => {
     );
 
     const rows = report.groups.flatMap((group) => group.rows);
-    expect<string[][]>(rows.map((row) => [row.name, row.status])).toEqual([
+    expect<Array<Array<string>>>(rows.map((row) => [row.name, row.status])).toEqual([
       ['dwarf', MatchStatus.Matched],
       ['Goloma', MatchStatus.Unmatched],
       ['Shield Block', MatchStatus.KindNotLoaded],

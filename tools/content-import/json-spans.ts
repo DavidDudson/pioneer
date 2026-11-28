@@ -11,7 +11,7 @@ export interface Span {
 
 export type SpanNode =
   | (Span & { readonly kind: 'object'; readonly members: ReadonlyMap<string, SpanNode> })
-  | (Span & { readonly kind: 'array'; readonly items: readonly SpanNode[] })
+  | (Span & { readonly kind: 'array'; readonly items: ReadonlyArray<SpanNode> })
   | (Span & { readonly kind: 'scalar' });
 
 const WHITESPACE = /\s/u;
@@ -128,7 +128,7 @@ function object(reader: Reader, start: number): SpanNode {
 }
 
 function array(reader: Reader, start: number): SpanNode {
-  const items: SpanNode[] = [];
+  const items: Array<SpanNode> = [];
   reader.position += 1;
   reader.skipSpace();
 

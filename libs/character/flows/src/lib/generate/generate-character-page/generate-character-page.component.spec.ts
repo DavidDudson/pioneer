@@ -42,14 +42,14 @@ const classOption = (id: string, name: string, role: ClassRole): ClassOption => 
 
 const FIGHTER = classOption('7d1c4a5e-0b6c-4c58-9d3f-1c2f6a8e9b01', 'Fighter', ClassRole.Melee);
 const WIZARD = classOption('2b9e3f10-5a47-4d6e-8c21-7f4d0a3b5c02', 'Wizard', ClassRole.Spellcaster);
-const CLASSES: readonly ClassOption[] = [FIGHTER, WIZARD];
+const CLASSES: ReadonlyArray<ClassOption> = [FIGHTER, WIZARD];
 
 const ELF = { id: 'ancestry-elf', name: 'Elf' };
 const ACOLYTE = { id: 'background-acolyte', name: 'Acolyte' };
 
 const generate = vi.fn<CharacterGenerator['generate']>();
 
-const buttons = (root: HTMLElement): HTMLButtonElement[] => [...root.querySelectorAll('button')];
+const buttons = (root: HTMLElement): Array<HTMLButtonElement> => [...root.querySelectorAll('button')];
 
 const named = (root: HTMLElement, text: string): HTMLButtonElement => {
   const found = buttons(root).find((button) => button.textContent.trim() === text);
@@ -84,8 +84,8 @@ describe(GenerateCharacterPage, () => {
         {
           provide: ClassRoleOptions,
           useValue: {
-            classes: (): readonly ClassOption[] => CLASSES,
-            playing: (role: string): readonly ClassOption[] =>
+            classes: (): ReadonlyArray<ClassOption> => CLASSES,
+            playing: (role: string): ReadonlyArray<ClassOption> =>
               // SAFETY: role comes from the test's own role list.
               // Never is only to pass it to roles.includes, which takes the role union.
               CLASSES.filter((each) => each.roles.includes(role as never)),
@@ -94,8 +94,8 @@ describe(GenerateCharacterPage, () => {
         {
           provide: OriginChoiceOptions,
           useValue: {
-            ancestries: (): readonly (typeof ELF)[] => [ELF],
-            backgrounds: (): readonly (typeof ACOLYTE)[] => [ACOLYTE],
+            ancestries: (): ReadonlyArray<typeof ELF> => [ELF],
+            backgrounds: (): ReadonlyArray<typeof ACOLYTE> => [ACOLYTE],
           },
         },
         { provide: WeaponBaseOptions, useValue: { bases: (): readonly [] => [] } },
@@ -161,10 +161,10 @@ describe(GenerateCharacterPage, () => {
   }
 
   /** The option pickers on the page, in order. */
-  function pickers(): OptionPicker<string>[] {
+  function pickers(): Array<OptionPicker<string>> {
     return harness.fixture.debugElement
       .queryAll((element) => element.componentInstance instanceof OptionPicker)
-      .flatMap((element): OptionPicker<string>[] =>
+      .flatMap((element): Array<OptionPicker<string>> =>
         element.componentInstance instanceof OptionPicker ? [element.componentInstance] : [],
       );
   }

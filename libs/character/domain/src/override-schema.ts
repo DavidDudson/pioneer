@@ -121,7 +121,7 @@ export const OverrideAuthor = z.strictObject({ userId: UserId, displayName: Over
 export type OverrideAuthor = z.infer<typeof OverrideAuthor>;
 
 /** Everyone who set, edited or removed one of `overrides`, once each. */
-export function overrideAuthorIds(overrides: readonly Override[]): readonly UserId[] {
+export function overrideAuthorIds(overrides: ReadonlyArray<Override>): ReadonlyArray<UserId> {
   const ids = overrides.flatMap(({ by, revisions, removed }) => [
     by,
     ...revisions.map((revision) => revision.by),

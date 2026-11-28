@@ -27,7 +27,7 @@ function byJoined(left: CampaignMember, right: CampaignMember): number {
   return Temporal.Instant.compare(left.joinedAt, right.joinedAt) || left.userId.localeCompare(right.userId);
 }
 
-function toCampaign(row: CampaignRow, members: readonly MemberRow[]): Campaign {
+function toCampaign(row: CampaignRow, members: ReadonlyArray<MemberRow>): Campaign {
   return new Campaign({
     id: row.id,
     version: row.version,
@@ -66,17 +66,17 @@ export class DrizzleCampaignRepository extends CampaignRepository {
     this.#db = db;
   }
 
-  public override async listForMember(userId: UserId): Promise<readonly Campaign[]> {
+  public override async listForMember(userId: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#listFor(and(eq(campaignMembers.userId, userId), isNull(campaigns.archivedAt)));
   }
 
-  public override async listArchivedForGm(gmId: UserId): Promise<readonly Campaign[]> {
+  public override async listArchivedForGm(gmId: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#listFor(
       and(eq(campaignMembers.userId, gmId), eq(campaigns.gmId, gmId), isNotNull(campaigns.archivedAt)),
     );
   }
 
-  async #listFor(where: SQL | undefined): Promise<readonly Campaign[]> {
+  async #listFor(where: SQL | undefined): Promise<ReadonlyArray<Campaign>> {
     const rows = await this.#db
       .select({ campaign: campaigns })
       .from(campaignMembers)
@@ -235,7 +235,7 @@ export class DrizzleCampaignRepository extends CampaignRepository {
   }
 
   /** Every member of each campaign, grouped by campaign. */
-  async #membersOf(ids: readonly CampaignId[]): Promise<ReadonlyMap<CampaignId, readonly MemberRow[]>> {
+  async #membersOf(ids: ReadonlyArray<CampaignId>): Promise<ReadonlyMap<CampaignId, ReadonlyArray<MemberRow>>> {
     if (ids.length === 0) {
       return new Map();
     }

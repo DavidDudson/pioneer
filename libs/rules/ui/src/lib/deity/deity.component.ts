@@ -10,7 +10,7 @@ import { DEITY_DOMAIN_MESSAGES, DeityMessage, DIVINE_FONT_MESSAGES, sanctificati
 /** One term of the block and its values, each a message key or a name; none reads as "None". */
 interface DeityTerm {
   readonly term: string;
-  readonly values: readonly DeityValue[];
+  readonly values: ReadonlyArray<DeityValue>;
 }
 
 /** A value as a message key to translate, or a name to show as it is. */
@@ -33,7 +33,7 @@ const TERMS = [
 const keyed = (key: string): DeityValue => ({ key });
 const named = (name: string): DeityValue => ({ name });
 
-function termsOf(deity: DeityLine): readonly DeityTerm[] {
+function termsOf(deity: DeityLine): ReadonlyArray<DeityTerm> {
   return [
     { term: DeityMessage.Font, values: deity.fonts.map((font) => keyed(DIVINE_FONT_MESSAGES[font])) },
     {

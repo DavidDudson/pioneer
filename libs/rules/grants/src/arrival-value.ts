@@ -12,7 +12,7 @@ const DEFAULT_VALUE = ConditionValue.parse(1);
  */
 export function arrivalValue(
   entry: GrantEntry,
-  hops: readonly OriginHop[],
+  hops: ReadonlyArray<OriginHop>,
   granted: ConditionValue | undefined,
 ): ConditionValue | undefined {
   const hop = hops.at(-1);

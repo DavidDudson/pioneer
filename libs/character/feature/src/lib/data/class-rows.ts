@@ -53,7 +53,7 @@ export function classRows(
   registry: ContentRegistry,
   character: Character | undefined,
   { translate, slot = CLASS_SLOT }: ClassPickerReads,
-): readonly ClassPickerRow[] {
+): ReadonlyArray<ClassPickerRow> {
   const offered =
     character === undefined
       ? undefined
@@ -100,7 +100,7 @@ export function subclassRows(
   registry: ContentRegistry,
   character: Character,
   { subclass, translate }: SubclassRowReads,
-): readonly SubclassPickerRow[] {
+): ReadonlyArray<SubclassPickerRow> {
   const { features } = classPickerContent(registry);
   const trainedAgain = sheetTrainedAgain(registry, character, subclass.key)(subclass.options.map((each) => each.value));
 
@@ -124,7 +124,7 @@ export function keyAttributeRows(
   keyAttribute: SheetKeyAttribute,
   modifiers: AttributeModifiers,
   { translate }: ClassRowReads,
-): readonly KeyAttributePickerRow[] {
+): ReadonlyArray<KeyAttributePickerRow> {
   return keyAttribute.options.map((attribute: Attribute): KeyAttributePickerRow => {
     const modifier = modifiers.get(attribute);
 

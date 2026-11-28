@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import type { BrowseKind } from './browse-kinds';
 import { BROWSE_KINDS, DEFAULT_KINDS, facetsOf, isBrowseKind, kindsFromQuery, kindsToQuery } from './browse-kinds';
 
-const ids = (kinds: readonly BrowseKind[]): string[] => facetsOf(kinds).map((facet) => facet.id);
+const ids = (kinds: ReadonlyArray<BrowseKind>): Array<string> => facetsOf(kinds).map((facet) => facet.id);
 
 describe(kindsFromQuery, () => {
   it('reads the kinds a link names, in browser order, and drops unknown ones', () => {

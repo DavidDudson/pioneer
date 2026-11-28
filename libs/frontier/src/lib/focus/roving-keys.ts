@@ -21,7 +21,7 @@ export interface RovingKey {
   /** Index of the focused item. */
   readonly from: number;
   /** Which items can take focus, in order. */
-  readonly enabled: readonly boolean[];
+  readonly enabled: ReadonlyArray<boolean>;
   /** Grid columns; ignored by the other orientations. */
   readonly columns: number;
   /** Past an end, go round to the other one. Horizontal and vertical only. */
@@ -165,7 +165,7 @@ function wrapInto(index: number, { floor, ceiling }: Range): number {
   return index > ceiling ? floor : index;
 }
 
-function edgeFrom(move: Edge, enabled: readonly boolean[]): number | undefined {
+function edgeFrom(move: Edge, enabled: ReadonlyArray<boolean>): number | undefined {
   const { floor, ceiling } = move.range;
   const start = move.toward === NEXT ? floor : ceiling;
 

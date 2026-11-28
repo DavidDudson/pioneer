@@ -26,7 +26,7 @@ function languagesSection(root: HTMLElement): HTMLElement {
 }
 
 /** Each language row's name and where it came from. */
-function rows(root: HTMLElement): string[][] {
+function rows(root: HTMLElement): Array<Array<string>> {
   return [...languagesSection(root).querySelectorAll('fr-list-item')].map((item) =>
     [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()),
   );

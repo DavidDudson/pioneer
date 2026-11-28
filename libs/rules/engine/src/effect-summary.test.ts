@@ -44,7 +44,7 @@ function idOf(name: string): ContentId {
   return ContentId.parse(contentId(PackId.parse('engine-test'), slug));
 }
 
-function entryOf(name: string, elements: readonly RuleJson[]): SummarisedEntry {
+function entryOf(name: string, elements: ReadonlyArray<RuleJson>): SummarisedEntry {
   const [first] = elements.map((element, rule) => inPlay(element, name, { rule }));
 
   return {
@@ -56,11 +56,11 @@ function entryOf(name: string, elements: readonly RuleJson[]): SummarisedEntry {
 }
 
 /** The rules of the entries named, each element placed in order. */
-function placed(...entries: readonly (readonly [string, readonly RuleJson[]])[]): RuleInPlay[] {
+function placed(...entries: ReadonlyArray<readonly [string, ReadonlyArray<RuleJson>]>): Array<RuleInPlay> {
   return entries.flatMap(([name, elements]) => elements.map((element, rule) => inPlay(element, name, { rule })));
 }
 
-function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
+function scopeOf(rules: ReadonlyArray<RuleInPlay>): EffectScope {
   const facts = new PredicateFacts([], CORE_NAMESPACES);
 
   return {
@@ -71,10 +71,10 @@ function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
 }
 
 function summary(
-  [name, elements]: readonly [string, readonly RuleJson[]],
-  others: readonly (readonly [string, readonly RuleJson[]])[],
+  [name, elements]: readonly [string, ReadonlyArray<RuleJson>],
+  others: ReadonlyArray<readonly [string, ReadonlyArray<RuleJson>]>,
   mode: EffectMode,
-): readonly EffectLine[] {
+): ReadonlyArray<EffectLine> {
   return summariseEffects(scopeOf(placed(...others)), entryOf(name, elements), mode);
 }
 

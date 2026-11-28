@@ -6,7 +6,7 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import { FormPicker } from './form-picker.component';
 import type { FormPickerOption, FormPreview } from './form-picker.component';
 
-const FORMS: readonly FormPickerOption[] = [{ value: 'animal-form:bear', label: 'Bear' }];
+const FORMS: ReadonlyArray<FormPickerOption> = [{ value: 'animal-form:bear', label: 'Bear' }];
 const BEAR: FormPreview = { rows: [{ name: 'Armor Class', own: '19', form: '22' }] };
 
 interface Inputs {

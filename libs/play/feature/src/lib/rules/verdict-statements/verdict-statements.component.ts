@@ -15,5 +15,5 @@ import type { VerdictNode } from '../predicate-verdict';
 export class VerdictStatements {
   protected readonly TRUTH_KEYS = TRUTH_KEYS;
   protected readonly TRUTH_TONES = TRUTH_TONES;
-  public readonly nodes = input.required<readonly VerdictNode[]>();
+  public readonly nodes = input.required<ReadonlyArray<VerdictNode>>();
 }

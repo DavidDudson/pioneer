@@ -8,7 +8,7 @@ import { InventoryPlacement } from './inventory-line';
 import type { InventoryGroup, InventoryLine } from './inventory-line';
 import { InventoryView } from './inventory.component';
 
-async function render(groups: readonly InventoryGroup[] | undefined): Promise<HTMLElement> {
+async function render(groups: ReadonlyArray<InventoryGroup> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<InventoryView> = TestBed.createComponent(InventoryView);
   fixture.componentRef.setInput('groups', groups);
@@ -19,7 +19,7 @@ async function render(groups: readonly InventoryGroup[] | undefined): Promise<HT
 }
 
 /** Each line's own texts, not those of what it holds. */
-function lineTexts(row: Element): string[] {
+function lineTexts(row: Element): Array<string> {
   return [...row.querySelectorAll('fr-text')]
     .values()
     .filter((part) => part.closest('pio-inventory-row') === row)
@@ -27,7 +27,7 @@ function lineTexts(row: Element): string[] {
     .toArray();
 }
 
-function rows(host: HTMLElement): string[][] {
+function rows(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('pio-inventory-row')].map((row) => lineTexts(row));
 }
 

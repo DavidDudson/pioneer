@@ -12,7 +12,7 @@ export type ListStyle = ValueOf<typeof ListStyle>;
 /** The locale-bound pieces `formatSummary` needs; the UI supplies them from its translator and `Intl`. */
 export interface SummaryFormat {
   readonly message: (descriptor: MessageDescriptor) => string;
-  readonly list: (items: readonly string[], style: ListStyle) => string;
+  readonly list: (items: ReadonlyArray<string>, style: ListStyle) => string;
 }
 
 /** A list inside another list is introduced ("either … or …", "both … and …"), so its scope reads clearly. */
@@ -30,7 +30,7 @@ function formatPart(part: PredicateSummary, format: SummaryFormat): string {
   return text;
 }
 
-function formatParts(parts: readonly PredicateSummary[], style: ListStyle, format: SummaryFormat): string {
+function formatParts(parts: ReadonlyArray<PredicateSummary>, style: ListStyle, format: SummaryFormat): string {
   return format.list(
     parts.map((part) => formatPart(part, format)),
     style,

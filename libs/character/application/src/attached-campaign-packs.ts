@@ -13,12 +13,12 @@ export interface AttachedCampaign {
   /** Its id, which the sheet links its key items to; left out where nothing links. */
   readonly id?: AttachedCampaignId | undefined;
   readonly name: AttachedCampaignName;
-  readonly packs: readonly ContentPackId[];
-  readonly variants: readonly VariantRuleId[];
+  readonly packs: ReadonlyArray<ContentPackId>;
+  readonly variants: ReadonlyArray<VariantRuleId>;
   /** The limits its GM changed; a limit left out is the core rules'. */
   readonly limits?: RuleLimitOverrides | undefined;
   /** The rule-breaking lines its GM approved for this character, which silence their warnings (ADR-0064). */
-  readonly approvals?: readonly ItemApproval[] | undefined;
+  readonly approvals?: ReadonlyArray<ItemApproval> | undefined;
 }
 
 /**
@@ -31,5 +31,5 @@ export abstract class AttachedCampaignPacks {
   public abstract of(characterId: CharacterId): Promise<AttachedCampaign | undefined>;
 
   /** The other characters in the campaign the character is attached to, by name; none when it is in no campaign. */
-  public abstract alliesOf(characterId: CharacterId): Promise<readonly CampaignAlly[]>;
+  public abstract alliesOf(characterId: CharacterId): Promise<ReadonlyArray<CampaignAlly>>;
 }

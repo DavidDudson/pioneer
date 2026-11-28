@@ -15,7 +15,7 @@ import { itemReviewKey } from './campaign-item-review-store';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's key items. */
-function keyItemsKey(id: CampaignId | undefined): readonly unknown[] {
+function keyItemsKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'key-items', id];
 }
 

@@ -10,7 +10,7 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-async function render(speeds: readonly SpeedRow[] | undefined): Promise<HTMLElement> {
+async function render(speeds: ReadonlyArray<SpeedRow> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(SpeedRows);
   fixture.componentRef.setInput('speeds', speeds);

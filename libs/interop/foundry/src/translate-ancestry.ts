@@ -73,7 +73,11 @@ type FoundryLanguages = z.infer<typeof FoundryLanguages>;
 type FoundryAncestrySystem = z.infer<typeof FoundryAncestrySystem>;
 
 /** The `language` entries Foundry's slugs name; free text Foundry allows beside them is reported. */
-function languagesOf({ value, custom }: FoundryLanguages, field: string, { references, log }: KindInput): ContentId[] {
+function languagesOf(
+  { value, custom }: FoundryLanguages,
+  field: string,
+  { references, log }: KindInput,
+): Array<ContentId> {
   if (custom.trim() !== '') {
     report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.custom`, raw: custom });
   }

@@ -27,7 +27,7 @@ export const BUILD_LEVEL = Level.parse(20);
 /** One slot to fill and the values it would take, best first. */
 export interface Fill {
   readonly slot: SlotKey;
-  readonly candidates: readonly ChoiceValue[];
+  readonly candidates: ReadonlyArray<ChoiceValue>;
 }
 
 /** A slot's offer: an option with the value a pick stores, and the name a player knows it by. */
@@ -64,7 +64,7 @@ function levelOf(content: SlotContent, value: ChoiceValue): number {
  * The offers of a root or `ChoiceSet` slot in the order they are tried: lowest level first, as a slot takes no feat
  * above the level it opens at, and the ancestry slot's `PREFERRED_ANCESTRY` first.
  */
-function ordered(slot: SlotKey, options: readonly Offered[], content: SlotContent): Fill {
+function ordered(slot: SlotKey, options: ReadonlyArray<Offered>, content: SlotContent): Fill {
   const preferred = slot === ANCESTRY_SLOT ? options.filter(({ label }) => label === PREFERRED_ANCESTRY) : [];
 
   const lowest = options
@@ -75,7 +75,7 @@ function ordered(slot: SlotKey, options: readonly Offered[], content: SlotConten
 }
 
 /** The character's own slots that are open: ancestry, heritage, background and, when it needs one, deity. */
-function rootFills(grants: GrantResolution, content: SlotContent): Fill[] {
+function rootFills(grants: GrantResolution, content: SlotContent): Array<Fill> {
   return grants.rootSlots
     .filter((root) => root.pick === undefined && root.key !== CLASS_SLOT)
     .filter((root) => root.key !== DEITY_SLOT || needsDeity(grants.rollOptions))
@@ -83,7 +83,7 @@ function rootFills(grants: GrantResolution, content: SlotContent): Fill[] {
 }
 
 /** The attribute boosts not placed yet. */
-function boostFills(document: CharacterDocument, content: SlotContent): Fill[] {
+function boostFills(document: CharacterDocument, content: SlotContent): Array<Fill> {
   return boostSets(document, content.boosts)
     .flatMap((set) => set.slots)
     .filter((slot) => slot.pick === undefined)
@@ -91,7 +91,7 @@ function boostFills(document: CharacterDocument, content: SlotContent): Fill[] {
 }
 
 /** The trained skills and skill increases not placed yet, then the languages. */
-function trainingFills(document: CharacterDocument, content: SlotContent): Fill[] {
+function trainingFills(document: CharacterDocument, content: SlotContent): Array<Fill> {
   const skills = skillSlots(document, skillReads(document, content));
   const languages = languageSlots(document, languageReads(document, content));
 
@@ -103,7 +103,7 @@ function trainingFills(document: CharacterDocument, content: SlotContent): Fill[
 }
 
 /** The `ChoiceSet` slots not answered: feats, subclasses and the like. */
-function choiceFills(document: CharacterDocument, grants: GrantResolution, content: SlotContent): Fill[] {
+function choiceFills(document: CharacterDocument, grants: GrantResolution, content: SlotContent): Array<Fill> {
   const { choices } = document.build;
 
   return grants.open
@@ -112,7 +112,7 @@ function choiceFills(document: CharacterDocument, grants: GrantResolution, conte
 }
 
 /** The prepared, repertoire and signature spell slots not filled yet. */
-function spellFills(document: CharacterDocument, content: SlotContent): Fill[] {
+function spellFills(document: CharacterDocument, content: SlotContent): Array<Fill> {
   const reads = preparedReads(document, content);
 
   return [...preparedSlots(document, reads), ...signatureSlots(document, reads)]
@@ -123,7 +123,7 @@ function spellFills(document: CharacterDocument, content: SlotContent): Fill[] {
 }
 
 /** The slots that are open, in the order a builder fills them: its own, boosts, skills, languages, choices, spells. */
-export function openFills(document: CharacterDocument, content: SlotContent): Fill[] {
+export function openFills(document: CharacterDocument, content: SlotContent): Array<Fill> {
   const grants = grantsOf(document, content);
 
   return [

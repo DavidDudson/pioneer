@@ -19,11 +19,11 @@ interface UntypedNode {
   readonly computed?: unknown;
   readonly kind?: string;
   readonly callee?: { readonly type?: unknown; readonly property?: { readonly name?: unknown } };
-  readonly arguments?: readonly unknown[];
+  readonly arguments?: ReadonlyArray<unknown>;
 }
 
 interface MagicNumberOptions {
-  readonly ignore?: readonly number[];
+  readonly ignore?: ReadonlyArray<number>;
   readonly ignoreArrayIndexes?: boolean;
   readonly ignoreDefaultValues?: boolean;
   readonly ignoreClassFieldInitialValues?: boolean;
@@ -179,8 +179,8 @@ function isAnnotated(node: CallChainNode): boolean {
 }
 
 /** Method names called along `z.string().min(1).brand(...)` after the factory call. */
-function chainMethods(call: CallChainNode): readonly string[] {
-  const names: string[] = [];
+function chainMethods(call: CallChainNode): ReadonlyArray<string> {
+  const names: Array<string> = [];
   let node = call;
   let member = node.parent;
 

@@ -24,9 +24,9 @@ const ANCESTRY_BOOSTS_MAX = 4;
 /** A class's progression runs from 1st to 20th level. */
 const CLASS_LEVEL_MAX = 20;
 
-const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute));
-const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
-const contentIds: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
+const attributes: Arbitrary<Array<string>> = shuffledSubarray(Object.values(Attribute));
+const boost: Arbitrary<Array<string>> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
+const contentIds: Arbitrary<Array<string>> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
 export const ancestryData: Arbitrary<JsonObject> = withOptional(
   record({
@@ -58,26 +58,26 @@ export const archetypeData: Arbitrary<JsonObject> = withOptional(record({ dedica
   dedicationLock: integer({ min: 1, max: 4 }),
 });
 
-const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
+const slugs: Arbitrary<Array<string>> = uniqueArray(slugText, { maxLength: LIST_MAX });
 
 const deityCategory: Arbitrary<string> = constantFrom(
   ...Object.values(DeityCategory).filter((category) => category !== DeityCategory.Philosophy),
 );
 
 const DOMAINS_MAX = 16;
-const domains: Arbitrary<string[]> = shuffledSubarray(Object.values(DeityDomain), { maxLength: DOMAINS_MAX });
-const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
-const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
+const domains: Arbitrary<Array<string>> = shuffledSubarray(Object.values(DeityDomain), { maxLength: DOMAINS_MAX });
+const fonts: Arbitrary<Array<string>> = shuffledSubarray(Object.values(DivineFont));
+const skills: Arbitrary<Array<string>> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
 const deitySpell = (rank: number): Arbitrary<JsonObject> => record({ rank: constant(rank), spell: contentIdJson });
 
 /** Spells at distinct ranks. */
-const deitySpells: Arbitrary<JsonObject[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain(
+const deitySpells: Arbitrary<Array<JsonObject>> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain(
   (ranks) => tuple(...ranks.map((rank) => deitySpell(rank))),
 );
 
 const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
-const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
+const sanctified: Arbitrary<Array<string>> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
 
 const deityData: Arbitrary<JsonObject> = withOptional(
   record({

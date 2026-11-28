@@ -113,14 +113,14 @@ export const NO_TAB = 'none';
 
 /** What else a sheet opens with: the slots the server read, and the content packs served. */
 export interface SheetOptions {
-  readonly slots?: readonly JsonObject[];
+  readonly slots?: ReadonlyArray<JsonObject>;
   /** The languages the server read; none by default. */
   readonly languages?: JsonObject;
   /** The deity the server read; none by default. */
   readonly deity?: JsonObject;
   /** The names of the users who authored the character's overrides; none by default. */
-  readonly authors?: readonly JsonObject[];
-  readonly packs?: readonly PackContentsLoader[];
+  readonly authors?: ReadonlyArray<JsonObject>;
+  readonly packs?: ReadonlyArray<PackContentsLoader>;
   /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
   readonly tab?: SheetMode | typeof NO_TAB;
   /** The section of the tab to open, by its path; a tab builds only the section it shows, the first by default. */
@@ -136,7 +136,7 @@ export interface SheetOptions {
   readonly ruleLimitSettings?: JsonObject;
   /** What the server has the character using that its campaign has not enabled; nothing by default. */
   readonly unenabledContent?: JsonObject;
-  readonly providers?: readonly Provider[];
+  readonly providers?: ReadonlyArray<Provider>;
 }
 
 /** What a character in no campaign uses that no campaign has enabled: nothing. */
@@ -149,8 +149,8 @@ export { answerSheetBundle, playOf } from './sheet-reads-testing';
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(
   character: JsonObject,
-  slots: readonly JsonObject[],
-  cleared: readonly JsonObject[] = [],
+  slots: ReadonlyArray<JsonObject>,
+  cleared: ReadonlyArray<JsonObject> = [],
 ): JsonObject {
   return { character, slots, cleared, languages: NO_LANGUAGES };
 }

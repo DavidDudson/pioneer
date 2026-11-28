@@ -41,7 +41,7 @@ function jsonOf(fields: Serializable): JsonObject {
 
 /** A definition as tests give it: its sources are optional, defaulting to the pack's homebrew. */
 type Sourceable<Definition extends z.ZodType> = z.input<Definition> & {
-  readonly sources?: readonly z.input<typeof SourceRef>[];
+  readonly sources?: ReadonlyArray<z.input<typeof SourceRef>>;
 };
 
 /** An envelope entry as tests give it, before the pack names its id and sources. */
@@ -50,33 +50,33 @@ interface EnvelopeFields {
   readonly name: string;
   readonly data: JsonObject;
   /** Rule elements as JSON; none when absent. */
-  readonly rules?: readonly JsonObject[];
+  readonly rules?: ReadonlyArray<JsonObject>;
   /** The entry's level, for the kinds that have one (feats). */
   readonly level?: number;
   /** Its traits; none when absent. */
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
   /** Common when absent. */
   readonly rarity?: string;
   /** Rich text as JSON; none when absent. */
-  readonly description?: readonly JsonObject[];
+  readonly description?: ReadonlyArray<JsonObject>;
   /** The ids of the legacy entries it replaces; none when absent. */
-  readonly supersedes?: readonly string[];
+  readonly supersedes?: ReadonlyArray<string>;
 }
 
 /** A test feat's level, traits, `data` beyond its category and `rules`, as JSON. */
 interface FeatFields {
   readonly level?: number;
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
   readonly data?: JsonObject;
-  readonly rules?: readonly JsonObject[];
+  readonly rules?: ReadonlyArray<JsonObject>;
   /** Rich text as JSON; none when absent. */
-  readonly description?: readonly JsonObject[];
+  readonly description?: ReadonlyArray<JsonObject>;
   /** The ids of the legacy entries it replaces; none when absent. */
-  readonly supersedes?: readonly string[];
+  readonly supersedes?: ReadonlyArray<string>;
 }
 
 /** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
-type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?: readonly JsonObject[] };
+type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?: ReadonlyArray<JsonObject> };
 
 /**
  * Test builder for content packs. Defaults to a valid, empty homebrew pack whose entries cite it as their homebrew
@@ -89,13 +89,13 @@ type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?:
 export class ContentPackBuilder {
   #id = 'test-pack';
   #license: ContentLicense = ContentLicense.Homebrew;
-  readonly #ancestries: AncestryFields[] = [];
-  readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
-  readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
+  readonly #ancestries: Array<AncestryFields> = [];
+  readonly #creatures: Array<Sourceable<typeof CreatureDefinition>> = [];
+  readonly #statistics: Array<Sourceable<typeof StatisticDefinition>> = [];
   readonly #namespaces: Record<string, NamespaceKind> = {};
   #proficiencyBonus: ProficiencyBonusTable | undefined;
-  readonly #entries: EnvelopeFields[] = [];
-  readonly #variantRules: Omit<z.input<typeof VariantRuleDefinition>, 'sources'>[] = [];
+  readonly #entries: Array<EnvelopeFields> = [];
+  readonly #variantRules: Array<Omit<z.input<typeof VariantRuleDefinition>, 'sources'>> = [];
 
   public withId(id: string): this {
     this.#id = id;
@@ -151,14 +151,18 @@ export class ContentPackBuilder {
    * A background with these boosts, each the attributes it may go to (`[['str', 'dex'], [...all six]]`), and `rules` as
    * JSON (its trained skills and skill feat).
    */
-  public withBackground(name: string, boosts: readonly (readonly string[])[], rules: readonly JsonObject[] = []): this {
+  public withBackground(
+    name: string,
+    boosts: ReadonlyArray<ReadonlyArray<string>>,
+    rules: ReadonlyArray<JsonObject> = [],
+  ): this {
     this.#entries.push({ kind: ContentKind.Background, name, data: { boosts }, rules });
 
     return this;
   }
 
   /** A heritage of this pack's ancestry `ancestry`, or a versatile one without it, with `rules` as JSON. */
-  public withHeritage(name: string, ancestry?: string, rules: readonly JsonObject[] = []): this {
+  public withHeritage(name: string, ancestry?: string, rules: ReadonlyArray<JsonObject> = []): this {
     const data = ancestry === undefined ? {} : { ancestry: this.idOf(ContentKind.Ancestry, ancestry) };
     this.#entries.push({ kind: ContentKind.Heritage, name, data, rules });
 
@@ -166,7 +170,7 @@ export class ContentPackBuilder {
   }
 
   /** An ancestry feature (Keen Eyes) with `rules` as JSON, which an ancestry or heritage grants. */
-  public withAncestryFeature(name: string, rules: readonly JsonObject[] = []): this {
+  public withAncestryFeature(name: string, rules: ReadonlyArray<JsonObject> = []): this {
     this.#entries.push({ kind: ContentKind.AncestryFeature, name, data: {}, rules });
 
     return this;
@@ -238,7 +242,7 @@ export class ContentPackBuilder {
    */
   public withClass(
     name: string,
-    keyAttribute: readonly string[],
+    keyAttribute: ReadonlyArray<string>,
     { hitPoints = 10, rules = [], ...optional }: ClassFields = {},
   ): this {
     this.#entries.push({
@@ -287,7 +291,7 @@ export class ContentPackBuilder {
    * A condition slugged `condition:<name>`, with `rules` as JSON: what it does to statistics. It carries no value
    * unless `valued` (Clumsy 1), and recovers as `recovery` says.
    */
-  public withCondition(name: string, rules: readonly JsonObject[] = [], fields: ConditionFields = {}): this {
+  public withCondition(name: string, rules: ReadonlyArray<JsonObject> = [], fields: ConditionFields = {}): this {
     this.#entries.push({
       kind: ContentKind.Condition,
       name,
@@ -299,7 +303,7 @@ export class ContentPackBuilder {
   }
 
   /** An environment slugged `environment:<name>`, with `rules` as JSON: what it does to statistics while it is active. */
-  public withEnvironment(name: string, data: JsonObject = {}, rules: readonly JsonObject[] = []): this {
+  public withEnvironment(name: string, data: JsonObject = {}, rules: ReadonlyArray<JsonObject> = []): this {
     this.#entries.push({
       kind: ContentKind.Environment,
       name,
@@ -327,7 +331,7 @@ export class ContentPackBuilder {
   }
 
   /** A spell effect slugged `effect:<name>` of `level`, lasting until someone ends it, with `rules` as JSON. */
-  public withEffect(name: string, level: number, rules: readonly JsonObject[] = []): this {
+  public withEffect(name: string, level: number, rules: ReadonlyArray<JsonObject> = []): this {
     this.#entries.push({
       kind: ContentKind.Effect,
       name,

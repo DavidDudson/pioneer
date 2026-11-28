@@ -50,7 +50,7 @@ function contentScopeOf(): Signal<ContentScope> {
 const CONTENT_SCOPE_PROVIDER: Provider = { provide: CONTENT_SCOPE, useFactory: contentScopeOf };
 
 /** The open character's packs, variant rules and table limits, and the source-line names drawn from the packs. */
-export const CHARACTER_CONTENT_PROVIDERS: readonly Provider[] = [
+export const CHARACTER_CONTENT_PROVIDERS: ReadonlyArray<Provider> = [
   CharacterPackStore,
   CharacterRuleLimitStore,
   CharacterRuleLimitSettingStore,

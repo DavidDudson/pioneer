@@ -117,10 +117,10 @@ type AnyColumn<TRow extends RowData> = ColumnDef<TableFeatureSet, TRow, SortValu
  * `class SpellTableSchema extends TableSchema<Spell> { addCost(): this { return this.addComponent(…); } }`.
  */
 export class TableSchema<TRow extends RowData> {
-  readonly #columns: TableColumn<TRow>[] = [];
+  readonly #columns: Array<TableColumn<TRow>> = [];
 
   /** The finished columns, for `fr-table`'s `columns` input. Keep the result stable (a `computed` or a const). */
-  public build(): readonly TableColumn<TRow>[] {
+  public build(): ReadonlyArray<TableColumn<TRow>> {
     return [...this.#columns];
   }
 

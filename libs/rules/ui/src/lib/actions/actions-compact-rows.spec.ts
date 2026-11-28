@@ -13,7 +13,7 @@ import { ActionsView } from './actions.component';
 /** The standing actions renamed so that case and accents decide nothing: "zeal", "Éclair", "apex", "Eclair2". */
 const NAMES = ['zeal', 'Éclair', 'apex', 'Eclair2'];
 
-function renamed(): readonly ActionLine[] {
+function renamed(): ReadonlyArray<ActionLine> {
   return NAMES.map((name, index) => {
     const base = STANDING_ACTIONS[index];
 
@@ -37,7 +37,7 @@ async function render(view: ActionsViewKind): Promise<HTMLElement> {
   return fixture.nativeElement as HTMLElement;
 }
 
-function shownNames(host: HTMLElement): readonly string[] {
+function shownNames(host: HTMLElement): ReadonlyArray<string> {
   return [...host.querySelectorAll('pio-action-row fr-hover-card')].map((cell) => cell.textContent.trim());
 }
 

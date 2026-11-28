@@ -94,7 +94,7 @@ export class BreakdownView {
     const statistic = this.statistic();
     const style = numberStyle(this.kind());
 
-    const rules: readonly RuleLabel[] = [
+    const rules: ReadonlyArray<RuleLabel> = [
       ...statistic.lines.map(({ modifier }): RuleLabel => modifier),
       ...statistic.overrides,
       ...(statistic.form === undefined ? [] : [{ id: statistic.form.rule, label: statistic.form.label }]),
@@ -122,7 +122,11 @@ export class BreakdownView {
     };
   });
 
-  #pinned(statistic: StatisticValue, rules: readonly RuleLabel[], style: Intl.NumberFormatOptions): string | undefined {
+  #pinned(
+    statistic: StatisticValue,
+    rules: ReadonlyArray<RuleLabel>,
+    style: Intl.NumberFormatOptions,
+  ): string | undefined {
     if (statistic.pinnedBy === undefined) {
       return undefined;
     }
@@ -165,7 +169,7 @@ export class BreakdownView {
     return { name: leading ? words : `${term.sign} ${words}`, value, variant };
   }
 
-  #line(line: BreakdownLine, rules: readonly RuleLabel[]): ShownLine {
+  #line(line: BreakdownLine, rules: ReadonlyArray<RuleLabel>): ShownLine {
     const { modifier, status } = line;
 
     const shown = {
@@ -183,7 +187,7 @@ export class BreakdownView {
 
   #detail(
     status: Exclude<LineStatus, { readonly kind: typeof LineStatusKind.Applied }>,
-    rules: readonly RuleLabel[],
+    rules: ReadonlyArray<RuleLabel>,
   ): string | undefined {
     switch (status.kind) {
       case LineStatusKind.Suppressed: {
@@ -224,7 +228,7 @@ export class BreakdownView {
     });
   }
 
-  #override(line: OverrideLine, rules: readonly RuleLabel[], style: Intl.NumberFormatOptions): ShownOverride {
+  #override(line: OverrideLine, rules: ReadonlyArray<RuleLabel>, style: Intl.NumberFormatOptions): ShownOverride {
     const { status } = line;
 
     const shown = {
@@ -251,7 +255,7 @@ export class BreakdownView {
 
   #overrideDetail(
     status: Exclude<OverrideStatus, { readonly kind: typeof OverrideStatusKind.Applied }>,
-    rules: readonly RuleLabel[],
+    rules: ReadonlyArray<RuleLabel>,
   ): string | undefined {
     switch (status.kind) {
       case OverrideStatusKind.Replaced: {
@@ -289,7 +293,7 @@ export class BreakdownView {
   }
 
   /** A rule a line names (the one that beat, removed, replaced or pinned it): by its name; else the caller's; else its id. */
-  #ruleName(id: RuleId, rules: readonly RuleLabel[]): string {
+  #ruleName(id: RuleId, rules: ReadonlyArray<RuleLabel>): string {
     const rule = rules.find((candidate) => candidate.id === id);
 
     if (rule !== undefined) {

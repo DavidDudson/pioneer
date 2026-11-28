@@ -55,14 +55,14 @@ export class SheetConditions {
   protected readonly valueMax = CONDITION_VALUE_MAX;
   protected readonly valueMin = FIRST_VALUE;
 
-  protected readonly views = computed((): readonly ConditionView[] | undefined => {
+  protected readonly views = computed((): ReadonlyArray<ConditionView> | undefined => {
     const registry = this.registry.data();
     const read = this.#play.play.data();
 
     return registry === undefined || read === undefined ? undefined : conditionViews(registry, read.play.conditions);
   });
 
-  protected readonly options = computed((): readonly ConditionOption[] => {
+  protected readonly options = computed((): ReadonlyArray<ConditionOption> => {
     const registry = this.registry.data();
 
     return registry === undefined ? [] : conditionOptions(registry);

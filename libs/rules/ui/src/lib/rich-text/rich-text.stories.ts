@@ -16,7 +16,8 @@ const STATISTIC_NAMES: ReadonlyMap<string, ContentText> = new Map([['save:reflex
 /** A page that can open Off-Guard and knows the Reflex save. */
 const LINKS: RichTextLinks = {
   name: (id: ContentId): ContentText | undefined => (id === OFF_GUARD ? ContentText.parse('Off-Guard') : undefined),
-  target: (id: ContentId): readonly string[] | undefined => (id === OFF_GUARD ? ['/content', 'off-guard'] : undefined),
+  target: (id: ContentId): ReadonlyArray<string> | undefined =>
+    id === OFF_GUARD ? ['/content', 'off-guard'] : undefined,
   statisticName: (selector): ContentText | undefined => STATISTIC_NAMES.get(selector),
 };
 

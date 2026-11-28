@@ -25,7 +25,7 @@ export interface SpellPickSources {
   readonly registry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
-  readonly slots: Signal<readonly CharacterSlot[] | undefined>;
+  readonly slots: Signal<ReadonlyArray<CharacterSlot> | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: Translate;
@@ -41,7 +41,7 @@ export interface SpellPickSources {
 export interface PreparedField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly rows: Signal<readonly SpellPickerRow[]>;
+  readonly rows: Signal<ReadonlyArray<SpellPickerRow>>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
   readonly detail: Signal<SpellDetailLine | undefined>;
@@ -61,7 +61,7 @@ interface PreparedRankFields {
   readonly heading: Signal<MessageDescriptor>;
   /** Reads anew as the character's choices change: a font's slots wait on the font. */
   readonly note: Signal<MessageDescriptor | undefined>;
-  readonly fields: readonly PreparedField[];
+  readonly fields: ReadonlyArray<PreparedField>;
 }
 
 /** A prepared entry's pickers, rank by rank; or a spontaneous entry's repertoire and signature spells (#479). */
@@ -69,21 +69,24 @@ export interface PreparedEntryFields {
   readonly key: Slug;
   readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
-  readonly ranks: readonly PreparedRankFields[];
+  readonly ranks: ReadonlyArray<PreparedRankFields>;
 }
 
-function slotKeys(entries: readonly SheetPreparedEntry[]): string {
+function slotKeys(entries: ReadonlyArray<SheetPreparedEntry>): string {
   return entries.flatMap((entry) => entry.ranks.flatMap((rank) => rank.slots.map((slot) => slot.key))).join(',');
 }
 
-function slotIn(entries: readonly SheetPreparedEntry[] | undefined, key: SlotKey): SheetPreparedSlot | undefined {
+function slotIn(entries: ReadonlyArray<SheetPreparedEntry> | undefined, key: SlotKey): SheetPreparedSlot | undefined {
   return entries?.flatMap((entry) => entry.ranks.flatMap((rank) => rank.slots)).find((slot) => slot.key === key);
 }
 
 const SPELL_FACETS = facetsFor([ContentKind.Spell]);
 
 /** `rows` less the spells the filters leave out; all of them where there are no filters. */
-function without(rows: readonly SpellPickerRow[], hidden: ReadonlySet<string> | undefined): readonly SpellPickerRow[] {
+function without(
+  rows: ReadonlyArray<SpellPickerRow>,
+  hidden: ReadonlySet<string> | undefined,
+): ReadonlyArray<SpellPickerRow> {
   return hidden === undefined ? rows : rows.filter((row) => !hidden.has(row.id));
 }
 
@@ -95,7 +98,7 @@ const NONE_TAKEN: ReadonlySet<ContentId> = new Set();
  * from the repertoire, so neither has any.
  */
 function takenElsewhere(
-  entries: readonly SheetPreparedEntry[] | undefined,
+  entries: ReadonlyArray<SheetPreparedEntry> | undefined,
   character: Character | undefined,
   key: SlotKey,
 ): ReadonlySet<ContentId> {
@@ -155,7 +158,7 @@ function slotRows(
   sources: SpellPickSources,
   slot: SheetPreparedSlot | undefined,
   taken: ReadonlySet<ContentId>,
-): readonly SpellPickerRow[] {
+): ReadonlyArray<SpellPickerRow> {
   return spellRows(slot?.spells ?? [], {
     translate: sources.translate,
     castRank: slot?.castRank,
@@ -167,7 +170,7 @@ function slotRows(
 /** One prepared slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function preparedField(
   sources: SpellPickSources,
-  entries: Signal<readonly SheetPreparedEntry[] | undefined>,
+  entries: Signal<ReadonlyArray<SheetPreparedEntry> | undefined>,
   read: SheetPreparedSlot,
 ): PreparedField {
   const { key, label } = read;
@@ -226,7 +229,7 @@ function preparedField(
  * the slots change (a level up, another class), so an edit in progress keeps its session while the character changes
  * around it. None while the spells load.
  */
-export function preparedFieldsOf(sources: SpellPickSources): Signal<readonly PreparedEntryFields[]> {
+export function preparedFieldsOf(sources: SpellPickSources): Signal<ReadonlyArray<PreparedEntryFields>> {
   const entries = computed(() => {
     const registry = sources.registry();
     const character = sources.character();

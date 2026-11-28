@@ -11,13 +11,13 @@ export interface KnownPack {
   readonly publisher: PackPublisher;
   readonly official?: boolean;
   readonly private?: boolean;
-  readonly readers?: readonly UserId[];
+  readonly readers?: ReadonlyArray<UserId>;
 }
 
 /** Catalog adapter for tests: packs, who reads them and what extends what, given up front. */
 export class InMemoryPackCatalog extends PackCatalog {
   readonly #packs = new Map<EnabledPackId, KnownPack>();
-  readonly #extends = new Map<EnabledPackId, EnabledPackId[]>();
+  readonly #extends = new Map<EnabledPackId, Array<EnabledPackId>>();
 
   public pack(known: KnownPack): this {
     this.#packs.set(known.id, known);
@@ -32,11 +32,11 @@ export class InMemoryPackCatalog extends PackCatalog {
     return this;
   }
 
-  public override async official(): Promise<readonly CatalogPack[]> {
+  public override async official(): Promise<ReadonlyArray<CatalogPack>> {
     return this.#sorted().filter((pack) => pack.official);
   }
 
-  public override async readableBy(viewer: UserId): Promise<readonly CatalogPack[]> {
+  public override async readableBy(viewer: UserId): Promise<ReadonlyArray<CatalogPack>> {
     const readable = [...this.#packs.values()].filter(
       (known) => known.official === true || known.readers?.includes(viewer) === true,
     );
@@ -44,9 +44,9 @@ export class InMemoryPackCatalog extends PackCatalog {
     return InMemoryPackCatalog.#order(readable.map((known) => InMemoryPackCatalog.#listed(known)));
   }
 
-  public override async byIds(ids: readonly EnabledPackId[]): Promise<ReadonlyMap<EnabledPackId, CatalogPack>> {
+  public override async byIds(ids: ReadonlyArray<EnabledPackId>): Promise<ReadonlyMap<EnabledPackId, CatalogPack>> {
     return new Map(
-      ids.flatMap((id): [EnabledPackId, CatalogPack][] => {
+      ids.flatMap((id): Array<[EnabledPackId, CatalogPack]> => {
         const known = this.#packs.get(id);
 
         return known === undefined ? [] : [[id, InMemoryPackCatalog.#listed(known)]];
@@ -54,8 +54,8 @@ export class InMemoryPackCatalog extends PackCatalog {
     );
   }
 
-  public override async closure(id: EnabledPackId): Promise<readonly EnabledPackId[]> {
-    const ordered: EnabledPackId[] = [];
+  public override async closure(id: EnabledPackId): Promise<ReadonlyArray<EnabledPackId>> {
+    const ordered: Array<EnabledPackId> = [];
 
     const visit = (pack: EnabledPackId): void => {
       if (ordered.includes(pack)) {
@@ -74,7 +74,7 @@ export class InMemoryPackCatalog extends PackCatalog {
     return ordered;
   }
 
-  #sorted(): readonly CatalogPack[] {
+  #sorted(): ReadonlyArray<CatalogPack> {
     return InMemoryPackCatalog.#order([...this.#packs.values()].map((known) => InMemoryPackCatalog.#listed(known)));
   }
 
@@ -88,7 +88,7 @@ export class InMemoryPackCatalog extends PackCatalog {
     };
   }
 
-  static #order(packs: readonly CatalogPack[]): readonly CatalogPack[] {
+  static #order(packs: ReadonlyArray<CatalogPack>): ReadonlyArray<CatalogPack> {
     return packs.toSorted((left, right) => left.title.localeCompare(right.title) || left.id.localeCompare(right.id));
   }
 }

@@ -48,7 +48,7 @@ function present<TValue>(value: TValue | undefined): TValue {
 }
 
 /** Gives each line's id, so lines are added in the order listed. */
-function stock(lines: readonly [InventoryItemId, ItemFixture, InventoryItemId | undefined][]): Inventory {
+function stock(lines: ReadonlyArray<[InventoryItemId, ItemFixture, InventoryItemId | undefined]>): Inventory {
   let inventory = EMPTY_INVENTORY;
 
   for (const [id, name, container] of lines) {

@@ -52,7 +52,7 @@ export interface ShieldStats {
   /** A shield an effect gives: the effect, and what ends it. */
   readonly granted?: ShieldGrant;
   /** Extra Hardness against damage of some types. */
-  readonly hardnessAgainst?: readonly HardnessBonus[];
+  readonly hardnessAgainst?: ReadonlyArray<HardnessBonus>;
 }
 
 /** The shields the character holds, by the inventory item, as the server's content gives them. */
@@ -65,7 +65,7 @@ export const NO_SHIELDS: ShieldContent = new Map();
 interface ShieldExtras {
   readonly undamageable: true | undefined;
   readonly granted: ShieldGrant | undefined;
-  readonly hardnessAgainst: readonly HardnessBonus[] | undefined;
+  readonly hardnessAgainst: ReadonlyArray<HardnessBonus> | undefined;
 }
 
 /** `core` with each of `extras` the shield has: an absent one stays out of the stats. */
@@ -77,7 +77,7 @@ function shieldStats(core: ShieldStats, { undamageable, granted, hardnessAgainst
 }
 
 /** The shields `held` as content, by the inventory item that holds each. */
-export function shieldContent(held: readonly HeldShield[]): ShieldContent {
+export function shieldContent(held: ReadonlyArray<HeldShield>): ShieldContent {
   return new Map(
     held.map(
       ({

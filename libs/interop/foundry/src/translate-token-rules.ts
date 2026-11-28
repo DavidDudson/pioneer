@@ -47,12 +47,12 @@ function keyOf(raw: unknown): string {
 
 /** Rule elements split into those Pioneer reads and those dropped on purpose. */
 interface Partitioned {
-  readonly kept: readonly unknown[];
-  readonly dropped: readonly DroppedRule[];
+  readonly kept: ReadonlyArray<unknown>;
+  readonly dropped: ReadonlyArray<DroppedRule>;
 }
 
 /** The rules of `raws` Pioneer reads, and those dropped on purpose. */
-export function withoutDropped(entry: ContentId, raws: readonly unknown[]): Partitioned {
+export function withoutDropped(entry: ContentId, raws: ReadonlyArray<unknown>): Partitioned {
   const reasons = raws.map((raw) => reasonOf(raw));
 
   return {

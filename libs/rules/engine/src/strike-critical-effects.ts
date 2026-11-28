@@ -20,10 +20,10 @@ export interface CriticalEffect {
 
 /** `effects` with what `rule` adds to them: the effect of a `CriticalEffect` element that reaches the Strike's damage. */
 export function criticallyAffectedBy(
-  effects: readonly CriticalEffect[],
+  effects: ReadonlyArray<CriticalEffect>,
   rule: RuleInPlay,
   targets: StrikeTargets,
-): readonly CriticalEffect[] {
+): ReadonlyArray<CriticalEffect> {
   const { element } = rule;
 
   return element.key === RuleElementKey.CriticalEffect &&

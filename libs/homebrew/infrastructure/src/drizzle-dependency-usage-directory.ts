@@ -26,7 +26,7 @@ export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {
   public override async entriesUsing(
     pack: ContentPackId,
     dependsOn: ContentPackId,
-  ): Promise<readonly UsingEntryName[]> {
+  ): Promise<ReadonlyArray<UsingEntryName>> {
     const offered = await this.#db
       .select({ id: contentEntries.id })
       .from(contentEntries)

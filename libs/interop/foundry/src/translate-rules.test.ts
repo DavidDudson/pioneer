@@ -74,7 +74,7 @@ describe('translateRules: GrantItem delete actions', () => {
 describe('translateRules: GrantItem badge value', () => {
   const grant = { key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Blinded' };
 
-  const altering = (alterations: readonly object[]): DocumentFixture =>
+  const altering = (alterations: ReadonlyArray<object>): DocumentFixture =>
     condition('gRaNtEr000000000', 'Granter', { rules: [{ ...grant, alterations }] });
 
   test("an override of the badge value is the grant's value", () => {

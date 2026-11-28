@@ -73,7 +73,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     this.#vitals = vitals;
   }
 
-  public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
+  public override async ownedBy(userId: UserId): Promise<ReadonlyArray<CharacterSummary>> {
     const rows = await this.#db
       .select(SUMMARY)
       .from(characters)
@@ -83,7 +83,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     return rows.map((row) => toSummary(row));
   }
 
-  public override async byIds(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, CharacterSummary>> {
+  public override async byIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyMap<CharacterId, CharacterSummary>> {
     if (ids.length === 0) {
       return new Map();
     }
@@ -96,7 +96,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     return new Map(rows.map((row) => [CharacterId.parse(row.id), toSummary(row)]));
   }
 
-  public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
+  public override async vitalsOf(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
     if (this.#vitals === undefined) {
       return new Map();
     }

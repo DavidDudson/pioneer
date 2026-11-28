@@ -29,7 +29,7 @@ export class PartyFlaggedItems extends FlaggedItems {
     this.#flagged = flagged;
   }
 
-  public override async of(campaignId: CampaignId): Promise<readonly FlaggedItem[]> {
+  public override async of(campaignId: CampaignId): Promise<ReadonlyArray<FlaggedItem>> {
     const party = await this.#db
       .select({ characterId: campaignCharacters.characterId })
       .from(campaignCharacters)

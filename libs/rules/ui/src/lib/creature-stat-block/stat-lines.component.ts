@@ -11,5 +11,5 @@ import type { StatLine } from './creature-stat-block';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatLinesView {
-  public readonly lines = input.required<readonly StatLine[]>();
+  public readonly lines = input.required<ReadonlyArray<StatLine>>();
 }

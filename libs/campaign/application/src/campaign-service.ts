@@ -48,12 +48,12 @@ export class CampaignService {
   }
 
   /** Every campaign the actor is a member of, as GM or player. */
-  public async list(actor: UserId): Promise<readonly Campaign[]> {
+  public async list(actor: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#repository.listForMember(actor);
   }
 
   /** The campaigns the actor runs and has archived (ADR-0062); nobody else's are listed. */
-  public async listArchived(actor: UserId): Promise<readonly Campaign[]> {
+  public async listArchived(actor: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#repository.listArchivedForGm(actor);
   }
 
@@ -193,7 +193,7 @@ export class CampaignService {
     const names = await this.#directory.displayNames(campaign.members.map((member) => member.userId));
 
     // Memberships cascade with their user, so a missing name is an account deleted since the campaign loaded.
-    const members = campaign.members.flatMap((member): NamedMember[] => {
+    const members = campaign.members.flatMap((member): Array<NamedMember> => {
       const displayName = names.get(member.userId);
 
       return displayName === undefined ? [] : [{ ...member, displayName }];

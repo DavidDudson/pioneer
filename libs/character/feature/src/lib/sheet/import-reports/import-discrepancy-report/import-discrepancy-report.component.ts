@@ -59,7 +59,7 @@ export class ImportDiscrepancyReport {
   protected readonly nothingCompared = computed(() => this.report().compared === 0);
   protected readonly allMatch = computed(() => !this.nothingCompared() && this.report().differences.length === 0);
 
-  protected readonly rows = computed((): readonly DiscrepancyView[] =>
+  protected readonly rows = computed((): ReadonlyArray<DiscrepancyView> =>
     this.report().differences.map((difference) => this.#view(difference)),
   );
 

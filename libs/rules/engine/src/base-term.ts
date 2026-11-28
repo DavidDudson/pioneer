@@ -41,7 +41,7 @@ interface SignedNode {
 }
 
 /** The terms of a sum, left to right: `a + b - c` gives `a`, `b` and `-c`. A bracketed sum stays one term. */
-function terms(node: FormulaNode, sign: TermSign = TermSign.Plus): SignedNode[] {
+function terms(node: FormulaNode, sign: TermSign = TermSign.Plus): Array<SignedNode> {
   if (
     node.kind !== NodeKind.Binary ||
     (node.operator !== BinaryOperator.Add && node.operator !== BinaryOperator.Subtract)
@@ -96,8 +96,8 @@ export function baseTerms(
   formula: FormulaNode,
   resolve: ResolveReference,
   { total, proficiencyOrigin }: Evaluated,
-): readonly BaseTerm[] {
-  const lines: BaseTerm[] = [];
+): ReadonlyArray<BaseTerm> {
+  const lines: Array<BaseTerm> = [];
   let sum = 0;
 
   for (const term of terms(formula)) {

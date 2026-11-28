@@ -11,7 +11,7 @@ const OTHER_AON = 'https://2e.aonprd.com/Spells.aspx?ID=2';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 /** A spell's JSON, as a pack file holds it, citing `sources`. */
-function spell(slug: string, sources: readonly JsonObject[]): JsonObject {
+function spell(slug: string, sources: ReadonlyArray<JsonObject>): JsonObject {
   return {
     id: idOf(slug),
     pack: PACK,

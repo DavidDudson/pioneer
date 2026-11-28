@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { RuleElement } from './rule-element';
 
-const valid: object[] = [
+const valid: Array<object> = [
   { key: 'FastHealing', value: 5 },
   { key: 'FastHealing', value: '@item.level * 2' },
   { key: 'FastHealing', value: 15, type: 'regeneration', deactivatedBy: ['acid', 'fire'] },

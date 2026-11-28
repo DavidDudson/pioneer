@@ -26,7 +26,7 @@ import { shownSlotRows, slotPickerColumns } from './slot-picker-table';
 })
 export class SlotPicker {
   /** Every option the slot offers. */
-  public readonly rows = input.required<readonly SlotPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<SlotPickerRow>>();
   /** The picked option's value; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

@@ -6,7 +6,7 @@ import type { KitLine } from '../shop-offer';
 import { KitContents } from './kit-contents.component';
 import { kitLine } from './kit-contents.fixtures';
 
-async function render(lines: readonly KitLine[]): Promise<HTMLElement> {
+async function render(lines: ReadonlyArray<KitLine>): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(KitContents);
   fixture.componentRef.setInput('lines', lines);
@@ -17,7 +17,7 @@ async function render(lines: readonly KitLine[]): Promise<HTMLElement> {
 }
 
 /** Each line's own text, indented by how deep its list is. */
-const shown = (host: HTMLElement): string[] =>
+const shown = (host: HTMLElement): Array<string> =>
   [...host.querySelectorAll('pio-content-preview > fr-text')].map((text) => {
     let depth = 0;
 

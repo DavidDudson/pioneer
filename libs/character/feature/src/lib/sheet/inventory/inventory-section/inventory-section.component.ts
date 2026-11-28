@@ -58,7 +58,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
 })
 export class InventorySection {
   /** The invested items and what each turns on, worked out with the sheet's statistics; undefined while they load. */
-  public readonly investments = input<readonly Investment[] | undefined>();
+  public readonly investments = input<ReadonlyArray<Investment> | undefined>();
   /** The query the investments' registry comes from, so a failure shows in place of the panel. */
   public readonly engine = input.required<AsyncQuery<ContentRegistry>>();
   /** Whether a battle form has the worn and held gear melded into it, which its rows say. */
@@ -114,7 +114,7 @@ export class InventorySection {
   });
   /** Each item by the name its row shows, so every control's label names it. */
   protected readonly names = injectItemNames(this.runed);
-  protected readonly groups: Signal<readonly InventoryGroup[] | undefined> = computed(() => {
+  protected readonly groups: Signal<ReadonlyArray<InventoryGroup> | undefined> = computed(() => {
     const runed = this.runed();
     const character = this.#store.selected();
 

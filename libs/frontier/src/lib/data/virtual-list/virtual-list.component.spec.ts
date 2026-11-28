@@ -11,7 +11,7 @@ import { VirtualEstimate, VirtualList } from './virtual-list.component';
 const ROW_PX = 100;
 const LONG_LIST = 1000;
 
-function creatures(count: number): string[] {
+function creatures(count: number): Array<string> {
   return Array.from({ length: count }, (_slot, index) => `Creature ${index}`);
 }
 
@@ -21,7 +21,7 @@ interface Rendered {
   readonly stable: () => Promise<void>;
 }
 
-async function render(items: readonly string[], inputs: ComponentInputs<VirtualListHost> = {}): Promise<Rendered> {
+async function render(items: ReadonlyArray<string>, inputs: ComponentInputs<VirtualListHost> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(VirtualListHost);
   fixture.componentRef.setInput('items', items);
 
@@ -46,16 +46,16 @@ async function render(items: readonly string[], inputs: ComponentInputs<VirtualL
   return { fixture, list, stable };
 }
 
-function rowElements(list: HTMLElement): HTMLElement[] {
+function rowElements(list: HTMLElement): Array<HTMLElement> {
   return [...list.querySelectorAll<HTMLElement>('[role="listitem"]')];
 }
 
-function indices(list: HTMLElement): number[] {
+function indices(list: HTMLElement): Array<number> {
   return rowElements(list).map((row) => Number(row.dataset['index']));
 }
 
 /** The text of each `fr-text` in a row. */
-function texts(row: HTMLElement): string[] {
+function texts(row: HTMLElement): Array<string> {
   return [...row.querySelectorAll('fr-text')].map((text) => text.textContent.trim());
 }
 

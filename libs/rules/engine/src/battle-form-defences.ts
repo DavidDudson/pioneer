@@ -20,8 +20,8 @@ function formAdjustmentLines(
   form: FormInPlay,
   listed: FormAdjustments | undefined,
   context: RuleContext,
-): readonly AdjustmentLine[] {
-  return (listed ?? []).flatMap(({ type, value, exceptions }): AdjustmentLine[] => {
+): ReadonlyArray<AdjustmentLine> {
+  return (listed ?? []).flatMap(({ type, value, exceptions }): Array<AdjustmentLine> => {
     const target = DamageAdjustmentTargetSchema.safeParse(type);
     const outcome = valueOf(value, context.resolve(NO_ITEM));
 

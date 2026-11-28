@@ -14,7 +14,7 @@ export interface AncestryOption {
   readonly id: ContentId;
   readonly name: ContentText;
   readonly definition: AncestryDefinition;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** A heritage as a picker row reads it. */
@@ -25,8 +25,8 @@ export interface HeritageOption {
   /** The ancestry it belongs to; undefined for a versatile heritage. */
   readonly ancestry: ContentId | undefined;
   /** What it grants, by name: the features and feats its `GrantItem` elements give. */
-  readonly grants: readonly ContentText[];
-  readonly sources: readonly SourceRef[];
+  readonly grants: ReadonlyArray<ContentText>;
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** A background as a picker row reads it. */
@@ -34,20 +34,20 @@ export interface BackgroundOption {
   readonly id: ContentId;
   readonly name: ContentText;
   readonly description: RichText;
-  readonly boosts: readonly AttributeBoost[];
+  readonly boosts: ReadonlyArray<AttributeBoost>;
   /** The skills and Lores it trains, as selectors (`skill:athletics`, `skill:lore:farming`). */
-  readonly trained: readonly Selector[];
+  readonly trained: ReadonlyArray<Selector>;
   /** The feats it grants, by name. */
-  readonly feats: readonly ContentText[];
-  readonly sources: readonly SourceRef[];
+  readonly feats: ReadonlyArray<ContentText>;
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** What the origin pickers read: each loaded ancestry, heritage and background. */
 export interface OriginContent {
   /** By name. */
-  readonly ancestries: readonly AncestryOption[];
-  readonly heritages: readonly HeritageOption[];
-  readonly backgrounds: readonly BackgroundOption[];
+  readonly ancestries: ReadonlyArray<AncestryOption>;
+  readonly heritages: ReadonlyArray<HeritageOption>;
+  readonly backgrounds: ReadonlyArray<BackgroundOption>;
 }
 
 /** Origin content already read, by registry: a registry's packs never change once loaded. */
@@ -61,12 +61,16 @@ export function originContent(registry: ContentRegistry): OriginContent {
   return read;
 }
 
-const byName = <TOption extends { readonly name: ContentText }>(options: readonly TOption[]): readonly TOption[] =>
-  options.toSorted((left, right) => left.name.localeCompare(right.name));
+const byName = <TOption extends { readonly name: ContentText }>(
+  options: ReadonlyArray<TOption>,
+): ReadonlyArray<TOption> => options.toSorted((left, right) => left.name.localeCompare(right.name));
 
 /** The names of what `rules` grant outright, in order; a grant the player picks (`ChoiceRef`) is not one. */
-function grantedNames(rules: readonly RuleElement[], names: ReadonlyMap<ContentId, ContentText>): ContentText[] {
-  return rules.flatMap((rule): ContentText[] => {
+function grantedNames(
+  rules: ReadonlyArray<RuleElement>,
+  names: ReadonlyMap<ContentId, ContentText>,
+): Array<ContentText> {
+  return rules.flatMap((rule): Array<ContentText> => {
     if (rule.key !== RuleElementKey.GrantItem) {
       return [];
     }
@@ -79,8 +83,8 @@ function grantedNames(rules: readonly RuleElement[], names: ReadonlyMap<ContentI
 }
 
 /** The selectors `rules` raise outright, which a background does to train its skill and Lore. */
-function trainedSelectors(rules: readonly RuleElement[]): Selector[] {
-  return rules.flatMap((rule): Selector[] => {
+function trainedSelectors(rules: ReadonlyArray<RuleElement>): Array<Selector> {
+  return rules.flatMap((rule): Array<Selector> => {
     if (rule.key !== RuleElementKey.Proficiency) {
       return [];
     }
@@ -102,7 +106,7 @@ function readOrigins(registry: ContentRegistry): OriginContent {
     sources: entry.pack.ancestries.find((ancestry) => ancestry.slug === entry.definition.slug)?.sources ?? [],
   }));
 
-  const heritages = entries.flatMap((entry): HeritageOption[] =>
+  const heritages = entries.flatMap((entry): Array<HeritageOption> =>
     entry.kind === ContentKind.Heritage
       ? [
           {
@@ -117,7 +121,7 @@ function readOrigins(registry: ContentRegistry): OriginContent {
       : [],
   );
 
-  const backgrounds = entries.flatMap((entry): BackgroundOption[] =>
+  const backgrounds = entries.flatMap((entry): Array<BackgroundOption> =>
     entry.kind === ContentKind.Background
       ? [
           {

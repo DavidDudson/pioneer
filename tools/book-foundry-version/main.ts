@@ -18,7 +18,7 @@ const TAG_PREFIX = 'pf2e-';
 
 /** One entry of a committed pack file, as far as its sources go. */
 interface PackEntry {
-  readonly sources?: readonly { readonly book?: string }[];
+  readonly sources?: ReadonlyArray<{ readonly book?: string }>;
 }
 
 /** The books a committed pack cites, from its entries' sources. */
@@ -33,7 +33,7 @@ async function booksCited(pack: string): Promise<ReadonlySet<string>> {
     const entries: unknown = await Bun.file(path.join(dir, name)).json();
 
     // SAFETY: each pack file is a JSON array of Foundry entries, and `PackEntry` lists only the optional `sources` field read here.
-    for (const entry of Array.isArray(entries) ? (entries as readonly PackEntry[]) : []) {
+    for (const entry of Array.isArray(entries) ? (entries as ReadonlyArray<PackEntry>) : []) {
       for (const source of entry.sources ?? []) {
         if (source.book !== undefined) {
           cited.add(source.book);

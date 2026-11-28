@@ -9,7 +9,7 @@ import type { BookRegistry } from './book-registry';
 export interface SourcedEntry {
   readonly pack: PackId;
   readonly slug: EntrySlug;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /**
@@ -17,10 +17,10 @@ export interface SourcedEntry {
  * every book source names a registered book, and a homebrew source names the entry's own pack. The schema has
  * already checked each source's shape. Paths start at the entry.
  */
-export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): readonly FieldIssue[] {
+export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): ReadonlyArray<FieldIssue> {
   const key = contentKey(entry.pack, entry.slug);
 
-  return entry.sources.flatMap((source, index): FieldIssue[] => {
+  return entry.sources.flatMap((source, index): Array<FieldIssue> => {
     if (source.kind === SourceKind.Book && registry.book(source.book) === undefined) {
       const params = { entry: key, index, book: source.book };
 
@@ -38,7 +38,7 @@ export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): reado
 }
 
 /** Every entry in `pack`, as the source checks read it. */
-export function packEntries(pack: ContentPack): readonly SourcedEntry[] {
+export function packEntries(pack: ContentPack): ReadonlyArray<SourcedEntry> {
   return [...pack.ancestries, ...pack.creatures, ...pack.statistics, ...pack.variantRules, ...pack.otherEntries].map(
     ({ slug, sources }) => ({
       pack: pack.id,
@@ -51,14 +51,14 @@ export function packEntries(pack: ContentPack): readonly SourcedEntry[] {
 /** An entry whose sources the registry rejects. */
 export interface MissourcedEntry {
   readonly entry: ContentKey;
-  readonly issues: readonly FieldIssue[];
+  readonly issues: ReadonlyArray<FieldIssue>;
 }
 
 /** Thrown when a pack cites sources the book registry rejects. */
 export class SourceCheckError extends Error {
-  public readonly entries: readonly MissourcedEntry[];
+  public readonly entries: ReadonlyArray<MissourcedEntry>;
 
-  public constructor(pack: PackId, entries: readonly MissourcedEntry[]) {
+  public constructor(pack: PackId, entries: ReadonlyArray<MissourcedEntry>) {
     super(`Pack "${pack}" cites sources the book registry rejects: ${JSON.stringify(entries)}`);
     this.name = 'SourceCheckError';
     this.entries = entries;
@@ -67,7 +67,7 @@ export class SourceCheckError extends Error {
 
 /** `pack`, once every entry's sources pass the registry checks; throws `SourceCheckError` otherwise. */
 export function checkPackSources(pack: ContentPack, registry: BookRegistry): ContentPack {
-  const missourced = packEntries(pack).flatMap((entry): MissourcedEntry[] => {
+  const missourced = packEntries(pack).flatMap((entry): Array<MissourcedEntry> => {
     const issues = sourceIssues(entry, registry);
 
     return issues.length > 0 ? [{ entry: contentKey(entry.pack, entry.slug), issues }] : [];

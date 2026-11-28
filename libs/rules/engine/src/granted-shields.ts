@@ -27,7 +27,7 @@ export interface ShieldInPlay {
   /** A destroyed shield stays so until the spell that cast it is sustained. */
   readonly recreatedOnSustain: boolean;
   /** Extra Hardness against damage of some types. */
-  readonly hardnessAgainst: readonly HardnessBonus[];
+  readonly hardnessAgainst: ReadonlyArray<HardnessBonus>;
   /** The damage the shards deal when the block that ends the effect breaks it, at the rank it was cast at. */
   readonly shards: ShardDamage | undefined;
 }
@@ -95,8 +95,8 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
  * The shields the effects in play give: each `GrantShield` element whose predicate holds, heightened to the spell rank
  * of the item it sits on, and the shield of the battle form in force (its own, at the form's rank).
  */
-export function shieldsInPlay(inputs: ModifierInputs): readonly ShieldInPlay[] {
-  const granted = inputs.rules.flatMap((rule): ShieldInPlay[] => {
+export function shieldsInPlay(inputs: ModifierInputs): ReadonlyArray<ShieldInPlay> {
+  const granted = inputs.rules.flatMap((rule): Array<ShieldInPlay> => {
     const { element } = rule;
 
     if (element.key !== RuleElementKey.GrantShield || truthOf(element.predicate, inputs.facts) !== Truth.True) {

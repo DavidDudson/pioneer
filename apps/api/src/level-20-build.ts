@@ -86,14 +86,14 @@ function filled(start: CharacterDocument, content: SlotContent, rejected: Reject
 }
 
 /** The picks the character holds that their slots read as invalid (a feat whose prerequisites are unmet). */
-function invalidPicks(document: CharacterDocument, content: SlotContent): string[] {
+function invalidPicks(document: CharacterDocument, content: SlotContent): Array<string> {
   return characterSlots(document, content).flatMap((slot) =>
     slot.status === SlotStatus.Invalid ? [pickKey(slot.key, slot.selection)] : [],
   );
 }
 
 /** `document` without the `invalid` picks. */
-function withoutPicks(document: CharacterDocument, invalid: readonly string[]): CharacterDocument {
+function withoutPicks(document: CharacterDocument, invalid: ReadonlyArray<string>): CharacterDocument {
   const { build } = document;
 
   const choices = Object.fromEntries(
@@ -147,7 +147,7 @@ export interface Level20Build {
 }
 
 /** A 20th level character of every class `registry` holds, legacy classes too, with all its slots filled and its gear on. */
-export function level20Builds(registry: ContentRegistry): readonly Level20Build[] {
+export function level20Builds(registry: ContentRegistry): ReadonlyArray<Level20Build> {
   const content = slotContent(registry, [], true);
   const inventory = gearedInventory(itemContent(registry));
 

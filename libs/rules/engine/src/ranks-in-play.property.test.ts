@@ -31,7 +31,7 @@ const raise: Arbitrary<Raise> = record({
   gated: boolean(),
 });
 
-function rulesOf(raises: readonly Raise[]): RuleInPlay[] {
+function rulesOf(raises: ReadonlyArray<Raise>): Array<RuleInPlay> {
   return raises.map(({ selector, rank, gated }, rule) =>
     inPlay(
       gated ? { key: 'Proficiency', selector, rank, predicate: AT_FIFTH } : { key: 'Proficiency', selector, rank },
@@ -41,12 +41,12 @@ function rulesOf(raises: readonly Raise[]): RuleInPlay[] {
   );
 }
 
-function ranksOf(raises: readonly Raise[]): Record<string, string> {
+function ranksOf(raises: ReadonlyArray<Raise>): Record<string, string> {
   return Object.fromEntries(ranksInPlay({ rules: rulesOf(raises), facts }));
 }
 
 /** The highest rank each selector's ungated raises reach. */
-function highest(raises: readonly Raise[]): Record<string, string> {
+function highest(raises: ReadonlyArray<Raise>): Record<string, string> {
   const best = new Map<string, number>();
 
   for (const { selector, rank, gated } of raises) {

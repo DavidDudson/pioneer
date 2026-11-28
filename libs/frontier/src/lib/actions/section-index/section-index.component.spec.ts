@@ -7,14 +7,14 @@ import { SectionIndexHost } from '../../testing/section-index-host';
 import type { SectionIndexHostLink } from '../../testing/section-index-host';
 import { SectionIndex } from './section-index.component';
 
-const SECTIONS: readonly SectionIndexHostLink[] = [
+const SECTIONS: ReadonlyArray<SectionIndexHostLink> = [
   { anchor: 'sheet-identity', label: 'Identity' },
   { anchor: 'sheet-attributes', label: 'Attributes' },
   { anchor: 'sheet-defences', label: 'Defences' },
 ];
 
 /** Renders `fr-section-index` into the document and returns its host. */
-async function render(sections: readonly SectionIndexHostLink[]): Promise<HTMLElement> {
+async function render(sections: ReadonlyArray<SectionIndexHostLink>): Promise<HTMLElement> {
   const index = createComponent(SectionIndexHost, { environmentInjector: TestBed.inject(EnvironmentInjector) });
   onTestFinished(() => {
     index.destroy();

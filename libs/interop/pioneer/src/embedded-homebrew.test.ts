@@ -53,7 +53,7 @@ function entryFor(id: ContentId): ContentEntry {
   return featNamed(required(references.get(id)).slug);
 }
 
-function packOf(entries: readonly ContentEntry[]): EmbeddedPack {
+function packOf(entries: ReadonlyArray<ContentEntry>): EmbeddedPack {
   return EmbeddedPack.parse({
     pack: {
       id: TEST_PACK,
@@ -65,13 +65,13 @@ function packOf(entries: readonly ContentEntry[]): EmbeddedPack {
   });
 }
 
-function slugsOf(result: PioneerExportResult): string[] {
+function slugsOf(result: PioneerExportResult): Array<string> {
   const entries = result.ok ? (result.file.homebrew?.flatMap((pack) => pack.entries) ?? []) : [];
 
   return entries.map((entry) => entry.slug).toSorted();
 }
 
-function unnamedOf(result: PioneerExportResult): ContentId[] {
+function unnamedOf(result: PioneerExportResult): Array<ContentId> {
   return result.ok ? [] : result.unnamed.toSorted();
 }
 

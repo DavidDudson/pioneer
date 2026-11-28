@@ -152,7 +152,7 @@ const bonusFormula: Arbitrary<string> = oneof(
 const bonusTable = Object.fromEntries(Object.values(Proficiency).map((rank) => [rank, bonusFormula]));
 const proficiencyBonus = element('ProficiencyBonus', { table: record(bonusTable) });
 
-const defenceTypes = (types: Arbitrary<string>): Arbitrary<string[]> =>
+const defenceTypes = (types: Arbitrary<string>): Arbitrary<Array<string>> =>
   array(types, { minLength: 1, maxLength: LIST_MAX });
 
 const defenceValue = oneof(integer({ min: 1, max: SMALLINT_MAX }), validFormulaText);

@@ -23,19 +23,19 @@ import type { ImportedKindData } from './translate-kind-data';
 
 export interface PackOutputContext {
   /** The entries of the other official packs, which references may land on besides the output's own. */
-  readonly known: readonly KnownEntry[];
+  readonly known: ReadonlyArray<KnownEntry>;
 }
 
 export interface PackOutput {
-  readonly entries: readonly ContentEntry[];
-  readonly backlog: readonly BacklogItem[];
+  readonly entries: ReadonlyArray<ContentEntry>;
+  readonly backlog: ReadonlyArray<BacklogItem>;
 }
 
 /** One `<kind>.json` file's entries. */
 export interface PackFile {
   readonly pack: PackId;
   readonly kind: ContentKind;
-  readonly entries: readonly ContentEntry[];
+  readonly entries: ReadonlyArray<ContentEntry>;
 }
 
 interface Candidate {
@@ -63,7 +63,7 @@ function rawEntry({ id, pack, ...envelope }: EnvelopeFields, { kind, data }: Imp
   return { id, pack, kind, ...envelope, data };
 }
 
-function candidates({ entries, archetypes, vocabulary }: ImportTranslation): readonly Candidate[] {
+function candidates({ entries, archetypes, vocabulary }: ImportTranslation): ReadonlyArray<Candidate> {
   return [
     ...entries.map(({ source, envelope, kindData }) => ({
       envelope,
@@ -80,7 +80,7 @@ function candidates({ entries, archetypes, vocabulary }: ImportTranslation): rea
   ];
 }
 
-function validate(all: readonly Candidate[]): CheckedOutput {
+function validate(all: ReadonlyArray<Candidate>): CheckedOutput {
   const entries = new Map<ContentId, ContentEntry>();
   const leftOut = new Map<ContentId, LeftOut>();
 
@@ -100,7 +100,7 @@ function validate(all: readonly Candidate[]): CheckedOutput {
 }
 
 /** Every gap the translation reported against an entry, rule elements first, raw JSON art stripped. */
-function reportedGaps({ envelopes, kindDataGaps }: ImportTranslation): readonly EntryGap[] {
+function reportedGaps({ envelopes, kindDataGaps }: ImportTranslation): ReadonlyArray<EntryGap> {
   return [
     ...envelopes.untranslatedRules.map(({ entry, key, raw }) => ({
       entry,
@@ -123,8 +123,8 @@ function reportedGaps({ envelopes, kindDataGaps }: ImportTranslation): readonly 
   ];
 }
 
-function gapsByEntry(all: readonly EntryGap[]): ReadonlyMap<ContentId, readonly BacklogGap[]> {
-  const gaps = new Map<ContentId, BacklogGap[]>();
+function gapsByEntry(all: ReadonlyArray<EntryGap>): ReadonlyMap<ContentId, ReadonlyArray<BacklogGap>> {
+  const gaps = new Map<ContentId, Array<BacklogGap>>();
 
   for (const { entry, gap } of all) {
     gaps.set(entry, [...(gaps.get(entry) ?? []), gap]);
@@ -134,16 +134,16 @@ function gapsByEntry(all: readonly EntryGap[]): ReadonlyMap<ContentId, readonly 
 }
 
 function entryItems(
-  all: readonly Candidate[],
-  gaps: ReadonlyMap<ContentId, readonly BacklogGap[]>,
+  all: ReadonlyArray<Candidate>,
+  gaps: ReadonlyMap<ContentId, ReadonlyArray<BacklogGap>>,
   leftOut: ReadonlyMap<ContentId, LeftOut>,
-): BacklogItem[] {
+): Array<BacklogItem> {
   return all
     .toSorted(
       (left, right) =>
         compare(left.envelope.pack, right.envelope.pack) || compare(left.envelope.slug, right.envelope.slug),
     )
-    .flatMap(({ envelope: { id, pack, slug }, foundry, document }): BacklogItem[] => {
+    .flatMap(({ envelope: { id, pack, slug }, foundry, document }): Array<BacklogItem> => {
       const entryGaps = gaps.get(id) ?? [];
       const left = leftOut.get(id);
 
@@ -165,7 +165,7 @@ function entryItems(
     });
 }
 
-function documentItems({ envelopes }: ImportTranslation): BacklogItem[] {
+function documentItems({ envelopes }: ImportTranslation): Array<BacklogItem> {
   return envelopes.failures
     .map(({ pack, document, reason, detail }) => ({
       foundry: compendiumUuid(pack, idOf(document), document.type),
@@ -179,7 +179,7 @@ function documentItems({ envelopes }: ImportTranslation): BacklogItem[] {
     );
 }
 
-function vocabularyItems({ vocabularyGaps }: ImportTranslation): BacklogItem[] {
+function vocabularyItems({ vocabularyGaps }: ImportTranslation): Array<BacklogItem> {
   return vocabularyGaps
     .toSorted(
       (left, right) =>
@@ -214,8 +214,8 @@ export function packOutput(translation: ImportTranslation, { known }: PackOutput
 }
 
 /** `entries`, sorted as `packOutput` sorts them, grouped into one file per pack and kind. */
-export function packFiles(entries: readonly ContentEntry[]): readonly PackFile[] {
-  const files = new Map<string, PackFile & { readonly entries: ContentEntry[] }>();
+export function packFiles(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<PackFile> {
+  const files = new Map<string, PackFile & { readonly entries: Array<ContentEntry> }>();
 
   for (const entry of entries) {
     const key = `${entry.pack}/${entry.kind}`;

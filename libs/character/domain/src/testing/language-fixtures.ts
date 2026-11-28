@@ -8,7 +8,7 @@ import type { LanguageContent } from '../language-content';
 export const NO_LANGUAGES: LanguageContent = { languages: [], language: () => undefined, ancestry: () => undefined };
 
 const PACK = 'language-fixtures';
-const ALL: readonly Attribute[] = Object.values(Attribute);
+const ALL: ReadonlyArray<Attribute> = Object.values(Attribute);
 const ids = new ContentPackBuilder().withId(PACK);
 
 export type LanguageFixture = 'common' | 'dwarven' | 'elven' | 'goblin' | 'draconic' | 'petran' | 'empyrean' | 'aklo';

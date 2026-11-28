@@ -25,7 +25,7 @@ const CHAIN_LENGTH = 6;
 const Marked = StoredCharacterDocument.extend({ upgradedFrom: z.array(CharacterSchemaVersion).default([]) });
 
 /** `CHAIN_LENGTH` steps, each adding the version it upgraded from to the document it returns. */
-const chain: readonly UpgradeStep[] = Array.from(
+const chain: ReadonlyArray<UpgradeStep> = Array.from(
   { length: CHAIN_LENGTH },
   (): UpgradeStep =>
     (stored: StoredCharacterDocument): StoredCharacterDocument => {
@@ -37,7 +37,7 @@ const chain: readonly UpgradeStep[] = Array.from(
 
 const pastVersion = integer({ min: 1, max: CHAIN_LENGTH + 1 }).map((version) => CharacterSchemaVersion.parse(version));
 
-function versionsFrom(from: CharacterSchemaVersion): CharacterSchemaVersion[] {
+function versionsFrom(from: CharacterSchemaVersion): Array<CharacterSchemaVersion> {
   return Array.from({ length: currentVersion(chain) - from }, (_unused, step) =>
     CharacterSchemaVersion.parse(from + step),
   );

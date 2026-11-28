@@ -66,7 +66,7 @@ const NATURAL_1 = DieFace.parse(1);
 const CRITICAL_MARGIN = RollTotal.parse(10);
 
 /** Degrees worst first, so a step is a move along the ladder. */
-const LADDER: readonly DegreeOfSuccess[] = [
+const LADDER: ReadonlyArray<DegreeOfSuccess> = [
   DegreeOfSuccess.CriticalFailure,
   DegreeOfSuccess.Failure,
   DegreeOfSuccess.Success,
@@ -128,7 +128,7 @@ function isNoOp(degree: DegreeOfSuccess, change: DegreeChange): boolean {
  */
 function chooseAdjustment(
   degree: DegreeOfSuccess,
-  adjustments: readonly DegreeAdjustment[],
+  adjustments: ReadonlyArray<DegreeAdjustment>,
 ): DegreeAdjustment | undefined {
   const usable = adjustments.filter((adjustment) => !isNoOp(degree, adjustment.change));
 
@@ -179,11 +179,11 @@ function naturalStep(degree: DegreeOfSuccess, natural: DieFace | undefined): Deg
 export function degreeOfSuccess(
   check: CheckOutcome,
   dc: Dc,
-  adjustments: readonly DegreeAdjustment[] = [],
+  adjustments: ReadonlyArray<DegreeAdjustment> = [],
 ): DegreeResult {
   const base = baseDegree(check.total, dc);
 
-  const steps: DegreeStep[] = [
+  const steps: Array<DegreeStep> = [
     { kind: DegreeStepKind.Base, degree: base, reason: message(BASE_KEYS[base], { total: check.total, dc }) },
   ];
 
@@ -211,7 +211,7 @@ export function degreeOfSuccess(
  * to the total. Anything else (no d20, several, or a subtracted one) has no natural die to step on.
  */
 export function naturalD20(roll: RollResult): DieFace | undefined {
-  const faces: DieFace[] = [];
+  const faces: Array<DieFace> = [];
 
   for (const result of roll.terms) {
     if (result.term.kind === TermKind.Dice && result.term.size === D20 && 'dice' in result) {

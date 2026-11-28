@@ -213,7 +213,7 @@ describe('Shield Block with a shield an effect gives', () => {
 });
 
 /** Damage of one `type` taken in full, as a roll gives it. */
-function damageOf(amount: number, ...types: readonly (DamageType | undefined)[]): DamageApplication {
+function damageOf(amount: number, ...types: ReadonlyArray<DamageType | undefined>): DamageApplication {
   const each = DamageTotal.parse(amount);
 
   return {

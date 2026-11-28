@@ -11,7 +11,7 @@ const settle = async (): Promise<void> => {
   await Promise.resolve();
 };
 
-const calls: string[] = [];
+const calls: Array<string> = [];
 
 /** Jsdom has no `<dialog>` methods: record the calls and mirror `open`. */
 function fakeDialog(): void {

@@ -12,20 +12,20 @@ import type { Listed, SpellGap, SpellPicks, SpellPlacementContent } from './spel
 /** The picks that make innate entries grant the spells an export lists, and the listed spells no entry grants. */
 export interface InnatePlacement {
   readonly choices: SpellPicks;
-  readonly gaps: readonly SpellGap[];
+  readonly gaps: ReadonlyArray<SpellGap>;
 }
 
 /** A caster and the spells it lists that matched content. */
 interface Wanted {
   readonly caster: ImportedCaster;
-  readonly spells: readonly Listed[];
+  readonly spells: ReadonlyArray<Listed>;
 }
 
 /** Placing so far: the document with the picks made, the picks and the gaps. */
 interface Placed {
   readonly document: CharacterDocument;
   readonly choices: SpellPicks;
-  readonly gaps: readonly SpellGap[];
+  readonly gaps: ReadonlyArray<SpellGap>;
 }
 
 /** Whether the caster's name is the entry's (Fey Influence's `fey-influence`), either way round. */
@@ -60,11 +60,11 @@ function grants(entry: SpellcastingInPlay, { rank, id }: Listed): boolean {
 }
 
 /** The spells the entry does not grant. */
-function missing(entry: SpellcastingInPlay | undefined, spells: readonly Listed[]): Listed[] {
+function missing(entry: SpellcastingInPlay | undefined, spells: ReadonlyArray<Listed>): Array<Listed> {
   return entry === undefined ? [...spells] : spells.filter((spell) => !grants(entry, spell));
 }
 
-function gapsOf({ caster }: Wanted, left: readonly Listed[], reason: SpellGapReason): SpellGap[] {
+function gapsOf({ caster }: Wanted, left: ReadonlyArray<Listed>, reason: SpellGapReason): Array<SpellGap> {
   return left.map(({ rank, name }) => ({ caster: caster.name, rank, name, reason }));
 }
 
@@ -105,7 +105,7 @@ function placeCaster(placed: Placed, wanted: Wanted, content: SpellPlacementCont
 export function placeInnate(
   document: CharacterDocument,
   content: SpellPlacementContent,
-  casters: readonly ImportedCaster[],
+  casters: ReadonlyArray<ImportedCaster>,
 ): InnatePlacement {
   const wanted = casters
     .values()

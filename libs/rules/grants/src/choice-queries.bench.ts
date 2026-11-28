@@ -19,7 +19,7 @@ const CLASSES = ['fighter', 'rogue', 'wizard', 'cleric', 'ranger'] as const;
 const BUDGET_MS = 2;
 
 /** Feats spread over the classes and levels, each with a class trait, a level and two more traits. */
-function feats(): GrantEntry[] {
+function feats(): Array<GrantEntry> {
   return Array.from({ length: ENTRIES }, (_value, index) =>
     feat(`feat-${index}`, [
       `trait:${CLASSES[index % CLASSES.length] ?? 'fighter'}`,
@@ -58,7 +58,7 @@ function inputs(): WalkInputs {
 }
 
 /** What the walk's open slot offers. */
-function offerOf(given: WalkInputs): readonly OfferedOption[] {
+function offerOf(given: WalkInputs): ReadonlyArray<OfferedOption> {
   return walkGrants(given).open[0]?.options ?? [];
 }
 

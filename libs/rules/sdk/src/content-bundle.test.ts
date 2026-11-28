@@ -36,10 +36,10 @@ interface LanguageFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: object;
 }
 
@@ -81,7 +81,7 @@ const ancestry = {
 const common = language('common', 'Common');
 const draconic = language('draconic', 'Draconic');
 
-function bundles(entries: readonly object[] = [ancestry, common, draconic]): ContentBundles {
+function bundles(entries: ReadonlyArray<object> = [ancestry, common, draconic]): ContentBundles {
   return contentBundles([packContentsFromFiles(packFile, [entries])], lengthHash);
 }
 
@@ -116,7 +116,7 @@ function bodyOf(built: ContentBundles, file: BundleFile): BundleBody {
   return found;
 }
 
-function fetched(built: ContentBundles, kinds: readonly string[]): ContentPack {
+function fetched(built: ContentBundles, kinds: ReadonlyArray<string>): ContentPack {
   const pack = onlyPack(built);
 
   return contentPackFromBundles(
@@ -131,7 +131,7 @@ function fetched(built: ContentBundles, kinds: readonly string[]): ContentPack {
 const contentIdOf = (slug: string): ContentId => ContentId.parse(idOf(slug));
 
 /** Every file a pack's manifest names. */
-function filesOf(pack: PackBundles): readonly BundleFile[] {
+function filesOf(pack: PackBundles): ReadonlyArray<BundleFile> {
   const kinds = pack.kinds.flatMap((kind) =>
     [kind.mechanics, kind.names, kind.descriptions.map(({ file }) => file)].flat(),
   );

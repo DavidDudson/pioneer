@@ -7,9 +7,9 @@ import type { PackEnablement } from './campaign-pack-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignPackRepository extends CampaignPackRepository {
-  readonly #rows = new Map<CampaignId, CampaignPack[]>();
+  readonly #rows = new Map<CampaignId, Array<CampaignPack>>();
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignPack[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignPack>> {
     return (this.#rows.get(campaignId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
     );

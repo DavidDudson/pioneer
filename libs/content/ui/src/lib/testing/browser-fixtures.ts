@@ -32,7 +32,7 @@ const FEAT_LABEL = 'Feat';
 const BOOK = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 
 /** The feats' rows as the table shows them. */
-export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) => {
+export const BROWSER_ROWS: ReadonlyArray<BrowseRow> = PACK.otherEntries.map((entry) => {
   const name = slugName(entry.slug);
 
   return {
@@ -53,10 +53,14 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
 });
 
 /** What each filter value would leave of the feats, from the real facets. */
-const BROWSER_COUNTS: readonly FacetCounts[] = facetCounts(PACK.otherEntries, facetsFor([ContentKind.Feat]), new Map());
+const BROWSER_COUNTS: ReadonlyArray<FacetCounts> = facetCounts(
+  PACK.otherEntries,
+  facetsFor([ContentKind.Feat]),
+  new Map(),
+);
 
 /** The filter bar's one field. */
-export const BROWSER_FIELDS: readonly FilterField[] = [
+export const BROWSER_FIELDS: ReadonlyArray<FilterField> = [
   {
     id: 'trait',
     label: 'Trait',
@@ -109,7 +113,7 @@ export function loaded<TData>(data: TData): AsyncQuery<TData> {
 }
 
 /** `row` with its legacy flag set, and the entries that replace it. */
-function legacyRow(row: BrowseRow, legacy: boolean, replacedBy: readonly BrowseReplacement[] = []): BrowseRow {
+function legacyRow(row: BrowseRow, legacy: boolean, replacedBy: ReadonlyArray<BrowseReplacement> = []): BrowseRow {
   return { ...row, legacy, replacedBy };
 }
 

@@ -9,7 +9,7 @@ import type { FormView } from './testing/battle-forms';
 const EFFECTS = contentPackFromContents(await impossibleMagicPack()).otherEntries;
 
 /** The rules of the effect `slug` as plain JSON, so a test can compare them with the data it reads. */
-function rulesOf(slug: string): readonly unknown[] {
+function rulesOf(slug: string): ReadonlyArray<unknown> {
   const found = EFFECTS.find((entry) => entry.slug === slug);
 
   if (found === undefined) {

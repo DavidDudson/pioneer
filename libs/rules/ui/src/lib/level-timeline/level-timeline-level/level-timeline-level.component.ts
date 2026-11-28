@@ -41,7 +41,7 @@ export class LevelTimelineLevel {
   /** Whether the level opens nothing and improves nothing. */
   protected readonly empty = computed((): boolean => this.row().lines.length === 0 && this.automatic().length === 0);
   /** What the level improves by itself; empty when the list gives none. */
-  protected readonly automatic = computed((): readonly AutomaticLine[] => this.row().automatic ?? []);
+  protected readonly automatic = computed((): ReadonlyArray<AutomaticLine> => this.row().automatic ?? []);
 
   /** The picker of the slot `key`, if it has one. */
   protected pickOf(key: SlotKey): TimelinePick | undefined {

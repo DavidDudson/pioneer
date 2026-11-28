@@ -28,7 +28,7 @@ export interface EquippedInputs {
   readonly armor?: ArmorInputs;
   /** The worn armour's Dexterity cap, when it has one. */
   readonly dexterityCap?: AttributeModifier;
-  readonly weapons: readonly WeaponInputs[];
+  readonly weapons: ReadonlyArray<WeaponInputs>;
 }
 
 const NO_POTENCY = 0;
@@ -43,7 +43,7 @@ const CONSUMABLE = Trait.parse('consumable');
 function armorInputs(
   active: ActiveItem | undefined,
   rules: ModifierInputs,
-  picked: readonly RuleSlug[],
+  picked: ReadonlyArray<RuleSlug>,
 ): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
@@ -99,7 +99,7 @@ function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefine
  * What a predicate over `item:` reads of a held weapon: its own roll options, its damage type (`damage:type:slashing`)
  * and each property rune in force (`rune:property:underwater`), so an environment can tell a weapon etched for it.
  */
-function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
+function strikeRollOptions(altered: AlteredItem): ReadonlyArray<RollOptionTail> {
   const damageType = altered.damageType === undefined ? [] : [`damage:type:${altered.damageType}`];
   const runes = altered.propertyRunes.map((rune) => `rune:property:${rune}`);
 
@@ -111,10 +111,10 @@ function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
 function weaponInputs(
-  active: readonly ActiveItem[],
+  active: ReadonlyArray<ActiveItem>,
   { favored, rules, slugs, picked }: WeaponContext,
-): readonly WeaponInputs[] {
-  return active.flatMap((each): WeaponInputs[] => {
+): ReadonlyArray<WeaponInputs> {
+  return active.flatMap((each): Array<WeaponInputs> => {
     const { entry } = each;
 
     if (entry.kind !== ContentKind.Weapon) {

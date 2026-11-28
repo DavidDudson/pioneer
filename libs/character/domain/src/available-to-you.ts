@@ -42,8 +42,8 @@ const ARTIFACT_TRAIT = FacetValue.parse('artifact');
  * `and`. A facet picks any of its values, so a filter asking for two traits at once reads as either (broader, never
  * narrower, than the slot offers).
  */
-function filterTraits(statements: readonly PredicateStatement[]): readonly FacetValue[] {
-  return statements.flatMap((statement): readonly FacetValue[] => {
+function filterTraits(statements: ReadonlyArray<PredicateStatement>): ReadonlyArray<FacetValue> {
+  return statements.flatMap((statement): ReadonlyArray<FacetValue> => {
     if (isRollOptionStatement(statement)) {
       return statement.startsWith(TRAIT_OPTION) ? [FacetValue.parse(statement.slice(TRAIT_OPTION.length))] : [];
     }
@@ -53,7 +53,7 @@ function filterTraits(statements: readonly PredicateStatement[]): readonly Facet
 }
 
 /** Each value once, in order. */
-const distinct = (found: readonly FacetValue[]): readonly FacetValue[] => [...new Set(found)].toSorted();
+const distinct = (found: ReadonlyArray<FacetValue>): ReadonlyArray<FacetValue> => [...new Set(found)].toSorted();
 
 /** The `ChoiceSet` query behind `slot` in the grants at its level, if it is one that queries content. */
 function slotQuery(grants: GrantResolution, lookup: ContentLookup, slot: SlotKey): ChoiceQuery | undefined {
@@ -80,7 +80,7 @@ export function availableToYou(document: CharacterDocument, content: SlotContent
   const own = query?.ownTrait === undefined ? [] : reads.factsAt(level).tails(query.ownTrait);
   const traits = [...filterTraits(query?.filter ?? []), ...own.map((trait) => FacetValue.parse(trait))];
 
-  const selections: [FacetId, FacetSelection][] = [
+  const selections: Array<[FacetId, FacetSelection]> = [
     [CommonFacet.Level, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(level) }],
     [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse(Rarity.Unique)] }],
     [CommonFacet.Traits, { kind: SelectionKind.Values, include: distinct(traits), exclude: [ARTIFACT_TRAIT] }],
@@ -126,7 +126,7 @@ export type SpellSlotPlace = Pick<PreparedSlot, 'rank' | 'tradition' | 'pool' | 
 export function availableSpellsToYou({ rank, tradition, pool, deitySpell }: SpellSlotPlace): FilterState {
   const cantrip = rank === SlotRank.Cantrip;
 
-  const selections: [FacetId, FacetSelection][] = [
+  const selections: Array<[FacetId, FacetSelection]> = [
     [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse(Rarity.Unique)] }],
     [
       CommonFacet.Traits,

@@ -18,7 +18,7 @@ export abstract class SessionRepository {
   public abstract touch(session: Session): Promise<void>;
 
   /** The user's unexpired sessions, most recently seen first. */
-  public abstract listForUser(userId: UserId, now: Temporal.Instant): Promise<Session[]>;
+  public abstract listForUser(userId: UserId, now: Temporal.Instant): Promise<Array<Session>>;
 
   /** Removes the session if it exists. */
   public abstract delete(tokenHash: TokenHash): Promise<void>;

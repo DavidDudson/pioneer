@@ -52,7 +52,7 @@ function itemClasses(first: boolean, last: boolean): string {
 export class Breadcrumbs {
   /** Names the navigation landmark, already translated; "Breadcrumb" when omitted. */
   public readonly label = input<string | undefined>(undefined);
-  public readonly items = input.required<readonly BreadcrumbItem[]>();
+  public readonly items = input.required<ReadonlyArray<BreadcrumbItem>>();
 
   protected readonly itemClasses = itemClasses;
   protected readonly separator = ChevronRight;

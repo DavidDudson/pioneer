@@ -56,7 +56,7 @@ interface WeaponJson extends JsonObject {
 }
 
 /** The first Strike of a level 5 character wielding `weapon`, with `placed` rule elements in play. */
-function strikeOf(placed: readonly (readonly [RuleJson, string])[], weapon: WeaponJson): Strike | undefined {
+function strikeOf(placed: ReadonlyArray<readonly [RuleJson, string]>, weapon: WeaponJson): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },

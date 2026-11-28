@@ -38,14 +38,14 @@ export class AttributeRolls {
   /** Each attribute's check as the engine derived it, or undefined while the statistics load. */
   public readonly statistics = input<ReadonlyMap<Attribute, StatisticValue> | undefined>();
   /** Which attributes to list, in this order; all six by default. */
-  public readonly attributes = input<readonly Attribute[]>(Object.values(Attribute));
+  public readonly attributes = input<ReadonlyArray<Attribute>>(Object.values(Attribute));
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly Check = StatisticKind.Check;
-  protected readonly rows = computed((): readonly AttributeRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<AttributeRow> => {
     const statistics = this.statistics();
 
     return this.attributes().map((attribute) => ({

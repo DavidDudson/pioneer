@@ -27,14 +27,14 @@ export interface CampaignPackPorts {
 }
 
 /** For each enabled pack, the titles of the enabled packs that extend it, alphabetically. */
-type RequiredBy = ReadonlyMap<EnabledPackId, readonly PackTitle[]>;
+type RequiredBy = ReadonlyMap<EnabledPackId, ReadonlyArray<PackTitle>>;
 
 function byTitle(left: CatalogPack, right: CatalogPack): number {
   return left.title.localeCompare(right.title) || left.id.localeCompare(right.id);
 }
 
 /** A pack the campaign uses. Only the GM disables one, and not while an enabled pack extends it. */
-function enabledEntry(pack: CatalogPack, requiredBy: readonly PackTitle[], manageable: boolean): EnabledPack {
+function enabledEntry(pack: CatalogPack, requiredBy: ReadonlyArray<PackTitle>, manageable: boolean): EnabledPack {
   return {
     packId: pack.id,
     title: pack.title,
@@ -75,10 +75,10 @@ export class CampaignPackService {
 
   /** The homebrew packs among `order`, in that order. */
   static #homebrewOf(
-    order: readonly EnabledPackId[],
+    order: ReadonlyArray<EnabledPackId>,
     known: ReadonlyMap<EnabledPackId, CatalogPack>,
-  ): readonly CatalogPack[] {
-    return order.flatMap((id): CatalogPack[] => {
+  ): ReadonlyArray<CatalogPack> {
+    return order.flatMap((id): Array<CatalogPack> => {
       const pack = known.get(id);
 
       return pack === undefined || pack.official ? [] : [pack];
@@ -153,7 +153,7 @@ export class CampaignPackService {
     return this.#view(actor, campaign);
   }
 
-  #rowsFor(actor: UserId, fresh: readonly CatalogPack[]): readonly CampaignPack[] {
+  #rowsFor(actor: UserId, fresh: ReadonlyArray<CatalogPack>): ReadonlyArray<CampaignPack> {
     const enabledAt = this.#clock.now();
 
     return fresh.map((pack): CampaignPack => ({
@@ -168,7 +168,7 @@ export class CampaignPackService {
    * The homebrew packs enabling `packId` adds, the pack last and each after the packs it extends. Official packs are
    * always on, so are left out.
    */
-  async #plan(actor: UserId, packId: EnabledPackId): Promise<readonly CatalogPack[]> {
+  async #plan(actor: UserId, packId: EnabledPackId): Promise<ReadonlyArray<CatalogPack>> {
     const [readable, order] = await Promise.all([this.#catalog.readableBy(actor), this.#catalog.closure(packId)]);
     const mayRead = new Set(readable.map((pack) => pack.id));
     const known = await this.#catalog.byIds(order);
@@ -189,7 +189,7 @@ export class CampaignPackService {
   }
 
   /** The checks an enablement holds under lock: the packs are still readable, shared, and the ones planned. */
-  async #refuseChanged(actor: UserId, packId: EnabledPackId, planned: readonly CatalogPack[]): Promise<void> {
+  async #refuseChanged(actor: UserId, packId: EnabledPackId, planned: ReadonlyArray<CatalogPack>): Promise<void> {
     const now = await this.#plan(actor, packId);
     const locked = new Set(planned.map((pack) => pack.id));
 
@@ -199,7 +199,7 @@ export class CampaignPackService {
   }
 
   /** Whether an enabled pack still extends this one, which keeps it on: a 409 naming them. */
-  async #refuseIfRequired(enabled: readonly CampaignPack[], packId: EnabledPackId): Promise<void> {
+  async #refuseIfRequired(enabled: ReadonlyArray<CampaignPack>, packId: EnabledPackId): Promise<void> {
     const requiredBy = await this.#extending(enabled);
     const requirers = requiredBy.get(packId) ?? [];
 
@@ -234,13 +234,13 @@ export class CampaignPackService {
   }
 
   /** For each enabled pack, the enabled packs that extend it. */
-  async #extending(enabled: readonly CampaignPack[]): Promise<RequiredBy> {
+  async #extending(enabled: ReadonlyArray<CampaignPack>): Promise<RequiredBy> {
     const closures = await Promise.all(
       enabled.map(async (row) => ({ root: row.packId, closure: await this.#catalog.closure(row.packId) })),
     );
 
     const known = await this.#catalog.byIds(enabled.map((row) => row.packId));
-    const extenders = new Map<EnabledPackId, PackTitle[]>();
+    const extenders = new Map<EnabledPackId, Array<PackTitle>>();
 
     for (const { root, closure } of closures) {
       const title = known.get(root)?.title;
@@ -253,7 +253,7 @@ export class CampaignPackService {
     }
 
     return new Map(
-      [...extenders].map(([dependency, titles]): [EnabledPackId, readonly PackTitle[]] => [
+      [...extenders].map(([dependency, titles]): [EnabledPackId, ReadonlyArray<PackTitle>] => [
         dependency,
         titles.toSorted((left, right) => left.localeCompare(right)),
       ]),
@@ -271,7 +271,7 @@ export class CampaignPackService {
     ]);
 
     // A pack deleted since is gone with its row (the foreign key cascades), so a gap is a change since the read.
-    const homebrew = rows.flatMap((row): CatalogPack[] => {
+    const homebrew = rows.flatMap((row): Array<CatalogPack> => {
       const pack = known.get(row.packId);
 
       return pack === undefined ? [] : [pack];
@@ -285,7 +285,7 @@ export class CampaignPackService {
   }
 
   /** The packs the GM may read that the campaign does not use yet. */
-  async #candidates(actor: UserId, rows: readonly CampaignPack[]): Promise<readonly PackCandidate[]> {
+  async #candidates(actor: UserId, rows: ReadonlyArray<CampaignPack>): Promise<ReadonlyArray<PackCandidate>> {
     const readable = await this.#catalog.readableBy(actor);
     const used = new Set(rows.map((row) => row.packId));
 

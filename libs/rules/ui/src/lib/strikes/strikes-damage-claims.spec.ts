@@ -19,7 +19,7 @@ interface Claim {
 }
 
 /** The claimable longsword, offering Gloom Walker for its damage and nothing for its attack. */
-function damageClaimable(claimed: boolean): readonly NamedStrike[] {
+function damageClaimable(claimed: boolean): ReadonlyArray<NamedStrike> {
   const [named] = claimableStrike(false);
 
   if (named === undefined) {
@@ -34,7 +34,7 @@ function damageClaimable(claimed: boolean): readonly NamedStrike[] {
   return [{ ...named, situations: undefined, damageSituations }];
 }
 
-async function render(strikes: readonly NamedStrike[], claims: Claim[]): Promise<HTMLElement> {
+async function render(strikes: ReadonlyArray<NamedStrike>, claims: Array<Claim>): Promise<HTMLElement> {
   const roller: StatisticRoller = {
     roll: () => undefined,
     claim: (selector, rule, on) => {
@@ -66,7 +66,7 @@ function toggleOf(page: HTMLElement): HTMLButtonElement {
 
 describe('StrikesView damage situations', () => {
   it('offers a rule element that changes the damage as a toggle claiming it for the Strike', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const toggle = toggleOf(await render(damageClaimable(false), claims));
 
     expect(toggle.textContent.trim()).toBe('Extra damage when its condition holds (Gloom Walker)');
@@ -77,7 +77,7 @@ describe('StrikesView damage situations', () => {
   });
 
   it('shows a claimed damage situation as pressed and lets it go when flipped back', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const toggle = toggleOf(await render(damageClaimable(true), claims));
 
     expect(toggle.getAttribute('aria-pressed')).toBe('true');

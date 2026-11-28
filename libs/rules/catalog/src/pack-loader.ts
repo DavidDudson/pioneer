@@ -9,7 +9,7 @@ interface JsonModule {
 /** Reads a pack from its manifest and one file per kind, all as the loaders in `json-packs.js` import them. */
 export async function pack(
   manifest: Promise<JsonModule>,
-  kinds: readonly Promise<JsonModule>[],
+  kinds: ReadonlyArray<Promise<JsonModule>>,
 ): Promise<PackContents> {
   const [packFile, ...entryFiles] = await Promise.all([manifest, ...kinds]);
 

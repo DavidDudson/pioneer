@@ -129,13 +129,13 @@ export interface RestLimits {
 export type RestPlay = DeathTrack & {
   readonly hp: { readonly damage: HitPoints; readonly temp: HitPoints };
   readonly resources: ResourcesSpent;
-  readonly conditions: readonly ActiveCondition[];
+  readonly conditions: ReadonlyArray<ActiveCondition>;
 };
 
 /** The play state an action leaves, and the changes it made, which are none when there was nothing to restore. */
 export interface RestOutcome<Play extends RestPlay> {
   readonly play: Play;
-  readonly changes: readonly RestChange[];
+  readonly changes: ReadonlyArray<RestChange>;
 }
 
 /** Whether `command` is one of the restoring actions. */

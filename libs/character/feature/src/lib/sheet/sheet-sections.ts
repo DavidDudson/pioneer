@@ -65,7 +65,7 @@ function levelSection(level: number): SheetSection {
 }
 
 /** The Plan tab's level tabs in order: level 0, then 1 to 20. Each is a route below the tab's. */
-export const SHEET_LEVELS: readonly SheetSection[] = Array.from(
+export const SHEET_LEVELS: ReadonlyArray<SheetSection> = Array.from(
   { length: CHARACTER_LEVEL_MAX - BASE_LEVEL + 1 },
   (_unused, index) => levelSection(BASE_LEVEL + index),
 );
@@ -81,7 +81,7 @@ export function levelOfPath(path: string | undefined): number | undefined {
  * Each tab's sections in page order, for its section index (play-and-campaigns.md, Sheet modes). Later stories add
  * theirs: crafting, income and retraining to Downtime.
  */
-export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSection[]>> = {
+export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, ReadonlyArray<SheetSection>>> = {
   [SheetMode.Plan]: SHEET_LEVELS,
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,
@@ -109,7 +109,7 @@ export interface SheetTab {
 }
 
 /** The tabs in order. A tab's path is its mode. */
-export const SHEET_TABS: readonly SheetTab[] = [
+export const SHEET_TABS: ReadonlyArray<SheetTab> = [
   { mode: SheetMode.Plan, labelKey: 'character.sheet.tabs.plan' },
   { mode: SheetMode.Encounter, labelKey: 'character.sheet.tabs.encounter' },
   { mode: SheetMode.Exploration, labelKey: 'character.sheet.tabs.exploration' },
@@ -134,7 +134,7 @@ export function firstSectionPath(mode: SheetMode): string {
  * shown when the route names a side panel.
  */
 export function shownSection(
-  order: readonly SheetSection[],
+  order: ReadonlyArray<SheetSection>,
   path: Signal<string | undefined>,
 ): Signal<SheetSection | undefined> {
   return computed(() =>
@@ -150,7 +150,7 @@ export const SheetPanel = { Skills: 'skills', Conditions: 'conditions', Environm
 export type SheetPanel = (typeof SheetPanel)[keyof typeof SheetPanel];
 
 /** The side panels in order, each as the section whose heading and path it takes. */
-export const SHEET_PANELS: readonly (SheetSection & { readonly panel: SheetPanel })[] = [
+export const SHEET_PANELS: ReadonlyArray<SheetSection & { readonly panel: SheetPanel }> = [
   { ...SHEET_SECTIONS.skills, panel: SheetPanel.Skills },
   { ...SHEET_SECTIONS.conditions, panel: SheetPanel.Conditions },
   { ...SHEET_SECTIONS.environments, panel: SheetPanel.Environments },

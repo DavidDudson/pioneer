@@ -28,7 +28,7 @@ interface VariantRuleLine {
 }
 
 /** Every variant rule the campaign can use, in name order, each with whether it is on. */
-function variantRuleLines(rules: CampaignVariantRules): readonly VariantRuleLine[] {
+function variantRuleLines(rules: CampaignVariantRules): ReadonlyArray<VariantRuleLine> {
   return [
     ...rules.enabled.map((rule): VariantRuleLine => ({ rule, on: true })),
     ...rules.available.map((rule): VariantRuleLine => ({ rule, on: false })),

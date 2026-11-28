@@ -26,15 +26,15 @@ const brewPack = new ContentPackBuilder().withId(BREW).withVariantRule('gritty')
 const livePack = new ContentPackBuilder().withId(LIVE).build();
 
 class InForce extends EffectivePacks {
-  public ids: readonly ContentPackId[] = [];
+  public ids: ReadonlyArray<ContentPackId> = [];
 
-  public override async of(): Promise<readonly ContentPackId[]> {
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.ids;
   }
 }
 
 const enabled: EffectiveVariants = {
-  of: async (): Promise<readonly VariantRuleId[]> => {
+  of: async (): Promise<ReadonlyArray<VariantRuleId>> => {
     const registry = new ContentRegistry();
     registry.register(brewPack);
 
@@ -43,7 +43,7 @@ const enabled: EffectiveVariants = {
 };
 
 const holdsBrew: PackLookup = {
-  packsOf: async (entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> =>
+  packsOf: async (entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>> =>
     entryIds.length === 0 ? [] : [brew],
 };
 
@@ -55,9 +55,9 @@ interface Built {
 
 /** Registers the packs asked for over a core pack, and records what was asked. */
 class Packs implements ContentSource {
-  public asked: readonly ContentPackId[] = [];
+  public asked: ReadonlyArray<ContentPackId> = [];
 
-  public async registry(packs: readonly ContentPackId[] = []): Promise<ContentRegistry> {
+  public async registry(packs: ReadonlyArray<ContentPackId> = []): Promise<ContentRegistry> {
     this.asked = packs;
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());

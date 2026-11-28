@@ -129,7 +129,7 @@ export const ConditionProblem = {
 export type ConditionProblem = ValueOf<typeof ConditionProblem>;
 
 function problemOfAdd(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   added: ActiveCondition,
   valued: ConditionValued,
 ): ConditionProblem | undefined {
@@ -148,7 +148,7 @@ function problemOfAdd(
 
 /** Why `command` cannot be applied to `conditions`, if it cannot. Applying a refused command changes nothing. */
 export function conditionProblem(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   command: ConditionCommand,
   valued: ConditionValued,
 ): ConditionProblem | undefined {
@@ -182,9 +182,9 @@ export function conditionProblem(
  * instance the command names but the character lacks is left alone.
  */
 export function applyConditionCommand(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   command: ConditionCommand,
-): readonly ActiveCondition[] {
+): ReadonlyArray<ActiveCondition> {
   switch (command.field) {
     case ConditionCommandField.AddCondition: {
       const { condition } = command;
@@ -211,7 +211,7 @@ export function applyConditionCommand(
  * applied it. Two instances of one condition (frightened 2 and frightened 1) are two roots; the grants keep the
  * highest value, so the character has the condition once.
  */
-export function conditionRoots(conditions: readonly ActiveCondition[]): readonly GrantRoot[] {
+export function conditionRoots(conditions: ReadonlyArray<ActiveCondition>): ReadonlyArray<GrantRoot> {
   return conditions.map(({ condition, value, appliedBy }): GrantRoot => {
     const hop: OriginHop = { kind: OriginHopKind.Condition, condition };
 

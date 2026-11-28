@@ -93,7 +93,7 @@ async function pressEntry(name: string): Promise<void> {
 }
 
 /** The classes of the box that holds a header's or footer's content, which cap its width. */
-function boxClasses(region: HTMLElement): string[] {
+function boxClasses(region: HTMLElement): Array<string> {
   const box = region.querySelector('fr-box');
 
   if (box === null) {

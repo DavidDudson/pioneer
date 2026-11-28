@@ -40,7 +40,7 @@ const PREDICATES = [
 interface Spec {
   readonly type: string;
   readonly value: number;
-  readonly predicate: readonly string[] | undefined;
+  readonly predicate: ReadonlyArray<string> | undefined;
   /** Whether the roll chose this modifier's situation. */
   readonly chosen: boolean;
 }
@@ -54,7 +54,7 @@ const spec = record({
 
 const scenario = array(spec, { maxLength: MODIFIERS_MAX });
 
-function rulesOf(specs: readonly Spec[]): RuleInPlay[] {
+function rulesOf(specs: ReadonlyArray<Spec>): Array<RuleInPlay> {
   return specs.map(({ type, value, predicate }, index) =>
     inPlay(
       predicate === undefined
@@ -65,7 +65,7 @@ function rulesOf(specs: readonly Spec[]): RuleInPlay[] {
   );
 }
 
-function derived(rules: readonly RuleInPlay[], situation: ReadonlySet<RuleId>): StatisticValue {
+function derived(rules: ReadonlyArray<RuleInPlay>, situation: ReadonlySet<RuleId>): StatisticValue {
   const result = deriveStatistics(
     { definitions: [perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     inputs,
@@ -79,7 +79,7 @@ function derived(rules: readonly RuleInPlay[], situation: ReadonlySet<RuleId>): 
   return result;
 }
 
-function chosenIn(specs: readonly Spec[], rules: readonly RuleInPlay[]): ReadonlySet<RuleId> {
+function chosenIn(specs: ReadonlyArray<Spec>, rules: ReadonlyArray<RuleInPlay>): ReadonlySet<RuleId> {
   return new Set(
     rules
       .values()

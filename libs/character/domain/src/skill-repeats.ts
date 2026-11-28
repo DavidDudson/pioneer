@@ -30,13 +30,13 @@ function pickedTrainings(document: CharacterDocument, content: SlotContent): Rea
 /** The slot a pick would go in, and the values asked about. */
 export interface RepeatQuery {
   readonly slot: SlotKey;
-  readonly values: readonly ChoiceValue[];
+  readonly values: ReadonlyArray<ChoiceValue>;
 }
 
 /** What is trained without the slot (the document with it empty): by the other entries, and by the skill slots' picks. */
 interface Trained {
   readonly without: CharacterDocument;
-  readonly entries: ReadonlyMap<Selector, readonly ContentId[]>;
+  readonly entries: ReadonlyMap<Selector, ReadonlyArray<ContentId>>;
   readonly picked: ReadonlySet<Selector>;
   /** The skills and custom Lores the character has, by selector. */
   readonly named: ReadonlyMap<Selector, SkillOption>;
@@ -47,7 +47,7 @@ function repeatsOf(
   content: SlotContent,
   { slot, value }: { readonly slot: SlotKey; readonly value: ChoiceValue },
   trained: Trained,
-): readonly SkillOption[] {
+): ReadonlyArray<SkillOption> {
   const picks = new Map([...picksOf(trained.without), [slot, value]]);
 
   const trainers = trainingEntries(
@@ -73,7 +73,7 @@ export function repeatedTrainings(
   document: CharacterDocument,
   content: SlotContent,
   { slot, values }: RepeatQuery,
-): ReadonlyMap<ChoiceValue, readonly SkillOption[]> {
+): ReadonlyMap<ChoiceValue, ReadonlyArray<SkillOption>> {
   const without = withoutPick(document, slot);
 
   const trained: Trained = {
@@ -83,7 +83,7 @@ export function repeatedTrainings(
     named: new Map(documentSkills(document, content.skills).skills.map((skill) => [skill.selector, skill])),
   };
 
-  const repeats = values.map((value): [ChoiceValue, readonly SkillOption[]] => [
+  const repeats = values.map((value): [ChoiceValue, ReadonlyArray<SkillOption>] => [
     value,
     repeatsOf(content, { slot, value }, trained),
   ]);

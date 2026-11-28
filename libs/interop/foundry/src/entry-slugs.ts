@@ -88,6 +88,6 @@ export function entrySlugOf(entry: SelectedEntry): string {
 }
 
 /** The slug text of each selected document. */
-export function entrySlugs(selected: readonly SelectedEntry[]): ReadonlyMap<SelectedEntry, string> {
+export function entrySlugs(selected: ReadonlyArray<SelectedEntry>): ReadonlyMap<SelectedEntry, string> {
   return new Map(selected.map((entry) => [entry, entrySlugOf(entry)]));
 }

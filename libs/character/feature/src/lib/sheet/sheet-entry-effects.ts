@@ -75,7 +75,7 @@ export function sheetEntryEffects(
   registry: ContentRegistry,
   character: Character,
   { entry, mode, rank }: EntryEffectsRequest,
-): readonly PreviewEffect[] {
+): ReadonlyArray<PreviewEffect> {
   const level = 'level' in entry ? ContentLevel.safeParse(entry.level).data : undefined;
 
   const lines = characterEffects(character.document, sheetSources(registry, character), {

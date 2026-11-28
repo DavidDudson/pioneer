@@ -72,9 +72,9 @@ export interface ActionRow {
   readonly name: string;
   readonly origin: ActionOriginKind;
   readonly cost: ActionCost | undefined;
-  readonly modes: readonly ActionMode[];
+  readonly modes: ReadonlyArray<ActionMode>;
   readonly status: ActionStatus;
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
   /** The total of the roll, when it has one. */
   readonly roll: number | undefined;
 }
@@ -82,11 +82,11 @@ export interface ActionRow {
 export type ActionsCheck =
   /** The core rules pack's roll option namespaces have not loaded yet, so nothing is weighed. */
   | { readonly status: typeof ActionsStatus.Pending }
-  | { readonly status: typeof ActionsStatus.Valid; readonly rows: readonly ActionRow[] }
+  | { readonly status: typeof ActionsStatus.Valid; readonly rows: ReadonlyArray<ActionRow> }
   | { readonly status: typeof ActionsStatus.NotJson }
-  | { readonly status: typeof ActionsStatus.Invalid; readonly issues: readonly FieldIssue[] }
+  | { readonly status: typeof ActionsStatus.Invalid; readonly issues: ReadonlyArray<FieldIssue> }
   /** `lines` are the 1-based lines of the roll option list that are not roll options. */
-  | { readonly status: typeof ActionsStatus.InvalidFacts; readonly lines: readonly number[] };
+  | { readonly status: typeof ActionsStatus.InvalidFacts; readonly lines: ReadonlyArray<number> };
 
 function candidateOf({ id, origin, action }: ActionsInput['actions'][number]): ActionCandidate {
   const kind: ActionOrigin = { kind: origin };

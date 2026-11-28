@@ -71,7 +71,7 @@ function withHealing<Play extends RestPlay>(
 
 /** A condition after Rest: what is kept of it, and the change made when there is one. */
 interface EasedCondition {
-  readonly kept: readonly ActiveCondition[];
+  readonly kept: ReadonlyArray<ActiveCondition>;
   readonly change: RestChange | undefined;
 }
 
@@ -156,10 +156,10 @@ export function rested<Play extends RestPlay>(play: Play, limits: RestLimits): R
 /** The counts of one kind that come back on a boundary, and what is left spent. */
 interface RestoredCounts<Key extends CountKey> {
   readonly spent: Partial<Record<Key, ResourceCount>>;
-  readonly restored: readonly {
+  readonly restored: ReadonlyArray<{
     readonly key: Key;
     readonly amount: ResourceCount;
-  }[];
+  }>;
 }
 
 /** `counts` with those counted on `boundary` back at 0 spent; counts with no maximum are left as they are. */
@@ -198,7 +198,7 @@ function withCountsRestored<Play extends RestPlay>(
     uses.restored.map(({ key }) => key),
   );
 
-  const changes: readonly RestChange[] = [
+  const changes: ReadonlyArray<RestChange> = [
     ...slots.restored.map(({ key, amount }): RestChange => ({
       kind: RestChangeKind.Slots,
       key,

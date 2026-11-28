@@ -6,13 +6,13 @@ import type { OfferedLanguage } from '../data/language-rows';
 
 /** The Languages section: what the character knows, and Add language's slot and options while any are left to add. */
 export interface SheetLanguages {
-  readonly lines: readonly LanguageLine[];
+  readonly lines: ReadonlyArray<LanguageLine>;
   /** How many languages are left to add at the character's level. */
   readonly open: number;
   /** The slot Add language fills; undefined when every slot up to the character's level is filled. */
   readonly next: SlotKey | undefined;
   /** What it offers, by id and name; the table adds the facts to choose by. */
-  readonly options: readonly OfferedLanguage[];
+  readonly options: ReadonlyArray<OfferedLanguage>;
 }
 
 /** The server's reading of the character's languages, as the Languages section shows them. */

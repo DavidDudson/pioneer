@@ -91,7 +91,7 @@ export class SheetCharacterBlock {
 
     return play.dying > 0 ? play.dying : undefined;
   });
-  protected readonly conditions = computed((): readonly string[] => {
+  protected readonly conditions = computed((): ReadonlyArray<string> => {
     const registry = this.#registry.data();
     const play = this.#play.play.data()?.play;
 

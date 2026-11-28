@@ -22,8 +22,8 @@ const STRIKE = idOf('action:strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
 const text = (words: string): JsonObject => ({ type: 'text', text: words });
-const paragraph = (...content: readonly JsonObject[]): JsonObject => ({ type: 'paragraph', content });
-const trigger = (...blocks: readonly JsonObject[]): RichText => RichText.parse(blocks);
+const paragraph = (...content: ReadonlyArray<JsonObject>): JsonObject => ({ type: 'paragraph', content });
+const trigger = (...blocks: ReadonlyArray<JsonObject>): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
 
 const ref = (id: ContentId, label?: string): JsonObject =>

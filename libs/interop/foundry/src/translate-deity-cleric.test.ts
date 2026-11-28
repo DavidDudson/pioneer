@@ -9,14 +9,14 @@ import type { DocumentFixture } from './testing/import-fixtures';
 
 const { Proficiency } = RuleElementKey;
 
-function keyed(key: string, name: string, fixture: DocumentFixture): unknown[] {
+function keyed(key: string, name: string, fixture: DocumentFixture): Array<unknown> {
   return rulesIn(translate([fixture]), name).filter(
     (rule) => typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
   );
 }
 
 /** The `key`s of the Foundry elements an entry's import leaves for the backlog. */
-function untranslatedKeys(fixture: DocumentFixture): readonly string[] {
+function untranslatedKeys(fixture: DocumentFixture): ReadonlyArray<string> {
   return translate([fixture]).envelopes.untranslatedRules.map(({ key }) => key);
 }
 

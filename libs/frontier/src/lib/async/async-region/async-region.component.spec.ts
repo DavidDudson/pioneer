@@ -12,14 +12,14 @@ const PARTY = ['Valeros', 'Seoni', 'Kyra'] as const;
 
 interface Rendered {
   readonly fixture: ComponentFixture<AsyncRegionHost>;
-  readonly query: FakeQuery<readonly string[]>;
+  readonly query: FakeQuery<ReadonlyArray<string>>;
   readonly region: HTMLElement;
   readonly stable: () => Promise<void>;
 }
 
 async function render(inputs: ComponentInputs<AsyncRegionHost> = {}): Promise<Rendered> {
   const fixture = TestBed.createComponent(AsyncRegionHost);
-  const query = new FakeQuery<readonly string[]>();
+  const query = new FakeQuery<ReadonlyArray<string>>();
   fixture.componentRef.setInput('query', query);
 
   for (const [name, value] of Object.entries(inputs)) {
@@ -44,7 +44,7 @@ async function render(inputs: ComponentInputs<AsyncRegionHost> = {}): Promise<Re
   };
 }
 
-function names(region: HTMLElement): string[] {
+function names(region: HTMLElement): Array<string> {
   return [...region.querySelectorAll('fr-text')].map((text) => text.textContent.trim());
 }
 

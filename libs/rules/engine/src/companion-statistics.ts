@@ -47,7 +47,7 @@ function raised(rank: Proficiency): Proficiency {
   return RANKS[Math.min(RANKS.indexOf(rank) + 1, RANKS.length - 1)] ?? rank;
 }
 
-function sum(lines: readonly CompanionLine[]): Modifier {
+function sum(lines: ReadonlyArray<CompanionLine>): Modifier {
   let total = 0;
 
   for (const line of lines) {
@@ -57,17 +57,17 @@ function sum(lines: readonly CompanionLine[]): Modifier {
   return Modifier.parse(total);
 }
 
-function statistic(lines: readonly CompanionLine[]): CompanionStatistic {
+function statistic(lines: ReadonlyArray<CompanionLine>): CompanionStatistic {
   return { total: sum(lines), lines };
 }
 
 /** The tiers held, in the order the rules list them, so a breakdown reads the same every time. */
-function heldTiers({ tiers }: CompanionInputs): readonly CompanionTier[] {
+function heldTiers({ tiers }: CompanionInputs): ReadonlyArray<CompanionTier> {
   return Object.values(CompanionTier).filter((tier) => tier !== CompanionTier.Young && tiers.has(tier));
 }
 
 function attributeStatistic(inputs: CompanionInputs, attribute: Attribute): CompanionStatistic {
-  const tierLines = heldTiers(inputs).flatMap((tier): readonly CompanionLine[] => {
+  const tierLines = heldTiers(inputs).flatMap((tier): ReadonlyArray<CompanionLine> => {
     const step = TIER_ADVANCE[tier].attributes[attribute];
 
     return step === undefined ? [] : [{ source: CompanionSource.Tier, value: step, tier }];
@@ -124,7 +124,7 @@ function skillRank(inputs: CompanionInputs, skill: CompanionSkillName): Proficie
 interface Check {
   readonly attribute: Attribute;
   readonly rank: Proficiency;
-  readonly base: readonly CompanionLine[];
+  readonly base: ReadonlyArray<CompanionLine>;
 }
 
 function checkStatistic(inputs: CompanionInputs, attributes: Attributes, check: Check): CompanionStatistic {
@@ -166,7 +166,7 @@ function strikeOf(inputs: CompanionInputs, attributes: Attributes, attack: Compa
     dice = DiceCount.parse(dice + TIER_ADVANCE[tier].dice);
   }
 
-  const tierDamage = held.flatMap((tier): readonly CompanionLine[] => {
+  const tierDamage = held.flatMap((tier): ReadonlyArray<CompanionLine> => {
     const { flat } = TIER_ADVANCE[tier];
 
     // A specialized companion's extra damage doubles: 2 becomes 4, and 3 becomes 6.
@@ -223,7 +223,7 @@ export function deriveCompanionStatistics(inputs: CompanionInputs): CompanionSta
   const defence = defenceRank(inputs);
   const level = Modifier.parse(inputs.level);
 
-  const hitPointLines: readonly CompanionLine[] = [
+  const hitPointLines: ReadonlyArray<CompanionLine> = [
     { source: CompanionSource.StatBlock, value: Modifier.parse(inputs.block.ancestryHp) },
     { source: CompanionSource.Level, value: Modifier.parse(HP_PER_LEVEL * level) },
     {

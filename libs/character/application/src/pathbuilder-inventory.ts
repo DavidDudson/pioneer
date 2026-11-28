@@ -102,7 +102,7 @@ function carryOf(imported: ImportedItem, entry: ItemEntry, armourWorn: boolean):
 /** The inventory line `imported` makes, or undefined when no loaded item or quantity fits. */
 /** What a line is placed against: the lines made so far, and the item each Pathbuilder container became. */
 interface Placed {
-  readonly items: readonly InventoryItem[];
+  readonly items: ReadonlyArray<InventoryItem>;
   readonly containers: ReadonlyMap<PathbuilderContainerKey, InventoryItemId>;
 }
 
@@ -222,8 +222,8 @@ function customFor(imported: ImportedItem): CustomItem | undefined {
 export function importedInventory(value: PathbuilderImport, content: InventoryContent): Inventory {
   const bags = containerLines(value, content);
   const containers = new Map([...bags].map(([key, bag]) => [key, bag.id]));
-  const items: InventoryItem[] = [...bags.values()];
-  const customItems: CustomItem[] = [];
+  const items: Array<InventoryItem> = [...bags.values()];
+  const customItems: Array<CustomItem> = [];
 
   for (const imported of value.items) {
     const line = lineFor(imported, content, { items, containers });

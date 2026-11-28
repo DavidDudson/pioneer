@@ -12,7 +12,7 @@ export interface SpellFilterGroup {
   readonly id: string;
   /** The property worded ("Targets", "Source"). */
   readonly label: string;
-  readonly options: readonly SpellFilterOption[];
+  readonly options: ReadonlyArray<SpellFilterOption>;
   /** The values picked; one the options no longer hold is still listed, so it can be cleared. */
   readonly selected: ReadonlySet<string>;
 }

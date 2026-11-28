@@ -62,7 +62,7 @@ const imported = async (exported: PathbuilderFileJson): Promise<PathbuilderImpor
  * Pathbuilder's own exports imported over the official packs: what the engine derives that Pathbuilder computed
  * differently (#312). Pins the differences as they stand, so a change to the rules or the import shows up here.
  */
-const summary = (differences: readonly Discrepancy[]): string[] =>
+const summary = (differences: ReadonlyArray<Discrepancy>): Array<string> =>
   differences.map(
     ({ selector, pathbuilder, pioneer }) => `${selector}: Pathbuilder ${pathbuilder}, Pioneer ${pioneer}`,
   );
@@ -180,7 +180,7 @@ describe('Pathbuilder feats over the official packs', () => {
 });
 
 /** Gaps by caster and reason: `Oracle no-slot: 1`. */
-const gapSummary = (gaps: readonly SpellGap[]): string[] =>
+const gapSummary = (gaps: ReadonlyArray<SpellGap>): Array<string> =>
   Object.entries(Object.groupBy(gaps, ({ caster, reason }) => `${caster} ${reason}`)).map(
     ([key, group]) => `${key}: ${group?.length ?? 0}`,
   );

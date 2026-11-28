@@ -51,7 +51,7 @@ function sheetLanguage({ language, source, from, slot }: KnownLanguage): SheetLa
   return sheet;
 }
 
-function nextSlot(slots: readonly LanguageSlot[], level: Level): CharacterLanguages['next'] {
+function nextSlot(slots: ReadonlyArray<LanguageSlot>, level: Level): CharacterLanguages['next'] {
   const next = slots.find((slot) => slot.level <= level && slot.pick === undefined);
 
   return next === undefined

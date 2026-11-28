@@ -16,7 +16,7 @@ registry.register(BROWSE_PACK);
 const compare = (left: string, right: string): number => left.localeCompare(right);
 
 /** The id of the entry named `name`; the specs only ask for names the fixtures hold. */
-function idOf(entries: readonly ContentEntry[], name: string): ContentId {
+function idOf(entries: ReadonlyArray<ContentEntry>, name: string): ContentId {
   const found = entries.find((entry) => entry.name === name);
 
   if (found === undefined) {
@@ -26,7 +26,8 @@ function idOf(entries: readonly ContentEntry[], name: string): ContentId {
   return found.id;
 }
 
-const names = (kinds: readonly BrowseKind[]): string[] => entriesOf(registry, kinds).map((entry) => entry.name);
+const names = (kinds: ReadonlyArray<BrowseKind>): Array<string> =>
+  entriesOf(registry, kinds).map((entry) => entry.name);
 
 describe(entriesOf, () => {
   it('lists the entries of the kinds asked for only', () => {
@@ -42,7 +43,9 @@ describe(browseList, () => {
   const facets = facetsOf(kinds);
   const traits = FacetId.parse('traits');
   const fighter = FacetValue.parse('fighter');
-  const found = (...called: readonly string[]): readonly ContentId[] => called.map((name) => idOf(entries, name));
+
+  const found = (...called: ReadonlyArray<string>): ReadonlyArray<ContentId> =>
+    called.map((name) => idOf(entries, name));
 
   const countOf = (list: BrowseList, value: string): number | undefined =>
     list.counts.find((each) => each.facet.id === traits)?.values.find((each) => each.value === value)?.count;

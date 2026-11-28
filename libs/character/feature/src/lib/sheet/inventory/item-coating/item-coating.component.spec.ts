@@ -21,7 +21,7 @@ const OIL_LINE = {
 const ROWS = VALEROS.inventory.items.length + 1;
 
 /** Valeros with a +1 longsword that has a coating rune holding `stored`, and an oil in his pack. */
-function coated(stored: readonly string[]): typeof VALEROS {
+function coated(stored: ReadonlyArray<string>): typeof VALEROS {
   const sword = VALEROS.inventory.items.find((item) => item.id === SWORD);
 
   const state = stored.length > 0 ? { state: { coating: stored } } : undefined;

@@ -21,17 +21,17 @@ const ONE_ROUND = EffectRounds.parse(1);
 export interface TurnInputs {
   readonly limits: PlayLimits;
   /** The character's fast healing and regeneration (`vitalsInPlay`); empty when it has none. */
-  readonly recovery: readonly RecoveryInPlay[];
+  readonly recovery: ReadonlyArray<RecoveryInPlay>;
 }
 
 /** The play state a turn boundary leaves, and what happened, in order. */
 export interface TurnOutcome {
   readonly play: PlayState;
-  readonly events: readonly TurnEvent[];
+  readonly events: ReadonlyArray<TurnEvent>;
 }
 
 /** `outcome` moved on to `play`, with the `events` that led there. */
-function then({ events }: TurnOutcome, play: PlayState, more: readonly TurnEvent[]): TurnOutcome {
+function then({ events }: TurnOutcome, play: PlayState, more: ReadonlyArray<TurnEvent>): TurnOutcome {
   return { play, events: [...events, ...more] };
 }
 

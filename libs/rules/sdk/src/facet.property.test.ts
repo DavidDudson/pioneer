@@ -24,8 +24,8 @@ const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A tra
 interface EntryFields {
   readonly level: number | undefined;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly books: readonly string[];
+  readonly traits: ReadonlyArray<string>;
+  readonly books: ReadonlyArray<string>;
   readonly pack: string;
 }
 
@@ -37,7 +37,7 @@ const draft: Arbitrary<EntryFields> = record({
   pack: constantFrom(...PACKS),
 });
 
-const entries: Arbitrary<readonly ContentEntry[]> = array(draft, { maxLength: ENTRIES_MAX }).map((drafts) =>
+const entries: Arbitrary<ReadonlyArray<ContentEntry>> = array(draft, { maxLength: ENTRIES_MAX }).map((drafts) =>
   drafts.map(({ level, rarity, traits, books, pack }, index) => {
     const fields = {
       id: contentId(PackId.parse(pack), EntrySlug.parse(`trait:entry-${index}`)),
@@ -64,7 +64,7 @@ const POOLS = {
   pack: PACKS,
 };
 
-const POOLS_BY_FACET: ReadonlyMap<string, readonly string[]> = new Map(Object.entries(POOLS));
+const POOLS_BY_FACET: ReadonlyMap<string, ReadonlyArray<string>> = new Map(Object.entries(POOLS));
 
 const bound: Arbitrary<RangeBound | undefined> = option(
   integer({ min: 0, max: LEVEL_TOP }).map((value) => RangeBound.parse(value)),
@@ -92,7 +92,7 @@ function selection(facet: FacetDefinition): Arbitrary<FacetSelection | undefined
 const filterState: Arbitrary<FilterState> = tuple(...COMMON_FACETS.map((facet) => selection(facet))).map(
   (selections) =>
     new Map(
-      selections.flatMap((picked, index): (readonly [FacetId, FacetSelection])[] => {
+      selections.flatMap((picked, index): Array<readonly [FacetId, FacetSelection]> => {
         const facet = COMMON_FACETS[index];
 
         return facet === undefined || picked === undefined ? [] : [[facet.id, picked]];

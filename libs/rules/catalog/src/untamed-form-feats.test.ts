@@ -9,7 +9,7 @@ import * as z from 'zod';
 const Conditional = z.strictObject({ effect: ContentId, predicate: Predicate });
 
 /** The spells and effects of the player-core pack, read from their JSON files. */
-async function packEntries(): Promise<readonly ContentEntry[]> {
+async function packEntries(): Promise<ReadonlyArray<ContentEntry>> {
   const files = await Promise.all([
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/effect.json'),
@@ -26,7 +26,7 @@ function isOffered(entry: SpellEffectEntry, facts: PredicateFacts): boolean {
 }
 
 /** The effect ids the spell `slug` offers a character with exactly the roll options `options`. */
-async function offered(slug: string, options: readonly string[]): Promise<ReadonlySet<ContentId>> {
+async function offered(slug: string, options: ReadonlyArray<string>): Promise<ReadonlySet<ContentId>> {
   const entries = await packEntries();
   const spell = entries.find((entry) => entry.kind === ContentKind.Spell && entry.slug === slug);
 
@@ -41,7 +41,7 @@ async function offered(slug: string, options: readonly string[]): Promise<Readon
 }
 
 /** The ids of the effects whose slug starts with `prefix`. */
-async function effectsNamed(prefix: string): Promise<readonly ContentId[]> {
+async function effectsNamed(prefix: string): Promise<ReadonlyArray<ContentId>> {
   const entries = await packEntries();
 
   return entries

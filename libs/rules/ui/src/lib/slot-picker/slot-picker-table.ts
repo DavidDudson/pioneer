@@ -31,10 +31,10 @@ import type {
 const SIGNED = new Intl.NumberFormat(undefined, { signDisplay: 'exceptZero' });
 
 /** How far up the ranks each is, so a skill sorts by training. */
-const RANK_ORDER: readonly string[] = Object.keys(PROFICIENCY_NAMES);
+const RANK_ORDER: ReadonlyArray<string> = Object.keys(PROFICIENCY_NAMES);
 
 /** How rare each rarity is, so a language sorts from common to unique. */
-const RARITY_ORDER: readonly string[] = Object.keys(SLOT_RARITY_MESSAGES);
+const RARITY_ORDER: ReadonlyArray<string> = Object.keys(SLOT_RARITY_MESSAGES);
 
 /** The name column every slot picker starts with. */
 function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: Say): OriginTableSchema<TRow> {
@@ -47,12 +47,12 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
 }
 
 /** The traits as chips, a legacy or unsupported entry's flags first, then an entry above common rarity and its traits, toned by rarity. */
-function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip[] {
+function traitChips(facts: SlotPickerFacts | undefined, say: Say): ReadonlyArray<Chip> {
   if (facts === undefined) {
     return [];
   }
 
-  const flags: Chip[] = [
+  const flags: Array<Chip> = [
     ...(facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : []),
     ...(facts.replacedBy ?? []).map((name): Chip => ({
       label: say(SlotPickerMessage.ReplacedBy, { name }),
@@ -76,7 +76,7 @@ function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip
  * The columns of a slot picker: the name, then what its content entry says of itself (level, traits and summary), then
  * where it comes from. An option that no entry stands behind is the name alone, with empty cells.
  */
-export function slotPickerColumns(say: Say): readonly TableColumn<SlotPickerRow>[] {
+export function slotPickerColumns(say: Say): ReadonlyArray<TableColumn<SlotPickerRow>> {
   return withName(new OriginTableSchema<SlotPickerRow>(), say)
     .addFacts({
       id: SlotPickerColumn.Level,
@@ -111,7 +111,7 @@ export function slotPickerColumns(say: Say): readonly TableColumn<SlotPickerRow>
  * The columns of a skill picker: the skill, its governing attribute, the character's rank and modifier in it, and the
  * penalty the worn armour gives it.
  */
-export function skillPickerColumns(say: Say): readonly TableColumn<SkillPickerRow>[] {
+export function skillPickerColumns(say: Say): ReadonlyArray<TableColumn<SkillPickerRow>> {
   return withName(new OriginTableSchema<SkillPickerRow>(), say)
     .addFacts({
       id: 'attribute',
@@ -142,7 +142,7 @@ export function skillPickerColumns(say: Say): readonly TableColumn<SkillPickerRo
 }
 
 /** The columns of an attribute picker: the attribute, the modifier now and the modifier the boost would give. */
-export function attributePickerColumns(say: Say): readonly TableColumn<AttributePickerRow>[] {
+export function attributePickerColumns(say: Say): ReadonlyArray<TableColumn<AttributePickerRow>> {
   return withName(new OriginTableSchema<AttributePickerRow>(), say)
     .addFacts({
       id: SlotPickerColumn.Modifier,
@@ -160,7 +160,7 @@ export function attributePickerColumns(say: Say): readonly TableColumn<Attribute
 }
 
 /** The columns of a language picker: the language, its rarity and script, whether the character knows it, and its source. */
-export function languagePickerColumns(say: Say): readonly TableColumn<LanguagePickerRow>[] {
+export function languagePickerColumns(say: Say): ReadonlyArray<TableColumn<LanguagePickerRow>> {
   return withName(new OriginTableSchema<LanguagePickerRow>(), say)
     .addFacts({
       id: SlotPickerColumn.Rarity,
@@ -246,7 +246,7 @@ const LORE_WORD = /\s+lore$/iu;
  * it picks `lore:<what was typed>`, which the builder keeps under its topic. A name is listed when it folds to the topic
  * of a listed one (`Sailing!`, `Säiling`). None for a name with no topic, or too long.
  */
-export function typedLoreRow(query: string, rows: readonly SkillPickerRow[], say: Say): SkillPickerRow | undefined {
+export function typedLoreRow(query: string, rows: ReadonlyArray<SkillPickerRow>, say: Say): SkillPickerRow | undefined {
   const typed = query.trim();
   const topic = loreTopicSlug(LoreText.parse(typed));
   const listed = rows.some(({ name }) => loreTopicSlug(LoreText.parse(name)) === topic);

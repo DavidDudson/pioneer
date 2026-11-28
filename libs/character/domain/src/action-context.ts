@@ -20,16 +20,16 @@ const CRAWL = EntrySlug.parse('action:crawl');
 const ESCAPE = EntrySlug.parse('action:escape');
 const SHIELD_BLOCK = EntrySlug.parse('feat:shield-block');
 
-const NO_SLUGS: readonly EntrySlug[] = [];
+const NO_SLUGS: ReadonlyArray<EntrySlug> = [];
 
 /** What a situation says about a character's actions: which it calls for, and which only it makes worth taking. */
 interface ContextRule {
   /** The roll option that says the situation holds. */
   readonly option: RollOption;
   /** The actions the situation calls for, most pressing first. */
-  readonly first: readonly EntrySlug[];
+  readonly first: ReadonlyArray<EntrySlug>;
   /** The actions that are only worth taking while it holds. */
-  readonly needs: readonly EntrySlug[];
+  readonly needs: ReadonlyArray<EntrySlug>;
 }
 
 /**
@@ -37,7 +37,7 @@ interface ContextRule {
  * gives few actions a `requirements` predicate yet, so the sheet reads these beside them: prone puts Stand and Crawl
  * first, grabbed puts Escape first, and a raised shield enables Shield Block.
  */
-const CONTEXT_RULES: readonly ContextRule[] = [
+const CONTEXT_RULES: ReadonlyArray<ContextRule> = [
   { option: PRONE, first: [STAND, CRAWL], needs: NO_SLUGS },
   { option: GRABBED, first: [ESCAPE], needs: NO_SLUGS },
   { option: RESTRAINED, first: [ESCAPE], needs: NO_SLUGS },
@@ -47,7 +47,7 @@ const CONTEXT_RULES: readonly ContextRule[] = [
 /** How the situation reorders the actions on a character's list. */
 export interface ActionContext {
   /** The actions the situation calls for, most pressing first. */
-  readonly first: readonly ContentId[];
+  readonly first: ReadonlyArray<ContentId>;
   /** The actions that need a situation that does not hold now, so are not worth taking. */
   readonly dormant: ReadonlySet<ContentId>;
 }
@@ -65,8 +65,8 @@ function idsBySlug(registry: ContentRegistry): ReadonlyMap<EntrySlug, ContentId>
 }
 
 /** The ids of `slugs` the content has, in order. */
-function idsOf(slugs: readonly EntrySlug[], ids: ReadonlyMap<EntrySlug, ContentId>): readonly ContentId[] {
-  return slugs.flatMap((slug): ContentId[] => {
+function idsOf(slugs: ReadonlyArray<EntrySlug>, ids: ReadonlyMap<EntrySlug, ContentId>): ReadonlyArray<ContentId> {
+  return slugs.flatMap((slug): Array<ContentId> => {
     const id = ids.get(slug);
 
     return id === undefined ? [] : [id];

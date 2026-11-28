@@ -70,7 +70,7 @@ describe(PickerField, () => {
 
   it('passes the query, order and end of the rows out', async () => {
     const fixture = render();
-    const searches: string[] = [];
+    const searches: Array<string> = [];
     fixture.componentInstance.searched.subscribe((query) => {
       searches.push(query);
     });

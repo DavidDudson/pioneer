@@ -31,14 +31,14 @@ export class CharacterFlaggedItems {
   }
 
   /** Every rule the character's items break, one entry per item and rule, in inventory order. */
-  public async of(character: Character): Promise<readonly FlaggedLine[]> {
+  public async of(character: Character): Promise<ReadonlyArray<FlaggedLine>> {
     const registry = await contentOfCharacter(this.#content, character).registry();
     const limits = await ruleLimitsOfCharacter(this.#content, character);
     const items = itemContent(registry);
     const runes = runeContent(registry);
     const { inventory } = character.document;
 
-    return inventoryViolations(inventory, { items, runes }, limits).flatMap((violation): FlaggedLine[] => {
+    return inventoryViolations(inventory, { items, runes }, limits).flatMap((violation): Array<FlaggedLine> => {
       const line = inventory.items.find((each) => each.id === violation.item);
 
       if (line === undefined) {

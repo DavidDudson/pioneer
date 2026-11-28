@@ -35,7 +35,7 @@ const IMPORTS = path.join(ROOT, 'content', 'import');
 /** How many entries a list names before it only counts the rest. */
 const LISTED = 20;
 
-function formatList(entries: readonly string[]): string[] {
+function formatList(entries: ReadonlyArray<string>): Array<string> {
   const rest = entries.length - LISTED;
 
   return [...entries.slice(0, LISTED).map((entry) => `  ${entry}`), ...(rest > 0 ? [`  … ${rest} more`] : [])];
@@ -66,7 +66,7 @@ function formatStaves({ staves, withoutSpells }: StaffCoverage): string {
   return [heading, ...formatList(withoutSpells)].join('\n');
 }
 
-async function backlogs(): Promise<readonly BacklogItem[]> {
+async function backlogs(): Promise<ReadonlyArray<BacklogItem>> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: IMPORTS, absolute: true }));
   const imports = await Promise.all(files.map(async (file) => ImportFile.parse(await Bun.file(file).json())));
 

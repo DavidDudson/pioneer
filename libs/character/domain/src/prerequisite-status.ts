@@ -33,7 +33,7 @@ export interface PrerequisiteClauseStatus {
 export function prerequisiteClauseStatuses(
   feat: FeatRead | undefined,
   facts: PredicateFacts,
-): readonly PrerequisiteClauseStatus[] | undefined {
+): ReadonlyArray<PrerequisiteClauseStatus> | undefined {
   return feat?.clauses?.map(({ text, predicate }): PrerequisiteClauseStatus => ({
     text,
     status: predicate === undefined ? PrerequisiteStatus.Unknown : STATUSES[evaluatePredicate(predicate, facts)],
@@ -41,7 +41,7 @@ export function prerequisiteClauseStatuses(
 }
 
 /** The state of clauses that must all hold, under Kleene's logic: one unmet makes it unmet, else one unknown makes it unknown. */
-function allOf(clauses: readonly PrerequisiteClauseStatus[]): PrerequisiteStatus {
+function allOf(clauses: ReadonlyArray<PrerequisiteClauseStatus>): PrerequisiteStatus {
   const statuses = new Set(clauses.map(({ status }) => status));
 
   if (statuses.has(PrerequisiteStatus.Unmet)) {

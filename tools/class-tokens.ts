@@ -76,7 +76,11 @@ const THEME_COLOUR =
 const FORCED_COLORS = 'forced-colors';
 
 /** System colours only under `forced-colors:`, and only system colours there. */
-function forcedColourProblem(variants: readonly string[], base: string, token: string): ClassTokenProblem | undefined {
+function forcedColourProblem(
+  variants: ReadonlyArray<string>,
+  base: string,
+  token: string,
+): ClassTokenProblem | undefined {
   const forced = variants.includes(FORCED_COLORS);
 
   if (!forced && SYSTEM_COLOUR.test(base)) {

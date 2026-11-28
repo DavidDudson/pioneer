@@ -8,7 +8,7 @@ import type { ContentPackId } from '@pioneer/rules/sdk';
  * loading, so a page waits for it instead of building over official packs alone and then again.
  */
 export interface ContentScope {
-  readonly homebrew: readonly ContentPackId[];
+  readonly homebrew: ReadonlyArray<ContentPackId>;
   readonly legacy: boolean;
   readonly ready: boolean;
 }

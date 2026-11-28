@@ -56,9 +56,9 @@ export interface ActionLine {
   readonly id: ContentId;
   readonly name: string;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   readonly cost: ActionCost | undefined;
-  readonly modes: readonly ActionMode[];
+  readonly modes: ReadonlyArray<ActionMode>;
   readonly origin: ActionOrigin;
   /** The kind it is listed under when its origin does not say (a Strike, a spell, an innate spell); absent otherwise. */
   readonly category?: ActionCategory | undefined;
@@ -66,7 +66,7 @@ export interface ActionLine {
   readonly source: string | undefined;
   readonly status: ActionStatus;
   /** Why it is not plainly available. */
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
   /** The period it comes back over once its uses are spent; absent when it can be used again now. */
   readonly recharge?: FrequencyPeriod | undefined;
   /** When it can be used (a reaction's trigger), as the content words it; absent when it has none. */
@@ -80,7 +80,7 @@ export interface ActionLine {
   /** What using it pays besides actions; a line with a payment can be used even when its content gives no cost. */
   readonly payment?: UsePayment | undefined;
   /** When it can be paid for in more than one way (a staff's charges alone, or with a slot), a button for each; empty or absent for one way. */
-  readonly payOptions?: readonly UsePayOption[] | undefined;
+  readonly payOptions?: ReadonlyArray<UsePayOption> | undefined;
   /** Whether using it is an attack, which moves the multiple attack penalty on: a Strike. */
   readonly attack?: true | undefined;
   /** The best of its skills to roll with its breakdown; absent for an action that rolls nothing. */

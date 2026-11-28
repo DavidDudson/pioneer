@@ -41,10 +41,10 @@ export interface WandSource {
 
 /** What the wands are read from: the inventory and its content, the spells, the spellcasting entries and the counts. */
 export interface WandSourceInputs {
-  readonly inventory: readonly InventoryItem[];
+  readonly inventory: ReadonlyArray<InventoryItem>;
   readonly items: ItemContent;
   readonly spells: SpellContent;
-  readonly entries: readonly SpellcastingInPlay[];
+  readonly entries: ReadonlyArray<SpellcastingInPlay>;
   readonly uses: SpentCounts['uses'];
   readonly counted: CountedMaxima;
 }
@@ -61,10 +61,10 @@ function countOf(inputs: WandSourceInputs, key: UseCountKey): WandCount {
  * with its spell, whether the holder can cast it, and its casts left. A wand that is stowed, worn or dropped is no
  * source. Focus entries have no spell list to cast from and are left out.
  */
-export function wandSources(inputs: WandSourceInputs): readonly WandSource[] {
+export function wandSources(inputs: WandSourceInputs): ReadonlyArray<WandSource> {
   const casters = inputs.entries.filter(({ preparation }) => preparation !== SpellPreparation.Focus);
 
-  return inputs.inventory.flatMap((item): WandSource[] => {
+  return inputs.inventory.flatMap((item): Array<WandSource> => {
     const wand = wandSpell(item, inputs.items);
 
     if (wand === undefined || item.carry.state !== CarryState.Held) {

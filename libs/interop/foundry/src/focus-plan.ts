@@ -38,15 +38,15 @@ export const WIZARD_ENTRY = focusEntry({ slug: WIZARD, tradition: 'arcane', attr
 /** A focus spells element's entry, its spells by slug, and the predicate it holds on, if any. */
 export interface Grant {
   readonly entry: string;
-  readonly spells: readonly string[];
-  readonly predicate?: readonly unknown[];
+  readonly spells: ReadonlyArray<string>;
+  readonly predicate?: ReadonlyArray<unknown>;
 }
 
 /** An element that names entries of the pack being imported by id. */
 export type Named = (pack: PackId) => object;
 
 /** The rule elements of one entry, before its spells are named in the pack being imported. */
-export type Planned = readonly (object | Grant | Named)[];
+export type Planned = ReadonlyArray<object | Grant | Named>;
 
 export function isNamed(element: Planned[number]): element is Named {
   return typeof element === 'function';
@@ -76,8 +76,8 @@ export function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): 
 interface FocusOption {
   readonly value: string;
   readonly label: string;
-  readonly spells: readonly string[];
-  readonly predicate?: readonly unknown[];
+  readonly spells: ReadonlyArray<string>;
+  readonly predicate?: ReadonlyArray<unknown>;
 }
 
 /** A choice of focus spells: the flag its pick is stored under, its prompt, the focus entry, and its options. */
@@ -85,7 +85,7 @@ export interface FocusChoice {
   readonly flag: string;
   readonly prompt: string;
   readonly entry: string;
-  readonly options: readonly FocusOption[];
+  readonly options: ReadonlyArray<FocusOption>;
 }
 
 /**

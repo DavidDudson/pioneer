@@ -11,7 +11,7 @@ import { conditionGrantEntries as entries, idNamed } from './testing/condition-e
 import { core, fighter, noFacts } from './testing/core-rules';
 
 /** The rules of the conditions in play once `root` is put on the character, as the sheet derives from them. */
-function rulesUnder(root: ContentId): readonly RuleInPlay[] {
+function rulesUnder(root: ContentId): ReadonlyArray<RuleInPlay> {
   const { items } = resolveGrants(
     inputsOf({ entries, roots: [{ entry: root, hop: { kind: 'condition', condition: root } }] }),
   );
@@ -22,7 +22,7 @@ function rulesUnder(root: ContentId): readonly RuleInPlay[] {
 }
 
 /** The origin of every applied breakdown line, across every statistic the fighter has, with `root` put on them. */
-function appliedOrigins(root: ContentId): readonly Origin[] {
+function appliedOrigins(root: ContentId): ReadonlyArray<Origin> {
   const rules = rulesUnder(root);
   const results = deriveStatistics(core, fighter, { rules, facts: factsUnderForm({ rules, facts: noFacts() }) });
 
@@ -35,7 +35,7 @@ function appliedOrigins(root: ContentId): readonly Origin[] {
  * For each implying condition, the conditions it brings that change a statistic the fighter has. Immobilized, which
  * grabbed and restrained also bring, changes none.
  */
-const WITH_LINES: readonly (readonly [string, string])[] = [
+const WITH_LINES: ReadonlyArray<readonly [string, string]> = [
   ['confused', 'off-guard'],
   ['encumbered', 'clumsy'],
   ['grabbed', 'off-guard'],

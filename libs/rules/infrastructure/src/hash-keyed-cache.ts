@@ -6,7 +6,7 @@ interface CachedValue<TValue> {
   readonly value: Promise<TValue>;
 }
 
-function cacheKey(hashes: readonly StoredPackHash[]): string {
+function cacheKey(hashes: ReadonlyArray<StoredPackHash>): string {
   return hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',');
 }
 
@@ -19,7 +19,7 @@ export class HashKeyedCache<TValue> {
   #cached: CachedValue<TValue> | undefined;
 
   /** The value for `hashes`, built with `build` unless it is already cached for them. `build` must read after them. */
-  public async current(hashes: readonly StoredPackHash[], build: () => Promise<TValue>): Promise<TValue> {
+  public async current(hashes: ReadonlyArray<StoredPackHash>, build: () => Promise<TValue>): Promise<TValue> {
     const key = cacheKey(hashes);
     const cached = this.#cached?.key === key ? this.#cached : { key, value: build() };
     this.#cached = cached;

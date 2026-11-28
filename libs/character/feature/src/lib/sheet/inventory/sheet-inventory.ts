@@ -47,10 +47,10 @@ import type { TableRules } from '../../data/character-rule-limit-store';
 import { reasonsByItem } from './sheet-violations';
 
 /** The kinds the inventory section reads: those a character carries, and the runes etched onto them. */
-export const INVENTORY_CONTENT_KINDS: readonly ContentKind[] = [...INVENTORY_KINDS, ContentKind.Rune];
+export const INVENTORY_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...INVENTORY_KINDS, ContentKind.Rune];
 
 /** The groups in sheet order. */
-const STATES: readonly CarryState[] = [CarryState.Worn, CarryState.Held, CarryState.Stowed, CarryState.Dropped];
+const STATES: ReadonlyArray<CarryState> = [CarryState.Worn, CarryState.Held, CarryState.Stowed, CarryState.Dropped];
 
 const GROUP_OF: Readonly<Record<CarryState, InventoryPlacement>> = {
   [CarryState.Worn]: InventoryPlacement.Worn,
@@ -60,8 +60,10 @@ const GROUP_OF: Readonly<Record<CarryState, InventoryPlacement>> = {
 };
 
 /** What each container holds, by the container's id. */
-function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<InventoryItemId, readonly InventoryItem[]> {
-  const contents = new Map<InventoryItemId, InventoryItem[]>();
+function contentsByContainer(
+  items: ReadonlyArray<InventoryItem>,
+): ReadonlyMap<InventoryItemId, ReadonlyArray<InventoryItem>> {
+  const contents = new Map<InventoryItemId, Array<InventoryItem>>();
 
   for (const each of items) {
     if (each.container !== undefined) {
@@ -73,7 +75,7 @@ function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<Inven
 }
 
 /** The fundamental runes an item's name gives by grade, in the order the rules write them. */
-const GRADED_RUNES: readonly GradedRune[] = [
+const GRADED_RUNES: ReadonlyArray<GradedRune> = [
   FundamentalRune.Striking,
   FundamentalRune.Resilient,
   FundamentalRune.Reinforcing,
@@ -96,12 +98,12 @@ export function lineRunes(
 
   return {
     potency: etched.potency,
-    fundamental: GRADED_RUNES.flatMap((rune): GradedRuneLine[] => {
+    fundamental: GRADED_RUNES.flatMap((rune): Array<GradedRuneLine> => {
       const grade = etched[rune];
 
       return grade === undefined ? [] : [{ rune, grade }];
     }),
-    property: etched.property.flatMap(({ rune: id, choice }): PropertyRuneLine[] => {
+    property: etched.property.flatMap(({ rune: id, choice }): Array<PropertyRuneLine> => {
       const name = runes.get(id)?.name;
 
       return name === undefined ? [] : [{ name, choice }];
@@ -121,7 +123,7 @@ function runeNote(rune: RuneEntry, working: boolean): RuneNote | undefined {
 }
 
 /** A fundamental rune's badge, or a hole when the item has none and its runes can still be etched. */
-function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etchable: boolean): RuneBadgeData[] {
+function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etchable: boolean): Array<RuneBadgeData> {
   if (grade !== undefined) {
     return [{ kind: RuneBadgeKind.Fundamental, rune, grade }];
   }
@@ -130,7 +132,7 @@ function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etch
 }
 
 /** The fundamental runes each kind of item takes, in the order its badges show. Only a weapon and armour take property runes. */
-const BADGE_FUNDAMENTALS: Readonly<Record<RunedItem, readonly FundamentalRune[]>> = {
+const BADGE_FUNDAMENTALS: Readonly<Record<RunedItem, ReadonlyArray<FundamentalRune>>> = {
   [RunedItem.Weapon]: [FundamentalRune.Potency, FundamentalRune.Striking],
   [RunedItem.Armor]: [FundamentalRune.Potency, FundamentalRune.Resilient],
   [RunedItem.Shield]: [FundamentalRune.Reinforcing],
@@ -141,7 +143,11 @@ const BADGE_FUNDAMENTALS: Readonly<Record<RunedItem, readonly FundamentalRune[]>
  * pack has is left out), and a hole for each rune it has room for and lacks. A specific item's runes cannot change,
  * so it has no holes. A shield has no property runes. Empty for any other item.
  */
-function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: RuneContent): readonly RuneBadgeData[] {
+function runeBadges(
+  item: InventoryItem,
+  entry: ItemEntry | undefined,
+  runes: RuneContent,
+): ReadonlyArray<RuneBadgeData> {
   const kind = runedItemOf(entry);
 
   if (kind === undefined) {
@@ -152,7 +158,7 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   const etchable = !isSpecific(entry);
   const working = new Set(workingPropertyRunes(item, entry, readerOf(runes)));
 
-  const named = etched.property.flatMap(({ rune: id, choice }): RuneBadgeData[] => {
+  const named = etched.property.flatMap(({ rune: id, choice }): Array<RuneBadgeData> => {
     const rune = runes.get(id);
 
     if (rune === undefined) {
@@ -205,9 +211,9 @@ export type InventoryRules = TableRules & { readonly melded?: boolean };
 
 /** The loose items grouped by how they are carried, each group with the lines `lineOf` makes; empty groups are left out. */
 function groupsOf(
-  loose: readonly InventoryItem[],
+  loose: ReadonlyArray<InventoryItem>,
   lineOf: (item: InventoryItem) => InventoryLine,
-): readonly InventoryGroup[] {
+): ReadonlyArray<InventoryGroup> {
   return STATES.values()
     .map((state) => ({
       placement: GROUP_OF[state],
@@ -229,7 +235,7 @@ export function sheetInventory(
   inventory: Inventory,
   { items, runes }: RunedContent,
   { limits, approvals, campaign, melded = false }: InventoryRules = CORE_TABLE,
-): readonly InventoryGroup[] {
+): ReadonlyArray<InventoryGroup> {
   const contents = contentsByContainer(inventory.items);
 
   const byGm = partitionApproved(
@@ -289,7 +295,7 @@ export function containerOptions(
   inventory: Inventory,
   content: ItemContent,
   moving: InventoryItemId | undefined,
-): readonly SelectOption<string>[] {
+): ReadonlyArray<SelectOption<string>> {
   const excluded = moving === undefined ? new Set<InventoryItemId>() : heldBy(inventory.items, moving);
 
   return inventory.items
@@ -298,7 +304,7 @@ export function containerOptions(
 }
 
 /** `id` and everything inside it, however deep. */
-function heldBy(items: readonly InventoryItem[], id: InventoryItemId): ReadonlySet<InventoryItemId> {
+function heldBy(items: ReadonlyArray<InventoryItem>, id: InventoryItemId): ReadonlySet<InventoryItemId> {
   const held = new Set([id]);
   let grew = true;
 

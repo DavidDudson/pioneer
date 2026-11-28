@@ -8,7 +8,7 @@ import type { CellColumn } from './rules-table-schema';
 /** Picker rows that are feats. */
 export class FeatTableSchema<TRow extends RowData> extends RulesTableSchema<TRow> {
   /** Prerequisites with met and unmet state, sorted by how many are unmet. */
-  public addPrerequisites(options: CellColumn<TRow, readonly PrerequisiteLine[]>): this {
+  public addPrerequisites(options: CellColumn<TRow, ReadonlyArray<PrerequisiteLine>>): this {
     return this.addComponent({
       ...options,
       sortValue: (row) => options.value(row).filter(({ state }) => state === PrerequisiteState.Unmet).length,

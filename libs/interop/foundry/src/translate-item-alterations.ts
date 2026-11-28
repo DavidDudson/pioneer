@@ -17,7 +17,7 @@ import type { Fields } from './translate-choice-reads';
 const ITEM_NAMESPACE = 'item:';
 
 /** The text of every roll option a predicate statement reads. */
-function optionsOf(statement: unknown): readonly string[] {
+function optionsOf(statement: unknown): ReadonlyArray<string> {
   if (typeof statement === 'string') {
     return [statement];
   }
@@ -42,12 +42,12 @@ function readsOnlyItem(statement: unknown): boolean {
 
 /** A predicate split into the statements about the item and those about the character. */
 interface SplitPredicate {
-  readonly item: readonly unknown[];
-  readonly actor: readonly unknown[];
+  readonly item: ReadonlyArray<unknown>;
+  readonly actor: ReadonlyArray<unknown>;
 }
 
 function splitPredicate(raw: Fields): SplitPredicate {
-  const statements: readonly unknown[] = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
+  const statements: ReadonlyArray<unknown> = Array.isArray(raw['predicate']) ? raw['predicate'] : [];
 
   return {
     item: statements.filter((statement) => readsOnlyItem(statement)),
@@ -61,7 +61,7 @@ function withDescriptionText(raw: unknown): unknown {
     return raw;
   }
 
-  const blocks: readonly unknown[] = 'value' in raw && Array.isArray(raw.value) ? raw.value : [];
+  const blocks: ReadonlyArray<unknown> = 'value' in raw && Array.isArray(raw.value) ? raw.value : [];
   const [block] = blocks;
   const text = typeof block === 'object' && block !== null && 'text' in block ? block.text : undefined;
 

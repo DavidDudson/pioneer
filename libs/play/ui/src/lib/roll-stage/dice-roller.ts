@@ -8,7 +8,7 @@ import type { DiceGroup, Natural } from './roll-presentation';
 /** Throws dice across a surface; the faces they land on come with the groups, never from the roller. */
 export interface DiceRoller {
   /** Resolves when every die has settled. A `natural` 20 or 1 turns the numerals gold or red; the dice keep their colour. */
-  readonly roll: (groups: readonly DiceGroup[], natural?: Natural) => Promise<void>;
+  readonly roll: (groups: ReadonlyArray<DiceGroup>, natural?: Natural) => Promise<void>;
   /** Removes the canvas and frees the graphics context. */
   readonly dispose: () => void;
 }

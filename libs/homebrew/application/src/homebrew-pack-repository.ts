@@ -18,10 +18,10 @@ export interface GuardedChange {
  */
 export abstract class HomebrewPackRepository {
   /** The live packs `ownerId` owns, newest first; pack id breaks ties. */
-  public abstract listOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]>;
+  public abstract listOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>>;
 
   /** The archived packs `ownerId` owns (ADR-0062), in the same order. */
-  public abstract listArchivedOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]>;
+  public abstract listArchivedOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>>;
 
   /**
    * Any live homebrew pack; an archived one reads as missing. The service applies the access policy. Official packs

@@ -25,10 +25,10 @@ import { BROWSE_KINDS } from '../browser/browse-kinds';
  * The kinds loaded beside the entry's own, so a reference in its text names and links the entry it points at: the
  * kinds the browser lists, the conditions descriptions mention most, and the traits a card's chips open.
  */
-const REFERENCED_KINDS: readonly ContentKind[] = [...BROWSE_KINDS, ContentKind.Condition, ContentKind.Trait];
+const REFERENCED_KINDS: ReadonlyArray<ContentKind> = [...BROWSE_KINDS, ContentKind.Condition, ContentKind.Trait];
 
 /** The kinds to load for an entry of `kind`: its own first, then the ones its text may refer to. */
-export function entryKinds(kind: ContentKind): readonly ContentKind[] {
+export function entryKinds(kind: ContentKind): ReadonlyArray<ContentKind> {
   return [kind, ...REFERENCED_KINDS.filter((referenced) => referenced !== kind)];
 }
 
@@ -85,7 +85,7 @@ function statisticEntry(pack: ContentPack, statistic: PackStatistic): ContentEnt
 }
 
 /** Every entry the registry's packs hold, creatures and statistics included; a later pack's entry of the same id comes later. */
-export function registryEntries(registry: ContentRegistry): readonly ContentEntry[] {
+export function registryEntries(registry: ContentRegistry): ReadonlyArray<ContentEntry> {
   return registry.packs.flatMap((pack) => [
     ...pack.otherEntries,
     ...pack.creatures.map((creature) => creatureEntry(pack, creature)),

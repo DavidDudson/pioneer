@@ -22,12 +22,12 @@ export interface FocusEntryLine {
   /** Unique among the entries: the entry's slug. */
   readonly key: string;
   readonly tradition: MagicTradition;
-  readonly spells: readonly FocusSpellLine[];
+  readonly spells: ReadonlyArray<FocusSpellLine>;
 }
 
 /** A character's focus spells (ADR-0050): the rank they are cast at, the focus pool, and each focus entry's spells. */
 export interface FocusLine {
   readonly rank: SpellRank;
   readonly pool: FocusPoints;
-  readonly entries: readonly FocusEntryLine[];
+  readonly entries: ReadonlyArray<FocusEntryLine>;
 }

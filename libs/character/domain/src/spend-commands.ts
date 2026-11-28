@@ -33,8 +33,8 @@ export type SpendEffects = ResourceLimits & SpendLimits & { readonly effects: Ef
 export type SpendPlay = ResourcePlay & {
   readonly turn: TurnState;
   readonly spendLog: SpendLog;
-  readonly activeSpells: readonly ActiveSpell[];
-  readonly effects: readonly ActiveEffect[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly hp: ShiftPlay['hp'];
 };
 

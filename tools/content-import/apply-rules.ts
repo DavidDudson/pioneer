@@ -10,7 +10,7 @@ import type { BacklogGap, BacklogItem } from '@pioneer/interop/foundry';
 import type { ContentEntry, ContentId, RuleElement } from '@pioneer/rules/sdk';
 
 /** The rules each entry gains. */
-export type RulesMerge = ReadonlyMap<ContentId, readonly RuleElement[]>;
+export type RulesMerge = ReadonlyMap<ContentId, ReadonlyArray<RuleElement>>;
 
 function same(left: unknown, right: unknown): boolean {
   return JSON.stringify(left) === JSON.stringify(right);
@@ -25,7 +25,7 @@ function isRuleGap(gap: BacklogGap, keys: ReadonlySet<string>): boolean {
 }
 
 /** The `<pack>/<slug>` of each entry the backlog lists with a `rule` gap of one of `keys`. */
-export function gappedEntries(backlog: readonly BacklogItem[], keys: ReadonlySet<string>): ReadonlySet<string> {
+export function gappedEntries(backlog: ReadonlyArray<BacklogItem>, keys: ReadonlySet<string>): ReadonlySet<string> {
   return new Set(
     backlog.flatMap((item) =>
       item.type === BacklogItemType.Entry && item.gaps.some((gap) => isRuleGap(gap, keys)) ? [slugKey(item)] : [],
@@ -40,8 +40,8 @@ export interface Gapped {
 }
 
 export function mergeRules(
-  committed: readonly ContentEntry[],
-  fresh: readonly ContentEntry[],
+  committed: ReadonlyArray<ContentEntry>,
+  fresh: ReadonlyArray<ContentEntry>,
   { gapped, keys }: Gapped,
 ): RulesMerge {
   const imported = new Map(fresh.map((entry) => [entry.id, entry]));
@@ -62,7 +62,7 @@ export function mergeRules(
 }
 
 /** `entries` with the rules `merge` gives them. */
-export function withMergedRules(entries: readonly unknown[], merge: RulesMerge): readonly unknown[] {
+export function withMergedRules(entries: ReadonlyArray<unknown>, merge: RulesMerge): ReadonlyArray<unknown> {
   return entries.map((entry) => {
     const id = typeof entry === 'object' && entry !== null && 'id' in entry ? entry.id : undefined;
     // SAFETY: `merge` is keyed by content ids, and `id` is a string here, checked by the `typeof` above; the branded id adds no runtime check.
@@ -74,8 +74,8 @@ export function withMergedRules(entries: readonly unknown[], merge: RulesMerge):
 
     // The entry keeps its own rules as written, so their key order does not churn; only the rules it gains are added.
     // SAFETY: an entry in the JSON array is an object that may hold `rules`, which `Array.isArray` checks before the array is read; spreading it only copies its own properties.
-    const own: readonly unknown[] = Array.isArray((entry as { rules?: unknown }).rules)
-      ? (entry as { rules: unknown[] }).rules
+    const own: ReadonlyArray<unknown> = Array.isArray((entry as { rules?: unknown }).rules)
+      ? (entry as { rules: Array<unknown> }).rules
       : [];
 
     // SAFETY: an entry in the JSON array is an object that may hold `rules`, which `Array.isArray` checks before the array is read; spreading it only copies its own properties.
@@ -97,10 +97,10 @@ export interface AppliedRules {
  * items left with no gaps and no reason to be left out go. Everything else stays.
  */
 export function clearAppliedGaps(
-  committed: readonly BacklogItem[],
-  fresh: readonly BacklogItem[],
+  committed: ReadonlyArray<BacklogItem>,
+  fresh: ReadonlyArray<BacklogItem>,
   { merged, keys }: AppliedRules,
-): readonly BacklogItem[] {
+): ReadonlyArray<BacklogItem> {
   const stillGaps = new Map(
     fresh.flatMap((item) => (item.type === BacklogItemType.Entry ? [[slugKey(item), item.gaps] as const] : [])),
   );

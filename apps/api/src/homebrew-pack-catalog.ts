@@ -37,20 +37,20 @@ export class HomebrewPackCatalog extends PackCatalog {
     this.#access = access;
   }
 
-  public override async official(): Promise<readonly CatalogPack[]> {
+  public override async official(): Promise<ReadonlyArray<CatalogPack>> {
     const packs = await this.#directory.all();
 
     return packs.filter((pack) => pack.summary.official).map((pack) => catalogued(pack));
   }
 
-  public override async readableBy(viewer: UserId): Promise<readonly CatalogPack[]> {
+  public override async readableBy(viewer: UserId): Promise<ReadonlyArray<CatalogPack>> {
     const packs = await this.#directory.all();
     const allowed = await Promise.all(packs.map(async (pack) => this.#access.mayRead(viewer, pack)));
 
     return packs.filter((_pack, index) => allowed[index] === true).map((pack) => catalogued(pack));
   }
 
-  public override async byIds(ids: readonly EnabledPackId[]): Promise<ReadonlyMap<EnabledPackId, CatalogPack>> {
+  public override async byIds(ids: ReadonlyArray<EnabledPackId>): Promise<ReadonlyMap<EnabledPackId, CatalogPack>> {
     const wanted = new Set(ids);
     const packs = await this.#directory.all();
 
@@ -61,7 +61,7 @@ export class HomebrewPackCatalog extends PackCatalog {
     );
   }
 
-  public override async closure(id: EnabledPackId): Promise<readonly EnabledPackId[]> {
+  public override async closure(id: EnabledPackId): Promise<ReadonlyArray<EnabledPackId>> {
     const edges = await this.#dependencies.edges();
 
     return loadOrder(edges, id).map((pack) => EnabledPackId.parse(pack));

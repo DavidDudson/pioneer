@@ -36,7 +36,7 @@ export class SheetDeitySection {
   /** The loaded content, for the divine skills' names. */
   public readonly registry = input.required<ContentRegistry>();
 
-  protected readonly rows = computed((): readonly DeityPickerRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<DeityPickerRow> => {
     this.#messages();
     const character = this.#sheet.character();
 

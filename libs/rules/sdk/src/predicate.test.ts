@@ -10,7 +10,7 @@ import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate'
 import { RollOption } from './roll-option';
 import { Domain, Selector } from './selector';
 
-function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -31,7 +31,7 @@ function notChain(depth: number): Negated | string {
   return statement;
 }
 
-function nestedNot(depth: number): unknown[] {
+function nestedNot(depth: number): Array<unknown> {
   return [notChain(depth)];
 }
 

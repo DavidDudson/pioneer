@@ -23,7 +23,7 @@ export interface CreatureActionProposals {
   /** Action slug to the mapping of its creature's page (many actions to one creature). */
   readonly proposals: ReadonlyMap<EntrySlug, EnrichmentMapping>;
   /** Actions with a parenthetical that is not exactly one mapped creature of the pack; none are guessed. */
-  readonly excepted: readonly EntrySlug[];
+  readonly excepted: ReadonlyArray<EntrySlug>;
 }
 
 /**
@@ -34,12 +34,12 @@ export interface CreatureActionProposals {
  * "Mythic") are all left out: two candidates, or none, is an exception.
  */
 export function proposeCreatureActions(
-  actions: readonly { readonly slug: EntrySlug; readonly name: string }[],
+  actions: ReadonlyArray<{ readonly slug: EntrySlug; readonly name: string }>,
   creatures: ReadonlyMap<EntrySlug, EnrichmentMapping>,
   mapped: ReadonlySet<EntrySlug>,
 ): CreatureActionProposals {
   const proposals = new Map<EntrySlug, EnrichmentMapping>();
-  const excepted: EntrySlug[] = [];
+  const excepted: Array<EntrySlug> = [];
   const unmapped = actions.filter(({ slug }) => !mapped.has(slug));
 
   for (const { slug, name } of unmapped) {

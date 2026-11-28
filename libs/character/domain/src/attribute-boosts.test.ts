@@ -27,7 +27,7 @@ function dwarfFighter(level: number, picks: Readonly<Record<string, string>> = {
   return builder.build().document;
 }
 
-function slotKeys(document: CharacterDocument): string[] {
+function slotKeys(document: CharacterDocument): Array<string> {
   return boostSlots(document, BOOST_FIXTURES).map((slot) => String(slot.key));
 }
 
@@ -40,7 +40,7 @@ function testPackId(slug: string): ContentId {
   return ContentId.parse(contentId(PackId.parse('test-pack'), EntrySlug.parse(slug)));
 }
 
-const FREE_AT = (level: number): string[] => [0, 1, 2, 3].map((index) => `boost:${level}:free:${index}`);
+const FREE_AT = (level: number): Array<string> => [0, 1, 2, 3].map((index) => `boost:${level}:free:${index}`);
 
 describe('boostSlots', () => {
   test('gives a slot to each boost with a choice, keyed by level, source and place, up to 20th level', () => {

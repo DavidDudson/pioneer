@@ -42,7 +42,7 @@ function sourceOf(
 }
 
 /** The order the limits are listed in. */
-const LIMIT_ORDER: readonly RuleLimitKey[] = Object.values(RuleLimitKey);
+const LIMIT_ORDER: ReadonlyArray<RuleLimitKey> = Object.values(RuleLimitKey);
 
 /**
  * The table limits of a campaign (ADR-0064). Every member reads them; only the GM sets or resets one. A limit with no

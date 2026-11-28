@@ -83,8 +83,8 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   /** The picked value; `undefined` until the user picks. */
   public readonly value = model<TValue | undefined>(undefined);
   /** The rows for the last `searched` and `sorted`, with every page loaded so far. */
-  public readonly rows = input.required<readonly TRow[]>();
-  public readonly columns = input.required<readonly TableColumn<TRow>[]>();
+  public readonly rows = input.required<ReadonlyArray<TRow>>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<TRow>>>();
   /** A row's value; also its identity. */
   public readonly rowValue = input.required<(row: TRow) => TValue>();
   /** What the trigger shows for the picked row. */

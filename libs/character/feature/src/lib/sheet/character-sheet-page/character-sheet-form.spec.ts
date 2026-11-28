@@ -39,7 +39,7 @@ const humanoid = {
 };
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
-function playWith(effects: readonly JsonObject[], revision = 1): JsonObject {
+function playWith(effects: ReadonlyArray<JsonObject>, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 

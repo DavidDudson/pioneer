@@ -42,13 +42,13 @@ function weaponName(weapon: WeaponInputs, nameOf: (entry: ContentId) => string |
 
 /** The Strikes with nothing claimed, which say what they offer to claim, and with `claims` counted. */
 interface ClaimedStrikes {
-  readonly offers: readonly Strike[];
-  readonly strikes: readonly Strike[];
+  readonly offers: ReadonlyArray<Strike>;
+  readonly strikes: ReadonlyArray<Strike>;
 }
 
 /** The weapons to derive Strikes for and the sheet's derivation they are read against. */
 interface StrikeSource {
-  readonly weapons: readonly WeaponInputs[];
+  readonly weapons: ReadonlyArray<WeaponInputs>;
   readonly derived: ReadonlyMap<Selector, StatisticResult>;
 }
 
@@ -69,14 +69,14 @@ function deriveWithClaims(
 
 /** The rule elements a Strike offers to claim for its damage, each with the entry it comes from, and which are claimed. */
 function damageSituations(
-  offered: readonly RuleId[],
+  offered: ReadonlyArray<RuleId>,
   rules: StrikeRulesInput | undefined,
   claimed: ReadonlySet<RuleId> | undefined,
 ): StrikeSituations {
   const sources = new Map((rules?.inputs.rules ?? []).map((rule) => [ruleIdOf(rule), rule.origin.entry]));
 
   return {
-    offered: offered.flatMap((id): StrikeOffer[] => {
+    offered: offered.flatMap((id): Array<StrikeOffer> => {
       const entry = sources.get(id);
 
       return entry === undefined ? [] : [{ id, entry }];
@@ -96,7 +96,7 @@ export function sheetStrikes(
   registry: ContentRegistry,
   character: Character,
   claims: SituationClaims = NO_CLAIMS,
-): readonly NamedStrike[] {
+): ReadonlyArray<NamedStrike> {
   const definition = registry.statisticsFor(STRIKE).at(-1)?.definition;
   const weapons = statisticInputsOf(registry, character).weapons ?? [];
 
@@ -117,7 +117,7 @@ export function sheetStrikes(
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
   const found = checkSituations(registry, character, { selectors, claims });
 
-  return strikes.flatMap((strike, index): NamedStrike[] => {
+  return strikes.flatMap((strike, index): Array<NamedStrike> => {
     if (strike.attack === undefined) {
       return [];
     }
@@ -143,8 +143,8 @@ export function sheetStrikes(
 export function suppressedStrikes(
   registry: ContentRegistry,
   character: Character,
-  inForm: readonly NamedStrike[],
-): readonly NamedStrike[] {
+  inForm: ReadonlyArray<NamedStrike>,
+): ReadonlyArray<NamedStrike> {
   const { effects } = character.document.play;
   const base = withoutForms(registry, effects);
 
@@ -159,7 +159,7 @@ export function suppressedStrikes(
 }
 
 /** The shields the character holds, by name, with their Hardness, Hit Points and Broken Threshold (`heldShields`). */
-export function sheetShields(registry: ContentRegistry, character: Character): readonly StrikesShield[] {
+export function sheetShields(registry: ContentRegistry, character: Character): ReadonlyArray<StrikesShield> {
   const slots = sheetSlotContent(registry);
   const items = itemContent(registry);
   const rules = (): ModifierInputs => equippedRules(character.document, items, slots);
@@ -176,7 +176,10 @@ export function sheetShields(registry: ContentRegistry, character: Character): r
 }
 
 /** The Strikes of `strikes` with what using each spends: its weapon, one action, and what `turn` leaves to pay it. */
-export function usableStrikes(strikes: readonly NamedStrike[], turn: TurnState | undefined): readonly NamedStrike[] {
+export function usableStrikes(
+  strikes: ReadonlyArray<NamedStrike>,
+  turn: TurnState | undefined,
+): ReadonlyArray<NamedStrike> {
   return strikes.map((named): NamedStrike => ({
     ...named,
     use: {

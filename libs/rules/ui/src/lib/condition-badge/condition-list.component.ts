@@ -35,14 +35,14 @@ interface ConditionRow {
 export class ConditionList {
   readonly #format = inject(LocaleFormat);
 
-  public readonly conditions = input.required<readonly ConditionLine[]>();
+  public readonly conditions = input.required<ReadonlyArray<ConditionLine>>();
   /** Whether the character is at or below half its Hit Points. */
   public readonly bloodied = input(false);
 
   protected readonly bloodiedName = ConditionBadgeMessage.Bloodied;
   protected readonly noneName = ConditionBadgeMessage.None;
 
-  protected readonly rows = computed((): readonly ConditionRow[] =>
+  protected readonly rows = computed((): ReadonlyArray<ConditionRow> =>
     this.conditions()
       .toSorted((first, second) => rankOf(first.slug) - rankOf(second.slug))
       .map(({ slug, value }): ConditionRow => {

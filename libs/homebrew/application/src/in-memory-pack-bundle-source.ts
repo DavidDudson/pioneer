@@ -15,14 +15,14 @@ const HASH_DIGITS = 16;
 const HEX = 16;
 
 export class InMemoryPackBundleSource extends PackBundleSource {
-  readonly #packs: readonly HomebrewPack[];
+  readonly #packs: ReadonlyArray<HomebrewPack>;
 
-  public constructor(packs: readonly HomebrewPack[]) {
+  public constructor(packs: ReadonlyArray<HomebrewPack>) {
     super();
     this.#packs = packs;
   }
 
-  public override async of(asked: readonly ContentPackId[]): Promise<ContentBundles> {
+  public override async of(asked: ReadonlyArray<ContentPackId>): Promise<ContentBundles> {
     const contents = this.#packs
       .filter((pack) => asked.includes(pack.id))
       .map((pack) =>

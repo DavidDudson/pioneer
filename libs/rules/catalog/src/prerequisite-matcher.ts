@@ -19,7 +19,7 @@ import type { PrerequisiteNames } from './prerequisite-names';
 /**
  * A word after a name that says which kind it is: "leaf leshy heritage", "Cat Fall skill feat".
  */
-const KIND_WORDS: ReadonlyMap<string, readonly ContentKind[]> = new Map([
+const KIND_WORDS: ReadonlyMap<string, ReadonlyArray<ContentKind>> = new Map([
   ['feat', [ContentKind.Feat]],
   ['skill feat', [ContentKind.Feat]],
   ['ancestry feat', [ContentKind.Feat]],
@@ -63,7 +63,7 @@ const AND_JOIN = / and /u;
 type Conjunction = 'and' | 'or';
 
 interface ListOf {
-  readonly items: readonly string[];
+  readonly items: ReadonlyArray<string>;
   readonly conjunction: Conjunction | undefined;
 }
 
@@ -90,7 +90,7 @@ function listOf(words: string): ListOf | undefined {
 function combined(
   words: string,
   item: (each: string) => PredicateStatement | undefined,
-): readonly PredicateStatement[] | undefined {
+): ReadonlyArray<PredicateStatement> | undefined {
   const list = listOf(words);
   const statements = list?.items.map((each) => item(each));
 
@@ -110,7 +110,7 @@ function rankStatement(statistic: string, rank: number, names: PrerequisiteNames
 }
 
 /** "trained in Athletics", "master in Arcana, Nature, Occultism, or Religion", "trained in Nature and Religion". */
-function rankClause(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
+function rankClause(clause: string, names: PrerequisiteNames): ReadonlyArray<PredicateStatement> | undefined {
   const { rank, statistics } = RANK_CLAUSE.exec(clause)?.groups ?? {};
 
   if (rank === undefined || statistics === undefined) {
@@ -123,7 +123,7 @@ function rankClause(clause: string, names: PrerequisiteNames): readonly Predicat
 }
 
 /** "Strength +2": `{ "gte": ["attribute:str:mod", 2] }`, as Foundry writes it. */
-function attributeClause(clause: string): readonly PredicateStatement[] | undefined {
+function attributeClause(clause: string): ReadonlyArray<PredicateStatement> | undefined {
   const { attribute: word, modifier } = ATTRIBUTE_CLAUSE.exec(clause)?.groups ?? {};
   const attribute = word === undefined ? undefined : ATTRIBUTE_WORDS.get(word);
 
@@ -135,7 +135,7 @@ function attributeClause(clause: string): readonly PredicateStatement[] | undefi
 }
 
 /** "8th level": `{ "gte": ["self:level", 8] }`. */
-function levelClause(clause: string): readonly PredicateStatement[] | undefined {
+function levelClause(clause: string): ReadonlyArray<PredicateStatement> | undefined {
   const { ordinal, plain } = LEVEL_CLAUSE.exec(clause)?.groups ?? {};
   const level = ordinal ?? plain;
 
@@ -145,7 +145,7 @@ function levelClause(clause: string): readonly PredicateStatement[] | undefined 
 }
 
 /** "holy", "unholy trait", "holy or unholy trait": `self:trait:holy`. */
-function traitClause(clause: string): readonly PredicateStatement[] | undefined {
+function traitClause(clause: string): ReadonlyArray<PredicateStatement> | undefined {
   return combined(clause.replace(TRAIT_SUFFIX, ''), (word) =>
     TRAIT_WORDS.has(word) ? RollOption.parse(`self:trait:${word}`) : undefined,
   );
@@ -154,11 +154,11 @@ function traitClause(clause: string): readonly PredicateStatement[] | undefined 
 /** The kinds a name may be, and the name without the word that said so. */
 interface NameOf {
   readonly name: string;
-  readonly kinds: readonly ContentKind[];
+  readonly kinds: ReadonlyArray<ContentKind>;
 }
 
 /** "leaf leshy heritage" is the heritage Leaf Leshy; a name with no kind word may be any named kind. */
-function namesOf(item: string): readonly NameOf[] {
+function namesOf(item: string): ReadonlyArray<NameOf> {
   const hinted = [...KIND_WORDS].flatMap(([word, kinds]) =>
     item.endsWith(` ${word}`) ? [{ name: item.slice(0, -word.length - 1), kinds }] : [],
   );
@@ -189,14 +189,14 @@ function nameStatement(item: string, names: PrerequisiteNames): PredicateStateme
 }
 
 /** "Shield Block", "Rogue Dedication or Swashbuckler Dedication", "Aggressive Block or Brutish Shove". */
-function nameClause(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
+function nameClause(clause: string, names: PrerequisiteNames): ReadonlyArray<PredicateStatement> | undefined {
   const whole = nameStatement(clause, names);
 
   return whole === undefined ? combined(clause, (item) => nameStatement(item, names)) : [whole];
 }
 
 /** One clause of a feat's prerequisites as statements; undefined when the matcher doesn't know its shape. */
-function clauseStatements(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
+function clauseStatements(clause: string, names: PrerequisiteNames): ReadonlyArray<PredicateStatement> | undefined {
   return (
     rankClause(clause, names) ??
     attributeClause(clause) ??
@@ -210,8 +210,8 @@ function clauseStatements(clause: string, names: PrerequisiteNames): readonly Pr
 /** A feat's prerequisites read: the predicate when every clause parsed, the clauses that didn't, and each clause read. */
 export interface PrerequisiteReading {
   readonly predicate: Predicate | undefined;
-  readonly unparsed: readonly string[];
-  readonly clauses: readonly PrerequisiteClause[];
+  readonly unparsed: ReadonlyArray<string>;
+  readonly clauses: ReadonlyArray<PrerequisiteClause>;
 }
 
 /** The prerequisites as plain words, or undefined when they are anything richer than one paragraph of text. */
@@ -267,7 +267,7 @@ export interface PrerequisiteMatch {
   /** Set only where the feat has none, so a hand correction is never overwritten; undefined to leave it as it is. */
   readonly prerequisitePredicate: Predicate | undefined;
   /** Each clause, for a feat with several and none yet; undefined to leave it as it is. */
-  readonly prerequisiteClauses: readonly PrerequisiteClause[] | undefined;
+  readonly prerequisiteClauses: ReadonlyArray<PrerequisiteClause> | undefined;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface PrerequisiteMatch {
  * clause of a text with several (a lone clause is the feat's own state). A feat that already has either keeps it, so
  * a hand correction is never overwritten.
  */
-export function prerequisiteMatches(entries: readonly ContentEntry[]): readonly PrerequisiteMatch[] {
+export function prerequisiteMatches(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<PrerequisiteMatch> {
   const names = prerequisiteNames(entries);
 
   return entries.flatMap((entry) => {

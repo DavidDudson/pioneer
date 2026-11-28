@@ -13,7 +13,7 @@ import { CampaignFlaggedItemRow } from '../campaign-flagged-item-row/campaign-fl
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignApprovedItems {
-  public readonly items = input.required<readonly ApprovedItem[]>();
+  public readonly items = input.required<ReadonlyArray<ApprovedItem>>();
   /** Whether the viewer may revoke an approval: the GM. */
   public readonly manageable = input.required<boolean>();
 }

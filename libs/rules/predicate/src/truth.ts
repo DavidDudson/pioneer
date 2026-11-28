@@ -25,7 +25,7 @@ export function not(truth: Truth): Truth {
 }
 
 /** False if any is false, otherwise unknown if any is unknown. Empty is true. */
-export function all(truths: readonly Truth[]): Truth {
+export function all(truths: ReadonlyArray<Truth>): Truth {
   if (truths.includes(Truth.False)) {
     return Truth.False;
   }
@@ -34,7 +34,7 @@ export function all(truths: readonly Truth[]): Truth {
 }
 
 /** True if any is true, otherwise unknown if any is unknown. Empty is false. */
-export function any(truths: readonly Truth[]): Truth {
+export function any(truths: ReadonlyArray<Truth>): Truth {
   if (truths.includes(Truth.True)) {
     return Truth.True;
   }
@@ -43,7 +43,7 @@ export function any(truths: readonly Truth[]): Truth {
 }
 
 /** Exactly one is true. Unknown while the unknowns could still make it one, or make it more than one. */
-export function exactlyOne(truths: readonly Truth[]): Truth {
+export function exactlyOne(truths: ReadonlyArray<Truth>): Truth {
   const trueCount = truths.filter((truth) => truth === Truth.True).length;
 
   if (trueCount > 1) {
@@ -63,7 +63,7 @@ export function exactlyOne(truths: readonly Truth[]): Truth {
  * All true or all false. One statement on its own is always the same as itself; otherwise false as soon as one is
  * true and another false, and unknown while any is.
  */
-export function allSame(truths: readonly Truth[]): Truth {
+export function allSame(truths: ReadonlyArray<Truth>): Truth {
   if (truths.length <= 1) {
     return Truth.True;
   }

@@ -31,7 +31,7 @@ async function render(returnTo: string): Promise<Rendered> {
   return { root: fixture.nativeElement as HTMLElement, signInAt };
 }
 
-function buttons(root: HTMLElement): HTMLButtonElement[] {
+function buttons(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')];
 }
 

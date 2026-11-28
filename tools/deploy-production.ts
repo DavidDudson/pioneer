@@ -10,7 +10,7 @@ import type { CommandOptions, CommandResult, HttpResponse } from './deploy.ts';
 const REQUEST_TIMEOUT_MS = 10_000;
 const inActions = Bun.env['GITHUB_ACTIONS'] === 'true';
 
-async function run(command: readonly string[], options: CommandOptions = {}): Promise<CommandResult> {
+async function run(command: ReadonlyArray<string>, options: CommandOptions = {}): Promise<CommandResult> {
   const child = Bun.spawn([...command], {
     stdin: options.stdin === undefined ? 'ignore' : new TextEncoder().encode(options.stdin),
     stdout: 'pipe',

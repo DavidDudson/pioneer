@@ -25,7 +25,7 @@ function castAt(data: JsonObject, rank: number): SpellAtRank {
 }
 
 /** The damage formulas of `data` cast at `rank`, as text. */
-function formulasAt(data: JsonObject, rank: number): string[] {
+function formulasAt(data: JsonObject, rank: number): Array<string> {
   return castAt(data, rank).damage.map(({ formula }) => String(formula));
 }
 

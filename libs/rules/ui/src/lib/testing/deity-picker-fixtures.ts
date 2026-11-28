@@ -3,7 +3,7 @@ import { RichText, SourceRef } from '@pioneer/rules/sdk';
 import type { DeityPickerRow } from '../deity-picker/deity-picker-row';
 
 /** Player Core, page 1: a source for a fixture deity. */
-const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
+const PLAYER_CORE: ReadonlyArray<SourceRef> = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
 
 /** Edicts and anathema as a deity's description has them. */
 function edictsAndAnathema(edicts: string, anathema: string): RichText {

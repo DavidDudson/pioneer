@@ -32,7 +32,7 @@ export interface GenerateInput {
   /** Weights for what the picks raise or use: the favoured ones are picked more often. Absent, every pick is as likely. */
   readonly theme?: GenerationTheme | undefined;
   /** Picks to keep: each slot is filled with its selection when it opens, and only the others are drawn. */
-  readonly locks?: readonly SlotPick[] | undefined;
+  readonly locks?: ReadonlyArray<SlotPick> | undefined;
   readonly items?: ItemContent | undefined;
   /** What a character of each level may own; the core rules' by default. */
   readonly treasure?: TreasureByLevel | undefined;
@@ -44,9 +44,9 @@ export interface GenerateInput {
 /** A generated character, and the slots left open because nothing the slot offers could be picked. */
 export interface Generated {
   readonly character: Character;
-  readonly unfilled: readonly SlotKey[];
+  readonly unfilled: ReadonlyArray<SlotKey>;
   /** The locks that could not be kept: their slot never opened, or the pick is not one it offers. */
-  readonly unmet: readonly SlotKey[];
+  readonly unmet: ReadonlyArray<SlotKey>;
 }
 
 /** A slot with nothing picked. */
@@ -76,7 +76,7 @@ interface Search {
   /** The theme the picks are weighed by; undefined for none. */
   readonly theme: GenerationTheme | undefined;
   /** The weapons on sale that fit the theme's weapon. */
-  readonly fitting: readonly ItemEntry[];
+  readonly fitting: ReadonlyArray<ItemEntry>;
   /** The picks to keep, by slot: such a slot offers only its pick, and a build that cannot take it is backed out of. */
   readonly locks: ReadonlyMap<SlotKey, ChoiceValue>;
   /** Whether a slot whose every pick leads to a dead end is left open, rather than backed out of. */
@@ -88,11 +88,11 @@ interface Search {
 /** Where a search stands: the character so far, and the slots it left open because nothing could be picked for them. */
 interface Node {
   readonly character: Character;
-  readonly skipped: readonly SlotKey[];
+  readonly skipped: ReadonlyArray<SlotKey>;
 }
 
 /** Whether a character holds a pick its slot reads as invalid: a later pick can undo what an earlier one allowed. */
-function hasInvalid(slots: readonly CharacterSlot[]): boolean {
+function hasInvalid(slots: ReadonlyArray<CharacterSlot>): boolean {
   return slots.some((slot) => slot.status === SlotStatus.Invalid);
 }
 
@@ -136,7 +136,11 @@ function extend(node: Node, search: Search): Generated | undefined {
 }
 
 /** The slots of `locks` that `character` does not hold the pick of: the slot never opened, or the pick was refused. */
-function unmetLocks(character: Character, content: SlotContent, locks: readonly SlotPick[]): readonly SlotKey[] {
+function unmetLocks(
+  character: Character,
+  content: SlotContent,
+  locks: ReadonlyArray<SlotPick>,
+): ReadonlyArray<SlotKey> {
   const slots = characterSlots(character.document, content);
 
   return locks
@@ -164,7 +168,7 @@ function backOut(search: Search): boolean {
 }
 
 /** The weapons of `items` that fit the weapon of `theme`; none without either. */
-function fittingWeapons(items: ItemContent | undefined, theme: GenerationTheme | undefined): readonly ItemEntry[] {
+function fittingWeapons(items: ItemContent | undefined, theme: GenerationTheme | undefined): ReadonlyArray<ItemEntry> {
   const weapon = theme?.weapon;
 
   return items === undefined || weapon === undefined
@@ -181,7 +185,7 @@ function tryOrder(
   character: Character,
   slot: OpenSlot,
   { content, source, theme, fitting, locks }: Search,
-): readonly ChoiceValue[] {
+): ReadonlyArray<ChoiceValue> {
   const locked = locks.get(slot.key);
 
   if (locked !== undefined) {

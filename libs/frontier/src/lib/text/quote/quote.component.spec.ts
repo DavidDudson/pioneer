@@ -31,7 +31,7 @@ async function render(inputs: ComponentInputs<Quote>, passage = 'You are gripped
 }
 
 /** The element's classes, or none when it was not rendered. */
-function classesOf(element: Element | null | undefined): readonly string[] {
+function classesOf(element: Element | null | undefined): ReadonlyArray<string> {
   return element ? [...element.classList] : [];
 }
 

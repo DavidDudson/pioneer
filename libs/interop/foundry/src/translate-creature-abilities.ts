@@ -47,7 +47,7 @@ function usageOf(item: Embedded, html: string, input: KindInput): Usage | undefi
   return parsed.success ? Usage.safeParse(actionData({ ...input, document: parsed.data })).data : undefined;
 }
 
-function rulesOf(item: Embedded, input: KindInput): readonly RuleElement[] {
+function rulesOf(item: Embedded, input: KindInput): ReadonlyArray<RuleElement> {
   const raws = Array.isArray(item.system['rules']) ? item.system['rules'] : [];
 
   const translation = translateRules(input.envelope.id, raws, {
@@ -97,6 +97,6 @@ function abilityOf(item: Embedded, input: KindInput): object | undefined {
 }
 
 /** The creature's abilities, one per `action` item. */
-export function abilitiesOf(items: readonly Embedded[], input: KindInput): readonly object[] {
+export function abilitiesOf(items: ReadonlyArray<Embedded>, input: KindInput): ReadonlyArray<object> {
   return items.filter((item) => item.type === 'action').flatMap((item) => abilityOf(item, input) ?? []);
 }

@@ -20,7 +20,7 @@ function focusEntry(slug: string, tradition = 'divine'): JsonObject {
 }
 
 /** A `FocusSpells` element naming `ids` on `entry`, holding while `predicate` does. */
-function knows(entry: string, ids: readonly string[], predicate?: readonly string[]): JsonObject {
+function knows(entry: string, ids: ReadonlyArray<string>, predicate?: ReadonlyArray<string>): JsonObject {
   const element = { key: 'FocusSpells', entry, spells: ids };
 
   return predicate === undefined ? element : { ...element, predicate };
@@ -44,7 +44,7 @@ function contentOf(registry: ContentRegistry): SlotContent {
  */
 const clerics = new ContentPackBuilder().withId('focus');
 
-const DOMAIN_SPELLS: readonly (readonly [string, string])[] = [
+const DOMAIN_SPELLS: ReadonlyArray<readonly [string, string]> = [
   ['fire', 'fire-ray'],
   ['healing', 'healers-blessing'],
   ['sun', 'dazzling-flash'],
@@ -96,7 +96,7 @@ function cleric(level: number, deity: string, picked?: string): CharacterBuilder
 }
 
 /** The domains Domain Initiate offers a cleric of `deity`. */
-function offered(deity: string): readonly string[] | undefined {
+function offered(deity: string): ReadonlyArray<string> | undefined {
   const { document } = cleric(1, deity).build();
   const slot = characterGrants(document, clericContent).open.find((each) => String(each.key) === DOMAIN_SLOT);
 
@@ -188,7 +188,7 @@ const SECOND_FEAT = `${TWICE_CLASS}:2`;
 const FIRST_DOMAIN = `${REPEATABLE_INITIATE}:via-${FIRST_FEAT}:1`;
 const SECOND_DOMAIN = `${REPEATABLE_INITIATE}:via-${SECOND_FEAT}:1`;
 
-function twiceCleric(domains: readonly (readonly [string, string])[] = []): CharacterBuilder {
+function twiceCleric(domains: ReadonlyArray<readonly [string, string]> = []): CharacterBuilder {
   const builder = new CharacterBuilder()
     .atLevel(4)
     .picking('class', TWICE_CLASS)
@@ -238,7 +238,7 @@ const casters = new ContentPackBuilder().withId('pool');
 const poolSpell = (name: string): string => casters.idOf(ContentKind.Spell, name);
 const UNLOADED = '00000000-0000-4000-8000-0000000000f0';
 
-const CASTERS: readonly (readonly [string, readonly JsonObject[]])[] = [
+const CASTERS: ReadonlyArray<readonly [string, ReadonlyArray<JsonObject>]> = [
   ['two', [focusEntry('bard-focus'), knows('bard-focus', [poolSpell('one'), poolSpell('two')])]],
   [
     'four',

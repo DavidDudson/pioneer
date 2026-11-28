@@ -36,7 +36,7 @@ function deitySection(root: HTMLElement): HTMLElement {
 }
 
 /** Each term of the deity block with its values. */
-function terms(root: HTMLElement): string[][] {
+function terms(root: HTMLElement): Array<Array<string>> {
   return [...deitySection(root).querySelectorAll('fr-description-item')].map((item) =>
     [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()),
   );

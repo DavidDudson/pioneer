@@ -70,7 +70,7 @@ function gearOf(item: Embedded, input: KindInput): GearItem | undefined {
 }
 
 /** The stat block parts the embedded items make; each list is absent when empty. */
-export function creatureItems(input: KindInput): Readonly<Record<string, readonly unknown[]>> {
+export function creatureItems(input: KindInput): Readonly<Record<string, ReadonlyArray<unknown>>> {
   const items = embeddedOf(input);
 
   for (const item of itemsOfType(items, 'effect')) {

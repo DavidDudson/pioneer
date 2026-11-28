@@ -20,8 +20,8 @@ export class SearchableHomebrewPacks extends SearchableHomebrew {
 
   public override async readable(
     actor: UserId | undefined,
-    packs: readonly ContentPackId[],
-  ): Promise<readonly ContentPackId[]> {
+    packs: ReadonlyArray<ContentPackId>,
+  ): Promise<ReadonlyArray<ContentPackId>> {
     if (actor === undefined) {
       return [];
     }

@@ -97,7 +97,7 @@ describe('environmentRoots', () => {
   });
 });
 
-const restriction = (blocks: readonly Trait[]): RestrictionInPlay => ({
+const restriction = (blocks: ReadonlyArray<Trait>): RestrictionInPlay => ({
   environment: DARK,
   id: Slug.parse('fire-effects'),
   reason: ContentText.parse('No fire here.'),
@@ -208,7 +208,7 @@ describe('environments that stack', () => {
     ]),
   };
 
-  const turnedOn = (...environments: readonly ContentId[]): typeof FRESH_PLAY => {
+  const turnedOn = (...environments: ReadonlyArray<ContentId>): typeof FRESH_PLAY => {
     let play = FRESH_PLAY;
 
     for (const environment of environments) {

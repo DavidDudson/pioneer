@@ -54,8 +54,14 @@ async function open(tier: ContentBrowserTier, state: ContentBrowserState): Promi
 const root = (fixture: ComponentFixture<ContentBrowser>): HTMLElement => fixture.nativeElement as HTMLElement;
 
 /** The names the list shows, in order, once `count` of them have loaded. */
-async function listed(fixture: ComponentFixture<ContentBrowser>, selector: string, count: number): Promise<string[]> {
-  const names = (): string[] => [...root(fixture).querySelectorAll(selector)].map((each) => each.textContent.trim());
+async function listed(
+  fixture: ComponentFixture<ContentBrowser>,
+  selector: string,
+  count: number,
+): Promise<Array<string>> {
+  const names = (): Array<string> =>
+    [...root(fixture).querySelectorAll(selector)].map((each) => each.textContent.trim());
+
   await vi.waitFor(() => {
     fixture.detectChanges();
     expect(names()).toHaveLength(count);
@@ -80,7 +86,7 @@ describe(ContentBrowser, () => {
     const fixture = await open(ContentBrowserTier.Page, FEATS);
     await listed(fixture, 'fr-table tbody tr td:first-child', 4);
 
-    const chips = (): string[] =>
+    const chips = (): Array<string> =>
       [...root(fixture).querySelectorAll('pio-trait-chip')].map((chip) => chip.textContent.trim());
 
     await vi.waitFor(() => {

@@ -4,7 +4,7 @@ import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '
 import { traitChipsOf } from './trait-chip-fixtures';
 
 /** Player Core, page 1: a source for a fixture origin. */
-const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
+const PLAYER_CORE: ReadonlyArray<SourceRef> = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
 
 const ELF_HIT_POINTS = HitPoints.parse(6);
 const ELF_SPEED = Feet.parse(30);

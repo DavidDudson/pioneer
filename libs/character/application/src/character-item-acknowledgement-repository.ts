@@ -14,7 +14,7 @@ export interface ItemAcknowledgementRevocation {
  */
 export abstract class CharacterItemAcknowledgementRepository {
   /** The character's live acknowledgements, oldest first; id breaks ties. */
-  public abstract listForCharacter(characterId: CharacterId): Promise<readonly ItemAcknowledgement[]>;
+  public abstract listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<ItemAcknowledgement>>;
 
   /** Acknowledge the line, replacing the live acknowledgement for the same item, rule and rune when there is one. */
   public abstract acknowledge(

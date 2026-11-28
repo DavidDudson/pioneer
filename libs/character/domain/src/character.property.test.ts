@@ -74,7 +74,7 @@ interface Aim {
 }
 
 /** The id of the item at `index`, wrapping round; undefined for an empty inventory. */
-function itemAt(items: readonly InventoryItem[], index: number): InventoryItemId | undefined {
+function itemAt(items: ReadonlyArray<InventoryItem>, index: number): InventoryItemId | undefined {
   return items.length === 0 ? undefined : items[index % items.length]?.id;
 }
 
@@ -174,7 +174,7 @@ function isIdOnlyPatch(patch: CharacterPatch): patch is IdOnlyPatch {
  * `patch` aimed at the character's own items, so every inventory command is exercised rather than refused for naming
  * an item the character hasn't: the item it changes is the one at `index`, the container the one at `target` or none.
  */
-function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, target }: Aim): CharacterPatch {
+function aimed(patch: CharacterPatch, items: ReadonlyArray<InventoryItem>, { index, target }: Aim): CharacterPatch {
   if (!isItemPatch(patch)) {
     return patch;
   }
@@ -216,7 +216,7 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
 }
 
 /** The one line a kit edit adds under `id`, stowed where the edit says, standing in for what `kitItems` expands. */
-function kitLines(patch: CharacterPatch, id: InventoryItemId): readonly NewItem[] | undefined {
+function kitLines(patch: CharacterPatch, id: InventoryItemId): ReadonlyArray<NewItem> | undefined {
   const isKit = patch.field === CharacterPatchField.GiftKit || patch.field === CharacterPatchField.BuyKit;
 
   return isKit ? [{ id, item: patch.kit, quantity: ONE, container: patch.container }] : undefined;

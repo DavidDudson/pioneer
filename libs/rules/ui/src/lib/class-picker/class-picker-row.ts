@@ -13,14 +13,14 @@ export interface ClassPickerRow {
   /** Hit points gained each level, before Constitution. */
   readonly hitPoints: HitPoints;
   /** The skills it trains outright, by name. */
-  readonly skills: readonly string[];
+  readonly skills: ReadonlyArray<string>;
   /** How many more skills the player trains, before the Intelligence modifier. */
   readonly additionalSkills: number;
   /** The traditions of its spellcasting, by name; none for a class that casts no spells. */
-  readonly traditions: readonly string[];
+  readonly traditions: ReadonlyArray<string>;
   /** The ranks it starts with, skills aside, each as "Perception: Expert". */
-  readonly proficiencies: readonly string[];
-  readonly sources: readonly SourceRef[];
+  readonly proficiencies: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<SourceRef>;
   /** A note on picking it, already translated: the skills it would train again; undefined when there is none. */
   readonly note: string | undefined;
   readonly disabledReason: string | undefined;
@@ -33,7 +33,7 @@ export interface SubclassPickerRow {
   readonly name: string;
   /** What it grants, in its own words. */
   readonly summary: RichText;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
   /** A note on picking it, already translated: the skills it would train again; undefined when there is none. */
   readonly note: string | undefined;
   readonly disabledReason: string | undefined;

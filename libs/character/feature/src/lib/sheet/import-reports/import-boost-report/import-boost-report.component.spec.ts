@@ -25,8 +25,8 @@ const CHARISMA_AT_FIVE: UnplacedBoost = {
 };
 
 async function render(
-  modifierDifferences: readonly ModifierDifference[],
-  unplacedBoosts: readonly UnplacedBoost[],
+  modifierDifferences: ReadonlyArray<ModifierDifference>,
+  unplacedBoosts: ReadonlyArray<UnplacedBoost>,
 ): Promise<string> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en, ...rulesMessages }, 'en', { merge: true });

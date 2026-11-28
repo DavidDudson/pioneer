@@ -155,7 +155,7 @@ const persistentFlatCheck = element(
 );
 
 /** The effect-group elements, for `ruleElementJson` to draw from. */
-export const effectElements: readonly Arbitrary<JsonObject>[] = [
+export const effectElements: ReadonlyArray<Arbitrary<JsonObject>> = [
   fastHealing,
   tempHp,
   healingBonus,

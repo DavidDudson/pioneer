@@ -105,14 +105,14 @@ export class OriginChainView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly segments = computed((): readonly Segment[] => {
+  protected readonly segments = computed((): ReadonlyArray<Segment> => {
     this.#messages();
     this.#format.locale();
     const origin = this.origin();
     const holder = endsAtEntry(origin) ? [] : [[text(this.#entry(origin.entry))]];
     const steps = [...origin.hops.map((hop) => this.#hop(hop)), ...holder];
     const then = text(this.#i18n.translate(OriginChainMessage.Then));
-    const segments: Segment[] = [];
+    const segments: Array<Segment> = [];
 
     for (const step of steps) {
       if (segments.length > 0) {
@@ -125,7 +125,7 @@ export class OriginChainView {
     return segments;
   });
 
-  #hop(hop: OriginHop): readonly Segment[] {
+  #hop(hop: OriginHop): ReadonlyArray<Segment> {
     switch (hop.kind) {
       case OriginHopKind.Choice: {
         const slot = this.names().slots?.get(hop.slot) ?? hop.slot;
@@ -180,10 +180,10 @@ export class OriginChainView {
   }
 
   /** Who set it, then when, relative to now, then their note. */
-  #override(hop: OverrideHop): readonly Segment[] {
+  #override(hop: OverrideHop): ReadonlyArray<Segment> {
     const user = this.names().users?.get(hop.by) ?? this.#i18n.translate(OriginChainMessage.UnknownUser);
 
-    const setBy: Segment[] = [
+    const setBy: Array<Segment> = [
       text(this.#i18n.translate(OriginChainMessage.SetBy, { user })),
       { kind: SegmentKind.Date, at: hop.at },
     ];

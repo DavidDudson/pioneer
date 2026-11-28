@@ -76,7 +76,7 @@ export class IndexedDbBundleStore implements BundleStore {
     await committed(store.transaction);
   };
 
-  public readonly keys = async (): Promise<readonly StoredKey[]> => {
+  public readonly keys = async (): Promise<ReadonlyArray<StoredKey>> => {
     const store = await this.#store('readonly');
     const keys = await settled(store.getAllKeys());
 
@@ -87,7 +87,7 @@ export class IndexedDbBundleStore implements BundleStore {
     });
   };
 
-  public readonly remove = async (keys: readonly StoredKey[]): Promise<void> => {
+  public readonly remove = async (keys: ReadonlyArray<StoredKey>): Promise<void> => {
     const store = await this.#store('readwrite');
 
     for (const key of keys) {

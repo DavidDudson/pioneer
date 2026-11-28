@@ -11,7 +11,7 @@ type ClassPickerStory = StoryObj<ClassPicker>;
 const LONG_LIST = 300;
 const FIGHTER_HIT_POINTS = HitPoints.parse(10);
 
-const CLASSES: readonly ClassPickerRow[] = [
+const CLASSES: ReadonlyArray<ClassPickerRow> = [
   classRow({ id: 'wizard', name: 'Wizard' }),
   classRow({
     id: 'fighter',

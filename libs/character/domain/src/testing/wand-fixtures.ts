@@ -47,7 +47,7 @@ export interface CasterFields {
   readonly tradition: MagicTradition;
   readonly attribute: Attribute;
   readonly preparation: SpellPreparation;
-  readonly ranks: readonly number[];
+  readonly ranks: ReadonlyArray<number>;
 }
 
 /** A spellcasting entry with one slot of each of `ranks`, and no pools, signature, focus, innate or granted spells. */
@@ -71,7 +71,7 @@ export function casterEntry({ slug, tradition, attribute, preparation, ranks }: 
 }
 
 /** A prepared entry of `tradition` with one slot of each of `ranks`. */
-export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number[]): SpellcastingInPlay {
+export function wandEntry(tradition: 'arcane' | 'divine', ranks: ReadonlyArray<number>): SpellcastingInPlay {
   return casterEntry({
     slug: 'wizard',
     tradition,
@@ -93,7 +93,7 @@ export function fireballWand(fields: JsonObject = {}): InventoryItem {
 }
 
 /** The wand counts `inventory` has. */
-export function wandCounted(inventory: readonly InventoryItem[]): CountedMaxima {
+export function wandCounted(inventory: ReadonlyArray<InventoryItem>): CountedMaxima {
   return {
     slots: new Map(),
     uses: wandMaxima(inventory, (id) => itemWands(registry).get(id)),
@@ -102,9 +102,9 @@ export function wandCounted(inventory: readonly InventoryItem[]): CountedMaxima 
 
 /** The first wand `inventory` holds, as its holder with `entries` sees it after `play`. */
 export function wandSourceOf(
-  inventory: readonly InventoryItem[],
+  inventory: ReadonlyArray<InventoryItem>,
   play: PlayState = FRESH_PLAY,
-  entries: readonly SpellcastingInPlay[] = [wandEntry('arcane', WAND_RANKS)],
+  entries: ReadonlyArray<SpellcastingInPlay> = [wandEntry('arcane', WAND_RANKS)],
 ): WandSource | undefined {
   return wandSources({
     inventory,
@@ -117,7 +117,7 @@ export function wandSourceOf(
 }
 
 /** `wandSourceOf` for a test that needs the wand held. */
-export function heldWandSource(inventory: readonly InventoryItem[], play: PlayState = FRESH_PLAY): WandSource {
+export function heldWandSource(inventory: ReadonlyArray<InventoryItem>, play: PlayState = FRESH_PLAY): WandSource {
   const source = wandSourceOf(inventory, play);
 
   if (source === undefined) {
@@ -146,7 +146,7 @@ export function overchargeWand(roll?: number): WandCommand {
 /** Play after `command`, made against the wands `inventory` has. */
 export function afterWandCommand(
   play: PlayState,
-  inventory: readonly InventoryItem[],
+  inventory: ReadonlyArray<InventoryItem>,
   command: WandCommand,
 ): PlayState {
   return applyPlayCommand(play, command, within(HitPoints.parse(1), undefined, wandCounted(inventory)));

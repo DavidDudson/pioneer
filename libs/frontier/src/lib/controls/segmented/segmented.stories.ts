@@ -12,12 +12,12 @@ type Proficiency = 'trained' | 'expert' | 'master';
 
 type SegmentedStory = StoryObj<Segmented<string>>;
 
-const UNITS: readonly SelectOption<Unit>[] = [
+const UNITS: ReadonlyArray<SelectOption<Unit>> = [
   { value: 'feet', label: 'Feet' },
   { value: 'metres', label: 'Metres' },
 ];
 
-const PROFICIENCIES: readonly SelectOption<Proficiency>[] = [
+const PROFICIENCIES: ReadonlyArray<SelectOption<Proficiency>> = [
   { value: 'trained', label: 'Trained' },
   { value: 'expert', label: 'Expert' },
   { value: 'master', label: 'Master' },

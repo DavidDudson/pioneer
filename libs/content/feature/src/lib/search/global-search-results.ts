@@ -35,10 +35,10 @@ function rankOf(name: string, words: string): number | undefined {
  * contains; ties by name in the UI locale. At most `NAME_MATCHES_MAX`. Blank words match nothing.
  */
 export function nameMatches(
-  entries: readonly ContentEntry[],
+  entries: ReadonlyArray<ContentEntry>,
   words: string,
   compare: (left: string, right: string) => number,
-): readonly ContentEntry[] {
+): ReadonlyArray<ContentEntry> {
   const wanted = words.trim().toLowerCase();
 
   if (wanted === '') {
@@ -60,7 +60,10 @@ export function nameMatches(
  * `shown` followed by the `incoming` ids it does not hold yet: what the user already sees keeps its place, and
  * anything new goes below it.
  */
-export function mergeBelow(shown: readonly ContentId[], incoming: readonly ContentId[]): readonly ContentId[] {
+export function mergeBelow(
+  shown: ReadonlyArray<ContentId>,
+  incoming: ReadonlyArray<ContentId>,
+): ReadonlyArray<ContentId> {
   const held = new Set(shown);
 
   return [...shown, ...new Set(incoming.filter((id) => !held.has(id)))];

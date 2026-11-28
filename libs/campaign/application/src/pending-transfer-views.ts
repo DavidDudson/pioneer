@@ -32,7 +32,7 @@ interface Sides {
 /** The sides of an item offer, and the name of the line on offer. */
 interface ItemSides extends Sides {
   readonly itemName: ReviewedName;
-  readonly contents: readonly ReviewedName[];
+  readonly contents: ReadonlyArray<ReviewedName>;
 }
 
 /** A coin offer as the actor sees it. */
@@ -77,7 +77,7 @@ function itemView(
  */
 export async function pendingTransferViews(
   actor: UserId,
-  pending: readonly Transfer[],
+  pending: ReadonlyArray<Transfer>,
   { characters, lines }: ViewPorts,
 ): Promise<PendingTransfers> {
   const named = await characters.byIds(pending.flatMap(({ from, to }) => [from, to]));

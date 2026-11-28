@@ -5,9 +5,9 @@ import { PackDependencyRepository } from './pack-dependency-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryPackDependencyRepository extends PackDependencyRepository {
-  readonly #edges: PackDependencyEdge[] = [];
+  readonly #edges: Array<PackDependencyEdge> = [];
 
-  public override async edges(): Promise<readonly PackDependencyEdge[]> {
+  public override async edges(): Promise<ReadonlyArray<PackDependencyEdge>> {
     return [...this.#edges];
   }
 
@@ -28,7 +28,7 @@ export class InMemoryPackDependencyRepository extends PackDependencyRepository {
     }
   }
 
-  public override async dependentsOf(pack: ContentPackId): Promise<readonly ContentPackId[]> {
+  public override async dependentsOf(pack: ContentPackId): Promise<ReadonlyArray<ContentPackId>> {
     return this.#edges.filter((edge) => edge.dependsOn === pack).map((edge) => edge.pack);
   }
 }

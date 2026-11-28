@@ -7,4 +7,11 @@ export const ROLE_MESSAGES: Readonly<Record<CreatureRole, string>> = {
 };
 
 /** The sizes from tiny to gargantuan, so the size column sorts by how big a creature is. */
-export const SIZE_ORDER: readonly Size[] = [Size.Tiny, Size.Small, Size.Medium, Size.Large, Size.Huge, Size.Gargantuan];
+export const SIZE_ORDER: ReadonlyArray<Size> = [
+  Size.Tiny,
+  Size.Small,
+  Size.Medium,
+  Size.Large,
+  Size.Huge,
+  Size.Gargantuan,
+];

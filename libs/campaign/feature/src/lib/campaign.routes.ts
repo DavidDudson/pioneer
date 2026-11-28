@@ -14,7 +14,7 @@ import { CampaignStore } from './data/campaign-store';
 import { CampaignTransferStore } from './data/campaign-transfer-store';
 
 /** What every campaign page needs: its server state and its messages. */
-function campaignProviders(): (Provider | EnvironmentProviders)[] {
+function campaignProviders(): Array<Provider | EnvironmentProviders> {
   return [
     CampaignStore,
     CampaignItemReviewStore,

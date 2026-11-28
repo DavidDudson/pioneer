@@ -69,7 +69,7 @@ function senseText(sense: CreatureSense, words: StatBlockWords): string {
 }
 
 /** "Perception +7; darkvision 60 feet". */
-function perception({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
+function perception({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
   const held = (data.senses ?? []).map((sense) => senseText(sense, words));
   const value = words.number(data.perception, SIGNED);
 
@@ -88,8 +88,8 @@ function skillText(skill: CreatureSkill, words: StatBlockWords): string {
   });
 }
 
-function details({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
-  const shown: StatLine[] = [];
+function details({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
+  const shown: Array<StatLine> = [];
 
   if (data.languages !== undefined && data.languages.length > 0) {
     shown.push({
@@ -134,8 +134,8 @@ function adjustmentText({ type, value, exceptions }: DamageAdjustment, words: St
   });
 }
 
-function defences({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
-  const shown: StatLine[] = [
+function defences({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
+  const shown: Array<StatLine> = [
     { label: words.translate(CreatureStatBlockMessage.ArmorClass), text: words.number(data.armorClass) },
     {
       label: words.translate(CreatureStatBlockMessage.Saves),

@@ -31,7 +31,7 @@ const GRANTER = feat('granterFeat00001', 'Granter', {
 
 const context = { known };
 
-function slugsOf(translation: ImportTranslation): readonly string[] {
+function slugsOf(translation: ImportTranslation): ReadonlyArray<string> {
   return packOutput(translation, context).entries.map(({ pack, slug }) => `${pack}/${slug}`);
 }
 
@@ -58,11 +58,11 @@ function unsourced(translation: ImportTranslation): ImportTranslation {
   };
 }
 
-function entryItem(backlog: readonly BacklogItem[], slug: string): BacklogItem | undefined {
+function entryItem(backlog: ReadonlyArray<BacklogItem>, slug: string): BacklogItem | undefined {
   return backlog.find((item) => item.type === BacklogItemType.Entry && item.slug === slug);
 }
 
-function gapsOf(backlog: readonly BacklogItem[], slug: string): readonly BacklogGap[] {
+function gapsOf(backlog: ReadonlyArray<BacklogItem>, slug: string): ReadonlyArray<BacklogGap> {
   const item = entryItem(backlog, slug);
 
   return item?.type === BacklogItemType.Entry ? item.gaps : [];

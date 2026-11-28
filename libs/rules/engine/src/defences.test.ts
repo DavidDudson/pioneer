@@ -35,19 +35,19 @@ const FLYING = ['self:effect:fly'];
 const IN_FOREST = ['terrain:forest'];
 const DEFENCE_MAX = 32_767;
 
-function defences(rules: readonly RuleInPlay[]): Defences {
+function defences(rules: ReadonlyArray<RuleInPlay>): Defences {
   return deriveDefences(content, inputs, { rules, facts });
 }
 
-function resistance(type: readonly string[], value: number | string, fields: JsonObject = {}): RuleJson {
+function resistance(type: ReadonlyArray<string>, value: number | string, fields: JsonObject = {}): RuleJson {
   return { key: 'Resistance', type, value, ...fields };
 }
 
-function weakness(type: readonly string[], value: number | string, fields: JsonObject = {}): RuleJson {
+function weakness(type: ReadonlyArray<string>, value: number | string, fields: JsonObject = {}): RuleJson {
   return { key: 'Weakness', type, value, ...fields };
 }
 
-function roll(text: string, faces: readonly number[]): RollResult {
+function roll(text: string, faces: ReadonlyArray<number>): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {
@@ -65,7 +65,7 @@ interface LineSummary {
   readonly kind: string;
 }
 
-function summaries(lines: readonly AdjustmentLine[]): readonly LineSummary[] {
+function summaries(lines: ReadonlyArray<AdjustmentLine>): ReadonlyArray<LineSummary> {
   return lines.map(({ id, type, value, status }) => ({ id, type, value, kind: status.kind }));
 }
 

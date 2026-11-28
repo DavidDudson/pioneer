@@ -25,7 +25,7 @@ const ANY_FEAT = ChoiceValue.parse('any-feat');
 const SLOT_LEVELS = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20].map((level) => Level.parse(level));
 
 /** Ancestry Paragon as the core rules pack writes it: an ancestry feat slot at 1st level and every even level. */
-function paragonRules(): object[] {
+function paragonRules(): Array<object> {
   return SLOT_LEVELS.flatMap((level) => {
     const flag = `ancestry-paragon-${level}`;
     const predicate = [{ gte: ['self:level', level] }];
@@ -73,8 +73,8 @@ registry.register(playerCoreClasses());
 registry.register(variantPack);
 
 const isParagon = (each: VariantRuleEntry): boolean => each.definition.slug === ANCESTRY_PARAGON;
-const paragon: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => isParagon(each));
-const plain: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => !isParagon(each));
+const paragon: ReadonlyArray<VariantRuleEntry> = registry.variantRules().filter((each) => isParagon(each));
+const plain: ReadonlyArray<VariantRuleEntry> = registry.variantRules().filter((each) => !isParagon(each));
 const [paragonEntry] = paragon;
 
 const withParagon = { ...slotContent(registry, paragon), namespaces: CORE_NAMESPACES };
@@ -85,7 +85,7 @@ function fighter(level: number): CharacterBuilder {
 }
 
 /** The feat slots the variant opens: those whose origin is the variant itself, lowest level first. */
-function variantSlots(content: typeof withParagon, level: number): FeatSlot[] {
+function variantSlots(content: typeof withParagon, level: number): Array<FeatSlot> {
   const variant = ContentId.parse(paragonEntry?.id);
 
   return featSlots(fighter(level).build().document, content).filter((slot) => slot.entry === variant);

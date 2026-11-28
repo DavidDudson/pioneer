@@ -18,7 +18,7 @@ const FIRST_PAGE = SearchOffset.parse(0);
 /** What the search reads of the content loader, which `ContentLoader` is: the server's search, and the entries by kind. */
 export interface ContentFinder {
   readonly search: (query: ContentSearchQuery) => Promise<ContentSearchResult>;
-  readonly registry: (kinds: readonly ContentKind[]) => Promise<ContentRegistry>;
+  readonly registry: (kinds: ReadonlyArray<ContentKind>) => Promise<ContentRegistry>;
 }
 
 /** The entries of the kinds the search finds, by id. */
@@ -26,7 +26,7 @@ type Entries = ReadonlyMap<ContentId, Pick<ContentEntry, 'name'>>;
 
 /** What a picker searches among: the kinds of entry, and how their entries are read off a registry. */
 interface Searched {
-  readonly kinds: readonly ContentKind[];
+  readonly kinds: ReadonlyArray<ContentKind>;
   readonly entriesOf: (registry: ContentRegistry) => Entries;
 }
 
@@ -35,7 +35,7 @@ async function find(
   finder: ContentFinder,
   words: string,
   { kinds, entriesOf }: Searched,
-): Promise<readonly ContentChoice[]> {
+): Promise<ReadonlyArray<ContentChoice>> {
   const text = SearchText.safeParse(words);
 
   if (!text.success) {
@@ -55,7 +55,7 @@ async function find(
   const [found, registry] = await Promise.all([finder.search(query), finder.registry(kinds)]);
   const entries = entriesOf(registry);
 
-  return found.ids.flatMap((id): ContentChoice[] => {
+  return found.ids.flatMap((id): Array<ContentChoice> => {
     const name = entries.get(id)?.name;
 
     return name === undefined ? [] : [{ id: ReviewedRuneId.parse(id), name: ReviewedName.parse(name) }];

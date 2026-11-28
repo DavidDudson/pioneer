@@ -37,7 +37,7 @@ export interface SpellAtRank extends SpellCast {
   readonly rank: SpellRank;
   /** Whether it counteracts (Dispel Magic). */
   readonly counteraction: boolean;
-  readonly variants: readonly SpellCast[];
+  readonly variants: ReadonlyArray<SpellCast>;
 }
 
 /** Dice: the `2d6` of `2d6+3 + @spellcasting.attr`. */
@@ -194,7 +194,7 @@ function heightened(fields: CastFields, heightening: Heightening | undefined, { 
 export function spellAtRank(data: SpellData, rank: SpellRank): SpellAtRank {
   const own = fieldsOf(data);
   const casting: Casting = { from: data.rank, rank };
-  const variants: SpellCast[] = [];
+  const variants: Array<SpellCast> = [];
 
   for (const { name, heightening, ...changes } of data.variants ?? []) {
     variants.push({ name, ...heightened(laid(own, changes), heightening ?? data.heightening, casting) });

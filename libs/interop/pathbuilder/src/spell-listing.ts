@@ -36,7 +36,7 @@ export type SpellGap = z.infer<typeof SpellGap>;
 /** The picks for the character's prepared and repertoire slots, and the matched spells no slot took. */
 export interface SpellPlacement {
   readonly choices: SpellPicks;
-  readonly gaps: readonly SpellGap[];
+  readonly gaps: ReadonlyArray<SpellGap>;
 }
 
 /** What placing needs beside the document: the slots' content and the spells' names. */
@@ -53,9 +53,9 @@ export interface Listed {
 }
 
 /** The spells `caster` lists that matched content, in the order it lists them. */
-export function listed(caster: ImportedCaster, lookup: ContentLookup): Listed[] {
+export function listed(caster: ImportedCaster, lookup: ContentLookup): Array<Listed> {
   return caster.ranks.flatMap(({ rank, spells }) =>
-    spells.flatMap((name): Listed[] => {
+    spells.flatMap((name): Array<Listed> => {
       const match = lookup.resolve(ImportKind.Spell, name);
 
       return match === undefined ? [] : [{ name, rank, id: ContentId.parse(match.id) }];

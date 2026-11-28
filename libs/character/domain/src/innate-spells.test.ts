@@ -46,7 +46,7 @@ registry.register(heritage.build());
 
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-function innateOf(level: number): readonly InnateEntrySpells[] {
+function innateOf(level: number): ReadonlyArray<InnateEntrySpells> {
   const { document } = new CharacterBuilder()
     .atLevel(level)
     .picking('class', heritage.idOf(ContentKind.Class, 'wizard'))

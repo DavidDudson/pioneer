@@ -9,7 +9,7 @@ const FONTSOURCE = 'https://cdn.jsdelivr.net/npm/@fontsource/opendyslexic@5';
  * Where each face's stylesheet lives. Google's CSS API splits a face by `unicode-range`, so the browser downloads
  * only the pieces the page's text uses. Faces left out are the device's own (`System`) and need nothing.
  */
-const BODY_STYLESHEETS: Readonly<Partial<Record<BodyFont, readonly string[]>>> = {
+const BODY_STYLESHEETS: Readonly<Partial<Record<BodyFont, ReadonlyArray<string>>>> = {
   [BodyFont.Thematic]: [`${GOOGLE_FONTS}?family=Crimson+Pro:ital,wght@0,400..700;1,400..700&display=swap`],
   [BodyFont.Readable]: [
     `${GOOGLE_FONTS}?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap`,
@@ -19,7 +19,7 @@ const BODY_STYLESHEETS: Readonly<Partial<Record<BodyFont, readonly string[]>>> =
   [BodyFont.OpenDyslexic]: [`${FONTSOURCE}/400.css`, `${FONTSOURCE}/700.css`],
 };
 
-const MONO_STYLESHEETS: Readonly<Partial<Record<MonoFont, readonly string[]>>> = {
+const MONO_STYLESHEETS: Readonly<Partial<Record<MonoFont, ReadonlyArray<string>>>> = {
   [MonoFont.Standard]: [`${GOOGLE_FONTS}?family=Fira+Code:wght@400..700&display=swap`],
   [MonoFont.Typewriter]: [`${GOOGLE_FONTS}?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap`],
 };

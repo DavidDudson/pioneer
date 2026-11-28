@@ -48,12 +48,12 @@ function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
 }
 
 /** The party's character names, in order, as plain strings. */
-function names(party: CampaignParty): readonly string[] {
+function names(party: CampaignParty): ReadonlyArray<string> {
   return party.characters.map((character) => String(character.name));
 }
 
 /** The picker's character names, in order, as plain strings. */
-function attachable(party: CampaignParty): readonly string[] {
+function attachable(party: CampaignParty): ReadonlyArray<string> {
   return party.attachable.map((character) => String(character.name));
 }
 

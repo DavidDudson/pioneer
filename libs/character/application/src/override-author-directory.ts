@@ -7,5 +7,5 @@ import type { UserId } from '@pioneer/shared/kernel';
  */
 export abstract class OverrideAuthorDirectory {
   /** The display name of each user that has an account; unknown ids are left out. */
-  public abstract displayNames(userIds: readonly UserId[]): Promise<ReadonlyMap<UserId, OverrideAuthorName>>;
+  public abstract displayNames(userIds: ReadonlyArray<UserId>): Promise<ReadonlyMap<UserId, OverrideAuthorName>>;
 }

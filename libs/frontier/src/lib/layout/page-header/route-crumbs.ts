@@ -40,8 +40,8 @@ function crumbOf(route: ActivatedRouteSnapshot): Crumb | undefined {
 }
 
 /** The active route and its ancestors, root first, that have a crumb. */
-function activeSteps(router: Router): ActivatedRouteSnapshot[] {
-  const steps: ActivatedRouteSnapshot[] = [];
+function activeSteps(router: Router): Array<ActivatedRouteSnapshot> {
+  const steps: Array<ActivatedRouteSnapshot> = [];
 
   for (
     let route: ActivatedRouteSnapshot | null = router.routerState.snapshot.root;
@@ -68,7 +68,7 @@ function urlOf(route: ActivatedRouteSnapshot): string {
  * under the routes' providers, as `fr-page-header` does. The last step is the page itself, so it has no link. A trail
  * of one step is empty: a top-level page has nowhere to go back to.
  */
-export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
+export function injectRouteCrumbs(): Signal<ReadonlyArray<BreadcrumbItem>> {
   const router = inject(Router);
   const injector = inject(Injector);
   const translate = injectTranslate();

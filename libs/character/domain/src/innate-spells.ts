@@ -15,7 +15,7 @@ export interface InnateSpell {
 /** An innate entry's spells as its `InnateSpells` elements name them; one whose content isn't loaded is left out. */
 export interface InnateEntrySpells {
   readonly entry: SpellcastingInPlay;
-  readonly spells: readonly InnateSpell[];
+  readonly spells: ReadonlyArray<InnateSpell>;
 }
 
 /**
@@ -24,16 +24,16 @@ export interface InnateEntrySpells {
  * seen to be open.
  */
 export function characterInnate(
-  entries: readonly SpellcastingInPlay[],
+  entries: ReadonlyArray<SpellcastingInPlay>,
   content: SpellContent,
   level: CharacterLevel,
-): readonly InnateEntrySpells[] {
+): ReadonlyArray<InnateEntrySpells> {
   return entries
     .values()
     .filter((entry) => entry.preparation === SpellPreparation.Innate)
     .map((entry): InnateEntrySpells => ({
       entry,
-      spells: entry.innateSpells.flatMap(({ rank, spell }): InnateSpell[] => {
+      spells: entry.innateSpells.flatMap(({ rank, spell }): Array<InnateSpell> => {
         const option = content.anySpell(spell);
 
         return option === undefined

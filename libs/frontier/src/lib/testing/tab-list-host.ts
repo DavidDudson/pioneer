@@ -4,7 +4,7 @@ import { TabList } from '../actions/tab-list/tab-list.component';
 import type { SelectOption } from '../controls/select/select.component';
 
 /** The kinds a `TabListHost` offers. */
-const TAB_LIST_KINDS: readonly SelectOption<string>[] = [
+const TAB_LIST_KINDS: ReadonlyArray<SelectOption<string>> = [
   { value: 'strikes', label: 'Strikes' },
   { value: 'spells', label: 'Spells' },
   { value: 'items', label: 'Items' },

@@ -31,7 +31,7 @@ import {
 })
 export class SpellPicker {
   /** Every spell the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly SpellPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<SpellPickerRow>>();
   /** The picked spell's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

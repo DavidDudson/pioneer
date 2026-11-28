@@ -43,7 +43,7 @@ const ZON_KUTHON = deityRow({
   domains: ['darkness', 'pain'],
 });
 
-const DEITIES: readonly DeityPickerRow[] = [NO_DEITY, SARENRAE, KALISTRADE, ZON_KUTHON];
+const DEITIES: ReadonlyArray<DeityPickerRow> = [NO_DEITY, SARENRAE, KALISTRADE, ZON_KUTHON];
 
 interface Rendered {
   readonly fixture: ComponentFixture<DeityPicker>;
@@ -66,7 +66,7 @@ async function settle(fixture: ComponentFixture<DeityPicker>): Promise<void> {
   fixture.detectChanges();
 }
 
-async function render(rows: readonly DeityPickerRow[], value?: string): Promise<Rendered> {
+async function render(rows: ReadonlyArray<DeityPickerRow>, value?: string): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(DeityPicker);
   fixture.componentRef.setInput('rows', rows);
@@ -119,12 +119,12 @@ function rowAt(rendered: Rendered, index: number): Element {
   return row;
 }
 
-function headers(rendered: Rendered): string[] {
+function headers(rendered: Rendered): Array<string> {
   return [...rendered.host.querySelectorAll('[role="columnheader"]')].map((cell) => textOf(cell));
 }
 
 /** The first cell of each rendered row: a deity's name, and why it can't be picked when it can't. */
-function nameCells(rendered: Rendered): HTMLElement[] {
+function nameCells(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
 

@@ -7,7 +7,7 @@ import type { FeatDisplayKey, FeatDisplaySetting } from './feat-display-reposito
 export class InMemoryFeatDisplayRepository extends FeatDisplayRepository {
   readonly #shown = new Map<string, Set<FeatDisplaySection>>();
 
-  public override async findShown({ userId, characterId }: FeatDisplayKey): Promise<readonly FeatDisplaySection[]> {
+  public override async findShown({ userId, characterId }: FeatDisplayKey): Promise<ReadonlyArray<FeatDisplaySection>> {
     return [...(this.#shown.get(`${userId}/${characterId}`) ?? [])];
   }
 

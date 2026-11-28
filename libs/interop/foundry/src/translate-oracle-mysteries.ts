@@ -4,7 +4,7 @@ import { ORACLE, ORACLE_ENTRY } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
 
 /** An oracle's mystery by its feature's slug, its name, and its initial, advanced and greater revelation spells. */
-export const MYSTERIES: readonly (readonly [string, string, string, string, string])[] = [
+export const MYSTERIES: ReadonlyArray<readonly [string, string, string, string, string]> = [
   ['ancestors', 'Ancestors', 'ancestral-touch', 'ancestral-defense', 'ancestral-form'],
   ['battle', 'Battle', 'weapon-trance', 'battlefield-persistence', 'revel-in-retribution'],
   ['bones', 'Bones', 'soul-siphon', 'armor-of-bones', 'claim-undead'],

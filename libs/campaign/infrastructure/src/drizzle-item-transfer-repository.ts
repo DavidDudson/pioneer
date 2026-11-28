@@ -69,7 +69,7 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
     this.#db = db;
   }
 
-  public override async listPending(campaignId: CampaignId): Promise<readonly Transfer[]> {
+  public override async listPending(campaignId: CampaignId): Promise<ReadonlyArray<Transfer>> {
     const rows = await this.#db
       .select()
       .from(campaignItemTransfers)

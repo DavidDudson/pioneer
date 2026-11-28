@@ -35,14 +35,14 @@ interface SweepParameters {
 
 export interface Sweep {
   /** The levels a test walks one by one for each class. */
-  readonly spotLevels: readonly CharacterLevel[];
+  readonly spotLevels: ReadonlyArray<CharacterLevel>;
   /** The levels a property test draws from. */
-  readonly propertyLevels: readonly CharacterLevel[];
+  readonly propertyLevels: ReadonlyArray<CharacterLevel>;
   /** The `assert` options for a property test that makes `fullRuns` runs in the full sweep. */
   parameters: (fullRuns: number) => SweepParameters;
 }
 
-function levelsOf(levels: readonly number[]): readonly CharacterLevel[] {
+function levelsOf(levels: ReadonlyArray<number>): ReadonlyArray<CharacterLevel> {
   return levels.map((level) => CharacterLevel.parse(level));
 }
 

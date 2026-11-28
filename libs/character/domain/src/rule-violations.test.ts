@@ -34,7 +34,7 @@ function withLimits(limits: Partial<RuleLimits>): RuleLimits {
 /** `inventory` with `change` applied to each item `ids` names, skipping the schema's own limits. */
 function changed(
   inventory: Inventory,
-  ids: readonly InventoryItemId[],
+  ids: ReadonlyArray<InventoryItemId>,
   change: Partial<Inventory['items'][number]>,
 ): Inventory {
   return {

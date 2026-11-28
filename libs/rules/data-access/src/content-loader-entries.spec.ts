@@ -27,7 +27,7 @@ const common = {
 };
 
 const contents: PackContents = packContentsFromFiles(packFile, [[common]]);
-const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
+const packs: ReadonlyArray<PackContentsLoader> = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 
 function createLoader(): ContentLoader {
   TestBed.configureTestingModule({

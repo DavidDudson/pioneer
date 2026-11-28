@@ -65,7 +65,7 @@ describe('CharacterService rune edits', () => {
     return added.id;
   }
 
-  async function refusal(patch: CharacterPatch): Promise<readonly FieldIssue[]> {
+  async function refusal(patch: CharacterPatch): Promise<ReadonlyArray<FieldIssue>> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
 

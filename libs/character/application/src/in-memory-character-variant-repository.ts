@@ -7,9 +7,9 @@ import { CharacterVariantRepository } from './character-variant-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCharacterVariantRepository extends CharacterVariantRepository {
-  readonly #rows = new Map<CharacterId, CharacterVariantRule[]>();
+  readonly #rows = new Map<CharacterId, Array<CharacterVariantRule>>();
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterVariantRule[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterVariantRule>> {
     return (this.#rows.get(characterId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
     );

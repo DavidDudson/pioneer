@@ -18,7 +18,7 @@ interface CoinField {
   readonly label: string;
 }
 
-const FIELDS: readonly CoinField[] = [
+const FIELDS: ReadonlyArray<CoinField> = [
   { coin: 'pp', label: 'campaign.transfers.coinLabel.pp' },
   { coin: 'gp', label: 'campaign.transfers.coinLabel.gp' },
   { coin: 'sp', label: 'campaign.transfers.coinLabel.sp' },
@@ -68,7 +68,7 @@ export class CampaignOfferCoins {
 
   protected readonly columns = computed(() => recipientColumns((key) => this.#i18n.translate(key)));
 
-  protected readonly rows = computed((): readonly PartyCharacter[] =>
+  protected readonly rows = computed((): ReadonlyArray<PartyCharacter> =>
     otherRecipients({
       party: this.party.data()?.characters ?? [],
       giver: this.character(),

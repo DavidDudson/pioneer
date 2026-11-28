@@ -43,7 +43,7 @@ function outcomeOf({ content }: ParagraphNode): readonly [DegreeOfSuccess, Inlin
 }
 
 /** The outcome paragraphs that follow `blocks[start]`, rules between them skipped; the run ends at any other block. */
-function outcomesAfter(blocks: readonly BlockNode[], start: number): CheckOutcomes {
+function outcomesAfter(blocks: ReadonlyArray<BlockNode>, start: number): CheckOutcomes {
   const outcomes: CheckOutcomes = {};
   const following = blocks.slice(start + 1).filter((block) => block.type !== BlockKind.Rule);
 
@@ -80,7 +80,7 @@ function withOutcomes(paragraph: ParagraphNode, outcomes: CheckOutcomes): Paragr
 }
 
 /** `blocks` with each non-basic check given the per-degree paragraphs that follow it. */
-export function attachCheckOutcomes(blocks: readonly BlockNode[]): BlockNode[] {
+export function attachCheckOutcomes(blocks: ReadonlyArray<BlockNode>): Array<BlockNode> {
   return blocks.map((block, index) => {
     if (block.type !== BlockKind.Paragraph || outcomeOf(block) !== undefined) {
       return block;

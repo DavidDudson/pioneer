@@ -44,10 +44,10 @@ interface Handed {
 class StubPartyInventory {
   public readonly campaign = input.required<string>();
   public readonly character = input.required<string>();
-  public readonly lines = input.required<readonly Handed[]>();
+  public readonly lines = input.required<ReadonlyArray<Handed>>();
 }
 
-const carried: readonly Line[] = [
+const carried: ReadonlyArray<Line> = [
   { id: rope },
   { id: pack },
   { id: inPack, container: pack },
@@ -64,7 +64,7 @@ const names = new Map([
 /** The part of the selected character the store stub answers with. */
 interface SelectedCharacter {
   readonly id: string;
-  readonly document: { readonly inventory: { readonly items: readonly Line[] } };
+  readonly document: { readonly inventory: { readonly items: ReadonlyArray<Line> } };
 }
 
 /** The sheet of a character carrying `items`, in `campaignId` or in none. */

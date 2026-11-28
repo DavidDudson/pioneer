@@ -36,7 +36,7 @@ export interface ChipValue {
 export interface ChipsRow {
   readonly kind: typeof FacetRowKind.Chips;
   readonly facet: FacetDefinition;
-  readonly values: readonly ChipValue[];
+  readonly values: ReadonlyArray<ChipValue>;
   readonly selected: ReadonlySet<FacetValue>;
 }
 
@@ -115,8 +115,8 @@ function rangeRow({ facet, values }: FacetCounts, selection: FacetSelection | un
  * A facet with nothing to pick (no item in the list has it) is left out, unless something in it is picked, so it can
  * be cleared.
  */
-export function facetRows(counts: readonly FacetCounts[], state: FilterState): readonly FacetRow[] {
-  return counts.flatMap((facetCounts): FacetRow[] => {
+export function facetRows(counts: ReadonlyArray<FacetCounts>, state: FilterState): ReadonlyArray<FacetRow> {
+  return counts.flatMap((facetCounts): Array<FacetRow> => {
     const selection = state.get(facetCounts.facet.id);
 
     if (facetCounts.values.length === 0 && selection === undefined) {

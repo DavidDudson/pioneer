@@ -20,7 +20,7 @@ function damageOf(formula: string): DamageNode {
 }
 
 /** The roller, with the dice landing on `faces` in order. */
-function rollerWith(...faces: readonly number[]): InlineRoller {
+function rollerWith(...faces: ReadonlyArray<number>): InlineRoller {
   TestBed.configureTestingModule({
     providers: [
       provideBareInlineRoller(),

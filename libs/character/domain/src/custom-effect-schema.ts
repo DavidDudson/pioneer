@@ -94,7 +94,7 @@ export const CustomEffectSchema = z.strictObject({
 export type CustomEffect = z.infer<typeof CustomEffectSchema>;
 
 /** Everyone who added, switched or removed one of `effects`, once each. */
-export function customEffectAuthorIds(effects: readonly CustomEffect[]): readonly UserId[] {
+export function customEffectAuthorIds(effects: ReadonlyArray<CustomEffect>): ReadonlyArray<UserId> {
   const ids = effects.flatMap(({ by, toggles, removed }) => [
     by,
     ...toggles.map((toggle) => toggle.by),

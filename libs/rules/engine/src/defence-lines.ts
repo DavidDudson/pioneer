@@ -67,7 +67,7 @@ export interface AdjustmentLine {
   readonly type: DamageAdjustmentSubject;
   /** Undefined only when the line failed. */
   readonly value: DamageAmount | undefined;
-  readonly exceptions: readonly DamageException[];
+  readonly exceptions: ReadonlyArray<DamageException>;
   readonly status: DefenceStatus;
   /** Set when a battle form in force gives the line: the sheet marks it as from the form. */
   readonly fromForm?: true;
@@ -87,7 +87,7 @@ export interface PersistentFlatCheckLine {
   readonly id: RuleId;
   readonly label: ModifierLabel;
   readonly origin: Origin;
-  readonly damageTypes: readonly DamageType[];
+  readonly damageTypes: ReadonlyArray<DamageType>;
   readonly dc: Dc;
   /** Undefined when assisted recovery ends the damage outright. */
   readonly assistedDc: Dc | undefined;
@@ -99,18 +99,18 @@ export interface PersistentFlatCheckLine {
  * id order, and the flat checks that turn a critical hit into a hit. A defence whose predicate is false is left out.
  */
 export interface Defences {
-  readonly immunities: readonly ImmunityLine[];
-  readonly weaknesses: readonly AdjustmentLine[];
-  readonly resistances: readonly AdjustmentLine[];
+  readonly immunities: ReadonlyArray<ImmunityLine>;
+  readonly weaknesses: ReadonlyArray<AdjustmentLine>;
+  readonly resistances: ReadonlyArray<AdjustmentLine>;
   /** In id order; the lowest DC is the one that helps most. */
-  readonly criticalHitChecks: readonly CriticalHitCheckLine[];
+  readonly criticalHitChecks: ReadonlyArray<CriticalHitCheckLine>;
   /** In id order; the lowest DC of the applied lines is the one that counts. */
-  readonly persistentFlatChecks: readonly PersistentFlatCheckLine[];
+  readonly persistentFlatChecks: ReadonlyArray<PersistentFlatCheckLine>;
 }
 
 /** The most a weakness or resistance can be: `DamageAmount`'s bound. */
 const DEFENCE_MAX = DamageAmount.parse(32_767);
-export const NONE: readonly DamageException[] = [];
+export const NONE: ReadonlyArray<DamageException> = [];
 
 /** A weakness's or resistance's value and the status it leaves; undefined when it comes to nothing (0 or less). */
 export interface Valued {

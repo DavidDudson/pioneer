@@ -20,5 +20,5 @@ export interface ShownNote {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StrikeNotes {
-  public readonly notes = input.required<readonly ShownNote[]>();
+  public readonly notes = input.required<ReadonlyArray<ShownNote>>();
 }

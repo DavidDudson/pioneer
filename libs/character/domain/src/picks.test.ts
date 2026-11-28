@@ -6,7 +6,7 @@ import { pickOne, PickRefusal, PickWeight, pickWeighted, shuffle } from './picks
 import type { PickOutcome, Weighted } from './picks';
 import { scriptedPicks } from './testing';
 
-function at(...indices: readonly number[]): PickSource {
+function at(...indices: ReadonlyArray<number>): PickSource {
   return scriptedPicks(indices.map((index) => PickIndex.parse(index)));
 }
 

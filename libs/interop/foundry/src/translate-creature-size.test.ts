@@ -24,7 +24,7 @@ describe('CreatureSize from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.CreatureSize, reach: { override: 0 }, resizeEquipment: true, value: 'tiny' },
     ]);
   });
@@ -72,7 +72,7 @@ describe('ActorTraits from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.ActorTraits, add: ['plant'], predicate: ['self:level'] },
     ]);
   });

@@ -28,7 +28,7 @@ const file = await import('@pioneer/content/packs/player-core/condition.json');
 const conditions = ContentEntryFile.parse(file.default).filter((each) => each.kind === ContentKind.Condition);
 
 /** The rule elements of the Player Core condition `slug`, in play at `value`. */
-function conditionRules(slug: string, value: number): readonly RuleInPlay[] {
+function conditionRules(slug: string, value: number): ReadonlyArray<RuleInPlay> {
   const entry = conditions.find((each) => each.slug === `condition:${slug}`);
 
   if (entry === undefined) {
@@ -39,7 +39,7 @@ function conditionRules(slug: string, value: number): readonly RuleInPlay[] {
 }
 
 /** The fighter's totals with `rules` in play. */
-function fighterWith(rules: readonly RuleInPlay[]): Record<string, number | undefined> {
+function fighterWith(rules: ReadonlyArray<RuleInPlay>): Record<string, number | undefined> {
   const facts = factsUnderForm({ rules, facts: noFacts() });
 
   return totals(deriveStatistics(core, fighter, { rules, facts }));
@@ -52,13 +52,13 @@ const drop = (held: Record<string, number | undefined>, selector: string): numbe
   (BASE[selector] ?? 0) - (held[selector] ?? 0);
 
 /** How much `slug` at `value` lowers each of `selectors` from the fighter's own total. */
-function lowered(slug: string, value: number, selectors: readonly string[]): Record<string, number> {
+function lowered(slug: string, value: number, selectors: ReadonlyArray<string>): Record<string, number> {
   const held = fighterWith(conditionRules(slug, value));
 
   return Object.fromEntries(selectors.map((selector) => [selector, drop(held, selector)]));
 }
 
-const sameFor = (selectors: readonly string[], amount: number): Record<string, number> =>
+const sameFor = (selectors: ReadonlyArray<string>, amount: number): Record<string, number> =>
   Object.fromEntries(selectors.map((selector) => [selector, amount]));
 
 describe('valued penalty conditions in Player Core', () => {
@@ -123,7 +123,7 @@ const SPEEDS = ['speed:land', 'speed:fly', 'speed:swim', 'speed:climb', 'speed:b
 const IMMOBILIZING = ['immobilized', 'paralyzed', 'petrified', 'unconscious'];
 
 /** The conditions the Player Core condition `slug` grants, by slug. */
-function grantedBy(slug: string): string[] {
+function grantedBy(slug: string): Array<string> {
   const rules = conditions.find((each) => each.slug === `condition:${slug}`)?.rules ?? [];
 
   const granted = new Set(

@@ -29,7 +29,7 @@ function ruled(slug: string): boolean {
 }
 
 /** Plain property runes for `item` with neither rules nor a recorded gap. */
-export function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
+export function unaccounted(item: string, gaps: ReadonlySet<string>): ReadonlyArray<string> {
   return RUNES.filter((entry) => isPlainProperty(entry, item))
     .filter(
       (entry) =>
@@ -39,7 +39,7 @@ export function unaccounted(item: string, gaps: ReadonlySet<string>): readonly s
 }
 
 /** Recorded gaps whose rune is gone or has since got rules. */
-export function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
+export function staleGaps(gaps: ReadonlySet<string>): ReadonlyArray<string> {
   return [...gaps].filter((slug) => {
     const rune = RUNES.find((entry) => entry.slug === slug);
 

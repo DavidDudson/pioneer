@@ -33,12 +33,12 @@ export type ItemNumbers = ReadonlyMap<NumericItemProperty, FormulaValue>;
 /** What `ItemAlteration` elements read of an item and can change. */
 export interface AlterableItem {
   /** The item's own roll options, without their namespace: `type:armor`, `trait:shield`, `equipped`. */
-  readonly rollOptions: readonly RollOptionTail[];
+  readonly rollOptions: ReadonlyArray<RollOptionTail>;
   readonly numbers: ItemNumbers;
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   readonly damageType: DamageType | undefined;
-  readonly materials: readonly Slug[];
-  readonly propertyRunes: readonly Slug[];
+  readonly materials: ReadonlyArray<Slug>;
+  readonly propertyRunes: ReadonlyArray<Slug>;
   /** The inventory item the weapon is, which an `etched` adjustment reads; absent for an item with no inventory line. */
   readonly inventoryItem?: InventoryItemId | undefined;
   /** The text the item reads as, when an alteration may replace it; absent for an item whose text is not altered. */
@@ -48,7 +48,7 @@ export interface AlterableItem {
 /** An item after the `ItemAlteration` elements in play changed it. */
 export interface AlteredItem extends AlterableItem {
   /** Every element that changed something, in the order found; empty for an item no element reached. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /** A rule in play whose element is an `ItemAlteration`. */
@@ -109,7 +109,11 @@ function tagOption(tag: Slug): RollOptionTail {
 }
 
 /** `list` with `value` added or removed; the same list when it already is or isn't there. */
-export function withValue<Value>(list: readonly Value[], mode: TraitAlterationMode, value: Value): readonly Value[] {
+export function withValue<Value>(
+  list: ReadonlyArray<Value>,
+  mode: TraitAlterationMode,
+  value: Value,
+): ReadonlyArray<Value> {
   const present = list.includes(value);
 
   if (mode === TraitAlterationMode.Add) {
@@ -269,7 +273,7 @@ export interface PotencyChange {
  */
 export function potencyAfter(
   base: FormulaValue | undefined,
-  changes: readonly PotencyChange[],
+  changes: ReadonlyArray<PotencyChange>,
 ): FormulaValue | undefined {
   let current = base;
 

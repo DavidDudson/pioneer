@@ -77,7 +77,7 @@ const hurt = (damage: number, rest: Partial<PlayState> = {}): PlayState => ({
   ...rest,
 });
 
-const start = (play: PlayState, recovery: readonly RecoveryInPlay[] = []): TurnOutcome =>
+const start = (play: PlayState, recovery: ReadonlyArray<RecoveryInPlay> = []): TurnOutcome =>
   startTurn(play, { limits: LIMITS, recovery }, seededRandom(SEED));
 
 describe('startTurn', () => {

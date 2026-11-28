@@ -11,8 +11,8 @@ import type { TableView, TableViewSchema, TableViewSort } from './table-view.typ
 
 /** Maps the filter bar's conditions to and from the `f` segment, by the page's facet codec. */
 export interface FacetTextCodec {
-  readonly encode: (filters: readonly FilterCondition[]) => string;
-  readonly decode: (text: string) => readonly FilterCondition[];
+  readonly encode: (filters: ReadonlyArray<FilterCondition>) => string;
+  readonly decode: (text: string) => ReadonlyArray<FilterCondition>;
 }
 
 export interface TableViewOptions {
@@ -29,8 +29,8 @@ export interface ApplyOptions {
   readonly params?: Params;
 }
 
-const TABLE_KEYS: readonly string[] = Object.values(TableViewKey);
-const NO_FILTERS: readonly FilterCondition[] = [];
+const TABLE_KEYS: ReadonlyArray<string> = Object.values(TableViewKey);
+const NO_FILTERS: ReadonlyArray<FilterCondition> = [];
 
 /** Every table key, the ones the view leaves out as `undefined`, which the router removes from the URL. */
 function paramsFor(view: TableView, schema: TableViewSchema): Params {
@@ -60,10 +60,10 @@ export class TableViewState {
 
   /** The view the URL holds right now. */
   public readonly view: Signal<TableView>;
-  public readonly sorting: Signal<readonly TableViewSort[]>;
+  public readonly sorting: Signal<ReadonlyArray<TableViewSort>>;
   /** The hidden column ids; `undefined` is each column's default. */
-  public readonly hidden: Signal<readonly string[] | undefined>;
-  public readonly filters: Signal<readonly FilterCondition[]>;
+  public readonly hidden: Signal<ReadonlyArray<string> | undefined>;
+  public readonly filters: Signal<ReadonlyArray<FilterCondition>>;
   public readonly search: Signal<string>;
   /** `undefined` is the table's default page size. */
   public readonly pageSize: Signal<number | undefined>;
@@ -80,15 +80,15 @@ export class TableViewState {
     this.pageSize = computed(() => this.view().pageSize);
   }
 
-  public async setSorting(sorting: readonly TableViewSort[]): Promise<void> {
+  public async setSorting(sorting: ReadonlyArray<TableViewSort>): Promise<void> {
     await this.apply({ sort: sorting });
   }
 
-  public async setHidden(hidden: readonly string[] | undefined): Promise<void> {
+  public async setHidden(hidden: ReadonlyArray<string> | undefined): Promise<void> {
     await this.apply({ hidden });
   }
 
-  public async setFilters(filters: readonly FilterCondition[]): Promise<void> {
+  public async setFilters(filters: ReadonlyArray<FilterCondition>): Promise<void> {
     await this.apply({ facets: this.#facets?.encode(filters) });
   }
 
@@ -101,7 +101,7 @@ export class TableViewState {
     await this.apply({ search }, { replaceUrl: true });
   }
 
-  #decodeFilters(text: string | undefined): readonly FilterCondition[] {
+  #decodeFilters(text: string | undefined): ReadonlyArray<FilterCondition> {
     return text === undefined || this.#facets === undefined ? NO_FILTERS : this.#facets.decode(text);
   }
 

@@ -30,7 +30,7 @@ const COLD = ContentId.parse('00000000-0000-4000-8000-0000000000e1');
 const SUN = ContentId.parse('00000000-0000-4000-8000-0000000000e2');
 const FATIGUED = ContentId.parse('00000000-0000-4000-8000-0000000000e3');
 
-const faces = (...each: readonly number[]): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
+const faces = (...each: ReadonlyArray<number>): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
 
 const EVERY_TEN_MINUTES = {
   after: { count: 10, unit: 'minute' },
@@ -57,7 +57,7 @@ const LIMITS = {
 
 const INPUTS: Omit<PassTimeInputs, 'random'> = { limits: LIMITS, defences: NO_DEFENCES, environments: CONTENT };
 
-const turnedOn = (...environments: readonly ContentId[]): PlayState => {
+const turnedOn = (...environments: ReadonlyArray<ContentId>): PlayState => {
   let play = FRESH_PLAY;
 
   for (const environment of environments) {

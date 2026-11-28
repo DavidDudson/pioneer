@@ -13,7 +13,7 @@ import { injectContentRegistry } from '../../data/content-registry-query';
 import { ShopKitOrder } from './shop-kit-order.component';
 
 /** The kits query: kits only, as the item kinds load in their own. */
-const KIT_KINDS: readonly ContentKind[] = [ContentKind.Kit];
+const KIT_KINDS: ReadonlyArray<ContentKind> = [ContentKind.Kit];
 
 function offerOf({ id, name, rarity, data }: KitEntry): ShopOffer {
   return { id, name, level: undefined, rarity, price: data.price };
@@ -40,7 +40,7 @@ export class ShopKits {
   protected readonly kits = injectContentRegistry(KIT_KINDS);
   protected readonly picked = signal<ContentId | undefined>(undefined);
 
-  readonly #entries: Signal<readonly KitEntry[] | undefined> = computed(() => {
+  readonly #entries: Signal<ReadonlyArray<KitEntry> | undefined> = computed(() => {
     const registry = this.kits.data();
     const items = this.content();
 
@@ -50,14 +50,14 @@ export class ShopKits {
   });
 
   /** The kits by name; undefined while they load. */
-  protected readonly offers: Signal<readonly ShopOffer[] | undefined> = computed(() =>
+  protected readonly offers: Signal<ReadonlyArray<ShopOffer> | undefined> = computed(() =>
     this.#entries()
       ?.toSorted((left, right) => this.#format.compare(left.name, right.name))
       .map((entry) => offerOf(entry)),
   );
 
   /** The picked kit, as a list of at most one, so its form is made afresh for each kit (`track` by id). */
-  protected readonly pickedKits: Signal<readonly KitEntry[]> = computed(() => {
+  protected readonly pickedKits: Signal<ReadonlyArray<KitEntry>> = computed(() => {
     const id = this.picked();
     const kit = this.#entries()?.find((entry) => entry.id === id);
 

@@ -19,7 +19,7 @@ function sizeOf(value: unknown): number {
 }
 
 /** Whether a formatter breaks an array of arrays whatever its width: two or more, each of two or more members. */
-function breaksAlways(items: readonly unknown[]): boolean {
+function breaksAlways(items: ReadonlyArray<unknown>): boolean {
   return items.length > 1 && items.every((item) => Array.isArray(item) && sizeOf(item) > 1);
 }
 
@@ -56,7 +56,7 @@ interface Frame {
 }
 
 /** The lines of `value` placed at `depth`. */
-function lines(value: unknown, depth: number, { prefix, suffix }: Around): readonly string[] {
+function lines(value: unknown, depth: number, { prefix, suffix }: Around): ReadonlyArray<string> {
   const lead = `${indented(depth)}${prefix}`;
 
   if (Array.isArray(value)) {
@@ -70,7 +70,7 @@ function lines(value: unknown, depth: number, { prefix, suffix }: Around): reado
   return [`${lead}${JSON.stringify(value)}${suffix}`];
 }
 
-function arrayLines(items: readonly unknown[], depth: number, { lead, suffix }: Frame): readonly string[] {
+function arrayLines(items: ReadonlyArray<unknown>, depth: number, { lead, suffix }: Frame): ReadonlyArray<string> {
   if (items.length === 0) {
     return [`${lead}[]${suffix}`];
   }
@@ -90,10 +90,10 @@ function arrayLines(items: readonly unknown[], depth: number, { lead, suffix }: 
 }
 
 function objectLines(
-  members: readonly (readonly [string, unknown])[],
+  members: ReadonlyArray<readonly [string, unknown]>,
   depth: number,
   { lead, suffix }: Frame,
-): readonly string[] {
+): ReadonlyArray<string> {
   if (members.length === 0) {
     return [`${lead}{}${suffix}`];
   }

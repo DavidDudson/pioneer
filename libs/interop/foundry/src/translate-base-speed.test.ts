@@ -19,7 +19,7 @@ describe('BaseSpeed from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.Change, selector: `speed:${movement}`, mode: 'upgrade', value: 30 },
     ]);
   });
@@ -60,7 +60,7 @@ describe('BaseSpeed that reads the land speed', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.Change,
         selector: 'speed:fly',

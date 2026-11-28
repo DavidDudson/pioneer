@@ -8,15 +8,15 @@ import { PackEnablementDirectory } from './pack-enablement-directory';
 interface Enablement {
   readonly packId: ContentPackId;
   readonly campaign: EnablingCampaignName;
-  readonly members: readonly UserId[];
+  readonly members: ReadonlyArray<UserId>;
 }
 
 /** Directory adapter for tests: enablements given up front. */
 export class InMemoryPackEnablementDirectory extends PackEnablementDirectory {
-  readonly #enablements: Enablement[] = [];
+  readonly #enablements: Array<Enablement> = [];
 
   /** `campaign` enables the pack; `members` belong to it. */
-  public enable(packId: ContentPackId, campaign: string, members: readonly UserId[]): this {
+  public enable(packId: ContentPackId, campaign: string, members: ReadonlyArray<UserId>): this {
     this.#enablements.push({
       packId,
       campaign: EnablingCampaignName.parse(campaign),
@@ -26,7 +26,7 @@ export class InMemoryPackEnablementDirectory extends PackEnablementDirectory {
     return this;
   }
 
-  public override async campaignsEnabling(pack: ReadablePack): Promise<readonly EnablingCampaignName[]> {
+  public override async campaignsEnabling(pack: ReadablePack): Promise<ReadonlyArray<EnablingCampaignName>> {
     return this.#enablements
       .filter(({ packId }) => packId === pack.id)
       .map(({ campaign }) => campaign)

@@ -17,7 +17,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** A roller that records what it is asked to roll. */
-function recordingRoller(rolled: RollableStatistic[]): StatisticRoller {
+function recordingRoller(rolled: Array<RollableStatistic>): StatisticRoller {
   return {
     roll: (rollable: RollableStatistic): void => {
       rolled.push(rollable);
@@ -75,7 +75,7 @@ describe('StatisticsView rolling', () => {
   });
 
   it('hands the roller the statistic it was pressed on', async () => {
-    const rolled: RollableStatistic[] = [];
+    const rolled: Array<RollableStatistic> = [];
     const host = await renderRolling(recordingRoller(rolled));
     const check = FIGHTER_STATISTICS.find(({ kind }) => kind === StatisticKind.Check);
 

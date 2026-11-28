@@ -29,7 +29,7 @@ interface Ancestry {
 const FILLED_AT = 0.2;
 const TRACK_AT = 0.9;
 
-const ANCESTRIES: readonly Ancestry[] = [
+const ANCESTRIES: ReadonlyArray<Ancestry> = [
   { value: 'dwarf', label: 'Dwarf' },
   { value: 'elf', label: 'Elf' },
   { value: 'gnome', label: 'Gnome' },

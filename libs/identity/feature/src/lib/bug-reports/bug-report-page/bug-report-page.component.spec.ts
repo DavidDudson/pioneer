@@ -31,11 +31,11 @@ const REPORT = BugReportDetail.parse({
 
 interface Rendered {
   readonly page: HTMLElement;
-  readonly sent: { status: string }[];
+  readonly sent: Array<{ status: string }>;
 }
 
 async function render(report: BugReportDetail): Promise<Rendered> {
-  const sent: { status: string }[] = [];
+  const sent: Array<{ status: string }> = [];
 
   const call = vi.fn<(endpoint: Endpoint, input: { body?: { status: string } }) => Promise<object>>(
     async (endpoint, input) => {

@@ -74,7 +74,7 @@ const FoundrySubfeatureSenses = z.record(
 );
 
 /** Reports each set subfeature but `senses`, `languages`, `proficiencies` and those the kind `read` itself, by name. */
-function reportOtherSubfeatures(others: Fields, read: readonly string[], { log }: KindInput): void {
+function reportOtherSubfeatures(others: Fields, read: ReadonlyArray<string>, { log }: KindInput): void {
   for (const [field, value] of Object.entries(others)) {
     if (isSet(value) && !read.includes(field)) {
       report(log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
@@ -83,13 +83,13 @@ function reportOtherSubfeatures(others: Fields, read: readonly string[], { log }
 }
 
 /** Subfeatures only a class feature reads: `keyOptions`, its key attribute options. */
-const CLASS_FEATURE_SUBFEATURES: readonly string[] = ['keyOptions'];
+const CLASS_FEATURE_SUBFEATURES: ReadonlyArray<string> = ['keyOptions'];
 
 /**
  * The senses a feat's `subfeatures` give, as `Sense` elements, its languages as a `Language` element and the ranks it
  * raises as `Proficiency` elements. A class feature reads its `keyOptions` itself; other subfeatures are reported.
  */
-function subfeatureRules(system: FoundryFeatSystem, input: KindInput, read: readonly string[] = []): void {
+function subfeatureRules(system: FoundryFeatSystem, input: KindInput, read: ReadonlyArray<string> = []): void {
   const { senses, languages, proficiencies, ...others } = system.subfeatures ?? {};
   reportOtherSubfeatures(others, read, input);
   languageRules(languages, input);
@@ -141,7 +141,7 @@ function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): F
     return {};
   }
 
-  const options = listed.data.flatMap((each): Attribute[] => {
+  const options = listed.data.flatMap((each): Array<Attribute> => {
     const attribute = AttributeSchema.safeParse(each);
 
     if (!attribute.success) {
@@ -199,7 +199,7 @@ function maxTakableOf({ maxTakable }: FoundryFeatSystem): number | string | unde
 const ARCHETYPE = Trait.parse('archetype');
 
 /** The one link left, or none when several or none are. */
-function narrowed(links: readonly ArchetypeLink[]): readonly ArchetypeLink[] {
+function narrowed(links: ReadonlyArray<ArchetypeLink>): ReadonlyArray<ArchetypeLink> {
   return links.length === 1 ? links : [];
 }
 

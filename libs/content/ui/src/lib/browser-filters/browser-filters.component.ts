@@ -19,8 +19,8 @@ import type { ContentBrowserState } from '../browser-state';
 export class BrowserFilters {
   public readonly state = model.required<ContentBrowserState>();
   /** What the filter bar offers: a field per facet of the list. */
-  public readonly fields = input.required<readonly FilterField[]>();
-  public readonly counts = input.required<readonly FacetCounts[]>();
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
+  public readonly counts = input.required<ReadonlyArray<FacetCounts>>();
   /** What the filters mean for the list's facets, for the facet panel. */
   public readonly facetState = input.required<FilterState>();
   /** Shows the facet panel under the bar. */
@@ -28,7 +28,7 @@ export class BrowserFilters {
   /** The facet panel changed a filter. The container turns it into conditions, as it knows the facets. */
   public readonly facetChange = output<FilterState>();
 
-  protected filtered(filters: readonly FilterCondition[]): void {
+  protected filtered(filters: ReadonlyArray<FilterCondition>): void {
     this.state.update((state) => ({ ...state, filters }));
   }
 }

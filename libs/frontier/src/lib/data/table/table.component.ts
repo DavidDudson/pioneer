@@ -44,7 +44,7 @@ interface KnownColumn {
 }
 
 /** A column's id, or nothing for a column with none (a group, or a display column given no id). */
-function describe<TData extends RowData>(column: TableColumn<TData>): KnownColumn[] {
+function describe<TData extends RowData>(column: TableColumn<TData>): Array<KnownColumn> {
   const id = column.id ?? ('accessorKey' in column ? String(column.accessorKey) : undefined);
 
   if (id === undefined) {
@@ -63,7 +63,7 @@ function describe<TData extends RowData>(column: TableColumn<TData>): KnownColum
   ];
 }
 
-function sameIds(left: readonly string[], right: readonly string[]): boolean {
+function sameIds(left: ReadonlyArray<string>, right: ReadonlyArray<string>): boolean {
   return left.length === right.length && left.every((id) => right.includes(id));
 }
 
@@ -86,16 +86,16 @@ function sameIds(left: readonly string[], right: readonly string[]): boolean {
   host: { class: 'block' },
 })
 export class Table<TData extends RowData> {
-  public readonly data = input.required<readonly TData[]>();
-  public readonly columns = input.required<readonly TableColumn<TData>[]>();
+  public readonly data = input.required<ReadonlyArray<TData>>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<TData>>>();
   /** Accessible name; shown above the table unless `hideCaption`. */
   public readonly caption = input.required<string>();
   public readonly hideCaption = input(false, { transform: booleanAttribute });
   public readonly rowId = input<((row: TData) => string) | undefined>(undefined);
   /** Ids of the hidden columns; `undefined` is each column's `defaultHidden`. */
-  public readonly columnVisibility = model<readonly string[] | undefined>(undefined);
+  public readonly columnVisibility = model<ReadonlyArray<string> | undefined>(undefined);
   /** The sorted columns, first wins; pressing a header changes it. Empty is the order of `data`. */
-  public readonly sorting = model<readonly TableViewSort[]>([]);
+  public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
 
   /** Every column, with what the *Columns* control needs of it. Read from the definitions, before the table exists. */
   private readonly known = computed(() => this.columns().flatMap((column) => describe(column)));
@@ -106,7 +106,7 @@ export class Table<TData extends RowData> {
   );
 
   /** Hidden column ids in force: known, hideable, and never all of them. */
-  protected readonly hidden = computed<readonly string[]>(() => {
+  protected readonly hidden = computed<ReadonlyArray<string>>(() => {
     const known = this.known();
     const wanted = this.columnVisibility() ?? this.defaultHidden();
     const hidden = known.filter((column) => column.hideable && wanted.includes(column.id)).map((column) => column.id);
@@ -140,7 +140,7 @@ export class Table<TData extends RowData> {
   protected readonly captionClasses = computed(() => captionVariants({ hidden: this.hideCaption() }));
   protected readonly ariaSort = ariaSort<TData>;
 
-  protected readonly toggles = computed<readonly ColumnToggle[]>(() => {
+  protected readonly toggles = computed<ReadonlyArray<ColumnToggle>>(() => {
     const hidden = this.hidden();
     const lastShown = this.known().length - hidden.length === 1;
 

@@ -208,7 +208,7 @@ interface AstNode {
   readonly callee?: AstNode;
   readonly key?: AstNode;
   readonly expression?: AstNode | boolean;
-  readonly arguments?: readonly AstNode[];
+  readonly arguments?: ReadonlyArray<AstNode>;
 }
 
 function isBuilderArgument(parent: AstNode, child: AstNode): boolean {

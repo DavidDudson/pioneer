@@ -8,7 +8,7 @@ export interface OfferableLine {
   /** The name the line is shown by: the player's own, else the item's. */
   readonly name: ReviewedName;
   /** The names of the lines inside it, however deep, which the recipient sees before accepting; empty when it holds none. */
-  readonly contents: readonly ReviewedName[];
+  readonly contents: ReadonlyArray<ReviewedName>;
   /** The character's version now, kept with the offer so accepting it can tell the giver has changed since. */
   readonly version: Version;
 }

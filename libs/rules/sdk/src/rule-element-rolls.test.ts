@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { RuleElement } from './rule-element';
 
-const valid: object[] = [
+const valid: Array<object> = [
   { key: 'AdjustDegreeOfSuccess', selectors: ['save:will'], adjustment: { success: 'one-degree-better' } },
   {
     key: 'AdjustDegreeOfSuccess',

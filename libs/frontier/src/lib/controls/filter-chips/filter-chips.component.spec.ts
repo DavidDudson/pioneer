@@ -14,7 +14,7 @@ interface Rendered {
   readonly commits: () => number;
 }
 
-function render(selected: readonly Rarity[]): Rendered {
+function render(selected: ReadonlyArray<Rarity>): Rendered {
   TestBed.configureTestingModule({
     providers: [...provideFrontierI18nTesting()],
   });
@@ -52,7 +52,7 @@ function host(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
 
-function chips(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLButtonElement[] {
+function chips(fixture: ComponentFixture<FilterChips<Rarity>>): Array<HTMLButtonElement> {
   return [...host(fixture).querySelectorAll<HTMLButtonElement>('button[aria-pressed]')];
 }
 
@@ -60,7 +60,7 @@ function clearButton(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLButton
   return [...host(fixture).querySelectorAll('button')].find((button) => !button.hasAttribute('aria-pressed'));
 }
 
-function pressed(fixture: ComponentFixture<FilterChips<Rarity>>): (string | null)[] {
+function pressed(fixture: ComponentFixture<FilterChips<Rarity>>): Array<string | null> {
   return chips(fixture).map((chip) => chip.getAttribute('aria-pressed'));
 }
 

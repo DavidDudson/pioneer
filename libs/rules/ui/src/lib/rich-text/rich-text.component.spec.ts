@@ -25,7 +25,8 @@ const STATISTIC_NAMES: ReadonlyMap<string, ContentText> = new Map([
 /** A page that can open Off-Guard and knows Athletics and Reflex, but not Seek or other statistics. */
 const LINKS: RichTextLinks = {
   name: (id: ContentId): ContentText | undefined => (id === OFF_GUARD ? ContentText.parse('Off-Guard') : undefined),
-  target: (id: ContentId): readonly string[] | undefined => (id === OFF_GUARD ? ['/content', 'off-guard'] : undefined),
+  target: (id: ContentId): ReadonlyArray<string> | undefined =>
+    id === OFF_GUARD ? ['/content', 'off-guard'] : undefined,
   statisticName: (selector): ContentText | undefined => STATISTIC_NAMES.get(selector),
 };
 
@@ -38,11 +39,11 @@ interface TextNode {
 /** A paragraph node as JSON. */
 interface ParagraphNode {
   readonly type: string;
-  readonly content: readonly unknown[];
+  readonly content: ReadonlyArray<unknown>;
 }
 
 const text = (value: string): TextNode => ({ type: 'text', text: value });
-const paragraph = (...content: unknown[]): ParagraphNode => ({ type: 'paragraph', content });
+const paragraph = (...content: Array<unknown>): ParagraphNode => ({ type: 'paragraph', content });
 
 async function render(json: Plain, headingLevel: HeadingLevel = HeadingLevel.Two): Promise<HTMLElement> {
   TestBed.configureTestingModule({
@@ -63,7 +64,7 @@ function squash(element: Element | null): string {
   return (element?.textContent ?? '').replaceAll(/\s+/gu, ' ').trim();
 }
 
-function paragraphs(rendered: HTMLElement): readonly string[] {
+function paragraphs(rendered: HTMLElement): ReadonlyArray<string> {
   return [...rendered.querySelectorAll('p')].map((element) => squash(element));
 }
 
@@ -92,7 +93,7 @@ const RENDERED_ELEMENTS: ReadonlySet<string> = new Set([
 ]);
 
 /** Native elements in the rendered text that frontier's rich text components never produce. */
-function unexpectedElements(rendered: HTMLElement): readonly string[] {
+function unexpectedElements(rendered: HTMLElement): ReadonlyArray<string> {
   const tags = [...rendered.querySelectorAll('*')].map((element) => element.tagName.toLowerCase());
 
   return tags.filter((tag) => !tag.includes('-') && !RENDERED_ELEMENTS.has(tag));

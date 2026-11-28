@@ -26,7 +26,7 @@ import { attributePickerColumns, shownAttributeRows } from './slot-picker-table'
 })
 export class AttributePicker {
   /** Every attribute the slot offers, with the character's modifier in it. */
-  public readonly rows = input.required<readonly AttributePickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<AttributePickerRow>>();
   /** The picked attribute; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

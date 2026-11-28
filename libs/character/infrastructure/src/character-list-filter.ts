@@ -8,7 +8,7 @@ import { characters } from './character.table';
 const LIKE_WILDCARDS = /[%_\\]/gu;
 
 /** The conditions the list's filters make, to AND; an absent filter makes none. */
-export function filterConditions(filter: CharacterFilter): readonly (SQL | undefined)[] {
+export function filterConditions(filter: CharacterFilter): ReadonlyArray<SQL | undefined> {
   const search = filter.name?.replaceAll(LIKE_WILDCARDS, String.raw`\$&`);
 
   return [

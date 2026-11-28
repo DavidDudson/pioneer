@@ -24,11 +24,11 @@ export interface ContentEntryRef {
  */
 export interface ContentBrowserState {
   /** The kinds listed, in browser order. None means the browser's default kind. */
-  readonly kinds: readonly ContentKind[];
+  readonly kinds: ReadonlyArray<ContentKind>;
   /** The words searched for; blank for none. */
   readonly query: string;
   /** The filter bar's conditions. */
-  readonly filters: readonly FilterCondition[];
+  readonly filters: ReadonlyArray<FilterCondition>;
   /** The entry shown, if one is picked. */
   readonly selected?: ContentEntryRef | undefined;
 }

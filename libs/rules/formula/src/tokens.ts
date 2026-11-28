@@ -99,8 +99,8 @@ function tokenFrom(match: RegExpExecArray): Token {
 }
 
 /** Splits formula text into tokens, or throws a {@link FormulaError} at the first character that fits none. */
-export function tokenize(text: FormulaText): Token[] {
-  const tokens: Token[] = [];
+export function tokenize(text: FormulaText): Array<Token> {
+  const tokens: Array<Token> = [];
   // A failed sticky match resets `lastIndex` to 0, so track where the last token ended.
   let end = 0;
   TOKEN.lastIndex = end;

@@ -38,7 +38,7 @@ function option(value: ContentId, locked = false): SheetFeatOption {
   };
 }
 
-function slot(key: string, options: readonly SheetFeatOption[]): SheetFeatSlot {
+function slot(key: string, options: ReadonlyArray<SheetFeatOption>): SheetFeatSlot {
   return {
     key: SlotKey.parse(key),
     label: message('character.sheet.feats.slot'),

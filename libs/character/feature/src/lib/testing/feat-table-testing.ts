@@ -8,7 +8,7 @@ export interface FeatTableRow {
   /** The first cell: the name, and why the feat can't be picked when it can't. */
   readonly name: string;
   /** Every cell's text, in column order. */
-  readonly cells: readonly string[];
+  readonly cells: ReadonlyArray<string>;
   readonly disabled: boolean;
   /** Pressing it picks the feat. */
   readonly pick: () => void;
@@ -33,7 +33,7 @@ export function stubTableLayout(): void {
   });
 }
 
-function rowsIn(field: HTMLElement): FeatTableRow[] {
+function rowsIn(field: HTMLElement): Array<FeatTableRow> {
   return [...field.querySelectorAll<HTMLElement>('fr-picker-row')].map((row): FeatTableRow => {
     const cells = [...row.querySelectorAll<HTMLElement>('[role="gridcell"]')];
     const first = present(cells[0]);
@@ -52,7 +52,7 @@ function rowsIn(field: HTMLElement): FeatTableRow[] {
 /**
  * Opens the inline editor of a feat slot, which opens its table of feats, and lists the rows once `count` of them show.
  */
-export async function openFeatTable(field: HTMLElement, count: number): Promise<FeatTableRow[]> {
+export async function openFeatTable(field: HTMLElement, count: number): Promise<Array<FeatTableRow>> {
   stubTableLayout();
   present(field.querySelector<HTMLElement>('button')).click();
   await settle();
@@ -66,7 +66,7 @@ export async function openFeatTable(field: HTMLElement, count: number): Promise<
 }
 
 /** Opens the inline editor of a picker and lists its rows once at least one shows; the table needn't be of feats. */
-export async function openPickerTable(field: HTMLElement): Promise<FeatTableRow[]> {
+export async function openPickerTable(field: HTMLElement): Promise<Array<FeatTableRow>> {
   stubTableLayout();
   present(field.querySelector<HTMLElement>('button')).click();
   await settle();

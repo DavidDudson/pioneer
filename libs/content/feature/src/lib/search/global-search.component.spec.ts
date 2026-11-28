@@ -99,11 +99,11 @@ async function press({ fixture, input }: Opened, key: string): Promise<void> {
   fixture.detectChanges();
 }
 
-const listed = ({ root }: Opened): string[] =>
+const listed = ({ root }: Opened): Array<string> =>
   [...root.querySelectorAll('[role="option"]')].map((option) => (option.firstChild?.textContent ?? '').trim());
 
 /** The names listed once `count` of them are. */
-async function listedWhen(opened: Opened, count: number): Promise<string[]> {
+async function listedWhen(opened: Opened, count: number): Promise<Array<string>> {
   await vi.waitFor(() => {
     opened.fixture.detectChanges();
     expect(listed(opened)).toHaveLength(count);

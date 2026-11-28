@@ -10,7 +10,7 @@ import { AttributesView } from './attributes.component';
 
 async function render(
   modifiers: AttributeModifiers | undefined,
-  open: readonly OpenBoostLine[] = [],
+  open: ReadonlyArray<OpenBoostLine> = [],
 ): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<AttributesView> = TestBed.createComponent(AttributesView);
@@ -22,7 +22,7 @@ async function render(
   return fixture.nativeElement as HTMLElement;
 }
 
-function pairs(host: HTMLElement): (string | undefined)[][] {
+function pairs(host: HTMLElement): Array<Array<string | undefined>> {
   return [...host.querySelectorAll('fr-description-item')].map((item) => [
     item.querySelector('[role="term"]')?.textContent.trim(),
     item.querySelector('[role="definition"]')?.textContent.trim(),

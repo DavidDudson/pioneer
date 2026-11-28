@@ -18,7 +18,7 @@ const derivable = (key: string, selector: string, attribute: Attribute): Derivab
 
 const skill = (name: string, attribute: Attribute): Derivable => derivable(name, `skill:${name}`, attribute);
 
-const DERIVABLE: readonly Derivable[] = [
+const DERIVABLE: ReadonlyArray<Derivable> = [
   derivable('perception', 'perception', Attribute.Wisdom),
   derivable('fortitude', 'save:fortitude', Attribute.Constitution),
   derivable('reflex', 'save:reflex', Attribute.Dexterity),
@@ -51,7 +51,10 @@ const BASE_DC = 10;
 const UNTYPED = 'untyped';
 
 /** The statistics Pathbuilder's rank, attribute and level give a total for: saves, Perception, skills and the class DC. */
-export const DERIVED_TOTAL_STATISTICS: readonly Selector[] = [...DERIVABLE.map(({ selector }) => selector), CLASS_DC];
+export const DERIVED_TOTAL_STATISTICS: ReadonlyArray<Selector> = [
+  ...DERIVABLE.map(({ selector }) => selector),
+  CLASS_DC,
+];
 
 /**
  * The bonuses Pathbuilder lists for a statistic. Those of one type don't stack, so the best bonus (or worst penalty)
@@ -91,10 +94,10 @@ function total(value: PathbuilderImport, key: string, fixed: number): number | u
  * The totals Pathbuilder's export gives the saves, Perception, skills and class DC (10 and the key attribute),
  * worked from the ranks, attributes, level and listed bonuses it reports. One without a rank has none.
  */
-export function derivedTotals(value: PathbuilderImport): [Selector, number][] {
+export function derivedTotals(value: PathbuilderImport): Array<[Selector, number]> {
   const keyAttribute = AttributeSchema.safeParse(value.reported.keyability).data;
 
-  const all: [Selector, number | undefined][] = [
+  const all: Array<[Selector, number | undefined]> = [
     ...DERIVABLE.map(({ key, selector, attribute }): [Selector, number | undefined] => [
       selector,
       total(value, key, value.attributes.get(attribute)),
@@ -105,5 +108,7 @@ export function derivedTotals(value: PathbuilderImport): [Selector, number][] {
     ],
   ];
 
-  return all.flatMap(([selector, amount]): [Selector, number][] => (amount === undefined ? [] : [[selector, amount]]));
+  return all.flatMap(([selector, amount]): Array<[Selector, number]> =>
+    amount === undefined ? [] : [[selector, amount]],
+  );
 }

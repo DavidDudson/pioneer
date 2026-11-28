@@ -12,9 +12,9 @@ const POLYMORPH_OPTION = RollOption.parse(`trait:${POLYMORPH}`);
 /** The effects in force, and the ones a newer polymorph effect replaced. */
 export interface ExclusiveEffects {
   /** In the order applied, without the replaced. */
-  readonly active: readonly ActiveEffect[];
+  readonly active: ReadonlyArray<ActiveEffect>;
   /** The polymorph effects that lost to a newer one, oldest first, so play can end them. */
-  readonly replaced: readonly ActiveEffect[];
+  readonly replaced: ReadonlyArray<ActiveEffect>;
 }
 
 /** Whether the effect's content is a polymorph effect (`isPolymorphEntry`); an effect the content lacks is not. */
@@ -28,7 +28,7 @@ export function isPolymorph(lookup: ContentLookup, effect: ActiveEffect): boolea
  * `effects` with at most one polymorph effect: the newest, which is the last one applied. The rest are `replaced` and
  * leave the effective set, so their rules grant nothing; every other effect stays.
  */
-export function exclusiveEffects(effects: readonly ActiveEffect[], lookup: ContentLookup): ExclusiveEffects {
+export function exclusiveEffects(effects: ReadonlyArray<ActiveEffect>, lookup: ContentLookup): ExclusiveEffects {
   const polymorphs = effects.filter((each) => isPolymorph(lookup, each));
   const replaced = polymorphs.slice(0, -1);
 

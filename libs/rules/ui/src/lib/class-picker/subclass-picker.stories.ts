@@ -9,7 +9,7 @@ type SubclassPickerStory = StoryObj<SubclassPicker>;
 
 const LONG_LIST = 300;
 
-const SUBCLASSES: readonly SubclassPickerRow[] = [
+const SUBCLASSES: ReadonlyArray<SubclassPickerRow> = [
   subclassRow({ id: 'grammatica', name: 'Ars Grammatica' }),
   subclassRow({ id: 'battle', name: 'Battle Magic', note: 'Trains Athletics again' }),
   subclassRow({ id: 'thesis', name: 'Thesis', disabledReason: 'Needs a higher level' }),

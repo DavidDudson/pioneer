@@ -25,7 +25,7 @@ function from(level: number): Fields {
   return { predicate: [{ gte: ['self:level', level] }] };
 }
 
-function slotsIn(name: string, fixture: DocumentFixture): unknown[] {
+function slotsIn(name: string, fixture: DocumentFixture): Array<unknown> {
   return rulesIn(translate([fixture]), name).filter(
     (rule) => typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === SpellSlots,
   );

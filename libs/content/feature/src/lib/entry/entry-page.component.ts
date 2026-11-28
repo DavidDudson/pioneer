@@ -117,7 +117,7 @@ export class EntryPage {
   readonly #router = inject(Router);
   readonly #query = toSignal(inject(ActivatedRoute).queryParamMap, { requireSync: true });
 
-  protected readonly browse: readonly string[] = ['/content'];
+  protected readonly browse: ReadonlyArray<string> = ['/content'];
   /** The kind and words the entry was opened from, so the list is as it was left. */
   protected readonly browseParams = computed((): Params => {
     const query = this.#query();

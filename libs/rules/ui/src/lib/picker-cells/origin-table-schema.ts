@@ -9,7 +9,7 @@ import type { CellColumn } from './rules-table-schema';
 /** Picker rows that are ancestries, heritages, backgrounds or classes: the origins that shape a character. */
 export class OriginTableSchema<TRow extends RowData> extends RulesTableSchema<TRow> {
   /** The attribute boosts a row gives, sorted by how many. */
-  public addBoosts(options: CellColumn<TRow, readonly AttributeBoost[]>): this {
+  public addBoosts(options: CellColumn<TRow, ReadonlyArray<AttributeBoost>>): this {
     return this.addComponent({
       ...options,
       sortValue: (row) => options.value(row).length,
@@ -19,7 +19,7 @@ export class OriginTableSchema<TRow extends RowData> extends RulesTableSchema<TR
   }
 
   /** Short facts of an origin as chips: hit points, size, speed, flaws, languages, skills, Lores and feats. */
-  public addFacts(options: CellColumn<TRow, readonly Chip[]>): this {
+  public addFacts(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addChips(options);
   }
 }

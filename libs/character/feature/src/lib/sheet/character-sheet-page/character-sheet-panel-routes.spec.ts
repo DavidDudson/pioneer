@@ -21,7 +21,7 @@ const PANELS = [
 const PANEL_LABELS = ['Skills', 'Conditions', 'Environments'];
 
 /** The sections in view: those of the tab's regions that are not concealed. */
-function shownSections(root: HTMLElement): Element[] {
+function shownSections(root: HTMLElement): Array<Element> {
   return [...root.querySelectorAll('router-outlet ~ * section')].filter(
     (region) => !region.classList.contains('hidden') && !region.closest('.hidden'),
   );

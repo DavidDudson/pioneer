@@ -18,5 +18,5 @@ import { RuneBadge } from './rune-badge.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RuneBadges {
-  public readonly runes = input<readonly RuneBadgeData[]>([]);
+  public readonly runes = input<ReadonlyArray<RuneBadgeData>>([]);
 }

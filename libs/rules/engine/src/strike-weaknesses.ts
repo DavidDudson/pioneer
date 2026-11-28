@@ -14,10 +14,10 @@ export interface CriticalWeakness {
 
 /** `weaknesses` with what `rule` adds to them: the weakness of a `CriticalWeakness` element that reaches the Strike's damage. */
 export function weakenedBy(
-  weaknesses: readonly CriticalWeakness[],
+  weaknesses: ReadonlyArray<CriticalWeakness>,
   rule: RuleInPlay,
   targets: StrikeTargets,
-): readonly CriticalWeakness[] {
+): ReadonlyArray<CriticalWeakness> {
   const { element } = rule;
 
   return element.key === RuleElementKey.CriticalWeakness &&

@@ -38,7 +38,7 @@ function detail({ slug, name, source }: Named): SpellDetailLine {
   };
 }
 
-const LINES: readonly SpellRowLine[] = [
+const LINES: ReadonlyArray<SpellRowLine> = [
   { key: 'daze:cleric', detail: detail({ slug: 'daze', name: 'Daze', source: 'Cleric Spellcasting' }) },
   { key: 'heal:cleric', detail: detail({ slug: 'heal', name: 'Heal', source: 'Cleric Spellcasting' }) },
   { key: 'heal:font', detail: detail({ slug: 'heal', name: 'Heal', source: 'Divine Font' }) },

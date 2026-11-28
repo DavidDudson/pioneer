@@ -22,7 +22,7 @@ const FoundrySubfeatureLanguages = z.looseObject({
 });
 
 /** The `language` entries the granted slugs name; one the import doesn't have (a secret language) is reported. */
-function grantedLanguages(slugs: readonly string[], { references, log }: KindInput): ContentId[] {
+function grantedLanguages(slugs: ReadonlyArray<string>, { references, log }: KindInput): Array<ContentId> {
   return slugs.flatMap((slug) => {
     const id = resolveSlug(references, ContentKind.Language, slug);
 

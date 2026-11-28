@@ -44,8 +44,8 @@ export interface VocabularyGap {
 }
 
 export interface Vocabulary {
-  readonly entries: readonly VocabularyEntry[];
-  readonly gaps: readonly VocabularyGap[];
+  readonly entries: ReadonlyArray<VocabularyEntry>;
+  readonly gaps: ReadonlyArray<VocabularyGap>;
 }
 
 function isGap(value: Item | Gap): value is Gap {
@@ -53,8 +53,8 @@ function isGap(value: Item | Gap): value is Gap {
 }
 
 interface Collected {
-  readonly items: Item[];
-  readonly gaps: VocabularyGap[];
+  readonly items: Array<Item>;
+  readonly gaps: Array<VocabularyGap>;
 }
 
 interface Uses {
@@ -64,10 +64,10 @@ interface Uses {
   readonly itemOf: (slug: string, book: BookId) => Item | Gap;
 }
 
-function collect({ kind, uses, itemOf }: Uses, known: readonly KnownEntry[]): Collected {
+function collect({ kind, uses, itemOf }: Uses, known: ReadonlyArray<KnownEntry>): Collected {
   const skip = knownSlugs(known, kind);
-  const items: Item[] = [];
-  const gaps: VocabularyGap[] = [];
+  const items: Array<Item> = [];
+  const gaps: Array<VocabularyGap> = [];
 
   for (const [slug, book] of uses) {
     const item = skip.has(slug) ? undefined : itemOf(slug, book);
@@ -116,7 +116,7 @@ function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry
 }
 
 /** A described kind's item that no description key has text for: its entry is kept, and the gap reported. */
-function missingDescription(item: Item, { lang }: VocabularyContext): VocabularyGap[] {
+function missingDescription(item: Item, { lang }: VocabularyContext): Array<VocabularyGap> {
   const { kind, slug, descriptionKeys } = item;
 
   if (descriptionKeys === undefined || descriptionHtml(descriptionKeys, lang) !== undefined) {
@@ -126,9 +126,9 @@ function missingDescription(item: Item, { lang }: VocabularyContext): Vocabulary
   return [{ kind, slug, reason: VocabularyGapReason.MissingDescription, detail: descriptionKeys.join(' ') }];
 }
 
-function entries(items: readonly Item[], context: VocabularyContext): Vocabulary {
-  const imported: VocabularyEntry[] = [];
-  const gaps: VocabularyGap[] = [];
+function entries(items: ReadonlyArray<Item>, context: VocabularyContext): Vocabulary {
+  const imported: Array<VocabularyEntry> = [];
+  const gaps: Array<VocabularyGap> = [];
 
   for (const item of items) {
     const built = entryOf(item, context);
@@ -144,7 +144,7 @@ function entries(items: readonly Item[], context: VocabularyContext): Vocabulary
   return { entries: imported, gaps };
 }
 
-function otherUses(selected: readonly SelectedEntry[], { config, books }: VocabularyContext): Uses[] {
+function otherUses(selected: ReadonlyArray<SelectedEntry>, { config, books }: VocabularyContext): Array<Uses> {
   const [firstBook] = books;
   const lores = loreNames(selected);
 
@@ -177,7 +177,7 @@ function otherUses(selected: readonly SelectedEntry[], { config, books }: Vocabu
  * pack, each slug its kind and Foundry's slug (`trait:goblin`, `language:goblin`, `statistic:scribing-lore`). What another official pack already has, an
  * earlier run's vocabulary included, is left to that entry.
  */
-export function importVocabulary(selected: readonly SelectedEntry[], context: VocabularyContext): Vocabulary {
+export function importVocabulary(selected: ReadonlyArray<SelectedEntry>, context: VocabularyContext): Vocabulary {
   const others = otherUses(selected, context).map((uses) => collect(uses, context.known));
   const built = entries([...traitItems(selected, context), ...others.flatMap(({ items }) => items)], context);
 

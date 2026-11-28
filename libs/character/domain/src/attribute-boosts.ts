@@ -40,25 +40,25 @@ export const BoostSource = {
 export type BoostSource = ValueOf<typeof BoostSource>;
 
 /** One boost, as the attributes it may raise: all six for a free boost, one for a fixed boost. */
-export type Boost = readonly Attribute[];
+export type Boost = ReadonlyArray<Attribute>;
 
 /** An ancestry's boosts, and the attributes it lowers. */
 export interface AncestryBoosts {
-  readonly boosts: readonly Boost[];
-  readonly flaws: readonly Attribute[];
+  readonly boosts: ReadonlyArray<Boost>;
+  readonly flaws: ReadonlyArray<Attribute>;
 }
 
 /** What boosts are read from: the boosts of each ancestry, background and class, by id. */
 export interface BoostContent {
   readonly ancestry: (id: ContentId) => AncestryBoosts | undefined;
-  readonly background: (id: ContentId) => readonly Boost[] | undefined;
+  readonly background: (id: ContentId) => ReadonlyArray<Boost> | undefined;
   readonly keyAttribute: (id: ContentId) => Boost | undefined;
   /** Whether the character has a second class slot (Dual Class), so its key attribute is a boost of its own. */
   readonly secondClass: boolean;
   /** Whether the free boosts come one a level over the four levels up to each fifth (Gradual Attribute Boosts). */
   readonly gradual: boolean;
   /** What the character's 1st-level class features add to its key attribute options: Strength for a ruffian rogue. */
-  readonly keyAttributeOptions: (document: CharacterDocument) => readonly Attribute[];
+  readonly keyAttributeOptions: (document: CharacterDocument) => ReadonlyArray<Attribute>;
 }
 
 /** A boost the player places: one slot, what it may raise, and what it raises. */
@@ -67,7 +67,7 @@ export interface BoostSlot {
   readonly level: Level;
   readonly source: BoostSource;
   /** What the boost allows, less what the fixed boosts of its set already raise. */
-  readonly options: readonly Attribute[];
+  readonly options: ReadonlyArray<Attribute>;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: Attribute | undefined;
 }
@@ -79,7 +79,7 @@ export interface BoostSlot {
 export interface FlawSlot {
   readonly key: SlotKey;
   /** Every attribute but those the ancestry flaws already. */
-  readonly options: readonly Attribute[];
+  readonly options: ReadonlyArray<Attribute>;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: Attribute | undefined;
 }
@@ -88,11 +88,11 @@ export interface FlawSlot {
 export interface BoostSet {
   readonly level: Level;
   readonly source: BoostSource;
-  readonly fixed: readonly Attribute[];
-  readonly slots: readonly BoostSlot[];
+  readonly fixed: ReadonlyArray<Attribute>;
+  readonly slots: ReadonlyArray<BoostSlot>;
 }
 
-const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+const ATTRIBUTES: ReadonlyArray<Attribute> = Object.values(Attribute);
 
 /** A free boost may raise any attribute. */
 const FREE_BOOST: Boost = ATTRIBUTES;
@@ -102,20 +102,20 @@ const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 const FREE_BOOST_INTERVAL = 5;
 const FREE_BOOSTS_PER_LEVEL = 4;
 
-const FREE_BOOST_LEVELS: readonly Level[] = [
+const FREE_BOOST_LEVELS: ReadonlyArray<Level> = [
   FIRST_LEVEL,
   ...Array.from({ length: CHARACTER_LEVEL_MAX / FREE_BOOST_INTERVAL }, (_unused, index) =>
     Level.parse((index + 1) * FREE_BOOST_INTERVAL),
   ),
 ];
 
-const FREE_BOOSTS: readonly Boost[] = Array.from({ length: FREE_BOOSTS_PER_LEVEL }, () => FREE_BOOST);
+const FREE_BOOSTS: ReadonlyArray<Boost> = Array.from({ length: FREE_BOOSTS_PER_LEVEL }, () => FREE_BOOST);
 
 /**
  * Gradual Attribute Boosts (GM Core): the four boosts of each fifth level come one a level over it and the three before.
  * Each group is still one set, so its four boosts raise different attributes.
  */
-const GRADUAL_BOOST_PLACES: ReadonlyMap<Level, readonly Level[]> = new Map(
+const GRADUAL_BOOST_PLACES: ReadonlyMap<Level, ReadonlyArray<Level>> = new Map(
   FREE_BOOST_LEVELS.slice(1).map((last) => [
     last,
     Array.from({ length: FREE_BOOSTS_PER_LEVEL }, (_unused, index) =>
@@ -154,7 +154,7 @@ export function boostContent(
 
       return definition === undefined ? undefined : { boosts: definition.boosts, flaws: definition.flaws };
     },
-    background: (id: ContentId): readonly Boost[] | undefined => backgrounds.get(id),
+    background: (id: ContentId): ReadonlyArray<Boost> | undefined => backgrounds.get(id),
     keyAttribute: (id: ContentId): Boost | undefined => classes.get(id),
     secondClass: hasSecondClass(rootSlots),
     gradual,
@@ -173,7 +173,7 @@ function pickedId(document: CharacterDocument, slot: SlotKey): ContentId | undef
  * The attribute `value` names, if the slot offers it. A pick no longer on offer (left from another ancestry, or
  * after an errata) counts for nothing.
  */
-function offeredPick(value: ChoiceValue | undefined, options: readonly Attribute[]): Attribute | undefined {
+function offeredPick(value: ChoiceValue | undefined, options: ReadonlyArray<Attribute>): Attribute | undefined {
   const parsed = AttributeSchema.safeParse(value);
 
   return parsed.success && options.includes(parsed.data) ? parsed.data : undefined;
@@ -183,9 +183,9 @@ function offeredPick(value: ChoiceValue | undefined, options: readonly Attribute
 interface BoostOrigin {
   readonly level: Level;
   readonly source: BoostSource;
-  readonly boosts: readonly Boost[];
+  readonly boosts: ReadonlyArray<Boost>;
   /** The level each boost is taken at, when the set's boosts come over several levels; `level` for each if unset. */
-  readonly places?: readonly Level[] | undefined;
+  readonly places?: ReadonlyArray<Level> | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ interface BoostOrigin {
 function boostSet(document: CharacterDocument, { level, source, boosts, places }: BoostOrigin): BoostSet {
   const fixed = boosts.flatMap((boost) => (boost.length === 1 ? boost : []));
 
-  const slots = boosts.flatMap((boost, index): BoostSlot[] => {
+  const slots = boosts.flatMap((boost, index): Array<BoostSlot> => {
     if (boost.length === 1) {
       return [];
     }
@@ -215,14 +215,14 @@ function boostSet(document: CharacterDocument, { level, source, boosts, places }
  * Boost sets already read, by content and build: they read the build's picks alone, never the level, and a build is
  * never changed in place, so a document at another level (the plan, read level by level) has the same ones.
  */
-const BOOST_SETS = new WeakMap<BoostContent, WeakMap<CharacterDocument['build'], readonly BoostSet[]>>();
+const BOOST_SETS = new WeakMap<BoostContent, WeakMap<CharacterDocument['build'], ReadonlyArray<BoostSet>>>();
 
 /**
  * Every set of boosts the character has up to 20th level, lowest level first: its ancestry's, background's and
  * class's at 1st level, once each is picked, and four free boosts at 1st, 5th, 10th, 15th and 20th.
  */
-export function boostSets(document: CharacterDocument, content: BoostContent): readonly BoostSet[] {
-  const byBuild = BOOST_SETS.get(content) ?? new WeakMap<CharacterDocument['build'], readonly BoostSet[]>();
+export function boostSets(document: CharacterDocument, content: BoostContent): ReadonlyArray<BoostSet> {
+  const byBuild = BOOST_SETS.get(content) ?? new WeakMap<CharacterDocument['build'], ReadonlyArray<BoostSet>>();
   BOOST_SETS.set(content, byBuild);
   const known = byBuild.get(document.build) ?? readBoostSets(document, content);
   byBuild.set(document.build, known);
@@ -230,7 +230,7 @@ export function boostSets(document: CharacterDocument, content: BoostContent): r
   return known;
 }
 
-function readBoostSets(document: CharacterDocument, content: BoostContent): readonly BoostSet[] {
+function readBoostSets(document: CharacterDocument, content: BoostContent): ReadonlyArray<BoostSet> {
   const ancestry = pickedId(document, ANCESTRY_SLOT);
   const background = pickedId(document, BACKGROUND_SLOT);
   const characterClass = pickedId(document, CLASS_SLOT);
@@ -247,7 +247,7 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
   const secondAttribute =
     secondKey === undefined ? undefined : [...new Set([...secondKey, ...content.keyAttributeOptions(document)])];
 
-  const origins: [BoostSource, readonly Boost[] | undefined][] = [
+  const origins: Array<[BoostSource, ReadonlyArray<Boost> | undefined]> = [
     [BoostSource.Ancestry, ancestryBoosts],
     [BoostSource.Background, backgroundBoosts],
     [BoostSource.Class, keyAttribute === undefined ? undefined : [keyAttribute]],
@@ -271,12 +271,12 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): read
 }
 
 /** Every boost slot up to 20th level, filled or not. */
-export function boostSlots(document: CharacterDocument, content: BoostContent): readonly BoostSlot[] {
+export function boostSlots(document: CharacterDocument, content: BoostContent): ReadonlyArray<BoostSlot> {
   return boostSets(document, content).flatMap((set) => set.slots);
 }
 
 /** The flaws of the character's ancestry; undefined while it has none picked, or its content isn't loaded. */
-function ancestryFlaws(document: CharacterDocument, content: BoostContent): readonly Attribute[] | undefined {
+function ancestryFlaws(document: CharacterDocument, content: BoostContent): ReadonlyArray<Attribute> | undefined {
   const ancestry = pickedId(document, ANCESTRY_SLOT);
 
   return ancestry === undefined ? undefined : content.ancestry(ancestry)?.flaws;
@@ -286,7 +286,7 @@ function ancestryFlaws(document: CharacterDocument, content: BoostContent): read
  * The character's voluntary flaw slots: one per attribute its ancestry doesn't flaw already, so each lowers a different
  * one. None until its ancestry is picked and loaded.
  */
-export function flawSlots(document: CharacterDocument, content: BoostContent): readonly FlawSlot[] {
+export function flawSlots(document: CharacterDocument, content: BoostContent): ReadonlyArray<FlawSlot> {
   const own = ancestryFlaws(document, content);
 
   if (own === undefined) {
@@ -311,7 +311,7 @@ function raised(set: BoostSet): ReadonlySet<Attribute> {
  * One attribute's modifier: +0, or -1 with a flaw, then one more for each set that raises it, in level order. From
  * +4 a boost is partial, and the second partial boost raises it by one (Player Core).
  */
-function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostSet[]): AttributeModifier {
+function modifierOf(attribute: Attribute, flawed: boolean, sets: ReadonlyArray<BoostSet>): AttributeModifier {
   let total = flawed ? -1 : 0;
   let partial = false;
   const boosts = sets.filter((set) => raised(set).has(attribute)).length;
@@ -329,7 +329,7 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
 }
 
 /** The part of `set` taken by `level`: all of it from the set's level, or the boosts of a gradual set taken so far. */
-function takenBy(set: BoostSet, level: Level): readonly BoostSet[] {
+function takenBy(set: BoostSet, level: Level): ReadonlyArray<BoostSet> {
   if (set.level <= level) {
     return [set];
   }

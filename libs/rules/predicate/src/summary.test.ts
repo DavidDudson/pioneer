@@ -15,7 +15,7 @@ import { PredicateMessage } from './messages';
 import { Negated, summarisePredicate, SummaryKind } from './summary';
 import type { PredicateSummary } from './summary';
 
-function facts(...options: readonly string[]): PredicateFacts {
+function facts(...options: ReadonlyArray<string>): PredicateFacts {
   return new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
@@ -39,7 +39,7 @@ const DEBUG_FORMAT: SummaryFormat = {
 
     return `${name}${negated}(${subject})`;
   },
-  list: (items: readonly string[], style: ListStyle): string =>
+  list: (items: ReadonlyArray<string>, style: ListStyle): string =>
     `[${items.join(style === ListStyle.Conjunction ? ' & ' : ' | ')}]`,
 };
 
@@ -51,8 +51,8 @@ function formatted(predicate: JsonValue, given = facts()): string {
 }
 
 /** Every message key formatting the summary asks for, wrappers included. */
-function keysUsed(result: PredicateSummary | undefined): readonly string[] {
-  const keys: string[] = [];
+function keysUsed(result: PredicateSummary | undefined): ReadonlyArray<string> {
+  const keys: Array<string> = [];
 
   const recording: SummaryFormat = {
     message: (descriptor: MessageDescriptor): string => {
@@ -60,7 +60,7 @@ function keysUsed(result: PredicateSummary | undefined): readonly string[] {
 
       return descriptor.key;
     },
-    list: (items: readonly string[]): string => items.join(','),
+    list: (items: ReadonlyArray<string>): string => items.join(','),
   };
 
   if (result !== undefined) {

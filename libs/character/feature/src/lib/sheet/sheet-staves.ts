@@ -93,7 +93,11 @@ interface LineContext {
 }
 
 /** The staves the character holds as the spell list shows them: a section each, with the charges left and the casts. */
-export function sheetStaves(registry: ContentRegistry, character: Character, { resources }: StavesInPlay): StaffLine[] {
+export function sheetStaves(
+  registry: ContentRegistry,
+  character: Character,
+  { resources }: StavesInPlay,
+): Array<StaffLine> {
   const entries = characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry)));
   const items = itemContent(registry);
 

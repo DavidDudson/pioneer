@@ -92,8 +92,8 @@ const GLUE_BOMB = {
 
 /** What item alterations and adjustments made of a weapon: its materials and property runes. */
 interface Made {
-  readonly materials?: readonly Slug[];
-  readonly propertyRunes?: readonly Slug[];
+  readonly materials?: ReadonlyArray<Slug>;
+  readonly propertyRunes?: ReadonlyArray<Slug>;
 }
 
 /** `weapon` as item alterations and adjustments made it. */
@@ -102,7 +102,7 @@ function madeOf<Weapon extends object>(weapon: Weapon, made: Made): Weapon & Mad
 }
 
 /** Strikes for `weapons` of a level 1 character with Strength `strength` and Dexterity 3. */
-function strikesOf(weapons: readonly JsonObject[], strength = 4, made: Made = {}): readonly Strike[] {
+function strikesOf(weapons: ReadonlyArray<JsonObject>, strength = 4, made: Made = {}): ReadonlyArray<Strike> {
   const inputs = StatisticInputsJson.parse({
     level: 1,
     attributes: { str: strength, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -201,7 +201,7 @@ const WEREWOLF = {
 };
 
 /** The materials and runes a longsword made as `made` deals damage as, as plain text. */
-function countsOf(made: Made): readonly string[] {
+function countsOf(made: Made): ReadonlyArray<string> {
   return (strikesOf([LONGSWORD], 4, made)[0]?.damage?.counts ?? []).map(String);
 }
 

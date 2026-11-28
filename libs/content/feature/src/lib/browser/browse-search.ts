@@ -20,7 +20,7 @@ const SEARCH_STALE_MS = 60_000;
 /** What is searched for: the words and the kinds they are searched among. */
 export interface BrowseSearch {
   readonly words: SearchText;
-  readonly kinds: readonly BrowseKind[];
+  readonly kinds: ReadonlyArray<BrowseKind>;
 }
 
 /** The words a link holds, or undefined when it has none or only blanks. */
@@ -34,7 +34,9 @@ export function searchFromQuery(text: QueryText): SearchText | undefined {
  * The ids of the official entries of the kinds that match `search`, best first, as a query in an injection context.
  * Idle while there is nothing to search for. The server does the matching, so unlike the lists it needs a connection.
  */
-export function injectBrowseSearch(search: () => BrowseSearch | undefined): CreateQueryResult<readonly ContentId[]> {
+export function injectBrowseSearch(
+  search: () => BrowseSearch | undefined,
+): CreateQueryResult<ReadonlyArray<ContentId>> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);
 
@@ -46,7 +48,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
       queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted(), legacy],
       enabled: wanted !== undefined && ready,
       staleTime: SEARCH_STALE_MS,
-      queryFn: async (): Promise<readonly ContentId[]> => {
+      queryFn: async (): Promise<ReadonlyArray<ContentId>> => {
         if (wanted === undefined) {
           return [];
         }

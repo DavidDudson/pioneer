@@ -50,7 +50,7 @@ function directive(line: string): readonly [string, string] {
 interface RobotsState {
   readonly applies: boolean;
   readonly header: boolean;
-  readonly paths: readonly string[];
+  readonly paths: ReadonlyArray<string>;
 }
 
 function step(state: RobotsState, line: string, product: string): RobotsState {
@@ -68,7 +68,7 @@ function step(state: RobotsState, line: string, product: string): RobotsState {
 }
 
 /** The paths `robots.txt` disallows for `*` and for `agent`. */
-export function disallowedPaths(robots: string, agent: string): readonly string[] {
+export function disallowedPaths(robots: string, agent: string): ReadonlyArray<string> {
   const product = agent.split('/')[0]?.toLowerCase() ?? '';
   let state: RobotsState = { applies: false, header: false, paths: [] };
 
@@ -103,13 +103,13 @@ async function outcome(url: URL, response: Response): Promise<PageOutcome> {
 
 /** What `robots.txt` lets the robot do: the paths it must not fetch, or why it must not go on. */
 type RobotRules =
-  | { readonly kind: 'allowed'; readonly disallowed: readonly string[] }
+  | { readonly kind: 'allowed'; readonly disallowed: ReadonlyArray<string> }
   | { readonly kind: 'refused'; readonly reason: string };
 
 export class PoliteClient {
   private readonly config: PoliteConfig;
   private lastRequestAt: number | undefined;
-  private robots: readonly string[] | undefined;
+  private robots: ReadonlyArray<string> | undefined;
 
   public constructor(config: PoliteConfig) {
     this.config = config;

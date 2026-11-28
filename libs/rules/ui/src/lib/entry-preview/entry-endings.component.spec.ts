@@ -8,9 +8,9 @@ import { EntryEndingsView } from './entry-endings.component';
 import type { PreviewEnding } from './entry-preview';
 import { CLUMSY_ENDINGS_PREVIEW } from './entry-preview.fixtures';
 
-const ENDINGS: readonly PreviewEnding[] = CLUMSY_ENDINGS_PREVIEW.endings ?? [];
+const ENDINGS: ReadonlyArray<PreviewEnding> = CLUMSY_ENDINGS_PREVIEW.endings ?? [];
 
-function render(endings: readonly PreviewEnding[]): ComponentFixture<EntryEndingsView> {
+function render(endings: ReadonlyArray<PreviewEnding>): ComponentFixture<EntryEndingsView> {
   TestBed.configureTestingModule({ providers: [provideRichTextTesting(), provideRouter([])] });
   const fixture = TestBed.createComponent(EntryEndingsView);
   fixture.componentRef.setInput('endings', endings);

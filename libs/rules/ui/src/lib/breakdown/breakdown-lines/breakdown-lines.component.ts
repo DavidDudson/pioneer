@@ -18,7 +18,7 @@ import type { ShownLine } from '../shown-breakdown';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreakdownLines {
-  public readonly lines = input.required<readonly ShownLine[]>();
+  public readonly lines = input.required<ReadonlyArray<ShownLine>>();
   /** Display names of the entries the lines' origins name. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly names = input<OriginNames>(NO_ORIGIN_NAMES);

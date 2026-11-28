@@ -26,7 +26,7 @@ function flagCounts(entry: ContentEntry): ReadonlyMap<string, number> {
 }
 
 /** The `picked:<flag>` reads of an entry's rules that no single `ChoiceSet` over owned items of that flag declares. */
-function danglingIn(file: string, entry: ContentEntry): readonly Dangling[] {
+function danglingIn(file: string, entry: ContentEntry): ReadonlyArray<Dangling> {
   const counts = flagCounts(entry);
 
   const declared = new Set(
@@ -48,8 +48,8 @@ function danglingIn(file: string, entry: ContentEntry): readonly Dangling[] {
 }
 
 /** Every committed pack file but the manifests. */
-async function packFiles(): Promise<readonly string[]> {
-  const files: string[] = [];
+async function packFiles(): Promise<ReadonlyArray<string>> {
+  const files: Array<string> = [];
 
   for await (const file of new Bun.Glob('*/*.json').scan(PACKS)) {
     files.push(file);

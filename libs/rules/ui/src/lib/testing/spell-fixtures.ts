@@ -69,7 +69,7 @@ export interface SpellOnList {
   readonly name: string;
   readonly data: SpellData;
   readonly rank: number;
-  readonly tags?: readonly string[];
+  readonly tags?: ReadonlyArray<string>;
 }
 
 /** The line a list shows for `spell` cast at its rank. */

@@ -15,7 +15,7 @@ export interface EnrichmentTarget {
 /** What checking a mapping file leaves: the mappings to apply, and a report of the rest. */
 export interface EnrichmentCheck {
   readonly applicable: ReadonlyMap<EntrySlug, EnrichmentMapping>;
-  readonly issues: readonly FieldIssue[];
+  readonly issues: ReadonlyArray<FieldIssue>;
 }
 
 /**
@@ -28,7 +28,7 @@ export function checkEnrichment(
   { pack, slugs, registry }: EnrichmentTarget,
 ): EnrichmentCheck {
   const applicable = new Map<EntrySlug, EnrichmentMapping>();
-  const issues: FieldIssue[] = [];
+  const issues: Array<FieldIssue> = [];
 
   for (const [key, entry] of Object.entries(mapping)) {
     const slug = EntrySlug.parse(key);

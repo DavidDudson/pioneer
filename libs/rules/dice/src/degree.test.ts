@@ -20,7 +20,7 @@ function check(total: number, natural?: number): CheckOutcome {
   return { total: RollTotal.parse(total), natural: natural === undefined ? undefined : DieFace.parse(natural) };
 }
 
-function roll(text: string, faces: readonly number[]): RollResult {
+function roll(text: string, faces: ReadonlyArray<number>): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {
@@ -30,7 +30,7 @@ function roll(text: string, faces: readonly number[]): RollResult {
   return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 
-function degrees(result: DegreeResult): readonly DegreeOfSuccess[] {
+function degrees(result: DegreeResult): ReadonlyArray<DegreeOfSuccess> {
   return result.steps.map((step) => step.degree);
 }
 
@@ -78,7 +78,7 @@ describe('degreeOfSuccess', () => {
   });
 
   test('an adjustment is matched against the degree after the natural step', () => {
-    const adjustments: DegreeAdjustment[] = [
+    const adjustments: Array<DegreeAdjustment> = [
       { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
     ];
 

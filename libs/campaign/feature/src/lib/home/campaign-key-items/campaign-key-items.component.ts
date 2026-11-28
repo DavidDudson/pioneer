@@ -59,7 +59,7 @@ export class CampaignKeyItemsPanel {
   protected readonly filter = signal<string | undefined>(ALL_HOLDERS);
 
   /** The key items the filter keeps. */
-  protected visible(keyItems: readonly KeyItemView[]): readonly KeyItemView[] {
+  protected visible(keyItems: ReadonlyArray<KeyItemView>): ReadonlyArray<KeyItemView> {
     return filterKeyItems(keyItems, this.filter() ?? ALL_HOLDERS);
   }
 }

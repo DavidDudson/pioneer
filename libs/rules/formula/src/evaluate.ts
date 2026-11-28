@@ -48,7 +48,7 @@ function inRange(value: unknown, position: TextPosition): PartialValue {
 }
 
 /** A function on evaluated arguments, giving a raw number that the caller range-checks at the call. */
-type Apply = (values: readonly PartialValue[]) => unknown;
+type Apply = (values: ReadonlyArray<PartialValue>) => unknown;
 
 /** `fn` on a one-argument call's value. */
 const unary =

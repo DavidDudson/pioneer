@@ -51,7 +51,7 @@ const DOMAIN_KEYS: ReadonlyMap<string, string> = new Map([
   ['nothingness', 'void'],
 ]);
 
-function domainKeys(domains: readonly string[]): string[] {
+function domainKeys(domains: ReadonlyArray<string>): Array<string> {
   return [...new Set(domains.map((domain) => DOMAIN_KEYS.get(domain) ?? domain))];
 }
 
@@ -61,7 +61,7 @@ interface DeitySpell {
 }
 
 /** One spell per rank, in rank order, each by content id; a UUID naming no entry is reported. */
-function spellsOf(spells: Readonly<Record<string, string>>, { references, log }: KindInput): DeitySpell[] {
+function spellsOf(spells: Readonly<Record<string, string>>, { references, log }: KindInput): Array<DeitySpell> {
   return Object.entries(spells)
     .toSorted(([left], [right]) => Number(left) - Number(right))
     .flatMap(([rank, uuid]) => {

@@ -8,13 +8,13 @@ import type { JsonValue, RuleJson } from '@pioneer/rules/sdk/testing';
 import { ranksInPlay } from './ranks-in-play';
 import { inPlay } from './testing';
 
-const proficiency = (selector: string, rank: string, predicate?: readonly JsonValue[]): RuleJson => {
+const proficiency = (selector: string, rank: string, predicate?: ReadonlyArray<JsonValue>): RuleJson => {
   const element = { key: 'Proficiency', selector, rank };
 
   return predicate === undefined ? element : { ...element, predicate };
 };
 
-function ranksOf(elements: readonly RuleJson[], options: readonly string[] = []): Record<string, string> {
+function ranksOf(elements: ReadonlyArray<RuleJson>, options: ReadonlyArray<string> = []): Record<string, string> {
   const rules = elements.map((element, rule) => inPlay(element, 'cleric', { rule }));
 
   const facts = new PredicateFacts(

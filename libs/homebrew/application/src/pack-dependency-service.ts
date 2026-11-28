@@ -156,7 +156,7 @@ export class PackDependencyService {
     };
   }
 
-  async #readableOf(actor: UserId, listed: readonly ListedPack[]): Promise<readonly ListedPack[]> {
+  async #readableOf(actor: UserId, listed: ReadonlyArray<ListedPack>): Promise<ReadonlyArray<ListedPack>> {
     const allowed = await Promise.all(listed.map(async (candidate) => this.#access.mayRead(actor, candidate)));
 
     return listed.filter((_candidate, index) => allowed[index] === true);

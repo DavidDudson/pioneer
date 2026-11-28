@@ -17,7 +17,7 @@ export function slotKeyOf(entry: ContentId, rule: RuleIndex, via?: SlotKey): Slo
 }
 
 /** The slot whose pick put a repeatable `entry` on the character along `hops`, if one did. */
-export function viaOf(entry: GrantEntry, hops: readonly OriginHop[]): SlotKey | undefined {
+export function viaOf(entry: GrantEntry, hops: ReadonlyArray<OriginHop>): SlotKey | undefined {
   if (entry.maxTakable === undefined) {
     return undefined;
   }
@@ -43,7 +43,7 @@ export function nextTake(entry: GrantEntry, taken: Take, picked: boolean): Take 
 interface EarlierTakes {
   readonly entry: ContentId;
   readonly rule: RuleIndex;
-  readonly before: readonly (SlotKey | undefined)[];
+  readonly before: ReadonlyArray<SlotKey | undefined>;
 }
 
 /**

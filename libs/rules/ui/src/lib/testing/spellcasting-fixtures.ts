@@ -10,7 +10,7 @@ const TRAINED_AT_1 = 3;
 const DC_BASE = 10;
 
 /** Cantrips and slots per rank, from the counts of each rank in turn from 1st. */
-function slotsOf(cantrips: number, counts: readonly number[]): SpellSlots {
+function slotsOf(cantrips: number, counts: ReadonlyArray<number>): SpellSlots {
   return {
     cantrips: SlotCount.parse(cantrips),
     ranks: counts.map((count, index) => ({ rank: SpellRank.parse(index + 1), count: SlotCount.parse(count) })),
@@ -75,8 +75,8 @@ const BARD: SpellcastingEntryLine = {
   pools: [],
 };
 
-export const WIZARD_SPELLCASTING: readonly SpellcastingEntryLine[] = [WIZARD];
-export const MULTICLASS_SPELLCASTING: readonly SpellcastingEntryLine[] = [BARD, WIZARD];
+export const WIZARD_SPELLCASTING: ReadonlyArray<SpellcastingEntryLine> = [WIZARD];
+export const MULTICLASS_SPELLCASTING: ReadonlyArray<SpellcastingEntryLine> = [BARD, WIZARD];
 
 const WIS = 4;
 const EXPERT_AT_7 = 11;
@@ -121,4 +121,4 @@ const CLERIC: SpellcastingEntryLine = {
   pools: [{ key: 'divine-font', source: 'Divine Font', slots: DIVINE_FONT_SLOTS }],
 };
 
-export const CLERIC_SPELLCASTING: readonly SpellcastingEntryLine[] = [CLERIC];
+export const CLERIC_SPELLCASTING: ReadonlyArray<SpellcastingEntryLine> = [CLERIC];

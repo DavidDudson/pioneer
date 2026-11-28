@@ -21,7 +21,7 @@ export type BuildValue =
   | { readonly name: string }
   | { readonly attribute: Attribute }
   | { readonly size: Size }
-  | { readonly traits: readonly string[] };
+  | { readonly traits: ReadonlyArray<string> };
 
 /** One part of the build as the summary shows it; an undefined value says what to pick. */
 export interface BuildLine {

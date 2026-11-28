@@ -22,7 +22,7 @@ registry.register(languageFixtures());
 
 const slots = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const LANGUAGES: readonly LanguageFixture[] = ['common', 'dwarven', 'elven', 'goblin', 'draconic'];
+const LANGUAGES: ReadonlyArray<LanguageFixture> = ['common', 'dwarven', 'elven', 'goblin', 'draconic'];
 
 const lookup = entryLookup({
   [ImportKind.Language]: LANGUAGES.map((name) => ({ id: languageFixtureId(name), name: ContentText.parse(name) })),
@@ -30,7 +30,7 @@ const lookup = entryLookup({
 
 const dwarf = new CharacterBuilder().named('Dwarf').picking('ancestry', languageDwarfId).build().document;
 
-function exported(...names: readonly string[]): ImportedName[] {
+function exported(...names: ReadonlyArray<string>): Array<ImportedName> {
   return names.map((name): ImportedName => ({ kind: ImportKind.Language, name: PathbuilderName.parse(name) }));
 }
 

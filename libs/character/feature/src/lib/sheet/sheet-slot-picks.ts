@@ -15,15 +15,15 @@ import type { TrainedNote } from './sheet-skills';
 
 /** What a slot pick's table shows: a skill slot's skills, a boost slot's attributes, or a choice's options. */
 export type SlotPickRows =
-  | { readonly kind: 'skills'; readonly rows: readonly SkillPickerRow[] }
-  | { readonly kind: 'attributes'; readonly rows: readonly AttributePickerRow[] }
-  | { readonly kind: 'choices'; readonly rows: readonly SlotPickerRow[] };
+  | { readonly kind: 'skills'; readonly rows: ReadonlyArray<SkillPickerRow> }
+  | { readonly kind: 'attributes'; readonly rows: ReadonlyArray<AttributePickerRow> }
+  | { readonly kind: 'choices'; readonly rows: ReadonlyArray<SlotPickerRow> };
 
 /** What a slot pick reads and writes through. */
 export interface SlotPickSources {
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
-  readonly slots: Signal<readonly CharacterSlot[] | undefined>;
+  readonly slots: Signal<ReadonlyArray<CharacterSlot> | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue, loreName?: LoreName) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string) => string;
@@ -36,11 +36,11 @@ export interface SlotPickSources {
 export interface SlotPickField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: Signal<readonly SelectOption<string>[]>;
+  readonly options: Signal<ReadonlyArray<SelectOption<string>>>;
   /** What its table shows of each option. */
   readonly rows: Signal<SlotPickRows>;
   /** The skills the slot can't offer because the character is trained already, and what trains them. */
-  readonly trained: Signal<readonly TrainedNote[]>;
+  readonly trained: Signal<ReadonlyArray<TrainedNote>>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -51,7 +51,7 @@ const SlotDraft = z.union([RootPick, TypedLore]);
 interface DraftIn {
   readonly slot: SlotKey;
   readonly draft: string;
-  readonly options: readonly SelectOption<string>[];
+  readonly options: ReadonlyArray<SelectOption<string>>;
 }
 
 /**
@@ -90,7 +90,7 @@ function storedName({ slots }: SlotPickSources, slot: SlotKey): string | undefin
 export function slotField(
   sources: SlotPickSources,
   slot: Signal<SlotKey | undefined>,
-  options: Signal<readonly SelectOption<string>[]>,
+  options: Signal<ReadonlyArray<SelectOption<string>>>,
 ): InlineEdit<string | undefined> {
   return sheetField<string | undefined>(sources.character, {
     read: (character) => {
@@ -127,7 +127,7 @@ export function slotField(
 /** What a slot shows while it has gone: nothing. */
 const NO_ROWS: SlotPickRows = { kind: 'choices', rows: [] };
 
-function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean {
+function sameKeys(left: ReadonlyArray<SlotKey>, right: ReadonlyArray<SlotKey>): boolean {
   return left.length === right.length && left.every((key, index) => key === right[index]);
 }
 
@@ -135,10 +135,10 @@ function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean 
 export interface PickSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
+  readonly options: ReadonlyArray<SelectOption<string>>;
   /** Absent for a slot with no table. */
   readonly rows?: SlotPickRows;
-  readonly trained?: readonly TrainedNote[];
+  readonly trained?: ReadonlyArray<TrainedNote>;
 }
 
 /**
@@ -147,12 +147,12 @@ export interface PickSlot {
  */
 export function slotFieldsOf(
   sources: SlotPickSources,
-  slots: Signal<readonly PickSlot[] | undefined>,
-): Signal<readonly SlotPickField[]> {
+  slots: Signal<ReadonlyArray<PickSlot> | undefined>,
+): Signal<ReadonlyArray<SlotPickField>> {
   const keys = computed(() => (slots() ?? []).map((slot) => slot.key), { equal: sameKeys });
 
   return computed(() =>
-    keys().flatMap((key): SlotPickField[] => {
+    keys().flatMap((key): Array<SlotPickField> => {
       const label = untracked(() => slots()?.find((slot) => slot.key === key)?.label);
 
       if (label === undefined) {

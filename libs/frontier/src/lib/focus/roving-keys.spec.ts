@@ -21,12 +21,12 @@ function press(key: string, from: number, overrides: Partial<RovingKey> = {}): n
 }
 
 /** No move, or a move to a different, enabled item. */
-function landsElsewhereEnabled(to: number | undefined, from: number, enabled: readonly boolean[]): boolean {
+function landsElsewhereEnabled(to: number | undefined, from: number, enabled: ReadonlyArray<boolean>): boolean {
   return to === undefined || (to !== from && enabled[to] === true);
 }
 
 /** The items focus visits pressing Right from `from` in a wrapping row, sorted. */
-function stepAround(enabled: readonly boolean[], from: number): number[] {
+function stepAround(enabled: ReadonlyArray<boolean>, from: number): Array<number> {
   const visited = new Set<number>();
   let at: number | undefined = from;
 
@@ -39,7 +39,7 @@ function stepAround(enabled: readonly boolean[], from: number): number[] {
 }
 
 /** Every enabled item, plus the starting one. */
-function enabledOrStart(enabled: readonly boolean[], from: number): number[] {
+function enabledOrStart(enabled: ReadonlyArray<boolean>, from: number): Array<number> {
   return enabled.flatMap((on, index) => (on || index === from ? [index] : []));
 }
 

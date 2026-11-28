@@ -14,7 +14,7 @@ const HUMAN: GrantEntry = {
 };
 
 /** The character's `self:trait:` options, with `entries` and `roots` on it. */
-function traitsOf(entries: readonly GrantEntry[], roots: readonly GrantRoot[]): readonly string[] {
+function traitsOf(entries: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<GrantRoot>): ReadonlyArray<string> {
   const { rollOptions } = resolveGrants(inputsOf({ entries, roots, level: 1 }));
 
   return rollOptions.map(String).filter((option: string) => option.startsWith('self:trait:'));

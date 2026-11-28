@@ -10,8 +10,8 @@ const { InnateSpells, SpellcastingEntry, ChoiceSet } = RuleElementKey;
 
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
-function keyed(slug: string, key: string): Record<string, unknown>[] {
-  const rules: readonly Record<string, unknown>[] = innateSpellRules(slug).map((rule) =>
+function keyed(slug: string, key: string): Array<Record<string, unknown>> {
+  const rules: ReadonlyArray<Record<string, unknown>> = innateSpellRules(slug).map((rule) =>
     Object.fromEntries(Object.entries(rule)),
   );
 
@@ -67,7 +67,7 @@ describe('innateSpellRules', () => {
   test('Grown of Oak is one rank below a druid’s highest, by level', () => {
     const ranks = keyed('feat:grown-of-oak', InnateSpells).map(
       // SAFETY: keyed() returns InnateSpells rules, whose spells are a list of ranked spells.
-      (rule) => (rule['spells'] as { rank: number }[])[0]?.rank,
+      (rule) => (rule['spells'] as Array<{ rank: number }>)[0]?.rank,
     );
 
     expect(ranks).toStrictEqual([2, 3, 4, 5, 6, 7, 8]);

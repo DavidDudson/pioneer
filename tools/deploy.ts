@@ -40,7 +40,7 @@ type FunctionSettings = z.infer<typeof FUNCTION_SETTINGS>;
 
 export interface DeployDeps {
   /** Runs a command to completion and captures its output; never throws on a non-zero exit. */
-  readonly run: (command: readonly string[], options?: CommandOptions) => Promise<CommandResult>;
+  readonly run: (command: ReadonlyArray<string>, options?: CommandOptions) => Promise<CommandResult>;
   /** GETs a URL and returns its status and body. */
   readonly get: (url: string) => Promise<HttpResponse>;
   readonly log: (line: string) => void;
@@ -66,13 +66,13 @@ export interface DeployResult {
   readonly copied: boolean;
 }
 
-function failure(command: readonly string[], result: CommandResult): Error {
+function failure(command: ReadonlyArray<string>, result: CommandResult): Error {
   return new Error(
     `${command.slice(0, COMMAND_WORDS).join(' ')} failed (exit ${result.code}): ${result.stderr.trim()}`,
   );
 }
 
-async function check(deps: DeployDeps, command: readonly string[], options?: CommandOptions): Promise<string> {
+async function check(deps: DeployDeps, command: ReadonlyArray<string>, options?: CommandOptions): Promise<string> {
   const result = await deps.run(command, options);
 
   if (result.code !== 0) {
@@ -83,7 +83,7 @@ async function check(deps: DeployDeps, command: readonly string[], options?: Com
 }
 
 /** An `aws ... --query <query> --output text` value about the function or its repository. */
-async function awsText(deps: DeployDeps, command: readonly string[], query: string): Promise<string> {
+async function awsText(deps: DeployDeps, command: ReadonlyArray<string>, query: string): Promise<string> {
   return check(deps, ['aws', ...command, '--query', query, '--output', 'text']);
 }
 

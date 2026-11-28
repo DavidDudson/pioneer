@@ -46,7 +46,7 @@ interface EntryRow {
   /** The entry's place in the ledger, which stays put as newer entries come. */
   readonly key: number;
   readonly reason: string;
-  readonly amounts: readonly AmountRow[];
+  readonly amounts: ReadonlyArray<AmountRow>;
   readonly at: Temporal.Instant | undefined;
 }
 
@@ -78,7 +78,7 @@ export class CoinLedger {
   /** Whether entries are left out of the list. */
   protected readonly truncated = computed(() => (this.#ledger()?.length ?? 0) > RECENT_ROWS && !this.everything());
 
-  protected readonly rows = computed((): readonly EntryRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<EntryRow> => {
     const ledger = this.#ledger() ?? [];
     const shown = this.everything() ? ledger.length : Math.min(ledger.length, RECENT_ROWS);
 

@@ -62,7 +62,7 @@ export class SheetEncounterTab {
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
   protected readonly shown = shownSection(this.sectionOrder, this.section);
   /** The Strikes with what using each spends, those the turn has no action for left out of reach. */
-  protected readonly strikes = computed((): readonly NamedStrike[] | undefined => {
+  protected readonly strikes = computed((): ReadonlyArray<NamedStrike> | undefined => {
     const strikes = this.picks.strikes();
 
     return strikes === undefined ? undefined : usableStrikes(strikes, this.#spender.turn());

@@ -35,7 +35,7 @@ export interface VerdictNode {
   /** The roll option, the comparison as JSON, or the compound's operator (`or`, `if`). */
   readonly code: string;
   readonly truth: Truth;
-  readonly children: readonly VerdictNode[];
+  readonly children: ReadonlyArray<VerdictNode>;
 }
 
 export const VerdictStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts', Pending: 'pending' } as const;
@@ -48,14 +48,14 @@ export type VerdictCheck =
   | {
       readonly status: typeof VerdictStatus.Valid;
       readonly truth: Truth;
-      readonly statements: readonly VerdictNode[];
+      readonly statements: ReadonlyArray<VerdictNode>;
       /** When the predicate would hold, while it is unknown. */
       readonly summary: PredicateSummary | undefined;
     }
   | { readonly status: typeof VerdictStatus.NotJson }
-  | { readonly status: typeof VerdictStatus.Invalid; readonly issues: readonly FieldIssue[] }
+  | { readonly status: typeof VerdictStatus.Invalid; readonly issues: ReadonlyArray<FieldIssue> }
   /** `lines` are the 1-based lines of the roll option list that are not roll options. */
-  | { readonly status: typeof VerdictStatus.InvalidFacts; readonly lines: readonly number[] };
+  | { readonly status: typeof VerdictStatus.InvalidFacts; readonly lines: ReadonlyArray<number> };
 
 const LINE = /\r?\n/u;
 
@@ -77,7 +77,7 @@ function toNode(trace: StatementTrace): VerdictNode {
 }
 
 /** Roll options read from text, or the 1-based lines that are not roll options. */
-export type FactsParse = { readonly options: readonly RollOption[] } | { readonly lines: readonly number[] };
+export type FactsParse = { readonly options: ReadonlyArray<RollOption> } | { readonly lines: ReadonlyArray<number> };
 
 /** The roll options, one per line, blank lines skipped; or the lines that are not roll options. */
 export function parseFacts(text: string): FactsParse {

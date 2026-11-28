@@ -73,7 +73,10 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
     return row === undefined ? undefined : toInvite(row);
   }
 
-  public override async listOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<readonly CampaignInvite[]> {
+  public override async listOpen(
+    campaignId: CampaignId,
+    now: Temporal.Instant,
+  ): Promise<ReadonlyArray<CampaignInvite>> {
     const open = and(
       eq(campaignInvites.campaignId, campaignId),
       isNull(campaignInvites.revokedAt),

@@ -50,7 +50,7 @@ const ICONS: Readonly<Record<SenseAcuity, IconGlyph>> = {
 })
 export class SenseIcons {
   /** Undefined while loading: a placeholder shows. */
-  public readonly senses = input.required<readonly SenseInPlay[] | undefined>();
+  public readonly senses = input.required<ReadonlyArray<SenseInPlay> | undefined>();
   /** Display names of the senses and of the entries the origins come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
@@ -63,7 +63,7 @@ export class SenseIcons {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly rows = computed((): readonly SenseRow[] | undefined => {
+  protected readonly rows = computed((): ReadonlyArray<SenseRow> | undefined => {
     this.#messages();
     this.#format.locale();
     const words = { i18n: this.#i18n, format: this.#format, names: this.entryNames() };

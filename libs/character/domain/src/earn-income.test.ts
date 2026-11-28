@@ -115,11 +115,11 @@ describe('earning income as an edit', () => {
 });
 
 /** One row of Player Core Table 4-2 as the book prints it: the DC, then the failed column and each rank's. */
-type PrintedRow = readonly [dc: number, failed: CopperValue, ...ranks: readonly CopperValue[]];
+type PrintedRow = readonly [dc: number, failed: CopperValue, ...ranks: ReadonlyArray<CopperValue>];
 
 const cp = copper;
 
-const PRINTED: readonly PrintedRow[] = [
+const PRINTED: ReadonlyArray<PrintedRow> = [
   [14, cp(1), cp(5), cp(5), cp(5), cp(5)],
   [15, cp(2), silver(2), silver(2), silver(2), silver(2)],
   [16, cp(4), silver(3), silver(3), silver(3), silver(3)],

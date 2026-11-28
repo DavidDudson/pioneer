@@ -16,7 +16,7 @@ interface DepositableLine {
 type ContainerInputs = Readonly<{
   campaign: string;
   character: string;
-  lines: readonly DepositableLine[];
+  lines: ReadonlyArray<DepositableLine>;
 }>;
 
 /**

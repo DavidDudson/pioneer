@@ -12,7 +12,7 @@ export const ActionIconCost = { One: 'one', Two: 'two', Three: 'three', Free: 'f
 
 export type ActionIconCost = ValueOf<typeof ActionIconCost>;
 
-const COST_MARKS: Readonly<Record<ActionIconCost, readonly ActionMark[]>> = {
+const COST_MARKS: Readonly<Record<ActionIconCost, ReadonlyArray<ActionMark>>> = {
   [ActionIconCost.One]: [ActionMark.Action],
   [ActionIconCost.Two]: [ActionMark.Action, ActionMark.Action],
   [ActionIconCost.Three]: [ActionMark.Action, ActionMark.Action, ActionMark.Action],
@@ -40,7 +40,7 @@ export class ActionIcon {
   public readonly size = input<Size>(Size.Sm);
   public readonly tone = input<Tone | undefined>(undefined);
 
-  protected readonly marks = computed((): readonly (typeof ACTION_MARKS)[ActionMark][] => {
+  protected readonly marks = computed((): ReadonlyArray<(typeof ACTION_MARKS)[ActionMark]> => {
     const end = this.upTo();
 
     const drawn =

@@ -50,7 +50,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
   let memberId: CampaignMemberId;
 
   /** The stored rows, as the repository reads them back. */
-  async function stored(): Promise<readonly CharacterPack[]> {
+  async function stored(): Promise<ReadonlyArray<CharacterPack>> {
     return repository.listForCharacter(kyra);
   }
 

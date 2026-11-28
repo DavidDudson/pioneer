@@ -18,7 +18,7 @@ const FREE_ARCHETYPE_ON = { decidedBy: 'character', manageable: true, enabled: [
 const FIGHTER = { ...MERISIEL, build: { choices: { class: playerCoreClassId('fighter') } } };
 
 /** The labels of the slots on the level timeline, which shows the level that is open. */
-function timelineLabels(root: HTMLElement): string[] {
+function timelineLabels(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );

@@ -9,12 +9,12 @@ import type { SearchQuery } from './search-query';
 interface Harness {
   readonly current: WritableSignal<string>;
   readonly query: SearchQuery;
-  readonly emitted: string[];
+  readonly emitted: Array<string>;
 }
 
 function setup(): Harness {
   const current = signal('');
-  const emitted: string[] = [];
+  const emitted: Array<string> = [];
 
   const query = TestBed.runInInjectionContext(() =>
     injectSearchQuery({

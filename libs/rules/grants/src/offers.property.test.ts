@@ -65,7 +65,7 @@ const candidate = (index: number): Arbitrary<GrantEntry> =>
     feat(`feat-${index}`, [...traits.map((trait) => `trait:${trait}`), `level:${level}`]),
   );
 
-const feats: Arbitrary<readonly GrantEntry[]> = integer({ min: 0, max: ENTRIES_MAX }).chain((count) =>
+const feats: Arbitrary<ReadonlyArray<GrantEntry>> = integer({ min: 0, max: ENTRIES_MAX }).chain((count) =>
   tuple(...Array.from({ length: count }, (_value, index) => candidate(index))),
 );
 
@@ -79,7 +79,7 @@ interface Outcome {
 /** One run: the asking entry, the other content, the level and the pick for the asker's only slot. */
 interface Run {
   readonly asker: GrantEntry;
-  readonly content: readonly GrantEntry[];
+  readonly content: ReadonlyArray<GrantEntry>;
   readonly level: number;
   readonly pick: string;
 }

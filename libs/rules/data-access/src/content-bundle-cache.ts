@@ -71,7 +71,7 @@ export class ContentBundleCache {
    * set. Never kept in the store: homebrew is not public, so it is not left in the browser after the session. A failed
    * read is not kept, so the next ask tries again.
    */
-  public async homebrewManifest(packs: readonly ContentPackId[]): Promise<ContentManifest> {
+  public async homebrewManifest(packs: ReadonlyArray<ContentPackId>): Promise<ContentManifest> {
     if (packs.length === 0) {
       return NO_PACKS;
     }
@@ -115,7 +115,7 @@ export class ContentBundleCache {
   }
 
   /** Drops `files` of `pack` from the store, so the next ask fetches them again. */
-  public async forget(pack: PackId, files: readonly BundleFile[]): Promise<void> {
+  public async forget(pack: PackId, files: ReadonlyArray<BundleFile>): Promise<void> {
     try {
       await this.#store.remove(files.map((file) => bundlePath(pack, file)));
     } catch {

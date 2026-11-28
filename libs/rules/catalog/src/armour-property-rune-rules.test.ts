@@ -56,11 +56,11 @@ interface BonusRune {
   readonly selector: string;
   readonly bonus: number;
   /** The actions the bonus is limited to. */
-  readonly actions?: readonly string[];
+  readonly actions?: ReadonlyArray<string>;
 }
 
 /** The armour runes that give an item bonus: to a skill, a Speed or every save. */
-const BONUS_RUNES: readonly BonusRune[] = [
+const BONUS_RUNES: ReadonlyArray<BonusRune> = [
   { slug: 'rune:soaring', selector: 'fly-speed', bonus: 10 },
   { slug: 'rune:mobile', selector: 'step-distance', bonus: 5 },
   { slug: 'rune:mythic-resilient', selector: 'saving-throw', bonus: 4 },
@@ -73,14 +73,14 @@ const BONUS_RUNES: readonly BonusRune[] = [
 ];
 
 /** The flat check DCs each quenching grade gives persistent acid and fire: unassisted, then assisted (true quenching has none: assistance ends it). */
-const QUENCHING_DCS: readonly (readonly [string, number, number])[] = [
+const QUENCHING_DCS: ReadonlyArray<readonly [string, number, number]> = [
   ['rune:quenching', 12, 7],
   ['rune:quenching-greater', 10, 5],
   ['rune:quenching-major', 8, 3],
 ];
 
 /** The flat check DC of each fortification grade, which the wearer rolls when a critical hit lands on their AC. */
-const FORTIFICATION_DCS: readonly (readonly [string, number])[] = [
+const FORTIFICATION_DCS: ReadonlyArray<readonly [string, number]> = [
   ['rune:fortification', 17],
   ['rune:fortification-greater', 14],
 ];
@@ -92,7 +92,7 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
 
-const MOONWEAVE_HEALING: readonly (readonly [string, number])[] = [
+const MOONWEAVE_HEALING: ReadonlyArray<readonly [string, number]> = [
   ['rune:moonweave', 2],
   ['rune:moonweave-greater', 5],
   ['rune:moonweave-major', 10],

@@ -71,7 +71,7 @@ const allowed = tuple(armoury, anyRune).filter(
 );
 
 /** Every rune on the two swords, as `kind:grade` or the property rune's id, sorted. */
-function allRunes(inventory: Inventory): readonly string[] {
+function allRunes(inventory: Inventory): ReadonlyArray<string> {
   return inventory.items
     .flatMap(({ runes: etched }) => {
       if (etched === undefined) {

@@ -21,10 +21,10 @@ import type { ContentChoice } from '../../data/key-item-content-search';
 })
 export class CampaignKeyItemRunes {
   /** The property runes picked so far, in the order they were picked. */
-  public readonly runes = model<readonly KeyPropertyRune[]>([]);
+  public readonly runes = model<ReadonlyArray<KeyPropertyRune>>([]);
 
   readonly #search = inject(KEY_ITEM_CONTENT_SEARCH);
-  readonly #found = signal<readonly ContentChoice[]>([]);
+  readonly #found = signal<ReadonlyArray<ContentChoice>>([]);
 
   protected readonly loading = signal(false);
   protected readonly columns = injectOptionColumns<ReviewedRuneId>();
@@ -33,7 +33,7 @@ export class CampaignKeyItemRunes {
   /** The rune the picker holds; it is added to the list and cleared, so the next is picked fresh. */
   protected readonly picked = signal<ReviewedRuneId | undefined>(undefined);
   /** The matches for the last search, less the runes already picked. */
-  protected readonly options = computed((): readonly SelectOption<ReviewedRuneId>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<ReviewedRuneId>> => {
     const picked = new Set(this.runes().map(({ rune }) => rune));
 
     return this.#found()

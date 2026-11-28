@@ -14,7 +14,7 @@ function ofSize(pack: CachePack, bytes: number): CachePack {
   return { ...pack, bytes, files: pack.files.map((file) => ({ ...file, bytes })) };
 }
 
-async function render(caches: AsyncQuery<readonly CachePack[]>): Promise<HTMLElement> {
+async function render(caches: AsyncQuery<ReadonlyArray<CachePack>>): Promise<HTMLElement> {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({ providers: [...provideLegalUiI18nTesting()] });
   const fixture = TestBed.createComponent(ContentCachesView);

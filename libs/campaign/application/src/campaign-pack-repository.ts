@@ -4,7 +4,7 @@ import type { UserId } from '@pioneer/shared/kernel';
 /** The packs to enable in a campaign. */
 export interface PackEnablement {
   readonly campaignId: CampaignId;
-  readonly packs: readonly CampaignPack[];
+  readonly packs: ReadonlyArray<CampaignPack>;
 }
 
 /**
@@ -13,7 +13,7 @@ export interface PackEnablement {
  */
 export abstract class CampaignPackRepository {
   /** The campaign's enabled packs, oldest first; id breaks ties. */
-  public abstract listForCampaign(campaignId: CampaignId): Promise<readonly CampaignPack[]>;
+  public abstract listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignPack>>;
 
   /**
    * Enable the packs unless the campaign has them already. `whileLocked` runs first, with each pack held against a

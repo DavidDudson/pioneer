@@ -12,7 +12,7 @@ import { DiceExpressionText, DieFace, RollTotal } from './units';
 const LUCKY = message('effect.lucky');
 const CURSED = message('effect.cursed');
 
-function roll(text: string, sources: FortuneSources, faces: readonly number[]): FortunedRoll {
+function roll(text: string, sources: FortuneSources, faces: ReadonlyArray<number>): FortunedRoll {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {
@@ -22,7 +22,7 @@ function roll(text: string, sources: FortuneSources, faces: readonly number[]): 
   return rollWithFortune(outcome.expression, sources, scriptedRandom(faces.map((face) => DieFace.parse(face))));
 }
 
-function keptFlags(result: FortunedRoll): readonly boolean[] {
+function keptFlags(result: FortunedRoll): ReadonlyArray<boolean> {
   return result.rolls.map((entry) => entry.kept);
 }
 

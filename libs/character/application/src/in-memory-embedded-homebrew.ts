@@ -24,11 +24,11 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
   }
 
   /** The entries a pack holds, by slug; empty when there is no such pack. */
-  public entriesOf(pack: PackId): readonly ContentEntry[] {
+  public entriesOf(pack: PackId): ReadonlyArray<ContentEntry> {
     return [...(this.#packs.get(pack)?.entries.values() ?? [])];
   }
 
-  public override async holding(_actor: UserId, ids: readonly ContentId[]): Promise<readonly EmbeddedPack[]> {
+  public override async holding(_actor: UserId, ids: ReadonlyArray<ContentId>): Promise<ReadonlyArray<EmbeddedPack>> {
     const wanted = new Set(ids);
 
     return [...this.#packs.values()].flatMap(({ pack, entries }) => {
@@ -38,9 +38,9 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
     });
   }
 
-  public override async existing(actor: UserId, packs: readonly PackId[]): Promise<ExistingPacks> {
+  public override async existing(actor: UserId, packs: ReadonlyArray<PackId>): Promise<ExistingPacks> {
     return new Map(
-      packs.flatMap((id): [PackId, ExistingPack][] => {
+      packs.flatMap((id): Array<[PackId, ExistingPack]> => {
         const stored = this.#packs.get(id);
 
         return stored === undefined
@@ -50,7 +50,7 @@ export class InMemoryEmbeddedHomebrew extends EmbeddedHomebrew {
     );
   }
 
-  public override async apply(actor: UserId, plans: readonly HomebrewPackPlan[]): Promise<void> {
+  public override async apply(actor: UserId, plans: ReadonlyArray<HomebrewPackPlan>): Promise<void> {
     for (const { embedded, toCreate } of plans) {
       const stored = this.#packs.get(embedded.pack.id) ?? { pack: embedded.pack, ownerId: actor, entries: new Map() };
 

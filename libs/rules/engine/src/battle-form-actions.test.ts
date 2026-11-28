@@ -41,9 +41,9 @@ function weigh(candidate: Pick<ActionCandidate, 'casts' | 'traits'>, form: FormI
   return first;
 }
 
-const traits = (...names: readonly string[]): readonly Trait[] => names.map((name) => Trait.parse(name));
+const traits = (...names: ReadonlyArray<string>): ReadonlyArray<Trait> => names.map((name) => Trait.parse(name));
 
-function keys({ reasons }: AvailableAction): readonly string[] {
+function keys({ reasons }: AvailableAction): ReadonlyArray<string> {
   return reasons.map(({ key }) => key);
 }
 

@@ -23,9 +23,9 @@ const WORDING = [{ type: 'paragraph', content: [{ type: 'text', text: 'Wording.'
 /** The action data as the generator builds it, with a field set only when its spec gives it. */
 interface ActionFields {
   cost: string;
-  skills: readonly Selector[];
-  requirements?: readonly RollOption[];
-  requirementsText?: readonly object[];
+  skills: ReadonlyArray<Selector>;
+  requirements?: ReadonlyArray<RollOption>;
+  requirementsText?: ReadonlyArray<object>;
   minimumProficiency?: Proficiency;
   frequency?: { max: number; per: string };
 }
@@ -85,7 +85,11 @@ function candidateOf({ requirement, wording, minimum, frequency }: Spec, index: 
   };
 }
 
-function run(specs: readonly Spec[], held: readonly RollOption[], ranks: readonly Rank[]): readonly AvailableAction[] {
+function run(
+  specs: ReadonlyArray<Spec>,
+  held: ReadonlyArray<RollOption>,
+  ranks: ReadonlyArray<Rank>,
+): ReadonlyArray<AvailableAction> {
   const candidates = specs.map((one, index) => candidateOf(one, index));
   const spent = candidates.filter((_candidate, index) => specs[index]?.spent === true);
 
@@ -99,7 +103,7 @@ function run(specs: readonly Spec[], held: readonly RollOption[], ranks: readonl
 }
 
 /** The positions of the actions whose requirement is a self option, which holding more options can only satisfy. */
-function selfGated(specs: readonly Spec[]): readonly number[] {
+function selfGated(specs: ReadonlyArray<Spec>): ReadonlyArray<number> {
   return specs.flatMap((one, index) => (one.requirement?.startsWith(SELF) === true ? [index] : []));
 }
 

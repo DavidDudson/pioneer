@@ -23,7 +23,7 @@ const scope = {
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
 /** The vitals of elements, each `[element, entry]`, in that order. */
-function vitalsOf(placed: readonly (readonly [RuleJson, string])[]): VitalsInPlay {
+function vitalsOf(placed: ReadonlyArray<readonly [RuleJson, string]>): VitalsInPlay {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
 
   return vitalsInPlay({ rules, facts }, scope);

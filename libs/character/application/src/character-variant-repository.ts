@@ -5,7 +5,7 @@ import type { UserId } from '@pioneer/shared/kernel';
 /** Port for the variant rules characters have enabled. Adapters live in `character-infrastructure`; the in-memory one is for tests. */
 export abstract class CharacterVariantRepository {
   /** The character's enabled variant rules, oldest first; id breaks ties. */
-  public abstract listForCharacter(characterId: CharacterId): Promise<readonly CharacterVariantRule[]>;
+  public abstract listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterVariantRule>>;
 
   /** Enable the variant rule unless the character has it already. */
   public abstract enable(actor: UserId, characterId: CharacterId, rule: CharacterVariantRule): Promise<void>;

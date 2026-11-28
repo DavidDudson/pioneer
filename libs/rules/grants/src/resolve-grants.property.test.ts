@@ -11,12 +11,12 @@ import { entry, grantOf, idOf, inputsOf, picked } from './testing/builders';
 const ENTRIES_MAX = 10;
 
 /** Content, its roots, and the same roots in another order. */
-type Drawn = [GrantEntry[], number[], number[]];
+type Drawn = [Array<GrantEntry>, Array<number>, Array<number>];
 
 const slugOf = (index: number): string => `entry-${index}`;
 
 /** 0 to `count - 1`. */
-const indexes = (count: number): number[] => Array.from({ length: count }, (_value, index) => index);
+const indexes = (count: number): Array<number> => Array.from({ length: count }, (_value, index) => index);
 
 /** Entry `index`, granting some of the entries after it, so the grants never loop. */
 function entryAt(index: number, count: number): Arbitrary<GrantEntry> {
@@ -31,11 +31,11 @@ function entryAt(index: number, count: number): Arbitrary<GrantEntry> {
 }
 
 /** Acyclic content, and some of its entries as roots. */
-const acyclic: Arbitrary<[GrantEntry[], number[]]> = integer({ min: 1, max: ENTRIES_MAX }).chain((count) =>
+const acyclic: Arbitrary<[Array<GrantEntry>, Array<number>]> = integer({ min: 1, max: ENTRIES_MAX }).chain((count) =>
   tuple(tuple(...indexes(count).map((index) => entryAt(index, count))), subarray(indexes(count), { minLength: 1 })),
 );
 
-function resolve(content: readonly GrantEntry[], roots: readonly number[]): GrantResolution {
+function resolve(content: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<number>): GrantResolution {
   return resolveGrants(inputsOf({ entries: content, roots: roots.map((index) => picked(slugOf(index))) }));
 }
 

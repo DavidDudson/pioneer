@@ -11,6 +11,6 @@ export function keyOf<TKey extends WeaponCategory | WeaponGroup>(
 }
 
 /** A lock that keeps `picked` in `slot`; none when nothing is chosen, so the generator draws it. */
-export function lockOf(slot: SlotKey, picked: string): readonly GenerateLock[] {
+export function lockOf(slot: SlotKey, picked: string): ReadonlyArray<GenerateLock> {
   return picked === '' ? [] : [{ slot, selection: ChoiceValue.parse(picked) }];
 }

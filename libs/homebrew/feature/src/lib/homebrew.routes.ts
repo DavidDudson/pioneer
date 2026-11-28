@@ -8,7 +8,7 @@ import { packCrumb } from './crumbs';
 import { HomebrewStore } from './data/homebrew-store';
 
 /** What every homebrew page needs: its server state and its messages. */
-function homebrewProviders(): (Provider | EnvironmentProviders)[] {
+function homebrewProviders(): Array<Provider | EnvironmentProviders> {
   return [HomebrewStore, provideMessageScope('homebrew', { [Locale.English]: async () => import('../i18n/en.json') })];
 }
 

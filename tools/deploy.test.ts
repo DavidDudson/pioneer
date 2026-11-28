@@ -15,18 +15,18 @@ interface Call {
 
 interface Fake {
   readonly deps: DeployDeps;
-  readonly calls: Call[];
-  readonly masked: string[];
-  readonly sleeps: number[];
+  readonly calls: Array<Call>;
+  readonly masked: Array<string>;
+  readonly sleeps: Array<number>;
 }
 
 interface FakeSetup {
   /** Tags already in ECR. */
-  readonly inEcr?: readonly string[];
+  readonly inEcr?: ReadonlyArray<string>;
   /** Health responses in order; the last repeats. */
-  readonly health?: readonly (HttpResponse | Error)[];
+  readonly health?: ReadonlyArray<HttpResponse | Error>;
   /** Command prefixes that exit non-zero. */
-  readonly failing?: readonly string[];
+  readonly failing?: ReadonlyArray<string>;
   /** What the function's environment holds; both variables by default. */
   readonly settings?: Readonly<Record<string, string>>;
 }
@@ -40,9 +40,9 @@ function fake({
   failing = [],
   settings = { databaseUrl: DATABASE_URL, origin: ORIGIN },
 }: FakeSetup = {}): Fake {
-  const calls: Call[] = [];
-  const masked: string[] = [];
-  const sleeps: number[] = [];
+  const calls: Array<Call> = [];
+  const masked: Array<string> = [];
+  const sleeps: Array<number> = [];
   let healthIndex = 0;
 
   function respond(command: string): CommandResult {
@@ -78,7 +78,7 @@ function fake({
   }
 
   const deps: DeployDeps = {
-    run: async (command: readonly string[], options?: CommandOptions): Promise<CommandResult> => {
+    run: async (command: ReadonlyArray<string>, options?: CommandOptions): Promise<CommandResult> => {
       const line = command.join(' ');
       calls.push({ command: line, options });
 
@@ -120,7 +120,7 @@ async function failureOf(promise: Promise<unknown>): Promise<string> {
   throw new Error('expected a failure');
 }
 
-const commandNames = (calls: readonly Call[]): string[] =>
+const commandNames = (calls: ReadonlyArray<Call>): Array<string> =>
   calls.map(({ command }) => command.split(' ').slice(0, 3).join(' '));
 
 describe('deploy', () => {

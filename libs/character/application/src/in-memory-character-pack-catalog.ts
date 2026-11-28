@@ -12,13 +12,13 @@ export interface KnownPack {
   readonly publisher: PackPublisher;
   readonly official?: boolean;
   readonly private?: boolean;
-  readonly readers?: readonly UserId[];
+  readonly readers?: ReadonlyArray<UserId>;
 }
 
 /** Catalog adapter for tests: packs, who reads them and what extends what, given up front. */
 export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
   readonly #packs = new Map<ContentPackId, KnownPack>();
-  readonly #extends = new Map<ContentPackId, ContentPackId[]>();
+  readonly #extends = new Map<ContentPackId, Array<ContentPackId>>();
 
   public pack(known: KnownPack): this {
     this.#packs.set(known.id, known);
@@ -33,7 +33,7 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     return this;
   }
 
-  public override async official(): Promise<readonly CatalogPack[]> {
+  public override async official(): Promise<ReadonlyArray<CatalogPack>> {
     return InMemoryCharacterPackCatalog.#order(
       [...this.#packs.values()]
         .values()
@@ -43,7 +43,7 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     );
   }
 
-  public override async readableBy(viewer: UserId): Promise<readonly CatalogPack[]> {
+  public override async readableBy(viewer: UserId): Promise<ReadonlyArray<CatalogPack>> {
     const readable = [...this.#packs.values()].filter(
       (known) => known.official === true || known.readers?.includes(viewer) === true,
     );
@@ -51,9 +51,9 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     return InMemoryCharacterPackCatalog.#order(readable.map((known) => InMemoryCharacterPackCatalog.#listed(known)));
   }
 
-  public override async byIds(ids: readonly ContentPackId[]): Promise<ReadonlyMap<ContentPackId, CatalogPack>> {
+  public override async byIds(ids: ReadonlyArray<ContentPackId>): Promise<ReadonlyMap<ContentPackId, CatalogPack>> {
     return new Map(
-      ids.flatMap((id): [ContentPackId, CatalogPack][] => {
+      ids.flatMap((id): Array<[ContentPackId, CatalogPack]> => {
         const known = this.#packs.get(id);
 
         return known === undefined ? [] : [[id, InMemoryCharacterPackCatalog.#listed(known)]];
@@ -61,8 +61,8 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     );
   }
 
-  public override async closure(id: ContentPackId): Promise<readonly ContentPackId[]> {
-    const ordered: ContentPackId[] = [];
+  public override async closure(id: ContentPackId): Promise<ReadonlyArray<ContentPackId>> {
+    const ordered: Array<ContentPackId> = [];
 
     const visit = (pack: ContentPackId): void => {
       if (ordered.includes(pack)) {
@@ -91,7 +91,7 @@ export class InMemoryCharacterPackCatalog extends CharacterPackCatalog {
     };
   }
 
-  static #order(packs: readonly CatalogPack[]): readonly CatalogPack[] {
+  static #order(packs: ReadonlyArray<CatalogPack>): ReadonlyArray<CatalogPack> {
     return packs.toSorted((left, right) => left.title.localeCompare(right.title) || left.id.localeCompare(right.id));
   }
 }

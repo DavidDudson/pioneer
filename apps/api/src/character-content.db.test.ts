@@ -99,7 +99,7 @@ describe.skipIf(adminUrl === undefined)('CharacterContent over postgres', () => 
   let holdsHidden: Character;
 
   /** The ids of the packs in `character`'s registry among those this test seeds. */
-  async function registryOf(character: Character): Promise<readonly ContentPackId[]> {
+  async function registryOf(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     const registry = await content.forCharacter(character).registry();
 
     return registry.packs

@@ -60,7 +60,7 @@ export class SignInPage {
   protected readonly destination = computed<ReturnPath>(() => returnPathOr(this.returnTo()));
   protected readonly providers = injectQuery(() => ({
     queryKey: ['identity', 'providers'] as const,
-    queryFn: async (): Promise<OAuthProvider[]> =>
+    queryFn: async (): Promise<Array<OAuthProvider>> =>
       this.#api.call(IdentityContract.providers, { params: {}, body: undefined }),
   }));
 }

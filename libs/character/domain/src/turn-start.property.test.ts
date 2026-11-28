@@ -32,7 +32,7 @@ function instanceId(index: number): EffectInstanceId {
   return EffectInstanceId.parse(`00000000-0000-4000-8000-${String(index).padStart(ID_DIGITS, '0')}`);
 }
 
-const effects: Arbitrary<readonly ActiveEffect[]> = effectRecords.map((each) =>
+const effects: Arbitrary<ReadonlyArray<ActiveEffect>> = effectRecords.map((each) =>
   each.map(({ remaining, expiry }, index): ActiveEffect => {
     const left = remaining === undefined ? undefined : { remaining: EffectRounds.parse(remaining) };
     const ending = expiry === undefined ? undefined : { expiry };

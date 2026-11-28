@@ -15,14 +15,14 @@ export class ClassRoleOptions {
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Class]));
 
   /** Every class, by name; none while the content loads. */
-  public readonly classes = computed((): readonly ClassOption[] => {
+  public readonly classes = computed((): ReadonlyArray<ClassOption> => {
     const registry = this.#registry.data();
 
     return registry === undefined ? [] : classPickerContent(registry).classes;
   });
 
   /** The classes that play `role`, by name. */
-  public playing(role: ClassRole): readonly ClassOption[] {
+  public playing(role: ClassRole): ReadonlyArray<ClassOption> {
     return classesForRole(this.classes(), role);
   }
 }

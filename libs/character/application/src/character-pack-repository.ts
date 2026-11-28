@@ -5,10 +5,10 @@ import type { UserId } from '@pioneer/shared/kernel';
 /** Port for the packs characters have enabled. Adapters live in `character-infrastructure`; the in-memory one is for tests. */
 export abstract class CharacterPackRepository {
   /** The character's enabled packs, oldest first; id breaks ties. */
-  public abstract listForCharacter(characterId: CharacterId): Promise<readonly CharacterPack[]>;
+  public abstract listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterPack>>;
 
   /** Enable the packs unless the character has them already. */
-  public abstract enable(actor: UserId, characterId: CharacterId, packs: readonly CharacterPack[]): Promise<void>;
+  public abstract enable(actor: UserId, characterId: CharacterId, packs: ReadonlyArray<CharacterPack>): Promise<void>;
 
   /** Stop the character using the pack; nothing happens when it does not. */
   public abstract disable(actor: UserId, characterId: CharacterId, packId: ContentPackId): Promise<void>;

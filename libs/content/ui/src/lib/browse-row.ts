@@ -37,10 +37,10 @@ export interface BrowseRow {
   readonly levelValue: number | undefined;
   /** The creature's part of the row; `undefined` for any other kind. */
   readonly creature: BrowseCreature | undefined;
-  readonly traits: readonly Chip[];
-  readonly sources: readonly BrowseSource[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly sources: ReadonlyArray<BrowseSource>;
   /** The entry is legacy content: under the Open Game License, from before the remaster. */
   readonly legacy: boolean;
   /** The remaster entries that replace this one, when it is legacy. */
-  readonly replacedBy: readonly BrowseReplacement[];
+  readonly replacedBy: ReadonlyArray<BrowseReplacement>;
 }

@@ -30,13 +30,13 @@ function resolved(rules: Readonly<Record<string, JsonObject>>): GrantResolution 
   return resolveGrants(inputsOf({ entries, roots, level: 1 }));
 }
 
-const slugs = (resolution: GrantResolution): string[] =>
+const slugs = (resolution: GrantResolution): Array<string> =>
   grantedStrikes(resolution, NO_FAVOURED).map(({ slug }) => String(slug));
 
 describe('grantedStrikes', () => {
   test('gives one fist however many elements give one, from one of its givers', () => {
     const strikes = grantedStrikes(resolved({ 'deity-cleric': FIST, 'iron-fists': FIST }), NO_FAVOURED);
-    const givers: readonly string[] = [idOf('deity-cleric'), idOf('iron-fists')];
+    const givers: ReadonlyArray<string> = [idOf('deity-cleric'), idOf('iron-fists')];
 
     expect(strikes.map(({ slug }) => String(slug))).toEqual(['fist']);
     expect(givers).toContain(String(strikes[0]?.origin.entry));

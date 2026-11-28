@@ -18,7 +18,7 @@ const PACK_DEFINITIONS =
 
 /** A loader whose loads stay pending until the spec settles them, oldest first. */
 class ScriptedLoader {
-  readonly #pending: { readonly resolve: (json: string) => void; readonly reject: (error: Error) => void }[] = [];
+  readonly #pending: Array<{ readonly resolve: (json: string) => void; readonly reject: (error: Error) => void }> = [];
 
   public readonly load: LoadStatisticDefinitions = async () =>
     new Promise<string>((resolve, reject) => {

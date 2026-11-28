@@ -43,11 +43,11 @@ function caster(
   return builder;
 }
 
-function withAccess(document: CharacterDocument, ...spells: readonly SpellFixture[]): CharacterDocument {
+function withAccess(document: CharacterDocument, ...spells: ReadonlyArray<SpellFixture>): CharacterDocument {
   return { ...document, build: { ...document.build, spellAccess: spells.map((spell) => spellFixtureId(spell)) } };
 }
 
-function slotsOf(document: CharacterDocument): PreparedSlot[] {
+function slotsOf(document: CharacterDocument): Array<PreparedSlot> {
   return preparedSlots(document, preparedReads(document, content));
 }
 
@@ -56,7 +56,7 @@ function slotOf(document: CharacterDocument, key: string): PreparedSlot | undefi
 }
 
 /** The names of the spells a slot offers. */
-function offered(document: CharacterDocument, key: string): string[] {
+function offered(document: CharacterDocument, key: string): Array<string> {
   return (slotOf(document, key)?.options ?? []).map((spell) => spell.name);
 }
 

@@ -53,12 +53,12 @@ function briarContent(): ContentSource {
 }
 
 /** The heritage names an import left behind, if any. */
-function unmatchedHeritage(report: CharacterImportReport): readonly UnmatchedName[] | undefined {
+function unmatchedHeritage(report: CharacterImportReport): ReadonlyArray<UnmatchedName> | undefined {
   return report.unmatched.find((group) => group.kind === ImportKind.Heritage)?.names;
 }
 
 /** The kinds an import left names unmatched for. */
-function unmatchedKinds(report: CharacterImportReport): readonly ImportKind[] {
+function unmatchedKinds(report: CharacterImportReport): ReadonlyArray<ImportKind> {
   return report.unmatched.map((group) => group.kind);
 }
 

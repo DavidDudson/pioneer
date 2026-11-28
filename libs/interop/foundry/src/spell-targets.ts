@@ -18,7 +18,7 @@ const BOTH = /^(?<first>.+?) and (?<second>.+)$/u;
 const ALTERNATIVES = /,? or |, /u;
 
 /** Counts written with "or" or "to", reworded before the alternatives are split on "or". */
-const REWORDINGS: readonly (readonly [RegExp, string])[] = [
+const REWORDINGS: ReadonlyArray<readonly [RegExp, string]> = [
   /* A choice up to a number: "1 to 3 willing creatures", "1 or 2 creatures". "1 or 10" is two counts, not a range. */
   [/^1 to (?<most>\d+) /u, 'up to $<most> '],
   [/^1 or 2 /u, 'up to 2 '],
@@ -134,15 +134,15 @@ interface Count {
 /** One target as `targets.any` holds it. */
 interface Target extends Count {
   readonly of: TargetKind;
-  readonly qualifiers?: readonly TargetQualifier[];
-  readonly traits?: readonly string[];
+  readonly qualifiers?: ReadonlyArray<TargetQualifier>;
+  readonly traits?: ReadonlyArray<string>;
 }
 
 /** A target's words, split into what it is and the words narrowing it. */
 interface Described {
   readonly of: TargetKind;
-  readonly words: readonly string[];
-  readonly traits: readonly string[];
+  readonly words: ReadonlyArray<string>;
+  readonly traits: ReadonlyArray<string>;
 }
 
 /** What the words say a target is: its last word, or `spell effect`; a creature trait as the last word is a creature. */
@@ -247,7 +247,7 @@ function countOf({ of: _of, qualifiers: _qualifiers, traits: _traits, ...count }
 }
 
 /** Each alternative, a later one counted as the first when it gives no count ("1 creature or object"). */
-function alternativesOf(text: string): Target[] | undefined {
+function alternativesOf(text: string): Array<Target> | undefined {
   const [first = '', ...rest] = text.split(ALTERNATIVES);
   const head = targetOf(first, undefined);
 
@@ -274,8 +274,8 @@ function reworded(text: string): string {
 
 /** `targets` without the caster: alternatives, or one target as well as another ("1 ally and 1 enemy"). */
 interface Groups {
-  readonly any: readonly Target[];
-  readonly plus?: readonly Target[];
+  readonly any: ReadonlyArray<Target>;
+  readonly plus?: ReadonlyArray<Target>;
 }
 
 function groupsOf(text: string): Groups | undefined {

@@ -67,7 +67,7 @@ export class SheetHitPointControls {
   );
 
   /** What the rule elements in play give besides the Hit Points above, as lines of text. */
-  protected readonly granted = computed((): readonly string[] => {
+  protected readonly granted = computed((): ReadonlyArray<string> => {
     const vitals = this.#sheet.grantedVitals();
 
     return vitals === undefined ? [] : grantedLines(vitals).map((line) => this.#grantedText(line));

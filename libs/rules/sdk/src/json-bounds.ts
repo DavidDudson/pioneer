@@ -20,10 +20,10 @@ export const JsonBound = { Depth: 'depth', Containers: 'containers' } as const;
 export type JsonBound = ValueOf<typeof JsonBound>;
 
 /** A JSON-shaped value: what a bundle is written from and a facet reads, `undefined` marking a missing field. */
-export type JsonValue = string | number | boolean | null | undefined | readonly JsonValue[] | object;
+export type JsonValue = string | number | boolean | null | undefined | ReadonlyArray<JsonValue> | object;
 
 /** The `[field, value]` pairs of `value` when it is a JSON object, `undefined` when it is a scalar or an array. */
-export function jsonEntries(value: JsonValue): readonly (readonly [string, JsonValue])[] | undefined {
+export function jsonEntries(value: JsonValue): ReadonlyArray<readonly [string, JsonValue]> | undefined {
   return value instanceof Object && !Array.isArray(value) ? Object.entries(value) : undefined;
 }
 
@@ -32,7 +32,7 @@ function isContainer(value: unknown): value is object {
 }
 
 /** The arrays and objects directly inside an array or object. */
-function innerContainers(value: object): readonly object[] {
+function innerContainers(value: object): ReadonlyArray<object> {
   return Object.values(value).filter((child) => isContainer(child));
 }
 
@@ -41,7 +41,7 @@ function innerContainers(value: object): readonly object[] {
  * without walking more than the bounds allow.
  */
 export function exceededBound(value: unknown, bounds: JsonBounds): JsonBound | undefined {
-  let level: readonly object[] = isContainer(value) ? [value] : [];
+  let level: ReadonlyArray<object> = isContainer(value) ? [value] : [];
   let depth = 0;
   let containers = 0;
 

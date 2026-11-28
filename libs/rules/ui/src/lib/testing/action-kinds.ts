@@ -6,6 +6,6 @@ function inBasic(action: ActionLine): ActionLine {
 }
 
 /** The lines all listed under one kind, so a view shows them in one list whatever their origins. */
-export function inOneKind(actions: readonly ActionLine[]): readonly ActionLine[] {
+export function inOneKind(actions: ReadonlyArray<ActionLine>): ReadonlyArray<ActionLine> {
   return actions.map((action) => inBasic(action));
 }

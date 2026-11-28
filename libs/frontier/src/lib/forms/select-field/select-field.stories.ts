@@ -8,7 +8,7 @@ type CharacterClass = 'cleric' | 'fighter' | 'rogue' | 'wizard';
 
 type SelectFieldStory = StoryObj<SelectField<CharacterClass>>;
 
-const CLASSES: readonly SelectOption<CharacterClass>[] = [
+const CLASSES: ReadonlyArray<SelectOption<CharacterClass>> = [
   { value: 'cleric', label: 'Cleric' },
   { value: 'fighter', label: 'Fighter' },
   { value: 'rogue', label: 'Rogue' },

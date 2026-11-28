@@ -56,12 +56,12 @@ interface Carried {
   readonly quantity?: number;
   readonly carry?: CarryState;
   /** Property runes etched onto it, over a +1 potency rune. */
-  readonly runes?: readonly RuneFixture[];
+  readonly runes?: ReadonlyArray<RuneFixture>;
   /** Whether it is invested, as armour with runes must be to be used. */
   readonly invested?: boolean;
 }
 
-function carrying(...items: readonly Carried[]): Character {
+function carrying(...items: ReadonlyArray<Carried>): Character {
   const built = new CharacterBuilder().build();
   let inventory: Inventory = EMPTY_INVENTORY;
 
@@ -102,7 +102,7 @@ async function registryWithItems(): Promise<ContentRegistry> {
   return TestBed.inject(ContentLoader).registry(ACTION_STAFF_CONTENT_KINDS);
 }
 
-function listed(registry: ContentRegistry, character: Character, spent: JsonObject = {}): readonly ActionLine[] {
+function listed(registry: ContentRegistry, character: Character, spent: JsonObject = {}): ReadonlyArray<ActionLine> {
   return sheetItemActions(registry, character, {
     resources: ResourcesSpentSchema.parse(spent),
     turn: undefined,

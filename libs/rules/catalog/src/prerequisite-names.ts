@@ -10,7 +10,7 @@ import type { ContentEntry, RollOption } from '@pioneer/rules/sdk';
  * who has it either way. The rest an archetype gives without the class feature, so a name would read false for a
  * character who meets it. A class feature that is also a feat (Shield Block) grants the feat, which names it.
  */
-export const NAMED_KINDS: readonly ContentKind[] = [
+export const NAMED_KINDS: ReadonlyArray<ContentKind> = [
   ContentKind.Feat,
   ContentKind.ClassFeature,
   ContentKind.AncestryFeature,
@@ -41,12 +41,12 @@ export interface NamedEntry {
 
 /** Entries a prerequisite can name, by lowercase name, and the statistic selectors ranks are read from. */
 export interface PrerequisiteNames {
-  readonly entries: ReadonlyMap<string, readonly NamedEntry[]>;
+  readonly entries: ReadonlyMap<string, ReadonlyArray<NamedEntry>>;
   /**
    * Entries whose name has a class in brackets, by the name without it: "incredible companion" is Incredible Companion
    * (Druid) and Incredible Companion (Ranger), either of which meets it.
    */
-  readonly variants: ReadonlyMap<string, readonly NamedEntry[]>;
+  readonly variants: ReadonlyMap<string, ReadonlyArray<NamedEntry>>;
   readonly statistics: ReadonlyMap<string, string>;
 }
 
@@ -56,7 +56,7 @@ export function normalise(words: string): string {
 }
 
 /** Adds `named` under `name`, once. */
-function addNamed(names: Map<string, NamedEntry[]>, name: string, named: NamedEntry): void {
+function addNamed(names: Map<string, Array<NamedEntry>>, name: string, named: NamedEntry): void {
   const known = names.get(name) ?? [];
 
   if (!known.some(({ option }) => option === named.option)) {
@@ -93,13 +93,13 @@ function rankedSelector(entry: ContentEntry): string | undefined {
 
 /** The maps a pass fills while it indexes entries. */
 interface NameIndex {
-  readonly entries: Map<string, NamedEntry[]>;
-  readonly variants: Map<string, NamedEntry[]>;
+  readonly entries: Map<string, Array<NamedEntry>>;
+  readonly variants: Map<string, Array<NamedEntry>>;
   readonly statistics: Map<string, string>;
 }
 
 /** Adds `named` under the name of `entry`, and of a muse under "warrior muse" too. */
-function addNamedKind(names: Map<string, NamedEntry[]>, entry: ContentEntry, named: NamedEntry): void {
+function addNamedKind(names: Map<string, Array<NamedEntry>>, entry: ContentEntry, named: NamedEntry): void {
   const name = normalise(entry.name);
   addNamed(names, name, named);
 
@@ -132,7 +132,7 @@ function index(names: NameIndex, entry: ContentEntry): void {
 }
 
 /** What a prerequisite can name among `entries`, built once for a whole pass. */
-export function prerequisiteNames(entries: readonly ContentEntry[]): PrerequisiteNames {
+export function prerequisiteNames(entries: ReadonlyArray<ContentEntry>): PrerequisiteNames {
   const names: NameIndex = { entries: new Map(), variants: new Map(), statistics: new Map() };
 
   for (const entry of entries) {

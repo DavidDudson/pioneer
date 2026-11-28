@@ -72,7 +72,7 @@ function activeOf(rounds: EffectRounds, sustainedThisTurn: boolean, id = CAST): 
   return { id, spell: FORCE_BARRAGE, rank: RANK, remaining: rounds, sustainedThisTurn };
 }
 
-function withSpells(...spells: ActiveSpell[]): PlayState {
+function withSpells(...spells: Array<ActiveSpell>): PlayState {
   return { ...playIn(OWN_TURN), activeSpells: spells };
 }
 

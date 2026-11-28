@@ -38,7 +38,7 @@ export class Pips extends Control {
   protected readonly size = Size.Sm;
   protected readonly groupClasses = computed(() => groupVariants({ invalid: this.ariaInvalid() }));
   /** The places of the pips, from 1. */
-  protected readonly places = computed((): readonly number[] => {
+  protected readonly places = computed((): ReadonlyArray<number> => {
     const count = Math.max(Math.floor(this.max()), 0);
 
     return Array.from({ length: count }, (_unused, index) => index + 1);

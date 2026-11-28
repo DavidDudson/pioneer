@@ -23,7 +23,7 @@ const TRAINED_SOURCE_KEY = 'character.sheet.trainedSource';
  * A skill slot's label: "Level 3 skill increase", "Level 1 trained skill", numbered when its level has several trained
  * skills ("Level 1 trained skill 2"), so each picker has a name of its own.
  */
-export function skillSlotLabel(slot: SkillSlot, slots: readonly SkillSlot[]): MessageDescriptor {
+export function skillSlotLabel(slot: SkillSlot, slots: ReadonlyArray<SkillSlot>): MessageDescriptor {
   const level = { level: slot.level };
   const alike = slots.filter((each) => each.kind === slot.kind && each.level === slot.level);
 
@@ -49,7 +49,7 @@ export function sourceName(source: SkillTrainingSource, { entries, slots }: Sour
 }
 
 /** What the skill slots and entries are named by, over the slots read. */
-export function sourceNamesOf(registry: ContentRegistry, slots: readonly SkillSlot[]): SourceNames {
+export function sourceNamesOf(registry: ContentRegistry, slots: ReadonlyArray<SkillSlot>): SourceNames {
   return {
     entries: sheetEntryNames(registry),
     slots: new Map(slots.map((slot) => [slot.key, skillSlotLabel(slot, slots)])),
@@ -60,7 +60,11 @@ export function sourceNamesOf(registry: ContentRegistry, slots: readonly SkillSl
 type SelectedSource = readonly [string, RankSource];
 
 /** The rank the entries that train a skill give: trained, by each class or background named. */
-function entrySources(slots: readonly SkillSlot[], names: SourceNames, translate: Translate): SelectedSource[] {
+function entrySources(
+  slots: ReadonlyArray<SkillSlot>,
+  names: SourceNames,
+  translate: Translate,
+): Array<SelectedSource> {
   const trained = new Map(slots.flatMap((slot) => slot.trained).map(({ skill, sources }) => [skill.selector, sources]));
 
   return [...trained].flatMap(([selector, sources]) =>
@@ -75,8 +79,8 @@ function entrySources(slots: readonly SkillSlot[], names: SourceNames, translate
 }
 
 /** The rank each skill slot's pick reaches, marked with its level when it is above the character's. */
-function slotSources(slots: readonly SkillSlot[], translate: Translate, level: number): SelectedSource[] {
-  return slots.flatMap((slot): SelectedSource[] => {
+function slotSources(slots: ReadonlyArray<SkillSlot>, translate: Translate, level: number): Array<SelectedSource> {
+  return slots.flatMap((slot): Array<SelectedSource> => {
     if (slot.pick === undefined || slot.rank === undefined) {
       return [];
     }
@@ -104,10 +108,10 @@ export function rankSourcesOf(
   registry: ContentRegistry,
   character: Character,
   translate: Translate,
-): ReadonlyMap<string, readonly RankSource[]> {
+): ReadonlyMap<string, ReadonlyArray<RankSource>> {
   const slots = skillSlots(character.document, skillReads(character.document, sheetSlotContent(registry)));
   const names = sourceNamesOf(registry, slots);
-  const sources = new Map<string, RankSource[]>();
+  const sources = new Map<string, Array<RankSource>>();
 
   for (const [selector, source] of [
     ...entrySources(slots, names, translate),

@@ -33,7 +33,7 @@ import {
 })
 export class DeityPicker {
   /** Every deity the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly DeityPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<DeityPickerRow>>();
   /** The picked deity's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

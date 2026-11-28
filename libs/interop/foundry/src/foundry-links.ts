@@ -28,7 +28,7 @@ export function actorUuid(pack: FoundryPack, document: string): string {
   return `Compendium.pf2e.${pack.name}.Actor.${document}`;
 }
 
-function uuidsOf({ pack, document }: PackDocument): readonly string[] {
+function uuidsOf({ pack, document }: PackDocument): ReadonlyArray<string> {
   const { _id: id, name } = document;
 
   return [itemUuid(pack, id), itemUuid(pack, name)];
@@ -44,7 +44,7 @@ interface Keyed<Value> {
 }
 
 /** Each document's value by both its UUIDs; where two documents of one pack share a name, the first keeps it. */
-function byUuid<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Value> {
+function byUuid<Value>(keyed: ReadonlyArray<Keyed<Value>>): ReadonlyMap<string, Value> {
   const map = new Map<string, Value>();
 
   for (const { document, value } of keyed) {
@@ -57,7 +57,7 @@ function byUuid<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Valu
 }
 
 /** Each action's value by its Foundry slug. */
-function bySlug<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Value> {
+function bySlug<Value>(keyed: ReadonlyArray<Keyed<Value>>): ReadonlyMap<string, Value> {
   return new Map(
     keyed
       .values()
@@ -72,8 +72,8 @@ function bySlug<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Valu
  * imported from (`known`). An entry of this import wins a UUID both name.
  */
 export function foundryLinks(
-  documents: readonly PackDocument[],
-  entries: readonly LinkedEntry[],
+  documents: ReadonlyArray<PackDocument>,
+  entries: ReadonlyArray<LinkedEntry>,
   known: ReadonlyMap<string, ContentId> = new Map(),
 ): FoundryLinks {
   const names = documents.map((document) => ({

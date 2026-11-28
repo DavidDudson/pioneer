@@ -18,5 +18,5 @@ export interface SectionIndexHostLink {
 })
 export class SectionIndexHost {
   public readonly label = input.required<string>();
-  public readonly sections = input.required<readonly SectionIndexHostLink[]>();
+  public readonly sections = input.required<ReadonlyArray<SectionIndexHostLink>>();
 }

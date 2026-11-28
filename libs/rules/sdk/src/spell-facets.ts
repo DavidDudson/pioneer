@@ -19,8 +19,8 @@ import type { SpellEntry } from './spell-facet-values';
 import { MagicTradition } from './spellcasting-tradition';
 
 /** A facet that reads spells only: entries of other kinds give it no value. */
-function ofSpells(read: (entry: SpellEntry) => readonly FacetLeaf[]): FacetDerive {
-  return (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Spell ? read(entry) : []);
+function ofSpells(read: (entry: SpellEntry) => ReadonlyArray<FacetLeaf>): FacetDerive {
+  return (entry): ReadonlyArray<FacetLeaf> => (entry.kind === ContentKind.Spell ? read(entry) : []);
 }
 
 export const SpellFacetMessage = {
@@ -111,7 +111,7 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: SpellFacetMessage.DamageType,
   appliesTo: [ContentKind.Spell, ContentKind.Weapon],
-  derive: (entry): readonly FacetLeaf[] => {
+  derive: (entry): ReadonlyArray<FacetLeaf> => {
     if (entry.kind === ContentKind.Weapon) {
       const { damage } = entry.data;
       // `dice` counts dice, or flat damage with no `die`; at 0 the weapon deals none (a glue bomb).
@@ -134,7 +134,7 @@ export const SpellFacet = {
 } as const;
 
 /** The spell facets (content-model.md, "Filters"), beyond the common ones. */
-export const SPELL_FACETS: readonly FacetDefinition[] = [
+export const SPELL_FACETS: ReadonlyArray<FacetDefinition> = [
   {
     id: SpellFacet.Rank,
     type: FacetType.Range,

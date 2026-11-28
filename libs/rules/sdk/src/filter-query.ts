@@ -16,7 +16,7 @@ export const FilterParamText = z.string().brand<'FilterParamText'>();
 export type FilterParamText = z.infer<typeof FilterParamText>;
 
 /** Query params as the router holds them: a name to one value or several. Anything else under a name is ignored. */
-export type QueryParams = Readonly<Record<string, readonly string[] | number | string | undefined>>;
+export type QueryParams = Readonly<Record<string, ReadonlyArray<string> | number | string | undefined>>;
 
 /** Query params a filter state writes, one per facet that narrows the list. */
 export type FilterQuery = Readonly<Record<FilterParam, FilterParamText>>;
@@ -56,8 +56,8 @@ function narrows(selection: FacetSelection): boolean {
  * The query params for `state`, in facet order with values sorted, so one state always gives one URL. Facets that
  * keep everything are left out.
  */
-export function filterToQuery(state: FilterState, facets: readonly FacetDefinition[]): FilterQuery {
-  const params = facets.flatMap((facet): (readonly [FilterParam, FilterParamText])[] => {
+export function filterToQuery(state: FilterState, facets: ReadonlyArray<FacetDefinition>): FilterQuery {
+  const params = facets.flatMap((facet): Array<readonly [FilterParam, FilterParamText]> => {
     const selection = state.get(facet.id);
 
     if (selection === undefined || !narrows(selection)) {
@@ -146,7 +146,7 @@ function selectionOf(facet: FacetDefinition, text: FilterParamText): FacetSelect
  * The filter state in `params`. Params that aren't a known facet's are someone else's and are ignored; values that
  * don't read are dropped rather than failing, so an old or hand-edited link still opens.
  */
-export function filterFromQuery(params: QueryParams, facets: readonly FacetDefinition[]): FilterState {
+export function filterFromQuery(params: QueryParams, facets: ReadonlyArray<FacetDefinition>): FilterState {
   const state = new Map<FacetId, FacetSelection>();
 
   for (const facet of facets) {

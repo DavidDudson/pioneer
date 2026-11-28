@@ -29,7 +29,7 @@ describe('CharacterSheetBundleService', () => {
   let bundle: CharacterSheetBundleService;
   let id: CharacterId;
   /** The owner-only parts the test doubles were asked for, which a GM's bundle must not ask for. */
-  let ownerOnlyRead: string[];
+  let ownerOnlyRead: Array<string>;
 
   beforeEach(async () => {
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());

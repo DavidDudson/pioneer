@@ -129,8 +129,8 @@ function foundAt(text: string, match: RegExpExecArray): Found | undefined {
 }
 
 /** `text` split into plain text and the enrichers in it, in order. Empty text between enrichers is left out. */
-export function enricherParts(text: string): EnricherPart[] {
-  const parts: EnricherPart[] = [];
+export function enricherParts(text: string): Array<EnricherPart> {
+  const parts: Array<EnricherPart> = [];
   let from = 0;
 
   for (const match of text.matchAll(START)) {

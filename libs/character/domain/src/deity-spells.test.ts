@@ -54,7 +54,7 @@ const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const GORUM: ContentId = playerCoreId(ContentKind.Deity, 'gorum');
 
 /** A level 7 `name`, Gorum's follower unless `deity` is false. */
-function follower(name: PlayerCoreClass, deity = true): readonly PreparedSlot[] {
+function follower(name: PlayerCoreClass, deity = true): ReadonlyArray<PreparedSlot> {
   const builder = new CharacterBuilder()
     .named(name)
     .picking('class', playerCoreClassId(name))
@@ -67,7 +67,7 @@ function follower(name: PlayerCoreClass, deity = true): readonly PreparedSlot[] 
 }
 
 /** The names a slot of `entry`'s own of `rank` offers, sorted. */
-function offeredAt(slots: readonly PreparedSlot[], entry: string, rank: number): readonly string[] {
+function offeredAt(slots: ReadonlyArray<PreparedSlot>, entry: string, rank: number): ReadonlyArray<string> {
   const slot = slots.find((each) => each.entry === entry && each.pool === undefined && each.rank === rank);
 
   return (slot?.options ?? []).map(({ name }) => String(name)).toSorted();

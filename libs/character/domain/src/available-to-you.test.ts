@@ -51,7 +51,7 @@ const fighter = (level: number): CharacterBuilder =>
   new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(level);
 
 /** What the preset keeps of the fixture feats for `slot`, by name, read through the facets as the picker will. */
-function kept(character: CharacterBuilder, slot: SlotKey): readonly string[] {
+function kept(character: CharacterBuilder, slot: SlotKey): ReadonlyArray<string> {
   const { document } = character.build();
   const facets = [...facetsFor(['feat']), prerequisitesMetFacet(slotPrerequisiteStatus(document, content, slot))];
   const state = availableToYou(document, content, slot);
@@ -62,7 +62,7 @@ function kept(character: CharacterBuilder, slot: SlotKey): readonly string[] {
 }
 
 /** The feats `slot` offers whose prerequisites are not unmet, by name, as the slot itself reads them. */
-function notUnmet(character: CharacterBuilder, slot: SlotKey): readonly string[] {
+function notUnmet(character: CharacterBuilder, slot: SlotKey): ReadonlyArray<string> {
   const options = featSlots(character.build().document, content).find(({ key }) => key === slot)?.options ?? [];
 
   return options
@@ -135,14 +135,14 @@ const wizard = (level: number): CharacterBuilder =>
 
 /** What a spell slot offers, with the spells its preset keeps of the fixtures, both by name. */
 interface SpellSlotRead {
-  readonly kept: readonly string[];
-  readonly offered: readonly string[];
+  readonly kept: ReadonlyArray<string>;
+  readonly offered: ReadonlyArray<string>;
   /** The slot's offer above `rank` that is not a cantrip. */
-  readonly offeredAbove: (rank: number) => readonly string[];
+  readonly offeredAbove: (rank: number) => ReadonlyArray<string>;
 }
 
 /** The names of `spells`, lowercase and sorted. */
-const names = (spells: readonly { readonly name: string }[]): readonly string[] =>
+const names = (spells: ReadonlyArray<{ readonly name: string }>): ReadonlyArray<string> =>
   spells.map(({ name }) => name.toLowerCase()).toSorted();
 
 /** The preset of the 5th-level wizard's slot `key`, read through the spell facets as the picker will. */

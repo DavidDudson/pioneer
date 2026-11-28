@@ -17,7 +17,7 @@ export class ReplacementOffer {
   public readonly open = input(false);
   /** The name of the replaced pick. */
   public readonly name = input<string | undefined>();
-  public readonly replacements = input.required<readonly ChoiceReplacement[]>();
+  public readonly replacements = input.required<ReadonlyArray<ChoiceReplacement>>();
   /** A replacement was pressed. */
   public readonly replace = output<ChoiceReplacement>();
 

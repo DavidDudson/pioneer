@@ -47,7 +47,7 @@ export interface EnvelopeContext {
   readonly traits: ReadonlySet<Trait>;
   readonly lang: FoundryLang;
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
-  readonly documents?: readonly PackDocument[];
+  readonly documents?: ReadonlyArray<PackDocument>;
   readonly references?: EntryReferences;
   /** What each Foundry sense fixes, for the `Sense` elements (`RuleContext`). */
   readonly senses?: FoundrySenses;
@@ -89,16 +89,16 @@ export interface EnvelopeFailure {
 }
 
 export interface EnvelopeTranslation {
-  readonly entries: readonly TranslatedEntry[];
-  readonly untranslatedRules: readonly UntranslatedRule[];
+  readonly entries: ReadonlyArray<TranslatedEntry>;
+  readonly untranslatedRules: ReadonlyArray<UntranslatedRule>;
   /** Rule elements dropped on purpose (they only change a Foundry token), apart from the untranslated ones. */
-  readonly droppedRules: readonly DroppedRule[];
-  readonly unknownTraits: readonly UnknownTrait[];
-  readonly unknownMarkup: readonly UnknownMarkup[];
-  readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
+  readonly droppedRules: ReadonlyArray<DroppedRule>;
+  readonly unknownTraits: ReadonlyArray<UnknownTrait>;
+  readonly unknownMarkup: ReadonlyArray<UnknownMarkup>;
+  readonly untranslatedEnrichers: ReadonlyArray<UntranslatedEnricher>;
   /** Lang keys in rule elements and descriptions with no English text, left out of the text. */
-  readonly unresolvedText: readonly UnresolvedText[];
-  readonly failures: readonly EnvelopeFailure[];
+  readonly unresolvedText: ReadonlyArray<UnresolvedText>;
+  readonly failures: ReadonlyArray<EnvelopeFailure>;
 }
 
 /** An envelope before its description, which waits for every entry's id. */
@@ -106,11 +106,11 @@ type Draft = Omit<ImportedEnvelope, 'description'>;
 
 interface Translated {
   readonly envelope: Draft;
-  readonly untranslatedRules: readonly UntranslatedRule[];
+  readonly untranslatedRules: ReadonlyArray<UntranslatedRule>;
   /** Rule elements dropped on purpose (they only change a Foundry token), apart from the untranslated ones. */
-  readonly droppedRules: readonly DroppedRule[];
-  readonly unknownTraits: readonly UnknownTrait[];
-  readonly unresolvedText: readonly UnresolvedText[];
+  readonly droppedRules: ReadonlyArray<DroppedRule>;
+  readonly unknownTraits: ReadonlyArray<UnknownTrait>;
+  readonly unresolvedText: ReadonlyArray<UnresolvedText>;
 }
 
 interface Failed {
@@ -126,13 +126,13 @@ export function compendiumUuid(pack: FoundryPack, documentId: string, type?: str
 }
 
 interface TraitTranslation {
-  readonly traits: readonly Trait[];
-  readonly unknown: readonly UnknownTrait[];
+  readonly traits: ReadonlyArray<Trait>;
+  readonly unknown: ReadonlyArray<UnknownTrait>;
 }
 
-function translateTraits(entry: ContentId, values: readonly string[], known: ReadonlySet<Trait>): TraitTranslation {
-  const traits: Trait[] = [];
-  const unknown: UnknownTrait[] = [];
+function translateTraits(entry: ContentId, values: ReadonlyArray<string>, known: ReadonlySet<Trait>): TraitTranslation {
+  const traits: Array<Trait> = [];
+  const unknown: Array<UnknownTrait> = [];
 
   for (const value of new Set(values)) {
     const trait = Trait.safeParse(value);
@@ -314,7 +314,10 @@ function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<EntrySlu
  * `entrySlugs`; a document whose slug is taken (two of one kind and name) fails, since ids are UUIDv5 of
  * `<pack>/<slug>` and must stay unique.
  */
-export function translateEnvelopes(selected: readonly SelectedEntry[], context: EnvelopeContext): EnvelopeTranslation {
+export function translateEnvelopes(
+  selected: ReadonlyArray<SelectedEntry>,
+  context: EnvelopeContext,
+): EnvelopeTranslation {
   const taken = new Set<EntrySlug>();
   const outcomes = selected.map((source) => outcome({ source, slug: entrySlugOf(source) }, context, taken));
   const done = outcomes.filter((each): each is Done => !failed(each));

@@ -15,7 +15,7 @@ import { injectOptionRows } from './inject-option-rows';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OptionPicker<TValue extends string> {
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   public readonly ariaLabel = input.required<string>();
   public readonly placeholder = input<string | undefined>(undefined);
   public readonly value = model<TValue | undefined>(undefined);

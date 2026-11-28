@@ -18,7 +18,7 @@ import { CharacterStore } from './character-store';
 /** What the table decides about the open character's inventory: its limits, and the rule-breaking lines its GM approved. */
 export interface TableRules {
   readonly limits: RuleLimits;
-  readonly approvals: readonly ItemApproval[];
+  readonly approvals: ReadonlyArray<ItemApproval>;
   /** Whether the owner may acknowledge a warning: a character outside a campaign has no GM to approve it. */
   readonly acknowledgeable?: boolean | undefined;
   /** The campaign it comes from, which a key item on the sheet links back to; none outside a campaign. */

@@ -62,7 +62,7 @@ const CHARACTER = StatisticInputsJson.parse({
   weapons: [wielded(LONGSWORD), wielded(FIST)],
 });
 
-function strikesWith(rules: readonly RuleInPlay[]): readonly Strike[] {
+function strikesWith(rules: ReadonlyArray<RuleInPlay>): ReadonlyArray<Strike> {
   const modifiers = { rules, facts: FACTS };
   const results = deriveStatistics(CONTENT, CHARACTER, modifiers);
 
@@ -82,7 +82,7 @@ function valued(result: StatisticResult | undefined): StatisticValue {
 }
 
 /** The first Strike, which every test expects to exist. */
-function firstOf(rules: readonly RuleInPlay[]): Strike {
+function firstOf(rules: ReadonlyArray<RuleInPlay>): Strike {
   const [first] = strikesWith(rules);
 
   if (first === undefined) {
@@ -92,7 +92,7 @@ function firstOf(rules: readonly RuleInPlay[]): Strike {
   return first;
 }
 
-const slugs = (strikes: readonly Strike[]): string[] => strikes.map(({ weapon }) => weapon.slug);
+const slugs = (strikes: ReadonlyArray<Strike>): Array<string> => strikes.map(({ weapon }) => weapon.slug);
 
 describe('battle form: Strikes', () => {
   test('without a form the weapons keep their Strikes', () => {

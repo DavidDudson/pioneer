@@ -28,10 +28,10 @@ export interface PrerequisiteReads {
   /** Each feat slot the character has at some level up to 20th, by the lowest level it opens at. */
   readonly featSlotLevels: ReadonlyMap<SlotKey, Level>;
   /** The dedications still waiting on their archetype's other feats when `slot` is read (#467). */
-  readonly waitsAt: (slot: SlotKey) => readonly DedicationWait[];
+  readonly waitsAt: (slot: SlotKey) => ReadonlyArray<DedicationWait>;
 }
 
-function levelsUp(): Level[] {
+function levelsUp(): Array<Level> {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
 
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
@@ -125,9 +125,9 @@ function readPrerequisites(document: CharacterDocument, content: SlotContent): P
   const order = slotsInOrder(featSlotLevels);
   const { grantsAt } = skillReads(document, content);
   const slotKeys = new Set(featSlotLevels.keys());
-  const waits = new Map<SlotKey, readonly DedicationWait[]>();
+  const waits = new Map<SlotKey, ReadonlyArray<DedicationWait>>();
 
-  const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
+  const waitsAt = (slot: SlotKey): ReadonlyArray<DedicationWait> => {
     const level = featSlotLevels.get(slot);
     const unlocked = level === undefined || factsAt(level).has(NO_DEDICATION_LOCK);
     const earlier = order.slice(0, order.indexOf(slot));
@@ -204,7 +204,7 @@ export interface FeatOption {
   readonly level: ContentLevel;
   readonly status: PrerequisiteStatus;
   /** Each clause of the prerequisites with its own state, for a feat with several; undefined for any other. */
-  readonly clauses: readonly PrerequisiteClauseStatus[] | undefined;
+  readonly clauses: ReadonlyArray<PrerequisiteClauseStatus> | undefined;
   /** As printed, for saying what is not met or can't be checked. */
   readonly prerequisites: RichText | undefined;
   /** The dedication it waits on, for a dedication while an earlier one still needs its archetype's feats (#467). */
@@ -218,14 +218,14 @@ export interface FeatSlot {
   readonly entry: ContentId;
   readonly prompt: ContentText | undefined;
   /** Worked out the first time it is read. */
-  readonly options: readonly FeatOption[];
+  readonly options: ReadonlyArray<FeatOption>;
 }
 
-function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): FeatOption[] {
+function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): Array<FeatOption> {
   const facts = reads.factsAt(level);
   const waits = reads.waitsAt(slot.key);
 
-  return slot.options.flatMap((option): FeatOption[] => {
+  return slot.options.flatMap((option): Array<FeatOption> => {
     const id = ContentId.safeParse(option.value);
     const feat = id.success ? reads.feats.feat(id.data) : undefined;
 
@@ -270,13 +270,13 @@ export function withoutPick(document: CharacterDocument, slot: SlotKey): Charact
  * the feats of its kind up to that level, each met, not met or unknown over the character's facts there with the slot itself empty, as `selectSlot`
  * reads it (#466). A feat whose prerequisites aren't met is still offered, so the picker can say why it can't be taken.
  */
-export function featSlots(document: CharacterDocument, content: SlotContent): readonly FeatSlot[] {
+export function featSlots(document: CharacterDocument, content: SlotContent): ReadonlyArray<FeatSlot> {
   const reads = prerequisiteReads(document, content);
   const grants = skillReads(document, content);
 
   return [...reads.featSlotLevels]
     .toSorted(([, left], [, right]) => left - right)
-    .flatMap(([key, level]): FeatSlot[] => {
+    .flatMap(([key, level]): Array<FeatSlot> => {
       const resolution = grants.grantsAt(level);
       const slot = [...resolution.open, ...resolution.answered].find((each) => each.key === key);
 
@@ -284,7 +284,7 @@ export function featSlots(document: CharacterDocument, content: SlotContent): re
         return [];
       }
 
-      let options: readonly FeatOption[] | undefined = undefined;
+      let options: ReadonlyArray<FeatOption> | undefined = undefined;
 
       return [
         {
@@ -292,7 +292,7 @@ export function featSlots(document: CharacterDocument, content: SlotContent): re
           level,
           entry: slot.origin.entry,
           prompt: slot.prompt,
-          get options(): readonly FeatOption[] {
+          get options(): ReadonlyArray<FeatOption> {
             options ??= featOptions(slot, level, prerequisiteReads(withoutPick(document, key), content));
 
             return options;

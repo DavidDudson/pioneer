@@ -6,7 +6,7 @@ import { AttributeRolls } from '@pioneer/rules/ui';
 import { SheetState } from '../sheet-state';
 
 /** The physical attributes, then the mental ones: a card each, three rows apiece. */
-const GROUPS: readonly (readonly Attribute[])[] = [
+const GROUPS: ReadonlyArray<ReadonlyArray<Attribute>> = [
   [Attribute.Strength, Attribute.Dexterity, Attribute.Constitution],
   [Attribute.Intelligence, Attribute.Wisdom, Attribute.Charisma],
 ];

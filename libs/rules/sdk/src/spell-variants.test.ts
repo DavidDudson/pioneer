@@ -9,7 +9,7 @@ import { RulesMessage } from './messages';
 import type { JsonObject, JsonValue as FixtureJson } from './testing/json-value';
 import { ContentEntry } from './typed-content-entry';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = ContentEntry.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -26,10 +26,10 @@ interface SpellFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly FixtureJson[];
-  readonly description: readonly FixtureJson[];
-  readonly rules: readonly FixtureJson[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<FixtureJson>;
+  readonly description: ReadonlyArray<FixtureJson>;
+  readonly rules: ReadonlyArray<FixtureJson>;
   readonly data: JsonObject;
 }
 
@@ -56,7 +56,7 @@ function heal(data: JsonObject): SpellFixture {
   };
 }
 
-function withVariants(variants: readonly JsonObject[]): SpellFixture {
+function withVariants(variants: ReadonlyArray<JsonObject>): SpellFixture {
   return heal({ variants });
 }
 

@@ -71,7 +71,7 @@ const characterId = values.character ?? (await createCharacter({ api, cookie }, 
 await db.close();
 
 /** Runs one lhci command against Playwright's Chromium, which CHROME_PATH points it at. */
-async function lhci(args: readonly string[]): Promise<number> {
+async function lhci(args: ReadonlyArray<string>): Promise<number> {
   const child = Bun.spawn([LHCI_BIN, ...args], {
     stdout: 'inherit',
     stderr: 'inherit',

@@ -9,7 +9,7 @@ interface CreationChoice {
 }
 
 /** The ways to make a character, one card each. Keys are spelled out in full (no runtime key building). */
-const CHOICES: readonly CreationChoice[] = [
+const CHOICES: ReadonlyArray<CreationChoice> = [
   {
     path: 'import',
     title: 'character.new.import.title',

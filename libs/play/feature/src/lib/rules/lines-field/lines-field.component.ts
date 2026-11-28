@@ -19,7 +19,7 @@ export class LinesField {
   public readonly errorKey = input.required<string>();
   public readonly rows = input.required<number>();
   /** The 1-based lines that do not read. */
-  public readonly bad = input.required<readonly number[]>();
+  public readonly bad = input.required<ReadonlyArray<number>>();
   public readonly value = model.required<string>();
   /** A problem with the whole text rather than some lines (roll options that cannot be read), shown in place of the hint. */
   public readonly failure = input<string | undefined>(undefined);

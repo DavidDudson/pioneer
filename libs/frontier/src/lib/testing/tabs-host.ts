@@ -20,7 +20,7 @@ export interface TabsHostTab {
 })
 export class TabsHost {
   public readonly label = input.required<string>();
-  public readonly tabs = input.required<readonly TabsHostTab[]>();
+  public readonly tabs = input.required<ReadonlyArray<TabsHostTab>>();
   public readonly appearance = input<TabsAppearance>(TabsAppearance.Underline);
   public readonly centered = input(false);
   public readonly orientation = input<TabsOrientation>(TabsOrientation.Horizontal);

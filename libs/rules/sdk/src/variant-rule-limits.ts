@@ -31,7 +31,7 @@ const LIMIT_NAMES = VariantRuleLimits.keyof().options;
  * The limits of the variant rules in force laid together. Two variants that change the same limit conflict, and the
  * more permissive wins: every limit is a most, so the higher number (ADR-0064).
  */
-export function mergeVariantLimits(declared: readonly VariantRuleLimits[]): VariantRuleLimits {
+export function mergeVariantLimits(declared: ReadonlyArray<VariantRuleLimits>): VariantRuleLimits {
   const merged: { -readonly [Name in keyof VariantRuleLimits]: VariantLimitValue } = {};
 
   for (const limits of declared) {

@@ -8,9 +8,9 @@ import { EntryEaseOptionsView } from './entry-ease-options.component';
 import type { PreviewEaseOption } from './entry-preview';
 import { CLUMSY_ENDINGS_PREVIEW } from './entry-preview.fixtures';
 
-const OPTIONS: readonly PreviewEaseOption[] = CLUMSY_ENDINGS_PREVIEW.easeOptions ?? [];
+const OPTIONS: ReadonlyArray<PreviewEaseOption> = CLUMSY_ENDINGS_PREVIEW.easeOptions ?? [];
 
-function render(options: readonly PreviewEaseOption[] | undefined): ComponentFixture<EntryEaseOptionsView> {
+function render(options: ReadonlyArray<PreviewEaseOption> | undefined): ComponentFixture<EntryEaseOptionsView> {
   TestBed.configureTestingModule({ providers: [provideRichTextTesting(), provideRouter([])] });
   const fixture = TestBed.createComponent(EntryEaseOptionsView);
   fixture.componentRef.setInput('options', options);

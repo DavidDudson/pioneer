@@ -17,7 +17,7 @@ import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SheetState } from '../sheet-state';
 
 /** What the slots are read from: the same content the counts of the sheet read. */
-const SLOT_CONTENT_KINDS: readonly ContentKind[] = [...new Set([...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS])];
+const SLOT_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...new Set([...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS])];
 
 /** What the panel holds: the slots of the spontaneous entries, and whether the character has focus points. */
 interface SpellResources {

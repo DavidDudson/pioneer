@@ -47,7 +47,7 @@ import { SheetState } from './sheet-state';
  * What a spend reads: the actions, the spells a sustained cast starts an active spell from, and the effects of a form
  * cast. They load when something is first used (#1834), so a sheet where nothing is used never fetches the spells.
  */
-const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
+const SPENDER_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...ACTION_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
 
 /** What a load of the spend's content came to: the registry, absent when it failed. */
 interface LoadedRegistry {
@@ -304,7 +304,7 @@ export class SheetSpender extends ActionUser {
 }
 
 /** What the sheet page provides for play: its state, and the spender every list on its tabs uses an action with. */
-export const SHEET_PLAY_PROVIDERS: readonly Provider[] = [
+export const SHEET_PLAY_PROVIDERS: ReadonlyArray<Provider> = [
   PlayStore,
   SheetConsumableUse,
   SheetSpender,

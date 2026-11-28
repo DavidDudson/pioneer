@@ -92,7 +92,7 @@ export class SheetOverrideForm {
       ? this.#i18n.translate(Message.Current, { total: this.#format.number(result.total, numberStyle(kind)) })
       : undefined;
   });
-  protected readonly types: readonly SelectOption<OverrideModifierType>[] = OverrideModifierType.options.map(
+  protected readonly types: ReadonlyArray<SelectOption<OverrideModifierType>> = OverrideModifierType.options.map(
     (type): SelectOption<OverrideModifierType> => ({
       value: type,
       label: this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type]),

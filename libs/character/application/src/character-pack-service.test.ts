@@ -39,12 +39,12 @@ function known(id: ContentPackId, title: string, rest: Partial<KnownPack> = {}):
 }
 
 /** The enabled packs' titles, in order, as plain strings. */
-function enabledTitles(packs: CharacterPacks): readonly string[] {
+function enabledTitles(packs: CharacterPacks): ReadonlyArray<string> {
   return packs.enabled.map((pack) => String(pack.title));
 }
 
 /** The candidates' titles, in order, as plain strings. */
-function candidateTitles(packs: CharacterPacks): readonly string[] {
+function candidateTitles(packs: CharacterPacks): ReadonlyArray<string> {
   return packs.candidates.map((pack) => String(pack.title));
 }
 

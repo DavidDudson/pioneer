@@ -3,7 +3,7 @@ import { listOf, listText } from './table-view-text';
 import type { TableViewColumn, TableViewSort } from './table-view.types';
 
 /** `-lvl,name`: column codes in order, a leading `-` for descending. */
-export function sortText(sort: readonly TableViewSort[], columns: readonly TableViewColumn[]): string {
+export function sortText(sort: ReadonlyArray<TableViewSort>, columns: ReadonlyArray<TableViewColumn>): string {
   const codes = new Map(columns.map((column) => [column.id, column.code]));
 
   const tokens = sort.flatMap(({ column, descending }) => {
@@ -16,10 +16,13 @@ export function sortText(sort: readonly TableViewSort[], columns: readonly Table
 }
 
 /** Sorts in the text. Unknown codes are dropped, and a column sorts once, by its first mention. */
-export function sortOf(text: string | undefined, columns: readonly TableViewColumn[]): readonly TableViewSort[] {
+export function sortOf(
+  text: string | undefined,
+  columns: ReadonlyArray<TableViewColumn>,
+): ReadonlyArray<TableViewSort> {
   const ids = new Map(columns.map((column) => [column.code, column.id]));
   const seen = new Set<string>();
-  const sort: TableViewSort[] = [];
+  const sort: Array<TableViewSort> = [];
 
   for (const token of listOf(text)) {
     const descending = token.startsWith(MINUS);

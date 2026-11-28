@@ -53,10 +53,10 @@ export interface ArchetypeLink {
 }
 
 export interface Archetypes {
-  readonly entries: readonly ArchetypeEntry[];
+  readonly entries: ReadonlyArray<ArchetypeEntry>;
   /** Every archetype whose page links a feat, by the feat's id, in journal order. */
-  readonly byFeat: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
-  readonly gaps: readonly KindDataGap[];
+  readonly byFeat: ReadonlyMap<ContentId, ReadonlyArray<ArchetypeLink>>;
+  readonly gaps: ReadonlyArray<KindDataGap>;
 }
 
 export interface ArchetypeContext {
@@ -68,7 +68,7 @@ export interface ArchetypeContext {
 }
 
 /** The feats a page links, by id, each once, in page order; links to anything outside the import are left out. */
-function linkedFeats(content: string, { references }: ArchetypeContext): ContentId[] {
+function linkedFeats(content: string, { references }: ArchetypeContext): Array<ContentId> {
   const ids = [...content.matchAll(FEAT_LINK)].flatMap(({ groups }) => {
     const id = resolveUuid(references, groups?.['uuid'] ?? groups?.['embed'] ?? '');
 
@@ -93,14 +93,14 @@ function pageUuid({ journal, page }: Page): ExternalId {
 
 interface Built {
   readonly entry: ArchetypeEntry;
-  readonly feats: readonly ContentId[];
-  readonly gaps: readonly KindDataGap[];
+  readonly feats: ReadonlyArray<ContentId>;
+  readonly gaps: ReadonlyArray<KindDataGap>;
 }
 
 /** The page's dedication: a linked feat with the `dedication` trait whose name starts with the page's. */
 function dedicationOf(
   name: string,
-  feats: readonly ContentId[],
+  feats: ReadonlyArray<ContentId>,
   { envelopes }: ArchetypeContext,
 ): ImportedEnvelope | undefined {
   const opening = name.toLowerCase();
@@ -115,7 +115,7 @@ function dedicationOf(
 /** What a multiclass archetype adds: the class it is named after, or the gap when no class has its name. */
 interface Multiclass {
   readonly data: object;
-  readonly gaps: readonly KindDataGap[];
+  readonly gaps: ReadonlyArray<KindDataGap>;
 }
 
 function multiclassOf(envelope: ImportedEnvelope, { references }: ArchetypeContext): Multiclass {
@@ -182,13 +182,13 @@ function built(page: Page, context: ArchetypeContext): Built | undefined {
  * The archetypes whose dedication the import brings in, from the archetypes journal's pages, and the archetypes
  * each linked feat belongs to. A page whose dedication is outside the import is left for that book's import.
  */
-export function importArchetypes(journals: readonly JournalDocument[], context: ArchetypeContext): Archetypes {
+export function importArchetypes(journals: ReadonlyArray<JournalDocument>, context: ArchetypeContext): Archetypes {
   const pages = journals
     .filter(({ journal }) => journal.name === ARCHETYPES_JOURNAL)
     .flatMap(({ journal }) => journal.pages.map((page) => ({ journal, page })));
 
   const archetypes = pages.flatMap((page) => built(page, context) ?? []);
-  const byFeat = new Map<ContentId, ArchetypeLink[]>();
+  const byFeat = new Map<ContentId, Array<ArchetypeLink>>();
 
   for (const { entry, feats } of archetypes) {
     const dedication = context.envelopes.get(entry.kindData.data.dedication)?.name ?? entry.envelope.name;
@@ -210,11 +210,11 @@ export function importArchetypes(journals: readonly JournalDocument[], context: 
  */
 function unlockedDedications(
   envelopes: Iterable<ImportedEnvelope>,
-  archetypes: readonly ArchetypeEntry[],
-): KindDataGap[] {
+  archetypes: ReadonlyArray<ArchetypeEntry>,
+): Array<KindDataGap> {
   const named = new Set(archetypes.map(({ kindData }) => kindData.data.dedication));
 
-  return [...envelopes].flatMap((envelope): KindDataGap[] =>
+  return [...envelopes].flatMap((envelope): Array<KindDataGap> =>
     envelope.traits.includes(DEDICATION) && !named.has(envelope.id)
       ? [{ entry: envelope.id, reason: KindDataGapReason.MissingArchetype, field: 'dedication', raw: envelope.name }]
       : [],

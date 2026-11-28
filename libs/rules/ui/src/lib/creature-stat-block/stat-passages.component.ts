@@ -12,6 +12,6 @@ import type { StatPassage } from './creature-stat-block';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatPassagesView {
-  public readonly passages = input.required<readonly StatPassage[]>();
+  public readonly passages = input.required<ReadonlyArray<StatPassage>>();
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 }

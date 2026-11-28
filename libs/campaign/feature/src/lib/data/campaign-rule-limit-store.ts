@@ -6,7 +6,7 @@ import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's table limits. */
-function ruleLimitsKey(id: CampaignId | undefined): readonly unknown[] {
+function ruleLimitsKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'rule-limits', id];
 }
 

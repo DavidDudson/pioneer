@@ -19,7 +19,7 @@ describe('FastHealing from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: RuleElementKey.FastHealing, value: '@item.level * 2' }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: RuleElementKey.FastHealing, value: '@item.level * 2' }]);
   });
 
   test('regeneration and what deactivates it carry over', () => {
@@ -33,7 +33,7 @@ describe('FastHealing from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.FastHealing, type: 'regeneration', deactivatedBy: ['acid', 'fire'], value: 15 },
     ]);
   });

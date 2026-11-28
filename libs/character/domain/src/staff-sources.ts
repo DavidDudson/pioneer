@@ -45,7 +45,7 @@ export interface StaffSourceCharges {
 /** A staff the character holds as a spell source: its spells by rank and the charges it has left. */
 export interface StaffSource {
   readonly item: InventoryItem;
-  readonly spells: readonly StaffSourceSpell[];
+  readonly spells: ReadonlyArray<StaffSourceSpell>;
   /** The charges of the staff prepared for the day; undefined for a staff that is not the prepared one. */
   readonly charges: StaffSourceCharges | undefined;
 }
@@ -74,7 +74,7 @@ function castsRank(entry: SpellcastingInPlay, rank: StaffRank): boolean {
 /** Why no entry casts the spell: none lists it, or those that do cast no spell of its rank. */
 function problemOf(
   entry: SpellcastingInPlay | undefined,
-  listing: readonly SpellcastingInPlay[],
+  listing: ReadonlyArray<SpellcastingInPlay>,
 ): StaffSpellProblem | undefined {
   if (entry !== undefined) {
     return undefined;
@@ -95,7 +95,7 @@ export interface CastingQuery {
   readonly id: ContentId;
   readonly rank: StaffRank;
   readonly content: SpellContent;
-  readonly entries: readonly SpellcastingInPlay[];
+  readonly entries: ReadonlyArray<SpellcastingInPlay>;
 }
 
 /**
@@ -113,17 +113,17 @@ export function castingEntry({ id, rank, content, entries }: CastingQuery): Cast
 function sourceSpell(
   { spell: id, rank, charges }: StaffSpell,
   content: SpellContent,
-  entries: readonly SpellcastingInPlay[],
+  entries: ReadonlyArray<SpellcastingInPlay>,
 ): StaffSourceSpell {
   return { id, rank, charges, ...castingEntry({ id, rank, content, entries }) };
 }
 
 /** What the staves are read from: the inventory and its content, the spells, the spellcasting entries and the charges. */
 export interface StaffSourceInputs {
-  readonly inventory: readonly InventoryItem[];
+  readonly inventory: ReadonlyArray<InventoryItem>;
   readonly items: ItemContent;
   readonly spells: SpellContent;
-  readonly entries: readonly SpellcastingInPlay[];
+  readonly entries: ReadonlyArray<SpellcastingInPlay>;
   readonly charges: StaffCharges;
 }
 
@@ -140,10 +140,10 @@ export function staffSources({
   spells,
   entries,
   charges,
-}: StaffSourceInputs): readonly StaffSource[] {
+}: StaffSourceInputs): ReadonlyArray<StaffSource> {
   const casters = entries.filter(({ preparation }) => preparation !== SpellPreparation.Focus);
 
-  return inventory.flatMap((item): StaffSource[] => {
+  return inventory.flatMap((item): Array<StaffSource> => {
     if (item.carry.state !== CarryState.Worn && item.carry.state !== CarryState.Held) {
       return [];
     }

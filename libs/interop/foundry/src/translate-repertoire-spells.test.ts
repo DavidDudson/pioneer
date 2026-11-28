@@ -20,16 +20,16 @@ const { ChoiceSet, RepertoireSpells, SpellcastingEntry, SpellSlots } = RuleEleme
 interface Imported {
   readonly slug: string;
   readonly fixture: DocumentFixture;
-  readonly spells: readonly string[];
+  readonly spells: ReadonlyArray<string>;
 }
 
 /** A spell document for each of `names`. */
-function spellsNamed(names: readonly string[]): DocumentFixture[] {
+function spellsNamed(names: ReadonlyArray<string>): Array<DocumentFixture> {
   return names.map((name, index) => ({ id: `sPeLlGiFt${String(index).padStart(7, '0')}`, name, type: 'spell' }));
 }
 
 /** The rule elements of `key` the feature gains when imported with its spells. */
-function keyed(key: string, { slug, fixture, spells }: Imported): Record<string, unknown>[] {
+function keyed(key: string, { slug, fixture, spells }: Imported): Array<Record<string, unknown>> {
   return rulesIn(translate([fixture, ...spellsNamed(spells)]), slug).filter(
     (rule): rule is Record<string, unknown> =>
       typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
@@ -37,7 +37,7 @@ function keyed(key: string, { slug, fixture, spells }: Imported): Record<string,
 }
 
 /** The spellcasting entries the feature gains, not its focus entry (translate-sorcerer-bloodlines.test.ts). */
-function ownEntries(feature: Imported): Record<string, unknown>[] {
+function ownEntries(feature: Imported): Array<Record<string, unknown>> {
   return keyed(SpellcastingEntry, feature).filter(({ preparation }) => preparation !== 'focus');
 }
 

@@ -49,7 +49,7 @@ export class CharacterStore {
   readonly #client = inject(QueryClient);
   readonly #selectedId = signal<CharacterId | undefined>(undefined);
   readonly #importReports = signal<ReadonlyMap<CharacterId, CharacterImportReport>>(new Map());
-  readonly #cleared = signal<readonly ClearedPick[]>([]);
+  readonly #cleared = signal<ReadonlyArray<ClearedPick>>([]);
   readonly #edits = new EditTracker(this.#selectedId.asReadonly());
 
   readonly #selected = injectQuery(() => {
@@ -78,13 +78,13 @@ export class CharacterStore {
   public readonly selected: Signal<Character | undefined> = computed(() => this.#current()?.character);
 
   /** Every slot of the open character with its status, as the server read it; `undefined` while loading. */
-  public readonly slots: Signal<readonly CharacterSlot[] | undefined> = computed(() => this.#current()?.slots);
+  public readonly slots: Signal<ReadonlyArray<CharacterSlot> | undefined> = computed(() => this.#current()?.slots);
 
   /** The open character's languages, as the server read them; `undefined` while loading. */
   public readonly languages: Signal<CharacterLanguages | undefined> = computed(() => this.#current()?.languages);
   /** The open character's deity, as the server read it; `undefined` with none, or while loading. */
   public readonly deity: Signal<SheetDeity | undefined> = computed(() => this.#current()?.deity);
-  public readonly authors: Signal<readonly OverrideAuthor[] | undefined> = computed(() => this.#current()?.authors);
+  public readonly authors: Signal<ReadonlyArray<OverrideAuthor> | undefined> = computed(() => this.#current()?.authors);
 
   readonly #sheetMode = injectQuery(() => {
     const id = this.#selectedId();
@@ -235,7 +235,7 @@ export class CharacterStore {
    * The picks the last edit cleared because a slot they are within changed (a heritage of the old ancestry), until
    * dismissed or the next edit. Held here, not stored: the server reports them once.
    */
-  public readonly cleared: Signal<readonly ClearedPick[]> = this.#cleared.asReadonly();
+  public readonly cleared: Signal<ReadonlyArray<ClearedPick>> = this.#cleared.asReadonly();
 
   public dismissCleared(): void {
     this.#cleared.set([]);

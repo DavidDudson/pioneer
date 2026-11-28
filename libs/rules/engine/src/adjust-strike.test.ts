@@ -12,7 +12,7 @@ import { inPlay } from './testing';
 
 const facts = new PredicateFacts([], CORE_NAMESPACES);
 
-function weapon(options: readonly string[], range?: number): AlteredItem {
+function weapon(options: ReadonlyArray<string>, range?: number): AlteredItem {
   return {
     rollOptions: ['type:weapon', ...options, 'equipped'].map((option) => RollOptionTail.parse(option)),
     numbers: new Map(range === undefined ? [] : [[NumericItemProperty.RangeIncrement, FormulaValue.parse(range)]]),
@@ -24,7 +24,7 @@ function weapon(options: readonly string[], range?: number): AlteredItem {
   };
 }
 
-function traits(...names: readonly string[]): readonly Trait[] {
+function traits(...names: ReadonlyArray<string>): ReadonlyArray<Trait> {
   return names.map((name) => Trait.parse(name));
 }
 
@@ -32,7 +32,7 @@ const LONGSWORD = weapon(['slug:longsword', 'melee']);
 const SHORTBOW = weapon(['slug:shortbow', 'ranged'], 60);
 
 /** `strike` after the adjustments, each placed in order. */
-function adjusted(strike: AlteredItem, elements: readonly RuleJson[]): AlteredItem {
+function adjusted(strike: AlteredItem, elements: ReadonlyArray<RuleJson>): AlteredItem {
   const rules = elements.map((element, rule) => inPlay(element, 'adjuster', { rule }));
 
   return adjustStrike({ rules, facts }, strike);

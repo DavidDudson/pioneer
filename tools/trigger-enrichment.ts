@@ -28,9 +28,9 @@ function withEvent(entry: ContentEntry, triggerEvent: TriggerEvent): ContentEntr
  * entries are re-encoded; the rest are the file's own JSON.
  */
 export function enrichTriggerFile(
-  file: readonly unknown[],
+  file: ReadonlyArray<unknown>,
   matches: ReadonlyMap<ContentKey, TriggerEvent>,
-): readonly unknown[] | undefined {
+): ReadonlyArray<unknown> | undefined {
   const entries = ContentEntryFile.parse(file);
 
   const enriched = file.map((json, index) => {

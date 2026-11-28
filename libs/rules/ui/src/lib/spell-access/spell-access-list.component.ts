@@ -38,12 +38,12 @@ interface AccessRow {
 })
 export class SpellAccessListView {
   /** The spells in the order the build lists them, or undefined while they load. */
-  public readonly lines = input<readonly SpellAccessLine[] | undefined>();
+  public readonly lines = input<ReadonlyArray<SpellAccessLine> | undefined>();
   public readonly remove = input<RemoveSpellAccess>(async () => undefined);
 
   readonly #i18n = inject(TranslocoService);
 
-  protected readonly rows = computed((): readonly AccessRow[] | undefined => {
+  protected readonly rows = computed((): ReadonlyArray<AccessRow> | undefined => {
     const remove = this.remove();
 
     return this.lines()?.map(({ spell, name }) => ({

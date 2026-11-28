@@ -9,7 +9,7 @@ import { RulesMessage } from './messages';
 import { Origin, OriginHopKind } from './origin';
 import { SourceKind, SourceRef } from './source-ref';
 
-function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

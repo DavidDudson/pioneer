@@ -57,7 +57,7 @@ function required(root: HTMLElement, selector: string): HTMLElement {
 }
 
 /** The elements of `root`, in document order, by selector. */
-function order(root: HTMLElement, selectors: readonly string[]): readonly number[] {
+function order(root: HTMLElement, selectors: ReadonlyArray<string>): ReadonlyArray<number> {
   const all = [...root.querySelectorAll('*')];
 
   return selectors.map((selector) => all.indexOf(required(root, selector)));

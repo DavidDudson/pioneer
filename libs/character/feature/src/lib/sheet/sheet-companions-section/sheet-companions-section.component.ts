@@ -20,7 +20,7 @@ import type { CompanionSlotView } from '../sheet-companions';
 interface CompanionCard {
   readonly companion: Companion;
   /** The lines under the name. */
-  readonly facts: readonly CompanionFact[];
+  readonly facts: ReadonlyArray<CompanionFact>;
 }
 
 /** One species choice as the section shows it: the card of the companion it granted, and the form to name one. */
@@ -28,7 +28,7 @@ interface CompanionEntry {
   readonly view: CompanionSlotView;
   readonly card: CompanionCard | undefined;
   /** The species the form offers: all of them while the choice is open, the one picked once it is. */
-  readonly options: readonly CompanionSpeciesOption[];
+  readonly options: ReadonlyArray<CompanionSpeciesOption>;
   /** The form shows when there is no companion for the species picked. */
   readonly naming: boolean;
   /** The companion is of another species than the choice now holds, so it can be replaced keeping its name. */
@@ -62,7 +62,7 @@ export class SheetCompanionsSection {
     Source: 'character.sheet.companions.source',
   } as const;
 
-  protected readonly entries = computed((): readonly CompanionEntry[] => {
+  protected readonly entries = computed((): ReadonlyArray<CompanionEntry> => {
     const registry = this.#registry.data();
     const slots = this.#characters.slots();
     const character = this.#characters.selected();

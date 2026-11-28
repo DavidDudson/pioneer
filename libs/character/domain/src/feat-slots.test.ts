@@ -101,7 +101,7 @@ describe('featSlots', () => {
   test('reads each clause of a feat with several, and the feat by them when it has no predicate of its own', () => {
     const read = featSlots(fighter().build().document, content).find((each) => each.key === LEVEL_1);
 
-    const clausesOf = (name: string): readonly PrerequisiteClauseStatus[] | undefined =>
+    const clausesOf = (name: string): ReadonlyArray<PrerequisiteClauseStatus> | undefined =>
       read?.options.find((option) => option.label.toLowerCase() === name)?.clauses;
 
     expect(plain(clausesOf('shield-brawler'))).toEqual([

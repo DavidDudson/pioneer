@@ -73,8 +73,8 @@ export interface UseView {
 
 /** Every counted resource the character has, with what is held of each. */
 export interface CountedViews {
-  readonly slots: readonly SlotView[];
-  readonly uses: readonly UseView[];
+  readonly slots: ReadonlyArray<SlotView>;
+  readonly uses: ReadonlyArray<UseView>;
 }
 
 /** What the uses of one character are read from. */
@@ -88,7 +88,7 @@ interface UseSource {
 type UseTarget = Pick<UseView, 'key' | 'name' | 'overcharge' | 'activation'>;
 
 /** What is held of the use counted under `key`, if the build or content gives it a maximum. */
-function useView({ counted, spent }: UseSource, { key, name, overcharge, activation }: UseTarget): UseView[] {
+function useView({ counted, spent }: UseSource, { key, name, overcharge, activation }: UseTarget): Array<UseView> {
   const maximum = counted.uses.get(key);
 
   return maximum === undefined
@@ -117,7 +117,7 @@ interface ActivationOnItem {
 }
 
 /** The daily uses of an activation, then its overcharged use if it has one. */
-function activationUses(used: UseSource, { item, slug, name, entry, cost }: ActivationOnItem): UseView[] {
+function activationUses(used: UseSource, { item, slug, name, entry, cost }: ActivationOnItem): Array<UseView> {
   const activation: ActivationCost = { item: entry, ...cost };
   const daily = useView(used, { key: activationUseKey(item, slug), name, overcharge: false, activation });
   const overcharged = useView(used, { key: overchargeUseKey(item, slug), name, overcharge: true, activation });
@@ -126,7 +126,7 @@ function activationUses(used: UseSource, { item, slug, name, entry, cost }: Acti
 }
 
 /** The uses of each activation with a frequency on the character's items, named by the item and the activation. */
-function activationViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
+function activationViews(registry: ContentRegistry, character: Character, used: UseSource): Array<UseView> {
   const itemEntries = itemContent(registry);
 
   return character.document.inventory.items.flatMap((item) =>
@@ -140,7 +140,7 @@ function activationViews(registry: ContentRegistry, character: Character, used: 
 }
 
 /** The casts of each wand the character has and its overcharged cast, named by the wand. */
-function wandViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
+function wandViews(registry: ContentRegistry, character: Character, used: UseSource): Array<UseView> {
   const itemEntries = itemContent(registry);
   const wands = itemWands(registry);
 
@@ -218,7 +218,7 @@ export function countedViews(registry: ContentRegistry, character: Character, sp
  * The uses spent of a frequency that only a rest or the player gives back, each with the rounds its countdown has
  * left; a turn, round, daily or session frequency comes back on its own boundary and has no Reset.
  */
-export function resettableUses(registry: ContentRegistry, character: Character, spent: ResourcesSpent): UseView[] {
+export function resettableUses(registry: ContentRegistry, character: Character, spent: ResourcesSpent): Array<UseView> {
   return countedViews(registry, character, spent).uses.filter(
     ({ boundary, current, max }) => (boundary === Boundary.Rest || boundary === Boundary.Manual) && current < max,
   );

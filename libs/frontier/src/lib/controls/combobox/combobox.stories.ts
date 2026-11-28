@@ -14,12 +14,12 @@ type ComboboxStory = StoryObj<Combobox<string>>;
 
 const FEAT_COUNT = 400;
 
-const FEATS: readonly SelectOption<string>[] = Array.from({ length: FEAT_COUNT }, (_entry, index) => ({
+const FEATS: ReadonlyArray<SelectOption<string>> = Array.from({ length: FEAT_COUNT }, (_entry, index) => ({
   value: `feat-${index + 1}`,
   label: `Feat ${index + 1}`,
 }));
 
-function matching(query: string): readonly SelectOption<string>[] {
+function matching(query: string): ReadonlyArray<SelectOption<string>> {
   const needle = query.trim().toLowerCase();
 
   return FEATS.filter((feat) => feat.label.toLowerCase().includes(needle));
@@ -75,7 +75,7 @@ export const Long: ComboboxStory = {
 /** Each query loads slowly, showing skeleton rows meanwhile. */
 export const AsyncSource: ComboboxStory = {
   render: (args) => {
-    const options = signal<readonly SelectOption<string>[]>([]);
+    const options = signal<ReadonlyArray<SelectOption<string>>>([]);
     const loading = signal(false);
 
     return {
@@ -95,7 +95,7 @@ export const AsyncSource: ComboboxStory = {
   },
 };
 
-const DESCRIBED: readonly ComboboxOption<string>[] = [
+const DESCRIBED: ReadonlyArray<ComboboxOption<string>> = [
   { value: 'power-attack', label: 'Power Attack' },
   {
     value: 'sudden-charge',
@@ -110,7 +110,7 @@ const DESCRIBED: readonly ComboboxOption<string>[] = [
   },
 ];
 
-const TAGGED: readonly ComboboxOption<string>[] = [
+const TAGGED: ReadonlyArray<ComboboxOption<string>> = [
   {
     value: 'fireball',
     label: 'Fireball',

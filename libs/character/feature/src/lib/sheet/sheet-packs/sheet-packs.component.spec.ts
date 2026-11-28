@@ -56,12 +56,12 @@ interface PacksJson extends JsonObject {
   readonly decidedBy: 'character' | 'campaign';
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly JsonObject[];
-  readonly candidates: readonly JsonObject[];
+  readonly enabled: ReadonlyArray<JsonObject>;
+  readonly candidates: ReadonlyArray<JsonObject>;
 }
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 

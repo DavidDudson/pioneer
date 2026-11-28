@@ -42,7 +42,7 @@ const GROWN_OF_OAK: SpellGap = {
   reason: SpellGapReason.NotGranted,
 };
 
-async function render(spellGaps: readonly SpellGap[]): Promise<string> {
+async function render(spellGaps: ReadonlyArray<SpellGap>): Promise<string> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en, ...rulesMessages }, 'en', { merge: true });
   const fixture: ComponentFixture<ImportSpellReport> = TestBed.createComponent(ImportSpellReport);

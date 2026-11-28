@@ -116,7 +116,7 @@ export type Origin = z.output<typeof Origin>;
  * was cast at (`parent:origin:item:level:6`) and the tradition of the spellcasting entry that cast it
  * (`parent:spellcasting:tradition:primal`). An origin that is not an effect sets none.
  */
-export function parentOptions(origin: Origin): readonly RollOption[] {
+export function parentOptions(origin: Origin): ReadonlyArray<RollOption> {
   const [hop] = origin.hops;
 
   if (hop?.kind !== OriginHopKind.Effect) {

@@ -18,7 +18,7 @@ import type { JsonValue } from './testing/json-fixture';
  */
 const pack = new ContentPackBuilder().withId('orders');
 
-const ORDERS: readonly (readonly [string, string])[] = [
+const ORDERS: ReadonlyArray<readonly [string, string]> = [
   ['leaf-order', 'cornucopia'],
   ['storm-order', 'tempest-surge'],
   ['untamed-order', 'untamed-shift'],
@@ -39,7 +39,7 @@ const FOCUS = {
   preparation: 'focus',
 };
 
-const explored = (order: string): readonly JsonValue[] => [{ not: `feat:order-explorer:${order}` }];
+const explored = (order: string): ReadonlyArray<JsonValue> => [{ not: `feat:order-explorer:${order}` }];
 
 for (const [order, spell] of ORDERS) {
   pack.withClassFeature(order, {
@@ -123,7 +123,7 @@ function druid(picks: Readonly<Record<string, string>> = {}): CharacterBuilder {
   return builder;
 }
 
-function spellsOf(builder: CharacterBuilder): string[] {
+function spellsOf(builder: CharacterBuilder): Array<string> {
   const { document } = builder.build();
   const entries = characterSpellcasting(characterGrants(document, content));
   const focus = characterFocus(entries, spellContent(registry), document.level);

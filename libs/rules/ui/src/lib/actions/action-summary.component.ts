@@ -40,13 +40,13 @@ export class ActionSummary {
 
   protected readonly level = HeadingLevel.Four;
   /** What an item action spends and has left as a plain badge, then its traits as chips that open their cards. */
-  protected readonly badges = computed((): readonly Chip[] => {
+  protected readonly badges = computed((): ReadonlyArray<Chip> => {
     const { resource, line } = this.action();
 
     return [...(resource === undefined ? [] : [{ label: resource }]), ...line.traits];
   });
   /** The trigger and the requirements, for those the action has. */
-  protected readonly facts = computed((): readonly Fact[] => {
+  protected readonly facts = computed((): ReadonlyArray<Fact> => {
     const { trigger, requirements } = this.action().line;
 
     return [

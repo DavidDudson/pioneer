@@ -33,9 +33,9 @@ export interface RollToggleChange {
 })
 export class RollToggles {
   /** Situations that count for this roll only. */
-  public readonly perRoll = input<readonly RollToggleView[]>([]);
+  public readonly perRoll = input<ReadonlyArray<RollToggleView>>([]);
   /** Toggles the character keeps between rolls. */
-  public readonly remembered = input<readonly RollToggleView[]>([]);
+  public readonly remembered = input<ReadonlyArray<RollToggleView>>([]);
   public readonly perRollChange = output<RollToggleChange>();
   public readonly rememberedChange = output<RollToggleChange>();
 

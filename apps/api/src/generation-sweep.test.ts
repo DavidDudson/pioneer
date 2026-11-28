@@ -13,7 +13,7 @@ const FULL_SPOT_LEVELS = [1, 5, 10, 15, 20];
 const ALL_LEVELS = Array.from({ length: LEVEL_COUNT }, (_unused, index) => index + 1);
 
 /** The levels as plain numbers, to compare with the numbers the sweep should hold. */
-function plain(levels: readonly CharacterLevel[]): readonly number[] {
+function plain(levels: ReadonlyArray<CharacterLevel>): ReadonlyArray<number> {
   return levels.map(Number);
 }
 

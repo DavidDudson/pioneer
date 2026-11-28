@@ -3,13 +3,13 @@ import { describe, expect, it } from 'vitest';
 import { shownAttachRows } from './campaign-attach-table';
 import type { AttachRow } from './campaign-attach-table';
 
-const rows: readonly AttachRow[] = [
+const rows: ReadonlyArray<AttachRow> = [
   { characterId: 'c1', name: 'Merisiel', ancestry: 'Elf', class: 'Rogue', level: 3 },
   { characterId: 'c2', name: 'Amiri', ancestry: 'Human', class: 'Barbarian', level: 10 },
   { characterId: 'c3', name: 'Kyra', ancestry: 'Human', class: 'Cleric', level: 3 },
 ];
 
-const ids = (shown: readonly AttachRow[]): readonly string[] => shown.map((row) => row.characterId);
+const ids = (shown: ReadonlyArray<AttachRow>): ReadonlyArray<string> => shown.map((row) => row.characterId);
 
 describe(shownAttachRows, () => {
   it('keeps the given order when no sort is asked for', () => {

@@ -36,7 +36,7 @@ export function backlogPath(pack: PackId): string {
 }
 
 /** Omits `legacyPin` when absent, so the printed file stays valid JSON. */
-export function backlogWrite(pack: PackId, committed: ImportFile, backlog: readonly BacklogItem[]): PackWrite {
+export function backlogWrite(pack: PackId, committed: ImportFile, backlog: ReadonlyArray<BacklogItem>): PackWrite {
   const { pin, legacyPin } = committed;
   const json = ImportFile.parse(legacyPin === undefined ? { pin, backlog } : { pin, legacyPin, backlog });
 
@@ -49,12 +49,12 @@ function specifier(file: string): string {
 }
 
 /** The pack files `json-packs.js` (its source, `catalog`) does not import, so the catalog would never load them. */
-export function unregistered(catalog: string, files: readonly string[]): readonly string[] {
+export function unregistered(catalog: string, files: ReadonlyArray<string>): ReadonlyArray<string> {
   return files.filter((file) => !catalog.includes(`'${specifier(file)}'`));
 }
 
 /** What `json-packs.js` imports from `content/packs` that is not among `files`, so its build would fail. */
-export function missing(catalog: string, files: readonly string[]): readonly string[] {
+export function missing(catalog: string, files: ReadonlyArray<string>): ReadonlyArray<string> {
   const present = new Set(files.map((file) => specifier(file)));
 
   const imported = [...catalog.matchAll(/'(?<specifier>@pioneer\/content\/packs\/[^']+\.json)'/gu)].map(

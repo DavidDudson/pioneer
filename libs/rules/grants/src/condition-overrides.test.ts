@@ -6,7 +6,11 @@ import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import { afflicted, entry, grantOf, idOf, inputsOf } from './testing/builders';
 
-const condition = (slug: string, rules: readonly object[] = [], overrides: readonly string[] = []): GrantEntry => {
+const condition = (
+  slug: string,
+  rules: ReadonlyArray<object> = [],
+  overrides: ReadonlyArray<string> = [],
+): GrantEntry => {
   const base: GrantEntry = { ...entry(slug, rules), kind: ContentKind.Condition };
 
   return overrides.length === 0 ? base : { ...base, overrides: overrides.map((each) => idOf(each)) };
@@ -16,7 +20,7 @@ const dazzled = condition('dazzled');
 const blinded = condition('blinded', [], ['dazzled']);
 
 /** The conditions in play once `entries` resolve from the conditions named in `roots`. */
-function active(entries: readonly GrantEntry[], roots: readonly string[]): string[] {
+function active(entries: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<string>): Array<string> {
   const result = resolveGrants(inputsOf({ entries, roots: roots.map((slug) => afflicted(slug)) }));
 
   return result.items.map(({ entry: each }) => String(each.slug)).toSorted();

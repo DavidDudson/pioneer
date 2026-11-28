@@ -53,7 +53,7 @@ export function boostRefusal({ set, boost }: BoostSlotIn, selection: ChoiceValue
 
 /** The voluntary flaw slot `slot` and the character's other flaw slots, if it is one the character has. */
 export interface FlawSlotIn {
-  readonly slots: readonly FlawSlot[];
+  readonly slots: ReadonlyArray<FlawSlot>;
   readonly flaw: FlawSlot;
 }
 

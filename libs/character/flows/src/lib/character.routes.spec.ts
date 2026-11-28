@@ -31,7 +31,7 @@ function target(route: Route): Route {
 }
 
 /** The real routes with every page replaced by `StubPage` and the store by one that holds the open character. */
-function stubbed(routes: readonly Route[]): Route[] {
+function stubbed(routes: ReadonlyArray<Route>): Array<Route> {
   return routes.map((route): Route => {
     const providers = route.providers?.map((provider) =>
       provider === CharacterStore
@@ -71,16 +71,16 @@ async function open(url: string): Promise<void> {
 }
 
 /** The trail the shell's header shows. */
-const trailOf = (): (string | undefined)[] =>
+const trailOf = (): Array<string | undefined> =>
   TestBed.inject(HeaderCrumbs)
     .trail()
     .map(({ label }) => label);
 
 /** Where the trail's links go. */
-const hrefsOf = (): string[] =>
+const hrefsOf = (): Array<string> =>
   TestBed.inject(HeaderCrumbs)
     .trail()
-    .flatMap(({ to }): string[] => {
+    .flatMap(({ to }): Array<string> => {
       const href = z.string().safeParse(to);
 
       return href.success ? [href.data] : [];

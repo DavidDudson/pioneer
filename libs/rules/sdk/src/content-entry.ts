@@ -218,7 +218,7 @@ function unknownKindMessage(kinded: z.output<typeof KindedValue>): MessageDescri
 
 type EntryCheck = z.core.ParsePayload<ContentEntryModel>;
 
-function push(context: EntryCheck, path: readonly PropertyKey[], descriptor: MessageDescriptor): void {
+function push(context: EntryCheck, path: ReadonlyArray<PropertyKey>, descriptor: MessageDescriptor): void {
   context.issues.push({ code: 'custom', input: context.value, path: [...path], ...issueParams(descriptor) });
 }
 

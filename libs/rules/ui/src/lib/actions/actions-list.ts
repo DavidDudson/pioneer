@@ -16,7 +16,7 @@ export const PASSIVE = 'passive';
 export type CostGroup = ActionCost | typeof PASSIVE;
 
 /** The cost groups in the order the Now view lists them. */
-export const COST_ORDER: readonly CostGroup[] = [
+export const COST_ORDER: ReadonlyArray<CostGroup> = [
   ActionCost.One,
   ActionCost.Two,
   ActionCost.Three,
@@ -33,7 +33,7 @@ function costGroupOf({ cost }: ActionLine): CostGroup {
 /** The actions of one cost. */
 export interface ActionGroup {
   readonly cost: CostGroup;
-  readonly lines: readonly ActionLine[];
+  readonly lines: ReadonlyArray<ActionLine>;
 }
 
 /** The most pressing first; actions the situation does not call for keep their order. */
@@ -58,7 +58,7 @@ function groupPriority({ lines }: ActionGroup): number {
  * leaving those that need a situation that does not hold. Context reorders it: the actions the situation calls for come
  * first in their group, and the groups holding them come before the rest.
  */
-export function nowGroups(lines: readonly ActionLine[], mode: ActionMode): readonly ActionGroup[] {
+export function nowGroups(lines: ReadonlyArray<ActionLine>, mode: ActionMode): ReadonlyArray<ActionGroup> {
   const usable = lines.filter(
     (line) =>
       line.status !== ActionStatus.Unavailable &&
@@ -98,12 +98,12 @@ export interface ActionFilters {
 export const NO_FILTERS: ActionFilters = { modes: new Set(), costs: new Set(), traits: new Set(), sources: new Set() };
 
 /** Whether `picked` lets through a line with any of `held`; nothing picked lets all through. */
-function passes<TValue>(picked: ReadonlySet<TValue>, held: readonly TValue[]): boolean {
+function passes<TValue>(picked: ReadonlySet<TValue>, held: ReadonlyArray<TValue>): boolean {
   return picked.size === 0 || held.some((value) => picked.has(value));
 }
 
 /** Every action, narrowed by mode, trait, cost and source; one filter is OR within, all of them AND across. */
-export function filterActions(lines: readonly ActionLine[], filters: ActionFilters): readonly ActionLine[] {
+export function filterActions(lines: ReadonlyArray<ActionLine>, filters: ActionFilters): ReadonlyArray<ActionLine> {
   return lines.filter(
     (line) =>
       passes(filters.modes, line.modes) &&
@@ -118,9 +118,9 @@ export function filterActions(lines: readonly ActionLine[], filters: ActionFilte
 
 /** The traits any action has, in the order `compare` gives. */
 export function traitsOf(
-  lines: readonly ActionLine[],
+  lines: ReadonlyArray<ActionLine>,
   compare: (left: string, right: string) => number,
-): readonly string[] {
+): ReadonlyArray<string> {
   return [...new Set(lines.flatMap((line) => line.traits.map(({ label }) => label)))].toSorted(compare);
 }
 
@@ -137,7 +137,7 @@ export function categoryOf(line: ActionLine): ActionCategory {
 }
 
 /** The categories `lines` have actions in, in the order the subtabs run; a category with none is left out. */
-export function categoriesOf(lines: readonly ActionLine[]): readonly ActionCategory[] {
+export function categoriesOf(lines: ReadonlyArray<ActionLine>): ReadonlyArray<ActionCategory> {
   const present = new Set(lines.map((line) => categoryOf(line)));
 
   return Object.values(ActionCategory).filter((category) => present.has(category));

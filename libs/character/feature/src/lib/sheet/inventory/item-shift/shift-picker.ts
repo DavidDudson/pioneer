@@ -16,7 +16,7 @@ export const WEAPON_ORDER: RowOrder<WeaponRow> = {
 };
 
 /** The column of the shape picker: the weapon's name. */
-export function weaponColumns(header: string): readonly TableColumn<WeaponRow>[] {
+export function weaponColumns(header: string): ReadonlyArray<TableColumn<WeaponRow>> {
   return new ItemTableSchema<WeaponRow>()
     .addText({ id: 'name', header, value: (row) => row.label, width: 'md' })
     .build();

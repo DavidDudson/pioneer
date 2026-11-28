@@ -39,7 +39,7 @@ export class SheetCustomEffectsSection {
   readonly #format = inject(LocaleFormat);
 
   protected readonly Message = Message;
-  protected readonly rows = computed((): readonly CustomEffectRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<CustomEffectRow> => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
 

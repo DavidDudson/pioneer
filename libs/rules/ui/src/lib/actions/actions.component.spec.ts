@@ -27,7 +27,7 @@ interface Options {
 }
 
 async function render(
-  lines: readonly ActionLine[] | undefined,
+  lines: ReadonlyArray<ActionLine> | undefined,
   { mode = ActionMode.Encounter, view = ActionsViewKind.Now, roller, user }: Options = {},
 ): Promise<ComponentFixture<ActionsView>> {
   TestBed.configureTestingModule({
@@ -53,13 +53,13 @@ function hostOf(fixture: ComponentFixture<ActionsView>): HTMLElement {
 }
 
 /** The names of the rows in the order shown. */
-function namesOf(fixture: ComponentFixture<ActionsView>): string[] {
+function namesOf(fixture: ComponentFixture<ActionsView>): Array<string> {
   return [...hostOf(fixture).querySelectorAll('pio-action-row')].map((row) =>
     textOf(row.querySelector('fr-text') ?? row),
   );
 }
 
-function headingsOf(fixture: ComponentFixture<ActionsView>): string[] {
+function headingsOf(fixture: ComponentFixture<ActionsView>): Array<string> {
   return [...hostOf(fixture).querySelectorAll('h3')].map((heading) => textOf(heading));
 }
 
@@ -181,7 +181,7 @@ describe(ActionsView, () => {
 
   describe('rolling', () => {
     it('rolls an action that rolls with one click, by its name and best skill', async () => {
-      const rolled: RollableStatistic[] = [];
+      const rolled: Array<RollableStatistic> = [];
 
       const fixture = await render(STANDING_ACTIONS, {
         roller: {
@@ -207,11 +207,11 @@ describe(ActionsView, () => {
 /** An action user that remembers what it was asked to use. */
 interface Recorder {
   readonly user: ActionUser;
-  readonly used: ActionUse[];
+  readonly used: Array<ActionUse>;
 }
 
 function recorder(): Recorder {
-  const used: ActionUse[] = [];
+  const used: Array<ActionUse> = [];
 
   return {
     used,
@@ -224,7 +224,7 @@ function recorder(): Recorder {
   };
 }
 
-function buttonsOf(fixture: ComponentFixture<ActionsView>): HTMLButtonElement[] {
+function buttonsOf(fixture: ComponentFixture<ActionsView>): Array<HTMLButtonElement> {
   return [...hostOf(fixture).querySelectorAll('pio-action-row button')].filter(
     (button): button is HTMLButtonElement => button instanceof HTMLButtonElement,
   );
@@ -263,7 +263,7 @@ describe('using an action', () => {
   });
 });
 
-function rowTexts(fixture: ComponentFixture<ActionsView>): string[] {
+function rowTexts(fixture: ComponentFixture<ActionsView>): Array<string> {
   return [...hostOf(fixture).querySelectorAll('pio-action-row')].map((row) => textOf(row));
 }
 

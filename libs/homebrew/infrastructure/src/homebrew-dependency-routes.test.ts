@@ -19,8 +19,8 @@ import {
 
 describe('homebrew dependency routes', () => {
   interface DependenciesJson {
-    readonly dependencies: readonly { readonly title: string; readonly official: boolean }[];
-    readonly candidates: readonly { readonly title: string }[];
+    readonly dependencies: ReadonlyArray<{ readonly title: string; readonly official: boolean }>;
+    readonly candidates: ReadonlyArray<{ readonly title: string }>;
   }
 
   test('the owner adds and removes an official pack, and the lists follow', async () => {

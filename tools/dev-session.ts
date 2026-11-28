@@ -34,7 +34,7 @@ export async function createCharacter(session: Session, db: SQL, name: string): 
   const origin = Bun.env['PUBLIC_ORIGIN'] ?? 'http://localhost:4200';
 
   const [ancestry] = await db<
-    { readonly id: string }[]
+    Array<{ readonly id: string }>
   >`select id from content_entries where kind = 'ancestry' limit 1`;
 
   const response = await fetch(`${api}/api/characters`, {

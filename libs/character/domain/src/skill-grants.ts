@@ -15,7 +15,7 @@ export type GrantsAt = (level: Level) => GrantResolution;
 /** What the grants at a level give a skill slot: the ranks they raise skills to, and the entries that train each. */
 export interface SkillGrants {
   readonly ranks: ReadonlyMap<Selector, Proficiency>;
-  readonly entries: ReadonlyMap<Selector, readonly ContentId[]>;
+  readonly entries: ReadonlyMap<Selector, ReadonlyArray<ContentId>>;
 }
 
 function sameMap<TValue>(
@@ -26,7 +26,7 @@ function sameMap<TValue>(
   return left.size === right.size && [...left].every(([key, value]) => equal(value, right.get(key)));
 }
 
-function sameEntries(left: readonly ContentId[], right: readonly ContentId[] | undefined): boolean {
+function sameEntries(left: ReadonlyArray<ContentId>, right: ReadonlyArray<ContentId> | undefined): boolean {
   return right !== undefined && left.length === right.length && left.every((id, index) => id === right[index]);
 }
 

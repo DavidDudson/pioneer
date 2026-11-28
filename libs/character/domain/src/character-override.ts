@@ -19,7 +19,7 @@ import { OVERRIDE_REVISIONS_MAX, OverrideMode, OverrideRole, OVERRIDES_MAX, over
 import type { Override, OverrideId, OverrideInput, OverrideRevision } from './override-schema';
 
 /** The overrides in force: the ones nobody has removed. */
-export function activeOverrides(document: CharacterDocument): readonly Override[] {
+export function activeOverrides(document: CharacterDocument): ReadonlyArray<Override> {
   return document.overrides.filter((override) => override.removed === undefined);
 }
 
@@ -51,7 +51,7 @@ function elementOf(override: Override): RuleElement {
  * The rule elements the character's overrides compile to, each with an `override` hop naming who set it, when and why,
  * in the order they were added. A removed override compiles to nothing, so removing one restores the total without it.
  */
-export function overrideRules(document: CharacterDocument): readonly RuleInPlay[] {
+export function overrideRules(document: CharacterDocument): ReadonlyArray<RuleInPlay> {
   return activeOverrides(document).map((override, index) =>
     RuleInPlay.parse({
       element: elementOf(override),

@@ -51,13 +51,13 @@ export const UNTHEMED = ThemeWeight.parse(1);
 /** How much likelier a favoured attribute is than the rest in `favouring`. */
 export const FAVOURED = ThemeWeight.parse(6);
 
-const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+const ATTRIBUTES: ReadonlyArray<Attribute> = Object.values(Attribute);
 
 /** A theme that favours no attribute. */
 export const NEUTRAL_THEME: GenerationTheme = favouring([]);
 
 /** A theme that weighs each of `favoured` at `FAVOURED` and every other attribute at 1. */
-export function favouring(favoured: readonly Attribute[]): GenerationTheme {
+export function favouring(favoured: ReadonlyArray<Attribute>): GenerationTheme {
   const weights = ATTRIBUTES.map((attribute): [Attribute, ThemeWeight] => [
     attribute,
     favoured.includes(attribute) ? FAVOURED : UNTHEMED,
@@ -67,7 +67,7 @@ export function favouring(favoured: readonly Attribute[]): GenerationTheme {
 }
 
 /** How likely a pick that raises or uses `attributes` is: the heaviest of them, or the least when it has none. */
-export function themeWeight(theme: GenerationTheme, attributes: readonly Attribute[]): PickWeight {
+export function themeWeight(theme: GenerationTheme, attributes: ReadonlyArray<Attribute>): PickWeight {
   return PickWeight.parse(Math.max(UNTHEMED, ...attributes.map((attribute) => theme.attributes[attribute])));
 }
 

@@ -9,7 +9,7 @@ type HeritagePickerStory = StoryObj<HeritagePicker>;
 
 const LONG_LIST = 300;
 
-const HERITAGES: readonly HeritagePickerRow[] = [
+const HERITAGES: ReadonlyArray<HeritagePickerRow> = [
   heritageRow({ id: 'woodland', name: 'Woodland Elf' }),
   heritageRow({ id: 'changeling', name: 'Changeling', ancestry: undefined, grants: ['Slag May'] }),
   heritageRow({ id: 'cavern', name: 'Cavern Elf', disabledReason: 'Needs the Elf ancestry' }),

@@ -25,8 +25,8 @@ const ac = statistic('ac', '10 + @attr.dex.capped + @prof.ac');
 const perception = statistic('perception', '@attr.wis + @stat.ac');
 
 function derivedAll(
-  rules: readonly RuleInPlay[],
-  ...options: readonly string[]
+  rules: ReadonlyArray<RuleInPlay>,
+  ...options: ReadonlyArray<string>
 ): ReadonlyMap<Selector, StatisticResult> {
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
@@ -39,7 +39,7 @@ function derivedAll(
   });
 }
 
-function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): StatisticValue {
+function derived(rules: ReadonlyArray<RuleInPlay>, ...options: ReadonlyArray<string>): StatisticValue {
   const result = derivedAll(rules, ...options).get(Selector.parse('ac'));
 
   if (result === undefined || !result.ok) {

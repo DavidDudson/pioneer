@@ -25,7 +25,7 @@ interface ResourceView {
 }
 
 /** The pools that hold anything, with what is held in each. */
-function viewsOf(spent: ResourcesSpent, maxima: ResourceMaxima): readonly ResourceView[] {
+function viewsOf(spent: ResourcesSpent, maxima: ResourceMaxima): ReadonlyArray<ResourceView> {
   return Object.values(Resource)
     .filter((resource) => maxima[resource] > 0)
     .map((resource): ResourceView => ({
@@ -60,7 +60,7 @@ export class SheetResources {
   /** The one pool to show; all of them when unset. */
   public readonly pool = input<Resource | undefined>();
 
-  protected readonly rows = computed((): readonly ResourceView[] | undefined => {
+  protected readonly rows = computed((): ReadonlyArray<ResourceView> | undefined => {
     const maxima = this.#sheet.resourceMaxima();
     const read = this.#play.play.data();
     const only = this.pool();

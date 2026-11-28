@@ -27,7 +27,7 @@ describe('CharacterSheetPage export', () => {
   }, PREBUILD_TIMEOUT);
 
   it('downloads the character the server wrote, named after it', async () => {
-    const saved: (Blob | MediaSource)[] = [];
+    const saved: Array<Blob | MediaSource> = [];
 
     const created = vi.spyOn(URL, 'createObjectURL').mockImplementation((blob) => {
       saved.push(blob);

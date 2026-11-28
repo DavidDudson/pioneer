@@ -18,7 +18,7 @@ export class CharacterFilterOptions {
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
 
   /** Every loaded class, by name; none while the content loads. */
-  public readonly classes = computed((): readonly FilterOption[] => {
+  public readonly classes = computed((): ReadonlyArray<FilterOption> => {
     const registry = this.#registry.data();
 
     return registry === undefined
@@ -29,7 +29,7 @@ export class CharacterFilterOptions {
   });
 
   /** Every loaded ancestry, by name; none while the content loads. */
-  public readonly ancestries = computed((): readonly FilterOption[] => {
+  public readonly ancestries = computed((): ReadonlyArray<FilterOption> => {
     const registry = this.#registry.data();
 
     return registry === undefined

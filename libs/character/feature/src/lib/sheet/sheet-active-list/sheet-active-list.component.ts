@@ -79,7 +79,7 @@ export class SheetActiveList {
 
   protected readonly sourceKey = sourceKeyOf;
 
-  protected readonly rows = computed((): readonly ActiveRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<ActiveRow> => {
     const registry = this.registry.data();
     const read = this.#play.play.data();
 

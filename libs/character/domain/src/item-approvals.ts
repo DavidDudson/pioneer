@@ -60,14 +60,14 @@ export function covers(approval: ItemApproval, violation: RuleViolation): boolea
 
 /** The violations split by whether an approval covers them. */
 export interface ApprovedViolations {
-  readonly open: readonly RuleViolation[];
-  readonly approved: readonly RuleViolation[];
+  readonly open: ReadonlyArray<RuleViolation>;
+  readonly approved: ReadonlyArray<RuleViolation>;
 }
 
 /** `violations` split into those no approval covers, which still warn, and those one does (ADR-0064). */
 export function partitionApproved(
-  violations: readonly RuleViolation[],
-  approvals: readonly ItemApproval[],
+  violations: ReadonlyArray<RuleViolation>,
+  approvals: ReadonlyArray<ItemApproval>,
 ): ApprovedViolations {
   const approved = violations.filter((violation) => approvals.some((approval) => covers(approval, violation)));
 

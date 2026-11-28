@@ -19,12 +19,12 @@ import type { JsonObject, JsonValue } from './testing/json-fixture';
  */
 const pack = new ContentPackBuilder().withId('archetypes');
 
-const ORDERS: readonly (readonly [string, string])[] = [
+const ORDERS: ReadonlyArray<readonly [string, string]> = [
   ['leaf-order', 'cornucopia'],
   ['storm-order', 'tempest-surge'],
 ];
 
-const SCHOOLS: readonly (readonly [string, string])[] = [
+const SCHOOLS: ReadonlyArray<readonly [string, string]> = [
   ['school-of-battle-magic', 'force-bolt'],
   ['school-of-mentalism', 'charming-push'],
 ];
@@ -45,7 +45,7 @@ const entry = (slug: string, tradition: string, attribute: string): JsonObject =
 });
 
 const DRUID_FOCUS = entry('druid-focus', 'primal', 'wis');
-const unlessDedication = (order: string): readonly JsonValue[] => [{ not: `feat:druid-dedication:${order}` }];
+const unlessDedication = (order: string): ReadonlyArray<JsonValue> => [{ not: `feat:druid-dedication:${order}` }];
 
 for (const [order, spell] of ORDERS) {
   pack.withClassFeature(order, {
@@ -155,7 +155,7 @@ function focusOf(builder: CharacterBuilder): CharacterFocus {
   return characterFocus(entries, spellContent(registry), document.level);
 }
 
-function spellsOf(builder: CharacterBuilder): string[] {
+function spellsOf(builder: CharacterBuilder): Array<string> {
   return focusOf(builder).entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

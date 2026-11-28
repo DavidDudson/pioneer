@@ -61,7 +61,7 @@ export const FacetLabel = z.string().brand<'FacetLabel'>();
 export type FacetLabel = z.infer<typeof FacetLabel>;
 
 /** Where a facet reads its values: property names from the entry down. An array on the way is read element-wise. */
-export type FacetPath = readonly PropertyKey[];
+export type FacetPath = ReadonlyArray<PropertyKey>;
 
 /**
  * Reads what a field path can't: the leaves an entry gives a facet, computed (a range band from a range in feet).
@@ -70,7 +70,7 @@ export type FacetPath = readonly PropertyKey[];
 /** A scalar a facet reads from an entry: `undefined` marks a missing field. */
 export type FacetLeaf = string | number | boolean | null | undefined;
 
-export type FacetDerive = (entry: ContentEntryModel) => readonly FacetLeaf[];
+export type FacetDerive = (entry: ContentEntryModel) => ReadonlyArray<FacetLeaf>;
 
 interface FacetBase {
   readonly id: FacetId;
@@ -81,7 +81,7 @@ interface FacetBase {
    * The kinds a facet reads when it reads only some of the kinds it is listed for (weapon group among the
    * equipment kinds), so a UI can hide it unless the list holds one of them. Absent, it reads them all.
    */
-  readonly appliesTo?: readonly ContentKind[];
+  readonly appliesTo?: ReadonlyArray<ContentKind>;
   /** How many of a range facet's values make one of the unit it is shown in; absent is 1. */
   readonly scale?: RangeScale;
 }
@@ -138,7 +138,7 @@ export const CommonFacet = {
 } as const;
 
 /** Facets every kind has, from the envelope. */
-export const COMMON_FACETS: readonly FacetDefinition[] = [
+export const COMMON_FACETS: ReadonlyArray<FacetDefinition> = [
   { id: CommonFacet.Level, type: FacetType.Range, path: ['level'], label: FacetMessage.Level },
   {
     id: CommonFacet.Rarity,
@@ -155,7 +155,7 @@ export const COMMON_FACETS: readonly FacetDefinition[] = [
 const FLAG = z.boolean();
 
 /** What a field path finds: the leaves it reaches, `undefined` where a step was missing. */
-function leaves(value: JsonValue, path: FacetPath): readonly JsonValue[] {
+function leaves(value: JsonValue, path: FacetPath): ReadonlyArray<JsonValue> {
   if (Array.isArray(value)) {
     return value.flatMap((item: JsonValue) => leaves(item, path));
   }
@@ -197,7 +197,7 @@ function leafValue(leaf: JsonValue, type: FacetType): FacetValue | undefined {
  * The values `entry` gives `facet`, each once. An entry with none where the field is missing gives the unknown
  * value, so it stays findable; an empty list (no traits) gives none.
  */
-export function facetValues(entry: ContentEntryModel, facet: FacetDefinition): readonly FacetValue[] {
+export function facetValues(entry: ContentEntryModel, facet: FacetDefinition): ReadonlyArray<FacetValue> {
   const found = facet.derive === undefined ? leaves(entry, facet.path) : facet.derive(entry);
   const values = new Set(found.flatMap((leaf) => leafValue(leaf, facet.type) ?? []));
 

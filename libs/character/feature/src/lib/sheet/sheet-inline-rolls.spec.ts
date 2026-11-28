@@ -33,7 +33,7 @@ interface Opened {
 }
 
 /** Opens the sheet and reaches the roller its page provides. */
-async function open(...faces: readonly number[]): Promise<Opened> {
+async function open(...faces: ReadonlyArray<number>): Promise<Opened> {
   const providers =
     faces.length === 0
       ? []

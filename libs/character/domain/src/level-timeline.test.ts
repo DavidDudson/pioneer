@@ -57,7 +57,7 @@ function bard(level: number): CharacterBuilder {
 }
 
 /** The level whose row holds `key`, or undefined when no row does. */
-function rowOf(rows: readonly TimelineRow[], key: string): number | undefined {
+function rowOf(rows: ReadonlyArray<TimelineRow>, key: string): number | undefined {
   return rows.find((row) => row.slots.some((slot) => slot.key === key))?.level;
 }
 

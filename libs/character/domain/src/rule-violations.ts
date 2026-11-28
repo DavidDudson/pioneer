@@ -52,8 +52,8 @@ interface Counted {
 }
 
 /** The items past `limit` of a count that grows by `step` per item, each with the count it took the total to. */
-function overLimit(inventory: Inventory, { step, limit, rule }: Counted): CountViolation[] {
-  const violations: CountViolation[] = [];
+function overLimit(inventory: Inventory, { step, limit, rule }: Counted): Array<CountViolation> {
+  const violations: Array<CountViolation> = [];
   let total = 0;
 
   for (const item of inventory.items) {
@@ -68,7 +68,7 @@ function overLimit(inventory: Inventory, { step, limit, rule }: Counted): CountV
   return violations;
 }
 
-function propertyViolations(content: RunedContent, inventory: Inventory, limits: RuleLimits): RuleViolation[] {
+function propertyViolations(content: RunedContent, inventory: Inventory, limits: RuleLimits): Array<RuleViolation> {
   return inventory.items.flatMap((item) => {
     const line = runedLine(content, inventory, item.id);
 
@@ -82,7 +82,7 @@ function propertyViolations(content: RunedContent, inventory: Inventory, limits:
     const room = propertyRoom(runes, read, limits);
     const slotted = slottedRunes(runes, read).length;
 
-    const count: CountViolation[] =
+    const count: Array<CountViolation> =
       slotted > room
         ? [
             {
@@ -95,7 +95,7 @@ function propertyViolations(content: RunedContent, inventory: Inventory, limits:
         : [];
 
     // Each rune is read against the item's other runes, as it was when etched.
-    const misfits: RuneViolation[] = runes.property
+    const misfits: Array<RuneViolation> = runes.property
       .filter((rune) => {
         const others = runes.property.filter((each) => !sameEtchedRune(each, rune));
         const without = { ...item, runes: { ...runes, property: others } };
@@ -118,7 +118,7 @@ export function inventoryViolations(
   inventory: Inventory,
   content: RunedContent,
   limits: RuleLimits = CORE_RULE_LIMITS,
-): readonly RuleViolation[] {
+): ReadonlyArray<RuleViolation> {
   const keyed = new Set(inventory.items.filter((each) => each.keyItem !== undefined).map((each) => each.id));
 
   const found = [

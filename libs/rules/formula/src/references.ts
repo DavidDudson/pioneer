@@ -9,7 +9,7 @@ export interface FormulaReference {
 }
 
 /** A node's direct children, left to right. */
-function children(node: FormulaNode): readonly FormulaNode[] {
+function children(node: FormulaNode): ReadonlyArray<FormulaNode> {
   switch (node.kind) {
     case NodeKind.Number:
     case NodeKind.Reference: {
@@ -34,7 +34,7 @@ function children(node: FormulaNode): readonly FormulaNode[] {
   }
 }
 
-function collect(node: FormulaNode, into: FormulaReference[]): void {
+function collect(node: FormulaNode, into: Array<FormulaReference>): void {
   if (node.kind === NodeKind.Reference) {
     into.push({ path: node.path, position: node.position });
   }
@@ -48,8 +48,8 @@ function collect(node: FormulaNode, into: FormulaReference[]): void {
  * Every reference in a formula, in the order written, repeats included. The statistic graph uses the
  * paths as dependency edges; the positions let a checker point at an unknown one.
  */
-export function references(formula: FormulaNode): FormulaReference[] {
-  const found: FormulaReference[] = [];
+export function references(formula: FormulaNode): Array<FormulaReference> {
+  const found: Array<FormulaReference> = [];
   collect(formula, found);
 
   return found;
