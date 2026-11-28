@@ -20,11 +20,20 @@ export interface SpeciesOption {
   readonly block: CompanionStatBlock;
 }
 
-/** The feats whose species choice grants an animal companion (Player Core pp. 79 and 189). */
-const GRANTING_FEATS: ReadonlySet<ContentId> = new Set(
-  ['feat:animal-companion', 'feat:animal-companion-ranger'].map((slug) =>
-    ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse(slug))),
-  ),
+/** The feats whose species choice grants an animal companion, by the pack that holds each and its slug. */
+const GRANTING_FEATS: readonly (readonly [string, string])[] = [
+  ['player-core', 'feat:animal-companion'],
+  ['player-core', 'feat:animal-companion-ranger'],
+  ['player-core-2', 'feat:beastmaster-dedication'],
+  ['player-core-2', 'feat:additional-companion'],
+  ['player-core-2', 'feat:cavalier-dedication'],
+  ['advanced-players-guide', 'feat:beastmaster-dedication'],
+  ['advanced-players-guide', 'feat:additional-companion'],
+  ['advanced-players-guide', 'feat:cavalier-dedication'],
+];
+
+const GRANTING_FEAT_IDS: ReadonlySet<ContentId> = new Set(
+  GRANTING_FEATS.map(([pack, slug]) => ContentId.parse(contentId(PackId.parse(pack), EntrySlug.parse(slug)))),
 );
 
 /** Every companion species the registry holds, by name. */
@@ -48,12 +57,12 @@ export interface CompanionSlotView {
   readonly companion: Companion | undefined;
 }
 
-/** Whether `slot` is the species choice of an animal companion feat: a choice of one of `GRANTING_FEATS`. */
+/** Whether `slot` is the species choice of an animal companion feat: a choice of one of `GRANTING_FEAT_IDS`. */
 function grantsCompanion(slot: CharacterSlot): boolean {
   return (
     'subject' in slot &&
     slot.subject.kind === SlotSubjectKind.Choice &&
-    GRANTING_FEATS.has(ContentId.parse(slot.subject.entry))
+    GRANTING_FEAT_IDS.has(ContentId.parse(slot.subject.entry))
   );
 }
 
