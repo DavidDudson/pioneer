@@ -1,1 +1,6 @@
-<ng-content />
+<div [class]="rowClasses">
+  <ng-content select="fr-item-media" />
+  <ng-content select="fr-item-content" />
+  <ng-content />
+  <ng-content select="fr-item-actions" />
+</div>
