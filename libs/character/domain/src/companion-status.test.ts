@@ -14,6 +14,7 @@ import {
   companionStatus,
   FRESH_COMPANION,
   isCompanionUsable,
+  isDown,
 } from './companion-status';
 import type { CompanionCommand, CompanionsPlay } from './companion-status';
 import { ConditionCommandField, ConditionInstanceId, UNLIMITED } from './conditions';
@@ -211,5 +212,50 @@ describe('a companion’s Hit Points, conditions and Command', () => {
     };
 
     expect(companionProblem({}, edit, [pip])).toBe(CompanionProblem.Unknown);
+  });
+});
+
+describe('a familiar at 0 Hit Points', () => {
+  const MAX = HitPoints.parse(25);
+
+  test('is down once its damage reaches its maximum, and not before', () => {
+    expect(isDown(HitPoints.parse(24), MAX)).toBe(false);
+    expect(isDown(HitPoints.parse(25), MAX)).toBe(true);
+    expect(isDown(HitPoints.parse(40), MAX)).toBe(true);
+  });
+
+  test('dying ends its Command and keeps what it suffered', () => {
+    const commanded = applyCompanionCommand(
+      {},
+      { field: CompanionCommandField.SetCompanionCommanded, companion: pip, commanded: true },
+    );
+
+    const dead = applyCompanionCommand(commanded, move(pip, CompanionStatus.Dead));
+
+    expect(dead[pip]).toMatchObject({ status: CompanionStatus.Dead, commanded: false });
+  });
+
+  test('a dead familiar cannot be commanded', () => {
+    const dead = applyCompanionCommand({}, move(pip, CompanionStatus.Dead));
+
+    const order: CompanionCommand = {
+      field: CompanionCommandField.SetCompanionCommanded,
+      companion: pip,
+      commanded: true,
+    };
+
+    expect(companionProblem(dead, order, [pip])).toBe(CompanionProblem.Inactive);
+  });
+
+  test('a replacement is unhurt and free of conditions', () => {
+    const hurt = applyCompanionCommand(
+      {},
+      { field: CompanionCommandField.SetCompanionDamage, companion: pip, damage: MAX },
+    );
+
+    const dead = applyCompanionCommand(hurt, move(pip, CompanionStatus.Dead));
+    const raised = applyCompanionCommand(dead, move(pip, CompanionStatus.Active));
+
+    expect(raised[pip]).toStrictEqual(FRESH_COMPANION);
   });
 });

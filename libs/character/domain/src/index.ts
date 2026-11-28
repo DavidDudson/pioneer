@@ -693,6 +693,7 @@ export {
   FRESH_COMPANION,
   isCompanionCommand,
   isCompanionUsable,
+  isDown,
 } from './companion-status';
 
 export type { CompanionCommand, CompanionPlay, CompanionsPlay } from './companion-status';

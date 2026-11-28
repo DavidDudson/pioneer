@@ -123,6 +123,8 @@ export const CompanionProblem = {
   Unknown: 'unknown',
   /** The companion cannot move from its status to the one asked for. */
   Illegal: 'illegal',
+  /** The companion is not with its master, so it cannot be commanded. */
+  Inactive: 'inactive',
 } as const;
 
 export type CompanionProblem = ValueOf<typeof CompanionProblem>;
@@ -137,13 +139,15 @@ export function companionProblem(
     return CompanionProblem.Unknown;
   }
 
-  if (command.field !== CompanionCommandField.SetCompanionStatus) {
-    return undefined;
+  const status = companionStatus(companions, command.companion);
+
+  if (command.field === CompanionCommandField.SetCompanionStatus) {
+    return canBecome(status, command.status) ? undefined : CompanionProblem.Illegal;
   }
 
-  return canBecome(companionStatus(companions, command.companion), command.status)
-    ? undefined
-    : CompanionProblem.Illegal;
+  const takesOrders = command.field === CompanionCommandField.SetCompanionCommanded && command.commanded;
+
+  return takesOrders && status !== CompanionStatus.Active ? CompanionProblem.Inactive : undefined;
 }
 
 /** A companion's play state when play state holds none: active, unhurt, with no conditions. */
@@ -159,11 +163,28 @@ export function companionConditionChange(command: CompanionCommand): ConditionCo
   return command.field === CompanionCommandField.CompanionCondition ? command.change : undefined;
 }
 
+/**
+ * `entry` moved to `status`. A dead companion was commanded no more, and one brought back is a new body: unhurt, with no
+ * conditions, since what it suffered died with it.
+ */
+function withStatus(entry: CompanionPlay, status: CompanionStatus): CompanionPlay {
+  if (status === CompanionStatus.Dead) {
+    return { ...entry, status, commanded: false };
+  }
+
+  return entry.status === CompanionStatus.Dead ? { ...FRESH_COMPANION, status } : { ...entry, status };
+}
+
+/** Whether a companion with `damage` taken has no Hit Points left of its `max`: a familiar at 0 dies (no dying condition). */
+export function isDown(damage: HitPoints, max: HitPoints): boolean {
+  return damage >= max;
+}
+
 /** `entry` after `command`: the one change it makes to a companion. */
 function changed(entry: CompanionPlay, command: CompanionCommand): CompanionPlay {
   switch (command.field) {
     case CompanionCommandField.SetCompanionStatus: {
-      return { ...entry, status: command.status };
+      return withStatus(entry, command.status);
     }
 
     case CompanionCommandField.SetCompanionDamage: {
