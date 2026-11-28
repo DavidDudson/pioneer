@@ -6,7 +6,11 @@ import { findPropertyKind } from './property-kind-registry';
 import type { PropertyKindMap } from './property-kind-registry';
 import type { PropertyContext, PropertyDescriptor } from './property.types';
 
-/** What `tableFromProperties` needs besides the properties: the registered kinds and the viewer's locale. */
+/**
+ * What `tableFromProperties` needs besides the properties: the registered kinds and the viewer's locale. In an
+ * app pass `inject(PROPERTY_KINDS)` and `injectPropertyContext()`, so sorting agrees with the cells, which read
+ * both from injection; the context reads the locale when it is called, so a locale switch needs no rebuild.
+ */
 export interface TableFromPropertiesOptions {
   readonly kinds: PropertyKindMap;
   readonly context: PropertyContext;

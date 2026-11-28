@@ -120,6 +120,7 @@ const PARTY_PROPERTIES: ReadonlyArray<PropertyDescriptor<PartyMember>> = [
   { id: 'level', label: SampleMessage.Level, kind: PropertyKindId.Number, value: (member) => member.level },
 ];
 
+/** Plain functions, so the story builds its columns once at module load; an app passes `injectPropertyContext()`. */
 const STORY_CONTEXT: PropertyContext = {
   compareText: (left, right) => left.localeCompare(right),
   formatNumber: (value) => value.toLocaleString(),

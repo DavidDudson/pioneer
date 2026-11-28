@@ -125,4 +125,17 @@ describe('building columns from properties', () => {
 
     expect(firstColumnCells(fixture)).toStrictEqual(['2', '9', '10']);
   });
+
+  it('sorts descending on a second press', async () => {
+    const fixture = await render(['level', 'name']);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
+    const element: HTMLElement = fixture.nativeElement;
+    const sortButton = element.querySelector<HTMLElement>('thead button');
+    sortButton?.click();
+    await fixture.whenStable();
+    sortButton?.click();
+    await fixture.whenStable();
+
+    expect(firstColumnCells(fixture)).toStrictEqual(['10', '9', '2']);
+  });
 });
