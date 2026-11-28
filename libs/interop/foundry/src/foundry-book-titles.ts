@@ -26,6 +26,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Core Rulebook', BookId.parse('core-rulebook')],
   ["Pathfinder Advanced Player's Guide", BookId.parse('advanced-players-guide')],
   ['Pathfinder Book of the Dead', BookId.parse('book-of-the-dead')],
+  ['Pathfinder Lost Omens Knights of Lastwall', BookId.parse('knights-of-lastwall')],
   ['Pathfinder Gamemastery Guide', BookId.parse('gamemastery-guide')],
   ['Pathfinder Dark Archive', BookId.parse('dark-archive')],
   ['Pathfinder Bestiary', BookId.parse('bestiary-1')],

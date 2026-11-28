@@ -1,0 +1,703 @@
+[
+  {
+    "id": "1876e078-2adb-5579-9a28-5d5853d012f1",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-corpse-killers-defiance",
+    "name": "Effect: Corpse-Killer's Defiance",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6f294186-285b-5829-ae18-258c3bc6dfb0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack and damage rolls against undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3WzaQKb10AYLdTsQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2746e041-340d-57a0-b3b1-a7cbbe9dd6b1",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-corpse-killers-defiance-lower-level",
+    "name": "Effect: Corpse-Killer's Defiance (Lower Level)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6f294186-285b-5829-ae18-258c3bc6dfb0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack and damage rolls against undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["target:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ctiTtuRWFjAnWdYQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ca9b9081-d789-5771-bf28-8bd358525b36",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-ghost-oil",
+    "name": "Effect: Ghost Oil",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "de4927ba-7aad-56df-814e-be2676ecff76"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The selected weapon gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ghost-oil",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:melee"]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:effect-ghost-oil"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.sk5LgfXestDKxCnK"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "baba91b9-c30d-51dc-8026-4d52e54801e1",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-ghost-wrangler",
+    "name": "Effect: Ghost Wrangler",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "69acc496-872d-5d50-9c8f-e71c48a689fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fists gain the effects of the ghost touch property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:fist"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.SiegLMJpVOGuoyWJ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a5372de2-50c2-50bc-844a-17604f65b194",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-inspiring-resilience",
+    "name": "Effect: Inspiring Resilience",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e0952958-fb6f-5b4d-a552-ad141f421d8c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your Will save against the triggering effect, or a +2 circumstance bonus if the effect originated from an undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "inspiring-resilience",
+        "predicate": ["option:mental"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "inspiring-resilience",
+        "mode": "override",
+        "value": 2,
+        "predicate": ["origin:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qM4bQfcwZ0EOS2M9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "44ddec42-7fab-5fe0-92d1-f0e19ae4817c",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-prayer-touched-weapon",
+    "name": "Effect: Prayer-Touched Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c28dced9-df82-5920-8e29-b40905a98601"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chosen weapon deals an extra 1d6 vitality damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "vitality"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cA6ps8RKE0gysEWr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "82097281-881a-5cde-a20c-fdb814b33728",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-purifying-breeze",
+    "name": "Effect: Purifying Breeze",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a55027ea-1aaf-5ac7-9ec0-7324b0d02466"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Fortitude saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7MQLLkQACZt8cspt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8468886c-1ec0-5593-b645-80a77fb6a29b",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-push-back-the-dead",
+    "name": "Effect: Push Back the Dead!",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "63d6cb92-68d6-5b90-a196-43f3a5a1eade"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to saves against effects originating from undead. You also gain resistance to damage from Strikes made by undead creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["origin:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.OeZ0E1oUKyGPxPy0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9f0884e1-61df-5551-8c33-d49af53ddd77",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-shared-sight",
+    "name": "Effect: Shared Sight",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b36b56b3-0785-5b63-8bb6-bb64f4e38db2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain spiritsense."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "12f27f53-38a4-5437-979d-048af3cd2dfb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0v30plBl9TuuJQ5F"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "af741365-80ee-5920-86e4-73ab0393ec97",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:effect-staggering-fire",
+    "name": "Effect: Staggering Fire",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3b9a7383-dacd-5bbb-8af8-297718340cc0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot circumstance penalty to your Speed, or a –10-foot circumstance penalty on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qaIqu9H9OdX1B5wy"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8a70e6c2-6a9e-522a-9981-aabb95f9321a",
+    "pack": "knights-of-lastwall",
+    "kind": "effect",
+    "slug": "effect:spell-effect-consecrate-flesh",
+    "name": "Spell Effect: Consecrate Flesh",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "199eb7f8-9e05-5b8a-9e60-d82acc8420eb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have weakness to unholy. Your unarmed attacks deal additional spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["unholy"],
+        "value": "max(5, floor(@item.level / 3) * 5)"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["unarmed-damage"],
+        "type": "untyped",
+        "value": "max(1, floor(@item.level / 3))",
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.GGnT5wNxNXf7zAMZ"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

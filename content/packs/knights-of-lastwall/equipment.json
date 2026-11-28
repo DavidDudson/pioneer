@@ -1,0 +1,1378 @@
+[
+  {
+    "id": "7820220d-85f7-51ab-b681-3bd8f38a5150",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:busine-of-divine-reinforcements",
+    "name": "Busine of Divine Reinforcements",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, straight, trumpet-like instrument is made of well-polished brass and adorned with imagery of angels fighting demons or religious symbols. When played as an instrument, the busine generates powerful and harmonious notes and grants a +2 item bonus to Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (auditory)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You play a few notes on the busine. Evil creatures within 60 feet who hear the notes must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, or 2 rounds on a critical failure; this is an incapacitation effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command, envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You blow into the busine and conjure a celestial with the effects of a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "5fa9980f-96b8-5ba5-853f-2d7a7d3339cb"
+          },
+          {
+            "type": "text",
+            "text": " spell, but there are no alignment restrictions to define which celestials you can call. The celestial will fight only evil creatures and leaves after all present evil creatures have been defeated or the spell's duration ends, whichever comes first. You can Sustain the Activation to extend the spell's duration, as normal. If you have a deity and the conjured celestial's alignment is one of your deity's preferred alignments, the effect functions as a normal 6th-rank "
+          },
+          {
+            "type": "text",
+            "text": "summon celestial",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell instead, meaning the celestial will fight any creature, not just evil creatures, and will perform other tasks as you command."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Busine of Divine Reinforcements"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:playing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.z5u7z3zBHZcCxfyX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "busine-of-divine-reinforcements",
+          "name": "Busine of Divine Reinforcements",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4aee3809-bf8b-5b44-88e5-66446f308455",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:campaign-stable",
+    "name": "Campaign Stable",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical", "structure"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Used to facilitate the care of mounts during long campaigns or when it's necessary to move camp frequently, this object appears to be a simple, worn wooden horseshoe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (1 minute) command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place the horseshoe on the ground and it unfolds into a spacious stable with a wide central aisle, stalls to accommodate up to eight horses, and sufficient feed and water to sustain the horses for 1 day. The stalls can house other quadrupedal mounts, but the stable provides only horse feed, which might be unsuitable for other creatures. As a 1-minute activity, which has the concentrate trait, you can alter the shape of the stalls to accommodate different mounts, though the space available within the stable never changes, only the layout."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A metal horseshoe hangs inside the stable near the entrance. You can remove the horseshoe with an Interact action, which causes the stable to fold into the horseshoe, leaving it again looking as if it's made of worn wood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XZleXDXQ5eThTLWd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "campaign-stable",
+          "name": "Campaign Stable",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e63ad381-fbbb-54ac-8f4c-cfef3f82088b",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:detector-stone",
+    "name": "Detector Stone",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During their journeys across the Gravelands, the Knights of Lastwall found several smoky, gemstone-like objects that knights refer to as "
+          },
+          {
+            "type": "text",
+            "text": "detector stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Some of the knights' Magaambyan allies believe the stones are "
+          },
+          {
+            "type": "text",
+            "text": "aeon stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " corrupted by the same energies that corrupted the Gravelands, though they don't display the characteristic orbiting behavior of "
+          },
+          {
+            "type": "text",
+            "text": "aeon stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " when invested. Despite the controversy, many knights use the stones for their ability to detect the presence of undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you have a "
+          },
+          {
+            "type": "text",
+            "text": "detector stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested, it glows faintly when an undead creature is within 30 feet of you, unless the undead is "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or disguised with a Deception or Stealth result of 20 or higher. An invested stone may be carried in a pocket, but some knights set them in necklaces, bracelets, or weapon hilts."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel your life-force into the stone, empowering it temporarily. The stone can detect undead within 60 feet of you, rather than 30 feet, until the end of your turn. Undead hiding or disguising themselves must make an additional Deception or Stealth check to remain disguised or hidden from the activation, and the DC of the check is 23 rather than 20."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You focus on the stone as it glows, and your eyes glow with the same tainted light. You detect the auras of evil undead in a 30-foot radius around you and learn each aura's location and strength. This has the effects of a 2nd-rank "
+          },
+          {
+            "type": "text",
+            "text": "detect alignment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell but only detects evil undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.znWf2DgWyElwzQwJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "detector-stone",
+          "name": "Detector Stone",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "9d33edd0-9ba4-5eb1-8dca-463244da4d41",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:hollowed-hilt",
+    "name": "Hollowed Hilt",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A hollowed hilt is a weapon modification that allows a pommel to be detached and its hilt meticulously hollowed out to create a small compartment without greatly affecting its balance. Often used by knight emissaries to hide important missives, this space can hold an object of light Bulk about the size of a scroll. A creature studying the weapon can find the hilt compartment with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check. Any weapon with an appropriate hilt or pommel can be converted into a hollowed one by paying the equipment's price."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ETwv7GshGM9IXnqH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a371561e-2562-5c5e-9a70-939e577ea64e",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:knights-maintenance-kit",
+    "name": "Knight's Maintenance Kit",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This set of gear contains a repair kit, cloth rolls for storing or covering equipment, and specialized mixtures developed by the Knights of Lastwall to clean and treat armaments for continued use. This kit gives you a +1 item bonus to checks to Repair weapons, shields, and armor using the Crafting skill, and you restore an additional 5 Hit Points when you successfully Repair such items using it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:knights-repair"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Dc2DRXybi5dCxmqP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "610c58b7-f7d8-58b5-9b4d-dae23cb66b7a",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:knights-standard",
+    "name": "Knight's Standard",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloth flag or banner, no larger than a few feet long, bears the symbol or heraldry of a deity, knightly house, nation, or similar organization. A typical standard comes with a stand or pole to hold it aloft. You can instead spend 2 consecutive Interact actions to mount a knight's standard on a two-handed polearm or spear weapon; the standard is visible as long as you wield the weapon with two hands. Some individuals are inspired by the sight of a standard or demoralized by the destruction of one."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yXipdeJUEGMPT4dM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "2de42929-0865-59ab-bd7a-dd1994adb7d5",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:knights-tabard",
+    "name": "Knight's Tabard",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloth vestment features the heraldry or symbol associated with an entity (such as a deity, kingdom, or organization). Knights typically wear it over armor and other clothing, helping them identify allies on the battlefield or distinguishing themselves in more peaceful situations. An individual wearing a tabard gains a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on creatures who have a positive association with the entity represented on the tabard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:knights-tabard", "action:make-an-impression"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZIt62AQb997FatRw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "0c33255c-953d-552c-b997-4fead60fdf70",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:parade-armor",
+    "name": "Parade Armor",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["adjustment"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Parade armor is an armor adjustment that creates a set of pseudo-decorative armor to wear during noncombat functions. Any medium or heavy armor can be fashioned into parade armor, which features custom designs based on the wearer's affiliation, military branch, or rank. A particular faction typically has one uniform appearance for its set of parade armor. While wearing this armor, you gain a +1 item bonus to Diplomacy and Intimidation checks against creatures of the same affiliation as your parade armor, though the bonus to Intimidation doesn't apply when interacting with creatures of higher rank than you. The armor is slightly bulkier, increasing the Bulk by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:same-affiliation"],
+        "display": {
+          "label": "Against a Creature of the Same Affiliation"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hHOi8jV85CN8WRJT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "affixed",
+        "to": "medium-heavy-armor"
+      }
+    }
+  },
+  {
+    "id": "6bfef2e0-becd-5a10-a9e7-3da1599f9391",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:portable-altar",
+    "name": "Portable Altar",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This travel-ready kit contains a small altar featuring a deity's iconography. The altar's top can be lifted to reveal a compartment for materials of no more than light Bulk (such as candles, incense, oils, and small texts). The altar grants a +1 item bonus to checks made to conduct religious rites using Performance or Religion."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance", "skill:religion"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:religious-rite"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PO0n5F4j8Pa0LB0Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "54f102e2-1adf-503c-a4ad-d15ebb54cf3c",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:swiftmount-saddle",
+    "name": "Swiftmount Saddle",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["companion", "invested", "magical", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy leather saddle was designed to improve communication between mount and rider, allowing even inexperienced knights to command their mounts in battle. A "
+          },
+          {
+            "type": "text",
+            "text": "swiftmount saddle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +2 item bonus to Nature checks made to Command an Animal for anyone who is riding the creature wearing it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're adjacent to the creature wearing the "
+          },
+          {
+            "type": "text",
+            "text": "swiftmount saddle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and could "
+          },
+          {
+            "type": "ref",
+            "id": "4fed5de9-3f98-5388-9913-90f9b0c8e8ea"
+          },
+          {
+            "type": "text",
+            "text": " it"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Mount the creature wearing the "
+          },
+          {
+            "type": "text",
+            "text": "swiftmount saddle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K0uJJSso0WGpFzYe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "swiftmount-saddle",
+          "name": "Swiftmount Saddle",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "saddle"
+      }
+    }
+  },
+  {
+    "id": "3186df9d-30ed-5e2d-a459-4798017bc5ea",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:throwing-shield",
+    "name": "Throwing Shield",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["adjustment"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These special straps and weightings fit over a shield or buckler, but not a tower shield. They are designed to let you doff and throw the shield in one swift movement. You can quickly remove the shield by spending a free action as part of the Strike to throw the shield. When thrown in this way, the shield is a martial thrown weapon that deals 1d6 bludgeoning damage and has the thrown 20 feet trait. A shield with the throwing shield attachment can't have any attached weapons, such as shield spikes or a shield boss, and the adjustments to make it more aerodynamic make it slightly less sturdy, reducing its Hardness by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ydpA0pz0pPNqIUXU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "applied",
+        "to": "buckler-shield"
+      }
+    }
+  },
+  {
+    "id": "2a00deb8-93f5-5e30-a191-40bb0f254ce2",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:travelers-cloak",
+    "name": "Traveler's Cloak",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These cloaks are designed to accommodate long treks through various climates. Traveler's cloaks for hot climates might be bleached white and created from lighter materials, while those intended for cold climates are made of thicker materials and have linings intended to retain heat. While wearing a traveler's cloak for the appropriate type of weather, increase the time it takes to become "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " from temperature effects by 2 hours. A traveler's cloak has no effect at extreme or incredible temperatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MHJLBBESka5n3Bsg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "316f6412-5a15-56f2-8a74-cfb8cee294f8",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:undead-compendium",
+    "name": "Undead Compendium",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The best minds among the Magaambyan, Iomedaean, and Pharasmin Knights of Lastwall joined together to create these small, leather-bound journals. While you're holding an "
+          },
+          {
+            "type": "text",
+            "text": "undead compendium",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the information it contains slips into your mind, granting you a +2 item bonus to Recall Knowledge checks to obtain information about undead creatures."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (envision, Interact; auditory, linguistic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You study the journal, focusing on a specific type of undead creature, and as the information fills the pages, you recite it aloud to your allies. Select ghost, ghoul, graveknight, lich, mummy, vampire, wight, or zombie. You and up to four allies that hear you read the information aloud during the activation gain a +2 item bonus on attack rolls and saving throws against that type of undead for the next 10 minutes. To benefit from the bonus, your allies must listen attentively and can't perform any other activities during the activation time."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:recall-knowledge", "target:trait:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4yUa5JicrhnHUggC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6300
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "undead-compendium",
+          "name": "Undead Compendium",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9c65333c-11be-5a65-91f6-c163005ebe5a",
+    "pack": "knights-of-lastwall",
+    "kind": "equipment",
+    "slug": "equipment:whistle-of-calling",
+    "name": "Whistle of Calling",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "whistle of calling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears to be a simple brass whistle. It changes slightly in appearance depending on the type of creature to which it's attuned, depicting small carvings of hooves, feather patterns, claws, or other appropriate motifs."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You blow the whistle at different tones in the presence of a companion or another allied creature willing to be your mount. At the end of the 10 minutes, the whistle is attuned to that creature. The whistle can be attuned to only one creature at any time, but you can attune it to a new one with another 10-minute activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You blow the whistle and the creature to which it is attuned teleports instantly from as far as 1 mile away to an unoccupied space within 30 feet of you. The whistle has no effect if the attuned creature is dead, on another plane, or outside the range."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MNaLwkkyKx86NKKq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6300
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "whistle-of-calling",
+          "name": "Whistle of Calling",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

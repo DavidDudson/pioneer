@@ -45,6 +45,7 @@ import {
   darkArchivePack,
   gamemasteryGuidePack,
   impossibleLandsPack,
+  knightsOfLastwallPack,
   theShowMustGoOnPack,
 } from './ogl-packs';
 import {
@@ -175,6 +176,7 @@ export const officialPacks: ReadonlyArray<PackContentsLoader> = [
   checkedLoader('core-rulebook', coreRulebookPack),
   checkedLoader('advanced-players-guide', advancedPlayersGuidePack),
   checkedLoader('book-of-the-dead', bookOfTheDeadPack),
+  checkedLoader('knights-of-lastwall', knightsOfLastwallPack),
   checkedLoader('gamemastery-guide', gamemasteryGuidePack),
   checkedLoader('dark-archive', darkArchivePack),
   checkedLoader('bestiary-1', bestiary1Pack),

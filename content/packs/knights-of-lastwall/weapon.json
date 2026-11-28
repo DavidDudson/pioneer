@@ -1,0 +1,149 @@
+[
+  {
+    "id": "3040c324-8810-5307-ad45-b381ed033e37",
+    "pack": "knights-of-lastwall",
+    "kind": "weapon",
+    "slug": "weapon:knight-captains-lance",
+    "name": "Knight Captain's Lance",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "divine", "jousting-d6", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The appearance of this beautifully crafted "
+          },
+          {
+            "type": "text",
+            "text": "+2 disrupting greater striking lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " changes to match the armor of its wielder. It has a cloth flag attached behind the lance point that displays whatever heraldry the wielder wishes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a cavalier with the "
+          },
+          {
+            "type": "ref",
+            "id": "58edb32a-e60d-57bd-ab08-61e1f38ebe97"
+          },
+          {
+            "type": "text",
+            "text": " feat takes the "
+          },
+          {
+            "type": "text",
+            "text": "knight captain's lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it instead automatically displays the banner of their pledge."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your attack roll with the knight captain's lance is a critical success"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise the lance, inspiring those around you. Allies within 30 feet that can see you receive a +1 status bonus to their attack rolls and damage rolls for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EmTK4nPOORXtb58X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  }
+]

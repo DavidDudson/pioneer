@@ -557,7 +557,7 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
 `tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`,
-`core-rulebook`, `advanced-players-guide`, `book-of-the-dead`, `gamemastery-guide`, `dark-archive`,
+`core-rulebook`, `advanced-players-guide`, `book-of-the-dead`, `knights-of-lastwall`, `gamemastery-guide`, `dark-archive`,
 `bestiary-1`, `bestiary-2`, `bestiary-3`, `the-show-must-go-on`,
 `impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
@@ -566,7 +566,8 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `the-dead-gods-hand`, `wardens-of-wildwood`, `curtain-call`, `triumph-of-the-tusk`, `spore-war`, `shades-of-blood`,
 `prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide`, `impossible-lands`, `book-of-the-dead`,
-`gamemastery-guide`, `dark-archive`, `bestiary-1`, `bestiary-2` and `bestiary-3` are pre-remaster and OGL, for content
+`knights-of-lastwall`, `gamemastery-guide`, `dark-archive`, `bestiary-1`, `bestiary-2` and `bestiary-3` are
+pre-remaster and OGL, for content
 the remaster books point at, such as the Goloma ancestry; the registry flags the books the importer takes that way
 (`Book.legacy` of `whole`, now also `core-rulebook` and `advanced-players-guide`, whose remaining legacy entries were
 appended with `--replaced-legacy`, each remaster entry of the same name recording it in `supersedes`);

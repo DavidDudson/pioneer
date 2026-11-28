@@ -49,6 +49,7 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('core-rulebook'), BookLabel.parse('rules.book.title.coreRulebook')],
   [BookId.parse('advanced-players-guide'), BookLabel.parse('rules.book.title.advancedPlayersGuide')],
   [BookId.parse('book-of-the-dead'), BookLabel.parse('rules.book.title.bookOfTheDead')],
+  [BookId.parse('knights-of-lastwall'), BookLabel.parse('rules.book.title.knightsOfLastwall')],
   [BookId.parse('gamemastery-guide'), BookLabel.parse('rules.book.title.gamemasteryGuide')],
   [BookId.parse('dark-archive'), BookLabel.parse('rules.book.title.darkArchive')],
   [BookId.parse('bestiary-1'), BookLabel.parse('rules.book.title.bestiary1')],
