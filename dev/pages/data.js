@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795832444868,
+  "lastUpdate": 1795832879128,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -718,6 +718,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "77d52f3bc835a705df9e9b04f028752c17fc1291",
+          "message": "feat(frontier): add fr-table-toolbar and use it on the list pages (#2425)\n\n* feat(frontier): add fr-table-toolbar and use it on the list pages\n\nA layout-only toolbar with search, filters, view and count slots. It owns\nits gaps and the gap to the table: one row from the md container size,\nstacked below it with Filters and Columns buttons that open their slot in\nplace. The count slot is a polite live region.\n\nfr-box gains shownFrom, hiddenFrom, revealed and grow so the toolbar can\nrespond to its own width without adding responsive CSS outside a\nprimitive. The content browser, the character list and the shop stop\ncomposing their own search and filter stacks.\n\nRefs #2351\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(frontier): query the toolbar width for box visibility\n\nfr-box put its shownFrom/hiddenFrom container variants on the inner\nelement, whose nearest container is the box itself, so a box in the\ntoolbar row tested its own width: a non-growing box has none, so the\nFilters and Columns buttons never hid and a grown one stayed narrower\nthan md, so the filters never showed on a wide toolbar. The variants\nnow sit on the host, which reads the row around it.\n\nAlso keep the count's gap to the row only while a count is projected,\ncover the Columns button and closing a slot in the spec, add a wide\nwidth check to the Default story, and trim duplicated doc comments.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(frontier): use Array<T> in the toolbar files\n\nThe lint config moved to @cloudflare/oxlint-config, whose array-type\nrule forbids T[] and readonly T[].\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:23:25+10:00",
+          "tree_id": "f7996aad77cfe110ee03ae032ae5a484e93ee675",
+          "url": "https://github.com/DavidDudson/pioneer/commit/77d52f3bc835a705df9e9b04f028752c17fc1291"
+        },
+        "date": 1795832875489,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4278,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6383,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 218,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
