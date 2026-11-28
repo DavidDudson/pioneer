@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795832879128,
+  "lastUpdate": 1795835536070,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -778,6 +778,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce0b8821f6611fffd4e361ea5288ee19613d32b3",
+          "message": "fix(lint): clear the assertions-in-tests errors the new preset raised (#2451)\n\nThe cloudflare preset turned on sonarjs/assertions-in-tests. Three specs\nassert through expectPlain or assert(property(...)), which the rule does\nnot follow; turn it off for those files. The identity sign-out test had\nno assertion; it now checks the unknown token still has no session.\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:55:19+10:00",
+          "tree_id": "d0cffa554f15f4e769562a98b8478ef25f223e27",
+          "url": "https://github.com/DavidDudson/pioneer/commit/ce0b8821f6611fffd4e361ea5288ee19613d32b3"
+        },
+        "date": 1795835532304,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4282,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 214,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6386,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 215,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
