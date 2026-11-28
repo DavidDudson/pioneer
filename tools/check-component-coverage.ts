@@ -59,6 +59,16 @@ const EXEMPTIONS = {
     reason: 'Only renders inside a table header.',
     story: 'data/table/table.stories.ts',
   },
+  'layout/card/card-content.component.ts': {
+    reason: 'A body of the card; it only projects its content, padded from the card.',
+    spec: 'layout/card/card.component.spec.ts',
+    story: 'layout/card/card.stories.ts',
+  },
+  'layout/card/card-footer.component.ts': {
+    reason: 'The end row of the card; the card draws the rule above it.',
+    spec: 'layout/card/card.component.spec.ts',
+    story: 'layout/card/card.stories.ts',
+  },
   'forms/field/error/error.component.ts': {
     reason: 'A field part, shown assembled.',
     story: 'forms/field/field.stories.ts',

@@ -419,6 +419,9 @@
   }
 }
 
+/* A card header with a card body right below it: the body supplies the gap, so the header drops its bottom padding. */
+@custom-variant before-body (&:has(+ fr-card-content));
+
 /* The keyboard-highlighted option in an @angular/aria listbox (it sets data-active="true|false"). */
 @custom-variant highlighted (&[data-active='true']);
 

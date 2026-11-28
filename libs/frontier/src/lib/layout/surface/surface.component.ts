@@ -8,7 +8,7 @@ export const SurfaceVariant = { Base: 'base', Raised: 'raised', Sunken: 'sunken'
 
 export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
 
-const surfaceVariants = cva('block', {
+export const surfaceVariants = cva('block', {
   variants: {
     variant: {
       base: 'bg-surface-base forced-colors:border',

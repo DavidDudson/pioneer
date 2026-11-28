@@ -1,11 +1,12 @@
 <section [attr.aria-labelledby]="anchor()">
-  <fr-surface>
-    <fr-stack gap="md">
-      <fr-heading variant="subheading" [level]="2" [anchor]="anchor()">{{ heading() }}</fr-heading>
-      <ng-content />
-      @if (opened() && body(); as body) {
-        <ng-container [ngTemplateOutlet]="body.template" />
-      }
-    </fr-stack>
-  </fr-surface>
+  <fr-card headingVariant="subheading" [heading]="heading()" [level]="2" [anchor]="anchor()">
+    <fr-card-content>
+      <fr-stack gap="md">
+        <ng-content />
+        @if (opened() && body(); as body) {
+          <ng-container [ngTemplateOutlet]="body.template" />
+        }
+      </fr-stack>
+    </fr-card-content>
+  </fr-card>
 </section>

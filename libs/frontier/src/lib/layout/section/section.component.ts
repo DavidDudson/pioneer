@@ -2,9 +2,9 @@ import { NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, contentChild, input, linkedSignal } from '@angular/core';
 import type { Signal } from '@angular/core';
 
-import { Heading } from '../../text/heading/heading.component';
+import { CardContent } from '../card/card-content.component';
+import { Card } from '../card/card.component';
 import { Stack } from '../stack/stack.component';
-import { Surface } from '../surface/surface.component';
 import { SectionBody } from './section-body.directive';
 
 /**
@@ -26,7 +26,7 @@ import { SectionBody } from './section-body.directive';
  */
 @Component({
   selector: 'fr-section',
-  imports: [Heading, NgTemplateOutlet, Stack, Surface],
+  imports: [Card, CardContent, NgTemplateOutlet, Stack],
   templateUrl: './section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()' },

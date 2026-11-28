@@ -167,6 +167,14 @@ export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.dir
 
 export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
 
+export { Card } from './lib/layout/card/card.component';
+
+export { CardContent } from './lib/layout/card/card-content.component';
+
+export { CardFooter } from './lib/layout/card/card-footer.component';
+
+export { CardHeader } from './lib/layout/card/card-header.component';
+
 export { Clamp, ClampLines } from './lib/layout/clamp/clamp.component';
 
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
