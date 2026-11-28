@@ -23,7 +23,7 @@ export const FilterOperator = {
 export type FilterOperator = ValueOf<typeof FilterOperator>;
 
 /** The operators a property of each kind accepts; anything else is rejected, so `gt` on a text property fails. */
-export const OPERATORS_BY_KIND: Readonly<Record<FilterKind, ReadonlyArray<FilterOperator>>> = {
+const OPERATORS_BY_KIND: Readonly<Record<FilterKind, ReadonlyArray<FilterOperator>>> = {
   text: [FilterOperator.Is, FilterOperator.IsNot, FilterOperator.Contains],
   number: [
     FilterOperator.Is,
@@ -96,7 +96,7 @@ function numberIssue({ operator, values }: FilterCondition): string | undefined 
  * The first reason `condition` cannot apply to a property of `kind`, or `undefined` when it can: an operator the kind
  * lacks, the wrong number of values, or values that are not numbers on a number property.
  */
-export function conditionIssue(kind: FilterKind, condition: FilterCondition): string | undefined {
+function conditionIssue(kind: FilterKind, condition: FilterCondition): string | undefined {
   if (!OPERATORS_BY_KIND[kind].includes(condition.operator)) {
     return `operator ${condition.operator} is not allowed on a ${kind} property`;
   }
