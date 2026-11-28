@@ -10,7 +10,7 @@ import { RulesPropertyKindId } from './rules-property-kinds';
 export const CommonPropertyId = { Name: 'name', Level: 'level', Traits: 'traits', Source: 'source' } as const;
 
 /** The headers of the common properties, spelled out in full so the key check sees them. */
-export const CommonPropertyMessage = {
+const CommonPropertyMessage = {
   Name: 'rules.column.name',
   Traits: 'rules.column.traits',
   Source: 'rules.column.source',
