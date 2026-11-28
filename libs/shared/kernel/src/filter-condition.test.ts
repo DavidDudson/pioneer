@@ -34,6 +34,46 @@ describe('filterSchema', () => {
   });
 });
 
+const condition = (values: ReadonlyArray<string>): FilterCondition => ({
+  property: 'trait',
+  operator: 'isAnyOf',
+  values: [...values],
+});
+
+describe('request limits', () => {
+  test('20 conditions pass and 21 fail', () => {
+    const one = condition(['fire']);
+    const twenty = Array.from({ length: 20 }, () => one);
+    const twentyOne = Array.from({ length: 21 }, () => one);
+    expect(schema.safeParse(twenty).success).toBe(true);
+    expect(schema.safeParse(twentyOne).success).toBe(false);
+  });
+
+  test('100 values pass and 101 fail', () => {
+    const hundred = [condition(Array.from({ length: 100 }, () => 'a'))];
+    const hundredOne = [condition(Array.from({ length: 101 }, () => 'a'))];
+    expect(schema.safeParse(hundred).success).toBe(true);
+    expect(schema.safeParse(hundredOne).success).toBe(false);
+  });
+
+  test('a value of 200 characters passes and 201 fails', () => {
+    expect(schema.safeParse([{ property: 'name', operator: 'contains', values: ['a'.repeat(200)] }]).success).toBe(
+      true,
+    );
+    expect(schema.safeParse([{ property: 'name', operator: 'contains', values: ['a'.repeat(201)] }]).success).toBe(
+      false,
+    );
+  });
+
+  test.each(['2.5', '32768', '-32769', '1e300', '99999999999'])('a level of %s does not fit a smallint', (value) => {
+    expect(schema.safeParse([{ property: 'level', operator: 'gte', values: [value] }]).success).toBe(false);
+  });
+
+  test.each(['-32768', '32767', '0'])('a level of %s fits', (value) => {
+    expect(schema.safeParse([{ property: 'level', operator: 'gte', values: [value] }]).success).toBe(true);
+  });
+});
+
 describe('filtersParam', () => {
   const param = filtersParam(PROPERTIES);
 

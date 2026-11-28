@@ -87,13 +87,11 @@ export type { ValueOf } from './value-of';
 
 export {
   conditionHolds,
-  conditionIssue,
   FilterCondition,
   FilterKind,
   FilterOperator,
   filterSchema,
   filtersParam,
-  OPERATORS_BY_KIND,
   type FilterProperties,
   type FilterValue,
 } from './filter-condition';

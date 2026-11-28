@@ -3,15 +3,14 @@ import { and, between, eq, gt, gte, ilike, inArray, isNull, lt, lte, ne, or } fr
 import type { SQL } from 'drizzle-orm';
 import type { PgColumn } from 'drizzle-orm/pg-core';
 
+import { escapeLike } from './escape-like';
+
 /** Where a filterable property lives: its column and the kind that decides how a value is read. */
 export interface FilterColumn {
   readonly column: PgColumn;
   readonly kind: FilterKind;
 }
 
-const LIKE_WILDCARDS = /[%_\\]/gu;
-
-/** A condition's values, read as the column's kind. */
 type Reader = (text: string) => string | number | boolean;
 
 const READERS: Readonly<Record<FilterKind, Reader>> = {
@@ -21,12 +20,11 @@ const READERS: Readonly<Record<FilterKind, Reader>> = {
   flag: (text) => text === 'true',
 };
 
-/** The SQL one operator makes; `read` gives a value its kind. */
 type Build = (column: PgColumn, values: ReadonlyArray<string>, read: Reader) => SQL | undefined;
 
 const one = (values: ReadonlyArray<string>, read: Reader): string | number | boolean => read(values[0] ?? '');
 
-/** A bound of `between` left open with `''`. */
+// A bound of `between` may be left open with `''`.
 function range(column: PgColumn, values: ReadonlyArray<string>, read: Reader): SQL | undefined {
   const [low = '', high = ''] = values;
 
@@ -47,7 +45,7 @@ const BUILD: Readonly<Record<FilterOperator, Build>> = {
       values.map((value) => read(value)),
     ),
   // The text is matched literally: its own `%`, `_` and `\` are escaped.
-  contains: (column, values) => ilike(column, `%${(values[0] ?? '').replaceAll(LIKE_WILDCARDS, String.raw`\$&`)}%`),
+  contains: (column, values) => ilike(column, `%${escapeLike(values[0] ?? '')}%`),
   gt: (column, values, read) => gt(column, one(values, read)),
   gte: (column, values, read) => gte(column, one(values, read)),
   lt: (column, values, read) => lt(column, one(values, read)),

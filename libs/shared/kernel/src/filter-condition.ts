@@ -38,15 +38,20 @@ export const OPERATORS_BY_KIND: Readonly<Record<FilterKind, ReadonlyArray<Filter
   flag: [FilterOperator.Is, FilterOperator.IsNot],
 };
 
-/** The most conditions a request may carry, and the most values one condition may hold. */
+/** The most conditions a request may carry, the most values one may hold, and the longest value. */
 const MAX_CONDITIONS = 20;
 const MAX_VALUES = 100;
+const MAX_VALUE_LENGTH = 200;
+
+/** Numbers on the wire are whole and fit a smallint, so a value never reaches the database out of range. */
+const MIN_NUMBER = -32_768;
+const MAX_NUMBER = 32_767;
 
 /** One condition as sent: a property, an operator and its values as text. Per-entity rules come from `filterSchema`. */
 export const FilterCondition = z.strictObject({
   property: z.string().min(1),
   operator: z.enum(FilterOperator),
-  values: z.array(z.string()).max(MAX_VALUES),
+  values: z.array(z.string().max(MAX_VALUE_LENGTH)).max(MAX_VALUES),
 });
 
 export type FilterCondition = z.output<typeof FilterCondition>;
@@ -73,16 +78,18 @@ function arityIssue({ operator, values }: FilterCondition): string | undefined {
   return values.length >= min && values.length <= max ? undefined : `${operator} takes ${min} to ${max} values`;
 }
 
-/** A bound of `between` may be left open with `''`; every other value must be a number. */
 function isNumeric(text: string): boolean {
-  return text.trim() !== '' && Number.isFinite(Number(text));
+  const number = Number(text);
+
+  return text.trim() !== '' && Number.isInteger(number) && number >= MIN_NUMBER && number <= MAX_NUMBER;
 }
 
+// A bound of `between` may be left open with `''`.
 function numberIssue({ operator, values }: FilterCondition): string | undefined {
-  const open = operator === FilterOperator.Between ? '' : undefined;
-  const bad = values.some((value) => value !== open && !isNumeric(value));
+  const openBound = operator === FilterOperator.Between ? '' : undefined;
+  const hasNonNumber = values.some((value) => value !== openBound && !isNumeric(value));
 
-  return bad ? 'values must be numbers' : undefined;
+  return hasNonNumber ? 'values must be whole numbers that fit a smallint' : undefined;
 }
 
 /**
