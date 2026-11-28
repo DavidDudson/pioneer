@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831447201,
+  "lastUpdate": 1795831453858,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -418,6 +418,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 214,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "970dbd59838237612b9d194ab9327adddc196566",
+          "message": "test(play): cover the activations of armour runes (#2446)\n\nArmour already gets the activations of its working property runes through\nthe shared per-line reader. Add an invisibility rune (daily) and a winged\nrune (hourly) as fixtures and test that armour lists them, spends them\nunder the armour and the activation, and is unusable until invested.\n\nRefs #1648\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:38:43+10:00",
+          "tree_id": "27771628e6a0106a738e26abd9c50e5e644ba3c3",
+          "url": "https://github.com/DavidDudson/pioneer/commit/970dbd59838237612b9d194ab9327adddc196566"
+        },
+        "date": 1795831448587,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 217,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6377,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 218,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
