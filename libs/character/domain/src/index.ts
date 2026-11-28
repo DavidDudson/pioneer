@@ -337,7 +337,6 @@ export { ownedItems } from './owned-items';
 export {
   CharacterContract,
   CharacterListQuery,
-  CharacterListState,
   CharacterPageQuery,
   CharacterSort,
   CreateCharacterBody,
@@ -347,6 +346,7 @@ export {
   CHARACTER_PAGE_SIZE,
   CharacterCount,
   CHARACTER_FILTER_PROPERTIES,
+  CharacterFacetQuery,
   CharacterFilter,
   type CharacterFilterProperty,
   CharacterFilters,
@@ -357,6 +357,8 @@ export {
   PageNumber,
   PageSize,
 } from './character-page';
+
+export { CharacterListState } from './character-list-state';
 
 export { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
 

@@ -1,6 +1,7 @@
 import type {
   Character,
   CharacterCommand,
+  CharacterFacetQuery,
   CharacterId,
   CharacterListQuery,
   CharacterPage,
@@ -8,7 +9,7 @@ import type {
   CharacterPlay,
   PlayState,
 } from '@pioneer/character/domain';
-import type { AuditContext, Temporal, UserId, Version } from '@pioneer/shared/kernel';
+import type { AuditContext, FacetPage, Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 /** Who wrote a character and with which command; lands on its `audit.log` rows. */
 export type CharacterAudit = AuditContext<CharacterCommand>;
@@ -39,6 +40,12 @@ export abstract class CharacterRepository {
    * count of every match. Filters read columns the repository keeps in step with the document.
    */
   public abstract pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage>;
+
+  /**
+   * One page of the values one property takes among one owner's live characters, with how many have each: the
+   * counts see the filters in `query` except the property's own.
+   */
+  public abstract facetsForOwner(ownerId: UserId, query: CharacterFacetQuery): Promise<FacetPage>;
 
   /** One owner's archived characters (ADR-0062), in the same orders as `listForOwner`. */
   public abstract listArchivedForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>>;

@@ -93,5 +93,8 @@ export {
   filterSchema,
   filtersParam,
   type FilterProperties,
+  type FiltersParam,
   type FilterValue,
 } from './filter-condition';
+
+export { FACET_PAGE_SIZE, FacetCount, FacetPage, facetQuery, otherConditions } from './facet-counts';

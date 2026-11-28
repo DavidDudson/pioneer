@@ -17,3 +17,5 @@ export type { Executor } from './executor';
 export { updateVersioned } from './versioned-update';
 
 export { applyFilters, type FilterColumn } from './apply-filters';
+
+export { facetCounts } from './facet-counts';

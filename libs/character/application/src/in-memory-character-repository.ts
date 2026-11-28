@@ -7,6 +7,7 @@ import {
 } from '@pioneer/character/domain';
 import type {
   Character,
+  CharacterFacetQuery,
   CharacterFilterProperty,
   CharacterId,
   CharacterListQuery,
@@ -16,12 +17,16 @@ import type {
 } from '@pioneer/character/domain';
 import {
   conditionHolds,
+  FACET_PAGE_SIZE,
   FIRST_VERSION,
   nextVersion,
+  otherConditions,
   SortDirection,
   VersionConflictError,
 } from '@pioneer/shared/kernel';
 import type {
+  FacetCount,
+  FacetPage,
   FilterCondition,
   FilterKind,
   FilterProperties,
@@ -44,8 +49,10 @@ const READ = {
   ancestry: (character) => character.ancestry,
 } as const satisfies Readonly<Record<CharacterFilterProperty, (character: Character) => FilterValue>>;
 
+const READERS = new Map<string, (character: Character) => FilterValue>(Object.entries(READ));
+
 function readProperty(property: string, character: Character): FilterValue {
-  return new Map<string, (character: Character) => FilterValue>(Object.entries(READ)).get(property)?.(character);
+  return READERS.get(property)?.(character);
 }
 
 /** Whether `character` passes every condition; no conditions pass all. */
@@ -82,6 +89,39 @@ export class InMemoryCharacterRepository extends CharacterRepository {
       total: CharacterCount.parse(matching.length),
       page: query.page,
       pageSize: CHARACTER_PAGE_SIZE,
+    };
+  }
+
+  public override async facetsForOwner(ownerId: UserId, query: CharacterFacetQuery): Promise<FacetPage> {
+    const others = otherConditions(query.filters, query.property);
+    const search = query.search?.toLowerCase();
+    const counts = new Map<string, number>();
+
+    for (const character of this.#listFor(
+      ownerId,
+      { sort: CharacterSort.CreatedAt, direction: SortDirection.Asc },
+      false,
+    )) {
+      const value = readProperty(query.property, character);
+
+      if (value !== undefined && matches(character, others)) {
+        counts.set(String(value), (counts.get(String(value)) ?? 0) + 1);
+      }
+    }
+
+    const values = [...counts]
+      .flatMap(([value, count]): Array<FacetCount> =>
+        search === undefined || value.toLowerCase().includes(search) ? [{ value, count }] : [],
+      )
+      .toSorted((left, right) => right.count - left.count || left.value.localeCompare(right.value));
+
+    const start = (query.page - 1) * FACET_PAGE_SIZE;
+
+    return {
+      items: values.slice(start, start + FACET_PAGE_SIZE),
+      total: values.length,
+      page: query.page,
+      pageSize: FACET_PAGE_SIZE,
     };
   }
 

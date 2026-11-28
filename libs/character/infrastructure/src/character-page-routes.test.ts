@@ -12,6 +12,7 @@ import type { AnyElysia } from 'elysia';
 import { characterRoutes } from './character-routes';
 
 const amiri = UserId.parse(newId());
+const kyra = UserId.parse(newId());
 
 /** The part of a page of the list these tests read. */
 interface PageBody {
@@ -26,6 +27,12 @@ function app(): AnyElysia {
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
 
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
+}
+
+interface FacetBody {
+  readonly items: ReadonlyArray<{ readonly value: string; readonly count: number }>;
+  readonly total: number;
+  readonly page: number;
 }
 
 async function get(api: AnyElysia, path: string): Promise<Response> {
@@ -57,6 +64,13 @@ function withFilter(property: string, operator: string, values: ReadonlyArray<st
   return `/characters?filters=${encodeURIComponent(filters)}`;
 }
 
+async function facetsAt(api: AnyElysia, path: string): Promise<FacetBody> {
+  const response = await get(api, path);
+
+  // SAFETY: Response.json() is typed any; the route's body has the contract's shape.
+  return (await response.json()) as FacetBody;
+}
+
 describe('the character list page', () => {
   test('a page comes back with its total, and the name filter narrows it', async () => {
     const api = app();
@@ -84,6 +98,54 @@ describe('the character list page', () => {
     ['a property the list lacks', withFilter('owner', 'is', ['someone'])],
     ['filters that are not JSON', '/characters?filters=level'],
     ['a filter that is not one', '/characters?owner=someone'],
+  ])('%s is a 422', async (_name, path) => {
+    const response = await get(app(), path);
+    expect(response.status).toBe(422);
+  });
+});
+
+describe('the character facets', () => {
+  test('counts the values of a property, most common first', async () => {
+    const api = app();
+    await create(api, 'Amiri');
+    await create(api, 'Kyra');
+
+    const body = await facetsAt(api, '/characters/facets?property=level');
+    expect(body).toMatchObject({ items: [{ value: '1', count: 2 }], total: 1, page: 1 });
+  });
+
+  test('counts leave out the property’s own conditions', async () => {
+    const api = app();
+    await create(api, 'Amiri');
+    const own = JSON.stringify([{ property: 'level', operator: 'gte', values: ['5'] }]);
+    const body = await facetsAt(api, `/characters/facets?property=level&filters=${encodeURIComponent(own)}`);
+    expect(body.items).toStrictEqual([{ value: '1', count: 1 }]);
+  });
+
+  test('another property’s conditions narrow the counts', async () => {
+    const api = app();
+    await create(api, 'Amiri');
+    const other = JSON.stringify([{ property: 'name', operator: 'contains', values: ['zzz'] }]);
+    const body = await facetsAt(api, `/characters/facets?property=level&filters=${encodeURIComponent(other)}`);
+    expect(body).toMatchObject({ items: [], total: 0 });
+  });
+
+  test('counts cover only the caller’s own characters', async () => {
+    const api = app();
+    await create(api, 'Amiri');
+
+    const response = await api.handle(
+      new Request('http://localhost/characters/facets?property=level', { headers: actingAs(kyra) }),
+    );
+
+    // SAFETY: Response.json() is typed any; the route's body has the contract's shape.
+    expect(((await response.json()) as FacetBody).items).toStrictEqual([]);
+  });
+
+  test.each([
+    ['a text property', '/characters/facets?property=name'],
+    ['no property', '/characters/facets'],
+    ['a page below the first', '/characters/facets?property=level&page=0'],
   ])('%s is a 422', async (_name, path) => {
     const response = await get(app(), path);
     expect(response.status).toBe(422);

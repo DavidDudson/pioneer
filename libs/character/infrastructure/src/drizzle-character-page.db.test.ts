@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import {
   CHARACTER_PAGE_SIZE,
   CharacterCommand,
+  CharacterFacetQuery,
   CharacterFilter,
   CharacterPageQuery,
   CharacterPatchField,
@@ -147,6 +148,48 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     expect(await run([{ property: 'level', operator: 'gt', values: ['5'] }])).toStrictEqual(['Page 100%', 'Page Cass']);
   });
 
+  async function facets(query: Readonly<Record<string, string>>): Promise<ReadonlyArray<string>> {
+    const page = await repository.facetsForOwner(pageOwnerId, CharacterFacetQuery.parse(query));
+
+    return page.items.map(({ value, count }) => `${value}:${count}`);
+  }
+
+  test('facet counts list each class with how many picked it, most common first', async () => {
+    expect(await facets({ property: 'class' })).toStrictEqual([`${fighterId}:2`, `${wizardId}:1`]);
+  });
+
+  test('facet counts leave out the property’s own conditions but keep the others', async () => {
+    const own = JSON.stringify([{ property: 'class', operator: 'is', values: [wizardId] }]);
+    expect(await facets({ property: 'class', filters: own })).toStrictEqual([`${fighterId}:2`, `${wizardId}:1`]);
+
+    const others = JSON.stringify([{ property: 'level', operator: 'gte', values: ['9'] }]);
+    expect(await facets({ property: 'class', filters: others })).toStrictEqual([`${fighterId}:1`]);
+  });
+
+  test('facet search matches a value in any case, its wildcards literal, and pages report the total', async () => {
+    expect(await facets({ property: 'level', search: '9' })).toStrictEqual(['9:2']);
+    expect(await facets({ property: 'level', search: '%' })).toStrictEqual([]);
+
+    const page = await repository.facetsForOwner(pageOwnerId, CharacterFacetQuery.parse({ property: 'level' }));
+    expect(page).toMatchObject({ total: 3, page: 1 });
+
+    const past = await repository.facetsForOwner(
+      pageOwnerId,
+      CharacterFacetQuery.parse({ property: 'level', page: 2 }),
+    );
+
+    expect(past).toMatchObject({ items: [], total: 3, page: 2 });
+  });
+
+  test('facet counts see only the owner’s live characters', async () => {
+    const other = await repository.facetsForOwner(otherOwnerId, CharacterFacetQuery.parse({ property: 'class' }));
+    expect(other).toMatchObject({ items: [], total: 0 });
+  });
+
+  test('facet values with the same count come in value order', async () => {
+    expect(await facets({ property: 'level' })).toStrictEqual(['9:2', '1:1', '5:1']);
+  });
+
   test('nobody else’s characters are counted', async () => {
     const filters = JSON.stringify(filterConditionsOf({ name: CharacterSearch.parse('Page') }));
     const page = await repository.pageForOwner(otherOwnerId, CharacterPageQuery.parse({ filters }));
@@ -166,9 +209,16 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
   test('every filter and page is served by an index', async () => {
     const filters = [{ classId: fighterId }, { ancestry: elfId }, { minLevel: 2 }, { name: 'a' }];
     await Promise.all(filters.map(async (filter) => namesOf(filter)));
+    await Promise.all(['class', 'ancestry', 'level'].map(async (property) => facets({ property })));
     await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ page: 2 }));
 
-    expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
+    const problems = await unindexedQueries(database.db, recorder);
+
+    // A facet orders its values by an aggregate, which has to sort.
+    // It reads one owner's rows through the owner index, so the sort is bounded.
+    // A facet that scanned the table would still fail here.
+    const unexpected = problems.filter((problem) => !(problem.startsWith('Sort on') && problem.includes(' group by ')));
+    expect(unexpected).toStrictEqual([]);
   });
 
   afterAll(async () => {
