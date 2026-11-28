@@ -26,6 +26,7 @@ import { HttpStatus } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
 
 import { HomebrewStore } from '../../data/homebrew-store';
+import { PackEntries } from '../../entries/pack-entries/pack-entries.component';
 import { PackDependenciesPanel } from '../pack-dependencies/pack-dependencies.component';
 
 /** How each visibility reads, as full message keys: what it is, and who can see the pack because of it. */
@@ -54,6 +55,7 @@ const VISIBILITY_MESSAGES = {
     PageBody,
     PageHeader,
     PackDependenciesPanel,
+    PackEntries,
     PickerField,
     Skeleton,
     Stack,

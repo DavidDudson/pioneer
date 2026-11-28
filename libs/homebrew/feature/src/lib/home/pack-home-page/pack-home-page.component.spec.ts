@@ -51,11 +51,14 @@ async function openLoaded(): Promise<RouterTestingHarness> {
   const harness = await open();
   const http = TestBed.inject(HttpTestingController);
   http.expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
-  // The dependencies section loads beside the pack and holds the page unstable until it is answered.
+  // The dependencies section loads beside the pack and and the entries section hold the page unstable until they are answered.
   await vi.waitFor(() => {
     http
       .expectOne(`/api/homebrew/packs/${id}/dependencies`)
       .flush({ editable: true, dependencies: [], candidates: [] });
+  });
+  await vi.waitFor(() => {
+    http.expectOne(`/api/homebrew/packs/${id}/entries?archived=false`).flush([]);
   });
   await harness.fixture.whenStable();
   await vi.waitFor(() => {

@@ -7,7 +7,7 @@ import type { Clock } from '@pioneer/shared/kernel';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
-import { and, asc, eq, sql } from 'drizzle-orm';
+import { and, asc, eq, isNull, sql } from 'drizzle-orm';
 
 import { contentHash } from './content-hash';
 import { seedContentPacks, SeedOutcome } from './content-seed';
@@ -75,11 +75,9 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
   }
 
   async function storedEntries(contents: PackContents): Promise<Array<typeof contentEntries.$inferSelect>> {
-    return database.db
-      .select()
-      .from(contentEntries)
-      .where(eq(contentEntries.packId, contentPackId(contents.file.id)))
-      .orderBy(asc(contentEntries.slug));
+    const live = and(eq(contentEntries.packId, contentPackId(contents.file.id)), isNull(contentEntries.archivedAt));
+
+    return database.db.select().from(contentEntries).where(live).orderBy(asc(contentEntries.slug));
   }
 
   test('a first seed writes the pack row and one row per entry, the whole entry in data', async () => {
@@ -146,15 +144,22 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     ]);
   });
 
-  test('an entry removed from the pack is deleted', async () => {
+  test('an entry removed from the pack is archived, not deleted', async () => {
     await seed(languagePack('removed', [COMMON, DRACONIC, ELVEN]));
     const trimmed = languagePack('removed', [COMMON, ELVEN]);
 
     const [result] = await seedContentPacks(database.db, [loader(trimmed)], laterSeed);
 
-    expect(result?.removed).toBe(1);
+    expect(result?.archived).toBe(1);
+
     const rows = await storedEntries(trimmed);
     expect(rows.map(({ slug }) => slug)).toStrictEqual(trimmed.entries.map(({ slug }) => slug));
+
+    const archivedRows = await database.db.execute(
+      sql`select slug from content_entries where archived_at is not null and slug = 'language:draconic'`,
+    );
+
+    expect(archivedRows).toHaveLength(1);
   });
 
   test('a pack that fails part way leaves its previous rows as they were', async () => {
@@ -206,7 +211,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
 
     const [result] = await seedContentPacks(database.db, [loader(trimmed)], laterSeed);
 
-    expect(result?.removed).toBe(LARGE_PACK - KEPT);
+    expect(result?.archived).toBe(LARGE_PACK - KEPT);
     const rows = await storedEntries(trimmed);
     expect(rows).toHaveLength(KEPT);
   });

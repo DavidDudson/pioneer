@@ -79,6 +79,9 @@ async function open(dependencies: DependenciesJson): Promise<RouterTestingHarnes
   await vi.waitFor(() => {
     http.expectOne(`/api/homebrew/packs/${id}/dependencies`).flush(dependencies);
   });
+  await vi.waitFor(() => {
+    http.expectOne(`/api/homebrew/packs/${id}/entries?archived=false`).flush([]);
+  });
   await harness.fixture.whenStable();
 
   return harness;
@@ -129,7 +132,7 @@ describe('PackDependenciesPanel', () => {
     });
     const root = present(harness.routeNativeElement);
     expect(buttons(root, 'Remove')).toHaveLength(0);
-    expect(root.querySelector('button[type="submit"]')).toBeNull();
+    expect(root.querySelector('pio-pack-dependency-adder button[type="submit"]')).toBeNull();
   });
 
   it('removes a dependency on the first press, and the list follows', async () => {
@@ -184,7 +187,11 @@ describe('PackDependenciesPanel', () => {
     // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     (pickerField(harness).componentInstance as PickerField<string, object>).value.set(playerCore.id);
     await harness.fixture.whenStable();
-    present(present(harness.routeNativeElement).querySelector<HTMLButtonElement>('button[type="submit"]')).click();
+    present(
+      present(harness.routeNativeElement).querySelector<HTMLButtonElement>(
+        'pio-pack-dependency-adder button[type="submit"]',
+      ),
+    ).click();
     const request = await sent(`/api/homebrew/packs/${id}/dependencies`);
     expect(request.request.method).toBe('POST');
     expect(request.request.body).toStrictEqual({ dependsOn: playerCore.id });
@@ -208,7 +215,11 @@ describe('PackDependenciesPanel', () => {
     // SAFETY: the query matches only `PickerField`/`Picker` instances, so the component is one; its type arguments are the ones the host template instantiates it with, which the erased instance cannot show.
     (pickerField(harness).componentInstance as PickerField<string, object>).value.set(playerCore.id);
     await harness.fixture.whenStable();
-    present(present(harness.routeNativeElement).querySelector<HTMLButtonElement>('button[type="submit"]')).click();
+    present(
+      present(harness.routeNativeElement).querySelector<HTMLButtonElement>(
+        'pio-pack-dependency-adder button[type="submit"]',
+      ),
+    ).click();
     const addition = await sent(`/api/homebrew/packs/${id}/dependencies`);
     addition.flush(
       {

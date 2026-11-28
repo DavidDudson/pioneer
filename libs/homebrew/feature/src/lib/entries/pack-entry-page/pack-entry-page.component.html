@@ -1,0 +1,58 @@
+<fr-page>
+  <fr-page-header [title]="entry()?.name ?? ('homebrew.entry.title' | transloco)" />
+  <fr-page-body>
+    <fr-stack gap="xl">
+      <fr-async-region [errorMessage]="'homebrew.entry.loadOneError' | transloco">
+        <ng-template frAsyncPending>
+          <fr-surface>
+            <fr-stack gap="sm">
+              @for (placeholder of placeholders; track placeholder) {
+                <fr-skeleton width="md" />
+              }
+            </fr-stack>
+          </fr-surface>
+        </ng-template>
+        <ng-template let-entries [frAsyncData]="store.entries">
+          @if (entry(); as entry) {
+            <fr-surface>
+              <fr-async-form [form]="form" [action]="save" [describeError]="describeSaveError">
+                <fr-stack gap="md">
+                  <fr-heading variant="subheading" [level]="2">{{
+                    'homebrew.entry.editHeading' | transloco
+                  }}</fr-heading>
+                  <fr-text tone="muted">{{
+                    'homebrew.entry.kindFixed' | transloco: { kind: kindMessages[entry.kind] | transloco }
+                  }}</fr-text>
+                  <fr-text-field [label]="'homebrew.entry.nameLabel' | transloco" [formField]="form.name" />
+                  <fr-picker-field
+                    [label]="'homebrew.entry.rarityLabel' | transloco"
+                    [rows]="rarities.rows.shown()"
+                    [columns]="rarities.columns()"
+                    [rowValue]="rarities.value"
+                    [rowLabel]="rarities.label"
+                    [formField]="form.rarity"
+                    (searched)="rarities.rows.query.set($event)"
+                    (sorted)="rarities.rows.ordering.set($event)"
+                  />
+                  <fr-stack direction="horizontal" justify="end" gap="sm">
+                    <fr-link [to]="['../..']">{{ 'homebrew.entry.back' | transloco }}</fr-link>
+                    <fr-async-button
+                      type="submit"
+                      variant="primary"
+                      [pendingLabel]="'homebrew.entry.saving' | transloco"
+                      [successLabel]="'homebrew.entry.saved' | transloco"
+                    >
+                      {{ 'homebrew.entry.save' | transloco }}
+                    </fr-async-button>
+                  </fr-stack>
+                </fr-stack>
+              </fr-async-form>
+            </fr-surface>
+          } @else {
+            <fr-text tone="muted">{{ 'homebrew.entry.loadOneError' | transloco }}</fr-text>
+          }
+        </ng-template>
+      </fr-async-region>
+    </fr-stack>
+  </fr-page-body>
+</fr-page>

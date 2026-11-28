@@ -50,8 +50,8 @@ export interface PackSeed {
   readonly outcome: SeedOutcome;
   /** The pack row's version afterwards: one more than before when seeded. */
   readonly version: Version;
-  /** Entries no longer in the pack, deleted. */
-  readonly removed: number;
+  /** Entries no longer in the pack, archived (ADR-0062). */
+  readonly archived: number;
 }
 
 /** One pack's seed in progress: its checked files, their hash, and the transaction and time it writes with. */
@@ -140,9 +140,11 @@ async function upsertEntries(write: PackWrite): Promise<void> {
     traits: sql`excluded.traits`,
     data: sql`excluded.data`,
     updatedAt: sql`excluded.updated_at`,
+    // An entry that left the pack and is back in it is live again.
+    archivedAt: sql`null`,
   };
 
-  const setWhere = sql`${contentEntries.data} is distinct from excluded.data`;
+  const setWhere = sql`${contentEntries.data} is distinct from excluded.data or ${contentEntries.archivedAt} is not null`;
   await Promise.all(
     batches(write.contents.entries).map(async (batch) =>
       write.tx
@@ -153,19 +155,24 @@ async function upsertEntries(write: PackWrite): Promise<void> {
   );
 }
 
-/** Deletes the pack's rows for entries no longer in it; returns how many. */
-async function removeStale(write: PackWrite): Promise<number> {
+/** Archives the pack's live entries that are no longer in it (ADR-0062: never deleted); returns how many. */
+async function archiveStale(write: PackWrite): Promise<number> {
   // One array literal, so one parameter however many entries the pack has; ids are UUIDs, which need no quoting.
   const kept = `{${write.contents.entries.map((entry) => entry.id).join(',')}}`;
 
   const stale = and(
     eq(contentEntries.packId, contentPackId(write.contents.file.id)),
+    isNull(contentEntries.archivedAt),
     sql`${contentEntries.id} <> all(${kept}::uuid[])`,
   );
 
-  const removed = await write.tx.delete(contentEntries).where(stale).returning({ id: contentEntries.id });
+  const archived = await write.tx
+    .update(contentEntries)
+    .set({ archivedAt: write.at })
+    .where(stale)
+    .returning({ id: contentEntries.id });
 
-  return removed.length;
+  return archived.length;
 }
 
 /** The entries of the pack that have a description: only they have a text row. */
@@ -238,7 +245,7 @@ async function seedPack(db: Database, contents: PackContents, at: string): Promi
       .where(eq(contentPacks.id, contentPackId(pack)));
 
     if (stored?.unchanged === true) {
-      return { pack, outcome: SeedOutcome.Unchanged, version: stored.version, removed: 0 };
+      return { pack, outcome: SeedOutcome.Unchanged, version: stored.version, archived: 0 };
     }
 
     await tx.execute(sql`select set_config('pioneer.command', ${SEED_COMMAND}, true)`);
@@ -246,17 +253,17 @@ async function seedPack(db: Database, contents: PackContents, at: string): Promi
     const version = await upsertPack(write, stored);
     await upsertEntries(write);
     await upsertTexts(write);
-    const removed = await removeStale(write);
+    const archived = await archiveStale(write);
     await removeStaleTexts(write);
 
-    return { pack, outcome: SeedOutcome.Seeded, version, removed };
+    return { pack, outcome: SeedOutcome.Seeded, version, archived };
   });
 }
 
 /**
  * Upserts official packs into the content tables by id (content-model.md, "Packs and storage"). Every pack is loaded
  * and checked before anything is written. Each pack is seeded in one transaction: its row and entries are upserted
- * and entries no longer in it are deleted, so a pack that fails leaves its previous rows as they were. A pack whose
+ * and entries no longer in it are archived, so a pack that fails leaves its previous rows as they were. A pack whose
  * `content_hash` matches is skipped without writing, so a re-seed of unchanged packs changes nothing.
  */
 export async function seedContentPacks(

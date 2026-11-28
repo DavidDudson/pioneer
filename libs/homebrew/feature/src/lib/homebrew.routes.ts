@@ -4,7 +4,7 @@ import { CRUMB } from '@pioneer/frontier';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
-import { packCrumb } from './crumbs';
+import { entryCrumb, packCrumb } from './crumbs';
 import { HomebrewStore } from './data/homebrew-store';
 
 /** What every homebrew page needs: its server state and its messages. */
@@ -25,6 +25,15 @@ export const homebrewRoutes: Routes = [
           const { PackListPage } = await import('./list/pack-list-page/pack-list-page.component');
 
           return PackListPage;
+        }),
+      },
+      {
+        path: ':id/entries/:entryId',
+        data: { [CRUMB]: entryCrumb },
+        loadComponent: loadWithMessages(async () => {
+          const { PackEntryPage } = await import('./entries/pack-entry-page/pack-entry-page.component');
+
+          return PackEntryPage;
         }),
       },
       {

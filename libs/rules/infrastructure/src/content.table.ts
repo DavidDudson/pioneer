@@ -87,6 +87,9 @@ export const contentEntries = pgTable(
     traits: text().array().$type<Array<Trait>>().notNull(),
     data: jsonb().$type<ContentEntry>().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    // Set when an entry is archived (ADR-0062). Null is live. A row is never deleted, and the slug stays held.
+    // An author archives a homebrew entry; the seed archives an official one that left its pack.
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
   },
   (table) => [
     // A pack's entries by kind; also serves loading or clearing a whole pack.

@@ -1,5 +1,7 @@
 export { DrizzleDependencyUsageDirectory } from './drizzle-dependency-usage-directory';
 
+export { DrizzleHomebrewEntryRepository } from './drizzle-homebrew-entry-repository';
+
 export { DrizzleHomebrewPackRepository } from './drizzle-homebrew-pack-repository';
 
 export { DrizzlePackDependencyRepository } from './drizzle-pack-dependency-repository';

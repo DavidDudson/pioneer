@@ -35,3 +35,14 @@ export { HomebrewBundleService, type HomebrewBundlePorts } from './homebrew-bund
 export { PackBundleSource } from './pack-bundle-source';
 
 export { InMemoryPackBundleSource } from './in-memory-pack-bundle-source';
+
+export {
+  type EntryRef,
+  type EntryWrite,
+  HomebrewEntryRepository,
+  type StoredHomebrewEntry,
+} from './homebrew-entry-repository';
+
+export { type HomebrewEntryPorts, HomebrewEntryService } from './homebrew-entry-service';
+
+export { InMemoryHomebrewEntryRepository } from './in-memory-homebrew-entry-repository';

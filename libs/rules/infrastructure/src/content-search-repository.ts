@@ -50,6 +50,7 @@ export class ContentSearchRepository {
     const matches = and(
       eq(contentEntrySearch.locale, locale),
       sql`${contentEntrySearch.vector} @@ ${words}`,
+      isNull(contentEntries.archivedAt),
       kindFilter(kinds),
       packFilter(packs),
       legacyFilter(legacy),

@@ -1,11 +1,13 @@
-import { ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
+import { ContentId, ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CreateHomebrewEntryBody, HomebrewEntrySummary, UpdateHomebrewEntryBody } from './homebrew-entry';
 import { HomebrewPack } from './homebrew-pack';
 import { PackDependencies } from './pack-summary';
 
 const ById = z.object({ id: ContentPackId });
+const ByEntry = z.object({ id: ContentPackId, entryId: ContentId });
 const ByDependency = z.object({ id: ContentPackId, dependsOn: ContentPackId });
 
 export const CreateHomebrewPackBody = z.object({
@@ -20,6 +22,9 @@ export const SetPackVisibilityBody = z.object({
 });
 
 export type SetPackVisibilityBody = z.infer<typeof SetPackVisibilityBody>;
+
+/** `?archived=true` lists the archived entries instead of the live ones. */
+const EntryListQuery = z.object({ archived: z.stringbool().optional() });
 
 /** Which pack to extend. */
 export const AddPackDependencyBody = z.object({ dependsOn: ContentPackId });
@@ -131,5 +136,54 @@ export const HomebrewContract = {
     query: NoQuery,
     body: NoBody,
     response: PackDependencies,
+  }),
+  /** The pack's entries, live or archived (`?archived=true`), by kind then name. Owner only; anyone else gets a 404. */
+  entries: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/homebrew/packs/:id/entries',
+    params: ById,
+    query: EntryListQuery,
+    body: NoBody,
+    response: z.array(HomebrewEntrySummary),
+  }),
+  /**
+   * A new entry of the chosen kind, starting from that kind's starter data. Owner only; anyone else gets a 404. A
+   * slug already used by that kind in the pack is a 409; a kind that cannot start without another entry, or fields
+   * the kind's schema refuses, are a 422 with message keys.
+   */
+  createEntry: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/entries',
+    params: ById,
+    query: NoQuery,
+    body: CreateHomebrewEntryBody,
+    response: HomebrewEntrySummary,
+  }),
+  /** Owner only. Changes the name, level, rarity and traits; the kind, slug and id stay. An archived entry is a 404. */
+  updateEntry: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/homebrew/packs/:id/entries/:entryId',
+    params: ByEntry,
+    query: NoQuery,
+    body: UpdateHomebrewEntryBody,
+    response: HomebrewEntrySummary,
+  }),
+  /** Owner only: archives the entry (ADR-0062), which then is in force nowhere. Archiving it twice is harmless. */
+  archiveEntry: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/entries/:entryId/archive',
+    params: ByEntry,
+    query: NoQuery,
+    body: NoBody,
+    response: HomebrewEntrySummary,
+  }),
+  /** Owner only: brings an archived entry back as it was. Restoring a live one is harmless. */
+  restoreEntry: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/entries/:entryId/restore',
+    params: ByEntry,
+    query: NoQuery,
+    body: NoBody,
+    response: HomebrewEntrySummary,
   }),
 } as const;

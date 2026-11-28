@@ -534,6 +534,15 @@ own table, see "Search".
   `libs/homebrew` creates them: a new pack is an empty `pack.json` under the license `homebrew`, private, with a slug
   unique across every pack (official ones included, so a homebrew pack never takes an official pack's key). The
   actor's own packs are listed at `GET /homebrew/packs`; another user's pack is a 404.
+- **Homebrew entries** are written in the app by the pack's owner, and only the owner: anyone else gets a 404.
+  `POST /homebrew/packs/:id/entries` starts an entry of a kind from that kind's starter data (`starterData`,
+  `libs/homebrew/domain`); the author sets its name, level, rarity and traits, and the rest of `data` starts as
+  placeholders. Archetype and kit are not offered, since their data refers to other entries. The slug is
+  `<kind>:<name>` (ADR-0034), unique per kind in the pack, and the id is the UUIDv5 of `<pack>/<slug>`, so
+  it never changes. Entries are archived, never deleted (ADR-0062): `content_entries.archived_at`, with
+  `archive.protect` rejecting `DELETE`. An archived entry is in force nowhere, is left out of the pack's bundle, search
+  and entry counts, and keeps its slug. The official seed archives entries a book no longer holds, and restores them
+  when they return. Every entry write moves the pack's version and content hash.
 - **Overriding official content** in homebrew is a new entry with `supersedes` pointing at the official one.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching
   the official row.

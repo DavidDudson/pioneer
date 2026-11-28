@@ -10,4 +10,7 @@ export const HomebrewMessage = {
   NarrowerThanDependents: 'homebrew.pack.narrowerThanDependents',
   ExtendedByPacks: 'homebrew.pack.extendedByPacks',
   DependsOnArchived: 'homebrew.pack.dependsOnArchived',
+  EntrySlugTaken: 'homebrew.entry.slugTaken',
+  EntryNameHasNoLetters: 'homebrew.entry.nameHasNoLetters',
+  EntryKindNeedsEntries: 'homebrew.entry.kindNeedsEntries',
 } as const;

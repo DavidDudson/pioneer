@@ -1,11 +1,13 @@
 import {
   HomebrewBundleService,
+  HomebrewEntryService,
   HomebrewPackService,
   PackAccessPolicy,
   PackDependencyService,
 } from '@pioneer/homebrew/application';
 import {
   DrizzleDependencyUsageDirectory,
+  DrizzleHomebrewEntryRepository,
   DrizzleHomebrewPackRepository,
   DrizzlePackDependencyRepository,
   DrizzlePackDirectory,
@@ -49,7 +51,9 @@ export function homebrew(db: Database, clock: Clock, authenticator: RequestAuthe
     bundles: new StoredPackBundleSource(stored),
   });
 
-  return homebrewRoutes({ packs: service, dependencies: dependencyService }, authenticator).use(
+  const entries = new HomebrewEntryService({ packs, entries: new DrizzleHomebrewEntryRepository(db) }, clock);
+
+  return homebrewRoutes({ packs: service, dependencies: dependencyService, entries }, authenticator).use(
     homebrewBundleRoutes(bundles, authenticator),
   );
 }
