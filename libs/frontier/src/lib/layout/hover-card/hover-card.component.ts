@@ -19,12 +19,14 @@ import { timer } from 'rxjs';
 import type { Subscription } from 'rxjs';
 
 import { uniqueId } from '../../ids';
+import { overlayPositions } from '../../overlay-positions';
 import { HoverCardContent } from './hover-card-content.directive';
 
 const HOVER_DELAY: Milliseconds = Milliseconds.parse(200);
 
+const POSITIONS = overlayPositions('start');
 const triggerClasses = cva('inline')();
-const cardClasses = cva('z-overlay mt-2xs max-w-prose border border-line-default bg-surface-overlay p-sm text-body')();
+const cardClasses = cva('z-overlay max-w-prose border border-line-default bg-surface-overlay p-sm text-body')();
 
 /**
  * A preview that opens beside what it describes while the pointer rests on it or focus is inside it, and closes
@@ -51,6 +53,7 @@ const cardClasses = cva('z-overlay mt-2xs max-w-prose border border-line-default
   host: { class: 'contents' },
 })
 export class HoverCard {
+  protected readonly positions = POSITIONS;
   protected readonly content = contentChild(HoverCardContent);
   /** Whether a touch tap on the trigger opens the card first; off for a trigger a tap must act on, like a button. */
   public readonly tapOpens = input(true, { transform: booleanAttribute });

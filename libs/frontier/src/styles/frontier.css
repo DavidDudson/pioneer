@@ -184,6 +184,9 @@
   --spacing-xl: var(--fr-space-xl);
   --spacing-2xl: var(--fr-space-2xl);
   --spacing-3xl: var(--fr-space-3xl);
+  --spacing-inset-control: var(--fr-inset-control);
+  --spacing-inset-panel: var(--fr-inset-panel);
+  --spacing-inset-page: var(--fr-inset-page);
 
   /* Named sizes (h-touch, min-h-touch, max-h-listbox). Use them for size, not for gaps. */
   --spacing-touch: var(--fr-size-touch);

@@ -6,6 +6,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import type { IconGlyph } from '../../icon/icon-glyph';
+import { overlayPositions } from '../../overlay-positions';
 import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
 import { Control } from '../control';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
@@ -19,8 +20,10 @@ export interface SelectOption<TValue extends string> {
   readonly icon?: IconGlyph;
 }
 
+const POSITIONS = overlayPositions('start');
+
 const listboxClasses = cva(
-  'z-overlay mt-2xs max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
+  'z-overlay max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
 )();
 
 const optionClasses = cva([
@@ -65,6 +68,7 @@ export class Select<TValue extends string> extends Control {
     () => this.options().find((option) => option.value === this.value())?.label ?? this.placeholder(),
   );
   protected readonly triggerClasses = controlVariants({ trigger: true });
+  protected readonly positions = POSITIONS;
   protected readonly listboxClasses = listboxClasses;
   protected readonly optionClasses = optionClasses;
   protected readonly caretClasses = caretClasses;

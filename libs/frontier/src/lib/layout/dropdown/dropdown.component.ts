@@ -1,5 +1,4 @@
 import { OverlayModule } from '@angular/cdk/overlay';
-import type { ConnectedPosition } from '@angular/cdk/overlay';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
@@ -8,25 +7,16 @@ import { ChevronDown } from 'lucide';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
+import { overlayPositions } from '../../overlay-positions';
 
 /** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
 const originClasses = cva('inline-flex')();
 
-const panelClasses = cva(
-  'z-overlay mt-2xs max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs',
-)();
+const panelClasses = cva('z-overlay max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs')();
 
 export const DropdownAlign = { Start: 'start', End: 'end' } as const;
 
 export type DropdownAlign = ValueOf<typeof DropdownAlign>;
-
-/** The panel opens under the trigger, lining up with its start or end edge, and flips above it when there is no room. */
-function positionsFor(align: DropdownAlign): Array<ConnectedPosition> {
-  return [
-    { originX: align, originY: 'bottom', overlayX: align, overlayY: 'top' },
-    { originX: align, originY: 'top', overlayX: align, overlayY: 'bottom' },
-  ];
-}
 
 /**
  * A button that opens a panel of links, options or controls beside it. The panel is not a dialog: it takes no
@@ -64,7 +54,7 @@ export class Dropdown {
   protected readonly caret = ChevronDown;
   protected readonly originClasses = originClasses;
   protected readonly panelClasses = panelClasses;
-  protected readonly positions = computed(() => positionsFor(this.align()));
+  protected readonly positions = computed(() => overlayPositions(this.align()));
   /** A visible caption must be part of the accessible name (WCAG 2.5.3), so the label follows it. */
   protected readonly triggerLabel = computed(() => {
     const caption = this.caption();

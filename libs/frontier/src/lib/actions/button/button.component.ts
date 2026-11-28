@@ -92,7 +92,7 @@ const buttonVariants = cva(
         field:
           'min-h-control-md w-full min-w-none justify-between border border-line-default bg-surface-sunken px-sm text-start text-body text-fg-default hover:border-accent-line',
         inline:
-          '-mx-2xs min-h-control-sm min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken',
+          'min-h-control-sm min-w-none px-inset-control text-start text-body text-fg-default hover:bg-surface-sunken',
         toggle: [
           'justify-center font-medium border border-line-default bg-surface-base text-fg-default hover:bg-surface-sunken',
           'aria-pressed:border-accent-solid aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid',
