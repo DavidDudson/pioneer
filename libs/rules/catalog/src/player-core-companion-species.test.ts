@@ -27,6 +27,7 @@ describe('Player Core companion species', () => {
         'Crocodile',
         'Dromaeosaur',
         'Horse',
+        'Horse (Large)',
         'Riding Drake',
         'Scorpion',
         'Shark',
@@ -34,6 +35,11 @@ describe('Player Core companion species', () => {
         'Wolf',
       ].toSorted(),
     );
+  });
+
+  test('a horse is Medium or Large, as two entries over one block', () => {
+    expect(named('Horse')?.data).toMatchObject({ block: { size: 'medium', speed: 40 } });
+    expect(named('Horse (Large)')?.data).toMatchObject({ block: { size: 'large', speed: 40 } });
   });
 
   test('the bear is Small, 35 feet, with 8 Hit Points, jaws and an agile claw', () => {
