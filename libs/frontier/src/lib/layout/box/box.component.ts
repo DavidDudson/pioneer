@@ -20,11 +20,9 @@ const hostVariants = cva('@container min-w-none', {
   },
 });
 
-/** Block and inline padding are separate axes, so a gutter on the inline axis never collides with block padding. */
 const innerVariants = cva('', {
   variants: {
     paddingBlock: paddingBlockVariants,
-    // `gutter` is the page's side padding: `md`, then `xl` from the `lg` container size.
     paddingInline: { ...paddingInlineVariants, gutter: 'px-md @lg:px-xl' },
   },
 });

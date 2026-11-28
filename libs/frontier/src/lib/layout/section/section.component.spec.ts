@@ -73,8 +73,13 @@ describe(Section, () => {
 
   it('pads like a bare surface', async () => {
     const { region } = await render('sheet-identity', 'Identity');
-    const content = region.querySelector<HTMLElement>('fr-card-content');
-    expect(content?.className).toContain(`p-${DEFAULT_SURFACE_PADDING}`);
+
+    const parts = ['fr-card-header', 'fr-card-content'].map(
+      (part) => region.querySelector<HTMLElement>(part)?.className,
+    );
+
+    expect(parts.map((name) => name?.includes(`p-${DEFAULT_SURFACE_PADDING}`))).toStrictEqual([true, true]);
+
     expect(DEFAULT_SURFACE_PADDING).toBe(Inset.Panel);
   });
 

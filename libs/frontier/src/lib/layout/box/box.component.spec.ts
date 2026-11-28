@@ -62,6 +62,11 @@ describe(Box, () => {
     expect([...host.classList]).not.toContain('py-lg');
   });
 
+  it('pads the block axis from an inset', async () => {
+    const { inner } = await render({ paddingBlock: Inset.Page });
+    expect([...inner.classList].toSorted()).toStrictEqual(['px-none', 'py-inset-page']);
+  });
+
   it('pads the inline axis alone from a token', async () => {
     const { inner } = await render({ paddingInline: Inset.Panel });
     expect([...inner.classList].toSorted()).toStrictEqual(['px-inset-panel', 'py-none']);
