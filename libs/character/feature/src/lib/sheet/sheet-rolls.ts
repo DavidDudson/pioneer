@@ -18,6 +18,7 @@ import { PlayStore } from '../data/play-store';
 import { basicSaveDegree, savedDamage } from './sheet-basic-save';
 import { describeSaveError } from './sheet-field';
 import { rolledDegree } from './sheet-roll-degree';
+import { SheetRollHistory } from './sheet-roll-history/sheet-roll-history';
 import { sheetRollSetup } from './sheet-roll-setup';
 import type { Against, CheckRoll, PendingCheck, RolledCheck } from './sheet-roll-types';
 import { SheetState } from './sheet-state';
@@ -58,6 +59,7 @@ export class SheetRolls implements StatisticRoller {
   readonly #presenter = inject(RollPresenter);
   readonly #state = inject(SheetState);
   readonly #play = inject(PlayStore);
+  readonly #history = inject(SheetRollHistory);
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   readonly #rolled = signal<RolledCheck | undefined>(undefined);
@@ -162,6 +164,17 @@ export class SheetRolls implements StatisticRoller {
     this.#rolled.update((rolled) => (rolled === undefined ? rolled : { ...rolled, dc: undefined }));
   }
 
+  /**
+   * Types the DC on the card of the roll shown, and keeps it with that roll in the history. Other callers set a DC
+   * ahead of a roll with `typeDc`, which must not rewrite the roll before.
+   */
+  public editDc(dc: Dc | undefined): void {
+    this.typeDc(dc);
+    this.#history.reviseNewest((entry) =>
+      entry.statistic === undefined ? entry : { ...entry, dc, degree: rolledDegree(entry.roll, dc) },
+    );
+  }
+
   /** Sets the check up for the player to review: the situations claimed so far are chosen, and more can be. */
   public setUp({ name, statistic }: RollableStatistic): void {
     const { selector } = statistic;
@@ -172,7 +185,7 @@ export class SheetRolls implements StatisticRoller {
   /**
    * Rolls initiative with `selector` at once (#506): the statistic derived as an initiative check, so the modifiers
    * aimed at initiative and the options an initiative roll supplies count, with the situations claimed for the
-   * statistic. The roll is kept nowhere but the last roll; nothing about initiative is play state.
+   * statistic. The roll is kept in the roll history and as the last roll; nothing about initiative is play state.
    */
   public rollInitiative(name: string, selector: Selector): void {
     const as = initiativeRoll(selector);
@@ -284,6 +297,7 @@ export class SheetRolls implements StatisticRoller {
       dc: undefined,
       damage,
     });
+    this.#history.append({ name, expression, roll, reasons: [], damage });
     this.#present(name, roll, placed);
   }
   #finish({ name, statistic, reasons, dc, check }: CheckRoll): void {
@@ -297,6 +311,16 @@ export class SheetRolls implements StatisticRoller {
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
     const cardDc = this.cardDc();
+    this.#history.append({
+      name,
+      statistic,
+      check,
+      expression: outcome.expression,
+      roll,
+      reasons,
+      dc: cardDc,
+      degree: rolledDegree(roll, cardDc),
+    });
     // A new check drops the save before it; only a basic save with a degree links the damage rolled next.
     this.#save = basicSaveDegree(roll, cardDc, check);
     this.#present(name, roll, { dc: cardDc, check });

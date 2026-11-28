@@ -1,3 +1,4 @@
+<pio-sheet-roll-history-button />
 <pio-sheet-roll-setup />
 @if (rolls.last(); as last) {
   <fr-stack gap="xs">
@@ -6,7 +7,7 @@
       [dcEditable]="last.statistic !== undefined"
       [roll]="last.view"
       [dc]="rolls.cardDc()"
-      (dcChange)="rolls.typeDc($event)"
+      (dcChange)="rolls.editDc($event)"
     />
     @if (last.statistic; as statistic) {
       <fr-disclosure>

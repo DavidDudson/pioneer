@@ -899,7 +899,14 @@
       "setupHeading": "{name} check: choose what applies",
       "modifier": "Modifier {modifier}",
       "go": "Roll",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "history": {
+        "title": "Roll history",
+        "empty": "No rolls yet",
+        "clear": "Clear history",
+        "last": "{name}: {total}",
+        "lastWithDegree": "{name}: {total}, {degree}"
+      }
     },
     "reportBug": "Report a bug",
     "actionsMenu": "Sheet actions",
