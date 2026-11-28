@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836641664,
+  "lastUpdate": 1795838915642,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1558,6 +1558,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 208,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2d69bc1b6730eb9daec74654fab8133d3b2aeb4f",
+          "message": "fix(web): keep TableViewStore out of the frontier data entry (#2470)\n\n* fix(web): keep TableViewStore out of the frontier data entry\n\napp.config imported the TableViewStore token from @pioneer/frontier/data,\nwhich holds TanStack Table, Charts and Virtual. That entry exists so only\nlazy routes pay for them; the import put all of it in the initial bundle\n(1.18 MB to 1.35 MB) and broke the 1.2 MB initial budget on main.\n\nExport the token from the main entry, which has no dependencies on those\nlibraries, and import it from there. The initial bundle is back to 1.18 MB.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* docs(frontier): note where TableViewStore is exported from\n\nShorten the export comment and record in AGENTS.md that the token lives\nin the main entry, so a later tidy-up does not move it back into /data.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:03:29+10:00",
+          "tree_id": "ca15c8903d62f51da0c775877425887b0345a839",
+          "url": "https://github.com/DavidDudson/pioneer/commit/2d69bc1b6730eb9daec74654fab8133d3b2aeb4f"
+        },
+        "date": 1795838910232,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4291,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 209,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6401,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 219,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
