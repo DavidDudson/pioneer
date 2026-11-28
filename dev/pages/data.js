@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795832047191,
+  "lastUpdate": 1795832444868,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -658,6 +658,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "212fe52e5118a95e218f77764d93cfa7f727cec3",
+          "message": "feat(frontier): show action status on the border, not a spinner (#2448)\n\n* feat(frontier): show action status on the border, drop the spinner\n\nButtons and text inputs take a status: a conic-gradient arc turns round\nthe border while pending, then it flashes green on success or red on\nfailure. Pending text stays for screen readers. Revert on an inline edit\nis an icon button. Spinner and Icon spin are removed.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review of the status border\n\nDrop border-radius (frontier is sharp), show the pending label on the\nlanguage picker, remove a duplicate computed and the stale spin docs,\nand cover the error and announce-only states.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:16:15+10:00",
+          "tree_id": "6ef059be0efda0cff64f7f5c4f9189d64c2cbae0",
+          "url": "https://github.com/DavidDudson/pioneer/commit/212fe52e5118a95e218f77764d93cfa7f727cec3"
+        },
+        "date": 1795832441020,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4273,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6378,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 213,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
