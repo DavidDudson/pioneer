@@ -51,4 +51,12 @@ describe(Skeleton, () => {
     expect([...host.classList]).toContain('size-xl');
     expect([...host.classList].filter((name) => name.startsWith('w-'))).toStrictEqual([]);
   });
+
+  it('is a row of media and two lines as an item, with no fill of its own', async () => {
+    const host = await render({ kind: SkeletonKind.Item });
+    expect([
+      host.querySelectorAll('fr-skeleton').length,
+      [...host.classList].includes('animate-shimmer'),
+    ]).toStrictEqual([3, false]);
+  });
 });

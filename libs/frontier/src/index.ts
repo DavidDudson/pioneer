@@ -228,6 +228,12 @@ export { DescriptionList } from './lib/list/description-list/description-list.co
 
 export { List } from './lib/list/list/list.component';
 
+export { ItemActions } from './lib/list/item/item-actions.component';
+
+export { ItemContent } from './lib/list/item/item-content.component';
+
+export { ItemMedia } from './lib/list/item/item-media.component';
+
 export { ListItem } from './lib/list/list-item/list-item.component';
 
 // Media

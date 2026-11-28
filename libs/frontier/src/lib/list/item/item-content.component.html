@@ -1,0 +1,14 @@
+<fr-stack gap="3xs">
+  @if (loading()) {
+    <fr-skeleton width="md" />
+    <fr-skeleton width="lg" />
+  } @else {
+    @if (heading(); as heading) {
+      <fr-text weight="medium">{{ heading }}</fr-text>
+    }
+    @if (byline(); as byline) {
+      <fr-text variant="caption" tone="muted">{{ byline }}</fr-text>
+    }
+    <ng-content />
+  }
+</fr-stack>
