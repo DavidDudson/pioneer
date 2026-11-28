@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831067560,
+  "lastUpdate": 1795831128205,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -178,6 +178,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 225,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a0ac052139b2626fd872631f7916812dd3c0d0db",
+          "message": "perf(sheet): hold the sections' content until the engine's has loaded (#2426)\n\n* perf(sheet): hold the sections' content until the engine's has loaded\n\nThe sheet's header waits on the registry the engine reads (about 20 of\nthe 53 kinds), but every section asks for the kinds it needs from the\nfirst frame. Fetched together they share the browser's connections and\nthe store's reads, so the header waited on 7 MB of content it never\nreads.\n\nA SheetContentGate, provided by the sheet page, holds a registry of\npriority Section back until the engine's query has settled; the two\nengine registries opt out. Off the sheet there is no gate.\n\nProduction build, level 20 Wizard, medians of 5 runs over 3 alternating\nrounds: cold sheet:ready 900-1400 ms -> about 770, warm 440-680 -> about\n320, cold sheet:header 500-750 -> about 310.\n\nRefs #1884\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(sheet): act on mob-review findings for the content gate\n\n- Provide the gate on the sheet page only. The level 1 builder shares\n  the sheet's providers and never released it, so its registries would\n  not have loaded.\n- Release it once the character is open too: before that the engine's\n  query is the one without items, which can settle first.\n- Load the focus pool's spell registry as Engine, as the header reads\n  it.\n- Rename open to mayLoad, update the doc on injectContentRegistry, and\n  cover a disabled registry and the gate's release in the spec.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(sheet): wait for the environment toggle before pressing it\n\nThe options come with the section's content, which now loads after the\nsheet's engine content, so the first button in the section can be the\nbreath control.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:37:22+10:00",
+          "tree_id": "0af18169aaffad7a39feed93fd35fa12eff2756f",
+          "url": "https://github.com/DavidDudson/pioneer/commit/a0ac052139b2626fd872631f7916812dd3c0d0db"
+        },
+        "date": 1795831124242,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4269,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 219,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6368,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 209,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
