@@ -1138,6 +1138,7 @@
         "class": "Class key attribute",
         "secondClass": "Second class key attribute",
         "free": "Level {level} boost",
+        "apex": "Level {level} apex increase",
         "freeNumbered": "Level {level} boost {number}"
       }
     },

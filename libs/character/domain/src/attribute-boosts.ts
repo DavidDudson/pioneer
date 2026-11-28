@@ -2,7 +2,6 @@ import { grantLookup } from '@pioneer/rules/grants';
 import {
   AncestryId,
   Attribute,
-  AttributeModifier,
   AttributeModifiers,
   AttributeModifiersWire,
   AttributeSchema,
@@ -15,6 +14,7 @@ import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { BoostContentOptions } from './boost-content-options';
+import { APEX_LEVEL, BoostKind, inLevelOrder, modifierOf } from './boost-modifier';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import {
@@ -35,6 +35,8 @@ export const BoostSource = {
   /** The key attribute of a Dual Class character's second class. */
   SecondClass: 'second-class',
   Free: 'free',
+  /** The apex attribute increase of Automatic Bonus Progression. */
+  Apex: 'apex',
 } as const;
 
 export type BoostSource = ValueOf<typeof BoostSource>;
@@ -57,6 +59,8 @@ export interface BoostContent {
   readonly secondClass: boolean;
   /** Whether the free boosts come one a level over the four levels up to each fifth (Gradual Attribute Boosts). */
   readonly gradual: boolean;
+  /** Whether the character has an apex attribute increase at 17th level (Automatic Bonus Progression). */
+  readonly apex: boolean;
   /** What the character's 1st-level class features add to its key attribute options: Strength for a ruffian rogue. */
   readonly keyAttributeOptions: (document: CharacterDocument) => ReadonlyArray<Attribute>;
 }
@@ -124,9 +128,6 @@ const GRADUAL_BOOST_PLACES: ReadonlyMap<Level, ReadonlyArray<Level>> = new Map(
   ]),
 );
 
-/** A boost to a modifier this high or higher is partial: two partial boosts raise it by one. */
-const PARTIAL_BOOST_FROM = 4;
-
 /**
  * The boosts of the registry's ancestries, and of the backgrounds and classes its packs hold as entries, for a
  * character with `rootSlots`. `lookup` is the grant lookup the key attribute options are read from, which a caller that
@@ -134,7 +135,12 @@ const PARTIAL_BOOST_FROM = 4;
  */
 export function boostContent(
   registry: ContentRegistry,
-  { rootSlots = CHARACTER_ROOT_SLOTS, lookup = () => grantLookup(registry), gradual = false }: BoostContentOptions = {},
+  {
+    rootSlots = CHARACTER_ROOT_SLOTS,
+    lookup = () => grantLookup(registry),
+    gradual = false,
+    apex = false,
+  }: BoostContentOptions = {},
 ): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
@@ -158,6 +164,7 @@ export function boostContent(
     keyAttribute: (id: ContentId): Boost | undefined => classes.get(id),
     secondClass: hasSecondClass(rootSlots),
     gradual,
+    apex,
     keyAttributeOptions: grantedKeyOptions({ registry, entries, rootSlots, lookup }),
   };
 }
@@ -224,7 +231,7 @@ const BOOST_SETS = new WeakMap<BoostContent, WeakMap<CharacterDocument['build'],
 export function boostSets(document: CharacterDocument, content: BoostContent): ReadonlyArray<BoostSet> {
   const byBuild = BOOST_SETS.get(content) ?? new WeakMap<CharacterDocument['build'], ReadonlyArray<BoostSet>>();
   BOOST_SETS.set(content, byBuild);
-  const known = byBuild.get(document.build) ?? readBoostSets(document, content);
+  const known = byBuild.get(document.build) ?? inLevelOrder(readBoostSets(document, content));
   byBuild.set(document.build, known);
 
   return known;
@@ -267,6 +274,9 @@ function readBoostSets(document: CharacterDocument, content: BoostContent): Read
         places: content.gradual ? GRADUAL_BOOST_PLACES.get(level) : undefined,
       }),
     ),
+    ...(content.apex
+      ? [boostSet(document, { level: APEX_LEVEL, source: BoostSource.Apex, boosts: [FREE_BOOST] })]
+      : []),
   ];
 }
 
@@ -307,27 +317,6 @@ function raised(set: BoostSet): ReadonlySet<Attribute> {
   return new Set([...set.fixed, ...set.slots.flatMap((slot) => slot.pick ?? [])]);
 }
 
-/**
- * One attribute's modifier: +0, or -1 with a flaw, then one more for each set that raises it, in level order. From
- * +4 a boost is partial, and the second partial boost raises it by one (Player Core).
- */
-function modifierOf(attribute: Attribute, flawed: boolean, sets: ReadonlyArray<BoostSet>): AttributeModifier {
-  let total = flawed ? -1 : 0;
-  let partial = false;
-  const boosts = sets.filter((set) => raised(set).has(attribute)).length;
-
-  for (let boost = 0; boost < boosts; boost += 1) {
-    if (total < PARTIAL_BOOST_FROM || partial) {
-      total += 1;
-      partial = false;
-    } else {
-      partial = true;
-    }
-  }
-
-  return AttributeModifier.parse(total);
-}
-
 /** The part of `set` taken by `level`: all of it from the set's level, or the boosts of a gradual set taken so far. */
 function takenBy(set: BoostSet, level: Level): ReadonlyArray<BoostSet> {
   if (set.level <= level) {
@@ -349,7 +338,15 @@ export function attributeModifiers(document: CharacterDocument, content: BoostCo
   const current = boostSets(document, content).flatMap((set) => takenBy(set, document.level));
 
   const wire = Object.fromEntries(
-    ATTRIBUTES.map((attribute) => [attribute, modifierOf(attribute, flaws.has(attribute), current)]),
+    ATTRIBUTES.map((attribute) => [
+      attribute,
+      modifierOf(
+        flaws.has(attribute),
+        current
+          .filter((set) => raised(set).has(attribute))
+          .map(({ source }) => (source === BoostSource.Apex ? BoostKind.Apex : BoostKind.Regular)),
+      ),
+    ]),
   );
 
   return new AttributeModifiers(AttributeModifiersWire.parse(wire));

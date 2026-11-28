@@ -19,6 +19,8 @@ export const VariantStructure = {
   SecondClass: 'secondClass',
   /** Free attribute boosts one level at a time instead of four at once (Gradual Attribute Boosts). */
   GradualBoosts: 'gradualBoosts',
+  /** An apex attribute increase at 17th level: one more boost, which raises an attribute by 1 or to +4 (Automatic Bonus Progression). */
+  ApexBoost: 'apexBoost',
 } as const;
 
 export type VariantStructure = ValueOf<typeof VariantStructure>;

@@ -43,6 +43,7 @@ const BOOST_SOURCES: Readonly<Record<BoostSource, ChoiceSourceKind>> = {
   [BoostSource.Class]: ChoiceSourceKind.Class,
   [BoostSource.SecondClass]: ChoiceSourceKind.Class,
   [BoostSource.Free]: ChoiceSourceKind.General,
+  [BoostSource.Apex]: ChoiceSourceKind.General,
 };
 
 const SKILL_SOURCES: Readonly<Record<SkillSlotKind, ChoiceSourceKind>> = {

@@ -104,6 +104,7 @@ describe('placeBoosts', () => {
       keyAttribute: () => undefined,
       secondClass: false,
       gradual: false,
+      apex: false,
       keyAttributeOptions: () => [],
     };
 

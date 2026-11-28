@@ -18,12 +18,16 @@ import {
   RollOptionTail,
   Selector,
   VariantRuleId,
+  VariantStructure,
 } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { core, coreRules } from './testing/core-rules';
 
 const LEVEL_MAX = 20;
+
+/** GM Core's skill item bonuses: the level each starts at (+1 first), the same for every skill. */
+const SKILL_LEVELS: readonly [number, number, number] = [3, 9, 17];
 
 /** GM Core's Automatic Bonus Progression table: the level each potency bonus starts at, +1 first. */
 const POTENCY_LEVELS = {
@@ -112,12 +116,23 @@ function appliedAcPotency(level: number): ReadonlyArray<PotencyLine> {
     .map(({ modifier }) => ({ origin: modifier.origin }));
 }
 
+const SKILLS = ['skill:acrobatics', 'skill:athletics', 'skill:stealth', 'skill:lore'] as const;
+
 const LEVELS = Array.from(Array.from({ length: LEVEL_MAX }).keys(), (index) => index + 1);
 
 describe('Automatic Bonus Progression potency bonuses, levels 1 to 20', () => {
   test.each(LEVELS)('level %i adds the GM Core potency to attacks, AC, Perception and saves', (level) => {
     for (const [selector, levels] of Object.entries(POTENCY_LEVELS)) {
       expect({ selector, shift: shiftAt(level, selector) }).toStrictEqual({ selector, shift: bonusAt(level, levels) });
+    }
+  });
+
+  test.each(LEVELS)('level %i adds the GM Core item bonus to every skill', (level) => {
+    for (const selector of SKILLS) {
+      expect({ selector, shift: shiftAt(level, selector) }).toStrictEqual({
+        selector,
+        shift: bonusAt(level, SKILL_LEVELS),
+      });
     }
   });
 
@@ -169,5 +184,14 @@ describe('Automatic Bonus Progression and item runes', () => {
 
   test("armour's own item bonus is left alone", () => {
     expect(altered('armor', 5, held([AcBonus, 2], [Potency, 1])).get(AcBonus)).toBe(2);
+  });
+});
+
+describe('Automatic Bonus Progression apex increase', () => {
+  test('declares the apex boost structure, which gives the 17th level attribute increase', () => {
+    const registry = new ContentRegistry();
+    registry.register(coreRules);
+
+    expect(registry.variantRule(VARIANT)?.definition.structure).toStrictEqual([VariantStructure.ApexBoost]);
   });
 });
