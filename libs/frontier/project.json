@@ -6,21 +6,6 @@
   "prefix": "fr",
   "tags": ["scope:shared", "type:ui", "platform:web"],
   "targets": {
-    "test-storybook": {
-      "cache": true,
-      "parallelism": false,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "env": "PLAYWRIGHT_BROWSERS_PATH"
-        },
-        {
-          "env": "PLAYWRIGHT_DRIVER_VERSION"
-        }
-      ],
-      "command": "vitest run --config libs/frontier/.storybook/vitest.config.ts"
-    },
     "storybook": {
       "options": {
         "port": 6007
