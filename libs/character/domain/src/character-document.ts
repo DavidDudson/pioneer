@@ -10,6 +10,7 @@ import { LoreName } from './custom-lore';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 import { OVERRIDES_MAX, OverrideSchema } from './override-schema';
 import { FRESH_PLAY, PlayStateSchema } from './play-state';
+import { RetrainingProject } from './retraining-fields';
 
 /**
  * Nothing yet. Boons and conditions (#39) widen these, each with a new schema version.
@@ -64,6 +65,8 @@ export const BuildSchema = z.strictObject({
   lores: z.record(Slug, LoreName).default({}),
   /** The repertoire slot swapped at each level, one a level-up (#594). */
   repertoireSwaps: z.array(RepertoireSwapRecord).readonly().default([]),
+  /** The one retraining under way: the pick in a slot, and the one it becomes once the days are worked. */
+  retraining: RetrainingProject.optional(),
   boons: None.default([]),
 });
 

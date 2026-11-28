@@ -21,6 +21,8 @@ import { inventoryTarget } from './inventory-target';
 import { isCustomEffectPatch, isOverridePatch } from './override-patches';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId } from './override-schema';
+import { retrainDaysFor } from './retraining-fields';
+import type { RetrainingPatch } from './retraining-patch';
 import { CharacterBuilder, inventory } from './testing';
 import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
@@ -108,6 +110,7 @@ type UnaimedField =
   | UnplacedPickPatch['field']
   | OverridePatch['field']
   | CustomEffectPatch['field']
+  | RetrainingPatch['field']
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 
@@ -133,6 +136,9 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.AddCustomEffect,
   CharacterPatchField.ToggleCustomEffect,
   CharacterPatchField.RemoveCustomEffect,
+  CharacterPatchField.StartRetraining,
+  CharacterPatchField.WorkRetraining,
+  CharacterPatchField.CancelRetraining,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
@@ -238,6 +244,17 @@ function customEffectRefusal(held: Character, patch: CharacterPatch): CustomEffe
   return isCustomEffectPatch(patch) ? customEffectProblem(held.document, patch) : undefined;
 }
 
+/** Whether `patch` is a retraining edit the character can't take (a second project, or work on none), which the service refuses. */
+function retrainingRefused(held: Character, patch: CharacterPatch): boolean {
+  const { retraining } = held.document.build;
+
+  if (patch.field === CharacterPatchField.StartRetraining) {
+    return retraining !== undefined || retrainDaysFor(patch.slot) === undefined;
+  }
+
+  return patch.field === CharacterPatchField.WorkRetraining && retraining === undefined;
+}
+
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
 function touched(patch: CharacterPatch): InventoryEdit {
   return inventoryTarget(patch) ?? {};
@@ -265,6 +282,7 @@ describe('Character (properties)', () => {
         // Likewise an override edit names one the character has, which the service checks.
         pre(overrideRefusal(original, patch) === undefined);
         pre(customEffectRefusal(original, patch) === undefined);
+        pre(!retrainingRefused(original, patch));
 
         const next = original.apply(patch, later, {
           newItemId,

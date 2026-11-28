@@ -7,6 +7,7 @@ import { ActionMode } from '@pioneer/rules/sdk';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetEarnIncome } from '../sheet-earn-income/sheet-earn-income.component';
 import { SheetRest } from '../sheet-rest/sheet-rest.component';
+import { SheetRetraining } from '../sheet-retraining/sheet-retraining.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { rememberTab } from '../sheet-tab';
@@ -14,7 +15,7 @@ import { Shop } from '../shop/shop.component';
 
 /**
  * The Downtime tab: what the character does between adventures. Rest and the other restoring actions, Earn Income and
- * the shop.
+ * retraining and the shop.
  */
 @Component({
   selector: 'pio-sheet-downtime-tab',
@@ -25,6 +26,7 @@ import { Shop } from '../shop/shop.component';
     SectionBody,
     SheetEarnIncome,
     SheetRest,
+    SheetRetraining,
     Shop,
     Stack,
     TranslocoPipe,

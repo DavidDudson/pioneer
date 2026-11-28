@@ -104,6 +104,8 @@ const UPGRADES: ReadonlyArray<UpgradeStep> = [
   (document) => document,
   /** 22 → 23: the coin ledger (#512). */
   openingLedger,
+  /** 23 → 24: the retraining project (#515). A version 23 build is retraining nothing. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

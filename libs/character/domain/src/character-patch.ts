@@ -13,6 +13,8 @@ import { CarrySchema } from './item-carry';
 import { ItemStateSchema } from './item-state';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
+import { RetrainDays } from './retraining-fields';
+import type { RetrainingPatch } from './retraining-patch';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
 import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
@@ -77,6 +79,9 @@ export const CharacterPatchField = {
   DismissUnplacedSpell: 'dismissUnplacedSpell',
   /** A custom language an import kept by name, taken off the build. */
   RemoveCustomLanguage: 'removeCustomLanguage',
+  StartRetraining: 'startRetraining',
+  WorkRetraining: 'workRetraining',
+  CancelRetraining: 'cancelRetraining',
   /** A modifier or pinned value put on a statistic by hand, with the reason for it (#1127). */
   AddOverride: 'addOverride',
   /** An override changed; the state it replaces is kept. */
@@ -167,6 +172,9 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.AddCustomEffect), effect: CustomEffectInput }),
   z.object({ field: z.literal(CharacterPatchField.ToggleCustomEffect), id: CustomEffectId, enabled: z.boolean() }),
   z.object({ field: z.literal(CharacterPatchField.RemoveCustomEffect), id: CustomEffectId, reason: OverrideReason }),
+  z.object({ field: z.literal(CharacterPatchField.StartRetraining), slot: SlotKey, to: ChoiceValue }),
+  z.object({ field: z.literal(CharacterPatchField.WorkRetraining), days: RetrainDays }),
+  z.object({ field: z.literal(CharacterPatchField.CancelRetraining) }),
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
@@ -188,9 +196,10 @@ export type SpellAccessPatch = Extract<
 >;
 
 /** The edits that change the document apart from its slots and inventory: spell access, unplaced picks, overrides, custom effects, prose. */
-export type DocumentPatch = SpellAccessPatch | UnplacedPickPatch | OverridePatch | CustomEffectPatch | ProsePatch;
+export type DocumentPatch =
+  SpellAccessPatch | UnplacedPickPatch | OverridePatch | CustomEffectPatch | ProsePatch | RetrainingPatch;
 
-const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch['field']>([
+const DOCUMENT_FIELD_LIST: ReadonlyArray<DocumentPatch['field']> = [
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,
@@ -204,9 +213,14 @@ const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch[
   CharacterPatchField.AddCustomEffect,
   CharacterPatchField.ToggleCustomEffect,
   CharacterPatchField.RemoveCustomEffect,
+  CharacterPatchField.StartRetraining,
+  CharacterPatchField.WorkRetraining,
+  CharacterPatchField.CancelRetraining,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
-]);
+];
+
+const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set(DOCUMENT_FIELD_LIST);
 
 /** Whether `patch` changes the document apart from its slots and inventory (`DocumentPatch`). */
 export function isDocumentPatch(patch: CharacterPatch): patch is DocumentPatch {
@@ -219,7 +233,7 @@ export type ProsePatch = Extract<
   { readonly field: typeof CharacterPatchField.SetAppearance | typeof CharacterPatchField.SetPersonality }
 >;
 
-/** The edits that touch no inventory item, kit, container or rune: a field, a slot, spell access or prose. */
+/** The edits that touch no inventory item, kit, container or rune: a field, a slot, or any `DocumentPatch`. */
 export type UntargetedPatch = Extract<
   CharacterPatch,
   {
@@ -228,12 +242,7 @@ export type UntargetedPatch = Extract<
       | typeof CharacterPatchField.Level
       | typeof CharacterPatchField.SelectSlot
       | typeof CharacterPatchField.ClearSlot
-      | typeof CharacterPatchField.GrantSpellAccess
-      | typeof CharacterPatchField.RevokeSpellAccess
-      | UnplacedPickPatch['field']
-      | OverridePatch['field']
-      | CustomEffectPatch['field']
-      | ProsePatch['field'];
+      | DocumentPatch['field'];
   }
 >;
 
@@ -242,21 +251,7 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.Level,
   CharacterPatchField.SelectSlot,
   CharacterPatchField.ClearSlot,
-  CharacterPatchField.GrantSpellAccess,
-  CharacterPatchField.RevokeSpellAccess,
-  CharacterPatchField.DismissUnplacedFeat,
-  CharacterPatchField.DismissUnplacedHeritage,
-  CharacterPatchField.DismissUnplacedLanguage,
-  CharacterPatchField.DismissUnplacedSpell,
-  CharacterPatchField.RemoveCustomLanguage,
-  CharacterPatchField.AddOverride,
-  CharacterPatchField.EditOverride,
-  CharacterPatchField.RemoveOverride,
-  CharacterPatchField.AddCustomEffect,
-  CharacterPatchField.ToggleCustomEffect,
-  CharacterPatchField.RemoveCustomEffect,
-  CharacterPatchField.SetAppearance,
-  CharacterPatchField.SetPersonality,
+  ...DOCUMENT_FIELD_LIST,
 ]);
 
 export function isUntargetedPatch(patch: CharacterPatch): patch is UntargetedPatch {

@@ -1179,3 +1179,7 @@ export {
 export { CORE_EARN_INCOME, earnIncomeDc, incomeForDays } from './earn-income';
 
 export { EarnDays, EarnRank, TASK_LEVEL_MAX, TaskLevel } from './earn-income-fields';
+
+export { retrainDaysFor, RetrainDays } from './retraining-fields';
+
+export type { RetrainingPatch } from './retraining-patch';
