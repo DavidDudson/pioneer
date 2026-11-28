@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795840342818,
+  "lastUpdate": 1795840456252,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1738,6 +1738,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 219,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ac9b20f45105745a446296442f5d2ed2f034e15e",
+          "message": "chore(frontier): read messages through injectTranslate() (#2456)\n\n* chore(frontier): read messages through injectTranslate()\n\nReplace 58 hand-built langChanges$ + translationLoadSuccess signals\nwith injectTranslate(). Behaviour is unchanged.\n\nRefs #2421\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* chore(frontier): drop injectTranslationChanges for injectTranslate()\n\nmain added a copy of the same signal for retraining and earn income.\nUse injectTranslate() there and delete the helper. Remove imports\nleft unused in browse-messages.\n\nRefs #2421\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(rules-ui): format facet-filter imports\n\nRefs #2421\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:29:08+10:00",
+          "tree_id": "4f15ee1951da3c5c5f27bf507d2e79882b1025ff",
+          "url": "https://github.com/DavidDudson/pioneer/commit/ac9b20f45105745a446296442f5d2ed2f034e15e"
+        },
+        "date": 1795840450032,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4290,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 211,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6399,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 215,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
