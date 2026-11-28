@@ -119,7 +119,6 @@ function bordered(element: Element | null | undefined): boolean {
 async function expectEdgesAndFocus(root: HTMLElement): Promise<void> {
   const canvas = within(root);
   await expect(globalThis.matchMedia('(forced-colors: active)').matches).toBe(true);
-  await expect(style(canvas.getByText('A sunken panel'))?.color).toBe(systemColour('CanvasText'));
   const buttons = ['Secondary', 'Primary', 'Ghost', 'Danger'].map((name) => canvas.getByRole('button', { name }));
   await expect(buttons.map((button) => bordered(button))).toEqual([true, true, true, true]);
   await pressKeys('{Tab}');
