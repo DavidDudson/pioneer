@@ -4,11 +4,7 @@ import * as z from 'zod';
 
 import sourceTokens from '../src/tokens/primitives.tokens.json' with { type: 'json' };
 
-/**
- * A ramp step is written once and holds both modes: its own value is light mode's colour (and alpha, for an alpha
- * step), and `$extensions.mode.dark` holds dark mode's. Chroma is stored as the default theme's, and the CSS writes
- * it as a share of the role's peak so a theme can set that peak.
- */
+/** A ramp step holds light mode's colour as its value and dark mode's under `$extensions.mode.dark` (ADR-0086). */
 const OklchComponents = z.tuple([z.number(), z.number(), z.number()]);
 
 const RampStep = z.object({
@@ -36,10 +32,21 @@ type RampStep = z.infer<typeof RampStep>;
 
 type ScaleStep = z.infer<typeof ScaleStep>;
 
-/** `ramp.neutral.50` becomes `--fr-ramp-neutral-50`, the name the semantic tier already uses. */
+/** `ramp.neutral.9` becomes `--fr-ramp-neutral-9`, the name the semantic tier uses. */
 const toVariableName = (token: { readonly id: string }): string => `--fr-${token.id.replaceAll('.', '-')}`;
 
 const CHROMA_DIGITS = 4;
+
+/** `ramp.<role>.<step>` as its three parts; any other id is a bug in the source file. */
+const splitRampId = (id: string): [string, string, string] => {
+  const [group, role, name, ...rest] = id.split('.');
+
+  if (group !== 'ramp' || role === undefined || name === undefined || rest.length > 0) {
+    throw new Error(`Unexpected ramp token id ${id}`);
+  }
+
+  return [group, role, name];
+};
 
 /** A role's peak chroma: the largest of its opaque steps, in either mode. A theme's chroma replaces it. */
 const peakChroma = (steps: ReadonlyArray<SourceStep>): number =>
@@ -57,14 +64,17 @@ const roles = Object.entries(sourceRamp).map(([role, steps]): [string, number] =
 
 const PEAK_CHROMA: Readonly<Record<string, number>> = Object.fromEntries(roles);
 
-/**
- * One mode's colour: its lightness, its chroma as a share of the role's peak, and the theme's hue. The DTCG value
- * is the default theme's; for dark, Terrazzo passes the dark mode's value in its place.
- */
+/** One mode's colour: the step's lightness, its chroma as a share of the role's peak, and the theme's hue. */
 const rampValue = (step: RampStep): string => {
   const [lightness, chroma] = step.$value.components;
-  const [, role = '', name = ''] = step.id.split('.');
-  const chromaShare = Number((chroma / (PEAK_CHROMA[role] ?? chroma)).toFixed(CHROMA_DIGITS));
+  const [, role, name] = splitRampId(step.id);
+  const peak = PEAK_CHROMA[role];
+
+  if (peak === undefined) {
+    throw new Error(`No peak chroma for role ${role}`);
+  }
+
+  const chromaShare = Number((chroma / peak).toFixed(CHROMA_DIGITS));
   // Terrazzo gives every colour an alpha of 1; only an alpha step (`a1`..`a12`) writes one.
   const { alpha } = step.$value;
   const opacity = ALPHA_STEP.test(name) && alpha !== undefined ? ` / ${alpha}` : '';
@@ -85,11 +95,7 @@ export default defineConfig({
   tokens: ['./libs/frontier/src/tokens/primitives.tokens.json'],
   outDir: './libs/frontier/src/styles/',
   plugins: [
-    /*
-     * Light is the base value of every step and dark is its `mode`. Dark is the default theme mode, on plain :root, and
-     * light sits under its mode attribute (semantic.css), so a step's name means the same in both. Terrazzo's other
-     * route, `permutations`, needs a resolver document for what one `modeSelectors` entry says.
-     */
+    // Light is each step's value and dark its mode, on plain :root; `permutations` would need a resolver document.
     css({
       filename: 'primitives.color.css',
       include: ['ramp.**'],

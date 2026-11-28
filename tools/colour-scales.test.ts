@@ -19,6 +19,8 @@ const STEPS = Array.from({ length: STEP_COUNT }).map((_unused, index) => index +
 
 type Mode = (typeof MODES)[number];
 
+type Role = (typeof ROLES)[number];
+
 const HEX_CHANNELS = /^#(?<red>[0-9a-f]{2})(?<green>[0-9a-f]{2})(?<blue>[0-9a-f]{2})$/u;
 const SRGB_KNEE = 0.04045;
 
@@ -34,18 +36,18 @@ function hexToLinear(hex: string): LinearRgb {
   return { red: linearChannel(red), green: linearChannel(green), blue: linearChannel(blue) };
 }
 
-function ours(mode: Mode, role: string, step: number): LinearRgb {
+function frontierColour(mode: Mode, role: Role, step: number): LinearRgb {
   const tokens = cascade(RULES, { 'data-theme': 'frontier', 'data-mode': mode });
 
   return oklchToLinearRgb(resolveToken(tokens, `--fr-ramp-${role}-${step}`));
 }
 
-function radix(mode: Mode, role: (typeof ROLES)[number], step: number): LinearRgb {
+function radixColour(mode: Mode, role: Role, step: number): LinearRgb {
   return hexToLinear(RADIX_ROLE_SCALE[role][mode][step - 1] ?? '');
 }
 
 /** The oklch lightness a step is written with. */
-function lightness(mode: Mode, role: string, step: number): number {
+function lightness(mode: Mode, role: Role, step: number): number {
   const tokens = cascade(RULES, { 'data-theme': 'frontier', 'data-mode': mode });
   const [, value = ''] = /^oklch\((?<lightness>[\d.]+) /u.exec(resolveToken(tokens, `--fr-ramp-${role}-${step}`)) ?? [];
 
@@ -116,8 +118,8 @@ const TEXT_PAIRS = [
   { text: 12, background: 3 },
 ];
 
-const TOLERANCE = 0.5;
-const TEXT_MINIMUM = 4.5;
+const CONTRAST_TOLERANCE = 0.5;
+const TEXT_MINIMUM_CONTRAST = 4.5;
 
 describe('contrast against the published Radix scales', () => {
   const cases = ROLE_MODES.flatMap(({ role, mode }) =>
@@ -125,10 +127,10 @@ describe('contrast against the published Radix scales', () => {
   );
 
   test.each(cases)('$role $mode: step $text on step $background', ({ role, mode, text, background }) => {
-    const ourRatio = contrastRatio(ours(mode, role, text), ours(mode, role, background));
-    const radixRatio = contrastRatio(radix(mode, role, text), radix(mode, role, background));
+    const ourRatio = contrastRatio(frontierColour(mode, role, text), frontierColour(mode, role, background));
+    const radixRatio = contrastRatio(radixColour(mode, role, text), radixColour(mode, role, background));
 
-    expect(ourRatio).toBeGreaterThanOrEqual(Math.min(radixRatio - TOLERANCE, TEXT_MINIMUM));
-    expect(ourRatio).toBeGreaterThanOrEqual(TEXT_MINIMUM);
+    expect(ourRatio).toBeGreaterThanOrEqual(radixRatio - CONTRAST_TOLERANCE);
+    expect(ourRatio).toBeGreaterThanOrEqual(TEXT_MINIMUM_CONTRAST);
   });
 });

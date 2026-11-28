@@ -1,8 +1,4 @@
-/**
- * The published Radix Colors scales (@radix-ui/colors 3.0.0, MIT) that frontier's roles are cross-checked against, as
- * sRGB hex per step: steps 1-12 in light mode, then in dark mode. Tests compare contrast, not hue: a role's hue is the
- * theme's. See tools/colour-scales.test.ts.
- */
+/** Published Radix Colors scales (MIT) as sRGB hex per step, light then dark, that the role scales are contrast-checked against. */
 export const RADIX_ROLE_SCALE = {
   neutral: {
     name: 'sand',

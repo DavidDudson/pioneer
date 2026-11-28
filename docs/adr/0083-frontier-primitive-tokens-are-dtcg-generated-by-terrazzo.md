@@ -1,6 +1,6 @@
 # 0083. Frontier's primitive tokens are DTCG files, generated to CSS by Terrazzo
 
-- Status: Proposed
+- Status: Proposed; decisions 1 and 2 superseded by [0086](0086-frontier-colour-scales-are-12-steps-with-both-modes-in-one-token.md)
 - Date: 2026-11-28
 
 ## Context
@@ -21,13 +21,10 @@ and is read by Terrazzo, Style Dictionary, Tokens Studio and Figma exports. Opti
 ## Decision
 
 1. **`libs/frontier/src/tokens/primitives.tokens.json` is the source of tier 1**, in DTCG 2025.10: `ramp.<role>.<step>`
-   colours (steps `1`-`12` and their alpha variants `a1`-`a12`) and `scale.space`, `scale.font` and `scale.duration`
-   steps.
-2. **A ramp token holds the default theme's resolved colour, once for each mode**: its value is light mode's and
-   `$extensions.mode.dark` is dark mode's, so one token is both modes of one step. Tools that read the file see real
-   colours. The generated CSS does not use the resolved colour: it writes
-   `oklch(L calc(var(--fr-ramp-<role>-chroma) * k) var(--fr-ramp-<role>-hue))`, where `k` is the step's chroma over the
-   role's peak chroma, in `:root` for dark and `:root[data-mode='light']` for light,
+   colours and `scale.space`, `scale.font` and `scale.duration` steps.
+2. **A ramp token holds the default theme's resolved colour**, so tools that read the file see real colours. Its
+   `pioneer.ramp` extension holds the step's chroma share, a fraction of the role's peak. The generated CSS does not
+   use the resolved colour: it writes `oklch(L calc(var(--fr-ramp-<role>-chroma) * k) var(--fr-ramp-<role>-hue))`,
    because a theme sets each role's hue and peak chroma, so a theme is two numbers per role (themes stay in
    `src/styles/themes/`).
 3. **`bun run tokens` generates `primitives.color.css` and `primitives.scale.css`**, configured in
@@ -40,8 +37,7 @@ and is read by Terrazzo, Style Dictionary, Tokens Studio and Figma exports. Opti
 ## Consequences
 
 - The built CSS declares the same custom properties with the same values as before: this changes the tooling, not a
-  pixel. The files are now alphabetical by role, and carry Terrazzo's banner. (The 12-step scales then replaced the
-  11-step ramps, which does change pixels: `semantic.css` maps the new steps, and `bun run check:contrast` gates it.)
+  pixel. The files are now alphabetical by role, and carry Terrazzo's banner.
 - Two dev dependencies (`@terrazzo/cli`, `@terrazzo/plugin-css`) and one generated-file check.
 - A theme's hue and chroma are in CSS and the default theme's colour is repeated in the JSON; the 12-step colour story
   decides whether themes move into DTCG too.

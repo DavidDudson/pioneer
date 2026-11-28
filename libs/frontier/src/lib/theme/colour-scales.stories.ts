@@ -43,12 +43,12 @@ const meta: Meta = {
             <div class="text-label">{{ role }}</div>
             <div class="grid grid-cols-12">
               @for (step of steps; track step) {
-                <div class="flex h-touch items-end p-3xs text-caption" [style.background-color]="'var(--fr-ramp-' + role + '-' + step + ')'">{{ step }}</div>
+                <div class="flex flex-col text-caption"><div class="h-touch" [style.background-color]="'var(--fr-ramp-' + role + '-' + step + ')'"></div>{{ step }}</div>
               }
             </div>
             <div class="grid grid-cols-12">
               @for (step of steps; track step) {
-                <div class="flex h-touch items-end p-3xs text-caption" [style.background-color]="'var(--fr-ramp-' + role + '-a' + step + ')'">a{{ step }}</div>
+                <div class="flex flex-col text-caption"><div class="h-touch" [style.background-color]="'var(--fr-ramp-' + role + '-a' + step + ')'"></div>a{{ step }}</div>
               }
             </div>
           </div>

@@ -1,11 +1,9 @@
 /*
  * Tier 2: semantic tokens. Components and the Tailwind theme reference only
- * these. Colours reference role scales (`--fr-ramp-<role>-<1..12>`, and `-a<1..12>`
- * for the alpha variants) only, never a hue. A step means the same in both modes
- * (1-2 backgrounds, 3-5 fills, 6-8 borders, 9-10 solids, 11-12 text) and the
- * ramp holds each mode's colour, so most colour tokens are written once, below.
- * A theme picks the hues (themes/); a mode block below holds only what the steps
- * cannot carry: surfaces, text on a bright solid, and fixed-hue colours.
+ * these. Colours reference role scales (`--fr-ramp-<role>-<1..12>`) only, never a
+ * hue, and a step means the same in both modes, so most colour tokens are written
+ * once. A mode block holds only what the steps cannot carry: surfaces, text on a
+ * bright solid, and fixed-hue colours.
  *
  * Dark is the default, on plain :root. Light is opt-in with
  * <html data-mode="light">; ThemeStore sets it.
@@ -115,7 +113,7 @@
   --fr-elevation-modal-surface: var(--fr-surface-base);
   --fr-elevation-modal-line: var(--fr-line-default);
 
-  /* Solid 9, hover 10, active 11; subtle fill 3; text 11; line 7. Text on a solid is the page's lightest neutral in light mode and its darkest in dark, so it is the same step. */
+  /* On-solid text is neutral 1: the lightest neutral in light mode, the darkest in dark. */
   --fr-accent-solid: var(--fr-ramp-accent-9);
   --fr-accent-solid-hover: var(--fr-ramp-accent-10);
   --fr-accent-solid-active: var(--fr-ramp-accent-11);
@@ -140,7 +138,7 @@
   --fr-success-on-solid: var(--fr-ramp-neutral-1);
   --fr-success-line: var(--fr-ramp-success-7);
 
-  /* Warning's solid is a bright amber in both modes, so its text is dark in both (a mode block sets it) and it has no darker active step: hover and active share 10. */
+  /* Warning's solid is bright amber in both modes, so its on-solid text is dark in both (the mode blocks set it). Hover and active share step 10. */
   --fr-warning-solid: var(--fr-ramp-warning-9);
   --fr-warning-solid-hover: var(--fr-ramp-warning-10);
   --fr-warning-solid-active: var(--fr-ramp-warning-10);
