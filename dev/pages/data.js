@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836185274,
+  "lastUpdate": 1795836298027,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1258,6 +1258,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4751ca37f4287374de79a849d7ab7f028789b65c",
+          "message": "feat(frontier): fr-item with media, content and actions parts (#2459)\n\n* feat(frontier): add fr-item media, content and actions parts\n\nfr-list-item gains fr-item-media, fr-item-content and fr-item-actions,\nshares padding and divider with fr-description-item, and\nfr-skeleton gains kind=item.\n\nRefs #2290\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review of fr-item parts\n\nShare the skeleton fill, build row classes with cx, add coverage\nexemptions for the item parts and tests for skeleton fill, item shape\nand description-item row defaults.\n\nRefs #2290\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T13:00:10+10:00",
+          "tree_id": "0562982d1376b7e2805553c304abf48b5b03d7e6",
+          "url": "https://github.com/DavidDudson/pioneer/commit/4751ca37f4287374de79a849d7ab7f028789b65c"
+        },
+        "date": 1795836294104,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4283,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6388,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 218,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
