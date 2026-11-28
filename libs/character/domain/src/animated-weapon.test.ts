@@ -88,4 +88,21 @@ describe('animated weapons', () => {
       Modifier.parse(24),
     );
   });
+
+  test('adds the level potency of the rules in play once, whatever the rune', () => {
+    const rules: ModifierInputs = {
+      rules: [
+        inPlay(
+          { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'potency', mode: 'override', value: 0 },
+          'potency',
+        ),
+        inPlay({ key: 'FlatModifier', selectors: ['strike-attack-roll'], type: 'potency', value: 2 }, 'level-potency'),
+      ],
+      facts: new PredicateFacts([], CORE_NAMESPACES),
+    };
+
+    expect(releasedAttack(sword({ potency: 2, animated: true, released: true }), base, { runes, rules })).toBe(
+      Modifier.parse(26),
+    );
+  });
 });

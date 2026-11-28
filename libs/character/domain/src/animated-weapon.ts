@@ -1,3 +1,4 @@
+import { levelPotency, NO_MODIFIERS } from '@pioneer/rules/engine';
 import { ContentKind, entrySlug, Modifier, Slug } from '@pioneer/rules/sdk';
 import type { EntrySlug } from '@pioneer/rules/sdk';
 
@@ -20,7 +21,8 @@ export function hasAnimatedRune(line: InventoryItem, base: ItemEntry | undefined
 
 /**
  * The attack modifier of the Strikes a set-free animated weapon makes: 24 plus its item bonus, which its potency grade
- * gives after the alterations in play (Automatic Bonus Progression sets the runes' to nothing). Undefined while the item is not set free or has no animated rune.
+ * gives after the alterations in play, plus the potency bonus the rules in play give every Strike (Automatic Bonus Progression
+ * sets the runes' to nothing and adds its level bonus). Undefined while the item is not set free or has no animated rune.
  */
 export function releasedAttack(
   line: InventoryItem,
@@ -31,7 +33,7 @@ export function releasedAttack(
     return undefined;
   }
 
-  const bonus = weaponGrades(line, base, reads).potency ?? 0;
+  const bonus = (weaponGrades(line, base, reads).potency ?? 0) + levelPotency(reads.rules ?? NO_MODIFIERS);
 
   return Modifier.parse(ANIMATED_ATTACK + bonus);
 }
