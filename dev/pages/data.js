@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831688356,
+  "lastUpdate": 1795832047191,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -598,6 +598,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d8774532133b791dd840079f39c8b3e6240f8fec",
+          "message": "build(lint): replace anti-slop with @cloudflare/oxlint-config (#2374)\n\n* build(lint): extend @cloudflare/oxlint-config as a passing baseline\n\nMove .oxlintrc.json to oxlint.config.ts, bump oxlint to 1.95, switch the\ntype-aware backend to tsrs. React, jsx-a11y and @nkzw rules stay off\n(Angular). Rules the preset adds are off until each is evaluated.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(lint): adopt the preset's quality rules, drop duplicate anti-slop\n\nquality/* (nkzw's port of anti-slop) replaces nine vendored rules with no\nfindings; the vendored no-object-parameters, no-unknown-returns and\nno-unsafe-dictionary-type stay, as the quality ports report 108 findings\nand Pioneer's overrides target the vendored names. Enable no-only-tests and\npromise/prefer-catch (seven .then(a, b) calls rewritten). Keep Pioneer's\nstricter options and T[] arrays over the preset's looser ones, with the\nreasons recorded in oxlint.config.ts.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* docs(lint): record which anti-slop rules the preset replaced\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* build(lint): turn on every preset rule, drop the last vendored duplicates\n\nquality/* now covers no-object-parameters, no-unknown-returns and\nno-unsafe-dictionary-type, keeping Pioneer's per-path overrides under the\nnew names. Only react-hooks/rules-of-hooks (misreads use* domain helpers)\nand @nkzw/no-instanceof (93 sites) stay off, with reasons recorded.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(lint): restore config comment casing, tidy rule sections\n\nThe commit hook's oxlint --fix capitalised wrapped comment lines in\noxlint.config.ts; restore them and exempt the file from\ncapitalized-comments. Merge the duplicate section banners and correct the\nrule counts in UPSTREAM.md.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(lint): justify the record guard's unknown values under quality/*\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* build(lint): drop the revived .oxlintrc.json, port main's page-budget exemption\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(lint): array types as Array<T>, preset fixes for new main code\n\nMechanical oxlint --fix for typescript/array-type plus bun fmt, a regenerated\nlockfile, the regexp, sonarjs and boundary rules ported from main into\noxlint.config.ts, and fixes for the companion code that landed on main.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(lint): array types in the companion code main just repaired\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(lint): array types in the new fr-card spec\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(lint): array types in the code that landed on main meanwhile\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T12:07:58+10:00",
+          "tree_id": "2fe929028311148b8d85c0b06b2cf460acb43a2f",
+          "url": "https://github.com/DavidDudson/pioneer/commit/d8774532133b791dd840079f39c8b3e6240f8fec"
+        },
+        "date": 1795832044210,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 217,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6376,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 216,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
