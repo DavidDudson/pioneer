@@ -22,7 +22,7 @@ export interface SkillOption {
 }
 
 /** What a class gives the skills: how many it trains by the player's choice, and the levels of its skill increases. */
-interface ClassSkills {
+export interface ClassSkills {
   readonly additional: SkillCount;
   readonly increaseLevels: ReadonlyArray<Level>;
 }

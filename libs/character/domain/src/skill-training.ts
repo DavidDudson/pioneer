@@ -6,8 +6,8 @@ import { attributeModifiers, boostSets } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MIN } from './character-fields';
-import { CLASS_SLOT } from './character-slots';
-import type { SkillContent, SkillOption } from './skill-content';
+import { CLASS_SLOT, SECOND_CLASS_SLOT } from './character-slots';
+import type { ClassSkills, SkillContent, SkillOption } from './skill-content';
 import { skillGrantsAt } from './skill-grants';
 import type { GrantsAt } from './skill-grants';
 import { duplicateTrainings, higher, RANKS } from './skill-raises';
@@ -122,6 +122,23 @@ export function intelligenceRaises(
   return raises;
 }
 
+/** What the class picked in `slot` gives the skills; undefined while the slot is empty or names no class. */
+function classSkillsAt(document: CharacterDocument, skills: SkillContent, slot: SlotKey): ClassSkills | undefined {
+  const picked = ContentId.safeParse(document.build.choices[slot]);
+
+  return picked.success ? skills.classSkills(picked.data) : undefined;
+}
+
+/**
+ * The levels at which a skill increase is gained: a dual-class character gets one at each level either class gives
+ * one, not both (Gamemastery Guide, Dual-Class Characters).
+ */
+function increaseLevels(first: ClassSkills, second: ClassSkills | undefined): ReadonlyArray<Level> {
+  return [...new Set([...first.increaseLevels, ...(second?.increaseLevels ?? [])])].toSorted(
+    (left, right) => left - right,
+  );
+}
+
 /**
  * The character's skill slots up to 20th level, in the order they are read, by level and trained skills first: once a
  * class is picked, its trained skills at 1st level (its count, the Intelligence modifier, and one for each skill its
@@ -129,17 +146,18 @@ export function intelligenceRaises(
  * each of the class's levels.
  */
 function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt }: SkillReads): Array<SkillSlotPlace> {
-  const picked = ContentId.safeParse(document.build.choices[CLASS_SLOT]);
-  const classSkills = picked.success ? skills.classSkills(picked.data) : undefined;
+  const classSkills = classSkillsAt(document, skills, CLASS_SLOT);
 
   if (classSkills === undefined) {
     return [];
   }
 
+  const second = boosts.secondClass ? classSkillsAt(document, skills, SECOND_CLASS_SLOT) : undefined;
+  const additional = Math.max(classSkills.additional, second?.additional ?? 0);
   const intelligence = intelligenceAt(document, boosts, FIRST_LEVEL);
-  const first = classSkills.additional + intelligence + duplicateTrainings(grantsAt(FIRST_LEVEL));
+  const first = additional + intelligence + duplicateTrainings(grantsAt(FIRST_LEVEL));
 
-  const increases = classSkills.increaseLevels.map((level) => ({
+  const increases = increaseLevels(classSkills, second).map((level) => ({
     key: SlotKey.parse(`skill-increase:${level}`),
     level,
     kind: SkillSlotKind.Increase,
