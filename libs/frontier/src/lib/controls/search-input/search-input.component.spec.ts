@@ -3,7 +3,8 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import { SEARCH_DEBOUNCE, SearchInput } from './search-input.component';
+import { SEARCH_DEBOUNCE } from '../search-query';
+import { SearchInput } from './search-input.component';
 
 interface Rendered {
   readonly fixture: ComponentFixture<SearchInput>;

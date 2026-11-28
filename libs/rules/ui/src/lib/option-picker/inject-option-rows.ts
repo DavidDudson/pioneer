@@ -1,25 +1,17 @@
-import { computed, inject } from '@angular/core';
+import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
+import { injectTranslate } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
-import { filter, merge } from 'rxjs';
 
 import { optionColumns, optionLabel, optionOrder, optionValue } from './option-rows';
 import { PickerRows } from './picker-rows';
 
 /** The name column of an option picker, headed in the active language. Call in an injection context. */
 export function injectOptionColumns<TValue extends string>(): Signal<readonly TableColumn<SelectOption<TValue>>[]> {
-  const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const translate = injectTranslate();
 
-  return computed(() => {
-    messages();
-
-    return optionColumns<TValue>(i18n.translate('rules.optionPicker.column.name'));
-  });
+  return computed(() => optionColumns<TValue>(translate()('rules.optionPicker.column.name')));
 }
 
 /** A short fixed list as picker rows: filtered and sorted in the page, with the functions a picker reads them by. */

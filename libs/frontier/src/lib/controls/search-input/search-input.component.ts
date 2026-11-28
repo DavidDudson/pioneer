@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output, viewChild } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Milliseconds } from '@pioneer/shared/kernel';
-import { injectDebouncer } from '@tanstack/angular-pacer';
 import { Search, X } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
@@ -9,9 +7,7 @@ import { Icon } from '../../icon/icon.component';
 import { Control } from '../control';
 import { adornmentVariants } from '../control.variants';
 import { Input } from '../input/input.component';
-
-/** Quiet time after the last keystroke before `searched` fires. */
-export const SEARCH_DEBOUNCE: Milliseconds = Milliseconds.parse(300);
+import { injectSearchQuery } from '../search-query';
 
 /**
  * Plain search control: a `type="search"` input with a search icon and a
@@ -41,18 +37,12 @@ export class SearchInput extends Control {
   protected readonly control = viewChild.required(Input);
   protected readonly clearable = computed(() => this.value() !== '' && !this.disabled());
 
-  /** The query `searched` last fired; undefined until it first fires. */
-  #lastSearched: string | undefined;
-  /** Cancelled on destroy, so a pending query never fires after the control is gone. */
-  readonly #debouncer = injectDebouncer(
-    (query: string) => {
-      // `value` was set from outside since this keystroke: the typed query is stale.
-      if (query === this.value()) {
-        this.#search(query);
-      }
+  readonly #query = injectSearchQuery({
+    current: this.value,
+    emit: (query) => {
+      this.searched.emit(query);
     },
-    { wait: SEARCH_DEBOUNCE },
-  );
+  });
 
   /** Enter: run the query now, without waiting for typing to go quiet. */
   protected commit(): void {
@@ -68,7 +58,7 @@ export class SearchInput extends Control {
 
   protected type(query: string): void {
     this.value.set(query);
-    this.#debouncer.maybeExecute(query);
+    this.#query.type(query);
   }
 
   /** The clear button: empty the query and put focus back in the input, which the button replaced. */
@@ -83,16 +73,6 @@ export class SearchInput extends Control {
   }
 
   #searchNow(): void {
-    this.#debouncer.cancel();
-    this.#search(this.value());
-  }
-
-  #search(query: string): void {
-    if (query === this.#lastSearched) {
-      return;
-    }
-
-    this.#lastSearched = query;
-    this.searched.emit(query);
+    this.#query.now(this.value());
   }
 }

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
+import { SEARCH_DEBOUNCE } from '../search-query';
 import {
   describedText,
   FEATS,
