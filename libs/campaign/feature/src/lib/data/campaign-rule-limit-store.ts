@@ -1,8 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CampaignContract } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignRuleLimits, RuleLimitKey, RuleLimitValue } from '@pioneer/campaign/domain';
-import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 
 import { CampaignStore } from './campaign-store';
 
@@ -18,50 +17,28 @@ function ruleLimitsKey(id: CampaignId | undefined): readonly unknown[] {
 @Injectable()
 export class CampaignRuleLimitStore {
   readonly #api = inject(ApiClient);
-  readonly #client = inject(QueryClient);
   readonly #campaigns = inject(CampaignStore);
-  readonly #id = computed(() => this.#campaigns.selected.data()?.id);
+  readonly #limits = injectScopedQuery<CampaignId, CampaignRuleLimits>({
+    id: computed(() => this.#campaigns.selected.data()?.id),
+    key: ruleLimitsKey,
+    fetch: async (id) => this.#api.call(CampaignContract.ruleLimits, { params: { id }, body: undefined }),
+    missingMessage: 'No campaign selected',
+  });
 
   /** The open campaign's limits, each with the number in force. */
-  public readonly limits = injectQuery(() => {
-    const id = this.#id();
-
-    return {
-      queryKey: ruleLimitsKey(id),
-      queryFn: async (): Promise<CampaignRuleLimits> => {
-        if (id === undefined) {
-          throw new Error('No campaign selected');
-        }
-
-        return this.#api.call(CampaignContract.ruleLimits, { params: { id }, body: undefined });
-      },
-      enabled: id !== undefined,
-    };
-  });
+  public readonly limits = this.#limits.query;
 
   /** Sets one limit of the open campaign. */
   public async set(limit: RuleLimitKey, value: RuleLimitValue): Promise<void> {
-    const id = this.#openId();
+    const id = this.#limits.openId();
     const limits = await this.#api.call(CampaignContract.setRuleLimit, { params: { id, limit }, body: { value } });
-    await this.#client.cancelQueries({ queryKey: ruleLimitsKey(id) });
-    this.#client.setQueryData(ruleLimitsKey(id), limits);
+    await this.#limits.replace(id, limits);
   }
 
   /** Returns one limit of the open campaign to the core rules' number. */
   public async reset(limit: RuleLimitKey): Promise<void> {
-    const id = this.#openId();
+    const id = this.#limits.openId();
     const limits = await this.#api.call(CampaignContract.resetRuleLimit, { params: { id, limit }, body: undefined });
-    await this.#client.cancelQueries({ queryKey: ruleLimitsKey(id) });
-    this.#client.setQueryData(ruleLimitsKey(id), limits);
-  }
-
-  #openId(): CampaignId {
-    const id = this.#id();
-
-    if (id === undefined) {
-      throw new Error('No campaign selected');
-    }
-
-    return id;
+    await this.#limits.replace(id, limits);
   }
 }

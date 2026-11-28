@@ -5,7 +5,7 @@ import { ChoiceState } from '../choices/choice-line';
 import type { ChoiceLine } from '../choices/choice-line';
 
 /** Message keys for a companion's line in the Choices list, spelled out so the key check sees them. */
-export const CompanionChoiceMessage = {
+const CompanionChoiceMessage = {
   Label: 'rules.companion.choiceLabel',
 } as const;
 
