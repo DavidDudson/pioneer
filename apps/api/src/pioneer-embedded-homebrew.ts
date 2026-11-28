@@ -53,7 +53,9 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       .select({ pack: contentPacks, entry: contentEntries.data })
       .from(contentEntries)
       .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
-      .where(and(inArray(contentEntries.id, [...ids]), isNull(contentPacks.archivedAt)));
+      .where(
+        and(inArray(contentEntries.id, [...ids]), isNull(contentPacks.archivedAt), isNull(contentEntries.archivedAt)),
+      );
 
     const byPack = new Map<PackRow['id'], { pack: PackRow; entries: Array<ContentEntry> }>();
 
@@ -140,7 +142,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     const rows = await this.#db
       .select({ data: contentEntries.data })
       .from(contentEntries)
-      .where(eq(contentEntries.packId, pack.id));
+      .where(and(eq(contentEntries.packId, pack.id), isNull(contentEntries.archivedAt)));
 
     return new Map(rows.map(({ data }) => [data.slug, data]));
   }
@@ -175,7 +177,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       const rows = await tx
         .select({ data: contentEntries.data })
         .from(contentEntries)
-        .where(eq(contentEntries.packId, locked.id));
+        .where(and(eq(contentEntries.packId, locked.id), isNull(contentEntries.archivedAt)));
 
       const hash = contentHash({ file: locked.data, entries: rows.map(({ data }) => data) });
       await tx

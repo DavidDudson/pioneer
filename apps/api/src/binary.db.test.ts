@@ -234,10 +234,10 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       const env = await environment(databaseUrl, {});
       const first = await run(['migrate'], env);
       expect(first.code).toBe(0);
-      expect(first.output).toContain('content pack player-core: seeded (version 1, 0 removed)');
+      expect(first.output).toContain('content pack player-core: seeded (version 1, 0 archived)');
       expect(await seededPacks(databaseUrl)).toStrictEqual(OFFICIAL_PACKS);
       const second = await run(['content-seed'], env);
-      expect(second.output).toContain('content pack player-core: unchanged (version 1, 0 removed)');
+      expect(second.output).toContain('content pack player-core: unchanged (version 1, 0 archived)');
     },
     RUN_TIMEOUT,
   );

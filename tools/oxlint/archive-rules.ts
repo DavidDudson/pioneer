@@ -12,6 +12,7 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
   'characters',
   'campaigns',
   'contentPacks',
+  'contentEntries',
   'campaignItemApprovals',
   'campaignKeyItems',
   'characterItemAcknowledgements',

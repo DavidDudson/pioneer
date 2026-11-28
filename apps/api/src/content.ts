@@ -40,7 +40,7 @@ export function content(db: Database, authenticator: RequestAuthenticator): Cont
 export async function seedOfficialContent(db: Database, clock: Clock, log: (line: string) => void): Promise<void> {
   const seeds = await seedContentPacks(db, officialPacks, clock);
 
-  for (const { pack, outcome, version, removed } of seeds) {
-    log(`content pack ${pack}: ${outcome} (version ${version}, ${removed} removed)`);
+  for (const { pack, outcome, version, archived } of seeds) {
+    log(`content pack ${pack}: ${outcome} (version ${version}, ${archived} archived)`);
   }
 }

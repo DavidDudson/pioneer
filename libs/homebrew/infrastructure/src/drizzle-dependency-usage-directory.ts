@@ -2,7 +2,7 @@ import { DependencyUsageDirectory } from '@pioneer/homebrew/application';
 import { UsingEntryName } from '@pioneer/homebrew/domain';
 import { contentEntries } from '@pioneer/rules/infrastructure';
 import type { ContentEntry, ContentPackId } from '@pioneer/rules/sdk';
-import { eq } from 'drizzle-orm';
+import { and, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /** A uuid held as a string value of a JSON document; an object key (a uuid followed by a colon) is not a reference. */
@@ -30,7 +30,7 @@ export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {
     const offered = await this.#db
       .select({ id: contentEntries.id })
       .from(contentEntries)
-      .where(eq(contentEntries.packId, dependsOn));
+      .where(and(eq(contentEntries.packId, dependsOn), isNull(contentEntries.archivedAt)));
 
     if (offered.length === 0) {
       return [];
@@ -41,7 +41,7 @@ export class DrizzleDependencyUsageDirectory extends DependencyUsageDirectory {
     const own = await this.#db
       .select({ name: contentEntries.name, data: contentEntries.data })
       .from(contentEntries)
-      .where(eq(contentEntries.packId, pack));
+      .where(and(eq(contentEntries.packId, pack), isNull(contentEntries.archivedAt)));
 
     // Sorted here so no query needs an index for it.
     return own

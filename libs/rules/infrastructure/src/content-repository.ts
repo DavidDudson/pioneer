@@ -86,7 +86,7 @@ export class ContentRepository {
             const entries = await tx
               .select({ data: contentEntries.data })
               .from(contentEntries)
-              .where(eq(contentEntries.packId, id))
+              .where(and(eq(contentEntries.packId, id), isNull(contentEntries.archivedAt)))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
 
             return packContentsFromFiles(data, [entries.map((entry) => entry.data)]);
@@ -124,7 +124,7 @@ export class ContentRepository {
             const entries = await tx
               .select({ data: contentEntries.data })
               .from(contentEntries)
-              .where(eq(contentEntries.packId, id))
+              .where(and(eq(contentEntries.packId, id), isNull(contentEntries.archivedAt)))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
 
             return packContentsFromFiles(pack.data, [entries.map((entry) => entry.data)]);
@@ -154,6 +154,7 @@ export class ContentRepository {
         .where(
           and(
             inArray(contentEntries.id, [...entryIds]),
+            isNull(contentEntries.archivedAt),
             isNotNull(contentPacks.ownerId),
             isNull(contentPacks.archivedAt),
           ),
@@ -205,7 +206,7 @@ export class ContentRepository {
             const entries = await tx
               .select({ data: contentEntries.data })
               .from(contentEntries)
-              .where(eq(contentEntries.packId, id))
+              .where(and(eq(contentEntries.packId, id), isNull(contentEntries.archivedAt)))
               .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
 
             return packContentsFromFiles(pack?.data, [entries.map((entry) => entry.data)]);

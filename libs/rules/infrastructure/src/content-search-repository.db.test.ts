@@ -219,7 +219,7 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
     expect(gone.total).toBe(0);
   });
 
-  test('an entry dropped from its pack is no longer found, and its vector goes with it', async () => {
+  test('an entry dropped from its pack is archived and no longer found, though its vector stays', async () => {
     const pack = languagePack('search-dropped', [language('keep', 'Keepsake'), language('lose', 'Losable')]);
     await seed(pack);
     const [dropped] = idsAt(pack, 1);
@@ -236,7 +236,8 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
       .from(contentEntrySearch)
       .where(sql`${contentEntrySearch.entryId} = ${dropped}`);
 
-    expect(remaining).toStrictEqual([]);
+    // The row is archived, not deleted (ADR-0062); the search query skips it.
+    expect(remaining).toHaveLength(1);
   });
 
   describe('homebrew', () => {

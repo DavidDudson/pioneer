@@ -210,7 +210,7 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     const rows = await this.#db
       .select({ packId: contentEntries.packId, entries: count() })
       .from(contentEntries)
-      .where(inArray(contentEntries.packId, [...packIds]))
+      .where(and(inArray(contentEntries.packId, [...packIds]), isNull(contentEntries.archivedAt)))
       .groupBy(contentEntries.packId);
 
     return new Map(rows.map((row) => [row.packId, EntryCount.parse(row.entries)]));
