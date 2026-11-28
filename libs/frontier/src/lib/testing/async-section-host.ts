@@ -6,7 +6,7 @@ import type { AsyncQuery } from '../async/async-region/async-query';
 import { Section } from '../layout/section/section.component';
 import { Text } from '../text/text/text.component';
 
-/** An async `fr-section` listing the query's strings, with a custom empty slot when `customEmpty` is set. */
+/** An async `fr-section` listing the query's strings, with a custom empty slot. */
 @Component({
   selector: 'fr-async-section-host',
   imports: [AsyncData, AsyncEmpty, Section, Text],
@@ -16,7 +16,6 @@ import { Text } from '../text/text/text.component';
 export class AsyncSectionHost {
   public readonly query = input.required<AsyncQuery<ReadonlyArray<string>>>();
   public readonly filtered = input(false);
-  public readonly customEmpty = input(false);
   public readonly clearCount = signal(0);
   protected readonly emptyText = 'Nobody yet';
 

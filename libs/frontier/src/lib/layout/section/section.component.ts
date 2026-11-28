@@ -38,11 +38,11 @@ import { SectionBody } from './section-body.directive';
  *     <fr-grid [columns]="3">…</fr-grid>
  *   </ng-template>
  * </fr-section>
+ * ```
  *
  * Give it an `<ng-template [frAsyncData]="query">` instead and it loads its own data: skeleton lines (or a
  * `frAsyncPending` template) while pending, the failure inline, and `frAsyncEmpty` or `frAsyncFilteredEmpty` when the
- * data has nothing in it (`filtered` says a filter is active; the default Clear button emits `cleared`). It replaces
- * a section holding an `fr-async-region` and an `fr-empty-state`.
+ * data has nothing in it (`filtered` says a filter is active; the default Clear button emits `cleared`).
  *
  * ```html
  * <fr-section anchor="feats" [heading]="'feats.heading' | transloco" [filtered]="search() !== ''" (cleared)="clear()">
@@ -57,7 +57,7 @@ import { SectionBody } from './section-body.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()', '[attr.aria-busy]': 'pending() || null' },
 })
-export class Section<TData = unknown> {
+export class Section {
   /** The heading's id, unique on the page; the region is labelled by it and skip links target it. */
   public readonly anchor = input.required<string>();
   /** The section's name, already translated. */
@@ -75,15 +75,12 @@ export class Section<TData = unknown> {
   /** A section pads like a bare `fr-surface`. */
   protected readonly padding = DEFAULT_SURFACE_PADDING;
   protected readonly body = contentChild(SectionBody);
-  protected readonly data = contentChild<AsyncData<TData>>(AsyncData);
-  protected readonly pendingSlot = contentChild(AsyncPending);
-  protected readonly errorSlot = contentChild(AsyncError);
-  protected readonly emptySlot = contentChild(AsyncEmpty);
-  protected readonly filteredEmptySlot = contentChild(AsyncFilteredEmpty);
-  protected readonly pending = computed(() => this.data()?.query().isPending() ?? false);
-  protected readonly detectEmpty = computed(
-    () => this.emptySlot() !== undefined || this.filteredEmptySlot() !== undefined,
-  );
+  protected readonly data = contentChild<AsyncData<unknown>>(AsyncData, { descendants: false });
+  protected readonly pendingSlot = contentChild(AsyncPending, { descendants: false });
+  protected readonly errorSlot = contentChild(AsyncError, { descendants: false });
+  protected readonly emptySlot = contentChild(AsyncEmpty, { descendants: false });
+  protected readonly filteredEmptySlot = contentChild(AsyncFilteredEmpty, { descendants: false });
+  protected readonly pending = computed(() => this.opened() && (this.data()?.query().isPending() ?? false));
   /** Whether the section has been shown: its body is built from then on. */
   protected readonly opened: Signal<boolean> = linkedSignal<boolean, boolean>({
     source: this.concealed,

@@ -16,17 +16,13 @@ const EMPTY_TITLE = { filtered: 'frontier.async.noMatches', plain: 'frontier.asy
 
 const DEFAULT_SKELETON_LINES: ReadonlyArray<number> = [0, 1, 2];
 
-/**
- * The states of a query, shared by `fr-async-region`, `fr-section` and `fr-async-list`: pending (the pending
- * template, else lines of skeleton), failed, empty, filtered-empty and loaded. Templates come in as inputs; the
- * parts that own the slots pass them down. The empty states show only with `detectEmpty`.
- */
+/** The query states shared by every async surface; the owner passes its slot templates down as inputs. */
 @Component({
   selector: 'fr-async-view',
   imports: [Alert, Button, EmptyState, EmptyStateTitle, NgTemplateOutlet, Skeleton, Stack, TranslocoPipe],
   templateUrl: './async-view.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { class: 'contents' },
 })
 export class AsyncView<TData> {
   public readonly query = input.required<AsyncQuery<TData>>();
@@ -44,7 +40,7 @@ export class AsyncView<TData> {
   public readonly cleared = output();
 
   protected readonly lines = DEFAULT_SKELETON_LINES;
-  protected readonly emptySlot = computed(() =>
+  protected readonly emptyStateTemplate = computed(() =>
     this.filtered() ? this.filteredEmptyTemplate() : this.emptyTemplate(),
   );
   protected readonly emptyTitle = computed(() => (this.filtered() ? EMPTY_TITLE.filtered : EMPTY_TITLE.plain));

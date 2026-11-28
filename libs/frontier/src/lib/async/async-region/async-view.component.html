@@ -24,7 +24,7 @@
     [ngTemplateOutletContext]="{ $implicit: error() }"
   />
 } @else if (empty()) {
-  <ng-container [ngTemplateOutlet]="emptySlot() ?? defaultEmpty" />
+  <ng-container [ngTemplateOutlet]="emptyStateTemplate() ?? defaultEmpty" />
 } @else if (value(); as value) {
   <ng-container [ngTemplateOutlet]="dataTemplate()" [ngTemplateOutletContext]="{ $implicit: value }" />
 }

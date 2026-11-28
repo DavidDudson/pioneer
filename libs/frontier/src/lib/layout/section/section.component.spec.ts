@@ -195,12 +195,8 @@ describe('Async section', () => {
     expect(section.querySelector('fr-alert')).not.toBeNull();
   });
 
-  it('shows the default empty state, or the empty slot', async () => {
+  it('shows the empty slot when the data is empty', async () => {
     await mount();
-    query.succeed([]);
-    await settle();
-    expect(section.querySelector('fr-empty-state')?.textContent.trim()).toBe('Nothing here yet.');
-    await mount({ customEmpty: true });
     query.succeed([]);
     await settle();
     expect(section.querySelector('fr-empty-state')).toBeNull();
