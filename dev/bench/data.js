@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831431554,
+  "lastUpdate": 1795831461536,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -116382,6 +116382,336 @@ window.BENCHMARK_DATA = {
             "value": 0.376,
             "unit": "ms",
             "extra": "median 0.651 ms, 51 runs after 20 warm-up, budget 3.639 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb1f844a55df0c398c6af8583afbc453260be4e8",
+          "message": "refactor(frontier): one control-size scale under pointer:fine (#2447)\n\n* refactor(frontier): one control-size scale under pointer:fine\n\nControl sizes were hand-paired in every component as\n`h-touch pointer-fine:h-control-*`. The `--fr-size-control-*` variables\nnow default to the 2.75rem touch size and shrink once, under\n`@media (pointer: fine)` in semantic.css, so components write a single\n`h-control-*` or `min-h-control-*` class.\n\nHeights use `min-h-*` where text can wrap (button, link, tab, disclosure);\nan icon-only button keeps a fixed height so `aspect-square` stays square.\nButton lg now has a fine-pointer size (3rem touch, 2.75rem fine).\n\nRefs #2279\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on mob-review findings\n\nFix the AGENTS.md and semantic.css wording that said every control size\nis 2.75rem on touch (lg is 3rem), shorten the new doc comments, add the\nxs size to the Button Sizes story and tighten the inline link spec.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:39:26+10:00",
+          "tree_id": "7067ba1a3144406c75590bfb2416b964000cf38f",
+          "url": "https://github.com/DavidDudson/pioneer/commit/eb1f844a55df0c398c6af8583afbc453260be4e8"
+        },
+        "date": 1795831457804,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: feat picker trained-again marks over the feats available to a level 20 Rogue",
+            "value": 125.858,
+            "unit": "ms",
+            "extra": "median 141.156 ms, 51 runs after 20 warm-up, budget 489.534 ms"
+          },
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 21.301,
+            "unit": "ms",
+            "extra": "median 23.098 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 24.528,
+            "unit": "ms",
+            "extra": "median 25.936 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 17.581,
+            "unit": "ms",
+            "extra": "median 18.614 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 20.727,
+            "unit": "ms",
+            "extra": "median 21.671 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 21.682,
+            "unit": "ms",
+            "extra": "median 22.553 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 24.622,
+            "unit": "ms",
+            "extra": "median 25.317 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 20.786,
+            "unit": "ms",
+            "extra": "median 21.648 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 20.936,
+            "unit": "ms",
+            "extra": "median 21.949 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 18.238,
+            "unit": "ms",
+            "extra": "median 18.814 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 18.812,
+            "unit": "ms",
+            "extra": "median 19.666 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 21.51,
+            "unit": "ms",
+            "extra": "median 22.401 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 22.286,
+            "unit": "ms",
+            "extra": "median 22.918 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 17.579,
+            "unit": "ms",
+            "extra": "median 18.528 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 21.871,
+            "unit": "ms",
+            "extra": "median 22.683 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 21.061,
+            "unit": "ms",
+            "extra": "median 22.067 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 23.157,
+            "unit": "ms",
+            "extra": "median 24.098 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 19.718,
+            "unit": "ms",
+            "extra": "median 20.623 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 23.437,
+            "unit": "ms",
+            "extra": "median 24.456 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Magus with every slot and its gear filled",
+            "value": 19.889,
+            "unit": "ms",
+            "extra": "median 21.063 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Summoner with every slot and its gear filled",
+            "value": 15.511,
+            "unit": "ms",
+            "extra": "median 18.35 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Kineticist with every slot and its gear filled",
+            "value": 21.615,
+            "unit": "ms",
+            "extra": "median 22.966 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 15.047,
+            "unit": "ms",
+            "extra": "median 15.96 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 16.029,
+            "unit": "ms",
+            "extra": "median 17.152 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 15.533,
+            "unit": "ms",
+            "extra": "median 16.653 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 15.164,
+            "unit": "ms",
+            "extra": "median 15.915 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 17.823,
+            "unit": "ms",
+            "extra": "median 18.829 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 18.992,
+            "unit": "ms",
+            "extra": "median 19.899 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 18.174,
+            "unit": "ms",
+            "extra": "median 19.223 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 20.056,
+            "unit": "ms",
+            "extra": "median 21.046 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Thaumaturge with every slot and its gear filled",
+            "value": 16.778,
+            "unit": "ms",
+            "extra": "median 17.617 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Thaumaturge with every slot and its gear filled",
+            "value": 20.077,
+            "unit": "ms",
+            "extra": "median 20.947 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Magus with every slot and its gear filled",
+            "value": 19.286,
+            "unit": "ms",
+            "extra": "median 20.154 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Necromancer with every slot and its gear filled",
+            "value": 18.998,
+            "unit": "ms",
+            "extra": "median 19.916 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Runesmith with every slot and its gear filled",
+            "value": 18.864,
+            "unit": "ms",
+            "extra": "median 19.948 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Summoner with every slot and its gear filled",
+            "value": 16.145,
+            "unit": "ms",
+            "extra": "median 16.873 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Gunslinger with every slot and its gear filled",
+            "value": 19.743,
+            "unit": "ms",
+            "extra": "median 20.37 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Inventor with every slot and its gear filled",
+            "value": 20.417,
+            "unit": "ms",
+            "extra": "median 21.337 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Commander with every slot and its gear filled",
+            "value": 19.94,
+            "unit": "ms",
+            "extra": "median 20.91 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Guardian with every slot and its gear filled",
+            "value": 18.909,
+            "unit": "ms",
+            "extra": "median 20.143 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue skill ranks",
+            "value": 11.336,
+            "unit": "ms",
+            "extra": "median 12.778 ms, 51 runs after 20 warm-up, budget 26.237 ms"
+          },
+          {
+            "name": "character: level 20 Rogue slots",
+            "value": 27.946,
+            "unit": "ms",
+            "extra": "median 31.561 ms, 51 runs after 20 warm-up, budget 66.785 ms"
+          },
+          {
+            "name": "character: filter a thousand spells",
+            "value": 0.414,
+            "unit": "ms",
+            "extra": "median 0.511 ms, 51 runs after 20 warm-up, budget 1.816 ms"
+          },
+          {
+            "name": "character: count the spell filter options over a thousand spells",
+            "value": 0.601,
+            "unit": "ms",
+            "extra": "median 0.739 ms, 51 runs after 20 warm-up, budget 3.631 ms"
+          },
+          {
+            "name": "character: spell picker rows over a thousand spells",
+            "value": 0.047,
+            "unit": "ms",
+            "extra": "median 0.061 ms, 51 runs after 20 warm-up, budget 1.253 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 5.532,
+            "unit": "ms",
+            "extra": "median 7.056 ms, 51 runs after 20 warm-up, budget 11.865 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 4.845,
+            "unit": "ms",
+            "extra": "median 6.47 ms, 51 runs after 20 warm-up, budget 11.865 ms"
+          },
+          {
+            "name": "engine: gather the spells of a level 20 caster",
+            "value": 0.108,
+            "unit": "ms",
+            "extra": "median 0.135 ms, 51 runs after 20 warm-up, budget 1.154 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 1.102,
+            "unit": "ms",
+            "extra": "median 1.292 ms, 51 runs after 20 warm-up, budget 2.39 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 0.81,
+            "unit": "ms",
+            "extra": "median 1.02 ms, 51 runs after 20 warm-up, budget 3.649 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.395,
+            "unit": "ms",
+            "extra": "median 0.726 ms, 51 runs after 20 warm-up, budget 3.681 ms"
           }
         ]
       }
