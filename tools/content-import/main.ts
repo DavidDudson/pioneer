@@ -58,6 +58,7 @@ import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
 import { loadReplacedLegacy } from './replaced-legacy-loader.ts';
 import {
+  appendCreatures,
   appendLegacy,
   applyDescriptions,
   applyOutcomes,
@@ -83,6 +84,8 @@ interface Options {
   readonly dryRun: boolean;
   /** Whether to also take the pre-remaster entries a remaster entry replaces, from the legacy books (ADR-0077). */
   readonly replacedLegacy: boolean;
+  /** Whether to add the target books' creatures to a committed pack, as `creature` entries (ADR-0031). */
+  readonly creatures: boolean;
   /** The rule element keys whose rules the translators now cover, which are taken into the committed pack (`apply-rules.ts`). */
   readonly applyRules: ReadonlySet<string>;
   /** Whether to lay the import's check outcomes on the committed descriptions (`apply-outcomes.ts`). */
@@ -116,6 +119,13 @@ function describedKinds(argument: string | undefined): ReadonlySet<string> {
   return new Set(kinds);
 }
 
+/** The write modes are separate runs: the one that runs would hide the others. */
+function rejectMixedModes(requested: ReadonlyArray<boolean>): void {
+  if (requested.filter(Boolean).length > 1) {
+    throw new Error('--creatures, --replaced-legacy, --apply-outcomes and --apply-descriptions are separate runs');
+  }
+}
+
 function options(): Options {
   const { values } = parseArgs({
     options: {
@@ -123,6 +133,7 @@ function options(): Options {
       book: { type: 'string', multiple: true },
       'dry-run': { type: 'boolean', default: false },
       'replaced-legacy': { type: 'boolean', default: false },
+      creatures: { type: 'boolean', default: false },
       'apply-rules': { type: 'string' },
       'apply-outcomes': { type: 'boolean', default: false },
       'apply-descriptions': { type: 'string' },
@@ -145,16 +156,25 @@ function options(): Options {
     throw new Error('Name at least one target book with --book');
   }
 
+  rejectMixedModes([
+    values.creatures,
+    values['replaced-legacy'],
+    values['apply-outcomes'],
+    values['apply-descriptions'] !== undefined,
+  ]);
+
   return {
     pack: PackId.parse(values.pack),
     books: new Set(books),
     dryRun: values['dry-run'],
     replacedLegacy: values['replaced-legacy'],
+    creatures: values.creatures,
     applyRules: ruleKeys(
       values['apply-rules'],
       values['dry-run'] ||
         values['apply-outcomes'] ||
         values['replaced-legacy'] ||
+        values.creatures ||
         values['apply-descriptions'] !== undefined,
     ),
     applyOutcomes: values['apply-outcomes'],
@@ -360,6 +380,7 @@ const {
   books,
   dryRun,
   replacedLegacy,
+  creatures: creaturesOnly,
   applyRules: rulesOnly,
   applyOutcomes: outcomesOnly,
   applyDescriptions: describedOnly,
@@ -439,6 +460,13 @@ if (!dryRun && outcomesOnly) {
       `Filled the empty ${[...describedOnly].join(', ')} descriptions of ${filled} committed entries; wrote:`,
       ...written.map((file) => `  ${file}`),
     ].join('\n'),
+  );
+} else if (!dryRun && creaturesOnly) {
+  const { written, added, present } = await appendCreatures(output, targets);
+  console.log(
+    [`Added ${added} creatures, ${present} already committed; wrote:`, ...written.map((file) => `  ${file}`)].join(
+      '\n',
+    ),
   );
 } else if (!dryRun && replaced !== undefined) {
   const { written, added, present } = await appendLegacy(output.entries, targets);

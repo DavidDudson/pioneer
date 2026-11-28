@@ -2459,6 +2459,406 @@
       "slug": "golem",
       "reason": "missing-description",
       "detail": "PF2E.TraitDescriptionGolem"
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:benthic-reaver",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.1MxubcO4SB8PwmKT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "True Seeing (Constant)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:clockwork-cannoneer",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.qmw82W0WhPkn9UTW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:cursed-king",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.4DQotKcUZebLfeeL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus any two ancient languages (can't speak)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:fleshforged-conformer",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.K2AOcLMDOVNbgPXp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by cold iron)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "two other languages"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["cold-iron"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:fleshforged-dreadnought",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.KTabPRN489yjTvek",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (deactivated by cold iron)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["cold-iron"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:kasesh-stone",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.UgGyHJ39EHztCV5m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:kashrishi-evaluator",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.fGZeQOarR6Im7Lnk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Calm Emotions"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:mutant-gnoll-hulk",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.lhr2fjewILo4nyUZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "magic hunger (imprecise) 30 feet"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:quantium-golem",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.gZ2qX5vbWg7otMVT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "defender's link"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.twinDefenders}",
+            "diceNumber": 10,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "lambent-beam-inline-damage"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.twinDefenders}",
+            "diceNumber": 4,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "selector": "eye-beam-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:ratajin-mastermind",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.xl2UxOFVSDGqaVS5",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:skinskitter",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.LVY9JAhTnBC2SeqZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "a taste for skin (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:spellscar-fext",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AIQMB0ysHNeodKG4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by glass)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status versus magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "magic sense (imprecise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["glass"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "creature:stone-sister",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.1SIx3wcRvplbfwk3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, reconstitution, stone flesh"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
     }
   ]
 }

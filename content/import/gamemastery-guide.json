@@ -7,5 +7,207 @@
     "tag": "5.16.1",
     "sha256": "08d772c26e9c71e33b7c690f8f543dcb1890d8efacaa9fba771ea696b099b61d"
   },
-  "backlog": []
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "gamemastery-guide",
+      "slug": "creature:acolyte-of-nethys",
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.crTWewxna93vEt6B",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Chill Touch"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Magic Missile"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Nethys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Text of Nethys"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gamemastery-guide",
+      "slug": "creature:antipaladin",
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.K2STan8izudm9eEn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.destructiveVengeance}",
+            "key": "FlatModifier",
+            "predicate": ["destructive-vengeance"],
+            "selector": "strike-damage",
+            "value": 2
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gamemastery-guide",
+      "slug": "creature:barkeep",
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.6IADTZHYowxObqAk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Barkeep's Apron"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Pewter Mug"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Flask of Whiskey"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gamemastery-guide",
+      "slug": "creature:priest-of-pharasma",
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.XpkGaDlyMH2V5wxR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 24
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:slug:heal"],
+            "property": "dice-faces",
+            "selectors": ["spell-damage", "spell-healing"],
+            "slug": "base",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Searing Light"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Gentle Repose"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Disrupt Undead"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Disrupting Weapons"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Pharasma"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gamemastery-guide",
+      "slug": "creature:server",
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.OSCpJYTr6xNIxqZi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Pewter Mug"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Serving Tray"
+        }
+      ]
+    }
+  ]
 }

@@ -847,7 +847,12 @@ flowchart LR
   flat bonus, and an `effect` item are reported, not translated.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
-  table. A run that writes needs `--apply-rules` (below): the import never replaces a committed pack.
+  table. A run that writes needs `--apply-rules` (below) or `--creatures`: the import never replaces a committed pack.
+  `--creatures` adds the target book's creatures to its committed pack as `creature.json` entries and their backlog
+  items to the pack's backlog, keeping any creature already committed; nothing else in the pack changes. It is how the
+  legacy books' creatures came in (Bestiary 1 to 3, Book of the Dead, Gamemastery Guide NPCs, Impossible Lands): the
+  `npc` actors read their book from `system.details.publication`, and `selectCreatures` takes a book once the registry
+  flags it `legacy`. Hazards (until the hazard kind exists), characters, vehicles, armies and familiars stay out.
 - **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is

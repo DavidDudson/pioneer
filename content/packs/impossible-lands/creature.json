@@ -1,0 +1,5082 @@
+[
+  {
+    "id": "8e8de935-0ba7-524c-b671-937abc58a7fa",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:benthic-reaver",
+    "name": "Benthic Reaver",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["chaotic", "cold", "evil", "undead", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The benthic reaver is a 50-foot-tall undead monstrosity, its ribs rising like giant archways and its spine splitting into three tails."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.1MxubcO4SB8PwmKT"
+    },
+    "data": {
+      "role": "monster",
+      "size": "gargantuan",
+      "perception": 41,
+      "attributes": {
+        "str": 10,
+        "dex": 8,
+        "con": 7,
+        "int": 6,
+        "wis": 8,
+        "cha": 6
+      },
+      "armorClass": 46,
+      "saves": {
+        "fortitude": 38,
+        "reflex": 35,
+        "will": 33
+      },
+      "hitPoints": 500,
+      "immunities": [
+        "bleed",
+        "cold",
+        "death-effects",
+        "disease",
+        "void",
+        "paralyzed",
+        "poison",
+        "precision",
+        "unconscious"
+      ],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 10,
+          "exceptions": ["adamantine"]
+        }
+      ],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 37
+        },
+        {
+          "skill": "athletics",
+          "modifier": 43
+        },
+        {
+          "skill": "nature",
+          "modifier": 37
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "truesight",
+          "acuity": "precise",
+          "range": 60
+        }
+      ],
+      "languages": ["common", "necril"],
+      "speeds": [
+        {
+          "movement": "swim",
+          "speed": 60
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Jaws",
+          "range": "melee",
+          "bonus": 39,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "void"
+            },
+            {
+              "dice": 4,
+              "die": "d12",
+              "damageType": "piercing",
+              "bonus": 18
+            },
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "cold"
+            }
+          ],
+          "traits": ["reach-15", "unarmed"],
+          "reach": 15
+        },
+        {
+          "name": "Fin",
+          "range": "melee",
+          "bonus": 39,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "void"
+            },
+            {
+              "dice": 4,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 18
+            }
+          ],
+          "traits": ["agile", "reach-15"],
+          "reach": 15
+        },
+        {
+          "name": "Tail",
+          "range": "melee",
+          "bonus": 39,
+          "damage": [
+            {
+              "dice": 4,
+              "die": "d10",
+              "damageType": "slashing",
+              "bonus": 18
+            },
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "void"
+            }
+          ],
+          "traits": ["reach-30"],
+          "reach": 30,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Improved Knockdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Eye Beam",
+          "range": "melee",
+          "bonus": 37,
+          "damage": [
+            {
+              "dice": 4,
+              "die": "d12",
+              "damageType": "cold",
+              "bonus": 8
+            },
+            {
+              "dice": 4,
+              "die": "d6",
+              "damageType": "void"
+            }
+          ],
+          "traits": []
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Constant Spells",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A constant spell affects the monster without the monster needing to cast it, and its duration is unlimited. If a constant spell gets counteracted, the monster can reactivate it by spending the normal spellcasting actions the spell requires."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "All-Around Vision",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster can see in all directions simultaneously and therefore can't be flanked."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Intense Chill",
+          "traits": ["arcane", "aura", "cold"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 41,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). On a failure, the creature takes a –15-foot status penalty to its Speeds for 1 round."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Aura",
+              "slug": "intense-chill",
+              "radius": 30,
+              "traits": ["arcane", "cold"]
+            }
+          ]
+        },
+        {
+          "name": "Tail Sweep",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature moves from beyond the reach of the benthic reaver's tail to within the reach of the benthic reaver's tail"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature moves from beyond the reach of the benthic reaver's tail to within the reach of the benthic reaver's tail"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The benthic reaver makes a tail Strike against the triggering creature and can use Improved Knockdown if the attack hits, even if it isn't the benthic reaver's turn. If the benthic reaver knocks the target Prone, it disrupts the triggering move action."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Numbing Ice",
+          "traits": ["cold"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature who takes damage from the benthic reaver's eye beam Strike must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 41
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Slowed 2 as cold stiffens its limbs. A flying creature who fails its save also descends safely to the ground below. This is forced movement."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Song of the Lost",
+          "cost": "one",
+          "traits": ["arcane", "auditory", "emotion", "fear", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The benthic reaver unleashes a cry of mourning. All creatures within 60 feet must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 41,
+                  "outcomes": {
+                    "criticalSuccess": [
+                      {
+                        "type": "text",
+                        "text": "The creature is unaffected."
+                      }
+                    ],
+                    "success": [
+                      {
+                        "type": "text",
+                        "text": "The creature is Frightened 1."
+                      }
+                    ],
+                    "failure": [
+                      {
+                        "type": "text",
+                        "text": "The creature is Frightened 2."
+                      }
+                    ],
+                    "criticalFailure": [
+                      {
+                        "type": "text",
+                        "text": "As failure, but the creature is also Stunned 1 with sympathy."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " save to resist. The benthic reaver can't use Song of the Lost for 1d4 rounds."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is unaffected."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Frightened 1."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Frightened 2."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As failure, but the creature is also Stunned 1 with sympathy."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Tail Sweep",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The benthic reaver makes a tail Strike against each enemy within its reach. These attacks count toward the benthic reaver's multiple attack penalty, but the multiple attack penalty doesn't increase until after the benthic reaver makes all its attacks."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Improved Knockdown",
+          "cost": "free",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster's last action was a successful Strike that lists Improved Knockdown in its damage entry"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster's last action was a successful Strike that lists Improved Knockdown in its damage entry"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts to Trip the creature as a free action. This attempt neither applies nor counts toward the monster's multiple attack penalty."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Arcane Innate Spells",
+          "tradition": "arcane",
+          "preparation": "innate",
+          "dc": 41,
+          "attack": 33,
+          "spells": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "152932a9-78a6-57dd-9a57-dca6d7fb6277",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:clockwork-cannoneer",
+    "name": "Clockwork Cannoneer",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["clockwork", "construct", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Clockwork cannoneers are cannon-armed constructs created to defend the Grand Duchy of Alkenstar. The people of Alkenstar typically find conventional arms sufficient for battling creatures who wander out of the Mana Wastes, but recent increases in activity from the fleshforges of Nex and the necromantic chambers of Geb have spurred the people of the city into a flurry of defensive innovations. Created by an experimental collaboration between the city's gunsmiths and clockwork inventors, the clockwork cannoneer provides exceptional mobile firepower. Two cannon-arms swing at the sides of the 15-foot-tall automaton, and its body contains a hopper of cannonballs that are replenished by engineers when the creature is wound up for duty. Triple-walled reinforcement on the cannoneer's black-powder reservoirs provides ample protection from the accidental explosions and backfires that often troubled early prototypes of the finely engineered machine. The current design combines the long-range capabilities of field artillery with the stopping power of a firedrake against engaged enemies, and its heat-tempered gear assembly minimizes warping that might cause slipping, grinding, or shaking."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While reports from living artillery members serving alongside clockwork cannoneers complain of blisters, smoke inhalation, and singed eyebrows, the Grand Duchy's chief clockwork machinists have assured the city's leadership that the constructs function well within safety parameters. The clockwork cannoneer's self-sufficient construction frees crews to see to those battlefield tasks that can, for the moment, only be conducted by sentient beings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Intelligence reports from Quantium and Absalom indicate that attempts to replicate the clockwork cannoneer's design have been spectacularly unsuccessful."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.qmw82W0WhPkn9UTW"
+    },
+    "data": {
+      "role": "monster",
+      "size": "huge",
+      "perception": 25,
+      "attributes": {
+        "str": 7,
+        "dex": 8,
+        "con": 6,
+        "int": -5,
+        "wis": 4,
+        "cha": -5
+      },
+      "armorClass": 38,
+      "saves": {
+        "fortitude": 27,
+        "reflex": 29,
+        "will": 23
+      },
+      "hitPoints": 250,
+      "immunities": [],
+      "weaknesses": [
+        {
+          "type": "electricity",
+          "value": 15
+        }
+      ],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 10,
+          "exceptions": ["adamantine", "orichalcum"]
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 30
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Bore",
+          "range": "melee",
+          "bonus": 28,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d12",
+              "damageType": "bludgeoning",
+              "bonus": 12
+            }
+          ],
+          "traits": ["backswing", "shove"]
+        },
+        {
+          "name": "Cannonball",
+          "range": "melee",
+          "bonus": 29,
+          "damage": [
+            {
+              "dice": 6,
+              "die": "d12",
+              "damageType": "bludgeoning"
+            }
+          ],
+          "traits": []
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Wind-Up",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "24 hours, "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:thievery",
+                  "dc": 33
+                },
+                {
+                  "type": "text",
+                  "text": " check, standby"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A clockwork that lists standby in its wind-up entry can enter standby mode as a 3-action activity. Its operational time doesn't decrease in standby, but it can sense its surroundings (with a -2 penalty to Perception). It can't act, with one exception: when it perceives a creature, it can exit standby as a reaction (rolling initiative if appropriate)."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature can attempt to Disable a Device to wind a clockwork down (with a DC listed in the wind-up entry). For each success, the clockwork loses 1 hour of operational time. This can be done even if the clockwork is in standby mode."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Bombard",
+          "cost": "two",
+          "traits": ["fire"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The clockwork cannoneer launches an explosive shot up to a range of 200 feet that explodes in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "burst",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": ". Creatures within the burst take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5d10",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 36,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ")."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Muzzleburn",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The heat from a discharged cannon sears those who touch its metal shell. The clockwork cannoneer's bore Strike deal an additional 2d6 fire damage until the end of its next turn after it makes a cannonball Strike or uses its Bombard or Powder Blast abilities."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "DamageDice",
+              "selectors": ["bore-damage"],
+              "diceNumber": 2,
+              "dieSize": "d6",
+              "damageType": "fire",
+              "predicate": ["option:muzzleburn"]
+            },
+            {
+              "key": "RollOption",
+              "domain": "damage",
+              "option": "option:muzzleburn",
+              "toggleable": true
+            }
+          ]
+        },
+        {
+          "name": "Powder Blast",
+          "cost": "two",
+          "traits": ["fire"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The clockwork cannoneer spews flames from one of its cannons, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 36,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). Those that fail the save also take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "c3f014f8-dd67-5219-bed4-8054d642fb88",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:cursed-king",
+    "name": "Cursed King",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["chaotic", "evil", "mummy", "undead", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A cursed king is a grotesque mockery of ambition. When treasonous advisors, false prophets, and rebel leaders are captured by evil rulers, they're subjected to all manner of torture and humiliation before their eventual executions. But the cursed king isn't even granted dignity in death, as after their beheading, a desiccated animal head is sewn onto their neck. These horrific mummies are then dressed in fine linens and jewelry befitting royalty—a permanent warning of what happens to those who seek to rise above their station."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A cursed king is bound in servitude to the ruler against whom they once fought, forced to act as a bodyguard. Even the death of their maker gives no reprieve, as they guard the true monarch's tomb forever."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.4DQotKcUZebLfeeL"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 20,
+      "attributes": {
+        "str": 7,
+        "dex": 3,
+        "con": 4,
+        "int": -4,
+        "wis": 4,
+        "cha": 3
+      },
+      "armorClass": 29,
+      "saves": {
+        "fortitude": 20,
+        "reflex": 20,
+        "will": 16
+      },
+      "hitPoints": 210,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"],
+      "weaknesses": [
+        {
+          "type": "fire",
+          "value": 10
+        }
+      ],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 23
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 17
+        },
+        {
+          "skill": "stealth",
+          "modifier": 17
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["necril"],
+      "strikes": [
+        {
+          "name": "Jaws",
+          "range": "melee",
+          "bonus": 23,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d12",
+              "damageType": "piercing",
+              "bonus": 13
+            }
+          ],
+          "traits": ["unarmed"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 23,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 13
+            }
+          ],
+          "traits": ["agile", "unarmed"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Deadly Pursuit",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the cursed king's reach attempts to move away"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the cursed king's reach attempts to move away"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cursed king Strides up to its Speed, keeping the creature within reach until the creature stops or the cursed king has moved its full Speed. If the creature is still within reach, the cursed king makes a jaws Strike against it."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "False Authority",
+          "traits": ["aura", "emotion", "fear", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. When a creature enters or ends its turn within the cursed king's aura, it must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " save. If it fails, it becomes Frightened 2. If it critically fails, it's cowed into submission; in addition to becoming frightened 2, it must use its first action on its turn to kneel or flee from the cursed king. A creature who succeeds at its saving throw becomes immune to the king's false authority for 24 hours."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Aura",
+              "slug": "false-authority",
+              "radius": 30,
+              "traits": ["emotion", "fear", "mental"]
+            }
+          ]
+        },
+        {
+          "name": "Usurper's Curse",
+          "traits": ["curse"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When a creature slays a cursed king, it must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 29
+                },
+                {
+                  "type": "text",
+                  "text": " save. On a failure, it suffers the effects of the usurper's curse."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Berserk",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the beginning of each of its turns in combat, a cursed king must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 2
+                },
+                {
+                  "type": "text",
+                  "text": ". If it succeeds, the DC increases by 1. If it fails, it immediately goes berserk, becoming mindless for the rest of its turn, immune to all mental effects, and attacking the nearest creature it can reach. While it's berserk, each of its unarmed attacks gain the deadly d8 trait. At the end of a turn it failed this flat check or whenever the combat encounter ends, the DC resets to 2."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:berserk",
+              "toggleable": true
+            },
+            {
+              "key": "ActorTraits",
+              "add": ["mindless"],
+              "predicate": ["option:berserk"]
+            },
+            {
+              "key": "Immunity",
+              "type": ["mental"],
+              "predicate": ["option:berserk"]
+            },
+            {
+              "key": "ItemAlteration",
+              "items": ["item:type:melee", "item:category:unarmed"],
+              "property": "traits",
+              "mode": "add",
+              "value": "deadly-d8",
+              "predicate": ["option:berserk"]
+            }
+          ]
+        },
+        {
+          "name": "Usurper's Curse",
+          "traits": ["curse", "polymorph"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 30
+                },
+                {
+                  "type": "text",
+                  "text": " saving throw. On a failure, the creature who killed the cursed king becomes Stupefied 1. On a critical failure, it becomes Stupefied 2. As long as that creature remains cursed, it can't remove or decrease the value of the stupefied condition in any way. Afflicted creatures must attempt the saving throw again every 24 hours, increasing the stupefied condition by 1 on a failure or 2 on a critical failure. If the condition ever increases past Stupefied 4, they transform, body and mind, into the same animal as the cursed king's head, similar to the critical failure effect of Cursed Metamorphosis."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grab",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "d5ed6e6c-69cb-541b-843c-dd0968a0284b",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:fleshforged-conformer",
+    "name": "Fleshforged Conformer",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["aberration", "chaotic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shapeshifting fleshforged conformers have adapted to survive Ecanus's high-magic, population-dense sprawl. Resembling blocky humanoid skeletons splotched in uneven layers with cartilage and muscle, conformers are capable of attaching and detaching flesh from their bodies, often sending autonomous gobbets of fat and ligament to observe living creatures and harvest biological material."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fleshforged conformers use their resources to augment and change their bodies, which helps them infiltrate Nexian society to better understand the arcane principles and occult secrets behind their creation. Some assume the guises of humans and animals to lead quiet, settled lives in Nex, but most are discovered and summarily exterminated as defects and threats to public safety."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.K2AOcLMDOVNbgPXp"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 19,
+      "attributes": {
+        "str": 0,
+        "dex": 6,
+        "con": 3,
+        "int": 3,
+        "wis": 3,
+        "cha": 3
+      },
+      "armorClass": 26,
+      "saves": {
+        "fortitude": 17,
+        "reflex": 18,
+        "will": 13
+      },
+      "hitPoints": 145,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 15
+        },
+        {
+          "skill": "deception",
+          "modifier": 17
+        },
+        {
+          "skill": "medicine",
+          "modifier": 17
+        },
+        {
+          "skill": "occultism",
+          "modifier": 15
+        },
+        {
+          "skill": "society",
+          "modifier": 15
+        },
+        {
+          "skill": "stealth",
+          "modifier": 18
+        },
+        {
+          "skill": "fleshwarp-lore",
+          "modifier": 170
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["aklo", "common"],
+      "strikes": [
+        {
+          "name": "Fanged-Maw Finger",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d10",
+              "damageType": "piercing",
+              "bonus": 3
+            },
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "bleed"
+            }
+          ],
+          "traits": ["agile", "finesse"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Regeneration 10 (Deactivated by Cold Iron)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster regains the listed number of Hit Points each round at the beginning of its turn. Its Dying condition never increases beyond Dying 3 as long as its regeneration is active. However, if it takes damage of a type listed in the regeneration entry, its regeneration deactivates until the end of its next turn. Deactivate the regeneration before applying any damage of a listed type, since that damage might kill the monster by bringing it to Dying 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Conformance",
+          "cost": "one",
+          "traits": ["concentrate", "occult", "polymorph"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The conformer contorts and reshapes their body into a desired form. The conformer takes on the specific appearance of any Small, Medium, or Large humanoid or animal that they've observed and whose appearance they remember. This doesn't change the conformer's Speed or their attack and damage bonus with their Strikes, but might change the damage type their Strikes deal."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Surgical Detachment",
+          "cost": "one",
+          "traits": ["concentrate", "manipulate", "morph", "occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The conformer detaches part of their body to serve them as an autonomous organism. For the next 24 hours, the conformer gains the loyal service of a fleshforged Skinskitter. As long as they remain within 1 mile of each other, the conformer can use the Surgical Detachment action again to empathically direct the actions of their skinskitter servant as well as perceive through its senses. Due to how taxing this process is, the conformer can have only one skinskitter servant at a time."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Tissue Siphon",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The conformer is within reach of an Unconscious or willing creature, or a creature taking persistent bleed damage"
+                }
+              ]
+            }
+          ],
+          "traits": ["manipulate", "occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The conformer is within reach of an Unconscious or willing creature, or a creature taking persistent bleed damage"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The conformer touches and absorbs some of the creature's flesh. The target must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " save; on a failure, they become Drained 1 and take damage from their persistent bleed damage, even though it isn't the end of their turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Wear Flesh",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The conformer has used Tissue Siphon to absorb flesh within the last hour"
+                }
+              ]
+            }
+          ],
+          "traits": ["occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The conformer has used Tissue Siphon to absorb flesh within the last hour"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The conformer expends the flesh they've absorbed to transform their body, reproducing the effects of one of the following spells: Adapt Self, Enlarge, Shifting Form, Tentacular Limbs, or Unusual Anatomy. The Wear Flesh action gains the traits of the spell it's reproducing, and the conformer can Sustain a Spell on these effects."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Occult Innate Spells",
+          "tradition": "occult",
+          "preparation": "innate",
+          "dc": 25,
+          "attack": 17,
+          "spells": [
+            {
+              "spell": "1ce2f883-74e2-5f2d-99fa-78356f6720d6",
+              "rank": 2
+            },
+            {
+              "spell": "6732067a-f0da-51a4-94f2-56ae9ae9226c",
+              "rank": 2
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a56cb293-cce1-5b60-8ee5-630641ef5e2d",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:fleshforged-dreadnought",
+    "name": "Fleshforged Dreadnought",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["construct", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Created in the arcane fleshforges of Nex, this creature was spawned as the ultimate brute-force tool for urban assaults against the cities of Geb. At 30 feet tall, the dreadnought easily tops most city walls, and Nexian infantry forces would scramble up the spikes on the creature's back to penetrate defensive fortifications. Every detail of the creature's physiology was fashioned for the battlefield, from the ballista of bone and sinew integrated into its torso to the bulky ram on the crest of its head. The fleshforged's acidic blood not only serves an important hydraulic function but also deters city defenders who might attempt to strike down the creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During the war between Nex and Geb, fleshforged dreadnoughts most often appeared as part of a coordinated assault and typically replaced or augmented an army's compliment of siege weaponry. Common tactics employed by Nex's generals would direct the dreadnought to crush all opposition standing in front of a city's gate and then smash through it. Should the city's defenses prove resilient, invading troops would scale the creature to get over the city walls, relying on the dreadnought's regenerative properties to ensure it wouldn't be destroyed while helping them bypass the defensive barriers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fleshforged dreadnoughts all but vanished after the disappearance of the archmage Nex, but tales of their destructive power have been preserved."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.KTabPRN489yjTvek"
+    },
+    "data": {
+      "role": "monster",
+      "size": "gargantuan",
+      "perception": 29,
+      "attributes": {
+        "str": 10,
+        "dex": 6,
+        "con": 9,
+        "int": -5,
+        "wis": 5,
+        "cha": -5
+      },
+      "armorClass": 42,
+      "saves": {
+        "fortitude": 35,
+        "reflex": 28,
+        "will": 27
+      },
+      "hitPoints": 300,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        }
+      ],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 38
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Battering Ram",
+          "range": "melee",
+          "bonus": 35,
+          "damage": [
+            {
+              "dice": 7,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 10
+            }
+          ],
+          "traits": ["reach-15"],
+          "reach": 15,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Improved Push"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 35,
+          "damage": [
+            {
+              "dice": 4,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 18
+            }
+          ],
+          "traits": ["agile", "reach-10", "unarmed"],
+          "reach": 10
+        },
+        {
+          "name": "Ballista",
+          "range": "melee",
+          "bonus": 33,
+          "damage": [
+            {
+              "dice": 4,
+              "die": "d12",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": []
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Scaling Spikes",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A fleshforged dreadnought is covered in handholds and footholds that make it easy to climb. Creatures of Medium or smaller size can Climb the dreadnought, sharing one of its spaces as they do so. The DC to Climb a fleshforged dreadnought is 15, and creatures move 5 more feet on a success and 10 more feet on a critical success, to a maximum of their Speed when Climbing the construct."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Regeneration 20 (Deactivated by Cold Iron)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster regains the listed number of Hit Points each round at the beginning of its turn. Its Dying condition never increases beyond Dying 3 as long as its regeneration is active. However, if it takes damage of a type listed in the regeneration entry, its regeneration deactivates until the end of its next turn. Deactivate the regeneration before applying any damage of a listed type, since that damage might kill the monster by bringing it to Dying 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Caustic Leak",
+          "cost": "free",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The fleshforged dreadnought is damaged by a non-reach piercing or slashing melee Strike"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "turn"
+          },
+          "traits": ["acid", "arcane"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per turn"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The fleshforged dreadnought is damaged by a non-reach piercing or slashing melee Strike"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Corrosive fluid sprays the attacker, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 40,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ")."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Destructive Charge",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The fleshforged dreadnought Strides up to twice its speed and makes a battering ram Strike against a structure or unattended object. The Strike ignores 20 points of the target's Hardness."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Drown in Ichor",
+          "cost": "two",
+          "traits": ["acid", "arcane"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The fleshforged dreadnought releases a wave of caustic fluid from vents in its sides. Creatures within a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": " take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 40,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). Creatures who fail their saves also take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "acid",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Trample",
+          "cost": "three",
+          "traits": ["attack"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Huge or smaller, battering ram, "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 44,
+                  "basic": true
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster Strides up to double its Speed and can move through the spaces of creatures of the listed size, Trampling each creature whose space it enters. The monster can attempt to Trample the same creature only once in a single use of Trample. The monster deals the damage of the listed Strike, but trampled creatures can attempt a basic Reflex save at the listed DC (no damage on a critical success, half damage on a success, double damage on a critical failure)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Improved Push 15 feet",
+          "cost": "free",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster's last action was a successful Strike that lists Improved Push in its damage entry"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster's last action was a successful Strike that lists Improved Push in its damage entry"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts to Shove the creature. This attempt neither applies nor counts toward the monster's multiple attack penalty. If Improved Push lists a distance, change the distance the creature is pushed on a success to that distance."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "60846694-2112-5d11-855e-89da46606998",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:gunpowder-ooze",
+    "name": "Gunpowder Ooze",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["mindless", "ooze"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Gunpowder oozes are explosive gunpowder given life. By necessity, crafters of explosives and firearms are a careful lot, but even the best safety habits can be thwarted by greed, distraction, or carelessness. The release of toxic byproducts from gunsmithing would be an environmental problem anywhere, but when volatile runoff seeps into the Mana Wastes, it can interact with wild magic, causing a living, explosive nightmare."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A gunpowder ooze is a pockmarked, charcoal gray mass that slithers across the blighted verge between Alkenstar and the Mana Wastes with the sound of sizzles and sudden pops. It pursues and consumes any sort of organic matter, firing bullet-like projectiles to bring down prey. The ooze instinctively avoids fire, so travelers forced to camp in known gunpowder ooze territory often light bonfires despite the danger of advertising their presence to the Mana Wastes' other residents. Suggestions that local populations of oozes be weaponized, periodically put forward by unwise Alkenstari and Mana Waste tacticians, are uniformly shot down by cooler heads; those who attempt to proceed anyway usually meet explosive ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.qbfMDAa3RXvwyG7k"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 22,
+      "attributes": {
+        "str": 8,
+        "dex": 3,
+        "con": 6,
+        "int": -5,
+        "wis": 2,
+        "cha": -5
+      },
+      "armorClass": 29,
+      "saves": {
+        "fortitude": 28,
+        "reflex": 21,
+        "will": 24
+      },
+      "hitPoints": 400,
+      "immunities": ["critical-hits", "piercing", "precision", "slashing", "unconscious", "visual"],
+      "weaknesses": [
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 28
+        }
+      ],
+      "senses": [
+        {
+          "sense": "motion-sense",
+          "acuity": "precise",
+          "range": 120
+        }
+      ],
+      "speeds": [
+        {
+          "movement": "climb",
+          "speed": 20
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Pseudopod",
+          "range": "melee",
+          "bonus": 29,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d12",
+              "damageType": "bludgeoning",
+              "bonus": 14
+            }
+          ],
+          "traits": ["reach-10", "unarmed"],
+          "reach": 10,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gunpowder Residue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Blast",
+          "range": "melee",
+          "bonus": 26,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d6",
+              "damageType": "fire"
+            },
+            {
+              "dice": 3,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 10
+            }
+          ],
+          "traits": ["propulsive"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gunpowder Residue"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Motion Sense",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A gunpowder ooze can sense nearby creatures through vibration and air or water movement."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Combust",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Due to the volatile nature of its composition, the gunpowder ooze reacts explosively when exposed to open flame. Any time the gunpowder ooze takes fire damage from a source other than a gunpowder ooze's combust or gunpowder residue, it explodes, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "15d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to creatures in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " including itself ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 34,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). When the gunpowder ooze combusts, it automatically splits as long as it has 10 or more HP."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Split",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When a gunpowder ooze that has 10 or more HP is hit by an attack that would deal slashing or piercing damage, it splits into two identical oozes, each with half the original's HP. One ooze is in the same space as the original, and the other is in an adjacent, unoccupied space. If no adjacent space is unoccupied, it automatically pushes creatures and objects out of the way to fill a space (the GM decides if an object or creature is too big or heavy to push)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Gunpowder Residue",
+          "traits": ["fire"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature hit by the gunpowder ooze's pseudopod or blast is coated in explosive material unless it succeeds at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 34
+                },
+                {
+                  "type": "text",
+                  "text": " save. If a creature makes an attack with a firearm, takes fire damage, or uses an action, activity, or item with the fire trait while coated with the residue, the residue explodes, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "7d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the creature and all adjacent creatures ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 34,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). The residue remains active for 24 hours, until it's ignited, or until it's scrubbed off (an activity that takes at least 10 minutes and requires soap and water). A creature can only be coated with one layer of gunpowder residue at a time."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "6b0ae5bc-0ca8-53b1-80f9-592e1115fee1",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:kasesh-stone",
+    "name": "Kasesh (Stone)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["earth", "elemental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In the ancient days, before humanity dwelled on Golarion, the Vault Builders had need of something smaller in scale than the great vault seeds so they could finish their worlds as they liked. They took a small gem and wrote a word of power upon it. They gave it eyes so it could see and legs so it could walk, and made it wise. These creatures are known as kaseshi by scholars who have encountered them, though their true name—the one that brought them into being—is likely considerably more powerful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each kasesh bears a single word of power on their emerald body, from which they draw their mind and their magic. A kasesh with the word \"Steel\" or \"Flame\" is a single-minded creature, though it encompasses all possible permutations of meaning that the word possesses. A kasesh named \"Home\" or \"Sorrow\" has a far more complex psyche, and rumor claims that Elder Architect Oblosk of Nex bears the word \"Memory.\" Unsurprisingly, many scholars are highly interested in the words on the kaseshi; unlike Thassilonian rune magic, no one has managed to decode or make use of the language of the Vault Builders yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The kasesh in the stat block bears the word \"Stone,\" but other kaseshi will have their own magics. Some alternative examples, \"Darkness\" and \"Intricacy,\" follow below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Darkness:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This kasesh built the hidden places of the Vault Builders' worlds. The kasesh is 7th level, grants "
+          },
+          {
+            "type": "ref",
+            "id": "e1332e15-0861-56f8-95f5-7749561ac8ae"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6175ed4e-d059-512b-9338-b52825fcebb3"
+          },
+          {
+            "type": "text",
+            "text": " to any gestalt they join, and has the following innate spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal Innate Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " (×2), "
+          },
+          {
+            "type": "ref",
+            "id": "6c3e26d3-8c46-59ce-b2dd-a3de21229bb0"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "3rd",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf"
+          },
+          {
+            "type": "text",
+            "text": " (×2), "
+          },
+          {
+            "type": "ref",
+            "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "1st",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Cantrips (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Intricacy:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This kasesh was a decorator and designer. They're 11th level, grant "
+          },
+          {
+            "type": "ref",
+            "id": "246e24c3-5849-55a9-a7d9-f253f8ee6da4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "d894e516-941a-5425-aad2-92f58eeaccac"
+          },
+          {
+            "type": "text",
+            "text": " to any gestalt they join, and have the following innate spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal Innate Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ab148981-4470-56fa-905a-2038bb7de2d3"
+          },
+          {
+            "type": "text",
+            "text": " (×2); "
+          },
+          {
+            "type": "text",
+            "text": "5th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ed77735d-9534-5091-8424-c6b22d151080"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "888ee328-702c-5823-8023-5f7b1c6f813c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "1st",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Cantrips (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.UgGyHJ39EHztCV5m"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 10,
+      "attributes": {
+        "str": -1,
+        "dex": 2,
+        "con": 1,
+        "int": 4,
+        "wis": 3,
+        "cha": 2
+      },
+      "armorClass": 19,
+      "saves": {
+        "fortitude": 8,
+        "reflex": 9,
+        "will": 10
+      },
+      "hitPoints": 35,
+      "immunities": ["bleed", "paralyzed", "poison", "sleep"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 11
+        },
+        {
+          "skill": "nature",
+          "modifier": 10
+        },
+        {
+          "skill": "stealth",
+          "modifier": 9
+        },
+        {
+          "skill": "architectural-lore",
+          "modifier": 13
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "tremorsense",
+          "acuity": "imprecise",
+          "range": 60
+        }
+      ],
+      "languages": ["common", "petran"],
+      "speeds": [
+        {
+          "movement": "burrow",
+          "speed": 20
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Earthen Shard",
+          "range": "melee",
+          "bonus": 9,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d10",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["primal", "versatile-b"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Tremorsense (Imprecise) 60 feet",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tremorsense allows a monster to feel the vibrations through a solid surface caused by movement. It is an imprecise sense with a limited range (listed in the ability). Tremorsense functions only if the monster is on the same surface as the subject, and only if the subject is moving along (or burrowing through) the surface."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Earth Block",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The kasesh takes physical damage while adjacent to stone or earth"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The kasesh takes physical damage while adjacent to stone or earth"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A rampart of stone or crystal emerges from a nearby surface, blocking the attack. The kasesh gains resistance physical 5 against the attack."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:earth-block",
+              "toggleable": true
+            },
+            {
+              "key": "Resistance",
+              "type": ["physical"],
+              "value": 5,
+              "predicate": ["option:earth-block"]
+            }
+          ]
+        },
+        {
+          "name": "Gestalt",
+          "traits": ["mental", "primal"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Two or more kaseshi can combine their scribed words to create something greater than either one alone. This has the effects of the Coven ability but no ritual is necessary, simply close proximity for 8 hours. All gestalts grant the following spells, which the gestalt can cast at any level up to 5th: Creation, Strange Geometry, and Telekinetic Haul. Individual kaseshi also grant additional spells to any gestalt they join—this one grants One with Stone and Shape Stone."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "8ec1852c-553c-5063-9edd-75ae5ac27f6c",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:kashrishi-evaluator",
+    "name": "Kashrishi Evaluator",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To some, kashrishi seem to be a quiet, passive people. Those with a deeper understanding know that there's plenty more nuance to interacting with kashrishi, who possess innate psychic abilities that greatly alter the way they communicate with the rest of the world. Unable to turn off their powers, these abilities add a complex dynamic to interpreting their surroundings. Without deeper understanding of a person, kashrishi are only able to get the most vague, general feelings from people around them. This becomes more refined as their relationships evolve; family and friends are often the easiest to engage in psychic communication, while strangers simply add to the amount of mental noise a kashrishi must process."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kashrishi resemble rhinoceroses, with soft, textured skin that can range from light sandy hues to darker obsidian, or rarer jewel tones of deep sapphire or ruby. The size and number of their horns vary. Kashrishi communities are generally quite welcoming to others, enjoying the conversation and unique auras of every new stranger. However, chaotic environments can overwhelm and overstimulate kashrishi not yet adept at filtering psychic energies, leaving some with limited tolerance for extensive social interaction with strangers and requiring they take periods of time to refocus after socializing. In spite of this possible drawback, kashrishi are typically strong communicators, excelling at roles that require attention to detail."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.fGZeQOarR6Im7Lnk"
+    },
+    "data": {
+      "role": "monster",
+      "size": "small",
+      "perception": 13,
+      "attributes": {
+        "str": 0,
+        "dex": 2,
+        "con": 0,
+        "int": 2,
+        "wis": 3,
+        "cha": 4
+      },
+      "armorClass": 20,
+      "saves": {
+        "fortitude": 8,
+        "reflex": 10,
+        "will": 13
+      },
+      "hitPoints": 50,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "diplomacy",
+          "modifier": 12
+        },
+        {
+          "skill": "nature",
+          "modifier": 11
+        },
+        {
+          "skill": "occultism",
+          "modifier": 10
+        },
+        {
+          "skill": "survival",
+          "modifier": 9
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 10,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["agile", "finesse", "versatile-s"]
+        },
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 10,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["agile", "thrown-10", "versatile-s"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Empathic Sense",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Kashrishi evaluators can get a vague sense of the current emotional state of all other creatures within 15 feet of them, as long as the kashrishi evaluator is aware of those creatures. This manifests as a general feeling of happiness, anger, or fear, without any specific details. Additionally, any creature who succeeds at masking or faking their emotions using Deception projects the deceptive emotions instead of their true feelings. For those that kashrishi have an emotional connection with, physical touch can heighten this sense to greater degrees of detail and understanding, increasing with the strength of their bond."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Evaluate Discordance",
+          "cost": "two",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["emotion", "mental", "occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The kashrishi evaluator assesses the disharmony between themself and a creature within 30 feet and then sparks the discordance, sending psychic energy to overwhelm the target's feelings. This deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 21,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). On a critical failure, the target also becomes Stunned 1."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Occult Spontaneous Spells",
+          "tradition": "occult",
+          "preparation": "spontaneous",
+          "dc": 21,
+          "attack": 13,
+          "spells": [
+            {
+              "spell": "35f9dc96-eeca-54f3-b920-7ae0733594a8",
+              "rank": 2
+            },
+            {
+              "spell": "0964edfe-0384-5444-908b-fe24653c28f5",
+              "rank": 1
+            },
+            {
+              "spell": "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+              "rank": 1
+            },
+            {
+              "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a",
+              "rank": 1
+            },
+            {
+              "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6",
+              "rank": 1
+            },
+            {
+              "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6",
+              "rank": 2
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            },
+            {
+              "spell": "272d555d-f777-5439-b02b-cc5325c0a648",
+              "rank": 1
+            },
+            {
+              "spell": "ed1f3941-7c08-5015-b12a-2017b44f68e3",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "aea5fd3d-cb47-57b8-9622-601490152a97"
+        }
+      ]
+    }
+  },
+  {
+    "id": "8f2c4a0d-3b22-5a99-808a-9f44f03004f0",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:mutant-gnoll-hulk",
+    "name": "Mutant Gnoll Hulk",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["chaotic", "evil", "humanoid", "kholo", "mutant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Separated from their pack during a prolonged storm of wild magic, the Mana Wastes mutant gnoll hulk transformed into a gigantic, ravenous creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The erratic magical energies of the Mana Wastes can warp and twist creatures foolish or unlucky enough to be trapped in them. The physiological effects of this exposure vary in scope from grotesque full-body transformations to more subtle changes to the skin or senses, and they're frequently accompanied by changes in disposition, motivation, or temperament."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.lhr2fjewILo4nyUZ"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 17,
+      "attributes": {
+        "str": 6,
+        "dex": 3,
+        "con": 4,
+        "int": 2,
+        "wis": 2,
+        "cha": 3
+      },
+      "armorClass": 26,
+      "saves": {
+        "fortitude": 21,
+        "reflex": 18,
+        "will": 15
+      },
+      "hitPoints": 195,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 18
+        },
+        {
+          "skill": "athletics",
+          "modifier": 21
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 16
+        },
+        {
+          "skill": "survival",
+          "modifier": 15
+        }
+      ],
+      "languages": ["common", "kholo"],
+      "strikes": [
+        {
+          "name": "Battle Axe",
+          "range": "melee",
+          "bonus": 22,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 12
+            }
+          ],
+          "traits": ["magical", "reach-10", "sweep"],
+          "reach": 10
+        },
+        {
+          "name": "Maw",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d12",
+              "damageType": "piercing",
+              "bonus": 12
+            }
+          ],
+          "traits": ["reach-10"],
+          "reach": 10
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 9
+            }
+          ],
+          "traits": ["deadly-d10", "propulsive", "reach-10", "reload-0", "volley-30"],
+          "reach": 10
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Pack Attack",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A Mana Wastes mutant gnoll hulk deals 1d4 extra damage to any creature who's within reach of at least two of the Mana Wastes mutant gnoll hulk's allies."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "domain": "damage",
+              "option": "option:pack-attack",
+              "toggleable": true
+            },
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 1,
+              "dieSize": "d4",
+              "predicate": ["option:pack-attack"]
+            }
+          ]
+        },
+        {
+          "name": "Rugged Travel",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A gnoll ignores the first square of difficult terrain it moves into each time it Steps or Strides."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Vengeful Bite",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature critically hits the mutant with a melee unarmed Strike or a non-reach melee Strike"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature critically hits the mutant with a melee unarmed Strike or a non-reach melee Strike"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The mutant makes a maw Strike against the triggering creature."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "a01c234f-33e9-5193-9c78-1974df35ea95"
+        },
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "3966e322-a2d1-57e9-a938-eb314e1948b8"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "e4621174-0460-5896-9c90-01b8f004bfbe",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:quantium-golem",
+    "name": "Quantium Golem",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["construct", "golem", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The long war between Nex and Geb spawned many animate weapons, but while a citizen of Quantium might run screaming from any product of the fleshforges, they barely bat an eyelash at the ground-shaking stomp of the two titanic, deadly constructs that stride outside their city walls. Crafted by the wizard-king Nex ages ago after a devastating attack by Geb's undead forces, including the harrowing benthic reaver, the Quantium golems are meant to protect the capital in case of Nex's absence. These twin golems ceaselessly keep vigil over the city, ready to cut down any invaders that menace Quantium."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Twenty feet tall and crafted from a supernaturally smooth material, the two guardians are a matched set, one of crimson and one of emerald. Wielding swords the size of giants, the guardians relentlessly destroy anything that threatens the city, particularly any undead that might invade the country from Geb. With the mythic Crux of Nex as a power supply, the golems are inexhaustible and nearly indestructible."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.gZ2qX5vbWg7otMVT"
+    },
+    "data": {
+      "role": "monster",
+      "size": "gargantuan",
+      "perception": 36,
+      "attributes": {
+        "str": 10,
+        "dex": 8,
+        "con": 7,
+        "int": -5,
+        "wis": 8,
+        "cha": -5
+      },
+      "armorClass": 47,
+      "saves": {
+        "fortitude": 35,
+        "reflex": 32,
+        "will": 32
+      },
+      "hitPoints": 325,
+      "immunities": ["fire"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 20,
+          "exceptions": ["adamantine"]
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 38
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "lifesense",
+          "acuity": "precise",
+          "range": 120
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Bastard Sword",
+          "range": "melee",
+          "bonus": 39,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 18
+            }
+          ],
+          "traits": ["magical", "two-hand-d12"]
+        },
+        {
+          "name": "Eye Beam",
+          "range": "melee",
+          "bonus": 36,
+          "damage": [
+            {
+              "dice": 4,
+              "die": "d8",
+              "damageType": "fire"
+            }
+          ],
+          "traits": ["magical"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Defender's Link",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Each Quantium golem automatically knows the Hit Points, conditions, afflictions, and location of the other."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Lifesense 120 feet",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Lifesense allows a monster to sense the vital essence of living and undead creatures within the listed range. The sense can distinguish between the vitality energy animating living creatures and the void energy animating undead creatures, much as sight distinguishes colors."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Golem Antimagic",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Harmed by sonic ("
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "9d10"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d10"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " from areas or persistent damage); healed by fire (area "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d10"
+                    }
+                  ],
+                  "healing": true
+                },
+                {
+                  "type": "text",
+                  "text": " HP); slowed by cold"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A golem is immune to spells and magical abilities other than its own, but each type of golem is affected by a few types of magic in special ways. These exceptions are listed in shortened form in the golem's stat block, with the full rules appearing here. If an entry lists multiple types (such as \"cold and water\"), either type of spell can affect the golem."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Harmed By",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Any magic of this type that targets the golem causes it to take the listed amount of damage (this damage has no type) instead of the usual effect. If the golem starts its turn in an area of magic of this type or is affected by a persistent effect of the appropriate type, it takes the damage listed in the parenthetical."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Healed By",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Any magic of this type that targets the golem makes the golem lose the slowed condition and gain HP equal to half the damage the spell would have dealt. If the golem starts its turn in an area of this type of magic, it gains the HP listed in the parenthetical."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Slowed By",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Any magic of this type that targets the golem causes it to be Slowed 1 for 2d6 rounds instead of the usual effect. If the golem starts its turn in an area of this type of magic, it's slowed 1 for that round."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Vulnerable To",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Each golem is vulnerable to one or more specific spells, with the effects described in its stat block."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Paired Reconstruction",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When reduced to 0 HP, the Quantium golem is destroyed; however, it magically reforms 24 hours later at full HP and free of all conditions and afflictions unless its twin golem is also destroyed."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Vulnerable to Banishment",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Casting a Banishment spell on a Quantium golem disrupts its connection to the Crux of Nex. If targeted by such a spell, the golem is Enfeebled 1 and Slowed 1 for 1d4 rounds."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Lambent Beam",
+          "cost": "two",
+          "traits": ["arcane"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Quantium golem's eyes take on a brilliant glow and it unleashes an arc of destruction dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "10d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to creatures in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 120
+                },
+                {
+                  "type": "text",
+                  "text": " ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 42,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": "). The Quantium golem can't use Lambent Beam for 1d4 rounds."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Twin Defenders",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Quantium golems were created by Nex as a matched set: one of crimson and one of emerald, each a unique entity. The crimson golem is imbued with blazing fire and crackling lightning; its eye beam and Lambent Beam abilities deal fire and electricity damage. The emerald golem is charged with caustic power and flame; its eye beam and Lambent Beam abilities deal acid and fire damage."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:twin-defenders",
+              "toggleable": true,
+              "value": true,
+              "suboptions": [
+                {
+                  "value": "electricity",
+                  "label": "Crimson"
+                },
+                {
+                  "value": "acid",
+                  "label": "Emerald"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "57aa94ba-0a8c-5120-a4d4-a5439f9ba49d"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e38366e9-7ae9-55cf-b72b-200d0dc4d4ff",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:ratajin-mastermind",
+    "name": "Ratajin Mastermind",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["chaotic", "good", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most commonly found in Vudra and Jalmeray, ratajin aren't so much twisted by curses as they are molded by the lingering effects of curses inflicted on generations millennia past. The difference lies in understanding the original ratajin characteristics. No curse gave ratajin four eyes on a slender face, nor triple-jointed, hypermobile legs and multiple arms. Nor did curses provide ratajin with skin tones of all hues within the color spectrum. Instead, these residual curses have given each ratajin distinctive geometric markings all across their body. Every ratajin also experiences a cursed twist on their senses, altering how they view and interact with the world around them. Some ratajin visualize the world in shifted, indescribable color spectra. For others, sounds physically manifest as feelings on their skin. Haunting melodies of past actions might whisper in the wind behind one ratajin, while another can be awake only during hours devoid of sunlight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While particular curse manifestations are passed along family lines, each ratajin's worldview can offer a unique perspective. Ratajin tend to be receptive to new ideas, making them well-suited to tackle complex situations. They often prefer to focus on difficult problems, working without rest until they reach a solution. What satisfies the definition of a worthy pursuit varies with individual ratajin, from tinkering with new applications of technology to uncovering secrets of centuries-old magical tomes. Their intellectual approach to problems can make ratajin especially useful in situations requiring delicate words, and their quick thinking serves them well as adventurers when the time comes for action. These same characteristics also make them capable merchants and scholars."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earning a ratajin's trust can prove difficult. Their large-scale communities often collaborate to devise clever solutions that ensure equitable treatment among people, but each community varies greatly due to the different needs of the inhabitants. Outsiders who require too much help too quickly might cause a ratajin to withdraw, believing their guest incapable of adjusting to life's many hurdles. Poorly chosen words of pity or meaningless sympathy toward the nature of a ratajin's unique sensory experience can also cause lingering resentment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.xl2UxOFVSDGqaVS5"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 7,
+      "attributes": {
+        "str": 1,
+        "dex": 3,
+        "con": 0,
+        "int": 3,
+        "wis": 1,
+        "cha": 2
+      },
+      "armorClass": 18,
+      "saves": {
+        "fortitude": 6,
+        "reflex": 11,
+        "will": 7
+      },
+      "hitPoints": 30,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 7
+        },
+        {
+          "skill": "arcana",
+          "modifier": 7
+        },
+        {
+          "skill": "crafting",
+          "modifier": 7
+        },
+        {
+          "skill": "deception",
+          "modifier": 8
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 6
+        },
+        {
+          "skill": "occultism",
+          "modifier": 7
+        },
+        {
+          "skill": "society",
+          "modifier": 9
+        },
+        {
+          "skill": "stealth",
+          "modifier": 7
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "elven", "gnomish", "vudrani"],
+      "strikes": [
+        {
+          "name": "Rapier",
+          "range": "melee",
+          "bonus": 11,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["deadly-d8", "disarm", "finesse"]
+        },
+        {
+          "name": "Shortbow",
+          "range": "melee",
+          "bonus": 11,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 3
+            }
+          ],
+          "traits": ["deadly-d10", "reload-0"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Outsmart",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature attacks while the ratajin mastermind is Off-Guard"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature attacks while the ratajin mastermind is Off-Guard"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Due to planning, the ratajin mastermind can react quickly to poor situations. The ratajin mastermind isn't treated as off-guard to the attack, and the triggering creature is off-guard to the next attack made before the end of the ratajin mastermind's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "e7f55096-1e75-5c6a-80e9-b32baeb75ed3"
+        },
+        {
+          "item": "3966e322-a2d1-57e9-a938-eb314e1948b8"
+        }
+      ]
+    }
+  },
+  {
+    "id": "75679c83-ae49-5953-af2f-b837e92abf8d",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:skinskitter",
+    "name": "Skinskitter",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["aberration", "amphibious", "chaotic", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These elusive oddments resemble discarded hides of butchered animals and fleshwarping experiments, floating like so much meaty detritus in the bloody filth of Ecanus's charnel-clogged sewers. Skinskitters, named for their fluid, erratic movements, scavenge the city for leavings of fleshy waste. They prefer discreet, non-violent ways of procuring these biological materials and shy from combat, seemingly possessed of a nervous temperament. Nexian fleshforgers quip this is entirely reasonable, as skinskitters are little more than nervous systems wrapped in dying skin. Nexian guards who actually have to hunt these fleshforged pests aren't quite as jocular; confronted by the oddly childlike pleas of these cornered puddles of flesh, hair, and eyes, many recruits simply choose to leave the city watch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On occasion, curious scholars or soldiers have questioned why skinskitters pursue organic tissue, and whether this is a simple instinct or in pursuit of a grander purpose. Most fleshforgers assume that skinskitters consume organic matter to repair themselves in a process similar to eating, and give the matter no further thought, showing no more interest in the creatures than a smith might show in a bead of melted slag. The most paranoid Nexians claim that skinskitters are attempting to build something out of their collections of cast-off skin, perhaps even reconstructing themselves into fleshforged conformers. There is no recorded evidence of this ever occurring, however—if the creatures have any awareness at all, it's more likely that skinskitters are driven by the basest of instincts to better themselves through the same methods used in their creation but lack the understanding and self-direction to ever succeed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.LVY9JAhTnBC2SeqZ"
+    },
+    "data": {
+      "role": "monster",
+      "size": "small",
+      "perception": 7,
+      "attributes": {
+        "str": 2,
+        "dex": 4,
+        "con": 1,
+        "int": -5,
+        "wis": 0,
+        "cha": -5
+      },
+      "armorClass": 16,
+      "saves": {
+        "fortitude": 6,
+        "reflex": 9,
+        "will": 5
+      },
+      "hitPoints": 20,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 7
+        },
+        {
+          "skill": "athletics",
+          "modifier": 5
+        },
+        {
+          "skill": "stealth",
+          "modifier": 7
+        }
+      ],
+      "speeds": [
+        {
+          "movement": "swim",
+          "speed": 20
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Nail",
+          "range": "melee",
+          "bonus": 9,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 1
+            }
+          ],
+          "traits": ["finesse"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "A Taste for Skin",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A skinskitter tastes skin (including leather), hair, claws, and nails within 60 feet."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Shuddering Skitter",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The skinskitter is reduced to 0 HP"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The skinskitter is reduced to 0 HP"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The fear of death agitates the skinskitter, precipitating a sudden existential awakening of consciousness. The skinskitter is reduced to 1 HP, loses the mindless trait and immunity to mental effects for the next 24 hours, gains the ability to speak one language (typically Osiriani or Vudrani), and takes two of the following actions in any order: Hide, Sneak, Step, Stride, or Take Cover. In addition, the square occupied by the skinskitter before using Shuddering Skitter becomes difficult terrain, as they disgorge a shower of half-digested calluses, chewed nails, and entangled hair in their skittering wake."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Share the Skin",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the skinskitter's reach"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the skinskitter's reach"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The skinskitter scrapes and shears away large sheets of the victim's skin. This requires an "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:athletics"
+                },
+                {
+                  "type": "text",
+                  "text": " check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The massive pain causes the victim to become Clumsy 1 for 1 minute, and the skinskitter drapes itself in the flapping skin, granting it 10 temporary Hit Points for 1 minute."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grab",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "49b39530-4260-5471-ad60-721b412eee08",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:spellscar-fext",
+    "name": "Spellscar Fext",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["chaotic", "evil", "undead", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellscar fexts are spellcasters who were destroyed by wild magic or wellspring surges they tried—and failed—to control. The magical feedback that snuffed out their life warped and animated their flesh, twisting them into shambling undead. Spellscar fexts stand 6 feet tall with disproportionately long arms that end in clusters of waving magical tendrils."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Almost all who became spellscar fexts entered the Mana Wastes to harness the power of the area's wild magic. Once transformed, the desire for magical power becomes a spellscar fext's singular motivation. The creatures focus their attacks on magic users they encounter, attempting to kill them and strip their magic. Unfortunately for a spellscar fext, their transformation makes their entire being inimical to magic. They're unable to cast even the simplest of spells. They grasp destructively at magic they can never hold."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Difficult for the unprepared to destroy permanently, spellscar fexts harry trade routes known for shipping magical goods and repeatedly attack arcane workshops on the borders of the Mana Wastes. They're particularly dangerous to spellcasters traveling alone, as battling the creatures might trigger a wellspring surge that could destroy the lone magic user."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As the fext's vulnerability to glass weapons has become more well known, enterprising gunsmiths in Alkenstar have begun crafting glass ammunition, an uncommon item that costs the same as cold iron ammunition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AIQMB0ysHNeodKG4"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 15,
+      "attributes": {
+        "str": 6,
+        "dex": 2,
+        "con": 1,
+        "int": 4,
+        "wis": 4,
+        "cha": 2
+      },
+      "armorClass": 25,
+      "saves": {
+        "fortitude": 12,
+        "reflex": 15,
+        "will": 17
+      },
+      "hitPoints": 100,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 13
+        },
+        {
+          "skill": "arcana",
+          "modifier": 17
+        },
+        {
+          "skill": "athletics",
+          "modifier": 17
+        },
+        {
+          "skill": "occultism",
+          "modifier": 17
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "necril"],
+      "strikes": [
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "unarmed"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Magic Sense (Imprecise) 30 feet",
+          "traits": [],
+          "description": [],
+          "rules": []
+        },
+        {
+          "name": "+1 Status to All Saves vs. Magic",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:magical"]
+            }
+          ]
+        },
+        {
+          "name": "Regeneration 10 (Deactivated by Glass)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster regains the listed number of Hit Points each round at the beginning of its turn. Its Dying condition never increases beyond Dying 3 as long as its regeneration is active. However, if it takes damage of a type listed in the regeneration entry, its regeneration deactivates until the end of its next turn. Deactivate the regeneration before applying any damage of a listed type, since that damage might kill the monster by bringing it to Dying 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Unstable Feedback",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature Casts a Spell on the spellscar fext, and the spellscar fext either succeeds at its saving throw versus the spell or the caster fails the spell attack roll against the spellscar fext"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature Casts a Spell on the spellscar fext, and the spellscar fext either succeeds at its saving throw versus the spell or the caster fails the spell attack roll against the spellscar fext"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The caster of the triggering spell undergoes a Wellspring Surge. Even if several spellscar fexts use this reaction after succeeding at a save against the same spell, the spellcaster undergoes only one wellspring surge."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grasp Power",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The spellscar fext's last action was a successful fist Strike"
+                }
+              ]
+            }
+          ],
+          "traits": ["arcane"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The spellscar fext's last action was a successful fist Strike"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The spellscar fext attempts a counteract check against a single spell affecting the creature (counteract rank 4, counteract modifier +17). If the check is successful, the creature also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 25,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ")."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "3958eb20-6730-54a6-a4c2-794b5e5e3034",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:stone-sister",
+    "name": "Stone Sister",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["undead"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stone sisters are the tragic undead remains of an ancient Holoma army, petrified en masse by the necromancer Geb. The armies of Holomog were once a dominant force in the region, repelling several invasions from powerful rivals. However, when they sought to expand into the nation of Geb, their campaign quickly ended. Shortly after crossing Geb's southern border, the entire army was struck by a terrible curse that turned every warrior into a stone statue. Now known as the Field of Maidens, the statues have stood frozen for centuries, weapons in hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yet some of these warriors possess a will even stronger than stone. When approached, there's a chance the spirits of the fallen will animate their statues and attack outsiders with the same deadly coordination they had in life."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.1SIx3wcRvplbfwk3"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 11,
+      "attributes": {
+        "str": 5,
+        "dex": 2,
+        "con": 2,
+        "int": 0,
+        "wis": 1,
+        "cha": 4
+      },
+      "armorClass": 24,
+      "saves": {
+        "fortitude": 17,
+        "reflex": 11,
+        "will": 11
+      },
+      "hitPoints": 75,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 5,
+          "exceptions": ["adamantine"]
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 17
+        },
+        {
+          "skill": "deception",
+          "modifier": 14
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 14
+        },
+        {
+          "skill": "stealth",
+          "modifier": 12
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["drooni", "empyrean"],
+      "strikes": [
+        {
+          "name": "Scimitar",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing",
+              "bonus": 8
+            },
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning"
+            }
+          ],
+          "traits": ["earth", "forceful", "sweep"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Curse of Stone"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "earth", "unarmed"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Curse of Stone"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Attack of Opportunity",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reconstitution",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Until Geb's curse is broken, any stone sister who's destroyed gradually reforms in her original shape. A stone sister who's reduced to 0 Hit Points will reform after 24 hours, while one reduced to rubble or dust might take a year or more to reform. Stone sisters who are removed from the Field of Maidens always attempt to return to it when they reconstitute."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Stone Flesh",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A stone sister is made of a bizarre stone that never stops bleeding from numerous cracks along her skin. She reacts to certain spells in unique ways, as listed below."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Spells that alter earth, such as Shape Stone, either deal "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "3d10"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " points of damage or heal "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "3d10"
+                          }
+                        ],
+                        "healing": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " Hit Points, as decided by the caster. If the spell is specifically harmful or beneficial to earth and stone, the GM might decide it can only harm the stone sister, or only heal her."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Stone to Flesh doesn't revert a stone sister to flesh and blood but instead weakens her. She loses her resistance to physical damage for 1 minute. If she's reduced to 0 Hit Points during this time, she's permanently destroyed and can't reform."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "b31d1175-77a2-589a-b6ff-d5ea3f201dac"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Curse of Stone",
+          "traits": ["curse"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The creature must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 21,
+                  "options": ["inflicts:clumsy"]
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Clumsy 2 (Clumsy 3 on a critical failure) and gain a +1 status bonus to AC as their skin hardens to stone. The clumsy condition can be temporarily relieved for 24 hours by casting Stone to Flesh on the cursed creature but can't be removed or reduced by any other means short of removing the curse; during this time, the cursed creature also no longer receives the status bonus to AC."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "0af8009d-8e96-542f-a5dc-ab034da46353"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Statue",
+          "cost": "one",
+          "traits": ["concentrate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Until the next time she acts, the stone sister appears to be a statue. She has an automatic result of 34 on Deception checks and DCs to pass as a statue. Since the Field of Maidens is filled with thousands of statues just like her, most of which aren't stone sisters, it's incredibly difficult to recognize her true nature."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "1b6601dc-34b8-5e5d-a3e2-d565836389dd"
+        }
+      ]
+    }
+  },
+  {
+    "id": "2d8c3721-ee7f-583e-8719-cc93d2318e4c",
+    "pack": "impossible-lands",
+    "kind": "creature",
+    "slug": "creature:ugvashi",
+    "name": "Ugvashi",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["animal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These razor-plated pangolins—about the size of small ponies—are the traditional pack animals of halflings from Casmaron, though the ugvashi's serrated plates and tendency to curl up make them ill-suited as mounts. Ugvashi first arrived in the Impossible Lands onboard the Thousand and One ships of Maharajah Khiben-Sald, alongside peafowl, giant squirrels, and other fauna from Vudra. In the modern day, ugvashi are such a recognized sight that many people forget they aren't a native species. Though some feral populations exist, mainly on the island of Jalmeray, the hostile environs of Nex and the Mana Wastes mean ugvashi mainly appear in domestic settings, usually as working beasts among the Nearic halflings of western Nex."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though ugvashi are mostly harmless, they're somewhat more dangerous than their smaller cousins, causing a stir when reckless citizens attempt to pet the creatures. Ugvashi scales are razor sharp, and their large and blunted digging claws can be deadly due to their size. People who attempt to steal the animals or ride them without training often receive moderate cuts for their trouble. However, ugvashi are generally curious and very friendly, and more than one visitor or wilderness explorer has found a baby ugvashi toddling after them and pawing at their boots."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearic halflings also paint their ugvashi with distinctive warding patterns and sigils, some of which are actually effective and provide a surprise for opportunistic thieves or predators. Though due consideration is spent on protecting an ugvashi's cargo, the animals themselves have proven to be tempting targets as well, especially for their meat. With blighted landscapes making animal husbandry impractical and magical pollution leaving local seafood with a distinct aftertaste, a number of Nexian and Mana Wastes peoples have developed a taste for ugvashi. Since the animals lack an aggressive temperament, it often falls to their caretakers to discourage such predations through whatever means necessary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ugvashi shed their scales each winter, allowing for the plates to be collected safely and turned into quality armor and other pieces of craftwork. Nearic halflings rarely trade or sell these items, however, out of fear that they might lead to more people trying to steal their ugvashi."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.JmGKKXdAxUkJtdTm"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 8,
+      "attributes": {
+        "str": 4,
+        "dex": 1,
+        "con": 4,
+        "int": -3,
+        "wis": 1,
+        "cha": 1
+      },
+      "armorClass": 19,
+      "saves": {
+        "fortitude": 13,
+        "reflex": 6,
+        "will": 8
+      },
+      "hitPoints": 40,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 11
+        },
+        {
+          "skill": "survival",
+          "modifier": 8
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Body",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d12",
+              "damageType": "bludgeoning",
+              "bonus": 4
+            }
+          ],
+          "traits": [],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Serrated Plates"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d10",
+              "damageType": "slashing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["agile", "unarmed"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Defensive Curl",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The ugvashi coils into a ball to defend itself. It gains a +2 circumstance bonus to AC. Any creatures who make unarmed attacks against the ugvashi while it's in its Defensive Curl are exposed to its serrated plates, as if they'd taken damage from the ugvashi's body. The ugvashi can't move while in its Defensive Curl, but it can unfurl as an action."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:defensive-curl",
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["ac"],
+              "type": "circumstance",
+              "value": 2,
+              "predicate": ["option:defensive-curl"]
+            }
+          ]
+        },
+        {
+          "name": "Serrated Plates",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Creatures who take damage from an ugvashi's body must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 17
+                },
+                {
+                  "type": "text",
+                  "text": " save or take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d4",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d4",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage on a critical failure)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]
