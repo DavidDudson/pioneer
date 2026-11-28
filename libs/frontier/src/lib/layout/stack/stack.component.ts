@@ -2,8 +2,8 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input }
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-import type { Container } from '../../tokens';
-import { gapVariants, Space } from '../../tokens';
+import type { Container, Space } from '../../tokens';
+import { GapRole, gapVariants } from '../../tokens';
 
 export const StackDirection = { Vertical: 'vertical', Horizontal: 'horizontal' } as const;
 
@@ -71,7 +71,14 @@ const stackVariants = cva('flex', {
 })
 export class Stack {
   public readonly direction = input<StackDirection>(StackDirection.Vertical);
-  public readonly gap = input<Space>(Space.Md);
+  /**
+   * The gap between children, by role: `none` for parts that touch; `3xs` for icon and text inside one control;
+   * `2xs` a title and its caption, a label and its field; `xs` chips and inline controls; `sm` the items of a
+   * list and the cells of a row; `md` the parts of a card or section (the default); `lg` cards in a group;
+   * `xl` the parts of a page body; `2xl` and `3xl` page regions. A part owns its gap (see `GapRole`), so a
+   * page picks one only when it composes parts itself.
+   */
+  public readonly gap = input<Space>(GapRole.Card);
   public readonly align = input<StackAlign>(StackAlign.Stretch);
   public readonly justify = input<StackJustify>(StackJustify.Start);
   public readonly wrap = input(false, { transform: booleanAttribute });

@@ -239,6 +239,24 @@ more room, never a separate design.
   `viewport-fit=cover`. Anything fixed to a screen edge pads the same way.
 - Use `min-h-dvh`, not `100vh`, so mobile browser chrome doesn't clip pages.
 
+## Gap ladder
+
+A part owns the gap between its children, by the role of what it holds (`GapRole` in `tokens.ts`). A page never
+re-states it; it picks a `gap` only when it composes parts itself.
+
+| Role (`GapRole`) | Gap   | Holds                                                         |
+| ---------------- | ----- | ------------------------------------------------------------- |
+| `Page`           | `xl`  | A page body: header, cards, drawer (`fr-page`)                |
+| `Card`           | `md`  | A card or section: header, body, footer; `fr-stack` default   |
+| `ListItem`       | `sm`  | The items of `fr-list` and `fr-description-list`              |
+| `Row`            | `sm`  | The cells of a row: media, content, actions                   |
+| `Text`           | `2xs` | A title and its caption or description; a label and its field |
+
+Below the ladder, `xs` spaces chips and inline controls, `3xs` an icon and its text inside one control. `lg`, `2xl`
+and `3xl` separate groups of cards and page regions.
+
+Secondary text has two tones: a caption (a byline, a label) is `subtle`, a field hint is `muted`.
+
 ## Token tiers
 
 1. **Primitives** (`primitives.color.css`, `primitives.scale.css`): one

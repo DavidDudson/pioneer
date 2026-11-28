@@ -2,7 +2,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
-import { gapVariants, Space } from '../../tokens';
+import type { Space } from '../../tokens';
+import { GapRole, gapVariants } from '../../tokens';
 
 const listVariants = cva('flex flex-col', {
   variants: {
@@ -21,7 +22,7 @@ const listVariants = cva('flex flex-col', {
  * unmarked unless `markers` is set: bullets for `<ul>`, numbers for `<ol>`.
  *
  * ```html
- * <fr-list gap="xs">
+ * <fr-list>
  *   @for (credit of credits; track credit) {
  *     <fr-list-item><fr-text variant="caption">{{ credit }}</fr-text></fr-list-item>
  *   }
@@ -38,7 +39,7 @@ const listVariants = cva('flex flex-col', {
 export class List {
   public readonly ordered = input(false, { transform: booleanAttribute });
   public readonly markers = input(false, { transform: booleanAttribute });
-  public readonly gap = input<Space>(Space.Xs);
+  public readonly gap = input<Space>(GapRole.ListItem);
 
   protected readonly classes = computed(() =>
     listVariants({ gap: this.gap(), markers: this.markers(), ordered: this.ordered() }),

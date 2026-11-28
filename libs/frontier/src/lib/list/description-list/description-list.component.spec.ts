@@ -95,7 +95,7 @@ describe(DescriptionList, () => {
   it('renders a list as a column with a token gap, inside a box the rows query', async () => {
     const { fixture, list } = await render({}, []);
     expect(list.className).toContain('flex-col');
-    expect(list.className).toContain('gap-xs');
+    expect(list.className).toContain('gap-sm');
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-box')?.contains(list)).toBe(true);
   });

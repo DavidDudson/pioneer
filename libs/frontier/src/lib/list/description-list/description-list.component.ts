@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { cva } from 'class-variance-authority';
 
 import { Box } from '../../layout/box/box.component';
-import { Container, gapVariants, Space } from '../../tokens';
+import type { Space } from '../../tokens';
+import { Container, GapRole, gapVariants } from '../../tokens';
 
 const listVariants = cva('flex flex-col', { variants: { gap: gapVariants } });
 
@@ -30,7 +31,7 @@ const listVariants = cva('flex flex-col', { variants: { gap: gapVariants } });
   host: { class: 'block' },
 })
 export class DescriptionList {
-  public readonly gap = input<Space>(Space.Xs);
+  public readonly gap = input<Space>(GapRole.ListItem);
   /** Container size from which a row puts its term and value side by side. */
   public readonly columnsFrom = input<Container>(Container.Sm);
 
