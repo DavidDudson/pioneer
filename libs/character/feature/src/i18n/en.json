@@ -401,6 +401,12 @@
       "customBadge": "Imported",
       "removing": "Removing…",
       "coinsHeading": "Coins",
+      "simplify": {
+        "label": "Simplify",
+        "pending": "Simplifying…",
+        "done": "Simplified",
+        "nothing": "No coin can be traded up: every coin below platinum holds fewer than ten."
+      },
       "loot": {
         "heading": "Add or take coins",
         "reasonLabel": "Reason",
@@ -429,6 +435,7 @@
           "transfer": "Moved to or from another purse",
           "gift": "Gift",
           "loot": "Loot",
+          "simplify": "Traded up for larger coins",
           "giftNoted": "Gift: {note}",
           "lootNoted": "Loot: {note}"
         }
@@ -936,6 +943,7 @@
     "cannotAffordKit": "This character can't afford that kit: its coins are worth less than its price. Add it without paying instead.",
     "cannotHoldCoins": "This character's purse can't hold that many more coins.",
     "cannotTakeCoins": "This character's coins are worth less than that, so they can't be taken.",
+    "nothingToSimplify": "No coin can be traded up: every coin below platinum holds fewer than ten.",
     "unknownKit": "That kit is not available. Choose another.",
     "unknownKitItem": "That kit holds an item no loaded content has, so it can't be added. Choose another kit.",
     "kitNotAContainer": "That kit packs items inside one that can't hold anything, so it can't be added. Choose another kit.",

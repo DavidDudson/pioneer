@@ -70,6 +70,8 @@ export const CharacterPatchField = {
   GiftCoins: 'giftCoins',
   /** Coins taken from the purse, refused when it is worth less; with a note. */
   TakeCoins: 'takeCoins',
+  /** Small coins traded up for larger ones (10 cp to 1 sp, 10 sp to 1 gp, 10 gp to 1 pp): the value never changes. */
+  SimplifyCoins: 'simplifyCoins',
   /** An uncommon or rare spell the character may prepare from now on. */
   GrantSpellAccess: 'grantSpellAccess',
   /** A spell the character no longer has access to; picks of it stay, invalid. */
@@ -166,6 +168,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   }),
   z.object({ field: z.literal(CharacterPatchField.GiftCoins), ...CoinGrantFields }),
   z.object({ field: z.literal(CharacterPatchField.TakeCoins), ...CoinGrantFields }),
+  z.object({ field: z.literal(CharacterPatchField.SimplifyCoins) }),
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
@@ -310,6 +313,7 @@ const INVENTORY_FIELDS: ReadonlySet<CharacterPatchField> = new Set<InventoryPatc
   CharacterPatchField.EarnIncome,
   CharacterPatchField.GiftCoins,
   CharacterPatchField.TakeCoins,
+  CharacterPatchField.SimplifyCoins,
 ]);
 
 /** Whether `patch` changes what the inventory holds (`InventoryPatch`). */

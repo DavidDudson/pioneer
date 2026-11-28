@@ -1,8 +1,10 @@
 import {
   canHoldCoins,
+  canSimplify,
   CharacterPatchField,
   coinsValue,
   InventoryItemId,
+  isCoinPatch,
   isKitPatch,
   itemContent,
   ItemQuantity,
@@ -11,7 +13,7 @@ import {
   payCost,
   purchaseCost,
 } from '@pioneer/character/domain';
-import type { Character, CharacterPatch, CoinGrantPatch, EditInputs, KitPatch } from '@pioneer/character/domain';
+import type { Character, CharacterPatch, CoinPatch, EditInputs, KitPatch } from '@pioneer/character/domain';
 import type { ContentSource, CopperValue } from '@pioneer/rules/sdk';
 import { message, newId, ValidationError } from '@pioneer/shared/kernel';
 
@@ -31,7 +33,8 @@ interface Unaffordable {
 
 const UNAFFORDABLE_ITEM: Unaffordable = { field: 'quantity', key: 'character.validation.cannotAfford' };
 const UNAFFORDABLE_TAKE: Unaffordable = { field: 'coins', key: 'character.validation.cannotTakeCoins' };
-const OVERFULL_PURSE_KEY = 'character.validation.cannotHoldCoins';
+const OVERFULL_PURSE: Unaffordable = { field: 'coins', key: 'character.validation.cannotHoldCoins' };
+const NOTHING_TO_SIMPLIFY: Unaffordable = { field: 'coins', key: 'character.validation.nothingToSimplify' };
 const UNAFFORDABLE_KIT: Unaffordable = { field: 'kit', key: 'character.validation.cannotAffordKit' };
 
 /**
@@ -44,6 +47,15 @@ function affordable(character: Character, cost: CopperValue, { field, key }: Una
   }
 
   return cost;
+}
+
+/** No inputs, once `allowed`; refused on its field, with its reason, when not. */
+function refuseUnless(allowed: boolean, { field, key }: Unaffordable): EditInputs {
+  if (!allowed) {
+    throw new ValidationError([{ path: ['patch', field], message: message(key) }]);
+  }
+
+  return {};
 }
 
 /** The lines a kit edit adds, each with a fresh id (`kitItems`), and what a bought kit costs at its price. */
@@ -66,19 +78,27 @@ async function kitInputs(content: ContentSource, character: Character, patch: Ki
   return { kitItems: lines, cost: affordable(character, cost, UNAFFORDABLE_KIT) };
 }
 
-/** A take of coins is refused when the purse is worth less, a gift when the purse cannot hold it; neither adds an item. */
-function coinInputs(character: Character, patch: CoinGrantPatch): EditInputs {
-  if (patch.field === CharacterPatchField.TakeCoins) {
-    affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
+/** Coin edits that add no item: a take is refused when the purse is worth less, a gift when it cannot hold it, a simplify when no coin trades up. */
+function coinInputs(character: Character, patch: CoinPatch): EditInputs {
+  switch (patch.field) {
+    case CharacterPatchField.TakeCoins: {
+      affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
 
-    return {};
+      return {};
+    }
+
+    case CharacterPatchField.GiftCoins: {
+      return refuseUnless(canHoldCoins(character.document, patch.coins), OVERFULL_PURSE);
+    }
+
+    case CharacterPatchField.SimplifyCoins: {
+      return refuseUnless(canSimplify(character.document.inventory.coins), NOTHING_TO_SIMPLIFY);
+    }
+
+    default: {
+      return patch satisfies never;
+    }
   }
-
-  if (!canHoldCoins(character.document, patch.coins)) {
-    throw new ValidationError([{ path: ['patch', 'coins'], message: message(OVERFULL_PURSE_KEY) }]);
-  }
-
-  return {};
 }
 
 /**
@@ -95,7 +115,7 @@ export async function editInputs(
     return kitInputs(content, character, patch);
   }
 
-  if (patch.field === CharacterPatchField.TakeCoins || patch.field === CharacterPatchField.GiftCoins) {
+  if (isCoinPatch(patch)) {
     return coinInputs(character, patch);
   }
 

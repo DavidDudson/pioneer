@@ -99,7 +99,8 @@ function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>):
     case CharacterPatchField.SetCoins:
     case CharacterPatchField.EarnIncome:
     case CharacterPatchField.GiftCoins:
-    case CharacterPatchField.TakeCoins: {
+    case CharacterPatchField.TakeCoins:
+    case CharacterPatchField.SimplifyCoins: {
       return {};
     }
 

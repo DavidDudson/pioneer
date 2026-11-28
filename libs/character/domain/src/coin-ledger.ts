@@ -22,6 +22,8 @@ export const LedgerReason = {
   Gift: 'gift',
   /** Coins found or won: treasure, a reward, a payout. */
   Loot: 'loot',
+  /** Small coins traded up for larger ones: no change in value. */
+  Simplify: 'simplify',
 } as const;
 
 export type LedgerReason = ValueOf<typeof LedgerReason>;

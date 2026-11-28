@@ -4,6 +4,7 @@ import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch } from './character-patch';
 import { withCoins } from './coin-ledger-edits';
+import { withSimplifiedCoins } from './coin-simplify';
 import { CoinAmount } from './coins';
 import type { Coins } from './coins';
 import { coinsValue, payCost } from './purse';
@@ -47,15 +48,43 @@ function withTakenCoins(document: CharacterDocument, coins: Coins): CharacterDoc
   return withCoins(document, left);
 }
 
-/** The edits that add coins to the purse or take them from it. */
-export type CoinGrantPatch = Extract<
+/** The edits that add coins to the purse, take them from it or trade small coins up. */
+export type CoinPatch = Extract<
   CharacterPatch,
-  { readonly field: typeof CharacterPatchField.GiftCoins | typeof CharacterPatchField.TakeCoins }
+  {
+    readonly field:
+      | typeof CharacterPatchField.GiftCoins
+      | typeof CharacterPatchField.TakeCoins
+      | typeof CharacterPatchField.SimplifyCoins;
+  }
 >;
 
-/** `document` with the coins of a gift added or the coins of a take removed. */
-export function withCoinGrant(document: CharacterDocument, patch: CoinGrantPatch): CharacterDocument {
-  return patch.field === CharacterPatchField.GiftCoins
-    ? withGiftedCoins(document, patch.coins)
-    : withTakenCoins(document, patch.coins);
+/** Whether `patch` is one of the coin edits. */
+export function isCoinPatch(patch: CharacterPatch): patch is CoinPatch {
+  return (
+    patch.field === CharacterPatchField.GiftCoins ||
+    patch.field === CharacterPatchField.TakeCoins ||
+    patch.field === CharacterPatchField.SimplifyCoins
+  );
+}
+
+/** `document` with the coins of a gift added, the coins of a take removed, or its purse simplified. */
+export function withCoinEdit(document: CharacterDocument, patch: CoinPatch): CharacterDocument {
+  switch (patch.field) {
+    case CharacterPatchField.GiftCoins: {
+      return withGiftedCoins(document, patch.coins);
+    }
+
+    case CharacterPatchField.TakeCoins: {
+      return withTakenCoins(document, patch.coins);
+    }
+
+    case CharacterPatchField.SimplifyCoins: {
+      return withSimplifiedCoins(document);
+    }
+
+    default: {
+      return patch satisfies never;
+    }
+  }
 }

@@ -29,6 +29,7 @@ const REASON_MESSAGES: Readonly<Record<LedgerReason, string>> = {
   [LedgerReason.Transfer]: 'character.sheet.inventory.ledger.reason.transfer',
   [LedgerReason.Gift]: 'character.sheet.inventory.ledger.reason.gift',
   [LedgerReason.Loot]: 'character.sheet.inventory.ledger.reason.loot',
+  [LedgerReason.Simplify]: 'character.sheet.inventory.ledger.reason.simplify',
 };
 
 /** The reason as the message that says so with the player's note, for the reasons that carry one. */

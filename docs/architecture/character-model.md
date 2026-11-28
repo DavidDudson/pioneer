@@ -553,8 +553,10 @@ entry, so a critical failure leaves no entry. The client rolls, as for every che
 `giftCoins` adds any mix of coins without paying and `takeCoins` removes them: each carries a reason (`gift` or `loot`)
 and an optional note, which the entry keeps. A take is worth its coins' value, so it makes change where a larger coin
 must break, and is refused (`character.validation.cannotTakeCoins`) when the purse is worth less. Later stories add
-their own reasons (crafting and ritual costs). The Wealth section shows the purse's worth in gold and the entries,
-newest first.
+their own reasons (crafting and ritual costs). `simplifyCoins` trades small coins up (10 cp to 1 sp, 10 sp to 1 gp,
+10 gp to 1 pp), the smaller coins first so a carry can carry again, as one `simplify` entry whose changes sum to
+nothing in value; it is refused (`character.validation.nothingToSimplify`) when no coin can be traded up. The Wealth
+section shows the purse's worth in gold and the entries, newest first.
 
 `inventory.customItems` lists the items an import found no content for (schema version 19, #310): an id, the name
 Pathbuilder gave, a quantity and `origin: import`. A custom item weighs nothing, takes no container, carry state, rune

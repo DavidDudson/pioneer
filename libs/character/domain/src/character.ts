@@ -12,7 +12,7 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
-import { withCoinGrant } from './coin-gifts';
+import { withCoinEdit } from './coin-gifts';
 import { LedgerReason } from './coin-ledger';
 import { noteFor, reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
@@ -268,8 +268,9 @@ export class Character {
       }
 
       case CharacterPatchField.GiftCoins:
-      case CharacterPatchField.TakeCoins: {
-        return { document: withCoinGrant(this.document, patch) };
+      case CharacterPatchField.TakeCoins:
+      case CharacterPatchField.SimplifyCoins: {
+        return { document: withCoinEdit(this.document, patch) };
       }
 
       default: {
