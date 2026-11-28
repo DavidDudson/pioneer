@@ -81,6 +81,11 @@
         "key": "Proficiency",
         "selector": "skill:survival",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:anadi",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -941,6 +946,11 @@
       {
         "key": "Proficiency",
         "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:conrasu",
         "rank": "trained"
       }
     ],
@@ -2012,6 +2022,11 @@
         "key": "Proficiency",
         "selector": "skill:stealth",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:goloma",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -2813,7 +2828,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:shisk",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.MqDLaBypDyp1VQKg"
     },
