@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795846277056,
+  "lastUpdate": 1795846488194,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2278,6 +2278,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2caba9defc7f89e40cd714b6d823431b97214090",
+          "message": "feat(frontier): fr-stat, fr-field-group and fr-field-set (#2515)\n\n* feat(frontier): fr-stat, fr-field-group and fr-field-set\n\nfr-stat sets a caption over a tabular figure. fr-field-group owns the md\ngap between fields. fr-field-set is the only owner of fieldset and\nlegend; the no-native-elements ownership map and AGENTS.md say so.\n\nRefs #2292\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* docs(frontier): list fr-stat and field parts in the catalog\n\nAct on review findings: add the three components to the AGENTS.md\ncatalog and drop a comment that restated the class doc.\n\nRefs #2292\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T15:35:00+10:00",
+          "tree_id": "bf634174be227103ee354b7a3b4b9ffad023eb4e",
+          "url": "https://github.com/DavidDudson/pioneer/commit/2caba9defc7f89e40cd714b6d823431b97214090"
+        },
+        "date": 1795846485082,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 467,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4400,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 219,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6510,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 213,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
