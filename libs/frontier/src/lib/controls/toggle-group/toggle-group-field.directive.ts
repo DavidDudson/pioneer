@@ -5,10 +5,10 @@ import { Field } from '../../forms/field/field.component';
 /**
  * Hides an enclosing `fr-field` from the chips: the group takes the field's label, and each toggle
  * button would otherwise claim the field's control id. It sits on the group element, so
- * `fr-filter-chips` itself still sees the field.
+ * `fr-toggle-group` itself still sees the field.
  */
 @Directive({
-  selector: '[frChipGroup]',
+  selector: '[frToggleGroupField]',
   providers: [{ provide: Field, useValue: undefined }],
 })
-export class ChipGroup {}
+export class ToggleGroupField {}

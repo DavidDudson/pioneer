@@ -9,6 +9,8 @@ const FIELDS: ReadonlyArray<FilterField> = [
   { id: 'traits', label: 'Traits', kind: FilterKind.Set },
   { id: 'level', label: 'Level', kind: FilterKind.Range },
   { id: 'consumable', label: 'Consumable', kind: FilterKind.Flag },
+  { id: 'name', label: 'Name', kind: FilterKind.Text },
+  { id: 'released', label: 'Released', kind: FilterKind.Date },
 ];
 
 const CODEC = filterCodec(() => FIELDS);
@@ -20,6 +22,27 @@ const condition = (field: string, operator: FilterOperator, ...values: Array<str
 });
 
 describe('filter codec', () => {
+  it('writes a date span and one day like a range', () => {
+    expect(CODEC.encode([condition('released', FilterOperator.Between, '2026-01-02', '2026-03-04')])).toBe(
+      'released:2026-01-02..2026-03-04',
+    );
+    expect(CODEC.encode([condition('released', FilterOperator.Is, '2026-01-02')])).toBe('released:2026-01-02');
+    expect(CODEC.decode('released:..2026-03-04')).toStrictEqual([
+      condition('released', FilterOperator.Between, '', '2026-03-04'),
+    ]);
+  });
+
+  it('leaves out a date that is not a day', () => {
+    expect(CODEC.encode([condition('released', FilterOperator.Is, 'soon')])).toBe('');
+    expect(CODEC.decode('released:3..5')).toStrictEqual([]);
+  });
+
+  it('writes typed text as a value, with its special characters escaped', () => {
+    expect(CODEC.encode([condition('name', FilterOperator.Is, 'a:b')])).toBe('name:a%3Ab');
+    expect(CODEC.decode('name:a%3Ab')).toStrictEqual([condition('name', FilterOperator.Is, 'a:b')]);
+    expect(CODEC.encode([condition('name', FilterOperator.IsNot, 'kyra')])).toBe('name:!kyra');
+  });
+
   it('leaves the default operator unwritten', () => {
     expect(CODEC.encode([condition('traits', FilterOperator.Is, 'fire')])).toBe('traits:fire');
     expect(CODEC.encode([condition('level', FilterOperator.Is, '3')])).toBe('level:3');

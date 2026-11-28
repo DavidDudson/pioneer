@@ -3,13 +3,13 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   Disclosure,
-  FilterChips,
   Grid,
   injectTranslate,
   LocaleFormat,
   NumberInput,
   Stack,
   Text,
+  ToggleGroup,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { FacetCounts, FacetDefinition, FacetId, FacetValue, FilterState } from '@pioneer/rules/sdk';
@@ -37,7 +37,7 @@ function summaryKeyOf(row: FacetRow): string {
  */
 @Component({
   selector: 'pio-facet-filter',
-  imports: [Disclosure, FilterChips, Grid, NumberInput, Stack, Text, TranslocoPipe],
+  imports: [Disclosure, ToggleGroup, Grid, NumberInput, Stack, Text, TranslocoPipe],
   templateUrl: './facet-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

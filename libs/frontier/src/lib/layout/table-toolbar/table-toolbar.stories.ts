@@ -2,8 +2,8 @@ import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, userEvent, within } from 'storybook/test';
 
-import { FilterChips } from '../../controls/filter-chips/filter-chips.component';
 import { SearchInput } from '../../controls/search-input/search-input.component';
+import { ToggleGroup } from '../../controls/toggle-group/toggle-group.component';
 import { Text } from '../../text/text/text.component';
 import { Surface } from '../surface/surface.component';
 import { TableToolbar } from './table-toolbar.component';
@@ -21,7 +21,7 @@ const KINDS = [
 const meta: Meta<TableToolbar> = {
   title: 'Layout/Table toolbar',
   component: TableToolbar,
-  decorators: [moduleMetadata({ imports: [FilterChips, SearchInput, Surface, Text, ToolbarFilters, ToolbarView] })],
+  decorators: [moduleMetadata({ imports: [ToggleGroup, SearchInput, Surface, Text, ToolbarFilters, ToolbarView] })],
   args: { label: 'Search spells' },
   parameters: { layout: 'padded' },
   render: (args) => ({
@@ -29,7 +29,7 @@ const meta: Meta<TableToolbar> = {
     template: `
       <fr-table-toolbar [label]="label">
         <fr-search-input frToolbarSearch ariaLabel="Search spells" placeholder="Search spells" />
-        <fr-filter-chips frToolbarFilters ariaLabel="Kinds" [options]="kinds" />
+        <fr-toggle-group frToolbarFilters ariaLabel="Kinds" [options]="kinds" />
         <fr-text frToolbarView>Columns: name, level</fr-text>
         <fr-text frToolbarCount tone="muted">3 results</fr-text>
       </fr-table-toolbar>

@@ -179,6 +179,56 @@ export const DescribedKeyboard: ComboboxStory = {
   },
 };
 
+/** `multi`: a press ticks or unticks an option and the list stays open. Picks a query hides stay picked. */
+export const Multi: ComboboxStory = {
+  render: (args) => {
+    const options = signal(FEATS);
+    const values = signal<ReadonlyArray<string>>(['feat-3', 'feat-12']);
+
+    return {
+      props: {
+        ...args,
+        options,
+        values,
+        search: (query: string): void => {
+          options.set(matching(query));
+        },
+        pick: (picked: ReadonlyArray<string>): void => {
+          values.set(picked);
+        },
+      },
+      template: `<fr-combobox multi [ariaLabel]="ariaLabel" [placeholder]="placeholder" [options]="options()" [values]="values()" (valuesChange)="pick($event)" (searched)="search($event)" />`,
+    };
+  },
+};
+
+const PAGE_SIZE = 40;
+
+/** The options arrive a page at a time: `loadMore` fires near the end while `hasMore`, `loadingMore` shows skeleton rows. */
+export const LoadMore: ComboboxStory = {
+  render: (args) => {
+    const shown = signal(PAGE_SIZE);
+    const loadingMore = signal(false);
+
+    return {
+      props: {
+        ...args,
+        shown,
+        loadingMore,
+        page: (): ReadonlyArray<SelectOption<string>> => FEATS.slice(0, shown()),
+        hasMore: (): boolean => shown() < FEATS.length,
+        more: async (): Promise<void> => {
+          loadingMore.set(true);
+          await succeedSlowly();
+          shown.update((count) => count + PAGE_SIZE);
+          loadingMore.set(false);
+        },
+      },
+      template: `<fr-combobox multi [ariaLabel]="ariaLabel" [placeholder]="placeholder" [options]="page()" [hasMore]="hasMore()" [loadingMore]="loadingMore()" (loadMore)="more()" />`,
+    };
+  },
+};
+
 export const Picked: ComboboxStory = { args: { value: 'feat-12' } };
 
 export const WithQuery: ComboboxStory = { args: { query: 'feat' } };

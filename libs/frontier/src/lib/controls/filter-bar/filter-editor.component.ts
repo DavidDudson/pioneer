@@ -1,19 +1,31 @@
-import { ChangeDetectionStrategy, Component, computed, input, linkedSignal, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { elevationVariants, Size } from '../../tokens';
 import { FilterOperator, isComplete, OPERATOR_LABELS, operatorsFor } from './filter-bar.types';
-import type { FilterCondition, FilterField } from './filter-bar.types';
+import type { FilterCondition, FilterField, FilterSearch } from './filter-bar.types';
 import { FilterValues } from './filter-values.component';
 
 const panelClasses = cva(`flex flex-col gap-sm border p-sm ${elevationVariants.raised}`)();
 const rowClasses = cva('flex flex-wrap items-center gap-xs')();
 
+/** Whether `condition` is the filter the panel was given, so a change the panel itself made is not fired twice. */
+function sameCondition(condition: FilterCondition, initial: FilterCondition | undefined): boolean {
+  return (
+    initial !== undefined &&
+    initial.field === condition.field &&
+    initial.operator === condition.operator &&
+    initial.values.length === condition.values.length &&
+    initial.values.every((value, index) => value === condition.values[index])
+  );
+}
+
 /**
  * The inline panel where a filter is made or changed: pick a field, then an operator, then the values. It opens
- * in place under the bar (never a popover). Part of `fr-filter-bar`.
+ * in place under the bar (never a popover). There is no Apply: `changed` fires with the filter each time it is
+ * complete, and again as its values change. *Done* closes the panel. Part of `fr-filter-bar`.
  */
 @Component({
   selector: 'fr-filter-editor',
@@ -26,8 +38,15 @@ export class FilterEditor {
   public readonly fields = input.required<ReadonlyArray<FilterField>>();
   /** The filter being changed; absent for a new one. */
   public readonly initial = input<FilterCondition | undefined>(undefined);
-  public readonly applied = output<FilterCondition>();
-  public readonly cancelled = output();
+  /** The filter, complete, after each change that leaves it so. */
+  public readonly changed = output<FilterCondition>();
+  /** *Done* was pressed on a filter whose values were all cleared: it filters nothing now, so it goes. */
+  public readonly cleared = output();
+  public readonly closed = output();
+  /** A person typed in the option search of a long `set` field. */
+  public readonly searched = output<FilterSearch>();
+  /** A long `set` field was scrolled near its end: the id of the field wanting more options. */
+  public readonly moreRequested = output<string>();
 
   protected readonly panelClasses = panelClasses;
   protected readonly rowClasses = rowClasses;
@@ -68,6 +87,32 @@ export class FilterEditor {
     return condition !== undefined && isComplete(condition);
   });
 
+  public constructor() {
+    effect(() => {
+      const condition = this.condition();
+
+      if (condition !== undefined && this.complete() && !sameCondition(condition, this.initial())) {
+        this.changed.emit(condition);
+      }
+    });
+  }
+
+  protected done(): void {
+    if (this.initial() !== undefined && !this.complete()) {
+      this.cleared.emit();
+    }
+
+    this.closed.emit();
+  }
+
+  protected search(query: string): void {
+    const field = this.field();
+
+    if (field !== undefined) {
+      this.searched.emit({ field: field.id, query });
+    }
+  }
+
   protected pickField(id: string): void {
     if (id !== this.#fieldId()) {
       this.#fieldId.set(id);
@@ -80,11 +125,11 @@ export class FilterEditor {
     this.#operator.set(operator);
   }
 
-  protected apply(): void {
-    const condition = this.condition();
+  protected requestMore(): void {
+    const field = this.field();
 
-    if (condition !== undefined && this.complete()) {
-      this.applied.emit(condition);
+    if (field !== undefined) {
+      this.moreRequested.emit(field.id);
     }
   }
 }

@@ -5,12 +5,12 @@ import { describe, expect, it } from 'vitest';
 
 import { Field } from '../../forms/field/field.component';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import { FilterChips } from './filter-chips.component';
+import { ToggleGroup } from './toggle-group.component';
 
 type Rarity = 'common' | 'uncommon' | 'rare';
 
 interface Rendered {
-  readonly fixture: ComponentFixture<FilterChips<Rarity>>;
+  readonly fixture: ComponentFixture<ToggleGroup<Rarity>>;
   readonly commits: () => number;
 }
 
@@ -18,7 +18,7 @@ function render(selected: ReadonlyArray<Rarity>): Rendered {
   TestBed.configureTestingModule({
     providers: [...provideFrontierI18nTesting()],
   });
-  const fixture = TestBed.createComponent(FilterChips<Rarity>);
+  const fixture = TestBed.createComponent(ToggleGroup<Rarity>);
   fixture.componentRef.setInput('options', [
     { value: 'common', label: 'Common' },
     { value: 'uncommon', label: 'Uncommon' },
@@ -47,24 +47,24 @@ function provideField(): void {
   TestBed.configureTestingModule({ providers: [{ provide: Field, useValue: field }] });
 }
 
-function host(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLElement {
+function host(fixture: ComponentFixture<ToggleGroup<Rarity>>): HTMLElement {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return fixture.nativeElement as HTMLElement;
 }
 
-function chips(fixture: ComponentFixture<FilterChips<Rarity>>): Array<HTMLButtonElement> {
+function chips(fixture: ComponentFixture<ToggleGroup<Rarity>>): Array<HTMLButtonElement> {
   return [...host(fixture).querySelectorAll<HTMLButtonElement>('button[aria-pressed]')];
 }
 
-function clearButton(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLButtonElement | undefined {
+function clearButton(fixture: ComponentFixture<ToggleGroup<Rarity>>): HTMLButtonElement | undefined {
   return [...host(fixture).querySelectorAll('button')].find((button) => !button.hasAttribute('aria-pressed'));
 }
 
-function pressed(fixture: ComponentFixture<FilterChips<Rarity>>): Array<string | null> {
+function pressed(fixture: ComponentFixture<ToggleGroup<Rarity>>): Array<string | null> {
   return chips(fixture).map((chip) => chip.getAttribute('aria-pressed'));
 }
 
-describe(FilterChips, () => {
+describe(ToggleGroup, () => {
   it('renders a toggle button per option, pressed when its key is selected', () => {
     const { fixture } = render(['uncommon', 'rare']);
     expect(chips(fixture).map((chip) => chip.textContent.trim())).toStrictEqual(['Common', 'Uncommon', 'Rare']);
@@ -158,5 +158,29 @@ describe(FilterChips, () => {
     provideField();
     const { fixture } = render(['rare']);
     expect(clearButton(fixture)?.getAttribute('aria-describedby')).toBe('rarity-label');
+  });
+
+  it('is one Tab stop: the first selected chip, with the others skipped', () => {
+    const { fixture } = render(['uncommon']);
+    document.body.append(host(fixture));
+    fixture.detectChanges();
+    expect(chips(fixture).map((chip) => chip.getAttribute('tabindex'))).toStrictEqual(['-1', '0', '-1']);
+    host(fixture).remove();
+  });
+
+  it('moves focus between chips with the arrow keys, Home and End, without pressing', () => {
+    const { fixture, commits } = render([]);
+    document.body.append(host(fixture));
+    const [first, second, third] = chips(fixture);
+    first?.focus();
+    first?.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(second);
+    second?.dispatchEvent(new KeyboardEvent('keydown', { key: 'End', bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(third);
+    third?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(first);
+    expect(pressed(fixture)).toStrictEqual(['false', 'false', 'false']);
+    expect(commits()).toBe(0);
+    host(fixture).remove();
   });
 });

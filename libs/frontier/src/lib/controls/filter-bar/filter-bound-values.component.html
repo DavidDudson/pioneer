@@ -1,0 +1,30 @@
+<div [class]="rangeClasses">
+  @if (isDate()) {
+    <fr-input [type]="dateType" [value]="min()" [ariaLabel]="minLabel() | transloco" (typed)="setMinText($event)" />
+    @if (isBetween()) {
+      <fr-input
+        [type]="dateType"
+        [value]="max()"
+        [ariaLabel]="'frontier.filterBar.max' | transloco"
+        (typed)="setMaxText($event)"
+      />
+    }
+  } @else {
+    <fr-number-input
+      optional
+      [value]="minNumber()"
+      [ariaLabel]="minLabel() | transloco"
+      [placeholder]="'frontier.filterBar.any' | transloco"
+      (valueChange)="setMin($event)"
+    />
+    @if (isBetween()) {
+      <fr-number-input
+        optional
+        [value]="maxNumber()"
+        [ariaLabel]="'frontier.filterBar.max' | transloco"
+        [placeholder]="'frontier.filterBar.any' | transloco"
+        (valueChange)="setMax($event)"
+      />
+    }
+  }
+</div>

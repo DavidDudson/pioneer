@@ -7,6 +7,8 @@ import type { FilterCondition, FilterField } from './filter-bar.types';
 
 type FilterBarStory = StoryObj<FilterBar>;
 
+const SOURCE_COUNT = 120;
+
 const FIELDS: ReadonlyArray<FilterField> = [
   {
     id: 'rarity',
@@ -29,6 +31,18 @@ const FIELDS: ReadonlyArray<FilterField> = [
     })),
   },
   { id: 'level', label: 'Level', kind: FilterKind.Range },
+  { id: 'name', label: 'Name', kind: FilterKind.Text },
+  { id: 'released', label: 'Released', kind: FilterKind.Date },
+  {
+    id: 'source',
+    label: 'Source',
+    kind: FilterKind.Set,
+    options: Array.from({ length: SOURCE_COUNT }, (_entry, index) => ({
+      value: `source-${index + 1}`,
+      label: `Source ${index + 1}`,
+      count: SOURCE_COUNT - index,
+    })),
+  },
   {
     id: 'consumable',
     label: 'Consumable',
@@ -47,8 +61,9 @@ const APPLIED: ReadonlyArray<FilterCondition> = [
 ];
 
 /**
- * Narrows a list with editable filter chips. *Add filter* opens a panel in place: field, then operator, then values.
- * Press a chip to change it, its cross to remove it. Wraps, never scrolls sideways.
+ * Narrows a list with editable filter chips. *Add filter* opens a panel in place: field, then operator, then values,
+ * each editor by the kind of the field. There is no Apply: the chip appears with its first value and follows every
+ * change. Press a chip to change it, its cross to remove it. Wraps, never scrolls sideways.
  */
 const meta: Meta<FilterBar> = {
   title: 'Controls/Filter Bar',
@@ -65,5 +80,5 @@ export default meta;
 
 export const Empty: FilterBarStory = {};
 
-/** Set, range and flag filters; a range with an open end reads "from 3" or "up to 5". */
+/** Set, range, flag, text and date filters; a range with an open end reads "from 3" or "up to 5". */
 export const WithFilters: FilterBarStory = { args: { value: APPLIED } };

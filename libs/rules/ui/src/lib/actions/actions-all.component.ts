@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Disclosure, FilterChips, Stack, Text } from '@pioneer/frontier';
+import { Disclosure, Stack, Text, ToggleGroup } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import { ActionMode } from '@pioneer/rules/sdk';
@@ -22,7 +22,7 @@ import { ACTION_MODE_MESSAGES, ACTION_SOURCE_MESSAGES, ActionsMessage } from './
  */
 @Component({
   selector: 'pio-actions-all',
-  imports: [ActionList, Disclosure, FilterChips, Stack, Text, TranslocoPipe],
+  imports: [ActionList, Disclosure, ToggleGroup, Stack, Text, TranslocoPipe],
   templateUrl: './actions-all.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

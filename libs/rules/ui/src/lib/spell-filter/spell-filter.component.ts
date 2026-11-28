@@ -5,11 +5,11 @@ import {
   Button,
   ButtonVariant,
   Disclosure,
-  FilterChips,
   injectTranslate,
   LocaleFormat,
   Stack,
   Text,
+  ToggleGroup,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 
@@ -35,7 +35,7 @@ function summaryKeyOf(group: SpellFilterGroup): string {
  */
 @Component({
   selector: 'pio-spell-filter',
-  imports: [Button, Disclosure, FilterChips, Stack, Text, TranslocoPipe],
+  imports: [Button, Disclosure, ToggleGroup, Stack, Text, TranslocoPipe],
   templateUrl: './spell-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -6,6 +6,7 @@ import {
   ElementRef,
   inject,
   input,
+  output,
   signal,
   untracked,
 } from '@angular/core';
@@ -47,6 +48,11 @@ export class VirtualRows {
   /** The rows are loading: none render and the body has no height, so a skeleton can take their place. */
   public readonly suspended = input(false, { transform: booleanAttribute });
 
+  /** Rows from the end at which `endNear` fires; unset, it never does. */
+  public readonly endAhead = input<number | undefined>(undefined);
+  /** The last row in view is within `endAhead` rows of the end. Fires again on every scroll and render while it holds. */
+  public readonly endNear = output();
+
   /** Counts the container's scroll events. */
   readonly #scrolls = signal(0);
   readonly #virtualizer = injectOptionVirtualizer({
@@ -76,6 +82,17 @@ export class VirtualRows {
       if (index !== undefined) {
         untracked(() => {
           this.#virtualizer.scrollToIndex(index, { align: 'auto' });
+        });
+      }
+    });
+    afterRenderEffect(() => {
+      const ahead = this.endAhead();
+      const lastShown = ahead === undefined || this.suspended() ? undefined : this.lastShown();
+      const count = this.keys().length;
+
+      if (ahead !== undefined && lastShown !== undefined && lastShown >= count - 1 - ahead) {
+        untracked(() => {
+          this.endNear.emit();
         });
       }
     });

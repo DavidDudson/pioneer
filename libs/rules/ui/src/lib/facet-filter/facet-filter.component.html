@@ -6,7 +6,7 @@
         summaryKey(row) | transloco: { facet: facetLabel, count: pickedCount(row) }
       }}</fr-text>
       @if (row.kind === Kind.Chips) {
-        <fr-filter-chips
+        <fr-toggle-group
           [ariaLabel]="facetLabel"
           [options]="options(row)"
           [value]="row.selected"

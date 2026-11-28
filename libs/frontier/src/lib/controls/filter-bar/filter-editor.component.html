@@ -22,14 +22,17 @@
         >
       }
     </div>
-    <fr-filter-values [field]="chosen" [operator]="valueOperator()" [(values)]="values" />
+    <fr-filter-values
+      [field]="chosen"
+      [operator]="valueOperator()"
+      [(values)]="values"
+      (searched)="search($event)"
+      (moreRequested)="requestMore()"
+    />
   }
   <div [class]="rowClasses">
-    <fr-button [size]="Size.Sm" [disabled]="!complete()" (pressed)="apply()">{{
-      'frontier.filterBar.apply' | transloco
-    }}</fr-button>
-    <fr-button [size]="Size.Sm" [variant]="ButtonVariant.Ghost" (pressed)="cancelled.emit()">{{
-      'frontier.filterBar.cancel' | transloco
+    <fr-button [size]="Size.Sm" [variant]="ButtonVariant.Ghost" (pressed)="done()">{{
+      'frontier.filterBar.done' | transloco
     }}</fr-button>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { defaultOperator, FilterKind, FilterOperator, operatorsFor } from './filter-bar.types';
+import { defaultOperator, FilterKind, FilterOperator, isBounded, operatorsFor } from './filter-bar.types';
 import type { FilterCondition, FilterField } from './filter-bar.types';
 
 /** Between conditions: `traits:fire~traits:!evil~level:1..5`. */
@@ -51,8 +51,16 @@ function isNumber(text: string): boolean {
   return text !== '' && String(Number(text)) === text;
 }
 
-function isBound(side: string): boolean {
-  return side === '' || isNumber(side);
+/** A day written `2026-10-07`, as a date box gives it. */
+const DAY = /^\d{4}-\d{2}-\d{2}$/v;
+
+/** A bound of this kind of field: a number for `range`, a day for `date`. */
+function isValue(kind: FilterKind, text: string): boolean {
+  return kind === FilterKind.Date ? DAY.test(text) : isNumber(text);
+}
+
+function isBound(kind: FilterKind, side: string): boolean {
+  return side === '' || isValue(kind, side);
 }
 
 function valuesText(condition: FilterCondition): string {
@@ -66,26 +74,32 @@ function rangeText(field: FilterField, condition: FilterCondition): string {
   const [min = '', max = ''] = condition.values;
 
   if (condition.operator === FilterOperator.Between) {
-    return isBound(min) && isBound(max) && (min !== '' || max !== '') ? `${min}${RANGE_SEPARATOR}${max}` : '';
+    return isBound(field.kind, min) && isBound(field.kind, max) && (min !== '' || max !== '')
+      ? `${min}${RANGE_SEPARATOR}${max}`
+      : '';
   }
 
-  return condition.operator === defaultOperator(field.kind) && isNumber(min) ? min : '';
+  return condition.operator === defaultOperator(field.kind) && isValue(field.kind, min) ? min : '';
 }
 
 function conditionText(field: FilterField, condition: FilterCondition): string | undefined {
   const offered = operatorsFor(field.kind).includes(condition.operator);
-  const values = field.kind === FilterKind.Range ? rangeText(field, condition) : valuesText(condition);
+  const values = isBounded(field.kind) ? rangeText(field, condition) : valuesText(condition);
 
   return offered && values !== '' ? `${condition.field}${FIELD_SEPARATOR}${values}` : undefined;
 }
 
 function rangeConditions(field: FilterField, body: string): Array<FilterCondition> {
   if (!body.includes(RANGE_SEPARATOR)) {
-    return isNumber(body) ? [{ field: field.id, operator: defaultOperator(field.kind), values: [body] }] : [];
+    return isValue(field.kind, body)
+      ? [{ field: field.id, operator: defaultOperator(field.kind), values: [body] }]
+      : [];
   }
 
   const [min, max, ...rest] = body.split(RANGE_SEPARATOR);
-  const readable = min !== undefined && max !== undefined && rest.length === 0 && isBound(min) && isBound(max);
+
+  const readable =
+    min !== undefined && max !== undefined && rest.length === 0 && isBound(field.kind, min) && isBound(field.kind, max);
 
   return readable && (min !== '' || max !== '')
     ? [{ field: field.id, operator: FilterOperator.Between, values: [min, max] }]
@@ -132,7 +146,7 @@ function segmentConditions(fields: ReadonlyMap<string, FilterField>, segment: st
 
   const body = segment.slice(separatorIndex + FIELD_SEPARATOR.length);
 
-  return field.kind === FilterKind.Range ? rangeConditions(field, body) : valueConditions(field, body);
+  return isBounded(field.kind) ? rangeConditions(field, body) : valueConditions(field, body);
 }
 
 /**
