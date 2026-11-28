@@ -62,6 +62,7 @@ describe(Text, () => {
 
   it.each([
     [TextVariant.Display, 'text-display'],
+    [TextVariant.Title, 'text-title'],
     [TextVariant.Lead, 'text-lead'],
     [TextVariant.Label, 'text-label'],
     [TextVariant.Caption, 'text-caption'],

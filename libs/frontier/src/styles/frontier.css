@@ -257,23 +257,23 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Line-heights are rem on the 4px grid (a multiple of 0.25rem), never ratios, so rows land on whole pixels. */
-  --text-caption: var(--fr-scale-font-1);
-  --text-caption--line-height: 1rem;
-  --text-label: var(--fr-scale-font-2);
-  --text-label--line-height: 1.25rem;
-  --text-body: var(--fr-scale-font-3);
-  --text-body--line-height: 1.5rem;
-  --text-lead: var(--fr-scale-font-4);
-  --text-lead--line-height: 1.75rem;
-  --text-subheading: var(--fr-scale-font-5);
-  --text-subheading--line-height: 1.75rem;
-  --text-heading: var(--fr-scale-font-6);
-  --text-heading--line-height: 2rem;
-  --text-title: var(--fr-scale-font-7);
-  --text-title--line-height: 2.25rem;
-  --text-display: var(--fr-scale-font-9);
-  --text-display--line-height: 3.25rem;
+  /* The type scale roles and their line-heights are tier 2 (semantic.css). */
+  --text-caption: var(--fr-text-caption);
+  --text-caption--line-height: var(--fr-text-caption-line-height);
+  --text-label: var(--fr-text-label);
+  --text-label--line-height: var(--fr-text-label-line-height);
+  --text-body: var(--fr-text-body);
+  --text-body--line-height: var(--fr-text-body-line-height);
+  --text-lead: var(--fr-text-lead);
+  --text-lead--line-height: var(--fr-text-lead-line-height);
+  --text-subheading: var(--fr-text-subheading);
+  --text-subheading--line-height: var(--fr-text-subheading-line-height);
+  --text-heading: var(--fr-text-heading);
+  --text-heading--line-height: var(--fr-text-heading-line-height);
+  --text-title: var(--fr-text-title);
+  --text-title--line-height: var(--fr-text-title-line-height);
+  --text-display: var(--fr-text-display);
+  --text-display--line-height: var(--fr-text-display-line-height);
 
   --transition-duration-enter: var(--fr-duration-enter);
   --transition-duration-exit: var(--fr-duration-exit);

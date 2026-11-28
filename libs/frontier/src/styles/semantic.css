@@ -72,6 +72,34 @@
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;
 
+  /*
+   * Type scale: eight roles, caption to display, each a size and a line-height. Line-heights are rem on the 4px
+   * grid (a multiple of 0.25rem), never ratios, so rows land on whole pixels.
+   *
+   * Caption to heading are fixed: body and UI text never reflow with the container, so dense screens stay put.
+   * Title and display are fluid, Utopia-style: a clamp between two scale steps, growing linearly with the
+   * container's inline size (`cqi`, so it falls back to the viewport outside a container) from 20rem to 60rem.
+   * Their line-height clears the larger step.
+   *   title:   step 7 to step 8, 1.6875rem + 0.9375cqi
+   *   display: step 8 to step 9, 1.875rem + 1.875cqi
+   */
+  --fr-text-caption: var(--fr-scale-font-1);
+  --fr-text-caption-line-height: 1rem;
+  --fr-text-label: var(--fr-scale-font-2);
+  --fr-text-label-line-height: 1.25rem;
+  --fr-text-body: var(--fr-scale-font-3);
+  --fr-text-body-line-height: 1.5rem;
+  --fr-text-lead: var(--fr-scale-font-4);
+  --fr-text-lead-line-height: 1.75rem;
+  --fr-text-subheading: var(--fr-scale-font-5);
+  --fr-text-subheading-line-height: 1.75rem;
+  --fr-text-heading: var(--fr-scale-font-6);
+  --fr-text-heading-line-height: 2rem;
+  --fr-text-title: clamp(var(--fr-scale-font-7), calc(1.6875rem + 0.9375cqi), var(--fr-scale-font-8));
+  --fr-text-title-line-height: 2.5rem;
+  --fr-text-display: clamp(var(--fr-scale-font-8), calc(1.875rem + 1.875cqi), var(--fr-scale-font-9));
+  --fr-text-display-line-height: 3.25rem;
+
   /* Motion: four duration and easing pairs. */
   /* enter: a thing arriving; decelerates in. */
   --fr-duration-enter: var(--fr-scale-duration-2);

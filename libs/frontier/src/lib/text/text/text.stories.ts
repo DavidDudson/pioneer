@@ -70,6 +70,26 @@ export const WrappedHeadings: TextStory = {
   }),
 };
 
+/** Title and display are fluid: the same copy is smaller in a narrow container and larger in a wide one. Body does not move. */
+export const FluidDisplay: TextStory = {
+  render: () => ({
+    template: `
+      <fr-stack gap="lg">
+        <div class="@container max-w-sm">
+          <fr-text variant="display" element="p">Display</fr-text>
+          <fr-text variant="title" element="p">Title</fr-text>
+          <fr-text variant="body" element="p">Body stays one size in a narrow container.</fr-text>
+        </div>
+        <div class="@container max-w-lg">
+          <fr-text variant="display" element="p">Display</fr-text>
+          <fr-text variant="title" element="p">Title</fr-text>
+          <fr-text variant="body" element="p">Body stays one size in a wide container.</fr-text>
+        </div>
+      </fr-stack>
+    `,
+  }),
+};
+
 /** The three font utilities (ADR-0085). Storybook loads no font files, so the faces show only in the app. */
 export const FontRoles: TextStory = {
   render: () => ({
