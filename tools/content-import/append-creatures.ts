@@ -19,10 +19,15 @@ export function creaturesOf(entries: ReadonlyArray<ContentEntry>, pack: PackId):
   return entries.filter((entry) => entry.pack === pack && entry.kind === ContentKind.Creature);
 }
 
-/** The creatures in `fresh` that `committed` lacks by slug, and the committed ones, sorted by slug. */
+/** The committed creatures with the new ones, sorted by slug, and how many were new. */
 export interface CreatureMerge {
   readonly entries: ReadonlyArray<ContentEntry>;
   readonly added: number;
+}
+
+/** The slugs of `entries`. */
+export function slugsOf(entries: ReadonlyArray<{ readonly slug: string }>): ReadonlySet<string> {
+  return new Set(entries.map(({ slug }) => slug));
 }
 
 function bySlug(left: { readonly slug: string }, right: { readonly slug: string }): number {
@@ -34,13 +39,13 @@ export function mergeCreatures(
   committed: ReadonlyArray<ContentEntry>,
   fresh: ReadonlyArray<ContentEntry>,
 ): CreatureMerge {
-  const have = new Set(committed.map(({ slug }) => slug));
+  const have = slugsOf(committed);
   const added = fresh.filter(({ slug }) => !have.has(slug));
 
   return { entries: [...committed, ...added].toSorted(bySlug), added: added.length };
 }
 
-/** The creature slug (`creature:<name>`, as the entry has it) a backlog item is about, or nothing for an item of another kind or pack. */
+/** The creature slug (`creature:<name>`, as the entry has it) a backlog item is about; nothing for another kind or pack. */
 function creatureSlug(item: BacklogItem, pack: PackId): string | undefined {
   const isCreature =
     item.type === BacklogItemType.Entry && item.pack === pack && item.slug.startsWith(CREATURE_SLUG_PREFIX);

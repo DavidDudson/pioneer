@@ -12,7 +12,7 @@ import { ContentEntryFile } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
-import { CREATURE_FILE, creaturesOf, mergeCreatures, withCreatureBacklog } from './append-creatures.ts';
+import { CREATURE_FILE, creaturesOf, mergeCreatures, slugsOf, withCreatureBacklog } from './append-creatures.ts';
 import { withDescriptionGaps, withFilledDescriptions } from './apply-descriptions.ts';
 import { addOutcomesToText } from './apply-outcomes.ts';
 import type { FreshDescriptions } from './apply-outcomes.ts';
@@ -342,11 +342,16 @@ export async function appendCreatures(output: PackOutput, targets: PackTargets):
   const committed = await committedCreatures(file);
   const { entries, added } = mergeCreatures(committed, fresh);
   const backlogFile = await committedBacklog(targets);
-  const have = new Set(committed.map(({ slug }) => slug));
-  const backlog = withCreatureBacklog(backlogFile.backlog, output.backlog, { pack: targets.pack, committed: have });
+
+  const backlog = withCreatureBacklog(backlogFile.backlog, output.backlog, {
+    pack: targets.pack,
+    committed: slugsOf(committed),
+  });
+
   const backlogChanged = JSON.stringify(backlog) !== JSON.stringify(backlogFile.backlog);
   const entryWrites = added > 0 ? [{ path: file, json: entries }] : [];
   const backlogWrites = backlogChanged ? [backlogWrite(targets.pack, backlogFile, backlog)] : [];
+
   const written = await writeAll([], [...entryWrites, ...backlogWrites]);
 
   return { written, added, present: fresh.length - added };

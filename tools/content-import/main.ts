@@ -119,6 +119,13 @@ function describedKinds(argument: string | undefined): ReadonlySet<string> {
   return new Set(kinds);
 }
 
+/** The write modes are separate runs: the one that runs would hide the others. */
+function rejectMixedModes(requested: ReadonlyArray<boolean>): void {
+  if (requested.filter(Boolean).length > 1) {
+    throw new Error('--creatures, --replaced-legacy, --apply-outcomes and --apply-descriptions are separate runs');
+  }
+}
+
 function options(): Options {
   const { values } = parseArgs({
     options: {
@@ -148,6 +155,13 @@ function options(): Options {
   if (books.length === 0) {
     throw new Error('Name at least one target book with --book');
   }
+
+  rejectMixedModes([
+    values.creatures,
+    values['replaced-legacy'],
+    values['apply-outcomes'],
+    values['apply-descriptions'] !== undefined,
+  ]);
 
   return {
     pack: PackId.parse(values.pack),

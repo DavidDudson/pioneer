@@ -73,6 +73,19 @@ describe('withCreatureBacklog', () => {
     expect(backlog).toEqual([item('action:strike'), item('creature:goblin'), item('creature:triton')]);
   });
 
+  test('replaces the item of a creature not yet committed, so a re-run does not duplicate it', () => {
+    const stale = item('creature:goblin');
+
+    const rerun: BacklogItem = {
+      type: BacklogItemType.Entry,
+      pack,
+      slug: EntrySlug.parse('creature:goblin'),
+      gaps: [],
+    };
+
+    expect(withCreatureBacklog([stale], [rerun], { pack, committed: new Set() })).toEqual([rerun]);
+  });
+
   test('leaves the backlog of a committed creature alone', () => {
     const existing = [item('creature:goblin')];
 
