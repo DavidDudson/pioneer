@@ -152,3 +152,76 @@ The stories were filed before this spike. Findings:
 | [#2075 replacing a living familiar by choice](https://github.com/DavidDudson/pioneer/issues/2075)          | Confirmed. 1 week of downtime, releases the old one.                          |
 | [#2078 healing and resurrection of a familiar](https://github.com/DavidDudson/pioneer/issues/2078)         | Confirmed. Name Familiar's Resurrection (level 4 or lower, 1 HP, 10 minutes). |
 | [#2076 daily preparations reset the familiar's uses](https://github.com/DavidDudson/pioneer/issues/2076)   | Confirmed. List in decision 8.                                                |
+
+## The familiar on the player sheet
+
+Spike [#2044 spike(sheet): where the familiar lives on the player sheet](https://github.com/DavidDudson/pioneer/issues/2044).
+The sheet has four tabs (Plan, Encounter, Exploration, Downtime) over one header, and its sections are `fr-section`s in
+the `SHEET_SECTIONS` order ([play-and-campaigns.md](play-and-campaigns.md#sheet-modes)). There is no Spells tab: spells
+are a section of Encounter.
+
+### Placement
+
+**Decision.** A **Familiar** section in two tabs, not a tab of its own and not a drawer.
+
+| Tab       | What the Familiar section holds                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Encounter | The card: status, Hit Points, conditions, defences, today's abilities with their uses, and Command (the action that gives 2 actions). |
+| Plan      | The build: the familiar's form and name, and the day's ability slots as choices (builder stories #2051 and #2055).                    |
+| Downtime  | The replace action, in Rest and preparations, once Epic 5.13 lands.                                                                   |
+
+**Reason.** Encounter is where HP and Command matter, and a fourth tab would split the character's play across five
+tabs for one creature. A drawer hides the HP of a creature the table asks about every round. The witch's spells stay in
+the Spells section, marked by what the familiar knows (#2070).
+
+### Fields and order
+
+Name, form (species), status, Hit Points, AC, saves, Perception, skills, Speeds, senses, traits, abilities of the day
+(familiar abilities, then master abilities), then items it carries. Every number reads from the derivation
+(`deriveFamiliarStatistics`) and opens its breakdown the way the character's own statistics do.
+
+### Other states
+
+| State       | What the section shows                                                                                                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No familiar | Nothing on Encounter. On Plan, an empty slot shows a prompt to choose one, only when a feat or class grants a slot.                                                                                                 |
+| Active      | The full card.                                                                                                                                                                                                      |
+| Absent      | The card with its status named "Absent", the numbers kept, and a Recall action while Recall Familiar is chosen.                                                                                                     |
+| Absorbed    | A collapsed card: name, "Absorbed" and a turn-back action. No Hit Points row, since it cannot be hurt as a creature.                                                                                                |
+| Dead        | The card with "Dead" in text, its actions off, and what happens next: a witch's "Replaced at your next daily preparations", others the downtime replace action, and Raise when Familiar's Resurrection is possible. |
+
+Status is shown in words, never by colour or dimming alone.
+
+### Master abilities on the master's sheet
+
+A master ability (Familiar Focus, Restorative Familiar) is an effect on the master, so it shows on the master's own
+sheet in the places the character's other effects show, with its source named "Familiar: Familiar Focus" (#2064). It
+reads the familiar's status: while the familiar is not active, an ability that needs one is listed as inactive with the
+reason (#2079).
+
+### Mobile, keyboard and screen reader
+
+- The section is a region labelled by its level 2 heading "Familiar". Status and Hit Points come right after it in
+  reading order, then defences, abilities and actions.
+- Statistics are a list of disclosures, one Tab stop each, as the character's statistics are.
+- On a narrow screen the card's rows stack in the same order; actions sit under the status line.
+
+### Components and strings
+
+- `pio-familiar-card` (#2060) is presentational and lives in `libs/rules/ui` with a story for every state above
+  (ADR-0028). It takes a view model of plain values and emits intents (Command, Recall, turn back, replace).
+- The feature container (#2061) derives the view model from the derivation, the companion row and play state, and
+  sits in `libs/character/feature`.
+- Labels, status names and empty-state text are `en` message keys. The familiar's name, species and its abilities'
+  names come from the character and from content.
+
+### Stories checked against the sheet
+
+| Story                                                                                                           | Verdict                                                                            |
+| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [#2060 pio-familiar-card, the familiar's stat block](https://github.com/DavidDudson/pioneer/issues/2060)        | Confirmed, with a story per state in the table above.                              |
+| [#2061 the sheet shows the character's familiar](https://github.com/DavidDudson/pioneer/issues/2061)            | Confirmed. Shows nothing when there is no familiar and no empty grant slot.        |
+| [#2062 the familiar's abilities of the day with uses](https://github.com/DavidDudson/pioneer/issues/2062)       | Confirmed. Inside the card, not a section of its own.                              |
+| [#2063 the familiar's HP, conditions and Command in play](https://github.com/DavidDudson/pioneer/issues/2063)   | Confirmed. Encounter tab only.                                                     |
+| [#2064 master abilities show on the master's own sheet](https://github.com/DavidDudson/pioneer/issues/2064)     | Confirmed.                                                                         |
+| [#2080 the sheet shows a dead, absent or absorbed familiar](https://github.com/DavidDudson/pioneer/issues/2080) | Confirmed. Its stories are the state stories of #2060; the container wiring stays. |
