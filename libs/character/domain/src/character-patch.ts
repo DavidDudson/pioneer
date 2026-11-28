@@ -1,4 +1,4 @@
-import { ChoiceValue, ContentId, RichText, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, DegreeOfSuccessSchema, RichText, SlotKey } from '@pioneer/rules/sdk';
 import { Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -7,6 +7,7 @@ import { CharacterLevel, CharacterName } from './character-fields';
 import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
 import { LanguageName } from './custom-language';
 import { LoreName } from './custom-lore';
+import { EarnDays, EarnRank, TaskLevel } from './earn-income-fields';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
 import { ItemStateSchema } from './item-state';
@@ -60,6 +61,8 @@ export const CharacterPatchField = {
   /** An etched rune moved from one item onto another. */
   TransferRune: 'transferRune',
   SetCoins: 'setCoins',
+  /** Days of a task worked for pay (Earn Income): the rolled degree and the rank pay the day's coins into the purse. */
+  EarnIncome: 'earnIncome',
   /** An uncommon or rare spell the character may prepare from now on. */
   GrantSpellAccess: 'grantSpellAccess',
   /** A spell the character no longer has access to; picks of it stay, invalid. */
@@ -144,6 +147,13 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
     rune: RuneRefSchema,
   }),
   z.object({ field: z.literal(CharacterPatchField.SetCoins), coins: CoinsSchema }),
+  z.object({
+    field: z.literal(CharacterPatchField.EarnIncome),
+    level: TaskLevel,
+    rank: EarnRank,
+    degree: DegreeOfSuccessSchema,
+    days: EarnDays,
+  }),
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
@@ -295,6 +305,7 @@ const INVENTORY_FIELDS: ReadonlySet<CharacterPatchField> = new Set<InventoryPatc
   CharacterPatchField.MoveItem,
   CharacterPatchField.RenameItem,
   CharacterPatchField.SetCoins,
+  CharacterPatchField.EarnIncome,
 ]);
 
 /** Whether `patch` changes what the inventory holds (`InventoryPatch`). */

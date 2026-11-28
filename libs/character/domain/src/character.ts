@@ -13,9 +13,10 @@ import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './charac
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
 import { LedgerReason } from './coin-ledger';
-import { reasonFor, withCoinLedger, withOpeningEntry } from './coin-ledger-edits';
+import { reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
+import { withEarnedIncome } from './earn-income';
 import { equipmentChange } from './equipment-change';
 import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
@@ -240,12 +241,11 @@ export class Character {
       }
 
       case CharacterPatchField.SetCoins: {
-        return {
-          document: {
-            ...this.document,
-            inventory: { ...this.document.inventory, coins: patch.coins },
-          },
-        };
+        return { document: withCoins(this.document, patch.coins) };
+      }
+
+      case CharacterPatchField.EarnIncome: {
+        return { document: withEarnedIncome(this.document, patch) };
       }
 
       default: {

@@ -242,3 +242,10 @@ export async function openShop(query = ''): Promise<HTMLElement> {
 
   return shop;
 }
+
+/** Opens Valeros's Earn Income section on the Downtime tab. */
+export async function openIncome(): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/downtime/income`, VALEROS, { limits: false });
+
+  return present(sheet.querySelector<HTMLElement>('pio-sheet-earn-income'));
+}

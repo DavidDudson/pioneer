@@ -18,21 +18,15 @@ import { Coin, COPPER_PER_COIN } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from '../../../data/character-store';
+import { COIN_MESSAGES } from './coin-messages';
 
 /** Why the coins changed, as the message that says so. */
 const REASON_MESSAGES: Readonly<Record<LedgerReason, string>> = {
   [LedgerReason.Opening]: 'character.sheet.inventory.ledger.reason.opening',
   [LedgerReason.Purchase]: 'character.sheet.inventory.ledger.reason.purchase',
   [LedgerReason.Adjustment]: 'character.sheet.inventory.ledger.reason.adjustment',
+  [LedgerReason.Income]: 'character.sheet.inventory.ledger.reason.income',
   [LedgerReason.Transfer]: 'character.sheet.inventory.ledger.reason.transfer',
-};
-
-/** Each coin's short name, as an amount is written. */
-const COIN_MESSAGES: Readonly<Record<Coin, string>> = {
-  [Coin.Platinum]: 'character.sheet.inventory.ledger.coin.pp',
-  [Coin.Gold]: 'character.sheet.inventory.ledger.coin.gp',
-  [Coin.Silver]: 'character.sheet.inventory.ledger.coin.sp',
-  [Coin.Copper]: 'character.sheet.inventory.ledger.coin.cp',
 };
 
 /** One coin's part of an entry: its short name and the signed amount, as text. */
