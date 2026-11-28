@@ -1,10 +1,10 @@
 import { inject, InjectionToken, makeEnvironmentProviders } from '@angular/core';
 import type { EnvironmentProviders } from '@angular/core';
 import { provideTranslocoScope, TranslocoService } from '@jsverse/transloco';
-import { LocaleSchema } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
 
 import type { LocaleMessages } from './i18n';
+import { loaderFor, withPseudoLocale } from './pseudo-locale-loader';
 
 export interface MessageScope {
   readonly scope: string;
@@ -19,7 +19,7 @@ const MESSAGE_SCOPES = new InjectionToken<ReadonlyArray<MessageScope>>('MESSAGE_
  */
 export function provideMessageScope(scope: string, messages: LocaleMessages): EnvironmentProviders {
   return makeEnvironmentProviders([
-    provideTranslocoScope({ scope, loader: messages }),
+    provideTranslocoScope({ scope, loader: withPseudoLocale(messages) }),
     { provide: MESSAGE_SCOPES, multi: true, useValue: { scope, messages } },
   ]);
 }
@@ -44,13 +44,13 @@ export function loadWithMessages<TLoaded>(load: () => Promise<TLoaded>): () => P
  * `provideMessageScope` registered may be shadowed by another route's.
  */
 export async function loadMessageScopes(i18n: TranslocoService, scopes: ReadonlyArray<MessageScope>): Promise<void> {
-  const locale = LocaleSchema.parse(i18n.getActiveLang());
+  const lang = i18n.getActiveLang();
   await Promise.all(
     scopes.map(async ({ scope, messages }) => {
-      const path = `${scope}/${locale}`;
+      const path = `${scope}/${lang}`;
 
       // Transloco keys inline loaders by `<scope>/<lang>`.
-      return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: messages[locale] } }));
+      return firstValueFrom(i18n.load(path, { inlineLoader: { [path]: loaderFor(messages, lang) } }));
     }),
   );
 }

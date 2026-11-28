@@ -9,10 +9,11 @@ import {
 import type { EnvironmentProviders } from '@angular/core';
 import { provideTransloco, TRANSLOCO_TRANSPILER, TranslocoService } from '@jsverse/transloco';
 import type { Translation, TranslocoLoader } from '@jsverse/transloco';
-import { Locale, LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { Locale, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 
 import { LazyIcuTranspiler } from './lazy-icu-transpiler';
 import { LocalePreferences } from './locale-preferences';
+import { loaderFor, PSEUDO_LOCALE, pseudoLocaleActivator } from './pseudo-locale-loader';
 import { rememberLoadedLanguages } from './remember-loaded-languages';
 
 /** How to fetch each locale's root messages. Keys are ICU MessageFormat strings. */
@@ -26,14 +27,8 @@ class MessageLoader implements TranslocoLoader {
   readonly #icu = inject(LazyIcuTranspiler);
 
   public async getTranslation(lang: string): Promise<Translation> {
-    const locale = LocaleSchema.safeParse(lang);
-
-    if (!locale.success) {
-      throw new Error(`No messages for locale "${lang}"`);
-    }
-
     // Messages are ICU strings: none may exist before the compiler that reads them.
-    const [translation] = await Promise.all([this.#messages[locale.data](), this.#icu.load()]);
+    const [translation] = await Promise.all([loaderFor(this.#messages, lang)(), this.#icu.load()]);
 
     return translation;
   }
@@ -48,7 +43,7 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
     { provide: LOCALE_MESSAGES, useValue: messages },
     provideTransloco({
       config: {
-        availableLangs: Object.values(Locale),
+        availableLangs: isDevMode() ? [...Object.values(Locale), PSEUDO_LOCALE] : Object.values(Locale),
         defaultLang: SOURCE_LOCALE,
         fallbackLang: SOURCE_LOCALE,
         reRenderOnLangChange: true,
@@ -63,7 +58,10 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
       rememberLoadedLanguages(inject(TranslocoService));
     }),
     provideAppInitializer(async () => {
-      await inject(LocalePreferences).apply();
+      const preferences = inject(LocalePreferences);
+      const activatePseudoLocale = pseudoLocaleActivator();
+      await preferences.apply();
+      await activatePseudoLocale();
     }),
   ]);
 }

@@ -1,6 +1,7 @@
 import { ApplicationInitStatus } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
+import { firstValueFrom } from 'rxjs';
 import { describe, expect, it, vi } from 'vitest';
 
 import { provideI18n } from './i18n';
@@ -54,5 +55,13 @@ describe(provideI18n, () => {
     const instance: object = i18n;
     // SAFETY: Transloco defines `isLoadedTranslation` on the service at runtime; only its typings hide it.
     expect((instance as CountsLoadedKeys).isLoadedTranslation('es')).toBe(0);
+  });
+
+  it('shows messages pseudo-localised in a development build on request', async () => {
+    const i18n = await setup();
+    await firstValueFrom(i18n.load('en-XA'));
+    i18n.setActiveLang('en-XA');
+    expect(i18n.translate('nested.label')).toContain('Ñéšţéð');
+    expect(i18n.translate('characters', { count: 2 })).toContain('2 ');
   });
 });
