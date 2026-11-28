@@ -56,6 +56,7 @@ describe('CharacterSheetPage', () => {
     expect(regionsOf(root)).toStrictEqual([
       ['Rest and preparations', true],
       ['Actions', true],
+      ['Earn Income', true],
       ['Downtime', true],
     ]);
   });
