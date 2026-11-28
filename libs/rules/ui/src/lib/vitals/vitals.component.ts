@@ -1,13 +1,11 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { Grid, Skeleton, Surface } from '@pioneer/frontier';
+import { Grid, injectTranslate, Skeleton, Surface } from '@pioneer/frontier';
 import { BaseTermKind } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Selector } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -109,8 +107,7 @@ export class VitalsView {
 
   readonly #i18n = inject(TranslocoService);
   /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** Armor Class and the rest as tiles, the saves in one card where the first of them stands. */
   protected readonly blocks = computed((): ReadonlyArray<VitalBlock> | undefined => {

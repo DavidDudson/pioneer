@@ -11,7 +11,17 @@ import {
   incomeForDays,
   TaskLevel,
 } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, Button, Grid, LocaleFormat, NumberField, Stack, Text } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncForm,
+  Button,
+  Grid,
+  injectTranslate,
+  LocaleFormat,
+  NumberField,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { DegreeOfSuccess } from '@pioneer/rules/sdk';
@@ -23,7 +33,6 @@ import { COIN_MESSAGES } from '../inventory/coin-ledger/coin-messages';
 import { describeSaveError } from '../sheet-field';
 import { SheetRolls } from '../sheet-rolls';
 import { SheetState } from '../sheet-state';
-import { injectTranslationChanges } from '../sheet-translation-changes';
 import { EarnIncomeDraftSchema, EarnIncomeSubmissionSchema, EMPTY_EARN_INCOME } from './sheet-earn-income-form';
 import type { EarnIncomeModel } from './sheet-earn-income-form';
 
@@ -59,7 +68,7 @@ export class SheetEarnIncome {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Changes when the language changes or the messages load, so the words built below are read again. */
-  readonly #messages = injectTranslationChanges();
+  readonly #messages = injectTranslate();
   protected readonly model = signal<EarnIncomeModel>(EMPTY_EARN_INCOME);
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, EarnIncomeDraftSchema);

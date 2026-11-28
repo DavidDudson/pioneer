@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { InlineField, Stack } from '@pioneer/frontier';
+import { injectTranslate, InlineField, Stack } from '@pioneer/frontier';
 import type { InlineEdit } from '@pioneer/frontier';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { DeityPicker, DeityView } from '@pioneer/rules/ui';
 import type { DeityLine, DeityPickerRow } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { sheetDeityLine, sheetDeityRows } from '../sheet-deity';
@@ -27,9 +25,8 @@ export class SheetDeitySection {
   readonly #store = inject(CharacterStore);
   readonly #sheet = inject(SheetState);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the labels below are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The deity slot as an inline pick. */
   public readonly field = input.required<InlineEdit<string | undefined>>();

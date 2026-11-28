@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
+import { injectTranslate, LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine, RuleId } from '@pioneer/rules/engine';
 import { formatSummary } from '@pioneer/rules/predicate';
@@ -15,7 +14,6 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ContentId, DamageAdjustmentSubject, Immunity } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { labelName, summaryFormat } from '../breakdown/line-words';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -91,8 +89,7 @@ export class DefencesView {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope (`rules`, `predicate`, `engine`) finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly lists = computed((): ReadonlyArray<ShownList> | undefined => {
     this.#messages();

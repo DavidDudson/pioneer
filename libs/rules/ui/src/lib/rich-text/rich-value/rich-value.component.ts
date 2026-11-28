@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { Button, ButtonVariant, LocaleFormat, Size, Text } from '@pioneer/frontier';
+import { Button, ButtonVariant, injectTranslate, LocaleFormat, Size, Text } from '@pioneer/frontier';
 import { InlineKind } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { INLINE_ROLLER } from '../inline-roller';
 import { RICH_TEXT_LINKS } from '../rich-text-links';
@@ -35,9 +33,8 @@ export class RichValue {
   readonly #format = inject(LocaleFormat);
   readonly #roller = inject(INLINE_ROLLER, { optional: true });
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly outline = ButtonVariant.OutlineSubtle;
   protected readonly small = Size.Sm;

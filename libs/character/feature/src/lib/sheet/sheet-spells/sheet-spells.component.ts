@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { heldCount } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Grid, injectTranslate, Skeleton, Stack } from '@pioneer/frontier';
 import { ENTRY_PREVIEWS, SpellFilter, SpellRowList, TRADITION_MESSAGES } from '@pioneer/rules/ui';
 import type { EntryPreviews, FocusLine, InnateLine } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
@@ -20,9 +18,9 @@ import { sheetSectionPreviews } from '../sheet-section-previews';
 import { injectSpellFilters } from '../sheet-spell-filters';
 import { SpellItemCasting } from '../sheet-spell-item-casting';
 import type { SpellOrigins } from '../sheet-spell-list';
-// oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
 import { preparedFieldsOf } from '../sheet-spell-picks';
 import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
+// oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 
@@ -63,9 +61,8 @@ export class SheetSpells {
   readonly #spender = inject(SheetSpender);
   readonly #i18n = inject(TranslocoService);
   protected readonly items = inject(SpellItemCasting);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the pickers' rows are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The registry with the spells; loads once the character casts. */
   protected readonly spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.casts());

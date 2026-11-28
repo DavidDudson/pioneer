@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { EmptyState, injectTranslate, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { PackageSearch } from 'lucide';
-import { filter, merge } from 'rxjs';
 
 import { coinsText, priceCoins, RARITY_BADGES, ShopMessage } from './shop-offer';
 import type { RarityBadge, ShopOffer } from './shop-offer';
@@ -41,9 +39,8 @@ export class ShopOffersView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Re-read when the messages load or the language changes, so a row is never a raw key. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly Message = ShopMessage;
   protected readonly emptyIcon = PackageSearch;

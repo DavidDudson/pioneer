@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { BadgeTone } from '@pioneer/frontier';
+import { BadgeTone, injectTranslate } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 import { ContentId, Rarity } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { RARITY_TONES } from '../picker-cells/chip-list/chip-list.component';
@@ -137,9 +135,8 @@ export class FeatPicker {
   protected readonly sorting = signal<PickerSort | undefined>(undefined);
 
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the headers and labels are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly columns = computed(() => {
     this.#messages();

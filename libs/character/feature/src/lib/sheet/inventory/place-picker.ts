@@ -1,14 +1,12 @@
 import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { ContainerEffect, containerLoad, InventoryItemId } from '@pioneer/character/domain';
 import type { Inventory, ItemContent } from '@pioneer/character/domain';
-import { LocaleFormat } from '@pioneer/frontier';
+import { injectTranslate, LocaleFormat } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { PickerRows, RulesTableSchema } from '@pioneer/rules/ui';
 import type { Chip, RowOrder } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { containerOptions, LOOSE } from './sheet-inventory';
@@ -122,8 +120,7 @@ export function injectPlacePicker(
   const i18n = inject(TranslocoService);
   const store = inject(CharacterStore);
   const format = inject(LocaleFormat);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const messages = injectTranslate();
 
   const all = computed((): ReadonlyArray<PlaceRow> => {
     messages();

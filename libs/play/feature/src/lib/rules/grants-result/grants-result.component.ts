@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, Heading, LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
+import { EmptyState, Heading, injectTranslate, LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import type { OptionRow } from '../grant-choices';
 import { GrantList } from '../grant-list/grant-list.component';
@@ -59,8 +57,7 @@ export class GrantsResult {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope (`play`, `predicate`, `grants`) finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly shown = computed((): ShownGrants => {
     this.#messages();

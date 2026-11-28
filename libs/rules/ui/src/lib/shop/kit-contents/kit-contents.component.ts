@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { List, ListItem, LocaleFormat, Text } from '@pioneer/frontier';
-import { filter, merge } from 'rxjs';
+import { injectTranslate, List, ListItem, LocaleFormat, Text } from '@pioneer/frontier';
 
 import { ContentPreview } from '../../entry-preview/content-preview.component';
 import { ShopMessage } from '../shop-offer';
@@ -23,9 +21,8 @@ export class KitContents {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Re-read when the messages load or the language changes, so a line is never a raw key. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected text({ name, quantity }: KitLine): string {
     this.#messages();

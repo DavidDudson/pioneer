@@ -24,6 +24,7 @@ import {
 import type { GenerationThemeChoice, OriginChoice } from '@pioneer/character/feature';
 import {
   Drawer,
+  injectTranslate,
   Link,
   Page,
   PageBody,
@@ -41,7 +42,7 @@ import type { SelectOption } from '@pioneer/frontier';
 import { ClassRole } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
-import { filter, map, merge } from 'rxjs';
+import { map } from 'rxjs';
 
 import { RollTableInput } from '../../roll-table/roll-table-input.component';
 import { RollTable } from '../../roll-table/roll-table.component';
@@ -103,9 +104,8 @@ export class GenerateCharacterPage {
   readonly #weaponBases = inject(WeaponBaseOptions);
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the select labels are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
   readonly #stepParam = toSignal(this.#route.queryParamMap.pipe(map((params) => Number(params.get(STEP_PARAM)))), {
     initialValue: FIRST_STEP,
   });

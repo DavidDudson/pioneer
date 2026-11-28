@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Page, PageBody, PageHeader, SegmentedField, Stack, Surface } from '@pioneer/frontier';
+import { injectTranslate, Page, PageBody, PageHeader, SegmentedField, Stack, Surface } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
@@ -9,7 +8,6 @@ import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
 import { BodyFont, DistanceUnit, Locale, MonoFont, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import { LocalePreferences } from '@pioneer/shared/web';
-import { filter, merge } from 'rxjs';
 
 import { bodyFontColumns, bodyFontLabel, bodyFontValue } from './font-picker-table';
 import type { BodyFontRow } from './font-picker-table';
@@ -66,9 +64,8 @@ export class SettingsPage {
   protected readonly shown = inject(LocalePreferences);
   readonly #account = inject(AccountPreferences);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or the `identity` message scope finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** Every locale; the list is short, so the pickers search and sort these in the page. */
   readonly #locales = computed((): ReadonlyArray<LocaleRow> => {

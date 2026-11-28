@@ -1,10 +1,9 @@
 import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import type { RunedContent } from '@pioneer/character/domain';
+import { injectTranslate } from '@pioneer/frontier';
 import { injectRunedName } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { lineRunes } from './sheet-inventory';
@@ -18,8 +17,7 @@ export function injectItemNames(content: Signal<RunedContent | undefined>): Sign
   const store = inject(CharacterStore);
   const i18n = inject(TranslocoService);
   const runedName = injectRunedName();
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const messages = injectTranslate();
 
   return computed(() => {
     messages();

@@ -1,9 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, LocaleFormat, Meter, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  EmptyState,
+  injectTranslate,
+  List,
+  ListItem,
+  LocaleFormat,
+  Meter,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { LineStatusKind } from '@pioneer/rules/engine';
-import { filter, merge } from 'rxjs';
 
 import { LINE_STATUS_MESSAGES } from '../../breakdown/breakdown-messages';
 import { lineValue } from '../../breakdown/line-words';
@@ -59,8 +67,7 @@ export class InvestmentsView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly count = computed((): string | undefined => {
     this.#messages();

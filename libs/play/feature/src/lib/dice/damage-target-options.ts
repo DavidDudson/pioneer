@@ -1,9 +1,8 @@
 import { computed, inject, Injectable } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
+import { injectTranslate } from '@pioneer/frontier';
 import { DAMAGE_TYPE_KEYS } from '@pioneer/play/ui';
 import { DamageContext, DamageGroup, DamageType } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { categoryOf, categoryOfGroup, damageTargetColumns, TargetCategory, typesOf } from './damage-target-table';
 import type { DamageTargetRow } from './damage-target-table';
@@ -22,9 +21,8 @@ const CATEGORY_KEYS: Readonly<Record<TargetCategory, string>> = {
 @Injectable({ providedIn: 'root' })
 export class DamageTargetOptions {
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or the `play` scope finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The columns of both pickers. */
   public readonly columns = computed(() => {

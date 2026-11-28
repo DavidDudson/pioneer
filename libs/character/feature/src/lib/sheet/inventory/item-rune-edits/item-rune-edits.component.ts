@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
@@ -11,12 +10,20 @@ import {
   RuneEtchingSchema,
 } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemEntry, RunedContent, RuneRef } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncForm,
+  Grid,
+  injectTranslate,
+  InlineField,
+  LocaleFormat,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { Picker, PickerField } from '@pioneer/frontier/data';
 import { ContentId, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
 import { PickerRows, runeChoiceLabel } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
@@ -111,8 +118,7 @@ export class ItemRuneEdits {
   readonly #store = inject(CharacterStore);
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),

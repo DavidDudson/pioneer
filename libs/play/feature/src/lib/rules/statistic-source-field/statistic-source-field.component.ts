@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Field, FieldError, FieldHint, Label, Segmented } from '@pioneer/frontier';
+import { Field, FieldError, FieldHint, injectTranslate, Label, Segmented } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { filter, merge } from 'rxjs';
 
 import { STATISTIC_SOURCE_KEYS, StatisticSource } from '../statistic-sources';
 
@@ -21,9 +19,8 @@ export class StatisticSourceField {
   public readonly chosen = output<StatisticSource>();
 
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
   protected readonly sources = computed((): ReadonlyArray<SelectOption<StatisticSource>> => {
     this.#messages();
 

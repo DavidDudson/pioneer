@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, untracked } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
+import { injectTranslate } from '@pioneer/frontier';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { LevelTimeline, TimelinePickKind } from '@pioneer/rules/ui';
 import type { AttributePickerRow, LevelTimelineRow, SkillPickerRow, TimelinePick } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { plannedFeatFieldsOf } from '../sheet-feat-picks';
@@ -40,9 +39,8 @@ export class SheetLevelPlan {
 
   readonly #state = inject(SheetState);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the pickers' descriptions are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The registry with the feats, shared with the feats section. */
   readonly #feats = injectContentRegistry(FEAT_CONTENT_KINDS);

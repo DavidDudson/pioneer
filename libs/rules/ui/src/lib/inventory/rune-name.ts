@@ -1,9 +1,8 @@
 import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
+import { injectTranslate } from '@pioneer/frontier';
 import { DamageType, FundamentalRune } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 
@@ -101,8 +100,7 @@ export type RunedNamer = (name: string, runes: LineRunes | undefined) => string;
  */
 export function injectRunedName(): Signal<RunedNamer> {
   const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const messages = injectTranslate();
 
   return computed((): RunedNamer => {
     messages();

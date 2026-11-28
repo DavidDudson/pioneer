@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { injectTranslate, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { BaseTermKind, LineStatusKind, OverrideStatusKind, SuppressionReason, TermSign } from '@pioneer/rules/engine';
 import type {
   BaseTerm,
@@ -17,7 +16,6 @@ import type { PredicateSummary } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentId, StatisticKind } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -85,8 +83,7 @@ export class BreakdownView {
   readonly #format = inject(LocaleFormat);
   readonly #statisticName = inject(STATISTIC_NAMES);
   /** Ticks when the locale changes or a message scope (`rules`, `predicate`, `engine`) finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly shown = computed((): ShownBreakdown => {
     this.#messages();

@@ -1,11 +1,9 @@
-import { computed, inject } from '@angular/core';
+import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
 import type { BrowseRow } from '@pioneer/content/ui';
+import { injectTranslate } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { browseColumns } from './browse-columns';
 import type { BrowseKind } from './browse-kinds';
@@ -15,10 +13,7 @@ import type { BrowseKind } from './browse-kinds';
  * `computed` that translates, so a header or a kind is never a raw key.
  */
 export function injectMessagesChanged(): Signal<unknown> {
-  const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-
-  return toSignal(merge(i18n.langChanges$, loaded));
+  return injectTranslate();
 }
 
 /** The list's table columns in the UI language; the kind is hidden at first when the list holds one kind. */
