@@ -44,12 +44,12 @@ async function settle(): Promise<void> {
 }
 
 /** The toolbar's Filters and Columns buttons. */
-function buttons(root: HTMLElement): HTMLButtonElement[] {
+function buttons(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')];
 }
 
 /** The classes of the box that holds `text`: its host carries the visibility classes. */
-function classesOf(root: HTMLElement, text: string): string[] {
+function classesOf(root: HTMLElement, text: string): Array<string> {
   return [...root.querySelectorAll('fr-box')]
     .filter((box) => box.textContent.trim() === text)
     .flatMap((box) => box.className.split(' '));

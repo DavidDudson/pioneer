@@ -23,8 +23,8 @@ const ToolbarMessage = {
 })
 export class BrowserToolbar {
   public readonly state = model.required<ContentBrowserState>();
-  public readonly kindOptions = input.required<readonly SelectOption<ContentKind>[]>();
-  public readonly fields = input.required<readonly FilterField[]>();
+  public readonly kindOptions = input.required<ReadonlyArray<SelectOption<ContentKind>>>();
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
   public readonly facetState = input.required<FilterState>();
   public readonly facets = input.required<boolean>();
   /** The loaded list, or `undefined` while there is none to filter or count. */
