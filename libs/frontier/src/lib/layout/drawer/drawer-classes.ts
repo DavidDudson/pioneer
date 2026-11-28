@@ -4,11 +4,11 @@ import { elevationVariants } from '../../tokens';
 import type { DrawerWidth } from './drawer-width';
 import { WIDTHS } from './drawer-width';
 
-const WIDTH_CLASSES: Readonly<Record<DrawerWidth, string>> = {
+const WIDTH_CLASSES = {
   narrow: '@lg:w-drawer-narrow',
   default: '@lg:w-drawer-default',
   wide: '@lg:w-drawer-wide',
-};
+} as const satisfies Record<DrawerWidth, string>;
 
 const WIDTH_KEYS = WIDTHS;
 

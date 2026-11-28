@@ -1,4 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cx } from 'class-variance-authority';
 
 /** Spacing token names. Components take these, never raw lengths. */
 export const Space = {
@@ -188,7 +189,7 @@ export const motionVariants = {
 } as const satisfies Record<Motion, string>;
 
 /** Put on a panel as it leaves (`animate.leave`): it fades out on the exit pair (`fade-out` in frontier.css). */
-export const leaveMotion = 'fade-out';
+export const leaveMotion = cx('fade-out');
 
 export const toneVariants = {
   default: 'text-fg-default',
