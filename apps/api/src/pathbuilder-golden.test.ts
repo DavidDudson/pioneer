@@ -22,7 +22,7 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 const LOAD_TIMEOUT_MS = 60_000;
 
 /** Every total and rank the engine derives for Mordred: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
-const COMPARED = 62;
+const COMPARED = 66;
 
 /** Briar Rose's too, and the DC of her Dream Magic, which her Free Archetype feat now places. */
 const COMPARED_BRIAR = 63;
@@ -123,7 +123,6 @@ describe('Pathbuilder exports over the official packs', () => {
         'skill:deception: Pathbuilder 20, Pioneer 19',
         'skill:diplomacy: Pathbuilder 27, Pioneer 21',
         'skill:intimidation: Pathbuilder 22, Pioneer 19',
-        'skill:nature: Pathbuilder 17, Pioneer 3',
         'skill:occultism: Pathbuilder 17, Pioneer 15',
         'skill:performance: Pathbuilder 20, Pioneer 5',
         'skill:stealth: Pathbuilder 0, Pioneer -1',
@@ -134,7 +133,6 @@ describe('Pathbuilder exports over the official packs', () => {
         'class-dc: Pathbuilder trained, Pioneer expert',
         'skill:diplomacy: Pathbuilder master, Pioneer expert',
         'skill:intimidation: Pathbuilder expert, Pioneer trained',
-        'skill:nature: Pathbuilder trained, Pioneer untrained',
         'skill:occultism: Pathbuilder expert, Pioneer trained',
         'skill:performance: Pathbuilder trained, Pioneer untrained',
         'skill:survival: Pathbuilder trained, Pioneer untrained',
@@ -193,14 +191,13 @@ const spellPickCount = (choices: Readonly<Record<SlotKey, ChoiceValue>>): number
  */
 describe('Pathbuilder spells over the official packs', () => {
   test(
-    "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters whose feats are not placed have no entry",
+    "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters whose feats are not placed have no entry; Vigilant Goloma's cantrip is granted",
     async () => {
       const { character, report } = await imported(briarRoseExport);
       expect(spellPickCount(character.document.build.choices)).toBe(22);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
-        'Vigilant Goloma no-entry: 1',
         'divine wis focus no-entry: 3',
         'occult wis focus no-entry: 3',
       ]);
@@ -209,16 +206,15 @@ describe('Pathbuilder spells over the official packs', () => {
   );
 
   test(
-    "Mordred's Oracle fills its repertoire; the archetype caster has no entry; Lay on Hands and Read Fate are not granted",
+    "Mordred's Oracle fills its repertoire; the archetype caster's spells take its slots; Lay on Hands and Read Fate are not granted",
     async () => {
       const { character, report } = await imported(mordredExport);
-      expect(spellPickCount(character.document.build.choices)).toBe(23);
+      expect(spellPickCount(character.document.build.choices)).toBe(27);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         // Pathbuilder lists one more Oracle spell than the repertoire has slots at each rank up to 4.
         // The extra ones are not divine: Sure Strike, Weapon Storm and Telekinetic Maneuver.
         // The uncommon and rare divine ones are offered, since the import grants access to the spells it lists.
         'Oracle no-slot: 6',
-        'Archetype Sorcerer no-entry: 4',
         // Read Fate, and Lay on Hands too.
         // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot.
         // That slot took the Blessed One Dedication, which granted Lay on Hands, before.

@@ -143,13 +143,28 @@ function divineAccessDeity(domains: ReadonlyArray<string>): Fields {
   };
 }
 
+/**
+ * What a sorcerer dedication does not take from the bloodline it grants: the gifts. Basic Sorcerer Spellcasting lets its
+ * player add a bloodline spell to the repertoire, or any other, so a gift never fills a slot of its own.
+ */
+const NOT_FROM_DEDICATION = { not: 'feat:sorcerer-dedication' };
+
+/** The conditions a bloodline's gifts hold under: the dedication's player picks its own spells. */
+function giftConditions(entry: string, predicate: ReadonlyArray<unknown> = []): ReadonlyArray<unknown> | undefined {
+  if (entry === SORCERER) {
+    return [...predicate, NOT_FROM_DEDICATION];
+  }
+
+  return predicate.length === 0 ? undefined : predicate;
+}
+
 /** The rule elements one bloodline or mystery gains, its gifts named by id. */
 function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: Resolve): ReadonlyArray<object> {
   const fixed = entry === SORCERER && tradition !== undefined ? [sorcererEntry(tradition)] : [];
   const picked = entry === SORCERER && tradition === undefined && pick !== undefined ? pickedEntries(pick) : [];
 
   const more = (pick?.options ?? []).flatMap((option) =>
-    repertoire(entry, resolve(option.gifts), [`${pick?.flag}:${option.value}`]),
+    repertoire(entry, resolve(option.gifts), giftConditions(entry, [`${pick?.flag}:${option.value}`])),
   );
 
   return [
@@ -157,7 +172,7 @@ function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: R
     ...(pick === undefined ? [] : [choiceSet(pick)]),
     ...picked,
     ...(pick === undefined ? [] : pickedSkills(pick)),
-    ...repertoire(entry, resolve(gifts)),
+    ...repertoire(entry, resolve(gifts), giftConditions(entry)),
     ...more,
     ...(domains === undefined ? [] : [divineAccessDeity(domains)]),
   ];

@@ -16,6 +16,9 @@ import {
 
 const { ChoiceSet, RepertoireSpells, SpellcastingEntry, SpellSlots } = RuleElementKey;
 
+/** What a sorcerer's gifts hold under besides their pick: the dedication's player picks its own spells. */
+const NOT_FROM_DEDICATION = { not: 'feat:sorcerer-dedication' };
+
 /** A feature, its entry slug, and the spells its gifts resolve against, by name. */
 interface Imported {
   readonly slug: string;
@@ -84,7 +87,7 @@ describe('translateKindData: repertoire spells', () => {
       { key: SpellcastingEntry, slug: 'sorcerer', tradition: 'divine', attribute: 'cha', preparation: 'spontaneous' },
     ]);
     const [gifts] = keyed(RepertoireSpells, DEMONIC);
-    expect(gifts).toMatchObject({ entry: 'sorcerer' });
+    expect(gifts).toMatchObject({ entry: 'sorcerer', predicate: [NOT_FROM_DEDICATION] });
     expect(gifts?.['spells']).toEqual([
       { rank: 'cantrip', spell: spell('caustic-blast') },
       { rank: 1, spell: spell('fear') },
@@ -103,7 +106,10 @@ describe('translateKindData: repertoire spells', () => {
     const [choice] = keyed(ChoiceSet, DRACONIC);
     const entries = ownEntries(DRACONIC);
     const gifts = keyed(RepertoireSpells, DRACONIC);
-    const ofDivine = gifts.find(({ predicate }) => String(predicate) === 'draconic-exemplar:divine');
+
+    const ofDivine = gifts.find(
+      ({ predicate }) => Array.isArray(predicate) && predicate[0] === 'draconic-exemplar:divine',
+    );
 
     expect(choice).toMatchObject({ flag: 'draconic-exemplar', rollOption: 'draconic-exemplar' });
     expect(entries.map(({ tradition, predicate }) => [tradition, predicate])).toEqual([
@@ -112,7 +118,9 @@ describe('translateKindData: repertoire spells', () => {
       ['occult', ['draconic-exemplar:occult']],
       ['primal', ['draconic-exemplar:primal']],
     ]);
-    expect(gifts.find(({ predicate }) => predicate === undefined)?.['spells']).toContainEqual({
+    expect(
+      gifts.find(({ predicate }) => JSON.stringify(predicate) === JSON.stringify([NOT_FROM_DEDICATION]))?.['spells'],
+    ).toContainEqual({
       rank: 3,
       spell: spell('haste'),
     });
@@ -135,7 +143,10 @@ describe('translateKindData: repertoire spells', () => {
     const [entry] = ownEntries(ELEMENTAL);
     const [choice] = keyed(ChoiceSet, ELEMENTAL);
     const gifts = keyed(RepertoireSpells, ELEMENTAL);
-    const ofFire = gifts.find(({ predicate }) => String(predicate) === 'elemental-influence:fire');
+
+    const ofFire = gifts.find(
+      ({ predicate }) => Array.isArray(predicate) && predicate[0] === 'elemental-influence:fire',
+    );
 
     expect(entry).toMatchObject({ slug: 'sorcerer', tradition: 'primal', preparation: 'spontaneous' });
     expect(choice).toMatchObject({ flag: 'elemental-influence' });
