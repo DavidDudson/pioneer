@@ -416,6 +416,36 @@
     "condition": {
       "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
     },
+    "familiar": {
+      "hitPoints": "Hit Points",
+      "temp": "{count} temporary Hit Points",
+      "armorClass": "AC",
+      "fortitude": "Fortitude",
+      "reflex": "Reflex",
+      "will": "Will",
+      "perception": "Perception",
+      "senses": "Senses",
+      "absorbedNote": "Carried as a mark on its master. It can only turn back.",
+      "status": {
+        "active": "Active",
+        "absent": "Absent",
+        "absorbed": "Absorbed",
+        "dead": "Dead"
+      },
+      "movement": {
+        "land": "Speed",
+        "burrow": "Burrow",
+        "climb": "Climb",
+        "fly": "Fly",
+        "swim": "Swim"
+      },
+      "sense": {
+        "lowLightVision": "Low-light vision",
+        "darkvision": "Darkvision",
+        "echolocation": "Echolocation",
+        "scent": "Scent"
+      }
+    },
     "conditionBadge": {
       "other": "Condition",
       "bloodied": "Bloodied",

@@ -1,0 +1,48 @@
+<fr-stack gap="sm">
+  <fr-meter
+    [label]="Message.HitPoints | transloco"
+    [value]="familiar().hitPoints.current"
+    [max]="familiar().hitPoints.max"
+  />
+  @if (familiar().hitPoints.temp > 0) {
+    <fr-text tone="muted">{{ Message.Temp | transloco: { count: familiar().hitPoints.temp } }}</fr-text>
+  }
+
+  <fr-description-list>
+    <fr-description-item [term]="Message.ArmorClass | transloco">
+      <fr-text numeric>{{ familiar().armorClass }}</fr-text>
+    </fr-description-item>
+    <fr-description-item [term]="Message.Fortitude | transloco">
+      <fr-text numeric>{{ signed(familiar().saves.fortitude) }}</fr-text>
+    </fr-description-item>
+    <fr-description-item [term]="Message.Reflex | transloco">
+      <fr-text numeric>{{ signed(familiar().saves.reflex) }}</fr-text>
+    </fr-description-item>
+    <fr-description-item [term]="Message.Will | transloco">
+      <fr-text numeric>{{ signed(familiar().saves.will) }}</fr-text>
+    </fr-description-item>
+    <fr-description-item [term]="Message.Perception | transloco">
+      <fr-text numeric>{{ signed(familiar().perception) }}</fr-text>
+    </fr-description-item>
+    @for (skill of familiar().skills; track skill.name) {
+      <fr-description-item [term]="skill.name">
+        <fr-text numeric>{{ signed(skill.modifier) }}</fr-text>
+      </fr-description-item>
+    }
+  </fr-description-list>
+
+  <fr-description-list>
+    @for (speed of familiar().speeds; track speed.movement) {
+      <fr-description-item [term]="movementMessages[speed.movement] | transloco">
+        <fr-text numeric><fr-distance [feet]="speed.feet" /></fr-text>
+      </fr-description-item>
+    }
+    <fr-description-item [term]="Message.Senses | transloco">
+      <fr-stack direction="horizontal" gap="xs" wrap>
+        @for (sense of familiar().senses; track sense) {
+          <fr-text>{{ senseMessages[sense] | transloco }}</fr-text>
+        }
+      </fr-stack>
+    </fr-description-item>
+  </fr-description-list>
+</fr-stack>

@@ -1,0 +1,20 @@
+<fr-stack gap="sm">
+  <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+    <fr-heading [level]="headingLevel()">{{ familiar().name }}</fr-heading>
+    <fr-badge [tone]="statusTones[familiar().status]">{{ statusMessages[familiar().status] | transloco }}</fr-badge>
+  </fr-stack>
+  <fr-text tone="muted">{{ familiar().species }}</fr-text>
+
+  @if (showsNumbers()) {
+    <pio-familiar-stats [familiar]="familiar()" />
+    @if (familiar().traits.length > 0) {
+      <fr-stack direction="horizontal" gap="xs" wrap>
+        @for (trait of familiar().traits; track trait) {
+          <pio-trait-chip [trait]="trait" />
+        }
+      </fr-stack>
+    }
+  } @else {
+    <fr-text tone="muted">{{ Message.Absorbed | transloco }}</fr-text>
+  }
+</fr-stack>
