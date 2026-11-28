@@ -6,7 +6,7 @@ import * as z from 'zod';
 const RAMP_EXTENSION = 'pioneer.ramp';
 
 const OklchComponents = z.tuple([z.number(), z.number(), z.number()]);
-const RampExtension = z.object({ chroma: z.number() });
+const RampExtension = z.object({ chromaShare: z.number() });
 
 const RampStep = z.object({
   id: z.string(),
@@ -23,20 +23,16 @@ type ScaleStep = z.infer<typeof ScaleStep>;
 /** `ramp.neutral.50` becomes `--fr-ramp-neutral-50`, the name the semantic tier already uses. */
 const toVariableName = (token: { readonly id: string }): string => `--fr-${token.id.replaceAll('.', '-')}`;
 
-/**
- * Colour ramps keep no colour of their own in CSS: each step reads its role's hue and peak chroma, which a theme
- * sets (`--fr-ramp-<role>-hue`, `--fr-ramp-<role>-chroma`). The DTCG value is the default theme's resolved colour,
- * for tools that read the tokens; the CSS replaces it with the theme-driven expression.
- */
+/** The DTCG colour is the default theme's; the CSS keeps hue and chroma theme-driven. */
 const rampValue = (step: RampStep): string => {
   const [lightness] = step.$value.components;
-  const { chroma } = step.$extensions[RAMP_EXTENSION];
+  const { chromaShare } = step.$extensions[RAMP_EXTENSION];
   const [, role] = step.id.split('.');
 
-  return `oklch(${lightness} calc(var(--fr-ramp-${role}-chroma) * ${chroma}) var(--fr-ramp-${role}-hue))`;
+  return `oklch(${lightness} calc(var(--fr-ramp-${role}-chroma) * ${chromaShare}) var(--fr-ramp-${role}-hue))`;
 };
 
-/** A zero length is written `0`, as the hand-written scale had it. */
+/** A zero length is unitless, so write it as `0`. */
 const scaleValue = (step: ScaleStep): string => {
   const { value, unit } = step.$value;
 

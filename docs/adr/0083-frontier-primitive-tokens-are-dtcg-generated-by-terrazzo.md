@@ -23,7 +23,7 @@ and is read by Terrazzo, Style Dictionary, Tokens Studio and Figma exports. Opti
 1. **`libs/frontier/src/tokens/primitives.tokens.json` is the source of tier 1**, in DTCG 2025.10: `ramp.<role>.<step>`
    colours and `scale.space`, `scale.font` and `scale.duration` steps.
 2. **A ramp token holds the default theme's resolved colour**, so tools that read the file see real colours. Its
-   `pioneer.ramp` extension holds the step's chroma as a fraction of the role's peak. The generated CSS does not
+   `pioneer.ramp` extension holds the step's chroma share, a fraction of the role's peak. The generated CSS does not
    use the resolved colour: it writes `oklch(L calc(var(--fr-ramp-<role>-chroma) * k) var(--fr-ramp-<role>-hue))`,
    because a theme sets each role's hue and peak chroma, so a theme is two numbers per role (themes stay in
    `src/styles/themes/`).

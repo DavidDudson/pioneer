@@ -10,7 +10,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -21,7 +21,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -32,7 +32,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -43,7 +43,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -54,7 +54,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -65,7 +65,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -76,7 +76,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -87,7 +87,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -98,7 +98,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -109,7 +109,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -120,7 +120,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
@@ -133,7 +133,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -144,7 +144,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -155,7 +155,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -166,7 +166,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -177,7 +177,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -188,7 +188,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -199,7 +199,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -210,7 +210,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -221,7 +221,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -232,7 +232,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -243,7 +243,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
@@ -256,7 +256,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -267,7 +267,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -278,7 +278,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -289,7 +289,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -300,7 +300,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -311,7 +311,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -322,7 +322,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -333,7 +333,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -344,7 +344,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -355,7 +355,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -366,7 +366,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
@@ -379,7 +379,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -390,7 +390,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -401,7 +401,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -412,7 +412,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -423,7 +423,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -434,7 +434,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -445,7 +445,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -456,7 +456,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -467,7 +467,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -478,7 +478,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -489,7 +489,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
@@ -502,7 +502,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -513,7 +513,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -524,7 +524,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -535,7 +535,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -546,7 +546,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -557,7 +557,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -568,7 +568,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -579,7 +579,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -590,7 +590,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -601,7 +601,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -612,7 +612,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
@@ -625,7 +625,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.08
+            "chromaShare": 0.08
           }
         }
       },
@@ -636,7 +636,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.18
+            "chromaShare": 0.18
           }
         }
       },
@@ -647,7 +647,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.36
+            "chromaShare": 0.36
           }
         }
       },
@@ -658,7 +658,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.58
+            "chromaShare": 0.58
           }
         }
       },
@@ -669,7 +669,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.8
+            "chromaShare": 0.8
           }
         }
       },
@@ -680,7 +680,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -691,7 +691,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 1
+            "chromaShare": 1
           }
         }
       },
@@ -702,7 +702,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.9
+            "chromaShare": 0.9
           }
         }
       },
@@ -713,7 +713,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.74
+            "chromaShare": 0.74
           }
         }
       },
@@ -724,7 +724,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.6
+            "chromaShare": 0.6
           }
         }
       },
@@ -735,7 +735,7 @@
         },
         "$extensions": {
           "pioneer.ramp": {
-            "chroma": 0.44
+            "chromaShare": 0.44
           }
         }
       }
