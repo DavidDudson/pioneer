@@ -1,17 +1,12 @@
 import { computed, inject, Injectable } from '@angular/core';
-import { CharacterCompanionContract } from '@pioneer/character/domain';
-import type {
-  Character,
-  CharacterCompanions,
-  CompanionArchiveReason,
-  CompanionId,
-  CompanionName,
-} from '@pioneer/character/domain';
+import { CharacterCompanionContract, CompanionArchiveReason } from '@pioneer/character/domain';
+import type { Character, CharacterCompanions, CompanionId, CompanionName } from '@pioneer/character/domain';
 import { CompanionKind } from '@pioneer/rules/sdk';
 import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import type { Familiar } from '../sheet/sheet-familiar';
 import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
 
@@ -71,6 +66,34 @@ export class CharacterCompanionStore {
     const companions = await this.#api.call(CharacterCompanionContract.archiveCompanion, {
       params: { id: open.id, companionId },
       body: { reason, expectedVersion: open.version },
+    });
+
+    await this.#written(companions);
+  }
+
+  /**
+   * The patron's replacement for a dead familiar (Witch): the dead one is archived as replaced and a new one takes its
+   * place with the same name, form and granting slot. Its known spells are the witch's and carry over without copying.
+   */
+  public async replaceFamiliar(dead: Familiar): Promise<void> {
+    const archivedFrom = this.#open().id;
+
+    await this.archive(dead.id, CompanionArchiveReason.Replaced);
+    const open = this.#open();
+
+    if (open.id !== archivedFrom) {
+      throw new Error('The open character changed while its familiar was replaced');
+    }
+
+    const companions = await this.#api.call(CharacterCompanionContract.addCompanion, {
+      params: { id: open.id },
+      body: {
+        kind: CompanionKind.Familiar,
+        name: dead.name,
+        form: dead.form,
+        grantedBy: dead.grantedBy,
+        expectedVersion: open.version,
+      },
     });
 
     await this.#written(companions);

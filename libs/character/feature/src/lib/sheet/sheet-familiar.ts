@@ -1,4 +1,10 @@
-import { characterGrants, characterSpellcasting, companionPlay, CompanionStatus } from '@pioneer/character/domain';
+import {
+  characterGrants,
+  characterSpellcasting,
+  companionPlay,
+  CompanionStatus,
+  FAMILIAR_REPOSITORY_ENTRY,
+} from '@pioneer/character/domain';
 import type { Character, Companion, CompanionPlay, CompanionsPlay } from '@pioneer/character/domain';
 import { FamiliarSense } from '@pioneer/rules/engine';
 import type { FamiliarInputs, FamiliarStatistics, StatisticResult } from '@pioneer/rules/engine';
@@ -27,9 +33,34 @@ const SkillMessage = {
   Other: 'rules.familiar.otherSkills',
 } as const;
 
+/** A familiar: the companion kind whose form is the familiar's. */
+export type Familiar = Extract<Companion, { readonly kind: typeof CompanionKind.Familiar }>;
+
 /** The live familiar the character has: at most one (ADR-0079). */
-export function liveFamiliar(companions: ReadonlyArray<Companion>): Companion | undefined {
-  return companions.find((companion) => companion.kind === CompanionKind.Familiar && companion.archived === undefined);
+export function liveFamiliar(companions: ReadonlyArray<Companion>): Familiar | undefined {
+  return companions.find(
+    (companion): companion is Familiar => companion.kind === CompanionKind.Familiar && companion.archived === undefined,
+  );
+}
+
+/** The familiar the patron replaces at daily preparations: a witch's live familiar that is dead (Witch). */
+export function patronReplaceable(
+  companions: ReadonlyArray<Companion>,
+  play: CompanionsPlay,
+  witch: boolean,
+): Familiar | undefined {
+  const familiar = liveFamiliar(companions);
+
+  return witch && familiar !== undefined && companionPlay(play, familiar.id).status === CompanionStatus.Dead
+    ? familiar
+    : undefined;
+}
+
+/** Whether the character casts as a witch, whose familiar is replaced by its patron. */
+export function isWitch(registry: ContentRegistry, character: Character): boolean {
+  const entries = characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry)));
+
+  return entries.some(({ slug }) => slug === FAMILIAR_REPOSITORY_ENTRY);
 }
 
 /** The total the engine derived for `selector`, when it derived a value. */

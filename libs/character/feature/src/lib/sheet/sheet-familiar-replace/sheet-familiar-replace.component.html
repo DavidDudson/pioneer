@@ -1,0 +1,8 @@
+@if (dead(); as familiar) {
+  <fr-stack gap="xs">
+    <fr-text>{{ 'character.sheet.familiar.replaceNote' | transloco: { name: familiar.name } }}</fr-text>
+    <fr-async-button [action]="replace" [describeError]="describeError">
+      {{ 'character.sheet.familiar.replace' | transloco }}
+    </fr-async-button>
+  </fr-stack>
+}
