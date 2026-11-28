@@ -48,6 +48,7 @@ describe('CharacterSheetPage', () => {
       ['Exploration activity', true],
       ['Actions', true],
       ['Deity', true],
+      ['Companions', true],
       ['Languages', true],
       ['Inventory', true],
     ]);

@@ -45,7 +45,9 @@ function withFeat(slug: string, species?: string): GrantResolution {
     return resolveWith(slug, new Map());
   }
 
-  return resolveWith(slug, new Map([[open.key, ChoiceValue.parse(idOf(species))]]));
+  const picked = ChoiceValue.parse(idOf(species));
+
+  return resolveWith(slug, new Map([[open.key, picked]]));
 }
 
 describe('the Animal Companion feats', () => {

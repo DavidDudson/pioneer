@@ -4,8 +4,7 @@ import { CompanionArchiveReason, CompanionName } from '@pioneer/character/domain
 import type { Companion } from '@pioneer/character/domain';
 import { Button, Stack, Surface, Text } from '@pioneer/frontier';
 import { companionTiersFromFeats } from '@pioneer/rules/engine';
-import { ChoiceValue, CompanionKind, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
 import { CompanionPicker } from '@pioneer/rules/ui';
 import type { CompanionPick, CompanionSpeciesOption } from '@pioneer/rules/ui';
 
@@ -76,13 +75,18 @@ export class SheetCompanionsSection {
     const species = speciesOf(registry);
     const table = registry.proficiencyBonus();
     const level = Level.parse(character.level);
-    const tiers = companionTiersFromFeats(Object.values(character.document.build.choices));
+
+    const master = {
+      level,
+      tiers: companionTiersFromFeats(Object.values(character.document.build.choices)),
+    };
 
     return companionSlots(slots, species, read).map((view): CompanionEntry => {
       const { companion, picked } = view;
       const held = companion === undefined ? undefined : speciesOfCompanion(companion, species);
+
       const statistics =
-        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table, tiers);
+        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, master, table);
 
       const facts =
         held === undefined || statistics === undefined ? [] : companionFacts(held.name, statistics, this.#translate);
@@ -127,13 +131,5 @@ export class SheetCompanionsSection {
 
   protected async release({ companion }: CompanionCard): Promise<void> {
     await this.#companions.archive(companion.id, CompanionArchiveReason.Released);
-  }
-
-  protected isAnimalCompanion(companion: Companion): boolean {
-    return companion.kind === CompanionKind.AnimalCompanion;
-  }
-
-  protected slotOf(entry: CompanionEntry): SlotKey {
-    return entry.view.slot;
   }
 }

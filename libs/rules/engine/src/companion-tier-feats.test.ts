@@ -6,7 +6,7 @@ import { companionTiersFromFeats } from './companion-tier-feats';
 
 const id = (slug: string): string => contentId(PackId.parse('player-core'), EntrySlug.parse(slug));
 
-describe(companionTiersFromFeats, () => {
+describe('companionTiersFromFeats', () => {
   it('holds no tier without an upgrade feat', () => {
     expect([...companionTiersFromFeats([id('feat:power-attack')])]).toStrictEqual([]);
   });

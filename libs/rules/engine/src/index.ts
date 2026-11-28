@@ -175,6 +175,7 @@ export {
 } from './roll-effects';
 
 export { companionProficiencyBonus, deriveCompanionStatistics } from './companion-statistics';
+
 export { companionTiersFromFeats } from './companion-tier-feats';
 
 export { CompanionSource } from './companion-statistic-types';

@@ -24,7 +24,17 @@ import {
 import { paragraph } from './example-json';
 import type { JsonValue } from './example-json';
 import { arcane, consecrate, fireball, heroism } from './magic-examples';
-import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate, underwater } from './rules-core-examples';
+import {
+  aid,
+  darkvision,
+  draconic,
+  fire,
+  freeArchetype,
+  grabbed,
+  manipulate,
+  underwater,
+  wolf,
+} from './rules-core-examples';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const MONSTER_CORE = PackId.parse('monster-core');
@@ -139,6 +149,7 @@ export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, JsonValue>
   [ContentKind.Background]: farmhand,
   [ContentKind.Class]: fighter,
   [ContentKind.ClassFeature]: reactiveStrike,
+  [ContentKind.CompanionSpecies]: wolf,
   [ContentKind.Condition]: grabbed,
   [ContentKind.Consumable]: minorHealingPotion,
   [ContentKind.Creature]: giantRat,
@@ -174,6 +185,7 @@ export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
   [ContentKind.Background]: 'play.rules.contentKind.background',
   [ContentKind.Class]: 'play.rules.contentKind.class',
   [ContentKind.ClassFeature]: 'play.rules.contentKind.classFeature',
+  [ContentKind.CompanionSpecies]: 'play.rules.contentKind.companionSpecies',
   [ContentKind.Condition]: 'play.rules.contentKind.condition',
   [ContentKind.Consumable]: 'play.rules.contentKind.consumable',
   [ContentKind.Creature]: 'play.rules.contentKind.creature',
