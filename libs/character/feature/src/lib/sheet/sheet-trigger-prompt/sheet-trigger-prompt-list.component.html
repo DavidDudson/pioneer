@@ -1,0 +1,27 @@
+@if (rows().length > 0) {
+  <fr-stack gap="xs">
+    <fr-text weight="semibold">{{ 'character.sheet.trigger.title' | transloco: { count: rows().length } }}</fr-text>
+    @for (row of rows(); track row.line.id) {
+      <fr-stack gap="2xs">
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-text>{{ row.line.name }}</fr-text>
+          @if (row.costKey; as cost) {
+            <fr-badge [tone]="badgeTone.Neutral">{{ cost | transloco }}</fr-badge>
+          }
+          @if (row.uses; as uses) {
+            <fr-badge [tone]="uses.current > 0 ? badgeTone.Success : badgeTone.Neutral">
+              {{ 'character.sheet.trigger.uses' | transloco: { current: uses.current, max: uses.max } }}
+            </fr-badge>
+          }
+          <pio-use-buttons [line]="row.line" />
+          <fr-button size="sm" variant="ghost" (pressed)="declined.emit(row.line.id)">
+            {{ 'character.sheet.trigger.decline' | transloco }}
+          </fr-button>
+        </fr-stack>
+        @for (reason of row.line.reasons; track $index) {
+          <fr-text>{{ reasonOf(reason) }}</fr-text>
+        }
+      </fr-stack>
+    }
+  </fr-stack>
+}

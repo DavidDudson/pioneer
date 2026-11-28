@@ -33,7 +33,7 @@ import {
   unconsciousCondition,
 } from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';
-import { turnTriggers, withTriggered } from './turn-triggers';
+import { turnTriggers, withPrompted, withTriggered } from './turn-triggers';
 import type { TurnTriggers } from './turn-triggers';
 
 /** What the turn cycle reads besides the play state: the limits, and what the build and the content give. */
@@ -73,7 +73,7 @@ function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSourc
     events: [...begun.events, ...events],
   };
 
-  return withTriggered(outcome, TriggerEventType.TurnStart, inputs);
+  return withPrompted(withTriggered(outcome, TriggerEventType.TurnStart, inputs), TriggerEventType.TurnStart, inputs);
 }
 
 /** End turn: the bookkeeping, then no actions left and off-turn. */
@@ -93,7 +93,9 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
 
   const triggered = withTriggered(done, TriggerEventType.TurnEnd, inputs);
 
-  return { play: { ...triggered.play, turn: turnEnded(triggered.play.turn) }, events: triggered.events };
+  const over = { play: { ...triggered.play, turn: turnEnded(triggered.play.turn) }, events: triggered.events };
+
+  return withPrompted(over, TriggerEventType.TurnEnd, inputs);
 }
 
 /** A command that does not apply in the current phase. */

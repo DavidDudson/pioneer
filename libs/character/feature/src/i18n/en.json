@@ -716,6 +716,11 @@
       "broken": "broken",
       "destroyed": "destroyed"
     },
+    "trigger": {
+      "title": "{count, plural, one {A triggered ability needs your answer} other {# triggered abilities need your answer}}",
+      "uses": "{current}/{max} uses left",
+      "decline": "Decline"
+    },
     "turn": {
       "label": "Turn",
       "phaseTurn": "Your turn",
@@ -1064,6 +1069,7 @@
     "regeneration": "Regeneration restores {amount} Hit Points.",
     "effectExpired": "An effect ended.",
     "triggeredAbility": "A triggered ability applied.",
+    "triggerPrompt": "{count, plural, one {A triggered ability is waiting for you.} other {# triggered abilities are waiting for you.}}",
     "spellEnded": "A sustained spell ended.",
     "conditionEnded": "A condition ended.",
     "conditionLowered": "A condition went down to {value}.",

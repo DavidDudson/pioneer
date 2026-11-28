@@ -150,9 +150,14 @@ export interface TurnLogLine {
 
 /** The lines of a turn boundary's events, numbering the roll cards from `first`. */
 export function turnLog(events: ReadonlyArray<TurnEvent>, first: number): ReadonlyArray<TurnLogLine> {
-  return events.map((event, index): TurnLogLine => {
+  // A prompt is not a line of the log: the sheet offers its abilities apart.
+  return events.flatMap((event, index): Array<TurnLogLine> => {
+    if (event.kind === TurnEventKind.TriggerPrompt) {
+      return [];
+    }
+
     if (event.kind !== TurnEventKind.PersistentDamage) {
-      return { message: event.message, roll: undefined };
+      return [{ message: event.message, roll: undefined }];
     }
 
     const view = rollView(first + index, {
@@ -162,6 +167,6 @@ export function turnLog(events: ReadonlyArray<TurnEvent>, first: number): Readon
       damage: event.damage,
     });
 
-    return { message: event.message, roll: view };
+    return [{ message: event.message, roll: view }];
   });
 }

@@ -9,8 +9,10 @@ import { ActiveEffectSchema } from './effects';
 import type { EffectContent } from './effects';
 import { FRESH_PLAY } from './play-state';
 import { within } from './testing';
-import { autoTriggers, triggerSpend, withTriggered } from './turn-triggers';
-import type { TriggerInputs, TurnTrigger, TurnTriggers } from './turn-triggers';
+import { TurnPhase } from './turn-state';
+import type { TurnState } from './turn-state';
+import { autoTriggers, promptedAbilities, triggerSpend, withPrompted, withTriggered } from './turn-triggers';
+import type { TriggerInputs, TurnOffer, TurnTrigger, TurnTriggers } from './turn-triggers';
 
 const ACTION = ContentId.parse('00000000-0000-4000-8000-000000000001');
 const EFFECT = ContentId.parse('00000000-0000-4000-8000-000000000002');
@@ -26,10 +28,23 @@ const trigger = (over: Partial<TurnTrigger> = {}): TurnTrigger => ({
   ...over,
 });
 
-const triggers = (...list: ReadonlyArray<TurnTrigger>): TurnTriggers => ({
-  triggers: list,
-  facts: new PredicateFacts([], CORE_NAMESPACES),
+const FACTS = new PredicateFacts([], CORE_NAMESPACES);
+
+const triggers = (...list: ReadonlyArray<TurnTrigger>): TurnTriggers => ({ triggers: list, offers: [], facts: FACTS });
+
+const offered = (...offers: ReadonlyArray<TurnOffer>): TurnTriggers => ({ triggers: [], offers, facts: FACTS });
+
+const OTHER = ContentId.parse('00000000-0000-4000-8000-000000000003');
+
+const offer = (over: Partial<TurnOffer> = {}): TurnOffer => ({
+  id: ACTION,
+  triggerEvent: TriggerEvent.parse({ event: 'turn-start' }),
+  rules: [],
+  byItself: false,
+  ...over,
 });
+
+const turn = (over: Partial<TurnState> = {}): TurnState => ({ ...FRESH_PLAY.turn, phase: TurnPhase.Turn, ...over });
 
 let counter = 0;
 
@@ -116,5 +131,71 @@ describe('withTriggered', () => {
 
     expect(play.effects).toHaveLength(1);
     expect(events).toHaveLength(1);
+  });
+});
+
+describe('promptedAbilities', () => {
+  test('lists an ability with a cost that fires on the event', () => {
+    const list = offered(offer({ cost: ActionCost.Reaction }));
+
+    expect(promptedAbilities(TriggerEventType.TurnStart, list, turn())).toStrictEqual([ACTION]);
+    expect(promptedAbilities(TriggerEventType.TurnEnd, list, turn())).toStrictEqual([]);
+  });
+
+  test('leaves out one that applies by itself', () => {
+    const list = offered(offer({ byItself: true }));
+
+    expect(promptedAbilities(TriggerEventType.TurnStart, list, turn())).toStrictEqual([]);
+  });
+
+  test('lists several abilities of one event together', () => {
+    const list = offered(offer({ cost: ActionCost.One }), offer({ id: OTHER, cost: ActionCost.Reaction }));
+
+    expect(promptedAbilities(TriggerEventType.TurnStart, list, turn())).toStrictEqual([ACTION, OTHER]);
+  });
+
+  test('offers a reaction only while the reaction is unspent', () => {
+    const list = offered(offer({ cost: ActionCost.Reaction }));
+
+    expect(promptedAbilities(TriggerEventType.TurnStart, list, turn({ reactionUsed: true }))).toStrictEqual([]);
+  });
+
+  test('off-turn offers a reaction and a free action, and no action', () => {
+    const off = turn({ phase: TurnPhase.OffTurn });
+
+    const list = offered(
+      offer({ id: ACTION, cost: ActionCost.Reaction }),
+      offer({ id: OTHER, cost: ActionCost.Free }),
+      offer({ id: EFFECT, cost: ActionCost.Two }),
+    );
+
+    expect(promptedAbilities(TriggerEventType.TurnStart, list, off)).toStrictEqual([ACTION, OTHER]);
+    expect(
+      promptedAbilities(TriggerEventType.TurnStart, list, turn({ phase: TurnPhase.OffTurn, reactionUsed: true })),
+    ).toStrictEqual([OTHER]);
+  });
+});
+
+describe('withPrompted', () => {
+  test('adds one prompt event naming every ability', () => {
+    const inputs: TriggerInputs = {
+      ...RUN(),
+      triggered: () => offered(offer({ cost: ActionCost.One }), offer({ id: OTHER, cost: ActionCost.Reaction })),
+    };
+
+    const { events } = withPrompted(
+      { play: { ...FRESH_PLAY, turn: turn() }, events: [] },
+      TriggerEventType.TurnStart,
+      inputs,
+    );
+
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({ kind: 'triggerPrompt', event: 'turn-start', abilities: [ACTION, OTHER] });
+  });
+
+  test('adds nothing when nothing is left to the player', () => {
+    const outcome = { play: FRESH_PLAY, events: [] };
+
+    expect(withPrompted(outcome, TriggerEventType.TurnStart, RUN())).toBe(outcome);
   });
 });
