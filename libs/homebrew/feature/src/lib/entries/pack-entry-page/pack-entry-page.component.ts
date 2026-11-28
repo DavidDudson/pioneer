@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal, untracked } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -78,6 +78,8 @@ export class PackEntryPage {
   readonly #route = inject(ActivatedRoute);
   readonly #i18n = inject(TranslocoService);
   readonly #messages = injectTranslate();
+  /** The entry the form was last filled from. */
+  readonly #filledFor = signal<ContentId | undefined>(undefined);
 
   protected readonly placeholders = PLACEHOLDERS;
   protected readonly kindMessages = KIND_MESSAGES;
@@ -109,11 +111,12 @@ export class PackEntryPage {
       this.store.select(this.id());
       this.store.showArchived.set(false);
     });
-    // Fill the form once, when the entry first arrives: later refreshes must not overwrite what is being typed.
+    // Fill the form once per entry: later refreshes, and typing, must not overwrite what is being edited.
     effect(() => {
       const entry = this.entry();
 
-      if (entry !== undefined && this.model().name === '') {
+      if (entry !== undefined && untracked(this.#filledFor) !== entry.id) {
+        this.#filledFor.set(entry.id);
         this.model.set({ name: entry.name, rarity: entry.rarity });
       }
     });

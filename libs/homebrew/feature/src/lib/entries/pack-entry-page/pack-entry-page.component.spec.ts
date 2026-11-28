@@ -80,6 +80,20 @@ describe('PackEntryPage', () => {
     });
   });
 
+  it('keeps a cleared name empty instead of filling it again', async () => {
+    const harness = await open([strike]);
+    await vi.waitFor(() => {
+      expect(present(present(harness.routeNativeElement).querySelector('input')).value).toBe('Rending Strike');
+    });
+    const name = present(present(harness.routeNativeElement).querySelector('input'));
+    name.value = '';
+    name.dispatchEvent(new Event('input'));
+    harness.detectChanges();
+    harness.detectChanges();
+
+    expect(name.value).toBe('');
+  });
+
   it('saves the new name with the level and traits the entry has, then returns to the pack', async () => {
     const harness = await open([strike]);
     await vi.waitFor(() => {

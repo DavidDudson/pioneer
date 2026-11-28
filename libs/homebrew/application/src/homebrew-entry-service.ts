@@ -106,6 +106,9 @@ export class HomebrewEntryService {
     const stored = await this.#entries.insert(pack, entry, { actor, command: HomebrewCommand.CreateEntry, now });
 
     if (!stored) {
+      // The write also refuses a pack that stopped being the actor's since the read above: that is a 404, not a taken slug.
+      await this.#owned(actor, pack);
+
       throw new ConflictError(`Pack ${pack} already has ${entry.slug}`, message(HomebrewMessage.EntrySlugTaken));
     }
 
@@ -175,13 +178,13 @@ function newEntry(actor: UserId, pack: HomebrewPack, input: CreateHomebrewEntryB
     throw new ValidationError([{ path: ['kind'], message: message(HomebrewMessage.EntryKindNeedsEntries) }]);
   }
 
-  const name = nameSlug(input.name);
+  const titleSlug = nameSlug(input.name);
 
-  if (name === undefined) {
+  if (titleSlug === undefined) {
     throw new ValidationError([{ path: ['name'], message: message(HomebrewMessage.EntryNameHasNoLetters) }]);
   }
 
-  const slug = entrySlug(input.kind, name);
+  const slug = entrySlug(input.kind, titleSlug);
 
   return {
     id: contentId(pack.slug, slug),

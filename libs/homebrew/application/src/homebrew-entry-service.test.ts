@@ -44,6 +44,7 @@ const sword: CreateHomebrewEntryBody = {
 describe('HomebrewEntryService', () => {
   let service: HomebrewEntryService;
   let entries: InMemoryHomebrewEntryRepository;
+  let packService: HomebrewPackService;
   let pack: ContentPackId;
 
   beforeEach(async () => {
@@ -51,7 +52,7 @@ describe('HomebrewEntryService', () => {
     entries = new InMemoryHomebrewEntryRepository();
     const clock = fixedClock('2026-10-10T10:00:00Z');
 
-    const packService = new HomebrewPackService(
+    packService = new HomebrewPackService(
       {
         packs,
         authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
@@ -172,6 +173,41 @@ describe('HomebrewEntryService', () => {
     expect(await rejection(service.update(amiri, { pack, id: created.id }, { ...sword }))).toBeInstanceOf(
       NotFoundError,
     );
+  });
+
+  test('an archived pack is a 404 on every use, even for its owner', async () => {
+    const created = await service.create(amiri, pack, sword);
+    await packService.archive(amiri, pack);
+
+    const attempts: Array<Promise<unknown>> = [
+      service.list(amiri, pack, false),
+      service.create(amiri, pack, { ...sword, name: ContentText.parse('Other') }),
+      service.update(amiri, { pack, id: created.id }, { ...sword }),
+      service.archive(amiri, { pack, id: created.id }),
+      service.restore(amiri, { pack, id: created.id }),
+    ];
+
+    const failures = await Promise.all(attempts.map(async (attempt) => rejection(attempt)));
+
+    expect(failures.every((failure) => failure instanceof NotFoundError)).toBe(true);
+  });
+
+  test('an entry of another pack the actor owns is a 404 under this pack', async () => {
+    const packs = [pack];
+
+    const other = await packService.create(amiri, {
+      title: ContentText.parse('Amiri spells'),
+      slug: PackId.parse('amiri-spells'),
+    });
+
+    const created = await service.create(amiri, other.id, sword);
+
+    expect(packs).not.toContain(other.id);
+    expect(await rejection(service.update(amiri, { pack, id: created.id }, { ...sword }))).toBeInstanceOf(
+      NotFoundError,
+    );
+    expect(await rejection(service.archive(amiri, { pack, id: created.id }))).toBeInstanceOf(NotFoundError);
+    expect(await service.list(amiri, other.id, false)).toStrictEqual([created]);
   });
 
   test('an entry the pack does not hold is a 404', async () => {

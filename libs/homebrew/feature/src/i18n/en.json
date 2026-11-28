@@ -144,6 +144,9 @@
       "uncommon": "Uncommon",
       "rare": "Rare",
       "unique": "Unique"
-    }
+    },
+    "editNamed": "Edit {name}",
+    "archiveNamed": "Archive {name}",
+    "restoreNamed": "Restore {name}"
   }
 }

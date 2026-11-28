@@ -138,11 +138,12 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     });
   }
 
+  /** Every entry the pack holds, archived ones too: an archived entry keeps its slug, so an import must not file it again. */
   async #entriesOf(pack: PackRow): Promise<ReadonlyMap<EntrySlug, ContentEntry>> {
     const rows = await this.#db
       .select({ data: contentEntries.data })
       .from(contentEntries)
-      .where(and(eq(contentEntries.packId, pack.id), isNull(contentEntries.archivedAt)));
+      .where(eq(contentEntries.packId, pack.id));
 
     return new Map(rows.map(({ data }) => [data.slug, data]));
   }

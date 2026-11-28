@@ -144,6 +144,29 @@ describe.skipIf(adminUrl === undefined)('homebrew entries (postgres)', () => {
     expect(await entries.insert(pack.id, feat(pack, 'strike'), stranger)).toBe(false);
   });
 
+  test('an entry is only reached through its own pack, even by an owner of another', async () => {
+    const home = await newPack('entry-home');
+    const other = await newPack('entry-other');
+    const strike = feat(home, 'strike');
+    await entries.insert(home.id, strike, write(HomebrewCommand.CreateEntry));
+    const stray = { pack: other.id, id: strike.id };
+
+    expect(await entries.find({ pack: other.id, id: strike.id })).toBeUndefined();
+    expect(
+      await entries.replace(
+        other.id,
+        ContentEntry.parse({ ...strike, name: 'Hijack' }),
+        write(HomebrewCommand.UpdateEntry),
+      ),
+    ).toBe(false);
+    expect(await entries.setArchived(stray, true, write(HomebrewCommand.ArchiveEntry))).toBe(false);
+    const kept = await entries.find({ pack: home.id, id: strike.id });
+    const live = await entries.list(home.id, false);
+
+    expect(kept).toMatchObject({ entry: { name: 'strike' } });
+    expect(live.map((stored) => stored.entry.id)).toStrictEqual([strike.id]);
+  });
+
   test('an entry row cannot be deleted, only archived', async () => {
     const pack = await newPack('entry-protected');
     const strike = feat(pack, 'strike');
