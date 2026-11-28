@@ -257,6 +257,9 @@ more room, never a separate design.
    floats or sits on a plane takes both from `elevationVariants` in
    `tokens.ts` (`bg-elevation-raised border-elevation-raised-line`) and never
    pairs `bg-surface-*` with `border-line-*` by hand.
+   `pioneer/elevation-levels` fails `bg-surface-base|raised|overlay` in a class string; the canvas, sunken,
+   inverse and skeleton surfaces, `backdrop:` scrims, and the `controls/`, `actions/` and `text/gem/` folders (they
+   paint their own fill) are exempt.
 3. **Tailwind mapping** (`frontier.css` `@theme`): exposes tier 2 as
    utilities (`bg-surface-raised`, `text-fg-muted`, `gap-md`,
    `text-heading`, `border-line-subtle`). The one exception is the

@@ -12,7 +12,10 @@ interface LevelRow {
 /** Which components sit at each level. A component takes its level from `elevationVariants`. */
 const LEVEL_ROWS: ReadonlyArray<LevelRow> = [
   { level: Elevation.Flat, components: 'Shell header, footer and panel; surface (base)' },
-  { level: Elevation.Raised, components: 'Surface and card, table header, character avatar chips' },
+  {
+    level: Elevation.Raised,
+    components: 'Surface and card, table header, bordered disclosure, filter editor panel, character avatar chips',
+  },
   {
     level: Elevation.Overlay,
     components:

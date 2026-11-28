@@ -9,8 +9,10 @@ import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
 import { noArchivableDelete } from './archive-rules.ts';
 import { noMagicNumbers, noPrimitiveDomainTypes } from './brand-rules.ts';
+import { holdsClasses } from './class-slots.ts';
 import { noAwaitInCondition, noDerivedTypes, noInlineReturnTypes } from './code-rules.ts';
 import { componentKeys } from './component-keys.ts';
+import { elevationLevels } from './elevation-levels.ts';
 import { maxPropertyRuns } from './property-rules.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
@@ -197,64 +199,7 @@ const layoutVariants: Rule.RuleModule = {
   },
 };
 
-const CLASS_BUILDERS = new Set(['cva', 'cx']);
 const LAYOUT_MESSAGE_IDS = new Set(Object.keys(LAYOUT_VARIANT_MESSAGES));
-
-/** A node and the ancestors, as far as `holdsClasses` reads them. */
-interface AstNode {
-  readonly type: string;
-  readonly parent?: AstNode | null;
-  readonly name?: string;
-  readonly callee?: AstNode;
-  readonly key?: AstNode;
-  readonly expression?: AstNode | boolean;
-  readonly arguments?: ReadonlyArray<AstNode>;
-}
-
-function isBuilderArgument(parent: AstNode, child: AstNode): boolean {
-  return (
-    parent.type === 'CallExpression' &&
-    parent.callee?.type === 'Identifier' &&
-    parent.callee.name !== undefined &&
-    CLASS_BUILDERS.has(parent.callee.name) &&
-    parent.arguments?.includes(child) === true
-  );
-}
-
-function isClassProperty(parent: AstNode): boolean {
-  return parent.type === 'Property' && parent.key?.type === 'Identifier' && parent.key.name === 'class';
-}
-
-function isSatisfiedObject(parent: AstNode, child: AstNode): boolean {
-  return parent.type === 'TSSatisfiesExpression' && parent.expression === child && child.type === 'ObjectExpression';
-}
-
-/**
- * Whether a string at `child` is a class name: inside the arguments of `cva()` / `cx()`, the value of a `class`
- * property, or a `{…} satisfies` object. Object keys are variant names, not classes.
- */
-function holdsClasses(child: AstNode): boolean {
-  let current = child;
-  let { parent } = current;
-
-  while (parent !== undefined && parent !== null) {
-    const isClassSlot =
-      isBuilderArgument(parent, current) || isClassProperty(parent) || isSatisfiedObject(parent, current);
-
-    if (parent.key === current) {
-      return false;
-    }
-
-    if (isClassSlot) {
-      return true;
-    }
-
-    current = parent;
-    ({ parent } = current);
-  }
-
-  return false;
-}
 
 /**
  * Frontier class strings come from semantic tokens: no arbitrary values or
@@ -308,6 +253,7 @@ const plugin = {
     'no-route-resolvers': noRouteResolvers,
     'layout-variants': layoutVariants,
     'class-tokens': classTokens,
+    'elevation-levels': elevationLevels,
     'no-await-in-condition': noAwaitInCondition,
     'no-archivable-delete': noArchivableDelete,
     'no-inline-return-types': noInlineReturnTypes,

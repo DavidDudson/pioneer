@@ -11,7 +11,7 @@ export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
 export const surfaceVariants = cva('block', {
   variants: {
     variant: {
-      base: 'bg-surface-base forced-colors:border',
+      base: `forced-colors:border ${elevationVariants.flat}`,
       raised: `border ${elevationVariants.raised}`,
       sunken: 'bg-surface-sunken forced-colors:border',
       outline: 'border border-line-default',

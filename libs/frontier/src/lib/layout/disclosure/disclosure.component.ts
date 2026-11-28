@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 import { ChevronDown, ChevronUp } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
+import { elevationVariants } from '../../tokens';
 
 export const DisclosureVariant = {
   /** Just the trigger row and the content below it; for lists of rows that already have separators. */
@@ -18,7 +19,7 @@ const rootVariants = cva('block', {
   variants: {
     variant: {
       plain: '',
-      bordered: 'border border-line-default bg-surface-base',
+      bordered: `border ${elevationVariants.raised}`,
     } satisfies Record<DisclosureVariant, string>,
   },
 });

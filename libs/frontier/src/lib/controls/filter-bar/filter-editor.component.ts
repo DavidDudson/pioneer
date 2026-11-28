@@ -3,12 +3,12 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
-import { Size } from '../../tokens';
+import { elevationVariants, Size } from '../../tokens';
 import { FilterOperator, isComplete, OPERATOR_LABELS, operatorsFor } from './filter-bar.types';
 import type { FilterCondition, FilterField } from './filter-bar.types';
 import { FilterValues } from './filter-values.component';
 
-const panelClasses = cva('flex flex-col gap-sm border border-line-default bg-surface-base p-sm')();
+const panelClasses = cva(`flex flex-col gap-sm border p-sm ${elevationVariants.raised}`)();
 const rowClasses = cva('flex flex-wrap items-center gap-xs')();
 
 /**
