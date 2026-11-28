@@ -10,6 +10,7 @@ import { ListItem } from '../../list/list-item/list-item.component';
 import { List } from '../../list/list/list.component';
 import { Text } from '../../text/text/text.component';
 import { AsyncData } from './async-data.directive';
+import { AsyncEmpty } from './async-empty.directive';
 import { AsyncError } from './async-error.directive';
 import { AsyncPending } from './async-pending.directive';
 import type { AsyncQuery } from './async-query';
@@ -105,4 +106,24 @@ export const CustomErrorSlot: AsyncRegionStory = {
       </fr-async-region>
     `,
   }),
+};
+
+const EMPTY_REGION = `
+  <fr-async-region [filtered]="filtered" (cleared)="filtered = false">
+    <ng-template frAsyncPending><fr-skeleton /></ng-template>
+    <ng-template frAsyncEmpty><fr-text>The party is empty. Recruit someone.</fr-text></ng-template>
+    <ng-template let-party [frAsyncData]="query">{{ party.length }}</ng-template>
+  </fr-async-region>
+`;
+
+/** `frAsyncEmpty` replaces the data template when the query loads with nothing. */
+export const Empty: AsyncRegionStory = {
+  decorators: [moduleMetadata({ imports: [AsyncEmpty] })],
+  render: () => ({ props: { query: query({ data: [] }), filtered: false }, template: EMPTY_REGION }),
+};
+
+/** Filtered and empty: the default no-matches state, with a Clear button that emits `cleared`. */
+export const FilteredEmpty: AsyncRegionStory = {
+  decorators: [moduleMetadata({ imports: [AsyncEmpty] })],
+  render: () => ({ props: { query: query({ data: [] }), filtered: true }, template: EMPTY_REGION }),
 };

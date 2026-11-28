@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 import { AsyncData } from '../async/async-region/async-data.directive';
+import { AsyncEmpty } from '../async/async-region/async-empty.directive';
 import { AsyncError } from '../async/async-region/async-error.directive';
 import { AsyncPending } from '../async/async-region/async-pending.directive';
 import type { AsyncQuery } from '../async/async-region/async-query';
@@ -19,7 +20,7 @@ function describeError(error: Error | null | undefined): string {
  */
 @Component({
   selector: 'fr-async-region-host',
-  imports: [AsyncData, AsyncError, AsyncPending, AsyncRegion, Skeleton, Stack, Text],
+  imports: [AsyncData, AsyncEmpty, AsyncError, AsyncPending, AsyncRegion, Skeleton, Stack, Text],
   templateUrl: './async-region-host.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -27,6 +28,14 @@ export class AsyncRegionHost {
   public readonly query = input.required<AsyncQuery<ReadonlyArray<string>>>();
   public readonly errorMessage = input<string | undefined>(undefined);
   public readonly customError = input(false);
+  public readonly withEmpty = input(false);
+  public readonly filtered = input(false);
+  public readonly clearCount = signal(0);
+  protected readonly emptyText = 'Nobody yet';
 
   protected readonly describe = describeError;
+
+  protected clear(): void {
+    this.clearCount.update((count) => count + 1);
+  }
 }

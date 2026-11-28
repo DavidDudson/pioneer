@@ -1,4 +1,4 @@
-<fr-async-region [errorMessage]="errorMessage()">
+<fr-async-region [errorMessage]="errorMessage()" [filtered]="filtered()" (cleared)="clear()">
   <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
   <ng-template let-names [frAsyncData]="query()">
     <fr-stack>
@@ -7,7 +7,9 @@
       }
     </fr-stack>
   </ng-template>
-  @if (customError()) {
+  @if (withEmpty()) {
+  <ng-template frAsyncEmpty><fr-text>{{ emptyText }}</fr-text></ng-template>
+  } @if (customError()) {
   <ng-template let-error frAsyncError>
     <fr-text>{{ describe(error) }}</fr-text>
   </ng-template>

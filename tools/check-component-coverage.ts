@@ -11,6 +11,11 @@ const ROOT = 'libs/frontier/src/lib';
 
 /** Parts covered by the component that assembles them. Paths are relative to `ROOT`. */
 const EXEMPTIONS = {
+  'async/async-region/async-view.component.ts': {
+    reason: 'The states of a query, shared by fr-async-region, fr-section and fr-async-list.',
+    spec: 'async/async-region/async-region.component.spec.ts',
+    story: 'async/async-region/async-region.stories.ts',
+  },
   'actions/stepper/step.component.ts': {
     reason: 'One step of fr-stepper; its Back, Next and Edit only work inside it.',
     spec: 'actions/stepper/stepper.component.spec.ts',
