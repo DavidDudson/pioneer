@@ -87,7 +87,8 @@ export const FilteredEmpty: TableStory = {
   args: { data: [], filtered: true },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Nothing matches.')).toBeVisible();
+    await expect(canvas.getByRole('status')).toHaveTextContent('Nothing matches.');
+    await expect(canvas.getByText('Nothing matches.', { selector: 'tbody *' })).toBeVisible();
     await expect(canvas.getByRole('button', { name: 'Clear filters' })).toBeEnabled();
   },
 };
