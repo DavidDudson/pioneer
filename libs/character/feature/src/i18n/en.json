@@ -1025,6 +1025,7 @@
     "effectRank": "Only a polymorph effect is cast at a rank.",
     "effectNoUses": "This effect has no uses to spend.",
     "companionUnknown": "That companion is not one this character has. Reload the sheet and try again.",
+    "companionInactive": "Only a companion that is with its master can be commanded.",
     "companionIllegal": "A companion can't move to that status from where it is. A dead companion can only be raised.",
     "consumableNotHeld": "That item is not a consumable you hold.",
     "consumableWrongAction": "That spend is not this consumable's activation.",

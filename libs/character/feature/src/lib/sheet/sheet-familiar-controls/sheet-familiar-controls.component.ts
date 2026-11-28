@@ -6,6 +6,7 @@ import {
   ConditionCommandField,
   HIT_POINTS_EDIT_MAX,
   isConditionCommand,
+  isDown,
   PlayCommandField,
   SpendCount,
   SpendId,
@@ -88,12 +89,16 @@ export class SheetFamiliarControls {
   protected readonly ready = computed((): boolean => this.complete() && !this.busy());
 
   protected readonly damage = async (): Promise<void> => {
-    const taken = Math.min(this.maxHitPoints(), this.#entry().damage + this.amount());
-    await this.#send({
-      field: PlayCommandField.SetCompanionDamage,
-      companion: this.companion(),
-      damage: HitPoints.parse(taken),
-    });
+    const taken = HitPoints.parse(Math.min(this.maxHitPoints(), this.#entry().damage + this.amount()));
+    await this.#send({ field: PlayCommandField.SetCompanionDamage, companion: this.companion(), damage: taken });
+
+    if (isDown(taken, this.maxHitPoints())) {
+      await this.#send({
+        field: PlayCommandField.SetCompanionStatus,
+        companion: this.companion(),
+        status: CompanionStatus.Dead,
+      });
+    }
   };
 
   protected readonly heal = async (): Promise<void> => {

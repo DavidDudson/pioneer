@@ -225,3 +225,11 @@ reason (#2079).
 | [#2063 the familiar's HP, conditions and Command in play](https://github.com/DavidDudson/pioneer/issues/2063)   | Confirmed. Encounter tab only.                                                     |
 | [#2064 master abilities show on the master's own sheet](https://github.com/DavidDudson/pioneer/issues/2064)     | Confirmed.                                                                         |
 | [#2080 the sheet shows a dead, absent or absorbed familiar](https://github.com/DavidDudson/pioneer/issues/2080) | Confirmed. Its stories are the state stories of #2060; the container wiring stays. |
+
+### 5. Dying in play
+
+A familiar's damage is play state and its maximum is derived, so the sheet that applies the damage sends the move to
+`dead` when the damage reaches the maximum (`isDown`). Dying ends its Command; a dead familiar cannot be commanded; a
+familiar brought back is a fresh body, unhurt and free of conditions. No content has a death trigger yet (Verdant Burst,
+a Familiar Tattoo, Blood Link), so the `FamiliarDied` event the lifecycle names waits for the first rule element that
+subscribes to it.

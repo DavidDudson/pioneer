@@ -49,6 +49,7 @@ const EFFECT_MESSAGES = {
 const COMPANION_MESSAGES = {
   [CompanionProblem.Unknown]: 'character.validation.companionUnknown',
   [CompanionProblem.Illegal]: 'character.validation.companionIllegal',
+  [CompanionProblem.Inactive]: 'character.validation.companionInactive',
 } as const satisfies Record<CompanionProblem, string>;
 
 /** Refuses a companion status edit for a companion the character does not have live, or one its status cannot move to. */
