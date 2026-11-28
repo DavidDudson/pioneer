@@ -58,6 +58,12 @@ describe('prerequisite matcher', () => {
   test.each([
     ['a familiar', ['self:companion:familiar']],
     ['A Familiar', ['self:companion:familiar']],
+    ['an animal companion', ['self:companion:animal-companion']],
+    ['An Animal Companion', ['self:companion:animal-companion']],
+    [
+      'trained in Athletics; an animal companion',
+      [{ gte: ['skill:athletics:rank', 1] }, 'self:companion:animal-companion'],
+    ],
     ['trained in Athletics; a familiar', [{ gte: ['skill:athletics:rank', 1] }, 'self:companion:familiar']],
   ])('reads a companion the character has: "%s"', (words, expected) => {
     expect(read(words)).toStrictEqual(predicate(expected));
@@ -167,7 +173,7 @@ describe('prerequisite matcher', () => {
     ['a rank in anything but a statistic', 'expert in Reflex saves'],
     ['a list that mixes "and" and "or"', 'trained in Athletics and Nature or Religion'],
     ['a list that says neither', 'Fighter Dedication, Rogue Dedication'],
-    ['free text', 'an animal companion'],
+    ['free text', 'a construct companion'],
     ['an attribute that is no attribute', 'Luck +2'],
   ])('leaves %s unparsed', (_name, words) => {
     expect(readPrerequisites(prose(words), NAMES)).toStrictEqual({
@@ -178,12 +184,12 @@ describe('prerequisite matcher', () => {
   });
 
   test('gives no predicate when any clause is unparsed, and names the clauses that are', () => {
-    expect(readPrerequisites(prose('Fighter Dedication;  an animal companion '), NAMES)).toStrictEqual({
+    expect(readPrerequisites(prose('Fighter Dedication;  a construct companion '), NAMES)).toStrictEqual({
       predicate: undefined,
-      unparsed: ['an animal companion'],
+      unparsed: ['a construct companion'],
       clauses: [
         { text: ContentText.parse('Fighter Dedication'), predicate: predicate(['feat:fighter-dedication']) },
-        { text: ContentText.parse('an animal companion'), predicate: undefined },
+        { text: ContentText.parse('a construct companion'), predicate: undefined },
       ],
     });
   });
@@ -208,7 +214,7 @@ describe('prerequisite matches', () => {
         prerequisites: prose('Shield Block'),
         prerequisitePredicate: ['feat:other'],
       }),
-      entry('Unparsed', 'feat', { category: 'class', prerequisites: prose('an animal companion') }),
+      entry('Unparsed', 'feat', { category: 'class', prerequisites: prose('a construct companion') }),
     ];
 
     expect(prerequisiteMatches(entries)).toStrictEqual([
@@ -225,7 +231,7 @@ describe('prerequisite matches', () => {
       entry('Shield Block', 'feat', { category: 'general' }),
       entry('Corrected', 'feat', {
         category: 'class',
-        prerequisites: prose('Shield Block; an animal companion'),
+        prerequisites: prose('Shield Block; a construct companion'),
         prerequisitePredicate: ['feat:other'],
       }),
     ];
@@ -236,7 +242,7 @@ describe('prerequisite matches', () => {
         prerequisitePredicate: undefined,
         prerequisiteClauses: [
           { text: ContentText.parse('Shield Block'), predicate: predicate(['feat:shield-block']) },
-          { text: ContentText.parse('an animal companion'), predicate: undefined },
+          { text: ContentText.parse('a construct companion'), predicate: undefined },
         ],
       },
     ]);

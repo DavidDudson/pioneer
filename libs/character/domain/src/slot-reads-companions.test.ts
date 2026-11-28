@@ -15,6 +15,7 @@ registry.register(skillFixtures());
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const { document } = new CharacterBuilder().build();
 const FAMILIAR = companionRollOption(CompanionKind.Familiar);
+const ANIMAL_COMPANION = companionRollOption(CompanionKind.AnimalCompanion);
 
 const optionsWith = (kinds: ReadonlyArray<CompanionKind>): ReadonlyArray<string> =>
   resolveSlotsAt(Level.parse(1), slotContextOf(document, withCompanions(content, kinds))).rollOptions.map(String);
@@ -22,6 +23,11 @@ const optionsWith = (kinds: ReadonlyArray<CompanionKind>): ReadonlyArray<string>
 describe('slot reads with companions', () => {
   test('set the option of each live companion kind the engine reads', () => {
     expect(optionsWith([CompanionKind.Familiar])).toContain(FAMILIAR);
+  });
+
+  test('set the animal companion option the prerequisite "an animal companion" reads', () => {
+    expect(optionsWith([CompanionKind.AnimalCompanion])).toContain(ANIMAL_COMPANION);
+    expect(optionsWith([CompanionKind.Familiar])).not.toContain(ANIMAL_COMPANION);
   });
 
   test('set no companion option without one', () => {
