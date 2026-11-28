@@ -1,6 +1,5 @@
-import { computed, inject } from '@angular/core';
+import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
 import type { BrowseRow } from '@pioneer/content/ui';
 import { injectTranslate } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';

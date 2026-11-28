@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, RetrainDays } from '@pioneer/character/domain';
-import { AsyncButton, Grid, NumberField, Stack, Text } from '@pioneer/frontier';
+import { AsyncButton, Grid, injectTranslate, NumberField, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
@@ -14,7 +14,6 @@ import { CharacterStore } from '../../data/character-store';
 import { describeSaveError } from '../sheet-field';
 import { sheetSlotContent } from '../sheet-slot-content';
 import { SheetState } from '../sheet-state';
-import { injectTranslationChanges } from '../sheet-translation-changes';
 import { pickName, retrainableSlots, retrainTargets } from './sheet-retraining-options';
 
 /** What the days field checks: the days the server takes for one edit. */
@@ -36,7 +35,7 @@ export class SheetRetraining {
   readonly #characters = inject(CharacterStore);
   readonly #sheet = inject(SheetState);
   readonly #i18n = inject(TranslocoService);
-  readonly #messages = injectTranslationChanges();
+  readonly #messages = injectTranslate();
 
   /** The pick to retrain and what to retrain it to, while no project is under way. */
   protected readonly slot = signal<string | undefined>(undefined);
