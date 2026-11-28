@@ -68,14 +68,14 @@ function classInputsOf(
   return inputs === undefined ? {} : { class: inputs };
 }
 
-/** `equipped` with the rules of the `variants` in force ahead of its own, as `rulesInPlay` puts them. */
+/** `equipped` with the rules of the `variants` in force after its own, as `rulesInPlay` puts them. */
 function withVariants(equipped: EquippedRules, variants: ReadonlyArray<VariantRuleEntry>): EquippedRules {
   return variants.length === 0
     ? equipped
-    : { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
+    : { ...equipped, rules: [...equipped.rules, ...variantRulesInPlay(variants)] };
 }
 
-/** The rules the character's gear puts in play with those of the `variants` in force ahead of them, as its Strikes read them. */
+/** The rules the character's gear puts in play with those of the `variants` in force after them, as its Strikes read them. */
 export function equippedRulesWithVariants(
   document: CharacterDocument,
   items: ItemContent,
@@ -137,7 +137,7 @@ export interface StatisticSources {
   readonly as?: RollAs | undefined;
 }
 
-/** The rules its items, conditions and build put in play: variant rules first, overrides last so a set one pins. */
+/** The rules its items, conditions and build put in play: variant rules after the items', overrides last so a set one pins. */
 export function rulesInPlay(
   document: CharacterDocument,
   { registry, slots: read, variants, as }: Pick<StatisticSources, 'registry' | 'slots' | 'variants' | 'as'>,
@@ -149,7 +149,7 @@ export function rulesInPlay(
 
   return {
     ...equipped,
-    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules, ...added],
+    rules: [...buildRules(document, items, slots), ...equipped.rules, ...variantRulesInPlay(variants), ...added],
   };
 }
 

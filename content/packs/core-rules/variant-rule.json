@@ -564,7 +564,14 @@
         "items": ["item:type:weapon"],
         "property": "striking",
         "mode": "override",
-        "value": 0
+        "value": 0,
+        "predicate": [
+          {
+            "not": {
+              "gte": ["self:level", 4]
+            }
+          }
+        ]
       },
       {
         "key": "ItemAlteration",
@@ -575,6 +582,11 @@
         "predicate": [
           {
             "gte": ["self:level", 4]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 12]
+            }
           }
         ]
       },
@@ -587,6 +599,11 @@
         "predicate": [
           {
             "gte": ["self:level", 12]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 19]
+            }
           }
         ]
       },
