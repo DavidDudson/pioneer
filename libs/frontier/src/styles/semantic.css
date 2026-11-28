@@ -109,6 +109,16 @@
   --fr-line-strong: var(--fr-ramp-neutral-500);
   --fr-line-focus: var(--fr-ramp-accent-400);
 
+  /* Elevation levels, each a surface and its line. */
+  --fr-elevation-flat-surface: var(--fr-surface-base);
+  --fr-elevation-flat-line: var(--fr-line-subtle);
+  --fr-elevation-raised-surface: var(--fr-surface-raised);
+  --fr-elevation-raised-line: var(--fr-line-default);
+  --fr-elevation-overlay-surface: var(--fr-surface-overlay);
+  --fr-elevation-overlay-line: var(--fr-line-default);
+  --fr-elevation-modal-surface: var(--fr-surface-base);
+  --fr-elevation-modal-line: var(--fr-line-default);
+
   --fr-accent-solid: var(--fr-ramp-accent-500);
   --fr-accent-solid-hover: var(--fr-ramp-accent-400);
   --fr-accent-solid-active: var(--fr-ramp-accent-300);
@@ -231,6 +241,16 @@
   --fr-line-strong: var(--fr-ramp-neutral-500);
   /* 700, not 500: the focus ring needs 3:1 on every surface, and 500 is about 2.5:1 on light ones. */
   --fr-line-focus: var(--fr-ramp-accent-700);
+
+  /* Elevation levels, each a surface and its line. */
+  --fr-elevation-flat-surface: var(--fr-surface-base);
+  --fr-elevation-flat-line: var(--fr-line-subtle);
+  --fr-elevation-raised-surface: var(--fr-surface-raised);
+  --fr-elevation-raised-line: var(--fr-line-default);
+  --fr-elevation-overlay-surface: var(--fr-surface-overlay);
+  --fr-elevation-overlay-line: var(--fr-line-default);
+  --fr-elevation-modal-surface: var(--fr-surface-base);
+  --fr-elevation-modal-line: var(--fr-line-default);
 
   /* 700, not 600: white text on 600 is about 4.2:1. */
   --fr-accent-solid: var(--fr-ramp-accent-700);

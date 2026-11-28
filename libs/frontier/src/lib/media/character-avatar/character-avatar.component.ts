@@ -8,7 +8,7 @@ import { meterTone } from '../../feedback/meter/meter-tone';
 import type { MeterTone } from '../../feedback/meter/meter-tone';
 import { Icon } from '../../icon/icon.component';
 import { LocaleFormat } from '../../locale/locale-format';
-import { Size } from '../../tokens';
+import { elevationVariants, Size } from '../../tokens';
 import { Avatar } from '../avatar/avatar.component';
 import { WoundCue, wounds } from './wounds';
 
@@ -73,14 +73,14 @@ const darknessVariants = cva(OVERLAY, {
 const cueClasses = cva('pointer-events-none absolute inset-x-none top-xs flex justify-center')();
 
 /** A surface chip, so the cue's contrast does not depend on the red vignette beneath it. */
-const cueChipClasses = cva('border border-line-default bg-surface-raised p-3xs')();
+const cueChipClasses = cva(`border p-3xs ${elevationVariants.raised}`)();
 const svgClasses = cva('pointer-events-none absolute inset-none size-full overflow-visible')();
 const trackClasses = cva('stroke-line-default forced-colors:stroke-system-canvas-text')();
 const tempClasses = cva('stroke-info-solid forced-colors:stroke-system-highlight')();
 const nameClasses = cva('absolute inset-x-none -bottom-2xs flex justify-center')();
 
 const nameTextClasses = cva(
-  'max-w-full truncate border border-line-default bg-surface-raised px-xs text-caption text-fg-default',
+  `max-w-full truncate border px-xs text-caption text-fg-default ${elevationVariants.raised}`,
 )();
 
 const startClasses = cva('absolute -start-2xs -top-2xs clip-circle')();

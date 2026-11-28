@@ -7,11 +7,12 @@ import { Button, ButtonVariant } from '../../actions/button/button.component';
 import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
 import { OverlayAlign, overlayPositions } from '../../overlay-positions';
+import { elevationVariants } from '../../tokens';
 
 /** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
 const originClasses = cva('inline-flex')();
 
-const panelClasses = cva('z-overlay max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs')();
+const panelClasses = cva(`z-overlay max-w-prose min-w-dropdown border p-xs ${elevationVariants.overlay}`)();
 
 export const DropdownAlign = OverlayAlign;
 

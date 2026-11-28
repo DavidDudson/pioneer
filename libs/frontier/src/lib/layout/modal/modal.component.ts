@@ -8,10 +8,11 @@ import { X } from 'lucide';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
+import { elevationVariants } from '../../tokens';
 import { showDialog } from '../drawer/drawer-overlay';
 
 const panelClasses = cva(
-  'm-auto w-drawer-default max-w-full border border-line-default bg-surface-base p-md text-fg-default backdrop:bg-surface-overlay',
+  `m-auto w-drawer-default max-w-full border p-md text-fg-default backdrop:bg-surface-overlay ${elevationVariants.modal}`,
 )();
 
 const contentClasses = cva('flex flex-col gap-md')();

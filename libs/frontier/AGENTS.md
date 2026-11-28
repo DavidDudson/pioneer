@@ -252,6 +252,11 @@ more room, never a separate design.
    spacing names (`3xs … 3xl`), named sizes (`--fr-size-touch`,
    `--fr-size-control-*`, …), motion, opacity, z-index, chart series.
    Colours reference ramp steps only, never a hue.
+   Elevation levels (`flat`, `raised`, `overlay`, `modal`) are a surface and
+   a line each (`--fr-elevation-<level>-surface` / `-line`). A component that
+   floats or sits on a plane takes both from `elevationVariants` in
+   `tokens.ts` (`bg-elevation-raised border-elevation-raised-line`) and never
+   pairs `bg-surface-*` with `border-line-*` by hand.
 3. **Tailwind mapping** (`frontier.css` `@theme`): exposes tier 2 as
    utilities (`bg-surface-raised`, `text-fg-muted`, `gap-md`,
    `text-heading`, `border-line-subtle`). The one exception is the
