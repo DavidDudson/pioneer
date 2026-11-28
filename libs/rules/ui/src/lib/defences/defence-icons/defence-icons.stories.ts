@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { expect, within } from 'storybook/test';
+import { expect, waitFor, within } from 'storybook/test';
 
 import { adjustment, BARBARIAN_DEFENCES, DWARF, ENTRY_NAMES, NO_DEFENCES } from '../../testing/defences-fixtures';
 import { DefenceIcons } from './defence-icons.component';
@@ -36,6 +36,9 @@ export const Opened: DefenceIconsStory = {
     // Focus opens a hover card at once; the card is in the overlay container on the body, and names the damage in lower case.
     canvas.getByRole('button', { name: 'Resistances' }).focus();
     const lines = await within(canvasElement.ownerDocument.body).findAllByText(/fire/iu);
-    await expect(lines[0]).toBeVisible();
+    // The card fades in, so it is visible once the enter motion has started, not the instant it mounts.
+    await waitFor(async () => {
+      await expect(lines[0]).toBeVisible();
+    });
   },
 };
