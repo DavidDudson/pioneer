@@ -676,6 +676,24 @@ export {
 
 export type { CompanionForm } from './companion';
 
+export {
+  applyCompanionCommand,
+  canBecome,
+  CompanionCommandField,
+  CompanionCommandSchema,
+  CompanionPlaySchema,
+  CompanionProblem,
+  companionProblem,
+  CompanionsPlaySchema,
+  CompanionStatus,
+  companionStatus,
+  CompanionStatusSchema,
+  isCompanionCommand,
+  isCompanionUsable,
+} from './companion-status';
+
+export type { CompanionCommand, CompanionPlay, CompanionsPlay } from './companion-status';
+
 export { liveCompanionKinds } from './live-companion-kinds';
 
 export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';

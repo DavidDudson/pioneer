@@ -7,6 +7,14 @@ import * as z from 'zod';
 
 import { ActiveSpellCommandField, ActiveSpellCommandSchema, ActiveSpellsSchema, SpellSpendKind } from './active-spells';
 import { BreathCommandField, BreathCommandSchema, BreathSchema } from './breath';
+import {
+  applyCompanionCommand,
+  CompanionCommandField,
+  CompanionCommandSchema,
+  CompanionsPlaySchema,
+  isCompanionCommand,
+} from './companion-status';
+import type { CompanionCommand } from './companion-status';
 import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
 import {
@@ -98,6 +106,8 @@ export const PlayStateSchema = z.strictObject({
   spendLog: SpendLogSchema.default([]),
   /** What the character is doing while exploring, as the id of the action; none until it picks one. */
   exploration: ExplorationActivitySchema,
+  /** The status of each companion the character owns (ADR-0079); one with no entry is active. */
+  companions: CompanionsPlaySchema,
   ...DeathTrackSchema.shape,
 });
 
@@ -146,6 +156,8 @@ export const PlayCommandField = {
   ...EnvironmentCommandField,
   /** The breath set or the character let breathe again (`breath.ts`). */
   ...BreathCommandField,
+  /** A companion moved between statuses (`companion-status.ts`). */
+  ...CompanionCommandField,
 } as const;
 
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
@@ -178,6 +190,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ExplorationCommandSchema.options,
   ...EnvironmentCommandSchema.options,
   ...BreathCommandSchema.options,
+  ...CompanionCommandSchema.options,
 ]);
 
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
@@ -230,6 +243,10 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
     return afterConsumable(play, command, limits);
   }
 
+  if (isCompanionCommand(command)) {
+    return { ...play, companions: applyCompanionCommand(play.companions, command) };
+  }
+
   if (isCountingCommand(command)) {
     return afterSustain(play, applyCountingCommand(play, command, limits), { command, limits });
   }
@@ -257,7 +274,7 @@ function afterSustain(before: PlayState, after: PlayState, { command, limits }: 
 }
 
 /** The edits of Hit Points and the death track: every play edit that does not count. */
-type HitPointsCommand = Exclude<PlayCommand, CountingCommand | ConsumableCommand>;
+type HitPointsCommand = Exclude<PlayCommand, CountingCommand | ConsumableCommand | CompanionCommand>;
 
 /** `play` after an edit of Hit Points or the death track. */
 function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, limits: PlayLimits): PlayState {
