@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { BadgeTone, Stack, Tag, Text } from '@pioneer/frontier';
+import { Badge, BadgeTone, Stack, Text } from '@pioneer/frontier';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { InventoryMessage } from '../inventory-messages';
@@ -19,7 +19,7 @@ interface BreakGroup {
  */
 @Component({
   selector: 'pio-inventory-breaks',
-  imports: [Stack, Tag, Text, TranslocoPipe],
+  imports: [Stack, Badge, Text, TranslocoPipe],
   templateUrl: './inventory-breaks.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

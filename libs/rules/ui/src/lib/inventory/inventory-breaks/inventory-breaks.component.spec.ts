@@ -34,14 +34,14 @@ describe(InventoryBreaks, () => {
     await fixture.whenStable();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
     const host = fixture.nativeElement as HTMLElement;
-    expect(host.querySelector('fr-tag')?.textContent.trim()).toBe('Approved by the GM');
+    expect(host.querySelector('fr-badge')?.textContent.trim()).toBe('Approved by the GM');
     expect(host.textContent).not.toContain('Breaks a rule');
     expect(host.textContent).toContain('Invested');
   });
 
   it('shows a warning tag, then a line for each reason', async () => {
     const host = await render([REASON, REASON]);
-    expect(host.querySelector('fr-tag')?.textContent.trim()).toBe('Breaks a rule');
+    expect(host.querySelector('fr-badge')?.textContent.trim()).toBe('Breaks a rule');
     expect([...host.querySelectorAll('fr-text')].map((line) => line.textContent.trim())).toStrictEqual([
       'Invested',
       'Invested',

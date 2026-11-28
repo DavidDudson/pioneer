@@ -49,9 +49,15 @@ describe(Text, () => {
     expect(rendered.textContent.trim()).toBe('AC');
   });
 
-  it('sets body text in the default tone by default', async () => {
+  it('sets body text with no colour by default, so it takes its parent', async () => {
     const rendered = await render({});
-    expect([...rendered.classList]).toStrictEqual(expect.arrayContaining(['text-body', 'text-fg-default']));
+    expect([...rendered.classList]).toContain('text-body');
+    expect([...rendered.classList].filter((name) => name.startsWith('text-fg-'))).toStrictEqual([]);
+  });
+
+  it('sets the default tone when asked', async () => {
+    const rendered = await render({ tone: Tone.Default });
+    expect([...rendered.classList]).toContain('text-fg-default');
   });
 
   it.each([
@@ -166,6 +172,11 @@ describe(Text, () => {
   it('boxes a <kbd> like a key', async () => {
     const rendered = await render({ element: TextElement.Keyboard });
     expect([...rendered.classList]).toStrictEqual(expect.arrayContaining(['border', 'border-line-default']));
+  });
+
+  it('gives a <kbd> a height and a least width, so one letter is a square key', async () => {
+    const rendered = await render({ element: TextElement.Keyboard }, 'K');
+    expect([...rendered.classList]).toStrictEqual(expect.arrayContaining(['h-key', 'min-w-key']));
   });
 
   it('spells out an <abbr> in its title', async () => {

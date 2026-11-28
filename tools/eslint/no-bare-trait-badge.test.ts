@@ -20,22 +20,22 @@ tester.run('no-bare-trait-badge', noBareTraitBadge, {
     // Not a trait: a rarity, a value, a literal.
     { filename: FEATURE, code: `<fr-badge>{{ rarity }}</fr-badge>` },
     { filename: FEATURE, code: `<fr-badge>{{ preview().value }}</fr-badge>` },
-    { filename: FEATURE, code: `<fr-tag label="Trait" />` },
+    { filename: FEATURE, code: `<fr-badge label="Trait" />` },
     { filename: FEATURE, code: `<fr-badge>{{ 'trait' }}</fr-badge>` },
-    { filename: FEATURE, code: `<fr-tag [label]="shownLabel()" [tone]="tone()" />` },
+    { filename: FEATURE, code: `<fr-badge [label]="shownLabel()" [tone]="tone()" />` },
     // A name that only contains the letters.
     { filename: FEATURE, code: `<fr-badge>{{ portrait }}</fr-badge>` },
     // Frontier knows no schemas.
-    { filename: 'libs/frontier/src/lib/text/tag/tag.component.html', code: `<fr-badge>{{ trait }}</fr-badge>` },
+    { filename: 'libs/frontier/src/lib/text/badge/badge.component.html', code: `<fr-badge>{{ trait }}</fr-badge>` },
   ],
   invalid: [
     { filename: FEATURE, code: `<fr-badge>{{ trait }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
-    { filename: FEATURE, code: `<fr-tag [label]="trait" />`, errors: [{ messageId: 'bare' }] },
+    { filename: FEATURE, code: `<fr-badge [label]="trait" />`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ ability.traits[0] }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ strike.ownTrait }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ trait.name }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
     { filename: FEATURE, code: `<fr-badge>{{ trait?.name }}</fr-badge>`, errors: [{ messageId: 'bare' }] },
-    { filename: FEATURE, code: `<fr-tag [label]='trait' />`, errors: [{ messageId: 'bare' }] },
+    { filename: FEATURE, code: `<fr-badge [label]='trait' />`, errors: [{ messageId: 'bare' }] },
     {
       filename: FEATURE,
       code: `@for (trait of preview().traits; track trait) { <fr-badge>{{ trait }}</fr-badge> }`,

@@ -9,7 +9,7 @@ import {
   unplacedFeatBreaks,
   unplacedPickBreaks,
 } from '@pioneer/character/domain';
-import { BadgeTone, Tag } from '@pioneer/frontier';
+import { Badge, BadgeTone } from '@pioneer/frontier';
 
 import { CharacterRuleLimitStore } from '../../data/character-rule-limit-store';
 import { CharacterStore } from '../../data/character-store';
@@ -24,7 +24,7 @@ import { ruleBreakingCount } from '../inventory/sheet-violations';
  */
 @Component({
   selector: 'pio-sheet-rule-breaks',
-  imports: [Tag, TranslocoPipe],
+  imports: [Badge, TranslocoPipe],
   templateUrl: './sheet-rule-breaks.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

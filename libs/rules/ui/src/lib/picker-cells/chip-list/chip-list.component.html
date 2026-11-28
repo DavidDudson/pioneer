@@ -3,7 +3,7 @@
     @if (chip.trait; as trait) {
       <pio-trait-chip [trait]="trait" [label]="chip.label" [tone]="chip.tone ?? 'neutral'" />
     } @else {
-      <ng-template #tag><fr-tag [label]="chip.label" [tone]="chip.tone ?? 'neutral'" /></ng-template>
+      <ng-template #tag><fr-badge [label]="chip.label" [tone]="chip.tone ?? 'neutral'" /></ng-template>
       @if (chip.entry; as entry) {
         <pio-content-preview [entry]="entry">
           <fr-text [attr.tabindex]="previewable(entry) ? 0 : null"><ng-container *ngTemplateOutlet="tag" /></fr-text>

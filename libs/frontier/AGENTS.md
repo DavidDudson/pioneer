@@ -22,7 +22,7 @@ Read this before touching any UI.
   `fr-heading`, `fr-button`, `fr-text-input`, `fr-link`, `fr-async-form`
   (`pioneer/no-native-elements`).
 - **A trait is a `pio-trait-chip`, never a bare badge.** A template that binds a trait (`trait`, `traits`, or a name
-  ending in `Trait`) to `fr-badge` or `fr-tag` fails (`pioneer/no-bare-trait-badge`); templates have no types, so the
+  ending in `Trait`) to `fr-badge` fails (`pioneer/no-bare-trait-badge`); templates have no types, so the
   rule reads the binding's name. Filter options and a trait named in a sentence are not chips.
 - **Figures are tabular and lining.** Table cells, meters, description-list values and `minWidth` text set them by
   default; `fr-text` takes `numeric` for the rest. A feature `fr-text` that shows one name from `modifier`, `bonus`,

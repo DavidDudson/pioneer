@@ -3,7 +3,7 @@
     <fr-text weight="semibold">{{ row().name }}</fr-text>
     <fr-text>{{ row().current.effect }}</fr-text>
     @if (row().current.gm) {
-      <fr-tag [label]="Message.GmTag | transloco" [tone]="Tone.Info" />
+      <fr-badge [label]="Message.GmTag | transloco" [tone]="Tone.Info" />
     }
   </fr-stack>
   <fr-text>{{ row().current.reason }}</fr-text>

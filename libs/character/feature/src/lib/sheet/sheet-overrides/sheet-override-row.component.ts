@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, OverrideReason } from '@pioneer/character/domain';
-import { AsyncButton, BadgeTone, DateDisplay, Link, Stack, Tag, Text, TextField } from '@pioneer/frontier';
+import { AsyncButton, Badge, BadgeTone, DateDisplay, Link, Stack, Text, TextField } from '@pioneer/frontier';
 import type { StatisticLink } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
@@ -39,7 +39,7 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-override-row',
-  imports: [AsyncButton, DateDisplay, FormField, Link, Stack, Tag, Text, TextField, TranslocoPipe],
+  imports: [AsyncButton, DateDisplay, FormField, Link, Stack, Badge, Text, TextField, TranslocoPipe],
   templateUrl: './sheet-override-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

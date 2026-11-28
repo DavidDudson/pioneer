@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { BadgeTone, Tag } from '@pioneer/frontier';
+import { Badge, BadgeTone } from '@pioneer/frontier';
 import type { FeatCategory } from '@pioneer/rules/sdk';
 
 import { FEAT_CATEGORY_MESSAGES } from '../../feat-picker/feat-picker-messages';
@@ -14,7 +14,7 @@ import { FEAT_CATEGORY_MESSAGES } from '../../feat-picker/feat-picker-messages';
  */
 @Component({
   selector: 'pio-feat-category-cell',
-  imports: [Tag, TranslocoPipe],
+  imports: [Badge, TranslocoPipe],
   templateUrl: './feat-category-cell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

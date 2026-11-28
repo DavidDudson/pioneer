@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
+import { Glyph } from '../glyph/glyph.component';
+
 export const GemTone = {
   Blue: 'blue',
   Purple: 'purple',
@@ -49,12 +51,10 @@ const fillVariants = cva(
   },
 );
 
-const labelClasses = cva('sr-only')();
-
 /**
  * A cut stone with a short run of glyphs on it, such as a rune. The glyphs take the tone's colour on a dark fill, inside a
  * tone-coloured outline. A filled gem pulses in its tone, and holds still under reduced motion or when black (it does nothing); with
- * no `tone` it is a hole: the same outline, empty. The glyphs are decorative; `label`, already translated, is read
+ * no `tone` it is a hole: the same outline, empty. The glyphs are an `fr-glyph`: hidden, with `label`, already translated, read
  * out instead, so the tone is never the only signal.
  *
  * ```html
@@ -64,6 +64,7 @@ const labelClasses = cva('sr-only')();
  */
 @Component({
   selector: 'fr-gem',
+  imports: [Glyph],
   templateUrl: './gem.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
@@ -77,5 +78,4 @@ export class Gem {
 
   protected readonly outline = computed(() => outlineVariants({ tone: this.tone() ?? 'empty' }));
   protected readonly fill = computed(() => fillVariants({ tone: this.tone() ?? 'empty' }));
-  protected readonly labelClasses = labelClasses;
 }

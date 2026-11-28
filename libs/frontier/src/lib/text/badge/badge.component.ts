@@ -115,11 +115,13 @@ const badgeVariants = cva(
 );
 
 /**
- * A short label: a trait, a rarity or a condition's value. The text is projected; an optional leading Lucide
- * `icon` is decorative and takes the badge's text colour.
+ * A short label: a trait, a rarity or a condition's value. The text is projected, or set with `label` where a
+ * component holds only a string and a tone, such as a table cell. An optional leading Lucide `icon` is decorative
+ * and takes the badge's text colour.
  *
  * ```html
  * <fr-badge tone="danger" variant="solid" [icon]="Skull">{{ 'condition.dying' | transloco: { value: 2 } }}</fr-badge>
+ * <fr-badge [label]="'trait.fire' | transloco" />
  * ```
  */
 @Component({
@@ -130,6 +132,8 @@ const badgeVariants = cva(
   host: { class: 'contents' },
 })
 export class Badge {
+  /** The text, for a badge fed data instead of content. Shown before any projected content. */
+  public readonly label = input<string | undefined>(undefined);
   public readonly tone = input<BadgeTone>(BadgeTone.Neutral);
   public readonly variant = input<BadgeVariant>(BadgeVariant.Subtle);
   public readonly icon = input<IconGlyph | undefined>(undefined);

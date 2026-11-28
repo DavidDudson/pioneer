@@ -201,6 +201,8 @@
   --spacing-touch-pair: var(--fr-size-touch-pair);
   /* The height of an fr-gem and the width of each glyph box in it, so a monospace-looking run in a face that is not. */
   --spacing-gem: var(--fr-size-gem);
+  /* The least height and width of a keycap (`fr-text` `kbd`), so a single letter is a square key. */
+  --spacing-key: var(--fr-size-key);
   --spacing-control-xs: var(--fr-size-control-xs);
   --spacing-control-sm: var(--fr-size-control-sm);
   --spacing-control-md: var(--fr-size-control-md);

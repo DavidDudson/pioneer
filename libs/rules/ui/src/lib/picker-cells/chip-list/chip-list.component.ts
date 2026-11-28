@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { BadgeTone, Stack, Tag, Text } from '@pioneer/frontier';
+import { Badge, BadgeTone, Stack, Text } from '@pioneer/frontier';
 import { Rarity } from '@pioneer/rules/sdk';
 import type { ContentId, Trait } from '@pioneer/rules/sdk';
 
@@ -36,7 +36,7 @@ export const RARITY_TONES: Readonly<Record<Rarity, BadgeTone>> = {
  */
 @Component({
   selector: 'pio-chip-list',
-  imports: [ContentPreview, NgTemplateOutlet, Stack, Tag, Text, TraitChip],
+  imports: [ContentPreview, NgTemplateOutlet, Stack, Badge, Text, TraitChip],
   templateUrl: './chip-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

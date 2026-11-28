@@ -1,4 +1,5 @@
 <span [class]="outline()">
-  <span aria-hidden="true" [class]="fill()">{{ glyphs() }}</span>
-  <span [class]="labelClasses">{{ label() }}</span>
+  <span [class]="fill()"
+    ><fr-glyph [label]="label()">{{ glyphs() }}</fr-glyph></span
+  >
 </span>

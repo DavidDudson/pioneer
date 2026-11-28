@@ -3,8 +3,8 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input }
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
-import { damageToneVariants, Tone } from '../../tokens';
-import type { DamageTone } from '../../tokens';
+import { damageToneVariants } from '../../tokens';
+import type { DamageTone, Tone } from '../../tokens';
 import { TextVariant, textVariants } from '../text.variants';
 import type { FontWeight, MinWidth } from '../text.variants';
 import { PhraseElement, TextPhrase } from './phrase.component';
@@ -24,7 +24,7 @@ export const TextElement = {
 
 export type TextElement = ValueOf<typeof TextElement>;
 
-/** A tone that sets no colour, so the text takes its parent's: a label inside a coloured button. */
+/** A tone that sets no colour, so the text takes its parent's: a label inside a coloured button. The default. */
 export const INHERIT_TONE = 'inherit';
 
 export type InheritTone = typeof INHERIT_TONE;
@@ -62,7 +62,8 @@ const elementVariants = cva('', {
       [TextElement.Paragraph]: '',
       [TextElement.Preformatted]: 'break-words whitespace-pre-wrap',
       [TextElement.Code]: 'wrap-anywhere',
-      [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs',
+      [TextElement.Keyboard]:
+        'inline-flex h-key min-w-key items-center justify-center border border-line-default bg-surface-sunken px-3xs',
       [TextElement.Abbreviation]: '',
       [TextElement.Quotation]: '',
       [TextElement.Emphasis]: 'italic',
@@ -90,7 +91,7 @@ const elementVariants = cva('', {
 export class Text {
   public readonly element = input<TextElement>(TextElement.Span);
   public readonly variant = input<TextVariant>(TextVariant.Body);
-  public readonly tone = input<Tone | InheritTone>(Tone.Default);
+  public readonly tone = input<Tone | InheritTone>(INHERIT_TONE);
   /** Colours the text by a damage type instead of its tone (a roll's total; the type is named alongside). */
   public readonly damage = input<DamageTone | undefined>(undefined);
   public readonly weight = input<FontWeight | undefined>(undefined);
