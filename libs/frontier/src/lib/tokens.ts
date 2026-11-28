@@ -16,10 +16,7 @@ export const Space = {
 
 export type Space = ValueOf<typeof Space>;
 
-/**
- * The gap a part keeps between its children, by the role of what it holds. A part owns its gap once, so a
- * page never re-states it. Values are the `Space` steps; see the gap ladder in `AGENTS.md`.
- */
+/** The gap a part keeps between its children, by the role of what it holds (the gap ladder in `AGENTS.md`). */
 export const GapRole = {
   /** A page body: its header, cards and drawer. */
   Page: Space.Xl,
