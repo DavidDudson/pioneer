@@ -84,3 +84,14 @@ export { BodyFont, BodyFontSchema, MonoFont, MonoFontSchema } from './fonts';
 export { DistanceUnit, DistanceUnitSchema, feetToMetres, Milliseconds } from './units';
 
 export type { ValueOf } from './value-of';
+
+export {
+  conditionHolds,
+  FilterCondition,
+  FilterKind,
+  FilterOperator,
+  filterSchema,
+  filtersParam,
+  type FilterProperties,
+  type FilterValue,
+} from './filter-condition';

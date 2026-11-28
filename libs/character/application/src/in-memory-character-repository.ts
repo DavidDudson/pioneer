@@ -1,30 +1,60 @@
-import { CHARACTER_PAGE_SIZE, CharacterCount, CharacterSort, withPlay } from '@pioneer/character/domain';
+import {
+  CHARACTER_FILTER_PROPERTIES,
+  CHARACTER_PAGE_SIZE,
+  CharacterCount,
+  CharacterSort,
+  withPlay,
+} from '@pioneer/character/domain';
 import type {
   Character,
-  CharacterFilter,
+  CharacterFilterProperty,
   CharacterId,
   CharacterListQuery,
   CharacterPage,
   CharacterPageQuery,
   CharacterPlay,
 } from '@pioneer/character/domain';
-import { FIRST_VERSION, nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
-import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
+import {
+  conditionHolds,
+  FIRST_VERSION,
+  nextVersion,
+  SortDirection,
+  VersionConflictError,
+} from '@pioneer/shared/kernel';
+import type {
+  FilterCondition,
+  FilterKind,
+  FilterProperties,
+  FilterValue,
+  Temporal,
+  UserId,
+  Version,
+} from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
 import type { CharacterAudit, PlayWrite } from './character-repository';
 
-/** Whether `character` passes every filter in `filter`; an absent filter passes all. */
-function matches(character: Character, filter: CharacterFilter): boolean {
-  const search = filter.name?.toLowerCase();
+const KINDS: FilterProperties = CHARACTER_FILTER_PROPERTIES;
 
-  return (
-    (filter.minLevel === undefined || character.level >= filter.minLevel) &&
-    (filter.maxLevel === undefined || character.level <= filter.maxLevel) &&
-    (filter.classId === undefined || character.classId === filter.classId) &&
-    (filter.ancestry === undefined || character.ancestry === filter.ancestry) &&
-    (search === undefined || character.name.toLowerCase().includes(search))
-  );
+/** What each filterable property reads from a character. */
+const READ = {
+  name: (character) => character.name,
+  level: (character) => character.level,
+  class: (character) => character.classId,
+  ancestry: (character) => character.ancestry,
+} as const satisfies Readonly<Record<CharacterFilterProperty, (character: Character) => FilterValue>>;
+
+function readProperty(property: string, character: Character): FilterValue {
+  return new Map<string, (character: Character) => FilterValue>(Object.entries(READ)).get(property)?.(character);
+}
+
+/** Whether `character` passes every condition; no conditions pass all. */
+function matches(character: Character, conditions: ReadonlyArray<FilterCondition>): boolean {
+  return conditions.every((condition) => {
+    const kind: FilterKind | undefined = KINDS[condition.property];
+
+    return kind !== undefined && conditionHolds(kind, condition, readProperty(condition.property, character));
+  });
 }
 
 /** Repository adapter for tests and local experiments. Play state is kept apart, as `character_play` keeps it. */
@@ -44,7 +74,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   }
 
   public override async pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
-    const matching = this.#listFor(ownerId, query, false).filter((character) => matches(character, query));
+    const matching = this.#listFor(ownerId, query, false).filter((character) => matches(character, query.filters));
     const start = (query.page - 1) * CHARACTER_PAGE_SIZE;
 
     return {

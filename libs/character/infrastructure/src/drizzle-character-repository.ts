@@ -12,13 +12,20 @@ import type {
 } from '@pioneer/character/domain';
 import { FIRST_VERSION, newId, nextVersion, SortDirection } from '@pioneer/shared/kernel';
 import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
-import { archiveRows, RequestMemo, restoreRows, stampAudit, updateVersioned } from '@pioneer/shared/server';
+import {
+  applyFilters,
+  archiveRows,
+  RequestMemo,
+  restoreRows,
+  stampAudit,
+  updateVersioned,
+} from '@pioneer/shared/server';
 import { and, asc, count, desc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import type { AnyPgColumn } from 'drizzle-orm/pg-core';
 
-import { filterConditions } from './character-list-filter';
+import { CHARACTER_FILTER_COLUMNS } from './character-filter-columns';
 import { toCharacter, toPlay, toRow } from './character-row';
 import { characterPlay, characters } from './character.table';
 
@@ -45,7 +52,12 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
-    const where = and(eq(characters.ownerId, ownerId), isNull(characters.archivedAt), ...filterConditions(query));
+    const where = and(
+      eq(characters.ownerId, ownerId),
+      isNull(characters.archivedAt),
+      applyFilters(query.filters, CHARACTER_FILTER_COLUMNS),
+    );
+
     const order = query.direction === SortDirection.Asc ? asc : desc;
 
     const [rows, [counted]] = await Promise.all([

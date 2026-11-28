@@ -111,20 +111,22 @@ describe('CharacterListPage', () => {
 
   it('opens the page and filters its address holds', async () => {
     const url = await requestFor('/characters?page=2&minLevel=3&maxLevel=9&name=kyr');
-    expect(Object.fromEntries(url.searchParams)).toMatchObject({
-      page: '2',
-      minLevel: '3',
-      maxLevel: '9',
-      name: 'kyr',
-    });
+    const asked = Object.fromEntries(url.searchParams);
+    expect(asked).toMatchObject({ page: '2' });
+
+    const expected = [
+      { property: 'level', operator: 'between', values: ['3', '9'] },
+      { property: 'name', operator: 'contains', values: ['kyr'] },
+    ];
+
+    expect(url.searchParams.get('filters')).toBe(JSON.stringify(expected));
   });
 
   it('ignores an address value that does not read', async () => {
     const url = await requestFor('/characters?page=next&minLevel=40&classId=fighter');
     const asked = Object.fromEntries(url.searchParams);
     expect(asked).toMatchObject({ page: '1' });
-    expect(asked).not.toHaveProperty('minLevel');
-    expect(asked).not.toHaveProperty('classId');
+    expect(url.searchParams.get('filters')).toBe('[]');
   });
 
   it('offers to clear the filters when none match', async () => {

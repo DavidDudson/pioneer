@@ -8,7 +8,7 @@ import { CharacterAllies } from './character-allies';
 import { CharacterCompanionContract } from './character-companion-contract';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterPacks, EnablePackBody } from './character-packs';
-import { CharacterFilter, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
+import { CharacterFilter, CharacterFilters, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterRuleLimitContract } from './character-rule-limit-contract';
 import { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
@@ -36,11 +36,19 @@ export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
 /** The home list: the list's orders, a page of them, and the filters that narrow it. */
 export const CharacterPageQuery = CharacterListQuery.extend({
-  ...CharacterFilter.shape,
+  filters: CharacterFilters,
   page: PageNumber.default(FIRST_PAGE),
 });
 
 export type CharacterPageQuery = z.output<typeof CharacterPageQuery>;
+
+/** What the list page holds and keeps in its address: the order, a page, and the filters a person set. */
+export const CharacterListState = CharacterListQuery.extend({
+  ...CharacterFilter.shape,
+  page: PageNumber.default(FIRST_PAGE),
+});
+
+export type CharacterListState = z.output<typeof CharacterListState>;
 
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 
