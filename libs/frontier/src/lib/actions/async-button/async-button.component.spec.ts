@@ -88,13 +88,13 @@ describe(AsyncButton, () => {
     button(fixture).click();
     await settle();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).not.toBeNull();
+    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"]')).not.toBeNull();
 
     await settle(SUCCESS_FLASH);
     // The reset is published on TanStack's notify timer, queued after the flash timer.
     await settle(RESET_NOTIFY_MS);
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).toBeNull();
+    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"]')).toBeNull();
     expect(button(fixture).getAttribute('aria-busy')).toBeNull();
   });
 
