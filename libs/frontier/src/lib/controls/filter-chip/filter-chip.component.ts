@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
@@ -14,7 +15,6 @@ export const FilterChipSegment = { Property: 'property', Operator: 'operator', V
 
 export type FilterChipSegment = ValueOf<typeof FilterChipSegment>;
 
-/** One message per operator: the chip read as a sentence. */
 const PHRASE_KEYS = {
   is: 'frontier.filterChip.phrase.is',
   isNot: 'frontier.filterChip.phrase.isNot',
@@ -22,17 +22,22 @@ const PHRASE_KEYS = {
   between: 'frontier.filterChip.phrase.between',
 } as const satisfies Record<FilterOperator, string>;
 
-/** One control-size tall (`h-control-sm`), the same as the buttons inside it. */
 const chipClasses = cva('inline-flex h-control-sm items-stretch border border-line-default bg-surface-base')();
+
+/** A segment of the chip and the text it shows. */
+interface ChipSegment {
+  readonly segment: FilterChipSegment;
+  readonly label: string;
+}
 
 /**
  * A filter as a group of segments: `[property][operator][value][x]`. Each segment is a button that opens the chip's
  * editor (`expanded`, and `controls` names the editor's id); the cross removes the chip, and so does Backspace
- * while focus is inside it. A draft chip, one with no `value`, is dropped when focus leaves it and its editor is
+ * while focus is inside it. Each segment is a Tab stop: a filter bar that holds several chips owns the roving focus. A draft chip, one with no `value`, is dropped when focus leaves it and its editor is
  * closed. frontier knows no schemas: the labels arrive already translated and the value already formatted.
  *
  * ```html
- * <fr-filter-chip property="Rarity" [operator]="op" value="Rare" (edit)="open($event)" (removed)="remove()" />
+ * <fr-filter-chip property="Rarity" [operator]="op" value="Rare" (segmentPressed)="open($event)" (removed)="remove()" />
  * ```
  */
 @Component({
@@ -44,7 +49,9 @@ const chipClasses = cva('inline-flex h-control-sm items-stretch border border-li
     role: 'group',
     '[class]': 'classes',
     '[attr.aria-label]': 'phrase()',
-    '(keydown.backspace)': 'removed.emit()',
+    '(keydown)': 'keydown($event)',
+    '(pointerdown)': 'pressing = true',
+    '(click)': 'pressing = false',
     '(focusout)': 'blurred($event)',
   },
 })
@@ -58,26 +65,43 @@ export class FilterChip {
   public readonly expanded = input(false);
   /** The id of the chip's editor, for `aria-controls`. */
   public readonly controls = input<string | undefined>(undefined);
-  public readonly edit = output<FilterChipSegment>();
+  public readonly segmentPressed = output<FilterChipSegment>();
   public readonly removed = output();
   /** A draft chip lost focus with no editor open: nothing was chosen, so it goes. */
   public readonly dropped = output();
 
   protected readonly classes = chipClasses;
-  protected readonly Segment = FilterChipSegment;
   protected readonly Size = Size;
   protected readonly ButtonVariant = ButtonVariant;
   protected readonly closeIcon = X;
-  protected readonly operatorLabels = OPERATOR_LABELS;
+
+  /** A press is under way inside the chip: some browsers give a clicked button no focus, so `focusout` has no target. */
+  protected pressing = false;
 
   readonly #transloco = inject(TranslocoService);
+  /** Any translation event (a bundle loaded, the language changed), so messages built in a `computed` stay current. */
+  readonly #translations = toSignal(this.#transloco.events$);
 
-  protected readonly draft = computed(() => this.value() === '');
+  protected readonly isDraft = computed(() => this.value() === '');
+  /** The three segments that open the editor, in reading order. */
+  protected readonly segments = computed<ReadonlyArray<ChipSegment>>(() => {
+    this.#translations();
+
+    return [
+      { segment: FilterChipSegment.Property, label: this.property() },
+      { segment: FilterChipSegment.Operator, label: this.#transloco.translate(OPERATOR_LABELS[this.operator()]) },
+      {
+        segment: FilterChipSegment.Value,
+        label: this.isDraft() ? this.#transloco.translate('frontier.filterChip.emptyValue') : this.value(),
+      },
+    ];
+  });
   /** The whole chip as one phrase: its group name, and the base of the remove button's. */
   protected readonly phrase = computed(() => {
+    this.#translations();
     const property = this.property();
 
-    if (this.draft()) {
+    if (this.isDraft()) {
       const operator = this.#transloco.translate(OPERATOR_LABELS[this.operator()]);
 
       return this.#transloco.translate('frontier.filterChip.draftPhrase', { property, operator });
@@ -86,11 +110,19 @@ export class FilterChip {
     return this.#transloco.translate(PHRASE_KEYS[this.operator()], { property, value: this.value() });
   });
 
+  /** Backspace on a segment removes the chip; a held key removes one chip, not the ones behind it. */
+  protected keydown(event: KeyboardEvent): void {
+    if (event.key === 'Backspace' && !event.repeat) {
+      this.removed.emit();
+    }
+  }
+
   protected blurred(event: FocusEvent): void {
     const next = event.relatedTarget;
     const stays = next instanceof Node && event.currentTarget instanceof Node && event.currentTarget.contains(next);
+    const leftWindow = !document.hasFocus();
 
-    if (this.draft() && !this.expanded() && !stays) {
+    if (this.isDraft() && !this.expanded() && !stays && !this.pressing && !leftWindow) {
       this.dropped.emit();
     }
   }

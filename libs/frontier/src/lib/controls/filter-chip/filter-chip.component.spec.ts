@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { FilterOperator } from '../filter-bar/filter-bar.types';
@@ -13,6 +13,8 @@ interface Inputs {
 }
 
 function render(inputs: Inputs = {}): ComponentFixture<FilterChip> {
+  // A headless test window has no focus; the chip ignores a blur caused by leaving the window.
+  vi.spyOn(document, 'hasFocus').mockReturnValue(true);
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(FilterChip);
   fixture.componentRef.setInput('property', 'Rarity');
@@ -68,7 +70,7 @@ describe(FilterChip, () => {
   it('opens the editor on the segment pressed', () => {
     const fixture = render();
     const pressed: Array<FilterChipSegment> = [];
-    fixture.componentInstance.edit.subscribe((segment) => {
+    fixture.componentInstance.segmentPressed.subscribe((segment) => {
       pressed.push(segment);
     });
 
@@ -130,5 +132,57 @@ describe(FilterChip, () => {
     host(fixture).dispatchEvent(new FocusEvent('focusout', { relatedTarget: operator }));
 
     expect(drops).toBe(0);
+  });
+
+  it('drops a draft when focus moves to an element outside it', () => {
+    const fixture = render({ value: '' });
+    const outside = document.createElement('button');
+    let drops = 0;
+    fixture.componentInstance.dropped.subscribe(() => {
+      drops += 1;
+    });
+
+    host(fixture).dispatchEvent(new FocusEvent('focusout', { relatedTarget: outside }));
+
+    expect(drops).toBe(1);
+  });
+
+  it('names a draft by its property and operator and prompts for a value', () => {
+    const fixture = render({ value: '' });
+    const names = buttons(fixture);
+
+    expect(host(fixture).getAttribute('aria-label')).toBe('Rarity is');
+    expect(names[2]?.textContent.trim()).toBe('Choose a value');
+    expect(names.at(-1)?.getAttribute('aria-label')).toBe('Remove filter: Rarity is');
+  });
+
+  it('names the remove button after the whole phrase', () => {
+    expect(buttons(render()).at(-1)?.getAttribute('aria-label')).toBe('Remove filter: Rarity is Rare');
+  });
+
+  it('keeps a draft while a press is under way inside it', () => {
+    const fixture = render({ value: '' });
+    let drops = 0;
+    fixture.componentInstance.dropped.subscribe(() => {
+      drops += 1;
+    });
+    const segment = host(fixture).querySelectorAll('button').item(1);
+
+    segment.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    host(fixture).dispatchEvent(new FocusEvent('focusout', {}));
+
+    expect(drops).toBe(0);
+  });
+
+  it('ignores a held Backspace', () => {
+    const fixture = render();
+    let removals = 0;
+    fixture.componentInstance.removed.subscribe(() => {
+      removals += 1;
+    });
+
+    buttons(fixture)[0]?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace', repeat: true, bubbles: true }));
+
+    expect(removals).toBe(0);
   });
 });

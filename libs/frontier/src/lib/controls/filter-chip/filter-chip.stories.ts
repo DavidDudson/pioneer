@@ -10,7 +10,11 @@ type FilterChipStory = StoryObj<FilterChip>;
 const meta: Meta<FilterChip> = {
   title: 'Controls/Filter Chip',
   component: FilterChip,
-  argTypes: { edit: { action: 'edit' }, removed: { action: 'removed' }, dropped: { action: 'dropped' } },
+  argTypes: {
+    segmentPressed: { action: 'segmentPressed' },
+    removed: { action: 'removed' },
+    dropped: { action: 'dropped' },
+  },
   args: { property: 'Rarity', operator: FilterOperator.Is, value: 'Rare', expanded: false, controls: 'rarity-editor' },
   parameters: { layout: 'padded' },
   render: (args) => ({

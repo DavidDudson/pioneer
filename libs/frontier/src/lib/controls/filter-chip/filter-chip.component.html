@@ -1,27 +1,13 @@
-<fr-button
-  [size]="Size.Sm"
-  [variant]="ButtonVariant.Ghost"
-  [expanded]="expanded()"
-  [controls]="controls()"
-  (pressed)="edit.emit(Segment.Property)"
-  >{{ property() }}</fr-button
->
-<fr-button
-  [size]="Size.Sm"
-  [variant]="ButtonVariant.Ghost"
-  [expanded]="expanded()"
-  [controls]="controls()"
-  (pressed)="edit.emit(Segment.Operator)"
-  >{{ operatorLabels[operator()] | transloco }}</fr-button
->
-<fr-button
-  [size]="Size.Sm"
-  [variant]="ButtonVariant.Ghost"
-  [expanded]="expanded()"
-  [controls]="controls()"
-  (pressed)="edit.emit(Segment.Value)"
-  >{{ draft() ? ('frontier.filterChip.emptyValue' | transloco) : value() }}</fr-button
->
+@for (part of segments(); track part.segment) {
+  <fr-button
+    [size]="Size.Sm"
+    [variant]="ButtonVariant.Ghost"
+    [expanded]="expanded()"
+    [controls]="controls()"
+    (pressed)="segmentPressed.emit(part.segment)"
+    >{{ part.label }}</fr-button
+  >
+}
 <fr-button
   iconOnly
   [size]="Size.Sm"
