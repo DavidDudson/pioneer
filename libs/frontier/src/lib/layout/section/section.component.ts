@@ -4,6 +4,7 @@ import type { Signal } from '@angular/core';
 
 import { CardContent } from '../card/card-content.component';
 import { Card } from '../card/card.component';
+import { Stack } from '../stack/stack.component';
 import { SectionBody } from './section-body.directive';
 
 /**
@@ -25,7 +26,7 @@ import { SectionBody } from './section-body.directive';
  */
 @Component({
   selector: 'fr-section',
-  imports: [Card, CardContent, NgTemplateOutlet],
+  imports: [Card, CardContent, NgTemplateOutlet, Stack],
   templateUrl: './section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()' },

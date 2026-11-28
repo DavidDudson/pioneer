@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
 import { paddingVariants } from '../../tokens';
-import { CardContext, DEFAULT_CARD_PADDING } from './card-padding';
+import { injectCardPadding } from './card-padding';
 
 const footerVariants = cva('flex flex-wrap items-center justify-end gap-sm', {
   variants: { padding: paddingVariants },
@@ -16,9 +16,7 @@ const footerVariants = cva('flex flex-wrap items-center justify-end gap-sm', {
   host: { '[class]': 'classes()' },
 })
 export class CardFooter {
-  private readonly context = inject(CardContext, { optional: true });
+  private readonly padding = injectCardPadding();
 
-  protected readonly classes = computed(() =>
-    footerVariants({ padding: this.context?.padding() ?? DEFAULT_CARD_PADDING }),
-  );
+  protected readonly classes = computed(() => footerVariants({ padding: this.padding() }));
 }

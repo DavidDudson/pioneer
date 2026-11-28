@@ -7,7 +7,7 @@ import { CardHeader } from './card-header.component';
 
 type CardHeaderStory = StoryObj<CardHeader>;
 
-/** The title row of a card, shown alone: padded from the default token. See `Layout/Card` for it assembled. */
+/** The title row of a card, shown alone: padded from the default token. */
 const meta: Meta<CardHeader> = {
   title: 'Layout/Card/Header',
   component: CardHeader,

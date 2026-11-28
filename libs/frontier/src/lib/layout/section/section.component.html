@@ -1,10 +1,12 @@
 <section [attr.aria-labelledby]="anchor()">
   <fr-card headingVariant="subheading" [heading]="heading()" [level]="2" [anchor]="anchor()">
     <fr-card-content>
-      <ng-content />
-      @if (opened() && body(); as body) {
-        <ng-container [ngTemplateOutlet]="body.template" />
-      }
+      <fr-stack gap="md">
+        <ng-content />
+        @if (opened() && body(); as body) {
+          <ng-container [ngTemplateOutlet]="body.template" />
+        }
+      </fr-stack>
     </fr-card-content>
   </fr-card>
 </section>

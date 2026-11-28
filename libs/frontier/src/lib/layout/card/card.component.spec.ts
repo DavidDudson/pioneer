@@ -24,10 +24,24 @@ class FullHost {
 })
 class BareHost {}
 
-async function render(type: Type<FullHost | BareHost>): Promise<HTMLElement> {
+@Component({
+  selector: 'fr-card-loading-host',
+  imports: [Card, CardContent],
+  templateUrl: './card-loading-host.component.html',
+})
+class LoadingHost {}
+
+@Component({
+  selector: 'fr-card-alone-host',
+  imports: [CardContent, CardFooter],
+  templateUrl: './card-alone-host.component.html',
+})
+class AloneHost {}
+
+async function render(type: Type<FullHost | BareHost | LoadingHost | AloneHost>): Promise<HTMLElement> {
   const fixture = TestBed.createComponent(type);
   await fixture.whenStable();
-  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+  // SAFETY: the host of a rendered component is an HTMLElement in the DOM test environment; nativeElement is any.
 
   return fixture.nativeElement as HTMLElement;
 }
@@ -77,6 +91,21 @@ describe(Card, () => {
     const positions = order(root, ['#second', 'hr', '#footer']);
 
     expect(positions).toStrictEqual(positions.toSorted((first, second) => first - second));
+  });
+
+  it('shows a busy skeleton header while loading, without a heading', async () => {
+    const root = await render(LoadingHost);
+    expect(required(root, 'fr-card-header h2').getAttribute('aria-busy')).toBe('true');
+  });
+
+  it('pads parts used outside a card from the default token', async () => {
+    const root = await render(AloneHost);
+
+    const padded = ['#alone', '#alone-footer'].map((selector) =>
+      [...required(root, selector).classList].find((name) => name.startsWith('p-')),
+    );
+
+    expect(padded).toStrictEqual(['p-lg', 'p-lg']);
   });
 
   it('draws no header and no rule without a heading or a footer', async () => {

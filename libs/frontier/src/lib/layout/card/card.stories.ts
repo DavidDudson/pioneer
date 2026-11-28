@@ -13,10 +13,7 @@ import { Card } from './card.component';
 
 type CardStory = StoryObj<Card>;
 
-/**
- * A panel of parts that pad themselves: header, content and footer. The card has no padding, so a divider between
- * parts runs edge to edge.
- */
+/** A titled panel of header, content and footer parts. */
 const meta: Meta<Card> = {
   title: 'Layout/Card',
   component: Card,

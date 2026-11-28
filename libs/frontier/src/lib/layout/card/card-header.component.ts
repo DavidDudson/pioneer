@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
@@ -7,15 +7,12 @@ import type { TextVariant } from '../../text/text.variants';
 import { Text } from '../../text/text/text.component';
 import { paddingVariants } from '../../tokens';
 import { Stack } from '../stack/stack.component';
-import { CardContext, DEFAULT_CARD_PADDING } from './card-padding';
+import { injectCardPadding } from './card-padding';
 
 /** A body right below the header supplies the gap itself, so the paddings do not stack; a divider keeps the header's. */
 const headerVariants = cva('block before-body:pb-none', { variants: { padding: paddingVariants } });
 
-/**
- * The title row of an `fr-card`: a heading, an optional description under it, and `[frCardActions]` at the end edge.
- * While `heading` is `undefined` it shows a busy skeleton. It is not a landmark; `level` sets the outline only.
- */
+/** The title row of an `fr-card`: heading, optional description, and projected actions at the end edge. */
 @Component({
   selector: 'fr-card-header',
   imports: [Heading, Skeleton, Stack, Text],
@@ -33,9 +30,7 @@ export class CardHeader {
   /** The heading's id, for a region labelled by it or a skip link. */
   public readonly anchor = input<string | undefined>(undefined);
 
-  private readonly context = inject(CardContext, { optional: true });
+  private readonly padding = injectCardPadding();
 
-  protected readonly classes = computed(() =>
-    headerVariants({ padding: this.context?.padding() ?? DEFAULT_CARD_PADDING }),
-  );
+  protected readonly classes = computed(() => headerVariants({ padding: this.padding() }));
 }
