@@ -1,5 +1,5 @@
 @let result = check();
-<fr-stack gap="md">
+<fr-stack>
   <fr-field [invalid]="result.status === VerdictStatus.NotJson || result.status === VerdictStatus.Invalid">
     <fr-label>{{ 'play.rules.predicateLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="predicateRows" [(value)]="predicate" />

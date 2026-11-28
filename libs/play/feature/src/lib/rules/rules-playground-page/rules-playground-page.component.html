@@ -4,7 +4,7 @@
   <fr-page-body>
     <fr-stack gap="xl">
       <fr-surface>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-field>
             <fr-label>{{ 'play.rules.schemaLabel' | transloco }}</fr-label>
             <fr-picker
@@ -113,7 +113,7 @@
         </fr-stack>
       </fr-surface>
 
-      <fr-stack gap="md">
+      <fr-stack>
         <fr-heading variant="subheading" [level]="2">{{ 'play.rules.resultHeading' | transloco }}</fr-heading>
         <pio-tool-result [result]="tool" />
       </fr-stack>

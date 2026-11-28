@@ -11,7 +11,7 @@
     />
   }
   @if (showEntry()) {
-    <fr-stack gap="md">
+    <fr-stack>
       @if (regions().list) {
         <fr-stack direction="horizontal">
           <fr-button (pressed)="back()">{{ Message.Back | transloco }}</fr-button>

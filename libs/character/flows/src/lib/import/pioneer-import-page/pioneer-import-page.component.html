@@ -6,7 +6,7 @@
   <fr-page-body>
     <fr-stack gap="xl">
       <fr-surface>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-stack direction="horizontal" align="center" gap="sm">
             <fr-file-button accept=".json,application/json" (chosen)="load($event)">
               {{ 'character.import.pioneer.choose' | transloco }}
@@ -26,7 +26,7 @@
 
       @if (preview.data(); as character) {
         <fr-surface>
-          <fr-stack gap="md">
+          <fr-stack>
             <fr-heading variant="subheading" [level]="2">{{ 'character.import.readHeading' | transloco }}</fr-heading>
             <fr-description-list>
               <fr-description-item [term]="'character.import.name' | transloco">
@@ -42,7 +42,7 @@
         <pio-pioneer-import-homebrew [packs]="character.homebrew" />
 
         <fr-surface>
-          <fr-stack gap="md">
+          <fr-stack>
             <fr-heading variant="subheading" [level]="2">{{ 'character.import.reportHeading' | transloco }}</fr-heading>
             @if (unmatched().length === 0) {
               <fr-text tone="muted">{{ 'character.import.pioneer.allFound' | transloco }}</fr-text>

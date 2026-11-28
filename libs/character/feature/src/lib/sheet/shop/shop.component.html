@@ -1,11 +1,11 @@
-<fr-stack gap="md">
+<fr-stack>
   <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.shop.heading' | transloco }}</fr-heading>
   <fr-async-region [errorMessage]="'character.sheet.shop.loadError' | transloco">
     <ng-template frAsyncPending><pio-shop-offers [offers]="undefined" /></ng-template>
     <ng-template [frAsyncData]="items">
       @if (content(); as content) {
         @let shown = list();
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-stack gap="none">
             <fr-table-toolbar>
               <fr-search-input
@@ -14,7 +14,7 @@
                 [placeholder]="'character.sheet.shop.search' | transloco"
                 (searched)="search($event)"
               />
-              <fr-stack frToolbarFilters gap="md">
+              <fr-stack frToolbarFilters>
                 <fr-stack gap="xs">
                   <fr-stack direction="horizontal">
                     <fr-toggle-button [value]="everything()" (valueChange)="showEverything($event)">{{

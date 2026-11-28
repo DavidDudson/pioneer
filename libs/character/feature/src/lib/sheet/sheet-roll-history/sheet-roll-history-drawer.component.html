@@ -1,5 +1,5 @@
 <fr-drawer [param]="param" [title]="'character.sheet.roll.history.title' | transloco" [(open)]="history.open">
-  <fr-stack gap="md">
+  <fr-stack>
     @for (row of rows(); track row) {
       <fr-stack gap="xs">
         <fr-stack direction="horizontal" justify="between" align="center" gap="sm">

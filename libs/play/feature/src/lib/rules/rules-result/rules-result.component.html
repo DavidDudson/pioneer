@@ -3,7 +3,7 @@
   <fr-alert tone="success">{{ 'play.rules.valid' | transloco }}</fr-alert>
   <fr-text element="pre">{{ result.parsed }}</fr-text>
 } @else if (result.status === CheckStatus.Invalid) {
-  <fr-list gap="sm">
+  <fr-list>
     @for (issue of result.issues; track $index) {
       <fr-list-item>
         <fr-stack gap="3xs">

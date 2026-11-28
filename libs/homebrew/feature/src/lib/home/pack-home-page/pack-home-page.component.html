@@ -5,7 +5,7 @@
       <fr-async-region [errorMessage]="'homebrew.pack.loadError' | transloco">
         <ng-template frAsyncPending>
           <fr-surface>
-            <fr-stack gap="md">
+            <fr-stack>
               <fr-heading variant="subheading" [level]="2">{{ 'homebrew.pack.detailsHeading' | transloco }}</fr-heading>
               <fr-description-list>
                 <fr-description-item [term]="'homebrew.pack.slug' | transloco"
@@ -20,7 +20,7 @@
         </ng-template>
         <ng-template let-pack [frAsyncData]="store.selected">
           <fr-surface>
-            <fr-stack gap="md">
+            <fr-stack>
               <fr-heading variant="subheading" [level]="2">{{ 'homebrew.pack.detailsHeading' | transloco }}</fr-heading>
               <fr-description-list>
                 <fr-description-item [term]="'homebrew.pack.slug' | transloco">

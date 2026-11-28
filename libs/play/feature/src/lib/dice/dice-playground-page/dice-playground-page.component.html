@@ -3,7 +3,7 @@
   <fr-page-body>
     <fr-stack gap="xl">
       <fr-surface>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-field [invalid]="error() !== undefined">
             <fr-label>{{ 'play.dice.expressionLabel' | transloco }}</fr-label>
             <fr-text-input [(value)]="text" (committed)="roll()" />
@@ -58,7 +58,7 @@
         <pio-damage-target-editor [(target)]="target" />
       }
 
-      <fr-stack gap="md">
+      <fr-stack>
         <fr-heading variant="subheading" [level]="2">{{ 'play.dice.historyHeading' | transloco }}</fr-heading>
         @for (entry of rolls(); track entry.id) {
           <pio-roll-card [roll]="entry" />

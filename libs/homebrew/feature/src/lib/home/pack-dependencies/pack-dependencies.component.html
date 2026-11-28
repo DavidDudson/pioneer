@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'homebrew.dependencies.heading' | transloco }}</fr-heading>
     <fr-text variant="caption" tone="subtle">{{ 'homebrew.dependencies.hint' | transloco }}</fr-text>
     <fr-async-region [errorMessage]="'homebrew.dependencies.loadError' | transloco">
@@ -14,7 +14,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-result [frAsyncData]="store.dependencies">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (result.dependencies.length === 0) {
             <fr-empty-state
               ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
@@ -22,7 +22,7 @@
               }}</fr-empty-state-title></fr-empty-state
             >
           } @else {
-            <fr-list gap="sm">
+            <fr-list>
               @for (dependency of result.dependencies; track dependency.id) {
                 <fr-list-item>
                   <fr-stack direction="horizontal" gap="sm" align="center" wrap>

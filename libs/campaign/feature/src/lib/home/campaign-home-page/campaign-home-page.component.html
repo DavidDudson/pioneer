@@ -5,7 +5,7 @@
       <fr-async-region [errorMessage]="'campaign.home.loadError' | transloco">
         <ng-template frAsyncPending>
           <fr-surface>
-            <fr-stack gap="md">
+            <fr-stack>
               <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
               <fr-description-list>
                 <fr-description-item [term]="'campaign.home.started' | transloco"
@@ -20,7 +20,7 @@
         </ng-template>
         <ng-template let-campaign [frAsyncData]="store.selected">
           <fr-surface>
-            <fr-stack gap="md">
+            <fr-stack>
               <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
               <fr-description-list>
                 <fr-description-item [term]="'campaign.home.started' | transloco">

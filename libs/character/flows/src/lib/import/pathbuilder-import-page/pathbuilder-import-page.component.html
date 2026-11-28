@@ -6,7 +6,7 @@
   <fr-page-body>
     <fr-stack gap="xl">
       <fr-surface>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-text-area-field
             monospace
             [label]="'character.import.exportLabel' | transloco"
@@ -33,7 +33,7 @@
 
       @if (preview(); as character) {
         <fr-surface>
-          <fr-stack gap="md">
+          <fr-stack>
             <fr-heading variant="subheading" [level]="2">{{ 'character.import.readHeading' | transloco }}</fr-heading>
             <fr-description-list>
               <fr-description-item [term]="'character.import.name' | transloco">
@@ -64,7 +64,7 @@
         </fr-surface>
 
         <fr-surface>
-          <fr-stack gap="md">
+          <fr-stack>
             <fr-heading variant="subheading" [level]="2">{{ 'character.import.reportHeading' | transloco }}</fr-heading>
             <pio-import-content-report [report]="report()" />
           </fr-stack>

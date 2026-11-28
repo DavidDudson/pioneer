@@ -1,5 +1,5 @@
 @let result = check();
-<fr-stack gap="md">
+<fr-stack>
   <fr-field [invalid]="result.status === ActionsStatus.NotJson || result.status === ActionsStatus.Invalid">
     <fr-label>{{ 'play.rules.actionsLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="actionRows" [(value)]="actions" />

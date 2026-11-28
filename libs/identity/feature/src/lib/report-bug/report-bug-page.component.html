@@ -6,7 +6,7 @@
   <fr-page-body>
     <fr-surface>
       <fr-async-form [form]="form" [action]="send" [describeError]="describeError">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (character(); as attached) {
             <fr-stack gap="2xs">
               <fr-heading variant="subheading" [level]="2">{{

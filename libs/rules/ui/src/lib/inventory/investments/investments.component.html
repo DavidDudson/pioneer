@@ -7,7 +7,7 @@
         ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
       >
     } @else {
-      <fr-list gap="sm">
+      <fr-list>
         @for (investment of shown; track investment.id) {
           <fr-list-item>
             <fr-stack gap="3xs">

@@ -3,7 +3,7 @@
   @if (items().length === 0) {
     <fr-text tone="subtle">{{ 'campaign.itemReview.nothingToReview' | transloco }}</fr-text>
   } @else {
-    <fr-list gap="sm">
+    <fr-list>
       @for (flagged of items(); track $index) {
         <pio-campaign-flagged-item-row [item]="flagged" [manageable]="true" />
       }

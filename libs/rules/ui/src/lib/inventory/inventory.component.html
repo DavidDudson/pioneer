@@ -4,11 +4,11 @@
       ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
     >
   } @else {
-    <fr-stack gap="md">
+    <fr-stack>
       @for (group of groups; track group.placement) {
         <fr-stack gap="xs">
           <fr-heading [level]="3">{{ placements[group.placement] | transloco }}</fr-heading>
-          <fr-list gap="sm">
+          <fr-list>
             @for (line of group.lines; track line.id) {
               <fr-list-item><pio-inventory-row [line]="line" [actions]="actions()" /></fr-list-item>
             }

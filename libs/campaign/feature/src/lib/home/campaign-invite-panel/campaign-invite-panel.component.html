@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-stack gap="2xs">
       <fr-heading variant="subheading" [level]="2">{{ 'campaign.invites.heading' | transloco }}</fr-heading>
       <fr-text element="p" tone="muted">{{ 'campaign.invites.description' | transloco }}</fr-text>
@@ -50,7 +50,7 @@
             }}</fr-empty-state-title></fr-empty-state
           >
         } @else {
-          <fr-list gap="sm">
+          <fr-list>
             @for (invite of invites; track invite.id) {
               <fr-list-item>
                 <fr-stack direction="horizontal" gap="sm" align="center" justify="between">

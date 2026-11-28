@@ -1,5 +1,5 @@
 @if (groups(); as shown) {
-  <fr-stack gap="md">
+  <fr-stack>
     @for (group of shown; track group.heading) {
       <fr-stack gap="xs">
         <fr-heading variant="subheading" [level]="3">{{ group.heading }}</fr-heading>

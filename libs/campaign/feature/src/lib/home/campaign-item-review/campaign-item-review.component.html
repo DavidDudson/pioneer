@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.itemReview.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.itemReview.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -10,7 +10,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-review [frAsyncData]="store.review">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (review.manageable) {
             <pio-campaign-needs-review [items]="review.needsReview" />
           }

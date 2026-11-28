@@ -13,7 +13,7 @@
       @if (stash.lines.length === 0) {
         <fr-text tone="subtle">{{ 'campaign.partyStash.none' | transloco }}</fr-text>
       }
-      <fr-list gap="sm">
+      <fr-list>
         @for (line of stash.lines; track line.id) {
           <pio-campaign-sheet-stash-line
             [campaign]="campaign()"

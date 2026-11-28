@@ -4,7 +4,7 @@
       ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
     >
   } @else {
-    <fr-list gap="sm">
+    <fr-list>
       @for (row of lines; track row.entry.key) {
         <fr-list-item>
           <fr-stack gap="2xs">
@@ -31,7 +31,7 @@
     </fr-list>
   }
 } @else {
-  <fr-list gap="sm">
+  <fr-list>
     @for (row of loadingRows; track row) {
       <fr-list-item>
         <fr-stack gap="2xs"

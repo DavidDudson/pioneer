@@ -84,7 +84,7 @@
         </fr-step>
         <fr-step [label]="'character.generate.steps.style' | transloco" [summary]="styleSummary()">
           <ng-template frStepBody>
-            <fr-stack gap="md">
+            <fr-stack>
               <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.attributesLabel' | transloco">
                 <fr-text tone="muted">{{ 'character.list.theme.attributesHint' | transloco }}</fr-text>
                 <fr-stack direction="horizontal" gap="sm" wrap>
@@ -133,7 +133,7 @@
           [valid]="form().valid() && !pending()"
         >
           <ng-template frStepBody>
-            <fr-stack gap="md">
+            <fr-stack>
               <pio-roll-table-input
                 [label]="'character.list.nameLabel' | transloco"
                 [title]="'character.rollTable.names' | transloco"

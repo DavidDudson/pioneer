@@ -1,4 +1,4 @@
-<fr-stack gap="md">
+<fr-stack>
   @if (preview(); as text) {
     <fr-heading variant="label" [level]="3">{{ 'play.rules.previewHeading' | transloco }}</fr-heading>
     <fr-surface><pio-rich-text [text]="text" [headingLevel]="4" /></fr-surface>

@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.transfers.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.transfers.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -10,7 +10,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-transfers [frAsyncData]="store.pending">
-        <fr-stack gap="md">
+        <fr-stack>
           @let waiting = incoming(transfers);
           @if (waiting > 0) {
             <fr-alert tone="info">{{ 'campaign.transfers.incoming' | transloco: { count: waiting } }}</fr-alert>
@@ -22,7 +22,7 @@
               }}</fr-empty-state-title></fr-empty-state
             >
           }
-          <fr-list gap="sm">
+          <fr-list>
             @for (transfer of transfers; track transfer.id) {
               <pio-campaign-transfer-row [transfer]="transfer" />
             }

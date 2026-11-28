@@ -1,9 +1,9 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.roster.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.roster.loadError' | transloco">
       <ng-template frAsyncPending>
-        <fr-stack gap="md">
+        <fr-stack>
           <fr-stack gap="sm">
             @for (placeholder of placeholders; track placeholder) {
               <fr-stack direction="horizontal" gap="sm" align="center">
@@ -20,8 +20,8 @@
         </fr-stack>
       </ng-template>
       <ng-template let-roster [frAsyncData]="store.roster">
-        <fr-stack gap="md">
-          <fr-list gap="sm">
+        <fr-stack>
+          <fr-list>
             @for (member of roster.members; track member.id) {
               <fr-list-item>
                 <fr-stack direction="horizontal" gap="sm" align="center" wrap>

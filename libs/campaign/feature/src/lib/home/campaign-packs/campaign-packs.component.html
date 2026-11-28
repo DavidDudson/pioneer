@@ -1,5 +1,5 @@
 <fr-surface>
-  <fr-stack gap="md">
+  <fr-stack>
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.packs.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.packs.loadError' | transloco">
       <ng-template frAsyncPending>
@@ -13,7 +13,7 @@
         </fr-stack>
       </ng-template>
       <ng-template let-packs [frAsyncData]="store.packs">
-        <fr-stack gap="md">
+        <fr-stack>
           @if (packs.enabled.length === 0) {
             <fr-empty-state
               ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
@@ -21,7 +21,7 @@
               }}</fr-empty-state-title></fr-empty-state
             >
           } @else {
-            <fr-list gap="sm">
+            <fr-list>
               @for (pack of packs.enabled; track pack.packId) {
                 <pio-campaign-pack-row
                   [pack]="pack"
