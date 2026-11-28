@@ -220,6 +220,19 @@ describe(FilterBar, () => {
     expect(rendered.host.querySelector('fr-combobox')).not.toBeNull();
   });
 
+  it('keeps the search box while the app answers a search with a few options', async () => {
+    const rendered = await render();
+    await press(rendered, 'Add filter');
+    await press(rendered, 'Trait');
+    await type(rendered, 'Trait', 'so');
+    const fewer = { ...TRAITS, options: TRAITS.options?.filter((option) => option.value === 'sonic') };
+    rendered.fixture.componentRef.setInput('fields', [RARITY, fewer]);
+    rendered.fixture.detectChanges();
+    await rendered.fixture.whenStable();
+    expect(rendered.host.querySelector('fr-combobox')).not.toBeNull();
+    expect(rendered.host.querySelector('fr-toggle-group')).toBeNull();
+  });
+
   it('shows no filter until the panel has a value', async () => {
     const rendered = await render();
     await press(rendered, 'Add filter');

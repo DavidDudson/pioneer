@@ -73,7 +73,7 @@ describe(ToggleGroup, () => {
 
   it('labels the group', () => {
     const { fixture } = render([]);
-    expect(host(fixture).querySelector('[role="group"]')?.getAttribute('aria-label')).toBe('Rarity');
+    expect(host(fixture).querySelector('[role="toolbar"]')?.getAttribute('aria-label')).toBe('Rarity');
   });
 
   it('adds a key on press and commits a new set', () => {
@@ -146,7 +146,7 @@ describe(ToggleGroup, () => {
   it('takes the field label on the group, not on each chip', () => {
     provideField();
     const { fixture } = render(['rare']);
-    const group = host(fixture).querySelector('[role="group"]');
+    const group = host(fixture).querySelector('[role="toolbar"]');
     expect(group?.id).toBe('rarity-control');
     expect(group?.getAttribute('aria-labelledby')).toBe('rarity-label');
     expect(group?.getAttribute('aria-describedby')).toBe('rarity-hint');

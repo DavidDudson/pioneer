@@ -6,7 +6,7 @@ import type { ComboboxOption } from '../combobox/combobox.component';
 import type { SelectOption } from '../select/select.component';
 import { ToggleGroup } from '../toggle-group/toggle-group.component';
 import { FilterOperator, TOGGLE_GROUP_LIMIT } from './filter-bar.types';
-import type { FilterField } from './filter-bar.types';
+import type { FilterField, FilterOption } from './filter-bar.types';
 
 /**
  * The value editor of a `set` filter: up to 8 options as a toggle group, more as a searchable, virtual multi-select.
@@ -36,19 +36,19 @@ export class FilterSetValues {
 
   protected readonly selected = computed<ReadonlySet<string>>(() => new Set(this.values()));
   protected readonly options = computed<ReadonlyArray<SelectOption<string>>>(() =>
-    (this.field().options ?? []).map(({ value, label, count }) => ({
-      value,
-      label:
-        count === undefined ? label : this.#transloco.translate('frontier.filterBar.optionCount', { label, count }),
-    })),
+    (this.field().options ?? []).map((option) => this.#shown(option)),
   );
-  /** Few enough options to show all at once. */
-  protected readonly fewOptions = computed(() => this.options().length <= TOGGLE_GROUP_LIMIT);
-  /** The long list's options that match what is typed. */
+  /** Few enough options to show all at once. A long list stays a combobox while it is searched or has more to load. */
+  protected readonly fewOptions = computed(
+    () => this.options().length <= TOGGLE_GROUP_LIMIT && !(this.field().hasMore ?? false) && this.#query() === '',
+  );
+  /** The long list's options whose name matches what is typed, not their count text. */
   protected readonly matches = computed<ReadonlyArray<ComboboxOption<string>>>(() => {
     const query = this.#query().trim().toLowerCase();
 
-    return this.options().filter((option) => option.label.toLowerCase().includes(query));
+    return (this.field().options ?? [])
+      .filter((option) => option.label.toLowerCase().includes(query))
+      .map((option) => this.#shown(option));
   });
 
   protected typed(query: string): void {
@@ -69,5 +69,13 @@ export class FilterSetValues {
 
     const pressed = next.filter((value) => !this.selected().has(value));
     this.values.set(pressed.length > 0 ? pressed : [...next]);
+  }
+
+  #shown({ value, label, count }: FilterOption): SelectOption<string> {
+    return {
+      value,
+      label:
+        count === undefined ? label : this.#transloco.translate('frontier.filterBar.optionCount', { label, count }),
+    };
   }
 }

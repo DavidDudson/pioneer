@@ -62,8 +62,6 @@ export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-q
 
 // Plain controls (inline editing)
 
-export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
-
 export { FilterKind, FilterOperator, defaultOperator } from './lib/controls/filter-bar/filter-bar.types';
 
 export { filterCodec } from './lib/controls/filter-bar/filter-codec';

@@ -111,9 +111,9 @@ Read this before touching any UI.
   `computed` so a locale switch re-renders. Rules distances are feet; show
   them with `fr-distance`, which honours the feet/metres preference.
 - **Entry points.** `@pioneer/frontier` is everything the shell and forms
-  need. `@pioneer/frontier/data` (Table, Chart, VirtualList, Combobox) is separate so
-  their TanStack libraries load only on routes that use them: the Angular
-  builder can't tree-shake unused barrel exports out of app sources.
+  need. `@pioneer/frontier/data` (Table, Chart, VirtualList, Combobox, FilterBar) is
+  separate so their TanStack libraries load only on routes that use them: the
+  Angular builder can't tree-shake unused barrel exports out of app sources.
 
 ## Interaction rules
 
@@ -176,8 +176,8 @@ otherwise, and say why in the PR when you don't.
   - **One of 4 or more:** `fr-picker` (`fr-picker-field`, `/data`), a table that opens
     inline, with a search box and sortable columns. Features use it
     for every pick; `fr-select` stays in frontier for a future short
-    list, but lint bans it in features and ui libs (ADR-0054). `fr-combobox` stays only for
-    the content search, a typed name lookup whose options carry `tags`.
+    list, but lint bans it in features and ui libs (ADR-0054). `fr-combobox` is for
+    the content search, a typed name lookup whose options carry `tags`, and (with `multi`) a long filter list.
     Columns come from `tableSchema<Row>()`; the feature runs the query from
     `(searched)`, the order from `(sorted)` and the next rows from `(loadMore)`,
     and passes the rows back. Scroll to load more, never numbered pages. A short
