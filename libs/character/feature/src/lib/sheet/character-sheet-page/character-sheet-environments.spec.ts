@@ -58,7 +58,13 @@ describe('CharacterSheetPage environments', () => {
 
   it('sends the environment turned on at the revision last read, and shows what the server answers', async () => {
     const { root } = await openSheet(MERISIEL, { play: playIn([]), packs: PACKS });
-    const toggle = await vi.waitFor(() => present(sectionOf(root).querySelector<HTMLElement>('button')));
+
+    // The options come with the section's content, which can land after the breath controls: wait for the toggle itself.
+    const toggle = await vi.waitFor(() => {
+      const buttons = [...sectionOf(root).querySelectorAll<HTMLElement>('button')];
+
+      return present(buttons.find((button) => textOf(button).includes('Underwater')));
+    });
 
     toggle.click();
 
