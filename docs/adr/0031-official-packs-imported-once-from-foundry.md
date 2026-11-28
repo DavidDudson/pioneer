@@ -39,7 +39,8 @@ fixes to any field Foundry also changed).
   generates source archives on request and changed their bytes once before (January 2023): if a checksum stops
   matching for an unchanged tag, the import stops, and the pin is re-taken by PR after diffing the extracted tree.
 - Hand edits to official packs follow NOTICE.md's contributor checklist like any pack: rules text from the source
-  book or the pinned Foundry data, and nothing from Archives of Nethys beyond page numbers and links.
+  book or the pinned Foundry data, and nothing from Archives of Nethys beyond page numbers and links (superseded by
+  [0087](0087-hand-edited-rules-text-comes-from-foundry-first.md): Foundry first, then Archives of Nethys).
 - A translator that lands after its pack is imported is applied to the backlog, not by re-importing: a command,
   built by Epic 2.6 (#21), translates the backlog items it now covers, appends them to the committed entries' rules
   and removes them from the backlog. Hand edits to those entries are kept.
