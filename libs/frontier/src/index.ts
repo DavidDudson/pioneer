@@ -57,6 +57,7 @@ export { LoadMoreItem } from './lib/async/load-more/load-more-item.directive';
 export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-query';
 
 // Plain controls (inline editing)
+
 export { DateInput } from './lib/controls/date-input/date-input.component';
 
 export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';

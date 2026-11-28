@@ -1,17 +1,16 @@
 <span [class]="iconSlotClasses()"><fr-icon [icon]="SearchIcon" /></span>
-<input
-  #control
+<fr-input
   type="search"
-  enterkeyhint="search"
-  [class]="classes"
-  [attr.id]="id() ?? null"
+  enterKeyHint="search"
+  adornment="both"
   [value]="value()"
   [placeholder]="placeholder()"
   [disabled]="disabled()"
-  [attr.aria-label]="ariaLabel() ?? null"
-  [attr.aria-describedby]="describedBy() ?? null"
-  [attr.aria-invalid]="ariaInvalid() || null"
-  (input)="type(control.value)"
+  [invalid]="invalid()"
+  [ariaLabel]="ariaLabel()"
+  (typed)="type($event)"
+  (committed)="commit()"
+  (cancelled)="cancel()"
 />
 @if (clearable()) {
   <span [class]="clearSlotClasses">
